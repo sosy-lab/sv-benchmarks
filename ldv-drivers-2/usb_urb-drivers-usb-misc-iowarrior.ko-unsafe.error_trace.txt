@@ -1,0 +1,753 @@
+
+                                                Location: id=50#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-usb-misc-iowarrior.c.common.i"; line=0
+                                                Location: id=50#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-usb-misc-iowarrior.c.common.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-usb-misc-iowarrior.c.common.i())
+Locals: 
+                                                Location: id=58#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=60
+   Block(__mod_author60[ 0 ] = 97;__mod_author60[ 1 ] = 117;__mod_author60[ 2 ]
+= 116;__mod_author60[ 3 ] = 104;__mod_author60[ 4 ] = 111;__mod_author60[ 5 ]
+= 114;__mod_author60[ 6 ] = 61;__mod_author60[ 7 ] = 67;__mod_author60[ 8 ] =
+104;__mod_author60[ 9 ] = 114;__mod_author60[ 10 ] = 105;__mod_author60[ 11 ]
+= 115;__mod_author60[ 12 ] = 116;__mod_author60[ 13 ] =
+105;__mod_author60[ 14 ] = 97;__mod_author60[ 15 ] = 110;__mod_author60[ 16 ]
+= 32;__mod_author60[ 17 ] = 76;__mod_author60[ 18 ] =
+117;__mod_author60[ 19 ] = 99;__mod_author60[ 20 ] = 104;__mod_author60[ 21 ]
+= 116;__mod_author60[ 22 ] = 32;__mod_author60[ 23 ] =
+60;__mod_author60[ 24 ] = 108;__mod_author60[ 25 ] = 117;__mod_author60[ 26 ]
+= 99;__mod_author60[ 27 ] = 104;__mod_author60[ 28 ] =
+116;__mod_author60[ 29 ] = 64;__mod_author60[ 30 ] = 99;__mod_author60[ 31 ]
+= 111;__mod_author60[ 32 ] = 100;__mod_author60[ 33 ] =
+101;__mod_author60[ 34 ] = 109;__mod_author60[ 35 ] =
+101;__mod_author60[ 36 ] = 114;__mod_author60[ 37 ] = 99;__mod_author60[ 38 ]
+= 115;__mod_author60[ 39 ] = 46;__mod_author60[ 40 ] =
+99;__mod_author60[ 41 ] = 111;__mod_author60[ 42 ] = 109;__mod_author60[ 43 ]
+= 62;__mod_author60[ 44 ] = 0;__mod_description61[ 0 ] =
+100;__mod_description61[ 1 ] = 101;__mod_description61[ 2 ] =
+115;__mod_description61[ 3 ] = 99;__mod_description61[ 4 ] =
+114;__mod_description61[ 5 ] = 105;__mod_description61[ 6 ] =
+112;__mod_description61[ 7 ] = 116;__mod_description61[ 8 ] =
+105;__mod_description61[ 9 ] = 111;__mod_description61[ 10 ] =
+110;__mod_description61[ 11 ] = 61;__mod_description61[ 12 ] =
+85;__mod_description61[ 13 ] = 83;__mod_description61[ 14 ] =
+66;__mod_description61[ 15 ] = 32;__mod_description61[ 16 ] =
+73;__mod_description61[ 17 ] = 79;__mod_description61[ 18 ] =
+45;__mod_description61[ 19 ] = 87;__mod_description61[ 20 ] =
+97;__mod_description61[ 21 ] = 114;__mod_description61[ 22 ] =
+114;__mod_description61[ 23 ] = 105;__mod_description61[ 24 ] =
+111;__mod_description61[ 25 ] = 114;__mod_description61[ 26 ] =
+32;__mod_description61[ 27 ] = 100;__mod_description61[ 28 ] =
+114;__mod_description61[ 29 ] = 105;__mod_description61[ 30 ] =
+118;__mod_description61[ 31 ] = 101;__mod_description61[ 32 ] =
+114;__mod_description61[ 33 ] = 32;__mod_description61[ 34 ] =
+40;__mod_description61[ 35 ] = 76;__mod_description61[ 36 ] =
+105;__mod_description61[ 37 ] = 110;__mod_description61[ 38 ] =
+117;__mod_description61[ 39 ] = 120;__mod_description61[ 40 ] =
+32;__mod_description61[ 41 ] = 50;__mod_description61[ 42 ] =
+46;__mod_description61[ 43 ] = 54;__mod_description61[ 44 ] =
+46;__mod_description61[ 45 ] = 120;__mod_description61[ 46 ] =
+41;__mod_description61[ 47 ] = 0;__mod_license62[ 0 ] =
+108;__mod_license62[ 1 ] = 105;__mod_license62[ 2 ] = 99;__mod_license62[ 3 ]
+= 101;__mod_license62[ 4 ] = 110;__mod_license62[ 5 ] =
+115;__mod_license62[ 6 ] = 101;__mod_license62[ 7 ] = 61;__mod_license62[ 8 ]
+= 71;__mod_license62[ 9 ] = 80;__mod_license62[ 10 ] =
+76;__mod_license62[ 11 ] = 0;iowarrior_mutex.count.counter =
+1;iowarrior_mutex.wait_lock.__annonCompField18.rlock.raw_lock.slock =
+0;iowarrior_mutex.wait_lock.__annonCompField18.rlock.magic =
+3735899821;iowarrior_mutex.wait_lock.__annonCompField18.rlock.owner_cpu =
+4294967295;iowarrior_mutex.wait_lock.__annonCompField18.rlock.owner =
+-1;iowarrior_mutex.wait_lock.__annonCompField18.rlock.dep_map.key =
+0;iowarrior_mutex.wait_lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ]
+=
+0;iowarrior_mutex.wait_lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ]
+= 0;iowarrior_mutex.wait_lock.__annonCompField18.rlock.dep_map.name =
+"iowarrior_mutex.wait_lock";iowarrior_mutex.wait_lock.__annonCompField18.rlock.dep_map.cpu
+= 0;iowarrior_mutex.wait_lock.__annonCompField18.rlock.dep_map.ip =
+0;iowarrior_mutex.wait_list.next = &(iowarrior_mutex)  foffset 
+wait_list;iowarrior_mutex.wait_list.prev = &(iowarrior_mutex)  foffset 
+wait_list;iowarrior_mutex.owner = 0;iowarrior_mutex.name =
+0;iowarrior_mutex.magic = &(iowarrior_mutex);iowarrior_mutex.dep_map.key =
+0;iowarrior_mutex.dep_map.class_cache[ 0 ] =
+0;iowarrior_mutex.dep_map.class_cache[ 1 ] = 0;iowarrior_mutex.dep_map.name =
+"iowarrior_mutex";iowarrior_mutex.dep_map.cpu = 0;iowarrior_mutex.dep_map.ip
+= 0;debug = 0;__param_str_debug[ 0 ] = 100;__param_str_debug[ 1 ] =
+101;__param_str_debug[ 2 ] = 98;__param_str_debug[ 3 ] =
+117;__param_str_debug[ 4 ] = 103;__param_str_debug[ 5 ] =
+0;__param_debug.name = __param_str_debug;__param_debug.ops =
+&(param_ops_bool);__param_debug.perm = 420;__param_debug.flags =
+0;__param_debug.__annonCompField31.arg = &(debug);__mod_debugtype67[ 0 ] =
+112;__mod_debugtype67[ 1 ] = 97;__mod_debugtype67[ 2 ] =
+114;__mod_debugtype67[ 3 ] = 109;__mod_debugtype67[ 4 ] =
+116;__mod_debugtype67[ 5 ] = 121;__mod_debugtype67[ 6 ] =
+112;__mod_debugtype67[ 7 ] = 101;__mod_debugtype67[ 8 ] =
+61;__mod_debugtype67[ 9 ] = 100;__mod_debugtype67[ 10 ] =
+101;__mod_debugtype67[ 11 ] = 98;__mod_debugtype67[ 12 ] =
+117;__mod_debugtype67[ 13 ] = 103;__mod_debugtype67[ 14 ] =
+58;__mod_debugtype67[ 15 ] = 98;__mod_debugtype67[ 16 ] =
+111;__mod_debugtype67[ 17 ] = 111;__mod_debugtype67[ 18 ] =
+108;__mod_debugtype67[ 19 ] = 0;__mod_debug68[ 0 ] = 112;__mod_debug68[ 1 ] =
+97;__mod_debug68[ 2 ] = 114;__mod_debug68[ 3 ] = 109;__mod_debug68[ 4 ] =
+61;__mod_debug68[ 5 ] = 100;__mod_debug68[ 6 ] = 101;__mod_debug68[ 7 ] =
+98;__mod_debug68[ 8 ] = 117;__mod_debug68[ 9 ] = 103;__mod_debug68[ 10 ] =
+58;__mod_debug68[ 11 ] = 100;__mod_debug68[ 12 ] = 101;__mod_debug68[ 13 ] =
+98;__mod_debug68[ 14 ] = 117;__mod_debug68[ 15 ] = 103;__mod_debug68[ 16 ] =
+61;__mod_debug68[ 17 ] = 49;__mod_debug68[ 18 ] = 32;__mod_debug68[ 19 ] =
+101;__mod_debug68[ 20 ] = 110;__mod_debug68[ 21 ] = 97;__mod_debug68[ 22 ] =
+98;__mod_debug68[ 23 ] = 108;__mod_debug68[ 24 ] = 101;__mod_debug68[ 25 ] =
+115;__mod_debug68[ 26 ] = 32;__mod_debug68[ 27 ] = 100;__mod_debug68[ 28 ] =
+101;__mod_debug68[ 29 ] = 98;__mod_debug68[ 30 ] = 117;__mod_debug68[ 31 ] =
+103;__mod_debug68[ 32 ] = 103;__mod_debug68[ 33 ] = 105;__mod_debug68[ 34 ] =
+110;__mod_debug68[ 35 ] = 103;__mod_debug68[ 36 ] = 32;__mod_debug68[ 37 ] =
+109;__mod_debug68[ 38 ] = 101;__mod_debug68[ 39 ] = 115;__mod_debug68[ 40 ] =
+115;__mod_debug68[ 41 ] = 97;__mod_debug68[ 42 ] = 103;__mod_debug68[ 43 ] =
+101;__mod_debug68[ 44 ] = 115;__mod_debug68[ 45 ] =
+0;iowarrior_open_disc_lock.count.counter =
+1;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.raw_lock.slock
+= 0;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.magic =
+3735899821;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.owner_cpu
+=
+4294967295;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.owner
+= -1;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.dep_map.key
+=
+0;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ]
+=
+0;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ]
+= 0;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.dep_map.name
+=
+"iowarrior_open_disc_lock.wait_lock";iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.dep_map.cpu
+= 0;iowarrior_open_disc_lock.wait_lock.__annonCompField18.rlock.dep_map.ip =
+0;iowarrior_open_disc_lock.wait_list.next = &(iowarrior_open_disc_lock)
+ foffset  wait_list;iowarrior_open_disc_lock.wait_list.prev =
+&(iowarrior_open_disc_lock)  foffset 
+wait_list;iowarrior_open_disc_lock.owner = 0;iowarrior_open_disc_lock.name =
+0;iowarrior_open_disc_lock.magic =
+&(iowarrior_open_disc_lock);iowarrior_open_disc_lock.dep_map.key =
+0;iowarrior_open_disc_lock.dep_map.class_cache[ 0 ] =
+0;iowarrior_open_disc_lock.dep_map.class_cache[ 1 ] =
+0;iowarrior_open_disc_lock.dep_map.name =
+"iowarrior_open_disc_lock";iowarrior_open_disc_lock.dep_map.cpu =
+0;iowarrior_open_disc_lock.dep_map.ip = 0;iowarrior_ids[ 0 ].match_flags =
+3;iowarrior_ids[ 0 ].idVendor = 1984;iowarrior_ids[ 0 ].idProduct =
+5376;iowarrior_ids[ 0 ].bcdDevice_lo = 0;iowarrior_ids[ 0 ].bcdDevice_hi =
+0;iowarrior_ids[ 0 ].bDeviceClass = 0;iowarrior_ids[ 0 ].bDeviceSubClass =
+0;iowarrior_ids[ 0 ].bDeviceProtocol = 0;iowarrior_ids[ 0 ].bInterfaceClass =
+0;iowarrior_ids[ 0 ].bInterfaceSubClass =
+0;iowarrior_ids[ 0 ].bInterfaceProtocol = 0;iowarrior_ids[ 0 ].driver_info =
+0;iowarrior_ids[ 1 ].match_flags = 3;iowarrior_ids[ 1 ].idVendor =
+1984;iowarrior_ids[ 1 ].idProduct = 5377;iowarrior_ids[ 1 ].bcdDevice_lo =
+0;iowarrior_ids[ 1 ].bcdDevice_hi = 0;iowarrior_ids[ 1 ].bDeviceClass =
+0;iowarrior_ids[ 1 ].bDeviceSubClass = 0;iowarrior_ids[ 1 ].bDeviceProtocol =
+0;iowarrior_ids[ 1 ].bInterfaceClass =
+0;iowarrior_ids[ 1 ].bInterfaceSubClass =
+0;iowarrior_ids[ 1 ].bInterfaceProtocol = 0;iowarrior_ids[ 1 ].driver_info =
+0;iowarrior_ids[ 2 ].match_flags = 3;iowarrior_ids[ 2 ].idVendor =
+1984;iowarrior_ids[ 2 ].idProduct = 5393;iowarrior_ids[ 2 ].bcdDevice_lo =
+0;iowarrior_ids[ 2 ].bcdDevice_hi = 0;iowarrior_ids[ 2 ].bDeviceClass =
+0;iowarrior_ids[ 2 ].bDeviceSubClass = 0;iowarrior_ids[ 2 ].bDeviceProtocol =
+0;iowarrior_ids[ 2 ].bInterfaceClass =
+0;iowarrior_ids[ 2 ].bInterfaceSubClass =
+0;iowarrior_ids[ 2 ].bInterfaceProtocol = 0;iowarrior_ids[ 2 ].driver_info =
+0;iowarrior_ids[ 3 ].match_flags = 3;iowarrior_ids[ 3 ].idVendor =
+1984;iowarrior_ids[ 3 ].idProduct = 5394;iowarrior_ids[ 3 ].bcdDevice_lo =
+0;iowarrior_ids[ 3 ].bcdDevice_hi = 0;iowarrior_ids[ 3 ].bDeviceClass =
+0;iowarrior_ids[ 3 ].bDeviceSubClass = 0;iowarrior_ids[ 3 ].bDeviceProtocol =
+0;iowarrior_ids[ 3 ].bInterfaceClass =
+0;iowarrior_ids[ 3 ].bInterfaceSubClass =
+0;iowarrior_ids[ 3 ].bInterfaceProtocol = 0;iowarrior_ids[ 3 ].driver_info =
+0;iowarrior_ids[ 4 ].match_flags = 3;iowarrior_ids[ 4 ].idVendor =
+1984;iowarrior_ids[ 4 ].idProduct = 5379;iowarrior_ids[ 4 ].bcdDevice_lo =
+0;iowarrior_ids[ 4 ].bcdDevice_hi = 0;iowarrior_ids[ 4 ].bDeviceClass =
+0;iowarrior_ids[ 4 ].bDeviceSubClass = 0;iowarrior_ids[ 4 ].bDeviceProtocol =
+0;iowarrior_ids[ 4 ].bInterfaceClass =
+0;iowarrior_ids[ 4 ].bInterfaceSubClass =
+0;iowarrior_ids[ 4 ].bInterfaceProtocol = 0;iowarrior_ids[ 4 ].driver_info =
+0;iowarrior_fops.owner = &(__this_module);iowarrior_fops.llseek =
+&(noop_llseek);iowarrior_fops.read = &(iowarrior_read);iowarrior_fops.write =
+&(iowarrior_write);iowarrior_fops.aio_read = 0;iowarrior_fops.aio_write =
+0;iowarrior_fops.readdir = 0;iowarrior_fops.poll =
+&(iowarrior_poll);iowarrior_fops.unlocked_ioctl =
+&(iowarrior_ioctl);iowarrior_fops.compat_ioctl = 0;iowarrior_fops.mmap =
+0;iowarrior_fops.open = &(iowarrior_open);iowarrior_fops.flush =
+0;iowarrior_fops.release = &(iowarrior_release);iowarrior_fops.fsync =
+0;iowarrior_fops.aio_fsync = 0;iowarrior_fops.fasync = 0;iowarrior_fops.lock
+= 0;iowarrior_fops.sendpage = 0;iowarrior_fops.get_unmapped_area =
+0;iowarrior_fops.check_flags = 0;iowarrior_fops.flock =
+0;iowarrior_fops.splice_write = 0;iowarrior_fops.splice_read =
+0;iowarrior_fops.setlease = 0;iowarrior_fops.fallocate =
+0;iowarrior_class.name = "iowarrior%d";iowarrior_class.devnode =
+&(iowarrior_devnode);iowarrior_class.fops =
+&(iowarrior_fops);iowarrior_class.minor_base = 0;iowarrior_driver.name =
+"iowarrior";iowarrior_driver.probe =
+&(iowarrior_probe);iowarrior_driver.disconnect =
+&(iowarrior_disconnect);iowarrior_driver.unlocked_ioctl =
+0;iowarrior_driver.suspend = 0;iowarrior_driver.resume =
+0;iowarrior_driver.reset_resume = 0;iowarrior_driver.pre_reset =
+0;iowarrior_driver.post_reset = 0;iowarrior_driver.id_table =
+iowarrior_ids;iowarrior_driver.dynids.lock.__annonCompField18.rlock.raw_lock.slock
+= 0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.magic =
+0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.owner_cpu =
+0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.owner =
+0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.dep_map.key =
+0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ]
+=
+0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ]
+= 0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.dep_map.name =
+0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.dep_map.cpu =
+0;iowarrior_driver.dynids.lock.__annonCompField18.rlock.dep_map.ip =
+0;iowarrior_driver.dynids.list.next = 0;iowarrior_driver.dynids.list.prev =
+0;iowarrior_driver.drvwrap.driver.name =
+0;iowarrior_driver.drvwrap.driver.bus =
+0;iowarrior_driver.drvwrap.driver.owner =
+0;iowarrior_driver.drvwrap.driver.mod_name =
+0;iowarrior_driver.drvwrap.driver.suppress_bind_attrs =
+0;iowarrior_driver.drvwrap.driver.of_match_table =
+0;iowarrior_driver.drvwrap.driver.probe =
+0;iowarrior_driver.drvwrap.driver.remove =
+0;iowarrior_driver.drvwrap.driver.shutdown =
+0;iowarrior_driver.drvwrap.driver.suspend =
+0;iowarrior_driver.drvwrap.driver.resume =
+0;iowarrior_driver.drvwrap.driver.groups =
+0;iowarrior_driver.drvwrap.driver.pm = 0;iowarrior_driver.drvwrap.driver.p =
+0;iowarrior_driver.drvwrap.for_devices = 0;iowarrior_driver.no_dynamic_id =
+0;iowarrior_driver.supports_autosuspend = 0;iowarrior_driver.soft_unbind =
+0;ldv_urb_state = 0;ldv_coherent_state = 0;)
+                                                Location: id=58#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-usb-misc-iowarrior.c.common.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=50#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1247
+Block(LDV_IN_INTERRUPT = 1;)
+                                                Location: id=50#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1256
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=50#5 (Artificial)
+Skip
+                                                Location: id=50#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1284
+FunctionCall(tmp___7@ldv_main0_sequence_infinite_withcheck_stateful =
+iowarrior_init())
+Locals: 
+                                                Location: id=46#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=933
+   FunctionCall(tmp___7@iowarrior_init = usb_register(&(iowarrior_driver)))
+Locals:  driver@usb_register
+                                                Location: id=25#1 src="include/linux/usb.h"; line=933
+      FunctionCall(tmp___7@usb_register =
+usb_register_driver(driver@usb_register, &(__this_module), "iowarrior"))
+LDV: undefined function called: usb_register_driver
+                                                Location: id=25#2 (Artificial)
+      Skip
+                                                Location: id=25#3 src="include/linux/usb.h"; line=933
+      Block(Return(tmp___7@usb_register);)
+   Skip
+                                                Location: id=46#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=933
+   Block(Return(tmp___7@iowarrior_init);)
+Skip
+                                                Location: id=50#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1284
+Pred(tmp___7@ldv_main0_sequence_infinite_withcheck_stateful  ==  0)
+                                                Location: id=50#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1286
+Block(ldv_s_iowarrior_fops_file_operations@ldv_main0_sequence_infinite_withcheck_stateful
+=
+0;ldv_s_iowarrior_driver_usb_driver@ldv_main0_sequence_infinite_withcheck_stateful
+= 0;)
+                                                Location: id=50#13 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1294
+FunctionCall(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=50#14 (Artificial)
+Skip
+                                                Location: id=50#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1294
+Pred(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=50#16 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1299
+FunctionCall(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=50#18 (Artificial)
+Skip
+                                                Location: id=50#19 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1301
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  ==  0)
+                                                Location: id=50#20 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1304
+Pred(ldv_s_iowarrior_fops_file_operations@ldv_main0_sequence_infinite_withcheck_stateful
+      ==  0)
+                                                Location: id=50#22 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1331
+FunctionCall(res_iowarrior_open_9 =
+iowarrior_open(var_group2@ldv_main0_sequence_infinite_withcheck_stateful, var_group1@ldv_main0_sequence_infinite_withcheck_stateful))
+Locals:  inode@iowarrior_open file@iowarrior_open
+                                                Location: id=40#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=601
+   Block(dev@iowarrior_open = 0;retval@iowarrior_open = 0;)
+                                                Location: id=40#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=606
+   Pred(debug  ==  0)
+                                                Location: id=40#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=608
+   FunctionCall(mutex_lock_nested(&(iowarrior_mutex), 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#7 (Artificial)
+   Skip
+                                                Location: id=40#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=609
+   FunctionCall(tmp___7@iowarrior_open = iminor(inode@iowarrior_open))
+Locals:  inode@iminor
+                                                Location: id=19#1 src="include/linux/fs.h"; line=893
+      Block(__retres2@iminor = * (inode@iminor ).i_rdev  &  1  <<  20  -  1;)
+                                                Location: id=19#2 src="include/linux/fs.h"; line=891
+      Block(Return(__retres2@iminor);)
+   Skip
+                                                Location: id=40#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=609
+   Block(subminor@iowarrior_open = tmp___7@iowarrior_open;)
+                                                Location: id=40#11 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=611
+   FunctionCall(interface@iowarrior_open =
+usb_find_interface(&(iowarrior_driver), subminor@iowarrior_open))
+LDV: undefined function called: usb_find_interface
+                                                Location: id=40#12 (Artificial)
+   Skip
+                                                Location: id=40#13 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=612
+   Pred(interface@iowarrior_open  !=  0)
+                                                Location: id=40#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=619
+   FunctionCall(mutex_lock_nested(&(iowarrior_open_disc_lock), 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#21 (Artificial)
+   Skip
+                                                Location: id=40#22 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=620
+   FunctionCall(tmp___8@iowarrior_open =
+usb_get_intfdata(interface@iowarrior_open))
+Locals:  intf@usb_get_intfdata
+                                                Location: id=22#1 src="include/linux/usb.h"; line=193
+      FunctionCall(tmp___7@usb_get_intfdata = dev_get_drvdata(intf@usb_get_intfdata
+ foffset  dev))
+LDV: undefined function called: dev_get_drvdata
+                                                Location: id=22#2 (Artificial)
+      Skip
+                                                Location: id=22#3 src="include/linux/usb.h"; line=193
+      Block(Return(tmp___7@usb_get_intfdata);)
+   Skip
+                                                Location: id=40#24 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=620
+   Block(dev@iowarrior_open = tmp___8@iowarrior_open;)
+                                                Location: id=40#25 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=621
+   Pred(dev@iowarrior_open  !=  0)
+                                                Location: id=40#27 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=627
+   FunctionCall(mutex_lock_nested(dev@iowarrior_open  foffset  mutex, 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#33 (Artificial)
+   Skip
+                                                Location: id=40#34 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=628
+   FunctionCall(mutex_unlock(&(iowarrior_open_disc_lock)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#35 (Artificial)
+   Skip
+                                                Location: id=40#36 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=631
+   Pred(* (dev@iowarrior_open ).opened  ==  0)
+                                                Location: id=40#38 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=637
+   FunctionCall(retval@iowarrior_open =
+usb_submit_urb(* (dev@iowarrior_open ).int_in_urb, 208))
+LDV: undefined function called: usb_submit_urb
+                                                Location: id=40#45 (Artificial)
+   Skip
+                                                Location: id=40#46 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=637
+   Pred(retval@iowarrior_open  >=  0)
+                                                Location: id=40#48 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=643
+   Block(* (dev@iowarrior_open ).opened = * (dev@iowarrior_open ).opened  + 
+1;* (file@iowarrior_open ).private_data =
+dev@iowarrior_open;retval@iowarrior_open = 0;)
+                                                Location: id=40#39 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=649
+   FunctionCall(mutex_unlock(dev@iowarrior_open  foffset  mutex))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#40 (Artificial)
+   Skip
+                                                Location: id=40#41 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=650
+   FunctionCall(mutex_unlock(&(iowarrior_mutex)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#42 (Artificial)
+   Skip
+                                                Location: id=40#43 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=651
+   Block(__retres9@iowarrior_open = retval@iowarrior_open;)
+                                                Location: id=40#20 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=599
+   Block(Return(__retres9@iowarrior_open);)
+Skip
+                                                Location: id=50#25 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1332
+FunctionCall(ldv_check_return_value(res_iowarrior_open_9))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=50#26 (Artificial)
+Skip
+                                                Location: id=50#27 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1333
+Pred(res_iowarrior_open_9  ==  0)
+                                                Location: id=50#29 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1335
+Block(ldv_s_iowarrior_fops_file_operations@ldv_main0_sequence_infinite_withcheck_stateful
+=
+ldv_s_iowarrior_fops_file_operations@ldv_main0_sequence_infinite_withcheck_stateful
+ +  1;)
+                                                Location: id=50#13 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1294
+FunctionCall(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=50#14 (Artificial)
+Skip
+                                                Location: id=50#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1294
+Pred(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=50#16 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1299
+FunctionCall(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=50#18 (Artificial)
+Skip
+                                                Location: id=50#19 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1301
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=50#21 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1342
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  1)
+                                                Location: id=50#34 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1383
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  2)
+                                                Location: id=50#45 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1424
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  3)
+                                                Location: id=50#56 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1462
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  4)
+                                                Location: id=50#63 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1500
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  5)
+                                                Location: id=50#67 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1538
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  6)
+                                                Location: id=50#71 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1576
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  ==  7)
+                                                Location: id=50#74 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1579
+Pred(ldv_s_iowarrior_driver_usb_driver@ldv_main0_sequence_infinite_withcheck_stateful
+      ==  0)
+                                                Location: id=50#76 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1606
+FunctionCall(res_iowarrior_probe_13 =
+iowarrior_probe(var_group4@ldv_main0_sequence_infinite_withcheck_stateful, var_iowarrior_probe_13_p1@ldv_main0_sequence_infinite_withcheck_stateful))
+Locals:  interface@iowarrior_probe id@iowarrior_probe
+                                                Location: id=44#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=766
+   FunctionCall(tmp___7@iowarrior_probe =
+interface_to_usbdev(interface@iowarrior_probe))
+Locals:  intf@interface_to_usbdev
+                                                Location: id=24#1 src="include/linux/usb.h"; line=499
+      Block(__mptr@interface_to_usbdev = * (intf@interface_to_usbdev ).dev.parent;)
+                                                Location: id=24#2 src="include/linux/usb.h"; line=499
+      Block(cil_3@interface_to_usbdev = 0;)
+                                                Location: id=24#3 src="include/linux/usb.h"; line=499
+      Block(__retres4@interface_to_usbdev = __mptr@interface_to_usbdev  - 
+cil_3@interface_to_usbdev  foffset  dev;)
+                                                Location: id=24#4 src="include/linux/usb.h"; line=497
+      Block(Return(__retres4@interface_to_usbdev);)
+   Skip
+                                                Location: id=44#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=766
+   Block(udev@iowarrior_probe = tmp___7@iowarrior_probe;dev@iowarrior_probe =
+0;retval@iowarrior_probe = -12;)
+                                                Location: id=44#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=774
+   FunctionCall(tmp___8@iowarrior_probe = kzalloc(34304, 208))
+Locals:  size@kzalloc flags@kzalloc
+                                                Location: id=29#1 src="include/linux/slab.h"; line=320
+      FunctionCall(tmp___7@kzalloc = kmalloc(size@kzalloc, flags@kzalloc  | 
+32768))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=28#1 src="include/linux/slub_def.h"; line=270
+         FunctionCall(tmp___10@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=28#2 (Artificial)
+         Skip
+                                                Location: id=28#3 src="include/linux/slub_def.h"; line=270
+         Block(Return(tmp___10@kmalloc);)
+      Skip
+                                                Location: id=29#3 src="include/linux/slab.h"; line=320
+      Block(Return(tmp___7@kzalloc);)
+   Skip
+                                                Location: id=44#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=774
+   Block(dev@iowarrior_probe = tmp___8@iowarrior_probe;)
+                                                Location: id=44#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=775
+   Pred(dev@iowarrior_probe  !=  0)
+                                                Location: id=44#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=780
+   FunctionCall(__mutex_init(dev@iowarrior_probe  foffset 
+mutex, "&dev->mutex", &(__key___7)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=44#13 (Artificial)
+   Skip
+                                                Location: id=44#14 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=782
+   FunctionCall(atomic_set(dev@iowarrior_probe  foffset  intr_idx, 0))
+Locals:  v@atomic_set i@atomic_set
+                                                Location: id=3#1 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=37
+      Block(* (v@atomic_set ).counter = i@atomic_set;)
+                                                Location: id=3#2 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=35
+      Block(Return(0);)
+   Skip
+                                                Location: id=44#16 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=783
+   FunctionCall(atomic_set(dev@iowarrior_probe  foffset  read_idx, 0))
+Locals:  v@atomic_set i@atomic_set
+                                                Location: id=3#1 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=37
+      Block(* (v@atomic_set ).counter = i@atomic_set;)
+                                                Location: id=3#2 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=35
+      Block(Return(0);)
+   Skip
+                                                Location: id=44#18 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=784
+   FunctionCall(spinlock_check(dev@iowarrior_probe  foffset  intr_idx_lock))
+Locals:  lock@spinlock_check
+                                                Location: id=7#1 src="include/linux/spinlock.h"; line=274
+      Block(__retres2@spinlock_check = lock@spinlock_check  foffset 
+__annonCompField18  foffset  rlock;)
+                                                Location: id=7#2 src="include/linux/spinlock.h"; line=272
+      Block(Return(__retres2@spinlock_check);)
+   Skip
+                                                Location: id=44#20 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=784
+   FunctionCall(__raw_spin_lock_init(dev@iowarrior_probe  foffset  intr_idx_lock
+ foffset  __annonCompField18  foffset 
+rlock, "&(&dev->intr_idx_lock)->rlock", &(__key___8)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=44#21 (Artificial)
+   Skip
+                                                Location: id=44#22 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=785
+   FunctionCall(atomic_set(dev@iowarrior_probe  foffset  overflow_flag, 0))
+Locals:  v@atomic_set i@atomic_set
+                                                Location: id=3#1 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=37
+      Block(* (v@atomic_set ).counter = i@atomic_set;)
+                                                Location: id=3#2 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=35
+      Block(Return(0);)
+   Skip
+                                                Location: id=44#24 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=786
+   FunctionCall(__init_waitqueue_head(dev@iowarrior_probe  foffset 
+read_wait, &(__key___9)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=44#25 (Artificial)
+   Skip
+                                                Location: id=44#26 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=787
+   FunctionCall(atomic_set(dev@iowarrior_probe  foffset  write_busy, 0))
+Locals:  v@atomic_set i@atomic_set
+                                                Location: id=3#1 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=37
+      Block(* (v@atomic_set ).counter = i@atomic_set;)
+                                                Location: id=3#2 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=35
+      Block(Return(0);)
+   Skip
+                                                Location: id=44#28 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=788
+   FunctionCall(__init_waitqueue_head(dev@iowarrior_probe  foffset 
+write_wait, &(__key___10)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=44#29 (Artificial)
+   Skip
+                                                Location: id=44#30 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=790
+   Block(* (dev@iowarrior_probe ).udev =
+udev@iowarrior_probe;* (dev@iowarrior_probe ).interface =
+interface@iowarrior_probe;iface_desc@iowarrior_probe =
+* (interface@iowarrior_probe ).cur_altsetting;* (dev@iowarrior_probe ).product_id
+= * (udev@iowarrior_probe ).descriptor.idProduct;i@iowarrior_probe = 0;)
+                                                Location: id=44#31 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=797
+   Pred(i@iowarrior_probe  >= 
+     * (iface_desc@iowarrior_probe ).desc.bNumEndpoints)
+                                                Location: id=44#33 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=807
+   Block(cil_19@iowarrior_probe =
+* (dev@iowarrior_probe ).int_in_endpoint;* (dev@iowarrior_probe ).report_size
+= * (cil_19@iowarrior_probe ).wMaxPacketSize;)
+                                                Location: id=44#46 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=808
+   Block(cil_20@iowarrior_probe =
+* (dev@iowarrior_probe ).interface;cil_21@iowarrior_probe =
+* (cil_20@iowarrior_probe ).cur_altsetting;)
+                                                Location: id=44#47 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=808
+   Pred(* (cil_21@iowarrior_probe ).desc.bInterfaceNumber  !=  0)
+                                                Location: id=44#52 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=814
+   FunctionCall(* (dev@iowarrior_probe ).int_in_urb = usb_alloc_urb(0, 208))
+Locals:  iso_packets@usb_alloc_urb mem_flags@usb_alloc_urb
+                                                Location: id=55#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      FunctionCall(tmp___7@usb_alloc_urb = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=55#2 (Artificial)
+      Skip
+                                                Location: id=55#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(arbitrary_memory@usb_alloc_urb = tmp___7@usb_alloc_urb;)
+                                                Location: id=55#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Pred(arbitrary_memory@usb_alloc_urb  !=  0)
+                                                Location: id=55#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(ldv_urb_state = ldv_urb_state  +  1;)
+                                                Location: id=55#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(__retres5@usb_alloc_urb = arbitrary_memory@usb_alloc_urb;)
+                                                Location: id=55#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=61
+      Block(Return(__retres5@usb_alloc_urb);)
+   Skip
+                                                Location: id=44#54 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=815
+   Pred(* (dev@iowarrior_probe ).int_in_urb  !=  0)
+                                                Location: id=44#56 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=819
+   FunctionCall(tmp___11@iowarrior_probe =
+kmalloc(* (dev@iowarrior_probe ).report_size, 208))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=28#1 src="include/linux/slub_def.h"; line=270
+      FunctionCall(tmp___10@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=28#2 (Artificial)
+      Skip
+                                                Location: id=28#3 src="include/linux/slub_def.h"; line=270
+      Block(Return(tmp___10@kmalloc);)
+   Skip
+                                                Location: id=44#63 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=819
+   Block(* (dev@iowarrior_probe ).int_in_buffer = tmp___11@iowarrior_probe;)
+                                                Location: id=44#64 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=820
+   Pred(* (dev@iowarrior_probe ).int_in_buffer  !=  0)
+                                                Location: id=44#66 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=824
+   Block(cil_22@iowarrior_probe = * (dev@iowarrior_probe ).int_in_endpoint;)
+                                                Location: id=44#69 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=824
+   FunctionCall(tmp___12@iowarrior_probe =
+__create_pipe(* (dev@iowarrior_probe ).udev, * (cil_22@iowarrior_probe ).bEndpointAddress))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=27#1 src="include/linux/usb.h"; line=1529
+      Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=27#2 src="include/linux/usb.h"; line=1526
+      Block(Return(__retres3@__create_pipe);)
+   Skip
+                                                Location: id=44#71 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=824
+   Block(cil_23@iowarrior_probe = * (dev@iowarrior_probe ).int_in_endpoint;)
+                                                Location: id=44#72 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=824
+   FunctionCall(usb_fill_int_urb(* (dev@iowarrior_probe ).int_in_urb, * (dev@iowarrior_probe ).udev, 1
+ <<  30  |  tmp___12@iowarrior_probe  | 
+128, * (dev@iowarrior_probe ).int_in_buffer, * (dev@iowarrior_probe ).report_size, &(iowarrior_callback), dev@iowarrior_probe, * (cil_23@iowarrior_probe ).bInterval))
+Locals:  urb@usb_fill_int_urb dev@usb_fill_int_urb pipe@usb_fill_int_urb transfer_buffer@usb_fill_int_urb buffer_length@usb_fill_int_urb complete_fn@usb_fill_int_urb context@usb_fill_int_urb interval@usb_fill_int_urb
+                                                Location: id=26#1 src="include/linux/usb.h"; line=1318
+      Block(* (urb@usb_fill_int_urb ).dev =
+dev@usb_fill_int_urb;* (urb@usb_fill_int_urb ).pipe =
+pipe@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer =
+transfer_buffer@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer_length
+= buffer_length@usb_fill_int_urb;* (urb@usb_fill_int_urb ).complete =
+complete_fn@usb_fill_int_urb;* (urb@usb_fill_int_urb ).context =
+context@usb_fill_int_urb;)
+                                                Location: id=26#2 src="include/linux/usb.h"; line=1324
+      Pred(* (dev@usb_fill_int_urb ).speed  ==  3)
+                                                Location: id=26#3 src="include/linux/usb.h"; line=1325
+      Block(* (urb@usb_fill_int_urb ).interval = 1  <<  interval@usb_fill_int_urb
+ -  1;)
+                                                Location: id=26#5 src="include/linux/usb.h"; line=1328
+      Block(* (urb@usb_fill_int_urb ).start_frame = -1;)
+                                                Location: id=26#6 src="include/linux/usb.h"; line=1309
+      Block(Return(0);)
+   Skip
+                                                Location: id=44#74 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=831
+   FunctionCall(tmp___13@iowarrior_probe =
+kmalloc(* (dev@iowarrior_probe ).report_size  +  1  *  16, 208))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=28#1 src="include/linux/slub_def.h"; line=270
+      FunctionCall(tmp___10@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=28#2 (Artificial)
+      Skip
+                                                Location: id=28#3 src="include/linux/slub_def.h"; line=270
+      Block(Return(tmp___10@kmalloc);)
+   Skip
+                                                Location: id=44#76 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=831
+   Block(* (dev@iowarrior_probe ).read_queue = tmp___13@iowarrior_probe;)
+                                                Location: id=44#77 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=834
+   Pred(* (dev@iowarrior_probe ).read_queue  !=  0)
+                                                Location: id=44#79 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=839
+   FunctionCall(memset(* (dev@iowarrior_probe ).chip_serial, 0, 576))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=44#82 (Artificial)
+   Skip
+                                                Location: id=44#83 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=840
+   FunctionCall(usb_string(udev@iowarrior_probe, * (udev@iowarrior_probe ).descriptor.iSerialNumber, * (dev@iowarrior_probe ).chip_serial, 576))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=44#84 (Artificial)
+   Skip
+                                                Location: id=44#85 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=842
+   FunctionCall(tmp___14@iowarrior_probe =
+strlen(* (dev@iowarrior_probe ).chip_serial))
+LDV: undefined function called: strlen
+                                                Location: id=44#86 (Artificial)
+   Skip
+                                                Location: id=44#87 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=842
+   Pred(tmp___14@iowarrior_probe  ==  8)
+                                                Location: id=44#91 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=846
+   Block(cil_24@iowarrior_probe =
+* (dev@iowarrior_probe ).interface;cil_25@iowarrior_probe =
+* (cil_24@iowarrior_probe ).cur_altsetting;)
+                                                Location: id=44#92 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=846
+   Pred(* (cil_25@iowarrior_probe ).desc.bInterfaceNumber  !=  0)
+                                                Location: id=44#98 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=853
+   Block(* (dev@iowarrior_probe ).present = 1;)
+                                                Location: id=44#99 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=856
+   FunctionCall(usb_set_intfdata(interface@iowarrior_probe, dev@iowarrior_probe))
+Locals:  intf@usb_set_intfdata data@usb_set_intfdata
+                                                Location: id=23#1 src="include/linux/usb.h"; line=198
+      FunctionCall(dev_set_drvdata(intf@usb_set_intfdata  foffset 
+dev, data@usb_set_intfdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=23#2 (Artificial)
+      Skip
+                                                Location: id=23#3 src="include/linux/usb.h"; line=196
+      Block(Return(0);)
+   Skip
+                                                Location: id=44#101 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=858
+   FunctionCall(retval@iowarrior_probe =
+usb_register_dev(interface@iowarrior_probe, &(iowarrior_class)))
+LDV: undefined function called: usb_register_dev
+                                                Location: id=44#102 (Artificial)
+   Skip
+                                                Location: id=44#103 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=859
+   Pred(retval@iowarrior_probe  ==  0)
+                                                Location: id=44#105 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=866
+   Block(* (dev@iowarrior_probe ).minor = * (interface@iowarrior_probe ).minor;)
+                                                Location: id=44#110 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=869
+   FunctionCall(_dev_info(interface@iowarrior_probe  foffset 
+dev, "IOWarrior product=0x%x, serial=%s interface=%d now attached to iowarrior%d\n", * (dev@iowarrior_probe ).product_id, * (dev@iowarrior_probe ).chip_serial, * (iface_desc@iowarrior_probe ).desc.bInterfaceNumber, * (dev@iowarrior_probe ).minor))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=44#111 (Artificial)
+   Skip
+                                                Location: id=44#112 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=872
+   Block(__retres26@iowarrior_probe = retval@iowarrior_probe;)
+                                                Location: id=44#12 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=763
+   Block(Return(__retres26@iowarrior_probe);)
+Skip
+                                                Location: id=50#79 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1607
+FunctionCall(ldv_check_return_value(res_iowarrior_probe_13))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=50#80 (Artificial)
+Skip
+                                                Location: id=50#81 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1608
+Pred(res_iowarrior_probe_13  ==  0)
+                                                Location: id=50#83 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1610
+Block(ldv_s_iowarrior_driver_usb_driver@ldv_main0_sequence_infinite_withcheck_stateful
+=
+ldv_s_iowarrior_driver_usb_driver@ldv_main0_sequence_infinite_withcheck_stateful
+ +  1;)
+                                                Location: id=50#13 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1294
+FunctionCall(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=50#14 (Artificial)
+Skip
+                                                Location: id=50#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1294
+Pred(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=50#16 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1299
+FunctionCall(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=50#18 (Artificial)
+Skip
+                                                Location: id=50#19 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1301
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=50#21 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1342
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  ==  1)
+                                                Location: id=50#33 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1345
+Pred(ldv_s_iowarrior_fops_file_operations@ldv_main0_sequence_infinite_withcheck_stateful
+      ==  1)
+                                                Location: id=50#35 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1372
+FunctionCall(res_iowarrior_read_6 =
+iowarrior_read(var_group1@ldv_main0_sequence_infinite_withcheck_stateful, var_iowarrior_read_6_p1@ldv_main0_sequence_infinite_withcheck_stateful, var_iowarrior_read_6_p2@ldv_main0_sequence_infinite_withcheck_stateful, var_iowarrior_read_6_p3@ldv_main0_sequence_infinite_withcheck_stateful))
+Locals:  file@iowarrior_read buffer@iowarrior_read count@iowarrior_read ppos@iowarrior_read
+                                                Location: id=37#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=287
+   Block(dev@iowarrior_read = * (file@iowarrior_read ).private_data;)
+                                                Location: id=37#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=290
+   Pred(dev@iowarrior_read  ==  0)
+                                                Location: id=37#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=291
+   Block(__retres16@iowarrior_read = -19;)
+                                                Location: id=37#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=280
+   Block(Return(__retres16@iowarrior_read);)
+Skip
+                                                Location: id=50#38 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1373
+FunctionCall(ldv_check_return_value(res_iowarrior_read_6))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=50#39 (Artificial)
+Skip
+                                                Location: id=50#40 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1374
+Pred(res_iowarrior_read_6  <  0)
+                                                Location: id=50#28 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1689
+FunctionCall(iowarrior_exit())
+Locals: 
+                                                Location: id=47#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=938
+   FunctionCall(usb_deregister(&(iowarrior_driver)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=47#2 (Artificial)
+   Skip
+                                                Location: id=47#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=936
+   Block(Return(0);)
+Skip
+                                                Location: id=50#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"; line=1692
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=57#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=73
+   Pred(ldv_urb_state  !=  0)
+                                                Location: id=57#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/14344/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=73
+   FunctionCall(ldv_blast_assert())
+Locals: 

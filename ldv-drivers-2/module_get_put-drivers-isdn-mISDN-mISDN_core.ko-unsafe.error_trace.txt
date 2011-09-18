@@ -1,0 +1,769 @@
+
+                                                Location: id=387#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+                                                Location: id=387#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-core.o.general.i())
+Locals: 
+                                                Location: id=39#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/core.c.p"; line=40
+   Block(Bprotocols.next = &(Bprotocols);Bprotocols.prev =
+&(Bprotocols);bp_lock.raw_lock.lock = 16777216;bp_lock.magic =
+3736018669;bp_lock.owner_cpu = 4294967295;bp_lock.owner =
+-1;bp_lock.dep_map.key = 0;bp_lock.dep_map.class_cache[ 0 ] =
+0;bp_lock.dep_map.class_cache[ 1 ] = 0;bp_lock.dep_map.name =
+"bp_lock";bp_lock.dep_map.cpu = 0;bp_lock.dep_map.ip =
+0;mISDN_dev_attrs[ 0 ].attr.name = "id";mISDN_dev_attrs[ 0 ].attr.mode =
+292;mISDN_dev_attrs[ 0 ].attr.key =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 0 ].show = &(_show_id);mISDN_dev_attrs[ 0 ].store =
+0;mISDN_dev_attrs[ 1 ].attr.name =
+"d_protocols";mISDN_dev_attrs[ 1 ].attr.mode =
+292;mISDN_dev_attrs[ 1 ].attr.key =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 1 ].show = &(_show_d_protocols);mISDN_dev_attrs[ 1 ].store
+= 0;mISDN_dev_attrs[ 2 ].attr.name =
+"b_protocols";mISDN_dev_attrs[ 2 ].attr.mode =
+292;mISDN_dev_attrs[ 2 ].attr.key =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 2 ].show = &(_show_b_protocols);mISDN_dev_attrs[ 2 ].store
+= 0;mISDN_dev_attrs[ 3 ].attr.name =
+"protocol";mISDN_dev_attrs[ 3 ].attr.mode = 292;mISDN_dev_attrs[ 3 ].attr.key
+= 0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 3 ].show = &(_show_protocol);mISDN_dev_attrs[ 3 ].store =
+0;mISDN_dev_attrs[ 4 ].attr.name =
+"channelmap";mISDN_dev_attrs[ 4 ].attr.mode =
+292;mISDN_dev_attrs[ 4 ].attr.key =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 4 ].show = &(_show_channelmap);mISDN_dev_attrs[ 4 ].store
+= 0;mISDN_dev_attrs[ 5 ].attr.name = "nrbchan";mISDN_dev_attrs[ 5 ].attr.mode
+= 292;mISDN_dev_attrs[ 5 ].attr.key =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 5 ].show = &(_show_nrbchan);mISDN_dev_attrs[ 5 ].store =
+0;mISDN_dev_attrs[ 6 ].attr.name = "name";mISDN_dev_attrs[ 6 ].attr.mode =
+292;mISDN_dev_attrs[ 6 ].attr.key =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 6 ].show = &(_show_name);mISDN_dev_attrs[ 6 ].store =
+0;mISDN_dev_attrs[ 7 ].attr.name = 0;mISDN_dev_attrs[ 7 ].attr.mode =
+0;mISDN_dev_attrs[ 7 ].attr.key =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;mISDN_dev_attrs[ 7 ].show = 0;mISDN_dev_attrs[ 7 ].store =
+0;mISDN_class.name = "mISDN";mISDN_class.owner =
+&(__this_module);mISDN_class.class_attrs = 0;mISDN_class.dev_attrs =
+&(mISDN_dev_attrs);mISDN_class.dev_bin_attrs = 0;mISDN_class.dev_kobj =
+0;mISDN_class.dev_uevent = &(mISDN_uevent);mISDN_class.devnode =
+0;mISDN_class.class_release = &(mISDN_class_release);mISDN_class.dev_release
+= &(mISDN_dev_release);mISDN_class.suspend = 0;mISDN_class.resume =
+0;mISDN_class.ns_type = 0;mISDN_class.namespace = 0;mISDN_class.pm =
+0;mISDN_class.p = 0;ldv_module_refcounter = 1;)
+                                                Location: id=39#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-core.o.general.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-fsm.o.usual.i())
+Locals: 
+                                                Location: id=52#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-fsm.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-socket.o.usual.i())
+Locals: 
+                                                Location: id=109#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/socket.c.p"; line=32
+   Block(mISDN_proto.close = 0;mISDN_proto.connect = 0;mISDN_proto.disconnect =
+0;mISDN_proto.accept = 0;mISDN_proto.ioctl = 0;mISDN_proto.init =
+0;mISDN_proto.destroy = 0;mISDN_proto.shutdown = 0;mISDN_proto.setsockopt =
+0;mISDN_proto.getsockopt = 0;mISDN_proto.compat_setsockopt =
+0;mISDN_proto.compat_getsockopt = 0;mISDN_proto.compat_ioctl =
+0;mISDN_proto.sendmsg = 0;mISDN_proto.recvmsg = 0;mISDN_proto.sendpage =
+0;mISDN_proto.bind = 0;mISDN_proto.backlog_rcv = 0;mISDN_proto.hash =
+0;mISDN_proto.unhash = 0;mISDN_proto.rehash = 0;mISDN_proto.get_port =
+0;mISDN_proto.clear_sk = 0;mISDN_proto.inuse_idx =
+0;mISDN_proto.enter_memory_pressure = 0;mISDN_proto.memory_allocated =
+0;mISDN_proto.sockets_allocated = 0;mISDN_proto.memory_pressure =
+0;mISDN_proto.sysctl_mem = 0;mISDN_proto.sysctl_wmem =
+0;mISDN_proto.sysctl_rmem = 0;mISDN_proto.max_header =
+0;mISDN_proto.no_autobind = 0;mISDN_proto.slab = 0;mISDN_proto.obj_size =
+1368;mISDN_proto.slab_flags = 0;mISDN_proto.orphan_count =
+0;mISDN_proto.rsk_prot = 0;mISDN_proto.twsk_prot = 0;mISDN_proto.h.hashinfo =
+0;mISDN_proto.owner = &(__this_module);mISDN_proto.name[ 0 ] =
+109;mISDN_proto.name[ 1 ] = 105;mISDN_proto.name[ 2 ] =
+115;mISDN_proto.name[ 3 ] = 100;mISDN_proto.name[ 4 ] =
+110;mISDN_proto.name[ 5 ] = 0;mISDN_proto.node.next = 0;mISDN_proto.node.prev
+= 0;data_sockets.head.first = 0;data_sockets.lock.raw_lock.lock =
+16777216;data_sockets.lock.magic = 3736018669;data_sockets.lock.owner_cpu =
+4294967295;data_sockets.lock.owner = -1;data_sockets.lock.dep_map.key =
+0;data_sockets.lock.dep_map.class_cache[ 0 ] =
+0;data_sockets.lock.dep_map.class_cache[ 1 ] =
+0;data_sockets.lock.dep_map.name =
+"data_sockets.lock";data_sockets.lock.dep_map.cpu =
+0;data_sockets.lock.dep_map.ip = 0;base_sockets.head.first =
+0;base_sockets.lock.raw_lock.lock = 16777216;base_sockets.lock.magic =
+3736018669;base_sockets.lock.owner_cpu = 4294967295;base_sockets.lock.owner =
+-1;base_sockets.lock.dep_map.key =
+0;base_sockets.lock.dep_map.class_cache[ 0 ] =
+0;base_sockets.lock.dep_map.class_cache[ 1 ] =
+0;base_sockets.lock.dep_map.name =
+"base_sockets.lock";base_sockets.lock.dep_map.cpu =
+0;base_sockets.lock.dep_map.ip = 0;data_sock_ops.family =
+34;data_sock_ops.owner = &(__this_module);data_sock_ops.release =
+&(data_sock_release);data_sock_ops.bind =
+&(data_sock_bind);data_sock_ops.connect =
+&(sock_no_connect);data_sock_ops.socketpair =
+&(sock_no_socketpair);data_sock_ops.accept =
+&(sock_no_accept);data_sock_ops.getname =
+&(data_sock_getname);data_sock_ops.poll =
+&(datagram_poll);data_sock_ops.ioctl =
+&(data_sock_ioctl);data_sock_ops.compat_ioctl = 0;data_sock_ops.listen =
+&(sock_no_listen);data_sock_ops.shutdown =
+&(sock_no_shutdown);data_sock_ops.setsockopt =
+&(data_sock_setsockopt);data_sock_ops.getsockopt =
+&(data_sock_getsockopt);data_sock_ops.compat_setsockopt =
+0;data_sock_ops.compat_getsockopt = 0;data_sock_ops.sendmsg =
+&(mISDN_sock_sendmsg);data_sock_ops.recvmsg =
+&(mISDN_sock_recvmsg);data_sock_ops.mmap =
+&(sock_no_mmap);data_sock_ops.sendpage = 0;data_sock_ops.splice_read =
+0;base_sock_ops.family = 34;base_sock_ops.owner =
+&(__this_module);base_sock_ops.release =
+&(base_sock_release);base_sock_ops.bind =
+&(base_sock_bind);base_sock_ops.connect =
+&(sock_no_connect);base_sock_ops.socketpair =
+&(sock_no_socketpair);base_sock_ops.accept =
+&(sock_no_accept);base_sock_ops.getname =
+&(sock_no_getname);base_sock_ops.poll = &(sock_no_poll);base_sock_ops.ioctl =
+&(base_sock_ioctl);base_sock_ops.compat_ioctl = 0;base_sock_ops.listen =
+&(sock_no_listen);base_sock_ops.shutdown =
+&(sock_no_shutdown);base_sock_ops.setsockopt =
+&(sock_no_setsockopt);base_sock_ops.getsockopt =
+&(sock_no_getsockopt);base_sock_ops.compat_setsockopt =
+0;base_sock_ops.compat_getsockopt = 0;base_sock_ops.sendmsg =
+&(sock_no_sendmsg);base_sock_ops.recvmsg =
+&(sock_no_recvmsg);base_sock_ops.mmap =
+&(sock_no_mmap);base_sock_ops.sendpage = 0;base_sock_ops.splice_read =
+0;mISDN_sock_family_ops.family = 34;mISDN_sock_family_ops.create =
+&(mISDN_sock_create);mISDN_sock_family_ops.owner = &(__this_module);)
+                                                Location: id=109#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-socket.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-clock.o.usual.i())
+Locals: 
+                                                Location: id=116#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/clock.c.p"; line=51
+   Block(iclock_list.next = &(iclock_list);iclock_list.prev =
+&(iclock_list);iclock_lock.raw_lock.lock = 16777216;iclock_lock.magic =
+3736018669;iclock_lock.owner_cpu = 4294967295;iclock_lock.owner =
+-1;iclock_lock.dep_map.key = 0;iclock_lock.dep_map.class_cache[ 0 ] =
+0;iclock_lock.dep_map.class_cache[ 1 ] = 0;iclock_lock.dep_map.name =
+"iclock_lock";iclock_lock.dep_map.cpu = 0;iclock_lock.dep_map.ip = 0;)
+                                                Location: id=116#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-clock.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-hwchannel.o.usual.i())
+Locals: 
+                                                Location: id=145#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-hwchannel.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#11 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-stack.o.usual.i())
+Locals: 
+                                                Location: id=179#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-stack.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#13 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-layer1.o.usual.i())
+Locals: 
+                                                Location: id=201#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer1.c.p"; line=47
+   Block(l1fsm_s.jumpmatrix = 0;l1fsm_s.state_count = 0;l1fsm_s.event_count =
+0;l1fsm_s.strEvent = 0;l1fsm_s.strState = 0;strL1SState[ 0 ] =
+"ST_L1_F2";strL1SState[ 1 ] = "ST_L1_F3";strL1SState[ 2 ] =
+"ST_L1_F4";strL1SState[ 3 ] = "ST_L1_F5";strL1SState[ 4 ] =
+"ST_L1_F6";strL1SState[ 5 ] = "ST_L1_F7";strL1SState[ 6 ] =
+"ST_L1_F8";strL1Event[ 0 ] = "EV_PH_ACTIVATE";strL1Event[ 1 ] =
+"EV_PH_DEACTIVATE";strL1Event[ 2 ] = "EV_RESET_IND";strL1Event[ 3 ] =
+"EV_DEACT_CNF";strL1Event[ 4 ] = "EV_DEACT_IND";strL1Event[ 5 ] =
+"EV_POWER_UP";strL1Event[ 6 ] = "EV_ANYSIG_IND";strL1Event[ 7 ] =
+"EV_INFO2_IND";strL1Event[ 8 ] = "EV_INFO4_IND";strL1Event[ 9 ] =
+"EV_TIMER_DEACT";strL1Event[ 10 ] = "EV_TIMER_ACT";strL1Event[ 11 ] =
+"EV_TIMER3";L1SFnList[ 0 ].state = 1;L1SFnList[ 0 ].event =
+0;L1SFnList[ 0 ].routine = &(l1_activate_s);L1SFnList[ 1 ].state =
+4;L1SFnList[ 1 ].event = 0;L1SFnList[ 1 ].routine =
+&(l1_activate_no);L1SFnList[ 2 ].state = 6;L1SFnList[ 2 ].event =
+0;L1SFnList[ 2 ].routine = &(l1_activate_no);L1SFnList[ 3 ].state =
+1;L1SFnList[ 3 ].event = 2;L1SFnList[ 3 ].routine =
+&(l1_reset);L1SFnList[ 4 ].state = 2;L1SFnList[ 4 ].event =
+2;L1SFnList[ 4 ].routine = &(l1_reset);L1SFnList[ 5 ].state =
+3;L1SFnList[ 5 ].event = 2;L1SFnList[ 5 ].routine =
+&(l1_reset);L1SFnList[ 6 ].state = 4;L1SFnList[ 6 ].event =
+2;L1SFnList[ 6 ].routine = &(l1_reset);L1SFnList[ 7 ].state =
+5;L1SFnList[ 7 ].event = 2;L1SFnList[ 7 ].routine =
+&(l1_reset);L1SFnList[ 8 ].state = 6;L1SFnList[ 8 ].event =
+2;L1SFnList[ 8 ].routine = &(l1_reset);L1SFnList[ 9 ].state =
+1;L1SFnList[ 9 ].event = 3;L1SFnList[ 9 ].routine =
+&(l1_deact_cnf);L1SFnList[ 10 ].state = 2;L1SFnList[ 10 ].event =
+3;L1SFnList[ 10 ].routine = &(l1_deact_cnf);L1SFnList[ 11 ].state =
+3;L1SFnList[ 11 ].event = 3;L1SFnList[ 11 ].routine =
+&(l1_deact_cnf);L1SFnList[ 12 ].state = 4;L1SFnList[ 12 ].event =
+3;L1SFnList[ 12 ].routine = &(l1_deact_cnf);L1SFnList[ 13 ].state =
+5;L1SFnList[ 13 ].event = 3;L1SFnList[ 13 ].routine =
+&(l1_deact_cnf);L1SFnList[ 14 ].state = 6;L1SFnList[ 14 ].event =
+3;L1SFnList[ 14 ].routine = &(l1_deact_cnf);L1SFnList[ 15 ].state =
+4;L1SFnList[ 15 ].event = 4;L1SFnList[ 15 ].routine =
+&(l1_deact_req_s);L1SFnList[ 16 ].state = 5;L1SFnList[ 16 ].event =
+4;L1SFnList[ 16 ].routine = &(l1_deact_req_s);L1SFnList[ 17 ].state =
+6;L1SFnList[ 17 ].event = 4;L1SFnList[ 17 ].routine =
+&(l1_deact_req_s);L1SFnList[ 18 ].state = 1;L1SFnList[ 18 ].event =
+5;L1SFnList[ 18 ].routine = &(l1_power_up_s);L1SFnList[ 19 ].state =
+2;L1SFnList[ 19 ].event = 6;L1SFnList[ 19 ].routine =
+&(l1_go_F5);L1SFnList[ 20 ].state = 4;L1SFnList[ 20 ].event =
+6;L1SFnList[ 20 ].routine = &(l1_go_F8);L1SFnList[ 21 ].state =
+5;L1SFnList[ 21 ].event = 6;L1SFnList[ 21 ].routine =
+&(l1_go_F8);L1SFnList[ 22 ].state = 1;L1SFnList[ 22 ].event =
+7;L1SFnList[ 22 ].routine = &(l1_info2_ind);L1SFnList[ 23 ].state =
+2;L1SFnList[ 23 ].event = 7;L1SFnList[ 23 ].routine =
+&(l1_info2_ind);L1SFnList[ 24 ].state = 3;L1SFnList[ 24 ].event =
+7;L1SFnList[ 24 ].routine = &(l1_info2_ind);L1SFnList[ 25 ].state =
+5;L1SFnList[ 25 ].event = 7;L1SFnList[ 25 ].routine =
+&(l1_info2_ind);L1SFnList[ 26 ].state = 6;L1SFnList[ 26 ].event =
+7;L1SFnList[ 26 ].routine = &(l1_info2_ind);L1SFnList[ 27 ].state =
+1;L1SFnList[ 27 ].event = 8;L1SFnList[ 27 ].routine =
+&(l1_info4_ind);L1SFnList[ 28 ].state = 2;L1SFnList[ 28 ].event =
+8;L1SFnList[ 28 ].routine = &(l1_info4_ind);L1SFnList[ 29 ].state =
+3;L1SFnList[ 29 ].event = 8;L1SFnList[ 29 ].routine =
+&(l1_info4_ind);L1SFnList[ 30 ].state = 4;L1SFnList[ 30 ].event =
+8;L1SFnList[ 30 ].routine = &(l1_info4_ind);L1SFnList[ 31 ].state =
+6;L1SFnList[ 31 ].event = 8;L1SFnList[ 31 ].routine =
+&(l1_info4_ind);L1SFnList[ 32 ].state = 1;L1SFnList[ 32 ].event =
+11;L1SFnList[ 32 ].routine = &(l1_timer3);L1SFnList[ 33 ].state =
+2;L1SFnList[ 33 ].event = 11;L1SFnList[ 33 ].routine =
+&(l1_timer3);L1SFnList[ 34 ].state = 3;L1SFnList[ 34 ].event =
+11;L1SFnList[ 34 ].routine = &(l1_timer3);L1SFnList[ 35 ].state =
+4;L1SFnList[ 35 ].event = 11;L1SFnList[ 35 ].routine =
+&(l1_timer3);L1SFnList[ 36 ].state = 6;L1SFnList[ 36 ].event =
+11;L1SFnList[ 36 ].routine = &(l1_timer3);L1SFnList[ 37 ].state =
+5;L1SFnList[ 37 ].event = 10;L1SFnList[ 37 ].routine =
+&(l1_timer_act);L1SFnList[ 38 ].state = 1;L1SFnList[ 38 ].event =
+9;L1SFnList[ 38 ].routine = &(l1_timer_deact);L1SFnList[ 39 ].state =
+2;L1SFnList[ 39 ].event = 9;L1SFnList[ 39 ].routine =
+&(l1_timer_deact);L1SFnList[ 40 ].state = 3;L1SFnList[ 40 ].event =
+9;L1SFnList[ 40 ].routine = &(l1_timer_deact);L1SFnList[ 41 ].state =
+4;L1SFnList[ 41 ].event = 9;L1SFnList[ 41 ].routine =
+&(l1_timer_deact);L1SFnList[ 42 ].state = 5;L1SFnList[ 42 ].event =
+9;L1SFnList[ 42 ].routine = &(l1_timer_deact);L1SFnList[ 43 ].state =
+6;L1SFnList[ 43 ].event = 9;L1SFnList[ 43 ].routine = &(l1_timer_deact);)
+                                                Location: id=201#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-layer1.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-layer2.o.usual.i())
+Locals: 
+                                                Location: id=320#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer2.c.p"; line=35
+   Block(l2fsm.jumpmatrix = 0;l2fsm.state_count = 0;l2fsm.event_count =
+0;l2fsm.strEvent = 0;l2fsm.strState = 0;strL2State[ 0 ] =
+"ST_L2_1";strL2State[ 1 ] = "ST_L2_2";strL2State[ 2 ] =
+"ST_L2_3";strL2State[ 3 ] = "ST_L2_4";strL2State[ 4 ] =
+"ST_L2_5";strL2State[ 5 ] = "ST_L2_6";strL2State[ 6 ] =
+"ST_L2_7";strL2State[ 7 ] = "ST_L2_8";strL2Event[ 0 ] =
+"EV_L2_UI";strL2Event[ 1 ] = "EV_L2_SABME";strL2Event[ 2 ] =
+"EV_L2_DISC";strL2Event[ 3 ] = "EV_L2_DM";strL2Event[ 4 ] =
+"EV_L2_UA";strL2Event[ 5 ] = "EV_L2_FRMR";strL2Event[ 6 ] =
+"EV_L2_SUPER";strL2Event[ 7 ] = "EV_L2_I";strL2Event[ 8 ] =
+"EV_L2_DL_DATA";strL2Event[ 9 ] = "EV_L2_ACK_PULL";strL2Event[ 10 ] =
+"EV_L2_DL_UNITDATA";strL2Event[ 11 ] =
+"EV_L2_DL_ESTABLISH_REQ";strL2Event[ 12 ] =
+"EV_L2_DL_RELEASE_REQ";strL2Event[ 13 ] = "EV_L2_MDL_ASSIGN";strL2Event[ 14 ]
+= "EV_L2_MDL_REMOVE";strL2Event[ 15 ] = "EV_L2_MDL_ERROR";strL2Event[ 16 ] =
+"EV_L1_DEACTIVATE";strL2Event[ 17 ] = "EV_L2_T200";strL2Event[ 18 ] =
+"EV_L2_T203";strL2Event[ 19 ] = "EV_L2_SET_OWN_BUSY";strL2Event[ 20 ] =
+"EV_L2_CLEAR_OWN_BUSY";strL2Event[ 21 ] =
+"EV_L2_FRAME_ERROR";L2FnList[ 0 ].state = 0;L2FnList[ 0 ].event =
+11;L2FnList[ 0 ].routine = &(l2_mdl_assign);L2FnList[ 1 ].state =
+1;L2FnList[ 1 ].event = 11;L2FnList[ 1 ].routine =
+&(l2_go_st3);L2FnList[ 2 ].state = 3;L2FnList[ 2 ].event =
+11;L2FnList[ 2 ].routine = &(l2_establish);L2FnList[ 3 ].state =
+4;L2FnList[ 3 ].event = 11;L2FnList[ 3 ].routine =
+&(l2_discard_i_setl3);L2FnList[ 4 ].state = 6;L2FnList[ 4 ].event =
+11;L2FnList[ 4 ].routine = &(l2_l3_reestablish);L2FnList[ 5 ].state =
+7;L2FnList[ 5 ].event = 11;L2FnList[ 5 ].routine =
+&(l2_l3_reestablish);L2FnList[ 6 ].state = 3;L2FnList[ 6 ].event =
+12;L2FnList[ 6 ].routine = &(l2_release);L2FnList[ 7 ].state =
+4;L2FnList[ 7 ].event = 12;L2FnList[ 7 ].routine =
+&(l2_pend_rel);L2FnList[ 8 ].state = 6;L2FnList[ 8 ].event =
+12;L2FnList[ 8 ].routine = &(l2_disconnect);L2FnList[ 9 ].state =
+7;L2FnList[ 9 ].event = 12;L2FnList[ 9 ].routine =
+&(l2_disconnect);L2FnList[ 10 ].state = 4;L2FnList[ 10 ].event =
+8;L2FnList[ 10 ].routine = &(l2_feed_i_if_reest);L2FnList[ 11 ].state =
+6;L2FnList[ 11 ].event = 8;L2FnList[ 11 ].routine =
+&(l2_feed_i_pull);L2FnList[ 12 ].state = 7;L2FnList[ 12 ].event =
+8;L2FnList[ 12 ].routine = &(l2_feed_iqueue);L2FnList[ 13 ].state =
+0;L2FnList[ 13 ].event = 10;L2FnList[ 13 ].routine =
+&(l2_queue_ui_assign);L2FnList[ 14 ].state = 1;L2FnList[ 14 ].event =
+10;L2FnList[ 14 ].routine = &(l2_queue_ui);L2FnList[ 15 ].state =
+2;L2FnList[ 15 ].event = 10;L2FnList[ 15 ].routine =
+&(l2_queue_ui);L2FnList[ 16 ].state = 3;L2FnList[ 16 ].event =
+10;L2FnList[ 16 ].routine = &(l2_send_ui);L2FnList[ 17 ].state =
+4;L2FnList[ 17 ].event = 10;L2FnList[ 17 ].routine =
+&(l2_send_ui);L2FnList[ 18 ].state = 5;L2FnList[ 18 ].event =
+10;L2FnList[ 18 ].routine = &(l2_send_ui);L2FnList[ 19 ].state =
+6;L2FnList[ 19 ].event = 10;L2FnList[ 19 ].routine =
+&(l2_send_ui);L2FnList[ 20 ].state = 7;L2FnList[ 20 ].event =
+10;L2FnList[ 20 ].routine = &(l2_send_ui);L2FnList[ 21 ].state =
+0;L2FnList[ 21 ].event = 13;L2FnList[ 21 ].routine =
+&(l2_got_tei);L2FnList[ 22 ].state = 1;L2FnList[ 22 ].event =
+13;L2FnList[ 22 ].routine = &(l2_got_tei);L2FnList[ 23 ].state =
+2;L2FnList[ 23 ].event = 13;L2FnList[ 23 ].routine =
+&(l2_got_tei);L2FnList[ 24 ].state = 1;L2FnList[ 24 ].event =
+15;L2FnList[ 24 ].routine = &(l2_st24_tei_remove);L2FnList[ 25 ].state =
+2;L2FnList[ 25 ].event = 15;L2FnList[ 25 ].routine =
+&(l2_st3_tei_remove);L2FnList[ 26 ].state = 3;L2FnList[ 26 ].event =
+14;L2FnList[ 26 ].routine = &(l2_st24_tei_remove);L2FnList[ 27 ].state =
+4;L2FnList[ 27 ].event = 14;L2FnList[ 27 ].routine =
+&(l2_st5_tei_remove);L2FnList[ 28 ].state = 5;L2FnList[ 28 ].event =
+14;L2FnList[ 28 ].routine = &(l2_st6_tei_remove);L2FnList[ 29 ].state =
+6;L2FnList[ 29 ].event = 14;L2FnList[ 29 ].routine =
+&(l2_tei_remove);L2FnList[ 30 ].state = 7;L2FnList[ 30 ].event =
+14;L2FnList[ 30 ].routine = &(l2_tei_remove);L2FnList[ 31 ].state =
+3;L2FnList[ 31 ].event = 1;L2FnList[ 31 ].routine =
+&(l2_start_multi);L2FnList[ 32 ].state = 4;L2FnList[ 32 ].event =
+1;L2FnList[ 32 ].routine = &(l2_send_UA);L2FnList[ 33 ].state =
+5;L2FnList[ 33 ].event = 1;L2FnList[ 33 ].routine =
+&(l2_send_DM);L2FnList[ 34 ].state = 6;L2FnList[ 34 ].event =
+1;L2FnList[ 34 ].routine = &(l2_restart_multi);L2FnList[ 35 ].state =
+7;L2FnList[ 35 ].event = 1;L2FnList[ 35 ].routine =
+&(l2_restart_multi);L2FnList[ 36 ].state = 3;L2FnList[ 36 ].event =
+2;L2FnList[ 36 ].routine = &(l2_send_DM);L2FnList[ 37 ].state =
+4;L2FnList[ 37 ].event = 2;L2FnList[ 37 ].routine =
+&(l2_send_DM);L2FnList[ 38 ].state = 5;L2FnList[ 38 ].event =
+2;L2FnList[ 38 ].routine = &(l2_send_UA);L2FnList[ 39 ].state =
+6;L2FnList[ 39 ].event = 2;L2FnList[ 39 ].routine =
+&(l2_stop_multi);L2FnList[ 40 ].state = 7;L2FnList[ 40 ].event =
+2;L2FnList[ 40 ].routine = &(l2_stop_multi);L2FnList[ 41 ].state =
+3;L2FnList[ 41 ].event = 4;L2FnList[ 41 ].routine =
+&(l2_mdl_error_ua);L2FnList[ 42 ].state = 4;L2FnList[ 42 ].event =
+4;L2FnList[ 42 ].routine = &(l2_connected);L2FnList[ 43 ].state =
+5;L2FnList[ 43 ].event = 4;L2FnList[ 43 ].routine =
+&(l2_released);L2FnList[ 44 ].state = 6;L2FnList[ 44 ].event =
+4;L2FnList[ 44 ].routine = &(l2_mdl_error_ua);L2FnList[ 45 ].state =
+7;L2FnList[ 45 ].event = 4;L2FnList[ 45 ].routine =
+&(l2_mdl_error_ua);L2FnList[ 46 ].state = 3;L2FnList[ 46 ].event =
+3;L2FnList[ 46 ].routine = &(l2_reestablish);L2FnList[ 47 ].state =
+4;L2FnList[ 47 ].event = 3;L2FnList[ 47 ].routine =
+&(l2_st5_dm_release);L2FnList[ 48 ].state = 5;L2FnList[ 48 ].event =
+3;L2FnList[ 48 ].routine = &(l2_st6_dm_release);L2FnList[ 49 ].state =
+6;L2FnList[ 49 ].event = 3;L2FnList[ 49 ].routine =
+&(l2_mdl_error_dm);L2FnList[ 50 ].state = 7;L2FnList[ 50 ].event =
+3;L2FnList[ 50 ].routine = &(l2_st8_mdl_error_dm);L2FnList[ 51 ].state =
+0;L2FnList[ 51 ].event = 0;L2FnList[ 51 ].routine =
+&(l2_got_ui);L2FnList[ 52 ].state = 1;L2FnList[ 52 ].event =
+0;L2FnList[ 52 ].routine = &(l2_got_ui);L2FnList[ 53 ].state =
+2;L2FnList[ 53 ].event = 0;L2FnList[ 53 ].routine =
+&(l2_got_ui);L2FnList[ 54 ].state = 3;L2FnList[ 54 ].event =
+0;L2FnList[ 54 ].routine = &(l2_got_ui);L2FnList[ 55 ].state =
+4;L2FnList[ 55 ].event = 0;L2FnList[ 55 ].routine =
+&(l2_got_ui);L2FnList[ 56 ].state = 5;L2FnList[ 56 ].event =
+0;L2FnList[ 56 ].routine = &(l2_got_ui);L2FnList[ 57 ].state =
+6;L2FnList[ 57 ].event = 0;L2FnList[ 57 ].routine =
+&(l2_got_ui);L2FnList[ 58 ].state = 7;L2FnList[ 58 ].event =
+0;L2FnList[ 58 ].routine = &(l2_got_ui);L2FnList[ 59 ].state =
+6;L2FnList[ 59 ].event = 5;L2FnList[ 59 ].routine =
+&(l2_got_FRMR);L2FnList[ 60 ].state = 7;L2FnList[ 60 ].event =
+5;L2FnList[ 60 ].routine = &(l2_got_FRMR);L2FnList[ 61 ].state =
+6;L2FnList[ 61 ].event = 6;L2FnList[ 61 ].routine =
+&(l2_st7_got_super);L2FnList[ 62 ].state = 7;L2FnList[ 62 ].event =
+6;L2FnList[ 62 ].routine = &(l2_st8_got_super);L2FnList[ 63 ].state =
+6;L2FnList[ 63 ].event = 7;L2FnList[ 63 ].routine =
+&(l2_got_iframe);L2FnList[ 64 ].state = 7;L2FnList[ 64 ].event =
+7;L2FnList[ 64 ].routine = &(l2_got_iframe);L2FnList[ 65 ].state =
+4;L2FnList[ 65 ].event = 17;L2FnList[ 65 ].routine =
+&(l2_st5_tout_200);L2FnList[ 66 ].state = 5;L2FnList[ 66 ].event =
+17;L2FnList[ 66 ].routine = &(l2_st6_tout_200);L2FnList[ 67 ].state =
+6;L2FnList[ 67 ].event = 17;L2FnList[ 67 ].routine =
+&(l2_st7_tout_200);L2FnList[ 68 ].state = 7;L2FnList[ 68 ].event =
+17;L2FnList[ 68 ].routine = &(l2_st8_tout_200);L2FnList[ 69 ].state =
+6;L2FnList[ 69 ].event = 18;L2FnList[ 69 ].routine =
+&(l2_st7_tout_203);L2FnList[ 70 ].state = 6;L2FnList[ 70 ].event =
+9;L2FnList[ 70 ].routine = &(l2_pull_iqueue);L2FnList[ 71 ].state =
+6;L2FnList[ 71 ].event = 19;L2FnList[ 71 ].routine =
+&(l2_set_own_busy);L2FnList[ 72 ].state = 7;L2FnList[ 72 ].event =
+19;L2FnList[ 72 ].routine = &(l2_set_own_busy);L2FnList[ 73 ].state =
+6;L2FnList[ 73 ].event = 20;L2FnList[ 73 ].routine =
+&(l2_clear_own_busy);L2FnList[ 74 ].state = 7;L2FnList[ 74 ].event =
+20;L2FnList[ 74 ].routine = &(l2_clear_own_busy);L2FnList[ 75 ].state =
+3;L2FnList[ 75 ].event = 21;L2FnList[ 75 ].routine =
+&(l2_frame_error);L2FnList[ 76 ].state = 4;L2FnList[ 76 ].event =
+21;L2FnList[ 76 ].routine = &(l2_frame_error);L2FnList[ 77 ].state =
+5;L2FnList[ 77 ].event = 21;L2FnList[ 77 ].routine =
+&(l2_frame_error);L2FnList[ 78 ].state = 6;L2FnList[ 78 ].event =
+21;L2FnList[ 78 ].routine = &(l2_frame_error_reest);L2FnList[ 79 ].state =
+7;L2FnList[ 79 ].event = 21;L2FnList[ 79 ].routine =
+&(l2_frame_error_reest);L2FnList[ 80 ].state = 0;L2FnList[ 80 ].event =
+16;L2FnList[ 80 ].routine = &(l2_st14_persistent_da);L2FnList[ 81 ].state =
+1;L2FnList[ 81 ].event = 16;L2FnList[ 81 ].routine =
+&(l2_st24_tei_remove);L2FnList[ 82 ].state = 2;L2FnList[ 82 ].event =
+16;L2FnList[ 82 ].routine = &(l2_st3_tei_remove);L2FnList[ 83 ].state =
+3;L2FnList[ 83 ].event = 16;L2FnList[ 83 ].routine =
+&(l2_st14_persistent_da);L2FnList[ 84 ].state = 4;L2FnList[ 84 ].event =
+16;L2FnList[ 84 ].routine = &(l2_st5_persistent_da);L2FnList[ 85 ].state =
+5;L2FnList[ 85 ].event = 16;L2FnList[ 85 ].routine =
+&(l2_st6_persistent_da);L2FnList[ 86 ].state = 6;L2FnList[ 86 ].event =
+16;L2FnList[ 86 ].routine = &(l2_persistent_da);L2FnList[ 87 ].state =
+7;L2FnList[ 87 ].event = 16;L2FnList[ 87 ].routine =
+&(l2_persistent_da);X75SLP.list.next = 0;X75SLP.list.prev = 0;X75SLP.name =
+"X75SLP";X75SLP.Bprotocols = 8;X75SLP.create = &(x75create);)
+                                                Location: id=320#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-layer2.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#17 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-tei.o.usual.i())
+Locals: 
+                                                Location: id=372#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/tei.c.p"; line=46
+   Block(deactfsm.jumpmatrix = 0;deactfsm.state_count = 0;deactfsm.event_count =
+0;deactfsm.strEvent = 0;deactfsm.strState = 0;teifsmu.jumpmatrix =
+0;teifsmu.state_count = 0;teifsmu.event_count = 0;teifsmu.strEvent =
+0;teifsmu.strState = 0;teifsmn.jumpmatrix = 0;teifsmn.state_count =
+0;teifsmn.event_count = 0;teifsmn.strEvent = 0;teifsmn.strState =
+0;strDeactState[ 0 ] = "ST_L1_DEACT";strDeactState[ 1 ] =
+"ST_L1_DEACT_PENDING";strDeactState[ 2 ] = "ST_L1_ACTIV";strDeactEvent[ 0 ] =
+"EV_ACTIVATE";strDeactEvent[ 1 ] = "EV_ACTIVATE_IND";strDeactEvent[ 2 ] =
+"EV_DEACTIVATE";strDeactEvent[ 3 ] = "EV_DEACTIVATE_IND";strDeactEvent[ 4 ] =
+"EV_UI";strDeactEvent[ 5 ] = "EV_DATIMER";DeactFnList[ 0 ].state =
+0;DeactFnList[ 0 ].event = 1;DeactFnList[ 0 ].routine =
+&(da_activate);DeactFnList[ 1 ].state = 2;DeactFnList[ 1 ].event =
+3;DeactFnList[ 1 ].routine = &(da_deactivate_ind);DeactFnList[ 2 ].state =
+2;DeactFnList[ 2 ].event = 2;DeactFnList[ 2 ].routine =
+&(da_deactivate);DeactFnList[ 3 ].state = 1;DeactFnList[ 3 ].event =
+0;DeactFnList[ 3 ].routine = &(da_activate);DeactFnList[ 4 ].state =
+1;DeactFnList[ 4 ].event = 4;DeactFnList[ 4 ].routine =
+&(da_ui);DeactFnList[ 5 ].state = 1;DeactFnList[ 5 ].event =
+5;DeactFnList[ 5 ].routine = &(da_timer);strTeiState[ 0 ] =
+"ST_TEI_NOP";strTeiState[ 1 ] = "ST_TEI_IDREQ";strTeiState[ 2 ] =
+"ST_TEI_IDVERIFY";strTeiEvent[ 0 ] = "EV_IDREQ";strTeiEvent[ 1 ] =
+"EV_ASSIGN";strTeiEvent[ 2 ] = "EV_ASSIGN_REQ";strTeiEvent[ 3 ] =
+"EV_DENIED";strTeiEvent[ 4 ] = "EV_CHKREQ";strTeiEvent[ 5 ] =
+"EV_CHKRESP";strTeiEvent[ 6 ] = "EV_REMOVE";strTeiEvent[ 7 ] =
+"EV_VERIFY";strTeiEvent[ 8 ] = "EV_TIMER";TeiFnListUser[ 0 ].state =
+0;TeiFnListUser[ 0 ].event = 0;TeiFnListUser[ 0 ].routine =
+&(tei_id_request);TeiFnListUser[ 1 ].state = 0;TeiFnListUser[ 1 ].event =
+1;TeiFnListUser[ 1 ].routine = &(tei_id_test_dup);TeiFnListUser[ 2 ].state =
+0;TeiFnListUser[ 2 ].event = 7;TeiFnListUser[ 2 ].routine =
+&(tei_id_verify);TeiFnListUser[ 3 ].state = 0;TeiFnListUser[ 3 ].event =
+6;TeiFnListUser[ 3 ].routine = &(tei_id_remove);TeiFnListUser[ 4 ].state =
+0;TeiFnListUser[ 4 ].event = 4;TeiFnListUser[ 4 ].routine =
+&(tei_id_chk_req);TeiFnListUser[ 5 ].state = 1;TeiFnListUser[ 5 ].event =
+8;TeiFnListUser[ 5 ].routine = &(tei_id_req_tout);TeiFnListUser[ 6 ].state =
+1;TeiFnListUser[ 6 ].event = 1;TeiFnListUser[ 6 ].routine =
+&(tei_id_assign);TeiFnListUser[ 7 ].state = 1;TeiFnListUser[ 7 ].event =
+3;TeiFnListUser[ 7 ].routine = &(tei_id_denied);TeiFnListUser[ 8 ].state =
+2;TeiFnListUser[ 8 ].event = 8;TeiFnListUser[ 8 ].routine =
+&(tei_id_ver_tout);TeiFnListUser[ 9 ].state = 2;TeiFnListUser[ 9 ].event =
+6;TeiFnListUser[ 9 ].routine = &(tei_id_remove);TeiFnListUser[ 10 ].state =
+2;TeiFnListUser[ 10 ].event = 4;TeiFnListUser[ 10 ].routine =
+&(tei_id_chk_req);TeiFnListNet[ 0 ].state = 0;TeiFnListNet[ 0 ].event =
+2;TeiFnListNet[ 0 ].routine = &(tei_assign_req);TeiFnListNet[ 1 ].state =
+0;TeiFnListNet[ 1 ].event = 7;TeiFnListNet[ 1 ].routine =
+&(tei_id_verify_net);TeiFnListNet[ 2 ].state = 0;TeiFnListNet[ 2 ].event =
+4;TeiFnListNet[ 2 ].routine = &(tei_id_chk_req_net);TeiFnListNet[ 3 ].state =
+2;TeiFnListNet[ 3 ].event = 8;TeiFnListNet[ 3 ].routine =
+&(tei_id_ver_tout_net);TeiFnListNet[ 4 ].state = 2;TeiFnListNet[ 4 ].event =
+5;TeiFnListNet[ 4 ].routine = &(tei_id_chk_resp);)
+                                                Location: id=372#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-tei.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#19 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i())
+Locals: 
+                                                Location: id=391#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=38
+   Block(mISDN_mutex.count.counter =
+1;mISDN_mutex.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;mISDN_mutex.wait_lock.ldv_6060.rlock.magic =
+3735899821;mISDN_mutex.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;mISDN_mutex.wait_lock.ldv_6060.rlock.owner =
+-1;mISDN_mutex.wait_lock.ldv_6060.rlock.dep_map.key =
+0;mISDN_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;mISDN_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;mISDN_mutex.wait_lock.ldv_6060.rlock.dep_map.name =
+"mISDN_mutex.wait_lock";mISDN_mutex.wait_lock.ldv_6060.rlock.dep_map.cpu =
+0;mISDN_mutex.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;mISDN_mutex.wait_list.next = &(mISDN_mutex)  foffset 
+wait_list;mISDN_mutex.wait_list.prev = &(mISDN_mutex)  foffset 
+wait_list;mISDN_mutex.owner = 0;mISDN_mutex.name = 0;mISDN_mutex.magic =
+&(mISDN_mutex);mISDN_mutex.dep_map.key =
+0;mISDN_mutex.dep_map.class_cache[ 0 ] =
+0;mISDN_mutex.dep_map.class_cache[ 1 ] = 0;mISDN_mutex.dep_map.name =
+"mISDN_mutex";mISDN_mutex.dep_map.cpu = 0;mISDN_mutex.dep_map.ip =
+0;mISDN_fops.owner = 0;mISDN_fops.llseek = &(no_llseek);mISDN_fops.read =
+&(mISDN_read);mISDN_fops.write = 0;mISDN_fops.aio_read =
+0;mISDN_fops.aio_write = 0;mISDN_fops.readdir = 0;mISDN_fops.poll =
+&(mISDN_poll);mISDN_fops.unlocked_ioctl =
+&(mISDN_ioctl);mISDN_fops.compat_ioctl = 0;mISDN_fops.mmap =
+0;mISDN_fops.open = &(mISDN_open);mISDN_fops.flush = 0;mISDN_fops.release =
+&(mISDN_close);mISDN_fops.fsync = 0;mISDN_fops.aio_fsync =
+0;mISDN_fops.fasync = 0;mISDN_fops.lock = 0;mISDN_fops.sendpage =
+0;mISDN_fops.get_unmapped_area = 0;mISDN_fops.check_flags =
+0;mISDN_fops.flock = 0;mISDN_fops.splice_write = 0;mISDN_fops.splice_read =
+0;mISDN_fops.setlease = 0;mISDN_fops.fallocate = 0;mISDNtimer.minor =
+255;mISDNtimer.name = "mISDNtimer";mISDNtimer.fops =
+&(mISDN_fops);mISDNtimer.list.next = 0;mISDNtimer.list.prev =
+0;mISDNtimer.parent = 0;mISDNtimer.this_device = 0;mISDNtimer.nodename =
+0;mISDNtimer.mode = 0;)
+                                                Location: id=391#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-isdn-mISDN-timerdev.o.usual.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=387#21 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=395
+Block(ldv_s_mISDN_fops_file_operations@ldv_main9_sequence_infinite_withcheck_stateful
+= 0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=387#22 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=394
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=387#23 (Artificial)
+Skip
+                                                Location: id=387#24 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=401
+FunctionCall(tmp___0@ldv_main9_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=387#25 (Artificial)
+Skip
+                                                Location: id=387#26 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=401
+Pred(tmp___0@ldv_main9_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=387#27 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=405
+FunctionCall(tmp@ldv_main9_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=387#29 (Artificial)
+Skip
+                                                Location: id=387#30 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=407
+Pred(tmp@ldv_main9_sequence_infinite_withcheck_stateful  ==  0)
+                                                Location: id=387#31 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=410
+Pred(ldv_s_mISDN_fops_file_operations@ldv_main9_sequence_infinite_withcheck_stateful
+      ==  0)
+                                                Location: id=387#33 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=415
+FunctionCall(res_mISDN_open_0@ldv_main9_sequence_infinite_withcheck_stateful
+=
+mISDN_open(var_group2@ldv_main9_sequence_infinite_withcheck_stateful, var_group1@ldv_main9_sequence_infinite_withcheck_stateful))
+Locals:  ino@mISDN_open filep@mISDN_open
+                                                Location: id=377#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=63
+   Pred(* (debug )  &  16777216  ==  0)
+                                                Location: id=377#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=65
+   FunctionCall(tmp@mISDN_open = kmalloc(208, 208))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=41#1 src="include/linux/slub_def.h"; line=270
+      FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=41#2 (Artificial)
+      Skip
+                                                Location: id=41#3 src="include/linux/slub_def.h"; line=270
+      Block(Return(tmp___2@kmalloc);)
+   Skip
+                                                Location: id=377#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=65
+   Block(dev@mISDN_open = tmp@mISDN_open;)
+                                                Location: id=377#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=66
+   Pred(dev@mISDN_open  !=  0)
+                                                Location: id=377#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=68
+   Block(* (dev@mISDN_open ).next_id = 1;)
+                                                Location: id=377#12 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=69
+   FunctionCall(INIT_LIST_HEAD(dev@mISDN_open  foffset  pending))
+Locals:  list@INIT_LIST_HEAD
+                                                Location: id=117#1 src="include/linux/list.h"; line=26
+      Block(* (list@INIT_LIST_HEAD ).next =
+list@INIT_LIST_HEAD;* (list@INIT_LIST_HEAD ).prev = list@INIT_LIST_HEAD;)
+                                                Location: id=117#2 src="include/linux/list.h"; line=24
+      Block(Return(0);)
+   Skip
+                                                Location: id=377#14 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=70
+   FunctionCall(INIT_LIST_HEAD(dev@mISDN_open  foffset  expired))
+Locals:  list@INIT_LIST_HEAD
+                                                Location: id=117#1 src="include/linux/list.h"; line=26
+      Block(* (list@INIT_LIST_HEAD ).next =
+list@INIT_LIST_HEAD;* (list@INIT_LIST_HEAD ).prev = list@INIT_LIST_HEAD;)
+                                                Location: id=117#2 src="include/linux/list.h"; line=24
+      Block(Return(0);)
+   Skip
+                                                Location: id=377#16 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=71
+   FunctionCall(spinlock_check(dev@mISDN_open  foffset  lock))
+Locals:  lock@spinlock_check
+                                                Location: id=119#1 src="include/linux/spinlock.h"; line=274
+      Block(__retres2@spinlock_check = lock@spinlock_check  foffset  ldv_6060
+ foffset  rlock;)
+                                                Location: id=119#2 src="include/linux/spinlock.h"; line=272
+      Block(Return(__retres2@spinlock_check);)
+   Skip
+                                                Location: id=377#18 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=71
+   FunctionCall(__raw_spin_lock_init(dev@mISDN_open  foffset  lock  foffset 
+ldv_6060  foffset  rlock, "&(&dev->lock)->rlock", &(__key@mISDN_open)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=377#19 (Artificial)
+   Skip
+                                                Location: id=377#20 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=72
+   Block(* (dev@mISDN_open ).work = 0;)
+                                                Location: id=377#21 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=73
+   FunctionCall(__init_waitqueue_head(dev@mISDN_open  foffset 
+wait, &(__key___0@mISDN_open)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=377#22 (Artificial)
+   Skip
+                                                Location: id=377#23 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=74
+   Block(* (filep@mISDN_open ).private_data = dev@mISDN_open;)
+                                                Location: id=377#24 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=75
+   FunctionCall(ldv___module_get_1(&(__this_module)))
+Locals:  module@ldv___module_get_1
+                                                Location: id=388#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=530
+      FunctionCall(ldv_module_get(module@ldv___module_get_1))
+Locals:  module@ldv_module_get
+                                                Location: id=33#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/core.c.p"; line=659
+         Pred(module@ldv_module_get  !=  0)
+                                                Location: id=33#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/core.c.p"; line=661
+         Block(ldv_module_refcounter = ldv_module_refcounter  +  1;)
+                                                Location: id=33#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/core.c.p"; line=656
+         Block(Return(0);)
+      Skip
+                                                Location: id=388#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=525
+      Block(Return(0);)
+   Skip
+                                                Location: id=377#26 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=76
+   FunctionCall(tmp___0@mISDN_open =
+ldv_nonseekable_open_2(ino@mISDN_open, filep@mISDN_open))
+Locals:  ldv_func_arg1@ldv_nonseekable_open_2 ldv_func_arg2@ldv_nonseekable_open_2
+                                                Location: id=389#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=539
+      Block(__retres3@ldv_nonseekable_open_2 = 0;)
+                                                Location: id=389#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=533
+      Block(Return(__retres3@ldv_nonseekable_open_2);)
+   Skip
+                                                Location: id=377#28 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=76
+   Block(__retres8@mISDN_open = tmp___0@mISDN_open;)
+                                                Location: id=377#11 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=59
+   Block(Return(__retres8@mISDN_open);)
+Skip
+                                                Location: id=387#36 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=416
+FunctionCall(ldv_check_return_value(res_mISDN_open_0@ldv_main9_sequence_infinite_withcheck_stateful))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=387#37 (Artificial)
+Skip
+                                                Location: id=387#38 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=417
+Pred(res_mISDN_open_0@ldv_main9_sequence_infinite_withcheck_stateful  ==  0)
+                                                Location: id=387#40 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=419
+Block(ldv_s_mISDN_fops_file_operations@ldv_main9_sequence_infinite_withcheck_stateful
+=
+ldv_s_mISDN_fops_file_operations@ldv_main9_sequence_infinite_withcheck_stateful
+ +  1;)
+                                                Location: id=387#44 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=513
+Skip
+                                                Location: id=387#24 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=401
+FunctionCall(tmp___0@ldv_main9_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=387#25 (Artificial)
+Skip
+                                                Location: id=387#26 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=401
+Pred(tmp___0@ldv_main9_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=387#27 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=405
+FunctionCall(tmp@ldv_main9_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=387#29 (Artificial)
+Skip
+                                                Location: id=387#30 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=407
+Pred(tmp@ldv_main9_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=387#32 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=426
+Pred(tmp@ldv_main9_sequence_infinite_withcheck_stateful  ==  1)
+                                                Location: id=387#46 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=429
+Pred(ldv_s_mISDN_fops_file_operations@ldv_main9_sequence_infinite_withcheck_stateful
+      ==  1)
+                                                Location: id=387#48 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=434
+FunctionCall(res_mISDN_read_2@ldv_main9_sequence_infinite_withcheck_stateful
+=
+mISDN_read(var_group1@ldv_main9_sequence_infinite_withcheck_stateful, var_mISDN_read_2_p1@ldv_main9_sequence_infinite_withcheck_stateful, var_mISDN_read_2_p2@ldv_main9_sequence_infinite_withcheck_stateful, var_mISDN_read_2_p3@ldv_main9_sequence_infinite_withcheck_stateful))
+Locals:  filep@mISDN_read buf@mISDN_read count@mISDN_read off@mISDN_read
+                                                Location: id=379#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=102
+   Block(dev@mISDN_read = * (filep@mISDN_read ).private_data;ret@mISDN_read =
+0;)
+                                                Location: id=379#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=107
+   Pred(* (debug )  &  16777216  ==  0)
+                                                Location: id=379#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=111
+   FunctionCall(tmp___6@mISDN_read = list_empty(dev@mISDN_read  foffset 
+expired))
+Locals:  head@list_empty
+                                                Location: id=147#1 src=""; line=-1
+      Pred(* (head@list_empty ).next  !=  head@list_empty)
+                                                Location: id=147#3 src=""; line=-1
+      Block(__cil_tmp2@list_empty = 0;)
+                                                Location: id=147#4 src="include/linux/list.h"; line=188
+      Block(Return(__cil_tmp2@list_empty);)
+   Skip
+                                                Location: id=379#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=111
+   Pred(tmp___6@mISDN_read  ==  0)
+                                                Location: id=379#37 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=119
+   Pred(count@mISDN_read  <=  3)
+                                                Location: id=379#39 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=120
+   Block(__retres25@mISDN_read = -28;)
+                                                Location: id=379#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=100
+   Block(Return(__retres25@mISDN_read);)
+Skip
+                                                Location: id=387#51 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=435
+FunctionCall(ldv_check_return_value(res_mISDN_read_2@ldv_main9_sequence_infinite_withcheck_stateful))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=387#52 (Artificial)
+Skip
+                                                Location: id=387#53 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=436
+Pred(res_mISDN_read_2@ldv_main9_sequence_infinite_withcheck_stateful  <  0)
+                                                Location: id=387#39 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=515
+Skip
+                                                Location: id=387#41 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"; line=518
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=38#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/core.c.p"; line=721
+   Pred(ldv_module_refcounter  !=  1)
+                                                Location: id=38#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/3373/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/core.c.p"; line=721
+   FunctionCall(ldv_blast_assert())
+Locals: 

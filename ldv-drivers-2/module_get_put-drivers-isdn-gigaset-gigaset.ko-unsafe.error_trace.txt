@@ -1,0 +1,1217 @@
+
+                                                Location: id=91#1 src="ldv/08_1/drivers/isdn/gigaset/gigaset.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=91#1 src="ldv/08_1/drivers/isdn/gigaset/gigaset.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/08_1/drivers/isdn/gigaset/gigaset.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=210#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1008
+   Block(drivers.next = &(drivers);drivers.prev =
+&(drivers);driver_lock.ldv_6060.rlock.raw_lock.slock =
+0;driver_lock.ldv_6060.rlock.magic =
+3735899821;driver_lock.ldv_6060.rlock.owner_cpu =
+4294967295;driver_lock.ldv_6060.rlock.owner =
+1152921504606846975;driver_lock.ldv_6060.rlock.dep_map.key =
+0;driver_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;driver_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;driver_lock.ldv_6060.rlock.dep_map.name =
+"driver_lock";driver_lock.ldv_6060.rlock.dep_map.cpu =
+0;driver_lock.ldv_6060.rlock.dep_map.ip = 0;ldv_module_refcounter =
+1;if_ops.lookup = 0;if_ops.install = 0;if_ops.remove = 0;if_ops.open =
+&(if_open);if_ops.close = &(if_close);if_ops.shutdown = 0;if_ops.cleanup =
+0;if_ops.write = &(if_write);if_ops.put_char = 0;if_ops.flush_chars =
+0;if_ops.write_room = &(if_write_room);if_ops.chars_in_buffer =
+&(if_chars_in_buffer);if_ops.ioctl = &(if_ioctl);if_ops.compat_ioctl =
+0;if_ops.set_termios = &(if_set_termios);if_ops.throttle =
+&(if_throttle);if_ops.unthrottle = &(if_unthrottle);if_ops.stop =
+0;if_ops.start = 0;if_ops.hangup = 0;if_ops.break_ctl = 0;if_ops.flush_buffer
+= 0;if_ops.set_ldisc = 0;if_ops.wait_until_sent = 0;if_ops.send_xchar =
+0;if_ops.tiocmget = &(if_tiocmget);if_ops.tiocmset =
+&(if_tiocmset);if_ops.resize = 0;if_ops.set_termiox = 0;if_ops.get_icount =
+0;if_ops.poll_init = 0;if_ops.poll_get_char = 0;if_ops.poll_put_char =
+0;if_ops.proc_fops = 0;dev_attr_cidmode.attr.name =
+"cidmode";dev_attr_cidmode.attr.mode = 420;dev_attr_cidmode.attr.key =
+0;dev_attr_cidmode.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_cidmode.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_cidmode.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_cidmode.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_cidmode.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_cidmode.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_cidmode.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_cidmode.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_cidmode.show = &(show_cidmode);dev_attr_cidmode.store =
+&(set_cidmode);gigaset_tab_nocid[ 0 ].resp_code =
+-27;gigaset_tab_nocid[ 0 ].min_ConState =
+-1;gigaset_tab_nocid[ 0 ].max_ConState = -1;gigaset_tab_nocid[ 0 ].parameter
+= 100;gigaset_tab_nocid[ 0 ].new_ConState =
+100;gigaset_tab_nocid[ 0 ].timeout = 1;gigaset_tab_nocid[ 0 ].action[ 0 ] =
+29;gigaset_tab_nocid[ 0 ].action[ 1 ] = 0;gigaset_tab_nocid[ 0 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 0 ].command = 0;gigaset_tab_nocid[ 1 ].resp_code =
+-105;gigaset_tab_nocid[ 1 ].min_ConState =
+100;gigaset_tab_nocid[ 1 ].max_ConState =
+100;gigaset_tab_nocid[ 1 ].parameter = -1;gigaset_tab_nocid[ 1 ].new_ConState
+= 101;gigaset_tab_nocid[ 1 ].timeout = 3;gigaset_tab_nocid[ 1 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 1 ].action[ 1 ] = 0;gigaset_tab_nocid[ 1 ].action[ 2 ] =
+0;gigaset_tab_nocid[ 1 ].command = "Z\r";gigaset_tab_nocid[ 2 ].resp_code =
+0;gigaset_tab_nocid[ 2 ].min_ConState =
+101;gigaset_tab_nocid[ 2 ].max_ConState =
+103;gigaset_tab_nocid[ 2 ].parameter = -1;gigaset_tab_nocid[ 2 ].new_ConState
+= 120;gigaset_tab_nocid[ 2 ].timeout = 5;gigaset_tab_nocid[ 2 ].action[ 0 ] =
+30;gigaset_tab_nocid[ 2 ].action[ 1 ] = 0;gigaset_tab_nocid[ 2 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 2 ].command =
+"+GMR\r";gigaset_tab_nocid[ 3 ].resp_code =
+-105;gigaset_tab_nocid[ 3 ].min_ConState =
+101;gigaset_tab_nocid[ 3 ].max_ConState =
+101;gigaset_tab_nocid[ 3 ].parameter = -1;gigaset_tab_nocid[ 3 ].new_ConState
+= 102;gigaset_tab_nocid[ 3 ].timeout = 5;gigaset_tab_nocid[ 3 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 3 ].action[ 1 ] = 0;gigaset_tab_nocid[ 3 ].action[ 2 ] =
+0;gigaset_tab_nocid[ 3 ].command = "Z\r";gigaset_tab_nocid[ 4 ].resp_code =
+1;gigaset_tab_nocid[ 4 ].min_ConState =
+101;gigaset_tab_nocid[ 4 ].max_ConState =
+101;gigaset_tab_nocid[ 4 ].parameter = -1;gigaset_tab_nocid[ 4 ].new_ConState
+= 102;gigaset_tab_nocid[ 4 ].timeout = 5;gigaset_tab_nocid[ 4 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 4 ].action[ 1 ] = 0;gigaset_tab_nocid[ 4 ].action[ 2 ] =
+0;gigaset_tab_nocid[ 4 ].command = "Z\r";gigaset_tab_nocid[ 5 ].resp_code =
+-105;gigaset_tab_nocid[ 5 ].min_ConState =
+102;gigaset_tab_nocid[ 5 ].max_ConState =
+102;gigaset_tab_nocid[ 5 ].parameter = -1;gigaset_tab_nocid[ 5 ].new_ConState
+= 108;gigaset_tab_nocid[ 5 ].timeout = 5;gigaset_tab_nocid[ 5 ].action[ 0 ] =
+1;gigaset_tab_nocid[ 5 ].action[ 1 ] = 0;gigaset_tab_nocid[ 5 ].action[ 2 ] =
+0;gigaset_tab_nocid[ 5 ].command =
+"^SDLE=0\r";gigaset_tab_nocid[ 6 ].resp_code =
+0;gigaset_tab_nocid[ 6 ].min_ConState =
+108;gigaset_tab_nocid[ 6 ].max_ConState =
+108;gigaset_tab_nocid[ 6 ].parameter = -1;gigaset_tab_nocid[ 6 ].new_ConState
+= 104;gigaset_tab_nocid[ 6 ].timeout = -1;gigaset_tab_nocid[ 6 ].action[ 0 ]
+= 0;gigaset_tab_nocid[ 6 ].action[ 1 ] = 0;gigaset_tab_nocid[ 6 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 6 ].command = 0;gigaset_tab_nocid[ 7 ].resp_code =
+101;gigaset_tab_nocid[ 7 ].min_ConState =
+104;gigaset_tab_nocid[ 7 ].max_ConState =
+104;gigaset_tab_nocid[ 7 ].parameter = 0;gigaset_tab_nocid[ 7 ].new_ConState
+= 103;gigaset_tab_nocid[ 7 ].timeout = 5;gigaset_tab_nocid[ 7 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 7 ].action[ 1 ] = 0;gigaset_tab_nocid[ 7 ].action[ 2 ] =
+0;gigaset_tab_nocid[ 7 ].command = "Z\r";gigaset_tab_nocid[ 8 ].resp_code =
+-105;gigaset_tab_nocid[ 8 ].min_ConState =
+104;gigaset_tab_nocid[ 8 ].max_ConState =
+104;gigaset_tab_nocid[ 8 ].parameter = -1;gigaset_tab_nocid[ 8 ].new_ConState
+= 0;gigaset_tab_nocid[ 8 ].timeout = 0;gigaset_tab_nocid[ 8 ].action[ 0 ] =
+3;gigaset_tab_nocid[ 8 ].action[ 1 ] = 0;gigaset_tab_nocid[ 8 ].action[ 2 ] =
+0;gigaset_tab_nocid[ 8 ].command = 0;gigaset_tab_nocid[ 9 ].resp_code =
+1;gigaset_tab_nocid[ 9 ].min_ConState =
+108;gigaset_tab_nocid[ 9 ].max_ConState =
+108;gigaset_tab_nocid[ 9 ].parameter = -1;gigaset_tab_nocid[ 9 ].new_ConState
+= 0;gigaset_tab_nocid[ 9 ].timeout = 0;gigaset_tab_nocid[ 9 ].action[ 0 ] =
+3;gigaset_tab_nocid[ 9 ].action[ 1 ] = 0;gigaset_tab_nocid[ 9 ].action[ 2 ] =
+0;gigaset_tab_nocid[ 9 ].command = 0;gigaset_tab_nocid[ 10 ].resp_code =
+-105;gigaset_tab_nocid[ 10 ].min_ConState =
+108;gigaset_tab_nocid[ 10 ].max_ConState =
+108;gigaset_tab_nocid[ 10 ].parameter =
+-1;gigaset_tab_nocid[ 10 ].new_ConState = 105;gigaset_tab_nocid[ 10 ].timeout
+= 2;gigaset_tab_nocid[ 10 ].action[ 0 ] =
+2;gigaset_tab_nocid[ 10 ].action[ 1 ] = 4;gigaset_tab_nocid[ 10 ].action[ 2 ]
+= 29;gigaset_tab_nocid[ 10 ].command = 0;gigaset_tab_nocid[ 11 ].resp_code =
+-105;gigaset_tab_nocid[ 11 ].min_ConState =
+105;gigaset_tab_nocid[ 11 ].max_ConState =
+105;gigaset_tab_nocid[ 11 ].parameter =
+-1;gigaset_tab_nocid[ 11 ].new_ConState = 103;gigaset_tab_nocid[ 11 ].timeout
+= 5;gigaset_tab_nocid[ 11 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 11 ].action[ 1 ] = 0;gigaset_tab_nocid[ 11 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 11 ].command = "Z\r";gigaset_tab_nocid[ 12 ].resp_code
+= 1;gigaset_tab_nocid[ 12 ].min_ConState =
+102;gigaset_tab_nocid[ 12 ].max_ConState =
+102;gigaset_tab_nocid[ 12 ].parameter =
+-1;gigaset_tab_nocid[ 12 ].new_ConState = 107;gigaset_tab_nocid[ 12 ].timeout
+= 5;gigaset_tab_nocid[ 12 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 12 ].action[ 1 ] = 0;gigaset_tab_nocid[ 12 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 12 ].command =
+"^GETPRE\r";gigaset_tab_nocid[ 13 ].resp_code =
+0;gigaset_tab_nocid[ 13 ].min_ConState =
+107;gigaset_tab_nocid[ 13 ].max_ConState =
+107;gigaset_tab_nocid[ 13 ].parameter =
+-1;gigaset_tab_nocid[ 13 ].new_ConState = 0;gigaset_tab_nocid[ 13 ].timeout =
+0;gigaset_tab_nocid[ 13 ].action[ 0 ] = 5;gigaset_tab_nocid[ 13 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 13 ].action[ 2 ] = 0;gigaset_tab_nocid[ 13 ].command =
+0;gigaset_tab_nocid[ 14 ].resp_code = 1;gigaset_tab_nocid[ 14 ].min_ConState
+= 107;gigaset_tab_nocid[ 14 ].max_ConState =
+107;gigaset_tab_nocid[ 14 ].parameter =
+-1;gigaset_tab_nocid[ 14 ].new_ConState = 0;gigaset_tab_nocid[ 14 ].timeout =
+0;gigaset_tab_nocid[ 14 ].action[ 0 ] = 3;gigaset_tab_nocid[ 14 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 14 ].action[ 2 ] = 0;gigaset_tab_nocid[ 14 ].command =
+0;gigaset_tab_nocid[ 15 ].resp_code =
+-105;gigaset_tab_nocid[ 15 ].min_ConState =
+107;gigaset_tab_nocid[ 15 ].max_ConState =
+107;gigaset_tab_nocid[ 15 ].parameter =
+-1;gigaset_tab_nocid[ 15 ].new_ConState = 0;gigaset_tab_nocid[ 15 ].timeout =
+0;gigaset_tab_nocid[ 15 ].action[ 0 ] = 3;gigaset_tab_nocid[ 15 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 15 ].action[ 2 ] = 0;gigaset_tab_nocid[ 15 ].command =
+0;gigaset_tab_nocid[ 16 ].resp_code = 1;gigaset_tab_nocid[ 16 ].min_ConState
+= 103;gigaset_tab_nocid[ 16 ].max_ConState =
+103;gigaset_tab_nocid[ 16 ].parameter =
+-1;gigaset_tab_nocid[ 16 ].new_ConState = 0;gigaset_tab_nocid[ 16 ].timeout =
+0;gigaset_tab_nocid[ 16 ].action[ 0 ] = 3;gigaset_tab_nocid[ 16 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 16 ].action[ 2 ] = 0;gigaset_tab_nocid[ 16 ].command =
+0;gigaset_tab_nocid[ 17 ].resp_code =
+-105;gigaset_tab_nocid[ 17 ].min_ConState =
+103;gigaset_tab_nocid[ 17 ].max_ConState =
+103;gigaset_tab_nocid[ 17 ].parameter =
+-1;gigaset_tab_nocid[ 17 ].new_ConState = 0;gigaset_tab_nocid[ 17 ].timeout =
+0;gigaset_tab_nocid[ 17 ].action[ 0 ] = 3;gigaset_tab_nocid[ 17 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 17 ].action[ 2 ] = 0;gigaset_tab_nocid[ 17 ].command =
+0;gigaset_tab_nocid[ 18 ].resp_code =
+-20;gigaset_tab_nocid[ 18 ].min_ConState =
+120;gigaset_tab_nocid[ 18 ].max_ConState =
+120;gigaset_tab_nocid[ 18 ].parameter =
+-1;gigaset_tab_nocid[ 18 ].new_ConState = 121;gigaset_tab_nocid[ 18 ].timeout
+= -1;gigaset_tab_nocid[ 18 ].action[ 0 ] =
+31;gigaset_tab_nocid[ 18 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 18 ].action[ 2 ] = 0;gigaset_tab_nocid[ 18 ].command =
+0;gigaset_tab_nocid[ 19 ].resp_code =
+-105;gigaset_tab_nocid[ 19 ].min_ConState =
+120;gigaset_tab_nocid[ 19 ].max_ConState =
+121;gigaset_tab_nocid[ 19 ].parameter =
+-1;gigaset_tab_nocid[ 19 ].new_ConState = 0;gigaset_tab_nocid[ 19 ].timeout =
+0;gigaset_tab_nocid[ 19 ].action[ 0 ] =
+32;gigaset_tab_nocid[ 19 ].action[ 1 ] =
+6;gigaset_tab_nocid[ 19 ].action[ 2 ] = 0;gigaset_tab_nocid[ 19 ].command =
+0;gigaset_tab_nocid[ 20 ].resp_code = 1;gigaset_tab_nocid[ 20 ].min_ConState
+= 120;gigaset_tab_nocid[ 20 ].max_ConState =
+121;gigaset_tab_nocid[ 20 ].parameter =
+-1;gigaset_tab_nocid[ 20 ].new_ConState = 0;gigaset_tab_nocid[ 20 ].timeout =
+0;gigaset_tab_nocid[ 20 ].action[ 0 ] =
+32;gigaset_tab_nocid[ 20 ].action[ 1 ] =
+6;gigaset_tab_nocid[ 20 ].action[ 2 ] = 0;gigaset_tab_nocid[ 20 ].command =
+0;gigaset_tab_nocid[ 21 ].resp_code = 0;gigaset_tab_nocid[ 21 ].min_ConState
+= 121;gigaset_tab_nocid[ 21 ].max_ConState =
+121;gigaset_tab_nocid[ 21 ].parameter =
+-1;gigaset_tab_nocid[ 21 ].new_ConState = 0;gigaset_tab_nocid[ 21 ].timeout =
+0;gigaset_tab_nocid[ 21 ].action[ 0 ] =
+33;gigaset_tab_nocid[ 21 ].action[ 1 ] =
+6;gigaset_tab_nocid[ 21 ].action[ 2 ] = 0;gigaset_tab_nocid[ 21 ].command =
+0;gigaset_tab_nocid[ 22 ].resp_code =
+-27;gigaset_tab_nocid[ 22 ].min_ConState =
+0;gigaset_tab_nocid[ 22 ].max_ConState = 0;gigaset_tab_nocid[ 22 ].parameter
+= 200;gigaset_tab_nocid[ 22 ].new_ConState =
+201;gigaset_tab_nocid[ 22 ].timeout = 5;gigaset_tab_nocid[ 22 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 22 ].action[ 1 ] = 0;gigaset_tab_nocid[ 22 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 22 ].command =
+"^SDLE=0\r";gigaset_tab_nocid[ 23 ].resp_code =
+0;gigaset_tab_nocid[ 23 ].min_ConState =
+201;gigaset_tab_nocid[ 23 ].max_ConState =
+201;gigaset_tab_nocid[ 23 ].parameter =
+-1;gigaset_tab_nocid[ 23 ].new_ConState = 202;gigaset_tab_nocid[ 23 ].timeout
+= -1;gigaset_tab_nocid[ 23 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 23 ].action[ 1 ] = 0;gigaset_tab_nocid[ 23 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 23 ].command = 0;gigaset_tab_nocid[ 24 ].resp_code =
+101;gigaset_tab_nocid[ 24 ].min_ConState =
+202;gigaset_tab_nocid[ 24 ].max_ConState =
+202;gigaset_tab_nocid[ 24 ].parameter =
+0;gigaset_tab_nocid[ 24 ].new_ConState = 0;gigaset_tab_nocid[ 24 ].timeout =
+0;gigaset_tab_nocid[ 24 ].action[ 0 ] = 7;gigaset_tab_nocid[ 24 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 24 ].action[ 2 ] = 0;gigaset_tab_nocid[ 24 ].command =
+0;gigaset_tab_nocid[ 25 ].resp_code = -9;gigaset_tab_nocid[ 25 ].min_ConState
+= 200;gigaset_tab_nocid[ 25 ].max_ConState =
+249;gigaset_tab_nocid[ 25 ].parameter =
+-1;gigaset_tab_nocid[ 25 ].new_ConState = 0;gigaset_tab_nocid[ 25 ].timeout =
+0;gigaset_tab_nocid[ 25 ].action[ 0 ] =
+47;gigaset_tab_nocid[ 25 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 25 ].action[ 2 ] = 0;gigaset_tab_nocid[ 25 ].command =
+0;gigaset_tab_nocid[ 26 ].resp_code = 1;gigaset_tab_nocid[ 26 ].min_ConState
+= 200;gigaset_tab_nocid[ 26 ].max_ConState =
+249;gigaset_tab_nocid[ 26 ].parameter =
+-1;gigaset_tab_nocid[ 26 ].new_ConState = 0;gigaset_tab_nocid[ 26 ].timeout =
+0;gigaset_tab_nocid[ 26 ].action[ 0 ] = 9;gigaset_tab_nocid[ 26 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 26 ].action[ 2 ] = 0;gigaset_tab_nocid[ 26 ].command =
+0;gigaset_tab_nocid[ 27 ].resp_code =
+-105;gigaset_tab_nocid[ 27 ].min_ConState =
+200;gigaset_tab_nocid[ 27 ].max_ConState =
+249;gigaset_tab_nocid[ 27 ].parameter =
+-1;gigaset_tab_nocid[ 27 ].new_ConState = 0;gigaset_tab_nocid[ 27 ].timeout =
+0;gigaset_tab_nocid[ 27 ].action[ 0 ] = 9;gigaset_tab_nocid[ 27 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 27 ].action[ 2 ] = 0;gigaset_tab_nocid[ 27 ].command =
+0;gigaset_tab_nocid[ 28 ].resp_code =
+-27;gigaset_tab_nocid[ 28 ].min_ConState =
+0;gigaset_tab_nocid[ 28 ].max_ConState = 0;gigaset_tab_nocid[ 28 ].parameter
+= 250;gigaset_tab_nocid[ 28 ].new_ConState =
+251;gigaset_tab_nocid[ 28 ].timeout = 5;gigaset_tab_nocid[ 28 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 28 ].action[ 1 ] = 0;gigaset_tab_nocid[ 28 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 28 ].command =
+"^SDLE=1\r";gigaset_tab_nocid[ 29 ].resp_code =
+0;gigaset_tab_nocid[ 29 ].min_ConState =
+251;gigaset_tab_nocid[ 29 ].max_ConState =
+251;gigaset_tab_nocid[ 29 ].parameter =
+-1;gigaset_tab_nocid[ 29 ].new_ConState = 252;gigaset_tab_nocid[ 29 ].timeout
+= -1;gigaset_tab_nocid[ 29 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 29 ].action[ 1 ] = 0;gigaset_tab_nocid[ 29 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 29 ].command = 0;gigaset_tab_nocid[ 30 ].resp_code =
+101;gigaset_tab_nocid[ 30 ].min_ConState =
+252;gigaset_tab_nocid[ 30 ].max_ConState =
+252;gigaset_tab_nocid[ 30 ].parameter =
+1;gigaset_tab_nocid[ 30 ].new_ConState = 0;gigaset_tab_nocid[ 30 ].timeout =
+0;gigaset_tab_nocid[ 30 ].action[ 0 ] = 8;gigaset_tab_nocid[ 30 ].action[ 1 ]
+= 0;gigaset_tab_nocid[ 30 ].action[ 2 ] = 0;gigaset_tab_nocid[ 30 ].command =
+0;gigaset_tab_nocid[ 31 ].resp_code = 1;gigaset_tab_nocid[ 31 ].min_ConState
+= 250;gigaset_tab_nocid[ 31 ].max_ConState =
+299;gigaset_tab_nocid[ 31 ].parameter =
+-1;gigaset_tab_nocid[ 31 ].new_ConState = 0;gigaset_tab_nocid[ 31 ].timeout =
+0;gigaset_tab_nocid[ 31 ].action[ 0 ] =
+10;gigaset_tab_nocid[ 31 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 31 ].action[ 2 ] = 0;gigaset_tab_nocid[ 31 ].command =
+0;gigaset_tab_nocid[ 32 ].resp_code =
+-105;gigaset_tab_nocid[ 32 ].min_ConState =
+250;gigaset_tab_nocid[ 32 ].max_ConState =
+299;gigaset_tab_nocid[ 32 ].parameter =
+-1;gigaset_tab_nocid[ 32 ].new_ConState = 0;gigaset_tab_nocid[ 32 ].timeout =
+0;gigaset_tab_nocid[ 32 ].action[ 0 ] =
+10;gigaset_tab_nocid[ 32 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 32 ].action[ 2 ] = 0;gigaset_tab_nocid[ 32 ].command =
+0;gigaset_tab_nocid[ 33 ].resp_code = 4;gigaset_tab_nocid[ 33 ].min_ConState
+= -1;gigaset_tab_nocid[ 33 ].max_ConState =
+-1;gigaset_tab_nocid[ 33 ].parameter =
+-1;gigaset_tab_nocid[ 33 ].new_ConState = -1;gigaset_tab_nocid[ 33 ].timeout
+= -1;gigaset_tab_nocid[ 33 ].action[ 0 ] =
+11;gigaset_tab_nocid[ 33 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 33 ].action[ 2 ] = 0;gigaset_tab_nocid[ 33 ].command =
+0;gigaset_tab_nocid[ 34 ].resp_code =
+-27;gigaset_tab_nocid[ 34 ].min_ConState =
+0;gigaset_tab_nocid[ 34 ].max_ConState = 0;gigaset_tab_nocid[ 34 ].parameter
+= 300;gigaset_tab_nocid[ 34 ].new_ConState =
+301;gigaset_tab_nocid[ 34 ].timeout = 5;gigaset_tab_nocid[ 34 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 34 ].action[ 1 ] = 0;gigaset_tab_nocid[ 34 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 34 ].command =
+"^SGCI?\r";gigaset_tab_nocid[ 35 ].resp_code =
+0;gigaset_tab_nocid[ 35 ].min_ConState =
+301;gigaset_tab_nocid[ 35 ].max_ConState =
+301;gigaset_tab_nocid[ 35 ].parameter =
+-1;gigaset_tab_nocid[ 35 ].new_ConState = 302;gigaset_tab_nocid[ 35 ].timeout
+= -1;gigaset_tab_nocid[ 35 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 35 ].action[ 1 ] = 0;gigaset_tab_nocid[ 35 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 35 ].command = 0;gigaset_tab_nocid[ 36 ].resp_code =
+3;gigaset_tab_nocid[ 36 ].min_ConState =
+302;gigaset_tab_nocid[ 36 ].max_ConState =
+302;gigaset_tab_nocid[ 36 ].parameter =
+-1;gigaset_tab_nocid[ 36 ].new_ConState = 0;gigaset_tab_nocid[ 36 ].timeout =
+0;gigaset_tab_nocid[ 36 ].action[ 0 ] =
+12;gigaset_tab_nocid[ 36 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 36 ].action[ 2 ] = 0;gigaset_tab_nocid[ 36 ].command =
+0;gigaset_tab_nocid[ 37 ].resp_code = 1;gigaset_tab_nocid[ 37 ].min_ConState
+= 301;gigaset_tab_nocid[ 37 ].max_ConState =
+349;gigaset_tab_nocid[ 37 ].parameter =
+-1;gigaset_tab_nocid[ 37 ].new_ConState = 0;gigaset_tab_nocid[ 37 ].timeout =
+0;gigaset_tab_nocid[ 37 ].action[ 0 ] =
+13;gigaset_tab_nocid[ 37 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 37 ].action[ 2 ] = 0;gigaset_tab_nocid[ 37 ].command =
+0;gigaset_tab_nocid[ 38 ].resp_code =
+-105;gigaset_tab_nocid[ 38 ].min_ConState =
+301;gigaset_tab_nocid[ 38 ].max_ConState =
+349;gigaset_tab_nocid[ 38 ].parameter =
+-1;gigaset_tab_nocid[ 38 ].new_ConState = 0;gigaset_tab_nocid[ 38 ].timeout =
+0;gigaset_tab_nocid[ 38 ].action[ 0 ] =
+13;gigaset_tab_nocid[ 38 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 38 ].action[ 2 ] = 0;gigaset_tab_nocid[ 38 ].command =
+0;gigaset_tab_nocid[ 39 ].resp_code =
+-27;gigaset_tab_nocid[ 39 ].min_ConState =
+0;gigaset_tab_nocid[ 39 ].max_ConState = 0;gigaset_tab_nocid[ 39 ].parameter
+= 10;gigaset_tab_nocid[ 39 ].new_ConState =
+150;gigaset_tab_nocid[ 39 ].timeout = 5;gigaset_tab_nocid[ 39 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 39 ].action[ 1 ] = 0;gigaset_tab_nocid[ 39 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 39 ].command =
+"^SGCI=1\r";gigaset_tab_nocid[ 40 ].resp_code =
+0;gigaset_tab_nocid[ 40 ].min_ConState =
+150;gigaset_tab_nocid[ 40 ].max_ConState =
+150;gigaset_tab_nocid[ 40 ].parameter =
+-1;gigaset_tab_nocid[ 40 ].new_ConState = 0;gigaset_tab_nocid[ 40 ].timeout =
+0;gigaset_tab_nocid[ 40 ].action[ 0 ] =
+54;gigaset_tab_nocid[ 40 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 40 ].action[ 2 ] = 0;gigaset_tab_nocid[ 40 ].command =
+0;gigaset_tab_nocid[ 41 ].resp_code = 1;gigaset_tab_nocid[ 41 ].min_ConState
+= 150;gigaset_tab_nocid[ 41 ].max_ConState =
+150;gigaset_tab_nocid[ 41 ].parameter =
+-1;gigaset_tab_nocid[ 41 ].new_ConState = 0;gigaset_tab_nocid[ 41 ].timeout =
+0;gigaset_tab_nocid[ 41 ].action[ 0 ] =
+55;gigaset_tab_nocid[ 41 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 41 ].action[ 2 ] = 0;gigaset_tab_nocid[ 41 ].command =
+0;gigaset_tab_nocid[ 42 ].resp_code =
+-105;gigaset_tab_nocid[ 42 ].min_ConState =
+150;gigaset_tab_nocid[ 42 ].max_ConState =
+150;gigaset_tab_nocid[ 42 ].parameter =
+-1;gigaset_tab_nocid[ 42 ].new_ConState = 0;gigaset_tab_nocid[ 42 ].timeout =
+0;gigaset_tab_nocid[ 42 ].action[ 0 ] =
+55;gigaset_tab_nocid[ 42 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 42 ].action[ 2 ] = 0;gigaset_tab_nocid[ 42 ].command =
+0;gigaset_tab_nocid[ 43 ].resp_code =
+-27;gigaset_tab_nocid[ 43 ].min_ConState =
+0;gigaset_tab_nocid[ 43 ].max_ConState = 0;gigaset_tab_nocid[ 43 ].parameter
+= 11;gigaset_tab_nocid[ 43 ].new_ConState =
+160;gigaset_tab_nocid[ 43 ].timeout = 5;gigaset_tab_nocid[ 43 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 43 ].action[ 1 ] = 0;gigaset_tab_nocid[ 43 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 43 ].command = "Z\r";gigaset_tab_nocid[ 44 ].resp_code
+= 0;gigaset_tab_nocid[ 44 ].min_ConState =
+160;gigaset_tab_nocid[ 44 ].max_ConState =
+160;gigaset_tab_nocid[ 44 ].parameter =
+-1;gigaset_tab_nocid[ 44 ].new_ConState = 0;gigaset_tab_nocid[ 44 ].timeout =
+0;gigaset_tab_nocid[ 44 ].action[ 0 ] =
+52;gigaset_tab_nocid[ 44 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 44 ].action[ 2 ] = 0;gigaset_tab_nocid[ 44 ].command =
+0;gigaset_tab_nocid[ 45 ].resp_code = 1;gigaset_tab_nocid[ 45 ].min_ConState
+= 160;gigaset_tab_nocid[ 45 ].max_ConState =
+160;gigaset_tab_nocid[ 45 ].parameter =
+-1;gigaset_tab_nocid[ 45 ].new_ConState = 0;gigaset_tab_nocid[ 45 ].timeout =
+0;gigaset_tab_nocid[ 45 ].action[ 0 ] =
+53;gigaset_tab_nocid[ 45 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 45 ].action[ 2 ] = 0;gigaset_tab_nocid[ 45 ].command =
+0;gigaset_tab_nocid[ 46 ].resp_code =
+-105;gigaset_tab_nocid[ 46 ].min_ConState =
+160;gigaset_tab_nocid[ 46 ].max_ConState =
+160;gigaset_tab_nocid[ 46 ].parameter =
+-1;gigaset_tab_nocid[ 46 ].new_ConState = 0;gigaset_tab_nocid[ 46 ].timeout =
+0;gigaset_tab_nocid[ 46 ].action[ 0 ] =
+53;gigaset_tab_nocid[ 46 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 46 ].action[ 2 ] = 0;gigaset_tab_nocid[ 46 ].command =
+0;gigaset_tab_nocid[ 47 ].resp_code =
+-27;gigaset_tab_nocid[ 47 ].min_ConState =
+0;gigaset_tab_nocid[ 47 ].max_ConState = 0;gigaset_tab_nocid[ 47 ].parameter
+= 350;gigaset_tab_nocid[ 47 ].new_ConState =
+0;gigaset_tab_nocid[ 47 ].timeout = 0;gigaset_tab_nocid[ 47 ].action[ 0 ] =
+36;gigaset_tab_nocid[ 47 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 47 ].action[ 2 ] = 0;gigaset_tab_nocid[ 47 ].command =
+0;gigaset_tab_nocid[ 48 ].resp_code =
+-27;gigaset_tab_nocid[ 48 ].min_ConState =
+0;gigaset_tab_nocid[ 48 ].max_ConState = 0;gigaset_tab_nocid[ 48 ].parameter
+= 500;gigaset_tab_nocid[ 48 ].new_ConState =
+504;gigaset_tab_nocid[ 48 ].timeout = 5;gigaset_tab_nocid[ 48 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 48 ].action[ 1 ] = 0;gigaset_tab_nocid[ 48 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 48 ].command = "Z\r";gigaset_tab_nocid[ 49 ].resp_code
+= 0;gigaset_tab_nocid[ 49 ].min_ConState =
+504;gigaset_tab_nocid[ 49 ].max_ConState =
+504;gigaset_tab_nocid[ 49 ].parameter =
+-1;gigaset_tab_nocid[ 49 ].new_ConState = 0;gigaset_tab_nocid[ 49 ].timeout =
+0;gigaset_tab_nocid[ 49 ].action[ 0 ] =
+14;gigaset_tab_nocid[ 49 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 49 ].action[ 2 ] = 0;gigaset_tab_nocid[ 49 ].command =
+0;gigaset_tab_nocid[ 50 ].resp_code = 1;gigaset_tab_nocid[ 50 ].min_ConState
+= 501;gigaset_tab_nocid[ 50 ].max_ConState =
+599;gigaset_tab_nocid[ 50 ].parameter =
+-1;gigaset_tab_nocid[ 50 ].new_ConState = 0;gigaset_tab_nocid[ 50 ].timeout =
+0;gigaset_tab_nocid[ 50 ].action[ 0 ] =
+15;gigaset_tab_nocid[ 50 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 50 ].action[ 2 ] = 0;gigaset_tab_nocid[ 50 ].command =
+0;gigaset_tab_nocid[ 51 ].resp_code =
+-105;gigaset_tab_nocid[ 51 ].min_ConState =
+501;gigaset_tab_nocid[ 51 ].max_ConState =
+599;gigaset_tab_nocid[ 51 ].parameter =
+-1;gigaset_tab_nocid[ 51 ].new_ConState = 0;gigaset_tab_nocid[ 51 ].timeout =
+0;gigaset_tab_nocid[ 51 ].action[ 0 ] =
+15;gigaset_tab_nocid[ 51 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 51 ].action[ 2 ] = 0;gigaset_tab_nocid[ 51 ].command =
+0;gigaset_tab_nocid[ 52 ].resp_code = -9;gigaset_tab_nocid[ 52 ].min_ConState
+= 501;gigaset_tab_nocid[ 52 ].max_ConState =
+599;gigaset_tab_nocid[ 52 ].parameter =
+-1;gigaset_tab_nocid[ 52 ].new_ConState = 0;gigaset_tab_nocid[ 52 ].timeout =
+0;gigaset_tab_nocid[ 52 ].action[ 0 ] =
+49;gigaset_tab_nocid[ 52 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 52 ].action[ 2 ] = 0;gigaset_tab_nocid[ 52 ].command =
+0;gigaset_tab_nocid[ 53 ].resp_code =
+-107;gigaset_tab_nocid[ 53 ].min_ConState =
+-1;gigaset_tab_nocid[ 53 ].max_ConState =
+-1;gigaset_tab_nocid[ 53 ].parameter =
+-1;gigaset_tab_nocid[ 53 ].new_ConState = -1;gigaset_tab_nocid[ 53 ].timeout
+= -1;gigaset_tab_nocid[ 53 ].action[ 0 ] =
+51;gigaset_tab_nocid[ 53 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 53 ].action[ 2 ] = 0;gigaset_tab_nocid[ 53 ].command =
+0;gigaset_tab_nocid[ 54 ].resp_code =
+-112;gigaset_tab_nocid[ 54 ].min_ConState =
+-1;gigaset_tab_nocid[ 54 ].max_ConState =
+-1;gigaset_tab_nocid[ 54 ].parameter =
+-1;gigaset_tab_nocid[ 54 ].new_ConState = -1;gigaset_tab_nocid[ 54 ].timeout
+= -1;gigaset_tab_nocid[ 54 ].action[ 0 ] =
+44;gigaset_tab_nocid[ 54 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 54 ].action[ 2 ] = 0;gigaset_tab_nocid[ 54 ].command =
+0;gigaset_tab_nocid[ 55 ].resp_code =
+-106;gigaset_tab_nocid[ 55 ].min_ConState =
+-1;gigaset_tab_nocid[ 55 ].max_ConState =
+-1;gigaset_tab_nocid[ 55 ].parameter =
+-1;gigaset_tab_nocid[ 55 ].new_ConState = -1;gigaset_tab_nocid[ 55 ].timeout
+= -1;gigaset_tab_nocid[ 55 ].action[ 0 ] =
+56;gigaset_tab_nocid[ 55 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 55 ].action[ 2 ] = 0;gigaset_tab_nocid[ 55 ].command =
+0;gigaset_tab_nocid[ 56 ].resp_code =
+-110;gigaset_tab_nocid[ 56 ].min_ConState =
+-1;gigaset_tab_nocid[ 56 ].max_ConState =
+-1;gigaset_tab_nocid[ 56 ].parameter =
+-1;gigaset_tab_nocid[ 56 ].new_ConState = -1;gigaset_tab_nocid[ 56 ].timeout
+= -1;gigaset_tab_nocid[ 56 ].action[ 0 ] =
+45;gigaset_tab_nocid[ 56 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 56 ].action[ 2 ] = 0;gigaset_tab_nocid[ 56 ].command =
+0;gigaset_tab_nocid[ 57 ].resp_code =
+-111;gigaset_tab_nocid[ 57 ].min_ConState =
+-1;gigaset_tab_nocid[ 57 ].max_ConState =
+-1;gigaset_tab_nocid[ 57 ].parameter =
+-1;gigaset_tab_nocid[ 57 ].new_ConState = -1;gigaset_tab_nocid[ 57 ].timeout
+= -1;gigaset_tab_nocid[ 57 ].action[ 0 ] =
+46;gigaset_tab_nocid[ 57 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 57 ].action[ 2 ] = 0;gigaset_tab_nocid[ 57 ].command =
+0;gigaset_tab_nocid[ 58 ].resp_code =
+-108;gigaset_tab_nocid[ 58 ].min_ConState =
+-1;gigaset_tab_nocid[ 58 ].max_ConState =
+-1;gigaset_tab_nocid[ 58 ].parameter =
+-1;gigaset_tab_nocid[ 58 ].new_ConState = -1;gigaset_tab_nocid[ 58 ].timeout
+= -1;gigaset_tab_nocid[ 58 ].action[ 0 ] =
+50;gigaset_tab_nocid[ 58 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 58 ].action[ 2 ] = 0;gigaset_tab_nocid[ 58 ].command =
+0;gigaset_tab_nocid[ 59 ].resp_code = 1;gigaset_tab_nocid[ 59 ].min_ConState
+= -1;gigaset_tab_nocid[ 59 ].max_ConState =
+-1;gigaset_tab_nocid[ 59 ].parameter =
+-1;gigaset_tab_nocid[ 59 ].new_ConState = -1;gigaset_tab_nocid[ 59 ].timeout
+= -1;gigaset_tab_nocid[ 59 ].action[ 0 ] =
+35;gigaset_tab_nocid[ 59 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 59 ].action[ 2 ] = 0;gigaset_tab_nocid[ 59 ].command =
+0;gigaset_tab_nocid[ 60 ].resp_code = 6;gigaset_tab_nocid[ 60 ].min_ConState
+= -1;gigaset_tab_nocid[ 60 ].max_ConState =
+-1;gigaset_tab_nocid[ 60 ].parameter =
+-1;gigaset_tab_nocid[ 60 ].new_ConState = -1;gigaset_tab_nocid[ 60 ].timeout
+= -1;gigaset_tab_nocid[ 60 ].action[ 0 ] =
+37;gigaset_tab_nocid[ 60 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 60 ].action[ 2 ] = 0;gigaset_tab_nocid[ 60 ].command =
+0;gigaset_tab_nocid[ 61 ].resp_code =
+-19;gigaset_tab_nocid[ 61 ].min_ConState =
+-1;gigaset_tab_nocid[ 61 ].max_ConState =
+-1;gigaset_tab_nocid[ 61 ].parameter =
+-1;gigaset_tab_nocid[ 61 ].new_ConState = -1;gigaset_tab_nocid[ 61 ].timeout
+= -1;gigaset_tab_nocid[ 61 ].action[ 0 ] =
+16;gigaset_tab_nocid[ 61 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 61 ].action[ 2 ] = 0;gigaset_tab_nocid[ 61 ].command =
+0;gigaset_tab_nocid[ 62 ].resp_code =
+-26;gigaset_tab_nocid[ 62 ].min_ConState =
+-1;gigaset_tab_nocid[ 62 ].max_ConState =
+-1;gigaset_tab_nocid[ 62 ].parameter =
+-1;gigaset_tab_nocid[ 62 ].new_ConState = -1;gigaset_tab_nocid[ 62 ].timeout
+= -1;gigaset_tab_nocid[ 62 ].action[ 0 ] =
+17;gigaset_tab_nocid[ 62 ].action[ 1 ] =
+0;gigaset_tab_nocid[ 62 ].action[ 2 ] = 0;gigaset_tab_nocid[ 62 ].command =
+0;gigaset_tab_nocid[ 63 ].resp_code =
+-28;gigaset_tab_nocid[ 63 ].min_ConState =
+0;gigaset_tab_nocid[ 63 ].max_ConState = 0;gigaset_tab_nocid[ 63 ].parameter
+= 0;gigaset_tab_nocid[ 63 ].new_ConState = 0;gigaset_tab_nocid[ 63 ].timeout
+= 0;gigaset_tab_nocid[ 63 ].action[ 0 ] =
+0;gigaset_tab_nocid[ 63 ].action[ 1 ] = 0;gigaset_tab_nocid[ 63 ].action[ 2 ]
+= 0;gigaset_tab_nocid[ 63 ].command = 0;gigaset_tab_cid[ 0 ].resp_code =
+-115;gigaset_tab_cid[ 0 ].min_ConState = -1;gigaset_tab_cid[ 0 ].max_ConState
+= -1;gigaset_tab_cid[ 0 ].parameter = -1;gigaset_tab_cid[ 0 ].new_ConState =
+-1;gigaset_tab_cid[ 0 ].timeout = -1;gigaset_tab_cid[ 0 ].action[ 0 ] =
+40;gigaset_tab_cid[ 0 ].action[ 1 ] = 0;gigaset_tab_cid[ 0 ].action[ 2 ] =
+0;gigaset_tab_cid[ 0 ].command = 0;gigaset_tab_cid[ 1 ].resp_code =
+-27;gigaset_tab_cid[ 1 ].min_ConState = 0;gigaset_tab_cid[ 1 ].max_ConState =
+0;gigaset_tab_cid[ 1 ].parameter = 600;gigaset_tab_cid[ 1 ].new_ConState =
+601;gigaset_tab_cid[ 1 ].timeout = 5;gigaset_tab_cid[ 1 ].action[ 0 ] =
+103;gigaset_tab_cid[ 1 ].action[ 1 ] = 0;gigaset_tab_cid[ 1 ].action[ 2 ] =
+0;gigaset_tab_cid[ 1 ].command = 0;gigaset_tab_cid[ 2 ].resp_code =
+0;gigaset_tab_cid[ 2 ].min_ConState = 601;gigaset_tab_cid[ 2 ].max_ConState =
+601;gigaset_tab_cid[ 2 ].parameter = -1;gigaset_tab_cid[ 2 ].new_ConState =
+603;gigaset_tab_cid[ 2 ].timeout = 5;gigaset_tab_cid[ 2 ].action[ 0 ] =
+104;gigaset_tab_cid[ 2 ].action[ 1 ] = 0;gigaset_tab_cid[ 2 ].action[ 2 ] =
+0;gigaset_tab_cid[ 2 ].command = 0;gigaset_tab_cid[ 3 ].resp_code =
+0;gigaset_tab_cid[ 3 ].min_ConState = 603;gigaset_tab_cid[ 3 ].max_ConState =
+603;gigaset_tab_cid[ 3 ].parameter = -1;gigaset_tab_cid[ 3 ].new_ConState =
+604;gigaset_tab_cid[ 3 ].timeout = 5;gigaset_tab_cid[ 3 ].action[ 0 ] =
+105;gigaset_tab_cid[ 3 ].action[ 1 ] = 0;gigaset_tab_cid[ 3 ].action[ 2 ] =
+0;gigaset_tab_cid[ 3 ].command = 0;gigaset_tab_cid[ 4 ].resp_code =
+0;gigaset_tab_cid[ 4 ].min_ConState = 604;gigaset_tab_cid[ 4 ].max_ConState =
+604;gigaset_tab_cid[ 4 ].parameter = -1;gigaset_tab_cid[ 4 ].new_ConState =
+605;gigaset_tab_cid[ 4 ].timeout = 5;gigaset_tab_cid[ 4 ].action[ 0 ] =
+102;gigaset_tab_cid[ 4 ].action[ 1 ] = 0;gigaset_tab_cid[ 4 ].action[ 2 ] =
+0;gigaset_tab_cid[ 4 ].command = 0;gigaset_tab_cid[ 5 ].resp_code =
+-21;gigaset_tab_cid[ 5 ].min_ConState = 605;gigaset_tab_cid[ 5 ].max_ConState
+= 605;gigaset_tab_cid[ 5 ].parameter = -1;gigaset_tab_cid[ 5 ].new_ConState =
+606;gigaset_tab_cid[ 5 ].timeout = 5;gigaset_tab_cid[ 5 ].action[ 0 ] =
+106;gigaset_tab_cid[ 5 ].action[ 1 ] = 0;gigaset_tab_cid[ 5 ].action[ 2 ] =
+0;gigaset_tab_cid[ 5 ].command = 0;gigaset_tab_cid[ 6 ].resp_code =
+0;gigaset_tab_cid[ 6 ].min_ConState = 605;gigaset_tab_cid[ 6 ].max_ConState =
+605;gigaset_tab_cid[ 6 ].parameter = -1;gigaset_tab_cid[ 6 ].new_ConState =
+606;gigaset_tab_cid[ 6 ].timeout = 5;gigaset_tab_cid[ 6 ].action[ 0 ] =
+106;gigaset_tab_cid[ 6 ].action[ 1 ] = 0;gigaset_tab_cid[ 6 ].action[ 2 ] =
+0;gigaset_tab_cid[ 6 ].command = 0;gigaset_tab_cid[ 7 ].resp_code =
+-21;gigaset_tab_cid[ 7 ].min_ConState = 606;gigaset_tab_cid[ 7 ].max_ConState
+= 606;gigaset_tab_cid[ 7 ].parameter = -1;gigaset_tab_cid[ 7 ].new_ConState =
+607;gigaset_tab_cid[ 7 ].timeout = 5;gigaset_tab_cid[ 7 ].action[ 0 ] =
+100;gigaset_tab_cid[ 7 ].action[ 1 ] = 0;gigaset_tab_cid[ 7 ].action[ 2 ] =
+0;gigaset_tab_cid[ 7 ].command = 0;gigaset_tab_cid[ 8 ].resp_code =
+0;gigaset_tab_cid[ 8 ].min_ConState = 606;gigaset_tab_cid[ 8 ].max_ConState =
+606;gigaset_tab_cid[ 8 ].parameter = -1;gigaset_tab_cid[ 8 ].new_ConState =
+607;gigaset_tab_cid[ 8 ].timeout = 5;gigaset_tab_cid[ 8 ].action[ 0 ] =
+100;gigaset_tab_cid[ 8 ].action[ 1 ] = 0;gigaset_tab_cid[ 8 ].action[ 2 ] =
+0;gigaset_tab_cid[ 8 ].command = 0;gigaset_tab_cid[ 9 ].resp_code =
+0;gigaset_tab_cid[ 9 ].min_ConState = 607;gigaset_tab_cid[ 9 ].max_ConState =
+607;gigaset_tab_cid[ 9 ].parameter = -1;gigaset_tab_cid[ 9 ].new_ConState =
+608;gigaset_tab_cid[ 9 ].timeout = 5;gigaset_tab_cid[ 9 ].action[ 0 ] =
+0;gigaset_tab_cid[ 9 ].action[ 1 ] = 0;gigaset_tab_cid[ 9 ].action[ 2 ] =
+0;gigaset_tab_cid[ 9 ].command = "+VLS=17\r";gigaset_tab_cid[ 10 ].resp_code
+= 0;gigaset_tab_cid[ 10 ].min_ConState =
+608;gigaset_tab_cid[ 10 ].max_ConState = 608;gigaset_tab_cid[ 10 ].parameter
+= -1;gigaset_tab_cid[ 10 ].new_ConState = 609;gigaset_tab_cid[ 10 ].timeout =
+-1;gigaset_tab_cid[ 10 ].action[ 0 ] = 0;gigaset_tab_cid[ 10 ].action[ 1 ] =
+0;gigaset_tab_cid[ 10 ].action[ 2 ] = 0;gigaset_tab_cid[ 10 ].command =
+0;gigaset_tab_cid[ 11 ].resp_code = 100;gigaset_tab_cid[ 11 ].min_ConState =
+609;gigaset_tab_cid[ 11 ].max_ConState = 609;gigaset_tab_cid[ 11 ].parameter
+= 1;gigaset_tab_cid[ 11 ].new_ConState = 610;gigaset_tab_cid[ 11 ].timeout =
+5;gigaset_tab_cid[ 11 ].action[ 0 ] = 101;gigaset_tab_cid[ 11 ].action[ 1 ] =
+0;gigaset_tab_cid[ 11 ].action[ 2 ] = 0;gigaset_tab_cid[ 11 ].command =
+0;gigaset_tab_cid[ 12 ].resp_code = 0;gigaset_tab_cid[ 12 ].min_ConState =
+610;gigaset_tab_cid[ 12 ].max_ConState = 610;gigaset_tab_cid[ 12 ].parameter
+= -1;gigaset_tab_cid[ 12 ].new_ConState = 650;gigaset_tab_cid[ 12 ].timeout =
+0;gigaset_tab_cid[ 12 ].action[ 0 ] = 18;gigaset_tab_cid[ 12 ].action[ 1 ] =
+0;gigaset_tab_cid[ 12 ].action[ 2 ] = 0;gigaset_tab_cid[ 12 ].command =
+0;gigaset_tab_cid[ 13 ].resp_code = 1;gigaset_tab_cid[ 13 ].min_ConState =
+601;gigaset_tab_cid[ 13 ].max_ConState = 610;gigaset_tab_cid[ 13 ].parameter
+= -1;gigaset_tab_cid[ 13 ].new_ConState = 0;gigaset_tab_cid[ 13 ].timeout =
+0;gigaset_tab_cid[ 13 ].action[ 0 ] = 19;gigaset_tab_cid[ 13 ].action[ 1 ] =
+0;gigaset_tab_cid[ 13 ].action[ 2 ] = 0;gigaset_tab_cid[ 13 ].command =
+0;gigaset_tab_cid[ 14 ].resp_code = -105;gigaset_tab_cid[ 14 ].min_ConState =
+601;gigaset_tab_cid[ 14 ].max_ConState = 610;gigaset_tab_cid[ 14 ].parameter
+= -1;gigaset_tab_cid[ 14 ].new_ConState = 0;gigaset_tab_cid[ 14 ].timeout =
+0;gigaset_tab_cid[ 14 ].action[ 0 ] = 19;gigaset_tab_cid[ 14 ].action[ 1 ] =
+0;gigaset_tab_cid[ 14 ].action[ 2 ] = 0;gigaset_tab_cid[ 14 ].command =
+0;gigaset_tab_cid[ 15 ].resp_code = -117;gigaset_tab_cid[ 15 ].min_ConState =
+650;gigaset_tab_cid[ 15 ].max_ConState = 650;gigaset_tab_cid[ 15 ].parameter
+= -1;gigaset_tab_cid[ 15 ].new_ConState = 651;gigaset_tab_cid[ 15 ].timeout =
+-1;gigaset_tab_cid[ 15 ].action[ 0 ] = 0;gigaset_tab_cid[ 15 ].action[ 1 ] =
+0;gigaset_tab_cid[ 15 ].action[ 2 ] = 0;gigaset_tab_cid[ 15 ].command =
+0;gigaset_tab_cid[ 16 ].resp_code = 5;gigaset_tab_cid[ 16 ].min_ConState =
+609;gigaset_tab_cid[ 16 ].max_ConState = 651;gigaset_tab_cid[ 16 ].parameter
+= 17;gigaset_tab_cid[ 16 ].new_ConState = -1;gigaset_tab_cid[ 16 ].timeout =
+-1;gigaset_tab_cid[ 16 ].action[ 0 ] = 16;gigaset_tab_cid[ 16 ].action[ 1 ] =
+0;gigaset_tab_cid[ 16 ].action[ 2 ] = 0;gigaset_tab_cid[ 16 ].command =
+0;gigaset_tab_cid[ 17 ].resp_code = 102;gigaset_tab_cid[ 17 ].min_ConState =
+610;gigaset_tab_cid[ 17 ].max_ConState = 651;gigaset_tab_cid[ 17 ].parameter
+= -1;gigaset_tab_cid[ 17 ].new_ConState = -1;gigaset_tab_cid[ 17 ].timeout =
+-1;gigaset_tab_cid[ 17 ].action[ 0 ] = 16;gigaset_tab_cid[ 17 ].action[ 1 ] =
+0;gigaset_tab_cid[ 17 ].action[ 2 ] = 0;gigaset_tab_cid[ 17 ].command =
+0;gigaset_tab_cid[ 18 ].resp_code = 104;gigaset_tab_cid[ 18 ].min_ConState =
+610;gigaset_tab_cid[ 18 ].max_ConState = 651;gigaset_tab_cid[ 18 ].parameter
+= -1;gigaset_tab_cid[ 18 ].new_ConState = -1;gigaset_tab_cid[ 18 ].timeout =
+-1;gigaset_tab_cid[ 18 ].action[ 0 ] = 16;gigaset_tab_cid[ 18 ].action[ 1 ] =
+0;gigaset_tab_cid[ 18 ].action[ 2 ] = 0;gigaset_tab_cid[ 18 ].command =
+0;gigaset_tab_cid[ 19 ].resp_code = 100;gigaset_tab_cid[ 19 ].min_ConState =
+650;gigaset_tab_cid[ 19 ].max_ConState = 651;gigaset_tab_cid[ 19 ].parameter
+= 2;gigaset_tab_cid[ 19 ].new_ConState = -1;gigaset_tab_cid[ 19 ].timeout =
+-1;gigaset_tab_cid[ 19 ].action[ 0 ] = 16;gigaset_tab_cid[ 19 ].action[ 1 ] =
+0;gigaset_tab_cid[ 19 ].action[ 2 ] = 0;gigaset_tab_cid[ 19 ].command =
+0;gigaset_tab_cid[ 20 ].resp_code = 100;gigaset_tab_cid[ 20 ].min_ConState =
+650;gigaset_tab_cid[ 20 ].max_ConState = 650;gigaset_tab_cid[ 20 ].parameter
+= 3;gigaset_tab_cid[ 20 ].new_ConState = 800;gigaset_tab_cid[ 20 ].timeout =
+-1;gigaset_tab_cid[ 20 ].action[ 0 ] = 21;gigaset_tab_cid[ 20 ].action[ 1 ] =
+0;gigaset_tab_cid[ 20 ].action[ 2 ] = 0;gigaset_tab_cid[ 20 ].command =
+0;gigaset_tab_cid[ 21 ].resp_code = 100;gigaset_tab_cid[ 21 ].min_ConState =
+651;gigaset_tab_cid[ 21 ].max_ConState = 651;gigaset_tab_cid[ 21 ].parameter
+= 3;gigaset_tab_cid[ 21 ].new_ConState = 800;gigaset_tab_cid[ 21 ].timeout =
+-1;gigaset_tab_cid[ 21 ].action[ 0 ] = 21;gigaset_tab_cid[ 21 ].action[ 1 ] =
+39;gigaset_tab_cid[ 21 ].action[ 2 ] = 0;gigaset_tab_cid[ 21 ].command =
+0;gigaset_tab_cid[ 22 ].resp_code = 100;gigaset_tab_cid[ 22 ].min_ConState =
+750;gigaset_tab_cid[ 22 ].max_ConState = 750;gigaset_tab_cid[ 22 ].parameter
+= 3;gigaset_tab_cid[ 22 ].new_ConState = 800;gigaset_tab_cid[ 22 ].timeout =
+-1;gigaset_tab_cid[ 22 ].action[ 0 ] = 21;gigaset_tab_cid[ 22 ].action[ 1 ] =
+0;gigaset_tab_cid[ 22 ].action[ 2 ] = 0;gigaset_tab_cid[ 22 ].command =
+0;gigaset_tab_cid[ 23 ].resp_code = 100;gigaset_tab_cid[ 23 ].min_ConState =
+751;gigaset_tab_cid[ 23 ].max_ConState = 751;gigaset_tab_cid[ 23 ].parameter
+= 3;gigaset_tab_cid[ 23 ].new_ConState = 800;gigaset_tab_cid[ 23 ].timeout =
+-1;gigaset_tab_cid[ 23 ].action[ 0 ] = 21;gigaset_tab_cid[ 23 ].action[ 1 ] =
+39;gigaset_tab_cid[ 23 ].action[ 2 ] = 0;gigaset_tab_cid[ 23 ].command =
+0;gigaset_tab_cid[ 24 ].resp_code = -117;gigaset_tab_cid[ 24 ].min_ConState =
+800;gigaset_tab_cid[ 24 ].max_ConState = 800;gigaset_tab_cid[ 24 ].parameter
+= -1;gigaset_tab_cid[ 24 ].new_ConState = 800;gigaset_tab_cid[ 24 ].timeout =
+-1;gigaset_tab_cid[ 24 ].action[ 0 ] = 39;gigaset_tab_cid[ 24 ].action[ 1 ] =
+0;gigaset_tab_cid[ 24 ].action[ 2 ] = 0;gigaset_tab_cid[ 24 ].command =
+0;gigaset_tab_cid[ 25 ].resp_code = 100;gigaset_tab_cid[ 25 ].min_ConState =
+650;gigaset_tab_cid[ 25 ].max_ConState = 651;gigaset_tab_cid[ 25 ].parameter
+= 4;gigaset_tab_cid[ 25 ].new_ConState = 0;gigaset_tab_cid[ 25 ].timeout =
+0;gigaset_tab_cid[ 25 ].action[ 0 ] = 22;gigaset_tab_cid[ 25 ].action[ 1 ] =
+0;gigaset_tab_cid[ 25 ].action[ 2 ] = 0;gigaset_tab_cid[ 25 ].command =
+0;gigaset_tab_cid[ 26 ].resp_code = 100;gigaset_tab_cid[ 26 ].min_ConState =
+750;gigaset_tab_cid[ 26 ].max_ConState = 751;gigaset_tab_cid[ 26 ].parameter
+= 4;gigaset_tab_cid[ 26 ].new_ConState = 0;gigaset_tab_cid[ 26 ].timeout =
+0;gigaset_tab_cid[ 26 ].action[ 0 ] = 24;gigaset_tab_cid[ 26 ].action[ 1 ] =
+0;gigaset_tab_cid[ 26 ].action[ 2 ] = 0;gigaset_tab_cid[ 26 ].command =
+0;gigaset_tab_cid[ 27 ].resp_code = 100;gigaset_tab_cid[ 27 ].min_ConState =
+800;gigaset_tab_cid[ 27 ].max_ConState = 800;gigaset_tab_cid[ 27 ].parameter
+= 4;gigaset_tab_cid[ 27 ].new_ConState = 0;gigaset_tab_cid[ 27 ].timeout =
+0;gigaset_tab_cid[ 27 ].action[ 0 ] = 24;gigaset_tab_cid[ 27 ].action[ 1 ] =
+0;gigaset_tab_cid[ 27 ].action[ 2 ] = 0;gigaset_tab_cid[ 27 ].command =
+0;gigaset_tab_cid[ 28 ].resp_code = -116;gigaset_tab_cid[ 28 ].min_ConState =
+-1;gigaset_tab_cid[ 28 ].max_ConState = -1;gigaset_tab_cid[ 28 ].parameter =
+-1;gigaset_tab_cid[ 28 ].new_ConState = -1;gigaset_tab_cid[ 28 ].timeout =
+-1;gigaset_tab_cid[ 28 ].action[ 0 ] = 43;gigaset_tab_cid[ 28 ].action[ 1 ] =
+0;gigaset_tab_cid[ 28 ].action[ 2 ] = 0;gigaset_tab_cid[ 28 ].command =
+0;gigaset_tab_cid[ 29 ].resp_code = -27;gigaset_tab_cid[ 29 ].min_ConState =
+-1;gigaset_tab_cid[ 29 ].max_ConState = -1;gigaset_tab_cid[ 29 ].parameter =
+400;gigaset_tab_cid[ 29 ].new_ConState = 401;gigaset_tab_cid[ 29 ].timeout =
+5;gigaset_tab_cid[ 29 ].action[ 0 ] = 0;gigaset_tab_cid[ 29 ].action[ 1 ] =
+0;gigaset_tab_cid[ 29 ].action[ 2 ] = 0;gigaset_tab_cid[ 29 ].command =
+"+VLS=0\r";gigaset_tab_cid[ 30 ].resp_code =
+0;gigaset_tab_cid[ 30 ].min_ConState = 401;gigaset_tab_cid[ 30 ].max_ConState
+= 401;gigaset_tab_cid[ 30 ].parameter = -1;gigaset_tab_cid[ 30 ].new_ConState
+= 402;gigaset_tab_cid[ 30 ].timeout = 5;gigaset_tab_cid[ 30 ].action[ 0 ] =
+0;gigaset_tab_cid[ 30 ].action[ 1 ] = 0;gigaset_tab_cid[ 30 ].action[ 2 ] =
+0;gigaset_tab_cid[ 30 ].command = 0;gigaset_tab_cid[ 31 ].resp_code =
+5;gigaset_tab_cid[ 31 ].min_ConState = 402;gigaset_tab_cid[ 31 ].max_ConState
+= 402;gigaset_tab_cid[ 31 ].parameter = 0;gigaset_tab_cid[ 31 ].new_ConState
+= 403;gigaset_tab_cid[ 31 ].timeout = 5;gigaset_tab_cid[ 31 ].action[ 0 ] =
+0;gigaset_tab_cid[ 31 ].action[ 1 ] = 0;gigaset_tab_cid[ 31 ].action[ 2 ] =
+0;gigaset_tab_cid[ 31 ].command = 0;gigaset_tab_cid[ 32 ].resp_code =
+100;gigaset_tab_cid[ 32 ].min_ConState =
+403;gigaset_tab_cid[ 32 ].max_ConState = 403;gigaset_tab_cid[ 32 ].parameter
+= 6;gigaset_tab_cid[ 32 ].new_ConState = -1;gigaset_tab_cid[ 32 ].timeout =
+-1;gigaset_tab_cid[ 32 ].action[ 0 ] = 16;gigaset_tab_cid[ 32 ].action[ 1 ] =
+0;gigaset_tab_cid[ 32 ].action[ 2 ] = 0;gigaset_tab_cid[ 32 ].command =
+0;gigaset_tab_cid[ 33 ].resp_code = 100;gigaset_tab_cid[ 33 ].min_ConState =
+403;gigaset_tab_cid[ 33 ].max_ConState = 403;gigaset_tab_cid[ 33 ].parameter
+= 5;gigaset_tab_cid[ 33 ].new_ConState = 0;gigaset_tab_cid[ 33 ].timeout =
+0;gigaset_tab_cid[ 33 ].action[ 0 ] = 20;gigaset_tab_cid[ 33 ].action[ 1 ] =
+0;gigaset_tab_cid[ 33 ].action[ 2 ] = 0;gigaset_tab_cid[ 33 ].command =
+0;gigaset_tab_cid[ 34 ].resp_code = -9;gigaset_tab_cid[ 34 ].min_ConState =
+401;gigaset_tab_cid[ 34 ].max_ConState = 403;gigaset_tab_cid[ 34 ].parameter
+= -1;gigaset_tab_cid[ 34 ].new_ConState = 0;gigaset_tab_cid[ 34 ].timeout =
+0;gigaset_tab_cid[ 34 ].action[ 0 ] = 48;gigaset_tab_cid[ 34 ].action[ 1 ] =
+0;gigaset_tab_cid[ 34 ].action[ 2 ] = 0;gigaset_tab_cid[ 34 ].command =
+0;gigaset_tab_cid[ 35 ].resp_code = 1;gigaset_tab_cid[ 35 ].min_ConState =
+401;gigaset_tab_cid[ 35 ].max_ConState = 401;gigaset_tab_cid[ 35 ].parameter
+= -1;gigaset_tab_cid[ 35 ].new_ConState = 0;gigaset_tab_cid[ 35 ].timeout =
+0;gigaset_tab_cid[ 35 ].action[ 0 ] = 25;gigaset_tab_cid[ 35 ].action[ 1 ] =
+0;gigaset_tab_cid[ 35 ].action[ 2 ] = 0;gigaset_tab_cid[ 35 ].command =
+0;gigaset_tab_cid[ 36 ].resp_code = -105;gigaset_tab_cid[ 36 ].min_ConState =
+401;gigaset_tab_cid[ 36 ].max_ConState = 403;gigaset_tab_cid[ 36 ].parameter
+= -1;gigaset_tab_cid[ 36 ].new_ConState = 0;gigaset_tab_cid[ 36 ].timeout =
+0;gigaset_tab_cid[ 36 ].action[ 0 ] = 25;gigaset_tab_cid[ 36 ].action[ 1 ] =
+0;gigaset_tab_cid[ 36 ].action[ 2 ] = 0;gigaset_tab_cid[ 36 ].command =
+0;gigaset_tab_cid[ 37 ].resp_code = -118;gigaset_tab_cid[ 37 ].min_ConState =
+0;gigaset_tab_cid[ 37 ].max_ConState = 0;gigaset_tab_cid[ 37 ].parameter =
+-1;gigaset_tab_cid[ 37 ].new_ConState = 0;gigaset_tab_cid[ 37 ].timeout =
+-1;gigaset_tab_cid[ 37 ].action[ 0 ] = 38;gigaset_tab_cid[ 37 ].action[ 1 ] =
+0;gigaset_tab_cid[ 37 ].action[ 2 ] = 0;gigaset_tab_cid[ 37 ].command =
+0;gigaset_tab_cid[ 38 ].resp_code = 106;gigaset_tab_cid[ 38 ].min_ConState =
+700;gigaset_tab_cid[ 38 ].max_ConState = 700;gigaset_tab_cid[ 38 ].parameter
+= -1;gigaset_tab_cid[ 38 ].new_ConState = -1;gigaset_tab_cid[ 38 ].timeout =
+-1;gigaset_tab_cid[ 38 ].action[ 0 ] = 0;gigaset_tab_cid[ 38 ].action[ 1 ] =
+0;gigaset_tab_cid[ 38 ].action[ 2 ] = 0;gigaset_tab_cid[ 38 ].command =
+0;gigaset_tab_cid[ 39 ].resp_code = 107;gigaset_tab_cid[ 39 ].min_ConState =
+700;gigaset_tab_cid[ 39 ].max_ConState = 700;gigaset_tab_cid[ 39 ].parameter
+= -1;gigaset_tab_cid[ 39 ].new_ConState = -1;gigaset_tab_cid[ 39 ].timeout =
+-1;gigaset_tab_cid[ 39 ].action[ 0 ] = 0;gigaset_tab_cid[ 39 ].action[ 1 ] =
+0;gigaset_tab_cid[ 39 ].action[ 2 ] = 0;gigaset_tab_cid[ 39 ].command =
+0;gigaset_tab_cid[ 40 ].resp_code = 103;gigaset_tab_cid[ 40 ].min_ConState =
+700;gigaset_tab_cid[ 40 ].max_ConState = 700;gigaset_tab_cid[ 40 ].parameter
+= -1;gigaset_tab_cid[ 40 ].new_ConState = -1;gigaset_tab_cid[ 40 ].timeout =
+-1;gigaset_tab_cid[ 40 ].action[ 0 ] = 0;gigaset_tab_cid[ 40 ].action[ 1 ] =
+0;gigaset_tab_cid[ 40 ].action[ 2 ] = 0;gigaset_tab_cid[ 40 ].command =
+0;gigaset_tab_cid[ 41 ].resp_code = 104;gigaset_tab_cid[ 41 ].min_ConState =
+700;gigaset_tab_cid[ 41 ].max_ConState = 700;gigaset_tab_cid[ 41 ].parameter
+= -1;gigaset_tab_cid[ 41 ].new_ConState = -1;gigaset_tab_cid[ 41 ].timeout =
+-1;gigaset_tab_cid[ 41 ].action[ 0 ] = 0;gigaset_tab_cid[ 41 ].action[ 1 ] =
+0;gigaset_tab_cid[ 41 ].action[ 2 ] = 0;gigaset_tab_cid[ 41 ].command =
+0;gigaset_tab_cid[ 42 ].resp_code = 102;gigaset_tab_cid[ 42 ].min_ConState =
+700;gigaset_tab_cid[ 42 ].max_ConState = 700;gigaset_tab_cid[ 42 ].parameter
+= -1;gigaset_tab_cid[ 42 ].new_ConState = -1;gigaset_tab_cid[ 42 ].timeout =
+-1;gigaset_tab_cid[ 42 ].action[ 0 ] = 0;gigaset_tab_cid[ 42 ].action[ 1 ] =
+0;gigaset_tab_cid[ 42 ].action[ 2 ] = 0;gigaset_tab_cid[ 42 ].command =
+0;gigaset_tab_cid[ 43 ].resp_code = -105;gigaset_tab_cid[ 43 ].min_ConState =
+700;gigaset_tab_cid[ 43 ].max_ConState = 700;gigaset_tab_cid[ 43 ].parameter
+= -1;gigaset_tab_cid[ 43 ].new_ConState = 720;gigaset_tab_cid[ 43 ].timeout =
+720;gigaset_tab_cid[ 43 ].action[ 0 ] = 26;gigaset_tab_cid[ 43 ].action[ 1 ]
+= 0;gigaset_tab_cid[ 43 ].action[ 2 ] = 0;gigaset_tab_cid[ 43 ].command =
+0;gigaset_tab_cid[ 44 ].resp_code = -118;gigaset_tab_cid[ 44 ].min_ConState =
+720;gigaset_tab_cid[ 44 ].max_ConState = 720;gigaset_tab_cid[ 44 ].parameter
+= -1;gigaset_tab_cid[ 44 ].new_ConState = 0;gigaset_tab_cid[ 44 ].timeout =
+-1;gigaset_tab_cid[ 44 ].action[ 0 ] = 38;gigaset_tab_cid[ 44 ].action[ 1 ] =
+0;gigaset_tab_cid[ 44 ].action[ 2 ] = 0;gigaset_tab_cid[ 44 ].command =
+0;gigaset_tab_cid[ 45 ].resp_code = -114;gigaset_tab_cid[ 45 ].min_ConState =
+-1;gigaset_tab_cid[ 45 ].max_ConState = -1;gigaset_tab_cid[ 45 ].parameter =
+-1;gigaset_tab_cid[ 45 ].new_ConState = -1;gigaset_tab_cid[ 45 ].timeout =
+-1;gigaset_tab_cid[ 45 ].action[ 0 ] = 41;gigaset_tab_cid[ 45 ].action[ 1 ] =
+0;gigaset_tab_cid[ 45 ].action[ 2 ] = 0;gigaset_tab_cid[ 45 ].command =
+0;gigaset_tab_cid[ 46 ].resp_code = -27;gigaset_tab_cid[ 46 ].min_ConState =
+720;gigaset_tab_cid[ 46 ].max_ConState = 720;gigaset_tab_cid[ 46 ].parameter
+= 720;gigaset_tab_cid[ 46 ].new_ConState = 721;gigaset_tab_cid[ 46 ].timeout
+= 5;gigaset_tab_cid[ 46 ].action[ 0 ] = 104;gigaset_tab_cid[ 46 ].action[ 1 ]
+= 0;gigaset_tab_cid[ 46 ].action[ 2 ] = 0;gigaset_tab_cid[ 46 ].command =
+0;gigaset_tab_cid[ 47 ].resp_code = 0;gigaset_tab_cid[ 47 ].min_ConState =
+721;gigaset_tab_cid[ 47 ].max_ConState = 721;gigaset_tab_cid[ 47 ].parameter
+= -1;gigaset_tab_cid[ 47 ].new_ConState = 722;gigaset_tab_cid[ 47 ].timeout =
+5;gigaset_tab_cid[ 47 ].action[ 0 ] = 100;gigaset_tab_cid[ 47 ].action[ 1 ] =
+0;gigaset_tab_cid[ 47 ].action[ 2 ] = 0;gigaset_tab_cid[ 47 ].command =
+0;gigaset_tab_cid[ 48 ].resp_code = 0;gigaset_tab_cid[ 48 ].min_ConState =
+722;gigaset_tab_cid[ 48 ].max_ConState = 722;gigaset_tab_cid[ 48 ].parameter
+= -1;gigaset_tab_cid[ 48 ].new_ConState = 723;gigaset_tab_cid[ 48 ].timeout =
+5;gigaset_tab_cid[ 48 ].action[ 0 ] = 0;gigaset_tab_cid[ 48 ].action[ 1 ] =
+0;gigaset_tab_cid[ 48 ].action[ 2 ] = 0;gigaset_tab_cid[ 48 ].command =
+"+VLS=17\r";gigaset_tab_cid[ 49 ].resp_code =
+0;gigaset_tab_cid[ 49 ].min_ConState = 723;gigaset_tab_cid[ 49 ].max_ConState
+= 723;gigaset_tab_cid[ 49 ].parameter = -1;gigaset_tab_cid[ 49 ].new_ConState
+= 724;gigaset_tab_cid[ 49 ].timeout = 5;gigaset_tab_cid[ 49 ].action[ 0 ] =
+0;gigaset_tab_cid[ 49 ].action[ 1 ] = 0;gigaset_tab_cid[ 49 ].action[ 2 ] =
+0;gigaset_tab_cid[ 49 ].command = 0;gigaset_tab_cid[ 50 ].resp_code =
+5;gigaset_tab_cid[ 50 ].min_ConState = 724;gigaset_tab_cid[ 50 ].max_ConState
+= 724;gigaset_tab_cid[ 50 ].parameter = 17;gigaset_tab_cid[ 50 ].new_ConState
+= 750;gigaset_tab_cid[ 50 ].timeout = 50;gigaset_tab_cid[ 50 ].action[ 0 ] =
+27;gigaset_tab_cid[ 50 ].action[ 1 ] = 0;gigaset_tab_cid[ 50 ].action[ 2 ] =
+0;gigaset_tab_cid[ 50 ].command = 0;gigaset_tab_cid[ 51 ].resp_code =
+1;gigaset_tab_cid[ 51 ].min_ConState = 721;gigaset_tab_cid[ 51 ].max_ConState
+= 729;gigaset_tab_cid[ 51 ].parameter = -1;gigaset_tab_cid[ 51 ].new_ConState
+= 0;gigaset_tab_cid[ 51 ].timeout = 0;gigaset_tab_cid[ 51 ].action[ 0 ] =
+28;gigaset_tab_cid[ 51 ].action[ 1 ] = 0;gigaset_tab_cid[ 51 ].action[ 2 ] =
+0;gigaset_tab_cid[ 51 ].command = 0;gigaset_tab_cid[ 52 ].resp_code =
+-105;gigaset_tab_cid[ 52 ].min_ConState =
+721;gigaset_tab_cid[ 52 ].max_ConState = 729;gigaset_tab_cid[ 52 ].parameter
+= -1;gigaset_tab_cid[ 52 ].new_ConState = 0;gigaset_tab_cid[ 52 ].timeout =
+0;gigaset_tab_cid[ 52 ].action[ 0 ] = 28;gigaset_tab_cid[ 52 ].action[ 1 ] =
+0;gigaset_tab_cid[ 52 ].action[ 2 ] = 0;gigaset_tab_cid[ 52 ].command =
+0;gigaset_tab_cid[ 53 ].resp_code = 100;gigaset_tab_cid[ 53 ].min_ConState =
+700;gigaset_tab_cid[ 53 ].max_ConState = 729;gigaset_tab_cid[ 53 ].parameter
+= 5;gigaset_tab_cid[ 53 ].new_ConState = 0;gigaset_tab_cid[ 53 ].timeout =
+0;gigaset_tab_cid[ 53 ].action[ 0 ] = 28;gigaset_tab_cid[ 53 ].action[ 1 ] =
+0;gigaset_tab_cid[ 53 ].action[ 2 ] = 0;gigaset_tab_cid[ 53 ].command =
+0;gigaset_tab_cid[ 54 ].resp_code = 100;gigaset_tab_cid[ 54 ].min_ConState =
+700;gigaset_tab_cid[ 54 ].max_ConState = 729;gigaset_tab_cid[ 54 ].parameter
+= 3;gigaset_tab_cid[ 54 ].new_ConState = 0;gigaset_tab_cid[ 54 ].timeout =
+0;gigaset_tab_cid[ 54 ].action[ 0 ] = 28;gigaset_tab_cid[ 54 ].action[ 1 ] =
+0;gigaset_tab_cid[ 54 ].action[ 2 ] = 0;gigaset_tab_cid[ 54 ].command =
+0;gigaset_tab_cid[ 55 ].resp_code = 100;gigaset_tab_cid[ 55 ].min_ConState =
+700;gigaset_tab_cid[ 55 ].max_ConState = 729;gigaset_tab_cid[ 55 ].parameter
+= 4;gigaset_tab_cid[ 55 ].new_ConState = 0;gigaset_tab_cid[ 55 ].timeout =
+0;gigaset_tab_cid[ 55 ].action[ 0 ] = 28;gigaset_tab_cid[ 55 ].action[ 1 ] =
+0;gigaset_tab_cid[ 55 ].action[ 2 ] = 0;gigaset_tab_cid[ 55 ].command =
+0;gigaset_tab_cid[ 56 ].resp_code = -117;gigaset_tab_cid[ 56 ].min_ConState =
+750;gigaset_tab_cid[ 56 ].max_ConState = 750;gigaset_tab_cid[ 56 ].parameter
+= -1;gigaset_tab_cid[ 56 ].new_ConState = 751;gigaset_tab_cid[ 56 ].timeout =
+-1;gigaset_tab_cid[ 56 ].action[ 0 ] = 0;gigaset_tab_cid[ 56 ].action[ 1 ] =
+0;gigaset_tab_cid[ 56 ].action[ 2 ] = 0;gigaset_tab_cid[ 56 ].command =
+0;gigaset_tab_cid[ 57 ].resp_code = -105;gigaset_tab_cid[ 57 ].min_ConState =
+750;gigaset_tab_cid[ 57 ].max_ConState = 751;gigaset_tab_cid[ 57 ].parameter
+= -1;gigaset_tab_cid[ 57 ].new_ConState = 0;gigaset_tab_cid[ 57 ].timeout =
+0;gigaset_tab_cid[ 57 ].action[ 0 ] = 23;gigaset_tab_cid[ 57 ].action[ 1 ] =
+0;gigaset_tab_cid[ 57 ].action[ 2 ] = 0;gigaset_tab_cid[ 57 ].command =
+0;gigaset_tab_cid[ 58 ].resp_code = -118;gigaset_tab_cid[ 58 ].min_ConState =
+-1;gigaset_tab_cid[ 58 ].max_ConState = -1;gigaset_tab_cid[ 58 ].parameter =
+-1;gigaset_tab_cid[ 58 ].new_ConState = -1;gigaset_tab_cid[ 58 ].timeout =
+-1;gigaset_tab_cid[ 58 ].action[ 0 ] = 38;gigaset_tab_cid[ 58 ].action[ 1 ] =
+0;gigaset_tab_cid[ 58 ].action[ 2 ] = 0;gigaset_tab_cid[ 58 ].command =
+0;gigaset_tab_cid[ 59 ].resp_code = 105;gigaset_tab_cid[ 59 ].min_ConState =
+-1;gigaset_tab_cid[ 59 ].max_ConState = -1;gigaset_tab_cid[ 59 ].parameter =
+-1;gigaset_tab_cid[ 59 ].new_ConState = -1;gigaset_tab_cid[ 59 ].timeout =
+-1;gigaset_tab_cid[ 59 ].action[ 0 ] = 16;gigaset_tab_cid[ 59 ].action[ 1 ] =
+0;gigaset_tab_cid[ 59 ].action[ 2 ] = 0;gigaset_tab_cid[ 59 ].command =
+0;gigaset_tab_cid[ 60 ].resp_code = 6;gigaset_tab_cid[ 60 ].min_ConState =
+-1;gigaset_tab_cid[ 60 ].max_ConState = -1;gigaset_tab_cid[ 60 ].parameter =
+-1;gigaset_tab_cid[ 60 ].new_ConState = -1;gigaset_tab_cid[ 60 ].timeout =
+-1;gigaset_tab_cid[ 60 ].action[ 0 ] = 37;gigaset_tab_cid[ 60 ].action[ 1 ] =
+0;gigaset_tab_cid[ 60 ].action[ 2 ] = 0;gigaset_tab_cid[ 60 ].command =
+0;gigaset_tab_cid[ 61 ].resp_code = -19;gigaset_tab_cid[ 61 ].min_ConState =
+-1;gigaset_tab_cid[ 61 ].max_ConState = -1;gigaset_tab_cid[ 61 ].parameter =
+-1;gigaset_tab_cid[ 61 ].new_ConState = -1;gigaset_tab_cid[ 61 ].timeout =
+-1;gigaset_tab_cid[ 61 ].action[ 0 ] = 16;gigaset_tab_cid[ 61 ].action[ 1 ] =
+0;gigaset_tab_cid[ 61 ].action[ 2 ] = 0;gigaset_tab_cid[ 61 ].command =
+0;gigaset_tab_cid[ 62 ].resp_code = -26;gigaset_tab_cid[ 62 ].min_ConState =
+-1;gigaset_tab_cid[ 62 ].max_ConState = -1;gigaset_tab_cid[ 62 ].parameter =
+-1;gigaset_tab_cid[ 62 ].new_ConState = -1;gigaset_tab_cid[ 62 ].timeout =
+-1;gigaset_tab_cid[ 62 ].action[ 0 ] = 17;gigaset_tab_cid[ 62 ].action[ 1 ] =
+0;gigaset_tab_cid[ 62 ].action[ 2 ] = 0;gigaset_tab_cid[ 62 ].command =
+0;gigaset_tab_cid[ 63 ].resp_code = -28;gigaset_tab_cid[ 63 ].min_ConState =
+0;gigaset_tab_cid[ 63 ].max_ConState = 0;gigaset_tab_cid[ 63 ].parameter =
+0;gigaset_tab_cid[ 63 ].new_ConState = 0;gigaset_tab_cid[ 63 ].timeout =
+0;gigaset_tab_cid[ 63 ].action[ 0 ] = 0;gigaset_tab_cid[ 63 ].action[ 1 ] =
+0;gigaset_tab_cid[ 63 ].action[ 2 ] = 0;gigaset_tab_cid[ 63 ].command =
+0;resp_type[ 0 ].response = "OK";resp_type[ 0 ].resp_code =
+0;resp_type[ 0 ].type = 0;resp_type[ 1 ].response =
+"ERROR";resp_type[ 1 ].resp_code = 1;resp_type[ 1 ].type =
+0;resp_type[ 2 ].response = "ZSAU";resp_type[ 2 ].resp_code =
+100;resp_type[ 2 ].type = 1;resp_type[ 3 ].response =
+"ZCAU";resp_type[ 3 ].resp_code = 6;resp_type[ 3 ].type =
+6;resp_type[ 4 ].response = "RING";resp_type[ 4 ].resp_code =
+4;resp_type[ 4 ].type = 2;resp_type[ 5 ].response =
+"ZGCI";resp_type[ 5 ].resp_code = 3;resp_type[ 5 ].type =
+3;resp_type[ 6 ].response = "ZVLS";resp_type[ 6 ].resp_code =
+5;resp_type[ 6 ].type = 3;resp_type[ 7 ].response =
+"ZCTP";resp_type[ 7 ].resp_code = 102;resp_type[ 7 ].type =
+3;resp_type[ 8 ].response = "ZDLE";resp_type[ 8 ].resp_code =
+101;resp_type[ 8 ].type = 3;resp_type[ 9 ].response =
+"ZHLC";resp_type[ 9 ].resp_code = 107;resp_type[ 9 ].type =
+4;resp_type[ 10 ].response = "ZBC";resp_type[ 10 ].resp_code =
+106;resp_type[ 10 ].type = 4;resp_type[ 11 ].response =
+"NMBR";resp_type[ 11 ].resp_code = 103;resp_type[ 11 ].type =
+4;resp_type[ 12 ].response = "ZCPN";resp_type[ 12 ].resp_code =
+104;resp_type[ 12 ].type = 4;resp_type[ 13 ].response =
+"ZCON";resp_type[ 13 ].resp_code = 105;resp_type[ 13 ].type =
+4;resp_type[ 14 ].response = 0;resp_type[ 14 ].resp_code =
+0;resp_type[ 14 ].type = 0;zsau_resp[ 0 ].str =
+"OUTGOING_CALL_PROCEEDING";zsau_resp[ 0 ].code = 1;zsau_resp[ 1 ].str =
+"CALL_DELIVERED";zsau_resp[ 1 ].code = 2;zsau_resp[ 2 ].str =
+"ACTIVE";zsau_resp[ 2 ].code = 3;zsau_resp[ 3 ].str =
+"DISCONNECT_IND";zsau_resp[ 3 ].code = 4;zsau_resp[ 4 ].str =
+"NULL";zsau_resp[ 4 ].code = 5;zsau_resp[ 5 ].str =
+"DISCONNECT_REQ";zsau_resp[ 5 ].code = 6;zsau_resp[ 6 ].str =
+0;zsau_resp[ 6 ].code = -1;cip2bchlc[ 0 ].bc = 0;cip2bchlc[ 0 ].hlc =
+0;cip2bchlc[ 1 ].bc = "8090A3";cip2bchlc[ 1 ].hlc = 0;cip2bchlc[ 2 ].bc =
+"8890";cip2bchlc[ 2 ].hlc = 0;cip2bchlc[ 3 ].bc = "8990";cip2bchlc[ 3 ].hlc =
+0;cip2bchlc[ 4 ].bc = "9090A3";cip2bchlc[ 4 ].hlc = 0;cip2bchlc[ 5 ].bc =
+"9190";cip2bchlc[ 5 ].hlc = 0;cip2bchlc[ 6 ].bc = "9890";cip2bchlc[ 6 ].hlc =
+0;cip2bchlc[ 7 ].bc = "88C0C6E6";cip2bchlc[ 7 ].hlc = 0;cip2bchlc[ 8 ].bc =
+"8890218F";cip2bchlc[ 8 ].hlc = 0;cip2bchlc[ 9 ].bc =
+"9190A5";cip2bchlc[ 9 ].hlc = 0;cip2bchlc[ 10 ].bc = 0;cip2bchlc[ 10 ].hlc =
+0;cip2bchlc[ 11 ].bc = 0;cip2bchlc[ 11 ].hlc = 0;cip2bchlc[ 12 ].bc =
+0;cip2bchlc[ 12 ].hlc = 0;cip2bchlc[ 13 ].bc = 0;cip2bchlc[ 13 ].hlc =
+0;cip2bchlc[ 14 ].bc = 0;cip2bchlc[ 14 ].hlc = 0;cip2bchlc[ 15 ].bc =
+0;cip2bchlc[ 15 ].hlc = 0;cip2bchlc[ 16 ].bc = "8090A3";cip2bchlc[ 16 ].hlc =
+"9181";cip2bchlc[ 17 ].bc = "9090A3";cip2bchlc[ 17 ].hlc =
+"9184";cip2bchlc[ 18 ].bc = "8890";cip2bchlc[ 18 ].hlc =
+"91A1";cip2bchlc[ 19 ].bc = "8890";cip2bchlc[ 19 ].hlc =
+"91A4";cip2bchlc[ 20 ].bc = "8890";cip2bchlc[ 20 ].hlc =
+"91A8";cip2bchlc[ 21 ].bc = "8890";cip2bchlc[ 21 ].hlc =
+"91B1";cip2bchlc[ 22 ].bc = "8890";cip2bchlc[ 22 ].hlc =
+"91B2";cip2bchlc[ 23 ].bc = "8890";cip2bchlc[ 23 ].hlc =
+"91B5";cip2bchlc[ 24 ].bc = "8890";cip2bchlc[ 24 ].hlc =
+"91B8";cip2bchlc[ 25 ].bc = "8890";cip2bchlc[ 25 ].hlc =
+"91C1";cip2bchlc[ 26 ].bc = "9190A5";cip2bchlc[ 26 ].hlc =
+"9181";cip2bchlc[ 27 ].bc = "9190A5";cip2bchlc[ 27 ].hlc =
+"916001";cip2bchlc[ 28 ].bc = "8890";cip2bchlc[ 28 ].hlc =
+"916002";capi_send_handler_table[ 0 ].cmd =
+34432;capi_send_handler_table[ 0 ].handler =
+&(do_data_b3_req);capi_send_handler_table[ 1 ].cmd =
+34435;capi_send_handler_table[ 1 ].handler =
+&(do_data_b3_resp);capi_send_handler_table[ 2 ].cmd =
+384;capi_send_handler_table[ 2 ].handler =
+&(do_alert_req);capi_send_handler_table[ 3 ].cmd =
+899;capi_send_handler_table[ 3 ].handler =
+&(do_nothing);capi_send_handler_table[ 4 ].cmd =
+33667;capi_send_handler_table[ 4 ].handler =
+&(do_nothing);capi_send_handler_table[ 5 ].cmd =
+33408;capi_send_handler_table[ 5 ].handler =
+&(do_connect_b3_req);capi_send_handler_table[ 6 ].cmd =
+33411;capi_send_handler_table[ 6 ].handler =
+&(do_connect_b3_resp);capi_send_handler_table[ 7 ].cmd =
+34947;capi_send_handler_table[ 7 ].handler =
+&(do_nothing);capi_send_handler_table[ 8 ].cmd =
+640;capi_send_handler_table[ 8 ].handler =
+&(do_connect_req);capi_send_handler_table[ 9 ].cmd =
+643;capi_send_handler_table[ 9 ].handler =
+&(do_connect_resp);capi_send_handler_table[ 10 ].cmd =
+33920;capi_send_handler_table[ 10 ].handler =
+&(do_disconnect_b3_req);capi_send_handler_table[ 11 ].cmd =
+33923;capi_send_handler_table[ 11 ].handler =
+&(do_nothing);capi_send_handler_table[ 12 ].cmd =
+1152;capi_send_handler_table[ 12 ].handler =
+&(do_disconnect_req);capi_send_handler_table[ 13 ].cmd =
+1155;capi_send_handler_table[ 13 ].handler =
+&(do_nothing);capi_send_handler_table[ 14 ].cmd =
+32896;capi_send_handler_table[ 14 ].handler =
+&(do_facility_req);capi_send_handler_table[ 15 ].cmd =
+32899;capi_send_handler_table[ 15 ].handler =
+&(do_nothing);capi_send_handler_table[ 16 ].cmd =
+1408;capi_send_handler_table[ 16 ].handler =
+&(do_listen_req);capi_send_handler_table[ 17 ].cmd =
+16768;capi_send_handler_table[ 17 ].handler =
+&(do_unsupported);capi_send_handler_table[ 18 ].cmd =
+34688;capi_send_handler_table[ 18 ].handler =
+&(do_reset_b3_req);capi_send_handler_table[ 19 ].cmd =
+34691;capi_send_handler_table[ 19 ].handler =
+&(do_nothing);capi_send_handler_table[ 20 ].cmd =
+2176;capi_send_handler_table[ 20 ].handler =
+&(do_unsupported);capi_send_handler_table[ 21 ].cmd =
+2179;capi_send_handler_table[ 21 ].handler =
+&(do_nothing);capi_send_handler_table[ 22 ].cmd =
+65408;capi_send_handler_table[ 22 ].handler =
+&(do_nothing);capi_send_handler_table[ 23 ].cmd =
+65411;capi_send_handler_table[ 23 ].handler =
+&(do_nothing);gigaset_proc_fops.owner =
+&(__this_module);gigaset_proc_fops.llseek =
+&(seq_lseek);gigaset_proc_fops.read = &(seq_read);gigaset_proc_fops.write =
+0;gigaset_proc_fops.aio_read = 0;gigaset_proc_fops.aio_write =
+0;gigaset_proc_fops.readdir = 0;gigaset_proc_fops.poll =
+0;gigaset_proc_fops.unlocked_ioctl = 0;gigaset_proc_fops.compat_ioctl =
+0;gigaset_proc_fops.mmap = 0;gigaset_proc_fops.open =
+&(gigaset_proc_open);gigaset_proc_fops.flush = 0;gigaset_proc_fops.release =
+&(single_release);gigaset_proc_fops.fsync = 0;gigaset_proc_fops.aio_fsync =
+0;gigaset_proc_fops.fasync = 0;gigaset_proc_fops.lock =
+0;gigaset_proc_fops.sendpage = 0;gigaset_proc_fops.get_unmapped_area =
+0;gigaset_proc_fops.check_flags = 0;gigaset_proc_fops.flock =
+0;gigaset_proc_fops.splice_write = 0;gigaset_proc_fops.splice_read =
+0;gigaset_proc_fops.setlease = 0;gigaset_proc_fops.fallocate =
+0;capi_driver_gigaset.name[ 0 ] = 103;capi_driver_gigaset.name[ 1 ] =
+105;capi_driver_gigaset.name[ 2 ] = 103;capi_driver_gigaset.name[ 3 ] =
+97;capi_driver_gigaset.name[ 4 ] = 115;capi_driver_gigaset.name[ 5 ] =
+101;capi_driver_gigaset.name[ 6 ] = 116;capi_driver_gigaset.name[ 7 ] =
+0;capi_driver_gigaset.revision[ 0 ] = 49;capi_driver_gigaset.revision[ 1 ] =
+46;capi_driver_gigaset.revision[ 2 ] = 48;capi_driver_gigaset.revision[ 3 ] =
+0;capi_driver_gigaset.add_card = 0;capi_driver_gigaset.list.next =
+0;capi_driver_gigaset.list.prev = 0;)
+                                                Location: id=210#2 src="ldv/08_1/drivers/isdn/gigaset/gigaset.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=91#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=828
+Block(ldv_s_if_ops_tty_operations@main = 0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=91#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=827
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=91#5 (Artificial)
+Skip
+                                                Location: id=91#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=832
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=91#7 (Artificial)
+Skip
+                                                Location: id=91#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=832
+Pred(tmp___0@main  !=  0)
+                                                Location: id=91#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=836
+FunctionCall(tmp@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=91#11 (Artificial)
+Skip
+                                                Location: id=91#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=838
+Pred(tmp@main  ==  0)
+                                                Location: id=91#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=837
+Skip
+                                                Location: id=91#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=841
+Pred(ldv_s_if_ops_tty_operations@main  ==  0)
+                                                Location: id=91#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=846
+FunctionCall(res_if_open_2@main = if_open(var_group1@main, var_group2@main))
+Locals:  tty@if_open filp@if_open
+                                                Location: id=74#1 src=""; line=-1
+   Pred(gigaset_debuglevel  &  524288  !=  0)
+                                                Location: id=74#2 src=""; line=-1
+   Block(__cil_tmp12@if_open = 1;)
+                                                Location: id=74#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=158
+   FunctionCall(tmp@if_open = __builtin_expect(__cil_tmp12@if_open, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=74#5 (Artificial)
+   Skip
+                                                Location: id=74#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=158
+   Pred(tmp@if_open  ==  0)
+                                                Location: id=74#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=161
+   Block(* (tty@if_open ).driver_data = 0;)
+                                                Location: id=74#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=163
+   FunctionCall(cs@if_open = gigaset_get_cs_by_tty(tty@if_open))
+Locals:  tty@gigaset_get_cs_by_tty
+                                                Location: id=48#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1062
+      Pred(* (tty@gigaset_get_cs_by_tty ).index  >=  0)
+                                                Location: id=48#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1062
+      Block(cil_3@gigaset_get_cs_by_tty = * (tty@gigaset_get_cs_by_tty ).driver;)
+                                                Location: id=48#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1062
+      Pred(* (tty@gigaset_get_cs_by_tty ).index  < 
+     * (cil_3@gigaset_get_cs_by_tty ).num)
+                                                Location: id=48#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1064
+      Block(cil_4@gigaset_get_cs_by_tty = * (tty@gigaset_get_cs_by_tty ).driver;)
+                                                Location: id=48#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1064
+      FunctionCall(tmp@gigaset_get_cs_by_tty =
+gigaset_get_cs_by_minor(* (tty@gigaset_get_cs_by_tty ).index  + 
+* (cil_4@gigaset_get_cs_by_tty ).minor_start))
+Locals:  minor@gigaset_get_cs_by_minor
+                                                Location: id=47#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1040
+         Block(ret@gigaset_get_cs_by_minor = 0;)
+                                                Location: id=47#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1044
+         FunctionCall(tmp@gigaset_get_cs_by_minor = spinlock_check(&(driver_lock)))
+Locals:  lock@spinlock_check
+                                                Location: id=4#1 src="include/linux/spinlock.h"; line=274
+            Block(__retres2@spinlock_check = lock@spinlock_check  foffset  ldv_6060
+ foffset  rlock;)
+                                                Location: id=4#2 src="include/linux/spinlock.h"; line=272
+            Block(Return(__retres2@spinlock_check);)
+         Skip
+                                                Location: id=47#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1044
+         FunctionCall(flags@gigaset_get_cs_by_minor =
+_raw_spin_lock_irqsave(tmp@gigaset_get_cs_by_minor))
+LDV: undefined function called: _raw_spin_lock_irqsave
+                                                Location: id=47#5 (Artificial)
+         Skip
+                                                Location: id=47#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1045
+         Block(__mptr@gigaset_get_cs_by_minor =
+drivers.next;drv@gigaset_get_cs_by_minor = __mptr@gigaset_get_cs_by_minor;)
+                                                Location: id=47#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1046
+         Skip
+                                                Location: id=47#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1045
+         Pred(drv@gigaset_get_cs_by_minor  foffset  list  !=  &(drivers))
+                                                Location: id=47#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1046
+         Skip
+                                                Location: id=47#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1046
+         Pred(* (drv@gigaset_get_cs_by_minor ).minor  <= 
+     minor@gigaset_get_cs_by_minor)
+                                                Location: id=47#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1046
+         Pred(* (drv@gigaset_get_cs_by_minor ).minor  + 
+     * (drv@gigaset_get_cs_by_minor ).minors  > 
+     minor@gigaset_get_cs_by_minor)
+                                                Location: id=47#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1048
+         Block(index@gigaset_get_cs_by_minor = minor@gigaset_get_cs_by_minor  - 
+* (drv@gigaset_get_cs_by_minor ).minor;)
+                                                Location: id=47#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1049
+         FunctionCall(spin_lock(drv@gigaset_get_cs_by_minor  foffset  lock))
+Locals:  lock@spin_lock
+                                                Location: id=5#1 src="include/linux/spinlock.h"; line=285
+            FunctionCall(_raw_spin_lock(lock@spin_lock  foffset  ldv_6060  foffset 
+rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=5#2 (Artificial)
+            Skip
+                                                Location: id=5#3 src="include/linux/spinlock.h"; line=283
+            Block(Return(0);)
+         Skip
+                                                Location: id=47#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1050
+         Block(cil_9@gigaset_get_cs_by_minor = * (drv@gigaset_get_cs_by_minor ).cs  + 
+index@gigaset_get_cs_by_minor;)
+                                                Location: id=47#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1050
+         Pred(* (cil_9@gigaset_get_cs_by_minor ).flags  &  1  !=  0)
+                                                Location: id=47#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1051
+         Block(ret@gigaset_get_cs_by_minor = * (drv@gigaset_get_cs_by_minor ).cs  + 
+index@gigaset_get_cs_by_minor;)
+                                                Location: id=47#23 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1052
+         FunctionCall(spin_unlock(drv@gigaset_get_cs_by_minor  foffset  lock))
+Locals:  lock@spin_unlock
+                                                Location: id=6#1 src="include/linux/spinlock.h"; line=325
+            FunctionCall(_raw_spin_unlock(lock@spin_unlock  foffset  ldv_6060  foffset 
+rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=6#2 (Artificial)
+            Skip
+                                                Location: id=6#3 src="include/linux/spinlock.h"; line=323
+            Block(Return(0);)
+         Skip
+                                                Location: id=47#25 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1053
+         Pred(ret@gigaset_get_cs_by_minor  !=  0)
+                                                Location: id=47#26 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1056
+         FunctionCall(spin_unlock_irqrestore(&(driver_lock), flags@gigaset_get_cs_by_minor))
+Locals:  lock@spin_unlock_irqrestore flags@spin_unlock_irqrestore
+                                                Location: id=7#1 src="include/linux/spinlock.h"; line=340
+            FunctionCall(_raw_spin_unlock_irqrestore(lock@spin_unlock_irqrestore
+ foffset  ldv_6060  foffset  rlock, flags@spin_unlock_irqrestore))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=7#2 (Artificial)
+            Skip
+                                                Location: id=7#3 src="include/linux/spinlock.h"; line=338
+            Block(Return(0);)
+         Skip
+                                                Location: id=47#29 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1057
+         Block(Return(ret@gigaset_get_cs_by_minor);)
+      Skip
+                                                Location: id=48#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1064
+      Block(__retres5@gigaset_get_cs_by_tty = tmp@gigaset_get_cs_by_tty;)
+                                                Location: id=48#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1060
+      Block(Return(__retres5@gigaset_get_cs_by_tty);)
+   Skip
+                                                Location: id=74#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=164
+   Pred(cs@if_open  !=  0)
+                                                Location: id=74#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=164
+   Block(cil_10@if_open = * (cs@if_open ).driver;)
+                                                Location: id=74#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=164
+   FunctionCall(tmp___0@if_open =
+ldv_try_module_get_1(* (cil_10@if_open ).owner))
+Locals:  module@ldv_try_module_get_1
+                                                Location: id=59#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1397
+      FunctionCall(tmp@ldv_try_module_get_1 =
+ldv_try_module_get(module@ldv_try_module_get_1))
+Locals:  module@ldv_try_module_get
+                                                Location: id=54#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1339
+         Pred(module@ldv_try_module_get  !=  0)
+                                                Location: id=54#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1342
+         FunctionCall(module_get_succeeded@ldv_try_module_get = ldv_undefined_int())
+LDV: undefined function called: ldv_undefined_int
+                                                Location: id=54#4 (Artificial)
+         Skip
+                                                Location: id=54#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1344
+         Pred(module_get_succeeded@ldv_try_module_get  ==  1)
+                                                Location: id=54#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1346
+         Block(ldv_module_refcounter = ldv_module_refcounter  +  1;)
+                                                Location: id=54#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1348
+         Block(__retres3@ldv_try_module_get = 1;)
+                                                Location: id=54#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1334
+         Block(Return(__retres3@ldv_try_module_get);)
+      Skip
+                                                Location: id=59#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1397
+      Block(Return(tmp@ldv_try_module_get_1);)
+   Skip
+                                                Location: id=74#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=164
+   Pred(tmp___0@if_open  !=  0)
+                                                Location: id=74#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=167
+   FunctionCall(tmp___1@if_open = mutex_lock_interruptible_nested(cs@if_open
+ foffset  mutex, 0))
+LDV: undefined function called: mutex_lock_interruptible_nested
+                                                Location: id=74#24 (Artificial)
+   Skip
+                                                Location: id=74#25 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=167
+   Pred(tmp___1@if_open  ==  0)
+                                                Location: id=74#27 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=171
+   Block(* (tty@if_open ).driver_data = cs@if_open;* (cs@if_open ).open_count =
+* (cs@if_open ).open_count  +  1;)
+                                                Location: id=74#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=175
+   Pred(* (cs@if_open ).open_count  !=  1)
+                                                Location: id=74#42 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=182
+   FunctionCall(mutex_unlock(cs@if_open  foffset  mutex))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=74#43 (Artificial)
+   Skip
+                                                Location: id=74#44 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=183
+   Block(__retres13@if_open = 0;)
+                                                Location: id=74#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=153
+   Block(Return(__retres13@if_open);)
+Skip
+                                                Location: id=91#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=847
+FunctionCall(ldv_check_return_value(res_if_open_2@main))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=91#20 (Artificial)
+Skip
+                                                Location: id=91#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=848
+Pred(res_if_open_2@main  ==  0)
+                                                Location: id=91#23 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=850
+Block(ldv_s_if_ops_tty_operations@main = ldv_s_if_ops_tty_operations@main  + 
+1;)
+                                                Location: id=91#26 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=1022
+Skip
+                                                Location: id=91#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=832
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=91#7 (Artificial)
+Skip
+                                                Location: id=91#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=832
+Pred(tmp___0@main  !=  0)
+                                                Location: id=91#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=836
+FunctionCall(tmp@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=91#11 (Artificial)
+Skip
+                                                Location: id=91#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=838
+Pred(tmp@main  !=  0)
+                                                Location: id=91#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=857
+Pred(tmp@main  ==  1)
+                                                Location: id=91#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=857
+Skip
+                                                Location: id=91#30 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=860
+Pred(ldv_s_if_ops_tty_operations@main  ==  1)
+                                                Location: id=91#31 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=865
+FunctionCall(if_close(var_group1@main, var_group2@main))
+Locals:  tty@if_close filp@if_close
+                                                Location: id=75#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=191
+   Block(cs@if_close = * (tty@if_close ).driver_data;)
+                                                Location: id=75#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=192
+   Pred(cs@if_close  ==  0)
+                                                Location: id=75#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=193
+   FunctionCall(printk("<3>gigaset: %s: no cardstate\n", "if_close"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=75#5 (Artificial)
+   Skip
+                                                Location: id=75#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=186
+   Block(Return(0);)
+Skip
+                                                Location: id=91#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=866
+Block(ldv_s_if_ops_tty_operations@main = 0;)
+                                                Location: id=91#26 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=1022
+Skip
+                                                Location: id=91#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=832
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=91#7 (Artificial)
+Skip
+                                                Location: id=91#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=832
+Pred(tmp___0@main  ==  0)
+                                                Location: id=91#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=832
+Pred(ldv_s_if_ops_tty_operations@main  ==  0)
+                                                Location: id=91#74 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=838
+Skip
+                                                Location: id=91#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"; line=1026
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=58#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1389
+   Pred(ldv_module_refcounter  !=  1)
+                                                Location: id=58#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"; line=1389
+   FunctionCall(ldv_blast_assert())
+Locals: 

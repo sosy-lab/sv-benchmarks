@@ -1,0 +1,7 @@
+
+Verification result: UNKNOWN, incomplete analysis.
+
+***********************************************************************
+* WARNING: Analysis interrupted!! The statistics might be unreliable! *
+***********************************************************************
+More details about the verification run can be found in the directory "test/output/".

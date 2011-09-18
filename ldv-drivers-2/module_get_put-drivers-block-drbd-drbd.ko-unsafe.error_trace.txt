@@ -1,0 +1,496 @@
+
+                                                Location: id=122#1 src="ldv/08_1/drivers/block/drbd/drbd.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=122#1 src="ldv/08_1/drivers/block/drbd/drbd.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/08_1/drivers/block/drbd/drbd.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=678#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1687
+   Block(ldv_module_refcounter = 1;drbd_proc_fops.owner =
+&(__this_module);drbd_proc_fops.llseek = &(seq_lseek);drbd_proc_fops.read =
+&(seq_read);drbd_proc_fops.write = 0;drbd_proc_fops.aio_read =
+0;drbd_proc_fops.aio_write = 0;drbd_proc_fops.readdir = 0;drbd_proc_fops.poll
+= 0;drbd_proc_fops.unlocked_ioctl = 0;drbd_proc_fops.compat_ioctl =
+0;drbd_proc_fops.mmap = 0;drbd_proc_fops.open =
+&(drbd_proc_open);drbd_proc_fops.flush = 0;drbd_proc_fops.release =
+&(drbd_proc_release);drbd_proc_fops.fsync = 0;drbd_proc_fops.aio_fsync =
+0;drbd_proc_fops.fasync = 0;drbd_proc_fops.lock = 0;drbd_proc_fops.sendpage =
+0;drbd_proc_fops.get_unmapped_area = 0;drbd_proc_fops.check_flags =
+0;drbd_proc_fops.flock = 0;drbd_proc_fops.splice_write =
+0;drbd_proc_fops.splice_read = 0;drbd_proc_fops.setlease =
+0;drbd_proc_fops.fallocate = 0;drbd_cmd_handler[ 0 ].expect_payload =
+1;drbd_cmd_handler[ 0 ].pkt_size = 32;drbd_cmd_handler[ 0 ].function =
+&(receive_Data);drbd_cmd_handler[ 1 ].expect_payload =
+1;drbd_cmd_handler[ 1 ].pkt_size = 32;drbd_cmd_handler[ 1 ].function =
+&(receive_DataReply);drbd_cmd_handler[ 2 ].expect_payload =
+1;drbd_cmd_handler[ 2 ].pkt_size = 32;drbd_cmd_handler[ 2 ].function =
+&(receive_RSDataReply);drbd_cmd_handler[ 3 ].expect_payload =
+0;drbd_cmd_handler[ 3 ].pkt_size = 16;drbd_cmd_handler[ 3 ].function =
+&(receive_Barrier);drbd_cmd_handler[ 4 ].expect_payload =
+1;drbd_cmd_handler[ 4 ].pkt_size = 8;drbd_cmd_handler[ 4 ].function =
+&(receive_bitmap);drbd_cmd_handler[ 5 ].expect_payload =
+0;drbd_cmd_handler[ 5 ].pkt_size = 0;drbd_cmd_handler[ 5 ].function =
+0;drbd_cmd_handler[ 6 ].expect_payload = 0;drbd_cmd_handler[ 6 ].pkt_size =
+0;drbd_cmd_handler[ 6 ].function = 0;drbd_cmd_handler[ 7 ].expect_payload =
+0;drbd_cmd_handler[ 7 ].pkt_size = 8;drbd_cmd_handler[ 7 ].function =
+&(receive_UnplugRemote);drbd_cmd_handler[ 8 ].expect_payload =
+0;drbd_cmd_handler[ 8 ].pkt_size = 32;drbd_cmd_handler[ 8 ].function =
+&(receive_DataRequest);drbd_cmd_handler[ 9 ].expect_payload =
+0;drbd_cmd_handler[ 9 ].pkt_size = 32;drbd_cmd_handler[ 9 ].function =
+&(receive_DataRequest);drbd_cmd_handler[ 10 ].expect_payload =
+1;drbd_cmd_handler[ 10 ].pkt_size = 8;drbd_cmd_handler[ 10 ].function =
+&(receive_SyncParam);drbd_cmd_handler[ 11 ].expect_payload =
+1;drbd_cmd_handler[ 11 ].pkt_size = 32;drbd_cmd_handler[ 11 ].function =
+&(receive_protocol);drbd_cmd_handler[ 12 ].expect_payload =
+0;drbd_cmd_handler[ 12 ].pkt_size = 56;drbd_cmd_handler[ 12 ].function =
+&(receive_uuids);drbd_cmd_handler[ 13 ].expect_payload =
+0;drbd_cmd_handler[ 13 ].pkt_size = 40;drbd_cmd_handler[ 13 ].function =
+&(receive_sizes);drbd_cmd_handler[ 14 ].expect_payload =
+0;drbd_cmd_handler[ 14 ].pkt_size = 12;drbd_cmd_handler[ 14 ].function =
+&(receive_state);drbd_cmd_handler[ 15 ].expect_payload =
+0;drbd_cmd_handler[ 15 ].pkt_size = 16;drbd_cmd_handler[ 15 ].function =
+&(receive_sync_uuid);drbd_cmd_handler[ 16 ].expect_payload =
+0;drbd_cmd_handler[ 16 ].pkt_size = 0;drbd_cmd_handler[ 16 ].function =
+0;drbd_cmd_handler[ 17 ].expect_payload = 0;drbd_cmd_handler[ 17 ].pkt_size =
+0;drbd_cmd_handler[ 17 ].function = 0;drbd_cmd_handler[ 18 ].expect_payload =
+0;drbd_cmd_handler[ 18 ].pkt_size = 16;drbd_cmd_handler[ 18 ].function =
+&(receive_req_state);drbd_cmd_handler[ 19 ].expect_payload =
+0;drbd_cmd_handler[ 19 ].pkt_size = 0;drbd_cmd_handler[ 19 ].function =
+0;drbd_cmd_handler[ 20 ].expect_payload = 0;drbd_cmd_handler[ 20 ].pkt_size =
+0;drbd_cmd_handler[ 20 ].function = 0;drbd_cmd_handler[ 21 ].expect_payload =
+0;drbd_cmd_handler[ 21 ].pkt_size = 0;drbd_cmd_handler[ 21 ].function =
+0;drbd_cmd_handler[ 22 ].expect_payload = 0;drbd_cmd_handler[ 22 ].pkt_size =
+0;drbd_cmd_handler[ 22 ].function = 0;drbd_cmd_handler[ 23 ].expect_payload =
+0;drbd_cmd_handler[ 23 ].pkt_size = 0;drbd_cmd_handler[ 23 ].function =
+0;drbd_cmd_handler[ 24 ].expect_payload = 0;drbd_cmd_handler[ 24 ].pkt_size =
+0;drbd_cmd_handler[ 24 ].function = 0;drbd_cmd_handler[ 25 ].expect_payload =
+0;drbd_cmd_handler[ 25 ].pkt_size = 0;drbd_cmd_handler[ 25 ].function =
+0;drbd_cmd_handler[ 26 ].expect_payload = 0;drbd_cmd_handler[ 26 ].pkt_size =
+0;drbd_cmd_handler[ 26 ].function = 0;drbd_cmd_handler[ 27 ].expect_payload =
+0;drbd_cmd_handler[ 27 ].pkt_size = 0;drbd_cmd_handler[ 27 ].function =
+0;drbd_cmd_handler[ 28 ].expect_payload = 0;drbd_cmd_handler[ 28 ].pkt_size =
+0;drbd_cmd_handler[ 28 ].function = 0;drbd_cmd_handler[ 29 ].expect_payload =
+0;drbd_cmd_handler[ 29 ].pkt_size = 0;drbd_cmd_handler[ 29 ].function =
+0;drbd_cmd_handler[ 30 ].expect_payload = 0;drbd_cmd_handler[ 30 ].pkt_size =
+32;drbd_cmd_handler[ 30 ].function =
+&(receive_DataRequest);drbd_cmd_handler[ 31 ].expect_payload =
+1;drbd_cmd_handler[ 31 ].pkt_size = 32;drbd_cmd_handler[ 31 ].function =
+&(receive_DataRequest);drbd_cmd_handler[ 32 ].expect_payload =
+0;drbd_cmd_handler[ 32 ].pkt_size = 0;drbd_cmd_handler[ 32 ].function =
+0;drbd_cmd_handler[ 33 ].expect_payload = 1;drbd_cmd_handler[ 33 ].pkt_size =
+32;drbd_cmd_handler[ 33 ].function =
+&(receive_DataRequest);drbd_cmd_handler[ 34 ].expect_payload =
+0;drbd_cmd_handler[ 34 ].pkt_size = 0;drbd_cmd_handler[ 34 ].function =
+0;drbd_cmd_handler[ 35 ].expect_payload = 1;drbd_cmd_handler[ 35 ].pkt_size =
+8;drbd_cmd_handler[ 35 ].function =
+&(receive_SyncParam);drbd_cmd_handler[ 36 ].expect_payload =
+1;drbd_cmd_handler[ 36 ].pkt_size = 8;drbd_cmd_handler[ 36 ].function =
+&(receive_bitmap);drbd_cmd_handler[ 37 ].expect_payload =
+0;drbd_cmd_handler[ 37 ].pkt_size = 0;drbd_cmd_handler[ 37 ].function =
+0;drbd_cmd_handler[ 38 ].expect_payload = 0;drbd_cmd_handler[ 38 ].pkt_size =
+0;drbd_cmd_handler[ 38 ].function = 0;drbd_cmd_handler[ 39 ].expect_payload =
+0;drbd_cmd_handler[ 39 ].pkt_size = 16;drbd_cmd_handler[ 39 ].function =
+&(receive_skip);drbd_cmd_handler[ 40 ].expect_payload =
+0;drbd_cmd_handler[ 40 ].pkt_size = 24;drbd_cmd_handler[ 40 ].function =
+&(receive_out_of_sync);drbd_cmd_handler[ 41 ].expect_payload =
+0;drbd_cmd_handler[ 41 ].pkt_size = 0;drbd_cmd_handler[ 41 ].function =
+0;drbd_cmd_handler[ 42 ].expect_payload = 0;drbd_cmd_handler[ 42 ].pkt_size =
+0;drbd_cmd_handler[ 42 ].function = 0;drbd_main_mutex.count.counter =
+1;drbd_main_mutex.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;drbd_main_mutex.wait_lock.ldv_6060.rlock.magic =
+3735899821;drbd_main_mutex.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;drbd_main_mutex.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;drbd_main_mutex.wait_lock.ldv_6060.rlock.dep_map.key =
+0;drbd_main_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;drbd_main_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;drbd_main_mutex.wait_lock.ldv_6060.rlock.dep_map.name =
+"drbd_main_mutex.wait_lock";drbd_main_mutex.wait_lock.ldv_6060.rlock.dep_map.cpu
+= 0;drbd_main_mutex.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;drbd_main_mutex.wait_list.next = &(drbd_main_mutex)  foffset 
+wait_list;drbd_main_mutex.wait_list.prev = &(drbd_main_mutex)  foffset 
+wait_list;drbd_main_mutex.owner = 0;drbd_main_mutex.name =
+0;drbd_main_mutex.magic = &(drbd_main_mutex);drbd_main_mutex.dep_map.key =
+0;drbd_main_mutex.dep_map.class_cache[ 0 ] =
+0;drbd_main_mutex.dep_map.class_cache[ 1 ] = 0;drbd_main_mutex.dep_map.name =
+"drbd_main_mutex";drbd_main_mutex.dep_map.cpu = 0;drbd_main_mutex.dep_map.ip
+= 0;minor_count = 32;cn_idx = 8;usermode_helper[ 0 ] =
+47;usermode_helper[ 1 ] = 115;usermode_helper[ 2 ] = 98;usermode_helper[ 3 ]
+= 105;usermode_helper[ 4 ] = 110;usermode_helper[ 5 ] =
+47;usermode_helper[ 6 ] = 100;usermode_helper[ 7 ] = 114;usermode_helper[ 8 ]
+= 98;usermode_helper[ 9 ] = 100;usermode_helper[ 10 ] =
+97;usermode_helper[ 11 ] = 100;usermode_helper[ 12 ] =
+109;usermode_helper[ 13 ] =
+0;drbd_ratelimit_state.lock.ldv_6060.rlock.raw_lock.slock =
+0;drbd_ratelimit_state.lock.ldv_6060.rlock.magic =
+3735899821;drbd_ratelimit_state.lock.ldv_6060.rlock.owner_cpu =
+4294967295;drbd_ratelimit_state.lock.ldv_6060.rlock.owner =
+1152921504606846975;drbd_ratelimit_state.lock.ldv_6060.rlock.dep_map.key =
+0;drbd_ratelimit_state.lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;drbd_ratelimit_state.lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;drbd_ratelimit_state.lock.ldv_6060.rlock.dep_map.name =
+"drbd_ratelimit_state.lock";drbd_ratelimit_state.lock.ldv_6060.rlock.dep_map.cpu
+= 0;drbd_ratelimit_state.lock.ldv_6060.rlock.dep_map.ip =
+0;drbd_ratelimit_state.interval = 1250;drbd_ratelimit_state.burst =
+5;drbd_ratelimit_state.printed = 0;drbd_ratelimit_state.missed =
+0;drbd_ratelimit_state.begin = 0;drbd_ops.open =
+&(drbd_open);drbd_ops.release = &(drbd_release);drbd_ops.ioctl =
+0;drbd_ops.compat_ioctl = 0;drbd_ops.direct_access = 0;drbd_ops.check_events
+= 0;drbd_ops.media_changed = 0;drbd_ops.unlock_native_capacity =
+0;drbd_ops.revalidate_disk = 0;drbd_ops.getgeo =
+0;drbd_ops.swap_slot_free_notify = 0;drbd_ops.owner =
+&(__this_module);drbd_notifier.notifier_call =
+&(drbd_notify_sys);drbd_notifier.next = 0;drbd_notifier.priority =
+0;drbd_conn_s_names[ 0 ] = "StandAlone";drbd_conn_s_names[ 1 ] =
+"Disconnecting";drbd_conn_s_names[ 2 ] = "Unconnected";drbd_conn_s_names[ 3 ]
+= "Timeout";drbd_conn_s_names[ 4 ] = "BrokenPipe";drbd_conn_s_names[ 5 ] =
+"NetworkFailure";drbd_conn_s_names[ 6 ] =
+"ProtocolError";drbd_conn_s_names[ 7 ] = "TearDown";drbd_conn_s_names[ 8 ] =
+"WFConnection";drbd_conn_s_names[ 9 ] =
+"WFReportParams";drbd_conn_s_names[ 10 ] =
+"Connected";drbd_conn_s_names[ 11 ] = "StartingSyncS";drbd_conn_s_names[ 12 ]
+= "StartingSyncT";drbd_conn_s_names[ 13 ] =
+"WFBitMapS";drbd_conn_s_names[ 14 ] = "WFBitMapT";drbd_conn_s_names[ 15 ] =
+"WFSyncUUID";drbd_conn_s_names[ 16 ] = "SyncSource";drbd_conn_s_names[ 17 ] =
+"SyncTarget";drbd_conn_s_names[ 18 ] = "VerifyS";drbd_conn_s_names[ 19 ] =
+"VerifyT";drbd_conn_s_names[ 20 ] = "PausedSyncS";drbd_conn_s_names[ 21 ] =
+"PausedSyncT";drbd_conn_s_names[ 22 ] = "Ahead";drbd_conn_s_names[ 23 ] =
+"Behind";drbd_role_s_names[ 0 ] = "Unknown";drbd_role_s_names[ 1 ] =
+"Primary";drbd_role_s_names[ 2 ] = "Secondary";drbd_disk_s_names[ 0 ] =
+"Diskless";drbd_disk_s_names[ 1 ] = "Attaching";drbd_disk_s_names[ 2 ] =
+"Failed";drbd_disk_s_names[ 3 ] = "Negotiating";drbd_disk_s_names[ 4 ] =
+"Inconsistent";drbd_disk_s_names[ 5 ] = "Outdated";drbd_disk_s_names[ 6 ] =
+"DUnknown";drbd_disk_s_names[ 7 ] = "Consistent";drbd_disk_s_names[ 8 ] =
+"UpToDate";drbd_state_sw_errors[ 0 ] = 0;drbd_state_sw_errors[ 1 ] =
+"Multiple primaries not allowed by config";drbd_state_sw_errors[ 2 ] =
+"Need access to UpToDate data";drbd_state_sw_errors[ 3 ] =
+0;drbd_state_sw_errors[ 4 ] =
+"Can not resync without local disk";drbd_state_sw_errors[ 5 ] =
+"Can not resync without remote disk";drbd_state_sw_errors[ 6 ] =
+"Refusing to be Outdated while Connected";drbd_state_sw_errors[ 7 ] =
+"Refusing to be Primary while peer is not outdated";drbd_state_sw_errors[ 8 ]
+=
+"Can not start OV/resync since it is already active";drbd_state_sw_errors[ 9 ]
+= "Can not disconnect a StandAlone device";drbd_state_sw_errors[ 10 ] =
+"State change was refused by peer node";drbd_state_sw_errors[ 11 ] =
+"Device is diskless, the requested operation requires a disk";drbd_state_sw_errors[ 12 ]
+= "Device is held open by someone";drbd_state_sw_errors[ 13 ] =
+"Have no net/connection configuration";drbd_state_sw_errors[ 14 ] =
+"Need a verify algorithm to start online verify";drbd_state_sw_errors[ 15 ] =
+"Need a connection to start verify or resync";drbd_state_sw_errors[ 16 ] =
+"Disk state is lower than outdated";drbd_state_sw_errors[ 17 ] =
+"Peer does not support protocol";drbd_state_sw_errors[ 18 ] =
+"In transient state, retry after next state change";drbd_state_sw_errors[ 19 ]
+= "Concurrent state changes detected and aborted";tag_descriptions[ 0 ].name
+= 0;tag_descriptions[ 0 ].type_n_flags = 0;tag_descriptions[ 0 ].max_len =
+0;tag_descriptions[ 1 ].name =
+"primary_force";tag_descriptions[ 1 ].type_n_flags =
+32768;tag_descriptions[ 1 ].max_len = 4;tag_descriptions[ 2 ].name =
+"disk_size";tag_descriptions[ 2 ].type_n_flags =
+16384;tag_descriptions[ 2 ].max_len = 8;tag_descriptions[ 3 ].name =
+"backing_dev";tag_descriptions[ 3 ].type_n_flags =
+57344;tag_descriptions[ 3 ].max_len = 128;tag_descriptions[ 4 ].name =
+"meta_dev";tag_descriptions[ 4 ].type_n_flags =
+57344;tag_descriptions[ 4 ].max_len = 128;tag_descriptions[ 5 ].name =
+"meta_dev_idx";tag_descriptions[ 5 ].type_n_flags =
+8192;tag_descriptions[ 5 ].max_len = 4;tag_descriptions[ 6 ].name =
+"on_io_error";tag_descriptions[ 6 ].type_n_flags =
+0;tag_descriptions[ 6 ].max_len = 4;tag_descriptions[ 7 ].name =
+"fencing";tag_descriptions[ 7 ].type_n_flags =
+0;tag_descriptions[ 7 ].max_len = 4;tag_descriptions[ 8 ].name =
+"my_addr";tag_descriptions[ 8 ].type_n_flags =
+57344;tag_descriptions[ 8 ].max_len = 128;tag_descriptions[ 9 ].name =
+"peer_addr";tag_descriptions[ 9 ].type_n_flags =
+57344;tag_descriptions[ 9 ].max_len = 128;tag_descriptions[ 10 ].name =
+"shared_secret";tag_descriptions[ 10 ].type_n_flags =
+49152;tag_descriptions[ 10 ].max_len = 64;tag_descriptions[ 11 ].name =
+"cram_hmac_alg";tag_descriptions[ 11 ].type_n_flags =
+49152;tag_descriptions[ 11 ].max_len = 64;tag_descriptions[ 12 ].name =
+0;tag_descriptions[ 12 ].type_n_flags = 0;tag_descriptions[ 12 ].max_len =
+0;tag_descriptions[ 13 ].name = 0;tag_descriptions[ 13 ].type_n_flags =
+0;tag_descriptions[ 13 ].max_len = 0;tag_descriptions[ 14 ].name =
+"timeout";tag_descriptions[ 14 ].type_n_flags =
+0;tag_descriptions[ 14 ].max_len = 4;tag_descriptions[ 15 ].name =
+"wire_protocol";tag_descriptions[ 15 ].type_n_flags =
+8192;tag_descriptions[ 15 ].max_len = 4;tag_descriptions[ 16 ].name =
+"try_connect_int";tag_descriptions[ 16 ].type_n_flags =
+0;tag_descriptions[ 16 ].max_len = 4;tag_descriptions[ 17 ].name =
+"ping_int";tag_descriptions[ 17 ].type_n_flags =
+0;tag_descriptions[ 17 ].max_len = 4;tag_descriptions[ 18 ].name =
+"max_epoch_size";tag_descriptions[ 18 ].type_n_flags =
+0;tag_descriptions[ 18 ].max_len = 4;tag_descriptions[ 19 ].name =
+"max_buffers";tag_descriptions[ 19 ].type_n_flags =
+0;tag_descriptions[ 19 ].max_len = 4;tag_descriptions[ 20 ].name =
+"unplug_watermark";tag_descriptions[ 20 ].type_n_flags =
+0;tag_descriptions[ 20 ].max_len = 4;tag_descriptions[ 21 ].name =
+"sndbuf_size";tag_descriptions[ 21 ].type_n_flags =
+0;tag_descriptions[ 21 ].max_len = 4;tag_descriptions[ 22 ].name =
+"ko_count";tag_descriptions[ 22 ].type_n_flags =
+0;tag_descriptions[ 22 ].max_len = 4;tag_descriptions[ 23 ].name =
+0;tag_descriptions[ 23 ].type_n_flags = 0;tag_descriptions[ 23 ].max_len =
+0;tag_descriptions[ 24 ].name =
+"after_sb_0p";tag_descriptions[ 24 ].type_n_flags =
+0;tag_descriptions[ 24 ].max_len = 4;tag_descriptions[ 25 ].name =
+"after_sb_1p";tag_descriptions[ 25 ].type_n_flags =
+0;tag_descriptions[ 25 ].max_len = 4;tag_descriptions[ 26 ].name =
+"after_sb_2p";tag_descriptions[ 26 ].type_n_flags =
+0;tag_descriptions[ 26 ].max_len = 4;tag_descriptions[ 27 ].name =
+"want_lose";tag_descriptions[ 27 ].type_n_flags =
+32768;tag_descriptions[ 27 ].max_len = 4;tag_descriptions[ 28 ].name =
+"two_primaries";tag_descriptions[ 28 ].type_n_flags =
+32768;tag_descriptions[ 28 ].max_len = 4;tag_descriptions[ 29 ].name =
+"resize_size";tag_descriptions[ 29 ].type_n_flags =
+16384;tag_descriptions[ 29 ].max_len = 8;tag_descriptions[ 30 ].name =
+"rate";tag_descriptions[ 30 ].type_n_flags = 0;tag_descriptions[ 30 ].max_len
+= 4;tag_descriptions[ 31 ].name = "after";tag_descriptions[ 31 ].type_n_flags
+= 0;tag_descriptions[ 31 ].max_len = 4;tag_descriptions[ 32 ].name =
+"al_extents";tag_descriptions[ 32 ].type_n_flags =
+0;tag_descriptions[ 32 ].max_len = 4;tag_descriptions[ 33 ].name =
+"state_i";tag_descriptions[ 33 ].type_n_flags =
+0;tag_descriptions[ 33 ].max_len = 4;tag_descriptions[ 34 ].name =
+"uuids";tag_descriptions[ 34 ].type_n_flags =
+49152;tag_descriptions[ 34 ].max_len = 32;tag_descriptions[ 35 ].name =
+"uuids_flags";tag_descriptions[ 35 ].type_n_flags =
+0;tag_descriptions[ 35 ].max_len = 4;tag_descriptions[ 36 ].name =
+"use_degraded";tag_descriptions[ 36 ].type_n_flags =
+32768;tag_descriptions[ 36 ].max_len = 4;tag_descriptions[ 37 ].name =
+"use_bmbv";tag_descriptions[ 37 ].type_n_flags =
+32768;tag_descriptions[ 37 ].max_len = 4;tag_descriptions[ 38 ].name =
+"helper";tag_descriptions[ 38 ].type_n_flags =
+49152;tag_descriptions[ 38 ].max_len = 32;tag_descriptions[ 39 ].name =
+"rr_conflict";tag_descriptions[ 39 ].type_n_flags =
+0;tag_descriptions[ 39 ].max_len = 4;tag_descriptions[ 40 ].name =
+"ping_timeo";tag_descriptions[ 40 ].type_n_flags =
+0;tag_descriptions[ 40 ].max_len = 4;tag_descriptions[ 41 ].name =
+"always_asbp";tag_descriptions[ 41 ].type_n_flags =
+32768;tag_descriptions[ 41 ].max_len = 4;tag_descriptions[ 42 ].name =
+0;tag_descriptions[ 42 ].type_n_flags = 0;tag_descriptions[ 42 ].max_len =
+0;tag_descriptions[ 43 ].name =
+"sync_progress";tag_descriptions[ 43 ].type_n_flags =
+0;tag_descriptions[ 43 ].max_len = 4;tag_descriptions[ 44 ].name =
+"integrity_alg";tag_descriptions[ 44 ].type_n_flags =
+49152;tag_descriptions[ 44 ].max_len = 64;tag_descriptions[ 45 ].name =
+"dump_ee_reason";tag_descriptions[ 45 ].type_n_flags =
+49152;tag_descriptions[ 45 ].max_len = 32;tag_descriptions[ 46 ].name =
+"seen_digest";tag_descriptions[ 46 ].type_n_flags =
+49152;tag_descriptions[ 46 ].max_len = 64;tag_descriptions[ 47 ].name =
+"calc_digest";tag_descriptions[ 47 ].type_n_flags =
+49152;tag_descriptions[ 47 ].max_len = 64;tag_descriptions[ 48 ].name =
+"ee_sector";tag_descriptions[ 48 ].type_n_flags =
+16384;tag_descriptions[ 48 ].max_len = 8;tag_descriptions[ 49 ].name =
+"ee_block_id";tag_descriptions[ 49 ].type_n_flags =
+16384;tag_descriptions[ 49 ].max_len = 8;tag_descriptions[ 50 ].name =
+"ee_data";tag_descriptions[ 50 ].type_n_flags =
+49152;tag_descriptions[ 50 ].max_len = 32768;tag_descriptions[ 51 ].name =
+"cpu_mask";tag_descriptions[ 51 ].type_n_flags =
+49152;tag_descriptions[ 51 ].max_len = 32;tag_descriptions[ 52 ].name =
+"verify_alg";tag_descriptions[ 52 ].type_n_flags =
+49152;tag_descriptions[ 52 ].max_len = 64;tag_descriptions[ 53 ].name =
+"no_disk_flush";tag_descriptions[ 53 ].type_n_flags =
+32768;tag_descriptions[ 53 ].max_len = 4;tag_descriptions[ 54 ].name =
+"no_md_flush";tag_descriptions[ 54 ].type_n_flags =
+32768;tag_descriptions[ 54 ].max_len = 4;tag_descriptions[ 55 ].name =
+0;tag_descriptions[ 55 ].type_n_flags = 0;tag_descriptions[ 55 ].max_len =
+0;tag_descriptions[ 56 ].name =
+"max_bio_bvecs";tag_descriptions[ 56 ].type_n_flags =
+0;tag_descriptions[ 56 ].max_len = 4;tag_descriptions[ 57 ].name =
+"no_disk_barrier";tag_descriptions[ 57 ].type_n_flags =
+32768;tag_descriptions[ 57 ].max_len = 4;tag_descriptions[ 58 ].name =
+"no_disk_drain";tag_descriptions[ 58 ].type_n_flags =
+32768;tag_descriptions[ 58 ].max_len = 4;tag_descriptions[ 59 ].name =
+0;tag_descriptions[ 59 ].type_n_flags = 0;tag_descriptions[ 59 ].max_len =
+0;tag_descriptions[ 60 ].name = "mind_af";tag_descriptions[ 60 ].type_n_flags
+= 40960;tag_descriptions[ 60 ].max_len = 4;tag_descriptions[ 61 ].name =
+"no_cork";tag_descriptions[ 61 ].type_n_flags =
+32768;tag_descriptions[ 61 ].max_len = 4;tag_descriptions[ 62 ].name =
+"auto_sndbuf_size";tag_descriptions[ 62 ].type_n_flags =
+40960;tag_descriptions[ 62 ].max_len = 4;tag_descriptions[ 63 ].name =
+"clear_bm";tag_descriptions[ 63 ].type_n_flags =
+40960;tag_descriptions[ 63 ].max_len = 4;tag_descriptions[ 64 ].name =
+"csums_alg";tag_descriptions[ 64 ].type_n_flags =
+49152;tag_descriptions[ 64 ].max_len = 64;tag_descriptions[ 65 ].name =
+"use_rle";tag_descriptions[ 65 ].type_n_flags =
+32768;tag_descriptions[ 65 ].max_len = 4;tag_descriptions[ 66 ].name =
+"start_sector";tag_descriptions[ 66 ].type_n_flags =
+16384;tag_descriptions[ 66 ].max_len = 8;tag_descriptions[ 67 ].name =
+"rcvbuf_size";tag_descriptions[ 67 ].type_n_flags =
+0;tag_descriptions[ 67 ].max_len = 4;tag_descriptions[ 68 ].name =
+"resize_force";tag_descriptions[ 68 ].type_n_flags =
+32768;tag_descriptions[ 68 ].max_len = 4;tag_descriptions[ 69 ].name =
+"no_resync";tag_descriptions[ 69 ].type_n_flags =
+40960;tag_descriptions[ 69 ].max_len = 4;tag_descriptions[ 70 ].name =
+"dry_run";tag_descriptions[ 70 ].type_n_flags =
+40960;tag_descriptions[ 70 ].max_len = 4;tag_descriptions[ 71 ].name =
+0;tag_descriptions[ 71 ].type_n_flags = 0;tag_descriptions[ 71 ].max_len =
+0;tag_descriptions[ 72 ].name = 0;tag_descriptions[ 72 ].type_n_flags =
+0;tag_descriptions[ 72 ].max_len = 0;tag_descriptions[ 73 ].name =
+0;tag_descriptions[ 73 ].type_n_flags = 0;tag_descriptions[ 73 ].max_len =
+0;tag_descriptions[ 74 ].name = 0;tag_descriptions[ 74 ].type_n_flags =
+0;tag_descriptions[ 74 ].max_len = 0;tag_descriptions[ 75 ].name =
+"on_no_data";tag_descriptions[ 75 ].type_n_flags =
+0;tag_descriptions[ 75 ].max_len = 4;tag_descriptions[ 76 ].name =
+"c_plan_ahead";tag_descriptions[ 76 ].type_n_flags =
+0;tag_descriptions[ 76 ].max_len = 4;tag_descriptions[ 77 ].name =
+"c_delay_target";tag_descriptions[ 77 ].type_n_flags =
+0;tag_descriptions[ 77 ].max_len = 4;tag_descriptions[ 78 ].name =
+"c_fill_target";tag_descriptions[ 78 ].type_n_flags =
+0;tag_descriptions[ 78 ].max_len = 4;tag_descriptions[ 79 ].name =
+"c_max_rate";tag_descriptions[ 79 ].type_n_flags =
+0;tag_descriptions[ 79 ].max_len = 4;tag_descriptions[ 80 ].name =
+"c_min_rate";tag_descriptions[ 80 ].type_n_flags =
+0;tag_descriptions[ 80 ].max_len = 4;tag_descriptions[ 81 ].name =
+"on_congestion";tag_descriptions[ 81 ].type_n_flags =
+0;tag_descriptions[ 81 ].max_len = 4;tag_descriptions[ 82 ].name =
+"cong_fill";tag_descriptions[ 82 ].type_n_flags =
+0;tag_descriptions[ 82 ].max_len = 4;tag_descriptions[ 83 ].name =
+"cong_extents";tag_descriptions[ 83 ].type_n_flags =
+0;tag_descriptions[ 83 ].max_len = 4;tag_descriptions[ 84 ].name =
+"force";tag_descriptions[ 84 ].type_n_flags =
+32768;tag_descriptions[ 84 ].max_len = 4;drbd_m_holder =
+"Hands off! this is DRBD's meta data device.";cnd_table[ 0 ].function =
+0;cnd_table[ 0 ].reply_body_size = 0;cnd_table[ 1 ].function =
+&(drbd_nl_primary);cnd_table[ 1 ].reply_body_size = 0;cnd_table[ 2 ].function
+= &(drbd_nl_secondary);cnd_table[ 2 ].reply_body_size =
+0;cnd_table[ 3 ].function =
+&(drbd_nl_disk_conf);cnd_table[ 3 ].reply_body_size =
+0;cnd_table[ 4 ].function = &(drbd_nl_detach);cnd_table[ 4 ].reply_body_size
+= 0;cnd_table[ 5 ].function =
+&(drbd_nl_net_conf);cnd_table[ 5 ].reply_body_size =
+0;cnd_table[ 6 ].function =
+&(drbd_nl_disconnect);cnd_table[ 6 ].reply_body_size =
+0;cnd_table[ 7 ].function = &(drbd_nl_resize);cnd_table[ 7 ].reply_body_size
+= 0;cnd_table[ 8 ].function =
+&(drbd_nl_syncer_conf);cnd_table[ 8 ].reply_body_size =
+0;cnd_table[ 9 ].function =
+&(drbd_nl_invalidate);cnd_table[ 9 ].reply_body_size =
+0;cnd_table[ 10 ].function =
+&(drbd_nl_invalidate_peer);cnd_table[ 10 ].reply_body_size =
+0;cnd_table[ 11 ].function =
+&(drbd_nl_pause_sync);cnd_table[ 11 ].reply_body_size =
+0;cnd_table[ 12 ].function =
+&(drbd_nl_resume_sync);cnd_table[ 12 ].reply_body_size =
+0;cnd_table[ 13 ].function =
+&(drbd_nl_suspend_io);cnd_table[ 13 ].reply_body_size =
+0;cnd_table[ 14 ].function =
+&(drbd_nl_resume_io);cnd_table[ 14 ].reply_body_size =
+0;cnd_table[ 15 ].function =
+&(drbd_nl_outdate);cnd_table[ 15 ].reply_body_size =
+0;cnd_table[ 16 ].function =
+&(drbd_nl_get_config);cnd_table[ 16 ].reply_body_size =
+1312;cnd_table[ 17 ].function =
+&(drbd_nl_get_state);cnd_table[ 17 ].reply_body_size =
+16;cnd_table[ 18 ].function =
+&(drbd_nl_get_uuids);cnd_table[ 18 ].reply_body_size =
+48;cnd_table[ 19 ].function =
+&(drbd_nl_get_timeout_flag);cnd_table[ 19 ].reply_body_size =
+8;cnd_table[ 20 ].function = 0;cnd_table[ 20 ].reply_body_size =
+0;cnd_table[ 21 ].function = 0;cnd_table[ 21 ].reply_body_size =
+0;cnd_table[ 22 ].function = 0;cnd_table[ 22 ].reply_body_size =
+0;cnd_table[ 23 ].function = 0;cnd_table[ 23 ].reply_body_size =
+0;cnd_table[ 24 ].function = 0;cnd_table[ 24 ].reply_body_size =
+0;cnd_table[ 25 ].function =
+&(drbd_nl_start_ov);cnd_table[ 25 ].reply_body_size =
+0;cnd_table[ 26 ].function =
+&(drbd_nl_new_c_uuid);cnd_table[ 26 ].reply_body_size = 0;drbd_nl_seq.counter
+= 2;)
+                                                Location: id=678#2 src="ldv/08_1/drivers/block/drbd/drbd.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=122#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=394
+Block(ldv_s_drbd_proc_fops_file_operations@main = 0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=122#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=393
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=122#5 (Artificial)
+Skip
+                                                Location: id=122#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=397
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=122#7 (Artificial)
+Skip
+                                                Location: id=122#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=397
+Pred(tmp___0@main  !=  0)
+                                                Location: id=122#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=401
+FunctionCall(tmp@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=122#11 (Artificial)
+Skip
+                                                Location: id=122#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=403
+Pred(tmp@main  ==  0)
+                                                Location: id=122#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=402
+Skip
+                                                Location: id=122#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=406
+Pred(ldv_s_drbd_proc_fops_file_operations@main  ==  0)
+                                                Location: id=122#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=411
+FunctionCall(res_drbd_proc_open_4@main =
+drbd_proc_open(var_group1@main, var_group2@main))
+Locals:  inode@drbd_proc_open file@drbd_proc_open
+                                                Location: id=120#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=316
+   FunctionCall(tmp___1@drbd_proc_open = ldv_try_module_get_1(&(__this_module)))
+Locals:  module@ldv_try_module_get_1
+                                                Location: id=123#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=459
+      FunctionCall(tmp@ldv_try_module_get_1 =
+ldv_try_module_get(module@ldv_try_module_get_1))
+Locals:  module@ldv_try_module_get
+                                                Location: id=105#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1705
+         Pred(module@ldv_try_module_get  !=  0)
+                                                Location: id=105#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1708
+         FunctionCall(module_get_succeeded@ldv_try_module_get = ldv_undefined_int())
+LDV: undefined function called: ldv_undefined_int
+                                                Location: id=105#4 (Artificial)
+         Skip
+                                                Location: id=105#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1710
+         Pred(module_get_succeeded@ldv_try_module_get  ==  1)
+                                                Location: id=105#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1712
+         Block(ldv_module_refcounter = ldv_module_refcounter  +  1;)
+                                                Location: id=105#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1714
+         Block(__retres3@ldv_try_module_get = 1;)
+                                                Location: id=105#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1700
+         Block(Return(__retres3@ldv_try_module_get);)
+      Skip
+                                                Location: id=123#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=459
+      Block(Return(tmp@ldv_try_module_get_1);)
+   Skip
+                                                Location: id=120#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=316
+   Pred(tmp___1@drbd_proc_open  !=  0)
+                                                Location: id=120#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=317
+   FunctionCall(tmp@drbd_proc_open = PDE(inode@drbd_proc_open))
+Locals:  inode@PDE
+                                                Location: id=112#1 src="include/linux/proc_fs.h"; line=285
+      FunctionCall(tmp@PDE = PROC_I(inode@PDE))
+Locals:  inode@PROC_I
+                                                Location: id=111#1 src="include/linux/proc_fs.h"; line=280
+         Block(__mptr@PROC_I = inode@PROC_I;)
+                                                Location: id=111#2 src="include/linux/proc_fs.h"; line=280
+         Block(__retres3@PROC_I = __mptr@PROC_I  +  1152921504606846912;)
+                                                Location: id=111#3 src="include/linux/proc_fs.h"; line=278
+         Block(Return(__retres3@PROC_I);)
+      Skip
+                                                Location: id=112#3 src="include/linux/proc_fs.h"; line=285
+      Block(__retres3@PDE = * (tmp@PDE ).pde;)
+                                                Location: id=112#4 src="include/linux/proc_fs.h"; line=283
+      Block(Return(__retres3@PDE);)
+   Skip
+                                                Location: id=120#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=317
+   FunctionCall(tmp___0@drbd_proc_open =
+single_open(file@drbd_proc_open, &(drbd_seq_show), * (tmp@drbd_proc_open ).data))
+LDV: undefined function called: single_open
+                                                Location: id=120#8 (Artificial)
+   Skip
+                                                Location: id=120#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=317
+   Block(__retres6@drbd_proc_open = tmp___0@drbd_proc_open;)
+                                                Location: id=120#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=314
+   Block(Return(__retres6@drbd_proc_open);)
+Skip
+                                                Location: id=122#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=412
+FunctionCall(ldv_check_return_value(res_drbd_proc_open_4@main))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=122#20 (Artificial)
+Skip
+                                                Location: id=122#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=413
+Pred(res_drbd_proc_open_4@main  !=  0)
+                                                Location: id=122#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"; line=447
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=109#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1755
+   Pred(ldv_module_refcounter  !=  1)
+                                                Location: id=109#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"; line=1755
+   FunctionCall(ldv_blast_assert())
+Locals: 

@@ -1,0 +1,464 @@
+
+                                                Location: id=54#1 src="ldv/68_1/drivers/net/can/usb/ems_usb.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=54#1 src="ldv/68_1/drivers/net/can/usb/ems_usb.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/68_1/drivers/net/can/usb/ems_usb.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=62#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=31
+   Block(__mod_author31[ 0 ] = 97;__mod_author31[ 1 ] = 117;__mod_author31[ 2 ]
+= 116;__mod_author31[ 3 ] = 104;__mod_author31[ 4 ] = 111;__mod_author31[ 5 ]
+= 114;__mod_author31[ 6 ] = 61;__mod_author31[ 7 ] = 83;__mod_author31[ 8 ] =
+101;__mod_author31[ 9 ] = 98;__mod_author31[ 10 ] = 97;__mod_author31[ 11 ] =
+115;__mod_author31[ 12 ] = 116;__mod_author31[ 13 ] =
+105;__mod_author31[ 14 ] = 97;__mod_author31[ 15 ] = 110;__mod_author31[ 16 ]
+= 32;__mod_author31[ 17 ] = 72;__mod_author31[ 18 ] = 97;__mod_author31[ 19 ]
+= 97;__mod_author31[ 20 ] = 115;__mod_author31[ 21 ] =
+32;__mod_author31[ 22 ] = 60;__mod_author31[ 23 ] = 104;__mod_author31[ 24 ]
+= 97;__mod_author31[ 25 ] = 97;__mod_author31[ 26 ] =
+115;__mod_author31[ 27 ] = 64;__mod_author31[ 28 ] = 101;__mod_author31[ 29 ]
+= 109;__mod_author31[ 30 ] = 115;__mod_author31[ 31 ] =
+45;__mod_author31[ 32 ] = 119;__mod_author31[ 33 ] = 117;__mod_author31[ 34 ]
+= 101;__mod_author31[ 35 ] = 110;__mod_author31[ 36 ] =
+115;__mod_author31[ 37 ] = 99;__mod_author31[ 38 ] = 104;__mod_author31[ 39 ]
+= 101;__mod_author31[ 40 ] = 46;__mod_author31[ 41 ] =
+99;__mod_author31[ 42 ] = 111;__mod_author31[ 43 ] = 109;__mod_author31[ 44 ]
+= 62;__mod_author31[ 45 ] = 0;__mod_description32[ 0 ] =
+100;__mod_description32[ 1 ] = 101;__mod_description32[ 2 ] =
+115;__mod_description32[ 3 ] = 99;__mod_description32[ 4 ] =
+114;__mod_description32[ 5 ] = 105;__mod_description32[ 6 ] =
+112;__mod_description32[ 7 ] = 116;__mod_description32[ 8 ] =
+105;__mod_description32[ 9 ] = 111;__mod_description32[ 10 ] =
+110;__mod_description32[ 11 ] = 61;__mod_description32[ 12 ] =
+67;__mod_description32[ 13 ] = 65;__mod_description32[ 14 ] =
+78;__mod_description32[ 15 ] = 32;__mod_description32[ 16 ] =
+100;__mod_description32[ 17 ] = 114;__mod_description32[ 18 ] =
+105;__mod_description32[ 19 ] = 118;__mod_description32[ 20 ] =
+101;__mod_description32[ 21 ] = 114;__mod_description32[ 22 ] =
+32;__mod_description32[ 23 ] = 102;__mod_description32[ 24 ] =
+111;__mod_description32[ 25 ] = 114;__mod_description32[ 26 ] =
+32;__mod_description32[ 27 ] = 69;__mod_description32[ 28 ] =
+77;__mod_description32[ 29 ] = 83;__mod_description32[ 30 ] =
+32;__mod_description32[ 31 ] = 68;__mod_description32[ 32 ] =
+114;__mod_description32[ 33 ] = 46;__mod_description32[ 34 ] =
+32;__mod_description32[ 35 ] = 84;__mod_description32[ 36 ] =
+104;__mod_description32[ 37 ] = 111;__mod_description32[ 38 ] =
+109;__mod_description32[ 39 ] = 97;__mod_description32[ 40 ] =
+115;__mod_description32[ 41 ] = 32;__mod_description32[ 42 ] =
+87;__mod_description32[ 43 ] = 117;__mod_description32[ 44 ] =
+101;__mod_description32[ 45 ] = 110;__mod_description32[ 46 ] =
+115;__mod_description32[ 47 ] = 99;__mod_description32[ 48 ] =
+104;__mod_description32[ 49 ] = 101;__mod_description32[ 50 ] =
+32;__mod_description32[ 51 ] = 67;__mod_description32[ 52 ] =
+65;__mod_description32[ 53 ] = 78;__mod_description32[ 54 ] =
+47;__mod_description32[ 55 ] = 85;__mod_description32[ 56 ] =
+83;__mod_description32[ 57 ] = 66;__mod_description32[ 58 ] =
+32;__mod_description32[ 59 ] = 105;__mod_description32[ 60 ] =
+110;__mod_description32[ 61 ] = 116;__mod_description32[ 62 ] =
+101;__mod_description32[ 63 ] = 114;__mod_description32[ 64 ] =
+102;__mod_description32[ 65 ] = 97;__mod_description32[ 66 ] =
+99;__mod_description32[ 67 ] = 101;__mod_description32[ 68 ] =
+115;__mod_description32[ 69 ] = 0;__mod_license33[ 0 ] =
+108;__mod_license33[ 1 ] = 105;__mod_license33[ 2 ] = 99;__mod_license33[ 3 ]
+= 101;__mod_license33[ 4 ] = 110;__mod_license33[ 5 ] =
+115;__mod_license33[ 6 ] = 101;__mod_license33[ 7 ] = 61;__mod_license33[ 8 ]
+= 71;__mod_license33[ 9 ] = 80;__mod_license33[ 10 ] =
+76;__mod_license33[ 11 ] = 32;__mod_license33[ 12 ] =
+118;__mod_license33[ 13 ] = 50;__mod_license33[ 14 ] =
+0;ems_usb_table[ 0 ].match_flags = 3;ems_usb_table[ 0 ].idVendor =
+4822;ems_usb_table[ 0 ].idProduct = 1092;ems_usb_table[ 0 ].bcdDevice_lo =
+0;ems_usb_table[ 0 ].bcdDevice_hi = 0;ems_usb_table[ 0 ].bDeviceClass =
+0;ems_usb_table[ 0 ].bDeviceSubClass = 0;ems_usb_table[ 0 ].bDeviceProtocol =
+0;ems_usb_table[ 0 ].bInterfaceClass =
+0;ems_usb_table[ 0 ].bInterfaceSubClass =
+0;ems_usb_table[ 0 ].bInterfaceProtocol = 0;ems_usb_table[ 0 ].driver_info =
+0;ems_usb_netdev_ops.ndo_init = 0;ems_usb_netdev_ops.ndo_uninit =
+0;ems_usb_netdev_ops.ndo_open = &(ems_usb_open);ems_usb_netdev_ops.ndo_stop =
+&(ems_usb_close);ems_usb_netdev_ops.ndo_start_xmit =
+&(ems_usb_start_xmit);ems_usb_netdev_ops.ndo_select_queue =
+0;ems_usb_netdev_ops.ndo_change_rx_flags =
+0;ems_usb_netdev_ops.ndo_set_rx_mode =
+0;ems_usb_netdev_ops.ndo_set_multicast_list =
+0;ems_usb_netdev_ops.ndo_set_mac_address =
+0;ems_usb_netdev_ops.ndo_validate_addr = 0;ems_usb_netdev_ops.ndo_do_ioctl =
+0;ems_usb_netdev_ops.ndo_set_config = 0;ems_usb_netdev_ops.ndo_change_mtu =
+0;ems_usb_netdev_ops.ndo_neigh_setup = 0;ems_usb_netdev_ops.ndo_tx_timeout =
+0;ems_usb_netdev_ops.ndo_get_stats64 = 0;ems_usb_netdev_ops.ndo_get_stats =
+0;ems_usb_netdev_ops.ndo_vlan_rx_register =
+0;ems_usb_netdev_ops.ndo_vlan_rx_add_vid =
+0;ems_usb_netdev_ops.ndo_vlan_rx_kill_vid =
+0;ems_usb_netdev_ops.ndo_poll_controller =
+0;ems_usb_netdev_ops.ndo_netpoll_setup =
+0;ems_usb_netdev_ops.ndo_netpoll_cleanup =
+0;ems_usb_netdev_ops.ndo_set_vf_mac = 0;ems_usb_netdev_ops.ndo_set_vf_vlan =
+0;ems_usb_netdev_ops.ndo_set_vf_tx_rate =
+0;ems_usb_netdev_ops.ndo_get_vf_config = 0;ems_usb_netdev_ops.ndo_set_vf_port
+= 0;ems_usb_netdev_ops.ndo_get_vf_port = 0;ems_usb_netdev_ops.ndo_setup_tc =
+0;ems_usb_netdev_ops.ndo_fcoe_enable = 0;ems_usb_netdev_ops.ndo_fcoe_disable
+= 0;ems_usb_netdev_ops.ndo_fcoe_ddp_setup =
+0;ems_usb_netdev_ops.ndo_fcoe_ddp_done =
+0;ems_usb_netdev_ops.ndo_fcoe_ddp_target =
+0;ems_usb_netdev_ops.ndo_fcoe_get_wwn =
+0;ems_usb_netdev_ops.ndo_rx_flow_steer = 0;ems_usb_netdev_ops.ndo_add_slave =
+0;ems_usb_netdev_ops.ndo_del_slave = 0;ems_usb_netdev_ops.ndo_fix_features =
+0;ems_usb_netdev_ops.ndo_set_features = 0;ems_usb_bittiming_const.name[ 0 ] =
+101;ems_usb_bittiming_const.name[ 1 ] = 109;ems_usb_bittiming_const.name[ 2 ]
+= 115;ems_usb_bittiming_const.name[ 3 ] =
+95;ems_usb_bittiming_const.name[ 4 ] = 117;ems_usb_bittiming_const.name[ 5 ]
+= 115;ems_usb_bittiming_const.name[ 6 ] =
+98;ems_usb_bittiming_const.name[ 7 ] = 0;ems_usb_bittiming_const.name[ 8 ] =
+0;ems_usb_bittiming_const.name[ 9 ] = 0;ems_usb_bittiming_const.name[ 10 ] =
+0;ems_usb_bittiming_const.name[ 11 ] = 0;ems_usb_bittiming_const.name[ 12 ] =
+0;ems_usb_bittiming_const.name[ 13 ] = 0;ems_usb_bittiming_const.name[ 14 ] =
+0;ems_usb_bittiming_const.name[ 15 ] = 0;ems_usb_bittiming_const.tseg1_min =
+1;ems_usb_bittiming_const.tseg1_max = 16;ems_usb_bittiming_const.tseg2_min =
+1;ems_usb_bittiming_const.tseg2_max = 8;ems_usb_bittiming_const.sjw_max =
+4;ems_usb_bittiming_const.brp_min = 1;ems_usb_bittiming_const.brp_max =
+64;ems_usb_bittiming_const.brp_inc = 1;ems_usb_driver.name =
+"ems_usb";ems_usb_driver.probe = &(ems_usb_probe);ems_usb_driver.disconnect =
+&(ems_usb_disconnect);ems_usb_driver.unlocked_ioctl =
+0;ems_usb_driver.suspend = 0;ems_usb_driver.resume =
+0;ems_usb_driver.reset_resume = 0;ems_usb_driver.pre_reset =
+0;ems_usb_driver.post_reset = 0;ems_usb_driver.id_table =
+ems_usb_table;ems_usb_driver.dynids.lock.__annonCompField18.rlock.raw_lock.slock
+= 0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.magic =
+0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.owner_cpu =
+0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.owner =
+0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.dep_map.key =
+0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ]
+=
+0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ]
+= 0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.dep_map.name =
+0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.dep_map.cpu =
+0;ems_usb_driver.dynids.lock.__annonCompField18.rlock.dep_map.ip =
+0;ems_usb_driver.dynids.list.next = 0;ems_usb_driver.dynids.list.prev =
+0;ems_usb_driver.drvwrap.driver.name = 0;ems_usb_driver.drvwrap.driver.bus =
+0;ems_usb_driver.drvwrap.driver.owner =
+0;ems_usb_driver.drvwrap.driver.mod_name =
+0;ems_usb_driver.drvwrap.driver.suppress_bind_attrs =
+0;ems_usb_driver.drvwrap.driver.of_match_table =
+0;ems_usb_driver.drvwrap.driver.probe =
+0;ems_usb_driver.drvwrap.driver.remove =
+0;ems_usb_driver.drvwrap.driver.shutdown =
+0;ems_usb_driver.drvwrap.driver.suspend =
+0;ems_usb_driver.drvwrap.driver.resume =
+0;ems_usb_driver.drvwrap.driver.groups = 0;ems_usb_driver.drvwrap.driver.pm =
+0;ems_usb_driver.drvwrap.driver.p = 0;ems_usb_driver.drvwrap.for_devices =
+0;ems_usb_driver.no_dynamic_id = 0;ems_usb_driver.supports_autosuspend =
+0;ems_usb_driver.soft_unbind = 0;ldv_urb_state = 0;ldv_coherent_state = 0;)
+                                                Location: id=62#2 src="ldv/68_1/drivers/net/can/usb/ems_usb.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=54#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1501
+Block(LDV_IN_INTERRUPT = 1;)
+                                                Location: id=54#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1510
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=54#5 (Artificial)
+Skip
+                                                Location: id=54#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1573
+FunctionCall(tmp___7@main = ems_usb_init())
+Locals: 
+                                                Location: id=50#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1123
+   FunctionCall(printk("<6>CPC-USB kernel driver loaded\n"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=50#2 (Artificial)
+   Skip
+                                                Location: id=50#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1126
+   FunctionCall(err@ems_usb_init = usb_register(&(ems_usb_driver)))
+Locals:  driver@usb_register
+                                                Location: id=26#1 src="include/linux/usb.h"; line=933
+      FunctionCall(tmp___7@usb_register =
+usb_register_driver(driver@usb_register, &(__this_module), "ems_usb"))
+LDV: undefined function called: usb_register_driver
+                                                Location: id=26#2 (Artificial)
+      Skip
+                                                Location: id=26#3 src="include/linux/usb.h"; line=933
+      Block(Return(tmp___7@usb_register);)
+   Skip
+                                                Location: id=50#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1128
+   Pred(err@ems_usb_init  ==  0)
+                                                Location: id=50#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1133
+   Block(__retres2@ems_usb_init = 0;)
+                                                Location: id=50#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1119
+   Block(Return(__retres2@ems_usb_init);)
+Skip
+                                                Location: id=54#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1573
+Pred(tmp___7@main  ==  0)
+                                                Location: id=54#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1575
+Block(ldv_s_ems_usb_netdev_ops_net_device_ops@main =
+0;ldv_s_ems_usb_driver_usb_driver@main = 0;)
+                                                Location: id=54#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1581
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=54#14 (Artificial)
+Skip
+                                                Location: id=54#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1581
+Pred(tmp___9@main  !=  0)
+                                                Location: id=54#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1586
+FunctionCall(tmp___8@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=54#18 (Artificial)
+Skip
+                                                Location: id=54#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1588
+Pred(tmp___8@main  !=  0)
+                                                Location: id=54#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1664
+Pred(tmp___8@main  !=  1)
+                                                Location: id=54#35 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1740
+Pred(tmp___8@main  ==  2)
+                                                Location: id=54#45 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1805
+FunctionCall(ems_usb_start_xmit(var_group2@main, var_group1@main))
+Locals:  skb@ems_usb_start_xmit netdev@ems_usb_start_xmit
+                                                Location: id=43#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=756
+   FunctionCall(tmp___7@ems_usb_start_xmit =
+netdev_priv(netdev@ems_usb_start_xmit))
+Locals:  dev@netdev_priv
+                                                Location: id=13#1 src="include/linux/netdevice.h"; line=1483
+      Block(__retres2@netdev_priv = dev@netdev_priv  +  159744  +  31  & 
+1152921504606846944;)
+                                                Location: id=13#2 src="include/linux/netdevice.h"; line=1481
+      Block(Return(__retres2@netdev_priv);)
+   Skip
+                                                Location: id=43#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=756
+   Block(dev@ems_usb_start_xmit =
+tmp___7@ems_usb_start_xmit;context@ems_usb_start_xmit =
+0;stats@ems_usb_start_xmit = netdev@ems_usb_start_xmit  foffset 
+stats;cf@ems_usb_start_xmit =
+* (skb@ems_usb_start_xmit ).data;size@ems_usb_start_xmit = 15  +  1024;)
+                                                Location: id=43#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=767
+   FunctionCall(tmp___8@ems_usb_start_xmit =
+can_dropped_invalid_skb(netdev@ems_usb_start_xmit, skb@ems_usb_start_xmit))
+Locals:  dev@can_dropped_invalid_skb skb@can_dropped_invalid_skb
+                                                Location: id=31#1 src="include/linux/can/dev.h"; line=71
+      Block(cf@can_dropped_invalid_skb = * (skb@can_dropped_invalid_skb ).data;)
+                                                Location: id=31#2 src="include/linux/can/dev.h"; line=73
+      Pred(* (skb@can_dropped_invalid_skb ).len  !=  1024)
+                                                Location: id=31#3 src="include/linux/can/dev.h"; line=73
+      Block(tmp___7@can_dropped_invalid_skb = 1;)
+                                                Location: id=31#5 src="include/linux/can/dev.h"; line=73
+      FunctionCall(tmp___8@can_dropped_invalid_skb =
+__builtin_expect(tmp___7@can_dropped_invalid_skb, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=31#6 (Artificial)
+      Skip
+                                                Location: id=31#7 src="include/linux/can/dev.h"; line=73
+      Pred(tmp___8@can_dropped_invalid_skb  ==  0)
+                                                Location: id=31#9 src="include/linux/can/dev.h"; line=79
+      Block(__retres6@can_dropped_invalid_skb = 0;)
+                                                Location: id=31#13 src="include/linux/can/dev.h"; line=68
+      Block(Return(__retres6@can_dropped_invalid_skb);)
+   Skip
+                                                Location: id=43#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=767
+   Pred(tmp___8@ems_usb_start_xmit  ==  0)
+                                                Location: id=43#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=771
+   FunctionCall(urb@ems_usb_start_xmit = usb_alloc_urb(0, 32))
+Locals:  iso_packets@usb_alloc_urb mem_flags@usb_alloc_urb
+                                                Location: id=59#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      FunctionCall(tmp___7@usb_alloc_urb = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=59#2 (Artificial)
+      Skip
+                                                Location: id=59#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(arbitrary_memory@usb_alloc_urb = tmp___7@usb_alloc_urb;)
+                                                Location: id=59#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Pred(arbitrary_memory@usb_alloc_urb  !=  0)
+                                                Location: id=59#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(ldv_urb_state = ldv_urb_state  +  1;)
+                                                Location: id=59#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(__retres5@usb_alloc_urb = arbitrary_memory@usb_alloc_urb;)
+                                                Location: id=59#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=74
+      Block(Return(__retres5@usb_alloc_urb);)
+   Skip
+                                                Location: id=43#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=772
+   Pred(urb@ems_usb_start_xmit  !=  0)
+                                                Location: id=43#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=777
+   FunctionCall(tmp___9@ems_usb_start_xmit =
+usb_alloc_coherent(* (dev@ems_usb_start_xmit ).udev, size@ems_usb_start_xmit, 32, urb@ems_usb_start_xmit
+ foffset  transfer_dma))
+Locals:  dev@usb_alloc_coherent size@usb_alloc_coherent mem_flags@usb_alloc_coherent dma@usb_alloc_coherent
+                                                Location: id=57#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      FunctionCall(tmp___7@usb_alloc_coherent = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=57#2 (Artificial)
+      Skip
+                                                Location: id=57#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(arbitrary_memory@usb_alloc_coherent = tmp___7@usb_alloc_coherent;)
+                                                Location: id=57#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Pred(arbitrary_memory@usb_alloc_coherent  !=  0)
+                                                Location: id=57#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(ldv_coherent_state = ldv_coherent_state  +  1;)
+                                                Location: id=57#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(__retres7@usb_alloc_coherent = arbitrary_memory@usb_alloc_coherent;)
+                                                Location: id=57#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(Return(__retres7@usb_alloc_coherent);)
+   Skip
+                                                Location: id=43#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=777
+   Block(buf@ems_usb_start_xmit = tmp___9@ems_usb_start_xmit;)
+                                                Location: id=43#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=778
+   Pred(buf@ems_usb_start_xmit  !=  0)
+                                                Location: id=43#24 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=784
+   Block(msg@ems_usb_start_xmit = buf@ems_usb_start_xmit  + 
+4;* (msg@ems_usb_start_xmit ).msg.can_msg.id =
+* (cf@ems_usb_start_xmit ).can_id  & 
+536870911;* (msg@ems_usb_start_xmit ).msg.can_msg.length =
+* (cf@ems_usb_start_xmit ).can_dlc;)
+                                                Location: id=43#29 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=789
+   Pred(* (cf@ems_usb_start_xmit ).can_id  &  1073741824  !=  0)
+                                                Location: id=43#30 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=790
+   Pred(* (cf@ems_usb_start_xmit ).can_id  &  2147483648  ==  0)
+                                                Location: id=43#33 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=790
+   Block(* (msg@ems_usb_start_xmit ).type = 13;)
+                                                Location: id=43#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=793
+   Block(* (msg@ems_usb_start_xmit ).length = 5;)
+                                                Location: id=43#35 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=805
+   Block(* (msg@ems_usb_start_xmit ).msg.can_msg.id =
+* (msg@ems_usb_start_xmit ).msg.can_msg.id;i@ems_usb_start_xmit = 0;)
+                                                Location: id=43#36 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=807
+   Pred(i@ems_usb_start_xmit  <  10)
+                                                Location: id=43#37 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=808
+   Pred(* (dev@ems_usb_start_xmit ).tx_contexts[ i@ems_usb_start_xmit ].echo_index
+      ==  10)
+                                                Location: id=43#39 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=809
+   Block(context@ems_usb_start_xmit = * (dev@ems_usb_start_xmit ).tx_contexts
+ offset  i@ems_usb_start_xmit;)
+                                                Location: id=43#41 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=811
+   Skip
+                                                Location: id=43#42 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=818
+   Pred(context@ems_usb_start_xmit  !=  0)
+                                                Location: id=43#44 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=827
+   Block(* (context@ems_usb_start_xmit ).dev =
+dev@ems_usb_start_xmit;* (context@ems_usb_start_xmit ).echo_index =
+i@ems_usb_start_xmit;* (context@ems_usb_start_xmit ).dlc =
+* (cf@ems_usb_start_xmit ).can_dlc;)
+                                                Location: id=43#52 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=831
+   FunctionCall(tmp___10@ems_usb_start_xmit =
+__create_pipe(* (dev@ems_usb_start_xmit ).udev, 2))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=30#1 src="include/linux/usb.h"; line=1529
+      Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=30#2 src="include/linux/usb.h"; line=1526
+      Block(Return(__retres3@__create_pipe);)
+   Skip
+                                                Location: id=43#54 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=831
+   FunctionCall(usb_fill_bulk_urb(urb@ems_usb_start_xmit, * (dev@ems_usb_start_xmit ).udev, 3
+ <<  30  | 
+tmp___10@ems_usb_start_xmit, buf@ems_usb_start_xmit, size@ems_usb_start_xmit, &(ems_usb_write_bulk_callback), context@ems_usb_start_xmit))
+Locals:  urb@usb_fill_bulk_urb dev@usb_fill_bulk_urb pipe@usb_fill_bulk_urb transfer_buffer@usb_fill_bulk_urb buffer_length@usb_fill_bulk_urb complete_fn@usb_fill_bulk_urb context@usb_fill_bulk_urb
+                                                Location: id=28#1 src="include/linux/usb.h"; line=1276
+      Block(* (urb@usb_fill_bulk_urb ).dev =
+dev@usb_fill_bulk_urb;* (urb@usb_fill_bulk_urb ).pipe =
+pipe@usb_fill_bulk_urb;* (urb@usb_fill_bulk_urb ).transfer_buffer =
+transfer_buffer@usb_fill_bulk_urb;* (urb@usb_fill_bulk_urb ).transfer_buffer_length
+= buffer_length@usb_fill_bulk_urb;* (urb@usb_fill_bulk_urb ).complete =
+complete_fn@usb_fill_bulk_urb;* (urb@usb_fill_bulk_urb ).context =
+context@usb_fill_bulk_urb;)
+                                                Location: id=28#2 src="include/linux/usb.h"; line=1268
+      Block(Return(0);)
+   Skip
+                                                Location: id=43#56 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=833
+   Block(* (urb@ems_usb_start_xmit ).transfer_flags =
+* (urb@ems_usb_start_xmit ).transfer_flags  |  4;)
+                                                Location: id=43#57 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=834
+   FunctionCall(usb_anchor_urb(urb@ems_usb_start_xmit, dev@ems_usb_start_xmit
+ foffset  tx_submitted))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=43#58 (Artificial)
+   Skip
+                                                Location: id=43#59 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=836
+   FunctionCall(can_put_echo_skb(skb@ems_usb_start_xmit, netdev@ems_usb_start_xmit, * (context@ems_usb_start_xmit ).echo_index))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=43#60 (Artificial)
+   Skip
+                                                Location: id=43#61 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=838
+   FunctionCall(atomic_inc(dev@ems_usb_start_xmit  foffset  active_tx_urbs))
+Locals:  v@atomic_inc
+                                                Location: id=6#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=93
+      Block(Return(0);)
+   Skip
+                                                Location: id=43#63 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=840
+   FunctionCall(err@ems_usb_start_xmit =
+usb_submit_urb(urb@ems_usb_start_xmit, 32))
+LDV: undefined function called: usb_submit_urb
+                                                Location: id=43#64 (Artificial)
+   Skip
+                                                Location: id=43#65 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=841
+   FunctionCall(tmp___12@ems_usb_start_xmit =
+__builtin_expect(err@ems_usb_start_xmit, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=43#66 (Artificial)
+   Skip
+                                                Location: id=43#67 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=841
+   Pred(tmp___12@ems_usb_start_xmit  ==  0)
+                                                Location: id=43#69 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=858
+   Block(* (netdev@ems_usb_start_xmit ).trans_start = jiffies;)
+                                                Location: id=43#90 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=861
+   FunctionCall(tmp___11@ems_usb_start_xmit = atomic_read(dev@ems_usb_start_xmit
+ foffset  active_tx_urbs))
+Locals:  v@atomic_read
+                                                Location: id=4#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=25
+      Block(cil_2@atomic_read = v@atomic_read  foffset  counter;)
+                                                Location: id=4#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=25
+      Block(__retres3@atomic_read = * (cil_2@atomic_read );)
+                                                Location: id=4#3 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"; line=23
+      Block(Return(__retres3@atomic_read);)
+   Skip
+                                                Location: id=43#92 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=861
+   Pred(tmp___11@ems_usb_start_xmit  <  10)
+                                                Location: id=43#94 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=861
+   Pred(* (dev@ems_usb_start_xmit ).free_slots  >=  5)
+                                                Location: id=43#83 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=871
+   FunctionCall(usb_free_urb(urb@ems_usb_start_xmit))
+Locals:  urb@usb_free_urb
+                                                Location: id=60#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+      Pred(urb@usb_free_urb  !=  0)
+                                                Location: id=60#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+      Pred(urb@usb_free_urb  !=  0)
+                                                Location: id=60#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+      Pred(ldv_urb_state  >=  1)
+                                                Location: id=60#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+      Block(ldv_urb_state = ldv_urb_state  -  1;)
+                                                Location: id=60#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=84
+      Skip
+                                                Location: id=60#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=79
+      Block(Return(0);)
+   Skip
+                                                Location: id=43#85 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=873
+   Block(__retres19@ems_usb_start_xmit = 0;)
+                                                Location: id=43#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=754
+   Block(Return(__retres19@ems_usb_start_xmit);)
+Skip
+                                                Location: id=54#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1964
+Skip
+                                                Location: id=54#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1581
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=54#14 (Artificial)
+Skip
+                                                Location: id=54#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1581
+Pred(tmp___9@main  ==  0)
+                                                Location: id=54#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1581
+Pred(ldv_s_ems_usb_netdev_ops_net_device_ops@main  ==  0)
+                                                Location: id=54#69 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1581
+Pred(ldv_s_ems_usb_driver_usb_driver@main  ==  0)
+                                                Location: id=54#71 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1970
+Skip
+                                                Location: id=54#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=2031
+FunctionCall(ems_usb_exit())
+Locals: 
+                                                Location: id=51#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1139
+   FunctionCall(usb_deregister(&(ems_usb_driver)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=51#2 (Artificial)
+   Skip
+                                                Location: id=51#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=1136
+   Block(Return(0);)
+Skip
+                                                Location: id=54#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"; line=2034
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=61#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=86
+   Pred(ldv_urb_state  ==  0)
+                                                Location: id=61#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=88
+   Pred(ldv_coherent_state  !=  0)
+                                                Location: id=61#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=88
+   FunctionCall(ldv_blast_assert())
+Locals: 

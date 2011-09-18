@@ -1,0 +1,1120 @@
+
+                                                Location: id=34#1 src="ldv/68_1/drivers/input/misc/keyspan_remote.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=34#1 src="ldv/68_1/drivers/input/misc/keyspan_remote.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/68_1/drivers/input/misc/keyspan_remote.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=42#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=29
+   Block(__param_str_debug[ 0 ] = 100;__param_str_debug[ 1 ] =
+101;__param_str_debug[ 2 ] = 98;__param_str_debug[ 3 ] =
+117;__param_str_debug[ 4 ] = 103;__param_str_debug[ 5 ] =
+0;__param_debug.name = __param_str_debug;__param_debug.ops =
+&(param_ops_int);__param_debug.perm = 292;__param_debug.flags =
+0;__param_debug.__annonCompField31.arg = &(debug);__mod_debugtype29[ 0 ] =
+112;__mod_debugtype29[ 1 ] = 97;__mod_debugtype29[ 2 ] =
+114;__mod_debugtype29[ 3 ] = 109;__mod_debugtype29[ 4 ] =
+116;__mod_debugtype29[ 5 ] = 121;__mod_debugtype29[ 6 ] =
+112;__mod_debugtype29[ 7 ] = 101;__mod_debugtype29[ 8 ] =
+61;__mod_debugtype29[ 9 ] = 100;__mod_debugtype29[ 10 ] =
+101;__mod_debugtype29[ 11 ] = 98;__mod_debugtype29[ 12 ] =
+117;__mod_debugtype29[ 13 ] = 103;__mod_debugtype29[ 14 ] =
+58;__mod_debugtype29[ 15 ] = 105;__mod_debugtype29[ 16 ] =
+110;__mod_debugtype29[ 17 ] = 116;__mod_debugtype29[ 18 ] =
+0;__mod_debug30[ 0 ] = 112;__mod_debug30[ 1 ] = 97;__mod_debug30[ 2 ] =
+114;__mod_debug30[ 3 ] = 109;__mod_debug30[ 4 ] = 61;__mod_debug30[ 5 ] =
+100;__mod_debug30[ 6 ] = 101;__mod_debug30[ 7 ] = 98;__mod_debug30[ 8 ] =
+117;__mod_debug30[ 9 ] = 103;__mod_debug30[ 10 ] = 58;__mod_debug30[ 11 ] =
+69;__mod_debug30[ 12 ] = 110;__mod_debug30[ 13 ] = 97;__mod_debug30[ 14 ] =
+98;__mod_debug30[ 15 ] = 108;__mod_debug30[ 16 ] = 101;__mod_debug30[ 17 ] =
+32;__mod_debug30[ 18 ] = 101;__mod_debug30[ 19 ] = 120;__mod_debug30[ 20 ] =
+116;__mod_debug30[ 21 ] = 114;__mod_debug30[ 22 ] = 97;__mod_debug30[ 23 ] =
+32;__mod_debug30[ 24 ] = 100;__mod_debug30[ 25 ] = 101;__mod_debug30[ 26 ] =
+98;__mod_debug30[ 27 ] = 117;__mod_debug30[ 28 ] = 103;__mod_debug30[ 29 ] =
+32;__mod_debug30[ 30 ] = 109;__mod_debug30[ 31 ] = 101;__mod_debug30[ 32 ] =
+115;__mod_debug30[ 33 ] = 115;__mod_debug30[ 34 ] = 97;__mod_debug30[ 35 ] =
+103;__mod_debug30[ 36 ] = 101;__mod_debug30[ 37 ] = 115;__mod_debug30[ 38 ] =
+32;__mod_debug30[ 39 ] = 97;__mod_debug30[ 40 ] = 110;__mod_debug30[ 41 ] =
+100;__mod_debug30[ 42 ] = 32;__mod_debug30[ 43 ] = 105;__mod_debug30[ 44 ] =
+110;__mod_debug30[ 45 ] = 102;__mod_debug30[ 46 ] = 111;__mod_debug30[ 47 ] =
+114;__mod_debug30[ 48 ] = 109;__mod_debug30[ 49 ] = 97;__mod_debug30[ 50 ] =
+116;__mod_debug30[ 51 ] = 105;__mod_debug30[ 52 ] = 111;__mod_debug30[ 53 ] =
+110;__mod_debug30[ 54 ] = 0;keyspan_key_table[ 0 ] = 0;keyspan_key_table[ 1 ]
+= 0;keyspan_key_table[ 2 ] = 128;keyspan_key_table[ 3 ] =
+200;keyspan_key_table[ 4 ] = 0;keyspan_key_table[ 5 ] =
+165;keyspan_key_table[ 6 ] = 168;keyspan_key_table[ 7 ] =
+159;keyspan_key_table[ 8 ] = 163;keyspan_key_table[ 9 ] =
+0;keyspan_key_table[ 10 ] = 0;keyspan_key_table[ 11 ] =
+0;keyspan_key_table[ 12 ] = 119;keyspan_key_table[ 13 ] =
+115;keyspan_key_table[ 14 ] = 0;keyspan_key_table[ 15 ] =
+0;keyspan_key_table[ 16 ] = 0;keyspan_key_table[ 17 ] =
+114;keyspan_key_table[ 18 ] = 0;keyspan_key_table[ 19 ] =
+103;keyspan_key_table[ 20 ] = 0;keyspan_key_table[ 21 ] =
+113;keyspan_key_table[ 22 ] = 105;keyspan_key_table[ 23 ] =
+28;keyspan_key_table[ 24 ] = 106;keyspan_key_table[ 25 ] =
+0;keyspan_key_table[ 26 ] = 0;keyspan_key_table[ 27 ] =
+108;keyspan_key_table[ 28 ] = 0;keyspan_key_table[ 29 ] =
+55;keyspan_key_table[ 30 ] = 0;keyspan_key_table[ 31 ] =
+139;keyspan_table[ 0 ].match_flags = 3;keyspan_table[ 0 ].idVendor =
+1741;keyspan_table[ 0 ].idProduct = 514;keyspan_table[ 0 ].bcdDevice_lo =
+0;keyspan_table[ 0 ].bcdDevice_hi = 0;keyspan_table[ 0 ].bDeviceClass =
+0;keyspan_table[ 0 ].bDeviceSubClass = 0;keyspan_table[ 0 ].bDeviceProtocol =
+0;keyspan_table[ 0 ].bInterfaceClass =
+0;keyspan_table[ 0 ].bInterfaceSubClass =
+0;keyspan_table[ 0 ].bInterfaceProtocol = 0;keyspan_table[ 0 ].driver_info =
+0;descriptor.modname = "keyspan_remote";descriptor.function =
+"keyspan_load_tester";descriptor.filename =
+"/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c";descriptor.format
+= "%s - Error ran out of data. pos: %d, len: %d\n";descriptor.lineno =
+163;descriptor.flags = 0;descriptor.enabled = 0;descriptor___0.modname =
+"keyspan_remote";descriptor___0.function =
+"keyspan_check_data";descriptor___0.filename =
+"/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c";descriptor___0.format
+=
+"%s found valid message: system: %d, button: %d, toggle: %d\n";descriptor___0.lineno
+= 321;descriptor___0.flags = 0;descriptor___0.enabled =
+0;descriptor___1.modname = "keyspan_remote";descriptor___1.function =
+"keyspan_setup";descriptor___1.filename =
+"/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c";descriptor___1.format
+= "%s - failed to set bit rate due to error: %d\n";descriptor___1.lineno =
+345;descriptor___1.flags = 0;descriptor___1.enabled =
+0;descriptor___2.modname = "keyspan_remote";descriptor___2.function =
+"keyspan_setup";descriptor___2.filename =
+"/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c";descriptor___2.format
+=
+"%s - failed to set resume sensitivity due to error: %d\n";descriptor___2.lineno
+= 353;descriptor___2.flags = 0;descriptor___2.enabled =
+0;descriptor___3.modname = "keyspan_remote";descriptor___3.function =
+"keyspan_setup";descriptor___3.filename =
+"/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c";descriptor___3.format
+= "%s - failed to turn receive on due to error: %d\n";descriptor___3.lineno =
+361;descriptor___3.flags = 0;descriptor___3.enabled =
+0;descriptor___4.modname = "keyspan_remote";descriptor___4.function =
+"keyspan_setup";descriptor___4.filename =
+"/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c";descriptor___4.format
+= "%s - Setup complete.\n";descriptor___4.lineno = 365;descriptor___4.flags =
+0;descriptor___4.enabled = 0;keyspan_driver.name =
+"keyspan_remote";keyspan_driver.probe =
+&(keyspan_probe);keyspan_driver.disconnect =
+&(keyspan_disconnect);keyspan_driver.unlocked_ioctl =
+0;keyspan_driver.suspend = 0;keyspan_driver.resume =
+0;keyspan_driver.reset_resume = 0;keyspan_driver.pre_reset =
+0;keyspan_driver.post_reset = 0;keyspan_driver.id_table =
+keyspan_table;keyspan_driver.dynids.lock.__annonCompField18.rlock.raw_lock.slock
+= 0;keyspan_driver.dynids.lock.__annonCompField18.rlock.magic =
+0;keyspan_driver.dynids.lock.__annonCompField18.rlock.owner_cpu =
+0;keyspan_driver.dynids.lock.__annonCompField18.rlock.owner =
+0;keyspan_driver.dynids.lock.__annonCompField18.rlock.dep_map.key =
+0;keyspan_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ]
+=
+0;keyspan_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ]
+= 0;keyspan_driver.dynids.lock.__annonCompField18.rlock.dep_map.name =
+0;keyspan_driver.dynids.lock.__annonCompField18.rlock.dep_map.cpu =
+0;keyspan_driver.dynids.lock.__annonCompField18.rlock.dep_map.ip =
+0;keyspan_driver.dynids.list.next = 0;keyspan_driver.dynids.list.prev =
+0;keyspan_driver.drvwrap.driver.name = 0;keyspan_driver.drvwrap.driver.bus =
+0;keyspan_driver.drvwrap.driver.owner =
+0;keyspan_driver.drvwrap.driver.mod_name =
+0;keyspan_driver.drvwrap.driver.suppress_bind_attrs =
+0;keyspan_driver.drvwrap.driver.of_match_table =
+0;keyspan_driver.drvwrap.driver.probe =
+0;keyspan_driver.drvwrap.driver.remove =
+0;keyspan_driver.drvwrap.driver.shutdown =
+0;keyspan_driver.drvwrap.driver.suspend =
+0;keyspan_driver.drvwrap.driver.resume =
+0;keyspan_driver.drvwrap.driver.groups = 0;keyspan_driver.drvwrap.driver.pm =
+0;keyspan_driver.drvwrap.driver.p = 0;keyspan_driver.drvwrap.for_devices =
+0;keyspan_driver.no_dynamic_id = 0;keyspan_driver.supports_autosuspend =
+0;keyspan_driver.soft_unbind = 0;__mod_author606[ 0 ] =
+97;__mod_author606[ 1 ] = 117;__mod_author606[ 2 ] = 116;__mod_author606[ 3 ]
+= 104;__mod_author606[ 4 ] = 111;__mod_author606[ 5 ] =
+114;__mod_author606[ 6 ] = 61;__mod_author606[ 7 ] = 77;__mod_author606[ 8 ]
+= 105;__mod_author606[ 9 ] = 99;__mod_author606[ 10 ] =
+104;__mod_author606[ 11 ] = 97;__mod_author606[ 12 ] =
+101;__mod_author606[ 13 ] = 108;__mod_author606[ 14 ] =
+32;__mod_author606[ 15 ] = 68;__mod_author606[ 16 ] =
+111;__mod_author606[ 17 ] = 119;__mod_author606[ 18 ] =
+110;__mod_author606[ 19 ] = 101;__mod_author606[ 20 ] =
+121;__mod_author606[ 21 ] = 32;__mod_author606[ 22 ] =
+60;__mod_author606[ 23 ] = 100;__mod_author606[ 24 ] =
+111;__mod_author606[ 25 ] = 119;__mod_author606[ 26 ] =
+110;__mod_author606[ 27 ] = 101;__mod_author606[ 28 ] =
+121;__mod_author606[ 29 ] = 64;__mod_author606[ 30 ] =
+122;__mod_author606[ 31 ] = 121;__mod_author606[ 32 ] =
+109;__mod_author606[ 33 ] = 101;__mod_author606[ 34 ] =
+116;__mod_author606[ 35 ] = 97;__mod_author606[ 36 ] =
+46;__mod_author606[ 37 ] = 99;__mod_author606[ 38 ] =
+111;__mod_author606[ 39 ] = 109;__mod_author606[ 40 ] =
+62;__mod_author606[ 41 ] = 0;__mod_description607[ 0 ] =
+100;__mod_description607[ 1 ] = 101;__mod_description607[ 2 ] =
+115;__mod_description607[ 3 ] = 99;__mod_description607[ 4 ] =
+114;__mod_description607[ 5 ] = 105;__mod_description607[ 6 ] =
+112;__mod_description607[ 7 ] = 116;__mod_description607[ 8 ] =
+105;__mod_description607[ 9 ] = 111;__mod_description607[ 10 ] =
+110;__mod_description607[ 11 ] = 61;__mod_description607[ 12 ] =
+68;__mod_description607[ 13 ] = 114;__mod_description607[ 14 ] =
+105;__mod_description607[ 15 ] = 118;__mod_description607[ 16 ] =
+101;__mod_description607[ 17 ] = 114;__mod_description607[ 18 ] =
+32;__mod_description607[ 19 ] = 102;__mod_description607[ 20 ] =
+111;__mod_description607[ 21 ] = 114;__mod_description607[ 22 ] =
+32;__mod_description607[ 23 ] = 116;__mod_description607[ 24 ] =
+104;__mod_description607[ 25 ] = 101;__mod_description607[ 26 ] =
+32;__mod_description607[ 27 ] = 85;__mod_description607[ 28 ] =
+83;__mod_description607[ 29 ] = 66;__mod_description607[ 30 ] =
+32;__mod_description607[ 31 ] = 75;__mod_description607[ 32 ] =
+101;__mod_description607[ 33 ] = 121;__mod_description607[ 34 ] =
+115;__mod_description607[ 35 ] = 112;__mod_description607[ 36 ] =
+97;__mod_description607[ 37 ] = 110;__mod_description607[ 38 ] =
+32;__mod_description607[ 39 ] = 114;__mod_description607[ 40 ] =
+101;__mod_description607[ 41 ] = 109;__mod_description607[ 42 ] =
+111;__mod_description607[ 43 ] = 116;__mod_description607[ 44 ] =
+101;__mod_description607[ 45 ] = 32;__mod_description607[ 46 ] =
+99;__mod_description607[ 47 ] = 111;__mod_description607[ 48 ] =
+110;__mod_description607[ 49 ] = 116;__mod_description607[ 50 ] =
+114;__mod_description607[ 51 ] = 111;__mod_description607[ 52 ] =
+108;__mod_description607[ 53 ] = 46;__mod_description607[ 54 ] =
+0;__mod_license608[ 0 ] = 108;__mod_license608[ 1 ] =
+105;__mod_license608[ 2 ] = 99;__mod_license608[ 3 ] =
+101;__mod_license608[ 4 ] = 110;__mod_license608[ 5 ] =
+115;__mod_license608[ 6 ] = 101;__mod_license608[ 7 ] =
+61;__mod_license608[ 8 ] = 71;__mod_license608[ 9 ] =
+80;__mod_license608[ 10 ] = 76;__mod_license608[ 11 ] = 0;ldv_urb_state =
+0;ldv_coherent_state = 0;)
+                                                Location: id=42#2 src="ldv/68_1/drivers/input/misc/keyspan_remote.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=34#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=699
+Block(LDV_IN_INTERRUPT = 1;)
+                                                Location: id=34#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=708
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=34#5 (Artificial)
+Skip
+                                                Location: id=34#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=731
+FunctionCall(tmp___7@main = usb_keyspan_init())
+Locals: 
+                                                Location: id=30#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=589
+   FunctionCall(result@usb_keyspan_init = usb_register(&(keyspan_driver)))
+Locals:  driver@usb_register
+                                                Location: id=11#1 src="include/linux/usb.h"; line=933
+      FunctionCall(tmp___7@usb_register =
+usb_register_driver(driver@usb_register, &(__this_module), "keyspan_remote"))
+LDV: undefined function called: usb_register_driver
+                                                Location: id=11#2 (Artificial)
+      Skip
+                                                Location: id=11#3 src="include/linux/usb.h"; line=933
+      Block(Return(tmp___7@usb_register);)
+   Skip
+                                                Location: id=30#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=590
+   Pred(result@usb_keyspan_init  ==  0)
+                                                Location: id=30#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=593
+   Block(Return(result@usb_keyspan_init);)
+Skip
+                                                Location: id=34#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=731
+Pred(tmp___7@main  ==  0)
+                                                Location: id=34#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=733
+Block(ldv_s_keyspan_driver_usb_driver@main = 0;)
+                                                Location: id=34#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=736
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=34#14 (Artificial)
+Skip
+                                                Location: id=34#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=736
+Pred(tmp___9@main  !=  0)
+                                                Location: id=34#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=740
+FunctionCall(tmp___8@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=34#18 (Artificial)
+Skip
+                                                Location: id=34#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=742
+Pred(tmp___8@main  ==  0)
+                                                Location: id=34#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=745
+Pred(ldv_s_keyspan_driver_usb_driver@main  ==  0)
+                                                Location: id=34#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=767
+FunctionCall(res_keyspan_probe_9 =
+keyspan_probe(var_group1@main, var_keyspan_probe_9_p1@main))
+Locals:  interface@keyspan_probe id@keyspan_probe
+                                                Location: id=28#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=445
+   FunctionCall(tmp___7@keyspan_probe =
+interface_to_usbdev(interface@keyspan_probe))
+Locals:  intf@interface_to_usbdev
+                                                Location: id=9#1 src="include/linux/usb.h"; line=499
+      Block(__mptr@interface_to_usbdev = * (intf@interface_to_usbdev ).dev.parent;)
+                                                Location: id=9#2 src="include/linux/usb.h"; line=499
+      Block(cil_3@interface_to_usbdev = 0;)
+                                                Location: id=9#3 src="include/linux/usb.h"; line=499
+      Block(__retres4@interface_to_usbdev = __mptr@interface_to_usbdev  - 
+cil_3@interface_to_usbdev  foffset  dev;)
+                                                Location: id=9#4 src="include/linux/usb.h"; line=497
+      Block(Return(__retres4@interface_to_usbdev);)
+   Skip
+                                                Location: id=28#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=445
+   Block(udev@keyspan_probe = tmp___7@keyspan_probe;)
+                                                Location: id=28#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=451
+   FunctionCall(endpoint@keyspan_probe =
+keyspan_get_in_endpoint(* (interface@keyspan_probe ).cur_altsetting))
+Locals:  iface@keyspan_get_in_endpoint
+                                                Location: id=27#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=428
+      Block(i@keyspan_get_in_endpoint = 0;)
+                                                Location: id=27#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=428
+      Pred(i@keyspan_get_in_endpoint  < 
+     * (iface@keyspan_get_in_endpoint ).desc.bNumEndpoints)
+                                                Location: id=27#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=429
+      Block(cil_5@keyspan_get_in_endpoint =
+* (iface@keyspan_get_in_endpoint ).endpoint  + 
+i@keyspan_get_in_endpoint;endpoint@keyspan_get_in_endpoint =
+cil_5@keyspan_get_in_endpoint  foffset  desc;)
+                                                Location: id=27#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=431
+      FunctionCall(tmp___7@keyspan_get_in_endpoint =
+usb_endpoint_is_int_in(endpoint@keyspan_get_in_endpoint))
+Locals:  epd@usb_endpoint_is_int_in
+                                                Location: id=6#1 src="include/linux/usb/ch9.h"; line=531
+         FunctionCall(tmp@usb_endpoint_is_int_in =
+usb_endpoint_xfer_int(epd@usb_endpoint_is_int_in))
+Locals:  epd@usb_endpoint_xfer_int
+                                                Location: id=5#1 src=""; line=-1
+            Pred(* (epd@usb_endpoint_xfer_int ).bmAttributes  &  3  ==  3)
+                                                Location: id=5#2 src=""; line=-1
+            Block(__cil_tmp2@usb_endpoint_xfer_int = 1;)
+                                                Location: id=5#4 src="include/linux/usb/ch9.h"; line=477
+            Block(Return(__cil_tmp2@usb_endpoint_xfer_int);)
+         Skip
+                                                Location: id=6#3 src="include/linux/usb/ch9.h"; line=531
+         Pred(tmp@usb_endpoint_is_int_in  !=  0)
+                                                Location: id=6#4 src="include/linux/usb/ch9.h"; line=531
+         FunctionCall(tmp___0@usb_endpoint_is_int_in =
+usb_endpoint_dir_in(epd@usb_endpoint_is_int_in))
+Locals:  epd@usb_endpoint_dir_in
+                                                Location: id=4#1 src=""; line=-1
+            Pred(* (epd@usb_endpoint_dir_in ).bEndpointAddress  &  128  ==  128)
+                                                Location: id=4#2 src=""; line=-1
+            Block(__cil_tmp2@usb_endpoint_dir_in = 1;)
+                                                Location: id=4#4 src="include/linux/usb/ch9.h"; line=426
+            Block(Return(__cil_tmp2@usb_endpoint_dir_in);)
+         Skip
+                                                Location: id=6#7 src="include/linux/usb/ch9.h"; line=531
+         Pred(tmp___0@usb_endpoint_is_int_in  !=  0)
+                                                Location: id=6#8 src="include/linux/usb/ch9.h"; line=531
+         Block(tmp___1@usb_endpoint_is_int_in = 1;)
+                                                Location: id=6#10 src="include/linux/usb/ch9.h"; line=531
+         Block(Return(tmp___1@usb_endpoint_is_int_in);)
+      Skip
+                                                Location: id=27#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=431
+      Pred(tmp___7@keyspan_get_in_endpoint  !=  0)
+                                                Location: id=27#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=433
+      Block(__retres6@keyspan_get_in_endpoint = endpoint@keyspan_get_in_endpoint;)
+                                                Location: id=27#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=422
+      Block(Return(__retres6@keyspan_get_in_endpoint);)
+   Skip
+                                                Location: id=28#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=452
+   Pred(endpoint@keyspan_probe  !=  0)
+                                                Location: id=28#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=455
+   FunctionCall(tmp___8@keyspan_probe = kzalloc(24064, 208))
+Locals:  size@kzalloc flags@kzalloc
+                                                Location: id=3#1 src="include/linux/slab.h"; line=320
+      FunctionCall(tmp@kzalloc = kmalloc(size@kzalloc, flags@kzalloc  |  32768))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=2#1 src="include/linux/slub_def.h"; line=270
+         FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=2#2 (Artificial)
+         Skip
+                                                Location: id=2#3 src="include/linux/slub_def.h"; line=270
+         Block(Return(tmp___2@kmalloc);)
+      Skip
+                                                Location: id=3#3 src="include/linux/slab.h"; line=320
+      Block(Return(tmp@kzalloc);)
+   Skip
+                                                Location: id=28#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=455
+   Block(remote@keyspan_probe = tmp___8@keyspan_probe;)
+                                                Location: id=28#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=456
+   FunctionCall(input_dev@keyspan_probe = input_allocate_device())
+LDV: undefined function called: input_allocate_device
+                                                Location: id=28#13 (Artificial)
+   Skip
+                                                Location: id=28#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=457
+   Pred(remote@keyspan_probe  !=  0)
+                                                Location: id=28#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=457
+   Pred(input_dev@keyspan_probe  !=  0)
+                                                Location: id=28#24 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=462
+   Block(* (remote@keyspan_probe ).udev =
+udev@keyspan_probe;* (remote@keyspan_probe ).input =
+input_dev@keyspan_probe;* (remote@keyspan_probe ).interface =
+interface@keyspan_probe;* (remote@keyspan_probe ).in_endpoint =
+endpoint@keyspan_probe;* (remote@keyspan_probe ).toggle = -1;)
+                                                Location: id=28#26 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=468
+   FunctionCall(tmp___9@keyspan_probe =
+usb_alloc_coherent(udev@keyspan_probe, 8, 32, remote@keyspan_probe  foffset 
+in_dma))
+Locals:  dev@usb_alloc_coherent size@usb_alloc_coherent mem_flags@usb_alloc_coherent dma@usb_alloc_coherent
+                                                Location: id=37#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      FunctionCall(tmp___7@usb_alloc_coherent = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=37#2 (Artificial)
+      Skip
+                                                Location: id=37#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(arbitrary_memory@usb_alloc_coherent = tmp___7@usb_alloc_coherent;)
+                                                Location: id=37#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Pred(arbitrary_memory@usb_alloc_coherent  !=  0)
+                                                Location: id=37#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(ldv_coherent_state = ldv_coherent_state  +  1;)
+                                                Location: id=37#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(__retres7@usb_alloc_coherent = arbitrary_memory@usb_alloc_coherent;)
+                                                Location: id=37#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(Return(__retres7@usb_alloc_coherent);)
+   Skip
+                                                Location: id=28#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=468
+   Block(* (remote@keyspan_probe ).in_buffer = tmp___9@keyspan_probe;)
+                                                Location: id=28#29 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=469
+   Pred(* (remote@keyspan_probe ).in_buffer  !=  0)
+                                                Location: id=28#31 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=474
+   FunctionCall(* (remote@keyspan_probe ).irq_urb = usb_alloc_urb(0, 208))
+Locals:  iso_packets@usb_alloc_urb mem_flags@usb_alloc_urb
+                                                Location: id=39#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      FunctionCall(tmp___7@usb_alloc_urb = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=39#2 (Artificial)
+      Skip
+                                                Location: id=39#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(arbitrary_memory@usb_alloc_urb = tmp___7@usb_alloc_urb;)
+                                                Location: id=39#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Pred(arbitrary_memory@usb_alloc_urb  !=  0)
+                                                Location: id=39#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(ldv_urb_state = ldv_urb_state  +  1;)
+                                                Location: id=39#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(__retres5@usb_alloc_urb = arbitrary_memory@usb_alloc_urb;)
+                                                Location: id=39#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=74
+      Block(Return(__retres5@usb_alloc_urb);)
+   Skip
+                                                Location: id=28#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=475
+   Pred(* (remote@keyspan_probe ).irq_urb  !=  0)
+                                                Location: id=28#36 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=480
+   FunctionCall(error@keyspan_probe = keyspan_setup(udev@keyspan_probe))
+Locals:  dev@keyspan_setup
+                                                Location: id=23#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=339
+      Block(retval@keyspan_setup = 0;)
+                                                Location: id=23#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=341
+      FunctionCall(tmp___7@keyspan_setup = __create_pipe(dev@keyspan_setup, 0))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=13#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=13#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=23#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=341
+      FunctionCall(retval@keyspan_setup = usb_control_msg(dev@keyspan_setup, 2  << 
+30  |  tmp___7@keyspan_setup, 17, 64, 22017, 0, 0, 0, 0))
+LDV: undefined function called: usb_control_msg
+                                                Location: id=23#5 (Artificial)
+      Skip
+                                                Location: id=23#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=343
+      Pred(retval@keyspan_setup  ==  0)
+                                                Location: id=23#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=349
+      FunctionCall(tmp___9@keyspan_setup = __create_pipe(dev@keyspan_setup, 0))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=13#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=13#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=23#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=349
+      FunctionCall(retval@keyspan_setup = usb_control_msg(dev@keyspan_setup, 2  << 
+30  |  tmp___9@keyspan_setup, 68, 64, 0, 0, 0, 0, 0))
+LDV: undefined function called: usb_control_msg
+                                                Location: id=23#20 (Artificial)
+      Skip
+                                                Location: id=23#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=351
+      Pred(retval@keyspan_setup  ==  0)
+                                                Location: id=23#23 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=357
+      FunctionCall(tmp___11@keyspan_setup = __create_pipe(dev@keyspan_setup, 0))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=13#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=13#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=23#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=357
+      FunctionCall(retval@keyspan_setup = usb_control_msg(dev@keyspan_setup, 2  << 
+30  |  tmp___11@keyspan_setup, 34, 64, 0, 0, 0, 0, 0))
+LDV: undefined function called: usb_control_msg
+                                                Location: id=23#35 (Artificial)
+      Skip
+                                                Location: id=23#36 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=359
+      Pred(retval@keyspan_setup  ==  0)
+                                                Location: id=23#38 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=365
+      FunctionCall(tmp___13@keyspan_setup =
+__builtin_expect(descriptor___4.enabled, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=23#48 (Artificial)
+      Skip
+                                                Location: id=23#49 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=365
+      Pred(tmp___13@keyspan_setup  ==  0)
+                                                Location: id=23#53 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=369
+      Skip
+                                                Location: id=23#54 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=369
+      Skip
+                                                Location: id=23#55 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=366
+      Block(__retres10@keyspan_setup = retval@keyspan_setup;)
+                                                Location: id=23#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=337
+      Block(Return(__retres10@keyspan_setup);)
+   Skip
+                                                Location: id=28#41 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=481
+   Pred(error@keyspan_probe  ==  0)
+                                                Location: id=28#43 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=486
+   Pred(* (udev@keyspan_probe ).manufacturer  ==  0)
+                                                Location: id=28#50 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=489
+   Pred(* (udev@keyspan_probe ).product  ==  0)
+                                                Location: id=28#58 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=495
+   FunctionCall(tmp___10@keyspan_probe = strlen(* (remote@keyspan_probe ).name))
+LDV: undefined function called: strlen
+                                                Location: id=28#59 (Artificial)
+   Skip
+                                                Location: id=28#60 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=495
+   Pred(tmp___10@keyspan_probe  !=  0)
+                                                Location: id=28#61 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=501
+   FunctionCall(usb_make_path(udev@keyspan_probe, * (remote@keyspan_probe ).phys, 4096))
+Locals:  dev@usb_make_path buf@usb_make_path size@usb_make_path
+                                                Location: id=10#1 src="include/linux/usb.h"; line=640
+      Block(cil_6@usb_make_path = * (dev@usb_make_path ).bus;)
+                                                Location: id=10#2 src="include/linux/usb.h"; line=640
+      FunctionCall(actual@usb_make_path =
+snprintf(buf@usb_make_path, size@usb_make_path, "usb-%s-%s", * (cil_6@usb_make_path ).bus_name, * (dev@usb_make_path ).devpath))
+LDV: undefined function called: snprintf
+                                                Location: id=10#3 (Artificial)
+      Skip
+                                                Location: id=10#4 src="include/linux/usb.h"; line=642
+      Pred(actual@usb_make_path  >=  size@usb_make_path)
+                                                Location: id=10#5 src="include/linux/usb.h"; line=642
+      Block(tmp___7@usb_make_path = -1;)
+                                                Location: id=10#7 src="include/linux/usb.h"; line=642
+      Block(Return(tmp___7@usb_make_path);)
+   Skip
+                                                Location: id=28#64 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=502
+   FunctionCall(strlcat(* (remote@keyspan_probe ).phys, "/input0", 4096))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=28#65 (Artificial)
+   Skip
+                                                Location: id=28#66 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=503
+   Block(__len@keyspan_probe = 4096;)
+                                                Location: id=28#67 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=503
+   Pred(__len@keyspan_probe  >=  64)
+                                                Location: id=28#68 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=503
+   FunctionCall(__ret@keyspan_probe =
+__memcpy(* (remote@keyspan_probe ).keymap, keyspan_key_table, __len@keyspan_probe))
+LDV: undefined function called: __memcpy
+                                                Location: id=28#70 (Artificial)
+   Skip
+                                                Location: id=28#71 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=505
+   Block(* (input_dev@keyspan_probe ).name =
+* (remote@keyspan_probe ).name;* (input_dev@keyspan_probe ).phys =
+* (remote@keyspan_probe ).phys;)
+                                                Location: id=28#72 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=507
+   FunctionCall(usb_to_input_id(udev@keyspan_probe, input_dev@keyspan_probe
+ foffset  id))
+Locals:  dev@usb_to_input_id id@usb_to_input_id
+                                                Location: id=18#1 src="include/linux/usb/input.h"; line=19
+      Block(* (id@usb_to_input_id ).bustype = 3;* (id@usb_to_input_id ).vendor =
+* (dev@usb_to_input_id ).descriptor.idVendor;* (id@usb_to_input_id ).product
+=
+* (dev@usb_to_input_id ).descriptor.idProduct;* (id@usb_to_input_id ).version
+= * (dev@usb_to_input_id ).descriptor.bcdDevice;)
+                                                Location: id=18#2 src="include/linux/usb/input.h"; line=16
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#74 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=508
+   Block(* (input_dev@keyspan_probe ).dev.parent = interface@keyspan_probe
+ foffset  dev;* (input_dev@keyspan_probe ).keycode =
+* (remote@keyspan_probe ).keymap;* (input_dev@keyspan_probe ).keycodesize =
+128;* (input_dev@keyspan_probe ).keycodemax = 4096  /  128  +  0;)
+                                                Location: id=28#75 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=513
+   FunctionCall(input_set_capability(input_dev@keyspan_probe, 4, 4))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=28#76 (Artificial)
+   Skip
+                                                Location: id=28#77 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=514
+   FunctionCall(__set_bit(1, * (input_dev@keyspan_probe ).evbit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#79 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = 0;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  <  4096  /  128  +  0)
+                                                Location: id=28#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=516
+   FunctionCall(__set_bit(keyspan_key_table[ i@keyspan_probe ], * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__set_bit addr@__set_bit
+                                                Location: id=0#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=84
+      Block(cil_3@__set_bit = addr@__set_bit;)
+                                                Location: id=0#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=82
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Block(i@keyspan_probe = i@keyspan_probe  +  1;)
+                                                Location: id=28#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=515
+   Pred(i@keyspan_probe  >=  4096  /  128  +  0)
+                                                Location: id=28#82 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=517
+   FunctionCall(__clear_bit(0, * (input_dev@keyspan_probe ).keybit))
+Locals:  nr@__clear_bit addr@__clear_bit
+                                                Location: id=1#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=127
+      Block(cil_3@__clear_bit = addr@__clear_bit;)
+                                                Location: id=1#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"; line=125
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#87 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=519
+   FunctionCall(input_set_drvdata(input_dev@keyspan_probe, remote@keyspan_probe))
+Locals:  dev@input_set_drvdata data@input_set_drvdata
+                                                Location: id=15#1 src="include/linux/input.h"; line=1446
+      FunctionCall(dev_set_drvdata(dev@input_set_drvdata  foffset 
+dev, data@input_set_drvdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=15#2 (Artificial)
+      Skip
+                                                Location: id=15#3 src="include/linux/input.h"; line=1444
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#89 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=521
+   Block(* (input_dev@keyspan_probe ).open =
+&(keyspan_open);* (input_dev@keyspan_probe ).close = &(keyspan_close);)
+                                                Location: id=28#90 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=528
+   FunctionCall(tmp___11@keyspan_probe =
+__create_pipe(* (remote@keyspan_probe ).udev, * (endpoint@keyspan_probe ).bEndpointAddress))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=13#1 src="include/linux/usb.h"; line=1529
+      Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=13#2 src="include/linux/usb.h"; line=1526
+      Block(Return(__retres3@__create_pipe);)
+   Skip
+                                                Location: id=28#92 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=528
+   FunctionCall(usb_fill_int_urb(* (remote@keyspan_probe ).irq_urb, * (remote@keyspan_probe ).udev, 1
+ <<  30  |  tmp___11@keyspan_probe  | 
+128, * (remote@keyspan_probe ).in_buffer, 8, &(keyspan_irq_recv), remote@keyspan_probe, * (endpoint@keyspan_probe ).bInterval))
+Locals:  urb@usb_fill_int_urb dev@usb_fill_int_urb pipe@usb_fill_int_urb transfer_buffer@usb_fill_int_urb buffer_length@usb_fill_int_urb complete_fn@usb_fill_int_urb context@usb_fill_int_urb interval@usb_fill_int_urb
+                                                Location: id=12#1 src="include/linux/usb.h"; line=1318
+      Block(* (urb@usb_fill_int_urb ).dev =
+dev@usb_fill_int_urb;* (urb@usb_fill_int_urb ).pipe =
+pipe@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer =
+transfer_buffer@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer_length
+= buffer_length@usb_fill_int_urb;* (urb@usb_fill_int_urb ).complete =
+complete_fn@usb_fill_int_urb;* (urb@usb_fill_int_urb ).context =
+context@usb_fill_int_urb;)
+                                                Location: id=12#2 src="include/linux/usb.h"; line=1324
+      Pred(* (dev@usb_fill_int_urb ).speed  ==  3)
+                                                Location: id=12#3 src="include/linux/usb.h"; line=1325
+      Block(* (urb@usb_fill_int_urb ).interval = 1  <<  interval@usb_fill_int_urb
+ -  1;)
+                                                Location: id=12#5 src="include/linux/usb.h"; line=1328
+      Block(* (urb@usb_fill_int_urb ).start_frame = -1;)
+                                                Location: id=12#6 src="include/linux/usb.h"; line=1309
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#94 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=533
+   Block(cil_18@keyspan_probe =
+* (remote@keyspan_probe ).irq_urb;* (cil_18@keyspan_probe ).transfer_dma =
+* (remote@keyspan_probe ).in_dma;cil_19@keyspan_probe =
+* (remote@keyspan_probe ).irq_urb;cil_20@keyspan_probe =
+* (remote@keyspan_probe ).irq_urb;* (cil_19@keyspan_probe ).transfer_flags =
+* (cil_20@keyspan_probe ).transfer_flags  |  4;)
+                                                Location: id=28#95 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=537
+   FunctionCall(tmp___12@keyspan_probe =
+input_register_device(* (remote@keyspan_probe ).input))
+LDV: undefined function called: input_register_device
+                                                Location: id=28#96 (Artificial)
+   Skip
+                                                Location: id=28#97 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=537
+   Block(tmp@keyspan_probe = tmp___12@keyspan_probe;error@keyspan_probe =
+tmp@keyspan_probe;)
+                                                Location: id=28#98 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=538
+   Pred(error@keyspan_probe  ==  0)
+                                                Location: id=28#100 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=542
+   FunctionCall(usb_set_intfdata(interface@keyspan_probe, remote@keyspan_probe))
+Locals:  intf@usb_set_intfdata data@usb_set_intfdata
+                                                Location: id=8#1 src="include/linux/usb.h"; line=198
+      FunctionCall(dev_set_drvdata(intf@usb_set_intfdata  foffset 
+dev, data@usb_set_intfdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=8#2 (Artificial)
+      Skip
+                                                Location: id=8#3 src="include/linux/usb.h"; line=196
+      Block(Return(0);)
+   Skip
+                                                Location: id=28#102 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=544
+   Block(__retres21@keyspan_probe = 0;)
+                                                Location: id=28#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=443
+   Block(Return(__retres21@keyspan_probe);)
+Skip
+                                                Location: id=34#25 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=768
+FunctionCall(ldv_check_return_value(res_keyspan_probe_9))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=34#26 (Artificial)
+Skip
+                                                Location: id=34#27 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=769
+Pred(res_keyspan_probe_9  ==  0)
+                                                Location: id=34#29 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=771
+Block(ldv_s_keyspan_driver_usb_driver@main =
+ldv_s_keyspan_driver_usb_driver@main  +  1;)
+                                                Location: id=34#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=813
+Skip
+                                                Location: id=34#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=736
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=34#14 (Artificial)
+Skip
+                                                Location: id=34#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=736
+Pred(tmp___9@main  !=  0)
+                                                Location: id=34#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=740
+FunctionCall(tmp___8@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=34#18 (Artificial)
+Skip
+                                                Location: id=34#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=742
+Pred(tmp___8@main  !=  0)
+                                                Location: id=34#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=778
+Pred(tmp___8@main  ==  1)
+                                                Location: id=34#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=781
+Pred(ldv_s_keyspan_driver_usb_driver@main  ==  1)
+                                                Location: id=34#36 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=803
+FunctionCall(keyspan_disconnect(var_group1@main))
+Locals:  interface@keyspan_disconnect
+                                                Location: id=29#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=561
+   FunctionCall(tmp___7@keyspan_disconnect =
+usb_get_intfdata(interface@keyspan_disconnect))
+Locals:  intf@usb_get_intfdata
+                                                Location: id=7#1 src="include/linux/usb.h"; line=193
+      FunctionCall(tmp___7@usb_get_intfdata = dev_get_drvdata(intf@usb_get_intfdata
+ foffset  dev))
+LDV: undefined function called: dev_get_drvdata
+                                                Location: id=7#2 (Artificial)
+      Skip
+                                                Location: id=7#3 src="include/linux/usb.h"; line=193
+      Block(Return(tmp___7@usb_get_intfdata);)
+   Skip
+                                                Location: id=29#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=561
+   Block(remote@keyspan_disconnect = tmp___7@keyspan_disconnect;)
+                                                Location: id=29#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=562
+   FunctionCall(usb_set_intfdata(interface@keyspan_disconnect, 0))
+Locals:  intf@usb_set_intfdata data@usb_set_intfdata
+                                                Location: id=8#1 src="include/linux/usb.h"; line=198
+      FunctionCall(dev_set_drvdata(intf@usb_set_intfdata  foffset 
+dev, data@usb_set_intfdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=8#2 (Artificial)
+      Skip
+                                                Location: id=8#3 src="include/linux/usb.h"; line=196
+      Block(Return(0);)
+   Skip
+                                                Location: id=29#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=564
+   Pred(remote@keyspan_disconnect  ==  0)
+                                                Location: id=29#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=557
+   Block(Return(0);)
+Skip
+                                                Location: id=34#39 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=804
+Block(ldv_s_keyspan_driver_usb_driver@main = 0;)
+                                                Location: id=34#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=813
+Skip
+                                                Location: id=34#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=736
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=34#14 (Artificial)
+Skip
+                                                Location: id=34#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=736
+Pred(tmp___9@main  ==  0)
+                                                Location: id=34#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=736
+Pred(ldv_s_keyspan_driver_usb_driver@main  ==  0)
+                                                Location: id=34#43 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=819
+Skip
+                                                Location: id=34#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=840
+FunctionCall(usb_keyspan_exit())
+Locals: 
+                                                Location: id=31#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=599
+   FunctionCall(usb_deregister(&(keyspan_driver)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=31#2 (Artificial)
+   Skip
+                                                Location: id=31#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=596
+   Block(Return(0);)
+Skip
+                                                Location: id=34#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"; line=843
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=41#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=86
+   Pred(ldv_urb_state  !=  0)
+                                                Location: id=41#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=86
+   FunctionCall(ldv_blast_assert())
+Locals: 
