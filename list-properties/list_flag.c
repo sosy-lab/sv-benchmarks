@@ -3,9 +3,6 @@
  * flag to set the value of the elements in the list before
  * 3 to a value depending on the flag, and check later on
  * that the list is what has been built just before.
- * (TVLA cannot handle it properly because it would be too
- *  imprecise because of the summary done between the cases
- *  where the flag is true or false)
  */
 /*#include <stdlib.h>
   #include "assert.h"*/
@@ -20,8 +17,7 @@ typedef struct node {
 } *List;
 
 void main() {
-  int __BLAST_NONDET;
-  int flag = __BLAST_NONDET;
+  int flag = __VERIFIER_nondet_int();
   List p, a, t;
 
   /* Build a list of the form x->x->x->...->x->3
@@ -30,7 +26,7 @@ void main() {
   a = (List) malloc(sizeof(struct node));
   if (a == 0) exit(1);
   p = a;
-  while (__BLAST_NONDET) {
+  while (__VERIFIER_nondet_int()) {
     if (flag) {
       p->h = 1;
     } else {

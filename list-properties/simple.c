@@ -1,8 +1,7 @@
 /*
  * Simple example: build a list with only 1s and finally a 0 (arbitrary length); 
  * afterwards, go through it and check if the list does have the correct form, and in particular
- * finishes by a 3.
- * (TVLA could handle this example, too, should it be given the appropriate predicates)
+ * finishes by a 0.
  */
 #include <stdlib.h>
 
@@ -16,14 +15,12 @@ typedef struct node {
 } *List;
 
 int main() {
-  int __BLAST_NONDET;
-  
   /* Build a list of the form 1->...->1->0 */
   List a = (List) malloc(sizeof(struct node));
   if (a == 0) exit(1);
   List t;
   List p = a;
-  while (__BLAST_NONDET) {
+  while (__VERIFIER_nondet_int()) {
     p->h = 1;
     t = (List) malloc(sizeof(struct node));
     if (t == 0) exit(1);

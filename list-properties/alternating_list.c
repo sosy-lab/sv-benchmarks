@@ -15,7 +15,6 @@ void exit(int s) {
 }
 
 int main() {
-  int __BLAST_NONDET;
   int flag = 1;
   
   /* Build a list of the form (1->2)*->0 */
@@ -23,7 +22,7 @@ int main() {
   if (a == 0) exit(1);
   List t;
   List p = a;
-  while (__BLAST_NONDET) {
+  while (__VERIFIER_nondet_int()) {
     if (flag) {
       p->h = 1;
       flag = 0;

@@ -18,7 +18,6 @@ typedef struct node {
 } *List;
 
 int main() {
-  int __BLAST_NONDET;
   int flag = 1;
   
   /* Build a list of the form (1->2)*->3 */
@@ -30,7 +29,7 @@ int main() {
   List b;
   List u;
   List p = a;
-  while (__BLAST_NONDET) {
+  while (__VERIFIER_nondet_int()) {
     if (flag) {
       p->h = 1;
       flag = 0;
