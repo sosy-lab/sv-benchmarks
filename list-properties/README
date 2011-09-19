@@ -1,0 +1,13 @@
+The benchmarks in this directory are taken from the two papers
+
+D. Beyer, T. A. Henzinger, and G. Théoduloz.
+Lazy Shape Analysis.
+Proc. CAV, LNCS 4144, pages 532-546, 2006. Springer.
+
+and
+
+D. Beyer, T. A. Henzinger, G. Théoduloz, and D. Zufferey.
+Shape Refinement through Explicit Heap Analysis.
+Proc. FASE, LNCS 6013, pages 263-277, 2010. Springer.
+
+
