@@ -339,7 +339,7 @@ struct raw_spinlock;
 struct raw_spinlock;
 #line 3425 "sata_mv.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3425 "sata_mv.i"
 typedef struct cpumask cpumask_t;
@@ -756,7 +756,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7983 "sata_mv.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7983 "sata_mv.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1287,7 +1287,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2195,7 +2195,7 @@ struct __anonstruct__kill_142 {
 };
 #line 20511 "sata_mv.i"
 union __anonunion__sifields_136 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_142 _kill ;
    struct __anonstruct__timer_141 _timer ;
    struct __anonstruct__rt_140 _rt ;
@@ -4962,7 +4962,7 @@ struct scsi_device {
    unsigned int retry_hwerror : 1 ;
    unsigned int last_sector_bug : 1 ;
    unsigned int is_visible : 1 ;
-   unsigned long supported_events[((2UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long supported_events[((2U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    struct list_head event_list ;
    struct work_struct event_work ;
    unsigned int device_blocked ;
@@ -14170,13 +14170,13 @@ static unsigned int mv_qc_issue_fis(struct ata_queued_cmd *qc )
   void **__cil_tmp62 ;
   struct ata_device **__cil_tmp63 ;
   struct ata_link **__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
   u32 *__cil_tmp67 ;
   unsigned int __cil_tmp68 ;
   int *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
+  unsigned int __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
   u32 *__cil_tmp72 ;
   unsigned int __cil_tmp73 ;
   u8 *__cil_tmp74 ;
@@ -14227,9 +14227,9 @@ static unsigned int mv_qc_issue_fis(struct ata_queued_cmd *qc )
 #line 41631
   __cil_tmp14 = 0U;
 #line 41631
-  __cil_tmp65 = 0 * 4UL;
+  __cil_tmp65 = 0 * 4U;
 #line 41631
-  __cil_tmp66 = (unsigned long )(fis) + __cil_tmp65;
+  __cil_tmp66 = (unsigned int )(fis) + __cil_tmp65;
 #line 41631
   __cil_tmp67 = (u32 *)__cil_tmp66;
 #line 41631
@@ -14269,9 +14269,9 @@ static unsigned int mv_qc_issue_fis(struct ata_queued_cmd *qc )
 #line 41632
   __cil_tmp29 = 0U;
 #line 41632
-  __cil_tmp70 = 0 * 4UL;
+  __cil_tmp70 = 0 * 4U;
 #line 41632
-  __cil_tmp71 = (unsigned long )(fis) + __cil_tmp70;
+  __cil_tmp71 = (unsigned int )(fis) + __cil_tmp70;
 #line 41632
   __cil_tmp72 = (u32 *)__cil_tmp71;
 #line 41632
@@ -23400,17 +23400,17 @@ static int mv_platform_probe(struct platform_device *pdev )
   unsigned int __cil_tmp107 ;
   unsigned int __cil_tmp108 ;
   unsigned int __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
+  unsigned int __cil_tmp110 ;
+  unsigned int __cil_tmp111 ;
   struct ata_port_info  const  **__cil_tmp112 ;
   unsigned int __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
+  unsigned int __cil_tmp114 ;
+  unsigned int __cil_tmp115 ;
   struct ata_port_info  const  *__cil_tmp116 ;
   unsigned int __cil_tmp117 ;
   struct ata_port_info  const  **__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
+  unsigned int __cil_tmp119 ;
+  unsigned int __cil_tmp120 ;
   struct ata_port_info  const  **__cil_tmp121 ;
   unsigned int __cil_tmp122 ;
   struct ata_port_info  const  **__cil_tmp123 ;
@@ -23418,8 +23418,8 @@ static int mv_platform_probe(struct platform_device *pdev )
   void **__cil_tmp125 ;
   int const   *__cil_tmp126 ;
   int __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
+  unsigned int __cil_tmp128 ;
+  unsigned int __cil_tmp129 ;
   struct ata_port_info  const  **__cil_tmp130 ;
   unsigned int __cil_tmp131 ;
   void **__cil_tmp132 ;
@@ -23439,9 +23439,9 @@ static int mv_platform_probe(struct platform_device *pdev )
 #line 43257
   __cil_tmp21 = 0U;
 #line 43257
-  __cil_tmp110 = 0 * 8UL;
+  __cil_tmp110 = 0 * 4U;
 #line 43257
-  __cil_tmp111 = (unsigned long )(ppi) + __cil_tmp110;
+  __cil_tmp111 = (unsigned int )(ppi) + __cil_tmp110;
 #line 43257
   __cil_tmp112 = (struct ata_port_info  const  **)__cil_tmp111;
 #line 43257
@@ -23451,9 +23451,9 @@ static int mv_platform_probe(struct platform_device *pdev )
 #line 43257
   __cil_tmp23 = 196U;
 #line 43257
-  __cil_tmp114 = 0 * 56UL;
+  __cil_tmp114 = 0 * 28U;
 #line 43257
-  __cil_tmp115 = (unsigned long )(mv_port_info) + __cil_tmp114;
+  __cil_tmp115 = (unsigned int )(mv_port_info) + __cil_tmp114;
 #line 43257
   __cil_tmp116 = (struct ata_port_info  const  *)__cil_tmp115;
 #line 43257
@@ -23467,9 +23467,9 @@ static int mv_platform_probe(struct platform_device *pdev )
 #line 43257
   __cil_tmp25 = 4U;
 #line 43257
-  __cil_tmp119 = 0 * 8UL;
+  __cil_tmp119 = 0 * 4U;
 #line 43257
-  __cil_tmp120 = (unsigned long )(ppi) + __cil_tmp119;
+  __cil_tmp120 = (unsigned int )(ppi) + __cil_tmp119;
 #line 43257
   __cil_tmp121 = (struct ata_port_info  const  **)__cil_tmp120;
 #line 43257
@@ -23611,9 +23611,9 @@ static int mv_platform_probe(struct platform_device *pdev )
 #line 43286
   __cil_tmp61 = 0U;
 #line 43286
-  __cil_tmp128 = 0 * 8UL;
+  __cil_tmp128 = 0 * 4U;
 #line 43286
-  __cil_tmp129 = (unsigned long )(ppi) + __cil_tmp128;
+  __cil_tmp129 = (unsigned int )(ppi) + __cil_tmp128;
 #line 43286
   __cil_tmp130 = (struct ata_port_info  const  **)__cil_tmp129;
 #line 43286
@@ -24345,29 +24345,29 @@ static int mv_pci_init_one(struct pci_dev *pdev , struct pci_device_id  const  *
   int tmp___7 ;
   kernel_ulong_t const   *__cil_tmp74 ;
   kernel_ulong_t __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
+  unsigned int __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
   struct ata_port_info  const  **__cil_tmp78 ;
   unsigned int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
+  unsigned int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
   struct ata_port_info  const  *__cil_tmp82 ;
   unsigned int __cil_tmp83 ;
   struct ata_port_info  const  **__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
+  unsigned int __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
   struct ata_port_info  const  **__cil_tmp87 ;
   unsigned int __cil_tmp88 ;
   struct ata_port_info  const  **__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
+  unsigned int __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
   struct ata_port_info  const  **__cil_tmp92 ;
   unsigned int __cil_tmp93 ;
   struct ata_port_info  const  **__cil_tmp94 ;
   unsigned long const   *__cil_tmp95 ;
   unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
+  unsigned int __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
   struct ata_port_info  const  **__cil_tmp99 ;
   unsigned int __cil_tmp100 ;
   void **__cil_tmp101 ;
@@ -24397,9 +24397,9 @@ static int mv_pci_init_one(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 43424
   __cil_tmp20 = 0U;
 #line 43424
-  __cil_tmp76 = 0 * 8UL;
+  __cil_tmp76 = 0 * 4U;
 #line 43424
-  __cil_tmp77 = (unsigned long )(ppi) + __cil_tmp76;
+  __cil_tmp77 = (unsigned int )(ppi) + __cil_tmp76;
 #line 43424
   __cil_tmp78 = (struct ata_port_info  const  **)__cil_tmp77;
 #line 43424
@@ -24409,9 +24409,9 @@ static int mv_pci_init_one(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 43424
   __cil_tmp22 = board_idx * 28U;
 #line 43424
-  __cil_tmp80 = 0 * 56UL;
+  __cil_tmp80 = 0 * 28U;
 #line 43424
-  __cil_tmp81 = (unsigned long )(mv_port_info) + __cil_tmp80;
+  __cil_tmp81 = (unsigned int )(mv_port_info) + __cil_tmp80;
 #line 43424
   __cil_tmp82 = (struct ata_port_info  const  *)__cil_tmp81;
 #line 43424
@@ -24425,9 +24425,9 @@ static int mv_pci_init_one(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 43424
   __cil_tmp24 = 4U;
 #line 43424
-  __cil_tmp85 = 0 * 8UL;
+  __cil_tmp85 = 0 * 4U;
 #line 43424
-  __cil_tmp86 = (unsigned long )(ppi) + __cil_tmp85;
+  __cil_tmp86 = (unsigned int )(ppi) + __cil_tmp85;
 #line 43424
   __cil_tmp87 = (struct ata_port_info  const  **)__cil_tmp86;
 #line 43424
@@ -24477,9 +24477,9 @@ static int mv_pci_init_one(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 43433
   __cil_tmp35 = 0U;
 #line 43433
-  __cil_tmp90 = 0 * 8UL;
+  __cil_tmp90 = 0 * 4U;
 #line 43433
-  __cil_tmp91 = (unsigned long )(ppi) + __cil_tmp90;
+  __cil_tmp91 = (unsigned int )(ppi) + __cil_tmp90;
 #line 43433
   __cil_tmp92 = (struct ata_port_info  const  **)__cil_tmp91;
 #line 43433
@@ -24505,9 +24505,9 @@ static int mv_pci_init_one(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 43435
   __cil_tmp40 = 0U;
 #line 43435
-  __cil_tmp97 = 0 * 8UL;
+  __cil_tmp97 = 0 * 4U;
 #line 43435
-  __cil_tmp98 = (unsigned long )(ppi) + __cil_tmp97;
+  __cil_tmp98 = (unsigned int )(ppi) + __cil_tmp97;
 #line 43435
   __cil_tmp99 = (struct ata_port_info  const  **)__cil_tmp98;
 #line 43435

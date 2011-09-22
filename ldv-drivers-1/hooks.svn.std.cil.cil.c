@@ -66,7 +66,7 @@ typedef unsigned short umode_t;
 typedef u64 dma_addr_t;
 #line 36 "include/linux/posix_types.h"
 struct __anonstruct___kernel_fd_set_5 {
-   unsigned long fds_bits[1024UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long fds_bits[1024U / (8U * sizeof(unsigned long ))] ;
 };
 #line 36 "include/linux/posix_types.h"
 typedef struct __anonstruct___kernel_fd_set_5 __kernel_fd_set;
@@ -420,7 +420,7 @@ struct seq_file;
 struct seq_file;
 #line 144 "include/linux/cpumask.h"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 144 "include/linux/cpumask.h"
 typedef struct cpumask cpumask_t;
@@ -820,7 +820,7 @@ struct rb_root {
 };
 #line 92 "include/linux/nodemask.h"
 struct __anonstruct_nodemask_t_42 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 92 "include/linux/nodemask.h"
 typedef struct __anonstruct_nodemask_t_42 nodemask_t;
@@ -1264,7 +1264,7 @@ struct __anonstruct__kill_109 {
 };
 #line 40 "include/asm-generic/siginfo.h"
 union __anonunion__sifields_103 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_109 _kill ;
    struct __anonstruct__timer_108 _timer ;
    struct __anonstruct__rt_107 _rt ;
@@ -4136,7 +4136,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -4762,7 +4762,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 113 "include/linux/skbuff.h"
 struct sk_buff_head {
@@ -4964,7 +4964,7 @@ struct sockaddr_in {
    sa_family_t sin_family ;
    __be16 sin_port ;
    struct in_addr sin_addr ;
-   unsigned char __pad[((16UL - sizeof(short )) - sizeof(unsigned short )) - sizeof(struct in_addr )] ;
+   unsigned char __pad[((16U - sizeof(short )) - sizeof(unsigned short )) - sizeof(struct in_addr )] ;
 };
 #line 88 "include/linux/netfilter.h"
 struct sk_buff;
@@ -5227,12 +5227,12 @@ struct tty_struct {
    unsigned short minimum_to_wake ;
    unsigned long overrun_time ;
    int num_overrun ;
-   unsigned long process_char_map[256UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long process_char_map[256U / (8U * sizeof(unsigned long ))] ;
    char *read_buf ;
    int read_head ;
    int read_tail ;
    int read_cnt ;
-   unsigned long read_flags[4096UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long read_flags[4096U / (8U * sizeof(unsigned long ))] ;
    unsigned char *echo_buf ;
    unsigned int echo_pos ;
    unsigned int echo_cnt ;
@@ -5767,7 +5767,7 @@ struct hh_cache {
    u16 hh_len ;
    int (*hh_output)(struct sk_buff *skb ) ;
    seqlock_t hh_lock ;
-   unsigned long hh_data[128UL / sizeof(long )] ;
+   unsigned long hh_data[128U / sizeof(long )] ;
 };
 #line 259 "include/linux/netdevice.h"
 struct header_ops {
@@ -12302,8 +12302,8 @@ static int sb_finish_set_opts(struct super_block *sb )
   struct file_system_type **__cil_tmp315 ;
   char const   **__cil_tmp316 ;
   unsigned int *__cil_tmp317 ;
-  unsigned long __cil_tmp318 ;
-  unsigned long __cil_tmp319 ;
+  unsigned int __cil_tmp318 ;
+  unsigned int __cil_tmp319 ;
   char **__cil_tmp320 ;
   unsigned int __cil_tmp321 ;
   char **__cil_tmp322 ;
@@ -12808,9 +12808,9 @@ static int sb_finish_set_opts(struct super_block *sb )
 #line 441
     __cil_tmp160 = __cil_tmp159 * 4U;
 #line 441
-    __cil_tmp318 = 0 * 8UL;
+    __cil_tmp318 = 0 * 4U;
 #line 441
-    __cil_tmp319 = (unsigned long )(labeling_behaviors) + __cil_tmp318;
+    __cil_tmp319 = (unsigned int )(labeling_behaviors) + __cil_tmp318;
 #line 441
     __cil_tmp320 = (char **)__cil_tmp319;
 #line 441
@@ -19416,12 +19416,12 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
   unsigned int __cil_tmp269 ;
   unsigned long *__cil_tmp270 ;
   unsigned long *__cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
+  unsigned int __cil_tmp272 ;
+  unsigned int __cil_tmp273 ;
   substring_t *__cil_tmp274 ;
   unsigned int __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  unsigned long __cil_tmp277 ;
+  unsigned int __cil_tmp276 ;
+  unsigned int __cil_tmp277 ;
   struct match_token *__cil_tmp278 ;
   unsigned int __cil_tmp279 ;
   unsigned int __cil_tmp280 ;
@@ -19430,8 +19430,8 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
   unsigned int __cil_tmp283 ;
   unsigned long *__cil_tmp284 ;
   unsigned long *__cil_tmp285 ;
-  unsigned long __cil_tmp286 ;
-  unsigned long __cil_tmp287 ;
+  unsigned int __cil_tmp286 ;
+  unsigned int __cil_tmp287 ;
   substring_t *__cil_tmp288 ;
   unsigned int __cil_tmp289 ;
   unsigned int __cil_tmp290 ;
@@ -19446,8 +19446,8 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
   unsigned int __cil_tmp299 ;
   unsigned long *__cil_tmp300 ;
   unsigned long *__cil_tmp301 ;
-  unsigned long __cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
+  unsigned int __cil_tmp302 ;
+  unsigned int __cil_tmp303 ;
   substring_t *__cil_tmp304 ;
   unsigned int __cil_tmp305 ;
   unsigned int __cil_tmp306 ;
@@ -19462,8 +19462,8 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
   unsigned int __cil_tmp315 ;
   unsigned long *__cil_tmp316 ;
   unsigned long *__cil_tmp317 ;
-  unsigned long __cil_tmp318 ;
-  unsigned long __cil_tmp319 ;
+  unsigned int __cil_tmp318 ;
+  unsigned int __cil_tmp319 ;
   substring_t *__cil_tmp320 ;
   unsigned int __cil_tmp321 ;
   unsigned int __cil_tmp322 ;
@@ -19478,8 +19478,8 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
   unsigned int __cil_tmp331 ;
   unsigned long *__cil_tmp332 ;
   unsigned long *__cil_tmp333 ;
-  unsigned long __cil_tmp334 ;
-  unsigned long __cil_tmp335 ;
+  unsigned int __cil_tmp334 ;
+  unsigned int __cil_tmp335 ;
   substring_t *__cil_tmp336 ;
   unsigned int __cil_tmp337 ;
   unsigned int __cil_tmp338 ;
@@ -19637,9 +19637,9 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
 #line 881
     __cil_tmp60 = 0U;
 #line 881
-    __cil_tmp272 = 0 * 16UL;
+    __cil_tmp272 = 0 * 8U;
 #line 881
-    __cil_tmp273 = (unsigned long )(args) + __cil_tmp272;
+    __cil_tmp273 = (unsigned int )(args) + __cil_tmp272;
 #line 881
     __cil_tmp274 = (substring_t *)__cil_tmp273;
 #line 881
@@ -19651,9 +19651,9 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
 #line 881
     __cil_tmp63 = 0U;
 #line 881
-    __cil_tmp276 = 0 * 16UL;
+    __cil_tmp276 = 0 * 8U;
 #line 881
-    __cil_tmp277 = (unsigned long )(tokens) + __cil_tmp276;
+    __cil_tmp277 = (unsigned int )(tokens) + __cil_tmp276;
 #line 881
     __cil_tmp278 = (struct match_token *)__cil_tmp277;
 #line 881
@@ -19755,9 +19755,9 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
 #line 890
                 __cil_tmp76 = 0U;
 #line 890
-                __cil_tmp286 = 0 * 16UL;
+                __cil_tmp286 = 0 * 8U;
 #line 890
-                __cil_tmp287 = (unsigned long )(args) + __cil_tmp286;
+                __cil_tmp287 = (unsigned int )(args) + __cil_tmp286;
 #line 890
                 __cil_tmp288 = (substring_t *)__cil_tmp287;
 #line 890
@@ -19871,9 +19871,9 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
 #line 903
                 __cil_tmp101 = 0U;
 #line 903
-                __cil_tmp302 = 0 * 16UL;
+                __cil_tmp302 = 0 * 8U;
 #line 903
-                __cil_tmp303 = (unsigned long )(args) + __cil_tmp302;
+                __cil_tmp303 = (unsigned int )(args) + __cil_tmp302;
 #line 903
                 __cil_tmp304 = (substring_t *)__cil_tmp303;
 #line 903
@@ -19987,9 +19987,9 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
 #line 916
                 __cil_tmp126 = 0U;
 #line 916
-                __cil_tmp318 = 0 * 16UL;
+                __cil_tmp318 = 0 * 8U;
 #line 916
-                __cil_tmp319 = (unsigned long )(args) + __cil_tmp318;
+                __cil_tmp319 = (unsigned int )(args) + __cil_tmp318;
 #line 916
                 __cil_tmp320 = (substring_t *)__cil_tmp319;
 #line 916
@@ -20115,9 +20115,9 @@ static int selinux_parse_opts_str(char *options , struct security_mnt_opts *opts
 #line 929
                 __cil_tmp150 = 0U;
 #line 929
-                __cil_tmp334 = 0 * 16UL;
+                __cil_tmp334 = 0 * 8U;
 #line 929
-                __cil_tmp335 = (unsigned long )(args) + __cil_tmp334;
+                __cil_tmp335 = (unsigned int )(args) + __cil_tmp334;
 #line 929
                 __cil_tmp336 = (substring_t *)__cil_tmp335;
 #line 929
@@ -33247,57 +33247,58 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
   unsigned int __cil_tmp282 ;
   unsigned long *__cil_tmp283 ;
   unsigned long *__cil_tmp284 ;
-  long __cil_tmp285 ;
-  fd_set **__cil_tmp286 ;
-  unsigned long *__cil_tmp287 ;
-  unsigned int __cil_tmp288 ;
+  unsigned long __cil_tmp285 ;
+  unsigned long __cil_tmp286 ;
+  fd_set **__cil_tmp287 ;
+  unsigned long *__cil_tmp288 ;
   unsigned int __cil_tmp289 ;
   unsigned int __cil_tmp290 ;
   unsigned int __cil_tmp291 ;
-  unsigned long *__cil_tmp292 ;
+  unsigned int __cil_tmp292 ;
   unsigned long *__cil_tmp293 ;
-  unsigned int __cil_tmp294 ;
+  unsigned long *__cil_tmp294 ;
   unsigned int __cil_tmp295 ;
   unsigned int __cil_tmp296 ;
   unsigned int __cil_tmp297 ;
-  unsigned long *__cil_tmp298 ;
+  unsigned int __cil_tmp298 ;
   unsigned long *__cil_tmp299 ;
-  unsigned int __cil_tmp300 ;
+  unsigned long *__cil_tmp300 ;
   unsigned int __cil_tmp301 ;
   unsigned int __cil_tmp302 ;
   unsigned int __cil_tmp303 ;
-  unsigned long *__cil_tmp304 ;
+  unsigned int __cil_tmp304 ;
   unsigned long *__cil_tmp305 ;
-  unsigned int __cil_tmp306 ;
+  unsigned long *__cil_tmp306 ;
   unsigned int __cil_tmp307 ;
   unsigned int __cil_tmp308 ;
   unsigned int __cil_tmp309 ;
-  unsigned long *__cil_tmp310 ;
+  unsigned int __cil_tmp310 ;
   unsigned long *__cil_tmp311 ;
-  unsigned int __cil_tmp312 ;
+  unsigned long *__cil_tmp312 ;
   unsigned int __cil_tmp313 ;
   unsigned int __cil_tmp314 ;
   unsigned int __cil_tmp315 ;
-  unsigned long *__cil_tmp316 ;
+  unsigned int __cil_tmp316 ;
   unsigned long *__cil_tmp317 ;
-  unsigned int __cil_tmp318 ;
+  unsigned long *__cil_tmp318 ;
   unsigned int __cil_tmp319 ;
   unsigned int __cil_tmp320 ;
   unsigned int __cil_tmp321 ;
-  unsigned long *__cil_tmp322 ;
+  unsigned int __cil_tmp322 ;
   unsigned long *__cil_tmp323 ;
-  unsigned int __cil_tmp324 ;
+  unsigned long *__cil_tmp324 ;
   unsigned int __cil_tmp325 ;
   unsigned int __cil_tmp326 ;
   unsigned int __cil_tmp327 ;
-  unsigned long *__cil_tmp328 ;
+  unsigned int __cil_tmp328 ;
   unsigned long *__cil_tmp329 ;
-  unsigned int __cil_tmp330 ;
+  unsigned long *__cil_tmp330 ;
   unsigned int __cil_tmp331 ;
   unsigned int __cil_tmp332 ;
   unsigned int __cil_tmp333 ;
-  unsigned long *__cil_tmp334 ;
+  unsigned int __cil_tmp334 ;
   unsigned long *__cil_tmp335 ;
+  unsigned long *__cil_tmp336 ;
 
   {
   {
@@ -33671,9 +33672,11 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 
     }
 #line 2284
-    __cil_tmp285 = j * 4L;
+    __cil_tmp285 = (unsigned long )j;
 #line 2284
-    __cil_tmp140 = (unsigned int )__cil_tmp285;
+    __cil_tmp286 = __cil_tmp285 * 4UL;
+#line 2284
+    __cil_tmp140 = (unsigned int )__cil_tmp286;
 #line 2284
     __cil_tmp141 = __cil_tmp140;
 #line 2284
@@ -33681,17 +33684,17 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2284
     __cil_tmp143 = __cil_tmp142 + 12U;
 #line 2284
-    __cil_tmp286 = (fd_set **)__cil_tmp143;
+    __cil_tmp287 = (fd_set **)__cil_tmp143;
 #line 2284
-    __cil_tmp144 = *__cil_tmp286;
+    __cil_tmp144 = *__cil_tmp287;
 #line 2284
     __cil_tmp145 = (unsigned int )__cil_tmp144;
 #line 2284
     __cil_tmp146 = __cil_tmp145 + __cil_tmp141;
 #line 2284
-    __cil_tmp287 = (unsigned long *)__cil_tmp146;
+    __cil_tmp288 = (unsigned long *)__cil_tmp146;
 #line 2284
-    set = *__cil_tmp287;
+    set = *__cil_tmp288;
 #line 2285
     __cil_tmp147 = ! set;
 #line 2285
@@ -33699,37 +33702,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2285
     ______r___4 = ! __cil_tmp148;
 #line 2285
-    __cil_tmp288 = (unsigned int )______r___4;
+    __cil_tmp289 = (unsigned int )______r___4;
 #line 2285
-    __cil_tmp149 = __cil_tmp288 * 4U;
+    __cil_tmp149 = __cil_tmp289 * 4U;
 #line 2285
     __cil_tmp150 = __cil_tmp149;
 #line 2285
     __cil_tmp151 = 12U + __cil_tmp150;
 #line 2285
-    __cil_tmp289 = (unsigned int )(& ______f___1842);
+    __cil_tmp290 = (unsigned int )(& ______f___1842);
 #line 2285
-    __cil_tmp152 = __cil_tmp289 + __cil_tmp151;
+    __cil_tmp152 = __cil_tmp290 + __cil_tmp151;
 #line 2285
-    __cil_tmp290 = (unsigned int )______r___4;
+    __cil_tmp291 = (unsigned int )______r___4;
 #line 2285
-    __cil_tmp153 = __cil_tmp290 * 4U;
+    __cil_tmp153 = __cil_tmp291 * 4U;
 #line 2285
     __cil_tmp154 = __cil_tmp153;
 #line 2285
     __cil_tmp155 = 12U + __cil_tmp154;
 #line 2285
-    __cil_tmp291 = (unsigned int )(& ______f___1842);
+    __cil_tmp292 = (unsigned int )(& ______f___1842);
 #line 2285
-    __cil_tmp156 = __cil_tmp291 + __cil_tmp155;
+    __cil_tmp156 = __cil_tmp292 + __cil_tmp155;
 #line 2285
-    __cil_tmp292 = (unsigned long *)__cil_tmp156;
+    __cil_tmp293 = (unsigned long *)__cil_tmp156;
 #line 2285
-    __cil_tmp157 = *__cil_tmp292;
+    __cil_tmp157 = *__cil_tmp293;
 #line 2285
-    __cil_tmp293 = (unsigned long *)__cil_tmp152;
+    __cil_tmp294 = (unsigned long *)__cil_tmp152;
 #line 2285
-    *__cil_tmp293 = __cil_tmp157 + 1UL;
+    *__cil_tmp294 = __cil_tmp157 + 1UL;
 #line 2285
     if (______r___4) {
       goto __Cont;
@@ -33764,37 +33767,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2289
       ______r___11 = ! __cil_tmp162;
 #line 2289
-      __cil_tmp294 = (unsigned int )______r___11;
+      __cil_tmp295 = (unsigned int )______r___11;
 #line 2289
-      __cil_tmp163 = __cil_tmp294 * 4U;
+      __cil_tmp163 = __cil_tmp295 * 4U;
 #line 2289
       __cil_tmp164 = __cil_tmp163;
 #line 2289
       __cil_tmp165 = 12U + __cil_tmp164;
 #line 2289
-      __cil_tmp295 = (unsigned int )(& ______f___1849);
+      __cil_tmp296 = (unsigned int )(& ______f___1849);
 #line 2289
-      __cil_tmp166 = __cil_tmp295 + __cil_tmp165;
+      __cil_tmp166 = __cil_tmp296 + __cil_tmp165;
 #line 2289
-      __cil_tmp296 = (unsigned int )______r___11;
+      __cil_tmp297 = (unsigned int )______r___11;
 #line 2289
-      __cil_tmp167 = __cil_tmp296 * 4U;
+      __cil_tmp167 = __cil_tmp297 * 4U;
 #line 2289
       __cil_tmp168 = __cil_tmp167;
 #line 2289
       __cil_tmp169 = 12U + __cil_tmp168;
 #line 2289
-      __cil_tmp297 = (unsigned int )(& ______f___1849);
+      __cil_tmp298 = (unsigned int )(& ______f___1849);
 #line 2289
-      __cil_tmp170 = __cil_tmp297 + __cil_tmp169;
+      __cil_tmp170 = __cil_tmp298 + __cil_tmp169;
 #line 2289
-      __cil_tmp298 = (unsigned long *)__cil_tmp170;
+      __cil_tmp299 = (unsigned long *)__cil_tmp170;
 #line 2289
-      __cil_tmp171 = *__cil_tmp298;
+      __cil_tmp171 = *__cil_tmp299;
 #line 2289
-      __cil_tmp299 = (unsigned long *)__cil_tmp166;
+      __cil_tmp300 = (unsigned long *)__cil_tmp166;
 #line 2289
-      *__cil_tmp299 = __cil_tmp171 + 1UL;
+      *__cil_tmp300 = __cil_tmp171 + 1UL;
 #line 2289
       if (______r___11) {
         {
@@ -33809,37 +33812,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2291
         ______r___5 = ! __cil_tmp174;
 #line 2291
-        __cil_tmp300 = (unsigned int )______r___5;
+        __cil_tmp301 = (unsigned int )______r___5;
 #line 2291
-        __cil_tmp175 = __cil_tmp300 * 4U;
+        __cil_tmp175 = __cil_tmp301 * 4U;
 #line 2291
         __cil_tmp176 = __cil_tmp175;
 #line 2291
         __cil_tmp177 = 12U + __cil_tmp176;
 #line 2291
-        __cil_tmp301 = (unsigned int )(& ______f___1843);
+        __cil_tmp302 = (unsigned int )(& ______f___1843);
 #line 2291
-        __cil_tmp178 = __cil_tmp301 + __cil_tmp177;
+        __cil_tmp178 = __cil_tmp302 + __cil_tmp177;
 #line 2291
-        __cil_tmp302 = (unsigned int )______r___5;
+        __cil_tmp303 = (unsigned int )______r___5;
 #line 2291
-        __cil_tmp179 = __cil_tmp302 * 4U;
+        __cil_tmp179 = __cil_tmp303 * 4U;
 #line 2291
         __cil_tmp180 = __cil_tmp179;
 #line 2291
         __cil_tmp181 = 12U + __cil_tmp180;
 #line 2291
-        __cil_tmp303 = (unsigned int )(& ______f___1843);
+        __cil_tmp304 = (unsigned int )(& ______f___1843);
 #line 2291
-        __cil_tmp182 = __cil_tmp303 + __cil_tmp181;
+        __cil_tmp182 = __cil_tmp304 + __cil_tmp181;
 #line 2291
-        __cil_tmp304 = (unsigned long *)__cil_tmp182;
+        __cil_tmp305 = (unsigned long *)__cil_tmp182;
 #line 2291
-        __cil_tmp183 = *__cil_tmp304;
+        __cil_tmp183 = *__cil_tmp305;
 #line 2291
-        __cil_tmp305 = (unsigned long *)__cil_tmp178;
+        __cil_tmp306 = (unsigned long *)__cil_tmp178;
 #line 2291
-        *__cil_tmp305 = __cil_tmp183 + 1UL;
+        *__cil_tmp306 = __cil_tmp183 + 1UL;
         }
 #line 2291
         if (______r___5) {
@@ -33864,37 +33867,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2293
         ______r___10 = tmp___34;
 #line 2293
-        __cil_tmp306 = (unsigned int )______r___10;
+        __cil_tmp307 = (unsigned int )______r___10;
 #line 2293
-        __cil_tmp184 = __cil_tmp306 * 4U;
+        __cil_tmp184 = __cil_tmp307 * 4U;
 #line 2293
         __cil_tmp185 = __cil_tmp184;
 #line 2293
         __cil_tmp186 = 12U + __cil_tmp185;
 #line 2293
-        __cil_tmp307 = (unsigned int )(& ______f___1848);
+        __cil_tmp308 = (unsigned int )(& ______f___1848);
 #line 2293
-        __cil_tmp187 = __cil_tmp307 + __cil_tmp186;
+        __cil_tmp187 = __cil_tmp308 + __cil_tmp186;
 #line 2293
-        __cil_tmp308 = (unsigned int )______r___10;
+        __cil_tmp309 = (unsigned int )______r___10;
 #line 2293
-        __cil_tmp188 = __cil_tmp308 * 4U;
+        __cil_tmp188 = __cil_tmp309 * 4U;
 #line 2293
         __cil_tmp189 = __cil_tmp188;
 #line 2293
         __cil_tmp190 = 12U + __cil_tmp189;
 #line 2293
-        __cil_tmp309 = (unsigned int )(& ______f___1848);
+        __cil_tmp310 = (unsigned int )(& ______f___1848);
 #line 2293
-        __cil_tmp191 = __cil_tmp309 + __cil_tmp190;
+        __cil_tmp191 = __cil_tmp310 + __cil_tmp190;
 #line 2293
-        __cil_tmp310 = (unsigned long *)__cil_tmp191;
+        __cil_tmp311 = (unsigned long *)__cil_tmp191;
 #line 2293
-        __cil_tmp192 = *__cil_tmp310;
+        __cil_tmp192 = *__cil_tmp311;
 #line 2293
-        __cil_tmp311 = (unsigned long *)__cil_tmp187;
+        __cil_tmp312 = (unsigned long *)__cil_tmp187;
 #line 2293
-        *__cil_tmp311 = __cil_tmp192 + 1UL;
+        *__cil_tmp312 = __cil_tmp192 + 1UL;
 #line 2293
         if (______r___10) {
           {
@@ -33913,37 +33916,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2298
           ______r___7 = ! __cil_tmp196;
 #line 2298
-          __cil_tmp312 = (unsigned int )______r___7;
+          __cil_tmp313 = (unsigned int )______r___7;
 #line 2298
-          __cil_tmp197 = __cil_tmp312 * 4U;
+          __cil_tmp197 = __cil_tmp313 * 4U;
 #line 2298
           __cil_tmp198 = __cil_tmp197;
 #line 2298
           __cil_tmp199 = 12U + __cil_tmp198;
 #line 2298
-          __cil_tmp313 = (unsigned int )(& ______f___1845);
+          __cil_tmp314 = (unsigned int )(& ______f___1845);
 #line 2298
-          __cil_tmp200 = __cil_tmp313 + __cil_tmp199;
+          __cil_tmp200 = __cil_tmp314 + __cil_tmp199;
 #line 2298
-          __cil_tmp314 = (unsigned int )______r___7;
+          __cil_tmp315 = (unsigned int )______r___7;
 #line 2298
-          __cil_tmp201 = __cil_tmp314 * 4U;
+          __cil_tmp201 = __cil_tmp315 * 4U;
 #line 2298
           __cil_tmp202 = __cil_tmp201;
 #line 2298
           __cil_tmp203 = 12U + __cil_tmp202;
 #line 2298
-          __cil_tmp315 = (unsigned int )(& ______f___1845);
+          __cil_tmp316 = (unsigned int )(& ______f___1845);
 #line 2298
-          __cil_tmp204 = __cil_tmp315 + __cil_tmp203;
+          __cil_tmp204 = __cil_tmp316 + __cil_tmp203;
 #line 2298
-          __cil_tmp316 = (unsigned long *)__cil_tmp204;
+          __cil_tmp317 = (unsigned long *)__cil_tmp204;
 #line 2298
-          __cil_tmp205 = *__cil_tmp316;
+          __cil_tmp205 = *__cil_tmp317;
 #line 2298
-          __cil_tmp317 = (unsigned long *)__cil_tmp200;
+          __cil_tmp318 = (unsigned long *)__cil_tmp200;
 #line 2298
-          *__cil_tmp317 = __cil_tmp205 + 1UL;
+          *__cil_tmp318 = __cil_tmp205 + 1UL;
           }
 #line 2298
           if (______r___7) {
@@ -33954,37 +33957,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2299
             ______r___6 = ! __cil_tmp207;
 #line 2299
-            __cil_tmp318 = (unsigned int )______r___6;
+            __cil_tmp319 = (unsigned int )______r___6;
 #line 2299
-            __cil_tmp208 = __cil_tmp318 * 4U;
+            __cil_tmp208 = __cil_tmp319 * 4U;
 #line 2299
             __cil_tmp209 = __cil_tmp208;
 #line 2299
             __cil_tmp210 = 12U + __cil_tmp209;
 #line 2299
-            __cil_tmp319 = (unsigned int )(& ______f___1844);
+            __cil_tmp320 = (unsigned int )(& ______f___1844);
 #line 2299
-            __cil_tmp211 = __cil_tmp319 + __cil_tmp210;
+            __cil_tmp211 = __cil_tmp320 + __cil_tmp210;
 #line 2299
-            __cil_tmp320 = (unsigned int )______r___6;
+            __cil_tmp321 = (unsigned int )______r___6;
 #line 2299
-            __cil_tmp212 = __cil_tmp320 * 4U;
+            __cil_tmp212 = __cil_tmp321 * 4U;
 #line 2299
             __cil_tmp213 = __cil_tmp212;
 #line 2299
             __cil_tmp214 = 12U + __cil_tmp213;
 #line 2299
-            __cil_tmp321 = (unsigned int )(& ______f___1844);
+            __cil_tmp322 = (unsigned int )(& ______f___1844);
 #line 2299
-            __cil_tmp215 = __cil_tmp321 + __cil_tmp214;
+            __cil_tmp215 = __cil_tmp322 + __cil_tmp214;
 #line 2299
-            __cil_tmp322 = (unsigned long *)__cil_tmp215;
+            __cil_tmp323 = (unsigned long *)__cil_tmp215;
 #line 2299
-            __cil_tmp216 = *__cil_tmp322;
+            __cil_tmp216 = *__cil_tmp323;
 #line 2299
-            __cil_tmp323 = (unsigned long *)__cil_tmp211;
+            __cil_tmp324 = (unsigned long *)__cil_tmp211;
 #line 2299
-            *__cil_tmp323 = __cil_tmp216 + 1UL;
+            *__cil_tmp324 = __cil_tmp216 + 1UL;
 #line 2299
             if (______r___6) {
               {
@@ -34009,37 +34012,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2304
           ______r___9 = ! __cil_tmp218;
 #line 2304
-          __cil_tmp324 = (unsigned int )______r___9;
+          __cil_tmp325 = (unsigned int )______r___9;
 #line 2304
-          __cil_tmp219 = __cil_tmp324 * 4U;
+          __cil_tmp219 = __cil_tmp325 * 4U;
 #line 2304
           __cil_tmp220 = __cil_tmp219;
 #line 2304
           __cil_tmp221 = 12U + __cil_tmp220;
 #line 2304
-          __cil_tmp325 = (unsigned int )(& ______f___1847);
+          __cil_tmp326 = (unsigned int )(& ______f___1847);
 #line 2304
-          __cil_tmp222 = __cil_tmp325 + __cil_tmp221;
+          __cil_tmp222 = __cil_tmp326 + __cil_tmp221;
 #line 2304
-          __cil_tmp326 = (unsigned int )______r___9;
+          __cil_tmp327 = (unsigned int )______r___9;
 #line 2304
-          __cil_tmp223 = __cil_tmp326 * 4U;
+          __cil_tmp223 = __cil_tmp327 * 4U;
 #line 2304
           __cil_tmp224 = __cil_tmp223;
 #line 2304
           __cil_tmp225 = 12U + __cil_tmp224;
 #line 2304
-          __cil_tmp327 = (unsigned int )(& ______f___1847);
+          __cil_tmp328 = (unsigned int )(& ______f___1847);
 #line 2304
-          __cil_tmp226 = __cil_tmp327 + __cil_tmp225;
+          __cil_tmp226 = __cil_tmp328 + __cil_tmp225;
 #line 2304
-          __cil_tmp328 = (unsigned long *)__cil_tmp226;
+          __cil_tmp329 = (unsigned long *)__cil_tmp226;
 #line 2304
-          __cil_tmp227 = *__cil_tmp328;
+          __cil_tmp227 = *__cil_tmp329;
 #line 2304
-          __cil_tmp329 = (unsigned long *)__cil_tmp222;
+          __cil_tmp330 = (unsigned long *)__cil_tmp222;
 #line 2304
-          *__cil_tmp329 = __cil_tmp227 + 1UL;
+          *__cil_tmp330 = __cil_tmp227 + 1UL;
 #line 2304
           if (______r___9) {
             {
@@ -34076,37 +34079,37 @@ __inline static void flush_unauthorized_files(struct cred  const  *cred , struct
 #line 2311
             ______r___8 = tmp___26;
 #line 2311
-            __cil_tmp330 = (unsigned int )______r___8;
+            __cil_tmp331 = (unsigned int )______r___8;
 #line 2311
-            __cil_tmp232 = __cil_tmp330 * 4U;
+            __cil_tmp232 = __cil_tmp331 * 4U;
 #line 2311
             __cil_tmp233 = __cil_tmp232;
 #line 2311
             __cil_tmp234 = 12U + __cil_tmp233;
 #line 2311
-            __cil_tmp331 = (unsigned int )(& ______f___1846);
+            __cil_tmp332 = (unsigned int )(& ______f___1846);
 #line 2311
-            __cil_tmp235 = __cil_tmp331 + __cil_tmp234;
+            __cil_tmp235 = __cil_tmp332 + __cil_tmp234;
 #line 2311
-            __cil_tmp332 = (unsigned int )______r___8;
+            __cil_tmp333 = (unsigned int )______r___8;
 #line 2311
-            __cil_tmp236 = __cil_tmp332 * 4U;
+            __cil_tmp236 = __cil_tmp333 * 4U;
 #line 2311
             __cil_tmp237 = __cil_tmp236;
 #line 2311
             __cil_tmp238 = 12U + __cil_tmp237;
 #line 2311
-            __cil_tmp333 = (unsigned int )(& ______f___1846);
+            __cil_tmp334 = (unsigned int )(& ______f___1846);
 #line 2311
-            __cil_tmp239 = __cil_tmp333 + __cil_tmp238;
+            __cil_tmp239 = __cil_tmp334 + __cil_tmp238;
 #line 2311
-            __cil_tmp334 = (unsigned long *)__cil_tmp239;
+            __cil_tmp335 = (unsigned long *)__cil_tmp239;
 #line 2311
-            __cil_tmp240 = *__cil_tmp334;
+            __cil_tmp240 = *__cil_tmp335;
 #line 2311
-            __cil_tmp335 = (unsigned long *)__cil_tmp235;
+            __cil_tmp336 = (unsigned long *)__cil_tmp235;
 #line 2311
-            *__cil_tmp335 = __cil_tmp240 + 1UL;
+            *__cil_tmp336 = __cil_tmp240 + 1UL;
 #line 2311
             if (______r___8) {
               {
@@ -66119,8 +66122,8 @@ static int __attribute__((__cold__))  selinux_nf_ip_init(void)
   unsigned int __cil_tmp51 ;
   unsigned long *__cil_tmp52 ;
   unsigned long *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
   struct nf_hook_ops *__cil_tmp56 ;
   unsigned int __cil_tmp57 ;
   unsigned int __cil_tmp58 ;
@@ -66129,8 +66132,8 @@ static int __attribute__((__cold__))  selinux_nf_ip_init(void)
   unsigned int __cil_tmp61 ;
   unsigned long *__cil_tmp62 ;
   unsigned long *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  unsigned int __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
   struct nf_hook_ops *__cil_tmp66 ;
   unsigned int __cil_tmp67 ;
   unsigned int __cil_tmp68 ;
@@ -66199,9 +66202,9 @@ static int __attribute__((__cold__))  selinux_nf_ip_init(void)
 #line 5631
   __cil_tmp19 = 0U;
 #line 5631
-  __cil_tmp54 = 0 * 48UL;
+  __cil_tmp54 = 0 * 28U;
 #line 5631
-  __cil_tmp55 = (unsigned long )(selinux_ipv4_ops) + __cil_tmp54;
+  __cil_tmp55 = (unsigned int )(selinux_ipv4_ops) + __cil_tmp54;
 #line 5631
   __cil_tmp56 = (struct nf_hook_ops *)__cil_tmp55;
 #line 5631
@@ -66268,9 +66271,9 @@ static int __attribute__((__cold__))  selinux_nf_ip_init(void)
 #line 5636
   __cil_tmp35 = 0U;
 #line 5636
-  __cil_tmp64 = 0 * 48UL;
+  __cil_tmp64 = 0 * 28U;
 #line 5636
-  __cil_tmp65 = (unsigned long )(selinux_ipv6_ops) + __cil_tmp64;
+  __cil_tmp65 = (unsigned int )(selinux_ipv6_ops) + __cil_tmp64;
 #line 5636
   __cil_tmp66 = (struct nf_hook_ops *)__cil_tmp65;
 #line 5636
@@ -66348,12 +66351,12 @@ static void selinux_nf_ip_exit(void)
   unsigned int __cil_tmp10 ;
   unsigned int __cil_tmp11 ;
   struct nf_hook_ops *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   struct nf_hook_ops *__cil_tmp15 ;
   unsigned int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
   struct nf_hook_ops *__cil_tmp19 ;
   unsigned int __cil_tmp20 ;
 
@@ -66370,9 +66373,9 @@ static void selinux_nf_ip_exit(void)
 #line 5652
   __cil_tmp4 = 0U;
 #line 5652
-  __cil_tmp13 = 0 * 48UL;
+  __cil_tmp13 = 0 * 28U;
 #line 5652
-  __cil_tmp14 = (unsigned long )(selinux_ipv4_ops) + __cil_tmp13;
+  __cil_tmp14 = (unsigned int )(selinux_ipv4_ops) + __cil_tmp13;
 #line 5652
   __cil_tmp15 = (struct nf_hook_ops *)__cil_tmp14;
 #line 5652
@@ -66392,9 +66395,9 @@ static void selinux_nf_ip_exit(void)
 #line 5654
   __cil_tmp10 = 0U;
 #line 5654
-  __cil_tmp17 = 0 * 48UL;
+  __cil_tmp17 = 0 * 28U;
 #line 5654
-  __cil_tmp18 = (unsigned long )(selinux_ipv6_ops) + __cil_tmp17;
+  __cil_tmp18 = (unsigned int )(selinux_ipv6_ops) + __cil_tmp17;
 #line 5654
   __cil_tmp19 = (struct nf_hook_ops *)__cil_tmp18;
 #line 5654

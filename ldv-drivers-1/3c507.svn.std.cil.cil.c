@@ -233,7 +233,7 @@ struct raw_spinlock;
 struct raw_spinlock;
 #line 3434 "3c507.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3434 "3c507.i"
 typedef struct cpumask cpumask_t;
@@ -507,7 +507,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7992 "3c507.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7992 "3c507.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -978,7 +978,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2053,7 +2053,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 23076 "3c507.i"
 struct sk_buff_head {
@@ -3562,7 +3562,7 @@ struct hh_cache {
    u16 hh_len ;
    int (*hh_output)(struct sk_buff *skb ) ;
    seqlock_t hh_lock ;
-   unsigned long hh_data[128UL / sizeof(long )] ;
+   unsigned long hh_data[128U / sizeof(long )] ;
 };
 #line 29635 "3c507.i"
 struct header_ops {
@@ -4781,8 +4781,8 @@ struct net_device * __attribute__((__cold__)) el16_probe(int unit )
   unsigned long *__cil_tmp54 ;
   unsigned int *__cil_tmp55 ;
   unsigned long *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
   unsigned int *__cil_tmp59 ;
   unsigned int __cil_tmp60 ;
   unsigned int *__cil_tmp61 ;
@@ -4897,9 +4897,9 @@ struct net_device * __attribute__((__cold__)) el16_probe(int unit )
 #line 31497
       __cil_tmp33 = 0U;
 #line 31497
-      __cil_tmp57 = 0 * 4UL;
+      __cil_tmp57 = 0 * 4U;
 #line 31497
-      __cil_tmp58 = (unsigned long )(ports) + __cil_tmp57;
+      __cil_tmp58 = (unsigned int )(ports) + __cil_tmp57;
 #line 31497
       __cil_tmp59 = (unsigned int *)__cil_tmp58;
 #line 31497
@@ -5211,8 +5211,8 @@ static int __attribute__((__cold__))  el16_probe1(struct net_device *dev , int i
   unsigned long *__cil_tmp159 ;
   unsigned long *__cil_tmp160 ;
   unsigned int *__cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
+  unsigned int __cil_tmp162 ;
+  unsigned int __cil_tmp163 ;
   char const   *__cil_tmp164 ;
   unsigned int __cil_tmp165 ;
   unsigned long *__cil_tmp166 ;
@@ -5701,9 +5701,9 @@ static int __attribute__((__cold__))  el16_probe1(struct net_device *dev , int i
 #line 31612
           __cil_tmp110 = 0U;
 #line 31612
-          __cil_tmp162 = 0 * 1UL;
+          __cil_tmp162 = 0 * 1U;
 #line 31612
-          __cil_tmp163 = (unsigned long )(version) + __cil_tmp162;
+          __cil_tmp163 = (unsigned int )(version) + __cil_tmp162;
 #line 31612
           __cil_tmp164 = (char const   *)__cil_tmp163;
 #line 31612
@@ -8296,29 +8296,29 @@ static void init_82586_mem(struct net_device *dev )
   char *__cil_tmp120 ;
   unsigned long *__cil_tmp121 ;
   void **__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
+  unsigned int __cil_tmp123 ;
+  unsigned int __cil_tmp124 ;
   unsigned short *__cil_tmp125 ;
   unsigned int __cil_tmp126 ;
   unsigned long *__cil_tmp127 ;
   unsigned long *__cil_tmp128 ;
   unsigned short *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
+  unsigned int __cil_tmp130 ;
+  unsigned int __cil_tmp131 ;
   unsigned short *__cil_tmp132 ;
   unsigned int __cil_tmp133 ;
   unsigned long *__cil_tmp134 ;
   unsigned long *__cil_tmp135 ;
   unsigned short *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
+  unsigned int __cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
   unsigned short *__cil_tmp139 ;
   unsigned int __cil_tmp140 ;
   unsigned long *__cil_tmp141 ;
   unsigned long *__cil_tmp142 ;
   void **__cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
+  unsigned int __cil_tmp144 ;
+  unsigned int __cil_tmp145 ;
   unsigned short *__cil_tmp146 ;
   unsigned int __cil_tmp147 ;
   void **__cil_tmp148 ;
@@ -8363,9 +8363,9 @@ static void init_82586_mem(struct net_device *dev )
 #line 31890
   __cil_tmp24 = 6U;
 #line 31890
-  __cil_tmp123 = 0 * 2UL;
+  __cil_tmp123 = 0 * 2U;
 #line 31890
-  __cil_tmp124 = (unsigned long )(init_words) + __cil_tmp123;
+  __cil_tmp124 = (unsigned int )(init_words) + __cil_tmp123;
 #line 31890
   __cil_tmp125 = (unsigned short *)__cil_tmp124;
 #line 31890
@@ -8399,9 +8399,9 @@ static void init_82586_mem(struct net_device *dev )
 #line 31891
   __cil_tmp34 = 14U;
 #line 31891
-  __cil_tmp130 = 0 * 2UL;
+  __cil_tmp130 = 0 * 2U;
 #line 31891
-  __cil_tmp131 = (unsigned long )(init_words) + __cil_tmp130;
+  __cil_tmp131 = (unsigned int )(init_words) + __cil_tmp130;
 #line 31891
   __cil_tmp132 = (unsigned short *)__cil_tmp131;
 #line 31891
@@ -8435,9 +8435,9 @@ static void init_82586_mem(struct net_device *dev )
 #line 31894
   __cil_tmp44 = 0U;
 #line 31894
-  __cil_tmp137 = 0 * 2UL;
+  __cil_tmp137 = 0 * 2U;
 #line 31894
-  __cil_tmp138 = (unsigned long )(init_words) + __cil_tmp137;
+  __cil_tmp138 = (unsigned int )(init_words) + __cil_tmp137;
 #line 31894
   __cil_tmp139 = (unsigned short *)__cil_tmp138;
 #line 31894
@@ -8489,9 +8489,9 @@ static void init_82586_mem(struct net_device *dev )
 #line 31897
   __cil_tmp63 = 0U;
 #line 31897
-  __cil_tmp144 = 0 * 2UL;
+  __cil_tmp144 = 0 * 2U;
 #line 31897
-  __cil_tmp145 = (unsigned long )(init_words) + __cil_tmp144;
+  __cil_tmp145 = (unsigned int )(init_words) + __cil_tmp144;
 #line 31897
   __cil_tmp146 = (unsigned short *)__cil_tmp145;
 #line 31897
@@ -8892,8 +8892,8 @@ static void hardware_send_packet(struct net_device *dev , void *buf , short leng
   void **__cil_tmp124 ;
   unsigned long *__cil_tmp125 ;
   unsigned long *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
+  unsigned int __cil_tmp127 ;
+  unsigned int __cil_tmp128 ;
   char *__cil_tmp129 ;
   unsigned int __cil_tmp130 ;
   ushort *__cil_tmp131 ;
@@ -9087,9 +9087,9 @@ static void hardware_send_packet(struct net_device *dev , void *buf , short leng
 #line 31964
     __cil_tmp67 = 0U;
 #line 31964
-    __cil_tmp127 = 0 * 1UL;
+    __cil_tmp127 = 0 * 1U;
 #line 31964
-    __cil_tmp128 = (unsigned long )(padding) + __cil_tmp127;
+    __cil_tmp128 = (unsigned int )(padding) + __cil_tmp127;
 #line 31964
     __cil_tmp129 = (char *)__cil_tmp128;
 #line 31964

@@ -337,7 +337,7 @@ struct raw_spinlock;
 struct raw_spinlock;
 #line 3483 "icn.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3483 "icn.i"
 typedef struct cpumask cpumask_t;
@@ -1857,7 +1857,7 @@ struct __anonstruct__kill_65 {
 };
 #line 12190 "icn.i"
 union __anonunion__sifields_59 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_65 _kill ;
    struct __anonstruct__timer_64 _timer ;
    struct __anonstruct__rt_63 _rt ;
@@ -1889,7 +1889,7 @@ struct sigpending {
 struct pt_regs;
 #line 12450 "icn.i"
 struct __anonstruct_nodemask_t_68 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 12450 "icn.i"
 typedef struct __anonstruct_nodemask_t_68 nodemask_t;
@@ -2419,7 +2419,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2564,7 +2564,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 24782 "icn.i"
 struct sk_buff_head {
@@ -5098,8 +5098,8 @@ __inline static void icn_map_channel(icn_card *card , int channel )
   struct icn_card **__cil_tmp29 ;
   unsigned int __cil_tmp30 ;
   struct icn_card **__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   u_char *__cil_tmp34 ;
   unsigned int __cil_tmp35 ;
   u_char *__cil_tmp36 ;
@@ -5171,9 +5171,9 @@ __inline static void icn_map_channel(icn_card *card , int channel )
 #line 29335
   __cil_tmp12 = (unsigned int )channel;
 #line 29335
-  __cil_tmp32 = 0 * 1UL;
+  __cil_tmp32 = 0 * 1U;
 #line 29335
-  __cil_tmp33 = (unsigned long )(chan2bank) + __cil_tmp32;
+  __cil_tmp33 = (unsigned int )(chan2bank) + __cil_tmp32;
 #line 29335
   __cil_tmp34 = (u_char *)__cil_tmp33;
 #line 29335
@@ -8181,8 +8181,8 @@ static void icn_parse_status(u_char *status , int channel , icn_card *card )
   unsigned int __cil_tmp311 ;
   unsigned int __cil_tmp312 ;
   int (*__cil_tmp313)(isdn_ctrl * ) ;
-  unsigned long __cil_tmp314 ;
-  unsigned long __cil_tmp315 ;
+  unsigned int __cil_tmp314 ;
+  unsigned int __cil_tmp315 ;
   icn_stat *__cil_tmp316 ;
   unsigned int __cil_tmp317 ;
   char **__cil_tmp318 ;
@@ -8280,9 +8280,9 @@ static void icn_parse_status(u_char *status , int channel , icn_card *card )
 #line 29634
   __cil_tmp49 = 0U;
 #line 29634
-  __cil_tmp314 = 0 * 16UL;
+  __cil_tmp314 = 0 * 12U;
 #line 29634
-  __cil_tmp315 = (unsigned long )(icn_stat_table) + __cil_tmp314;
+  __cil_tmp315 = (unsigned int )(icn_stat_table) + __cil_tmp314;
 #line 29634
   __cil_tmp316 = (icn_stat *)__cil_tmp315;
 #line 29634
@@ -10107,8 +10107,8 @@ static void icn_polldchan(unsigned long data )
   char *__cil_tmp336 ;
   char *__cil_tmp337 ;
   char *__cil_tmp338 ;
-  unsigned long __cil_tmp339 ;
-  unsigned long __cil_tmp340 ;
+  unsigned int __cil_tmp339 ;
+  unsigned int __cil_tmp340 ;
   u_char *__cil_tmp341 ;
   unsigned int __cil_tmp342 ;
   int *__cil_tmp343 ;
@@ -10117,17 +10117,17 @@ static void icn_polldchan(unsigned long data )
   int *__cil_tmp346 ;
   unsigned long *__cil_tmp347 ;
   unsigned long *__cil_tmp348 ;
-  unsigned long __cil_tmp349 ;
-  unsigned long __cil_tmp350 ;
+  unsigned int __cil_tmp349 ;
+  unsigned int __cil_tmp350 ;
   u_char *__cil_tmp351 ;
   unsigned int __cil_tmp352 ;
-  unsigned long __cil_tmp353 ;
-  unsigned long __cil_tmp354 ;
+  unsigned int __cil_tmp353 ;
+  unsigned int __cil_tmp354 ;
   u_char *__cil_tmp355 ;
   unsigned int __cil_tmp356 ;
   u_char *__cil_tmp357 ;
-  unsigned long __cil_tmp358 ;
-  unsigned long __cil_tmp359 ;
+  unsigned int __cil_tmp358 ;
+  unsigned int __cil_tmp359 ;
   u_char *__cil_tmp360 ;
   unsigned int __cil_tmp361 ;
   int *__cil_tmp362 ;
@@ -10566,9 +10566,9 @@ static void icn_polldchan(unsigned long data )
 #line 29819
             __cil_tmp156 = 0U;
 #line 29819
-            __cil_tmp339 = 0 * 1UL;
+            __cil_tmp339 = 0 * 1U;
 #line 29819
-            __cil_tmp340 = (unsigned long )(vstr) + __cil_tmp339;
+            __cil_tmp340 = (unsigned int )(vstr) + __cil_tmp339;
 #line 29819
             __cil_tmp341 = (u_char *)__cil_tmp340;
 #line 29819
@@ -10779,9 +10779,9 @@ static void icn_polldchan(unsigned long data )
 #line 29841
             __cil_tmp213 = 0U;
 #line 29841
-            __cil_tmp349 = 0 * 1UL;
+            __cil_tmp349 = 0 * 1U;
 #line 29841
-            __cil_tmp350 = (unsigned long )(vstr) + __cil_tmp349;
+            __cil_tmp350 = (unsigned int )(vstr) + __cil_tmp349;
 #line 29841
             __cil_tmp351 = (u_char *)__cil_tmp350;
 #line 29841
@@ -10797,9 +10797,9 @@ static void icn_polldchan(unsigned long data )
 #line 29842
             __cil_tmp217 = 3U;
 #line 29842
-            __cil_tmp353 = 0 * 1UL;
+            __cil_tmp353 = 0 * 1U;
 #line 29842
-            __cil_tmp354 = (unsigned long )(vstr) + __cil_tmp353;
+            __cil_tmp354 = (unsigned int )(vstr) + __cil_tmp353;
 #line 29842
             __cil_tmp355 = (u_char *)__cil_tmp354;
 #line 29842
@@ -10817,9 +10817,9 @@ static void icn_polldchan(unsigned long data )
 #line 29843
             __cil_tmp221 = 0U;
 #line 29843
-            __cil_tmp358 = 0 * 1UL;
+            __cil_tmp358 = 0 * 1U;
 #line 29843
-            __cil_tmp359 = (unsigned long )(vstr) + __cil_tmp358;
+            __cil_tmp359 = (unsigned int )(vstr) + __cil_tmp358;
 #line 29843
             __cil_tmp360 = (u_char *)__cil_tmp359;
 #line 29843
@@ -12398,14 +12398,14 @@ static int icn_loadproto(u_char *buffer , icn_card *card )
   icn_shmem **__cil_tmp203 ;
   unsigned int __cil_tmp204 ;
   icn_shmem **__cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
+  unsigned int __cil_tmp206 ;
+  unsigned int __cil_tmp207 ;
   u_char *__cil_tmp208 ;
   unsigned int __cil_tmp209 ;
   unsigned int __cil_tmp210 ;
   icn_shmem **__cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
+  unsigned int __cil_tmp212 ;
+  unsigned int __cil_tmp213 ;
   u_char *__cil_tmp214 ;
   unsigned int __cil_tmp215 ;
   unsigned int __cil_tmp216 ;
@@ -12616,9 +12616,9 @@ static int icn_loadproto(u_char *buffer , icn_card *card )
 #line 30081
       __cil_tmp57 = 0U;
 #line 30081
-      __cil_tmp206 = 0 * 1UL;
+      __cil_tmp206 = 0 * 1U;
 #line 30081
-      __cil_tmp207 = (unsigned long )(codebuf) + __cil_tmp206;
+      __cil_tmp207 = (unsigned int )(codebuf) + __cil_tmp206;
 #line 30081
       __cil_tmp208 = (u_char *)__cil_tmp207;
 #line 30081
@@ -12665,9 +12665,9 @@ static int icn_loadproto(u_char *buffer , icn_card *card )
 #line 30085
       __cil_tmp66 = 0U;
 #line 30085
-      __cil_tmp212 = 0 * 1UL;
+      __cil_tmp212 = 0 * 1U;
 #line 30085
-      __cil_tmp213 = (unsigned long )(codebuf) + __cil_tmp212;
+      __cil_tmp213 = (unsigned int )(codebuf) + __cil_tmp212;
 #line 30085
       __cil_tmp214 = (u_char *)__cil_tmp213;
 #line 30085
@@ -13582,20 +13582,20 @@ static int icn_writecmd(u_char const   *buf , int len , int user , icn_card *car
   icn_shmem **__cil_tmp172 ;
   unsigned int __cil_tmp173 ;
   icn_shmem **__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
+  unsigned int __cil_tmp175 ;
+  unsigned int __cil_tmp176 ;
   u_char *__cil_tmp177 ;
   unsigned int __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
+  unsigned int __cil_tmp179 ;
+  unsigned int __cil_tmp180 ;
   u_char *__cil_tmp181 ;
   unsigned int __cil_tmp182 ;
   unsigned int __cil_tmp183 ;
   struct icn_card **__cil_tmp184 ;
   unsigned int __cil_tmp185 ;
   int *__cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
+  unsigned int __cil_tmp187 ;
+  unsigned int __cil_tmp188 ;
   u_char *__cil_tmp189 ;
   unsigned int __cil_tmp190 ;
   unsigned int __cil_tmp191 ;
@@ -13815,9 +13815,9 @@ static int icn_writecmd(u_char const   *buf , int len , int user , icn_card *car
 #line 30194
       __cil_tmp91 = 0U;
 #line 30194
-      __cil_tmp175 = 0 * 1UL;
+      __cil_tmp175 = 0 * 1U;
 #line 30194
-      __cil_tmp176 = (unsigned long )(msg) + __cil_tmp175;
+      __cil_tmp176 = (unsigned int )(msg) + __cil_tmp175;
 #line 30194
       __cil_tmp177 = (u_char *)__cil_tmp176;
 #line 30194
@@ -13849,9 +13849,9 @@ static int icn_writecmd(u_char const   *buf , int len , int user , icn_card *car
 #line 30197
       __cil_tmp97 = 0U;
 #line 30197
-      __cil_tmp179 = 0 * 1UL;
+      __cil_tmp179 = 0 * 1U;
 #line 30197
-      __cil_tmp180 = (unsigned long )(msg) + __cil_tmp179;
+      __cil_tmp180 = (unsigned int )(msg) + __cil_tmp179;
 #line 30197
       __cil_tmp181 = (u_char *)__cil_tmp180;
 #line 30197
@@ -13909,9 +13909,9 @@ static int icn_writecmd(u_char const   *buf , int len , int user , icn_card *car
 #line 30205
     __cil_tmp106 = 0U;
 #line 30205
-    __cil_tmp187 = 0 * 1UL;
+    __cil_tmp187 = 0 * 1U;
 #line 30205
-    __cil_tmp188 = (unsigned long )(msg) + __cil_tmp187;
+    __cil_tmp188 = (unsigned int )(msg) + __cil_tmp187;
 #line 30205
     __cil_tmp189 = (u_char *)__cil_tmp188;
 #line 30205
@@ -15505,16 +15505,16 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   int *__cil_tmp878 ;
   int *__cil_tmp879 ;
   int *__cil_tmp880 ;
-  unsigned long __cil_tmp881 ;
-  unsigned long __cil_tmp882 ;
+  unsigned int __cil_tmp881 ;
+  unsigned int __cil_tmp882 ;
   char *__cil_tmp883 ;
   unsigned int __cil_tmp884 ;
-  unsigned long __cil_tmp885 ;
-  unsigned long __cil_tmp886 ;
+  unsigned int __cil_tmp885 ;
+  unsigned int __cil_tmp886 ;
   char *__cil_tmp887 ;
   unsigned int __cil_tmp888 ;
-  unsigned long __cil_tmp889 ;
-  unsigned long __cil_tmp890 ;
+  unsigned int __cil_tmp889 ;
+  unsigned int __cil_tmp890 ;
   char *__cil_tmp891 ;
   unsigned int __cil_tmp892 ;
   unsigned int __cil_tmp893 ;
@@ -15526,16 +15526,16 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   int (**__cil_tmp899)(isdn_ctrl * ) ;
   int *__cil_tmp900 ;
   int *__cil_tmp901 ;
-  unsigned long __cil_tmp902 ;
-  unsigned long __cil_tmp903 ;
+  unsigned int __cil_tmp902 ;
+  unsigned int __cil_tmp903 ;
   char *__cil_tmp904 ;
   unsigned int __cil_tmp905 ;
-  unsigned long __cil_tmp906 ;
-  unsigned long __cil_tmp907 ;
+  unsigned int __cil_tmp906 ;
+  unsigned int __cil_tmp907 ;
   char *__cil_tmp908 ;
   unsigned int __cil_tmp909 ;
-  unsigned long __cil_tmp910 ;
-  unsigned long __cil_tmp911 ;
+  unsigned int __cil_tmp910 ;
+  unsigned int __cil_tmp911 ;
   char *__cil_tmp912 ;
   unsigned int __cil_tmp913 ;
   unsigned int __cil_tmp914 ;
@@ -15549,42 +15549,42 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   int *__cil_tmp922 ;
   ulong *__cil_tmp923 ;
   ulong *__cil_tmp924 ;
-  unsigned long __cil_tmp925 ;
-  unsigned long __cil_tmp926 ;
+  unsigned int __cil_tmp925 ;
+  unsigned int __cil_tmp926 ;
   char *__cil_tmp927 ;
   unsigned int __cil_tmp928 ;
-  unsigned long __cil_tmp929 ;
-  unsigned long __cil_tmp930 ;
+  unsigned int __cil_tmp929 ;
+  unsigned int __cil_tmp930 ;
   char *__cil_tmp931 ;
   unsigned int __cil_tmp932 ;
-  unsigned long __cil_tmp933 ;
-  unsigned long __cil_tmp934 ;
+  unsigned int __cil_tmp933 ;
+  unsigned int __cil_tmp934 ;
   char *__cil_tmp935 ;
   unsigned int __cil_tmp936 ;
-  unsigned long __cil_tmp937 ;
-  unsigned long __cil_tmp938 ;
+  unsigned int __cil_tmp937 ;
+  unsigned int __cil_tmp938 ;
   char *__cil_tmp939 ;
   unsigned int __cil_tmp940 ;
   unsigned char *__cil_tmp941 ;
   unsigned char *__cil_tmp942 ;
-  unsigned long __cil_tmp943 ;
-  unsigned long __cil_tmp944 ;
+  unsigned int __cil_tmp943 ;
+  unsigned int __cil_tmp944 ;
   char *__cil_tmp945 ;
   unsigned int __cil_tmp946 ;
-  unsigned long __cil_tmp947 ;
-  unsigned long __cil_tmp948 ;
+  unsigned int __cil_tmp947 ;
+  unsigned int __cil_tmp948 ;
   char *__cil_tmp949 ;
   unsigned int __cil_tmp950 ;
-  unsigned long __cil_tmp951 ;
-  unsigned long __cil_tmp952 ;
+  unsigned int __cil_tmp951 ;
+  unsigned int __cil_tmp952 ;
   char *__cil_tmp953 ;
   unsigned int __cil_tmp954 ;
-  unsigned long __cil_tmp955 ;
-  unsigned long __cil_tmp956 ;
+  unsigned int __cil_tmp955 ;
+  unsigned int __cil_tmp956 ;
   char *__cil_tmp957 ;
   unsigned int __cil_tmp958 ;
-  unsigned long __cil_tmp959 ;
-  unsigned long __cil_tmp960 ;
+  unsigned int __cil_tmp959 ;
+  unsigned int __cil_tmp960 ;
   char *__cil_tmp961 ;
   unsigned int __cil_tmp962 ;
   unsigned short *__cil_tmp963 ;
@@ -15596,32 +15596,32 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   int __cil_tmp969 ;
   int *__cil_tmp970 ;
   int __cil_tmp971 ;
-  unsigned long __cil_tmp972 ;
-  unsigned long __cil_tmp973 ;
+  unsigned int __cil_tmp972 ;
+  unsigned int __cil_tmp973 ;
   char *__cil_tmp974 ;
   unsigned int __cil_tmp975 ;
-  unsigned long __cil_tmp976 ;
-  unsigned long __cil_tmp977 ;
+  unsigned int __cil_tmp976 ;
+  unsigned int __cil_tmp977 ;
   char *__cil_tmp978 ;
   unsigned int __cil_tmp979 ;
-  unsigned long __cil_tmp980 ;
-  unsigned long __cil_tmp981 ;
+  unsigned int __cil_tmp980 ;
+  unsigned int __cil_tmp981 ;
   char *__cil_tmp982 ;
   unsigned int __cil_tmp983 ;
-  unsigned long __cil_tmp984 ;
-  unsigned long __cil_tmp985 ;
+  unsigned int __cil_tmp984 ;
+  unsigned int __cil_tmp985 ;
   char *__cil_tmp986 ;
   unsigned int __cil_tmp987 ;
-  unsigned long __cil_tmp988 ;
-  unsigned long __cil_tmp989 ;
+  unsigned int __cil_tmp988 ;
+  unsigned int __cil_tmp989 ;
   char *__cil_tmp990 ;
   unsigned int __cil_tmp991 ;
-  unsigned long __cil_tmp992 ;
-  unsigned long __cil_tmp993 ;
+  unsigned int __cil_tmp992 ;
+  unsigned int __cil_tmp993 ;
   char *__cil_tmp994 ;
   unsigned int __cil_tmp995 ;
-  unsigned long __cil_tmp996 ;
-  unsigned long __cil_tmp997 ;
+  unsigned int __cil_tmp996 ;
+  unsigned int __cil_tmp997 ;
   char *__cil_tmp998 ;
   unsigned int __cil_tmp999 ;
   unsigned short *__cil_tmp1000 ;
@@ -15633,39 +15633,39 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   int __cil_tmp1006 ;
   int *__cil_tmp1007 ;
   int __cil_tmp1008 ;
-  unsigned long __cil_tmp1009 ;
-  unsigned long __cil_tmp1010 ;
+  unsigned int __cil_tmp1009 ;
+  unsigned int __cil_tmp1010 ;
   char *__cil_tmp1011 ;
   unsigned int __cil_tmp1012 ;
-  unsigned long __cil_tmp1013 ;
-  unsigned long __cil_tmp1014 ;
+  unsigned int __cil_tmp1013 ;
+  unsigned int __cil_tmp1014 ;
   char *__cil_tmp1015 ;
   unsigned int __cil_tmp1016 ;
-  unsigned long __cil_tmp1017 ;
-  unsigned long __cil_tmp1018 ;
+  unsigned int __cil_tmp1017 ;
+  unsigned int __cil_tmp1018 ;
   char *__cil_tmp1019 ;
   unsigned int __cil_tmp1020 ;
-  unsigned long __cil_tmp1021 ;
-  unsigned long __cil_tmp1022 ;
+  unsigned int __cil_tmp1021 ;
+  unsigned int __cil_tmp1022 ;
   char *__cil_tmp1023 ;
   unsigned int __cil_tmp1024 ;
-  unsigned long __cil_tmp1025 ;
-  unsigned long __cil_tmp1026 ;
+  unsigned int __cil_tmp1025 ;
+  unsigned int __cil_tmp1026 ;
   char *__cil_tmp1027 ;
   unsigned int __cil_tmp1028 ;
   unsigned short *__cil_tmp1029 ;
   ulong *__cil_tmp1030 ;
   ulong *__cil_tmp1031 ;
-  unsigned long __cil_tmp1032 ;
-  unsigned long __cil_tmp1033 ;
+  unsigned int __cil_tmp1032 ;
+  unsigned int __cil_tmp1033 ;
   char *__cil_tmp1034 ;
   unsigned int __cil_tmp1035 ;
-  unsigned long __cil_tmp1036 ;
-  unsigned long __cil_tmp1037 ;
+  unsigned int __cil_tmp1036 ;
+  unsigned int __cil_tmp1037 ;
   char *__cil_tmp1038 ;
   unsigned int __cil_tmp1039 ;
-  unsigned long __cil_tmp1040 ;
-  unsigned long __cil_tmp1041 ;
+  unsigned int __cil_tmp1040 ;
+  unsigned int __cil_tmp1041 ;
   char *__cil_tmp1042 ;
   unsigned int __cil_tmp1043 ;
   unsigned short *__cil_tmp1044 ;
@@ -15674,21 +15674,21 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   ulong *__cil_tmp1047 ;
   int *__cil_tmp1048 ;
   u_char *__cil_tmp1049 ;
-  unsigned long __cil_tmp1050 ;
-  unsigned long __cil_tmp1051 ;
+  unsigned int __cil_tmp1050 ;
+  unsigned int __cil_tmp1051 ;
   char *__cil_tmp1052 ;
   unsigned int __cil_tmp1053 ;
   u_char *__cil_tmp1054 ;
-  unsigned long __cil_tmp1055 ;
-  unsigned long __cil_tmp1056 ;
+  unsigned int __cil_tmp1055 ;
+  unsigned int __cil_tmp1056 ;
   char *__cil_tmp1057 ;
   unsigned int __cil_tmp1058 ;
-  unsigned long __cil_tmp1059 ;
-  unsigned long __cil_tmp1060 ;
+  unsigned int __cil_tmp1059 ;
+  unsigned int __cil_tmp1060 ;
   char *__cil_tmp1061 ;
   unsigned int __cil_tmp1062 ;
-  unsigned long __cil_tmp1063 ;
-  unsigned long __cil_tmp1064 ;
+  unsigned int __cil_tmp1063 ;
+  unsigned int __cil_tmp1064 ;
   char *__cil_tmp1065 ;
   unsigned int __cil_tmp1066 ;
   unsigned short *__cil_tmp1067 ;
@@ -15696,20 +15696,20 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   ulong *__cil_tmp1069 ;
   ulong *__cil_tmp1070 ;
   int *__cil_tmp1071 ;
-  unsigned long __cil_tmp1072 ;
-  unsigned long __cil_tmp1073 ;
+  unsigned int __cil_tmp1072 ;
+  unsigned int __cil_tmp1073 ;
   char *__cil_tmp1074 ;
   unsigned int __cil_tmp1075 ;
-  unsigned long __cil_tmp1076 ;
-  unsigned long __cil_tmp1077 ;
+  unsigned int __cil_tmp1076 ;
+  unsigned int __cil_tmp1077 ;
   char *__cil_tmp1078 ;
   unsigned int __cil_tmp1079 ;
-  unsigned long __cil_tmp1080 ;
-  unsigned long __cil_tmp1081 ;
+  unsigned int __cil_tmp1080 ;
+  unsigned int __cil_tmp1081 ;
   char *__cil_tmp1082 ;
   unsigned int __cil_tmp1083 ;
-  unsigned long __cil_tmp1084 ;
-  unsigned long __cil_tmp1085 ;
+  unsigned int __cil_tmp1084 ;
+  unsigned int __cil_tmp1085 ;
   char *__cil_tmp1086 ;
   unsigned int __cil_tmp1087 ;
   unsigned short *__cil_tmp1088 ;
@@ -15717,20 +15717,20 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
   ulong *__cil_tmp1090 ;
   int __cil_tmp1091 ;
   int __cil_tmp1092 ;
-  unsigned long __cil_tmp1093 ;
-  unsigned long __cil_tmp1094 ;
+  unsigned int __cil_tmp1093 ;
+  unsigned int __cil_tmp1094 ;
   char *__cil_tmp1095 ;
   unsigned int __cil_tmp1096 ;
-  unsigned long __cil_tmp1097 ;
-  unsigned long __cil_tmp1098 ;
+  unsigned int __cil_tmp1097 ;
+  unsigned int __cil_tmp1098 ;
   char *__cil_tmp1099 ;
   unsigned int __cil_tmp1100 ;
-  unsigned long __cil_tmp1101 ;
-  unsigned long __cil_tmp1102 ;
+  unsigned int __cil_tmp1101 ;
+  unsigned int __cil_tmp1102 ;
   char *__cil_tmp1103 ;
   unsigned int __cil_tmp1104 ;
-  unsigned long __cil_tmp1105 ;
-  unsigned long __cil_tmp1106 ;
+  unsigned int __cil_tmp1105 ;
+  unsigned int __cil_tmp1106 ;
   char *__cil_tmp1107 ;
   unsigned int __cil_tmp1108 ;
   unsigned long __cil_tmp1109 ;
@@ -16957,9 +16957,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30421
                                                 __cil_tmp311 = 0U;
 #line 30421
-                                                __cil_tmp881 = 0 * 1UL;
+                                                __cil_tmp881 = 0 * 1U;
 #line 30421
-                                                __cil_tmp882 = (unsigned long )(cbuf) + __cil_tmp881;
+                                                __cil_tmp882 = (unsigned int )(cbuf) + __cil_tmp881;
 #line 30421
                                                 __cil_tmp883 = (char *)__cil_tmp882;
 #line 30421
@@ -16974,9 +16974,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30423
                                                 __cil_tmp314 = 0U;
 #line 30423
-                                                __cil_tmp885 = 0 * 1UL;
+                                                __cil_tmp885 = 0 * 1U;
 #line 30423
-                                                __cil_tmp886 = (unsigned long )(cbuf) + __cil_tmp885;
+                                                __cil_tmp886 = (unsigned int )(cbuf) + __cil_tmp885;
 #line 30423
                                                 __cil_tmp887 = (char *)__cil_tmp886;
 #line 30423
@@ -16998,9 +16998,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30423
                                                 __cil_tmp321 = 0U;
 #line 30423
-                                                __cil_tmp889 = 0 * 1UL;
+                                                __cil_tmp889 = 0 * 1U;
 #line 30423
-                                                __cil_tmp890 = (unsigned long )(cbuf) + __cil_tmp889;
+                                                __cil_tmp890 = (unsigned int )(cbuf) + __cil_tmp889;
 #line 30423
                                                 __cil_tmp891 = (char *)__cil_tmp890;
 #line 30423
@@ -17115,9 +17115,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30435
                                                 __cil_tmp354 = 0U;
 #line 30435
-                                                __cil_tmp902 = 0 * 1UL;
+                                                __cil_tmp902 = 0 * 1U;
 #line 30435
-                                                __cil_tmp903 = (unsigned long )(cbuf) + __cil_tmp902;
+                                                __cil_tmp903 = (unsigned int )(cbuf) + __cil_tmp902;
 #line 30435
                                                 __cil_tmp904 = (char *)__cil_tmp903;
 #line 30435
@@ -17131,9 +17131,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30436
                                                 __cil_tmp357 = 0U;
 #line 30436
-                                                __cil_tmp906 = 0 * 1UL;
+                                                __cil_tmp906 = 0 * 1U;
 #line 30436
-                                                __cil_tmp907 = (unsigned long )(cbuf) + __cil_tmp906;
+                                                __cil_tmp907 = (unsigned int )(cbuf) + __cil_tmp906;
 #line 30436
                                                 __cil_tmp908 = (char *)__cil_tmp907;
 #line 30436
@@ -17155,9 +17155,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30436
                                                 __cil_tmp364 = 0U;
 #line 30436
-                                                __cil_tmp910 = 0 * 1UL;
+                                                __cil_tmp910 = 0 * 1U;
 #line 30436
-                                                __cil_tmp911 = (unsigned long )(cbuf) + __cil_tmp910;
+                                                __cil_tmp911 = (unsigned int )(cbuf) + __cil_tmp910;
 #line 30436
                                                 __cil_tmp912 = (char *)__cil_tmp911;
 #line 30436
@@ -17365,9 +17365,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30466
                           __cil_tmp416 = 0U;
 #line 30466
-                          __cil_tmp925 = 0 * 1UL;
+                          __cil_tmp925 = 0 * 1U;
 #line 30466
-                          __cil_tmp926 = (unsigned long )(dcode) + __cil_tmp925;
+                          __cil_tmp926 = (unsigned int )(dcode) + __cil_tmp925;
 #line 30466
                           __cil_tmp927 = (char *)__cil_tmp926;
 #line 30466
@@ -17392,9 +17392,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30466
                             __cil_tmp421 = 0U;
 #line 30466
-                            __cil_tmp929 = 0 * 1UL;
+                            __cil_tmp929 = 0 * 1U;
 #line 30466
-                            __cil_tmp930 = (unsigned long )(dcode) + __cil_tmp929;
+                            __cil_tmp930 = (unsigned int )(dcode) + __cil_tmp929;
 #line 30466
                             __cil_tmp931 = (char *)__cil_tmp930;
 #line 30466
@@ -17411,9 +17411,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30469
                             __cil_tmp424 = 0U;
 #line 30469
-                            __cil_tmp933 = 0 * 1UL;
+                            __cil_tmp933 = 0 * 1U;
 #line 30469
-                            __cil_tmp934 = (unsigned long )(dcode) + __cil_tmp933;
+                            __cil_tmp934 = (unsigned int )(dcode) + __cil_tmp933;
 #line 30469
                             __cil_tmp935 = (char *)__cil_tmp934;
 #line 30469
@@ -17433,9 +17433,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30470
                         __cil_tmp428 = 0U;
 #line 30470
-                        __cil_tmp937 = 0 * 1UL;
+                        __cil_tmp937 = 0 * 1U;
 #line 30470
-                        __cil_tmp938 = (unsigned long )(dial) + __cil_tmp937;
+                        __cil_tmp938 = (unsigned int )(dial) + __cil_tmp937;
 #line 30470
                         __cil_tmp939 = (char *)__cil_tmp938;
 #line 30470
@@ -17487,9 +17487,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30471
                         __cil_tmp448 = 0U;
 #line 30471
-                        __cil_tmp943 = 0 * 1UL;
+                        __cil_tmp943 = 0 * 1U;
 #line 30471
-                        __cil_tmp944 = (unsigned long )(dial) + __cil_tmp943;
+                        __cil_tmp944 = (unsigned int )(dial) + __cil_tmp943;
 #line 30471
                         __cil_tmp945 = (char *)__cil_tmp944;
 #line 30471
@@ -17501,9 +17501,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30471
                         __cil_tmp451 = 0U;
 #line 30471
-                        __cil_tmp947 = 0 * 1UL;
+                        __cil_tmp947 = 0 * 1U;
 #line 30471
-                        __cil_tmp948 = (unsigned long )(dcode) + __cil_tmp947;
+                        __cil_tmp948 = (unsigned int )(dcode) + __cil_tmp947;
 #line 30471
                         __cil_tmp949 = (char *)__cil_tmp948;
 #line 30471
@@ -17523,9 +17523,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30471
                         __cil_tmp458 = 0U;
 #line 30471
-                        __cil_tmp951 = 0 * 1UL;
+                        __cil_tmp951 = 0 * 1U;
 #line 30471
-                        __cil_tmp952 = (unsigned long )(cbuf) + __cil_tmp951;
+                        __cil_tmp952 = (unsigned int )(cbuf) + __cil_tmp951;
 #line 30471
                         __cil_tmp953 = (char *)__cil_tmp952;
 #line 30471
@@ -17541,9 +17541,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30474
                         __cil_tmp461 = 0U;
 #line 30474
-                        __cil_tmp955 = 0 * 1UL;
+                        __cil_tmp955 = 0 * 1U;
 #line 30474
-                        __cil_tmp956 = (unsigned long )(cbuf) + __cil_tmp955;
+                        __cil_tmp956 = (unsigned int )(cbuf) + __cil_tmp955;
 #line 30474
                         __cil_tmp957 = (char *)__cil_tmp956;
 #line 30474
@@ -17565,9 +17565,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30474
                         __cil_tmp468 = 0U;
 #line 30474
-                        __cil_tmp959 = 0 * 1UL;
+                        __cil_tmp959 = 0 * 1U;
 #line 30474
-                        __cil_tmp960 = (unsigned long )(cbuf) + __cil_tmp959;
+                        __cil_tmp960 = (unsigned int )(cbuf) + __cil_tmp959;
 #line 30474
                         __cil_tmp961 = (char *)__cil_tmp960;
 #line 30474
@@ -17696,9 +17696,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30485
                                 __cil_tmp503 = 0U;
 #line 30485
-                                __cil_tmp972 = 0 * 1UL;
+                                __cil_tmp972 = 0 * 1U;
 #line 30485
-                                __cil_tmp973 = (unsigned long )(cbuf) + __cil_tmp972;
+                                __cil_tmp973 = (unsigned int )(cbuf) + __cil_tmp972;
 #line 30485
                                 __cil_tmp974 = (char *)__cil_tmp973;
 #line 30485
@@ -17722,9 +17722,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30488
                                 __cil_tmp509 = 0U;
 #line 30488
-                                __cil_tmp976 = 0 * 1UL;
+                                __cil_tmp976 = 0 * 1U;
 #line 30488
-                                __cil_tmp977 = (unsigned long )(cbuf) + __cil_tmp976;
+                                __cil_tmp977 = (unsigned int )(cbuf) + __cil_tmp976;
 #line 30488
                                 __cil_tmp978 = (char *)__cil_tmp977;
 #line 30488
@@ -17748,9 +17748,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30491
                           __cil_tmp512 = 0U;
 #line 30491
-                          __cil_tmp980 = 0 * 1UL;
+                          __cil_tmp980 = 0 * 1U;
 #line 30491
-                          __cil_tmp981 = (unsigned long )(cbuf) + __cil_tmp980;
+                          __cil_tmp981 = (unsigned int )(cbuf) + __cil_tmp980;
 #line 30491
                           __cil_tmp982 = (char *)__cil_tmp981;
 #line 30491
@@ -17772,9 +17772,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30491
                           __cil_tmp519 = 0U;
 #line 30491
-                          __cil_tmp984 = 0 * 1UL;
+                          __cil_tmp984 = 0 * 1U;
 #line 30491
-                          __cil_tmp985 = (unsigned long )(cbuf) + __cil_tmp984;
+                          __cil_tmp985 = (unsigned int )(cbuf) + __cil_tmp984;
 #line 30491
                           __cil_tmp986 = (char *)__cil_tmp985;
 #line 30491
@@ -17801,9 +17801,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30493
                         __cil_tmp526 = 0U;
 #line 30493
-                        __cil_tmp988 = 0 * 1UL;
+                        __cil_tmp988 = 0 * 1U;
 #line 30493
-                        __cil_tmp989 = (unsigned long )(cbuf) + __cil_tmp988;
+                        __cil_tmp989 = (unsigned int )(cbuf) + __cil_tmp988;
 #line 30493
                         __cil_tmp990 = (char *)__cil_tmp989;
 #line 30493
@@ -17817,9 +17817,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30494
                         __cil_tmp529 = 0U;
 #line 30494
-                        __cil_tmp992 = 0 * 1UL;
+                        __cil_tmp992 = 0 * 1U;
 #line 30494
-                        __cil_tmp993 = (unsigned long )(cbuf) + __cil_tmp992;
+                        __cil_tmp993 = (unsigned int )(cbuf) + __cil_tmp992;
 #line 30494
                         __cil_tmp994 = (char *)__cil_tmp993;
 #line 30494
@@ -17841,9 +17841,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30494
                         __cil_tmp536 = 0U;
 #line 30494
-                        __cil_tmp996 = 0 * 1UL;
+                        __cil_tmp996 = 0 * 1U;
 #line 30494
-                        __cil_tmp997 = (unsigned long )(cbuf) + __cil_tmp996;
+                        __cil_tmp997 = (unsigned int )(cbuf) + __cil_tmp996;
 #line 30494
                         __cil_tmp998 = (char *)__cil_tmp997;
 #line 30494
@@ -17972,9 +17972,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30505
                                 __cil_tmp571 = 0U;
 #line 30505
-                                __cil_tmp1009 = 0 * 1UL;
+                                __cil_tmp1009 = 0 * 1U;
 #line 30505
-                                __cil_tmp1010 = (unsigned long )(cbuf) + __cil_tmp1009;
+                                __cil_tmp1010 = (unsigned int )(cbuf) + __cil_tmp1009;
 #line 30505
                                 __cil_tmp1011 = (char *)__cil_tmp1010;
 #line 30505
@@ -17998,9 +17998,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30508
                                 __cil_tmp577 = 0U;
 #line 30508
-                                __cil_tmp1013 = 0 * 1UL;
+                                __cil_tmp1013 = 0 * 1U;
 #line 30508
-                                __cil_tmp1014 = (unsigned long )(cbuf) + __cil_tmp1013;
+                                __cil_tmp1014 = (unsigned int )(cbuf) + __cil_tmp1013;
 #line 30508
                                 __cil_tmp1015 = (char *)__cil_tmp1014;
 #line 30508
@@ -18031,9 +18031,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30511
                           __cil_tmp583 = 0U;
 #line 30511
-                          __cil_tmp1017 = 0 * 1UL;
+                          __cil_tmp1017 = 0 * 1U;
 #line 30511
-                          __cil_tmp1018 = (unsigned long )(cbuf) + __cil_tmp1017;
+                          __cil_tmp1018 = (unsigned int )(cbuf) + __cil_tmp1017;
 #line 30511
                           __cil_tmp1019 = (char *)__cil_tmp1018;
 #line 30511
@@ -18050,9 +18050,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30512
                         __cil_tmp586 = 0U;
 #line 30512
-                        __cil_tmp1021 = 0 * 1UL;
+                        __cil_tmp1021 = 0 * 1U;
 #line 30512
-                        __cil_tmp1022 = (unsigned long )(cbuf) + __cil_tmp1021;
+                        __cil_tmp1022 = (unsigned int )(cbuf) + __cil_tmp1021;
 #line 30512
                         __cil_tmp1023 = (char *)__cil_tmp1022;
 #line 30512
@@ -18074,9 +18074,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30512
                         __cil_tmp593 = 0U;
 #line 30512
-                        __cil_tmp1025 = 0 * 1UL;
+                        __cil_tmp1025 = 0 * 1U;
 #line 30512
-                        __cil_tmp1026 = (unsigned long )(cbuf) + __cil_tmp1025;
+                        __cil_tmp1026 = (unsigned int )(cbuf) + __cil_tmp1025;
 #line 30512
                         __cil_tmp1027 = (char *)__cil_tmp1026;
 #line 30512
@@ -18156,9 +18156,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30520
                         __cil_tmp617 = 0U;
 #line 30520
-                        __cil_tmp1032 = 0 * 1UL;
+                        __cil_tmp1032 = 0 * 1U;
 #line 30520
-                        __cil_tmp1033 = (unsigned long )(cbuf) + __cil_tmp1032;
+                        __cil_tmp1033 = (unsigned int )(cbuf) + __cil_tmp1032;
 #line 30520
                         __cil_tmp1034 = (char *)__cil_tmp1033;
 #line 30520
@@ -18173,9 +18173,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30521
                         __cil_tmp620 = 0U;
 #line 30521
-                        __cil_tmp1036 = 0 * 1UL;
+                        __cil_tmp1036 = 0 * 1U;
 #line 30521
-                        __cil_tmp1037 = (unsigned long )(cbuf) + __cil_tmp1036;
+                        __cil_tmp1037 = (unsigned int )(cbuf) + __cil_tmp1036;
 #line 30521
                         __cil_tmp1038 = (char *)__cil_tmp1037;
 #line 30521
@@ -18197,9 +18197,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30521
                         __cil_tmp627 = 0U;
 #line 30521
-                        __cil_tmp1040 = 0 * 1UL;
+                        __cil_tmp1040 = 0 * 1U;
 #line 30521
-                        __cil_tmp1041 = (unsigned long )(cbuf) + __cil_tmp1040;
+                        __cil_tmp1041 = (unsigned int )(cbuf) + __cil_tmp1040;
 #line 30521
                         __cil_tmp1042 = (char *)__cil_tmp1041;
 #line 30521
@@ -18339,9 +18339,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30532
                           __cil_tmp668 = 0U;
 #line 30532
-                          __cil_tmp1050 = 0 * 1UL;
+                          __cil_tmp1050 = 0 * 1U;
 #line 30532
-                          __cil_tmp1051 = (unsigned long )(cbuf) + __cil_tmp1050;
+                          __cil_tmp1051 = (unsigned int )(cbuf) + __cil_tmp1050;
 #line 30532
                           __cil_tmp1052 = (char *)__cil_tmp1051;
 #line 30532
@@ -18401,9 +18401,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30535
                           __cil_tmp686 = 0U;
 #line 30535
-                          __cil_tmp1055 = 0 * 1UL;
+                          __cil_tmp1055 = 0 * 1U;
 #line 30535
-                          __cil_tmp1056 = (unsigned long )(cbuf) + __cil_tmp1055;
+                          __cil_tmp1056 = (unsigned int )(cbuf) + __cil_tmp1055;
 #line 30535
                           __cil_tmp1057 = (char *)__cil_tmp1056;
 #line 30535
@@ -18420,9 +18420,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30537
                         __cil_tmp689 = 0U;
 #line 30537
-                        __cil_tmp1059 = 0 * 1UL;
+                        __cil_tmp1059 = 0 * 1U;
 #line 30537
-                        __cil_tmp1060 = (unsigned long )(cbuf) + __cil_tmp1059;
+                        __cil_tmp1060 = (unsigned int )(cbuf) + __cil_tmp1059;
 #line 30537
                         __cil_tmp1061 = (char *)__cil_tmp1060;
 #line 30537
@@ -18444,9 +18444,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30537
                         __cil_tmp696 = 0U;
 #line 30537
-                        __cil_tmp1063 = 0 * 1UL;
+                        __cil_tmp1063 = 0 * 1U;
 #line 30537
-                        __cil_tmp1064 = (unsigned long )(cbuf) + __cil_tmp1063;
+                        __cil_tmp1064 = (unsigned int )(cbuf) + __cil_tmp1063;
 #line 30537
                         __cil_tmp1065 = (char *)__cil_tmp1064;
 #line 30537
@@ -18552,9 +18552,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30548
                           __cil_tmp726 = 0U;
 #line 30548
-                          __cil_tmp1072 = 0 * 1UL;
+                          __cil_tmp1072 = 0 * 1U;
 #line 30548
-                          __cil_tmp1073 = (unsigned long )(cbuf) + __cil_tmp1072;
+                          __cil_tmp1073 = (unsigned int )(cbuf) + __cil_tmp1072;
 #line 30548
                           __cil_tmp1074 = (char *)__cil_tmp1073;
 #line 30548
@@ -18577,9 +18577,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30550
                           __cil_tmp732 = 0U;
 #line 30550
-                          __cil_tmp1076 = 0 * 1UL;
+                          __cil_tmp1076 = 0 * 1U;
 #line 30550
-                          __cil_tmp1077 = (unsigned long )(cbuf) + __cil_tmp1076;
+                          __cil_tmp1077 = (unsigned int )(cbuf) + __cil_tmp1076;
 #line 30550
                           __cil_tmp1078 = (char *)__cil_tmp1077;
 #line 30550
@@ -18596,9 +18596,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30551
                         __cil_tmp735 = 0U;
 #line 30551
-                        __cil_tmp1080 = 0 * 1UL;
+                        __cil_tmp1080 = 0 * 1U;
 #line 30551
-                        __cil_tmp1081 = (unsigned long )(cbuf) + __cil_tmp1080;
+                        __cil_tmp1081 = (unsigned int )(cbuf) + __cil_tmp1080;
 #line 30551
                         __cil_tmp1082 = (char *)__cil_tmp1081;
 #line 30551
@@ -18620,9 +18620,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30551
                         __cil_tmp742 = 0U;
 #line 30551
-                        __cil_tmp1084 = 0 * 1UL;
+                        __cil_tmp1084 = 0 * 1U;
 #line 30551
-                        __cil_tmp1085 = (unsigned long )(cbuf) + __cil_tmp1084;
+                        __cil_tmp1085 = (unsigned int )(cbuf) + __cil_tmp1084;
 #line 30551
                         __cil_tmp1086 = (char *)__cil_tmp1085;
 #line 30551
@@ -18724,9 +18724,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30561
                               __cil_tmp768 = 0U;
 #line 30561
-                              __cil_tmp1093 = 0 * 1UL;
+                              __cil_tmp1093 = 0 * 1U;
 #line 30561
-                              __cil_tmp1094 = (unsigned long )(cbuf) + __cil_tmp1093;
+                              __cil_tmp1094 = (unsigned int )(cbuf) + __cil_tmp1093;
 #line 30561
                               __cil_tmp1095 = (char *)__cil_tmp1094;
 #line 30561
@@ -18754,9 +18754,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30564
                               __cil_tmp776 = 0U;
 #line 30564
-                              __cil_tmp1097 = 0 * 1UL;
+                              __cil_tmp1097 = 0 * 1U;
 #line 30564
-                              __cil_tmp1098 = (unsigned long )(cbuf) + __cil_tmp1097;
+                              __cil_tmp1098 = (unsigned int )(cbuf) + __cil_tmp1097;
 #line 30564
                               __cil_tmp1099 = (char *)__cil_tmp1098;
 #line 30564
@@ -18783,9 +18783,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30569
                         __cil_tmp779 = 0U;
 #line 30569
-                        __cil_tmp1101 = 0 * 1UL;
+                        __cil_tmp1101 = 0 * 1U;
 #line 30569
-                        __cil_tmp1102 = (unsigned long )(cbuf) + __cil_tmp1101;
+                        __cil_tmp1102 = (unsigned int )(cbuf) + __cil_tmp1101;
 #line 30569
                         __cil_tmp1103 = (char *)__cil_tmp1102;
 #line 30569
@@ -18807,9 +18807,9 @@ static int icn_command(isdn_ctrl *c , icn_card *card )
 #line 30569
                         __cil_tmp786 = 0U;
 #line 30569
-                        __cil_tmp1105 = 0 * 1UL;
+                        __cil_tmp1105 = 0 * 1U;
 #line 30569
-                        __cil_tmp1106 = (unsigned long )(cbuf) + __cil_tmp1105;
+                        __cil_tmp1106 = (unsigned int )(cbuf) + __cil_tmp1105;
 #line 30569
                         __cil_tmp1107 = (char *)__cil_tmp1106;
 #line 30569
@@ -19910,22 +19910,22 @@ static int __attribute__((__cold__))  icn_init(void)
   struct icn_card **__cil_tmp43 ;
   unsigned int __cil_tmp44 ;
   int *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
   char *__cil_tmp48 ;
   unsigned int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
   char *__cil_tmp52 ;
   unsigned int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
   char *__cil_tmp56 ;
   unsigned int __cil_tmp57 ;
   unsigned int __cil_tmp58 ;
   unsigned long *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
   char *__cil_tmp62 ;
   unsigned int __cil_tmp63 ;
 
@@ -20007,9 +20007,9 @@ static int __attribute__((__cold__))  icn_init(void)
 #line 30758
     __cil_tmp17 = 0U;
 #line 30758
-    __cil_tmp46 = 0 * 1UL;
+    __cil_tmp46 = 0 * 1U;
 #line 30758
-    __cil_tmp47 = (unsigned long )(rev) + __cil_tmp46;
+    __cil_tmp47 = (unsigned int )(rev) + __cil_tmp46;
 #line 30758
     __cil_tmp48 = (char *)__cil_tmp47;
 #line 30758
@@ -20023,9 +20023,9 @@ static int __attribute__((__cold__))  icn_init(void)
 #line 30759
     __cil_tmp20 = 0U;
 #line 30759
-    __cil_tmp50 = 0 * 1UL;
+    __cil_tmp50 = 0 * 1U;
 #line 30759
-    __cil_tmp51 = (unsigned long )(rev) + __cil_tmp50;
+    __cil_tmp51 = (unsigned int )(rev) + __cil_tmp50;
 #line 30759
     __cil_tmp52 = (char *)__cil_tmp51;
 #line 30759
@@ -20046,9 +20046,9 @@ static int __attribute__((__cold__))  icn_init(void)
 #line 30762
     __cil_tmp24 = 0U;
 #line 30762
-    __cil_tmp54 = 0 * 1UL;
+    __cil_tmp54 = 0 * 1U;
 #line 30762
-    __cil_tmp55 = (unsigned long )(rev) + __cil_tmp54;
+    __cil_tmp55 = (unsigned int )(rev) + __cil_tmp54;
 #line 30762
     __cil_tmp56 = (char *)__cil_tmp55;
 #line 30762
@@ -20073,9 +20073,9 @@ static int __attribute__((__cold__))  icn_init(void)
 #line 30763
   __cil_tmp29 = 0U;
 #line 30763
-  __cil_tmp60 = 0 * 1UL;
+  __cil_tmp60 = 0 * 1U;
 #line 30763
-  __cil_tmp61 = (unsigned long )(rev) + __cil_tmp60;
+  __cil_tmp61 = (unsigned int )(rev) + __cil_tmp60;
 #line 30763
   __cil_tmp62 = (char *)__cil_tmp61;
 #line 30763

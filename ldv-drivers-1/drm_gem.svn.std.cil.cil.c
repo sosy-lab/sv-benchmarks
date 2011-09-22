@@ -359,7 +359,7 @@ struct seq_file;
 struct seq_file;
 #line 144 "include/linux/cpumask.h"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 144 "include/linux/cpumask.h"
 typedef struct cpumask cpumask_t;
@@ -734,7 +734,7 @@ struct seqcount {
 typedef struct seqcount seqcount_t;
 #line 92 "include/linux/nodemask.h"
 struct __anonstruct_nodemask_t_41 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 92 "include/linux/nodemask.h"
 typedef struct __anonstruct_nodemask_t_41 nodemask_t;
@@ -2368,7 +2368,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2535,7 +2535,7 @@ struct __anonstruct__kill_131 {
 };
 #line 40 "include/asm-generic/siginfo.h"
 union __anonunion__sifields_125 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_131 _kill ;
    struct __anonstruct__timer_130 _timer ;
    struct __anonstruct__rt_129 _rt ;

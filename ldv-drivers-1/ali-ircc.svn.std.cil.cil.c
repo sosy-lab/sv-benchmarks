@@ -313,7 +313,7 @@ struct seq_file;
 struct seq_file;
 #line 2977 "ali-ircc.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 2977 "ali-ircc.i"
 typedef struct cpumask cpumask_t;
@@ -658,7 +658,7 @@ struct x86_hw_tss {
 #line 5196 "ali-ircc.i"
 struct tss_struct {
    struct x86_hw_tss x86_tss ;
-   unsigned long io_bitmap[8192UL / sizeof(long ) + 1UL] ;
+   unsigned long io_bitmap[8192U / sizeof(long ) + 1U] ;
    unsigned long stack[64] ;
 } __attribute__((__aligned__((1) <<  (4) ))) ;
 #line 5228 "ali-ircc.i"
@@ -1054,7 +1054,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7747 "ali-ircc.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7747 "ali-ircc.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1533,7 +1533,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2155,7 +2155,7 @@ struct device {
 struct pt_regs;
 #line 16984 "ali-ircc.i"
 struct dma_attrs {
-   unsigned long flags[((2UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long flags[((2U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 17036 "ali-ircc.i"
 struct scatterlist {
@@ -2345,7 +2345,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 20442 "ali-ircc.i"
 struct sk_buff_head {
@@ -4185,7 +4185,7 @@ struct hh_cache {
    u16 hh_len ;
    int (*hh_output)(struct sk_buff *skb ) ;
    seqlock_t hh_lock ;
-   unsigned long hh_data[96UL / sizeof(long )] ;
+   unsigned long hh_data[96U / sizeof(long )] ;
 };
 #line 27602 "ali-ircc.i"
 struct header_ops {
@@ -4481,7 +4481,7 @@ struct __anonstruct__kill_239 {
 };
 #line 29136 "ali-ircc.i"
 union __anonunion__sifields_233 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_239 _kill ;
    struct __anonstruct__timer_238 _timer ;
    struct __anonstruct__rt_237 _rt ;
@@ -5621,12 +5621,12 @@ struct tty_struct {
    unsigned short minimum_to_wake ;
    unsigned long overrun_time ;
    int num_overrun ;
-   unsigned long process_char_map[256UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long process_char_map[256U / (8U * sizeof(unsigned long ))] ;
    char *read_buf ;
    int read_head ;
    int read_tail ;
    int read_cnt ;
-   unsigned long read_flags[4096UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long read_flags[4096U / (8U * sizeof(unsigned long ))] ;
    unsigned char *echo_buf ;
    unsigned int echo_pos ;
    unsigned int echo_cnt ;
@@ -7897,8 +7897,8 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
   unsigned int __cil_tmp58 ;
   int (*__cil_tmp59)(struct ali_chip *chip , chipio_t *info ) ;
   char *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
   ali_chip_t *__cil_tmp63 ;
   unsigned int __cil_tmp64 ;
   char **__cil_tmp65 ;
@@ -7908,24 +7908,24 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
   int *__cil_tmp69 ;
   unsigned int __cil_tmp70 ;
   unsigned int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
   unsigned int *__cil_tmp74 ;
   unsigned int __cil_tmp75 ;
   unsigned int *__cil_tmp76 ;
   int *__cil_tmp77 ;
   unsigned int __cil_tmp78 ;
   unsigned int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
+  unsigned int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
   unsigned int *__cil_tmp82 ;
   unsigned int __cil_tmp83 ;
   unsigned int *__cil_tmp84 ;
   int *__cil_tmp85 ;
   unsigned int __cil_tmp86 ;
   unsigned int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
+  unsigned int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
   unsigned int *__cil_tmp90 ;
   unsigned int __cil_tmp91 ;
   unsigned int *__cil_tmp92 ;
@@ -7936,8 +7936,8 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
   unsigned char *__cil_tmp97 ;
   char **__cil_tmp98 ;
   unsigned int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
+  unsigned int __cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
   unsigned int *__cil_tmp102 ;
   unsigned int __cil_tmp103 ;
   unsigned int *__cil_tmp104 ;
@@ -8005,9 +8005,9 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
 #line 38090
   __cil_tmp13 = 0U;
 #line 38090
-  __cil_tmp61 = 0 * 40UL;
+  __cil_tmp61 = 0 * 24U;
 #line 38090
-  __cil_tmp62 = (unsigned long )(chips) + __cil_tmp61;
+  __cil_tmp62 = (unsigned int )(chips) + __cil_tmp61;
 #line 38090
   __cil_tmp63 = (ali_chip_t *)__cil_tmp62;
 #line 38090
@@ -8107,9 +8107,9 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
 #line 38103
       __cil_tmp23 = __cil_tmp71 * 4U;
 #line 38103
-      __cil_tmp72 = 0 * 4UL;
+      __cil_tmp72 = 0 * 4U;
 #line 38103
-      __cil_tmp73 = (unsigned long )(io) + __cil_tmp72;
+      __cil_tmp73 = (unsigned int )(io) + __cil_tmp72;
 #line 38103
       __cil_tmp74 = (unsigned int *)__cil_tmp73;
 #line 38103
@@ -8133,9 +8133,9 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
 #line 38104
       __cil_tmp27 = __cil_tmp79 * 4U;
 #line 38104
-      __cil_tmp80 = 0 * 4UL;
+      __cil_tmp80 = 0 * 4U;
 #line 38104
-      __cil_tmp81 = (unsigned long )(dma) + __cil_tmp80;
+      __cil_tmp81 = (unsigned int )(dma) + __cil_tmp80;
 #line 38104
       __cil_tmp82 = (unsigned int *)__cil_tmp81;
 #line 38104
@@ -8159,9 +8159,9 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
 #line 38105
       __cil_tmp31 = __cil_tmp87 * 4U;
 #line 38105
-      __cil_tmp88 = 0 * 4UL;
+      __cil_tmp88 = 0 * 4U;
 #line 38105
-      __cil_tmp89 = (unsigned long )(irq) + __cil_tmp88;
+      __cil_tmp89 = (unsigned int )(irq) + __cil_tmp88;
 #line 38105
       __cil_tmp90 = (unsigned int *)__cil_tmp89;
 #line 38105
@@ -8289,9 +8289,9 @@ static int __attribute__((__cold__))  ali_ircc_init(void)
 #line 38134
         __cil_tmp51 = __cil_tmp99 * 4U;
 #line 38134
-        __cil_tmp100 = 0 * 4UL;
+        __cil_tmp100 = 0 * 4U;
 #line 38134
-        __cil_tmp101 = (unsigned long )(io) + __cil_tmp100;
+        __cil_tmp101 = (unsigned int )(io) + __cil_tmp100;
 #line 38134
         __cil_tmp102 = (unsigned int *)__cil_tmp101;
 #line 38134
@@ -8437,14 +8437,14 @@ static void __attribute__((__cold__))  ali_ircc_cleanup(void)
   unsigned int __cil_tmp9 ;
   struct ali_ircc_cb *__cil_tmp10 ;
   unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
   struct ali_ircc_cb **__cil_tmp14 ;
   unsigned int __cil_tmp15 ;
   struct ali_ircc_cb **__cil_tmp16 ;
   unsigned int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
   struct ali_ircc_cb **__cil_tmp20 ;
   unsigned int __cil_tmp21 ;
   struct ali_ircc_cb **__cil_tmp22 ;
@@ -8494,9 +8494,9 @@ static void __attribute__((__cold__))  ali_ircc_cleanup(void)
 #line 38177
     __cil_tmp6 = __cil_tmp11 * 4U;
 #line 38177
-    __cil_tmp12 = 0 * 8UL;
+    __cil_tmp12 = 0 * 4U;
 #line 38177
-    __cil_tmp13 = (unsigned long )(dev_self) + __cil_tmp12;
+    __cil_tmp13 = (unsigned int )(dev_self) + __cil_tmp12;
 #line 38177
     __cil_tmp14 = (struct ali_ircc_cb **)__cil_tmp13;
 #line 38177
@@ -8514,9 +8514,9 @@ static void __attribute__((__cold__))  ali_ircc_cleanup(void)
 #line 38178
       __cil_tmp8 = __cil_tmp17 * 4U;
 #line 38178
-      __cil_tmp18 = 0 * 8UL;
+      __cil_tmp18 = 0 * 4U;
 #line 38178
-      __cil_tmp19 = (unsigned long )(dev_self) + __cil_tmp18;
+      __cil_tmp19 = (unsigned int )(dev_self) + __cil_tmp18;
 #line 38178
       __cil_tmp20 = (struct ali_ircc_cb **)__cil_tmp19;
 #line 38178
@@ -8857,8 +8857,8 @@ static int ali_ircc_open(int i , chipio_t *info )
   void *__cil_tmp250 ;
   struct net_device **__cil_tmp251 ;
   unsigned int __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
+  unsigned int __cil_tmp253 ;
+  unsigned int __cil_tmp254 ;
   struct ali_ircc_cb **__cil_tmp255 ;
   unsigned int __cil_tmp256 ;
   struct ali_ircc_cb **__cil_tmp257 ;
@@ -8905,8 +8905,8 @@ static int ali_ircc_open(int i , chipio_t *info )
   void **__cil_tmp298 ;
   struct net_device_ops  const  **__cil_tmp299 ;
   unsigned int __cil_tmp300 ;
-  unsigned long __cil_tmp301 ;
-  unsigned long __cil_tmp302 ;
+  unsigned int __cil_tmp301 ;
+  unsigned int __cil_tmp302 ;
   char **__cil_tmp303 ;
   unsigned int __cil_tmp304 ;
   char **__cil_tmp305 ;
@@ -8920,8 +8920,8 @@ static int ali_ircc_open(int i , chipio_t *info )
   int *__cil_tmp313 ;
   int *__cil_tmp314 ;
   unsigned int __cil_tmp315 ;
-  unsigned long __cil_tmp316 ;
-  unsigned long __cil_tmp317 ;
+  unsigned int __cil_tmp316 ;
+  unsigned int __cil_tmp317 ;
   struct ali_ircc_cb **__cil_tmp318 ;
   unsigned int __cil_tmp319 ;
   struct ali_ircc_cb **__cil_tmp320 ;
@@ -9076,9 +9076,9 @@ static int ali_ircc_open(int i , chipio_t *info )
 #line 38237
   __cil_tmp34 = __cil_tmp252 * 4U;
 #line 38237
-  __cil_tmp253 = 0 * 8UL;
+  __cil_tmp253 = 0 * 4U;
 #line 38237
-  __cil_tmp254 = (unsigned long )(dev_self) + __cil_tmp253;
+  __cil_tmp254 = (unsigned int )(dev_self) + __cil_tmp253;
 #line 38237
   __cil_tmp255 = (struct ali_ircc_cb **)__cil_tmp254;
 #line 38237
@@ -9695,9 +9695,9 @@ static int ali_ircc_open(int i , chipio_t *info )
 #line 38313
       __cil_tmp202 = __cil_tmp300 * 4U;
 #line 38313
-      __cil_tmp301 = 0 * 8UL;
+      __cil_tmp301 = 0 * 4U;
 #line 38313
-      __cil_tmp302 = (unsigned long )(dongle_types) + __cil_tmp301;
+      __cil_tmp302 = (unsigned int )(dongle_types) + __cil_tmp301;
 #line 38313
       __cil_tmp303 = (char **)__cil_tmp302;
 #line 38313
@@ -9868,9 +9868,9 @@ static int ali_ircc_open(int i , chipio_t *info )
 #line 38331
   __cil_tmp248 = __cil_tmp315 * 4U;
 #line 38331
-  __cil_tmp316 = 0 * 8UL;
+  __cil_tmp316 = 0 * 4U;
 #line 38331
-  __cil_tmp317 = (unsigned long )(dev_self) + __cil_tmp316;
+  __cil_tmp317 = (unsigned int )(dev_self) + __cil_tmp316;
 #line 38331
   __cil_tmp318 = (struct ali_ircc_cb **)__cil_tmp317;
 #line 38331
@@ -9979,8 +9979,8 @@ static int __attribute__((__cold__))  ali_ircc_close(struct ali_ircc_cb *self )
   int *__cil_tmp84 ;
   int *__cil_tmp85 ;
   unsigned int __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
+  unsigned int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
   struct ali_ircc_cb **__cil_tmp89 ;
   unsigned int __cil_tmp90 ;
   struct ali_ircc_cb **__cil_tmp91 ;
@@ -10238,9 +10238,9 @@ static int __attribute__((__cold__))  ali_ircc_close(struct ali_ircc_cb *self )
 #line 38361
   __cil_tmp66 = __cil_tmp86 * 4U;
 #line 38361
-  __cil_tmp87 = 0 * 8UL;
+  __cil_tmp87 = 0 * 4U;
 #line 38361
-  __cil_tmp88 = (unsigned long )(dev_self) + __cil_tmp87;
+  __cil_tmp88 = (unsigned int )(dev_self) + __cil_tmp87;
 #line 38361
   __cil_tmp89 = (struct ali_ircc_cb **)__cil_tmp88;
 #line 38361
@@ -10983,20 +10983,20 @@ static int ali_ircc_read_dongle_id(int i , chipio_t *info )
   char *__cil_tmp23 ;
   int *__cil_tmp24 ;
   unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
   ali_chip_t *__cil_tmp28 ;
   unsigned int __cil_tmp29 ;
   unsigned char *__cil_tmp30 ;
   unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   ali_chip_t *__cil_tmp34 ;
   unsigned int __cil_tmp35 ;
   unsigned char *__cil_tmp36 ;
   unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
   char **__cil_tmp40 ;
   unsigned int __cil_tmp41 ;
   char **__cil_tmp42 ;
@@ -11033,9 +11033,9 @@ static int ali_ircc_read_dongle_id(int i , chipio_t *info )
 #line 38544
   __cil_tmp8 = __cil_tmp7 + 12U;
 #line 38544
-  __cil_tmp26 = 0 * 40UL;
+  __cil_tmp26 = 0 * 24U;
 #line 38544
-  __cil_tmp27 = (unsigned long )(chips) + __cil_tmp26;
+  __cil_tmp27 = (unsigned int )(chips) + __cil_tmp26;
 #line 38544
   __cil_tmp28 = (ali_chip_t *)__cil_tmp27;
 #line 38544
@@ -11055,9 +11055,9 @@ static int ali_ircc_read_dongle_id(int i , chipio_t *info )
 #line 38545
   __cil_tmp12 = __cil_tmp11 + 13U;
 #line 38545
-  __cil_tmp32 = 0 * 40UL;
+  __cil_tmp32 = 0 * 24U;
 #line 38545
-  __cil_tmp33 = (unsigned long )(chips) + __cil_tmp32;
+  __cil_tmp33 = (unsigned int )(chips) + __cil_tmp32;
 #line 38545
   __cil_tmp34 = (ali_chip_t *)__cil_tmp33;
 #line 38545
@@ -11108,9 +11108,9 @@ static int ali_ircc_read_dongle_id(int i , chipio_t *info )
 #line 38555
       __cil_tmp21 = __cil_tmp37 * 4U;
 #line 38555
-      __cil_tmp38 = 0 * 8UL;
+      __cil_tmp38 = 0 * 4U;
 #line 38555
-      __cil_tmp39 = (unsigned long )(dongle_types) + __cil_tmp38;
+      __cil_tmp39 = (unsigned int )(dongle_types) + __cil_tmp38;
 #line 38555
       __cil_tmp40 = (char **)__cil_tmp39;
 #line 38555
@@ -13528,8 +13528,8 @@ static void ali_ircc_change_dongle_speed(struct ali_ircc_cb *priv , int speed )
   int *__cil_tmp34 ;
   int *__cil_tmp35 ;
   unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
   char **__cil_tmp39 ;
   unsigned int __cil_tmp40 ;
   char **__cil_tmp41 ;
@@ -13591,9 +13591,9 @@ static void ali_ircc_change_dongle_speed(struct ali_ircc_cb *priv , int speed )
 #line 39021
       __cil_tmp14 = __cil_tmp36 * 4U;
 #line 39021
-      __cil_tmp37 = 0 * 8UL;
+      __cil_tmp37 = 0 * 4U;
 #line 39021
-      __cil_tmp38 = (unsigned long )(dongle_types) + __cil_tmp37;
+      __cil_tmp38 = (unsigned int )(dongle_types) + __cil_tmp37;
 #line 39021
       __cil_tmp39 = (char **)__cil_tmp38;
 #line 39021
@@ -14093,12 +14093,12 @@ static int ali_ircc_net_open(struct net_device *dev )
   int *__cil_tmp81 ;
   int *__cil_tmp82 ;
   int *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
+  unsigned int __cil_tmp84 ;
+  unsigned int __cil_tmp85 ;
   char *__cil_tmp86 ;
   unsigned int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
+  unsigned int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
   char *__cil_tmp90 ;
   unsigned int __cil_tmp91 ;
   struct irlap_cb **__cil_tmp92 ;
@@ -14376,9 +14376,9 @@ static int ali_ircc_net_open(struct net_device *dev )
 #line 39268
   __cil_tmp64 = 0U;
 #line 39268
-  __cil_tmp84 = 0 * 1UL;
+  __cil_tmp84 = 0 * 1U;
 #line 39268
-  __cil_tmp85 = (unsigned long )(hwname) + __cil_tmp84;
+  __cil_tmp85 = (unsigned int )(hwname) + __cil_tmp84;
 #line 39268
   __cil_tmp86 = (char *)__cil_tmp85;
 #line 39268
@@ -14396,9 +14396,9 @@ static int ali_ircc_net_open(struct net_device *dev )
 #line 39274
   __cil_tmp69 = 0U;
 #line 39274
-  __cil_tmp88 = 0 * 1UL;
+  __cil_tmp88 = 0 * 1U;
 #line 39274
-  __cil_tmp89 = (unsigned long )(hwname) + __cil_tmp88;
+  __cil_tmp89 = (unsigned int )(hwname) + __cil_tmp88;
 #line 39274
   __cil_tmp90 = (char *)__cil_tmp89;
 #line 39274
@@ -20365,8 +20365,8 @@ static char const   __mod_alias2257[24]  __attribute__((__used__, __unused__, __
         (char const   )'l',      (char const   )'i',      (char const   )'-',      (char const   )'i', 
         (char const   )'r',      (char const   )'c',      (char const   )'c',      (char const   )'\000'};
 #line 40127 "ali-ircc.i"
-static struct kparam_array  const  __param_arr_io  =    {(unsigned int )(sizeof(io) / sizeof(io[0]) + (sizeof(char [1]) - 1UL)), (unsigned int *)((void *)0),
-    & param_set_int, & param_get_int, (unsigned int )sizeof(io[0]), (void *)(io)};
+static struct kparam_array  const  __param_arr_io  =    {sizeof(io) / sizeof(io[0]) + (sizeof(char [1]) - 1U), (unsigned int *)((void *)0),
+    & param_set_int, & param_get_int, sizeof(io[0]), (void *)(io)};
 #line 40127 "ali-ircc.i"
 static char const   __param_str_io[3]  = {      (char const   )'i',      (char const   )'o',      (char const   )'\000'};
 #line 40127 "ali-ircc.i"
@@ -20394,8 +20394,8 @@ static char const   __mod_io2261[27]  __attribute__((__used__, __unused__, __sec
         (char const   )'r',      (char const   )'e',      (char const   )'s',      (char const   )'s', 
         (char const   )'e',      (char const   )'s',      (char const   )'\000'};
 #line 40129 "ali-ircc.i"
-static struct kparam_array  const  __param_arr_irq  =    {(unsigned int )(sizeof(irq) / sizeof(irq[0]) + (sizeof(char [1]) - 1UL)), (unsigned int *)((void *)0),
-    & param_set_int, & param_get_int, (unsigned int )sizeof(irq[0]), (void *)(irq)};
+static struct kparam_array  const  __param_arr_irq  =    {sizeof(irq) / sizeof(irq[0]) + (sizeof(char [1]) - 1U), (unsigned int *)((void *)0),
+    & param_set_int, & param_get_int, sizeof(irq[0]), (void *)(irq)};
 #line 40129 "ali-ircc.i"
 static char const   __param_str_irq[4]  = {      (char const   )'i',      (char const   )'r',      (char const   )'q',      (char const   )'\000'};
 #line 40129 "ali-ircc.i"
@@ -20421,8 +20421,8 @@ static char const   __mod_irq2263[19]  __attribute__((__used__, __unused__, __se
         (char const   )' ',      (char const   )'l',      (char const   )'i',      (char const   )'n', 
         (char const   )'e',      (char const   )'s',      (char const   )'\000'};
 #line 40131 "ali-ircc.i"
-static struct kparam_array  const  __param_arr_dma  =    {(unsigned int )(sizeof(dma) / sizeof(dma[0]) + (sizeof(char [1]) - 1UL)), (unsigned int *)((void *)0),
-    & param_set_int, & param_get_int, (unsigned int )sizeof(dma[0]), (void *)(dma)};
+static struct kparam_array  const  __param_arr_dma  =    {sizeof(dma) / sizeof(dma[0]) + (sizeof(char [1]) - 1U), (unsigned int *)((void *)0),
+    & param_set_int, & param_get_int, sizeof(dma[0]), (void *)(dma)};
 #line 40131 "ali-ircc.i"
 static char const   __param_str_dma[4]  = {      (char const   )'d',      (char const   )'m',      (char const   )'a',      (char const   )'\000'};
 #line 40131 "ali-ircc.i"

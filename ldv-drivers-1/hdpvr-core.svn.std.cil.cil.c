@@ -351,7 +351,7 @@ struct seq_file;
 struct seq_file;
 #line 3094 "hdpvr-core.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3094 "hdpvr-core.i"
 typedef struct cpumask cpumask_t;
@@ -726,7 +726,7 @@ struct seqcount {
 typedef struct seqcount seqcount_t;
 #line 7249 "hdpvr-core.i"
 struct __anonstruct_nodemask_t_41 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7249 "hdpvr-core.i"
 typedef struct __anonstruct_nodemask_t_41 nodemask_t;
@@ -1219,7 +1219,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -1701,7 +1701,7 @@ struct __anonstruct__kill_119 {
 };
 #line 15241 "hdpvr-core.i"
 union __anonunion__sifields_113 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_119 _kill ;
    struct __anonstruct__timer_118 _timer ;
    struct __anonstruct__rt_117 _rt ;
@@ -3767,7 +3767,7 @@ struct usb_host_config {
 };
 #line 23981 "hdpvr-core.i"
 struct usb_devmap {
-   unsigned long devicemap[128UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long devicemap[128U / (8U * sizeof(unsigned long ))] ;
 };
 #line 23988
 struct mon_bus;
@@ -5027,9 +5027,8 @@ static int video_nr[8]  =
   {      -1,      -1,      -1,      -1, 
         -1,      -1,      -1,      -1};
 #line 26417 "hdpvr-core.i"
-static struct kparam_array  const  __param_arr_video_nr  =    {(unsigned int )(sizeof(video_nr) / sizeof(video_nr[0]) + (sizeof(char [1]) - 1UL)),
-    (unsigned int *)((void *)0), & param_set_int, & param_get_int, (unsigned int )sizeof(video_nr[0]),
-    (void *)(video_nr)};
+static struct kparam_array  const  __param_arr_video_nr  =    {sizeof(video_nr) / sizeof(video_nr[0]) + (sizeof(char [1]) - 1U), (unsigned int *)((void *)0),
+    & param_set_int, & param_get_int, sizeof(video_nr[0]), (void *)(video_nr)};
 #line 26417 "hdpvr-core.i"
 static char const   __param_str_video_nr[9]  = 
 #line 26417
@@ -7907,8 +7906,8 @@ static int hdpvr_probe(struct usb_interface *interface , struct usb_device_id  c
   unsigned long *__cil_tmp398 ;
   unsigned long *__cil_tmp399 ;
   unsigned int __cil_tmp400 ;
-  unsigned long __cil_tmp401 ;
-  unsigned long __cil_tmp402 ;
+  unsigned int __cil_tmp401 ;
+  unsigned int __cil_tmp402 ;
   int *__cil_tmp403 ;
   unsigned int __cil_tmp404 ;
   int *__cil_tmp405 ;
@@ -8826,9 +8825,9 @@ static int hdpvr_probe(struct usb_interface *interface , struct usb_device_id  c
 #line 26728
   __cil_tmp278 = __cil_tmp400 * 4U;
 #line 26728
-  __cil_tmp401 = 0 * 4UL;
+  __cil_tmp401 = 0 * 4U;
 #line 26728
-  __cil_tmp402 = (unsigned long )(video_nr) + __cil_tmp401;
+  __cil_tmp402 = (unsigned int )(video_nr) + __cil_tmp401;
 #line 26728
   __cil_tmp403 = (int *)__cil_tmp402;
 #line 26728

@@ -392,7 +392,7 @@ struct raw_spinlock;
 struct raw_spinlock;
 #line 3838 "bpqether.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3838 "bpqether.i"
 typedef struct cpumask cpumask_t;
@@ -1388,7 +1388,7 @@ struct kstat {
 };
 #line 11025 "bpqether.i"
 struct __anonstruct_nodemask_t_123 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 11025 "bpqether.i"
 typedef struct __anonstruct_nodemask_t_123 nodemask_t;
@@ -1807,7 +1807,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2238,7 +2238,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 21742 "bpqether.i"
 struct sk_buff_head {
@@ -4054,7 +4054,7 @@ struct hh_cache {
    u16 hh_len ;
    int (*hh_output)(struct sk_buff *skb ) ;
    seqlock_t hh_lock ;
-   unsigned long hh_data[128UL / sizeof(long )] ;
+   unsigned long hh_data[128U / sizeof(long )] ;
 };
 #line 28696 "bpqether.i"
 struct header_ops {
@@ -4403,7 +4403,7 @@ struct __anonstruct__kill_269 {
 };
 #line 31889 "bpqether.i"
 union __anonunion__sifields_263 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_269 _kill ;
    struct __anonstruct__timer_268 _timer ;
    struct __anonstruct__rt_267 _rt ;
@@ -9831,12 +9831,12 @@ static int bpq_new_device(struct net_device *edev )
   void (*__cil_tmp39)(struct net_device *dev ) ;
   struct net_device **__cil_tmp40 ;
   struct net_device **__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
   char *__cil_tmp44 ;
   unsigned int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
   char *__cil_tmp48 ;
   unsigned int __cil_tmp49 ;
 
@@ -9882,9 +9882,9 @@ static int bpq_new_device(struct net_device *edev )
 #line 42203
   __cil_tmp12 = 0U;
 #line 42203
-  __cil_tmp42 = 0 * 1UL;
+  __cil_tmp42 = 0 * 1U;
 #line 42203
-  __cil_tmp43 = (unsigned long )(bcast_addr) + __cil_tmp42;
+  __cil_tmp43 = (unsigned int )(bcast_addr) + __cil_tmp42;
 #line 42203
   __cil_tmp44 = (char *)__cil_tmp43;
 #line 42203
@@ -9912,9 +9912,9 @@ static int bpq_new_device(struct net_device *edev )
 #line 42204
   __cil_tmp22 = 0U;
 #line 42204
-  __cil_tmp46 = 0 * 1UL;
+  __cil_tmp46 = 0 * 1U;
 #line 42204
-  __cil_tmp47 = (unsigned long )(bcast_addr) + __cil_tmp46;
+  __cil_tmp47 = (unsigned int )(bcast_addr) + __cil_tmp46;
 #line 42204
   __cil_tmp48 = (char *)__cil_tmp47;
 #line 42204
@@ -10200,8 +10200,8 @@ static int __attribute__((__cold__))  bpq_init_driver(void)
   unsigned int __cil_tmp2 ;
   unsigned int __cil_tmp3 ;
   char const   *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
   char const   *__cil_tmp7 ;
   unsigned int __cil_tmp8 ;
 
@@ -10229,9 +10229,9 @@ static int __attribute__((__cold__))  bpq_init_driver(void)
 #line 42285
   __cil_tmp2 = 0U;
 #line 42285
-  __cil_tmp5 = 0 * 1UL;
+  __cil_tmp5 = 0 * 1U;
 #line 42285
-  __cil_tmp6 = (unsigned long )(banner) + __cil_tmp5;
+  __cil_tmp6 = (unsigned int )(banner) + __cil_tmp5;
 #line 42285
   __cil_tmp7 = (char const   *)__cil_tmp6;
 #line 42285

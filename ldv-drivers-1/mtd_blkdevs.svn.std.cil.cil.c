@@ -399,7 +399,7 @@ struct raw_spinlock;
 struct raw_spinlock;
 #line 3549 "mtd_blkdevs.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3549 "mtd_blkdevs.i"
 typedef struct cpumask cpumask_t;
@@ -733,7 +733,7 @@ struct seqcount {
 typedef struct seqcount seqcount_t;
 #line 7696 "mtd_blkdevs.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7696 "mtd_blkdevs.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1260,7 +1260,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2900,7 +2900,7 @@ struct __anonstruct__kill_153 {
 };
 #line 19418 "mtd_blkdevs.i"
 union __anonunion__sifields_147 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_153 _kill ;
    struct __anonstruct__timer_152 _timer ;
    struct __anonstruct__rt_151 _rt ;
@@ -5148,8 +5148,8 @@ __inline static local_t *__module_ref_addr(struct module *mod , int cpu )
   char *__cil_tmp8 ;
   char *__cil_tmp9 ;
   unsigned int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   unsigned long *__cil_tmp13 ;
   unsigned int __cil_tmp14 ;
   unsigned long *__cil_tmp15 ;
@@ -5161,9 +5161,9 @@ __inline static local_t *__module_ref_addr(struct module *mod , int cpu )
 #line 14660
   __cil_tmp3 = __cil_tmp10 * 4U;
 #line 14660
-  __cil_tmp11 = 0 * 8UL;
+  __cil_tmp11 = 0 * 4U;
 #line 14660
-  __cil_tmp12 = (unsigned long )(__per_cpu_offset) + __cil_tmp11;
+  __cil_tmp12 = (unsigned int )(__per_cpu_offset) + __cil_tmp11;
 #line 14660
   __cil_tmp13 = (unsigned long *)__cil_tmp12;
 #line 14660
@@ -8680,22 +8680,22 @@ int register_mtd_blktrans(struct mtd_blktrans_ops *tr )
   int *__cil_tmp187 ;
   struct mtd_blkcore_priv **__cil_tmp188 ;
   unsigned int __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
+  unsigned int __cil_tmp190 ;
+  unsigned int __cil_tmp191 ;
   struct mtd_info **__cil_tmp192 ;
   unsigned int __cil_tmp193 ;
   struct mtd_info **__cil_tmp194 ;
   unsigned int __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
+  unsigned int __cil_tmp196 ;
+  unsigned int __cil_tmp197 ;
   struct mtd_info **__cil_tmp198 ;
   unsigned int __cil_tmp199 ;
   struct mtd_info **__cil_tmp200 ;
   u_char *__cil_tmp201 ;
   void (**__cil_tmp202)(struct mtd_blktrans_ops *tr , struct mtd_info *mtd ) ;
   unsigned int __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
+  unsigned int __cil_tmp204 ;
+  unsigned int __cil_tmp205 ;
   struct mtd_info **__cil_tmp206 ;
   unsigned int __cil_tmp207 ;
   struct mtd_info **__cil_tmp208 ;
@@ -9194,9 +9194,9 @@ int register_mtd_blktrans(struct mtd_blktrans_ops *tr )
 #line 30903
     __cil_tmp135 = __cil_tmp189 * 4U;
 #line 30903
-    __cil_tmp190 = 0 * 8UL;
+    __cil_tmp190 = 0 * 4U;
 #line 30903
-    __cil_tmp191 = (unsigned long )(mtd_table) + __cil_tmp190;
+    __cil_tmp191 = (unsigned int )(mtd_table) + __cil_tmp190;
 #line 30903
     __cil_tmp192 = (struct mtd_info **)__cil_tmp191;
 #line 30903
@@ -9213,9 +9213,9 @@ int register_mtd_blktrans(struct mtd_blktrans_ops *tr )
 #line 30903
       __cil_tmp137 = __cil_tmp195 * 4U;
 #line 30903
-      __cil_tmp196 = 0 * 8UL;
+      __cil_tmp196 = 0 * 4U;
 #line 30903
-      __cil_tmp197 = (unsigned long )(mtd_table) + __cil_tmp196;
+      __cil_tmp197 = (unsigned int )(mtd_table) + __cil_tmp196;
 #line 30903
       __cil_tmp198 = (struct mtd_info **)__cil_tmp197;
 #line 30903
@@ -9248,9 +9248,9 @@ int register_mtd_blktrans(struct mtd_blktrans_ops *tr )
 #line 30904
         __cil_tmp145 = __cil_tmp203 * 4U;
 #line 30904
-        __cil_tmp204 = 0 * 8UL;
+        __cil_tmp204 = 0 * 4U;
 #line 30904
-        __cil_tmp205 = (unsigned long )(mtd_table) + __cil_tmp204;
+        __cil_tmp205 = (unsigned int )(mtd_table) + __cil_tmp204;
 #line 30904
         __cil_tmp206 = (struct mtd_info **)__cil_tmp205;
 #line 30904

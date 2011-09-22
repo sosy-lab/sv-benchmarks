@@ -333,7 +333,7 @@ struct seq_file;
 struct seq_file;
 #line 3110 "input.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3110 "input.i"
 typedef struct cpumask cpumask_t;
@@ -926,7 +926,7 @@ struct kstat {
 };
 #line 8278 "input.i"
 struct __anonstruct_nodemask_t_45 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 8278 "input.i"
 typedef struct __anonstruct_nodemask_t_45 nodemask_t;
@@ -1311,7 +1311,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2502,15 +2502,15 @@ struct input_dev {
    char const   *phys ;
    char const   *uniq ;
    struct input_id id ;
-   unsigned long evbit[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long keybit[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long relbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long absbit[((64UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long mscbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ledbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sndbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long swbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long evbit[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long keybit[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long relbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long absbit[((64U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long mscbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ledbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sndbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long swbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    unsigned int keycodemax ;
    unsigned int keycodesize ;
    void *keycode ;
@@ -2522,10 +2522,10 @@ struct input_dev {
    int sync ;
    int abs[64] ;
    int rep[2] ;
-   unsigned long key[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long led[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long snd[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sw[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long key[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long led[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long snd[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sw[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    int absmax[64] ;
    int absmin[64] ;
    int absfuzz[64] ;
@@ -2581,7 +2581,7 @@ struct ff_device {
    void (*set_autocenter)(struct input_dev *dev , u16 magnitude ) ;
    void (*destroy)(struct ff_device * ) ;
    void *private ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    struct mutex mutex ;
    int max_effects ;
    struct ff_effect *effects ;
@@ -2919,7 +2919,7 @@ struct __anonstruct__kill_136 {
 };
 #line 19070 "input.i"
 union __anonunion__sifields_130 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_136 _kill ;
    struct __anonstruct__timer_135 _timer ;
    struct __anonstruct__rt_134 _rt ;
@@ -4389,8 +4389,8 @@ __inline static local_t *__module_ref_addr(struct module *mod , int cpu )
   char *__cil_tmp8 ;
   char *__cil_tmp9 ;
   unsigned int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   unsigned long *__cil_tmp13 ;
   unsigned int __cil_tmp14 ;
   unsigned long *__cil_tmp15 ;
@@ -4402,9 +4402,9 @@ __inline static local_t *__module_ref_addr(struct module *mod , int cpu )
 #line 13976
   __cil_tmp3 = __cil_tmp10 * 4U;
 #line 13976
-  __cil_tmp11 = 0 * 8UL;
+  __cil_tmp11 = 0 * 4U;
 #line 13976
-  __cil_tmp12 = (unsigned long )(__per_cpu_offset) + __cil_tmp11;
+  __cil_tmp12 = (unsigned int )(__per_cpu_offset) + __cil_tmp11;
 #line 13976
   __cil_tmp13 = (unsigned long *)__cil_tmp12;
 #line 13976
@@ -17103,15 +17103,15 @@ int __attribute__((__warn_unused_result__))  input_register_handler(struct input
   struct file_operations  const  **__cil_tmp59 ;
   int *__cil_tmp60 ;
   unsigned int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
+  unsigned int __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
   struct input_handler **__cil_tmp64 ;
   unsigned int __cil_tmp65 ;
   struct input_handler **__cil_tmp66 ;
   int *__cil_tmp67 ;
   unsigned int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
+  unsigned int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
   struct input_handler **__cil_tmp71 ;
   unsigned int __cil_tmp72 ;
   struct input_handler **__cil_tmp73 ;
@@ -17174,9 +17174,9 @@ int __attribute__((__warn_unused_result__))  input_register_handler(struct input
 #line 24915
     __cil_tmp19 = __cil_tmp61 * 4U;
 #line 24915
-    __cil_tmp62 = 0 * 8UL;
+    __cil_tmp62 = 0 * 4U;
 #line 24915
-    __cil_tmp63 = (unsigned long )(input_table) + __cil_tmp62;
+    __cil_tmp63 = (unsigned int )(input_table) + __cil_tmp62;
 #line 24915
     __cil_tmp64 = (struct input_handler **)__cil_tmp63;
 #line 24915
@@ -17210,9 +17210,9 @@ int __attribute__((__warn_unused_result__))  input_register_handler(struct input
 #line 24919
     __cil_tmp25 = __cil_tmp68 * 4U;
 #line 24919
-    __cil_tmp69 = 0 * 8UL;
+    __cil_tmp69 = 0 * 4U;
 #line 24919
-    __cil_tmp70 = (unsigned long )(input_table) + __cil_tmp69;
+    __cil_tmp70 = (unsigned int )(input_table) + __cil_tmp69;
 #line 24919
     __cil_tmp71 = (struct input_handler **)__cil_tmp70;
 #line 24919
@@ -17444,8 +17444,8 @@ void input_unregister_handler(struct input_handler *handler )
   struct file_operations  const  **__cil_tmp82 ;
   int *__cil_tmp83 ;
   unsigned int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
+  unsigned int __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
   struct input_handler **__cil_tmp87 ;
   unsigned int __cil_tmp88 ;
   struct input_handler **__cil_tmp89 ;
@@ -17667,9 +17667,9 @@ void input_unregister_handler(struct input_handler *handler )
 #line 24948
     __cil_tmp75 = __cil_tmp84 * 4U;
 #line 24948
-    __cil_tmp85 = 0 * 8UL;
+    __cil_tmp85 = 0 * 4U;
 #line 24948
-    __cil_tmp86 = (unsigned long )(input_table) + __cil_tmp85;
+    __cil_tmp86 = (unsigned int )(input_table) + __cil_tmp85;
 #line 24948
     __cil_tmp87 = (struct input_handler **)__cil_tmp86;
 #line 24948
@@ -18015,8 +18015,8 @@ static int input_open_file(struct inode *inode , struct file *file )
   void *__cil_tmp56 ;
   struct module *__cil_tmp57 ;
   struct module *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
   struct input_handler **__cil_tmp61 ;
   unsigned int __cil_tmp62 ;
   struct input_handler **__cil_tmp63 ;
@@ -18062,9 +18062,9 @@ static int input_open_file(struct inode *inode , struct file *file )
 #line 25011
   __cil_tmp15 = __cil_tmp14 * 4U;
 #line 25011
-  __cil_tmp59 = 0 * 8UL;
+  __cil_tmp59 = 0 * 4U;
 #line 25011
-  __cil_tmp60 = (unsigned long )(input_table) + __cil_tmp59;
+  __cil_tmp60 = (unsigned int )(input_table) + __cil_tmp59;
 #line 25011
   __cil_tmp61 = (struct input_handler **)__cil_tmp60;
 #line 25011

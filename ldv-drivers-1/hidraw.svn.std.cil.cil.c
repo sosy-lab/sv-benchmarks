@@ -263,7 +263,7 @@ struct seq_file;
 struct seq_file;
 #line 3002 "hidraw.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3002 "hidraw.i"
 typedef struct cpumask cpumask_t;
@@ -1767,7 +1767,7 @@ struct bio;
 struct bio;
 #line 11585 "hidraw.i"
 struct __anonstruct_nodemask_t_58 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 11585 "hidraw.i"
 typedef struct __anonstruct_nodemask_t_58 nodemask_t;
@@ -2111,7 +2111,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2461,7 +2461,7 @@ struct __anonstruct__kill_133 {
 };
 #line 17489 "hidraw.i"
 union __anonunion__sifields_127 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_133 _kill ;
    struct __anonstruct__timer_132 _timer ;
    struct __anonstruct__rt_131 _rt ;
@@ -3691,15 +3691,15 @@ struct input_dev {
    char const   *phys ;
    char const   *uniq ;
    struct input_id id ;
-   unsigned long evbit[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long keybit[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long relbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long absbit[((64UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long mscbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ledbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sndbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long swbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long evbit[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long keybit[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long relbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long absbit[((64U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long mscbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ledbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sndbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long swbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    unsigned int keycodemax ;
    unsigned int keycodesize ;
    void *keycode ;
@@ -3711,10 +3711,10 @@ struct input_dev {
    int sync ;
    int abs[64] ;
    int rep[2] ;
-   unsigned long key[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long led[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long snd[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sw[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long key[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long led[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long snd[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sw[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    int absmax[64] ;
    int absmin[64] ;
    int absfuzz[64] ;
@@ -3770,7 +3770,7 @@ struct ff_device {
    void (*set_autocenter)(struct input_dev *dev , u16 magnitude ) ;
    void (*destroy)(struct ff_device * ) ;
    void *private ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    struct mutex mutex ;
    int max_effects ;
    struct ff_effect *effects ;
@@ -5254,8 +5254,8 @@ static ssize_t hidraw_write(struct file *file , char const   *buffer , size_t co
   unsigned long tmp___6 ;
   struct dentry **__cil_tmp41 ;
   struct inode **__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
   struct hidraw **__cil_tmp45 ;
   unsigned int __cil_tmp46 ;
   struct hidraw **__cil_tmp47 ;
@@ -5292,9 +5292,9 @@ static ssize_t hidraw_write(struct file *file , char const   *buffer , size_t co
 #line 23877
   __cil_tmp24 = minor * 4U;
 #line 23877
-  __cil_tmp43 = 0 * 8UL;
+  __cil_tmp43 = 0 * 4U;
 #line 23877
-  __cil_tmp44 = (unsigned long )(hidraw_table) + __cil_tmp43;
+  __cil_tmp44 = (unsigned int )(hidraw_table) + __cil_tmp43;
 #line 23877
   __cil_tmp45 = (struct hidraw **)__cil_tmp44;
 #line 23877
@@ -5631,25 +5631,25 @@ static int hidraw_open(struct inode *inode , struct file *file )
   unsigned int __cil_tmp98 ;
   unsigned int __cil_tmp99 ;
   int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
+  unsigned int __cil_tmp101 ;
+  unsigned int __cil_tmp102 ;
   struct hidraw **__cil_tmp103 ;
   unsigned int __cil_tmp104 ;
   struct hidraw **__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
+  unsigned int __cil_tmp106 ;
+  unsigned int __cil_tmp107 ;
   struct hidraw **__cil_tmp108 ;
   unsigned int __cil_tmp109 ;
   struct hidraw **__cil_tmp110 ;
   struct hidraw **__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
+  unsigned int __cil_tmp112 ;
+  unsigned int __cil_tmp113 ;
   struct hidraw **__cil_tmp114 ;
   unsigned int __cil_tmp115 ;
   struct hidraw **__cil_tmp116 ;
   void **__cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
+  unsigned int __cil_tmp118 ;
+  unsigned int __cil_tmp119 ;
   struct hidraw **__cil_tmp120 ;
   unsigned int __cil_tmp121 ;
   struct hidraw **__cil_tmp122 ;
@@ -5708,9 +5708,9 @@ static int hidraw_open(struct inode *inode , struct file *file )
 #line 23937
   __cil_tmp11 = minor * 4U;
 #line 23937
-  __cil_tmp101 = 0 * 8UL;
+  __cil_tmp101 = 0 * 4U;
 #line 23937
-  __cil_tmp102 = (unsigned long )(hidraw_table) + __cil_tmp101;
+  __cil_tmp102 = (unsigned int )(hidraw_table) + __cil_tmp101;
 #line 23937
   __cil_tmp103 = (struct hidraw **)__cil_tmp102;
 #line 23937
@@ -5745,9 +5745,9 @@ static int hidraw_open(struct inode *inode , struct file *file )
 #line 23945
   __cil_tmp17 = minor * 4U;
 #line 23945
-  __cil_tmp106 = 0 * 8UL;
+  __cil_tmp106 = 0 * 4U;
 #line 23945
-  __cil_tmp107 = (unsigned long )(hidraw_table) + __cil_tmp106;
+  __cil_tmp107 = (unsigned int )(hidraw_table) + __cil_tmp106;
 #line 23945
   __cil_tmp108 = (struct hidraw **)__cil_tmp107;
 #line 23945
@@ -5783,9 +5783,9 @@ static int hidraw_open(struct inode *inode , struct file *file )
 #line 23947
   __cil_tmp22 = minor * 4U;
 #line 23947
-  __cil_tmp112 = 0 * 8UL;
+  __cil_tmp112 = 0 * 4U;
 #line 23947
-  __cil_tmp113 = (unsigned long )(hidraw_table) + __cil_tmp112;
+  __cil_tmp113 = (unsigned int )(hidraw_table) + __cil_tmp112;
 #line 23947
   __cil_tmp114 = (struct hidraw **)__cil_tmp113;
 #line 23947
@@ -5821,9 +5821,9 @@ static int hidraw_open(struct inode *inode , struct file *file )
 #line 23950
   __cil_tmp33 = minor * 4U;
 #line 23950
-  __cil_tmp118 = 0 * 8UL;
+  __cil_tmp118 = 0 * 4U;
 #line 23950
-  __cil_tmp119 = (unsigned long )(hidraw_table) + __cil_tmp118;
+  __cil_tmp119 = (unsigned int )(hidraw_table) + __cil_tmp118;
 #line 23950
   __cil_tmp120 = (struct hidraw **)__cil_tmp119;
 #line 23950
@@ -6142,13 +6142,13 @@ static int hidraw_release(struct inode *inode , struct file *file )
   void const   *__cil_tmp67 ;
   void const   *__cil_tmp68 ;
   void **__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
+  unsigned int __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
   struct hidraw **__cil_tmp72 ;
   unsigned int __cil_tmp73 ;
   struct hidraw **__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
+  unsigned int __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
   struct hidraw **__cil_tmp77 ;
   unsigned int __cil_tmp78 ;
   struct hidraw **__cil_tmp79 ;
@@ -6191,9 +6191,9 @@ static int hidraw_release(struct inode *inode , struct file *file )
 #line 23979
   __cil_tmp11 = minor * 4U;
 #line 23979
-  __cil_tmp70 = 0 * 8UL;
+  __cil_tmp70 = 0 * 4U;
 #line 23979
-  __cil_tmp71 = (unsigned long )(hidraw_table) + __cil_tmp70;
+  __cil_tmp71 = (unsigned int )(hidraw_table) + __cil_tmp70;
 #line 23979
   __cil_tmp72 = (struct hidraw **)__cil_tmp71;
 #line 23979
@@ -6228,9 +6228,9 @@ static int hidraw_release(struct inode *inode , struct file *file )
 #line 23986
   __cil_tmp17 = minor * 4U;
 #line 23986
-  __cil_tmp75 = 0 * 8UL;
+  __cil_tmp75 = 0 * 4U;
 #line 23986
-  __cil_tmp76 = (unsigned long )(hidraw_table) + __cil_tmp75;
+  __cil_tmp76 = (unsigned int )(hidraw_table) + __cil_tmp75;
 #line 23986
   __cil_tmp77 = (struct hidraw **)__cil_tmp76;
 #line 23986
@@ -6632,8 +6632,8 @@ static long hidraw_ioctl(struct file *file , unsigned int cmd , unsigned long ar
   unsigned long tmp___12 ;
   struct dentry **__cil_tmp214 ;
   struct inode **__cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
+  unsigned int __cil_tmp216 ;
+  unsigned int __cil_tmp217 ;
   struct hidraw **__cil_tmp218 ;
   unsigned int __cil_tmp219 ;
   struct hidraw **__cil_tmp220 ;
@@ -6696,9 +6696,9 @@ static long hidraw_ioctl(struct file *file , unsigned int cmd , unsigned long ar
 #line 24009
   __cil_tmp37 = minor * 4U;
 #line 24009
-  __cil_tmp216 = 0 * 8UL;
+  __cil_tmp216 = 0 * 4U;
 #line 24009
-  __cil_tmp217 = (unsigned long )(hidraw_table) + __cil_tmp216;
+  __cil_tmp217 = (unsigned int )(hidraw_table) + __cil_tmp216;
 #line 24009
   __cil_tmp218 = (struct hidraw **)__cil_tmp217;
 #line 24009
@@ -7784,22 +7784,22 @@ int hidraw_connect(struct hid_device *hid )
   unsigned int __cil_tmp44 ;
   unsigned int __cil_tmp45 ;
   unsigned int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
   struct hidraw **__cil_tmp49 ;
   unsigned int __cil_tmp50 ;
   struct hidraw **__cil_tmp51 ;
   unsigned int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
   struct hidraw **__cil_tmp55 ;
   unsigned int __cil_tmp56 ;
   struct hidraw **__cil_tmp57 ;
   struct device **__cil_tmp58 ;
   struct device **__cil_tmp59 ;
   unsigned int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
   struct hidraw **__cil_tmp63 ;
   unsigned int __cil_tmp64 ;
   struct hidraw **__cil_tmp65 ;
@@ -7847,9 +7847,9 @@ int hidraw_connect(struct hid_device *hid )
 #line 24131
     __cil_tmp8 = __cil_tmp46 * 4U;
 #line 24131
-    __cil_tmp47 = 0 * 8UL;
+    __cil_tmp47 = 0 * 4U;
 #line 24131
-    __cil_tmp48 = (unsigned long )(hidraw_table) + __cil_tmp47;
+    __cil_tmp48 = (unsigned int )(hidraw_table) + __cil_tmp47;
 #line 24131
     __cil_tmp49 = (struct hidraw **)__cil_tmp48;
 #line 24131
@@ -7871,9 +7871,9 @@ int hidraw_connect(struct hid_device *hid )
 #line 24133
     __cil_tmp10 = __cil_tmp52 * 4U;
 #line 24133
-    __cil_tmp53 = 0 * 8UL;
+    __cil_tmp53 = 0 * 4U;
 #line 24133
-    __cil_tmp54 = (unsigned long )(hidraw_table) + __cil_tmp53;
+    __cil_tmp54 = (unsigned int )(hidraw_table) + __cil_tmp53;
 #line 24133
     __cil_tmp55 = (struct hidraw **)__cil_tmp54;
 #line 24133
@@ -7953,9 +7953,9 @@ int hidraw_connect(struct hid_device *hid )
 #line 24148
     __cil_tmp26 = __cil_tmp60 * 4U;
 #line 24148
-    __cil_tmp61 = 0 * 8UL;
+    __cil_tmp61 = 0 * 4U;
 #line 24148
-    __cil_tmp62 = (unsigned long )(hidraw_table) + __cil_tmp61;
+    __cil_tmp62 = (unsigned int )(hidraw_table) + __cil_tmp61;
 #line 24148
     __cil_tmp63 = (struct hidraw **)__cil_tmp62;
 #line 24148
@@ -8107,8 +8107,8 @@ void hidraw_disconnect(struct hid_device *hid )
   void **__cil_tmp29 ;
   int *__cil_tmp30 ;
   unsigned int *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   struct hidraw **__cil_tmp34 ;
   unsigned int __cil_tmp35 ;
   struct hidraw **__cil_tmp36 ;
@@ -8146,9 +8146,9 @@ void hidraw_disconnect(struct hid_device *hid )
 #line 24178
   __cil_tmp9 = __cil_tmp8 * 4U;
 #line 24178
-  __cil_tmp32 = 0 * 8UL;
+  __cil_tmp32 = 0 * 4U;
 #line 24178
-  __cil_tmp33 = (unsigned long )(hidraw_table) + __cil_tmp32;
+  __cil_tmp33 = (unsigned int )(hidraw_table) + __cil_tmp32;
 #line 24178
   __cil_tmp34 = (struct hidraw **)__cil_tmp33;
 #line 24178

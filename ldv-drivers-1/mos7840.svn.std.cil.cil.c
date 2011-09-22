@@ -385,7 +385,7 @@ struct raw_spinlock;
 struct raw_spinlock;
 #line 3556 "mos7840.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 3556 "mos7840.i"
 typedef struct cpumask cpumask_t;
@@ -719,7 +719,7 @@ struct seqcount {
 typedef struct seqcount seqcount_t;
 #line 7680 "mos7840.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7680 "mos7840.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1376,7 +1376,7 @@ struct __anonstruct__kill_132 {
 };
 #line 14001 "mos7840.i"
 union __anonunion__sifields_126 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_132 _kill ;
    struct __anonstruct__timer_131 _timer ;
    struct __anonstruct__rt_130 _rt ;
@@ -3436,12 +3436,12 @@ struct tty_struct {
    unsigned short minimum_to_wake ;
    unsigned long overrun_time ;
    int num_overrun ;
-   unsigned long process_char_map[256UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long process_char_map[256U / (8U * sizeof(unsigned long ))] ;
    char *read_buf ;
    int read_head ;
    int read_tail ;
    int read_cnt ;
-   unsigned long read_flags[4096UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long read_flags[4096U / (8U * sizeof(unsigned long ))] ;
    unsigned char *echo_buf ;
    unsigned int echo_pos ;
    unsigned int echo_cnt ;
@@ -3592,7 +3592,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -4149,7 +4149,7 @@ struct usb_host_config {
 };
 #line 26161 "mos7840.i"
 struct usb_devmap {
-   unsigned long devicemap[128UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long devicemap[128U / (8U * sizeof(unsigned long ))] ;
 };
 #line 26168
 struct mon_bus;
@@ -7589,23 +7589,23 @@ static void mos7840_interrupt_callback(struct urb *urb )
   u32 *__cil_tmp118 ;
   void **__cil_tmp119 ;
   void **__cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
+  unsigned int __cil_tmp121 ;
+  unsigned int __cil_tmp122 ;
   __u8 *__cil_tmp123 ;
   unsigned int __cil_tmp124 ;
   __u8 *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
+  unsigned int __cil_tmp126 ;
+  unsigned int __cil_tmp127 ;
   __u8 *__cil_tmp128 ;
   unsigned int __cil_tmp129 ;
   __u8 *__cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
+  unsigned int __cil_tmp131 ;
+  unsigned int __cil_tmp132 ;
   __u8 *__cil_tmp133 ;
   unsigned int __cil_tmp134 ;
   __u8 *__cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
+  unsigned int __cil_tmp136 ;
+  unsigned int __cil_tmp137 ;
   __u8 *__cil_tmp138 ;
   unsigned int __cil_tmp139 ;
   __u8 *__cil_tmp140 ;
@@ -7617,13 +7617,13 @@ static void mos7840_interrupt_callback(struct urb *urb )
   struct usb_serial_port **__cil_tmp146 ;
   unsigned char *__cil_tmp147 ;
   char *__cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
+  unsigned int __cil_tmp149 ;
+  unsigned int __cil_tmp150 ;
   __u8 *__cil_tmp151 ;
   unsigned int __cil_tmp152 ;
   __u8 *__cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
+  unsigned int __cil_tmp154 ;
+  unsigned int __cil_tmp155 ;
   __u8 *__cil_tmp156 ;
   unsigned int __cil_tmp157 ;
   __u8 *__cil_tmp158 ;
@@ -7808,9 +7808,9 @@ static void mos7840_interrupt_callback(struct urb *urb )
 #line 27407
   __cil_tmp32 = 0U;
 #line 27407
-  __cil_tmp121 = 0 * 1UL;
+  __cil_tmp121 = 0 * 1U;
 #line 27407
-  __cil_tmp122 = (unsigned long )(sp) + __cil_tmp121;
+  __cil_tmp122 = (unsigned int )(sp) + __cil_tmp121;
 #line 27407
   __cil_tmp123 = (__u8 *)__cil_tmp122;
 #line 27407
@@ -7826,9 +7826,9 @@ static void mos7840_interrupt_callback(struct urb *urb )
 #line 27408
   __cil_tmp35 = 1U;
 #line 27408
-  __cil_tmp126 = 0 * 1UL;
+  __cil_tmp126 = 0 * 1U;
 #line 27408
-  __cil_tmp127 = (unsigned long )(sp) + __cil_tmp126;
+  __cil_tmp127 = (unsigned int )(sp) + __cil_tmp126;
 #line 27408
   __cil_tmp128 = (__u8 *)__cil_tmp127;
 #line 27408
@@ -7844,9 +7844,9 @@ static void mos7840_interrupt_callback(struct urb *urb )
 #line 27409
   __cil_tmp38 = 2U;
 #line 27409
-  __cil_tmp131 = 0 * 1UL;
+  __cil_tmp131 = 0 * 1U;
 #line 27409
-  __cil_tmp132 = (unsigned long )(sp) + __cil_tmp131;
+  __cil_tmp132 = (unsigned int )(sp) + __cil_tmp131;
 #line 27409
   __cil_tmp133 = (__u8 *)__cil_tmp132;
 #line 27409
@@ -7862,9 +7862,9 @@ static void mos7840_interrupt_callback(struct urb *urb )
 #line 27410
   __cil_tmp41 = 3U;
 #line 27410
-  __cil_tmp136 = 0 * 1UL;
+  __cil_tmp136 = 0 * 1U;
 #line 27410
-  __cil_tmp137 = (unsigned long )(sp) + __cil_tmp136;
+  __cil_tmp137 = (unsigned int )(sp) + __cil_tmp136;
 #line 27410
   __cil_tmp138 = (__u8 *)__cil_tmp137;
 #line 27410
@@ -7979,9 +7979,9 @@ static void mos7840_interrupt_callback(struct urb *urb )
 #line 27419
       __cil_tmp74 = (unsigned int )i;
 #line 27419
-      __cil_tmp149 = 0 * 1UL;
+      __cil_tmp149 = 0 * 1U;
 #line 27419
-      __cil_tmp150 = (unsigned long )(sp) + __cil_tmp149;
+      __cil_tmp150 = (unsigned int )(sp) + __cil_tmp149;
 #line 27419
       __cil_tmp151 = (__u8 *)__cil_tmp150;
 #line 27419
@@ -8021,9 +8021,9 @@ static void mos7840_interrupt_callback(struct urb *urb )
 #line 27422
         __cil_tmp79 = (unsigned int )i;
 #line 27422
-        __cil_tmp154 = 0 * 1UL;
+        __cil_tmp154 = 0 * 1U;
 #line 27422
-        __cil_tmp155 = (unsigned long )(sp) + __cil_tmp154;
+        __cil_tmp155 = (unsigned int )(sp) + __cil_tmp154;
 #line 27422
         __cil_tmp156 = (__u8 *)__cil_tmp155;
 #line 27422
@@ -17894,35 +17894,35 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
   unsigned char *__cil_tmp166 ;
   unsigned char *__cil_tmp167 ;
   struct async_icount *__cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
+  unsigned int __cil_tmp169 ;
+  unsigned int __cil_tmp170 ;
   struct async_icount *__cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
+  unsigned int __cil_tmp172 ;
+  unsigned int __cil_tmp173 ;
   struct async_icount *__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
+  unsigned int __cil_tmp175 ;
+  unsigned int __cil_tmp176 ;
   struct async_icount *__cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
+  unsigned int __cil_tmp178 ;
+  unsigned int __cil_tmp179 ;
   struct async_icount *__cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
+  unsigned int __cil_tmp181 ;
+  unsigned int __cil_tmp182 ;
   struct async_icount *__cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
+  unsigned int __cil_tmp184 ;
+  unsigned int __cil_tmp185 ;
   struct async_icount *__cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
+  unsigned int __cil_tmp187 ;
+  unsigned int __cil_tmp188 ;
   struct async_icount *__cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
+  unsigned int __cil_tmp190 ;
+  unsigned int __cil_tmp191 ;
   struct async_icount *__cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
+  unsigned int __cil_tmp193 ;
+  unsigned int __cil_tmp194 ;
   struct async_icount *__cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
+  unsigned int __cil_tmp196 ;
+  unsigned int __cil_tmp197 ;
   struct async_icount *__cil_tmp198 ;
   int *__cil_tmp199 ;
   int *__cil_tmp200 ;
@@ -17939,66 +17939,66 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
   struct list_head **__cil_tmp211 ;
   int *__cil_tmp212 ;
   struct async_icount *__cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
+  unsigned int __cil_tmp214 ;
+  unsigned int __cil_tmp215 ;
   struct async_icount *__cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
+  unsigned int __cil_tmp217 ;
+  unsigned int __cil_tmp218 ;
   struct async_icount *__cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
+  unsigned int __cil_tmp220 ;
+  unsigned int __cil_tmp221 ;
   struct async_icount *__cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
+  unsigned int __cil_tmp223 ;
+  unsigned int __cil_tmp224 ;
   struct async_icount *__cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
+  unsigned int __cil_tmp226 ;
+  unsigned int __cil_tmp227 ;
   struct async_icount *__cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
+  unsigned int __cil_tmp229 ;
+  unsigned int __cil_tmp230 ;
   struct async_icount *__cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
+  unsigned int __cil_tmp232 ;
+  unsigned int __cil_tmp233 ;
   struct async_icount *__cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
+  unsigned int __cil_tmp235 ;
+  unsigned int __cil_tmp236 ;
   struct async_icount *__cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
+  unsigned int __cil_tmp238 ;
+  unsigned int __cil_tmp239 ;
   struct async_icount *__cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
+  unsigned int __cil_tmp241 ;
+  unsigned int __cil_tmp242 ;
   struct async_icount *__cil_tmp243 ;
   struct async_icount *__cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
+  unsigned int __cil_tmp245 ;
+  unsigned int __cil_tmp246 ;
   struct async_icount *__cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
+  unsigned int __cil_tmp248 ;
+  unsigned int __cil_tmp249 ;
   struct async_icount *__cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
+  unsigned int __cil_tmp251 ;
+  unsigned int __cil_tmp252 ;
   struct async_icount *__cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
+  unsigned int __cil_tmp254 ;
+  unsigned int __cil_tmp255 ;
   struct async_icount *__cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
+  unsigned int __cil_tmp257 ;
+  unsigned int __cil_tmp258 ;
   struct async_icount *__cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
+  unsigned int __cil_tmp260 ;
+  unsigned int __cil_tmp261 ;
   struct async_icount *__cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  unsigned long __cil_tmp264 ;
+  unsigned int __cil_tmp263 ;
+  unsigned int __cil_tmp264 ;
   struct async_icount *__cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
+  unsigned int __cil_tmp266 ;
+  unsigned int __cil_tmp267 ;
   struct async_icount *__cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
+  unsigned int __cil_tmp269 ;
+  unsigned int __cil_tmp270 ;
   struct async_icount *__cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
+  unsigned int __cil_tmp272 ;
+  unsigned int __cil_tmp273 ;
   struct async_icount *__cil_tmp274 ;
   int *__cil_tmp275 ;
   unsigned int __cil_tmp276 ;
@@ -18301,7 +18301,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp168 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp169 = (unsigned long )__cil_tmp168;
+              __cil_tmp169 = (unsigned int )__cil_tmp168;
 #line 28867
               __cil_tmp170 = __cil_tmp169 + 40;
 #line 28867
@@ -18309,7 +18309,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp171 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp172 = (unsigned long )__cil_tmp171;
+              __cil_tmp172 = (unsigned int )__cil_tmp171;
 #line 28867
               __cil_tmp173 = __cil_tmp172 + 36;
 #line 28867
@@ -18317,7 +18317,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp174 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp175 = (unsigned long )__cil_tmp174;
+              __cil_tmp175 = (unsigned int )__cil_tmp174;
 #line 28867
               __cil_tmp176 = __cil_tmp175 + 32;
 #line 28867
@@ -18325,7 +18325,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp177 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp178 = (unsigned long )__cil_tmp177;
+              __cil_tmp178 = (unsigned int )__cil_tmp177;
 #line 28867
               __cil_tmp179 = __cil_tmp178 + 28;
 #line 28867
@@ -18333,7 +18333,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp180 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp181 = (unsigned long )__cil_tmp180;
+              __cil_tmp181 = (unsigned int )__cil_tmp180;
 #line 28867
               __cil_tmp182 = __cil_tmp181 + 24;
 #line 28867
@@ -18341,7 +18341,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp183 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp184 = (unsigned long )__cil_tmp183;
+              __cil_tmp184 = (unsigned int )__cil_tmp183;
 #line 28867
               __cil_tmp185 = __cil_tmp184 + 20;
 #line 28867
@@ -18349,7 +18349,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp186 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp187 = (unsigned long )__cil_tmp186;
+              __cil_tmp187 = (unsigned int )__cil_tmp186;
 #line 28867
               __cil_tmp188 = __cil_tmp187 + 16;
 #line 28867
@@ -18357,7 +18357,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp189 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp190 = (unsigned long )__cil_tmp189;
+              __cil_tmp190 = (unsigned int )__cil_tmp189;
 #line 28867
               __cil_tmp191 = __cil_tmp190 + 12;
 #line 28867
@@ -18365,7 +18365,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp192 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp193 = (unsigned long )__cil_tmp192;
+              __cil_tmp193 = (unsigned int )__cil_tmp192;
 #line 28867
               __cil_tmp194 = __cil_tmp193 + 8;
 #line 28867
@@ -18373,7 +18373,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28867
               __cil_tmp195 = (struct async_icount *)__cil_tmp52;
 #line 28867
-              __cil_tmp196 = (unsigned long )__cil_tmp195;
+              __cil_tmp196 = (unsigned int )__cil_tmp195;
 #line 28867
               __cil_tmp197 = __cil_tmp196 + 4;
 #line 28867
@@ -18577,7 +18577,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp213 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp214 = (unsigned long )__cil_tmp213;
+                __cil_tmp214 = (unsigned int )__cil_tmp213;
 #line 28878
                 __cil_tmp215 = __cil_tmp214 + 40;
 #line 28878
@@ -18585,7 +18585,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp216 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp217 = (unsigned long )__cil_tmp216;
+                __cil_tmp217 = (unsigned int )__cil_tmp216;
 #line 28878
                 __cil_tmp218 = __cil_tmp217 + 36;
 #line 28878
@@ -18593,7 +18593,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp219 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp220 = (unsigned long )__cil_tmp219;
+                __cil_tmp220 = (unsigned int )__cil_tmp219;
 #line 28878
                 __cil_tmp221 = __cil_tmp220 + 32;
 #line 28878
@@ -18601,7 +18601,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp222 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp223 = (unsigned long )__cil_tmp222;
+                __cil_tmp223 = (unsigned int )__cil_tmp222;
 #line 28878
                 __cil_tmp224 = __cil_tmp223 + 28;
 #line 28878
@@ -18609,7 +18609,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp225 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp226 = (unsigned long )__cil_tmp225;
+                __cil_tmp226 = (unsigned int )__cil_tmp225;
 #line 28878
                 __cil_tmp227 = __cil_tmp226 + 24;
 #line 28878
@@ -18617,7 +18617,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp228 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp229 = (unsigned long )__cil_tmp228;
+                __cil_tmp229 = (unsigned int )__cil_tmp228;
 #line 28878
                 __cil_tmp230 = __cil_tmp229 + 20;
 #line 28878
@@ -18625,7 +18625,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp231 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp232 = (unsigned long )__cil_tmp231;
+                __cil_tmp232 = (unsigned int )__cil_tmp231;
 #line 28878
                 __cil_tmp233 = __cil_tmp232 + 16;
 #line 28878
@@ -18633,7 +18633,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp234 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp235 = (unsigned long )__cil_tmp234;
+                __cil_tmp235 = (unsigned int )__cil_tmp234;
 #line 28878
                 __cil_tmp236 = __cil_tmp235 + 12;
 #line 28878
@@ -18641,7 +18641,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp237 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp238 = (unsigned long )__cil_tmp237;
+                __cil_tmp238 = (unsigned int )__cil_tmp237;
 #line 28878
                 __cil_tmp239 = __cil_tmp238 + 8;
 #line 28878
@@ -18649,7 +18649,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28878
                 __cil_tmp240 = (struct async_icount *)__cil_tmp77;
 #line 28878
-                __cil_tmp241 = (unsigned long )__cil_tmp240;
+                __cil_tmp241 = (unsigned int )__cil_tmp240;
 #line 28878
                 __cil_tmp242 = __cil_tmp241 + 4;
 #line 28878
@@ -18787,7 +18787,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp244 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp245 = (unsigned long )__cil_tmp244;
+              __cil_tmp245 = (unsigned int )__cil_tmp244;
 #line 28895
               __cil_tmp246 = __cil_tmp245 + 40;
 #line 28895
@@ -18795,7 +18795,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp247 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp248 = (unsigned long )__cil_tmp247;
+              __cil_tmp248 = (unsigned int )__cil_tmp247;
 #line 28895
               __cil_tmp249 = __cil_tmp248 + 36;
 #line 28895
@@ -18803,7 +18803,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp250 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp251 = (unsigned long )__cil_tmp250;
+              __cil_tmp251 = (unsigned int )__cil_tmp250;
 #line 28895
               __cil_tmp252 = __cil_tmp251 + 32;
 #line 28895
@@ -18811,7 +18811,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp253 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp254 = (unsigned long )__cil_tmp253;
+              __cil_tmp254 = (unsigned int )__cil_tmp253;
 #line 28895
               __cil_tmp255 = __cil_tmp254 + 28;
 #line 28895
@@ -18819,7 +18819,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp256 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp257 = (unsigned long )__cil_tmp256;
+              __cil_tmp257 = (unsigned int )__cil_tmp256;
 #line 28895
               __cil_tmp258 = __cil_tmp257 + 24;
 #line 28895
@@ -18827,7 +18827,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp259 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp260 = (unsigned long )__cil_tmp259;
+              __cil_tmp260 = (unsigned int )__cil_tmp259;
 #line 28895
               __cil_tmp261 = __cil_tmp260 + 20;
 #line 28895
@@ -18835,7 +18835,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp262 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp263 = (unsigned long )__cil_tmp262;
+              __cil_tmp263 = (unsigned int )__cil_tmp262;
 #line 28895
               __cil_tmp264 = __cil_tmp263 + 16;
 #line 28895
@@ -18843,7 +18843,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp265 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp266 = (unsigned long )__cil_tmp265;
+              __cil_tmp266 = (unsigned int )__cil_tmp265;
 #line 28895
               __cil_tmp267 = __cil_tmp266 + 12;
 #line 28895
@@ -18851,7 +18851,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp268 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp269 = (unsigned long )__cil_tmp268;
+              __cil_tmp269 = (unsigned int )__cil_tmp268;
 #line 28895
               __cil_tmp270 = __cil_tmp269 + 8;
 #line 28895
@@ -18859,7 +18859,7 @@ static int mos7840_ioctl(struct tty_struct *tty , struct file *file , unsigned i
 #line 28895
               __cil_tmp271 = (struct async_icount *)__cil_tmp79;
 #line 28895
-              __cil_tmp272 = (unsigned long )__cil_tmp271;
+              __cil_tmp272 = (unsigned int )__cil_tmp271;
 #line 28895
               __cil_tmp273 = __cil_tmp272 + 4;
 #line 28895

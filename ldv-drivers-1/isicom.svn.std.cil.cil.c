@@ -274,7 +274,7 @@ struct seq_file;
 struct seq_file;
 #line 2977 "isicom.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 2977 "isicom.i"
 typedef struct cpumask cpumask_t;
@@ -740,7 +740,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7747 "isicom.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7747 "isicom.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1230,7 +1230,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2483,12 +2483,12 @@ struct tty_struct {
    unsigned short minimum_to_wake ;
    unsigned long overrun_time ;
    int num_overrun ;
-   unsigned long process_char_map[256UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long process_char_map[256U / (8U * sizeof(unsigned long ))] ;
    char *read_buf ;
    int read_head ;
    int read_tail ;
    int read_cnt ;
-   unsigned long read_flags[4096UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long read_flags[4096U / (8U * sizeof(unsigned long ))] ;
    unsigned char *echo_buf ;
    unsigned int echo_pos ;
    unsigned int echo_cnt ;
@@ -2769,7 +2769,7 @@ struct __anonstruct__kill_133 {
 };
 #line 18250 "isicom.i"
 union __anonunion__sifields_127 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_133 _kill ;
    struct __anonstruct__timer_132 _timer ;
    struct __anonstruct__rt_131 _rt ;
@@ -8334,13 +8334,13 @@ static void isicom_config_port(struct tty_struct *tty )
   unsigned long *__cil_tmp300 ;
   unsigned long *__cil_tmp301 ;
   unsigned long *__cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
-  unsigned long __cil_tmp304 ;
+  unsigned int __cil_tmp303 ;
+  unsigned int __cil_tmp304 ;
   signed char *__cil_tmp305 ;
   unsigned int __cil_tmp306 ;
   signed char *__cil_tmp307 ;
-  unsigned long __cil_tmp308 ;
-  unsigned long __cil_tmp309 ;
+  unsigned int __cil_tmp308 ;
+  unsigned int __cil_tmp309 ;
   signed char *__cil_tmp310 ;
   unsigned int __cil_tmp311 ;
   signed char *__cil_tmp312 ;
@@ -8674,9 +8674,9 @@ static void isicom_config_port(struct tty_struct *tty )
 #line 29199
   __cil_tmp104 = (unsigned int )baud;
 #line 29199
-  __cil_tmp303 = 0 * 1UL;
+  __cil_tmp303 = 0 * 1U;
 #line 29199
-  __cil_tmp304 = (unsigned long )(linuxb_to_isib) + __cil_tmp303;
+  __cil_tmp304 = (unsigned int )(linuxb_to_isib) + __cil_tmp303;
 #line 29199
   __cil_tmp305 = (signed char *)__cil_tmp304;
 #line 29199
@@ -8731,9 +8731,9 @@ static void isicom_config_port(struct tty_struct *tty )
 #line 29208
     __cil_tmp116 = (unsigned int )baud;
 #line 29208
-    __cil_tmp308 = 0 * 1UL;
+    __cil_tmp308 = 0 * 1U;
 #line 29208
-    __cil_tmp309 = (unsigned long )(linuxb_to_isib) + __cil_tmp308;
+    __cil_tmp309 = (unsigned int )(linuxb_to_isib) + __cil_tmp308;
 #line 29208
     __cil_tmp310 = (signed char *)__cil_tmp309;
 #line 29208
@@ -9959,15 +9959,15 @@ static int isicom_open(struct tty_struct *tty , struct file *filp )
   unsigned int __cil_tmp42 ;
   struct tty_port *__cil_tmp43 ;
   int *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
   struct isi_board *__cil_tmp47 ;
   unsigned int __cil_tmp48 ;
   unsigned short *__cil_tmp49 ;
   unsigned char *__cil_tmp50 ;
   unsigned int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
   struct isi_port *__cil_tmp54 ;
   unsigned int __cil_tmp55 ;
   int *__cil_tmp56 ;
@@ -10005,9 +10005,9 @@ static int isicom_open(struct tty_struct *tty , struct file *filp )
 #line 29336
   __cil_tmp12 = board * 68U;
 #line 29336
-  __cil_tmp45 = 0 * 120UL;
+  __cil_tmp45 = 0 * 68U;
 #line 29336
-  __cil_tmp46 = (unsigned long )(isi_card) + __cil_tmp45;
+  __cil_tmp46 = (unsigned int )(isi_card) + __cil_tmp45;
 #line 29336
   __cil_tmp47 = (struct isi_board *)__cil_tmp46;
 #line 29336
@@ -10066,9 +10066,9 @@ static int isicom_open(struct tty_struct *tty , struct file *filp )
 #line 29345
   __cil_tmp27 = __cil_tmp51 * 268U;
 #line 29345
-  __cil_tmp52 = 0 * 480UL;
+  __cil_tmp52 = 0 * 268U;
 #line 29345
-  __cil_tmp53 = (unsigned long )(isi_ports) + __cil_tmp52;
+  __cil_tmp53 = (unsigned int )(isi_ports) + __cil_tmp52;
 #line 29345
   __cil_tmp54 = (struct isi_port *)__cil_tmp53;
 #line 29345
@@ -12896,8 +12896,8 @@ static int isicom_get_serial_info(struct isi_port *port , struct serial_struct *
   void *__cil_tmp38 ;
   unsigned long tmp___0 ;
   unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
   struct isi_port *__cil_tmp43 ;
   unsigned int __cil_tmp44 ;
   int *__cil_tmp45 ;
@@ -12934,9 +12934,9 @@ static int isicom_get_serial_info(struct isi_port *port , struct serial_struct *
 #line 29669
   __cil_tmp7 = 0U;
 #line 29669
-  __cil_tmp41 = 0 * 480UL;
+  __cil_tmp41 = 0 * 268U;
 #line 29669
-  __cil_tmp42 = (unsigned long )(isi_ports) + __cil_tmp41;
+  __cil_tmp42 = (unsigned int )(isi_ports) + __cil_tmp41;
 #line 29669
   __cil_tmp43 = (struct isi_port *)__cil_tmp42;
 #line 29669
@@ -15848,13 +15848,13 @@ static int __attribute__((__cold__))  isicom_probe(struct pci_dev *pdev , struct
   int tmp___11 ;
   __u32 const   *__cil_tmp108 ;
   __u32 __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
+  unsigned int __cil_tmp110 ;
+  unsigned int __cil_tmp111 ;
   struct isi_board *__cil_tmp112 ;
   unsigned int __cil_tmp113 ;
   unsigned long *__cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
+  unsigned int __cil_tmp115 ;
+  unsigned int __cil_tmp116 ;
   struct isi_board *__cil_tmp117 ;
   unsigned int __cil_tmp118 ;
   unsigned int *__cil_tmp119 ;
@@ -15976,9 +15976,9 @@ static int __attribute__((__cold__))  isicom_probe(struct pci_dev *pdev , struct
 #line 30090
     __cil_tmp39 = index * 68U;
 #line 30090
-    __cil_tmp110 = 0 * 120UL;
+    __cil_tmp110 = 0 * 68U;
 #line 30090
-    __cil_tmp111 = (unsigned long )(isi_card) + __cil_tmp110;
+    __cil_tmp111 = (unsigned int )(isi_card) + __cil_tmp110;
 #line 30090
     __cil_tmp112 = (struct isi_board *)__cil_tmp111;
 #line 30090
@@ -15994,9 +15994,9 @@ static int __attribute__((__cold__))  isicom_probe(struct pci_dev *pdev , struct
 #line 30091
       __cil_tmp42 = index * 68U;
 #line 30091
-      __cil_tmp115 = 0 * 120UL;
+      __cil_tmp115 = 0 * 68U;
 #line 30091
-      __cil_tmp116 = (unsigned long )(isi_card) + __cil_tmp115;
+      __cil_tmp116 = (unsigned int )(isi_card) + __cil_tmp115;
 #line 30091
       __cil_tmp117 = (struct isi_board *)__cil_tmp116;
 #line 30091
@@ -16484,26 +16484,26 @@ static int __attribute__((__cold__))  isicom_init(void)
   long __cil_tmp70 ;
   int tmp___2 ;
   unsigned int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
   struct isi_port *__cil_tmp75 ;
   unsigned int __cil_tmp76 ;
   unsigned int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
+  unsigned int __cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
   struct isi_board *__cil_tmp80 ;
   unsigned int __cil_tmp81 ;
   struct isi_port **__cil_tmp82 ;
   unsigned int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
+  unsigned int __cil_tmp84 ;
+  unsigned int __cil_tmp85 ;
   struct isi_board *__cil_tmp86 ;
   unsigned int __cil_tmp87 ;
   struct tty_port_operations  const  **__cil_tmp88 ;
   unsigned short *__cil_tmp89 ;
   unsigned int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
+  unsigned int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
   struct isi_board *__cil_tmp93 ;
   unsigned int __cil_tmp94 ;
   struct isi_board **__cil_tmp95 ;
@@ -16512,14 +16512,14 @@ static int __attribute__((__cold__))  isicom_init(void)
   int *__cil_tmp98 ;
   u16 *__cil_tmp99 ;
   unsigned int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
+  unsigned int __cil_tmp101 ;
+  unsigned int __cil_tmp102 ;
   struct isi_board *__cil_tmp103 ;
   unsigned int __cil_tmp104 ;
   unsigned long *__cil_tmp105 ;
   unsigned int __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
+  unsigned int __cil_tmp107 ;
+  unsigned int __cil_tmp108 ;
   struct isi_board *__cil_tmp109 ;
   unsigned int __cil_tmp110 ;
   int *__cil_tmp111 ;
@@ -16554,9 +16554,9 @@ static int __attribute__((__cold__))  isicom_init(void)
 #line 30166
     __cil_tmp10 = __cil_tmp72 * 268U;
 #line 30166
-    __cil_tmp73 = 0 * 480UL;
+    __cil_tmp73 = 0 * 268U;
 #line 30166
-    __cil_tmp74 = (unsigned long )(isi_ports) + __cil_tmp73;
+    __cil_tmp74 = (unsigned int )(isi_ports) + __cil_tmp73;
 #line 30166
     __cil_tmp75 = (struct isi_port *)__cil_tmp74;
 #line 30166
@@ -16572,9 +16572,9 @@ static int __attribute__((__cold__))  isicom_init(void)
 #line 30167
     __cil_tmp13 = __cil_tmp12 + 16U;
 #line 30167
-    __cil_tmp78 = 0 * 120UL;
+    __cil_tmp78 = 0 * 68U;
 #line 30167
-    __cil_tmp79 = (unsigned long )(isi_card) + __cil_tmp78;
+    __cil_tmp79 = (unsigned int )(isi_card) + __cil_tmp78;
 #line 30167
     __cil_tmp80 = (struct isi_board *)__cil_tmp79;
 #line 30167
@@ -16597,9 +16597,9 @@ static int __attribute__((__cold__))  isicom_init(void)
 #line 30168
       __cil_tmp16 = __cil_tmp15 + 24U;
 #line 30168
-      __cil_tmp84 = 0 * 120UL;
+      __cil_tmp84 = 0 * 68U;
 #line 30168
-      __cil_tmp85 = (unsigned long )(isi_card) + __cil_tmp84;
+      __cil_tmp85 = (unsigned int )(isi_card) + __cil_tmp84;
 #line 30168
       __cil_tmp86 = (struct isi_board *)__cil_tmp85;
 #line 30168
@@ -16665,9 +16665,9 @@ static int __attribute__((__cold__))  isicom_init(void)
 #line 30173
       __cil_tmp29 = __cil_tmp90 * 68U;
 #line 30173
-      __cil_tmp91 = 0 * 120UL;
+      __cil_tmp91 = 0 * 68U;
 #line 30173
-      __cil_tmp92 = (unsigned long )(isi_card) + __cil_tmp91;
+      __cil_tmp92 = (unsigned int )(isi_card) + __cil_tmp91;
 #line 30173
       __cil_tmp93 = (struct isi_board *)__cil_tmp92;
 #line 30173
@@ -16728,9 +16728,9 @@ static int __attribute__((__cold__))  isicom_init(void)
 #line 30180
     __cil_tmp41 = __cil_tmp100 * 68U;
 #line 30180
-    __cil_tmp101 = 0 * 120UL;
+    __cil_tmp101 = 0 * 68U;
 #line 30180
-    __cil_tmp102 = (unsigned long )(isi_card) + __cil_tmp101;
+    __cil_tmp102 = (unsigned int )(isi_card) + __cil_tmp101;
 #line 30180
     __cil_tmp103 = (struct isi_board *)__cil_tmp102;
 #line 30180
@@ -16748,9 +16748,9 @@ static int __attribute__((__cold__))  isicom_init(void)
 #line 30181
     __cil_tmp44 = __cil_tmp43 + 4U;
 #line 30181
-    __cil_tmp107 = 0 * 120UL;
+    __cil_tmp107 = 0 * 68U;
 #line 30181
-    __cil_tmp108 = (unsigned long )(isi_card) + __cil_tmp107;
+    __cil_tmp108 = (unsigned int )(isi_card) + __cil_tmp107;
 #line 30181
     __cil_tmp109 = (struct isi_board *)__cil_tmp108;
 #line 30181

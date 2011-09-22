@@ -306,7 +306,7 @@ struct seq_file;
 struct seq_file;
 #line 144 "include/linux/cpumask.h"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 144 "include/linux/cpumask.h"
 typedef struct cpumask cpumask_t;
@@ -1863,7 +1863,7 @@ enum hrtimer_restart;
 enum hrtimer_restart;
 #line 92 "include/linux/nodemask.h"
 struct __anonstruct_nodemask_t_55 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 92 "include/linux/nodemask.h"
 typedef struct __anonstruct_nodemask_t_55 nodemask_t;
@@ -2174,7 +2174,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -3068,7 +3068,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 113 "include/linux/skbuff.h"
 struct sk_buff_head {
@@ -3418,7 +3418,7 @@ struct sockaddr_in {
    sa_family_t sin_family ;
    __be16 sin_port ;
    struct in_addr sin_addr ;
-   unsigned char __pad[((16UL - sizeof(short )) - sizeof(unsigned short )) - sizeof(struct in_addr )] ;
+   unsigned char __pad[((16U - sizeof(short )) - sizeof(unsigned short )) - sizeof(struct in_addr )] ;
 };
 #line 88 "include/linux/netfilter.h"
 struct sk_buff;
@@ -3727,7 +3727,7 @@ struct hh_cache {
    u16 hh_len ;
    int (*hh_output)(struct sk_buff *skb ) ;
    seqlock_t hh_lock ;
-   unsigned long hh_data[128UL / sizeof(long )] ;
+   unsigned long hh_data[128U / sizeof(long )] ;
 };
 #line 259 "include/linux/netdevice.h"
 struct header_ops {
@@ -4026,7 +4026,7 @@ struct __anonstruct__kill_237 {
 };
 #line 40 "include/asm-generic/siginfo.h"
 union __anonunion__sifields_231 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_237 _kill ;
    struct __anonstruct__timer_236 _timer ;
    struct __anonstruct__rt_235 _rt ;
@@ -6612,13 +6612,13 @@ __inline static wchar_t UniToupper(wchar_t uc )
   unsigned int __cil_tmp71 ;
   unsigned long *__cil_tmp72 ;
   unsigned long *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
+  unsigned int __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
   signed char *__cil_tmp76 ;
   unsigned int __cil_tmp77 ;
   signed char *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
+  unsigned int __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
   struct UniCaseRange  const  *__cil_tmp81 ;
   unsigned int __cil_tmp82 ;
   wchar_t const   *__cil_tmp83 ;
@@ -6689,9 +6689,9 @@ __inline static wchar_t UniToupper(wchar_t uc )
 #line 304
     __cil_tmp18 = (unsigned int )uc;
 #line 304
-    __cil_tmp74 = 0 * 1UL;
+    __cil_tmp74 = 0 * 1U;
 #line 304
-    __cil_tmp75 = (unsigned long )(CifsUniUpperTable) + __cil_tmp74;
+    __cil_tmp75 = (unsigned int )(CifsUniUpperTable) + __cil_tmp74;
 #line 304
     __cil_tmp76 = (signed char *)__cil_tmp75;
 #line 304
@@ -6714,9 +6714,9 @@ __inline static wchar_t UniToupper(wchar_t uc )
 #line 306
     __cil_tmp24 = 0U;
 #line 306
-    __cil_tmp79 = 0 * 16UL;
+    __cil_tmp79 = 0 * 8U;
 #line 306
-    __cil_tmp80 = (unsigned long )(CifsUniUpperRange) + __cil_tmp79;
+    __cil_tmp80 = (unsigned int )(CifsUniUpperRange) + __cil_tmp79;
 #line 306
     __cil_tmp81 = (struct UniCaseRange  const  *)__cil_tmp80;
 #line 306
@@ -7377,8 +7377,8 @@ int cifs_sign_smb(struct smb_hdr *cifs_pdu , struct TCP_Server_Info *server , __
   __u32 *__cil_tmp118 ;
   __u32 *__cil_tmp119 ;
   __u32 *__cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
+  unsigned int __cil_tmp121 ;
+  unsigned int __cil_tmp122 ;
   char *__cil_tmp123 ;
   unsigned int __cil_tmp124 ;
   unsigned int __cil_tmp125 ;
@@ -7387,8 +7387,8 @@ int cifs_sign_smb(struct smb_hdr *cifs_pdu , struct TCP_Server_Info *server , __
   unsigned int __cil_tmp128 ;
   unsigned long *__cil_tmp129 ;
   unsigned long *__cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
+  unsigned int __cil_tmp131 ;
+  unsigned int __cil_tmp132 ;
   char *__cil_tmp133 ;
   unsigned int __cil_tmp134 ;
 
@@ -7595,9 +7595,9 @@ int cifs_sign_smb(struct smb_hdr *cifs_pdu , struct TCP_Server_Info *server , __
 #line 80
   __cil_tmp64 = 0U;
 #line 80
-  __cil_tmp121 = 0 * 1UL;
+  __cil_tmp121 = 0 * 1U;
 #line 80
-  __cil_tmp122 = (unsigned long )(smb_signature) + __cil_tmp121;
+  __cil_tmp122 = (unsigned int )(smb_signature) + __cil_tmp121;
 #line 80
   __cil_tmp123 = (char *)__cil_tmp122;
 #line 80
@@ -7680,9 +7680,9 @@ int cifs_sign_smb(struct smb_hdr *cifs_pdu , struct TCP_Server_Info *server , __
 #line 85
     __cil_tmp89 = 0U;
 #line 85
-    __cil_tmp131 = 0 * 1UL;
+    __cil_tmp131 = 0 * 1U;
 #line 85
-    __cil_tmp132 = (unsigned long )(smb_signature) + __cil_tmp131;
+    __cil_tmp132 = (unsigned int )(smb_signature) + __cil_tmp131;
 #line 85
     __cil_tmp133 = (char *)__cil_tmp132;
 #line 85
@@ -8495,8 +8495,8 @@ int cifs_sign_smb2(struct kvec *iov , int n_vec , struct TCP_Server_Info *server
   __u32 *__cil_tmp123 ;
   __u32 *__cil_tmp124 ;
   __u32 *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
+  unsigned int __cil_tmp126 ;
+  unsigned int __cil_tmp127 ;
   char *__cil_tmp128 ;
   unsigned int __cil_tmp129 ;
   unsigned int __cil_tmp130 ;
@@ -8505,8 +8505,8 @@ int cifs_sign_smb2(struct kvec *iov , int n_vec , struct TCP_Server_Info *server
   unsigned int __cil_tmp133 ;
   unsigned long *__cil_tmp134 ;
   unsigned long *__cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
+  unsigned int __cil_tmp136 ;
+  unsigned int __cil_tmp137 ;
   char *__cil_tmp138 ;
   unsigned int __cil_tmp139 ;
 
@@ -8721,9 +8721,9 @@ int cifs_sign_smb2(struct kvec *iov , int n_vec , struct TCP_Server_Info *server
 #line 147
   __cil_tmp68 = 0U;
 #line 147
-  __cil_tmp126 = 0 * 1UL;
+  __cil_tmp126 = 0 * 1U;
 #line 147
-  __cil_tmp127 = (unsigned long )(smb_signature) + __cil_tmp126;
+  __cil_tmp127 = (unsigned int )(smb_signature) + __cil_tmp126;
 #line 147
   __cil_tmp128 = (char *)__cil_tmp127;
 #line 147
@@ -8806,9 +8806,9 @@ int cifs_sign_smb2(struct kvec *iov , int n_vec , struct TCP_Server_Info *server
 #line 152
     __cil_tmp93 = 0U;
 #line 152
-    __cil_tmp136 = 0 * 1UL;
+    __cil_tmp136 = 0 * 1U;
 #line 152
-    __cil_tmp137 = (unsigned long )(smb_signature) + __cil_tmp136;
+    __cil_tmp137 = (unsigned int )(smb_signature) + __cil_tmp136;
 #line 152
     __cil_tmp138 = (char *)__cil_tmp137;
 #line 152
@@ -9065,14 +9065,14 @@ int cifs_verify_signature(struct smb_hdr *cifs_pdu , struct mac_key  const  *mac
   unsigned long *__cil_tmp207 ;
   unsigned long *__cil_tmp208 ;
   __u8 *__cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
+  unsigned int __cil_tmp210 ;
+  unsigned int __cil_tmp211 ;
   char *__cil_tmp212 ;
   unsigned int __cil_tmp213 ;
   __le32 *__cil_tmp214 ;
   __u32 *__cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
+  unsigned int __cil_tmp216 ;
+  unsigned int __cil_tmp217 ;
   char *__cil_tmp218 ;
   unsigned int __cil_tmp219 ;
   unsigned int __cil_tmp220 ;
@@ -9081,12 +9081,12 @@ int cifs_verify_signature(struct smb_hdr *cifs_pdu , struct mac_key  const  *mac
   unsigned int __cil_tmp223 ;
   unsigned long *__cil_tmp224 ;
   unsigned long *__cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
+  unsigned int __cil_tmp226 ;
+  unsigned int __cil_tmp227 ;
   char *__cil_tmp228 ;
   unsigned int __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
+  unsigned int __cil_tmp230 ;
+  unsigned int __cil_tmp231 ;
   char *__cil_tmp232 ;
   unsigned int __cil_tmp233 ;
   unsigned int __cil_tmp234 ;
@@ -9470,9 +9470,9 @@ int cifs_verify_signature(struct smb_hdr *cifs_pdu , struct mac_key  const  *mac
 #line 188
   __cil_tmp129 = 0U;
 #line 188
-  __cil_tmp210 = 0 * 1UL;
+  __cil_tmp210 = 0 * 1U;
 #line 188
-  __cil_tmp211 = (unsigned long )(server_response_sig) + __cil_tmp210;
+  __cil_tmp211 = (unsigned int )(server_response_sig) + __cil_tmp210;
 #line 188
   __cil_tmp212 = (char *)__cil_tmp211;
 #line 188
@@ -9508,9 +9508,9 @@ int cifs_verify_signature(struct smb_hdr *cifs_pdu , struct mac_key  const  *mac
 #line 194
   __cil_tmp139 = 0U;
 #line 194
-  __cil_tmp216 = 0 * 1UL;
+  __cil_tmp216 = 0 * 1U;
 #line 194
-  __cil_tmp217 = (unsigned long )(what_we_think_sig_should_be) + __cil_tmp216;
+  __cil_tmp217 = (unsigned int )(what_we_think_sig_should_be) + __cil_tmp216;
 #line 194
   __cil_tmp218 = (char *)__cil_tmp217;
 #line 194
@@ -9573,9 +9573,9 @@ int cifs_verify_signature(struct smb_hdr *cifs_pdu , struct mac_key  const  *mac
 #line 203
   __cil_tmp153 = 0U;
 #line 203
-  __cil_tmp226 = 0 * 1UL;
+  __cil_tmp226 = 0 * 1U;
 #line 203
-  __cil_tmp227 = (unsigned long )(what_we_think_sig_should_be) + __cil_tmp226;
+  __cil_tmp227 = (unsigned int )(what_we_think_sig_should_be) + __cil_tmp226;
 #line 203
   __cil_tmp228 = (char *)__cil_tmp227;
 #line 203
@@ -9589,9 +9589,9 @@ int cifs_verify_signature(struct smb_hdr *cifs_pdu , struct mac_key  const  *mac
 #line 203
   __cil_tmp157 = 0U;
 #line 203
-  __cil_tmp230 = 0 * 1UL;
+  __cil_tmp230 = 0 * 1U;
 #line 203
-  __cil_tmp231 = (unsigned long )(server_response_sig) + __cil_tmp230;
+  __cil_tmp231 = (unsigned int )(server_response_sig) + __cil_tmp230;
 #line 203
   __cil_tmp232 = (char *)__cil_tmp231;
 #line 203
@@ -9711,12 +9711,12 @@ int cifs_calculate_mac_key(struct mac_key *key , char const   *rn , char const  
   unsigned int __cil_tmp52 ;
   unsigned long *__cil_tmp53 ;
   unsigned long *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
   char *__cil_tmp57 ;
   unsigned int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
   char *__cil_tmp61 ;
   unsigned int __cil_tmp62 ;
   unsigned int *__cil_tmp63 ;
@@ -9793,9 +9793,9 @@ int cifs_calculate_mac_key(struct mac_key *key , char const   *rn , char const  
 #line 218
   __cil_tmp24 = 0U;
 #line 218
-  __cil_tmp55 = 0 * 1UL;
+  __cil_tmp55 = 0 * 1U;
 #line 218
-  __cil_tmp56 = (unsigned long )(temp_key) + __cil_tmp55;
+  __cil_tmp56 = (unsigned int )(temp_key) + __cil_tmp55;
 #line 218
   __cil_tmp57 = (char *)__cil_tmp56;
 #line 218
@@ -9813,9 +9813,9 @@ int cifs_calculate_mac_key(struct mac_key *key , char const   *rn , char const  
 #line 219
   __cil_tmp29 = 0U;
 #line 219
-  __cil_tmp59 = 0 * 1UL;
+  __cil_tmp59 = 0 * 1U;
 #line 219
-  __cil_tmp60 = (unsigned long )(temp_key) + __cil_tmp59;
+  __cil_tmp60 = (unsigned int )(temp_key) + __cil_tmp59;
 #line 219
   __cil_tmp61 = (char *)__cil_tmp60;
 #line 219
@@ -10065,13 +10065,13 @@ int CalcNTLMv2_partial_mac_key(struct cifsSesInfo *ses , struct nls_table  const
   unsigned int __cil_tmp174 ;
   unsigned long *__cil_tmp175 ;
   unsigned long *__cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
+  unsigned int __cil_tmp177 ;
+  unsigned int __cil_tmp178 ;
   char *__cil_tmp179 ;
   unsigned int __cil_tmp180 ;
   char **__cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
+  unsigned int __cil_tmp182 ;
+  unsigned int __cil_tmp183 ;
   char *__cil_tmp184 ;
   unsigned int __cil_tmp185 ;
   unsigned int __cil_tmp186 ;
@@ -10172,9 +10172,9 @@ int CalcNTLMv2_partial_mac_key(struct cifsSesInfo *ses , struct nls_table  const
 #line 237
   __cil_tmp34 = 0U;
 #line 237
-  __cil_tmp177 = 0 * 1UL;
+  __cil_tmp177 = 0 * 1U;
 #line 237
-  __cil_tmp178 = (unsigned long )(temp_hash) + __cil_tmp177;
+  __cil_tmp178 = (unsigned int )(temp_hash) + __cil_tmp177;
 #line 237
   __cil_tmp179 = (char *)__cil_tmp178;
 #line 237
@@ -10200,9 +10200,9 @@ int CalcNTLMv2_partial_mac_key(struct cifsSesInfo *ses , struct nls_table  const
 #line 239
   __cil_tmp42 = 0U;
 #line 239
-  __cil_tmp182 = 0 * 1UL;
+  __cil_tmp182 = 0 * 1U;
 #line 239
-  __cil_tmp183 = (unsigned long )(temp_hash) + __cil_tmp182;
+  __cil_tmp183 = (unsigned int )(temp_hash) + __cil_tmp182;
 #line 239
   __cil_tmp184 = (char *)__cil_tmp183;
 #line 239
@@ -10764,8 +10764,8 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
   unsigned int __cil_tmp58 ;
   char *__cil_tmp59 ;
   void *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
   char *__cil_tmp63 ;
   unsigned int __cil_tmp64 ;
   unsigned int __cil_tmp65 ;
@@ -10774,8 +10774,8 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
   unsigned int __cil_tmp68 ;
   unsigned long *__cil_tmp69 ;
   unsigned long *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
+  unsigned int __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
   char *__cil_tmp73 ;
   unsigned int __cil_tmp74 ;
   unsigned int __cil_tmp75 ;
@@ -10784,26 +10784,26 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
   unsigned int __cil_tmp78 ;
   unsigned long *__cil_tmp79 ;
   unsigned long *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
+  unsigned int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
   char *__cil_tmp83 ;
   unsigned int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
+  unsigned int __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
   char *__cil_tmp87 ;
   unsigned int __cil_tmp88 ;
   char *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
+  unsigned int __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
   char *__cil_tmp92 ;
   unsigned int __cil_tmp93 ;
   char *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
+  unsigned int __cil_tmp95 ;
+  unsigned int __cil_tmp96 ;
   char *__cil_tmp97 ;
   unsigned int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
   char *__cil_tmp101 ;
   unsigned int __cil_tmp102 ;
 
@@ -10812,9 +10812,9 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
 #line 289
   __cil_tmp13 = 0U;
 #line 289
-  __cil_tmp61 = 0 * 1UL;
+  __cil_tmp61 = 0 * 1U;
 #line 289
-  __cil_tmp62 = (unsigned long )(password_with_pad) + __cil_tmp61;
+  __cil_tmp62 = (unsigned int )(password_with_pad) + __cil_tmp61;
 #line 289
   __cil_tmp63 = (char *)__cil_tmp62;
 #line 289
@@ -10870,9 +10870,9 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
 #line 291
     __cil_tmp27 = 0U;
 #line 291
-    __cil_tmp71 = 0 * 1UL;
+    __cil_tmp71 = 0 * 1U;
 #line 291
-    __cil_tmp72 = (unsigned long )(password_with_pad) + __cil_tmp71;
+    __cil_tmp72 = (unsigned int )(password_with_pad) + __cil_tmp71;
 #line 291
     __cil_tmp73 = (char *)__cil_tmp72;
 #line 291
@@ -10945,9 +10945,9 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
 #line 295
     __cil_tmp40 = 0U;
 #line 295
-    __cil_tmp81 = 0 * 1UL;
+    __cil_tmp81 = 0 * 1U;
 #line 295
-    __cil_tmp82 = (unsigned long )(password_with_pad) + __cil_tmp81;
+    __cil_tmp82 = (unsigned int )(password_with_pad) + __cil_tmp81;
 #line 295
     __cil_tmp83 = (char *)__cil_tmp82;
 #line 295
@@ -10985,9 +10985,9 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
 #line 312
     __cil_tmp45 = (unsigned int )i;
 #line 312
-    __cil_tmp85 = 0 * 1UL;
+    __cil_tmp85 = 0 * 1U;
 #line 312
-    __cil_tmp86 = (unsigned long )(password_with_pad) + __cil_tmp85;
+    __cil_tmp86 = (unsigned int )(password_with_pad) + __cil_tmp85;
 #line 312
     __cil_tmp87 = (char *)__cil_tmp86;
 #line 312
@@ -11005,9 +11005,9 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
 #line 312
     __cil_tmp49 = (unsigned int )i;
 #line 312
-    __cil_tmp90 = 0 * 1UL;
+    __cil_tmp90 = 0 * 1U;
 #line 312
-    __cil_tmp91 = (unsigned long )(password_with_pad) + __cil_tmp90;
+    __cil_tmp91 = (unsigned int )(password_with_pad) + __cil_tmp90;
 #line 312
     __cil_tmp92 = (char *)__cil_tmp91;
 #line 312
@@ -11033,9 +11033,9 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
 #line 314
   __cil_tmp53 = 0U;
 #line 314
-  __cil_tmp95 = 0 * 1UL;
+  __cil_tmp95 = 0 * 1U;
 #line 314
-  __cil_tmp96 = (unsigned long )(password_with_pad) + __cil_tmp95;
+  __cil_tmp96 = (unsigned int )(password_with_pad) + __cil_tmp95;
 #line 314
   __cil_tmp97 = (char *)__cil_tmp96;
 #line 314
@@ -11051,9 +11051,9 @@ void calc_lanman_hash(char const   *password , char const   *cryptkey , bool enc
 #line 317
   __cil_tmp57 = 0U;
 #line 317
-  __cil_tmp99 = 0 * 1UL;
+  __cil_tmp99 = 0 * 1U;
 #line 317
-  __cil_tmp100 = (unsigned long )(password_with_pad) + __cil_tmp99;
+  __cil_tmp100 = (unsigned int )(password_with_pad) + __cil_tmp99;
 #line 317
   __cil_tmp101 = (char *)__cil_tmp100;
 #line 317
@@ -11211,13 +11211,13 @@ static int calc_ntlmv2_hash(struct cifsSesInfo *ses , struct nls_table  const  *
   unsigned int __cil_tmp129 ;
   unsigned long *__cil_tmp130 ;
   unsigned long *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
+  unsigned int __cil_tmp132 ;
+  unsigned int __cil_tmp133 ;
   char *__cil_tmp134 ;
   unsigned int __cil_tmp135 ;
   char **__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
+  unsigned int __cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
   char *__cil_tmp139 ;
   unsigned int __cil_tmp140 ;
   unsigned int __cil_tmp141 ;
@@ -11293,9 +11293,9 @@ static int calc_ntlmv2_hash(struct cifsSesInfo *ses , struct nls_table  const  *
 #line 337
   __cil_tmp32 = 0U;
 #line 337
-  __cil_tmp132 = 0 * 1UL;
+  __cil_tmp132 = 0 * 1U;
 #line 337
-  __cil_tmp133 = (unsigned long )(nt_hash) + __cil_tmp132;
+  __cil_tmp133 = (unsigned int )(nt_hash) + __cil_tmp132;
 #line 337
   __cil_tmp134 = (char *)__cil_tmp133;
 #line 337
@@ -11321,9 +11321,9 @@ static int calc_ntlmv2_hash(struct cifsSesInfo *ses , struct nls_table  const  *
 #line 340
   __cil_tmp40 = 0U;
 #line 340
-  __cil_tmp137 = 0 * 1UL;
+  __cil_tmp137 = 0 * 1U;
 #line 340
-  __cil_tmp138 = (unsigned long )(nt_hash) + __cil_tmp137;
+  __cil_tmp138 = (unsigned int )(nt_hash) + __cil_tmp137;
 #line 340
   __cil_tmp139 = (char *)__cil_tmp138;
 #line 340

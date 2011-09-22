@@ -271,7 +271,7 @@ struct seq_file;
 struct seq_file;
 #line 2971 "quickcam_messenger.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 2971 "quickcam_messenger.i"
 typedef struct cpumask cpumask_t;
@@ -742,7 +742,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7741 "quickcam_messenger.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7741 "quickcam_messenger.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1215,7 +1215,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -2512,15 +2512,15 @@ struct input_dev {
    char const   *phys ;
    char const   *uniq ;
    struct input_id id ;
-   unsigned long evbit[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long keybit[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long relbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long absbit[((64UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long mscbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ledbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sndbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long swbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long evbit[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long keybit[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long relbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long absbit[((64U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long mscbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ledbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sndbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long swbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    unsigned int keycodemax ;
    unsigned int keycodesize ;
    void *keycode ;
@@ -2532,10 +2532,10 @@ struct input_dev {
    int sync ;
    int abs[64] ;
    int rep[2] ;
-   unsigned long key[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long led[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long snd[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sw[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long key[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long led[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long snd[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sw[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    int absmax[64] ;
    int absmin[64] ;
    int absfuzz[64] ;
@@ -2591,7 +2591,7 @@ struct ff_device {
    void (*set_autocenter)(struct input_dev *dev , u16 magnitude ) ;
    void (*destroy)(struct ff_device * ) ;
    void *private ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    struct mutex mutex ;
    int max_effects ;
    struct ff_effect *effects ;
@@ -2978,7 +2978,7 @@ struct __anonstruct__kill_136 {
 };
 #line 19831 "quickcam_messenger.i"
 union __anonunion__sifields_130 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_136 _kill ;
    struct __anonstruct__timer_135 _timer ;
    struct __anonstruct__rt_134 _rt ;
@@ -3989,7 +3989,7 @@ struct usb_host_config {
 };
 #line 24564 "quickcam_messenger.i"
 struct usb_devmap {
-   unsigned long devicemap[128UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long devicemap[128U / (8U * sizeof(unsigned long ))] ;
 };
 #line 24571
 struct mon_bus;
@@ -8207,15 +8207,15 @@ static int qcm_sensor_init(struct uvd *uvd )
   unsigned char __cil_tmp75 ;
   void **__cil_tmp76 ;
   unsigned int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
+  unsigned int __cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
   struct regval  const  *__cil_tmp80 ;
   unsigned int __cil_tmp81 ;
   u8 const   *__cil_tmp82 ;
   u8 __cil_tmp83 ;
   unsigned int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
+  unsigned int __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
   struct regval  const  *__cil_tmp87 ;
   unsigned int __cil_tmp88 ;
   u16 const   *__cil_tmp89 ;
@@ -8227,8 +8227,8 @@ static int qcm_sensor_init(struct uvd *uvd )
   struct usb_device **__cil_tmp95 ;
   u8 *__cil_tmp96 ;
   unsigned int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
   struct cam_size  const  *__cil_tmp100 ;
   unsigned int __cil_tmp101 ;
   u8 const   *__cil_tmp102 ;
@@ -8240,8 +8240,8 @@ static int qcm_sensor_init(struct uvd *uvd )
   __u16 *__cil_tmp108 ;
   u8 *__cil_tmp109 ;
   unsigned int __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
+  unsigned int __cil_tmp111 ;
+  unsigned int __cil_tmp112 ;
   struct cam_size  const  *__cil_tmp113 ;
   unsigned int __cil_tmp114 ;
   u8 const   *__cil_tmp115 ;
@@ -8286,9 +8286,9 @@ static int qcm_sensor_init(struct uvd *uvd )
 #line 27668
     __cil_tmp13 = __cil_tmp12 + 2U;
 #line 27668
-    __cil_tmp78 = 0 * 4UL;
+    __cil_tmp78 = 0 * 4U;
 #line 27668
-    __cil_tmp79 = (unsigned long )(regval_table) + __cil_tmp78;
+    __cil_tmp79 = (unsigned int )(regval_table) + __cil_tmp78;
 #line 27668
     __cil_tmp80 = (struct regval  const  *)__cil_tmp79;
 #line 27668
@@ -8308,9 +8308,9 @@ static int qcm_sensor_init(struct uvd *uvd )
 #line 27668
     __cil_tmp17 = __cil_tmp84 * 4U;
 #line 27668
-    __cil_tmp85 = 0 * 4UL;
+    __cil_tmp85 = 0 * 4U;
 #line 27668
-    __cil_tmp86 = (unsigned long )(regval_table) + __cil_tmp85;
+    __cil_tmp86 = (unsigned int )(regval_table) + __cil_tmp85;
 #line 27668
     __cil_tmp87 = (struct regval  const  *)__cil_tmp86;
 #line 27668
@@ -8441,9 +8441,9 @@ static int qcm_sensor_init(struct uvd *uvd )
 #line 27680
   __cil_tmp40 = __cil_tmp39 + 4U;
 #line 27680
-  __cil_tmp98 = 0 * 6UL;
+  __cil_tmp98 = 0 * 6U;
 #line 27680
-  __cil_tmp99 = (unsigned long )(camera_sizes) + __cil_tmp98;
+  __cil_tmp99 = (unsigned int )(camera_sizes) + __cil_tmp98;
 #line 27680
   __cil_tmp100 = (struct cam_size  const  *)__cil_tmp99;
 #line 27680
@@ -8564,9 +8564,9 @@ static int qcm_sensor_init(struct uvd *uvd )
 #line 27686
   __cil_tmp72 = __cil_tmp71 + 4U;
 #line 27686
-  __cil_tmp111 = 0 * 6UL;
+  __cil_tmp111 = 0 * 6U;
 #line 27686
-  __cil_tmp112 = (unsigned long )(camera_sizes) + __cil_tmp111;
+  __cil_tmp112 = (unsigned int )(camera_sizes) + __cil_tmp111;
 #line 27686
   __cil_tmp113 = (struct cam_size  const  *)__cil_tmp112;
 #line 27686
@@ -8644,16 +8644,16 @@ static int qcm_set_camera_size(struct uvd *uvd )
   void **__cil_tmp46 ;
   u8 *__cil_tmp47 ;
   unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
   struct cam_size  const  *__cil_tmp51 ;
   unsigned int __cil_tmp52 ;
   u8 const   *__cil_tmp53 ;
   u8 __cil_tmp54 ;
   u8 *__cil_tmp55 ;
   unsigned int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
   struct cam_size  const  *__cil_tmp59 ;
   unsigned int __cil_tmp60 ;
   u16 const   *__cil_tmp61 ;
@@ -8661,8 +8661,8 @@ static int qcm_set_camera_size(struct uvd *uvd )
   int *__cil_tmp63 ;
   u8 *__cil_tmp64 ;
   unsigned int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
   struct cam_size  const  *__cil_tmp68 ;
   unsigned int __cil_tmp69 ;
   u16 const   *__cil_tmp70 ;
@@ -8699,9 +8699,9 @@ static int qcm_set_camera_size(struct uvd *uvd )
 #line 27696
   __cil_tmp11 = __cil_tmp10 + 4U;
 #line 27696
-  __cil_tmp49 = 0 * 6UL;
+  __cil_tmp49 = 0 * 6U;
 #line 27696
-  __cil_tmp50 = (unsigned long )(camera_sizes) + __cil_tmp49;
+  __cil_tmp50 = (unsigned int )(camera_sizes) + __cil_tmp49;
 #line 27696
   __cil_tmp51 = (struct cam_size  const  *)__cil_tmp50;
 #line 27696
@@ -8743,9 +8743,9 @@ static int qcm_set_camera_size(struct uvd *uvd )
 #line 27697
   __cil_tmp20 = __cil_tmp56 * 6U;
 #line 27697
-  __cil_tmp57 = 0 * 6UL;
+  __cil_tmp57 = 0 * 6U;
 #line 27697
-  __cil_tmp58 = (unsigned long )(camera_sizes) + __cil_tmp57;
+  __cil_tmp58 = (unsigned int )(camera_sizes) + __cil_tmp57;
 #line 27697
   __cil_tmp59 = (struct cam_size  const  *)__cil_tmp58;
 #line 27697
@@ -8781,9 +8781,9 @@ static int qcm_set_camera_size(struct uvd *uvd )
 #line 27698
   __cil_tmp29 = __cil_tmp28 + 2U;
 #line 27698
-  __cil_tmp66 = 0 * 6UL;
+  __cil_tmp66 = 0 * 6U;
 #line 27698
-  __cil_tmp67 = (unsigned long )(camera_sizes) + __cil_tmp66;
+  __cil_tmp67 = (unsigned int )(camera_sizes) + __cil_tmp66;
 #line 27698
   __cil_tmp68 = (struct cam_size  const  *)__cil_tmp67;
 #line 27698
@@ -9472,8 +9472,8 @@ static int qcm_process_frame(struct uvd *uvd , u8 *cdata , int framelen )
   struct RingQueue *__cil_tmp45 ;
   __be16 *__cil_tmp46 ;
   __be16 *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
+  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
   unsigned char const   *__cil_tmp50 ;
   unsigned int __cil_tmp51 ;
   __be16 *__cil_tmp52 ;
@@ -9538,9 +9538,9 @@ static int qcm_process_frame(struct uvd *uvd , u8 *cdata , int framelen )
 #line 27788
       __cil_tmp23 = 0U;
 #line 27788
-      __cil_tmp48 = 0 * 1UL;
+      __cil_tmp48 = 0 * 1U;
 #line 27788
-      __cil_tmp49 = (unsigned long )(marker) + __cil_tmp48;
+      __cil_tmp49 = (unsigned int )(marker) + __cil_tmp48;
 #line 27788
       __cil_tmp50 = (unsigned char const   *)__cil_tmp49;
 #line 27788
@@ -12321,8 +12321,8 @@ static int qcm_set_video_mode(struct uvd *uvd , struct video_window *vw )
   void **__cil_tmp90 ;
   int __cil_tmp91 ;
   unsigned int __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
+  unsigned int __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
   struct cam_size  const  *__cil_tmp95 ;
   unsigned int __cil_tmp96 ;
   u16 const   *__cil_tmp97 ;
@@ -12330,8 +12330,8 @@ static int qcm_set_video_mode(struct uvd *uvd , struct video_window *vw )
   int __cil_tmp99 ;
   int __cil_tmp100 ;
   unsigned int __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
+  unsigned int __cil_tmp102 ;
+  unsigned int __cil_tmp103 ;
   struct cam_size  const  *__cil_tmp104 ;
   unsigned int __cil_tmp105 ;
   u16 const   *__cil_tmp106 ;
@@ -12426,9 +12426,9 @@ static int qcm_set_video_mode(struct uvd *uvd , struct video_window *vw )
 #line 28066
         __cil_tmp21 = __cil_tmp92 * 6U;
 #line 28066
-        __cil_tmp93 = 0 * 6UL;
+        __cil_tmp93 = 0 * 6U;
 #line 28066
-        __cil_tmp94 = (unsigned long )(camera_sizes) + __cil_tmp93;
+        __cil_tmp94 = (unsigned int )(camera_sizes) + __cil_tmp93;
 #line 28066
         __cil_tmp95 = (struct cam_size  const  *)__cil_tmp94;
 #line 28066
@@ -12458,9 +12458,9 @@ static int qcm_set_video_mode(struct uvd *uvd , struct video_window *vw )
 #line 28066
           __cil_tmp27 = __cil_tmp26 + 2U;
 #line 28066
-          __cil_tmp102 = 0 * 6UL;
+          __cil_tmp102 = 0 * 6U;
 #line 28066
-          __cil_tmp103 = (unsigned long )(camera_sizes) + __cil_tmp102;
+          __cil_tmp103 = (unsigned int )(camera_sizes) + __cil_tmp102;
 #line 28066
           __cil_tmp104 = (struct cam_size  const  *)__cil_tmp103;
 #line 28066
@@ -12859,29 +12859,29 @@ static int qcm_configure_video(struct uvd *uvd )
   int *__cil_tmp114 ;
   int *__cil_tmp115 ;
   int *__cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
+  unsigned int __cil_tmp117 ;
+  unsigned int __cil_tmp118 ;
   struct cam_size  const  *__cil_tmp119 ;
   unsigned int __cil_tmp120 ;
   u16 const   *__cil_tmp121 ;
   u16 __cil_tmp122 ;
   int *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
+  unsigned int __cil_tmp124 ;
+  unsigned int __cil_tmp125 ;
   struct cam_size  const  *__cil_tmp126 ;
   unsigned int __cil_tmp127 ;
   u16 const   *__cil_tmp128 ;
   u16 __cil_tmp129 ;
   int *__cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
+  unsigned int __cil_tmp131 ;
+  unsigned int __cil_tmp132 ;
   struct cam_size  const  *__cil_tmp133 ;
   unsigned int __cil_tmp134 ;
   u16 const   *__cil_tmp135 ;
   u16 __cil_tmp136 ;
   int *__cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
+  unsigned int __cil_tmp138 ;
+  unsigned int __cil_tmp139 ;
   struct cam_size  const  *__cil_tmp140 ;
   unsigned int __cil_tmp141 ;
   u16 const   *__cil_tmp142 ;
@@ -13065,9 +13065,9 @@ static int qcm_configure_video(struct uvd *uvd )
 #line 28130
   __cil_tmp63 = 0U;
 #line 28130
-  __cil_tmp117 = 0 * 6UL;
+  __cil_tmp117 = 0 * 6U;
 #line 28130
-  __cil_tmp118 = (unsigned long )(camera_sizes) + __cil_tmp117;
+  __cil_tmp118 = (unsigned int )(camera_sizes) + __cil_tmp117;
 #line 28130
   __cil_tmp119 = (struct cam_size  const  *)__cil_tmp118;
 #line 28130
@@ -13095,9 +13095,9 @@ static int qcm_configure_video(struct uvd *uvd )
 #line 28131
   __cil_tmp70 = __cil_tmp69 + 2U;
 #line 28131
-  __cil_tmp124 = 0 * 6UL;
+  __cil_tmp124 = 0 * 6U;
 #line 28131
-  __cil_tmp125 = (unsigned long )(camera_sizes) + __cil_tmp124;
+  __cil_tmp125 = (unsigned int )(camera_sizes) + __cil_tmp124;
 #line 28131
   __cil_tmp126 = (struct cam_size  const  *)__cil_tmp125;
 #line 28131
@@ -13123,9 +13123,9 @@ static int qcm_configure_video(struct uvd *uvd )
 #line 28132
   __cil_tmp76 = 6U;
 #line 28132
-  __cil_tmp131 = 0 * 6UL;
+  __cil_tmp131 = 0 * 6U;
 #line 28132
-  __cil_tmp132 = (unsigned long )(camera_sizes) + __cil_tmp131;
+  __cil_tmp132 = (unsigned int )(camera_sizes) + __cil_tmp131;
 #line 28132
   __cil_tmp133 = (struct cam_size  const  *)__cil_tmp132;
 #line 28132
@@ -13153,9 +13153,9 @@ static int qcm_configure_video(struct uvd *uvd )
 #line 28133
   __cil_tmp83 = __cil_tmp82 + 2U;
 #line 28133
-  __cil_tmp138 = 0 * 6UL;
+  __cil_tmp138 = 0 * 6U;
 #line 28133
-  __cil_tmp139 = (unsigned long )(camera_sizes) + __cil_tmp138;
+  __cil_tmp139 = (unsigned int )(camera_sizes) + __cil_tmp138;
 #line 28133
   __cil_tmp140 = (struct cam_size  const  *)__cil_tmp139;
 #line 28133
@@ -13425,16 +13425,16 @@ static int qcm_probe(struct usb_interface *intf , struct usb_device_id  const  *
   u8 **__cil_tmp175 ;
   u8 **__cil_tmp176 ;
   unsigned int __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
+  unsigned int __cil_tmp178 ;
+  unsigned int __cil_tmp179 ;
   struct cam_size  const  *__cil_tmp180 ;
   unsigned int __cil_tmp181 ;
   u16 const   *__cil_tmp182 ;
   u16 __cil_tmp183 ;
   int *__cil_tmp184 ;
   unsigned int __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
+  unsigned int __cil_tmp186 ;
+  unsigned int __cil_tmp187 ;
   struct cam_size  const  *__cil_tmp188 ;
   unsigned int __cil_tmp189 ;
   u16 const   *__cil_tmp190 ;
@@ -13858,9 +13858,9 @@ static int qcm_probe(struct usb_interface *intf , struct usb_device_id  const  *
 #line 28245
   __cil_tmp100 = __cil_tmp177 * 6U;
 #line 28245
-  __cil_tmp178 = 0 * 6UL;
+  __cil_tmp178 = 0 * 6U;
 #line 28245
-  __cil_tmp179 = (unsigned long )(camera_sizes) + __cil_tmp178;
+  __cil_tmp179 = (unsigned int )(camera_sizes) + __cil_tmp178;
 #line 28245
   __cil_tmp180 = (struct cam_size  const  *)__cil_tmp179;
 #line 28245
@@ -13892,9 +13892,9 @@ static int qcm_probe(struct usb_interface *intf , struct usb_device_id  const  *
 #line 28246
   __cil_tmp108 = __cil_tmp107 + 2U;
 #line 28246
-  __cil_tmp186 = 0 * 6UL;
+  __cil_tmp186 = 0 * 6U;
 #line 28246
-  __cil_tmp187 = (unsigned long )(camera_sizes) + __cil_tmp186;
+  __cil_tmp187 = (unsigned int )(camera_sizes) + __cil_tmp186;
 #line 28246
   __cil_tmp188 = (struct cam_size  const  *)__cil_tmp187;
 #line 28246
@@ -14185,8 +14185,8 @@ static int __attribute__((__cold__))  qcm_init(void)
   struct usb_device_id  const  *__cil_tmp5 ;
   struct usbvideo_cb  const  *__cil_tmp6 ;
   int __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   struct usb_device_id *__cil_tmp10 ;
   unsigned int __cil_tmp11 ;
 
@@ -14197,9 +14197,9 @@ static int __attribute__((__cold__))  qcm_init(void)
 #line 28304
   __cil_tmp2 = 0U;
 #line 28304
-  __cil_tmp8 = 0 * 24UL;
+  __cil_tmp8 = 0 * 20U;
 #line 28304
-  __cil_tmp9 = (unsigned long )(qcm_table) + __cil_tmp8;
+  __cil_tmp9 = (unsigned int )(qcm_table) + __cil_tmp8;
 #line 28304
   __cil_tmp10 = (struct usb_device_id *)__cil_tmp9;
 #line 28304

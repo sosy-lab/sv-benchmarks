@@ -299,7 +299,7 @@ struct seq_file;
 struct seq_file;
 #line 2971 "cafe_ccic.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 2971 "cafe_ccic.i"
 typedef struct cpumask cpumask_t;
@@ -640,7 +640,7 @@ struct x86_hw_tss {
 #line 5190 "cafe_ccic.i"
 struct tss_struct {
    struct x86_hw_tss x86_tss ;
-   unsigned long io_bitmap[8192UL / sizeof(long ) + 1UL] ;
+   unsigned long io_bitmap[8192U / sizeof(long ) + 1U] ;
    unsigned long stack[64] ;
 } __attribute__((__aligned__((1) <<  (4) ))) ;
 #line 5222 "cafe_ccic.i"
@@ -1029,7 +1029,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7741 "cafe_ccic.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7741 "cafe_ccic.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1519,7 +1519,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -3151,7 +3151,7 @@ struct scatterlist {
 struct pt_regs;
 #line 20977 "cafe_ccic.i"
 struct dma_attrs {
-   unsigned long flags[((2UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long flags[((2U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 21148
 enum dma_data_direction {
@@ -3297,7 +3297,7 @@ struct __anonstruct__kill_136 {
 };
 #line 22425 "cafe_ccic.i"
 union __anonunion__sifields_130 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_136 _kill ;
    struct __anonstruct__timer_135 _timer ;
    struct __anonstruct__rt_134 _rt ;

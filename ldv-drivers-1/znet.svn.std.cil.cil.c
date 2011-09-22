@@ -285,7 +285,7 @@ struct seq_file;
 struct seq_file;
 #line 2977 "znet.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 2977 "znet.i"
 typedef struct cpumask cpumask_t;
@@ -762,7 +762,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7747 "znet.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7747 "znet.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1241,7 +1241,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -1642,7 +1642,7 @@ struct __anonstruct__kill_121 {
 };
 #line 15284 "znet.i"
 union __anonunion__sifields_115 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_121 _kill ;
    struct __anonstruct__timer_120 _timer ;
    struct __anonstruct__rt_119 _rt ;
@@ -3158,7 +3158,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 25182
 struct sk_buff;
@@ -4800,7 +4800,7 @@ struct hh_cache {
    u16 hh_len ;
    int (*hh_output)(struct sk_buff *skb ) ;
    seqlock_t hh_lock ;
-   unsigned long hh_data[96UL / sizeof(long )] ;
+   unsigned long hh_data[96U / sizeof(long )] ;
 };
 #line 31826 "znet.i"
 struct header_ops {
@@ -8162,8 +8162,8 @@ static int __attribute__((__cold__))  znet_probe(void)
   short *__cil_tmp206 ;
   short *__cil_tmp207 ;
   short *__cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
+  unsigned int __cil_tmp209 ;
+  unsigned int __cil_tmp210 ;
   char *__cil_tmp211 ;
   unsigned int __cil_tmp212 ;
   char *__cil_tmp213 ;
@@ -8556,9 +8556,9 @@ static int __attribute__((__cold__))  znet_probe(void)
 #line 33988
     __cil_tmp113 = 0U;
 #line 33988
-    __cil_tmp209 = 0 * 1UL;
+    __cil_tmp209 = 0 * 1U;
 #line 33988
-    __cil_tmp210 = (unsigned long )(version) + __cil_tmp209;
+    __cil_tmp210 = (unsigned int )(version) + __cil_tmp209;
 #line 33988
     __cil_tmp211 = (char *)__cil_tmp210;
 #line 33988

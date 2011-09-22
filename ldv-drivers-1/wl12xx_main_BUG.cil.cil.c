@@ -222,7 +222,7 @@ struct raw_spinlock;
 struct raw_spinlock;
 #line 13 "include/linux/cpumask.h"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 13 "include/linux/cpumask.h"
 typedef struct cpumask cpumask_t;
@@ -443,7 +443,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 98 "include/linux/nodemask.h"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 98 "include/linux/nodemask.h"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -894,7 +894,7 @@ struct ftrace_event_call;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -1691,7 +1691,7 @@ struct nf_bridge_info {
    struct net_device *physindev ;
    struct net_device *physoutdev ;
    unsigned int mask ;
-   unsigned long data[32UL / sizeof(unsigned long )] ;
+   unsigned long data[32U / sizeof(unsigned long )] ;
 };
 #line 114 "include/linux/skbuff.h"
 struct sk_buff_head {
@@ -3547,7 +3547,7 @@ struct hh_cache {
    u16 hh_len ;
    int (*hh_output)(struct sk_buff *skb ) ;
    seqlock_t hh_lock ;
-   unsigned long hh_data[128UL / sizeof(long )] ;
+   unsigned long hh_data[128U / sizeof(long )] ;
 };
 #line 276 "include/linux/netdevice.h"
 struct header_ops {
@@ -5374,16 +5374,16 @@ __inline static void *( __attribute__((__always_inline__)) __constant_c_and_coun
 extern int __builtin_memcmp(void const   * , void const   * , __kernel_size_t  ) ;
 #line 28 "include/linux/list.h"
 __inline static void ( __attribute__((__always_inline__)) INIT_LIST_HEAD)(struct list_head *list ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
 
   {
 #line 30
   *((struct list_head **)list) = list;
 #line 31
-  __cil_tmp2 = (unsigned long )list;
+  __cil_tmp2 = (unsigned int )list;
 #line 31
-  __cil_tmp3 = __cil_tmp2 + 8;
+  __cil_tmp3 = __cil_tmp2 + 4;
 #line 31
   *((struct list_head **)__cil_tmp3) = list;
 #line 32
@@ -5503,8 +5503,8 @@ extern struct bus_type spi_bus_type ;
 extern int spi_register_driver(struct spi_driver *sdrv ) ;
 #line 196 "include/linux/spi/spi.h"
 __inline static void ( __attribute__((__always_inline__)) spi_unregister_driver)(struct spi_driver *sdrv ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   struct device_driver *__cil_tmp4 ;
 
   {
@@ -5512,9 +5512,9 @@ __inline static void ( __attribute__((__always_inline__)) spi_unregister_driver)
   if (sdrv) {
     {
 #line 199
-    __cil_tmp2 = (unsigned long )sdrv;
+    __cil_tmp2 = (unsigned int )sdrv;
 #line 199
-    __cil_tmp3 = __cil_tmp2 + 48;
+    __cil_tmp3 = __cil_tmp2 + 24;
 #line 199
     __cil_tmp4 = (struct device_driver *)__cil_tmp3;
 #line 199
@@ -5535,16 +5535,16 @@ extern void get_random_bytes(void *buf , int nbytes ) ;
 extern void consume_skb(struct sk_buff *skb ) ;
 #line 795 "include/linux/skbuff.h"
 __inline static __u32 ( __attribute__((__always_inline__)) skb_queue_len)(struct sk_buff_head  const  *list_ ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   __u32 __cil_tmp4 ;
 
   {
   {
 #line 797
-  __cil_tmp2 = (unsigned long )list_;
+  __cil_tmp2 = (unsigned int )list_;
 #line 797
-  __cil_tmp3 = __cil_tmp2 + 16;
+  __cil_tmp3 = __cil_tmp2 + 8;
 #line 797
   __cil_tmp4 = *((__u32 const   *)__cil_tmp3);
 #line 797
@@ -5555,10 +5555,10 @@ __inline static __u32 ( __attribute__((__always_inline__)) skb_queue_len)(struct
 #line 810 "include/linux/skbuff.h"
 __inline static void ( __attribute__((__always_inline__)) __skb_queue_head_init)(struct sk_buff_head *list ) 
 { struct sk_buff *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
 #line 812
@@ -5566,15 +5566,15 @@ __inline static void ( __attribute__((__always_inline__)) __skb_queue_head_init)
 #line 812
   *((struct sk_buff **)list) = tmp;
 #line 812
-  __cil_tmp3 = (unsigned long )list;
+  __cil_tmp3 = (unsigned int )list;
 #line 812
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = __cil_tmp3 + 4;
 #line 812
   *((struct sk_buff **)__cil_tmp4) = tmp;
 #line 813
-  __cil_tmp5 = (unsigned long )list;
+  __cil_tmp5 = (unsigned int )list;
 #line 813
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = __cil_tmp5 + 8;
 #line 813
   *((__u32 *)__cil_tmp6) = 0U;
 #line 814
@@ -5585,8 +5585,8 @@ __inline static void ( __attribute__((__always_inline__)) __skb_queue_head_init)
 static struct lock_class_key __key___2  ;
 #line 824 "include/linux/skbuff.h"
 __inline static void ( __attribute__((__always_inline__)) skb_queue_head_init)(struct sk_buff_head *list ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   spinlock_t *__cil_tmp4 ;
 
   {
@@ -5596,9 +5596,9 @@ __inline static void ( __attribute__((__always_inline__)) skb_queue_head_init)(s
     while_0_continue: /* CIL Label */ ;
     {
 #line 826
-    __cil_tmp2 = (unsigned long )list;
+    __cil_tmp2 = (unsigned int )list;
 #line 826
-    __cil_tmp3 = __cil_tmp2 + 24;
+    __cil_tmp3 = __cil_tmp2 + 12;
 #line 826
     __cil_tmp4 = (spinlock_t *)__cil_tmp3;
 #line 826
@@ -5780,14 +5780,14 @@ __inline static int ( __attribute__((__always_inline__)) is_broadcast_ether_addr
 #line 1226 "include/net/cfg80211.h"
 __inline static void ( __attribute__((__always_inline__)) set_wiphy_dev)(struct wiphy *wiphy ,
                                                                          struct device *dev ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+{ unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
 
   {
 #line 1228
-  __cil_tmp3 = (unsigned long )wiphy;
+  __cil_tmp3 = (unsigned int )wiphy;
 #line 1228
-  __cil_tmp4 = __cil_tmp3 + 128;
+  __cil_tmp4 = __cil_tmp3 + 96;
 #line 1228
   *((struct device **)__cil_tmp4) = dev;
 #line 1229
@@ -5799,16 +5799,16 @@ extern int ieee80211_frequency_to_channel(int freq ) ;
 #line 1011 "include/net/mac80211.h"
 __inline static void ( __attribute__((__always_inline__)) SET_IEEE80211_DEV)(struct ieee80211_hw *hw ,
                                                                              struct device *dev ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+{ unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
   struct wiphy *__cil_tmp5 ;
 
   {
   {
 #line 1013
-  __cil_tmp3 = (unsigned long )hw;
+  __cil_tmp3 = (unsigned int )hw;
 #line 1013
-  __cil_tmp4 = __cil_tmp3 + 64;
+  __cil_tmp4 = __cil_tmp3 + 56;
 #line 1013
   __cil_tmp5 = *((struct wiphy **)__cil_tmp4);
 #line 1013
@@ -5821,13 +5821,13 @@ __inline static void ( __attribute__((__always_inline__)) SET_IEEE80211_DEV)(str
 #line 1022 "include/net/mac80211.h"
 __inline static void ( __attribute__((__always_inline__)) SET_IEEE80211_PERM_ADDR)(struct ieee80211_hw *hw ,
                                                                                    u8 *addr ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+{ unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
   struct wiphy *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   u8 *__cil_tmp10 ;
   void *__cil_tmp11 ;
   void const   *__cil_tmp12 ;
@@ -5835,17 +5835,17 @@ __inline static void ( __attribute__((__always_inline__)) SET_IEEE80211_PERM_ADD
   {
   {
 #line 1024
-  __cil_tmp3 = 0 * 1UL;
+  __cil_tmp3 = 0 * 1U;
 #line 1024
   __cil_tmp4 = 0 + __cil_tmp3;
 #line 1024
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp5 = (unsigned int )hw;
 #line 1024
-  __cil_tmp6 = __cil_tmp5 + 64;
+  __cil_tmp6 = __cil_tmp5 + 56;
 #line 1024
   __cil_tmp7 = *((struct wiphy **)__cil_tmp6);
 #line 1024
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 1024
   __cil_tmp9 = __cil_tmp8 + __cil_tmp4;
 #line 1024
@@ -5922,23 +5922,20 @@ __inline static u32 ( __attribute__((__always_inline__)) wl12xx_read32)(struct w
                                                                         int addr ) 
 { u32 response ;
   void *__cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  u32 *__cil_tmp6 ;
+  u32 *__cil_tmp5 ;
 
   {
   {
 #line 99
   __cil_tmp4 = (void *)(& response);
 #line 99
-  __cil_tmp5 = (unsigned int )4UL;
-#line 99
-  wl12xx_spi_read(wl, addr, __cil_tmp4, __cil_tmp5);
+  wl12xx_spi_read(wl, addr, __cil_tmp4, 4U);
   }
   {
 #line 101
-  __cil_tmp6 = & response;
+  __cil_tmp5 = & response;
 #line 101
-  return (*__cil_tmp6);
+  return (*__cil_tmp5);
   }
 }
 }
@@ -5947,16 +5944,13 @@ __inline static void ( __attribute__((__always_inline__)) wl12xx_write32)(struct
                                                                           int addr ,
                                                                           u32 val ) 
 { void *__cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
 
   {
   {
 #line 106
   __cil_tmp4 = (void *)(& val);
 #line 106
-  __cil_tmp5 = (unsigned int )4UL;
-#line 106
-  wl12xx_spi_write(wl, addr, __cil_tmp4, __cil_tmp5);
+  wl12xx_spi_write(wl, addr, __cil_tmp4, 4U);
   }
 #line 107
   return;
@@ -5976,17 +5970,17 @@ extern void wl12xx_debugfs_exit(struct wl12xx *wl ) ;
 extern void wl12xx_debugfs_reset(struct wl12xx *wl ) ;
 #line 47 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static void wl12xx_disable_interrupts(struct wl12xx *wl ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   int __cil_tmp4 ;
   unsigned int __cil_tmp5 ;
 
   {
   {
 #line 49
-  __cil_tmp2 = (unsigned long )wl;
+  __cil_tmp2 = (unsigned int )wl;
 #line 49
-  __cil_tmp3 = __cil_tmp2 + 32;
+  __cil_tmp3 = __cil_tmp2 + 16;
 #line 49
   __cil_tmp4 = *((int *)__cil_tmp3);
 #line 49
@@ -6000,16 +5994,16 @@ static void wl12xx_disable_interrupts(struct wl12xx *wl )
 }
 #line 52 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static void wl12xx_power_off(struct wl12xx *wl ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   void (*__cil_tmp4)(bool enable ) ;
 
   {
   {
 #line 54
-  __cil_tmp2 = (unsigned long )wl;
+  __cil_tmp2 = (unsigned int )wl;
 #line 54
-  __cil_tmp3 = __cil_tmp2 + 24;
+  __cil_tmp3 = __cil_tmp2 + 12;
 #line 54
   __cil_tmp4 = *((void (**)(bool enable ))__cil_tmp3);
 #line 54
@@ -6021,16 +6015,16 @@ static void wl12xx_power_off(struct wl12xx *wl )
 }
 #line 57 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static void wl12xx_power_on(struct wl12xx *wl ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   void (*__cil_tmp4)(bool enable ) ;
 
   {
   {
 #line 59
-  __cil_tmp2 = (unsigned long )wl;
+  __cil_tmp2 = (unsigned int )wl;
 #line 59
-  __cil_tmp3 = __cil_tmp2 + 24;
+  __cil_tmp3 = __cil_tmp2 + 12;
 #line 59
   __cil_tmp4 = *((void (**)(bool enable ))__cil_tmp3);
 #line 59
@@ -6043,8 +6037,8 @@ static void wl12xx_power_on(struct wl12xx *wl )
 #line 62 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static irqreturn_t wl12xx_irq(int irq , void *cookie ) 
 { struct wl12xx *wl ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
   struct work_struct *__cil_tmp6 ;
 
   {
@@ -6062,9 +6056,9 @@ static irqreturn_t wl12xx_irq(int irq , void *cookie )
 #line 68
   wl = (struct wl12xx *)cookie;
 #line 70
-  __cil_tmp4 = (unsigned long )wl;
+  __cil_tmp4 = (unsigned int )wl;
 #line 70
-  __cil_tmp5 = __cil_tmp4 + 656;
+  __cil_tmp5 = __cil_tmp4 + 416;
 #line 70
   __cil_tmp6 = (struct work_struct *)__cil_tmp5;
 #line 70
@@ -6079,12 +6073,12 @@ static int wl12xx_fetch_firmware(struct wl12xx *wl )
 { struct firmware  const  *fw ;
   int ret ;
   void *tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
   char const   *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
   struct spi_device *__cil_tmp11 ;
   struct device *__cil_tmp12 ;
   struct firmware  const  **__cil_tmp13 ;
@@ -6093,31 +6087,31 @@ static int wl12xx_fetch_firmware(struct wl12xx *wl )
   struct firmware  const  **__cil_tmp16 ;
   struct firmware  const  *__cil_tmp17 ;
   size_t __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   struct firmware  const  **__cil_tmp21 ;
   struct firmware  const  *__cil_tmp22 ;
   size_t __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   size_t __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
   u8 *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   u8 *__cil_tmp34 ;
   void *__cil_tmp35 ;
   struct firmware  const  **__cil_tmp36 ;
   struct firmware  const  *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
   u8 const   *__cil_tmp40 ;
   void const   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
   size_t __cil_tmp44 ;
   struct firmware  const  **__cil_tmp45 ;
   struct firmware  const  *__cil_tmp46 ;
@@ -6125,17 +6119,17 @@ static int wl12xx_fetch_firmware(struct wl12xx *wl )
   {
   {
 #line 80
-  __cil_tmp5 = 144 + 8;
+  __cil_tmp5 = 100 + 4;
 #line 80
-  __cil_tmp6 = (unsigned long )wl;
+  __cil_tmp6 = (unsigned int )wl;
 #line 80
   __cil_tmp7 = __cil_tmp6 + __cil_tmp5;
 #line 80
   __cil_tmp8 = *((char const   **)__cil_tmp7);
 #line 80
-  __cil_tmp9 = (unsigned long )wl;
+  __cil_tmp9 = (unsigned int )wl;
 #line 80
-  __cil_tmp10 = __cil_tmp9 + 16;
+  __cil_tmp10 = __cil_tmp9 + 8;
 #line 80
   __cil_tmp11 = *((struct spi_device **)__cil_tmp10);
 #line 80
@@ -6182,9 +6176,9 @@ static int wl12xx_fetch_firmware(struct wl12xx *wl )
   }
   {
 #line 94
-  __cil_tmp19 = (unsigned long )wl;
+  __cil_tmp19 = (unsigned int )wl;
 #line 94
-  __cil_tmp20 = __cil_tmp19 + 320;
+  __cil_tmp20 = __cil_tmp19 + 220;
 #line 94
   __cil_tmp21 = & fw;
 #line 94
@@ -6194,25 +6188,25 @@ static int wl12xx_fetch_firmware(struct wl12xx *wl )
 #line 94
   *((size_t *)__cil_tmp20) = (unsigned int )__cil_tmp23;
 #line 95
-  __cil_tmp24 = (unsigned long )wl;
+  __cil_tmp24 = (unsigned int )wl;
 #line 95
-  __cil_tmp25 = __cil_tmp24 + 320;
+  __cil_tmp25 = __cil_tmp24 + 220;
 #line 95
   __cil_tmp26 = *((size_t *)__cil_tmp25);
 #line 95
   tmp = kmalloc(__cil_tmp26, 208U);
 #line 95
-  __cil_tmp27 = (unsigned long )wl;
+  __cil_tmp27 = (unsigned int )wl;
 #line 95
-  __cil_tmp28 = __cil_tmp27 + 312;
+  __cil_tmp28 = __cil_tmp27 + 216;
 #line 95
   *((u8 **)__cil_tmp28) = (u8 *)tmp;
   }
   {
 #line 97
-  __cil_tmp29 = (unsigned long )wl;
+  __cil_tmp29 = (unsigned int )wl;
 #line 97
-  __cil_tmp30 = __cil_tmp29 + 312;
+  __cil_tmp30 = __cil_tmp29 + 216;
 #line 97
   __cil_tmp31 = *((u8 **)__cil_tmp30);
 #line 97
@@ -6230,9 +6224,9 @@ static int wl12xx_fetch_firmware(struct wl12xx *wl )
   }
   {
 #line 103
-  __cil_tmp32 = (unsigned long )wl;
+  __cil_tmp32 = (unsigned int )wl;
 #line 103
-  __cil_tmp33 = __cil_tmp32 + 312;
+  __cil_tmp33 = __cil_tmp32 + 216;
 #line 103
   __cil_tmp34 = *((u8 **)__cil_tmp33);
 #line 103
@@ -6242,17 +6236,17 @@ static int wl12xx_fetch_firmware(struct wl12xx *wl )
 #line 103
   __cil_tmp37 = *__cil_tmp36;
 #line 103
-  __cil_tmp38 = (unsigned long )__cil_tmp37;
+  __cil_tmp38 = (unsigned int )__cil_tmp37;
 #line 103
-  __cil_tmp39 = __cil_tmp38 + 8;
+  __cil_tmp39 = __cil_tmp38 + 4;
 #line 103
   __cil_tmp40 = *((u8 const   * const  *)__cil_tmp39);
 #line 103
   __cil_tmp41 = (void const   *)__cil_tmp40;
 #line 103
-  __cil_tmp42 = (unsigned long )wl;
+  __cil_tmp42 = (unsigned int )wl;
 #line 103
-  __cil_tmp43 = __cil_tmp42 + 320;
+  __cil_tmp43 = __cil_tmp42 + 220;
 #line 103
   __cil_tmp44 = *((size_t *)__cil_tmp43);
 #line 103
@@ -6278,12 +6272,12 @@ static int wl12xx_fetch_nvs(struct wl12xx *wl )
 { struct firmware  const  *fw ;
   int ret ;
   void *tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
   char const   *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
   struct spi_device *__cil_tmp11 ;
   struct device *__cil_tmp12 ;
   struct firmware  const  **__cil_tmp13 ;
@@ -6292,31 +6286,31 @@ static int wl12xx_fetch_nvs(struct wl12xx *wl )
   struct firmware  const  **__cil_tmp16 ;
   struct firmware  const  *__cil_tmp17 ;
   size_t __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   struct firmware  const  **__cil_tmp21 ;
   struct firmware  const  *__cil_tmp22 ;
   size_t __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   size_t __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
   u8 *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   u8 *__cil_tmp34 ;
   void *__cil_tmp35 ;
   struct firmware  const  **__cil_tmp36 ;
   struct firmware  const  *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
   u8 const   *__cil_tmp40 ;
   void const   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
   size_t __cil_tmp44 ;
   struct firmware  const  **__cil_tmp45 ;
   struct firmware  const  *__cil_tmp46 ;
@@ -6324,17 +6318,17 @@ static int wl12xx_fetch_nvs(struct wl12xx *wl )
   {
   {
 #line 118
-  __cil_tmp5 = 144 + 16;
+  __cil_tmp5 = 100 + 8;
 #line 118
-  __cil_tmp6 = (unsigned long )wl;
+  __cil_tmp6 = (unsigned int )wl;
 #line 118
   __cil_tmp7 = __cil_tmp6 + __cil_tmp5;
 #line 118
   __cil_tmp8 = *((char const   **)__cil_tmp7);
 #line 118
-  __cil_tmp9 = (unsigned long )wl;
+  __cil_tmp9 = (unsigned int )wl;
 #line 118
-  __cil_tmp10 = __cil_tmp9 + 16;
+  __cil_tmp10 = __cil_tmp9 + 8;
 #line 118
   __cil_tmp11 = *((struct spi_device **)__cil_tmp10);
 #line 118
@@ -6381,9 +6375,9 @@ static int wl12xx_fetch_nvs(struct wl12xx *wl )
   }
   {
 #line 132
-  __cil_tmp19 = (unsigned long )wl;
+  __cil_tmp19 = (unsigned int )wl;
 #line 132
-  __cil_tmp20 = __cil_tmp19 + 336;
+  __cil_tmp20 = __cil_tmp19 + 228;
 #line 132
   __cil_tmp21 = & fw;
 #line 132
@@ -6393,25 +6387,25 @@ static int wl12xx_fetch_nvs(struct wl12xx *wl )
 #line 132
   *((size_t *)__cil_tmp20) = (unsigned int )__cil_tmp23;
 #line 133
-  __cil_tmp24 = (unsigned long )wl;
+  __cil_tmp24 = (unsigned int )wl;
 #line 133
-  __cil_tmp25 = __cil_tmp24 + 336;
+  __cil_tmp25 = __cil_tmp24 + 228;
 #line 133
   __cil_tmp26 = *((size_t *)__cil_tmp25);
 #line 133
   tmp = kmalloc(__cil_tmp26, 208U);
 #line 133
-  __cil_tmp27 = (unsigned long )wl;
+  __cil_tmp27 = (unsigned int )wl;
 #line 133
-  __cil_tmp28 = __cil_tmp27 + 328;
+  __cil_tmp28 = __cil_tmp27 + 224;
 #line 133
   *((u8 **)__cil_tmp28) = (u8 *)tmp;
   }
   {
 #line 135
-  __cil_tmp29 = (unsigned long )wl;
+  __cil_tmp29 = (unsigned int )wl;
 #line 135
-  __cil_tmp30 = __cil_tmp29 + 328;
+  __cil_tmp30 = __cil_tmp29 + 224;
 #line 135
   __cil_tmp31 = *((u8 **)__cil_tmp30);
 #line 135
@@ -6429,9 +6423,9 @@ static int wl12xx_fetch_nvs(struct wl12xx *wl )
   }
   {
 #line 141
-  __cil_tmp32 = (unsigned long )wl;
+  __cil_tmp32 = (unsigned int )wl;
 #line 141
-  __cil_tmp33 = __cil_tmp32 + 328;
+  __cil_tmp33 = __cil_tmp32 + 224;
 #line 141
   __cil_tmp34 = *((u8 **)__cil_tmp33);
 #line 141
@@ -6441,17 +6435,17 @@ static int wl12xx_fetch_nvs(struct wl12xx *wl )
 #line 141
   __cil_tmp37 = *__cil_tmp36;
 #line 141
-  __cil_tmp38 = (unsigned long )__cil_tmp37;
+  __cil_tmp38 = (unsigned int )__cil_tmp37;
 #line 141
-  __cil_tmp39 = __cil_tmp38 + 8;
+  __cil_tmp39 = __cil_tmp38 + 4;
 #line 141
   __cil_tmp40 = *((u8 const   * const  *)__cil_tmp39);
 #line 141
   __cil_tmp41 = (void const   *)__cil_tmp40;
 #line 141
-  __cil_tmp42 = (unsigned long )wl;
+  __cil_tmp42 = (unsigned int )wl;
 #line 141
-  __cil_tmp43 = __cil_tmp42 + 336;
+  __cil_tmp43 = __cil_tmp42 + 228;
 #line 141
   __cil_tmp44 = *((size_t *)__cil_tmp43);
 #line 141
@@ -6510,41 +6504,41 @@ static void wl12xx_fw_wakeup(struct wl12xx *wl )
 #line 166 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static int wl12xx_chip_wakeup(struct wl12xx *wl ) 
 { int ret ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
   unsigned int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
   u32 __cil_tmp11 ;
   int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   u32 __cil_tmp15 ;
   int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
   u32 __cil_tmp19 ;
   int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
   u32 __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   u32 __cil_tmp27 ;
   void *__cil_tmp28 ;
   unsigned int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
   u8 *__cil_tmp32 ;
   unsigned int __cil_tmp33 ;
   void *__cil_tmp34 ;
   unsigned int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
   u8 *__cil_tmp38 ;
   unsigned int __cil_tmp39 ;
 
@@ -6555,9 +6549,9 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
 #line 170
   wl12xx_power_on(wl);
 #line 171
-  __cil_tmp3 = 144 + 48;
+  __cil_tmp3 = 100 + 36;
 #line 171
-  __cil_tmp4 = (unsigned long )wl;
+  __cil_tmp4 = (unsigned int )wl;
 #line 171
   __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
 #line 171
@@ -6573,17 +6567,17 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
 #line 184
   wl12xx_fw_wakeup(wl);
 #line 189
-  __cil_tmp7 = (unsigned long )wl;
+  __cil_tmp7 = (unsigned int )wl;
 #line 189
-  __cil_tmp8 = __cil_tmp7 + 144;
+  __cil_tmp8 = __cil_tmp7 + 100;
 #line 189
   *((u32 *)__cil_tmp8) = wl12xx_reg_read32(wl, 3167860);
   }
   {
 #line 194
-  __cil_tmp9 = (unsigned long )wl;
+  __cil_tmp9 = (unsigned int )wl;
 #line 194
-  __cil_tmp10 = __cil_tmp9 + 144;
+  __cil_tmp10 = __cil_tmp9 + 100;
 #line 194
   __cil_tmp11 = *((u32 *)__cil_tmp10);
 #line 194
@@ -6594,9 +6588,9 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
   } else {
     {
 #line 201
-    __cil_tmp13 = (unsigned long )wl;
+    __cil_tmp13 = (unsigned int )wl;
 #line 201
-    __cil_tmp14 = __cil_tmp13 + 144;
+    __cil_tmp14 = __cil_tmp13 + 100;
 #line 201
     __cil_tmp15 = *((u32 *)__cil_tmp14);
 #line 201
@@ -6607,9 +6601,9 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
     } else {
       {
 #line 202
-      __cil_tmp17 = (unsigned long )wl;
+      __cil_tmp17 = (unsigned int )wl;
 #line 202
-      __cil_tmp18 = __cil_tmp17 + 144;
+      __cil_tmp18 = __cil_tmp17 + 100;
 #line 202
       __cil_tmp19 = *((u32 *)__cil_tmp18);
 #line 202
@@ -6620,9 +6614,9 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
       } else {
         {
 #line 203
-        __cil_tmp21 = (unsigned long )wl;
+        __cil_tmp21 = (unsigned int )wl;
 #line 203
-        __cil_tmp22 = __cil_tmp21 + 144;
+        __cil_tmp22 = __cil_tmp21 + 100;
 #line 203
         __cil_tmp23 = *((u32 *)__cil_tmp22);
 #line 203
@@ -6653,9 +6647,9 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
             switch_12_67305729: 
             {
 #line 205
-            __cil_tmp25 = (unsigned long )wl;
+            __cil_tmp25 = (unsigned int )wl;
 #line 205
-            __cil_tmp26 = __cil_tmp25 + 144;
+            __cil_tmp26 = __cil_tmp25 + 100;
 #line 205
             __cil_tmp27 = *((u32 *)__cil_tmp26);
 #line 205
@@ -6681,9 +6675,9 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
 #line 210
   __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 210
-  __cil_tmp30 = (unsigned long )wl;
+  __cil_tmp30 = (unsigned int )wl;
 #line 210
-  __cil_tmp31 = __cil_tmp30 + 312;
+  __cil_tmp31 = __cil_tmp30 + 216;
 #line 210
   __cil_tmp32 = *((u8 **)__cil_tmp31);
 #line 210
@@ -6710,9 +6704,9 @@ static int wl12xx_chip_wakeup(struct wl12xx *wl )
 #line 217
   __cil_tmp35 = (unsigned int )__cil_tmp34;
 #line 217
-  __cil_tmp36 = (unsigned long )wl;
+  __cil_tmp36 = (unsigned int )wl;
 #line 217
-  __cil_tmp37 = __cil_tmp36 + 328;
+  __cil_tmp37 = __cil_tmp36 + 224;
 #line 217
   __cil_tmp38 = *((u8 **)__cil_tmp37);
 #line 217
@@ -6744,24 +6738,24 @@ static void wl12xx_filter_work(struct work_struct *work )
   struct work_struct  const  *__mptr ;
   int ret ;
   struct wl12xx *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
   struct work_struct *__cil_tmp8 ;
   unsigned int __cil_tmp9 ;
   char *__cil_tmp10 ;
   char *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
   struct mutex *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
   enum wl12xx_state __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   u8 __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
   struct mutex *__cil_tmp24 ;
 
   {
@@ -6771,9 +6765,9 @@ static void wl12xx_filter_work(struct work_struct *work )
 #line 230
   __cil_tmp5 = (struct wl12xx *)0;
 #line 230
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 230
-  __cil_tmp7 = __cil_tmp6 + 472;
+  __cil_tmp7 = __cil_tmp6 + 312;
 #line 230
   __cil_tmp8 = (struct work_struct *)__cil_tmp7;
 #line 230
@@ -6785,9 +6779,9 @@ static void wl12xx_filter_work(struct work_struct *work )
 #line 230
   wl = (struct wl12xx *)__cil_tmp11;
 #line 233
-  __cil_tmp12 = (unsigned long )wl;
+  __cil_tmp12 = (unsigned int )wl;
 #line 233
-  __cil_tmp13 = __cil_tmp12 + 72;
+  __cil_tmp13 = __cil_tmp12 + 52;
 #line 233
   __cil_tmp14 = (struct mutex *)__cil_tmp13;
 #line 233
@@ -6795,9 +6789,9 @@ static void wl12xx_filter_work(struct work_struct *work )
   }
   {
 #line 235
-  __cil_tmp15 = (unsigned long )wl;
+  __cil_tmp15 = (unsigned int )wl;
 #line 235
-  __cil_tmp16 = __cil_tmp15 + 36;
+  __cil_tmp16 = __cil_tmp15 + 20;
 #line 235
   __cil_tmp17 = *((enum wl12xx_state *)__cil_tmp16);
 #line 235
@@ -6811,9 +6805,9 @@ static void wl12xx_filter_work(struct work_struct *work )
   }
   {
 #line 238
-  __cil_tmp19 = (unsigned long )wl;
+  __cil_tmp19 = (unsigned int )wl;
 #line 238
-  __cil_tmp20 = __cil_tmp19 + 352;
+  __cil_tmp20 = __cil_tmp19 + 244;
 #line 238
   __cil_tmp21 = *((u8 *)__cil_tmp20);
 #line 238
@@ -6828,9 +6822,9 @@ static void wl12xx_filter_work(struct work_struct *work )
   out: 
   {
 #line 243
-  __cil_tmp22 = (unsigned long )wl;
+  __cil_tmp22 = (unsigned int )wl;
 #line 243
-  __cil_tmp23 = __cil_tmp22 + 72;
+  __cil_tmp23 = __cil_tmp22 + 52;
 #line 243
   __cil_tmp24 = (struct mutex *)__cil_tmp23;
 #line 243
@@ -6843,28 +6837,28 @@ static void wl12xx_filter_work(struct work_struct *work )
 #line 246 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 int wl12xx_plt_start(struct wl12xx *wl ) 
 { int ret ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
   enum wl12xx_state __cil_tmp5 ;
   unsigned int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   enum wl12xx_state __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   int (*__cil_tmp15)(struct wl12xx *wl ) ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   char *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
   int (*__cil_tmp25)(struct wl12xx *wl ) ;
 
   {
@@ -6874,9 +6868,9 @@ int wl12xx_plt_start(struct wl12xx *wl )
   }
   {
 #line 252
-  __cil_tmp3 = (unsigned long )wl;
+  __cil_tmp3 = (unsigned int )wl;
 #line 252
-  __cil_tmp4 = __cil_tmp3 + 36;
+  __cil_tmp4 = __cil_tmp3 + 20;
 #line 252
   __cil_tmp5 = *((enum wl12xx_state *)__cil_tmp4);
 #line 252
@@ -6885,9 +6879,9 @@ int wl12xx_plt_start(struct wl12xx *wl )
   if (__cil_tmp6 != 0U) {
     {
 #line 253
-    __cil_tmp7 = (unsigned long )wl;
+    __cil_tmp7 = (unsigned int )wl;
 #line 253
-    __cil_tmp8 = __cil_tmp7 + 36;
+    __cil_tmp8 = __cil_tmp7 + 20;
 #line 253
     __cil_tmp9 = *((enum wl12xx_state *)__cil_tmp8);
 #line 253
@@ -6902,9 +6896,9 @@ int wl12xx_plt_start(struct wl12xx *wl )
   }
   {
 #line 258
-  __cil_tmp10 = (unsigned long )wl;
+  __cil_tmp10 = (unsigned int )wl;
 #line 258
-  __cil_tmp11 = __cil_tmp10 + 36;
+  __cil_tmp11 = __cil_tmp10 + 20;
 #line 258
   *((enum wl12xx_state *)__cil_tmp11) = (enum wl12xx_state )2;
 #line 260
@@ -6919,9 +6913,9 @@ int wl12xx_plt_start(struct wl12xx *wl )
   }
   {
 #line 264
-  __cil_tmp12 = 144 + 80;
+  __cil_tmp12 = 100 + 56;
 #line 264
-  __cil_tmp13 = (unsigned long )wl;
+  __cil_tmp13 = (unsigned int )wl;
 #line 264
   __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
 #line 264
@@ -6938,13 +6932,13 @@ int wl12xx_plt_start(struct wl12xx *wl )
   }
   {
 #line 268
-  __cil_tmp16 = 0 * 1UL;
+  __cil_tmp16 = 0 * 1U;
 #line 268
-  __cil_tmp17 = 24 + __cil_tmp16;
+  __cil_tmp17 = 12 + __cil_tmp16;
 #line 268
-  __cil_tmp18 = 144 + __cil_tmp17;
+  __cil_tmp18 = 100 + __cil_tmp17;
 #line 268
-  __cil_tmp19 = (unsigned long )wl;
+  __cil_tmp19 = (unsigned int )wl;
 #line 268
   __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
 #line 268
@@ -6952,9 +6946,9 @@ int wl12xx_plt_start(struct wl12xx *wl )
 #line 268
   printk("<6>wl12xx: firmware booted in PLT mode (%s)\n", __cil_tmp21);
 #line 270
-  __cil_tmp22 = 144 + 112;
+  __cil_tmp22 = 100 + 72;
 #line 270
-  __cil_tmp23 = (unsigned long )wl;
+  __cil_tmp23 = (unsigned int )wl;
 #line 270
   __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
 #line 270
@@ -6975,15 +6969,15 @@ int wl12xx_plt_start(struct wl12xx *wl )
 }
 #line 277 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 int wl12xx_plt_stop(struct wl12xx *wl ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   enum wl12xx_state __cil_tmp4 ;
   unsigned int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
   enum wl12xx_state __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
 
   {
   {
@@ -6992,9 +6986,9 @@ int wl12xx_plt_stop(struct wl12xx *wl )
   }
   {
 #line 281
-  __cil_tmp2 = (unsigned long )wl;
+  __cil_tmp2 = (unsigned int )wl;
 #line 281
-  __cil_tmp3 = __cil_tmp2 + 36;
+  __cil_tmp3 = __cil_tmp2 + 20;
 #line 281
   __cil_tmp4 = *((enum wl12xx_state *)__cil_tmp3);
 #line 281
@@ -7003,9 +6997,9 @@ int wl12xx_plt_stop(struct wl12xx *wl )
   if (__cil_tmp5 != 2U) {
     {
 #line 282
-    __cil_tmp6 = (unsigned long )wl;
+    __cil_tmp6 = (unsigned int )wl;
 #line 282
-    __cil_tmp7 = __cil_tmp6 + 36;
+    __cil_tmp7 = __cil_tmp6 + 20;
 #line 282
     __cil_tmp8 = *((enum wl12xx_state *)__cil_tmp7);
 #line 282
@@ -7023,9 +7017,9 @@ int wl12xx_plt_stop(struct wl12xx *wl )
 #line 288
   wl12xx_power_off(wl);
 #line 290
-  __cil_tmp9 = (unsigned long )wl;
+  __cil_tmp9 = (unsigned int )wl;
 #line 290
-  __cil_tmp10 = __cil_tmp9 + 36;
+  __cil_tmp10 = __cil_tmp9 + 20;
 #line 290
   *((enum wl12xx_state *)__cil_tmp10) = (enum wl12xx_state )0;
   }
@@ -7037,53 +7031,53 @@ int wl12xx_plt_stop(struct wl12xx *wl )
 static int wl12xx_op_tx(struct ieee80211_hw *hw , struct sk_buff *skb ) 
 { struct wl12xx *wl ;
   __u32 tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
   void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   struct sk_buff_head *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   struct work_struct *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
   struct sk_buff_head *__cil_tmp16 ;
   struct sk_buff_head  const  *__cil_tmp17 ;
   struct ieee80211_hw *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
 
   {
   {
 #line 298
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp5 = (unsigned int )hw;
 #line 298
-  __cil_tmp6 = __cil_tmp5 + 80;
+  __cil_tmp6 = __cil_tmp5 + 64;
 #line 298
   __cil_tmp7 = *((void **)__cil_tmp6);
 #line 298
   wl = (struct wl12xx *)__cil_tmp7;
 #line 300
-  __cil_tmp8 = (unsigned long )wl;
+  __cil_tmp8 = (unsigned int )wl;
 #line 300
-  __cil_tmp9 = __cil_tmp8 + 384;
+  __cil_tmp9 = __cil_tmp8 + 264;
 #line 300
   __cil_tmp10 = (struct sk_buff_head *)__cil_tmp9;
 #line 300
   skb_queue_tail(__cil_tmp10, skb);
 #line 302
-  __cil_tmp11 = (unsigned long )wl;
+  __cil_tmp11 = (unsigned int )wl;
 #line 302
-  __cil_tmp12 = __cil_tmp11 + 440;
+  __cil_tmp12 = __cil_tmp11 + 296;
 #line 302
   __cil_tmp13 = (struct work_struct *)__cil_tmp12;
 #line 302
   schedule_work(__cil_tmp13);
 #line 308
-  __cil_tmp14 = (unsigned long )wl;
+  __cil_tmp14 = (unsigned int )wl;
 #line 308
-  __cil_tmp15 = __cil_tmp14 + 384;
+  __cil_tmp15 = __cil_tmp14 + 264;
 #line 308
   __cil_tmp16 = (struct sk_buff_head *)__cil_tmp15;
 #line 308
@@ -7099,9 +7093,9 @@ static int wl12xx_op_tx(struct ieee80211_hw *hw , struct sk_buff *skb )
 #line 309
     ieee80211_stop_queues(__cil_tmp18);
 #line 316
-    __cil_tmp19 = (unsigned long )wl;
+    __cil_tmp19 = (unsigned int )wl;
 #line 316
-    __cil_tmp20 = __cil_tmp19 + 432;
+    __cil_tmp20 = __cil_tmp19 + 292;
 #line 316
     *((bool *)__cil_tmp20) = (_Bool)1;
     }
@@ -7116,44 +7110,44 @@ static int wl12xx_op_tx(struct ieee80211_hw *hw , struct sk_buff *skb )
 static int wl12xx_op_start(struct ieee80211_hw *hw ) 
 { struct wl12xx *wl ;
   int ret ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
   void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   struct mutex *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
   enum wl12xx_state __cil_tmp12 ;
   unsigned int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
   enum wl12xx_state __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
   int (*__cil_tmp20)(struct wl12xx *wl ) ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
   int (*__cil_tmp24)(struct wl12xx *wl ) ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
   char *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
   struct mutex *__cil_tmp35 ;
 
   {
 #line 324
-  __cil_tmp4 = (unsigned long )hw;
+  __cil_tmp4 = (unsigned int )hw;
 #line 324
-  __cil_tmp5 = __cil_tmp4 + 80;
+  __cil_tmp5 = __cil_tmp4 + 64;
 #line 324
   __cil_tmp6 = *((void **)__cil_tmp5);
 #line 324
@@ -7172,9 +7166,9 @@ static int wl12xx_op_start(struct ieee80211_hw *hw )
   while_14_break: 
   {
 #line 329
-  __cil_tmp7 = (unsigned long )wl;
+  __cil_tmp7 = (unsigned int )wl;
 #line 329
-  __cil_tmp8 = __cil_tmp7 + 72;
+  __cil_tmp8 = __cil_tmp7 + 52;
 #line 329
   __cil_tmp9 = (struct mutex *)__cil_tmp8;
 #line 329
@@ -7182,9 +7176,9 @@ static int wl12xx_op_start(struct ieee80211_hw *hw )
   }
   {
 #line 331
-  __cil_tmp10 = (unsigned long )wl;
+  __cil_tmp10 = (unsigned int )wl;
 #line 331
-  __cil_tmp11 = __cil_tmp10 + 36;
+  __cil_tmp11 = __cil_tmp10 + 20;
 #line 331
   __cil_tmp12 = *((enum wl12xx_state *)__cil_tmp11);
 #line 331
@@ -7193,9 +7187,9 @@ static int wl12xx_op_start(struct ieee80211_hw *hw )
   if (__cil_tmp13 != 0U) {
     {
 #line 332
-    __cil_tmp14 = (unsigned long )wl;
+    __cil_tmp14 = (unsigned int )wl;
 #line 332
-    __cil_tmp15 = __cil_tmp14 + 36;
+    __cil_tmp15 = __cil_tmp14 + 20;
 #line 332
     __cil_tmp16 = *((enum wl12xx_state *)__cil_tmp15);
 #line 332
@@ -7221,9 +7215,9 @@ static int wl12xx_op_start(struct ieee80211_hw *hw )
   }
   {
 #line 342
-  __cil_tmp17 = 144 + 80;
+  __cil_tmp17 = 100 + 56;
 #line 342
-  __cil_tmp18 = (unsigned long )wl;
+  __cil_tmp18 = (unsigned int )wl;
 #line 342
   __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
 #line 342
@@ -7239,9 +7233,9 @@ static int wl12xx_op_start(struct ieee80211_hw *hw )
   }
   {
 #line 346
-  __cil_tmp21 = 144 + 104;
+  __cil_tmp21 = 100 + 68;
 #line 346
-  __cil_tmp22 = (unsigned long )wl;
+  __cil_tmp22 = (unsigned int )wl;
 #line 346
   __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
 #line 346
@@ -7267,19 +7261,19 @@ static int wl12xx_op_start(struct ieee80211_hw *hw )
   }
   {
 #line 354
-  __cil_tmp25 = (unsigned long )wl;
+  __cil_tmp25 = (unsigned int )wl;
 #line 354
-  __cil_tmp26 = __cil_tmp25 + 36;
+  __cil_tmp26 = __cil_tmp25 + 20;
 #line 354
   *((enum wl12xx_state *)__cil_tmp26) = (enum wl12xx_state )1;
 #line 356
-  __cil_tmp27 = 0 * 1UL;
+  __cil_tmp27 = 0 * 1U;
 #line 356
-  __cil_tmp28 = 24 + __cil_tmp27;
+  __cil_tmp28 = 12 + __cil_tmp27;
 #line 356
-  __cil_tmp29 = 144 + __cil_tmp28;
+  __cil_tmp29 = 100 + __cil_tmp28;
 #line 356
-  __cil_tmp30 = (unsigned long )wl;
+  __cil_tmp30 = (unsigned int )wl;
 #line 356
   __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
 #line 356
@@ -7299,9 +7293,9 @@ static int wl12xx_op_start(struct ieee80211_hw *hw )
   }
   {
 #line 362
-  __cil_tmp33 = (unsigned long )wl;
+  __cil_tmp33 = (unsigned int )wl;
 #line 362
-  __cil_tmp34 = __cil_tmp33 + 72;
+  __cil_tmp34 = __cil_tmp33 + 52;
 #line 362
   __cil_tmp35 = (struct mutex *)__cil_tmp34;
 #line 362
@@ -7316,14 +7310,14 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
 { struct wl12xx *wl ;
   int __ret_warn_on ;
   long tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
   void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   struct mutex *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   enum wl12xx_state __cil_tmp13 ;
   unsigned int __cil_tmp14 ;
   int __cil_tmp15 ;
@@ -7336,74 +7330,74 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
   int __cil_tmp22 ;
   int __cil_tmp23 ;
   long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
   struct mutex *__cil_tmp29 ;
   struct ieee80211_hw *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
   struct mutex *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  unsigned int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
   struct mutex *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
   struct work_struct *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
   struct work_struct *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
   struct work_struct *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
   struct mutex *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
   u8 *__cil_tmp57 ;
   void *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  unsigned int __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
   struct mutex *__cil_tmp85 ;
 
   {
   {
 #line 369
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp5 = (unsigned int )hw;
 #line 369
-  __cil_tmp6 = __cil_tmp5 + 80;
+  __cil_tmp6 = __cil_tmp5 + 64;
 #line 369
   __cil_tmp7 = *((void **)__cil_tmp6);
 #line 369
@@ -7423,17 +7417,17 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
   while_15_break: 
   {
 #line 375
-  __cil_tmp8 = (unsigned long )wl;
+  __cil_tmp8 = (unsigned int )wl;
 #line 375
-  __cil_tmp9 = __cil_tmp8 + 72;
+  __cil_tmp9 = __cil_tmp8 + 52;
 #line 375
   __cil_tmp10 = (struct mutex *)__cil_tmp9;
 #line 375
   mutex_lock(__cil_tmp10);
 #line 377
-  __cil_tmp11 = (unsigned long )wl;
+  __cil_tmp11 = (unsigned int )wl;
 #line 377
-  __cil_tmp12 = __cil_tmp11 + 36;
+  __cil_tmp12 = __cil_tmp11 + 20;
 #line 377
   __cil_tmp13 = *((enum wl12xx_state *)__cil_tmp12);
 #line 377
@@ -7479,16 +7473,16 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
   }
   {
 #line 379
-  __cil_tmp25 = (unsigned long )wl;
+  __cil_tmp25 = (unsigned int )wl;
 #line 379
-  __cil_tmp26 = __cil_tmp25 + 700;
+  __cil_tmp26 = __cil_tmp25 + 444;
 #line 379
   if (*((bool *)__cil_tmp26)) {
     {
 #line 380
-    __cil_tmp27 = (unsigned long )wl;
+    __cil_tmp27 = (unsigned int )wl;
 #line 380
-    __cil_tmp28 = __cil_tmp27 + 72;
+    __cil_tmp28 = __cil_tmp27 + 52;
 #line 380
     __cil_tmp29 = (struct mutex *)__cil_tmp28;
 #line 380
@@ -7498,17 +7492,17 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
 #line 381
     ieee80211_scan_completed(__cil_tmp30, (_Bool)1);
 #line 382
-    __cil_tmp31 = (unsigned long )wl;
+    __cil_tmp31 = (unsigned int )wl;
 #line 382
-    __cil_tmp32 = __cil_tmp31 + 72;
+    __cil_tmp32 = __cil_tmp31 + 52;
 #line 382
     __cil_tmp33 = (struct mutex *)__cil_tmp32;
 #line 382
     mutex_lock(__cil_tmp33);
 #line 383
-    __cil_tmp34 = (unsigned long )wl;
+    __cil_tmp34 = (unsigned int )wl;
 #line 383
-    __cil_tmp35 = __cil_tmp34 + 700;
+    __cil_tmp35 = __cil_tmp34 + 444;
 #line 383
     *((bool *)__cil_tmp35) = (_Bool)0;
     }
@@ -7518,49 +7512,49 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
   }
   {
 #line 386
-  __cil_tmp36 = (unsigned long )wl;
+  __cil_tmp36 = (unsigned int )wl;
 #line 386
-  __cil_tmp37 = __cil_tmp36 + 36;
+  __cil_tmp37 = __cil_tmp36 + 20;
 #line 386
   *((enum wl12xx_state *)__cil_tmp37) = (enum wl12xx_state )0;
 #line 388
   wl12xx_disable_interrupts(wl);
 #line 390
-  __cil_tmp38 = (unsigned long )wl;
+  __cil_tmp38 = (unsigned int )wl;
 #line 390
-  __cil_tmp39 = __cil_tmp38 + 72;
+  __cil_tmp39 = __cil_tmp38 + 52;
 #line 390
   __cil_tmp40 = (struct mutex *)__cil_tmp39;
 #line 390
   mutex_unlock(__cil_tmp40);
 #line 392
-  __cil_tmp41 = (unsigned long )wl;
+  __cil_tmp41 = (unsigned int )wl;
 #line 392
-  __cil_tmp42 = __cil_tmp41 + 656;
+  __cil_tmp42 = __cil_tmp41 + 416;
 #line 392
   __cil_tmp43 = (struct work_struct *)__cil_tmp42;
 #line 392
   cancel_work_sync(__cil_tmp43);
 #line 393
-  __cil_tmp44 = (unsigned long )wl;
+  __cil_tmp44 = (unsigned int )wl;
 #line 393
-  __cil_tmp45 = __cil_tmp44 + 440;
+  __cil_tmp45 = __cil_tmp44 + 296;
 #line 393
   __cil_tmp46 = (struct work_struct *)__cil_tmp45;
 #line 393
   cancel_work_sync(__cil_tmp46);
 #line 394
-  __cil_tmp47 = (unsigned long )wl;
+  __cil_tmp47 = (unsigned int )wl;
 #line 394
-  __cil_tmp48 = __cil_tmp47 + 472;
+  __cil_tmp48 = __cil_tmp47 + 312;
 #line 394
   __cil_tmp49 = (struct work_struct *)__cil_tmp48;
 #line 394
   cancel_work_sync(__cil_tmp49);
 #line 396
-  __cil_tmp50 = (unsigned long )wl;
+  __cil_tmp50 = (unsigned int )wl;
 #line 396
-  __cil_tmp51 = __cil_tmp50 + 72;
+  __cil_tmp51 = __cil_tmp50 + 52;
 #line 396
   __cil_tmp52 = (struct mutex *)__cil_tmp51;
 #line 396
@@ -7570,11 +7564,11 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
 #line 401
   wl12xx_power_off(wl);
 #line 403
-  __cil_tmp53 = 0 * 1UL;
+  __cil_tmp53 = 0 * 1U;
 #line 403
-  __cil_tmp54 = 340 + __cil_tmp53;
+  __cil_tmp54 = 232 + __cil_tmp53;
 #line 403
-  __cil_tmp55 = (unsigned long )wl;
+  __cil_tmp55 = (unsigned int )wl;
 #line 403
   __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
 #line 403
@@ -7584,83 +7578,83 @@ static void wl12xx_op_stop(struct ieee80211_hw *hw )
 #line 403
   __constant_c_and_count_memset(__cil_tmp58, 0UL, 6U);
 #line 404
-  __cil_tmp59 = (unsigned long )wl;
+  __cil_tmp59 = (unsigned int )wl;
 #line 404
-  __cil_tmp60 = __cil_tmp59 + 353;
+  __cil_tmp60 = __cil_tmp59 + 245;
 #line 404
   *((u8 *)__cil_tmp60) = (unsigned char)1;
 #line 405
-  __cil_tmp61 = (unsigned long )wl;
+  __cil_tmp61 = (unsigned int )wl;
 #line 405
-  __cil_tmp62 = __cil_tmp61 + 352;
+  __cil_tmp62 = __cil_tmp61 + 244;
 #line 405
   *((u8 *)__cil_tmp62) = (unsigned char)255;
 #line 407
-  __cil_tmp63 = (unsigned long )wl;
+  __cil_tmp63 = (unsigned int )wl;
 #line 407
-  __cil_tmp64 = __cil_tmp63 + 376;
+  __cil_tmp64 = __cil_tmp63 + 260;
 #line 407
   *((u32 *)__cil_tmp64) = 0U;
 #line 408
-  __cil_tmp65 = (unsigned long )wl;
+  __cil_tmp65 = (unsigned int )wl;
 #line 408
-  __cil_tmp66 = __cil_tmp65 + 636;
+  __cil_tmp66 = __cil_tmp65 + 396;
 #line 408
   *((u32 *)__cil_tmp66) = 0U;
 #line 409
-  __cil_tmp67 = (unsigned long )wl;
+  __cil_tmp67 = (unsigned int )wl;
 #line 409
-  __cil_tmp68 = __cil_tmp67 + 640;
+  __cil_tmp68 = __cil_tmp67 + 400;
 #line 409
   *((u32 *)__cil_tmp68) = 0U;
 #line 410
-  __cil_tmp69 = (unsigned long )wl;
+  __cil_tmp69 = (unsigned int )wl;
 #line 410
-  __cil_tmp70 = __cil_tmp69 + 644;
+  __cil_tmp70 = __cil_tmp69 + 404;
 #line 410
   *((u32 *)__cil_tmp70) = 0U;
 #line 411
-  __cil_tmp71 = (unsigned long )wl;
+  __cil_tmp71 = (unsigned int )wl;
 #line 411
-  __cil_tmp72 = __cil_tmp71 + 648;
+  __cil_tmp72 = __cil_tmp71 + 408;
 #line 411
   *((u32 *)__cil_tmp72) = 0U;
 #line 412
-  __cil_tmp73 = (unsigned long )wl;
+  __cil_tmp73 = (unsigned int )wl;
 #line 412
-  __cil_tmp74 = __cil_tmp73 + 632;
+  __cil_tmp74 = __cil_tmp73 + 392;
 #line 412
   *((u32 *)__cil_tmp74) = 0U;
 #line 413
-  __cil_tmp75 = (unsigned long )wl;
+  __cil_tmp75 = (unsigned int )wl;
 #line 413
-  __cil_tmp76 = __cil_tmp75 + 724;
+  __cil_tmp76 = __cil_tmp75 + 468;
 #line 413
   *((bool *)__cil_tmp76) = (_Bool)0;
 #line 414
-  __cil_tmp77 = (unsigned long )wl;
+  __cil_tmp77 = (unsigned int )wl;
 #line 414
-  __cil_tmp78 = __cil_tmp77 + 725;
+  __cil_tmp78 = __cil_tmp77 + 469;
 #line 414
   *((bool *)__cil_tmp78) = (_Bool)0;
 #line 415
-  __cil_tmp79 = (unsigned long )wl;
+  __cil_tmp79 = (unsigned int )wl;
 #line 415
-  __cil_tmp80 = __cil_tmp79 + 432;
+  __cil_tmp80 = __cil_tmp79 + 292;
 #line 415
   *((bool *)__cil_tmp80) = (_Bool)0;
 #line 416
-  __cil_tmp81 = (unsigned long )wl;
+  __cil_tmp81 = (unsigned int )wl;
 #line 416
-  __cil_tmp82 = __cil_tmp81 + 728;
+  __cil_tmp82 = __cil_tmp81 + 472;
 #line 416
   *((int *)__cil_tmp82) = 20;
 #line 418
   wl12xx_debugfs_reset(wl);
 #line 420
-  __cil_tmp83 = (unsigned long )wl;
+  __cil_tmp83 = (unsigned int )wl;
 #line 420
-  __cil_tmp84 = __cil_tmp83 + 72;
+  __cil_tmp84 = __cil_tmp83 + 52;
 #line 420
   __cil_tmp85 = (struct mutex *)__cil_tmp84;
 #line 420
@@ -7675,55 +7669,55 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
 { struct wl12xx *wl ;
   int ret ;
   int tmp___0 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
   void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
   struct mutex *__cil_tmp11 ;
   enum nl80211_iftype __cil_tmp12 ;
   int __cil_tmp13 ;
   enum nl80211_iftype __cil_tmp14 ;
   int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
   u8 *__cil_tmp24 ;
   void const   *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
   void *__cil_tmp28 ;
   void const   *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   u8 *__cil_tmp34 ;
   void *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
   void *__cil_tmp38 ;
   void const   *__cil_tmp39 ;
   struct ieee80211_hw *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
   u8 *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
   struct mutex *__cil_tmp48 ;
 
   {
 #line 426
-  __cil_tmp6 = (unsigned long )hw;
+  __cil_tmp6 = (unsigned int )hw;
 #line 426
-  __cil_tmp7 = __cil_tmp6 + 80;
+  __cil_tmp7 = __cil_tmp6 + 64;
 #line 426
   __cil_tmp8 = *((void **)__cil_tmp7);
 #line 426
@@ -7742,9 +7736,9 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
   while_16_break: 
   {
 #line 433
-  __cil_tmp9 = (unsigned long )wl;
+  __cil_tmp9 = (unsigned int )wl;
 #line 433
-  __cil_tmp10 = __cil_tmp9 + 72;
+  __cil_tmp10 = __cil_tmp9 + 52;
 #line 433
   __cil_tmp11 = (struct mutex *)__cil_tmp10;
 #line 433
@@ -7773,17 +7767,17 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
       if (0) {
         switch_17_2: 
 #line 437
-        __cil_tmp16 = (unsigned long )wl;
+        __cil_tmp16 = (unsigned int )wl;
 #line 437
-        __cil_tmp17 = __cil_tmp16 + 352;
+        __cil_tmp17 = __cil_tmp16 + 244;
 #line 437
         *((u8 *)__cil_tmp17) = (unsigned char)2;
         goto switch_17_break;
         switch_17_1: 
 #line 440
-        __cil_tmp18 = (unsigned long )wl;
+        __cil_tmp18 = (unsigned int )wl;
 #line 440
-        __cil_tmp19 = __cil_tmp18 + 352;
+        __cil_tmp19 = __cil_tmp18 + 244;
 #line 440
         *((u8 *)__cil_tmp19) = (unsigned char)0;
         goto switch_17_break;
@@ -7800,11 +7794,11 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
   }
   {
 #line 447
-  __cil_tmp20 = 0 * 1UL;
+  __cil_tmp20 = 0 * 1U;
 #line 447
-  __cil_tmp21 = 346 + __cil_tmp20;
+  __cil_tmp21 = 238 + __cil_tmp20;
 #line 447
-  __cil_tmp22 = (unsigned long )wl;
+  __cil_tmp22 = (unsigned int )wl;
 #line 447
   __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
 #line 447
@@ -7812,9 +7806,9 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
 #line 447
   __cil_tmp25 = (void const   *)__cil_tmp24;
 #line 447
-  __cil_tmp26 = (unsigned long )conf;
+  __cil_tmp26 = (unsigned int )conf;
 #line 447
-  __cil_tmp27 = __cil_tmp26 + 40;
+  __cil_tmp27 = __cil_tmp26 + 36;
 #line 447
   __cil_tmp28 = *((void **)__cil_tmp27);
 #line 447
@@ -7826,11 +7820,11 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
   if (tmp___0) {
     {
 #line 448
-    __cil_tmp30 = 0 * 1UL;
+    __cil_tmp30 = 0 * 1U;
 #line 448
-    __cil_tmp31 = 346 + __cil_tmp30;
+    __cil_tmp31 = 238 + __cil_tmp30;
 #line 448
-    __cil_tmp32 = (unsigned long )wl;
+    __cil_tmp32 = (unsigned int )wl;
 #line 448
     __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
 #line 448
@@ -7838,9 +7832,9 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
 #line 448
     __cil_tmp35 = (void *)__cil_tmp34;
 #line 448
-    __cil_tmp36 = (unsigned long )conf;
+    __cil_tmp36 = (unsigned int )conf;
 #line 448
-    __cil_tmp37 = __cil_tmp36 + 40;
+    __cil_tmp37 = __cil_tmp36 + 36;
 #line 448
     __cil_tmp38 = *((void **)__cil_tmp37);
 #line 448
@@ -7850,11 +7844,11 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
 #line 449
     __cil_tmp40 = *((struct ieee80211_hw **)wl);
 #line 449
-    __cil_tmp41 = 0 * 1UL;
+    __cil_tmp41 = 0 * 1U;
 #line 449
-    __cil_tmp42 = 346 + __cil_tmp41;
+    __cil_tmp42 = 238 + __cil_tmp41;
 #line 449
-    __cil_tmp43 = (unsigned long )wl;
+    __cil_tmp43 = (unsigned int )wl;
 #line 449
     __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
 #line 449
@@ -7876,9 +7870,9 @@ static int wl12xx_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_if
   out: 
   {
 #line 456
-  __cil_tmp46 = (unsigned long )wl;
+  __cil_tmp46 = (unsigned int )wl;
 #line 456
-  __cil_tmp47 = __cil_tmp46 + 72;
+  __cil_tmp47 = __cil_tmp46 + 52;
 #line 456
   __cil_tmp48 = (struct mutex *)__cil_tmp47;
 #line 456
@@ -7912,72 +7906,71 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
 { struct wl12xx_null_data_template template ;
   int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   u8 *__cil_tmp9 ;
   u8 const   *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   u8 *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   u8 *__cil_tmp21 ;
   void *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   u8 *__cil_tmp27 ;
   void *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
   u8 *__cil_tmp33 ;
   void const   *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
   u8 *__cil_tmp39 ;
   void *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
   u8 *__cil_tmp45 ;
   void const   *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
   u8 *__cil_tmp51 ;
   void *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
   u8 *__cil_tmp57 ;
   void const   *__cil_tmp58 ;
   struct wl12xx_null_data_template *__cil_tmp59 ;
   void *__cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
 
   {
   {
 #line 470
-  __cil_tmp5 = 0 * 1UL;
+  __cil_tmp5 = 0 * 1U;
 #line 470
-  __cil_tmp6 = 340 + __cil_tmp5;
+  __cil_tmp6 = 232 + __cil_tmp5;
 #line 470
-  __cil_tmp7 = (unsigned long )wl;
+  __cil_tmp7 = (unsigned int )wl;
 #line 470
   __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
 #line 470
@@ -7991,13 +7984,13 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
   if (tmp) {
     {
 #line 474
-    __cil_tmp11 = 0 * 1UL;
+    __cil_tmp11 = 0 * 1U;
 #line 474
     __cil_tmp12 = 4 + __cil_tmp11;
 #line 474
     __cil_tmp13 = 0 + __cil_tmp12;
 #line 474
-    __cil_tmp14 = (unsigned long )(& template) + __cil_tmp13;
+    __cil_tmp14 = (unsigned int )(& template) + __cil_tmp13;
 #line 474
     __cil_tmp15 = (u8 *)__cil_tmp14;
 #line 474
@@ -8005,13 +7998,13 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
 #line 474
     __constant_c_and_count_memset(__cil_tmp16, 4294967295UL, 6U);
 #line 475
-    __cil_tmp17 = 0 * 1UL;
+    __cil_tmp17 = 0 * 1U;
 #line 475
     __cil_tmp18 = 16 + __cil_tmp17;
 #line 475
     __cil_tmp19 = 0 + __cil_tmp18;
 #line 475
-    __cil_tmp20 = (unsigned long )(& template) + __cil_tmp19;
+    __cil_tmp20 = (unsigned int )(& template) + __cil_tmp19;
 #line 475
     __cil_tmp21 = (u8 *)__cil_tmp20;
 #line 475
@@ -8022,23 +8015,23 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
   } else {
     {
 #line 471
-    __cil_tmp23 = 0 * 1UL;
+    __cil_tmp23 = 0 * 1U;
 #line 471
     __cil_tmp24 = 4 + __cil_tmp23;
 #line 471
     __cil_tmp25 = 0 + __cil_tmp24;
 #line 471
-    __cil_tmp26 = (unsigned long )(& template) + __cil_tmp25;
+    __cil_tmp26 = (unsigned int )(& template) + __cil_tmp25;
 #line 471
     __cil_tmp27 = (u8 *)__cil_tmp26;
 #line 471
     __cil_tmp28 = (void *)__cil_tmp27;
 #line 471
-    __cil_tmp29 = 0 * 1UL;
+    __cil_tmp29 = 0 * 1U;
 #line 471
-    __cil_tmp30 = 340 + __cil_tmp29;
+    __cil_tmp30 = 232 + __cil_tmp29;
 #line 471
-    __cil_tmp31 = (unsigned long )wl;
+    __cil_tmp31 = (unsigned int )wl;
 #line 471
     __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
 #line 471
@@ -8048,23 +8041,23 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
 #line 471
     __constant_memcpy(__cil_tmp28, __cil_tmp34, 6U);
 #line 472
-    __cil_tmp35 = 0 * 1UL;
+    __cil_tmp35 = 0 * 1U;
 #line 472
     __cil_tmp36 = 16 + __cil_tmp35;
 #line 472
     __cil_tmp37 = 0 + __cil_tmp36;
 #line 472
-    __cil_tmp38 = (unsigned long )(& template) + __cil_tmp37;
+    __cil_tmp38 = (unsigned int )(& template) + __cil_tmp37;
 #line 472
     __cil_tmp39 = (u8 *)__cil_tmp38;
 #line 472
     __cil_tmp40 = (void *)__cil_tmp39;
 #line 472
-    __cil_tmp41 = 0 * 1UL;
+    __cil_tmp41 = 0 * 1U;
 #line 472
-    __cil_tmp42 = 340 + __cil_tmp41;
+    __cil_tmp42 = 232 + __cil_tmp41;
 #line 472
-    __cil_tmp43 = (unsigned long )wl;
+    __cil_tmp43 = (unsigned int )wl;
 #line 472
     __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
 #line 472
@@ -8077,23 +8070,23 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
   }
   {
 #line 478
-  __cil_tmp47 = 0 * 1UL;
+  __cil_tmp47 = 0 * 1U;
 #line 478
   __cil_tmp48 = 10 + __cil_tmp47;
 #line 478
   __cil_tmp49 = 0 + __cil_tmp48;
 #line 478
-  __cil_tmp50 = (unsigned long )(& template) + __cil_tmp49;
+  __cil_tmp50 = (unsigned int )(& template) + __cil_tmp49;
 #line 478
   __cil_tmp51 = (u8 *)__cil_tmp50;
 #line 478
   __cil_tmp52 = (void *)__cil_tmp51;
 #line 478
-  __cil_tmp53 = 0 * 1UL;
+  __cil_tmp53 = 0 * 1U;
 #line 478
-  __cil_tmp54 = 346 + __cil_tmp53;
+  __cil_tmp54 = 238 + __cil_tmp53;
 #line 478
-  __cil_tmp55 = (unsigned long )wl;
+  __cil_tmp55 = (unsigned int )wl;
 #line 478
   __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
 #line 478
@@ -8109,9 +8102,7 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
 #line 482
   __cil_tmp60 = (void *)(& template);
 #line 482
-  __cil_tmp61 = (unsigned int )24UL;
-#line 482
-  tmp___0 = wl12xx_cmd_template_set(wl, (unsigned short)21, __cil_tmp60, __cil_tmp61);
+  tmp___0 = wl12xx_cmd_template_set(wl, (unsigned short)21, __cil_tmp60, 24U);
   }
 #line 482
   return (tmp___0);
@@ -8121,51 +8112,50 @@ static int wl12xx_build_null_data(struct wl12xx *wl )
 static int wl12xx_build_ps_poll(struct wl12xx *wl , u16 aid ) 
 { struct wl12xx_ps_poll_template template ;
   int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
   u8 *__cil_tmp8 ;
   void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
   u8 *__cil_tmp14 ;
   void const   *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
   u8 *__cil_tmp19 ;
   void *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
   u8 *__cil_tmp25 ;
   void const   *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  unsigned int __cil_tmp27 ;
   struct wl12xx_ps_poll_template *__cil_tmp28 ;
   void *__cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
 
   {
   {
 #line 491
-  __cil_tmp5 = 0 * 1UL;
+  __cil_tmp5 = 0 * 1U;
 #line 491
   __cil_tmp6 = 4 + __cil_tmp5;
 #line 491
-  __cil_tmp7 = (unsigned long )(& template) + __cil_tmp6;
+  __cil_tmp7 = (unsigned int )(& template) + __cil_tmp6;
 #line 491
   __cil_tmp8 = (u8 *)__cil_tmp7;
 #line 491
   __cil_tmp9 = (void *)__cil_tmp8;
 #line 491
-  __cil_tmp10 = 0 * 1UL;
+  __cil_tmp10 = 0 * 1U;
 #line 491
-  __cil_tmp11 = 340 + __cil_tmp10;
+  __cil_tmp11 = 232 + __cil_tmp10;
 #line 491
-  __cil_tmp12 = (unsigned long )wl;
+  __cil_tmp12 = (unsigned int )wl;
 #line 491
   __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
 #line 491
@@ -8175,21 +8165,21 @@ static int wl12xx_build_ps_poll(struct wl12xx *wl , u16 aid )
 #line 491
   __constant_memcpy(__cil_tmp9, __cil_tmp15, 6U);
 #line 492
-  __cil_tmp16 = 0 * 1UL;
+  __cil_tmp16 = 0 * 1U;
 #line 492
   __cil_tmp17 = 10 + __cil_tmp16;
 #line 492
-  __cil_tmp18 = (unsigned long )(& template) + __cil_tmp17;
+  __cil_tmp18 = (unsigned int )(& template) + __cil_tmp17;
 #line 492
   __cil_tmp19 = (u8 *)__cil_tmp18;
 #line 492
   __cil_tmp20 = (void *)__cil_tmp19;
 #line 492
-  __cil_tmp21 = 0 * 1UL;
+  __cil_tmp21 = 0 * 1U;
 #line 492
-  __cil_tmp22 = 346 + __cil_tmp21;
+  __cil_tmp22 = 238 + __cil_tmp21;
 #line 492
-  __cil_tmp23 = (unsigned long )wl;
+  __cil_tmp23 = (unsigned int )wl;
 #line 492
   __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
 #line 492
@@ -8199,7 +8189,7 @@ static int wl12xx_build_ps_poll(struct wl12xx *wl , u16 aid )
 #line 492
   __constant_memcpy(__cil_tmp20, __cil_tmp26, 6U);
 #line 493
-  __cil_tmp27 = (unsigned long )(& template) + 2;
+  __cil_tmp27 = (unsigned int )(& template) + 2;
 #line 493
   *((u16 *)__cil_tmp27) = aid;
 #line 494
@@ -8209,9 +8199,7 @@ static int wl12xx_build_ps_poll(struct wl12xx *wl , u16 aid )
 #line 496
   __cil_tmp29 = (void *)(& template);
 #line 496
-  __cil_tmp30 = (unsigned int )16UL;
-#line 496
-  tmp = wl12xx_cmd_template_set(wl, (unsigned short)30, __cil_tmp29, __cil_tmp30);
+  tmp = wl12xx_cmd_template_set(wl, (unsigned short)30, __cil_tmp29, 16U);
   }
 #line 496
   return (tmp);
@@ -8223,66 +8211,66 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
   struct ieee80211_conf *conf ;
   int channel ;
   int ret ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
   struct ieee80211_channel *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   u16 __cil_tmp15 ;
   int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
   struct mutex *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
   int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
   u8 __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
   u32 __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
   bool __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   enum acx_ps_mode __cil_tmp34 ;
   u32 __cil_tmp35 ;
   unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
   enum acx_ps_mode __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
   int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
   int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
   int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
   struct mutex *__cil_tmp59 ;
 
   {
   {
 #line 503
-  __cil_tmp7 = (unsigned long )hw;
+  __cil_tmp7 = (unsigned int )hw;
 #line 503
-  __cil_tmp8 = __cil_tmp7 + 80;
+  __cil_tmp8 = __cil_tmp7 + 64;
 #line 503
   __cil_tmp9 = *((void **)__cil_tmp8);
 #line 503
@@ -8292,13 +8280,13 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
 #line 505
   ret = 0;
 #line 507
-  __cil_tmp10 = (unsigned long )conf;
+  __cil_tmp10 = (unsigned int )conf;
 #line 507
-  __cil_tmp11 = __cil_tmp10 + 24;
+  __cil_tmp11 = __cil_tmp10 + 20;
 #line 507
   __cil_tmp12 = *((struct ieee80211_channel **)__cil_tmp11);
 #line 507
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 507
   __cil_tmp14 = __cil_tmp13 + 32;
 #line 507
@@ -8320,9 +8308,9 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
   while_19_break: 
   {
 #line 514
-  __cil_tmp17 = (unsigned long )wl;
+  __cil_tmp17 = (unsigned int )wl;
 #line 514
-  __cil_tmp18 = __cil_tmp17 + 72;
+  __cil_tmp18 = __cil_tmp17 + 52;
 #line 514
   __cil_tmp19 = (struct mutex *)__cil_tmp18;
 #line 514
@@ -8330,18 +8318,18 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
   }
   {
 #line 516
-  __cil_tmp20 = (unsigned long )wl;
+  __cil_tmp20 = (unsigned int )wl;
 #line 516
-  __cil_tmp21 = __cil_tmp20 + 356;
+  __cil_tmp21 = __cil_tmp20 + 248;
 #line 516
   __cil_tmp22 = *((int *)__cil_tmp21);
 #line 516
   if (channel != __cil_tmp22) {
     {
 #line 518
-    __cil_tmp23 = (unsigned long )wl;
+    __cil_tmp23 = (unsigned int )wl;
 #line 518
-    __cil_tmp24 = __cil_tmp23 + 352;
+    __cil_tmp24 = __cil_tmp23 + 244;
 #line 518
     __cil_tmp25 = *((u8 *)__cil_tmp24);
 #line 518
@@ -8355,9 +8343,9 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
 
     }
 #line 522
-    __cil_tmp26 = (unsigned long )wl;
+    __cil_tmp26 = (unsigned int )wl;
 #line 522
-    __cil_tmp27 = __cil_tmp26 + 356;
+    __cil_tmp27 = __cil_tmp26 + 248;
 #line 522
     *((int *)__cil_tmp27) = channel;
   } else {
@@ -8381,9 +8369,9 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
   if (__cil_tmp28 & 2U) {
     {
 #line 529
-    __cil_tmp29 = (unsigned long )wl;
+    __cil_tmp29 = (unsigned int )wl;
 #line 529
-    __cil_tmp30 = __cil_tmp29 + 726;
+    __cil_tmp30 = __cil_tmp29 + 470;
 #line 529
     __cil_tmp31 = *((bool *)__cil_tmp30);
 #line 529
@@ -8392,9 +8380,9 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
 #line 530
       printk("<7>wl12xx: psm enabled\n");
 #line 532
-      __cil_tmp32 = (unsigned long )wl;
+      __cil_tmp32 = (unsigned int )wl;
 #line 532
-      __cil_tmp33 = __cil_tmp32 + 726;
+      __cil_tmp33 = __cil_tmp32 + 470;
 #line 532
       *((bool *)__cil_tmp33) = (_Bool)1;
 #line 539
@@ -8417,26 +8405,26 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
     if (! __cil_tmp36) {
       {
 #line 540
-      __cil_tmp37 = (unsigned long )wl;
+      __cil_tmp37 = (unsigned int )wl;
 #line 540
-      __cil_tmp38 = __cil_tmp37 + 726;
+      __cil_tmp38 = __cil_tmp37 + 470;
 #line 540
       if (*((bool *)__cil_tmp38)) {
         {
 #line 542
         printk("<7>wl12xx: psm disabled\n");
 #line 544
-        __cil_tmp39 = (unsigned long )wl;
+        __cil_tmp39 = (unsigned int )wl;
 #line 544
-        __cil_tmp40 = __cil_tmp39 + 726;
+        __cil_tmp40 = __cil_tmp39 + 470;
 #line 544
         *((bool *)__cil_tmp40) = (_Bool)0;
         }
         {
 #line 546
-        __cil_tmp41 = (unsigned long )wl;
+        __cil_tmp41 = (unsigned int )wl;
 #line 546
-        __cil_tmp42 = __cil_tmp41 + 725;
+        __cil_tmp42 = __cil_tmp41 + 469;
 #line 546
         if (*((bool *)__cil_tmp42)) {
           {
@@ -8461,13 +8449,13 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
   }
   {
 #line 550
-  __cil_tmp44 = (unsigned long )wl;
+  __cil_tmp44 = (unsigned int )wl;
 #line 550
-  __cil_tmp45 = __cil_tmp44 + 728;
+  __cil_tmp45 = __cil_tmp44 + 472;
 #line 550
   __cil_tmp46 = *((int *)__cil_tmp45);
 #line 550
-  __cil_tmp47 = (unsigned long )conf;
+  __cil_tmp47 = (unsigned int )conf;
 #line 550
   __cil_tmp48 = __cil_tmp47 + 4;
 #line 550
@@ -8476,7 +8464,7 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
   if (__cil_tmp49 != __cil_tmp46) {
     {
 #line 551
-    __cil_tmp50 = (unsigned long )conf;
+    __cil_tmp50 = (unsigned int )conf;
 #line 551
     __cil_tmp51 = __cil_tmp50 + 4;
 #line 551
@@ -8491,11 +8479,11 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
 
     }
 #line 555
-    __cil_tmp53 = (unsigned long )wl;
+    __cil_tmp53 = (unsigned int )wl;
 #line 555
-    __cil_tmp54 = __cil_tmp53 + 728;
+    __cil_tmp54 = __cil_tmp53 + 472;
 #line 555
-    __cil_tmp55 = (unsigned long )conf;
+    __cil_tmp55 = (unsigned int )conf;
 #line 555
     __cil_tmp56 = __cil_tmp55 + 4;
 #line 555
@@ -8507,9 +8495,9 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
   out: 
   {
 #line 559
-  __cil_tmp57 = (unsigned long )wl;
+  __cil_tmp57 = (unsigned int )wl;
 #line 559
-  __cil_tmp58 = __cil_tmp57 + 72;
+  __cil_tmp58 = __cil_tmp57 + 52;
 #line 559
   __cil_tmp59 = (struct mutex *)__cil_tmp58;
 #line 559
@@ -8523,17 +8511,17 @@ static int wl12xx_op_config(struct ieee80211_hw *hw , u32 changed )
 static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int changed ,
                                        unsigned int *total , int mc_count , struct dev_addr_list *mc_list ) 
 { struct wl12xx *wl ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   void *__cil_tmp9 ;
   unsigned int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
@@ -8548,85 +8536,85 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
   unsigned int __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
   unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
   unsigned int __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
   unsigned long __cil_tmp47 ;
   unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
   unsigned long __cil_tmp51 ;
   unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
   unsigned int __cil_tmp55 ;
   unsigned long __cil_tmp56 ;
   unsigned long __cil_tmp57 ;
   unsigned int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
   unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
+  unsigned int __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
   unsigned int __cil_tmp64 ;
   unsigned long __cil_tmp65 ;
   unsigned long __cil_tmp66 ;
   unsigned int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
+  unsigned int __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
   unsigned long __cil_tmp70 ;
   unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
   unsigned int __cil_tmp74 ;
   unsigned long __cil_tmp75 ;
   unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
+  unsigned int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
   unsigned long __cil_tmp79 ;
   unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
+  unsigned int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
   unsigned int __cil_tmp83 ;
   unsigned long __cil_tmp84 ;
   unsigned long __cil_tmp85 ;
   unsigned int __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
+  unsigned int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
   unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
+  unsigned int __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
   unsigned int __cil_tmp92 ;
   unsigned long __cil_tmp93 ;
   unsigned long __cil_tmp94 ;
   unsigned int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
+  unsigned int __cil_tmp96 ;
+  unsigned int __cil_tmp97 ;
   unsigned long __cil_tmp98 ;
   unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
+  unsigned int __cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
   unsigned int __cil_tmp102 ;
   unsigned long __cil_tmp103 ;
   unsigned long __cil_tmp104 ;
 
   {
 #line 576
-  __cil_tmp7 = (unsigned long )hw;
+  __cil_tmp7 = (unsigned int )hw;
 #line 576
-  __cil_tmp8 = __cil_tmp7 + 80;
+  __cil_tmp8 = __cil_tmp7 + 64;
 #line 576
   __cil_tmp9 = *((void **)__cil_tmp8);
 #line 576
@@ -8655,9 +8643,9 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 
   }
 #line 589
-  __cil_tmp11 = (unsigned long )wl;
+  __cil_tmp11 = (unsigned int )wl;
 #line 589
-  __cil_tmp12 = __cil_tmp11 + 716;
+  __cil_tmp12 = __cil_tmp11 + 460;
 #line 589
   __cil_tmp13 = 1UL << 5;
 #line 589
@@ -8667,9 +8655,9 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 589
   *((unsigned int *)__cil_tmp12) = (unsigned int )__cil_tmp15;
 #line 590
-  __cil_tmp16 = (unsigned long )wl;
+  __cil_tmp16 = (unsigned int )wl;
 #line 590
-  __cil_tmp17 = __cil_tmp16 + 720;
+  __cil_tmp17 = __cil_tmp16 + 464;
 #line 590
   __cil_tmp18 = 1UL << 11;
 #line 590
@@ -8704,15 +8692,15 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 592
   if (__cil_tmp31 & 1U) {
 #line 593
-    __cil_tmp32 = (unsigned long )wl;
+    __cil_tmp32 = (unsigned int )wl;
 #line 593
-    __cil_tmp33 = __cil_tmp32 + 716;
+    __cil_tmp33 = __cil_tmp32 + 460;
 #line 593
     __cil_tmp34 = 1UL << 5;
 #line 593
-    __cil_tmp35 = (unsigned long )wl;
+    __cil_tmp35 = (unsigned int )wl;
 #line 593
-    __cil_tmp36 = __cil_tmp35 + 716;
+    __cil_tmp36 = __cil_tmp35 + 460;
 #line 593
     __cil_tmp37 = *((unsigned int *)__cil_tmp36);
 #line 593
@@ -8722,15 +8710,15 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 593
     *((unsigned int *)__cil_tmp33) = (unsigned int )__cil_tmp39;
 #line 594
-    __cil_tmp40 = (unsigned long )wl;
+    __cil_tmp40 = (unsigned int )wl;
 #line 594
-    __cil_tmp41 = __cil_tmp40 + 716;
+    __cil_tmp41 = __cil_tmp40 + 460;
 #line 594
     __cil_tmp42 = 1UL << 3;
 #line 594
-    __cil_tmp43 = (unsigned long )wl;
+    __cil_tmp43 = (unsigned int )wl;
 #line 594
-    __cil_tmp44 = __cil_tmp43 + 716;
+    __cil_tmp44 = __cil_tmp43 + 460;
 #line 594
     __cil_tmp45 = *((unsigned int *)__cil_tmp44);
 #line 594
@@ -8749,17 +8737,17 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 596
   if (__cil_tmp48 & 2U) {
 #line 601
-    __cil_tmp49 = (unsigned long )wl;
+    __cil_tmp49 = (unsigned int )wl;
 #line 601
-    __cil_tmp50 = __cil_tmp49 + 716;
+    __cil_tmp50 = __cil_tmp49 + 460;
 #line 601
     __cil_tmp51 = 1UL << 6;
 #line 601
     __cil_tmp52 = ~ __cil_tmp51;
 #line 601
-    __cil_tmp53 = (unsigned long )wl;
+    __cil_tmp53 = (unsigned int )wl;
 #line 601
-    __cil_tmp54 = __cil_tmp53 + 716;
+    __cil_tmp54 = __cil_tmp53 + 460;
 #line 601
     __cil_tmp55 = *((unsigned int *)__cil_tmp54);
 #line 601
@@ -8778,15 +8766,15 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 602
   if (__cil_tmp58 & 4U) {
 #line 603
-    __cil_tmp59 = (unsigned long )wl;
+    __cil_tmp59 = (unsigned int )wl;
 #line 603
-    __cil_tmp60 = __cil_tmp59 + 720;
+    __cil_tmp60 = __cil_tmp59 + 464;
 #line 603
     __cil_tmp61 = 1UL << 5;
 #line 603
-    __cil_tmp62 = (unsigned long )wl;
+    __cil_tmp62 = (unsigned int )wl;
 #line 603
-    __cil_tmp63 = __cil_tmp62 + 720;
+    __cil_tmp63 = __cil_tmp62 + 464;
 #line 603
     __cil_tmp64 = *((unsigned int *)__cil_tmp63);
 #line 603
@@ -8805,17 +8793,17 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 604
   if (__cil_tmp67 & 16U) {
 #line 605
-    __cil_tmp68 = (unsigned long )wl;
+    __cil_tmp68 = (unsigned int )wl;
 #line 605
-    __cil_tmp69 = __cil_tmp68 + 716;
+    __cil_tmp69 = __cil_tmp68 + 460;
 #line 605
     __cil_tmp70 = 1UL << 5;
 #line 605
     __cil_tmp71 = ~ __cil_tmp70;
 #line 605
-    __cil_tmp72 = (unsigned long )wl;
+    __cil_tmp72 = (unsigned int )wl;
 #line 605
-    __cil_tmp73 = __cil_tmp72 + 716;
+    __cil_tmp73 = __cil_tmp72 + 460;
 #line 605
     __cil_tmp74 = *((unsigned int *)__cil_tmp73);
 #line 605
@@ -8825,17 +8813,17 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 605
     *((unsigned int *)__cil_tmp69) = (unsigned int )__cil_tmp76;
 #line 606
-    __cil_tmp77 = (unsigned long )wl;
+    __cil_tmp77 = (unsigned int )wl;
 #line 606
-    __cil_tmp78 = __cil_tmp77 + 716;
+    __cil_tmp78 = __cil_tmp77 + 460;
 #line 606
     __cil_tmp79 = 1UL << 10;
 #line 606
     __cil_tmp80 = ~ __cil_tmp79;
 #line 606
-    __cil_tmp81 = (unsigned long )wl;
+    __cil_tmp81 = (unsigned int )wl;
 #line 606
-    __cil_tmp82 = __cil_tmp81 + 716;
+    __cil_tmp82 = __cil_tmp81 + 460;
 #line 606
     __cil_tmp83 = *((unsigned int *)__cil_tmp82);
 #line 606
@@ -8854,15 +8842,15 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 608
   if (__cil_tmp86 & 32U) {
 #line 609
-    __cil_tmp87 = (unsigned long )wl;
+    __cil_tmp87 = (unsigned int )wl;
 #line 609
-    __cil_tmp88 = __cil_tmp87 + 720;
+    __cil_tmp88 = __cil_tmp87 + 464;
 #line 609
     __cil_tmp89 = 1UL << 7;
 #line 609
-    __cil_tmp90 = (unsigned long )wl;
+    __cil_tmp90 = (unsigned int )wl;
 #line 609
-    __cil_tmp91 = __cil_tmp90 + 720;
+    __cil_tmp91 = __cil_tmp90 + 464;
 #line 609
     __cil_tmp92 = *((unsigned int *)__cil_tmp91);
 #line 609
@@ -8881,17 +8869,17 @@ static void wl12xx_op_configure_filter(struct ieee80211_hw *hw , unsigned int ch
 #line 610
   if (__cil_tmp95 & 64U) {
 #line 611
-    __cil_tmp96 = (unsigned long )wl;
+    __cil_tmp96 = (unsigned int )wl;
 #line 611
-    __cil_tmp97 = __cil_tmp96 + 720;
+    __cil_tmp97 = __cil_tmp96 + 464;
 #line 611
     __cil_tmp98 = 1UL << 5;
 #line 611
     __cil_tmp99 = ~ __cil_tmp98;
 #line 611
-    __cil_tmp100 = (unsigned long )wl;
+    __cil_tmp100 = (unsigned int )wl;
 #line 611
-    __cil_tmp101 = __cil_tmp100 + 720;
+    __cil_tmp101 = __cil_tmp100 + 464;
 #line 611
     __cil_tmp102 = *((unsigned int *)__cil_tmp101);
 #line 611
@@ -8920,32 +8908,32 @@ static int wl12xx_set_key_type(struct wl12xx *wl , struct acx_set_key *key , enu
   int __cil_tmp12 ;
   enum ieee80211_key_alg __cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
   s8 __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
   s8 __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
   u8 __cil_tmp41 ;
   int __cil_tmp42 ;
   int __cil_tmp43 ;
@@ -8990,25 +8978,25 @@ static int wl12xx_set_key_type(struct wl12xx *wl , struct acx_set_key *key , enu
 #line 629
           if (tmp) {
 #line 630
-            __cil_tmp15 = (unsigned long )key;
+            __cil_tmp15 = (unsigned int )key;
 #line 630
             __cil_tmp16 = __cil_tmp15 + 11;
 #line 630
             *((u8 *)__cil_tmp16) = (unsigned char)0;
           } else {
 #line 632
-            __cil_tmp17 = (unsigned long )key;
+            __cil_tmp17 = (unsigned int )key;
 #line 632
             __cil_tmp18 = __cil_tmp17 + 11;
 #line 632
             *((u8 *)__cil_tmp18) = (unsigned char)1;
           }
 #line 634
-          __cil_tmp19 = (unsigned long )mac80211_key;
+          __cil_tmp19 = (unsigned int )mac80211_key;
 #line 634
           __cil_tmp20 = __cil_tmp19 + 34;
 #line 634
-          __cil_tmp21 = (unsigned long )mac80211_key;
+          __cil_tmp21 = (unsigned int )mac80211_key;
 #line 634
           __cil_tmp22 = __cil_tmp21 + 36;
 #line 634
@@ -9024,25 +9012,25 @@ static int wl12xx_set_key_type(struct wl12xx *wl , struct acx_set_key *key , enu
 #line 637
           if (tmp___0) {
 #line 638
-            __cil_tmp24 = (unsigned long )key;
+            __cil_tmp24 = (unsigned int )key;
 #line 638
             __cil_tmp25 = __cil_tmp24 + 11;
 #line 638
             *((u8 *)__cil_tmp25) = (unsigned char)10;
           } else {
 #line 640
-            __cil_tmp26 = (unsigned long )key;
+            __cil_tmp26 = (unsigned int )key;
 #line 640
             __cil_tmp27 = __cil_tmp26 + 11;
 #line 640
             *((u8 *)__cil_tmp27) = (unsigned char)11;
           }
 #line 642
-          __cil_tmp28 = (unsigned long )mac80211_key;
+          __cil_tmp28 = (unsigned int )mac80211_key;
 #line 642
           __cil_tmp29 = __cil_tmp28 + 34;
 #line 642
-          __cil_tmp30 = (unsigned long )mac80211_key;
+          __cil_tmp30 = (unsigned int )mac80211_key;
 #line 642
           __cil_tmp31 = __cil_tmp30 + 36;
 #line 642
@@ -9058,25 +9046,25 @@ static int wl12xx_set_key_type(struct wl12xx *wl , struct acx_set_key *key , enu
 #line 645
           if (tmp___1) {
 #line 646
-            __cil_tmp33 = (unsigned long )key;
+            __cil_tmp33 = (unsigned int )key;
 #line 646
             __cil_tmp34 = __cil_tmp33 + 11;
 #line 646
             *((u8 *)__cil_tmp34) = (unsigned char)4;
           } else {
 #line 648
-            __cil_tmp35 = (unsigned long )key;
+            __cil_tmp35 = (unsigned int )key;
 #line 648
             __cil_tmp36 = __cil_tmp35 + 11;
 #line 648
             *((u8 *)__cil_tmp36) = (unsigned char)5;
           }
 #line 649
-          __cil_tmp37 = (unsigned long )mac80211_key;
+          __cil_tmp37 = (unsigned int )mac80211_key;
 #line 649
           __cil_tmp38 = __cil_tmp37 + 35;
 #line 649
-          __cil_tmp39 = (unsigned long )mac80211_key;
+          __cil_tmp39 = (unsigned int )mac80211_key;
 #line 649
           __cil_tmp40 = __cil_tmp39 + 35;
 #line 649
@@ -9124,148 +9112,146 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
   u8 const   *addr ;
   int ret ;
   int tmp___2 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   void *__cil_tmp13 ;
   void *__cil_tmp14 ;
   unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u8 *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct mutex *__cil_tmp25 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  u8 *__cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  struct mutex *__cil_tmp24 ;
+  int __cil_tmp25 ;
   int __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  u8 __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u8 *__cil_tmp36 ;
-  void *__cil_tmp37 ;
-  void const   *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  u8 __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u8 *__cil_tmp45 ;
-  void *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u8 *__cil_tmp51 ;
-  void const   *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  u8 __cil_tmp30 ;
+  int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  u8 *__cil_tmp35 ;
+  void *__cil_tmp36 ;
+  void const   *__cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  u8 __cil_tmp39 ;
+  int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  u8 *__cil_tmp44 ;
+  void *__cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  u8 *__cil_tmp50 ;
+  void const   *__cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  u8 *__cil_tmp55 ;
   u8 *__cil_tmp56 ;
-  u8 *__cil_tmp57 ;
-  void *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  void *__cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  u8 *__cil_tmp62 ;
   u8 *__cil_tmp63 ;
-  u8 *__cil_tmp64 ;
-  void const   *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
+  void const   *__cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
+  u8 *__cil_tmp68 ;
   u8 *__cil_tmp69 ;
-  u8 *__cil_tmp70 ;
-  void *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
+  void *__cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
+  u8 *__cil_tmp75 ;
   u8 *__cil_tmp76 ;
-  u8 *__cil_tmp77 ;
-  void const   *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  u8 __cil_tmp80 ;
-  int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  u8 *__cil_tmp85 ;
-  void *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  u8 *__cil_tmp91 ;
-  void const   *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
+  void const   *__cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  u8 __cil_tmp79 ;
+  int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  unsigned int __cil_tmp83 ;
+  u8 *__cil_tmp84 ;
+  void *__cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
+  u8 *__cil_tmp90 ;
+  void const   *__cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
+  unsigned int __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  u8 *__cil_tmp95 ;
   u8 *__cil_tmp96 ;
-  u8 *__cil_tmp97 ;
-  void *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
+  void *__cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
+  u8 *__cil_tmp102 ;
   u8 *__cil_tmp103 ;
-  u8 *__cil_tmp104 ;
-  void const   *__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
+  void const   *__cil_tmp104 ;
+  unsigned int __cil_tmp105 ;
+  unsigned int __cil_tmp106 ;
+  unsigned int __cil_tmp107 ;
+  u8 *__cil_tmp108 ;
   u8 *__cil_tmp109 ;
-  u8 *__cil_tmp110 ;
-  void *__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
+  void *__cil_tmp110 ;
+  unsigned int __cil_tmp111 ;
+  unsigned int __cil_tmp112 ;
+  unsigned int __cil_tmp113 ;
+  unsigned int __cil_tmp114 ;
+  u8 *__cil_tmp115 ;
   u8 *__cil_tmp116 ;
-  u8 *__cil_tmp117 ;
-  void const   *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  u8 *__cil_tmp122 ;
-  void *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  u8 *__cil_tmp128 ;
-  void const   *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  u8 __cil_tmp132 ;
+  void const   *__cil_tmp117 ;
+  unsigned int __cil_tmp118 ;
+  unsigned int __cil_tmp119 ;
+  unsigned int __cil_tmp120 ;
+  u8 *__cil_tmp121 ;
+  void *__cil_tmp122 ;
+  unsigned int __cil_tmp123 ;
+  unsigned int __cil_tmp124 ;
+  unsigned int __cil_tmp125 ;
+  unsigned int __cil_tmp126 ;
+  u8 *__cil_tmp127 ;
+  void const   *__cil_tmp128 ;
+  unsigned int __cil_tmp129 ;
+  unsigned int __cil_tmp130 ;
+  u8 __cil_tmp131 ;
+  unsigned int __cil_tmp132 ;
   unsigned int __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  s8 __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  void *__cil_tmp142 ;
+  unsigned int __cil_tmp134 ;
+  unsigned int __cil_tmp135 ;
+  unsigned int __cil_tmp136 ;
+  unsigned int __cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
+  s8 __cil_tmp139 ;
+  unsigned int __cil_tmp140 ;
+  void *__cil_tmp141 ;
+  unsigned int __cil_tmp142 ;
   unsigned int __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  struct mutex *__cil_tmp146 ;
+  struct mutex *__cil_tmp144 ;
 
   {
 #line 664
-  __cil_tmp11 = (unsigned long )hw;
+  __cil_tmp11 = (unsigned int )hw;
 #line 664
-  __cil_tmp12 = __cil_tmp11 + 80;
+  __cil_tmp12 = __cil_tmp11 + 64;
 #line 664
   __cil_tmp13 = *((void **)__cil_tmp12);
 #line 664
@@ -9284,31 +9270,29 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
 #line 674
   __cil_tmp14 = (void *)(& wl_key);
 #line 674
-  __cil_tmp15 = (unsigned int )76UL;
-#line 674
-  __constant_c_and_count_memset(__cil_tmp14, 0UL, __cil_tmp15);
+  __constant_c_and_count_memset(__cil_tmp14, 0UL, 76U);
   }
 #line 676
   if (sta) {
 #line 676
-    __cil_tmp16 = 0 * 1UL;
+    __cil_tmp15 = 0 * 1U;
 #line 676
-    __cil_tmp17 = 8 + __cil_tmp16;
+    __cil_tmp16 = 8 + __cil_tmp15;
 #line 676
-    __cil_tmp18 = (unsigned long )sta;
+    __cil_tmp17 = (unsigned int )sta;
 #line 676
-    __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
+    __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
 #line 676
-    __cil_tmp20 = (u8 *)__cil_tmp19;
+    __cil_tmp19 = (u8 *)__cil_tmp18;
 #line 676
-    addr = (u8 const   *)__cil_tmp20;
+    addr = (u8 const   *)__cil_tmp19;
   } else {
 #line 676
-    __cil_tmp21 = 0 * 1UL;
+    __cil_tmp20 = 0 * 1U;
 #line 676
-    __cil_tmp22 = (unsigned long )(bcast_addr) + __cil_tmp21;
+    __cil_tmp21 = (unsigned int )(bcast_addr) + __cil_tmp20;
 #line 676
-    addr = (u8 const   *)__cil_tmp22;
+    addr = (u8 const   *)__cil_tmp21;
   }
   {
 #line 678
@@ -9352,26 +9336,26 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
   while_26_break: 
   {
 #line 684
-  __cil_tmp23 = (unsigned long )wl;
+  __cil_tmp22 = (unsigned int )wl;
 #line 684
-  __cil_tmp24 = __cil_tmp23 + 72;
+  __cil_tmp23 = __cil_tmp22 + 52;
 #line 684
-  __cil_tmp25 = (struct mutex *)__cil_tmp24;
+  __cil_tmp24 = (struct mutex *)__cil_tmp23;
 #line 684
-  mutex_lock(__cil_tmp25);
+  mutex_lock(__cil_tmp24);
   }
   {
 #line 687
-  __cil_tmp26 = (int )cmd;
+  __cil_tmp25 = (int )cmd;
 #line 687
-  if (__cil_tmp26 == 0) {
+  if (__cil_tmp25 == 0) {
     goto switch_27_0;
   } else {
     {
 #line 690
-    __cil_tmp27 = (int )cmd;
+    __cil_tmp26 = (int )cmd;
 #line 690
-    if (__cil_tmp27 == 1) {
+    if (__cil_tmp26 == 1) {
       goto switch_27_1;
     } else {
       goto switch_27_default;
@@ -9379,15 +9363,15 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
       if (0) {
         switch_27_0: 
 #line 688
-        __cil_tmp28 = (unsigned long )(& wl_key) + 6;
+        __cil_tmp27 = (unsigned int )(& wl_key) + 6;
 #line 688
-        *((u16 *)__cil_tmp28) = (unsigned short)1;
+        *((u16 *)__cil_tmp27) = (unsigned short)1;
         goto switch_27_break;
         switch_27_1: 
 #line 691
-        __cil_tmp29 = (unsigned long )(& wl_key) + 6;
+        __cil_tmp28 = (unsigned int )(& wl_key) + 6;
 #line 691
-        *((u16 *)__cil_tmp29) = (unsigned short)2;
+        *((u16 *)__cil_tmp28) = (unsigned short)2;
         goto switch_27_break;
         switch_27_default: 
         {
@@ -9418,28 +9402,28 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
   }
   {
 #line 704
-  __cil_tmp30 = (unsigned long )(& wl_key) + 11;
+  __cil_tmp29 = (unsigned int )(& wl_key) + 11;
 #line 704
-  __cil_tmp31 = *((u8 *)__cil_tmp30);
+  __cil_tmp30 = *((u8 *)__cil_tmp29);
 #line 704
-  __cil_tmp32 = (int )__cil_tmp31;
+  __cil_tmp31 = (int )__cil_tmp30;
 #line 704
-  if (__cil_tmp32 != 0) {
+  if (__cil_tmp31 != 0) {
     {
 #line 705
-    __cil_tmp33 = 0 * 1UL;
+    __cil_tmp32 = 0 * 1U;
 #line 705
-    __cil_tmp34 = 0 + __cil_tmp33;
+    __cil_tmp33 = 0 + __cil_tmp32;
 #line 705
-    __cil_tmp35 = (unsigned long )(& wl_key) + __cil_tmp34;
+    __cil_tmp34 = (unsigned int )(& wl_key) + __cil_tmp33;
 #line 705
-    __cil_tmp36 = (u8 *)__cil_tmp35;
+    __cil_tmp35 = (u8 *)__cil_tmp34;
 #line 705
-    __cil_tmp37 = (void *)__cil_tmp36;
+    __cil_tmp36 = (void *)__cil_tmp35;
 #line 705
-    __cil_tmp38 = (void const   *)addr;
+    __cil_tmp37 = (void const   *)addr;
 #line 705
-    __constant_memcpy(__cil_tmp37, __cil_tmp38, 6U);
+    __constant_memcpy(__cil_tmp36, __cil_tmp37, 6U);
     }
   } else {
 
@@ -9447,248 +9431,248 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
   }
   {
 #line 707
-  __cil_tmp39 = (unsigned long )(& wl_key) + 11;
+  __cil_tmp38 = (unsigned int )(& wl_key) + 11;
 #line 707
-  __cil_tmp40 = *((u8 *)__cil_tmp39);
+  __cil_tmp39 = *((u8 *)__cil_tmp38);
 #line 707
-  __cil_tmp41 = (int )__cil_tmp40;
+  __cil_tmp40 = (int )__cil_tmp39;
 #line 707
-  if (__cil_tmp41 == 10) {
+  if (__cil_tmp40 == 10) {
     {
 #line 715
-    __cil_tmp42 = 0 * 1UL;
+    __cil_tmp41 = 0 * 1U;
 #line 715
-    __cil_tmp43 = 20 + __cil_tmp42;
+    __cil_tmp42 = 20 + __cil_tmp41;
 #line 715
-    __cil_tmp44 = (unsigned long )(& wl_key) + __cil_tmp43;
+    __cil_tmp43 = (unsigned int )(& wl_key) + __cil_tmp42;
 #line 715
-    __cil_tmp45 = (u8 *)__cil_tmp44;
+    __cil_tmp44 = (u8 *)__cil_tmp43;
 #line 715
-    __cil_tmp46 = (void *)__cil_tmp45;
+    __cil_tmp45 = (void *)__cil_tmp44;
 #line 715
-    __cil_tmp47 = 0 * 1UL;
+    __cil_tmp46 = 0 * 1U;
 #line 715
-    __cil_tmp48 = 38 + __cil_tmp47;
+    __cil_tmp47 = 38 + __cil_tmp46;
 #line 715
-    __cil_tmp49 = (unsigned long )key;
+    __cil_tmp48 = (unsigned int )key;
 #line 715
-    __cil_tmp50 = __cil_tmp49 + __cil_tmp48;
+    __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
 #line 715
-    __cil_tmp51 = (u8 *)__cil_tmp50;
+    __cil_tmp50 = (u8 *)__cil_tmp49;
 #line 715
-    __cil_tmp52 = (void const   *)__cil_tmp51;
+    __cil_tmp51 = (void const   *)__cil_tmp50;
 #line 715
-    __constant_memcpy(__cil_tmp46, __cil_tmp52, 16U);
+    __constant_memcpy(__cil_tmp45, __cil_tmp51, 16U);
 #line 716
-    __cil_tmp53 = 0 * 1UL;
+    __cil_tmp52 = 0 * 1U;
 #line 716
-    __cil_tmp54 = 20 + __cil_tmp53;
+    __cil_tmp53 = 20 + __cil_tmp52;
 #line 716
-    __cil_tmp55 = (unsigned long )(& wl_key) + __cil_tmp54;
+    __cil_tmp54 = (unsigned int )(& wl_key) + __cil_tmp53;
 #line 716
-    __cil_tmp56 = (u8 *)__cil_tmp55;
+    __cil_tmp55 = (u8 *)__cil_tmp54;
 #line 716
-    __cil_tmp57 = __cil_tmp56 + 16;
+    __cil_tmp56 = __cil_tmp55 + 16;
 #line 716
-    __cil_tmp58 = (void *)__cil_tmp57;
+    __cil_tmp57 = (void *)__cil_tmp56;
 #line 716
-    __cil_tmp59 = 0 * 1UL;
+    __cil_tmp58 = 0 * 1U;
 #line 716
-    __cil_tmp60 = 38 + __cil_tmp59;
+    __cil_tmp59 = 38 + __cil_tmp58;
 #line 716
-    __cil_tmp61 = (unsigned long )key;
+    __cil_tmp60 = (unsigned int )key;
 #line 716
-    __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
+    __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
 #line 716
-    __cil_tmp63 = (u8 *)__cil_tmp62;
+    __cil_tmp62 = (u8 *)__cil_tmp61;
 #line 716
-    __cil_tmp64 = __cil_tmp63 + 24;
+    __cil_tmp63 = __cil_tmp62 + 24;
 #line 716
-    __cil_tmp65 = (void const   *)__cil_tmp64;
+    __cil_tmp64 = (void const   *)__cil_tmp63;
 #line 716
-    __constant_memcpy(__cil_tmp58, __cil_tmp65, 8U);
+    __constant_memcpy(__cil_tmp57, __cil_tmp64, 8U);
 #line 717
-    __cil_tmp66 = 0 * 1UL;
+    __cil_tmp65 = 0 * 1U;
 #line 717
-    __cil_tmp67 = 20 + __cil_tmp66;
+    __cil_tmp66 = 20 + __cil_tmp65;
 #line 717
-    __cil_tmp68 = (unsigned long )(& wl_key) + __cil_tmp67;
+    __cil_tmp67 = (unsigned int )(& wl_key) + __cil_tmp66;
 #line 717
-    __cil_tmp69 = (u8 *)__cil_tmp68;
+    __cil_tmp68 = (u8 *)__cil_tmp67;
 #line 717
-    __cil_tmp70 = __cil_tmp69 + 24;
+    __cil_tmp69 = __cil_tmp68 + 24;
 #line 717
-    __cil_tmp71 = (void *)__cil_tmp70;
+    __cil_tmp70 = (void *)__cil_tmp69;
 #line 717
-    __cil_tmp72 = 0 * 1UL;
+    __cil_tmp71 = 0 * 1U;
 #line 717
-    __cil_tmp73 = 38 + __cil_tmp72;
+    __cil_tmp72 = 38 + __cil_tmp71;
 #line 717
-    __cil_tmp74 = (unsigned long )key;
+    __cil_tmp73 = (unsigned int )key;
 #line 717
-    __cil_tmp75 = __cil_tmp74 + __cil_tmp73;
+    __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
 #line 717
-    __cil_tmp76 = (u8 *)__cil_tmp75;
+    __cil_tmp75 = (u8 *)__cil_tmp74;
 #line 717
-    __cil_tmp77 = __cil_tmp76 + 16;
+    __cil_tmp76 = __cil_tmp75 + 16;
 #line 717
-    __cil_tmp78 = (void const   *)__cil_tmp77;
+    __cil_tmp77 = (void const   *)__cil_tmp76;
 #line 717
-    __constant_memcpy(__cil_tmp71, __cil_tmp78, 8U);
+    __constant_memcpy(__cil_tmp70, __cil_tmp77, 8U);
     }
   } else {
     {
 #line 707
-    __cil_tmp79 = (unsigned long )(& wl_key) + 11;
+    __cil_tmp78 = (unsigned int )(& wl_key) + 11;
 #line 707
-    __cil_tmp80 = *((u8 *)__cil_tmp79);
+    __cil_tmp79 = *((u8 *)__cil_tmp78);
 #line 707
-    __cil_tmp81 = (int )__cil_tmp80;
+    __cil_tmp80 = (int )__cil_tmp79;
 #line 707
-    if (__cil_tmp81 == 11) {
+    if (__cil_tmp80 == 11) {
       {
 #line 715
-      __cil_tmp82 = 0 * 1UL;
+      __cil_tmp81 = 0 * 1U;
 #line 715
-      __cil_tmp83 = 20 + __cil_tmp82;
+      __cil_tmp82 = 20 + __cil_tmp81;
 #line 715
-      __cil_tmp84 = (unsigned long )(& wl_key) + __cil_tmp83;
+      __cil_tmp83 = (unsigned int )(& wl_key) + __cil_tmp82;
 #line 715
-      __cil_tmp85 = (u8 *)__cil_tmp84;
+      __cil_tmp84 = (u8 *)__cil_tmp83;
 #line 715
-      __cil_tmp86 = (void *)__cil_tmp85;
+      __cil_tmp85 = (void *)__cil_tmp84;
 #line 715
-      __cil_tmp87 = 0 * 1UL;
+      __cil_tmp86 = 0 * 1U;
 #line 715
-      __cil_tmp88 = 38 + __cil_tmp87;
+      __cil_tmp87 = 38 + __cil_tmp86;
 #line 715
-      __cil_tmp89 = (unsigned long )key;
+      __cil_tmp88 = (unsigned int )key;
 #line 715
-      __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
+      __cil_tmp89 = __cil_tmp88 + __cil_tmp87;
 #line 715
-      __cil_tmp91 = (u8 *)__cil_tmp90;
+      __cil_tmp90 = (u8 *)__cil_tmp89;
 #line 715
-      __cil_tmp92 = (void const   *)__cil_tmp91;
+      __cil_tmp91 = (void const   *)__cil_tmp90;
 #line 715
-      __constant_memcpy(__cil_tmp86, __cil_tmp92, 16U);
+      __constant_memcpy(__cil_tmp85, __cil_tmp91, 16U);
 #line 716
-      __cil_tmp93 = 0 * 1UL;
+      __cil_tmp92 = 0 * 1U;
 #line 716
-      __cil_tmp94 = 20 + __cil_tmp93;
+      __cil_tmp93 = 20 + __cil_tmp92;
 #line 716
-      __cil_tmp95 = (unsigned long )(& wl_key) + __cil_tmp94;
+      __cil_tmp94 = (unsigned int )(& wl_key) + __cil_tmp93;
 #line 716
-      __cil_tmp96 = (u8 *)__cil_tmp95;
+      __cil_tmp95 = (u8 *)__cil_tmp94;
 #line 716
-      __cil_tmp97 = __cil_tmp96 + 16;
+      __cil_tmp96 = __cil_tmp95 + 16;
 #line 716
-      __cil_tmp98 = (void *)__cil_tmp97;
+      __cil_tmp97 = (void *)__cil_tmp96;
 #line 716
-      __cil_tmp99 = 0 * 1UL;
+      __cil_tmp98 = 0 * 1U;
 #line 716
-      __cil_tmp100 = 38 + __cil_tmp99;
+      __cil_tmp99 = 38 + __cil_tmp98;
 #line 716
-      __cil_tmp101 = (unsigned long )key;
+      __cil_tmp100 = (unsigned int )key;
 #line 716
-      __cil_tmp102 = __cil_tmp101 + __cil_tmp100;
+      __cil_tmp101 = __cil_tmp100 + __cil_tmp99;
 #line 716
-      __cil_tmp103 = (u8 *)__cil_tmp102;
+      __cil_tmp102 = (u8 *)__cil_tmp101;
 #line 716
-      __cil_tmp104 = __cil_tmp103 + 24;
+      __cil_tmp103 = __cil_tmp102 + 24;
 #line 716
-      __cil_tmp105 = (void const   *)__cil_tmp104;
+      __cil_tmp104 = (void const   *)__cil_tmp103;
 #line 716
-      __constant_memcpy(__cil_tmp98, __cil_tmp105, 8U);
+      __constant_memcpy(__cil_tmp97, __cil_tmp104, 8U);
 #line 717
-      __cil_tmp106 = 0 * 1UL;
+      __cil_tmp105 = 0 * 1U;
 #line 717
-      __cil_tmp107 = 20 + __cil_tmp106;
+      __cil_tmp106 = 20 + __cil_tmp105;
 #line 717
-      __cil_tmp108 = (unsigned long )(& wl_key) + __cil_tmp107;
+      __cil_tmp107 = (unsigned int )(& wl_key) + __cil_tmp106;
 #line 717
-      __cil_tmp109 = (u8 *)__cil_tmp108;
+      __cil_tmp108 = (u8 *)__cil_tmp107;
 #line 717
-      __cil_tmp110 = __cil_tmp109 + 24;
+      __cil_tmp109 = __cil_tmp108 + 24;
 #line 717
-      __cil_tmp111 = (void *)__cil_tmp110;
+      __cil_tmp110 = (void *)__cil_tmp109;
 #line 717
-      __cil_tmp112 = 0 * 1UL;
+      __cil_tmp111 = 0 * 1U;
 #line 717
-      __cil_tmp113 = 38 + __cil_tmp112;
+      __cil_tmp112 = 38 + __cil_tmp111;
 #line 717
-      __cil_tmp114 = (unsigned long )key;
+      __cil_tmp113 = (unsigned int )key;
 #line 717
-      __cil_tmp115 = __cil_tmp114 + __cil_tmp113;
+      __cil_tmp114 = __cil_tmp113 + __cil_tmp112;
 #line 717
-      __cil_tmp116 = (u8 *)__cil_tmp115;
+      __cil_tmp115 = (u8 *)__cil_tmp114;
 #line 717
-      __cil_tmp117 = __cil_tmp116 + 16;
+      __cil_tmp116 = __cil_tmp115 + 16;
 #line 717
-      __cil_tmp118 = (void const   *)__cil_tmp117;
+      __cil_tmp117 = (void const   *)__cil_tmp116;
 #line 717
-      __constant_memcpy(__cil_tmp111, __cil_tmp118, 8U);
+      __constant_memcpy(__cil_tmp110, __cil_tmp117, 8U);
       }
     } else {
       {
 #line 720
-      __cil_tmp119 = 0 * 1UL;
+      __cil_tmp118 = 0 * 1U;
 #line 720
-      __cil_tmp120 = 20 + __cil_tmp119;
+      __cil_tmp119 = 20 + __cil_tmp118;
 #line 720
-      __cil_tmp121 = (unsigned long )(& wl_key) + __cil_tmp120;
+      __cil_tmp120 = (unsigned int )(& wl_key) + __cil_tmp119;
 #line 720
-      __cil_tmp122 = (u8 *)__cil_tmp121;
+      __cil_tmp121 = (u8 *)__cil_tmp120;
 #line 720
-      __cil_tmp123 = (void *)__cil_tmp122;
+      __cil_tmp122 = (void *)__cil_tmp121;
 #line 720
-      __cil_tmp124 = 0 * 1UL;
+      __cil_tmp123 = 0 * 1U;
 #line 720
-      __cil_tmp125 = 38 + __cil_tmp124;
+      __cil_tmp124 = 38 + __cil_tmp123;
 #line 720
-      __cil_tmp126 = (unsigned long )key;
+      __cil_tmp125 = (unsigned int )key;
 #line 720
-      __cil_tmp127 = __cil_tmp126 + __cil_tmp125;
+      __cil_tmp126 = __cil_tmp125 + __cil_tmp124;
 #line 720
-      __cil_tmp128 = (u8 *)__cil_tmp127;
+      __cil_tmp127 = (u8 *)__cil_tmp126;
 #line 720
-      __cil_tmp129 = (void const   *)__cil_tmp128;
+      __cil_tmp128 = (void const   *)__cil_tmp127;
 #line 720
-      __cil_tmp130 = (unsigned long )key;
+      __cil_tmp129 = (unsigned int )key;
 #line 720
-      __cil_tmp131 = __cil_tmp130 + 37;
+      __cil_tmp130 = __cil_tmp129 + 37;
 #line 720
-      __cil_tmp132 = *((u8 *)__cil_tmp131);
+      __cil_tmp131 = *((u8 *)__cil_tmp130);
 #line 720
-      __cil_tmp133 = (unsigned int )__cil_tmp132;
+      __cil_tmp132 = (unsigned int )__cil_tmp131;
 #line 720
-      __memcpy(__cil_tmp123, __cil_tmp129, __cil_tmp133);
+      __memcpy(__cil_tmp122, __cil_tmp128, __cil_tmp132);
       }
     }
     }
   }
   }
 #line 722
-  __cil_tmp134 = (unsigned long )(& wl_key) + 10;
+  __cil_tmp133 = (unsigned int )(& wl_key) + 10;
 #line 722
-  __cil_tmp135 = (unsigned long )key;
+  __cil_tmp134 = (unsigned int )key;
 #line 722
-  __cil_tmp136 = __cil_tmp135 + 37;
+  __cil_tmp135 = __cil_tmp134 + 37;
 #line 722
-  *((u8 *)__cil_tmp134) = *((u8 *)__cil_tmp136);
+  *((u8 *)__cil_tmp133) = *((u8 *)__cil_tmp135);
 #line 724
-  __cil_tmp137 = (unsigned long )(& wl_key) + 13;
+  __cil_tmp136 = (unsigned int )(& wl_key) + 13;
 #line 724
-  __cil_tmp138 = (unsigned long )key;
+  __cil_tmp137 = (unsigned int )key;
 #line 724
-  __cil_tmp139 = __cil_tmp138 + 36;
+  __cil_tmp138 = __cil_tmp137 + 36;
 #line 724
-  __cil_tmp140 = *((s8 *)__cil_tmp139);
+  __cil_tmp139 = *((s8 *)__cil_tmp138);
 #line 724
-  *((u8 *)__cil_tmp137) = (unsigned char )__cil_tmp140;
+  *((u8 *)__cil_tmp136) = (unsigned char )__cil_tmp139;
 #line 725
-  __cil_tmp141 = (unsigned long )(& wl_key) + 12;
+  __cil_tmp140 = (unsigned int )(& wl_key) + 12;
 #line 725
-  *((u8 *)__cil_tmp141) = (unsigned char)0;
+  *((u8 *)__cil_tmp140) = (unsigned char)0;
   {
 #line 727
   while (1) {
@@ -9701,11 +9685,9 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
   while_28_break: 
   {
 #line 729
-  __cil_tmp142 = (void *)(& wl_key);
+  __cil_tmp141 = (void *)(& wl_key);
 #line 729
-  __cil_tmp143 = (unsigned int )76UL;
-#line 729
-  tmp___2 = wl12xx_cmd_send(wl, (unsigned short)12, __cil_tmp142, __cil_tmp143);
+  tmp___2 = wl12xx_cmd_send(wl, (unsigned short)12, __cil_tmp141, 76U);
   }
 #line 729
   if (tmp___2 < 0) {
@@ -9722,13 +9704,13 @@ static int wl12xx_op_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , st
   out: 
   {
 #line 736
-  __cil_tmp144 = (unsigned long )wl;
+  __cil_tmp142 = (unsigned int )wl;
 #line 736
-  __cil_tmp145 = __cil_tmp144 + 72;
+  __cil_tmp143 = __cil_tmp142 + 52;
 #line 736
-  __cil_tmp146 = (struct mutex *)__cil_tmp145;
+  __cil_tmp144 = (struct mutex *)__cil_tmp143;
 #line 736
-  mutex_unlock(__cil_tmp146);
+  mutex_unlock(__cil_tmp144);
   }
 #line 737
   return (ret);
@@ -9993,110 +9975,103 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
   int tmp ;
   int tmp___0 ;
   int tmp___2 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   u8 *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   u8 *__cil_tmp21 ;
   void *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   u8 *__cil_tmp27 ;
   void *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
   u8 *__cil_tmp33 ;
   void const   *__cil_tmp34 ;
   struct wl12xx_probe_req_template *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
   char *__cil_tmp44 ;
   void *__cil_tmp45 ;
   void const   *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
   unsigned int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  u8 *__cil_tmp57 ;
-  char *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  u8 __cil_tmp65 ;
+  int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  u8 *__cil_tmp55 ;
+  char *__cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  u8 __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
   unsigned int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
+  unsigned int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
   unsigned int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  u8 __cil_tmp75 ;
+  unsigned int __cil_tmp70 ;
+  u8 __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
   unsigned int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  u8 *__cil_tmp83 ;
-  char *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  u8 __cil_tmp91 ;
+  unsigned int __cil_tmp77 ;
+  u8 *__cil_tmp78 ;
+  char *__cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  unsigned int __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
+  unsigned int __cil_tmp85 ;
+  u8 __cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
+  unsigned int __cil_tmp90 ;
+  void *__cil_tmp91 ;
   unsigned int __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  void *__cil_tmp98 ;
-  unsigned int __cil_tmp99 ;
 
   {
   {
 #line 776
   ptr = (char *)(& template);
 #line 777
-  size = (unsigned short )24UL;
+  size = (unsigned short )24U;
 #line 779
-  __cil_tmp11 = 0 * 1UL;
+  __cil_tmp11 = 0 * 1U;
 #line 779
   __cil_tmp12 = 4 + __cil_tmp11;
 #line 779
   __cil_tmp13 = 0 + __cil_tmp12;
 #line 779
-  __cil_tmp14 = (unsigned long )(& template) + __cil_tmp13;
+  __cil_tmp14 = (unsigned int )(& template) + __cil_tmp13;
 #line 779
   __cil_tmp15 = (u8 *)__cil_tmp14;
 #line 779
@@ -10104,13 +10079,13 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
 #line 779
   __constant_c_and_count_memset(__cil_tmp16, 4294967295UL, 6U);
 #line 780
-  __cil_tmp17 = 0 * 1UL;
+  __cil_tmp17 = 0 * 1U;
 #line 780
   __cil_tmp18 = 16 + __cil_tmp17;
 #line 780
   __cil_tmp19 = 0 + __cil_tmp18;
 #line 780
-  __cil_tmp20 = (unsigned long )(& template) + __cil_tmp19;
+  __cil_tmp20 = (unsigned int )(& template) + __cil_tmp19;
 #line 780
   __cil_tmp21 = (u8 *)__cil_tmp20;
 #line 780
@@ -10118,23 +10093,23 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
 #line 780
   __constant_c_and_count_memset(__cil_tmp22, 4294967295UL, 6U);
 #line 781
-  __cil_tmp23 = 0 * 1UL;
+  __cil_tmp23 = 0 * 1U;
 #line 781
   __cil_tmp24 = 10 + __cil_tmp23;
 #line 781
   __cil_tmp25 = 0 + __cil_tmp24;
 #line 781
-  __cil_tmp26 = (unsigned long )(& template) + __cil_tmp25;
+  __cil_tmp26 = (unsigned int )(& template) + __cil_tmp25;
 #line 781
   __cil_tmp27 = (u8 *)__cil_tmp26;
 #line 781
   __cil_tmp28 = (void *)__cil_tmp27;
 #line 781
-  __cil_tmp29 = 0 * 1UL;
+  __cil_tmp29 = 0 * 1U;
 #line 781
-  __cil_tmp30 = 346 + __cil_tmp29;
+  __cil_tmp30 = 238 + __cil_tmp29;
 #line 781
-  __cil_tmp31 = (unsigned long )wl;
+  __cil_tmp31 = (unsigned int )wl;
 #line 781
   __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
 #line 781
@@ -10148,7 +10123,7 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
 #line 782
   *((__le16 *)__cil_tmp35) = (unsigned short)64;
 #line 786
-  __cil_tmp36 = (unsigned long )(& template) + 24;
+  __cil_tmp36 = (unsigned int )(& template) + 24;
 #line 786
   *((u8 *)__cil_tmp36) = (unsigned char)0;
 #line 787
@@ -10156,7 +10131,7 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
 #line 787
   __cil_tmp38 = 24 + __cil_tmp37;
 #line 787
-  __cil_tmp39 = (unsigned long )(& template) + __cil_tmp38;
+  __cil_tmp39 = (unsigned int )(& template) + __cil_tmp38;
 #line 787
   *((u8 *)__cil_tmp39) = (unsigned char )ssid_len;
   }
@@ -10166,13 +10141,13 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
     if (ssid) {
       {
 #line 789
-      __cil_tmp40 = 0 * 1UL;
+      __cil_tmp40 = 0 * 1U;
 #line 789
       __cil_tmp41 = 2 + __cil_tmp40;
 #line 789
       __cil_tmp42 = 24 + __cil_tmp41;
 #line 789
-      __cil_tmp43 = (unsigned long )(& template) + __cil_tmp42;
+      __cil_tmp43 = (unsigned int )(& template) + __cil_tmp42;
 #line 789
       __cil_tmp44 = (char *)__cil_tmp43;
 #line 789
@@ -10190,133 +10165,119 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
   }
   {
 #line 790
-  __cil_tmp47 = (unsigned long )ssid_len;
+  __cil_tmp47 = 2U + ssid_len;
 #line 790
-  __cil_tmp48 = 2UL + __cil_tmp47;
+  __cil_tmp48 = (unsigned int )size;
 #line 790
-  __cil_tmp49 = (unsigned int )size;
+  __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
 #line 790
-  __cil_tmp50 = (unsigned long )__cil_tmp49;
-#line 790
-  __cil_tmp51 = __cil_tmp50 + __cil_tmp48;
-#line 790
-  size = (unsigned short )__cil_tmp51;
+  size = (unsigned short )__cil_tmp49;
 #line 791
-  __cil_tmp52 = (int )size;
+  __cil_tmp50 = (int )size;
 #line 791
-  ptr = ptr + __cil_tmp52;
+  ptr = ptr + __cil_tmp50;
 #line 794
   rates = (struct wl12xx_ie_rates *)ptr;
 #line 795
   *((u8 *)rates) = (unsigned char)1;
 #line 796
-  __cil_tmp53 = 0 * 1UL;
+  __cil_tmp51 = 0 * 1U;
 #line 796
-  __cil_tmp54 = 2 + __cil_tmp53;
+  __cil_tmp52 = 2 + __cil_tmp51;
 #line 796
-  __cil_tmp55 = (unsigned long )rates;
+  __cil_tmp53 = (unsigned int )rates;
 #line 796
-  __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
+  __cil_tmp54 = __cil_tmp53 + __cil_tmp52;
 #line 796
-  __cil_tmp57 = (u8 *)__cil_tmp56;
+  __cil_tmp55 = (u8 *)__cil_tmp54;
 #line 796
-  __cil_tmp58 = (char *)__cil_tmp57;
+  __cil_tmp56 = (char *)__cil_tmp55;
 #line 796
-  tmp = wl12xx_build_basic_rates(__cil_tmp58);
+  tmp = wl12xx_build_basic_rates(__cil_tmp56);
 #line 796
-  __cil_tmp59 = 0 + 1;
+  __cil_tmp57 = 0 + 1;
 #line 796
-  __cil_tmp60 = (unsigned long )rates;
+  __cil_tmp58 = (unsigned int )rates;
 #line 796
-  __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
+  __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
 #line 796
-  *((u8 *)__cil_tmp61) = (unsigned char )tmp;
+  *((u8 *)__cil_tmp59) = (unsigned char )tmp;
 #line 797
-  __cil_tmp62 = 0 + 1;
+  __cil_tmp60 = 0 + 1;
 #line 797
-  __cil_tmp63 = (unsigned long )rates;
+  __cil_tmp61 = (unsigned int )rates;
 #line 797
-  __cil_tmp64 = __cil_tmp63 + __cil_tmp62;
+  __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
 #line 797
-  __cil_tmp65 = *((u8 *)__cil_tmp64);
+  __cil_tmp63 = *((u8 *)__cil_tmp62);
 #line 797
-  __cil_tmp66 = (unsigned int )__cil_tmp65;
+  __cil_tmp64 = (unsigned int )__cil_tmp63;
 #line 797
-  __cil_tmp67 = (unsigned long )__cil_tmp66;
+  __cil_tmp65 = 2U + __cil_tmp64;
 #line 797
-  __cil_tmp68 = 2UL + __cil_tmp67;
+  __cil_tmp66 = (unsigned int )size;
 #line 797
-  __cil_tmp69 = (unsigned int )size;
+  __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
 #line 797
-  __cil_tmp70 = (unsigned long )__cil_tmp69;
-#line 797
-  __cil_tmp71 = __cil_tmp70 + __cil_tmp68;
-#line 797
-  size = (unsigned short )__cil_tmp71;
+  size = (unsigned short )__cil_tmp67;
 #line 798
-  __cil_tmp72 = 0 + 1;
+  __cil_tmp68 = 0 + 1;
 #line 798
-  __cil_tmp73 = (unsigned long )rates;
+  __cil_tmp69 = (unsigned int )rates;
 #line 798
-  __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
+  __cil_tmp70 = __cil_tmp69 + __cil_tmp68;
 #line 798
-  __cil_tmp75 = *((u8 *)__cil_tmp74);
+  __cil_tmp71 = *((u8 *)__cil_tmp70);
 #line 798
-  __cil_tmp76 = (unsigned int )__cil_tmp75;
+  __cil_tmp72 = (unsigned int )__cil_tmp71;
 #line 798
-  __cil_tmp77 = (unsigned long )__cil_tmp76;
+  __cil_tmp73 = 2U + __cil_tmp72;
 #line 798
-  __cil_tmp78 = 2UL + __cil_tmp77;
-#line 798
-  ptr = ptr + __cil_tmp78;
+  ptr = ptr + __cil_tmp73;
 #line 801
   rates = (struct wl12xx_ie_rates *)ptr;
 #line 802
   *((u8 *)rates) = (unsigned char)50;
 #line 803
-  __cil_tmp79 = 0 * 1UL;
+  __cil_tmp74 = 0 * 1U;
 #line 803
-  __cil_tmp80 = 2 + __cil_tmp79;
+  __cil_tmp75 = 2 + __cil_tmp74;
 #line 803
-  __cil_tmp81 = (unsigned long )rates;
+  __cil_tmp76 = (unsigned int )rates;
+#line 803
+  __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
+#line 803
+  __cil_tmp78 = (u8 *)__cil_tmp77;
+#line 803
+  __cil_tmp79 = (char *)__cil_tmp78;
+#line 803
+  tmp___0 = wl12xx_build_extended_rates(__cil_tmp79);
+#line 803
+  __cil_tmp80 = 0 + 1;
+#line 803
+  __cil_tmp81 = (unsigned int )rates;
 #line 803
   __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
 #line 803
-  __cil_tmp83 = (u8 *)__cil_tmp82;
-#line 803
-  __cil_tmp84 = (char *)__cil_tmp83;
-#line 803
-  tmp___0 = wl12xx_build_extended_rates(__cil_tmp84);
-#line 803
-  __cil_tmp85 = 0 + 1;
-#line 803
-  __cil_tmp86 = (unsigned long )rates;
-#line 803
-  __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
-#line 803
-  *((u8 *)__cil_tmp87) = (unsigned char )tmp___0;
+  *((u8 *)__cil_tmp82) = (unsigned char )tmp___0;
 #line 804
-  __cil_tmp88 = 0 + 1;
+  __cil_tmp83 = 0 + 1;
 #line 804
-  __cil_tmp89 = (unsigned long )rates;
+  __cil_tmp84 = (unsigned int )rates;
+#line 804
+  __cil_tmp85 = __cil_tmp84 + __cil_tmp83;
+#line 804
+  __cil_tmp86 = *((u8 *)__cil_tmp85);
+#line 804
+  __cil_tmp87 = (unsigned int )__cil_tmp86;
+#line 804
+  __cil_tmp88 = 2U + __cil_tmp87;
+#line 804
+  __cil_tmp89 = (unsigned int )size;
 #line 804
   __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
 #line 804
-  __cil_tmp91 = *((u8 *)__cil_tmp90);
-#line 804
-  __cil_tmp92 = (unsigned int )__cil_tmp91;
-#line 804
-  __cil_tmp93 = (unsigned long )__cil_tmp92;
-#line 804
-  __cil_tmp94 = 2UL + __cil_tmp93;
-#line 804
-  __cil_tmp95 = (unsigned int )size;
-#line 804
-  __cil_tmp96 = (unsigned long )__cil_tmp95;
-#line 804
-  __cil_tmp97 = __cil_tmp96 + __cil_tmp94;
-#line 804
-  size = (unsigned short )__cil_tmp97;
+  size = (unsigned short )__cil_tmp90;
   }
   {
 #line 806
@@ -10330,11 +10291,11 @@ static int wl12xx_build_probe_req(struct wl12xx *wl , u8 *ssid , size_t ssid_len
   while_29_break: 
   {
 #line 808
-  __cil_tmp98 = (void *)(& template);
+  __cil_tmp91 = (void *)(& template);
 #line 808
-  __cil_tmp99 = (unsigned int )size;
+  __cil_tmp92 = (unsigned int )size;
 #line 808
-  tmp___2 = wl12xx_cmd_template_set(wl, (unsigned short)22, __cil_tmp98, __cil_tmp99);
+  tmp___2 = wl12xx_cmd_template_set(wl, (unsigned short)22, __cil_tmp91, __cil_tmp92);
   }
 #line 808
   return (tmp___2);
@@ -10351,12 +10312,12 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   struct wl12xx_command *cmd_answer ;
   void *tmp ;
   u32 *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
@@ -10367,131 +10328,126 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u32 *__cil_tmp64 ;
-  void *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  u16 *__cil_tmp71 ;
-  void *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  int __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  u8 *__cil_tmp96 ;
-  void *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  struct basic_scan_channel_parameters *__cil_tmp102 ;
-  void *__cil_tmp103 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  u32 *__cil_tmp63 ;
+  void *__cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  u16 *__cil_tmp70 ;
+  void *__cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  unsigned int __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
+  unsigned int __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
+  int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
+  unsigned int __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
+  unsigned int __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  u8 *__cil_tmp95 ;
+  void *__cil_tmp96 ;
+  unsigned int __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  struct basic_scan_channel_parameters *__cil_tmp101 ;
+  void *__cil_tmp102 ;
+  unsigned int __cil_tmp103 ;
   unsigned int __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  u32 *__cil_tmp113 ;
-  void *__cil_tmp114 ;
-  void const   *__cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  u32 *__cil_tmp124 ;
-  void *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  u32 *__cil_tmp134 ;
-  void *__cil_tmp135 ;
-  void *__cil_tmp136 ;
-  unsigned int __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  void *__cil_tmp140 ;
-  unsigned int __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  int __cil_tmp144 ;
-  void *__cil_tmp145 ;
+  unsigned int __cil_tmp105 ;
+  unsigned int __cil_tmp106 ;
+  unsigned int __cil_tmp107 ;
+  unsigned int __cil_tmp108 ;
+  unsigned int __cil_tmp109 ;
+  unsigned int __cil_tmp110 ;
+  u32 *__cil_tmp111 ;
+  void *__cil_tmp112 ;
+  void const   *__cil_tmp113 ;
+  unsigned int __cil_tmp114 ;
+  unsigned int __cil_tmp115 ;
+  unsigned int __cil_tmp116 ;
+  unsigned int __cil_tmp117 ;
+  unsigned int __cil_tmp118 ;
+  unsigned int __cil_tmp119 ;
+  unsigned int __cil_tmp120 ;
+  unsigned int __cil_tmp121 ;
+  u32 *__cil_tmp122 ;
+  void *__cil_tmp123 ;
+  unsigned int __cil_tmp124 ;
+  unsigned int __cil_tmp125 ;
+  unsigned int __cil_tmp126 ;
+  unsigned int __cil_tmp127 ;
+  unsigned int __cil_tmp128 ;
+  unsigned int __cil_tmp129 ;
+  unsigned int __cil_tmp130 ;
+  unsigned int __cil_tmp131 ;
+  u32 *__cil_tmp132 ;
+  void *__cil_tmp133 ;
+  void *__cil_tmp134 ;
+  unsigned int __cil_tmp135 ;
+  unsigned int __cil_tmp136 ;
+  void *__cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
+  unsigned int __cil_tmp139 ;
+  int __cil_tmp140 ;
+  void *__cil_tmp141 ;
+  unsigned int __cil_tmp142 ;
+  unsigned int __cil_tmp143 ;
+  u16 __cil_tmp144 ;
+  int __cil_tmp145 ;
   unsigned int __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  u16 __cil_tmp149 ;
-  int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  u16 __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  void const   *__cil_tmp156 ;
+  unsigned int __cil_tmp147 ;
+  u16 __cil_tmp148 ;
+  unsigned int __cil_tmp149 ;
+  unsigned int __cil_tmp150 ;
+  void const   *__cil_tmp151 ;
 
   {
 #line 817
@@ -10502,9 +10458,9 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   scan_options = (unsigned short)0;
   {
 #line 822
-  __cil_tmp16 = (unsigned long )wl;
+  __cil_tmp16 = (unsigned int )wl;
 #line 822
-  __cil_tmp17 = __cil_tmp16 + 700;
+  __cil_tmp17 = __cil_tmp16 + 444;
 #line 822
   if (*((bool *)__cil_tmp17)) {
 #line 823
@@ -10515,9 +10471,7 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   }
   {
 #line 825
-  __cil_tmp18 = (unsigned int )368UL;
-#line 825
-  tmp = kzalloc(__cil_tmp18, 208U);
+  tmp = kzalloc(368U, 208U);
 #line 825
   params = (struct cmd_scan *)tmp;
   }
@@ -10529,93 +10483,93 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
 
   }
 #line 829
-  __cil_tmp19 = 1UL << 3;
+  __cil_tmp18 = 1UL << 3;
 #line 829
-  *((u32 *)params) = (unsigned int )__cil_tmp19;
+  *((u32 *)params) = (unsigned int )__cil_tmp18;
 #line 830
-  __cil_tmp20 = 0 + 4;
+  __cil_tmp19 = 0 + 4;
 #line 830
-  __cil_tmp21 = (unsigned long )params;
+  __cil_tmp20 = (unsigned int )params;
 #line 830
-  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
+  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
 #line 830
-  __cil_tmp23 = 1UL << 9;
+  __cil_tmp22 = 1UL << 9;
 #line 830
-  __cil_tmp24 = 1UL << 4;
+  __cil_tmp23 = 1UL << 4;
 #line 830
-  __cil_tmp25 = 1UL << 2;
+  __cil_tmp24 = 1UL << 2;
 #line 830
-  __cil_tmp26 = __cil_tmp25 | __cil_tmp24;
+  __cil_tmp25 = __cil_tmp24 | __cil_tmp23;
 #line 830
-  __cil_tmp27 = __cil_tmp26 | __cil_tmp23;
+  __cil_tmp26 = __cil_tmp25 | __cil_tmp22;
 #line 830
-  *((u32 *)__cil_tmp22) = (unsigned int )__cil_tmp27;
+  *((u32 *)__cil_tmp21) = (unsigned int )__cil_tmp26;
 #line 834
   if (! active_scan) {
 #line 835
-    __cil_tmp28 = (unsigned long )scan_options;
+    __cil_tmp27 = (unsigned long )scan_options;
 #line 835
-    __cil_tmp29 = __cil_tmp28 | 1UL;
+    __cil_tmp28 = __cil_tmp27 | 1UL;
 #line 835
-    scan_options = (unsigned short )__cil_tmp29;
+    scan_options = (unsigned short )__cil_tmp28;
   } else {
 
   }
 #line 836
   if (high_prio) {
 #line 837
-    __cil_tmp30 = 1UL << 3;
+    __cil_tmp29 = 1UL << 3;
 #line 837
-    __cil_tmp31 = (unsigned long )scan_options;
+    __cil_tmp30 = (unsigned long )scan_options;
 #line 837
-    __cil_tmp32 = __cil_tmp31 | __cil_tmp30;
+    __cil_tmp31 = __cil_tmp30 | __cil_tmp29;
 #line 837
-    scan_options = (unsigned short )__cil_tmp32;
+    scan_options = (unsigned short )__cil_tmp31;
   } else {
 
   }
 #line 838
-  __cil_tmp33 = 0 + 8;
+  __cil_tmp32 = 0 + 8;
 #line 838
-  __cil_tmp34 = (unsigned long )params;
+  __cil_tmp33 = (unsigned int )params;
 #line 838
-  __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
+  __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
 #line 838
-  *((u16 *)__cil_tmp35) = scan_options;
+  *((u16 *)__cil_tmp34) = scan_options;
 #line 840
-  __cil_tmp36 = 0 + 10;
+  __cil_tmp35 = 0 + 10;
 #line 840
-  __cil_tmp37 = (unsigned long )params;
+  __cil_tmp36 = (unsigned int )params;
 #line 840
-  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
+  __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
 #line 840
-  *((u8 *)__cil_tmp38) = num_channels;
+  *((u8 *)__cil_tmp37) = num_channels;
 #line 841
-  __cil_tmp39 = 0 + 11;
+  __cil_tmp38 = 0 + 11;
 #line 841
-  __cil_tmp40 = (unsigned long )params;
+  __cil_tmp39 = (unsigned int )params;
 #line 841
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
+  __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
 #line 841
-  *((u8 *)__cil_tmp41) = probe_requests;
+  *((u8 *)__cil_tmp40) = probe_requests;
 #line 842
-  __cil_tmp42 = 0 + 12;
+  __cil_tmp41 = 0 + 12;
 #line 842
-  __cil_tmp43 = (unsigned long )params;
+  __cil_tmp42 = (unsigned int )params;
 #line 842
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
+  __cil_tmp43 = __cil_tmp42 + __cil_tmp41;
 #line 842
-  __cil_tmp45 = 1 << 1;
+  __cil_tmp44 = 1 << 1;
 #line 842
-  *((u16 *)__cil_tmp44) = (unsigned short )__cil_tmp45;
+  *((u16 *)__cil_tmp43) = (unsigned short )__cil_tmp44;
 #line 843
-  __cil_tmp46 = 0 + 14;
+  __cil_tmp45 = 0 + 14;
 #line 843
-  __cil_tmp47 = (unsigned long )params;
+  __cil_tmp46 = (unsigned int )params;
 #line 843
-  __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
+  __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
 #line 843
-  *((u8 *)__cil_tmp48) = (unsigned char)0;
+  *((u8 *)__cil_tmp47) = (unsigned char)0;
 #line 845
   i = 0;
   {
@@ -10625,9 +10579,9 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
 
     {
 #line 845
-    __cil_tmp49 = (int )num_channels;
+    __cil_tmp48 = (int )num_channels;
 #line 845
-    if (i < __cil_tmp49) {
+    if (i < __cil_tmp48) {
 
     } else {
       goto while_30_break;
@@ -10635,117 +10589,117 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
     }
     {
 #line 846
-    __cil_tmp50 = i * 20UL;
+    __cil_tmp49 = i * 20U;
 #line 846
-    __cil_tmp51 = 48 + __cil_tmp50;
+    __cil_tmp50 = 48 + __cil_tmp49;
 #line 846
-    __cil_tmp52 = (unsigned long )params;
+    __cil_tmp51 = (unsigned int )params;
 #line 846
-    __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
+    __cil_tmp52 = __cil_tmp51 + __cil_tmp50;
 #line 846
-    *((u32 *)__cil_tmp53) = 30000U;
+    *((u32 *)__cil_tmp52) = 30000U;
 #line 847
-    __cil_tmp54 = i * 20UL;
+    __cil_tmp53 = i * 20U;
 #line 847
-    __cil_tmp55 = __cil_tmp54 + 4;
+    __cil_tmp54 = __cil_tmp53 + 4;
 #line 847
-    __cil_tmp56 = 48 + __cil_tmp55;
+    __cil_tmp55 = 48 + __cil_tmp54;
 #line 847
-    __cil_tmp57 = (unsigned long )params;
+    __cil_tmp56 = (unsigned int )params;
 #line 847
-    __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
+    __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
 #line 847
-    *((u32 *)__cil_tmp58) = 60000U;
+    *((u32 *)__cil_tmp57) = 60000U;
 #line 848
-    __cil_tmp59 = i * 20UL;
+    __cil_tmp58 = i * 20U;
 #line 848
-    __cil_tmp60 = __cil_tmp59 + 8;
+    __cil_tmp59 = __cil_tmp58 + 8;
 #line 848
-    __cil_tmp61 = 48 + __cil_tmp60;
+    __cil_tmp60 = 48 + __cil_tmp59;
 #line 848
-    __cil_tmp62 = (unsigned long )params;
+    __cil_tmp61 = (unsigned int )params;
 #line 848
-    __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
+    __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
 #line 848
-    __cil_tmp64 = (u32 *)__cil_tmp63;
+    __cil_tmp63 = (u32 *)__cil_tmp62;
 #line 848
-    __cil_tmp65 = (void *)__cil_tmp64;
+    __cil_tmp64 = (void *)__cil_tmp63;
 #line 848
-    __constant_c_and_count_memset(__cil_tmp65, 4294967295UL, 4U);
+    __constant_c_and_count_memset(__cil_tmp64, 4294967295UL, 4U);
 #line 849
-    __cil_tmp66 = i * 20UL;
+    __cil_tmp65 = i * 20U;
 #line 849
-    __cil_tmp67 = __cil_tmp66 + 12;
+    __cil_tmp66 = __cil_tmp65 + 12;
 #line 849
-    __cil_tmp68 = 48 + __cil_tmp67;
+    __cil_tmp67 = 48 + __cil_tmp66;
 #line 849
-    __cil_tmp69 = (unsigned long )params;
+    __cil_tmp68 = (unsigned int )params;
 #line 849
-    __cil_tmp70 = __cil_tmp69 + __cil_tmp68;
+    __cil_tmp69 = __cil_tmp68 + __cil_tmp67;
 #line 849
-    __cil_tmp71 = (u16 *)__cil_tmp70;
+    __cil_tmp70 = (u16 *)__cil_tmp69;
 #line 849
-    __cil_tmp72 = (void *)__cil_tmp71;
+    __cil_tmp71 = (void *)__cil_tmp70;
 #line 849
-    __constant_c_and_count_memset(__cil_tmp72, 4294967295UL, 2U);
+    __constant_c_and_count_memset(__cil_tmp71, 4294967295UL, 2U);
 #line 850
-    __cil_tmp73 = i * 20UL;
+    __cil_tmp72 = i * 20U;
 #line 850
-    __cil_tmp74 = __cil_tmp73 + 14;
+    __cil_tmp73 = __cil_tmp72 + 14;
 #line 850
-    __cil_tmp75 = 48 + __cil_tmp74;
+    __cil_tmp74 = 48 + __cil_tmp73;
 #line 850
-    __cil_tmp76 = (unsigned long )params;
+    __cil_tmp75 = (unsigned int )params;
 #line 850
-    __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
+    __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
 #line 850
-    *((u8 *)__cil_tmp77) = (unsigned char)0;
+    *((u8 *)__cil_tmp76) = (unsigned char)0;
 #line 851
-    __cil_tmp78 = i * 20UL;
+    __cil_tmp77 = i * 20U;
 #line 851
-    __cil_tmp79 = __cil_tmp78 + 15;
+    __cil_tmp78 = __cil_tmp77 + 15;
 #line 851
-    __cil_tmp80 = 48 + __cil_tmp79;
+    __cil_tmp79 = 48 + __cil_tmp78;
 #line 851
-    __cil_tmp81 = (unsigned long )params;
+    __cil_tmp80 = (unsigned int )params;
 #line 851
-    __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
+    __cil_tmp81 = __cil_tmp80 + __cil_tmp79;
 #line 851
-    *((u8 *)__cil_tmp82) = (unsigned char)0;
+    *((u8 *)__cil_tmp81) = (unsigned char)0;
 #line 852
-    __cil_tmp83 = i * 20UL;
+    __cil_tmp82 = i * 20U;
 #line 852
-    __cil_tmp84 = __cil_tmp83 + 16;
+    __cil_tmp83 = __cil_tmp82 + 16;
 #line 852
-    __cil_tmp85 = 48 + __cil_tmp84;
+    __cil_tmp84 = 48 + __cil_tmp83;
 #line 852
-    __cil_tmp86 = (unsigned long )params;
+    __cil_tmp85 = (unsigned int )params;
 #line 852
-    __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
+    __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
 #line 852
-    __cil_tmp88 = i + 1;
+    __cil_tmp87 = i + 1;
 #line 852
-    *((u8 *)__cil_tmp87) = (unsigned char )__cil_tmp88;
+    *((u8 *)__cil_tmp86) = (unsigned char )__cil_tmp87;
 #line 853
-    __cil_tmp89 = 0 * 1UL;
+    __cil_tmp88 = 0 * 1U;
 #line 853
-    __cil_tmp90 = 17 + __cil_tmp89;
+    __cil_tmp89 = 17 + __cil_tmp88;
 #line 853
-    __cil_tmp91 = i * 20UL;
+    __cil_tmp90 = i * 20U;
 #line 853
-    __cil_tmp92 = __cil_tmp91 + __cil_tmp90;
+    __cil_tmp91 = __cil_tmp90 + __cil_tmp89;
 #line 853
-    __cil_tmp93 = 48 + __cil_tmp92;
+    __cil_tmp92 = 48 + __cil_tmp91;
 #line 853
-    __cil_tmp94 = (unsigned long )params;
+    __cil_tmp93 = (unsigned int )params;
 #line 853
-    __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
+    __cil_tmp94 = __cil_tmp93 + __cil_tmp92;
 #line 853
-    __cil_tmp96 = (u8 *)__cil_tmp95;
+    __cil_tmp95 = (u8 *)__cil_tmp94;
 #line 853
-    __cil_tmp97 = (void *)__cil_tmp96;
+    __cil_tmp96 = (void *)__cil_tmp95;
 #line 853
-    __constant_c_and_count_memset(__cil_tmp97, 0UL, 3U);
+    __constant_c_and_count_memset(__cil_tmp96, 0UL, 3U);
 #line 845
     i = i + 1;
     }
@@ -10768,21 +10722,19 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
     }
     {
 #line 857
-    __cil_tmp98 = i * 20UL;
+    __cil_tmp97 = i * 20U;
 #line 857
-    __cil_tmp99 = 48 + __cil_tmp98;
+    __cil_tmp98 = 48 + __cil_tmp97;
 #line 857
-    __cil_tmp100 = (unsigned long )params;
+    __cil_tmp99 = (unsigned int )params;
 #line 857
-    __cil_tmp101 = __cil_tmp100 + __cil_tmp99;
+    __cil_tmp100 = __cil_tmp99 + __cil_tmp98;
 #line 857
-    __cil_tmp102 = (struct basic_scan_channel_parameters *)__cil_tmp101;
+    __cil_tmp101 = (struct basic_scan_channel_parameters *)__cil_tmp100;
 #line 857
-    __cil_tmp103 = (void *)__cil_tmp102;
+    __cil_tmp102 = (void *)__cil_tmp101;
 #line 857
-    __cil_tmp104 = (unsigned int )20UL;
-#line 857
-    __constant_c_and_count_memset(__cil_tmp103, 0UL, __cil_tmp104);
+    __constant_c_and_count_memset(__cil_tmp102, 0UL, 20U);
 #line 856
     i = i + 1;
     }
@@ -10796,86 +10748,86 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
     if (ssid) {
       {
 #line 861
-      __cil_tmp105 = 0 + 15;
+      __cil_tmp103 = 0 + 15;
 #line 861
-      __cil_tmp106 = (unsigned long )params;
+      __cil_tmp104 = (unsigned int )params;
 #line 861
-      __cil_tmp107 = __cil_tmp106 + __cil_tmp105;
+      __cil_tmp105 = __cil_tmp104 + __cil_tmp103;
 #line 861
-      *((u8 *)__cil_tmp107) = (unsigned char )len;
+      *((u8 *)__cil_tmp105) = (unsigned char )len;
 #line 862
-      __cil_tmp108 = 0 * 4UL;
+      __cil_tmp106 = 0 * 4U;
 #line 862
-      __cil_tmp109 = 16 + __cil_tmp108;
+      __cil_tmp107 = 16 + __cil_tmp106;
 #line 862
-      __cil_tmp110 = 0 + __cil_tmp109;
+      __cil_tmp108 = 0 + __cil_tmp107;
 #line 862
-      __cil_tmp111 = (unsigned long )params;
+      __cil_tmp109 = (unsigned int )params;
 #line 862
-      __cil_tmp112 = __cil_tmp111 + __cil_tmp110;
+      __cil_tmp110 = __cil_tmp109 + __cil_tmp108;
 #line 862
-      __cil_tmp113 = (u32 *)__cil_tmp112;
+      __cil_tmp111 = (u32 *)__cil_tmp110;
 #line 862
-      __cil_tmp114 = (void *)__cil_tmp113;
+      __cil_tmp112 = (void *)__cil_tmp111;
 #line 862
-      __cil_tmp115 = (void const   *)ssid;
+      __cil_tmp113 = (void const   *)ssid;
 #line 862
-      __memcpy(__cil_tmp114, __cil_tmp115, len);
+      __memcpy(__cil_tmp112, __cil_tmp113, len);
       }
     } else {
       {
 #line 864
-      __cil_tmp116 = 0 + 15;
+      __cil_tmp114 = 0 + 15;
 #line 864
-      __cil_tmp117 = (unsigned long )params;
+      __cil_tmp115 = (unsigned int )params;
 #line 864
-      __cil_tmp118 = __cil_tmp117 + __cil_tmp116;
+      __cil_tmp116 = __cil_tmp115 + __cil_tmp114;
 #line 864
-      *((u8 *)__cil_tmp118) = (unsigned char)0;
+      *((u8 *)__cil_tmp116) = (unsigned char)0;
 #line 865
-      __cil_tmp119 = 0 * 4UL;
+      __cil_tmp117 = 0 * 4U;
 #line 865
-      __cil_tmp120 = 16 + __cil_tmp119;
+      __cil_tmp118 = 16 + __cil_tmp117;
 #line 865
-      __cil_tmp121 = 0 + __cil_tmp120;
+      __cil_tmp119 = 0 + __cil_tmp118;
 #line 865
-      __cil_tmp122 = (unsigned long )params;
+      __cil_tmp120 = (unsigned int )params;
 #line 865
-      __cil_tmp123 = __cil_tmp122 + __cil_tmp121;
+      __cil_tmp121 = __cil_tmp120 + __cil_tmp119;
 #line 865
-      __cil_tmp124 = (u32 *)__cil_tmp123;
+      __cil_tmp122 = (u32 *)__cil_tmp121;
 #line 865
-      __cil_tmp125 = (void *)__cil_tmp124;
+      __cil_tmp123 = (void *)__cil_tmp122;
 #line 865
-      __constant_c_and_count_memset(__cil_tmp125, 0UL, 32U);
+      __constant_c_and_count_memset(__cil_tmp123, 0UL, 32U);
       }
     }
   } else {
     {
 #line 864
-    __cil_tmp126 = 0 + 15;
+    __cil_tmp124 = 0 + 15;
 #line 864
-    __cil_tmp127 = (unsigned long )params;
+    __cil_tmp125 = (unsigned int )params;
 #line 864
-    __cil_tmp128 = __cil_tmp127 + __cil_tmp126;
+    __cil_tmp126 = __cil_tmp125 + __cil_tmp124;
 #line 864
-    *((u8 *)__cil_tmp128) = (unsigned char)0;
+    *((u8 *)__cil_tmp126) = (unsigned char)0;
 #line 865
-    __cil_tmp129 = 0 * 4UL;
+    __cil_tmp127 = 0 * 4U;
 #line 865
-    __cil_tmp130 = 16 + __cil_tmp129;
+    __cil_tmp128 = 16 + __cil_tmp127;
 #line 865
-    __cil_tmp131 = 0 + __cil_tmp130;
+    __cil_tmp129 = 0 + __cil_tmp128;
 #line 865
-    __cil_tmp132 = (unsigned long )params;
+    __cil_tmp130 = (unsigned int )params;
 #line 865
-    __cil_tmp133 = __cil_tmp132 + __cil_tmp131;
+    __cil_tmp131 = __cil_tmp130 + __cil_tmp129;
 #line 865
-    __cil_tmp134 = (u32 *)__cil_tmp133;
+    __cil_tmp132 = (u32 *)__cil_tmp131;
 #line 865
-    __cil_tmp135 = (void *)__cil_tmp134;
+    __cil_tmp133 = (void *)__cil_tmp132;
 #line 865
-    __constant_c_and_count_memset(__cil_tmp135, 0UL, 32U);
+    __constant_c_and_count_memset(__cil_tmp133, 0UL, 32U);
     }
   }
   {
@@ -10894,11 +10846,9 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   }
   {
 #line 874
-  __cil_tmp136 = (void *)(& split_scan);
+  __cil_tmp134 = (void *)(& split_scan);
 #line 874
-  __cil_tmp137 = (unsigned int )4UL;
-#line 874
-  ret = wl12xx_cmd_send(wl, (unsigned short)47, __cil_tmp136, __cil_tmp137);
+  ret = wl12xx_cmd_send(wl, (unsigned short)47, __cil_tmp134, 4U);
   }
 #line 876
   if (ret < 0) {
@@ -10922,17 +10872,15 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   while_32_break: 
   {
 #line 883
-  __cil_tmp138 = (unsigned long )wl;
+  __cil_tmp135 = (unsigned int )wl;
 #line 883
-  __cil_tmp139 = __cil_tmp138 + 700;
+  __cil_tmp136 = __cil_tmp135 + 444;
 #line 883
-  *((bool *)__cil_tmp139) = (_Bool)1;
+  *((bool *)__cil_tmp136) = (_Bool)1;
 #line 885
-  __cil_tmp140 = (void *)params;
+  __cil_tmp137 = (void *)params;
 #line 885
-  __cil_tmp141 = (unsigned int )368UL;
-#line 885
-  ret = wl12xx_cmd_send(wl, (unsigned short)8, __cil_tmp140, __cil_tmp141);
+  ret = wl12xx_cmd_send(wl, (unsigned short)8, __cil_tmp137, 368U);
   }
 #line 886
   if (ret < 0) {
@@ -10945,46 +10893,44 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   }
   {
 #line 889
-  __cil_tmp142 = (unsigned long )wl;
+  __cil_tmp138 = (unsigned int )wl;
 #line 889
-  __cil_tmp143 = __cil_tmp142 + 280;
+  __cil_tmp139 = __cil_tmp138 + 184;
 #line 889
-  __cil_tmp144 = *((int *)__cil_tmp143);
+  __cil_tmp140 = *((int *)__cil_tmp139);
 #line 889
-  __cil_tmp145 = (void *)params;
+  __cil_tmp141 = (void *)params;
 #line 889
-  __cil_tmp146 = (unsigned int )368UL;
-#line 889
-  wl12xx_spi_mem_read(wl, __cil_tmp144, __cil_tmp145, __cil_tmp146);
+  wl12xx_spi_mem_read(wl, __cil_tmp140, __cil_tmp141, 368U);
 #line 891
   cmd_answer = (struct wl12xx_command *)params;
   }
   {
 #line 892
-  __cil_tmp147 = (unsigned long )cmd_answer;
+  __cil_tmp142 = (unsigned int )cmd_answer;
 #line 892
-  __cil_tmp148 = __cil_tmp147 + 2;
+  __cil_tmp143 = __cil_tmp142 + 2;
 #line 892
-  __cil_tmp149 = *((u16 *)__cil_tmp148);
+  __cil_tmp144 = *((u16 *)__cil_tmp143);
 #line 892
-  __cil_tmp150 = (int )__cil_tmp149;
+  __cil_tmp145 = (int )__cil_tmp144;
 #line 892
-  if (__cil_tmp150 != 1) {
+  if (__cil_tmp145 != 1) {
     {
 #line 893
-    __cil_tmp151 = (unsigned long )cmd_answer;
+    __cil_tmp146 = (unsigned int )cmd_answer;
 #line 893
-    __cil_tmp152 = __cil_tmp151 + 2;
+    __cil_tmp147 = __cil_tmp146 + 2;
 #line 893
-    __cil_tmp153 = *((u16 *)__cil_tmp152);
+    __cil_tmp148 = *((u16 *)__cil_tmp147);
 #line 893
-    printk("<3>wl12xx: ERROR TEST command answer error: %d\n", __cil_tmp153);
+    printk("<3>wl12xx: ERROR TEST command answer error: %d\n", __cil_tmp148);
 #line 895
-    __cil_tmp154 = (unsigned long )wl;
+    __cil_tmp149 = (unsigned int )wl;
 #line 895
-    __cil_tmp155 = __cil_tmp154 + 700;
+    __cil_tmp150 = __cil_tmp149 + 444;
 #line 895
-    *((bool *)__cil_tmp155) = (_Bool)0;
+    *((bool *)__cil_tmp150) = (_Bool)0;
 #line 896
     ret = -5;
     }
@@ -10996,9 +10942,9 @@ static int wl12xx_hw_scan(struct wl12xx *wl , u8 *ssid , size_t len , u8 active_
   out: 
   {
 #line 901
-  __cil_tmp156 = (void const   *)params;
+  __cil_tmp151 = (void const   *)params;
 #line 901
-  kfree(__cil_tmp156);
+  kfree(__cil_tmp151);
   }
 #line 902
   return (ret);
@@ -11010,39 +10956,39 @@ static int wl12xx_op_hw_scan(struct ieee80211_hw *hw , struct cfg80211_scan_requ
   int ret ;
   u8 *ssid ;
   size_t ssid_len ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   void *__cil_tmp9 ;
   void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   struct cfg80211_ssid *__cil_tmp15 ;
   struct cfg80211_ssid *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
   struct cfg80211_ssid *__cil_tmp19 ;
   struct cfg80211_ssid *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
   u8 __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   struct mutex *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
   void *__cil_tmp29 ;
   struct wl12xx *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
   struct mutex *__cil_tmp33 ;
 
   {
 #line 909
-  __cil_tmp7 = (unsigned long )hw;
+  __cil_tmp7 = (unsigned int )hw;
 #line 909
-  __cil_tmp8 = __cil_tmp7 + 80;
+  __cil_tmp8 = __cil_tmp7 + 64;
 #line 909
   __cil_tmp9 = *((void **)__cil_tmp8);
 #line 909
@@ -11065,13 +11011,13 @@ static int wl12xx_op_hw_scan(struct ieee80211_hw *hw , struct cfg80211_scan_requ
   while_33_break: ;
   {
 #line 916
-  __cil_tmp11 = (unsigned long )req;
+  __cil_tmp11 = (unsigned int )req;
 #line 916
-  __cil_tmp12 = __cil_tmp11 + 8;
+  __cil_tmp12 = __cil_tmp11 + 4;
 #line 916
   if (*((int *)__cil_tmp12)) {
 #line 917
-    __cil_tmp13 = 0 * 1UL;
+    __cil_tmp13 = 0 * 1U;
 #line 917
     __cil_tmp14 = 0 + __cil_tmp13;
 #line 917
@@ -11079,7 +11025,7 @@ static int wl12xx_op_hw_scan(struct ieee80211_hw *hw , struct cfg80211_scan_requ
 #line 917
     __cil_tmp16 = __cil_tmp15 + 0;
 #line 917
-    __cil_tmp17 = (unsigned long )__cil_tmp16;
+    __cil_tmp17 = (unsigned int )__cil_tmp16;
 #line 917
     __cil_tmp18 = __cil_tmp17 + __cil_tmp14;
 #line 917
@@ -11089,7 +11035,7 @@ static int wl12xx_op_hw_scan(struct ieee80211_hw *hw , struct cfg80211_scan_requ
 #line 918
     __cil_tmp20 = __cil_tmp19 + 0;
 #line 918
-    __cil_tmp21 = (unsigned long )__cil_tmp20;
+    __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 918
     __cil_tmp22 = __cil_tmp21 + 32;
 #line 918
@@ -11102,17 +11048,17 @@ static int wl12xx_op_hw_scan(struct ieee80211_hw *hw , struct cfg80211_scan_requ
   }
   {
 #line 921
-  __cil_tmp24 = (unsigned long )wl;
+  __cil_tmp24 = (unsigned int )wl;
 #line 921
-  __cil_tmp25 = __cil_tmp24 + 72;
+  __cil_tmp25 = __cil_tmp24 + 52;
 #line 921
   __cil_tmp26 = (struct mutex *)__cil_tmp25;
 #line 921
   mutex_lock(__cil_tmp26);
 #line 922
-  __cil_tmp27 = (unsigned long )hw;
+  __cil_tmp27 = (unsigned int )hw;
 #line 922
-  __cil_tmp28 = __cil_tmp27 + 80;
+  __cil_tmp28 = __cil_tmp27 + 64;
 #line 922
   __cil_tmp29 = *((void **)__cil_tmp28);
 #line 922
@@ -11121,9 +11067,9 @@ static int wl12xx_op_hw_scan(struct ieee80211_hw *hw , struct cfg80211_scan_requ
   ret = wl12xx_hw_scan(__cil_tmp30, ssid, ssid_len, (unsigned char)1, (unsigned char)0,
                        (unsigned char)13, (unsigned char)3);
 #line 923
-  __cil_tmp31 = (unsigned long )wl;
+  __cil_tmp31 = (unsigned int )wl;
 #line 923
-  __cil_tmp32 = __cil_tmp31 + 72;
+  __cil_tmp32 = __cil_tmp31 + 52;
 #line 923
   __cil_tmp33 = (struct mutex *)__cil_tmp32;
 #line 923
@@ -11137,17 +11083,17 @@ static int wl12xx_op_hw_scan(struct ieee80211_hw *hw , struct cfg80211_scan_requ
 static int wl12xx_op_set_rts_threshold(struct ieee80211_hw *hw , u32 value ) 
 { struct wl12xx *wl ;
   int ret ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
   void *__cil_tmp7 ;
   unsigned short __cil_tmp8 ;
 
   {
   {
 #line 930
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp5 = (unsigned int )hw;
 #line 930
-  __cil_tmp6 = __cil_tmp5 + 80;
+  __cil_tmp6 = __cil_tmp5 + 64;
 #line 930
   __cil_tmp7 = *((void **)__cil_tmp6);
 #line 930
@@ -11177,82 +11123,82 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   struct wl12xx *wl ;
   struct sk_buff *beacon ;
   int ret ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
   void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
   struct mutex *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
   u16 __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   u16 __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
   bool __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   enum acx_slot_type __cil_tmp34 ;
   enum acx_slot_type __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
   enum acx_preamble_type __cil_tmp38 ;
   enum acx_preamble_type __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
   enum acx_ctsprotect_type __cil_tmp42 ;
   enum acx_ctsprotect_type __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
   u8 *__cil_tmp48 ;
   void *__cil_tmp49 ;
   u8 const   *__cil_tmp50 ;
   void const   *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
   u8 __cil_tmp54 ;
   int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
   u8 __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
   unsigned char *__cil_tmp61 ;
   void *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
+  unsigned int __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
   unsigned int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
   unsigned char *__cil_tmp68 ;
   void *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
+  unsigned int __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
   unsigned int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
   u8 __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
+  unsigned int __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
   struct mutex *__cil_tmp78 ;
 
   {
 #line 947
-  __cil_tmp9 = (unsigned long )hw;
+  __cil_tmp9 = (unsigned int )hw;
 #line 947
-  __cil_tmp10 = __cil_tmp9 + 80;
+  __cil_tmp10 = __cil_tmp9 + 64;
 #line 947
   __cil_tmp11 = *((void **)__cil_tmp10);
 #line 947
@@ -11269,9 +11215,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   while_34_break: 
   {
 #line 953
-  __cil_tmp12 = (unsigned long )wl;
+  __cil_tmp12 = (unsigned int )wl;
 #line 953
-  __cil_tmp13 = __cil_tmp12 + 72;
+  __cil_tmp13 = __cil_tmp12 + 52;
 #line 953
   __cil_tmp14 = (struct mutex *)__cil_tmp13;
 #line 953
@@ -11281,26 +11227,26 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   if (changed & 1U) {
     {
 #line 956
-    __cil_tmp15 = (unsigned long )bss_conf;
+    __cil_tmp15 = (unsigned int )bss_conf;
 #line 956
-    __cil_tmp16 = __cil_tmp15 + 8;
+    __cil_tmp16 = __cil_tmp15 + 4;
 #line 956
     if (*((bool *)__cil_tmp16)) {
       {
 #line 957
-      __cil_tmp17 = (unsigned long )wl;
+      __cil_tmp17 = (unsigned int )wl;
 #line 957
-      __cil_tmp18 = __cil_tmp17 + 702;
+      __cil_tmp18 = __cil_tmp17 + 446;
 #line 957
-      __cil_tmp19 = (unsigned long )bss_conf;
+      __cil_tmp19 = (unsigned int )bss_conf;
 #line 957
-      __cil_tmp20 = __cil_tmp19 + 10;
+      __cil_tmp20 = __cil_tmp19 + 6;
 #line 957
       *((u16 *)__cil_tmp18) = *((u16 *)__cil_tmp20);
 #line 959
-      __cil_tmp21 = (unsigned long )wl;
+      __cil_tmp21 = (unsigned int )wl;
 #line 959
-      __cil_tmp22 = __cil_tmp21 + 702;
+      __cil_tmp22 = __cil_tmp21 + 446;
 #line 959
       __cil_tmp23 = *((u16 *)__cil_tmp22);
 #line 959
@@ -11314,9 +11260,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
       }
       {
 #line 963
-      __cil_tmp24 = (unsigned long )wl;
+      __cil_tmp24 = (unsigned int )wl;
 #line 963
-      __cil_tmp25 = __cil_tmp24 + 702;
+      __cil_tmp25 = __cil_tmp24 + 446;
 #line 963
       __cil_tmp26 = *((u16 *)__cil_tmp25);
 #line 963
@@ -11330,16 +11276,16 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
       }
       {
 #line 968
-      __cil_tmp27 = (unsigned long )wl;
+      __cil_tmp27 = (unsigned int )wl;
 #line 968
-      __cil_tmp28 = __cil_tmp27 + 726;
+      __cil_tmp28 = __cil_tmp27 + 470;
 #line 968
       if (*((bool *)__cil_tmp28)) {
         {
 #line 968
-        __cil_tmp29 = (unsigned long )wl;
+        __cil_tmp29 = (unsigned int )wl;
 #line 968
-        __cil_tmp30 = __cil_tmp29 + 725;
+        __cil_tmp30 = __cil_tmp29 + 469;
 #line 968
         __cil_tmp31 = *((bool *)__cil_tmp30);
 #line 968
@@ -11375,9 +11321,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   if (changed & 8U) {
     {
 #line 977
-    __cil_tmp32 = (unsigned long )bss_conf;
+    __cil_tmp32 = (unsigned int )bss_conf;
 #line 977
-    __cil_tmp33 = __cil_tmp32 + 14;
+    __cil_tmp33 = __cil_tmp32 + 10;
 #line 977
     if (*((bool *)__cil_tmp33)) {
       {
@@ -11412,9 +11358,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   if (changed & 4U) {
     {
 #line 988
-    __cil_tmp36 = (unsigned long )bss_conf;
+    __cil_tmp36 = (unsigned int )bss_conf;
 #line 988
-    __cil_tmp37 = __cil_tmp36 + 13;
+    __cil_tmp37 = __cil_tmp36 + 9;
 #line 988
     if (*((bool *)__cil_tmp37)) {
       {
@@ -11439,9 +11385,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   if (changed & 2U) {
     {
 #line 995
-    __cil_tmp40 = (unsigned long )bss_conf;
+    __cil_tmp40 = (unsigned int )bss_conf;
 #line 995
-    __cil_tmp41 = __cil_tmp40 + 12;
+    __cil_tmp41 = __cil_tmp40 + 8;
 #line 995
     if (*((bool *)__cil_tmp41)) {
       {
@@ -11476,11 +11422,11 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   if (changed & 128U) {
     {
 #line 1006
-    __cil_tmp44 = 0 * 1UL;
+    __cil_tmp44 = 0 * 1U;
 #line 1006
-    __cil_tmp45 = 340 + __cil_tmp44;
+    __cil_tmp45 = 232 + __cil_tmp44;
 #line 1006
-    __cil_tmp46 = (unsigned long )wl;
+    __cil_tmp46 = (unsigned int )wl;
 #line 1006
     __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
 #line 1006
@@ -11504,9 +11450,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
     }
     {
 #line 1012
-    __cil_tmp52 = (unsigned long )wl;
+    __cil_tmp52 = (unsigned int )wl;
 #line 1012
-    __cil_tmp53 = __cil_tmp52 + 352;
+    __cil_tmp53 = __cil_tmp52 + 244;
 #line 1012
     __cil_tmp54 = *((u8 *)__cil_tmp53);
 #line 1012
@@ -11515,9 +11461,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
     if (__cil_tmp55 != 0) {
       {
 #line 1013
-      __cil_tmp56 = (unsigned long )wl;
+      __cil_tmp56 = (unsigned int )wl;
 #line 1013
-      __cil_tmp57 = __cil_tmp56 + 352;
+      __cil_tmp57 = __cil_tmp56 + 244;
 #line 1013
       __cil_tmp58 = *((u8 *)__cil_tmp57);
 #line 1013
@@ -11543,17 +11489,17 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
 #line 1020
     beacon = ieee80211_beacon_get(hw, vif);
 #line 1021
-    __cil_tmp59 = (unsigned long )beacon;
+    __cil_tmp59 = (unsigned int )beacon;
 #line 1021
-    __cil_tmp60 = __cil_tmp59 + 240;
+    __cil_tmp60 = __cil_tmp59 + 172;
 #line 1021
     __cil_tmp61 = *((unsigned char **)__cil_tmp60);
 #line 1021
     __cil_tmp62 = (void *)__cil_tmp61;
 #line 1021
-    __cil_tmp63 = (unsigned long )beacon;
+    __cil_tmp63 = (unsigned int )beacon;
 #line 1021
-    __cil_tmp64 = __cil_tmp63 + 104;
+    __cil_tmp64 = __cil_tmp63 + 80;
 #line 1021
     __cil_tmp65 = *((unsigned int *)__cil_tmp64);
 #line 1021
@@ -11571,17 +11517,17 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
     }
     {
 #line 1029
-    __cil_tmp66 = (unsigned long )beacon;
+    __cil_tmp66 = (unsigned int )beacon;
 #line 1029
-    __cil_tmp67 = __cil_tmp66 + 240;
+    __cil_tmp67 = __cil_tmp66 + 172;
 #line 1029
     __cil_tmp68 = *((unsigned char **)__cil_tmp67);
 #line 1029
     __cil_tmp69 = (void *)__cil_tmp68;
 #line 1029
-    __cil_tmp70 = (unsigned long )beacon;
+    __cil_tmp70 = (unsigned int )beacon;
 #line 1029
-    __cil_tmp71 = __cil_tmp70 + 104;
+    __cil_tmp71 = __cil_tmp70 + 80;
 #line 1029
     __cil_tmp72 = *((unsigned int *)__cil_tmp71);
 #line 1029
@@ -11597,9 +11543,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
     }
     {
 #line 1037
-    __cil_tmp73 = (unsigned long )wl;
+    __cil_tmp73 = (unsigned int )wl;
 #line 1037
-    __cil_tmp74 = __cil_tmp73 + 352;
+    __cil_tmp74 = __cil_tmp73 + 244;
 #line 1037
     __cil_tmp75 = *((u8 *)__cil_tmp74);
 #line 1037
@@ -11618,9 +11564,9 @@ static void wl12xx_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
   out: 
   {
 #line 1044
-  __cil_tmp76 = (unsigned long )wl;
+  __cil_tmp76 = (unsigned int )wl;
 #line 1044
-  __cil_tmp77 = __cil_tmp76 + 72;
+  __cil_tmp77 = __cil_tmp76 + 52;
 #line 1044
   __cil_tmp78 = (struct mutex *)__cil_tmp77;
 #line 1044
@@ -11722,24 +11668,24 @@ static struct ieee80211_ops  const  wl12xx_ops  =
 #line 1130 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static int wl12xx_register_hw(struct wl12xx *wl ) 
 { int ret ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
   struct ieee80211_hw *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   u8 *__cil_tmp10 ;
   struct ieee80211_hw *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
 
   {
   {
 #line 1134
-  __cil_tmp3 = (unsigned long )wl;
+  __cil_tmp3 = (unsigned int )wl;
 #line 1134
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = __cil_tmp3 + 4;
 #line 1134
   if (*((bool *)__cil_tmp4)) {
 #line 1135
@@ -11752,11 +11698,11 @@ static int wl12xx_register_hw(struct wl12xx *wl )
 #line 1137
   __cil_tmp5 = *((struct ieee80211_hw **)wl);
 #line 1137
-  __cil_tmp6 = 0 * 1UL;
+  __cil_tmp6 = 0 * 1U;
 #line 1137
-  __cil_tmp7 = 346 + __cil_tmp6;
+  __cil_tmp7 = 238 + __cil_tmp6;
 #line 1137
-  __cil_tmp8 = (unsigned long )wl;
+  __cil_tmp8 = (unsigned int )wl;
 #line 1137
   __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
 #line 1137
@@ -11781,9 +11727,9 @@ static int wl12xx_register_hw(struct wl12xx *wl )
   }
   {
 #line 1145
-  __cil_tmp12 = (unsigned long )wl;
+  __cil_tmp12 = (unsigned int )wl;
 #line 1145
-  __cil_tmp13 = __cil_tmp12 + 8;
+  __cil_tmp13 = __cil_tmp12 + 4;
 #line 1145
   *((bool *)__cil_tmp13) = (_Bool)1;
 #line 1147
@@ -11796,130 +11742,127 @@ static int wl12xx_register_hw(struct wl12xx *wl )
 #line 1152 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static int wl12xx_init_ieee80211(struct wl12xx *wl ) 
 { struct ieee80211_hw *__cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct ieee80211_hw *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct ieee80211_hw *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct ieee80211_hw *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct wiphy *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  struct ieee80211_hw *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  struct ieee80211_hw *__cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  struct ieee80211_hw *__cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  struct wiphy *__cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct ieee80211_hw *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct wiphy *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct ieee80211_hw *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct wiphy *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct ieee80211_hw *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct spi_device *__cil_tmp36 ;
-  struct device *__cil_tmp37 ;
+  struct ieee80211_hw *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  struct wiphy *__cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  struct ieee80211_hw *__cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  struct wiphy *__cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  struct ieee80211_hw *__cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  struct spi_device *__cil_tmp35 ;
+  struct device *__cil_tmp36 ;
 
   {
   {
 #line 1155
   __cil_tmp2 = *((struct ieee80211_hw **)wl);
 #line 1155
-  __cil_tmp3 = (unsigned long )__cil_tmp2;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 1155
-  __cil_tmp4 = __cil_tmp3 + 92;
+  __cil_tmp4 = __cil_tmp3 + 72;
 #line 1155
-  __cil_tmp5 = 16UL + 4UL;
-#line 1155
-  *((unsigned int *)__cil_tmp4) = (unsigned int )__cil_tmp5;
+  *((unsigned int *)__cil_tmp4) = 16U + 4U;
 #line 1160
-  __cil_tmp6 = *((struct ieee80211_hw **)wl);
+  __cil_tmp5 = *((struct ieee80211_hw **)wl);
 #line 1160
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 1160
-  __cil_tmp8 = __cil_tmp7 + 96;
+  __cil_tmp7 = __cil_tmp6 + 76;
 #line 1160
-  *((int *)__cil_tmp8) = 10000;
+  *((int *)__cil_tmp7) = 10000;
 #line 1162
-  __cil_tmp9 = *((struct ieee80211_hw **)wl);
+  __cil_tmp8 = *((struct ieee80211_hw **)wl);
 #line 1162
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 1162
-  __cil_tmp11 = __cil_tmp10 + 88;
+  __cil_tmp10 = __cil_tmp9 + 68;
 #line 1162
-  *((u32 *)__cil_tmp11) = 192U;
+  *((u32 *)__cil_tmp10) = 192U;
 #line 1165
-  __cil_tmp12 = *((struct ieee80211_hw **)wl);
+  __cil_tmp11 = *((struct ieee80211_hw **)wl);
 #line 1165
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 1165
-  __cil_tmp14 = __cil_tmp13 + 64;
+  __cil_tmp13 = __cil_tmp12 + 56;
 #line 1165
-  __cil_tmp15 = *((struct wiphy **)__cil_tmp14);
+  __cil_tmp14 = *((struct wiphy **)__cil_tmp13);
 #line 1165
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 1165
-  __cil_tmp17 = __cil_tmp16 + 6;
+  __cil_tmp16 = __cil_tmp15 + 6;
 #line 1165
-  __cil_tmp18 = 1UL << 2;
+  __cil_tmp17 = 1UL << 2;
 #line 1165
-  *((u16 *)__cil_tmp17) = (unsigned short )__cil_tmp18;
+  *((u16 *)__cil_tmp16) = (unsigned short )__cil_tmp17;
 #line 1166
-  __cil_tmp19 = *((struct ieee80211_hw **)wl);
+  __cil_tmp18 = *((struct ieee80211_hw **)wl);
 #line 1166
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 1166
-  __cil_tmp21 = __cil_tmp20 + 64;
+  __cil_tmp20 = __cil_tmp19 + 56;
 #line 1166
-  __cil_tmp22 = *((struct wiphy **)__cil_tmp21);
+  __cil_tmp21 = *((struct wiphy **)__cil_tmp20);
 #line 1166
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 1166
-  __cil_tmp24 = __cil_tmp23 + 52;
+  __cil_tmp23 = __cil_tmp22 + 52;
 #line 1166
-  *((u8 *)__cil_tmp24) = (unsigned char)1;
+  *((u8 *)__cil_tmp23) = (unsigned char)1;
 #line 1167
-  __cil_tmp25 = 0 * 8UL;
+  __cil_tmp24 = 0 * 4U;
 #line 1167
-  __cil_tmp26 = 96 + __cil_tmp25;
+  __cil_tmp25 = 80 + __cil_tmp24;
 #line 1167
-  __cil_tmp27 = *((struct ieee80211_hw **)wl);
+  __cil_tmp26 = *((struct ieee80211_hw **)wl);
 #line 1167
-  __cil_tmp28 = (unsigned long )__cil_tmp27;
+  __cil_tmp27 = (unsigned int )__cil_tmp26;
 #line 1167
-  __cil_tmp29 = __cil_tmp28 + 64;
+  __cil_tmp28 = __cil_tmp27 + 56;
 #line 1167
-  __cil_tmp30 = *((struct wiphy **)__cil_tmp29);
+  __cil_tmp29 = *((struct wiphy **)__cil_tmp28);
 #line 1167
-  __cil_tmp31 = (unsigned long )__cil_tmp30;
+  __cil_tmp30 = (unsigned int )__cil_tmp29;
 #line 1167
-  __cil_tmp32 = __cil_tmp31 + __cil_tmp26;
+  __cil_tmp31 = __cil_tmp30 + __cil_tmp25;
 #line 1167
-  *((struct ieee80211_supported_band **)__cil_tmp32) = & wl12xx_band_2ghz;
+  *((struct ieee80211_supported_band **)__cil_tmp31) = & wl12xx_band_2ghz;
 #line 1169
-  __cil_tmp33 = *((struct ieee80211_hw **)wl);
+  __cil_tmp32 = *((struct ieee80211_hw **)wl);
 #line 1169
-  __cil_tmp34 = (unsigned long )wl;
+  __cil_tmp33 = (unsigned int )wl;
 #line 1169
-  __cil_tmp35 = __cil_tmp34 + 16;
+  __cil_tmp34 = __cil_tmp33 + 8;
 #line 1169
-  __cil_tmp36 = *((struct spi_device **)__cil_tmp35);
+  __cil_tmp35 = *((struct spi_device **)__cil_tmp34);
 #line 1169
-  __cil_tmp37 = (struct device *)__cil_tmp36;
+  __cil_tmp36 = (struct device *)__cil_tmp35;
 #line 1169
-  SET_IEEE80211_DEV(__cil_tmp33, __cil_tmp37);
+  SET_IEEE80211_DEV(__cil_tmp32, __cil_tmp36);
   }
 #line 1171
   return (0);
@@ -11942,64 +11885,64 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   int i ;
   atomic_long_t __constr_expr_0 ;
   atomic_long_t __constr_expr_1 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
   void *__cil_tmp12 ;
   unsigned int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  unsigned int __cil_tmp14 ;
+  void *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  struct device *__cil_tmp19 ;
-  void *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct sk_buff_head *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct list_head *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct list_head *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
+  struct device *__cil_tmp17 ;
+  void *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  struct sk_buff_head *__cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  struct list_head *__cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  struct list_head *__cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
   unsigned long __cil_tmp62 ;
   unsigned long __cil_tmp63 ;
   unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
   unsigned long __cil_tmp67 ;
   unsigned long __cil_tmp68 ;
   unsigned long __cil_tmp69 ;
@@ -12013,94 +11956,92 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   unsigned long __cil_tmp77 ;
   unsigned long __cil_tmp78 ;
   unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  void *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  u8 *__cil_tmp106 ;
-  void *__cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  u8 const   *__cil_tmp110 ;
-  void const   *__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  u8 *__cil_tmp116 ;
-  u8 *__cil_tmp117 ;
-  void *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  struct mutex *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  void (*__cil_tmp134)(bool enable ) ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  int __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  int __cil_tmp144 ;
+  unsigned int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  unsigned int __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
+  unsigned int __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
+  unsigned int __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
+  unsigned int __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  unsigned int __cil_tmp95 ;
+  unsigned int __cil_tmp96 ;
+  void *__cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
+  unsigned int __cil_tmp102 ;
+  unsigned int __cil_tmp103 ;
+  u8 *__cil_tmp104 ;
+  void *__cil_tmp105 ;
+  unsigned int __cil_tmp106 ;
+  unsigned int __cil_tmp107 ;
+  u8 const   *__cil_tmp108 ;
+  void const   *__cil_tmp109 ;
+  unsigned int __cil_tmp110 ;
+  unsigned int __cil_tmp111 ;
+  unsigned int __cil_tmp112 ;
+  unsigned int __cil_tmp113 ;
+  u8 *__cil_tmp114 ;
+  u8 *__cil_tmp115 ;
+  void *__cil_tmp116 ;
+  unsigned int __cil_tmp117 ;
+  unsigned int __cil_tmp118 ;
+  unsigned int __cil_tmp119 ;
+  unsigned int __cil_tmp120 ;
+  struct mutex *__cil_tmp121 ;
+  unsigned int __cil_tmp122 ;
+  unsigned int __cil_tmp123 ;
+  unsigned int __cil_tmp124 ;
+  unsigned int __cil_tmp125 ;
+  unsigned int __cil_tmp126 ;
+  unsigned int __cil_tmp127 ;
+  unsigned int __cil_tmp128 ;
+  unsigned int __cil_tmp129 ;
+  unsigned int __cil_tmp130 ;
+  unsigned int __cil_tmp131 ;
+  void (*__cil_tmp132)(bool enable ) ;
+  unsigned int __cil_tmp133 ;
+  unsigned int __cil_tmp134 ;
+  unsigned int __cil_tmp135 ;
+  unsigned int __cil_tmp136 ;
+  unsigned int __cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
+  int __cil_tmp139 ;
+  unsigned int __cil_tmp140 ;
+  unsigned int __cil_tmp141 ;
+  int __cil_tmp142 ;
+  unsigned int __cil_tmp143 ;
+  void *__cil_tmp144 ;
   unsigned int __cil_tmp145 ;
-  void *__cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  int __cil_tmp149 ;
+  unsigned int __cil_tmp146 ;
+  int __cil_tmp147 ;
+  unsigned int __cil_tmp148 ;
+  unsigned int __cil_tmp149 ;
   unsigned int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  int __cil_tmp153 ;
+  int __cil_tmp151 ;
+  unsigned int __cil_tmp152 ;
+  unsigned int __cil_tmp153 ;
   unsigned int __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  int __cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
-  void *__cil_tmp159 ;
-  int volatile   __constr_expr_0_counter160 ;
-  int volatile   __constr_expr_1_counter161 ;
+  int __cil_tmp155 ;
+  unsigned int __cil_tmp156 ;
+  void *__cil_tmp157 ;
+  int volatile   __constr_expr_0_counter158 ;
+  int volatile   __constr_expr_1_counter159 ;
 
   {
 #line 1183
-  __cil_tmp9 = 0 + 160;
+  __cil_tmp9 = 0 + 88;
 #line 1183
-  __cil_tmp10 = (unsigned long )spi;
+  __cil_tmp10 = (unsigned int )spi;
 #line 1183
   __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
 #line 1183
@@ -12120,9 +12061,7 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   }
   {
 #line 1189
-  __cil_tmp13 = (unsigned int )1424UL;
-#line 1189
-  hw = ieee80211_alloc_hw(__cil_tmp13, & wl12xx_ops);
+  hw = ieee80211_alloc_hw(824U, & wl12xx_ops);
   }
 #line 1190
   if (! hw) {
@@ -12137,47 +12076,45 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   }
   {
 #line 1195
-  __cil_tmp14 = (unsigned long )hw;
+  __cil_tmp13 = (unsigned int )hw;
 #line 1195
-  __cil_tmp15 = __cil_tmp14 + 80;
+  __cil_tmp14 = __cil_tmp13 + 64;
 #line 1195
-  __cil_tmp16 = *((void **)__cil_tmp15);
+  __cil_tmp15 = *((void **)__cil_tmp14);
 #line 1195
-  wl = (struct wl12xx *)__cil_tmp16;
+  wl = (struct wl12xx *)__cil_tmp15;
 #line 1196
-  __cil_tmp17 = (void *)wl;
+  __cil_tmp16 = (void *)wl;
 #line 1196
-  __cil_tmp18 = (unsigned int )1424UL;
-#line 1196
-  __constant_c_and_count_memset(__cil_tmp17, 0UL, __cil_tmp18);
+  __constant_c_and_count_memset(__cil_tmp16, 0UL, 824U);
 #line 1198
   *((struct ieee80211_hw **)wl) = hw;
 #line 1199
-  __cil_tmp19 = (struct device *)spi;
+  __cil_tmp17 = (struct device *)spi;
 #line 1199
-  __cil_tmp20 = (void *)wl;
+  __cil_tmp18 = (void *)wl;
 #line 1199
-  dev_set_drvdata(__cil_tmp19, __cil_tmp20);
+  dev_set_drvdata(__cil_tmp17, __cil_tmp18);
 #line 1200
-  __cil_tmp21 = (unsigned long )wl;
+  __cil_tmp19 = (unsigned int )wl;
 #line 1200
-  __cil_tmp22 = __cil_tmp21 + 16;
+  __cil_tmp20 = __cil_tmp19 + 8;
 #line 1200
-  *((struct spi_device **)__cil_tmp22) = spi;
+  *((struct spi_device **)__cil_tmp20) = spi;
 #line 1202
-  __cil_tmp23 = (unsigned long )wl;
+  __cil_tmp21 = (unsigned int )wl;
 #line 1202
-  __cil_tmp24 = __cil_tmp23 + 376;
+  __cil_tmp22 = __cil_tmp21 + 260;
 #line 1202
-  *((u32 *)__cil_tmp24) = 0U;
+  *((u32 *)__cil_tmp22) = 0U;
 #line 1204
-  __cil_tmp25 = (unsigned long )wl;
+  __cil_tmp23 = (unsigned int )wl;
 #line 1204
-  __cil_tmp26 = __cil_tmp25 + 384;
+  __cil_tmp24 = __cil_tmp23 + 264;
 #line 1204
-  __cil_tmp27 = (struct sk_buff_head *)__cil_tmp26;
+  __cil_tmp25 = (struct sk_buff_head *)__cil_tmp24;
 #line 1204
-  skb_queue_head_init(__cil_tmp27);
+  skb_queue_head_init(__cil_tmp25);
   }
   {
 #line 1206
@@ -12185,36 +12122,36 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
     while_21_continue: /* CIL Label */ ;
     {
 #line 1206
-    __constr_expr_0_counter160 = (int volatile   )0;
+    __constr_expr_0_counter158 = (int volatile   )0;
 #line 1206
-    __cil_tmp28 = (unsigned long )wl;
+    __cil_tmp26 = (unsigned int )wl;
 #line 1206
-    __cil_tmp29 = __cil_tmp28 + 440;
+    __cil_tmp27 = __cil_tmp26 + 296;
 #line 1206
-    ((atomic_long_t *)__cil_tmp29)->counter = __constr_expr_0_counter160;
+    ((atomic_long_t *)__cil_tmp27)->counter = __constr_expr_0_counter158;
 #line 1206
-    __cil_tmp30 = 440 + 8;
+    __cil_tmp28 = 296 + 4;
 #line 1206
-    __cil_tmp31 = (unsigned long )wl;
+    __cil_tmp29 = (unsigned int )wl;
 #line 1206
-    __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
+    __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
 #line 1206
-    __cil_tmp33 = (struct list_head *)__cil_tmp32;
+    __cil_tmp31 = (struct list_head *)__cil_tmp30;
 #line 1206
-    INIT_LIST_HEAD(__cil_tmp33);
+    INIT_LIST_HEAD(__cil_tmp31);
     }
     {
 #line 1206
     while (1) {
       while_22_continue: /* CIL Label */ ;
 #line 1206
-      __cil_tmp34 = 440 + 24;
+      __cil_tmp32 = 296 + 12;
 #line 1206
-      __cil_tmp35 = (unsigned long )wl;
+      __cil_tmp33 = (unsigned int )wl;
 #line 1206
-      __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
+      __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
 #line 1206
-      *((void (**)(struct work_struct *work ))__cil_tmp36) = & wl12xx_tx_work;
+      *((void (**)(struct work_struct *work ))__cil_tmp34) = & wl12xx_tx_work;
       goto while_36_break;
     }
     while_22_break: /* CIL Label */ ;
@@ -12231,36 +12168,36 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
     while_23_continue: /* CIL Label */ ;
     {
 #line 1207
-    __constr_expr_1_counter161 = (int volatile   )0;
+    __constr_expr_1_counter159 = (int volatile   )0;
 #line 1207
-    __cil_tmp37 = (unsigned long )wl;
+    __cil_tmp35 = (unsigned int )wl;
 #line 1207
-    __cil_tmp38 = __cil_tmp37 + 472;
+    __cil_tmp36 = __cil_tmp35 + 312;
 #line 1207
-    ((atomic_long_t *)__cil_tmp38)->counter = __constr_expr_1_counter161;
+    ((atomic_long_t *)__cil_tmp36)->counter = __constr_expr_1_counter159;
 #line 1207
-    __cil_tmp39 = 472 + 8;
+    __cil_tmp37 = 312 + 4;
 #line 1207
-    __cil_tmp40 = (unsigned long )wl;
+    __cil_tmp38 = (unsigned int )wl;
 #line 1207
-    __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
+    __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
 #line 1207
-    __cil_tmp42 = (struct list_head *)__cil_tmp41;
+    __cil_tmp40 = (struct list_head *)__cil_tmp39;
 #line 1207
-    INIT_LIST_HEAD(__cil_tmp42);
+    INIT_LIST_HEAD(__cil_tmp40);
     }
     {
 #line 1207
     while (1) {
       while_24_continue: /* CIL Label */ ;
 #line 1207
-      __cil_tmp43 = 472 + 24;
+      __cil_tmp41 = 312 + 12;
 #line 1207
-      __cil_tmp44 = (unsigned long )wl;
+      __cil_tmp42 = (unsigned int )wl;
 #line 1207
-      __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
+      __cil_tmp43 = __cil_tmp42 + __cil_tmp41;
 #line 1207
-      *((void (**)(struct work_struct *work ))__cil_tmp45) = & wl12xx_filter_work;
+      *((void (**)(struct work_struct *work ))__cil_tmp43) = & wl12xx_filter_work;
       goto while_38_break;
     }
     while_24_break: /* CIL Label */ ;
@@ -12272,135 +12209,135 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   }
   while_37_break: 
 #line 1208
-  __cil_tmp46 = (unsigned long )wl;
+  __cil_tmp44 = (unsigned int )wl;
 #line 1208
-  __cil_tmp47 = __cil_tmp46 + 356;
+  __cil_tmp45 = __cil_tmp44 + 248;
 #line 1208
-  *((int *)__cil_tmp47) = 1;
+  *((int *)__cil_tmp45) = 1;
 #line 1209
-  __cil_tmp48 = (unsigned long )wl;
+  __cil_tmp46 = (unsigned int )wl;
 #line 1209
-  __cil_tmp49 = __cil_tmp48 + 700;
+  __cil_tmp47 = __cil_tmp46 + 444;
 #line 1209
-  *((bool *)__cil_tmp49) = (_Bool)0;
+  *((bool *)__cil_tmp47) = (_Bool)0;
 #line 1210
-  __cil_tmp50 = (unsigned long )wl;
+  __cil_tmp48 = (unsigned int )wl;
 #line 1210
-  __cil_tmp51 = __cil_tmp50 + 704;
+  __cil_tmp49 = __cil_tmp48 + 448;
 #line 1210
-  *((u32 *)__cil_tmp51) = 0U;
+  *((u32 *)__cil_tmp49) = 0U;
 #line 1211
-  __cil_tmp52 = (unsigned long )wl;
+  __cil_tmp50 = (unsigned int )wl;
 #line 1211
-  __cil_tmp53 = __cil_tmp52 + 353;
+  __cil_tmp51 = __cil_tmp50 + 245;
 #line 1211
-  *((u8 *)__cil_tmp53) = (unsigned char)1;
+  *((u8 *)__cil_tmp51) = (unsigned char)1;
 #line 1212
-  __cil_tmp54 = (unsigned long )wl;
+  __cil_tmp52 = (unsigned int )wl;
 #line 1212
-  __cil_tmp55 = __cil_tmp54 + 636;
+  __cil_tmp53 = __cil_tmp52 + 396;
 #line 1212
+  *((u32 *)__cil_tmp53) = 0U;
+#line 1213
+  __cil_tmp54 = (unsigned int )wl;
+#line 1213
+  __cil_tmp55 = __cil_tmp54 + 400;
+#line 1213
   *((u32 *)__cil_tmp55) = 0U;
-#line 1213
-  __cil_tmp56 = (unsigned long )wl;
-#line 1213
-  __cil_tmp57 = __cil_tmp56 + 640;
-#line 1213
+#line 1214
+  __cil_tmp56 = (unsigned int )wl;
+#line 1214
+  __cil_tmp57 = __cil_tmp56 + 404;
+#line 1214
   *((u32 *)__cil_tmp57) = 0U;
-#line 1214
-  __cil_tmp58 = (unsigned long )wl;
-#line 1214
-  __cil_tmp59 = __cil_tmp58 + 644;
-#line 1214
+#line 1215
+  __cil_tmp58 = (unsigned int )wl;
+#line 1215
+  __cil_tmp59 = __cil_tmp58 + 408;
+#line 1215
   *((u32 *)__cil_tmp59) = 0U;
-#line 1215
-  __cil_tmp60 = (unsigned long )wl;
-#line 1215
-  __cil_tmp61 = __cil_tmp60 + 648;
-#line 1215
-  *((u32 *)__cil_tmp61) = 0U;
 #line 1216
-  __cil_tmp62 = (unsigned long )wl;
+  __cil_tmp60 = (unsigned int )wl;
 #line 1216
-  __cil_tmp63 = __cil_tmp62 + 716;
+  __cil_tmp61 = __cil_tmp60 + 460;
 #line 1216
-  __cil_tmp64 = 1UL << 5;
+  __cil_tmp62 = 1UL << 5;
 #line 1216
-  __cil_tmp65 = 1UL << 4;
+  __cil_tmp63 = 1UL << 4;
 #line 1216
-  __cil_tmp66 = __cil_tmp65 | __cil_tmp64;
+  __cil_tmp64 = __cil_tmp63 | __cil_tmp62;
 #line 1216
-  *((unsigned int *)__cil_tmp63) = (unsigned int )__cil_tmp66;
+  *((unsigned int *)__cil_tmp61) = (unsigned int )__cil_tmp64;
 #line 1217
-  __cil_tmp67 = (unsigned long )wl;
+  __cil_tmp65 = (unsigned int )wl;
 #line 1217
-  __cil_tmp68 = __cil_tmp67 + 720;
+  __cil_tmp66 = __cil_tmp65 + 464;
 #line 1217
-  __cil_tmp69 = 1UL << 11;
+  __cil_tmp67 = 1UL << 11;
 #line 1217
-  __cil_tmp70 = 1UL << 10;
+  __cil_tmp68 = 1UL << 10;
 #line 1217
-  __cil_tmp71 = 1UL << 9;
+  __cil_tmp69 = 1UL << 9;
 #line 1217
-  __cil_tmp72 = 1UL << 7;
+  __cil_tmp70 = 1UL << 7;
 #line 1217
-  __cil_tmp73 = 1UL << 6;
+  __cil_tmp71 = 1UL << 6;
 #line 1217
-  __cil_tmp74 = 1UL << 4;
+  __cil_tmp72 = 1UL << 4;
 #line 1217
-  __cil_tmp75 = 1UL << 2;
+  __cil_tmp73 = 1UL << 2;
 #line 1217
-  __cil_tmp76 = __cil_tmp75 | __cil_tmp74;
+  __cil_tmp74 = __cil_tmp73 | __cil_tmp72;
 #line 1217
-  __cil_tmp77 = __cil_tmp76 | __cil_tmp73;
+  __cil_tmp75 = __cil_tmp74 | __cil_tmp71;
 #line 1217
-  __cil_tmp78 = __cil_tmp77 | __cil_tmp72;
+  __cil_tmp76 = __cil_tmp75 | __cil_tmp70;
 #line 1217
-  __cil_tmp79 = __cil_tmp78 | __cil_tmp71;
+  __cil_tmp77 = __cil_tmp76 | __cil_tmp69;
 #line 1217
-  __cil_tmp80 = __cil_tmp79 | __cil_tmp70;
+  __cil_tmp78 = __cil_tmp77 | __cil_tmp68;
 #line 1217
-  __cil_tmp81 = __cil_tmp80 | __cil_tmp69;
+  __cil_tmp79 = __cil_tmp78 | __cil_tmp67;
 #line 1217
-  *((unsigned int *)__cil_tmp68) = (unsigned int )__cil_tmp81;
+  *((unsigned int *)__cil_tmp66) = (unsigned int )__cil_tmp79;
 #line 1218
-  __cil_tmp82 = (unsigned long )wl;
+  __cil_tmp80 = (unsigned int )wl;
 #line 1218
-  __cil_tmp83 = __cil_tmp82 + 724;
+  __cil_tmp81 = __cil_tmp80 + 468;
 #line 1218
+  *((bool *)__cil_tmp81) = (_Bool)0;
+#line 1219
+  __cil_tmp82 = (unsigned int )wl;
+#line 1219
+  __cil_tmp83 = __cil_tmp82 + 469;
+#line 1219
   *((bool *)__cil_tmp83) = (_Bool)0;
-#line 1219
-  __cil_tmp84 = (unsigned long )wl;
-#line 1219
-  __cil_tmp85 = __cil_tmp84 + 725;
-#line 1219
+#line 1220
+  __cil_tmp84 = (unsigned int )wl;
+#line 1220
+  __cil_tmp85 = __cil_tmp84 + 470;
+#line 1220
   *((bool *)__cil_tmp85) = (_Bool)0;
-#line 1220
-  __cil_tmp86 = (unsigned long )wl;
-#line 1220
-  __cil_tmp87 = __cil_tmp86 + 726;
-#line 1220
+#line 1221
+  __cil_tmp86 = (unsigned int )wl;
+#line 1221
+  __cil_tmp87 = __cil_tmp86 + 292;
+#line 1221
   *((bool *)__cil_tmp87) = (_Bool)0;
-#line 1221
-  __cil_tmp88 = (unsigned long )wl;
-#line 1221
-  __cil_tmp89 = __cil_tmp88 + 432;
-#line 1221
-  *((bool *)__cil_tmp89) = (_Bool)0;
 #line 1222
-  __cil_tmp90 = (unsigned long )wl;
+  __cil_tmp88 = (unsigned int )wl;
 #line 1222
-  __cil_tmp91 = __cil_tmp90 + 728;
+  __cil_tmp89 = __cil_tmp88 + 472;
 #line 1222
-  *((int *)__cil_tmp91) = 20;
+  *((int *)__cil_tmp89) = 20;
 #line 1226
-  __cil_tmp92 = 144 + 48;
+  __cil_tmp90 = 100 + 36;
 #line 1226
-  __cil_tmp93 = (unsigned long )wl;
+  __cil_tmp91 = (unsigned int )wl;
 #line 1226
-  __cil_tmp94 = __cil_tmp93 + __cil_tmp92;
+  __cil_tmp92 = __cil_tmp91 + __cil_tmp90;
 #line 1226
-  *((unsigned int *)__cil_tmp94) = 200U;
+  *((unsigned int *)__cil_tmp92) = 200U;
 #line 1228
   i = 0;
   {
@@ -12415,17 +12352,17 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
       goto while_39_break;
     }
 #line 1229
-    __cil_tmp95 = i * 8UL;
+    __cil_tmp93 = i * 4U;
 #line 1229
-    __cil_tmp96 = 504 + __cil_tmp95;
+    __cil_tmp94 = 328 + __cil_tmp93;
 #line 1229
-    __cil_tmp97 = (unsigned long )wl;
+    __cil_tmp95 = (unsigned int )wl;
 #line 1229
-    __cil_tmp98 = __cil_tmp97 + __cil_tmp96;
+    __cil_tmp96 = __cil_tmp95 + __cil_tmp94;
 #line 1229
-    __cil_tmp99 = (void *)0;
+    __cil_tmp97 = (void *)0;
 #line 1229
-    *((struct sk_buff **)__cil_tmp98) = (struct sk_buff *)__cil_tmp99;
+    *((struct sk_buff **)__cil_tmp96) = (struct sk_buff *)__cil_tmp97;
 #line 1228
     i = i + 1;
   }
@@ -12434,55 +12371,55 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   while_39_break: 
   {
 #line 1231
-  __cil_tmp100 = (unsigned long )wl;
+  __cil_tmp98 = (unsigned int )wl;
 #line 1231
-  __cil_tmp101 = __cil_tmp100 + 632;
+  __cil_tmp99 = __cil_tmp98 + 392;
 #line 1231
-  *((u32 *)__cil_tmp101) = 0U;
+  *((u32 *)__cil_tmp99) = 0U;
 #line 1237
-  __cil_tmp102 = 0 * 1UL;
+  __cil_tmp100 = 0 * 1U;
 #line 1237
-  __cil_tmp103 = 346 + __cil_tmp102;
+  __cil_tmp101 = 238 + __cil_tmp100;
 #line 1237
-  __cil_tmp104 = (unsigned long )wl;
+  __cil_tmp102 = (unsigned int )wl;
 #line 1237
-  __cil_tmp105 = __cil_tmp104 + __cil_tmp103;
+  __cil_tmp103 = __cil_tmp102 + __cil_tmp101;
 #line 1237
-  __cil_tmp106 = (u8 *)__cil_tmp105;
+  __cil_tmp104 = (u8 *)__cil_tmp103;
 #line 1237
-  __cil_tmp107 = (void *)__cil_tmp106;
+  __cil_tmp105 = (void *)__cil_tmp104;
 #line 1237
-  __cil_tmp108 = 0 * 1UL;
+  __cil_tmp106 = 0 * 1U;
 #line 1237
-  __cil_tmp109 = (unsigned long )(nokia_oui) + __cil_tmp108;
+  __cil_tmp107 = (unsigned int )(nokia_oui) + __cil_tmp106;
 #line 1237
-  __cil_tmp110 = (u8 const   *)__cil_tmp109;
+  __cil_tmp108 = (u8 const   *)__cil_tmp107;
 #line 1237
-  __cil_tmp111 = (void const   *)__cil_tmp110;
+  __cil_tmp109 = (void const   *)__cil_tmp108;
 #line 1237
-  __constant_memcpy(__cil_tmp107, __cil_tmp111, 3U);
+  __constant_memcpy(__cil_tmp105, __cil_tmp109, 3U);
 #line 1238
-  __cil_tmp112 = 0 * 1UL;
+  __cil_tmp110 = 0 * 1U;
 #line 1238
-  __cil_tmp113 = 346 + __cil_tmp112;
+  __cil_tmp111 = 238 + __cil_tmp110;
 #line 1238
-  __cil_tmp114 = (unsigned long )wl;
+  __cil_tmp112 = (unsigned int )wl;
 #line 1238
-  __cil_tmp115 = __cil_tmp114 + __cil_tmp113;
+  __cil_tmp113 = __cil_tmp112 + __cil_tmp111;
 #line 1238
-  __cil_tmp116 = (u8 *)__cil_tmp115;
+  __cil_tmp114 = (u8 *)__cil_tmp113;
 #line 1238
-  __cil_tmp117 = __cil_tmp116 + 3;
+  __cil_tmp115 = __cil_tmp114 + 3;
 #line 1238
-  __cil_tmp118 = (void *)__cil_tmp117;
+  __cil_tmp116 = (void *)__cil_tmp115;
 #line 1238
-  get_random_bytes(__cil_tmp118, 3);
+  get_random_bytes(__cil_tmp116, 3);
 #line 1240
-  __cil_tmp119 = (unsigned long )wl;
+  __cil_tmp117 = (unsigned int )wl;
 #line 1240
-  __cil_tmp120 = __cil_tmp119 + 36;
+  __cil_tmp118 = __cil_tmp117 + 20;
 #line 1240
-  *((enum wl12xx_state *)__cil_tmp120) = (enum wl12xx_state )0;
+  *((enum wl12xx_state *)__cil_tmp118) = (enum wl12xx_state )0;
   }
   {
 #line 1241
@@ -12490,13 +12427,13 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
     while_26_continue: /* CIL Label */ ;
     {
 #line 1241
-    __cil_tmp121 = (unsigned long )wl;
+    __cil_tmp119 = (unsigned int )wl;
 #line 1241
-    __cil_tmp122 = __cil_tmp121 + 72;
+    __cil_tmp120 = __cil_tmp119 + 52;
 #line 1241
-    __cil_tmp123 = (struct mutex *)__cil_tmp122;
+    __cil_tmp121 = (struct mutex *)__cil_tmp120;
 #line 1241
-    __mutex_init(__cil_tmp123, "&wl->mutex", & __key___3);
+    __mutex_init(__cil_tmp121, "&wl->mutex", & __key___3);
     }
     goto while_40_break;
   }
@@ -12505,23 +12442,23 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   while_40_break: 
   {
 #line 1243
-  __cil_tmp124 = (unsigned long )wl;
+  __cil_tmp122 = (unsigned int )wl;
 #line 1243
-  __cil_tmp125 = __cil_tmp124 + 708;
+  __cil_tmp123 = __cil_tmp122 + 452;
 #line 1243
-  *((unsigned int *)__cil_tmp125) = 20U;
+  *((unsigned int *)__cil_tmp123) = 20U;
 #line 1244
-  __cil_tmp126 = (unsigned long )wl;
+  __cil_tmp124 = (unsigned int )wl;
 #line 1244
-  __cil_tmp127 = __cil_tmp126 + 712;
+  __cil_tmp125 = __cil_tmp124 + 456;
 #line 1244
-  *((unsigned int *)__cil_tmp127) = 0U;
+  *((unsigned int *)__cil_tmp125) = 0U;
 #line 1248
-  __cil_tmp128 = (unsigned long )spi;
+  __cil_tmp126 = (unsigned int )spi;
 #line 1248
-  __cil_tmp129 = __cil_tmp128 + 646;
+  __cil_tmp127 = __cil_tmp126 + 410;
 #line 1248
-  *((u8 *)__cil_tmp129) = (unsigned char)32;
+  *((u8 *)__cil_tmp127) = (unsigned char)32;
 #line 1250
   ret = spi_setup(spi);
   }
@@ -12536,20 +12473,20 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
 
   }
 #line 1256
-  __cil_tmp130 = (unsigned long )wl;
+  __cil_tmp128 = (unsigned int )wl;
 #line 1256
-  __cil_tmp131 = __cil_tmp130 + 24;
+  __cil_tmp129 = __cil_tmp128 + 12;
 #line 1256
-  *((void (**)(bool enable ))__cil_tmp131) = *((void (**)(bool enable ))pdata);
+  *((void (**)(bool enable ))__cil_tmp129) = *((void (**)(bool enable ))pdata);
   {
 #line 1257
-  __cil_tmp132 = (unsigned long )wl;
+  __cil_tmp130 = (unsigned int )wl;
 #line 1257
-  __cil_tmp133 = __cil_tmp132 + 24;
+  __cil_tmp131 = __cil_tmp130 + 12;
 #line 1257
-  __cil_tmp134 = *((void (**)(bool enable ))__cil_tmp133);
+  __cil_tmp132 = *((void (**)(bool enable ))__cil_tmp131);
 #line 1257
-  if (! __cil_tmp134) {
+  if (! __cil_tmp132) {
     {
 #line 1258
     printk("<3>wl12xx: ERROR set power function missing in platform data\n");
@@ -12561,24 +12498,24 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   }
   }
 #line 1262
-  __cil_tmp135 = (unsigned long )wl;
+  __cil_tmp133 = (unsigned int )wl;
 #line 1262
-  __cil_tmp136 = __cil_tmp135 + 32;
+  __cil_tmp134 = __cil_tmp133 + 16;
 #line 1262
-  __cil_tmp137 = (unsigned long )spi;
+  __cil_tmp135 = (unsigned int )spi;
 #line 1262
-  __cil_tmp138 = __cil_tmp137 + 648;
+  __cil_tmp136 = __cil_tmp135 + 412;
 #line 1262
-  *((int *)__cil_tmp136) = *((int *)__cil_tmp138);
+  *((int *)__cil_tmp134) = *((int *)__cil_tmp136);
   {
 #line 1263
-  __cil_tmp139 = (unsigned long )wl;
+  __cil_tmp137 = (unsigned int )wl;
 #line 1263
-  __cil_tmp140 = __cil_tmp139 + 32;
+  __cil_tmp138 = __cil_tmp137 + 16;
 #line 1263
-  __cil_tmp141 = *((int *)__cil_tmp140);
+  __cil_tmp139 = *((int *)__cil_tmp138);
 #line 1263
-  if (__cil_tmp141 < 0) {
+  if (__cil_tmp139 < 0) {
     {
 #line 1264
     printk("<3>wl12xx: ERROR irq missing in platform data\n");
@@ -12591,17 +12528,17 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   }
   {
 #line 1268
-  __cil_tmp142 = (unsigned long )wl;
+  __cil_tmp140 = (unsigned int )wl;
 #line 1268
-  __cil_tmp143 = __cil_tmp142 + 32;
+  __cil_tmp141 = __cil_tmp140 + 16;
 #line 1268
-  __cil_tmp144 = *((int *)__cil_tmp143);
+  __cil_tmp142 = *((int *)__cil_tmp141);
 #line 1268
-  __cil_tmp145 = (unsigned int )__cil_tmp144;
+  __cil_tmp143 = (unsigned int )__cil_tmp142;
 #line 1268
-  __cil_tmp146 = (void *)wl;
+  __cil_tmp144 = (void *)wl;
 #line 1268
-  ret = request_irq(__cil_tmp145, & wl12xx_irq, 0UL, "wl12xx", __cil_tmp146);
+  ret = request_irq(__cil_tmp143, & wl12xx_irq, 0UL, "wl12xx", __cil_tmp144);
   }
 #line 1269
   if (ret < 0) {
@@ -12615,25 +12552,25 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   }
   {
 #line 1274
-  __cil_tmp147 = (unsigned long )wl;
+  __cil_tmp145 = (unsigned int )wl;
 #line 1274
-  __cil_tmp148 = __cil_tmp147 + 32;
+  __cil_tmp146 = __cil_tmp145 + 16;
 #line 1274
-  __cil_tmp149 = *((int *)__cil_tmp148);
+  __cil_tmp147 = *((int *)__cil_tmp146);
 #line 1274
-  __cil_tmp150 = (unsigned int )__cil_tmp149;
+  __cil_tmp148 = (unsigned int )__cil_tmp147;
 #line 1274
-  set_irq_type(__cil_tmp150, 1U);
+  set_irq_type(__cil_tmp148, 1U);
 #line 1276
-  __cil_tmp151 = (unsigned long )wl;
+  __cil_tmp149 = (unsigned int )wl;
 #line 1276
-  __cil_tmp152 = __cil_tmp151 + 32;
+  __cil_tmp150 = __cil_tmp149 + 16;
 #line 1276
-  __cil_tmp153 = *((int *)__cil_tmp152);
+  __cil_tmp151 = *((int *)__cil_tmp150);
 #line 1276
-  __cil_tmp154 = (unsigned int )__cil_tmp153;
+  __cil_tmp152 = (unsigned int )__cil_tmp151;
 #line 1276
-  disable_irq(__cil_tmp154);
+  disable_irq(__cil_tmp152);
 #line 1278
   ret = wl12xx_init_ieee80211(wl);
   }
@@ -12664,17 +12601,17 @@ static int __attribute__((__cold__))  wl12xx_probe(struct spi_device *spi )
   out_irq: 
   {
 #line 1293
-  __cil_tmp155 = (unsigned long )wl;
+  __cil_tmp153 = (unsigned int )wl;
 #line 1293
-  __cil_tmp156 = __cil_tmp155 + 32;
+  __cil_tmp154 = __cil_tmp153 + 16;
 #line 1293
-  __cil_tmp157 = *((int *)__cil_tmp156);
+  __cil_tmp155 = *((int *)__cil_tmp154);
 #line 1293
-  __cil_tmp158 = (unsigned int )__cil_tmp157;
+  __cil_tmp156 = (unsigned int )__cil_tmp155;
 #line 1293
-  __cil_tmp159 = (void *)wl;
+  __cil_tmp157 = (void *)wl;
 #line 1293
-  free_irq(__cil_tmp158, __cil_tmp159);
+  free_irq(__cil_tmp156, __cil_tmp157);
   }
   out_free: 
   {
@@ -12696,32 +12633,32 @@ static int __attribute__((__cold__))  wl12xx_remove(struct spi_device *spi )
   struct device *__cil_tmp4 ;
   struct device  const  *__cil_tmp5 ;
   struct ieee80211_hw *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   int __cil_tmp9 ;
   unsigned int __cil_tmp10 ;
   void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
   void *__cil_tmp14 ;
   void const   *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
   struct acx_data_path_params_resp *__cil_tmp18 ;
   void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
   u8 *__cil_tmp22 ;
   void const   *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   void *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
   u8 *__cil_tmp29 ;
   void const   *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
   void *__cil_tmp33 ;
   struct ieee80211_hw *__cil_tmp34 ;
 
@@ -12742,9 +12679,9 @@ static int __attribute__((__cold__))  wl12xx_remove(struct spi_device *spi )
 #line 1307
   wl12xx_debugfs_exit(wl);
 #line 1309
-  __cil_tmp7 = (unsigned long )wl;
+  __cil_tmp7 = (unsigned int )wl;
 #line 1309
-  __cil_tmp8 = __cil_tmp7 + 32;
+  __cil_tmp8 = __cil_tmp7 + 16;
 #line 1309
   __cil_tmp9 = *((int *)__cil_tmp8);
 #line 1309
@@ -12754,9 +12691,9 @@ static int __attribute__((__cold__))  wl12xx_remove(struct spi_device *spi )
 #line 1309
   free_irq(__cil_tmp10, __cil_tmp11);
 #line 1310
-  __cil_tmp12 = (unsigned long )wl;
+  __cil_tmp12 = (unsigned int )wl;
 #line 1310
-  __cil_tmp13 = __cil_tmp12 + 360;
+  __cil_tmp13 = __cil_tmp12 + 252;
 #line 1310
   __cil_tmp14 = *((void **)__cil_tmp13);
 #line 1310
@@ -12764,9 +12701,9 @@ static int __attribute__((__cold__))  wl12xx_remove(struct spi_device *spi )
 #line 1310
   kfree(__cil_tmp15);
 #line 1311
-  __cil_tmp16 = (unsigned long )wl;
+  __cil_tmp16 = (unsigned int )wl;
 #line 1311
-  __cil_tmp17 = __cil_tmp16 + 368;
+  __cil_tmp17 = __cil_tmp16 + 256;
 #line 1311
   __cil_tmp18 = *((struct acx_data_path_params_resp **)__cil_tmp17);
 #line 1311
@@ -12774,9 +12711,9 @@ static int __attribute__((__cold__))  wl12xx_remove(struct spi_device *spi )
 #line 1311
   kfree(__cil_tmp19);
 #line 1312
-  __cil_tmp20 = (unsigned long )wl;
+  __cil_tmp20 = (unsigned int )wl;
 #line 1312
-  __cil_tmp21 = __cil_tmp20 + 312;
+  __cil_tmp21 = __cil_tmp20 + 216;
 #line 1312
   __cil_tmp22 = *((u8 **)__cil_tmp21);
 #line 1312
@@ -12784,17 +12721,17 @@ static int __attribute__((__cold__))  wl12xx_remove(struct spi_device *spi )
 #line 1312
   kfree(__cil_tmp23);
 #line 1313
-  __cil_tmp24 = (unsigned long )wl;
+  __cil_tmp24 = (unsigned int )wl;
 #line 1313
-  __cil_tmp25 = __cil_tmp24 + 312;
+  __cil_tmp25 = __cil_tmp24 + 216;
 #line 1313
   __cil_tmp26 = (void *)0;
 #line 1313
   *((u8 **)__cil_tmp25) = (u8 *)__cil_tmp26;
 #line 1314
-  __cil_tmp27 = (unsigned long )wl;
+  __cil_tmp27 = (unsigned int )wl;
 #line 1314
-  __cil_tmp28 = __cil_tmp27 + 328;
+  __cil_tmp28 = __cil_tmp27 + 224;
 #line 1314
   __cil_tmp29 = *((u8 **)__cil_tmp28);
 #line 1314
@@ -12802,9 +12739,9 @@ static int __attribute__((__cold__))  wl12xx_remove(struct spi_device *spi )
 #line 1314
   kfree(__cil_tmp30);
 #line 1315
-  __cil_tmp31 = (unsigned long )wl;
+  __cil_tmp31 = (unsigned int )wl;
 #line 1315
-  __cil_tmp32 = __cil_tmp31 + 328;
+  __cil_tmp32 = __cil_tmp31 + 224;
 #line 1315
   __cil_tmp33 = (void *)0;
 #line 1315

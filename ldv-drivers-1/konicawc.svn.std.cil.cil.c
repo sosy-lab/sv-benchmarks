@@ -269,7 +269,7 @@ struct seq_file;
 struct seq_file;
 #line 2971 "konicawc.i"
 struct cpumask {
-   unsigned long bits[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 2971 "konicawc.i"
 typedef struct cpumask cpumask_t;
@@ -740,7 +740,7 @@ typedef struct __wait_queue_head wait_queue_head_t;
 struct task_struct;
 #line 7741 "konicawc.i"
 struct __anonstruct_nodemask_t_44 {
-   unsigned long bits[(((unsigned long )((unsigned int )(1 << 4)) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long bits[(((unsigned int )(1 << 4) + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
 };
 #line 7741 "konicawc.i"
 typedef struct __anonstruct_nodemask_t_44 nodemask_t;
@@ -1213,7 +1213,7 @@ struct module_sect_attrs;
 struct module {
    enum module_state state ;
    struct list_head list ;
-   char name[64UL - sizeof(unsigned long )] ;
+   char name[64U - sizeof(unsigned long )] ;
    struct module_kobject mkobj ;
    struct module_attribute *modinfo_attrs ;
    char const   *version ;
@@ -1740,7 +1740,7 @@ struct __anonstruct__kill_122 {
 };
 #line 16034 "konicawc.i"
 union __anonunion__sifields_116 {
-   int _pad[(128UL - 3UL * sizeof(int )) / sizeof(int )] ;
+   int _pad[(128U - 3U * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_122 _kill ;
    struct __anonstruct__timer_121 _timer ;
    struct __anonstruct__rt_120 _rt ;
@@ -3803,7 +3803,7 @@ struct usb_host_config {
 };
 #line 24241 "konicawc.i"
 struct usb_devmap {
-   unsigned long devicemap[128UL / (8UL * sizeof(unsigned long ))] ;
+   unsigned long devicemap[128U / (8U * sizeof(unsigned long ))] ;
 };
 #line 24248
 struct mon_bus;
@@ -4087,15 +4087,15 @@ struct input_dev {
    char const   *phys ;
    char const   *uniq ;
    struct input_id id ;
-   unsigned long evbit[((32UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long keybit[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long relbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long absbit[((64UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long mscbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ledbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sndbit[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long swbit[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long evbit[((32U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long keybit[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long relbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long absbit[((64U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long mscbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ledbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sndbit[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long swbit[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    unsigned int keycodemax ;
    unsigned int keycodesize ;
    void *keycode ;
@@ -4107,10 +4107,10 @@ struct input_dev {
    int sync ;
    int abs[64] ;
    int rep[2] ;
-   unsigned long key[((768UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long led[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long snd[((8UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
-   unsigned long sw[((16UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long key[((768U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long led[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long snd[((8U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
+   unsigned long sw[((16U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    int absmax[64] ;
    int absmin[64] ;
    int absfuzz[64] ;
@@ -4166,7 +4166,7 @@ struct ff_device {
    void (*set_autocenter)(struct input_dev *dev , u16 magnitude ) ;
    void (*destroy)(struct ff_device * ) ;
    void *private ;
-   unsigned long ffbit[((128UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
+   unsigned long ffbit[((128U + 8U * sizeof(long )) - 1U) / (8U * sizeof(long ))] ;
    struct mutex mutex ;
    int max_effects ;
    struct ff_effect *effects ;
@@ -6014,16 +6014,16 @@ static void konicawc_set_camera_size(struct uvd *uvd )
   void **__cil_tmp65 ;
   u8 *__cil_tmp66 ;
   unsigned int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
+  unsigned int __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
   struct cam_size  const  *__cil_tmp70 ;
   unsigned int __cil_tmp71 ;
   u8 const   *__cil_tmp72 ;
   u8 __cil_tmp73 ;
   u8 *__cil_tmp74 ;
   unsigned int __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
+  unsigned int __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
   struct cam_size  const  *__cil_tmp78 ;
   unsigned int __cil_tmp79 ;
   u16 const   *__cil_tmp80 ;
@@ -6031,8 +6031,8 @@ static void konicawc_set_camera_size(struct uvd *uvd )
   int *__cil_tmp82 ;
   u8 *__cil_tmp83 ;
   unsigned int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
+  unsigned int __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
   struct cam_size  const  *__cil_tmp87 ;
   unsigned int __cil_tmp88 ;
   u16 const   *__cil_tmp89 ;
@@ -6078,9 +6078,9 @@ static void konicawc_set_camera_size(struct uvd *uvd )
 #line 27352
   __cil_tmp11 = __cil_tmp10 + 4U;
 #line 27352
-  __cil_tmp68 = 0 * 6UL;
+  __cil_tmp68 = 0 * 6U;
 #line 27352
-  __cil_tmp69 = (unsigned long )(camera_sizes) + __cil_tmp68;
+  __cil_tmp69 = (unsigned int )(camera_sizes) + __cil_tmp68;
 #line 27352
   __cil_tmp70 = (struct cam_size  const  *)__cil_tmp69;
 #line 27352
@@ -6115,9 +6115,9 @@ static void konicawc_set_camera_size(struct uvd *uvd )
 #line 27353
   __cil_tmp20 = __cil_tmp75 * 6U;
 #line 27353
-  __cil_tmp76 = 0 * 6UL;
+  __cil_tmp76 = 0 * 6U;
 #line 27353
-  __cil_tmp77 = (unsigned long )(camera_sizes) + __cil_tmp76;
+  __cil_tmp77 = (unsigned int )(camera_sizes) + __cil_tmp76;
 #line 27353
   __cil_tmp78 = (struct cam_size  const  *)__cil_tmp77;
 #line 27353
@@ -6153,9 +6153,9 @@ static void konicawc_set_camera_size(struct uvd *uvd )
 #line 27354
   __cil_tmp29 = __cil_tmp28 + 2U;
 #line 27354
-  __cil_tmp85 = 0 * 6UL;
+  __cil_tmp85 = 0 * 6U;
 #line 27354
-  __cil_tmp86 = (unsigned long )(camera_sizes) + __cil_tmp85;
+  __cil_tmp86 = (unsigned int )(camera_sizes) + __cil_tmp85;
 #line 27354
   __cil_tmp87 = (struct cam_size  const  *)__cil_tmp86;
 #line 27354
@@ -7664,35 +7664,35 @@ static int konicawc_compress_iso(struct uvd *uvd , struct urb *dataurb , struct 
   struct usb_device **__cil_tmp162 ;
   struct usb_device **__cil_tmp163 ;
   int *__cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
+  unsigned int __cil_tmp165 ;
+  unsigned int __cil_tmp166 ;
   unsigned char *__cil_tmp167 ;
   unsigned int __cil_tmp168 ;
   unsigned char *__cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
+  unsigned int __cil_tmp170 ;
+  unsigned int __cil_tmp171 ;
   unsigned char *__cil_tmp172 ;
   unsigned int __cil_tmp173 ;
   unsigned char *__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
+  unsigned int __cil_tmp175 ;
+  unsigned int __cil_tmp176 ;
   unsigned char *__cil_tmp177 ;
   unsigned int __cil_tmp178 ;
   unsigned char *__cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
+  unsigned int __cil_tmp180 ;
+  unsigned int __cil_tmp181 ;
   unsigned char *__cil_tmp182 ;
   unsigned int __cil_tmp183 ;
   unsigned char *__cil_tmp184 ;
   int *__cil_tmp185 ;
   int *__cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
+  unsigned int __cil_tmp187 ;
+  unsigned int __cil_tmp188 ;
   unsigned char *__cil_tmp189 ;
   unsigned int __cil_tmp190 ;
   unsigned char *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
+  unsigned int __cil_tmp192 ;
+  unsigned int __cil_tmp193 ;
   unsigned char *__cil_tmp194 ;
   unsigned int __cil_tmp195 ;
 
@@ -8078,9 +8078,9 @@ static int konicawc_compress_iso(struct uvd *uvd , struct urb *dataurb , struct 
 #line 27529
       __cil_tmp111 = 0U;
 #line 27529
-      __cil_tmp165 = 0 * 1UL;
+      __cil_tmp165 = 0 * 1U;
 #line 27529
-      __cil_tmp166 = (unsigned long )(marker) + __cil_tmp165;
+      __cil_tmp166 = (unsigned int )(marker) + __cil_tmp165;
 #line 27529
       __cil_tmp167 = (unsigned char *)__cil_tmp166;
 #line 27529
@@ -8094,9 +8094,9 @@ static int konicawc_compress_iso(struct uvd *uvd , struct urb *dataurb , struct 
 #line 27529
       __cil_tmp113 = 1U;
 #line 27529
-      __cil_tmp170 = 0 * 1UL;
+      __cil_tmp170 = 0 * 1U;
 #line 27529
-      __cil_tmp171 = (unsigned long )(marker) + __cil_tmp170;
+      __cil_tmp171 = (unsigned int )(marker) + __cil_tmp170;
 #line 27529
       __cil_tmp172 = (unsigned char *)__cil_tmp171;
 #line 27529
@@ -8110,9 +8110,9 @@ static int konicawc_compress_iso(struct uvd *uvd , struct urb *dataurb , struct 
 #line 27529
       __cil_tmp115 = 2U;
 #line 27529
-      __cil_tmp175 = 0 * 1UL;
+      __cil_tmp175 = 0 * 1U;
 #line 27529
-      __cil_tmp176 = (unsigned long )(marker) + __cil_tmp175;
+      __cil_tmp176 = (unsigned int )(marker) + __cil_tmp175;
 #line 27529
       __cil_tmp177 = (unsigned char *)__cil_tmp176;
 #line 27529
@@ -8126,9 +8126,9 @@ static int konicawc_compress_iso(struct uvd *uvd , struct urb *dataurb , struct 
 #line 27529
       __cil_tmp117 = 3U;
 #line 27529
-      __cil_tmp180 = 0 * 1UL;
+      __cil_tmp180 = 0 * 1U;
 #line 27529
-      __cil_tmp181 = (unsigned long )(marker) + __cil_tmp180;
+      __cil_tmp181 = (unsigned int )(marker) + __cil_tmp180;
 #line 27529
       __cil_tmp182 = (unsigned char *)__cil_tmp181;
 #line 27529
@@ -8178,9 +8178,9 @@ static int konicawc_compress_iso(struct uvd *uvd , struct urb *dataurb , struct 
 #line 27536
       __cil_tmp126 = 3U;
 #line 27536
-      __cil_tmp187 = 0 * 1UL;
+      __cil_tmp187 = 0 * 1U;
 #line 27536
-      __cil_tmp188 = (unsigned long )(marker) + __cil_tmp187;
+      __cil_tmp188 = (unsigned int )(marker) + __cil_tmp187;
 #line 27536
       __cil_tmp189 = (unsigned char *)__cil_tmp188;
 #line 27536
@@ -8198,9 +8198,9 @@ static int konicawc_compress_iso(struct uvd *uvd , struct urb *dataurb , struct 
 #line 27537
       __cil_tmp130 = 0U;
 #line 27537
-      __cil_tmp192 = 0 * 1UL;
+      __cil_tmp192 = 0 * 1U;
 #line 27537
-      __cil_tmp193 = (unsigned long )(marker) + __cil_tmp192;
+      __cil_tmp193 = (unsigned int )(marker) + __cil_tmp192;
 #line 27537
       __cil_tmp194 = (unsigned char *)__cil_tmp193;
 #line 27537
@@ -9056,8 +9056,8 @@ static int konicawc_start_data(struct uvd *uvd )
   unsigned char *__cil_tmp179 ;
   u8 *__cil_tmp180 ;
   unsigned int __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
+  unsigned int __cil_tmp182 ;
+  unsigned int __cil_tmp183 ;
   int const   *__cil_tmp184 ;
   unsigned int __cil_tmp185 ;
   int const   *__cil_tmp186 ;
@@ -9169,9 +9169,9 @@ static int konicawc_start_data(struct uvd *uvd )
 #line 27620
     __cil_tmp28 = __cil_tmp181 * 4U;
 #line 27620
-    __cil_tmp182 = 0 * 4UL;
+    __cil_tmp182 = 0 * 4U;
 #line 27620
-    __cil_tmp183 = (unsigned long )(spd_to_iface) + __cil_tmp182;
+    __cil_tmp183 = (unsigned int )(spd_to_iface) + __cil_tmp182;
 #line 27620
     __cil_tmp184 = (int const   *)__cil_tmp183;
 #line 27620
@@ -11648,8 +11648,8 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
   __u32 *__cil_tmp137 ;
   int __cil_tmp138 ;
   unsigned int __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
+  unsigned int __cil_tmp140 ;
+  unsigned int __cil_tmp141 ;
   struct cam_size  const  *__cil_tmp142 ;
   unsigned int __cil_tmp143 ;
   u16 const   *__cil_tmp144 ;
@@ -11657,8 +11657,8 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
   int __cil_tmp146 ;
   int __cil_tmp147 ;
   unsigned int __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
+  unsigned int __cil_tmp149 ;
+  unsigned int __cil_tmp150 ;
   struct cam_size  const  *__cil_tmp151 ;
   unsigned int __cil_tmp152 ;
   u16 const   *__cil_tmp153 ;
@@ -11677,22 +11677,22 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
   int const   *__cil_tmp166 ;
   int __cil_tmp167 ;
   unsigned int __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
+  unsigned int __cil_tmp169 ;
+  unsigned int __cil_tmp170 ;
   struct cam_size  const  *__cil_tmp171 ;
   unsigned int __cil_tmp172 ;
   u16 const   *__cil_tmp173 ;
   u16 __cil_tmp174 ;
   unsigned int __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
+  unsigned int __cil_tmp176 ;
+  unsigned int __cil_tmp177 ;
   struct cam_size  const  *__cil_tmp178 ;
   unsigned int __cil_tmp179 ;
   u16 const   *__cil_tmp180 ;
   u16 __cil_tmp181 ;
   unsigned int __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
+  unsigned int __cil_tmp183 ;
+  unsigned int __cil_tmp184 ;
   int const   *__cil_tmp185 ;
   unsigned int __cil_tmp186 ;
   int const   *__cil_tmp187 ;
@@ -11805,9 +11805,9 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
 #line 27838
         __cil_tmp27 = __cil_tmp139 * 6U;
 #line 27838
-        __cil_tmp140 = 0 * 6UL;
+        __cil_tmp140 = 0 * 6U;
 #line 27838
-        __cil_tmp141 = (unsigned long )(camera_sizes) + __cil_tmp140;
+        __cil_tmp141 = (unsigned int )(camera_sizes) + __cil_tmp140;
 #line 27838
         __cil_tmp142 = (struct cam_size  const  *)__cil_tmp141;
 #line 27838
@@ -11837,9 +11837,9 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
 #line 27838
           __cil_tmp33 = __cil_tmp32 + 2U;
 #line 27838
-          __cil_tmp149 = 0 * 6UL;
+          __cil_tmp149 = 0 * 6U;
 #line 27838
-          __cil_tmp150 = (unsigned long )(camera_sizes) + __cil_tmp149;
+          __cil_tmp150 = (unsigned int )(camera_sizes) + __cil_tmp149;
 #line 27838
           __cil_tmp151 = (struct cam_size  const  *)__cil_tmp150;
 #line 27838
@@ -12068,9 +12068,9 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
 #line 27864
     __cil_tmp75 = __cil_tmp74 + 2U;
 #line 27864
-    __cil_tmp169 = 0 * 6UL;
+    __cil_tmp169 = 0 * 6U;
 #line 27864
-    __cil_tmp170 = (unsigned long )(camera_sizes) + __cil_tmp169;
+    __cil_tmp170 = (unsigned int )(camera_sizes) + __cil_tmp169;
 #line 27864
     __cil_tmp171 = (struct cam_size  const  *)__cil_tmp170;
 #line 27864
@@ -12088,9 +12088,9 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
 #line 27864
     __cil_tmp78 = __cil_tmp175 * 6U;
 #line 27864
-    __cil_tmp176 = 0 * 6UL;
+    __cil_tmp176 = 0 * 6U;
 #line 27864
-    __cil_tmp177 = (unsigned long )(camera_sizes) + __cil_tmp176;
+    __cil_tmp177 = (unsigned int )(camera_sizes) + __cil_tmp176;
 #line 27864
     __cil_tmp178 = (struct cam_size  const  *)__cil_tmp177;
 #line 27864
@@ -12124,9 +12124,9 @@ static int konicawc_set_video_mode(struct uvd *uvd , struct video_window *vw )
 #line 27868
   __cil_tmp84 = __cil_tmp182 * 4U;
 #line 27868
-  __cil_tmp183 = 0 * 4UL;
+  __cil_tmp183 = 0 * 4U;
 #line 27868
-  __cil_tmp184 = (unsigned long )(spd_to_iface) + __cil_tmp183;
+  __cil_tmp184 = (unsigned int )(spd_to_iface) + __cil_tmp183;
 #line 27868
   __cil_tmp185 = (int const   *)__cil_tmp184;
 #line 27868
@@ -12599,29 +12599,29 @@ static void konicawc_configure_video(struct uvd *uvd )
   int *__cil_tmp207 ;
   int *__cil_tmp208 ;
   int *__cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
+  unsigned int __cil_tmp210 ;
+  unsigned int __cil_tmp211 ;
   struct cam_size  const  *__cil_tmp212 ;
   unsigned int __cil_tmp213 ;
   u16 const   *__cil_tmp214 ;
   u16 __cil_tmp215 ;
   int *__cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
+  unsigned int __cil_tmp217 ;
+  unsigned int __cil_tmp218 ;
   struct cam_size  const  *__cil_tmp219 ;
   unsigned int __cil_tmp220 ;
   u16 const   *__cil_tmp221 ;
   u16 __cil_tmp222 ;
   int *__cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
+  unsigned int __cil_tmp224 ;
+  unsigned int __cil_tmp225 ;
   struct cam_size  const  *__cil_tmp226 ;
   unsigned int __cil_tmp227 ;
   u16 const   *__cil_tmp228 ;
   u16 __cil_tmp229 ;
   int *__cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
+  unsigned int __cil_tmp231 ;
+  unsigned int __cil_tmp232 ;
   struct cam_size  const  *__cil_tmp233 ;
   unsigned int __cil_tmp234 ;
   u16 const   *__cil_tmp235 ;
@@ -12631,31 +12631,31 @@ static void konicawc_configure_video(struct uvd *uvd )
   int *__cil_tmp239 ;
   int *__cil_tmp240 ;
   __u16 *__cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
+  unsigned int __cil_tmp242 ;
+  unsigned int __cil_tmp243 ;
   u8 *__cil_tmp244 ;
   unsigned int __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
+  unsigned int __cil_tmp246 ;
+  unsigned int __cil_tmp247 ;
   u8 *__cil_tmp248 ;
   unsigned int __cil_tmp249 ;
   u8 *__cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
+  unsigned int __cil_tmp251 ;
+  unsigned int __cil_tmp252 ;
   u8 *__cil_tmp253 ;
   unsigned int __cil_tmp254 ;
   u8 *__cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
+  unsigned int __cil_tmp256 ;
+  unsigned int __cil_tmp257 ;
   u8 *__cil_tmp258 ;
   unsigned int __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
+  unsigned int __cil_tmp260 ;
+  unsigned int __cil_tmp261 ;
   u8 *__cil_tmp262 ;
   unsigned int __cil_tmp263 ;
   u8 *__cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
+  unsigned int __cil_tmp265 ;
+  unsigned int __cil_tmp266 ;
   u8 *__cil_tmp267 ;
   unsigned int __cil_tmp268 ;
   u8 *__cil_tmp269 ;
@@ -13028,9 +13028,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27932
   __cil_tmp119 = 0U;
 #line 27932
-  __cil_tmp210 = 0 * 6UL;
+  __cil_tmp210 = 0 * 6U;
 #line 27932
-  __cil_tmp211 = (unsigned long )(camera_sizes) + __cil_tmp210;
+  __cil_tmp211 = (unsigned int )(camera_sizes) + __cil_tmp210;
 #line 27932
   __cil_tmp212 = (struct cam_size  const  *)__cil_tmp211;
 #line 27932
@@ -13058,9 +13058,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27933
   __cil_tmp126 = __cil_tmp125 + 2U;
 #line 27933
-  __cil_tmp217 = 0 * 6UL;
+  __cil_tmp217 = 0 * 6U;
 #line 27933
-  __cil_tmp218 = (unsigned long )(camera_sizes) + __cil_tmp217;
+  __cil_tmp218 = (unsigned int )(camera_sizes) + __cil_tmp217;
 #line 27933
   __cil_tmp219 = (struct cam_size  const  *)__cil_tmp218;
 #line 27933
@@ -13086,9 +13086,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27934
   __cil_tmp132 = 18U;
 #line 27934
-  __cil_tmp224 = 0 * 6UL;
+  __cil_tmp224 = 0 * 6U;
 #line 27934
-  __cil_tmp225 = (unsigned long )(camera_sizes) + __cil_tmp224;
+  __cil_tmp225 = (unsigned int )(camera_sizes) + __cil_tmp224;
 #line 27934
   __cil_tmp226 = (struct cam_size  const  *)__cil_tmp225;
 #line 27934
@@ -13116,9 +13116,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27935
   __cil_tmp139 = __cil_tmp138 + 2U;
 #line 27935
-  __cil_tmp231 = 0 * 6UL;
+  __cil_tmp231 = 0 * 6U;
 #line 27935
-  __cil_tmp232 = (unsigned long )(camera_sizes) + __cil_tmp231;
+  __cil_tmp232 = (unsigned int )(camera_sizes) + __cil_tmp231;
 #line 27935
   __cil_tmp233 = (struct cam_size  const  *)__cil_tmp232;
 #line 27935
@@ -13215,9 +13215,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27946
   __cil_tmp165 = 0U;
 #line 27946
-  __cil_tmp242 = 0 * 1UL;
+  __cil_tmp242 = 0 * 1U;
 #line 27946
-  __cil_tmp243 = (unsigned long )(buf) + __cil_tmp242;
+  __cil_tmp243 = (unsigned int )(buf) + __cil_tmp242;
 #line 27946
   __cil_tmp244 = (u8 *)__cil_tmp243;
 #line 27946
@@ -13246,9 +13246,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27947
       __cil_tmp171 = 1U;
 #line 27947
-      __cil_tmp246 = 0 * 1UL;
+      __cil_tmp246 = 0 * 1U;
 #line 27947
-      __cil_tmp247 = (unsigned long )(buf) + __cil_tmp246;
+      __cil_tmp247 = (unsigned int )(buf) + __cil_tmp246;
 #line 27947
       __cil_tmp248 = (u8 *)__cil_tmp247;
 #line 27947
@@ -13262,9 +13262,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27947
       __cil_tmp174 = 0U;
 #line 27947
-      __cil_tmp251 = 0 * 1UL;
+      __cil_tmp251 = 0 * 1U;
 #line 27947
-      __cil_tmp252 = (unsigned long )(buf) + __cil_tmp251;
+      __cil_tmp252 = (unsigned int )(buf) + __cil_tmp251;
 #line 27947
       __cil_tmp253 = (u8 *)__cil_tmp252;
 #line 27947
@@ -13287,9 +13287,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27948
   __cil_tmp177 = 0U;
 #line 27948
-  __cil_tmp256 = 0 * 1UL;
+  __cil_tmp256 = 0 * 1U;
 #line 27948
-  __cil_tmp257 = (unsigned long )(buf) + __cil_tmp256;
+  __cil_tmp257 = (unsigned int )(buf) + __cil_tmp256;
 #line 27948
   __cil_tmp258 = (u8 *)__cil_tmp257;
 #line 27948
@@ -13318,9 +13318,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27949
       __cil_tmp183 = 1U;
 #line 27949
-      __cil_tmp260 = 0 * 1UL;
+      __cil_tmp260 = 0 * 1U;
 #line 27949
-      __cil_tmp261 = (unsigned long )(buf) + __cil_tmp260;
+      __cil_tmp261 = (unsigned int )(buf) + __cil_tmp260;
 #line 27949
       __cil_tmp262 = (u8 *)__cil_tmp261;
 #line 27949
@@ -13334,9 +13334,9 @@ static void konicawc_configure_video(struct uvd *uvd )
 #line 27949
       __cil_tmp186 = 0U;
 #line 27949
-      __cil_tmp265 = 0 * 1UL;
+      __cil_tmp265 = 0 * 1U;
 #line 27949
-      __cil_tmp266 = (unsigned long )(buf) + __cil_tmp265;
+      __cil_tmp266 = (unsigned int )(buf) + __cil_tmp265;
 #line 27949
       __cil_tmp267 = (u8 *)__cil_tmp266;
 #line 27949
@@ -13663,8 +13663,8 @@ static int konicawc_probe(struct usb_interface *intf , struct usb_device_id  con
   __le16 const   *__cil_tmp263 ;
   __le16 __cil_tmp264 ;
   unsigned int __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
+  unsigned int __cil_tmp266 ;
+  unsigned int __cil_tmp267 ;
   int const   *__cil_tmp268 ;
   unsigned int __cil_tmp269 ;
   int const   *__cil_tmp270 ;
@@ -13682,16 +13682,16 @@ static int konicawc_probe(struct usb_interface *intf , struct usb_device_id  con
   struct urb **__cil_tmp282 ;
   u8 *__cil_tmp283 ;
   unsigned int __cil_tmp284 ;
-  unsigned long __cil_tmp285 ;
-  unsigned long __cil_tmp286 ;
+  unsigned int __cil_tmp285 ;
+  unsigned int __cil_tmp286 ;
   struct cam_size  const  *__cil_tmp287 ;
   unsigned int __cil_tmp288 ;
   u16 const   *__cil_tmp289 ;
   u16 __cil_tmp290 ;
   int *__cil_tmp291 ;
   unsigned int __cil_tmp292 ;
-  unsigned long __cil_tmp293 ;
-  unsigned long __cil_tmp294 ;
+  unsigned int __cil_tmp293 ;
+  unsigned int __cil_tmp294 ;
   struct cam_size  const  *__cil_tmp295 ;
   unsigned int __cil_tmp296 ;
   u16 const   *__cil_tmp297 ;
@@ -14144,9 +14144,9 @@ static int konicawc_probe(struct usb_interface *intf , struct usb_device_id  con
 #line 28019
       __cil_tmp118 = __cil_tmp265 * 4U;
 #line 28019
-      __cil_tmp266 = 0 * 4UL;
+      __cil_tmp266 = 0 * 4U;
 #line 28019
-      __cil_tmp267 = (unsigned long )(spd_to_iface) + __cil_tmp266;
+      __cil_tmp267 = (unsigned int )(spd_to_iface) + __cil_tmp266;
 #line 28019
       __cil_tmp268 = (int const   *)__cil_tmp267;
 #line 28019
@@ -14412,9 +14412,9 @@ static int konicawc_probe(struct usb_interface *intf , struct usb_device_id  con
 #line 28050
     __cil_tmp172 = __cil_tmp284 * 6U;
 #line 28050
-    __cil_tmp285 = 0 * 6UL;
+    __cil_tmp285 = 0 * 6U;
 #line 28050
-    __cil_tmp286 = (unsigned long )(camera_sizes) + __cil_tmp285;
+    __cil_tmp286 = (unsigned int )(camera_sizes) + __cil_tmp285;
 #line 28050
     __cil_tmp287 = (struct cam_size  const  *)__cil_tmp286;
 #line 28050
@@ -14446,9 +14446,9 @@ static int konicawc_probe(struct usb_interface *intf , struct usb_device_id  con
 #line 28051
     __cil_tmp180 = __cil_tmp179 + 2U;
 #line 28051
-    __cil_tmp293 = 0 * 6UL;
+    __cil_tmp293 = 0 * 6U;
 #line 28051
-    __cil_tmp294 = (unsigned long )(camera_sizes) + __cil_tmp293;
+    __cil_tmp294 = (unsigned int )(camera_sizes) + __cil_tmp293;
 #line 28051
     __cil_tmp295 = (struct cam_size  const  *)__cil_tmp294;
 #line 28051
@@ -14813,8 +14813,8 @@ static int __attribute__((__cold__))  konicawc_init(void)
   void (**__cil_tmp33)(struct uvd * ) ;
   unsigned int __cil_tmp34 ;
   void (**__cil_tmp35)(struct uvd * ) ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
   struct usb_device_id *__cil_tmp38 ;
   unsigned int __cil_tmp39 ;
 
@@ -14899,9 +14899,9 @@ static int __attribute__((__cold__))  konicawc_init(void)
 #line 28123
   __cil_tmp13 = 0U;
 #line 28123
-  __cil_tmp36 = 0 * 24UL;
+  __cil_tmp36 = 0 * 20U;
 #line 28123
-  __cil_tmp37 = (unsigned long )(id_table) + __cil_tmp36;
+  __cil_tmp37 = (unsigned int )(id_table) + __cil_tmp36;
 #line 28123
   __cil_tmp38 = (struct usb_device_id *)__cil_tmp37;
 #line 28123
