@@ -1,2 +1,4 @@
 systemc/*.BUG.cil.c
 systemc/*[!G].cil.c
+pthread/*.BUG.cil.c
+pthread/*[!G].cil.c
