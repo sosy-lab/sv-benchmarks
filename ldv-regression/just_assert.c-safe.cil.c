@@ -2,7 +2,7 @@
 /* print_CIL_Input is true */
 
 #line 1 "files/just_assert.c"
-int VERDICT_UNSAFE  ;
+int VERDICT_SAFE  ;
 #line 3 "files/just_assert.c"
 int main(void) 
 { 
