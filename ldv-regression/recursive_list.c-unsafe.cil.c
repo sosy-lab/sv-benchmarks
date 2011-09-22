@@ -36,8 +36,8 @@ void *allocate_memory(void)
 struct list *append(struct list *l , int n ) 
 { struct list *new_el ;
   void *tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
@@ -48,9 +48,9 @@ struct list *append(struct list *l , int n )
 #line 35
   *((int *)new_el) = n;
 #line 36
-  __cil_tmp5 = (unsigned long )new_el;
+  __cil_tmp5 = (unsigned int )new_el;
 #line 36
-  __cil_tmp6 = __cil_tmp5 + 8;
+  __cil_tmp6 = __cil_tmp5 + 4;
 #line 36
   *((struct list **)__cil_tmp6) = l;
   }
@@ -62,13 +62,13 @@ struct list *append(struct list *l , int n )
 int main(void) 
 { struct list *l ;
   struct list m ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
   struct list *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   struct list *__cil_tmp10 ;
   int __cil_tmp11 ;
 
@@ -77,9 +77,9 @@ int main(void)
 #line 44
   l = & m;
 #line 45
-  __cil_tmp3 = (unsigned long )l;
+  __cil_tmp3 = (unsigned int )l;
 #line 45
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = __cil_tmp3 + 4;
 #line 45
   *((struct list **)__cil_tmp4) = (struct list *)0;
 #line 46
@@ -91,15 +91,15 @@ int main(void)
   }
   {
 #line 54
-  __cil_tmp5 = (unsigned long )l;
+  __cil_tmp5 = (unsigned int )l;
 #line 54
-  __cil_tmp6 = __cil_tmp5 + 8;
+  __cil_tmp6 = __cil_tmp5 + 4;
 #line 54
   __cil_tmp7 = *((struct list **)__cil_tmp6);
 #line 54
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 54
-  __cil_tmp9 = __cil_tmp8 + 8;
+  __cil_tmp9 = __cil_tmp8 + 4;
 #line 54
   __cil_tmp10 = *((struct list **)__cil_tmp9);
 #line 54

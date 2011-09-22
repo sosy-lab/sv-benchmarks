@@ -37,8 +37,9 @@ int main(int argc , char **argv )
   int a ;
   ssize_t tmp___1 ;
   char *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char *__cil_tmp11 ;
+  unsigned int __cil_tmp10 ;
+  unsigned long __cil_tmp11 ;
+  char *__cil_tmp12 ;
 
   {
   {
@@ -49,15 +50,17 @@ int main(int argc , char **argv )
 #line 15
   file = tmp;
 #line 16
-  __cil_tmp10 = 1UL * 100UL;
+  __cil_tmp10 = 1U * 100U;
 #line 16
-  tmp___0 = malloc(__cil_tmp10);
+  __cil_tmp11 = (unsigned long )__cil_tmp10;
+#line 16
+  tmp___0 = malloc(__cil_tmp11);
 #line 16
   cbuf = tmp___0;
 #line 17
-  __cil_tmp11 = (char *)cbuf;
+  __cil_tmp12 = (char *)cbuf;
 #line 17
-  tmp___1 = l_read(file, __cil_tmp11, 99UL);
+  tmp___1 = l_read(file, __cil_tmp12, 99UL);
 #line 17
   a = (int )tmp___1;
   }

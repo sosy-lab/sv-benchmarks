@@ -33,12 +33,12 @@ int main(void)
   struct Toplev good ;
   struct Innermost *__cil_tmp4 ;
   struct Inner *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   struct Innermost *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
   struct Innermost *__cil_tmp12 ;
   int __cil_tmp13 ;
   struct Inner *good_x14 ;
@@ -54,7 +54,7 @@ int main(void)
 #line 21
   *((int *)__cil_tmp5) = 2;
 #line 21
-  __cil_tmp6 = (unsigned long )(& inner) + 8;
+  __cil_tmp6 = (unsigned int )(& inner) + 4;
 #line 21
   *((struct Innermost **)__cil_tmp6) = & im;
 #line 22
@@ -62,18 +62,18 @@ int main(void)
 #line 22
   good_x14 = & inner;
 #line 23
-  __cil_tmp7 = (unsigned long )good_x14;
+  __cil_tmp7 = (unsigned int )good_x14;
 #line 23
-  __cil_tmp8 = __cil_tmp7 + 8;
+  __cil_tmp8 = __cil_tmp7 + 4;
 #line 23
   __cil_tmp9 = *((struct Innermost **)__cil_tmp8);
 #line 23
   *((int *)__cil_tmp9) = 4;
   {
 #line 24
-  __cil_tmp10 = (unsigned long )good_x14;
+  __cil_tmp10 = (unsigned int )good_x14;
 #line 24
-  __cil_tmp11 = __cil_tmp10 + 8;
+  __cil_tmp11 = __cil_tmp10 + 4;
 #line 24
   __cil_tmp12 = *((struct Innermost **)__cil_tmp11);
 #line 24

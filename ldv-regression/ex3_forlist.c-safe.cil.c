@@ -19,10 +19,10 @@ int pstate[2]  ;
 #line 17 "files/ex3_forlist.c"
 void init(void) 
 { int i ;
-  unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
 
   {
 #line 19
@@ -38,15 +38,15 @@ void init(void)
       goto while_0_break;
     }
 #line 20
-    __cil_tmp2 = i * 8UL;
+    __cil_tmp2 = i * 4U;
 #line 20
-    __cil_tmp3 = (unsigned long )(pp) + __cil_tmp2;
+    __cil_tmp3 = (unsigned int )(pp) + __cil_tmp2;
 #line 20
     *((void **)__cil_tmp3) = (void *)0;
 #line 21
-    __cil_tmp4 = i * 4UL;
+    __cil_tmp4 = i * 4U;
 #line 21
-    __cil_tmp5 = (unsigned long )(pstate) + __cil_tmp4;
+    __cil_tmp5 = (unsigned int )(pstate) + __cil_tmp4;
 #line 21
     *((int *)__cil_tmp5) = 0;
 #line 19
@@ -62,15 +62,15 @@ void init(void)
 void f(void *pointer ) 
 { int i ;
   void *__cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
   void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
 
   {
 #line 27
@@ -89,27 +89,27 @@ void f(void *pointer )
 #line 28
     __cil_tmp3 = (void *)0;
 #line 28
-    __cil_tmp4 = (unsigned long )__cil_tmp3;
+    __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 28
-    __cil_tmp5 = i * 8UL;
+    __cil_tmp5 = i * 4U;
 #line 28
-    __cil_tmp6 = (unsigned long )(pp) + __cil_tmp5;
+    __cil_tmp6 = (unsigned int )(pp) + __cil_tmp5;
 #line 28
     __cil_tmp7 = *((void **)__cil_tmp6);
 #line 28
-    __cil_tmp8 = (unsigned long )__cil_tmp7;
+    __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 28
     if (__cil_tmp8 == __cil_tmp4) {
 #line 29
-      __cil_tmp9 = i * 8UL;
+      __cil_tmp9 = i * 4U;
 #line 29
-      __cil_tmp10 = (unsigned long )(pp) + __cil_tmp9;
+      __cil_tmp10 = (unsigned int )(pp) + __cil_tmp9;
 #line 29
       *((void **)__cil_tmp10) = pointer;
 #line 30
-      __cil_tmp11 = i * 4UL;
+      __cil_tmp11 = i * 4U;
 #line 30
-      __cil_tmp12 = (unsigned long )(pstate) + __cil_tmp11;
+      __cil_tmp12 = (unsigned int )(pstate) + __cil_tmp11;
 #line 30
       *((int *)__cil_tmp12) = 1;
       goto while_1_break;
@@ -129,16 +129,16 @@ void f(void *pointer )
 #line 36 "files/ex3_forlist.c"
 void g(void *pointer ) 
 { int i ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
   void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
 
   {
 #line 38
@@ -155,22 +155,22 @@ void g(void *pointer )
     }
     {
 #line 39
-    __cil_tmp3 = (unsigned long )pointer;
+    __cil_tmp3 = (unsigned int )pointer;
 #line 39
-    __cil_tmp4 = i * 8UL;
+    __cil_tmp4 = i * 4U;
 #line 39
-    __cil_tmp5 = (unsigned long )(pp) + __cil_tmp4;
+    __cil_tmp5 = (unsigned int )(pp) + __cil_tmp4;
 #line 39
     __cil_tmp6 = *((void **)__cil_tmp5);
 #line 39
-    __cil_tmp7 = (unsigned long )__cil_tmp6;
+    __cil_tmp7 = (unsigned int )__cil_tmp6;
 #line 39
     if (__cil_tmp7 == __cil_tmp3) {
       {
 #line 41
-      __cil_tmp8 = i * 4UL;
+      __cil_tmp8 = i * 4U;
 #line 41
-      __cil_tmp9 = (unsigned long )(pstate) + __cil_tmp8;
+      __cil_tmp9 = (unsigned int )(pstate) + __cil_tmp8;
 #line 41
       __cil_tmp10 = *((int *)__cil_tmp9);
 #line 41
@@ -184,9 +184,9 @@ void g(void *pointer )
       }
       }
 #line 42
-      __cil_tmp11 = i * 4UL;
+      __cil_tmp11 = i * 4U;
 #line 42
-      __cil_tmp12 = (unsigned long )(pstate) + __cil_tmp11;
+      __cil_tmp12 = (unsigned int )(pstate) + __cil_tmp11;
 #line 42
       *((int *)__cil_tmp12) = 2;
     } else {
@@ -226,11 +226,11 @@ int main(void)
   int __cil_tmp5 ;
   int __cil_tmp6 ;
   int *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   int *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   void *__cil_tmp13 ;
   void *__cil_tmp14 ;
   void *__cil_tmp15 ;
@@ -241,13 +241,13 @@ int main(void)
 #line 58
   init();
 #line 59
-  __cil_tmp5 = (int )4UL;
+  __cil_tmp5 = (int )4U;
 #line 59
   tmp = malloc(__cil_tmp5);
 #line 59
   a = (int *)tmp;
 #line 60
-  __cil_tmp6 = (int )4UL;
+  __cil_tmp6 = (int )4U;
 #line 60
   tmp___0 = malloc(__cil_tmp6);
 #line 60
@@ -257,9 +257,9 @@ int main(void)
 #line 61
   __cil_tmp7 = (int *)0;
 #line 61
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 61
-  __cil_tmp9 = (unsigned long )a;
+  __cil_tmp9 = (unsigned int )a;
 #line 61
   if (__cil_tmp9 == __cil_tmp8) {
 #line 62
@@ -269,9 +269,9 @@ int main(void)
 #line 61
     __cil_tmp10 = (int *)0;
 #line 61
-    __cil_tmp11 = (unsigned long )__cil_tmp10;
+    __cil_tmp11 = (unsigned int )__cil_tmp10;
 #line 61
-    __cil_tmp12 = (unsigned long )b;
+    __cil_tmp12 = (unsigned int )b;
 #line 61
     if (__cil_tmp12 == __cil_tmp11) {
 #line 62

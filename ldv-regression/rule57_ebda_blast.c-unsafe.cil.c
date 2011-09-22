@@ -43,26 +43,26 @@ extern void *kzalloc(int  , int  ) ;
 #line 39 "files/rule57_ebda_blast.c"
 void kfree(void *p ) 
 { void *__cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 40
   __cil_tmp2 = (void *)0;
 #line 40
-  __cil_tmp3 = (unsigned long )__cil_tmp2;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 40
-  __cil_tmp4 = (unsigned long )p;
+  __cil_tmp4 = (unsigned int )p;
 #line 40
   if (__cil_tmp4 != __cil_tmp3) {
     {
 #line 40
-    __cil_tmp5 = (unsigned long )tmp_slot;
+    __cil_tmp5 = (unsigned int )tmp_slot;
 #line 40
-    __cil_tmp6 = (unsigned long )p;
+    __cil_tmp6 = (unsigned int )p;
 #line 40
     if (__cil_tmp6 == __cil_tmp5) {
 #line 41
@@ -93,15 +93,15 @@ int ebda_rsrc_controller(void)
   void *tmp ;
   void *tmp___0 ;
   int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
   struct slot **__cil_tmp16 ;
   struct slot *__cil_tmp17 ;
   void *__cil_tmp18 ;
@@ -109,7 +109,7 @@ int ebda_rsrc_controller(void)
   {
   {
 #line 55
-  __cil_tmp6 = (int )16UL;
+  __cil_tmp6 = (int )8U;
 #line 55
   tmp = kzalloc(__cil_tmp6, 1);
 #line 55
@@ -125,13 +125,13 @@ int ebda_rsrc_controller(void)
   }
   {
 #line 60
-  __cil_tmp7 = (unsigned long )hp_slot_ptr;
+  __cil_tmp7 = (unsigned int )hp_slot_ptr;
 #line 60
-  __cil_tmp8 = __cil_tmp7 + 8;
+  __cil_tmp8 = __cil_tmp7 + 4;
 #line 60
   *((int *)__cil_tmp8) = 5;
 #line 62
-  __cil_tmp9 = (int )24UL;
+  __cil_tmp9 = (int )16U;
 #line 62
   tmp___0 = kzalloc(__cil_tmp9, 1);
 #line 62
@@ -153,7 +153,7 @@ int ebda_rsrc_controller(void)
 #line 72
   *((int *)tmp_slot) = 2;
 #line 73
-  __cil_tmp10 = (unsigned long )tmp_slot;
+  __cil_tmp10 = (unsigned int )tmp_slot;
 #line 73
   __cil_tmp11 = __cil_tmp10 + 4;
 #line 73
@@ -171,15 +171,15 @@ int ebda_rsrc_controller(void)
   }
   {
 #line 85
-  __cil_tmp12 = (unsigned long )tmp_slot;
+  __cil_tmp12 = (unsigned int )tmp_slot;
 #line 85
-  __cil_tmp13 = __cil_tmp12 + 16;
+  __cil_tmp13 = __cil_tmp12 + 12;
 #line 85
   *((struct bus_info **)__cil_tmp13) = bus_info_ptr1;
 #line 86
   bus_info_ptr1 = (struct bus_info *)0;
 #line 88
-  __cil_tmp14 = (unsigned long )tmp_slot;
+  __cil_tmp14 = (unsigned int )tmp_slot;
 #line 88
   __cil_tmp15 = __cil_tmp14 + 8;
 #line 88

@@ -70,15 +70,15 @@ struct list_head *elem  =    (struct list_head *)((void *)0);
 #line 36 "files/rule60_list2.c"
 static void list_add(struct list_head *new , struct list_head *head ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
 
   {
   {
 #line 37
-  __cil_tmp4 = (unsigned long )elem;
+  __cil_tmp4 = (unsigned int )elem;
 #line 37
-  __cil_tmp5 = (unsigned long )new;
+  __cil_tmp5 = (unsigned int )new;
 #line 37
   if (__cil_tmp5 != __cil_tmp4) {
 
@@ -106,16 +106,16 @@ static void list_add(struct list_head *new , struct list_head *head )
 }
 #line 42 "files/rule60_list2.c"
 static void list_del(struct list_head *entry ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   void *__cil_tmp4 ;
 
   {
   {
 #line 43
-  __cil_tmp2 = (unsigned long )elem;
+  __cil_tmp2 = (unsigned int )elem;
 #line 43
-  __cil_tmp3 = (unsigned long )entry;
+  __cil_tmp3 = (unsigned int )entry;
 #line 43
   if (__cil_tmp3 == __cil_tmp2) {
 #line 44
@@ -141,22 +141,22 @@ int main(void)
   int __cil_tmp5 ;
   int __cil_tmp6 ;
   void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
 
   {
   {
 #line 51
-  __cil_tmp5 = (int )16UL;
+  __cil_tmp5 = (int )8U;
 #line 51
   tmp = my_malloc(__cil_tmp5);
 #line 51
   dev1 = (struct list_head *)tmp;
 #line 52
-  __cil_tmp6 = (int )16UL;
+  __cil_tmp6 = (int )8U;
 #line 52
   tmp___0 = my_malloc(__cil_tmp6);
 #line 52
@@ -166,18 +166,18 @@ int main(void)
 #line 53
   __cil_tmp7 = (void *)0;
 #line 53
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 53
-  __cil_tmp9 = (unsigned long )dev1;
+  __cil_tmp9 = (unsigned int )dev1;
 #line 53
   if (__cil_tmp9 != __cil_tmp8) {
     {
 #line 53
     __cil_tmp10 = (void *)0;
 #line 53
-    __cil_tmp11 = (unsigned long )__cil_tmp10;
+    __cil_tmp11 = (unsigned int )__cil_tmp10;
 #line 53
-    __cil_tmp12 = (unsigned long )dev2;
+    __cil_tmp12 = (unsigned int )dev2;
 #line 53
     if (__cil_tmp12 != __cil_tmp11) {
       {

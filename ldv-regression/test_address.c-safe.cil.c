@@ -19,17 +19,17 @@ int VERDICT_SAFE  ;
 #line 10 "files/test_address.c"
 void list_add(int *new ) 
 { void *__cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
 
   {
   {
 #line 11
   __cil_tmp2 = (void *)0;
 #line 11
-  __cil_tmp3 = (unsigned long )__cil_tmp2;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 11
-  __cil_tmp4 = (unsigned long )new;
+  __cil_tmp4 = (unsigned int )new;
 #line 11
   if (__cil_tmp4 != __cil_tmp3) {
 

@@ -17,7 +17,7 @@ void __blast_assert(void)
 }
 }
 #line 5 "files/test_overflow.c"
-int VERDICT_UNSAFE  ;
+int VERDICT_SAFE  ;
 #line 8
 ssize_t getService(void) ;
 #line 9 "files/test_overflow.c"
@@ -26,7 +26,7 @@ int globalSize  ;
 int main(int argc , char **argv ) 
 { int retVal ;
   ssize_t tmp ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp5 ;
   char const   * __restrict  __cil_tmp6 ;
 
   {
@@ -38,9 +38,9 @@ int main(int argc , char **argv )
   }
   {
 #line 15
-  __cil_tmp5 = (unsigned long )globalSize;
+  __cil_tmp5 = (unsigned int )globalSize;
 #line 15
-  if (4UL == __cil_tmp5) {
+  if (4U == __cil_tmp5) {
 
   } else {
     {
@@ -67,9 +67,9 @@ ssize_t getService(void)
   {
   {
 #line 22
-  localVar = 999999999999L;
+  localVar = (ssize_t )999999999999LL;
 #line 23
-  globalSize = (int )8UL;
+  globalSize = (int )4U;
 #line 24
   __cil_tmp2 = (char const   * __restrict  )"localVar: %d\n";
 #line 24
