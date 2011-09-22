@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-extern int ___sl_get_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 
 static void fail(void) {
 ERROR:
@@ -109,13 +109,13 @@ static void inspect_after(struct list *shape)
 int main()
 {
     struct list *data = NULL;
-    while (___sl_get_nondet_int()) {
+    while (__VERIFIER_nondet_int()) {
         struct node *node = malloc(sizeof *node);
         if (!node)
             abort();
 
         node->next = NULL;
-        node->value = ___sl_get_nondet_int();
+        node->value = __VERIFIER_nondet_int();
 
         struct list *item = malloc(sizeof *item);
         if (!item)

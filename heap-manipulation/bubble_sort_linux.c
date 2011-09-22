@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-extern int ___sl_get_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 
 static void fail(void) {
 ERROR:
@@ -112,9 +112,9 @@ static void gl_insert(int value)
 static void gl_read()
 {
     do {
-        gl_insert(___sl_get_nondet_int());
+        gl_insert(__VERIFIER_nondet_int());
     }
-    while (___sl_get_nondet_int());
+    while (__VERIFIER_nondet_int());
 }
 
 static void gl_destroy()

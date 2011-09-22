@@ -20,7 +20,7 @@ extern  __attribute__((__nothrow__)) void free(void *__ptr ) ;
 #line 514
 extern  __attribute__((__nothrow__, __noreturn__)) void abort(void) ;
 #line 3 "test-0178.c"
-extern int ___sl_get_nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 5 "test-0178.c"
 static void fail(void) 
 { 
@@ -701,7 +701,7 @@ int main(void)
     while_17_continue: /* CIL Label */ ;
     {
 #line 112
-    tmp___1 = ___sl_get_nondet_int();
+    tmp___1 = __VERIFIER_nondet_int();
     }
 #line 112
     if (tmp___1) {
@@ -734,7 +734,7 @@ int main(void)
 #line 118
     __cil_tmp12 = __cil_tmp11 + 4;
 #line 118
-    *((int *)__cil_tmp12) = ___sl_get_nondet_int();
+    *((int *)__cil_tmp12) = __VERIFIER_nondet_int();
 #line 120
     __cil_tmp13 = (unsigned int )8UL;
 #line 120

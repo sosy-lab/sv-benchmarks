@@ -21,7 +21,7 @@ extern  __attribute__((__nothrow__)) void free(void *__ptr ) ;
 #line 514
 extern  __attribute__((__nothrow__, __noreturn__)) void abort(void) ;
 #line 5 "test-0179.c"
-extern int ___sl_get_nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 7 "test-0179.c"
 static void fail(void) 
 { 
@@ -923,11 +923,11 @@ static void gl_read(void)
     while_19_continue: /* CIL Label */ ;
     {
 #line 115
-    tmp = ___sl_get_nondet_int();
+    tmp = __VERIFIER_nondet_int();
 #line 115
     gl_insert(tmp);
 #line 114
-    tmp___0 = ___sl_get_nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 114
     if (tmp___0) {

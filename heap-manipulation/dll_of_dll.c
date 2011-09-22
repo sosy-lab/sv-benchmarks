@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-extern int ___sl_get_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 
 static void fail(void) {
 ERROR:
@@ -63,7 +63,7 @@ void* dll_create_generic(void (*insert_fnc)())
     insert_fnc(&dll);
     insert_fnc(&dll);
 
-    while (___sl_get_nondet_int())
+    while (__VERIFIER_nondet_int())
         insert_fnc(&dll);
 
     return dll;

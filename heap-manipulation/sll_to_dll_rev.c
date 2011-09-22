@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-extern int ___sl_get_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 
 static void fail(void) {
 ERROR:
@@ -45,19 +45,19 @@ static struct node* create_sll(const struct node **pp1, const struct node **pp2)
 
     do
         chain_node(&list);
-    while (___sl_get_nondet_int());
+    while (__VERIFIER_nondet_int());
 
     *pp2 = list;
 
     do
         chain_node(&list);
-    while (___sl_get_nondet_int());
+    while (__VERIFIER_nondet_int());
 
     *pp1 = list;
 
     do
         chain_node(&list);
-    while (___sl_get_nondet_int());
+    while (__VERIFIER_nondet_int());
 
     return list;
 }

@@ -15,7 +15,7 @@ extern  __attribute__((__nothrow__)) void free(void *__ptr ) ;
 #line 514
 extern  __attribute__((__nothrow__, __noreturn__)) void abort(void) ;
 #line 3 "sll_to_dll_rev_BUG.c"
-extern int ___sl_get_nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 5 "sll_to_dll_rev_BUG.c"
 static void fail(void) 
 { 
@@ -118,7 +118,7 @@ static struct node *create_sll(struct node  const  **pp1 , struct node  const  *
 #line 47
     chain_node(& list);
 #line 46
-    tmp = ___sl_get_nondet_int();
+    tmp = __VERIFIER_nondet_int();
     }
 #line 46
     if (tmp) {
@@ -141,7 +141,7 @@ static struct node *create_sll(struct node  const  **pp1 , struct node  const  *
     while_1_continue: /* CIL Label */ ;
     {
 #line 52
-    tmp___0 = ___sl_get_nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 52
     if (tmp___0) {
@@ -170,7 +170,7 @@ static struct node *create_sll(struct node  const  **pp1 , struct node  const  *
 #line 58
     chain_node(& list);
 #line 57
-    tmp___1 = ___sl_get_nondet_int();
+    tmp___1 = __VERIFIER_nondet_int();
     }
 #line 57
     if (tmp___1) {
