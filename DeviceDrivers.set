@@ -1,5 +1,5 @@
-ldv-regression-2/*-unsafe*.cil.c
-ldv-regression-2/*-safe*.cil.c
+ldv-regression/*-unsafe*.cil.c
+ldv-regression/*-safe*.cil.c
 ldv-drivers-1/*_BUG.cil.cil.c
 ldv-drivers-1/*[!G].cil.cil.c
 ldv-drivers-2/*-unsafe*.cil.c
