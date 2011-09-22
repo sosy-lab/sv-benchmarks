@@ -10,8 +10,8 @@
 # 1 "concatenated.c"
 # 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h" 1
 
-void __VERIFIER_assume(int);
-void __VERIFIER_assert(int, char*);
+void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+void __VERIFIER_assert(int expression, char*) { if (!expression) { ERROR: goto ERROR; }; return; }
 
 enum __bool { false, true };
 
