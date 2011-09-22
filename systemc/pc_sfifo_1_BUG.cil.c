@@ -96,7 +96,7 @@ void immediate_notify_threads(void)
 void do_write_p(void) 
 { 
 
-//  int nondet_int();
+//  int __VERIFIER_nondet_int();
 
   {
   if ((int )p_dw_pc == 0) {
@@ -122,7 +122,7 @@ void do_write_p(void)
 
     }
     {
-    q_buf_0 = nondet_int();
+    q_buf_0 = __VERIFIER_nondet_int();
     p_last_write = q_buf_0;
     p_num_write += 1;
     q_free = 0;
@@ -237,7 +237,7 @@ void eval(void)
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-//  int nondet_int(); 
+//  int __VERIFIER_nondet_int(); 
 
   {
   {
@@ -253,7 +253,7 @@ void eval(void)
     }
     if ((int )p_dw_st == 0) {
       {
-	tmp = nondet_int();
+	tmp = __VERIFIER_nondet_int();
       }
       if (tmp) {
         {
@@ -268,7 +268,7 @@ void eval(void)
     }
     if ((int )c_dr_st == 0) {
       {
-	tmp___0 = nondet_int();
+	tmp___0 = __VERIFIER_nondet_int();
       }
       if (tmp___0) {
         {

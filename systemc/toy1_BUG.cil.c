@@ -295,7 +295,7 @@ void eval(void)
   int tmp___1 ;
   int tmp___2 ;
   int tmp___3 ;
-//  int nondet_int(); 
+//  int __VERIFIER_nondet_int(); 
 
   {
   {
@@ -324,7 +324,7 @@ void eval(void)
     }
     if ((int )wl_st == 0) {
       {
-	tmp =  nondet_int(); 
+	tmp =  __VERIFIER_nondet_int(); 
       }
       if (tmp) {
         {
@@ -339,7 +339,7 @@ void eval(void)
     }
     if ((int )c1_st == 0) {
       {
-	tmp___0 =  nondet_int(); 
+	tmp___0 =  __VERIFIER_nondet_int(); 
       }
       if (tmp___0) {
         {
@@ -354,7 +354,7 @@ void eval(void)
     }
     if ((int )c2_st == 0) {
       {
-	tmp___1 =  nondet_int(); 
+	tmp___1 =  __VERIFIER_nondet_int(); 
       }
       if (tmp___1) {
         {
@@ -369,7 +369,7 @@ void eval(void)
     }
     if ((int )wb_st == 0) {
       {
-	tmp___2 =  nondet_int(); 
+	tmp___2 =  __VERIFIER_nondet_int(); 
       }
       if (tmp___2) {
         {
@@ -384,7 +384,7 @@ void eval(void)
     }
     if ((int )r_st == 0) {
       {
-	tmp___3 = nondet_int();
+	tmp___3 = __VERIFIER_nondet_int();
       }
       if (tmp___3) {
         {

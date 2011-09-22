@@ -125,7 +125,7 @@ int main() {
                                                                             goto switch_1_break;
 
                                                                           switch_1_8576:
-                                                                            tmp___1 = nondet_int();
+                                                                            tmp___1 = __VERIFIER_nondet_int();
                                                                             if (tmp___1 == 2) {
                                                                               s__state = 8466;
                                                                             } else {

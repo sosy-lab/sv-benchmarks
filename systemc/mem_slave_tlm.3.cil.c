@@ -1118,7 +1118,7 @@ void s_run(void)
 void eval(void) 
 { int tmp ;
   int tmp___0 ;
-//  int nondet_int(); 
+//  int __VERIFIER_nondet_int(); 
 
   {
   {
@@ -1135,7 +1135,7 @@ void eval(void)
     }
     if ((int )m_run_st == 0) {
       {
-	tmp = nondet_int();
+	tmp = __VERIFIER_nondet_int();
       }
       if (tmp) {
         {
@@ -1150,7 +1150,7 @@ void eval(void)
     }
     if ((int )s_run_st == 0) {
       {
-	tmp___0 = nondet_int();
+	tmp___0 = __VERIFIER_nondet_int();
       }
       if (tmp___0) {
         {

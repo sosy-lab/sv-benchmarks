@@ -1099,7 +1099,7 @@ int ssl3_accept(SSL *s )
   s->state = 8464;
   blastFlag = 0;
   s->state = 8464;
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   Time = tmp;
   cb = (void (*)())((void *)0);
   ret = -1;
@@ -1256,7 +1256,7 @@ int ssl3_accept(SSL *s )
                                                                             }
                                                                             s->type = 8192;
                                                                             if ((unsigned long )s->init_buf == (unsigned long )((void *)0)) {
-                                                                              buf = nondet_int();
+                                                                              buf = __VERIFIER_nondet_int();
                                                                               if ((unsigned long )buf == (unsigned long )((void *)0)) {
                                                                                 ret = -1;
                                                                                 goto end;
@@ -1297,7 +1297,7 @@ int ssl3_accept(SSL *s )
                                                                             switch_1_8480: /* CIL Label */ ;
                                                                             switch_1_8481: /* CIL Label */ 
                                                                             s->shutdown = 0;
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (ret <= 0) {
                                                                               goto end;
                                                                             } else {
@@ -1314,7 +1314,7 @@ int ssl3_accept(SSL *s )
                                                                             switch_1_8465: /* CIL Label */ ;
                                                                             switch_1_8466: /* CIL Label */ 
                                                                             s->shutdown = 0;
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (blastFlag == 0) {
                                                                               blastFlag = 1;
                                                                             } else {
@@ -1331,7 +1331,7 @@ int ssl3_accept(SSL *s )
                                                                             goto switch_1_break;
                                                                             switch_1_8496: /* CIL Label */ ;
                                                                             switch_1_8497: /* CIL Label */ 
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (blastFlag == 1) {
                                                                               blastFlag = 2;
                                                                             } else {
@@ -1354,7 +1354,7 @@ int ssl3_accept(SSL *s )
                                                                             if (((s->s3)->tmp.new_cipher)->algorithms & 256UL) {
                                                                               skip = 1;
                                                                             } else {
-                                                                              ret = nondet_int();
+                                                                              ret = __VERIFIER_nondet_int();
                                                                               if (blastFlag == 2) {
                                                                                 blastFlag = 6;
                                                                               } else {
@@ -1395,7 +1395,7 @@ int ssl3_accept(SSL *s )
                                                                                       }
                                                                                       if (tmp___6 * 8 > tmp___7) {
                                                                                         _L___0: 
-                                                                                        ret = nondet_int();
+                                                                                        ret = __VERIFIER_nondet_int();
                                                                                         if (blastFlag == 6) {
                                                                                           blastFlag = 7;
                                                                                         } else {
@@ -1445,7 +1445,7 @@ int ssl3_accept(SSL *s )
                                                                                 } else {
                                                                                   _L___1: 
                                                                                   (s->s3)->tmp.cert_request = 1;
-                                                                                  ret = nondet_int();
+                                                                                  ret = __VERIFIER_nondet_int();
                                                                                   if (blastFlag == 8) {
                                                                                     goto ERROR;
                                                                                   } else {
@@ -1469,7 +1469,7 @@ int ssl3_accept(SSL *s )
                                                                             goto switch_1_break;
                                                                             switch_1_8560: /* CIL Label */ ;
                                                                             switch_1_8561: /* CIL Label */ 
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (ret <= 0) {
                                                                               goto end;
                                                                             } else {
@@ -1497,7 +1497,7 @@ int ssl3_accept(SSL *s )
                                                                             goto switch_1_break;
                                                                             switch_1_8576: /* CIL Label */ ;
                                                                             switch_1_8577: /* CIL Label */ 
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (ret <= 0) {
                                                                               goto end;
                                                                             } else {
@@ -1506,7 +1506,7 @@ int ssl3_accept(SSL *s )
                                                                             if (ret == 2) {
                                                                               s->state = 8466;
                                                                             } else {
-                                                                              ret = nondet_int();
+                                                                              ret = __VERIFIER_nondet_int();
                                                                               if (ret <= 0) {
                                                                                 goto end;
                                                                               } else {
@@ -1518,7 +1518,7 @@ int ssl3_accept(SSL *s )
                                                                             goto switch_1_break;
                                                                             switch_1_8592: /* CIL Label */ ;
                                                                             switch_1_8593: /* CIL Label */ 
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (ret <= 0) {
                                                                               goto end;
                                                                             } else {
@@ -1529,7 +1529,7 @@ int ssl3_accept(SSL *s )
                                                                             goto switch_1_break;
                                                                             switch_1_8608: /* CIL Label */ ;
                                                                             switch_1_8609: /* CIL Label */ 
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (ret <= 0) {
                                                                               goto end;
                                                                             } else {
@@ -1540,7 +1540,7 @@ int ssl3_accept(SSL *s )
                                                                             goto switch_1_break;
                                                                             switch_1_8640: /* CIL Label */ ;
                                                                             switch_1_8641: /* CIL Label */ 
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (blastFlag == 4) {
                                                                               goto ERROR;
                                                                             } else {
@@ -1567,7 +1567,7 @@ int ssl3_accept(SSL *s )
                                                                             } else {
 
                                                                             }
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (blastFlag == 2) {
                                                                               blastFlag = 3;
                                                                             } else {
@@ -1589,7 +1589,7 @@ int ssl3_accept(SSL *s )
                                                                             goto switch_1_break;
                                                                             switch_1_8672: /* CIL Label */ ;
                                                                             switch_1_8673: /* CIL Label */ 
-                                                                            ret = nondet_int();
+                                                                            ret = __VERIFIER_nondet_int();
                                                                             if (blastFlag == 3) {
                                                                               blastFlag = 4;
                                                                             } else {
@@ -1678,7 +1678,7 @@ int ssl3_accept(SSL *s )
     if (! (s->s3)->tmp.reuse_message) {
       if (! skip) {
         if (s->debug) {
-          ret = nondet_int();
+          ret = __VERIFIER_nondet_int();
           if (ret <= 0) {
             goto end;
           } else {

@@ -880,7 +880,7 @@ int main(void)
   int irp ;
   int pirp ;
   int pirp__IoStatus__Status ;
-//  int nondet_int() ;
+//  int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp8 ;
@@ -958,25 +958,25 @@ int main(void)
     }
 #line 734
     int tmp_ndt_1;
-    tmp_ndt_1 = nondet_int();
+    tmp_ndt_1 = __VERIFIER_nondet_int();
     if (tmp_ndt_1 == 0) {
       goto switch_2_0;
     } else {
 #line 737
       int tmp_ndt_2;
-      tmp_ndt_2 = nondet_int();
+      tmp_ndt_2 = __VERIFIER_nondet_int();
       if (tmp_ndt_2 == 1) {
         goto switch_2_1;
       } else {
 #line 740
         int tmp_ndt_3;
-        tmp_ndt_3 = nondet_int();
+        tmp_ndt_3 = __VERIFIER_nondet_int();
         if (tmp_ndt_3 == 2) {
           goto switch_2_2;
         } else {
 #line 743
           int tmp_ndt_4;
-          tmp_ndt_4 = nondet_int();
+          tmp_ndt_4 = __VERIFIER_nondet_int();
           if (tmp_ndt_4 == 3) {
             goto switch_2_3;
           } else {
@@ -1104,7 +1104,7 @@ int main(void)
 int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int InputBuffer ,
                                   int InputBufferLength , int OutputBuffer , int OutputBufferLength ,
                                   int InternalDeviceIoControl , int Event , int IoStatusBlock ) 
-{ //int nondet_int() ;
+{ //int __VERIFIER_nondet_int() ;
   int malloc ;
 
   {
@@ -1112,7 +1112,7 @@ int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int Inp
   customIrp = 1;
 #line 860
   int tmp_ndt_5;
-  tmp_ndt_5 = nondet_int();
+  tmp_ndt_5 = __VERIFIER_nondet_int();
   if (tmp_ndt_5 == 0) {
     goto switch_3_0;
   } else {
@@ -1133,12 +1133,12 @@ int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int Inp
 }
 #line 877 "floppy_simpl4.cil.c"
 int IoDeleteSymbolicLink(int SymbolicLinkName ) 
-{ //int nondet_int() ;
+{ //int __VERIFIER_nondet_int() ;
 
   {
 #line 881
   int tmp_ndt_6;
-  tmp_ndt_6 = nondet_int();
+  tmp_ndt_6 = __VERIFIER_nondet_int();
   if (tmp_ndt_6 == 0) {
     goto switch_4_0;
   } else {
@@ -1161,12 +1161,12 @@ int IoDeleteSymbolicLink(int SymbolicLinkName )
 int IoQueryDeviceDescription(int BusType , int BusNumber , int ControllerType , int ControllerNumber ,
                              int PeripheralType , int PeripheralNumber , int CalloutRoutine ,
                              int Context ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
 
   {
 #line 904
   int tmp_ndt_7;
-  tmp_ndt_7 = nondet_int();
+  tmp_ndt_7 = __VERIFIER_nondet_int();
   if (tmp_ndt_7 == 0) {
     goto switch_5_0;
   } else {
@@ -1188,12 +1188,12 @@ int IoQueryDeviceDescription(int BusType , int BusNumber , int ControllerType , 
 #line 921 "floppy_simpl4.cil.c"
 int IoRegisterDeviceInterface(int PhysicalDeviceObject , int InterfaceClassGuid ,
                               int ReferenceString , int SymbolicLinkName ) 
-{ //int nondet_int() ;
+{ //int __VERIFIER_nondet_int() ;
 
   {
 #line 926
   int tmp_ndt_8;
-  tmp_ndt_8 = nondet_int();
+  tmp_ndt_8 = __VERIFIER_nondet_int();
   if (tmp_ndt_8 == 0) {
     goto switch_6_0;
   } else {
@@ -1214,12 +1214,12 @@ int IoRegisterDeviceInterface(int PhysicalDeviceObject , int InterfaceClassGuid 
 }
 #line 943 "floppy_simpl4.cil.c"
 int IoSetDeviceInterfaceState(int SymbolicLinkName , int Enable ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
 
   {
 #line 947
   int tmp_ndt_9;
-  tmp_ndt_9 = nondet_int();
+  tmp_ndt_9 = __VERIFIER_nondet_int();
   if (tmp_ndt_9 == 0) {
     goto switch_7_0;
   } else {
@@ -1259,7 +1259,7 @@ void stubMoreProcessingRequired(void)
 }
 #line 978 "floppy_simpl4.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
   int returnVal2 ;
   int compRetStatus1 ;
   int lcontext ;
@@ -1286,13 +1286,13 @@ int IofCallDriver(int DeviceObject , int Irp )
   }
 #line 999
   int tmp_ndt_10;
-  tmp_ndt_10 = nondet_int();
+  tmp_ndt_10 = __VERIFIER_nondet_int();
   if (tmp_ndt_10 == 0) {
     goto switch_8_0;
   } else {
 #line 1002
     int tmp_ndt_11;
-    tmp_ndt_11 = nondet_int();
+    tmp_ndt_11 = __VERIFIER_nondet_int();
     if (tmp_ndt_11 == 1) {
       goto switch_8_1;
     } else {
@@ -1389,7 +1389,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 1071 "floppy_simpl4.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
 
   {
 #line 1076
@@ -1423,7 +1423,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
   }
 #line 1098
   int tmp_ndt_12;
-  tmp_ndt_12 = nondet_int();
+  tmp_ndt_12 = __VERIFIER_nondet_int();
   if (tmp_ndt_12 == 0) {
     goto switch_9_0;
   } else {
@@ -1445,12 +1445,12 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
 #line 1115 "floppy_simpl4.cil.c"
 int ObReferenceObjectByHandle(int Handle , int DesiredAccess , int ObjectType , int AccessMode ,
                               int Object , int HandleInformation ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
 
   {
 #line 1120
   int tmp_ndt_13;
-  tmp_ndt_13 = nondet_int();
+  tmp_ndt_13 = __VERIFIER_nondet_int();
   if (tmp_ndt_13 == 0) {
     goto switch_10_0;
   } else {
@@ -1472,12 +1472,12 @@ int ObReferenceObjectByHandle(int Handle , int DesiredAccess , int ObjectType , 
 #line 1137 "floppy_simpl4.cil.c"
 int PsCreateSystemThread(int ThreadHandle , int DesiredAccess , int ObjectAttributes ,
                          int ProcessHandle , int ClientId , int StartRoutine , int StartContext ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
 
   {
 #line 1142
   int tmp_ndt_14;
-  tmp_ndt_14 = nondet_int();
+  tmp_ndt_14 = __VERIFIER_nondet_int();
   if (tmp_ndt_14 == 0) {
     goto switch_11_0;
   } else {
@@ -1498,12 +1498,12 @@ int PsCreateSystemThread(int ThreadHandle , int DesiredAccess , int ObjectAttrib
 }
 #line 1159 "floppy_simpl4.cil.c"
 int ZwClose(int Handle ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
 
   {
 #line 1163
   int tmp_ndt_15;
-  tmp_ndt_15 = nondet_int();
+  tmp_ndt_15 = __VERIFIER_nondet_int();
   if (tmp_ndt_15 == 0) {
     goto switch_12_0;
   } else {

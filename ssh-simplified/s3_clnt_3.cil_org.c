@@ -208,7 +208,7 @@ int ssl3_connect(int initial_state )
                                                                         }
                                                                         s__type = 4096;
                                                                         if ((unsigned long )s__init_buf___0 == (unsigned long )((void *)0)) {
-                                                                          buf = nondet_int();
+                                                                          buf = __VERIFIER_nondet_int();
                                                                           if ((unsigned long )buf == (unsigned long )((void *)0)) {
                                                                             ret = -1;
                                                                             goto end;
@@ -244,7 +244,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4368: /* CIL Label */ ;
                                                                         switch_1_4369: /* CIL Label */ 
                                                                         s__shutdown = 0;
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (blastFlag == 0) {
                                                                           blastFlag = 1;
                                                                         } else {
@@ -265,7 +265,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4384: /* CIL Label */ ;
                                                                         switch_1_4385: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (blastFlag == 1) {
                                                                           blastFlag = 2;
                                                                         } else {
@@ -292,7 +292,7 @@ int ssl3_connect(int initial_state )
                                                                         if ((unsigned long )s__s3__tmp__new_cipher__algorithms + 256UL) {
                                                                           skip = 1;
                                                                         } else {
-                                                                          ret = nondet_int();
+                                                                          ret = __VERIFIER_nondet_int();
                                                                           if (blastFlag == 2) {
                                                                             blastFlag = 3;
                                                                           } else {
@@ -309,7 +309,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4416: /* CIL Label */ ;
                                                                         switch_1_4417: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (blastFlag == 3) {
                                                                           blastFlag = 4;
                                                                         } else {
@@ -331,7 +331,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4432: /* CIL Label */ ;
                                                                         switch_1_4433: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (blastFlag == 5) {
                                                                           goto ERROR;
                                                                         } else {
@@ -347,7 +347,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4448: /* CIL Label */ ;
                                                                         switch_1_4449: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (ret <= 0) {
                                                                           goto end;
                                                                         } else {
@@ -364,7 +364,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4465: /* CIL Label */ ;
                                                                         switch_1_4466: /* CIL Label */ ;
                                                                         switch_1_4467: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (ret <= 0) {
                                                                           goto end;
                                                                         } else {
@@ -375,7 +375,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4480: /* CIL Label */ ;
                                                                         switch_1_4481: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (ret <= 0) {
                                                                           goto end;
                                                                         } else {
@@ -392,7 +392,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4496: /* CIL Label */ ;
                                                                         switch_1_4497: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (ret <= 0) {
                                                                           goto end;
                                                                         } else {
@@ -404,7 +404,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4512: /* CIL Label */ ;
                                                                         switch_1_4513: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (ret <= 0) {
                                                                           goto end;
                                                                         } else {
@@ -433,7 +433,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4528: /* CIL Label */ ;
                                                                         switch_1_4529: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (ret <= 0) {
                                                                           goto end;
                                                                         } else {
@@ -457,7 +457,7 @@ int ssl3_connect(int initial_state )
                                                                         goto switch_1_break;
                                                                         switch_1_4560: /* CIL Label */ ;
                                                                         switch_1_4561: /* CIL Label */ 
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
                                                                         if (ret <= 0) {
                                                                           goto end;
                                                                         } else {
@@ -555,7 +555,7 @@ int ssl3_connect(int initial_state )
     if (! s__s3__tmp__reuse_message) {
       if (! skip) {
         if (s__debug) {
-          ret = nondet_int();
+          ret = __VERIFIER_nondet_int();
           if (ret <= 0) {
             goto end;
           } else {

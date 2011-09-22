@@ -321,7 +321,7 @@ int exists_runnable_thread(void)
 }
 }
 void eval(void) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
   int tmp ;
 
   {
@@ -338,7 +338,7 @@ void eval(void)
     }
     if (m_st == 0) {
       int tmp_ndt_1;
-      tmp_ndt_1 = nondet_int();
+      tmp_ndt_1 = __VERIFIER_nondet_int();
       if (tmp_ndt_1) {
         {
         m_st = 1;
@@ -352,7 +352,7 @@ void eval(void)
     }
     if (t1_st == 0) {
       int tmp_ndt_2;
-      tmp_ndt_2 = nondet_int();
+      tmp_ndt_2 = __VERIFIER_nondet_int();
       if (tmp_ndt_2) {
         {
         t1_st = 1;
@@ -366,7 +366,7 @@ void eval(void)
     }
     if (t2_st == 0) {
       int tmp_ndt_3;
-      tmp_ndt_3 = nondet_int();
+      tmp_ndt_3 = __VERIFIER_nondet_int();
       if (tmp_ndt_3) {
         {
         t2_st = 1;
@@ -380,7 +380,7 @@ void eval(void)
     }
     if (t3_st == 0) {
       int tmp_ndt_4;
-      tmp_ndt_4 = nondet_int();
+      tmp_ndt_4 = __VERIFIER_nondet_int();
       if (tmp_ndt_4) {
         {
         t3_st = 1;

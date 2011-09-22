@@ -371,7 +371,7 @@ int main(void)
   int irp ;
   int pirp ;
   int pirp__IoStatus__Status ;
-//  int nondet_int() ;
+//  int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp8 ;
@@ -450,7 +450,7 @@ NP  = 0;
     }
 #line 355
     int tmp_ndt_1;
-    tmp_ndt_1 = nondet_int();
+    tmp_ndt_1 = __VERIFIER_nondet_int();
     if (tmp_ndt_1 == 3) {
       goto switch_1_3;
     } else {
@@ -563,7 +563,7 @@ void stubMoreProcessingRequired(void)
 }
 #line 455 "kbfiltr_simpl1.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
-{ //int nondet_int() ;
+{ //int __VERIFIER_nondet_int() ;
   int returnVal2 ;
   int compRetStatus ;
   int lcontext ;
@@ -577,13 +577,13 @@ int IofCallDriver(int DeviceObject , int Irp )
   }
 #line 476
   int tmp_ndt_2;
-  tmp_ndt_2 = nondet_int();
+  tmp_ndt_2 = __VERIFIER_nondet_int();
   if (tmp_ndt_2 == 0) {
     goto switch_2_0;
   } else {
 #line 479
     int tmp_ndt_3;
-    tmp_ndt_3 = nondet_int();
+    tmp_ndt_3 = __VERIFIER_nondet_int();
     if (tmp_ndt_3 == 1) {
       goto switch_2_1;
     } else {
@@ -680,7 +680,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 548 "kbfiltr_simpl1.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{ //int nondet_int() ;
+{ //int __VERIFIER_nondet_int() ;
 ;
   {
 #line 553
@@ -714,7 +714,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
   }
 #line 575
   int tmp_ndt_4;
-  tmp_ndt_4 = nondet_int();
+  tmp_ndt_4 = __VERIFIER_nondet_int();
   if (tmp_ndt_4 == 0) {
     goto switch_3_0;
   } else {

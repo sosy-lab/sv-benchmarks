@@ -166,7 +166,7 @@ void do_write_p(void)
 
     }
     {
-      q_buf_0 = nondet_int();
+      q_buf_0 = __VERIFIER_nondet_int();
     p_last_write = q_buf_0;
     p_num_write += 1;
     q_free = 0;
@@ -407,7 +407,7 @@ void eval(void)
     }
     if ((int )p_dw_st == 0) {
       {
-      tmp = nondet_int();
+      tmp = __VERIFIER_nondet_int();
       }
       if (tmp) {
         {
@@ -422,7 +422,7 @@ void eval(void)
     }
     if ((int )c_dr_st == 0) {
       {
-      tmp___0 = nondet_int();
+      tmp___0 = __VERIFIER_nondet_int();
       }
       if (tmp___0) {
         {

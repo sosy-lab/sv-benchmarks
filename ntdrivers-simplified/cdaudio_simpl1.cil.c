@@ -1,4 +1,4 @@
-int nondet_int()  ;
+int __VERIFIER_nondet_int()  ;
 int s  ;
 int UNLOADED  ;
 int NP  ;
@@ -2370,7 +2370,7 @@ int main(void)
   int status ;
   int irp ;
   int we_should_unload ;
- // int nondet_int() ;
+ // int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp9 ;
@@ -2448,19 +2448,19 @@ int main(void)
     }
 #line 1509
     int tmp_ndt_1;
-    tmp_ndt_1 = nondet_int();
+    tmp_ndt_1 = __VERIFIER_nondet_int();
     if (tmp_ndt_1 == 2) {
       goto switch_5_2;
     } else {
 #line 1512
       int tmp_ndt_2;
-      tmp_ndt_2 = nondet_int();
+      tmp_ndt_2 = __VERIFIER_nondet_int();
       if (tmp_ndt_2 == 3) {
         goto switch_5_3;
       } else {
 #line 1515
         int tmp_ndt_3;
-	tmp_ndt_3 = nondet_int();
+	tmp_ndt_3 = __VERIFIER_nondet_int();
         if (tmp_ndt_3 == 4) {
           goto switch_5_4;
         } else {
@@ -2598,7 +2598,7 @@ void stubMoreProcessingRequired(void)
 #line 1634 "cdaudio_simpl1.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
 { int Irp__PendingReturned ;
-  // int nondet_int() ;
+  // int __VERIFIER_nondet_int() ;
   int returnVal2 ;
   int compRetStatus ;
   int lcontext ;
@@ -2641,13 +2641,13 @@ int IofCallDriver(int DeviceObject , int Irp )
   } else {
 #line 1669
     int tmp_ndt_5;
-    tmp_ndt_5 = nondet_int();
+    tmp_ndt_5 = __VERIFIER_nondet_int();
     if (tmp_ndt_5 == 0) {
       goto switch_6_0;
     } else {
 #line 1672
       int tmp_ndt_6;
-      tmp_ndt_6 = nondet_int();
+      tmp_ndt_6 = __VERIFIER_nondet_int();
       if (tmp_ndt_6 == 1) {
         goto switch_6_1;
       } else {
@@ -2745,7 +2745,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 1742 "cdaudio_simpl1.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{ // int nondet_int() ;
+{ // int __VERIFIER_nondet_int() ;
 
   {
 #line 1747
@@ -2779,7 +2779,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
   }
 #line 1769
   int tmp_ndt_7; 
-  tmp_ndt_7 = nondet_int();
+  tmp_ndt_7 = __VERIFIER_nondet_int();
   if (tmp_ndt_7 == 0) {
     goto switch_7_0;
   } else {
@@ -2800,7 +2800,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
 }
 #line 1786 "cdaudio_simpl1.cil.c"
 int PoCallDriver(int DeviceObject , int Irp ) 
-{ // int nondet_int() ;
+{ // int __VERIFIER_nondet_int() ;
   int compRetStatus ;
   int returnVal ;
   int lcontext ;
@@ -2839,13 +2839,13 @@ int PoCallDriver(int DeviceObject , int Irp )
   }
 #line 1817
   int tmp_ndt_8; 
-  tmp_ndt_8 = nondet_int();
+  tmp_ndt_8 = __VERIFIER_nondet_int();
   if (tmp_ndt_8 == 0) {
     goto switch_8_0;
   } else {
 #line 1820
     int tmp_ndt_9; 
-    tmp_ndt_9 = nondet_int();
+    tmp_ndt_9 = __VERIFIER_nondet_int();
     if (tmp_ndt_9 == 1) {
       goto switch_8_1;
     } else {
@@ -2915,12 +2915,12 @@ int PoCallDriver(int DeviceObject , int Irp )
 }
 #line 1867 "cdaudio_simpl1.cil.c"
 int ZwClose(int Handle ) 
-{ // int nondet_int() ;
+{ // int __VERIFIER_nondet_int() ;
 
   {
 #line 1871
   int tmp_ndt_10; 
-  tmp_ndt_10 = nondet_int();
+  tmp_ndt_10 = __VERIFIER_nondet_int();
   if (tmp_ndt_10 == 0) {
     goto switch_9_0;
   } else {

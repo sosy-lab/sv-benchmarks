@@ -1,4 +1,4 @@
-int nondet_int()  ;
+int __VERIFIER_nondet_int()  ;
 int s  ;
 int UNLOADED  ;
 int NP  ;
@@ -853,7 +853,7 @@ int main(void)
   int we_should_unload ;
   int irp ;
   int pirp__IoStatus__Status ;
-  //int nondet_int() ;
+  //int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp9 ;
@@ -926,31 +926,31 @@ int main(void)
     }
 #line 671
     int tmp_ndt_1;
-    tmp_ndt_1 = nondet_int();
+    tmp_ndt_1 = __VERIFIER_nondet_int();
     if (tmp_ndt_1 == 0) {
       goto switch_2_0;
     } else {
 #line 674
       int tmp_ndt_2;
-      tmp_ndt_2 = nondet_int();
+      tmp_ndt_2 = __VERIFIER_nondet_int();
       if (tmp_ndt_2 == 2) {
         goto switch_2_2;
       } else {
 #line 677
         int tmp_ndt_3;
-        tmp_ndt_3 = nondet_int();
+        tmp_ndt_3 = __VERIFIER_nondet_int();
         if (tmp_ndt_3 == 3) {
           goto switch_2_3;
         } else {
 #line 680
 	  int tmp_ndt_4;
-	  tmp_ndt_4 = nondet_int();
+	  tmp_ndt_4 = __VERIFIER_nondet_int();
           if (tmp_ndt_4 == 4) {
             goto switch_2_4;
           } else {
 #line 683
 	    int tmp_ndt_5;
-	    tmp_ndt_5 = nondet_int();
+	    tmp_ndt_5 = __VERIFIER_nondet_int();
             if (tmp_ndt_5 == 12) {
               goto switch_2_12;
             } else {
@@ -1092,7 +1092,7 @@ int main(void)
 int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int InputBuffer ,
                                   int InputBufferLength , int OutputBuffer , int OutputBufferLength ,
                                   int InternalDeviceIoControl , int Event , int IoStatusBlock ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
   int malloc_ret ;
 
   {
@@ -1100,7 +1100,7 @@ int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int Inp
   customIrp = 1;
 #line 814
   int tmp_ndt_7;
-  tmp_ndt_7 = nondet_int();
+  tmp_ndt_7 = __VERIFIER_nondet_int();
   if (tmp_ndt_7 == 0) {
     goto switch_3_0;
   } else {
@@ -1140,7 +1140,7 @@ void stubMoreProcessingRequired(void)
 }
 #line 845 "diskperf_simpl1.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
   int returnVal2 ;
   int compRetStatus ;
   int lcontext ;
@@ -1175,13 +1175,13 @@ int IofCallDriver(int DeviceObject , int Irp )
   }
 #line 872
   int tmp_ndt_8;
-  tmp_ndt_8 = nondet_int();
+  tmp_ndt_8 = __VERIFIER_nondet_int();
   if (tmp_ndt_8 == 0) {
     goto switch_4_0;
   } else {
 #line 875
   int tmp_ndt_9;
-  tmp_ndt_9 = nondet_int();
+  tmp_ndt_9 = __VERIFIER_nondet_int();
     if (tmp_ndt_9 == 1) {
       goto switch_4_1;
     } else {
@@ -1278,7 +1278,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 944 "diskperf_simpl1.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
 
   {
 #line 949
@@ -1312,7 +1312,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
   }
 #line 971
   int tmp_ndt_10;
-  tmp_ndt_10 = nondet_int();
+  tmp_ndt_10 = __VERIFIER_nondet_int();
   if (tmp_ndt_10 == 0) {
     goto switch_5_0;
   } else {
@@ -1333,7 +1333,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
 }
 #line 988 "diskperf_simpl1.cil.c"
 int PoCallDriver(int DeviceObject , int Irp ) 
-{ //int nondet_int() ;
+{ //int __VERIFIER_nondet_int() ;
   int compRetStatus ;
   int returnVal ;
   int lcontext ;
@@ -1372,13 +1372,13 @@ int PoCallDriver(int DeviceObject , int Irp )
   }
 #line 1019
   int tmp_ndt_11;
-  tmp_ndt_11 = nondet_int();
+  tmp_ndt_11 = __VERIFIER_nondet_int();
   if (tmp_ndt_11 == 0) {
     goto switch_6_0;
   } else {
 #line 1022
   int tmp_ndt_12;
-  tmp_ndt_12 = nondet_int();
+  tmp_ndt_12 = __VERIFIER_nondet_int();
     if (tmp_ndt_12 == 1) {
       goto switch_6_1;
     } else {

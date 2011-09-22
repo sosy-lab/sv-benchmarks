@@ -42,7 +42,7 @@ int is_transmit3_triggered(void) ;
 int is_transmit4_triggered(void) ;
 void immediate_notify(void) ;
 int token  ;
-int nondet_int()  ;
+int __VERIFIER_nondet_int()  ;
 int local  ;
 void master(void) 
 { 
@@ -62,7 +62,7 @@ void master(void)
   while (1) {
     while_0_continue: /* CIL Label */ ;
     {
-    token = nondet_int();
+    token = __VERIFIER_nondet_int();
     local = token;
     E_1 = 1;
     immediate_notify();
@@ -404,7 +404,7 @@ int exists_runnable_thread(void)
 }
 }
 void eval(void) 
-{// int nondet_int() ;
+{// int __VERIFIER_nondet_int() ;
   int tmp ;
 
   {
@@ -421,7 +421,7 @@ void eval(void)
     }
     if (m_st == 0) {
       int tmp_ndt_1;
-      tmp_ndt_1 = nondet_int();
+      tmp_ndt_1 = __VERIFIER_nondet_int();
       if (tmp_ndt_1) {
         {
         m_st = 1;
@@ -435,7 +435,7 @@ void eval(void)
     }
     if (t1_st == 0) {
       int tmp_ndt_2;
-      tmp_ndt_2 = nondet_int();
+      tmp_ndt_2 = __VERIFIER_nondet_int();
       if (tmp_ndt_2) {
         {
         t1_st = 1;
@@ -449,7 +449,7 @@ void eval(void)
     }
     if (t2_st == 0) {
       int tmp_ndt_3;
-      tmp_ndt_3 = nondet_int();
+      tmp_ndt_3 = __VERIFIER_nondet_int();
       if (tmp_ndt_3) {
         {
         t2_st = 1;
@@ -463,7 +463,7 @@ void eval(void)
     }
     if (t3_st == 0) {
       int tmp_ndt_4;
-      tmp_ndt_4 = nondet_int();
+      tmp_ndt_4 = __VERIFIER_nondet_int();
       if (tmp_ndt_4) {
         {
         t3_st = 1;
@@ -477,7 +477,7 @@ void eval(void)
     }
     if (t4_st == 0) {
       int tmp_ndt_5;
-      tmp_ndt_5 = nondet_int();
+      tmp_ndt_5 = __VERIFIER_nondet_int();
       if (tmp_ndt_5) {
         {
         t4_st = 1;

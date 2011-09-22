@@ -261,7 +261,7 @@ void eval(void)
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-//  int nondet_int();
+//  int __VERIFIER_nondet_int();
 
   {
   {
@@ -277,7 +277,7 @@ void eval(void)
     }
     if ((int )P_1_st == 0) {
       {
-      tmp = nondet_int();
+      tmp = __VERIFIER_nondet_int();
       }
       if (tmp) {
         {
@@ -292,7 +292,7 @@ void eval(void)
     }
     if ((int )C_1_st == 0) {
       {
-	tmp___1 = nondet_int();
+	tmp___1 = __VERIFIER_nondet_int();
       }
       if (tmp___1) {
         {

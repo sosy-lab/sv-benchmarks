@@ -54,7 +54,7 @@ int ssl3_connect(int initial_state )
   int tmp___7 ;
   int tmp___8 ;
   int tmp___9 ;
-  //int nondet_int() ;
+  //int __VERIFIER_nondet_int() ;
   int blastFlag ;
   int __cil_tmp55 ;
   unsigned long __cil_tmp56 ;
@@ -75,7 +75,7 @@ int ssl3_connect(int initial_state )
 #line 61
   blastFlag = 0;
 #line 62
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
 #line 63
   cb = 0;
 #line 64
@@ -277,7 +277,7 @@ int ssl3_connect(int initial_state )
 #line 213
                                                                         if (s__init_buf___0 == 0) {
 #line 214
-                                                                          buf = nondet_int();
+                                                                          buf = __VERIFIER_nondet_int();
 #line 215
                                                                           if (buf == 0) {
 #line 216
@@ -317,7 +317,7 @@ int ssl3_connect(int initial_state )
 #line 249
                                                                         s__shutdown = 0;
 #line 250
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 251
                                                                         if (blastFlag == 0) {
 #line 252
@@ -339,7 +339,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4384: ;
                                                                         switch_1_4385: 
 #line 271
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 272
                                                                         if (blastFlag == 1) {
 #line 273
@@ -371,7 +371,7 @@ int ssl3_connect(int initial_state )
                                                                           skip = 1;
                                                                         } else {
 #line 294
-                                                                          ret = nondet_int();
+                                                                          ret = __VERIFIER_nondet_int();
 #line 295
                                                                           if (blastFlag == 2) {
 #line 296
@@ -397,7 +397,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4416: ;
                                                                         switch_1_4417: 
 #line 315
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 316
                                                                         if (blastFlag == 3) {
 #line 317
@@ -421,7 +421,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4432: ;
                                                                         switch_1_4433: 
 #line 337
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 338
                                                                         if (blastFlag == 5) {
                                                                           goto ERROR;
@@ -438,7 +438,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4448: ;
                                                                         switch_1_4449: 
 #line 353
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 354
                                                                         if (ret <= 0) {
                                                                           goto end;
@@ -459,7 +459,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4466: ;
                                                                         switch_1_4467: 
 #line 370
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 371
                                                                         if (ret <= 0) {
                                                                           goto end;
@@ -472,7 +472,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4480: ;
                                                                         switch_1_4481: 
 #line 381
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 382
                                                                         if (ret <= 0) {
                                                                           goto end;
@@ -495,7 +495,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4496: ;
                                                                         switch_1_4497: 
 #line 398
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 399
                                                                         if (ret <= 0) {
                                                                           goto end;
@@ -510,7 +510,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4512: ;
                                                                         switch_1_4513: 
 #line 410
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 411
                                                                         if (ret <= 0) {
                                                                           goto end;
@@ -545,7 +545,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4528: ;
                                                                         switch_1_4529: 
 #line 439
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 440
                                                                         if (ret <= 0) {
                                                                           goto end;
@@ -589,7 +589,7 @@ int ssl3_connect(int initial_state )
                                                                         switch_1_4560: ;
                                                                         switch_1_4561: 
 #line 463
-                                                                        ret = nondet_int();
+                                                                        ret = __VERIFIER_nondet_int();
 #line 464
                                                                         if (ret <= 0) {
                                                                           goto end;
@@ -713,7 +713,7 @@ int ssl3_connect(int initial_state )
 #line 560
         if (s__debug) {
 #line 561
-          ret = nondet_int();
+          ret = __VERIFIER_nondet_int();
 #line 562
           if (ret <= 0) {
             goto end;

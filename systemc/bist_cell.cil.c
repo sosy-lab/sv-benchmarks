@@ -274,7 +274,7 @@ int exists_runnable_thread(void)
 void eval(void) 
 { int tmp ;
   int tmp___0 ;
- // int nondet_int(); 
+ // int __VERIFIER_nondet_int(); 
 
   {
   {
@@ -290,7 +290,7 @@ void eval(void)
     }
     if ((int )comp_m1_st == 0) {
       {
-	tmp = nondet_int(); 
+	tmp = __VERIFIER_nondet_int(); 
       }
       if (tmp) {
         {

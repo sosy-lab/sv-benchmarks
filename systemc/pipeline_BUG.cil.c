@@ -156,7 +156,7 @@ void eval(void)
     }
     if ((int )N_generate_st == 0) {
       {
-      tmp = nondet_int();
+      tmp = __VERIFIER_nondet_int();
       }
       if (tmp) {
         {
@@ -171,7 +171,7 @@ void eval(void)
     }
     if ((int )S1_addsub_st == 0) {
       {
-      tmp___0 = nondet_int();
+      tmp___0 = __VERIFIER_nondet_int();
       }
       if (tmp___0) {
         {
@@ -186,7 +186,7 @@ void eval(void)
     }
     if ((int )S2_presdbl_st == 0) {
       {
-      tmp___1 = nondet_int();
+      tmp___1 = __VERIFIER_nondet_int();
       }
       if (tmp___1) {
         {
@@ -201,7 +201,7 @@ void eval(void)
     }
     if ((int )S3_zero_st == 0) {
       {
-      tmp___2 = nondet_int();
+      tmp___2 = __VERIFIER_nondet_int();
       }
       if (tmp___2) {
         {
@@ -216,7 +216,7 @@ void eval(void)
     }
     if ((int )D_print_st == 0) {
       {
-      tmp___3 = nondet_int();
+      tmp___3 = __VERIFIER_nondet_int();
       }
       if (tmp___3) {
         {

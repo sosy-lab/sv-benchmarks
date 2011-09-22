@@ -96,7 +96,7 @@ int is_transmit12_triggered(void) ;
 int is_transmit13_triggered(void) ;
 void immediate_notify(void) ;
 int token  ;
-int nondet_int()  ;
+int __VERIFIER_nondet_int()  ;
 int local  ;
 void master(void) 
 { 
@@ -116,7 +116,7 @@ void master(void)
   while (1) {
     while_0_continue: /* CIL Label */ ;
     {
-    token = nondet_int();
+    token = __VERIFIER_nondet_int();
     local = token;
     E_1 = 1;
     immediate_notify();
@@ -1043,7 +1043,7 @@ int exists_runnable_thread(void)
 }
 }
 void eval(void) 
-{// int nondet_int()___0 ;
+{// int __VERIFIER_nondet_int()___0 ;
   int tmp ;
 
   {
@@ -1060,7 +1060,7 @@ void eval(void)
     }
     if (m_st == 0) {
       int tmp_ndt_1;
-      tmp_ndt_1 = nondet_int();
+      tmp_ndt_1 = __VERIFIER_nondet_int();
       if (tmp_ndt_1) {
         {
         m_st = 1;
@@ -1074,7 +1074,7 @@ void eval(void)
     }
     if (t1_st == 0) {
       int tmp_ndt_2;
-      tmp_ndt_2 = nondet_int();
+      tmp_ndt_2 = __VERIFIER_nondet_int();
       if (tmp_ndt_2) {
         {
         t1_st = 1;
@@ -1088,7 +1088,7 @@ void eval(void)
     }
     if (t2_st == 0) {
       int tmp_ndt_3;
-      tmp_ndt_3 = nondet_int();
+      tmp_ndt_3 = __VERIFIER_nondet_int();
       if (tmp_ndt_3) {
         {
         t2_st = 1;
@@ -1102,7 +1102,7 @@ void eval(void)
     }
     if (t3_st == 0) {
       int tmp_ndt_4;
-      tmp_ndt_4 = nondet_int();
+      tmp_ndt_4 = __VERIFIER_nondet_int();
       if (tmp_ndt_4) {
         {
         t3_st = 1;
@@ -1116,7 +1116,7 @@ void eval(void)
     }
     if (t4_st == 0) {
       int tmp_ndt_5;
-      tmp_ndt_5 = nondet_int();
+      tmp_ndt_5 = __VERIFIER_nondet_int();
       if (tmp_ndt_5) {
         {
         t4_st = 1;
@@ -1130,7 +1130,7 @@ void eval(void)
     }
     if (t5_st == 0) {
       int tmp_ndt_6;
-      tmp_ndt_6 = nondet_int();
+      tmp_ndt_6 = __VERIFIER_nondet_int();
       if (tmp_ndt_6) {
         {
         t5_st = 1;
@@ -1144,7 +1144,7 @@ void eval(void)
     }
     if (t6_st == 0) {
       int tmp_ndt_7;
-      tmp_ndt_7 = nondet_int();
+      tmp_ndt_7 = __VERIFIER_nondet_int();
       if (tmp_ndt_7) {
         {
         t6_st = 1;
@@ -1158,7 +1158,7 @@ void eval(void)
     }
     if (t7_st == 0) {
       int tmp_ndt_8;
-      tmp_ndt_8 = nondet_int();
+      tmp_ndt_8 = __VERIFIER_nondet_int();
       if (tmp_ndt_8) {
         {
         t7_st = 1;
@@ -1172,7 +1172,7 @@ void eval(void)
     }
     if (t8_st == 0) {
       int tmp_ndt_9;
-      tmp_ndt_9 = nondet_int();
+      tmp_ndt_9 = __VERIFIER_nondet_int();
       if (tmp_ndt_9) {
         {
         t8_st = 1;
@@ -1186,7 +1186,7 @@ void eval(void)
     }
     if (t9_st == 0) {
       int tmp_ndt_10;
-      tmp_ndt_10 = nondet_int();
+      tmp_ndt_10 = __VERIFIER_nondet_int();
       if (tmp_ndt_10) {
         {
         t9_st = 1;
@@ -1200,7 +1200,7 @@ void eval(void)
     }
     if (t10_st == 0) {
       int tmp_ndt_11;
-      tmp_ndt_11 = nondet_int();
+      tmp_ndt_11 = __VERIFIER_nondet_int();
       if (tmp_ndt_11) {
         {
         t10_st = 1;
@@ -1214,7 +1214,7 @@ void eval(void)
     }
     if (t11_st == 0) {
       int tmp_ndt_12;
-      tmp_ndt_12 = nondet_int();
+      tmp_ndt_12 = __VERIFIER_nondet_int();
       if (tmp_ndt_12) {
         {
         t11_st = 1;
@@ -1228,7 +1228,7 @@ void eval(void)
     }
     if (t12_st == 0) {
       int tmp_ndt_13;
-      tmp_ndt_13 = nondet_int();
+      tmp_ndt_13 = __VERIFIER_nondet_int();
       if (tmp_ndt_13) {
         {
         t12_st = 1;
@@ -1242,7 +1242,7 @@ void eval(void)
     }
     if (t13_st == 0) {
       int tmp_ndt_14;
-      tmp_ndt_14 = nondet_int();
+      tmp_ndt_14 = __VERIFIER_nondet_int();
       if (tmp_ndt_14) {
         {
         t13_st = 1;
