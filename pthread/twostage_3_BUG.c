@@ -45,7 +45,7 @@ void *funcB(void *param) {
 
     if (t2 != (t1 + 1)) {
         fprintf(stderr, "Bug found!\n");
-	ERROR:
+	ERROR: goto ERROR;
           ;
     }
 
