@@ -8952,7 +8952,7 @@ extern int IN_INTERRUPT ;
 #line 1501 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
 static int __attribute__((__cold__))  rtmp0  __attribute__((__section__(".devinit.text")))  ;
 #line 1373 "/home/mutilin/opt/workdir/1/dscv_tempdir/dscv/ri/32_1/main.c.common.c"
-void ldv_main1(void) 
+void main(void) 
 { struct ieee80211_hw *var0 ;
   struct sk_buff *var1 ;
   struct ieee80211_hw *var2 ;
