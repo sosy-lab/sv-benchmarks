@@ -1,6 +1,5 @@
 ldv-regression/*-unsafe*.cil.c
 ldv-regression/*-safe*.cil.c
 ldv-drivers-1/*_BUG.cil.cil.c
-ldv-drivers-1/*[!G].cil.cil.c
 ddv-machzwd/*_BUG.i
 ddv-machzwd/*[!G].i
