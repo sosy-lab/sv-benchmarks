@@ -215,6 +215,7 @@ void *funcB(void *param )
     __cil_tmp6 = (char const   * __restrict  )"Bug found!\n";
 #line 47
     fprintf(__cil_tmp5, __cil_tmp6);
+    ERROR: goto ERROR;
     }
 
   } else {
