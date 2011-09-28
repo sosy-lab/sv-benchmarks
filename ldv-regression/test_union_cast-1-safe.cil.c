@@ -34,7 +34,8 @@ int main(void)
   } else {
     {
 #line 29
-    __assert_fail("var.y==10u", "test_union_cast-1-safe.c", 29U, "main");
+    //__assert_fail("var.y==10u", "test_union_cast-1-safe.c", 29U, "main");
+    ERROR: goto ERROR;
     }
   }
   }

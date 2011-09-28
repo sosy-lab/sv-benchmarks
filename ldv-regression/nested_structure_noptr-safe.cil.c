@@ -44,7 +44,8 @@ int main(void)
   } else {
     {
 #line 23
-    __assert_fail("good.x.y.c == 4", "nested_structure_noptr-safe.c", 23U, "main");
+    //__assert_fail("good.x.y.c == 4", "nested_structure_noptr-safe.c", 23U, "main");
+    ERROR: goto ERROR;
     }
   }
 #line 24

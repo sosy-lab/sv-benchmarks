@@ -59,7 +59,8 @@ int main(void)
       } else {
         {
 #line 28
-        __assert_fail("p1!=p2", "test_malloc-2-safe.c", 28U, "main");
+        //__assert_fail("p1!=p2", "test_malloc-2-safe.c", 28U, "main");
+        ERROR: goto ERROR;
         }
       }
       }
