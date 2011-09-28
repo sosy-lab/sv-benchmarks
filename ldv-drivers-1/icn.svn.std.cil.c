@@ -18346,6 +18346,8 @@ static int icn_addcard(int port , char *id1 , char *id2 )
 #line 30728
     __cil_tmp19 = (char *)__cil_tmp18;
 #line 30728
+    // Check for null pointer
+    if (card2 == 0) { ERROR: goto ERROR; }
     printk("<6>icn: (%s) half ICN-4B, port 0x%x added\n", __cil_tmp19, port);
     }
 #line 30731

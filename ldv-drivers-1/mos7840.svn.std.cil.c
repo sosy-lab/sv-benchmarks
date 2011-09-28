@@ -7391,6 +7391,8 @@ static void mos7840_dump_serial_port(struct moschip_port *mos7840_port )
 #line 27201
       __cil_tmp5 = __cil_tmp4 + 164;
 #line 27201
+      // Check for null pointer
+      if (mos7840_port == 0) { ERROR: goto ERROR; }
       __cil_tmp6 = *((__u8 *)__cil_tmp5);
 #line 27201
       printk("<7>%s: SpRegOffset is %2x\n", "drivers/usb/serial/mos7840.c", __cil_tmp6);

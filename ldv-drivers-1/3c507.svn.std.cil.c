@@ -6276,7 +6276,7 @@ static irqreturn_t el16_interrupt(int irq___0 , void *dev_id )
 #line 31719
     __cil_tmp47 = (char *)__cil_tmp46;
 #line 31719
-    // Check for null pointer dereference
+    // Check for null pointer
     if (dev == 0) { ERROR: goto ERROR; }
     printk("<3>%s: net_interrupt(): irq %d for unknown device.\n", __cil_tmp47, irq___0);
     }

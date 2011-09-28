@@ -56,7 +56,8 @@ static void destroy_serial(struct kref *kref )
   } else {
     {
 #line 27
-    __assert_fail("ldv_lock==0", "kref_put.c", 27U, "destroy_serial");
+    //__assert_fail("ldv_lock==0", "kref_put.c", 27U, "destroy_serial");
+    ERROR: goto ERROR;
     }
   }
 #line 28

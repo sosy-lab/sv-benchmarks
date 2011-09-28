@@ -795,6 +795,8 @@ static unsigned long *btree_node_alloc(struct btree_head *head , gfp_t gfp )
 #line 15496
   __cil_tmp10 = (void *)node;
 #line 15496
+    // Check for null pointer
+    if (node == 0) { ERROR: goto ERROR; }
   __builtin_memset(__cil_tmp10, 0, tmp___0);
   }
 #line 15497

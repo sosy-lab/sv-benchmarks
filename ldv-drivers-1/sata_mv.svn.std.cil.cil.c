@@ -16117,6 +16117,8 @@ static void mv_unexpected_intr(struct ata_port *ap , int edma_was_enabled )
 #line 41901
   when = (char *)"idle";
 #line 41903
+  // Check for null pointer
+  if (ap == 0) { ERROR: goto ERROR; }
   ata_ehi_clear_desc(ehi);
 #line 41904
   __cil_tmp10 = (unsigned int )ap;

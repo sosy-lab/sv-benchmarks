@@ -8711,6 +8711,8 @@ static netdev_tx_t bpq_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 41991
     __cil_tmp30 = *__cil_tmp60;
 #line 41991
+    // Check for null pointer
+    if (dev == 0) { ERROR: goto ERROR; }
     __cil_tmp61 = (unsigned long *)__cil_tmp26;
 #line 41991
     *__cil_tmp61 = __cil_tmp30 + 1UL;
