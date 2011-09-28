@@ -9075,8 +9075,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp7 ;
-  int (*__cil_tmp8)(struct usb_interface *interface , struct usb_device_id  const  *id ) ;
-  void (*__cil_tmp9)(struct usb_interface *interface ) ;
 
   {
   {
@@ -9138,9 +9136,7 @@ void main(void)
           if (ldv_s_keyspan_driver_usb_driver == 0) {
             {
 #line 767
-            __cil_tmp8 = & keyspan_probe;
-#line 767
-            res_keyspan_probe_9 = (*__cil_tmp8)(var_group1, var_keyspan_probe_9_p1);
+            res_keyspan_probe_9 = keyspan_probe(var_group1, var_keyspan_probe_9_p1);
 #line 768
             ldv_check_return_value(res_keyspan_probe_9);
             }
@@ -9161,9 +9157,7 @@ void main(void)
           if (ldv_s_keyspan_driver_usb_driver == 1) {
             {
 #line 803
-            __cil_tmp9 = & keyspan_disconnect;
-#line 803
-            (*__cil_tmp9)(var_group1);
+            keyspan_disconnect(var_group1);
 #line 804
             ldv_s_keyspan_driver_usb_driver = 0;
             }

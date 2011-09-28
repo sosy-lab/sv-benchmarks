@@ -8727,13 +8727,12 @@ void msp_update_volume(struct msp_state *state )
   struct v4l2_ctrl *__cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  int (*__cil_tmp27)(struct v4l2_ctrl *ctrl ) ;
+  unsigned long __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct v4l2_ctrl *__cil_tmp30 ;
+  struct v4l2_ctrl *__cil_tmp29 ;
+  unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct v4l2_ctrl *__cil_tmp33 ;
+  struct v4l2_ctrl *__cil_tmp32 ;
 
   {
   {
@@ -8794,23 +8793,21 @@ void msp_update_volume(struct msp_state *state )
 #line 388
   *((s32 *)__cil_tmp20) = *((s32 *)__cil_tmp26);
 #line 389
-  __cil_tmp27 = & msp_s_ctrl;
+  __cil_tmp27 = (unsigned long )state;
 #line 389
-  __cil_tmp28 = (unsigned long )state;
+  __cil_tmp28 = __cil_tmp27 + 2128;
 #line 389
-  __cil_tmp29 = __cil_tmp28 + 2128;
+  __cil_tmp29 = *((struct v4l2_ctrl **)__cil_tmp28);
 #line 389
-  __cil_tmp30 = *((struct v4l2_ctrl **)__cil_tmp29);
-#line 389
-  (*__cil_tmp27)(__cil_tmp30);
+  msp_s_ctrl(__cil_tmp29);
 #line 390
-  __cil_tmp31 = (unsigned long )state;
+  __cil_tmp30 = (unsigned long )state;
 #line 390
-  __cil_tmp32 = __cil_tmp31 + 2128;
+  __cil_tmp31 = __cil_tmp30 + 2128;
 #line 390
-  __cil_tmp33 = *((struct v4l2_ctrl **)__cil_tmp32);
+  __cil_tmp32 = *((struct v4l2_ctrl **)__cil_tmp31);
 #line 390
-  v4l2_ctrl_unlock(__cil_tmp33);
+  v4l2_ctrl_unlock(__cil_tmp32);
   }
 #line 391
   return;
@@ -12563,21 +12560,7 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp18 ;
-  int (*__cil_tmp19)(struct v4l2_ctrl *ctrl ) ;
-  int (*__cil_tmp20)(struct v4l2_subdev *sd ) ;
-  int (*__cil_tmp21)(struct v4l2_subdev *sd , struct v4l2_dbg_chip_ident *chip ) ;
-  int (*__cil_tmp22)(struct v4l2_subdev *sd , v4l2_std_id id ) ;
-  int (*__cil_tmp23)(struct v4l2_subdev *sd , struct v4l2_frequency *freq ) ;
-  int (*__cil_tmp24)(struct v4l2_subdev *sd , struct v4l2_tuner *vt ) ;
-  int (*__cil_tmp25)(struct v4l2_subdev *sd , struct v4l2_tuner *vt ) ;
-  int (*__cil_tmp26)(struct v4l2_subdev *sd ) ;
-  int (*__cil_tmp27)(struct v4l2_subdev *sd , u32 input , u32 output , u32 config ) ;
-  int (*__cil_tmp28)(struct v4l2_subdev *sd , u32 freq ) ;
-  int (*__cil_tmp29)(struct i2c_client *client , struct i2c_device_id  const  *id ) ;
-  int (*__cil_tmp30)(struct i2c_client *client ) ;
-  int (*__cil_tmp31)(struct i2c_client *client , int state_event19 ) ;
-  int (*__cil_tmp32)(struct i2c_client *client ) ;
-  int var_msp_suspend_21_p1_event33 ;
+  int var_msp_suspend_21_p1_event19 ;
 
   {
   {
@@ -12685,82 +12668,62 @@ void main(void)
                                   case_0: 
                                   {
 #line 1102
-                                  __cil_tmp19 = & msp_s_ctrl;
-#line 1102
-                                  (*__cil_tmp19)(var_group1);
+                                  msp_s_ctrl(var_group1);
                                   }
                                   goto switch_break;
                                   case_1: 
                                   {
 #line 1122
-                                  __cil_tmp20 = & msp_log_status;
-#line 1122
-                                  (*__cil_tmp20)(var_group2);
+                                  msp_log_status(var_group2);
                                   }
                                   goto switch_break;
                                   case_2: 
                                   {
 #line 1142
-                                  __cil_tmp21 = & msp_g_chip_ident;
-#line 1142
-                                  (*__cil_tmp21)(var_group2, var_group3);
+                                  msp_g_chip_ident(var_group2, var_group3);
                                   }
                                   goto switch_break;
                                   case_3: 
                                   {
 #line 1162
-                                  __cil_tmp22 = & msp_s_std;
-#line 1162
-                                  (*__cil_tmp22)(var_group2, var_msp_s_std_14_p1);
+                                  msp_s_std(var_group2, var_msp_s_std_14_p1);
                                   }
                                   goto switch_break;
                                   case_4: 
                                   {
 #line 1182
-                                  __cil_tmp23 = & msp_s_frequency;
-#line 1182
-                                  (*__cil_tmp23)(var_group2, var_group4);
+                                  msp_s_frequency(var_group2, var_group4);
                                   }
                                   goto switch_break;
                                   case_5: 
                                   {
 #line 1202
-                                  __cil_tmp24 = & msp_g_tuner;
-#line 1202
-                                  (*__cil_tmp24)(var_group2, var_group5);
+                                  msp_g_tuner(var_group2, var_group5);
                                   }
                                   goto switch_break;
                                   case_6: 
                                   {
 #line 1222
-                                  __cil_tmp25 = & msp_s_tuner;
-#line 1222
-                                  (*__cil_tmp25)(var_group2, var_group5);
+                                  msp_s_tuner(var_group2, var_group5);
                                   }
                                   goto switch_break;
                                   case_7: 
                                   {
 #line 1242
-                                  __cil_tmp26 = & msp_s_radio;
-#line 1242
-                                  (*__cil_tmp26)(var_group2);
+                                  msp_s_radio(var_group2);
                                   }
                                   goto switch_break;
                                   case_8: 
                                   {
 #line 1262
-                                  __cil_tmp27 = & msp_s_routing;
-#line 1262
-                                  (*__cil_tmp27)(var_group2, var_msp_s_routing_15_p1,
-                                                 var_msp_s_routing_15_p2, var_msp_s_routing_15_p3);
+                                  msp_s_routing(var_group2, var_msp_s_routing_15_p1,
+                                                var_msp_s_routing_15_p2, var_msp_s_routing_15_p3);
                                   }
                                   goto switch_break;
                                   case_9: 
                                   {
 #line 1282
-                                  __cil_tmp28 = & msp_s_i2s_clock_freq;
-#line 1282
-                                  (*__cil_tmp28)(var_group2, var_msp_s_i2s_clock_freq_18_p1);
+                                  msp_s_i2s_clock_freq(var_group2, var_msp_s_i2s_clock_freq_18_p1);
                                   }
                                   goto switch_break;
                                   case_10: 
@@ -12768,10 +12731,7 @@ void main(void)
                                   if (ldv_s_msp_driver_i2c_driver == 0) {
                                     {
 #line 1302
-                                    __cil_tmp29 = & msp_probe;
-#line 1302
-                                    res_msp_probe_23 = (*__cil_tmp29)(var_group6,
-                                                                      var_msp_probe_23_p1);
+                                    res_msp_probe_23 = msp_probe(var_group6, var_msp_probe_23_p1);
 #line 1303
                                     ldv_check_return_value(res_msp_probe_23);
                                     }
@@ -12790,25 +12750,19 @@ void main(void)
                                   case_11: 
                                   {
 #line 1325
-                                  __cil_tmp30 = & msp_remove;
-#line 1325
-                                  (*__cil_tmp30)(var_group6);
+                                  msp_remove(var_group6);
                                   }
                                   goto switch_break;
                                   case_12: 
                                   {
 #line 1345
-                                  __cil_tmp31 = & msp_suspend;
-#line 1345
-                                  (*__cil_tmp31)(var_group6, var_msp_suspend_21_p1_event33);
+                                  msp_suspend(var_group6, var_msp_suspend_21_p1_event19);
                                   }
                                   goto switch_break;
                                   case_13: 
                                   {
 #line 1365
-                                  __cil_tmp32 = & msp_resume;
-#line 1365
-                                  (*__cil_tmp32)(var_group6);
+                                  msp_resume(var_group6);
                                   }
                                   goto switch_break;
                                   switch_default: 

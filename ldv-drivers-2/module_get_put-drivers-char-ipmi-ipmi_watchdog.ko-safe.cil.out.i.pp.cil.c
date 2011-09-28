@@ -10043,30 +10043,8 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  void (*__cil_tmp43)(struct ipmi_smi_msg *msg ) ;
-  void (*__cil_tmp44)(struct ipmi_recv_msg *msg ) ;
-  void (*__cil_tmp45)(struct ipmi_smi_msg *msg ) ;
-  void (*__cil_tmp46)(struct ipmi_recv_msg *msg ) ;
-  void (*__cil_tmp47)(struct ipmi_smi_msg *msg ) ;
-  void (*__cil_tmp48)(struct ipmi_recv_msg *msg ) ;
-  void (*__cil_tmp49)(struct ipmi_smi_msg *msg ) ;
-  void (*__cil_tmp50)(struct ipmi_recv_msg *msg ) ;
-  int (*__cil_tmp51)(struct inode *ino , struct file *filep ) ;
-  ssize_t (*__cil_tmp52)(struct file *file , char *buf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp53 ;
-  ssize_t (*__cil_tmp54)(struct file *file , char const   *buf , size_t len , loff_t *ppos ) ;
-  int __cil_tmp55 ;
-  int (*__cil_tmp56)(struct inode *ino , struct file *filep ) ;
-  unsigned int (*__cil_tmp57)(struct file *file , poll_table *wait ) ;
-  long (*__cil_tmp58)(struct file *file , unsigned int cmd , unsigned long arg ) ;
-  int (*__cil_tmp59)(int fd , struct file *file , int on ) ;
-  void (*__cil_tmp60)(struct ipmi_recv_msg *msg , void *handler_data ) ;
-  void (*__cil_tmp61)(void *handler_data ) ;
-  int (*__cil_tmp62)(struct notifier_block *self , unsigned long val , void *data ) ;
-  int (*__cil_tmp63)(struct notifier_block *this , unsigned long code , void *unused ) ;
-  int (*__cil_tmp64)(struct notifier_block *this , unsigned long event , void *unused ) ;
-  void (*__cil_tmp65)(int if_num , struct device *device ) ;
-  void (*__cil_tmp66)(int if_num ) ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
 
   {
   {
@@ -10229,65 +10207,49 @@ void main(void)
                                                         case_4: 
                                                         {
 #line 4069
-                                                        __cil_tmp43 = & set_timeout_free_smi;
-#line 4069
-                                                        (*__cil_tmp43)(var_group1);
+                                                        set_timeout_free_smi(var_group1);
                                                         }
                                                         goto ldv_22748;
                                                         case_5: 
                                                         {
 #line 4159
-                                                        __cil_tmp44 = & set_timeout_free_recv;
-#line 4159
-                                                        (*__cil_tmp44)(var_group2);
+                                                        set_timeout_free_recv(var_group2);
                                                         }
                                                         goto ldv_22748;
                                                         case_6: 
                                                         {
 #line 4249
-                                                        __cil_tmp45 = & panic_smi_free;
-#line 4249
-                                                        (*__cil_tmp45)(var_group1);
+                                                        panic_smi_free(var_group1);
                                                         }
                                                         goto ldv_22748;
                                                         case_7: 
                                                         {
 #line 4339
-                                                        __cil_tmp46 = & panic_recv_free;
-#line 4339
-                                                        (*__cil_tmp46)(var_group2);
+                                                        panic_recv_free(var_group2);
                                                         }
                                                         goto ldv_22748;
                                                         case_8: 
                                                         {
 #line 4429
-                                                        __cil_tmp47 = & panic_smi_free;
-#line 4429
-                                                        (*__cil_tmp47)(var_group1);
+                                                        panic_smi_free(var_group1);
                                                         }
                                                         goto ldv_22748;
                                                         case_9: 
                                                         {
 #line 4519
-                                                        __cil_tmp48 = & panic_recv_free;
-#line 4519
-                                                        (*__cil_tmp48)(var_group2);
+                                                        panic_recv_free(var_group2);
                                                         }
                                                         goto ldv_22748;
                                                         case_10: 
                                                         {
 #line 4609
-                                                        __cil_tmp49 = & heartbeat_free_smi;
-#line 4609
-                                                        (*__cil_tmp49)(var_group1);
+                                                        heartbeat_free_smi(var_group1);
                                                         }
                                                         goto ldv_22748;
                                                         case_11: 
                                                         {
 #line 4699
-                                                        __cil_tmp50 = & heartbeat_free_recv;
-#line 4699
-                                                        (*__cil_tmp50)(var_group2);
+                                                        heartbeat_free_recv(var_group2);
                                                         }
                                                         goto ldv_22748;
                                                         case_12: ;
@@ -10295,10 +10257,8 @@ void main(void)
                                                         if (ldv_s_ipmi_wdog_fops_file_operations == 0) {
                                                           {
 #line 4789
-                                                          __cil_tmp51 = & ipmi_open;
-#line 4789
-                                                          res_ipmi_open_19 = (*__cil_tmp51)(var_group4,
-                                                                                            var_group3);
+                                                          res_ipmi_open_19 = ipmi_open(var_group4,
+                                                                                       var_group3);
 #line 4790
                                                           ldv_check_return_value(res_ipmi_open_19);
                                                           }
@@ -10319,16 +10279,14 @@ void main(void)
                                                         if (ldv_s_ipmi_wdog_fops_file_operations == 1) {
                                                           {
 #line 4882
-                                                          __cil_tmp52 = & ipmi_read;
-#line 4882
-                                                          res_ipmi_read_18 = (*__cil_tmp52)(var_group3,
-                                                                                            var_ipmi_read_18_p1,
-                                                                                            var_ipmi_read_18_p2,
-                                                                                            var_ipmi_read_18_p3);
+                                                          res_ipmi_read_18 = ipmi_read(var_group3,
+                                                                                       var_ipmi_read_18_p1,
+                                                                                       var_ipmi_read_18_p2,
+                                                                                       var_ipmi_read_18_p3);
 #line 4883
-                                                          __cil_tmp53 = (int )res_ipmi_read_18;
+                                                          __cil_tmp43 = (int )res_ipmi_read_18;
 #line 4883
-                                                          ldv_check_return_value(__cil_tmp53);
+                                                          ldv_check_return_value(__cil_tmp43);
                                                           }
 #line 4884
                                                           if (res_ipmi_read_18 < 0L) {
@@ -10347,16 +10305,14 @@ void main(void)
                                                         if (ldv_s_ipmi_wdog_fops_file_operations == 2) {
                                                           {
 #line 4975
-                                                          __cil_tmp54 = & ipmi_write;
-#line 4975
-                                                          res_ipmi_write_17 = (*__cil_tmp54)(var_group3,
-                                                                                             var_ipmi_write_17_p1,
-                                                                                             var_ipmi_write_17_p2,
-                                                                                             var_ipmi_write_17_p3);
+                                                          res_ipmi_write_17 = ipmi_write(var_group3,
+                                                                                         var_ipmi_write_17_p1,
+                                                                                         var_ipmi_write_17_p2,
+                                                                                         var_ipmi_write_17_p3);
 #line 4976
-                                                          __cil_tmp55 = (int )res_ipmi_write_17;
+                                                          __cil_tmp44 = (int )res_ipmi_write_17;
 #line 4976
-                                                          ldv_check_return_value(__cil_tmp55);
+                                                          ldv_check_return_value(__cil_tmp44);
                                                           }
 #line 4977
                                                           if (res_ipmi_write_17 < 0L) {
@@ -10375,10 +10331,7 @@ void main(void)
                                                         if (ldv_s_ipmi_wdog_fops_file_operations == 3) {
                                                           {
 #line 5068
-                                                          __cil_tmp56 = & ipmi_close;
-#line 5068
-                                                          (*__cil_tmp56)(var_group4,
-                                                                         var_group3);
+                                                          ipmi_close(var_group4, var_group3);
 #line 5083
                                                           ldv_s_ipmi_wdog_fops_file_operations = 0;
                                                           }
@@ -10389,94 +10342,71 @@ void main(void)
                                                         case_16: 
                                                         {
 #line 5158
-                                                        __cil_tmp57 = & ipmi_poll;
-#line 5158
-                                                        (*__cil_tmp57)(var_group3,
-                                                                       var_ipmi_poll_20_p1);
+                                                        ipmi_poll(var_group3, var_ipmi_poll_20_p1);
                                                         }
                                                         goto ldv_22748;
                                                         case_17: 
                                                         {
 #line 5248
-                                                        __cil_tmp58 = & ipmi_unlocked_ioctl;
-#line 5248
-                                                        (*__cil_tmp58)(var_group3,
-                                                                       var_ipmi_unlocked_ioctl_16_p1,
-                                                                       var_ipmi_unlocked_ioctl_16_p2);
+                                                        ipmi_unlocked_ioctl(var_group3,
+                                                                            var_ipmi_unlocked_ioctl_16_p1,
+                                                                            var_ipmi_unlocked_ioctl_16_p2);
                                                         }
                                                         goto ldv_22748;
                                                         case_18: 
                                                         {
 #line 5338
-                                                        __cil_tmp59 = & ipmi_fasync;
-#line 5338
-                                                        (*__cil_tmp59)(var_ipmi_fasync_21_p0,
-                                                                       var_group3,
-                                                                       var_ipmi_fasync_21_p2);
+                                                        ipmi_fasync(var_ipmi_fasync_21_p0,
+                                                                    var_group3, var_ipmi_fasync_21_p2);
                                                         }
                                                         goto ldv_22748;
                                                         case_19: 
                                                         {
 #line 5428
-                                                        __cil_tmp60 = & ipmi_wdog_msg_handler;
-#line 5428
-                                                        (*__cil_tmp60)(var_group2,
-                                                                       var_ipmi_wdog_msg_handler_23_p1);
+                                                        ipmi_wdog_msg_handler(var_group2,
+                                                                              var_ipmi_wdog_msg_handler_23_p1);
                                                         }
                                                         goto ldv_22748;
                                                         case_20: 
                                                         {
 #line 5518
-                                                        __cil_tmp61 = & ipmi_wdog_pretimeout_handler;
-#line 5518
-                                                        (*__cil_tmp61)(var_ipmi_wdog_pretimeout_handler_24_p0);
+                                                        ipmi_wdog_pretimeout_handler(var_ipmi_wdog_pretimeout_handler_24_p0);
                                                         }
                                                         goto ldv_22748;
                                                         case_21: 
                                                         {
 #line 5611
-                                                        __cil_tmp62 = & ipmi_nmi;
-#line 5611
-                                                        (*__cil_tmp62)(var_group5,
-                                                                       var_ipmi_nmi_27_p1,
-                                                                       var_ipmi_nmi_27_p2);
+                                                        ipmi_nmi(var_group5, var_ipmi_nmi_27_p1,
+                                                                 var_ipmi_nmi_27_p2);
                                                         }
                                                         goto ldv_22748;
                                                         case_22: 
                                                         {
 #line 5702
-                                                        __cil_tmp63 = & wdog_reboot_handler;
-#line 5702
-                                                        (*__cil_tmp63)(var_group5,
-                                                                       var_wdog_reboot_handler_28_p1,
-                                                                       var_wdog_reboot_handler_28_p2);
+                                                        wdog_reboot_handler(var_group5,
+                                                                            var_wdog_reboot_handler_28_p1,
+                                                                            var_wdog_reboot_handler_28_p2);
                                                         }
                                                         goto ldv_22748;
                                                         case_23: 
                                                         {
 #line 5792
-                                                        __cil_tmp64 = & wdog_panic_handler;
-#line 5792
-                                                        (*__cil_tmp64)(var_group5,
-                                                                       var_wdog_panic_handler_29_p1,
-                                                                       var_wdog_panic_handler_29_p2);
+                                                        wdog_panic_handler(var_group5,
+                                                                           var_wdog_panic_handler_29_p1,
+                                                                           var_wdog_panic_handler_29_p2);
                                                         }
                                                         goto ldv_22748;
                                                         case_24: 
                                                         {
 #line 5882
-                                                        __cil_tmp65 = & ipmi_new_smi;
-#line 5882
-                                                        (*__cil_tmp65)(var_ipmi_new_smi_30_p0,
-                                                                       var_group6);
+                                                        ipmi_new_smi(var_ipmi_new_smi_30_p0,
+                                                                     var_group6);
                                                         }
                                                         goto ldv_22748;
                                                         case_25: 
                                                         {
 #line 5972
-                                                        __cil_tmp66 = & ipmi_smi_gone;
-#line 5972
-                                                        (*__cil_tmp66)(var_ipmi_smi_gone_31_p0);
+                                                        ipmi_smi_gone(var_ipmi_smi_gone_31_p0);
                                                         }
                                                         goto ldv_22748;
                                                         switch_default: ;

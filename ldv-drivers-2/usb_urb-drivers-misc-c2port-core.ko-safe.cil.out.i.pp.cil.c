@@ -9074,10 +9074,6 @@ void main(void)
   int tmp___7 ;
   int tmp___8 ;
   int tmp___9 ;
-  ssize_t (*__cil_tmp14)(struct file *filp , struct kobject *kobj , struct bin_attribute *attr ,
-                         char *buffer , loff_t offset , size_t count ) ;
-  ssize_t (*__cil_tmp15)(struct file *filp , struct kobject *kobj , struct bin_attribute *attr ,
-                         char *buffer , loff_t offset , size_t count ) ;
 
   {
   {
@@ -9126,21 +9122,17 @@ void main(void)
           case_0: 
           {
 #line 1171
-          __cil_tmp14 = & c2port_read_flash_data;
-#line 1171
-          (*__cil_tmp14)(var_group1, var_group2, var_c2port_read_flash_data_25_p2,
-                         var_c2port_read_flash_data_25_p3, var_c2port_read_flash_data_25_p4,
-                         var_c2port_read_flash_data_25_p5);
+          c2port_read_flash_data(var_group1, var_group2, var_c2port_read_flash_data_25_p2,
+                                 var_c2port_read_flash_data_25_p3, var_c2port_read_flash_data_25_p4,
+                                 var_c2port_read_flash_data_25_p5);
           }
           goto switch_break;
           case_1: 
           {
 #line 1202
-          __cil_tmp15 = & c2port_write_flash_data;
-#line 1202
-          (*__cil_tmp15)(var_group1, var_group2, var_c2port_write_flash_data_27_p2,
-                         var_c2port_write_flash_data_27_p3, var_c2port_write_flash_data_27_p4,
-                         var_c2port_write_flash_data_27_p5);
+          c2port_write_flash_data(var_group1, var_group2, var_c2port_write_flash_data_27_p2,
+                                  var_c2port_write_flash_data_27_p3, var_c2port_write_flash_data_27_p4,
+                                  var_c2port_write_flash_data_27_p5);
           }
           goto switch_break;
           switch_default: 

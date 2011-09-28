@@ -11041,10 +11041,9 @@ static void whiteheat_unthrottle(struct tty_struct *tty )
   int __cil_tmp24 ;
   int __cil_tmp25 ;
   spinlock_t *__cil_tmp26 ;
-  void (*__cil_tmp27)(struct work_struct *work ) ;
+  unsigned long __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct work_struct *__cil_tmp30 ;
+  struct work_struct *__cil_tmp29 ;
 
   {
   {
@@ -11134,15 +11133,13 @@ static void whiteheat_unthrottle(struct tty_struct *tty )
   if (actually_throttled) {
     {
 #line 974
-    __cil_tmp27 = & rx_data_softint;
+    __cil_tmp27 = (unsigned long )info;
 #line 974
-    __cil_tmp28 = (unsigned long )info;
+    __cil_tmp28 = __cil_tmp27 + 128;
 #line 974
-    __cil_tmp29 = __cil_tmp28 + 128;
+    __cil_tmp29 = (struct work_struct *)__cil_tmp28;
 #line 974
-    __cil_tmp30 = (struct work_struct *)__cil_tmp29;
-#line 974
-    (*__cil_tmp27)(__cil_tmp30);
+    rx_data_softint(__cil_tmp29);
     }
   } else {
 
@@ -15399,25 +15396,6 @@ void main(void)
   int tmp___9 ;
   int __cil_tmp19 ;
   int __cil_tmp20 ;
-  int (*__cil_tmp21)(struct usb_serial *serial , struct usb_device_id  const  *id ) ;
-  int (*__cil_tmp22)(struct usb_serial *serial ) ;
-  int (*__cil_tmp23)(struct tty_struct *tty , struct usb_serial_port *port ) ;
-  void (*__cil_tmp24)(struct usb_serial_port *port ) ;
-  void (*__cil_tmp25)(struct usb_serial *serial ) ;
-  int (*__cil_tmp26)(struct usb_serial *serial ) ;
-  int (*__cil_tmp27)(struct tty_struct *tty , struct usb_serial_port *port , unsigned char const   *buf ,
-                     int count ) ;
-  int (*__cil_tmp28)(struct tty_struct *tty ) ;
-  int (*__cil_tmp29)(struct tty_struct *tty , unsigned int cmd , unsigned long arg ) ;
-  void (*__cil_tmp30)(struct tty_struct *tty , struct usb_serial_port *port , struct ktermios *old_termios ) ;
-  void (*__cil_tmp31)(struct tty_struct *tty , int break_state ) ;
-  int (*__cil_tmp32)(struct tty_struct *tty ) ;
-  int (*__cil_tmp33)(struct tty_struct *tty , unsigned int set , unsigned int clear ) ;
-  int (*__cil_tmp34)(struct tty_struct *tty ) ;
-  void (*__cil_tmp35)(struct tty_struct *tty ) ;
-  void (*__cil_tmp36)(struct tty_struct *tty ) ;
-  void (*__cil_tmp37)(struct urb *urb ) ;
-  void (*__cil_tmp38)(struct urb *urb ) ;
 
   {
   {
@@ -15554,10 +15532,8 @@ void main(void)
                                           if (ldv_s_whiteheat_fake_device_usb_serial_driver == 0) {
                                             {
 #line 2040
-                                            __cil_tmp21 = & whiteheat_firmware_download;
-#line 2040
-                                            res_whiteheat_firmware_download_0 = (*__cil_tmp21)(var_group1,
-                                                                                               var_whiteheat_firmware_download_0_p1);
+                                            res_whiteheat_firmware_download_0 = whiteheat_firmware_download(var_group1,
+                                                                                                            var_whiteheat_firmware_download_0_p1);
 #line 2041
                                             ldv_check_return_value(res_whiteheat_firmware_download_0);
                                             }
@@ -15576,9 +15552,7 @@ void main(void)
                                           case_1: 
                                           {
 #line 2075
-                                          __cil_tmp22 = & whiteheat_firmware_attach;
-#line 2075
-                                          (*__cil_tmp22)(var_group1);
+                                          whiteheat_firmware_attach(var_group1);
                                           }
                                           goto switch_break;
                                           case_2: 
@@ -15586,9 +15560,7 @@ void main(void)
                                           if (ldv_s_whiteheat_device_usb_serial_driver == 0) {
                                             {
 #line 2107
-                                            __cil_tmp23 = & whiteheat_open;
-#line 2107
-                                            res_whiteheat_open_4 = (*__cil_tmp23)(var_group2,
+                                            res_whiteheat_open_4 = whiteheat_open(var_group2,
                                                                                   var_group3);
 #line 2108
                                             ldv_check_return_value(res_whiteheat_open_4);
@@ -15610,9 +15582,7 @@ void main(void)
                                           if (ldv_s_whiteheat_device_usb_serial_driver == 1) {
                                             {
 #line 2142
-                                            __cil_tmp24 = & whiteheat_close;
-#line 2142
-                                            (*__cil_tmp24)(var_group3);
+                                            whiteheat_close(var_group3);
 #line 2143
                                             ldv_s_whiteheat_device_usb_serial_driver = ldv_s_whiteheat_device_usb_serial_driver + 1;
                                             }
@@ -15625,9 +15595,7 @@ void main(void)
                                           if (ldv_s_whiteheat_device_usb_serial_driver == 2) {
                                             {
 #line 2174
-                                            __cil_tmp25 = & whiteheat_release;
-#line 2174
-                                            (*__cil_tmp25)(var_group1);
+                                            whiteheat_release(var_group1);
 #line 2175
                                             ldv_s_whiteheat_device_usb_serial_driver = 0;
                                             }
@@ -15638,108 +15606,84 @@ void main(void)
                                           case_5: 
                                           {
 #line 2206
-                                          __cil_tmp26 = & whiteheat_attach;
-#line 2206
-                                          (*__cil_tmp26)(var_group1);
+                                          whiteheat_attach(var_group1);
                                           }
                                           goto switch_break;
                                           case_6: 
                                           {
 #line 2238
-                                          __cil_tmp27 = & whiteheat_write;
-#line 2238
-                                          (*__cil_tmp27)(var_group2, var_group3, var_whiteheat_write_6_p2,
-                                                         var_whiteheat_write_6_p3);
+                                          whiteheat_write(var_group2, var_group3,
+                                                          var_whiteheat_write_6_p2,
+                                                          var_whiteheat_write_6_p3);
                                           }
                                           goto switch_break;
                                           case_7: 
                                           {
 #line 2270
-                                          __cil_tmp28 = & whiteheat_write_room;
-#line 2270
-                                          (*__cil_tmp28)(var_group2);
+                                          whiteheat_write_room(var_group2);
                                           }
                                           goto switch_break;
                                           case_8: 
                                           {
 #line 2302
-                                          __cil_tmp29 = & whiteheat_ioctl;
-#line 2302
-                                          (*__cil_tmp29)(var_group2, var_whiteheat_ioctl_10_p1,
-                                                         var_whiteheat_ioctl_10_p2);
+                                          whiteheat_ioctl(var_group2, var_whiteheat_ioctl_10_p1,
+                                                          var_whiteheat_ioctl_10_p2);
                                           }
                                           goto switch_break;
                                           case_9: 
                                           {
 #line 2334
-                                          __cil_tmp30 = & whiteheat_set_termios;
-#line 2334
-                                          (*__cil_tmp30)(var_group2, var_group3, var_whiteheat_set_termios_11_p2);
+                                          whiteheat_set_termios(var_group2, var_group3,
+                                                                var_whiteheat_set_termios_11_p2);
                                           }
                                           goto switch_break;
                                           case_10: 
                                           {
 #line 2366
-                                          __cil_tmp31 = & whiteheat_break_ctl;
-#line 2366
-                                          (*__cil_tmp31)(var_group2, var_whiteheat_break_ctl_12_p1);
+                                          whiteheat_break_ctl(var_group2, var_whiteheat_break_ctl_12_p1);
                                           }
                                           goto switch_break;
                                           case_11: 
                                           {
 #line 2398
-                                          __cil_tmp32 = & whiteheat_tiocmget;
-#line 2398
-                                          (*__cil_tmp32)(var_group2);
+                                          whiteheat_tiocmget(var_group2);
                                           }
                                           goto switch_break;
                                           case_12: 
                                           {
 #line 2430
-                                          __cil_tmp33 = & whiteheat_tiocmset;
-#line 2430
-                                          (*__cil_tmp33)(var_group2, var_whiteheat_tiocmset_9_p1,
-                                                         var_whiteheat_tiocmset_9_p2);
+                                          whiteheat_tiocmset(var_group2, var_whiteheat_tiocmset_9_p1,
+                                                             var_whiteheat_tiocmset_9_p2);
                                           }
                                           goto switch_break;
                                           case_13: 
                                           {
 #line 2462
-                                          __cil_tmp34 = & whiteheat_chars_in_buffer;
-#line 2462
-                                          (*__cil_tmp34)(var_group2);
+                                          whiteheat_chars_in_buffer(var_group2);
                                           }
                                           goto switch_break;
                                           case_14: 
                                           {
 #line 2494
-                                          __cil_tmp35 = & whiteheat_throttle;
-#line 2494
-                                          (*__cil_tmp35)(var_group2);
+                                          whiteheat_throttle(var_group2);
                                           }
                                           goto switch_break;
                                           case_15: 
                                           {
 #line 2526
-                                          __cil_tmp36 = & whiteheat_unthrottle;
-#line 2526
-                                          (*__cil_tmp36)(var_group2);
+                                          whiteheat_unthrottle(var_group2);
                                           }
                                           goto switch_break;
                                           case_16: 
                                           {
 #line 2558
-                                          __cil_tmp37 = & whiteheat_read_callback;
-#line 2558
-                                          (*__cil_tmp37)(var_group4);
+                                          whiteheat_read_callback(var_group4);
                                           }
                                           goto switch_break;
                                           case_17: 
                                           {
 #line 2590
-                                          __cil_tmp38 = & whiteheat_write_callback;
-#line 2590
-                                          (*__cil_tmp38)(var_group4);
+                                          whiteheat_write_callback(var_group4);
                                           }
                                           goto switch_break;
                                           switch_default: 

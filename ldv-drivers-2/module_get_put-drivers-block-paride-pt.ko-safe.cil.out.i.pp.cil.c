@@ -9309,13 +9309,8 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp18)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp19)(struct file *filp , char *buf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp20 ;
-  ssize_t (*__cil_tmp21)(struct file *filp , char const   *buf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp22 ;
-  int (*__cil_tmp23)(struct inode *inode , struct file *file ) ;
-  long (*__cil_tmp24)(struct file *file , unsigned int cmd , unsigned long arg ) ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
 
   {
   {
@@ -9368,9 +9363,7 @@ void main(void)
               if (ldv_s_pt_fops_file_operations == 0) {
                 {
 #line 1462
-                __cil_tmp18 = & pt_open;
-#line 1462
-                res_pt_open_21 = (*__cil_tmp18)(var_group2, var_group1);
+                res_pt_open_21 = pt_open(var_group2, var_group1);
 #line 1463
                 ldv_check_return_value(res_pt_open_21);
                 }
@@ -9391,14 +9384,12 @@ void main(void)
               if (ldv_s_pt_fops_file_operations == 1) {
                 {
 #line 1527
-                __cil_tmp19 = & pt_read;
-#line 1527
-                res_pt_read_24 = (*__cil_tmp19)(var_group1, var_pt_read_24_p1, var_pt_read_24_p2,
-                                                var_pt_read_24_p3);
+                res_pt_read_24 = pt_read(var_group1, var_pt_read_24_p1, var_pt_read_24_p2,
+                                         var_pt_read_24_p3);
 #line 1528
-                __cil_tmp20 = (int )res_pt_read_24;
+                __cil_tmp18 = (int )res_pt_read_24;
 #line 1528
-                ldv_check_return_value(__cil_tmp20);
+                ldv_check_return_value(__cil_tmp18);
                 }
 #line 1529
                 if (res_pt_read_24 < 0L) {
@@ -9417,14 +9408,12 @@ void main(void)
               if (ldv_s_pt_fops_file_operations == 2) {
                 {
 #line 1592
-                __cil_tmp21 = & pt_write;
-#line 1592
-                res_pt_write_25 = (*__cil_tmp21)(var_group1, var_pt_write_25_p1, var_pt_write_25_p2,
-                                                 var_pt_write_25_p3);
+                res_pt_write_25 = pt_write(var_group1, var_pt_write_25_p1, var_pt_write_25_p2,
+                                           var_pt_write_25_p3);
 #line 1593
-                __cil_tmp22 = (int )res_pt_write_25;
+                __cil_tmp19 = (int )res_pt_write_25;
 #line 1593
-                ldv_check_return_value(__cil_tmp22);
+                ldv_check_return_value(__cil_tmp19);
                 }
 #line 1594
                 if (res_pt_write_25 < 0L) {
@@ -9443,9 +9432,7 @@ void main(void)
               if (ldv_s_pt_fops_file_operations == 3) {
                 {
 #line 1657
-                __cil_tmp23 = & pt_release;
-#line 1657
-                (*__cil_tmp23)(var_group2, var_group1);
+                pt_release(var_group2, var_group1);
 #line 1658
                 ldv_s_pt_fops_file_operations = 0;
                 }
@@ -9456,9 +9443,7 @@ void main(void)
               case_4: 
               {
 #line 1719
-              __cil_tmp24 = & pt_ioctl;
-#line 1719
-              (*__cil_tmp24)(var_group1, var_pt_ioctl_22_p1, var_pt_ioctl_22_p2);
+              pt_ioctl(var_group1, var_pt_ioctl_22_p1, var_pt_ioctl_22_p2);
               }
               goto ldv_21806;
               switch_default: ;

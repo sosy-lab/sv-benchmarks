@@ -10804,18 +10804,8 @@ void main(void)
   int tmp___9 ;
   int __cil_tmp21 ;
   int __cil_tmp22 ;
-  int (*__cil_tmp23)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp24)(struct file *file , char *buffer , size_t count , loff_t *ppos ) ;
-  int __cil_tmp25 ;
-  ssize_t (*__cil_tmp26)(struct file *file , char const   *user_buffer , size_t count ,
-                         loff_t *ppos ) ;
-  int __cil_tmp27 ;
-  int (*__cil_tmp28)(struct inode *inode , struct file *file ) ;
-  long (*__cil_tmp29)(struct file *file , unsigned int cmd , unsigned long arg ) ;
-  unsigned int (*__cil_tmp30)(struct file *file , poll_table *wait ) ;
-  char *(*__cil_tmp31)(struct device *dev , mode_t *mode ) ;
-  int (*__cil_tmp32)(struct usb_interface *interface , struct usb_device_id  const  *id ) ;
-  void (*__cil_tmp33)(struct usb_interface *interface ) ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
 
   {
   {
@@ -10916,9 +10906,7 @@ void main(void)
                         if (ldv_s_iowarrior_fops_file_operations == 0) {
                           {
 #line 1331
-                          __cil_tmp23 = & iowarrior_open;
-#line 1331
-                          res_iowarrior_open_9 = (*__cil_tmp23)(var_group2, var_group1);
+                          res_iowarrior_open_9 = iowarrior_open(var_group2, var_group1);
 #line 1332
                           ldv_check_return_value(res_iowarrior_open_9);
                           }
@@ -10939,15 +10927,13 @@ void main(void)
                         if (ldv_s_iowarrior_fops_file_operations == 1) {
                           {
 #line 1372
-                          __cil_tmp24 = & iowarrior_read;
-#line 1372
-                          res_iowarrior_read_6 = (*__cil_tmp24)(var_group1, var_iowarrior_read_6_p1,
+                          res_iowarrior_read_6 = iowarrior_read(var_group1, var_iowarrior_read_6_p1,
                                                                 var_iowarrior_read_6_p2,
                                                                 var_iowarrior_read_6_p3);
 #line 1373
-                          __cil_tmp25 = (int )res_iowarrior_read_6;
+                          __cil_tmp23 = (int )res_iowarrior_read_6;
 #line 1373
-                          ldv_check_return_value(__cil_tmp25);
+                          ldv_check_return_value(__cil_tmp23);
                           }
 #line 1374
                           if (res_iowarrior_read_6 < 0L) {
@@ -10966,15 +10952,13 @@ void main(void)
                         if (ldv_s_iowarrior_fops_file_operations == 2) {
                           {
 #line 1413
-                          __cil_tmp26 = & iowarrior_write;
-#line 1413
-                          res_iowarrior_write_7 = (*__cil_tmp26)(var_group1, var_iowarrior_write_7_p1,
-                                                                 var_iowarrior_write_7_p2,
-                                                                 var_iowarrior_write_7_p3);
+                          res_iowarrior_write_7 = iowarrior_write(var_group1, var_iowarrior_write_7_p1,
+                                                                  var_iowarrior_write_7_p2,
+                                                                  var_iowarrior_write_7_p3);
 #line 1414
-                          __cil_tmp27 = (int )res_iowarrior_write_7;
+                          __cil_tmp24 = (int )res_iowarrior_write_7;
 #line 1414
-                          ldv_check_return_value(__cil_tmp27);
+                          ldv_check_return_value(__cil_tmp24);
                           }
 #line 1415
                           if (res_iowarrior_write_7 < 0L) {
@@ -10993,9 +10977,7 @@ void main(void)
                         if (ldv_s_iowarrior_fops_file_operations == 3) {
                           {
 #line 1454
-                          __cil_tmp28 = & iowarrior_release;
-#line 1454
-                          (*__cil_tmp28)(var_group2, var_group1);
+                          iowarrior_release(var_group2, var_group1);
 #line 1455
                           ldv_s_iowarrior_fops_file_operations = 0;
                           }
@@ -11006,25 +10988,19 @@ void main(void)
                         case_4: 
                         {
 #line 1492
-                        __cil_tmp29 = & iowarrior_ioctl;
-#line 1492
-                        (*__cil_tmp29)(var_group1, var_iowarrior_ioctl_8_p1, var_iowarrior_ioctl_8_p2);
+                        iowarrior_ioctl(var_group1, var_iowarrior_ioctl_8_p1, var_iowarrior_ioctl_8_p2);
                         }
                         goto switch_break;
                         case_5: 
                         {
 #line 1530
-                        __cil_tmp30 = & iowarrior_poll;
-#line 1530
-                        (*__cil_tmp30)(var_group1, var_iowarrior_poll_11_p1);
+                        iowarrior_poll(var_group1, var_iowarrior_poll_11_p1);
                         }
                         goto switch_break;
                         case_6: 
                         {
 #line 1568
-                        __cil_tmp31 = & iowarrior_devnode;
-#line 1568
-                        (*__cil_tmp31)(var_group3, var_iowarrior_devnode_12_p1);
+                        iowarrior_devnode(var_group3, var_iowarrior_devnode_12_p1);
                         }
                         goto switch_break;
                         case_7: 
@@ -11032,9 +11008,7 @@ void main(void)
                         if (ldv_s_iowarrior_driver_usb_driver == 0) {
                           {
 #line 1606
-                          __cil_tmp32 = & iowarrior_probe;
-#line 1606
-                          res_iowarrior_probe_13 = (*__cil_tmp32)(var_group4, var_iowarrior_probe_13_p1);
+                          res_iowarrior_probe_13 = iowarrior_probe(var_group4, var_iowarrior_probe_13_p1);
 #line 1607
                           ldv_check_return_value(res_iowarrior_probe_13);
                           }
@@ -11055,9 +11029,7 @@ void main(void)
                         if (ldv_s_iowarrior_driver_usb_driver == 1) {
                           {
 #line 1647
-                          __cil_tmp33 = & iowarrior_disconnect;
-#line 1647
-                          (*__cil_tmp33)(var_group4);
+                          iowarrior_disconnect(var_group4);
 #line 1648
                           ldv_s_iowarrior_driver_usb_driver = 0;
                           }

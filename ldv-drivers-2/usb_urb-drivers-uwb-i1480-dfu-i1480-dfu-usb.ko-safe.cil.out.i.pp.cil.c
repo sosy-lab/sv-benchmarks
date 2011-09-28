@@ -4117,33 +4117,29 @@ ssize_t i1480_cmd(struct i1480 *i1480 , char const   *cmd_name , size_t cmd_size
   unsigned long __cil_tmp45 ;
   struct device *__cil_tmp46 ;
   struct device  const  *__cil_tmp47 ;
-  int (*__cil_tmp48)(struct i1480  const  *i1480 , struct uwb_rceb  const  *rceb ,
-                     char const   *cmd , u8 context , u8 expected_type , unsigned int expected_event ) ;
-  struct i1480  const  *__cil_tmp49 ;
+  struct i1480  const  *__cil_tmp48 ;
+  unsigned long __cil_tmp49 ;
   unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  void *__cil_tmp52 ;
-  struct uwb_rceb  const  *__cil_tmp53 ;
-  void *__cil_tmp54 ;
-  char const   *__cil_tmp55 ;
+  void *__cil_tmp51 ;
+  struct uwb_rceb  const  *__cil_tmp52 ;
+  void *__cil_tmp53 ;
+  char const   *__cil_tmp54 ;
+  unsigned long __cil_tmp55 ;
   unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  int (*__cil_tmp58)(struct i1480 * ) ;
+  int (*__cil_tmp57)(struct i1480 * ) ;
+  unsigned long __cil_tmp58 ;
   unsigned long __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  struct device *__cil_tmp62 ;
-  struct device  const  *__cil_tmp63 ;
-  int (*__cil_tmp64)(struct i1480  const  *i1480 , struct uwb_rceb  const  *rceb ,
-                     char const   *cmd , u8 context , u8 expected_type , unsigned int expected_event ) ;
-  struct i1480  const  *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  void *__cil_tmp68 ;
-  struct uwb_rceb  const  *__cil_tmp69 ;
-  u8 *__cil_tmp70 ;
-  u8 __cil_tmp71 ;
-  unsigned int __cil_tmp72 ;
+  struct device *__cil_tmp61 ;
+  struct device  const  *__cil_tmp62 ;
+  struct i1480  const  *__cil_tmp63 ;
+  unsigned long __cil_tmp64 ;
+  unsigned long __cil_tmp65 ;
+  void *__cil_tmp66 ;
+  struct uwb_rceb  const  *__cil_tmp67 ;
+  u8 *__cil_tmp68 ;
+  u8 __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
 
   {
   {
@@ -4300,36 +4296,34 @@ ssize_t i1480_cmd(struct i1480 *i1480 , char const   *cmd_name , size_t cmd_size
   }
   {
 #line 131
-  __cil_tmp48 = & i1480_rceb_check;
+  __cil_tmp48 = (struct i1480  const  *)i1480;
 #line 131
-  __cil_tmp49 = (struct i1480  const  *)i1480;
+  __cil_tmp49 = (unsigned long )i1480;
 #line 131
-  __cil_tmp50 = (unsigned long )i1480;
+  __cil_tmp50 = __cil_tmp49 + 104;
 #line 131
-  __cil_tmp51 = __cil_tmp50 + 104;
+  __cil_tmp51 = *((void **)__cil_tmp50);
 #line 131
-  __cil_tmp52 = *((void **)__cil_tmp51);
+  __cil_tmp52 = (struct uwb_rceb  const  *)__cil_tmp51;
 #line 131
-  __cil_tmp53 = (struct uwb_rceb  const  *)__cil_tmp52;
+  __cil_tmp53 = (void *)0;
 #line 131
-  __cil_tmp54 = (void *)0;
+  __cil_tmp54 = (char const   *)__cil_tmp53;
 #line 131
-  __cil_tmp55 = (char const   *)__cil_tmp54;
-#line 131
-  tmp___1 = (*__cil_tmp48)(__cil_tmp49, __cil_tmp53, __cil_tmp55, (unsigned char)0,
-                           (unsigned char)253, 34U);
+  tmp___1 = i1480_rceb_check(__cil_tmp48, __cil_tmp52, __cil_tmp54, (unsigned char)0,
+                             (unsigned char)253, 34U);
   }
 #line 131
   if (tmp___1 == 0) {
     {
 #line 134
-    __cil_tmp56 = (unsigned long )i1480;
+    __cil_tmp55 = (unsigned long )i1480;
 #line 134
-    __cil_tmp57 = __cil_tmp56 + 40;
+    __cil_tmp56 = __cil_tmp55 + 40;
 #line 134
-    __cil_tmp58 = *((int (**)(struct i1480 * ))__cil_tmp57);
+    __cil_tmp57 = *((int (**)(struct i1480 * ))__cil_tmp56);
 #line 134
-    tmp___0 = (*__cil_tmp58)(i1480);
+    tmp___0 = (*__cil_tmp57)(i1480);
 #line 134
     result = (long )tmp___0;
     }
@@ -4340,26 +4334,26 @@ ssize_t i1480_cmd(struct i1480 *i1480 , char const   *cmd_name , size_t cmd_size
 
     }
 #line 137
-    __cil_tmp59 = (unsigned long )i1480;
+    __cil_tmp58 = (unsigned long )i1480;
 #line 137
-    __cil_tmp60 = __cil_tmp59 + 120;
+    __cil_tmp59 = __cil_tmp58 + 120;
 #line 137
-    result = *((ssize_t *)__cil_tmp60);
+    result = *((ssize_t *)__cil_tmp59);
   } else {
 
   }
   {
 #line 139
-  __cil_tmp61 = (unsigned long )result;
+  __cil_tmp60 = (unsigned long )result;
 #line 139
-  if (__cil_tmp61 != reply_size) {
+  if (__cil_tmp60 != reply_size) {
     {
 #line 140
-    __cil_tmp62 = *((struct device **)i1480);
+    __cil_tmp61 = *((struct device **)i1480);
 #line 140
-    __cil_tmp63 = (struct device  const  *)__cil_tmp62;
+    __cil_tmp62 = (struct device  const  *)__cil_tmp61;
 #line 140
-    dev_err(__cil_tmp63, "%s returned only %zu bytes, %zu expected\n", cmd_name, result,
+    dev_err(__cil_tmp62, "%s returned only %zu bytes, %zu expected\n", cmd_name, result,
             reply_size);
 #line 142
     result = -22L;
@@ -4371,26 +4365,24 @@ ssize_t i1480_cmd(struct i1480 *i1480 , char const   *cmd_name , size_t cmd_size
   }
   {
 #line 146
-  __cil_tmp64 = & i1480_rceb_check;
+  __cil_tmp63 = (struct i1480  const  *)i1480;
 #line 146
-  __cil_tmp65 = (struct i1480  const  *)i1480;
+  __cil_tmp64 = (unsigned long )i1480;
 #line 146
-  __cil_tmp66 = (unsigned long )i1480;
+  __cil_tmp65 = __cil_tmp64 + 104;
 #line 146
-  __cil_tmp67 = __cil_tmp66 + 104;
+  __cil_tmp66 = *((void **)__cil_tmp65);
 #line 146
-  __cil_tmp68 = *((void **)__cil_tmp67);
+  __cil_tmp67 = (struct uwb_rceb  const  *)__cil_tmp66;
 #line 146
-  __cil_tmp69 = (struct uwb_rceb  const  *)__cil_tmp68;
+  __cil_tmp68 = & context;
 #line 146
-  __cil_tmp70 = & context;
+  __cil_tmp69 = *__cil_tmp68;
 #line 146
-  __cil_tmp71 = *__cil_tmp70;
+  __cil_tmp70 = (unsigned int )expected_event;
 #line 146
-  __cil_tmp72 = (unsigned int )expected_event;
-#line 146
-  tmp___2 = (*__cil_tmp64)(__cil_tmp65, __cil_tmp69, cmd_name, __cil_tmp71, expected_type,
-                           __cil_tmp72);
+  tmp___2 = i1480_rceb_check(__cil_tmp63, __cil_tmp67, cmd_name, __cil_tmp69, expected_type,
+                             __cil_tmp70);
 #line 146
   result = (long )tmp___2;
   }
@@ -6292,18 +6284,16 @@ static int i1480_cmd_reset(struct i1480 *i1480 )
   unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  ssize_t (*__cil_tmp17)(struct i1480 *i1480 , char const   *cmd_name , size_t cmd_size ,
-                         size_t reply_size ) ;
+  unsigned long __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u8 __cil_tmp20 ;
-  int __cil_tmp21 ;
-  struct device *__cil_tmp22 ;
-  struct device  const  *__cil_tmp23 ;
+  u8 __cil_tmp19 ;
+  int __cil_tmp20 ;
+  struct device *__cil_tmp21 ;
+  struct device  const  *__cil_tmp22 ;
+  unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  u8 __cil_tmp26 ;
-  int __cil_tmp27 ;
+  u8 __cil_tmp25 ;
+  int __cil_tmp26 ;
 
   {
   {
@@ -6344,9 +6334,7 @@ static int i1480_cmd_reset(struct i1480 *i1480 )
 #line 401
   *((__le16 *)__cil_tmp16) = (unsigned short)19;
 #line 402
-  __cil_tmp17 = & i1480_cmd;
-#line 402
-  tmp = (*__cil_tmp17)(i1480, "RESET", 4UL, 5UL);
+  tmp = i1480_cmd(i1480, "RESET", 4UL, 5UL);
 #line 402
   result = (int )tmp;
   }
@@ -6358,30 +6346,30 @@ static int i1480_cmd_reset(struct i1480 *i1480 )
   }
   {
 #line 405
-  __cil_tmp18 = (unsigned long )reply;
+  __cil_tmp17 = (unsigned long )reply;
 #line 405
-  __cil_tmp19 = __cil_tmp18 + 4;
+  __cil_tmp18 = __cil_tmp17 + 4;
 #line 405
-  __cil_tmp20 = *((u8 *)__cil_tmp19);
+  __cil_tmp19 = *((u8 *)__cil_tmp18);
 #line 405
-  __cil_tmp21 = (int )__cil_tmp20;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 405
-  if (__cil_tmp21 != 0) {
+  if (__cil_tmp20 != 0) {
     {
 #line 406
-    __cil_tmp22 = *((struct device **)i1480);
+    __cil_tmp21 = *((struct device **)i1480);
 #line 406
-    __cil_tmp23 = (struct device  const  *)__cil_tmp22;
+    __cil_tmp22 = (struct device  const  *)__cil_tmp21;
 #line 406
-    __cil_tmp24 = (unsigned long )reply;
+    __cil_tmp23 = (unsigned long )reply;
 #line 406
-    __cil_tmp25 = __cil_tmp24 + 4;
+    __cil_tmp24 = __cil_tmp23 + 4;
 #line 406
-    __cil_tmp26 = *((u8 *)__cil_tmp25);
+    __cil_tmp25 = *((u8 *)__cil_tmp24);
 #line 406
-    __cil_tmp27 = (int )__cil_tmp26;
+    __cil_tmp26 = (int )__cil_tmp25;
 #line 406
-    dev_err(__cil_tmp23, "RESET: command execution failed: %u\n", __cil_tmp27);
+    dev_err(__cil_tmp22, "RESET: command execution failed: %u\n", __cil_tmp26);
 #line 408
     result = -5;
     }
@@ -6547,32 +6535,30 @@ int i1480_mac_fw_upload(struct i1480 *i1480 )
   unsigned long __cil_tmp48 ;
   unsigned long __cil_tmp49 ;
   ssize_t __cil_tmp50 ;
-  int (*__cil_tmp51)(struct i1480  const  *i1480 , struct uwb_rceb  const  *rceb ,
-                     char const   *cmd , u8 context , u8 expected_type , unsigned int expected_event ) ;
-  struct i1480  const  *__cil_tmp52 ;
-  struct uwb_rceb *__cil_tmp53 ;
-  struct uwb_rceb  const  *__cil_tmp54 ;
-  void *__cil_tmp55 ;
-  char const   *__cil_tmp56 ;
-  struct device *__cil_tmp57 ;
-  struct device  const  *__cil_tmp58 ;
-  u8 __cil_tmp59 ;
-  int __cil_tmp60 ;
+  struct i1480  const  *__cil_tmp51 ;
+  struct uwb_rceb *__cil_tmp52 ;
+  struct uwb_rceb  const  *__cil_tmp53 ;
+  void *__cil_tmp54 ;
+  char const   *__cil_tmp55 ;
+  struct device *__cil_tmp56 ;
+  struct device  const  *__cil_tmp57 ;
+  u8 __cil_tmp58 ;
+  int __cil_tmp59 ;
+  unsigned long __cil_tmp60 ;
   unsigned long __cil_tmp61 ;
   unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  __le16 __cil_tmp64 ;
-  int __cil_tmp65 ;
+  __le16 __cil_tmp63 ;
+  int __cil_tmp64 ;
+  unsigned long __cil_tmp65 ;
   unsigned long __cil_tmp66 ;
   unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  u8 __cil_tmp69 ;
-  int __cil_tmp70 ;
-  struct device *__cil_tmp71 ;
-  struct device  const  *__cil_tmp72 ;
+  u8 __cil_tmp68 ;
+  int __cil_tmp69 ;
+  struct device *__cil_tmp70 ;
+  struct device  const  *__cil_tmp71 ;
+  unsigned long __cil_tmp72 ;
   unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  char const   *__cil_tmp75 ;
+  char const   *__cil_tmp74 ;
 
   {
   {
@@ -6767,55 +6753,53 @@ int i1480_mac_fw_upload(struct i1480 *i1480 )
 #line 491
   result = -5;
 #line 492
-  __cil_tmp51 = & i1480_rceb_check;
+  __cil_tmp51 = (struct i1480  const  *)i1480;
 #line 492
-  __cil_tmp52 = (struct i1480  const  *)i1480;
+  __cil_tmp52 = (struct uwb_rceb *)rcebe;
 #line 492
-  __cil_tmp53 = (struct uwb_rceb *)rcebe;
+  __cil_tmp53 = (struct uwb_rceb  const  *)__cil_tmp52;
 #line 492
-  __cil_tmp54 = (struct uwb_rceb  const  *)__cil_tmp53;
+  __cil_tmp54 = (void *)0;
 #line 492
-  __cil_tmp55 = (void *)0;
+  __cil_tmp55 = (char const   *)__cil_tmp54;
 #line 492
-  __cil_tmp56 = (char const   *)__cil_tmp55;
-#line 492
-  tmp___0 = (*__cil_tmp51)(__cil_tmp52, __cil_tmp54, __cil_tmp56, (unsigned char)0,
-                           (unsigned char)253, 257U);
+  tmp___0 = i1480_rceb_check(__cil_tmp51, __cil_tmp53, __cil_tmp55, (unsigned char)0,
+                             (unsigned char)253, 257U);
   }
 #line 492
   if (tmp___0 < 0) {
     {
 #line 494
-    __cil_tmp57 = *((struct device **)i1480);
+    __cil_tmp56 = *((struct device **)i1480);
 #line 494
-    __cil_tmp58 = (struct device  const  *)__cil_tmp57;
+    __cil_tmp57 = (struct device  const  *)__cil_tmp56;
 #line 494
-    __cil_tmp59 = *((u8 *)rcebe);
+    __cil_tmp58 = *((u8 *)rcebe);
 #line 494
-    __cil_tmp60 = (int )__cil_tmp59;
+    __cil_tmp59 = (int )__cil_tmp58;
 #line 494
-    __cil_tmp61 = 0 + 1;
+    __cil_tmp60 = 0 + 1;
 #line 494
-    __cil_tmp62 = (unsigned long )rcebe;
+    __cil_tmp61 = (unsigned long )rcebe;
 #line 494
-    __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
+    __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
 #line 494
-    __cil_tmp64 = *((__le16 *)__cil_tmp63);
+    __cil_tmp63 = *((__le16 *)__cil_tmp62);
 #line 494
-    __cil_tmp65 = (int )__cil_tmp64;
+    __cil_tmp64 = (int )__cil_tmp63;
 #line 494
-    __cil_tmp66 = 0 + 3;
+    __cil_tmp65 = 0 + 3;
 #line 494
-    __cil_tmp67 = (unsigned long )rcebe;
+    __cil_tmp66 = (unsigned long )rcebe;
 #line 494
-    __cil_tmp68 = __cil_tmp67 + __cil_tmp66;
+    __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
 #line 494
-    __cil_tmp69 = *((u8 *)__cil_tmp68);
+    __cil_tmp68 = *((u8 *)__cil_tmp67);
 #line 494
-    __cil_tmp70 = (int )__cil_tmp69;
+    __cil_tmp69 = (int )__cil_tmp68;
 #line 494
-    dev_err(__cil_tmp58, "wrong initialization event 0x%02x/%04x/%02x received; expected 0x%02x/%04x/00\n",
-            __cil_tmp60, __cil_tmp65, __cil_tmp70, 253, 257);
+    dev_err(__cil_tmp57, "wrong initialization event 0x%02x/%04x/%02x received; expected 0x%02x/%04x/00\n",
+            __cil_tmp59, __cil_tmp64, __cil_tmp69, 253, 257);
     }
     goto error_fw_not_running;
   } else {
@@ -6829,17 +6813,17 @@ int i1480_mac_fw_upload(struct i1480 *i1480 )
   if (result < 0) {
     {
 #line 503
-    __cil_tmp71 = *((struct device **)i1480);
+    __cil_tmp70 = *((struct device **)i1480);
 #line 503
-    __cil_tmp72 = (struct device  const  *)__cil_tmp71;
+    __cil_tmp71 = (struct device  const  *)__cil_tmp70;
 #line 503
-    __cil_tmp73 = (unsigned long )i1480;
+    __cil_tmp72 = (unsigned long )i1480;
 #line 503
-    __cil_tmp74 = __cil_tmp73 + 64;
+    __cil_tmp73 = __cil_tmp72 + 64;
 #line 503
-    __cil_tmp75 = *((char const   **)__cil_tmp74);
+    __cil_tmp74 = *((char const   **)__cil_tmp73);
 #line 503
-    dev_err(__cil_tmp72, "MAC fw \'%s\': MBOA reset failed (%d)\n", __cil_tmp75, result);
+    dev_err(__cil_tmp71, "MAC fw \'%s\': MBOA reset failed (%d)\n", __cil_tmp74, result);
     }
   } else {
 
@@ -6884,19 +6868,17 @@ static int i1480_mpi_write(struct i1480 *i1480 , void const   *data , size_t siz
   unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  ssize_t (*__cil_tmp35)(struct i1480 *i1480 , char const   *cmd_name , size_t cmd_size ,
-                         size_t reply_size ) ;
+  unsigned long __cil_tmp35 ;
   unsigned long __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u8 __cil_tmp39 ;
-  int __cil_tmp40 ;
-  struct device *__cil_tmp41 ;
-  struct device  const  *__cil_tmp42 ;
+  u8 __cil_tmp38 ;
+  int __cil_tmp39 ;
+  struct device *__cil_tmp40 ;
+  struct device  const  *__cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u8 __cil_tmp45 ;
-  int __cil_tmp46 ;
+  u8 __cil_tmp44 ;
+  int __cil_tmp45 ;
 
   {
 #line 55
@@ -7015,11 +6997,9 @@ static int i1480_mpi_write(struct i1480 *i1480 , void const   *data , size_t siz
 #line 65
   *((__le16 *)__cil_tmp34) = (unsigned short)15;
 #line 66
-  __cil_tmp35 = & i1480_cmd;
+  __cil_tmp35 = 6UL + size;
 #line 66
-  __cil_tmp36 = 6UL + size;
-#line 66
-  tmp___0 = (*__cil_tmp35)(i1480, "MPI-WRITE", __cil_tmp36, 7UL);
+  tmp___0 = i1480_cmd(i1480, "MPI-WRITE", __cil_tmp35, 7UL);
 #line 66
   result = (int )tmp___0;
   }
@@ -7031,30 +7011,30 @@ static int i1480_mpi_write(struct i1480 *i1480 , void const   *data , size_t siz
   }
   {
 #line 69
-  __cil_tmp37 = (unsigned long )reply;
+  __cil_tmp36 = (unsigned long )reply;
 #line 69
-  __cil_tmp38 = __cil_tmp37 + 6;
+  __cil_tmp37 = __cil_tmp36 + 6;
 #line 69
-  __cil_tmp39 = *((u8 *)__cil_tmp38);
+  __cil_tmp38 = *((u8 *)__cil_tmp37);
 #line 69
-  __cil_tmp40 = (int )__cil_tmp39;
+  __cil_tmp39 = (int )__cil_tmp38;
 #line 69
-  if (__cil_tmp40 != 0) {
+  if (__cil_tmp39 != 0) {
     {
 #line 70
-    __cil_tmp41 = *((struct device **)i1480);
+    __cil_tmp40 = *((struct device **)i1480);
 #line 70
-    __cil_tmp42 = (struct device  const  *)__cil_tmp41;
+    __cil_tmp41 = (struct device  const  *)__cil_tmp40;
 #line 70
-    __cil_tmp43 = (unsigned long )reply;
+    __cil_tmp42 = (unsigned long )reply;
 #line 70
-    __cil_tmp44 = __cil_tmp43 + 6;
+    __cil_tmp43 = __cil_tmp42 + 6;
 #line 70
-    __cil_tmp45 = *((u8 *)__cil_tmp44);
+    __cil_tmp44 = *((u8 *)__cil_tmp43);
 #line 70
-    __cil_tmp46 = (int )__cil_tmp45;
+    __cil_tmp45 = (int )__cil_tmp44;
 #line 70
-    dev_err(__cil_tmp42, "MPI-WRITE: command execution failed: %d\n", __cil_tmp46);
+    dev_err(__cil_tmp41, "MPI-WRITE: command execution failed: %d\n", __cil_tmp45);
 #line 72
     result = -5;
     }
@@ -7121,71 +7101,69 @@ static int i1480_mpi_read(struct i1480 *i1480 , u8 *data , u16 srcaddr , size_t 
   unsigned long __cil_tmp54 ;
   unsigned long __cil_tmp55 ;
   unsigned long __cil_tmp56 ;
-  ssize_t (*__cil_tmp57)(struct i1480 *i1480 , char const   *cmd_name , size_t cmd_size ,
-                         size_t reply_size ) ;
+  unsigned long __cil_tmp57 ;
   unsigned long __cil_tmp58 ;
   unsigned long __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
   unsigned long __cil_tmp61 ;
   unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u8 __cil_tmp64 ;
-  int __cil_tmp65 ;
-  struct device *__cil_tmp66 ;
-  struct device  const  *__cil_tmp67 ;
+  u8 __cil_tmp63 ;
+  int __cil_tmp64 ;
+  struct device *__cil_tmp65 ;
+  struct device  const  *__cil_tmp66 ;
+  unsigned long __cil_tmp67 ;
   unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  u8 __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
+  u8 __cil_tmp69 ;
+  int __cil_tmp70 ;
+  unsigned long __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
   unsigned int __cil_tmp73 ;
   unsigned int __cil_tmp74 ;
-  unsigned int __cil_tmp75 ;
+  unsigned long __cil_tmp75 ;
   unsigned long __cil_tmp76 ;
   unsigned long __cil_tmp77 ;
   unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  u8 __cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  struct device *__cil_tmp82 ;
-  struct device  const  *__cil_tmp83 ;
+  u8 __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  struct device *__cil_tmp81 ;
+  struct device  const  *__cil_tmp82 ;
+  unsigned int __cil_tmp83 ;
   unsigned int __cil_tmp84 ;
   unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
+  unsigned long __cil_tmp86 ;
   unsigned long __cil_tmp87 ;
   unsigned long __cil_tmp88 ;
   unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  u8 __cil_tmp91 ;
-  int __cil_tmp92 ;
+  u8 __cil_tmp90 ;
+  int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
   unsigned int __cil_tmp93 ;
   unsigned int __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
+  unsigned long __cil_tmp95 ;
   unsigned long __cil_tmp96 ;
   unsigned long __cil_tmp97 ;
   unsigned long __cil_tmp98 ;
   unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  u8 __cil_tmp101 ;
-  unsigned int __cil_tmp102 ;
-  struct device *__cil_tmp103 ;
-  struct device  const  *__cil_tmp104 ;
+  u8 __cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
+  struct device *__cil_tmp102 ;
+  struct device  const  *__cil_tmp103 ;
+  unsigned int __cil_tmp104 ;
   unsigned int __cil_tmp105 ;
   unsigned int __cil_tmp106 ;
-  unsigned int __cil_tmp107 ;
+  unsigned long __cil_tmp107 ;
   unsigned long __cil_tmp108 ;
   unsigned long __cil_tmp109 ;
   unsigned long __cil_tmp110 ;
   unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  u8 __cil_tmp113 ;
-  int __cil_tmp114 ;
-  u8 *__cil_tmp115 ;
+  u8 __cil_tmp112 ;
+  int __cil_tmp113 ;
+  u8 *__cil_tmp114 ;
+  unsigned long __cil_tmp115 ;
   unsigned long __cil_tmp116 ;
   unsigned long __cil_tmp117 ;
   unsigned long __cil_tmp118 ;
   unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
 
   {
   {
@@ -7376,17 +7354,15 @@ static int i1480_mpi_read(struct i1480 *i1480 , u8 *data , u16 srcaddr , size_t 
 #line 120
   *((__le16 *)__cil_tmp56) = (unsigned short)16;
 #line 121
-  __cil_tmp57 = & i1480_cmd;
+  __cil_tmp57 = 2UL * size;
 #line 121
-  __cil_tmp58 = 2UL * size;
+  __cil_tmp58 = 6UL + __cil_tmp57;
 #line 121
-  __cil_tmp59 = 6UL + __cil_tmp58;
+  __cil_tmp59 = 3UL * size;
 #line 121
-  __cil_tmp60 = 3UL * size;
+  __cil_tmp60 = 9UL + __cil_tmp59;
 #line 121
-  __cil_tmp61 = 9UL + __cil_tmp60;
-#line 121
-  tmp___0 = (*__cil_tmp57)(i1480, "MPI-READ", __cil_tmp59, __cil_tmp61);
+  tmp___0 = i1480_cmd(i1480, "MPI-READ", __cil_tmp58, __cil_tmp60);
 #line 121
   result = (int )tmp___0;
   }
@@ -7398,30 +7374,30 @@ static int i1480_mpi_read(struct i1480 *i1480 , u8 *data , u16 srcaddr , size_t 
   }
   {
 #line 125
-  __cil_tmp62 = (unsigned long )reply;
+  __cil_tmp61 = (unsigned long )reply;
 #line 125
-  __cil_tmp63 = __cil_tmp62 + 6;
+  __cil_tmp62 = __cil_tmp61 + 6;
 #line 125
-  __cil_tmp64 = *((u8 *)__cil_tmp63);
+  __cil_tmp63 = *((u8 *)__cil_tmp62);
 #line 125
-  __cil_tmp65 = (int )__cil_tmp64;
+  __cil_tmp64 = (int )__cil_tmp63;
 #line 125
-  if (__cil_tmp65 != 0) {
+  if (__cil_tmp64 != 0) {
     {
 #line 126
-    __cil_tmp66 = *((struct device **)i1480);
+    __cil_tmp65 = *((struct device **)i1480);
 #line 126
-    __cil_tmp67 = (struct device  const  *)__cil_tmp66;
+    __cil_tmp66 = (struct device  const  *)__cil_tmp65;
 #line 126
-    __cil_tmp68 = (unsigned long )reply;
+    __cil_tmp67 = (unsigned long )reply;
 #line 126
-    __cil_tmp69 = __cil_tmp68 + 6;
+    __cil_tmp68 = __cil_tmp67 + 6;
 #line 126
-    __cil_tmp70 = *((u8 *)__cil_tmp69);
+    __cil_tmp69 = *((u8 *)__cil_tmp68);
 #line 126
-    __cil_tmp71 = (int )__cil_tmp70;
+    __cil_tmp70 = (int )__cil_tmp69;
 #line 126
-    dev_err(__cil_tmp67, "MPI-READ: command execution failed: %d\n", __cil_tmp71);
+    dev_err(__cil_tmp66, "MPI-READ: command execution failed: %d\n", __cil_tmp70);
 #line 128
     result = -5;
     }
@@ -7438,9 +7414,9 @@ static int i1480_mpi_read(struct i1480 *i1480 , u8 *data , u16 srcaddr , size_t 
 
     {
 #line 130
-    __cil_tmp72 = (unsigned long )cnt;
+    __cil_tmp71 = (unsigned long )cnt;
 #line 130
-    if (__cil_tmp72 < size) {
+    if (__cil_tmp71 < size) {
 
     } else {
       goto while_break___3;
@@ -7448,51 +7424,51 @@ static int i1480_mpi_read(struct i1480 *i1480 , u8 *data , u16 srcaddr , size_t 
     }
     {
 #line 131
-    __cil_tmp73 = (unsigned int )srcaddr;
+    __cil_tmp72 = (unsigned int )srcaddr;
 #line 131
-    __cil_tmp74 = __cil_tmp73 + cnt;
+    __cil_tmp73 = __cil_tmp72 + cnt;
 #line 131
-    __cil_tmp75 = __cil_tmp74 >> 8;
+    __cil_tmp74 = __cil_tmp73 >> 8;
 #line 131
-    __cil_tmp76 = cnt * 3UL;
+    __cil_tmp75 = cnt * 3UL;
 #line 131
-    __cil_tmp77 = 9 + __cil_tmp76;
+    __cil_tmp76 = 9 + __cil_tmp75;
 #line 131
-    __cil_tmp78 = (unsigned long )reply;
+    __cil_tmp77 = (unsigned long )reply;
 #line 131
-    __cil_tmp79 = __cil_tmp78 + __cil_tmp77;
+    __cil_tmp78 = __cil_tmp77 + __cil_tmp76;
 #line 131
-    __cil_tmp80 = *((u8 *)__cil_tmp79);
+    __cil_tmp79 = *((u8 *)__cil_tmp78);
 #line 131
-    __cil_tmp81 = (unsigned int )__cil_tmp80;
+    __cil_tmp80 = (unsigned int )__cil_tmp79;
 #line 131
-    if (__cil_tmp81 != __cil_tmp75) {
+    if (__cil_tmp80 != __cil_tmp74) {
       {
 #line 132
-      __cil_tmp82 = *((struct device **)i1480);
+      __cil_tmp81 = *((struct device **)i1480);
 #line 132
-      __cil_tmp83 = (struct device  const  *)__cil_tmp82;
+      __cil_tmp82 = (struct device  const  *)__cil_tmp81;
 #line 132
-      __cil_tmp84 = (unsigned int )srcaddr;
+      __cil_tmp83 = (unsigned int )srcaddr;
 #line 132
-      __cil_tmp85 = __cil_tmp84 + cnt;
+      __cil_tmp84 = __cil_tmp83 + cnt;
 #line 132
-      __cil_tmp86 = __cil_tmp85 >> 8;
+      __cil_tmp85 = __cil_tmp84 >> 8;
 #line 132
-      __cil_tmp87 = cnt * 3UL;
+      __cil_tmp86 = cnt * 3UL;
 #line 132
-      __cil_tmp88 = 9 + __cil_tmp87;
+      __cil_tmp87 = 9 + __cil_tmp86;
 #line 132
-      __cil_tmp89 = (unsigned long )reply;
+      __cil_tmp88 = (unsigned long )reply;
 #line 132
-      __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
+      __cil_tmp89 = __cil_tmp88 + __cil_tmp87;
 #line 132
-      __cil_tmp91 = *((u8 *)__cil_tmp90);
+      __cil_tmp90 = *((u8 *)__cil_tmp89);
 #line 132
-      __cil_tmp92 = (int )__cil_tmp91;
+      __cil_tmp91 = (int )__cil_tmp90;
 #line 132
-      dev_err(__cil_tmp83, "MPI-READ: page inconsistency at index %u: expected 0x%02x, got 0x%02x\n",
-              cnt, __cil_tmp86, __cil_tmp92);
+      dev_err(__cil_tmp82, "MPI-READ: page inconsistency at index %u: expected 0x%02x, got 0x%02x\n",
+              cnt, __cil_tmp85, __cil_tmp91);
       }
     } else {
 
@@ -7500,74 +7476,74 @@ static int i1480_mpi_read(struct i1480 *i1480 , u8 *data , u16 srcaddr , size_t 
     }
     {
 #line 135
-    __cil_tmp93 = (unsigned int )srcaddr;
+    __cil_tmp92 = (unsigned int )srcaddr;
 #line 135
-    __cil_tmp94 = __cil_tmp93 + cnt;
+    __cil_tmp93 = __cil_tmp92 + cnt;
 #line 135
-    __cil_tmp95 = __cil_tmp94 & 255U;
+    __cil_tmp94 = __cil_tmp93 & 255U;
 #line 135
-    __cil_tmp96 = cnt * 3UL;
+    __cil_tmp95 = cnt * 3UL;
 #line 135
-    __cil_tmp97 = __cil_tmp96 + 1;
+    __cil_tmp96 = __cil_tmp95 + 1;
 #line 135
-    __cil_tmp98 = 9 + __cil_tmp97;
+    __cil_tmp97 = 9 + __cil_tmp96;
 #line 135
-    __cil_tmp99 = (unsigned long )reply;
+    __cil_tmp98 = (unsigned long )reply;
 #line 135
-    __cil_tmp100 = __cil_tmp99 + __cil_tmp98;
+    __cil_tmp99 = __cil_tmp98 + __cil_tmp97;
 #line 135
-    __cil_tmp101 = *((u8 *)__cil_tmp100);
+    __cil_tmp100 = *((u8 *)__cil_tmp99);
 #line 135
-    __cil_tmp102 = (unsigned int )__cil_tmp101;
+    __cil_tmp101 = (unsigned int )__cil_tmp100;
 #line 135
-    if (__cil_tmp102 != __cil_tmp95) {
+    if (__cil_tmp101 != __cil_tmp94) {
       {
 #line 136
-      __cil_tmp103 = *((struct device **)i1480);
+      __cil_tmp102 = *((struct device **)i1480);
 #line 136
-      __cil_tmp104 = (struct device  const  *)__cil_tmp103;
+      __cil_tmp103 = (struct device  const  *)__cil_tmp102;
 #line 136
-      __cil_tmp105 = (unsigned int )srcaddr;
+      __cil_tmp104 = (unsigned int )srcaddr;
 #line 136
-      __cil_tmp106 = __cil_tmp105 + cnt;
+      __cil_tmp105 = __cil_tmp104 + cnt;
 #line 136
-      __cil_tmp107 = __cil_tmp106 & 255U;
+      __cil_tmp106 = __cil_tmp105 & 255U;
 #line 136
-      __cil_tmp108 = cnt * 3UL;
+      __cil_tmp107 = cnt * 3UL;
 #line 136
-      __cil_tmp109 = __cil_tmp108 + 1;
+      __cil_tmp108 = __cil_tmp107 + 1;
 #line 136
-      __cil_tmp110 = 9 + __cil_tmp109;
+      __cil_tmp109 = 9 + __cil_tmp108;
 #line 136
-      __cil_tmp111 = (unsigned long )reply;
+      __cil_tmp110 = (unsigned long )reply;
 #line 136
-      __cil_tmp112 = __cil_tmp111 + __cil_tmp110;
+      __cil_tmp111 = __cil_tmp110 + __cil_tmp109;
 #line 136
-      __cil_tmp113 = *((u8 *)__cil_tmp112);
+      __cil_tmp112 = *((u8 *)__cil_tmp111);
 #line 136
-      __cil_tmp114 = (int )__cil_tmp113;
+      __cil_tmp113 = (int )__cil_tmp112;
 #line 136
-      dev_err(__cil_tmp104, "MPI-READ: offset inconsistency at index %u: expected 0x%02x, got 0x%02x\n",
-              cnt, __cil_tmp107, __cil_tmp114);
+      dev_err(__cil_tmp103, "MPI-READ: offset inconsistency at index %u: expected 0x%02x, got 0x%02x\n",
+              cnt, __cil_tmp106, __cil_tmp113);
       }
     } else {
 
     }
     }
 #line 140
-    __cil_tmp115 = data + cnt;
+    __cil_tmp114 = data + cnt;
 #line 140
-    __cil_tmp116 = cnt * 3UL;
+    __cil_tmp115 = cnt * 3UL;
 #line 140
-    __cil_tmp117 = __cil_tmp116 + 2;
+    __cil_tmp116 = __cil_tmp115 + 2;
 #line 140
-    __cil_tmp118 = 9 + __cil_tmp117;
+    __cil_tmp117 = 9 + __cil_tmp116;
 #line 140
-    __cil_tmp119 = (unsigned long )reply;
+    __cil_tmp118 = (unsigned long )reply;
 #line 140
-    __cil_tmp120 = __cil_tmp119 + __cil_tmp118;
+    __cil_tmp119 = __cil_tmp118 + __cil_tmp117;
 #line 140
-    *__cil_tmp115 = *((u8 *)__cil_tmp120);
+    *__cil_tmp114 = *((u8 *)__cil_tmp119);
 #line 130
     cnt = cnt + 1U;
   }
@@ -9932,16 +9908,15 @@ static int i1480_usb_probe(struct usb_interface *iface , struct usb_device_id  c
   unsigned long __cil_tmp88 ;
   unsigned long __cil_tmp89 ;
   unsigned long __cil_tmp90 ;
-  int (*__cil_tmp91)(struct i1480 *i1480 ) ;
-  struct i1480 *__cil_tmp92 ;
+  struct i1480 *__cil_tmp91 ;
+  unsigned long __cil_tmp92 ;
   unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct usb_device *__cil_tmp95 ;
+  struct usb_device *__cil_tmp94 ;
+  unsigned long __cil_tmp95 ;
   unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  void *__cil_tmp98 ;
+  void *__cil_tmp97 ;
+  void const   *__cil_tmp98 ;
   void const   *__cil_tmp99 ;
-  void const   *__cil_tmp100 ;
 
   {
 #line 347
@@ -10265,23 +10240,21 @@ static int i1480_usb_probe(struct usb_interface *iface , struct usb_device_id  c
 #line 400
   *((int (**)(struct i1480 * , char const   *cmd_name , size_t cmd_size ))__cil_tmp90) = & i1480_usb_cmd;
 #line 402
-  __cil_tmp91 = & i1480_fw_upload;
+  __cil_tmp91 = (struct i1480 *)i1480_usb;
 #line 402
-  __cil_tmp92 = (struct i1480 *)i1480_usb;
-#line 402
-  result = (*__cil_tmp91)(__cil_tmp92);
+  result = i1480_fw_upload(__cil_tmp91);
   }
 #line 403
   if (result >= 0) {
     {
 #line 404
-    __cil_tmp93 = (unsigned long )i1480_usb;
+    __cil_tmp92 = (unsigned long )i1480_usb;
 #line 404
-    __cil_tmp94 = __cil_tmp93 + 224;
+    __cil_tmp93 = __cil_tmp92 + 224;
 #line 404
-    __cil_tmp95 = *((struct usb_device **)__cil_tmp94);
+    __cil_tmp94 = *((struct usb_device **)__cil_tmp93);
 #line 404
-    usb_reset_device(__cil_tmp95);
+    usb_reset_device(__cil_tmp94);
 #line 405
     result = -19;
     }
@@ -10295,22 +10268,22 @@ static int i1480_usb_probe(struct usb_interface *iface , struct usb_device_id  c
   error_create: 
   {
 #line 409
-  __cil_tmp96 = (unsigned long )i1480;
+  __cil_tmp95 = (unsigned long )i1480;
 #line 409
-  __cil_tmp97 = __cil_tmp96 + 112;
+  __cil_tmp96 = __cil_tmp95 + 112;
 #line 409
-  __cil_tmp98 = *((void **)__cil_tmp97);
+  __cil_tmp97 = *((void **)__cil_tmp96);
 #line 409
-  __cil_tmp99 = (void const   *)__cil_tmp98;
+  __cil_tmp98 = (void const   *)__cil_tmp97;
 #line 409
-  kfree(__cil_tmp99);
+  kfree(__cil_tmp98);
   }
   error_buf_alloc: 
   {
 #line 411
-  __cil_tmp100 = (void const   *)i1480_usb;
+  __cil_tmp99 = (void const   *)i1480_usb;
 #line 411
-  kfree(__cil_tmp100);
+  kfree(__cil_tmp99);
   }
   error: 
 #line 413
@@ -10529,7 +10502,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp7 ;
-  int (*__cil_tmp8)(struct usb_interface *iface , struct usb_device_id  const  *id ) ;
 
   {
   {
@@ -10587,9 +10559,7 @@ void main(void)
         if (ldv_s_i1480_dfu_driver_usb_driver == 0) {
           {
 #line 597
-          __cil_tmp8 = & i1480_usb_probe;
-#line 597
-          res_i1480_usb_probe_8 = (*__cil_tmp8)(var_group1, var_i1480_usb_probe_8_p1);
+          res_i1480_usb_probe_8 = i1480_usb_probe(var_group1, var_i1480_usb_probe_8_p1);
 #line 598
           ldv_check_return_value(res_i1480_usb_probe_8);
           }

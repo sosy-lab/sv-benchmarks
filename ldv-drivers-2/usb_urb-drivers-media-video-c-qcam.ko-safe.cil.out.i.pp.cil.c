@@ -11604,15 +11604,15 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
   int tmp___8 ;
   unsigned long __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  int (*__cil_tmp11)(struct file *file , void *fh , struct v4l2_format *fmt ) ;
+  unsigned long __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  __u32 __cil_tmp14 ;
-  int __cil_tmp15 ;
+  __u32 __cil_tmp13 ;
+  int __cil_tmp14 ;
+  unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u32 __cil_tmp18 ;
-  int __cil_tmp19 ;
+  __u32 __cil_tmp17 ;
+  int __cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
@@ -11620,30 +11620,29 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
   unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct mutex *__cil_tmp28 ;
+  struct mutex *__cil_tmp27 ;
+  unsigned long __cil_tmp28 ;
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  int __cil_tmp33 ;
+  int __cil_tmp32 ;
+  unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
   unsigned long __cil_tmp35 ;
   unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  __u32 __cil_tmp38 ;
+  __u32 __cil_tmp37 ;
+  unsigned long __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  __u32 __cil_tmp41 ;
+  __u32 __cil_tmp40 ;
+  unsigned long __cil_tmp41 ;
   unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct pardevice *__cil_tmp44 ;
+  struct pardevice *__cil_tmp43 ;
+  unsigned long __cil_tmp44 ;
   unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct pardevice *__cil_tmp47 ;
+  struct pardevice *__cil_tmp46 ;
+  unsigned long __cil_tmp47 ;
   unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct mutex *__cil_tmp50 ;
+  struct mutex *__cil_tmp49 ;
 
   {
   {
@@ -11658,9 +11657,7 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 #line 659
   pix = (struct v4l2_pix_format *)__cil_tmp10;
 #line 660
-  __cil_tmp11 = & qcam_try_fmt_vid_cap;
-#line 660
-  tmp___8 = (*__cil_tmp11)(file, fh, fmt);
+  tmp___8 = qcam_try_fmt_vid_cap(file, fh, fmt);
 #line 660
   ret = tmp___8;
   }
@@ -11673,28 +11670,28 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
   }
   {
 #line 665
-  __cil_tmp12 = (unsigned long )pix;
+  __cil_tmp11 = (unsigned long )pix;
 #line 665
-  __cil_tmp13 = __cil_tmp12 + 4;
+  __cil_tmp12 = __cil_tmp11 + 4;
 #line 665
-  __cil_tmp14 = *((__u32 *)__cil_tmp13);
+  __cil_tmp13 = *((__u32 *)__cil_tmp12);
 #line 665
-  __cil_tmp15 = (int )__cil_tmp14;
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 665
-  if (__cil_tmp15 == 60) {
+  if (__cil_tmp14 == 60) {
     goto case_60;
   } else {
     {
 #line 668
-    __cil_tmp16 = (unsigned long )pix;
+    __cil_tmp15 = (unsigned long )pix;
 #line 668
-    __cil_tmp17 = __cil_tmp16 + 4;
+    __cil_tmp16 = __cil_tmp15 + 4;
 #line 668
-    __cil_tmp18 = *((__u32 *)__cil_tmp17);
+    __cil_tmp17 = *((__u32 *)__cil_tmp16);
 #line 668
-    __cil_tmp19 = (int )__cil_tmp18;
+    __cil_tmp18 = (int )__cil_tmp17;
 #line 668
-    if (__cil_tmp19 == 120) {
+    if (__cil_tmp18 == 120) {
       goto case_120;
     } else {
       goto switch_default;
@@ -11702,27 +11699,27 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
       if (0) {
         case_60: 
 #line 666
-        __cil_tmp20 = (unsigned long )qcam;
+        __cil_tmp19 = (unsigned long )qcam;
 #line 666
-        __cil_tmp21 = __cil_tmp20 + 1936;
+        __cil_tmp20 = __cil_tmp19 + 1936;
 #line 666
-        *((int *)__cil_tmp21) = 4;
+        *((int *)__cil_tmp20) = 4;
         goto switch_break;
         case_120: 
 #line 669
-        __cil_tmp22 = (unsigned long )qcam;
+        __cil_tmp21 = (unsigned long )qcam;
 #line 669
-        __cil_tmp23 = __cil_tmp22 + 1936;
+        __cil_tmp22 = __cil_tmp21 + 1936;
 #line 669
-        *((int *)__cil_tmp23) = 2;
+        *((int *)__cil_tmp22) = 2;
         goto switch_break;
         switch_default: 
 #line 672
-        __cil_tmp24 = (unsigned long )qcam;
+        __cil_tmp23 = (unsigned long )qcam;
 #line 672
-        __cil_tmp25 = __cil_tmp24 + 1936;
+        __cil_tmp24 = __cil_tmp23 + 1936;
 #line 672
-        *((int *)__cil_tmp25) = 0;
+        *((int *)__cil_tmp24) = 0;
         goto switch_break;
       } else {
         switch_break: ;
@@ -11733,71 +11730,71 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
   }
   {
 #line 676
-  __cil_tmp26 = (unsigned long )qcam;
+  __cil_tmp25 = (unsigned long )qcam;
 #line 676
-  __cil_tmp27 = __cil_tmp26 + 1968;
+  __cil_tmp26 = __cil_tmp25 + 1968;
 #line 676
-  __cil_tmp28 = (struct mutex *)__cil_tmp27;
+  __cil_tmp27 = (struct mutex *)__cil_tmp26;
 #line 676
-  mutex_lock_nested(__cil_tmp28, 0U);
+  mutex_lock_nested(__cil_tmp27, 0U);
 #line 677
-  __cil_tmp29 = (unsigned long )qcam;
+  __cil_tmp28 = (unsigned long )qcam;
 #line 677
-  __cil_tmp30 = __cil_tmp29 + 1936;
+  __cil_tmp29 = __cil_tmp28 + 1936;
 #line 677
-  __cil_tmp31 = (unsigned long )qcam;
+  __cil_tmp30 = (unsigned long )qcam;
 #line 677
-  __cil_tmp32 = __cil_tmp31 + 1936;
+  __cil_tmp31 = __cil_tmp30 + 1936;
 #line 677
-  __cil_tmp33 = *((int *)__cil_tmp32);
+  __cil_tmp32 = *((int *)__cil_tmp31);
 #line 677
-  *((int *)__cil_tmp30) = __cil_tmp33 | 24;
+  *((int *)__cil_tmp29) = __cil_tmp32 | 24;
 #line 678
-  __cil_tmp34 = (unsigned long )qcam;
+  __cil_tmp33 = (unsigned long )qcam;
 #line 678
-  __cil_tmp35 = __cil_tmp34 + 1924;
+  __cil_tmp34 = __cil_tmp33 + 1924;
 #line 678
-  __cil_tmp36 = (unsigned long )pix;
+  __cil_tmp35 = (unsigned long )pix;
 #line 678
-  __cil_tmp37 = __cil_tmp36 + 4;
+  __cil_tmp36 = __cil_tmp35 + 4;
 #line 678
-  __cil_tmp38 = *((__u32 *)__cil_tmp37);
+  __cil_tmp37 = *((__u32 *)__cil_tmp36);
 #line 678
-  *((int *)__cil_tmp35) = (int )__cil_tmp38;
+  *((int *)__cil_tmp34) = (int )__cil_tmp37;
 #line 679
-  __cil_tmp39 = (unsigned long )qcam;
+  __cil_tmp38 = (unsigned long )qcam;
 #line 679
-  __cil_tmp40 = __cil_tmp39 + 1920;
+  __cil_tmp39 = __cil_tmp38 + 1920;
 #line 679
-  __cil_tmp41 = *((__u32 *)pix);
+  __cil_tmp40 = *((__u32 *)pix);
 #line 679
-  *((int *)__cil_tmp40) = (int )__cil_tmp41;
+  *((int *)__cil_tmp39) = (int )__cil_tmp40;
 #line 680
-  __cil_tmp42 = (unsigned long )qcam;
+  __cil_tmp41 = (unsigned long )qcam;
 #line 680
-  __cil_tmp43 = __cil_tmp42 + 1904;
+  __cil_tmp42 = __cil_tmp41 + 1904;
 #line 680
-  __cil_tmp44 = *((struct pardevice **)__cil_tmp43);
+  __cil_tmp43 = *((struct pardevice **)__cil_tmp42);
 #line 680
-  parport_claim_or_block(__cil_tmp44);
+  parport_claim_or_block(__cil_tmp43);
 #line 681
   qc_setup(qcam);
 #line 682
-  __cil_tmp45 = (unsigned long )qcam;
+  __cil_tmp44 = (unsigned long )qcam;
 #line 682
-  __cil_tmp46 = __cil_tmp45 + 1904;
+  __cil_tmp45 = __cil_tmp44 + 1904;
 #line 682
-  __cil_tmp47 = *((struct pardevice **)__cil_tmp46);
+  __cil_tmp46 = *((struct pardevice **)__cil_tmp45);
 #line 682
-  parport_release(__cil_tmp47);
+  parport_release(__cil_tmp46);
 #line 683
-  __cil_tmp48 = (unsigned long )qcam;
+  __cil_tmp47 = (unsigned long )qcam;
 #line 683
-  __cil_tmp49 = __cil_tmp48 + 1968;
+  __cil_tmp48 = __cil_tmp47 + 1968;
 #line 683
-  __cil_tmp50 = (struct mutex *)__cil_tmp49;
+  __cil_tmp49 = (struct mutex *)__cil_tmp48;
 #line 683
-  mutex_unlock(__cil_tmp50);
+  mutex_unlock(__cil_tmp49);
   }
 #line 684
   return (0);
@@ -13120,20 +13117,6 @@ void main(void)
   int tmp___7 ;
   int tmp___8 ;
   int tmp___9 ;
-  ssize_t (*__cil_tmp31)(struct file *file , char *buf , size_t count , loff_t *ppos ) ;
-  int (*__cil_tmp32)(struct file *file , void *priv , struct v4l2_capability *vcap ) ;
-  int (*__cil_tmp33)(struct file *file , void *fh , unsigned int *inp ) ;
-  int (*__cil_tmp34)(struct file *file , void *fh , unsigned int inp ) ;
-  int (*__cil_tmp35)(struct file *file , void *fh , struct v4l2_input *vin ) ;
-  int (*__cil_tmp36)(struct file *file , void *priv , struct v4l2_queryctrl *qc ) ;
-  int (*__cil_tmp37)(struct file *file , void *priv , struct v4l2_control *ctrl ) ;
-  int (*__cil_tmp38)(struct file *file , void *priv , struct v4l2_control *ctrl ) ;
-  int (*__cil_tmp39)(struct file *file , void *fh , struct v4l2_fmtdesc *fmt ) ;
-  int (*__cil_tmp40)(struct file *file , void *fh , struct v4l2_format *fmt ) ;
-  int (*__cil_tmp41)(struct file *file , void *fh , struct v4l2_format *fmt ) ;
-  int (*__cil_tmp42)(struct file *file , void *fh , struct v4l2_format *fmt ) ;
-  void (*__cil_tmp43)(struct parport *port ) ;
-  void (*__cil_tmp44)(struct parport *port ) ;
 
   {
   {
@@ -13230,125 +13213,95 @@ void main(void)
                                   case_0: 
                                   {
 #line 1222
-                                  __cil_tmp31 = & qcam_read;
-#line 1222
-                                  (*__cil_tmp31)(var_group1, var_qcam_read_25_p1,
-                                                 var_qcam_read_25_p2, var_qcam_read_25_p3);
+                                  qcam_read(var_group1, var_qcam_read_25_p1, var_qcam_read_25_p2,
+                                            var_qcam_read_25_p3);
                                   }
                                   goto switch_break;
                                   case_1: 
                                   {
 #line 1248
-                                  __cil_tmp32 = & qcam_querycap;
-#line 1248
-                                  (*__cil_tmp32)(var_group1, var_qcam_querycap_14_p1,
-                                                 var_qcam_querycap_14_p2);
+                                  qcam_querycap(var_group1, var_qcam_querycap_14_p1,
+                                                var_qcam_querycap_14_p2);
                                   }
                                   goto switch_break;
                                   case_2: 
                                   {
 #line 1274
-                                  __cil_tmp33 = & qcam_g_input;
-#line 1274
-                                  (*__cil_tmp33)(var_group1, var_qcam_g_input_16_p1,
-                                                 var_qcam_g_input_16_p2);
+                                  qcam_g_input(var_group1, var_qcam_g_input_16_p1,
+                                               var_qcam_g_input_16_p2);
                                   }
                                   goto switch_break;
                                   case_3: 
                                   {
 #line 1300
-                                  __cil_tmp34 = & qcam_s_input;
-#line 1300
-                                  (*__cil_tmp34)(var_group1, var_qcam_s_input_17_p1,
-                                                 var_qcam_s_input_17_p2);
+                                  qcam_s_input(var_group1, var_qcam_s_input_17_p1,
+                                               var_qcam_s_input_17_p2);
                                   }
                                   goto switch_break;
                                   case_4: 
                                   {
 #line 1326
-                                  __cil_tmp35 = & qcam_enum_input;
-#line 1326
-                                  (*__cil_tmp35)(var_group1, var_qcam_enum_input_15_p1,
-                                                 var_qcam_enum_input_15_p2);
+                                  qcam_enum_input(var_group1, var_qcam_enum_input_15_p1,
+                                                  var_qcam_enum_input_15_p2);
                                   }
                                   goto switch_break;
                                   case_5: 
                                   {
 #line 1352
-                                  __cil_tmp36 = & qcam_queryctrl;
-#line 1352
-                                  (*__cil_tmp36)(var_group1, var_qcam_queryctrl_18_p1,
+                                  qcam_queryctrl(var_group1, var_qcam_queryctrl_18_p1,
                                                  var_qcam_queryctrl_18_p2);
                                   }
                                   goto switch_break;
                                   case_6: 
                                   {
 #line 1378
-                                  __cil_tmp37 = & qcam_g_ctrl;
-#line 1378
-                                  (*__cil_tmp37)(var_group1, var_qcam_g_ctrl_19_p1,
-                                                 var_qcam_g_ctrl_19_p2);
+                                  qcam_g_ctrl(var_group1, var_qcam_g_ctrl_19_p1, var_qcam_g_ctrl_19_p2);
                                   }
                                   goto switch_break;
                                   case_7: 
                                   {
 #line 1404
-                                  __cil_tmp38 = & qcam_s_ctrl;
-#line 1404
-                                  (*__cil_tmp38)(var_group1, var_qcam_s_ctrl_20_p1,
-                                                 var_qcam_s_ctrl_20_p2);
+                                  qcam_s_ctrl(var_group1, var_qcam_s_ctrl_20_p1, var_qcam_s_ctrl_20_p2);
                                   }
                                   goto switch_break;
                                   case_8: 
                                   {
 #line 1430
-                                  __cil_tmp39 = & qcam_enum_fmt_vid_cap;
-#line 1430
-                                  (*__cil_tmp39)(var_group1, var_qcam_enum_fmt_vid_cap_24_p1,
-                                                 var_qcam_enum_fmt_vid_cap_24_p2);
+                                  qcam_enum_fmt_vid_cap(var_group1, var_qcam_enum_fmt_vid_cap_24_p1,
+                                                        var_qcam_enum_fmt_vid_cap_24_p2);
                                   }
                                   goto switch_break;
                                   case_9: 
                                   {
 #line 1456
-                                  __cil_tmp40 = & qcam_g_fmt_vid_cap;
-#line 1456
-                                  (*__cil_tmp40)(var_group1, var_qcam_g_fmt_vid_cap_21_p1,
-                                                 var_qcam_g_fmt_vid_cap_21_p2);
+                                  qcam_g_fmt_vid_cap(var_group1, var_qcam_g_fmt_vid_cap_21_p1,
+                                                     var_qcam_g_fmt_vid_cap_21_p2);
                                   }
                                   goto switch_break;
                                   case_10: 
                                   {
 #line 1482
-                                  __cil_tmp41 = & qcam_s_fmt_vid_cap;
-#line 1482
-                                  (*__cil_tmp41)(var_group1, var_qcam_s_fmt_vid_cap_23_p1,
-                                                 var_qcam_s_fmt_vid_cap_23_p2);
+                                  qcam_s_fmt_vid_cap(var_group1, var_qcam_s_fmt_vid_cap_23_p1,
+                                                     var_qcam_s_fmt_vid_cap_23_p2);
                                   }
                                   goto switch_break;
                                   case_11: 
                                   {
 #line 1508
-                                  __cil_tmp42 = & qcam_try_fmt_vid_cap;
-#line 1508
-                                  (*__cil_tmp42)(var_group1, var_qcam_try_fmt_vid_cap_22_p1,
-                                                 var_qcam_try_fmt_vid_cap_22_p2);
+                                  qcam_try_fmt_vid_cap(var_group1, var_qcam_try_fmt_vid_cap_22_p1,
+                                                       var_qcam_try_fmt_vid_cap_22_p2);
                                   }
                                   goto switch_break;
                                   case_12: 
                                   {
 #line 1534
-                                  __cil_tmp43 = & cq_attach;
-#line 1534
-                                  (*__cil_tmp43)(var_group2);
+                                  cq_attach(var_group2);
                                   }
                                   goto switch_break;
                                   case_13: 
                                   {
 #line 1560
-                                  __cil_tmp44 = & cq_detach;
-#line 1560
-                                  (*__cil_tmp44)(var_group2);
+                                  cq_detach(var_group2);
                                   }
                                   goto switch_break;
                                   switch_default: 

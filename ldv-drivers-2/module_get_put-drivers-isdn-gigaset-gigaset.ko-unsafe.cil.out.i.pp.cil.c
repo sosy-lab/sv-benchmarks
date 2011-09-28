@@ -19415,17 +19415,6 @@ void main(void)
   int ldv_s_if_ops_tty_operations ;
   int tmp ;
   int tmp___0 ;
-  int (*__cil_tmp14)(struct tty_struct *tty , struct file *filp ) ;
-  void (*__cil_tmp15)(struct tty_struct *tty , struct file *filp ) ;
-  int (*__cil_tmp16)(struct tty_struct *tty , unsigned int cmd , unsigned long arg ) ;
-  int (*__cil_tmp17)(struct tty_struct *tty , unsigned char const   *buf , int count ) ;
-  int (*__cil_tmp18)(struct tty_struct *tty ) ;
-  int (*__cil_tmp19)(struct tty_struct *tty ) ;
-  void (*__cil_tmp20)(struct tty_struct *tty , struct ktermios *old ) ;
-  void (*__cil_tmp21)(struct tty_struct *tty ) ;
-  void (*__cil_tmp22)(struct tty_struct *tty ) ;
-  int (*__cil_tmp23)(struct tty_struct *tty ) ;
-  int (*__cil_tmp24)(struct tty_struct *tty , unsigned int set , unsigned int clear ) ;
 
   {
   {
@@ -19494,9 +19483,7 @@ void main(void)
                           if (ldv_s_if_ops_tty_operations == 0) {
                             {
 #line 846
-                            __cil_tmp14 = & if_open;
-#line 846
-                            res_if_open_2 = (*__cil_tmp14)(var_group1, var_group2);
+                            res_if_open_2 = if_open(var_group1, var_group2);
 #line 847
                             ldv_check_return_value(res_if_open_2);
                             }
@@ -19517,9 +19504,7 @@ void main(void)
                           if (ldv_s_if_ops_tty_operations == 1) {
                             {
 #line 865
-                            __cil_tmp15 = & if_close;
-#line 865
-                            (*__cil_tmp15)(var_group1, var_group2);
+                            if_close(var_group1, var_group2);
 #line 866
                             ldv_s_if_ops_tty_operations = 0;
                             }
@@ -19530,73 +19515,55 @@ void main(void)
                           case_2: 
                           {
 #line 881
-                          __cil_tmp16 = & if_ioctl;
-#line 881
-                          (*__cil_tmp16)(var_group1, var_if_ioctl_4_p1, var_if_ioctl_4_p2);
+                          if_ioctl(var_group1, var_if_ioctl_4_p1, var_if_ioctl_4_p2);
                           }
                           goto ldv_34927;
                           case_3: 
                           {
 #line 897
-                          __cil_tmp17 = & if_write;
-#line 897
-                          (*__cil_tmp17)(var_group1, var_if_write_7_p1, var_if_write_7_p2);
+                          if_write(var_group1, var_if_write_7_p1, var_if_write_7_p2);
                           }
                           goto ldv_34927;
                           case_4: 
                           {
 #line 913
-                          __cil_tmp18 = & if_write_room;
-#line 913
-                          (*__cil_tmp18)(var_group1);
+                          if_write_room(var_group1);
                           }
                           goto ldv_34927;
                           case_5: 
                           {
 #line 929
-                          __cil_tmp19 = & if_chars_in_buffer;
-#line 929
-                          (*__cil_tmp19)(var_group1);
+                          if_chars_in_buffer(var_group1);
                           }
                           goto ldv_34927;
                           case_6: 
                           {
 #line 945
-                          __cil_tmp20 = & if_set_termios;
-#line 945
-                          (*__cil_tmp20)(var_group1, var_group3);
+                          if_set_termios(var_group1, var_group3);
                           }
                           goto ldv_34927;
                           case_7: 
                           {
 #line 961
-                          __cil_tmp21 = & if_throttle;
-#line 961
-                          (*__cil_tmp21)(var_group1);
+                          if_throttle(var_group1);
                           }
                           goto ldv_34927;
                           case_8: 
                           {
 #line 977
-                          __cil_tmp22 = & if_unthrottle;
-#line 977
-                          (*__cil_tmp22)(var_group1);
+                          if_unthrottle(var_group1);
                           }
                           goto ldv_34927;
                           case_9: 
                           {
 #line 993
-                          __cil_tmp23 = & if_tiocmget;
-#line 993
-                          (*__cil_tmp23)(var_group1);
+                          if_tiocmget(var_group1);
                           }
                           goto ldv_34927;
                           case_10: 
                           {
 #line 1009
-                          __cil_tmp24 = & if_tiocmset;
-#line 1009
-                          (*__cil_tmp24)(var_group1, var_if_tiocmset_6_p1, var_if_tiocmset_6_p2);
+                          if_tiocmset(var_group1, var_if_tiocmset_6_p1, var_if_tiocmset_6_p2);
                           }
                           goto ldv_34927;
                           switch_default: ;

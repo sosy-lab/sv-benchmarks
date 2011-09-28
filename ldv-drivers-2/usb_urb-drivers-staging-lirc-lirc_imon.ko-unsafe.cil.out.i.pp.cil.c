@@ -9887,11 +9887,7 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp8 ;
-  int (*__cil_tmp9)(struct usb_interface *interface , struct usb_device_id  const  *id ) ;
-  int (*__cil_tmp10)(struct usb_interface *intf , int message_event8 ) ;
-  int (*__cil_tmp11)(struct usb_interface *intf ) ;
-  void (*__cil_tmp12)(struct usb_interface *interface ) ;
-  int var_imon_suspend_15_p1_event13 ;
+  int var_imon_suspend_15_p1_event9 ;
 
   {
   {
@@ -9961,9 +9957,7 @@ void main(void)
               if (ldv_s_imon_driver_usb_driver == 0) {
                 {
 #line 1214
-                __cil_tmp9 = & imon_probe;
-#line 1214
-                res_imon_probe_13 = (*__cil_tmp9)(var_group1, var_imon_probe_13_p1);
+                res_imon_probe_13 = imon_probe(var_group1, var_imon_probe_13_p1);
 #line 1215
                 ldv_check_return_value(res_imon_probe_13);
                 }
@@ -9984,9 +9978,7 @@ void main(void)
               if (ldv_s_imon_driver_usb_driver == 1) {
                 {
 #line 1244
-                __cil_tmp10 = & imon_suspend;
-#line 1244
-                (*__cil_tmp10)(var_group1, var_imon_suspend_15_p1_event13);
+                imon_suspend(var_group1, var_imon_suspend_15_p1_event9);
 #line 1245
                 ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
                 }
@@ -9999,9 +9991,7 @@ void main(void)
               if (ldv_s_imon_driver_usb_driver == 2) {
                 {
 #line 1271
-                __cil_tmp11 = & imon_resume;
-#line 1271
-                (*__cil_tmp11)(var_group1);
+                imon_resume(var_group1);
 #line 1272
                 ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
                 }
@@ -10014,9 +10004,7 @@ void main(void)
               if (ldv_s_imon_driver_usb_driver == 3) {
                 {
 #line 1298
-                __cil_tmp12 = & imon_disconnect;
-#line 1298
-                (*__cil_tmp12)(var_group1);
+                imon_disconnect(var_group1);
 #line 1299
                 ldv_s_imon_driver_usb_driver = 0;
                 }

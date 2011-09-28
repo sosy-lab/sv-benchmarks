@@ -37152,17 +37152,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp21 ;
-  int (*__cil_tmp22)(struct Scsi_Host *host , char *buffer , char **start , off_t offset ,
-                     int length , int inout ) ;
-  int (*__cil_tmp23)(struct scsi_device *sdev , struct block_device *bdev , sector_t capacity ,
-                     int *info ) ;
-  int (*__cil_tmp24)(struct scsi_device *scsi_device ) ;
-  void (*__cil_tmp25)(struct scsi_device *scsi_device ) ;
-  int (*__cil_tmp26)(struct scsi_cmnd *cmd ) ;
-  int (*__cil_tmp27)(struct scsi_cmnd *cmd ) ;
-  int (*__cil_tmp28)(struct pci_dev *dev , struct pci_device_id  const  *id ) ;
-  irqreturn_t (*__cil_tmp29)(int irq , void *dev_id ) ;
-  void (*__cil_tmp30)(unsigned long ptr ) ;
 
   {
   {
@@ -37254,52 +37243,40 @@ void main(void)
                           case_0: 
                           {
 #line 6440
-                          __cil_tmp22 = & dc395x_proc_info;
-#line 6440
-                          (*__cil_tmp22)(var_group1, var_dc395x_proc_info_104_p1,
-                                         var_dc395x_proc_info_104_p2, var_dc395x_proc_info_104_p3,
-                                         var_dc395x_proc_info_104_p4, var_dc395x_proc_info_104_p5);
+                          dc395x_proc_info(var_group1, var_dc395x_proc_info_104_p1,
+                                           var_dc395x_proc_info_104_p2, var_dc395x_proc_info_104_p3,
+                                           var_dc395x_proc_info_104_p4, var_dc395x_proc_info_104_p5);
                           }
                           goto switch_break;
                           case_1: 
                           {
 #line 6518
-                          __cil_tmp23 = & dc395x_bios_param;
-#line 6518
-                          (*__cil_tmp23)(var_group2, var_group3, var_dc395x_bios_param_24_p2,
-                                         var_dc395x_bios_param_24_p3);
+                          dc395x_bios_param(var_group2, var_group3, var_dc395x_bios_param_24_p2,
+                                            var_dc395x_bios_param_24_p3);
                           }
                           goto switch_break;
                           case_2: 
                           {
 #line 6688
-                          __cil_tmp24 = & dc395x_slave_alloc;
-#line 6688
-                          (*__cil_tmp24)(var_group2);
+                          dc395x_slave_alloc(var_group2);
                           }
                           goto switch_break;
                           case_3: 
                           {
 #line 6819
-                          __cil_tmp25 = & dc395x_slave_destroy;
-#line 6819
-                          (*__cil_tmp25)(var_group2);
+                          dc395x_slave_destroy(var_group2);
                           }
                           goto switch_break;
                           case_4: 
                           {
 #line 6913
-                          __cil_tmp26 = & dc395x_eh_abort;
-#line 6913
-                          (*__cil_tmp26)(var_group4);
+                          dc395x_eh_abort(var_group4);
                           }
                           goto switch_break;
                           case_5: 
                           {
 #line 7044
-                          __cil_tmp27 = & dc395x_eh_bus_reset;
-#line 7044
-                          (*__cil_tmp27)(var_group4);
+                          dc395x_eh_bus_reset(var_group4);
                           }
                           goto switch_break;
                           case_6: 
@@ -37307,9 +37284,8 @@ void main(void)
                           if (ldv_s_dc395x_driver_pci_driver == 0) {
                             {
 #line 7221
-                            __cil_tmp28 = & dc395x_init_one;
-#line 7221
-                            res_dc395x_init_one_106 = (*__cil_tmp28)(var_group5, var_dc395x_init_one_106_p1);
+                            res_dc395x_init_one_106 = dc395x_init_one(var_group5,
+                                                                      var_dc395x_init_one_106_p1);
 #line 7222
                             ldv_check_return_value(res_dc395x_init_one_106);
                             }
@@ -37330,9 +37306,7 @@ void main(void)
 #line 7235
                           LDV_IN_INTERRUPT = 2;
 #line 7318
-                          __cil_tmp29 = & dc395x_interrupt;
-#line 7318
-                          (*__cil_tmp29)(var_dc395x_interrupt_38_p0, var_dc395x_interrupt_38_p1);
+                          dc395x_interrupt(var_dc395x_interrupt_38_p0, var_dc395x_interrupt_38_p1);
 #line 7353
                           LDV_IN_INTERRUPT = 1;
                           }
@@ -37342,9 +37316,7 @@ void main(void)
                           case_9: 
                           {
 #line 7561
-                          __cil_tmp30 = & waiting_timeout;
-#line 7561
-                          (*__cil_tmp30)(var_waiting_timeout_20_p0);
+                          waiting_timeout(var_waiting_timeout_20_p0);
                           }
                           goto switch_break;
                           switch_default: 

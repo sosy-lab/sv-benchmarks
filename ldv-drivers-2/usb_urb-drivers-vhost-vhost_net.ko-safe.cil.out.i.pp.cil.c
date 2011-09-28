@@ -8627,11 +8627,10 @@ void vhost_poll_start(struct vhost_poll *poll , struct file *file )
   unsigned long __cil_tmp9 ;
   unsigned int (*__cil_tmp10)(struct file * , struct poll_table_struct * ) ;
   poll_table *__cil_tmp11 ;
-  int (*__cil_tmp12)(wait_queue_t *wait , unsigned int mode , int sync , void *key ) ;
+  unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  wait_queue_t *__cil_tmp15 ;
-  void *__cil_tmp16 ;
+  wait_queue_t *__cil_tmp14 ;
+  void *__cil_tmp15 ;
 
   {
   {
@@ -8658,17 +8657,15 @@ void vhost_poll_start(struct vhost_poll *poll , struct file *file )
   if (mask) {
     {
 #line 94
-    __cil_tmp12 = & vhost_poll_wakeup;
+    __cil_tmp12 = (unsigned long )poll;
 #line 94
-    __cil_tmp13 = (unsigned long )poll;
+    __cil_tmp13 = __cil_tmp12 + 24;
 #line 94
-    __cil_tmp14 = __cil_tmp13 + 24;
+    __cil_tmp14 = (wait_queue_t *)__cil_tmp13;
 #line 94
-    __cil_tmp15 = (wait_queue_t *)__cil_tmp14;
+    __cil_tmp15 = (void *)mask;
 #line 94
-    __cil_tmp16 = (void *)mask;
-#line 94
-    (*__cil_tmp12)(__cil_tmp15, 0U, 0, __cil_tmp16);
+    vhost_poll_wakeup(__cil_tmp14, 0U, 0, __cil_tmp15);
     }
   } else {
 
@@ -30222,8 +30219,7 @@ static long vhost_net_compat_ioctl(struct file *f , unsigned int ioctl , unsigne
 { void *tmp___7 ;
   long tmp___8 ;
   unsigned int __cil_tmp6 ;
-  long (*__cil_tmp7)(struct file *f , unsigned int ioctl , unsigned long arg ) ;
-  unsigned long __cil_tmp8 ;
+  unsigned long __cil_tmp7 ;
 
   {
   {
@@ -30232,11 +30228,9 @@ static long vhost_net_compat_ioctl(struct file *f , unsigned int ioctl , unsigne
 #line 757
   tmp___7 = compat_ptr(__cil_tmp6);
 #line 757
-  __cil_tmp7 = & vhost_net_ioctl;
+  __cil_tmp7 = (unsigned long )tmp___7;
 #line 757
-  __cil_tmp8 = (unsigned long )tmp___7;
-#line 757
-  tmp___8 = (*__cil_tmp7)(f, ioctl, __cil_tmp8);
+  tmp___8 = vhost_net_ioctl(f, ioctl, __cil_tmp7);
   }
 #line 757
   return (tmp___8);
@@ -30393,10 +30387,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp11 ;
-  int (*__cil_tmp12)(struct inode *inode , struct file *f ) ;
-  int (*__cil_tmp13)(struct inode *inode , struct file *f ) ;
-  long (*__cil_tmp14)(struct file *f , unsigned int ioctl , unsigned long arg ) ;
-  long (*__cil_tmp15)(struct file *f , unsigned int ioctl , unsigned long arg ) ;
 
   {
   {
@@ -30466,9 +30456,7 @@ void main(void)
               if (ldv_s_vhost_net_fops_file_operations == 0) {
                 {
 #line 937
-                __cil_tmp12 = & vhost_net_open;
-#line 937
-                res_vhost_net_open_12 = (*__cil_tmp12)(var_group1, var_group2);
+                res_vhost_net_open_12 = vhost_net_open(var_group1, var_group2);
 #line 938
                 ldv_check_return_value(res_vhost_net_open_12);
                 }
@@ -30489,9 +30477,7 @@ void main(void)
               if (ldv_s_vhost_net_fops_file_operations == 1) {
                 {
 #line 964
-                __cil_tmp13 = & vhost_net_release;
-#line 964
-                (*__cil_tmp13)(var_group1, var_group2);
+                vhost_net_release(var_group1, var_group2);
 #line 971
                 ldv_s_vhost_net_fops_file_operations = 0;
                 }
@@ -30502,17 +30488,14 @@ void main(void)
               case_2: 
               {
 #line 988
-              __cil_tmp14 = & vhost_net_ioctl;
-#line 988
-              (*__cil_tmp14)(var_group2, var_vhost_net_ioctl_26_p1, var_vhost_net_ioctl_26_p2);
+              vhost_net_ioctl(var_group2, var_vhost_net_ioctl_26_p1, var_vhost_net_ioctl_26_p2);
               }
               goto switch_break;
               case_3: 
               {
 #line 1013
-              __cil_tmp15 = & vhost_net_compat_ioctl;
-#line 1013
-              (*__cil_tmp15)(var_group2, var_vhost_net_compat_ioctl_27_p1, var_vhost_net_compat_ioctl_27_p2);
+              vhost_net_compat_ioctl(var_group2, var_vhost_net_compat_ioctl_27_p1,
+                                     var_vhost_net_compat_ioctl_27_p2);
               }
               goto switch_break;
               switch_default: 

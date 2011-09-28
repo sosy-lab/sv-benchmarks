@@ -13594,16 +13594,6 @@ void main(void)
   int tmp___9 ;
   int __cil_tmp13 ;
   int __cil_tmp14 ;
-  void (*__cil_tmp15)(struct net_device *dev , struct ethtool_drvinfo *info ) ;
-  int (*__cil_tmp16)(struct net_device *dev , struct ethtool_cmd *cmd ) ;
-  int (*__cil_tmp17)(struct net_device *netdev ) ;
-  int (*__cil_tmp18)(struct net_device *netdev ) ;
-  netdev_tx_t (*__cil_tmp19)(struct sk_buff *skb , struct net_device *netdev ) ;
-  void (*__cil_tmp20)(struct net_device *netdev ) ;
-  void (*__cil_tmp21)(struct net_device *netdev ) ;
-  int (*__cil_tmp22)(struct usb_interface *intf , struct usb_device_id  const  *id ) ;
-  void (*__cil_tmp23)(struct usb_interface *intf ) ;
-  void (*__cil_tmp24)(unsigned long data ) ;
 
   {
   {
@@ -13706,17 +13696,13 @@ void main(void)
                           case_0: 
                           {
 #line 1439
-                          __cil_tmp15 = & catc_get_drvinfo;
-#line 1439
-                          (*__cil_tmp15)(var_group1, var_group2);
+                          catc_get_drvinfo(var_group1, var_group2);
                           }
                           goto switch_break;
                           case_1: 
                           {
 #line 1483
-                          __cil_tmp16 = & catc_get_settings;
-#line 1483
-                          (*__cil_tmp16)(var_group1, var_group3);
+                          catc_get_settings(var_group1, var_group3);
                           }
                           goto switch_break;
                           case_2: 
@@ -13724,9 +13710,7 @@ void main(void)
                           if (ldv_s_catc_netdev_ops_net_device_ops == 0) {
                             {
 #line 1527
-                            __cil_tmp17 = & catc_open;
-#line 1527
-                            res_catc_open_15 = (*__cil_tmp17)(var_group1);
+                            res_catc_open_15 = catc_open(var_group1);
 #line 1528
                             ldv_check_return_value(res_catc_open_15);
                             }
@@ -13747,9 +13731,7 @@ void main(void)
                           if (ldv_s_catc_netdev_ops_net_device_ops == 1) {
                             {
 #line 1574
-                            __cil_tmp18 = & catc_stop;
-#line 1574
-                            res_catc_stop_16 = (*__cil_tmp18)(var_group1);
+                            res_catc_stop_16 = catc_stop(var_group1);
 #line 1575
                             ldv_check_return_value(res_catc_stop_16);
                             }
@@ -13768,25 +13750,19 @@ void main(void)
                           case_4: 
                           {
 #line 1621
-                          __cil_tmp19 = & catc_start_xmit;
-#line 1621
-                          (*__cil_tmp19)(var_group4, var_group1);
+                          catc_start_xmit(var_group4, var_group1);
                           }
                           goto switch_break;
                           case_5: 
                           {
 #line 1665
-                          __cil_tmp20 = & catc_tx_timeout;
-#line 1665
-                          (*__cil_tmp20)(var_group1);
+                          catc_tx_timeout(var_group1);
                           }
                           goto switch_break;
                           case_6: 
                           {
 #line 1709
-                          __cil_tmp21 = & catc_set_multicast_list;
-#line 1709
-                          (*__cil_tmp21)(var_group1);
+                          catc_set_multicast_list(var_group1);
                           }
                           goto switch_break;
                           case_7: 
@@ -13794,9 +13770,7 @@ void main(void)
                           if (ldv_s_catc_driver_usb_driver == 0) {
                             {
 #line 1753
-                            __cil_tmp22 = & catc_probe;
-#line 1753
-                            res_catc_probe_17 = (*__cil_tmp22)(var_group5, var_catc_probe_17_p1);
+                            res_catc_probe_17 = catc_probe(var_group5, var_catc_probe_17_p1);
 #line 1754
                             ldv_check_return_value(res_catc_probe_17);
                             }
@@ -13817,9 +13791,7 @@ void main(void)
                           if (ldv_s_catc_driver_usb_driver == 1) {
                             {
 #line 1800
-                            __cil_tmp23 = & catc_disconnect;
-#line 1800
-                            (*__cil_tmp23)(var_group5);
+                            catc_disconnect(var_group5);
 #line 1801
                             ldv_s_catc_driver_usb_driver = 0;
                             }
@@ -13830,9 +13802,7 @@ void main(void)
                           case_9: 
                           {
 #line 1844
-                          __cil_tmp24 = & catc_stats_timer;
-#line 1844
-                          (*__cil_tmp24)(var_catc_stats_timer_10_p0);
+                          catc_stats_timer(var_catc_stats_timer_10_p0);
                           }
                           goto switch_break;
                           switch_default: 

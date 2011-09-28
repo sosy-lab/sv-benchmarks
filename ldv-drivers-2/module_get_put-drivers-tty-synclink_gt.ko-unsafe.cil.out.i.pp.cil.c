@@ -9627,30 +9627,28 @@ static void close(struct tty_struct *tty , struct file *filp )
   unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
   unsigned long __cil_tmp32 ;
-  void (*__cil_tmp33)(struct tty_struct *tty , int timeout ) ;
+  unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
-  void (*__cil_tmp37)(struct tty_struct *tty ) ;
+  int __cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  unsigned long __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  struct mutex *__cil_tmp39 ;
   unsigned long __cil_tmp40 ;
-  struct mutex *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  unsigned long __cil_tmp41 ;
+  struct tty_port *__cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  struct tty_port *__cil_tmp44 ;
+  unsigned long __cil_tmp44 ;
   unsigned long __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  struct tty_driver *__cil_tmp47 ;
   unsigned long __cil_tmp48 ;
-  struct tty_driver *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  unsigned long __cil_tmp49 ;
+  char const   *__cil_tmp50 ;
   unsigned long __cil_tmp51 ;
-  char const   *__cil_tmp52 ;
+  unsigned long __cil_tmp52 ;
   unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  int __cil_tmp56 ;
+  int __cil_tmp54 ;
 
   {
   {
@@ -9748,15 +9746,13 @@ static void close(struct tty_struct *tty , struct file *filp )
   if (__cil_tmp32 != 0UL) {
     {
 #line 749
-    __cil_tmp33 = & wait_until_sent;
+    __cil_tmp33 = (unsigned long )info;
 #line 749
-    __cil_tmp34 = (unsigned long )info;
+    __cil_tmp34 = __cil_tmp33 + 936;
 #line 749
-    __cil_tmp35 = __cil_tmp34 + 936;
+    __cil_tmp35 = *((int *)__cil_tmp34);
 #line 749
-    __cil_tmp36 = *((int *)__cil_tmp35);
-#line 749
-    (*__cil_tmp33)(tty, __cil_tmp36);
+    wait_until_sent(tty, __cil_tmp35);
     }
   } else {
 
@@ -9764,64 +9760,62 @@ static void close(struct tty_struct *tty , struct file *filp )
   }
   {
 #line 750
-  __cil_tmp37 = & flush_buffer;
-#line 750
-  (*__cil_tmp37)(tty);
+  flush_buffer(tty);
 #line 751
   tty_ldisc_flush(tty);
 #line 753
   shutdown(info);
 #line 754
-  __cil_tmp38 = 8 + 376;
+  __cil_tmp36 = 8 + 376;
 #line 754
-  __cil_tmp39 = (unsigned long )info;
+  __cil_tmp37 = (unsigned long )info;
 #line 754
-  __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
+  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
 #line 754
-  __cil_tmp41 = (struct mutex *)__cil_tmp40;
+  __cil_tmp39 = (struct mutex *)__cil_tmp38;
 #line 754
-  mutex_unlock(__cil_tmp41);
+  mutex_unlock(__cil_tmp39);
 #line 756
-  __cil_tmp42 = (unsigned long )info;
+  __cil_tmp40 = (unsigned long )info;
 #line 756
-  __cil_tmp43 = __cil_tmp42 + 8;
+  __cil_tmp41 = __cil_tmp40 + 8;
 #line 756
-  __cil_tmp44 = (struct tty_port *)__cil_tmp43;
+  __cil_tmp42 = (struct tty_port *)__cil_tmp41;
 #line 756
-  tty_port_close_end(__cil_tmp44, tty);
+  tty_port_close_end(__cil_tmp42, tty);
 #line 757
-  __cil_tmp45 = (unsigned long )info;
+  __cil_tmp43 = (unsigned long )info;
 #line 757
-  __cil_tmp46 = __cil_tmp45 + 8;
+  __cil_tmp44 = __cil_tmp43 + 8;
 #line 757
-  *((struct tty_struct **)__cil_tmp46) = (struct tty_struct *)0;
+  *((struct tty_struct **)__cil_tmp44) = (struct tty_struct *)0;
   }
   cleanup: ;
 #line 759
   if (debug_level > 2) {
     {
 #line 759
-    __cil_tmp47 = (unsigned long )tty;
+    __cil_tmp45 = (unsigned long )tty;
 #line 759
-    __cil_tmp48 = __cil_tmp47 + 16;
+    __cil_tmp46 = __cil_tmp45 + 16;
 #line 759
-    __cil_tmp49 = *((struct tty_driver **)__cil_tmp48);
+    __cil_tmp47 = *((struct tty_driver **)__cil_tmp46);
 #line 759
-    __cil_tmp50 = (unsigned long )__cil_tmp49;
+    __cil_tmp48 = (unsigned long )__cil_tmp47;
 #line 759
-    __cil_tmp51 = __cil_tmp50 + 128;
+    __cil_tmp49 = __cil_tmp48 + 128;
 #line 759
-    __cil_tmp52 = *((char const   **)__cil_tmp51);
+    __cil_tmp50 = *((char const   **)__cil_tmp49);
 #line 759
-    __cil_tmp53 = 8 + 92;
+    __cil_tmp51 = 8 + 92;
 #line 759
-    __cil_tmp54 = (unsigned long )info;
+    __cil_tmp52 = (unsigned long )info;
 #line 759
-    __cil_tmp55 = __cil_tmp54 + __cil_tmp53;
+    __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
 #line 759
-    __cil_tmp56 = *((int *)__cil_tmp55);
+    __cil_tmp54 = *((int *)__cil_tmp53);
 #line 759
-    printk("%s close exit, count=%d\n", __cil_tmp52, __cil_tmp56);
+    printk("%s close exit, count=%d\n", __cil_tmp50, __cil_tmp54);
     }
   } else {
 
@@ -9847,15 +9841,15 @@ static void hangup(struct tty_struct *tty )
   unsigned long __cil_tmp14 ;
   char (*__cil_tmp15)[25U] ;
   char *__cil_tmp16 ;
-  void (*__cil_tmp17)(struct tty_struct *tty ) ;
+  unsigned long __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct mutex *__cil_tmp21 ;
+  struct mutex *__cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  spinlock_t *__cil_tmp25 ;
+  spinlock_t *__cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
@@ -9870,17 +9864,16 @@ static void hangup(struct tty_struct *tty )
   unsigned long __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  spinlock_t *__cil_tmp41 ;
+  spinlock_t *__cil_tmp40 ;
+  unsigned long __cil_tmp41 ;
   unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct mutex *__cil_tmp45 ;
+  struct mutex *__cil_tmp44 ;
+  unsigned long __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
   unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  wait_queue_head_t *__cil_tmp49 ;
-  void *__cil_tmp50 ;
+  wait_queue_head_t *__cil_tmp48 ;
+  void *__cil_tmp49 ;
 
   {
   {
@@ -9929,95 +9922,93 @@ static void hangup(struct tty_struct *tty )
   }
   {
 #line 771
-  __cil_tmp17 = & flush_buffer;
-#line 771
-  (*__cil_tmp17)(tty);
+  flush_buffer(tty);
 #line 773
-  __cil_tmp18 = 8 + 376;
+  __cil_tmp17 = 8 + 376;
 #line 773
-  __cil_tmp19 = (unsigned long )info;
+  __cil_tmp18 = (unsigned long )info;
 #line 773
-  __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
+  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
 #line 773
-  __cil_tmp21 = (struct mutex *)__cil_tmp20;
+  __cil_tmp20 = (struct mutex *)__cil_tmp19;
 #line 773
-  mutex_lock_nested(__cil_tmp21, 0U);
+  mutex_lock_nested(__cil_tmp20, 0U);
 #line 774
   shutdown(info);
 #line 776
-  __cil_tmp22 = 8 + 16;
+  __cil_tmp21 = 8 + 16;
 #line 776
-  __cil_tmp23 = (unsigned long )info;
+  __cil_tmp22 = (unsigned long )info;
 #line 776
-  __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
+  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
 #line 776
-  __cil_tmp25 = (spinlock_t *)__cil_tmp24;
+  __cil_tmp24 = (spinlock_t *)__cil_tmp23;
 #line 776
-  tmp___0 = spinlock_check(__cil_tmp25);
+  tmp___0 = spinlock_check(__cil_tmp24);
 #line 776
   flags = _raw_spin_lock_irqsave(tmp___0);
 #line 777
-  __cil_tmp26 = 8 + 92;
+  __cil_tmp25 = 8 + 92;
 #line 777
-  __cil_tmp27 = (unsigned long )info;
+  __cil_tmp26 = (unsigned long )info;
 #line 777
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
+  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
 #line 777
-  *((int *)__cil_tmp28) = 0;
+  *((int *)__cil_tmp27) = 0;
 #line 778
-  __cil_tmp29 = 8 + 360;
+  __cil_tmp28 = 8 + 360;
 #line 778
-  __cil_tmp30 = (unsigned long )info;
+  __cil_tmp29 = (unsigned long )info;
 #line 778
-  __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
+  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
 #line 778
-  __cil_tmp32 = 8 + 360;
+  __cil_tmp31 = 8 + 360;
 #line 778
-  __cil_tmp33 = (unsigned long )info;
+  __cil_tmp32 = (unsigned long )info;
 #line 778
-  __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
+  __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
 #line 778
-  __cil_tmp35 = *((unsigned long *)__cil_tmp34);
+  __cil_tmp34 = *((unsigned long *)__cil_tmp33);
 #line 778
-  *((unsigned long *)__cil_tmp31) = __cil_tmp35 & 3758096383UL;
+  *((unsigned long *)__cil_tmp30) = __cil_tmp34 & 3758096383UL;
 #line 779
-  __cil_tmp36 = (unsigned long )info;
+  __cil_tmp35 = (unsigned long )info;
 #line 779
-  __cil_tmp37 = __cil_tmp36 + 8;
+  __cil_tmp36 = __cil_tmp35 + 8;
 #line 779
-  *((struct tty_struct **)__cil_tmp37) = (struct tty_struct *)0;
+  *((struct tty_struct **)__cil_tmp36) = (struct tty_struct *)0;
 #line 780
-  __cil_tmp38 = 8 + 16;
+  __cil_tmp37 = 8 + 16;
 #line 780
-  __cil_tmp39 = (unsigned long )info;
+  __cil_tmp38 = (unsigned long )info;
 #line 780
-  __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
+  __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
 #line 780
-  __cil_tmp41 = (spinlock_t *)__cil_tmp40;
+  __cil_tmp40 = (spinlock_t *)__cil_tmp39;
 #line 780
-  spin_unlock_irqrestore(__cil_tmp41, flags);
+  spin_unlock_irqrestore(__cil_tmp40, flags);
 #line 781
-  __cil_tmp42 = 8 + 376;
+  __cil_tmp41 = 8 + 376;
 #line 781
-  __cil_tmp43 = (unsigned long )info;
+  __cil_tmp42 = (unsigned long )info;
 #line 781
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
+  __cil_tmp43 = __cil_tmp42 + __cil_tmp41;
 #line 781
-  __cil_tmp45 = (struct mutex *)__cil_tmp44;
+  __cil_tmp44 = (struct mutex *)__cil_tmp43;
 #line 781
-  mutex_unlock(__cil_tmp45);
+  mutex_unlock(__cil_tmp44);
 #line 783
-  __cil_tmp46 = 8 + 96;
+  __cil_tmp45 = 8 + 96;
 #line 783
-  __cil_tmp47 = (unsigned long )info;
+  __cil_tmp46 = (unsigned long )info;
 #line 783
-  __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
+  __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
 #line 783
-  __cil_tmp49 = (wait_queue_head_t *)__cil_tmp48;
+  __cil_tmp48 = (wait_queue_head_t *)__cil_tmp47;
 #line 783
-  __cil_tmp50 = (void *)0;
+  __cil_tmp49 = (void *)0;
 #line 783
-  __wake_up(__cil_tmp49, 1U, 1, __cil_tmp50);
+  __wake_up(__cil_tmp48, 1U, 1, __cil_tmp49);
   }
 #line 784
   return;
@@ -10123,7 +10114,6 @@ static void set_termios(struct tty_struct *tty , struct ktermios *old_termios )
   unsigned long __cil_tmp98 ;
   tcflag_t __cil_tmp99 ;
   int __cil_tmp100 ;
-  void (*__cil_tmp101)(struct tty_struct *tty ) ;
 
   {
 #line 788
@@ -10408,9 +10398,7 @@ static void set_termios(struct tty_struct *tty , struct ktermios *old_termios )
 #line 820
       tty->hw_stopped = (unsigned char)0;
 #line 821
-      __cil_tmp101 = & tx_release;
-#line 821
-      (*__cil_tmp101)(tty);
+      tx_release(tty);
       }
     } else {
 
@@ -13512,11 +13500,10 @@ static long slgt_compat_ioctl(struct tty_struct *tty , unsigned int cmd , unsign
   struct MGSL_PARAMS32 *__cil_tmp44 ;
   unsigned int __cil_tmp45 ;
   struct MGSL_PARAMS32 *__cil_tmp46 ;
-  int (*__cil_tmp47)(struct tty_struct *tty , unsigned int cmd , unsigned long arg ) ;
+  unsigned long __cil_tmp47 ;
   unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  char (*__cil_tmp50)[25U] ;
-  char *__cil_tmp51 ;
+  char (*__cil_tmp49)[25U] ;
+  char *__cil_tmp50 ;
 
   {
   {
@@ -13763,9 +13750,7 @@ static long slgt_compat_ioctl(struct tty_struct *tty , unsigned int cmd , unsign
                                               case_27925: 
                                               {
 #line 1249
-                                              __cil_tmp47 = & ioctl;
-#line 1249
-                                              rc = (*__cil_tmp47)(tty, cmd, arg);
+                                              rc = ioctl(tty, cmd, arg);
                                               }
                                               goto ldv_36640;
                                             } else {
@@ -13818,15 +13803,15 @@ static long slgt_compat_ioctl(struct tty_struct *tty , unsigned int cmd , unsign
   if (debug_level > 2) {
     {
 #line 1253
-    __cil_tmp48 = (unsigned long )info;
+    __cil_tmp47 = (unsigned long )info;
 #line 1253
-    __cil_tmp49 = __cil_tmp48 + 756;
+    __cil_tmp48 = __cil_tmp47 + 756;
 #line 1253
-    __cil_tmp50 = (char (*)[25U])__cil_tmp49;
+    __cil_tmp49 = (char (*)[25U])__cil_tmp48;
 #line 1253
-    __cil_tmp51 = (char *)__cil_tmp50;
+    __cil_tmp50 = (char *)__cil_tmp49;
 #line 1253
-    printk("%s compat_ioctl() cmd=%08X rc=%d\n", __cil_tmp51, cmd, rc);
+    printk("%s compat_ioctl() cmd=%08X rc=%d\n", __cil_tmp50, cmd, rc);
     }
   } else {
 
@@ -14771,38 +14756,37 @@ static void throttle(struct tty_struct *tty )
   struct ktermios *__cil_tmp19 ;
   tcflag_t __cil_tmp20 ;
   unsigned int __cil_tmp21 ;
-  void (*__cil_tmp22)(struct tty_struct *tty , char ch ) ;
+  unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct ktermios *__cil_tmp27 ;
+  struct ktermios *__cil_tmp26 ;
+  unsigned long __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  cc_t __cil_tmp30 ;
-  char __cil_tmp31 ;
-  int __cil_tmp32 ;
-  char __cil_tmp33 ;
+  cc_t __cil_tmp29 ;
+  char __cil_tmp30 ;
+  int __cil_tmp31 ;
+  char __cil_tmp32 ;
+  unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct ktermios *__cil_tmp36 ;
+  struct ktermios *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  tcflag_t __cil_tmp39 ;
-  int __cil_tmp40 ;
+  tcflag_t __cil_tmp38 ;
+  int __cil_tmp39 ;
+  unsigned long __cil_tmp40 ;
   unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  spinlock_t *__cil_tmp43 ;
+  spinlock_t *__cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
   unsigned long __cil_tmp44 ;
   unsigned long __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned char __cil_tmp48 ;
+  unsigned char __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
   unsigned int __cil_tmp49 ;
-  unsigned int __cil_tmp50 ;
+  unsigned long __cil_tmp50 ;
   unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  spinlock_t *__cil_tmp53 ;
+  spinlock_t *__cil_tmp52 ;
 
   {
   {
@@ -14864,31 +14848,29 @@ static void throttle(struct tty_struct *tty )
   if (__cil_tmp21 != 0U) {
     {
 #line 1383
-    __cil_tmp22 = & send_xchar;
+    __cil_tmp22 = 9 * 1UL;
 #line 1383
-    __cil_tmp23 = 9 * 1UL;
+    __cil_tmp23 = 17 + __cil_tmp22;
 #line 1383
-    __cil_tmp24 = 17 + __cil_tmp23;
+    __cil_tmp24 = (unsigned long )tty;
 #line 1383
-    __cil_tmp25 = (unsigned long )tty;
+    __cil_tmp25 = __cil_tmp24 + 456;
 #line 1383
-    __cil_tmp26 = __cil_tmp25 + 456;
+    __cil_tmp26 = *((struct ktermios **)__cil_tmp25);
 #line 1383
-    __cil_tmp27 = *((struct ktermios **)__cil_tmp26);
+    __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 1383
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
+    __cil_tmp28 = __cil_tmp27 + __cil_tmp23;
 #line 1383
-    __cil_tmp29 = __cil_tmp28 + __cil_tmp24;
+    __cil_tmp29 = *((cc_t *)__cil_tmp28);
 #line 1383
-    __cil_tmp30 = *((cc_t *)__cil_tmp29);
+    __cil_tmp30 = (char )__cil_tmp29;
 #line 1383
-    __cil_tmp31 = (char )__cil_tmp30;
+    __cil_tmp31 = (int )__cil_tmp30;
 #line 1383
-    __cil_tmp32 = (int )__cil_tmp31;
+    __cil_tmp32 = (char )__cil_tmp31;
 #line 1383
-    __cil_tmp33 = (char )__cil_tmp32;
-#line 1383
-    (*__cil_tmp22)(tty, __cil_tmp33);
+    send_xchar(tty, __cil_tmp32);
     }
   } else {
 
@@ -14896,58 +14878,58 @@ static void throttle(struct tty_struct *tty )
   }
   {
 #line 1384
-  __cil_tmp34 = (unsigned long )tty;
+  __cil_tmp33 = (unsigned long )tty;
 #line 1384
-  __cil_tmp35 = __cil_tmp34 + 456;
+  __cil_tmp34 = __cil_tmp33 + 456;
 #line 1384
-  __cil_tmp36 = *((struct ktermios **)__cil_tmp35);
+  __cil_tmp35 = *((struct ktermios **)__cil_tmp34);
 #line 1384
-  __cil_tmp37 = (unsigned long )__cil_tmp36;
+  __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 1384
-  __cil_tmp38 = __cil_tmp37 + 8;
+  __cil_tmp37 = __cil_tmp36 + 8;
 #line 1384
-  __cil_tmp39 = *((tcflag_t *)__cil_tmp38);
+  __cil_tmp38 = *((tcflag_t *)__cil_tmp37);
 #line 1384
-  __cil_tmp40 = (int )__cil_tmp39;
+  __cil_tmp39 = (int )__cil_tmp38;
 #line 1384
-  if (__cil_tmp40 < 0) {
+  if (__cil_tmp39 < 0) {
     {
 #line 1385
-    __cil_tmp41 = (unsigned long )info;
+    __cil_tmp40 = (unsigned long )info;
 #line 1385
-    __cil_tmp42 = __cil_tmp41 + 1400;
+    __cil_tmp41 = __cil_tmp40 + 1400;
 #line 1385
-    __cil_tmp43 = (spinlock_t *)__cil_tmp42;
+    __cil_tmp42 = (spinlock_t *)__cil_tmp41;
 #line 1385
-    tmp___0 = spinlock_check(__cil_tmp43);
+    tmp___0 = spinlock_check(__cil_tmp42);
 #line 1385
     flags = _raw_spin_lock_irqsave(tmp___0);
 #line 1386
-    __cil_tmp44 = (unsigned long )info;
+    __cil_tmp43 = (unsigned long )info;
 #line 1386
-    __cil_tmp45 = __cil_tmp44 + 1684;
+    __cil_tmp44 = __cil_tmp43 + 1684;
 #line 1386
-    __cil_tmp46 = (unsigned long )info;
+    __cil_tmp45 = (unsigned long )info;
 #line 1386
-    __cil_tmp47 = __cil_tmp46 + 1684;
+    __cil_tmp46 = __cil_tmp45 + 1684;
 #line 1386
-    __cil_tmp48 = *((unsigned char *)__cil_tmp47);
+    __cil_tmp47 = *((unsigned char *)__cil_tmp46);
 #line 1386
-    __cil_tmp49 = (unsigned int )__cil_tmp48;
+    __cil_tmp48 = (unsigned int )__cil_tmp47;
 #line 1386
-    __cil_tmp50 = __cil_tmp49 & 223U;
+    __cil_tmp49 = __cil_tmp48 & 223U;
 #line 1386
-    *((unsigned char *)__cil_tmp45) = (unsigned char )__cil_tmp50;
+    *((unsigned char *)__cil_tmp44) = (unsigned char )__cil_tmp49;
 #line 1387
     set_signals(info);
 #line 1388
-    __cil_tmp51 = (unsigned long )info;
+    __cil_tmp50 = (unsigned long )info;
 #line 1388
-    __cil_tmp52 = __cil_tmp51 + 1400;
+    __cil_tmp51 = __cil_tmp50 + 1400;
 #line 1388
-    __cil_tmp53 = (spinlock_t *)__cil_tmp52;
+    __cil_tmp52 = (spinlock_t *)__cil_tmp51;
 #line 1388
-    spin_unlock_irqrestore(__cil_tmp53, flags);
+    spin_unlock_irqrestore(__cil_tmp52, flags);
     }
   } else {
 
@@ -14984,38 +14966,37 @@ static void unthrottle(struct tty_struct *tty )
   int __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  void (*__cil_tmp27)(struct tty_struct *tty , char ch ) ;
+  unsigned long __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct ktermios *__cil_tmp32 ;
+  struct ktermios *__cil_tmp31 ;
+  unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  cc_t __cil_tmp35 ;
-  char __cil_tmp36 ;
-  int __cil_tmp37 ;
-  char __cil_tmp38 ;
+  cc_t __cil_tmp34 ;
+  char __cil_tmp35 ;
+  int __cil_tmp36 ;
+  char __cil_tmp37 ;
+  unsigned long __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct ktermios *__cil_tmp41 ;
+  struct ktermios *__cil_tmp40 ;
+  unsigned long __cil_tmp41 ;
   unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  tcflag_t __cil_tmp44 ;
-  int __cil_tmp45 ;
+  tcflag_t __cil_tmp43 ;
+  int __cil_tmp44 ;
+  unsigned long __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  spinlock_t *__cil_tmp48 ;
+  spinlock_t *__cil_tmp47 ;
+  unsigned long __cil_tmp48 ;
   unsigned long __cil_tmp49 ;
   unsigned long __cil_tmp50 ;
   unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
+  unsigned char __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
   unsigned int __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
+  unsigned long __cil_tmp55 ;
   unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  spinlock_t *__cil_tmp58 ;
+  spinlock_t *__cil_tmp57 ;
 
   {
   {
@@ -15093,31 +15074,29 @@ static void unthrottle(struct tty_struct *tty )
     } else {
       {
 #line 1407
-      __cil_tmp27 = & send_xchar;
+      __cil_tmp27 = 8 * 1UL;
 #line 1407
-      __cil_tmp28 = 8 * 1UL;
+      __cil_tmp28 = 17 + __cil_tmp27;
 #line 1407
-      __cil_tmp29 = 17 + __cil_tmp28;
+      __cil_tmp29 = (unsigned long )tty;
 #line 1407
-      __cil_tmp30 = (unsigned long )tty;
+      __cil_tmp30 = __cil_tmp29 + 456;
 #line 1407
-      __cil_tmp31 = __cil_tmp30 + 456;
+      __cil_tmp31 = *((struct ktermios **)__cil_tmp30);
 #line 1407
-      __cil_tmp32 = *((struct ktermios **)__cil_tmp31);
+      __cil_tmp32 = (unsigned long )__cil_tmp31;
 #line 1407
-      __cil_tmp33 = (unsigned long )__cil_tmp32;
+      __cil_tmp33 = __cil_tmp32 + __cil_tmp28;
 #line 1407
-      __cil_tmp34 = __cil_tmp33 + __cil_tmp29;
+      __cil_tmp34 = *((cc_t *)__cil_tmp33);
 #line 1407
-      __cil_tmp35 = *((cc_t *)__cil_tmp34);
+      __cil_tmp35 = (char )__cil_tmp34;
 #line 1407
-      __cil_tmp36 = (char )__cil_tmp35;
+      __cil_tmp36 = (int )__cil_tmp35;
 #line 1407
-      __cil_tmp37 = (int )__cil_tmp36;
+      __cil_tmp37 = (char )__cil_tmp36;
 #line 1407
-      __cil_tmp38 = (char )__cil_tmp37;
-#line 1407
-      (*__cil_tmp27)(tty, __cil_tmp38);
+      send_xchar(tty, __cil_tmp37);
       }
     }
     }
@@ -15127,58 +15106,58 @@ static void unthrottle(struct tty_struct *tty )
   }
   {
 #line 1409
-  __cil_tmp39 = (unsigned long )tty;
+  __cil_tmp38 = (unsigned long )tty;
 #line 1409
-  __cil_tmp40 = __cil_tmp39 + 456;
+  __cil_tmp39 = __cil_tmp38 + 456;
 #line 1409
-  __cil_tmp41 = *((struct ktermios **)__cil_tmp40);
+  __cil_tmp40 = *((struct ktermios **)__cil_tmp39);
 #line 1409
-  __cil_tmp42 = (unsigned long )__cil_tmp41;
+  __cil_tmp41 = (unsigned long )__cil_tmp40;
 #line 1409
-  __cil_tmp43 = __cil_tmp42 + 8;
+  __cil_tmp42 = __cil_tmp41 + 8;
 #line 1409
-  __cil_tmp44 = *((tcflag_t *)__cil_tmp43);
+  __cil_tmp43 = *((tcflag_t *)__cil_tmp42);
 #line 1409
-  __cil_tmp45 = (int )__cil_tmp44;
+  __cil_tmp44 = (int )__cil_tmp43;
 #line 1409
-  if (__cil_tmp45 < 0) {
+  if (__cil_tmp44 < 0) {
     {
 #line 1410
-    __cil_tmp46 = (unsigned long )info;
+    __cil_tmp45 = (unsigned long )info;
 #line 1410
-    __cil_tmp47 = __cil_tmp46 + 1400;
+    __cil_tmp46 = __cil_tmp45 + 1400;
 #line 1410
-    __cil_tmp48 = (spinlock_t *)__cil_tmp47;
+    __cil_tmp47 = (spinlock_t *)__cil_tmp46;
 #line 1410
-    tmp___0 = spinlock_check(__cil_tmp48);
+    tmp___0 = spinlock_check(__cil_tmp47);
 #line 1410
     flags = _raw_spin_lock_irqsave(tmp___0);
 #line 1411
-    __cil_tmp49 = (unsigned long )info;
+    __cil_tmp48 = (unsigned long )info;
 #line 1411
-    __cil_tmp50 = __cil_tmp49 + 1684;
+    __cil_tmp49 = __cil_tmp48 + 1684;
 #line 1411
-    __cil_tmp51 = (unsigned long )info;
+    __cil_tmp50 = (unsigned long )info;
 #line 1411
-    __cil_tmp52 = __cil_tmp51 + 1684;
+    __cil_tmp51 = __cil_tmp50 + 1684;
 #line 1411
-    __cil_tmp53 = *((unsigned char *)__cil_tmp52);
+    __cil_tmp52 = *((unsigned char *)__cil_tmp51);
 #line 1411
-    __cil_tmp54 = (unsigned int )__cil_tmp53;
+    __cil_tmp53 = (unsigned int )__cil_tmp52;
 #line 1411
-    __cil_tmp55 = __cil_tmp54 | 32U;
+    __cil_tmp54 = __cil_tmp53 | 32U;
 #line 1411
-    *((unsigned char *)__cil_tmp50) = (unsigned char )__cil_tmp55;
+    *((unsigned char *)__cil_tmp49) = (unsigned char )__cil_tmp54;
 #line 1412
     set_signals(info);
 #line 1413
-    __cil_tmp56 = (unsigned long )info;
+    __cil_tmp55 = (unsigned long )info;
 #line 1413
-    __cil_tmp57 = __cil_tmp56 + 1400;
+    __cil_tmp56 = __cil_tmp55 + 1400;
 #line 1413
-    __cil_tmp58 = (spinlock_t *)__cil_tmp57;
+    __cil_tmp57 = (spinlock_t *)__cil_tmp56;
 #line 1413
-    spin_unlock_irqrestore(__cil_tmp58, flags);
+    spin_unlock_irqrestore(__cil_tmp57, flags);
     }
   } else {
 
@@ -42012,10 +41991,9 @@ static void rx_timeout(unsigned long context )
   unsigned long __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   spinlock_t *__cil_tmp19 ;
-  void (*__cil_tmp20)(struct work_struct *work ) ;
+  unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct work_struct *__cil_tmp23 ;
+  struct work_struct *__cil_tmp22 ;
 
   {
 #line 5160
@@ -42069,15 +42047,13 @@ static void rx_timeout(unsigned long context )
 #line 5166
   spin_unlock_irqrestore(__cil_tmp19, flags);
 #line 5167
-  __cil_tmp20 = & bh_handler;
+  __cil_tmp20 = (unsigned long )info;
 #line 5167
-  __cil_tmp21 = (unsigned long )info;
+  __cil_tmp21 = __cil_tmp20 + 1472;
 #line 5167
-  __cil_tmp22 = __cil_tmp21 + 1472;
+  __cil_tmp22 = (struct work_struct *)__cil_tmp21;
 #line 5167
-  __cil_tmp23 = (struct work_struct *)__cil_tmp22;
-#line 5167
-  (*__cil_tmp20)(__cil_tmp23);
+  bh_handler(__cil_tmp22);
   }
 #line 5168
   return;
@@ -42133,41 +42109,10 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp39)(struct pci_dev *dev , struct pci_device_id  const  *ent ) ;
-  int (*__cil_tmp40)(struct inode *inode , struct file *file ) ;
-  int (*__cil_tmp41)(struct net_device *dev ) ;
-  int (*__cil_tmp42)(struct net_device *dev ) ;
-  int (*__cil_tmp43)(struct net_device *dev , struct ifreq *ifr , int cmd ) ;
-  void (*__cil_tmp44)(struct net_device *dev ) ;
-  int (*__cil_tmp45)(struct tty_port *port ) ;
-  void (*__cil_tmp46)(struct tty_port *port , int on ) ;
-  int (*__cil_tmp47)(struct tty_struct *tty , struct file *filp ) ;
-  void (*__cil_tmp48)(struct tty_struct *tty , struct file *filp ) ;
-  int (*__cil_tmp49)(struct tty_struct *tty , unsigned char const   *buf , int count ) ;
-  int (*__cil_tmp50)(struct tty_struct *tty , unsigned char ch ) ;
-  int __cil_tmp51 ;
-  unsigned char __cil_tmp52 ;
-  void (*__cil_tmp53)(struct tty_struct *tty ) ;
-  int (*__cil_tmp54)(struct tty_struct *tty ) ;
-  int (*__cil_tmp55)(struct tty_struct *tty ) ;
-  void (*__cil_tmp56)(struct tty_struct *tty ) ;
-  int (*__cil_tmp57)(struct tty_struct *tty , unsigned int cmd , unsigned long arg ) ;
-  long (*__cil_tmp58)(struct tty_struct *tty , unsigned int cmd , unsigned long arg ) ;
-  void (*__cil_tmp59)(struct tty_struct *tty ) ;
-  void (*__cil_tmp60)(struct tty_struct *tty ) ;
-  void (*__cil_tmp61)(struct tty_struct *tty , char ch ) ;
-  int __cil_tmp62 ;
-  char __cil_tmp63 ;
-  int (*__cil_tmp64)(struct tty_struct *tty , int break_state ) ;
-  void (*__cil_tmp65)(struct tty_struct *tty , int timeout ) ;
-  void (*__cil_tmp66)(struct tty_struct *tty , struct ktermios *old_termios ) ;
-  void (*__cil_tmp67)(struct tty_struct *tty ) ;
-  void (*__cil_tmp68)(struct tty_struct *tty ) ;
-  void (*__cil_tmp69)(struct tty_struct *tty ) ;
-  int (*__cil_tmp70)(struct tty_struct *tty ) ;
-  int (*__cil_tmp71)(struct tty_struct *tty , unsigned int set , unsigned int clear ) ;
-  int (*__cil_tmp72)(struct tty_struct *tty , struct serial_icounter_struct *icount ) ;
-  irqreturn_t (*__cil_tmp73)(int dummy , void *dev_id ) ;
+  int __cil_tmp39 ;
+  unsigned char __cil_tmp40 ;
+  int __cil_tmp41 ;
+  char __cil_tmp42 ;
 
   {
   {
@@ -42330,10 +42275,8 @@ void main(void)
                                                                   if (ldv_s_pci_driver_pci_driver == 0) {
                                                                     {
 #line 10002
-                                                                    __cil_tmp39 = & init_one;
-#line 10002
-                                                                    res_init_one_102 = (*__cil_tmp39)(var_group1,
-                                                                                                      var_init_one_102_p1);
+                                                                    res_init_one_102 = init_one(var_group1,
+                                                                                                var_init_one_102_p1);
 #line 10003
                                                                     ldv_check_return_value(res_init_one_102);
                                                                     }
@@ -42354,10 +42297,8 @@ void main(void)
                                                                   if (ldv_s_synclink_gt_proc_fops_file_operations == 0) {
                                                                     {
 #line 10153
-                                                                    __cil_tmp40 = & synclink_gt_proc_open;
-#line 10153
-                                                                    res_synclink_gt_proc_open_26 = (*__cil_tmp40)(var_group2,
-                                                                                                                  var_group3);
+                                                                    res_synclink_gt_proc_open_26 = synclink_gt_proc_open(var_group2,
+                                                                                                                         var_group3);
 #line 10154
                                                                     ldv_check_return_value(res_synclink_gt_proc_open_26);
                                                                     }
@@ -42378,9 +42319,7 @@ void main(void)
                                                                   if (ldv_s_hdlcdev_ops_net_device_ops == 0) {
                                                                     {
 #line 10313
-                                                                    __cil_tmp41 = & hdlcdev_open;
-#line 10313
-                                                                    res_hdlcdev_open_33 = (*__cil_tmp41)(var_group4);
+                                                                    res_hdlcdev_open_33 = hdlcdev_open(var_group4);
 #line 10314
                                                                     ldv_check_return_value(res_hdlcdev_open_33);
                                                                     }
@@ -42401,9 +42340,7 @@ void main(void)
                                                                   if (ldv_s_hdlcdev_ops_net_device_ops == 1) {
                                                                     {
 #line 10472
-                                                                    __cil_tmp42 = & hdlcdev_close;
-#line 10472
-                                                                    res_hdlcdev_close_34 = (*__cil_tmp42)(var_group4);
+                                                                    res_hdlcdev_close_34 = hdlcdev_close(var_group4);
 #line 10473
                                                                     ldv_check_return_value(res_hdlcdev_close_34);
                                                                     }
@@ -42422,36 +42359,28 @@ void main(void)
                                                                   case_4: 
                                                                   {
 #line 10631
-                                                                  __cil_tmp43 = & hdlcdev_ioctl;
-#line 10631
-                                                                  (*__cil_tmp43)(var_group4,
-                                                                                 var_group5,
-                                                                                 var_hdlcdev_ioctl_35_p2);
+                                                                  hdlcdev_ioctl(var_group4,
+                                                                                var_group5,
+                                                                                var_hdlcdev_ioctl_35_p2);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_5: 
                                                                   {
 #line 10787
-                                                                  __cil_tmp44 = & hdlcdev_tx_timeout;
-#line 10787
-                                                                  (*__cil_tmp44)(var_group4);
+                                                                  hdlcdev_tx_timeout(var_group4);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_6: 
                                                                   {
 #line 10948
-                                                                  __cil_tmp45 = & carrier_raised;
-#line 10948
-                                                                  (*__cil_tmp45)(var_group6);
+                                                                  carrier_raised(var_group6);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_7: 
                                                                   {
 #line 11104
-                                                                  __cil_tmp46 = & dtr_rts;
-#line 11104
-                                                                  (*__cil_tmp46)(var_group6,
-                                                                                 var_dtr_rts_87_p1);
+                                                                  dtr_rts(var_group6,
+                                                                          var_dtr_rts_87_p1);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_8: ;
@@ -42459,10 +42388,8 @@ void main(void)
                                                                   if (ldv_s_ops_tty_operations == 0) {
                                                                     {
 #line 11250
-                                                                    __cil_tmp47 = & open;
-#line 11250
-                                                                    res_open_5 = (*__cil_tmp47)(var_group7,
-                                                                                                var_group3);
+                                                                    res_open_5 = open(var_group7,
+                                                                                      var_group3);
 #line 11251
                                                                     ldv_check_return_value(res_open_5);
                                                                     }
@@ -42483,10 +42410,8 @@ void main(void)
                                                                   if (ldv_s_ops_tty_operations == 1) {
                                                                     {
 #line 11409
-                                                                    __cil_tmp48 = & close;
-#line 11409
-                                                                    (*__cil_tmp48)(var_group7,
-                                                                                   var_group3);
+                                                                    close(var_group7,
+                                                                          var_group3);
 #line 11439
                                                                     ldv_s_ops_tty_operations = 0;
                                                                     }
@@ -42497,183 +42422,143 @@ void main(void)
                                                                   case_10: 
                                                                   {
 #line 11565
-                                                                  __cil_tmp49 = & write;
-#line 11565
-                                                                  (*__cil_tmp49)(var_group7,
-                                                                                 var_write_10_p1,
-                                                                                 var_write_10_p2);
+                                                                  write(var_group7,
+                                                                        var_write_10_p1,
+                                                                        var_write_10_p2);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_11: 
                                                                   {
 #line 11721
-                                                                  __cil_tmp50 = & put_char;
+                                                                  __cil_tmp39 = (int )var_put_char_11_p1;
 #line 11721
-                                                                  __cil_tmp51 = (int )var_put_char_11_p1;
+                                                                  __cil_tmp40 = (unsigned char )__cil_tmp39;
 #line 11721
-                                                                  __cil_tmp52 = (unsigned char )__cil_tmp51;
-#line 11721
-                                                                  (*__cil_tmp50)(var_group7,
-                                                                                 __cil_tmp52);
+                                                                  put_char(var_group7,
+                                                                           __cil_tmp40);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_12: 
                                                                   {
 #line 11877
-                                                                  __cil_tmp53 = & flush_chars;
-#line 11877
-                                                                  (*__cil_tmp53)(var_group7);
+                                                                  flush_chars(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_13: 
                                                                   {
 #line 12033
-                                                                  __cil_tmp54 = & write_room;
-#line 12033
-                                                                  (*__cil_tmp54)(var_group7);
+                                                                  write_room(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_14: 
                                                                   {
 #line 12193
-                                                                  __cil_tmp55 = & chars_in_buffer;
-#line 12193
-                                                                  (*__cil_tmp55)(var_group7);
+                                                                  chars_in_buffer(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_15: 
                                                                   {
 #line 12345
-                                                                  __cil_tmp56 = & flush_buffer;
-#line 12345
-                                                                  (*__cil_tmp56)(var_group7);
+                                                                  flush_buffer(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_16: 
                                                                   {
 #line 12501
-                                                                  __cil_tmp57 = & ioctl;
-#line 12501
-                                                                  (*__cil_tmp57)(var_group7,
-                                                                                 var_ioctl_19_p1,
-                                                                                 var_ioctl_19_p2);
+                                                                  ioctl(var_group7,
+                                                                        var_ioctl_19_p1,
+                                                                        var_ioctl_19_p2);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_17: 
                                                                   {
 #line 12658
-                                                                  __cil_tmp58 = & slgt_compat_ioctl;
-#line 12658
-                                                                  (*__cil_tmp58)(var_group7,
-                                                                                 var_slgt_compat_ioctl_23_p1,
-                                                                                 var_slgt_compat_ioctl_23_p2);
+                                                                  slgt_compat_ioctl(var_group7,
+                                                                                    var_slgt_compat_ioctl_23_p1,
+                                                                                    var_slgt_compat_ioctl_23_p2);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_18: 
                                                                   {
 #line 12817
-                                                                  __cil_tmp59 = & throttle;
-#line 12817
-                                                                  (*__cil_tmp59)(var_group7);
+                                                                  throttle(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_19: 
                                                                   {
 #line 12973
-                                                                  __cil_tmp60 = & unthrottle;
-#line 12973
-                                                                  (*__cil_tmp60)(var_group7);
+                                                                  unthrottle(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_20: 
                                                                   {
 #line 13125
-                                                                  __cil_tmp61 = & send_xchar;
+                                                                  __cil_tmp41 = (int )var_send_xchar_12_p1;
 #line 13125
-                                                                  __cil_tmp62 = (int )var_send_xchar_12_p1;
+                                                                  __cil_tmp42 = (char )__cil_tmp41;
 #line 13125
-                                                                  __cil_tmp63 = (char )__cil_tmp62;
-#line 13125
-                                                                  (*__cil_tmp61)(var_group7,
-                                                                                 __cil_tmp63);
+                                                                  send_xchar(var_group7,
+                                                                             __cil_tmp42);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_21: 
                                                                   {
 #line 13285
-                                                                  __cil_tmp64 = & set_break;
-#line 13285
-                                                                  (*__cil_tmp64)(var_group7,
-                                                                                 var_set_break_30_p1);
+                                                                  set_break(var_group7,
+                                                                            var_set_break_30_p1);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_22: 
                                                                   {
 #line 13437
-                                                                  __cil_tmp65 = & wait_until_sent;
-#line 13437
-                                                                  (*__cil_tmp65)(var_group7,
-                                                                                 var_wait_until_sent_13_p1);
+                                                                  wait_until_sent(var_group7,
+                                                                                  var_wait_until_sent_13_p1);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_23: 
                                                                   {
 #line 13593
-                                                                  __cil_tmp66 = & set_termios;
-#line 13593
-                                                                  (*__cil_tmp66)(var_group7,
-                                                                                 var_group8);
+                                                                  set_termios(var_group7,
+                                                                              var_group8);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_24: 
                                                                   {
 #line 13749
-                                                                  __cil_tmp67 = & tx_hold;
-#line 13749
-                                                                  (*__cil_tmp67)(var_group7);
+                                                                  tx_hold(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_25: 
                                                                   {
 #line 13905
-                                                                  __cil_tmp68 = & tx_release;
-#line 13905
-                                                                  (*__cil_tmp68)(var_group7);
+                                                                  tx_release(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_26: 
                                                                   {
 #line 14061
-                                                                  __cil_tmp69 = & hangup;
-#line 14061
-                                                                  (*__cil_tmp69)(var_group7);
+                                                                  hangup(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_27: 
                                                                   {
 #line 14227
-                                                                  __cil_tmp70 = & tiocmget;
-#line 14227
-                                                                  (*__cil_tmp70)(var_group7);
+                                                                  tiocmget(var_group7);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_28: 
                                                                   {
 #line 14383
-                                                                  __cil_tmp71 = & tiocmset;
-#line 14383
-                                                                  (*__cil_tmp71)(var_group7,
-                                                                                 var_tiocmset_85_p1,
-                                                                                 var_tiocmset_85_p2);
+                                                                  tiocmset(var_group7,
+                                                                           var_tiocmset_85_p1,
+                                                                           var_tiocmset_85_p2);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_29: 
                                                                   {
 #line 14529
-                                                                  __cil_tmp72 = & get_icount;
-#line 14529
-                                                                  (*__cil_tmp72)(var_group7,
-                                                                                 var_group9);
+                                                                  get_icount(var_group7,
+                                                                             var_group9);
                                                                   }
                                                                   goto ldv_37978;
                                                                   case_30: 
@@ -42681,9 +42566,7 @@ void main(void)
 #line 14569
                                                                   LDV_IN_INTERRUPT = 2;
 #line 14695
-                                                                  __cil_tmp73 = & slgt_interrupt;
-#line 14695
-                                                                  (*__cil_tmp73)(var_slgt_interrupt_56_p0,
+                                                                  slgt_interrupt(var_slgt_interrupt_56_p0,
                                                                                  var_slgt_interrupt_56_p1);
 #line 14715
                                                                   LDV_IN_INTERRUPT = 1;

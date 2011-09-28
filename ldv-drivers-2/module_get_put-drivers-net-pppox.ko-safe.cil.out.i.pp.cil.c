@@ -6752,7 +6752,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp8)(struct net *net , struct socket *sock , int protocol , int kern ) ;
 
   {
   {
@@ -6785,9 +6784,7 @@ void main(void)
       case_0: 
       {
 #line 247
-      __cil_tmp8 = & pppox_create;
-#line 247
-      (*__cil_tmp8)(var_group1, var_group2, var_pppox_create_4_p2, var_pppox_create_4_p3);
+      pppox_create(var_group1, var_group2, var_pppox_create_4_p2, var_pppox_create_4_p3);
       }
       goto ldv_38478;
       switch_default: ;

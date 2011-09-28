@@ -30168,44 +30168,42 @@ static int FRMR_error(struct layer2 *l2 , struct sk_buff *skb )
   unsigned int __cil_tmp29 ;
   u_int __cil_tmp30 ;
   unsigned int __cil_tmp31 ;
-  void (*__cil_tmp32)(struct FsmInst *fi , char *fmt  , ...) ;
+  unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct FsmInst *__cil_tmp35 ;
-  char *__cil_tmp36 ;
-  u_char __cil_tmp37 ;
-  int __cil_tmp38 ;
-  u_char *__cil_tmp39 ;
-  u_char __cil_tmp40 ;
-  int __cil_tmp41 ;
-  u_char *__cil_tmp42 ;
-  u_char __cil_tmp43 ;
-  int __cil_tmp44 ;
-  u_char *__cil_tmp45 ;
-  u_char __cil_tmp46 ;
-  int __cil_tmp47 ;
-  u_char *__cil_tmp48 ;
-  u_char __cil_tmp49 ;
-  int __cil_tmp50 ;
-  u_int __cil_tmp51 ;
+  struct FsmInst *__cil_tmp34 ;
+  char *__cil_tmp35 ;
+  u_char __cil_tmp36 ;
+  int __cil_tmp37 ;
+  u_char *__cil_tmp38 ;
+  u_char __cil_tmp39 ;
+  int __cil_tmp40 ;
+  u_char *__cil_tmp41 ;
+  u_char __cil_tmp42 ;
+  int __cil_tmp43 ;
+  u_char *__cil_tmp44 ;
+  u_char __cil_tmp45 ;
+  int __cil_tmp46 ;
+  u_char *__cil_tmp47 ;
+  u_char __cil_tmp48 ;
+  int __cil_tmp49 ;
+  u_int __cil_tmp50 ;
+  unsigned long __cil_tmp51 ;
   unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  u_int __cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  void (*__cil_tmp57)(struct FsmInst *fi , char *fmt  , ...) ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  struct FsmInst *__cil_tmp60 ;
-  char *__cil_tmp61 ;
-  u_char __cil_tmp62 ;
-  int __cil_tmp63 ;
-  u_char *__cil_tmp64 ;
-  u_char __cil_tmp65 ;
-  int __cil_tmp66 ;
-  u_char *__cil_tmp67 ;
-  u_char __cil_tmp68 ;
-  int __cil_tmp69 ;
+  unsigned int __cil_tmp53 ;
+  u_int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned long __cil_tmp56 ;
+  unsigned long __cil_tmp57 ;
+  struct FsmInst *__cil_tmp58 ;
+  char *__cil_tmp59 ;
+  u_char __cil_tmp60 ;
+  int __cil_tmp61 ;
+  u_char *__cil_tmp62 ;
+  u_char __cil_tmp63 ;
+  int __cil_tmp64 ;
+  u_char *__cil_tmp65 ;
+  u_char __cil_tmp66 ;
+  int __cil_tmp67 ;
 
   {
   {
@@ -30297,98 +30295,94 @@ static int FRMR_error(struct layer2 *l2 , struct sk_buff *skb )
       if (__cil_tmp31 != 0U) {
         {
 #line 553
-        __cil_tmp32 = & l2m_debug;
+        __cil_tmp32 = (unsigned long )l2;
 #line 553
-        __cil_tmp33 = (unsigned long )l2;
+        __cil_tmp33 = __cil_tmp32 + 160;
 #line 553
-        __cil_tmp34 = __cil_tmp33 + 160;
+        __cil_tmp34 = (struct FsmInst *)__cil_tmp33;
 #line 553
-        __cil_tmp35 = (struct FsmInst *)__cil_tmp34;
+        __cil_tmp35 = (char *)"FRMR information %2x %2x %2x %2x %2x";
 #line 553
-        __cil_tmp36 = (char *)"FRMR information %2x %2x %2x %2x %2x";
+        __cil_tmp36 = *datap;
 #line 553
-        __cil_tmp37 = *datap;
+        __cil_tmp37 = (int )__cil_tmp36;
 #line 553
-        __cil_tmp38 = (int )__cil_tmp37;
+        __cil_tmp38 = datap + 1UL;
 #line 553
-        __cil_tmp39 = datap + 1UL;
+        __cil_tmp39 = *__cil_tmp38;
 #line 553
-        __cil_tmp40 = *__cil_tmp39;
+        __cil_tmp40 = (int )__cil_tmp39;
 #line 553
-        __cil_tmp41 = (int )__cil_tmp40;
+        __cil_tmp41 = datap + 2UL;
 #line 553
-        __cil_tmp42 = datap + 2UL;
+        __cil_tmp42 = *__cil_tmp41;
 #line 553
-        __cil_tmp43 = *__cil_tmp42;
+        __cil_tmp43 = (int )__cil_tmp42;
 #line 553
-        __cil_tmp44 = (int )__cil_tmp43;
+        __cil_tmp44 = datap + 3UL;
 #line 553
-        __cil_tmp45 = datap + 3UL;
+        __cil_tmp45 = *__cil_tmp44;
 #line 553
-        __cil_tmp46 = *__cil_tmp45;
+        __cil_tmp46 = (int )__cil_tmp45;
 #line 553
-        __cil_tmp47 = (int )__cil_tmp46;
+        __cil_tmp47 = datap + 4UL;
 #line 553
-        __cil_tmp48 = datap + 4UL;
+        __cil_tmp48 = *__cil_tmp47;
 #line 553
-        __cil_tmp49 = *__cil_tmp48;
+        __cil_tmp49 = (int )__cil_tmp48;
 #line 553
-        __cil_tmp50 = (int )__cil_tmp49;
-#line 553
-        (*__cil_tmp32)(__cil_tmp35, __cil_tmp36, __cil_tmp38, __cil_tmp41, __cil_tmp44,
-                       __cil_tmp47, __cil_tmp50);
+        l2m_debug(__cil_tmp34, __cil_tmp35, __cil_tmp37, __cil_tmp40, __cil_tmp43,
+                  __cil_tmp46, __cil_tmp49);
         }
       } else {
         {
 #line 557
-        __cil_tmp51 = headers + 3U;
+        __cil_tmp50 = headers + 3U;
 #line 557
-        __cil_tmp52 = (unsigned long )skb;
+        __cil_tmp51 = (unsigned long )skb;
 #line 557
-        __cil_tmp53 = __cil_tmp52 + 104;
+        __cil_tmp52 = __cil_tmp51 + 104;
 #line 557
-        __cil_tmp54 = *((unsigned int *)__cil_tmp53);
+        __cil_tmp53 = *((unsigned int *)__cil_tmp52);
 #line 557
-        if (__cil_tmp54 < __cil_tmp51) {
+        if (__cil_tmp53 < __cil_tmp50) {
 #line 558
           return (78);
         } else {
           {
 #line 559
-          __cil_tmp55 = *debug___4;
+          __cil_tmp54 = *debug___4;
 #line 559
-          __cil_tmp56 = __cil_tmp55 & 16711680U;
+          __cil_tmp55 = __cil_tmp54 & 16711680U;
 #line 559
-          if (__cil_tmp56 != 0U) {
+          if (__cil_tmp55 != 0U) {
             {
 #line 560
-            __cil_tmp57 = & l2m_debug;
+            __cil_tmp56 = (unsigned long )l2;
 #line 560
-            __cil_tmp58 = (unsigned long )l2;
+            __cil_tmp57 = __cil_tmp56 + 160;
 #line 560
-            __cil_tmp59 = __cil_tmp58 + 160;
+            __cil_tmp58 = (struct FsmInst *)__cil_tmp57;
 #line 560
-            __cil_tmp60 = (struct FsmInst *)__cil_tmp59;
+            __cil_tmp59 = (char *)"FRMR information %2x %2x %2x";
 #line 560
-            __cil_tmp61 = (char *)"FRMR information %2x %2x %2x";
+            __cil_tmp60 = *datap;
 #line 560
-            __cil_tmp62 = *datap;
+            __cil_tmp61 = (int )__cil_tmp60;
 #line 560
-            __cil_tmp63 = (int )__cil_tmp62;
+            __cil_tmp62 = datap + 1UL;
 #line 560
-            __cil_tmp64 = datap + 1UL;
+            __cil_tmp63 = *__cil_tmp62;
 #line 560
-            __cil_tmp65 = *__cil_tmp64;
+            __cil_tmp64 = (int )__cil_tmp63;
 #line 560
-            __cil_tmp66 = (int )__cil_tmp65;
+            __cil_tmp65 = datap + 2UL;
 #line 560
-            __cil_tmp67 = datap + 2UL;
+            __cil_tmp66 = *__cil_tmp65;
 #line 560
-            __cil_tmp68 = *__cil_tmp67;
+            __cil_tmp67 = (int )__cil_tmp66;
 #line 560
-            __cil_tmp69 = (int )__cil_tmp68;
-#line 560
-            (*__cil_tmp57)(__cil_tmp60, __cil_tmp61, __cil_tmp63, __cil_tmp66, __cil_tmp69);
+            l2m_debug(__cil_tmp58, __cil_tmp59, __cil_tmp61, __cil_tmp64, __cil_tmp67);
             }
           } else {
 
@@ -32706,26 +32700,26 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
   unsigned long __cil_tmp13 ;
   void *__cil_tmp14 ;
   unsigned int __cil_tmp15 ;
-  void (*__cil_tmp16)(struct FsmInst *fi , int event , void *arg ) ;
+  unsigned long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  u_long *__cil_tmp19 ;
-  unsigned long volatile   *__cil_tmp20 ;
-  void (*__cil_tmp21)(struct FsmInst *fi , int event , void *arg ) ;
-  void *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  u_long *__cil_tmp25 ;
-  unsigned long volatile   *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  u_long *__cil_tmp18 ;
+  unsigned long volatile   *__cil_tmp19 ;
+  void *__cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  unsigned long __cil_tmp22 ;
+  u_long *__cil_tmp23 ;
+  unsigned long volatile   *__cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
+  unsigned long __cil_tmp26 ;
+  u_int __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  u_int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  unsigned long __cil_tmp29 ;
+  u_int __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  u_int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned long __cil_tmp32 ;
+  struct sk_buff_head *__cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  struct sk_buff_head *__cil_tmp35 ;
+  unsigned long __cil_tmp35 ;
   unsigned long __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
@@ -32734,26 +32728,24 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
   unsigned long __cil_tmp41 ;
   unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  struct FsmTimer *__cil_tmp44 ;
   unsigned long __cil_tmp45 ;
-  struct FsmTimer *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  int __cil_tmp49 ;
+  unsigned long __cil_tmp46 ;
+  int __cil_tmp47 ;
+  void *__cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
   void *__cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  void *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct sk_buff_head *__cil_tmp55 ;
-  struct sk_buff_head  const  *__cil_tmp56 ;
-  void *__cil_tmp57 ;
-  struct teimgr *__cil_tmp58 ;
+  unsigned long __cil_tmp51 ;
+  unsigned long __cil_tmp52 ;
+  struct sk_buff_head *__cil_tmp53 ;
+  struct sk_buff_head  const  *__cil_tmp54 ;
+  void *__cil_tmp55 ;
+  struct teimgr *__cil_tmp56 ;
+  unsigned long __cil_tmp57 ;
+  unsigned long __cil_tmp58 ;
   unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  struct teimgr *__cil_tmp60 ;
   unsigned long __cil_tmp61 ;
-  struct teimgr *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
 
   {
   {
@@ -32779,9 +32771,7 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
   if (__cil_tmp15 == 0U) {
     {
 #line 991
-    __cil_tmp16 = & l2_mdl_error_ua;
-#line 991
-    (*__cil_tmp16)(fi, event, arg);
+    l2_mdl_error_ua(fi, event, arg);
     }
 #line 992
     return;
@@ -32793,40 +32783,38 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
 #line 994
   consume_skb(skb);
 #line 995
-  __cil_tmp17 = (unsigned long )l2;
+  __cil_tmp16 = (unsigned long )l2;
 #line 995
-  __cil_tmp18 = __cil_tmp17 + 96;
+  __cil_tmp17 = __cil_tmp16 + 96;
 #line 995
-  __cil_tmp19 = (u_long *)__cil_tmp18;
+  __cil_tmp18 = (u_long *)__cil_tmp17;
 #line 995
-  __cil_tmp20 = (unsigned long volatile   *)__cil_tmp19;
+  __cil_tmp19 = (unsigned long volatile   *)__cil_tmp18;
 #line 995
-  tmp___0 = test_and_clear_bit(4, __cil_tmp20);
+  tmp___0 = test_and_clear_bit(4, __cil_tmp19);
   }
 #line 995
   if (tmp___0 != 0) {
     {
 #line 996
-    __cil_tmp21 = & l2_disconnect;
+    __cil_tmp20 = (void *)0;
 #line 996
-    __cil_tmp22 = (void *)0;
-#line 996
-    (*__cil_tmp21)(fi, event, __cil_tmp22);
+    l2_disconnect(fi, event, __cil_tmp20);
     }
   } else {
 
   }
   {
 #line 997
-  __cil_tmp23 = (unsigned long )l2;
+  __cil_tmp21 = (unsigned long )l2;
 #line 997
-  __cil_tmp24 = __cil_tmp23 + 96;
+  __cil_tmp22 = __cil_tmp21 + 96;
 #line 997
-  __cil_tmp25 = (u_long *)__cil_tmp24;
+  __cil_tmp23 = (u_long *)__cil_tmp22;
 #line 997
-  __cil_tmp26 = (unsigned long volatile   *)__cil_tmp25;
+  __cil_tmp24 = (unsigned long volatile   *)__cil_tmp23;
 #line 997
-  tmp___1 = test_and_clear_bit(5, __cil_tmp26);
+  tmp___1 = test_and_clear_bit(5, __cil_tmp24);
   }
 #line 997
   if (tmp___1 != 0) {
@@ -32835,28 +32823,28 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
   } else {
     {
 #line 999
-    __cil_tmp27 = (unsigned long )l2;
+    __cil_tmp25 = (unsigned long )l2;
 #line 999
-    __cil_tmp28 = __cil_tmp27 + 140;
+    __cil_tmp26 = __cil_tmp25 + 140;
 #line 999
-    __cil_tmp29 = *((u_int *)__cil_tmp28);
+    __cil_tmp27 = *((u_int *)__cil_tmp26);
 #line 999
-    __cil_tmp30 = (unsigned long )l2;
+    __cil_tmp28 = (unsigned long )l2;
 #line 999
-    __cil_tmp31 = __cil_tmp30 + 136;
+    __cil_tmp29 = __cil_tmp28 + 136;
 #line 999
-    __cil_tmp32 = *((u_int *)__cil_tmp31);
+    __cil_tmp30 = *((u_int *)__cil_tmp29);
 #line 999
-    if (__cil_tmp32 != __cil_tmp29) {
+    if (__cil_tmp30 != __cil_tmp27) {
       {
 #line 1000
-      __cil_tmp33 = (unsigned long )l2;
+      __cil_tmp31 = (unsigned long )l2;
 #line 1000
-      __cil_tmp34 = __cil_tmp33 + 592;
+      __cil_tmp32 = __cil_tmp31 + 592;
 #line 1000
-      __cil_tmp35 = (struct sk_buff_head *)__cil_tmp34;
+      __cil_tmp33 = (struct sk_buff_head *)__cil_tmp32;
 #line 1000
-      skb_queue_purge(__cil_tmp35);
+      skb_queue_purge(__cil_tmp33);
 #line 1001
       pr = 4104;
       }
@@ -32869,72 +32857,72 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
 #line 1003
   stop_t200(l2, 5);
 #line 1004
+  __cil_tmp34 = (unsigned long )l2;
+#line 1004
+  __cil_tmp35 = __cil_tmp34 + 144;
+#line 1004
+  *((u_int *)__cil_tmp35) = 0U;
+#line 1005
   __cil_tmp36 = (unsigned long )l2;
-#line 1004
-  __cil_tmp37 = __cil_tmp36 + 144;
-#line 1004
+#line 1005
+  __cil_tmp37 = __cil_tmp36 + 136;
+#line 1005
   *((u_int *)__cil_tmp37) = 0U;
-#line 1005
+#line 1006
   __cil_tmp38 = (unsigned long )l2;
-#line 1005
-  __cil_tmp39 = __cil_tmp38 + 136;
-#line 1005
+#line 1006
+  __cil_tmp39 = __cil_tmp38 + 140;
+#line 1006
   *((u_int *)__cil_tmp39) = 0U;
-#line 1006
+#line 1007
   __cil_tmp40 = (unsigned long )l2;
-#line 1006
-  __cil_tmp41 = __cil_tmp40 + 140;
-#line 1006
+#line 1007
+  __cil_tmp41 = __cil_tmp40 + 156;
+#line 1007
   *((u_int *)__cil_tmp41) = 0U;
-#line 1007
-  __cil_tmp42 = (unsigned long )l2;
-#line 1007
-  __cil_tmp43 = __cil_tmp42 + 156;
-#line 1007
-  *((u_int *)__cil_tmp43) = 0U;
 #line 1008
   mISDN_FsmChangeState(fi, 6);
 #line 1009
-  __cil_tmp44 = (unsigned long )l2;
+  __cil_tmp42 = (unsigned long )l2;
 #line 1009
-  __cil_tmp45 = __cil_tmp44 + 352;
+  __cil_tmp43 = __cil_tmp42 + 352;
 #line 1009
-  __cil_tmp46 = (struct FsmTimer *)__cil_tmp45;
+  __cil_tmp44 = (struct FsmTimer *)__cil_tmp43;
 #line 1009
-  __cil_tmp47 = (unsigned long )l2;
+  __cil_tmp45 = (unsigned long )l2;
 #line 1009
-  __cil_tmp48 = __cil_tmp47 + 512;
+  __cil_tmp46 = __cil_tmp45 + 512;
 #line 1009
-  __cil_tmp49 = *((int *)__cil_tmp48);
+  __cil_tmp47 = *((int *)__cil_tmp46);
 #line 1009
-  __cil_tmp50 = (void *)0;
+  __cil_tmp48 = (void *)0;
 #line 1009
-  mISDN_FsmAddTimer(__cil_tmp46, __cil_tmp49, 18, __cil_tmp50, 4);
+  mISDN_FsmAddTimer(__cil_tmp44, __cil_tmp47, 18, __cil_tmp48, 4);
   }
 #line 1010
   if (pr != -1) {
     {
 #line 1011
-    __cil_tmp51 = (unsigned int )pr;
+    __cil_tmp49 = (unsigned int )pr;
 #line 1011
-    __cil_tmp52 = (void *)0;
+    __cil_tmp50 = (void *)0;
 #line 1011
-    l2up_create(l2, __cil_tmp51, 0, __cil_tmp52);
+    l2up_create(l2, __cil_tmp49, 0, __cil_tmp50);
     }
   } else {
 
   }
   {
 #line 1013
-  __cil_tmp53 = (unsigned long )l2;
+  __cil_tmp51 = (unsigned long )l2;
 #line 1013
-  __cil_tmp54 = __cil_tmp53 + 592;
+  __cil_tmp52 = __cil_tmp51 + 592;
 #line 1013
-  __cil_tmp55 = (struct sk_buff_head *)__cil_tmp54;
+  __cil_tmp53 = (struct sk_buff_head *)__cil_tmp52;
 #line 1013
-  __cil_tmp56 = (struct sk_buff_head  const  *)__cil_tmp55;
+  __cil_tmp54 = (struct sk_buff_head  const  *)__cil_tmp53;
 #line 1013
-  tmp___2 = skb_queue_len(__cil_tmp56);
+  tmp___2 = skb_queue_len(__cil_tmp54);
   }
 #line 1013
   if (tmp___2 != 0U) {
@@ -32946,9 +32934,9 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
     if (tmp___3 != 0U) {
       {
 #line 1014
-      __cil_tmp57 = (void *)0;
+      __cil_tmp55 = (void *)0;
 #line 1014
-      mISDN_FsmEvent(fi, 9, __cil_tmp57);
+      mISDN_FsmEvent(fi, 9, __cil_tmp55);
       }
     } else {
 
@@ -32958,19 +32946,19 @@ static void l2_connected(struct FsmInst *fi , int event , void *arg )
   }
   {
 #line 1016
-  __cil_tmp58 = (struct teimgr *)0;
+  __cil_tmp56 = (struct teimgr *)0;
 #line 1016
-  __cil_tmp59 = (unsigned long )__cil_tmp58;
+  __cil_tmp57 = (unsigned long )__cil_tmp56;
 #line 1016
-  __cil_tmp60 = (unsigned long )l2;
+  __cil_tmp58 = (unsigned long )l2;
 #line 1016
-  __cil_tmp61 = __cil_tmp60 + 128;
+  __cil_tmp59 = __cil_tmp58 + 128;
 #line 1016
-  __cil_tmp62 = *((struct teimgr **)__cil_tmp61);
+  __cil_tmp60 = *((struct teimgr **)__cil_tmp59);
 #line 1016
-  __cil_tmp63 = (unsigned long )__cil_tmp62;
+  __cil_tmp61 = (unsigned long )__cil_tmp60;
 #line 1016
-  if (__cil_tmp63 != __cil_tmp59) {
+  if (__cil_tmp61 != __cil_tmp57) {
     {
 #line 1017
     l2_tei(l2, 7172U, 0UL);
@@ -32992,13 +32980,12 @@ static void l2_released(struct FsmInst *fi , int event , void *arg )
   unsigned long __cil_tmp8 ;
   void *__cil_tmp9 ;
   unsigned int __cil_tmp10 ;
-  void (*__cil_tmp11)(struct FsmInst *fi , int event , void *arg ) ;
-  struct teimgr *__cil_tmp12 ;
+  struct teimgr *__cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct teimgr *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct teimgr *__cil_tmp15 ;
+  unsigned long __cil_tmp16 ;
 
   {
   {
@@ -33022,9 +33009,7 @@ static void l2_released(struct FsmInst *fi , int event , void *arg )
   if (__cil_tmp10 == 0U) {
     {
 #line 1027
-    __cil_tmp11 = & l2_mdl_error_ua;
-#line 1027
-    (*__cil_tmp11)(fi, event, arg);
+    l2_mdl_error_ua(fi, event, arg);
     }
 #line 1028
     return;
@@ -33044,19 +33029,19 @@ static void l2_released(struct FsmInst *fi , int event , void *arg )
   }
   {
 #line 1034
-  __cil_tmp12 = (struct teimgr *)0;
+  __cil_tmp11 = (struct teimgr *)0;
 #line 1034
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 1034
-  __cil_tmp14 = (unsigned long )l2;
+  __cil_tmp13 = (unsigned long )l2;
 #line 1034
-  __cil_tmp15 = __cil_tmp14 + 128;
+  __cil_tmp14 = __cil_tmp13 + 128;
 #line 1034
-  __cil_tmp16 = *((struct teimgr **)__cil_tmp15);
+  __cil_tmp15 = *((struct teimgr **)__cil_tmp14);
 #line 1034
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 1034
-  if (__cil_tmp17 != __cil_tmp13) {
+  if (__cil_tmp16 != __cil_tmp12) {
     {
 #line 1035
     l2_tei(l2, 7428U, 0UL);
@@ -34055,32 +34040,31 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
   unsigned long __cil_tmp70 ;
   int __cil_tmp71 ;
   void *__cil_tmp72 ;
-  void (*__cil_tmp73)(struct FsmInst *fi , char *fmt  , ...) ;
+  unsigned long __cil_tmp73 ;
   unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  struct FsmInst *__cil_tmp76 ;
-  char *__cil_tmp77 ;
+  struct FsmInst *__cil_tmp75 ;
+  char *__cil_tmp76 ;
+  unsigned long __cil_tmp77 ;
   unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  u_int __cil_tmp80 ;
+  u_int __cil_tmp79 ;
+  unsigned long __cil_tmp80 ;
   unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct FsmTimer *__cil_tmp83 ;
+  struct FsmTimer *__cil_tmp82 ;
+  unsigned long __cil_tmp83 ;
   unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  int __cil_tmp86 ;
-  void *__cil_tmp87 ;
+  int __cil_tmp85 ;
+  void *__cil_tmp86 ;
+  unsigned long __cil_tmp87 ;
   unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  u_int __cil_tmp90 ;
+  u_int __cil_tmp89 ;
+  unsigned long __cil_tmp90 ;
   unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  struct FsmTimer *__cil_tmp93 ;
+  struct FsmTimer *__cil_tmp92 ;
+  unsigned long __cil_tmp93 ;
   unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct sk_buff_head *__cil_tmp96 ;
-  struct sk_buff_head  const  *__cil_tmp97 ;
-  void *__cil_tmp98 ;
+  struct sk_buff_head *__cil_tmp95 ;
+  struct sk_buff_head  const  *__cil_tmp96 ;
+  void *__cil_tmp97 ;
 
   {
   {
@@ -34304,17 +34288,15 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
       if (tmp___4 != 0) {
         {
 #line 1211
-        __cil_tmp73 = & l2m_debug;
+        __cil_tmp73 = (unsigned long )l2;
 #line 1211
-        __cil_tmp74 = (unsigned long )l2;
+        __cil_tmp74 = __cil_tmp73 + 160;
 #line 1211
-        __cil_tmp75 = __cil_tmp74 + 160;
+        __cil_tmp75 = (struct FsmInst *)__cil_tmp74;
 #line 1211
-        __cil_tmp76 = (struct FsmInst *)__cil_tmp75;
+        __cil_tmp76 = (char *)"Restart T203 ST7 REJ";
 #line 1211
-        __cil_tmp77 = (char *)"Restart T203 ST7 REJ";
-#line 1211
-        (*__cil_tmp73)(__cil_tmp76, __cil_tmp77);
+        l2m_debug(__cil_tmp75, __cil_tmp76);
         }
       } else {
 
@@ -34322,13 +34304,13 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
     } else {
       {
 #line 1212
-      __cil_tmp78 = (unsigned long )l2;
+      __cil_tmp77 = (unsigned long )l2;
 #line 1212
-      __cil_tmp79 = __cil_tmp78 + 136;
+      __cil_tmp78 = __cil_tmp77 + 136;
 #line 1212
-      __cil_tmp80 = *((u_int *)__cil_tmp79);
+      __cil_tmp79 = *((u_int *)__cil_tmp78);
 #line 1212
-      if (__cil_tmp80 == nr) {
+      if (__cil_tmp79 == nr) {
 #line 1212
         if (typ == 1) {
           {
@@ -34337,21 +34319,21 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
 #line 1214
           stop_t200(l2, 11);
 #line 1215
-          __cil_tmp81 = (unsigned long )l2;
+          __cil_tmp80 = (unsigned long )l2;
 #line 1215
-          __cil_tmp82 = __cil_tmp81 + 352;
+          __cil_tmp81 = __cil_tmp80 + 352;
 #line 1215
-          __cil_tmp83 = (struct FsmTimer *)__cil_tmp82;
+          __cil_tmp82 = (struct FsmTimer *)__cil_tmp81;
 #line 1215
-          __cil_tmp84 = (unsigned long )l2;
+          __cil_tmp83 = (unsigned long )l2;
 #line 1215
-          __cil_tmp85 = __cil_tmp84 + 512;
+          __cil_tmp84 = __cil_tmp83 + 512;
 #line 1215
-          __cil_tmp86 = *((int *)__cil_tmp85);
+          __cil_tmp85 = *((int *)__cil_tmp84);
 #line 1215
-          __cil_tmp87 = (void *)0;
+          __cil_tmp86 = (void *)0;
 #line 1215
-          mISDN_FsmRestartTimer(__cil_tmp83, __cil_tmp86, 18, __cil_tmp87, 7);
+          mISDN_FsmRestartTimer(__cil_tmp82, __cil_tmp85, 18, __cil_tmp86, 7);
           }
         } else {
           goto _L___0;
@@ -34360,13 +34342,13 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
         _L___0: 
         {
 #line 1217
-        __cil_tmp88 = (unsigned long )l2;
+        __cil_tmp87 = (unsigned long )l2;
 #line 1217
-        __cil_tmp89 = __cil_tmp88 + 140;
+        __cil_tmp88 = __cil_tmp87 + 140;
 #line 1217
-        __cil_tmp90 = *((u_int *)__cil_tmp89);
+        __cil_tmp89 = *((u_int *)__cil_tmp88);
 #line 1217
-        if (__cil_tmp90 != nr) {
+        if (__cil_tmp89 != nr) {
           goto _L;
         } else {
 #line 1217
@@ -34380,13 +34362,13 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
             if (typ != 1) {
               {
 #line 1220
-              __cil_tmp91 = (unsigned long )l2;
+              __cil_tmp90 = (unsigned long )l2;
 #line 1220
-              __cil_tmp92 = __cil_tmp91 + 352;
+              __cil_tmp91 = __cil_tmp90 + 352;
 #line 1220
-              __cil_tmp93 = (struct FsmTimer *)__cil_tmp92;
+              __cil_tmp92 = (struct FsmTimer *)__cil_tmp91;
 #line 1220
-              mISDN_FsmDelTimer(__cil_tmp93, 9);
+              mISDN_FsmDelTimer(__cil_tmp92, 9);
               }
             } else {
 
@@ -34405,15 +34387,15 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
     }
     {
 #line 1223
-    __cil_tmp94 = (unsigned long )l2;
+    __cil_tmp93 = (unsigned long )l2;
 #line 1223
-    __cil_tmp95 = __cil_tmp94 + 592;
+    __cil_tmp94 = __cil_tmp93 + 592;
 #line 1223
-    __cil_tmp96 = (struct sk_buff_head *)__cil_tmp95;
+    __cil_tmp95 = (struct sk_buff_head *)__cil_tmp94;
 #line 1223
-    __cil_tmp97 = (struct sk_buff_head  const  *)__cil_tmp96;
+    __cil_tmp96 = (struct sk_buff_head  const  *)__cil_tmp95;
 #line 1223
-    tmp___5 = skb_queue_len(__cil_tmp97);
+    tmp___5 = skb_queue_len(__cil_tmp96);
     }
 #line 1223
     if (tmp___5 != 0U) {
@@ -34421,9 +34403,9 @@ static void l2_st7_got_super(struct FsmInst *fi , int event , void *arg )
       if (typ == 1) {
         {
 #line 1224
-        __cil_tmp98 = (void *)0;
+        __cil_tmp97 = (void *)0;
 #line 1224
-        mISDN_FsmEvent(fi, 9, __cil_tmp98);
+        mISDN_FsmEvent(fi, 9, __cil_tmp97);
         }
       } else {
 
@@ -39063,12 +39045,11 @@ static int l2_send(struct mISDNchannel *ch , struct sk_buff *skb )
   void *__cil_tmp150 ;
   u_int __cil_tmp151 ;
   unsigned int __cil_tmp152 ;
-  void (*__cil_tmp153)(struct FsmInst *fi , char *fmt  , ...) ;
+  unsigned long __cil_tmp153 ;
   unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  struct FsmInst *__cil_tmp156 ;
-  char *__cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
+  struct FsmInst *__cil_tmp155 ;
+  char *__cil_tmp156 ;
+  unsigned int __cil_tmp157 ;
 
   {
 #line 1936
@@ -39584,19 +39565,17 @@ static int l2_send(struct mISDNchannel *ch , struct sk_buff *skb )
                       if (__cil_tmp152 != 0U) {
                         {
 #line 2000
-                        __cil_tmp153 = & l2m_debug;
+                        __cil_tmp153 = (unsigned long )l2;
 #line 2000
-                        __cil_tmp154 = (unsigned long )l2;
+                        __cil_tmp154 = __cil_tmp153 + 160;
 #line 2000
-                        __cil_tmp155 = __cil_tmp154 + 160;
+                        __cil_tmp155 = (struct FsmInst *)__cil_tmp154;
 #line 2000
-                        __cil_tmp156 = (struct FsmInst *)__cil_tmp155;
+                        __cil_tmp156 = (char *)"l2 unknown pr %04x";
 #line 2000
-                        __cil_tmp157 = (char *)"l2 unknown pr %04x";
+                        __cil_tmp157 = *((unsigned int *)hh);
 #line 2000
-                        __cil_tmp158 = *((unsigned int *)hh);
-#line 2000
-                        (*__cil_tmp153)(__cil_tmp156, __cil_tmp157, __cil_tmp158);
+                        l2m_debug(__cil_tmp155, __cil_tmp156, __cil_tmp157);
                         }
                       } else {
 
@@ -45799,7 +45778,6 @@ static void tei_id_verify_net(struct FsmInst *fi , int event , void *arg )
   unsigned long __cil_tmp31 ;
   signed char __cil_tmp32 ;
   int __cil_tmp33 ;
-  void (*__cil_tmp34)(struct FsmInst *fi , int event , void *arg ) ;
 
   {
 #line 727
@@ -45878,9 +45856,7 @@ static void tei_id_verify_net(struct FsmInst *fi , int event , void *arg )
   if (__cil_tmp33 == tei) {
     {
 #line 736
-    __cil_tmp34 = & tei_id_chk_req_net;
-#line 736
-    (*__cil_tmp34)(fi, event, arg);
+    tei_id_chk_req_net(fi, event, arg);
     }
   } else {
 
@@ -53594,13 +53570,7 @@ void main(void)
   int ldv_s_mISDN_fops_file_operations ;
   int tmp ;
   int tmp___0 ;
-  int (*__cil_tmp15)(struct inode *ino , struct file *filep ) ;
-  ssize_t (*__cil_tmp16)(struct file *filep , char *buf , size_t count , loff_t *off ) ;
-  int __cil_tmp17 ;
-  int (*__cil_tmp18)(struct inode *ino , struct file *filep ) ;
-  unsigned int (*__cil_tmp19)(struct file *filep , poll_table *wait ) ;
-  long (*__cil_tmp20)(struct file *filep , unsigned int cmd , unsigned long arg ) ;
-  void (*__cil_tmp21)(unsigned long data ) ;
+  int __cil_tmp15 ;
 
   {
   {
@@ -53649,9 +53619,7 @@ void main(void)
                 if (ldv_s_mISDN_fops_file_operations == 0) {
                   {
 #line 415
-                  __cil_tmp15 = & mISDN_open;
-#line 415
-                  res_mISDN_open_0 = (*__cil_tmp15)(var_group2, var_group1);
+                  res_mISDN_open_0 = mISDN_open(var_group2, var_group1);
 #line 416
                   ldv_check_return_value(res_mISDN_open_0);
                   }
@@ -53672,14 +53640,12 @@ void main(void)
                 if (ldv_s_mISDN_fops_file_operations == 1) {
                   {
 #line 434
-                  __cil_tmp16 = & mISDN_read;
-#line 434
-                  res_mISDN_read_2 = (*__cil_tmp16)(var_group1, var_mISDN_read_2_p1,
-                                                    var_mISDN_read_2_p2, var_mISDN_read_2_p3);
+                  res_mISDN_read_2 = mISDN_read(var_group1, var_mISDN_read_2_p1, var_mISDN_read_2_p2,
+                                                var_mISDN_read_2_p3);
 #line 435
-                  __cil_tmp17 = (int )res_mISDN_read_2;
+                  __cil_tmp15 = (int )res_mISDN_read_2;
 #line 435
-                  ldv_check_return_value(__cil_tmp17);
+                  ldv_check_return_value(__cil_tmp15);
                   }
 #line 436
                   if (res_mISDN_read_2 < 0L) {
@@ -53698,9 +53664,7 @@ void main(void)
                 if (ldv_s_mISDN_fops_file_operations == 2) {
                   {
 #line 453
-                  __cil_tmp18 = & mISDN_close;
-#line 453
-                  (*__cil_tmp18)(var_group2, var_group1);
+                  mISDN_close(var_group2, var_group1);
 #line 454
                   ldv_s_mISDN_fops_file_operations = 0;
                   }
@@ -53711,25 +53675,19 @@ void main(void)
                 case_3: 
                 {
 #line 469
-                __cil_tmp19 = & mISDN_poll;
-#line 469
-                (*__cil_tmp19)(var_group1, var_mISDN_poll_3_p1);
+                mISDN_poll(var_group1, var_mISDN_poll_3_p1);
                 }
                 goto ldv_38586;
                 case_4: 
                 {
 #line 485
-                __cil_tmp20 = & mISDN_ioctl;
-#line 485
-                (*__cil_tmp20)(var_group1, var_mISDN_ioctl_7_p1, var_mISDN_ioctl_7_p2);
+                mISDN_ioctl(var_group1, var_mISDN_ioctl_7_p1, var_mISDN_ioctl_7_p2);
                 }
                 goto ldv_38586;
                 case_5: 
                 {
 #line 501
-                __cil_tmp21 = & dev_expire_timer;
-#line 501
-                (*__cil_tmp21)(var_dev_expire_timer_4_p0);
+                dev_expire_timer(var_dev_expire_timer_4_p0);
                 }
                 goto ldv_38586;
                 switch_default: ;

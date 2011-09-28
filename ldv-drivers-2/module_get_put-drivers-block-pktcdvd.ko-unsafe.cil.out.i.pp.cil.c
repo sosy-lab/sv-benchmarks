@@ -8086,14 +8086,11 @@ static void pkt_sysfs_cleanup(void)
 #line 455 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/pktcdvd.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"
 static int pkt_debugfs_seq_show(struct seq_file *m , void *p ) 
 { int tmp ;
-  int (*__cil_tmp4)(struct seq_file *m , void *p ) ;
 
   {
   {
 #line 457
-  __cil_tmp4 = & pkt_seq_show;
-#line 457
-  tmp = (*__cil_tmp4)(m, p);
+  tmp = pkt_seq_show(m, p);
   }
 #line 457
   return (tmp);
@@ -20507,158 +20504,156 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
   unsigned long __cil_tmp142 ;
   int __cil_tmp143 ;
   long __cil_tmp144 ;
-  int (*__cil_tmp145)(struct request_queue *q , struct bio *bio ) ;
-  struct bio *__cil_tmp146 ;
-  int (*__cil_tmp147)(struct request_queue *q , struct bio *bio ) ;
-  unsigned long __cil_tmp148 ;
+  struct bio *__cil_tmp145 ;
+  unsigned long __cil_tmp146 ;
+  unsigned long __cil_tmp147 ;
+  struct bio *__cil_tmp148 ;
   unsigned long __cil_tmp149 ;
-  struct bio *__cil_tmp150 ;
+  unsigned long __cil_tmp150 ;
   unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
+  spinlock_t *__cil_tmp152 ;
   unsigned long __cil_tmp153 ;
-  spinlock_t *__cil_tmp154 ;
+  unsigned long __cil_tmp154 ;
   unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
+  struct list_head *__cil_tmp156 ;
   unsigned long __cil_tmp157 ;
-  struct list_head *__cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
+  unsigned long __cil_tmp158 ;
+  sector_t __cil_tmp159 ;
   unsigned long __cil_tmp160 ;
-  sector_t __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
+  unsigned long __cil_tmp161 ;
+  spinlock_t *__cil_tmp162 ;
   unsigned long __cil_tmp163 ;
-  spinlock_t *__cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  enum packet_data_state __cil_tmp167 ;
-  unsigned int __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  enum packet_data_state __cil_tmp171 ;
-  unsigned int __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  struct bio_list *__cil_tmp175 ;
-  struct bio **__cil_tmp176 ;
-  struct bio *__cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  struct bio **__cil_tmp180 ;
-  struct bio *__cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned int __cil_tmp184 ;
-  unsigned int __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  int __cil_tmp188 ;
-  unsigned int __cil_tmp189 ;
-  unsigned int __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
+  unsigned long __cil_tmp164 ;
+  enum packet_data_state __cil_tmp165 ;
+  unsigned int __cil_tmp166 ;
+  unsigned long __cil_tmp167 ;
+  unsigned long __cil_tmp168 ;
+  enum packet_data_state __cil_tmp169 ;
+  unsigned int __cil_tmp170 ;
+  unsigned long __cil_tmp171 ;
+  unsigned long __cil_tmp172 ;
+  struct bio_list *__cil_tmp173 ;
+  struct bio **__cil_tmp174 ;
+  struct bio *__cil_tmp175 ;
+  unsigned long __cil_tmp176 ;
+  unsigned long __cil_tmp177 ;
+  struct bio **__cil_tmp178 ;
+  struct bio *__cil_tmp179 ;
+  unsigned long __cil_tmp180 ;
+  unsigned long __cil_tmp181 ;
+  unsigned int __cil_tmp182 ;
+  unsigned int __cil_tmp183 ;
+  unsigned long __cil_tmp184 ;
+  unsigned long __cil_tmp185 ;
+  int __cil_tmp186 ;
+  unsigned int __cil_tmp187 ;
+  unsigned int __cil_tmp188 ;
+  unsigned long __cil_tmp189 ;
+  unsigned long __cil_tmp190 ;
+  int __cil_tmp191 ;
   unsigned long __cil_tmp192 ;
-  int __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
+  unsigned long __cil_tmp193 ;
+  int __cil_tmp194 ;
   unsigned long __cil_tmp195 ;
-  int __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  enum packet_data_state __cil_tmp199 ;
-  unsigned int __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
+  unsigned long __cil_tmp196 ;
+  enum packet_data_state __cil_tmp197 ;
+  unsigned int __cil_tmp198 ;
+  unsigned long __cil_tmp199 ;
+  unsigned long __cil_tmp200 ;
+  atomic_t *__cil_tmp201 ;
   unsigned long __cil_tmp202 ;
-  atomic_t *__cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  wait_queue_head_t *__cil_tmp206 ;
-  void *__cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
+  unsigned long __cil_tmp203 ;
+  wait_queue_head_t *__cil_tmp204 ;
+  void *__cil_tmp205 ;
+  unsigned long __cil_tmp206 ;
+  unsigned long __cil_tmp207 ;
+  spinlock_t *__cil_tmp208 ;
   unsigned long __cil_tmp209 ;
-  spinlock_t *__cil_tmp210 ;
+  unsigned long __cil_tmp210 ;
   unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
+  spinlock_t *__cil_tmp212 ;
   unsigned long __cil_tmp213 ;
-  spinlock_t *__cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  spinlock_t *__cil_tmp217 ;
-  struct list_head *__cil_tmp218 ;
+  unsigned long __cil_tmp214 ;
+  spinlock_t *__cil_tmp215 ;
+  struct list_head *__cil_tmp216 ;
+  unsigned long __cil_tmp217 ;
+  unsigned long __cil_tmp218 ;
   unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
+  struct list_head *__cil_tmp220 ;
   unsigned long __cil_tmp221 ;
   struct list_head *__cil_tmp222 ;
   unsigned long __cil_tmp223 ;
-  struct list_head *__cil_tmp224 ;
+  unsigned long __cil_tmp224 ;
   unsigned long __cil_tmp225 ;
   unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
+  spinlock_t *__cil_tmp227 ;
   unsigned long __cil_tmp228 ;
-  spinlock_t *__cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
+  unsigned long __cil_tmp229 ;
+  spinlock_t *__cil_tmp230 ;
   unsigned long __cil_tmp231 ;
-  spinlock_t *__cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
+  unsigned long __cil_tmp232 ;
+  int __cil_tmp233 ;
   unsigned long __cil_tmp234 ;
-  int __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
+  unsigned long __cil_tmp235 ;
+  int __cil_tmp236 ;
   unsigned long __cil_tmp237 ;
-  int __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
+  unsigned long __cil_tmp238 ;
+  int __cil_tmp239 ;
   unsigned long __cil_tmp240 ;
-  int __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
+  unsigned long __cil_tmp241 ;
+  struct backing_dev_info *__cil_tmp242 ;
   unsigned long __cil_tmp243 ;
-  struct backing_dev_info *__cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
+  unsigned long __cil_tmp244 ;
+  spinlock_t *__cil_tmp245 ;
   unsigned long __cil_tmp246 ;
-  spinlock_t *__cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
+  unsigned long __cil_tmp247 ;
+  spinlock_t *__cil_tmp248 ;
   unsigned long __cil_tmp249 ;
-  spinlock_t *__cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
+  unsigned long __cil_tmp250 ;
+  int __cil_tmp251 ;
   unsigned long __cil_tmp252 ;
-  int __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
+  unsigned long __cil_tmp253 ;
+  int __cil_tmp254 ;
   unsigned long __cil_tmp255 ;
-  int __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
+  unsigned long __cil_tmp256 ;
+  spinlock_t *__cil_tmp257 ;
   unsigned long __cil_tmp258 ;
-  spinlock_t *__cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
+  unsigned long __cil_tmp259 ;
+  mempool_t *__cil_tmp260 ;
   unsigned long __cil_tmp261 ;
-  mempool_t *__cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
+  unsigned long __cil_tmp262 ;
+  struct bio **__cil_tmp263 ;
   unsigned long __cil_tmp264 ;
-  struct bio **__cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
+  unsigned long __cil_tmp265 ;
+  spinlock_t *__cil_tmp266 ;
   unsigned long __cil_tmp267 ;
-  spinlock_t *__cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  int __cil_tmp271 ;
-  int __cil_tmp272 ;
-  long __cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
+  unsigned long __cil_tmp268 ;
+  int __cil_tmp269 ;
+  int __cil_tmp270 ;
+  long __cil_tmp271 ;
+  unsigned long __cil_tmp272 ;
+  unsigned long __cil_tmp273 ;
+  int __cil_tmp274 ;
   unsigned long __cil_tmp275 ;
-  int __cil_tmp276 ;
-  unsigned long __cil_tmp277 ;
+  unsigned long __cil_tmp276 ;
+  spinlock_t *__cil_tmp277 ;
   unsigned long __cil_tmp278 ;
-  spinlock_t *__cil_tmp279 ;
-  unsigned long __cil_tmp280 ;
+  unsigned long __cil_tmp279 ;
+  atomic_t *__cil_tmp280 ;
   unsigned long __cil_tmp281 ;
-  atomic_t *__cil_tmp282 ;
-  unsigned long __cil_tmp283 ;
-  unsigned long __cil_tmp284 ;
-  wait_queue_head_t *__cil_tmp285 ;
-  void *__cil_tmp286 ;
-  unsigned long __cil_tmp287 ;
-  unsigned long __cil_tmp288 ;
-  struct list_head *__cil_tmp289 ;
-  struct list_head  const  *__cil_tmp290 ;
-  unsigned long __cil_tmp291 ;
-  unsigned long __cil_tmp292 ;
-  wait_queue_head_t *__cil_tmp293 ;
-  void *__cil_tmp294 ;
-  struct bio **__cil_tmp295 ;
-  struct bio *__cil_tmp296 ;
+  unsigned long __cil_tmp282 ;
+  wait_queue_head_t *__cil_tmp283 ;
+  void *__cil_tmp284 ;
+  unsigned long __cil_tmp285 ;
+  unsigned long __cil_tmp286 ;
+  struct list_head *__cil_tmp287 ;
+  struct list_head  const  *__cil_tmp288 ;
+  unsigned long __cil_tmp289 ;
+  unsigned long __cil_tmp290 ;
+  wait_queue_head_t *__cil_tmp291 ;
+  void *__cil_tmp292 ;
+  struct bio **__cil_tmp293 ;
+  struct bio *__cil_tmp294 ;
 
   {
 #line 2464
@@ -21029,21 +21024,17 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
     }
     {
 #line 2517
-    __cil_tmp145 = & pkt_make_request;
+    __cil_tmp145 = (struct bio *)bp;
 #line 2517
-    __cil_tmp146 = (struct bio *)bp;
-#line 2517
-    (*__cil_tmp145)(q, __cil_tmp146);
+    pkt_make_request(q, __cil_tmp145);
 #line 2518
-    __cil_tmp147 = & pkt_make_request;
+    __cil_tmp146 = (unsigned long )bp;
 #line 2518
-    __cil_tmp148 = (unsigned long )bp;
+    __cil_tmp147 = __cil_tmp146 + 112;
 #line 2518
-    __cil_tmp149 = __cil_tmp148 + 112;
+    __cil_tmp148 = (struct bio *)__cil_tmp147;
 #line 2518
-    __cil_tmp150 = (struct bio *)__cil_tmp149;
-#line 2518
-    (*__cil_tmp147)(q, __cil_tmp150);
+    pkt_make_request(q, __cil_tmp148);
 #line 2519
     bio_pair_release(bp);
     }
@@ -21054,27 +21045,27 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
   }
   {
 #line 2528
-  __cil_tmp151 = 144 + 32;
+  __cil_tmp149 = 144 + 32;
 #line 2528
-  __cil_tmp152 = (unsigned long )pd;
+  __cil_tmp150 = (unsigned long )pd;
 #line 2528
-  __cil_tmp153 = __cil_tmp152 + __cil_tmp151;
+  __cil_tmp151 = __cil_tmp150 + __cil_tmp149;
 #line 2528
-  __cil_tmp154 = (spinlock_t *)__cil_tmp153;
+  __cil_tmp152 = (spinlock_t *)__cil_tmp151;
 #line 2528
-  spin_lock(__cil_tmp154);
+  spin_lock(__cil_tmp152);
 #line 2529
   blocked_bio = 0;
 #line 2530
-  __cil_tmp155 = 144 + 16;
+  __cil_tmp153 = 144 + 16;
 #line 2530
-  __cil_tmp156 = (unsigned long )pd;
+  __cil_tmp154 = (unsigned long )pd;
 #line 2530
-  __cil_tmp157 = __cil_tmp156 + __cil_tmp155;
+  __cil_tmp155 = __cil_tmp154 + __cil_tmp153;
 #line 2530
-  __cil_tmp158 = *((struct list_head **)__cil_tmp157);
+  __cil_tmp156 = *((struct list_head **)__cil_tmp155);
 #line 2530
-  __mptr = (struct list_head  const  *)__cil_tmp158;
+  __mptr = (struct list_head  const  *)__cil_tmp156;
 #line 2530
   pkt = (struct packet_data *)__mptr;
   }
@@ -21082,135 +21073,135 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
   ldv_31305: ;
   {
 #line 2531
-  __cil_tmp159 = (unsigned long )pkt;
+  __cil_tmp157 = (unsigned long )pkt;
 #line 2531
-  __cil_tmp160 = __cil_tmp159 + 120;
+  __cil_tmp158 = __cil_tmp157 + 120;
 #line 2531
-  __cil_tmp161 = *((sector_t *)__cil_tmp160);
+  __cil_tmp159 = *((sector_t *)__cil_tmp158);
 #line 2531
-  if (__cil_tmp161 == zone) {
+  if (__cil_tmp159 == zone) {
     {
 #line 2532
-    __cil_tmp162 = (unsigned long )pkt;
+    __cil_tmp160 = (unsigned long )pkt;
 #line 2532
-    __cil_tmp163 = __cil_tmp162 + 16;
+    __cil_tmp161 = __cil_tmp160 + 16;
 #line 2532
-    __cil_tmp164 = (spinlock_t *)__cil_tmp163;
+    __cil_tmp162 = (spinlock_t *)__cil_tmp161;
 #line 2532
-    spin_lock(__cil_tmp164);
+    spin_lock(__cil_tmp162);
     }
     {
 #line 2533
-    __cil_tmp165 = (unsigned long )pkt;
+    __cil_tmp163 = (unsigned long )pkt;
 #line 2533
-    __cil_tmp166 = __cil_tmp165 + 132;
+    __cil_tmp164 = __cil_tmp163 + 132;
 #line 2533
-    __cil_tmp167 = *((enum packet_data_state *)__cil_tmp166);
+    __cil_tmp165 = *((enum packet_data_state *)__cil_tmp164);
 #line 2533
-    __cil_tmp168 = (unsigned int )__cil_tmp167;
+    __cil_tmp166 = (unsigned int )__cil_tmp165;
 #line 2533
-    if (__cil_tmp168 == 1U) {
+    if (__cil_tmp166 == 1U) {
       goto _L;
     } else {
       {
 #line 2533
-      __cil_tmp169 = (unsigned long )pkt;
+      __cil_tmp167 = (unsigned long )pkt;
 #line 2533
-      __cil_tmp170 = __cil_tmp169 + 132;
+      __cil_tmp168 = __cil_tmp167 + 132;
 #line 2533
-      __cil_tmp171 = *((enum packet_data_state *)__cil_tmp170);
+      __cil_tmp169 = *((enum packet_data_state *)__cil_tmp168);
 #line 2533
-      __cil_tmp172 = (unsigned int )__cil_tmp171;
+      __cil_tmp170 = (unsigned int )__cil_tmp169;
 #line 2533
-      if (__cil_tmp172 == 2U) {
+      if (__cil_tmp170 == 2U) {
         _L: 
         {
 #line 2535
-        __cil_tmp173 = (unsigned long )pkt;
+        __cil_tmp171 = (unsigned long )pkt;
 #line 2535
-        __cil_tmp174 = __cil_tmp173 + 88;
+        __cil_tmp172 = __cil_tmp171 + 88;
 #line 2535
-        __cil_tmp175 = (struct bio_list *)__cil_tmp174;
+        __cil_tmp173 = (struct bio_list *)__cil_tmp172;
 #line 2535
-        __cil_tmp176 = & bio;
+        __cil_tmp174 = & bio;
 #line 2535
-        __cil_tmp177 = *__cil_tmp176;
+        __cil_tmp175 = *__cil_tmp174;
 #line 2535
-        bio_list_add(__cil_tmp175, __cil_tmp177);
+        bio_list_add(__cil_tmp173, __cil_tmp175);
 #line 2536
-        __cil_tmp178 = (unsigned long )pkt;
+        __cil_tmp176 = (unsigned long )pkt;
 #line 2536
-        __cil_tmp179 = __cil_tmp178 + 104;
+        __cil_tmp177 = __cil_tmp176 + 104;
 #line 2536
-        __cil_tmp180 = & bio;
+        __cil_tmp178 = & bio;
 #line 2536
-        __cil_tmp181 = *__cil_tmp180;
+        __cil_tmp179 = *__cil_tmp178;
 #line 2536
-        __cil_tmp182 = (unsigned long )__cil_tmp181;
+        __cil_tmp180 = (unsigned long )__cil_tmp179;
 #line 2536
-        __cil_tmp183 = __cil_tmp182 + 48;
+        __cil_tmp181 = __cil_tmp180 + 48;
 #line 2536
-        __cil_tmp184 = *((unsigned int *)__cil_tmp183);
+        __cil_tmp182 = *((unsigned int *)__cil_tmp181);
 #line 2536
-        __cil_tmp185 = __cil_tmp184 / 2048U;
+        __cil_tmp183 = __cil_tmp182 / 2048U;
 #line 2536
-        __cil_tmp186 = (unsigned long )pkt;
+        __cil_tmp184 = (unsigned long )pkt;
 #line 2536
-        __cil_tmp187 = __cil_tmp186 + 104;
+        __cil_tmp185 = __cil_tmp184 + 104;
 #line 2536
-        __cil_tmp188 = *((int *)__cil_tmp187);
+        __cil_tmp186 = *((int *)__cil_tmp185);
 #line 2536
-        __cil_tmp189 = (unsigned int )__cil_tmp188;
+        __cil_tmp187 = (unsigned int )__cil_tmp186;
 #line 2536
-        __cil_tmp190 = __cil_tmp189 + __cil_tmp185;
+        __cil_tmp188 = __cil_tmp187 + __cil_tmp183;
 #line 2536
-        *((int *)__cil_tmp179) = (int )__cil_tmp190;
+        *((int *)__cil_tmp177) = (int )__cil_tmp188;
         }
         {
 #line 2537
-        __cil_tmp191 = (unsigned long )pkt;
+        __cil_tmp189 = (unsigned long )pkt;
 #line 2537
-        __cil_tmp192 = __cil_tmp191 + 128;
+        __cil_tmp190 = __cil_tmp189 + 128;
 #line 2537
-        __cil_tmp193 = *((int *)__cil_tmp192);
+        __cil_tmp191 = *((int *)__cil_tmp190);
 #line 2537
-        __cil_tmp194 = (unsigned long )pkt;
+        __cil_tmp192 = (unsigned long )pkt;
 #line 2537
-        __cil_tmp195 = __cil_tmp194 + 104;
+        __cil_tmp193 = __cil_tmp192 + 104;
 #line 2537
-        __cil_tmp196 = *((int *)__cil_tmp195);
+        __cil_tmp194 = *((int *)__cil_tmp193);
 #line 2537
-        if (__cil_tmp196 >= __cil_tmp193) {
+        if (__cil_tmp194 >= __cil_tmp191) {
           {
 #line 2537
-          __cil_tmp197 = (unsigned long )pkt;
+          __cil_tmp195 = (unsigned long )pkt;
 #line 2537
-          __cil_tmp198 = __cil_tmp197 + 132;
+          __cil_tmp196 = __cil_tmp195 + 132;
 #line 2537
-          __cil_tmp199 = *((enum packet_data_state *)__cil_tmp198);
+          __cil_tmp197 = *((enum packet_data_state *)__cil_tmp196);
 #line 2537
-          __cil_tmp200 = (unsigned int )__cil_tmp199;
+          __cil_tmp198 = (unsigned int )__cil_tmp197;
 #line 2537
-          if (__cil_tmp200 == 1U) {
+          if (__cil_tmp198 == 1U) {
             {
 #line 2539
-            __cil_tmp201 = (unsigned long )pkt;
+            __cil_tmp199 = (unsigned long )pkt;
 #line 2539
-            __cil_tmp202 = __cil_tmp201 + 164;
+            __cil_tmp200 = __cil_tmp199 + 164;
 #line 2539
-            __cil_tmp203 = (atomic_t *)__cil_tmp202;
+            __cil_tmp201 = (atomic_t *)__cil_tmp200;
 #line 2539
-            atomic_inc(__cil_tmp203);
+            atomic_inc(__cil_tmp201);
 #line 2540
-            __cil_tmp204 = (unsigned long )pd;
+            __cil_tmp202 = (unsigned long )pd;
 #line 2540
-            __cil_tmp205 = __cil_tmp204 + 264;
+            __cil_tmp203 = __cil_tmp202 + 264;
 #line 2540
-            __cil_tmp206 = (wait_queue_head_t *)__cil_tmp205;
+            __cil_tmp204 = (wait_queue_head_t *)__cil_tmp203;
 #line 2540
-            __cil_tmp207 = (void *)0;
+            __cil_tmp205 = (void *)0;
 #line 2540
-            __wake_up(__cil_tmp206, 3U, 1, __cil_tmp207);
+            __wake_up(__cil_tmp204, 3U, 1, __cil_tmp205);
             }
           } else {
 
@@ -21222,23 +21213,23 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
         }
         {
 #line 2542
-        __cil_tmp208 = (unsigned long )pkt;
+        __cil_tmp206 = (unsigned long )pkt;
 #line 2542
-        __cil_tmp209 = __cil_tmp208 + 16;
+        __cil_tmp207 = __cil_tmp206 + 16;
 #line 2542
-        __cil_tmp210 = (spinlock_t *)__cil_tmp209;
+        __cil_tmp208 = (spinlock_t *)__cil_tmp207;
 #line 2542
-        spin_unlock(__cil_tmp210);
+        spin_unlock(__cil_tmp208);
 #line 2543
-        __cil_tmp211 = 144 + 32;
+        __cil_tmp209 = 144 + 32;
 #line 2543
-        __cil_tmp212 = (unsigned long )pd;
+        __cil_tmp210 = (unsigned long )pd;
 #line 2543
-        __cil_tmp213 = __cil_tmp212 + __cil_tmp211;
+        __cil_tmp211 = __cil_tmp210 + __cil_tmp209;
 #line 2543
-        __cil_tmp214 = (spinlock_t *)__cil_tmp213;
+        __cil_tmp212 = (spinlock_t *)__cil_tmp211;
 #line 2543
-        spin_unlock(__cil_tmp214);
+        spin_unlock(__cil_tmp212);
         }
 #line 2544
         return (0);
@@ -21251,42 +21242,42 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
     }
     {
 #line 2548
-    __cil_tmp215 = (unsigned long )pkt;
+    __cil_tmp213 = (unsigned long )pkt;
 #line 2548
-    __cil_tmp216 = __cil_tmp215 + 16;
+    __cil_tmp214 = __cil_tmp213 + 16;
 #line 2548
-    __cil_tmp217 = (spinlock_t *)__cil_tmp216;
+    __cil_tmp215 = (spinlock_t *)__cil_tmp214;
 #line 2548
-    spin_unlock(__cil_tmp217);
+    spin_unlock(__cil_tmp215);
     }
   } else {
 
   }
   }
 #line 2530
-  __cil_tmp218 = *((struct list_head **)pkt);
+  __cil_tmp216 = *((struct list_head **)pkt);
 #line 2530
-  __mptr___0 = (struct list_head  const  *)__cil_tmp218;
+  __mptr___0 = (struct list_head  const  *)__cil_tmp216;
 #line 2530
   pkt = (struct packet_data *)__mptr___0;
   ldv_31306: ;
   {
 #line 2530
-  __cil_tmp219 = 144 + 16;
+  __cil_tmp217 = 144 + 16;
 #line 2530
-  __cil_tmp220 = (unsigned long )pd;
+  __cil_tmp218 = (unsigned long )pd;
 #line 2530
-  __cil_tmp221 = __cil_tmp220 + __cil_tmp219;
+  __cil_tmp219 = __cil_tmp218 + __cil_tmp217;
 #line 2530
-  __cil_tmp222 = (struct list_head *)__cil_tmp221;
+  __cil_tmp220 = (struct list_head *)__cil_tmp219;
+#line 2530
+  __cil_tmp221 = (unsigned long )__cil_tmp220;
+#line 2530
+  __cil_tmp222 = (struct list_head *)pkt;
 #line 2530
   __cil_tmp223 = (unsigned long )__cil_tmp222;
 #line 2530
-  __cil_tmp224 = (struct list_head *)pkt;
-#line 2530
-  __cil_tmp225 = (unsigned long )__cil_tmp224;
-#line 2530
-  if (__cil_tmp225 != __cil_tmp223) {
+  if (__cil_tmp223 != __cil_tmp221) {
     goto ldv_31305;
   } else {
     goto ldv_31307;
@@ -21295,94 +21286,94 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
   ldv_31307: 
   {
 #line 2551
-  __cil_tmp226 = 144 + 32;
+  __cil_tmp224 = 144 + 32;
 #line 2551
-  __cil_tmp227 = (unsigned long )pd;
+  __cil_tmp225 = (unsigned long )pd;
 #line 2551
-  __cil_tmp228 = __cil_tmp227 + __cil_tmp226;
+  __cil_tmp226 = __cil_tmp225 + __cil_tmp224;
 #line 2551
-  __cil_tmp229 = (spinlock_t *)__cil_tmp228;
+  __cil_tmp227 = (spinlock_t *)__cil_tmp226;
 #line 2551
-  spin_unlock(__cil_tmp229);
+  spin_unlock(__cil_tmp227);
 #line 2558
-  __cil_tmp230 = (unsigned long )pd;
+  __cil_tmp228 = (unsigned long )pd;
 #line 2558
-  __cil_tmp231 = __cil_tmp230 + 352;
+  __cil_tmp229 = __cil_tmp228 + 352;
 #line 2558
-  __cil_tmp232 = (spinlock_t *)__cil_tmp231;
+  __cil_tmp230 = (spinlock_t *)__cil_tmp229;
 #line 2558
-  spin_lock(__cil_tmp232);
+  spin_lock(__cil_tmp230);
   }
   {
 #line 2559
-  __cil_tmp233 = (unsigned long )pd;
+  __cil_tmp231 = (unsigned long )pd;
 #line 2559
-  __cil_tmp234 = __cil_tmp233 + 604;
+  __cil_tmp232 = __cil_tmp231 + 604;
 #line 2559
-  __cil_tmp235 = *((int *)__cil_tmp234);
+  __cil_tmp233 = *((int *)__cil_tmp232);
 #line 2559
-  if (__cil_tmp235 > 0) {
+  if (__cil_tmp233 > 0) {
     {
 #line 2559
-    __cil_tmp236 = (unsigned long )pd;
+    __cil_tmp234 = (unsigned long )pd;
 #line 2559
-    __cil_tmp237 = __cil_tmp236 + 604;
+    __cil_tmp235 = __cil_tmp234 + 604;
 #line 2559
-    __cil_tmp238 = *((int *)__cil_tmp237);
+    __cil_tmp236 = *((int *)__cil_tmp235);
 #line 2559
-    __cil_tmp239 = (unsigned long )pd;
+    __cil_tmp237 = (unsigned long )pd;
 #line 2559
-    __cil_tmp240 = __cil_tmp239 + 432;
+    __cil_tmp238 = __cil_tmp237 + 432;
 #line 2559
-    __cil_tmp241 = *((int *)__cil_tmp240);
+    __cil_tmp239 = *((int *)__cil_tmp238);
 #line 2559
-    if (__cil_tmp241 >= __cil_tmp238) {
+    if (__cil_tmp239 >= __cil_tmp236) {
       {
 #line 2561
-      __cil_tmp242 = (unsigned long )q;
+      __cil_tmp240 = (unsigned long )q;
 #line 2561
-      __cil_tmp243 = __cil_tmp242 + 536;
+      __cil_tmp241 = __cil_tmp240 + 536;
 #line 2561
-      __cil_tmp244 = (struct backing_dev_info *)__cil_tmp243;
+      __cil_tmp242 = (struct backing_dev_info *)__cil_tmp241;
 #line 2561
-      set_bdi_congested(__cil_tmp244, 0);
+      set_bdi_congested(__cil_tmp242, 0);
       }
       ldv_31308: 
       {
 #line 2563
-      __cil_tmp245 = (unsigned long )pd;
+      __cil_tmp243 = (unsigned long )pd;
 #line 2563
-      __cil_tmp246 = __cil_tmp245 + 352;
+      __cil_tmp244 = __cil_tmp243 + 352;
 #line 2563
-      __cil_tmp247 = (spinlock_t *)__cil_tmp246;
+      __cil_tmp245 = (spinlock_t *)__cil_tmp244;
 #line 2563
-      spin_unlock(__cil_tmp247);
+      spin_unlock(__cil_tmp245);
 #line 2564
       congestion_wait(0, 250L);
 #line 2565
-      __cil_tmp248 = (unsigned long )pd;
+      __cil_tmp246 = (unsigned long )pd;
 #line 2565
-      __cil_tmp249 = __cil_tmp248 + 352;
+      __cil_tmp247 = __cil_tmp246 + 352;
 #line 2565
-      __cil_tmp250 = (spinlock_t *)__cil_tmp249;
+      __cil_tmp248 = (spinlock_t *)__cil_tmp247;
 #line 2565
-      spin_lock(__cil_tmp250);
+      spin_lock(__cil_tmp248);
       }
       {
 #line 2566
-      __cil_tmp251 = (unsigned long )pd;
+      __cil_tmp249 = (unsigned long )pd;
 #line 2566
-      __cil_tmp252 = __cil_tmp251 + 600;
+      __cil_tmp250 = __cil_tmp249 + 600;
 #line 2566
-      __cil_tmp253 = *((int *)__cil_tmp252);
+      __cil_tmp251 = *((int *)__cil_tmp250);
 #line 2566
-      __cil_tmp254 = (unsigned long )pd;
+      __cil_tmp252 = (unsigned long )pd;
 #line 2566
-      __cil_tmp255 = __cil_tmp254 + 432;
+      __cil_tmp253 = __cil_tmp252 + 432;
 #line 2566
-      __cil_tmp256 = *((int *)__cil_tmp255);
+      __cil_tmp254 = *((int *)__cil_tmp253);
 #line 2566
-      if (__cil_tmp256 > __cil_tmp253) {
+      if (__cil_tmp254 > __cil_tmp251) {
         goto ldv_31308;
       } else {
         goto ldv_31309;
@@ -21399,51 +21390,51 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
   }
   {
 #line 2568
-  __cil_tmp257 = (unsigned long )pd;
+  __cil_tmp255 = (unsigned long )pd;
 #line 2568
-  __cil_tmp258 = __cil_tmp257 + 352;
+  __cil_tmp256 = __cil_tmp255 + 352;
 #line 2568
-  __cil_tmp259 = (spinlock_t *)__cil_tmp258;
+  __cil_tmp257 = (spinlock_t *)__cil_tmp256;
 #line 2568
-  spin_unlock(__cil_tmp259);
+  spin_unlock(__cil_tmp257);
 #line 2573
-  __cil_tmp260 = (unsigned long )pd;
+  __cil_tmp258 = (unsigned long )pd;
 #line 2573
-  __cil_tmp261 = __cil_tmp260 + 456;
+  __cil_tmp259 = __cil_tmp258 + 456;
 #line 2573
-  __cil_tmp262 = *((mempool_t **)__cil_tmp261);
+  __cil_tmp260 = *((mempool_t **)__cil_tmp259);
 #line 2573
-  tmp___5 = mempool_alloc(__cil_tmp262, 16U);
+  tmp___5 = mempool_alloc(__cil_tmp260, 16U);
 #line 2573
   node = (struct pkt_rb_node *)tmp___5;
 #line 2574
-  __cil_tmp263 = (unsigned long )node;
+  __cil_tmp261 = (unsigned long )node;
 #line 2574
-  __cil_tmp264 = __cil_tmp263 + 24;
+  __cil_tmp262 = __cil_tmp261 + 24;
 #line 2574
-  __cil_tmp265 = & bio;
+  __cil_tmp263 = & bio;
 #line 2574
-  *((struct bio **)__cil_tmp264) = *__cil_tmp265;
+  *((struct bio **)__cil_tmp262) = *__cil_tmp263;
 #line 2575
-  __cil_tmp266 = (unsigned long )pd;
+  __cil_tmp264 = (unsigned long )pd;
 #line 2575
-  __cil_tmp267 = __cil_tmp266 + 352;
+  __cil_tmp265 = __cil_tmp264 + 352;
 #line 2575
-  __cil_tmp268 = (spinlock_t *)__cil_tmp267;
+  __cil_tmp266 = (spinlock_t *)__cil_tmp265;
 #line 2575
-  spin_lock(__cil_tmp268);
+  spin_lock(__cil_tmp266);
 #line 2576
-  __cil_tmp269 = (unsigned long )pd;
+  __cil_tmp267 = (unsigned long )pd;
 #line 2576
-  __cil_tmp270 = __cil_tmp269 + 432;
+  __cil_tmp268 = __cil_tmp267 + 432;
 #line 2576
-  __cil_tmp271 = *((int *)__cil_tmp270);
+  __cil_tmp269 = *((int *)__cil_tmp268);
 #line 2576
-  __cil_tmp272 = __cil_tmp271 < 0;
+  __cil_tmp270 = __cil_tmp269 < 0;
 #line 2576
-  __cil_tmp273 = (long )__cil_tmp272;
+  __cil_tmp271 = (long )__cil_tmp270;
 #line 2576
-  tmp___6 = __builtin_expect(__cil_tmp273, 0L);
+  tmp___6 = __builtin_expect(__cil_tmp271, 0L);
   }
 #line 2576
   if (tmp___6 != 0L) {
@@ -21457,58 +21448,58 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
   }
   {
 #line 2577
-  __cil_tmp274 = (unsigned long )pd;
+  __cil_tmp272 = (unsigned long )pd;
 #line 2577
-  __cil_tmp275 = __cil_tmp274 + 432;
+  __cil_tmp273 = __cil_tmp272 + 432;
 #line 2577
-  __cil_tmp276 = *((int *)__cil_tmp275);
+  __cil_tmp274 = *((int *)__cil_tmp273);
 #line 2577
-  was_empty = __cil_tmp276 == 0;
+  was_empty = __cil_tmp274 == 0;
 #line 2578
   pkt_rbtree_insert(pd, node);
 #line 2579
-  __cil_tmp277 = (unsigned long )pd;
+  __cil_tmp275 = (unsigned long )pd;
 #line 2579
-  __cil_tmp278 = __cil_tmp277 + 352;
+  __cil_tmp276 = __cil_tmp275 + 352;
 #line 2579
-  __cil_tmp279 = (spinlock_t *)__cil_tmp278;
+  __cil_tmp277 = (spinlock_t *)__cil_tmp276;
 #line 2579
-  spin_unlock(__cil_tmp279);
+  spin_unlock(__cil_tmp277);
 #line 2584
-  __cil_tmp280 = (unsigned long )pd;
+  __cil_tmp278 = (unsigned long )pd;
 #line 2584
-  __cil_tmp281 = __cil_tmp280 + 448;
+  __cil_tmp279 = __cil_tmp278 + 448;
 #line 2584
-  __cil_tmp282 = (atomic_t *)__cil_tmp281;
+  __cil_tmp280 = (atomic_t *)__cil_tmp279;
 #line 2584
-  atomic_set(__cil_tmp282, 1);
+  atomic_set(__cil_tmp280, 1);
   }
 #line 2585
   if (was_empty != 0) {
     {
 #line 2587
-    __cil_tmp283 = (unsigned long )pd;
+    __cil_tmp281 = (unsigned long )pd;
 #line 2587
-    __cil_tmp284 = __cil_tmp283 + 264;
+    __cil_tmp282 = __cil_tmp281 + 264;
 #line 2587
-    __cil_tmp285 = (wait_queue_head_t *)__cil_tmp284;
+    __cil_tmp283 = (wait_queue_head_t *)__cil_tmp282;
 #line 2587
-    __cil_tmp286 = (void *)0;
+    __cil_tmp284 = (void *)0;
 #line 2587
-    __wake_up(__cil_tmp285, 3U, 1, __cil_tmp286);
+    __wake_up(__cil_tmp283, 3U, 1, __cil_tmp284);
     }
   } else {
     {
 #line 2588
-    __cil_tmp287 = (unsigned long )pd;
+    __cil_tmp285 = (unsigned long )pd;
 #line 2588
-    __cil_tmp288 = __cil_tmp287 + 144;
+    __cil_tmp286 = __cil_tmp285 + 144;
 #line 2588
-    __cil_tmp289 = (struct list_head *)__cil_tmp288;
+    __cil_tmp287 = (struct list_head *)__cil_tmp286;
 #line 2588
-    __cil_tmp290 = (struct list_head  const  *)__cil_tmp289;
+    __cil_tmp288 = (struct list_head  const  *)__cil_tmp287;
 #line 2588
-    tmp___7 = list_empty(__cil_tmp290);
+    tmp___7 = list_empty(__cil_tmp288);
     }
 #line 2588
     if (tmp___7 == 0) {
@@ -21516,15 +21507,15 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
       if (blocked_bio == 0) {
         {
 #line 2593
-        __cil_tmp291 = (unsigned long )pd;
+        __cil_tmp289 = (unsigned long )pd;
 #line 2593
-        __cil_tmp292 = __cil_tmp291 + 264;
+        __cil_tmp290 = __cil_tmp289 + 264;
 #line 2593
-        __cil_tmp293 = (wait_queue_head_t *)__cil_tmp292;
+        __cil_tmp291 = (wait_queue_head_t *)__cil_tmp290;
 #line 2593
-        __cil_tmp294 = (void *)0;
+        __cil_tmp292 = (void *)0;
 #line 2593
-        __wake_up(__cil_tmp293, 3U, 1, __cil_tmp294);
+        __wake_up(__cil_tmp291, 3U, 1, __cil_tmp292);
         }
       } else {
 
@@ -21538,11 +21529,11 @@ static int pkt_make_request(struct request_queue *q , struct bio *bio )
   end_io: 
   {
 #line 2597
-  __cil_tmp295 = & bio;
+  __cil_tmp293 = & bio;
 #line 2597
-  __cil_tmp296 = *__cil_tmp295;
+  __cil_tmp294 = *__cil_tmp293;
 #line 2597
-  bio_endio(__cil_tmp296, -5);
+  bio_endio(__cil_tmp294, -5);
   }
 #line 2598
   return (0);
@@ -24162,8 +24153,7 @@ static long pkt_ctl_compat_ioctl(struct file *file , unsigned int cmd , unsigned
 { void *tmp ;
   long tmp___0 ;
   unsigned int __cil_tmp6 ;
-  long (*__cil_tmp7)(struct file *file , unsigned int cmd , unsigned long arg ) ;
-  unsigned long __cil_tmp8 ;
+  unsigned long __cil_tmp7 ;
 
   {
   {
@@ -24172,11 +24162,9 @@ static long pkt_ctl_compat_ioctl(struct file *file , unsigned int cmd , unsigned
 #line 3042
   tmp = compat_ptr(__cil_tmp6);
 #line 3042
-  __cil_tmp7 = & pkt_ctl_ioctl;
+  __cil_tmp7 = (unsigned long )tmp;
 #line 3042
-  __cil_tmp8 = (unsigned long )tmp;
-#line 3042
-  tmp___0 = (*__cil_tmp7)(file, cmd, __cil_tmp8);
+  tmp___0 = pkt_ctl_ioctl(file, cmd, __cil_tmp7);
   }
 #line 3042
   return (tmp___0);
@@ -24402,20 +24390,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  ssize_t (*__cil_tmp31)(struct kobject *kobj , struct attribute *attr , char *data ) ;
-  ssize_t (*__cil_tmp32)(struct kobject *kobj , struct attribute *attr , char const   *data ,
-                         size_t len ) ;
-  void (*__cil_tmp33)(struct kobject *kobj ) ;
-  void (*__cil_tmp34)(struct kobject *kobj ) ;
-  int (*__cil_tmp35)(struct inode *inode , struct file *file ) ;
-  int (*__cil_tmp36)(struct inode *inode , struct file *file ) ;
-  int (*__cil_tmp37)(struct block_device *bdev , fmode_t mode ) ;
-  int (*__cil_tmp38)(struct gendisk *disk , fmode_t mode ) ;
-  int (*__cil_tmp39)(struct block_device *bdev , fmode_t mode , unsigned int cmd ,
-                     unsigned long arg ) ;
-  unsigned int (*__cil_tmp40)(struct gendisk *disk , unsigned int clearing ) ;
-  long (*__cil_tmp41)(struct file *file , unsigned int cmd , unsigned long arg ) ;
-  long (*__cil_tmp42)(struct file *file , unsigned int cmd , unsigned long arg ) ;
 
   {
   {
@@ -24502,17 +24476,13 @@ void main(void)
                             case_0: 
                             {
 #line 3733
-                            __cil_tmp31 = & kobj_pkt_show;
-#line 3733
-                            (*__cil_tmp31)(var_group1, var_group2, var_kobj_pkt_show_3_p2);
+                            kobj_pkt_show(var_group1, var_group2, var_kobj_pkt_show_3_p2);
                             }
                             goto ldv_31505;
                             case_1: 
                             {
 #line 3781
-                            __cil_tmp32 = & kobj_pkt_store;
-#line 3781
-                            (*__cil_tmp32)(var_group1, var_group2, var_kobj_pkt_store_5_p2,
+                            kobj_pkt_store(var_group1, var_group2, var_kobj_pkt_store_5_p2,
                                            var_kobj_pkt_store_5_p3);
                             }
                             goto ldv_31505;
@@ -24521,9 +24491,7 @@ void main(void)
                             if (ldv_s_kobj_pkt_type_stat_kobj_type == 0) {
                               {
 #line 3827
-                              __cil_tmp33 = & pkt_kobj_release;
-#line 3827
-                              (*__cil_tmp33)(var_group1);
+                              pkt_kobj_release(var_group1);
 #line 3846
                               ldv_s_kobj_pkt_type_stat_kobj_type = 0;
                               }
@@ -24536,9 +24504,7 @@ void main(void)
                             if (ldv_s_kobj_pkt_type_wqueue_kobj_type == 0) {
                               {
 #line 3875
-                              __cil_tmp34 = & pkt_kobj_release;
-#line 3875
-                              (*__cil_tmp34)(var_group1);
+                              pkt_kobj_release(var_group1);
 #line 3894
                               ldv_s_kobj_pkt_type_wqueue_kobj_type = 0;
                               }
@@ -24551,10 +24517,8 @@ void main(void)
                             if (ldv_s_debug_fops_file_operations == 0) {
                               {
 #line 3925
-                              __cil_tmp35 = & pkt_debugfs_fops_open;
-#line 3925
-                              res_pkt_debugfs_fops_open_15 = (*__cil_tmp35)(var_group3,
-                                                                            var_group4);
+                              res_pkt_debugfs_fops_open_15 = pkt_debugfs_fops_open(var_group3,
+                                                                                   var_group4);
 #line 3926
                               ldv_check_return_value(res_pkt_debugfs_fops_open_15);
                               }
@@ -24575,9 +24539,7 @@ void main(void)
                             if (ldv_s_pkt_proc_fops_file_operations == 0) {
                               {
 #line 3986
-                              __cil_tmp36 = & pkt_seq_open;
-#line 3986
-                              res_pkt_seq_open_80 = (*__cil_tmp36)(var_group3, var_group4);
+                              res_pkt_seq_open_80 = pkt_seq_open(var_group3, var_group4);
 #line 3987
                               ldv_check_return_value(res_pkt_seq_open_80);
                               }
@@ -24598,9 +24560,7 @@ void main(void)
                             if (ldv_s_pktcdvd_ops_block_device_operations == 0) {
                               {
 #line 4037
-                              __cil_tmp37 = & pkt_open;
-#line 4037
-                              res_pkt_open_73 = (*__cil_tmp37)(var_group5, var_pkt_open_73_p1);
+                              res_pkt_open_73 = pkt_open(var_group5, var_pkt_open_73_p1);
 #line 4038
                               ldv_check_return_value(res_pkt_open_73);
                               }
@@ -24621,9 +24581,7 @@ void main(void)
                             if (ldv_s_pktcdvd_ops_block_device_operations == 1) {
                               {
 #line 4088
-                              __cil_tmp38 = & pkt_close;
-#line 4088
-                              (*__cil_tmp38)(var_group6, var_pkt_close_74_p1);
+                              pkt_close(var_group6, var_pkt_close_74_p1);
 #line 4095
                               ldv_s_pktcdvd_ops_block_device_operations = 0;
                               }
@@ -24634,35 +24592,27 @@ void main(void)
                             case_8: 
                             {
 #line 4136
-                            __cil_tmp39 = & pkt_ioctl;
-#line 4136
-                            (*__cil_tmp39)(var_group5, var_pkt_ioctl_82_p1, var_pkt_ioctl_82_p2,
-                                           var_pkt_ioctl_82_p3);
+                            pkt_ioctl(var_group5, var_pkt_ioctl_82_p1, var_pkt_ioctl_82_p2,
+                                      var_pkt_ioctl_82_p3);
                             }
                             goto ldv_31505;
                             case_9: 
                             {
 #line 4184
-                            __cil_tmp40 = & pkt_check_events;
-#line 4184
-                            (*__cil_tmp40)(var_group6, var_pkt_check_events_83_p1);
+                            pkt_check_events(var_group6, var_pkt_check_events_83_p1);
                             }
                             goto ldv_31505;
                             case_10: 
                             {
 #line 4232
-                            __cil_tmp41 = & pkt_ctl_ioctl;
-#line 4232
-                            (*__cil_tmp41)(var_group4, var_pkt_ctl_ioctl_88_p1, var_pkt_ctl_ioctl_88_p2);
+                            pkt_ctl_ioctl(var_group4, var_pkt_ctl_ioctl_88_p1, var_pkt_ctl_ioctl_88_p2);
                             }
                             goto ldv_31505;
                             case_11: 
                             {
 #line 4281
-                            __cil_tmp42 = & pkt_ctl_compat_ioctl;
-#line 4281
-                            (*__cil_tmp42)(var_group4, var_pkt_ctl_compat_ioctl_89_p1,
-                                           var_pkt_ctl_compat_ioctl_89_p2);
+                            pkt_ctl_compat_ioctl(var_group4, var_pkt_ctl_compat_ioctl_89_p1,
+                                                 var_pkt_ctl_compat_ioctl_89_p2);
                             }
                             goto ldv_31505;
                             switch_default: ;

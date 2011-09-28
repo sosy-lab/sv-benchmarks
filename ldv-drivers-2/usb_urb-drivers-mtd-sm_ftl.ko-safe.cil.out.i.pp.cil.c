@@ -13039,13 +13039,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp13 ;
-  int (*__cil_tmp14)(struct mtd_blktrans_dev *dev ) ;
-  int (*__cil_tmp15)(struct mtd_blktrans_dev *dev , struct hd_geometry *geo ) ;
-  void (*__cil_tmp16)(struct mtd_blktrans_ops *tr , struct mtd_info *mtd ) ;
-  void (*__cil_tmp17)(struct mtd_blktrans_dev *dev ) ;
-  int (*__cil_tmp18)(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *buf ) ;
-  int (*__cil_tmp19)(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *buf ) ;
-  int (*__cil_tmp20)(struct mtd_blktrans_dev *dev ) ;
 
   {
   {
@@ -13127,9 +13120,7 @@ void main(void)
                     if (ldv_s_sm_ftl_ops_mtd_blktrans_ops == 0) {
                       {
 #line 1442
-                      __cil_tmp14 = & sm_release;
-#line 1442
-                      (*__cil_tmp14)(var_group1);
+                      sm_release(var_group1);
 #line 1443
                       ldv_s_sm_ftl_ops_mtd_blktrans_ops = 0;
                       }
@@ -13140,49 +13131,37 @@ void main(void)
                     case_1: 
                     {
 #line 1461
-                    __cil_tmp15 = & sm_getgeo;
-#line 1461
-                    (*__cil_tmp15)(var_group1, var_group2);
+                    sm_getgeo(var_group1, var_group2);
                     }
                     goto switch_break;
                     case_2: 
                     {
 #line 1480
-                    __cil_tmp16 = & sm_add_mtd;
-#line 1480
-                    (*__cil_tmp16)(var_group3, var_group4);
+                    sm_add_mtd(var_group3, var_group4);
                     }
                     goto switch_break;
                     case_3: 
                     {
 #line 1499
-                    __cil_tmp17 = & sm_remove_dev;
-#line 1499
-                    (*__cil_tmp17)(var_group1);
+                    sm_remove_dev(var_group1);
                     }
                     goto switch_break;
                     case_4: 
                     {
 #line 1518
-                    __cil_tmp18 = & sm_read;
-#line 1518
-                    (*__cil_tmp18)(var_group1, var_sm_read_28_p1, var_sm_read_28_p2);
+                    sm_read(var_group1, var_sm_read_28_p1, var_sm_read_28_p2);
                     }
                     goto switch_break;
                     case_5: 
                     {
 #line 1537
-                    __cil_tmp19 = & sm_write;
-#line 1537
-                    (*__cil_tmp19)(var_group1, var_sm_write_29_p1, var_sm_write_29_p2);
+                    sm_write(var_group1, var_sm_write_29_p1, var_sm_write_29_p2);
                     }
                     goto switch_break;
                     case_6: 
                     {
 #line 1556
-                    __cil_tmp20 = & sm_flush;
-#line 1556
-                    (*__cil_tmp20)(var_group1);
+                    sm_flush(var_group1);
                     }
                     goto switch_break;
                     switch_default: 

@@ -6255,8 +6255,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp7 ;
-  int (*__cil_tmp8)(struct usb_interface *intf , struct usb_device_id  const  *id ) ;
-  void (*__cil_tmp9)(struct usb_interface *intf ) ;
 
   {
   {
@@ -6318,9 +6316,7 @@ void main(void)
           if (ldv_s_kbtab_driver_usb_driver == 0) {
             {
 #line 335
-            __cil_tmp8 = & kbtab_probe;
-#line 335
-            res_kbtab_probe_3 = (*__cil_tmp8)(var_group1, var_kbtab_probe_3_p1);
+            res_kbtab_probe_3 = kbtab_probe(var_group1, var_kbtab_probe_3_p1);
 #line 336
             ldv_check_return_value(res_kbtab_probe_3);
             }
@@ -6341,9 +6337,7 @@ void main(void)
           if (ldv_s_kbtab_driver_usb_driver == 1) {
             {
 #line 360
-            __cil_tmp9 = & kbtab_disconnect;
-#line 360
-            (*__cil_tmp9)(var_group1);
+            kbtab_disconnect(var_group1);
 #line 361
             ldv_s_kbtab_driver_usb_driver = 0;
             }

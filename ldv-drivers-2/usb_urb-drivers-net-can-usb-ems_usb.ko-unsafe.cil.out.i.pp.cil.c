@@ -12755,11 +12755,6 @@ void main(void)
   int tmp___9 ;
   int __cil_tmp10 ;
   int __cil_tmp11 ;
-  int (*__cil_tmp12)(struct net_device *netdev ) ;
-  int (*__cil_tmp13)(struct net_device *netdev ) ;
-  netdev_tx_t (*__cil_tmp14)(struct sk_buff *skb , struct net_device *netdev ) ;
-  int (*__cil_tmp15)(struct usb_interface *intf , struct usb_device_id  const  *id ) ;
-  void (*__cil_tmp16)(struct usb_interface *intf ) ;
 
   {
   {
@@ -12844,9 +12839,7 @@ void main(void)
                 if (ldv_s_ems_usb_netdev_ops_net_device_ops == 0) {
                   {
 #line 1653
-                  __cil_tmp12 = & ems_usb_open;
-#line 1653
-                  res_ems_usb_open_10 = (*__cil_tmp12)(var_group1);
+                  res_ems_usb_open_10 = ems_usb_open(var_group1);
 #line 1654
                   ldv_check_return_value(res_ems_usb_open_10);
                   }
@@ -12867,9 +12860,7 @@ void main(void)
                 if (ldv_s_ems_usb_netdev_ops_net_device_ops == 1) {
                   {
 #line 1729
-                  __cil_tmp13 = & ems_usb_close;
-#line 1729
-                  res_ems_usb_close_12 = (*__cil_tmp13)(var_group1);
+                  res_ems_usb_close_12 = ems_usb_close(var_group1);
 #line 1730
                   ldv_check_return_value(res_ems_usb_close_12);
                   }
@@ -12888,9 +12879,7 @@ void main(void)
                 case_2: 
                 {
 #line 1805
-                __cil_tmp14 = & ems_usb_start_xmit;
-#line 1805
-                (*__cil_tmp14)(var_group2, var_group1);
+                ems_usb_start_xmit(var_group2, var_group1);
                 }
                 goto switch_break;
                 case_3: 
@@ -12898,9 +12887,7 @@ void main(void)
                 if (ldv_s_ems_usb_driver_usb_driver == 0) {
                   {
 #line 1878
-                  __cil_tmp15 = & ems_usb_probe;
-#line 1878
-                  res_ems_usb_probe_16 = (*__cil_tmp15)(var_group3, var_ems_usb_probe_16_p1);
+                  res_ems_usb_probe_16 = ems_usb_probe(var_group3, var_ems_usb_probe_16_p1);
 #line 1879
                   ldv_check_return_value(res_ems_usb_probe_16);
                   }
@@ -12921,9 +12908,7 @@ void main(void)
                 if (ldv_s_ems_usb_driver_usb_driver == 1) {
                   {
 #line 1954
-                  __cil_tmp16 = & ems_usb_disconnect;
-#line 1954
-                  (*__cil_tmp16)(var_group3);
+                  ems_usb_disconnect(var_group3);
 #line 1955
                   ldv_s_ems_usb_driver_usb_driver = 0;
                   }

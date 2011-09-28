@@ -30442,15 +30442,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp21)(struct inode *inode , struct file *filep ) ;
-  long (*__cil_tmp22)(struct file *filep , unsigned int cmd , unsigned long arg ) ;
-  char const   *(*__cil_tmp23)(struct Scsi_Host *host ) ;
-  int (*__cil_tmp24)(Scsi_Cmnd *cmd ) ;
-  int (*__cil_tmp25)(struct scsi_cmnd *cmd ) ;
-  int (*__cil_tmp26)(struct pci_dev *pdev , struct pci_device_id  const  *id ) ;
-  void (*__cil_tmp27)(struct pci_dev *pdev ) ;
-  irqreturn_t (*__cil_tmp28)(int irq , void *devp ) ;
-  irqreturn_t (*__cil_tmp29)(int irq , void *devp ) ;
 
   {
   {
@@ -30521,9 +30512,7 @@ void main(void)
                       if (ldv_s_megadev_fops_file_operations == 0) {
                         {
 #line 5809
-                        __cil_tmp21 = & megadev_open;
-#line 5809
-                        res_megadev_open_47 = (*__cil_tmp21)(var_group2, var_group1);
+                        res_megadev_open_47 = megadev_open(var_group2, var_group1);
 #line 5810
                         ldv_check_return_value(res_megadev_open_47);
                         }
@@ -30542,34 +30531,26 @@ void main(void)
                       case_1: 
                       {
 #line 5886
-                      __cil_tmp22 = & megadev_unlocked_ioctl;
-#line 5886
-                      (*__cil_tmp22)(var_group1, var_megadev_unlocked_ioctl_49_p1,
-                                     var_megadev_unlocked_ioctl_49_p2);
+                      megadev_unlocked_ioctl(var_group1, var_megadev_unlocked_ioctl_49_p1,
+                                             var_megadev_unlocked_ioctl_49_p2);
                       }
                       goto ldv_32894;
                       case_2: 
                       {
 #line 5942
-                      __cil_tmp23 = & megaraid_info;
-#line 5942
-                      (*__cil_tmp23)(var_group3);
+                      megaraid_info(var_group3);
                       }
                       goto ldv_32894;
                       case_3: 
                       {
 #line 6014
-                      __cil_tmp24 = & megaraid_abort;
-#line 6014
-                      (*__cil_tmp24)(var_megaraid_abort_21_p0);
+                      megaraid_abort(var_megaraid_abort_21_p0);
                       }
                       goto ldv_32894;
                       case_4: 
                       {
 #line 6086
-                      __cil_tmp25 = & megaraid_reset;
-#line 6086
-                      (*__cil_tmp25)(var_group4);
+                      megaraid_reset(var_group4);
                       }
                       goto ldv_32894;
                       case_5: ;
@@ -30577,9 +30558,8 @@ void main(void)
                       if (ldv_s_megaraid_pci_driver_pci_driver == 0) {
                         {
 #line 6176
-                        __cil_tmp26 = & megaraid_probe_one;
-#line 6176
-                        res_megaraid_probe_one_65 = (*__cil_tmp26)(var_group5, var_megaraid_probe_one_65_p1);
+                        res_megaraid_probe_one_65 = megaraid_probe_one(var_group5,
+                                                                       var_megaraid_probe_one_65_p1);
 #line 6177
                         ldv_check_return_value(res_megaraid_probe_one_65);
                         }
@@ -30598,9 +30578,7 @@ void main(void)
                       case_6: 
                       {
 #line 6255
-                      __cil_tmp27 = & megaraid_shutdown;
-#line 6255
-                      (*__cil_tmp27)(var_group5);
+                      megaraid_shutdown(var_group5);
                       }
                       goto ldv_32894;
                       case_7: 
@@ -30608,9 +30586,7 @@ void main(void)
 #line 6274
                       LDV_IN_INTERRUPT = 2;
 #line 6297
-                      __cil_tmp28 = & megaraid_isr_iomapped;
-#line 6297
-                      (*__cil_tmp28)(var_megaraid_isr_iomapped_12_p0, var_megaraid_isr_iomapped_12_p1);
+                      megaraid_isr_iomapped(var_megaraid_isr_iomapped_12_p0, var_megaraid_isr_iomapped_12_p1);
 #line 6336
                       LDV_IN_INTERRUPT = 1;
                       }
@@ -30620,9 +30596,7 @@ void main(void)
 #line 6346
                       LDV_IN_INTERRUPT = 2;
 #line 6369
-                      __cil_tmp29 = & megaraid_isr_memmapped;
-#line 6369
-                      (*__cil_tmp29)(var_megaraid_isr_memmapped_13_p0, var_megaraid_isr_memmapped_13_p1);
+                      megaraid_isr_memmapped(var_megaraid_isr_memmapped_13_p0, var_megaraid_isr_memmapped_13_p1);
 #line 6408
                       LDV_IN_INTERRUPT = 1;
                       }

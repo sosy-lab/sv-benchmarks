@@ -16389,7 +16389,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp7)(struct platform_device *pdev___0 ) ;
 
   {
   {
@@ -16426,9 +16425,7 @@ void main(void)
       if (ldv_s_it87_driver_platform_driver == 0) {
         {
 #line 2753
-        __cil_tmp7 = & it87_probe;
-#line 2753
-        res_it87_probe_61 = (*__cil_tmp7)(var_group1);
+        res_it87_probe_61 = it87_probe(var_group1);
 #line 2754
         ldv_check_return_value(res_it87_probe_61);
         }

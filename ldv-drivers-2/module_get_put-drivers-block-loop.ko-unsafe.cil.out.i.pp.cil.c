@@ -8492,12 +8492,11 @@ static int loop_switch(struct loop_device *lo , struct file *file )
   unsigned long __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  int (*__cil_tmp16)(struct request_queue *q , struct bio *old_bio ) ;
+  unsigned long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct request_queue *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct completion *__cil_tmp21 ;
+  struct request_queue *__cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
+  struct completion *__cil_tmp20 ;
 
   {
   {
@@ -8545,21 +8544,19 @@ static int loop_switch(struct loop_device *lo , struct file *file )
 #line 621
   *((struct block_device **)__cil_tmp15) = (struct block_device *)0;
 #line 622
-  __cil_tmp16 = & loop_make_request;
+  __cil_tmp16 = (unsigned long )lo;
 #line 622
-  __cil_tmp17 = (unsigned long )lo;
+  __cil_tmp17 = __cil_tmp16 + 640;
 #line 622
-  __cil_tmp18 = __cil_tmp17 + 640;
+  __cil_tmp18 = *((struct request_queue **)__cil_tmp17);
 #line 622
-  __cil_tmp19 = *((struct request_queue **)__cil_tmp18);
-#line 622
-  (*__cil_tmp16)(__cil_tmp19, bio);
+  loop_make_request(__cil_tmp18, bio);
 #line 623
-  __cil_tmp20 = (unsigned long )(& w) + 8;
+  __cil_tmp19 = (unsigned long )(& w) + 8;
 #line 623
-  __cil_tmp21 = (struct completion *)__cil_tmp20;
+  __cil_tmp20 = (struct completion *)__cil_tmp19;
 #line 623
-  wait_for_completion(__cil_tmp21);
+  wait_for_completion(__cil_tmp20);
   }
 #line 624
   return (0);
@@ -14842,8 +14839,6 @@ static int lo_compat_ioctl(struct block_device *bdev , fmode_t mode , unsigned i
   unsigned long __cil_tmp34 ;
   struct mutex *__cil_tmp35 ;
   unsigned int __cil_tmp36 ;
-  int (*__cil_tmp37)(struct block_device *bdev , fmode_t mode , unsigned int cmd ,
-                     unsigned long arg ) ;
 
   {
 #line 1461
@@ -14983,9 +14978,7 @@ static int lo_compat_ioctl(struct block_device *bdev , fmode_t mode , unsigned i
                     case_19462: 
                     {
 #line 1484
-                    __cil_tmp37 = & lo_ioctl;
-#line 1484
-                    err = (*__cil_tmp37)(bdev, mode, cmd, arg);
+                    err = lo_ioctl(bdev, mode, cmd, arg);
                     }
                     goto ldv_30916;
                     switch_default: 
@@ -16414,17 +16407,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp32)(struct loop_device *lo , int cmd , struct page *raw_page , unsigned int raw_off ,
-                     struct page *loop_page , unsigned int loop_off , int size , sector_t real_block ) ;
-  int (*__cil_tmp33)(struct loop_device *lo , int cmd , struct page *raw_page , unsigned int raw_off ,
-                     struct page *loop_page , unsigned int loop_off , int size , sector_t real_block ) ;
-  int (*__cil_tmp34)(struct loop_device *lo , struct loop_info64  const  *info ) ;
-  int (*__cil_tmp35)(struct block_device *bdev , fmode_t mode ) ;
-  int (*__cil_tmp36)(struct gendisk *disk , fmode_t mode ) ;
-  int (*__cil_tmp37)(struct block_device *bdev , fmode_t mode , unsigned int cmd ,
-                     unsigned long arg ) ;
-  int (*__cil_tmp38)(struct block_device *bdev , fmode_t mode , unsigned int cmd ,
-                     unsigned long arg ) ;
 
   {
   {
@@ -16483,29 +16465,23 @@ void main(void)
                   case_0: 
                   {
 #line 2082
-                  __cil_tmp32 = & transfer_none;
-#line 2082
-                  (*__cil_tmp32)(var_group1, var_transfer_none_0_p1, var_transfer_none_0_p2,
-                                 var_transfer_none_0_p3, var_transfer_none_0_p4, var_transfer_none_0_p5,
-                                 var_transfer_none_0_p6, var_transfer_none_0_p7);
+                  transfer_none(var_group1, var_transfer_none_0_p1, var_transfer_none_0_p2,
+                                var_transfer_none_0_p3, var_transfer_none_0_p4, var_transfer_none_0_p5,
+                                var_transfer_none_0_p6, var_transfer_none_0_p7);
                   }
                   goto ldv_31125;
                   case_1: 
                   {
 #line 2115
-                  __cil_tmp33 = & transfer_xor;
-#line 2115
-                  (*__cil_tmp33)(var_group1, var_transfer_xor_1_p1, var_transfer_xor_1_p2,
-                                 var_transfer_xor_1_p3, var_transfer_xor_1_p4, var_transfer_xor_1_p5,
-                                 var_transfer_xor_1_p6, var_transfer_xor_1_p7);
+                  transfer_xor(var_group1, var_transfer_xor_1_p1, var_transfer_xor_1_p2,
+                               var_transfer_xor_1_p3, var_transfer_xor_1_p4, var_transfer_xor_1_p5,
+                               var_transfer_xor_1_p6, var_transfer_xor_1_p7);
                   }
                   goto ldv_31125;
                   case_2: 
                   {
 #line 2148
-                  __cil_tmp34 = & xor_init;
-#line 2148
-                  (*__cil_tmp34)(var_group1, var_xor_init_2_p1);
+                  xor_init(var_group1, var_xor_init_2_p1);
                   }
                   goto ldv_31125;
                   case_3: ;
@@ -16513,9 +16489,7 @@ void main(void)
                   if (ldv_s_lo_fops_block_device_operations == 0) {
                     {
 #line 2193
-                    __cil_tmp35 = & lo_open;
-#line 2193
-                    res_lo_open_51 = (*__cil_tmp35)(var_group2, var_lo_open_51_p1);
+                    res_lo_open_51 = lo_open(var_group2, var_lo_open_51_p1);
 #line 2194
                     ldv_check_return_value(res_lo_open_51);
                     }
@@ -16536,9 +16510,7 @@ void main(void)
                   if (ldv_s_lo_fops_block_device_operations == 1) {
                     {
 #line 2230
-                    __cil_tmp36 = & lo_release;
-#line 2230
-                    (*__cil_tmp36)(var_group3, var_lo_release_52_p1);
+                    lo_release(var_group3, var_lo_release_52_p1);
 #line 2237
                     ldv_s_lo_fops_block_device_operations = 0;
                     }
@@ -16549,19 +16521,14 @@ void main(void)
                   case_5: 
                   {
 #line 2262
-                  __cil_tmp37 = & lo_ioctl;
-#line 2262
-                  (*__cil_tmp37)(var_group2, var_lo_ioctl_45_p1, var_lo_ioctl_45_p2,
-                                 var_lo_ioctl_45_p3);
+                  lo_ioctl(var_group2, var_lo_ioctl_45_p1, var_lo_ioctl_45_p2, var_lo_ioctl_45_p3);
                   }
                   goto ldv_31125;
                   case_6: 
                   {
 #line 2297
-                  __cil_tmp38 = & lo_compat_ioctl;
-#line 2297
-                  (*__cil_tmp38)(var_group2, var_lo_compat_ioctl_50_p1, var_lo_compat_ioctl_50_p2,
-                                 var_lo_compat_ioctl_50_p3);
+                  lo_compat_ioctl(var_group2, var_lo_compat_ioctl_50_p1, var_lo_compat_ioctl_50_p2,
+                                  var_lo_compat_ioctl_50_p3);
                   }
                   goto ldv_31125;
                   switch_default: ;

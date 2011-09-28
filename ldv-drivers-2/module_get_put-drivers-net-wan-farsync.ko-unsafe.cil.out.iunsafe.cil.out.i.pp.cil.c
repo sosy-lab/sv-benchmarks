@@ -19630,12 +19630,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp16)(struct net_device *dev ) ;
-  int (*__cil_tmp17)(struct net_device *dev ) ;
-  int (*__cil_tmp18)(struct net_device *dev , struct ifreq *ifr , int cmd ) ;
-  void (*__cil_tmp19)(struct net_device *dev ) ;
-  int (*__cil_tmp20)(struct pci_dev *pdev , struct pci_device_id  const  *ent ) ;
-  irqreturn_t (*__cil_tmp21)(int dummy , void *dev_id ) ;
 
   {
   {
@@ -19694,9 +19688,7 @@ void main(void)
                 if (ldv_s_fst_ops_net_device_ops == 0) {
                   {
 #line 3807
-                  __cil_tmp16 = & fst_open;
-#line 3807
-                  res_fst_open_36 = (*__cil_tmp16)(var_group1);
+                  res_fst_open_36 = fst_open(var_group1);
 #line 3808
                   ldv_check_return_value(res_fst_open_36);
                   }
@@ -19717,9 +19709,7 @@ void main(void)
                 if (ldv_s_fst_ops_net_device_ops == 1) {
                   {
 #line 3952
-                  __cil_tmp17 = & fst_close;
-#line 3952
-                  res_fst_close_37 = (*__cil_tmp17)(var_group1);
+                  res_fst_close_37 = fst_close(var_group1);
 #line 3953
                   ldv_check_return_value(res_fst_close_37);
                   }
@@ -19738,17 +19728,13 @@ void main(void)
                 case_2: 
                 {
 #line 4097
-                __cil_tmp18 = & fst_ioctl;
-#line 4097
-                (*__cil_tmp18)(var_group1, var_group2, var_fst_ioctl_33_p2);
+                fst_ioctl(var_group1, var_group2, var_fst_ioctl_33_p2);
                 }
                 goto ldv_35563;
                 case_3: 
                 {
 #line 4239
-                __cil_tmp19 = & fst_tx_timeout;
-#line 4239
-                (*__cil_tmp19)(var_group1);
+                fst_tx_timeout(var_group1);
                 }
                 goto ldv_35563;
                 case_4: ;
@@ -19756,9 +19742,7 @@ void main(void)
                 if (ldv_s_fst_driver_pci_driver == 0) {
                   {
 #line 4381
-                  __cil_tmp20 = & fst_add_one;
-#line 4381
-                  res_fst_add_one_42 = (*__cil_tmp20)(var_group3, var_fst_add_one_42_p1);
+                  res_fst_add_one_42 = fst_add_one(var_group3, var_fst_add_one_42_p1);
 #line 4382
                   ldv_check_return_value(res_fst_add_one_42);
                   }
@@ -19779,9 +19763,7 @@ void main(void)
 #line 4395
                 LDV_IN_INTERRUPT = 2;
 #line 4514
-                __cil_tmp21 = & fst_intr;
-#line 4514
-                (*__cil_tmp21)(var_fst_intr_27_p0, var_fst_intr_27_p1);
+                fst_intr(var_fst_intr_27_p0, var_fst_intr_27_p1);
 #line 4527
                 LDV_IN_INTERRUPT = 1;
                 }

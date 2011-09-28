@@ -9367,18 +9367,17 @@ static void atl1c_restore_vlan(struct atl1c_adapter *adapter )
   unsigned long __cil_tmp16 ;
   struct device *__cil_tmp17 ;
   struct device  const  *__cil_tmp18 ;
-  void (*__cil_tmp19)(struct net_device *netdev , struct vlan_group *grp ) ;
-  struct net_device *__cil_tmp20 ;
+  struct net_device *__cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct vlan_group *__cil_tmp23 ;
-  char descriptor_enabled24 ;
-  unsigned char descriptor_flags25 ;
-  unsigned int descriptor_lineno26 ;
-  char const   *descriptor_format27 ;
-  char const   *descriptor_filename28 ;
-  char const   *descriptor_function29 ;
-  char const   *descriptor_modname30 ;
+  struct vlan_group *__cil_tmp22 ;
+  char descriptor_enabled23 ;
+  unsigned char descriptor_flags24 ;
+  unsigned int descriptor_lineno25 ;
+  char const   *descriptor_format26 ;
+  char const   *descriptor_filename27 ;
+  char const   *descriptor_function28 ;
+  char const   *descriptor_modname29 ;
 
   {
 #line 451
@@ -9400,21 +9399,21 @@ static void atl1c_restore_vlan(struct atl1c_adapter *adapter )
   if (__cil_tmp10 != 0U) {
     {
 #line 454
-    descriptor_modname30 = "atl1c";
+    descriptor_modname29 = "atl1c";
 #line 454
-    descriptor_function29 = "atl1c_restore_vlan";
+    descriptor_function28 = "atl1c_restore_vlan";
 #line 454
-    descriptor_filename28 = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
+    descriptor_filename27 = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
 #line 454
-    descriptor_format27 = "atl1c_restore_vlan !";
+    descriptor_format26 = "atl1c_restore_vlan !";
 #line 454
-    descriptor_lineno26 = 454U;
+    descriptor_lineno25 = 454U;
 #line 454
-    descriptor_flags25 = (unsigned char)0;
+    descriptor_flags24 = (unsigned char)0;
 #line 454
-    descriptor_enabled24 = (char)0;
+    descriptor_enabled23 = (char)0;
 #line 454
-    __cil_tmp11 = (signed char )descriptor_enabled24;
+    __cil_tmp11 = (signed char )descriptor_enabled23;
 #line 454
     __cil_tmp12 = (int )__cil_tmp11;
 #line 454
@@ -9447,17 +9446,15 @@ static void atl1c_restore_vlan(struct atl1c_adapter *adapter )
   }
   {
 #line 455
-  __cil_tmp19 = & atl1c_vlan_rx_register;
+  __cil_tmp19 = *((struct net_device **)adapter);
 #line 455
-  __cil_tmp20 = *((struct net_device **)adapter);
+  __cil_tmp20 = (unsigned long )adapter;
 #line 455
-  __cil_tmp21 = (unsigned long )adapter;
+  __cil_tmp21 = __cil_tmp20 + 16;
 #line 455
-  __cil_tmp22 = __cil_tmp21 + 16;
+  __cil_tmp22 = *((struct vlan_group **)__cil_tmp21);
 #line 455
-  __cil_tmp23 = *((struct vlan_group **)__cil_tmp22);
-#line 455
-  (*__cil_tmp19)(__cil_tmp20, __cil_tmp23);
+  atl1c_vlan_rx_register(__cil_tmp19, __cil_tmp22);
   }
 #line 456
   return;
@@ -15789,23 +15786,22 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   long tmp ;
   int tmp___0 ;
   long tmp___1 ;
-  void (*__cil_tmp9)(struct net_device *netdev ) ;
+  int __cil_tmp9 ;
   int __cil_tmp10 ;
   int __cil_tmp11 ;
-  int __cil_tmp12 ;
-  long __cil_tmp13 ;
+  long __cil_tmp12 ;
+  unsigned long __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  int __cil_tmp15 ;
   int __cil_tmp16 ;
-  int __cil_tmp17 ;
-  long __cil_tmp18 ;
+  long __cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long *__cil_tmp21 ;
-  unsigned long volatile   *__cil_tmp22 ;
+  unsigned long *__cil_tmp20 ;
+  unsigned long volatile   *__cil_tmp21 ;
+  unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct napi_struct *__cil_tmp25 ;
+  struct napi_struct *__cil_tmp24 ;
 
   {
   {
@@ -15816,9 +15812,7 @@ static int atl1c_up(struct atl1c_adapter *adapter )
 #line 2329
   atl1c_init_ring_ptrs(adapter);
 #line 2330
-  __cil_tmp9 = & atl1c_set_multi;
-#line 2330
-  (*__cil_tmp9)(netdev);
+  atl1c_set_multi(netdev);
 #line 2331
   atl1c_restore_vlan(adapter);
 #line 2333
@@ -15828,17 +15822,17 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   ldv_43092: 
   {
 #line 2334
-  __cil_tmp10 = (int const   )i;
+  __cil_tmp9 = (int const   )i;
 #line 2334
-  __cil_tmp11 = (int )__cil_tmp10;
+  __cil_tmp10 = (int )__cil_tmp9;
 #line 2334
-  num = atl1c_alloc_rx_buffer(adapter, __cil_tmp11);
+  num = atl1c_alloc_rx_buffer(adapter, __cil_tmp10);
 #line 2335
-  __cil_tmp12 = num == 0;
+  __cil_tmp11 = num == 0;
 #line 2335
-  __cil_tmp13 = (long )__cil_tmp12;
+  __cil_tmp12 = (long )__cil_tmp11;
 #line 2335
-  tmp = __builtin_expect(__cil_tmp13, 0L);
+  tmp = __builtin_expect(__cil_tmp12, 0L);
   }
 #line 2335
   if (tmp != 0L) {
@@ -15853,13 +15847,13 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   ldv_43093: ;
   {
 #line 2333
-  __cil_tmp14 = (unsigned long )adapter;
+  __cil_tmp13 = (unsigned long )adapter;
 #line 2333
-  __cil_tmp15 = __cil_tmp14 + 1880;
+  __cil_tmp14 = __cil_tmp13 + 1880;
 #line 2333
-  __cil_tmp16 = *((int *)__cil_tmp15);
+  __cil_tmp15 = *((int *)__cil_tmp14);
 #line 2333
-  if (__cil_tmp16 > i) {
+  if (__cil_tmp15 > i) {
     goto ldv_43092;
   } else {
     goto ldv_43094;
@@ -15882,11 +15876,11 @@ static int atl1c_up(struct atl1c_adapter *adapter )
 #line 2346
   err = atl1c_request_irq(adapter);
 #line 2347
-  __cil_tmp17 = err != 0;
+  __cil_tmp16 = err != 0;
 #line 2347
-  __cil_tmp18 = (long )__cil_tmp17;
+  __cil_tmp17 = (long )__cil_tmp16;
 #line 2347
-  tmp___1 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___1 = __builtin_expect(__cil_tmp17, 0L);
   }
 #line 2347
   if (tmp___1 != 0L) {
@@ -15896,23 +15890,23 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   }
   {
 #line 2350
-  __cil_tmp19 = (unsigned long )adapter;
+  __cil_tmp18 = (unsigned long )adapter;
 #line 2350
-  __cil_tmp20 = __cil_tmp19 + 1000;
+  __cil_tmp19 = __cil_tmp18 + 1000;
 #line 2350
-  __cil_tmp21 = (unsigned long *)__cil_tmp20;
+  __cil_tmp20 = (unsigned long *)__cil_tmp19;
 #line 2350
-  __cil_tmp22 = (unsigned long volatile   *)__cil_tmp21;
+  __cil_tmp21 = (unsigned long volatile   *)__cil_tmp20;
 #line 2350
-  clear_bit(3, __cil_tmp22);
+  clear_bit(3, __cil_tmp21);
 #line 2351
-  __cil_tmp23 = (unsigned long )adapter;
+  __cil_tmp22 = (unsigned long )adapter;
 #line 2351
-  __cil_tmp24 = __cil_tmp23 + 24;
+  __cil_tmp23 = __cil_tmp22 + 24;
 #line 2351
-  __cil_tmp25 = (struct napi_struct *)__cil_tmp24;
+  __cil_tmp24 = (struct napi_struct *)__cil_tmp23;
 #line 2351
-  napi_enable(__cil_tmp25);
+  napi_enable(__cil_tmp24);
 #line 2352
   atl1c_irq_enable(adapter);
 #line 2353
@@ -23587,12 +23581,10 @@ static void atl1c_get_drvinfo(struct net_device *netdev , struct ethtool_drvinfo
   unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  int (*__cil_tmp35)(struct net_device *netdev ) ;
+  unsigned long __cil_tmp35 ;
   unsigned long __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  int (*__cil_tmp38)(struct net_device *netdev ) ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
+  unsigned long __cil_tmp38 ;
 
   {
   {
@@ -23669,25 +23661,21 @@ static void atl1c_get_drvinfo(struct net_device *netdev , struct ethtool_drvinfo
 #line 247
   *((__u32 *)__cil_tmp34) = 0U;
 #line 248
-  __cil_tmp35 = & atl1c_get_regs_len;
+  tmp___1 = atl1c_get_regs_len(netdev);
 #line 248
-  tmp___1 = (*__cil_tmp35)(netdev);
+  __cil_tmp35 = (unsigned long )drvinfo;
 #line 248
-  __cil_tmp36 = (unsigned long )drvinfo;
+  __cil_tmp36 = __cil_tmp35 + 192;
 #line 248
-  __cil_tmp37 = __cil_tmp36 + 192;
-#line 248
-  *((__u32 *)__cil_tmp37) = (unsigned int )tmp___1;
+  *((__u32 *)__cil_tmp36) = (unsigned int )tmp___1;
 #line 249
-  __cil_tmp38 = & atl1c_get_eeprom_len;
+  tmp___2 = atl1c_get_eeprom_len(netdev);
 #line 249
-  tmp___2 = (*__cil_tmp38)(netdev);
+  __cil_tmp37 = (unsigned long )drvinfo;
 #line 249
-  __cil_tmp39 = (unsigned long )drvinfo;
+  __cil_tmp38 = __cil_tmp37 + 188;
 #line 249
-  __cil_tmp40 = __cil_tmp39 + 188;
-#line 249
-  *((__u32 *)__cil_tmp40) = (unsigned int )tmp___2;
+  *((__u32 *)__cil_tmp38) = (unsigned int )tmp___2;
   }
 #line 250
   return;
@@ -24171,18 +24159,6 @@ void main(void)
   u8 *var_atl1c_get_eeprom_7_p2 ;
   int tmp ;
   int tmp___0 ;
-  int (*__cil_tmp12)(struct net_device *netdev , struct ethtool_cmd *ecmd ) ;
-  int (*__cil_tmp13)(struct net_device *netdev , struct ethtool_cmd *ecmd ) ;
-  void (*__cil_tmp14)(struct net_device *netdev , struct ethtool_drvinfo *drvinfo ) ;
-  int (*__cil_tmp15)(struct net_device *netdev ) ;
-  void (*__cil_tmp16)(struct net_device *netdev , struct ethtool_regs *regs , void *p ) ;
-  void (*__cil_tmp17)(struct net_device *netdev , struct ethtool_wolinfo *wol ) ;
-  int (*__cil_tmp18)(struct net_device *netdev , struct ethtool_wolinfo *wol ) ;
-  u32 (*__cil_tmp19)(struct net_device *netdev ) ;
-  void (*__cil_tmp20)(struct net_device *netdev , u32 data ) ;
-  int (*__cil_tmp21)(struct net_device *netdev ) ;
-  int (*__cil_tmp22)(struct net_device *netdev ) ;
-  int (*__cil_tmp23)(struct net_device *netdev , struct ethtool_eeprom *eeprom , u8 *bytes ) ;
 
   {
   {
@@ -24251,97 +24227,73 @@ void main(void)
                             case_0: 
                             {
 #line 434
-                            __cil_tmp12 = & atl1c_get_settings;
-#line 434
-                            (*__cil_tmp12)(var_group1, var_group2);
+                            atl1c_get_settings(var_group1, var_group2);
                             }
                             goto ldv_42497;
                             case_1: 
                             {
 #line 450
-                            __cil_tmp13 = & atl1c_set_settings;
-#line 450
-                            (*__cil_tmp13)(var_group1, var_group2);
+                            atl1c_set_settings(var_group1, var_group2);
                             }
                             goto ldv_42497;
                             case_2: 
                             {
 #line 466
-                            __cil_tmp14 = & atl1c_get_drvinfo;
-#line 466
-                            (*__cil_tmp14)(var_group1, var_group3);
+                            atl1c_get_drvinfo(var_group1, var_group3);
                             }
                             goto ldv_42497;
                             case_3: 
                             {
 #line 482
-                            __cil_tmp15 = & atl1c_get_regs_len;
-#line 482
-                            (*__cil_tmp15)(var_group1);
+                            atl1c_get_regs_len(var_group1);
                             }
                             goto ldv_42497;
                             case_4: 
                             {
 #line 498
-                            __cil_tmp16 = & atl1c_get_regs;
-#line 498
-                            (*__cil_tmp16)(var_group1, var_group4, var_atl1c_get_regs_5_p2);
+                            atl1c_get_regs(var_group1, var_group4, var_atl1c_get_regs_5_p2);
                             }
                             goto ldv_42497;
                             case_5: 
                             {
 #line 514
-                            __cil_tmp17 = & atl1c_get_wol;
-#line 514
-                            (*__cil_tmp17)(var_group1, var_group5);
+                            atl1c_get_wol(var_group1, var_group5);
                             }
                             goto ldv_42497;
                             case_6: 
                             {
 #line 530
-                            __cil_tmp18 = & atl1c_set_wol;
-#line 530
-                            (*__cil_tmp18)(var_group1, var_group5);
+                            atl1c_set_wol(var_group1, var_group5);
                             }
                             goto ldv_42497;
                             case_7: 
                             {
 #line 546
-                            __cil_tmp19 = & atl1c_get_msglevel;
-#line 546
-                            (*__cil_tmp19)(var_group1);
+                            atl1c_get_msglevel(var_group1);
                             }
                             goto ldv_42497;
                             case_8: 
                             {
 #line 562
-                            __cil_tmp20 = & atl1c_set_msglevel;
-#line 562
-                            (*__cil_tmp20)(var_group1, var_atl1c_set_msglevel_3_p1);
+                            atl1c_set_msglevel(var_group1, var_atl1c_set_msglevel_3_p1);
                             }
                             goto ldv_42497;
                             case_9: 
                             {
 #line 578
-                            __cil_tmp21 = & atl1c_nway_reset;
-#line 578
-                            (*__cil_tmp21)(var_group1);
+                            atl1c_nway_reset(var_group1);
                             }
                             goto ldv_42497;
                             case_10: 
                             {
 #line 594
-                            __cil_tmp22 = & atl1c_get_eeprom_len;
-#line 594
-                            (*__cil_tmp22)(var_group1);
+                            atl1c_get_eeprom_len(var_group1);
                             }
                             goto ldv_42497;
                             case_11: 
                             {
 #line 610
-                            __cil_tmp23 = & atl1c_get_eeprom;
-#line 610
-                            (*__cil_tmp23)(var_group1, var_group6, var_atl1c_get_eeprom_7_p2);
+                            atl1c_get_eeprom(var_group1, var_group6, var_atl1c_get_eeprom_7_p2);
                             }
                             goto ldv_42497;
                             switch_default: ;

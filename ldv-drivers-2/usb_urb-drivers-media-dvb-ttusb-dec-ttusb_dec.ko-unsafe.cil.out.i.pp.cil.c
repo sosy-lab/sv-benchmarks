@@ -21766,8 +21766,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp7 ;
-  int (*__cil_tmp8)(struct usb_interface *intf , struct usb_device_id  const  *id ) ;
-  void (*__cil_tmp9)(struct usb_interface *intf ) ;
 
   {
   {
@@ -21829,9 +21827,7 @@ void main(void)
           if (ldv_s_ttusb_dec_driver_usb_driver == 0) {
             {
 #line 1935
-            __cil_tmp8 = & ttusb_dec_probe;
-#line 1935
-            res_ttusb_dec_probe_38 = (*__cil_tmp8)(var_group1, var_ttusb_dec_probe_38_p1);
+            res_ttusb_dec_probe_38 = ttusb_dec_probe(var_group1, var_ttusb_dec_probe_38_p1);
 #line 1936
             ldv_check_return_value(res_ttusb_dec_probe_38);
             }
@@ -21852,9 +21848,7 @@ void main(void)
           if (ldv_s_ttusb_dec_driver_usb_driver == 1) {
             {
 #line 1969
-            __cil_tmp9 = & ttusb_dec_disconnect;
-#line 1969
-            (*__cil_tmp9)(var_group1);
+            ttusb_dec_disconnect(var_group1);
 #line 1970
             ldv_s_ttusb_dec_driver_usb_driver = 0;
             }

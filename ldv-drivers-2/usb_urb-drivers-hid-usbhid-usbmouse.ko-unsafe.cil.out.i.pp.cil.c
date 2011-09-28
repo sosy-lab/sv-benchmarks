@@ -6828,8 +6828,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp7 ;
-  int (*__cil_tmp8)(struct usb_interface *intf , struct usb_device_id  const  *id ) ;
-  void (*__cil_tmp9)(struct usb_interface *intf ) ;
 
   {
   {
@@ -6891,9 +6889,7 @@ void main(void)
           if (ldv_s_usb_mouse_driver_usb_driver == 0) {
             {
 #line 379
-            __cil_tmp8 = & usb_mouse_probe;
-#line 379
-            res_usb_mouse_probe_3 = (*__cil_tmp8)(var_group1, var_usb_mouse_probe_3_p1);
+            res_usb_mouse_probe_3 = usb_mouse_probe(var_group1, var_usb_mouse_probe_3_p1);
 #line 380
             ldv_check_return_value(res_usb_mouse_probe_3);
             }
@@ -6914,9 +6910,7 @@ void main(void)
           if (ldv_s_usb_mouse_driver_usb_driver == 1) {
             {
 #line 405
-            __cil_tmp9 = & usb_mouse_disconnect;
-#line 405
-            (*__cil_tmp9)(var_group1);
+            usb_mouse_disconnect(var_group1);
 #line 406
             ldv_s_usb_mouse_driver_usb_driver = 0;
             }

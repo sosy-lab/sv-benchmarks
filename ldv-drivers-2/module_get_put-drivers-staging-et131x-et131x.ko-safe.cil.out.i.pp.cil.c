@@ -30728,8 +30728,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp9)(struct pci_dev *pdev , struct pci_device_id  const  *ent ) ;
-  void (*__cil_tmp10)(unsigned long data ) ;
 
   {
   {
@@ -30770,9 +30768,7 @@ void main(void)
         if (ldv_s_et131x_driver_pci_driver == 0) {
           {
 #line 973
-          __cil_tmp9 = & et131x_pci_setup;
-#line 973
-          res_et131x_pci_setup_11 = (*__cil_tmp9)(var_group1, var_et131x_pci_setup_11_p1);
+          res_et131x_pci_setup_11 = et131x_pci_setup(var_group1, var_et131x_pci_setup_11_p1);
 #line 974
           ldv_check_return_value(res_et131x_pci_setup_11);
           }
@@ -30791,9 +30787,7 @@ void main(void)
         case_1: 
         {
 #line 997
-        __cil_tmp10 = & et131x_error_timer_handler;
-#line 997
-        (*__cil_tmp10)(var_et131x_error_timer_handler_2_p0);
+        et131x_error_timer_handler(var_et131x_error_timer_handler_2_p0);
         }
         goto ldv_35818;
         switch_default: ;
@@ -33764,11 +33758,9 @@ void et131x_tx_timeout(struct net_device *netdev )
   unsigned long __cil_tmp57 ;
   unsigned long __cil_tmp58 ;
   u32 __cil_tmp59 ;
-  int (*__cil_tmp60)(struct net_device *netdev ) ;
-  int (*__cil_tmp61)(struct net_device *netdev ) ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  spinlock_t *__cil_tmp64 ;
+  unsigned long __cil_tmp60 ;
+  unsigned long __cil_tmp61 ;
+  spinlock_t *__cil_tmp62 ;
 
   {
   {
@@ -33937,13 +33929,9 @@ void et131x_tx_timeout(struct net_device *netdev )
       dev_warn(__cil_tmp53, "Send stuck - reset.  tcb->WrIndex %x, Flags 0x%08x\n",
                __cil_tmp56, __cil_tmp59);
 #line 555
-      __cil_tmp60 = & et131x_close;
-#line 555
-      (*__cil_tmp60)(netdev);
+      et131x_close(netdev);
 #line 556
-      __cil_tmp61 = & et131x_open;
-#line 556
-      (*__cil_tmp61)(netdev);
+      et131x_open(netdev);
       }
 #line 558
       return;
@@ -33957,13 +33945,13 @@ void et131x_tx_timeout(struct net_device *netdev )
   }
   {
 #line 562
-  __cil_tmp62 = (unsigned long )etdev;
+  __cil_tmp60 = (unsigned long )etdev;
 #line 562
-  __cil_tmp63 = __cil_tmp62 + 192;
+  __cil_tmp61 = __cil_tmp60 + 192;
 #line 562
-  __cil_tmp64 = (spinlock_t *)__cil_tmp63;
+  __cil_tmp62 = (spinlock_t *)__cil_tmp61;
 #line 562
-  spin_unlock_irqrestore(__cil_tmp64, flags);
+  spin_unlock_irqrestore(__cil_tmp62, flags);
   }
 #line 563
   return;

@@ -15024,50 +15024,22 @@ void main(void)
   int ldv_s_btmrvl_txdnldready_fops_file_operations ;
   int tmp ;
   int tmp___0 ;
-  int (*__cil_tmp80)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp81)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
   int __cil_tmp82 ;
-  ssize_t (*__cil_tmp83)(struct file *file , char const   *ubuf , size_t count , loff_t *ppos ) ;
+  int __cil_tmp83 ;
   int __cil_tmp84 ;
-  int (*__cil_tmp85)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp86)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
+  int __cil_tmp85 ;
+  int __cil_tmp86 ;
   int __cil_tmp87 ;
-  ssize_t (*__cil_tmp88)(struct file *file , char const   *ubuf , size_t count , loff_t *ppos ) ;
+  int __cil_tmp88 ;
   int __cil_tmp89 ;
-  int (*__cil_tmp90)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp91)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
+  int __cil_tmp90 ;
+  int __cil_tmp91 ;
   int __cil_tmp92 ;
-  ssize_t (*__cil_tmp93)(struct file *file , char const   *ubuf , size_t count , loff_t *ppos ) ;
+  int __cil_tmp93 ;
   int __cil_tmp94 ;
-  int (*__cil_tmp95)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp96)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp97 ;
-  ssize_t (*__cil_tmp98)(struct file *file , char const   *ubuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp99 ;
-  int (*__cil_tmp100)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp101)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp102 ;
-  ssize_t (*__cil_tmp103)(struct file *file , char const   *ubuf , size_t count ,
-                          loff_t *ppos ) ;
-  int __cil_tmp104 ;
-  int (*__cil_tmp105)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp106)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp107 ;
-  ssize_t (*__cil_tmp108)(struct file *file , char const   *ubuf , size_t count ,
-                          loff_t *ppos ) ;
-  int __cil_tmp109 ;
-  int (*__cil_tmp110)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp111)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp112 ;
-  int (*__cil_tmp113)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp114)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp115 ;
-  int (*__cil_tmp116)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp117)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp118 ;
-  int (*__cil_tmp119)(struct inode *inode , struct file *file ) ;
-  ssize_t (*__cil_tmp120)(struct file *file , char *userbuf , size_t count , loff_t *ppos ) ;
-  int __cil_tmp121 ;
+  int __cil_tmp95 ;
 
   {
   {
@@ -15214,10 +15186,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 0) {
                                                           {
 #line 785
-                                                          __cil_tmp80 = & btmrvl_open_generic;
-#line 785
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp80)(var_group2,
-                                                                                                     var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 786
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15238,16 +15208,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 1) {
                                                           {
 #line 804
-                                                          __cil_tmp81 = & btmrvl_hscfgcmd_read;
-#line 804
-                                                          res_btmrvl_hscfgcmd_read_2 = (*__cil_tmp81)(var_group1,
-                                                                                                      var_btmrvl_hscfgcmd_read_2_p1,
-                                                                                                      var_btmrvl_hscfgcmd_read_2_p2,
-                                                                                                      var_btmrvl_hscfgcmd_read_2_p3);
+                                                          res_btmrvl_hscfgcmd_read_2 = btmrvl_hscfgcmd_read(var_group1,
+                                                                                                            var_btmrvl_hscfgcmd_read_2_p1,
+                                                                                                            var_btmrvl_hscfgcmd_read_2_p2,
+                                                                                                            var_btmrvl_hscfgcmd_read_2_p3);
 #line 805
-                                                          __cil_tmp82 = (int )res_btmrvl_hscfgcmd_read_2;
+                                                          __cil_tmp80 = (int )res_btmrvl_hscfgcmd_read_2;
 #line 805
-                                                          ldv_check_return_value(__cil_tmp82);
+                                                          ldv_check_return_value(__cil_tmp80);
                                                           }
 #line 806
                                                           if (res_btmrvl_hscfgcmd_read_2 < 0L) {
@@ -15266,16 +15234,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 2) {
                                                           {
 #line 823
-                                                          __cil_tmp83 = & btmrvl_hscfgcmd_write;
-#line 823
-                                                          res_btmrvl_hscfgcmd_write_1 = (*__cil_tmp83)(var_group1,
-                                                                                                       var_btmrvl_hscfgcmd_write_1_p1,
-                                                                                                       var_btmrvl_hscfgcmd_write_1_p2,
-                                                                                                       var_btmrvl_hscfgcmd_write_1_p3);
+                                                          res_btmrvl_hscfgcmd_write_1 = btmrvl_hscfgcmd_write(var_group1,
+                                                                                                              var_btmrvl_hscfgcmd_write_1_p1,
+                                                                                                              var_btmrvl_hscfgcmd_write_1_p2,
+                                                                                                              var_btmrvl_hscfgcmd_write_1_p3);
 #line 824
-                                                          __cil_tmp84 = (int )res_btmrvl_hscfgcmd_write_1;
+                                                          __cil_tmp81 = (int )res_btmrvl_hscfgcmd_write_1;
 #line 824
-                                                          ldv_check_return_value(__cil_tmp84);
+                                                          ldv_check_return_value(__cil_tmp81);
                                                           }
 #line 825
                                                           if (res_btmrvl_hscfgcmd_write_1 < 0L) {
@@ -15294,10 +15260,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_psmode_fops_file_operations == 0) {
                                                           {
 #line 842
-                                                          __cil_tmp85 = & btmrvl_open_generic;
-#line 842
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp85)(var_group2,
-                                                                                                     var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 843
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15318,16 +15282,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_psmode_fops_file_operations == 1) {
                                                           {
 #line 861
-                                                          __cil_tmp86 = & btmrvl_psmode_read;
-#line 861
-                                                          res_btmrvl_psmode_read_4 = (*__cil_tmp86)(var_group1,
-                                                                                                    var_btmrvl_psmode_read_4_p1,
-                                                                                                    var_btmrvl_psmode_read_4_p2,
-                                                                                                    var_btmrvl_psmode_read_4_p3);
+                                                          res_btmrvl_psmode_read_4 = btmrvl_psmode_read(var_group1,
+                                                                                                        var_btmrvl_psmode_read_4_p1,
+                                                                                                        var_btmrvl_psmode_read_4_p2,
+                                                                                                        var_btmrvl_psmode_read_4_p3);
 #line 862
-                                                          __cil_tmp87 = (int )res_btmrvl_psmode_read_4;
+                                                          __cil_tmp82 = (int )res_btmrvl_psmode_read_4;
 #line 862
-                                                          ldv_check_return_value(__cil_tmp87);
+                                                          ldv_check_return_value(__cil_tmp82);
                                                           }
 #line 863
                                                           if (res_btmrvl_psmode_read_4 < 0L) {
@@ -15346,16 +15308,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_psmode_fops_file_operations == 2) {
                                                           {
 #line 880
-                                                          __cil_tmp88 = & btmrvl_psmode_write;
-#line 880
-                                                          res_btmrvl_psmode_write_3 = (*__cil_tmp88)(var_group1,
-                                                                                                     var_btmrvl_psmode_write_3_p1,
-                                                                                                     var_btmrvl_psmode_write_3_p2,
-                                                                                                     var_btmrvl_psmode_write_3_p3);
+                                                          res_btmrvl_psmode_write_3 = btmrvl_psmode_write(var_group1,
+                                                                                                          var_btmrvl_psmode_write_3_p1,
+                                                                                                          var_btmrvl_psmode_write_3_p2,
+                                                                                                          var_btmrvl_psmode_write_3_p3);
 #line 881
-                                                          __cil_tmp89 = (int )res_btmrvl_psmode_write_3;
+                                                          __cil_tmp83 = (int )res_btmrvl_psmode_write_3;
 #line 881
-                                                          ldv_check_return_value(__cil_tmp89);
+                                                          ldv_check_return_value(__cil_tmp83);
                                                           }
 #line 882
                                                           if (res_btmrvl_psmode_write_3 < 0L) {
@@ -15374,10 +15334,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_pscmd_fops_file_operations == 0) {
                                                           {
 #line 899
-                                                          __cil_tmp90 = & btmrvl_open_generic;
-#line 899
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp90)(var_group2,
-                                                                                                     var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 900
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15398,16 +15356,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_pscmd_fops_file_operations == 1) {
                                                           {
 #line 918
-                                                          __cil_tmp91 = & btmrvl_pscmd_read;
-#line 918
-                                                          res_btmrvl_pscmd_read_6 = (*__cil_tmp91)(var_group1,
-                                                                                                   var_btmrvl_pscmd_read_6_p1,
-                                                                                                   var_btmrvl_pscmd_read_6_p2,
-                                                                                                   var_btmrvl_pscmd_read_6_p3);
+                                                          res_btmrvl_pscmd_read_6 = btmrvl_pscmd_read(var_group1,
+                                                                                                      var_btmrvl_pscmd_read_6_p1,
+                                                                                                      var_btmrvl_pscmd_read_6_p2,
+                                                                                                      var_btmrvl_pscmd_read_6_p3);
 #line 919
-                                                          __cil_tmp92 = (int )res_btmrvl_pscmd_read_6;
+                                                          __cil_tmp84 = (int )res_btmrvl_pscmd_read_6;
 #line 919
-                                                          ldv_check_return_value(__cil_tmp92);
+                                                          ldv_check_return_value(__cil_tmp84);
                                                           }
 #line 920
                                                           if (res_btmrvl_pscmd_read_6 < 0L) {
@@ -15426,16 +15382,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_pscmd_fops_file_operations == 2) {
                                                           {
 #line 937
-                                                          __cil_tmp93 = & btmrvl_pscmd_write;
-#line 937
-                                                          res_btmrvl_pscmd_write_5 = (*__cil_tmp93)(var_group1,
-                                                                                                    var_btmrvl_pscmd_write_5_p1,
-                                                                                                    var_btmrvl_pscmd_write_5_p2,
-                                                                                                    var_btmrvl_pscmd_write_5_p3);
+                                                          res_btmrvl_pscmd_write_5 = btmrvl_pscmd_write(var_group1,
+                                                                                                        var_btmrvl_pscmd_write_5_p1,
+                                                                                                        var_btmrvl_pscmd_write_5_p2,
+                                                                                                        var_btmrvl_pscmd_write_5_p3);
 #line 938
-                                                          __cil_tmp94 = (int )res_btmrvl_pscmd_write_5;
+                                                          __cil_tmp85 = (int )res_btmrvl_pscmd_write_5;
 #line 938
-                                                          ldv_check_return_value(__cil_tmp94);
+                                                          ldv_check_return_value(__cil_tmp85);
                                                           }
 #line 939
                                                           if (res_btmrvl_pscmd_write_5 < 0L) {
@@ -15454,10 +15408,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_gpiogap_fops_file_operations == 0) {
                                                           {
 #line 956
-                                                          __cil_tmp95 = & btmrvl_open_generic;
-#line 956
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp95)(var_group2,
-                                                                                                     var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 957
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15478,16 +15430,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_gpiogap_fops_file_operations == 1) {
                                                           {
 #line 975
-                                                          __cil_tmp96 = & btmrvl_gpiogap_read;
-#line 975
-                                                          res_btmrvl_gpiogap_read_8 = (*__cil_tmp96)(var_group1,
-                                                                                                     var_btmrvl_gpiogap_read_8_p1,
-                                                                                                     var_btmrvl_gpiogap_read_8_p2,
-                                                                                                     var_btmrvl_gpiogap_read_8_p3);
+                                                          res_btmrvl_gpiogap_read_8 = btmrvl_gpiogap_read(var_group1,
+                                                                                                          var_btmrvl_gpiogap_read_8_p1,
+                                                                                                          var_btmrvl_gpiogap_read_8_p2,
+                                                                                                          var_btmrvl_gpiogap_read_8_p3);
 #line 976
-                                                          __cil_tmp97 = (int )res_btmrvl_gpiogap_read_8;
+                                                          __cil_tmp86 = (int )res_btmrvl_gpiogap_read_8;
 #line 976
-                                                          ldv_check_return_value(__cil_tmp97);
+                                                          ldv_check_return_value(__cil_tmp86);
                                                           }
 #line 977
                                                           if (res_btmrvl_gpiogap_read_8 < 0L) {
@@ -15506,16 +15456,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_gpiogap_fops_file_operations == 2) {
                                                           {
 #line 994
-                                                          __cil_tmp98 = & btmrvl_gpiogap_write;
-#line 994
-                                                          res_btmrvl_gpiogap_write_7 = (*__cil_tmp98)(var_group1,
-                                                                                                      var_btmrvl_gpiogap_write_7_p1,
-                                                                                                      var_btmrvl_gpiogap_write_7_p2,
-                                                                                                      var_btmrvl_gpiogap_write_7_p3);
+                                                          res_btmrvl_gpiogap_write_7 = btmrvl_gpiogap_write(var_group1,
+                                                                                                            var_btmrvl_gpiogap_write_7_p1,
+                                                                                                            var_btmrvl_gpiogap_write_7_p2,
+                                                                                                            var_btmrvl_gpiogap_write_7_p3);
 #line 995
-                                                          __cil_tmp99 = (int )res_btmrvl_gpiogap_write_7;
+                                                          __cil_tmp87 = (int )res_btmrvl_gpiogap_write_7;
 #line 995
-                                                          ldv_check_return_value(__cil_tmp99);
+                                                          ldv_check_return_value(__cil_tmp87);
                                                           }
 #line 996
                                                           if (res_btmrvl_gpiogap_write_7 < 0L) {
@@ -15534,10 +15482,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_hscmd_fops_file_operations == 0) {
                                                           {
 #line 1013
-                                                          __cil_tmp100 = & btmrvl_open_generic;
-#line 1013
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp100)(var_group2,
-                                                                                                      var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 1014
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15558,16 +15504,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_hscmd_fops_file_operations == 1) {
                                                           {
 #line 1032
-                                                          __cil_tmp101 = & btmrvl_hscmd_read;
-#line 1032
-                                                          res_btmrvl_hscmd_read_10 = (*__cil_tmp101)(var_group1,
-                                                                                                     var_btmrvl_hscmd_read_10_p1,
-                                                                                                     var_btmrvl_hscmd_read_10_p2,
-                                                                                                     var_btmrvl_hscmd_read_10_p3);
+                                                          res_btmrvl_hscmd_read_10 = btmrvl_hscmd_read(var_group1,
+                                                                                                       var_btmrvl_hscmd_read_10_p1,
+                                                                                                       var_btmrvl_hscmd_read_10_p2,
+                                                                                                       var_btmrvl_hscmd_read_10_p3);
 #line 1033
-                                                          __cil_tmp102 = (int )res_btmrvl_hscmd_read_10;
+                                                          __cil_tmp88 = (int )res_btmrvl_hscmd_read_10;
 #line 1033
-                                                          ldv_check_return_value(__cil_tmp102);
+                                                          ldv_check_return_value(__cil_tmp88);
                                                           }
 #line 1034
                                                           if (res_btmrvl_hscmd_read_10 < 0L) {
@@ -15586,16 +15530,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_hscmd_fops_file_operations == 2) {
                                                           {
 #line 1051
-                                                          __cil_tmp103 = & btmrvl_hscmd_write;
-#line 1051
-                                                          res_btmrvl_hscmd_write_9 = (*__cil_tmp103)(var_group1,
-                                                                                                     var_btmrvl_hscmd_write_9_p1,
-                                                                                                     var_btmrvl_hscmd_write_9_p2,
-                                                                                                     var_btmrvl_hscmd_write_9_p3);
+                                                          res_btmrvl_hscmd_write_9 = btmrvl_hscmd_write(var_group1,
+                                                                                                        var_btmrvl_hscmd_write_9_p1,
+                                                                                                        var_btmrvl_hscmd_write_9_p2,
+                                                                                                        var_btmrvl_hscmd_write_9_p3);
 #line 1052
-                                                          __cil_tmp104 = (int )res_btmrvl_hscmd_write_9;
+                                                          __cil_tmp89 = (int )res_btmrvl_hscmd_write_9;
 #line 1052
-                                                          ldv_check_return_value(__cil_tmp104);
+                                                          ldv_check_return_value(__cil_tmp89);
                                                           }
 #line 1053
                                                           if (res_btmrvl_hscmd_write_9 < 0L) {
@@ -15614,10 +15556,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_hsmode_fops_file_operations == 0) {
                                                           {
 #line 1070
-                                                          __cil_tmp105 = & btmrvl_open_generic;
-#line 1070
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp105)(var_group2,
-                                                                                                      var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 1071
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15638,16 +15578,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_hsmode_fops_file_operations == 1) {
                                                           {
 #line 1089
-                                                          __cil_tmp106 = & btmrvl_hsmode_read;
-#line 1089
-                                                          res_btmrvl_hsmode_read_12 = (*__cil_tmp106)(var_group1,
-                                                                                                      var_btmrvl_hsmode_read_12_p1,
-                                                                                                      var_btmrvl_hsmode_read_12_p2,
-                                                                                                      var_btmrvl_hsmode_read_12_p3);
+                                                          res_btmrvl_hsmode_read_12 = btmrvl_hsmode_read(var_group1,
+                                                                                                         var_btmrvl_hsmode_read_12_p1,
+                                                                                                         var_btmrvl_hsmode_read_12_p2,
+                                                                                                         var_btmrvl_hsmode_read_12_p3);
 #line 1090
-                                                          __cil_tmp107 = (int )res_btmrvl_hsmode_read_12;
+                                                          __cil_tmp90 = (int )res_btmrvl_hsmode_read_12;
 #line 1090
-                                                          ldv_check_return_value(__cil_tmp107);
+                                                          ldv_check_return_value(__cil_tmp90);
                                                           }
 #line 1091
                                                           if (res_btmrvl_hsmode_read_12 < 0L) {
@@ -15666,16 +15604,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_hsmode_fops_file_operations == 2) {
                                                           {
 #line 1108
-                                                          __cil_tmp108 = & btmrvl_hsmode_write;
-#line 1108
-                                                          res_btmrvl_hsmode_write_11 = (*__cil_tmp108)(var_group1,
-                                                                                                       var_btmrvl_hsmode_write_11_p1,
-                                                                                                       var_btmrvl_hsmode_write_11_p2,
-                                                                                                       var_btmrvl_hsmode_write_11_p3);
+                                                          res_btmrvl_hsmode_write_11 = btmrvl_hsmode_write(var_group1,
+                                                                                                           var_btmrvl_hsmode_write_11_p1,
+                                                                                                           var_btmrvl_hsmode_write_11_p2,
+                                                                                                           var_btmrvl_hsmode_write_11_p3);
 #line 1109
-                                                          __cil_tmp109 = (int )res_btmrvl_hsmode_write_11;
+                                                          __cil_tmp91 = (int )res_btmrvl_hsmode_write_11;
 #line 1109
-                                                          ldv_check_return_value(__cil_tmp109);
+                                                          ldv_check_return_value(__cil_tmp91);
                                                           }
 #line 1110
                                                           if (res_btmrvl_hsmode_write_11 < 0L) {
@@ -15694,10 +15630,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_curpsmode_fops_file_operations == 0) {
                                                           {
 #line 1127
-                                                          __cil_tmp110 = & btmrvl_open_generic;
-#line 1127
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp110)(var_group2,
-                                                                                                      var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 1128
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15718,16 +15652,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_curpsmode_fops_file_operations == 1) {
                                                           {
 #line 1146
-                                                          __cil_tmp111 = & btmrvl_curpsmode_read;
-#line 1146
-                                                          res_btmrvl_curpsmode_read_13 = (*__cil_tmp111)(var_group1,
-                                                                                                         var_btmrvl_curpsmode_read_13_p1,
-                                                                                                         var_btmrvl_curpsmode_read_13_p2,
-                                                                                                         var_btmrvl_curpsmode_read_13_p3);
+                                                          res_btmrvl_curpsmode_read_13 = btmrvl_curpsmode_read(var_group1,
+                                                                                                               var_btmrvl_curpsmode_read_13_p1,
+                                                                                                               var_btmrvl_curpsmode_read_13_p2,
+                                                                                                               var_btmrvl_curpsmode_read_13_p3);
 #line 1147
-                                                          __cil_tmp112 = (int )res_btmrvl_curpsmode_read_13;
+                                                          __cil_tmp92 = (int )res_btmrvl_curpsmode_read_13;
 #line 1147
-                                                          ldv_check_return_value(__cil_tmp112);
+                                                          ldv_check_return_value(__cil_tmp92);
                                                           }
 #line 1148
                                                           if (res_btmrvl_curpsmode_read_13 < 0L) {
@@ -15746,10 +15678,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_psstate_fops_file_operations == 0) {
                                                           {
 #line 1165
-                                                          __cil_tmp113 = & btmrvl_open_generic;
-#line 1165
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp113)(var_group2,
-                                                                                                      var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 1166
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15770,16 +15700,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_psstate_fops_file_operations == 1) {
                                                           {
 #line 1184
-                                                          __cil_tmp114 = & btmrvl_psstate_read;
-#line 1184
-                                                          res_btmrvl_psstate_read_14 = (*__cil_tmp114)(var_group1,
-                                                                                                       var_btmrvl_psstate_read_14_p1,
-                                                                                                       var_btmrvl_psstate_read_14_p2,
-                                                                                                       var_btmrvl_psstate_read_14_p3);
+                                                          res_btmrvl_psstate_read_14 = btmrvl_psstate_read(var_group1,
+                                                                                                           var_btmrvl_psstate_read_14_p1,
+                                                                                                           var_btmrvl_psstate_read_14_p2,
+                                                                                                           var_btmrvl_psstate_read_14_p3);
 #line 1185
-                                                          __cil_tmp115 = (int )res_btmrvl_psstate_read_14;
+                                                          __cil_tmp93 = (int )res_btmrvl_psstate_read_14;
 #line 1185
-                                                          ldv_check_return_value(__cil_tmp115);
+                                                          ldv_check_return_value(__cil_tmp93);
                                                           }
 #line 1186
                                                           if (res_btmrvl_psstate_read_14 < 0L) {
@@ -15798,10 +15726,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_hsstate_fops_file_operations == 0) {
                                                           {
 #line 1203
-                                                          __cil_tmp116 = & btmrvl_open_generic;
-#line 1203
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp116)(var_group2,
-                                                                                                      var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 1204
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15822,16 +15748,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_hsstate_fops_file_operations == 1) {
                                                           {
 #line 1222
-                                                          __cil_tmp117 = & btmrvl_hsstate_read;
-#line 1222
-                                                          res_btmrvl_hsstate_read_15 = (*__cil_tmp117)(var_group1,
-                                                                                                       var_btmrvl_hsstate_read_15_p1,
-                                                                                                       var_btmrvl_hsstate_read_15_p2,
-                                                                                                       var_btmrvl_hsstate_read_15_p3);
+                                                          res_btmrvl_hsstate_read_15 = btmrvl_hsstate_read(var_group1,
+                                                                                                           var_btmrvl_hsstate_read_15_p1,
+                                                                                                           var_btmrvl_hsstate_read_15_p2,
+                                                                                                           var_btmrvl_hsstate_read_15_p3);
 #line 1223
-                                                          __cil_tmp118 = (int )res_btmrvl_hsstate_read_15;
+                                                          __cil_tmp94 = (int )res_btmrvl_hsstate_read_15;
 #line 1223
-                                                          ldv_check_return_value(__cil_tmp118);
+                                                          ldv_check_return_value(__cil_tmp94);
                                                           }
 #line 1224
                                                           if (res_btmrvl_hsstate_read_15 < 0L) {
@@ -15850,10 +15774,8 @@ void main(void)
                                                         if (ldv_s_btmrvl_txdnldready_fops_file_operations == 0) {
                                                           {
 #line 1241
-                                                          __cil_tmp119 = & btmrvl_open_generic;
-#line 1241
-                                                          res_btmrvl_open_generic_0 = (*__cil_tmp119)(var_group2,
-                                                                                                      var_group1);
+                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
+                                                                                                          var_group1);
 #line 1242
                                                           ldv_check_return_value(res_btmrvl_open_generic_0);
                                                           }
@@ -15874,16 +15796,14 @@ void main(void)
                                                         if (ldv_s_btmrvl_txdnldready_fops_file_operations == 1) {
                                                           {
 #line 1260
-                                                          __cil_tmp120 = & btmrvl_txdnldready_read;
-#line 1260
-                                                          res_btmrvl_txdnldready_read_16 = (*__cil_tmp120)(var_group1,
-                                                                                                           var_btmrvl_txdnldready_read_16_p1,
-                                                                                                           var_btmrvl_txdnldready_read_16_p2,
-                                                                                                           var_btmrvl_txdnldready_read_16_p3);
+                                                          res_btmrvl_txdnldready_read_16 = btmrvl_txdnldready_read(var_group1,
+                                                                                                                   var_btmrvl_txdnldready_read_16_p1,
+                                                                                                                   var_btmrvl_txdnldready_read_16_p2,
+                                                                                                                   var_btmrvl_txdnldready_read_16_p3);
 #line 1261
-                                                          __cil_tmp121 = (int )res_btmrvl_txdnldready_read_16;
+                                                          __cil_tmp95 = (int )res_btmrvl_txdnldready_read_16;
 #line 1261
-                                                          ldv_check_return_value(__cil_tmp121);
+                                                          ldv_check_return_value(__cil_tmp95);
                                                           }
 #line 1262
                                                           if (res_btmrvl_txdnldready_read_16 < 0L) {

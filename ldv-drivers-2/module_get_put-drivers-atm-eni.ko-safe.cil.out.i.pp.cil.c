@@ -24485,15 +24485,11 @@ static int eni_open(struct atm_vcc *vcc )
   unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
   unsigned long __cil_tmp44 ;
-  void (*__cil_tmp45)(struct atm_vcc *vcc ) ;
-  void (*__cil_tmp46)(struct atm_vcc *vcc ) ;
-  int __cil_tmp47 ;
-  void (*__cil_tmp48)(struct atm_vcc *vcc ) ;
-  void (*__cil_tmp49)(struct atm_vcc *vcc ) ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long *__cil_tmp52 ;
-  unsigned long volatile   *__cil_tmp53 ;
+  int __cil_tmp45 ;
+  unsigned long __cil_tmp46 ;
+  unsigned long __cil_tmp47 ;
+  unsigned long *__cil_tmp48 ;
+  unsigned long volatile   *__cil_tmp49 ;
 
   {
   {
@@ -24650,9 +24646,7 @@ static int eni_open(struct atm_vcc *vcc )
     if (error != 0) {
       {
 #line 1929
-      __cil_tmp45 = & eni_close;
-#line 1929
-      (*__cil_tmp45)(vcc);
+      eni_close(vcc);
       }
 #line 1930
       return (error);
@@ -24667,9 +24661,7 @@ static int eni_open(struct atm_vcc *vcc )
     if (error != 0) {
       {
 #line 1933
-      __cil_tmp46 = & eni_close;
-#line 1933
-      (*__cil_tmp46)(vcc);
+      eni_close(vcc);
       }
 #line 1934
       return (error);
@@ -24686,9 +24678,9 @@ static int eni_open(struct atm_vcc *vcc )
   } else {
     {
 #line 1937
-    __cil_tmp47 = (int )vpi;
+    __cil_tmp45 = (int )vpi;
 #line 1937
-    if (__cil_tmp47 == -2) {
+    if (__cil_tmp45 == -2) {
 #line 1937
       return (0);
     } else {
@@ -24704,9 +24696,7 @@ static int eni_open(struct atm_vcc *vcc )
   if (error != 0) {
     {
 #line 1939
-    __cil_tmp48 = & eni_close;
-#line 1939
-    (*__cil_tmp48)(vcc);
+    eni_close(vcc);
     }
 #line 1940
     return (error);
@@ -24721,9 +24711,7 @@ static int eni_open(struct atm_vcc *vcc )
   if (error != 0) {
     {
 #line 1943
-    __cil_tmp49 = & eni_close;
-#line 1943
-    (*__cil_tmp49)(vcc);
+    eni_close(vcc);
     }
 #line 1944
     return (error);
@@ -24732,15 +24720,15 @@ static int eni_open(struct atm_vcc *vcc )
   }
   {
 #line 1946
-  __cil_tmp50 = (unsigned long )vcc;
+  __cil_tmp46 = (unsigned long )vcc;
 #line 1946
-  __cil_tmp51 = __cil_tmp50 + 1272;
+  __cil_tmp47 = __cil_tmp46 + 1272;
 #line 1946
-  __cil_tmp52 = (unsigned long *)__cil_tmp51;
+  __cil_tmp48 = (unsigned long *)__cil_tmp47;
 #line 1946
-  __cil_tmp53 = (unsigned long volatile   *)__cil_tmp52;
+  __cil_tmp49 = (unsigned long volatile   *)__cil_tmp48;
 #line 1946
-  set_bit(1U, __cil_tmp53);
+  set_bit(1U, __cil_tmp49);
   }
 #line 1948
   return (0);
@@ -27369,22 +27357,8 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int (*__cil_tmp32)(struct atm_vcc *vcc ) ;
-  void (*__cil_tmp33)(struct atm_vcc *vcc ) ;
-  int (*__cil_tmp34)(struct atm_dev *dev , unsigned int cmd , void *arg ) ;
-  int (*__cil_tmp35)(struct atm_vcc *vcc , int level , int optname , void *optval ,
-                     int optlen ) ;
-  int (*__cil_tmp36)(struct atm_vcc *vcc , int level , int optname , void *optval ,
-                     unsigned int optlen ) ;
-  int (*__cil_tmp37)(struct atm_vcc *vcc , struct sk_buff *skb ) ;
-  void (*__cil_tmp38)(struct atm_dev *dev , unsigned char value , unsigned long addr ) ;
-  int __cil_tmp39 ;
-  unsigned char __cil_tmp40 ;
-  unsigned char (*__cil_tmp41)(struct atm_dev *dev , unsigned long addr ) ;
-  int (*__cil_tmp42)(struct atm_vcc *vcc , struct atm_qos *qos , int flgs ) ;
-  int (*__cil_tmp43)(struct atm_dev *dev , loff_t *pos , char *page ) ;
-  int (*__cil_tmp44)(struct pci_dev *pci_dev , struct pci_device_id  const  *ent ) ;
-  irqreturn_t (*__cil_tmp45)(int irq , void *dev_id ) ;
+  int __cil_tmp32 ;
+  unsigned char __cil_tmp33 ;
 
   {
   {
@@ -27467,9 +27441,7 @@ void main(void)
                             if (ldv_s_ops_atmdev_ops == 0) {
                               {
 #line 3828
-                              __cil_tmp32 = & eni_open;
-#line 3828
-                              res_eni_open_41 = (*__cil_tmp32)(var_group1);
+                              res_eni_open_41 = eni_open(var_group1);
 #line 3829
                               ldv_check_return_value(res_eni_open_41);
                               }
@@ -27490,9 +27462,7 @@ void main(void)
                             if (ldv_s_ops_atmdev_ops == 1) {
                               {
 #line 3948
-                              __cil_tmp33 = & eni_close;
-#line 3948
-                              (*__cil_tmp33)(var_group1);
+                              eni_close(var_group1);
 #line 3979
                               ldv_s_ops_atmdev_ops = 0;
                               }
@@ -27503,71 +27473,55 @@ void main(void)
                             case_2: 
                             {
 #line 4065
-                            __cil_tmp34 = & eni_ioctl;
-#line 4065
-                            (*__cil_tmp34)(var_group2, var_eni_ioctl_43_p1, var_eni_ioctl_43_p2);
+                            eni_ioctl(var_group2, var_eni_ioctl_43_p1, var_eni_ioctl_43_p2);
                             }
                             goto ldv_40755;
                             case_3: 
                             {
 #line 4182
-                            __cil_tmp35 = & eni_getsockopt;
-#line 4182
-                            (*__cil_tmp35)(var_group1, var_eni_getsockopt_44_p1, var_eni_getsockopt_44_p2,
+                            eni_getsockopt(var_group1, var_eni_getsockopt_44_p1, var_eni_getsockopt_44_p2,
                                            var_eni_getsockopt_44_p3, var_eni_getsockopt_44_p4);
                             }
                             goto ldv_40755;
                             case_4: 
                             {
 #line 4299
-                            __cil_tmp36 = & eni_setsockopt;
-#line 4299
-                            (*__cil_tmp36)(var_group1, var_eni_setsockopt_45_p1, var_eni_setsockopt_45_p2,
+                            eni_setsockopt(var_group1, var_eni_setsockopt_45_p1, var_eni_setsockopt_45_p2,
                                            var_eni_setsockopt_45_p3, var_eni_setsockopt_45_p4);
                             }
                             goto ldv_40755;
                             case_5: 
                             {
 #line 4416
-                            __cil_tmp37 = & eni_send;
-#line 4416
-                            (*__cil_tmp37)(var_group1, var_group3);
+                            eni_send(var_group1, var_group3);
                             }
                             goto ldv_40755;
                             case_6: 
                             {
 #line 4533
-                            __cil_tmp38 = & eni_phy_put;
+                            __cil_tmp32 = (int )var_eni_phy_put_47_p1;
 #line 4533
-                            __cil_tmp39 = (int )var_eni_phy_put_47_p1;
+                            __cil_tmp33 = (unsigned char )__cil_tmp32;
 #line 4533
-                            __cil_tmp40 = (unsigned char )__cil_tmp39;
-#line 4533
-                            (*__cil_tmp38)(var_group2, __cil_tmp40, var_eni_phy_put_47_p2);
+                            eni_phy_put(var_group2, __cil_tmp33, var_eni_phy_put_47_p2);
                             }
                             goto ldv_40755;
                             case_7: 
                             {
 #line 4650
-                            __cil_tmp41 = & eni_phy_get;
-#line 4650
-                            (*__cil_tmp41)(var_group2, var_eni_phy_get_48_p1);
+                            eni_phy_get(var_group2, var_eni_phy_get_48_p1);
                             }
                             goto ldv_40755;
                             case_8: 
                             {
 #line 4767
-                            __cil_tmp42 = & eni_change_qos;
-#line 4767
-                            (*__cil_tmp42)(var_group1, var_group4, var_eni_change_qos_42_p2);
+                            eni_change_qos(var_group1, var_group4, var_eni_change_qos_42_p2);
                             }
                             goto ldv_40755;
                             case_9: 
                             {
 #line 4884
-                            __cil_tmp43 = & eni_proc_read;
-#line 4884
-                            (*__cil_tmp43)(var_group2, var_eni_proc_read_49_p1, var_eni_proc_read_49_p2);
+                            eni_proc_read(var_group2, var_eni_proc_read_49_p1, var_eni_proc_read_49_p2);
                             }
                             goto ldv_40755;
                             case_10: ;
@@ -27575,9 +27529,7 @@ void main(void)
                             if (ldv_s_eni_driver_pci_driver == 0) {
                               {
 #line 4999
-                              __cil_tmp44 = & eni_init_one;
-#line 4999
-                              res_eni_init_one_50 = (*__cil_tmp44)(var_group5, var_eni_init_one_50_p1);
+                              res_eni_init_one_50 = eni_init_one(var_group5, var_eni_init_one_50_p1);
 #line 5000
                               ldv_check_return_value(res_eni_init_one_50);
                               }
@@ -27598,9 +27550,7 @@ void main(void)
 #line 5013
                             LDV_IN_INTERRUPT = 2;
 #line 5075
-                            __cil_tmp45 = & eni_int;
-#line 5075
-                            (*__cil_tmp45)(var_eni_int_34_p0, var_eni_int_34_p1);
+                            eni_int(var_eni_int_34_p0, var_eni_int_34_p1);
 #line 5118
                             LDV_IN_INTERRUPT = 1;
                             }

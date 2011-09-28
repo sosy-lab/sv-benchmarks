@@ -7553,11 +7553,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp12 ;
-  int (*__cil_tmp13)(struct tty_struct *tty , struct usb_serial_port *port ) ;
-  void (*__cil_tmp14)(struct tty_struct *tty , struct usb_serial_port *port , struct ktermios *old_termios ) ;
-  int (*__cil_tmp15)(struct usb_serial *serial ) ;
-  int (*__cil_tmp16)(struct usb_serial_port *port , void *dest , size_t size ) ;
-  void (*__cil_tmp17)(struct urb *urb ) ;
 
   {
   {
@@ -7631,9 +7626,7 @@ void main(void)
                 if (ldv_s_ir_device_usb_serial_driver == 0) {
                   {
 #line 657
-                  __cil_tmp13 = & ir_open;
-#line 657
-                  res_ir_open_4 = (*__cil_tmp13)(var_group1, var_group2);
+                  res_ir_open_4 = ir_open(var_group1, var_group2);
 #line 658
                   ldv_check_return_value(res_ir_open_4);
                   }
@@ -7652,33 +7645,26 @@ void main(void)
                 case_1: 
                 {
 #line 680
-                __cil_tmp14 = & ir_set_termios;
-#line 680
-                (*__cil_tmp14)(var_group1, var_group2, var_ir_set_termios_8_p2);
+                ir_set_termios(var_group1, var_group2, var_ir_set_termios_8_p2);
                 }
                 goto switch_break;
                 case_2: 
                 {
 #line 700
-                __cil_tmp15 = & ir_startup;
-#line 700
-                (*__cil_tmp15)(var_group3);
+                ir_startup(var_group3);
                 }
                 goto switch_break;
                 case_3: 
                 {
 #line 720
-                __cil_tmp16 = & ir_prepare_write_buffer;
-#line 720
-                (*__cil_tmp16)(var_group2, var_ir_prepare_write_buffer_5_p1, var_ir_prepare_write_buffer_5_p2);
+                ir_prepare_write_buffer(var_group2, var_ir_prepare_write_buffer_5_p1,
+                                        var_ir_prepare_write_buffer_5_p2);
                 }
                 goto switch_break;
                 case_4: 
                 {
 #line 740
-                __cil_tmp17 = & ir_process_read_urb;
-#line 740
-                (*__cil_tmp17)(var_group4);
+                ir_process_read_urb(var_group4);
                 }
                 goto switch_break;
                 switch_default: 

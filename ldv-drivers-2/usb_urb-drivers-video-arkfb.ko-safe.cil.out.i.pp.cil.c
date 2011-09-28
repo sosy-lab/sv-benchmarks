@@ -8633,19 +8633,16 @@ static int ics5342_set_freq(struct dac_info *info , int channel , u32 freq )
 }
 #line 441 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static void ics5342_release(struct dac_info *info ) 
-{ int (*__cil_tmp2)(struct dac_info *info , int mode ) ;
-  void const   *__cil_tmp3 ;
+{ void const   *__cil_tmp2 ;
 
   {
   {
 #line 443
-  __cil_tmp2 = & ics5342_set_mode;
-#line 443
-  (*__cil_tmp2)(info, 0);
+  ics5342_set_mode(info, 0);
 #line 444
-  __cil_tmp3 = (void const   *)info;
+  __cil_tmp2 = (void const   *)info;
 #line 444
-  kfree(__cil_tmp3);
+  kfree(__cil_tmp2);
   }
 #line 445
   return;
@@ -13990,10 +13987,9 @@ static int ark_pci_resume(struct pci_dev *dev )
   unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
   unsigned int __cil_tmp20 ;
-  int (*__cil_tmp21)(struct fb_info *info ) ;
+  unsigned long __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct mutex *__cil_tmp24 ;
+  struct mutex *__cil_tmp23 ;
 
   {
   {
@@ -14066,22 +14062,20 @@ static int ark_pci_resume(struct pci_dev *dev )
 #line 1170
   pci_set_master(dev);
 #line 1172
-  __cil_tmp21 = & arkfb_set_par;
-#line 1172
-  (*__cil_tmp21)(info);
+  arkfb_set_par(info);
 #line 1173
   fb_set_suspend(info, 0);
   }
   fail: 
   {
 #line 1176
-  __cil_tmp22 = (unsigned long )par;
+  __cil_tmp21 = (unsigned long )par;
 #line 1176
-  __cil_tmp23 = __cil_tmp22 + 72;
+  __cil_tmp22 = __cil_tmp21 + 72;
 #line 1176
-  __cil_tmp24 = (struct mutex *)__cil_tmp23;
+  __cil_tmp23 = (struct mutex *)__cil_tmp22;
 #line 1176
-  mutex_unlock(__cil_tmp24);
+  mutex_unlock(__cil_tmp23);
 #line 1177
   console_unlock();
   }
@@ -14307,25 +14301,7 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp28 ;
-  void (*__cil_tmp29)(struct fb_info *info , struct fb_tilemap *map ) ;
-  void (*__cil_tmp30)(struct fb_info *info , struct fb_tilecursor *cursor ) ;
-  int (*__cil_tmp31)(struct dac_info *info , int mode ) ;
-  int (*__cil_tmp32)(struct dac_info *info , int channel , u32 freq ) ;
-  void (*__cil_tmp33)(struct dac_info *info ) ;
-  int (*__cil_tmp34)(struct fb_info *info , int user ) ;
-  int (*__cil_tmp35)(struct fb_info *info , int user ) ;
-  int (*__cil_tmp36)(struct fb_var_screeninfo *var , struct fb_info *info ) ;
-  int (*__cil_tmp37)(struct fb_info *info ) ;
-  int (*__cil_tmp38)(u_int regno , u_int red , u_int green , u_int blue , u_int transp ,
-                     struct fb_info *fb ) ;
-  int (*__cil_tmp39)(int blank_mode , struct fb_info *info ) ;
-  int (*__cil_tmp40)(struct fb_var_screeninfo *var , struct fb_info *info ) ;
-  void (*__cil_tmp41)(struct fb_info *info , struct fb_fillrect  const  *rect ) ;
-  void (*__cil_tmp42)(struct fb_info *info , struct fb_image  const  *image ) ;
-  int (*__cil_tmp43)(struct pci_dev *dev , struct pci_device_id  const  *id ) ;
-  int (*__cil_tmp44)(struct pci_dev *dev , int state_event29 ) ;
-  int (*__cil_tmp45)(struct pci_dev *dev ) ;
-  int var_ark_pci_suspend_32_p1_event46 ;
+  int var_ark_pci_suspend_32_p1_event29 ;
 
   {
   {
@@ -14445,119 +14421,91 @@ void main(void)
                                         case_0: 
                                         {
 #line 1787
-                                        __cil_tmp29 = & arkfb_settile;
-#line 1787
-                                        (*__cil_tmp29)(var_group1, var_group2);
+                                        arkfb_settile(var_group1, var_group2);
                                         }
                                         goto switch_break;
                                         case_1: 
                                         {
 #line 1824
-                                        __cil_tmp30 = & arkfb_tilecursor;
-#line 1824
-                                        (*__cil_tmp30)(var_group1, var_group3);
+                                        arkfb_tilecursor(var_group1, var_group3);
                                         }
                                         goto switch_break;
                                         case_2: 
                                         {
 #line 1862
-                                        __cil_tmp31 = & ics5342_set_mode;
-#line 1862
-                                        (*__cil_tmp31)(var_group4, var_ics5342_set_mode_16_p1);
+                                        ics5342_set_mode(var_group4, var_ics5342_set_mode_16_p1);
                                         }
                                         goto switch_break;
                                         case_3: 
                                         {
 #line 1899
-                                        __cil_tmp32 = & ics5342_set_freq;
-#line 1899
-                                        (*__cil_tmp32)(var_group4, var_ics5342_set_freq_17_p1,
-                                                       var_ics5342_set_freq_17_p2);
+                                        ics5342_set_freq(var_group4, var_ics5342_set_freq_17_p1,
+                                                         var_ics5342_set_freq_17_p2);
                                         }
                                         goto switch_break;
                                         case_4: 
                                         {
 #line 1936
-                                        __cil_tmp33 = & ics5342_release;
-#line 1936
-                                        (*__cil_tmp33)(var_group4);
+                                        ics5342_release(var_group4);
                                         }
                                         goto switch_break;
                                         case_5: 
                                         {
 #line 1973
-                                        __cil_tmp34 = & arkfb_open;
-#line 1973
-                                        (*__cil_tmp34)(var_group1, var_arkfb_open_23_p1);
+                                        arkfb_open(var_group1, var_arkfb_open_23_p1);
                                         }
                                         goto switch_break;
                                         case_6: 
                                         {
 #line 2010
-                                        __cil_tmp35 = & arkfb_release;
-#line 2010
-                                        (*__cil_tmp35)(var_group1, var_arkfb_release_24_p1);
+                                        arkfb_release(var_group1, var_arkfb_release_24_p1);
                                         }
                                         goto switch_break;
                                         case_7: 
                                         {
 #line 2047
-                                        __cil_tmp36 = & arkfb_check_var;
-#line 2047
-                                        (*__cil_tmp36)(var_group5, var_group1);
+                                        arkfb_check_var(var_group5, var_group1);
                                         }
                                         goto switch_break;
                                         case_8: 
                                         {
 #line 2084
-                                        __cil_tmp37 = & arkfb_set_par;
-#line 2084
-                                        (*__cil_tmp37)(var_group1);
+                                        arkfb_set_par(var_group1);
                                         }
                                         goto switch_break;
                                         case_9: 
                                         {
 #line 2121
-                                        __cil_tmp38 = & arkfb_setcolreg;
-#line 2121
-                                        (*__cil_tmp38)(var_arkfb_setcolreg_27_p0,
-                                                       var_arkfb_setcolreg_27_p1,
-                                                       var_arkfb_setcolreg_27_p2,
-                                                       var_arkfb_setcolreg_27_p3,
-                                                       var_arkfb_setcolreg_27_p4,
-                                                       var_arkfb_setcolreg_27_p5);
+                                        arkfb_setcolreg(var_arkfb_setcolreg_27_p0,
+                                                        var_arkfb_setcolreg_27_p1,
+                                                        var_arkfb_setcolreg_27_p2,
+                                                        var_arkfb_setcolreg_27_p3,
+                                                        var_arkfb_setcolreg_27_p4,
+                                                        var_arkfb_setcolreg_27_p5);
                                         }
                                         goto switch_break;
                                         case_10: 
                                         {
 #line 2158
-                                        __cil_tmp39 = & arkfb_blank;
-#line 2158
-                                        (*__cil_tmp39)(var_arkfb_blank_28_p0, var_group1);
+                                        arkfb_blank(var_arkfb_blank_28_p0, var_group1);
                                         }
                                         goto switch_break;
                                         case_11: 
                                         {
 #line 2195
-                                        __cil_tmp40 = & arkfb_pan_display;
-#line 2195
-                                        (*__cil_tmp40)(var_group5, var_group1);
+                                        arkfb_pan_display(var_group5, var_group1);
                                         }
                                         goto switch_break;
                                         case_12: 
                                         {
 #line 2231
-                                        __cil_tmp41 = & arkfb_fillrect;
-#line 2231
-                                        (*__cil_tmp41)(var_group1, var_arkfb_fillrect_8_p1);
+                                        arkfb_fillrect(var_group1, var_arkfb_fillrect_8_p1);
                                         }
                                         goto switch_break;
                                         case_13: 
                                         {
 #line 2268
-                                        __cil_tmp42 = & arkfb_imageblit;
-#line 2268
-                                        (*__cil_tmp42)(var_group1, var_arkfb_imageblit_7_p1);
+                                        arkfb_imageblit(var_group1, var_arkfb_imageblit_7_p1);
                                         }
                                         goto switch_break;
                                         case_14: 
@@ -14565,10 +14513,8 @@ void main(void)
                                         if (ldv_s_arkfb_pci_driver_pci_driver == 0) {
                                           {
 #line 2306
-                                          __cil_tmp43 = & ark_pci_probe;
-#line 2306
-                                          res_ark_pci_probe_30 = (*__cil_tmp43)(var_group6,
-                                                                                var_ark_pci_probe_30_p1);
+                                          res_ark_pci_probe_30 = ark_pci_probe(var_group6,
+                                                                               var_ark_pci_probe_30_p1);
 #line 2307
                                           ldv_check_return_value(res_ark_pci_probe_30);
                                           }
@@ -14587,17 +14533,13 @@ void main(void)
                                         case_15: 
                                         {
 #line 2349
-                                        __cil_tmp44 = & ark_pci_suspend;
-#line 2349
-                                        (*__cil_tmp44)(var_group7, var_ark_pci_suspend_32_p1_event46);
+                                        ark_pci_suspend(var_group7, var_ark_pci_suspend_32_p1_event29);
                                         }
                                         goto switch_break;
                                         case_16: 
                                         {
 #line 2386
-                                        __cil_tmp45 = & ark_pci_resume;
-#line 2386
-                                        (*__cil_tmp45)(var_group7);
+                                        ark_pci_resume(var_group7);
                                         }
                                         goto switch_break;
                                         switch_default: 
