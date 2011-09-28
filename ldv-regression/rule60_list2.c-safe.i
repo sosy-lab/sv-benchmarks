@@ -964,7 +964,7 @@ extern void __malloc_check_init (void) __attribute__ ((__nothrow__));
 int VERDICT_SAFE;
 
 
-int int_nondet(void);
+int __VERIFIER_nondet_int(void);
 
 void * guard_malloc_counter = 0;
 
@@ -972,7 +972,7 @@ void * __getMemory(int size)
 {
   ((size > 0) ? (0) : __blast_assert ());
   guard_malloc_counter++;
-  if (!int_nondet())
+  if (!__VERIFIER_nondet_int())
  return 0;
   return (void *) guard_malloc_counter;
 }
@@ -990,7 +990,7 @@ struct list_head *elem = ((void *)0);
 
 static void list_add(struct list_head *new, struct list_head *head) {
   ((new!=elem) ? (0) : __blast_assert ());
-  if(int_nondet())
+  if(__VERIFIER_nondet_int())
  elem = new;
 }
 

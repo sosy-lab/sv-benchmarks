@@ -29,7 +29,7 @@ extern  __attribute__((__nothrow__)) void *malloc(size_t __size )  __attribute__
 #line 4 "files/test_fieldaddr.c"
 int VERDICT_SAFE  ;
 #line 6
-extern int undef_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 11 "files/test_fieldaddr.c"
 struct list_head *elem  =    (struct list_head *)((void *)0);
 #line 13 "files/test_fieldaddr.c"
@@ -68,7 +68,7 @@ void list_add(struct list_head *new , struct list_head *head )
     }
     {
 #line 16
-    tmp = undef_int();
+    tmp = __VERIFIER_nondet_int();
     }
 #line 16
     if (tmp) {

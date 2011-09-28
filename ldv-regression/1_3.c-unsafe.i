@@ -19,9 +19,8 @@ struct RR
 
 typedef struct RR rr;
 
-rr * __undefrr();
-void * __undefined_pointer();
-int __undefined_int();
+extern void *__VERIFIER_nondet_pointer();
+extern int __VERIFIER_nondet_int();
 # 3 "files/1_3.c" 2
 
 
@@ -32,7 +31,7 @@ int VERDICT_UNSAFE;
 # 23 "files/1_3.c"
 rr * getrr()
 {
- rr * r = __undefrr();
+ rr * r = (rr *)__VERIFIER_nondet_pointer();
  r -> state = 0;
  return r;
 }

@@ -18,7 +18,7 @@ void __blast_assert(void)
 #line 9 "files/rule60_list2.c"
 int VERDICT_SAFE  ;
 #line 12
-extern int int_nondet(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 14 "files/rule60_list2.c"
 void *guard_malloc_counter  =    (void *)0;
 #line 16 "files/rule60_list2.c"
@@ -39,7 +39,7 @@ void *__getMemory(int size )
 #line 19
   guard_malloc_counter = guard_malloc_counter + 1;
 #line 20
-  tmp = int_nondet();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 20
   if (tmp) {
@@ -91,7 +91,7 @@ static void list_add(struct list_head *new , struct list_head *head )
   }
   {
 #line 38
-  tmp = int_nondet();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 38
   if (tmp) {

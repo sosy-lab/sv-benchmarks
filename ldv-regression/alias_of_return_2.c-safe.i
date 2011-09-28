@@ -10,11 +10,11 @@ int VERDICT_SAFE;
 void err()
 { ERROR: goto ERROR; }
 
-int __nondet();
+int __VERIFIER_nondet_int();
 
 int * return_self (int * p)
 {
- if (__nondet()){
+ if (__VERIFIER_nondet_int()){
   return p;
  }else{
   return p;

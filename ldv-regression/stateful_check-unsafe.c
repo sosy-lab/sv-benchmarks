@@ -11,7 +11,7 @@ ERROR: goto ERROR;
 int ldv_mutex = 1;
 
 int open_called = 0;
-int misc_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 
 void mutex_lock(void)
 {
@@ -56,7 +56,7 @@ static int misc_read() {
 
 static int misc_open()
 {
-        if(misc_nondet_int()) {
+        if(__VERIFIER_nondet_int()) {
 
                 return 1;
         } else {
@@ -75,9 +75,9 @@ static int my_init(void)
 void main(void) {
         int ldv_s_misc_fops_file_operations = 0;
  my_init();
-        while(nondet_int()) {
+        while(__VERIFIER_nondet_int()) {
 
-                switch(nondet_int()) {
+                switch(__VERIFIER_nondet_int()) {
 
                         case 0: {
                                 if(ldv_s_misc_fops_file_operations==0) {

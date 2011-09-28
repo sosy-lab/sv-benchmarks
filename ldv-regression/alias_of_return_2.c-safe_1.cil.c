@@ -13,7 +13,7 @@ void err(void)
 }
 }
 #line 17
-extern int __nondet() ;
+extern int __VERIFIER_nondet_int() ;
 #line 19 "files/alias_of_return_2.c"
 int *return_self(int *p ) 
 { int tmp ;
@@ -21,7 +21,7 @@ int *return_self(int *p )
   {
   {
 #line 21
-  tmp = __nondet();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 21
   if (tmp) {

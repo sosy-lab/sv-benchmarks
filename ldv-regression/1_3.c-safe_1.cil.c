@@ -17,20 +17,20 @@ void __blast_assert(void)
 }
 }
 #line 10 "files/1_3.h"
-extern rr *__undefrr() ;
+extern void *__VERIFIER_nondet_pointer();
 #line 5 "files/1_3.c"
 int VERDICT_SAFE  ;
 #line 23 "files/1_3.c"
 rr *getrr(void) 
 { rr *r ;
-  rr *tmp ;
+  void *tmp ;
 
   {
   {
 #line 25
-  tmp = __undefrr();
+  tmp = __VERIFIER_nondet_pointer();
 #line 25
-  r = tmp;
+  r = (rr *)tmp;
 #line 26
   *((int *)r) = 0;
   }

@@ -958,7 +958,7 @@ extern void __malloc_check_init (void) __attribute__ ((__nothrow__));
 
 int VERDICT_SAFE;
 
-int undef_int(void);
+int __VERIFIER_nondet_int(void);
 
 struct list_head {
 };
@@ -968,7 +968,7 @@ struct list_head *elem = ((void *)0);
 void list_add(struct list_head *new, struct list_head *head) {
   if(new!=((void *)0)) {
    ((new!=elem) ? (0) : __blast_assert ());
-   if(undef_int())
+   if(__VERIFIER_nondet_int())
          elem = new;
   }
 }

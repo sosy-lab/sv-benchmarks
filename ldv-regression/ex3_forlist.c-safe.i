@@ -47,8 +47,6 @@ void g(void *pointer) {
  }
 }
 
-void * __undefined_pointer();
-
 int counter = 1;
 void *malloc(int size) {
  return counter++;

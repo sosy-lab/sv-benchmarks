@@ -15,7 +15,7 @@ int ldv_mutex  =    1;
 #line 9 "stateful_check.c"
 int open_called  =    0;
 #line 10
-extern int misc_nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 12 "stateful_check.c"
 void mutex_lock(void) 
 { 
@@ -126,7 +126,7 @@ static int misc_open(void)
   {
   {
 #line 55
-  tmp = misc_nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 55
   if (tmp) {
@@ -152,7 +152,7 @@ static int my_init(void)
 }
 }
 #line 76
-extern int ( /* missing proto */  nondet_int)() ;
+extern int ( /* missing proto */  __VERIFIER_nondet_int)() ;
 #line 71 "stateful_check.c"
 void main(void) 
 { int ldv_s_misc_fops_file_operations ;
@@ -172,7 +172,7 @@ void main(void)
     while_0_continue: /* CIL Label */ ;
     {
 #line 74
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 74
     if (tmp___0) {
@@ -182,7 +182,7 @@ void main(void)
     }
     {
 #line 76
-    tmp = nondet_int();
+    tmp = __VERIFIER_nondet_int();
     }
 #line 78
     if (tmp == 0) {
