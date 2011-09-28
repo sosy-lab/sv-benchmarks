@@ -11188,7 +11188,6 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     }
     goto while_70_break;
   }
-  while_58_break: /* CIL Label */ ;
   }
   while_70_break: ;
   {

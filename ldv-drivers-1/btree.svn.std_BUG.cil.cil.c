@@ -874,7 +874,6 @@ static int longcmp(unsigned long const   *l1 , unsigned long const   *l2 , size_
 #line 15504
     i = i + 1U;
   }
-  while_0_break: /* CIL Label */ ;
   }
   while_0_break: ;
 #line 15510

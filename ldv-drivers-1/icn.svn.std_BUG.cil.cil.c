@@ -9350,7 +9350,6 @@ static void icn_parse_status(u_char *status , int channel , icn_card *card )
                         }
                         goto while_40_break;
                       }
-                      while_29_break: /* CIL Label */ ;
                       }
                       while_40_break: 
                       {

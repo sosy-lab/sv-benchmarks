@@ -6690,7 +6690,6 @@ __inline static struct sk_buff *skb_share_check(struct sk_buff *skb , gfp_t pri 
 
           goto while_6_break;
         }
-        while_4_break: /* CIL Label */ ;
         }
         while_6_break: ;
         goto while_5_break;
