@@ -7553,6 +7553,9 @@ int main(void)
   int __BLAST_NONDET___0 ;
   int irp_choice ;
   DEVICE_OBJECT devobj ;
+  devobj.DeviceExtension = malloc(sizeof (CD_DEVICE_EXTENSION));
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(sizeof (IO_STACK_LOCATION));
+  irp.AssociatedIrp.SystemBuffer = malloc(sizeof (CDROM_TOC));
 
   {
   {

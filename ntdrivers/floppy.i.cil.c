@@ -7041,6 +7041,7 @@ int main(void)
   int __BLAST_NONDET ;
   int irp_choice ;
   DEVICE_OBJECT devobj ;
+  d.DriverExtension = malloc(sizeof (struct _DRIVER_EXTENSION));
 
   {
   {
@@ -7208,13 +7209,6 @@ int main(void)
 }
 }
 char _SLAM_alloc_dummy  ;
-char *malloc(int i ) 
-{ 
-
-  {
-  return (& _SLAM_alloc_dummy);
-}
-}
   void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) ;
 void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) 
 { 
@@ -7241,7 +7235,7 @@ PVOID ExAllocatePoolWithTag(POOL_TYPE PoolType , SIZE_T NumberOfBytes ,
 
   {
   {
-  tmp = & _SLAM_alloc_dummy; /* malloc(NumberOfBytes); */ /* INLINED */
+  tmp = malloc(NumberOfBytes);
   x = tmp;
   }
   return (x);
