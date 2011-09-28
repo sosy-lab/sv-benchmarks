@@ -14,8 +14,8 @@ void __blast_assert(void)
 }
 #line 5 "files/palias.c"
 int main(void) 
-{ int *a ;
-  int *b ;
+{ int *a = malloc(sizeof *a);
+  int *b;
   int __cil_tmp3 ;
 
   {
