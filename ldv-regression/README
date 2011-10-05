@@ -6,6 +6,7 @@ some of these tests are inspired by the patterns they have spotted in the real d
 
 *.i - CIL-preprocessed sources, with options "--printCilAsIs --domakeCFG", 
       but without option "--dosimplify".
+      (Only for documentation.)
 
 *.cil.cil.c - CIL-preprocessed sources (32-bit machine architecture)
 
