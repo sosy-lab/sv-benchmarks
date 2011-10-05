@@ -11,7 +11,7 @@
 # 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h" 1
 
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
-void __VERIFIER_assert(int expression, char*) { if (!expression) { ERROR: goto ERROR; }; return; }
+void __VERIFIER_assert(int expression, char* x) { if (!expression) { ERROR: goto ERROR; }; return; }
 
 enum __bool { false, true };
 
@@ -4929,8 +4929,6 @@ loff_t no_llseek(struct file *file, loff_t offset, int origin) { loff_t l; retur
 
 
 
-void __VERIFIER_assume(int phi) { while(!phi); }
-void __VERIFIER_assert(int phi, char* txt) { if(!phi) { ERROR: ; } }
 
 int nonseekable_open(struct inode * inode, struct file * filp) { int i; return i; }
 void __module_get(struct module *module) { }
@@ -4943,7 +4941,7 @@ int test_and_set_bit(int nr, unsigned long *addr)
   return (old & bit) != 0;
 }
 
-void clear_bit(int nr, unsigned long *addr)
+void clear_bit(int nr, volatile unsigned long *addr)
 {
   unsigned int bit = 1 << (nr & 31);
   addr += (nr >> 5);
