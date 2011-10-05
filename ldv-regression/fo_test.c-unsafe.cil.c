@@ -22,6 +22,10 @@ void __blast_assert(void)
 #line 87 "/usr/include/fcntl.h"
 extern int open(char const   *__file , int __oflag  , ...)  __attribute__((__nonnull__(1))) ;
 #line 8 "files/fo_test.c"
+extern int __VERIFIER_nondet_int(void);
+int open(char const   *__file, int __oflag, ...)  {
+    return __VERIFIER_nondet_int();
+}
 int globalState  =    0;
 #line 9
 ssize_t l_read(int fd , char *cbuf , size_t count ) ;

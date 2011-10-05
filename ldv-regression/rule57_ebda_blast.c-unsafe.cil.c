@@ -78,13 +78,50 @@ void kfree(void *p )
   return;
 }
 }
-#line 43
-extern struct bus_info *ibmphp_find_same_bus_num() ;
-#line 45
-extern int fillslotinfo(struct hotplug_slot * ) ;
+#line 44
+extern void *__VERIFIER_nondet_pointer(void) ;
+#line 45 "files/rule57_ebda_blast.c"
+static struct bus_info *ibmphp_find_same_bus_num(void) 
+{ void *tmp ;
+
+  {
+  {
+#line 47
+  tmp = __VERIFIER_nondet_pointer();
+  }
+#line 47
+  return ((struct bus_info *)tmp);
+}
+}
 #line 46
-extern int ibmphp_init_devno(struct slot ** ) ;
-#line 48 "files/rule57_ebda_blast.c"
+extern int __VERIFIER_nondet_int(void) ;
+#line 47 "files/rule57_ebda_blast.c"
+static int fillslotinfo(struct hotplug_slot *ptr ) 
+{ int tmp ;
+
+  {
+  {
+#line 49
+  tmp = __VERIFIER_nondet_int();
+  }
+#line 49
+  return (tmp);
+}
+}
+#line 47 "files/rule57_ebda_blast.c"
+static int ibmphp_init_devno(struct slot **ptr ) 
+{ int tmp ;
+
+  {
+  {
+#line 49
+  tmp = __VERIFIER_nondet_int();
+  }
+#line 49
+  return (tmp);
+}
+}
+#line 49 "files/rule57_ebda_blast.c"
 int ebda_rsrc_controller(void) 
 { struct hotplug_slot *hp_slot_ptr ;
   struct bus_info *bus_info_ptr1 ;

@@ -6,6 +6,8 @@ struct list {
    int n ;
    struct list *next ;
 };
+#line 211 "/usr/lib/gcc/x86_64-pc-linux-gnu/4.5.3/include/stddef.h"
+typedef unsigned int size_t;
 #line 12 "files/recursive_list.c"
 void err(void) 
 { 
@@ -18,17 +20,22 @@ void err(void)
 }
 #line 22 "files/recursive_list.c"
 int i  =    1;
+#line 471 "/usr/include/stdlib.h"
+extern  __attribute__((__nothrow__)) void *malloc(size_t __size )  __attribute__((__malloc__)) ;
 #line 23 "files/recursive_list.c"
 void *allocate_memory(void) 
-{ int tmp ;
+{ void *tmp ;
+  unsigned int __cil_tmp2 ;
 
   {
+  {
 #line 25
-  tmp = i;
+  __cil_tmp2 = (unsigned int )8UL;
 #line 25
-  i = i + 1;
+  tmp = malloc(__cil_tmp2);
+  }
 #line 25
-  return ((void *)tmp);
+  return (tmp);
 }
 }
 #line 28 "files/recursive_list.c"
