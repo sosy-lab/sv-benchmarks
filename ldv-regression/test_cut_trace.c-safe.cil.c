@@ -11,37 +11,35 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 5 "files/test_cut_trace.c"
-int VERDICT_SAFE  ;
-#line 7 "files/test_cut_trace.c"
+#line 6 "files/test_cut_trace.c"
 int main(void) 
 { int z ;
   int a ;
 
   {
-#line 9
+#line 8
   z = 0;
-#line 10
+#line 9
   if (z == 0) {
 
   } else {
     {
-#line 10
+#line 9
     __blast_assert();
     }
   }
-#line 11
+#line 10
   a = z;
-#line 12
+#line 11
   if (a == 0) {
 
   } else {
     {
-#line 12
+#line 11
     __blast_assert();
     }
   }
-#line 13
+#line 12
   return (0);
 }
 }

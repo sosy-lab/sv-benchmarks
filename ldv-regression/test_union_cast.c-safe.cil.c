@@ -15,8 +15,6 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 7 "files/test_union_cast.c"
-int VERDICT_SAFE  ;
 #line 24 "files/test_union_cast.c"
 int main(void) 
 { struct l_struct_2E_X llvm_cbe_var ;

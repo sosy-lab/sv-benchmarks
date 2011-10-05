@@ -21,15 +21,13 @@ void __blast_assert(void)
 }
 #line 87 "/usr/include/fcntl.h"
 extern int open(char const   *__file , int __oflag  , ...)  __attribute__((__nonnull__(1))) ;
-#line 7 "files/fo_test.c"
-int VERDICT_UNSAFE  ;
-#line 9 "files/fo_test.c"
+#line 8 "files/fo_test.c"
 int globalState  =    0;
-#line 10
+#line 9
 ssize_t l_read(int fd , char *cbuf , size_t count ) ;
-#line 11
+#line 10
 int l_open(char *file , int flags ) ;
-#line 13 "files/fo_test.c"
+#line 12 "files/fo_test.c"
 int main(int argc , char **argv ) 
 { int file ;
   int tmp ;
@@ -38,62 +36,65 @@ int main(int argc , char **argv )
   int a ;
   ssize_t tmp___1 ;
   char *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char *__cil_tmp11 ;
-  size_t __cil_tmp12 ;
+  unsigned int __cil_tmp10 ;
+  size_t __cil_tmp11 ;
+  char *__cil_tmp12 ;
+  size_t __cil_tmp13 ;
 
   {
   {
-#line 15
+#line 14
   __cil_tmp9 = (char *)"unknown";
-#line 15
+#line 14
   tmp = l_open(__cil_tmp9, 0);
-#line 15
+#line 14
   file = tmp;
-#line 16
-  __cil_tmp10 = 1UL * 100UL;
-#line 16
-  tmp___0 = malloc(__cil_tmp10);
-#line 16
+#line 15
+  __cil_tmp10 = 1U * 100U;
+#line 15
+  __cil_tmp11 = (size_t )__cil_tmp10;
+#line 15
+  tmp___0 = malloc(__cil_tmp11);
+#line 15
   cbuf = tmp___0;
-#line 17
-  __cil_tmp11 = (char *)cbuf;
-#line 17
-  __cil_tmp12 = (size_t )99;
-#line 17
-  tmp___1 = l_read(file, __cil_tmp11, __cil_tmp12);
-#line 17
+#line 16
+  __cil_tmp12 = (char *)cbuf;
+#line 16
+  __cil_tmp13 = (size_t )99;
+#line 16
+  tmp___1 = l_read(file, __cil_tmp12, __cil_tmp13);
+#line 16
   a = (int )tmp___1;
   }
-#line 18
+#line 17
   return (0);
 }
 }
-#line 23
+#line 22
 extern int ( /* missing proto */  read)() ;
-#line 21 "files/fo_test.c"
+#line 20 "files/fo_test.c"
 ssize_t l_read(int fd , char *cbuf , size_t count ) 
 { int tmp ;
 
   {
-#line 22
+#line 21
   if (globalState == 1) {
 
   } else {
     {
-#line 22
+#line 21
     __blast_assert();
     }
   }
   {
-#line 23
+#line 22
   tmp = read(fd, cbuf, count);
   }
-#line 23
+#line 22
   return ((ssize_t )tmp);
 }
 }
-#line 26 "files/fo_test.c"
+#line 25 "files/fo_test.c"
 int l_open(char *file , int flags ) 
 { int fd ;
   int tmp ;
@@ -101,21 +102,21 @@ int l_open(char *file , int flags )
 
   {
   {
-#line 27
+#line 26
   __cil_tmp5 = (char const   *)file;
-#line 27
+#line 26
   tmp = open(__cil_tmp5, flags);
-#line 27
+#line 26
   fd = tmp;
   }
-#line 28
+#line 27
   if (fd > 0) {
-#line 28
+#line 27
     globalState = 1;
   } else {
 
   }
-#line 29
+#line 28
   return (fd);
 }
 }

@@ -17,15 +17,13 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 5 "files/alt_test.c"
-int VERDICT_UNSAFE  ;
-#line 7 "files/alt_test.c"
+#line 6 "files/alt_test.c"
 int globalState  =    0;
-#line 8
+#line 7
 void *l_malloc(int size ) ;
-#line 9
+#line 8
 void l_free(void *ptr ) ;
-#line 11 "files/alt_test.c"
+#line 10 "files/alt_test.c"
 int main(int argc , char **argv ) 
 { int *a ;
   void *tmp ;
@@ -35,84 +33,84 @@ int main(int argc , char **argv )
 
   {
   {
-#line 13
-  __cil_tmp5 = (int )4UL;
-#line 13
+#line 12
+  __cil_tmp5 = (int )4U;
+#line 12
   tmp = l_malloc(__cil_tmp5);
-#line 13
+#line 12
   a = (int *)tmp;
-#line 14
+#line 13
   __cil_tmp6 = (void *)a;
-#line 14
+#line 13
   l_free(__cil_tmp6);
-#line 15
+#line 14
   __cil_tmp7 = (void *)a;
-#line 15
+#line 14
   l_free(__cil_tmp7);
   }
-#line 16
+#line 15
   return (0);
 }
 }
-#line 19 "files/alt_test.c"
+#line 18 "files/alt_test.c"
 void *l_malloc(int size ) 
 { void *retVal ;
   void *tmp ;
   size_t __cil_tmp4 ;
   void *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
 
   {
   {
-#line 20
+#line 19
   __cil_tmp4 = (size_t )size;
-#line 20
+#line 19
   tmp = malloc(__cil_tmp4);
-#line 20
+#line 19
   retVal = tmp;
   }
   {
-#line 21
+#line 20
   __cil_tmp5 = (void *)0;
-#line 21
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
-#line 21
-  __cil_tmp7 = (unsigned long )retVal;
-#line 21
+#line 20
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
+#line 20
+  __cil_tmp7 = (unsigned int )retVal;
+#line 20
   if (__cil_tmp7 != __cil_tmp6) {
-#line 22
+#line 21
     globalState = 1;
   } else {
 
   }
   }
-#line 23
+#line 22
   return (retVal);
 }
 }
-#line 26 "files/alt_test.c"
+#line 25 "files/alt_test.c"
 void l_free(void *ptr ) 
 { void *__cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
 
   {
   {
-#line 30
+#line 29
   __cil_tmp2 = (void *)0;
-#line 30
-  __cil_tmp3 = (unsigned long )__cil_tmp2;
-#line 30
-  __cil_tmp4 = (unsigned long )ptr;
-#line 30
+#line 29
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
+#line 29
+  __cil_tmp4 = (unsigned int )ptr;
+#line 29
   if (__cil_tmp4 != __cil_tmp3) {
-#line 30
+#line 29
     if (globalState == 1) {
 
     } else {
       {
-#line 30
+#line 29
       __blast_assert();
       }
     }
@@ -121,12 +119,12 @@ void l_free(void *ptr )
   }
   }
   {
-#line 31
+#line 30
   globalState = 0;
-#line 32
+#line 31
   free(ptr);
   }
-#line 33
+#line 32
   return;
 }
 }

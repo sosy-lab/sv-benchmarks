@@ -11,57 +11,55 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 17 "files/oomInt.c"
-int VERDICT_SAFE  ;
-#line 23 "files/oomInt.c"
+#line 22 "files/oomInt.c"
 int abs_int(int i ) 
 { 
 
   {
-#line 25
+#line 24
   if (i < 0) {
-#line 29
+#line 28
     return (- i);
   } else {
-#line 31
+#line 30
     return (i);
   }
 }
 }
-#line 33 "files/oomInt.c"
+#line 32 "files/oomInt.c"
 int p  =    0;
-#line 34 "files/oomInt.c"
+#line 33 "files/oomInt.c"
 void firstFunction(void) 
 { 
 
   {
   {
-#line 36
+#line 35
   p = abs_int(-3);
   }
-#line 37
+#line 36
   if (p >= 0) {
 
   } else {
     {
-#line 37
+#line 36
     __blast_assert();
     }
   }
-#line 38
+#line 37
   return;
 }
 }
-#line 40 "files/oomInt.c"
+#line 39 "files/oomInt.c"
 void main(void) 
 { 
 
   {
   {
-#line 42
+#line 41
   firstFunction();
   }
-#line 43
+#line 42
   return;
 }
 }

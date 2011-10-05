@@ -17,66 +17,64 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 5 "files/test_overflow.c"
-int VERDICT_SAFE  ;
-#line 8
+#line 7 "files/test_overflow.c"
 ssize_t getService(void) ;
-#line 9 "files/test_overflow.c"
+#line 8 "files/test_overflow.c"
 int globalSize  ;
-#line 11 "files/test_overflow.c"
+#line 10 "files/test_overflow.c"
 int main(int argc , char **argv ) 
 { int retVal ;
   ssize_t tmp ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp5 ;
   char const   * __restrict  __cil_tmp6 ;
 
   {
   {
-#line 14
+#line 13
   tmp = getService();
-#line 14
+#line 13
   retVal = (int )tmp;
   }
   {
-#line 15
-  __cil_tmp5 = (unsigned long )globalSize;
-#line 15
-  if (4UL == __cil_tmp5) {
+#line 14
+  __cil_tmp5 = (unsigned int )globalSize;
+#line 14
+  if (4U == __cil_tmp5) {
 
   } else {
     {
-#line 15
+#line 14
     __blast_assert();
     }
   }
   }
   {
-#line 16
+#line 15
   __cil_tmp6 = (char const   * __restrict  )"returned value: %d\n";
-#line 16
+#line 15
   printf(__cil_tmp6, retVal);
   }
-#line 17
+#line 16
   return (0);
 }
 }
-#line 21 "files/test_overflow.c"
+#line 20 "files/test_overflow.c"
 ssize_t getService(void) 
 { ssize_t localVar ;
   char const   * __restrict  __cil_tmp2 ;
 
   {
   {
+#line 21
+  localVar = (ssize_t )999999999999LL;
 #line 22
-  localVar = 999999999999L;
+  globalSize = (int )4U;
 #line 23
-  globalSize = (int )8UL;
-#line 24
   __cil_tmp2 = (char const   * __restrict  )"localVar: %d\n";
-#line 24
+#line 23
   printf(__cil_tmp2, localVar);
   }
-#line 25
+#line 24
   return (localVar);
 }
 }

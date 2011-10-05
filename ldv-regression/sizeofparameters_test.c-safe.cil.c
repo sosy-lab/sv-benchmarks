@@ -11,46 +11,44 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 4 "files/sizeofparameters_test.c"
-int VERDICT_SAFE  ;
-#line 6
+#line 5 "files/sizeofparameters_test.c"
 void foo(int a ) ;
-#line 8 "files/sizeofparameters_test.c"
+#line 7 "files/sizeofparameters_test.c"
 int globalSize  ;
-#line 10 "files/sizeofparameters_test.c"
+#line 9 "files/sizeofparameters_test.c"
 int main(int argc , char **argv ) 
 { long a ;
 
   {
   {
+#line 12
+  globalSize = (int )4U;
 #line 13
-  globalSize = (int )8UL;
-#line 14
   foo(a);
   }
-#line 15
+#line 14
   return (0);
 }
 }
-#line 18 "files/sizeofparameters_test.c"
+#line 17 "files/sizeofparameters_test.c"
 void foo(int a ) 
-{ unsigned long __cil_tmp2 ;
+{ unsigned int __cil_tmp2 ;
 
   {
   {
-#line 19
-  __cil_tmp2 = (unsigned long )globalSize;
-#line 19
-  if (4UL == __cil_tmp2) {
+#line 18
+  __cil_tmp2 = (unsigned int )globalSize;
+#line 18
+  if (4U == __cil_tmp2) {
 
   } else {
     {
-#line 19
+#line 18
     __blast_assert();
     }
   }
   }
-#line 20
+#line 19
   return;
 }
 }

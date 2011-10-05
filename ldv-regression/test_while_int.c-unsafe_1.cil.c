@@ -11,8 +11,6 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 4 "files/test_while_int.c"
-int VERDICT_UNSAFE  ;
 #line 17 "files/test_while_int.c"
 int main(void) 
 { int i ;

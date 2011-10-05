@@ -11,159 +11,157 @@ void __blast_assert(void)
   goto ERROR;
 }
 }
-#line 10 "files/ex3_forlist.c"
-int VERDICT_SAFE  ;
-#line 14 "files/ex3_forlist.c"
+#line 13 "files/ex3_forlist.c"
 void *pp[2]  ;
-#line 15 "files/ex3_forlist.c"
+#line 14 "files/ex3_forlist.c"
 int pstate[2]  ;
-#line 17 "files/ex3_forlist.c"
+#line 16 "files/ex3_forlist.c"
 void init(void) 
 { int i ;
 
   {
-#line 19
+#line 18
   i = 0;
   {
-#line 19
+#line 18
   while (1) {
     while_continue: /* CIL Label */ ;
-#line 19
+#line 18
     if (i < 2) {
 
     } else {
-#line 19
+#line 18
       goto while_break;
     }
-#line 20
-    pp[i] = (void *)0;
-#line 21
-    pstate[i] = 0;
 #line 19
+    pp[i] = (void *)0;
+#line 20
+    pstate[i] = 0;
+#line 18
     i = i + 1;
   }
   while_break: /* CIL Label */ ;
   }
-#line 23
+#line 22
   return;
 }
 }
-#line 25 "files/ex3_forlist.c"
+#line 24 "files/ex3_forlist.c"
 void f(void *pointer ) 
 { int i ;
   void *__cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  unsigned int __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
 
   {
-#line 27
+#line 26
   i = 0;
   {
-#line 27
+#line 26
   while (1) {
     while_continue: /* CIL Label */ ;
-#line 27
+#line 26
     if (i < 2) {
 
     } else {
-#line 27
+#line 26
       goto while_break;
     }
     {
-#line 28
+#line 27
     __cil_tmp3 = (void *)0;
-#line 28
-    __cil_tmp4 = (unsigned long )__cil_tmp3;
-#line 28
-    __cil_tmp5 = (unsigned long )pp[i];
-#line 28
+#line 27
+    __cil_tmp4 = (unsigned int )__cil_tmp3;
+#line 27
+    __cil_tmp5 = (unsigned int )pp[i];
+#line 27
     if (__cil_tmp5 == __cil_tmp4) {
-#line 29
+#line 28
       pp[i] = pointer;
-#line 30
+#line 29
       pstate[i] = 1;
-#line 31
+#line 30
       goto while_break;
     } else {
 
     }
     }
-#line 27
+#line 26
     i = i + 1;
   }
   while_break: /* CIL Label */ ;
   }
-#line 34
+#line 33
   return;
 }
 }
-#line 36 "files/ex3_forlist.c"
+#line 35 "files/ex3_forlist.c"
 void g(void *pointer ) 
 { int i ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
 
   {
-#line 38
+#line 37
   i = 0;
   {
-#line 38
+#line 37
   while (1) {
     while_continue: /* CIL Label */ ;
-#line 38
+#line 37
     if (i < 2) {
 
     } else {
-#line 38
+#line 37
       goto while_break;
     }
     {
-#line 39
-    __cil_tmp3 = (unsigned long )pointer;
-#line 39
-    __cil_tmp4 = (unsigned long )pp[i];
-#line 39
+#line 38
+    __cil_tmp3 = (unsigned int )pointer;
+#line 38
+    __cil_tmp4 = (unsigned int )pp[i];
+#line 38
     if (__cil_tmp4 == __cil_tmp3) {
-#line 41
+#line 40
       if (pstate[i] == 1) {
 
       } else {
         {
-#line 41
+#line 40
         __blast_assert();
         }
       }
-#line 42
+#line 41
       pstate[i] = 2;
     } else {
 
     }
     }
-#line 38
+#line 37
     i = i + 1;
   }
   while_break: /* CIL Label */ ;
   }
-#line 45
+#line 44
   return;
 }
 }
-#line 47 "files/ex3_forlist.c"
+#line 46 "files/ex3_forlist.c"
 int counter  =    1;
-#line 48 "files/ex3_forlist.c"
+#line 47 "files/ex3_forlist.c"
 void *malloc(int size ) 
 { int tmp ;
 
   {
-#line 49
+#line 48
   tmp = counter;
-#line 49
+#line 48
   counter = counter + 1;
-#line 49
+#line 48
   return ((void *)tmp);
 }
 }
-#line 53 "files/ex3_forlist.c"
+#line 52 "files/ex3_forlist.c"
 int main(void) 
 { int *a ;
   int *b ;
@@ -172,11 +170,11 @@ int main(void)
   int __cil_tmp5 ;
   int __cil_tmp6 ;
   int *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   int *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   void *__cil_tmp13 ;
   void *__cil_tmp14 ;
   void *__cil_tmp15 ;
@@ -184,43 +182,43 @@ int main(void)
 
   {
   {
-#line 56
+#line 55
   init();
-#line 57
-  __cil_tmp5 = (int )4UL;
-#line 57
+#line 56
+  __cil_tmp5 = (int )4U;
+#line 56
   tmp = malloc(__cil_tmp5);
-#line 57
+#line 56
   a = (int *)tmp;
-#line 58
-  __cil_tmp6 = (int )4UL;
-#line 58
+#line 57
+  __cil_tmp6 = (int )4U;
+#line 57
   tmp___0 = malloc(__cil_tmp6);
-#line 58
+#line 57
   b = (int *)tmp___0;
   }
   {
-#line 59
+#line 58
   __cil_tmp7 = (int *)0;
-#line 59
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 59
-  __cil_tmp9 = (unsigned long )a;
-#line 59
+#line 58
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+#line 58
+  __cil_tmp9 = (unsigned int )a;
+#line 58
   if (__cil_tmp9 == __cil_tmp8) {
-#line 60
+#line 59
     return (-1);
   } else {
     {
-#line 59
+#line 58
     __cil_tmp10 = (int *)0;
-#line 59
-    __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 59
-    __cil_tmp12 = (unsigned long )b;
-#line 59
+#line 58
+    __cil_tmp11 = (unsigned int )__cil_tmp10;
+#line 58
+    __cil_tmp12 = (unsigned int )b;
+#line 58
     if (__cil_tmp12 == __cil_tmp11) {
-#line 60
+#line 59
       return (-1);
     } else {
 
@@ -229,24 +227,24 @@ int main(void)
   }
   }
   {
-#line 62
+#line 61
   __cil_tmp13 = (void *)a;
-#line 62
+#line 61
   f(__cil_tmp13);
-#line 63
+#line 62
   __cil_tmp14 = (void *)b;
-#line 63
+#line 62
   f(__cil_tmp14);
-#line 64
+#line 63
   __cil_tmp15 = (void *)a;
-#line 64
+#line 63
   g(__cil_tmp15);
-#line 66
+#line 65
   __cil_tmp16 = (void *)b;
-#line 66
+#line 65
   g(__cil_tmp16);
   }
-#line 70
+#line 69
   return (0);
 }
 }
