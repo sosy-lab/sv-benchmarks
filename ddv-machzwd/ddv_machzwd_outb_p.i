@@ -690,6 +690,8 @@ extern inline int pthread_create(
   void *(*__start_routine) (void *),
   void *__arg);
 
+struct sched_param;
+
 extern pthread_t pthread_self(void);
 extern int pthread_equal(pthread_t __thread1, pthread_t __thread2);
 extern void pthread_exit(void *__retval);
@@ -1658,7 +1660,7 @@ int access_ok(int type, const void *addr, unsigned long size);
 
 int __get_user(int size, void *ptr);
 
-int get_user(int size, void *ptr);
+int get_user(int size, const void *ptr);
 
 
 int __put_user(int size, void *ptr);
@@ -1681,10 +1683,8 @@ static unsigned short zf_readw(unsigned char port)
 char _ddv_module_author[] = "Fernando Fuganti <fuganti@conectiva.com.br>";
 char _ddv_module_description[] = "MachZ ZF-Logic Watchdog driver";
 char _ddv_module_license[] = "GPL";
-void;
 
 static int nowayout = 0;
-void;
 char _ddv_module_param_nowayout [] = "Watchdog cannot be stopped once started (default=CONFIG_WATCHDOG_NOWAYOUT)";
 
 
@@ -1696,7 +1696,6 @@ static struct watchdog_info zf_info = {
 };
 # 117 "machzwd.c"
 static int action = 0;
-void;
 char _ddv_module_param_action [] = "after watchdog resets, generate: 0 = RESET(*)  1 = SMI  2 = NMI  3 = SCI";
 
 static int zf_action = 0x0800;
@@ -1964,7 +1963,7 @@ static const struct file_operations zf_fops = {
 static struct miscdevice zf_miscdev = {
  .minor = 130,
  .name = "watchdog",
- .fops = &zf_fops,
+ .fops = (struct file_operations *)&zf_fops,
 };
 
 
@@ -3604,7 +3603,7 @@ inline int __get_user(int size, void *ptr)
     return __VERIFIER_nondet_int();
 }
 
-inline int get_user(int size, void *ptr)
+inline int get_user(int size, const void *ptr)
 {
  __VERIFIER_HIDE:
     assert_context_process();
