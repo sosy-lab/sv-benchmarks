@@ -11,7 +11,7 @@ void __blast_assert()
 # 2 "files/test_union.c" 2
 
 
-int VERDICT_SAFE;
+
 
 
 

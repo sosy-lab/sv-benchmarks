@@ -13,7 +13,7 @@ void __blast_assert()
 }
 # 5 "files/nested_structure.c" 2
 
-int VERDICT_SAFE;
+
 
 typedef struct Toplev {
  int a;

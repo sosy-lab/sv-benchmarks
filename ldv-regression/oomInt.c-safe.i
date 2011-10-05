@@ -13,7 +13,7 @@
  }
   }
 # 20 "files/oomInt.c"
-int VERDICT_SAFE;
+
 
 
 int abs_int(int i)

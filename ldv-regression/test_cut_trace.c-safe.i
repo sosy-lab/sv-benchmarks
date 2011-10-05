@@ -12,7 +12,7 @@ void __blast_assert()
 
 
 
-int VERDICT_SAFE;
+
 
 int main(void) {
  int z,a;

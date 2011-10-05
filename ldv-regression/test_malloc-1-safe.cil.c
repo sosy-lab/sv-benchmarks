@@ -11,7 +11,7 @@ extern  __attribute__((__nothrow__, __noreturn__)) void __assert_fail(char const
 #line 51 "/usr/include/malloc.h"
 extern  __attribute__((__nothrow__)) void *malloc(size_t __size )  __attribute__((__malloc__)) ;
 #line 6 "test_malloc-1-safe.c"
-int VERDICT_SAFE  ;
+
 #line 7 "test_malloc-1-safe.c"
 int CURRENTLY_UNSAFE  ;
 #line 16 "test_malloc-1-safe.c"

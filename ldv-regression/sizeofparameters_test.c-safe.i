@@ -841,7 +841,7 @@ void __blast_assert()
 }
 # 3 "files/sizeofparameters_test.c" 2
 
-int VERDICT_SAFE;
+
 
 void foo();
 

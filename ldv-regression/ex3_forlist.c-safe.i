@@ -10,7 +10,7 @@ void __blast_assert()
 }
 # 2 "files/ex3_forlist.c" 2
 # 10 "files/ex3_forlist.c"
-int VERDICT_SAFE;
+
 
 
 

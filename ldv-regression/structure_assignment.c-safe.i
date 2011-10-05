@@ -13,7 +13,7 @@ void __blast_assert()
 }
 # 5 "files/structure_assignment.c" 2
 
-int VERDICT_SAFE;
+
 
 typedef struct Stuff {
  int a;

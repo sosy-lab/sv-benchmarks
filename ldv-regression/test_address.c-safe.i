@@ -956,7 +956,7 @@ void __blast_assert()
 }
 # 3 "files/test_address.c" 2
 
-int VERDICT_SAFE;
+
 
 struct path_info {
  int list;

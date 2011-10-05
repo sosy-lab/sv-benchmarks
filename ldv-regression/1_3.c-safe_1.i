@@ -24,7 +24,7 @@ extern int __VERIFIER_nondet_int();
 # 3 "files/1_3.c" 2
 
 
-int VERDICT_SAFE;
+
 # 23 "files/1_3.c"
 rr * getrr()
 {

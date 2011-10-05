@@ -14,7 +14,7 @@ void __blast_assert()
 
 
 
-int VERDICT_SAFE;
+
 # 19 "files/test_union_cast.c"
 struct l_struct_2E_X {
   double field0;

@@ -956,7 +956,7 @@ extern void __malloc_check_init (void) __attribute__ ((__nothrow__));
 
 # 3 "files/test_fieldaddr.c" 2
 
-int VERDICT_SAFE;
+
 
 int __VERIFIER_nondet_int(void);
 

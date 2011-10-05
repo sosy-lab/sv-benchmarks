@@ -15,7 +15,7 @@ void __blast_assert()
 
 
 
-int VERDICT_UNSAFE;
+
 
 
 void check_error(int b) {

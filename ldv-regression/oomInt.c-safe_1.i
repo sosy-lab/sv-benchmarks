@@ -11,7 +11,7 @@ void __blast_assert()
 }
 # 3 "files/oomInt.c" 2
 # 17 "files/oomInt.c"
-int VERDICT_SAFE;
+
 
 
 

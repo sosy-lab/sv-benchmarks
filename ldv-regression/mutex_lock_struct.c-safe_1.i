@@ -5,7 +5,7 @@
 
 
 
-int VERDICT_SAFE;
+
 
 
 

@@ -2,7 +2,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "files/palias.c"
-int VERDICT_SAFE;
+
 
 # 1 "./assert.h" 1
 

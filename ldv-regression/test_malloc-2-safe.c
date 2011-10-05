@@ -4,12 +4,12 @@
 //#ifdef BLAST_AUTO_1
 /* using malloc */
 /*
-int VERDICT_SAFE;
+
 int CURRENTLY_UNSAFE;
 #else
 */
 /* using separate variables */
-int VERDICT_SAFE;
+
 int CURRENTLY_UNSAFE;
 //#endif
 

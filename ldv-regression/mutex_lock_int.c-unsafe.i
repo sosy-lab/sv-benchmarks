@@ -9,7 +9,7 @@
 
 
 
-int VERDICT_UNSAFE;
+
 
 
 void err()

@@ -3,7 +3,7 @@
 # 1 "<command-line>"
 # 1 "files/recursive_list.c"
 # 9 "files/recursive_list.c"
-int VERDICT_UNSAFE;
+
 
 
 

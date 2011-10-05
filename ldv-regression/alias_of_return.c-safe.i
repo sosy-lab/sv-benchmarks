@@ -3,7 +3,7 @@
 # 1 "<command-line>"
 # 1 "files/alias_of_return.c"
 # 9 "files/alias_of_return.c"
-int VERDICT_SAFE;
+
 
 
 

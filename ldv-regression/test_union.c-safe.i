@@ -14,7 +14,7 @@ void __blast_assert()
 
 
 
-int VERDICT_SAFE;
+
 
 
 

@@ -1788,7 +1788,7 @@ void __blast_assert()
 }
 # 4 "files/test_overflow.c" 2
 
-int VERDICT_SAFE;
+
 
 
 ssize_t getService();

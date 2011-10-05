@@ -1784,7 +1784,7 @@ void __blast_assert()
 }
 # 4 "files/alt_test.c" 2
 
-int VERDICT_UNSAFE;
+
 
 int globalState = 0;
 void* l_malloc(int);

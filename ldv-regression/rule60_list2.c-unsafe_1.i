@@ -958,7 +958,7 @@ extern void __malloc_check_init (void) __attribute__ ((__nothrow__));
 
 
 
-int VERDICT_UNSAFE;
+
 
 
 

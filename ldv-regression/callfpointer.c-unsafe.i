@@ -5,7 +5,7 @@
 
 
 
-int VERDICT_UNSAFE;
+
 
 void f(void g(int)) {
  g(1);

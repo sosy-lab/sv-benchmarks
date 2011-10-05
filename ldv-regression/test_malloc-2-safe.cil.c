@@ -7,7 +7,7 @@ extern  __attribute__((__nothrow__, __noreturn__)) void __assert_fail(char const
                                                                       unsigned int __line ,
                                                                       char const   *__function ) ;
 #line 12 "test_malloc-2-safe.c"
-int VERDICT_SAFE  ;
+
 #line 13 "test_malloc-2-safe.c"
 int CURRENTLY_UNSAFE  ;
 #line 16 "test_malloc-2-safe.c"

@@ -2,7 +2,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "files/just_assert.c"
-int VERDICT_SAFE;
+
 
 int main()
 {

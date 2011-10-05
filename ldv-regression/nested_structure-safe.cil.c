@@ -21,7 +21,7 @@ extern  __attribute__((__nothrow__, __noreturn__)) void __assert_fail(char const
                                                                       unsigned int __line ,
                                                                       char const   *__function ) ;
 #line 6 "nested_structure-safe.c"
-int VERDICT_SAFE  ;
+
 #line 18 "nested_structure-safe.c"
 int main(void) 
 { struct Innermost im ;

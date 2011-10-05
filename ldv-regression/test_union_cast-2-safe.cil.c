@@ -11,7 +11,7 @@ extern  __attribute__((__nothrow__, __noreturn__)) void __assert_fail(char const
                                                                       unsigned int __line ,
                                                                       char const   *__function ) ;
 #line 7 "test_union_cast-2-safe.c"
-int VERDICT_SAFE  ;
+
 #line 8 "test_union_cast-2-safe.c"
 int CURRENTLY_UNKNOWN  ;
 #line 24 "test_union_cast-2-safe.c"

@@ -1300,7 +1300,7 @@ extern int posix_fallocate (int __fd, __off_t __offset, __off_t __len);
 
 # 6 "files/fo_test.c" 2
 
-int VERDICT_UNSAFE;
+
 
 int globalState = 0;
 ssize_t l_read(int,char*,size_t);

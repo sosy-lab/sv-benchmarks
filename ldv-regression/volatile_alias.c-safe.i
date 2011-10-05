@@ -3,7 +3,7 @@
 # 1 "<command-line>"
 # 1 "files/volatile_alias.c"
 # 11 "files/volatile_alias.c"
-int VERDICT_SAFE;
+
 
 
 int main()

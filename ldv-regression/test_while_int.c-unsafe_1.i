@@ -11,7 +11,7 @@ void __blast_assert()
 # 2 "files/test_while_int.c" 2
 
 
-int VERDICT_UNSAFE;
+
 # 17 "files/test_while_int.c"
 int main(void) {
  int i=0;

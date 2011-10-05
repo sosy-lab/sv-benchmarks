@@ -3,7 +3,7 @@
 
 #include <assert.h>
 
-int VERDICT_SAFE;
+
 
 typedef struct Toplev {
 	int a;

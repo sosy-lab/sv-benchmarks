@@ -1,10 +1,10 @@
 #include <assert.h>
 
 // #ifdef BLAST_AUTO_1
-// int VERDICT_SAFE;
+
 // int CURRENTLY_SAFE;
 // #else
-int VERDICT_SAFE;
+
 int CURRENTLY_UNKNOWN;
 // #endif
 
