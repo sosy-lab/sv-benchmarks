@@ -21,6 +21,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -36,26 +37,26 @@ struct list_head *elem  =    (struct list_head *)((void *)0);
 void list_add(struct list_head *new , struct list_head *head ) 
 { int tmp ;
   void *__cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
+  unsigned long __cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
+  unsigned long __cil_tmp8 ;
 
   {
   {
 #line 14
   __cil_tmp4 = (void *)0;
 #line 14
-  __cil_tmp5 = (unsigned int )__cil_tmp4;
+  __cil_tmp5 = (unsigned long )__cil_tmp4;
 #line 14
-  __cil_tmp6 = (unsigned int )new;
+  __cil_tmp6 = (unsigned long )new;
 #line 14
   if (__cil_tmp6 != __cil_tmp5) {
     {
 #line 15
-    __cil_tmp7 = (unsigned int )elem;
+    __cil_tmp7 = (unsigned long )elem;
 #line 15
-    __cil_tmp8 = (unsigned int )new;
+    __cil_tmp8 = (unsigned long )new;
 #line 15
     if (__cil_tmp8 != __cil_tmp7) {
 
@@ -89,16 +90,13 @@ void list_add(struct list_head *new , struct list_head *head )
 void drm_vm_open_locked(struct drm_device *dev ) 
 { struct drm_vma_entry *vma_entry ;
   void *tmp ;
-  unsigned long __cil_tmp4 ;
+  struct list_head *__cil_tmp4 ;
   struct list_head *__cil_tmp5 ;
-  struct list_head *__cil_tmp6 ;
 
   {
   {
 #line 32
-  __cil_tmp4 = (unsigned long )0U;
-#line 32
-  tmp = malloc(__cil_tmp4);
+  tmp = malloc(0UL);
 #line 32
   vma_entry = (struct drm_vma_entry *)tmp;
   }
@@ -106,11 +104,11 @@ void drm_vm_open_locked(struct drm_device *dev )
   if (vma_entry) {
     {
 #line 36
-    __cil_tmp5 = (struct list_head *)vma_entry;
+    __cil_tmp4 = & vma_entry->head;
 #line 36
-    __cil_tmp6 = (struct list_head *)dev;
+    __cil_tmp5 = & dev->vmalist;
 #line 36
-    list_add(__cil_tmp5, __cil_tmp6);
+    list_add(__cil_tmp4, __cil_tmp5);
     }
   } else {
 

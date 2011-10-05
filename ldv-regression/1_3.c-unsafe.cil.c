@@ -13,11 +13,12 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
 #line 10 "files/1_3.h"
-extern void *__VERIFIER_nondet_pointer();
+extern void *__VERIFIER_nondet_pointer() ;
 #line 8 "files/1_3.c"
 int VERDICT_UNSAFE  ;
 #line 23 "files/1_3.c"
@@ -32,7 +33,7 @@ rr *getrr(void)
 #line 25
   r = (rr *)tmp;
 #line 26
-  *((int *)r) = 0;
+  r->state = 0;
   }
 #line 27
   return (r);
@@ -50,7 +51,7 @@ rr *getPtr(void)
 #line 32
   r = tmp;
 #line 33
-  *((int *)r) = 1;
+  r->state = 1;
   }
 #line 34
   return (r);
@@ -63,7 +64,7 @@ void freePtr(rr *ptr )
   {
   {
 #line 39
-  __cil_tmp2 = *((int *)ptr);
+  __cil_tmp2 = ptr->state;
 #line 39
   if (__cil_tmp2 == 1) {
 
@@ -75,7 +76,7 @@ void freePtr(rr *ptr )
   }
   }
 #line 40
-  *((int *)ptr) = 2;
+  ptr->state = 2;
 #line 41
   return;
 }

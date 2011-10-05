@@ -11,6 +11,7 @@ int main(void)
 #line 5
   if (0) {
     ERROR: 
+#line 6
     goto ERROR;
   } else {
 

@@ -4507,20 +4507,14 @@ __inline static void arch_local_irq_disable(void)
   void *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
   int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct paravirt_patch_template *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  void **__cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  long __cil_tmp13 ;
+  struct paravirt_patch_template *__cil_tmp14 ;
+  void **__cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned long __cil_tmp17 ;
 
   {
 #line 863
@@ -4536,35 +4530,31 @@ __inline static void arch_local_irq_disable(void)
   {
 #line 863
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 863
     __cil_tmp7 = (void *)0;
 #line 863
     __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 863
-    __cil_tmp9 = (unsigned long )(& pv_irq_ops) + 16;
+    __cil_tmp9 = (unsigned long )pv_irq_ops.irq_disable.func;
 #line 863
-    __cil_tmp10 = *((void **)__cil_tmp9);
+    __cil_tmp10 = __cil_tmp9 == __cil_tmp8;
 #line 863
-    __cil_tmp11 = (unsigned long )__cil_tmp10;
+    __cil_tmp11 = ! __cil_tmp10;
 #line 863
-    __cil_tmp12 = __cil_tmp11 == __cil_tmp8;
+    __cil_tmp12 = ! __cil_tmp11;
 #line 863
-    __cil_tmp13 = ! __cil_tmp12;
+    __cil_tmp13 = (long )__cil_tmp12;
 #line 863
-    __cil_tmp14 = ! __cil_tmp13;
-#line 863
-    __cil_tmp15 = (long )__cil_tmp14;
-#line 863
-    tmp = __builtin_expect(__cil_tmp15, 0L);
+    tmp = __builtin_expect(__cil_tmp13, 0L);
     }
 #line 863
     if (tmp) {
       {
 #line 863
       while (1) {
-        while_1_continue: /* CIL Label */ ;
+        while_continue___0: /* CIL Label */ ;
 #line 863
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
@@ -4576,43 +4566,37 @@ __inline static void arch_local_irq_disable(void)
         {
 #line 863
         while (1) {
-          while_2_continue: /* CIL Label */ ;
+          while_continue___1: /* CIL Label */ ;
 
         }
-        while_2_break: /* CIL Label */ ;
+        while_break___3: /* CIL Label */ ;
         }
 
+#line 863
         goto while_break___0;
       }
-      while_1_break: /* CIL Label */ ;
+      while_break___2: /* CIL Label */ ;
       }
 
       while_break___0: ;
     } else {
 
     }
+#line 863
     goto while_break;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
 #line 863
-  __cil_tmp16 = 368 + 16;
+  __cil_tmp14 = (struct paravirt_patch_template *)0;
 #line 863
-  __cil_tmp17 = (struct paravirt_patch_template *)0;
+  __cil_tmp15 = & __cil_tmp14->pv_irq_ops.irq_disable.func;
 #line 863
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 863
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp16;
-#line 863
-  __cil_tmp20 = (void **)__cil_tmp19;
-#line 863
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 863
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 863
-  __cil_tmp23 = (unsigned long )(& pv_irq_ops) + 16;
+  __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 863
   __asm__  volatile   (""
                        "771:\n\t"
@@ -4636,8 +4620,8 @@ __inline static void arch_local_irq_disable(void)
                        "%c[paravirt_clobber]"
                        "\n"
                        ".popsection\n"
-                       "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp22 / 8UL),
-                       [paravirt_opptr] "i" ((void **)__cil_tmp23), [paravirt_clobber] "i" (1): "memory",
+                       "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp17 / 8UL),
+                       [paravirt_opptr] "i" (& pv_irq_ops.irq_disable.func), [paravirt_clobber] "i" (1): "memory",
                        "cc");
 #line 864
   return;
@@ -4658,20 +4642,14 @@ __inline static void arch_local_irq_enable(void)
   void *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
   int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct paravirt_patch_template *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  void **__cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  long __cil_tmp13 ;
+  struct paravirt_patch_template *__cil_tmp14 ;
+  void **__cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned long __cil_tmp17 ;
 
   {
 #line 868
@@ -4687,35 +4665,31 @@ __inline static void arch_local_irq_enable(void)
   {
 #line 868
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 868
     __cil_tmp7 = (void *)0;
 #line 868
     __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 868
-    __cil_tmp9 = (unsigned long )(& pv_irq_ops) + 24;
+    __cil_tmp9 = (unsigned long )pv_irq_ops.irq_enable.func;
 #line 868
-    __cil_tmp10 = *((void **)__cil_tmp9);
+    __cil_tmp10 = __cil_tmp9 == __cil_tmp8;
 #line 868
-    __cil_tmp11 = (unsigned long )__cil_tmp10;
+    __cil_tmp11 = ! __cil_tmp10;
 #line 868
-    __cil_tmp12 = __cil_tmp11 == __cil_tmp8;
+    __cil_tmp12 = ! __cil_tmp11;
 #line 868
-    __cil_tmp13 = ! __cil_tmp12;
+    __cil_tmp13 = (long )__cil_tmp12;
 #line 868
-    __cil_tmp14 = ! __cil_tmp13;
-#line 868
-    __cil_tmp15 = (long )__cil_tmp14;
-#line 868
-    tmp = __builtin_expect(__cil_tmp15, 0L);
+    tmp = __builtin_expect(__cil_tmp13, 0L);
     }
 #line 868
     if (tmp) {
       {
 #line 868
       while (1) {
-        while_4_continue: /* CIL Label */ ;
+        while_continue___0: /* CIL Label */ ;
 #line 868
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
@@ -4727,43 +4701,37 @@ __inline static void arch_local_irq_enable(void)
         {
 #line 868
         while (1) {
-          while_5_continue: /* CIL Label */ ;
+          while_continue___1: /* CIL Label */ ;
 
         }
-        while_5_break: /* CIL Label */ ;
+        while_break___3: /* CIL Label */ ;
         }
 
+#line 868
         goto while_break___0;
       }
-      while_4_break: /* CIL Label */ ;
+      while_break___2: /* CIL Label */ ;
       }
 
       while_break___0: ;
     } else {
 
     }
+#line 868
     goto while_break;
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
 #line 868
-  __cil_tmp16 = 368 + 24;
+  __cil_tmp14 = (struct paravirt_patch_template *)0;
 #line 868
-  __cil_tmp17 = (struct paravirt_patch_template *)0;
+  __cil_tmp15 = & __cil_tmp14->pv_irq_ops.irq_enable.func;
 #line 868
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 868
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp16;
-#line 868
-  __cil_tmp20 = (void **)__cil_tmp19;
-#line 868
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 868
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 868
-  __cil_tmp23 = (unsigned long )(& pv_irq_ops) + 24;
+  __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 868
   __asm__  volatile   (""
                        "771:\n\t"
@@ -4787,8 +4755,8 @@ __inline static void arch_local_irq_enable(void)
                        "%c[paravirt_clobber]"
                        "\n"
                        ".popsection\n"
-                       "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp22 / 8UL),
-                       [paravirt_opptr] "i" ((void **)__cil_tmp23), [paravirt_clobber] "i" (1): "memory",
+                       "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp17 / 8UL),
+                       [paravirt_opptr] "i" (& pv_irq_ops.irq_enable.func), [paravirt_clobber] "i" (1): "memory",
                        "cc");
 #line 869
   return;
@@ -4855,7 +4823,7 @@ __inline static void spin_lock_irq(spinlock_t *lock )
   {
   {
 #line 310
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->__annonCompField18.rlock;
 #line 310
   _raw_spin_lock_irq(__cil_tmp2);
   }
@@ -4870,7 +4838,7 @@ __inline static void spin_unlock_irq(spinlock_t *lock )
   {
   {
 #line 335
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->__annonCompField18.rlock;
 #line 335
   _raw_spin_unlock_irq(__cil_tmp2);
   }
@@ -4965,71 +4933,55 @@ static struct class *c2port_class  ;
 #line 66 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 static void c2port_reset(struct c2port_device *dev ) 
 { struct c2port_ops *ops ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void (*__cil_tmp7)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void (*__cil_tmp10)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp3)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp4)(struct c2port_device *dev , int status ) ;
 
   {
 #line 68
-  __cil_tmp3 = (unsigned long )dev;
-#line 68
-  __cil_tmp4 = __cil_tmp3 + 40;
-#line 68
-  ops = *((struct c2port_ops **)__cil_tmp4);
+  ops = dev->ops;
   {
 #line 73
   while (1) {
-    while_6_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 73
     arch_local_irq_disable();
 #line 73
     trace_hardirqs_off();
     }
+#line 73
     goto while_break;
   }
-  while_6_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 74
-  __cil_tmp5 = (unsigned long )ops;
+  __cil_tmp3 = ops->c2ck_set;
 #line 74
-  __cil_tmp6 = __cil_tmp5 + 40;
-#line 74
-  __cil_tmp7 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp6);
-#line 74
-  (*__cil_tmp7)(dev, 0);
+  (*__cil_tmp3)(dev, 0);
 #line 75
   __const_udelay(107375UL);
 #line 76
-  __cil_tmp8 = (unsigned long )ops;
+  __cil_tmp4 = ops->c2ck_set;
 #line 76
-  __cil_tmp9 = __cil_tmp8 + 40;
-#line 76
-  __cil_tmp10 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp9);
-#line 76
-  (*__cil_tmp10)(dev, 1);
+  (*__cil_tmp4)(dev, 1);
   }
   {
 #line 77
   while (1) {
-    while_7_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
     {
 #line 77
     trace_hardirqs_on();
 #line 77
     arch_local_irq_enable();
     }
+#line 77
     goto while_break___0;
   }
-  while_7_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -5044,71 +4996,55 @@ static void c2port_reset(struct c2port_device *dev )
 #line 82 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 static void c2port_strobe_ck(struct c2port_device *dev ) 
 { struct c2port_ops *ops ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void (*__cil_tmp7)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void (*__cil_tmp10)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp3)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp4)(struct c2port_device *dev , int status ) ;
 
   {
 #line 84
-  __cil_tmp3 = (unsigned long )dev;
-#line 84
-  __cil_tmp4 = __cil_tmp3 + 40;
-#line 84
-  ops = *((struct c2port_ops **)__cil_tmp4);
+  ops = dev->ops;
   {
 #line 91
   while (1) {
-    while_8_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 91
     arch_local_irq_disable();
 #line 91
     trace_hardirqs_off();
     }
+#line 91
     goto while_break;
   }
-  while_8_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 92
-  __cil_tmp5 = (unsigned long )ops;
+  __cil_tmp3 = ops->c2ck_set;
 #line 92
-  __cil_tmp6 = __cil_tmp5 + 40;
-#line 92
-  __cil_tmp7 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp6);
-#line 92
-  (*__cil_tmp7)(dev, 0);
+  (*__cil_tmp3)(dev, 0);
 #line 93
   __const_udelay(4295UL);
 #line 94
-  __cil_tmp8 = (unsigned long )ops;
+  __cil_tmp4 = ops->c2ck_set;
 #line 94
-  __cil_tmp9 = __cil_tmp8 + 40;
-#line 94
-  __cil_tmp10 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp9);
-#line 94
-  (*__cil_tmp10)(dev, 1);
+  (*__cil_tmp4)(dev, 1);
   }
   {
 #line 95
   while (1) {
-    while_9_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
     {
 #line 95
     trace_hardirqs_on();
 #line 95
     arch_local_irq_enable();
     }
+#line 95
     goto while_break___0;
   }
-  while_9_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -5124,64 +5060,36 @@ static void c2port_strobe_ck(struct c2port_device *dev )
 static void c2port_write_ar(struct c2port_device *dev , u8 addr ) 
 { struct c2port_ops *ops ;
   int i ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void (*__cil_tmp9)(struct c2port_device *dev , int dir ) ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void (*__cil_tmp12)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  void (*__cil_tmp15)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  void (*__cil_tmp18)(struct c2port_device *dev , int status ) ;
-  int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  void (*__cil_tmp25)(struct c2port_device *dev , int dir ) ;
+  void (*__cil_tmp5)(struct c2port_device *dev , int dir ) ;
+  void (*__cil_tmp6)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp7)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp8)(struct c2port_device *dev , int status ) ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void (*__cil_tmp13)(struct c2port_device *dev , int dir ) ;
 
   {
   {
 #line 106
-  __cil_tmp5 = (unsigned long )dev;
-#line 106
-  __cil_tmp6 = __cil_tmp5 + 40;
-#line 106
-  ops = *((struct c2port_ops **)__cil_tmp6);
+  ops = dev->ops;
 #line 110
   c2port_strobe_ck(dev);
 #line 113
-  __cil_tmp7 = (unsigned long )ops;
+  __cil_tmp5 = ops->c2d_dir;
 #line 113
-  __cil_tmp8 = __cil_tmp7 + 16;
-#line 113
-  __cil_tmp9 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp8);
-#line 113
-  (*__cil_tmp9)(dev, 0);
+  (*__cil_tmp5)(dev, 0);
 #line 114
-  __cil_tmp10 = (unsigned long )ops;
+  __cil_tmp6 = ops->c2d_set;
 #line 114
-  __cil_tmp11 = __cil_tmp10 + 32;
-#line 114
-  __cil_tmp12 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp11);
-#line 114
-  (*__cil_tmp12)(dev, 1);
+  (*__cil_tmp6)(dev, 1);
 #line 115
   c2port_strobe_ck(dev);
 #line 116
-  __cil_tmp13 = (unsigned long )ops;
+  __cil_tmp7 = ops->c2d_set;
 #line 116
-  __cil_tmp14 = __cil_tmp13 + 32;
-#line 116
-  __cil_tmp15 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp14);
-#line 116
-  (*__cil_tmp15)(dev, 1);
+  (*__cil_tmp7)(dev, 1);
 #line 117
   c2port_strobe_ck(dev);
 #line 120
@@ -5190,52 +5098,45 @@ static void c2port_write_ar(struct c2port_device *dev , u8 addr )
   {
 #line 120
   while (1) {
-    while_10_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 120
     if (i < 8) {
 
     } else {
+#line 120
       goto while_break;
     }
     {
 #line 121
-    __cil_tmp16 = (unsigned long )ops;
+    __cil_tmp8 = ops->c2d_set;
 #line 121
-    __cil_tmp17 = __cil_tmp16 + 32;
+    __cil_tmp9 = (int )addr;
 #line 121
-    __cil_tmp18 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp17);
+    __cil_tmp10 = __cil_tmp9 & 1;
 #line 121
-    __cil_tmp19 = (int )addr;
-#line 121
-    __cil_tmp20 = __cil_tmp19 & 1;
-#line 121
-    (*__cil_tmp18)(dev, __cil_tmp20);
+    (*__cil_tmp8)(dev, __cil_tmp10);
 #line 122
     c2port_strobe_ck(dev);
 #line 124
-    __cil_tmp21 = (int )addr;
+    __cil_tmp11 = (int )addr;
 #line 124
-    __cil_tmp22 = __cil_tmp21 >> 1;
+    __cil_tmp12 = __cil_tmp11 >> 1;
 #line 124
-    addr = (unsigned char )__cil_tmp22;
+    addr = (u8 )__cil_tmp12;
 #line 120
     i = i + 1;
     }
   }
-  while_10_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 128
-  __cil_tmp23 = (unsigned long )ops;
+  __cil_tmp13 = ops->c2d_dir;
 #line 128
-  __cil_tmp24 = __cil_tmp23 + 16;
-#line 128
-  __cil_tmp25 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp24);
-#line 128
-  (*__cil_tmp25)(dev, 1);
+  (*__cil_tmp13)(dev, 1);
 #line 129
   c2port_strobe_ck(dev);
   }
@@ -5248,129 +5149,94 @@ static int c2port_read_ar(struct c2port_device *dev , u8 *addr )
 { struct c2port_ops *ops ;
   int i ;
   int tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void (*__cil_tmp10)(struct c2port_device *dev , int dir ) ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  void (*__cil_tmp13)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  void (*__cil_tmp16)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  void (*__cil_tmp19)(struct c2port_device *dev , int dir ) ;
-  u8 __cil_tmp20 ;
-  int __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int (*__cil_tmp25)(struct c2port_device *dev ) ;
-  u8 __cil_tmp26 ;
-  int __cil_tmp27 ;
-  int __cil_tmp28 ;
+  void (*__cil_tmp6)(struct c2port_device *dev , int dir ) ;
+  void (*__cil_tmp7)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp8)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp9)(struct c2port_device *dev , int dir ) ;
+  u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int (*__cil_tmp13)(struct c2port_device *dev ) ;
+  u8 __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
 
   {
   {
 #line 134
-  __cil_tmp6 = (unsigned long )dev;
-#line 134
-  __cil_tmp7 = __cil_tmp6 + 40;
-#line 134
-  ops = *((struct c2port_ops **)__cil_tmp7);
+  ops = dev->ops;
 #line 138
   c2port_strobe_ck(dev);
 #line 141
-  __cil_tmp8 = (unsigned long )ops;
+  __cil_tmp6 = ops->c2d_dir;
 #line 141
-  __cil_tmp9 = __cil_tmp8 + 16;
-#line 141
-  __cil_tmp10 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp9);
-#line 141
-  (*__cil_tmp10)(dev, 0);
+  (*__cil_tmp6)(dev, 0);
 #line 142
-  __cil_tmp11 = (unsigned long )ops;
+  __cil_tmp7 = ops->c2d_set;
 #line 142
-  __cil_tmp12 = __cil_tmp11 + 32;
-#line 142
-  __cil_tmp13 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp12);
-#line 142
-  (*__cil_tmp13)(dev, 0);
+  (*__cil_tmp7)(dev, 0);
 #line 143
   c2port_strobe_ck(dev);
 #line 144
-  __cil_tmp14 = (unsigned long )ops;
+  __cil_tmp8 = ops->c2d_set;
 #line 144
-  __cil_tmp15 = __cil_tmp14 + 32;
-#line 144
-  __cil_tmp16 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp15);
-#line 144
-  (*__cil_tmp16)(dev, 1);
+  (*__cil_tmp8)(dev, 1);
 #line 145
   c2port_strobe_ck(dev);
 #line 148
-  __cil_tmp17 = (unsigned long )ops;
+  __cil_tmp9 = ops->c2d_dir;
 #line 148
-  __cil_tmp18 = __cil_tmp17 + 16;
-#line 148
-  __cil_tmp19 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp18);
-#line 148
-  (*__cil_tmp19)(dev, 1);
+  (*__cil_tmp9)(dev, 1);
 #line 149
-  *addr = (unsigned char)0;
+  *addr = (u8 )0;
 #line 150
   i = 0;
   }
   {
 #line 150
   while (1) {
-    while_11_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 150
     if (i < 8) {
 
     } else {
+#line 150
       goto while_break;
     }
     {
 #line 151
-    __cil_tmp20 = *addr;
+    __cil_tmp10 = *addr;
 #line 151
-    __cil_tmp21 = (int )__cil_tmp20;
+    __cil_tmp11 = (int )__cil_tmp10;
 #line 151
-    __cil_tmp22 = __cil_tmp21 >> 1;
+    __cil_tmp12 = __cil_tmp11 >> 1;
 #line 151
-    *addr = (unsigned char )__cil_tmp22;
+    *addr = (u8 )__cil_tmp12;
 #line 153
     c2port_strobe_ck(dev);
 #line 154
-    __cil_tmp23 = (unsigned long )ops;
+    __cil_tmp13 = ops->c2d_get;
 #line 154
-    __cil_tmp24 = __cil_tmp23 + 24;
-#line 154
-    __cil_tmp25 = *((int (**)(struct c2port_device *dev ))__cil_tmp24);
-#line 154
-    tmp___7 = (*__cil_tmp25)(dev);
+    tmp___7 = (*__cil_tmp13)(dev);
     }
 #line 154
     if (tmp___7) {
 #line 155
-      __cil_tmp26 = *addr;
+      __cil_tmp14 = *addr;
 #line 155
-      __cil_tmp27 = (int )__cil_tmp26;
+      __cil_tmp15 = (int )__cil_tmp14;
 #line 155
-      __cil_tmp28 = __cil_tmp27 | 128;
+      __cil_tmp16 = __cil_tmp15 | 128;
 #line 155
-      *addr = (unsigned char )__cil_tmp28;
+      *addr = (u8 )__cil_tmp16;
     } else {
 
     }
 #line 150
     i = i + 1;
   }
-  while_11_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -5388,93 +5254,51 @@ static int c2port_write_dr(struct c2port_device *dev , u8 data )
   int timeout ;
   int i ;
   int tmp___7 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void (*__cil_tmp11)(struct c2port_device *dev , int dir ) ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  void (*__cil_tmp14)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  void (*__cil_tmp17)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  void (*__cil_tmp20)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  void (*__cil_tmp23)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  void (*__cil_tmp26)(struct c2port_device *dev , int status ) ;
-  int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  void (*__cil_tmp33)(struct c2port_device *dev , int dir ) ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int (*__cil_tmp36)(struct c2port_device *dev ) ;
+  void (*__cil_tmp7)(struct c2port_device *dev , int dir ) ;
+  void (*__cil_tmp8)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp9)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp10)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp11)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp12)(struct c2port_device *dev , int status ) ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  void (*__cil_tmp17)(struct c2port_device *dev , int dir ) ;
+  int (*__cil_tmp18)(struct c2port_device *dev ) ;
 
   {
   {
 #line 166
-  __cil_tmp7 = (unsigned long )dev;
-#line 166
-  __cil_tmp8 = __cil_tmp7 + 40;
-#line 166
-  ops = *((struct c2port_ops **)__cil_tmp8);
+  ops = dev->ops;
 #line 170
   c2port_strobe_ck(dev);
 #line 173
-  __cil_tmp9 = (unsigned long )ops;
+  __cil_tmp7 = ops->c2d_dir;
 #line 173
-  __cil_tmp10 = __cil_tmp9 + 16;
-#line 173
-  __cil_tmp11 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp10);
-#line 173
-  (*__cil_tmp11)(dev, 0);
+  (*__cil_tmp7)(dev, 0);
 #line 174
-  __cil_tmp12 = (unsigned long )ops;
+  __cil_tmp8 = ops->c2d_set;
 #line 174
-  __cil_tmp13 = __cil_tmp12 + 32;
-#line 174
-  __cil_tmp14 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp13);
-#line 174
-  (*__cil_tmp14)(dev, 1);
+  (*__cil_tmp8)(dev, 1);
 #line 175
   c2port_strobe_ck(dev);
 #line 176
-  __cil_tmp15 = (unsigned long )ops;
+  __cil_tmp9 = ops->c2d_set;
 #line 176
-  __cil_tmp16 = __cil_tmp15 + 32;
-#line 176
-  __cil_tmp17 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp16);
-#line 176
-  (*__cil_tmp17)(dev, 0);
+  (*__cil_tmp9)(dev, 0);
 #line 177
   c2port_strobe_ck(dev);
 #line 180
-  __cil_tmp18 = (unsigned long )ops;
+  __cil_tmp10 = ops->c2d_set;
 #line 180
-  __cil_tmp19 = __cil_tmp18 + 32;
-#line 180
-  __cil_tmp20 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp19);
-#line 180
-  (*__cil_tmp20)(dev, 0);
+  (*__cil_tmp10)(dev, 0);
 #line 181
   c2port_strobe_ck(dev);
 #line 182
-  __cil_tmp21 = (unsigned long )ops;
+  __cil_tmp11 = ops->c2d_set;
 #line 182
-  __cil_tmp22 = __cil_tmp21 + 32;
-#line 182
-  __cil_tmp23 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp22);
-#line 182
-  (*__cil_tmp23)(dev, 0);
+  (*__cil_tmp11)(dev, 0);
 #line 183
   c2port_strobe_ck(dev);
 #line 186
@@ -5483,73 +5307,63 @@ static int c2port_write_dr(struct c2port_device *dev , u8 data )
   {
 #line 186
   while (1) {
-    while_12_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 186
     if (i < 8) {
 
     } else {
+#line 186
       goto while_break;
     }
     {
 #line 187
-    __cil_tmp24 = (unsigned long )ops;
+    __cil_tmp12 = ops->c2d_set;
 #line 187
-    __cil_tmp25 = __cil_tmp24 + 32;
+    __cil_tmp13 = (int )data;
 #line 187
-    __cil_tmp26 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp25);
+    __cil_tmp14 = __cil_tmp13 & 1;
 #line 187
-    __cil_tmp27 = (int )data;
-#line 187
-    __cil_tmp28 = __cil_tmp27 & 1;
-#line 187
-    (*__cil_tmp26)(dev, __cil_tmp28);
+    (*__cil_tmp12)(dev, __cil_tmp14);
 #line 188
     c2port_strobe_ck(dev);
 #line 190
-    __cil_tmp29 = (int )data;
+    __cil_tmp15 = (int )data;
 #line 190
-    __cil_tmp30 = __cil_tmp29 >> 1;
+    __cil_tmp16 = __cil_tmp15 >> 1;
 #line 190
-    data = (unsigned char )__cil_tmp30;
+    data = (u8 )__cil_tmp16;
 #line 186
     i = i + 1;
     }
   }
-  while_12_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 194
-  __cil_tmp31 = (unsigned long )ops;
+  __cil_tmp17 = ops->c2d_dir;
 #line 194
-  __cil_tmp32 = __cil_tmp31 + 16;
-#line 194
-  __cil_tmp33 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp32);
-#line 194
-  (*__cil_tmp33)(dev, 1);
+  (*__cil_tmp17)(dev, 1);
 #line 195
   timeout = 20;
   }
   {
 #line 196
   while (1) {
-    while_13_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
     {
 #line 197
     c2port_strobe_ck(dev);
 #line 198
-    __cil_tmp34 = (unsigned long )ops;
+    __cil_tmp18 = ops->c2d_get;
 #line 198
-    __cil_tmp35 = __cil_tmp34 + 24;
-#line 198
-    __cil_tmp36 = *((int (**)(struct c2port_device *dev ))__cil_tmp35);
-#line 198
-    tmp___7 = (*__cil_tmp36)(dev);
+    tmp___7 = (*__cil_tmp18)(dev);
     }
 #line 198
     if (tmp___7) {
+#line 199
       goto while_break___0;
     } else {
 
@@ -5564,10 +5378,11 @@ static int c2port_write_dr(struct c2port_device *dev , u8 data )
     if (timeout > 0) {
 
     } else {
+#line 196
       goto while_break___0;
     }
   }
-  while_13_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: ;
@@ -5593,126 +5408,77 @@ static int c2port_read_dr(struct c2port_device *dev , u8 *data )
   int i ;
   int tmp___7 ;
   int tmp___8 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void (*__cil_tmp12)(struct c2port_device *dev , int dir ) ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  void (*__cil_tmp15)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  void (*__cil_tmp18)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  void (*__cil_tmp21)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  void (*__cil_tmp24)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  void (*__cil_tmp27)(struct c2port_device *dev , int dir ) ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  int (*__cil_tmp30)(struct c2port_device *dev ) ;
-  u8 __cil_tmp31 ;
-  int __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int (*__cil_tmp36)(struct c2port_device *dev ) ;
-  u8 __cil_tmp37 ;
-  int __cil_tmp38 ;
-  int __cil_tmp39 ;
+  void (*__cil_tmp8)(struct c2port_device *dev , int dir ) ;
+  void (*__cil_tmp9)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp10)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp11)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp12)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp13)(struct c2port_device *dev , int dir ) ;
+  int (*__cil_tmp14)(struct c2port_device *dev ) ;
+  u8 __cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int (*__cil_tmp18)(struct c2port_device *dev ) ;
+  u8 __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
 
   {
   {
 #line 214
-  __cil_tmp8 = (unsigned long )dev;
-#line 214
-  __cil_tmp9 = __cil_tmp8 + 40;
-#line 214
-  ops = *((struct c2port_ops **)__cil_tmp9);
+  ops = dev->ops;
 #line 218
   c2port_strobe_ck(dev);
 #line 221
-  __cil_tmp10 = (unsigned long )ops;
+  __cil_tmp8 = ops->c2d_dir;
 #line 221
-  __cil_tmp11 = __cil_tmp10 + 16;
-#line 221
-  __cil_tmp12 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp11);
-#line 221
-  (*__cil_tmp12)(dev, 0);
+  (*__cil_tmp8)(dev, 0);
 #line 222
-  __cil_tmp13 = (unsigned long )ops;
+  __cil_tmp9 = ops->c2d_set;
 #line 222
-  __cil_tmp14 = __cil_tmp13 + 32;
-#line 222
-  __cil_tmp15 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp14);
-#line 222
-  (*__cil_tmp15)(dev, 0);
+  (*__cil_tmp9)(dev, 0);
 #line 223
   c2port_strobe_ck(dev);
 #line 224
-  __cil_tmp16 = (unsigned long )ops;
+  __cil_tmp10 = ops->c2d_set;
 #line 224
-  __cil_tmp17 = __cil_tmp16 + 32;
-#line 224
-  __cil_tmp18 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp17);
-#line 224
-  (*__cil_tmp18)(dev, 0);
+  (*__cil_tmp10)(dev, 0);
 #line 225
   c2port_strobe_ck(dev);
 #line 228
-  __cil_tmp19 = (unsigned long )ops;
+  __cil_tmp11 = ops->c2d_set;
 #line 228
-  __cil_tmp20 = __cil_tmp19 + 32;
-#line 228
-  __cil_tmp21 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp20);
-#line 228
-  (*__cil_tmp21)(dev, 0);
+  (*__cil_tmp11)(dev, 0);
 #line 229
   c2port_strobe_ck(dev);
 #line 230
-  __cil_tmp22 = (unsigned long )ops;
+  __cil_tmp12 = ops->c2d_set;
 #line 230
-  __cil_tmp23 = __cil_tmp22 + 32;
-#line 230
-  __cil_tmp24 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp23);
-#line 230
-  (*__cil_tmp24)(dev, 0);
+  (*__cil_tmp12)(dev, 0);
 #line 231
   c2port_strobe_ck(dev);
 #line 234
-  __cil_tmp25 = (unsigned long )ops;
+  __cil_tmp13 = ops->c2d_dir;
 #line 234
-  __cil_tmp26 = __cil_tmp25 + 16;
-#line 234
-  __cil_tmp27 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp26);
-#line 234
-  (*__cil_tmp27)(dev, 1);
+  (*__cil_tmp13)(dev, 1);
 #line 235
   timeout = 20;
   }
   {
 #line 236
   while (1) {
-    while_14_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 237
     c2port_strobe_ck(dev);
 #line 238
-    __cil_tmp28 = (unsigned long )ops;
+    __cil_tmp14 = ops->c2d_get;
 #line 238
-    __cil_tmp29 = __cil_tmp28 + 24;
-#line 238
-    __cil_tmp30 = *((int (**)(struct c2port_device *dev ))__cil_tmp29);
-#line 238
-    tmp___7 = (*__cil_tmp30)(dev);
+    tmp___7 = (*__cil_tmp14)(dev);
     }
 #line 238
     if (tmp___7) {
+#line 239
       goto while_break;
     } else {
 
@@ -5727,10 +5493,11 @@ static int c2port_read_dr(struct c2port_device *dev , u8 *data )
     if (timeout > 0) {
 
     } else {
+#line 236
       goto while_break;
     }
   }
-  while_14_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -5742,57 +5509,54 @@ static int c2port_read_dr(struct c2port_device *dev , u8 *data )
 
   }
 #line 247
-  *data = (unsigned char)0;
+  *data = (u8 )0;
 #line 248
   i = 0;
   {
 #line 248
   while (1) {
-    while_15_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 248
     if (i < 8) {
 
     } else {
+#line 248
       goto while_break___0;
     }
     {
 #line 249
-    __cil_tmp31 = *data;
+    __cil_tmp15 = *data;
 #line 249
-    __cil_tmp32 = (int )__cil_tmp31;
+    __cil_tmp16 = (int )__cil_tmp15;
 #line 249
-    __cil_tmp33 = __cil_tmp32 >> 1;
+    __cil_tmp17 = __cil_tmp16 >> 1;
 #line 249
-    *data = (unsigned char )__cil_tmp33;
+    *data = (u8 )__cil_tmp17;
 #line 251
     c2port_strobe_ck(dev);
 #line 252
-    __cil_tmp34 = (unsigned long )ops;
+    __cil_tmp18 = ops->c2d_get;
 #line 252
-    __cil_tmp35 = __cil_tmp34 + 24;
-#line 252
-    __cil_tmp36 = *((int (**)(struct c2port_device *dev ))__cil_tmp35);
-#line 252
-    tmp___8 = (*__cil_tmp36)(dev);
+    tmp___8 = (*__cil_tmp18)(dev);
     }
 #line 252
     if (tmp___8) {
 #line 253
-      __cil_tmp37 = *data;
+      __cil_tmp19 = *data;
 #line 253
-      __cil_tmp38 = (int )__cil_tmp37;
+      __cil_tmp20 = (int )__cil_tmp19;
 #line 253
-      __cil_tmp39 = __cil_tmp38 | 128;
+      __cil_tmp21 = __cil_tmp20 | 128;
 #line 253
-      *data = (unsigned char )__cil_tmp39;
+      *data = (u8 )__cil_tmp21;
     } else {
 
     }
 #line 248
     i = i + 1;
   }
-  while_15_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -5809,10 +5573,8 @@ static int c2port_poll_in_busy(struct c2port_device *dev )
 { u8 addr ;
   int ret ;
   int timeout ;
-  u8 *__cil_tmp5 ;
-  u8 __cil_tmp6 ;
-  int __cil_tmp7 ;
-  int __cil_tmp8 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
 
   {
 #line 265
@@ -5820,7 +5582,7 @@ static int c2port_poll_in_busy(struct c2port_device *dev )
   {
 #line 267
   while (1) {
-    while_16_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 268
     ret = c2port_read_ar(dev, & addr);
@@ -5834,15 +5596,12 @@ static int c2port_poll_in_busy(struct c2port_device *dev )
     }
     {
 #line 272
-    __cil_tmp5 = & addr;
+    __cil_tmp5 = (int )addr;
 #line 272
-    __cil_tmp6 = *__cil_tmp5;
+    __cil_tmp6 = __cil_tmp5 & 2;
 #line 272
-    __cil_tmp7 = (int )__cil_tmp6;
-#line 272
-    __cil_tmp8 = __cil_tmp7 & 2;
-#line 272
-    if (! __cil_tmp8) {
+    if (! __cil_tmp6) {
+#line 273
       goto while_break;
     } else {
 
@@ -5858,10 +5617,11 @@ static int c2port_poll_in_busy(struct c2port_device *dev )
     if (timeout > 0) {
 
     } else {
+#line 267
       goto while_break;
     }
   }
-  while_16_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -5881,9 +5641,7 @@ static int c2port_poll_out_ready(struct c2port_device *dev )
 { u8 addr ;
   int ret ;
   int timeout ;
-  u8 *__cil_tmp5 ;
-  u8 __cil_tmp6 ;
-  int __cil_tmp7 ;
+  int __cil_tmp5 ;
 
   {
 #line 286
@@ -5891,7 +5649,7 @@ static int c2port_poll_out_ready(struct c2port_device *dev )
   {
 #line 288
   while (1) {
-    while_17_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 289
     ret = c2port_read_ar(dev, & addr);
@@ -5905,13 +5663,10 @@ static int c2port_poll_out_ready(struct c2port_device *dev )
     }
     {
 #line 293
-    __cil_tmp5 = & addr;
+    __cil_tmp5 = (int )addr;
 #line 293
-    __cil_tmp6 = *__cil_tmp5;
-#line 293
-    __cil_tmp7 = (int )__cil_tmp6;
-#line 293
-    if (__cil_tmp7 & 1) {
+    if (__cil_tmp5 & 1) {
+#line 294
       goto while_break;
     } else {
 
@@ -5927,10 +5682,11 @@ static int c2port_poll_out_ready(struct c2port_device *dev )
     if (timeout > 0) {
 
     } else {
+#line 288
       goto while_break;
     }
   }
-  while_17_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -5952,11 +5708,7 @@ static ssize_t c2port_show_name(struct device *dev , struct device_attribute *at
   void *tmp___7 ;
   int tmp___8 ;
   struct device  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  char *__cil_tmp12 ;
+  char *__cil_tmp8 ;
 
   {
   {
@@ -5967,20 +5719,12 @@ static ssize_t c2port_show_name(struct device *dev , struct device_attribute *at
 #line 311
   c2dev = (struct c2port_device *)tmp___7;
 #line 313
-  __cil_tmp8 = 0 * 1UL;
+  __cil_tmp8 = & c2dev->name[0];
 #line 313
-  __cil_tmp9 = 8 + __cil_tmp8;
-#line 313
-  __cil_tmp10 = (unsigned long )c2dev;
-#line 313
-  __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
-#line 313
-  __cil_tmp12 = (char *)__cil_tmp11;
-#line 313
-  tmp___8 = sprintf(buf, "%s\n", __cil_tmp12);
+  tmp___8 = sprintf(buf, "%s\n", __cil_tmp8);
   }
 #line 313
-  return ((long )tmp___8);
+  return ((ssize_t )tmp___8);
 }
 }
 #line 316 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -5991,12 +5735,8 @@ static ssize_t c2port_show_flash_blocks_num(struct device *dev , struct device_a
   struct c2port_ops *ops ;
   int tmp___8 ;
   struct device  const  *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned short __cil_tmp13 ;
-  int __cil_tmp14 ;
+  unsigned short __cil_tmp9 ;
+  int __cil_tmp10 ;
 
   {
   {
@@ -6007,24 +5747,16 @@ static ssize_t c2port_show_flash_blocks_num(struct device *dev , struct device_a
 #line 319
   c2dev = (struct c2port_device *)tmp___7;
 #line 320
-  __cil_tmp9 = (unsigned long )c2dev;
-#line 320
-  __cil_tmp10 = __cil_tmp9 + 40;
-#line 320
-  ops = *((struct c2port_ops **)__cil_tmp10);
+  ops = c2dev->ops;
 #line 322
-  __cil_tmp11 = (unsigned long )ops;
+  __cil_tmp9 = ops->blocks_num;
 #line 322
-  __cil_tmp12 = __cil_tmp11 + 2;
+  __cil_tmp10 = (int )__cil_tmp9;
 #line 322
-  __cil_tmp13 = *((unsigned short *)__cil_tmp12);
-#line 322
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 322
-  tmp___8 = sprintf(buf, "%d\n", __cil_tmp14);
+  tmp___8 = sprintf(buf, "%d\n", __cil_tmp10);
   }
 #line 322
-  return ((long )tmp___8);
+  return ((ssize_t )tmp___8);
 }
 }
 #line 325 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6035,10 +5767,8 @@ static ssize_t c2port_show_flash_block_size(struct device *dev , struct device_a
   struct c2port_ops *ops ;
   int tmp___8 ;
   struct device  const  *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned short __cil_tmp11 ;
-  int __cil_tmp12 ;
+  unsigned short __cil_tmp9 ;
+  int __cil_tmp10 ;
 
   {
   {
@@ -6049,20 +5779,16 @@ static ssize_t c2port_show_flash_block_size(struct device *dev , struct device_a
 #line 328
   c2dev = (struct c2port_device *)tmp___7;
 #line 329
-  __cil_tmp9 = (unsigned long )c2dev;
-#line 329
-  __cil_tmp10 = __cil_tmp9 + 40;
-#line 329
-  ops = *((struct c2port_ops **)__cil_tmp10);
+  ops = c2dev->ops;
 #line 331
-  __cil_tmp11 = *((unsigned short *)ops);
+  __cil_tmp9 = ops->block_size;
 #line 331
-  __cil_tmp12 = (int )__cil_tmp11;
+  __cil_tmp10 = (int )__cil_tmp9;
 #line 331
-  tmp___8 = sprintf(buf, "%d\n", __cil_tmp12);
+  tmp___8 = sprintf(buf, "%d\n", __cil_tmp10);
   }
 #line 331
-  return ((long )tmp___8);
+  return ((ssize_t )tmp___8);
 }
 }
 #line 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6073,15 +5799,11 @@ static ssize_t c2port_show_flash_size(struct device *dev , struct device_attribu
   struct c2port_ops *ops ;
   int tmp___8 ;
   struct device  const  *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  unsigned short __cil_tmp9 ;
+  int __cil_tmp10 ;
   unsigned short __cil_tmp11 ;
   int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned short __cil_tmp15 ;
-  int __cil_tmp16 ;
-  int __cil_tmp17 ;
+  int __cil_tmp13 ;
 
   {
   {
@@ -6092,30 +5814,22 @@ static ssize_t c2port_show_flash_size(struct device *dev , struct device_attribu
 #line 337
   c2dev = (struct c2port_device *)tmp___7;
 #line 338
-  __cil_tmp9 = (unsigned long )c2dev;
-#line 338
-  __cil_tmp10 = __cil_tmp9 + 40;
-#line 338
-  ops = *((struct c2port_ops **)__cil_tmp10);
+  ops = c2dev->ops;
 #line 340
-  __cil_tmp11 = *((unsigned short *)ops);
+  __cil_tmp9 = ops->block_size;
+#line 340
+  __cil_tmp10 = (int )__cil_tmp9;
+#line 340
+  __cil_tmp11 = ops->blocks_num;
 #line 340
   __cil_tmp12 = (int )__cil_tmp11;
 #line 340
-  __cil_tmp13 = (unsigned long )ops;
+  __cil_tmp13 = __cil_tmp12 * __cil_tmp10;
 #line 340
-  __cil_tmp14 = __cil_tmp13 + 2;
-#line 340
-  __cil_tmp15 = *((unsigned short *)__cil_tmp14);
-#line 340
-  __cil_tmp16 = (int )__cil_tmp15;
-#line 340
-  __cil_tmp17 = __cil_tmp16 * __cil_tmp12;
-#line 340
-  tmp___8 = sprintf(buf, "%d\n", __cil_tmp17);
+  tmp___8 = sprintf(buf, "%d\n", __cil_tmp13);
   }
 #line 340
-  return ((long )tmp___8);
+  return ((ssize_t )tmp___8);
 }
 }
 #line 343 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6136,12 +5850,12 @@ static ssize_t c2port_show_access(struct device *dev , struct device_attribute *
 #line 346
   c2dev = (struct c2port_device *)tmp___7;
 #line 348
-  __cil_tmp8 = *((unsigned int *)c2dev);
+  __cil_tmp8 = c2dev->access;
 #line 348
   tmp___8 = sprintf(buf, "%d\n", __cil_tmp8);
   }
 #line 348
-  return ((long )tmp___8);
+  return ((ssize_t )tmp___8);
 }
 }
 #line 351 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6153,29 +5867,15 @@ static ssize_t c2port_store_access(struct device *dev , struct device_attribute 
   int status ;
   int ret ;
   struct device  const  *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct mutex *__cil_tmp15 ;
-  int *__cil_tmp16 ;
+  struct mutex *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  void (*__cil_tmp14)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp15)(struct c2port_device *dev , int status ) ;
+  unsigned int __cil_tmp16 ;
   int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  void (*__cil_tmp22)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  void (*__cil_tmp25)(struct c2port_device *dev , int status ) ;
-  unsigned int __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  void (*__cil_tmp30)(struct c2port_device *dev , int dir ) ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct mutex *__cil_tmp33 ;
+  void (*__cil_tmp18)(struct c2port_device *dev , int dir ) ;
+  struct mutex *__cil_tmp19 ;
 
   {
   {
@@ -6186,97 +5886,69 @@ static ssize_t c2port_store_access(struct device *dev , struct device_attribute 
 #line 355
   c2dev = (struct c2port_device *)tmp___7;
 #line 356
-  __cil_tmp11 = (unsigned long )c2dev;
-#line 356
-  __cil_tmp12 = __cil_tmp11 + 40;
-#line 356
-  ops = *((struct c2port_ops **)__cil_tmp12);
+  ops = c2dev->ops;
 #line 359
   ret = sscanf(buf, "%d", & status);
   }
 #line 360
   if (ret != 1) {
 #line 361
-    return (-22L);
+    return ((ssize_t )-22);
   } else {
 
   }
   {
 #line 363
-  __cil_tmp13 = (unsigned long )c2dev;
+  __cil_tmp11 = & c2dev->mutex;
 #line 363
-  __cil_tmp14 = __cil_tmp13 + 48;
-#line 363
-  __cil_tmp15 = (struct mutex *)__cil_tmp14;
-#line 363
-  mutex_lock_nested(__cil_tmp15, 0U);
+  mutex_lock_nested(__cil_tmp11, 0U);
 #line 365
-  __cil_tmp16 = & status;
+  __cil_tmp12 = ! status;
 #line 365
-  __cil_tmp17 = *__cil_tmp16;
+  __cil_tmp13 = ! __cil_tmp12;
 #line 365
-  __cil_tmp18 = ! __cil_tmp17;
-#line 365
-  __cil_tmp19 = ! __cil_tmp18;
-#line 365
-  *((unsigned int *)c2dev) = (unsigned int )__cil_tmp19;
+  c2dev->access = (unsigned int )__cil_tmp13;
   }
 #line 369
-  if (*((unsigned int *)c2dev)) {
+  if (c2dev->access) {
     {
 #line 370
-    __cil_tmp20 = (unsigned long )ops;
+    __cil_tmp14 = ops->c2ck_set;
 #line 370
-    __cil_tmp21 = __cil_tmp20 + 40;
-#line 370
-    __cil_tmp22 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp21);
-#line 370
-    (*__cil_tmp22)(c2dev, 1);
+    (*__cil_tmp14)(c2dev, 1);
     }
   } else {
 
   }
   {
 #line 371
-  __cil_tmp23 = (unsigned long )ops;
+  __cil_tmp15 = ops->access;
 #line 371
-  __cil_tmp24 = __cil_tmp23 + 8;
+  __cil_tmp16 = c2dev->access;
 #line 371
-  __cil_tmp25 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp24);
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 371
-  __cil_tmp26 = *((unsigned int *)c2dev);
-#line 371
-  __cil_tmp27 = (int )__cil_tmp26;
-#line 371
-  (*__cil_tmp25)(c2dev, __cil_tmp27);
+  (*__cil_tmp15)(c2dev, __cil_tmp17);
   }
 #line 372
-  if (*((unsigned int *)c2dev)) {
+  if (c2dev->access) {
     {
 #line 373
-    __cil_tmp28 = (unsigned long )ops;
+    __cil_tmp18 = ops->c2d_dir;
 #line 373
-    __cil_tmp29 = __cil_tmp28 + 16;
-#line 373
-    __cil_tmp30 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp29);
-#line 373
-    (*__cil_tmp30)(c2dev, 1);
+    (*__cil_tmp18)(c2dev, 1);
     }
   } else {
 
   }
   {
 #line 375
-  __cil_tmp31 = (unsigned long )c2dev;
+  __cil_tmp19 = & c2dev->mutex;
 #line 375
-  __cil_tmp32 = __cil_tmp31 + 48;
-#line 375
-  __cil_tmp33 = (struct mutex *)__cil_tmp32;
-#line 375
-  mutex_unlock(__cil_tmp33);
+  mutex_unlock(__cil_tmp19);
   }
 #line 377
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6286,12 +5958,8 @@ static ssize_t c2port_store_reset(struct device *dev , struct device_attribute *
   void *tmp___7 ;
   struct device  const  *__cil_tmp7 ;
   unsigned int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct mutex *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct mutex *__cil_tmp14 ;
+  struct mutex *__cil_tmp9 ;
+  struct mutex *__cil_tmp10 ;
 
   {
   {
@@ -6304,39 +5972,31 @@ static ssize_t c2port_store_reset(struct device *dev , struct device_attribute *
   }
   {
 #line 387
-  __cil_tmp8 = *((unsigned int *)c2dev);
+  __cil_tmp8 = c2dev->access;
 #line 387
   if (! __cil_tmp8) {
 #line 388
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
   }
   {
 #line 390
-  __cil_tmp9 = (unsigned long )c2dev;
+  __cil_tmp9 = & c2dev->mutex;
 #line 390
-  __cil_tmp10 = __cil_tmp9 + 48;
-#line 390
-  __cil_tmp11 = (struct mutex *)__cil_tmp10;
-#line 390
-  mutex_lock_nested(__cil_tmp11, 0U);
+  mutex_lock_nested(__cil_tmp9, 0U);
 #line 392
   c2port_reset(c2dev);
 #line 393
   c2dev->flash_access = 0U;
 #line 395
-  __cil_tmp12 = (unsigned long )c2dev;
+  __cil_tmp10 = & c2dev->mutex;
 #line 395
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 395
-  __cil_tmp14 = (struct mutex *)__cil_tmp13;
-#line 395
-  mutex_unlock(__cil_tmp14);
+  mutex_unlock(__cil_tmp10);
   }
 #line 397
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 400 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6344,36 +6004,33 @@ static ssize_t __c2port_show_dev_id(struct c2port_device *dev , char *buf )
 { u8 data ;
   int ret ;
   int tmp___7 ;
-  u8 *__cil_tmp6 ;
-  u8 __cil_tmp7 ;
-  int __cil_tmp8 ;
+  u8 __cil_tmp6 ;
+  int __cil_tmp7 ;
 
   {
   {
 #line 406
-  c2port_write_ar(dev, (unsigned char)0);
+  __cil_tmp6 = (u8 )0;
+#line 406
+  c2port_write_ar(dev, __cil_tmp6);
 #line 409
   ret = c2port_read_dr(dev, & data);
   }
 #line 410
   if (ret < 0) {
 #line 411
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 413
-  __cil_tmp6 = & data;
+  __cil_tmp7 = (int )data;
 #line 413
-  __cil_tmp7 = *__cil_tmp6;
-#line 413
-  __cil_tmp8 = (int )__cil_tmp7;
-#line 413
-  tmp___7 = sprintf(buf, "%d\n", __cil_tmp8);
+  tmp___7 = sprintf(buf, "%d\n", __cil_tmp7);
   }
 #line 413
-  return ((long )tmp___7);
+  return ((ssize_t )tmp___7);
 }
 }
 #line 416 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6384,18 +6041,10 @@ static ssize_t c2port_show_dev_id(struct device *dev , struct device_attribute *
   ssize_t ret ;
   struct device  const  *__cil_tmp7 ;
   unsigned int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct mutex *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct mutex *__cil_tmp14 ;
-  struct device  const  *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  char *__cil_tmp20 ;
+  struct mutex *__cil_tmp9 ;
+  struct mutex *__cil_tmp10 ;
+  struct device  const  *__cil_tmp11 ;
+  char *__cil_tmp12 ;
 
   {
   {
@@ -6408,52 +6057,36 @@ static ssize_t c2port_show_dev_id(struct device *dev , struct device_attribute *
   }
   {
 #line 423
-  __cil_tmp8 = *((unsigned int *)c2dev);
+  __cil_tmp8 = c2dev->access;
 #line 423
   if (! __cil_tmp8) {
 #line 424
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
   }
   {
 #line 426
-  __cil_tmp9 = (unsigned long )c2dev;
+  __cil_tmp9 = & c2dev->mutex;
 #line 426
-  __cil_tmp10 = __cil_tmp9 + 48;
-#line 426
-  __cil_tmp11 = (struct mutex *)__cil_tmp10;
-#line 426
-  mutex_lock_nested(__cil_tmp11, 0U);
+  mutex_lock_nested(__cil_tmp9, 0U);
 #line 427
   ret = __c2port_show_dev_id(c2dev, buf);
 #line 428
-  __cil_tmp12 = (unsigned long )c2dev;
+  __cil_tmp10 = & c2dev->mutex;
 #line 428
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 428
-  __cil_tmp14 = (struct mutex *)__cil_tmp13;
-#line 428
-  mutex_unlock(__cil_tmp14);
+  mutex_unlock(__cil_tmp10);
   }
 #line 430
   if (ret < 0L) {
     {
 #line 431
-    __cil_tmp15 = (struct device  const  *)dev;
+    __cil_tmp11 = (struct device  const  *)dev;
 #line 431
-    __cil_tmp16 = 0 * 1UL;
+    __cil_tmp12 = & c2dev->name[0];
 #line 431
-    __cil_tmp17 = 8 + __cil_tmp16;
-#line 431
-    __cil_tmp18 = (unsigned long )c2dev;
-#line 431
-    __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 431
-    __cil_tmp20 = (char *)__cil_tmp19;
-#line 431
-    dev_err(__cil_tmp15, "cannot read from %s\n", __cil_tmp20);
+    dev_err(__cil_tmp11, "cannot read from %s\n", __cil_tmp12);
     }
   } else {
 
@@ -6467,36 +6100,33 @@ static ssize_t __c2port_show_rev_id(struct c2port_device *dev , char *buf )
 { u8 data ;
   int ret ;
   int tmp___7 ;
-  u8 *__cil_tmp6 ;
-  u8 __cil_tmp7 ;
-  int __cil_tmp8 ;
+  u8 __cil_tmp6 ;
+  int __cil_tmp7 ;
 
   {
   {
 #line 442
-  c2port_write_ar(dev, (unsigned char)1);
+  __cil_tmp6 = (u8 )1;
+#line 442
+  c2port_write_ar(dev, __cil_tmp6);
 #line 445
   ret = c2port_read_dr(dev, & data);
   }
 #line 446
   if (ret < 0) {
 #line 447
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 449
-  __cil_tmp6 = & data;
+  __cil_tmp7 = (int )data;
 #line 449
-  __cil_tmp7 = *__cil_tmp6;
-#line 449
-  __cil_tmp8 = (int )__cil_tmp7;
-#line 449
-  tmp___7 = sprintf(buf, "%d\n", __cil_tmp8);
+  tmp___7 = sprintf(buf, "%d\n", __cil_tmp7);
   }
 #line 449
-  return ((long )tmp___7);
+  return ((ssize_t )tmp___7);
 }
 }
 #line 452 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6507,21 +6137,11 @@ static ssize_t c2port_show_rev_id(struct device *dev , struct device_attribute *
   ssize_t ret ;
   struct device  const  *__cil_tmp7 ;
   unsigned int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct mutex *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct mutex *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct device *__cil_tmp17 ;
-  struct device  const  *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  char *__cil_tmp23 ;
+  struct mutex *__cil_tmp9 ;
+  struct mutex *__cil_tmp10 ;
+  struct device *__cil_tmp11 ;
+  struct device  const  *__cil_tmp12 ;
+  char *__cil_tmp13 ;
 
   {
   {
@@ -6534,58 +6154,38 @@ static ssize_t c2port_show_rev_id(struct device *dev , struct device_attribute *
   }
   {
 #line 459
-  __cil_tmp8 = *((unsigned int *)c2dev);
+  __cil_tmp8 = c2dev->access;
 #line 459
   if (! __cil_tmp8) {
 #line 460
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
   }
   {
 #line 462
-  __cil_tmp9 = (unsigned long )c2dev;
+  __cil_tmp9 = & c2dev->mutex;
 #line 462
-  __cil_tmp10 = __cil_tmp9 + 48;
-#line 462
-  __cil_tmp11 = (struct mutex *)__cil_tmp10;
-#line 462
-  mutex_lock_nested(__cil_tmp11, 0U);
+  mutex_lock_nested(__cil_tmp9, 0U);
 #line 463
   ret = __c2port_show_rev_id(c2dev, buf);
 #line 464
-  __cil_tmp12 = (unsigned long )c2dev;
+  __cil_tmp10 = & c2dev->mutex;
 #line 464
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 464
-  __cil_tmp14 = (struct mutex *)__cil_tmp13;
-#line 464
-  mutex_unlock(__cil_tmp14);
+  mutex_unlock(__cil_tmp10);
   }
 #line 466
   if (ret < 0L) {
     {
 #line 467
-    __cil_tmp15 = (unsigned long )c2dev;
+    __cil_tmp11 = c2dev->dev;
 #line 467
-    __cil_tmp16 = __cil_tmp15 + 216;
+    __cil_tmp12 = (struct device  const  *)__cil_tmp11;
 #line 467
-    __cil_tmp17 = *((struct device **)__cil_tmp16);
+    __cil_tmp13 = & c2dev->name[0];
 #line 467
-    __cil_tmp18 = (struct device  const  *)__cil_tmp17;
-#line 467
-    __cil_tmp19 = 0 * 1UL;
-#line 467
-    __cil_tmp20 = 8 + __cil_tmp19;
-#line 467
-    __cil_tmp21 = (unsigned long )c2dev;
-#line 467
-    __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 467
-    __cil_tmp23 = (char *)__cil_tmp22;
-#line 467
-    dev_err(__cil_tmp18, "cannot read from %s\n", __cil_tmp23);
+    dev_err(__cil_tmp12, "cannot read from %s\n", __cil_tmp13);
     }
   } else {
 
@@ -6617,7 +6217,7 @@ static ssize_t c2port_show_flash_access(struct device *dev , struct device_attri
   tmp___8 = sprintf(buf, "%d\n", __cil_tmp8);
   }
 #line 477
-  return ((long )tmp___8);
+  return ((ssize_t )tmp___8);
 }
 }
 #line 480 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6629,15 +6229,18 @@ static ssize_t __c2port_store_flash_access(struct c2port_device *dev , int statu
   int __cil_tmp7 ;
   int __cil_tmp8 ;
   unsigned int __cil_tmp9 ;
+  u8 __cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  u8 __cil_tmp12 ;
 
   {
   {
 #line 486
-  __cil_tmp6 = *((unsigned int *)dev);
+  __cil_tmp6 = dev->access;
 #line 486
   if (! __cil_tmp6) {
 #line 487
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
@@ -6654,32 +6257,38 @@ static ssize_t __c2port_store_flash_access(struct c2port_device *dev , int statu
 #line 492
   if (__cil_tmp9 == 0U) {
 #line 493
-    return (0L);
+    return ((ssize_t )0);
   } else {
 
   }
   }
   {
 #line 497
-  c2port_write_ar(dev, (unsigned char)2);
+  __cil_tmp10 = (u8 )2;
+#line 497
+  c2port_write_ar(dev, __cil_tmp10);
 #line 500
-  ret = c2port_write_dr(dev, (unsigned char)2);
+  __cil_tmp11 = (u8 )2;
+#line 500
+  ret = c2port_write_dr(dev, __cil_tmp11);
   }
 #line 501
   if (ret < 0) {
 #line 502
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 505
-  ret = c2port_write_dr(dev, (unsigned char)1);
+  __cil_tmp12 = (u8 )1;
+#line 505
+  ret = c2port_write_dr(dev, __cil_tmp12);
   }
 #line 506
   if (ret < 0) {
 #line 507
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -6688,7 +6297,7 @@ static ssize_t __c2port_store_flash_access(struct c2port_device *dev , int statu
   {
 #line 511
   while (1) {
-    while_18_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 #line 511
     tmp___7 = __ms;
 #line 511
@@ -6697,6 +6306,7 @@ static ssize_t __c2port_store_flash_access(struct c2port_device *dev , int statu
     if (tmp___7) {
 
     } else {
+#line 511
       goto while_break;
     }
     {
@@ -6704,12 +6314,12 @@ static ssize_t __c2port_store_flash_access(struct c2port_device *dev , int statu
     __const_udelay(4295000UL);
     }
   }
-  while_18_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
 #line 513
-  return (0L);
+  return ((ssize_t )0);
 }
 }
 #line 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6721,23 +6331,11 @@ static ssize_t c2port_store_flash_access(struct device *dev , struct device_attr
   ssize_t ret ;
   int tmp___8 ;
   struct device  const  *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct mutex *__cil_tmp13 ;
-  int *__cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct mutex *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct device *__cil_tmp21 ;
-  struct device  const  *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  char *__cil_tmp27 ;
+  struct mutex *__cil_tmp11 ;
+  struct mutex *__cil_tmp12 ;
+  struct device *__cil_tmp13 ;
+  struct device  const  *__cil_tmp14 ;
+  char *__cil_tmp15 ;
 
   {
   {
@@ -6750,62 +6348,38 @@ static ssize_t c2port_store_flash_access(struct device *dev , struct device_attr
 #line 524
   tmp___8 = sscanf(buf, "%d", & status);
 #line 524
-  ret = (long )tmp___8;
+  ret = (ssize_t )tmp___8;
   }
 #line 525
   if (ret != 1L) {
 #line 526
-    return (-22L);
+    return ((ssize_t )-22);
   } else {
 
   }
   {
 #line 528
-  __cil_tmp11 = (unsigned long )c2dev;
+  __cil_tmp11 = & c2dev->mutex;
 #line 528
-  __cil_tmp12 = __cil_tmp11 + 48;
-#line 528
-  __cil_tmp13 = (struct mutex *)__cil_tmp12;
-#line 528
-  mutex_lock_nested(__cil_tmp13, 0U);
+  mutex_lock_nested(__cil_tmp11, 0U);
 #line 529
-  __cil_tmp14 = & status;
-#line 529
-  __cil_tmp15 = *__cil_tmp14;
-#line 529
-  ret = __c2port_store_flash_access(c2dev, __cil_tmp15);
+  ret = __c2port_store_flash_access(c2dev, status);
 #line 530
-  __cil_tmp16 = (unsigned long )c2dev;
+  __cil_tmp12 = & c2dev->mutex;
 #line 530
-  __cil_tmp17 = __cil_tmp16 + 48;
-#line 530
-  __cil_tmp18 = (struct mutex *)__cil_tmp17;
-#line 530
-  mutex_unlock(__cil_tmp18);
+  mutex_unlock(__cil_tmp12);
   }
 #line 532
   if (ret < 0L) {
     {
 #line 533
-    __cil_tmp19 = (unsigned long )c2dev;
+    __cil_tmp13 = c2dev->dev;
 #line 533
-    __cil_tmp20 = __cil_tmp19 + 216;
+    __cil_tmp14 = (struct device  const  *)__cil_tmp13;
 #line 533
-    __cil_tmp21 = *((struct device **)__cil_tmp20);
+    __cil_tmp15 = & c2dev->name[0];
 #line 533
-    __cil_tmp22 = (struct device  const  *)__cil_tmp21;
-#line 533
-    __cil_tmp23 = 0 * 1UL;
-#line 533
-    __cil_tmp24 = 8 + __cil_tmp23;
-#line 533
-    __cil_tmp25 = (unsigned long )c2dev;
-#line 533
-    __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
-#line 533
-    __cil_tmp27 = (char *)__cil_tmp26;
-#line 533
-    dev_err(__cil_tmp22, "cannot enable %s flash programming\n", __cil_tmp27);
+    dev_err(__cil_tmp14, "cannot enable %s flash programming\n", __cil_tmp15);
     }
 #line 535
     return (ret);
@@ -6813,30 +6387,37 @@ static ssize_t c2port_store_flash_access(struct device *dev , struct device_attr
 
   }
 #line 538
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 541 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 static ssize_t __c2port_write_flash_erase(struct c2port_device *dev ) 
 { u8 status ;
   int ret ;
-  u8 *__cil_tmp4 ;
+  u8 __cil_tmp4 ;
   u8 __cil_tmp5 ;
   int __cil_tmp6 ;
+  u8 __cil_tmp7 ;
+  u8 __cil_tmp8 ;
+  u8 __cil_tmp9 ;
 
   {
   {
 #line 549
-  c2port_write_ar(dev, (unsigned char)180);
+  __cil_tmp4 = (u8 )180;
+#line 549
+  c2port_write_ar(dev, __cil_tmp4);
 #line 552
-  c2port_write_dr(dev, (unsigned char)3);
+  __cil_tmp5 = (u8 )3;
+#line 552
+  c2port_write_dr(dev, __cil_tmp5);
 #line 555
   ret = c2port_poll_in_busy(dev);
   }
 #line 556
   if (ret < 0) {
 #line 557
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -6847,7 +6428,7 @@ static ssize_t __c2port_write_flash_erase(struct c2port_device *dev )
 #line 563
   if (ret < 0) {
 #line 564
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -6858,61 +6439,63 @@ static ssize_t __c2port_write_flash_erase(struct c2port_device *dev )
 #line 568
   if (ret < 0) {
 #line 569
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 570
-  __cil_tmp4 = & status;
-#line 570
-  __cil_tmp5 = *__cil_tmp4;
-#line 570
-  __cil_tmp6 = (int )__cil_tmp5;
+  __cil_tmp6 = (int )status;
 #line 570
   if (__cil_tmp6 != 13) {
 #line 571
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
   }
   {
 #line 578
-  c2port_write_dr(dev, (unsigned char)222);
+  __cil_tmp7 = (u8 )222;
+#line 578
+  c2port_write_dr(dev, __cil_tmp7);
 #line 579
   ret = c2port_poll_in_busy(dev);
   }
 #line 580
   if (ret < 0) {
 #line 581
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 582
-  c2port_write_dr(dev, (unsigned char)173);
+  __cil_tmp8 = (u8 )173;
+#line 582
+  c2port_write_dr(dev, __cil_tmp8);
 #line 583
   ret = c2port_poll_in_busy(dev);
   }
 #line 584
   if (ret < 0) {
 #line 585
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 586
-  c2port_write_dr(dev, (unsigned char)165);
+  __cil_tmp9 = (u8 )165;
+#line 586
+  c2port_write_dr(dev, __cil_tmp9);
 #line 587
   ret = c2port_poll_in_busy(dev);
   }
 #line 588
   if (ret < 0) {
 #line 589
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -6923,12 +6506,12 @@ static ssize_t __c2port_write_flash_erase(struct c2port_device *dev )
 #line 592
   if (ret < 0) {
 #line 593
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
 #line 595
-  return (0L);
+  return ((ssize_t )0);
 }
 }
 #line 598 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -6941,21 +6524,11 @@ static ssize_t c2port_store_flash_erase(struct device *dev , struct device_attri
   struct device  const  *__cil_tmp9 ;
   unsigned int __cil_tmp10 ;
   unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct mutex *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct mutex *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct device *__cil_tmp20 ;
-  struct device  const  *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  char *__cil_tmp26 ;
+  struct mutex *__cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
+  struct device *__cil_tmp14 ;
+  struct device  const  *__cil_tmp15 ;
+  char *__cil_tmp16 ;
 
   {
   {
@@ -6968,11 +6541,11 @@ static ssize_t c2port_store_flash_erase(struct device *dev , struct device_attri
   }
   {
 #line 606
-  __cil_tmp10 = *((unsigned int *)c2dev);
+  __cil_tmp10 = c2dev->access;
 #line 606
   if (! __cil_tmp10) {
 #line 607
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
     {
 #line 606
@@ -6980,7 +6553,7 @@ static ssize_t c2port_store_flash_erase(struct device *dev , struct device_attri
 #line 606
     if (! __cil_tmp11) {
 #line 607
-      return (-16L);
+      return ((ssize_t )-16);
     } else {
 
     }
@@ -6989,57 +6562,37 @@ static ssize_t c2port_store_flash_erase(struct device *dev , struct device_attri
   }
   {
 #line 609
-  __cil_tmp12 = (unsigned long )c2dev;
+  __cil_tmp12 = & c2dev->mutex;
 #line 609
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 609
-  __cil_tmp14 = (struct mutex *)__cil_tmp13;
-#line 609
-  mutex_lock_nested(__cil_tmp14, 0U);
+  mutex_lock_nested(__cil_tmp12, 0U);
 #line 610
   tmp___8 = __c2port_write_flash_erase(c2dev);
 #line 610
   ret = (int )tmp___8;
 #line 611
-  __cil_tmp15 = (unsigned long )c2dev;
+  __cil_tmp13 = & c2dev->mutex;
 #line 611
-  __cil_tmp16 = __cil_tmp15 + 48;
-#line 611
-  __cil_tmp17 = (struct mutex *)__cil_tmp16;
-#line 611
-  mutex_unlock(__cil_tmp17);
+  mutex_unlock(__cil_tmp13);
   }
 #line 613
   if (ret < 0) {
     {
 #line 614
-    __cil_tmp18 = (unsigned long )c2dev;
+    __cil_tmp14 = c2dev->dev;
 #line 614
-    __cil_tmp19 = __cil_tmp18 + 216;
+    __cil_tmp15 = (struct device  const  *)__cil_tmp14;
 #line 614
-    __cil_tmp20 = *((struct device **)__cil_tmp19);
+    __cil_tmp16 = & c2dev->name[0];
 #line 614
-    __cil_tmp21 = (struct device  const  *)__cil_tmp20;
-#line 614
-    __cil_tmp22 = 0 * 1UL;
-#line 614
-    __cil_tmp23 = 8 + __cil_tmp22;
-#line 614
-    __cil_tmp24 = (unsigned long )c2dev;
-#line 614
-    __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 614
-    __cil_tmp26 = (char *)__cil_tmp25;
-#line 614
-    dev_err(__cil_tmp21, "cannot erase %s flash\n", __cil_tmp26);
+    dev_err(__cil_tmp15, "cannot erase %s flash\n", __cil_tmp16);
     }
 #line 615
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
 #line 618
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 621 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -7050,166 +6603,144 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
   u8 nread ;
   int i ;
   int ret ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned short __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned short __cil_tmp16 ;
-  int __cil_tmp17 ;
+  unsigned short __cil_tmp10 ;
+  int __cil_tmp11 ;
+  unsigned short __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  loff_t __cil_tmp15 ;
+  loff_t __cil_tmp16 ;
+  unsigned short __cil_tmp17 ;
   int __cil_tmp18 ;
-  long long __cil_tmp19 ;
-  long long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned short __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned short __cil_tmp25 ;
-  int __cil_tmp26 ;
+  unsigned short __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  loff_t __cil_tmp22 ;
+  loff_t __cil_tmp23 ;
+  unsigned short __cil_tmp24 ;
+  int __cil_tmp25 ;
+  unsigned short __cil_tmp26 ;
   int __cil_tmp27 ;
-  long long __cil_tmp28 ;
-  long long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned short __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned short __cil_tmp34 ;
+  int __cil_tmp28 ;
+  loff_t __cil_tmp29 ;
+  loff_t __cil_tmp30 ;
+  size_t __cil_tmp31 ;
+  int __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  u8 __cil_tmp34 ;
   int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  long long __cil_tmp37 ;
+  loff_t __cil_tmp36 ;
+  u8 __cil_tmp37 ;
   long long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  u8 __cil_tmp39 ;
   int __cil_tmp40 ;
-  u8 *__cil_tmp41 ;
-  u8 __cil_tmp42 ;
-  int __cil_tmp43 ;
-  loff_t __cil_tmp44 ;
-  unsigned char __cil_tmp45 ;
-  long long __cil_tmp46 ;
-  unsigned char __cil_tmp47 ;
-  u8 *__cil_tmp48 ;
-  u8 __cil_tmp49 ;
-  int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  char *__cil_tmp52 ;
-  u8 *__cil_tmp53 ;
+  int __cil_tmp41 ;
+  char *__cil_tmp42 ;
+  u8 *__cil_tmp43 ;
 
   {
 #line 624
-  __cil_tmp10 = (unsigned long )dev;
-#line 624
-  __cil_tmp11 = __cil_tmp10 + 40;
-#line 624
-  ops = *((struct c2port_ops **)__cil_tmp11);
+  ops = dev->ops;
 #line 625
-  nread = (unsigned char)128;
+  nread = (u8 )128;
   {
 #line 629
-  __cil_tmp12 = (unsigned long )ops;
+  __cil_tmp10 = ops->blocks_num;
 #line 629
-  __cil_tmp13 = __cil_tmp12 + 2;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 629
-  __cil_tmp14 = *((unsigned short *)__cil_tmp13);
+  __cil_tmp12 = ops->block_size;
 #line 629
-  __cil_tmp15 = (int )__cil_tmp14;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 629
-  __cil_tmp16 = *((unsigned short *)ops);
+  __cil_tmp14 = __cil_tmp13 * __cil_tmp11;
 #line 629
-  __cil_tmp17 = (int )__cil_tmp16;
+  __cil_tmp15 = (loff_t )__cil_tmp14;
 #line 629
-  __cil_tmp18 = __cil_tmp17 * __cil_tmp15;
-#line 629
-  __cil_tmp19 = (long long )__cil_tmp18;
-#line 629
-  if (offset >= __cil_tmp19) {
+  if (offset >= __cil_tmp15) {
 #line 630
-    return (0L);
+    return ((ssize_t )0);
   } else {
 
   }
   }
   {
 #line 632
-  __cil_tmp20 = (long long )nread;
+  __cil_tmp16 = (loff_t )nread;
 #line 632
-  __cil_tmp21 = (unsigned long )ops;
+  __cil_tmp17 = ops->blocks_num;
 #line 632
-  __cil_tmp22 = __cil_tmp21 + 2;
+  __cil_tmp18 = (int )__cil_tmp17;
 #line 632
-  __cil_tmp23 = *((unsigned short *)__cil_tmp22);
+  __cil_tmp19 = ops->block_size;
 #line 632
-  __cil_tmp24 = (int )__cil_tmp23;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 632
-  __cil_tmp25 = *((unsigned short *)ops);
+  __cil_tmp21 = __cil_tmp20 * __cil_tmp18;
 #line 632
-  __cil_tmp26 = (int )__cil_tmp25;
+  __cil_tmp22 = (loff_t )__cil_tmp21;
 #line 632
-  __cil_tmp27 = __cil_tmp26 * __cil_tmp24;
+  __cil_tmp23 = __cil_tmp22 - offset;
 #line 632
-  __cil_tmp28 = (long long )__cil_tmp27;
-#line 632
-  __cil_tmp29 = __cil_tmp28 - offset;
-#line 632
-  if (__cil_tmp29 < __cil_tmp20) {
+  if (__cil_tmp23 < __cil_tmp16) {
 #line 633
-    __cil_tmp30 = (unsigned long )ops;
+    __cil_tmp24 = ops->blocks_num;
 #line 633
-    __cil_tmp31 = __cil_tmp30 + 2;
+    __cil_tmp25 = (int )__cil_tmp24;
 #line 633
-    __cil_tmp32 = *((unsigned short *)__cil_tmp31);
+    __cil_tmp26 = ops->block_size;
 #line 633
-    __cil_tmp33 = (int )__cil_tmp32;
+    __cil_tmp27 = (int )__cil_tmp26;
 #line 633
-    __cil_tmp34 = *((unsigned short *)ops);
+    __cil_tmp28 = __cil_tmp27 * __cil_tmp25;
 #line 633
-    __cil_tmp35 = (int )__cil_tmp34;
+    __cil_tmp29 = (loff_t )__cil_tmp28;
 #line 633
-    __cil_tmp36 = __cil_tmp35 * __cil_tmp33;
+    __cil_tmp30 = __cil_tmp29 - offset;
 #line 633
-    __cil_tmp37 = (long long )__cil_tmp36;
-#line 633
-    __cil_tmp38 = __cil_tmp37 - offset;
-#line 633
-    nread = (unsigned char )__cil_tmp38;
+    nread = (u8 )__cil_tmp30;
   } else {
 
   }
   }
   {
 #line 634
-  __cil_tmp39 = (unsigned long )nread;
+  __cil_tmp31 = (size_t )nread;
 #line 634
-  if (count < __cil_tmp39) {
+  if (count < __cil_tmp31) {
 #line 635
-    nread = (unsigned char )count;
+    nread = (u8 )count;
   } else {
 
   }
   }
   {
 #line 636
-  __cil_tmp40 = (int )nread;
+  __cil_tmp32 = (int )nread;
 #line 636
-  if (__cil_tmp40 == 0) {
+  if (__cil_tmp32 == 0) {
 #line 637
-    return ((long )nread);
+    return ((ssize_t )nread);
   } else {
 
   }
   }
   {
 #line 641
-  c2port_write_ar(dev, (unsigned char)180);
+  __cil_tmp33 = (u8 )180;
+#line 641
+  c2port_write_ar(dev, __cil_tmp33);
 #line 644
-  c2port_write_dr(dev, (unsigned char)6);
+  __cil_tmp34 = (u8 )6;
+#line 644
+  c2port_write_dr(dev, __cil_tmp34);
 #line 647
   ret = c2port_poll_in_busy(dev);
   }
 #line 648
   if (ret < 0) {
 #line 649
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7220,7 +6751,7 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
 #line 655
   if (ret < 0) {
 #line 656
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7231,56 +6762,52 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
 #line 660
   if (ret < 0) {
 #line 661
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 662
-  __cil_tmp41 = & status;
+  __cil_tmp35 = (int )status;
 #line 662
-  __cil_tmp42 = *__cil_tmp41;
-#line 662
-  __cil_tmp43 = (int )__cil_tmp42;
-#line 662
-  if (__cil_tmp43 != 13) {
+  if (__cil_tmp35 != 13) {
 #line 663
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
   }
   {
 #line 666
-  __cil_tmp44 = offset >> 8;
+  __cil_tmp36 = offset >> 8;
 #line 666
-  __cil_tmp45 = (unsigned char )__cil_tmp44;
+  __cil_tmp37 = (u8 )__cil_tmp36;
 #line 666
-  c2port_write_dr(dev, __cil_tmp45);
+  c2port_write_dr(dev, __cil_tmp37);
 #line 667
   ret = c2port_poll_in_busy(dev);
   }
 #line 668
   if (ret < 0) {
 #line 669
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 672
-  __cil_tmp46 = offset & 255LL;
+  __cil_tmp38 = offset & 255LL;
 #line 672
-  __cil_tmp47 = (unsigned char )__cil_tmp46;
+  __cil_tmp39 = (u8 )__cil_tmp38;
 #line 672
-  c2port_write_dr(dev, __cil_tmp47);
+  c2port_write_dr(dev, __cil_tmp39);
 #line 673
   ret = c2port_poll_in_busy(dev);
   }
 #line 674
   if (ret < 0) {
 #line 675
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7293,7 +6820,7 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
 #line 680
   if (ret < 0) {
 #line 681
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7304,7 +6831,7 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
 #line 687
   if (ret < 0) {
 #line 688
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7315,21 +6842,17 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
 #line 692
   if (ret < 0) {
 #line 693
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 694
-  __cil_tmp48 = & status;
+  __cil_tmp40 = (int )status;
 #line 694
-  __cil_tmp49 = *__cil_tmp48;
-#line 694
-  __cil_tmp50 = (int )__cil_tmp49;
-#line 694
-  if (__cil_tmp50 != 13) {
+  if (__cil_tmp40 != 13) {
 #line 695
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
@@ -7339,15 +6862,16 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
   {
 #line 698
   while (1) {
-    while_19_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 698
-    __cil_tmp51 = (int )nread;
+    __cil_tmp41 = (int )nread;
 #line 698
-    if (i < __cil_tmp51) {
+    if (i < __cil_tmp41) {
 
     } else {
+#line 698
       goto while_break;
     }
     }
@@ -7358,34 +6882,34 @@ static ssize_t __c2port_read_flash_data(struct c2port_device *dev , char *buffer
 #line 700
     if (ret < 0) {
 #line 701
-      return ((long )ret);
+      return ((ssize_t )ret);
     } else {
 
     }
     {
 #line 703
-    __cil_tmp52 = buffer + i;
+    __cil_tmp42 = buffer + i;
 #line 703
-    __cil_tmp53 = (u8 *)__cil_tmp52;
+    __cil_tmp43 = (u8 *)__cil_tmp42;
 #line 703
-    ret = c2port_read_dr(dev, __cil_tmp53);
+    ret = c2port_read_dr(dev, __cil_tmp43);
     }
 #line 704
     if (ret < 0) {
 #line 705
-      return ((long )ret);
+      return ((ssize_t )ret);
     } else {
 
     }
 #line 698
     i = i + 1;
   }
-  while_19_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
 #line 708
-  return ((long )nread);
+  return ((ssize_t )nread);
 }
 }
 #line 711 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -7396,31 +6920,19 @@ static ssize_t c2port_read_flash_data(struct file *filp , struct kobject *kobj ,
   void *tmp___7 ;
   ssize_t ret ;
   struct device *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct kobject *__cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  char *__cil_tmp16 ;
-  char *__cil_tmp17 ;
-  struct device *__cil_tmp18 ;
-  struct device  const  *__cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct mutex *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct mutex *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct device *__cil_tmp30 ;
-  struct device  const  *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  char *__cil_tmp36 ;
+  struct kobject *__cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  char *__cil_tmp14 ;
+  char *__cil_tmp15 ;
+  struct device *__cil_tmp16 ;
+  struct device  const  *__cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  struct mutex *__cil_tmp20 ;
+  struct mutex *__cil_tmp21 ;
+  struct device *__cil_tmp22 ;
+  struct device  const  *__cil_tmp23 ;
+  char *__cil_tmp24 ;
 
   {
   {
@@ -7429,41 +6941,37 @@ static ssize_t c2port_read_flash_data(struct file *filp , struct kobject *kobj ,
 #line 716
   __cil_tmp11 = (struct device *)0;
 #line 716
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
+  __cil_tmp12 = & __cil_tmp11->kobj;
 #line 716
-  __cil_tmp13 = __cil_tmp12 + 16;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 716
-  __cil_tmp14 = (struct kobject *)__cil_tmp13;
+  __cil_tmp14 = (char *)__mptr;
 #line 716
-  __cil_tmp15 = (unsigned int )__cil_tmp14;
+  __cil_tmp15 = __cil_tmp14 - __cil_tmp13;
 #line 716
-  __cil_tmp16 = (char *)__mptr;
+  __cil_tmp16 = (struct device *)__cil_tmp15;
 #line 716
-  __cil_tmp17 = __cil_tmp16 - __cil_tmp15;
+  __cil_tmp17 = (struct device  const  *)__cil_tmp16;
 #line 716
-  __cil_tmp18 = (struct device *)__cil_tmp17;
-#line 716
-  __cil_tmp19 = (struct device  const  *)__cil_tmp18;
-#line 716
-  tmp___7 = dev_get_drvdata(__cil_tmp19);
+  tmp___7 = dev_get_drvdata(__cil_tmp17);
 #line 716
   c2dev = (struct c2port_device *)tmp___7;
   }
   {
 #line 721
-  __cil_tmp20 = *((unsigned int *)c2dev);
+  __cil_tmp18 = c2dev->access;
 #line 721
-  if (! __cil_tmp20) {
+  if (! __cil_tmp18) {
 #line 722
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
     {
 #line 721
-    __cil_tmp21 = c2dev->flash_access;
+    __cil_tmp19 = c2dev->flash_access;
 #line 721
-    if (! __cil_tmp21) {
+    if (! __cil_tmp19) {
 #line 722
-      return (-16L);
+      return ((ssize_t )-16);
     } else {
 
     }
@@ -7472,47 +6980,27 @@ static ssize_t c2port_read_flash_data(struct file *filp , struct kobject *kobj ,
   }
   {
 #line 724
-  __cil_tmp22 = (unsigned long )c2dev;
+  __cil_tmp20 = & c2dev->mutex;
 #line 724
-  __cil_tmp23 = __cil_tmp22 + 48;
-#line 724
-  __cil_tmp24 = (struct mutex *)__cil_tmp23;
-#line 724
-  mutex_lock_nested(__cil_tmp24, 0U);
+  mutex_lock_nested(__cil_tmp20, 0U);
 #line 725
   ret = __c2port_read_flash_data(c2dev, buffer, offset, count);
 #line 726
-  __cil_tmp25 = (unsigned long )c2dev;
+  __cil_tmp21 = & c2dev->mutex;
 #line 726
-  __cil_tmp26 = __cil_tmp25 + 48;
-#line 726
-  __cil_tmp27 = (struct mutex *)__cil_tmp26;
-#line 726
-  mutex_unlock(__cil_tmp27);
+  mutex_unlock(__cil_tmp21);
   }
 #line 728
   if (ret < 0L) {
     {
 #line 729
-    __cil_tmp28 = (unsigned long )c2dev;
+    __cil_tmp22 = c2dev->dev;
 #line 729
-    __cil_tmp29 = __cil_tmp28 + 216;
+    __cil_tmp23 = (struct device  const  *)__cil_tmp22;
 #line 729
-    __cil_tmp30 = *((struct device **)__cil_tmp29);
+    __cil_tmp24 = & c2dev->name[0];
 #line 729
-    __cil_tmp31 = (struct device  const  *)__cil_tmp30;
-#line 729
-    __cil_tmp32 = 0 * 1UL;
-#line 729
-    __cil_tmp33 = 8 + __cil_tmp32;
-#line 729
-    __cil_tmp34 = (unsigned long )c2dev;
-#line 729
-    __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 729
-    __cil_tmp36 = (char *)__cil_tmp35;
-#line 729
-    dev_err(__cil_tmp31, "cannot read %s flash\n", __cil_tmp36);
+    dev_err(__cil_tmp23, "cannot read %s flash\n", __cil_tmp24);
     }
   } else {
 
@@ -7529,155 +7017,133 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
   u8 nwrite ;
   int i ;
   int ret ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  long long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned short __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned short __cil_tmp18 ;
-  int __cil_tmp19 ;
+  size_t __cil_tmp10 ;
+  loff_t __cil_tmp11 ;
+  unsigned short __cil_tmp12 ;
+  int __cil_tmp13 ;
+  unsigned short __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  loff_t __cil_tmp17 ;
+  loff_t __cil_tmp18 ;
+  unsigned short __cil_tmp19 ;
   int __cil_tmp20 ;
-  long long __cil_tmp21 ;
-  long long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned short __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned short __cil_tmp27 ;
-  int __cil_tmp28 ;
+  unsigned short __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  loff_t __cil_tmp24 ;
+  loff_t __cil_tmp25 ;
+  unsigned short __cil_tmp26 ;
+  int __cil_tmp27 ;
+  unsigned short __cil_tmp28 ;
   int __cil_tmp29 ;
-  long long __cil_tmp30 ;
-  long long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned short __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned short __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
-  long long __cil_tmp39 ;
-  u8 *__cil_tmp40 ;
-  u8 __cil_tmp41 ;
-  int __cil_tmp42 ;
-  loff_t __cil_tmp43 ;
-  unsigned char __cil_tmp44 ;
-  long long __cil_tmp45 ;
-  unsigned char __cil_tmp46 ;
-  u8 *__cil_tmp47 ;
-  u8 __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  char *__cil_tmp51 ;
-  char __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
+  int __cil_tmp30 ;
+  loff_t __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  int __cil_tmp34 ;
+  loff_t __cil_tmp35 ;
+  u8 __cil_tmp36 ;
+  long long __cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  char *__cil_tmp41 ;
+  char __cil_tmp42 ;
+  u8 __cil_tmp43 ;
 
   {
 #line 737
-  __cil_tmp10 = (unsigned long )dev;
-#line 737
-  __cil_tmp11 = __cil_tmp10 + 40;
-#line 737
-  ops = *((struct c2port_ops **)__cil_tmp11);
+  ops = dev->ops;
 #line 738
-  nwrite = (unsigned char)128;
+  nwrite = (u8 )128;
   {
 #line 741
-  __cil_tmp12 = (unsigned long )nwrite;
+  __cil_tmp10 = (size_t )nwrite;
 #line 741
-  if (__cil_tmp12 > count) {
+  if (__cil_tmp10 > count) {
 #line 742
-    nwrite = (unsigned char )count;
+    nwrite = (u8 )count;
   } else {
 
   }
   }
   {
 #line 743
-  __cil_tmp13 = (long long )nwrite;
+  __cil_tmp11 = (loff_t )nwrite;
 #line 743
-  __cil_tmp14 = (unsigned long )ops;
+  __cil_tmp12 = ops->blocks_num;
 #line 743
-  __cil_tmp15 = __cil_tmp14 + 2;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 743
-  __cil_tmp16 = *((unsigned short *)__cil_tmp15);
+  __cil_tmp14 = ops->block_size;
 #line 743
-  __cil_tmp17 = (int )__cil_tmp16;
+  __cil_tmp15 = (int )__cil_tmp14;
 #line 743
-  __cil_tmp18 = *((unsigned short *)ops);
+  __cil_tmp16 = __cil_tmp15 * __cil_tmp13;
 #line 743
-  __cil_tmp19 = (int )__cil_tmp18;
+  __cil_tmp17 = (loff_t )__cil_tmp16;
 #line 743
-  __cil_tmp20 = __cil_tmp19 * __cil_tmp17;
+  __cil_tmp18 = __cil_tmp17 - offset;
 #line 743
-  __cil_tmp21 = (long long )__cil_tmp20;
-#line 743
-  __cil_tmp22 = __cil_tmp21 - offset;
-#line 743
-  if (__cil_tmp22 < __cil_tmp13) {
+  if (__cil_tmp18 < __cil_tmp11) {
 #line 744
-    __cil_tmp23 = (unsigned long )ops;
+    __cil_tmp19 = ops->blocks_num;
 #line 744
-    __cil_tmp24 = __cil_tmp23 + 2;
+    __cil_tmp20 = (int )__cil_tmp19;
 #line 744
-    __cil_tmp25 = *((unsigned short *)__cil_tmp24);
+    __cil_tmp21 = ops->block_size;
 #line 744
-    __cil_tmp26 = (int )__cil_tmp25;
+    __cil_tmp22 = (int )__cil_tmp21;
 #line 744
-    __cil_tmp27 = *((unsigned short *)ops);
+    __cil_tmp23 = __cil_tmp22 * __cil_tmp20;
 #line 744
-    __cil_tmp28 = (int )__cil_tmp27;
+    __cil_tmp24 = (loff_t )__cil_tmp23;
 #line 744
-    __cil_tmp29 = __cil_tmp28 * __cil_tmp26;
+    __cil_tmp25 = __cil_tmp24 - offset;
 #line 744
-    __cil_tmp30 = (long long )__cil_tmp29;
-#line 744
-    __cil_tmp31 = __cil_tmp30 - offset;
-#line 744
-    nwrite = (unsigned char )__cil_tmp31;
+    nwrite = (u8 )__cil_tmp25;
   } else {
 
   }
   }
   {
 #line 747
-  __cil_tmp32 = (unsigned long )ops;
+  __cil_tmp26 = ops->blocks_num;
 #line 747
-  __cil_tmp33 = __cil_tmp32 + 2;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 747
-  __cil_tmp34 = *((unsigned short *)__cil_tmp33);
+  __cil_tmp28 = ops->block_size;
 #line 747
-  __cil_tmp35 = (int )__cil_tmp34;
+  __cil_tmp29 = (int )__cil_tmp28;
 #line 747
-  __cil_tmp36 = *((unsigned short *)ops);
+  __cil_tmp30 = __cil_tmp29 * __cil_tmp27;
 #line 747
-  __cil_tmp37 = (int )__cil_tmp36;
+  __cil_tmp31 = (loff_t )__cil_tmp30;
 #line 747
-  __cil_tmp38 = __cil_tmp37 * __cil_tmp35;
-#line 747
-  __cil_tmp39 = (long long )__cil_tmp38;
-#line 747
-  if (offset >= __cil_tmp39) {
+  if (offset >= __cil_tmp31) {
 #line 748
-    return (-22L);
+    return ((ssize_t )-22);
   } else {
 
   }
   }
   {
 #line 752
-  c2port_write_ar(dev, (unsigned char)180);
+  __cil_tmp32 = (u8 )180;
+#line 752
+  c2port_write_ar(dev, __cil_tmp32);
 #line 755
-  c2port_write_dr(dev, (unsigned char)7);
+  __cil_tmp33 = (u8 )7;
+#line 755
+  c2port_write_dr(dev, __cil_tmp33);
 #line 758
   ret = c2port_poll_in_busy(dev);
   }
 #line 759
   if (ret < 0) {
 #line 760
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7688,7 +7154,7 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
 #line 766
   if (ret < 0) {
 #line 767
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7699,56 +7165,52 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
 #line 771
   if (ret < 0) {
 #line 772
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 773
-  __cil_tmp40 = & status;
+  __cil_tmp34 = (int )status;
 #line 773
-  __cil_tmp41 = *__cil_tmp40;
-#line 773
-  __cil_tmp42 = (int )__cil_tmp41;
-#line 773
-  if (__cil_tmp42 != 13) {
+  if (__cil_tmp34 != 13) {
 #line 774
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
   }
   {
 #line 777
-  __cil_tmp43 = offset >> 8;
+  __cil_tmp35 = offset >> 8;
 #line 777
-  __cil_tmp44 = (unsigned char )__cil_tmp43;
+  __cil_tmp36 = (u8 )__cil_tmp35;
 #line 777
-  c2port_write_dr(dev, __cil_tmp44);
+  c2port_write_dr(dev, __cil_tmp36);
 #line 778
   ret = c2port_poll_in_busy(dev);
   }
 #line 779
   if (ret < 0) {
 #line 780
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 783
-  __cil_tmp45 = offset & 255LL;
+  __cil_tmp37 = offset & 255LL;
 #line 783
-  __cil_tmp46 = (unsigned char )__cil_tmp45;
+  __cil_tmp38 = (u8 )__cil_tmp37;
 #line 783
-  c2port_write_dr(dev, __cil_tmp46);
+  c2port_write_dr(dev, __cil_tmp38);
 #line 784
   ret = c2port_poll_in_busy(dev);
   }
 #line 785
   if (ret < 0) {
 #line 786
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7761,7 +7223,7 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
 #line 791
   if (ret < 0) {
 #line 792
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7772,7 +7234,7 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
 #line 798
   if (ret < 0) {
 #line 799
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
@@ -7783,21 +7245,17 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
 #line 803
   if (ret < 0) {
 #line 804
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
   {
 #line 805
-  __cil_tmp47 = & status;
+  __cil_tmp39 = (int )status;
 #line 805
-  __cil_tmp48 = *__cil_tmp47;
-#line 805
-  __cil_tmp49 = (int )__cil_tmp48;
-#line 805
-  if (__cil_tmp49 != 13) {
+  if (__cil_tmp39 != 13) {
 #line 806
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
 
   }
@@ -7807,32 +7265,33 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
   {
 #line 809
   while (1) {
-    while_20_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 809
-    __cil_tmp50 = (int )nwrite;
+    __cil_tmp40 = (int )nwrite;
 #line 809
-    if (i < __cil_tmp50) {
+    if (i < __cil_tmp40) {
 
     } else {
+#line 809
       goto while_break;
     }
     }
     {
 #line 810
-    __cil_tmp51 = buffer + i;
+    __cil_tmp41 = buffer + i;
 #line 810
-    __cil_tmp52 = *__cil_tmp51;
+    __cil_tmp42 = *__cil_tmp41;
 #line 810
-    __cil_tmp53 = (unsigned char )__cil_tmp52;
+    __cil_tmp43 = (u8 )__cil_tmp42;
 #line 810
-    ret = c2port_write_dr(dev, __cil_tmp53);
+    ret = c2port_write_dr(dev, __cil_tmp43);
     }
 #line 811
     if (ret < 0) {
 #line 812
-      return ((long )ret);
+      return ((ssize_t )ret);
     } else {
 
     }
@@ -7843,14 +7302,14 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
 #line 815
     if (ret < 0) {
 #line 816
-      return ((long )ret);
+      return ((ssize_t )ret);
     } else {
 
     }
 #line 809
     i = i + 1;
   }
-  while_20_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -7861,12 +7320,12 @@ static ssize_t __c2port_write_flash_data(struct c2port_device *dev , char *buffe
 #line 822
   if (ret < 0) {
 #line 823
-    return ((long )ret);
+    return ((ssize_t )ret);
   } else {
 
   }
 #line 825
-  return ((long )nwrite);
+  return ((ssize_t )nwrite);
 }
 }
 #line 828 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -7879,31 +7338,19 @@ static ssize_t c2port_write_flash_data(struct file *filp , struct kobject *kobj 
   int ret ;
   ssize_t tmp___8 ;
   struct device *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct kobject *__cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  char *__cil_tmp17 ;
-  char *__cil_tmp18 ;
-  struct device *__cil_tmp19 ;
-  struct device  const  *__cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct mutex *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct mutex *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct device *__cil_tmp31 ;
-  struct device  const  *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  char *__cil_tmp37 ;
+  struct kobject *__cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  char *__cil_tmp15 ;
+  char *__cil_tmp16 ;
+  struct device *__cil_tmp17 ;
+  struct device  const  *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  struct mutex *__cil_tmp21 ;
+  struct mutex *__cil_tmp22 ;
+  struct device *__cil_tmp23 ;
+  struct device  const  *__cil_tmp24 ;
+  char *__cil_tmp25 ;
 
   {
   {
@@ -7912,41 +7359,37 @@ static ssize_t c2port_write_flash_data(struct file *filp , struct kobject *kobj 
 #line 833
   __cil_tmp12 = (struct device *)0;
 #line 833
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp13 = & __cil_tmp12->kobj;
 #line 833
-  __cil_tmp14 = __cil_tmp13 + 16;
+  __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 833
-  __cil_tmp15 = (struct kobject *)__cil_tmp14;
+  __cil_tmp15 = (char *)__mptr;
 #line 833
-  __cil_tmp16 = (unsigned int )__cil_tmp15;
+  __cil_tmp16 = __cil_tmp15 - __cil_tmp14;
 #line 833
-  __cil_tmp17 = (char *)__mptr;
+  __cil_tmp17 = (struct device *)__cil_tmp16;
 #line 833
-  __cil_tmp18 = __cil_tmp17 - __cil_tmp16;
+  __cil_tmp18 = (struct device  const  *)__cil_tmp17;
 #line 833
-  __cil_tmp19 = (struct device *)__cil_tmp18;
-#line 833
-  __cil_tmp20 = (struct device  const  *)__cil_tmp19;
-#line 833
-  tmp___7 = dev_get_drvdata(__cil_tmp20);
+  tmp___7 = dev_get_drvdata(__cil_tmp18);
 #line 833
   c2dev = (struct c2port_device *)tmp___7;
   }
   {
 #line 838
-  __cil_tmp21 = *((unsigned int *)c2dev);
+  __cil_tmp19 = c2dev->access;
 #line 838
-  if (! __cil_tmp21) {
+  if (! __cil_tmp19) {
 #line 839
-    return (-16L);
+    return ((ssize_t )-16);
   } else {
     {
 #line 838
-    __cil_tmp22 = c2dev->flash_access;
+    __cil_tmp20 = c2dev->flash_access;
 #line 838
-    if (! __cil_tmp22) {
+    if (! __cil_tmp20) {
 #line 839
-      return (-16L);
+      return ((ssize_t )-16);
     } else {
 
     }
@@ -7955,108 +7398,99 @@ static ssize_t c2port_write_flash_data(struct file *filp , struct kobject *kobj 
   }
   {
 #line 841
-  __cil_tmp23 = (unsigned long )c2dev;
+  __cil_tmp21 = & c2dev->mutex;
 #line 841
-  __cil_tmp24 = __cil_tmp23 + 48;
-#line 841
-  __cil_tmp25 = (struct mutex *)__cil_tmp24;
-#line 841
-  mutex_lock_nested(__cil_tmp25, 0U);
+  mutex_lock_nested(__cil_tmp21, 0U);
 #line 842
   tmp___8 = __c2port_write_flash_data(c2dev, buffer, offset, count);
 #line 842
   ret = (int )tmp___8;
 #line 843
-  __cil_tmp26 = (unsigned long )c2dev;
+  __cil_tmp22 = & c2dev->mutex;
 #line 843
-  __cil_tmp27 = __cil_tmp26 + 48;
-#line 843
-  __cil_tmp28 = (struct mutex *)__cil_tmp27;
-#line 843
-  mutex_unlock(__cil_tmp28);
+  mutex_unlock(__cil_tmp22);
   }
 #line 845
   if (ret < 0) {
     {
 #line 846
-    __cil_tmp29 = (unsigned long )c2dev;
+    __cil_tmp23 = c2dev->dev;
 #line 846
-    __cil_tmp30 = __cil_tmp29 + 216;
+    __cil_tmp24 = (struct device  const  *)__cil_tmp23;
 #line 846
-    __cil_tmp31 = *((struct device **)__cil_tmp30);
+    __cil_tmp25 = & c2dev->name[0];
 #line 846
-    __cil_tmp32 = (struct device  const  *)__cil_tmp31;
-#line 846
-    __cil_tmp33 = 0 * 1UL;
-#line 846
-    __cil_tmp34 = 8 + __cil_tmp33;
-#line 846
-    __cil_tmp35 = (unsigned long )c2dev;
-#line 846
-    __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
-#line 846
-    __cil_tmp37 = (char *)__cil_tmp36;
-#line 846
-    dev_err(__cil_tmp32, "cannot write %s flash\n", __cil_tmp37);
+    dev_err(__cil_tmp24, "cannot write %s flash\n", __cil_tmp25);
     }
   } else {
 
   }
 #line 848
-  return ((long )ret);
+  return ((ssize_t )ret);
 }
 }
 #line 855 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 static struct device_attribute c2port_attrs[11]  = 
 #line 855
-  {      {{"name", 292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
+  {      {{"name", (mode_t )292, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
+                                                           {(char)0}, {(char)0}, {(char)0},
+                                                           {(char)0}, {(char)0}}}},
+      & c2port_show_name, (ssize_t (*)(struct device *dev , struct device_attribute *attr ,
+                                       char const   *buf , size_t count ))((void *)0)}, 
+        {{"flash_blocks_num",
+       (mode_t )292, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
                                                    {(char)0}, {(char)0}, {(char)0},
-                                                   {(char)0}, {(char)0}}}}, & c2port_show_name,
+                                                   {(char)0}, {(char)0}}}}, & c2port_show_flash_blocks_num,
       (ssize_t (*)(struct device *dev , struct device_attribute *attr , char const   *buf ,
                    size_t count ))((void *)0)}, 
-        {{"flash_blocks_num", 292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
-                                                               {(char)0}, {(char)0},
-                                                               {(char)0}, {(char)0},
-                                                               {(char)0}, {(char)0}}}},
-      & c2port_show_flash_blocks_num, (ssize_t (*)(struct device *dev , struct device_attribute *attr ,
-                                                   char const   *buf , size_t count ))((void *)0)}, 
-        {{"flash_block_size",
-       292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
-                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
+        {{"flash_block_size", (mode_t )292, (struct lock_class_key *)0, {{{(char)0},
+                                                                       {(char)0},
+                                                                       {(char)0},
+                                                                       {(char)0},
+                                                                       {(char)0},
+                                                                       {(char)0},
+                                                                       {(char)0},
+                                                                       {(char)0}}}},
       & c2port_show_flash_block_size, (ssize_t (*)(struct device *dev , struct device_attribute *attr ,
                                                    char const   *buf , size_t count ))((void *)0)}, 
         {{"flash_size",
-       292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
-                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-      & c2port_show_flash_size, (ssize_t (*)(struct device *dev , struct device_attribute *attr ,
-                                             char const   *buf , size_t count ))((void *)0)}, 
-        {{"access",
-       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
-                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
+       (mode_t )292, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
+                                                   {(char)0}, {(char)0}, {(char)0},
+                                                   {(char)0}, {(char)0}}}}, & c2port_show_flash_size,
+      (ssize_t (*)(struct device *dev , struct device_attribute *attr , char const   *buf ,
+                   size_t count ))((void *)0)}, 
+        {{"access", (mode_t )420, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
+                                                             {(char)0}, {(char)0},
+                                                             {(char)0}, {(char)0},
+                                                             {(char)0}, {(char)0}}}},
       & c2port_show_access, & c2port_store_access}, 
-        {{"reset", 128U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
-                                                    {(char)0}, {(char)0}, {(char)0},
-                                                    {(char)0}, {(char)0}}}}, (ssize_t (*)(struct device *dev ,
-                                                                                          struct device_attribute *attr ,
-                                                                                          char *buf ))((void *)0),
+        {{"reset", (mode_t )128, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
+                                                            {(char)0}, {(char)0},
+                                                            {(char)0}, {(char)0},
+                                                            {(char)0}, {(char)0}}}},
+      (ssize_t (*)(struct device *dev , struct device_attribute *attr , char *buf ))((void *)0),
       & c2port_store_reset}, 
-        {{"dev_id", 292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
-                                                     {(char)0}, {(char)0}, {(char)0},
-                                                     {(char)0}, {(char)0}}}}, & c2port_show_dev_id,
+        {{"dev_id", (mode_t )292, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
+                                                             {(char)0}, {(char)0},
+                                                             {(char)0}, {(char)0},
+                                                             {(char)0}, {(char)0}}}},
+      & c2port_show_dev_id, (ssize_t (*)(struct device *dev , struct device_attribute *attr ,
+                                         char const   *buf , size_t count ))((void *)0)}, 
+        {{"rev_id",
+       (mode_t )292, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
+                                                   {(char)0}, {(char)0}, {(char)0},
+                                                   {(char)0}, {(char)0}}}}, & c2port_show_rev_id,
       (ssize_t (*)(struct device *dev , struct device_attribute *attr , char const   *buf ,
                    size_t count ))((void *)0)}, 
-        {{"rev_id", 292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
-                                                     {(char)0}, {(char)0}, {(char)0},
-                                                     {(char)0}, {(char)0}}}}, & c2port_show_rev_id,
-      (ssize_t (*)(struct device *dev , struct device_attribute *attr , char const   *buf ,
-                   size_t count ))((void *)0)}, 
-        {{"flash_access", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
-                                                           {(char)0}, {(char)0}, {(char)0},
-                                                           {(char)0}, {(char)0}}}},
+        {{"flash_access", (mode_t )420, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
+                                                                   {(char)0}, {(char)0},
+                                                                   {(char)0}, {(char)0},
+                                                                   {(char)0}, {(char)0}}}},
       & c2port_show_flash_access, & c2port_store_flash_access}, 
-        {{"flash_erase", 128U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
-                                                          {(char)0}, {(char)0}, {(char)0},
-                                                          {(char)0}, {(char)0}}}},
+        {{"flash_erase", (mode_t )128, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
+                                                                  {(char)0}, {(char)0},
+                                                                  {(char)0}, {(char)0},
+                                                                  {(char)0}, {(char)0}}}},
       (ssize_t (*)(struct device *dev , struct device_attribute *attr , char *buf ))((void *)0),
       & c2port_store_flash_erase}, 
         {{(char const   *)((void *)0), 0U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
@@ -8067,13 +7501,14 @@ static struct device_attribute c2port_attrs[11]  =
       (ssize_t (*)(struct device *dev , struct device_attribute *attr , char const   *buf ,
                    size_t count ))0}};
 #line 871 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
-static struct bin_attribute c2port_bin_attrs  =    {{"flash_data", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
-                                                       {(char)0}, {(char)0}, {(char)0},
-                                                       {(char)0}, {(char)0}}}}, 0UL,
-    (void *)0, & c2port_read_flash_data, & c2port_write_flash_data, (int (*)(struct file * ,
-                                                                             struct kobject * ,
-                                                                             struct bin_attribute *attr ,
-                                                                             struct vm_area_struct *vma ))0};
+static struct bin_attribute c2port_bin_attrs  =    {{"flash_data", (mode_t )420, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
+                                                               {(char)0}, {(char)0},
+                                                               {(char)0}, {(char)0},
+                                                               {(char)0}, {(char)0}}}},
+    0UL, (void *)0, & c2port_read_flash_data, & c2port_write_flash_data, (int (*)(struct file * ,
+                                                                                  struct kobject * ,
+                                                                                  struct bin_attribute *attr ,
+                                                                                  struct vm_area_struct *vma ))0};
 #line 925 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 static struct lock_class_key __key___4  ;
 #line 885 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -8125,123 +7560,78 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
   int __cil_tmp47 ;
   int __cil_tmp48 ;
   long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  void (*__cil_tmp52)(struct c2port_device *dev , int status ) ;
+  void (*__cil_tmp50)(struct c2port_device *dev , int status ) ;
+  int __cil_tmp51 ;
+  int __cil_tmp52 ;
   int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  void (*__cil_tmp59)(struct c2port_device *dev , int dir ) ;
-  int __cil_tmp60 ;
+  long __cil_tmp54 ;
+  void (*__cil_tmp55)(struct c2port_device *dev , int dir ) ;
+  int __cil_tmp56 ;
+  int __cil_tmp57 ;
+  int __cil_tmp58 ;
+  long __cil_tmp59 ;
+  void (*__cil_tmp60)(struct c2port_device *dev , int status ) ;
   int __cil_tmp61 ;
   int __cil_tmp62 ;
-  long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  void (*__cil_tmp66)(struct c2port_device *dev , int status ) ;
+  int __cil_tmp63 ;
+  long __cil_tmp64 ;
+  int (*__cil_tmp65)(struct c2port_device *dev ) ;
+  int __cil_tmp66 ;
   int __cil_tmp67 ;
   int __cil_tmp68 ;
-  int __cil_tmp69 ;
-  long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  int (*__cil_tmp73)(struct c2port_device *dev ) ;
-  int __cil_tmp74 ;
+  long __cil_tmp69 ;
+  void (*__cil_tmp70)(struct c2port_device *dev , int status ) ;
+  int __cil_tmp71 ;
+  int __cil_tmp72 ;
+  int __cil_tmp73 ;
+  long __cil_tmp74 ;
   int __cil_tmp75 ;
   int __cil_tmp76 ;
-  long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  void (*__cil_tmp80)(struct c2port_device *dev , int status ) ;
-  int __cil_tmp81 ;
-  int __cil_tmp82 ;
-  int __cil_tmp83 ;
-  long __cil_tmp84 ;
-  int __cil_tmp85 ;
-  int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  long __cil_tmp88 ;
-  void *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  int *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  void *__cil_tmp95 ;
-  struct device *__cil_tmp96 ;
-  void *__cil_tmp97 ;
-  int *__cil_tmp98 ;
+  int __cil_tmp77 ;
+  long __cil_tmp78 ;
+  void *__cil_tmp79 ;
+  void *__cil_tmp80 ;
+  struct device *__cil_tmp81 ;
+  dev_t __cil_tmp82 ;
+  void *__cil_tmp83 ;
+  struct device *__cil_tmp84 ;
+  void const   *__cil_tmp85 ;
+  long __cil_tmp86 ;
+  struct device *__cil_tmp87 ;
+  void const   *__cil_tmp88 ;
+  struct device *__cil_tmp89 ;
+  void *__cil_tmp90 ;
+  char *__cil_tmp91 ;
+  char const   *__cil_tmp92 ;
+  __kernel_size_t __cil_tmp93 ;
+  struct mutex *__cil_tmp94 ;
+  unsigned short __cil_tmp95 ;
+  int __cil_tmp96 ;
+  unsigned short __cil_tmp97 ;
+  int __cil_tmp98 ;
   int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  struct device *__cil_tmp102 ;
-  void const   *__cil_tmp103 ;
+  struct device *__cil_tmp100 ;
+  struct bin_attribute  const  *__cil_tmp101 ;
+  int __cil_tmp102 ;
+  int __cil_tmp103 ;
   long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  struct device *__cil_tmp107 ;
-  void const   *__cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  struct device *__cil_tmp111 ;
-  void *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  char *__cil_tmp117 ;
-  char const   *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  struct mutex *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned short __cil_tmp125 ;
-  int __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned short __cil_tmp129 ;
-  int __cil_tmp130 ;
-  int __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  struct device *__cil_tmp134 ;
-  struct bin_attribute  const  *__cil_tmp135 ;
-  int __cil_tmp136 ;
-  int __cil_tmp137 ;
-  long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  void (*__cil_tmp141)(struct c2port_device *dev , int status ) ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  struct device *__cil_tmp144 ;
-  struct device  const  *__cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  struct device *__cil_tmp148 ;
-  struct device  const  *__cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned short __cil_tmp152 ;
-  int __cil_tmp153 ;
-  unsigned short __cil_tmp154 ;
-  int __cil_tmp155 ;
-  unsigned short __cil_tmp156 ;
-  int __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned short __cil_tmp160 ;
-  int __cil_tmp161 ;
-  int __cil_tmp162 ;
-  int *__cil_tmp163 ;
-  int __cil_tmp164 ;
-  void const   *__cil_tmp165 ;
-  long __cil_tmp166 ;
+  void (*__cil_tmp105)(struct c2port_device *dev , int status ) ;
+  struct device *__cil_tmp106 ;
+  struct device  const  *__cil_tmp107 ;
+  struct device *__cil_tmp108 ;
+  struct device  const  *__cil_tmp109 ;
+  unsigned short __cil_tmp110 ;
+  int __cil_tmp111 ;
+  unsigned short __cil_tmp112 ;
+  int __cil_tmp113 ;
+  unsigned short __cil_tmp114 ;
+  int __cil_tmp115 ;
+  unsigned short __cil_tmp116 ;
+  int __cil_tmp117 ;
+  int __cil_tmp118 ;
+  dev_t __cil_tmp119 ;
+  void const   *__cil_tmp120 ;
+  long __cil_tmp121 ;
 
   {
   {
@@ -8271,21 +7661,17 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
   } else {
     {
 #line 891
-    __cil_tmp50 = (unsigned long )ops;
+    __cil_tmp50 = ops->access;
 #line 891
-    __cil_tmp51 = __cil_tmp50 + 8;
+    __cil_tmp51 = ! __cil_tmp50;
 #line 891
-    __cil_tmp52 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp51);
+    __cil_tmp52 = ! __cil_tmp51;
 #line 891
     __cil_tmp53 = ! __cil_tmp52;
 #line 891
-    __cil_tmp54 = ! __cil_tmp53;
+    __cil_tmp54 = (long )__cil_tmp53;
 #line 891
-    __cil_tmp55 = ! __cil_tmp54;
-#line 891
-    __cil_tmp56 = (long )__cil_tmp55;
-#line 891
-    tmp___9 = __builtin_expect(__cil_tmp56, 0L);
+    tmp___9 = __builtin_expect(__cil_tmp54, 0L);
     }
 #line 891
     if (tmp___9) {
@@ -8302,21 +7688,17 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
     } else {
       {
 #line 891
-      __cil_tmp57 = (unsigned long )ops;
+      __cil_tmp55 = ops->c2d_dir;
 #line 891
-      __cil_tmp58 = __cil_tmp57 + 16;
+      __cil_tmp56 = ! __cil_tmp55;
 #line 891
-      __cil_tmp59 = *((void (**)(struct c2port_device *dev , int dir ))__cil_tmp58);
+      __cil_tmp57 = ! __cil_tmp56;
 #line 891
-      __cil_tmp60 = ! __cil_tmp59;
+      __cil_tmp58 = ! __cil_tmp57;
 #line 891
-      __cil_tmp61 = ! __cil_tmp60;
+      __cil_tmp59 = (long )__cil_tmp58;
 #line 891
-      __cil_tmp62 = ! __cil_tmp61;
-#line 891
-      __cil_tmp63 = (long )__cil_tmp62;
-#line 891
-      tmp___10 = __builtin_expect(__cil_tmp63, 0L);
+      tmp___10 = __builtin_expect(__cil_tmp59, 0L);
       }
 #line 891
       if (tmp___10) {
@@ -8333,21 +7715,17 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
       } else {
         {
 #line 891
-        __cil_tmp64 = (unsigned long )ops;
+        __cil_tmp60 = ops->c2ck_set;
 #line 891
-        __cil_tmp65 = __cil_tmp64 + 40;
+        __cil_tmp61 = ! __cil_tmp60;
 #line 891
-        __cil_tmp66 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp65);
+        __cil_tmp62 = ! __cil_tmp61;
 #line 891
-        __cil_tmp67 = ! __cil_tmp66;
+        __cil_tmp63 = ! __cil_tmp62;
 #line 891
-        __cil_tmp68 = ! __cil_tmp67;
+        __cil_tmp64 = (long )__cil_tmp63;
 #line 891
-        __cil_tmp69 = ! __cil_tmp68;
-#line 891
-        __cil_tmp70 = (long )__cil_tmp69;
-#line 891
-        tmp___11 = __builtin_expect(__cil_tmp70, 0L);
+        tmp___11 = __builtin_expect(__cil_tmp64, 0L);
         }
 #line 891
         if (tmp___11) {
@@ -8364,21 +7742,17 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
         } else {
           {
 #line 891
-          __cil_tmp71 = (unsigned long )ops;
+          __cil_tmp65 = ops->c2d_get;
 #line 891
-          __cil_tmp72 = __cil_tmp71 + 24;
+          __cil_tmp66 = ! __cil_tmp65;
 #line 891
-          __cil_tmp73 = *((int (**)(struct c2port_device *dev ))__cil_tmp72);
+          __cil_tmp67 = ! __cil_tmp66;
 #line 891
-          __cil_tmp74 = ! __cil_tmp73;
+          __cil_tmp68 = ! __cil_tmp67;
 #line 891
-          __cil_tmp75 = ! __cil_tmp74;
+          __cil_tmp69 = (long )__cil_tmp68;
 #line 891
-          __cil_tmp76 = ! __cil_tmp75;
-#line 891
-          __cil_tmp77 = (long )__cil_tmp76;
-#line 891
-          tmp___12 = __builtin_expect(__cil_tmp77, 0L);
+          tmp___12 = __builtin_expect(__cil_tmp69, 0L);
           }
 #line 891
           if (tmp___12) {
@@ -8395,21 +7769,17 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
           } else {
             {
 #line 891
-            __cil_tmp78 = (unsigned long )ops;
+            __cil_tmp70 = ops->c2d_set;
 #line 891
-            __cil_tmp79 = __cil_tmp78 + 32;
+            __cil_tmp71 = ! __cil_tmp70;
 #line 891
-            __cil_tmp80 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp79);
+            __cil_tmp72 = ! __cil_tmp71;
 #line 891
-            __cil_tmp81 = ! __cil_tmp80;
+            __cil_tmp73 = ! __cil_tmp72;
 #line 891
-            __cil_tmp82 = ! __cil_tmp81;
+            __cil_tmp74 = (long )__cil_tmp73;
 #line 891
-            __cil_tmp83 = ! __cil_tmp82;
-#line 891
-            __cil_tmp84 = (long )__cil_tmp83;
-#line 891
-            tmp___13 = __builtin_expect(__cil_tmp84, 0L);
+            tmp___13 = __builtin_expect(__cil_tmp74, 0L);
             }
 #line 891
             if (tmp___13) {
@@ -8440,25 +7810,26 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
   {
 #line 897
   while (1) {
-    while_21_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
+#line 897
     goto while_break;
   }
-  while_21_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 898
-  __cil_tmp85 = ! c2dev;
+  __cil_tmp75 = ! c2dev;
 #line 898
-  __cil_tmp86 = ! __cil_tmp85;
+  __cil_tmp76 = ! __cil_tmp75;
 #line 898
-  __cil_tmp87 = ! __cil_tmp86;
+  __cil_tmp77 = ! __cil_tmp76;
 #line 898
-  __cil_tmp88 = (long )__cil_tmp87;
+  __cil_tmp78 = (long )__cil_tmp77;
 #line 898
-  tmp___16 = __builtin_expect(__cil_tmp88, 0L);
+  tmp___16 = __builtin_expect(__cil_tmp78, 0L);
   }
 #line 898
   if (tmp___16) {
@@ -8483,6 +7854,7 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
   if (! ret) {
 #line 903
     ret = -12;
+#line 904
     goto error_idr_get_new;
   } else {
 
@@ -8491,54 +7863,39 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
 #line 907
   spin_lock_irq(& c2port_idr_lock);
 #line 908
-  __cil_tmp89 = (void *)c2dev;
+  __cil_tmp79 = (void *)c2dev;
 #line 908
-  ret = idr_get_new(& c2port_idr, __cil_tmp89, & id);
+  ret = idr_get_new(& c2port_idr, __cil_tmp79, & id);
 #line 909
   spin_unlock_irq(& c2port_idr_lock);
   }
 #line 911
   if (ret < 0) {
+#line 912
     goto error_idr_get_new;
   } else {
 
   }
   {
 #line 913
-  __cil_tmp90 = (unsigned long )c2dev;
-#line 913
-  __cil_tmp91 = __cil_tmp90 + 4;
-#line 913
-  __cil_tmp92 = & id;
-#line 913
-  *((int *)__cil_tmp91) = *__cil_tmp92;
+  c2dev->id = id;
 #line 915
-  __cil_tmp93 = (unsigned long )c2dev;
+  __cil_tmp80 = (void *)0;
 #line 915
-  __cil_tmp94 = __cil_tmp93 + 216;
+  __cil_tmp81 = (struct device *)__cil_tmp80;
 #line 915
-  __cil_tmp95 = (void *)0;
+  __cil_tmp82 = (dev_t )0;
 #line 915
-  __cil_tmp96 = (struct device *)__cil_tmp95;
+  __cil_tmp83 = (void *)c2dev;
 #line 915
-  __cil_tmp97 = (void *)c2dev;
-#line 915
-  __cil_tmp98 = & id;
-#line 915
-  __cil_tmp99 = *__cil_tmp98;
-#line 915
-  *((struct device **)__cil_tmp94) = device_create(c2port_class, __cil_tmp96, 0U,
-                                                   __cil_tmp97, "c2port%d", __cil_tmp99);
+  c2dev->dev = device_create(c2port_class, __cil_tmp81, __cil_tmp82, __cil_tmp83,
+                             "c2port%d", id);
 #line 917
-  __cil_tmp100 = (unsigned long )c2dev;
+  __cil_tmp84 = c2dev->dev;
 #line 917
-  __cil_tmp101 = __cil_tmp100 + 216;
+  __cil_tmp85 = (void const   *)__cil_tmp84;
 #line 917
-  __cil_tmp102 = *((struct device **)__cil_tmp101);
-#line 917
-  __cil_tmp103 = (void const   *)__cil_tmp102;
-#line 917
-  tmp___41 = (long )IS_ERR(__cil_tmp103);
+  tmp___41 = (long )IS_ERR(__cil_tmp85);
 #line 917
   tmp___30 = tmp___41;
 #line 917
@@ -8554,23 +7911,19 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
   }
   {
 #line 917
-  __cil_tmp104 = (long )tmp___19;
+  __cil_tmp86 = (long )tmp___19;
 #line 917
-  tmp___20 = __builtin_expect(__cil_tmp104, 0L);
+  tmp___20 = __builtin_expect(__cil_tmp86, 0L);
   }
 #line 917
   if (tmp___20) {
     {
 #line 918
-    __cil_tmp105 = (unsigned long )c2dev;
+    __cil_tmp87 = c2dev->dev;
 #line 918
-    __cil_tmp106 = __cil_tmp105 + 216;
+    __cil_tmp88 = (void const   *)__cil_tmp87;
 #line 918
-    __cil_tmp107 = *((struct device **)__cil_tmp106);
-#line 918
-    __cil_tmp108 = (void const   *)__cil_tmp107;
-#line 918
-    tmp___42 = (long )PTR_ERR(__cil_tmp108);
+    tmp___42 = (long )PTR_ERR(__cil_tmp88);
 #line 918
     tmp___31 = tmp___42;
 #line 918
@@ -8578,106 +7931,81 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
 #line 918
     ret = (int )tmp___17;
     }
+#line 919
     goto error_device_create;
   } else {
 
   }
   {
 #line 921
-  __cil_tmp109 = (unsigned long )c2dev;
+  __cil_tmp89 = c2dev->dev;
 #line 921
-  __cil_tmp110 = __cil_tmp109 + 216;
+  __cil_tmp90 = (void *)c2dev;
 #line 921
-  __cil_tmp111 = *((struct device **)__cil_tmp110);
-#line 921
-  __cil_tmp112 = (void *)c2dev;
-#line 921
-  dev_set_drvdata(__cil_tmp111, __cil_tmp112);
+  dev_set_drvdata(__cil_tmp89, __cil_tmp90);
 #line 923
-  __cil_tmp113 = 0 * 1UL;
+  __cil_tmp91 = & c2dev->name[0];
 #line 923
-  __cil_tmp114 = 8 + __cil_tmp113;
+  __cil_tmp92 = (char const   *)name;
 #line 923
-  __cil_tmp115 = (unsigned long )c2dev;
+  __cil_tmp93 = (__kernel_size_t )32;
 #line 923
-  __cil_tmp116 = __cil_tmp115 + __cil_tmp114;
-#line 923
-  __cil_tmp117 = (char *)__cil_tmp116;
-#line 923
-  __cil_tmp118 = (char const   *)name;
-#line 923
-  strncpy(__cil_tmp117, __cil_tmp118, 32UL);
+  strncpy(__cil_tmp91, __cil_tmp92, __cil_tmp93);
 #line 924
-  __cil_tmp119 = (unsigned long )c2dev;
-#line 924
-  __cil_tmp120 = __cil_tmp119 + 40;
-#line 924
-  *((struct c2port_ops **)__cil_tmp120) = ops;
+  c2dev->ops = ops;
   }
   {
 #line 925
   while (1) {
-    while_22_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
     {
 #line 925
-    __cil_tmp121 = (unsigned long )c2dev;
+    __cil_tmp94 = & c2dev->mutex;
 #line 925
-    __cil_tmp122 = __cil_tmp121 + 48;
-#line 925
-    __cil_tmp123 = (struct mutex *)__cil_tmp122;
-#line 925
-    __mutex_init(__cil_tmp123, "&c2dev->mutex", & __key___4);
+    __mutex_init(__cil_tmp94, "&c2dev->mutex", & __key___4);
     }
+#line 925
     goto while_break___0;
   }
-  while_22_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: 
   {
 #line 928
-  __cil_tmp124 = (unsigned long )(& c2port_bin_attrs) + 32;
+  __cil_tmp95 = ops->block_size;
 #line 928
-  __cil_tmp125 = *((unsigned short *)ops);
+  __cil_tmp96 = (int )__cil_tmp95;
 #line 928
-  __cil_tmp126 = (int )__cil_tmp125;
+  __cil_tmp97 = ops->blocks_num;
 #line 928
-  __cil_tmp127 = (unsigned long )ops;
+  __cil_tmp98 = (int )__cil_tmp97;
 #line 928
-  __cil_tmp128 = __cil_tmp127 + 2;
+  __cil_tmp99 = __cil_tmp98 * __cil_tmp96;
 #line 928
-  __cil_tmp129 = *((unsigned short *)__cil_tmp128);
-#line 928
-  __cil_tmp130 = (int )__cil_tmp129;
-#line 928
-  __cil_tmp131 = __cil_tmp130 * __cil_tmp126;
-#line 928
-  *((size_t *)__cil_tmp124) = (unsigned long )__cil_tmp131;
+  c2port_bin_attrs.size = (size_t )__cil_tmp99;
 #line 929
-  __cil_tmp132 = (unsigned long )c2dev;
+  __cil_tmp100 = c2dev->dev;
 #line 929
-  __cil_tmp133 = __cil_tmp132 + 216;
+  __cil_tmp101 = (struct bin_attribute  const  *)(& c2port_bin_attrs);
 #line 929
-  __cil_tmp134 = *((struct device **)__cil_tmp133);
-#line 929
-  __cil_tmp135 = (struct bin_attribute  const  *)(& c2port_bin_attrs);
-#line 929
-  tmp___43 = (int )device_create_bin_file(__cil_tmp134, __cil_tmp135);
+  tmp___43 = (int )device_create_bin_file(__cil_tmp100, __cil_tmp101);
 #line 929
   tmp___32 = tmp___43;
 #line 929
   ret = tmp___32;
 #line 930
-  __cil_tmp136 = ! ret;
+  __cil_tmp102 = ! ret;
 #line 930
-  __cil_tmp137 = ! __cil_tmp136;
+  __cil_tmp103 = ! __cil_tmp102;
 #line 930
-  __cil_tmp138 = (long )__cil_tmp137;
+  __cil_tmp104 = (long )__cil_tmp103;
 #line 930
-  tmp___21 = __builtin_expect(__cil_tmp138, 0L);
+  tmp___21 = __builtin_expect(__cil_tmp104, 0L);
   }
 #line 930
   if (tmp___21) {
+#line 931
     goto error_device_create_bin_file;
   } else {
 
@@ -8688,93 +8016,71 @@ struct c2port_device *c2port_device_register(char *name , struct c2port_ops *ops
 #line 934
   c2dev->flash_access = tmp___22;
 #line 934
-  *((unsigned int *)c2dev) = tmp___22;
+  c2dev->access = tmp___22;
 #line 935
-  __cil_tmp139 = (unsigned long )ops;
+  __cil_tmp105 = ops->access;
 #line 935
-  __cil_tmp140 = __cil_tmp139 + 8;
-#line 935
-  __cil_tmp141 = *((void (**)(struct c2port_device *dev , int status ))__cil_tmp140);
-#line 935
-  (*__cil_tmp141)(c2dev, 0);
+  (*__cil_tmp105)(c2dev, 0);
 #line 937
-  __cil_tmp142 = (unsigned long )c2dev;
+  __cil_tmp106 = c2dev->dev;
 #line 937
-  __cil_tmp143 = __cil_tmp142 + 216;
+  __cil_tmp107 = (struct device  const  *)__cil_tmp106;
 #line 937
-  __cil_tmp144 = *((struct device **)__cil_tmp143);
-#line 937
-  __cil_tmp145 = (struct device  const  *)__cil_tmp144;
-#line 937
-  _dev_info(__cil_tmp145, "C2 port %s added\n", name);
+  _dev_info(__cil_tmp107, "C2 port %s added\n", name);
 #line 938
-  __cil_tmp146 = (unsigned long )c2dev;
+  __cil_tmp108 = c2dev->dev;
 #line 938
-  __cil_tmp147 = __cil_tmp146 + 216;
+  __cil_tmp109 = (struct device  const  *)__cil_tmp108;
 #line 938
-  __cil_tmp148 = *((struct device **)__cil_tmp147);
+  __cil_tmp110 = ops->blocks_num;
 #line 938
-  __cil_tmp149 = (struct device  const  *)__cil_tmp148;
+  __cil_tmp111 = (int )__cil_tmp110;
 #line 938
-  __cil_tmp150 = (unsigned long )ops;
+  __cil_tmp112 = ops->block_size;
 #line 938
-  __cil_tmp151 = __cil_tmp150 + 2;
+  __cil_tmp113 = (int )__cil_tmp112;
 #line 938
-  __cil_tmp152 = *((unsigned short *)__cil_tmp151);
+  __cil_tmp114 = ops->block_size;
 #line 938
-  __cil_tmp153 = (int )__cil_tmp152;
+  __cil_tmp115 = (int )__cil_tmp114;
 #line 938
-  __cil_tmp154 = *((unsigned short *)ops);
+  __cil_tmp116 = ops->blocks_num;
 #line 938
-  __cil_tmp155 = (int )__cil_tmp154;
+  __cil_tmp117 = (int )__cil_tmp116;
 #line 938
-  __cil_tmp156 = *((unsigned short *)ops);
+  __cil_tmp118 = __cil_tmp117 * __cil_tmp115;
 #line 938
-  __cil_tmp157 = (int )__cil_tmp156;
-#line 938
-  __cil_tmp158 = (unsigned long )ops;
-#line 938
-  __cil_tmp159 = __cil_tmp158 + 2;
-#line 938
-  __cil_tmp160 = *((unsigned short *)__cil_tmp159);
-#line 938
-  __cil_tmp161 = (int )__cil_tmp160;
-#line 938
-  __cil_tmp162 = __cil_tmp161 * __cil_tmp157;
-#line 938
-  _dev_info(__cil_tmp149, "%s flash has %d blocks x %d bytes (%d bytes total)\n",
-            name, __cil_tmp153, __cil_tmp155, __cil_tmp162);
+  _dev_info(__cil_tmp109, "%s flash has %d blocks x %d bytes (%d bytes total)\n",
+            name, __cil_tmp111, __cil_tmp113, __cil_tmp118);
   }
 #line 943
   return (c2dev);
   error_device_create_bin_file: 
   {
 #line 946
-  device_destroy(c2port_class, 0U);
+  __cil_tmp119 = (dev_t )0;
+#line 946
+  device_destroy(c2port_class, __cil_tmp119);
   }
   error_device_create: 
   {
 #line 949
   spin_lock_irq(& c2port_idr_lock);
 #line 950
-  __cil_tmp163 = & id;
-#line 950
-  __cil_tmp164 = *__cil_tmp163;
-#line 950
-  idr_remove(& c2port_idr, __cil_tmp164);
+  idr_remove(& c2port_idr, id);
 #line 951
   spin_unlock_irq(& c2port_idr_lock);
   }
   error_idr_get_new: 
   {
 #line 954
-  __cil_tmp165 = (void const   *)c2dev;
+  __cil_tmp120 = (void const   *)c2dev;
 #line 954
-  kfree(__cil_tmp165);
+  kfree(__cil_tmp120);
 #line 956
-  __cil_tmp166 = (long )ret;
+  __cil_tmp121 = (long )ret;
 #line 956
-  tmp___44 = (void *)ERR_PTR(__cil_tmp166);
+  tmp___44 = (void *)ERR_PTR(__cil_tmp121);
 #line 956
   tmp___33 = tmp___44;
 #line 956
@@ -8804,27 +8110,15 @@ static struct kernel_symbol  const  __ksymtab_c2port_device_register  __attribut
 __unused__, __section__("___ksymtab+c2port_device_register")))  =    {(unsigned long )(& c2port_device_register), __kstrtab_c2port_device_register};
 #line 960 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 void c2port_device_unregister(struct c2port_device *c2dev ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct device *__cil_tmp4 ;
-  struct device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  char *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct device *__cil_tmp13 ;
-  struct bin_attribute  const  *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  void const   *__cil_tmp22 ;
+{ struct device *__cil_tmp2 ;
+  struct device  const  *__cil_tmp3 ;
+  char *__cil_tmp4 ;
+  struct device *__cil_tmp5 ;
+  struct bin_attribute  const  *__cil_tmp6 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
+  dev_t __cil_tmp9 ;
+  void const   *__cil_tmp10 ;
 
   {
 #line 962
@@ -8836,61 +8130,37 @@ void c2port_device_unregister(struct c2port_device *c2dev )
   }
   {
 #line 965
-  __cil_tmp2 = (unsigned long )c2dev;
+  __cil_tmp2 = c2dev->dev;
 #line 965
-  __cil_tmp3 = __cil_tmp2 + 216;
+  __cil_tmp3 = (struct device  const  *)__cil_tmp2;
 #line 965
-  __cil_tmp4 = *((struct device **)__cil_tmp3);
+  __cil_tmp4 = & c2dev->name[0];
 #line 965
-  __cil_tmp5 = (struct device  const  *)__cil_tmp4;
-#line 965
-  __cil_tmp6 = 0 * 1UL;
-#line 965
-  __cil_tmp7 = 8 + __cil_tmp6;
-#line 965
-  __cil_tmp8 = (unsigned long )c2dev;
-#line 965
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 965
-  __cil_tmp10 = (char *)__cil_tmp9;
-#line 965
-  _dev_info(__cil_tmp5, "C2 port %s removed\n", __cil_tmp10);
+  _dev_info(__cil_tmp3, "C2 port %s removed\n", __cil_tmp4);
 #line 967
-  __cil_tmp11 = (unsigned long )c2dev;
+  __cil_tmp5 = c2dev->dev;
 #line 967
-  __cil_tmp12 = __cil_tmp11 + 216;
+  __cil_tmp6 = (struct bin_attribute  const  *)(& c2port_bin_attrs);
 #line 967
-  __cil_tmp13 = *((struct device **)__cil_tmp12);
-#line 967
-  __cil_tmp14 = (struct bin_attribute  const  *)(& c2port_bin_attrs);
-#line 967
-  device_remove_bin_file(__cil_tmp13, __cil_tmp14);
+  device_remove_bin_file(__cil_tmp5, __cil_tmp6);
 #line 968
   spin_lock_irq(& c2port_idr_lock);
 #line 969
-  __cil_tmp15 = (unsigned long )c2dev;
+  __cil_tmp7 = c2dev->id;
 #line 969
-  __cil_tmp16 = __cil_tmp15 + 4;
-#line 969
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 969
-  idr_remove(& c2port_idr, __cil_tmp17);
+  idr_remove(& c2port_idr, __cil_tmp7);
 #line 970
   spin_unlock_irq(& c2port_idr_lock);
 #line 972
-  __cil_tmp18 = (unsigned long )c2dev;
+  __cil_tmp8 = c2dev->id;
 #line 972
-  __cil_tmp19 = __cil_tmp18 + 4;
+  __cil_tmp9 = (dev_t )__cil_tmp8;
 #line 972
-  __cil_tmp20 = *((int *)__cil_tmp19);
-#line 972
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 972
-  device_destroy(c2port_class, __cil_tmp21);
+  device_destroy(c2port_class, __cil_tmp9);
 #line 974
-  __cil_tmp22 = (void const   *)c2dev;
+  __cil_tmp10 = (void const   *)c2dev;
 #line 974
-  kfree(__cil_tmp22);
+  kfree(__cil_tmp10);
   }
 #line 975
   return;
@@ -8926,10 +8196,6 @@ static int c2port_init(void)
 { struct class *tmp___7 ;
   struct class *tmp ;
   struct class *tmp___8 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
 
   {
   {
@@ -8956,15 +8222,7 @@ static int c2port_init(void)
 
   }
 #line 992
-  __cil_tmp4 = (unsigned long )c2port_class;
-#line 992
-  __cil_tmp5 = __cil_tmp4 + 24;
-#line 992
-  __cil_tmp6 = 0 * 48UL;
-#line 992
-  __cil_tmp7 = (unsigned long )(c2port_attrs) + __cil_tmp6;
-#line 992
-  *((struct device_attribute **)__cil_tmp5) = (struct device_attribute *)__cil_tmp7;
+  c2port_class->dev_attrs = & c2port_attrs[0];
 #line 994
   return (0);
 }
@@ -9086,6 +8344,7 @@ void main(void)
   }
 #line 1138
   if (tmp___7) {
+#line 1139
     goto ldv_final;
   } else {
 
@@ -9093,7 +8352,7 @@ void main(void)
   {
 #line 1143
   while (1) {
-    while_23_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1143
     tmp___9 = nondet_int();
@@ -9102,6 +8361,7 @@ void main(void)
     if (tmp___9) {
 
     } else {
+#line 1143
       goto while_break;
     }
     {
@@ -9110,40 +8370,45 @@ void main(void)
     }
 #line 1148
     if (tmp___8 == 0) {
+#line 1148
       goto case_0;
-    } else {
+    } else
 #line 1179
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
-        goto switch_default;
+    if (tmp___8 == 1) {
+#line 1179
+      goto case_1;
+    } else {
+#line 1210
+      goto switch_default;
 #line 1146
-        if (0) {
-          case_0: 
-          {
+      if (0) {
+        case_0: 
+        {
 #line 1171
-          c2port_read_flash_data(var_group1, var_group2, var_c2port_read_flash_data_25_p2,
-                                 var_c2port_read_flash_data_25_p3, var_c2port_read_flash_data_25_p4,
-                                 var_c2port_read_flash_data_25_p5);
-          }
-          goto switch_break;
-          case_1: 
-          {
-#line 1202
-          c2port_write_flash_data(var_group1, var_group2, var_c2port_write_flash_data_27_p2,
-                                  var_c2port_write_flash_data_27_p3, var_c2port_write_flash_data_27_p4,
-                                  var_c2port_write_flash_data_27_p5);
-          }
-          goto switch_break;
-          switch_default: 
-          goto switch_break;
-        } else {
-          switch_break: ;
+        c2port_read_flash_data(var_group1, var_group2, var_c2port_read_flash_data_25_p2,
+                               var_c2port_read_flash_data_25_p3, var_c2port_read_flash_data_25_p4,
+                               var_c2port_read_flash_data_25_p5);
         }
+#line 1178
+        goto switch_break;
+        case_1: 
+        {
+#line 1202
+        c2port_write_flash_data(var_group1, var_group2, var_c2port_write_flash_data_27_p2,
+                                var_c2port_write_flash_data_27_p3, var_c2port_write_flash_data_27_p4,
+                                var_c2port_write_flash_data_27_p5);
+        }
+#line 1209
+        goto switch_break;
+        switch_default: 
+#line 1210
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_23_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -9166,6 +8431,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -9190,6 +8456,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -9210,7 +8477,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_24_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -9228,9 +8495,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_24_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -9251,7 +8519,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_25_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -9288,9 +8556,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_25_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -9310,7 +8579,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_26_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -9332,9 +8601,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_26_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -9355,7 +8625,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_27_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -9392,9 +8662,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_27_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

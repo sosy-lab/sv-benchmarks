@@ -15,6 +15,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -37,9 +38,9 @@ int main(int argc , char **argv )
   int a ;
   ssize_t tmp___1 ;
   char *__cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  char *__cil_tmp12 ;
+  unsigned long __cil_tmp10 ;
+  char *__cil_tmp11 ;
+  size_t __cil_tmp12 ;
 
   {
   {
@@ -50,17 +51,17 @@ int main(int argc , char **argv )
 #line 15
   file = tmp;
 #line 16
-  __cil_tmp10 = 1U * 100U;
+  __cil_tmp10 = 1UL * 100UL;
 #line 16
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 16
-  tmp___0 = malloc(__cil_tmp11);
+  tmp___0 = malloc(__cil_tmp10);
 #line 16
   cbuf = tmp___0;
 #line 17
-  __cil_tmp12 = (char *)cbuf;
+  __cil_tmp11 = (char *)cbuf;
 #line 17
-  tmp___1 = l_read(file, __cil_tmp12, 99UL);
+  __cil_tmp12 = (size_t )99;
+#line 17
+  tmp___1 = l_read(file, __cil_tmp11, __cil_tmp12);
 #line 17
   a = (int )tmp___1;
   }
@@ -89,7 +90,7 @@ ssize_t l_read(int fd , char *cbuf , size_t count )
   tmp = read(fd, cbuf, count);
   }
 #line 23
-  return ((long )tmp);
+  return ((ssize_t )tmp);
 }
 }
 #line 26 "files/fo_test.c"

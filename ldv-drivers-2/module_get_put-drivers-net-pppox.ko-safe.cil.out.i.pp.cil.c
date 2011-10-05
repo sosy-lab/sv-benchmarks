@@ -6160,25 +6160,19 @@ int register_pppox_proto(int proto_num , struct pppox_proto  const  *pp )
 { struct pppox_proto  const  *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
   unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pppox_proto  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
 
   {
 #line 51
   if (proto_num < 0) {
 #line 52
     return (-22);
-  } else {
+  } else
 #line 51
-    if (proto_num > 3) {
+  if (proto_num > 3) {
 #line 52
-      return (-22);
-    } else {
+    return (-22);
+  } else {
 
-    }
   }
   {
 #line 53
@@ -6186,15 +6180,9 @@ int register_pppox_proto(int proto_num , struct pppox_proto  const  *pp )
 #line 53
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 53
-  __cil_tmp5 = proto_num * 8UL;
+  __cil_tmp5 = (unsigned long )pppox_protos[proto_num];
 #line 53
-  __cil_tmp6 = (unsigned long )(pppox_protos) + __cil_tmp5;
-#line 53
-  __cil_tmp7 = *((struct pppox_proto  const  **)__cil_tmp6);
-#line 53
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 53
-  if (__cil_tmp8 != __cil_tmp4) {
+  if (__cil_tmp5 != __cil_tmp4) {
 #line 54
     return (-114);
   } else {
@@ -6202,19 +6190,14 @@ int register_pppox_proto(int proto_num , struct pppox_proto  const  *pp )
   }
   }
 #line 55
-  __cil_tmp9 = proto_num * 8UL;
-#line 55
-  __cil_tmp10 = (unsigned long )(pppox_protos) + __cil_tmp9;
-#line 55
-  *((struct pppox_proto  const  **)__cil_tmp10) = pp;
+  pppox_protos[proto_num] = pp;
 #line 56
   return (0);
 }
 }
 #line 59 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
 void unregister_pppox_proto(int proto_num ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ 
 
   {
 #line 61
@@ -6222,11 +6205,7 @@ void unregister_pppox_proto(int proto_num )
 #line 61
     if (proto_num <= 3) {
 #line 62
-      __cil_tmp2 = proto_num * 8UL;
-#line 62
-      __cil_tmp3 = (unsigned long )(pppox_protos) + __cil_tmp2;
-#line 62
-      *((struct pppox_proto  const  **)__cil_tmp3) = (struct pppox_proto  const  *)0;
+      pppox_protos[proto_num] = (struct pppox_proto  const  *)0;
     } else {
 
     }
@@ -6240,54 +6219,30 @@ void unregister_pppox_proto(int proto_num )
 #line 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
 void pppox_unbind_sock(struct sock *sk ) 
 { struct pppox_sock *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned char volatile   __cil_tmp6 ;
-  int __cil_tmp7 ;
-  int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct ppp_channel *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned char volatile   __cil_tmp3 ;
+  int __cil_tmp4 ;
+  int __cil_tmp5 ;
+  struct ppp_channel *__cil_tmp6 ;
 
   {
   {
 #line 69
-  __cil_tmp3 = 0 + 14;
+  __cil_tmp3 = sk->__sk_common.skc_state;
 #line 69
-  __cil_tmp4 = (unsigned long )sk;
+  __cil_tmp4 = (int )__cil_tmp3;
 #line 69
-  __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
+  __cil_tmp5 = __cil_tmp4 & 11;
 #line 69
-  __cil_tmp6 = *((unsigned char volatile   *)__cil_tmp5);
-#line 69
-  __cil_tmp7 = (int )__cil_tmp6;
-#line 69
-  __cil_tmp8 = __cil_tmp7 & 11;
-#line 69
-  if (__cil_tmp8 != 0) {
+  if (__cil_tmp5 != 0) {
     {
 #line 70
     tmp = pppox_sk(sk);
 #line 70
-    __cil_tmp9 = (unsigned long )tmp;
+    __cil_tmp6 = & tmp->chan;
 #line 70
-    __cil_tmp10 = __cil_tmp9 + 1272;
-#line 70
-    __cil_tmp11 = (struct ppp_channel *)__cil_tmp10;
-#line 70
-    ppp_unregister_channel(__cil_tmp11);
+    ppp_unregister_channel(__cil_tmp6);
 #line 71
-    __cil_tmp12 = 0 + 14;
-#line 71
-    __cil_tmp13 = (unsigned long )sk;
-#line 71
-    __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 71
-    *((unsigned char volatile   *)__cil_tmp14) = (unsigned char volatile   )16U;
+    sk->__sk_common.skc_state = (unsigned char volatile   )16U;
     }
   } else {
 
@@ -6307,60 +6262,25 @@ int pppox_ioctl(struct socket *sock , unsigned int cmd , unsigned long arg )
   int __ret_pu ;
   int __pu_val ;
   int tmp___0 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  int __cil_tmp12 ;
+  unsigned char volatile   __cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned char volatile   __cil_tmp18 ;
-  int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  int __cil_tmp15 ;
+  struct ppp_channel *__cil_tmp16 ;
+  unsigned char volatile   __cil_tmp17 ;
+  unsigned char __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  int (*__cil_tmp21)(struct socket * , unsigned int  , unsigned long  ) ;
   unsigned long __cil_tmp22 ;
-  struct ppp_channel *__cil_tmp23 ;
+  int (*__cil_tmp23)(struct socket * , unsigned int  , unsigned long  ) ;
   unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned char volatile   __cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  int (*__cil_tmp34)(struct socket * , unsigned int  , unsigned long  ) ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
-  int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct pppox_proto  const  *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int (*__cil_tmp45)(struct socket * , unsigned int  , unsigned long  ) ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned char __cil_tmp49 ;
-  int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct pppox_proto  const  *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  int (*__cil_tmp56)(struct socket * , unsigned int  , unsigned long  ) ;
+  int (*__cil_tmp25)(struct socket * , unsigned int  , unsigned long  ) ;
 
   {
   {
 #line 81
-  __cil_tmp12 = (unsigned long )sock;
-#line 81
-  __cil_tmp13 = __cil_tmp12 + 64;
-#line 81
-  sk = *((struct sock **)__cil_tmp13);
+  sk = sock->sk;
 #line 82
   tmp = pppox_sk(sk);
 #line 82
@@ -6370,11 +6290,13 @@ int pppox_ioctl(struct socket *sock , unsigned int cmd , unsigned long arg )
   }
   {
 #line 88
-  __cil_tmp14 = (int )cmd;
+  __cil_tmp12 = (int )cmd;
 #line 88
-  if (__cil_tmp14 == -2147191753) {
+  if (__cil_tmp12 == -2147191753) {
+#line 88
     goto case_neg_2147191753;
   } else {
+#line 103
     goto switch_default___0;
 #line 87
     if (0) {
@@ -6383,19 +6305,14 @@ int pppox_ioctl(struct socket *sock , unsigned int cmd , unsigned long arg )
       rc = -107;
       {
 #line 91
-      __cil_tmp15 = 0 + 14;
+      __cil_tmp13 = sk->__sk_common.skc_state;
 #line 91
-      __cil_tmp16 = (unsigned long )sk;
+      __cil_tmp14 = (int )__cil_tmp13;
 #line 91
-      __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
+      __cil_tmp15 = __cil_tmp14 & 1;
 #line 91
-      __cil_tmp18 = *((unsigned char volatile   *)__cil_tmp17);
-#line 91
-      __cil_tmp19 = (int )__cil_tmp18;
-#line 91
-      __cil_tmp20 = __cil_tmp19 & 1;
-#line 91
-      if (__cil_tmp20 == 0) {
+      if (__cil_tmp15 == 0) {
+#line 92
         goto ldv_38413;
       } else {
 
@@ -6405,13 +6322,9 @@ int pppox_ioctl(struct socket *sock , unsigned int cmd , unsigned long arg )
 #line 94
       rc = -22;
 #line 95
-      __cil_tmp21 = (unsigned long )po;
+      __cil_tmp16 = & po->chan;
 #line 95
-      __cil_tmp22 = __cil_tmp21 + 1272;
-#line 95
-      __cil_tmp23 = (struct ppp_channel *)__cil_tmp22;
-#line 95
-      index = ppp_channel_index(__cil_tmp23);
+      index = ppp_channel_index(__cil_tmp16);
 #line 96
       might_fault();
 #line 96
@@ -6419,32 +6332,39 @@ int pppox_ioctl(struct socket *sock , unsigned int cmd , unsigned long arg )
       }
 #line 96
       if (1) {
+#line 96
         goto case_4;
       } else {
+#line 96
         goto switch_default;
 #line 96
         if (0) {
 #line 96
           __asm__  volatile   ("call __put_user_1": "=a" (__ret_pu): "0" (__pu_val),
                                "c" ((int *)arg): "ebx");
+#line 96
           goto ldv_38417;
 #line 96
           __asm__  volatile   ("call __put_user_2": "=a" (__ret_pu): "0" (__pu_val),
                                "c" ((int *)arg): "ebx");
+#line 96
           goto ldv_38417;
           case_4: 
 #line 96
           __asm__  volatile   ("call __put_user_4": "=a" (__ret_pu): "0" (__pu_val),
                                "c" ((int *)arg): "ebx");
+#line 96
           goto ldv_38417;
 #line 96
           __asm__  volatile   ("call __put_user_8": "=a" (__ret_pu): "0" (__pu_val),
                                "c" ((int *)arg): "ebx");
+#line 96
           goto ldv_38417;
           switch_default: 
 #line 96
           __asm__  volatile   ("call __put_user_X": "=a" (__ret_pu): "0" (__pu_val),
                                "c" ((int *)arg): "ebx");
+#line 96
           goto ldv_38417;
         } else {
 
@@ -6453,6 +6373,7 @@ int pppox_ioctl(struct socket *sock , unsigned int cmd , unsigned long arg )
       ldv_38417: ;
 #line 96
       if (__ret_pu != 0) {
+#line 97
         goto ldv_38413;
       } else {
 
@@ -6460,81 +6381,34 @@ int pppox_ioctl(struct socket *sock , unsigned int cmd , unsigned long arg )
 #line 99
       rc = 0;
 #line 100
-      __cil_tmp24 = 0 + 14;
+      __cil_tmp17 = sk->__sk_common.skc_state;
 #line 100
-      __cil_tmp25 = (unsigned long )sk;
+      __cil_tmp18 = (unsigned char )__cil_tmp17;
 #line 100
-      __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
+      __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 100
-      __cil_tmp27 = 0 + 14;
+      __cil_tmp20 = __cil_tmp19 | 2U;
 #line 100
-      __cil_tmp28 = (unsigned long )sk;
-#line 100
-      __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 100
-      __cil_tmp30 = *((unsigned char volatile   *)__cil_tmp29);
-#line 100
-      __cil_tmp31 = (unsigned char )__cil_tmp30;
-#line 100
-      __cil_tmp32 = (unsigned int )__cil_tmp31;
-#line 100
-      __cil_tmp33 = __cil_tmp32 | 2U;
-#line 100
-      *((unsigned char volatile   *)__cil_tmp26) = (unsigned char volatile   )__cil_tmp33;
+      sk->__sk_common.skc_state = (unsigned char volatile   )__cil_tmp20;
+#line 101
       goto ldv_38413;
       switch_default___0: ;
       {
 #line 104
-      __cil_tmp34 = (int (* const  )(struct socket * , unsigned int  , unsigned long  ))0;
+      __cil_tmp21 = (int (* const  )(struct socket * , unsigned int  , unsigned long  ))0;
 #line 104
-      __cil_tmp35 = (unsigned long )__cil_tmp34;
+      __cil_tmp22 = (unsigned long )__cil_tmp21;
 #line 104
-      __cil_tmp36 = (unsigned long )sk;
+      __cil_tmp23 = (pppox_protos[(int )sk->sk_protocol])->ioctl;
 #line 104
-      __cil_tmp37 = __cil_tmp36 + 761;
+      __cil_tmp24 = (unsigned long )__cil_tmp23;
 #line 104
-      __cil_tmp38 = *((unsigned char *)__cil_tmp37);
-#line 104
-      __cil_tmp39 = (int )__cil_tmp38;
-#line 104
-      __cil_tmp40 = __cil_tmp39 * 8UL;
-#line 104
-      __cil_tmp41 = (unsigned long )(pppox_protos) + __cil_tmp40;
-#line 104
-      __cil_tmp42 = *((struct pppox_proto  const  **)__cil_tmp41);
-#line 104
-      __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 104
-      __cil_tmp44 = __cil_tmp43 + 8;
-#line 104
-      __cil_tmp45 = *((int (* const  *)(struct socket * , unsigned int  , unsigned long  ))__cil_tmp44);
-#line 104
-      __cil_tmp46 = (unsigned long )__cil_tmp45;
-#line 104
-      if (__cil_tmp46 != __cil_tmp35) {
+      if (__cil_tmp24 != __cil_tmp22) {
         {
 #line 104
-        __cil_tmp47 = (unsigned long )sk;
+        __cil_tmp25 = (pppox_protos[(int )sk->sk_protocol])->ioctl;
 #line 104
-        __cil_tmp48 = __cil_tmp47 + 761;
-#line 104
-        __cil_tmp49 = *((unsigned char *)__cil_tmp48);
-#line 104
-        __cil_tmp50 = (int )__cil_tmp49;
-#line 104
-        __cil_tmp51 = __cil_tmp50 * 8UL;
-#line 104
-        __cil_tmp52 = (unsigned long )(pppox_protos) + __cil_tmp51;
-#line 104
-        __cil_tmp53 = *((struct pppox_proto  const  **)__cil_tmp52);
-#line 104
-        __cil_tmp54 = (unsigned long )__cil_tmp53;
-#line 104
-        __cil_tmp55 = __cil_tmp54 + 8;
-#line 104
-        __cil_tmp56 = *((int (* const  *)(struct socket * , unsigned int  , unsigned long  ))__cil_tmp55);
-#line 104
-        tmp___0 = (*__cil_tmp56)(sock, cmd, arg);
+        tmp___0 = (*__cil_tmp25)(sock, cmd, arg);
 #line 104
         rc = tmp___0;
         }
@@ -6564,47 +6438,30 @@ static int pppox_create(struct net *net , struct socket *sock , int protocol , i
   struct pppox_proto  const  *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  bool __cil_tmp10 ;
   struct pppox_proto  const  *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  struct pppox_proto  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct pppox_proto  const  *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct pppox_proto  const  *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct module *__cil_tmp24 ;
-  struct module *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct pppox_proto  const  *__cil_tmp28 ;
-  int (*__cil_tmp29)(struct net * , struct socket * ) ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct pppox_proto  const  *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct module *__cil_tmp35 ;
-  struct module *__cil_tmp36 ;
+  unsigned long __cil_tmp13 ;
+  struct module *__cil_tmp14 ;
+  struct module *__cil_tmp15 ;
+  int (*__cil_tmp16)(struct net * , struct socket * ) ;
+  struct module *__cil_tmp17 ;
+  struct module *__cil_tmp18 ;
 
   {
 #line 117
   rc = -91;
 #line 119
   if (protocol < 0) {
+#line 120
+    goto out;
+  } else
+#line 119
+  if (protocol > 3) {
+#line 120
     goto out;
   } else {
-#line 119
-    if (protocol > 3) {
-      goto out;
-    } else {
 
-    }
   }
 #line 122
   rc = -93;
@@ -6614,18 +6471,14 @@ static int pppox_create(struct net *net , struct socket *sock , int protocol , i
 #line 123
   __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 123
-  __cil_tmp9 = protocol * 8UL;
+  __cil_tmp9 = (unsigned long )pppox_protos[protocol];
 #line 123
-  __cil_tmp10 = (unsigned long )(pppox_protos) + __cil_tmp9;
-#line 123
-  __cil_tmp11 = *((struct pppox_proto  const  **)__cil_tmp10);
-#line 123
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
-#line 123
-  if (__cil_tmp12 == __cil_tmp8) {
+  if (__cil_tmp9 == __cil_tmp8) {
     {
 #line 124
-    __request_module((_Bool)1, "pppox-proto-%d", protocol);
+    __cil_tmp10 = (bool )1;
+#line 124
+    __request_module(__cil_tmp10, "pppox-proto-%d", protocol);
     }
   } else {
 
@@ -6633,41 +6486,27 @@ static int pppox_create(struct net *net , struct socket *sock , int protocol , i
   }
   {
 #line 125
-  __cil_tmp13 = (struct pppox_proto  const  *)0;
+  __cil_tmp11 = (struct pppox_proto  const  *)0;
 #line 125
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 125
-  __cil_tmp15 = protocol * 8UL;
+  __cil_tmp13 = (unsigned long )pppox_protos[protocol];
 #line 125
-  __cil_tmp16 = (unsigned long )(pppox_protos) + __cil_tmp15;
-#line 125
-  __cil_tmp17 = *((struct pppox_proto  const  **)__cil_tmp16);
-#line 125
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 125
-  if (__cil_tmp18 == __cil_tmp14) {
+  if (__cil_tmp13 == __cil_tmp12) {
+#line 127
     goto out;
   } else {
     {
 #line 125
-    __cil_tmp19 = protocol * 8UL;
+    __cil_tmp14 = (pppox_protos[protocol])->owner;
 #line 125
-    __cil_tmp20 = (unsigned long )(pppox_protos) + __cil_tmp19;
+    __cil_tmp15 = (struct module *)__cil_tmp14;
 #line 125
-    __cil_tmp21 = *((struct pppox_proto  const  **)__cil_tmp20);
-#line 125
-    __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 125
-    __cil_tmp23 = __cil_tmp22 + 16;
-#line 125
-    __cil_tmp24 = *((struct module * const  *)__cil_tmp23);
-#line 125
-    __cil_tmp25 = (struct module *)__cil_tmp24;
-#line 125
-    tmp = ldv_try_module_get_1(__cil_tmp25);
+    tmp = ldv_try_module_get_1(__cil_tmp15);
     }
 #line 125
     if (tmp == 0) {
+#line 127
       goto out;
     } else {
 
@@ -6676,31 +6515,15 @@ static int pppox_create(struct net *net , struct socket *sock , int protocol , i
   }
   {
 #line 129
-  __cil_tmp26 = protocol * 8UL;
+  __cil_tmp16 = (pppox_protos[protocol])->create;
 #line 129
-  __cil_tmp27 = (unsigned long )(pppox_protos) + __cil_tmp26;
-#line 129
-  __cil_tmp28 = *((struct pppox_proto  const  **)__cil_tmp27);
-#line 129
-  __cil_tmp29 = *((int (* const  *)(struct net * , struct socket * ))__cil_tmp28);
-#line 129
-  rc = (*__cil_tmp29)(net, sock);
+  rc = (*__cil_tmp16)(net, sock);
 #line 131
-  __cil_tmp30 = protocol * 8UL;
+  __cil_tmp17 = (pppox_protos[protocol])->owner;
 #line 131
-  __cil_tmp31 = (unsigned long )(pppox_protos) + __cil_tmp30;
+  __cil_tmp18 = (struct module *)__cil_tmp17;
 #line 131
-  __cil_tmp32 = *((struct pppox_proto  const  **)__cil_tmp31);
-#line 131
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 131
-  __cil_tmp34 = __cil_tmp33 + 16;
-#line 131
-  __cil_tmp35 = *((struct module * const  *)__cil_tmp34);
-#line 131
-  __cil_tmp36 = (struct module *)__cil_tmp35;
-#line 131
-  ldv_module_put_2(__cil_tmp36);
+  ldv_module_put_2(__cil_tmp18);
   }
   out: ;
 #line 133
@@ -6764,10 +6587,12 @@ void main(void)
   }
 #line 229
   if (tmp != 0) {
+#line 230
     goto ldv_final;
   } else {
 
   }
+#line 234
   goto ldv_38481;
   ldv_38480: 
   {
@@ -6776,8 +6601,10 @@ void main(void)
   }
 #line 239
   if (tmp___0 == 0) {
+#line 239
     goto case_0;
   } else {
+#line 255
     goto switch_default;
 #line 237
     if (0) {
@@ -6786,8 +6613,10 @@ void main(void)
 #line 247
       pppox_create(var_group1, var_group2, var_pppox_create_4_p2, var_pppox_create_4_p3);
       }
+#line 254
       goto ldv_38478;
       switch_default: ;
+#line 255
       goto ldv_38478;
     } else {
 
@@ -6801,8 +6630,10 @@ void main(void)
   }
 #line 234
   if (tmp___1 != 0) {
+#line 235
     goto ldv_38480;
   } else {
+#line 237
     goto ldv_38482;
   }
   ldv_38482: 
@@ -6825,6 +6656,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -6944,6 +6776,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 344
   goto LDV_STOP;
 }
 }

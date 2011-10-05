@@ -4720,7 +4720,7 @@ __inline static bool is_power_of_2(unsigned long n )
     tmp = 0;
   }
 #line 54
-  return ((_Bool )tmp);
+  return ((bool )tmp);
 }
 }
 #line 100 "include/linux/printk.h"
@@ -4729,18 +4729,13 @@ extern int printk(char const   *fmt  , ...) ;
 extern void warn_slowpath_null(char const   *file , int line ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ 
 
   {
 #line 26
-  *((struct list_head **)list) = list;
+  list->next = list;
 #line 27
-  __cil_tmp2 = (unsigned long )list;
-#line 27
-  __cil_tmp3 = __cil_tmp2 + 8;
-#line 27
-  *((struct list_head **)__cil_tmp3) = list;
+  list->prev = list;
 #line 28
   return;
 }
@@ -4822,25 +4817,14 @@ extern void init_timer_key(struct timer_list *timer , char const   *name , struc
 __inline static void setup_timer_key(struct timer_list *timer , char const   *name ,
                                      struct lock_class_key *key , void (*function)(unsigned long  ) ,
                                      unsigned long data ) 
-{ unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+{ 
 
   {
   {
 #line 172
-  __cil_tmp6 = (unsigned long )timer;
-#line 172
-  __cil_tmp7 = __cil_tmp6 + 32;
-#line 172
-  *((void (**)(unsigned long  ))__cil_tmp7) = function;
+  timer->function = function;
 #line 173
-  __cil_tmp8 = (unsigned long )timer;
-#line 173
-  __cil_tmp9 = __cil_tmp8 + 40;
-#line 173
-  *((unsigned long *)__cil_tmp9) = data;
+  timer->data = data;
 #line 174
   init_timer_key(timer, name, key);
   }
@@ -4870,30 +4854,25 @@ extern bool cancel_work_sync(struct work_struct *work ) ;
 static struct lock_class_key __key___2  ;
 #line 73 "include/linux/completion.h"
 __inline static void init_completion(struct completion *x ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  wait_queue_head_t *__cil_tmp4 ;
+{ wait_queue_head_t *__cil_tmp2 ;
 
   {
 #line 75
-  *((unsigned int *)x) = 0U;
+  x->done = 0U;
   {
 #line 76
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 76
-    __cil_tmp2 = (unsigned long )x;
+    __cil_tmp2 = & x->wait;
 #line 76
-    __cil_tmp3 = __cil_tmp2 + 8;
-#line 76
-    __cil_tmp4 = (wait_queue_head_t *)__cil_tmp3;
-#line 76
-    __init_waitqueue_head(__cil_tmp4, & __key___2);
+    __init_waitqueue_head(__cil_tmp2, & __key___2);
     }
+#line 76
     goto while_break;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -4959,23 +4938,17 @@ extern int __nand_correct_data(u_char *dat , u_char *read_ecc , u_char *calc_ecc
 #line 42 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/mtd/nand/sm_common.h"
 __inline static int sm_sector_valid(struct sm_oob *oob ) 
 { unsigned int tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  uint8_t __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
+  uint8_t __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
 
   {
   {
 #line 44
-  __cil_tmp3 = (unsigned long )oob;
+  __cil_tmp3 = oob->data_status;
 #line 44
-  __cil_tmp4 = __cil_tmp3 + 4;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 44
-  __cil_tmp5 = *((uint8_t *)__cil_tmp4);
-#line 44
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
-#line 44
-  tmp___7 = __arch_hweight16(__cil_tmp6);
+  tmp___7 = __arch_hweight16(__cil_tmp4);
   }
 #line 44
   return (tmp___7 >= 5U);
@@ -4984,23 +4957,17 @@ __inline static int sm_sector_valid(struct sm_oob *oob )
 #line 47 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/mtd/nand/sm_common.h"
 __inline static int sm_block_valid(struct sm_oob *oob ) 
 { unsigned int tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  uint8_t __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
+  uint8_t __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
 
   {
   {
 #line 49
-  __cil_tmp3 = (unsigned long )oob;
+  __cil_tmp3 = oob->block_status;
 #line 49
-  __cil_tmp4 = __cil_tmp3 + 5;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 49
-  __cil_tmp5 = *((uint8_t *)__cil_tmp4);
-#line 49
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
-#line 49
-  tmp___7 = __arch_hweight16(__cil_tmp6);
+  tmp___7 = __arch_hweight16(__cil_tmp4);
   }
 #line 49
   return (tmp___7 >= 7U);
@@ -5009,30 +4976,24 @@ __inline static int sm_block_valid(struct sm_oob *oob )
 #line 54
 __inline static int sm_block_erased(struct sm_oob *oob ) ;
 #line 54 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/mtd/nand/sm_common.h"
-static uint32_t const   erased_pattern[4]  = {      (unsigned int const   )4294967295U,      (unsigned int const   )4294967295U,      (unsigned int const   )4294967295U,      (unsigned int const   )4294967295U};
+static uint32_t const   erased_pattern[4]  = {      (uint32_t const   )4294967295U,      (uint32_t const   )4294967295U,      (uint32_t const   )4294967295U,      (uint32_t const   )4294967295U};
 #line 52 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/mtd/nand/sm_common.h"
 __inline static int sm_block_erased(struct sm_oob *oob ) 
 { int tmp___7 ;
   void const   *__cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  uint32_t const   *__cil_tmp6 ;
-  void const   *__cil_tmp7 ;
+  uint32_t const   *__cil_tmp4 ;
+  void const   *__cil_tmp5 ;
 
   {
   {
 #line 58
   __cil_tmp3 = (void const   *)oob;
 #line 58
-  __cil_tmp4 = 0 * 4UL;
+  __cil_tmp4 = & erased_pattern[0];
 #line 58
-  __cil_tmp5 = (unsigned long )(erased_pattern) + __cil_tmp4;
+  __cil_tmp5 = (void const   *)__cil_tmp4;
 #line 58
-  __cil_tmp6 = (uint32_t const   *)__cil_tmp5;
-#line 58
-  __cil_tmp7 = (void const   *)__cil_tmp6;
-#line 58
-  tmp___7 = memcmp(__cil_tmp3, __cil_tmp7, 16UL);
+  tmp___7 = memcmp(__cil_tmp3, __cil_tmp5, 16UL);
   }
 #line 58
   if (tmp___7) {
@@ -5108,7 +5069,7 @@ static char const   __param_str_cache_timeout[14]  =
 #line 29 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static struct kernel_param  const  __param_cache_timeout  __attribute__((__used__,
 __unused__, __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_cache_timeout, (struct kernel_param_ops  const  *)(& param_ops_bool),
-    (unsigned short)292, (unsigned short)0, {(void *)(& cache_timeout)}};
+    (u16 )292, (u16 )0, {(void *)(& cache_timeout)}};
 #line 29 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static char const   __mod_cache_timeouttype29[28]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -5148,8 +5109,8 @@ static char const   __param_str_debug[6]  = {      (char const   )'d',      (cha
         (char const   )'g',      (char const   )'\000'};
 #line 34 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static struct kernel_param  const  __param_debug  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)420,
-    (unsigned short)0, {(void *)(& debug)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )420,
+    (u16 )0, {(void *)(& debug)}};
 #line 34 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static char const   __mod_debugtype34[19]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -5180,17 +5141,11 @@ ssize_t sm_attr_show(struct device *dev , struct device_attribute *attr , char *
   unsigned int __cil_tmp8 ;
   char *__cil_tmp9 ;
   char *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  char *__cil_tmp13 ;
-  char const   *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
+  char *__cil_tmp11 ;
+  char const   *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  __kernel_size_t __cil_tmp14 ;
+  int __cil_tmp15 ;
 
   {
   {
@@ -5199,7 +5154,7 @@ ssize_t sm_attr_show(struct device *dev , struct device_attribute *attr , char *
 #line 49
   __cil_tmp6 = (struct sm_sysfs_attribute *)0;
 #line 49
-  __cil_tmp7 = (struct device_attribute *)__cil_tmp6;
+  __cil_tmp7 = & __cil_tmp6->dev_attr;
 #line 49
   __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 49
@@ -5209,33 +5164,21 @@ ssize_t sm_attr_show(struct device *dev , struct device_attribute *attr , char *
 #line 49
   sm_attr = (struct sm_sysfs_attribute *)__cil_tmp10;
 #line 51
-  __cil_tmp11 = (unsigned long )sm_attr;
+  __cil_tmp11 = sm_attr->data;
 #line 51
-  __cil_tmp12 = __cil_tmp11 + 48;
+  __cil_tmp12 = (char const   *)__cil_tmp11;
 #line 51
-  __cil_tmp13 = *((char **)__cil_tmp12);
+  __cil_tmp13 = sm_attr->len;
 #line 51
-  __cil_tmp14 = (char const   *)__cil_tmp13;
+  __cil_tmp14 = (__kernel_size_t )__cil_tmp13;
 #line 51
-  __cil_tmp15 = (unsigned long )sm_attr;
-#line 51
-  __cil_tmp16 = __cil_tmp15 + 56;
-#line 51
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 51
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 51
-  strncpy(buf, __cil_tmp14, __cil_tmp18);
+  strncpy(buf, __cil_tmp12, __cil_tmp14);
   }
   {
 #line 52
-  __cil_tmp19 = (unsigned long )sm_attr;
+  __cil_tmp15 = sm_attr->len;
 #line 52
-  __cil_tmp20 = __cil_tmp19 + 56;
-#line 52
-  __cil_tmp21 = *((int *)__cil_tmp20);
-#line 52
-  return ((long )__cil_tmp21);
+  return ((ssize_t )__cil_tmp15);
   }
 }
 }
@@ -5255,93 +5198,68 @@ struct attribute_group *sm_create_sysfs_attributes(struct sm_ftl *ftl )
   void *tmp___9 ;
   void *tmp___10 ;
   void *tmp___11 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  char const   *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  char const   *__cil_tmp16 ;
+  __kernel_size_t __cil_tmp17 ;
+  size_t __cil_tmp18 ;
+  void *__cil_tmp19 ;
   void *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  void *__cil_tmp23 ;
-  void *__cil_tmp24 ;
-  void const   *__cil_tmp25 ;
-  char *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct attribute **__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  void const   *__cil_tmp46 ;
-  void const   *__cil_tmp47 ;
-  void const   *__cil_tmp48 ;
-  void *__cil_tmp49 ;
+  void *__cil_tmp21 ;
+  void const   *__cil_tmp22 ;
+  char *__cil_tmp23 ;
+  unsigned long __cil_tmp24 ;
+  struct attribute **__cil_tmp25 ;
+  void const   *__cil_tmp26 ;
+  void const   *__cil_tmp27 ;
+  void const   *__cil_tmp28 ;
+  void *__cil_tmp29 ;
 
   {
   {
 #line 64
-  __cil_tmp14 = (unsigned long )ftl;
+  __cil_tmp14 = ftl->cis_buffer;
 #line 64
-  __cil_tmp15 = __cil_tmp14 + 224;
+  __cil_tmp15 = __cil_tmp14 + 89;
 #line 64
-  __cil_tmp16 = *((void **)__cil_tmp15);
+  __cil_tmp16 = (char const   *)__cil_tmp15;
 #line 64
-  __cil_tmp17 = __cil_tmp16 + 89;
+  __cil_tmp17 = (__kernel_size_t )167;
 #line 64
-  __cil_tmp18 = (char const   *)__cil_tmp17;
-#line 64
-  tmp___7 = strnlen(__cil_tmp18, 167UL);
+  tmp___7 = strnlen(__cil_tmp16, __cil_tmp17);
 #line 64
   vendor_len = (int )tmp___7;
 #line 67
-  __cil_tmp19 = (unsigned long )vendor_len;
+  __cil_tmp18 = (size_t )vendor_len;
 #line 67
-  tmp___8 = kmalloc(__cil_tmp19, 208U);
+  tmp___8 = kmalloc(__cil_tmp18, 208U);
 #line 67
   vendor = (char *)tmp___8;
   }
 #line 68
   if (! vendor) {
+#line 69
     goto error1;
   } else {
 
   }
   {
 #line 70
-  __len = (unsigned long )vendor_len;
+  __len = (size_t )vendor_len;
 #line 70
-  __cil_tmp20 = (void *)vendor;
+  __cil_tmp19 = (void *)vendor;
 #line 70
-  __cil_tmp21 = (unsigned long )ftl;
+  __cil_tmp20 = ftl->cis_buffer;
 #line 70
-  __cil_tmp22 = __cil_tmp21 + 224;
+  __cil_tmp21 = __cil_tmp20 + 89;
 #line 70
-  __cil_tmp23 = *((void **)__cil_tmp22);
+  __cil_tmp22 = (void const   *)__cil_tmp21;
 #line 70
-  __cil_tmp24 = __cil_tmp23 + 89;
-#line 70
-  __cil_tmp25 = (void const   *)__cil_tmp24;
-#line 70
-  __ret = __builtin_memcpy(__cil_tmp20, __cil_tmp25, __len);
+  __ret = __builtin_memcpy(__cil_tmp19, __cil_tmp22, __len);
 #line 71
-  __cil_tmp26 = vendor + vendor_len;
+  __cil_tmp23 = vendor + vendor_len;
 #line 71
-  *__cil_tmp26 = (char)0;
+  *__cil_tmp23 = (char)0;
 #line 74
   tmp___9 = kzalloc(64UL, 208U);
 #line 74
@@ -5349,6 +5267,7 @@ struct attribute_group *sm_create_sysfs_attributes(struct sm_ftl *ftl )
   }
 #line 76
   if (! vendor_attribute) {
+#line 77
     goto error2;
   } else {
 
@@ -5356,74 +5275,46 @@ struct attribute_group *sm_create_sysfs_attributes(struct sm_ftl *ftl )
   {
 #line 79
   while (1) {
-    while_1_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 #line 79
-    __cil_tmp27 = 0 + 16;
+    vendor_attribute->dev_attr.attr.key = & __key___4;
 #line 79
-    __cil_tmp28 = 0 + __cil_tmp27;
-#line 79
-    __cil_tmp29 = (unsigned long )vendor_attribute;
-#line 79
-    __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-#line 79
-    *((struct lock_class_key **)__cil_tmp30) = & __key___4;
     goto while_break;
   }
-  while_1_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 81
-  __cil_tmp31 = (unsigned long )vendor_attribute;
-#line 81
-  __cil_tmp32 = __cil_tmp31 + 48;
-#line 81
-  *((char **)__cil_tmp32) = vendor;
+  vendor_attribute->data = vendor;
 #line 82
-  __cil_tmp33 = (unsigned long )vendor_attribute;
-#line 82
-  __cil_tmp34 = __cil_tmp33 + 56;
-#line 82
-  *((int *)__cil_tmp34) = vendor_len;
+  vendor_attribute->len = vendor_len;
 #line 83
-  *((char const   **)vendor_attribute) = "vendor";
+  vendor_attribute->dev_attr.attr.name = "vendor";
 #line 84
-  __cil_tmp35 = 0 + 8;
-#line 84
-  __cil_tmp36 = 0 + __cil_tmp35;
-#line 84
-  __cil_tmp37 = (unsigned long )vendor_attribute;
-#line 84
-  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 84
-  *((mode_t *)__cil_tmp38) = 292U;
+  vendor_attribute->dev_attr.attr.mode = (mode_t )292;
 #line 85
-  __cil_tmp39 = 0 + 32;
-#line 85
-  __cil_tmp40 = (unsigned long )vendor_attribute;
-#line 85
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
-#line 85
-  *((ssize_t (**)(struct device *dev , struct device_attribute *attr , char *buf ))__cil_tmp41) = & sm_attr_show;
+  vendor_attribute->dev_attr.show = & sm_attr_show;
 #line 89
-  __cil_tmp42 = 8UL * 2UL;
+  __cil_tmp24 = 8UL * 2UL;
 #line 89
-  tmp___10 = kzalloc(__cil_tmp42, 208U);
+  tmp___10 = kzalloc(__cil_tmp24, 208U);
 #line 89
   attributes = (struct attribute **)tmp___10;
   }
 #line 91
   if (! attributes) {
+#line 92
     goto error3;
   } else {
 
   }
   {
 #line 93
-  __cil_tmp43 = attributes + 0;
+  __cil_tmp25 = attributes + 0;
 #line 93
-  *__cil_tmp43 = (struct attribute *)vendor_attribute;
+  *__cil_tmp25 = & vendor_attribute->dev_attr.attr;
 #line 96
   tmp___11 = kzalloc(24UL, 208U);
 #line 96
@@ -5431,45 +5322,42 @@ struct attribute_group *sm_create_sysfs_attributes(struct sm_ftl *ftl )
   }
 #line 97
   if (! attr_group) {
+#line 98
     goto error4;
   } else {
 
   }
 #line 99
-  __cil_tmp44 = (unsigned long )attr_group;
-#line 99
-  __cil_tmp45 = __cil_tmp44 + 16;
-#line 99
-  *((struct attribute ***)__cil_tmp45) = attributes;
+  attr_group->attrs = attributes;
 #line 100
   return (attr_group);
   error4: 
   {
 #line 102
-  __cil_tmp46 = (void const   *)attributes;
+  __cil_tmp26 = (void const   *)attributes;
 #line 102
-  kfree(__cil_tmp46);
+  kfree(__cil_tmp26);
   }
   error3: 
   {
 #line 104
-  __cil_tmp47 = (void const   *)vendor_attribute;
+  __cil_tmp27 = (void const   *)vendor_attribute;
 #line 104
-  kfree(__cil_tmp47);
+  kfree(__cil_tmp27);
   }
   error2: 
   {
 #line 106
-  __cil_tmp48 = (void const   *)vendor;
+  __cil_tmp28 = (void const   *)vendor;
 #line 106
-  kfree(__cil_tmp48);
+  kfree(__cil_tmp28);
   }
   error1: 
   {
 #line 108
-  __cil_tmp49 = (void *)0;
+  __cil_tmp29 = (void *)0;
 #line 108
-  return ((struct attribute_group *)__cil_tmp49);
+  return ((struct attribute_group *)__cil_tmp29);
   }
 }
 }
@@ -5481,153 +5369,118 @@ void sm_delete_sysfs_attributes(struct sm_ftl *ftl )
   struct attribute  const  *__mptr ;
   struct sm_sysfs_attribute *sm_attr ;
   struct device_attribute  const  *__mptr___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct attribute_group *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct attribute **__cil_tmp13 ;
-  struct attribute **__cil_tmp14 ;
-  struct attribute *__cil_tmp15 ;
-  struct device_attribute *__cil_tmp16 ;
-  struct attribute *__cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  char *__cil_tmp19 ;
+  struct attribute_group *__cil_tmp8 ;
+  struct attribute **__cil_tmp9 ;
+  struct attribute **__cil_tmp10 ;
+  struct attribute *__cil_tmp11 ;
+  struct device_attribute *__cil_tmp12 ;
+  struct attribute *__cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  char *__cil_tmp15 ;
+  char *__cil_tmp16 ;
+  struct sm_sysfs_attribute *__cil_tmp17 ;
+  struct device_attribute *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
   char *__cil_tmp20 ;
-  struct sm_sysfs_attribute *__cil_tmp21 ;
-  struct device_attribute *__cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  char *__cil_tmp24 ;
-  char *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  char *__cil_tmp28 ;
+  char *__cil_tmp21 ;
+  char *__cil_tmp22 ;
+  void const   *__cil_tmp23 ;
+  void const   *__cil_tmp24 ;
+  struct attribute_group *__cil_tmp25 ;
+  struct attribute **__cil_tmp26 ;
+  void const   *__cil_tmp27 ;
+  struct attribute_group *__cil_tmp28 ;
   void const   *__cil_tmp29 ;
-  void const   *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct attribute_group *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct attribute **__cil_tmp36 ;
-  void const   *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct attribute_group *__cil_tmp40 ;
-  void const   *__cil_tmp41 ;
 
   {
 #line 113
-  __cil_tmp8 = (unsigned long )ftl;
+  __cil_tmp8 = ftl->disk_attributes;
 #line 113
-  __cil_tmp9 = __cil_tmp8 + 584;
-#line 113
-  __cil_tmp10 = *((struct attribute_group **)__cil_tmp9);
-#line 113
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 113
-  __cil_tmp12 = __cil_tmp11 + 16;
-#line 113
-  attributes = *((struct attribute ***)__cil_tmp12);
+  attributes = __cil_tmp8->attrs;
 #line 116
   i = 0;
   {
 #line 116
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 116
-    __cil_tmp13 = attributes + i;
+    __cil_tmp9 = attributes + i;
 #line 116
-    if (*__cil_tmp13) {
+    if (*__cil_tmp9) {
 
     } else {
+#line 116
       goto while_break;
     }
     }
     {
 #line 118
-    __cil_tmp14 = attributes + i;
+    __cil_tmp10 = attributes + i;
 #line 118
-    __cil_tmp15 = *__cil_tmp14;
+    __cil_tmp11 = *__cil_tmp10;
 #line 118
-    __mptr = (struct attribute  const  *)__cil_tmp15;
+    __mptr = (struct attribute  const  *)__cil_tmp11;
 #line 118
-    __cil_tmp16 = (struct device_attribute *)0;
+    __cil_tmp12 = (struct device_attribute *)0;
 #line 118
-    __cil_tmp17 = (struct attribute *)__cil_tmp16;
+    __cil_tmp13 = & __cil_tmp12->attr;
 #line 118
-    __cil_tmp18 = (unsigned int )__cil_tmp17;
+    __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 118
-    __cil_tmp19 = (char *)__mptr;
+    __cil_tmp15 = (char *)__mptr;
 #line 118
-    __cil_tmp20 = __cil_tmp19 - __cil_tmp18;
+    __cil_tmp16 = __cil_tmp15 - __cil_tmp14;
 #line 118
-    dev_attr = (struct device_attribute *)__cil_tmp20;
+    dev_attr = (struct device_attribute *)__cil_tmp16;
 #line 122
     __mptr___0 = (struct device_attribute  const  *)dev_attr;
 #line 122
-    __cil_tmp21 = (struct sm_sysfs_attribute *)0;
+    __cil_tmp17 = (struct sm_sysfs_attribute *)0;
 #line 122
-    __cil_tmp22 = (struct device_attribute *)__cil_tmp21;
+    __cil_tmp18 = & __cil_tmp17->dev_attr;
 #line 122
-    __cil_tmp23 = (unsigned int )__cil_tmp22;
+    __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 122
-    __cil_tmp24 = (char *)__mptr___0;
+    __cil_tmp20 = (char *)__mptr___0;
 #line 122
-    __cil_tmp25 = __cil_tmp24 - __cil_tmp23;
+    __cil_tmp21 = __cil_tmp20 - __cil_tmp19;
 #line 122
-    sm_attr = (struct sm_sysfs_attribute *)__cil_tmp25;
+    sm_attr = (struct sm_sysfs_attribute *)__cil_tmp21;
 #line 125
-    __cil_tmp26 = (unsigned long )sm_attr;
+    __cil_tmp22 = sm_attr->data;
 #line 125
-    __cil_tmp27 = __cil_tmp26 + 48;
+    __cil_tmp23 = (void const   *)__cil_tmp22;
 #line 125
-    __cil_tmp28 = *((char **)__cil_tmp27);
-#line 125
-    __cil_tmp29 = (void const   *)__cil_tmp28;
-#line 125
-    kfree(__cil_tmp29);
+    kfree(__cil_tmp23);
 #line 126
-    __cil_tmp30 = (void const   *)sm_attr;
+    __cil_tmp24 = (void const   *)sm_attr;
 #line 126
-    kfree(__cil_tmp30);
+    kfree(__cil_tmp24);
 #line 116
     i = i + 1;
     }
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 129
-  __cil_tmp31 = (unsigned long )ftl;
+  __cil_tmp25 = ftl->disk_attributes;
 #line 129
-  __cil_tmp32 = __cil_tmp31 + 584;
+  __cil_tmp26 = __cil_tmp25->attrs;
 #line 129
-  __cil_tmp33 = *((struct attribute_group **)__cil_tmp32);
+  __cil_tmp27 = (void const   *)__cil_tmp26;
 #line 129
-  __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 129
-  __cil_tmp35 = __cil_tmp34 + 16;
-#line 129
-  __cil_tmp36 = *((struct attribute ***)__cil_tmp35);
-#line 129
-  __cil_tmp37 = (void const   *)__cil_tmp36;
-#line 129
-  kfree(__cil_tmp37);
+  kfree(__cil_tmp27);
 #line 130
-  __cil_tmp38 = (unsigned long )ftl;
+  __cil_tmp28 = ftl->disk_attributes;
 #line 130
-  __cil_tmp39 = __cil_tmp38 + 584;
+  __cil_tmp29 = (void const   *)__cil_tmp28;
 #line 130
-  __cil_tmp40 = *((struct attribute_group **)__cil_tmp39);
-#line 130
-  __cil_tmp41 = (void const   *)__cil_tmp40;
-#line 130
-  kfree(__cil_tmp41);
+  kfree(__cil_tmp29);
   }
 #line 131
   return;
@@ -5715,7 +5568,7 @@ static int sm_get_lba(uint8_t *lba )
 #line 157
 static int sm_read_lba(struct sm_oob *oob ) ;
 #line 157 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
-static uint32_t const   erased_pattern___0[4]  = {      (unsigned int const   )4294967295U,      (unsigned int const   )4294967295U,      (unsigned int const   )4294967295U,      (unsigned int const   )4294967295U};
+static uint32_t const   erased_pattern___0[4]  = {      (uint32_t const   )4294967295U,      (uint32_t const   )4294967295U,      (uint32_t const   )4294967295U,      (uint32_t const   )4294967295U};
 #line 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static int sm_read_lba(struct sm_oob *oob ) 
 { uint16_t lba_test ;
@@ -5723,53 +5576,31 @@ static int sm_read_lba(struct sm_oob *oob )
   int tmp___7 ;
   bool tmp___8 ;
   void const   *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  uint32_t const   *__cil_tmp9 ;
-  void const   *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  uint8_t *__cil_tmp15 ;
-  uint16_t *__cil_tmp16 ;
-  uint16_t __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  uint8_t *__cil_tmp23 ;
-  uint16_t *__cil_tmp24 ;
-  uint16_t __cil_tmp25 ;
-  int __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  uint8_t *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  uint8_t *__cil_tmp38 ;
+  uint32_t const   *__cil_tmp7 ;
+  void const   *__cil_tmp8 ;
+  uint8_t *__cil_tmp9 ;
+  uint16_t *__cil_tmp10 ;
+  uint16_t __cil_tmp11 ;
+  int __cil_tmp12 ;
+  uint8_t *__cil_tmp13 ;
+  uint16_t *__cil_tmp14 ;
+  uint16_t __cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  uint8_t *__cil_tmp19 ;
+  uint8_t *__cil_tmp20 ;
 
   {
   {
 #line 164
   __cil_tmp6 = (void const   *)oob;
 #line 164
-  __cil_tmp7 = 0 * 4UL;
+  __cil_tmp7 = & erased_pattern___0[0];
 #line 164
-  __cil_tmp8 = (unsigned long )(erased_pattern___0) + __cil_tmp7;
+  __cil_tmp8 = (void const   *)__cil_tmp7;
 #line 164
-  __cil_tmp9 = (uint32_t const   *)__cil_tmp8;
-#line 164
-  __cil_tmp10 = (void const   *)__cil_tmp9;
-#line 164
-  tmp___7 = memcmp(__cil_tmp6, __cil_tmp10, 16UL);
+  tmp___7 = memcmp(__cil_tmp6, __cil_tmp8, 16UL);
   }
 #line 164
   if (tmp___7) {
@@ -5779,48 +5610,32 @@ static int sm_read_lba(struct sm_oob *oob )
     return (-1);
   }
 #line 168
-  __cil_tmp11 = 0 * 1UL;
+  __cil_tmp9 = & oob->lba_copy2[0];
 #line 168
-  __cil_tmp12 = 11 + __cil_tmp11;
+  __cil_tmp10 = (uint16_t *)__cil_tmp9;
 #line 168
-  __cil_tmp13 = (unsigned long )oob;
+  __cil_tmp11 = *__cil_tmp10;
 #line 168
-  __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 168
-  __cil_tmp15 = (uint8_t *)__cil_tmp14;
+  __cil_tmp13 = & oob->lba_copy1[0];
 #line 168
-  __cil_tmp16 = (uint16_t *)__cil_tmp15;
+  __cil_tmp14 = (uint16_t *)__cil_tmp13;
 #line 168
-  __cil_tmp17 = *__cil_tmp16;
+  __cil_tmp15 = *__cil_tmp14;
 #line 168
-  __cil_tmp18 = (int )__cil_tmp17;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 168
-  __cil_tmp19 = 0 * 1UL;
+  __cil_tmp17 = __cil_tmp16 ^ __cil_tmp12;
 #line 168
-  __cil_tmp20 = 6 + __cil_tmp19;
-#line 168
-  __cil_tmp21 = (unsigned long )oob;
-#line 168
-  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 168
-  __cil_tmp23 = (uint8_t *)__cil_tmp22;
-#line 168
-  __cil_tmp24 = (uint16_t *)__cil_tmp23;
-#line 168
-  __cil_tmp25 = *__cil_tmp24;
-#line 168
-  __cil_tmp26 = (int )__cil_tmp25;
-#line 168
-  __cil_tmp27 = __cil_tmp26 ^ __cil_tmp18;
-#line 168
-  lba_test = (unsigned short )__cil_tmp27;
+  lba_test = (uint16_t )__cil_tmp17;
 #line 169
   if (lba_test) {
     {
 #line 169
-    __cil_tmp28 = (unsigned long )lba_test;
+    __cil_tmp18 = (unsigned long )lba_test;
 #line 169
-    tmp___8 = is_power_of_2(__cil_tmp28);
+    tmp___8 = is_power_of_2(__cil_tmp18);
     }
 #line 169
     if (tmp___8) {
@@ -5834,33 +5649,17 @@ static int sm_read_lba(struct sm_oob *oob )
   }
   {
 #line 173
-  __cil_tmp29 = 0 * 1UL;
+  __cil_tmp19 = & oob->lba_copy1[0];
 #line 173
-  __cil_tmp30 = 6 + __cil_tmp29;
-#line 173
-  __cil_tmp31 = (unsigned long )oob;
-#line 173
-  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 173
-  __cil_tmp33 = (uint8_t *)__cil_tmp32;
-#line 173
-  lba = sm_get_lba(__cil_tmp33);
+  lba = sm_get_lba(__cil_tmp19);
   }
 #line 175
   if (lba == -2) {
     {
 #line 176
-    __cil_tmp34 = 0 * 1UL;
+    __cil_tmp20 = & oob->lba_copy2[0];
 #line 176
-    __cil_tmp35 = 11 + __cil_tmp34;
-#line 176
-    __cil_tmp36 = (unsigned long )oob;
-#line 176
-    __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 176
-    __cil_tmp38 = (uint8_t *)__cil_tmp37;
-#line 176
-    lba = sm_get_lba(__cil_tmp38);
+    lba = sm_get_lba(__cil_tmp20);
     }
   } else {
 
@@ -5888,50 +5687,19 @@ static void sm_write_lba(struct sm_oob *oob , uint16_t lba )
   int __cil_tmp17 ;
   int __cil_tmp18 ;
   long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
   int __cil_tmp22 ;
   int __cil_tmp23 ;
   int __cil_tmp24 ;
   int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  uint8_t *__cil_tmp33 ;
-  uint16_t *__cil_tmp34 ;
-  uint16_t __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  uint8_t __cil_tmp41 ;
-  int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
+  int __cil_tmp26 ;
+  uint8_t *__cil_tmp27 ;
+  uint16_t *__cil_tmp28 ;
+  uint16_t __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
 
   {
   {
@@ -5976,119 +5744,57 @@ static void sm_write_lba(struct sm_oob *oob , uint16_t lba )
 #line 185
   __builtin_expect(__cil_tmp19, 0L);
 #line 187
-  __cil_tmp20 = 0 * 1UL;
+  __cil_tmp20 = (int )lba;
 #line 187
-  __cil_tmp21 = (unsigned long )(tmp___7) + __cil_tmp20;
+  __cil_tmp21 = __cil_tmp20 >> 7;
 #line 187
-  __cil_tmp22 = (int )lba;
+  __cil_tmp22 = __cil_tmp21 & 7;
 #line 187
-  __cil_tmp23 = __cil_tmp22 >> 7;
+  __cil_tmp23 = 16 | __cil_tmp22;
 #line 187
-  __cil_tmp24 = __cil_tmp23 & 7;
-#line 187
-  __cil_tmp25 = 16 | __cil_tmp24;
-#line 187
-  *((uint8_t *)__cil_tmp21) = (unsigned char )__cil_tmp25;
+  tmp___7[0] = (uint8_t )__cil_tmp23;
 #line 188
-  __cil_tmp26 = 1 * 1UL;
+  __cil_tmp24 = (int )lba;
 #line 188
-  __cil_tmp27 = (unsigned long )(tmp___7) + __cil_tmp26;
+  __cil_tmp25 = __cil_tmp24 << 1;
 #line 188
-  __cil_tmp28 = (int )lba;
+  __cil_tmp26 = __cil_tmp25 & 255;
 #line 188
-  __cil_tmp29 = __cil_tmp28 << 1;
-#line 188
-  __cil_tmp30 = __cil_tmp29 & 255;
-#line 188
-  *((uint8_t *)__cil_tmp27) = (unsigned char )__cil_tmp30;
+  tmp___7[1] = (uint8_t )__cil_tmp26;
 #line 190
-  __cil_tmp31 = 0 * 1UL;
+  __cil_tmp27 = & tmp___7[0];
 #line 190
-  __cil_tmp32 = (unsigned long )(tmp___7) + __cil_tmp31;
+  __cil_tmp28 = (uint16_t *)__cil_tmp27;
 #line 190
-  __cil_tmp33 = (uint8_t *)__cil_tmp32;
+  __cil_tmp29 = *__cil_tmp28;
 #line 190
-  __cil_tmp34 = (uint16_t *)__cil_tmp33;
+  __cil_tmp30 = (unsigned int )__cil_tmp29;
 #line 190
-  __cil_tmp35 = *__cil_tmp34;
-#line 190
-  __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 190
-  tmp___9 = __arch_hweight16(__cil_tmp36);
+  tmp___9 = __arch_hweight16(__cil_tmp30);
   }
 #line 190
   if (tmp___9 & 1U) {
 #line 191
-    __cil_tmp37 = 1 * 1UL;
+    __cil_tmp31 = (int )tmp___7[1];
 #line 191
-    __cil_tmp38 = (unsigned long )(tmp___7) + __cil_tmp37;
+    __cil_tmp32 = __cil_tmp31 | 1;
 #line 191
-    __cil_tmp39 = 1 * 1UL;
-#line 191
-    __cil_tmp40 = (unsigned long )(tmp___7) + __cil_tmp39;
-#line 191
-    __cil_tmp41 = *((uint8_t *)__cil_tmp40);
-#line 191
-    __cil_tmp42 = (int )__cil_tmp41;
-#line 191
-    __cil_tmp43 = __cil_tmp42 | 1;
-#line 191
-    *((uint8_t *)__cil_tmp38) = (unsigned char )__cil_tmp43;
+    tmp___7[1] = (uint8_t )__cil_tmp32;
   } else {
 
   }
 #line 193
-  __cil_tmp44 = 0 * 1UL;
+  tmp___10 = tmp___7[0];
 #line 193
-  __cil_tmp45 = (unsigned long )(tmp___7) + __cil_tmp44;
+  oob->lba_copy2[0] = tmp___10;
 #line 193
-  tmp___10 = *((uint8_t *)__cil_tmp45);
-#line 193
-  __cil_tmp46 = 0 * 1UL;
-#line 193
-  __cil_tmp47 = 11 + __cil_tmp46;
-#line 193
-  __cil_tmp48 = (unsigned long )oob;
-#line 193
-  __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
-#line 193
-  *((uint8_t *)__cil_tmp49) = tmp___10;
-#line 193
-  __cil_tmp50 = 0 * 1UL;
-#line 193
-  __cil_tmp51 = 6 + __cil_tmp50;
-#line 193
-  __cil_tmp52 = (unsigned long )oob;
-#line 193
-  __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
-#line 193
-  *((uint8_t *)__cil_tmp53) = tmp___10;
+  oob->lba_copy1[0] = tmp___10;
 #line 194
-  __cil_tmp54 = 1 * 1UL;
+  tmp___11 = tmp___7[1];
 #line 194
-  __cil_tmp55 = (unsigned long )(tmp___7) + __cil_tmp54;
+  oob->lba_copy2[1] = tmp___11;
 #line 194
-  tmp___11 = *((uint8_t *)__cil_tmp55);
-#line 194
-  __cil_tmp56 = 1 * 1UL;
-#line 194
-  __cil_tmp57 = 11 + __cil_tmp56;
-#line 194
-  __cil_tmp58 = (unsigned long )oob;
-#line 194
-  __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 194
-  *((uint8_t *)__cil_tmp59) = tmp___11;
-#line 194
-  __cil_tmp60 = 1 * 1UL;
-#line 194
-  __cil_tmp61 = 6 + __cil_tmp60;
-#line 194
-  __cil_tmp62 = (unsigned long )oob;
-#line 194
-  __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
-#line 194
-  *((uint8_t *)__cil_tmp63) = tmp___11;
+  oob->lba_copy1[1] = tmp___11;
 #line 195
   return;
 }
@@ -6114,50 +5820,42 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
   int __cil_tmp21 ;
   int __cil_tmp22 ;
   long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
   int __cil_tmp26 ;
-  int __cil_tmp27 ;
+  long __cil_tmp27 ;
   int __cil_tmp28 ;
-  long __cil_tmp29 ;
+  int __cil_tmp29 ;
   int __cil_tmp30 ;
   int __cil_tmp31 ;
-  int __cil_tmp32 ;
+  long __cil_tmp32 ;
   int __cil_tmp33 ;
-  long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
   int __cil_tmp37 ;
-  int __cil_tmp38 ;
+  long __cil_tmp38 ;
   int __cil_tmp39 ;
   int __cil_tmp40 ;
   int __cil_tmp41 ;
-  long __cil_tmp42 ;
-  int __cil_tmp43 ;
+  int __cil_tmp42 ;
+  long __cil_tmp43 ;
   int __cil_tmp44 ;
   int __cil_tmp45 ;
   int __cil_tmp46 ;
-  long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  long __cil_tmp49 ;
   int __cil_tmp50 ;
   int __cil_tmp51 ;
   int __cil_tmp52 ;
   int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  long __cil_tmp55 ;
+  long __cil_tmp54 ;
+  int __cil_tmp55 ;
   int __cil_tmp56 ;
   int __cil_tmp57 ;
   int __cil_tmp58 ;
   int __cil_tmp59 ;
-  long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  int __cil_tmp67 ;
 
   {
   {
@@ -6207,13 +5905,9 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
   } else {
     {
 #line 202
-    __cil_tmp24 = (unsigned long )ftl;
+    __cil_tmp24 = ftl->zone_count;
 #line 202
-    __cil_tmp25 = __cil_tmp24 + 192;
-#line 202
-    __cil_tmp26 = *((int *)__cil_tmp25);
-#line 202
-    if (zone >= __cil_tmp26) {
+    if (zone >= __cil_tmp24) {
 #line 202
       tmp___8 = 1;
     } else {
@@ -6226,150 +5920,138 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
 #line 202
   __ret_warn_on___0 = tmp___8;
 #line 202
-  __cil_tmp27 = ! __ret_warn_on___0;
+  __cil_tmp25 = ! __ret_warn_on___0;
 #line 202
-  __cil_tmp28 = ! __cil_tmp27;
+  __cil_tmp26 = ! __cil_tmp25;
 #line 202
-  __cil_tmp29 = (long )__cil_tmp28;
+  __cil_tmp27 = (long )__cil_tmp26;
 #line 202
-  tmp___9 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___9 = __builtin_expect(__cil_tmp27, 0L);
   }
 #line 202
   if (tmp___9) {
     {
 #line 202
-    __cil_tmp30 = (int const   )202;
+    __cil_tmp28 = (int const   )202;
 #line 202
-    __cil_tmp31 = (int )__cil_tmp30;
+    __cil_tmp29 = (int )__cil_tmp28;
 #line 202
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                       __cil_tmp31);
+                       __cil_tmp29);
     }
   } else {
 
   }
   {
 #line 202
-  __cil_tmp32 = ! __ret_warn_on___0;
+  __cil_tmp30 = ! __ret_warn_on___0;
 #line 202
-  __cil_tmp33 = ! __cil_tmp32;
+  __cil_tmp31 = ! __cil_tmp30;
 #line 202
-  __cil_tmp34 = (long )__cil_tmp33;
+  __cil_tmp32 = (long )__cil_tmp31;
 #line 202
-  __builtin_expect(__cil_tmp34, 0L);
+  __builtin_expect(__cil_tmp32, 0L);
 #line 203
-  __cil_tmp35 = (unsigned long )ftl;
+  __cil_tmp33 = ftl->zone_size;
 #line 203
-  __cil_tmp36 = __cil_tmp35 + 188;
+  __cil_tmp34 = block >= __cil_tmp33;
 #line 203
-  __cil_tmp37 = *((int *)__cil_tmp36);
+  __cil_tmp35 = ! __cil_tmp34;
 #line 203
-  __cil_tmp38 = block >= __cil_tmp37;
+  __ret_warn_on___1 = ! __cil_tmp35;
 #line 203
-  __cil_tmp39 = ! __cil_tmp38;
+  __cil_tmp36 = ! __ret_warn_on___1;
 #line 203
-  __ret_warn_on___1 = ! __cil_tmp39;
+  __cil_tmp37 = ! __cil_tmp36;
 #line 203
-  __cil_tmp40 = ! __ret_warn_on___1;
+  __cil_tmp38 = (long )__cil_tmp37;
 #line 203
-  __cil_tmp41 = ! __cil_tmp40;
-#line 203
-  __cil_tmp42 = (long )__cil_tmp41;
-#line 203
-  tmp___10 = __builtin_expect(__cil_tmp42, 0L);
+  tmp___10 = __builtin_expect(__cil_tmp38, 0L);
   }
 #line 203
   if (tmp___10) {
     {
 #line 203
-    __cil_tmp43 = (int const   )203;
+    __cil_tmp39 = (int const   )203;
 #line 203
-    __cil_tmp44 = (int )__cil_tmp43;
+    __cil_tmp40 = (int )__cil_tmp39;
 #line 203
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                       __cil_tmp44);
+                       __cil_tmp40);
     }
   } else {
 
   }
   {
 #line 203
-  __cil_tmp45 = ! __ret_warn_on___1;
+  __cil_tmp41 = ! __ret_warn_on___1;
 #line 203
+  __cil_tmp42 = ! __cil_tmp41;
+#line 203
+  __cil_tmp43 = (long )__cil_tmp42;
+#line 203
+  __builtin_expect(__cil_tmp43, 0L);
+#line 204
+  __cil_tmp44 = ftl->block_size;
+#line 204
+  __cil_tmp45 = boffset >= __cil_tmp44;
+#line 204
   __cil_tmp46 = ! __cil_tmp45;
-#line 203
-  __cil_tmp47 = (long )__cil_tmp46;
-#line 203
-  __builtin_expect(__cil_tmp47, 0L);
 #line 204
-  __cil_tmp48 = (unsigned long )ftl;
+  __ret_warn_on___2 = ! __cil_tmp46;
 #line 204
-  __cil_tmp49 = __cil_tmp48 + 184;
+  __cil_tmp47 = ! __ret_warn_on___2;
 #line 204
-  __cil_tmp50 = *((int *)__cil_tmp49);
+  __cil_tmp48 = ! __cil_tmp47;
 #line 204
-  __cil_tmp51 = boffset >= __cil_tmp50;
+  __cil_tmp49 = (long )__cil_tmp48;
 #line 204
-  __cil_tmp52 = ! __cil_tmp51;
-#line 204
-  __ret_warn_on___2 = ! __cil_tmp52;
-#line 204
-  __cil_tmp53 = ! __ret_warn_on___2;
-#line 204
-  __cil_tmp54 = ! __cil_tmp53;
-#line 204
-  __cil_tmp55 = (long )__cil_tmp54;
-#line 204
-  tmp___11 = __builtin_expect(__cil_tmp55, 0L);
+  tmp___11 = __builtin_expect(__cil_tmp49, 0L);
   }
 #line 204
   if (tmp___11) {
     {
 #line 204
-    __cil_tmp56 = (int const   )204;
+    __cil_tmp50 = (int const   )204;
 #line 204
-    __cil_tmp57 = (int )__cil_tmp56;
+    __cil_tmp51 = (int )__cil_tmp50;
 #line 204
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                       __cil_tmp57);
+                       __cil_tmp51);
     }
   } else {
 
   }
   {
 #line 204
-  __cil_tmp58 = ! __ret_warn_on___2;
+  __cil_tmp52 = ! __ret_warn_on___2;
 #line 204
-  __cil_tmp59 = ! __cil_tmp58;
+  __cil_tmp53 = ! __cil_tmp52;
 #line 204
-  __cil_tmp60 = (long )__cil_tmp59;
+  __cil_tmp54 = (long )__cil_tmp53;
 #line 204
-  __builtin_expect(__cil_tmp60, 0L);
+  __builtin_expect(__cil_tmp54, 0L);
   }
 #line 206
   if (block == -1) {
 #line 207
-    return (-1LL);
+    return ((loff_t )-1);
   } else {
 
   }
   {
 #line 209
-  __cil_tmp61 = (unsigned long )ftl;
+  __cil_tmp55 = ftl->block_size;
 #line 209
-  __cil_tmp62 = __cil_tmp61 + 184;
+  __cil_tmp56 = zone * 1024;
 #line 209
-  __cil_tmp63 = *((int *)__cil_tmp62);
+  __cil_tmp57 = __cil_tmp56 + block;
 #line 209
-  __cil_tmp64 = zone * 1024;
+  __cil_tmp58 = __cil_tmp57 * __cil_tmp55;
 #line 209
-  __cil_tmp65 = __cil_tmp64 + block;
+  __cil_tmp59 = __cil_tmp58 + boffset;
 #line 209
-  __cil_tmp66 = __cil_tmp65 * __cil_tmp63;
-#line 209
-  __cil_tmp67 = __cil_tmp66 + boffset;
-#line 209
-  return ((long long )__cil_tmp67);
+  return ((loff_t )__cil_tmp59);
   }
 }
 }
@@ -6380,93 +6062,75 @@ static void sm_break_offset(struct sm_ftl *ftl , loff_t offset , int *zone , int
   uint32_t __rem ;
   uint32_t __base___0 ;
   uint32_t __rem___0 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
+  int __cil_tmp10 ;
+  unsigned long long __cil_tmp11 ;
+  uint64_t __cil_tmp12 ;
   unsigned long long __cil_tmp13 ;
-  unsigned long long __cil_tmp14 ;
-  unsigned long long __cil_tmp15 ;
-  unsigned long long __cil_tmp16 ;
-  unsigned long long __cil_tmp17 ;
+  uint64_t __cil_tmp14 ;
+  uint64_t __cil_tmp15 ;
+  uint64_t __cil_tmp16 ;
+  int __cil_tmp17 ;
   unsigned long long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long long __cil_tmp22 ;
-  unsigned long long __cil_tmp23 ;
-  unsigned long long __cil_tmp24 ;
-  unsigned long long __cil_tmp25 ;
-  unsigned long long __cil_tmp26 ;
-  unsigned long long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  int __cil_tmp30 ;
-  long long __cil_tmp31 ;
+  uint64_t __cil_tmp19 ;
+  unsigned long long __cil_tmp20 ;
+  uint64_t __cil_tmp21 ;
+  uint64_t __cil_tmp22 ;
+  uint64_t __cil_tmp23 ;
+  int __cil_tmp24 ;
+  loff_t __cil_tmp25 ;
 
   {
 #line 216
-  __cil_tmp10 = (unsigned long )ftl;
+  __cil_tmp10 = ftl->block_size;
 #line 216
-  __cil_tmp11 = __cil_tmp10 + 184;
+  __base = (uint32_t )__cil_tmp10;
 #line 216
-  __cil_tmp12 = *((int *)__cil_tmp11);
+  __cil_tmp11 = (unsigned long long )__base;
 #line 216
-  __base = (unsigned int )__cil_tmp12;
+  __cil_tmp12 = (uint64_t )offset;
 #line 216
-  __cil_tmp13 = (unsigned long long )__base;
+  __cil_tmp13 = __cil_tmp12 % __cil_tmp11;
 #line 216
-  __cil_tmp14 = (unsigned long long )offset;
+  __rem = (uint32_t )__cil_tmp13;
 #line 216
-  __cil_tmp15 = __cil_tmp14 % __cil_tmp13;
+  __cil_tmp14 = (uint64_t )__base;
 #line 216
-  __rem = (unsigned int )__cil_tmp15;
+  __cil_tmp15 = (uint64_t )offset;
 #line 216
-  __cil_tmp16 = (unsigned long long )__base;
+  __cil_tmp16 = __cil_tmp15 / __cil_tmp14;
 #line 216
-  __cil_tmp17 = (unsigned long long )offset;
-#line 216
-  __cil_tmp18 = __cil_tmp17 / __cil_tmp16;
-#line 216
-  offset = (long long )__cil_tmp18;
+  offset = (loff_t )__cil_tmp16;
 #line 216
   *boffset = (int )__rem;
 #line 217
-  __cil_tmp19 = (unsigned long )ftl;
+  __cil_tmp17 = ftl->max_lba;
 #line 217
-  __cil_tmp20 = __cil_tmp19 + 196;
+  __base___0 = (uint32_t )__cil_tmp17;
 #line 217
-  __cil_tmp21 = *((int *)__cil_tmp20);
+  __cil_tmp18 = (unsigned long long )__base___0;
 #line 217
-  __base___0 = (unsigned int )__cil_tmp21;
+  __cil_tmp19 = (uint64_t )offset;
 #line 217
-  __cil_tmp22 = (unsigned long long )__base___0;
+  __cil_tmp20 = __cil_tmp19 % __cil_tmp18;
 #line 217
-  __cil_tmp23 = (unsigned long long )offset;
+  __rem___0 = (uint32_t )__cil_tmp20;
 #line 217
-  __cil_tmp24 = __cil_tmp23 % __cil_tmp22;
+  __cil_tmp21 = (uint64_t )__base___0;
 #line 217
-  __rem___0 = (unsigned int )__cil_tmp24;
+  __cil_tmp22 = (uint64_t )offset;
 #line 217
-  __cil_tmp25 = (unsigned long long )__base___0;
+  __cil_tmp23 = __cil_tmp22 / __cil_tmp21;
 #line 217
-  __cil_tmp26 = (unsigned long long )offset;
-#line 217
-  __cil_tmp27 = __cil_tmp26 / __cil_tmp25;
-#line 217
-  offset = (long long )__cil_tmp27;
+  offset = (loff_t )__cil_tmp23;
 #line 217
   *block = (int )__rem___0;
   {
 #line 218
-  __cil_tmp28 = (unsigned long )ftl;
+  __cil_tmp24 = ftl->zone_count;
 #line 218
-  __cil_tmp29 = __cil_tmp28 + 192;
+  __cil_tmp25 = (loff_t )__cil_tmp24;
 #line 218
-  __cil_tmp30 = *((int *)__cil_tmp29);
-#line 218
-  __cil_tmp31 = (long long )__cil_tmp30;
-#line 218
-  if (offset >= __cil_tmp31) {
+  if (offset >= __cil_tmp25) {
 #line 218
     *zone = -1;
   } else {
@@ -6484,60 +6148,28 @@ static int sm_correct_sector(uint8_t *buffer , struct sm_oob *oob )
   int tmp___7 ;
   int tmp___8 ;
   u_char const   *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  uint8_t *__cil_tmp7 ;
+  uint8_t *__cil_tmp8 ;
   uint8_t *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  u_char const   *__cil_tmp10 ;
+  uint8_t *__cil_tmp11 ;
   uint8_t *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  uint8_t *__cil_tmp17 ;
-  u_char const   *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  uint8_t *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  uint8_t *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  uint8_t *__cil_tmp29 ;
+  uint8_t *__cil_tmp13 ;
 
   {
   {
 #line 227
   __cil_tmp6 = (u_char const   *)buffer;
 #line 227
-  __cil_tmp7 = 0 * 1UL;
+  __cil_tmp7 = & ecc[0];
 #line 227
-  __cil_tmp8 = (unsigned long )(ecc) + __cil_tmp7;
-#line 227
-  __cil_tmp9 = (uint8_t *)__cil_tmp8;
-#line 227
-  __nand_calculate_ecc(__cil_tmp6, 256U, __cil_tmp9);
+  __nand_calculate_ecc(__cil_tmp6, 256U, __cil_tmp7);
 #line 228
-  __cil_tmp10 = 0 * 1UL;
+  __cil_tmp8 = & ecc[0];
 #line 228
-  __cil_tmp11 = (unsigned long )(ecc) + __cil_tmp10;
+  __cil_tmp9 = & oob->ecc1[0];
 #line 228
-  __cil_tmp12 = (uint8_t *)__cil_tmp11;
-#line 228
-  __cil_tmp13 = 0 * 1UL;
-#line 228
-  __cil_tmp14 = 13 + __cil_tmp13;
-#line 228
-  __cil_tmp15 = (unsigned long )oob;
-#line 228
-  __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 228
-  __cil_tmp17 = (uint8_t *)__cil_tmp16;
-#line 228
-  tmp___7 = __nand_correct_data(buffer, __cil_tmp12, __cil_tmp17, 256U);
+  tmp___7 = __nand_correct_data(buffer, __cil_tmp8, __cil_tmp9, 256U);
   }
 #line 228
   if (tmp___7 < 0) {
@@ -6550,33 +6182,17 @@ static int sm_correct_sector(uint8_t *buffer , struct sm_oob *oob )
 #line 231
   buffer = buffer + 256;
 #line 233
-  __cil_tmp18 = (u_char const   *)buffer;
+  __cil_tmp10 = (u_char const   *)buffer;
 #line 233
-  __cil_tmp19 = 0 * 1UL;
+  __cil_tmp11 = & ecc[0];
 #line 233
-  __cil_tmp20 = (unsigned long )(ecc) + __cil_tmp19;
-#line 233
-  __cil_tmp21 = (uint8_t *)__cil_tmp20;
-#line 233
-  __nand_calculate_ecc(__cil_tmp18, 256U, __cil_tmp21);
+  __nand_calculate_ecc(__cil_tmp10, 256U, __cil_tmp11);
 #line 234
-  __cil_tmp22 = 0 * 1UL;
+  __cil_tmp12 = & ecc[0];
 #line 234
-  __cil_tmp23 = (unsigned long )(ecc) + __cil_tmp22;
+  __cil_tmp13 = & oob->ecc2[0];
 #line 234
-  __cil_tmp24 = (uint8_t *)__cil_tmp23;
-#line 234
-  __cil_tmp25 = 0 * 1UL;
-#line 234
-  __cil_tmp26 = 8 + __cil_tmp25;
-#line 234
-  __cil_tmp27 = (unsigned long )oob;
-#line 234
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 234
-  __cil_tmp29 = (uint8_t *)__cil_tmp28;
-#line 234
-  tmp___8 = __nand_correct_data(buffer, __cil_tmp24, __cil_tmp29, 256U);
+  tmp___8 = __nand_correct_data(buffer, __cil_tmp12, __cil_tmp13, 256U);
   }
 #line 234
   if (tmp___8 < 0) {
@@ -6609,69 +6225,40 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   int tmp___14 ;
   int tmp___15 ;
   struct mtd_blktrans_dev *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  void *__cil_tmp24 ;
+  size_t __cil_tmp25 ;
   void *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct mtd_oob_ops *__cil_tmp29 ;
-  struct mtd_oob_ops *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int (*__cil_tmp29)(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops *ops ) ;
+  uint32_t __cil_tmp30 ;
+  uint32_t __cil_tmp31 ;
+  uint32_t __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  void *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  long __cil_tmp38 ;
   int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
   int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int (*__cil_tmp45)(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops *ops ) ;
-  int *__cil_tmp46 ;
-  uint32_t __cil_tmp47 ;
-  uint32_t __cil_tmp48 ;
-  uint32_t __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  size_t __cil_tmp52 ;
-  int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  long __cil_tmp57 ;
-  int __cil_tmp58 ;
-  int __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  size_t __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  int __cil_tmp71 ;
-  long __cil_tmp72 ;
-  int *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  int *__cil_tmp76 ;
+  long __cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  long __cil_tmp46 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  long __cil_tmp51 ;
 
   {
 #line 244
-  __cil_tmp23 = *((struct mtd_blktrans_dev **)ftl);
+  __cil_tmp23 = ftl->trans;
 #line 244
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 244
-  __cil_tmp25 = __cil_tmp24 + 24;
-#line 244
-  mtd = *((struct mtd_info **)__cil_tmp25);
+  mtd = __cil_tmp23->mtd;
 #line 247
   ret = -5;
 #line 248
@@ -6680,9 +6267,11 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   if (block == -1) {
     {
 #line 252
-    __cil_tmp26 = (void *)buffer;
+    __cil_tmp24 = (void *)buffer;
 #line 252
-    memset(__cil_tmp26, 255, 512UL);
+    __cil_tmp25 = (size_t )512;
+#line 252
+    memset(__cil_tmp24, 255, __cil_tmp25);
     }
 #line 253
     return (0);
@@ -6696,46 +6285,26 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   } else {
 
   }
-  {
 #line 260
-  __cil_tmp27 = (unsigned long )ftl;
+  if (ftl->smallpagenand) {
 #line 260
-  __cil_tmp28 = __cil_tmp27 + 200;
-#line 260
-  if (*((int *)__cil_tmp28)) {
-#line 260
-    __cil_tmp29 = & ops;
-#line 260
-    *((mtd_oob_mode_t *)__cil_tmp29) = (enum __anonenum_mtd_oob_mode_t_225 )2;
+    ops.mode = (mtd_oob_mode_t )2;
   } else {
 #line 260
-    __cil_tmp30 = & ops;
-#line 260
-    *((mtd_oob_mode_t *)__cil_tmp30) = (enum __anonenum_mtd_oob_mode_t_225 )0;
-  }
+    ops.mode = (mtd_oob_mode_t )0;
   }
 #line 261
-  __cil_tmp31 = (unsigned long )(& ops) + 64;
-#line 261
-  *((uint32_t *)__cil_tmp31) = 0U;
+  ops.ooboffs = (uint32_t )0;
 #line 262
-  __cil_tmp32 = (unsigned long )(& ops) + 48;
-#line 262
-  *((size_t *)__cil_tmp32) = 16UL;
+  ops.ooblen = (size_t )16;
 #line 263
-  __cil_tmp33 = (unsigned long )(& ops) + 80;
+  __cil_tmp26 = (void *)oob;
 #line 263
-  __cil_tmp34 = (void *)oob;
-#line 263
-  *((uint8_t **)__cil_tmp33) = (uint8_t *)__cil_tmp34;
+  ops.oobbuf = (uint8_t *)__cil_tmp26;
 #line 264
-  __cil_tmp35 = (unsigned long )(& ops) + 32;
-#line 264
-  *((size_t *)__cil_tmp35) = 512UL;
+  ops.len = (size_t )512;
 #line 265
-  __cil_tmp36 = (unsigned long )(& ops) + 72;
-#line 265
-  *((uint8_t **)__cil_tmp36) = buffer;
+  ops.datbuf = buffer;
   again: 
 #line 268
   tmp___8 = try;
@@ -6747,22 +6316,14 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
     if (zone == 0) {
       {
 #line 271
-      __cil_tmp37 = (unsigned long )ftl;
+      __cil_tmp27 = ftl->cis_block;
 #line 271
-      __cil_tmp38 = __cil_tmp37 + 208;
-#line 271
-      __cil_tmp39 = *((int *)__cil_tmp38);
-#line 271
-      if (block == __cil_tmp39) {
+      if (block == __cil_tmp27) {
         {
 #line 271
-        __cil_tmp40 = (unsigned long )ftl;
+        __cil_tmp28 = ftl->cis_boffset;
 #line 271
-        __cil_tmp41 = __cil_tmp40 + 212;
-#line 271
-        __cil_tmp42 = *((int *)__cil_tmp41);
-#line 271
-        if (boffset == __cil_tmp42) {
+        if (boffset == __cil_tmp28) {
 #line 273
           return (ret);
         } else {
@@ -6800,13 +6361,9 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
 #line 282
   tmp___9 = sm_mkoffset(ftl, zone, block, boffset);
 #line 282
-  __cil_tmp43 = (unsigned long )mtd;
+  __cil_tmp29 = mtd->read_oob;
 #line 282
-  __cil_tmp44 = __cil_tmp43 + 160;
-#line 282
-  __cil_tmp45 = *((int (**)(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops *ops ))__cil_tmp44);
-#line 282
-  ret = (*__cil_tmp45)(mtd, tmp___9, & ops);
+  ret = (*__cil_tmp29)(mtd, tmp___9, & ops);
   }
 #line 285
   if (ret != 0) {
@@ -6814,11 +6371,8 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
     if (ret != -117) {
 #line 285
       if (ret != -74) {
-        {
 #line 286
-        __cil_tmp46 = & debug;
-#line 286
-        if (*__cil_tmp46) {
+        if (debug) {
           {
 #line 286
           printk("<7>sm_ftl: read of block %d at zone %d, failed due to error (%d)\n",
@@ -6827,7 +6381,7 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
         } else {
 
         }
-        }
+#line 288
         goto again;
       } else {
 
@@ -6840,23 +6394,24 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   }
   {
 #line 292
-  __cil_tmp47 = *((uint32_t *)oob);
+  __cil_tmp30 = oob->reserved;
 #line 292
-  if (__cil_tmp47 != 4294967295U) {
+  if (__cil_tmp30 != 4294967295U) {
     {
 #line 292
-    __cil_tmp48 = *((uint32_t *)oob);
+    __cil_tmp31 = oob->reserved;
 #line 292
-    __cil_tmp49 = ~ __cil_tmp48;
+    __cil_tmp32 = ~ __cil_tmp31;
 #line 292
-    __cil_tmp50 = (unsigned long )__cil_tmp49;
+    __cil_tmp33 = (unsigned long )__cil_tmp32;
 #line 292
-    tmp___10 = is_power_of_2(__cil_tmp50);
+    tmp___10 = is_power_of_2(__cil_tmp33);
     }
 #line 292
     if (tmp___10) {
 
     } else {
+#line 293
       goto again;
     }
   } else {
@@ -6865,63 +6420,53 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   }
   {
 #line 296
-  __cil_tmp51 = (unsigned long )(& ops) + 56;
+  __cil_tmp34 = ops.oobretlen != 16UL;
 #line 296
-  __cil_tmp52 = *((size_t *)__cil_tmp51);
+  __cil_tmp35 = ! __cil_tmp34;
 #line 296
-  __cil_tmp53 = __cil_tmp52 != 16UL;
+  __ret_warn_on = ! __cil_tmp35;
 #line 296
-  __cil_tmp54 = ! __cil_tmp53;
+  __cil_tmp36 = ! __ret_warn_on;
 #line 296
-  __ret_warn_on = ! __cil_tmp54;
+  __cil_tmp37 = ! __cil_tmp36;
 #line 296
-  __cil_tmp55 = ! __ret_warn_on;
+  __cil_tmp38 = (long )__cil_tmp37;
 #line 296
-  __cil_tmp56 = ! __cil_tmp55;
-#line 296
-  __cil_tmp57 = (long )__cil_tmp56;
-#line 296
-  tmp___11 = __builtin_expect(__cil_tmp57, 0L);
+  tmp___11 = __builtin_expect(__cil_tmp38, 0L);
   }
 #line 296
   if (tmp___11) {
     {
 #line 296
-    __cil_tmp58 = (int const   )296;
+    __cil_tmp39 = (int const   )296;
 #line 296
-    __cil_tmp59 = (int )__cil_tmp58;
+    __cil_tmp40 = (int )__cil_tmp39;
 #line 296
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                       __cil_tmp59);
+                       __cil_tmp40);
     }
   } else {
 
   }
   {
 #line 296
-  __cil_tmp60 = ! __ret_warn_on;
+  __cil_tmp41 = ! __ret_warn_on;
 #line 296
-  __cil_tmp61 = ! __cil_tmp60;
+  __cil_tmp42 = ! __cil_tmp41;
 #line 296
-  __cil_tmp62 = (long )__cil_tmp61;
+  __cil_tmp43 = (long )__cil_tmp42;
 #line 296
-  __builtin_expect(__cil_tmp62, 0L);
+  __builtin_expect(__cil_tmp43, 0L);
   }
 #line 297
   if (buffer) {
-    {
 #line 297
-    __cil_tmp63 = (unsigned long )(& ops) + 40;
-#line 297
-    __cil_tmp64 = *((size_t *)__cil_tmp63);
-#line 297
-    if (__cil_tmp64 != 512UL) {
+    if (ops.retlen != 512UL) {
 #line 297
       tmp___12 = 1;
     } else {
 #line 297
       tmp___12 = 0;
-    }
     }
   } else {
 #line 297
@@ -6931,37 +6476,37 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
 #line 297
   __ret_warn_on___0 = tmp___12;
 #line 297
-  __cil_tmp65 = ! __ret_warn_on___0;
+  __cil_tmp44 = ! __ret_warn_on___0;
 #line 297
-  __cil_tmp66 = ! __cil_tmp65;
+  __cil_tmp45 = ! __cil_tmp44;
 #line 297
-  __cil_tmp67 = (long )__cil_tmp66;
+  __cil_tmp46 = (long )__cil_tmp45;
 #line 297
-  tmp___13 = __builtin_expect(__cil_tmp67, 0L);
+  tmp___13 = __builtin_expect(__cil_tmp46, 0L);
   }
 #line 297
   if (tmp___13) {
     {
 #line 297
-    __cil_tmp68 = (int const   )297;
+    __cil_tmp47 = (int const   )297;
 #line 297
-    __cil_tmp69 = (int )__cil_tmp68;
+    __cil_tmp48 = (int )__cil_tmp47;
 #line 297
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                       __cil_tmp69);
+                       __cil_tmp48);
     }
   } else {
 
   }
   {
 #line 297
-  __cil_tmp70 = ! __ret_warn_on___0;
+  __cil_tmp49 = ! __ret_warn_on___0;
 #line 297
-  __cil_tmp71 = ! __cil_tmp70;
+  __cil_tmp50 = ! __cil_tmp49;
 #line 297
-  __cil_tmp72 = (long )__cil_tmp71;
+  __cil_tmp51 = (long )__cil_tmp50;
 #line 297
-  __builtin_expect(__cil_tmp72, 0L);
+  __builtin_expect(__cil_tmp51, 0L);
   }
 #line 299
   if (! buffer) {
@@ -6978,11 +6523,8 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   if (tmp___14) {
 
   } else {
-    {
 #line 304
-    __cil_tmp73 = & debug;
-#line 304
-    if (*__cil_tmp73) {
+    if (debug) {
       {
 #line 304
       printk("<7>sm_ftl: read of block %d at zone %d, failed because it is marked as bad\n",
@@ -6991,49 +6533,40 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
     } else {
 
     }
-    }
+#line 306
     goto again;
   }
 #line 310
   if (ret == -74) {
+#line 310
     goto _L;
-  } else {
+  } else
+#line 310
+  if (ftl->smallpagenand) {
     {
 #line 310
-    __cil_tmp74 = (unsigned long )ftl;
+    tmp___15 = sm_correct_sector(buffer, oob);
+    }
 #line 310
-    __cil_tmp75 = __cil_tmp74 + 200;
-#line 310
-    if (*((int *)__cil_tmp75)) {
-      {
-#line 310
-      tmp___15 = sm_correct_sector(buffer, oob);
-      }
-#line 310
-      if (tmp___15) {
-        _L: 
+    if (tmp___15) {
+      _L: 
+#line 313
+      if (debug) {
         {
 #line 313
-        __cil_tmp76 = & debug;
-#line 313
-        if (*__cil_tmp76) {
-          {
-#line 313
-          printk("<7>sm_ftl: read of block %d at zone %d, failed due to ECC error\n",
-                 block, zone);
-          }
-        } else {
-
+        printk("<7>sm_ftl: read of block %d at zone %d, failed due to ECC error\n",
+               block, zone);
         }
-        }
-        goto again;
       } else {
 
       }
+#line 315
+      goto again;
     } else {
 
     }
-    }
+  } else {
+
   }
 #line 318
   return (0);
@@ -7053,92 +6586,59 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
   int tmp___10 ;
   long tmp___11 ;
   struct mtd_blktrans_dev *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  bool __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  bool __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  long __cil_tmp21 ;
+  int __cil_tmp22 ;
+  void *__cil_tmp23 ;
+  int (*__cil_tmp24)(struct mtd_info *mtd , loff_t to , struct mtd_oob_ops *ops ) ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
   int __cil_tmp28 ;
-  int *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct mtd_oob_ops *__cil_tmp34 ;
-  struct mtd_oob_ops *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  void *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  int (*__cil_tmp44)(struct mtd_info *mtd , loff_t to , struct mtd_oob_ops *ops ) ;
-  int *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  size_t __cil_tmp47 ;
-  int __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  long __cil_tmp52 ;
-  int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  size_t __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  long __cil_tmp62 ;
-  int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  long __cil_tmp67 ;
+  long __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  long __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  long __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  long __cil_tmp42 ;
 
   {
 #line 327
-  __cil_tmp17 = *((struct mtd_blktrans_dev **)ftl);
+  __cil_tmp17 = ftl->trans;
 #line 327
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 327
-  __cil_tmp19 = __cil_tmp18 + 24;
-#line 327
-  mtd = *((struct mtd_info **)__cil_tmp19);
+  mtd = __cil_tmp17->mtd;
   {
 #line 330
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 330
-    __cil_tmp20 = (unsigned long )ftl;
+    __cil_tmp18 = ftl->readonly;
 #line 330
-    __cil_tmp21 = __cil_tmp20 + 204;
+    __cil_tmp19 = ! __cil_tmp18;
 #line 330
-    __cil_tmp22 = *((bool *)__cil_tmp21);
+    __cil_tmp20 = ! __cil_tmp19;
 #line 330
-    __cil_tmp23 = ! __cil_tmp22;
+    __cil_tmp21 = (long )__cil_tmp20;
 #line 330
-    __cil_tmp24 = ! __cil_tmp23;
-#line 330
-    __cil_tmp25 = (long )__cil_tmp24;
-#line 330
-    tmp___7 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp21, 0L);
     }
 #line 330
     if (tmp___7) {
       {
 #line 330
       while (1) {
-        while_4_continue: /* CIL Label */ ;
+        while_continue___0: /* CIL Label */ ;
 #line 330
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
@@ -7150,24 +6650,26 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
         {
 #line 330
         while (1) {
-          while_5_continue: /* CIL Label */ ;
+          while_continue___1: /* CIL Label */ ;
 
         }
-        while_5_break: /* CIL Label */ ;
+        while_break___3: /* CIL Label */ ;
         }
 
+#line 330
         goto while_break___0;
       }
-      while_4_break: /* CIL Label */ ;
+      while_break___2: /* CIL Label */ ;
       }
 
       while_break___0: ;
     } else {
 
     }
+#line 330
     goto while_break;
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7175,113 +6677,72 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
   if (zone == 0) {
     {
 #line 332
-    __cil_tmp26 = (unsigned long )ftl;
+    __cil_tmp22 = ftl->cis_block;
 #line 332
-    __cil_tmp27 = __cil_tmp26 + 208;
+    if (block == __cil_tmp22) {
 #line 332
-    __cil_tmp28 = *((int *)__cil_tmp27);
-#line 332
-    if (block == __cil_tmp28) {
       goto _L;
-    } else {
+    } else
 #line 332
-      if (block == 0) {
-        _L: 
+    if (block == 0) {
+      _L: 
+#line 333
+      if (debug) {
         {
 #line 333
-        __cil_tmp29 = & debug;
-#line 333
-        if (*__cil_tmp29) {
-          {
-#line 333
-          printk("<7>sm_ftl: attempted to write the CIS!\n");
-          }
-        } else {
-
+        printk("<7>sm_ftl: attempted to write the CIS!\n");
         }
-        }
-#line 334
-        return (-5);
       } else {
 
       }
+#line 334
+      return (-5);
+    } else {
+
     }
     }
   } else {
 
   }
-  {
 #line 337
-  __cil_tmp30 = (unsigned long )ftl;
-#line 337
-  __cil_tmp31 = __cil_tmp30 + 205;
-#line 337
-  if (*((bool *)__cil_tmp31)) {
+  if (ftl->unstable) {
 #line 338
     return (-5);
   } else {
 
   }
-  }
-  {
 #line 340
-  __cil_tmp32 = (unsigned long )ftl;
+  if (ftl->smallpagenand) {
 #line 340
-  __cil_tmp33 = __cil_tmp32 + 200;
-#line 340
-  if (*((int *)__cil_tmp33)) {
-#line 340
-    __cil_tmp34 = & ops;
-#line 340
-    *((mtd_oob_mode_t *)__cil_tmp34) = (enum __anonenum_mtd_oob_mode_t_225 )2;
+    ops.mode = (mtd_oob_mode_t )2;
   } else {
 #line 340
-    __cil_tmp35 = & ops;
-#line 340
-    *((mtd_oob_mode_t *)__cil_tmp35) = (enum __anonenum_mtd_oob_mode_t_225 )0;
-  }
+    ops.mode = (mtd_oob_mode_t )0;
   }
   {
 #line 341
-  __cil_tmp36 = (unsigned long )(& ops) + 32;
-#line 341
-  *((size_t *)__cil_tmp36) = 512UL;
+  ops.len = (size_t )512;
 #line 342
-  __cil_tmp37 = (unsigned long )(& ops) + 72;
-#line 342
-  *((uint8_t **)__cil_tmp37) = buffer;
+  ops.datbuf = buffer;
 #line 343
-  __cil_tmp38 = (unsigned long )(& ops) + 64;
-#line 343
-  *((uint32_t *)__cil_tmp38) = 0U;
+  ops.ooboffs = (uint32_t )0;
 #line 344
-  __cil_tmp39 = (unsigned long )(& ops) + 48;
-#line 344
-  *((size_t *)__cil_tmp39) = 16UL;
+  ops.ooblen = (size_t )16;
 #line 345
-  __cil_tmp40 = (unsigned long )(& ops) + 80;
+  __cil_tmp23 = (void *)oob;
 #line 345
-  __cil_tmp41 = (void *)oob;
-#line 345
-  *((uint8_t **)__cil_tmp40) = (uint8_t *)__cil_tmp41;
+  ops.oobbuf = (uint8_t *)__cil_tmp23;
 #line 347
   tmp___8 = sm_mkoffset(ftl, zone, block, boffset);
 #line 347
-  __cil_tmp42 = (unsigned long )mtd;
+  __cil_tmp24 = mtd->write_oob;
 #line 347
-  __cil_tmp43 = __cil_tmp42 + 168;
-#line 347
-  __cil_tmp44 = *((int (**)(struct mtd_info *mtd , loff_t to , struct mtd_oob_ops *ops ))__cil_tmp43);
-#line 347
-  ret = (*__cil_tmp44)(mtd, tmp___8, & ops);
+  ret = (*__cil_tmp24)(mtd, tmp___8, & ops);
   }
 #line 352
   if (ret) {
-    {
 #line 353
-    __cil_tmp45 = & debug;
-#line 353
-    if (*__cil_tmp45) {
+    if (debug) {
       {
 #line 353
       printk("<7>sm_ftl: write to block %d at zone %d, failed with error %d\n", block,
@@ -7289,7 +6750,6 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
       }
     } else {
 
-    }
     }
     {
 #line 356
@@ -7302,63 +6762,53 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
   }
   {
 #line 361
-  __cil_tmp46 = (unsigned long )(& ops) + 56;
+  __cil_tmp25 = ops.oobretlen != 16UL;
 #line 361
-  __cil_tmp47 = *((size_t *)__cil_tmp46);
+  __cil_tmp26 = ! __cil_tmp25;
 #line 361
-  __cil_tmp48 = __cil_tmp47 != 16UL;
+  __ret_warn_on = ! __cil_tmp26;
 #line 361
-  __cil_tmp49 = ! __cil_tmp48;
+  __cil_tmp27 = ! __ret_warn_on;
 #line 361
-  __ret_warn_on = ! __cil_tmp49;
+  __cil_tmp28 = ! __cil_tmp27;
 #line 361
-  __cil_tmp50 = ! __ret_warn_on;
+  __cil_tmp29 = (long )__cil_tmp28;
 #line 361
-  __cil_tmp51 = ! __cil_tmp50;
-#line 361
-  __cil_tmp52 = (long )__cil_tmp51;
-#line 361
-  tmp___9 = __builtin_expect(__cil_tmp52, 0L);
+  tmp___9 = __builtin_expect(__cil_tmp29, 0L);
   }
 #line 361
   if (tmp___9) {
     {
 #line 361
-    __cil_tmp53 = (int const   )361;
+    __cil_tmp30 = (int const   )361;
 #line 361
-    __cil_tmp54 = (int )__cil_tmp53;
+    __cil_tmp31 = (int )__cil_tmp30;
 #line 361
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                       __cil_tmp54);
+                       __cil_tmp31);
     }
   } else {
 
   }
   {
 #line 361
-  __cil_tmp55 = ! __ret_warn_on;
+  __cil_tmp32 = ! __ret_warn_on;
 #line 361
-  __cil_tmp56 = ! __cil_tmp55;
+  __cil_tmp33 = ! __cil_tmp32;
 #line 361
-  __cil_tmp57 = (long )__cil_tmp56;
+  __cil_tmp34 = (long )__cil_tmp33;
 #line 361
-  __builtin_expect(__cil_tmp57, 0L);
+  __builtin_expect(__cil_tmp34, 0L);
   }
 #line 362
   if (buffer) {
-    {
 #line 362
-    __cil_tmp58 = (unsigned long )(& ops) + 40;
-#line 362
-    __cil_tmp59 = *((size_t *)__cil_tmp58);
-#line 362
-    if (__cil_tmp59 != 512UL) {
+    if (ops.retlen != 512UL) {
 #line 362
       tmp___10 = 1;
     } else {
 #line 362
       tmp___10 = 0;
-    }
     }
   } else {
 #line 362
@@ -7368,37 +6818,37 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
 #line 362
   __ret_warn_on___0 = tmp___10;
 #line 362
-  __cil_tmp60 = ! __ret_warn_on___0;
+  __cil_tmp35 = ! __ret_warn_on___0;
 #line 362
-  __cil_tmp61 = ! __cil_tmp60;
+  __cil_tmp36 = ! __cil_tmp35;
 #line 362
-  __cil_tmp62 = (long )__cil_tmp61;
+  __cil_tmp37 = (long )__cil_tmp36;
 #line 362
-  tmp___11 = __builtin_expect(__cil_tmp62, 0L);
+  tmp___11 = __builtin_expect(__cil_tmp37, 0L);
   }
 #line 362
   if (tmp___11) {
     {
 #line 362
-    __cil_tmp63 = (int const   )362;
+    __cil_tmp38 = (int const   )362;
 #line 362
-    __cil_tmp64 = (int )__cil_tmp63;
+    __cil_tmp39 = (int )__cil_tmp38;
 #line 362
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                       __cil_tmp64);
+                       __cil_tmp39);
     }
   } else {
 
   }
   {
 #line 362
-  __cil_tmp65 = ! __ret_warn_on___0;
+  __cil_tmp40 = ! __ret_warn_on___0;
 #line 362
-  __cil_tmp66 = ! __cil_tmp65;
+  __cil_tmp41 = ! __cil_tmp40;
 #line 362
-  __cil_tmp67 = (long )__cil_tmp66;
+  __cil_tmp42 = (long )__cil_tmp41;
 #line 362
-  __builtin_expect(__cil_tmp67, 0L);
+  __builtin_expect(__cil_tmp42, 0L);
   }
 #line 364
   return (0);
@@ -7414,34 +6864,21 @@ static int sm_write_block(struct sm_ftl *ftl , uint8_t *buf , int zone , int blo
   int tmp___9 ;
   int tmp___10 ;
   void *__cil_tmp13 ;
-  unsigned short __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  size_t __cil_tmp14 ;
+  uint16_t __cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  unsigned long const volatile   *__cil_tmp18 ;
   int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long const volatile   *__cil_tmp22 ;
-  int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  uint8_t *__cil_tmp20 ;
+  u_char const   *__cil_tmp21 ;
+  uint8_t *__cil_tmp22 ;
+  uint8_t *__cil_tmp23 ;
+  uint8_t *__cil_tmp24 ;
+  u_char const   *__cil_tmp25 ;
+  uint8_t *__cil_tmp26 ;
   uint8_t *__cil_tmp27 ;
-  u_char const   *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  uint8_t *__cil_tmp32 ;
-  uint8_t *__cil_tmp33 ;
-  uint8_t *__cil_tmp34 ;
-  u_char const   *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  uint8_t *__cil_tmp39 ;
-  uint8_t *__cil_tmp40 ;
-  unsigned short __cil_tmp41 ;
+  uint16_t __cil_tmp28 ;
 
   {
   {
@@ -7450,137 +6887,109 @@ static int sm_write_block(struct sm_ftl *ftl , uint8_t *buf , int zone , int blo
 #line 379
   __cil_tmp13 = (void *)(& oob);
 #line 379
-  memset(__cil_tmp13, 255, 16UL);
+  __cil_tmp14 = (size_t )16;
+#line 379
+  memset(__cil_tmp13, 255, __cil_tmp14);
 #line 380
-  __cil_tmp14 = (unsigned short )lba;
+  __cil_tmp15 = (uint16_t )lba;
 #line 380
-  sm_write_lba(& oob, __cil_tmp14);
+  sm_write_lba(& oob, __cil_tmp15);
   }
   restart: 
-  {
 #line 382
-  __cil_tmp15 = (unsigned long )ftl;
-#line 382
-  __cil_tmp16 = __cil_tmp15 + 205;
-#line 382
-  if (*((bool *)__cil_tmp16)) {
+  if (ftl->unstable) {
 #line 383
     return (-5);
   } else {
 
-  }
   }
 #line 385
   boffset = 0;
   {
 #line 385
   while (1) {
-    while_6_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 385
-    __cil_tmp17 = (unsigned long )ftl;
+    __cil_tmp16 = ftl->block_size;
 #line 385
-    __cil_tmp18 = __cil_tmp17 + 184;
-#line 385
-    __cil_tmp19 = *((int *)__cil_tmp18);
-#line 385
-    if (boffset < __cil_tmp19) {
+    if (boffset < __cil_tmp16) {
 
     } else {
+#line 385
       goto while_break;
     }
     }
     {
 #line 388
-    __cil_tmp20 = (unsigned long )(& oob) + 4;
-#line 388
-    *((uint8_t *)__cil_tmp20) = (unsigned char)255;
+    oob.data_status = (uint8_t )255;
 #line 390
-    __cil_tmp21 = boffset / 512;
+    __cil_tmp17 = boffset / 512;
 #line 390
-    __cil_tmp22 = (unsigned long const volatile   *)(& invalid_bitmap);
+    __cil_tmp18 = (unsigned long const volatile   *)(& invalid_bitmap);
 #line 390
-    tmp___8 = variable_test_bit(__cil_tmp21, __cil_tmp22);
+    tmp___8 = variable_test_bit(__cil_tmp17, __cil_tmp18);
     }
 #line 390
     if (tmp___8) {
       {
 #line 392
-      __cil_tmp23 = boffset / 512;
+      __cil_tmp19 = boffset / 512;
 #line 392
       printk("<4>sm_ftl: sector %d of block at LBA %d of zone %d coudn\'t be read, marking it as invalid\n",
-             __cil_tmp23, lba, zone);
+             __cil_tmp19, lba, zone);
 #line 396
-      __cil_tmp24 = (unsigned long )(& oob) + 4;
-#line 396
-      *((uint8_t *)__cil_tmp24) = (unsigned char)0;
+      oob.data_status = (uint8_t )0;
       }
     } else {
 
     }
-    {
 #line 399
-    __cil_tmp25 = (unsigned long )ftl;
-#line 399
-    __cil_tmp26 = __cil_tmp25 + 200;
-#line 399
-    if (*((int *)__cil_tmp26)) {
+    if (ftl->smallpagenand) {
       {
 #line 400
-      __cil_tmp27 = buf + boffset;
+      __cil_tmp20 = buf + boffset;
 #line 400
-      __cil_tmp28 = (u_char const   *)__cil_tmp27;
+      __cil_tmp21 = (u_char const   *)__cil_tmp20;
 #line 400
-      __cil_tmp29 = 0 * 1UL;
+      __cil_tmp22 = & oob.ecc1[0];
 #line 400
-      __cil_tmp30 = 13 + __cil_tmp29;
-#line 400
-      __cil_tmp31 = (unsigned long )(& oob) + __cil_tmp30;
-#line 400
-      __cil_tmp32 = (uint8_t *)__cil_tmp31;
-#line 400
-      __nand_calculate_ecc(__cil_tmp28, 256U, __cil_tmp32);
+      __nand_calculate_ecc(__cil_tmp21, 256U, __cil_tmp22);
 #line 403
-      __cil_tmp33 = buf + boffset;
+      __cil_tmp23 = buf + boffset;
 #line 403
-      __cil_tmp34 = __cil_tmp33 + 256;
+      __cil_tmp24 = __cil_tmp23 + 256;
 #line 403
-      __cil_tmp35 = (u_char const   *)__cil_tmp34;
+      __cil_tmp25 = (u_char const   *)__cil_tmp24;
 #line 403
-      __cil_tmp36 = 0 * 1UL;
+      __cil_tmp26 = & oob.ecc2[0];
 #line 403
-      __cil_tmp37 = 8 + __cil_tmp36;
-#line 403
-      __cil_tmp38 = (unsigned long )(& oob) + __cil_tmp37;
-#line 403
-      __cil_tmp39 = (uint8_t *)__cil_tmp38;
-#line 403
-      __nand_calculate_ecc(__cil_tmp35, 256U, __cil_tmp39);
+      __nand_calculate_ecc(__cil_tmp25, 256U, __cil_tmp26);
       }
     } else {
 
     }
-    }
     {
 #line 406
-    __cil_tmp40 = buf + boffset;
+    __cil_tmp27 = buf + boffset;
 #line 406
-    tmp___9 = sm_write_sector(ftl, zone, block, boffset, __cil_tmp40, & oob);
+    tmp___9 = sm_write_sector(ftl, zone, block, boffset, __cil_tmp27, & oob);
     }
 #line 406
     if (tmp___9) {
 
     } else {
+#line 408
       goto __Cont;
     }
 #line 410
     if (! retry) {
       {
 #line 418
-      __cil_tmp41 = (unsigned short )block;
+      __cil_tmp28 = (uint16_t )block;
 #line 418
-      tmp___10 = sm_erase_block(ftl, zone, __cil_tmp41, 0);
+      tmp___10 = sm_erase_block(ftl, zone, __cil_tmp28, 0);
       }
 #line 418
       if (tmp___10) {
@@ -7591,6 +7000,7 @@ static int sm_write_block(struct sm_ftl *ftl , uint8_t *buf , int zone , int blo
       }
 #line 421
       retry = 1;
+#line 422
       goto restart;
     } else {
       {
@@ -7604,7 +7014,7 @@ static int sm_write_block(struct sm_ftl *ftl , uint8_t *buf , int zone , int blo
 #line 385
     boffset = boffset + 512;
   }
-  while_6_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7618,38 +7028,28 @@ static void sm_mark_block_bad(struct sm_ftl *ftl , int zone , int block )
   int boffset ;
   int tmp___7 ;
   void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  void *__cil_tmp14 ;
-  uint8_t *__cil_tmp15 ;
+  size_t __cil_tmp8 ;
+  int __cil_tmp9 ;
+  void *__cil_tmp10 ;
+  uint8_t *__cil_tmp11 ;
 
   {
   {
 #line 438
   __cil_tmp7 = (void *)(& oob);
 #line 438
-  memset(__cil_tmp7, 255, 16UL);
+  __cil_tmp8 = (size_t )16;
+#line 438
+  memset(__cil_tmp7, 255, __cil_tmp8);
 #line 439
-  __cil_tmp8 = (unsigned long )(& oob) + 5;
-#line 439
-  *((uint8_t *)__cil_tmp8) = (unsigned char)240;
+  oob.block_status = (uint8_t )240;
   }
-  {
 #line 441
-  __cil_tmp9 = (unsigned long )ftl;
-#line 441
-  __cil_tmp10 = __cil_tmp9 + 205;
-#line 441
-  if (*((bool *)__cil_tmp10)) {
+  if (ftl->unstable) {
 #line 442
     return;
   } else {
 
-  }
   }
   {
 #line 444
@@ -7671,34 +7071,31 @@ static void sm_mark_block_bad(struct sm_ftl *ftl , int zone , int block )
   {
 #line 452
   while (1) {
-    while_7_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 452
-    __cil_tmp11 = (unsigned long )ftl;
+    __cil_tmp9 = ftl->block_size;
 #line 452
-    __cil_tmp12 = __cil_tmp11 + 184;
-#line 452
-    __cil_tmp13 = *((int *)__cil_tmp12);
-#line 452
-    if (boffset < __cil_tmp13) {
+    if (boffset < __cil_tmp9) {
 
     } else {
+#line 452
       goto while_break;
     }
     }
     {
 #line 453
-    __cil_tmp14 = (void *)0;
+    __cil_tmp10 = (void *)0;
 #line 453
-    __cil_tmp15 = (uint8_t *)__cil_tmp14;
+    __cil_tmp11 = (uint8_t *)__cil_tmp10;
 #line 453
-    sm_write_sector(ftl, zone, block, boffset, __cil_tmp15, & oob);
+    sm_write_sector(ftl, zone, block, boffset, __cil_tmp11, & oob);
 #line 452
     boffset = boffset + 512;
     }
   }
-  while_7_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7719,160 +7116,85 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
   unsigned long __n ;
   size_t __recsize ;
   struct __kfifo *__kfifo ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct ftl_zone *__cil_tmp18 ;
-  struct mtd_blktrans_dev *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct erase_info *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  uint16_t *__cil_tmp24 ;
-  uint16_t __cil_tmp25 ;
+  struct ftl_zone *__cil_tmp16 ;
+  struct mtd_blktrans_dev *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  bool __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  long __cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
   int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  int (*__cil_tmp27)(struct mtd_info *mtd , struct erase_info *instr ) ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  struct completion *__cil_tmp30 ;
   int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  bool __cil_tmp37 ;
-  int __cil_tmp38 ;
-  int __cil_tmp39 ;
-  long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  int __cil_tmp43 ;
-  uint16_t *__cil_tmp44 ;
-  uint16_t __cil_tmp45 ;
-  int __cil_tmp46 ;
-  uint16_t *__cil_tmp47 ;
-  uint16_t __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  int (*__cil_tmp52)(struct mtd_info *mtd , struct erase_info *instr ) ;
-  uint16_t *__cil_tmp53 ;
-  uint16_t __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  u_char __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct completion *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  u_char __cil_tmp63 ;
-  int __cil_tmp64 ;
-  uint16_t *__cil_tmp65 ;
-  uint16_t __cil_tmp66 ;
-  int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  void const   *__cil_tmp70 ;
-  unsigned int __cil_tmp71 ;
-  void const   *__cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
-  uint16_t *__cil_tmp74 ;
-  uint16_t __cil_tmp75 ;
-  int __cil_tmp76 ;
+  int __cil_tmp32 ;
+  void const   *__cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  void const   *__cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  int __cil_tmp37 ;
 
   {
   {
 #line 463
-  __cil_tmp16 = (unsigned long )ftl;
+  __cil_tmp16 = ftl->zones;
 #line 463
-  __cil_tmp17 = __cil_tmp16 + 176;
-#line 463
-  __cil_tmp18 = *((struct ftl_zone **)__cil_tmp17);
-#line 463
-  zone = __cil_tmp18 + zone_num;
+  zone = __cil_tmp16 + zone_num;
 #line 464
-  __cil_tmp19 = *((struct mtd_blktrans_dev **)ftl);
+  __cil_tmp17 = ftl->trans;
 #line 464
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 464
-  __cil_tmp21 = __cil_tmp20 + 24;
-#line 464
-  mtd = *((struct mtd_info **)__cil_tmp21);
+  mtd = __cil_tmp17->mtd;
 #line 467
-  __cil_tmp22 = & erase;
-#line 467
-  *((struct mtd_info **)__cil_tmp22) = mtd;
+  erase.mtd = mtd;
 #line 468
-  __cil_tmp23 = (unsigned long )(& erase) + 56;
-#line 468
-  *((void (**)(struct erase_info *self ))__cil_tmp23) = & sm_erase_callback;
+  erase.callback = & sm_erase_callback;
 #line 469
-  __cil_tmp24 = & block;
+  __cil_tmp18 = (int )block;
 #line 469
-  __cil_tmp25 = *__cil_tmp24;
+  tmp___7 = sm_mkoffset(ftl, zone_num, __cil_tmp18, 0);
 #line 469
-  __cil_tmp26 = (int )__cil_tmp25;
-#line 469
-  tmp___7 = sm_mkoffset(ftl, zone_num, __cil_tmp26, 0);
-#line 469
-  __cil_tmp27 = (unsigned long )(& erase) + 8;
-#line 469
-  *((uint64_t *)__cil_tmp27) = (unsigned long long )tmp___7;
+  erase.addr = (uint64_t )tmp___7;
 #line 470
-  __cil_tmp28 = (unsigned long )(& erase) + 16;
+  __cil_tmp19 = ftl->block_size;
 #line 470
-  __cil_tmp29 = (unsigned long )ftl;
-#line 470
-  __cil_tmp30 = __cil_tmp29 + 184;
-#line 470
-  __cil_tmp31 = *((int *)__cil_tmp30);
-#line 470
-  *((uint64_t *)__cil_tmp28) = (unsigned long long )__cil_tmp31;
+  erase.len = (uint64_t )__cil_tmp19;
 #line 471
-  __cil_tmp32 = (unsigned long )(& erase) + 64;
-#line 471
-  *((u_long *)__cil_tmp32) = (unsigned long )ftl;
+  erase.priv = (u_long )ftl;
   }
-  {
 #line 473
-  __cil_tmp33 = (unsigned long )ftl;
-#line 473
-  __cil_tmp34 = __cil_tmp33 + 205;
-#line 473
-  if (*((bool *)__cil_tmp34)) {
+  if (ftl->unstable) {
 #line 474
     return (-5);
   } else {
 
   }
-  }
   {
 #line 476
   while (1) {
-    while_8_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 476
-    __cil_tmp35 = (unsigned long )ftl;
+    __cil_tmp20 = ftl->readonly;
 #line 476
-    __cil_tmp36 = __cil_tmp35 + 204;
+    __cil_tmp21 = ! __cil_tmp20;
 #line 476
-    __cil_tmp37 = *((bool *)__cil_tmp36);
+    __cil_tmp22 = ! __cil_tmp21;
 #line 476
-    __cil_tmp38 = ! __cil_tmp37;
+    __cil_tmp23 = (long )__cil_tmp22;
 #line 476
-    __cil_tmp39 = ! __cil_tmp38;
-#line 476
-    __cil_tmp40 = (long )__cil_tmp39;
-#line 476
-    tmp___8 = __builtin_expect(__cil_tmp40, 0L);
+    tmp___8 = __builtin_expect(__cil_tmp23, 0L);
     }
 #line 476
     if (tmp___8) {
       {
 #line 476
       while (1) {
-        while_9_continue: /* CIL Label */ ;
+        while_continue___0: /* CIL Label */ ;
 #line 476
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
@@ -7884,24 +7206,26 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
         {
 #line 476
         while (1) {
-          while_10_continue: /* CIL Label */ ;
+          while_continue___1: /* CIL Label */ ;
 
         }
-        while_10_break: /* CIL Label */ ;
+        while_break___3: /* CIL Label */ ;
         }
 
+#line 476
         goto while_break___0;
       }
-      while_9_break: /* CIL Label */ ;
+      while_break___2: /* CIL Label */ ;
       }
 
       while_break___0: ;
     } else {
 
     }
+#line 476
     goto while_break;
   }
-  while_8_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7909,19 +7233,11 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
   if (zone_num == 0) {
     {
 #line 478
-    __cil_tmp41 = (unsigned long )ftl;
+    __cil_tmp24 = ftl->cis_block;
 #line 478
-    __cil_tmp42 = __cil_tmp41 + 208;
+    __cil_tmp25 = (int )block;
 #line 478
-    __cil_tmp43 = *((int *)__cil_tmp42);
-#line 478
-    __cil_tmp44 = & block;
-#line 478
-    __cil_tmp45 = *__cil_tmp44;
-#line 478
-    __cil_tmp46 = (int )__cil_tmp45;
-#line 478
-    if (__cil_tmp46 == __cil_tmp43) {
+    if (__cil_tmp25 == __cil_tmp24) {
       {
 #line 479
       printk("<4>sm_ftl: attempted to erase the CIS!\n");
@@ -7931,13 +7247,9 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
     } else {
       {
 #line 478
-      __cil_tmp47 = & block;
+      __cil_tmp26 = (int )block;
 #line 478
-      __cil_tmp48 = *__cil_tmp47;
-#line 478
-      __cil_tmp49 = (int )__cil_tmp48;
-#line 478
-      if (__cil_tmp49 == 0) {
+      if (__cil_tmp26 == 0) {
         {
 #line 479
         printk("<4>sm_ftl: attempted to erase the CIS!\n");
@@ -7955,48 +7267,33 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
   }
   {
 #line 483
-  __cil_tmp50 = (unsigned long )mtd;
+  __cil_tmp27 = mtd->erase;
 #line 483
-  __cil_tmp51 = __cil_tmp50 + 96;
-#line 483
-  __cil_tmp52 = *((int (**)(struct mtd_info *mtd , struct erase_info *instr ))__cil_tmp51);
-#line 483
-  tmp___9 = (*__cil_tmp52)(mtd, & erase);
+  tmp___9 = (*__cil_tmp27)(mtd, & erase);
   }
 #line 483
   if (tmp___9) {
     {
 #line 484
-    __cil_tmp53 = & block;
+    __cil_tmp28 = (int )block;
 #line 484
-    __cil_tmp54 = *__cil_tmp53;
-#line 484
-    __cil_tmp55 = (int )__cil_tmp54;
-#line 484
-    printk("<4>sm_ftl: erase of block %d in zone %d failed\n", __cil_tmp55, zone_num);
+    printk("<4>sm_ftl: erase of block %d in zone %d failed\n", __cil_tmp28, zone_num);
     }
+#line 486
     goto error;
   } else {
 
   }
   {
 #line 489
-  __cil_tmp56 = (unsigned long )(& erase) + 72;
+  __cil_tmp29 = (int )erase.state;
 #line 489
-  __cil_tmp57 = *((u_char *)__cil_tmp56);
-#line 489
-  __cil_tmp58 = (int )__cil_tmp57;
-#line 489
-  if (__cil_tmp58 == 1) {
+  if (__cil_tmp29 == 1) {
     {
 #line 490
-    __cil_tmp59 = (unsigned long )ftl;
+    __cil_tmp30 = & ftl->erase_completion;
 #line 490
-    __cil_tmp60 = __cil_tmp59 + 472;
-#line 490
-    __cil_tmp61 = (struct completion *)__cil_tmp60;
-#line 490
-    wait_for_completion(__cil_tmp61);
+    wait_for_completion(__cil_tmp30);
     }
   } else {
 
@@ -8004,24 +7301,17 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
   }
   {
 #line 492
-  __cil_tmp62 = (unsigned long )(& erase) + 72;
+  __cil_tmp31 = (int )erase.state;
 #line 492
-  __cil_tmp63 = *((u_char *)__cil_tmp62);
-#line 492
-  __cil_tmp64 = (int )__cil_tmp63;
-#line 492
-  if (__cil_tmp64 != 8) {
+  if (__cil_tmp31 != 8) {
     {
 #line 493
-    __cil_tmp65 = & block;
+    __cil_tmp32 = (int )block;
 #line 493
-    __cil_tmp66 = *__cil_tmp65;
-#line 493
-    __cil_tmp67 = (int )__cil_tmp66;
-#line 493
-    printk("<4>sm_ftl: erase of block %d in zone %d failed after wait\n", __cil_tmp67,
+    printk("<4>sm_ftl: erase of block %d in zone %d failed after wait\n", __cil_tmp32,
            zone_num);
     }
+#line 495
     goto error;
   } else {
 
@@ -8030,11 +7320,7 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
 #line 498
   if (put_free) {
 #line 499
-    __cil_tmp68 = (unsigned long )zone;
-#line 499
-    __cil_tmp69 = __cil_tmp68 + 16;
-#line 499
-    __tmp = (struct kfifo *)__cil_tmp69;
+    __tmp = & zone->free_sectors;
 #line 499
     __buf = (unsigned char const   *)(& block);
 #line 499
@@ -8042,25 +7328,25 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
 #line 499
     __recsize = 0UL;
 #line 499
-    __kfifo = (struct __kfifo *)__tmp;
+    __kfifo = & __tmp->__annonCompField39.kfifo;
 #line 499
     if (__recsize) {
       {
 #line 499
-      __cil_tmp70 = (void const   *)__buf;
+      __cil_tmp33 = (void const   *)__buf;
 #line 499
-      __cil_tmp71 = (unsigned int )__n;
+      __cil_tmp34 = (unsigned int )__n;
 #line 499
-      __kfifo_in_r(__kfifo, __cil_tmp70, __cil_tmp71, __recsize);
+      __kfifo_in_r(__kfifo, __cil_tmp33, __cil_tmp34, __recsize);
       }
     } else {
       {
 #line 499
-      __cil_tmp72 = (void const   *)__buf;
+      __cil_tmp35 = (void const   *)__buf;
 #line 499
-      __cil_tmp73 = (unsigned int )__n;
+      __cil_tmp36 = (unsigned int )__n;
 #line 499
-      __kfifo_in(__kfifo, __cil_tmp72, __cil_tmp73);
+      __kfifo_in(__kfifo, __cil_tmp35, __cil_tmp36);
       }
     }
   } else {
@@ -8071,13 +7357,9 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
   error: 
   {
 #line 504
-  __cil_tmp74 = & block;
+  __cil_tmp37 = (int )block;
 #line 504
-  __cil_tmp75 = *__cil_tmp74;
-#line 504
-  __cil_tmp76 = (int )__cil_tmp75;
-#line 504
-  sm_mark_block_bad(ftl, zone_num, __cil_tmp76);
+  sm_mark_block_bad(ftl, zone_num, __cil_tmp37);
   }
 #line 505
   return (-5);
@@ -8086,31 +7368,19 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
 #line 508 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static void sm_erase_callback(struct erase_info *self ) 
 { struct sm_ftl *ftl ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  u_long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct completion *__cil_tmp8 ;
+  u_long __cil_tmp3 ;
+  struct completion *__cil_tmp4 ;
 
   {
   {
 #line 510
-  __cil_tmp3 = (unsigned long )self;
+  __cil_tmp3 = self->priv;
 #line 510
-  __cil_tmp4 = __cil_tmp3 + 64;
-#line 510
-  __cil_tmp5 = *((u_long *)__cil_tmp4);
-#line 510
-  ftl = (struct sm_ftl *)__cil_tmp5;
+  ftl = (struct sm_ftl *)__cil_tmp3;
 #line 511
-  __cil_tmp6 = (unsigned long )ftl;
+  __cil_tmp4 = & ftl->erase_completion;
 #line 511
-  __cil_tmp7 = __cil_tmp6 + 472;
-#line 511
-  __cil_tmp8 = (struct completion *)__cil_tmp7;
-#line 511
-  complete(__cil_tmp8);
+  complete(__cil_tmp4);
   }
 #line 512
   return;
@@ -8124,51 +7394,20 @@ static int sm_check_block(struct sm_ftl *ftl , int zone , int block )
   int i ;
   int test_lba ;
   int tmp___7 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  int __cil_tmp20 ;
-  void *__cil_tmp21 ;
-  uint8_t *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned short __cil_tmp28 ;
+  int __cil_tmp10 ;
+  void *__cil_tmp11 ;
+  uint8_t *__cil_tmp12 ;
+  uint16_t __cil_tmp13 ;
 
   {
 #line 519
-  __cil_tmp10 = 0 * 4UL;
+  lbas[0] = -3;
 #line 519
-  __cil_tmp11 = (unsigned long )(lbas) + __cil_tmp10;
+  lbas[1] = 0;
 #line 519
-  *((int *)__cil_tmp11) = -3;
+  lbas[2] = 0;
 #line 519
-  __cil_tmp12 = 1 * 4UL;
-#line 519
-  __cil_tmp13 = (unsigned long )(lbas) + __cil_tmp12;
-#line 519
-  *((int *)__cil_tmp13) = 0;
-#line 519
-  __cil_tmp14 = 2 * 4UL;
-#line 519
-  __cil_tmp15 = (unsigned long )(lbas) + __cil_tmp14;
-#line 519
-  *((int *)__cil_tmp15) = 0;
-#line 519
-  __cil_tmp16 = 3 * 4UL;
-#line 519
-  __cil_tmp17 = (unsigned long )(lbas) + __cil_tmp16;
-#line 519
-  *((int *)__cil_tmp17) = 0;
+  lbas[3] = 0;
 #line 520
   i = 0;
 #line 527
@@ -8176,29 +7415,26 @@ static int sm_check_block(struct sm_ftl *ftl , int zone , int block )
   {
 #line 527
   while (1) {
-    while_11_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 527
-    __cil_tmp18 = (unsigned long )ftl;
+    __cil_tmp10 = ftl->block_size;
 #line 527
-    __cil_tmp19 = __cil_tmp18 + 184;
-#line 527
-    __cil_tmp20 = *((int *)__cil_tmp19);
-#line 527
-    if (boffset < __cil_tmp20) {
+    if (boffset < __cil_tmp10) {
 
     } else {
+#line 527
       goto while_break;
     }
     }
     {
 #line 531
-    __cil_tmp21 = (void *)0;
+    __cil_tmp11 = (void *)0;
 #line 531
-    __cil_tmp22 = (uint8_t *)__cil_tmp21;
+    __cil_tmp12 = (uint8_t *)__cil_tmp11;
 #line 531
-    tmp___7 = sm_read_sector(ftl, zone, block, boffset, __cil_tmp22, & oob);
+    tmp___7 = sm_read_sector(ftl, zone, block, boffset, __cil_tmp12, & oob);
     }
 #line 531
     if (tmp___7) {
@@ -8211,26 +7447,14 @@ static int sm_check_block(struct sm_ftl *ftl , int zone , int block )
 #line 534
     test_lba = sm_read_lba(& oob);
     }
-    {
 #line 536
-    __cil_tmp23 = i * 4UL;
-#line 536
-    __cil_tmp24 = (unsigned long )(lbas) + __cil_tmp23;
-#line 536
-    __cil_tmp25 = *((int *)__cil_tmp24);
-#line 536
-    if (__cil_tmp25 != test_lba) {
+    if (lbas[i] != test_lba) {
 #line 537
       i = i + 1;
 #line 537
-      __cil_tmp26 = i * 4UL;
-#line 537
-      __cil_tmp27 = (unsigned long )(lbas) + __cil_tmp26;
-#line 537
-      *((int *)__cil_tmp27) = test_lba;
+      lbas[i] = test_lba;
     } else {
 
-    }
     }
 #line 540
     if (i == 3) {
@@ -8242,7 +7466,7 @@ static int sm_check_block(struct sm_ftl *ftl , int zone , int block )
 #line 527
     boffset = boffset + 512;
   }
-  while_11_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -8250,9 +7474,9 @@ static int sm_check_block(struct sm_ftl *ftl , int zone , int block )
   if (i == 2) {
     {
 #line 546
-    __cil_tmp28 = (unsigned short )block;
+    __cil_tmp13 = (uint16_t )block;
 #line 546
-    sm_erase_block(ftl, zone, __cil_tmp28, 1);
+    sm_erase_block(ftl, zone, __cil_tmp13, 1);
     }
 #line 547
     return (1);
@@ -8282,375 +7506,163 @@ static struct chs_entry  const  chs_table[13]  =
 #line 571 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static uint8_t const   cis_signature[10]  = 
 #line 571
-  {      (unsigned char const   )1,      (unsigned char const   )3,      (unsigned char const   )217,      (unsigned char const   )1, 
-        (unsigned char const   )255,      (unsigned char const   )24,      (unsigned char const   )2,      (unsigned char const   )223, 
-        (unsigned char const   )1,      (unsigned char const   )32};
+  {      (uint8_t const   )1,      (uint8_t const   )3,      (uint8_t const   )217,      (uint8_t const   )1, 
+        (uint8_t const   )255,      (uint8_t const   )24,      (uint8_t const   )2,      (uint8_t const   )223, 
+        (uint8_t const   )1,      (uint8_t const   )32};
 #line 576 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 int sm_get_media_info(struct sm_ftl *ftl , struct mtd_info *mtd ) 
 { int i ;
   int size_in_megs ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  uint64_t __cil_tmp7 ;
-  uint64_t __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  u_char __cil_tmp11 ;
+  uint64_t __cil_tmp5 ;
+  uint64_t __cil_tmp6 ;
+  u_char __cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  uint32_t __cil_tmp10 ;
+  bool __cil_tmp11 ;
   int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  uint32_t __cil_tmp13 ;
+  uint32_t __cil_tmp14 ;
+  uint32_t __cil_tmp15 ;
+  uint32_t __cil_tmp16 ;
+  int __cil_tmp17 ;
+  uint32_t __cil_tmp18 ;
+  int (*__cil_tmp19)(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops *ops ) ;
+  int (*__cil_tmp20)(struct mtd_info *mtd , loff_t to , struct mtd_oob_ops *ops ) ;
   unsigned long __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  uint32_t __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  bool __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  uint32_t __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  uint32_t __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  uint32_t __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  uint32_t __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  int (*__cil_tmp89)(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops *ops ) ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  int (*__cil_tmp92)(struct mtd_info *mtd , loff_t to , struct mtd_oob_ops *ops ) ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned short __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned char __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned char __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
 
   {
 #line 579
-  __cil_tmp5 = (unsigned long )mtd;
+  __cil_tmp5 = mtd->size;
 #line 579
-  __cil_tmp6 = __cil_tmp5 + 8;
+  __cil_tmp6 = __cil_tmp5 / 1048576ULL;
 #line 579
-  __cil_tmp7 = *((uint64_t *)__cil_tmp6);
-#line 579
-  __cil_tmp8 = __cil_tmp7 / 1048576ULL;
-#line 579
-  size_in_megs = (int )__cil_tmp8;
+  size_in_megs = (int )__cil_tmp6;
 #line 581
-  __cil_tmp9 = (unsigned long )ftl;
+  __cil_tmp7 = mtd->type;
 #line 581
-  __cil_tmp10 = __cil_tmp9 + 204;
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 581
-  __cil_tmp11 = *((u_char *)mtd);
+  __cil_tmp9 = __cil_tmp8 == 2;
 #line 581
-  __cil_tmp12 = (int )__cil_tmp11;
-#line 581
-  __cil_tmp13 = __cil_tmp12 == 2;
-#line 581
-  *((bool *)__cil_tmp10) = (_Bool )__cil_tmp13;
+  ftl->readonly = (bool )__cil_tmp9;
 #line 584
-  __cil_tmp14 = (unsigned long )ftl;
-#line 584
-  __cil_tmp15 = __cil_tmp14 + 192;
-#line 584
-  *((int *)__cil_tmp15) = 1;
+  ftl->zone_count = 1;
 #line 585
-  __cil_tmp16 = (unsigned long )ftl;
-#line 585
-  __cil_tmp17 = __cil_tmp16 + 200;
-#line 585
-  *((int *)__cil_tmp17) = 0;
+  ftl->smallpagenand = 0;
 #line 588
   if (size_in_megs == 1) {
+#line 588
     goto case_1;
-  } else {
+  } else
 #line 596
-    if (size_in_megs == 2) {
-      goto case_2;
-    } else {
+  if (size_in_megs == 2) {
+#line 596
+    goto case_2;
+  } else
 #line 614
-      if (size_in_megs == 4) {
-        goto case_4;
-      } else {
+  if (size_in_megs == 4) {
+#line 614
+    goto case_4;
+  } else
 #line 620
-        if (size_in_megs == 8) {
-          goto case_8;
-        } else {
+  if (size_in_megs == 8) {
+#line 620
+    goto case_8;
+  } else
 #line 587
-          if (0) {
-            case_1: 
+  if (0) {
+    case_1: 
 #line 590
-            __cil_tmp18 = (unsigned long )ftl;
-#line 590
-            __cil_tmp19 = __cil_tmp18 + 188;
-#line 590
-            *((int *)__cil_tmp19) = 256;
+    ftl->zone_size = 256;
 #line 591
-            __cil_tmp20 = (unsigned long )ftl;
-#line 591
-            __cil_tmp21 = __cil_tmp20 + 196;
-#line 591
-            *((int *)__cil_tmp21) = 250;
+    ftl->max_lba = 250;
 #line 592
-            __cil_tmp22 = (unsigned long )ftl;
-#line 592
-            __cil_tmp23 = __cil_tmp22 + 184;
-#line 592
-            *((int *)__cil_tmp23) = 4096;
+    ftl->block_size = 4096;
 #line 593
-            __cil_tmp24 = (unsigned long )ftl;
-#line 593
-            __cil_tmp25 = __cil_tmp24 + 200;
-#line 593
-            *((int *)__cil_tmp25) = 1;
-            goto switch_break;
-            case_2: 
-            {
+    ftl->smallpagenand = 1;
+#line 595
+    goto switch_break;
+    case_2: 
+    {
 #line 598
-            __cil_tmp26 = (unsigned long )mtd;
+    __cil_tmp10 = mtd->writesize;
 #line 598
-            __cil_tmp27 = __cil_tmp26 + 20;
-#line 598
-            __cil_tmp28 = *((uint32_t *)__cil_tmp27);
-#line 598
-            if (__cil_tmp28 == 256U) {
+    if (__cil_tmp10 == 256U) {
 #line 599
-              __cil_tmp29 = (unsigned long )ftl;
-#line 599
-              __cil_tmp30 = __cil_tmp29 + 188;
-#line 599
-              *((int *)__cil_tmp30) = 512;
+      ftl->zone_size = 512;
 #line 600
-              __cil_tmp31 = (unsigned long )ftl;
-#line 600
-              __cil_tmp32 = __cil_tmp31 + 196;
-#line 600
-              *((int *)__cil_tmp32) = 500;
+      ftl->max_lba = 500;
 #line 601
-              __cil_tmp33 = (unsigned long )ftl;
-#line 601
-              __cil_tmp34 = __cil_tmp33 + 184;
-#line 601
-              *((int *)__cil_tmp34) = 4096;
+      ftl->block_size = 4096;
 #line 602
-              __cil_tmp35 = (unsigned long )ftl;
-#line 602
-              __cil_tmp36 = __cil_tmp35 + 200;
-#line 602
-              *((int *)__cil_tmp36) = 1;
-            } else {
-              {
+      ftl->smallpagenand = 1;
+    } else {
+      {
 #line 606
-              __cil_tmp37 = (unsigned long )ftl;
+      __cil_tmp11 = ftl->readonly;
 #line 606
-              __cil_tmp38 = __cil_tmp37 + 204;
-#line 606
-              __cil_tmp39 = *((bool *)__cil_tmp38);
-#line 606
-              if (! __cil_tmp39) {
+      if (! __cil_tmp11) {
 #line 607
-                return (-19);
-              } else {
+        return (-19);
+      } else {
 
-              }
-              }
-#line 609
-              __cil_tmp40 = (unsigned long )ftl;
-#line 609
-              __cil_tmp41 = __cil_tmp40 + 188;
-#line 609
-              *((int *)__cil_tmp41) = 256;
-#line 610
-              __cil_tmp42 = (unsigned long )ftl;
-#line 610
-              __cil_tmp43 = __cil_tmp42 + 196;
-#line 610
-              *((int *)__cil_tmp43) = 250;
-#line 611
-              __cil_tmp44 = (unsigned long )ftl;
-#line 611
-              __cil_tmp45 = __cil_tmp44 + 184;
-#line 611
-              *((int *)__cil_tmp45) = 8192;
-            }
-            }
-            goto switch_break;
-            case_4: 
-#line 616
-            __cil_tmp46 = (unsigned long )ftl;
-#line 616
-            __cil_tmp47 = __cil_tmp46 + 188;
-#line 616
-            *((int *)__cil_tmp47) = 512;
-#line 617
-            __cil_tmp48 = (unsigned long )ftl;
-#line 617
-            __cil_tmp49 = __cil_tmp48 + 196;
-#line 617
-            *((int *)__cil_tmp49) = 500;
-#line 618
-            __cil_tmp50 = (unsigned long )ftl;
-#line 618
-            __cil_tmp51 = __cil_tmp50 + 184;
-#line 618
-            *((int *)__cil_tmp51) = 8192;
-            goto switch_break;
-            case_8: 
-#line 622
-            __cil_tmp52 = (unsigned long )ftl;
-#line 622
-            __cil_tmp53 = __cil_tmp52 + 188;
-#line 622
-            *((int *)__cil_tmp53) = 1024;
-#line 623
-            __cil_tmp54 = (unsigned long )ftl;
-#line 623
-            __cil_tmp55 = __cil_tmp54 + 196;
-#line 623
-            *((int *)__cil_tmp55) = 1000;
-#line 624
-            __cil_tmp56 = (unsigned long )ftl;
-#line 624
-            __cil_tmp57 = __cil_tmp56 + 184;
-#line 624
-            *((int *)__cil_tmp57) = 8192;
-          } else {
-            switch_break: ;
-          }
-        }
       }
+      }
+#line 609
+      ftl->zone_size = 256;
+#line 610
+      ftl->max_lba = 250;
+#line 611
+      ftl->block_size = 8192;
     }
+    }
+#line 613
+    goto switch_break;
+    case_4: 
+#line 616
+    ftl->zone_size = 512;
+#line 617
+    ftl->max_lba = 500;
+#line 618
+    ftl->block_size = 8192;
+#line 619
+    goto switch_break;
+    case_8: 
+#line 622
+    ftl->zone_size = 1024;
+#line 623
+    ftl->max_lba = 1000;
+#line 624
+    ftl->block_size = 8192;
+  } else {
+    switch_break: ;
   }
 #line 629
   if (size_in_megs >= 16) {
 #line 630
-    __cil_tmp58 = (unsigned long )ftl;
-#line 630
-    __cil_tmp59 = __cil_tmp58 + 192;
-#line 630
-    *((int *)__cil_tmp59) = size_in_megs / 16;
+    ftl->zone_count = size_in_megs / 16;
 #line 631
-    __cil_tmp60 = (unsigned long )ftl;
-#line 631
-    __cil_tmp61 = __cil_tmp60 + 188;
-#line 631
-    *((int *)__cil_tmp61) = 1024;
+    ftl->zone_size = 1024;
 #line 632
-    __cil_tmp62 = (unsigned long )ftl;
-#line 632
-    __cil_tmp63 = __cil_tmp62 + 196;
-#line 632
-    *((int *)__cil_tmp63) = 1000;
+    ftl->max_lba = 1000;
 #line 633
-    __cil_tmp64 = (unsigned long )ftl;
-#line 633
-    __cil_tmp65 = __cil_tmp64 + 184;
-#line 633
-    *((int *)__cil_tmp65) = 16384;
+    ftl->block_size = 16384;
   } else {
 
   }
   {
 #line 637
-  __cil_tmp66 = (unsigned long )ftl;
+  __cil_tmp12 = ftl->block_size;
 #line 637
-  __cil_tmp67 = __cil_tmp66 + 184;
+  __cil_tmp13 = (uint32_t )__cil_tmp12;
 #line 637
-  __cil_tmp68 = *((int *)__cil_tmp67);
+  __cil_tmp14 = mtd->erasesize;
 #line 637
-  __cil_tmp69 = (unsigned int )__cil_tmp68;
-#line 637
-  __cil_tmp70 = (unsigned long )mtd;
-#line 637
-  __cil_tmp71 = __cil_tmp70 + 16;
-#line 637
-  __cil_tmp72 = *((uint32_t *)__cil_tmp71);
-#line 637
-  if (__cil_tmp72 > __cil_tmp69) {
+  if (__cil_tmp14 > __cil_tmp13) {
 #line 638
     return (-19);
   } else {
@@ -8659,35 +7671,22 @@ int sm_get_media_info(struct sm_ftl *ftl , struct mtd_info *mtd )
   }
   {
 #line 640
-  __cil_tmp73 = (unsigned long )mtd;
+  __cil_tmp15 = mtd->writesize;
 #line 640
-  __cil_tmp74 = __cil_tmp73 + 20;
-#line 640
-  __cil_tmp75 = *((uint32_t *)__cil_tmp74);
-#line 640
-  if (__cil_tmp75 > 512U) {
+  if (__cil_tmp15 > 512U) {
 #line 641
     return (-19);
   } else {
 
   }
   }
-  {
 #line 643
-  __cil_tmp76 = (unsigned long )ftl;
-#line 643
-  __cil_tmp77 = __cil_tmp76 + 200;
-#line 643
-  if (*((int *)__cil_tmp77)) {
+  if (ftl->smallpagenand) {
     {
 #line 643
-    __cil_tmp78 = (unsigned long )mtd;
+    __cil_tmp16 = mtd->oobsize;
 #line 643
-    __cil_tmp79 = __cil_tmp78 + 28;
-#line 643
-    __cil_tmp80 = *((uint32_t *)__cil_tmp79);
-#line 643
-    if (__cil_tmp80 < 8U) {
+    if (__cil_tmp16 < 8U) {
 #line 644
       return (-19);
     } else {
@@ -8697,25 +7696,16 @@ int sm_get_media_info(struct sm_ftl *ftl , struct mtd_info *mtd )
   } else {
 
   }
-  }
   {
 #line 646
-  __cil_tmp81 = (unsigned long )ftl;
+  __cil_tmp17 = ftl->smallpagenand;
 #line 646
-  __cil_tmp82 = __cil_tmp81 + 200;
-#line 646
-  __cil_tmp83 = *((int *)__cil_tmp82);
-#line 646
-  if (! __cil_tmp83) {
+  if (! __cil_tmp17) {
     {
 #line 646
-    __cil_tmp84 = (unsigned long )mtd;
+    __cil_tmp18 = mtd->oobsize;
 #line 646
-    __cil_tmp85 = __cil_tmp84 + 28;
-#line 646
-    __cil_tmp86 = *((uint32_t *)__cil_tmp85);
-#line 646
-    if (__cil_tmp86 < 16U) {
+    if (__cil_tmp18 < 16U) {
 #line 647
       return (-19);
     } else {
@@ -8728,25 +7718,17 @@ int sm_get_media_info(struct sm_ftl *ftl , struct mtd_info *mtd )
   }
   {
 #line 650
-  __cil_tmp87 = (unsigned long )mtd;
+  __cil_tmp19 = mtd->read_oob;
 #line 650
-  __cil_tmp88 = __cil_tmp87 + 160;
-#line 650
-  __cil_tmp89 = *((int (**)(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops *ops ))__cil_tmp88);
-#line 650
-  if (! __cil_tmp89) {
+  if (! __cil_tmp19) {
 #line 651
     return (-19);
   } else {
     {
 #line 650
-    __cil_tmp90 = (unsigned long )mtd;
+    __cil_tmp20 = mtd->write_oob;
 #line 650
-    __cil_tmp91 = __cil_tmp90 + 168;
-#line 650
-    __cil_tmp92 = *((int (**)(struct mtd_info *mtd , loff_t to , struct mtd_oob_ops *ops ))__cil_tmp91);
-#line 650
-    if (! __cil_tmp92) {
+    if (! __cil_tmp20) {
 #line 651
       return (-19);
     } else {
@@ -8760,75 +7742,34 @@ int sm_get_media_info(struct sm_ftl *ftl , struct mtd_info *mtd )
   {
 #line 654
   while (1) {
-    while_12_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 654
-    __cil_tmp93 = 208UL / 16UL;
+    __cil_tmp21 = 208UL / 16UL;
 #line 654
-    __cil_tmp94 = __cil_tmp93 + 0UL;
+    __cil_tmp22 = __cil_tmp21 + 0UL;
 #line 654
-    __cil_tmp95 = (unsigned long )i;
+    __cil_tmp23 = (unsigned long )i;
 #line 654
-    if (__cil_tmp95 < __cil_tmp94) {
+    if (__cil_tmp23 < __cil_tmp22) {
 
     } else {
+#line 654
       goto while_break;
     }
     }
     {
 #line 655
-    __cil_tmp96 = (unsigned long const   )size_in_megs;
+    __cil_tmp24 = (unsigned long const   )size_in_megs;
 #line 655
-    __cil_tmp97 = i * 16UL;
-#line 655
-    __cil_tmp98 = (unsigned long )(chs_table) + __cil_tmp97;
-#line 655
-    __cil_tmp99 = *((unsigned long const   *)__cil_tmp98);
-#line 655
-    if (__cil_tmp99 == __cil_tmp96) {
+    if (chs_table[i].size == __cil_tmp24) {
 #line 656
-      __cil_tmp100 = (unsigned long )ftl;
-#line 656
-      __cil_tmp101 = __cil_tmp100 + 576;
-#line 656
-      __cil_tmp102 = i * 16UL;
-#line 656
-      __cil_tmp103 = __cil_tmp102 + 8;
-#line 656
-      __cil_tmp104 = (unsigned long )(chs_table) + __cil_tmp103;
-#line 656
-      __cil_tmp105 = *((unsigned short const   *)__cil_tmp104);
-#line 656
-      *((int *)__cil_tmp101) = (int )__cil_tmp105;
+      ftl->cylinders = (int )chs_table[i].cyl;
 #line 657
-      __cil_tmp106 = (unsigned long )ftl;
-#line 657
-      __cil_tmp107 = __cil_tmp106 + 568;
-#line 657
-      __cil_tmp108 = i * 16UL;
-#line 657
-      __cil_tmp109 = __cil_tmp108 + 10;
-#line 657
-      __cil_tmp110 = (unsigned long )(chs_table) + __cil_tmp109;
-#line 657
-      __cil_tmp111 = *((unsigned char const   *)__cil_tmp110);
-#line 657
-      *((int *)__cil_tmp107) = (int )__cil_tmp111;
+      ftl->heads = (int )chs_table[i].head;
 #line 658
-      __cil_tmp112 = (unsigned long )ftl;
-#line 658
-      __cil_tmp113 = __cil_tmp112 + 572;
-#line 658
-      __cil_tmp114 = i * 16UL;
-#line 658
-      __cil_tmp115 = __cil_tmp114 + 11;
-#line 658
-      __cil_tmp116 = (unsigned long )(chs_table) + __cil_tmp115;
-#line 658
-      __cil_tmp117 = *((unsigned char const   *)__cil_tmp116);
-#line 658
-      *((int *)__cil_tmp113) = (int )__cil_tmp117;
+      ftl->sectors = (int )chs_table[i].sec;
 #line 659
       return (0);
     } else {
@@ -8838,7 +7779,7 @@ int sm_get_media_info(struct sm_ftl *ftl , struct mtd_info *mtd )
 #line 654
     i = i + 1;
   }
-  while_12_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -8846,23 +7787,11 @@ int sm_get_media_info(struct sm_ftl *ftl , struct mtd_info *mtd )
 #line 663
   printk("<4>sm_ftl: media has unknown size : %dMiB\n", size_in_megs);
 #line 664
-  __cil_tmp118 = (unsigned long )ftl;
-#line 664
-  __cil_tmp119 = __cil_tmp118 + 576;
-#line 664
-  *((int *)__cil_tmp119) = 985;
+  ftl->cylinders = 985;
 #line 665
-  __cil_tmp120 = (unsigned long )ftl;
-#line 665
-  __cil_tmp121 = __cil_tmp120 + 568;
-#line 665
-  *((int *)__cil_tmp121) = 33;
+  ftl->heads = 33;
 #line 666
-  __cil_tmp122 = (unsigned long )ftl;
-#line 666
-  __cil_tmp123 = __cil_tmp122 + 572;
-#line 666
-  *((int *)__cil_tmp123) = 63;
+  ftl->sectors = 63;
   }
 #line 667
   return (0);
@@ -8875,53 +7804,29 @@ static int sm_read_cis(struct sm_ftl *ftl )
   int tmp___8 ;
   int tmp___9 ;
   int tmp___10 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  void *__cil_tmp15 ;
-  uint8_t *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  void *__cil_tmp22 ;
-  void *__cil_tmp23 ;
-  void const   *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  uint8_t const   *__cil_tmp27 ;
-  void const   *__cil_tmp28 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
+  void *__cil_tmp9 ;
+  uint8_t *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  void *__cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  uint8_t const   *__cil_tmp15 ;
+  void const   *__cil_tmp16 ;
 
   {
   {
 #line 675
-  __cil_tmp7 = (unsigned long )ftl;
+  __cil_tmp7 = ftl->cis_block;
 #line 675
-  __cil_tmp8 = __cil_tmp7 + 208;
+  __cil_tmp8 = ftl->cis_boffset;
 #line 675
-  __cil_tmp9 = *((int *)__cil_tmp8);
+  __cil_tmp9 = ftl->cis_buffer;
 #line 675
-  __cil_tmp10 = (unsigned long )ftl;
+  __cil_tmp10 = (uint8_t *)__cil_tmp9;
 #line 675
-  __cil_tmp11 = __cil_tmp10 + 212;
-#line 675
-  __cil_tmp12 = *((int *)__cil_tmp11);
-#line 675
-  __cil_tmp13 = (unsigned long )ftl;
-#line 675
-  __cil_tmp14 = __cil_tmp13 + 224;
-#line 675
-  __cil_tmp15 = *((void **)__cil_tmp14);
-#line 675
-  __cil_tmp16 = (uint8_t *)__cil_tmp15;
-#line 675
-  tmp___7 = sm_read_sector(ftl, 0, __cil_tmp9, __cil_tmp12, __cil_tmp16, & oob);
+  tmp___7 = sm_read_sector(ftl, 0, __cil_tmp7, __cil_tmp8, __cil_tmp10, & oob);
   }
 #line 675
   if (tmp___7) {
@@ -8953,31 +7858,19 @@ static int sm_read_cis(struct sm_ftl *ftl )
   }
   {
 #line 682
-  __cil_tmp17 = (unsigned long )ftl;
+  __cil_tmp11 = ftl->cis_page_offset;
 #line 682
-  __cil_tmp18 = __cil_tmp17 + 216;
+  __cil_tmp12 = ftl->cis_buffer;
 #line 682
-  __cil_tmp19 = *((int *)__cil_tmp18);
+  __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
 #line 682
-  __cil_tmp20 = (unsigned long )ftl;
+  __cil_tmp14 = (void const   *)__cil_tmp13;
 #line 682
-  __cil_tmp21 = __cil_tmp20 + 224;
+  __cil_tmp15 = & cis_signature[0];
 #line 682
-  __cil_tmp22 = *((void **)__cil_tmp21);
+  __cil_tmp16 = (void const   *)__cil_tmp15;
 #line 682
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp19;
-#line 682
-  __cil_tmp24 = (void const   *)__cil_tmp23;
-#line 682
-  __cil_tmp25 = 0 * 1UL;
-#line 682
-  __cil_tmp26 = (unsigned long )(cis_signature) + __cil_tmp25;
-#line 682
-  __cil_tmp27 = (uint8_t const   *)__cil_tmp26;
-#line 682
-  __cil_tmp28 = (void const   *)__cil_tmp27;
-#line 682
-  tmp___10 = memcmp(__cil_tmp24, __cil_tmp28, 10UL);
+  tmp___10 = memcmp(__cil_tmp14, __cil_tmp16, 10UL);
   }
 #line 682
   if (tmp___10) {
@@ -9005,41 +7898,20 @@ static int sm_find_cis(struct sm_ftl *ftl )
   int tmp___12 ;
   int tmp___13 ;
   int tmp___14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
   int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  void *__cil_tmp18 ;
+  uint8_t *__cil_tmp19 ;
   int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  void *__cil_tmp22 ;
-  uint8_t *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  void *__cil_tmp21 ;
+  uint8_t *__cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
   int __cil_tmp26 ;
-  void *__cil_tmp27 ;
-  uint8_t *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  int *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  int __cil_tmp49 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
 
   {
 #line 695
@@ -9051,40 +7923,34 @@ static int sm_find_cis(struct sm_ftl *ftl )
   {
 #line 699
   while (1) {
-    while_13_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 699
-    __cil_tmp15 = (unsigned long )ftl;
+    __cil_tmp15 = ftl->max_lba;
 #line 699
-    __cil_tmp16 = __cil_tmp15 + 196;
+    __cil_tmp16 = ftl->zone_size;
 #line 699
-    __cil_tmp17 = *((int *)__cil_tmp16);
+    __cil_tmp17 = __cil_tmp16 - __cil_tmp15;
 #line 699
-    __cil_tmp18 = (unsigned long )ftl;
-#line 699
-    __cil_tmp19 = __cil_tmp18 + 188;
-#line 699
-    __cil_tmp20 = *((int *)__cil_tmp19);
-#line 699
-    __cil_tmp21 = __cil_tmp20 - __cil_tmp17;
-#line 699
-    if (block < __cil_tmp21) {
+    if (block < __cil_tmp17) {
 
     } else {
+#line 699
       goto while_break;
     }
     }
     {
 #line 701
-    __cil_tmp22 = (void *)0;
+    __cil_tmp18 = (void *)0;
 #line 701
-    __cil_tmp23 = (uint8_t *)__cil_tmp22;
+    __cil_tmp19 = (uint8_t *)__cil_tmp18;
 #line 701
-    tmp___7 = sm_read_sector(ftl, 0, block, 0, __cil_tmp23, & oob);
+    tmp___7 = sm_read_sector(ftl, 0, block, 0, __cil_tmp19, & oob);
     }
 #line 701
     if (tmp___7) {
+#line 702
       goto __Cont;
     } else {
 
@@ -9097,16 +7963,18 @@ static int sm_find_cis(struct sm_ftl *ftl )
     if (tmp___8) {
 
     } else {
+#line 705
       goto __Cont;
     }
 #line 706
     block_found = 1;
+#line 707
     goto while_break;
     __Cont: 
 #line 699
     block = block + 1;
   }
-  while_13_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -9122,32 +7990,30 @@ static int sm_find_cis(struct sm_ftl *ftl )
   {
 #line 714
   while (1) {
-    while_14_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 714
-    __cil_tmp24 = (unsigned long )ftl;
+    __cil_tmp20 = ftl->block_size;
 #line 714
-    __cil_tmp25 = __cil_tmp24 + 184;
-#line 714
-    __cil_tmp26 = *((int *)__cil_tmp25);
-#line 714
-    if (boffset < __cil_tmp26) {
+    if (boffset < __cil_tmp20) {
 
     } else {
+#line 714
       goto while_break___0;
     }
     }
     {
 #line 717
-    __cil_tmp27 = (void *)0;
+    __cil_tmp21 = (void *)0;
 #line 717
-    __cil_tmp28 = (uint8_t *)__cil_tmp27;
+    __cil_tmp22 = (uint8_t *)__cil_tmp21;
 #line 717
-    tmp___9 = sm_read_sector(ftl, 0, block, boffset, __cil_tmp28, & oob);
+    tmp___9 = sm_read_sector(ftl, 0, block, boffset, __cil_tmp22, & oob);
     }
 #line 717
     if (tmp___9) {
+#line 718
       goto __Cont___0;
     } else {
 
@@ -9160,26 +8026,24 @@ static int sm_find_cis(struct sm_ftl *ftl )
     if (tmp___10) {
 
     } else {
+#line 721
       goto __Cont___0;
     }
+#line 722
     goto while_break___0;
     __Cont___0: 
 #line 714
     boffset = boffset + 512;
   }
-  while_14_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: ;
   {
 #line 725
-  __cil_tmp29 = (unsigned long )ftl;
+  __cil_tmp23 = ftl->block_size;
 #line 725
-  __cil_tmp30 = __cil_tmp29 + 184;
-#line 725
-  __cil_tmp31 = *((int *)__cil_tmp30);
-#line 725
-  if (boffset == __cil_tmp31) {
+  if (boffset == __cil_tmp23) {
 #line 726
     return (-5);
   } else {
@@ -9188,23 +8052,11 @@ static int sm_find_cis(struct sm_ftl *ftl )
   }
   {
 #line 728
-  __cil_tmp32 = (unsigned long )ftl;
-#line 728
-  __cil_tmp33 = __cil_tmp32 + 208;
-#line 728
-  *((int *)__cil_tmp33) = block;
+  ftl->cis_block = block;
 #line 729
-  __cil_tmp34 = (unsigned long )ftl;
-#line 729
-  __cil_tmp35 = __cil_tmp34 + 212;
-#line 729
-  *((int *)__cil_tmp35) = boffset;
+  ftl->cis_boffset = boffset;
 #line 730
-  __cil_tmp36 = (unsigned long )ftl;
-#line 730
-  __cil_tmp37 = __cil_tmp36 + 216;
-#line 730
-  *((int *)__cil_tmp37) = 0;
+  ftl->cis_page_offset = 0;
 #line 732
   tmp___11 = sm_read_cis(ftl);
   }
@@ -9222,11 +8074,7 @@ static int sm_find_cis(struct sm_ftl *ftl )
   if (! cis_found) {
     {
 #line 735
-    __cil_tmp38 = (unsigned long )ftl;
-#line 735
-    __cil_tmp39 = __cil_tmp38 + 216;
-#line 735
-    *((int *)__cil_tmp39) = 256;
+    ftl->cis_page_offset = 256;
 #line 736
     tmp___13 = sm_read_cis(ftl);
     }
@@ -9245,36 +8093,24 @@ static int sm_find_cis(struct sm_ftl *ftl )
   }
 #line 739
   if (cis_found) {
-    {
 #line 740
-    __cil_tmp40 = & debug;
-#line 740
-    if (*__cil_tmp40) {
+    if (debug) {
       {
 #line 740
-      __cil_tmp41 = (unsigned long )ftl;
+      __cil_tmp24 = ftl->cis_page_offset;
 #line 740
-      __cil_tmp42 = __cil_tmp41 + 216;
+      __cil_tmp25 = ftl->block_size;
 #line 740
-      __cil_tmp43 = *((int *)__cil_tmp42);
+      __cil_tmp26 = block * __cil_tmp25;
 #line 740
-      __cil_tmp44 = (unsigned long )ftl;
+      __cil_tmp27 = __cil_tmp26 + boffset;
 #line 740
-      __cil_tmp45 = __cil_tmp44 + 184;
+      __cil_tmp28 = __cil_tmp27 + __cil_tmp24;
 #line 740
-      __cil_tmp46 = *((int *)__cil_tmp45);
-#line 740
-      __cil_tmp47 = block * __cil_tmp46;
-#line 740
-      __cil_tmp48 = __cil_tmp47 + boffset;
-#line 740
-      __cil_tmp49 = __cil_tmp48 + __cil_tmp43;
-#line 740
-      printk("<7>sm_ftl: CIS block found at offset %x\n", __cil_tmp49);
+      printk("<7>sm_ftl: CIS block found at offset %x\n", __cil_tmp28);
       }
     } else {
 
-    }
     }
 #line 743
     return (0);
@@ -9288,11 +8124,7 @@ static int sm_find_cis(struct sm_ftl *ftl )
 #line 749 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static int sm_recheck_media(struct sm_ftl *ftl ) 
 { int tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  bool __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  bool __cil_tmp3 ;
 
   {
   {
@@ -9303,22 +8135,14 @@ static int sm_recheck_media(struct sm_ftl *ftl )
   if (tmp___7) {
     {
 #line 753
-    __cil_tmp3 = (unsigned long )ftl;
+    __cil_tmp3 = ftl->unstable;
 #line 753
-    __cil_tmp4 = __cil_tmp3 + 205;
-#line 753
-    __cil_tmp5 = *((bool *)__cil_tmp4);
-#line 753
-    if (! __cil_tmp5) {
+    if (! __cil_tmp3) {
       {
 #line 754
       printk("<4>sm_ftl: media unstable, not allowing writes\n");
 #line 755
-      __cil_tmp6 = (unsigned long )ftl;
-#line 755
-      __cil_tmp7 = __cil_tmp6 + 205;
-#line 755
-      *((bool *)__cil_tmp7) = (_Bool)1;
+      ftl->unstable = (bool )1;
       }
     } else {
 
@@ -9380,194 +8204,93 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
   unsigned int tmp___22 ;
   int tmp___23 ;
   unsigned int tmp___24 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct ftl_zone *__cil_tmp50 ;
-  int *__cil_tmp51 ;
-  int *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
+  struct ftl_zone *__cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  size_t __cil_tmp51 ;
+  int16_t *__cil_tmp52 ;
+  int16_t *__cil_tmp53 ;
+  void *__cil_tmp54 ;
   int __cil_tmp55 ;
   int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  int16_t *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  int16_t *__cil_tmp65 ;
-  void *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
+  size_t __cil_tmp57 ;
+  int __cil_tmp58 ;
+  int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  int16_t *__cil_tmp61 ;
+  void const   *__cil_tmp62 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  void *__cil_tmp68 ;
+  uint8_t *__cil_tmp69 ;
+  void const   *__cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  void const   *__cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  int __cil_tmp74 ;
+  int __cil_tmp75 ;
   int __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  int16_t *__cil_tmp81 ;
-  void const   *__cil_tmp82 ;
-  uint16_t *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  int __cil_tmp86 ;
-  uint16_t *__cil_tmp87 ;
-  uint16_t __cil_tmp88 ;
+  int16_t *__cil_tmp77 ;
+  int16_t *__cil_tmp78 ;
+  int16_t __cil_tmp79 ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int16_t *__cil_tmp82 ;
+  int16_t *__cil_tmp83 ;
+  int16_t *__cil_tmp84 ;
+  int16_t *__cil_tmp85 ;
+  int16_t __cil_tmp86 ;
+  int __cil_tmp87 ;
+  int __cil_tmp88 ;
   int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  int __cil_tmp92 ;
-  uint16_t *__cil_tmp93 ;
-  uint16_t __cil_tmp94 ;
-  int __cil_tmp95 ;
-  uint16_t *__cil_tmp96 ;
-  uint16_t __cil_tmp97 ;
-  int __cil_tmp98 ;
-  void *__cil_tmp99 ;
-  uint8_t *__cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  void const   *__cil_tmp103 ;
+  int16_t *__cil_tmp90 ;
+  int16_t *__cil_tmp91 ;
+  int16_t __cil_tmp92 ;
+  int __cil_tmp93 ;
+  int16_t *__cil_tmp94 ;
+  int16_t *__cil_tmp95 ;
+  int __cil_tmp96 ;
+  int __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  void *__cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
+  unsigned int __cil_tmp102 ;
+  unsigned int __cil_tmp103 ;
   unsigned int __cil_tmp104 ;
-  void const   *__cil_tmp105 ;
+  unsigned int __cil_tmp105 ;
   unsigned int __cil_tmp106 ;
-  int *__cil_tmp107 ;
-  uint16_t *__cil_tmp108 ;
-  uint16_t __cil_tmp109 ;
-  int __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
+  void *__cil_tmp107 ;
+  unsigned int __cil_tmp108 ;
+  void *__cil_tmp109 ;
+  unsigned int __cil_tmp110 ;
+  int __cil_tmp111 ;
+  int __cil_tmp112 ;
   int __cil_tmp113 ;
-  int *__cil_tmp114 ;
-  uint16_t *__cil_tmp115 ;
-  uint16_t __cil_tmp116 ;
+  int __cil_tmp114 ;
+  long __cil_tmp115 ;
+  int __cil_tmp116 ;
   int __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  int16_t *__cil_tmp120 ;
-  int16_t *__cil_tmp121 ;
-  int16_t __cil_tmp122 ;
-  int __cil_tmp123 ;
-  int *__cil_tmp124 ;
-  int __cil_tmp125 ;
-  uint16_t *__cil_tmp126 ;
-  uint16_t __cil_tmp127 ;
-  int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  int16_t *__cil_tmp131 ;
-  int16_t *__cil_tmp132 ;
-  uint16_t *__cil_tmp133 ;
-  uint16_t __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  int16_t *__cil_tmp137 ;
-  int16_t *__cil_tmp138 ;
-  int16_t __cil_tmp139 ;
-  int __cil_tmp140 ;
-  uint16_t *__cil_tmp141 ;
-  uint16_t __cil_tmp142 ;
-  int __cil_tmp143 ;
-  uint16_t *__cil_tmp144 ;
-  uint16_t __cil_tmp145 ;
-  int __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  int16_t *__cil_tmp149 ;
-  int16_t *__cil_tmp150 ;
-  int16_t __cil_tmp151 ;
-  int __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  int16_t *__cil_tmp155 ;
-  int16_t *__cil_tmp156 ;
-  uint16_t *__cil_tmp157 ;
-  uint16_t __cil_tmp158 ;
-  uint16_t *__cil_tmp159 ;
-  uint16_t __cil_tmp160 ;
-  uint16_t *__cil_tmp161 ;
-  uint16_t *__cil_tmp162 ;
-  uint16_t __cil_tmp163 ;
-  int __cil_tmp164 ;
-  int __cil_tmp165 ;
-  int *__cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned int __cil_tmp173 ;
-  unsigned int __cil_tmp174 ;
-  void *__cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  int *__cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned int __cil_tmp183 ;
-  unsigned int __cil_tmp184 ;
-  unsigned int __cil_tmp185 ;
-  unsigned int __cil_tmp186 ;
-  int *__cil_tmp187 ;
-  int __cil_tmp188 ;
-  unsigned int __cil_tmp189 ;
-  unsigned int __cil_tmp190 ;
-  int *__cil_tmp191 ;
-  int *__cil_tmp192 ;
-  int *__cil_tmp193 ;
-  int __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  void *__cil_tmp197 ;
-  unsigned int __cil_tmp198 ;
-  void *__cil_tmp199 ;
-  unsigned int __cil_tmp200 ;
-  int __cil_tmp201 ;
-  int __cil_tmp202 ;
-  int __cil_tmp203 ;
-  int __cil_tmp204 ;
-  long __cil_tmp205 ;
-  int __cil_tmp206 ;
-  int __cil_tmp207 ;
-  int __cil_tmp208 ;
-  int __cil_tmp209 ;
-  long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  void const   *__cil_tmp213 ;
-  unsigned int __cil_tmp214 ;
-  void const   *__cil_tmp215 ;
-  unsigned int __cil_tmp216 ;
+  int __cil_tmp118 ;
+  int __cil_tmp119 ;
+  long __cil_tmp120 ;
+  void const   *__cil_tmp121 ;
+  unsigned int __cil_tmp122 ;
+  void const   *__cil_tmp123 ;
+  unsigned int __cil_tmp124 ;
 
   {
 #line 765
-  __cil_tmp48 = (unsigned long )ftl;
+  __cil_tmp48 = ftl->zones;
 #line 765
-  __cil_tmp49 = __cil_tmp48 + 176;
-#line 765
-  __cil_tmp50 = *((struct ftl_zone **)__cil_tmp49);
-#line 765
-  zone = __cil_tmp50 + zone_num;
+  zone = __cil_tmp48 + zone_num;
 #line 769
-  __cil_tmp51 = & i;
-#line 769
-  *__cil_tmp51 = 0;
-  {
+  i = 0;
 #line 772
-  __cil_tmp52 = & debug;
-#line 772
-  if (*__cil_tmp52) {
+  if (debug) {
     {
 #line 772
     printk("<7>sm_ftl: initializing zone %d\n", zone_num);
@@ -9575,36 +8298,23 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
   } else {
 
   }
-  }
   {
 #line 775
-  __cil_tmp53 = (unsigned long )ftl;
+  __cil_tmp49 = ftl->max_lba;
 #line 775
-  __cil_tmp54 = __cil_tmp53 + 196;
+  __cil_tmp50 = __cil_tmp49 * 2;
 #line 775
-  __cil_tmp55 = *((int *)__cil_tmp54);
+  __cil_tmp51 = (size_t )__cil_tmp50;
 #line 775
-  __cil_tmp56 = __cil_tmp55 * 2;
+  tmp___7 = kmalloc(__cil_tmp51, 208U);
 #line 775
-  __cil_tmp57 = (unsigned long )__cil_tmp56;
-#line 775
-  tmp___7 = kmalloc(__cil_tmp57, 208U);
-#line 775
-  __cil_tmp58 = (unsigned long )zone;
-#line 775
-  __cil_tmp59 = __cil_tmp58 + 8;
-#line 775
-  *((int16_t **)__cil_tmp59) = (int16_t *)tmp___7;
+  zone->lba_to_phys_table = (int16_t *)tmp___7;
   }
   {
 #line 777
-  __cil_tmp60 = (unsigned long )zone;
+  __cil_tmp52 = zone->lba_to_phys_table;
 #line 777
-  __cil_tmp61 = __cil_tmp60 + 8;
-#line 777
-  __cil_tmp62 = *((int16_t **)__cil_tmp61);
-#line 777
-  if (! __cil_tmp62) {
+  if (! __cil_tmp52) {
 #line 778
     return (-12);
   } else {
@@ -9613,49 +8323,33 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
   }
   {
 #line 779
-  __cil_tmp63 = (unsigned long )zone;
+  __cil_tmp53 = zone->lba_to_phys_table;
 #line 779
-  __cil_tmp64 = __cil_tmp63 + 8;
+  __cil_tmp54 = (void *)__cil_tmp53;
 #line 779
-  __cil_tmp65 = *((int16_t **)__cil_tmp64);
+  __cil_tmp55 = ftl->max_lba;
 #line 779
-  __cil_tmp66 = (void *)__cil_tmp65;
+  __cil_tmp56 = __cil_tmp55 * 2;
 #line 779
-  __cil_tmp67 = (unsigned long )ftl;
+  __cil_tmp57 = (size_t )__cil_tmp56;
 #line 779
-  __cil_tmp68 = __cil_tmp67 + 196;
-#line 779
-  __cil_tmp69 = *((int *)__cil_tmp68);
-#line 779
-  __cil_tmp70 = __cil_tmp69 * 2;
-#line 779
-  __cil_tmp71 = (unsigned long )__cil_tmp70;
-#line 779
-  memset(__cil_tmp66, -1, __cil_tmp71);
+  memset(__cil_tmp54, -1, __cil_tmp57);
 #line 783
-  __cil_tmp72 = (unsigned long )zone;
+  __tmp = & zone->free_sectors;
 #line 783
-  __cil_tmp73 = __cil_tmp72 + 16;
-#line 783
-  __tmp = (struct kfifo *)__cil_tmp73;
-#line 783
-  __kfifo = (struct __kfifo *)__tmp;
+  __kfifo = & __tmp->__annonCompField39.kfifo;
   }
 #line 783
   if (24UL == 24UL) {
     {
 #line 783
-    __cil_tmp74 = (unsigned long )ftl;
+    __cil_tmp58 = ftl->zone_size;
 #line 783
-    __cil_tmp75 = __cil_tmp74 + 188;
+    __cil_tmp59 = __cil_tmp58 * 2;
 #line 783
-    __cil_tmp76 = *((int *)__cil_tmp75);
+    __cil_tmp60 = (unsigned int )__cil_tmp59;
 #line 783
-    __cil_tmp77 = __cil_tmp76 * 2;
-#line 783
-    __cil_tmp78 = (unsigned int )__cil_tmp77;
-#line 783
-    tmp___8 = __kfifo_alloc(__kfifo, __cil_tmp78, 1UL, 208U);
+    tmp___8 = __kfifo_alloc(__kfifo, __cil_tmp60, 1UL, 208U);
 #line 783
     tmp___9 = tmp___8;
     }
@@ -9675,15 +8369,11 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
   if (tmp___10) {
     {
 #line 784
-    __cil_tmp79 = (unsigned long )zone;
+    __cil_tmp61 = zone->lba_to_phys_table;
 #line 784
-    __cil_tmp80 = __cil_tmp79 + 8;
+    __cil_tmp62 = (void const   *)__cil_tmp61;
 #line 784
-    __cil_tmp81 = *((int16_t **)__cil_tmp80);
-#line 784
-    __cil_tmp82 = (void const   *)__cil_tmp81;
-#line 784
-    kfree(__cil_tmp82);
+    kfree(__cil_tmp62);
     }
 #line 785
     return (-12);
@@ -9691,31 +8381,22 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 
   }
 #line 789
-  __cil_tmp83 = & block;
-#line 789
-  *__cil_tmp83 = (unsigned short)0;
+  block = (uint16_t )0;
   {
 #line 789
   while (1) {
-    while_15_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 789
-    __cil_tmp84 = (unsigned long )ftl;
+    __cil_tmp63 = ftl->zone_size;
 #line 789
-    __cil_tmp85 = __cil_tmp84 + 188;
+    __cil_tmp64 = (int )block;
 #line 789
-    __cil_tmp86 = *((int *)__cil_tmp85);
-#line 789
-    __cil_tmp87 = & block;
-#line 789
-    __cil_tmp88 = *__cil_tmp87;
-#line 789
-    __cil_tmp89 = (int )__cil_tmp88;
-#line 789
-    if (__cil_tmp89 < __cil_tmp86) {
+    if (__cil_tmp64 < __cil_tmp63) {
 
     } else {
+#line 789
       goto while_break;
     }
     }
@@ -9723,19 +8404,12 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
     if (zone_num == 0) {
       {
 #line 792
-      __cil_tmp90 = (unsigned long )ftl;
+      __cil_tmp65 = ftl->cis_block;
 #line 792
-      __cil_tmp91 = __cil_tmp90 + 208;
+      __cil_tmp66 = (int )block;
 #line 792
-      __cil_tmp92 = *((int *)__cil_tmp91);
-#line 792
-      __cil_tmp93 = & block;
-#line 792
-      __cil_tmp94 = *__cil_tmp93;
-#line 792
-      __cil_tmp95 = (int )__cil_tmp94;
-#line 792
-      if (__cil_tmp95 <= __cil_tmp92) {
+      if (__cil_tmp66 <= __cil_tmp65) {
+#line 793
         goto __Cont;
       } else {
 
@@ -9746,17 +8420,13 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
     }
     {
 #line 796
-    __cil_tmp96 = & block;
+    __cil_tmp67 = (int )block;
 #line 796
-    __cil_tmp97 = *__cil_tmp96;
+    __cil_tmp68 = (void *)0;
 #line 796
-    __cil_tmp98 = (int )__cil_tmp97;
+    __cil_tmp69 = (uint8_t *)__cil_tmp68;
 #line 796
-    __cil_tmp99 = (void *)0;
-#line 796
-    __cil_tmp100 = (uint8_t *)__cil_tmp99;
-#line 796
-    tmp___11 = sm_read_sector(ftl, zone_num, __cil_tmp98, 0, __cil_tmp100, & oob);
+    tmp___11 = sm_read_sector(ftl, zone_num, __cil_tmp67, 0, __cil_tmp69, & oob);
     }
 #line 796
     if (tmp___11) {
@@ -9772,11 +8442,7 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 #line 801
     if (tmp___12) {
 #line 802
-      __cil_tmp101 = (unsigned long )zone;
-#line 802
-      __cil_tmp102 = __cil_tmp101 + 16;
-#line 802
-      __tmp___0 = (struct kfifo *)__cil_tmp102;
+      __tmp___0 = & zone->free_sectors;
 #line 802
       __buf = (unsigned char *)(& block);
 #line 802
@@ -9784,27 +8450,28 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 #line 802
       __recsize = 0UL;
 #line 802
-      __kfifo___0 = (struct __kfifo *)__tmp___0;
+      __kfifo___0 = & __tmp___0->__annonCompField39.kfifo;
 #line 802
       if (__recsize) {
         {
 #line 802
-        __cil_tmp103 = (void const   *)__buf;
+        __cil_tmp70 = (void const   *)__buf;
 #line 802
-        __cil_tmp104 = (unsigned int )__n;
+        __cil_tmp71 = (unsigned int )__n;
 #line 802
-        __kfifo_in_r(__kfifo___0, __cil_tmp103, __cil_tmp104, __recsize);
+        __kfifo_in_r(__kfifo___0, __cil_tmp70, __cil_tmp71, __recsize);
         }
       } else {
         {
 #line 802
-        __cil_tmp105 = (void const   *)__buf;
+        __cil_tmp72 = (void const   *)__buf;
 #line 802
-        __cil_tmp106 = (unsigned int )__n;
+        __cil_tmp73 = (unsigned int )__n;
 #line 802
-        __kfifo_in(__kfifo___0, __cil_tmp105, __cil_tmp106);
+        __kfifo_in(__kfifo___0, __cil_tmp72, __cil_tmp73);
         }
       }
+#line 804
       goto __Cont;
     } else {
 
@@ -9817,25 +8484,18 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
     if (tmp___13) {
 
     } else {
-      {
 #line 812
-      __cil_tmp107 = & debug;
-#line 812
-      if (*__cil_tmp107) {
+      if (debug) {
         {
 #line 812
-        __cil_tmp108 = & block;
+        __cil_tmp74 = (int )block;
 #line 812
-        __cil_tmp109 = *__cil_tmp108;
-#line 812
-        __cil_tmp110 = (int )__cil_tmp109;
-#line 812
-        printk("<7>sm_ftl: PH %04d <-> <marked bad>\n", __cil_tmp110);
+        printk("<7>sm_ftl: PH %04d <-> <marked bad>\n", __cil_tmp74);
         }
       } else {
 
       }
-      }
+#line 813
       goto __Cont;
     }
     {
@@ -9844,37 +8504,27 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
     }
 #line 822
     if (lba == -2) {
+#line 822
       goto _L;
     } else {
       {
 #line 822
-      __cil_tmp111 = (unsigned long )ftl;
+      __cil_tmp75 = ftl->max_lba;
 #line 822
-      __cil_tmp112 = __cil_tmp111 + 196;
-#line 822
-      __cil_tmp113 = *((int *)__cil_tmp112);
-#line 822
-      if (lba >= __cil_tmp113) {
+      if (lba >= __cil_tmp75) {
         _L: 
-        {
 #line 823
-        __cil_tmp114 = & debug;
-#line 823
-        if (*__cil_tmp114) {
+        if (debug) {
           {
 #line 823
-          __cil_tmp115 = & block;
+          __cil_tmp76 = (int )block;
 #line 823
-          __cil_tmp116 = *__cil_tmp115;
-#line 823
-          __cil_tmp117 = (int )__cil_tmp116;
-#line 823
-          printk("<7>sm_ftl: PH %04d <-> LBA %04d(bad)\n", __cil_tmp117, lba);
+          printk("<7>sm_ftl: PH %04d <-> LBA %04d(bad)\n", __cil_tmp76, lba);
           }
         } else {
 
         }
-        }
+#line 824
         goto __Cont;
       } else {
 
@@ -9883,54 +8533,33 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
     }
     {
 #line 830
-    __cil_tmp118 = (unsigned long )zone;
+    __cil_tmp77 = zone->lba_to_phys_table;
 #line 830
-    __cil_tmp119 = __cil_tmp118 + 8;
+    __cil_tmp78 = __cil_tmp77 + lba;
 #line 830
-    __cil_tmp120 = *((int16_t **)__cil_tmp119);
+    __cil_tmp79 = *__cil_tmp78;
 #line 830
-    __cil_tmp121 = __cil_tmp120 + lba;
+    __cil_tmp80 = (int )__cil_tmp79;
 #line 830
-    __cil_tmp122 = *__cil_tmp121;
-#line 830
-    __cil_tmp123 = (int )__cil_tmp122;
-#line 830
-    if (__cil_tmp123 < 0) {
-      {
+    if (__cil_tmp80 < 0) {
 #line 831
-      __cil_tmp124 = & debug;
-#line 831
-      __cil_tmp125 = *__cil_tmp124;
-#line 831
-      if (__cil_tmp125 > 1) {
+      if (debug > 1) {
         {
 #line 831
-        __cil_tmp126 = & block;
+        __cil_tmp81 = (int )block;
 #line 831
-        __cil_tmp127 = *__cil_tmp126;
-#line 831
-        __cil_tmp128 = (int )__cil_tmp127;
-#line 831
-        printk("<7>sm_ftl: PH %04d <-> LBA %04d\n", __cil_tmp128, lba);
+        printk("<7>sm_ftl: PH %04d <-> LBA %04d\n", __cil_tmp81, lba);
         }
       } else {
 
       }
-      }
 #line 832
-      __cil_tmp129 = (unsigned long )zone;
+      __cil_tmp82 = zone->lba_to_phys_table;
 #line 832
-      __cil_tmp130 = __cil_tmp129 + 8;
+      __cil_tmp83 = __cil_tmp82 + lba;
 #line 832
-      __cil_tmp131 = *((int16_t **)__cil_tmp130);
-#line 832
-      __cil_tmp132 = __cil_tmp131 + lba;
-#line 832
-      __cil_tmp133 = & block;
-#line 832
-      __cil_tmp134 = *__cil_tmp133;
-#line 832
-      *__cil_tmp132 = (short )__cil_tmp134;
+      *__cil_tmp83 = (int16_t )block;
+#line 833
       goto __Cont;
     } else {
 
@@ -9938,73 +8567,51 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
     }
     {
 #line 836
-    __cil_tmp135 = (unsigned long )zone;
+    __cil_tmp84 = zone->lba_to_phys_table;
 #line 836
-    __cil_tmp136 = __cil_tmp135 + 8;
+    __cil_tmp85 = __cil_tmp84 + lba;
 #line 836
-    __cil_tmp137 = *((int16_t **)__cil_tmp136);
+    __cil_tmp86 = *__cil_tmp85;
 #line 836
-    __cil_tmp138 = __cil_tmp137 + lba;
+    __cil_tmp87 = (int )__cil_tmp86;
 #line 836
-    __cil_tmp139 = *__cil_tmp138;
-#line 836
-    __cil_tmp140 = (int )__cil_tmp139;
-#line 836
-    __cil_tmp141 = & block;
-#line 836
-    __cil_tmp142 = *__cil_tmp141;
-#line 836
-    __cil_tmp143 = (int )__cil_tmp142;
+    __cil_tmp88 = (int )block;
 #line 836
     printk("<4>sm_ftl: collision of LBA %d between blocks %d and %d in zone %d\n",
-           lba, __cil_tmp140, __cil_tmp143, zone_num);
+           lba, __cil_tmp87, __cil_tmp88, zone_num);
 #line 841
-    __cil_tmp144 = & block;
+    __cil_tmp89 = (int )block;
 #line 841
-    __cil_tmp145 = *__cil_tmp144;
-#line 841
-    __cil_tmp146 = (int )__cil_tmp145;
-#line 841
-    tmp___14 = sm_check_block(ftl, zone_num, __cil_tmp146);
+    tmp___14 = sm_check_block(ftl, zone_num, __cil_tmp89);
     }
 #line 841
     if (tmp___14) {
+#line 842
       goto __Cont;
     } else {
 
     }
     {
 #line 845
-    __cil_tmp147 = (unsigned long )zone;
+    __cil_tmp90 = zone->lba_to_phys_table;
 #line 845
-    __cil_tmp148 = __cil_tmp147 + 8;
+    __cil_tmp91 = __cil_tmp90 + lba;
 #line 845
-    __cil_tmp149 = *((int16_t **)__cil_tmp148);
+    __cil_tmp92 = *__cil_tmp91;
 #line 845
-    __cil_tmp150 = __cil_tmp149 + lba;
+    __cil_tmp93 = (int )__cil_tmp92;
 #line 845
-    __cil_tmp151 = *__cil_tmp150;
-#line 845
-    __cil_tmp152 = (int )__cil_tmp151;
-#line 845
-    tmp___15 = sm_check_block(ftl, zone_num, __cil_tmp152);
+    tmp___15 = sm_check_block(ftl, zone_num, __cil_tmp93);
     }
 #line 845
     if (tmp___15) {
 #line 847
-      __cil_tmp153 = (unsigned long )zone;
+      __cil_tmp94 = zone->lba_to_phys_table;
 #line 847
-      __cil_tmp154 = __cil_tmp153 + 8;
+      __cil_tmp95 = __cil_tmp94 + lba;
 #line 847
-      __cil_tmp155 = *((int16_t **)__cil_tmp154);
-#line 847
-      __cil_tmp156 = __cil_tmp155 + lba;
-#line 847
-      __cil_tmp157 = & block;
-#line 847
-      __cil_tmp158 = *__cil_tmp157;
-#line 847
-      *__cil_tmp156 = (short )__cil_tmp158;
+      *__cil_tmp95 = (int16_t )block;
+#line 848
       goto __Cont;
     } else {
 
@@ -10013,35 +8620,22 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 #line 855
     printk("<4>sm_ftl: both blocks are valid, erasing the later\n");
 #line 856
-    __cil_tmp159 = & block;
-#line 856
-    __cil_tmp160 = *__cil_tmp159;
-#line 856
-    sm_erase_block(ftl, zone_num, __cil_tmp160, 1);
+    sm_erase_block(ftl, zone_num, block, 1);
     }
     __Cont: 
 #line 789
-    __cil_tmp161 = & block;
+    __cil_tmp96 = (int )block;
 #line 789
-    __cil_tmp162 = & block;
+    __cil_tmp97 = __cil_tmp96 + 1;
 #line 789
-    __cil_tmp163 = *__cil_tmp162;
-#line 789
-    __cil_tmp164 = (int )__cil_tmp163;
-#line 789
-    __cil_tmp165 = __cil_tmp164 + 1;
-#line 789
-    *__cil_tmp161 = (unsigned short )__cil_tmp165;
+    block = (uint16_t )__cil_tmp97;
   }
-  while_15_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
-  {
 #line 859
-  __cil_tmp166 = & debug;
-#line 859
-  if (*__cil_tmp166) {
+  if (debug) {
     {
 #line 859
     printk("<7>sm_ftl: zone initialized\n");
@@ -10049,30 +8643,17 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
   } else {
 
   }
-  }
 #line 860
-  *((bool *)zone) = (_Bool)1;
+  zone->initialized = (bool )1;
 #line 864
-  __cil_tmp167 = (unsigned long )zone;
-#line 864
-  __cil_tmp168 = __cil_tmp167 + 16;
-#line 864
-  __tmpl = (struct kfifo *)__cil_tmp168;
+  __tmpl = & zone->free_sectors;
   {
 #line 864
-  __cil_tmp169 = 0 + 4;
+  __cil_tmp98 = __tmpl->__annonCompField39.kfifo.out;
 #line 864
-  __cil_tmp170 = 0 + __cil_tmp169;
+  __cil_tmp99 = __tmpl->__annonCompField39.kfifo.in;
 #line 864
-  __cil_tmp171 = (unsigned long )__tmpl;
-#line 864
-  __cil_tmp172 = __cil_tmp171 + __cil_tmp170;
-#line 864
-  __cil_tmp173 = *((unsigned int *)__cil_tmp172);
-#line 864
-  __cil_tmp174 = *((unsigned int *)__tmpl);
-#line 864
-  if (__cil_tmp174 - __cil_tmp173) {
+  if (__cil_tmp99 - __cil_tmp98) {
 
   } else {
     {
@@ -10085,72 +8666,43 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
   }
   {
 #line 870
-  __cil_tmp175 = (void *)(& i);
+  __cil_tmp100 = (void *)(& i);
 #line 870
-  get_random_bytes(__cil_tmp175, 2);
+  get_random_bytes(__cil_tmp100, 2);
 #line 871
-  __cil_tmp176 = (unsigned long )zone;
+  __tmpl___0 = & zone->free_sectors;
 #line 871
-  __cil_tmp177 = __cil_tmp176 + 16;
+  __cil_tmp101 = __tmpl___0->__annonCompField39.kfifo.out;
 #line 871
-  __tmpl___0 = (struct kfifo *)__cil_tmp177;
+  __cil_tmp102 = __tmpl___0->__annonCompField39.kfifo.in;
 #line 871
-  __cil_tmp178 = & i;
+  __cil_tmp103 = __cil_tmp102 - __cil_tmp101;
 #line 871
-  __cil_tmp179 = 0 + 4;
+  __cil_tmp104 = __cil_tmp103 / 2U;
 #line 871
-  __cil_tmp180 = 0 + __cil_tmp179;
+  __cil_tmp105 = (unsigned int )i;
 #line 871
-  __cil_tmp181 = (unsigned long )__tmpl___0;
+  __cil_tmp106 = __cil_tmp105 % __cil_tmp104;
 #line 871
-  __cil_tmp182 = __cil_tmp181 + __cil_tmp180;
-#line 871
-  __cil_tmp183 = *((unsigned int *)__cil_tmp182);
-#line 871
-  __cil_tmp184 = *((unsigned int *)__tmpl___0);
-#line 871
-  __cil_tmp185 = __cil_tmp184 - __cil_tmp183;
-#line 871
-  __cil_tmp186 = __cil_tmp185 / 2U;
-#line 871
-  __cil_tmp187 = & i;
-#line 871
-  __cil_tmp188 = *__cil_tmp187;
-#line 871
-  __cil_tmp189 = (unsigned int )__cil_tmp188;
-#line 871
-  __cil_tmp190 = __cil_tmp189 % __cil_tmp186;
-#line 871
-  *__cil_tmp178 = (int )__cil_tmp190;
+  i = (int )__cil_tmp106;
   }
   {
 #line 873
   while (1) {
-    while_16_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 #line 873
-    __cil_tmp191 = & i;
+    tmp___21 = i;
 #line 873
-    tmp___21 = *__cil_tmp191;
-#line 873
-    __cil_tmp192 = & i;
-#line 873
-    __cil_tmp193 = & i;
-#line 873
-    __cil_tmp194 = *__cil_tmp193;
-#line 873
-    *__cil_tmp192 = __cil_tmp194 - 1;
+    i = i - 1;
 #line 873
     if (tmp___21) {
 
     } else {
+#line 873
       goto while_break___0;
     }
 #line 874
-    __cil_tmp195 = (unsigned long )zone;
-#line 874
-    __cil_tmp196 = __cil_tmp195 + 16;
-#line 874
-    __tmp___1 = (struct kfifo *)__cil_tmp196;
+    __tmp___1 = & zone->free_sectors;
 #line 874
     __buf___0 = (unsigned char *)(& block);
 #line 874
@@ -10158,27 +8710,27 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 #line 874
     __recsize___0 = 0UL;
 #line 874
-    __kfifo___1 = (struct __kfifo *)__tmp___1;
+    __kfifo___1 = & __tmp___1->__annonCompField39.kfifo;
 #line 874
     if (__recsize___0) {
       {
 #line 874
-      __cil_tmp197 = (void *)__buf___0;
+      __cil_tmp107 = (void *)__buf___0;
 #line 874
-      __cil_tmp198 = (unsigned int )__n___0;
+      __cil_tmp108 = (unsigned int )__n___0;
 #line 874
-      tmp___16 = __kfifo_out_r(__kfifo___1, __cil_tmp197, __cil_tmp198, __recsize___0);
+      tmp___16 = __kfifo_out_r(__kfifo___1, __cil_tmp107, __cil_tmp108, __recsize___0);
 #line 874
       tmp___18 = tmp___16;
       }
     } else {
       {
 #line 874
-      __cil_tmp199 = (void *)__buf___0;
+      __cil_tmp109 = (void *)__buf___0;
 #line 874
-      __cil_tmp200 = (unsigned int )__n___0;
+      __cil_tmp110 = (unsigned int )__n___0;
 #line 874
-      tmp___17 = __kfifo_out(__kfifo___1, __cil_tmp199, __cil_tmp200);
+      tmp___17 = __kfifo_out(__kfifo___1, __cil_tmp109, __cil_tmp110);
 #line 874
       tmp___18 = tmp___17;
       }
@@ -10193,49 +8745,45 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 #line 874
     len = (int )tmp___19;
 #line 876
-    __cil_tmp201 = len != 2;
+    __cil_tmp111 = len != 2;
 #line 876
-    __cil_tmp202 = ! __cil_tmp201;
+    __cil_tmp112 = ! __cil_tmp111;
 #line 876
-    __ret_warn_on = ! __cil_tmp202;
+    __ret_warn_on = ! __cil_tmp112;
 #line 876
-    __cil_tmp203 = ! __ret_warn_on;
+    __cil_tmp113 = ! __ret_warn_on;
 #line 876
-    __cil_tmp204 = ! __cil_tmp203;
+    __cil_tmp114 = ! __cil_tmp113;
 #line 876
-    __cil_tmp205 = (long )__cil_tmp204;
+    __cil_tmp115 = (long )__cil_tmp114;
 #line 876
-    tmp___20 = __builtin_expect(__cil_tmp205, 0L);
+    tmp___20 = __builtin_expect(__cil_tmp115, 0L);
     }
 #line 876
     if (tmp___20) {
       {
 #line 876
-      __cil_tmp206 = (int const   )876;
+      __cil_tmp116 = (int const   )876;
 #line 876
-      __cil_tmp207 = (int )__cil_tmp206;
+      __cil_tmp117 = (int )__cil_tmp116;
 #line 876
       warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c",
-                         __cil_tmp207);
+                         __cil_tmp117);
       }
     } else {
 
     }
     {
 #line 876
-    __cil_tmp208 = ! __ret_warn_on;
+    __cil_tmp118 = ! __ret_warn_on;
 #line 876
-    __cil_tmp209 = ! __cil_tmp208;
+    __cil_tmp119 = ! __cil_tmp118;
 #line 876
-    __cil_tmp210 = (long )__cil_tmp209;
+    __cil_tmp120 = (long )__cil_tmp119;
 #line 876
-    __builtin_expect(__cil_tmp210, 0L);
+    __builtin_expect(__cil_tmp120, 0L);
 #line 877
-    __cil_tmp211 = (unsigned long )zone;
-#line 877
-    __cil_tmp212 = __cil_tmp211 + 16;
-#line 877
-    __tmp___2 = (struct kfifo *)__cil_tmp212;
+    __tmp___2 = & zone->free_sectors;
 #line 877
     __buf___1 = (unsigned char const   *)(& block);
 #line 877
@@ -10243,30 +8791,30 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 #line 877
     __recsize___1 = 0UL;
 #line 877
-    __kfifo___2 = (struct __kfifo *)__tmp___2;
+    __kfifo___2 = & __tmp___2->__annonCompField39.kfifo;
     }
 #line 877
     if (__recsize___1) {
       {
 #line 877
-      __cil_tmp213 = (void const   *)__buf___1;
+      __cil_tmp121 = (void const   *)__buf___1;
 #line 877
-      __cil_tmp214 = (unsigned int )__n___1;
+      __cil_tmp122 = (unsigned int )__n___1;
 #line 877
-      __kfifo_in_r(__kfifo___2, __cil_tmp213, __cil_tmp214, __recsize___1);
+      __kfifo_in_r(__kfifo___2, __cil_tmp121, __cil_tmp122, __recsize___1);
       }
     } else {
       {
 #line 877
-      __cil_tmp215 = (void const   *)__buf___1;
+      __cil_tmp123 = (void const   *)__buf___1;
 #line 877
-      __cil_tmp216 = (unsigned int )__n___1;
+      __cil_tmp124 = (unsigned int )__n___1;
 #line 877
-      __kfifo_in(__kfifo___2, __cil_tmp215, __cil_tmp216);
+      __kfifo_in(__kfifo___2, __cil_tmp123, __cil_tmp124);
       }
     }
   }
-  while_16_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: ;
@@ -10282,48 +8830,40 @@ struct ftl_zone *sm_get_zone(struct sm_ftl *ftl , int zone_num )
   void *tmp___8 ;
   void *tmp ;
   void *tmp___9 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
   int __cil_tmp11 ;
   int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct ftl_zone *__cil_tmp18 ;
-  bool __cil_tmp19 ;
-  long __cil_tmp20 ;
+  long __cil_tmp13 ;
+  struct ftl_zone *__cil_tmp14 ;
+  bool __cil_tmp15 ;
+  long __cil_tmp16 ;
 
   {
   {
 #line 888
   while (1) {
-    while_17_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 888
-    __cil_tmp9 = (unsigned long )ftl;
+    __cil_tmp9 = ftl->zone_count;
 #line 888
-    __cil_tmp10 = __cil_tmp9 + 192;
+    __cil_tmp10 = zone_num >= __cil_tmp9;
 #line 888
-    __cil_tmp11 = *((int *)__cil_tmp10);
+    __cil_tmp11 = ! __cil_tmp10;
 #line 888
-    __cil_tmp12 = zone_num >= __cil_tmp11;
+    __cil_tmp12 = ! __cil_tmp11;
 #line 888
-    __cil_tmp13 = ! __cil_tmp12;
+    __cil_tmp13 = (long )__cil_tmp12;
 #line 888
-    __cil_tmp14 = ! __cil_tmp13;
-#line 888
-    __cil_tmp15 = (long )__cil_tmp14;
-#line 888
-    tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp13, 0L);
     }
 #line 888
     if (tmp___7) {
       {
 #line 888
       while (1) {
-        while_18_continue: /* CIL Label */ ;
+        while_continue___0: /* CIL Label */ ;
 #line 888
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
@@ -10335,40 +8875,38 @@ struct ftl_zone *sm_get_zone(struct sm_ftl *ftl , int zone_num )
         {
 #line 888
         while (1) {
-          while_19_continue: /* CIL Label */ ;
+          while_continue___1: /* CIL Label */ ;
 
         }
-        while_19_break: /* CIL Label */ ;
+        while_break___3: /* CIL Label */ ;
         }
 
+#line 888
         goto while_break___0;
       }
-      while_18_break: /* CIL Label */ ;
+      while_break___2: /* CIL Label */ ;
       }
 
       while_break___0: ;
     } else {
 
     }
+#line 888
     goto while_break;
   }
-  while_17_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
 #line 889
-  __cil_tmp16 = (unsigned long )ftl;
+  __cil_tmp14 = ftl->zones;
 #line 889
-  __cil_tmp17 = __cil_tmp16 + 176;
-#line 889
-  __cil_tmp18 = *((struct ftl_zone **)__cil_tmp17);
-#line 889
-  zone = __cil_tmp18 + zone_num;
+  zone = __cil_tmp14 + zone_num;
   {
 #line 891
-  __cil_tmp19 = *((bool *)zone);
+  __cil_tmp15 = zone->initialized;
 #line 891
-  if (! __cil_tmp19) {
+  if (! __cil_tmp15) {
     {
 #line 892
     error = sm_init_zone(ftl, zone_num);
@@ -10377,9 +8915,9 @@ struct ftl_zone *sm_get_zone(struct sm_ftl *ftl , int zone_num )
     if (error) {
       {
 #line 895
-      __cil_tmp20 = (long )error;
+      __cil_tmp16 = (long )error;
 #line 895
-      tmp___9 = (void *)ERR_PTR(__cil_tmp20);
+      tmp___9 = (void *)ERR_PTR(__cil_tmp16);
 #line 895
       tmp = tmp___9;
 #line 895
@@ -10400,40 +8938,17 @@ struct ftl_zone *sm_get_zone(struct sm_ftl *ftl , int zone_num )
 }
 #line 904 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 void sm_cache_init(struct sm_ftl *ftl ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+{ 
 
   {
 #line 906
-  __cil_tmp2 = (unsigned long )ftl;
-#line 906
-  __cil_tmp3 = __cil_tmp2 + 248;
-#line 906
-  *((unsigned long *)__cil_tmp3) = 4294967295UL;
+  ftl->cache_data_invalid_bitmap = 4294967295UL;
 #line 907
-  __cil_tmp4 = (unsigned long )ftl;
-#line 907
-  __cil_tmp5 = __cil_tmp4 + 256;
-#line 907
-  *((bool *)__cil_tmp5) = (_Bool)1;
+  ftl->cache_clean = (bool )1;
 #line 908
-  __cil_tmp6 = (unsigned long )ftl;
-#line 908
-  __cil_tmp7 = __cil_tmp6 + 236;
-#line 908
-  *((int *)__cil_tmp7) = -1;
+  ftl->cache_zone = -1;
 #line 909
-  __cil_tmp8 = (unsigned long )ftl;
-#line 909
-  __cil_tmp9 = __cil_tmp8 + 232;
-#line 909
-  *((int *)__cil_tmp9) = -1;
+  ftl->cache_block = -1;
 #line 911
   return;
 }
@@ -10442,84 +8957,60 @@ void sm_cache_init(struct sm_ftl *ftl )
 void sm_cache_put(struct sm_ftl *ftl , char *buffer , int boffset ) 
 { size_t __len ;
   void *__ret ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char *__cil_tmp8 ;
-  unsigned char *__cil_tmp9 ;
-  void *__cil_tmp10 ;
-  void const   *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned char *__cil_tmp14 ;
-  unsigned char *__cil_tmp15 ;
-  void *__cil_tmp16 ;
-  void const   *__cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long *__cil_tmp21 ;
-  unsigned long volatile   *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  unsigned char *__cil_tmp6 ;
+  unsigned char *__cil_tmp7 ;
+  void *__cil_tmp8 ;
+  void const   *__cil_tmp9 ;
+  unsigned char *__cil_tmp10 ;
+  unsigned char *__cil_tmp11 ;
+  void *__cil_tmp12 ;
+  void const   *__cil_tmp13 ;
+  int __cil_tmp14 ;
+  unsigned long *__cil_tmp15 ;
+  unsigned long volatile   *__cil_tmp16 ;
 
   {
 #line 916
-  __len = 512UL;
+  __len = (size_t )512;
 #line 916
   if (__len >= 64UL) {
     {
 #line 916
-    __cil_tmp6 = (unsigned long )ftl;
+    __cil_tmp6 = ftl->cache_data;
 #line 916
-    __cil_tmp7 = __cil_tmp6 + 240;
+    __cil_tmp7 = __cil_tmp6 + boffset;
 #line 916
-    __cil_tmp8 = *((unsigned char **)__cil_tmp7);
+    __cil_tmp8 = (void *)__cil_tmp7;
 #line 916
-    __cil_tmp9 = __cil_tmp8 + boffset;
+    __cil_tmp9 = (void const   *)buffer;
 #line 916
-    __cil_tmp10 = (void *)__cil_tmp9;
-#line 916
-    __cil_tmp11 = (void const   *)buffer;
-#line 916
-    __ret = __memcpy(__cil_tmp10, __cil_tmp11, __len);
+    __ret = __memcpy(__cil_tmp8, __cil_tmp9, __len);
     }
   } else {
     {
 #line 916
-    __cil_tmp12 = (unsigned long )ftl;
+    __cil_tmp10 = ftl->cache_data;
 #line 916
-    __cil_tmp13 = __cil_tmp12 + 240;
+    __cil_tmp11 = __cil_tmp10 + boffset;
 #line 916
-    __cil_tmp14 = *((unsigned char **)__cil_tmp13);
+    __cil_tmp12 = (void *)__cil_tmp11;
 #line 916
-    __cil_tmp15 = __cil_tmp14 + boffset;
+    __cil_tmp13 = (void const   *)buffer;
 #line 916
-    __cil_tmp16 = (void *)__cil_tmp15;
-#line 916
-    __cil_tmp17 = (void const   *)buffer;
-#line 916
-    __ret = __builtin_memcpy(__cil_tmp16, __cil_tmp17, __len);
+    __ret = __builtin_memcpy(__cil_tmp12, __cil_tmp13, __len);
     }
   }
   {
 #line 917
-  __cil_tmp18 = boffset / 512;
+  __cil_tmp14 = boffset / 512;
 #line 917
-  __cil_tmp19 = (unsigned long )ftl;
+  __cil_tmp15 = & ftl->cache_data_invalid_bitmap;
 #line 917
-  __cil_tmp20 = __cil_tmp19 + 248;
+  __cil_tmp16 = (unsigned long volatile   *)__cil_tmp15;
 #line 917
-  __cil_tmp21 = (unsigned long *)__cil_tmp20;
-#line 917
-  __cil_tmp22 = (unsigned long volatile   *)__cil_tmp21;
-#line 917
-  clear_bit(__cil_tmp18, __cil_tmp22);
+  clear_bit(__cil_tmp14, __cil_tmp16);
 #line 918
-  __cil_tmp23 = (unsigned long )ftl;
-#line 918
-  __cil_tmp24 = __cil_tmp23 + 256;
-#line 918
-  *((bool *)__cil_tmp24) = (_Bool)0;
+  ftl->cache_clean = (bool )0;
   }
 #line 919
   return;
@@ -10531,37 +9022,27 @@ int sm_cache_get(struct sm_ftl *ftl , char *buffer , int boffset )
   size_t __len ;
   void *__ret ;
   int __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long *__cil_tmp10 ;
-  unsigned long const volatile   *__cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned long *__cil_tmp8 ;
+  unsigned long const volatile   *__cil_tmp9 ;
+  void *__cil_tmp10 ;
+  unsigned char *__cil_tmp11 ;
+  unsigned char *__cil_tmp12 ;
+  void const   *__cil_tmp13 ;
+  void *__cil_tmp14 ;
   unsigned char *__cil_tmp15 ;
   unsigned char *__cil_tmp16 ;
   void const   *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned char *__cil_tmp21 ;
-  unsigned char *__cil_tmp22 ;
-  void const   *__cil_tmp23 ;
 
   {
   {
 #line 924
   __cil_tmp7 = boffset / 512;
 #line 924
-  __cil_tmp8 = (unsigned long )ftl;
+  __cil_tmp8 = & ftl->cache_data_invalid_bitmap;
 #line 924
-  __cil_tmp9 = __cil_tmp8 + 248;
+  __cil_tmp9 = (unsigned long const volatile   *)__cil_tmp8;
 #line 924
-  __cil_tmp10 = (unsigned long *)__cil_tmp9;
-#line 924
-  __cil_tmp11 = (unsigned long const volatile   *)__cil_tmp10;
-#line 924
-  tmp___8 = variable_test_bit(__cil_tmp7, __cil_tmp11);
+  tmp___8 = variable_test_bit(__cil_tmp7, __cil_tmp9);
   }
 #line 924
   if (tmp___8) {
@@ -10571,41 +9052,33 @@ int sm_cache_get(struct sm_ftl *ftl , char *buffer , int boffset )
 
   }
 #line 928
-  __len = 512UL;
+  __len = (size_t )512;
 #line 928
   if (__len >= 64UL) {
     {
 #line 928
-    __cil_tmp12 = (void *)buffer;
+    __cil_tmp10 = (void *)buffer;
 #line 928
-    __cil_tmp13 = (unsigned long )ftl;
+    __cil_tmp11 = ftl->cache_data;
 #line 928
-    __cil_tmp14 = __cil_tmp13 + 240;
+    __cil_tmp12 = __cil_tmp11 + boffset;
 #line 928
-    __cil_tmp15 = *((unsigned char **)__cil_tmp14);
+    __cil_tmp13 = (void const   *)__cil_tmp12;
+#line 928
+    __ret = __memcpy(__cil_tmp10, __cil_tmp13, __len);
+    }
+  } else {
+    {
+#line 928
+    __cil_tmp14 = (void *)buffer;
+#line 928
+    __cil_tmp15 = ftl->cache_data;
 #line 928
     __cil_tmp16 = __cil_tmp15 + boffset;
 #line 928
     __cil_tmp17 = (void const   *)__cil_tmp16;
 #line 928
-    __ret = __memcpy(__cil_tmp12, __cil_tmp17, __len);
-    }
-  } else {
-    {
-#line 928
-    __cil_tmp18 = (void *)buffer;
-#line 928
-    __cil_tmp19 = (unsigned long )ftl;
-#line 928
-    __cil_tmp20 = __cil_tmp19 + 240;
-#line 928
-    __cil_tmp21 = *((unsigned char **)__cil_tmp20);
-#line 928
-    __cil_tmp22 = __cil_tmp21 + boffset;
-#line 928
-    __cil_tmp23 = (void const   *)__cil_tmp22;
-#line 928
-    __ret = __builtin_memcpy(__cil_tmp18, __cil_tmp23, __len);
+    __ret = __builtin_memcpy(__cil_tmp14, __cil_tmp17, __len);
     }
   }
 #line 929
@@ -10635,150 +9108,89 @@ int sm_cache_flush(struct sm_ftl *ftl )
   int tmp___15 ;
   unsigned int tmp ;
   unsigned int tmp___16 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct ftl_zone *__cil_tmp35 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  long __cil_tmp26 ;
+  struct ftl_zone *__cil_tmp27 ;
+  int __cil_tmp28 ;
+  int16_t *__cil_tmp29 ;
+  int16_t *__cil_tmp30 ;
+  int16_t __cil_tmp31 ;
+  unsigned long *__cil_tmp32 ;
+  unsigned long const   *__cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
   unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  int __cil_tmp37 ;
   int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int16_t *__cil_tmp41 ;
-  int16_t *__cil_tmp42 ;
-  int16_t __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long *__cil_tmp46 ;
-  unsigned long const   *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  unsigned char *__cil_tmp41 ;
+  unsigned char *__cil_tmp42 ;
+  void *__cil_tmp43 ;
+  struct sm_oob *__cil_tmp44 ;
+  unsigned long *__cil_tmp45 ;
+  unsigned long volatile   *__cil_tmp46 ;
+  unsigned long *__cil_tmp47 ;
+  unsigned long const   *__cil_tmp48 ;
+  int __cil_tmp49 ;
   int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
+  unsigned long __cil_tmp51 ;
+  int __cil_tmp52 ;
   unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned char *__cil_tmp61 ;
-  unsigned char *__cil_tmp62 ;
-  void *__cil_tmp63 ;
-  struct sm_oob *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long *__cil_tmp67 ;
-  unsigned long volatile   *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long *__cil_tmp71 ;
-  unsigned long const   *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  int __cil_tmp75 ;
-  int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  void *__cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  void *__cil_tmp86 ;
-  unsigned int __cil_tmp87 ;
-  int *__cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned char *__cil_tmp91 ;
-  uint16_t *__cil_tmp92 ;
-  uint16_t __cil_tmp93 ;
-  int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  int16_t *__cil_tmp106 ;
-  int16_t *__cil_tmp107 ;
-  uint16_t *__cil_tmp108 ;
-  uint16_t __cil_tmp109 ;
-  unsigned short __cil_tmp110 ;
+  void *__cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  void *__cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned char *__cil_tmp58 ;
+  int __cil_tmp59 ;
+  int __cil_tmp60 ;
+  unsigned long __cil_tmp61 ;
+  int __cil_tmp62 ;
+  int16_t *__cil_tmp63 ;
+  int16_t *__cil_tmp64 ;
+  uint16_t __cil_tmp65 ;
 
   {
 #line 939
-  __cil_tmp23 = (unsigned long )ftl;
-#line 939
-  __cil_tmp24 = __cil_tmp23 + 236;
-#line 939
-  zone_num = *((int *)__cil_tmp24);
-  {
+  zone_num = ftl->cache_zone;
 #line 942
-  __cil_tmp25 = (unsigned long )ftl;
-#line 942
-  __cil_tmp26 = __cil_tmp25 + 256;
-#line 942
-  if (*((bool *)__cil_tmp26)) {
+  if (ftl->cache_clean) {
 #line 943
     return (0);
   } else {
 
   }
-  }
-  {
 #line 945
-  __cil_tmp27 = (unsigned long )ftl;
-#line 945
-  __cil_tmp28 = __cil_tmp27 + 205;
-#line 945
-  if (*((bool *)__cil_tmp28)) {
+  if (ftl->unstable) {
 #line 946
     return (-5);
   } else {
 
   }
-  }
   {
 #line 948
   while (1) {
-    while_20_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 948
-    __cil_tmp29 = zone_num < 0;
+    __cil_tmp23 = zone_num < 0;
 #line 948
-    __cil_tmp30 = ! __cil_tmp29;
+    __cil_tmp24 = ! __cil_tmp23;
 #line 948
-    __cil_tmp31 = ! __cil_tmp30;
+    __cil_tmp25 = ! __cil_tmp24;
 #line 948
-    __cil_tmp32 = (long )__cil_tmp31;
+    __cil_tmp26 = (long )__cil_tmp25;
 #line 948
-    tmp___7 = __builtin_expect(__cil_tmp32, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp26, 0L);
     }
 #line 948
     if (tmp___7) {
       {
 #line 948
       while (1) {
-        while_21_continue: /* CIL Label */ ;
+        while_continue___0: /* CIL Label */ ;
 #line 948
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
@@ -10790,118 +9202,93 @@ int sm_cache_flush(struct sm_ftl *ftl )
         {
 #line 948
         while (1) {
-          while_22_continue: /* CIL Label */ ;
+          while_continue___1: /* CIL Label */ ;
 
         }
-        while_22_break: /* CIL Label */ ;
+        while_break___5: /* CIL Label */ ;
         }
 
+#line 948
         goto while_break___0;
       }
-      while_21_break: /* CIL Label */ ;
+      while_break___4: /* CIL Label */ ;
       }
 
       while_break___0: ;
     } else {
 
     }
+#line 948
     goto while_break;
   }
-  while_20_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 949
-  __cil_tmp33 = (unsigned long )ftl;
+  __cil_tmp27 = ftl->zones;
 #line 949
-  __cil_tmp34 = __cil_tmp33 + 176;
-#line 949
-  __cil_tmp35 = *((struct ftl_zone **)__cil_tmp34);
-#line 949
-  zone = __cil_tmp35 + zone_num;
+  zone = __cil_tmp27 + zone_num;
 #line 950
-  __cil_tmp36 = (unsigned long )ftl;
+  __cil_tmp28 = ftl->cache_block;
 #line 950
-  __cil_tmp37 = __cil_tmp36 + 232;
+  __cil_tmp29 = zone->lba_to_phys_table;
 #line 950
-  __cil_tmp38 = *((int *)__cil_tmp37);
+  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
 #line 950
-  __cil_tmp39 = (unsigned long )zone;
+  __cil_tmp31 = *__cil_tmp30;
 #line 950
-  __cil_tmp40 = __cil_tmp39 + 8;
-#line 950
-  __cil_tmp41 = *((int16_t **)__cil_tmp40);
-#line 950
-  __cil_tmp42 = __cil_tmp41 + __cil_tmp38;
-#line 950
-  __cil_tmp43 = *__cil_tmp42;
-#line 950
-  block_num = (int )__cil_tmp43;
+  block_num = (int )__cil_tmp31;
 #line 954
-  __cil_tmp44 = (unsigned long )ftl;
+  __cil_tmp32 = & ftl->cache_data_invalid_bitmap;
 #line 954
-  __cil_tmp45 = __cil_tmp44 + 248;
+  __cil_tmp33 = (unsigned long const   *)__cil_tmp32;
 #line 954
-  __cil_tmp46 = (unsigned long *)__cil_tmp45;
+  __cil_tmp34 = ftl->block_size;
 #line 954
-  __cil_tmp47 = (unsigned long const   *)__cil_tmp46;
+  __cil_tmp35 = __cil_tmp34 / 512;
 #line 954
-  __cil_tmp48 = (unsigned long )ftl;
+  __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 954
-  __cil_tmp49 = __cil_tmp48 + 184;
-#line 954
-  __cil_tmp50 = *((int *)__cil_tmp49);
-#line 954
-  __cil_tmp51 = __cil_tmp50 / 512;
-#line 954
-  __cil_tmp52 = (unsigned long )__cil_tmp51;
-#line 954
-  tmp___8 = find_first_bit(__cil_tmp47, __cil_tmp52);
+  tmp___8 = find_first_bit(__cil_tmp33, __cil_tmp36);
 #line 954
   sector_num = (int )tmp___8;
   }
   {
 #line 954
   while (1) {
-    while_23_continue: /* CIL Label */ ;
+    while_continue___2: /* CIL Label */ ;
 
     {
 #line 954
-    __cil_tmp53 = (unsigned long )ftl;
+    __cil_tmp37 = ftl->block_size;
 #line 954
-    __cil_tmp54 = __cil_tmp53 + 184;
+    __cil_tmp38 = __cil_tmp37 / 512;
 #line 954
-    __cil_tmp55 = *((int *)__cil_tmp54);
-#line 954
-    __cil_tmp56 = __cil_tmp55 / 512;
-#line 954
-    if (sector_num < __cil_tmp56) {
+    if (sector_num < __cil_tmp38) {
 
     } else {
+#line 954
       goto while_break___2;
     }
     }
     {
 #line 957
-    __cil_tmp57 = sector_num * 512;
+    __cil_tmp39 = sector_num * 512;
 #line 957
-    __cil_tmp58 = sector_num * 512;
+    __cil_tmp40 = sector_num * 512;
 #line 957
-    __cil_tmp59 = (unsigned long )ftl;
+    __cil_tmp41 = ftl->cache_data;
 #line 957
-    __cil_tmp60 = __cil_tmp59 + 240;
+    __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
 #line 957
-    __cil_tmp61 = *((unsigned char **)__cil_tmp60);
+    __cil_tmp43 = (void *)0;
 #line 957
-    __cil_tmp62 = __cil_tmp61 + __cil_tmp58;
+    __cil_tmp44 = (struct sm_oob *)__cil_tmp43;
 #line 957
-    __cil_tmp63 = (void *)0;
-#line 957
-    __cil_tmp64 = (struct sm_oob *)__cil_tmp63;
-#line 957
-    tmp___10 = sm_read_sector(ftl, zone_num, block_num, __cil_tmp57, __cil_tmp62,
-                              __cil_tmp64);
+    tmp___10 = sm_read_sector(ftl, zone_num, block_num, __cil_tmp39, __cil_tmp42,
+                              __cil_tmp44);
     }
 #line 957
     if (tmp___10) {
@@ -10909,70 +9296,48 @@ int sm_cache_flush(struct sm_ftl *ftl )
     } else {
       {
 #line 960
-      __cil_tmp65 = (unsigned long )ftl;
+      __cil_tmp45 = & ftl->cache_data_invalid_bitmap;
 #line 960
-      __cil_tmp66 = __cil_tmp65 + 248;
+      __cil_tmp46 = (unsigned long volatile   *)__cil_tmp45;
 #line 960
-      __cil_tmp67 = (unsigned long *)__cil_tmp66;
-#line 960
-      __cil_tmp68 = (unsigned long volatile   *)__cil_tmp67;
-#line 960
-      clear_bit(sector_num, __cil_tmp68);
+      clear_bit(sector_num, __cil_tmp46);
       }
     }
     {
 #line 954
-    __cil_tmp69 = (unsigned long )ftl;
+    __cil_tmp47 = & ftl->cache_data_invalid_bitmap;
 #line 954
-    __cil_tmp70 = __cil_tmp69 + 248;
+    __cil_tmp48 = (unsigned long const   *)__cil_tmp47;
 #line 954
-    __cil_tmp71 = (unsigned long *)__cil_tmp70;
+    __cil_tmp49 = ftl->block_size;
 #line 954
-    __cil_tmp72 = (unsigned long const   *)__cil_tmp71;
+    __cil_tmp50 = __cil_tmp49 / 512;
 #line 954
-    __cil_tmp73 = (unsigned long )ftl;
+    __cil_tmp51 = (unsigned long )__cil_tmp50;
 #line 954
-    __cil_tmp74 = __cil_tmp73 + 184;
+    __cil_tmp52 = sector_num + 1;
 #line 954
-    __cil_tmp75 = *((int *)__cil_tmp74);
+    __cil_tmp53 = (unsigned long )__cil_tmp52;
 #line 954
-    __cil_tmp76 = __cil_tmp75 / 512;
-#line 954
-    __cil_tmp77 = (unsigned long )__cil_tmp76;
-#line 954
-    __cil_tmp78 = sector_num + 1;
-#line 954
-    __cil_tmp79 = (unsigned long )__cil_tmp78;
-#line 954
-    tmp___9 = find_next_bit(__cil_tmp72, __cil_tmp77, __cil_tmp79);
+    tmp___9 = find_next_bit(__cil_tmp48, __cil_tmp51, __cil_tmp53);
 #line 954
     sector_num = (int )tmp___9;
     }
   }
-  while_23_break: /* CIL Label */ ;
+  while_break___6: /* CIL Label */ ;
   }
 
   while_break___2: ;
   restart: 
-  {
 #line 965
-  __cil_tmp80 = (unsigned long )ftl;
-#line 965
-  __cil_tmp81 = __cil_tmp80 + 205;
-#line 965
-  if (*((bool *)__cil_tmp81)) {
+  if (ftl->unstable) {
 #line 966
     return (-5);
   } else {
 
   }
-  }
 #line 972
-  __cil_tmp82 = (unsigned long )zone;
-#line 972
-  __cil_tmp83 = __cil_tmp82 + 16;
-#line 972
-  __tmp = (struct kfifo *)__cil_tmp83;
+  __tmp = & zone->free_sectors;
 #line 972
   __buf = (unsigned char *)(& write_sector);
 #line 972
@@ -10980,27 +9345,27 @@ int sm_cache_flush(struct sm_ftl *ftl )
 #line 972
   __recsize = 0UL;
 #line 972
-  __kfifo = (struct __kfifo *)__tmp;
+  __kfifo = & __tmp->__annonCompField39.kfifo;
 #line 972
   if (__recsize) {
     {
 #line 972
-    __cil_tmp84 = (void *)__buf;
+    __cil_tmp54 = (void *)__buf;
 #line 972
-    __cil_tmp85 = (unsigned int )__n;
+    __cil_tmp55 = (unsigned int )__n;
 #line 972
-    tmp___11 = __kfifo_out_r(__kfifo, __cil_tmp84, __cil_tmp85, __recsize);
+    tmp___11 = __kfifo_out_r(__kfifo, __cil_tmp54, __cil_tmp55, __recsize);
 #line 972
     tmp___13 = tmp___11;
     }
   } else {
     {
 #line 972
-    __cil_tmp86 = (void *)__buf;
+    __cil_tmp56 = (void *)__buf;
 #line 972
-    __cil_tmp87 = (unsigned int )__n;
+    __cil_tmp57 = (unsigned int )__n;
 #line 972
-    tmp___12 = __kfifo_out(__kfifo, __cil_tmp86, __cil_tmp87);
+    tmp___12 = __kfifo_out(__kfifo, __cil_tmp56, __cil_tmp57);
 #line 972
     tmp___13 = tmp___12;
     }
@@ -11015,18 +9380,14 @@ int sm_cache_flush(struct sm_ftl *ftl )
   }
 #line 972
   if (tmp___14 != 2U) {
-    {
 #line 974
-    __cil_tmp88 = & debug;
-#line 974
-    if (*__cil_tmp88) {
+    if (debug) {
       {
 #line 974
       printk("<7>sm_ftl: no free sectors for write!\n");
       }
     } else {
 
-    }
     }
 #line 975
     return (-5);
@@ -11035,66 +9396,39 @@ int sm_cache_flush(struct sm_ftl *ftl )
   }
   {
 #line 979
-  __cil_tmp89 = (unsigned long )ftl;
+  __cil_tmp58 = ftl->cache_data;
 #line 979
-  __cil_tmp90 = __cil_tmp89 + 240;
+  __cil_tmp59 = (int )write_sector;
 #line 979
-  __cil_tmp91 = *((unsigned char **)__cil_tmp90);
+  __cil_tmp60 = ftl->cache_block;
 #line 979
-  __cil_tmp92 = & write_sector;
+  __cil_tmp61 = ftl->cache_data_invalid_bitmap;
 #line 979
-  __cil_tmp93 = *__cil_tmp92;
-#line 979
-  __cil_tmp94 = (int )__cil_tmp93;
-#line 979
-  __cil_tmp95 = (unsigned long )ftl;
-#line 979
-  __cil_tmp96 = __cil_tmp95 + 232;
-#line 979
-  __cil_tmp97 = *((int *)__cil_tmp96);
-#line 979
-  __cil_tmp98 = (unsigned long )ftl;
-#line 979
-  __cil_tmp99 = __cil_tmp98 + 248;
-#line 979
-  __cil_tmp100 = *((unsigned long *)__cil_tmp99);
-#line 979
-  tmp___15 = sm_write_block(ftl, __cil_tmp91, zone_num, __cil_tmp94, __cil_tmp97,
-                            __cil_tmp100);
+  tmp___15 = sm_write_block(ftl, __cil_tmp58, zone_num, __cil_tmp59, __cil_tmp60,
+                            __cil_tmp61);
   }
 #line 979
   if (tmp___15) {
+#line 981
     goto restart;
   } else {
 
   }
 #line 984
-  __cil_tmp101 = (unsigned long )ftl;
+  __cil_tmp62 = ftl->cache_block;
 #line 984
-  __cil_tmp102 = __cil_tmp101 + 232;
+  __cil_tmp63 = zone->lba_to_phys_table;
 #line 984
-  __cil_tmp103 = *((int *)__cil_tmp102);
+  __cil_tmp64 = __cil_tmp63 + __cil_tmp62;
 #line 984
-  __cil_tmp104 = (unsigned long )zone;
-#line 984
-  __cil_tmp105 = __cil_tmp104 + 8;
-#line 984
-  __cil_tmp106 = *((int16_t **)__cil_tmp105);
-#line 984
-  __cil_tmp107 = __cil_tmp106 + __cil_tmp103;
-#line 984
-  __cil_tmp108 = & write_sector;
-#line 984
-  __cil_tmp109 = *__cil_tmp108;
-#line 984
-  *__cil_tmp107 = (short )__cil_tmp109;
+  *__cil_tmp64 = (int16_t )write_sector;
 #line 987
   if (block_num > 0) {
     {
 #line 988
-    __cil_tmp110 = (unsigned short )block_num;
+    __cil_tmp65 = (uint16_t )block_num;
 #line 988
-    sm_erase_block(ftl, zone_num, __cil_tmp110, 1);
+    sm_erase_block(ftl, zone_num, __cil_tmp65, 1);
     }
   } else {
 
@@ -11110,22 +9444,16 @@ int sm_cache_flush(struct sm_ftl *ftl )
 #line 996 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static void sm_cache_flush_timer(unsigned long data ) 
 { struct sm_ftl *ftl ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct work_struct *__cil_tmp5 ;
+  struct work_struct *__cil_tmp3 ;
 
   {
   {
 #line 998
   ftl = (struct sm_ftl *)data;
 #line 999
-  __cil_tmp3 = (unsigned long )ftl;
+  __cil_tmp3 = & ftl->flush_work;
 #line 999
-  __cil_tmp4 = __cil_tmp3 + 264;
-#line 999
-  __cil_tmp5 = (struct work_struct *)__cil_tmp4;
-#line 999
-  queue_work(cache_flush_workqueue, __cil_tmp5);
+  queue_work(cache_flush_workqueue, __cil_tmp3);
   }
 #line 1000
   return;
@@ -11136,18 +9464,12 @@ static void sm_cache_flush_work(struct work_struct *work )
 { struct sm_ftl *ftl ;
   struct work_struct  const  *__mptr ;
   struct sm_ftl *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct work_struct *__cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  char *__cil_tmp9 ;
-  char *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct mutex *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct mutex *__cil_tmp16 ;
+  struct work_struct *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  char *__cil_tmp7 ;
+  char *__cil_tmp8 ;
+  struct mutex *__cil_tmp9 ;
+  struct mutex *__cil_tmp10 ;
 
   {
   {
@@ -11156,37 +9478,25 @@ static void sm_cache_flush_work(struct work_struct *work )
 #line 1005
   __cil_tmp4 = (struct sm_ftl *)0;
 #line 1005
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
+  __cil_tmp5 = & __cil_tmp4->flush_work;
 #line 1005
-  __cil_tmp6 = __cil_tmp5 + 264;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 1005
-  __cil_tmp7 = (struct work_struct *)__cil_tmp6;
+  __cil_tmp7 = (char *)__mptr;
 #line 1005
-  __cil_tmp8 = (unsigned int )__cil_tmp7;
+  __cil_tmp8 = __cil_tmp7 - __cil_tmp6;
 #line 1005
-  __cil_tmp9 = (char *)__mptr;
-#line 1005
-  __cil_tmp10 = __cil_tmp9 - __cil_tmp8;
-#line 1005
-  ftl = (struct sm_ftl *)__cil_tmp10;
+  ftl = (struct sm_ftl *)__cil_tmp8;
 #line 1006
-  __cil_tmp11 = (unsigned long )ftl;
+  __cil_tmp9 = & ftl->mutex;
 #line 1006
-  __cil_tmp12 = __cil_tmp11 + 8;
-#line 1006
-  __cil_tmp13 = (struct mutex *)__cil_tmp12;
-#line 1006
-  mutex_lock_nested(__cil_tmp13, 0U);
+  mutex_lock_nested(__cil_tmp9, 0U);
 #line 1007
   sm_cache_flush(ftl);
 #line 1008
-  __cil_tmp14 = (unsigned long )ftl;
+  __cil_tmp10 = & ftl->mutex;
 #line 1008
-  __cil_tmp15 = __cil_tmp14 + 8;
-#line 1008
-  __cil_tmp16 = (struct mutex *)__cil_tmp15;
-#line 1008
-  mutex_unlock(__cil_tmp16);
+  mutex_unlock(__cil_tmp10);
   }
 #line 1009
   return;
@@ -11209,94 +9519,50 @@ static int sm_read(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *
   long tmp___11 ;
   long tmp___12 ;
   long tmp___13 ;
-  unsigned long __cil_tmp19 ;
+  void *__cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  void *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  long long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct mutex *__cil_tmp26 ;
-  int *__cil_tmp27 ;
-  int __cil_tmp28 ;
-  void const   *__cil_tmp29 ;
-  void const   *__cil_tmp30 ;
-  int *__cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  int __cil_tmp35 ;
-  int *__cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int *__cil_tmp41 ;
-  int __cil_tmp42 ;
-  int *__cil_tmp43 ;
-  int *__cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  int16_t *__cil_tmp48 ;
-  int16_t *__cil_tmp49 ;
-  int16_t __cil_tmp50 ;
-  int *__cil_tmp51 ;
-  int __cil_tmp52 ;
-  void *__cil_tmp53 ;
-  int *__cil_tmp54 ;
-  int __cil_tmp55 ;
-  int *__cil_tmp56 ;
-  int __cil_tmp57 ;
-  int *__cil_tmp58 ;
-  int __cil_tmp59 ;
-  uint8_t *__cil_tmp60 ;
-  void *__cil_tmp61 ;
-  struct sm_oob *__cil_tmp62 ;
-  int *__cil_tmp63 ;
-  int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct mutex *__cil_tmp67 ;
+  loff_t __cil_tmp21 ;
+  struct mutex *__cil_tmp22 ;
+  void const   *__cil_tmp23 ;
+  void const   *__cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int16_t *__cil_tmp27 ;
+  int16_t *__cil_tmp28 ;
+  int16_t __cil_tmp29 ;
+  void *__cil_tmp30 ;
+  size_t __cil_tmp31 ;
+  uint8_t *__cil_tmp32 ;
+  void *__cil_tmp33 ;
+  struct sm_oob *__cil_tmp34 ;
+  struct mutex *__cil_tmp35 ;
 
   {
   {
 #line 1018
-  __cil_tmp19 = (unsigned long )dev;
+  __cil_tmp19 = dev->priv;
 #line 1018
-  __cil_tmp20 = __cil_tmp19 + 336;
-#line 1018
-  __cil_tmp21 = *((void **)__cil_tmp20);
-#line 1018
-  ftl = (struct sm_ftl *)__cil_tmp21;
+  ftl = (struct sm_ftl *)__cil_tmp19;
 #line 1020
   error = 0;
 #line 1020
   in_cache = 0;
 #line 1023
-  __cil_tmp22 = sect_no << 9;
+  __cil_tmp20 = sect_no << 9;
 #line 1023
-  __cil_tmp23 = (long long )__cil_tmp22;
+  __cil_tmp21 = (loff_t )__cil_tmp20;
 #line 1023
-  sm_break_offset(ftl, __cil_tmp23, & zone_num, & block, & boffset);
+  sm_break_offset(ftl, __cil_tmp21, & zone_num, & block, & boffset);
 #line 1024
-  __cil_tmp24 = (unsigned long )ftl;
+  __cil_tmp22 = & ftl->mutex;
 #line 1024
-  __cil_tmp25 = __cil_tmp24 + 8;
-#line 1024
-  __cil_tmp26 = (struct mutex *)__cil_tmp25;
-#line 1024
-  mutex_lock_nested(__cil_tmp26, 0U);
+  mutex_lock_nested(__cil_tmp22, 0U);
 #line 1027
-  __cil_tmp27 = & zone_num;
-#line 1027
-  __cil_tmp28 = *__cil_tmp27;
-#line 1027
-  zone = sm_get_zone(ftl, __cil_tmp28);
+  zone = sm_get_zone(ftl, zone_num);
 #line 1028
-  __cil_tmp29 = (void const   *)zone;
+  __cil_tmp23 = (void const   *)zone;
 #line 1028
-  tmp___12 = (long )IS_ERR(__cil_tmp29);
+  tmp___12 = (long )IS_ERR(__cil_tmp23);
 #line 1028
   tmp = tmp___12;
 #line 1028
@@ -11306,9 +9572,9 @@ static int sm_read(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *
   if (tmp___8) {
     {
 #line 1029
-    __cil_tmp30 = (void const   *)zone;
+    __cil_tmp24 = (void const   *)zone;
 #line 1029
-    tmp___13 = (long )PTR_ERR(__cil_tmp30);
+    tmp___13 = (long )PTR_ERR(__cil_tmp24);
 #line 1029
     tmp___11 = tmp___13;
 #line 1029
@@ -11316,50 +9582,32 @@ static int sm_read(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *
 #line 1029
     error = (int )tmp___7;
     }
+#line 1030
     goto unlock;
   } else {
 
   }
   {
 #line 1034
-  __cil_tmp31 = & zone_num;
+  __cil_tmp25 = ftl->cache_zone;
 #line 1034
-  __cil_tmp32 = *__cil_tmp31;
-#line 1034
-  __cil_tmp33 = (unsigned long )ftl;
-#line 1034
-  __cil_tmp34 = __cil_tmp33 + 236;
-#line 1034
-  __cil_tmp35 = *((int *)__cil_tmp34);
-#line 1034
-  if (__cil_tmp35 == __cil_tmp32) {
+  if (__cil_tmp25 == zone_num) {
     {
 #line 1034
-    __cil_tmp36 = & block;
+    __cil_tmp26 = ftl->cache_block;
 #line 1034
-    __cil_tmp37 = *__cil_tmp36;
-#line 1034
-    __cil_tmp38 = (unsigned long )ftl;
-#line 1034
-    __cil_tmp39 = __cil_tmp38 + 232;
-#line 1034
-    __cil_tmp40 = *((int *)__cil_tmp39);
-#line 1034
-    if (__cil_tmp40 == __cil_tmp37) {
+    if (__cil_tmp26 == block) {
       {
 #line 1035
       in_cache = 1;
 #line 1036
-      __cil_tmp41 = & boffset;
-#line 1036
-      __cil_tmp42 = *__cil_tmp41;
-#line 1036
-      tmp___9 = sm_cache_get(ftl, buf, __cil_tmp42);
+      tmp___9 = sm_cache_get(ftl, buf, boffset);
       }
 #line 1036
       if (tmp___9) {
 
       } else {
+#line 1037
         goto unlock;
       }
     } else {
@@ -11371,68 +9619,43 @@ static int sm_read(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *
   }
   }
 #line 1041
-  __cil_tmp43 = & block;
+  __cil_tmp27 = zone->lba_to_phys_table;
 #line 1041
-  __cil_tmp44 = & block;
+  __cil_tmp28 = __cil_tmp27 + block;
 #line 1041
-  __cil_tmp45 = *__cil_tmp44;
+  __cil_tmp29 = *__cil_tmp28;
 #line 1041
-  __cil_tmp46 = (unsigned long )zone;
-#line 1041
-  __cil_tmp47 = __cil_tmp46 + 8;
-#line 1041
-  __cil_tmp48 = *((int16_t **)__cil_tmp47);
-#line 1041
-  __cil_tmp49 = __cil_tmp48 + __cil_tmp45;
-#line 1041
-  __cil_tmp50 = *__cil_tmp49;
-#line 1041
-  *__cil_tmp43 = (int )__cil_tmp50;
-  {
+  block = (int )__cil_tmp29;
 #line 1043
-  __cil_tmp51 = & block;
-#line 1043
-  __cil_tmp52 = *__cil_tmp51;
-#line 1043
-  if (__cil_tmp52 == -1) {
+  if (block == -1) {
     {
 #line 1044
-    __cil_tmp53 = (void *)buf;
+    __cil_tmp30 = (void *)buf;
 #line 1044
-    memset(__cil_tmp53, 255, 512UL);
+    __cil_tmp31 = (size_t )512;
+#line 1044
+    memset(__cil_tmp30, 255, __cil_tmp31);
     }
+#line 1045
     goto unlock;
   } else {
 
   }
-  }
   {
 #line 1048
-  __cil_tmp54 = & zone_num;
+  __cil_tmp32 = (uint8_t *)buf;
 #line 1048
-  __cil_tmp55 = *__cil_tmp54;
+  __cil_tmp33 = (void *)0;
 #line 1048
-  __cil_tmp56 = & block;
+  __cil_tmp34 = (struct sm_oob *)__cil_tmp33;
 #line 1048
-  __cil_tmp57 = *__cil_tmp56;
-#line 1048
-  __cil_tmp58 = & boffset;
-#line 1048
-  __cil_tmp59 = *__cil_tmp58;
-#line 1048
-  __cil_tmp60 = (uint8_t *)buf;
-#line 1048
-  __cil_tmp61 = (void *)0;
-#line 1048
-  __cil_tmp62 = (struct sm_oob *)__cil_tmp61;
-#line 1048
-  tmp___10 = sm_read_sector(ftl, __cil_tmp55, __cil_tmp57, __cil_tmp59, __cil_tmp60,
-                            __cil_tmp62);
+  tmp___10 = sm_read_sector(ftl, zone_num, block, boffset, __cil_tmp32, __cil_tmp34);
   }
 #line 1048
   if (tmp___10) {
 #line 1049
     error = -5;
+#line 1050
     goto unlock;
   } else {
 
@@ -11441,11 +9664,7 @@ static int sm_read(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *
   if (in_cache) {
     {
 #line 1054
-    __cil_tmp63 = & boffset;
-#line 1054
-    __cil_tmp64 = *__cil_tmp63;
-#line 1054
-    sm_cache_put(ftl, buf, __cil_tmp64);
+    sm_cache_put(ftl, buf, boffset);
     }
   } else {
 
@@ -11453,13 +9672,9 @@ static int sm_read(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *
   unlock: 
   {
 #line 1056
-  __cil_tmp65 = (unsigned long )ftl;
+  __cil_tmp35 = & ftl->mutex;
 #line 1056
-  __cil_tmp66 = __cil_tmp65 + 8;
-#line 1056
-  __cil_tmp67 = (struct mutex *)__cil_tmp66;
-#line 1056
-  mutex_unlock(__cil_tmp67);
+  mutex_unlock(__cil_tmp35);
   }
 #line 1057
   return (error);
@@ -11481,94 +9696,54 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
   long tmp___11 ;
   long tmp___12 ;
   long tmp___13 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  void *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  bool __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  long long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct timer_list *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct mutex *__cil_tmp34 ;
-  int *__cil_tmp35 ;
-  int __cil_tmp36 ;
-  void const   *__cil_tmp37 ;
-  void const   *__cil_tmp38 ;
-  int *__cil_tmp39 ;
-  int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  int __cil_tmp43 ;
-  int *__cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  int *__cil_tmp54 ;
-  int *__cil_tmp55 ;
-  int __cil_tmp56 ;
-  int *__cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct timer_list *__cil_tmp63 ;
-  unsigned long volatile   __cil_tmp64 ;
-  unsigned long volatile   __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct mutex *__cil_tmp69 ;
+  void *__cil_tmp18 ;
+  bool __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  long __cil_tmp22 ;
+  unsigned long __cil_tmp23 ;
+  loff_t __cil_tmp24 ;
+  struct timer_list *__cil_tmp25 ;
+  struct mutex *__cil_tmp26 ;
+  void const   *__cil_tmp27 ;
+  void const   *__cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  struct timer_list *__cil_tmp33 ;
+  unsigned long volatile   __cil_tmp34 ;
+  unsigned long volatile   __cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  struct mutex *__cil_tmp37 ;
 
   {
 #line 1064
-  __cil_tmp18 = (unsigned long )dev;
+  __cil_tmp18 = dev->priv;
 #line 1064
-  __cil_tmp19 = __cil_tmp18 + 336;
-#line 1064
-  __cil_tmp20 = *((void **)__cil_tmp19);
-#line 1064
-  ftl = (struct sm_ftl *)__cil_tmp20;
+  ftl = (struct sm_ftl *)__cil_tmp18;
   {
 #line 1068
   while (1) {
-    while_24_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1068
-    __cil_tmp21 = (unsigned long )ftl;
+    __cil_tmp19 = ftl->readonly;
 #line 1068
-    __cil_tmp22 = __cil_tmp21 + 204;
+    __cil_tmp20 = ! __cil_tmp19;
 #line 1068
-    __cil_tmp23 = *((bool *)__cil_tmp22);
+    __cil_tmp21 = ! __cil_tmp20;
 #line 1068
-    __cil_tmp24 = ! __cil_tmp23;
+    __cil_tmp22 = (long )__cil_tmp21;
 #line 1068
-    __cil_tmp25 = ! __cil_tmp24;
-#line 1068
-    __cil_tmp26 = (long )__cil_tmp25;
-#line 1068
-    tmp___7 = __builtin_expect(__cil_tmp26, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp22, 0L);
     }
 #line 1068
     if (tmp___7) {
       {
 #line 1068
       while (1) {
-        while_25_continue: /* CIL Label */ ;
+        while_continue___0: /* CIL Label */ ;
 #line 1068
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
@@ -11580,60 +9755,50 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
         {
 #line 1068
         while (1) {
-          while_26_continue: /* CIL Label */ ;
+          while_continue___1: /* CIL Label */ ;
 
         }
-        while_26_break: /* CIL Label */ ;
+        while_break___3: /* CIL Label */ ;
         }
 
+#line 1068
         goto while_break___0;
       }
-      while_25_break: /* CIL Label */ ;
+      while_break___2: /* CIL Label */ ;
       }
 
       while_break___0: ;
     } else {
 
     }
+#line 1068
     goto while_break;
   }
-  while_24_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 1069
-  __cil_tmp27 = sec_no << 9;
+  __cil_tmp23 = sec_no << 9;
 #line 1069
-  __cil_tmp28 = (long long )__cil_tmp27;
+  __cil_tmp24 = (loff_t )__cil_tmp23;
 #line 1069
-  sm_break_offset(ftl, __cil_tmp28, & zone_num, & block, & boffset);
+  sm_break_offset(ftl, __cil_tmp24, & zone_num, & block, & boffset);
 #line 1072
-  __cil_tmp29 = (unsigned long )ftl;
+  __cil_tmp25 = & ftl->timer;
 #line 1072
-  __cil_tmp30 = __cil_tmp29 + 344;
-#line 1072
-  __cil_tmp31 = (struct timer_list *)__cil_tmp30;
-#line 1072
-  del_timer(__cil_tmp31);
+  del_timer(__cil_tmp25);
 #line 1073
-  __cil_tmp32 = (unsigned long )ftl;
+  __cil_tmp26 = & ftl->mutex;
 #line 1073
-  __cil_tmp33 = __cil_tmp32 + 8;
-#line 1073
-  __cil_tmp34 = (struct mutex *)__cil_tmp33;
-#line 1073
-  mutex_lock_nested(__cil_tmp34, 0U);
+  mutex_lock_nested(__cil_tmp26, 0U);
 #line 1075
-  __cil_tmp35 = & zone_num;
-#line 1075
-  __cil_tmp36 = *__cil_tmp35;
-#line 1075
-  zone = sm_get_zone(ftl, __cil_tmp36);
+  zone = sm_get_zone(ftl, zone_num);
 #line 1076
-  __cil_tmp37 = (void const   *)zone;
+  __cil_tmp27 = (void const   *)zone;
 #line 1076
-  tmp___12 = (long )IS_ERR(__cil_tmp37);
+  tmp___12 = (long )IS_ERR(__cil_tmp27);
 #line 1076
   tmp = tmp___12;
 #line 1076
@@ -11643,9 +9808,9 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
   if (tmp___9) {
     {
 #line 1077
-    __cil_tmp38 = (void const   *)zone;
+    __cil_tmp28 = (void const   *)zone;
 #line 1077
-    tmp___13 = (long )PTR_ERR(__cil_tmp38);
+    tmp___13 = (long )PTR_ERR(__cil_tmp28);
 #line 1077
     tmp___11 = tmp___13;
 #line 1077
@@ -11653,38 +9818,24 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
 #line 1077
     error = (int )tmp___8;
     }
+#line 1078
     goto unlock;
   } else {
 
   }
   {
 #line 1082
-  __cil_tmp39 = & block;
+  __cil_tmp29 = ftl->cache_block;
 #line 1082
-  __cil_tmp40 = *__cil_tmp39;
+  if (__cil_tmp29 != block) {
 #line 1082
-  __cil_tmp41 = (unsigned long )ftl;
-#line 1082
-  __cil_tmp42 = __cil_tmp41 + 232;
-#line 1082
-  __cil_tmp43 = *((int *)__cil_tmp42);
-#line 1082
-  if (__cil_tmp43 != __cil_tmp40) {
     goto _L;
   } else {
     {
 #line 1082
-    __cil_tmp44 = & zone_num;
+    __cil_tmp30 = ftl->cache_zone;
 #line 1082
-    __cil_tmp45 = *__cil_tmp44;
-#line 1082
-    __cil_tmp46 = (unsigned long )ftl;
-#line 1082
-    __cil_tmp47 = __cil_tmp46 + 236;
-#line 1082
-    __cil_tmp48 = *((int *)__cil_tmp47);
-#line 1082
-    if (__cil_tmp48 != __cil_tmp45) {
+    if (__cil_tmp30 != zone_num) {
       _L: 
       {
 #line 1084
@@ -11692,26 +9843,15 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
       }
 #line 1085
       if (error) {
+#line 1086
         goto unlock;
       } else {
 
       }
 #line 1088
-      __cil_tmp49 = (unsigned long )ftl;
-#line 1088
-      __cil_tmp50 = __cil_tmp49 + 232;
-#line 1088
-      __cil_tmp51 = & block;
-#line 1088
-      *((int *)__cil_tmp50) = *__cil_tmp51;
+      ftl->cache_block = block;
 #line 1089
-      __cil_tmp52 = (unsigned long )ftl;
-#line 1089
-      __cil_tmp53 = __cil_tmp52 + 236;
-#line 1089
-      __cil_tmp54 = & zone_num;
-#line 1089
-      *((int *)__cil_tmp53) = *__cil_tmp54;
+      ftl->cache_zone = zone_num;
     } else {
 
     }
@@ -11720,46 +9860,30 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
   }
   {
 #line 1092
-  __cil_tmp55 = & boffset;
-#line 1092
-  __cil_tmp56 = *__cil_tmp55;
-#line 1092
-  sm_cache_put(ftl, buf, __cil_tmp56);
+  sm_cache_put(ftl, buf, boffset);
   }
   unlock: 
   {
 #line 1094
-  __cil_tmp57 = & cache_timeout;
+  __cil_tmp31 = (unsigned int const   )cache_timeout;
 #line 1094
-  __cil_tmp58 = *__cil_tmp57;
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 1094
-  __cil_tmp59 = (unsigned int const   )__cil_tmp58;
+  tmp___10 = msecs_to_jiffies(__cil_tmp32);
 #line 1094
-  __cil_tmp60 = (unsigned int )__cil_tmp59;
+  __cil_tmp33 = & ftl->timer;
 #line 1094
-  tmp___10 = msecs_to_jiffies(__cil_tmp60);
+  __cil_tmp34 = (unsigned long volatile   )tmp___10;
 #line 1094
-  __cil_tmp61 = (unsigned long )ftl;
+  __cil_tmp35 = jiffies + __cil_tmp34;
 #line 1094
-  __cil_tmp62 = __cil_tmp61 + 344;
+  __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 1094
-  __cil_tmp63 = (struct timer_list *)__cil_tmp62;
-#line 1094
-  __cil_tmp64 = (unsigned long volatile   )tmp___10;
-#line 1094
-  __cil_tmp65 = jiffies + __cil_tmp64;
-#line 1094
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
-#line 1094
-  mod_timer(__cil_tmp63, __cil_tmp66);
+  mod_timer(__cil_tmp33, __cil_tmp36);
 #line 1095
-  __cil_tmp67 = (unsigned long )ftl;
+  __cil_tmp37 = & ftl->mutex;
 #line 1095
-  __cil_tmp68 = __cil_tmp67 + 8;
-#line 1095
-  __cil_tmp69 = (struct mutex *)__cil_tmp68;
-#line 1095
-  mutex_unlock(__cil_tmp69);
+  mutex_unlock(__cil_tmp37);
   }
 #line 1096
   return (error);
@@ -11769,44 +9893,26 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
 static int sm_flush(struct mtd_blktrans_dev *dev ) 
 { struct sm_ftl *ftl ;
   int retval ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct mutex *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct mutex *__cil_tmp12 ;
+  void *__cil_tmp4 ;
+  struct mutex *__cil_tmp5 ;
+  struct mutex *__cil_tmp6 ;
 
   {
   {
 #line 1102
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->priv;
 #line 1102
-  __cil_tmp5 = __cil_tmp4 + 336;
-#line 1102
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 1102
-  ftl = (struct sm_ftl *)__cil_tmp6;
+  ftl = (struct sm_ftl *)__cil_tmp4;
 #line 1105
-  __cil_tmp7 = (unsigned long )ftl;
+  __cil_tmp5 = & ftl->mutex;
 #line 1105
-  __cil_tmp8 = __cil_tmp7 + 8;
-#line 1105
-  __cil_tmp9 = (struct mutex *)__cil_tmp8;
-#line 1105
-  mutex_lock_nested(__cil_tmp9, 0U);
+  mutex_lock_nested(__cil_tmp5, 0U);
 #line 1106
   retval = sm_cache_flush(ftl);
 #line 1107
-  __cil_tmp10 = (unsigned long )ftl;
+  __cil_tmp6 = & ftl->mutex;
 #line 1107
-  __cil_tmp11 = __cil_tmp10 + 8;
-#line 1107
-  __cil_tmp12 = (struct mutex *)__cil_tmp11;
-#line 1107
-  mutex_unlock(__cil_tmp12);
+  mutex_unlock(__cil_tmp6);
   }
 #line 1108
   return (retval);
@@ -11815,66 +9921,36 @@ static int sm_flush(struct mtd_blktrans_dev *dev )
 #line 1112 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static int sm_release(struct mtd_blktrans_dev *dev ) 
 { struct sm_ftl *ftl ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct mutex *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct timer_list *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct work_struct *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct mutex *__cil_tmp17 ;
+  void *__cil_tmp3 ;
+  struct mutex *__cil_tmp4 ;
+  struct timer_list *__cil_tmp5 ;
+  struct work_struct *__cil_tmp6 ;
+  struct mutex *__cil_tmp7 ;
 
   {
   {
 #line 1114
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = dev->priv;
 #line 1114
-  __cil_tmp4 = __cil_tmp3 + 336;
-#line 1114
-  __cil_tmp5 = *((void **)__cil_tmp4);
-#line 1114
-  ftl = (struct sm_ftl *)__cil_tmp5;
+  ftl = (struct sm_ftl *)__cil_tmp3;
 #line 1116
-  __cil_tmp6 = (unsigned long )ftl;
+  __cil_tmp4 = & ftl->mutex;
 #line 1116
-  __cil_tmp7 = __cil_tmp6 + 8;
-#line 1116
-  __cil_tmp8 = (struct mutex *)__cil_tmp7;
-#line 1116
-  mutex_lock_nested(__cil_tmp8, 0U);
+  mutex_lock_nested(__cil_tmp4, 0U);
 #line 1117
-  __cil_tmp9 = (unsigned long )ftl;
+  __cil_tmp5 = & ftl->timer;
 #line 1117
-  __cil_tmp10 = __cil_tmp9 + 344;
-#line 1117
-  __cil_tmp11 = (struct timer_list *)__cil_tmp10;
-#line 1117
-  del_timer_sync(__cil_tmp11);
+  del_timer_sync(__cil_tmp5);
 #line 1118
-  __cil_tmp12 = (unsigned long )ftl;
+  __cil_tmp6 = & ftl->flush_work;
 #line 1118
-  __cil_tmp13 = __cil_tmp12 + 264;
-#line 1118
-  __cil_tmp14 = (struct work_struct *)__cil_tmp13;
-#line 1118
-  cancel_work_sync(__cil_tmp14);
+  cancel_work_sync(__cil_tmp6);
 #line 1119
   sm_cache_flush(ftl);
 #line 1120
-  __cil_tmp15 = (unsigned long )ftl;
+  __cil_tmp7 = & ftl->mutex;
 #line 1120
-  __cil_tmp16 = __cil_tmp15 + 8;
-#line 1120
-  __cil_tmp17 = (struct mutex *)__cil_tmp16;
-#line 1120
-  mutex_unlock(__cil_tmp17);
+  mutex_unlock(__cil_tmp7);
   }
 #line 1121
   return (0);
@@ -11883,64 +9959,28 @@ static int sm_release(struct mtd_blktrans_dev *dev )
 #line 1125 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 static int sm_getgeo(struct mtd_blktrans_dev *dev , struct hd_geometry *geo ) 
 { struct sm_ftl *ftl ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
+  void *__cil_tmp4 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
 
   {
 #line 1127
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->priv;
 #line 1127
-  __cil_tmp5 = __cil_tmp4 + 336;
-#line 1127
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 1127
-  ftl = (struct sm_ftl *)__cil_tmp6;
+  ftl = (struct sm_ftl *)__cil_tmp4;
 #line 1128
-  __cil_tmp7 = (unsigned long )ftl;
+  __cil_tmp5 = ftl->heads;
 #line 1128
-  __cil_tmp8 = __cil_tmp7 + 568;
-#line 1128
-  __cil_tmp9 = *((int *)__cil_tmp8);
-#line 1128
-  *((unsigned char *)geo) = (unsigned char )__cil_tmp9;
+  geo->heads = (unsigned char )__cil_tmp5;
 #line 1129
-  __cil_tmp10 = (unsigned long )geo;
+  __cil_tmp6 = ftl->sectors;
 #line 1129
-  __cil_tmp11 = __cil_tmp10 + 1;
-#line 1129
-  __cil_tmp12 = (unsigned long )ftl;
-#line 1129
-  __cil_tmp13 = __cil_tmp12 + 572;
-#line 1129
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 1129
-  *((unsigned char *)__cil_tmp11) = (unsigned char )__cil_tmp14;
+  geo->sectors = (unsigned char )__cil_tmp6;
 #line 1130
-  __cil_tmp15 = (unsigned long )geo;
+  __cil_tmp7 = ftl->cylinders;
 #line 1130
-  __cil_tmp16 = __cil_tmp15 + 2;
-#line 1130
-  __cil_tmp17 = (unsigned long )ftl;
-#line 1130
-  __cil_tmp18 = __cil_tmp17 + 576;
-#line 1130
-  __cil_tmp19 = *((int *)__cil_tmp18);
-#line 1130
-  *((unsigned short *)__cil_tmp16) = (unsigned short )__cil_tmp19;
+  geo->cylinders = (unsigned short )__cil_tmp7;
 #line 1131
   return (0);
 }
@@ -11963,135 +10003,48 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   void *tmp___11 ;
   int tmp___12 ;
   int tmp___13 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct mutex *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct timer_list *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct work_struct *__cil_tmp22 ;
+  struct mutex *__cil_tmp13 ;
+  struct timer_list *__cil_tmp14 ;
+  unsigned long __cil_tmp15 ;
+  struct work_struct *__cil_tmp16 ;
+  struct lockdep_map *__cil_tmp17 ;
+  struct list_head *__cil_tmp18 ;
+  struct completion *__cil_tmp19 ;
+  size_t __cil_tmp20 ;
+  void *__cil_tmp21 ;
+  int __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct lockdep_map *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct list_head *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct completion *__cil_tmp38 ;
-  int *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  void *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct ftl_zone *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned char *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  int __cil_tmp80 ;
-  int __cil_tmp81 ;
-  int __cil_tmp82 ;
-  int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  bool __cil_tmp88 ;
-  int *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  struct attribute_group *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  uint64_t __cil_tmp101 ;
-  uint64_t __cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  int __cil_tmp106 ;
-  int *__cil_tmp107 ;
-  int *__cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  int __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  int __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  int __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  int __cil_tmp120 ;
-  int __cil_tmp121 ;
-  int *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  int __cil_tmp125 ;
-  int *__cil_tmp126 ;
-  void const   *__cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned char *__cil_tmp130 ;
-  void const   *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  struct ftl_zone *__cil_tmp134 ;
-  void const   *__cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  void *__cil_tmp138 ;
-  void const   *__cil_tmp139 ;
-  void const   *__cil_tmp140 ;
-  long __constr_expr_0_counter141 ;
+  struct ftl_zone *__cil_tmp25 ;
+  int __cil_tmp26 ;
+  size_t __cil_tmp27 ;
+  unsigned char *__cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  bool __cil_tmp35 ;
+  struct attribute_group *__cil_tmp36 ;
+  uint64_t __cil_tmp37 ;
+  uint64_t __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  void const   *__cil_tmp47 ;
+  unsigned char *__cil_tmp48 ;
+  void const   *__cil_tmp49 ;
+  struct ftl_zone *__cil_tmp50 ;
+  void const   *__cil_tmp51 ;
+  void *__cil_tmp52 ;
+  void const   *__cil_tmp53 ;
+  void const   *__cil_tmp54 ;
 
   {
   {
@@ -12102,6 +10055,7 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   }
 #line 1142
   if (! ftl) {
+#line 1143
     goto error1;
   } else {
 
@@ -12109,142 +10063,106 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   {
 #line 1146
   while (1) {
-    while_27_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1146
-    __cil_tmp13 = (unsigned long )ftl;
+    __cil_tmp13 = & ftl->mutex;
 #line 1146
-    __cil_tmp14 = __cil_tmp13 + 8;
-#line 1146
-    __cil_tmp15 = (struct mutex *)__cil_tmp14;
-#line 1146
-    __mutex_init(__cil_tmp15, "&ftl->mutex", & __key___5);
+    __mutex_init(__cil_tmp13, "&ftl->mutex", & __key___5);
     }
+#line 1146
     goto while_break;
   }
-  while_27_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 1147
   while (1) {
-    while_28_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
     {
 #line 1147
-    __cil_tmp16 = (unsigned long )ftl;
+    __cil_tmp14 = & ftl->timer;
 #line 1147
-    __cil_tmp17 = __cil_tmp16 + 344;
+    __cil_tmp15 = (unsigned long )ftl;
 #line 1147
-    __cil_tmp18 = (struct timer_list *)__cil_tmp17;
-#line 1147
-    __cil_tmp19 = (unsigned long )ftl;
-#line 1147
-    setup_timer_key(__cil_tmp18, "&ftl->timer", & __key___6, & sm_cache_flush_timer,
-                    __cil_tmp19);
+    setup_timer_key(__cil_tmp14, "&ftl->timer", & __key___6, & sm_cache_flush_timer,
+                    __cil_tmp15);
     }
+#line 1147
     goto while_break___0;
   }
-  while_28_break: /* CIL Label */ ;
+  while_break___5: /* CIL Label */ ;
   }
 
   while_break___0: ;
   {
 #line 1148
   while (1) {
-    while_29_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
     {
 #line 1148
     while (1) {
-      while_30_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
       {
 #line 1148
-      __cil_tmp20 = (unsigned long )ftl;
+      __cil_tmp16 = & ftl->flush_work;
 #line 1148
-      __cil_tmp21 = __cil_tmp20 + 264;
+      __init_work(__cil_tmp16, 0);
 #line 1148
-      __cil_tmp22 = (struct work_struct *)__cil_tmp21;
+      __constr_expr_0.counter = 2097664L;
 #line 1148
-      __init_work(__cil_tmp22, 0);
+      ftl->flush_work.data = __constr_expr_0;
 #line 1148
-      __constr_expr_0_counter141 = 2097664L;
+      __cil_tmp17 = & ftl->flush_work.lockdep_map;
 #line 1148
-      __cil_tmp23 = (unsigned long )ftl;
+      lockdep_init_map(__cil_tmp17, "(&ftl->flush_work)", & __key___7, 0);
 #line 1148
-      __cil_tmp24 = __cil_tmp23 + 264;
+      __cil_tmp18 = & ftl->flush_work.entry;
 #line 1148
-      ((atomic_long_t *)__cil_tmp24)->counter = __constr_expr_0_counter141;
-#line 1148
-      __cil_tmp25 = 264 + 32;
-#line 1148
-      __cil_tmp26 = (unsigned long )ftl;
-#line 1148
-      __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 1148
-      __cil_tmp28 = (struct lockdep_map *)__cil_tmp27;
-#line 1148
-      lockdep_init_map(__cil_tmp28, "(&ftl->flush_work)", & __key___7, 0);
-#line 1148
-      __cil_tmp29 = 264 + 8;
-#line 1148
-      __cil_tmp30 = (unsigned long )ftl;
-#line 1148
-      __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 1148
-      __cil_tmp32 = (struct list_head *)__cil_tmp31;
-#line 1148
-      INIT_LIST_HEAD(__cil_tmp32);
+      INIT_LIST_HEAD(__cil_tmp18);
       }
       {
 #line 1148
       while (1) {
-        while_31_continue: /* CIL Label */ ;
+        while_continue___3: /* CIL Label */ ;
 #line 1148
-        __cil_tmp33 = 264 + 24;
+        ftl->flush_work.func = & sm_cache_flush_work;
 #line 1148
-        __cil_tmp34 = (unsigned long )ftl;
-#line 1148
-        __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 1148
-        *((void (**)(struct work_struct *work ))__cil_tmp35) = & sm_cache_flush_work;
         goto while_break___3;
       }
-      while_31_break: /* CIL Label */ ;
+      while_break___8: /* CIL Label */ ;
       }
 
       while_break___3: ;
+#line 1148
       goto while_break___2;
     }
-    while_30_break: /* CIL Label */ ;
+    while_break___7: /* CIL Label */ ;
     }
 
     while_break___2: ;
+#line 1148
     goto while_break___1;
   }
-  while_29_break: /* CIL Label */ ;
+  while_break___6: /* CIL Label */ ;
   }
 
   while_break___1: 
   {
 #line 1149
-  __cil_tmp36 = (unsigned long )ftl;
+  __cil_tmp19 = & ftl->erase_completion;
 #line 1149
-  __cil_tmp37 = __cil_tmp36 + 472;
-#line 1149
-  __cil_tmp38 = (struct completion *)__cil_tmp37;
-#line 1149
-  init_completion(__cil_tmp38);
+  init_completion(__cil_tmp19);
 #line 1152
   tmp___8 = sm_get_media_info(ftl, mtd);
   }
 #line 1152
   if (tmp___8) {
-    {
 #line 1153
-    __cil_tmp39 = & debug;
-#line 1153
-    if (*__cil_tmp39) {
+    if (debug) {
       {
 #line 1153
       printk("<7>sm_ftl: found unsupported mtd device, aborting\n");
@@ -12252,28 +10170,23 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
     } else {
 
     }
-    }
+#line 1154
     goto error2;
   } else {
 
   }
   {
 #line 1159
-  __cil_tmp40 = (unsigned long )ftl;
+  __cil_tmp20 = (size_t )512;
 #line 1159
-  __cil_tmp41 = __cil_tmp40 + 224;
-#line 1159
-  *((void **)__cil_tmp41) = kzalloc(512UL, 208U);
+  ftl->cis_buffer = kzalloc(__cil_tmp20, 208U);
   }
   {
 #line 1160
-  __cil_tmp42 = (unsigned long )ftl;
+  __cil_tmp21 = ftl->cis_buffer;
 #line 1160
-  __cil_tmp43 = __cil_tmp42 + 224;
-#line 1160
-  __cil_tmp44 = *((void **)__cil_tmp43);
-#line 1160
-  if (! __cil_tmp44) {
+  if (! __cil_tmp21) {
+#line 1161
     goto error2;
   } else {
 
@@ -12281,33 +10194,22 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   }
   {
 #line 1164
-  __cil_tmp45 = (unsigned long )ftl;
+  __cil_tmp22 = ftl->zone_count;
 #line 1164
-  __cil_tmp46 = __cil_tmp45 + 192;
+  __cil_tmp23 = (unsigned long )__cil_tmp22;
 #line 1164
-  __cil_tmp47 = *((int *)__cil_tmp46);
+  __cil_tmp24 = 40UL * __cil_tmp23;
 #line 1164
-  __cil_tmp48 = (unsigned long )__cil_tmp47;
+  tmp___9 = kzalloc(__cil_tmp24, 208U);
 #line 1164
-  __cil_tmp49 = 40UL * __cil_tmp48;
-#line 1164
-  tmp___9 = kzalloc(__cil_tmp49, 208U);
-#line 1164
-  __cil_tmp50 = (unsigned long )ftl;
-#line 1164
-  __cil_tmp51 = __cil_tmp50 + 176;
-#line 1164
-  *((struct ftl_zone **)__cil_tmp51) = (struct ftl_zone *)tmp___9;
+  ftl->zones = (struct ftl_zone *)tmp___9;
   }
   {
 #line 1166
-  __cil_tmp52 = (unsigned long )ftl;
+  __cil_tmp25 = ftl->zones;
 #line 1166
-  __cil_tmp53 = __cil_tmp52 + 176;
-#line 1166
-  __cil_tmp54 = *((struct ftl_zone **)__cil_tmp53);
-#line 1166
-  if (! __cil_tmp54) {
+  if (! __cil_tmp25) {
+#line 1167
     goto error3;
   } else {
 
@@ -12315,31 +10217,20 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   }
   {
 #line 1170
-  __cil_tmp55 = (unsigned long )ftl;
+  __cil_tmp26 = ftl->block_size;
 #line 1170
-  __cil_tmp56 = __cil_tmp55 + 184;
+  __cil_tmp27 = (size_t )__cil_tmp26;
 #line 1170
-  __cil_tmp57 = *((int *)__cil_tmp56);
+  tmp___10 = kzalloc(__cil_tmp27, 208U);
 #line 1170
-  __cil_tmp58 = (unsigned long )__cil_tmp57;
-#line 1170
-  tmp___10 = kzalloc(__cil_tmp58, 208U);
-#line 1170
-  __cil_tmp59 = (unsigned long )ftl;
-#line 1170
-  __cil_tmp60 = __cil_tmp59 + 240;
-#line 1170
-  *((unsigned char **)__cil_tmp60) = (unsigned char *)tmp___10;
+  ftl->cache_data = (unsigned char *)tmp___10;
   }
   {
 #line 1172
-  __cil_tmp61 = (unsigned long )ftl;
+  __cil_tmp28 = ftl->cache_data;
 #line 1172
-  __cil_tmp62 = __cil_tmp61 + 240;
-#line 1172
-  __cil_tmp63 = *((unsigned char **)__cil_tmp62);
-#line 1172
-  if (! __cil_tmp63) {
+  if (! __cil_tmp28) {
+#line 1173
     goto error4;
   } else {
 
@@ -12355,85 +10246,47 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   }
 #line 1180
   if (! trans) {
+#line 1181
     goto error5;
   } else {
 
   }
   {
 #line 1183
-  *((struct mtd_blktrans_dev **)ftl) = trans;
+  ftl->trans = trans;
 #line 1184
-  __cil_tmp64 = (unsigned long )trans;
-#line 1184
-  __cil_tmp65 = __cil_tmp64 + 336;
-#line 1184
-  *((void **)__cil_tmp65) = (void *)ftl;
+  trans->priv = (void *)ftl;
 #line 1186
-  *((struct mtd_blktrans_ops **)trans) = tr;
+  trans->tr = tr;
 #line 1187
-  __cil_tmp66 = (unsigned long )trans;
-#line 1187
-  __cil_tmp67 = __cil_tmp66 + 24;
-#line 1187
-  *((struct mtd_info **)__cil_tmp67) = mtd;
+  trans->mtd = mtd;
 #line 1188
-  __cil_tmp68 = (unsigned long )trans;
-#line 1188
-  __cil_tmp69 = __cil_tmp68 + 200;
-#line 1188
-  *((int *)__cil_tmp69) = -1;
+  trans->devnum = -1;
 #line 1189
-  __cil_tmp70 = (unsigned long )trans;
+  __cil_tmp29 = ftl->zone_count;
 #line 1189
-  __cil_tmp71 = __cil_tmp70 + 208;
+  __cil_tmp30 = ftl->max_lba;
 #line 1189
-  __cil_tmp72 = (unsigned long )ftl;
+  __cil_tmp31 = ftl->block_size;
 #line 1189
-  __cil_tmp73 = __cil_tmp72 + 192;
+  __cil_tmp32 = __cil_tmp31 * __cil_tmp30;
 #line 1189
-  __cil_tmp74 = *((int *)__cil_tmp73);
+  __cil_tmp33 = __cil_tmp32 * __cil_tmp29;
 #line 1189
-  __cil_tmp75 = (unsigned long )ftl;
+  __cil_tmp34 = __cil_tmp33 >> 9;
 #line 1189
-  __cil_tmp76 = __cil_tmp75 + 196;
-#line 1189
-  __cil_tmp77 = *((int *)__cil_tmp76);
-#line 1189
-  __cil_tmp78 = (unsigned long )ftl;
-#line 1189
-  __cil_tmp79 = __cil_tmp78 + 184;
-#line 1189
-  __cil_tmp80 = *((int *)__cil_tmp79);
-#line 1189
-  __cil_tmp81 = __cil_tmp80 * __cil_tmp77;
-#line 1189
-  __cil_tmp82 = __cil_tmp81 * __cil_tmp74;
-#line 1189
-  __cil_tmp83 = __cil_tmp82 >> 9;
-#line 1189
-  *((unsigned long *)__cil_tmp71) = (unsigned long )__cil_tmp83;
+  trans->size = (unsigned long )__cil_tmp34;
 #line 1190
-  __cil_tmp84 = (unsigned long )trans;
+  __cil_tmp35 = ftl->readonly;
 #line 1190
-  __cil_tmp85 = __cil_tmp84 + 216;
-#line 1190
-  __cil_tmp86 = (unsigned long )ftl;
-#line 1190
-  __cil_tmp87 = __cil_tmp86 + 204;
-#line 1190
-  __cil_tmp88 = *((bool *)__cil_tmp87);
-#line 1190
-  *((int *)__cil_tmp85) = (int )__cil_tmp88;
+  trans->readonly = (int )__cil_tmp35;
 #line 1192
   tmp___12 = sm_find_cis(ftl);
   }
 #line 1192
   if (tmp___12) {
-    {
 #line 1193
-    __cil_tmp89 = & debug;
-#line 1193
-    if (*__cil_tmp89) {
+    if (debug) {
       {
 #line 1193
       printk("<7>sm_ftl: CIS not found on mtd device, aborting\n");
@@ -12441,28 +10294,21 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
     } else {
 
     }
-    }
+#line 1194
     goto error6;
   } else {
 
   }
   {
 #line 1197
-  __cil_tmp90 = (unsigned long )ftl;
-#line 1197
-  __cil_tmp91 = __cil_tmp90 + 584;
-#line 1197
-  *((struct attribute_group **)__cil_tmp91) = sm_create_sysfs_attributes(ftl);
+  ftl->disk_attributes = sm_create_sysfs_attributes(ftl);
   }
   {
 #line 1198
-  __cil_tmp92 = (unsigned long )ftl;
+  __cil_tmp36 = ftl->disk_attributes;
 #line 1198
-  __cil_tmp93 = __cil_tmp92 + 584;
-#line 1198
-  __cil_tmp94 = *((struct attribute_group **)__cil_tmp93);
-#line 1198
-  if (! __cil_tmp94) {
+  if (! __cil_tmp36) {
+#line 1199
     goto error6;
   } else {
 
@@ -12470,39 +10316,20 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   }
   {
 #line 1200
-  __cil_tmp95 = (unsigned long )trans;
-#line 1200
-  __cil_tmp96 = __cil_tmp95 + 240;
-#line 1200
-  __cil_tmp97 = (unsigned long )ftl;
-#line 1200
-  __cil_tmp98 = __cil_tmp97 + 584;
-#line 1200
-  *((struct attribute_group **)__cil_tmp96) = *((struct attribute_group **)__cil_tmp98);
+  trans->disk_attributes = ftl->disk_attributes;
 #line 1202
-  __cil_tmp99 = (unsigned long )mtd;
+  __cil_tmp37 = mtd->size;
 #line 1202
-  __cil_tmp100 = __cil_tmp99 + 8;
+  __cil_tmp38 = __cil_tmp37 / 1048576ULL;
 #line 1202
-  __cil_tmp101 = *((uint64_t *)__cil_tmp100);
+  __cil_tmp39 = (int )__cil_tmp38;
 #line 1202
-  __cil_tmp102 = __cil_tmp101 / 1048576ULL;
+  __cil_tmp40 = mtd->index;
 #line 1202
-  __cil_tmp103 = (int )__cil_tmp102;
-#line 1202
-  __cil_tmp104 = (unsigned long )mtd;
-#line 1202
-  __cil_tmp105 = __cil_tmp104 + 64;
-#line 1202
-  __cil_tmp106 = *((int *)__cil_tmp105);
-#line 1202
-  printk("<4>sm_ftl: Found %d MiB xD/SmartMedia FTL on mtd%d\n", __cil_tmp103, __cil_tmp106);
+  printk("<4>sm_ftl: Found %d MiB xD/SmartMedia FTL on mtd%d\n", __cil_tmp39, __cil_tmp40);
   }
-  {
 #line 1205
-  __cil_tmp107 = & debug;
-#line 1205
-  if (*__cil_tmp107) {
+  if (debug) {
     {
 #line 1205
     printk("<7>sm_ftl: FTL layout:\n");
@@ -12510,65 +10337,36 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   } else {
 
   }
-  }
-  {
 #line 1206
-  __cil_tmp108 = & debug;
-#line 1206
-  if (*__cil_tmp108) {
+  if (debug) {
     {
 #line 1206
-    __cil_tmp109 = (unsigned long )ftl;
+    __cil_tmp41 = ftl->zone_count;
 #line 1206
-    __cil_tmp110 = __cil_tmp109 + 192;
+    __cil_tmp42 = ftl->max_lba;
 #line 1206
-    __cil_tmp111 = *((int *)__cil_tmp110);
+    __cil_tmp43 = ftl->max_lba;
 #line 1206
-    __cil_tmp112 = (unsigned long )ftl;
+    __cil_tmp44 = ftl->zone_size;
 #line 1206
-    __cil_tmp113 = __cil_tmp112 + 196;
+    __cil_tmp45 = __cil_tmp44 - __cil_tmp43;
 #line 1206
-    __cil_tmp114 = *((int *)__cil_tmp113);
-#line 1206
-    __cil_tmp115 = (unsigned long )ftl;
-#line 1206
-    __cil_tmp116 = __cil_tmp115 + 196;
-#line 1206
-    __cil_tmp117 = *((int *)__cil_tmp116);
-#line 1206
-    __cil_tmp118 = (unsigned long )ftl;
-#line 1206
-    __cil_tmp119 = __cil_tmp118 + 188;
-#line 1206
-    __cil_tmp120 = *((int *)__cil_tmp119);
-#line 1206
-    __cil_tmp121 = __cil_tmp120 - __cil_tmp117;
-#line 1206
-    printk("<7>sm_ftl: %d zone(s), each consists of %d blocks (+%d spares)\n", __cil_tmp111,
-           __cil_tmp114, __cil_tmp121);
+    printk("<7>sm_ftl: %d zone(s), each consists of %d blocks (+%d spares)\n", __cil_tmp41,
+           __cil_tmp42, __cil_tmp45);
     }
   } else {
 
   }
-  }
-  {
 #line 1209
-  __cil_tmp122 = & debug;
-#line 1209
-  if (*__cil_tmp122) {
+  if (debug) {
     {
 #line 1209
-    __cil_tmp123 = (unsigned long )ftl;
+    __cil_tmp46 = ftl->block_size;
 #line 1209
-    __cil_tmp124 = __cil_tmp123 + 184;
-#line 1209
-    __cil_tmp125 = *((int *)__cil_tmp124);
-#line 1209
-    printk("<7>sm_ftl: each block consists of %d bytes\n", __cil_tmp125);
+    printk("<7>sm_ftl: each block consists of %d bytes\n", __cil_tmp46);
     }
   } else {
 
-  }
   }
   {
 #line 1214
@@ -12576,11 +10374,8 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   }
 #line 1214
   if (tmp___13) {
-    {
 #line 1215
-    __cil_tmp126 = & debug;
-#line 1215
-    if (*__cil_tmp126) {
+    if (debug) {
       {
 #line 1215
       printk("<7>sm_ftl: error in mtdblktrans layer\n");
@@ -12588,7 +10383,7 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
     } else {
 
     }
-    }
+#line 1216
     goto error6;
   } else {
 
@@ -12598,55 +10393,43 @@ static void sm_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
   error6: 
   {
 #line 1220
-  __cil_tmp127 = (void const   *)trans;
+  __cil_tmp47 = (void const   *)trans;
 #line 1220
-  kfree(__cil_tmp127);
+  kfree(__cil_tmp47);
   }
   error5: 
   {
 #line 1222
-  __cil_tmp128 = (unsigned long )ftl;
+  __cil_tmp48 = ftl->cache_data;
 #line 1222
-  __cil_tmp129 = __cil_tmp128 + 240;
+  __cil_tmp49 = (void const   *)__cil_tmp48;
 #line 1222
-  __cil_tmp130 = *((unsigned char **)__cil_tmp129);
-#line 1222
-  __cil_tmp131 = (void const   *)__cil_tmp130;
-#line 1222
-  kfree(__cil_tmp131);
+  kfree(__cil_tmp49);
   }
   error4: 
   {
 #line 1224
-  __cil_tmp132 = (unsigned long )ftl;
+  __cil_tmp50 = ftl->zones;
 #line 1224
-  __cil_tmp133 = __cil_tmp132 + 176;
+  __cil_tmp51 = (void const   *)__cil_tmp50;
 #line 1224
-  __cil_tmp134 = *((struct ftl_zone **)__cil_tmp133);
-#line 1224
-  __cil_tmp135 = (void const   *)__cil_tmp134;
-#line 1224
-  kfree(__cil_tmp135);
+  kfree(__cil_tmp51);
   }
   error3: 
   {
 #line 1226
-  __cil_tmp136 = (unsigned long )ftl;
+  __cil_tmp52 = ftl->cis_buffer;
 #line 1226
-  __cil_tmp137 = __cil_tmp136 + 224;
+  __cil_tmp53 = (void const   *)__cil_tmp52;
 #line 1226
-  __cil_tmp138 = *((void **)__cil_tmp137);
-#line 1226
-  __cil_tmp139 = (void const   *)__cil_tmp138;
-#line 1226
-  kfree(__cil_tmp139);
+  kfree(__cil_tmp53);
   }
   error2: 
   {
 #line 1228
-  __cil_tmp140 = (void const   *)ftl;
+  __cil_tmp54 = (void const   *)ftl;
 #line 1228
-  kfree(__cil_tmp140);
+  kfree(__cil_tmp54);
   }
   error1: 
 #line 1230
@@ -12659,97 +10442,67 @@ static void sm_remove_dev(struct mtd_blktrans_dev *dev )
   int i ;
   struct kfifo *__tmp ;
   struct __kfifo *__kfifo ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct ftl_zone *__cil_tmp15 ;
+  void *__cil_tmp6 ;
+  void *__cil_tmp7 ;
+  int __cil_tmp8 ;
+  struct ftl_zone *__cil_tmp9 ;
+  struct ftl_zone *__cil_tmp10 ;
+  bool __cil_tmp11 ;
+  struct ftl_zone *__cil_tmp12 ;
+  struct ftl_zone *__cil_tmp13 ;
+  int16_t *__cil_tmp14 ;
+  void const   *__cil_tmp15 ;
   struct ftl_zone *__cil_tmp16 ;
-  bool __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  struct ftl_zone *__cil_tmp17 ;
+  void *__cil_tmp18 ;
+  void const   *__cil_tmp19 ;
   struct ftl_zone *__cil_tmp20 ;
-  struct ftl_zone *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  int16_t *__cil_tmp24 ;
-  void const   *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct ftl_zone *__cil_tmp28 ;
-  struct ftl_zone *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  void *__cil_tmp34 ;
-  void const   *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct ftl_zone *__cil_tmp38 ;
-  void const   *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned char *__cil_tmp42 ;
-  void const   *__cil_tmp43 ;
-  void const   *__cil_tmp44 ;
+  void const   *__cil_tmp21 ;
+  unsigned char *__cil_tmp22 ;
+  void const   *__cil_tmp23 ;
+  void const   *__cil_tmp24 ;
 
   {
   {
 #line 1236
-  __cil_tmp6 = (unsigned long )dev;
+  __cil_tmp6 = dev->priv;
 #line 1236
-  __cil_tmp7 = __cil_tmp6 + 336;
-#line 1236
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 1236
-  ftl = (struct sm_ftl *)__cil_tmp8;
+  ftl = (struct sm_ftl *)__cil_tmp6;
 #line 1239
   del_mtd_blktrans_dev(dev);
 #line 1240
-  __cil_tmp9 = (void *)0;
+  __cil_tmp7 = (void *)0;
 #line 1240
-  *((struct mtd_blktrans_dev **)ftl) = (struct mtd_blktrans_dev *)__cil_tmp9;
+  ftl->trans = (struct mtd_blktrans_dev *)__cil_tmp7;
 #line 1242
   i = 0;
   }
   {
 #line 1242
   while (1) {
-    while_32_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 1242
-    __cil_tmp10 = (unsigned long )ftl;
+    __cil_tmp8 = ftl->zone_count;
 #line 1242
-    __cil_tmp11 = __cil_tmp10 + 192;
-#line 1242
-    __cil_tmp12 = *((int *)__cil_tmp11);
-#line 1242
-    if (i < __cil_tmp12) {
+    if (i < __cil_tmp8) {
 
     } else {
+#line 1242
       goto while_break;
     }
     }
     {
 #line 1244
-    __cil_tmp13 = (unsigned long )ftl;
+    __cil_tmp9 = ftl->zones;
 #line 1244
-    __cil_tmp14 = __cil_tmp13 + 176;
+    __cil_tmp10 = __cil_tmp9 + i;
 #line 1244
-    __cil_tmp15 = *((struct ftl_zone **)__cil_tmp14);
+    __cil_tmp11 = __cil_tmp10->initialized;
 #line 1244
-    __cil_tmp16 = __cil_tmp15 + i;
-#line 1244
-    __cil_tmp17 = *((bool *)__cil_tmp16);
-#line 1244
-    if (! __cil_tmp17) {
+    if (! __cil_tmp11) {
+#line 1245
       goto __Cont;
     } else {
 
@@ -12757,39 +10510,23 @@ static void sm_remove_dev(struct mtd_blktrans_dev *dev )
     }
     {
 #line 1247
-    __cil_tmp18 = (unsigned long )ftl;
+    __cil_tmp12 = ftl->zones;
 #line 1247
-    __cil_tmp19 = __cil_tmp18 + 176;
+    __cil_tmp13 = __cil_tmp12 + i;
 #line 1247
-    __cil_tmp20 = *((struct ftl_zone **)__cil_tmp19);
+    __cil_tmp14 = __cil_tmp13->lba_to_phys_table;
 #line 1247
-    __cil_tmp21 = __cil_tmp20 + i;
+    __cil_tmp15 = (void const   *)__cil_tmp14;
 #line 1247
-    __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 1247
-    __cil_tmp23 = __cil_tmp22 + 8;
-#line 1247
-    __cil_tmp24 = *((int16_t **)__cil_tmp23);
-#line 1247
-    __cil_tmp25 = (void const   *)__cil_tmp24;
-#line 1247
-    kfree(__cil_tmp25);
+    kfree(__cil_tmp15);
 #line 1248
-    __cil_tmp26 = (unsigned long )ftl;
+    __cil_tmp16 = ftl->zones;
 #line 1248
-    __cil_tmp27 = __cil_tmp26 + 176;
+    __cil_tmp17 = __cil_tmp16 + i;
 #line 1248
-    __cil_tmp28 = *((struct ftl_zone **)__cil_tmp27);
+    __tmp = & __cil_tmp17->free_sectors;
 #line 1248
-    __cil_tmp29 = __cil_tmp28 + i;
-#line 1248
-    __cil_tmp30 = (unsigned long )__cil_tmp29;
-#line 1248
-    __cil_tmp31 = __cil_tmp30 + 16;
-#line 1248
-    __tmp = (struct kfifo *)__cil_tmp31;
-#line 1248
-    __kfifo = (struct __kfifo *)__tmp;
+    __kfifo = & __tmp->__annonCompField39.kfifo;
     }
 #line 1248
     if (24UL == 24UL) {
@@ -12804,7 +10541,7 @@ static void sm_remove_dev(struct mtd_blktrans_dev *dev )
 #line 1242
     i = i + 1;
   }
-  while_32_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -12812,39 +10549,27 @@ static void sm_remove_dev(struct mtd_blktrans_dev *dev )
 #line 1251
   sm_delete_sysfs_attributes(ftl);
 #line 1252
-  __cil_tmp32 = (unsigned long )ftl;
+  __cil_tmp18 = ftl->cis_buffer;
 #line 1252
-  __cil_tmp33 = __cil_tmp32 + 224;
+  __cil_tmp19 = (void const   *)__cil_tmp18;
 #line 1252
-  __cil_tmp34 = *((void **)__cil_tmp33);
-#line 1252
-  __cil_tmp35 = (void const   *)__cil_tmp34;
-#line 1252
-  kfree(__cil_tmp35);
+  kfree(__cil_tmp19);
 #line 1253
-  __cil_tmp36 = (unsigned long )ftl;
+  __cil_tmp20 = ftl->zones;
 #line 1253
-  __cil_tmp37 = __cil_tmp36 + 176;
+  __cil_tmp21 = (void const   *)__cil_tmp20;
 #line 1253
-  __cil_tmp38 = *((struct ftl_zone **)__cil_tmp37);
-#line 1253
-  __cil_tmp39 = (void const   *)__cil_tmp38;
-#line 1253
-  kfree(__cil_tmp39);
+  kfree(__cil_tmp21);
 #line 1254
-  __cil_tmp40 = (unsigned long )ftl;
+  __cil_tmp22 = ftl->cache_data;
 #line 1254
-  __cil_tmp41 = __cil_tmp40 + 240;
+  __cil_tmp23 = (void const   *)__cil_tmp22;
 #line 1254
-  __cil_tmp42 = *((unsigned char **)__cil_tmp41);
-#line 1254
-  __cil_tmp43 = (void const   *)__cil_tmp42;
-#line 1254
-  kfree(__cil_tmp43);
+  kfree(__cil_tmp23);
 #line 1255
-  __cil_tmp44 = (void const   *)ftl;
+  __cil_tmp24 = (void const   *)ftl;
 #line 1255
-  kfree(__cil_tmp44);
+  kfree(__cil_tmp24);
   }
 #line 1256
   return;
@@ -13051,6 +10776,7 @@ void main(void)
   }
 #line 1419
   if (tmp___7) {
+#line 1420
     goto ldv_final;
   } else {
 
@@ -13060,7 +10786,7 @@ void main(void)
   {
 #line 1425
   while (1) {
-    while_33_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1425
     tmp___9 = nondet_int();
@@ -13076,6 +10802,7 @@ void main(void)
       if (! __cil_tmp13) {
 
       } else {
+#line 1425
         goto while_break;
       }
       }
@@ -13086,98 +10813,108 @@ void main(void)
     }
 #line 1431
     if (tmp___8 == 0) {
+#line 1431
       goto case_0;
-    } else {
+    } else
 #line 1450
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
+    if (tmp___8 == 1) {
+#line 1450
+      goto case_1;
+    } else
 #line 1469
-        if (tmp___8 == 2) {
-          goto case_2;
-        } else {
+    if (tmp___8 == 2) {
+#line 1469
+      goto case_2;
+    } else
 #line 1488
-          if (tmp___8 == 3) {
-            goto case_3;
-          } else {
+    if (tmp___8 == 3) {
+#line 1488
+      goto case_3;
+    } else
 #line 1507
-            if (tmp___8 == 4) {
-              goto case_4;
-            } else {
+    if (tmp___8 == 4) {
+#line 1507
+      goto case_4;
+    } else
 #line 1526
-              if (tmp___8 == 5) {
-                goto case_5;
-              } else {
+    if (tmp___8 == 5) {
+#line 1526
+      goto case_5;
+    } else
 #line 1545
-                if (tmp___8 == 6) {
-                  goto case_6;
-                } else {
-                  goto switch_default;
+    if (tmp___8 == 6) {
+#line 1545
+      goto case_6;
+    } else {
+#line 1564
+      goto switch_default;
 #line 1429
-                  if (0) {
-                    case_0: 
+      if (0) {
+        case_0: 
 #line 1434
-                    if (ldv_s_sm_ftl_ops_mtd_blktrans_ops == 0) {
-                      {
+        if (ldv_s_sm_ftl_ops_mtd_blktrans_ops == 0) {
+          {
 #line 1442
-                      sm_release(var_group1);
+          sm_release(var_group1);
 #line 1443
-                      ldv_s_sm_ftl_ops_mtd_blktrans_ops = 0;
-                      }
-                    } else {
-
-                    }
-                    goto switch_break;
-                    case_1: 
-                    {
-#line 1461
-                    sm_getgeo(var_group1, var_group2);
-                    }
-                    goto switch_break;
-                    case_2: 
-                    {
-#line 1480
-                    sm_add_mtd(var_group3, var_group4);
-                    }
-                    goto switch_break;
-                    case_3: 
-                    {
-#line 1499
-                    sm_remove_dev(var_group1);
-                    }
-                    goto switch_break;
-                    case_4: 
-                    {
-#line 1518
-                    sm_read(var_group1, var_sm_read_28_p1, var_sm_read_28_p2);
-                    }
-                    goto switch_break;
-                    case_5: 
-                    {
-#line 1537
-                    sm_write(var_group1, var_sm_write_29_p1, var_sm_write_29_p2);
-                    }
-                    goto switch_break;
-                    case_6: 
-                    {
-#line 1556
-                    sm_flush(var_group1);
-                    }
-                    goto switch_break;
-                    switch_default: 
-                    goto switch_break;
-                  } else {
-                    switch_break: ;
-                  }
-                }
-              }
-            }
+          ldv_s_sm_ftl_ops_mtd_blktrans_ops = 0;
           }
+        } else {
+
         }
+#line 1449
+        goto switch_break;
+        case_1: 
+        {
+#line 1461
+        sm_getgeo(var_group1, var_group2);
+        }
+#line 1468
+        goto switch_break;
+        case_2: 
+        {
+#line 1480
+        sm_add_mtd(var_group3, var_group4);
+        }
+#line 1487
+        goto switch_break;
+        case_3: 
+        {
+#line 1499
+        sm_remove_dev(var_group1);
+        }
+#line 1506
+        goto switch_break;
+        case_4: 
+        {
+#line 1518
+        sm_read(var_group1, var_sm_read_28_p1, var_sm_read_28_p2);
+        }
+#line 1525
+        goto switch_break;
+        case_5: 
+        {
+#line 1537
+        sm_write(var_group1, var_sm_write_29_p1, var_sm_write_29_p2);
+        }
+#line 1544
+        goto switch_break;
+        case_6: 
+        {
+#line 1556
+        sm_flush(var_group1);
+        }
+#line 1563
+        goto switch_break;
+        switch_default: 
+#line 1564
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_33_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -13200,6 +10937,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -13224,6 +10962,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -13244,7 +10983,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_34_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -13262,9 +11001,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_34_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13285,7 +11025,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_35_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -13322,9 +11062,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_35_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13344,7 +11085,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_36_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -13366,9 +11107,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_36_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13389,7 +11131,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_37_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -13426,9 +11168,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_37_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

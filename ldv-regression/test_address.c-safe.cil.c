@@ -11,6 +11,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -19,17 +20,17 @@ int VERDICT_SAFE  ;
 #line 10 "files/test_address.c"
 void list_add(int *new ) 
 { void *__cil_tmp2 ;
-  unsigned int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
+  unsigned long __cil_tmp3 ;
+  unsigned long __cil_tmp4 ;
 
   {
   {
 #line 11
   __cil_tmp2 = (void *)0;
 #line 11
-  __cil_tmp3 = (unsigned int )__cil_tmp2;
+  __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 11
-  __cil_tmp4 = (unsigned int )new;
+  __cil_tmp4 = (unsigned long )new;
 #line 11
   if (__cil_tmp4 != __cil_tmp3) {
 
@@ -51,7 +52,7 @@ static void rr_fail_path(struct path_info *pi )
   {
   {
 #line 16
-  __cil_tmp2 = (int *)pi;
+  __cil_tmp2 = & pi->list;
 #line 16
   list_add(__cil_tmp2);
   }

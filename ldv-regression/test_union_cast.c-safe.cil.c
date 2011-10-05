@@ -11,6 +11,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -19,39 +20,30 @@ int VERDICT_SAFE  ;
 #line 24 "files/test_union_cast.c"
 int main(void) 
 { struct l_struct_2E_X llvm_cbe_var ;
-  struct l_struct_2E_X *__cil_tmp2 ;
-  struct l_struct_2E_X *__cil_tmp3 ;
+  double *__cil_tmp2 ;
+  unsigned int *__cil_tmp3 ;
   double *__cil_tmp4 ;
   unsigned int *__cil_tmp5 ;
-  struct l_struct_2E_X *__cil_tmp6 ;
-  double *__cil_tmp7 ;
-  unsigned int *__cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp6 ;
 
   {
 #line 32
-  __cil_tmp2 = & llvm_cbe_var;
-#line 32
-  *((double *)__cil_tmp2) = 0x1.4p+4;
+  llvm_cbe_var.field0 = 0x1.4p+4;
 #line 33
-  __cil_tmp3 = & llvm_cbe_var;
+  __cil_tmp2 = & llvm_cbe_var.field0;
 #line 33
-  __cil_tmp4 = (double *)__cil_tmp3;
+  __cil_tmp3 = (unsigned int *)__cil_tmp2;
 #line 33
-  __cil_tmp5 = (unsigned int *)__cil_tmp4;
-#line 33
-  *__cil_tmp5 = 10U;
+  *__cil_tmp3 = 10U;
   {
 #line 34
-  __cil_tmp6 = & llvm_cbe_var;
+  __cil_tmp4 = & llvm_cbe_var.field0;
 #line 34
-  __cil_tmp7 = (double *)__cil_tmp6;
+  __cil_tmp5 = (unsigned int *)__cil_tmp4;
 #line 34
-  __cil_tmp8 = (unsigned int *)__cil_tmp7;
+  __cil_tmp6 = *__cil_tmp5;
 #line 34
-  __cil_tmp9 = *__cil_tmp8;
-#line 34
-  if (__cil_tmp9 == 10U) {
+  if (__cil_tmp6 == 10U) {
 
   } else {
     {

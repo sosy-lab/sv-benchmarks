@@ -14,6 +14,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -23,22 +24,16 @@ int VERDICT_SAFE  ;
 int main(void) 
 { Stuff good ;
   Stuff bad ;
-  int good_b3 ;
-  int good_a4 ;
-  int bad_b5 ;
-  int bad_a6 ;
 
   {
 #line 15
-  good_a4 = 1;
+  good.a = 1;
 #line 15
-  good_b3 = 2;
+  good.b = 2;
 #line 17
-  bad_a6 = good_a4;
-#line 17
-  bad_b5 = good_b3;
+  bad = good;
 #line 18
-  if (bad_b5 == 2) {
+  if (bad.b == 2) {
 
   } else {
     {

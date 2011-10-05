@@ -14,6 +14,7 @@ void err(void)
 
   {
   ERROR: 
+#line 14
   goto ERROR;
 }
 }
@@ -36,8 +37,6 @@ void *allocate_memory(void)
 struct list *append(struct list *l , int n ) 
 { struct list *new_el ;
   void *tmp ;
-  unsigned int __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
 
   {
   {
@@ -46,13 +45,9 @@ struct list *append(struct list *l , int n )
 #line 33
   new_el = (struct list *)tmp;
 #line 35
-  *((int *)new_el) = n;
+  new_el->n = n;
 #line 36
-  __cil_tmp5 = (unsigned int )new_el;
-#line 36
-  __cil_tmp6 = __cil_tmp5 + 4;
-#line 36
-  *((struct list **)__cil_tmp6) = l;
+  new_el->next = l;
   }
 #line 38
   return (new_el);
@@ -62,28 +57,18 @@ struct list *append(struct list *l , int n )
 int main(void) 
 { struct list *l ;
   struct list m ;
-  unsigned int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  struct list *__cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
-  struct list *__cil_tmp10 ;
-  int __cil_tmp11 ;
+  struct list *__cil_tmp3 ;
+  struct list *__cil_tmp4 ;
+  int __cil_tmp5 ;
 
   {
   {
 #line 44
   l = & m;
 #line 45
-  __cil_tmp3 = (unsigned int )l;
-#line 45
-  __cil_tmp4 = __cil_tmp3 + 4;
-#line 45
-  *((struct list **)__cil_tmp4) = (struct list *)0;
+  l->next = (struct list *)0;
 #line 46
-  *((int *)l) = 0;
+  l->n = 0;
 #line 48
   l = append(l, 1);
 #line 49
@@ -91,21 +76,13 @@ int main(void)
   }
   {
 #line 52
-  __cil_tmp5 = (unsigned int )l;
+  __cil_tmp3 = l->next;
 #line 52
-  __cil_tmp6 = __cil_tmp5 + 4;
+  __cil_tmp4 = __cil_tmp3->next;
 #line 52
-  __cil_tmp7 = *((struct list **)__cil_tmp6);
+  __cil_tmp5 = __cil_tmp4->n;
 #line 52
-  __cil_tmp8 = (unsigned int )__cil_tmp7;
-#line 52
-  __cil_tmp9 = __cil_tmp8 + 4;
-#line 52
-  __cil_tmp10 = *((struct list **)__cil_tmp9);
-#line 52
-  __cil_tmp11 = *((int *)__cil_tmp10);
-#line 52
-  if (__cil_tmp11 != 0) {
+  if (__cil_tmp5 != 0) {
     {
 #line 52
     err();

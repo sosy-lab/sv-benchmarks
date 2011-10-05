@@ -21,6 +21,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -32,54 +33,31 @@ int main(void)
   struct Inner inner ;
   struct Toplev good ;
   struct Innermost *__cil_tmp4 ;
-  struct Inner *__cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  struct Innermost *__cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  struct Innermost *__cil_tmp12 ;
-  int __cil_tmp13 ;
-  struct Inner *good_x14 ;
-  int good_a15 ;
+  struct Innermost *__cil_tmp5 ;
+  int __cil_tmp6 ;
 
   {
 #line 20
-  __cil_tmp4 = & im;
-#line 20
-  *((int *)__cil_tmp4) = 3;
+  im.c = 3;
 #line 21
-  __cil_tmp5 = & inner;
+  inner.b = 2;
 #line 21
-  *((int *)__cil_tmp5) = 2;
-#line 21
-  __cil_tmp6 = (unsigned int )(& inner) + 4;
-#line 21
-  *((struct Innermost **)__cil_tmp6) = & im;
+  inner.y = & im;
 #line 22
-  good_a15 = 1;
+  good.a = 1;
 #line 22
-  good_x14 = & inner;
+  good.x = & inner;
 #line 23
-  __cil_tmp7 = (unsigned int )good_x14;
+  __cil_tmp4 = (good.x)->y;
 #line 23
-  __cil_tmp8 = __cil_tmp7 + 4;
-#line 23
-  __cil_tmp9 = *((struct Innermost **)__cil_tmp8);
-#line 23
-  *((int *)__cil_tmp9) = 4;
+  __cil_tmp4->c = 4;
   {
 #line 24
-  __cil_tmp10 = (unsigned int )good_x14;
+  __cil_tmp5 = (good.x)->y;
 #line 24
-  __cil_tmp11 = __cil_tmp10 + 4;
+  __cil_tmp6 = __cil_tmp5->c;
 #line 24
-  __cil_tmp12 = *((struct Innermost **)__cil_tmp11);
-#line 24
-  __cil_tmp13 = *((int *)__cil_tmp12);
-#line 24
-  if (__cil_tmp13 == 4) {
+  if (__cil_tmp6 == 4) {
 
   } else {
     {

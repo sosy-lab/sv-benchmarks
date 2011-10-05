@@ -4781,7 +4781,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->__annonCompField18.rlock);
 }
 }
 #line 338 "include/linux/spinlock.h"
@@ -4792,16 +4792,17 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   {
 #line 340
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 340
-    __cil_tmp3 = (struct raw_spinlock *)lock;
+    __cil_tmp3 = & lock->__annonCompField18.rlock;
 #line 340
     _raw_spin_unlock_irqrestore(__cil_tmp3, flags);
     }
+#line 340
     goto while_break;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -4906,56 +4907,21 @@ __inline static void usb_fill_bulk_urb(struct urb *urb , struct usb_device *dev 
                                        unsigned int pipe , void *transfer_buffer ,
                                        int buffer_length , void (*complete_fn)(struct urb * ) ,
                                        void *context ) 
-{ unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+{ 
 
   {
 #line 1276
-  __cil_tmp8 = (unsigned long )urb;
-#line 1276
-  __cil_tmp9 = __cil_tmp8 + 72;
-#line 1276
-  *((struct usb_device **)__cil_tmp9) = dev;
+  urb->dev = dev;
 #line 1277
-  __cil_tmp10 = (unsigned long )urb;
-#line 1277
-  __cil_tmp11 = __cil_tmp10 + 88;
-#line 1277
-  *((unsigned int *)__cil_tmp11) = pipe;
+  urb->pipe = pipe;
 #line 1278
-  __cil_tmp12 = (unsigned long )urb;
-#line 1278
-  __cil_tmp13 = __cil_tmp12 + 104;
-#line 1278
-  *((void **)__cil_tmp13) = transfer_buffer;
+  urb->transfer_buffer = transfer_buffer;
 #line 1279
-  __cil_tmp14 = (unsigned long )urb;
-#line 1279
-  __cil_tmp15 = __cil_tmp14 + 132;
-#line 1279
-  *((u32 *)__cil_tmp15) = (unsigned int )buffer_length;
+  urb->transfer_buffer_length = (u32 )buffer_length;
 #line 1280
-  __cil_tmp16 = (unsigned long )urb;
-#line 1280
-  __cil_tmp17 = __cil_tmp16 + 184;
-#line 1280
-  *((void (**)(struct urb * ))__cil_tmp17) = complete_fn;
+  urb->complete = complete_fn;
 #line 1281
-  __cil_tmp18 = (unsigned long )urb;
-#line 1281
-  __cil_tmp19 = __cil_tmp18 + 176;
-#line 1281
-  *((void **)__cil_tmp19) = context;
+  urb->context = context;
 #line 1282
   return;
 }
@@ -4987,7 +4953,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 #line 1529
   __cil_tmp3 = endpoint << 15;
 #line 1529
-  __cil_tmp4 = *((int *)dev);
+  __cil_tmp4 = dev->devnum;
 #line 1529
   __cil_tmp5 = __cil_tmp4 << 8;
 #line 1529
@@ -5045,18 +5011,18 @@ static u8 ir_xbof  ;
 #line 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static u8 ir_add_bof  ;
 #line 103 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
-static struct usb_device_id  const  ir_id_table[4]  = {      {(unsigned short)3, (unsigned short)1295, (unsigned short)384, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)3, (unsigned short)2281, (unsigned short)256, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)3, (unsigned short)2500, (unsigned short)17, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)896, (unsigned short)0, (unsigned short)0, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)254,
-      (unsigned char)2, (unsigned char)0, 0UL}};
+static struct usb_device_id  const  ir_id_table[4]  = {      {(__u16 )3, (__u16 )1295, (__u16 )384, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}, 
+        {(__u16 )3, (__u16 )2281, (__u16 )256, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}, 
+        {(__u16 )3, (__u16 )2500, (__u16 )17, (unsigned short)0, (unsigned short)0, (unsigned char)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      0UL}, 
+        {(__u16 )896, (unsigned short)0, (unsigned short)0, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (__u8 )254, (__u8 )2,
+      (__u8 )0, 0UL}};
 #line 111
 extern struct usb_device_id  const  __mod_usb_device_table  __attribute__((__unused__,
 __alias__("ir_id_table"))) ;
@@ -5115,379 +5081,285 @@ static struct usb_serial_driver ir_device  =
     & ir_prepare_write_buffer};
 #line 137 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 __inline static void irda_usb_dump_class_desc(struct usb_irda_cs_descriptor *desc ) 
-{ int *__cil_tmp2 ;
-  __u8 __cil_tmp3 ;
-  int __cil_tmp4 ;
-  int *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+{ __u8 __cil_tmp2 ;
+  int __cil_tmp3 ;
+  __u8 __cil_tmp4 ;
+  int __cil_tmp5 ;
+  __le16 __cil_tmp6 ;
+  int __cil_tmp7 ;
   __u8 __cil_tmp8 ;
   int __cil_tmp9 ;
-  int *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  __le16 __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  __u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  __u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  __le16 __cil_tmp14 ;
+  int __cil_tmp15 ;
+  __u8 __cil_tmp16 ;
+  int __cil_tmp17 ;
   __u8 __cil_tmp18 ;
   int __cil_tmp19 ;
-  int *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  __u8 __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  __u8 __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  __le16 __cil_tmp33 ;
-  int __cil_tmp34 ;
-  int *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  __u8 __cil_tmp38 ;
-  int __cil_tmp39 ;
-  int *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  __u8 __cil_tmp43 ;
-  int __cil_tmp44 ;
-  int *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  __u8 __cil_tmp48 ;
-  int __cil_tmp49 ;
+  __u8 __cil_tmp20 ;
+  int __cil_tmp21 ;
 
   {
   {
 #line 139
   while (1) {
-    while_1_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 139
-    __cil_tmp2 = & debug;
-#line 139
-    if (*__cil_tmp2) {
+    if (debug) {
       {
 #line 139
-      __cil_tmp3 = *((__u8 *)desc);
+      __cil_tmp2 = desc->bLength;
 #line 139
-      __cil_tmp4 = (int )__cil_tmp3;
+      __cil_tmp3 = (int )__cil_tmp2;
 #line 139
       printk("<7>%s: bLength=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp4);
+             __cil_tmp3);
       }
     } else {
 
     }
-    }
+#line 139
     goto while_break;
   }
-  while_1_break: /* CIL Label */ ;
+  while_break___9: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 140
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
-    {
 #line 140
-    __cil_tmp5 = & debug;
-#line 140
-    if (*__cil_tmp5) {
+    if (debug) {
       {
 #line 140
-      __cil_tmp6 = (unsigned long )desc;
+      __cil_tmp4 = desc->bDescriptorType;
 #line 140
-      __cil_tmp7 = __cil_tmp6 + 1;
-#line 140
-      __cil_tmp8 = *((__u8 *)__cil_tmp7);
-#line 140
-      __cil_tmp9 = (int )__cil_tmp8;
+      __cil_tmp5 = (int )__cil_tmp4;
 #line 140
       printk("<7>%s: bDescriptorType=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp9);
+             __cil_tmp5);
       }
     } else {
 
     }
-    }
+#line 140
     goto while_break___0;
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___10: /* CIL Label */ ;
   }
 
   while_break___0: ;
   {
 #line 141
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
-    {
 #line 141
-    __cil_tmp10 = & debug;
-#line 141
-    if (*__cil_tmp10) {
+    if (debug) {
       {
 #line 141
-      __cil_tmp11 = (unsigned long )desc;
+      __cil_tmp6 = desc->bcdSpecRevision;
 #line 141
-      __cil_tmp12 = __cil_tmp11 + 2;
-#line 141
-      __cil_tmp13 = *((__le16 *)__cil_tmp12);
-#line 141
-      __cil_tmp14 = (int )__cil_tmp13;
+      __cil_tmp7 = (int )__cil_tmp6;
 #line 141
       printk("<7>%s: bcdSpecRevision=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp14);
+             __cil_tmp7);
       }
     } else {
 
     }
-    }
+#line 141
     goto while_break___1;
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___11: /* CIL Label */ ;
   }
 
   while_break___1: ;
   {
 #line 142
   while (1) {
-    while_4_continue: /* CIL Label */ ;
+    while_continue___2: /* CIL Label */ ;
 
-    {
 #line 142
-    __cil_tmp15 = & debug;
-#line 142
-    if (*__cil_tmp15) {
+    if (debug) {
       {
 #line 142
-      __cil_tmp16 = (unsigned long )desc;
+      __cil_tmp8 = desc->bmDataSize;
 #line 142
-      __cil_tmp17 = __cil_tmp16 + 4;
-#line 142
-      __cil_tmp18 = *((__u8 *)__cil_tmp17);
-#line 142
-      __cil_tmp19 = (int )__cil_tmp18;
+      __cil_tmp9 = (int )__cil_tmp8;
 #line 142
       printk("<7>%s: bmDataSize=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp19);
+             __cil_tmp9);
       }
     } else {
 
     }
-    }
+#line 142
     goto while_break___2;
   }
-  while_4_break: /* CIL Label */ ;
+  while_break___12: /* CIL Label */ ;
   }
 
   while_break___2: ;
   {
 #line 143
   while (1) {
-    while_5_continue: /* CIL Label */ ;
+    while_continue___3: /* CIL Label */ ;
 
-    {
 #line 143
-    __cil_tmp20 = & debug;
-#line 143
-    if (*__cil_tmp20) {
+    if (debug) {
       {
 #line 143
-      __cil_tmp21 = (unsigned long )desc;
+      __cil_tmp10 = desc->bmWindowSize;
 #line 143
-      __cil_tmp22 = __cil_tmp21 + 5;
-#line 143
-      __cil_tmp23 = *((__u8 *)__cil_tmp22);
-#line 143
-      __cil_tmp24 = (int )__cil_tmp23;
+      __cil_tmp11 = (int )__cil_tmp10;
 #line 143
       printk("<7>%s: bmWindowSize=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp24);
+             __cil_tmp11);
       }
     } else {
 
     }
-    }
+#line 143
     goto while_break___3;
   }
-  while_5_break: /* CIL Label */ ;
+  while_break___13: /* CIL Label */ ;
   }
 
   while_break___3: ;
   {
 #line 144
   while (1) {
-    while_6_continue: /* CIL Label */ ;
+    while_continue___4: /* CIL Label */ ;
 
-    {
 #line 144
-    __cil_tmp25 = & debug;
-#line 144
-    if (*__cil_tmp25) {
+    if (debug) {
       {
 #line 144
-      __cil_tmp26 = (unsigned long )desc;
+      __cil_tmp12 = desc->bmMinTurnaroundTime;
 #line 144
-      __cil_tmp27 = __cil_tmp26 + 6;
-#line 144
-      __cil_tmp28 = *((__u8 *)__cil_tmp27);
-#line 144
-      __cil_tmp29 = (int )__cil_tmp28;
+      __cil_tmp13 = (int )__cil_tmp12;
 #line 144
       printk("<7>%s: bmMinTurnaroundTime=%d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp29);
+             __cil_tmp13);
       }
     } else {
 
     }
-    }
+#line 144
     goto while_break___4;
   }
-  while_6_break: /* CIL Label */ ;
+  while_break___14: /* CIL Label */ ;
   }
 
   while_break___4: ;
   {
 #line 145
   while (1) {
-    while_7_continue: /* CIL Label */ ;
+    while_continue___5: /* CIL Label */ ;
 
-    {
 #line 145
-    __cil_tmp30 = & debug;
-#line 145
-    if (*__cil_tmp30) {
+    if (debug) {
       {
 #line 145
-      __cil_tmp31 = (unsigned long )desc;
+      __cil_tmp14 = desc->wBaudRate;
 #line 145
-      __cil_tmp32 = __cil_tmp31 + 7;
-#line 145
-      __cil_tmp33 = *((__le16 *)__cil_tmp32);
-#line 145
-      __cil_tmp34 = (int )__cil_tmp33;
+      __cil_tmp15 = (int )__cil_tmp14;
 #line 145
       printk("<7>%s: wBaudRate=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp34);
+             __cil_tmp15);
       }
     } else {
 
     }
-    }
+#line 145
     goto while_break___5;
   }
-  while_7_break: /* CIL Label */ ;
+  while_break___15: /* CIL Label */ ;
   }
 
   while_break___5: ;
   {
 #line 146
   while (1) {
-    while_8_continue: /* CIL Label */ ;
+    while_continue___6: /* CIL Label */ ;
 
-    {
 #line 146
-    __cil_tmp35 = & debug;
-#line 146
-    if (*__cil_tmp35) {
+    if (debug) {
       {
 #line 146
-      __cil_tmp36 = (unsigned long )desc;
+      __cil_tmp16 = desc->bmAdditionalBOFs;
 #line 146
-      __cil_tmp37 = __cil_tmp36 + 9;
-#line 146
-      __cil_tmp38 = *((__u8 *)__cil_tmp37);
-#line 146
-      __cil_tmp39 = (int )__cil_tmp38;
+      __cil_tmp17 = (int )__cil_tmp16;
 #line 146
       printk("<7>%s: bmAdditionalBOFs=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp39);
+             __cil_tmp17);
       }
     } else {
 
     }
-    }
+#line 146
     goto while_break___6;
   }
-  while_8_break: /* CIL Label */ ;
+  while_break___16: /* CIL Label */ ;
   }
 
   while_break___6: ;
   {
 #line 147
   while (1) {
-    while_9_continue: /* CIL Label */ ;
+    while_continue___7: /* CIL Label */ ;
 
-    {
 #line 147
-    __cil_tmp40 = & debug;
-#line 147
-    if (*__cil_tmp40) {
+    if (debug) {
       {
 #line 147
-      __cil_tmp41 = (unsigned long )desc;
+      __cil_tmp18 = desc->bIrdaRateSniff;
 #line 147
-      __cil_tmp42 = __cil_tmp41 + 10;
-#line 147
-      __cil_tmp43 = *((__u8 *)__cil_tmp42);
-#line 147
-      __cil_tmp44 = (int )__cil_tmp43;
+      __cil_tmp19 = (int )__cil_tmp18;
 #line 147
       printk("<7>%s: bIrdaRateSniff=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp44);
+             __cil_tmp19);
       }
     } else {
 
     }
-    }
+#line 147
     goto while_break___7;
   }
-  while_9_break: /* CIL Label */ ;
+  while_break___17: /* CIL Label */ ;
   }
 
   while_break___7: ;
   {
 #line 148
   while (1) {
-    while_10_continue: /* CIL Label */ ;
+    while_continue___8: /* CIL Label */ ;
 
-    {
 #line 148
-    __cil_tmp45 = & debug;
-#line 148
-    if (*__cil_tmp45) {
+    if (debug) {
       {
 #line 148
-      __cil_tmp46 = (unsigned long )desc;
+      __cil_tmp20 = desc->bMaxUnicastList;
 #line 148
-      __cil_tmp47 = __cil_tmp46 + 11;
-#line 148
-      __cil_tmp48 = *((__u8 *)__cil_tmp47);
-#line 148
-      __cil_tmp49 = (int )__cil_tmp48;
+      __cil_tmp21 = (int )__cil_tmp20;
 #line 148
       printk("<7>%s: bMaxUnicastList=%x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             __cil_tmp49);
+             __cil_tmp21);
       }
     } else {
 
     }
-    }
+#line 148
     goto while_break___8;
   }
-  while_10_break: /* CIL Label */ ;
+  while_break___18: /* CIL Label */ ;
   }
 
   while_break___8: ;
@@ -5508,23 +5380,20 @@ static struct usb_irda_cs_descriptor *irda_usb_find_class_desc(struct usb_device
   unsigned int __cil_tmp10 ;
   unsigned int __cil_tmp11 ;
   unsigned int __cil_tmp12 ;
-  int __cil_tmp13 ;
+  __u8 __cil_tmp13 ;
   int __cil_tmp14 ;
   int __cil_tmp15 ;
-  unsigned char __cil_tmp16 ;
-  unsigned short __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  unsigned short __cil_tmp19 ;
-  int *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  __u8 __cil_tmp25 ;
-  int __cil_tmp26 ;
-  int *__cil_tmp27 ;
-  void const   *__cil_tmp28 ;
-  void *__cil_tmp29 ;
+  int __cil_tmp16 ;
+  __u8 __cil_tmp17 ;
+  __u16 __cil_tmp18 ;
+  __u16 __cil_tmp19 ;
+  void *__cil_tmp20 ;
+  __u16 __cil_tmp21 ;
+  unsigned long __cil_tmp22 ;
+  __u8 __cil_tmp23 ;
+  int __cil_tmp24 ;
+  void const   *__cil_tmp25 ;
+  void *__cil_tmp26 ;
 
   {
   {
@@ -5556,33 +5425,34 @@ static struct usb_irda_cs_descriptor *irda_usb_find_class_desc(struct usb_device
 #line 173
   __cil_tmp12 = __cil_tmp11 | 128U;
 #line 173
-  __cil_tmp13 = 1 << 5;
+  __cil_tmp13 = (__u8 )6;
 #line 173
-  __cil_tmp14 = 128 | __cil_tmp13;
+  __cil_tmp14 = 1 << 5;
 #line 173
-  __cil_tmp15 = __cil_tmp14 | 1;
+  __cil_tmp15 = 128 | __cil_tmp14;
 #line 173
-  __cil_tmp16 = (unsigned char )__cil_tmp15;
+  __cil_tmp16 = __cil_tmp15 | 1;
 #line 173
-  __cil_tmp17 = (unsigned short )ifnum;
+  __cil_tmp17 = (__u8 )__cil_tmp16;
 #line 173
-  __cil_tmp18 = (void *)desc;
+  __cil_tmp18 = (__u16 )0;
 #line 173
-  __cil_tmp19 = (unsigned short )12UL;
+  __cil_tmp19 = (__u16 )ifnum;
 #line 173
-  ret = usb_control_msg(dev, __cil_tmp12, (unsigned char)6, __cil_tmp16, (unsigned short)0,
-                        __cil_tmp17, __cil_tmp18, __cil_tmp19, 1000);
+  __cil_tmp20 = (void *)desc;
+#line 173
+  __cil_tmp21 = (__u16 )12UL;
+#line 173
+  ret = usb_control_msg(dev, __cil_tmp12, __cil_tmp13, __cil_tmp17, __cil_tmp18, __cil_tmp19,
+                        __cil_tmp20, __cil_tmp21, 1000);
   }
   {
 #line 178
   while (1) {
-    while_11_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 178
-    __cil_tmp20 = & debug;
-#line 178
-    if (*__cil_tmp20) {
+    if (debug) {
       {
 #line 178
       printk("<7>%s: %s -  ret=%d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
@@ -5591,28 +5461,25 @@ static struct usb_irda_cs_descriptor *irda_usb_find_class_desc(struct usb_device
     } else {
 
     }
-    }
+#line 178
     goto while_break;
   }
-  while_11_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 179
-  __cil_tmp21 = (unsigned long )ret;
+  __cil_tmp22 = (unsigned long )ret;
 #line 179
-  if (__cil_tmp21 < 12UL) {
+  if (__cil_tmp22 < 12UL) {
     {
 #line 180
     while (1) {
-      while_12_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 180
-      __cil_tmp22 = & debug;
-#line 180
-      if (*__cil_tmp22) {
+      if (debug) {
 #line 180
         if (ret < 0) {
 #line 180
@@ -5629,13 +5496,14 @@ static struct usb_irda_cs_descriptor *irda_usb_find_class_desc(struct usb_device
       } else {
 
       }
-      }
+#line 180
       goto while_break___0;
     }
-    while_12_break: /* CIL Label */ ;
+    while_break___3: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 184
     goto error;
   } else {
 
@@ -5643,25 +5511,18 @@ static struct usb_irda_cs_descriptor *irda_usb_find_class_desc(struct usb_device
   }
   {
 #line 186
-  __cil_tmp23 = (unsigned long )desc;
+  __cil_tmp23 = desc->bDescriptorType;
 #line 186
-  __cil_tmp24 = __cil_tmp23 + 1;
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 186
-  __cil_tmp25 = *((__u8 *)__cil_tmp24);
-#line 186
-  __cil_tmp26 = (int )__cil_tmp25;
-#line 186
-  if (__cil_tmp26 != 33) {
+  if (__cil_tmp24 != 33) {
     {
 #line 187
     while (1) {
-      while_13_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
-      {
 #line 187
-      __cil_tmp27 = & debug;
-#line 187
-      if (*__cil_tmp27) {
+      if (debug) {
         {
 #line 187
         printk("<7>%s: %s - bad class descriptor type\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
@@ -5670,13 +5531,14 @@ static struct usb_irda_cs_descriptor *irda_usb_find_class_desc(struct usb_device
       } else {
 
       }
-      }
+#line 187
       goto while_break___1;
     }
-    while_13_break: /* CIL Label */ ;
+    while_break___4: /* CIL Label */ ;
     }
 
     while_break___1: ;
+#line 188
     goto error;
   } else {
 
@@ -5691,15 +5553,15 @@ static struct usb_irda_cs_descriptor *irda_usb_find_class_desc(struct usb_device
   error: 
   {
 #line 195
-  __cil_tmp28 = (void const   *)desc;
+  __cil_tmp25 = (void const   *)desc;
 #line 195
-  kfree(__cil_tmp28);
+  kfree(__cil_tmp25);
   }
   {
 #line 196
-  __cil_tmp29 = (void *)0;
+  __cil_tmp26 = (void *)0;
 #line 196
-  return ((struct usb_irda_cs_descriptor *)__cil_tmp29);
+  return ((struct usb_irda_cs_descriptor *)__cil_tmp26);
   }
 }
 }
@@ -5722,6 +5584,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
   __cil_tmp3 = (int )xbof___0;
 #line 205
   if (__cil_tmp3 == 48) {
+#line 205
     goto case_48;
   } else {
     {
@@ -5729,6 +5592,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
     __cil_tmp4 = (int )xbof___0;
 #line 208
     if (__cil_tmp4 == 28) {
+#line 208
       goto case_28;
     } else {
       {
@@ -5736,6 +5600,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
       __cil_tmp5 = (int )xbof___0;
 #line 209
       if (__cil_tmp5 == 24) {
+#line 209
         goto case_28;
       } else {
         {
@@ -5743,6 +5608,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
         __cil_tmp6 = (int )xbof___0;
 #line 216
         if (__cil_tmp6 == 5) {
+#line 216
           goto case_5;
         } else {
           {
@@ -5750,6 +5616,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
           __cil_tmp7 = (int )xbof___0;
 #line 217
           if (__cil_tmp7 == 6) {
+#line 217
             goto case_5;
           } else {
             {
@@ -5757,6 +5624,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
             __cil_tmp8 = (int )xbof___0;
 #line 220
             if (__cil_tmp8 == 3) {
+#line 220
               goto case_3;
             } else {
               {
@@ -5764,6 +5632,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
               __cil_tmp9 = (int )xbof___0;
 #line 223
               if (__cil_tmp9 == 2) {
+#line 223
                 goto case_2;
               } else {
                 {
@@ -5771,6 +5640,7 @@ static u8 ir_xbof_change(u8 xbof___0 )
                 __cil_tmp10 = (int )xbof___0;
 #line 226
                 if (__cil_tmp10 == 1) {
+#line 226
                   goto case_1;
                 } else {
                   {
@@ -5778,42 +5648,52 @@ static u8 ir_xbof_change(u8 xbof___0 )
                   __cil_tmp11 = (int )xbof___0;
 #line 229
                   if (__cil_tmp11 == 0) {
+#line 229
                     goto case_0;
                   } else {
+#line 212
                     goto switch_default;
 #line 204
                     if (0) {
                       case_48: 
 #line 206
-                      result = (unsigned char)16;
+                      result = (u8 )16;
+#line 207
                       goto switch_break;
                       case_28: 
 #line 210
-                      result = (unsigned char)32;
+                      result = (u8 )32;
+#line 211
                       goto switch_break;
                       switch_default: 
 #line 214
-                      result = (unsigned char)48;
+                      result = (u8 )48;
+#line 215
                       goto switch_break;
                       case_5: 
 #line 218
-                      result = (unsigned char)64;
+                      result = (u8 )64;
+#line 219
                       goto switch_break;
                       case_3: 
 #line 221
-                      result = (unsigned char)80;
+                      result = (u8 )80;
+#line 222
                       goto switch_break;
                       case_2: 
 #line 224
-                      result = (unsigned char)96;
+                      result = (u8 )96;
+#line 225
                       goto switch_break;
                       case_1: 
 #line 227
-                      result = (unsigned char)112;
+                      result = (u8 )112;
+#line 228
                       goto switch_break;
                       case_0: 
 #line 230
-                      result = (unsigned char)128;
+                      result = (u8 )128;
+#line 231
                       goto switch_break;
                     } else {
                       switch_break: ;
@@ -5854,100 +5734,63 @@ static int ir_startup(struct usb_serial *serial )
   char const   *tmp___15 ;
   struct usb_device *__cil_tmp12 ;
   struct usb_device *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct device *__cil_tmp16 ;
-  struct device  const  *__cil_tmp17 ;
-  int *__cil_tmp18 ;
+  struct device *__cil_tmp14 ;
+  struct device  const  *__cil_tmp15 ;
+  int __cil_tmp16 ;
+  __le16 __cil_tmp17 ;
+  int __cil_tmp18 ;
   int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  __le16 __cil_tmp22 ;
-  int __cil_tmp23 ;
+  __le16 __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  __le16 __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  __le16 __cil_tmp27 ;
+  int __cil_tmp25 ;
+  __le16 __cil_tmp26 ;
+  int __cil_tmp27 ;
   int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  __le16 __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
   __le16 __cil_tmp32 ;
   int __cil_tmp33 ;
   int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  __le16 __cil_tmp37 ;
-  int __cil_tmp38 ;
+  __le16 __cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  __le16 __cil_tmp38 ;
   int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  __le16 __cil_tmp42 ;
+  __le16 __cil_tmp40 ;
+  int __cil_tmp41 ;
+  __u8 __cil_tmp42 ;
   int __cil_tmp43 ;
   int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  __le16 __cil_tmp47 ;
-  int __cil_tmp48 ;
+  __u8 __cil_tmp45 ;
+  int __cil_tmp46 ;
+  int __cil_tmp47 ;
+  __u8 __cil_tmp48 ;
   int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  __le16 __cil_tmp52 ;
+  int __cil_tmp50 ;
+  __u8 __cil_tmp51 ;
+  int __cil_tmp52 ;
   int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  __le16 __cil_tmp57 ;
+  __u8 __cil_tmp54 ;
+  int __cil_tmp55 ;
+  int __cil_tmp56 ;
+  __u8 __cil_tmp57 ;
   int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  __le16 __cil_tmp61 ;
+  int __cil_tmp59 ;
+  __u8 __cil_tmp60 ;
+  int __cil_tmp61 ;
   int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  __u8 __cil_tmp65 ;
-  int __cil_tmp66 ;
-  int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  __u8 __cil_tmp70 ;
-  int __cil_tmp71 ;
-  int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  __u8 __cil_tmp75 ;
-  int __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  __u8 __cil_tmp80 ;
-  int __cil_tmp81 ;
-  int __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  __u8 __cil_tmp85 ;
-  int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  __u8 __cil_tmp90 ;
-  int __cil_tmp91 ;
-  int __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  __u8 __cil_tmp95 ;
-  int __cil_tmp96 ;
-  int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  __u8 __cil_tmp100 ;
-  int __cil_tmp101 ;
-  void const   *__cil_tmp102 ;
+  __u8 __cil_tmp63 ;
+  int __cil_tmp64 ;
+  void const   *__cil_tmp65 ;
 
   {
   {
 #line 241
-  __cil_tmp12 = *((struct usb_device **)serial);
+  __cil_tmp12 = serial->dev;
 #line 241
   irda_desc = irda_usb_find_class_desc(__cil_tmp12, 0U);
   }
@@ -5955,17 +5798,13 @@ static int ir_startup(struct usb_serial *serial )
   if (! irda_desc) {
     {
 #line 243
-    __cil_tmp13 = *((struct usb_device **)serial);
+    __cil_tmp13 = serial->dev;
 #line 243
-    __cil_tmp14 = (unsigned long )__cil_tmp13;
+    __cil_tmp14 = & __cil_tmp13->dev;
 #line 243
-    __cil_tmp15 = __cil_tmp14 + 192;
+    __cil_tmp15 = (struct device  const  *)__cil_tmp14;
 #line 243
-    __cil_tmp16 = (struct device *)__cil_tmp15;
-#line 243
-    __cil_tmp17 = (struct device  const  *)__cil_tmp16;
-#line 243
-    dev_err(__cil_tmp17, "IRDA class descriptor not found, device not bound\n");
+    dev_err(__cil_tmp15, "IRDA class descriptor not found, device not bound\n");
     }
 #line 245
     return (-19);
@@ -5975,26 +5814,19 @@ static int ir_startup(struct usb_serial *serial )
   {
 #line 248
   while (1) {
-    while_14_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 248
-    __cil_tmp18 = & debug;
-#line 248
-    if (*__cil_tmp18) {
+    if (debug) {
       {
 #line 248
-      __cil_tmp19 = 1 << 8;
+      __cil_tmp16 = 1 << 8;
 #line 248
-      __cil_tmp20 = (unsigned long )irda_desc;
+      __cil_tmp17 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp21 = __cil_tmp20 + 7;
+      __cil_tmp18 = (int )__cil_tmp17;
 #line 248
-      __cil_tmp22 = *((__le16 *)__cil_tmp21);
-#line 248
-      __cil_tmp23 = (int )__cil_tmp22;
-#line 248
-      if (__cil_tmp23 & __cil_tmp19) {
+      if (__cil_tmp18 & __cil_tmp16) {
 #line 248
         tmp___7 = " 4000000";
       } else {
@@ -6004,17 +5836,13 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp24 = 1 << 7;
+      __cil_tmp19 = 1 << 7;
 #line 248
-      __cil_tmp25 = (unsigned long )irda_desc;
+      __cil_tmp20 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp26 = __cil_tmp25 + 7;
+      __cil_tmp21 = (int )__cil_tmp20;
 #line 248
-      __cil_tmp27 = *((__le16 *)__cil_tmp26);
-#line 248
-      __cil_tmp28 = (int )__cil_tmp27;
-#line 248
-      if (__cil_tmp28 & __cil_tmp24) {
+      if (__cil_tmp21 & __cil_tmp19) {
 #line 248
         tmp___8 = " 1152000";
       } else {
@@ -6024,17 +5852,13 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp29 = 1 << 6;
+      __cil_tmp22 = 1 << 6;
 #line 248
-      __cil_tmp30 = (unsigned long )irda_desc;
+      __cil_tmp23 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp31 = __cil_tmp30 + 7;
+      __cil_tmp24 = (int )__cil_tmp23;
 #line 248
-      __cil_tmp32 = *((__le16 *)__cil_tmp31);
-#line 248
-      __cil_tmp33 = (int )__cil_tmp32;
-#line 248
-      if (__cil_tmp33 & __cil_tmp29) {
+      if (__cil_tmp24 & __cil_tmp22) {
 #line 248
         tmp___9 = " 576000";
       } else {
@@ -6044,17 +5868,13 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp34 = 1 << 5;
+      __cil_tmp25 = 1 << 5;
 #line 248
-      __cil_tmp35 = (unsigned long )irda_desc;
+      __cil_tmp26 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp36 = __cil_tmp35 + 7;
+      __cil_tmp27 = (int )__cil_tmp26;
 #line 248
-      __cil_tmp37 = *((__le16 *)__cil_tmp36);
-#line 248
-      __cil_tmp38 = (int )__cil_tmp37;
-#line 248
-      if (__cil_tmp38 & __cil_tmp34) {
+      if (__cil_tmp27 & __cil_tmp25) {
 #line 248
         tmp___10 = " 115200";
       } else {
@@ -6064,17 +5884,13 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp39 = 1 << 4;
+      __cil_tmp28 = 1 << 4;
 #line 248
-      __cil_tmp40 = (unsigned long )irda_desc;
+      __cil_tmp29 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp41 = __cil_tmp40 + 7;
+      __cil_tmp30 = (int )__cil_tmp29;
 #line 248
-      __cil_tmp42 = *((__le16 *)__cil_tmp41);
-#line 248
-      __cil_tmp43 = (int )__cil_tmp42;
-#line 248
-      if (__cil_tmp43 & __cil_tmp39) {
+      if (__cil_tmp30 & __cil_tmp28) {
 #line 248
         tmp___11 = " 57600";
       } else {
@@ -6084,17 +5900,13 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp44 = 1 << 3;
+      __cil_tmp31 = 1 << 3;
 #line 248
-      __cil_tmp45 = (unsigned long )irda_desc;
+      __cil_tmp32 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp46 = __cil_tmp45 + 7;
+      __cil_tmp33 = (int )__cil_tmp32;
 #line 248
-      __cil_tmp47 = *((__le16 *)__cil_tmp46);
-#line 248
-      __cil_tmp48 = (int )__cil_tmp47;
-#line 248
-      if (__cil_tmp48 & __cil_tmp44) {
+      if (__cil_tmp33 & __cil_tmp31) {
 #line 248
         tmp___12 = " 38400";
       } else {
@@ -6104,17 +5916,13 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp49 = 1 << 2;
+      __cil_tmp34 = 1 << 2;
 #line 248
-      __cil_tmp50 = (unsigned long )irda_desc;
+      __cil_tmp35 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp51 = __cil_tmp50 + 7;
+      __cil_tmp36 = (int )__cil_tmp35;
 #line 248
-      __cil_tmp52 = *((__le16 *)__cil_tmp51);
-#line 248
-      __cil_tmp53 = (int )__cil_tmp52;
-#line 248
-      if (__cil_tmp53 & __cil_tmp49) {
+      if (__cil_tmp36 & __cil_tmp34) {
 #line 248
         tmp___13 = " 19200";
       } else {
@@ -6124,17 +5932,13 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp54 = 1 << 1;
+      __cil_tmp37 = 1 << 1;
 #line 248
-      __cil_tmp55 = (unsigned long )irda_desc;
+      __cil_tmp38 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp56 = __cil_tmp55 + 7;
+      __cil_tmp39 = (int )__cil_tmp38;
 #line 248
-      __cil_tmp57 = *((__le16 *)__cil_tmp56);
-#line 248
-      __cil_tmp58 = (int )__cil_tmp57;
-#line 248
-      if (__cil_tmp58 & __cil_tmp54) {
+      if (__cil_tmp39 & __cil_tmp37) {
 #line 248
         tmp___14 = " 9600";
       } else {
@@ -6144,15 +5948,11 @@ static int ir_startup(struct usb_serial *serial )
       }
       {
 #line 248
-      __cil_tmp59 = (unsigned long )irda_desc;
+      __cil_tmp40 = irda_desc->wBaudRate;
 #line 248
-      __cil_tmp60 = __cil_tmp59 + 7;
+      __cil_tmp41 = (int )__cil_tmp40;
 #line 248
-      __cil_tmp61 = *((__le16 *)__cil_tmp60);
-#line 248
-      __cil_tmp62 = (int )__cil_tmp61;
-#line 248
-      if (__cil_tmp62 & 1) {
+      if (__cil_tmp41 & 1) {
 #line 248
         tmp___15 = " 2400";
       } else {
@@ -6169,167 +5969,153 @@ static int ir_startup(struct usb_serial *serial )
     } else {
 
     }
-    }
+#line 248
     goto while_break;
   }
-  while_14_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 261
-  __cil_tmp63 = (unsigned long )irda_desc;
+  __cil_tmp42 = irda_desc->bmAdditionalBOFs;
 #line 261
-  __cil_tmp64 = __cil_tmp63 + 9;
+  __cil_tmp43 = (int )__cil_tmp42;
 #line 261
-  __cil_tmp65 = *((__u8 *)__cil_tmp64);
+  if (__cil_tmp43 == 1) {
 #line 261
-  __cil_tmp66 = (int )__cil_tmp65;
-#line 261
-  if (__cil_tmp66 == 1) {
     goto case_1;
   } else {
     {
 #line 264
-    __cil_tmp67 = 1 << 1;
+    __cil_tmp44 = 1 << 1;
 #line 264
-    __cil_tmp68 = (unsigned long )irda_desc;
+    __cil_tmp45 = irda_desc->bmAdditionalBOFs;
 #line 264
-    __cil_tmp69 = __cil_tmp68 + 9;
+    __cil_tmp46 = (int )__cil_tmp45;
 #line 264
-    __cil_tmp70 = *((__u8 *)__cil_tmp69);
+    if (__cil_tmp46 == __cil_tmp44) {
 #line 264
-    __cil_tmp71 = (int )__cil_tmp70;
-#line 264
-    if (__cil_tmp71 == __cil_tmp67) {
       goto case_exp;
     } else {
       {
 #line 267
-      __cil_tmp72 = 1 << 2;
+      __cil_tmp47 = 1 << 2;
 #line 267
-      __cil_tmp73 = (unsigned long )irda_desc;
+      __cil_tmp48 = irda_desc->bmAdditionalBOFs;
 #line 267
-      __cil_tmp74 = __cil_tmp73 + 9;
+      __cil_tmp49 = (int )__cil_tmp48;
 #line 267
-      __cil_tmp75 = *((__u8 *)__cil_tmp74);
+      if (__cil_tmp49 == __cil_tmp47) {
 #line 267
-      __cil_tmp76 = (int )__cil_tmp75;
-#line 267
-      if (__cil_tmp76 == __cil_tmp72) {
         goto case_exp___0;
       } else {
         {
 #line 270
-        __cil_tmp77 = 1 << 3;
+        __cil_tmp50 = 1 << 3;
 #line 270
-        __cil_tmp78 = (unsigned long )irda_desc;
+        __cil_tmp51 = irda_desc->bmAdditionalBOFs;
 #line 270
-        __cil_tmp79 = __cil_tmp78 + 9;
+        __cil_tmp52 = (int )__cil_tmp51;
 #line 270
-        __cil_tmp80 = *((__u8 *)__cil_tmp79);
+        if (__cil_tmp52 == __cil_tmp50) {
 #line 270
-        __cil_tmp81 = (int )__cil_tmp80;
-#line 270
-        if (__cil_tmp81 == __cil_tmp77) {
           goto case_exp___1;
         } else {
           {
 #line 273
-          __cil_tmp82 = 1 << 4;
+          __cil_tmp53 = 1 << 4;
 #line 273
-          __cil_tmp83 = (unsigned long )irda_desc;
+          __cil_tmp54 = irda_desc->bmAdditionalBOFs;
 #line 273
-          __cil_tmp84 = __cil_tmp83 + 9;
+          __cil_tmp55 = (int )__cil_tmp54;
 #line 273
-          __cil_tmp85 = *((__u8 *)__cil_tmp84);
+          if (__cil_tmp55 == __cil_tmp53) {
 #line 273
-          __cil_tmp86 = (int )__cil_tmp85;
-#line 273
-          if (__cil_tmp86 == __cil_tmp82) {
             goto case_exp___2;
           } else {
             {
 #line 276
-            __cil_tmp87 = 1 << 5;
+            __cil_tmp56 = 1 << 5;
 #line 276
-            __cil_tmp88 = (unsigned long )irda_desc;
+            __cil_tmp57 = irda_desc->bmAdditionalBOFs;
 #line 276
-            __cil_tmp89 = __cil_tmp88 + 9;
+            __cil_tmp58 = (int )__cil_tmp57;
 #line 276
-            __cil_tmp90 = *((__u8 *)__cil_tmp89);
+            if (__cil_tmp58 == __cil_tmp56) {
 #line 276
-            __cil_tmp91 = (int )__cil_tmp90;
-#line 276
-            if (__cil_tmp91 == __cil_tmp87) {
               goto case_exp___3;
             } else {
               {
 #line 279
-              __cil_tmp92 = 1 << 6;
+              __cil_tmp59 = 1 << 6;
 #line 279
-              __cil_tmp93 = (unsigned long )irda_desc;
+              __cil_tmp60 = irda_desc->bmAdditionalBOFs;
 #line 279
-              __cil_tmp94 = __cil_tmp93 + 9;
+              __cil_tmp61 = (int )__cil_tmp60;
 #line 279
-              __cil_tmp95 = *((__u8 *)__cil_tmp94);
+              if (__cil_tmp61 == __cil_tmp59) {
 #line 279
-              __cil_tmp96 = (int )__cil_tmp95;
-#line 279
-              if (__cil_tmp96 == __cil_tmp92) {
                 goto case_exp___4;
               } else {
                 {
 #line 282
-                __cil_tmp97 = 1 << 7;
+                __cil_tmp62 = 1 << 7;
 #line 282
-                __cil_tmp98 = (unsigned long )irda_desc;
+                __cil_tmp63 = irda_desc->bmAdditionalBOFs;
 #line 282
-                __cil_tmp99 = __cil_tmp98 + 9;
+                __cil_tmp64 = (int )__cil_tmp63;
 #line 282
-                __cil_tmp100 = *((__u8 *)__cil_tmp99);
+                if (__cil_tmp64 == __cil_tmp62) {
 #line 282
-                __cil_tmp101 = (int )__cil_tmp100;
-#line 282
-                if (__cil_tmp101 == __cil_tmp97) {
                   goto case_exp___5;
                 } else {
+#line 285
                   goto switch_default;
 #line 260
                   if (0) {
                     case_1: 
 #line 262
-                    ir_add_bof = (unsigned char)48;
+                    ir_add_bof = (u8 )48;
+#line 263
                     goto switch_break;
                     case_exp: 
 #line 265
-                    ir_add_bof = (unsigned char)24;
+                    ir_add_bof = (u8 )24;
+#line 266
                     goto switch_break;
                     case_exp___0: 
 #line 268
-                    ir_add_bof = (unsigned char)12;
+                    ir_add_bof = (u8 )12;
+#line 269
                     goto switch_break;
                     case_exp___1: 
 #line 271
-                    ir_add_bof = (unsigned char)6;
+                    ir_add_bof = (u8 )6;
+#line 272
                     goto switch_break;
                     case_exp___2: 
 #line 274
-                    ir_add_bof = (unsigned char)3;
+                    ir_add_bof = (u8 )3;
+#line 275
                     goto switch_break;
                     case_exp___3: 
 #line 277
-                    ir_add_bof = (unsigned char)2;
+                    ir_add_bof = (u8 )2;
+#line 278
                     goto switch_break;
                     case_exp___4: 
 #line 280
-                    ir_add_bof = (unsigned char)1;
+                    ir_add_bof = (u8 )1;
+#line 281
                     goto switch_break;
                     case_exp___5: 
 #line 283
-                    ir_add_bof = (unsigned char)0;
+                    ir_add_bof = (u8 )0;
+#line 284
                     goto switch_break;
                     switch_default: 
+#line 286
                     goto switch_break;
                   } else {
                     switch_break: ;
@@ -6352,9 +6138,9 @@ static int ir_startup(struct usb_serial *serial )
   }
   {
 #line 289
-  __cil_tmp102 = (void const   *)irda_desc;
+  __cil_tmp65 = (void const   *)irda_desc;
 #line 289
-  kfree(__cil_tmp102);
+  kfree(__cil_tmp65);
   }
 #line 291
   return (0);
@@ -6364,53 +6150,37 @@ static int ir_startup(struct usb_serial *serial )
 static int ir_open(struct tty_struct *tty , struct usb_serial_port *port ) 
 { int i ;
   int tmp___7 ;
-  int *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  unsigned char __cil_tmp5 ;
+  int __cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  unsigned char __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct urb *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  unsigned long __cil_tmp8 ;
+  unsigned long __cil_tmp9 ;
+  struct urb *__cil_tmp10 ;
 
   {
   {
 #line 298
   while (1) {
-    while_15_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 298
-    __cil_tmp5 = & debug;
-#line 298
-    if (*__cil_tmp5) {
+    if (debug) {
       {
 #line 298
-      __cil_tmp6 = (unsigned long )port;
+      __cil_tmp5 = port->number;
 #line 298
-      __cil_tmp7 = __cil_tmp6 + 816;
-#line 298
-      __cil_tmp8 = *((unsigned char *)__cil_tmp7);
-#line 298
-      __cil_tmp9 = (int )__cil_tmp8;
+      __cil_tmp6 = (int )__cil_tmp5;
 #line 298
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             "ir_open", __cil_tmp9);
+             "ir_open", __cil_tmp6);
       }
     } else {
 
     }
-    }
+#line 298
     goto while_break;
   }
-  while_15_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
@@ -6419,42 +6189,31 @@ static int ir_open(struct tty_struct *tty , struct usb_serial_port *port )
   {
 #line 300
   while (1) {
-    while_16_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 300
-    __cil_tmp10 = 16UL / 8UL;
+    __cil_tmp7 = 16UL / 8UL;
 #line 300
-    __cil_tmp11 = __cil_tmp10 + 0UL;
+    __cil_tmp8 = __cil_tmp7 + 0UL;
 #line 300
-    __cil_tmp12 = (unsigned long )i;
+    __cil_tmp9 = (unsigned long )i;
 #line 300
-    if (__cil_tmp12 < __cil_tmp11) {
+    if (__cil_tmp9 < __cil_tmp8) {
 
     } else {
+#line 300
       goto while_break___0;
     }
     }
 #line 301
-    __cil_tmp13 = i * 8UL;
+    __cil_tmp10 = port->write_urbs[i];
 #line 301
-    __cil_tmp14 = 984 + __cil_tmp13;
-#line 301
-    __cil_tmp15 = (unsigned long )port;
-#line 301
-    __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 301
-    __cil_tmp17 = *((struct urb **)__cil_tmp16);
-#line 301
-    __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 301
-    __cil_tmp19 = __cil_tmp18 + 100;
-#line 301
-    *((unsigned int *)__cil_tmp19) = 64U;
+    __cil_tmp10->transfer_flags = 64U;
 #line 300
     i = i + 1;
   }
-  while_16_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -6489,18 +6248,12 @@ static int ir_prepare_write_buffer(struct usb_serial_port *port , void *dest , s
   int __cil_tmp22 ;
   int __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  spinlock_t *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  void *__cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  void *__cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  spinlock_t *__cil_tmp36 ;
+  spinlock_t *__cil_tmp25 ;
+  void *__cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  void *__cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  spinlock_t *__cil_tmp30 ;
 
   {
 #line 310
@@ -6516,42 +6269,36 @@ static int ir_prepare_write_buffer(struct usb_serial_port *port , void *dest , s
   {
 #line 322
   while (1) {
-    while_17_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 322
     while (1) {
-      while_18_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 322
-      __cil_tmp25 = (unsigned long )port;
+      __cil_tmp25 = & port->lock;
 #line 322
-      __cil_tmp26 = __cil_tmp25 + 744;
-#line 322
-      __cil_tmp27 = (spinlock_t *)__cil_tmp26;
-#line 322
-      tmp___7 = spinlock_check(__cil_tmp27);
+      tmp___7 = spinlock_check(__cil_tmp25);
 #line 322
       __flags = _raw_spin_lock_irqsave(tmp___7);
       }
+#line 322
       goto while_break___0;
     }
-    while_18_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 322
     goto while_break;
   }
-  while_17_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
 #line 322
-  __cil_tmp28 = (unsigned long )port;
-#line 322
-  __cil_tmp29 = __cil_tmp28 + 936;
-#line 322
-  __tmp = (struct kfifo *)__cil_tmp29;
+  __tmp = & port->write_fifo;
 #line 322
   __buf = buf + 1;
 #line 322
@@ -6559,27 +6306,27 @@ static int ir_prepare_write_buffer(struct usb_serial_port *port , void *dest , s
 #line 322
   __recsize = 0UL;
 #line 322
-  __kfifo = (struct __kfifo *)__tmp;
+  __kfifo = & __tmp->__annonCompField41.kfifo;
 #line 322
   if (__recsize) {
     {
 #line 322
-    __cil_tmp30 = (void *)__buf;
+    __cil_tmp26 = (void *)__buf;
 #line 322
-    __cil_tmp31 = (unsigned int )__n;
+    __cil_tmp27 = (unsigned int )__n;
 #line 322
-    tmp___8 = __kfifo_out_r(__kfifo, __cil_tmp30, __cil_tmp31, __recsize);
+    tmp___8 = __kfifo_out_r(__kfifo, __cil_tmp26, __cil_tmp27, __recsize);
 #line 322
     tmp___10 = tmp___8;
     }
   } else {
     {
 #line 322
-    __cil_tmp32 = (void *)__buf;
+    __cil_tmp28 = (void *)__buf;
 #line 322
-    __cil_tmp33 = (unsigned int )__n;
+    __cil_tmp29 = (unsigned int )__n;
 #line 322
-    tmp___9 = __kfifo_out(__kfifo, __cil_tmp32, __cil_tmp33);
+    tmp___9 = __kfifo_out(__kfifo, __cil_tmp28, __cil_tmp29);
 #line 322
     tmp___10 = tmp___9;
     }
@@ -6592,13 +6339,9 @@ static int ir_prepare_write_buffer(struct usb_serial_port *port , void *dest , s
 #line 322
   __ret = tmp;
 #line 322
-  __cil_tmp34 = (unsigned long )port;
+  __cil_tmp30 = & port->lock;
 #line 322
-  __cil_tmp35 = __cil_tmp34 + 744;
-#line 322
-  __cil_tmp36 = (spinlock_t *)__cil_tmp35;
-#line 322
-  spin_unlock_irqrestore(__cil_tmp36, __flags);
+  spin_unlock_irqrestore(__cil_tmp30, __flags);
 #line 322
   tmp___14 = (unsigned int )__kfifo_uint_must_check_helper(__ret);
 #line 322
@@ -6617,60 +6360,36 @@ static void ir_process_read_urb(struct urb *urb )
 { struct usb_serial_port *port ;
   unsigned char *data ;
   struct tty_struct *tty ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void *__cil_tmp5 ;
+  void *__cil_tmp6 ;
+  u32 __cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  int __cil_tmp9 ;
+  unsigned char __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
   u32 __cil_tmp13 ;
-  unsigned char __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned char __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  u32 __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct tty_port *__cil_tmp24 ;
-  unsigned char *__cil_tmp25 ;
-  unsigned char const   *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u32 __cil_tmp29 ;
-  u32 __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  struct tty_port *__cil_tmp14 ;
+  unsigned char *__cil_tmp15 ;
+  unsigned char const   *__cil_tmp16 ;
+  u32 __cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  size_t __cil_tmp19 ;
 
   {
 #line 329
-  __cil_tmp5 = (unsigned long )urb;
+  __cil_tmp5 = urb->context;
 #line 329
-  __cil_tmp6 = __cil_tmp5 + 176;
-#line 329
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 329
-  port = (struct usb_serial_port *)__cil_tmp7;
+  port = (struct usb_serial_port *)__cil_tmp5;
 #line 330
-  __cil_tmp8 = (unsigned long )urb;
+  __cil_tmp6 = urb->transfer_buffer;
 #line 330
-  __cil_tmp9 = __cil_tmp8 + 104;
-#line 330
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 330
-  data = (unsigned char *)__cil_tmp10;
+  data = (unsigned char *)__cil_tmp6;
   {
 #line 333
-  __cil_tmp11 = (unsigned long )urb;
+  __cil_tmp7 = urb->actual_length;
 #line 333
-  __cil_tmp12 = __cil_tmp11 + 136;
-#line 333
-  __cil_tmp13 = *((u32 *)__cil_tmp12);
-#line 333
-  if (! __cil_tmp13) {
+  if (! __cil_tmp7) {
 #line 334
     return;
   } else {
@@ -6679,32 +6398,28 @@ static void ir_process_read_urb(struct urb *urb )
   }
   {
 #line 340
-  __cil_tmp14 = *data;
+  __cil_tmp8 = *data;
 #line 340
-  __cil_tmp15 = (int )__cil_tmp14;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 340
-  if (__cil_tmp15 & 15) {
+  if (__cil_tmp9 & 15) {
 #line 341
-    __cil_tmp16 = *data;
+    __cil_tmp10 = *data;
 #line 341
-    __cil_tmp17 = (int )__cil_tmp16;
+    __cil_tmp11 = (int )__cil_tmp10;
 #line 341
-    __cil_tmp18 = __cil_tmp17 & 15;
+    __cil_tmp12 = __cil_tmp11 & 15;
 #line 341
-    ir_baud = (unsigned char )__cil_tmp18;
+    ir_baud = (u8 )__cil_tmp12;
   } else {
 
   }
   }
   {
 #line 343
-  __cil_tmp19 = (unsigned long )urb;
+  __cil_tmp13 = urb->actual_length;
 #line 343
-  __cil_tmp20 = __cil_tmp19 + 136;
-#line 343
-  __cil_tmp21 = *((u32 *)__cil_tmp20);
-#line 343
-  if (__cil_tmp21 == 1U) {
+  if (__cil_tmp13 == 1U) {
 #line 344
     return;
   } else {
@@ -6713,13 +6428,9 @@ static void ir_process_read_urb(struct urb *urb )
   }
   {
 #line 346
-  __cil_tmp22 = (unsigned long )port;
+  __cil_tmp14 = & port->port;
 #line 346
-  __cil_tmp23 = __cil_tmp22 + 8;
-#line 346
-  __cil_tmp24 = (struct tty_port *)__cil_tmp23;
-#line 346
-  tty = tty_port_tty_get(__cil_tmp24);
+  tty = tty_port_tty_get(__cil_tmp14);
   }
 #line 347
   if (! tty) {
@@ -6730,21 +6441,17 @@ static void ir_process_read_urb(struct urb *urb )
   }
   {
 #line 349
-  __cil_tmp25 = data + 1;
+  __cil_tmp15 = data + 1;
 #line 349
-  __cil_tmp26 = (unsigned char const   *)__cil_tmp25;
+  __cil_tmp16 = (unsigned char const   *)__cil_tmp15;
 #line 349
-  __cil_tmp27 = (unsigned long )urb;
+  __cil_tmp17 = urb->actual_length;
 #line 349
-  __cil_tmp28 = __cil_tmp27 + 136;
+  __cil_tmp18 = __cil_tmp17 - 1U;
 #line 349
-  __cil_tmp29 = *((u32 *)__cil_tmp28);
+  __cil_tmp19 = (size_t )__cil_tmp18;
 #line 349
-  __cil_tmp30 = __cil_tmp29 - 1U;
-#line 349
-  __cil_tmp31 = (unsigned long )__cil_tmp30;
-#line 349
-  tty_insert_flip_string(tty, __cil_tmp26, __cil_tmp31);
+  tty_insert_flip_string(tty, __cil_tmp16, __cil_tmp19);
 #line 350
   tty_flip_buffer_push(tty);
 #line 351
@@ -6758,94 +6465,62 @@ static void ir_process_read_urb(struct urb *urb )
 static void ir_set_termios_callback(struct urb *urb ) 
 { struct usb_serial_port *port ;
   int status ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  void *__cil_tmp16 ;
-  void const   *__cil_tmp17 ;
-  int *__cil_tmp18 ;
+  void *__cil_tmp4 ;
+  unsigned char __cil_tmp5 ;
+  int __cil_tmp6 ;
+  void *__cil_tmp7 ;
+  void const   *__cil_tmp8 ;
 
   {
 #line 356
-  __cil_tmp4 = (unsigned long )urb;
+  __cil_tmp4 = urb->context;
 #line 356
-  __cil_tmp5 = __cil_tmp4 + 176;
-#line 356
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 356
-  port = (struct usb_serial_port *)__cil_tmp6;
+  port = (struct usb_serial_port *)__cil_tmp4;
 #line 357
-  __cil_tmp7 = (unsigned long )urb;
-#line 357
-  __cil_tmp8 = __cil_tmp7 + 96;
-#line 357
-  status = *((int *)__cil_tmp8);
+  status = urb->status;
   {
 #line 359
   while (1) {
-    while_19_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 359
-    __cil_tmp9 = & debug;
-#line 359
-    if (*__cil_tmp9) {
+    if (debug) {
       {
 #line 359
-      __cil_tmp10 = (unsigned long )port;
+      __cil_tmp5 = port->number;
 #line 359
-      __cil_tmp11 = __cil_tmp10 + 816;
-#line 359
-      __cil_tmp12 = *((unsigned char *)__cil_tmp11);
-#line 359
-      __cil_tmp13 = (int )__cil_tmp12;
+      __cil_tmp6 = (int )__cil_tmp5;
 #line 359
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             "ir_set_termios_callback", __cil_tmp13);
+             "ir_set_termios_callback", __cil_tmp6);
       }
     } else {
 
     }
-    }
+#line 359
     goto while_break;
   }
-  while_19_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 361
-  __cil_tmp14 = (unsigned long )urb;
+  __cil_tmp7 = urb->transfer_buffer;
 #line 361
-  __cil_tmp15 = __cil_tmp14 + 104;
+  __cil_tmp8 = (void const   *)__cil_tmp7;
 #line 361
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 361
-  __cil_tmp17 = (void const   *)__cil_tmp16;
-#line 361
-  kfree(__cil_tmp17);
+  kfree(__cil_tmp8);
   }
 #line 363
   if (status) {
     {
 #line 364
     while (1) {
-      while_20_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 364
-      __cil_tmp18 = & debug;
-#line 364
-      if (*__cil_tmp18) {
+      if (debug) {
         {
 #line 364
         printk("<7>%s: %s - non-zero urb status: %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
@@ -6854,10 +6529,10 @@ static void ir_set_termios_callback(struct urb *urb )
       } else {
 
       }
-      }
+#line 364
       goto while_break___0;
     }
-    while_20_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -6878,10 +6553,10 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   int ir_baud___0 ;
   void *tmp___7 ;
   unsigned int tmp___8 ;
-  int *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned char __cil_tmp14 ;
+  unsigned char __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
   int __cil_tmp15 ;
   int __cil_tmp16 ;
   int __cil_tmp17 ;
@@ -6889,79 +6564,54 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   int __cil_tmp19 ;
   int __cil_tmp20 ;
   int __cil_tmp21 ;
-  int __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int *__cil_tmp25 ;
-  int __cil_tmp26 ;
-  int *__cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned char __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct ktermios *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct device *__cil_tmp35 ;
-  struct device  const  *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct device *__cil_tmp39 ;
-  struct device  const  *__cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
-  struct usb_serial *__cil_tmp43 ;
-  struct usb_device *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  __u8 __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  struct usb_serial *__cil_tmp49 ;
-  struct usb_device *__cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  void *__cil_tmp54 ;
-  void *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  struct device *__cil_tmp60 ;
-  struct device  const  *__cil_tmp61 ;
-  void const   *__cil_tmp62 ;
+  u8 __cil_tmp22 ;
+  struct ktermios *__cil_tmp23 ;
+  struct device *__cil_tmp24 ;
+  struct device  const  *__cil_tmp25 ;
+  size_t __cil_tmp26 ;
+  struct device *__cil_tmp27 ;
+  struct device  const  *__cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  struct usb_serial *__cil_tmp31 ;
+  struct usb_device *__cil_tmp32 ;
+  __u8 __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  struct usb_serial *__cil_tmp35 ;
+  struct usb_device *__cil_tmp36 ;
+  int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  void *__cil_tmp40 ;
+  void *__cil_tmp41 ;
+  struct device *__cil_tmp42 ;
+  struct device  const  *__cil_tmp43 ;
+  void const   *__cil_tmp44 ;
 
   {
   {
 #line 376
   while (1) {
-    while_21_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 376
-    __cil_tmp11 = & debug;
-#line 376
-    if (*__cil_tmp11) {
+    if (debug) {
       {
 #line 376
-      __cil_tmp12 = (unsigned long )port;
+      __cil_tmp11 = port->number;
 #line 376
-      __cil_tmp13 = __cil_tmp12 + 816;
-#line 376
-      __cil_tmp14 = *((unsigned char *)__cil_tmp13);
-#line 376
-      __cil_tmp15 = (int )__cil_tmp14;
+      __cil_tmp12 = (int )__cil_tmp11;
 #line 376
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c",
-             "ir_set_termios", __cil_tmp15);
+             "ir_set_termios", __cil_tmp12);
       }
     } else {
 
     }
-    }
+#line 376
     goto while_break;
   }
-  while_21_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -6971,111 +6621,130 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   }
   {
 #line 387
-  __cil_tmp16 = (int )baud;
+  __cil_tmp13 = (int )baud;
 #line 387
-  if (__cil_tmp16 == 2400) {
+  if (__cil_tmp13 == 2400) {
+#line 387
     goto case_2400;
   } else {
     {
 #line 390
-    __cil_tmp17 = (int )baud;
+    __cil_tmp14 = (int )baud;
 #line 390
-    if (__cil_tmp17 == 9600) {
+    if (__cil_tmp14 == 9600) {
+#line 390
       goto case_9600;
     } else {
       {
 #line 393
-      __cil_tmp18 = (int )baud;
+      __cil_tmp15 = (int )baud;
 #line 393
-      if (__cil_tmp18 == 19200) {
+      if (__cil_tmp15 == 19200) {
+#line 393
         goto case_19200;
       } else {
         {
 #line 396
-        __cil_tmp19 = (int )baud;
+        __cil_tmp16 = (int )baud;
 #line 396
-        if (__cil_tmp19 == 38400) {
+        if (__cil_tmp16 == 38400) {
+#line 396
           goto case_38400;
         } else {
           {
 #line 399
-          __cil_tmp20 = (int )baud;
+          __cil_tmp17 = (int )baud;
 #line 399
-          if (__cil_tmp20 == 57600) {
+          if (__cil_tmp17 == 57600) {
+#line 399
             goto case_57600;
           } else {
             {
 #line 402
-            __cil_tmp21 = (int )baud;
+            __cil_tmp18 = (int )baud;
 #line 402
-            if (__cil_tmp21 == 115200) {
+            if (__cil_tmp18 == 115200) {
+#line 402
               goto case_115200;
             } else {
               {
 #line 405
-              __cil_tmp22 = (int )baud;
+              __cil_tmp19 = (int )baud;
 #line 405
-              if (__cil_tmp22 == 576000) {
+              if (__cil_tmp19 == 576000) {
+#line 405
                 goto case_576000;
               } else {
                 {
 #line 408
-                __cil_tmp23 = (int )baud;
+                __cil_tmp20 = (int )baud;
 #line 408
-                if (__cil_tmp23 == 1152000) {
+                if (__cil_tmp20 == 1152000) {
+#line 408
                   goto case_1152000;
                 } else {
                   {
 #line 411
-                  __cil_tmp24 = (int )baud;
+                  __cil_tmp21 = (int )baud;
 #line 411
-                  if (__cil_tmp24 == 4000000) {
+                  if (__cil_tmp21 == 4000000) {
+#line 411
                     goto case_4000000;
                   } else {
+#line 414
                     goto switch_default;
 #line 386
                     if (0) {
                       case_2400: 
 #line 388
                       ir_baud___0 = 1;
+#line 389
                       goto switch_break;
                       case_9600: 
 #line 391
                       ir_baud___0 = 1 << 1;
+#line 392
                       goto switch_break;
                       case_19200: 
 #line 394
                       ir_baud___0 = 1 << 2;
+#line 395
                       goto switch_break;
                       case_38400: 
 #line 397
                       ir_baud___0 = 1 << 3;
+#line 398
                       goto switch_break;
                       case_57600: 
 #line 400
                       ir_baud___0 = 1 << 4;
+#line 401
                       goto switch_break;
                       case_115200: 
 #line 403
                       ir_baud___0 = 1 << 5;
+#line 404
                       goto switch_break;
                       case_576000: 
 #line 406
                       ir_baud___0 = 1 << 6;
+#line 407
                       goto switch_break;
                       case_1152000: 
 #line 409
                       ir_baud___0 = 1 << 7;
+#line 410
                       goto switch_break;
                       case_4000000: 
 #line 412
                       ir_baud___0 = 1 << 8;
+#line 413
                       goto switch_break;
                       switch_default: 
 #line 415
                       ir_baud___0 = 1 << 1;
 #line 416
-                      baud = 9600U;
+                      baud = (speed_t )9600;
                     } else {
                       switch_break: ;
                     }
@@ -7097,13 +6766,8 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
     }
   }
   }
-  {
 #line 419
-  __cil_tmp25 = & xbof;
-#line 419
-  __cil_tmp26 = *__cil_tmp25;
-#line 419
-  if (__cil_tmp26 == -1) {
+  if (xbof == -1) {
     {
 #line 420
     ir_xbof = ir_xbof_change(ir_add_bof);
@@ -7111,25 +6775,16 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   } else {
     {
 #line 422
-    __cil_tmp27 = & xbof;
+    __cil_tmp22 = (u8 )xbof;
 #line 422
-    __cil_tmp28 = *__cil_tmp27;
-#line 422
-    __cil_tmp29 = (unsigned char )__cil_tmp28;
-#line 422
-    ir_xbof = ir_xbof_change(__cil_tmp29);
+    ir_xbof = ir_xbof_change(__cil_tmp22);
     }
-  }
   }
   {
 #line 425
-  __cil_tmp30 = (unsigned long )tty;
+  __cil_tmp23 = tty->termios;
 #line 425
-  __cil_tmp31 = __cil_tmp30 + 456;
-#line 425
-  __cil_tmp32 = *((struct ktermios **)__cil_tmp31);
-#line 425
-  tty_termios_copy_hw(__cil_tmp32, old_termios);
+  tty_termios_copy_hw(__cil_tmp23, old_termios);
 #line 426
   tty_encode_baud_rate(tty, baud, baud);
 #line 431
@@ -7139,15 +6794,11 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   if (! urb) {
     {
 #line 433
-    __cil_tmp33 = (unsigned long )port;
+    __cil_tmp24 = & port->dev;
 #line 433
-    __cil_tmp34 = __cil_tmp33 + 1208;
+    __cil_tmp25 = (struct device  const  *)__cil_tmp24;
 #line 433
-    __cil_tmp35 = (struct device *)__cil_tmp34;
-#line 433
-    __cil_tmp36 = (struct device  const  *)__cil_tmp35;
-#line 433
-    dev_err(__cil_tmp36, "%s - no more urbs\n", "ir_set_termios");
+    dev_err(__cil_tmp25, "%s - no more urbs\n", "ir_set_termios");
     }
 #line 434
     return;
@@ -7156,7 +6807,9 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   }
   {
 #line 436
-  tmp___7 = kmalloc(1UL, 208U);
+  __cil_tmp26 = (size_t )1;
+#line 436
+  tmp___7 = kmalloc(__cil_tmp26, 208U);
 #line 436
   transfer_buffer = (unsigned char *)tmp___7;
   }
@@ -7164,64 +6817,53 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   if (! transfer_buffer) {
     {
 #line 438
-    __cil_tmp37 = (unsigned long )port;
+    __cil_tmp27 = & port->dev;
 #line 438
-    __cil_tmp38 = __cil_tmp37 + 1208;
+    __cil_tmp28 = (struct device  const  *)__cil_tmp27;
 #line 438
-    __cil_tmp39 = (struct device *)__cil_tmp38;
-#line 438
-    __cil_tmp40 = (struct device  const  *)__cil_tmp39;
-#line 438
-    dev_err(__cil_tmp40, "%s - out of memory\n", "ir_set_termios");
+    dev_err(__cil_tmp28, "%s - out of memory\n", "ir_set_termios");
     }
+#line 439
     goto err_buf;
   } else {
 
   }
   {
 #line 442
-  __cil_tmp41 = (int )ir_xbof;
+  __cil_tmp29 = (int )ir_xbof;
 #line 442
-  __cil_tmp42 = __cil_tmp41 | ir_baud___0;
+  __cil_tmp30 = __cil_tmp29 | ir_baud___0;
 #line 442
-  *transfer_buffer = (unsigned char )__cil_tmp42;
+  *transfer_buffer = (unsigned char )__cil_tmp30;
 #line 444
-  __cil_tmp43 = *((struct usb_serial **)port);
+  __cil_tmp31 = port->serial;
 #line 444
-  __cil_tmp44 = *((struct usb_device **)__cil_tmp43);
+  __cil_tmp32 = __cil_tmp31->dev;
 #line 444
-  __cil_tmp45 = (unsigned long )port;
+  __cil_tmp33 = port->bulk_out_endpointAddress;
 #line 444
-  __cil_tmp46 = __cil_tmp45 + 1008;
+  __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 444
-  __cil_tmp47 = *((__u8 *)__cil_tmp46);
+  tmp___8 = __create_pipe(__cil_tmp32, __cil_tmp34);
 #line 444
-  __cil_tmp48 = (unsigned int )__cil_tmp47;
+  __cil_tmp35 = port->serial;
 #line 444
-  tmp___8 = __create_pipe(__cil_tmp44, __cil_tmp48);
+  __cil_tmp36 = __cil_tmp35->dev;
 #line 444
-  __cil_tmp49 = *((struct usb_serial **)port);
+  __cil_tmp37 = 3 << 30;
 #line 444
-  __cil_tmp50 = *((struct usb_device **)__cil_tmp49);
+  __cil_tmp38 = (unsigned int )__cil_tmp37;
 #line 444
-  __cil_tmp51 = 3 << 30;
+  __cil_tmp39 = __cil_tmp38 | tmp___8;
 #line 444
-  __cil_tmp52 = (unsigned int )__cil_tmp51;
+  __cil_tmp40 = (void *)transfer_buffer;
 #line 444
-  __cil_tmp53 = __cil_tmp52 | tmp___8;
+  __cil_tmp41 = (void *)port;
 #line 444
-  __cil_tmp54 = (void *)transfer_buffer;
-#line 444
-  __cil_tmp55 = (void *)port;
-#line 444
-  usb_fill_bulk_urb(urb, __cil_tmp50, __cil_tmp53, __cil_tmp54, 1, & ir_set_termios_callback,
-                    __cil_tmp55);
+  usb_fill_bulk_urb(urb, __cil_tmp36, __cil_tmp39, __cil_tmp40, 1, & ir_set_termios_callback,
+                    __cil_tmp41);
 #line 454
-  __cil_tmp56 = (unsigned long )urb;
-#line 454
-  __cil_tmp57 = __cil_tmp56 + 100;
-#line 454
-  *((unsigned int *)__cil_tmp57) = 64U;
+  urb->transfer_flags = 64U;
 #line 456
   result = usb_submit_urb(urb, 208U);
   }
@@ -7229,16 +6871,13 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   if (result) {
     {
 #line 458
-    __cil_tmp58 = (unsigned long )port;
+    __cil_tmp42 = & port->dev;
 #line 458
-    __cil_tmp59 = __cil_tmp58 + 1208;
+    __cil_tmp43 = (struct device  const  *)__cil_tmp42;
 #line 458
-    __cil_tmp60 = (struct device *)__cil_tmp59;
-#line 458
-    __cil_tmp61 = (struct device  const  *)__cil_tmp60;
-#line 458
-    dev_err(__cil_tmp61, "%s - failed to submit urb: %d\n", "ir_set_termios", result);
+    dev_err(__cil_tmp43, "%s - failed to submit urb: %d\n", "ir_set_termios", result);
     }
+#line 460
     goto err_subm;
   } else {
 
@@ -7252,9 +6891,9 @@ static void ir_set_termios(struct tty_struct *tty , struct usb_serial_port *port
   err_subm: 
   {
 #line 467
-  __cil_tmp62 = (void const   *)transfer_buffer;
+  __cil_tmp44 = (void const   *)transfer_buffer;
 #line 467
-  kfree(__cil_tmp62);
+  kfree(__cil_tmp44);
   }
   err_buf: 
   {
@@ -7272,39 +6911,16 @@ static int ir_init(void)  __attribute__((__section__(".init.text"), __no_instrum
 #line 472 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static int ir_init(void) 
 { int retval ;
-  int *__cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  int *__cil_tmp4 ;
-  int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  int *__cil_tmp7 ;
-  int __cil_tmp8 ;
 
   {
-  {
 #line 476
-  __cil_tmp2 = & buffer_size;
-#line 476
-  if (*__cil_tmp2) {
+  if (buffer_size) {
 #line 477
-    __cil_tmp3 = (unsigned long )(& ir_device) + 248;
-#line 477
-    __cil_tmp4 = & buffer_size;
-#line 477
-    __cil_tmp5 = *__cil_tmp4;
-#line 477
-    *((size_t *)__cil_tmp3) = (unsigned long )__cil_tmp5;
+    ir_device.bulk_in_size = (size_t )buffer_size;
 #line 478
-    __cil_tmp6 = (unsigned long )(& ir_device) + 256;
-#line 478
-    __cil_tmp7 = & buffer_size;
-#line 478
-    __cil_tmp8 = *__cil_tmp7;
-#line 478
-    *((size_t *)__cil_tmp6) = (unsigned long )__cil_tmp8;
+    ir_device.bulk_out_size = (size_t )buffer_size;
   } else {
 
-  }
   }
   {
 #line 481
@@ -7312,6 +6928,7 @@ static int ir_init(void)
   }
 #line 482
   if (retval) {
+#line 483
     goto failed_usb_serial_register;
   } else {
 
@@ -7322,6 +6939,7 @@ static int ir_init(void)
   }
 #line 486
   if (retval) {
+#line 487
     goto failed_usb_register;
   } else {
 
@@ -7436,8 +7054,8 @@ static char const   __param_str_debug[6]  = {      (char const   )'d',      (cha
         (char const   )'g',      (char const   )'\000'};
 #line 515 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static struct kernel_param  const  __param_debug  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_bool), (unsigned short)420,
-    (unsigned short)0, {(void *)(& debug)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_bool), (u16 )420,
+    (u16 )0, {(void *)(& debug)}};
 #line 515 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static char const   __mod_debugtype515[20]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -7464,8 +7082,8 @@ static char const   __param_str_xbof[5]  = {      (char const   )'x',      (char
         (char const   )'\000'};
 #line 517 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static struct kernel_param  const  __param_xbof  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_xbof, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)0,
-    (unsigned short)0, {(void *)(& xbof)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_xbof, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )0,
+    (u16 )0, {(void *)(& xbof)}};
 #line 517 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static char const   __mod_xboftype517[18]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -7499,7 +7117,7 @@ static char const   __param_str_buffer_size[12]  =
 #line 519 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static struct kernel_param  const  __param_buffer_size  __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_buffer_size, (struct kernel_param_ops  const  *)(& param_ops_int),
-    (unsigned short)0, (unsigned short)0, {(void *)(& buffer_size)}};
+    (u16 )0, (u16 )0, {(void *)(& buffer_size)}};
 #line 519 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static char const   __mod_buffer_sizetype519[25]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -7565,6 +7183,7 @@ void main(void)
   }
 #line 633
   if (tmp___7) {
+#line 634
     goto ldv_final;
   } else {
 
@@ -7574,7 +7193,7 @@ void main(void)
   {
 #line 639
   while (1) {
-    while_22_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 639
     tmp___9 = nondet_int();
@@ -7590,6 +7209,7 @@ void main(void)
       if (! __cil_tmp12) {
 
       } else {
+#line 639
         goto while_break;
       }
       }
@@ -7600,85 +7220,93 @@ void main(void)
     }
 #line 645
     if (tmp___8 == 0) {
+#line 645
       goto case_0;
-    } else {
+    } else
 #line 668
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
+    if (tmp___8 == 1) {
+#line 668
+      goto case_1;
+    } else
 #line 688
-        if (tmp___8 == 2) {
-          goto case_2;
-        } else {
+    if (tmp___8 == 2) {
+#line 688
+      goto case_2;
+    } else
 #line 708
-          if (tmp___8 == 3) {
-            goto case_3;
-          } else {
+    if (tmp___8 == 3) {
+#line 708
+      goto case_3;
+    } else
 #line 728
-            if (tmp___8 == 4) {
-              goto case_4;
-            } else {
-              goto switch_default;
+    if (tmp___8 == 4) {
+#line 728
+      goto case_4;
+    } else {
+#line 748
+      goto switch_default;
 #line 643
-              if (0) {
-                case_0: 
+      if (0) {
+        case_0: 
 #line 648
-                if (ldv_s_ir_device_usb_serial_driver == 0) {
-                  {
+        if (ldv_s_ir_device_usb_serial_driver == 0) {
+          {
 #line 657
-                  res_ir_open_4 = ir_open(var_group1, var_group2);
+          res_ir_open_4 = ir_open(var_group1, var_group2);
 #line 658
-                  ldv_check_return_value(res_ir_open_4);
-                  }
-#line 659
-                  if (res_ir_open_4) {
-                    goto ldv_module_exit;
-                  } else {
-
-                  }
-#line 661
-                  ldv_s_ir_device_usb_serial_driver = 0;
-                } else {
-
-                }
-                goto switch_break;
-                case_1: 
-                {
-#line 680
-                ir_set_termios(var_group1, var_group2, var_ir_set_termios_8_p2);
-                }
-                goto switch_break;
-                case_2: 
-                {
-#line 700
-                ir_startup(var_group3);
-                }
-                goto switch_break;
-                case_3: 
-                {
-#line 720
-                ir_prepare_write_buffer(var_group2, var_ir_prepare_write_buffer_5_p1,
-                                        var_ir_prepare_write_buffer_5_p2);
-                }
-                goto switch_break;
-                case_4: 
-                {
-#line 740
-                ir_process_read_urb(var_group4);
-                }
-                goto switch_break;
-                switch_default: 
-                goto switch_break;
-              } else {
-                switch_break: ;
-              }
-            }
+          ldv_check_return_value(res_ir_open_4);
           }
+#line 659
+          if (res_ir_open_4) {
+#line 660
+            goto ldv_module_exit;
+          } else {
+
+          }
+#line 661
+          ldv_s_ir_device_usb_serial_driver = 0;
+        } else {
+
         }
+#line 667
+        goto switch_break;
+        case_1: 
+        {
+#line 680
+        ir_set_termios(var_group1, var_group2, var_ir_set_termios_8_p2);
+        }
+#line 687
+        goto switch_break;
+        case_2: 
+        {
+#line 700
+        ir_startup(var_group3);
+        }
+#line 707
+        goto switch_break;
+        case_3: 
+        {
+#line 720
+        ir_prepare_write_buffer(var_group2, var_ir_prepare_write_buffer_5_p1, var_ir_prepare_write_buffer_5_p2);
+        }
+#line 727
+        goto switch_break;
+        case_4: 
+        {
+#line 740
+        ir_process_read_urb(var_group4);
+        }
+#line 747
+        goto switch_break;
+        switch_default: 
+#line 748
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_22_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7702,6 +7330,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -7717,6 +7346,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -7737,7 +7367,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_23_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -7755,9 +7385,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_23_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7778,7 +7409,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_24_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -7815,9 +7446,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_24_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7837,7 +7469,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_25_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -7859,9 +7491,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_25_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7882,7 +7515,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_26_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -7919,9 +7552,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_26_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

@@ -7,6 +7,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -19,10 +20,6 @@ int pstate[2]  ;
 #line 17 "files/ex3_forlist.c"
 void init(void) 
 { int i ;
-  unsigned int __cil_tmp2 ;
-  unsigned int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
 
   {
 #line 19
@@ -30,29 +27,22 @@ void init(void)
   {
 #line 19
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 #line 19
     if (i < 2) {
 
     } else {
-      goto while_0_break;
+#line 19
+      goto while_break;
     }
 #line 20
-    __cil_tmp2 = i * 4U;
-#line 20
-    __cil_tmp3 = (unsigned int )(pp) + __cil_tmp2;
-#line 20
-    *((void **)__cil_tmp3) = (void *)0;
+    pp[i] = (void *)0;
 #line 21
-    __cil_tmp4 = i * 4U;
-#line 21
-    __cil_tmp5 = (unsigned int )(pstate) + __cil_tmp4;
-#line 21
-    *((int *)__cil_tmp5) = 0;
+    pstate[i] = 0;
 #line 19
     i = i + 1;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break: /* CIL Label */ ;
   }
 #line 23
   return;
@@ -62,15 +52,8 @@ void init(void)
 void f(void *pointer ) 
 { int i ;
   void *__cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+  unsigned long __cil_tmp4 ;
+  unsigned long __cil_tmp5 ;
 
   {
 #line 27
@@ -78,41 +61,29 @@ void f(void *pointer )
   {
 #line 27
   while (1) {
-    while_1_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 #line 27
     if (i < 2) {
 
     } else {
-      goto while_1_break;
+#line 27
+      goto while_break;
     }
     {
 #line 28
     __cil_tmp3 = (void *)0;
 #line 28
-    __cil_tmp4 = (unsigned int )__cil_tmp3;
+    __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 28
-    __cil_tmp5 = i * 4U;
+    __cil_tmp5 = (unsigned long )pp[i];
 #line 28
-    __cil_tmp6 = (unsigned int )(pp) + __cil_tmp5;
-#line 28
-    __cil_tmp7 = *((void **)__cil_tmp6);
-#line 28
-    __cil_tmp8 = (unsigned int )__cil_tmp7;
-#line 28
-    if (__cil_tmp8 == __cil_tmp4) {
+    if (__cil_tmp5 == __cil_tmp4) {
 #line 29
-      __cil_tmp9 = i * 4U;
-#line 29
-      __cil_tmp10 = (unsigned int )(pp) + __cil_tmp9;
-#line 29
-      *((void **)__cil_tmp10) = pointer;
+      pp[i] = pointer;
 #line 30
-      __cil_tmp11 = i * 4U;
-#line 30
-      __cil_tmp12 = (unsigned int )(pstate) + __cil_tmp11;
-#line 30
-      *((int *)__cil_tmp12) = 1;
-      goto while_1_break;
+      pstate[i] = 1;
+#line 31
+      goto while_break;
     } else {
 
     }
@@ -120,7 +91,7 @@ void f(void *pointer )
 #line 27
     i = i + 1;
   }
-  while_1_break: /* CIL Label */ ;
+  while_break: /* CIL Label */ ;
   }
 #line 34
   return;
@@ -129,16 +100,8 @@ void f(void *pointer )
 #line 36 "files/ex3_forlist.c"
 void g(void *pointer ) 
 { int i ;
-  unsigned int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+  unsigned long __cil_tmp3 ;
+  unsigned long __cil_tmp4 ;
 
   {
 #line 38
@@ -146,35 +109,23 @@ void g(void *pointer )
   {
 #line 38
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 #line 38
     if (i < 2) {
 
     } else {
-      goto while_2_break;
+#line 38
+      goto while_break;
     }
     {
 #line 39
-    __cil_tmp3 = (unsigned int )pointer;
+    __cil_tmp3 = (unsigned long )pointer;
 #line 39
-    __cil_tmp4 = i * 4U;
+    __cil_tmp4 = (unsigned long )pp[i];
 #line 39
-    __cil_tmp5 = (unsigned int )(pp) + __cil_tmp4;
-#line 39
-    __cil_tmp6 = *((void **)__cil_tmp5);
-#line 39
-    __cil_tmp7 = (unsigned int )__cil_tmp6;
-#line 39
-    if (__cil_tmp7 == __cil_tmp3) {
-      {
+    if (__cil_tmp4 == __cil_tmp3) {
 #line 41
-      __cil_tmp8 = i * 4U;
-#line 41
-      __cil_tmp9 = (unsigned int )(pstate) + __cil_tmp8;
-#line 41
-      __cil_tmp10 = *((int *)__cil_tmp9);
-#line 41
-      if (__cil_tmp10 == 1) {
+      if (pstate[i] == 1) {
 
       } else {
         {
@@ -182,13 +133,8 @@ void g(void *pointer )
         __blast_assert();
         }
       }
-      }
 #line 42
-      __cil_tmp11 = i * 4U;
-#line 42
-      __cil_tmp12 = (unsigned int )(pstate) + __cil_tmp11;
-#line 42
-      *((int *)__cil_tmp12) = 2;
+      pstate[i] = 2;
     } else {
 
     }
@@ -196,28 +142,28 @@ void g(void *pointer )
 #line 38
     i = i + 1;
   }
-  while_2_break: /* CIL Label */ ;
+  while_break: /* CIL Label */ ;
   }
 #line 45
   return;
 }
 }
-#line 49 "files/ex3_forlist.c"
+#line 47 "files/ex3_forlist.c"
 int counter  =    1;
-#line 50 "files/ex3_forlist.c"
+#line 48 "files/ex3_forlist.c"
 void *malloc(int size ) 
 { int tmp ;
 
   {
-#line 51
+#line 49
   tmp = counter;
-#line 51
+#line 49
   counter = counter + 1;
-#line 51
+#line 49
   return ((void *)tmp);
 }
 }
-#line 55 "files/ex3_forlist.c"
+#line 53 "files/ex3_forlist.c"
 int main(void) 
 { int *a ;
   int *b ;
@@ -226,11 +172,11 @@ int main(void)
   int __cil_tmp5 ;
   int __cil_tmp6 ;
   int *__cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
+  unsigned long __cil_tmp8 ;
+  unsigned long __cil_tmp9 ;
   int *__cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+  unsigned long __cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
   void *__cil_tmp13 ;
   void *__cil_tmp14 ;
   void *__cil_tmp15 ;
@@ -238,43 +184,43 @@ int main(void)
 
   {
   {
-#line 58
+#line 56
   init();
-#line 59
-  __cil_tmp5 = (int )4U;
-#line 59
+#line 57
+  __cil_tmp5 = (int )4UL;
+#line 57
   tmp = malloc(__cil_tmp5);
-#line 59
+#line 57
   a = (int *)tmp;
-#line 60
-  __cil_tmp6 = (int )4U;
-#line 60
+#line 58
+  __cil_tmp6 = (int )4UL;
+#line 58
   tmp___0 = malloc(__cil_tmp6);
-#line 60
+#line 58
   b = (int *)tmp___0;
   }
   {
-#line 61
+#line 59
   __cil_tmp7 = (int *)0;
-#line 61
-  __cil_tmp8 = (unsigned int )__cil_tmp7;
-#line 61
-  __cil_tmp9 = (unsigned int )a;
-#line 61
+#line 59
+  __cil_tmp8 = (unsigned long )__cil_tmp7;
+#line 59
+  __cil_tmp9 = (unsigned long )a;
+#line 59
   if (__cil_tmp9 == __cil_tmp8) {
-#line 62
+#line 60
     return (-1);
   } else {
     {
-#line 61
+#line 59
     __cil_tmp10 = (int *)0;
-#line 61
-    __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 61
-    __cil_tmp12 = (unsigned int )b;
-#line 61
+#line 59
+    __cil_tmp11 = (unsigned long )__cil_tmp10;
+#line 59
+    __cil_tmp12 = (unsigned long )b;
+#line 59
     if (__cil_tmp12 == __cil_tmp11) {
-#line 62
+#line 60
       return (-1);
     } else {
 
@@ -283,24 +229,24 @@ int main(void)
   }
   }
   {
-#line 64
+#line 62
   __cil_tmp13 = (void *)a;
-#line 64
+#line 62
   f(__cil_tmp13);
-#line 65
+#line 63
   __cil_tmp14 = (void *)b;
-#line 65
+#line 63
   f(__cil_tmp14);
-#line 66
+#line 64
   __cil_tmp15 = (void *)a;
-#line 66
+#line 64
   g(__cil_tmp15);
-#line 68
+#line 66
   __cil_tmp16 = (void *)b;
-#line 68
+#line 66
   g(__cil_tmp16);
   }
-#line 72
+#line 70
   return (0);
 }
 }

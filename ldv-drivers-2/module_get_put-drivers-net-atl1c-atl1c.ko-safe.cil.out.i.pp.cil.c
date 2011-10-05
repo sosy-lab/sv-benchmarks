@@ -6265,7 +6265,7 @@ __inline static __u16 __fswab16(__u16 val )
 #line 51
   __cil_tmp10 = __cil_tmp9 | __cil_tmp5;
 #line 51
-  return ((unsigned short )__cil_tmp10);
+  return ((__u16 )__cil_tmp10);
   }
 }
 }
@@ -6290,7 +6290,7 @@ __inline static int atomic_read(atomic_t const   *v )
   {
   {
 #line 25
-  __cil_tmp2 = (int const   *)v;
+  __cil_tmp2 = & v->counter;
 #line 25
   __cil_tmp3 = (int volatile   *)__cil_tmp2;
 #line 25
@@ -6306,7 +6306,7 @@ __inline static void atomic_set(atomic_t *v , int i )
 
   {
 #line 37
-  *((int *)v) = i;
+  v->counter = i;
 #line 38
   return;
 }
@@ -6317,7 +6317,7 @@ __inline static void atomic_inc(atomic_t *v )
 
   {
 #line 95
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (*((int *)v)));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (v->counter));
 #line 97
   return;
 }
@@ -6329,7 +6329,7 @@ __inline static int atomic_dec_and_test(atomic_t *v )
 
   {
 #line 123
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (*((int *)v)),
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (v->counter),
                        "=qm" (c): : "memory");
   {
 #line 126
@@ -6350,23 +6350,29 @@ __inline static struct thread_info *current_thread_info(void)
   {
 #line 222
   if (1) {
+#line 222
     goto case_8;
   } else {
+#line 222
     goto switch_default;
 #line 222
     if (0) {
 #line 222
       __asm__  ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& kernel_stack));
+#line 222
       goto ldv_5782;
 #line 222
       __asm__  ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+#line 222
       goto ldv_5782;
 #line 222
       __asm__  ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+#line 222
       goto ldv_5782;
       case_8: 
 #line 222
       __asm__  ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+#line 222
       goto ldv_5782;
       switch_default: 
       {
@@ -6400,7 +6406,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->ldv_6060.rlock);
 }
 }
 #line 283 "include/linux/spinlock.h"
@@ -6410,7 +6416,7 @@ __inline static void spin_lock(spinlock_t *lock )
   {
   {
 #line 285
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 285
   _raw_spin_lock(__cil_tmp2);
   }
@@ -6425,7 +6431,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   {
   {
 #line 325
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 325
   _raw_spin_unlock(__cil_tmp2);
   }
@@ -6440,7 +6446,7 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   {
   {
 #line 340
-  __cil_tmp3 = (struct raw_spinlock *)lock;
+  __cil_tmp3 = & lock->ldv_6060.rlock;
 #line 340
   _raw_spin_unlock_irqrestore(__cil_tmp3, flags);
   }
@@ -6542,21 +6548,19 @@ __inline static int valid_dma_direction(int dma_direction )
   if (dma_direction == 0) {
 #line 82
     tmp = 1;
+  } else
+#line 82
+  if (dma_direction == 1) {
+#line 82
+    tmp = 1;
+  } else
+#line 82
+  if (dma_direction == 2) {
+#line 82
+    tmp = 1;
   } else {
 #line 82
-    if (dma_direction == 1) {
-#line 82
-      tmp = 1;
-    } else {
-#line 82
-      if (dma_direction == 2) {
-#line 82
-        tmp = 1;
-      } else {
-#line 82
-        tmp = 0;
-      }
-    }
+    tmp = 0;
   }
 #line 82
   return (tmp);
@@ -6589,14 +6593,8 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
   long __cil_tmp7 ;
   struct dma_map_ops *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  struct dma_map_ops *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct dma_map_ops *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
 
   {
   {
@@ -6624,30 +6622,16 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 #line 36
     __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 36
-    __cil_tmp10 = 984 + 8;
+    __cil_tmp10 = dev->archdata.dma_ops;
 #line 36
-    __cil_tmp11 = (unsigned long )dev;
+    __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 36
-    __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 36
-    __cil_tmp13 = *((struct dma_map_ops **)__cil_tmp12);
-#line 36
-    __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 36
-    if (__cil_tmp14 == __cil_tmp9) {
+    if (__cil_tmp11 == __cil_tmp9) {
 #line 37
       return (dma_ops);
     } else {
-      {
 #line 39
-      __cil_tmp15 = 984 + 8;
-#line 39
-      __cil_tmp16 = (unsigned long )dev;
-#line 39
-      __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 39
-      return (*((struct dma_map_ops **)__cil_tmp17));
-      }
+      return (dev->archdata.dma_ops);
     }
     }
   }
@@ -6668,22 +6652,21 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   int __cil_tmp15 ;
   long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  dma_addr_t (*__cil_tmp20)(struct device * , struct page * , unsigned long  , size_t  ,
+  dma_addr_t (*__cil_tmp18)(struct device * , struct page * , unsigned long  , size_t  ,
                             enum dma_data_direction  , struct dma_attrs * ) ;
-  unsigned long __cil_tmp21 ;
+  unsigned long __cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
+  struct page *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  struct page *__cil_tmp23 ;
+  unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  struct page *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  struct page *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int __cil_tmp32 ;
+  unsigned long __cil_tmp29 ;
+  int __cil_tmp30 ;
+  bool __cil_tmp31 ;
 
   {
   {
@@ -6712,6 +6695,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm-generic/dma-mapping-common.h"),
                          "i" (18), "i" (12UL));
     ldv_18949: ;
+#line 18
     goto ldv_18949;
   } else {
 
@@ -6722,42 +6706,39 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___2 = __phys_addr(__cil_tmp17);
 #line 19
-  __cil_tmp18 = (unsigned long )ops;
+  __cil_tmp18 = ops->map_page;
 #line 19
-  __cil_tmp19 = __cil_tmp18 + 16;
+  __cil_tmp19 = tmp___2 >> 12;
 #line 19
-  __cil_tmp20 = *((dma_addr_t (**)(struct device * , struct page * , unsigned long  ,
-                                   size_t  , enum dma_data_direction  , struct dma_attrs * ))__cil_tmp19);
+  __cil_tmp20 = 1152897315351035904UL + __cil_tmp19;
 #line 19
-  __cil_tmp21 = tmp___2 >> 12;
+  __cil_tmp21 = (struct page *)__cil_tmp20;
 #line 19
-  __cil_tmp22 = 1152897315351035904UL + __cil_tmp21;
+  __cil_tmp22 = (unsigned long )ptr;
 #line 19
-  __cil_tmp23 = (struct page *)__cil_tmp22;
+  __cil_tmp23 = __cil_tmp22 & 4095UL;
 #line 19
+  addr = (*__cil_tmp18)(dev, __cil_tmp21, __cil_tmp23, size, dir, attrs);
+#line 22
   __cil_tmp24 = (unsigned long )ptr;
-#line 19
-  __cil_tmp25 = __cil_tmp24 & 4095UL;
-#line 19
-  addr = (*__cil_tmp20)(dev, __cil_tmp23, __cil_tmp25, size, dir, attrs);
 #line 22
-  __cil_tmp26 = (unsigned long )ptr;
+  tmp___3 = __phys_addr(__cil_tmp24);
 #line 22
-  tmp___3 = __phys_addr(__cil_tmp26);
+  __cil_tmp25 = tmp___3 >> 12;
 #line 22
-  __cil_tmp27 = tmp___3 >> 12;
+  __cil_tmp26 = 1152897315351035904UL + __cil_tmp25;
 #line 22
-  __cil_tmp28 = 1152897315351035904UL + __cil_tmp27;
+  __cil_tmp27 = (struct page *)__cil_tmp26;
 #line 22
-  __cil_tmp29 = (struct page *)__cil_tmp28;
+  __cil_tmp28 = (unsigned long )ptr;
 #line 22
-  __cil_tmp30 = (unsigned long )ptr;
+  __cil_tmp29 = __cil_tmp28 & 4095UL;
 #line 22
-  __cil_tmp31 = __cil_tmp30 & 4095UL;
+  __cil_tmp30 = (int )dir;
 #line 22
-  __cil_tmp32 = (int )dir;
+  __cil_tmp31 = (bool )1;
 #line 22
-  debug_dma_map_page(dev, __cil_tmp29, __cil_tmp31, size, __cil_tmp32, addr, (_Bool)1);
+  debug_dma_map_page(dev, __cil_tmp27, __cil_tmp29, size, __cil_tmp30, addr, __cil_tmp31);
   }
 #line 25
   return (addr);
@@ -6777,16 +6758,13 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   void (*__cil_tmp13)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void (*__cil_tmp15)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
+                      struct dma_attrs * ) ;
   unsigned long __cil_tmp16 ;
   void (*__cil_tmp17)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  void (*__cil_tmp21)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                      struct dma_attrs * ) ;
-  int __cil_tmp22 ;
+  int __cil_tmp18 ;
+  bool __cil_tmp19 ;
 
   {
   {
@@ -6811,6 +6789,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm-generic/dma-mapping-common.h"),
                          "i" (35), "i" (12UL));
     ldv_18958: ;
+#line 35
     goto ldv_18958;
   } else {
 
@@ -6822,26 +6801,16 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 36
-  __cil_tmp15 = (unsigned long )ops;
+  __cil_tmp15 = ops->unmap_page;
 #line 36
-  __cil_tmp16 = __cil_tmp15 + 24;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 36
-  __cil_tmp17 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                             struct dma_attrs * ))__cil_tmp16);
-#line 36
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 36
-  if (__cil_tmp18 != __cil_tmp14) {
+  if (__cil_tmp16 != __cil_tmp14) {
     {
 #line 37
-    __cil_tmp19 = (unsigned long )ops;
+    __cil_tmp17 = ops->unmap_page;
 #line 37
-    __cil_tmp20 = __cil_tmp19 + 24;
-#line 37
-    __cil_tmp21 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                               struct dma_attrs * ))__cil_tmp20);
-#line 37
-    (*__cil_tmp21)(dev, addr, size, dir, attrs);
+    (*__cil_tmp17)(dev, addr, size, dir, attrs);
     }
   } else {
 
@@ -6849,9 +6818,11 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   }
   {
 #line 38
-  __cil_tmp22 = (int )dir;
+  __cil_tmp18 = (int )dir;
 #line 38
-  debug_dma_unmap_page(dev, addr, size, __cil_tmp22, (_Bool)1);
+  __cil_tmp19 = (bool )1;
+#line 38
+  debug_dma_unmap_page(dev, addr, size, __cil_tmp18, __cil_tmp19);
   }
 #line 39
   return;
@@ -6870,17 +6841,14 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   void (*__cil_tmp12)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  void (*__cil_tmp14)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
+                      struct dma_attrs * ) ;
   unsigned long __cil_tmp15 ;
   void (*__cil_tmp16)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  void (*__cil_tmp20)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                      struct dma_attrs * ) ;
-  struct dma_attrs *__cil_tmp21 ;
-  int __cil_tmp22 ;
+  struct dma_attrs *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  bool __cil_tmp19 ;
 
   {
   {
@@ -6905,6 +6873,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm-generic/dma-mapping-common.h"),
                          "i" (90), "i" (12UL));
     ldv_19000: ;
+#line 90
     goto ldv_19000;
   } else {
 
@@ -6916,28 +6885,18 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   __cil_tmp13 = (unsigned long )__cil_tmp12;
 #line 91
-  __cil_tmp14 = (unsigned long )ops;
+  __cil_tmp14 = ops->unmap_page;
 #line 91
-  __cil_tmp15 = __cil_tmp14 + 24;
+  __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 91
-  __cil_tmp16 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                             struct dma_attrs * ))__cil_tmp15);
-#line 91
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 91
-  if (__cil_tmp17 != __cil_tmp13) {
+  if (__cil_tmp15 != __cil_tmp13) {
     {
 #line 92
-    __cil_tmp18 = (unsigned long )ops;
+    __cil_tmp16 = ops->unmap_page;
 #line 92
-    __cil_tmp19 = __cil_tmp18 + 24;
+    __cil_tmp17 = (struct dma_attrs *)0;
 #line 92
-    __cil_tmp20 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                               struct dma_attrs * ))__cil_tmp19);
-#line 92
-    __cil_tmp21 = (struct dma_attrs *)0;
-#line 92
-    (*__cil_tmp20)(dev, addr, size, dir, __cil_tmp21);
+    (*__cil_tmp16)(dev, addr, size, dir, __cil_tmp17);
     }
   } else {
 
@@ -6945,9 +6904,11 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   }
   {
 #line 93
-  __cil_tmp22 = (int )dir;
+  __cil_tmp18 = (int )dir;
 #line 93
-  debug_dma_unmap_page(dev, addr, size, __cil_tmp22, (_Bool)0);
+  __cil_tmp19 = (bool )0;
+#line 93
+  debug_dma_unmap_page(dev, addr, size, __cil_tmp18, __cil_tmp19);
   }
 #line 94
   return;
@@ -6961,10 +6922,8 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
   struct pci_dev *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  enum dma_data_direction __cil_tmp12 ;
-  struct dma_attrs *__cil_tmp13 ;
+  enum dma_data_direction __cil_tmp10 ;
+  struct dma_attrs *__cil_tmp11 ;
 
   {
   {
@@ -6977,11 +6936,7 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
 #line 32
   if (__cil_tmp9 != __cil_tmp8) {
 #line 32
-    __cil_tmp10 = (unsigned long )hwdev;
-#line 32
-    __cil_tmp11 = __cil_tmp10 + 144;
-#line 32
-    tmp = (struct device *)__cil_tmp11;
+    tmp = & hwdev->dev;
   } else {
 #line 32
     tmp = (struct device *)0;
@@ -6989,11 +6944,11 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
   }
   {
 #line 32
-  __cil_tmp12 = (enum dma_data_direction )direction;
+  __cil_tmp10 = (enum dma_data_direction )direction;
 #line 32
-  __cil_tmp13 = (struct dma_attrs *)0;
+  __cil_tmp11 = (struct dma_attrs *)0;
 #line 32
-  tmp___0 = dma_map_single_attrs(tmp, ptr, size, __cil_tmp12, __cil_tmp13);
+  tmp___0 = dma_map_single_attrs(tmp, ptr, size, __cil_tmp10, __cil_tmp11);
   }
 #line 32
   return (tmp___0);
@@ -7006,10 +6961,8 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  enum dma_data_direction __cil_tmp11 ;
-  struct dma_attrs *__cil_tmp12 ;
+  enum dma_data_direction __cil_tmp9 ;
+  struct dma_attrs *__cil_tmp10 ;
 
   {
   {
@@ -7022,11 +6975,7 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
 #line 39
   if (__cil_tmp8 != __cil_tmp7) {
 #line 39
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 39
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 39
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 39
     tmp = (struct device *)0;
@@ -7034,11 +6983,11 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
   }
   {
 #line 39
-  __cil_tmp11 = (enum dma_data_direction )direction;
+  __cil_tmp9 = (enum dma_data_direction )direction;
 #line 39
-  __cil_tmp12 = (struct dma_attrs *)0;
+  __cil_tmp10 = (struct dma_attrs *)0;
 #line 39
-  dma_unmap_single_attrs(tmp, dma_addr, size, __cil_tmp11, __cil_tmp12);
+  dma_unmap_single_attrs(tmp, dma_addr, size, __cil_tmp9, __cil_tmp10);
   }
 #line 40
   return;
@@ -7051,9 +7000,7 @@ __inline static void pci_unmap_page(struct pci_dev *hwdev , dma_addr_t dma_addre
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  enum dma_data_direction __cil_tmp11 ;
+  enum dma_data_direction __cil_tmp9 ;
 
   {
   {
@@ -7066,11 +7013,7 @@ __inline static void pci_unmap_page(struct pci_dev *hwdev , dma_addr_t dma_addre
 #line 53
   if (__cil_tmp8 != __cil_tmp7) {
 #line 53
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 53
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 53
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 53
     tmp = (struct device *)0;
@@ -7078,9 +7021,9 @@ __inline static void pci_unmap_page(struct pci_dev *hwdev , dma_addr_t dma_addre
   }
   {
 #line 53
-  __cil_tmp11 = (enum dma_data_direction )direction;
+  __cil_tmp9 = (enum dma_data_direction )direction;
 #line 53
-  dma_unmap_page(tmp, dma_address, size, __cil_tmp11);
+  dma_unmap_page(tmp, dma_address, size, __cil_tmp9);
   }
 #line 54
   return;
@@ -7097,23 +7040,17 @@ extern void __napi_schedule(struct napi_struct * ) ;
 #line 445 "include/linux/netdevice.h"
 __inline static int napi_disable_pending(struct napi_struct *n ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
   {
 #line 447
-  __cil_tmp3 = (unsigned long )n;
+  __cil_tmp3 = & n->state;
 #line 447
-  __cil_tmp4 = __cil_tmp3 + 16;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 447
-  __cil_tmp5 = (unsigned long *)__cil_tmp4;
-#line 447
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 447
-  tmp = constant_test_bit(1U, __cil_tmp6);
+  tmp = constant_test_bit(1U, __cil_tmp4);
   }
 #line 447
   return (tmp);
@@ -7124,10 +7061,8 @@ __inline static int napi_schedule_prep(struct napi_struct *n )
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long *__cil_tmp7 ;
-  unsigned long volatile   *__cil_tmp8 ;
+  unsigned long *__cil_tmp5 ;
+  unsigned long volatile   *__cil_tmp6 ;
 
   {
   {
@@ -7138,15 +7073,11 @@ __inline static int napi_schedule_prep(struct napi_struct *n )
   if (tmp == 0) {
     {
 #line 461
-    __cil_tmp5 = (unsigned long )n;
+    __cil_tmp5 = & n->state;
 #line 461
-    __cil_tmp6 = __cil_tmp5 + 16;
+    __cil_tmp6 = (unsigned long volatile   *)__cil_tmp5;
 #line 461
-    __cil_tmp7 = (unsigned long *)__cil_tmp6;
-#line 461
-    __cil_tmp8 = (unsigned long volatile   *)__cil_tmp7;
-#line 461
-    tmp___0 = test_and_set_bit(0, __cil_tmp8);
+    tmp___0 = test_and_set_bit(0, __cil_tmp6);
     }
 #line 461
     if (tmp___0 == 0) {
@@ -7167,32 +7098,23 @@ __inline static int napi_schedule_prep(struct napi_struct *n )
 #line 504 "include/linux/netdevice.h"
 __inline static void napi_disable(struct napi_struct *n ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  unsigned long *__cil_tmp3 ;
+  unsigned long volatile   *__cil_tmp4 ;
   unsigned long *__cil_tmp5 ;
   unsigned long volatile   *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long *__cil_tmp9 ;
-  unsigned long volatile   *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long *__cil_tmp13 ;
-  unsigned long volatile   *__cil_tmp14 ;
+  unsigned long *__cil_tmp7 ;
+  unsigned long volatile   *__cil_tmp8 ;
 
   {
   {
 #line 506
-  __cil_tmp3 = (unsigned long )n;
+  __cil_tmp3 = & n->state;
 #line 506
-  __cil_tmp4 = __cil_tmp3 + 16;
+  __cil_tmp4 = (unsigned long volatile   *)__cil_tmp3;
 #line 506
-  __cil_tmp5 = (unsigned long *)__cil_tmp4;
-#line 506
-  __cil_tmp6 = (unsigned long volatile   *)__cil_tmp5;
-#line 506
-  set_bit(1U, __cil_tmp6);
+  set_bit(1U, __cil_tmp4);
   }
+#line 507
   goto ldv_32033;
   ldv_32032: 
   {
@@ -7202,34 +7124,28 @@ __inline static void napi_disable(struct napi_struct *n )
   ldv_32033: 
   {
 #line 507
-  __cil_tmp7 = (unsigned long )n;
+  __cil_tmp5 = & n->state;
 #line 507
-  __cil_tmp8 = __cil_tmp7 + 16;
+  __cil_tmp6 = (unsigned long volatile   *)__cil_tmp5;
 #line 507
-  __cil_tmp9 = (unsigned long *)__cil_tmp8;
-#line 507
-  __cil_tmp10 = (unsigned long volatile   *)__cil_tmp9;
-#line 507
-  tmp = test_and_set_bit(0, __cil_tmp10);
+  tmp = test_and_set_bit(0, __cil_tmp6);
   }
 #line 507
   if (tmp != 0) {
+#line 508
     goto ldv_32032;
   } else {
+#line 510
     goto ldv_32034;
   }
   ldv_32034: 
   {
 #line 509
-  __cil_tmp11 = (unsigned long )n;
+  __cil_tmp7 = & n->state;
 #line 509
-  __cil_tmp12 = __cil_tmp11 + 16;
+  __cil_tmp8 = (unsigned long volatile   *)__cil_tmp7;
 #line 509
-  __cil_tmp13 = (unsigned long *)__cil_tmp12;
-#line 509
-  __cil_tmp14 = (unsigned long volatile   *)__cil_tmp13;
-#line 509
-  clear_bit(1, __cil_tmp14);
+  clear_bit(1, __cil_tmp8);
   }
 #line 510
   return;
@@ -7239,35 +7155,27 @@ __inline static void napi_disable(struct napi_struct *n )
 __inline static void napi_enable(struct napi_struct *n ) 
 { int tmp ;
   long tmp___0 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long *__cil_tmp6 ;
-  unsigned long const volatile   *__cil_tmp7 ;
-  int __cil_tmp8 ;
-  long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long *__cil_tmp12 ;
-  unsigned long volatile   *__cil_tmp13 ;
+  unsigned long *__cil_tmp4 ;
+  unsigned long const volatile   *__cil_tmp5 ;
+  int __cil_tmp6 ;
+  long __cil_tmp7 ;
+  unsigned long *__cil_tmp8 ;
+  unsigned long volatile   *__cil_tmp9 ;
 
   {
   {
 #line 521
-  __cil_tmp4 = (unsigned long )n;
+  __cil_tmp4 = & n->state;
 #line 521
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long const volatile   *)__cil_tmp4;
 #line 521
-  __cil_tmp6 = (unsigned long *)__cil_tmp5;
+  tmp = constant_test_bit(0U, __cil_tmp5);
 #line 521
-  __cil_tmp7 = (unsigned long const volatile   *)__cil_tmp6;
+  __cil_tmp6 = tmp == 0;
 #line 521
-  tmp = constant_test_bit(0U, __cil_tmp7);
+  __cil_tmp7 = (long )__cil_tmp6;
 #line 521
-  __cil_tmp8 = tmp == 0;
-#line 521
-  __cil_tmp9 = (long )__cil_tmp8;
-#line 521
-  tmp___0 = __builtin_expect(__cil_tmp9, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp7, 0L);
   }
 #line 521
   if (tmp___0 != 0L) {
@@ -7275,6 +7183,7 @@ __inline static void napi_enable(struct napi_struct *n )
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/netdevice.h"),
                          "i" (521), "i" (12UL));
     ldv_32038: ;
+#line 521
     goto ldv_32038;
   } else {
 
@@ -7283,15 +7192,11 @@ __inline static void napi_enable(struct napi_struct *n )
 #line 522
   __asm__  volatile   ("": : : "memory");
 #line 523
-  __cil_tmp10 = (unsigned long )n;
+  __cil_tmp8 = & n->state;
 #line 523
-  __cil_tmp11 = __cil_tmp10 + 16;
+  __cil_tmp9 = (unsigned long volatile   *)__cil_tmp8;
 #line 523
-  __cil_tmp12 = (unsigned long *)__cil_tmp11;
-#line 523
-  __cil_tmp13 = (unsigned long volatile   *)__cil_tmp12;
-#line 523
-  clear_bit(0, __cil_tmp13);
+  clear_bit(0, __cil_tmp9);
   }
 #line 524
   return;
@@ -7301,25 +7206,19 @@ __inline static void napi_enable(struct napi_struct *n )
 __inline static struct netdev_queue *netdev_get_tx_queue(struct net_device  const  *dev ,
                                                          unsigned int index ) 
 { unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct netdev_queue *__cil_tmp6 ;
-  struct netdev_queue *__cil_tmp7 ;
+  struct netdev_queue *__cil_tmp4 ;
+  struct netdev_queue *__cil_tmp5 ;
 
   {
   {
 #line 1413
   __cil_tmp3 = (unsigned long )index;
 #line 1413
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->_tx;
 #line 1413
-  __cil_tmp5 = __cil_tmp4 + 840;
+  __cil_tmp5 = (struct netdev_queue *)__cil_tmp4;
 #line 1413
-  __cil_tmp6 = *((struct netdev_queue * const  *)__cil_tmp5);
-#line 1413
-  __cil_tmp7 = (struct netdev_queue *)__cil_tmp6;
-#line 1413
-  return (__cil_tmp7 + __cil_tmp3);
+  return (__cil_tmp5 + __cil_tmp3);
   }
 }
 }
@@ -7367,23 +7266,17 @@ extern int netpoll_trap(void) ;
 extern void __netif_schedule(struct Qdisc * ) ;
 #line 1804 "include/linux/netdevice.h"
 __inline static void netif_tx_start_queue(struct netdev_queue *dev_queue ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long *__cil_tmp4 ;
-  unsigned long volatile   *__cil_tmp5 ;
+{ unsigned long *__cil_tmp2 ;
+  unsigned long volatile   *__cil_tmp3 ;
 
   {
   {
 #line 1806
-  __cil_tmp2 = (unsigned long )dev_queue;
+  __cil_tmp2 = & dev_queue->state;
 #line 1806
-  __cil_tmp3 = __cil_tmp2 + 16;
+  __cil_tmp3 = (unsigned long volatile   *)__cil_tmp2;
 #line 1806
-  __cil_tmp4 = (unsigned long *)__cil_tmp3;
-#line 1806
-  __cil_tmp5 = (unsigned long volatile   *)__cil_tmp4;
-#line 1806
-  clear_bit(0, __cil_tmp5);
+  clear_bit(0, __cil_tmp3);
   }
 #line 1807
   return;
@@ -7411,13 +7304,9 @@ __inline static void netif_start_queue(struct net_device *dev )
 __inline static void netif_tx_wake_queue(struct netdev_queue *dev_queue ) 
 { int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long *__cil_tmp6 ;
-  unsigned long volatile   *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct Qdisc *__cil_tmp10 ;
+  unsigned long *__cil_tmp4 ;
+  unsigned long volatile   *__cil_tmp5 ;
+  struct Qdisc *__cil_tmp6 ;
 
   {
   {
@@ -7437,27 +7326,19 @@ __inline static void netif_tx_wake_queue(struct netdev_queue *dev_queue )
   }
   {
 #line 1838
-  __cil_tmp4 = (unsigned long )dev_queue;
+  __cil_tmp4 = & dev_queue->state;
 #line 1838
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long volatile   *)__cil_tmp4;
 #line 1838
-  __cil_tmp6 = (unsigned long *)__cil_tmp5;
-#line 1838
-  __cil_tmp7 = (unsigned long volatile   *)__cil_tmp6;
-#line 1838
-  tmp___0 = test_and_clear_bit(0, __cil_tmp7);
+  tmp___0 = test_and_clear_bit(0, __cil_tmp5);
   }
 #line 1838
   if (tmp___0 != 0) {
     {
 #line 1839
-    __cil_tmp8 = (unsigned long )dev_queue;
+    __cil_tmp6 = dev_queue->qdisc;
 #line 1839
-    __cil_tmp9 = __cil_tmp8 + 8;
-#line 1839
-    __cil_tmp10 = *((struct Qdisc **)__cil_tmp9);
-#line 1839
-    __netif_schedule(__cil_tmp10);
+    __netif_schedule(__cil_tmp6);
     }
   } else {
 
@@ -7498,10 +7379,8 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   int __cil_tmp11 ;
   int __cil_tmp12 ;
   long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long *__cil_tmp16 ;
-  unsigned long volatile   *__cil_tmp17 ;
+  unsigned long *__cil_tmp14 ;
+  unsigned long volatile   *__cil_tmp15 ;
 
   {
   {
@@ -7554,15 +7433,11 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   }
   {
 #line 1870
-  __cil_tmp14 = (unsigned long )dev_queue;
+  __cil_tmp14 = & dev_queue->state;
 #line 1870
-  __cil_tmp15 = __cil_tmp14 + 16;
+  __cil_tmp15 = (unsigned long volatile   *)__cil_tmp14;
 #line 1870
-  __cil_tmp16 = (unsigned long *)__cil_tmp15;
-#line 1870
-  __cil_tmp17 = (unsigned long volatile   *)__cil_tmp16;
-#line 1870
-  set_bit(0U, __cil_tmp17);
+  set_bit(0U, __cil_tmp15);
   }
 #line 1871
   return;
@@ -7589,23 +7464,17 @@ __inline static void netif_stop_queue(struct net_device *dev )
 #line 1895 "include/linux/netdevice.h"
 __inline static int netif_tx_queue_stopped(struct netdev_queue  const  *dev_queue ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long const   *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long const   *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
   {
 #line 1897
-  __cil_tmp3 = (unsigned long )dev_queue;
+  __cil_tmp3 = & dev_queue->state;
 #line 1897
-  __cil_tmp4 = __cil_tmp3 + 16;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 1897
-  __cil_tmp5 = (unsigned long const   *)__cil_tmp4;
-#line 1897
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 1897
-  tmp = constant_test_bit(0U, __cil_tmp6);
+  tmp = constant_test_bit(0U, __cil_tmp4);
   }
 #line 1897
   return (tmp);
@@ -7633,23 +7502,17 @@ __inline static int netif_queue_stopped(struct net_device  const  *dev )
 #line 1922 "include/linux/netdevice.h"
 __inline static int netif_running(struct net_device  const  *dev ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long const   *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long const   *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
   {
 #line 1924
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = & dev->state;
 #line 1924
-  __cil_tmp4 = __cil_tmp3 + 120;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 1924
-  __cil_tmp5 = (unsigned long const   *)__cil_tmp4;
-#line 1924
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 1924
-  tmp = constant_test_bit(0U, __cil_tmp6);
+  tmp = constant_test_bit(0U, __cil_tmp4);
   }
 #line 1924
   return (tmp);
@@ -7660,23 +7523,17 @@ extern void dev_kfree_skb_irq(struct sk_buff * ) ;
 #line 2158 "include/linux/netdevice.h"
 __inline static int netif_carrier_ok(struct net_device  const  *dev ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long const   *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long const   *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
   {
 #line 2160
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = & dev->state;
 #line 2160
-  __cil_tmp4 = __cil_tmp3 + 120;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 2160
-  __cil_tmp5 = (unsigned long const   *)__cil_tmp4;
-#line 2160
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 2160
-  tmp = constant_test_bit(2U, __cil_tmp6);
+  tmp = constant_test_bit(2U, __cil_tmp4);
   }
 #line 2160
   return (tmp == 0);
@@ -7891,104 +7748,71 @@ static int atl1c_up(struct atl1c_adapter *adapter ) ;
 #line 79
 static void atl1c_down(struct atl1c_adapter *adapter ) ;
 #line 81 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
-static u16 const   atl1c_pay_load_size[6U]  = {      (unsigned short const   )128U,      (unsigned short const   )256U,      (unsigned short const   )512U,      (unsigned short const   )1024U, 
-        (unsigned short const   )2048U,      (unsigned short const   )4096U};
+static u16 const   atl1c_pay_load_size[6U]  = {      (u16 const   )128U,      (u16 const   )256U,      (u16 const   )512U,      (u16 const   )1024U, 
+        (u16 const   )2048U,      (u16 const   )4096U};
 #line 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
-static u16 const   atl1c_rfd_prod_idx_regs[4U]  = {      (unsigned short const   )5600U,      (unsigned short const   )5604U,      (unsigned short const   )5608U,      (unsigned short const   )5612U};
+static u16 const   atl1c_rfd_prod_idx_regs[4U]  = {      (u16 const   )5600U,      (u16 const   )5604U,      (u16 const   )5608U,      (u16 const   )5612U};
 #line 93 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
-static u16 const   atl1c_rfd_addr_lo_regs[4U]  = {      (unsigned short const   )5456U,      (unsigned short const   )5460U,      (unsigned short const   )5464U,      (unsigned short const   )5468U};
+static u16 const   atl1c_rfd_addr_lo_regs[4U]  = {      (u16 const   )5456U,      (u16 const   )5460U,      (u16 const   )5464U,      (u16 const   )5468U};
 #line 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
-static u16 const   atl1c_rrd_addr_lo_regs[4U]  = {      (unsigned short const   )5480U,      (unsigned short const   )5484U,      (unsigned short const   )5488U,      (unsigned short const   )5492U};
+static u16 const   atl1c_rrd_addr_lo_regs[4U]  = {      (u16 const   )5480U,      (u16 const   )5484U,      (u16 const   )5488U,      (u16 const   )5492U};
 #line 182 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 __inline static void atl1c_irq_enable(struct atl1c_adapter *adapter ) 
 { int tmp ;
   long tmp___0 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  atomic_t *__cil_tmp6 ;
-  int __cil_tmp7 ;
-  long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  atomic_t *__cil_tmp4 ;
+  int __cil_tmp5 ;
+  long __cil_tmp6 ;
+  u8 *__cil_tmp7 ;
+  void volatile   *__cil_tmp8 ;
+  void volatile   *__cil_tmp9 ;
+  u32 __cil_tmp10 ;
   u8 *__cil_tmp11 ;
   void volatile   *__cil_tmp12 ;
   void volatile   *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  u32 __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u8 *__cil_tmp20 ;
-  void volatile   *__cil_tmp21 ;
-  void volatile   *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  u8 *__cil_tmp25 ;
-  void const volatile   *__cil_tmp26 ;
+  u8 *__cil_tmp14 ;
+  void const volatile   *__cil_tmp15 ;
 
   {
   {
 #line 184
-  __cil_tmp4 = (unsigned long )adapter;
+  __cil_tmp4 = & adapter->irq_sem;
 #line 184
-  __cil_tmp5 = __cil_tmp4 + 1176;
+  tmp = atomic_dec_and_test(__cil_tmp4);
 #line 184
-  __cil_tmp6 = (atomic_t *)__cil_tmp5;
+  __cil_tmp5 = tmp != 0;
 #line 184
-  tmp = atomic_dec_and_test(__cil_tmp6);
+  __cil_tmp6 = (long )__cil_tmp5;
 #line 184
-  __cil_tmp7 = tmp != 0;
-#line 184
-  __cil_tmp8 = (long )__cil_tmp7;
-#line 184
-  tmp___0 = __builtin_expect(__cil_tmp8, 1L);
+  tmp___0 = __builtin_expect(__cil_tmp6, 1L);
   }
 #line 184
   if (tmp___0 != 0L) {
     {
 #line 185
-    __cil_tmp9 = (unsigned long )adapter;
+    __cil_tmp7 = adapter->hw.hw_addr;
 #line 185
-    __cil_tmp10 = __cil_tmp9 + 184;
+    __cil_tmp8 = (void volatile   *)__cil_tmp7;
 #line 185
-    __cil_tmp11 = *((u8 **)__cil_tmp10);
+    __cil_tmp9 = __cil_tmp8 + 5632U;
 #line 185
+    writel(2147483647U, __cil_tmp9);
+#line 186
+    __cil_tmp10 = adapter->hw.intr_mask;
+#line 186
+    __cil_tmp11 = adapter->hw.hw_addr;
+#line 186
     __cil_tmp12 = (void volatile   *)__cil_tmp11;
-#line 185
-    __cil_tmp13 = __cil_tmp12 + 5632U;
-#line 185
-    writel(2147483647U, __cil_tmp13);
 #line 186
-    __cil_tmp14 = 184 + 192;
+    __cil_tmp13 = __cil_tmp12 + 5636U;
 #line 186
-    __cil_tmp15 = (unsigned long )adapter;
-#line 186
-    __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 186
-    __cil_tmp17 = *((u32 *)__cil_tmp16);
-#line 186
-    __cil_tmp18 = (unsigned long )adapter;
-#line 186
-    __cil_tmp19 = __cil_tmp18 + 184;
-#line 186
-    __cil_tmp20 = *((u8 **)__cil_tmp19);
-#line 186
-    __cil_tmp21 = (void volatile   *)__cil_tmp20;
-#line 186
-    __cil_tmp22 = __cil_tmp21 + 5636U;
-#line 186
-    writel(__cil_tmp17, __cil_tmp22);
+    writel(__cil_tmp10, __cil_tmp13);
 #line 187
-    __cil_tmp23 = (unsigned long )adapter;
+    __cil_tmp14 = adapter->hw.hw_addr;
 #line 187
-    __cil_tmp24 = __cil_tmp23 + 184;
+    __cil_tmp15 = (void const volatile   *)__cil_tmp14;
 #line 187
-    __cil_tmp25 = *((u8 **)__cil_tmp24);
-#line 187
-    __cil_tmp26 = (void const volatile   *)__cil_tmp25;
-#line 187
-    readl(__cil_tmp26);
+    readl(__cil_tmp15);
     }
   } else {
 
@@ -7999,88 +7823,52 @@ __inline static void atl1c_irq_enable(struct atl1c_adapter *adapter )
 }
 #line 195 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 __inline static void atl1c_irq_disable(struct atl1c_adapter *adapter ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  atomic_t *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  u8 *__cil_tmp7 ;
+{ atomic_t *__cil_tmp2 ;
+  u8 *__cil_tmp3 ;
+  void volatile   *__cil_tmp4 ;
+  void volatile   *__cil_tmp5 ;
+  u8 *__cil_tmp6 ;
+  void volatile   *__cil_tmp7 ;
   void volatile   *__cil_tmp8 ;
-  void volatile   *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  u8 *__cil_tmp12 ;
-  void volatile   *__cil_tmp13 ;
-  void volatile   *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  u8 *__cil_tmp17 ;
-  void const volatile   *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct pci_dev *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
+  u8 *__cil_tmp9 ;
+  void const volatile   *__cil_tmp10 ;
+  struct pci_dev *__cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
 
   {
   {
 #line 197
-  __cil_tmp2 = (unsigned long )adapter;
+  __cil_tmp2 = & adapter->irq_sem;
 #line 197
-  __cil_tmp3 = __cil_tmp2 + 1176;
-#line 197
-  __cil_tmp4 = (atomic_t *)__cil_tmp3;
-#line 197
-  atomic_inc(__cil_tmp4);
+  atomic_inc(__cil_tmp2);
 #line 198
-  __cil_tmp5 = (unsigned long )adapter;
+  __cil_tmp3 = adapter->hw.hw_addr;
 #line 198
-  __cil_tmp6 = __cil_tmp5 + 184;
+  __cil_tmp4 = (void volatile   *)__cil_tmp3;
 #line 198
-  __cil_tmp7 = *((u8 **)__cil_tmp6);
+  __cil_tmp5 = __cil_tmp4 + 5636U;
 #line 198
-  __cil_tmp8 = (void volatile   *)__cil_tmp7;
-#line 198
-  __cil_tmp9 = __cil_tmp8 + 5636U;
-#line 198
-  writel(0U, __cil_tmp9);
+  writel(0U, __cil_tmp5);
 #line 199
-  __cil_tmp10 = (unsigned long )adapter;
+  __cil_tmp6 = adapter->hw.hw_addr;
 #line 199
-  __cil_tmp11 = __cil_tmp10 + 184;
+  __cil_tmp7 = (void volatile   *)__cil_tmp6;
 #line 199
-  __cil_tmp12 = *((u8 **)__cil_tmp11);
+  __cil_tmp8 = __cil_tmp7 + 5632U;
 #line 199
-  __cil_tmp13 = (void volatile   *)__cil_tmp12;
-#line 199
-  __cil_tmp14 = __cil_tmp13 + 5632U;
-#line 199
-  writel(2147483648U, __cil_tmp14);
+  writel(2147483648U, __cil_tmp8);
 #line 200
-  __cil_tmp15 = (unsigned long )adapter;
+  __cil_tmp9 = adapter->hw.hw_addr;
 #line 200
-  __cil_tmp16 = __cil_tmp15 + 184;
+  __cil_tmp10 = (void const volatile   *)__cil_tmp9;
 #line 200
-  __cil_tmp17 = *((u8 **)__cil_tmp16);
-#line 200
-  __cil_tmp18 = (void const volatile   *)__cil_tmp17;
-#line 200
-  readl(__cil_tmp18);
+  readl(__cil_tmp10);
 #line 201
-  __cil_tmp19 = (unsigned long )adapter;
+  __cil_tmp11 = adapter->pdev;
 #line 201
-  __cil_tmp20 = __cil_tmp19 + 8;
+  __cil_tmp12 = __cil_tmp11->irq;
 #line 201
-  __cil_tmp21 = *((struct pci_dev **)__cil_tmp20);
-#line 201
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 201
-  __cil_tmp23 = __cil_tmp22 + 1316;
-#line 201
-  __cil_tmp24 = *((unsigned int *)__cil_tmp23);
-#line 201
-  synchronize_irq(__cil_tmp24);
+  synchronize_irq(__cil_tmp12);
   }
 #line 202
   return;
@@ -8091,75 +7879,70 @@ static u32 atl1c_wait_until_idle(struct atl1c_hw *hw )
 { int timeout ;
   u32 data ;
   long tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  bool __cil_tmp7 ;
-  long __cil_tmp8 ;
-  u8 *__cil_tmp9 ;
-  void const volatile   *__cil_tmp10 ;
+  bool __cil_tmp5 ;
+  long __cil_tmp6 ;
+  u8 *__cil_tmp7 ;
+  void const volatile   *__cil_tmp8 ;
+  void const volatile   *__cil_tmp9 ;
+  u8 *__cil_tmp10 ;
   void const volatile   *__cil_tmp11 ;
-  u8 *__cil_tmp12 ;
-  void const volatile   *__cil_tmp13 ;
+  void const volatile   *__cil_tmp12 ;
+  u8 *__cil_tmp13 ;
   void const volatile   *__cil_tmp14 ;
-  u8 *__cil_tmp15 ;
-  void const volatile   *__cil_tmp16 ;
-  void const volatile   *__cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
+  void const volatile   *__cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
 
   {
 #line 223
   timeout = 0;
+#line 223
   goto ldv_42453;
   ldv_42452: 
   {
 #line 224
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp5 = hw->hibernate;
 #line 224
-  __cil_tmp6 = __cil_tmp5 + 237;
+  __cil_tmp6 = (long )__cil_tmp5;
 #line 224
-  __cil_tmp7 = *((bool *)__cil_tmp6);
-#line 224
-  __cil_tmp8 = (long )__cil_tmp7;
-#line 224
-  tmp = __builtin_expect(__cil_tmp8, 0L);
+  tmp = __builtin_expect(__cil_tmp6, 0L);
   }
 #line 224
   if (tmp != 0L) {
     {
 #line 224
-    __cil_tmp9 = *((u8 **)hw);
+    __cil_tmp7 = hw->hw_addr;
 #line 224
-    __cil_tmp10 = (void const volatile   *)__cil_tmp9;
+    __cil_tmp8 = (void const volatile   *)__cil_tmp7;
 #line 224
-    __cil_tmp11 = __cil_tmp10 + 5136U;
+    __cil_tmp9 = __cil_tmp8 + 5136U;
 #line 224
-    readl(__cil_tmp11);
+    readl(__cil_tmp9);
 #line 224
-    __cil_tmp12 = *((u8 **)hw);
+    __cil_tmp10 = hw->hw_addr;
 #line 224
-    __cil_tmp13 = (void const volatile   *)__cil_tmp12;
+    __cil_tmp11 = (void const volatile   *)__cil_tmp10;
 #line 224
-    __cil_tmp14 = __cil_tmp13 + 5136U;
+    __cil_tmp12 = __cil_tmp11 + 5136U;
 #line 224
-    data = readl(__cil_tmp14);
+    data = readl(__cil_tmp12);
     }
   } else {
     {
 #line 224
-    __cil_tmp15 = *((u8 **)hw);
+    __cil_tmp13 = hw->hw_addr;
 #line 224
-    __cil_tmp16 = (void const volatile   *)__cil_tmp15;
+    __cil_tmp14 = (void const volatile   *)__cil_tmp13;
 #line 224
-    __cil_tmp17 = __cil_tmp16 + 5136U;
+    __cil_tmp15 = __cil_tmp14 + 5136U;
 #line 224
-    data = readl(__cil_tmp17);
+    data = readl(__cil_tmp15);
     }
   }
   {
 #line 225
-  __cil_tmp18 = data & 255U;
+  __cil_tmp16 = data & 255U;
 #line 225
-  if (__cil_tmp18 == 0U) {
+  if (__cil_tmp16 == 0U) {
 #line 226
     return (0U);
   } else {
@@ -8175,8 +7958,10 @@ static u32 atl1c_wait_until_idle(struct atl1c_hw *hw )
   ldv_42453: ;
 #line 223
   if (timeout <= 9) {
+#line 224
     goto ldv_42452;
   } else {
+#line 226
     goto ldv_42454;
   }
   ldv_42454: ;
@@ -8189,80 +7974,68 @@ void atl1c_reinit_locked(struct atl1c_adapter *adapter )
 { int __ret_warn_on ;
   struct thread_info *tmp ;
   long tmp___0 ;
-  unsigned long __cil_tmp5 ;
+  int __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  int __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned long __cil_tmp7 ;
+  int __cil_tmp8 ;
+  long __cil_tmp9 ;
   int __cil_tmp10 ;
-  long __cil_tmp11 ;
+  int __cil_tmp11 ;
   int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long *__cil_tmp18 ;
-  unsigned long volatile   *__cil_tmp19 ;
+  long __cil_tmp13 ;
+  unsigned long *__cil_tmp14 ;
+  unsigned long volatile   *__cil_tmp15 ;
 
   {
   {
 #line 249
   tmp = current_thread_info();
 #line 249
-  __cil_tmp5 = (unsigned long )tmp;
+  __cil_tmp5 = tmp->preempt_count;
 #line 249
-  __cil_tmp6 = __cil_tmp5 + 28;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 249
-  __cil_tmp7 = *((int *)__cil_tmp6);
+  __cil_tmp7 = __cil_tmp6 & 134217472UL;
 #line 249
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
+  __ret_warn_on = __cil_tmp7 != 0UL;
 #line 249
-  __cil_tmp9 = __cil_tmp8 & 134217472UL;
+  __cil_tmp8 = __ret_warn_on != 0;
 #line 249
-  __ret_warn_on = __cil_tmp9 != 0UL;
+  __cil_tmp9 = (long )__cil_tmp8;
 #line 249
-  __cil_tmp10 = __ret_warn_on != 0;
-#line 249
-  __cil_tmp11 = (long )__cil_tmp10;
-#line 249
-  tmp___0 = __builtin_expect(__cil_tmp11, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp9, 0L);
   }
 #line 249
   if (tmp___0 != 0L) {
     {
 #line 249
-    __cil_tmp12 = (int const   )249;
+    __cil_tmp10 = (int const   )249;
 #line 249
-    __cil_tmp13 = (int )__cil_tmp12;
+    __cil_tmp11 = (int )__cil_tmp10;
 #line 249
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p",
-                       __cil_tmp13);
+                       __cil_tmp11);
     }
   } else {
 
   }
   {
 #line 249
-  __cil_tmp14 = __ret_warn_on != 0;
+  __cil_tmp12 = __ret_warn_on != 0;
 #line 249
-  __cil_tmp15 = (long )__cil_tmp14;
+  __cil_tmp13 = (long )__cil_tmp12;
 #line 249
-  __builtin_expect(__cil_tmp15, 0L);
+  __builtin_expect(__cil_tmp13, 0L);
 #line 250
   atl1c_down(adapter);
 #line 251
   atl1c_up(adapter);
 #line 252
-  __cil_tmp16 = (unsigned long )adapter;
+  __cil_tmp14 = & adapter->flags;
 #line 252
-  __cil_tmp17 = __cil_tmp16 + 1000;
+  __cil_tmp15 = (unsigned long volatile   *)__cil_tmp14;
 #line 252
-  __cil_tmp18 = (unsigned long *)__cil_tmp17;
-#line 252
-  __cil_tmp19 = (unsigned long volatile   *)__cil_tmp18;
-#line 252
-  clear_bit(2, __cil_tmp19);
+  clear_bit(2, __cil_tmp15);
   }
 #line 253
   return;
@@ -8284,141 +8057,79 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
   long tmp___2 ;
   char *tmp___3 ;
   int tmp___4 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  spinlock_t *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  spinlock_t *__cil_tmp25 ;
-  u16 *__cil_tmp26 ;
-  u16 __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  u32 __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct device *__cil_tmp38 ;
-  struct device  const  *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct atl1c_hw *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  spinlock_t *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  spinlock_t *__cil_tmp50 ;
-  int __cil_tmp51 ;
-  long __cil_tmp52 ;
-  u16 *__cil_tmp53 ;
-  u16 __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  u16 __cil_tmp58 ;
-  int __cil_tmp59 ;
-  u16 *__cil_tmp60 ;
-  u16 __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  u16 __cil_tmp65 ;
-  int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  u16 *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  u16 *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  u32 __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  u16 __cil_tmp79 ;
-  unsigned int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct device *__cil_tmp83 ;
-  struct device  const  *__cil_tmp84 ;
-  char *__cil_tmp85 ;
-  char (*__cil_tmp86)[16U] ;
-  char *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  u16 __cil_tmp90 ;
-  int __cil_tmp91 ;
-  struct net_device  const  *__cil_tmp92 ;
+  spinlock_t *__cil_tmp16 ;
+  u16 __cil_tmp17 ;
+  u16 __cil_tmp18 ;
+  spinlock_t *__cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  u32 __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  struct device *__cil_tmp24 ;
+  struct device  const  *__cil_tmp25 ;
+  bool __cil_tmp26 ;
+  struct atl1c_hw *__cil_tmp27 ;
+  spinlock_t *__cil_tmp28 ;
+  spinlock_t *__cil_tmp29 ;
+  int __cil_tmp30 ;
+  long __cil_tmp31 ;
+  int __cil_tmp32 ;
+  u16 __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  u16 __cil_tmp36 ;
+  int __cil_tmp37 ;
+  bool __cil_tmp38 ;
+  u32 __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  u16 __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  struct device *__cil_tmp43 ;
+  struct device  const  *__cil_tmp44 ;
+  char *__cil_tmp45 ;
+  char (*__cil_tmp46)[16U] ;
+  char *__cil_tmp47 ;
+  u16 __cil_tmp48 ;
+  int __cil_tmp49 ;
+  struct net_device  const  *__cil_tmp50 ;
 
   {
   {
 #line 257
-  __cil_tmp16 = (unsigned long )adapter;
-#line 257
-  __cil_tmp17 = __cil_tmp16 + 184;
-#line 257
-  hw = (struct atl1c_hw *)__cil_tmp17;
+  hw = & adapter->hw;
 #line 258
-  netdev = *((struct net_device **)adapter);
+  netdev = adapter->netdev;
 #line 259
-  __cil_tmp18 = (unsigned long )adapter;
-#line 259
-  __cil_tmp19 = __cil_tmp18 + 8;
-#line 259
-  pdev = *((struct pci_dev **)__cil_tmp19);
+  pdev = adapter->pdev;
 #line 264
-  __cil_tmp20 = (unsigned long )adapter;
+  __cil_tmp16 = & adapter->mdio_lock;
 #line 264
-  __cil_tmp21 = __cil_tmp20 + 1032;
-#line 264
-  __cil_tmp22 = (spinlock_t *)__cil_tmp21;
-#line 264
-  tmp = spinlock_check(__cil_tmp22);
+  tmp = spinlock_check(__cil_tmp16);
 #line 264
   flags = _raw_spin_lock_irqsave(tmp);
 #line 266
-  atl1c_read_phy_reg(hw, (unsigned short)1, & phy_data);
+  __cil_tmp17 = (u16 )1;
+#line 266
+  atl1c_read_phy_reg(hw, __cil_tmp17, & phy_data);
 #line 267
-  atl1c_read_phy_reg(hw, (unsigned short)1, & phy_data);
+  __cil_tmp18 = (u16 )1;
+#line 267
+  atl1c_read_phy_reg(hw, __cil_tmp18, & phy_data);
 #line 268
-  __cil_tmp23 = (unsigned long )adapter;
+  __cil_tmp19 = & adapter->mdio_lock;
 #line 268
-  __cil_tmp24 = __cil_tmp23 + 1032;
-#line 268
-  __cil_tmp25 = (spinlock_t *)__cil_tmp24;
-#line 268
-  spin_unlock_irqrestore(__cil_tmp25, flags);
+  spin_unlock_irqrestore(__cil_tmp19, flags);
   }
   {
 #line 270
-  __cil_tmp26 = & phy_data;
+  __cil_tmp20 = (int )phy_data;
 #line 270
-  __cil_tmp27 = *__cil_tmp26;
+  __cil_tmp21 = __cil_tmp20 & 4;
 #line 270
-  __cil_tmp28 = (int )__cil_tmp27;
-#line 270
-  __cil_tmp29 = __cil_tmp28 & 4;
-#line 270
-  if (__cil_tmp29 == 0) {
+  if (__cil_tmp21 == 0) {
     {
 #line 272
-    __cil_tmp30 = (unsigned long )hw;
-#line 272
-    __cil_tmp31 = __cil_tmp30 + 237;
-#line 272
-    *((bool *)__cil_tmp31) = (_Bool)1;
+    hw->hibernate = (bool )1;
 #line 273
     tmp___0 = atl1c_stop_mac(hw);
     }
@@ -8426,26 +8137,18 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
     if (tmp___0 != 0) {
       {
 #line 274
-      __cil_tmp32 = (unsigned long )adapter;
+      __cil_tmp22 = adapter->msg_enable;
 #line 274
-      __cil_tmp33 = __cil_tmp32 + 1016;
+      __cil_tmp23 = __cil_tmp22 & 8192U;
 #line 274
-      __cil_tmp34 = *((u32 *)__cil_tmp33);
-#line 274
-      __cil_tmp35 = __cil_tmp34 & 8192U;
-#line 274
-      if (__cil_tmp35 != 0U) {
+      if (__cil_tmp23 != 0U) {
         {
 #line 275
-        __cil_tmp36 = (unsigned long )pdev;
+        __cil_tmp24 = & pdev->dev;
 #line 275
-        __cil_tmp37 = __cil_tmp36 + 144;
+        __cil_tmp25 = (struct device  const  *)__cil_tmp24;
 #line 275
-        __cil_tmp38 = (struct device *)__cil_tmp37;
-#line 275
-        __cil_tmp39 = (struct device  const  *)__cil_tmp38;
-#line 275
-        dev_warn(__cil_tmp39, "stop mac failed\n");
+        dev_warn(__cil_tmp25, "stop mac failed\n");
         }
       } else {
 
@@ -8456,7 +8159,9 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
     }
     {
 #line 276
-    atl1c_set_aspm(hw, (_Bool)0);
+    __cil_tmp26 = (bool )0;
+#line 276
+    atl1c_set_aspm(hw, __cil_tmp26);
 #line 277
     netif_carrier_off(netdev);
 #line 278
@@ -8464,48 +8169,32 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
 #line 279
     atl1c_phy_reset(hw);
 #line 280
-    __cil_tmp40 = (unsigned long )adapter;
+    __cil_tmp27 = & adapter->hw;
 #line 280
-    __cil_tmp41 = __cil_tmp40 + 184;
-#line 280
-    __cil_tmp42 = (struct atl1c_hw *)__cil_tmp41;
-#line 280
-    atl1c_phy_init(__cil_tmp42);
+    atl1c_phy_init(__cil_tmp27);
     }
   } else {
     {
 #line 283
-    __cil_tmp43 = (unsigned long )hw;
-#line 283
-    __cil_tmp44 = __cil_tmp43 + 237;
-#line 283
-    *((bool *)__cil_tmp44) = (_Bool)0;
+    hw->hibernate = (bool )0;
 #line 284
-    __cil_tmp45 = (unsigned long )adapter;
+    __cil_tmp28 = & adapter->mdio_lock;
 #line 284
-    __cil_tmp46 = __cil_tmp45 + 1032;
-#line 284
-    __cil_tmp47 = (spinlock_t *)__cil_tmp46;
-#line 284
-    tmp___1 = spinlock_check(__cil_tmp47);
+    tmp___1 = spinlock_check(__cil_tmp28);
 #line 284
     flags = _raw_spin_lock_irqsave(tmp___1);
 #line 285
     err = atl1c_get_speed_and_duplex(hw, & speed, & duplex);
 #line 286
-    __cil_tmp48 = (unsigned long )adapter;
+    __cil_tmp29 = & adapter->mdio_lock;
 #line 286
-    __cil_tmp49 = __cil_tmp48 + 1032;
-#line 286
-    __cil_tmp50 = (spinlock_t *)__cil_tmp49;
-#line 286
-    spin_unlock_irqrestore(__cil_tmp50, flags);
+    spin_unlock_irqrestore(__cil_tmp29, flags);
 #line 287
-    __cil_tmp51 = err != 0;
+    __cil_tmp30 = err != 0;
 #line 287
-    __cil_tmp52 = (long )__cil_tmp51;
+    __cil_tmp31 = (long )__cil_tmp30;
 #line 287
-    tmp___2 = __builtin_expect(__cil_tmp52, 0L);
+    tmp___2 = __builtin_expect(__cil_tmp31, 0L);
     }
 #line 287
     if (tmp___2 != 0L) {
@@ -8516,60 +8205,35 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
     }
     {
 #line 290
-    __cil_tmp53 = & speed;
+    __cil_tmp32 = (int )speed;
 #line 290
-    __cil_tmp54 = *__cil_tmp53;
+    __cil_tmp33 = adapter->link_speed;
 #line 290
-    __cil_tmp55 = (int )__cil_tmp54;
+    __cil_tmp34 = (int )__cil_tmp33;
 #line 290
-    __cil_tmp56 = (unsigned long )adapter;
+    if (__cil_tmp34 != __cil_tmp32) {
 #line 290
-    __cil_tmp57 = __cil_tmp56 + 1028;
-#line 290
-    __cil_tmp58 = *((u16 *)__cil_tmp57);
-#line 290
-    __cil_tmp59 = (int )__cil_tmp58;
-#line 290
-    if (__cil_tmp59 != __cil_tmp55) {
       goto _L;
     } else {
       {
 #line 290
-      __cil_tmp60 = & duplex;
+      __cil_tmp35 = (int )duplex;
 #line 290
-      __cil_tmp61 = *__cil_tmp60;
+      __cil_tmp36 = adapter->link_duplex;
 #line 290
-      __cil_tmp62 = (int )__cil_tmp61;
+      __cil_tmp37 = (int )__cil_tmp36;
 #line 290
-      __cil_tmp63 = (unsigned long )adapter;
-#line 290
-      __cil_tmp64 = __cil_tmp63 + 1030;
-#line 290
-      __cil_tmp65 = *((u16 *)__cil_tmp64);
-#line 290
-      __cil_tmp66 = (int )__cil_tmp65;
-#line 290
-      if (__cil_tmp66 != __cil_tmp62) {
+      if (__cil_tmp37 != __cil_tmp35) {
         _L: 
         {
 #line 292
-        __cil_tmp67 = (unsigned long )adapter;
-#line 292
-        __cil_tmp68 = __cil_tmp67 + 1028;
-#line 292
-        __cil_tmp69 = & speed;
-#line 292
-        *((u16 *)__cil_tmp68) = *__cil_tmp69;
+        adapter->link_speed = speed;
 #line 293
-        __cil_tmp70 = (unsigned long )adapter;
-#line 293
-        __cil_tmp71 = __cil_tmp70 + 1030;
-#line 293
-        __cil_tmp72 = & duplex;
-#line 293
-        *((u16 *)__cil_tmp71) = *__cil_tmp72;
+        adapter->link_duplex = duplex;
 #line 294
-        atl1c_set_aspm(hw, (_Bool)1);
+        __cil_tmp38 = (bool )1;
+#line 294
+        atl1c_set_aspm(hw, __cil_tmp38);
 #line 295
         atl1c_enable_tx_ctrl(hw);
 #line 296
@@ -8579,26 +8243,18 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
         }
         {
 #line 298
-        __cil_tmp73 = (unsigned long )adapter;
+        __cil_tmp39 = adapter->msg_enable;
 #line 298
-        __cil_tmp74 = __cil_tmp73 + 1016;
+        __cil_tmp40 = __cil_tmp39 & 4U;
 #line 298
-        __cil_tmp75 = *((u32 *)__cil_tmp74);
-#line 298
-        __cil_tmp76 = __cil_tmp75 & 4U;
-#line 298
-        if (__cil_tmp76 != 0U) {
+        if (__cil_tmp40 != 0U) {
           {
 #line 299
-          __cil_tmp77 = (unsigned long )adapter;
+          __cil_tmp41 = adapter->link_duplex;
 #line 299
-          __cil_tmp78 = __cil_tmp77 + 1030;
+          __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 299
-          __cil_tmp79 = *((u16 *)__cil_tmp78);
-#line 299
-          __cil_tmp80 = (unsigned int )__cil_tmp79;
-#line 299
-          if (__cil_tmp80 == 2U) {
+          if (__cil_tmp42 == 2U) {
 #line 299
             tmp___3 = (char *)"Full Duplex";
           } else {
@@ -8608,30 +8264,22 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
           }
           {
 #line 299
-          __cil_tmp81 = (unsigned long )pdev;
+          __cil_tmp43 = & pdev->dev;
 #line 299
-          __cil_tmp82 = __cil_tmp81 + 144;
+          __cil_tmp44 = (struct device  const  *)__cil_tmp43;
 #line 299
-          __cil_tmp83 = (struct device *)__cil_tmp82;
+          __cil_tmp45 = (char *)(& atl1c_driver_name);
 #line 299
-          __cil_tmp84 = (struct device  const  *)__cil_tmp83;
+          __cil_tmp46 = & netdev->name;
 #line 299
-          __cil_tmp85 = (char *)(& atl1c_driver_name);
+          __cil_tmp47 = (char *)__cil_tmp46;
 #line 299
-          __cil_tmp86 = (char (*)[16U])netdev;
+          __cil_tmp48 = adapter->link_speed;
 #line 299
-          __cil_tmp87 = (char *)__cil_tmp86;
+          __cil_tmp49 = (int )__cil_tmp48;
 #line 299
-          __cil_tmp88 = (unsigned long )adapter;
-#line 299
-          __cil_tmp89 = __cil_tmp88 + 1028;
-#line 299
-          __cil_tmp90 = *((u16 *)__cil_tmp89);
-#line 299
-          __cil_tmp91 = (int )__cil_tmp90;
-#line 299
-          _dev_info(__cil_tmp84, "%s: %s NIC Link is Up<%d Mbps %s>\n", __cil_tmp85,
-                    __cil_tmp87, __cil_tmp91, tmp___3);
+          _dev_info(__cil_tmp44, "%s: %s NIC Link is Up<%d Mbps %s>\n", __cil_tmp45,
+                    __cil_tmp47, __cil_tmp49, tmp___3);
           }
         } else {
 
@@ -8645,9 +8293,9 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
     }
     {
 #line 306
-    __cil_tmp92 = (struct net_device  const  *)netdev;
+    __cil_tmp50 = (struct net_device  const  *)netdev;
 #line 306
-    tmp___4 = netif_carrier_ok(__cil_tmp92);
+    tmp___4 = netif_carrier_ok(__cil_tmp50);
     }
 #line 306
     if (tmp___4 == 0) {
@@ -8671,110 +8319,70 @@ static void atl1c_link_chg_event(struct atl1c_adapter *adapter )
   u16 phy_data ;
   u16 link_up ;
   int tmp ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  spinlock_t *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct atl1c_hw *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct atl1c_hw *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  spinlock_t *__cil_tmp20 ;
-  u16 *__cil_tmp21 ;
-  u16 __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  struct net_device  const  *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u32 __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct device *__cil_tmp33 ;
-  struct device  const  *__cil_tmp34 ;
-  char *__cil_tmp35 ;
-  char (*__cil_tmp36)[16U] ;
-  char *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long *__cil_tmp42 ;
-  unsigned long volatile   *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct work_struct *__cil_tmp46 ;
+  spinlock_t *__cil_tmp7 ;
+  struct atl1c_hw *__cil_tmp8 ;
+  u16 __cil_tmp9 ;
+  struct atl1c_hw *__cil_tmp10 ;
+  u16 __cil_tmp11 ;
+  spinlock_t *__cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  struct net_device  const  *__cil_tmp16 ;
+  u32 __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  struct device *__cil_tmp19 ;
+  struct device  const  *__cil_tmp20 ;
+  char *__cil_tmp21 ;
+  char (*__cil_tmp22)[16U] ;
+  char *__cil_tmp23 ;
+  unsigned long *__cil_tmp24 ;
+  unsigned long volatile   *__cil_tmp25 ;
+  struct work_struct *__cil_tmp26 ;
 
   {
   {
 #line 313
-  netdev = *((struct net_device **)adapter);
+  netdev = adapter->netdev;
 #line 314
-  __cil_tmp7 = (unsigned long )adapter;
-#line 314
-  __cil_tmp8 = __cil_tmp7 + 8;
-#line 314
-  pdev = *((struct pci_dev **)__cil_tmp8);
+  pdev = adapter->pdev;
 #line 318
-  __cil_tmp9 = (unsigned long )adapter;
+  __cil_tmp7 = & adapter->mdio_lock;
 #line 318
-  __cil_tmp10 = __cil_tmp9 + 1032;
-#line 318
-  __cil_tmp11 = (spinlock_t *)__cil_tmp10;
-#line 318
-  spin_lock(__cil_tmp11);
+  spin_lock(__cil_tmp7);
 #line 319
-  __cil_tmp12 = (unsigned long )adapter;
+  __cil_tmp8 = & adapter->hw;
 #line 319
-  __cil_tmp13 = __cil_tmp12 + 184;
+  __cil_tmp9 = (u16 )1;
 #line 319
-  __cil_tmp14 = (struct atl1c_hw *)__cil_tmp13;
-#line 319
-  atl1c_read_phy_reg(__cil_tmp14, (unsigned short)1, & phy_data);
+  atl1c_read_phy_reg(__cil_tmp8, __cil_tmp9, & phy_data);
 #line 320
-  __cil_tmp15 = (unsigned long )adapter;
+  __cil_tmp10 = & adapter->hw;
 #line 320
-  __cil_tmp16 = __cil_tmp15 + 184;
+  __cil_tmp11 = (u16 )1;
 #line 320
-  __cil_tmp17 = (struct atl1c_hw *)__cil_tmp16;
-#line 320
-  atl1c_read_phy_reg(__cil_tmp17, (unsigned short)1, & phy_data);
+  atl1c_read_phy_reg(__cil_tmp10, __cil_tmp11, & phy_data);
 #line 321
-  __cil_tmp18 = (unsigned long )adapter;
+  __cil_tmp12 = & adapter->mdio_lock;
 #line 321
-  __cil_tmp19 = __cil_tmp18 + 1032;
-#line 321
-  __cil_tmp20 = (spinlock_t *)__cil_tmp19;
-#line 321
-  spin_unlock(__cil_tmp20);
+  spin_unlock(__cil_tmp12);
 #line 322
-  __cil_tmp21 = & phy_data;
+  __cil_tmp13 = (unsigned int )phy_data;
 #line 322
-  __cil_tmp22 = *__cil_tmp21;
+  __cil_tmp14 = __cil_tmp13 & 4U;
 #line 322
-  __cil_tmp23 = (unsigned int )__cil_tmp22;
-#line 322
-  __cil_tmp24 = __cil_tmp23 & 4U;
-#line 322
-  link_up = (unsigned short )__cil_tmp24;
+  link_up = (u16 )__cil_tmp14;
   }
   {
 #line 324
-  __cil_tmp25 = (unsigned int )link_up;
+  __cil_tmp15 = (unsigned int )link_up;
 #line 324
-  if (__cil_tmp25 == 0U) {
+  if (__cil_tmp15 == 0U) {
     {
 #line 325
-    __cil_tmp26 = (struct net_device  const  *)netdev;
+    __cil_tmp16 = (struct net_device  const  *)netdev;
 #line 325
-    tmp = netif_carrier_ok(__cil_tmp26);
+    tmp = netif_carrier_ok(__cil_tmp16);
     }
 #line 325
     if (tmp != 0) {
@@ -8784,43 +8392,31 @@ static void atl1c_link_chg_event(struct atl1c_adapter *adapter )
       }
       {
 #line 328
-      __cil_tmp27 = (unsigned long )adapter;
+      __cil_tmp17 = adapter->msg_enable;
 #line 328
-      __cil_tmp28 = __cil_tmp27 + 1016;
+      __cil_tmp18 = __cil_tmp17 & 4U;
 #line 328
-      __cil_tmp29 = *((u32 *)__cil_tmp28);
-#line 328
-      __cil_tmp30 = __cil_tmp29 & 4U;
-#line 328
-      if (__cil_tmp30 != 0U) {
+      if (__cil_tmp18 != 0U) {
         {
 #line 329
-        __cil_tmp31 = (unsigned long )pdev;
+        __cil_tmp19 = & pdev->dev;
 #line 329
-        __cil_tmp32 = __cil_tmp31 + 144;
+        __cil_tmp20 = (struct device  const  *)__cil_tmp19;
 #line 329
-        __cil_tmp33 = (struct device *)__cil_tmp32;
+        __cil_tmp21 = (char *)(& atl1c_driver_name);
 #line 329
-        __cil_tmp34 = (struct device  const  *)__cil_tmp33;
+        __cil_tmp22 = & netdev->name;
 #line 329
-        __cil_tmp35 = (char *)(& atl1c_driver_name);
+        __cil_tmp23 = (char *)__cil_tmp22;
 #line 329
-        __cil_tmp36 = (char (*)[16U])netdev;
-#line 329
-        __cil_tmp37 = (char *)__cil_tmp36;
-#line 329
-        _dev_info(__cil_tmp34, "%s: %s NIC Link is Down\n", __cil_tmp35, __cil_tmp37);
+        _dev_info(__cil_tmp20, "%s: %s NIC Link is Down\n", __cil_tmp21, __cil_tmp23);
         }
       } else {
 
       }
       }
 #line 332
-      __cil_tmp38 = (unsigned long )adapter;
-#line 332
-      __cil_tmp39 = __cil_tmp38 + 1028;
-#line 332
-      *((u16 *)__cil_tmp39) = (unsigned short)65535;
+      adapter->link_speed = (u16 )65535U;
     } else {
 
     }
@@ -8830,23 +8426,15 @@ static void atl1c_link_chg_event(struct atl1c_adapter *adapter )
   }
   {
 #line 336
-  __cil_tmp40 = (unsigned long )adapter;
+  __cil_tmp24 = & adapter->work_event;
 #line 336
-  __cil_tmp41 = __cil_tmp40 + 1008;
+  __cil_tmp25 = (unsigned long volatile   *)__cil_tmp24;
 #line 336
-  __cil_tmp42 = (unsigned long *)__cil_tmp41;
-#line 336
-  __cil_tmp43 = (unsigned long volatile   *)__cil_tmp42;
-#line 336
-  set_bit(1U, __cil_tmp43);
+  set_bit(1U, __cil_tmp25);
 #line 337
-  __cil_tmp44 = (unsigned long )adapter;
+  __cil_tmp26 = & adapter->common_task;
 #line 337
-  __cil_tmp45 = __cil_tmp44 + 1184;
-#line 337
-  __cil_tmp46 = (struct work_struct *)__cil_tmp45;
-#line 337
-  schedule_work(__cil_tmp46);
+  schedule_work(__cil_tmp26);
   }
 #line 338
   return;
@@ -8854,20 +8442,14 @@ static void atl1c_link_chg_event(struct atl1c_adapter *adapter )
 }
 #line 361 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 static void atl1c_del_timer(struct atl1c_adapter *adapter ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct timer_list *__cil_tmp4 ;
+{ struct timer_list *__cil_tmp2 ;
 
   {
   {
 #line 363
-  __cil_tmp2 = (unsigned long )adapter;
+  __cil_tmp2 = & adapter->phy_config_timer;
 #line 363
-  __cil_tmp3 = __cil_tmp2 + 1392;
-#line 363
-  __cil_tmp4 = (struct timer_list *)__cil_tmp3;
-#line 363
-  del_timer_sync(__cil_tmp4);
+  del_timer_sync(__cil_tmp2);
   }
 #line 364
   return;
@@ -8885,52 +8467,38 @@ static void atl1c_set_multi(struct net_device *netdev )
   struct list_head  const  *__mptr ;
   struct list_head  const  *__mptr___0 ;
   struct net_device  const  *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  bool __cil_tmp16 ;
-  long __cil_tmp17 ;
-  u8 *__cil_tmp18 ;
+  bool __cil_tmp12 ;
+  long __cil_tmp13 ;
+  u8 *__cil_tmp14 ;
+  void const volatile   *__cil_tmp15 ;
+  void const volatile   *__cil_tmp16 ;
+  u8 *__cil_tmp17 ;
+  void const volatile   *__cil_tmp18 ;
   void const volatile   *__cil_tmp19 ;
-  void const volatile   *__cil_tmp20 ;
-  u8 *__cil_tmp21 ;
+  u8 *__cil_tmp20 ;
+  void const volatile   *__cil_tmp21 ;
   void const volatile   *__cil_tmp22 ;
-  void const volatile   *__cil_tmp23 ;
-  u8 *__cil_tmp24 ;
-  void const volatile   *__cil_tmp25 ;
-  void const volatile   *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  u8 *__cil_tmp35 ;
-  void volatile   *__cil_tmp36 ;
-  void volatile   *__cil_tmp37 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  u8 *__cil_tmp27 ;
+  void volatile   *__cil_tmp28 ;
+  void volatile   *__cil_tmp29 ;
+  u8 *__cil_tmp30 ;
+  void volatile   *__cil_tmp31 ;
+  void volatile   *__cil_tmp32 ;
+  u8 *__cil_tmp33 ;
+  void volatile   *__cil_tmp34 ;
+  void volatile   *__cil_tmp35 ;
+  struct list_head *__cil_tmp36 ;
+  unsigned char (*__cil_tmp37)[32U] ;
   u8 *__cil_tmp38 ;
-  void volatile   *__cil_tmp39 ;
-  void volatile   *__cil_tmp40 ;
-  u8 *__cil_tmp41 ;
-  void volatile   *__cil_tmp42 ;
-  void volatile   *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct list_head *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned char (*__cil_tmp49)[32U] ;
-  u8 *__cil_tmp50 ;
-  struct list_head *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct list_head *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct list_head *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
+  struct list_head *__cil_tmp39 ;
+  struct list_head *__cil_tmp40 ;
+  unsigned long __cil_tmp41 ;
+  struct list_head *__cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
 
   {
   {
@@ -8941,79 +8509,63 @@ static void atl1c_set_multi(struct net_device *netdev )
 #line 391
   adapter = (struct atl1c_adapter *)tmp;
 #line 392
-  __cil_tmp12 = (unsigned long )adapter;
-#line 392
-  __cil_tmp13 = __cil_tmp12 + 184;
-#line 392
-  hw = (struct atl1c_hw *)__cil_tmp13;
+  hw = & adapter->hw;
 #line 398
-  __cil_tmp14 = (unsigned long )hw;
+  __cil_tmp12 = hw->hibernate;
 #line 398
-  __cil_tmp15 = __cil_tmp14 + 237;
+  __cil_tmp13 = (long )__cil_tmp12;
 #line 398
-  __cil_tmp16 = *((bool *)__cil_tmp15);
-#line 398
-  __cil_tmp17 = (long )__cil_tmp16;
-#line 398
-  tmp___0 = __builtin_expect(__cil_tmp17, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp13, 0L);
   }
 #line 398
   if (tmp___0 != 0L) {
     {
 #line 398
-    __cil_tmp18 = *((u8 **)hw);
+    __cil_tmp14 = hw->hw_addr;
 #line 398
-    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
+    __cil_tmp15 = (void const volatile   *)__cil_tmp14;
 #line 398
-    __cil_tmp20 = __cil_tmp19 + 5248U;
+    __cil_tmp16 = __cil_tmp15 + 5248U;
 #line 398
-    readl(__cil_tmp20);
+    readl(__cil_tmp16);
 #line 398
-    __cil_tmp21 = *((u8 **)hw);
+    __cil_tmp17 = hw->hw_addr;
 #line 398
-    __cil_tmp22 = (void const volatile   *)__cil_tmp21;
+    __cil_tmp18 = (void const volatile   *)__cil_tmp17;
 #line 398
-    __cil_tmp23 = __cil_tmp22 + 5248U;
+    __cil_tmp19 = __cil_tmp18 + 5248U;
 #line 398
-    mac_ctrl_data = readl(__cil_tmp23);
+    mac_ctrl_data = readl(__cil_tmp19);
     }
   } else {
     {
 #line 398
-    __cil_tmp24 = *((u8 **)hw);
+    __cil_tmp20 = hw->hw_addr;
 #line 398
-    __cil_tmp25 = (void const volatile   *)__cil_tmp24;
+    __cil_tmp21 = (void const volatile   *)__cil_tmp20;
 #line 398
-    __cil_tmp26 = __cil_tmp25 + 5248U;
+    __cil_tmp22 = __cil_tmp21 + 5248U;
 #line 398
-    mac_ctrl_data = readl(__cil_tmp26);
+    mac_ctrl_data = readl(__cil_tmp22);
     }
   }
   {
 #line 400
-  __cil_tmp27 = (unsigned long )netdev;
+  __cil_tmp23 = netdev->flags;
 #line 400
-  __cil_tmp28 = __cil_tmp27 + 432;
+  __cil_tmp24 = __cil_tmp23 & 256U;
 #line 400
-  __cil_tmp29 = *((unsigned int *)__cil_tmp28);
-#line 400
-  __cil_tmp30 = __cil_tmp29 & 256U;
-#line 400
-  if (__cil_tmp30 != 0U) {
+  if (__cil_tmp24 != 0U) {
 #line 401
     mac_ctrl_data = mac_ctrl_data | 32768U;
   } else {
     {
 #line 402
-    __cil_tmp31 = (unsigned long )netdev;
+    __cil_tmp25 = netdev->flags;
 #line 402
-    __cil_tmp32 = __cil_tmp31 + 432;
+    __cil_tmp26 = __cil_tmp25 & 512U;
 #line 402
-    __cil_tmp33 = *((unsigned int *)__cil_tmp32);
-#line 402
-    __cil_tmp34 = __cil_tmp33 & 512U;
-#line 402
-    if (__cil_tmp34 != 0U) {
+    if (__cil_tmp26 != 0U) {
 #line 403
       mac_ctrl_data = mac_ctrl_data | 33554432U;
 #line 404
@@ -9027,80 +8579,71 @@ static void atl1c_set_multi(struct net_device *netdev )
   }
   {
 #line 409
-  __cil_tmp35 = *((u8 **)hw);
+  __cil_tmp27 = hw->hw_addr;
 #line 409
-  __cil_tmp36 = (void volatile   *)__cil_tmp35;
+  __cil_tmp28 = (void volatile   *)__cil_tmp27;
 #line 409
-  __cil_tmp37 = __cil_tmp36 + 5248U;
+  __cil_tmp29 = __cil_tmp28 + 5248U;
 #line 409
-  writel(mac_ctrl_data, __cil_tmp37);
+  writel(mac_ctrl_data, __cil_tmp29);
 #line 412
-  __cil_tmp38 = *((u8 **)hw);
+  __cil_tmp30 = hw->hw_addr;
 #line 412
-  __cil_tmp39 = (void volatile   *)__cil_tmp38;
+  __cil_tmp31 = (void volatile   *)__cil_tmp30;
 #line 412
-  __cil_tmp40 = __cil_tmp39 + 5264U;
+  __cil_tmp32 = __cil_tmp31 + 5264U;
 #line 412
-  writel(0U, __cil_tmp40);
+  writel(0U, __cil_tmp32);
 #line 413
-  __cil_tmp41 = *((u8 **)hw);
+  __cil_tmp33 = hw->hw_addr;
 #line 413
-  __cil_tmp42 = (void volatile   *)__cil_tmp41;
+  __cil_tmp34 = (void volatile   *)__cil_tmp33;
 #line 413
-  __cil_tmp43 = __cil_tmp42 + 5268U;
+  __cil_tmp35 = __cil_tmp34 + 5268U;
 #line 413
-  writel(0U, __cil_tmp43);
+  writel(0U, __cil_tmp35);
 #line 416
-  __cil_tmp44 = (unsigned long )netdev;
+  __cil_tmp36 = netdev->mc.list.next;
 #line 416
-  __cil_tmp45 = __cil_tmp44 + 592;
-#line 416
-  __cil_tmp46 = *((struct list_head **)__cil_tmp45);
-#line 416
-  __mptr = (struct list_head  const  *)__cil_tmp46;
+  __mptr = (struct list_head  const  *)__cil_tmp36;
 #line 416
   ha = (struct netdev_hw_addr *)__mptr;
   }
+#line 416
   goto ldv_42520;
   ldv_42519: 
   {
 #line 417
-  __cil_tmp47 = (unsigned long )ha;
+  __cil_tmp37 = & ha->addr;
 #line 417
-  __cil_tmp48 = __cil_tmp47 + 16;
+  __cil_tmp38 = (u8 *)__cil_tmp37;
 #line 417
-  __cil_tmp49 = (unsigned char (*)[32U])__cil_tmp48;
-#line 417
-  __cil_tmp50 = (u8 *)__cil_tmp49;
-#line 417
-  hash_value = atl1c_hash_mc_addr(hw, __cil_tmp50);
+  hash_value = atl1c_hash_mc_addr(hw, __cil_tmp38);
 #line 418
   atl1c_hash_set(hw, hash_value);
 #line 416
-  __cil_tmp51 = *((struct list_head **)ha);
+  __cil_tmp39 = ha->list.next;
 #line 416
-  __mptr___0 = (struct list_head  const  *)__cil_tmp51;
+  __mptr___0 = (struct list_head  const  *)__cil_tmp39;
 #line 416
   ha = (struct netdev_hw_addr *)__mptr___0;
   }
   ldv_42520: ;
   {
 #line 416
-  __cil_tmp52 = (unsigned long )netdev;
+  __cil_tmp40 = & netdev->mc.list;
 #line 416
-  __cil_tmp53 = __cil_tmp52 + 592;
+  __cil_tmp41 = (unsigned long )__cil_tmp40;
 #line 416
-  __cil_tmp54 = (struct list_head *)__cil_tmp53;
+  __cil_tmp42 = & ha->list;
 #line 416
-  __cil_tmp55 = (unsigned long )__cil_tmp54;
+  __cil_tmp43 = (unsigned long )__cil_tmp42;
 #line 416
-  __cil_tmp56 = (struct list_head *)ha;
-#line 416
-  __cil_tmp57 = (unsigned long )__cil_tmp56;
-#line 416
-  if (__cil_tmp57 != __cil_tmp55) {
+  if (__cil_tmp43 != __cil_tmp41) {
+#line 417
     goto ldv_42519;
   } else {
+#line 419
     goto ldv_42521;
   }
   }
@@ -9119,57 +8662,31 @@ static void atl1c_vlan_rx_register(struct net_device *netdev , struct vlan_group
   long tmp___0 ;
   long tmp___1 ;
   struct net_device  const  *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  u32 __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  signed char __cil_tmp17 ;
-  int __cil_tmp18 ;
-  int __cil_tmp19 ;
+  u32 __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  signed char __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  long __cil_tmp16 ;
+  struct device *__cil_tmp17 ;
+  struct device  const  *__cil_tmp18 ;
+  bool __cil_tmp19 ;
   long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct device *__cil_tmp23 ;
-  struct device  const  *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  bool __cil_tmp30 ;
-  long __cil_tmp31 ;
+  u8 *__cil_tmp21 ;
+  void const volatile   *__cil_tmp22 ;
+  void const volatile   *__cil_tmp23 ;
+  u8 *__cil_tmp24 ;
+  void const volatile   *__cil_tmp25 ;
+  void const volatile   *__cil_tmp26 ;
+  u8 *__cil_tmp27 ;
+  void const volatile   *__cil_tmp28 ;
+  void const volatile   *__cil_tmp29 ;
+  struct vlan_group *__cil_tmp30 ;
+  unsigned long __cil_tmp31 ;
   unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  u8 *__cil_tmp34 ;
-  void const volatile   *__cil_tmp35 ;
-  void const volatile   *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u8 *__cil_tmp39 ;
-  void const volatile   *__cil_tmp40 ;
-  void const volatile   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  u8 *__cil_tmp44 ;
-  void const volatile   *__cil_tmp45 ;
-  void const volatile   *__cil_tmp46 ;
-  struct vlan_group *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u8 *__cil_tmp52 ;
-  void volatile   *__cil_tmp53 ;
-  void volatile   *__cil_tmp54 ;
-  char descriptor_enabled55 ;
-  unsigned char descriptor_flags56 ;
-  unsigned int descriptor_lineno57 ;
-  char const   *descriptor_format58 ;
-  char const   *descriptor_filename59 ;
-  char const   *descriptor_function60 ;
-  char const   *descriptor_modname61 ;
+  u8 *__cil_tmp33 ;
+  void volatile   *__cil_tmp34 ;
+  void volatile   *__cil_tmp35 ;
 
   {
   {
@@ -9180,64 +8697,52 @@ static void atl1c_vlan_rx_register(struct net_device *netdev , struct vlan_group
 #line 425
   adapter = (struct atl1c_adapter *)tmp;
 #line 426
-  __cil_tmp11 = (unsigned long )adapter;
-#line 426
-  __cil_tmp12 = __cil_tmp11 + 8;
-#line 426
-  pdev = *((struct pci_dev **)__cil_tmp12);
+  pdev = adapter->pdev;
 #line 427
   mac_ctrl_data = 0U;
   }
   {
 #line 429
-  __cil_tmp13 = (unsigned long )adapter;
+  __cil_tmp11 = adapter->msg_enable;
 #line 429
-  __cil_tmp14 = __cil_tmp13 + 1016;
+  __cil_tmp12 = __cil_tmp11 & 4096U;
 #line 429
-  __cil_tmp15 = *((u32 *)__cil_tmp14);
-#line 429
-  __cil_tmp16 = __cil_tmp15 & 4096U;
-#line 429
-  if (__cil_tmp16 != 0U) {
+  if (__cil_tmp12 != 0U) {
     {
 #line 430
-    descriptor_modname61 = "atl1c";
+    descriptor.modname = "atl1c";
 #line 430
-    descriptor_function60 = "atl1c_vlan_rx_register";
+    descriptor.function = "atl1c_vlan_rx_register";
 #line 430
-    descriptor_filename59 = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
+    descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
 #line 430
-    descriptor_format58 = "atl1c_vlan_rx_register\n";
+    descriptor.format = "atl1c_vlan_rx_register\n";
 #line 430
-    descriptor_lineno57 = 430U;
+    descriptor.lineno = 430U;
 #line 430
-    descriptor_flags56 = (unsigned char)0;
+    descriptor.flags = (unsigned char)0;
 #line 430
-    descriptor_enabled55 = (char)0;
+    descriptor.enabled = (char)0;
 #line 430
-    __cil_tmp17 = (signed char )descriptor_enabled55;
+    __cil_tmp13 = (signed char )descriptor.enabled;
 #line 430
-    __cil_tmp18 = (int )__cil_tmp17;
+    __cil_tmp14 = (int )__cil_tmp13;
 #line 430
-    __cil_tmp19 = __cil_tmp18 != 0;
+    __cil_tmp15 = __cil_tmp14 != 0;
 #line 430
-    __cil_tmp20 = (long )__cil_tmp19;
+    __cil_tmp16 = (long )__cil_tmp15;
 #line 430
-    tmp___0 = __builtin_expect(__cil_tmp20, 0L);
+    tmp___0 = __builtin_expect(__cil_tmp16, 0L);
     }
 #line 430
     if (tmp___0 != 0L) {
       {
 #line 430
-      __cil_tmp21 = (unsigned long )pdev;
+      __cil_tmp17 = & pdev->dev;
 #line 430
-      __cil_tmp22 = __cil_tmp21 + 144;
+      __cil_tmp18 = (struct device  const  *)__cil_tmp17;
 #line 430
-      __cil_tmp23 = (struct device *)__cil_tmp22;
-#line 430
-      __cil_tmp24 = (struct device  const  *)__cil_tmp23;
-#line 430
-      dev_printk("<7>", __cil_tmp24, "atl1c_vlan_rx_register\n");
+      dev_printk("<7>", __cil_tmp18, "atl1c_vlan_rx_register\n");
       }
     } else {
 
@@ -9250,77 +8755,55 @@ static void atl1c_vlan_rx_register(struct net_device *netdev , struct vlan_group
 #line 432
   atl1c_irq_disable(adapter);
 #line 434
-  __cil_tmp25 = (unsigned long )adapter;
-#line 434
-  __cil_tmp26 = __cil_tmp25 + 16;
-#line 434
-  *((struct vlan_group **)__cil_tmp26) = grp;
+  adapter->vlgrp = grp;
 #line 435
-  __cil_tmp27 = 184 + 237;
+  __cil_tmp19 = adapter->hw.hibernate;
 #line 435
-  __cil_tmp28 = (unsigned long )adapter;
+  __cil_tmp20 = (long )__cil_tmp19;
 #line 435
-  __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 435
-  __cil_tmp30 = *((bool *)__cil_tmp29);
-#line 435
-  __cil_tmp31 = (long )__cil_tmp30;
-#line 435
-  tmp___1 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___1 = __builtin_expect(__cil_tmp20, 0L);
   }
 #line 435
   if (tmp___1 != 0L) {
     {
 #line 435
-    __cil_tmp32 = (unsigned long )adapter;
+    __cil_tmp21 = adapter->hw.hw_addr;
 #line 435
-    __cil_tmp33 = __cil_tmp32 + 184;
+    __cil_tmp22 = (void const volatile   *)__cil_tmp21;
 #line 435
-    __cil_tmp34 = *((u8 **)__cil_tmp33);
+    __cil_tmp23 = __cil_tmp22 + 5248U;
 #line 435
-    __cil_tmp35 = (void const volatile   *)__cil_tmp34;
+    readl(__cil_tmp23);
 #line 435
-    __cil_tmp36 = __cil_tmp35 + 5248U;
+    __cil_tmp24 = adapter->hw.hw_addr;
 #line 435
-    readl(__cil_tmp36);
+    __cil_tmp25 = (void const volatile   *)__cil_tmp24;
 #line 435
-    __cil_tmp37 = (unsigned long )adapter;
+    __cil_tmp26 = __cil_tmp25 + 5248U;
 #line 435
-    __cil_tmp38 = __cil_tmp37 + 184;
-#line 435
-    __cil_tmp39 = *((u8 **)__cil_tmp38);
-#line 435
-    __cil_tmp40 = (void const volatile   *)__cil_tmp39;
-#line 435
-    __cil_tmp41 = __cil_tmp40 + 5248U;
-#line 435
-    mac_ctrl_data = readl(__cil_tmp41);
+    mac_ctrl_data = readl(__cil_tmp26);
     }
   } else {
     {
 #line 435
-    __cil_tmp42 = (unsigned long )adapter;
+    __cil_tmp27 = adapter->hw.hw_addr;
 #line 435
-    __cil_tmp43 = __cil_tmp42 + 184;
+    __cil_tmp28 = (void const volatile   *)__cil_tmp27;
 #line 435
-    __cil_tmp44 = *((u8 **)__cil_tmp43);
+    __cil_tmp29 = __cil_tmp28 + 5248U;
 #line 435
-    __cil_tmp45 = (void const volatile   *)__cil_tmp44;
-#line 435
-    __cil_tmp46 = __cil_tmp45 + 5248U;
-#line 435
-    mac_ctrl_data = readl(__cil_tmp46);
+    mac_ctrl_data = readl(__cil_tmp29);
     }
   }
   {
 #line 437
-  __cil_tmp47 = (struct vlan_group *)0;
+  __cil_tmp30 = (struct vlan_group *)0;
 #line 437
-  __cil_tmp48 = (unsigned long )__cil_tmp47;
+  __cil_tmp31 = (unsigned long )__cil_tmp30;
 #line 437
-  __cil_tmp49 = (unsigned long )grp;
+  __cil_tmp32 = (unsigned long )grp;
 #line 437
-  if (__cil_tmp49 != __cil_tmp48) {
+  if (__cil_tmp32 != __cil_tmp31) {
 #line 439
     mac_ctrl_data = mac_ctrl_data | 16384U;
   } else {
@@ -9330,17 +8813,13 @@ static void atl1c_vlan_rx_register(struct net_device *netdev , struct vlan_group
   }
   {
 #line 445
-  __cil_tmp50 = (unsigned long )adapter;
+  __cil_tmp33 = adapter->hw.hw_addr;
 #line 445
-  __cil_tmp51 = __cil_tmp50 + 184;
+  __cil_tmp34 = (void volatile   *)__cil_tmp33;
 #line 445
-  __cil_tmp52 = *((u8 **)__cil_tmp51);
+  __cil_tmp35 = __cil_tmp34 + 5248U;
 #line 445
-  __cil_tmp53 = (void volatile   *)__cil_tmp52;
-#line 445
-  __cil_tmp54 = __cil_tmp53 + 5248U;
-#line 445
-  writel(mac_ctrl_data, __cil_tmp54);
+  writel(mac_ctrl_data, __cil_tmp35);
 #line 446
   atl1c_irq_enable(adapter);
   }
@@ -9353,89 +8832,62 @@ static void atl1c_restore_vlan(struct atl1c_adapter *adapter )
 { struct pci_dev *pdev ;
   struct _ddebug descriptor ;
   long tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  u32 __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  signed char __cil_tmp11 ;
-  int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct device *__cil_tmp17 ;
-  struct device  const  *__cil_tmp18 ;
-  struct net_device *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct vlan_group *__cil_tmp22 ;
-  char descriptor_enabled23 ;
-  unsigned char descriptor_flags24 ;
-  unsigned int descriptor_lineno25 ;
-  char const   *descriptor_format26 ;
-  char const   *descriptor_filename27 ;
-  char const   *descriptor_function28 ;
-  char const   *descriptor_modname29 ;
+  u32 __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  signed char __cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  long __cil_tmp10 ;
+  struct device *__cil_tmp11 ;
+  struct device  const  *__cil_tmp12 ;
+  struct net_device *__cil_tmp13 ;
+  struct vlan_group *__cil_tmp14 ;
 
   {
 #line 451
-  __cil_tmp5 = (unsigned long )adapter;
-#line 451
-  __cil_tmp6 = __cil_tmp5 + 8;
-#line 451
-  pdev = *((struct pci_dev **)__cil_tmp6);
+  pdev = adapter->pdev;
   {
 #line 453
-  __cil_tmp7 = (unsigned long )adapter;
+  __cil_tmp5 = adapter->msg_enable;
 #line 453
-  __cil_tmp8 = __cil_tmp7 + 1016;
+  __cil_tmp6 = __cil_tmp5 & 4096U;
 #line 453
-  __cil_tmp9 = *((u32 *)__cil_tmp8);
-#line 453
-  __cil_tmp10 = __cil_tmp9 & 4096U;
-#line 453
-  if (__cil_tmp10 != 0U) {
+  if (__cil_tmp6 != 0U) {
     {
 #line 454
-    descriptor_modname29 = "atl1c";
+    descriptor.modname = "atl1c";
 #line 454
-    descriptor_function28 = "atl1c_restore_vlan";
+    descriptor.function = "atl1c_restore_vlan";
 #line 454
-    descriptor_filename27 = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
+    descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
 #line 454
-    descriptor_format26 = "atl1c_restore_vlan !";
+    descriptor.format = "atl1c_restore_vlan !";
 #line 454
-    descriptor_lineno25 = 454U;
+    descriptor.lineno = 454U;
 #line 454
-    descriptor_flags24 = (unsigned char)0;
+    descriptor.flags = (unsigned char)0;
 #line 454
-    descriptor_enabled23 = (char)0;
+    descriptor.enabled = (char)0;
 #line 454
-    __cil_tmp11 = (signed char )descriptor_enabled23;
+    __cil_tmp7 = (signed char )descriptor.enabled;
 #line 454
-    __cil_tmp12 = (int )__cil_tmp11;
+    __cil_tmp8 = (int )__cil_tmp7;
 #line 454
-    __cil_tmp13 = __cil_tmp12 != 0;
+    __cil_tmp9 = __cil_tmp8 != 0;
 #line 454
-    __cil_tmp14 = (long )__cil_tmp13;
+    __cil_tmp10 = (long )__cil_tmp9;
 #line 454
-    tmp = __builtin_expect(__cil_tmp14, 0L);
+    tmp = __builtin_expect(__cil_tmp10, 0L);
     }
 #line 454
     if (tmp != 0L) {
       {
 #line 454
-      __cil_tmp15 = (unsigned long )pdev;
+      __cil_tmp11 = & pdev->dev;
 #line 454
-      __cil_tmp16 = __cil_tmp15 + 144;
+      __cil_tmp12 = (struct device  const  *)__cil_tmp11;
 #line 454
-      __cil_tmp17 = (struct device *)__cil_tmp16;
-#line 454
-      __cil_tmp18 = (struct device  const  *)__cil_tmp17;
-#line 454
-      dev_printk("<7>", __cil_tmp18, "atl1c_restore_vlan !");
+      dev_printk("<7>", __cil_tmp12, "atl1c_restore_vlan !");
       }
     } else {
 
@@ -9446,15 +8898,11 @@ static void atl1c_restore_vlan(struct atl1c_adapter *adapter )
   }
   {
 #line 455
-  __cil_tmp19 = *((struct net_device **)adapter);
+  __cil_tmp13 = adapter->netdev;
 #line 455
-  __cil_tmp20 = (unsigned long )adapter;
+  __cil_tmp14 = adapter->vlgrp;
 #line 455
-  __cil_tmp21 = __cil_tmp20 + 16;
-#line 455
-  __cil_tmp22 = *((struct vlan_group **)__cil_tmp21);
-#line 455
-  atl1c_vlan_rx_register(__cil_tmp19, __cil_tmp22);
+  atl1c_vlan_rx_register(__cil_tmp13, __cil_tmp14);
   }
 #line 456
   return;
@@ -9464,79 +8912,47 @@ static void atl1c_restore_vlan(struct atl1c_adapter *adapter )
 __inline static void atl1c_clean_buffer(struct pci_dev *pdev , struct atl1c_buffer *buffer_info ,
                                         int in_irq ) 
 { u16 pci_driection ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  u16 __cil_tmp7 ;
-  int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  dma_addr_t __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u16 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  u16 __cil_tmp19 ;
+  u16 __cil_tmp5 ;
+  int __cil_tmp6 ;
+  dma_addr_t __cil_tmp7 ;
+  u16 __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  u16 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  dma_addr_t __cil_tmp14 ;
+  u16 __cil_tmp15 ;
+  size_t __cil_tmp16 ;
+  int __cil_tmp17 ;
+  u16 __cil_tmp18 ;
+  int __cil_tmp19 ;
   int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  dma_addr_t __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  dma_addr_t __cil_tmp21 ;
+  u16 __cil_tmp22 ;
+  size_t __cil_tmp23 ;
+  int __cil_tmp24 ;
+  struct sk_buff *__cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  u16 __cil_tmp27 ;
+  struct sk_buff *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u16 __cil_tmp32 ;
-  int __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  dma_addr_t __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  u16 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  int __cil_tmp42 ;
-  struct sk_buff *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct sk_buff *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct sk_buff *__cil_tmp47 ;
-  struct sk_buff *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  u16 __cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u16 __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  unsigned int __cil_tmp64 ;
+  struct sk_buff *__cil_tmp29 ;
+  struct sk_buff *__cil_tmp30 ;
+  u16 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  u16 __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
 
   {
   {
 #line 782
-  __cil_tmp5 = (unsigned long )buffer_info;
+  __cil_tmp5 = buffer_info->flags;
 #line 782
-  __cil_tmp6 = __cil_tmp5 + 10;
+  __cil_tmp6 = (int )__cil_tmp5;
 #line 782
-  __cil_tmp7 = *((u16 *)__cil_tmp6);
-#line 782
-  __cil_tmp8 = (int )__cil_tmp7;
-#line 782
-  if (__cil_tmp8 & 1) {
+  if (__cil_tmp6 & 1) {
 #line 783
     return;
   } else {
@@ -9545,99 +8961,67 @@ __inline static void atl1c_clean_buffer(struct pci_dev *pdev , struct atl1c_buff
   }
   {
 #line 784
-  __cil_tmp9 = (unsigned long )buffer_info;
+  __cil_tmp7 = buffer_info->dma;
 #line 784
-  __cil_tmp10 = __cil_tmp9 + 16;
-#line 784
-  __cil_tmp11 = *((dma_addr_t *)__cil_tmp10);
-#line 784
-  if (__cil_tmp11 != 0ULL) {
+  if (__cil_tmp7 != 0ULL) {
     {
 #line 785
-    __cil_tmp12 = (unsigned long )buffer_info;
+    __cil_tmp8 = buffer_info->flags;
 #line 785
-    __cil_tmp13 = __cil_tmp12 + 10;
+    __cil_tmp9 = (int )__cil_tmp8;
 #line 785
-    __cil_tmp14 = *((u16 *)__cil_tmp13);
+    __cil_tmp10 = __cil_tmp9 & 32;
 #line 785
-    __cil_tmp15 = (int )__cil_tmp14;
-#line 785
-    __cil_tmp16 = __cil_tmp15 & 32;
-#line 785
-    if (__cil_tmp16 != 0) {
+    if (__cil_tmp10 != 0) {
 #line 786
-      pci_driection = (unsigned short)2;
+      pci_driection = (u16 )2U;
     } else {
 #line 788
-      pci_driection = (unsigned short)1;
+      pci_driection = (u16 )1U;
     }
     }
     {
 #line 790
-    __cil_tmp17 = (unsigned long )buffer_info;
+    __cil_tmp11 = buffer_info->flags;
 #line 790
-    __cil_tmp18 = __cil_tmp17 + 10;
+    __cil_tmp12 = (int )__cil_tmp11;
 #line 790
-    __cil_tmp19 = *((u16 *)__cil_tmp18);
+    __cil_tmp13 = __cil_tmp12 & 4;
 #line 790
-    __cil_tmp20 = (int )__cil_tmp19;
-#line 790
-    __cil_tmp21 = __cil_tmp20 & 4;
-#line 790
-    if (__cil_tmp21 != 0) {
+    if (__cil_tmp13 != 0) {
       {
 #line 791
-      __cil_tmp22 = (unsigned long )buffer_info;
+      __cil_tmp14 = buffer_info->dma;
 #line 791
-      __cil_tmp23 = __cil_tmp22 + 16;
+      __cil_tmp15 = buffer_info->length;
 #line 791
-      __cil_tmp24 = *((dma_addr_t *)__cil_tmp23);
+      __cil_tmp16 = (size_t )__cil_tmp15;
 #line 791
-      __cil_tmp25 = (unsigned long )buffer_info;
+      __cil_tmp17 = (int )pci_driection;
 #line 791
-      __cil_tmp26 = __cil_tmp25 + 8;
-#line 791
-      __cil_tmp27 = *((u16 *)__cil_tmp26);
-#line 791
-      __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 791
-      __cil_tmp29 = (int )pci_driection;
-#line 791
-      pci_unmap_single(pdev, __cil_tmp24, __cil_tmp28, __cil_tmp29);
+      pci_unmap_single(pdev, __cil_tmp14, __cil_tmp16, __cil_tmp17);
       }
     } else {
       {
 #line 793
-      __cil_tmp30 = (unsigned long )buffer_info;
+      __cil_tmp18 = buffer_info->flags;
 #line 793
-      __cil_tmp31 = __cil_tmp30 + 10;
+      __cil_tmp19 = (int )__cil_tmp18;
 #line 793
-      __cil_tmp32 = *((u16 *)__cil_tmp31);
+      __cil_tmp20 = __cil_tmp19 & 8;
 #line 793
-      __cil_tmp33 = (int )__cil_tmp32;
-#line 793
-      __cil_tmp34 = __cil_tmp33 & 8;
-#line 793
-      if (__cil_tmp34 != 0) {
+      if (__cil_tmp20 != 0) {
         {
 #line 794
-        __cil_tmp35 = (unsigned long )buffer_info;
+        __cil_tmp21 = buffer_info->dma;
 #line 794
-        __cil_tmp36 = __cil_tmp35 + 16;
+        __cil_tmp22 = buffer_info->length;
 #line 794
-        __cil_tmp37 = *((dma_addr_t *)__cil_tmp36);
+        __cil_tmp23 = (size_t )__cil_tmp22;
 #line 794
-        __cil_tmp38 = (unsigned long )buffer_info;
+        __cil_tmp24 = (int )pci_driection;
 #line 794
-        __cil_tmp39 = __cil_tmp38 + 8;
-#line 794
-        __cil_tmp40 = *((u16 *)__cil_tmp39);
-#line 794
-        __cil_tmp41 = (unsigned long )__cil_tmp40;
-#line 794
-        __cil_tmp42 = (int )pci_driection;
-#line 794
-        pci_unmap_page(pdev, __cil_tmp37, __cil_tmp41, __cil_tmp42);
+        pci_unmap_page(pdev, __cil_tmp21, __cil_tmp23, __cil_tmp24);
         }
       } else {
 
@@ -9651,29 +9035,29 @@ __inline static void atl1c_clean_buffer(struct pci_dev *pdev , struct atl1c_buff
   }
   {
 #line 797
-  __cil_tmp43 = (struct sk_buff *)0;
+  __cil_tmp25 = (struct sk_buff *)0;
 #line 797
-  __cil_tmp44 = (unsigned long )__cil_tmp43;
+  __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 797
-  __cil_tmp45 = *((struct sk_buff **)buffer_info);
+  __cil_tmp27 = buffer_info->skb;
 #line 797
-  __cil_tmp46 = (unsigned long )__cil_tmp45;
+  __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 797
-  if (__cil_tmp46 != __cil_tmp44) {
+  if (__cil_tmp28 != __cil_tmp26) {
 #line 798
     if (in_irq != 0) {
       {
 #line 799
-      __cil_tmp47 = *((struct sk_buff **)buffer_info);
+      __cil_tmp29 = buffer_info->skb;
 #line 799
-      dev_kfree_skb_irq(__cil_tmp47);
+      dev_kfree_skb_irq(__cil_tmp29);
       }
     } else {
       {
 #line 801
-      __cil_tmp48 = *((struct sk_buff **)buffer_info);
+      __cil_tmp30 = buffer_info->skb;
 #line 801
-      consume_skb(__cil_tmp48);
+      consume_skb(__cil_tmp30);
       }
     }
   } else {
@@ -9681,45 +9065,25 @@ __inline static void atl1c_clean_buffer(struct pci_dev *pdev , struct atl1c_buff
   }
   }
 #line 803
-  __cil_tmp49 = (unsigned long )buffer_info;
-#line 803
-  __cil_tmp50 = __cil_tmp49 + 16;
-#line 803
-  *((dma_addr_t *)__cil_tmp50) = 0ULL;
+  buffer_info->dma = 0ULL;
 #line 804
-  *((struct sk_buff **)buffer_info) = (struct sk_buff *)0;
+  buffer_info->skb = (struct sk_buff *)0;
 #line 805
-  __cil_tmp51 = (unsigned long )buffer_info;
+  __cil_tmp31 = buffer_info->flags;
 #line 805
-  __cil_tmp52 = __cil_tmp51 + 10;
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 805
-  __cil_tmp53 = (unsigned long )buffer_info;
+  __cil_tmp33 = __cil_tmp32 & 65532U;
 #line 805
-  __cil_tmp54 = __cil_tmp53 + 10;
+  buffer_info->flags = (u16 )__cil_tmp33;
 #line 805
-  __cil_tmp55 = *((u16 *)__cil_tmp54);
+  __cil_tmp34 = buffer_info->flags;
 #line 805
-  __cil_tmp56 = (unsigned int )__cil_tmp55;
+  __cil_tmp35 = (unsigned int )__cil_tmp34;
 #line 805
-  __cil_tmp57 = __cil_tmp56 & 65532U;
+  __cil_tmp36 = __cil_tmp35 | 1U;
 #line 805
-  *((u16 *)__cil_tmp52) = (unsigned short )__cil_tmp57;
-#line 805
-  __cil_tmp58 = (unsigned long )buffer_info;
-#line 805
-  __cil_tmp59 = __cil_tmp58 + 10;
-#line 805
-  __cil_tmp60 = (unsigned long )buffer_info;
-#line 805
-  __cil_tmp61 = __cil_tmp60 + 10;
-#line 805
-  __cil_tmp62 = *((u16 *)__cil_tmp61);
-#line 805
-  __cil_tmp63 = (unsigned int )__cil_tmp62;
-#line 805
-  __cil_tmp64 = __cil_tmp63 | 1U;
-#line 805
-  *((u16 *)__cil_tmp59) = (unsigned short )__cil_tmp64;
+  buffer_info->flags = (u16 )__cil_tmp36;
 #line 806
   return;
 }
@@ -9732,117 +9096,84 @@ static void atl1c_clean_tx_ring(struct atl1c_adapter *adapter , enum atl1c_trans
   u16 index ;
   u16 ring_count ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct atl1c_tpd_ring (*__cil_tmp11)[2U] ;
-  struct atl1c_tpd_ring *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct atl1c_tpd_ring (*__cil_tmp9)[2U] ;
+  struct atl1c_tpd_ring *__cil_tmp10 ;
+  unsigned long __cil_tmp11 ;
+  struct atl1c_buffer *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  void *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  struct atl1c_buffer *__cil_tmp20 ;
-  int __cil_tmp21 ;
-  int __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  void *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  atomic_t *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  atomic_t *__cil_tmp20 ;
 
   {
 #line 814
   __cil_tmp8 = (unsigned long )type;
 #line 814
-  __cil_tmp9 = (unsigned long )adapter;
+  __cil_tmp9 = & adapter->tpd_ring;
 #line 814
-  __cil_tmp10 = __cil_tmp9 + 1544;
+  __cil_tmp10 = (struct atl1c_tpd_ring *)__cil_tmp9;
 #line 814
-  __cil_tmp11 = (struct atl1c_tpd_ring (*)[2U])__cil_tmp10;
-#line 814
-  __cil_tmp12 = (struct atl1c_tpd_ring *)__cil_tmp11;
-#line 814
-  tpd_ring = __cil_tmp12 + __cil_tmp8;
+  tpd_ring = __cil_tmp10 + __cil_tmp8;
 #line 816
-  __cil_tmp13 = (unsigned long )adapter;
-#line 816
-  __cil_tmp14 = __cil_tmp13 + 8;
-#line 816
-  pdev = *((struct pci_dev **)__cil_tmp14);
+  pdev = adapter->pdev;
 #line 819
-  __cil_tmp15 = (unsigned long )tpd_ring;
-#line 819
-  __cil_tmp16 = __cil_tmp15 + 18;
-#line 819
-  ring_count = *((u16 *)__cil_tmp16);
+  ring_count = tpd_ring->count;
 #line 820
-  index = (unsigned short)0;
+  index = (u16 )0U;
+#line 820
   goto ldv_42658;
   ldv_42657: 
   {
 #line 821
-  __cil_tmp17 = (unsigned long )index;
+  __cil_tmp11 = (unsigned long )index;
 #line 821
-  __cil_tmp18 = (unsigned long )tpd_ring;
+  __cil_tmp12 = tpd_ring->buffer_info;
 #line 821
-  __cil_tmp19 = __cil_tmp18 + 32;
-#line 821
-  __cil_tmp20 = *((struct atl1c_buffer **)__cil_tmp19);
-#line 821
-  buffer_info = __cil_tmp20 + __cil_tmp17;
+  buffer_info = __cil_tmp12 + __cil_tmp11;
 #line 822
   atl1c_clean_buffer(pdev, buffer_info, 0);
 #line 820
-  __cil_tmp21 = (int )index;
+  __cil_tmp13 = (int )index;
 #line 820
-  __cil_tmp22 = __cil_tmp21 + 1;
+  __cil_tmp14 = __cil_tmp13 + 1;
 #line 820
-  index = (unsigned short )__cil_tmp22;
+  index = (u16 )__cil_tmp14;
   }
   ldv_42658: ;
   {
 #line 820
-  __cil_tmp23 = (int )ring_count;
+  __cil_tmp15 = (int )ring_count;
 #line 820
-  __cil_tmp24 = (int )index;
+  __cil_tmp16 = (int )index;
 #line 820
-  if (__cil_tmp24 < __cil_tmp23) {
+  if (__cil_tmp16 < __cil_tmp15) {
+#line 821
     goto ldv_42657;
   } else {
+#line 823
     goto ldv_42659;
   }
   }
   ldv_42659: 
   {
 #line 826
-  __cil_tmp25 = *((void **)tpd_ring);
+  __cil_tmp17 = tpd_ring->desc;
 #line 826
-  __cil_tmp26 = (unsigned long )ring_count;
+  __cil_tmp18 = (unsigned long )ring_count;
 #line 826
-  __cil_tmp27 = __cil_tmp26 * 16UL;
+  __cil_tmp19 = __cil_tmp18 * 16UL;
 #line 826
-  memset(__cil_tmp25, 0, __cil_tmp27);
+  memset(__cil_tmp17, 0, __cil_tmp19);
 #line 828
-  __cil_tmp28 = (unsigned long )tpd_ring;
+  __cil_tmp20 = & tpd_ring->next_to_clean;
 #line 828
-  __cil_tmp29 = __cil_tmp28 + 24;
-#line 828
-  __cil_tmp30 = (atomic_t *)__cil_tmp29;
-#line 828
-  atomic_set(__cil_tmp30, 0);
+  atomic_set(__cil_tmp20, 0);
 #line 829
-  __cil_tmp31 = (unsigned long )tpd_ring;
-#line 829
-  __cil_tmp32 = __cil_tmp31 + 20;
-#line 829
-  *((u16 *)__cil_tmp32) = (unsigned short)0;
+  tpd_ring->next_to_use = (u16 )0U;
   }
 #line 830
   return;
@@ -9856,101 +9187,65 @@ static void atl1c_clean_rx_ring(struct atl1c_adapter *adapter )
   struct pci_dev *pdev ;
   int i ;
   int j ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct atl1c_rfd_ring (*__cil_tmp10)[4U] ;
+  struct atl1c_rfd_ring (*__cil_tmp8)[4U] ;
+  struct atl1c_rrd_ring (*__cil_tmp9)[4U] ;
+  unsigned long __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct atl1c_rrd_ring (*__cil_tmp13)[4U] ;
+  struct atl1c_rfd_ring *__cil_tmp12 ;
+  struct atl1c_buffer *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct atl1c_rfd_ring *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct atl1c_buffer *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct atl1c_rfd_ring *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  struct atl1c_rfd_ring *__cil_tmp15 ;
+  u16 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  struct atl1c_rfd_ring *__cil_tmp19 ;
+  void *__cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  struct atl1c_rfd_ring *__cil_tmp22 ;
+  u16 __cil_tmp23 ;
+  size_t __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
-  u16 __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct atl1c_rfd_ring *__cil_tmp29 ;
-  void *__cil_tmp30 ;
+  struct atl1c_rfd_ring *__cil_tmp26 ;
+  unsigned long __cil_tmp27 ;
+  struct atl1c_rfd_ring *__cil_tmp28 ;
+  unsigned long __cil_tmp29 ;
+  struct atl1c_rrd_ring *__cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  struct atl1c_rfd_ring *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u16 __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct atl1c_rfd_ring *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct atl1c_rfd_ring *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct atl1c_rrd_ring *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct atl1c_rrd_ring *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
+  struct atl1c_rrd_ring *__cil_tmp32 ;
+  int __cil_tmp33 ;
 
   {
 #line 838
-  __cil_tmp8 = (unsigned long )adapter;
+  __cil_tmp8 = & adapter->rfd_ring;
 #line 838
-  __cil_tmp9 = __cil_tmp8 + 1624;
-#line 838
-  __cil_tmp10 = (struct atl1c_rfd_ring (*)[4U])__cil_tmp9;
-#line 838
-  rfd_ring = (struct atl1c_rfd_ring *)__cil_tmp10;
+  rfd_ring = (struct atl1c_rfd_ring *)__cil_tmp8;
 #line 839
-  __cil_tmp11 = (unsigned long )adapter;
+  __cil_tmp9 = & adapter->rrd_ring;
 #line 839
-  __cil_tmp12 = __cil_tmp11 + 1752;
-#line 839
-  __cil_tmp13 = (struct atl1c_rrd_ring (*)[4U])__cil_tmp12;
-#line 839
-  rrd_ring = (struct atl1c_rrd_ring *)__cil_tmp13;
+  rrd_ring = (struct atl1c_rrd_ring *)__cil_tmp9;
 #line 841
-  __cil_tmp14 = (unsigned long )adapter;
-#line 841
-  __cil_tmp15 = __cil_tmp14 + 8;
-#line 841
-  pdev = *((struct pci_dev **)__cil_tmp15);
+  pdev = adapter->pdev;
 #line 844
   i = 0;
+#line 844
   goto ldv_42673;
   ldv_42672: 
 #line 845
   j = 0;
+#line 845
   goto ldv_42670;
   ldv_42669: 
   {
 #line 846
-  __cil_tmp16 = (unsigned long )j;
+  __cil_tmp10 = (unsigned long )j;
 #line 846
-  __cil_tmp17 = (unsigned long )i;
+  __cil_tmp11 = (unsigned long )i;
 #line 846
-  __cil_tmp18 = rfd_ring + __cil_tmp17;
+  __cil_tmp12 = rfd_ring + __cil_tmp11;
 #line 846
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
+  __cil_tmp13 = __cil_tmp12->buffer_info;
 #line 846
-  __cil_tmp20 = __cil_tmp19 + 24;
-#line 846
-  __cil_tmp21 = *((struct atl1c_buffer **)__cil_tmp20);
-#line 846
-  buffer_info = __cil_tmp21 + __cil_tmp16;
+  buffer_info = __cil_tmp13 + __cil_tmp10;
 #line 847
   atl1c_clean_buffer(pdev, buffer_info, 0);
 #line 845
@@ -9959,101 +9254,77 @@ static void atl1c_clean_rx_ring(struct atl1c_adapter *adapter )
   ldv_42670: ;
   {
 #line 845
-  __cil_tmp22 = (unsigned long )i;
+  __cil_tmp14 = (unsigned long )i;
 #line 845
-  __cil_tmp23 = rfd_ring + __cil_tmp22;
+  __cil_tmp15 = rfd_ring + __cil_tmp14;
 #line 845
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
+  __cil_tmp16 = __cil_tmp15->count;
 #line 845
-  __cil_tmp25 = __cil_tmp24 + 18;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 845
-  __cil_tmp26 = *((u16 *)__cil_tmp25);
-#line 845
-  __cil_tmp27 = (int )__cil_tmp26;
-#line 845
-  if (__cil_tmp27 > j) {
+  if (__cil_tmp17 > j) {
+#line 846
     goto ldv_42669;
   } else {
+#line 848
     goto ldv_42671;
   }
   }
   ldv_42671: 
   {
 #line 850
-  __cil_tmp28 = (unsigned long )i;
+  __cil_tmp18 = (unsigned long )i;
 #line 850
-  __cil_tmp29 = rfd_ring + __cil_tmp28;
+  __cil_tmp19 = rfd_ring + __cil_tmp18;
 #line 850
-  __cil_tmp30 = *((void **)__cil_tmp29);
+  __cil_tmp20 = __cil_tmp19->desc;
 #line 850
+  __cil_tmp21 = (unsigned long )i;
+#line 850
+  __cil_tmp22 = rfd_ring + __cil_tmp21;
+#line 850
+  __cil_tmp23 = __cil_tmp22->size;
+#line 850
+  __cil_tmp24 = (size_t )__cil_tmp23;
+#line 850
+  memset(__cil_tmp20, 0, __cil_tmp24);
+#line 851
+  __cil_tmp25 = (unsigned long )i;
+#line 851
+  __cil_tmp26 = rfd_ring + __cil_tmp25;
+#line 851
+  __cil_tmp26->next_to_clean = (u16 )0U;
+#line 852
+  __cil_tmp27 = (unsigned long )i;
+#line 852
+  __cil_tmp28 = rfd_ring + __cil_tmp27;
+#line 852
+  __cil_tmp28->next_to_use = (u16 )0U;
+#line 853
+  __cil_tmp29 = (unsigned long )i;
+#line 853
+  __cil_tmp30 = rrd_ring + __cil_tmp29;
+#line 853
+  __cil_tmp30->next_to_use = (u16 )0U;
+#line 854
   __cil_tmp31 = (unsigned long )i;
-#line 850
-  __cil_tmp32 = rfd_ring + __cil_tmp31;
-#line 850
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 850
-  __cil_tmp34 = __cil_tmp33 + 16;
-#line 850
-  __cil_tmp35 = *((u16 *)__cil_tmp34);
-#line 850
-  __cil_tmp36 = (unsigned long )__cil_tmp35;
-#line 850
-  memset(__cil_tmp30, 0, __cil_tmp36);
-#line 851
-  __cil_tmp37 = (unsigned long )i;
-#line 851
-  __cil_tmp38 = rfd_ring + __cil_tmp37;
-#line 851
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 851
-  __cil_tmp40 = __cil_tmp39 + 22;
-#line 851
-  *((u16 *)__cil_tmp40) = (unsigned short)0;
-#line 852
-  __cil_tmp41 = (unsigned long )i;
-#line 852
-  __cil_tmp42 = rfd_ring + __cil_tmp41;
-#line 852
-  __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 852
-  __cil_tmp44 = __cil_tmp43 + 20;
-#line 852
-  *((u16 *)__cil_tmp44) = (unsigned short)0;
-#line 853
-  __cil_tmp45 = (unsigned long )i;
-#line 853
-  __cil_tmp46 = rrd_ring + __cil_tmp45;
-#line 853
-  __cil_tmp47 = (unsigned long )__cil_tmp46;
-#line 853
-  __cil_tmp48 = __cil_tmp47 + 20;
-#line 853
-  *((u16 *)__cil_tmp48) = (unsigned short)0;
 #line 854
-  __cil_tmp49 = (unsigned long )i;
+  __cil_tmp32 = rrd_ring + __cil_tmp31;
 #line 854
-  __cil_tmp50 = rrd_ring + __cil_tmp49;
-#line 854
-  __cil_tmp51 = (unsigned long )__cil_tmp50;
-#line 854
-  __cil_tmp52 = __cil_tmp51 + 22;
-#line 854
-  *((u16 *)__cil_tmp52) = (unsigned short)0;
+  __cil_tmp32->next_to_clean = (u16 )0U;
 #line 844
   i = i + 1;
   }
   ldv_42673: ;
   {
 #line 844
-  __cil_tmp53 = (unsigned long )adapter;
+  __cil_tmp33 = adapter->num_rx_queues;
 #line 844
-  __cil_tmp54 = __cil_tmp53 + 1880;
-#line 844
-  __cil_tmp55 = *((int *)__cil_tmp54);
-#line 844
-  if (__cil_tmp55 > i) {
+  if (__cil_tmp33 > i) {
+#line 845
     goto ldv_42672;
   } else {
+#line 847
     goto ldv_42674;
   }
   }
@@ -10070,231 +9341,147 @@ static void atl1c_init_ring_ptrs(struct atl1c_adapter *adapter )
   struct atl1c_buffer *buffer_info ;
   int i ;
   int j ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct atl1c_tpd_ring (*__cil_tmp10)[2U] ;
+  struct atl1c_tpd_ring (*__cil_tmp8)[2U] ;
+  struct atl1c_rfd_ring (*__cil_tmp9)[4U] ;
+  struct atl1c_rrd_ring (*__cil_tmp10)[4U] ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct atl1c_rfd_ring (*__cil_tmp13)[4U] ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct atl1c_rrd_ring (*__cil_tmp16)[4U] ;
-  unsigned long __cil_tmp17 ;
-  struct atl1c_tpd_ring *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  struct atl1c_tpd_ring *__cil_tmp12 ;
+  unsigned long __cil_tmp13 ;
+  struct atl1c_tpd_ring *__cil_tmp14 ;
+  atomic_t *__cil_tmp15 ;
+  unsigned long __cil_tmp16 ;
+  struct atl1c_tpd_ring *__cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  struct atl1c_buffer *__cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct atl1c_tpd_ring *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  atomic_t *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct atl1c_tpd_ring *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct atl1c_buffer *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  struct atl1c_buffer *__cil_tmp21 ;
+  u16 __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
+  struct atl1c_buffer *__cil_tmp26 ;
+  unsigned long __cil_tmp27 ;
+  struct atl1c_buffer *__cil_tmp28 ;
+  u16 __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  u16 __cil_tmp32 ;
+  int __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  struct atl1c_buffer *__cil_tmp35 ;
+  struct atl1c_rfd_ring *__cil_tmp35 ;
   unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  u16 __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct atl1c_buffer *__cil_tmp42 ;
+  struct atl1c_rfd_ring *__cil_tmp37 ;
+  unsigned long __cil_tmp38 ;
+  struct atl1c_rrd_ring *__cil_tmp39 ;
+  unsigned long __cil_tmp40 ;
+  struct atl1c_rrd_ring *__cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct atl1c_buffer *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  struct atl1c_rfd_ring *__cil_tmp44 ;
+  struct atl1c_buffer *__cil_tmp45 ;
+  u16 __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
   u16 __cil_tmp49 ;
   unsigned int __cil_tmp50 ;
   unsigned int __cil_tmp51 ;
   unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
+  struct atl1c_rfd_ring *__cil_tmp53 ;
   u16 __cil_tmp54 ;
   int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct atl1c_rfd_ring *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct atl1c_rfd_ring *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  struct atl1c_rrd_ring *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct atl1c_rrd_ring *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct atl1c_rfd_ring *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct atl1c_buffer *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  u16 __cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  u16 __cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  struct atl1c_rfd_ring *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  u16 __cil_tmp96 ;
-  int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  int __cil_tmp100 ;
+  int __cil_tmp56 ;
 
   {
 #line 863
-  __cil_tmp8 = (unsigned long )adapter;
+  __cil_tmp8 = & adapter->tpd_ring;
 #line 863
-  __cil_tmp9 = __cil_tmp8 + 1544;
-#line 863
-  __cil_tmp10 = (struct atl1c_tpd_ring (*)[2U])__cil_tmp9;
-#line 863
-  tpd_ring = (struct atl1c_tpd_ring *)__cil_tmp10;
+  tpd_ring = (struct atl1c_tpd_ring *)__cil_tmp8;
 #line 864
-  __cil_tmp11 = (unsigned long )adapter;
+  __cil_tmp9 = & adapter->rfd_ring;
 #line 864
-  __cil_tmp12 = __cil_tmp11 + 1624;
-#line 864
-  __cil_tmp13 = (struct atl1c_rfd_ring (*)[4U])__cil_tmp12;
-#line 864
-  rfd_ring = (struct atl1c_rfd_ring *)__cil_tmp13;
+  rfd_ring = (struct atl1c_rfd_ring *)__cil_tmp9;
 #line 865
-  __cil_tmp14 = (unsigned long )adapter;
+  __cil_tmp10 = & adapter->rrd_ring;
 #line 865
-  __cil_tmp15 = __cil_tmp14 + 1752;
-#line 865
-  __cil_tmp16 = (struct atl1c_rrd_ring (*)[4U])__cil_tmp15;
-#line 865
-  rrd_ring = (struct atl1c_rrd_ring *)__cil_tmp16;
+  rrd_ring = (struct atl1c_rrd_ring *)__cil_tmp10;
 #line 869
   i = 0;
+#line 869
   goto ldv_42688;
   ldv_42687: 
   {
 #line 870
-  __cil_tmp17 = (unsigned long )i;
+  __cil_tmp11 = (unsigned long )i;
 #line 870
-  __cil_tmp18 = tpd_ring + __cil_tmp17;
+  __cil_tmp12 = tpd_ring + __cil_tmp11;
 #line 870
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 870
-  __cil_tmp20 = __cil_tmp19 + 20;
-#line 870
-  *((u16 *)__cil_tmp20) = (unsigned short)0;
+  __cil_tmp12->next_to_use = (u16 )0U;
 #line 871
-  __cil_tmp21 = (unsigned long )i;
+  __cil_tmp13 = (unsigned long )i;
 #line 871
-  __cil_tmp22 = tpd_ring + __cil_tmp21;
+  __cil_tmp14 = tpd_ring + __cil_tmp13;
 #line 871
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
+  __cil_tmp15 = & __cil_tmp14->next_to_clean;
 #line 871
-  __cil_tmp24 = __cil_tmp23 + 24;
-#line 871
-  __cil_tmp25 = (atomic_t *)__cil_tmp24;
-#line 871
-  atomic_set(__cil_tmp25, 0);
+  atomic_set(__cil_tmp15, 0);
 #line 872
-  __cil_tmp26 = (unsigned long )i;
+  __cil_tmp16 = (unsigned long )i;
 #line 872
-  __cil_tmp27 = tpd_ring + __cil_tmp26;
+  __cil_tmp17 = tpd_ring + __cil_tmp16;
 #line 872
-  __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 872
-  __cil_tmp29 = __cil_tmp28 + 32;
-#line 872
-  buffer_info = *((struct atl1c_buffer **)__cil_tmp29);
+  buffer_info = __cil_tmp17->buffer_info;
 #line 873
   j = 0;
   }
+#line 873
   goto ldv_42685;
   ldv_42684: 
 #line 874
-  __cil_tmp30 = (unsigned long )i;
+  __cil_tmp18 = (unsigned long )i;
 #line 874
-  __cil_tmp31 = buffer_info + __cil_tmp30;
+  __cil_tmp19 = buffer_info + __cil_tmp18;
 #line 874
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
+  __cil_tmp20 = (unsigned long )i;
 #line 874
-  __cil_tmp33 = __cil_tmp32 + 10;
+  __cil_tmp21 = buffer_info + __cil_tmp20;
 #line 874
-  __cil_tmp34 = (unsigned long )i;
+  __cil_tmp22 = __cil_tmp21->flags;
 #line 874
-  __cil_tmp35 = buffer_info + __cil_tmp34;
+  __cil_tmp23 = (unsigned int )__cil_tmp22;
 #line 874
-  __cil_tmp36 = (unsigned long )__cil_tmp35;
+  __cil_tmp24 = __cil_tmp23 & 65532U;
 #line 874
-  __cil_tmp37 = __cil_tmp36 + 10;
+  __cil_tmp19->flags = (u16 )__cil_tmp24;
 #line 874
-  __cil_tmp38 = *((u16 *)__cil_tmp37);
+  __cil_tmp25 = (unsigned long )i;
 #line 874
-  __cil_tmp39 = (unsigned int )__cil_tmp38;
+  __cil_tmp26 = buffer_info + __cil_tmp25;
 #line 874
-  __cil_tmp40 = __cil_tmp39 & 65532U;
+  __cil_tmp27 = (unsigned long )i;
 #line 874
-  *((u16 *)__cil_tmp33) = (unsigned short )__cil_tmp40;
+  __cil_tmp28 = buffer_info + __cil_tmp27;
 #line 874
-  __cil_tmp41 = (unsigned long )i;
+  __cil_tmp29 = __cil_tmp28->flags;
 #line 874
-  __cil_tmp42 = buffer_info + __cil_tmp41;
+  __cil_tmp30 = (unsigned int )__cil_tmp29;
 #line 874
-  __cil_tmp43 = (unsigned long )__cil_tmp42;
+  __cil_tmp31 = __cil_tmp30 | 1U;
 #line 874
-  __cil_tmp44 = __cil_tmp43 + 10;
-#line 874
-  __cil_tmp45 = (unsigned long )i;
-#line 874
-  __cil_tmp46 = buffer_info + __cil_tmp45;
-#line 874
-  __cil_tmp47 = (unsigned long )__cil_tmp46;
-#line 874
-  __cil_tmp48 = __cil_tmp47 + 10;
-#line 874
-  __cil_tmp49 = *((u16 *)__cil_tmp48);
-#line 874
-  __cil_tmp50 = (unsigned int )__cil_tmp49;
-#line 874
-  __cil_tmp51 = __cil_tmp50 | 1U;
-#line 874
-  *((u16 *)__cil_tmp44) = (unsigned short )__cil_tmp51;
+  __cil_tmp26->flags = (u16 )__cil_tmp31;
 #line 873
   j = j + 1;
   ldv_42685: ;
   {
 #line 873
-  __cil_tmp52 = (unsigned long )tpd_ring;
+  __cil_tmp32 = tpd_ring->count;
 #line 873
-  __cil_tmp53 = __cil_tmp52 + 18;
+  __cil_tmp33 = (int )__cil_tmp32;
 #line 873
-  __cil_tmp54 = *((u16 *)__cil_tmp53);
-#line 873
-  __cil_tmp55 = (int )__cil_tmp54;
-#line 873
-  if (__cil_tmp55 > j) {
+  if (__cil_tmp33 > j) {
+#line 874
     goto ldv_42684;
   } else {
+#line 876
     goto ldv_42686;
   }
   }
@@ -10304,125 +9491,91 @@ static void atl1c_init_ring_ptrs(struct atl1c_adapter *adapter )
   ldv_42688: ;
 #line 869
   if (i <= 1) {
+#line 870
     goto ldv_42687;
   } else {
+#line 872
     goto ldv_42689;
   }
   ldv_42689: 
 #line 877
   i = 0;
+#line 877
   goto ldv_42694;
   ldv_42693: 
 #line 878
-  __cil_tmp56 = (unsigned long )i;
+  __cil_tmp34 = (unsigned long )i;
 #line 878
-  __cil_tmp57 = rfd_ring + __cil_tmp56;
+  __cil_tmp35 = rfd_ring + __cil_tmp34;
 #line 878
-  __cil_tmp58 = (unsigned long )__cil_tmp57;
-#line 878
-  __cil_tmp59 = __cil_tmp58 + 20;
-#line 878
-  *((u16 *)__cil_tmp59) = (unsigned short)0;
+  __cil_tmp35->next_to_use = (u16 )0U;
 #line 879
-  __cil_tmp60 = (unsigned long )i;
+  __cil_tmp36 = (unsigned long )i;
 #line 879
-  __cil_tmp61 = rfd_ring + __cil_tmp60;
+  __cil_tmp37 = rfd_ring + __cil_tmp36;
 #line 879
-  __cil_tmp62 = (unsigned long )__cil_tmp61;
-#line 879
-  __cil_tmp63 = __cil_tmp62 + 22;
-#line 879
-  *((u16 *)__cil_tmp63) = (unsigned short)0;
+  __cil_tmp37->next_to_clean = (u16 )0U;
 #line 880
-  __cil_tmp64 = (unsigned long )i;
+  __cil_tmp38 = (unsigned long )i;
 #line 880
-  __cil_tmp65 = rrd_ring + __cil_tmp64;
+  __cil_tmp39 = rrd_ring + __cil_tmp38;
 #line 880
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
-#line 880
-  __cil_tmp67 = __cil_tmp66 + 20;
-#line 880
-  *((u16 *)__cil_tmp67) = (unsigned short)0;
+  __cil_tmp39->next_to_use = (u16 )0U;
 #line 881
-  __cil_tmp68 = (unsigned long )i;
+  __cil_tmp40 = (unsigned long )i;
 #line 881
-  __cil_tmp69 = rrd_ring + __cil_tmp68;
+  __cil_tmp41 = rrd_ring + __cil_tmp40;
 #line 881
-  __cil_tmp70 = (unsigned long )__cil_tmp69;
-#line 881
-  __cil_tmp71 = __cil_tmp70 + 22;
-#line 881
-  *((u16 *)__cil_tmp71) = (unsigned short)0;
+  __cil_tmp41->next_to_clean = (u16 )0U;
 #line 882
   j = 0;
+#line 882
   goto ldv_42691;
   ldv_42690: 
 #line 883
-  __cil_tmp72 = (unsigned long )j;
+  __cil_tmp42 = (unsigned long )j;
 #line 883
-  __cil_tmp73 = (unsigned long )i;
+  __cil_tmp43 = (unsigned long )i;
 #line 883
-  __cil_tmp74 = rfd_ring + __cil_tmp73;
+  __cil_tmp44 = rfd_ring + __cil_tmp43;
 #line 883
-  __cil_tmp75 = (unsigned long )__cil_tmp74;
+  __cil_tmp45 = __cil_tmp44->buffer_info;
 #line 883
-  __cil_tmp76 = __cil_tmp75 + 24;
-#line 883
-  __cil_tmp77 = *((struct atl1c_buffer **)__cil_tmp76);
-#line 883
-  buffer_info = __cil_tmp77 + __cil_tmp72;
+  buffer_info = __cil_tmp45 + __cil_tmp42;
 #line 884
-  __cil_tmp78 = (unsigned long )buffer_info;
+  __cil_tmp46 = buffer_info->flags;
 #line 884
-  __cil_tmp79 = __cil_tmp78 + 10;
+  __cil_tmp47 = (unsigned int )__cil_tmp46;
 #line 884
-  __cil_tmp80 = (unsigned long )buffer_info;
+  __cil_tmp48 = __cil_tmp47 & 65532U;
 #line 884
-  __cil_tmp81 = __cil_tmp80 + 10;
+  buffer_info->flags = (u16 )__cil_tmp48;
 #line 884
-  __cil_tmp82 = *((u16 *)__cil_tmp81);
+  __cil_tmp49 = buffer_info->flags;
 #line 884
-  __cil_tmp83 = (unsigned int )__cil_tmp82;
+  __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 884
-  __cil_tmp84 = __cil_tmp83 & 65532U;
+  __cil_tmp51 = __cil_tmp50 | 1U;
 #line 884
-  *((u16 *)__cil_tmp79) = (unsigned short )__cil_tmp84;
-#line 884
-  __cil_tmp85 = (unsigned long )buffer_info;
-#line 884
-  __cil_tmp86 = __cil_tmp85 + 10;
-#line 884
-  __cil_tmp87 = (unsigned long )buffer_info;
-#line 884
-  __cil_tmp88 = __cil_tmp87 + 10;
-#line 884
-  __cil_tmp89 = *((u16 *)__cil_tmp88);
-#line 884
-  __cil_tmp90 = (unsigned int )__cil_tmp89;
-#line 884
-  __cil_tmp91 = __cil_tmp90 | 1U;
-#line 884
-  *((u16 *)__cil_tmp86) = (unsigned short )__cil_tmp91;
+  buffer_info->flags = (u16 )__cil_tmp51;
 #line 882
   j = j + 1;
   ldv_42691: ;
   {
 #line 882
-  __cil_tmp92 = (unsigned long )i;
+  __cil_tmp52 = (unsigned long )i;
 #line 882
-  __cil_tmp93 = rfd_ring + __cil_tmp92;
+  __cil_tmp53 = rfd_ring + __cil_tmp52;
 #line 882
-  __cil_tmp94 = (unsigned long )__cil_tmp93;
+  __cil_tmp54 = __cil_tmp53->count;
 #line 882
-  __cil_tmp95 = __cil_tmp94 + 18;
+  __cil_tmp55 = (int )__cil_tmp54;
 #line 882
-  __cil_tmp96 = *((u16 *)__cil_tmp95);
-#line 882
-  __cil_tmp97 = (int )__cil_tmp96;
-#line 882
-  if (__cil_tmp97 > j) {
+  if (__cil_tmp55 > j) {
+#line 883
     goto ldv_42690;
   } else {
+#line 885
     goto ldv_42692;
   }
   }
@@ -10432,15 +9585,13 @@ static void atl1c_init_ring_ptrs(struct atl1c_adapter *adapter )
   ldv_42694: ;
   {
 #line 877
-  __cil_tmp98 = (unsigned long )adapter;
+  __cil_tmp56 = adapter->num_rx_queues;
 #line 877
-  __cil_tmp99 = __cil_tmp98 + 1880;
-#line 877
-  __cil_tmp100 = *((int *)__cil_tmp99);
-#line 877
-  if (__cil_tmp100 > i) {
+  if (__cil_tmp56 > i) {
+#line 878
     goto ldv_42693;
   } else {
+#line 880
     goto ldv_42695;
   }
   }
@@ -10460,609 +9611,459 @@ static void atl1c_configure_des_ring(struct atl1c_adapter *adapter )
   int i ;
   u32 data ;
   long tmp ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct atl1c_rfd_ring (*__cil_tmp15)[4U] ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct atl1c_rrd_ring (*__cil_tmp18)[4U] ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct atl1c_tpd_ring (*__cil_tmp21)[2U] ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  dma_addr_t __cil_tmp28 ;
-  dma_addr_t __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  u8 *__cil_tmp31 ;
-  void volatile   *__cil_tmp32 ;
-  void volatile   *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  struct atl1c_rfd_ring (*__cil_tmp11)[4U] ;
+  struct atl1c_rrd_ring (*__cil_tmp12)[4U] ;
+  struct atl1c_tpd_ring (*__cil_tmp13)[2U] ;
+  dma_addr_t __cil_tmp14 ;
+  dma_addr_t __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  u8 *__cil_tmp17 ;
+  void volatile   *__cil_tmp18 ;
+  void volatile   *__cil_tmp19 ;
+  dma_addr_t __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  u8 *__cil_tmp22 ;
+  void volatile   *__cil_tmp23 ;
+  void volatile   *__cil_tmp24 ;
+  struct atl1c_tpd_ring *__cil_tmp25 ;
+  dma_addr_t __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  u8 *__cil_tmp28 ;
+  void volatile   *__cil_tmp29 ;
+  void volatile   *__cil_tmp30 ;
+  u16 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  u8 *__cil_tmp33 ;
+  void volatile   *__cil_tmp34 ;
+  void volatile   *__cil_tmp35 ;
   dma_addr_t __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  u8 *__cil_tmp38 ;
-  void volatile   *__cil_tmp39 ;
+  dma_addr_t __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  u8 *__cil_tmp39 ;
   void volatile   *__cil_tmp40 ;
-  struct atl1c_tpd_ring *__cil_tmp41 ;
+  void volatile   *__cil_tmp41 ;
   unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  struct atl1c_rfd_ring *__cil_tmp43 ;
   dma_addr_t __cil_tmp44 ;
   unsigned int __cil_tmp45 ;
-  u8 *__cil_tmp46 ;
-  void volatile   *__cil_tmp47 ;
+  unsigned long __cil_tmp46 ;
+  u8 *__cil_tmp47 ;
   void volatile   *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  void volatile   *__cil_tmp49 ;
+  int __cil_tmp50 ;
   u16 __cil_tmp51 ;
   unsigned int __cil_tmp52 ;
-  u8 *__cil_tmp53 ;
-  void volatile   *__cil_tmp54 ;
+  unsigned int __cil_tmp53 ;
+  u8 *__cil_tmp54 ;
   void volatile   *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  dma_addr_t __cil_tmp58 ;
-  dma_addr_t __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  u8 *__cil_tmp61 ;
-  void volatile   *__cil_tmp62 ;
-  void volatile   *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  struct atl1c_rfd_ring *__cil_tmp65 ;
+  void volatile   *__cil_tmp56 ;
+  u16 __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  u8 *__cil_tmp59 ;
+  void volatile   *__cil_tmp60 ;
+  void volatile   *__cil_tmp61 ;
+  unsigned long __cil_tmp62 ;
+  struct atl1c_rrd_ring *__cil_tmp63 ;
+  dma_addr_t __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
   unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  dma_addr_t __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  u16 __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  u8 *__cil_tmp67 ;
+  void volatile   *__cil_tmp68 ;
+  void volatile   *__cil_tmp69 ;
+  int __cil_tmp70 ;
+  u16 __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
   u8 *__cil_tmp74 ;
   void volatile   *__cil_tmp75 ;
   void volatile   *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  u16 __cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
+  dma_addr_t __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  u8 *__cil_tmp79 ;
+  void volatile   *__cil_tmp80 ;
+  void volatile   *__cil_tmp81 ;
+  dma_addr_t __cil_tmp82 ;
+  dma_addr_t __cil_tmp83 ;
   unsigned int __cil_tmp84 ;
   u8 *__cil_tmp85 ;
   void volatile   *__cil_tmp86 ;
   void volatile   *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  u16 __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  u8 *__cil_tmp92 ;
-  void volatile   *__cil_tmp93 ;
-  void volatile   *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct atl1c_rrd_ring *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  dma_addr_t __cil_tmp99 ;
-  unsigned int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  u16 __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  u8 *__cil_tmp105 ;
+  dma_addr_t __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
+  u8 *__cil_tmp90 ;
+  void volatile   *__cil_tmp91 ;
+  void volatile   *__cil_tmp92 ;
+  enum atl1c_nic_type __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  u8 *__cil_tmp95 ;
+  void volatile   *__cil_tmp96 ;
+  void volatile   *__cil_tmp97 ;
+  u8 *__cil_tmp98 ;
+  void volatile   *__cil_tmp99 ;
+  void volatile   *__cil_tmp100 ;
+  u8 *__cil_tmp101 ;
+  void volatile   *__cil_tmp102 ;
+  void volatile   *__cil_tmp103 ;
+  u8 *__cil_tmp104 ;
+  void volatile   *__cil_tmp105 ;
   void volatile   *__cil_tmp106 ;
-  void volatile   *__cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  int __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  u16 __cil_tmp113 ;
-  unsigned int __cil_tmp114 ;
-  unsigned int __cil_tmp115 ;
+  u8 *__cil_tmp107 ;
+  void volatile   *__cil_tmp108 ;
+  void volatile   *__cil_tmp109 ;
+  u8 *__cil_tmp110 ;
+  void volatile   *__cil_tmp111 ;
+  void volatile   *__cil_tmp112 ;
+  u8 *__cil_tmp113 ;
+  void volatile   *__cil_tmp114 ;
+  void volatile   *__cil_tmp115 ;
   u8 *__cil_tmp116 ;
   void volatile   *__cil_tmp117 ;
   void volatile   *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  dma_addr_t __cil_tmp121 ;
+  enum atl1c_nic_type __cil_tmp119 ;
+  unsigned int __cil_tmp120 ;
+  enum atl1c_nic_type __cil_tmp121 ;
   unsigned int __cil_tmp122 ;
-  u8 *__cil_tmp123 ;
-  void volatile   *__cil_tmp124 ;
-  void volatile   *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  dma_addr_t __cil_tmp128 ;
-  dma_addr_t __cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
+  bool __cil_tmp123 ;
+  long __cil_tmp124 ;
+  u8 *__cil_tmp125 ;
+  void const volatile   *__cil_tmp126 ;
+  void const volatile   *__cil_tmp127 ;
+  u8 *__cil_tmp128 ;
+  void const volatile   *__cil_tmp129 ;
+  void const volatile   *__cil_tmp130 ;
   u8 *__cil_tmp131 ;
-  void volatile   *__cil_tmp132 ;
-  void volatile   *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  dma_addr_t __cil_tmp136 ;
-  unsigned int __cil_tmp137 ;
-  u8 *__cil_tmp138 ;
+  void const volatile   *__cil_tmp132 ;
+  void const volatile   *__cil_tmp133 ;
+  u8 *__cil_tmp134 ;
+  void volatile   *__cil_tmp135 ;
+  void volatile   *__cil_tmp136 ;
+  u8 *__cil_tmp137 ;
+  void volatile   *__cil_tmp138 ;
   void volatile   *__cil_tmp139 ;
-  void volatile   *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  enum atl1c_nic_type __cil_tmp143 ;
-  unsigned int __cil_tmp144 ;
-  u8 *__cil_tmp145 ;
-  void volatile   *__cil_tmp146 ;
-  void volatile   *__cil_tmp147 ;
-  u8 *__cil_tmp148 ;
-  void volatile   *__cil_tmp149 ;
-  void volatile   *__cil_tmp150 ;
-  u8 *__cil_tmp151 ;
-  void volatile   *__cil_tmp152 ;
-  void volatile   *__cil_tmp153 ;
-  u8 *__cil_tmp154 ;
-  void volatile   *__cil_tmp155 ;
-  void volatile   *__cil_tmp156 ;
-  u8 *__cil_tmp157 ;
-  void volatile   *__cil_tmp158 ;
-  void volatile   *__cil_tmp159 ;
-  u8 *__cil_tmp160 ;
-  void volatile   *__cil_tmp161 ;
-  void volatile   *__cil_tmp162 ;
-  u8 *__cil_tmp163 ;
-  void volatile   *__cil_tmp164 ;
-  void volatile   *__cil_tmp165 ;
-  u8 *__cil_tmp166 ;
-  void volatile   *__cil_tmp167 ;
-  void volatile   *__cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  enum atl1c_nic_type __cil_tmp171 ;
-  unsigned int __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  enum atl1c_nic_type __cil_tmp175 ;
-  unsigned int __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  bool __cil_tmp179 ;
-  long __cil_tmp180 ;
-  u8 *__cil_tmp181 ;
-  void const volatile   *__cil_tmp182 ;
-  void const volatile   *__cil_tmp183 ;
-  u8 *__cil_tmp184 ;
-  void const volatile   *__cil_tmp185 ;
-  void const volatile   *__cil_tmp186 ;
-  u8 *__cil_tmp187 ;
-  void const volatile   *__cil_tmp188 ;
-  void const volatile   *__cil_tmp189 ;
-  u8 *__cil_tmp190 ;
-  void volatile   *__cil_tmp191 ;
-  void volatile   *__cil_tmp192 ;
-  u8 *__cil_tmp193 ;
-  void volatile   *__cil_tmp194 ;
-  void volatile   *__cil_tmp195 ;
 
   {
   {
 #line 1020
-  __cil_tmp11 = (unsigned long )adapter;
-#line 1020
-  __cil_tmp12 = __cil_tmp11 + 184;
-#line 1020
-  hw = (struct atl1c_hw *)__cil_tmp12;
+  hw = & adapter->hw;
 #line 1021
-  __cil_tmp13 = (unsigned long )adapter;
+  __cil_tmp11 = & adapter->rfd_ring;
 #line 1021
-  __cil_tmp14 = __cil_tmp13 + 1624;
-#line 1021
-  __cil_tmp15 = (struct atl1c_rfd_ring (*)[4U])__cil_tmp14;
-#line 1021
-  rfd_ring = (struct atl1c_rfd_ring *)__cil_tmp15;
+  rfd_ring = (struct atl1c_rfd_ring *)__cil_tmp11;
 #line 1023
-  __cil_tmp16 = (unsigned long )adapter;
+  __cil_tmp12 = & adapter->rrd_ring;
 #line 1023
-  __cil_tmp17 = __cil_tmp16 + 1752;
-#line 1023
-  __cil_tmp18 = (struct atl1c_rrd_ring (*)[4U])__cil_tmp17;
-#line 1023
-  rrd_ring = (struct atl1c_rrd_ring *)__cil_tmp18;
+  rrd_ring = (struct atl1c_rrd_ring *)__cil_tmp12;
 #line 1025
-  __cil_tmp19 = (unsigned long )adapter;
+  __cil_tmp13 = & adapter->tpd_ring;
 #line 1025
-  __cil_tmp20 = __cil_tmp19 + 1544;
-#line 1025
-  __cil_tmp21 = (struct atl1c_tpd_ring (*)[2U])__cil_tmp20;
-#line 1025
-  tpd_ring = (struct atl1c_tpd_ring *)__cil_tmp21;
+  tpd_ring = (struct atl1c_tpd_ring *)__cil_tmp13;
 #line 1027
-  __cil_tmp22 = (unsigned long )adapter;
-#line 1027
-  __cil_tmp23 = __cil_tmp22 + 1848;
-#line 1027
-  cmb = (struct atl1c_cmb *)__cil_tmp23;
+  cmb = & adapter->cmb;
 #line 1028
-  __cil_tmp24 = (unsigned long )adapter;
-#line 1028
-  __cil_tmp25 = __cil_tmp24 + 1864;
-#line 1028
-  smb = (struct atl1c_smb *)__cil_tmp25;
+  smb = & adapter->smb;
 #line 1033
-  __cil_tmp26 = (unsigned long )tpd_ring;
+  __cil_tmp14 = tpd_ring->dma;
 #line 1033
-  __cil_tmp27 = __cil_tmp26 + 8;
+  __cil_tmp15 = __cil_tmp14 >> 32;
 #line 1033
-  __cil_tmp28 = *((dma_addr_t *)__cil_tmp27);
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 1033
-  __cil_tmp29 = __cil_tmp28 >> 32;
+  __cil_tmp17 = hw->hw_addr;
 #line 1033
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
+  __cil_tmp18 = (void volatile   *)__cil_tmp17;
 #line 1033
-  __cil_tmp31 = *((u8 **)hw);
+  __cil_tmp19 = __cil_tmp18 + 5444U;
 #line 1033
-  __cil_tmp32 = (void volatile   *)__cil_tmp31;
-#line 1033
-  __cil_tmp33 = __cil_tmp32 + 5444U;
-#line 1033
-  writel(__cil_tmp30, __cil_tmp33);
+  writel(__cil_tmp16, __cil_tmp19);
 #line 1037
-  __cil_tmp34 = (unsigned long )tpd_ring;
+  __cil_tmp20 = tpd_ring->dma;
 #line 1037
-  __cil_tmp35 = __cil_tmp34 + 8;
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 1037
-  __cil_tmp36 = *((dma_addr_t *)__cil_tmp35);
+  __cil_tmp22 = hw->hw_addr;
 #line 1037
-  __cil_tmp37 = (unsigned int )__cil_tmp36;
+  __cil_tmp23 = (void volatile   *)__cil_tmp22;
 #line 1037
-  __cil_tmp38 = *((u8 **)hw);
+  __cil_tmp24 = __cil_tmp23 + 5504U;
 #line 1037
-  __cil_tmp39 = (void volatile   *)__cil_tmp38;
-#line 1037
-  __cil_tmp40 = __cil_tmp39 + 5504U;
-#line 1037
-  writel(__cil_tmp37, __cil_tmp40);
+  writel(__cil_tmp21, __cil_tmp24);
 #line 1040
-  __cil_tmp41 = tpd_ring + 1UL;
+  __cil_tmp25 = tpd_ring + 1UL;
 #line 1040
-  __cil_tmp42 = (unsigned long )__cil_tmp41;
+  __cil_tmp26 = __cil_tmp25->dma;
 #line 1040
-  __cil_tmp43 = __cil_tmp42 + 8;
+  __cil_tmp27 = (unsigned int )__cil_tmp26;
 #line 1040
-  __cil_tmp44 = *((dma_addr_t *)__cil_tmp43);
+  __cil_tmp28 = hw->hw_addr;
 #line 1040
-  __cil_tmp45 = (unsigned int )__cil_tmp44;
+  __cil_tmp29 = (void volatile   *)__cil_tmp28;
 #line 1040
-  __cil_tmp46 = *((u8 **)hw);
+  __cil_tmp30 = __cil_tmp29 + 5500U;
 #line 1040
-  __cil_tmp47 = (void volatile   *)__cil_tmp46;
-#line 1040
-  __cil_tmp48 = __cil_tmp47 + 5500U;
-#line 1040
-  writel(__cil_tmp45, __cil_tmp48);
+  writel(__cil_tmp27, __cil_tmp30);
 #line 1043
-  __cil_tmp49 = (unsigned long )tpd_ring;
+  __cil_tmp31 = tpd_ring->count;
 #line 1043
-  __cil_tmp50 = __cil_tmp49 + 18;
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 1043
-  __cil_tmp51 = *((u16 *)__cil_tmp50);
+  __cil_tmp33 = hw->hw_addr;
 #line 1043
-  __cil_tmp52 = (unsigned int )__cil_tmp51;
+  __cil_tmp34 = (void volatile   *)__cil_tmp33;
 #line 1043
-  __cil_tmp53 = *((u8 **)hw);
+  __cil_tmp35 = __cil_tmp34 + 5508U;
 #line 1043
-  __cil_tmp54 = (void volatile   *)__cil_tmp53;
-#line 1043
-  __cil_tmp55 = __cil_tmp54 + 5508U;
-#line 1043
-  writel(__cil_tmp52, __cil_tmp55);
+  writel(__cil_tmp32, __cil_tmp35);
 #line 1048
-  __cil_tmp56 = (unsigned long )rfd_ring;
+  __cil_tmp36 = rfd_ring->dma;
 #line 1048
-  __cil_tmp57 = __cil_tmp56 + 8;
+  __cil_tmp37 = __cil_tmp36 >> 32;
 #line 1048
-  __cil_tmp58 = *((dma_addr_t *)__cil_tmp57);
+  __cil_tmp38 = (unsigned int )__cil_tmp37;
 #line 1048
-  __cil_tmp59 = __cil_tmp58 >> 32;
+  __cil_tmp39 = hw->hw_addr;
 #line 1048
-  __cil_tmp60 = (unsigned int )__cil_tmp59;
+  __cil_tmp40 = (void volatile   *)__cil_tmp39;
 #line 1048
-  __cil_tmp61 = *((u8 **)hw);
+  __cil_tmp41 = __cil_tmp40 + 5440U;
 #line 1048
-  __cil_tmp62 = (void volatile   *)__cil_tmp61;
-#line 1048
-  __cil_tmp63 = __cil_tmp62 + 5440U;
-#line 1048
-  writel(__cil_tmp60, __cil_tmp63);
+  writel(__cil_tmp38, __cil_tmp41);
 #line 1050
   i = 0;
   }
+#line 1050
   goto ldv_42756;
   ldv_42755: 
   {
 #line 1051
-  __cil_tmp64 = (unsigned long )i;
+  __cil_tmp42 = (unsigned long )i;
 #line 1051
-  __cil_tmp65 = rfd_ring + __cil_tmp64;
+  __cil_tmp43 = rfd_ring + __cil_tmp42;
 #line 1051
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
+  __cil_tmp44 = __cil_tmp43->dma;
 #line 1051
-  __cil_tmp67 = __cil_tmp66 + 8;
+  __cil_tmp45 = (unsigned int )__cil_tmp44;
 #line 1051
-  __cil_tmp68 = *((dma_addr_t *)__cil_tmp67);
+  __cil_tmp46 = (unsigned long )atl1c_rfd_addr_lo_regs[i];
 #line 1051
-  __cil_tmp69 = (unsigned int )__cil_tmp68;
+  __cil_tmp47 = hw->hw_addr;
 #line 1051
-  __cil_tmp70 = i * 2UL;
+  __cil_tmp48 = (void volatile   *)__cil_tmp47;
 #line 1051
-  __cil_tmp71 = (unsigned long )(atl1c_rfd_addr_lo_regs) + __cil_tmp70;
+  __cil_tmp49 = __cil_tmp48 + __cil_tmp46;
 #line 1051
-  __cil_tmp72 = *((u16 const   *)__cil_tmp71);
-#line 1051
-  __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 1051
-  __cil_tmp74 = *((u8 **)hw);
-#line 1051
-  __cil_tmp75 = (void volatile   *)__cil_tmp74;
-#line 1051
-  __cil_tmp76 = __cil_tmp75 + __cil_tmp73;
-#line 1051
-  writel(__cil_tmp69, __cil_tmp76);
+  writel(__cil_tmp45, __cil_tmp49);
 #line 1050
   i = i + 1;
   }
   ldv_42756: ;
   {
 #line 1050
-  __cil_tmp77 = (unsigned long )adapter;
+  __cil_tmp50 = adapter->num_rx_queues;
 #line 1050
-  __cil_tmp78 = __cil_tmp77 + 1880;
-#line 1050
-  __cil_tmp79 = *((int *)__cil_tmp78);
-#line 1050
-  if (__cil_tmp79 > i) {
+  if (__cil_tmp50 > i) {
+#line 1051
     goto ldv_42755;
   } else {
+#line 1053
     goto ldv_42757;
   }
   }
   ldv_42757: 
   {
 #line 1054
-  __cil_tmp80 = (unsigned long )rfd_ring;
+  __cil_tmp51 = rfd_ring->count;
 #line 1054
-  __cil_tmp81 = __cil_tmp80 + 18;
+  __cil_tmp52 = (unsigned int )__cil_tmp51;
 #line 1054
-  __cil_tmp82 = *((u16 *)__cil_tmp81);
+  __cil_tmp53 = __cil_tmp52 & 4095U;
 #line 1054
-  __cil_tmp83 = (unsigned int )__cil_tmp82;
+  __cil_tmp54 = hw->hw_addr;
 #line 1054
-  __cil_tmp84 = __cil_tmp83 & 4095U;
+  __cil_tmp55 = (void volatile   *)__cil_tmp54;
 #line 1054
-  __cil_tmp85 = *((u8 **)hw);
+  __cil_tmp56 = __cil_tmp55 + 5472U;
 #line 1054
-  __cil_tmp86 = (void volatile   *)__cil_tmp85;
-#line 1054
-  __cil_tmp87 = __cil_tmp86 + 5472U;
-#line 1054
-  writel(__cil_tmp84, __cil_tmp87);
+  writel(__cil_tmp53, __cil_tmp56);
 #line 1056
-  __cil_tmp88 = (unsigned long )adapter;
+  __cil_tmp57 = adapter->rx_buffer_len;
 #line 1056
-  __cil_tmp89 = __cil_tmp88 + 992;
+  __cil_tmp58 = (unsigned int )__cil_tmp57;
 #line 1056
-  __cil_tmp90 = *((u16 *)__cil_tmp89);
+  __cil_tmp59 = hw->hw_addr;
 #line 1056
-  __cil_tmp91 = (unsigned int )__cil_tmp90;
+  __cil_tmp60 = (void volatile   *)__cil_tmp59;
 #line 1056
-  __cil_tmp92 = *((u8 **)hw);
+  __cil_tmp61 = __cil_tmp60 + 5476U;
 #line 1056
-  __cil_tmp93 = (void volatile   *)__cil_tmp92;
-#line 1056
-  __cil_tmp94 = __cil_tmp93 + 5476U;
-#line 1056
-  writel(__cil_tmp91, __cil_tmp94);
+  writel(__cil_tmp58, __cil_tmp61);
 #line 1060
   i = 0;
   }
+#line 1060
   goto ldv_42759;
   ldv_42758: 
   {
 #line 1061
-  __cil_tmp95 = (unsigned long )i;
+  __cil_tmp62 = (unsigned long )i;
 #line 1061
-  __cil_tmp96 = rrd_ring + __cil_tmp95;
+  __cil_tmp63 = rrd_ring + __cil_tmp62;
 #line 1061
-  __cil_tmp97 = (unsigned long )__cil_tmp96;
+  __cil_tmp64 = __cil_tmp63->dma;
 #line 1061
-  __cil_tmp98 = __cil_tmp97 + 8;
+  __cil_tmp65 = (unsigned int )__cil_tmp64;
 #line 1061
-  __cil_tmp99 = *((dma_addr_t *)__cil_tmp98);
+  __cil_tmp66 = (unsigned long )atl1c_rrd_addr_lo_regs[i];
 #line 1061
-  __cil_tmp100 = (unsigned int )__cil_tmp99;
+  __cil_tmp67 = hw->hw_addr;
 #line 1061
-  __cil_tmp101 = i * 2UL;
+  __cil_tmp68 = (void volatile   *)__cil_tmp67;
 #line 1061
-  __cil_tmp102 = (unsigned long )(atl1c_rrd_addr_lo_regs) + __cil_tmp101;
+  __cil_tmp69 = __cil_tmp68 + __cil_tmp66;
 #line 1061
-  __cil_tmp103 = *((u16 const   *)__cil_tmp102);
-#line 1061
-  __cil_tmp104 = (unsigned long )__cil_tmp103;
-#line 1061
-  __cil_tmp105 = *((u8 **)hw);
-#line 1061
-  __cil_tmp106 = (void volatile   *)__cil_tmp105;
-#line 1061
-  __cil_tmp107 = __cil_tmp106 + __cil_tmp104;
-#line 1061
-  writel(__cil_tmp100, __cil_tmp107);
+  writel(__cil_tmp65, __cil_tmp69);
 #line 1060
   i = i + 1;
   }
   ldv_42759: ;
   {
 #line 1060
-  __cil_tmp108 = (unsigned long )adapter;
+  __cil_tmp70 = adapter->num_rx_queues;
 #line 1060
-  __cil_tmp109 = __cil_tmp108 + 1880;
-#line 1060
-  __cil_tmp110 = *((int *)__cil_tmp109);
-#line 1060
-  if (__cil_tmp110 > i) {
+  if (__cil_tmp70 > i) {
+#line 1061
     goto ldv_42758;
   } else {
+#line 1063
     goto ldv_42760;
   }
   }
   ldv_42760: 
   {
 #line 1063
-  __cil_tmp111 = (unsigned long )rrd_ring;
+  __cil_tmp71 = rrd_ring->count;
 #line 1063
-  __cil_tmp112 = __cil_tmp111 + 18;
+  __cil_tmp72 = (unsigned int )__cil_tmp71;
 #line 1063
-  __cil_tmp113 = *((u16 *)__cil_tmp112);
+  __cil_tmp73 = __cil_tmp72 & 4095U;
 #line 1063
-  __cil_tmp114 = (unsigned int )__cil_tmp113;
+  __cil_tmp74 = hw->hw_addr;
 #line 1063
-  __cil_tmp115 = __cil_tmp114 & 4095U;
+  __cil_tmp75 = (void volatile   *)__cil_tmp74;
 #line 1063
-  __cil_tmp116 = *((u8 **)hw);
+  __cil_tmp76 = __cil_tmp75 + 5496U;
 #line 1063
-  __cil_tmp117 = (void volatile   *)__cil_tmp116;
-#line 1063
-  __cil_tmp118 = __cil_tmp117 + 5496U;
-#line 1063
-  writel(__cil_tmp115, __cil_tmp118);
+  writel(__cil_tmp73, __cil_tmp76);
 #line 1067
-  __cil_tmp119 = (unsigned long )cmb;
+  __cil_tmp77 = cmb->dma;
 #line 1067
-  __cil_tmp120 = __cil_tmp119 + 8;
+  __cil_tmp78 = (unsigned int )__cil_tmp77;
 #line 1067
-  __cil_tmp121 = *((dma_addr_t *)__cil_tmp120);
+  __cil_tmp79 = hw->hw_addr;
 #line 1067
-  __cil_tmp122 = (unsigned int )__cil_tmp121;
+  __cil_tmp80 = (void volatile   *)__cil_tmp79;
 #line 1067
-  __cil_tmp123 = *((u8 **)hw);
+  __cil_tmp81 = __cil_tmp80 + 5512U;
 #line 1067
-  __cil_tmp124 = (void volatile   *)__cil_tmp123;
-#line 1067
-  __cil_tmp125 = __cil_tmp124 + 5512U;
-#line 1067
-  writel(__cil_tmp122, __cil_tmp125);
+  writel(__cil_tmp78, __cil_tmp81);
 #line 1070
-  __cil_tmp126 = (unsigned long )smb;
+  __cil_tmp82 = smb->dma;
 #line 1070
-  __cil_tmp127 = __cil_tmp126 + 8;
+  __cil_tmp83 = __cil_tmp82 >> 32;
 #line 1070
-  __cil_tmp128 = *((dma_addr_t *)__cil_tmp127);
+  __cil_tmp84 = (unsigned int )__cil_tmp83;
 #line 1070
-  __cil_tmp129 = __cil_tmp128 >> 32;
+  __cil_tmp85 = hw->hw_addr;
 #line 1070
-  __cil_tmp130 = (unsigned int )__cil_tmp129;
+  __cil_tmp86 = (void volatile   *)__cil_tmp85;
 #line 1070
-  __cil_tmp131 = *((u8 **)hw);
+  __cil_tmp87 = __cil_tmp86 + 5448U;
 #line 1070
-  __cil_tmp132 = (void volatile   *)__cil_tmp131;
-#line 1070
-  __cil_tmp133 = __cil_tmp132 + 5448U;
-#line 1070
-  writel(__cil_tmp130, __cil_tmp133);
+  writel(__cil_tmp84, __cil_tmp87);
 #line 1072
-  __cil_tmp134 = (unsigned long )smb;
+  __cil_tmp88 = smb->dma;
 #line 1072
-  __cil_tmp135 = __cil_tmp134 + 8;
+  __cil_tmp89 = (unsigned int )__cil_tmp88;
 #line 1072
-  __cil_tmp136 = *((dma_addr_t *)__cil_tmp135);
+  __cil_tmp90 = hw->hw_addr;
 #line 1072
-  __cil_tmp137 = (unsigned int )__cil_tmp136;
+  __cil_tmp91 = (void volatile   *)__cil_tmp90;
 #line 1072
-  __cil_tmp138 = *((u8 **)hw);
+  __cil_tmp92 = __cil_tmp91 + 5452U;
 #line 1072
-  __cil_tmp139 = (void volatile   *)__cil_tmp138;
-#line 1072
-  __cil_tmp140 = __cil_tmp139 + 5452U;
-#line 1072
-  writel(__cil_tmp137, __cil_tmp140);
+  writel(__cil_tmp89, __cil_tmp92);
   }
   {
 #line 1074
-  __cil_tmp141 = (unsigned long )hw;
+  __cil_tmp93 = hw->nic_type;
 #line 1074
-  __cil_tmp142 = __cil_tmp141 + 16;
+  __cil_tmp94 = (unsigned int )__cil_tmp93;
 #line 1074
-  __cil_tmp143 = *((enum atl1c_nic_type *)__cil_tmp142);
-#line 1074
-  __cil_tmp144 = (unsigned int )__cil_tmp143;
-#line 1074
-  if (__cil_tmp144 == 2U) {
+  if (__cil_tmp94 == 2U) {
     {
 #line 1075
-    __cil_tmp145 = *((u8 **)hw);
+    __cil_tmp95 = hw->hw_addr;
 #line 1075
-    __cil_tmp146 = (void volatile   *)__cil_tmp145;
+    __cil_tmp96 = (void volatile   *)__cil_tmp95;
 #line 1075
-    __cil_tmp147 = __cil_tmp146 + 5412U;
+    __cil_tmp97 = __cil_tmp96 + 5412U;
 #line 1075
-    writel(672U, __cil_tmp147);
+    writel(672U, __cil_tmp97);
 #line 1076
-    __cil_tmp148 = *((u8 **)hw);
+    __cil_tmp98 = hw->hw_addr;
 #line 1076
-    __cil_tmp149 = (void volatile   *)__cil_tmp148;
+    __cil_tmp99 = (void volatile   *)__cil_tmp98;
 #line 1076
-    __cil_tmp150 = __cil_tmp149 + 5420U;
+    __cil_tmp100 = __cil_tmp99 + 5420U;
 #line 1076
-    writel(256U, __cil_tmp150);
+    writel(256U, __cil_tmp100);
 #line 1077
-    __cil_tmp151 = *((u8 **)hw);
+    __cil_tmp101 = hw->hw_addr;
 #line 1077
-    __cil_tmp152 = (void volatile   *)__cil_tmp151;
+    __cil_tmp102 = (void volatile   *)__cil_tmp101;
 #line 1077
-    __cil_tmp153 = __cil_tmp152 + 5408U;
+    __cil_tmp103 = __cil_tmp102 + 5408U;
 #line 1077
-    writel(43974656U, __cil_tmp153);
+    writel(43974656U, __cil_tmp103);
 #line 1078
-    __cil_tmp154 = *((u8 **)hw);
+    __cil_tmp104 = hw->hw_addr;
 #line 1078
-    __cil_tmp155 = (void volatile   *)__cil_tmp154;
+    __cil_tmp105 = (void volatile   *)__cil_tmp104;
 #line 1078
-    __cil_tmp156 = __cil_tmp155 + 5376U;
+    __cil_tmp106 = __cil_tmp105 + 5376U;
 #line 1078
-    writel(46072480U, __cil_tmp156);
+    writel(46072480U, __cil_tmp106);
 #line 1079
-    __cil_tmp157 = *((u8 **)hw);
+    __cil_tmp107 = hw->hw_addr;
 #line 1079
-    __cil_tmp158 = (void volatile   *)__cil_tmp157;
+    __cil_tmp108 = (void volatile   *)__cil_tmp107;
 #line 1079
-    __cil_tmp159 = __cil_tmp158 + 5416U;
+    __cil_tmp109 = __cil_tmp108 + 5416U;
 #line 1079
-    writel(62849728U, __cil_tmp159);
+    writel(62849728U, __cil_tmp109);
 #line 1080
-    __cil_tmp160 = *((u8 **)hw);
+    __cil_tmp110 = hw->hw_addr;
 #line 1080
-    __cil_tmp161 = (void volatile   *)__cil_tmp160;
+    __cil_tmp111 = (void volatile   *)__cil_tmp110;
 #line 1080
-    __cil_tmp162 = __cil_tmp161 + 5400U;
+    __cil_tmp112 = __cil_tmp111 + 5400U;
 #line 1080
-    writel(64947136U, __cil_tmp162);
+    writel(64947136U, __cil_tmp112);
 #line 1081
-    __cil_tmp163 = *((u8 **)hw);
+    __cil_tmp113 = hw->hw_addr;
 #line 1081
-    __cil_tmp164 = (void volatile   *)__cil_tmp163;
+    __cil_tmp114 = (void volatile   *)__cil_tmp113;
 #line 1081
-    __cil_tmp165 = __cil_tmp164 + 5528U;
+    __cil_tmp115 = __cil_tmp114 + 5528U;
 #line 1081
-    writel(0U, __cil_tmp165);
+    writel(0U, __cil_tmp115);
 #line 1082
-    __cil_tmp166 = *((u8 **)hw);
+    __cil_tmp116 = hw->hw_addr;
 #line 1082
-    __cil_tmp167 = (void volatile   *)__cil_tmp166;
+    __cil_tmp117 = (void volatile   *)__cil_tmp116;
 #line 1082
-    __cil_tmp168 = __cil_tmp167 + 5548U;
+    __cil_tmp118 = __cil_tmp117 + 5548U;
 #line 1082
-    writel(0U, __cil_tmp168);
+    writel(0U, __cil_tmp118);
     }
   } else {
 
@@ -11070,71 +10071,60 @@ static void atl1c_configure_des_ring(struct atl1c_adapter *adapter )
   }
   {
 #line 1084
-  __cil_tmp169 = (unsigned long )hw;
+  __cil_tmp119 = hw->nic_type;
 #line 1084
-  __cil_tmp170 = __cil_tmp169 + 16;
+  __cil_tmp120 = (unsigned int )__cil_tmp119;
 #line 1084
-  __cil_tmp171 = *((enum atl1c_nic_type *)__cil_tmp170);
+  if (__cil_tmp120 == 2U) {
 #line 1084
-  __cil_tmp172 = (unsigned int )__cil_tmp171;
-#line 1084
-  if (__cil_tmp172 == 2U) {
     goto _L;
   } else {
     {
 #line 1084
-    __cil_tmp173 = (unsigned long )hw;
+    __cil_tmp121 = hw->nic_type;
 #line 1084
-    __cil_tmp174 = __cil_tmp173 + 16;
+    __cil_tmp122 = (unsigned int )__cil_tmp121;
 #line 1084
-    __cil_tmp175 = *((enum atl1c_nic_type *)__cil_tmp174);
-#line 1084
-    __cil_tmp176 = (unsigned int )__cil_tmp175;
-#line 1084
-    if (__cil_tmp176 == 5U) {
+    if (__cil_tmp122 == 5U) {
       _L: 
       {
 #line 1086
-      __cil_tmp177 = (unsigned long )hw;
+      __cil_tmp123 = hw->hibernate;
 #line 1086
-      __cil_tmp178 = __cil_tmp177 + 237;
+      __cil_tmp124 = (long )__cil_tmp123;
 #line 1086
-      __cil_tmp179 = *((bool *)__cil_tmp178);
-#line 1086
-      __cil_tmp180 = (long )__cil_tmp179;
-#line 1086
-      tmp = __builtin_expect(__cil_tmp180, 0L);
+      tmp = __builtin_expect(__cil_tmp124, 0L);
       }
 #line 1086
       if (tmp != 0L) {
         {
 #line 1086
-        __cil_tmp181 = *((u8 **)hw);
+        __cil_tmp125 = hw->hw_addr;
 #line 1086
-        __cil_tmp182 = (void const volatile   *)__cil_tmp181;
+        __cil_tmp126 = (void const volatile   *)__cil_tmp125;
 #line 1086
-        __cil_tmp183 = __cil_tmp182 + 5156U;
+        __cil_tmp127 = __cil_tmp126 + 5156U;
 #line 1086
-        readl(__cil_tmp183);
+        readl(__cil_tmp127);
 #line 1086
-        __cil_tmp184 = *((u8 **)hw);
+        __cil_tmp128 = hw->hw_addr;
 #line 1086
-        __cil_tmp185 = (void const volatile   *)__cil_tmp184;
+        __cil_tmp129 = (void const volatile   *)__cil_tmp128;
 #line 1086
-        __cil_tmp186 = __cil_tmp185 + 5156U;
+        __cil_tmp130 = __cil_tmp129 + 5156U;
 #line 1086
-        data = readl(__cil_tmp186);
+        data = readl(__cil_tmp130);
         }
       } else {
         {
 #line 1086
-        __cil_tmp187 = *((u8 **)hw);
+        __cil_tmp131 = hw->hw_addr;
 #line 1086
-        __cil_tmp188 = (void const volatile   *)__cil_tmp187;
+        __cil_tmp132 = (void const volatile   *)__cil_tmp131;
 #line 1086
-        __cil_tmp189 = __cil_tmp188 + 5156U;
+        __cil_tmp133 = __cil_tmp132 + 5156U;
 #line 1086
-        data = readl(__cil_tmp189);
+        data = readl(__cil_tmp133);
         }
       }
       {
@@ -11143,13 +10133,13 @@ static void atl1c_configure_des_ring(struct atl1c_adapter *adapter )
 #line 1088
       data = data | 262144U;
 #line 1089
-      __cil_tmp190 = *((u8 **)hw);
+      __cil_tmp134 = hw->hw_addr;
 #line 1089
-      __cil_tmp191 = (void volatile   *)__cil_tmp190;
+      __cil_tmp135 = (void volatile   *)__cil_tmp134;
 #line 1089
-      __cil_tmp192 = __cil_tmp191 + 5156U;
+      __cil_tmp136 = __cil_tmp135 + 5156U;
 #line 1089
-      writel(data, __cil_tmp192);
+      writel(data, __cil_tmp136);
       }
     } else {
 
@@ -11159,13 +10149,13 @@ static void atl1c_configure_des_ring(struct atl1c_adapter *adapter )
   }
   {
 #line 1092
-  __cil_tmp193 = *((u8 **)hw);
+  __cil_tmp137 = hw->hw_addr;
 #line 1092
-  __cil_tmp194 = (void volatile   *)__cil_tmp193;
+  __cil_tmp138 = (void volatile   *)__cil_tmp137;
 #line 1092
-  __cil_tmp195 = __cil_tmp194 + 5428U;
+  __cil_tmp139 = __cil_tmp138 + 5428U;
 #line 1092
-  writel(1U, __cil_tmp195);
+  writel(1U, __cil_tmp139);
   }
 #line 1093
   return;
@@ -11186,153 +10176,114 @@ static void atl1c_configure_tx(struct atl1c_adapter *adapter )
   u32 __min1___0 ;
   u32 __min2___0 ;
   u32 tmp___1 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  u8 *__cil_tmp21 ;
-  void volatile   *__cil_tmp22 ;
-  void volatile   *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  bool __cil_tmp26 ;
-  long __cil_tmp27 ;
-  u8 *__cil_tmp28 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  u8 *__cil_tmp19 ;
+  void volatile   *__cil_tmp20 ;
+  void volatile   *__cil_tmp21 ;
+  bool __cil_tmp22 ;
+  long __cil_tmp23 ;
+  u8 *__cil_tmp24 ;
+  void const volatile   *__cil_tmp25 ;
+  void const volatile   *__cil_tmp26 ;
+  u8 *__cil_tmp27 ;
+  void const volatile   *__cil_tmp28 ;
   void const volatile   *__cil_tmp29 ;
-  void const volatile   *__cil_tmp30 ;
-  u8 *__cil_tmp31 ;
+  u8 *__cil_tmp30 ;
+  void const volatile   *__cil_tmp31 ;
   void const volatile   *__cil_tmp32 ;
-  void const volatile   *__cil_tmp33 ;
-  u8 *__cil_tmp34 ;
-  void const volatile   *__cil_tmp35 ;
-  void const volatile   *__cil_tmp36 ;
-  u32 __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  enum atl1c_dma_req_block __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u32 __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  enum atl1c_dma_req_block __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u8 __cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  u16 __cil_tmp55 ;
-  int __cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  enum atl1c_dma_req_block __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u16 __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  enum atl1c_nic_type __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  enum atl1c_nic_type __cil_tmp73 ;
-  unsigned int __cil_tmp74 ;
-  u8 *__cil_tmp75 ;
-  void volatile   *__cil_tmp76 ;
-  void volatile   *__cil_tmp77 ;
+  u32 __cil_tmp33 ;
+  enum atl1c_dma_req_block __cil_tmp34 ;
+  u32 __cil_tmp35 ;
+  enum atl1c_dma_req_block __cil_tmp36 ;
+  u8 __cil_tmp37 ;
+  u32 __cil_tmp38 ;
+  u16 __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  enum atl1c_nic_type __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  enum atl1c_nic_type __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  u8 *__cil_tmp48 ;
+  void volatile   *__cil_tmp49 ;
+  void volatile   *__cil_tmp50 ;
 
   {
   {
 #line 1097
-  __cil_tmp15 = (unsigned long )adapter;
-#line 1097
-  __cil_tmp16 = __cil_tmp15 + 184;
-#line 1097
-  hw = (struct atl1c_hw *)__cil_tmp16;
+  hw = & adapter->hw;
 #line 1104
-  tx_offload_thresh = (unsigned short)9216;
+  tx_offload_thresh = (u16 )9216U;
 #line 1105
-  __cil_tmp17 = (int )tx_offload_thresh;
+  __cil_tmp15 = (int )tx_offload_thresh;
 #line 1105
-  __cil_tmp18 = __cil_tmp17 >> 3;
+  __cil_tmp16 = __cil_tmp15 >> 3;
 #line 1105
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
+  __cil_tmp17 = (unsigned int )__cil_tmp16;
 #line 1105
-  __cil_tmp20 = __cil_tmp19 & 2047U;
+  __cil_tmp18 = __cil_tmp17 & 2047U;
 #line 1105
-  __cil_tmp21 = *((u8 **)hw);
+  __cil_tmp19 = hw->hw_addr;
 #line 1105
-  __cil_tmp22 = (void volatile   *)__cil_tmp21;
+  __cil_tmp20 = (void volatile   *)__cil_tmp19;
 #line 1105
-  __cil_tmp23 = __cil_tmp22 + 5524U;
+  __cil_tmp21 = __cil_tmp20 + 5524U;
 #line 1105
-  writel(__cil_tmp20, __cil_tmp23);
+  writel(__cil_tmp18, __cil_tmp21);
 #line 1107
-  __cil_tmp24 = (unsigned long )hw;
+  __cil_tmp22 = hw->hibernate;
 #line 1107
-  __cil_tmp25 = __cil_tmp24 + 237;
+  __cil_tmp23 = (long )__cil_tmp22;
 #line 1107
-  __cil_tmp26 = *((bool *)__cil_tmp25);
-#line 1107
-  __cil_tmp27 = (long )__cil_tmp26;
-#line 1107
-  tmp = __builtin_expect(__cil_tmp27, 0L);
+  tmp = __builtin_expect(__cil_tmp23, 0L);
   }
 #line 1107
   if (tmp != 0L) {
     {
 #line 1107
-    __cil_tmp28 = *((u8 **)hw);
+    __cil_tmp24 = hw->hw_addr;
 #line 1107
-    __cil_tmp29 = (void const volatile   *)__cil_tmp28;
+    __cil_tmp25 = (void const volatile   *)__cil_tmp24;
 #line 1107
-    __cil_tmp30 = __cil_tmp29 + 96U;
+    __cil_tmp26 = __cil_tmp25 + 96U;
 #line 1107
-    readl(__cil_tmp30);
+    readl(__cil_tmp26);
 #line 1107
-    __cil_tmp31 = *((u8 **)hw);
+    __cil_tmp27 = hw->hw_addr;
 #line 1107
-    __cil_tmp32 = (void const volatile   *)__cil_tmp31;
+    __cil_tmp28 = (void const volatile   *)__cil_tmp27;
 #line 1107
-    __cil_tmp33 = __cil_tmp32 + 96U;
+    __cil_tmp29 = __cil_tmp28 + 96U;
 #line 1107
-    dev_ctrl_data = readl(__cil_tmp33);
+    dev_ctrl_data = readl(__cil_tmp29);
     }
   } else {
     {
 #line 1107
-    __cil_tmp34 = *((u8 **)hw);
+    __cil_tmp30 = hw->hw_addr;
 #line 1107
-    __cil_tmp35 = (void const volatile   *)__cil_tmp34;
+    __cil_tmp31 = (void const volatile   *)__cil_tmp30;
 #line 1107
-    __cil_tmp36 = __cil_tmp35 + 96U;
+    __cil_tmp32 = __cil_tmp31 + 96U;
 #line 1107
-    dev_ctrl_data = readl(__cil_tmp36);
+    dev_ctrl_data = readl(__cil_tmp32);
     }
   }
 #line 1108
-  __cil_tmp37 = dev_ctrl_data >> 5;
+  __cil_tmp33 = dev_ctrl_data >> 5;
 #line 1108
-  max_pay_load = __cil_tmp37 & 7U;
+  max_pay_load = __cil_tmp33 & 7U;
 #line 1110
   __min1 = max_pay_load;
 #line 1110
-  __cil_tmp38 = (unsigned long )hw;
+  __cil_tmp34 = hw->dmaw_block;
 #line 1110
-  __cil_tmp39 = __cil_tmp38 + 144;
-#line 1110
-  __cil_tmp40 = *((enum atl1c_dma_req_block *)__cil_tmp39);
-#line 1110
-  __min2 = (unsigned int )__cil_tmp40;
+  __min2 = (u32 )__cil_tmp34;
 #line 1110
   if (__min1 < __min2) {
 #line 1110
@@ -11342,25 +10293,17 @@ static void atl1c_configure_tx(struct atl1c_adapter *adapter )
     tmp___0 = __min2;
   }
 #line 1110
-  __cil_tmp41 = (unsigned long )hw;
-#line 1110
-  __cil_tmp42 = __cil_tmp41 + 144;
-#line 1110
-  *((enum atl1c_dma_req_block *)__cil_tmp42) = (enum atl1c_dma_req_block )tmp___0;
+  hw->dmaw_block = (enum atl1c_dma_req_block )tmp___0;
 #line 1111
-  __cil_tmp43 = dev_ctrl_data >> 12;
+  __cil_tmp35 = dev_ctrl_data >> 12;
 #line 1111
-  max_pay_load = __cil_tmp43 & 7U;
+  max_pay_load = __cil_tmp35 & 7U;
 #line 1113
   __min1___0 = max_pay_load;
 #line 1113
-  __cil_tmp44 = (unsigned long )hw;
+  __cil_tmp36 = hw->dmar_block;
 #line 1113
-  __cil_tmp45 = __cil_tmp44 + 112;
-#line 1113
-  __cil_tmp46 = *((enum atl1c_dma_req_block *)__cil_tmp45);
-#line 1113
-  __min2___0 = (unsigned int )__cil_tmp46;
+  __min2___0 = (u32 )__cil_tmp36;
 #line 1113
   if (__min1___0 < __min2___0) {
 #line 1113
@@ -11370,34 +10313,22 @@ static void atl1c_configure_tx(struct atl1c_adapter *adapter )
     tmp___1 = __min2___0;
   }
 #line 1113
-  __cil_tmp47 = (unsigned long )hw;
-#line 1113
-  __cil_tmp48 = __cil_tmp47 + 112;
-#line 1113
-  *((enum atl1c_dma_req_block *)__cil_tmp48) = (enum atl1c_dma_req_block )tmp___1;
+  hw->dmar_block = (enum atl1c_dma_req_block )tmp___1;
 #line 1115
-  __cil_tmp49 = (unsigned long )hw;
+  __cil_tmp37 = hw->tpd_burst;
 #line 1115
-  __cil_tmp50 = __cil_tmp49 + 272;
+  __cil_tmp38 = (u32 )__cil_tmp37;
 #line 1115
-  __cil_tmp51 = *((u8 *)__cil_tmp50);
-#line 1115
-  __cil_tmp52 = (unsigned int )__cil_tmp51;
-#line 1115
-  txq_ctrl_data = __cil_tmp52 & 15U;
+  txq_ctrl_data = __cil_tmp38 & 15U;
   {
 #line 1117
-  __cil_tmp53 = (unsigned long )hw;
+  __cil_tmp39 = hw->ctrl_flags;
 #line 1117
-  __cil_tmp54 = __cil_tmp53 + 252;
+  __cil_tmp40 = (int )__cil_tmp39;
 #line 1117
-  __cil_tmp55 = *((u16 *)__cil_tmp54);
+  __cil_tmp41 = __cil_tmp40 & 32;
 #line 1117
-  __cil_tmp56 = (int )__cil_tmp55;
-#line 1117
-  __cil_tmp57 = __cil_tmp56 & 32;
-#line 1117
-  if (__cil_tmp57 != 0) {
+  if (__cil_tmp41 != 0) {
 #line 1118
     txq_ctrl_data = txq_ctrl_data | 64U;
   } else {
@@ -11405,50 +10336,28 @@ static void atl1c_configure_tx(struct atl1c_adapter *adapter )
   }
   }
 #line 1119
-  __cil_tmp58 = (unsigned long )hw;
+  __cil_tmp42 = (int )atl1c_pay_load_size[(unsigned int )hw->dmar_block];
 #line 1119
-  __cil_tmp59 = __cil_tmp58 + 112;
+  __cil_tmp43 = __cil_tmp42 << 16;
 #line 1119
-  __cil_tmp60 = *((enum atl1c_dma_req_block *)__cil_tmp59);
-#line 1119
-  __cil_tmp61 = (unsigned int )__cil_tmp60;
-#line 1119
-  __cil_tmp62 = __cil_tmp61 * 2UL;
-#line 1119
-  __cil_tmp63 = (unsigned long )(atl1c_pay_load_size) + __cil_tmp62;
-#line 1119
-  __cil_tmp64 = *((u16 const   *)__cil_tmp63);
-#line 1119
-  __cil_tmp65 = (int )__cil_tmp64;
-#line 1119
-  __cil_tmp66 = __cil_tmp65 << 16;
-#line 1119
-  max_pay_load_data = (unsigned int )__cil_tmp66;
+  max_pay_load_data = (u32 )__cil_tmp43;
   {
 #line 1121
-  __cil_tmp67 = (unsigned long )hw;
+  __cil_tmp44 = hw->nic_type;
 #line 1121
-  __cil_tmp68 = __cil_tmp67 + 16;
+  __cil_tmp45 = (unsigned int )__cil_tmp44;
 #line 1121
-  __cil_tmp69 = *((enum atl1c_nic_type *)__cil_tmp68);
-#line 1121
-  __cil_tmp70 = (unsigned int )__cil_tmp69;
-#line 1121
-  if (__cil_tmp70 == 2U) {
+  if (__cil_tmp45 == 2U) {
 #line 1122
     max_pay_load_data = max_pay_load_data >> 1;
   } else {
     {
 #line 1121
-    __cil_tmp71 = (unsigned long )hw;
+    __cil_tmp46 = hw->nic_type;
 #line 1121
-    __cil_tmp72 = __cil_tmp71 + 16;
+    __cil_tmp47 = (unsigned int )__cil_tmp46;
 #line 1121
-    __cil_tmp73 = *((enum atl1c_nic_type *)__cil_tmp72);
-#line 1121
-    __cil_tmp74 = (unsigned int )__cil_tmp73;
-#line 1121
-    if (__cil_tmp74 == 3U) {
+    if (__cil_tmp47 == 3U) {
 #line 1122
       max_pay_load_data = max_pay_load_data >> 1;
     } else {
@@ -11461,13 +10370,13 @@ static void atl1c_configure_tx(struct atl1c_adapter *adapter )
 #line 1123
   txq_ctrl_data = txq_ctrl_data | max_pay_load_data;
 #line 1125
-  __cil_tmp75 = *((u8 **)hw);
+  __cil_tmp48 = hw->hw_addr;
 #line 1125
-  __cil_tmp76 = (void volatile   *)__cil_tmp75;
+  __cil_tmp49 = (void volatile   *)__cil_tmp48;
 #line 1125
-  __cil_tmp77 = __cil_tmp76 + 5520U;
+  __cil_tmp50 = __cil_tmp49 + 5520U;
 #line 1125
-  writel(txq_ctrl_data, __cil_tmp77);
+  writel(txq_ctrl_data, __cil_tmp50);
   }
 #line 1126
   return;
@@ -11477,94 +10386,60 @@ static void atl1c_configure_tx(struct atl1c_adapter *adapter )
 static void atl1c_configure_rx(struct atl1c_adapter *adapter ) 
 { struct atl1c_hw *hw ;
   u32 rxq_ctrl_data ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  u8 __cil_tmp8 ;
+  u8 __cil_tmp4 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  u16 __cil_tmp8 ;
   int __cil_tmp9 ;
   int __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u16 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  enum atl1c_rss_type __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  enum atl1c_rss_type __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  enum atl1c_rss_type __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  enum atl1c_rss_type __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
   enum atl1c_rss_type __cil_tmp19 ;
   unsigned int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  enum atl1c_rss_type __cil_tmp23 ;
+  enum atl1c_rss_mode __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  enum atl1c_rss_type __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  enum atl1c_rss_type __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  enum atl1c_rss_type __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  enum atl1c_rss_mode __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u8 __cil_tmp45 ;
-  int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u16 __cil_tmp51 ;
-  int __cil_tmp52 ;
-  int __cil_tmp53 ;
-  u8 *__cil_tmp54 ;
-  void volatile   *__cil_tmp55 ;
-  void volatile   *__cil_tmp56 ;
+  u8 __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  u32 __cil_tmp28 ;
+  u16 __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  u8 *__cil_tmp32 ;
+  void volatile   *__cil_tmp33 ;
+  void volatile   *__cil_tmp34 ;
 
   {
 #line 1130
-  __cil_tmp4 = (unsigned long )adapter;
-#line 1130
-  __cil_tmp5 = __cil_tmp4 + 184;
-#line 1130
-  hw = (struct atl1c_hw *)__cil_tmp5;
+  hw = & adapter->hw;
 #line 1133
-  __cil_tmp6 = (unsigned long )hw;
+  __cil_tmp4 = hw->rfd_burst;
 #line 1133
-  __cil_tmp7 = __cil_tmp6 + 273;
+  __cil_tmp5 = (int )__cil_tmp4;
 #line 1133
-  __cil_tmp8 = *((u8 *)__cil_tmp7);
+  __cil_tmp6 = __cil_tmp5 & 63;
 #line 1133
-  __cil_tmp9 = (int )__cil_tmp8;
+  __cil_tmp7 = __cil_tmp6 << 20;
 #line 1133
-  __cil_tmp10 = __cil_tmp9 & 63;
-#line 1133
-  __cil_tmp11 = __cil_tmp10 << 20;
-#line 1133
-  rxq_ctrl_data = (unsigned int )__cil_tmp11;
+  rxq_ctrl_data = (u32 )__cil_tmp7;
   {
 #line 1136
-  __cil_tmp12 = (unsigned long )hw;
+  __cil_tmp8 = hw->ctrl_flags;
 #line 1136
-  __cil_tmp13 = __cil_tmp12 + 252;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 1136
-  __cil_tmp14 = *((u16 *)__cil_tmp13);
+  __cil_tmp10 = __cil_tmp9 & 64;
 #line 1136
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 1136
-  __cil_tmp16 = __cil_tmp15 & 64;
-#line 1136
-  if (__cil_tmp16 != 0) {
+  if (__cil_tmp10 != 0) {
 #line 1137
     rxq_ctrl_data = rxq_ctrl_data | 128U;
   } else {
@@ -11573,15 +10448,11 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
   }
   {
 #line 1138
-  __cil_tmp17 = (unsigned long )hw;
+  __cil_tmp11 = hw->rss_type;
 #line 1138
-  __cil_tmp18 = __cil_tmp17 + 276;
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 1138
-  __cil_tmp19 = *((enum atl1c_rss_type *)__cil_tmp18);
-#line 1138
-  __cil_tmp20 = (unsigned int )__cil_tmp19;
-#line 1138
-  if (__cil_tmp20 == 1U) {
+  if (__cil_tmp12 == 1U) {
 #line 1139
     rxq_ctrl_data = rxq_ctrl_data | 65536U;
   } else {
@@ -11590,15 +10461,11 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
   }
   {
 #line 1140
-  __cil_tmp21 = (unsigned long )hw;
+  __cil_tmp13 = hw->rss_type;
 #line 1140
-  __cil_tmp22 = __cil_tmp21 + 276;
+  __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 1140
-  __cil_tmp23 = *((enum atl1c_rss_type *)__cil_tmp22);
-#line 1140
-  __cil_tmp24 = (unsigned int )__cil_tmp23;
-#line 1140
-  if (__cil_tmp24 == 2U) {
+  if (__cil_tmp14 == 2U) {
 #line 1141
     rxq_ctrl_data = rxq_ctrl_data | 131072U;
   } else {
@@ -11607,15 +10474,11 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
   }
   {
 #line 1142
-  __cil_tmp25 = (unsigned long )hw;
+  __cil_tmp15 = hw->rss_type;
 #line 1142
-  __cil_tmp26 = __cil_tmp25 + 276;
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 1142
-  __cil_tmp27 = *((enum atl1c_rss_type *)__cil_tmp26);
-#line 1142
-  __cil_tmp28 = (unsigned int )__cil_tmp27;
-#line 1142
-  if (__cil_tmp28 == 4U) {
+  if (__cil_tmp16 == 4U) {
 #line 1143
     rxq_ctrl_data = rxq_ctrl_data | 262144U;
   } else {
@@ -11624,15 +10487,11 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
   }
   {
 #line 1144
-  __cil_tmp29 = (unsigned long )hw;
+  __cil_tmp17 = hw->rss_type;
 #line 1144
-  __cil_tmp30 = __cil_tmp29 + 276;
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
 #line 1144
-  __cil_tmp31 = *((enum atl1c_rss_type *)__cil_tmp30);
-#line 1144
-  __cil_tmp32 = (unsigned int )__cil_tmp31;
-#line 1144
-  if (__cil_tmp32 == 8U) {
+  if (__cil_tmp18 == 8U) {
 #line 1145
     rxq_ctrl_data = rxq_ctrl_data | 524288U;
   } else {
@@ -11641,15 +10500,11 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
   }
   {
 #line 1146
-  __cil_tmp33 = (unsigned long )hw;
+  __cil_tmp19 = hw->rss_type;
 #line 1146
-  __cil_tmp34 = __cil_tmp33 + 276;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 1146
-  __cil_tmp35 = *((enum atl1c_rss_type *)__cil_tmp34);
-#line 1146
-  __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 1146
-  if (__cil_tmp36 != 0U) {
+  if (__cil_tmp20 != 0U) {
 #line 1147
     rxq_ctrl_data = rxq_ctrl_data | 536870912U;
   } else {
@@ -11657,46 +10512,34 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
   }
   }
 #line 1149
-  __cil_tmp37 = (unsigned long )hw;
+  __cil_tmp21 = hw->rss_mode;
 #line 1149
-  __cil_tmp38 = __cil_tmp37 + 308;
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 1149
-  __cil_tmp39 = *((enum atl1c_rss_mode *)__cil_tmp38);
+  __cil_tmp23 = __cil_tmp22 & 3U;
 #line 1149
-  __cil_tmp40 = (unsigned int )__cil_tmp39;
+  __cil_tmp24 = __cil_tmp23 << 26;
 #line 1149
-  __cil_tmp41 = __cil_tmp40 & 3U;
-#line 1149
-  __cil_tmp42 = __cil_tmp41 << 26;
-#line 1149
-  rxq_ctrl_data = __cil_tmp42 | rxq_ctrl_data;
+  rxq_ctrl_data = __cil_tmp24 | rxq_ctrl_data;
 #line 1151
-  __cil_tmp43 = (unsigned long )hw;
+  __cil_tmp25 = hw->rss_hash_bits;
 #line 1151
-  __cil_tmp44 = __cil_tmp43 + 340;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 1151
-  __cil_tmp45 = *((u8 *)__cil_tmp44);
+  __cil_tmp27 = __cil_tmp26 << 8;
 #line 1151
-  __cil_tmp46 = (int )__cil_tmp45;
+  __cil_tmp28 = (u32 )__cil_tmp27;
 #line 1151
-  __cil_tmp47 = __cil_tmp46 << 8;
-#line 1151
-  __cil_tmp48 = (unsigned int )__cil_tmp47;
-#line 1151
-  rxq_ctrl_data = __cil_tmp48 | rxq_ctrl_data;
+  rxq_ctrl_data = __cil_tmp28 | rxq_ctrl_data;
   {
 #line 1153
-  __cil_tmp49 = (unsigned long )hw;
+  __cil_tmp29 = hw->ctrl_flags;
 #line 1153
-  __cil_tmp50 = __cil_tmp49 + 252;
+  __cil_tmp30 = (int )__cil_tmp29;
 #line 1153
-  __cil_tmp51 = *((u16 *)__cil_tmp50);
+  __cil_tmp31 = __cil_tmp30 & 512;
 #line 1153
-  __cil_tmp52 = (int )__cil_tmp51;
-#line 1153
-  __cil_tmp53 = __cil_tmp52 & 512;
-#line 1153
-  if (__cil_tmp53 != 0) {
+  if (__cil_tmp31 != 0) {
 #line 1154
     rxq_ctrl_data = rxq_ctrl_data | 1U;
   } else {
@@ -11705,13 +10548,13 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
   }
   {
 #line 1157
-  __cil_tmp54 = *((u8 **)hw);
+  __cil_tmp32 = hw->hw_addr;
 #line 1157
-  __cil_tmp55 = (void volatile   *)__cil_tmp54;
+  __cil_tmp33 = (void volatile   *)__cil_tmp32;
 #line 1157
-  __cil_tmp56 = __cil_tmp55 + 5536U;
+  __cil_tmp34 = __cil_tmp33 + 5536U;
 #line 1157
-  writel(rxq_ctrl_data, __cil_tmp56);
+  writel(rxq_ctrl_data, __cil_tmp34);
   }
 #line 1158
   return;
@@ -11720,57 +10563,39 @@ static void atl1c_configure_rx(struct atl1c_adapter *adapter )
 #line 1160 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 static void atl1c_configure_rss(struct atl1c_adapter *adapter ) 
 { struct atl1c_hw *hw ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  u32 __cil_tmp3 ;
+  u8 *__cil_tmp4 ;
+  void volatile   *__cil_tmp5 ;
+  void volatile   *__cil_tmp6 ;
   u32 __cil_tmp7 ;
   u8 *__cil_tmp8 ;
   void volatile   *__cil_tmp9 ;
   void volatile   *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u32 __cil_tmp13 ;
-  u8 *__cil_tmp14 ;
-  void volatile   *__cil_tmp15 ;
-  void volatile   *__cil_tmp16 ;
 
   {
   {
 #line 1162
-  __cil_tmp3 = (unsigned long )adapter;
-#line 1162
-  __cil_tmp4 = __cil_tmp3 + 184;
-#line 1162
-  hw = (struct atl1c_hw *)__cil_tmp4;
+  hw = & adapter->hw;
 #line 1164
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp3 = hw->indirect_tab;
 #line 1164
-  __cil_tmp6 = __cil_tmp5 + 348;
+  __cil_tmp4 = hw->hw_addr;
 #line 1164
-  __cil_tmp7 = *((u32 *)__cil_tmp6);
+  __cil_tmp5 = (void volatile   *)__cil_tmp4;
 #line 1164
-  __cil_tmp8 = *((u8 **)hw);
+  __cil_tmp6 = __cil_tmp5 + 5344U;
 #line 1164
+  writel(__cil_tmp3, __cil_tmp6);
+#line 1165
+  __cil_tmp7 = hw->base_cpu;
+#line 1165
+  __cil_tmp8 = hw->hw_addr;
+#line 1165
   __cil_tmp9 = (void volatile   *)__cil_tmp8;
-#line 1164
-  __cil_tmp10 = __cil_tmp9 + 5344U;
-#line 1164
+#line 1165
+  __cil_tmp10 = __cil_tmp9 + 5560U;
+#line 1165
   writel(__cil_tmp7, __cil_tmp10);
-#line 1165
-  __cil_tmp11 = (unsigned long )hw;
-#line 1165
-  __cil_tmp12 = __cil_tmp11 + 344;
-#line 1165
-  __cil_tmp13 = *((u32 *)__cil_tmp12);
-#line 1165
-  __cil_tmp14 = *((u8 **)hw);
-#line 1165
-  __cil_tmp15 = (void volatile   *)__cil_tmp14;
-#line 1165
-  __cil_tmp16 = __cil_tmp15 + 5560U;
-#line 1165
-  writel(__cil_tmp13, __cil_tmp16);
   }
 #line 1166
   return;
@@ -11780,83 +10605,55 @@ static void atl1c_configure_rss(struct atl1c_adapter *adapter )
 static void atl1c_configure_dma(struct atl1c_adapter *adapter ) 
 { struct atl1c_hw *hw ;
   u32 dma_ctrl_data ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  u16 __cil_tmp8 ;
+  u16 __cil_tmp4 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
+  u16 __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u16 __cil_tmp13 ;
-  int __cil_tmp14 ;
+  enum atl1c_dma_order __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  enum atl1c_dma_order __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  enum atl1c_dma_order __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  enum atl1c_dma_order __cil_tmp23 ;
+  enum atl1c_dma_order __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  enum atl1c_dma_req_block __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  enum atl1c_dma_req_block __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  enum atl1c_dma_order __cil_tmp28 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
   unsigned int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  enum atl1c_dma_req_block __cil_tmp33 ;
+  unsigned int __cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   unsigned int __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  enum atl1c_dma_req_block __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u8 __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u8 __cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  u8 *__cil_tmp55 ;
-  void volatile   *__cil_tmp56 ;
-  void volatile   *__cil_tmp57 ;
+  u8 *__cil_tmp35 ;
+  void volatile   *__cil_tmp36 ;
+  void volatile   *__cil_tmp37 ;
 
   {
 #line 1170
-  __cil_tmp4 = (unsigned long )adapter;
-#line 1170
-  __cil_tmp5 = __cil_tmp4 + 184;
-#line 1170
-  hw = (struct atl1c_hw *)__cil_tmp5;
+  hw = & adapter->hw;
 #line 1173
   dma_ctrl_data = 1024U;
   {
 #line 1174
-  __cil_tmp6 = (unsigned long )hw;
+  __cil_tmp4 = hw->ctrl_flags;
 #line 1174
-  __cil_tmp7 = __cil_tmp6 + 252;
+  __cil_tmp5 = (int )__cil_tmp4;
 #line 1174
-  __cil_tmp8 = *((u16 *)__cil_tmp7);
+  __cil_tmp6 = __cil_tmp5 & 4;
 #line 1174
-  __cil_tmp9 = (int )__cil_tmp8;
-#line 1174
-  __cil_tmp10 = __cil_tmp9 & 4;
-#line 1174
-  if (__cil_tmp10 != 0) {
+  if (__cil_tmp6 != 0) {
 #line 1175
     dma_ctrl_data = dma_ctrl_data | 1048576U;
   } else {
@@ -11865,17 +10662,13 @@ static void atl1c_configure_dma(struct atl1c_adapter *adapter )
   }
   {
 #line 1176
-  __cil_tmp11 = (unsigned long )hw;
+  __cil_tmp7 = hw->ctrl_flags;
 #line 1176
-  __cil_tmp12 = __cil_tmp11 + 252;
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 1176
-  __cil_tmp13 = *((u16 *)__cil_tmp12);
+  __cil_tmp9 = __cil_tmp8 & 16;
 #line 1176
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 1176
-  __cil_tmp15 = __cil_tmp14 & 16;
-#line 1176
-  if (__cil_tmp15 != 0) {
+  if (__cil_tmp9 != 0) {
 #line 1177
     dma_ctrl_data = dma_ctrl_data | 2097152U;
   } else {
@@ -11885,65 +10678,61 @@ static void atl1c_configure_dma(struct atl1c_adapter *adapter )
   }
   {
 #line 1182
-  __cil_tmp16 = (unsigned long )hw;
+  __cil_tmp10 = hw->dma_order;
 #line 1182
-  __cil_tmp17 = __cil_tmp16 + 48;
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
 #line 1182
-  __cil_tmp18 = *((enum atl1c_dma_order *)__cil_tmp17);
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 1182
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
+  if (__cil_tmp12 == 1) {
 #line 1182
-  __cil_tmp20 = (int )__cil_tmp19;
-#line 1182
-  if (__cil_tmp20 == 1) {
     goto case_1;
   } else {
     {
 #line 1185
-    __cil_tmp21 = (unsigned long )hw;
+    __cil_tmp13 = hw->dma_order;
 #line 1185
-    __cil_tmp22 = __cil_tmp21 + 48;
+    __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 1185
-    __cil_tmp23 = *((enum atl1c_dma_order *)__cil_tmp22);
+    __cil_tmp15 = (int )__cil_tmp14;
 #line 1185
-    __cil_tmp24 = (unsigned int )__cil_tmp23;
+    if (__cil_tmp15 == 2) {
 #line 1185
-    __cil_tmp25 = (int )__cil_tmp24;
-#line 1185
-    if (__cil_tmp25 == 2) {
       goto case_2;
     } else {
       {
 #line 1188
-      __cil_tmp26 = (unsigned long )hw;
+      __cil_tmp16 = hw->dma_order;
 #line 1188
-      __cil_tmp27 = __cil_tmp26 + 48;
+      __cil_tmp17 = (unsigned int )__cil_tmp16;
 #line 1188
-      __cil_tmp28 = *((enum atl1c_dma_order *)__cil_tmp27);
+      __cil_tmp18 = (int )__cil_tmp17;
 #line 1188
-      __cil_tmp29 = (unsigned int )__cil_tmp28;
+      if (__cil_tmp18 == 4) {
 #line 1188
-      __cil_tmp30 = (int )__cil_tmp29;
-#line 1188
-      if (__cil_tmp30 == 4) {
         goto case_4;
       } else {
+#line 1191
         goto switch_default;
 #line 1181
         if (0) {
           case_1: 
 #line 1183
           dma_ctrl_data = dma_ctrl_data | 1U;
+#line 1184
           goto ldv_42791;
           case_2: 
 #line 1186
           dma_ctrl_data = dma_ctrl_data | 2U;
+#line 1187
           goto ldv_42791;
           case_4: 
 #line 1189
           dma_ctrl_data = dma_ctrl_data | 4U;
+#line 1190
           goto ldv_42791;
           switch_default: ;
+#line 1192
           goto ldv_42791;
         } else {
 
@@ -11957,69 +10746,53 @@ static void atl1c_configure_dma(struct atl1c_adapter *adapter )
   ldv_42791: 
   {
 #line 1195
-  __cil_tmp31 = (unsigned long )hw;
+  __cil_tmp19 = hw->dmar_block;
 #line 1195
-  __cil_tmp32 = __cil_tmp31 + 112;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 1195
-  __cil_tmp33 = *((enum atl1c_dma_req_block *)__cil_tmp32);
+  __cil_tmp21 = __cil_tmp20 & 7U;
 #line 1195
-  __cil_tmp34 = (unsigned int )__cil_tmp33;
+  __cil_tmp22 = __cil_tmp21 << 4;
 #line 1195
-  __cil_tmp35 = __cil_tmp34 & 7U;
-#line 1195
-  __cil_tmp36 = __cil_tmp35 << 4;
-#line 1195
-  dma_ctrl_data = __cil_tmp36 | dma_ctrl_data;
+  dma_ctrl_data = __cil_tmp22 | dma_ctrl_data;
 #line 1197
-  __cil_tmp37 = (unsigned long )hw;
+  __cil_tmp23 = hw->dmaw_block;
 #line 1197
-  __cil_tmp38 = __cil_tmp37 + 144;
+  __cil_tmp24 = (unsigned int )__cil_tmp23;
 #line 1197
-  __cil_tmp39 = *((enum atl1c_dma_req_block *)__cil_tmp38);
+  __cil_tmp25 = __cil_tmp24 & 7U;
 #line 1197
-  __cil_tmp40 = (unsigned int )__cil_tmp39;
+  __cil_tmp26 = __cil_tmp25 << 7;
 #line 1197
-  __cil_tmp41 = __cil_tmp40 & 7U;
-#line 1197
-  __cil_tmp42 = __cil_tmp41 << 7;
-#line 1197
-  dma_ctrl_data = __cil_tmp42 | dma_ctrl_data;
+  dma_ctrl_data = __cil_tmp26 | dma_ctrl_data;
 #line 1199
-  __cil_tmp43 = (unsigned long )hw;
+  __cil_tmp27 = hw->dmar_dly_cnt;
 #line 1199
-  __cil_tmp44 = __cil_tmp43 + 197;
+  __cil_tmp28 = (unsigned int )__cil_tmp27;
 #line 1199
-  __cil_tmp45 = *((u8 *)__cil_tmp44);
+  __cil_tmp29 = __cil_tmp28 << 11;
 #line 1199
-  __cil_tmp46 = (unsigned int )__cil_tmp45;
+  __cil_tmp30 = __cil_tmp29 & 65535U;
 #line 1199
-  __cil_tmp47 = __cil_tmp46 << 11;
-#line 1199
-  __cil_tmp48 = __cil_tmp47 & 65535U;
-#line 1199
-  dma_ctrl_data = __cil_tmp48 | dma_ctrl_data;
+  dma_ctrl_data = __cil_tmp30 | dma_ctrl_data;
 #line 1201
-  __cil_tmp49 = (unsigned long )hw;
+  __cil_tmp31 = hw->dmaw_dly_cnt;
 #line 1201
-  __cil_tmp50 = __cil_tmp49 + 196;
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 1201
-  __cil_tmp51 = *((u8 *)__cil_tmp50);
+  __cil_tmp33 = __cil_tmp32 & 15U;
 #line 1201
-  __cil_tmp52 = (unsigned int )__cil_tmp51;
+  __cil_tmp34 = __cil_tmp33 << 16;
 #line 1201
-  __cil_tmp53 = __cil_tmp52 & 15U;
-#line 1201
-  __cil_tmp54 = __cil_tmp53 << 16;
-#line 1201
-  dma_ctrl_data = __cil_tmp54 | dma_ctrl_data;
+  dma_ctrl_data = __cil_tmp34 | dma_ctrl_data;
 #line 1204
-  __cil_tmp55 = *((u8 **)hw);
+  __cil_tmp35 = hw->hw_addr;
 #line 1204
-  __cil_tmp56 = (void volatile   *)__cil_tmp55;
+  __cil_tmp36 = (void volatile   *)__cil_tmp35;
 #line 1204
-  __cil_tmp57 = __cil_tmp56 + 5568U;
+  __cil_tmp37 = __cil_tmp36 + 5568U;
 #line 1204
-  writel(dma_ctrl_data, __cil_tmp57);
+  writel(dma_ctrl_data, __cil_tmp37);
   }
 #line 1205
   return;
@@ -12032,221 +10805,203 @@ static int atl1c_stop_mac(struct atl1c_hw *hw )
   long tmp___0 ;
   long tmp___1 ;
   u32 tmp___2 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  bool __cil_tmp9 ;
-  long __cil_tmp10 ;
-  u8 *__cil_tmp11 ;
-  void const volatile   *__cil_tmp12 ;
+  bool __cil_tmp7 ;
+  long __cil_tmp8 ;
+  u8 *__cil_tmp9 ;
+  void const volatile   *__cil_tmp10 ;
+  void const volatile   *__cil_tmp11 ;
+  u8 *__cil_tmp12 ;
   void const volatile   *__cil_tmp13 ;
-  u8 *__cil_tmp14 ;
-  void const volatile   *__cil_tmp15 ;
+  void const volatile   *__cil_tmp14 ;
+  u8 *__cil_tmp15 ;
   void const volatile   *__cil_tmp16 ;
-  u8 *__cil_tmp17 ;
-  void const volatile   *__cil_tmp18 ;
-  void const volatile   *__cil_tmp19 ;
-  u8 *__cil_tmp20 ;
-  void volatile   *__cil_tmp21 ;
-  void volatile   *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  bool __cil_tmp25 ;
-  long __cil_tmp26 ;
-  u8 *__cil_tmp27 ;
+  void const volatile   *__cil_tmp17 ;
+  u8 *__cil_tmp18 ;
+  void volatile   *__cil_tmp19 ;
+  void volatile   *__cil_tmp20 ;
+  bool __cil_tmp21 ;
+  long __cil_tmp22 ;
+  u8 *__cil_tmp23 ;
+  void const volatile   *__cil_tmp24 ;
+  void const volatile   *__cil_tmp25 ;
+  u8 *__cil_tmp26 ;
+  void const volatile   *__cil_tmp27 ;
   void const volatile   *__cil_tmp28 ;
-  void const volatile   *__cil_tmp29 ;
-  u8 *__cil_tmp30 ;
+  u8 *__cil_tmp29 ;
+  void const volatile   *__cil_tmp30 ;
   void const volatile   *__cil_tmp31 ;
-  void const volatile   *__cil_tmp32 ;
-  u8 *__cil_tmp33 ;
-  void const volatile   *__cil_tmp34 ;
-  void const volatile   *__cil_tmp35 ;
-  u8 *__cil_tmp36 ;
-  void volatile   *__cil_tmp37 ;
-  void volatile   *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  bool __cil_tmp41 ;
-  long __cil_tmp42 ;
+  u8 *__cil_tmp32 ;
+  void volatile   *__cil_tmp33 ;
+  void volatile   *__cil_tmp34 ;
+  bool __cil_tmp35 ;
+  long __cil_tmp36 ;
+  u8 *__cil_tmp37 ;
+  void const volatile   *__cil_tmp38 ;
+  void const volatile   *__cil_tmp39 ;
+  u8 *__cil_tmp40 ;
+  void const volatile   *__cil_tmp41 ;
+  void const volatile   *__cil_tmp42 ;
   u8 *__cil_tmp43 ;
   void const volatile   *__cil_tmp44 ;
   void const volatile   *__cil_tmp45 ;
   u8 *__cil_tmp46 ;
-  void const volatile   *__cil_tmp47 ;
-  void const volatile   *__cil_tmp48 ;
-  u8 *__cil_tmp49 ;
-  void const volatile   *__cil_tmp50 ;
-  void const volatile   *__cil_tmp51 ;
-  u8 *__cil_tmp52 ;
-  void volatile   *__cil_tmp53 ;
-  void volatile   *__cil_tmp54 ;
+  void volatile   *__cil_tmp47 ;
+  void volatile   *__cil_tmp48 ;
 
   {
   {
 #line 1216
-  __cil_tmp7 = (unsigned long )hw;
+  __cil_tmp7 = hw->hibernate;
 #line 1216
-  __cil_tmp8 = __cil_tmp7 + 237;
+  __cil_tmp8 = (long )__cil_tmp7;
 #line 1216
-  __cil_tmp9 = *((bool *)__cil_tmp8);
-#line 1216
-  __cil_tmp10 = (long )__cil_tmp9;
-#line 1216
-  tmp = __builtin_expect(__cil_tmp10, 0L);
+  tmp = __builtin_expect(__cil_tmp8, 0L);
   }
 #line 1216
   if (tmp != 0L) {
     {
 #line 1216
-    __cil_tmp11 = *((u8 **)hw);
+    __cil_tmp9 = hw->hw_addr;
 #line 1216
-    __cil_tmp12 = (void const volatile   *)__cil_tmp11;
+    __cil_tmp10 = (void const volatile   *)__cil_tmp9;
 #line 1216
-    __cil_tmp13 = __cil_tmp12 + 5536U;
+    __cil_tmp11 = __cil_tmp10 + 5536U;
 #line 1216
-    readl(__cil_tmp13);
+    readl(__cil_tmp11);
 #line 1216
-    __cil_tmp14 = *((u8 **)hw);
+    __cil_tmp12 = hw->hw_addr;
 #line 1216
-    __cil_tmp15 = (void const volatile   *)__cil_tmp14;
+    __cil_tmp13 = (void const volatile   *)__cil_tmp12;
 #line 1216
-    __cil_tmp16 = __cil_tmp15 + 5536U;
+    __cil_tmp14 = __cil_tmp13 + 5536U;
 #line 1216
-    data = readl(__cil_tmp16);
+    data = readl(__cil_tmp14);
     }
   } else {
     {
 #line 1216
-    __cil_tmp17 = *((u8 **)hw);
+    __cil_tmp15 = hw->hw_addr;
 #line 1216
-    __cil_tmp18 = (void const volatile   *)__cil_tmp17;
+    __cil_tmp16 = (void const volatile   *)__cil_tmp15;
 #line 1216
-    __cil_tmp19 = __cil_tmp18 + 5536U;
+    __cil_tmp17 = __cil_tmp16 + 5536U;
 #line 1216
-    data = readl(__cil_tmp19);
+    data = readl(__cil_tmp17);
     }
   }
   {
 #line 1217
   data = data & 2147483535U;
 #line 1219
-  __cil_tmp20 = *((u8 **)hw);
+  __cil_tmp18 = hw->hw_addr;
 #line 1219
-  __cil_tmp21 = (void volatile   *)__cil_tmp20;
+  __cil_tmp19 = (void volatile   *)__cil_tmp18;
 #line 1219
-  __cil_tmp22 = __cil_tmp21 + 5536U;
+  __cil_tmp20 = __cil_tmp19 + 5536U;
 #line 1219
-  writel(data, __cil_tmp22);
+  writel(data, __cil_tmp20);
 #line 1221
-  __cil_tmp23 = (unsigned long )hw;
+  __cil_tmp21 = hw->hibernate;
 #line 1221
-  __cil_tmp24 = __cil_tmp23 + 237;
+  __cil_tmp22 = (long )__cil_tmp21;
 #line 1221
-  __cil_tmp25 = *((bool *)__cil_tmp24);
-#line 1221
-  __cil_tmp26 = (long )__cil_tmp25;
-#line 1221
-  tmp___0 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp22, 0L);
   }
 #line 1221
   if (tmp___0 != 0L) {
     {
 #line 1221
-    __cil_tmp27 = *((u8 **)hw);
+    __cil_tmp23 = hw->hw_addr;
 #line 1221
-    __cil_tmp28 = (void const volatile   *)__cil_tmp27;
+    __cil_tmp24 = (void const volatile   *)__cil_tmp23;
 #line 1221
-    __cil_tmp29 = __cil_tmp28 + 5520U;
+    __cil_tmp25 = __cil_tmp24 + 5520U;
 #line 1221
-    readl(__cil_tmp29);
+    readl(__cil_tmp25);
 #line 1221
-    __cil_tmp30 = *((u8 **)hw);
+    __cil_tmp26 = hw->hw_addr;
 #line 1221
-    __cil_tmp31 = (void const volatile   *)__cil_tmp30;
+    __cil_tmp27 = (void const volatile   *)__cil_tmp26;
 #line 1221
-    __cil_tmp32 = __cil_tmp31 + 5520U;
+    __cil_tmp28 = __cil_tmp27 + 5520U;
 #line 1221
-    data = readl(__cil_tmp32);
+    data = readl(__cil_tmp28);
     }
   } else {
     {
 #line 1221
-    __cil_tmp33 = *((u8 **)hw);
+    __cil_tmp29 = hw->hw_addr;
 #line 1221
-    __cil_tmp34 = (void const volatile   *)__cil_tmp33;
+    __cil_tmp30 = (void const volatile   *)__cil_tmp29;
 #line 1221
-    __cil_tmp35 = __cil_tmp34 + 5520U;
+    __cil_tmp31 = __cil_tmp30 + 5520U;
 #line 1221
-    data = readl(__cil_tmp35);
+    data = readl(__cil_tmp31);
     }
   }
   {
 #line 1222
   data = data & 4294967263U;
 #line 1223
-  __cil_tmp36 = *((u8 **)hw);
+  __cil_tmp32 = hw->hw_addr;
 #line 1223
-  __cil_tmp37 = (void volatile   *)__cil_tmp36;
+  __cil_tmp33 = (void volatile   *)__cil_tmp32;
 #line 1223
-  __cil_tmp38 = __cil_tmp37 + 536U;
+  __cil_tmp34 = __cil_tmp33 + 536U;
 #line 1223
-  writel(data, __cil_tmp38);
+  writel(data, __cil_tmp34);
 #line 1225
   atl1c_wait_until_idle(hw);
 #line 1227
-  __cil_tmp39 = (unsigned long )hw;
+  __cil_tmp35 = hw->hibernate;
 #line 1227
-  __cil_tmp40 = __cil_tmp39 + 237;
+  __cil_tmp36 = (long )__cil_tmp35;
 #line 1227
-  __cil_tmp41 = *((bool *)__cil_tmp40);
-#line 1227
-  __cil_tmp42 = (long )__cil_tmp41;
-#line 1227
-  tmp___1 = __builtin_expect(__cil_tmp42, 0L);
+  tmp___1 = __builtin_expect(__cil_tmp36, 0L);
   }
 #line 1227
   if (tmp___1 != 0L) {
     {
 #line 1227
-    __cil_tmp43 = *((u8 **)hw);
+    __cil_tmp37 = hw->hw_addr;
+#line 1227
+    __cil_tmp38 = (void const volatile   *)__cil_tmp37;
+#line 1227
+    __cil_tmp39 = __cil_tmp38 + 5248U;
+#line 1227
+    readl(__cil_tmp39);
+#line 1227
+    __cil_tmp40 = hw->hw_addr;
+#line 1227
+    __cil_tmp41 = (void const volatile   *)__cil_tmp40;
+#line 1227
+    __cil_tmp42 = __cil_tmp41 + 5248U;
+#line 1227
+    data = readl(__cil_tmp42);
+    }
+  } else {
+    {
+#line 1227
+    __cil_tmp43 = hw->hw_addr;
 #line 1227
     __cil_tmp44 = (void const volatile   *)__cil_tmp43;
 #line 1227
     __cil_tmp45 = __cil_tmp44 + 5248U;
 #line 1227
-    readl(__cil_tmp45);
-#line 1227
-    __cil_tmp46 = *((u8 **)hw);
-#line 1227
-    __cil_tmp47 = (void const volatile   *)__cil_tmp46;
-#line 1227
-    __cil_tmp48 = __cil_tmp47 + 5248U;
-#line 1227
-    data = readl(__cil_tmp48);
-    }
-  } else {
-    {
-#line 1227
-    __cil_tmp49 = *((u8 **)hw);
-#line 1227
-    __cil_tmp50 = (void const volatile   *)__cil_tmp49;
-#line 1227
-    __cil_tmp51 = __cil_tmp50 + 5248U;
-#line 1227
-    data = readl(__cil_tmp51);
+    data = readl(__cil_tmp45);
     }
   }
   {
 #line 1228
   data = data & 4294967292U;
 #line 1229
-  __cil_tmp52 = *((u8 **)hw);
+  __cil_tmp46 = hw->hw_addr;
 #line 1229
-  __cil_tmp53 = (void volatile   *)__cil_tmp52;
+  __cil_tmp47 = (void volatile   *)__cil_tmp46;
 #line 1229
-  __cil_tmp54 = __cil_tmp53 + 5248U;
+  __cil_tmp48 = __cil_tmp47 + 5248U;
 #line 1229
-  writel(data, __cil_tmp54);
+  writel(data, __cil_tmp48);
 #line 1231
   tmp___2 = atl1c_wait_until_idle(hw);
   }
@@ -12258,153 +11013,119 @@ static int atl1c_stop_mac(struct atl1c_hw *hw )
 static void atl1c_enable_rx_ctrl(struct atl1c_hw *hw ) 
 { u32 data ;
   long tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  bool __cil_tmp6 ;
-  long __cil_tmp7 ;
-  u8 *__cil_tmp8 ;
-  void const volatile   *__cil_tmp9 ;
+  bool __cil_tmp4 ;
+  long __cil_tmp5 ;
+  u8 *__cil_tmp6 ;
+  void const volatile   *__cil_tmp7 ;
+  void const volatile   *__cil_tmp8 ;
+  u8 *__cil_tmp9 ;
   void const volatile   *__cil_tmp10 ;
-  u8 *__cil_tmp11 ;
-  void const volatile   *__cil_tmp12 ;
+  void const volatile   *__cil_tmp11 ;
+  u8 *__cil_tmp12 ;
   void const volatile   *__cil_tmp13 ;
-  u8 *__cil_tmp14 ;
-  void const volatile   *__cil_tmp15 ;
-  void const volatile   *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  void const volatile   *__cil_tmp14 ;
+  struct atl1c_adapter *__cil_tmp15 ;
+  int __cil_tmp16 ;
+  struct atl1c_adapter *__cil_tmp17 ;
+  int __cil_tmp18 ;
   struct atl1c_adapter *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct atl1c_adapter *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct atl1c_adapter *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  int __cil_tmp34 ;
-  u8 *__cil_tmp35 ;
-  void volatile   *__cil_tmp36 ;
-  void volatile   *__cil_tmp37 ;
+  int __cil_tmp20 ;
+  u8 *__cil_tmp21 ;
+  void volatile   *__cil_tmp22 ;
+  void volatile   *__cil_tmp23 ;
 
   {
   {
 #line 1238
-  __cil_tmp4 = (unsigned long )hw;
+  __cil_tmp4 = hw->hibernate;
 #line 1238
-  __cil_tmp5 = __cil_tmp4 + 237;
+  __cil_tmp5 = (long )__cil_tmp4;
 #line 1238
-  __cil_tmp6 = *((bool *)__cil_tmp5);
-#line 1238
-  __cil_tmp7 = (long )__cil_tmp6;
-#line 1238
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = __builtin_expect(__cil_tmp5, 0L);
   }
 #line 1238
   if (tmp != 0L) {
     {
 #line 1238
-    __cil_tmp8 = *((u8 **)hw);
+    __cil_tmp6 = hw->hw_addr;
 #line 1238
-    __cil_tmp9 = (void const volatile   *)__cil_tmp8;
+    __cil_tmp7 = (void const volatile   *)__cil_tmp6;
 #line 1238
-    __cil_tmp10 = __cil_tmp9 + 5536U;
+    __cil_tmp8 = __cil_tmp7 + 5536U;
 #line 1238
-    readl(__cil_tmp10);
+    readl(__cil_tmp8);
 #line 1238
-    __cil_tmp11 = *((u8 **)hw);
+    __cil_tmp9 = hw->hw_addr;
 #line 1238
-    __cil_tmp12 = (void const volatile   *)__cil_tmp11;
+    __cil_tmp10 = (void const volatile   *)__cil_tmp9;
 #line 1238
-    __cil_tmp13 = __cil_tmp12 + 5536U;
+    __cil_tmp11 = __cil_tmp10 + 5536U;
 #line 1238
-    data = readl(__cil_tmp13);
+    data = readl(__cil_tmp11);
     }
   } else {
     {
 #line 1238
-    __cil_tmp14 = *((u8 **)hw);
+    __cil_tmp12 = hw->hw_addr;
 #line 1238
-    __cil_tmp15 = (void const volatile   *)__cil_tmp14;
+    __cil_tmp13 = (void const volatile   *)__cil_tmp12;
 #line 1238
-    __cil_tmp16 = __cil_tmp15 + 5536U;
+    __cil_tmp14 = __cil_tmp13 + 5536U;
 #line 1238
-    data = readl(__cil_tmp16);
+    data = readl(__cil_tmp14);
     }
   }
   {
 #line 1240
-  __cil_tmp17 = (unsigned long )hw;
+  __cil_tmp15 = hw->adapter;
 #line 1240
-  __cil_tmp18 = __cil_tmp17 + 8;
+  __cil_tmp16 = __cil_tmp15->num_rx_queues;
 #line 1240
-  __cil_tmp19 = *((struct atl1c_adapter **)__cil_tmp18);
+  if (__cil_tmp16 == 4) {
 #line 1240
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 1240
-  __cil_tmp21 = __cil_tmp20 + 1880;
-#line 1240
-  __cil_tmp22 = *((int *)__cil_tmp21);
-#line 1240
-  if (__cil_tmp22 == 4) {
     goto case_4;
   } else {
     {
 #line 1243
-    __cil_tmp23 = (unsigned long )hw;
+    __cil_tmp17 = hw->adapter;
 #line 1243
-    __cil_tmp24 = __cil_tmp23 + 8;
+    __cil_tmp18 = __cil_tmp17->num_rx_queues;
 #line 1243
-    __cil_tmp25 = *((struct atl1c_adapter **)__cil_tmp24);
+    if (__cil_tmp18 == 3) {
 #line 1243
-    __cil_tmp26 = (unsigned long )__cil_tmp25;
-#line 1243
-    __cil_tmp27 = __cil_tmp26 + 1880;
-#line 1243
-    __cil_tmp28 = *((int *)__cil_tmp27);
-#line 1243
-    if (__cil_tmp28 == 3) {
       goto case_3;
     } else {
       {
 #line 1246
-      __cil_tmp29 = (unsigned long )hw;
+      __cil_tmp19 = hw->adapter;
 #line 1246
-      __cil_tmp30 = __cil_tmp29 + 8;
+      __cil_tmp20 = __cil_tmp19->num_rx_queues;
 #line 1246
-      __cil_tmp31 = *((struct atl1c_adapter **)__cil_tmp30);
+      if (__cil_tmp20 == 2) {
 #line 1246
-      __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 1246
-      __cil_tmp33 = __cil_tmp32 + 1880;
-#line 1246
-      __cil_tmp34 = *((int *)__cil_tmp33);
-#line 1246
-      if (__cil_tmp34 == 2) {
         goto case_2;
       } else {
+#line 1249
         goto switch_default;
 #line 1239
         if (0) {
           case_4: 
 #line 1241
           data = data | 112U;
+#line 1242
           goto ldv_42804;
           case_3: 
 #line 1244
           data = data | 48U;
+#line 1245
           goto ldv_42804;
           case_2: 
 #line 1247
           data = data | 16U;
+#line 1248
           goto ldv_42804;
           switch_default: ;
+#line 1250
           goto ldv_42804;
         } else {
 
@@ -12420,13 +11141,13 @@ static void atl1c_enable_rx_ctrl(struct atl1c_hw *hw )
 #line 1252
   data = data | 2147483648U;
 #line 1253
-  __cil_tmp35 = *((u8 **)hw);
+  __cil_tmp21 = hw->hw_addr;
 #line 1253
-  __cil_tmp36 = (void volatile   *)__cil_tmp35;
+  __cil_tmp22 = (void volatile   *)__cil_tmp21;
 #line 1253
-  __cil_tmp37 = __cil_tmp36 + 5536U;
+  __cil_tmp23 = __cil_tmp22 + 5536U;
 #line 1253
-  writel(data, __cil_tmp37);
+  writel(data, __cil_tmp23);
   }
 #line 1254
   return;
@@ -12436,79 +11157,73 @@ static void atl1c_enable_rx_ctrl(struct atl1c_hw *hw )
 static void atl1c_enable_tx_ctrl(struct atl1c_hw *hw ) 
 { u32 data ;
   long tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  bool __cil_tmp6 ;
-  long __cil_tmp7 ;
-  u8 *__cil_tmp8 ;
-  void const volatile   *__cil_tmp9 ;
+  bool __cil_tmp4 ;
+  long __cil_tmp5 ;
+  u8 *__cil_tmp6 ;
+  void const volatile   *__cil_tmp7 ;
+  void const volatile   *__cil_tmp8 ;
+  u8 *__cil_tmp9 ;
   void const volatile   *__cil_tmp10 ;
-  u8 *__cil_tmp11 ;
-  void const volatile   *__cil_tmp12 ;
+  void const volatile   *__cil_tmp11 ;
+  u8 *__cil_tmp12 ;
   void const volatile   *__cil_tmp13 ;
-  u8 *__cil_tmp14 ;
-  void const volatile   *__cil_tmp15 ;
-  void const volatile   *__cil_tmp16 ;
-  u8 *__cil_tmp17 ;
-  void volatile   *__cil_tmp18 ;
-  void volatile   *__cil_tmp19 ;
+  void const volatile   *__cil_tmp14 ;
+  u8 *__cil_tmp15 ;
+  void volatile   *__cil_tmp16 ;
+  void volatile   *__cil_tmp17 ;
 
   {
   {
 #line 1260
-  __cil_tmp4 = (unsigned long )hw;
+  __cil_tmp4 = hw->hibernate;
 #line 1260
-  __cil_tmp5 = __cil_tmp4 + 237;
+  __cil_tmp5 = (long )__cil_tmp4;
 #line 1260
-  __cil_tmp6 = *((bool *)__cil_tmp5);
-#line 1260
-  __cil_tmp7 = (long )__cil_tmp6;
-#line 1260
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = __builtin_expect(__cil_tmp5, 0L);
   }
 #line 1260
   if (tmp != 0L) {
     {
 #line 1260
-    __cil_tmp8 = *((u8 **)hw);
+    __cil_tmp6 = hw->hw_addr;
 #line 1260
-    __cil_tmp9 = (void const volatile   *)__cil_tmp8;
+    __cil_tmp7 = (void const volatile   *)__cil_tmp6;
 #line 1260
-    __cil_tmp10 = __cil_tmp9 + 5520U;
+    __cil_tmp8 = __cil_tmp7 + 5520U;
 #line 1260
-    readl(__cil_tmp10);
+    readl(__cil_tmp8);
 #line 1260
-    __cil_tmp11 = *((u8 **)hw);
+    __cil_tmp9 = hw->hw_addr;
 #line 1260
-    __cil_tmp12 = (void const volatile   *)__cil_tmp11;
+    __cil_tmp10 = (void const volatile   *)__cil_tmp9;
 #line 1260
-    __cil_tmp13 = __cil_tmp12 + 5520U;
+    __cil_tmp11 = __cil_tmp10 + 5520U;
 #line 1260
-    data = readl(__cil_tmp13);
+    data = readl(__cil_tmp11);
     }
   } else {
     {
 #line 1260
-    __cil_tmp14 = *((u8 **)hw);
+    __cil_tmp12 = hw->hw_addr;
 #line 1260
-    __cil_tmp15 = (void const volatile   *)__cil_tmp14;
+    __cil_tmp13 = (void const volatile   *)__cil_tmp12;
 #line 1260
-    __cil_tmp16 = __cil_tmp15 + 5520U;
+    __cil_tmp14 = __cil_tmp13 + 5520U;
 #line 1260
-    data = readl(__cil_tmp16);
+    data = readl(__cil_tmp14);
     }
   }
   {
 #line 1261
   data = data | 32U;
 #line 1262
-  __cil_tmp17 = *((u8 **)hw);
+  __cil_tmp15 = hw->hw_addr;
 #line 1262
-  __cil_tmp18 = (void volatile   *)__cil_tmp17;
+  __cil_tmp16 = (void volatile   *)__cil_tmp15;
 #line 1262
-  __cil_tmp19 = __cil_tmp18 + 5520U;
+  __cil_tmp17 = __cil_tmp16 + 5520U;
 #line 1262
-  writel(data, __cil_tmp19);
+  writel(data, __cil_tmp17);
   }
 #line 1263
   return;
@@ -12521,148 +11236,128 @@ static int atl1c_reset_mac(struct atl1c_hw *hw )
   u32 master_ctrl_data ;
   long tmp ;
   u32 tmp___0 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  u8 *__cil_tmp11 ;
+  u8 *__cil_tmp7 ;
+  void volatile   *__cil_tmp8 ;
+  void volatile   *__cil_tmp9 ;
+  u8 *__cil_tmp10 ;
+  void volatile   *__cil_tmp11 ;
   void volatile   *__cil_tmp12 ;
-  void volatile   *__cil_tmp13 ;
-  u8 *__cil_tmp14 ;
-  void volatile   *__cil_tmp15 ;
-  void volatile   *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  bool __cil_tmp19 ;
-  long __cil_tmp20 ;
+  bool __cil_tmp13 ;
+  long __cil_tmp14 ;
+  u8 *__cil_tmp15 ;
+  void const volatile   *__cil_tmp16 ;
+  void const volatile   *__cil_tmp17 ;
+  u8 *__cil_tmp18 ;
+  void const volatile   *__cil_tmp19 ;
+  void const volatile   *__cil_tmp20 ;
   u8 *__cil_tmp21 ;
   void const volatile   *__cil_tmp22 ;
   void const volatile   *__cil_tmp23 ;
-  u8 *__cil_tmp24 ;
-  void const volatile   *__cil_tmp25 ;
-  void const volatile   *__cil_tmp26 ;
-  u8 *__cil_tmp27 ;
-  void const volatile   *__cil_tmp28 ;
-  void const volatile   *__cil_tmp29 ;
-  unsigned short __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned short __cil_tmp34 ;
-  u8 *__cil_tmp35 ;
-  void volatile   *__cil_tmp36 ;
-  void volatile   *__cil_tmp37 ;
-  u8 *__cil_tmp38 ;
-  void const volatile   *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct device *__cil_tmp42 ;
-  struct device  const  *__cil_tmp43 ;
+  unsigned short __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  unsigned short __cil_tmp28 ;
+  u8 *__cil_tmp29 ;
+  void volatile   *__cil_tmp30 ;
+  void volatile   *__cil_tmp31 ;
+  u8 *__cil_tmp32 ;
+  void const volatile   *__cil_tmp33 ;
+  struct device *__cil_tmp34 ;
+  struct device  const  *__cil_tmp35 ;
 
   {
   {
 #line 1272
-  __cil_tmp7 = (unsigned long )hw;
-#line 1272
-  __cil_tmp8 = __cil_tmp7 + 8;
-#line 1272
-  adapter = *((struct atl1c_adapter **)__cil_tmp8);
+  adapter = hw->adapter;
 #line 1273
-  __cil_tmp9 = (unsigned long )adapter;
-#line 1273
-  __cil_tmp10 = __cil_tmp9 + 8;
-#line 1273
-  pdev = *((struct pci_dev **)__cil_tmp10);
+  pdev = adapter->pdev;
 #line 1274
   master_ctrl_data = 0U;
 #line 1276
-  __cil_tmp11 = *((u8 **)hw);
+  __cil_tmp7 = hw->hw_addr;
 #line 1276
-  __cil_tmp12 = (void volatile   *)__cil_tmp11;
+  __cil_tmp8 = (void volatile   *)__cil_tmp7;
 #line 1276
-  __cil_tmp13 = __cil_tmp12 + 5636U;
+  __cil_tmp9 = __cil_tmp8 + 5636U;
 #line 1276
-  writel(0U, __cil_tmp13);
+  writel(0U, __cil_tmp9);
 #line 1277
-  __cil_tmp14 = *((u8 **)hw);
+  __cil_tmp10 = hw->hw_addr;
 #line 1277
-  __cil_tmp15 = (void volatile   *)__cil_tmp14;
+  __cil_tmp11 = (void volatile   *)__cil_tmp10;
 #line 1277
-  __cil_tmp16 = __cil_tmp15 + 5632U;
+  __cil_tmp12 = __cil_tmp11 + 5632U;
 #line 1277
-  writel(2147483648U, __cil_tmp16);
+  writel(2147483648U, __cil_tmp12);
 #line 1279
   atl1c_stop_mac(hw);
 #line 1286
-  __cil_tmp17 = (unsigned long )hw;
+  __cil_tmp13 = hw->hibernate;
 #line 1286
-  __cil_tmp18 = __cil_tmp17 + 237;
+  __cil_tmp14 = (long )__cil_tmp13;
 #line 1286
-  __cil_tmp19 = *((bool *)__cil_tmp18);
-#line 1286
-  __cil_tmp20 = (long )__cil_tmp19;
-#line 1286
-  tmp = __builtin_expect(__cil_tmp20, 0L);
+  tmp = __builtin_expect(__cil_tmp14, 0L);
   }
 #line 1286
   if (tmp != 0L) {
     {
 #line 1286
-    __cil_tmp21 = *((u8 **)hw);
+    __cil_tmp15 = hw->hw_addr;
+#line 1286
+    __cil_tmp16 = (void const volatile   *)__cil_tmp15;
+#line 1286
+    __cil_tmp17 = __cil_tmp16 + 5120U;
+#line 1286
+    readl(__cil_tmp17);
+#line 1286
+    __cil_tmp18 = hw->hw_addr;
+#line 1286
+    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
+#line 1286
+    __cil_tmp20 = __cil_tmp19 + 5120U;
+#line 1286
+    master_ctrl_data = readl(__cil_tmp20);
+    }
+  } else {
+    {
+#line 1286
+    __cil_tmp21 = hw->hw_addr;
 #line 1286
     __cil_tmp22 = (void const volatile   *)__cil_tmp21;
 #line 1286
     __cil_tmp23 = __cil_tmp22 + 5120U;
 #line 1286
-    readl(__cil_tmp23);
-#line 1286
-    __cil_tmp24 = *((u8 **)hw);
-#line 1286
-    __cil_tmp25 = (void const volatile   *)__cil_tmp24;
-#line 1286
-    __cil_tmp26 = __cil_tmp25 + 5120U;
-#line 1286
-    master_ctrl_data = readl(__cil_tmp26);
-    }
-  } else {
-    {
-#line 1286
-    __cil_tmp27 = *((u8 **)hw);
-#line 1286
-    __cil_tmp28 = (void const volatile   *)__cil_tmp27;
-#line 1286
-    __cil_tmp29 = __cil_tmp28 + 5120U;
-#line 1286
-    master_ctrl_data = readl(__cil_tmp29);
+    master_ctrl_data = readl(__cil_tmp23);
     }
   }
   {
 #line 1287
   master_ctrl_data = master_ctrl_data | 64U;
 #line 1288
-  __cil_tmp30 = (unsigned short )master_ctrl_data;
+  __cil_tmp24 = (unsigned short )master_ctrl_data;
 #line 1288
-  __cil_tmp31 = (unsigned int )__cil_tmp30;
+  __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 1288
-  __cil_tmp32 = __cil_tmp31 | 1U;
+  __cil_tmp26 = __cil_tmp25 | 1U;
 #line 1288
-  __cil_tmp33 = (int )__cil_tmp32;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 1288
-  __cil_tmp34 = (unsigned short )__cil_tmp33;
+  __cil_tmp28 = (unsigned short )__cil_tmp27;
 #line 1288
-  __cil_tmp35 = *((u8 **)hw);
+  __cil_tmp29 = hw->hw_addr;
 #line 1288
-  __cil_tmp36 = (void volatile   *)__cil_tmp35;
+  __cil_tmp30 = (void volatile   *)__cil_tmp29;
 #line 1288
-  __cil_tmp37 = __cil_tmp36 + 5120U;
+  __cil_tmp31 = __cil_tmp30 + 5120U;
 #line 1288
-  writew(__cil_tmp34, __cil_tmp37);
+  writew(__cil_tmp28, __cil_tmp31);
 #line 1291
-  __cil_tmp38 = *((u8 **)hw);
+  __cil_tmp32 = hw->hw_addr;
 #line 1291
-  __cil_tmp39 = (void const volatile   *)__cil_tmp38;
+  __cil_tmp33 = (void const volatile   *)__cil_tmp32;
 #line 1291
-  readl(__cil_tmp39);
+  readl(__cil_tmp33);
 #line 1292
   msleep(10U);
 #line 1295
@@ -12672,15 +11367,11 @@ static int atl1c_reset_mac(struct atl1c_hw *hw )
   if (tmp___0 != 0U) {
     {
 #line 1296
-    __cil_tmp40 = (unsigned long )pdev;
+    __cil_tmp34 = & pdev->dev;
 #line 1296
-    __cil_tmp41 = __cil_tmp40 + 144;
+    __cil_tmp35 = (struct device  const  *)__cil_tmp34;
 #line 1296
-    __cil_tmp42 = (struct device *)__cil_tmp41;
-#line 1296
-    __cil_tmp43 = (struct device  const  *)__cil_tmp42;
-#line 1296
-    dev_err(__cil_tmp43, "MAC state machine can\'t be idle since disabled for 10ms second\n");
+    dev_err(__cil_tmp35, "MAC state machine can\'t be idle since disabled for 10ms second\n");
     }
 #line 1299
     return (-1);
@@ -12698,224 +11389,166 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
   u32 link_l1_timer ;
   long tmp ;
   long tmp___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  bool __cil_tmp10 ;
-  long __cil_tmp11 ;
-  u8 *__cil_tmp12 ;
-  void const volatile   *__cil_tmp13 ;
+  bool __cil_tmp8 ;
+  long __cil_tmp9 ;
+  u8 *__cil_tmp10 ;
+  void const volatile   *__cil_tmp11 ;
+  void const volatile   *__cil_tmp12 ;
+  u8 *__cil_tmp13 ;
   void const volatile   *__cil_tmp14 ;
-  u8 *__cil_tmp15 ;
-  void const volatile   *__cil_tmp16 ;
+  void const volatile   *__cil_tmp15 ;
+  u8 *__cil_tmp16 ;
   void const volatile   *__cil_tmp17 ;
-  u8 *__cil_tmp18 ;
-  void const volatile   *__cil_tmp19 ;
-  void const volatile   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  bool __cil_tmp23 ;
-  long __cil_tmp24 ;
-  u8 *__cil_tmp25 ;
+  void const volatile   *__cil_tmp18 ;
+  bool __cil_tmp19 ;
+  long __cil_tmp20 ;
+  u8 *__cil_tmp21 ;
+  void const volatile   *__cil_tmp22 ;
+  void const volatile   *__cil_tmp23 ;
+  u8 *__cil_tmp24 ;
+  void const volatile   *__cil_tmp25 ;
   void const volatile   *__cil_tmp26 ;
-  void const volatile   *__cil_tmp27 ;
-  u8 *__cil_tmp28 ;
+  u8 *__cil_tmp27 ;
+  void const volatile   *__cil_tmp28 ;
   void const volatile   *__cil_tmp29 ;
-  void const volatile   *__cil_tmp30 ;
-  u8 *__cil_tmp31 ;
-  void const volatile   *__cil_tmp32 ;
-  void const volatile   *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  enum atl1c_nic_type __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  enum atl1c_nic_type __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  enum atl1c_nic_type __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
   enum atl1c_nic_type __cil_tmp36 ;
   unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  enum atl1c_nic_type __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  enum atl1c_nic_type __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  enum atl1c_nic_type __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u16 __cil_tmp52 ;
+  u16 __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  enum atl1c_nic_type __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  u8 *__cil_tmp45 ;
+  void volatile   *__cil_tmp46 ;
+  void volatile   *__cil_tmp47 ;
+  u16 __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  u16 __cil_tmp51 ;
+  int __cil_tmp52 ;
   int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  enum atl1c_nic_type __cil_tmp57 ;
-  unsigned int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  u8 __cil_tmp61 ;
-  unsigned int __cil_tmp62 ;
-  u8 *__cil_tmp63 ;
-  void volatile   *__cil_tmp64 ;
-  void volatile   *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
+  enum atl1c_nic_type __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  enum atl1c_nic_type __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  enum atl1c_nic_type __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  enum atl1c_nic_type __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  enum atl1c_nic_type __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  u16 __cil_tmp64 ;
+  int __cil_tmp65 ;
+  int __cil_tmp66 ;
+  struct atl1c_adapter *__cil_tmp67 ;
   u16 __cil_tmp68 ;
-  int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  u16 __cil_tmp73 ;
-  int __cil_tmp74 ;
-  int __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  enum atl1c_nic_type __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  enum atl1c_nic_type __cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  enum atl1c_nic_type __cil_tmp86 ;
-  unsigned int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  enum atl1c_nic_type __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  enum atl1c_nic_type __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  u16 __cil_tmp98 ;
-  int __cil_tmp99 ;
-  int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  struct atl1c_adapter *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  u16 __cil_tmp106 ;
-  unsigned int __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  struct atl1c_adapter *__cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  u16 __cil_tmp113 ;
-  unsigned int __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  enum atl1c_nic_type __cil_tmp117 ;
-  unsigned int __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  enum atl1c_nic_type __cil_tmp121 ;
-  unsigned int __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  enum atl1c_nic_type __cil_tmp125 ;
-  unsigned int __cil_tmp126 ;
-  u32 __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  u16 __cil_tmp130 ;
-  int __cil_tmp131 ;
-  int __cil_tmp132 ;
-  u8 *__cil_tmp133 ;
-  void volatile   *__cil_tmp134 ;
-  void volatile   *__cil_tmp135 ;
+  unsigned int __cil_tmp69 ;
+  struct atl1c_adapter *__cil_tmp70 ;
+  u16 __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  enum atl1c_nic_type __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
+  enum atl1c_nic_type __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  enum atl1c_nic_type __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  u32 __cil_tmp79 ;
+  u16 __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  u8 *__cil_tmp83 ;
+  void volatile   *__cil_tmp84 ;
+  void volatile   *__cil_tmp85 ;
 
   {
   {
 #line 1331
   link_l1_timer = 15U;
 #line 1333
-  __cil_tmp8 = (unsigned long )hw;
+  __cil_tmp8 = hw->hibernate;
 #line 1333
-  __cil_tmp9 = __cil_tmp8 + 237;
+  __cil_tmp9 = (long )__cil_tmp8;
 #line 1333
-  __cil_tmp10 = *((bool *)__cil_tmp9);
-#line 1333
-  __cil_tmp11 = (long )__cil_tmp10;
-#line 1333
-  tmp = __builtin_expect(__cil_tmp11, 0L);
+  tmp = __builtin_expect(__cil_tmp9, 0L);
   }
 #line 1333
   if (tmp != 0L) {
     {
 #line 1333
-    __cil_tmp12 = *((u8 **)hw);
+    __cil_tmp10 = hw->hw_addr;
 #line 1333
-    __cil_tmp13 = (void const volatile   *)__cil_tmp12;
+    __cil_tmp11 = (void const volatile   *)__cil_tmp10;
 #line 1333
-    __cil_tmp14 = __cil_tmp13 + 4856U;
+    __cil_tmp12 = __cil_tmp11 + 4856U;
 #line 1333
-    readl(__cil_tmp14);
+    readl(__cil_tmp12);
 #line 1333
-    __cil_tmp15 = *((u8 **)hw);
+    __cil_tmp13 = hw->hw_addr;
 #line 1333
-    __cil_tmp16 = (void const volatile   *)__cil_tmp15;
+    __cil_tmp14 = (void const volatile   *)__cil_tmp13;
 #line 1333
-    __cil_tmp17 = __cil_tmp16 + 4856U;
+    __cil_tmp15 = __cil_tmp14 + 4856U;
 #line 1333
-    pm_ctrl_data = readl(__cil_tmp17);
+    pm_ctrl_data = readl(__cil_tmp15);
     }
   } else {
     {
 #line 1333
-    __cil_tmp18 = *((u8 **)hw);
+    __cil_tmp16 = hw->hw_addr;
 #line 1333
-    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
+    __cil_tmp17 = (void const volatile   *)__cil_tmp16;
 #line 1333
-    __cil_tmp20 = __cil_tmp19 + 4856U;
+    __cil_tmp18 = __cil_tmp17 + 4856U;
 #line 1333
-    pm_ctrl_data = readl(__cil_tmp20);
+    pm_ctrl_data = readl(__cil_tmp18);
     }
   }
   {
 #line 1334
-  __cil_tmp21 = (unsigned long )hw;
+  __cil_tmp19 = hw->hibernate;
 #line 1334
-  __cil_tmp22 = __cil_tmp21 + 237;
+  __cil_tmp20 = (long )__cil_tmp19;
 #line 1334
-  __cil_tmp23 = *((bool *)__cil_tmp22);
-#line 1334
-  __cil_tmp24 = (long )__cil_tmp23;
-#line 1334
-  tmp___0 = __builtin_expect(__cil_tmp24, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp20, 0L);
   }
 #line 1334
   if (tmp___0 != 0L) {
     {
 #line 1334
-    __cil_tmp25 = *((u8 **)hw);
+    __cil_tmp21 = hw->hw_addr;
 #line 1334
-    __cil_tmp26 = (void const volatile   *)__cil_tmp25;
+    __cil_tmp22 = (void const volatile   *)__cil_tmp21;
 #line 1334
-    __cil_tmp27 = __cil_tmp26 + 104U;
+    __cil_tmp23 = __cil_tmp22 + 104U;
 #line 1334
-    readl(__cil_tmp27);
+    readl(__cil_tmp23);
 #line 1334
-    __cil_tmp28 = *((u8 **)hw);
+    __cil_tmp24 = hw->hw_addr;
 #line 1334
-    __cil_tmp29 = (void const volatile   *)__cil_tmp28;
+    __cil_tmp25 = (void const volatile   *)__cil_tmp24;
 #line 1334
-    __cil_tmp30 = __cil_tmp29 + 104U;
+    __cil_tmp26 = __cil_tmp25 + 104U;
 #line 1334
-    link_ctrl_data = readl(__cil_tmp30);
+    link_ctrl_data = readl(__cil_tmp26);
     }
   } else {
     {
 #line 1334
-    __cil_tmp31 = *((u8 **)hw);
+    __cil_tmp27 = hw->hw_addr;
 #line 1334
-    __cil_tmp32 = (void const volatile   *)__cil_tmp31;
+    __cil_tmp28 = (void const volatile   *)__cil_tmp27;
 #line 1334
-    __cil_tmp33 = __cil_tmp32 + 104U;
+    __cil_tmp29 = __cil_tmp28 + 104U;
 #line 1334
-    link_ctrl_data = readl(__cil_tmp33);
+    link_ctrl_data = readl(__cil_tmp29);
     }
   }
 #line 1336
@@ -12928,92 +11561,67 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
   pm_ctrl_data = pm_ctrl_data | 201326592U;
   {
 #line 1343
-  __cil_tmp34 = (unsigned long )hw;
+  __cil_tmp30 = hw->nic_type;
 #line 1343
-  __cil_tmp35 = __cil_tmp34 + 16;
+  __cil_tmp31 = (unsigned int )__cil_tmp30;
 #line 1343
-  __cil_tmp36 = *((enum atl1c_nic_type *)__cil_tmp35);
+  if (__cil_tmp31 == 2U) {
 #line 1343
-  __cil_tmp37 = (unsigned int )__cil_tmp36;
-#line 1343
-  if (__cil_tmp37 == 2U) {
     goto _L;
   } else {
     {
 #line 1343
-    __cil_tmp38 = (unsigned long )hw;
+    __cil_tmp32 = hw->nic_type;
 #line 1343
-    __cil_tmp39 = __cil_tmp38 + 16;
+    __cil_tmp33 = (unsigned int )__cil_tmp32;
 #line 1343
-    __cil_tmp40 = *((enum atl1c_nic_type *)__cil_tmp39);
+    if (__cil_tmp33 == 4U) {
 #line 1343
-    __cil_tmp41 = (unsigned int )__cil_tmp40;
-#line 1343
-    if (__cil_tmp41 == 4U) {
       goto _L;
     } else {
       {
 #line 1343
-      __cil_tmp42 = (unsigned long )hw;
+      __cil_tmp34 = hw->nic_type;
 #line 1343
-      __cil_tmp43 = __cil_tmp42 + 16;
+      __cil_tmp35 = (unsigned int )__cil_tmp34;
 #line 1343
-      __cil_tmp44 = *((enum atl1c_nic_type *)__cil_tmp43);
+      if (__cil_tmp35 == 3U) {
 #line 1343
-      __cil_tmp45 = (unsigned int )__cil_tmp44;
-#line 1343
-      if (__cil_tmp45 == 3U) {
         goto _L;
       } else {
         {
 #line 1343
-        __cil_tmp46 = (unsigned long )hw;
+        __cil_tmp36 = hw->nic_type;
 #line 1343
-        __cil_tmp47 = __cil_tmp46 + 16;
+        __cil_tmp37 = (unsigned int )__cil_tmp36;
 #line 1343
-        __cil_tmp48 = *((enum atl1c_nic_type *)__cil_tmp47);
-#line 1343
-        __cil_tmp49 = (unsigned int )__cil_tmp48;
-#line 1343
-        if (__cil_tmp49 == 5U) {
+        if (__cil_tmp37 == 5U) {
           _L: 
 #line 1345
           link_ctrl_data = link_ctrl_data & 4294967167U;
           {
 #line 1346
-          __cil_tmp50 = (unsigned long )hw;
+          __cil_tmp38 = hw->ctrl_flags;
 #line 1346
-          __cil_tmp51 = __cil_tmp50 + 252;
+          __cil_tmp39 = (int )__cil_tmp38;
 #line 1346
-          __cil_tmp52 = *((u16 *)__cil_tmp51);
+          __cil_tmp40 = __cil_tmp39 & 2048;
 #line 1346
-          __cil_tmp53 = (int )__cil_tmp52;
-#line 1346
-          __cil_tmp54 = __cil_tmp53 & 2048;
-#line 1346
-          if (__cil_tmp54 == 0) {
+          if (__cil_tmp40 == 0) {
             {
 #line 1347
-            __cil_tmp55 = (unsigned long )hw;
+            __cil_tmp41 = hw->nic_type;
 #line 1347
-            __cil_tmp56 = __cil_tmp55 + 16;
+            __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 1347
-            __cil_tmp57 = *((enum atl1c_nic_type *)__cil_tmp56);
-#line 1347
-            __cil_tmp58 = (unsigned int )__cil_tmp57;
-#line 1347
-            if (__cil_tmp58 == 2U) {
+            if (__cil_tmp42 == 2U) {
               {
 #line 1347
-              __cil_tmp59 = (unsigned long )hw;
+              __cil_tmp43 = hw->revision_id;
 #line 1347
-              __cil_tmp60 = __cil_tmp59 + 184;
+              __cil_tmp44 = (unsigned int )__cil_tmp43;
 #line 1347
-              __cil_tmp61 = *((u8 *)__cil_tmp60);
-#line 1347
-              __cil_tmp62 = (unsigned int )__cil_tmp61;
-#line 1347
-              if (__cil_tmp62 == 192U) {
+              if (__cil_tmp44 == 192U) {
 #line 1348
                 link_ctrl_data = link_ctrl_data | 128U;
               } else {
@@ -13030,13 +11638,13 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
           }
           {
 #line 1351
-          __cil_tmp63 = *((u8 **)hw);
+          __cil_tmp45 = hw->hw_addr;
 #line 1351
-          __cil_tmp64 = (void volatile   *)__cil_tmp63;
+          __cil_tmp46 = (void volatile   *)__cil_tmp45;
 #line 1351
-          __cil_tmp65 = __cil_tmp64 + 104U;
+          __cil_tmp47 = __cil_tmp46 + 104U;
 #line 1351
-          writel(link_ctrl_data, __cil_tmp65);
+          writel(link_ctrl_data, __cil_tmp47);
 #line 1353
           pm_ctrl_data = pm_ctrl_data | 32768U;
 #line 1354
@@ -13072,17 +11680,13 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
     pm_ctrl_data = pm_ctrl_data & 4294963199U;
     {
 #line 1367
-    __cil_tmp66 = (unsigned long )hw;
+    __cil_tmp48 = hw->ctrl_flags;
 #line 1367
-    __cil_tmp67 = __cil_tmp66 + 252;
+    __cil_tmp49 = (int )__cil_tmp48;
 #line 1367
-    __cil_tmp68 = *((u16 *)__cil_tmp67);
+    __cil_tmp50 = __cil_tmp49 & 256;
 #line 1367
-    __cil_tmp69 = (int )__cil_tmp68;
-#line 1367
-    __cil_tmp70 = __cil_tmp69 & 256;
-#line 1367
-    if (__cil_tmp70 != 0) {
+    if (__cil_tmp50 != 0) {
 #line 1368
       pm_ctrl_data = pm_ctrl_data | 8U;
     } else {
@@ -13091,17 +11695,13 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
     }
     {
 #line 1369
-    __cil_tmp71 = (unsigned long )hw;
+    __cil_tmp51 = hw->ctrl_flags;
 #line 1369
-    __cil_tmp72 = __cil_tmp71 + 252;
+    __cil_tmp52 = (int )__cil_tmp51;
 #line 1369
-    __cil_tmp73 = *((u16 *)__cil_tmp72);
+    __cil_tmp53 = __cil_tmp52 & 128;
 #line 1369
-    __cil_tmp74 = (int )__cil_tmp73;
-#line 1369
-    __cil_tmp75 = __cil_tmp74 & 128;
-#line 1369
-    if (__cil_tmp75 != 0) {
+    if (__cil_tmp53 != 0) {
 #line 1370
       pm_ctrl_data = pm_ctrl_data | 4096U;
     } else {
@@ -13110,79 +11710,58 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
     }
     {
 #line 1372
-    __cil_tmp76 = (unsigned long )hw;
+    __cil_tmp54 = hw->nic_type;
 #line 1372
-    __cil_tmp77 = __cil_tmp76 + 16;
+    __cil_tmp55 = (unsigned int )__cil_tmp54;
 #line 1372
-    __cil_tmp78 = *((enum atl1c_nic_type *)__cil_tmp77);
+    if (__cil_tmp55 == 2U) {
 #line 1372
-    __cil_tmp79 = (unsigned int )__cil_tmp78;
-#line 1372
-    if (__cil_tmp79 == 2U) {
       goto _L___1;
     } else {
       {
 #line 1372
-      __cil_tmp80 = (unsigned long )hw;
+      __cil_tmp56 = hw->nic_type;
 #line 1372
-      __cil_tmp81 = __cil_tmp80 + 16;
+      __cil_tmp57 = (unsigned int )__cil_tmp56;
 #line 1372
-      __cil_tmp82 = *((enum atl1c_nic_type *)__cil_tmp81);
+      if (__cil_tmp57 == 4U) {
 #line 1372
-      __cil_tmp83 = (unsigned int )__cil_tmp82;
-#line 1372
-      if (__cil_tmp83 == 4U) {
         goto _L___1;
       } else {
         {
 #line 1372
-        __cil_tmp84 = (unsigned long )hw;
+        __cil_tmp58 = hw->nic_type;
 #line 1372
-        __cil_tmp85 = __cil_tmp84 + 16;
+        __cil_tmp59 = (unsigned int )__cil_tmp58;
 #line 1372
-        __cil_tmp86 = *((enum atl1c_nic_type *)__cil_tmp85);
+        if (__cil_tmp59 == 3U) {
 #line 1372
-        __cil_tmp87 = (unsigned int )__cil_tmp86;
-#line 1372
-        if (__cil_tmp87 == 3U) {
           goto _L___1;
         } else {
           {
 #line 1372
-          __cil_tmp88 = (unsigned long )hw;
+          __cil_tmp60 = hw->nic_type;
 #line 1372
-          __cil_tmp89 = __cil_tmp88 + 16;
+          __cil_tmp61 = (unsigned int )__cil_tmp60;
 #line 1372
-          __cil_tmp90 = *((enum atl1c_nic_type *)__cil_tmp89);
-#line 1372
-          __cil_tmp91 = (unsigned int )__cil_tmp90;
-#line 1372
-          if (__cil_tmp91 == 5U) {
+          if (__cil_tmp61 == 5U) {
             _L___1: 
             {
 #line 1374
-            __cil_tmp92 = (unsigned long )hw;
+            __cil_tmp62 = hw->nic_type;
 #line 1374
-            __cil_tmp93 = __cil_tmp92 + 16;
+            __cil_tmp63 = (unsigned int )__cil_tmp62;
 #line 1374
-            __cil_tmp94 = *((enum atl1c_nic_type *)__cil_tmp93);
-#line 1374
-            __cil_tmp95 = (unsigned int )__cil_tmp94;
-#line 1374
-            if (__cil_tmp95 == 2U) {
+            if (__cil_tmp63 == 2U) {
               {
 #line 1375
-              __cil_tmp96 = (unsigned long )hw;
+              __cil_tmp64 = hw->ctrl_flags;
 #line 1375
-              __cil_tmp97 = __cil_tmp96 + 252;
+              __cil_tmp65 = (int )__cil_tmp64;
 #line 1375
-              __cil_tmp98 = *((u16 *)__cil_tmp97);
+              __cil_tmp66 = __cil_tmp65 & 2048;
 #line 1375
-              __cil_tmp99 = (int )__cil_tmp98;
-#line 1375
-              __cil_tmp100 = __cil_tmp99 & 2048;
-#line 1375
-              if (__cil_tmp100 == 0) {
+              if (__cil_tmp66 == 0) {
 #line 1376
                 pm_ctrl_data = pm_ctrl_data & 4294963199U;
               } else {
@@ -13203,82 +11782,55 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
             pm_ctrl_data = pm_ctrl_data | 8192U;
             {
 #line 1381
-            __cil_tmp101 = (unsigned long )hw;
+            __cil_tmp67 = hw->adapter;
 #line 1381
-            __cil_tmp102 = __cil_tmp101 + 8;
+            __cil_tmp68 = __cil_tmp67->link_speed;
 #line 1381
-            __cil_tmp103 = *((struct atl1c_adapter **)__cil_tmp102);
+            __cil_tmp69 = (unsigned int )__cil_tmp68;
 #line 1381
-            __cil_tmp104 = (unsigned long )__cil_tmp103;
+            if (__cil_tmp69 == 100U) {
 #line 1381
-            __cil_tmp105 = __cil_tmp104 + 1028;
-#line 1381
-            __cil_tmp106 = *((u16 *)__cil_tmp105);
-#line 1381
-            __cil_tmp107 = (unsigned int )__cil_tmp106;
-#line 1381
-            if (__cil_tmp107 == 100U) {
               goto _L___0;
             } else {
               {
 #line 1381
-              __cil_tmp108 = (unsigned long )hw;
+              __cil_tmp70 = hw->adapter;
 #line 1381
-              __cil_tmp109 = __cil_tmp108 + 8;
+              __cil_tmp71 = __cil_tmp70->link_speed;
 #line 1381
-              __cil_tmp110 = *((struct atl1c_adapter **)__cil_tmp109);
+              __cil_tmp72 = (unsigned int )__cil_tmp71;
 #line 1381
-              __cil_tmp111 = (unsigned long )__cil_tmp110;
-#line 1381
-              __cil_tmp112 = __cil_tmp111 + 1028;
-#line 1381
-              __cil_tmp113 = *((u16 *)__cil_tmp112);
-#line 1381
-              __cil_tmp114 = (unsigned int )__cil_tmp113;
-#line 1381
-              if (__cil_tmp114 == 1000U) {
+              if (__cil_tmp72 == 1000U) {
                 _L___0: 
 #line 1383
                 pm_ctrl_data = pm_ctrl_data & 4293984255U;
                 {
 #line 1385
-                __cil_tmp115 = (unsigned long )hw;
+                __cil_tmp73 = hw->nic_type;
 #line 1385
-                __cil_tmp116 = __cil_tmp115 + 16;
+                __cil_tmp74 = (unsigned int )__cil_tmp73;
 #line 1385
-                __cil_tmp117 = *((enum atl1c_nic_type *)__cil_tmp116);
-#line 1385
-                __cil_tmp118 = (unsigned int )__cil_tmp117;
-#line 1385
-                if (__cil_tmp118 == 2U) {
+                if (__cil_tmp74 == 2U) {
 #line 1386
                   link_l1_timer = 7U;
                 } else {
                   {
 #line 1387
-                  __cil_tmp119 = (unsigned long )hw;
+                  __cil_tmp75 = hw->nic_type;
 #line 1387
-                  __cil_tmp120 = __cil_tmp119 + 16;
+                  __cil_tmp76 = (unsigned int )__cil_tmp75;
 #line 1387
-                  __cil_tmp121 = *((enum atl1c_nic_type *)__cil_tmp120);
-#line 1387
-                  __cil_tmp122 = (unsigned int )__cil_tmp121;
-#line 1387
-                  if (__cil_tmp122 == 3U) {
+                  if (__cil_tmp76 == 3U) {
 #line 1389
                     link_l1_timer = 4U;
                   } else {
                     {
 #line 1387
-                    __cil_tmp123 = (unsigned long )hw;
+                    __cil_tmp77 = hw->nic_type;
 #line 1387
-                    __cil_tmp124 = __cil_tmp123 + 16;
+                    __cil_tmp78 = (unsigned int )__cil_tmp77;
 #line 1387
-                    __cil_tmp125 = *((enum atl1c_nic_type *)__cil_tmp124);
-#line 1387
-                    __cil_tmp126 = (unsigned int )__cil_tmp125;
-#line 1387
-                    if (__cil_tmp126 == 5U) {
+                    if (__cil_tmp78 == 5U) {
 #line 1389
                       link_l1_timer = 4U;
                     } else {
@@ -13290,9 +11842,9 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
                 }
                 }
 #line 1390
-                __cil_tmp127 = link_l1_timer << 16;
+                __cil_tmp79 = link_l1_timer << 16;
 #line 1390
-                pm_ctrl_data = __cil_tmp127 | pm_ctrl_data;
+                pm_ctrl_data = __cil_tmp79 | pm_ctrl_data;
               } else {
 
               }
@@ -13331,17 +11883,13 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
     pm_ctrl_data = pm_ctrl_data | 8192U;
     {
 #line 1408
-    __cil_tmp128 = (unsigned long )hw;
+    __cil_tmp80 = hw->ctrl_flags;
 #line 1408
-    __cil_tmp129 = __cil_tmp128 + 252;
+    __cil_tmp81 = (int )__cil_tmp80;
 #line 1408
-    __cil_tmp130 = *((u16 *)__cil_tmp129);
+    __cil_tmp82 = __cil_tmp81 & 256;
 #line 1408
-    __cil_tmp131 = (int )__cil_tmp130;
-#line 1408
-    __cil_tmp132 = __cil_tmp131 & 256;
-#line 1408
-    if (__cil_tmp132 != 0) {
+    if (__cil_tmp82 != 0) {
 #line 1409
       pm_ctrl_data = pm_ctrl_data | 8U;
     } else {
@@ -13352,13 +11900,13 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , bool linkup )
   }
   {
 #line 1413
-  __cil_tmp133 = *((u8 **)hw);
+  __cil_tmp83 = hw->hw_addr;
 #line 1413
-  __cil_tmp134 = (void volatile   *)__cil_tmp133;
+  __cil_tmp84 = (void volatile   *)__cil_tmp83;
 #line 1413
-  __cil_tmp135 = __cil_tmp134 + 4856U;
+  __cil_tmp85 = __cil_tmp84 + 4856U;
 #line 1413
-  writel(pm_ctrl_data, __cil_tmp135);
+  writel(pm_ctrl_data, __cil_tmp85);
   }
 #line 1415
   return;
@@ -13369,95 +11917,55 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
 { struct atl1c_hw *hw ;
   struct net_device *netdev ;
   u32 mac_ctrl_data ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  u16 __cil_tmp9 ;
+  u16 __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  u16 __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  enum atl1c_mac_speed __cil_tmp9 ;
   unsigned int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  u16 __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  u32 __cil_tmp17 ;
+  struct vlan_group *__cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  struct vlan_group *__cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  enum atl1c_mac_speed __cil_tmp23 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
   unsigned int __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u8 __cil_tmp29 ;
-  int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  struct vlan_group *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct vlan_group *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  enum atl1c_nic_type __cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  enum atl1c_nic_type __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  enum atl1c_nic_type __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  u8 *__cil_tmp60 ;
-  void volatile   *__cil_tmp61 ;
-  void volatile   *__cil_tmp62 ;
+  enum atl1c_nic_type __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  enum atl1c_nic_type __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  enum atl1c_nic_type __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  u8 *__cil_tmp32 ;
+  void volatile   *__cil_tmp33 ;
+  void volatile   *__cil_tmp34 ;
 
   {
 #line 1420
-  __cil_tmp5 = (unsigned long )adapter;
-#line 1420
-  __cil_tmp6 = __cil_tmp5 + 184;
-#line 1420
-  hw = (struct atl1c_hw *)__cil_tmp6;
+  hw = & adapter->hw;
 #line 1421
-  netdev = *((struct net_device **)adapter);
+  netdev = adapter->netdev;
 #line 1424
   mac_ctrl_data = 3U;
 #line 1425
   mac_ctrl_data = mac_ctrl_data | 12U;
   {
 #line 1427
-  __cil_tmp7 = (unsigned long )adapter;
+  __cil_tmp5 = adapter->link_duplex;
 #line 1427
-  __cil_tmp8 = __cil_tmp7 + 1030;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 1427
-  __cil_tmp9 = *((u16 *)__cil_tmp8);
-#line 1427
-  __cil_tmp10 = (unsigned int )__cil_tmp9;
-#line 1427
-  if (__cil_tmp10 == 2U) {
+  if (__cil_tmp6 == 2U) {
 #line 1428
-    __cil_tmp11 = (unsigned long )hw;
-#line 1428
-    __cil_tmp12 = __cil_tmp11 + 236;
-#line 1428
-    *((bool *)__cil_tmp12) = (_Bool)1;
+    hw->mac_duplex = (bool )1;
 #line 1429
     mac_ctrl_data = mac_ctrl_data | 32U;
   } else {
@@ -13466,77 +11974,53 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
   }
   {
 #line 1432
-  __cil_tmp13 = (unsigned long )adapter;
+  __cil_tmp7 = adapter->link_speed;
 #line 1432
-  __cil_tmp14 = __cil_tmp13 + 1028;
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 1432
-  __cil_tmp15 = *((u16 *)__cil_tmp14);
-#line 1432
-  __cil_tmp16 = (unsigned int )__cil_tmp15;
-#line 1432
-  if (__cil_tmp16 == 1000U) {
+  if (__cil_tmp8 == 1000U) {
 #line 1433
-    __cil_tmp17 = (unsigned long )hw;
-#line 1433
-    __cil_tmp18 = __cil_tmp17 + 204;
-#line 1433
-    *((enum atl1c_mac_speed *)__cil_tmp18) = (enum atl1c_mac_speed )2;
+    hw->mac_speed = (enum atl1c_mac_speed )2;
   } else {
 #line 1435
-    __cil_tmp19 = (unsigned long )hw;
-#line 1435
-    __cil_tmp20 = __cil_tmp19 + 204;
-#line 1435
-    *((enum atl1c_mac_speed *)__cil_tmp20) = (enum atl1c_mac_speed )1;
+    hw->mac_speed = (enum atl1c_mac_speed )1;
   }
   }
 #line 1437
-  __cil_tmp21 = (unsigned long )hw;
+  __cil_tmp9 = hw->mac_speed;
 #line 1437
-  __cil_tmp22 = __cil_tmp21 + 204;
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
 #line 1437
-  __cil_tmp23 = *((enum atl1c_mac_speed *)__cil_tmp22);
+  __cil_tmp11 = __cil_tmp10 & 3U;
 #line 1437
-  __cil_tmp24 = (unsigned int )__cil_tmp23;
+  __cil_tmp12 = __cil_tmp11 << 20;
 #line 1437
-  __cil_tmp25 = __cil_tmp24 & 3U;
-#line 1437
-  __cil_tmp26 = __cil_tmp25 << 20;
-#line 1437
-  mac_ctrl_data = __cil_tmp26 | mac_ctrl_data;
+  mac_ctrl_data = __cil_tmp12 | mac_ctrl_data;
 #line 1440
   mac_ctrl_data = mac_ctrl_data | 192U;
 #line 1441
-  __cil_tmp27 = (unsigned long )hw;
+  __cil_tmp13 = hw->preamble_len;
 #line 1441
-  __cil_tmp28 = __cil_tmp27 + 198;
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 1441
-  __cil_tmp29 = *((u8 *)__cil_tmp28);
+  __cil_tmp15 = __cil_tmp14 & 15;
 #line 1441
-  __cil_tmp30 = (int )__cil_tmp29;
+  __cil_tmp16 = __cil_tmp15 << 10;
 #line 1441
-  __cil_tmp31 = __cil_tmp30 & 15;
+  __cil_tmp17 = (u32 )__cil_tmp16;
 #line 1441
-  __cil_tmp32 = __cil_tmp31 << 10;
-#line 1441
-  __cil_tmp33 = (unsigned int )__cil_tmp32;
-#line 1441
-  mac_ctrl_data = __cil_tmp33 | mac_ctrl_data;
+  mac_ctrl_data = __cil_tmp17 | mac_ctrl_data;
   {
 #line 1444
-  __cil_tmp34 = (struct vlan_group *)0;
+  __cil_tmp18 = (struct vlan_group *)0;
 #line 1444
-  __cil_tmp35 = (unsigned long )__cil_tmp34;
+  __cil_tmp19 = (unsigned long )__cil_tmp18;
 #line 1444
-  __cil_tmp36 = (unsigned long )adapter;
+  __cil_tmp20 = adapter->vlgrp;
 #line 1444
-  __cil_tmp37 = __cil_tmp36 + 16;
+  __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 1444
-  __cil_tmp38 = *((struct vlan_group **)__cil_tmp37);
-#line 1444
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 1444
-  if (__cil_tmp39 != __cil_tmp35) {
+  if (__cil_tmp21 != __cil_tmp19) {
 #line 1445
     mac_ctrl_data = mac_ctrl_data | 16384U;
   } else {
@@ -13547,15 +12031,11 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
   mac_ctrl_data = mac_ctrl_data | 67108864U;
   {
 #line 1448
-  __cil_tmp40 = (unsigned long )netdev;
+  __cil_tmp22 = netdev->flags;
 #line 1448
-  __cil_tmp41 = __cil_tmp40 + 432;
+  __cil_tmp23 = __cil_tmp22 & 256U;
 #line 1448
-  __cil_tmp42 = *((unsigned int *)__cil_tmp41);
-#line 1448
-  __cil_tmp43 = __cil_tmp42 & 256U;
-#line 1448
-  if (__cil_tmp43 != 0U) {
+  if (__cil_tmp23 != 0U) {
 #line 1449
     mac_ctrl_data = mac_ctrl_data | 32768U;
   } else {
@@ -13564,15 +12044,11 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
   }
   {
 #line 1450
-  __cil_tmp44 = (unsigned long )netdev;
+  __cil_tmp24 = netdev->flags;
 #line 1450
-  __cil_tmp45 = __cil_tmp44 + 432;
+  __cil_tmp25 = __cil_tmp24 & 512U;
 #line 1450
-  __cil_tmp46 = *((unsigned int *)__cil_tmp45);
-#line 1450
-  __cil_tmp47 = __cil_tmp46 & 512U;
-#line 1450
-  if (__cil_tmp47 != 0U) {
+  if (__cil_tmp25 != 0U) {
 #line 1451
     mac_ctrl_data = mac_ctrl_data | 33554432U;
   } else {
@@ -13583,15 +12059,11 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
   mac_ctrl_data = mac_ctrl_data | 268435456U;
   {
 #line 1454
-  __cil_tmp48 = (unsigned long )hw;
+  __cil_tmp26 = hw->nic_type;
 #line 1454
-  __cil_tmp49 = __cil_tmp48 + 16;
+  __cil_tmp27 = (unsigned int )__cil_tmp26;
 #line 1454
-  __cil_tmp50 = *((enum atl1c_nic_type *)__cil_tmp49);
-#line 1454
-  __cil_tmp51 = (unsigned int )__cil_tmp50;
-#line 1454
-  if (__cil_tmp51 == 4U) {
+  if (__cil_tmp27 == 4U) {
 #line 1456
     mac_ctrl_data = mac_ctrl_data | 1073741824U;
 #line 1457
@@ -13599,15 +12071,11 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
   } else {
     {
 #line 1454
-    __cil_tmp52 = (unsigned long )hw;
+    __cil_tmp28 = hw->nic_type;
 #line 1454
-    __cil_tmp53 = __cil_tmp52 + 16;
+    __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 1454
-    __cil_tmp54 = *((enum atl1c_nic_type *)__cil_tmp53);
-#line 1454
-    __cil_tmp55 = (unsigned int )__cil_tmp54;
-#line 1454
-    if (__cil_tmp55 == 3U) {
+    if (__cil_tmp29 == 3U) {
 #line 1456
       mac_ctrl_data = mac_ctrl_data | 1073741824U;
 #line 1457
@@ -13615,15 +12083,11 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
     } else {
       {
 #line 1454
-      __cil_tmp56 = (unsigned long )hw;
+      __cil_tmp30 = hw->nic_type;
 #line 1454
-      __cil_tmp57 = __cil_tmp56 + 16;
+      __cil_tmp31 = (unsigned int )__cil_tmp30;
 #line 1454
-      __cil_tmp58 = *((enum atl1c_nic_type *)__cil_tmp57);
-#line 1454
-      __cil_tmp59 = (unsigned int )__cil_tmp58;
-#line 1454
-      if (__cil_tmp59 == 5U) {
+      if (__cil_tmp31 == 5U) {
 #line 1456
         mac_ctrl_data = mac_ctrl_data | 1073741824U;
 #line 1457
@@ -13638,13 +12102,13 @@ static void atl1c_setup_mac_ctrl(struct atl1c_adapter *adapter )
   }
   {
 #line 1459
-  __cil_tmp60 = *((u8 **)hw);
+  __cil_tmp32 = hw->hw_addr;
 #line 1459
-  __cil_tmp61 = (void volatile   *)__cil_tmp60;
+  __cil_tmp33 = (void volatile   *)__cil_tmp32;
 #line 1459
-  __cil_tmp62 = __cil_tmp61 + 5248U;
+  __cil_tmp34 = __cil_tmp33 + 5248U;
 #line 1459
-  writel(mac_ctrl_data, __cil_tmp62);
+  writel(mac_ctrl_data, __cil_tmp34);
   }
 #line 1460
   return;
@@ -13656,154 +12120,114 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
   u32 master_ctrl_data ;
   u32 intr_modrt_data ;
   u32 data ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  u8 *__cil_tmp8 ;
-  void volatile   *__cil_tmp9 ;
+  u8 *__cil_tmp6 ;
+  void volatile   *__cil_tmp7 ;
+  void volatile   *__cil_tmp8 ;
+  u8 *__cil_tmp9 ;
   void volatile   *__cil_tmp10 ;
-  u8 *__cil_tmp11 ;
-  void volatile   *__cil_tmp12 ;
-  void volatile   *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u16 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  enum atl1c_nic_type __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  u8 *__cil_tmp23 ;
+  void volatile   *__cil_tmp11 ;
+  u16 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  enum atl1c_nic_type __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  u8 *__cil_tmp17 ;
+  void volatile   *__cil_tmp18 ;
+  void volatile   *__cil_tmp19 ;
+  u16 __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  u8 *__cil_tmp22 ;
+  void volatile   *__cil_tmp23 ;
   void volatile   *__cil_tmp24 ;
-  void volatile   *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  u16 __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
   u16 __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  u8 *__cil_tmp30 ;
-  void volatile   *__cil_tmp31 ;
-  void volatile   *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u16 __cil_tmp35 ;
-  int __cil_tmp36 ;
+  u16 __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  u32 __cil_tmp32 ;
+  u8 *__cil_tmp33 ;
+  void volatile   *__cil_tmp34 ;
+  void volatile   *__cil_tmp35 ;
+  u16 __cil_tmp36 ;
   int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  u16 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u16 __cil_tmp43 ;
-  int __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  u8 *__cil_tmp47 ;
+  u8 *__cil_tmp38 ;
+  void volatile   *__cil_tmp39 ;
+  void volatile   *__cil_tmp40 ;
+  u16 __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  u16 __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  u8 *__cil_tmp46 ;
+  void volatile   *__cil_tmp47 ;
   void volatile   *__cil_tmp48 ;
-  void volatile   *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u16 __cil_tmp52 ;
-  int __cil_tmp53 ;
-  u8 *__cil_tmp54 ;
-  void volatile   *__cil_tmp55 ;
-  void volatile   *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  u16 __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u16 __cil_tmp64 ;
+  u16 __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  u8 *__cil_tmp51 ;
+  void volatile   *__cil_tmp52 ;
+  void volatile   *__cil_tmp53 ;
+  u16 __cil_tmp54 ;
+  int __cil_tmp55 ;
+  int __cil_tmp56 ;
+  u32 __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  u8 *__cil_tmp59 ;
+  void volatile   *__cil_tmp60 ;
+  void volatile   *__cil_tmp61 ;
+  u16 __cil_tmp62 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
   unsigned int __cil_tmp65 ;
   u8 *__cil_tmp66 ;
   void volatile   *__cil_tmp67 ;
   void volatile   *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  u16 __cil_tmp71 ;
-  unsigned int __cil_tmp72 ;
-  u8 *__cil_tmp73 ;
-  void volatile   *__cil_tmp74 ;
-  void volatile   *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  u16 __cil_tmp78 ;
-  int __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  u32 __cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  u8 *__cil_tmp85 ;
-  void volatile   *__cil_tmp86 ;
-  void volatile   *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  u16 __cil_tmp90 ;
-  int __cil_tmp91 ;
-  int __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  u8 *__cil_tmp94 ;
-  void volatile   *__cil_tmp95 ;
-  void volatile   *__cil_tmp96 ;
-  u8 *__cil_tmp97 ;
-  void volatile   *__cil_tmp98 ;
-  void volatile   *__cil_tmp99 ;
+  u8 *__cil_tmp69 ;
+  void volatile   *__cil_tmp70 ;
+  void volatile   *__cil_tmp71 ;
 
   {
   {
 #line 1470
-  __cil_tmp6 = (unsigned long )adapter;
-#line 1470
-  __cil_tmp7 = __cil_tmp6 + 184;
-#line 1470
-  hw = (struct atl1c_hw *)__cil_tmp7;
+  hw = & adapter->hw;
 #line 1471
   master_ctrl_data = 0U;
 #line 1476
-  __cil_tmp8 = *((u8 **)hw);
+  __cil_tmp6 = hw->hw_addr;
 #line 1476
-  __cil_tmp9 = (void volatile   *)__cil_tmp8;
+  __cil_tmp7 = (void volatile   *)__cil_tmp6;
 #line 1476
-  __cil_tmp10 = __cil_tmp9 + 5632U;
+  __cil_tmp8 = __cil_tmp7 + 5632U;
 #line 1476
-  writel(4294967295U, __cil_tmp10);
+  writel(4294967295U, __cil_tmp8);
 #line 1478
-  __cil_tmp11 = *((u8 **)hw);
+  __cil_tmp9 = hw->hw_addr;
 #line 1478
-  __cil_tmp12 = (void volatile   *)__cil_tmp11;
+  __cil_tmp10 = (void volatile   *)__cil_tmp9;
 #line 1478
-  __cil_tmp13 = __cil_tmp12 + 5280U;
+  __cil_tmp11 = __cil_tmp10 + 5280U;
 #line 1478
-  writel(0U, __cil_tmp13);
+  writel(0U, __cil_tmp11);
 #line 1484
   data = 63U;
   }
   {
 #line 1485
-  __cil_tmp14 = (unsigned long )hw;
+  __cil_tmp12 = hw->ctrl_flags;
 #line 1485
-  __cil_tmp15 = __cil_tmp14 + 252;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 1485
-  __cil_tmp16 = *((u16 *)__cil_tmp15);
+  __cil_tmp14 = __cil_tmp13 & 8192;
 #line 1485
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 1485
-  __cil_tmp18 = __cil_tmp17 & 8192;
-#line 1485
-  if (__cil_tmp18 != 0) {
+  if (__cil_tmp14 != 0) {
     {
 #line 1486
-    __cil_tmp19 = (unsigned long )hw;
+    __cil_tmp15 = hw->nic_type;
 #line 1486
-    __cil_tmp20 = __cil_tmp19 + 16;
+    __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 1486
-    __cil_tmp21 = *((enum atl1c_nic_type *)__cil_tmp20);
-#line 1486
-    __cil_tmp22 = (unsigned int )__cil_tmp21;
-#line 1486
-    if (__cil_tmp22 == 2U) {
+    if (__cil_tmp16 == 2U) {
 #line 1487
       data = data & 4294967263U;
     } else {
@@ -13817,76 +12241,60 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
   }
   {
 #line 1490
-  __cil_tmp23 = *((u8 **)hw);
+  __cil_tmp17 = hw->hw_addr;
 #line 1490
-  __cil_tmp24 = (void volatile   *)__cil_tmp23;
+  __cil_tmp18 = (void volatile   *)__cil_tmp17;
 #line 1490
-  __cil_tmp25 = __cil_tmp24 + 6164U;
+  __cil_tmp19 = __cil_tmp18 + 6164U;
 #line 1490
-  writel(data, __cil_tmp25);
+  writel(data, __cil_tmp19);
 #line 1492
-  __cil_tmp26 = (unsigned long )hw;
+  __cil_tmp20 = hw->ict;
 #line 1492
-  __cil_tmp27 = __cil_tmp26 + 250;
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 1492
-  __cil_tmp28 = *((u16 *)__cil_tmp27);
+  __cil_tmp22 = hw->hw_addr;
 #line 1492
-  __cil_tmp29 = (unsigned int )__cil_tmp28;
+  __cil_tmp23 = (void volatile   *)__cil_tmp22;
 #line 1492
-  __cil_tmp30 = *((u8 **)hw);
+  __cil_tmp24 = __cil_tmp23 + 5640U;
 #line 1492
-  __cil_tmp31 = (void volatile   *)__cil_tmp30;
-#line 1492
-  __cil_tmp32 = __cil_tmp31 + 5640U;
-#line 1492
-  writel(__cil_tmp29, __cil_tmp32);
+  writel(__cil_tmp21, __cil_tmp24);
 #line 1495
   atl1c_configure_des_ring(adapter);
   }
   {
 #line 1497
-  __cil_tmp33 = (unsigned long )hw;
+  __cil_tmp25 = hw->ctrl_flags;
 #line 1497
-  __cil_tmp34 = __cil_tmp33 + 252;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 1497
-  __cil_tmp35 = *((u16 *)__cil_tmp34);
+  __cil_tmp27 = __cil_tmp26 & 2;
 #line 1497
-  __cil_tmp36 = (int )__cil_tmp35;
-#line 1497
-  __cil_tmp37 = __cil_tmp36 & 2;
-#line 1497
-  if (__cil_tmp37 != 0) {
+  if (__cil_tmp27 != 0) {
     {
 #line 1498
-    __cil_tmp38 = (unsigned long )hw;
+    __cil_tmp28 = hw->tx_imt;
 #line 1498
-    __cil_tmp39 = __cil_tmp38 + 246;
-#line 1498
-    __cil_tmp40 = *((u16 *)__cil_tmp39);
-#line 1498
-    intr_modrt_data = (unsigned int )__cil_tmp40;
+    intr_modrt_data = (u32 )__cil_tmp28;
 #line 1500
-    __cil_tmp41 = (unsigned long )hw;
+    __cil_tmp29 = hw->rx_imt;
 #line 1500
-    __cil_tmp42 = __cil_tmp41 + 248;
+    __cil_tmp30 = (int )__cil_tmp29;
 #line 1500
-    __cil_tmp43 = *((u16 *)__cil_tmp42);
+    __cil_tmp31 = __cil_tmp30 << 16;
 #line 1500
-    __cil_tmp44 = (int )__cil_tmp43;
+    __cil_tmp32 = (u32 )__cil_tmp31;
 #line 1500
-    __cil_tmp45 = __cil_tmp44 << 16;
-#line 1500
-    __cil_tmp46 = (unsigned int )__cil_tmp45;
-#line 1500
-    intr_modrt_data = __cil_tmp46 | intr_modrt_data;
+    intr_modrt_data = __cil_tmp32 | intr_modrt_data;
 #line 1502
-    __cil_tmp47 = *((u8 **)hw);
+    __cil_tmp33 = hw->hw_addr;
 #line 1502
-    __cil_tmp48 = (void volatile   *)__cil_tmp47;
+    __cil_tmp34 = (void volatile   *)__cil_tmp33;
 #line 1502
-    __cil_tmp49 = __cil_tmp48 + 5128U;
+    __cil_tmp35 = __cil_tmp34 + 5128U;
 #line 1502
-    writel(intr_modrt_data, __cil_tmp49);
+    writel(intr_modrt_data, __cil_tmp35);
 #line 1503
     master_ctrl_data = master_ctrl_data | 3072U;
     }
@@ -13896,15 +12304,11 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
   }
   {
 #line 1507
-  __cil_tmp50 = (unsigned long )hw;
+  __cil_tmp36 = hw->ctrl_flags;
 #line 1507
-  __cil_tmp51 = __cil_tmp50 + 252;
+  __cil_tmp37 = (int )__cil_tmp36;
 #line 1507
-  __cil_tmp52 = *((u16 *)__cil_tmp51);
-#line 1507
-  __cil_tmp53 = (int )__cil_tmp52;
-#line 1507
-  if (__cil_tmp53 & 1) {
+  if (__cil_tmp37 & 1) {
 #line 1508
     master_ctrl_data = master_ctrl_data | 16384U;
   } else {
@@ -13915,60 +12319,48 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
 #line 1510
   master_ctrl_data = master_ctrl_data | 128U;
 #line 1511
-  __cil_tmp54 = *((u8 **)hw);
+  __cil_tmp38 = hw->hw_addr;
 #line 1511
-  __cil_tmp55 = (void volatile   *)__cil_tmp54;
+  __cil_tmp39 = (void volatile   *)__cil_tmp38;
 #line 1511
-  __cil_tmp56 = __cil_tmp55 + 5120U;
+  __cil_tmp40 = __cil_tmp39 + 5120U;
 #line 1511
-  writel(master_ctrl_data, __cil_tmp56);
+  writel(master_ctrl_data, __cil_tmp40);
   }
   {
 #line 1513
-  __cil_tmp57 = (unsigned long )hw;
+  __cil_tmp41 = hw->ctrl_flags;
 #line 1513
-  __cil_tmp58 = __cil_tmp57 + 252;
+  __cil_tmp42 = (int )__cil_tmp41;
 #line 1513
-  __cil_tmp59 = *((u16 *)__cil_tmp58);
+  __cil_tmp43 = __cil_tmp42 & 4;
 #line 1513
-  __cil_tmp60 = (int )__cil_tmp59;
-#line 1513
-  __cil_tmp61 = __cil_tmp60 & 4;
-#line 1513
-  if (__cil_tmp61 != 0) {
+  if (__cil_tmp43 != 0) {
     {
 #line 1514
-    __cil_tmp62 = (unsigned long )hw;
+    __cil_tmp44 = hw->cmb_tpd;
 #line 1514
-    __cil_tmp63 = __cil_tmp62 + 256;
+    __cil_tmp45 = (unsigned int )__cil_tmp44;
 #line 1514
-    __cil_tmp64 = *((u16 *)__cil_tmp63);
+    __cil_tmp46 = hw->hw_addr;
 #line 1514
-    __cil_tmp65 = (unsigned int )__cil_tmp64;
+    __cil_tmp47 = (void volatile   *)__cil_tmp46;
 #line 1514
-    __cil_tmp66 = *((u8 **)hw);
+    __cil_tmp48 = __cil_tmp47 + 5576U;
 #line 1514
-    __cil_tmp67 = (void volatile   *)__cil_tmp66;
-#line 1514
-    __cil_tmp68 = __cil_tmp67 + 5576U;
-#line 1514
-    writel(__cil_tmp65, __cil_tmp68);
+    writel(__cil_tmp45, __cil_tmp48);
 #line 1516
-    __cil_tmp69 = (unsigned long )hw;
+    __cil_tmp49 = hw->cmb_tx_timer;
 #line 1516
-    __cil_tmp70 = __cil_tmp69 + 262;
+    __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 1516
-    __cil_tmp71 = *((u16 *)__cil_tmp70);
+    __cil_tmp51 = hw->hw_addr;
 #line 1516
-    __cil_tmp72 = (unsigned int )__cil_tmp71;
+    __cil_tmp52 = (void volatile   *)__cil_tmp51;
 #line 1516
-    __cil_tmp73 = *((u8 **)hw);
+    __cil_tmp53 = __cil_tmp52 + 5580U;
 #line 1516
-    __cil_tmp74 = (void volatile   *)__cil_tmp73;
-#line 1516
-    __cil_tmp75 = __cil_tmp74 + 5580U;
-#line 1516
-    writel(__cil_tmp72, __cil_tmp75);
+    writel(__cil_tmp50, __cil_tmp53);
     }
   } else {
 
@@ -13976,34 +12368,26 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
   }
   {
 #line 1520
-  __cil_tmp76 = (unsigned long )hw;
+  __cil_tmp54 = hw->ctrl_flags;
 #line 1520
-  __cil_tmp77 = __cil_tmp76 + 252;
+  __cil_tmp55 = (int )__cil_tmp54;
 #line 1520
-  __cil_tmp78 = *((u16 *)__cil_tmp77);
+  __cil_tmp56 = __cil_tmp55 & 16;
 #line 1520
-  __cil_tmp79 = (int )__cil_tmp78;
-#line 1520
-  __cil_tmp80 = __cil_tmp79 & 16;
-#line 1520
-  if (__cil_tmp80 != 0) {
+  if (__cil_tmp56 != 0) {
     {
 #line 1521
-    __cil_tmp81 = (unsigned long )hw;
+    __cil_tmp57 = hw->smb_timer;
 #line 1521
-    __cil_tmp82 = __cil_tmp81 + 264;
+    __cil_tmp58 = __cil_tmp57 & 16777215U;
 #line 1521
-    __cil_tmp83 = *((u32 *)__cil_tmp82);
+    __cil_tmp59 = hw->hw_addr;
 #line 1521
-    __cil_tmp84 = __cil_tmp83 & 16777215U;
+    __cil_tmp60 = (void volatile   *)__cil_tmp59;
 #line 1521
-    __cil_tmp85 = *((u8 **)hw);
+    __cil_tmp61 = __cil_tmp60 + 5572U;
 #line 1521
-    __cil_tmp86 = (void volatile   *)__cil_tmp85;
-#line 1521
-    __cil_tmp87 = __cil_tmp86 + 5572U;
-#line 1521
-    writel(__cil_tmp84, __cil_tmp87);
+    writel(__cil_tmp58, __cil_tmp61);
     }
   } else {
 
@@ -14011,33 +12395,29 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
   }
   {
 #line 1524
-  __cil_tmp88 = (unsigned long )hw;
+  __cil_tmp62 = hw->max_frame_size;
 #line 1524
-  __cil_tmp89 = __cil_tmp88 + 200;
+  __cil_tmp63 = (int )__cil_tmp62;
 #line 1524
-  __cil_tmp90 = *((u16 *)__cil_tmp89);
+  __cil_tmp64 = __cil_tmp63 + 22;
 #line 1524
-  __cil_tmp91 = (int )__cil_tmp90;
+  __cil_tmp65 = (unsigned int )__cil_tmp64;
 #line 1524
-  __cil_tmp92 = __cil_tmp91 + 22;
+  __cil_tmp66 = hw->hw_addr;
 #line 1524
-  __cil_tmp93 = (unsigned int )__cil_tmp92;
+  __cil_tmp67 = (void volatile   *)__cil_tmp66;
 #line 1524
-  __cil_tmp94 = *((u8 **)hw);
+  __cil_tmp68 = __cil_tmp67 + 5276U;
 #line 1524
-  __cil_tmp95 = (void volatile   *)__cil_tmp94;
-#line 1524
-  __cil_tmp96 = __cil_tmp95 + 5276U;
-#line 1524
-  writel(__cil_tmp93, __cil_tmp96);
+  writel(__cil_tmp65, __cil_tmp68);
 #line 1527
-  __cil_tmp97 = *((u8 **)hw);
+  __cil_tmp69 = hw->hw_addr;
 #line 1527
-  __cil_tmp98 = (void volatile   *)__cil_tmp97;
+  __cil_tmp70 = (void volatile   *)__cil_tmp69;
 #line 1527
-  __cil_tmp99 = __cil_tmp98 + 5644U;
+  __cil_tmp71 = __cil_tmp70 + 5644U;
 #line 1527
-  writel(0U, __cil_tmp99);
+  writel(0U, __cil_tmp71);
 #line 1529
   atl1c_configure_tx(adapter);
 #line 1530
@@ -14054,42 +12434,27 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
 #line 1605 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 __inline static void atl1c_clear_phy_int(struct atl1c_adapter *adapter ) 
 { u16 phy_data ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  spinlock_t *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct atl1c_hw *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  spinlock_t *__cil_tmp11 ;
+  spinlock_t *__cil_tmp3 ;
+  struct atl1c_hw *__cil_tmp4 ;
+  u16 __cil_tmp5 ;
+  spinlock_t *__cil_tmp6 ;
 
   {
   {
 #line 1609
-  __cil_tmp3 = (unsigned long )adapter;
+  __cil_tmp3 = & adapter->mdio_lock;
 #line 1609
-  __cil_tmp4 = __cil_tmp3 + 1032;
-#line 1609
-  __cil_tmp5 = (spinlock_t *)__cil_tmp4;
-#line 1609
-  spin_lock(__cil_tmp5);
+  spin_lock(__cil_tmp3);
 #line 1610
-  __cil_tmp6 = (unsigned long )adapter;
+  __cil_tmp4 = & adapter->hw;
 #line 1610
-  __cil_tmp7 = __cil_tmp6 + 184;
+  __cil_tmp5 = (u16 )19;
 #line 1610
-  __cil_tmp8 = (struct atl1c_hw *)__cil_tmp7;
-#line 1610
-  atl1c_read_phy_reg(__cil_tmp8, (unsigned short)19, & phy_data);
+  atl1c_read_phy_reg(__cil_tmp4, __cil_tmp5, & phy_data);
 #line 1611
-  __cil_tmp9 = (unsigned long )adapter;
+  __cil_tmp6 = & adapter->mdio_lock;
 #line 1611
-  __cil_tmp10 = __cil_tmp9 + 1032;
-#line 1611
-  __cil_tmp11 = (spinlock_t *)__cil_tmp10;
-#line 1611
-  spin_unlock(__cil_tmp11);
+  spin_unlock(__cil_tmp6);
   }
 #line 1612
   return;
@@ -14109,263 +12474,203 @@ static bool atl1c_clean_tx_irq(struct atl1c_adapter *adapter , enum atl1c_trans_
   int tmp___1 ;
   int tmp___2 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct atl1c_tpd_ring (*__cil_tmp17)[2U] ;
-  struct atl1c_tpd_ring *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  atomic_t *__cil_tmp23 ;
-  atomic_t const   *__cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  bool __cil_tmp29 ;
-  long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  u8 *__cil_tmp33 ;
-  void const volatile   *__cil_tmp34 ;
-  void const volatile   *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  u8 *__cil_tmp38 ;
-  void const volatile   *__cil_tmp39 ;
-  void const volatile   *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u8 *__cil_tmp43 ;
-  void const volatile   *__cil_tmp44 ;
-  void const volatile   *__cil_tmp45 ;
-  int __cil_tmp46 ;
-  u32 __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct atl1c_buffer *__cil_tmp51 ;
-  int __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  u16 __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  atomic_t *__cil_tmp61 ;
-  int __cil_tmp62 ;
-  int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  struct net_device *__cil_tmp65 ;
-  struct net_device  const  *__cil_tmp66 ;
-  struct net_device *__cil_tmp67 ;
-  struct net_device  const  *__cil_tmp68 ;
-  struct net_device *__cil_tmp69 ;
+  struct atl1c_tpd_ring (*__cil_tmp15)[2U] ;
+  struct atl1c_tpd_ring *__cil_tmp16 ;
+  atomic_t *__cil_tmp17 ;
+  atomic_t const   *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  bool __cil_tmp20 ;
+  long __cil_tmp21 ;
+  u8 *__cil_tmp22 ;
+  void const volatile   *__cil_tmp23 ;
+  void const volatile   *__cil_tmp24 ;
+  u8 *__cil_tmp25 ;
+  void const volatile   *__cil_tmp26 ;
+  void const volatile   *__cil_tmp27 ;
+  u8 *__cil_tmp28 ;
+  void const volatile   *__cil_tmp29 ;
+  void const volatile   *__cil_tmp30 ;
+  int __cil_tmp31 ;
+  u32 __cil_tmp32 ;
+  unsigned long __cil_tmp33 ;
+  struct atl1c_buffer *__cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  u16 __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  atomic_t *__cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  struct net_device *__cil_tmp44 ;
+  struct net_device  const  *__cil_tmp45 ;
+  struct net_device *__cil_tmp46 ;
+  struct net_device  const  *__cil_tmp47 ;
+  struct net_device *__cil_tmp48 ;
 
   {
   {
 #line 1617
   __cil_tmp14 = (unsigned long )type;
 #line 1617
-  __cil_tmp15 = (unsigned long )adapter;
+  __cil_tmp15 = & adapter->tpd_ring;
 #line 1617
-  __cil_tmp16 = __cil_tmp15 + 1544;
+  __cil_tmp16 = (struct atl1c_tpd_ring *)__cil_tmp15;
 #line 1617
-  __cil_tmp17 = (struct atl1c_tpd_ring (*)[2U])__cil_tmp16;
-#line 1617
-  __cil_tmp18 = (struct atl1c_tpd_ring *)__cil_tmp17;
-#line 1617
-  tpd_ring = __cil_tmp18 + __cil_tmp14;
+  tpd_ring = __cil_tmp16 + __cil_tmp14;
 #line 1620
-  __cil_tmp19 = (unsigned long )adapter;
-#line 1620
-  __cil_tmp20 = __cil_tmp19 + 8;
-#line 1620
-  pdev = *((struct pci_dev **)__cil_tmp20);
+  pdev = adapter->pdev;
 #line 1621
-  __cil_tmp21 = (unsigned long )tpd_ring;
+  __cil_tmp17 = & tpd_ring->next_to_clean;
 #line 1621
-  __cil_tmp22 = __cil_tmp21 + 24;
+  __cil_tmp18 = (atomic_t const   *)__cil_tmp17;
 #line 1621
-  __cil_tmp23 = (atomic_t *)__cil_tmp22;
+  tmp = atomic_read(__cil_tmp18);
 #line 1621
-  __cil_tmp24 = (atomic_t const   *)__cil_tmp23;
-#line 1621
-  tmp = atomic_read(__cil_tmp24);
-#line 1621
-  next_to_clean = (unsigned short )tmp;
+  next_to_clean = (u16 )tmp;
   }
   {
 #line 1626
-  __cil_tmp25 = (unsigned int )type;
+  __cil_tmp19 = (unsigned int )type;
 #line 1626
-  if (__cil_tmp25 == 1U) {
+  if (__cil_tmp19 == 1U) {
 #line 1627
-    shift = (unsigned short)0;
+    shift = (u16 )0U;
   } else {
 #line 1629
-    shift = (unsigned short)16;
+    shift = (u16 )16U;
   }
   }
   {
 #line 1631
-  __cil_tmp26 = 184 + 237;
+  __cil_tmp20 = adapter->hw.hibernate;
 #line 1631
-  __cil_tmp27 = (unsigned long )adapter;
+  __cil_tmp21 = (long )__cil_tmp20;
 #line 1631
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 1631
-  __cil_tmp29 = *((bool *)__cil_tmp28);
-#line 1631
-  __cil_tmp30 = (long )__cil_tmp29;
-#line 1631
-  tmp___0 = __builtin_expect(__cil_tmp30, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp21, 0L);
   }
 #line 1631
   if (tmp___0 != 0L) {
     {
 #line 1631
-    __cil_tmp31 = (unsigned long )adapter;
+    __cil_tmp22 = adapter->hw.hw_addr;
 #line 1631
-    __cil_tmp32 = __cil_tmp31 + 184;
+    __cil_tmp23 = (void const volatile   *)__cil_tmp22;
 #line 1631
-    __cil_tmp33 = *((u8 **)__cil_tmp32);
+    __cil_tmp24 = __cil_tmp23 + 5620U;
 #line 1631
-    __cil_tmp34 = (void const volatile   *)__cil_tmp33;
+    readl(__cil_tmp24);
 #line 1631
-    __cil_tmp35 = __cil_tmp34 + 5620U;
+    __cil_tmp25 = adapter->hw.hw_addr;
 #line 1631
-    readl(__cil_tmp35);
+    __cil_tmp26 = (void const volatile   *)__cil_tmp25;
 #line 1631
-    __cil_tmp36 = (unsigned long )adapter;
+    __cil_tmp27 = __cil_tmp26 + 5620U;
 #line 1631
-    __cil_tmp37 = __cil_tmp36 + 184;
-#line 1631
-    __cil_tmp38 = *((u8 **)__cil_tmp37);
-#line 1631
-    __cil_tmp39 = (void const volatile   *)__cil_tmp38;
-#line 1631
-    __cil_tmp40 = __cil_tmp39 + 5620U;
-#line 1631
-    data = readl(__cil_tmp40);
+    data = readl(__cil_tmp27);
     }
   } else {
     {
 #line 1631
-    __cil_tmp41 = (unsigned long )adapter;
+    __cil_tmp28 = adapter->hw.hw_addr;
 #line 1631
-    __cil_tmp42 = __cil_tmp41 + 184;
+    __cil_tmp29 = (void const volatile   *)__cil_tmp28;
 #line 1631
-    __cil_tmp43 = *((u8 **)__cil_tmp42);
+    __cil_tmp30 = __cil_tmp29 + 5620U;
 #line 1631
-    __cil_tmp44 = (void const volatile   *)__cil_tmp43;
-#line 1631
-    __cil_tmp45 = __cil_tmp44 + 5620U;
-#line 1631
-    data = readl(__cil_tmp45);
+    data = readl(__cil_tmp30);
     }
   }
 #line 1632
-  __cil_tmp46 = (int )shift;
+  __cil_tmp31 = (int )shift;
 #line 1632
-  __cil_tmp47 = data >> __cil_tmp46;
+  __cil_tmp32 = data >> __cil_tmp31;
 #line 1632
-  hw_next_to_clean = (unsigned short )__cil_tmp47;
+  hw_next_to_clean = (u16 )__cil_tmp32;
+#line 1634
   goto ldv_42876;
   ldv_42875: 
   {
 #line 1635
-  __cil_tmp48 = (unsigned long )next_to_clean;
+  __cil_tmp33 = (unsigned long )next_to_clean;
 #line 1635
-  __cil_tmp49 = (unsigned long )tpd_ring;
+  __cil_tmp34 = tpd_ring->buffer_info;
 #line 1635
-  __cil_tmp50 = __cil_tmp49 + 32;
-#line 1635
-  __cil_tmp51 = *((struct atl1c_buffer **)__cil_tmp50);
-#line 1635
-  buffer_info = __cil_tmp51 + __cil_tmp48;
+  buffer_info = __cil_tmp34 + __cil_tmp33;
 #line 1636
   atl1c_clean_buffer(pdev, buffer_info, 1);
 #line 1637
-  __cil_tmp52 = (int )next_to_clean;
+  __cil_tmp35 = (int )next_to_clean;
 #line 1637
-  __cil_tmp53 = __cil_tmp52 + 1;
+  __cil_tmp36 = __cil_tmp35 + 1;
 #line 1637
-  next_to_clean = (unsigned short )__cil_tmp53;
+  next_to_clean = (u16 )__cil_tmp36;
   }
   {
 #line 1637
-  __cil_tmp54 = (unsigned long )tpd_ring;
+  __cil_tmp37 = tpd_ring->count;
 #line 1637
-  __cil_tmp55 = __cil_tmp54 + 18;
+  __cil_tmp38 = (int )__cil_tmp37;
 #line 1637
-  __cil_tmp56 = *((u16 *)__cil_tmp55);
+  __cil_tmp39 = (int )next_to_clean;
 #line 1637
-  __cil_tmp57 = (int )__cil_tmp56;
-#line 1637
-  __cil_tmp58 = (int )next_to_clean;
-#line 1637
-  if (__cil_tmp58 == __cil_tmp57) {
+  if (__cil_tmp39 == __cil_tmp38) {
 #line 1638
-    next_to_clean = (unsigned short)0;
+    next_to_clean = (u16 )0U;
   } else {
 
   }
   }
   {
 #line 1639
-  __cil_tmp59 = (unsigned long )tpd_ring;
+  __cil_tmp40 = & tpd_ring->next_to_clean;
 #line 1639
-  __cil_tmp60 = __cil_tmp59 + 24;
+  __cil_tmp41 = (int )next_to_clean;
 #line 1639
-  __cil_tmp61 = (atomic_t *)__cil_tmp60;
-#line 1639
-  __cil_tmp62 = (int )next_to_clean;
-#line 1639
-  atomic_set(__cil_tmp61, __cil_tmp62);
+  atomic_set(__cil_tmp40, __cil_tmp41);
   }
   ldv_42876: ;
   {
 #line 1634
-  __cil_tmp63 = (int )hw_next_to_clean;
+  __cil_tmp42 = (int )hw_next_to_clean;
 #line 1634
-  __cil_tmp64 = (int )next_to_clean;
+  __cil_tmp43 = (int )next_to_clean;
 #line 1634
-  if (__cil_tmp64 != __cil_tmp63) {
+  if (__cil_tmp43 != __cil_tmp42) {
+#line 1635
     goto ldv_42875;
   } else {
+#line 1637
     goto ldv_42877;
   }
   }
   ldv_42877: 
   {
 #line 1642
-  __cil_tmp65 = *((struct net_device **)adapter);
+  __cil_tmp44 = adapter->netdev;
 #line 1642
-  __cil_tmp66 = (struct net_device  const  *)__cil_tmp65;
+  __cil_tmp45 = (struct net_device  const  *)__cil_tmp44;
 #line 1642
-  tmp___1 = netif_queue_stopped(__cil_tmp66);
+  tmp___1 = netif_queue_stopped(__cil_tmp45);
   }
 #line 1642
   if (tmp___1 != 0) {
     {
 #line 1642
-    __cil_tmp67 = *((struct net_device **)adapter);
+    __cil_tmp46 = adapter->netdev;
 #line 1642
-    __cil_tmp68 = (struct net_device  const  *)__cil_tmp67;
+    __cil_tmp47 = (struct net_device  const  *)__cil_tmp46;
 #line 1642
-    tmp___2 = netif_carrier_ok(__cil_tmp68);
+    tmp___2 = netif_carrier_ok(__cil_tmp47);
     }
 #line 1642
     if (tmp___2 != 0) {
       {
 #line 1644
-      __cil_tmp69 = *((struct net_device **)adapter);
+      __cil_tmp48 = adapter->netdev;
 #line 1644
-      netif_wake_queue(__cil_tmp69);
+      netif_wake_queue(__cil_tmp48);
       }
     } else {
 
@@ -14374,7 +12679,7 @@ static bool atl1c_clean_tx_irq(struct atl1c_adapter *adapter , enum atl1c_trans_
 
   }
 #line 1647
-  return ((_Bool)1);
+  return ((bool )1);
 }
 }
 #line 1656 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
@@ -14392,94 +12697,54 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   int tmp___1 ;
   long tmp___2 ;
   struct net_device  const  *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  bool __cil_tmp22 ;
-  long __cil_tmp23 ;
+  bool __cil_tmp16 ;
+  long __cil_tmp17 ;
+  u8 *__cil_tmp18 ;
+  void const volatile   *__cil_tmp19 ;
+  void const volatile   *__cil_tmp20 ;
+  u8 *__cil_tmp21 ;
+  void const volatile   *__cil_tmp22 ;
+  void const volatile   *__cil_tmp23 ;
   u8 *__cil_tmp24 ;
   void const volatile   *__cil_tmp25 ;
   void const volatile   *__cil_tmp26 ;
-  u8 *__cil_tmp27 ;
-  void const volatile   *__cil_tmp28 ;
-  void const volatile   *__cil_tmp29 ;
-  u8 *__cil_tmp30 ;
-  void const volatile   *__cil_tmp31 ;
-  void const volatile   *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u32 __cil_tmp35 ;
+  u32 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  u8 *__cil_tmp31 ;
+  void volatile   *__cil_tmp32 ;
+  void volatile   *__cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  struct napi_struct *__cil_tmp35 ;
   int __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  u8 *__cil_tmp39 ;
-  void volatile   *__cil_tmp40 ;
+  long __cil_tmp37 ;
+  u32 __cil_tmp38 ;
+  u32 __cil_tmp39 ;
+  u8 *__cil_tmp40 ;
   void volatile   *__cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct napi_struct *__cil_tmp45 ;
-  int __cil_tmp46 ;
-  long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u32 __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  u32 __cil_tmp55 ;
-  u8 *__cil_tmp56 ;
-  void volatile   *__cil_tmp57 ;
-  void volatile   *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
+  void volatile   *__cil_tmp42 ;
+  struct napi_struct *__cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  enum atl1c_trans_queue __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  u32 __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  struct device *__cil_tmp49 ;
+  struct device  const  *__cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  struct work_struct *__cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  u32 __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  struct device *__cil_tmp56 ;
+  struct device  const  *__cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
-  struct napi_struct *__cil_tmp61 ;
-  unsigned int __cil_tmp62 ;
-  enum atl1c_trans_queue __cil_tmp63 ;
-  unsigned int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  u32 __cil_tmp67 ;
-  unsigned int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  struct device *__cil_tmp71 ;
-  struct device  const  *__cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  struct work_struct *__cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  u32 __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  struct device *__cil_tmp88 ;
-  struct device  const  *__cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  u8 *__cil_tmp101 ;
-  void volatile   *__cil_tmp102 ;
-  void volatile   *__cil_tmp103 ;
+  u8 *__cil_tmp61 ;
+  void volatile   *__cil_tmp62 ;
+  void volatile   *__cil_tmp63 ;
 
   {
   {
@@ -14492,17 +12757,9 @@ static irqreturn_t atl1c_intr(int irq , void *data )
 #line 1659
   adapter = (struct atl1c_adapter *)tmp;
 #line 1660
-  __cil_tmp16 = (unsigned long )adapter;
-#line 1660
-  __cil_tmp17 = __cil_tmp16 + 8;
-#line 1660
-  pdev = *((struct pci_dev **)__cil_tmp17);
+  pdev = adapter->pdev;
 #line 1661
-  __cil_tmp18 = (unsigned long )adapter;
-#line 1661
-  __cil_tmp19 = __cil_tmp18 + 184;
-#line 1661
-  hw = (struct atl1c_hw *)__cil_tmp19;
+  hw = & adapter->hw;
 #line 1662
   max_ints = 5;
 #line 1663
@@ -14511,65 +12768,58 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   ldv_42891: 
   {
 #line 1668
-  __cil_tmp20 = (unsigned long )hw;
+  __cil_tmp16 = hw->hibernate;
 #line 1668
-  __cil_tmp21 = __cil_tmp20 + 237;
+  __cil_tmp17 = (long )__cil_tmp16;
 #line 1668
-  __cil_tmp22 = *((bool *)__cil_tmp21);
-#line 1668
-  __cil_tmp23 = (long )__cil_tmp22;
-#line 1668
-  tmp___0 = __builtin_expect(__cil_tmp23, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp17, 0L);
   }
 #line 1668
   if (tmp___0 != 0L) {
     {
 #line 1668
-    __cil_tmp24 = *((u8 **)hw);
+    __cil_tmp18 = hw->hw_addr;
+#line 1668
+    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
+#line 1668
+    __cil_tmp20 = __cil_tmp19 + 5632U;
+#line 1668
+    readl(__cil_tmp20);
+#line 1668
+    __cil_tmp21 = hw->hw_addr;
+#line 1668
+    __cil_tmp22 = (void const volatile   *)__cil_tmp21;
+#line 1668
+    __cil_tmp23 = __cil_tmp22 + 5632U;
+#line 1668
+    reg_data = readl(__cil_tmp23);
+    }
+  } else {
+    {
+#line 1668
+    __cil_tmp24 = hw->hw_addr;
 #line 1668
     __cil_tmp25 = (void const volatile   *)__cil_tmp24;
 #line 1668
     __cil_tmp26 = __cil_tmp25 + 5632U;
 #line 1668
-    readl(__cil_tmp26);
-#line 1668
-    __cil_tmp27 = *((u8 **)hw);
-#line 1668
-    __cil_tmp28 = (void const volatile   *)__cil_tmp27;
-#line 1668
-    __cil_tmp29 = __cil_tmp28 + 5632U;
-#line 1668
-    reg_data = readl(__cil_tmp29);
-    }
-  } else {
-    {
-#line 1668
-    __cil_tmp30 = *((u8 **)hw);
-#line 1668
-    __cil_tmp31 = (void const volatile   *)__cil_tmp30;
-#line 1668
-    __cil_tmp32 = __cil_tmp31 + 5632U;
-#line 1668
-    reg_data = readl(__cil_tmp32);
+    reg_data = readl(__cil_tmp26);
     }
   }
 #line 1669
-  __cil_tmp33 = (unsigned long )hw;
+  __cil_tmp27 = hw->intr_mask;
 #line 1669
-  __cil_tmp34 = __cil_tmp33 + 192;
-#line 1669
-  __cil_tmp35 = *((u32 *)__cil_tmp34);
-#line 1669
-  status = __cil_tmp35 & reg_data;
+  status = __cil_tmp27 & reg_data;
 #line 1671
   if (status == 0U) {
+#line 1671
     goto _L;
   } else {
     {
 #line 1671
-    __cil_tmp36 = (int )status;
+    __cil_tmp28 = (int )status;
 #line 1671
-    if (__cil_tmp36 < 0) {
+    if (__cil_tmp28 < 0) {
       _L: 
 #line 1672
       if (max_ints != 5) {
@@ -14578,6 +12828,7 @@ static irqreturn_t atl1c_intr(int irq , void *data )
       } else {
 
       }
+#line 1674
       goto ldv_42890;
     } else {
 
@@ -14586,9 +12837,9 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   }
   {
 #line 1677
-  __cil_tmp37 = status & 4096U;
+  __cil_tmp29 = status & 4096U;
 #line 1677
-  if (__cil_tmp37 != 0U) {
+  if (__cil_tmp29 != 0U) {
     {
 #line 1678
     atl1c_clear_phy_int(adapter);
@@ -14599,74 +12850,54 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   }
   {
 #line 1680
-  __cil_tmp38 = status | 2147483648U;
+  __cil_tmp30 = status | 2147483648U;
 #line 1680
-  __cil_tmp39 = *((u8 **)hw);
+  __cil_tmp31 = hw->hw_addr;
 #line 1680
-  __cil_tmp40 = (void volatile   *)__cil_tmp39;
+  __cil_tmp32 = (void volatile   *)__cil_tmp31;
 #line 1680
-  __cil_tmp41 = __cil_tmp40 + 5632U;
+  __cil_tmp33 = __cil_tmp32 + 5632U;
 #line 1680
-  writel(__cil_tmp38, __cil_tmp41);
+  writel(__cil_tmp30, __cil_tmp33);
   }
   {
 #line 1681
-  __cil_tmp42 = status & 983040U;
+  __cil_tmp34 = status & 983040U;
 #line 1681
-  if (__cil_tmp42 != 0U) {
+  if (__cil_tmp34 != 0U) {
     {
 #line 1682
-    __cil_tmp43 = (unsigned long )adapter;
+    __cil_tmp35 = & adapter->napi;
 #line 1682
-    __cil_tmp44 = __cil_tmp43 + 24;
+    tmp___1 = napi_schedule_prep(__cil_tmp35);
 #line 1682
-    __cil_tmp45 = (struct napi_struct *)__cil_tmp44;
+    __cil_tmp36 = tmp___1 != 0;
 #line 1682
-    tmp___1 = napi_schedule_prep(__cil_tmp45);
+    __cil_tmp37 = (long )__cil_tmp36;
 #line 1682
-    __cil_tmp46 = tmp___1 != 0;
-#line 1682
-    __cil_tmp47 = (long )__cil_tmp46;
-#line 1682
-    tmp___2 = __builtin_expect(__cil_tmp47, 1L);
+    tmp___2 = __builtin_expect(__cil_tmp37, 1L);
     }
 #line 1682
     if (tmp___2 != 0L) {
       {
 #line 1683
-      __cil_tmp48 = (unsigned long )hw;
+      __cil_tmp38 = hw->intr_mask;
 #line 1683
-      __cil_tmp49 = __cil_tmp48 + 192;
-#line 1683
-      __cil_tmp50 = (unsigned long )hw;
-#line 1683
-      __cil_tmp51 = __cil_tmp50 + 192;
-#line 1683
-      __cil_tmp52 = *((u32 *)__cil_tmp51);
-#line 1683
-      *((u32 *)__cil_tmp49) = __cil_tmp52 & 4293984255U;
+      hw->intr_mask = __cil_tmp38 & 4293984255U;
 #line 1684
-      __cil_tmp53 = (unsigned long )hw;
+      __cil_tmp39 = hw->intr_mask;
 #line 1684
-      __cil_tmp54 = __cil_tmp53 + 192;
+      __cil_tmp40 = hw->hw_addr;
 #line 1684
-      __cil_tmp55 = *((u32 *)__cil_tmp54);
+      __cil_tmp41 = (void volatile   *)__cil_tmp40;
 #line 1684
-      __cil_tmp56 = *((u8 **)hw);
+      __cil_tmp42 = __cil_tmp41 + 5636U;
 #line 1684
-      __cil_tmp57 = (void volatile   *)__cil_tmp56;
-#line 1684
-      __cil_tmp58 = __cil_tmp57 + 5636U;
-#line 1684
-      writel(__cil_tmp55, __cil_tmp58);
+      writel(__cil_tmp39, __cil_tmp42);
 #line 1685
-      __cil_tmp59 = (unsigned long )adapter;
+      __cil_tmp43 = & adapter->napi;
 #line 1685
-      __cil_tmp60 = __cil_tmp59 + 24;
-#line 1685
-      __cil_tmp61 = (struct napi_struct *)__cil_tmp60;
-#line 1685
-      __napi_schedule(__cil_tmp61);
+      __napi_schedule(__cil_tmp43);
       }
     } else {
 
@@ -14677,14 +12908,14 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   }
   {
 #line 1688
-  __cil_tmp62 = status & 32768U;
+  __cil_tmp44 = status & 32768U;
 #line 1688
-  if (__cil_tmp62 != 0U) {
+  if (__cil_tmp44 != 0U) {
     {
 #line 1689
-    __cil_tmp63 = (enum atl1c_trans_queue )0;
+    __cil_tmp45 = (enum atl1c_trans_queue )0;
 #line 1689
-    atl1c_clean_tx_irq(adapter, __cil_tmp63);
+    atl1c_clean_tx_irq(adapter, __cil_tmp45);
     }
   } else {
 
@@ -14694,33 +12925,25 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   handled = 1;
   {
 #line 1693
-  __cil_tmp64 = status & 67126784U;
+  __cil_tmp46 = status & 67126784U;
 #line 1693
-  if (__cil_tmp64 != 0U) {
+  if (__cil_tmp46 != 0U) {
     {
 #line 1694
-    __cil_tmp65 = (unsigned long )adapter;
+    __cil_tmp47 = adapter->msg_enable;
 #line 1694
-    __cil_tmp66 = __cil_tmp65 + 1016;
+    __cil_tmp48 = __cil_tmp47 & 8192U;
 #line 1694
-    __cil_tmp67 = *((u32 *)__cil_tmp66);
-#line 1694
-    __cil_tmp68 = __cil_tmp67 & 8192U;
-#line 1694
-    if (__cil_tmp68 != 0U) {
+    if (__cil_tmp48 != 0U) {
       {
 #line 1695
-      __cil_tmp69 = (unsigned long )pdev;
+      __cil_tmp49 = & pdev->dev;
 #line 1695
-      __cil_tmp70 = __cil_tmp69 + 144;
+      __cil_tmp50 = (struct device  const  *)__cil_tmp49;
 #line 1695
-      __cil_tmp71 = (struct device *)__cil_tmp70;
+      __cil_tmp51 = status & 67126784U;
 #line 1695
-      __cil_tmp72 = (struct device  const  *)__cil_tmp71;
-#line 1695
-      __cil_tmp73 = status & 67126784U;
-#line 1695
-      dev_err(__cil_tmp72, "atl1c hardware error (status = 0x%x)\n", __cil_tmp73);
+      dev_err(__cil_tmp50, "atl1c hardware error (status = 0x%x)\n", __cil_tmp51);
       }
     } else {
 
@@ -14728,59 +12951,39 @@ static irqreturn_t atl1c_intr(int irq , void *data )
     }
     {
 #line 1699
-    __cil_tmp74 = (unsigned long )adapter;
-#line 1699
-    __cil_tmp75 = __cil_tmp74 + 1008;
-#line 1699
-    __cil_tmp76 = (unsigned long )adapter;
-#line 1699
-    __cil_tmp77 = __cil_tmp76 + 1008;
-#line 1699
-    *((unsigned long *)__cil_tmp75) = *((unsigned long *)__cil_tmp77);
+    adapter->work_event = adapter->work_event;
 #line 1700
-    __cil_tmp78 = (unsigned long )adapter;
+    __cil_tmp52 = & adapter->common_task;
 #line 1700
-    __cil_tmp79 = __cil_tmp78 + 1184;
-#line 1700
-    __cil_tmp80 = (struct work_struct *)__cil_tmp79;
-#line 1700
-    schedule_work(__cil_tmp80);
+    schedule_work(__cil_tmp52);
     }
 #line 1701
-    return ((enum irqreturn )1);
+    return ((irqreturn_t )1);
   } else {
 
   }
   }
   {
 #line 1704
-  __cil_tmp81 = status & 504U;
+  __cil_tmp53 = status & 504U;
 #line 1704
-  if (__cil_tmp81 != 0U) {
+  if (__cil_tmp53 != 0U) {
     {
 #line 1705
-    __cil_tmp82 = (unsigned long )adapter;
+    __cil_tmp54 = adapter->msg_enable;
 #line 1705
-    __cil_tmp83 = __cil_tmp82 + 1016;
+    __cil_tmp55 = __cil_tmp54 & 512U;
 #line 1705
-    __cil_tmp84 = *((u32 *)__cil_tmp83);
-#line 1705
-    __cil_tmp85 = __cil_tmp84 & 512U;
-#line 1705
-    if (__cil_tmp85 != 0U) {
+    if (__cil_tmp55 != 0U) {
       {
 #line 1706
-      __cil_tmp86 = (unsigned long )pdev;
+      __cil_tmp56 = & pdev->dev;
 #line 1706
-      __cil_tmp87 = __cil_tmp86 + 144;
+      __cil_tmp57 = (struct device  const  *)__cil_tmp56;
 #line 1706
-      __cil_tmp88 = (struct device *)__cil_tmp87;
+      __cil_tmp58 = status & 504U;
 #line 1706
-      __cil_tmp89 = (struct device  const  *)__cil_tmp88;
-#line 1706
-      __cil_tmp90 = status & 504U;
-#line 1706
-      dev_warn(__cil_tmp89, "TX/RX overflow (status = 0x%x)\n", __cil_tmp90);
+      dev_warn(__cil_tmp57, "TX/RX overflow (status = 0x%x)\n", __cil_tmp58);
       }
     } else {
 
@@ -14792,29 +12995,18 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   }
   {
 #line 1711
-  __cil_tmp91 = status & 4100U;
+  __cil_tmp59 = status & 4100U;
 #line 1711
-  if (__cil_tmp91 != 0U) {
+  if (__cil_tmp59 != 0U) {
     {
 #line 1712
-    __cil_tmp92 = 200 + 136;
+    __cil_tmp60 = netdev->stats.tx_carrier_errors;
 #line 1712
-    __cil_tmp93 = (unsigned long )netdev;
-#line 1712
-    __cil_tmp94 = __cil_tmp93 + __cil_tmp92;
-#line 1712
-    __cil_tmp95 = 200 + 136;
-#line 1712
-    __cil_tmp96 = (unsigned long )netdev;
-#line 1712
-    __cil_tmp97 = __cil_tmp96 + __cil_tmp95;
-#line 1712
-    __cil_tmp98 = *((unsigned long *)__cil_tmp97);
-#line 1712
-    *((unsigned long *)__cil_tmp94) = __cil_tmp98 + 1UL;
+    netdev->stats.tx_carrier_errors = __cil_tmp60 + 1UL;
 #line 1713
     atl1c_link_chg_event(adapter);
     }
+#line 1714
     goto ldv_42890;
   } else {
 
@@ -14824,27 +13016,25 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   max_ints = max_ints - 1;
 #line 1717
   if (max_ints > 0) {
+#line 1718
     goto ldv_42891;
   } else {
+#line 1720
     goto ldv_42890;
   }
   ldv_42890: 
   {
 #line 1719
-  __cil_tmp99 = (unsigned long )adapter;
+  __cil_tmp61 = adapter->hw.hw_addr;
 #line 1719
-  __cil_tmp100 = __cil_tmp99 + 184;
+  __cil_tmp62 = (void volatile   *)__cil_tmp61;
 #line 1719
-  __cil_tmp101 = *((u8 **)__cil_tmp100);
+  __cil_tmp63 = __cil_tmp62 + 5632U;
 #line 1719
-  __cil_tmp102 = (void volatile   *)__cil_tmp101;
-#line 1719
-  __cil_tmp103 = __cil_tmp102 + 5632U;
-#line 1719
-  writel(0U, __cil_tmp103);
+  writel(0U, __cil_tmp63);
   }
 #line 1720
-  return ((enum irqreturn )handled);
+  return ((irqreturn_t )handled);
 }
 }
 #line 1734 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
@@ -14861,538 +13051,329 @@ static int atl1c_alloc_rx_buffer(struct atl1c_adapter *adapter , int ringid )
   struct atl1c_rx_free_desc *rfd_desc ;
   long tmp ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct atl1c_rfd_ring (*__cil_tmp17)[4U] ;
-  struct atl1c_rfd_ring *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  struct atl1c_rfd_ring (*__cil_tmp15)[4U] ;
+  struct atl1c_rfd_ring *__cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  u16 __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  struct atl1c_buffer *__cil_tmp23 ;
+  unsigned long __cil_tmp24 ;
+  struct atl1c_buffer *__cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  u16 __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  void *__cil_tmp27 ;
+  struct atl1c_rx_free_desc *__cil_tmp28 ;
+  u16 __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  struct sk_buff *__cil_tmp31 ;
   unsigned long __cil_tmp32 ;
-  struct atl1c_buffer *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct atl1c_buffer *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  void *__cil_tmp39 ;
-  struct atl1c_rx_free_desc *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u16 __cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
-  struct sk_buff *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  int __cil_tmp48 ;
-  long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u32 __cil_tmp52 ;
+  unsigned long __cil_tmp33 ;
+  int __cil_tmp34 ;
+  long __cil_tmp35 ;
+  u32 __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  struct device *__cil_tmp38 ;
+  struct device  const  *__cil_tmp39 ;
+  unsigned char *__cil_tmp40 ;
+  u16 __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  u16 __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  u16 __cil_tmp47 ;
+  size_t __cil_tmp48 ;
+  u16 __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  u16 __cil_tmp52 ;
   unsigned int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct device *__cil_tmp56 ;
-  struct device  const  *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned char *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  u16 __cil_tmp65 ;
-  unsigned int __cil_tmp66 ;
-  unsigned int __cil_tmp67 ;
+  unsigned int __cil_tmp54 ;
+  u16 __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  u16 __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  int __cil_tmp61 ;
+  int __cil_tmp62 ;
+  u16 __cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
+  unsigned long __cil_tmp66 ;
+  struct atl1c_buffer *__cil_tmp67 ;
   unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
+  struct atl1c_buffer *__cil_tmp69 ;
+  int __cil_tmp70 ;
+  int __cil_tmp71 ;
   u16 __cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
+  int __cil_tmp73 ;
   unsigned int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
+  u16 __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
   unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  u16 __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  u16 __cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  u16 __cil_tmp96 ;
-  unsigned int __cil_tmp97 ;
-  unsigned int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  u16 __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
-  unsigned int __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  u16 __cil_tmp110 ;
-  unsigned int __cil_tmp111 ;
-  unsigned int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  int __cil_tmp115 ;
-  int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  u16 __cil_tmp119 ;
-  int __cil_tmp120 ;
-  int __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  struct atl1c_buffer *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  struct atl1c_buffer *__cil_tmp129 ;
-  int __cil_tmp130 ;
-  int __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  u16 __cil_tmp134 ;
-  int __cil_tmp135 ;
-  unsigned int __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  u16 __cil_tmp141 ;
-  unsigned int __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  u16 __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  u8 *__cil_tmp149 ;
-  void volatile   *__cil_tmp150 ;
-  void volatile   *__cil_tmp151 ;
+  u8 *__cil_tmp78 ;
+  void volatile   *__cil_tmp79 ;
+  void volatile   *__cil_tmp80 ;
 
   {
 #line 1736
   __cil_tmp14 = (unsigned long )ringid;
 #line 1736
-  __cil_tmp15 = (unsigned long )adapter;
+  __cil_tmp15 = & adapter->rfd_ring;
 #line 1736
-  __cil_tmp16 = __cil_tmp15 + 1624;
+  __cil_tmp16 = (struct atl1c_rfd_ring *)__cil_tmp15;
 #line 1736
-  __cil_tmp17 = (struct atl1c_rfd_ring (*)[4U])__cil_tmp16;
-#line 1736
-  __cil_tmp18 = (struct atl1c_rfd_ring *)__cil_tmp17;
-#line 1736
-  rfd_ring = __cil_tmp18 + __cil_tmp14;
+  rfd_ring = __cil_tmp16 + __cil_tmp14;
 #line 1737
-  __cil_tmp19 = (unsigned long )adapter;
-#line 1737
-  __cil_tmp20 = __cil_tmp19 + 8;
-#line 1737
-  pdev = *((struct pci_dev **)__cil_tmp20);
+  pdev = adapter->pdev;
 #line 1740
   vir_addr = (void *)0;
 #line 1741
-  num_alloc = (unsigned short)0;
+  num_alloc = (u16 )0U;
 #line 1745
-  __cil_tmp21 = (unsigned long )rfd_ring;
-#line 1745
-  __cil_tmp22 = __cil_tmp21 + 20;
-#line 1745
-  rfd_next_to_use = *((u16 *)__cil_tmp22);
+  rfd_next_to_use = rfd_ring->next_to_use;
 #line 1745
   next_next = rfd_next_to_use;
 #line 1746
-  __cil_tmp23 = (int )next_next;
+  __cil_tmp17 = (int )next_next;
 #line 1746
-  __cil_tmp24 = __cil_tmp23 + 1;
+  __cil_tmp18 = __cil_tmp17 + 1;
 #line 1746
-  next_next = (unsigned short )__cil_tmp24;
+  next_next = (u16 )__cil_tmp18;
   {
 #line 1746
-  __cil_tmp25 = (unsigned long )rfd_ring;
+  __cil_tmp19 = rfd_ring->count;
 #line 1746
-  __cil_tmp26 = __cil_tmp25 + 18;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 1746
-  __cil_tmp27 = *((u16 *)__cil_tmp26);
+  __cil_tmp21 = (int )next_next;
 #line 1746
-  __cil_tmp28 = (int )__cil_tmp27;
-#line 1746
-  __cil_tmp29 = (int )next_next;
-#line 1746
-  if (__cil_tmp29 == __cil_tmp28) {
+  if (__cil_tmp21 == __cil_tmp20) {
 #line 1747
-    next_next = (unsigned short)0;
+    next_next = (u16 )0U;
   } else {
 
   }
   }
 #line 1748
-  __cil_tmp30 = (unsigned long )rfd_next_to_use;
+  __cil_tmp22 = (unsigned long )rfd_next_to_use;
 #line 1748
-  __cil_tmp31 = (unsigned long )rfd_ring;
+  __cil_tmp23 = rfd_ring->buffer_info;
 #line 1748
-  __cil_tmp32 = __cil_tmp31 + 24;
-#line 1748
-  __cil_tmp33 = *((struct atl1c_buffer **)__cil_tmp32);
-#line 1748
-  buffer_info = __cil_tmp33 + __cil_tmp30;
+  buffer_info = __cil_tmp23 + __cil_tmp22;
 #line 1749
-  __cil_tmp34 = (unsigned long )next_next;
+  __cil_tmp24 = (unsigned long )next_next;
 #line 1749
-  __cil_tmp35 = (unsigned long )rfd_ring;
+  __cil_tmp25 = rfd_ring->buffer_info;
 #line 1749
-  __cil_tmp36 = __cil_tmp35 + 24;
-#line 1749
-  __cil_tmp37 = *((struct atl1c_buffer **)__cil_tmp36);
-#line 1749
-  next_info = __cil_tmp37 + __cil_tmp34;
+  next_info = __cil_tmp25 + __cil_tmp24;
+#line 1751
   goto ldv_42913;
   ldv_42912: 
   {
 #line 1752
-  __cil_tmp38 = (unsigned long )rfd_next_to_use;
+  __cil_tmp26 = (unsigned long )rfd_next_to_use;
 #line 1752
-  __cil_tmp39 = *((void **)rfd_ring);
+  __cil_tmp27 = rfd_ring->desc;
 #line 1752
-  __cil_tmp40 = (struct atl1c_rx_free_desc *)__cil_tmp39;
+  __cil_tmp28 = (struct atl1c_rx_free_desc *)__cil_tmp27;
 #line 1752
-  rfd_desc = __cil_tmp40 + __cil_tmp38;
+  rfd_desc = __cil_tmp28 + __cil_tmp26;
 #line 1754
-  __cil_tmp41 = (unsigned long )adapter;
+  __cil_tmp29 = adapter->rx_buffer_len;
 #line 1754
-  __cil_tmp42 = __cil_tmp41 + 992;
+  __cil_tmp30 = (unsigned int )__cil_tmp29;
 #line 1754
-  __cil_tmp43 = *((u16 *)__cil_tmp42);
-#line 1754
-  __cil_tmp44 = (unsigned int )__cil_tmp43;
-#line 1754
-  skb = dev_alloc_skb(__cil_tmp44);
+  skb = dev_alloc_skb(__cil_tmp30);
 #line 1755
-  __cil_tmp45 = (struct sk_buff *)0;
+  __cil_tmp31 = (struct sk_buff *)0;
 #line 1755
-  __cil_tmp46 = (unsigned long )__cil_tmp45;
+  __cil_tmp32 = (unsigned long )__cil_tmp31;
 #line 1755
-  __cil_tmp47 = (unsigned long )skb;
+  __cil_tmp33 = (unsigned long )skb;
 #line 1755
-  __cil_tmp48 = __cil_tmp47 == __cil_tmp46;
+  __cil_tmp34 = __cil_tmp33 == __cil_tmp32;
 #line 1755
-  __cil_tmp49 = (long )__cil_tmp48;
+  __cil_tmp35 = (long )__cil_tmp34;
 #line 1755
-  tmp = __builtin_expect(__cil_tmp49, 0L);
+  tmp = __builtin_expect(__cil_tmp35, 0L);
   }
 #line 1755
   if (tmp != 0L) {
     {
 #line 1756
-    __cil_tmp50 = (unsigned long )adapter;
+    __cil_tmp36 = adapter->msg_enable;
 #line 1756
-    __cil_tmp51 = __cil_tmp50 + 1016;
+    __cil_tmp37 = __cil_tmp36 & 64U;
 #line 1756
-    __cil_tmp52 = *((u32 *)__cil_tmp51);
-#line 1756
-    __cil_tmp53 = __cil_tmp52 & 64U;
-#line 1756
-    if (__cil_tmp53 != 0U) {
+    if (__cil_tmp37 != 0U) {
       {
 #line 1757
-      __cil_tmp54 = (unsigned long )pdev;
+      __cil_tmp38 = & pdev->dev;
 #line 1757
-      __cil_tmp55 = __cil_tmp54 + 144;
+      __cil_tmp39 = (struct device  const  *)__cil_tmp38;
 #line 1757
-      __cil_tmp56 = (struct device *)__cil_tmp55;
-#line 1757
-      __cil_tmp57 = (struct device  const  *)__cil_tmp56;
-#line 1757
-      dev_warn(__cil_tmp57, "alloc rx buffer failed\n");
+      dev_warn(__cil_tmp39, "alloc rx buffer failed\n");
       }
     } else {
 
     }
     }
+#line 1758
     goto ldv_42911;
   } else {
 
   }
   {
 #line 1766
-  __cil_tmp58 = (unsigned long )skb;
+  __cil_tmp40 = skb->data;
 #line 1766
-  __cil_tmp59 = __cil_tmp58 + 224;
-#line 1766
-  __cil_tmp60 = *((unsigned char **)__cil_tmp59);
-#line 1766
-  vir_addr = (void *)__cil_tmp60;
+  vir_addr = (void *)__cil_tmp40;
 #line 1767
-  __cil_tmp61 = (unsigned long )buffer_info;
+  __cil_tmp41 = buffer_info->flags;
 #line 1767
-  __cil_tmp62 = __cil_tmp61 + 10;
+  __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 1767
-  __cil_tmp63 = (unsigned long )buffer_info;
+  __cil_tmp43 = __cil_tmp42 & 65532U;
 #line 1767
-  __cil_tmp64 = __cil_tmp63 + 10;
+  buffer_info->flags = (u16 )__cil_tmp43;
 #line 1767
-  __cil_tmp65 = *((u16 *)__cil_tmp64);
+  __cil_tmp44 = buffer_info->flags;
 #line 1767
-  __cil_tmp66 = (unsigned int )__cil_tmp65;
+  __cil_tmp45 = (unsigned int )__cil_tmp44;
 #line 1767
-  __cil_tmp67 = __cil_tmp66 & 65532U;
+  __cil_tmp46 = __cil_tmp45 | 2U;
 #line 1767
-  *((u16 *)__cil_tmp62) = (unsigned short )__cil_tmp67;
-#line 1767
-  __cil_tmp68 = (unsigned long )buffer_info;
-#line 1767
-  __cil_tmp69 = __cil_tmp68 + 10;
-#line 1767
-  __cil_tmp70 = (unsigned long )buffer_info;
-#line 1767
-  __cil_tmp71 = __cil_tmp70 + 10;
-#line 1767
-  __cil_tmp72 = *((u16 *)__cil_tmp71);
-#line 1767
-  __cil_tmp73 = (unsigned int )__cil_tmp72;
-#line 1767
-  __cil_tmp74 = __cil_tmp73 | 2U;
-#line 1767
-  *((u16 *)__cil_tmp69) = (unsigned short )__cil_tmp74;
+  buffer_info->flags = (u16 )__cil_tmp46;
 #line 1768
-  *((struct sk_buff **)buffer_info) = skb;
+  buffer_info->skb = skb;
 #line 1769
-  __cil_tmp75 = (unsigned long )buffer_info;
-#line 1769
-  __cil_tmp76 = __cil_tmp75 + 8;
-#line 1769
-  __cil_tmp77 = (unsigned long )adapter;
-#line 1769
-  __cil_tmp78 = __cil_tmp77 + 992;
-#line 1769
-  *((u16 *)__cil_tmp76) = *((u16 *)__cil_tmp78);
+  buffer_info->length = adapter->rx_buffer_len;
 #line 1770
-  __cil_tmp79 = (unsigned long )buffer_info;
+  __cil_tmp47 = buffer_info->length;
 #line 1770
-  __cil_tmp80 = __cil_tmp79 + 16;
+  __cil_tmp48 = (size_t )__cil_tmp47;
 #line 1770
-  __cil_tmp81 = (unsigned long )buffer_info;
-#line 1770
-  __cil_tmp82 = __cil_tmp81 + 8;
-#line 1770
-  __cil_tmp83 = *((u16 *)__cil_tmp82);
-#line 1770
-  __cil_tmp84 = (unsigned long )__cil_tmp83;
-#line 1770
-  *((dma_addr_t *)__cil_tmp80) = pci_map_single(pdev, vir_addr, __cil_tmp84, 2);
+  buffer_info->dma = pci_map_single(pdev, vir_addr, __cil_tmp48, 2);
 #line 1773
-  __cil_tmp85 = (unsigned long )buffer_info;
+  __cil_tmp49 = buffer_info->flags;
 #line 1773
-  __cil_tmp86 = __cil_tmp85 + 10;
+  __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 1773
-  __cil_tmp87 = (unsigned long )buffer_info;
+  __cil_tmp51 = __cil_tmp50 & 65523U;
 #line 1773
-  __cil_tmp88 = __cil_tmp87 + 10;
+  buffer_info->flags = (u16 )__cil_tmp51;
 #line 1773
-  __cil_tmp89 = *((u16 *)__cil_tmp88);
+  __cil_tmp52 = buffer_info->flags;
 #line 1773
-  __cil_tmp90 = (unsigned int )__cil_tmp89;
+  __cil_tmp53 = (unsigned int )__cil_tmp52;
 #line 1773
-  __cil_tmp91 = __cil_tmp90 & 65523U;
+  __cil_tmp54 = __cil_tmp53 | 4U;
 #line 1773
-  *((u16 *)__cil_tmp86) = (unsigned short )__cil_tmp91;
+  buffer_info->flags = (u16 )__cil_tmp54;
 #line 1773
-  __cil_tmp92 = (unsigned long )buffer_info;
+  __cil_tmp55 = buffer_info->flags;
 #line 1773
-  __cil_tmp93 = __cil_tmp92 + 10;
+  __cil_tmp56 = (unsigned int )__cil_tmp55;
 #line 1773
-  __cil_tmp94 = (unsigned long )buffer_info;
+  __cil_tmp57 = __cil_tmp56 & 65487U;
 #line 1773
-  __cil_tmp95 = __cil_tmp94 + 10;
+  buffer_info->flags = (u16 )__cil_tmp57;
 #line 1773
-  __cil_tmp96 = *((u16 *)__cil_tmp95);
+  __cil_tmp58 = buffer_info->flags;
 #line 1773
-  __cil_tmp97 = (unsigned int )__cil_tmp96;
+  __cil_tmp59 = (unsigned int )__cil_tmp58;
 #line 1773
-  __cil_tmp98 = __cil_tmp97 | 4U;
+  __cil_tmp60 = __cil_tmp59 | 32U;
 #line 1773
-  *((u16 *)__cil_tmp93) = (unsigned short )__cil_tmp98;
-#line 1773
-  __cil_tmp99 = (unsigned long )buffer_info;
-#line 1773
-  __cil_tmp100 = __cil_tmp99 + 10;
-#line 1773
-  __cil_tmp101 = (unsigned long )buffer_info;
-#line 1773
-  __cil_tmp102 = __cil_tmp101 + 10;
-#line 1773
-  __cil_tmp103 = *((u16 *)__cil_tmp102);
-#line 1773
-  __cil_tmp104 = (unsigned int )__cil_tmp103;
-#line 1773
-  __cil_tmp105 = __cil_tmp104 & 65487U;
-#line 1773
-  *((u16 *)__cil_tmp100) = (unsigned short )__cil_tmp105;
-#line 1773
-  __cil_tmp106 = (unsigned long )buffer_info;
-#line 1773
-  __cil_tmp107 = __cil_tmp106 + 10;
-#line 1773
-  __cil_tmp108 = (unsigned long )buffer_info;
-#line 1773
-  __cil_tmp109 = __cil_tmp108 + 10;
-#line 1773
-  __cil_tmp110 = *((u16 *)__cil_tmp109);
-#line 1773
-  __cil_tmp111 = (unsigned int )__cil_tmp110;
-#line 1773
-  __cil_tmp112 = __cil_tmp111 | 32U;
-#line 1773
-  *((u16 *)__cil_tmp107) = (unsigned short )__cil_tmp112;
+  buffer_info->flags = (u16 )__cil_tmp60;
 #line 1775
-  __cil_tmp113 = (unsigned long )buffer_info;
-#line 1775
-  __cil_tmp114 = __cil_tmp113 + 16;
-#line 1775
-  *((__le64 *)rfd_desc) = *((dma_addr_t *)__cil_tmp114);
+  rfd_desc->buffer_addr = buffer_info->dma;
 #line 1776
   rfd_next_to_use = next_next;
 #line 1777
-  __cil_tmp115 = (int )next_next;
+  __cil_tmp61 = (int )next_next;
 #line 1777
-  __cil_tmp116 = __cil_tmp115 + 1;
+  __cil_tmp62 = __cil_tmp61 + 1;
 #line 1777
-  next_next = (unsigned short )__cil_tmp116;
+  next_next = (u16 )__cil_tmp62;
   }
   {
 #line 1777
-  __cil_tmp117 = (unsigned long )rfd_ring;
+  __cil_tmp63 = rfd_ring->count;
 #line 1777
-  __cil_tmp118 = __cil_tmp117 + 18;
+  __cil_tmp64 = (int )__cil_tmp63;
 #line 1777
-  __cil_tmp119 = *((u16 *)__cil_tmp118);
+  __cil_tmp65 = (int )next_next;
 #line 1777
-  __cil_tmp120 = (int )__cil_tmp119;
-#line 1777
-  __cil_tmp121 = (int )next_next;
-#line 1777
-  if (__cil_tmp121 == __cil_tmp120) {
+  if (__cil_tmp65 == __cil_tmp64) {
 #line 1778
-    next_next = (unsigned short)0;
+    next_next = (u16 )0U;
   } else {
 
   }
   }
 #line 1779
-  __cil_tmp122 = (unsigned long )rfd_next_to_use;
+  __cil_tmp66 = (unsigned long )rfd_next_to_use;
 #line 1779
-  __cil_tmp123 = (unsigned long )rfd_ring;
+  __cil_tmp67 = rfd_ring->buffer_info;
 #line 1779
-  __cil_tmp124 = __cil_tmp123 + 24;
-#line 1779
-  __cil_tmp125 = *((struct atl1c_buffer **)__cil_tmp124);
-#line 1779
-  buffer_info = __cil_tmp125 + __cil_tmp122;
+  buffer_info = __cil_tmp67 + __cil_tmp66;
 #line 1780
-  __cil_tmp126 = (unsigned long )next_next;
+  __cil_tmp68 = (unsigned long )next_next;
 #line 1780
-  __cil_tmp127 = (unsigned long )rfd_ring;
+  __cil_tmp69 = rfd_ring->buffer_info;
 #line 1780
-  __cil_tmp128 = __cil_tmp127 + 24;
-#line 1780
-  __cil_tmp129 = *((struct atl1c_buffer **)__cil_tmp128);
-#line 1780
-  next_info = __cil_tmp129 + __cil_tmp126;
+  next_info = __cil_tmp69 + __cil_tmp68;
 #line 1781
-  __cil_tmp130 = (int )num_alloc;
+  __cil_tmp70 = (int )num_alloc;
 #line 1781
-  __cil_tmp131 = __cil_tmp130 + 1;
+  __cil_tmp71 = __cil_tmp70 + 1;
 #line 1781
-  num_alloc = (unsigned short )__cil_tmp131;
+  num_alloc = (u16 )__cil_tmp71;
   ldv_42913: ;
   {
 #line 1751
-  __cil_tmp132 = (unsigned long )next_info;
+  __cil_tmp72 = next_info->flags;
 #line 1751
-  __cil_tmp133 = __cil_tmp132 + 10;
+  __cil_tmp73 = (int )__cil_tmp72;
 #line 1751
-  __cil_tmp134 = *((u16 *)__cil_tmp133);
-#line 1751
-  __cil_tmp135 = (int )__cil_tmp134;
-#line 1751
-  if (__cil_tmp135 & 1) {
+  if (__cil_tmp73 & 1) {
+#line 1752
     goto ldv_42912;
   } else {
+#line 1754
     goto ldv_42911;
   }
   }
   ldv_42911: ;
   {
 #line 1784
-  __cil_tmp136 = (unsigned int )num_alloc;
+  __cil_tmp74 = (unsigned int )num_alloc;
 #line 1784
-  if (__cil_tmp136 != 0U) {
+  if (__cil_tmp74 != 0U) {
     {
 #line 1786
     __asm__  volatile   ("sfence": : : "memory");
 #line 1787
-    __cil_tmp137 = (unsigned long )rfd_ring;
-#line 1787
-    __cil_tmp138 = __cil_tmp137 + 20;
-#line 1787
-    *((u16 *)__cil_tmp138) = rfd_next_to_use;
+    rfd_ring->next_to_use = rfd_next_to_use;
 #line 1788
-    __cil_tmp139 = (unsigned long )rfd_ring;
+    __cil_tmp75 = rfd_ring->next_to_use;
 #line 1788
-    __cil_tmp140 = __cil_tmp139 + 20;
+    __cil_tmp76 = (unsigned int )__cil_tmp75;
 #line 1788
-    __cil_tmp141 = *((u16 *)__cil_tmp140);
+    __cil_tmp77 = (unsigned long )atl1c_rfd_prod_idx_regs[ringid];
 #line 1788
-    __cil_tmp142 = (unsigned int )__cil_tmp141;
+    __cil_tmp78 = adapter->hw.hw_addr;
 #line 1788
-    __cil_tmp143 = ringid * 2UL;
+    __cil_tmp79 = (void volatile   *)__cil_tmp78;
 #line 1788
-    __cil_tmp144 = (unsigned long )(atl1c_rfd_prod_idx_regs) + __cil_tmp143;
+    __cil_tmp80 = __cil_tmp79 + __cil_tmp77;
 #line 1788
-    __cil_tmp145 = *((u16 const   *)__cil_tmp144);
-#line 1788
-    __cil_tmp146 = (unsigned long )__cil_tmp145;
-#line 1788
-    __cil_tmp147 = (unsigned long )adapter;
-#line 1788
-    __cil_tmp148 = __cil_tmp147 + 184;
-#line 1788
-    __cil_tmp149 = *((u8 **)__cil_tmp148);
-#line 1788
-    __cil_tmp150 = (void volatile   *)__cil_tmp149;
-#line 1788
-    __cil_tmp151 = __cil_tmp150 + __cil_tmp146;
-#line 1788
-    writel(__cil_tmp142, __cil_tmp151);
+    writel(__cil_tmp76, __cil_tmp80);
     }
   } else {
 
@@ -15405,59 +13386,35 @@ static int atl1c_alloc_rx_buffer(struct atl1c_adapter *adapter , int ringid )
 #line 2275 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 static void atl1c_free_irq(struct atl1c_adapter *adapter ) 
 { struct net_device *netdev ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct pci_dev *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  bool __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct pci_dev *__cil_tmp15 ;
+  struct pci_dev *__cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  void *__cil_tmp5 ;
+  bool __cil_tmp6 ;
+  struct pci_dev *__cil_tmp7 ;
 
   {
   {
 #line 2277
-  netdev = *((struct net_device **)adapter);
+  netdev = adapter->netdev;
 #line 2279
-  __cil_tmp3 = (unsigned long )adapter;
+  __cil_tmp3 = adapter->pdev;
 #line 2279
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = __cil_tmp3->irq;
 #line 2279
-  __cil_tmp5 = *((struct pci_dev **)__cil_tmp4);
+  __cil_tmp5 = (void *)netdev;
 #line 2279
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
-#line 2279
-  __cil_tmp7 = __cil_tmp6 + 1316;
-#line 2279
-  __cil_tmp8 = *((unsigned int *)__cil_tmp7);
-#line 2279
-  __cil_tmp9 = (void *)netdev;
-#line 2279
-  free_irq(__cil_tmp8, __cil_tmp9);
+  free_irq(__cil_tmp4, __cil_tmp5);
   }
   {
 #line 2281
-  __cil_tmp10 = (unsigned long )adapter;
+  __cil_tmp6 = adapter->have_msi;
 #line 2281
-  __cil_tmp11 = __cil_tmp10 + 1020;
-#line 2281
-  __cil_tmp12 = *((bool *)__cil_tmp11);
-#line 2281
-  if ((int )__cil_tmp12) {
+  if ((int )__cil_tmp6) {
     {
 #line 2282
-    __cil_tmp13 = (unsigned long )adapter;
+    __cil_tmp7 = adapter->pdev;
 #line 2282
-    __cil_tmp14 = __cil_tmp13 + 8;
-#line 2282
-    __cil_tmp15 = *((struct pci_dev **)__cil_tmp14);
-#line 2282
-    pci_disable_msi(__cil_tmp15);
+    pci_disable_msi(__cil_tmp7);
     }
   } else {
 
@@ -15475,159 +13432,82 @@ static int atl1c_request_irq(struct atl1c_adapter *adapter )
   int err ;
   struct _ddebug descriptor ;
   long tmp ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  struct pci_dev *__cil_tmp8 ;
+  u32 __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  struct device *__cil_tmp11 ;
+  struct device  const  *__cil_tmp12 ;
+  bool __cil_tmp13 ;
   struct pci_dev *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  unsigned int __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  u32 __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct device *__cil_tmp21 ;
-  struct device  const  *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  bool __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct pci_dev *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  char (*__cil_tmp39)[16U] ;
-  char const   *__cil_tmp40 ;
-  void *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  u32 __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct device *__cil_tmp48 ;
-  struct device  const  *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  bool __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct pci_dev *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  u32 __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  signed char __cil_tmp60 ;
-  int __cil_tmp61 ;
-  int __cil_tmp62 ;
-  long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct device *__cil_tmp66 ;
-  struct device  const  *__cil_tmp67 ;
-  char descriptor_enabled68 ;
-  unsigned char descriptor_flags69 ;
-  unsigned int descriptor_lineno70 ;
-  char const   *descriptor_format71 ;
-  char const   *descriptor_filename72 ;
-  char const   *descriptor_function73 ;
-  char const   *descriptor_modname74 ;
+  char (*__cil_tmp17)[16U] ;
+  char const   *__cil_tmp18 ;
+  void *__cil_tmp19 ;
+  u32 __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  struct device *__cil_tmp22 ;
+  struct device  const  *__cil_tmp23 ;
+  bool __cil_tmp24 ;
+  struct pci_dev *__cil_tmp25 ;
+  u32 __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  signed char __cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  long __cil_tmp31 ;
+  struct device *__cil_tmp32 ;
+  struct device  const  *__cil_tmp33 ;
 
   {
   {
 #line 2287
-  __cil_tmp8 = (unsigned long )adapter;
-#line 2287
-  __cil_tmp9 = __cil_tmp8 + 8;
-#line 2287
-  pdev = *((struct pci_dev **)__cil_tmp9);
+  pdev = adapter->pdev;
 #line 2288
-  netdev = *((struct net_device **)adapter);
+  netdev = adapter->netdev;
 #line 2289
   flags = 0;
 #line 2290
   err = 0;
 #line 2292
-  __cil_tmp10 = (unsigned long )adapter;
-#line 2292
-  __cil_tmp11 = __cil_tmp10 + 1020;
-#line 2292
-  *((bool *)__cil_tmp11) = (_Bool)1;
+  adapter->have_msi = (bool )1;
 #line 2293
-  __cil_tmp12 = (unsigned long )adapter;
+  __cil_tmp8 = adapter->pdev;
 #line 2293
-  __cil_tmp13 = __cil_tmp12 + 8;
-#line 2293
-  __cil_tmp14 = *((struct pci_dev **)__cil_tmp13);
-#line 2293
-  err = pci_enable_msi_block(__cil_tmp14, 1U);
+  err = pci_enable_msi_block(__cil_tmp8, 1U);
   }
 #line 2294
   if (err != 0) {
     {
 #line 2295
-    __cil_tmp15 = (unsigned long )adapter;
+    __cil_tmp9 = adapter->msg_enable;
 #line 2295
-    __cil_tmp16 = __cil_tmp15 + 1016;
+    __cil_tmp10 = __cil_tmp9 & 32U;
 #line 2295
-    __cil_tmp17 = *((u32 *)__cil_tmp16);
-#line 2295
-    __cil_tmp18 = __cil_tmp17 & 32U;
-#line 2295
-    if (__cil_tmp18 != 0U) {
+    if (__cil_tmp10 != 0U) {
       {
 #line 2296
-      __cil_tmp19 = (unsigned long )pdev;
+      __cil_tmp11 = & pdev->dev;
 #line 2296
-      __cil_tmp20 = __cil_tmp19 + 144;
+      __cil_tmp12 = (struct device  const  *)__cil_tmp11;
 #line 2296
-      __cil_tmp21 = (struct device *)__cil_tmp20;
-#line 2296
-      __cil_tmp22 = (struct device  const  *)__cil_tmp21;
-#line 2296
-      dev_err(__cil_tmp22, "Unable to allocate MSI interrupt Error: %d\n", err);
+      dev_err(__cil_tmp12, "Unable to allocate MSI interrupt Error: %d\n", err);
       }
     } else {
 
     }
     }
 #line 2299
-    __cil_tmp23 = (unsigned long )adapter;
-#line 2299
-    __cil_tmp24 = __cil_tmp23 + 1020;
-#line 2299
-    *((bool *)__cil_tmp24) = (_Bool)0;
+    adapter->have_msi = (bool )0;
   } else {
 #line 2301
-    __cil_tmp25 = (unsigned long )netdev;
-#line 2301
-    __cil_tmp26 = __cil_tmp25 + 112;
-#line 2301
-    __cil_tmp27 = (unsigned long )pdev;
-#line 2301
-    __cil_tmp28 = __cil_tmp27 + 1316;
-#line 2301
-    *((unsigned int *)__cil_tmp26) = *((unsigned int *)__cil_tmp28);
+    netdev->irq = pdev->irq;
   }
   {
 #line 2303
-  __cil_tmp29 = (unsigned long )adapter;
+  __cil_tmp13 = adapter->have_msi;
 #line 2303
-  __cil_tmp30 = __cil_tmp29 + 1020;
-#line 2303
-  __cil_tmp31 = *((bool *)__cil_tmp30);
-#line 2303
-  if (! __cil_tmp31) {
+  if (! __cil_tmp13) {
 #line 2304
     flags = flags | 128;
   } else {
@@ -15636,52 +13516,36 @@ static int atl1c_request_irq(struct atl1c_adapter *adapter )
   }
   {
 #line 2305
-  __cil_tmp32 = (unsigned long )adapter;
+  __cil_tmp14 = adapter->pdev;
 #line 2305
-  __cil_tmp33 = __cil_tmp32 + 8;
+  __cil_tmp15 = __cil_tmp14->irq;
 #line 2305
-  __cil_tmp34 = *((struct pci_dev **)__cil_tmp33);
+  __cil_tmp16 = (unsigned long )flags;
 #line 2305
-  __cil_tmp35 = (unsigned long )__cil_tmp34;
+  __cil_tmp17 = & netdev->name;
 #line 2305
-  __cil_tmp36 = __cil_tmp35 + 1316;
+  __cil_tmp18 = (char const   *)__cil_tmp17;
 #line 2305
-  __cil_tmp37 = *((unsigned int *)__cil_tmp36);
+  __cil_tmp19 = (void *)netdev;
 #line 2305
-  __cil_tmp38 = (unsigned long )flags;
-#line 2305
-  __cil_tmp39 = (char (*)[16U])netdev;
-#line 2305
-  __cil_tmp40 = (char const   *)__cil_tmp39;
-#line 2305
-  __cil_tmp41 = (void *)netdev;
-#line 2305
-  err = request_irq(__cil_tmp37, & atl1c_intr, __cil_tmp38, __cil_tmp40, __cil_tmp41);
+  err = request_irq(__cil_tmp15, & atl1c_intr, __cil_tmp16, __cil_tmp18, __cil_tmp19);
   }
 #line 2307
   if (err != 0) {
     {
 #line 2308
-    __cil_tmp42 = (unsigned long )adapter;
+    __cil_tmp20 = adapter->msg_enable;
 #line 2308
-    __cil_tmp43 = __cil_tmp42 + 1016;
+    __cil_tmp21 = __cil_tmp20 & 32U;
 #line 2308
-    __cil_tmp44 = *((u32 *)__cil_tmp43);
-#line 2308
-    __cil_tmp45 = __cil_tmp44 & 32U;
-#line 2308
-    if (__cil_tmp45 != 0U) {
+    if (__cil_tmp21 != 0U) {
       {
 #line 2309
-      __cil_tmp46 = (unsigned long )pdev;
+      __cil_tmp22 = & pdev->dev;
 #line 2309
-      __cil_tmp47 = __cil_tmp46 + 144;
+      __cil_tmp23 = (struct device  const  *)__cil_tmp22;
 #line 2309
-      __cil_tmp48 = (struct device *)__cil_tmp47;
-#line 2309
-      __cil_tmp49 = (struct device  const  *)__cil_tmp48;
-#line 2309
-      dev_err(__cil_tmp49, "Unable to allocate interrupt Error: %d\n", err);
+      dev_err(__cil_tmp23, "Unable to allocate interrupt Error: %d\n", err);
       }
     } else {
 
@@ -15689,22 +13553,14 @@ static int atl1c_request_irq(struct atl1c_adapter *adapter )
     }
     {
 #line 2312
-    __cil_tmp50 = (unsigned long )adapter;
+    __cil_tmp24 = adapter->have_msi;
 #line 2312
-    __cil_tmp51 = __cil_tmp50 + 1020;
-#line 2312
-    __cil_tmp52 = *((bool *)__cil_tmp51);
-#line 2312
-    if ((int )__cil_tmp52) {
+    if ((int )__cil_tmp24) {
       {
 #line 2313
-      __cil_tmp53 = (unsigned long )adapter;
+      __cil_tmp25 = adapter->pdev;
 #line 2313
-      __cil_tmp54 = __cil_tmp53 + 8;
-#line 2313
-      __cil_tmp55 = *((struct pci_dev **)__cil_tmp54);
-#line 2313
-      pci_disable_msi(__cil_tmp55);
+      pci_disable_msi(__cil_tmp25);
       }
     } else {
 
@@ -15717,54 +13573,46 @@ static int atl1c_request_irq(struct atl1c_adapter *adapter )
   }
   {
 #line 2316
-  __cil_tmp56 = (unsigned long )adapter;
+  __cil_tmp26 = adapter->msg_enable;
 #line 2316
-  __cil_tmp57 = __cil_tmp56 + 1016;
+  __cil_tmp27 = __cil_tmp26 & 32U;
 #line 2316
-  __cil_tmp58 = *((u32 *)__cil_tmp57);
-#line 2316
-  __cil_tmp59 = __cil_tmp58 & 32U;
-#line 2316
-  if (__cil_tmp59 != 0U) {
+  if (__cil_tmp27 != 0U) {
     {
 #line 2317
-    descriptor_modname74 = "atl1c";
+    descriptor.modname = "atl1c";
 #line 2317
-    descriptor_function73 = "atl1c_request_irq";
+    descriptor.function = "atl1c_request_irq";
 #line 2317
-    descriptor_filename72 = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
+    descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p";
 #line 2317
-    descriptor_format71 = "atl1c_request_irq OK\n";
+    descriptor.format = "atl1c_request_irq OK\n";
 #line 2317
-    descriptor_lineno70 = 2317U;
+    descriptor.lineno = 2317U;
 #line 2317
-    descriptor_flags69 = (unsigned char)0;
+    descriptor.flags = (unsigned char)0;
 #line 2317
-    descriptor_enabled68 = (char)0;
+    descriptor.enabled = (char)0;
 #line 2317
-    __cil_tmp60 = (signed char )descriptor_enabled68;
+    __cil_tmp28 = (signed char )descriptor.enabled;
 #line 2317
-    __cil_tmp61 = (int )__cil_tmp60;
+    __cil_tmp29 = (int )__cil_tmp28;
 #line 2317
-    __cil_tmp62 = __cil_tmp61 != 0;
+    __cil_tmp30 = __cil_tmp29 != 0;
 #line 2317
-    __cil_tmp63 = (long )__cil_tmp62;
+    __cil_tmp31 = (long )__cil_tmp30;
 #line 2317
-    tmp = __builtin_expect(__cil_tmp63, 0L);
+    tmp = __builtin_expect(__cil_tmp31, 0L);
     }
 #line 2317
     if (tmp != 0L) {
       {
 #line 2317
-      __cil_tmp64 = (unsigned long )pdev;
+      __cil_tmp32 = & pdev->dev;
 #line 2317
-      __cil_tmp65 = __cil_tmp64 + 144;
+      __cil_tmp33 = (struct device  const  *)__cil_tmp32;
 #line 2317
-      __cil_tmp66 = (struct device *)__cil_tmp65;
-#line 2317
-      __cil_tmp67 = (struct device  const  *)__cil_tmp66;
-#line 2317
-      dev_printk("<7>", __cil_tmp67, "atl1c_request_irq OK\n");
+      dev_printk("<7>", __cil_tmp33, "atl1c_request_irq OK\n");
       }
     } else {
 
@@ -15790,23 +13638,17 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   int __cil_tmp10 ;
   int __cil_tmp11 ;
   long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long *__cil_tmp20 ;
-  unsigned long volatile   *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct napi_struct *__cil_tmp24 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  long __cil_tmp15 ;
+  unsigned long *__cil_tmp16 ;
+  unsigned long volatile   *__cil_tmp17 ;
+  struct napi_struct *__cil_tmp18 ;
 
   {
   {
 #line 2323
-  netdev = *((struct net_device **)adapter);
+  netdev = adapter->netdev;
 #line 2328
   netif_carrier_off(netdev);
 #line 2329
@@ -15818,6 +13660,7 @@ static int atl1c_up(struct atl1c_adapter *adapter )
 #line 2333
   i = 0;
   }
+#line 2333
   goto ldv_43093;
   ldv_43092: 
   {
@@ -15838,6 +13681,7 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   if (tmp != 0L) {
 #line 2336
     err = -12;
+#line 2337
     goto err_alloc_rx;
   } else {
 
@@ -15847,15 +13691,13 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   ldv_43093: ;
   {
 #line 2333
-  __cil_tmp13 = (unsigned long )adapter;
+  __cil_tmp13 = adapter->num_rx_queues;
 #line 2333
-  __cil_tmp14 = __cil_tmp13 + 1880;
-#line 2333
-  __cil_tmp15 = *((int *)__cil_tmp14);
-#line 2333
-  if (__cil_tmp15 > i) {
+  if (__cil_tmp13 > i) {
+#line 2334
     goto ldv_43092;
   } else {
+#line 2336
     goto ldv_43094;
   }
   }
@@ -15868,6 +13710,7 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   if (tmp___0 != 0) {
 #line 2342
     err = -5;
+#line 2343
     goto err_up;
   } else {
 
@@ -15876,37 +13719,30 @@ static int atl1c_up(struct atl1c_adapter *adapter )
 #line 2346
   err = atl1c_request_irq(adapter);
 #line 2347
-  __cil_tmp16 = err != 0;
+  __cil_tmp14 = err != 0;
 #line 2347
-  __cil_tmp17 = (long )__cil_tmp16;
+  __cil_tmp15 = (long )__cil_tmp14;
 #line 2347
-  tmp___1 = __builtin_expect(__cil_tmp17, 0L);
+  tmp___1 = __builtin_expect(__cil_tmp15, 0L);
   }
 #line 2347
   if (tmp___1 != 0L) {
+#line 2348
     goto err_up;
   } else {
 
   }
   {
 #line 2350
-  __cil_tmp18 = (unsigned long )adapter;
+  __cil_tmp16 = & adapter->flags;
 #line 2350
-  __cil_tmp19 = __cil_tmp18 + 1000;
+  __cil_tmp17 = (unsigned long volatile   *)__cil_tmp16;
 #line 2350
-  __cil_tmp20 = (unsigned long *)__cil_tmp19;
-#line 2350
-  __cil_tmp21 = (unsigned long volatile   *)__cil_tmp20;
-#line 2350
-  clear_bit(3, __cil_tmp21);
+  clear_bit(3, __cil_tmp17);
 #line 2351
-  __cil_tmp22 = (unsigned long )adapter;
+  __cil_tmp18 = & adapter->napi;
 #line 2351
-  __cil_tmp23 = __cil_tmp22 + 24;
-#line 2351
-  __cil_tmp24 = (struct napi_struct *)__cil_tmp23;
-#line 2351
-  napi_enable(__cil_tmp24);
+  napi_enable(__cil_tmp18);
 #line 2352
   atl1c_irq_enable(adapter);
 #line 2353
@@ -15929,91 +13765,55 @@ static int atl1c_up(struct atl1c_adapter *adapter )
 #line 2363 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 static void atl1c_down(struct atl1c_adapter *adapter ) 
 { struct net_device *netdev ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long *__cil_tmp7 ;
-  unsigned long volatile   *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct napi_struct *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct atl1c_hw *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  enum atl1c_trans_queue __cil_tmp19 ;
-  enum atl1c_trans_queue __cil_tmp20 ;
+  unsigned long *__cil_tmp3 ;
+  unsigned long volatile   *__cil_tmp4 ;
+  struct napi_struct *__cil_tmp5 ;
+  struct atl1c_hw *__cil_tmp6 ;
+  enum atl1c_trans_queue __cil_tmp7 ;
+  enum atl1c_trans_queue __cil_tmp8 ;
 
   {
   {
 #line 2365
-  netdev = *((struct net_device **)adapter);
+  netdev = adapter->netdev;
 #line 2367
   atl1c_del_timer(adapter);
 #line 2368
-  __cil_tmp3 = (unsigned long )adapter;
-#line 2368
-  __cil_tmp4 = __cil_tmp3 + 1008;
-#line 2368
-  *((unsigned long *)__cil_tmp4) = 0UL;
+  adapter->work_event = 0UL;
 #line 2371
-  __cil_tmp5 = (unsigned long )adapter;
+  __cil_tmp3 = & adapter->flags;
 #line 2371
-  __cil_tmp6 = __cil_tmp5 + 1000;
+  __cil_tmp4 = (unsigned long volatile   *)__cil_tmp3;
 #line 2371
-  __cil_tmp7 = (unsigned long *)__cil_tmp6;
-#line 2371
-  __cil_tmp8 = (unsigned long volatile   *)__cil_tmp7;
-#line 2371
-  set_bit(3U, __cil_tmp8);
+  set_bit(3U, __cil_tmp4);
 #line 2372
   netif_carrier_off(netdev);
 #line 2373
-  __cil_tmp9 = (unsigned long )adapter;
+  __cil_tmp5 = & adapter->napi;
 #line 2373
-  __cil_tmp10 = __cil_tmp9 + 24;
-#line 2373
-  __cil_tmp11 = (struct napi_struct *)__cil_tmp10;
-#line 2373
-  napi_disable(__cil_tmp11);
+  napi_disable(__cil_tmp5);
 #line 2374
   atl1c_irq_disable(adapter);
 #line 2375
   atl1c_free_irq(adapter);
 #line 2377
-  __cil_tmp12 = (unsigned long )adapter;
+  __cil_tmp6 = & adapter->hw;
 #line 2377
-  __cil_tmp13 = __cil_tmp12 + 184;
-#line 2377
-  __cil_tmp14 = (struct atl1c_hw *)__cil_tmp13;
-#line 2377
-  atl1c_reset_mac(__cil_tmp14);
+  atl1c_reset_mac(__cil_tmp6);
 #line 2378
   msleep(1U);
 #line 2380
-  __cil_tmp15 = (unsigned long )adapter;
-#line 2380
-  __cil_tmp16 = __cil_tmp15 + 1028;
-#line 2380
-  *((u16 *)__cil_tmp16) = (unsigned short)65535;
+  adapter->link_speed = (u16 )65535U;
 #line 2381
-  __cil_tmp17 = (unsigned long )adapter;
-#line 2381
-  __cil_tmp18 = __cil_tmp17 + 1030;
-#line 2381
-  *((u16 *)__cil_tmp18) = (unsigned short)65535;
+  adapter->link_duplex = (u16 )65535U;
 #line 2382
-  __cil_tmp19 = (enum atl1c_trans_queue )0;
+  __cil_tmp7 = (enum atl1c_trans_queue )0;
 #line 2382
-  atl1c_clean_tx_ring(adapter, __cil_tmp19);
+  atl1c_clean_tx_ring(adapter, __cil_tmp7);
 #line 2383
-  __cil_tmp20 = (enum atl1c_trans_queue )1;
+  __cil_tmp8 = (enum atl1c_trans_queue )1;
 #line 2383
-  atl1c_clean_tx_ring(adapter, __cil_tmp20);
+  atl1c_clean_tx_ring(adapter, __cil_tmp8);
 #line 2384
   atl1c_clean_rx_ring(adapter);
   }
@@ -16035,6 +13835,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -16154,6 +13955,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 4206
   goto LDV_STOP;
 }
 }
@@ -16241,7 +14043,7 @@ __inline static void random_ether_addr(u8 *addr )
 #line 138
   __cil_tmp5 = __cil_tmp4 & 254U;
 #line 138
-  *addr = (unsigned char )__cil_tmp5;
+  *addr = (u8 )__cil_tmp5;
 #line 139
   __cil_tmp6 = *addr;
 #line 139
@@ -16249,7 +14051,7 @@ __inline static void random_ether_addr(u8 *addr )
 #line 139
   __cil_tmp8 = __cil_tmp7 | 2U;
 #line 139
-  *addr = (unsigned char )__cil_tmp8;
+  *addr = (u8 )__cil_tmp8;
   }
 #line 140
   return;
@@ -16264,85 +14066,77 @@ int atl1c_check_eeprom_exist(struct atl1c_hw *hw )
 { u32 data ;
   long tmp ;
   long tmp___0 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  bool __cil_tmp7 ;
-  long __cil_tmp8 ;
-  u8 *__cil_tmp9 ;
-  void const volatile   *__cil_tmp10 ;
+  bool __cil_tmp5 ;
+  long __cil_tmp6 ;
+  u8 *__cil_tmp7 ;
+  void const volatile   *__cil_tmp8 ;
+  void const volatile   *__cil_tmp9 ;
+  u8 *__cil_tmp10 ;
   void const volatile   *__cil_tmp11 ;
-  u8 *__cil_tmp12 ;
-  void const volatile   *__cil_tmp13 ;
+  void const volatile   *__cil_tmp12 ;
+  u8 *__cil_tmp13 ;
   void const volatile   *__cil_tmp14 ;
-  u8 *__cil_tmp15 ;
-  void const volatile   *__cil_tmp16 ;
-  void const volatile   *__cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  bool __cil_tmp21 ;
-  long __cil_tmp22 ;
-  u8 *__cil_tmp23 ;
+  void const volatile   *__cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  bool __cil_tmp17 ;
+  long __cil_tmp18 ;
+  u8 *__cil_tmp19 ;
+  void const volatile   *__cil_tmp20 ;
+  void const volatile   *__cil_tmp21 ;
+  u8 *__cil_tmp22 ;
+  void const volatile   *__cil_tmp23 ;
   void const volatile   *__cil_tmp24 ;
-  void const volatile   *__cil_tmp25 ;
-  u8 *__cil_tmp26 ;
+  u8 *__cil_tmp25 ;
+  void const volatile   *__cil_tmp26 ;
   void const volatile   *__cil_tmp27 ;
-  void const volatile   *__cil_tmp28 ;
-  u8 *__cil_tmp29 ;
-  void const volatile   *__cil_tmp30 ;
-  void const volatile   *__cil_tmp31 ;
-  int __cil_tmp32 ;
+  int __cil_tmp28 ;
 
   {
   {
 #line 43
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp5 = hw->hibernate;
 #line 43
-  __cil_tmp6 = __cil_tmp5 + 237;
+  __cil_tmp6 = (long )__cil_tmp5;
 #line 43
-  __cil_tmp7 = *((bool *)__cil_tmp6);
-#line 43
-  __cil_tmp8 = (long )__cil_tmp7;
-#line 43
-  tmp = __builtin_expect(__cil_tmp8, 0L);
+  tmp = __builtin_expect(__cil_tmp6, 0L);
   }
 #line 43
   if (tmp != 0L) {
     {
 #line 43
-    __cil_tmp9 = *((u8 **)hw);
+    __cil_tmp7 = hw->hw_addr;
 #line 43
-    __cil_tmp10 = (void const volatile   *)__cil_tmp9;
+    __cil_tmp8 = (void const volatile   *)__cil_tmp7;
 #line 43
-    __cil_tmp11 = __cil_tmp10 + 4360U;
+    __cil_tmp9 = __cil_tmp8 + 4360U;
 #line 43
-    readl(__cil_tmp11);
+    readl(__cil_tmp9);
 #line 43
-    __cil_tmp12 = *((u8 **)hw);
+    __cil_tmp10 = hw->hw_addr;
 #line 43
-    __cil_tmp13 = (void const volatile   *)__cil_tmp12;
+    __cil_tmp11 = (void const volatile   *)__cil_tmp10;
 #line 43
-    __cil_tmp14 = __cil_tmp13 + 4360U;
+    __cil_tmp12 = __cil_tmp11 + 4360U;
 #line 43
-    data = readl(__cil_tmp14);
+    data = readl(__cil_tmp12);
     }
   } else {
     {
 #line 43
-    __cil_tmp15 = *((u8 **)hw);
+    __cil_tmp13 = hw->hw_addr;
 #line 43
-    __cil_tmp16 = (void const volatile   *)__cil_tmp15;
+    __cil_tmp14 = (void const volatile   *)__cil_tmp13;
 #line 43
-    __cil_tmp17 = __cil_tmp16 + 4360U;
+    __cil_tmp15 = __cil_tmp14 + 4360U;
 #line 43
-    data = readl(__cil_tmp17);
+    data = readl(__cil_tmp15);
     }
   }
   {
 #line 44
-  __cil_tmp18 = data & 536870912U;
+  __cil_tmp16 = data & 536870912U;
 #line 44
-  if (__cil_tmp18 != 0U) {
+  if (__cil_tmp16 != 0U) {
 #line 45
     return (1);
   } else {
@@ -16351,53 +14145,49 @@ int atl1c_check_eeprom_exist(struct atl1c_hw *hw )
   }
   {
 #line 47
-  __cil_tmp19 = (unsigned long )hw;
+  __cil_tmp17 = hw->hibernate;
 #line 47
-  __cil_tmp20 = __cil_tmp19 + 237;
+  __cil_tmp18 = (long )__cil_tmp17;
 #line 47
-  __cil_tmp21 = *((bool *)__cil_tmp20);
-#line 47
-  __cil_tmp22 = (long )__cil_tmp21;
-#line 47
-  tmp___0 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp18, 0L);
   }
 #line 47
   if (tmp___0 != 0L) {
     {
 #line 47
-    __cil_tmp23 = *((u8 **)hw);
+    __cil_tmp19 = hw->hw_addr;
 #line 47
-    __cil_tmp24 = (void const volatile   *)__cil_tmp23;
+    __cil_tmp20 = (void const volatile   *)__cil_tmp19;
 #line 47
-    __cil_tmp25 = __cil_tmp24 + 5120U;
+    __cil_tmp21 = __cil_tmp20 + 5120U;
 #line 47
-    readl(__cil_tmp25);
+    readl(__cil_tmp21);
 #line 47
-    __cil_tmp26 = *((u8 **)hw);
+    __cil_tmp22 = hw->hw_addr;
 #line 47
-    __cil_tmp27 = (void const volatile   *)__cil_tmp26;
+    __cil_tmp23 = (void const volatile   *)__cil_tmp22;
 #line 47
-    __cil_tmp28 = __cil_tmp27 + 5120U;
+    __cil_tmp24 = __cil_tmp23 + 5120U;
 #line 47
-    data = readl(__cil_tmp28);
+    data = readl(__cil_tmp24);
     }
   } else {
     {
 #line 47
-    __cil_tmp29 = *((u8 **)hw);
+    __cil_tmp25 = hw->hw_addr;
 #line 47
-    __cil_tmp30 = (void const volatile   *)__cil_tmp29;
+    __cil_tmp26 = (void const volatile   *)__cil_tmp25;
 #line 47
-    __cil_tmp31 = __cil_tmp30 + 5120U;
+    __cil_tmp27 = __cil_tmp26 + 5120U;
 #line 47
-    data = readl(__cil_tmp31);
+    data = readl(__cil_tmp27);
     }
   }
   {
 #line 48
-  __cil_tmp32 = (int )data;
+  __cil_tmp28 = (int )data;
 #line 48
-  if (__cil_tmp32 < 0) {
+  if (__cil_tmp28 < 0) {
 #line 49
     return (1);
   } else {
@@ -16411,161 +14201,89 @@ int atl1c_check_eeprom_exist(struct atl1c_hw *hw )
 #line 53 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_hw.c.p"
 void atl1c_hw_set_mac_addr(struct atl1c_hw *hw ) 
 { u32 value ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  u8 __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u8 __cil_tmp13 ;
+  u8 __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  u8 __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  u8 __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
   unsigned int __cil_tmp14 ;
   unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u8 __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
+  u8 *__cil_tmp16 ;
+  void volatile   *__cil_tmp17 ;
+  void volatile   *__cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  u8 __cil_tmp21 ;
   unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  u8 __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  u8 *__cil_tmp32 ;
-  void volatile   *__cil_tmp33 ;
-  void volatile   *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u8 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u8 __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  u8 *__cil_tmp48 ;
-  void volatile   *__cil_tmp49 ;
-  void volatile   *__cil_tmp50 ;
+  unsigned int __cil_tmp23 ;
+  u8 *__cil_tmp24 ;
+  void volatile   *__cil_tmp25 ;
+  void volatile   *__cil_tmp26 ;
 
   {
   {
 #line 61
-  __cil_tmp3 = 5 * 1UL;
+  __cil_tmp3 = hw->mac_addr[5];
 #line 61
-  __cil_tmp4 = 352 + __cil_tmp3;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 61
-  __cil_tmp5 = (unsigned long )hw;
+  __cil_tmp5 = hw->mac_addr[4];
 #line 61
-  __cil_tmp6 = __cil_tmp5 + __cil_tmp4;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 61
-  __cil_tmp7 = *((u8 *)__cil_tmp6);
+  __cil_tmp7 = __cil_tmp6 << 8;
 #line 61
-  __cil_tmp8 = (unsigned int )__cil_tmp7;
+  __cil_tmp8 = hw->mac_addr[3];
 #line 61
-  __cil_tmp9 = 4 * 1UL;
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 61
-  __cil_tmp10 = 352 + __cil_tmp9;
+  __cil_tmp10 = __cil_tmp9 << 16;
 #line 61
-  __cil_tmp11 = (unsigned long )hw;
+  __cil_tmp11 = hw->mac_addr[2];
 #line 61
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 61
-  __cil_tmp13 = *((u8 *)__cil_tmp12);
+  __cil_tmp13 = __cil_tmp12 << 24;
 #line 61
-  __cil_tmp14 = (unsigned int )__cil_tmp13;
+  __cil_tmp14 = __cil_tmp13 | __cil_tmp10;
 #line 61
-  __cil_tmp15 = __cil_tmp14 << 8;
+  __cil_tmp15 = __cil_tmp14 | __cil_tmp7;
 #line 61
-  __cil_tmp16 = 3 * 1UL;
-#line 61
-  __cil_tmp17 = 352 + __cil_tmp16;
-#line 61
-  __cil_tmp18 = (unsigned long )hw;
-#line 61
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 61
-  __cil_tmp20 = *((u8 *)__cil_tmp19);
-#line 61
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 61
-  __cil_tmp22 = __cil_tmp21 << 16;
-#line 61
-  __cil_tmp23 = 2 * 1UL;
-#line 61
-  __cil_tmp24 = 352 + __cil_tmp23;
-#line 61
-  __cil_tmp25 = (unsigned long )hw;
-#line 61
-  __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
-#line 61
-  __cil_tmp27 = *((u8 *)__cil_tmp26);
-#line 61
-  __cil_tmp28 = (unsigned int )__cil_tmp27;
-#line 61
-  __cil_tmp29 = __cil_tmp28 << 24;
-#line 61
-  __cil_tmp30 = __cil_tmp29 | __cil_tmp22;
-#line 61
-  __cil_tmp31 = __cil_tmp30 | __cil_tmp15;
-#line 61
-  value = __cil_tmp31 | __cil_tmp8;
+  value = __cil_tmp15 | __cil_tmp4;
 #line 65
-  __cil_tmp32 = *((u8 **)hw);
+  __cil_tmp16 = hw->hw_addr;
 #line 65
-  __cil_tmp33 = (void volatile   *)__cil_tmp32;
+  __cil_tmp17 = (void volatile   *)__cil_tmp16;
 #line 65
-  __cil_tmp34 = __cil_tmp33 + 5256U;
+  __cil_tmp18 = __cil_tmp17 + 5256U;
 #line 65
-  writel(value, __cil_tmp34);
+  writel(value, __cil_tmp18);
 #line 67
-  __cil_tmp35 = 1 * 1UL;
+  __cil_tmp19 = hw->mac_addr[1];
 #line 67
-  __cil_tmp36 = 352 + __cil_tmp35;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 67
-  __cil_tmp37 = (unsigned long )hw;
+  __cil_tmp21 = hw->mac_addr[0];
 #line 67
-  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 67
-  __cil_tmp39 = *((u8 *)__cil_tmp38);
+  __cil_tmp23 = __cil_tmp22 << 8;
 #line 67
-  __cil_tmp40 = (unsigned int )__cil_tmp39;
-#line 67
-  __cil_tmp41 = 0 * 1UL;
-#line 67
-  __cil_tmp42 = 352 + __cil_tmp41;
-#line 67
-  __cil_tmp43 = (unsigned long )hw;
-#line 67
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
-#line 67
-  __cil_tmp45 = *((u8 *)__cil_tmp44);
-#line 67
-  __cil_tmp46 = (unsigned int )__cil_tmp45;
-#line 67
-  __cil_tmp47 = __cil_tmp46 << 8;
-#line 67
-  value = __cil_tmp47 | __cil_tmp40;
+  value = __cil_tmp23 | __cil_tmp20;
 #line 69
-  __cil_tmp48 = *((u8 **)hw);
+  __cil_tmp24 = hw->hw_addr;
 #line 69
-  __cil_tmp49 = (void volatile   *)__cil_tmp48;
+  __cil_tmp25 = (void volatile   *)__cil_tmp24;
 #line 69
-  __cil_tmp50 = __cil_tmp49 + 5260U;
+  __cil_tmp26 = __cil_tmp25 + 5260U;
 #line 69
-  writel(value, __cil_tmp50);
+  writel(value, __cil_tmp26);
   }
 #line 70
   return;
@@ -16599,295 +14317,218 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
   size_t __len ;
   void *__ret ;
   int tmp___13 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  bool __cil_tmp36 ;
-  long __cil_tmp37 ;
-  u8 *__cil_tmp38 ;
-  void const volatile   *__cil_tmp39 ;
-  void const volatile   *__cil_tmp40 ;
-  u8 *__cil_tmp41 ;
-  void const volatile   *__cil_tmp42 ;
-  void const volatile   *__cil_tmp43 ;
+  bool __cil_tmp28 ;
+  long __cil_tmp29 ;
+  u8 *__cil_tmp30 ;
+  void const volatile   *__cil_tmp31 ;
+  void const volatile   *__cil_tmp32 ;
+  u8 *__cil_tmp33 ;
+  void const volatile   *__cil_tmp34 ;
+  void const volatile   *__cil_tmp35 ;
+  u8 *__cil_tmp36 ;
+  void const volatile   *__cil_tmp37 ;
+  void const volatile   *__cil_tmp38 ;
+  enum atl1c_nic_type __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  enum atl1c_nic_type __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
   u8 *__cil_tmp44 ;
-  void const volatile   *__cil_tmp45 ;
-  void const volatile   *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  void volatile   *__cil_tmp45 ;
+  void volatile   *__cil_tmp46 ;
+  u8 *__cil_tmp47 ;
+  void const volatile   *__cil_tmp48 ;
   enum atl1c_nic_type __cil_tmp49 ;
   unsigned int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
+  enum atl1c_nic_type __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
   enum atl1c_nic_type __cil_tmp53 ;
   unsigned int __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  u8 *__cil_tmp56 ;
-  void volatile   *__cil_tmp57 ;
-  void volatile   *__cil_tmp58 ;
-  u8 *__cil_tmp59 ;
-  void const volatile   *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  enum atl1c_nic_type __cil_tmp63 ;
+  u16 __cil_tmp55 ;
+  u16 __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  int __cil_tmp59 ;
+  u16 __cil_tmp60 ;
+  u16 __cil_tmp61 ;
+  u16 __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
   unsigned int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  enum atl1c_nic_type __cil_tmp67 ;
-  unsigned int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  enum atl1c_nic_type __cil_tmp71 ;
-  unsigned int __cil_tmp72 ;
-  u16 *__cil_tmp73 ;
-  u16 *__cil_tmp74 ;
-  u16 __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  u16 *__cil_tmp78 ;
-  u16 __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned short __cil_tmp81 ;
-  u16 *__cil_tmp82 ;
-  u16 *__cil_tmp83 ;
-  u16 __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  u16 *__cil_tmp87 ;
-  u16 __cil_tmp88 ;
-  int __cil_tmp89 ;
-  unsigned short __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  bool __cil_tmp93 ;
-  long __cil_tmp94 ;
-  u8 *__cil_tmp95 ;
-  void const volatile   *__cil_tmp96 ;
-  void const volatile   *__cil_tmp97 ;
-  u8 *__cil_tmp98 ;
+  int __cil_tmp65 ;
+  u16 __cil_tmp66 ;
+  bool __cil_tmp67 ;
+  long __cil_tmp68 ;
+  u8 *__cil_tmp69 ;
+  void const volatile   *__cil_tmp70 ;
+  void const volatile   *__cil_tmp71 ;
+  u8 *__cil_tmp72 ;
+  void const volatile   *__cil_tmp73 ;
+  void const volatile   *__cil_tmp74 ;
+  u8 *__cil_tmp75 ;
+  void const volatile   *__cil_tmp76 ;
+  void const volatile   *__cil_tmp77 ;
+  u8 *__cil_tmp78 ;
+  void volatile   *__cil_tmp79 ;
+  void volatile   *__cil_tmp80 ;
+  u8 *__cil_tmp81 ;
+  void volatile   *__cil_tmp82 ;
+  void volatile   *__cil_tmp83 ;
+  bool __cil_tmp84 ;
+  long __cil_tmp85 ;
+  u8 *__cil_tmp86 ;
+  void const volatile   *__cil_tmp87 ;
+  void const volatile   *__cil_tmp88 ;
+  u8 *__cil_tmp89 ;
+  void const volatile   *__cil_tmp90 ;
+  void const volatile   *__cil_tmp91 ;
+  u8 *__cil_tmp92 ;
+  void const volatile   *__cil_tmp93 ;
+  void const volatile   *__cil_tmp94 ;
+  bool __cil_tmp95 ;
+  long __cil_tmp96 ;
+  u8 *__cil_tmp97 ;
+  void const volatile   *__cil_tmp98 ;
   void const volatile   *__cil_tmp99 ;
-  void const volatile   *__cil_tmp100 ;
-  u8 *__cil_tmp101 ;
+  u8 *__cil_tmp100 ;
+  void const volatile   *__cil_tmp101 ;
   void const volatile   *__cil_tmp102 ;
-  void const volatile   *__cil_tmp103 ;
-  u8 *__cil_tmp104 ;
-  void volatile   *__cil_tmp105 ;
-  void volatile   *__cil_tmp106 ;
-  u8 *__cil_tmp107 ;
+  u8 *__cil_tmp103 ;
+  void const volatile   *__cil_tmp104 ;
+  void const volatile   *__cil_tmp105 ;
+  u8 *__cil_tmp106 ;
+  void volatile   *__cil_tmp107 ;
   void volatile   *__cil_tmp108 ;
-  void volatile   *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  bool __cil_tmp112 ;
-  long __cil_tmp113 ;
+  bool __cil_tmp109 ;
+  long __cil_tmp110 ;
+  u8 *__cil_tmp111 ;
+  void const volatile   *__cil_tmp112 ;
+  void const volatile   *__cil_tmp113 ;
   u8 *__cil_tmp114 ;
   void const volatile   *__cil_tmp115 ;
   void const volatile   *__cil_tmp116 ;
   u8 *__cil_tmp117 ;
   void const volatile   *__cil_tmp118 ;
   void const volatile   *__cil_tmp119 ;
-  u8 *__cil_tmp120 ;
-  void const volatile   *__cil_tmp121 ;
-  void const volatile   *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  bool __cil_tmp125 ;
-  long __cil_tmp126 ;
-  u8 *__cil_tmp127 ;
-  void const volatile   *__cil_tmp128 ;
-  void const volatile   *__cil_tmp129 ;
-  u8 *__cil_tmp130 ;
-  void const volatile   *__cil_tmp131 ;
-  void const volatile   *__cil_tmp132 ;
-  u8 *__cil_tmp133 ;
-  void const volatile   *__cil_tmp134 ;
-  void const volatile   *__cil_tmp135 ;
-  u8 *__cil_tmp136 ;
-  void volatile   *__cil_tmp137 ;
-  void volatile   *__cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  bool __cil_tmp141 ;
-  long __cil_tmp142 ;
-  u8 *__cil_tmp143 ;
-  void const volatile   *__cil_tmp144 ;
-  void const volatile   *__cil_tmp145 ;
-  u8 *__cil_tmp146 ;
-  void const volatile   *__cil_tmp147 ;
-  void const volatile   *__cil_tmp148 ;
-  u8 *__cil_tmp149 ;
-  void const volatile   *__cil_tmp150 ;
-  void const volatile   *__cil_tmp151 ;
-  unsigned int __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  enum atl1c_nic_type __cil_tmp155 ;
-  unsigned int __cil_tmp156 ;
+  unsigned int __cil_tmp120 ;
+  enum atl1c_nic_type __cil_tmp121 ;
+  unsigned int __cil_tmp122 ;
+  u8 *__cil_tmp123 ;
+  void volatile   *__cil_tmp124 ;
+  void volatile   *__cil_tmp125 ;
+  enum atl1c_nic_type __cil_tmp126 ;
+  unsigned int __cil_tmp127 ;
+  u8 *__cil_tmp128 ;
+  void volatile   *__cil_tmp129 ;
+  void volatile   *__cil_tmp130 ;
+  enum atl1c_nic_type __cil_tmp131 ;
+  unsigned int __cil_tmp132 ;
+  enum atl1c_nic_type __cil_tmp133 ;
+  unsigned int __cil_tmp134 ;
+  enum atl1c_nic_type __cil_tmp135 ;
+  unsigned int __cil_tmp136 ;
+  enum atl1c_nic_type __cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
+  u16 __cil_tmp139 ;
+  u16 __cil_tmp140 ;
+  unsigned int __cil_tmp141 ;
+  unsigned int __cil_tmp142 ;
+  int __cil_tmp143 ;
+  u16 __cil_tmp144 ;
+  u16 __cil_tmp145 ;
+  u16 __cil_tmp146 ;
+  unsigned int __cil_tmp147 ;
+  unsigned int __cil_tmp148 ;
+  int __cil_tmp149 ;
+  u16 __cil_tmp150 ;
+  bool __cil_tmp151 ;
+  long __cil_tmp152 ;
+  u8 *__cil_tmp153 ;
+  void const volatile   *__cil_tmp154 ;
+  void const volatile   *__cil_tmp155 ;
+  u32 *__cil_tmp156 ;
   u8 *__cil_tmp157 ;
-  void volatile   *__cil_tmp158 ;
-  void volatile   *__cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  enum atl1c_nic_type __cil_tmp162 ;
-  unsigned int __cil_tmp163 ;
-  u8 *__cil_tmp164 ;
-  void volatile   *__cil_tmp165 ;
-  void volatile   *__cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  enum atl1c_nic_type __cil_tmp169 ;
-  unsigned int __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  enum atl1c_nic_type __cil_tmp173 ;
-  unsigned int __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  enum atl1c_nic_type __cil_tmp177 ;
-  unsigned int __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  enum atl1c_nic_type __cil_tmp181 ;
-  unsigned int __cil_tmp182 ;
-  u16 *__cil_tmp183 ;
-  u16 *__cil_tmp184 ;
-  u16 __cil_tmp185 ;
-  unsigned int __cil_tmp186 ;
-  unsigned int __cil_tmp187 ;
-  u16 *__cil_tmp188 ;
-  u16 __cil_tmp189 ;
-  int __cil_tmp190 ;
-  unsigned short __cil_tmp191 ;
-  u16 *__cil_tmp192 ;
-  u16 *__cil_tmp193 ;
-  u16 __cil_tmp194 ;
-  unsigned int __cil_tmp195 ;
-  unsigned int __cil_tmp196 ;
-  u16 *__cil_tmp197 ;
-  u16 __cil_tmp198 ;
-  int __cil_tmp199 ;
-  unsigned short __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  bool __cil_tmp203 ;
-  long __cil_tmp204 ;
-  u8 *__cil_tmp205 ;
-  void const volatile   *__cil_tmp206 ;
-  void const volatile   *__cil_tmp207 ;
-  u32 *__cil_tmp208 ;
-  u8 *__cil_tmp209 ;
-  void const volatile   *__cil_tmp210 ;
-  void const volatile   *__cil_tmp211 ;
-  u32 *__cil_tmp212 ;
-  u8 *__cil_tmp213 ;
-  void const volatile   *__cil_tmp214 ;
-  void const volatile   *__cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  bool __cil_tmp218 ;
-  long __cil_tmp219 ;
-  u8 *__cil_tmp220 ;
-  void const volatile   *__cil_tmp221 ;
-  void const volatile   *__cil_tmp222 ;
-  u32 *__cil_tmp223 ;
-  u32 *__cil_tmp224 ;
-  u8 *__cil_tmp225 ;
-  void const volatile   *__cil_tmp226 ;
-  void const volatile   *__cil_tmp227 ;
-  u32 *__cil_tmp228 ;
-  u32 *__cil_tmp229 ;
-  u8 *__cil_tmp230 ;
-  void const volatile   *__cil_tmp231 ;
-  void const volatile   *__cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  u32 __cil_tmp235 ;
-  u32 *__cil_tmp236 ;
-  u32 *__cil_tmp237 ;
-  u16 *__cil_tmp238 ;
-  u16 *__cil_tmp239 ;
-  u16 __cil_tmp240 ;
-  int __cil_tmp241 ;
-  unsigned short __cil_tmp242 ;
-  u16 *__cil_tmp243 ;
-  u8 const   *__cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  u8 (*__cil_tmp247)[6U] ;
-  void *__cil_tmp248 ;
-  void const   *__cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  u8 (*__cil_tmp252)[6U] ;
-  void *__cil_tmp253 ;
-  void const   *__cil_tmp254 ;
+  void const volatile   *__cil_tmp158 ;
+  void const volatile   *__cil_tmp159 ;
+  u32 *__cil_tmp160 ;
+  u8 *__cil_tmp161 ;
+  void const volatile   *__cil_tmp162 ;
+  void const volatile   *__cil_tmp163 ;
+  bool __cil_tmp164 ;
+  long __cil_tmp165 ;
+  u8 *__cil_tmp166 ;
+  void const volatile   *__cil_tmp167 ;
+  void const volatile   *__cil_tmp168 ;
+  u32 *__cil_tmp169 ;
+  u32 *__cil_tmp170 ;
+  u8 *__cil_tmp171 ;
+  void const volatile   *__cil_tmp172 ;
+  void const volatile   *__cil_tmp173 ;
+  u32 *__cil_tmp174 ;
+  u32 *__cil_tmp175 ;
+  u8 *__cil_tmp176 ;
+  void const volatile   *__cil_tmp177 ;
+  void const volatile   *__cil_tmp178 ;
+  u32 *__cil_tmp179 ;
+  u32 *__cil_tmp180 ;
+  u16 *__cil_tmp181 ;
+  u16 *__cil_tmp182 ;
+  u16 __cil_tmp183 ;
+  int __cil_tmp184 ;
+  __u16 __cil_tmp185 ;
+  u16 *__cil_tmp186 ;
+  u8 const   *__cil_tmp187 ;
+  u8 (*__cil_tmp188)[6U] ;
+  void *__cil_tmp189 ;
+  void const   *__cil_tmp190 ;
+  u8 (*__cil_tmp191)[6U] ;
+  void *__cil_tmp192 ;
+  void const   *__cil_tmp193 ;
 
   {
   {
 #line 86
-  raise_vol = (_Bool)0;
+  raise_vol = (bool )0;
 #line 89
-  __cil_tmp28 = 1 * 4UL;
+  addr[1] = 0U;
 #line 89
-  __cil_tmp29 = (unsigned long )(addr) + __cil_tmp28;
-#line 89
-  *((u32 *)__cil_tmp29) = 0U;
-#line 89
-  __cil_tmp30 = 0 * 4UL;
-#line 89
-  __cil_tmp31 = (unsigned long )(addr) + __cil_tmp30;
-#line 89
-  __cil_tmp32 = 1 * 4UL;
-#line 89
-  __cil_tmp33 = (unsigned long )(addr) + __cil_tmp32;
-#line 89
-  *((u32 *)__cil_tmp31) = *((u32 *)__cil_tmp33);
+  addr[0] = addr[1];
 #line 90
-  __cil_tmp34 = (unsigned long )hw;
+  __cil_tmp28 = hw->hibernate;
 #line 90
-  __cil_tmp35 = __cil_tmp34 + 237;
+  __cil_tmp29 = (long )__cil_tmp28;
 #line 90
-  __cil_tmp36 = *((bool *)__cil_tmp35);
-#line 90
-  __cil_tmp37 = (long )__cil_tmp36;
-#line 90
-  tmp = __builtin_expect(__cil_tmp37, 0L);
+  tmp = __builtin_expect(__cil_tmp29, 0L);
   }
 #line 90
   if (tmp != 0L) {
     {
 #line 90
-    __cil_tmp38 = *((u8 **)hw);
+    __cil_tmp30 = hw->hw_addr;
 #line 90
-    __cil_tmp39 = (void const volatile   *)__cil_tmp38;
+    __cil_tmp31 = (void const volatile   *)__cil_tmp30;
 #line 90
-    __cil_tmp40 = __cil_tmp39 + 4848U;
+    __cil_tmp32 = __cil_tmp31 + 4848U;
 #line 90
-    readl(__cil_tmp40);
+    readl(__cil_tmp32);
 #line 90
-    __cil_tmp41 = *((u8 **)hw);
+    __cil_tmp33 = hw->hw_addr;
 #line 90
-    __cil_tmp42 = (void const volatile   *)__cil_tmp41;
+    __cil_tmp34 = (void const volatile   *)__cil_tmp33;
 #line 90
-    __cil_tmp43 = __cil_tmp42 + 4848U;
+    __cil_tmp35 = __cil_tmp34 + 4848U;
 #line 90
-    otp_ctrl_data = readl(__cil_tmp43);
+    otp_ctrl_data = readl(__cil_tmp35);
     }
   } else {
     {
 #line 90
-    __cil_tmp44 = *((u8 **)hw);
+    __cil_tmp36 = hw->hw_addr;
 #line 90
-    __cil_tmp45 = (void const volatile   *)__cil_tmp44;
+    __cil_tmp37 = (void const volatile   *)__cil_tmp36;
 #line 90
-    __cil_tmp46 = __cil_tmp45 + 4848U;
+    __cil_tmp38 = __cil_tmp37 + 4848U;
 #line 90
-    otp_ctrl_data = readl(__cil_tmp46);
+    otp_ctrl_data = readl(__cil_tmp38);
     }
   }
   {
@@ -16898,51 +14539,44 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
   if (tmp___6 != 0) {
     {
 #line 92
-    __cil_tmp47 = (unsigned long )hw;
+    __cil_tmp39 = hw->nic_type;
 #line 92
-    __cil_tmp48 = __cil_tmp47 + 16;
+    __cil_tmp40 = (unsigned int )__cil_tmp39;
 #line 92
-    __cil_tmp49 = *((enum atl1c_nic_type *)__cil_tmp48);
+    if (__cil_tmp40 == 0U) {
 #line 92
-    __cil_tmp50 = (unsigned int )__cil_tmp49;
-#line 92
-    if (__cil_tmp50 == 0U) {
       goto _L;
     } else {
       {
 #line 92
-      __cil_tmp51 = (unsigned long )hw;
+      __cil_tmp41 = hw->nic_type;
 #line 92
-      __cil_tmp52 = __cil_tmp51 + 16;
+      __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 92
-      __cil_tmp53 = *((enum atl1c_nic_type *)__cil_tmp52);
-#line 92
-      __cil_tmp54 = (unsigned int )__cil_tmp53;
-#line 92
-      if (__cil_tmp54 == 1U) {
+      if (__cil_tmp42 == 1U) {
         _L: 
         {
 #line 94
-        __cil_tmp55 = otp_ctrl_data & 2U;
+        __cil_tmp43 = otp_ctrl_data & 2U;
 #line 94
-        if (__cil_tmp55 == 0U) {
+        if (__cil_tmp43 == 0U) {
           {
 #line 95
           otp_ctrl_data = otp_ctrl_data | 2U;
 #line 96
-          __cil_tmp56 = *((u8 **)hw);
+          __cil_tmp44 = hw->hw_addr;
 #line 96
-          __cil_tmp57 = (void volatile   *)__cil_tmp56;
+          __cil_tmp45 = (void volatile   *)__cil_tmp44;
 #line 96
-          __cil_tmp58 = __cil_tmp57 + 4848U;
+          __cil_tmp46 = __cil_tmp45 + 4848U;
 #line 96
-          writel(otp_ctrl_data, __cil_tmp58);
+          writel(otp_ctrl_data, __cil_tmp46);
 #line 97
-          __cil_tmp59 = *((u8 **)hw);
+          __cil_tmp47 = hw->hw_addr;
 #line 97
-          __cil_tmp60 = (void const volatile   *)__cil_tmp59;
+          __cil_tmp48 = (void const volatile   *)__cil_tmp47;
 #line 97
-          readl(__cil_tmp60);
+          readl(__cil_tmp48);
 #line 98
           msleep(1U);
           }
@@ -16958,115 +14592,95 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
     }
     {
 #line 102
-    __cil_tmp61 = (unsigned long )hw;
+    __cil_tmp49 = hw->nic_type;
 #line 102
-    __cil_tmp62 = __cil_tmp61 + 16;
+    __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 102
-    __cil_tmp63 = *((enum atl1c_nic_type *)__cil_tmp62);
+    if (__cil_tmp50 == 2U) {
 #line 102
-    __cil_tmp64 = (unsigned int )__cil_tmp63;
-#line 102
-    if (__cil_tmp64 == 2U) {
       goto _L___0;
     } else {
       {
 #line 102
-      __cil_tmp65 = (unsigned long )hw;
+      __cil_tmp51 = hw->nic_type;
 #line 102
-      __cil_tmp66 = __cil_tmp65 + 16;
+      __cil_tmp52 = (unsigned int )__cil_tmp51;
 #line 102
-      __cil_tmp67 = *((enum atl1c_nic_type *)__cil_tmp66);
+      if (__cil_tmp52 == 3U) {
 #line 102
-      __cil_tmp68 = (unsigned int )__cil_tmp67;
-#line 102
-      if (__cil_tmp68 == 3U) {
         goto _L___0;
       } else {
         {
 #line 102
-        __cil_tmp69 = (unsigned long )hw;
+        __cil_tmp53 = hw->nic_type;
 #line 102
-        __cil_tmp70 = __cil_tmp69 + 16;
+        __cil_tmp54 = (unsigned int )__cil_tmp53;
 #line 102
-        __cil_tmp71 = *((enum atl1c_nic_type *)__cil_tmp70);
-#line 102
-        __cil_tmp72 = (unsigned int )__cil_tmp71;
-#line 102
-        if (__cil_tmp72 == 4U) {
+        if (__cil_tmp54 == 4U) {
           _L___0: 
           {
 #line 105
-          atl1c_write_phy_reg(hw, 29U, (unsigned short)0);
+          __cil_tmp55 = (u16 )0;
+#line 105
+          atl1c_write_phy_reg(hw, 29U, __cil_tmp55);
 #line 106
-          tmp___0 = atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+          __cil_tmp56 = (u16 )30;
+#line 106
+          tmp___0 = atl1c_read_phy_reg(hw, __cil_tmp56, & phy_data);
           }
 #line 106
           if (tmp___0 != 0) {
+#line 107
             goto out;
           } else {
 
           }
           {
 #line 108
-          __cil_tmp73 = & phy_data;
+          __cil_tmp57 = (unsigned int )phy_data;
 #line 108
-          __cil_tmp74 = & phy_data;
+          __cil_tmp58 = __cil_tmp57 & 65407U;
 #line 108
-          __cil_tmp75 = *__cil_tmp74;
-#line 108
-          __cil_tmp76 = (unsigned int )__cil_tmp75;
-#line 108
-          __cil_tmp77 = __cil_tmp76 & 65407U;
-#line 108
-          *__cil_tmp73 = (unsigned short )__cil_tmp77;
+          phy_data = (u16 )__cil_tmp58;
 #line 109
-          __cil_tmp78 = & phy_data;
+          __cil_tmp59 = (int )phy_data;
 #line 109
-          __cil_tmp79 = *__cil_tmp78;
+          __cil_tmp60 = (u16 )__cil_tmp59;
 #line 109
-          __cil_tmp80 = (int )__cil_tmp79;
-#line 109
-          __cil_tmp81 = (unsigned short )__cil_tmp80;
-#line 109
-          atl1c_write_phy_reg(hw, 30U, __cil_tmp81);
+          atl1c_write_phy_reg(hw, 30U, __cil_tmp60);
 #line 111
-          atl1c_write_phy_reg(hw, 29U, (unsigned short)59);
+          __cil_tmp61 = (u16 )59;
+#line 111
+          atl1c_write_phy_reg(hw, 29U, __cil_tmp61);
 #line 112
-          tmp___1 = atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+          __cil_tmp62 = (u16 )30;
+#line 112
+          tmp___1 = atl1c_read_phy_reg(hw, __cil_tmp62, & phy_data);
           }
 #line 112
           if (tmp___1 != 0) {
+#line 113
             goto out;
           } else {
 
           }
           {
 #line 114
-          __cil_tmp82 = & phy_data;
+          __cil_tmp63 = (unsigned int )phy_data;
 #line 114
-          __cil_tmp83 = & phy_data;
+          __cil_tmp64 = __cil_tmp63 | 8U;
 #line 114
-          __cil_tmp84 = *__cil_tmp83;
-#line 114
-          __cil_tmp85 = (unsigned int )__cil_tmp84;
-#line 114
-          __cil_tmp86 = __cil_tmp85 | 8U;
-#line 114
-          *__cil_tmp82 = (unsigned short )__cil_tmp86;
+          phy_data = (u16 )__cil_tmp64;
 #line 115
-          __cil_tmp87 = & phy_data;
+          __cil_tmp65 = (int )phy_data;
 #line 115
-          __cil_tmp88 = *__cil_tmp87;
+          __cil_tmp66 = (u16 )__cil_tmp65;
 #line 115
-          __cil_tmp89 = (int )__cil_tmp88;
-#line 115
-          __cil_tmp90 = (unsigned short )__cil_tmp89;
-#line 115
-          atl1c_write_phy_reg(hw, 30U, __cil_tmp90);
+          atl1c_write_phy_reg(hw, 30U, __cil_tmp66);
 #line 116
           __const_udelay(85900UL);
 #line 117
-          raise_vol = (_Bool)1;
+          raise_vol = (bool )1;
           }
         } else {
 
@@ -17078,221 +14692,207 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
     }
     {
 #line 120
-    __cil_tmp91 = (unsigned long )hw;
+    __cil_tmp67 = hw->hibernate;
 #line 120
-    __cil_tmp92 = __cil_tmp91 + 237;
+    __cil_tmp68 = (long )__cil_tmp67;
 #line 120
-    __cil_tmp93 = *((bool *)__cil_tmp92);
-#line 120
-    __cil_tmp94 = (long )__cil_tmp93;
-#line 120
-    tmp___2 = __builtin_expect(__cil_tmp94, 0L);
+    tmp___2 = __builtin_expect(__cil_tmp68, 0L);
     }
 #line 120
     if (tmp___2 != 0L) {
       {
 #line 120
-      __cil_tmp95 = *((u8 **)hw);
+      __cil_tmp69 = hw->hw_addr;
 #line 120
-      __cil_tmp96 = (void const volatile   *)__cil_tmp95;
+      __cil_tmp70 = (void const volatile   *)__cil_tmp69;
 #line 120
-      __cil_tmp97 = __cil_tmp96 + 4860U;
+      __cil_tmp71 = __cil_tmp70 + 4860U;
 #line 120
-      readl(__cil_tmp97);
+      readl(__cil_tmp71);
 #line 120
-      __cil_tmp98 = *((u8 **)hw);
+      __cil_tmp72 = hw->hw_addr;
 #line 120
-      __cil_tmp99 = (void const volatile   *)__cil_tmp98;
+      __cil_tmp73 = (void const volatile   *)__cil_tmp72;
 #line 120
-      __cil_tmp100 = __cil_tmp99 + 4860U;
+      __cil_tmp74 = __cil_tmp73 + 4860U;
 #line 120
-      ltssm_ctrl_data = readl(__cil_tmp100);
+      ltssm_ctrl_data = readl(__cil_tmp74);
       }
     } else {
       {
 #line 120
-      __cil_tmp101 = *((u8 **)hw);
+      __cil_tmp75 = hw->hw_addr;
 #line 120
-      __cil_tmp102 = (void const volatile   *)__cil_tmp101;
+      __cil_tmp76 = (void const volatile   *)__cil_tmp75;
 #line 120
-      __cil_tmp103 = __cil_tmp102 + 4860U;
+      __cil_tmp77 = __cil_tmp76 + 4860U;
 #line 120
-      ltssm_ctrl_data = readl(__cil_tmp103);
+      ltssm_ctrl_data = readl(__cil_tmp77);
       }
     }
     {
 #line 121
     ltssm_ctrl_data = ltssm_ctrl_data & 4294963199U;
 #line 122
-    __cil_tmp104 = *((u8 **)hw);
+    __cil_tmp78 = hw->hw_addr;
 #line 122
-    __cil_tmp105 = (void volatile   *)__cil_tmp104;
+    __cil_tmp79 = (void volatile   *)__cil_tmp78;
 #line 122
-    __cil_tmp106 = __cil_tmp105 + 4860U;
+    __cil_tmp80 = __cil_tmp79 + 4860U;
 #line 122
-    writel(ltssm_ctrl_data, __cil_tmp106);
+    writel(ltssm_ctrl_data, __cil_tmp80);
 #line 125
-    __cil_tmp107 = *((u8 **)hw);
+    __cil_tmp81 = hw->hw_addr;
 #line 125
-    __cil_tmp108 = (void volatile   *)__cil_tmp107;
+    __cil_tmp82 = (void volatile   *)__cil_tmp81;
 #line 125
-    __cil_tmp109 = __cil_tmp108 + 5280U;
+    __cil_tmp83 = __cil_tmp82 + 5280U;
 #line 125
-    writel(0U, __cil_tmp109);
+    writel(0U, __cil_tmp83);
 #line 126
-    __cil_tmp110 = (unsigned long )hw;
+    __cil_tmp84 = hw->hibernate;
 #line 126
-    __cil_tmp111 = __cil_tmp110 + 237;
+    __cil_tmp85 = (long )__cil_tmp84;
 #line 126
-    __cil_tmp112 = *((bool *)__cil_tmp111);
-#line 126
-    __cil_tmp113 = (long )__cil_tmp112;
-#line 126
-    tmp___3 = __builtin_expect(__cil_tmp113, 0L);
+    tmp___3 = __builtin_expect(__cil_tmp85, 0L);
     }
 #line 126
     if (tmp___3 != 0L) {
       {
 #line 126
-      __cil_tmp114 = *((u8 **)hw);
+      __cil_tmp86 = hw->hw_addr;
 #line 126
-      __cil_tmp115 = (void const volatile   *)__cil_tmp114;
+      __cil_tmp87 = (void const volatile   *)__cil_tmp86;
 #line 126
-      __cil_tmp116 = __cil_tmp115 + 5280U;
+      __cil_tmp88 = __cil_tmp87 + 5280U;
 #line 126
-      readl(__cil_tmp116);
+      readl(__cil_tmp88);
 #line 126
-      __cil_tmp117 = *((u8 **)hw);
+      __cil_tmp89 = hw->hw_addr;
 #line 126
-      __cil_tmp118 = (void const volatile   *)__cil_tmp117;
+      __cil_tmp90 = (void const volatile   *)__cil_tmp89;
 #line 126
-      __cil_tmp119 = __cil_tmp118 + 5280U;
+      __cil_tmp91 = __cil_tmp90 + 5280U;
 #line 126
-      wol_data = readl(__cil_tmp119);
+      wol_data = readl(__cil_tmp91);
       }
     } else {
       {
 #line 126
-      __cil_tmp120 = *((u8 **)hw);
+      __cil_tmp92 = hw->hw_addr;
 #line 126
-      __cil_tmp121 = (void const volatile   *)__cil_tmp120;
+      __cil_tmp93 = (void const volatile   *)__cil_tmp92;
 #line 126
-      __cil_tmp122 = __cil_tmp121 + 5280U;
+      __cil_tmp94 = __cil_tmp93 + 5280U;
 #line 126
-      wol_data = readl(__cil_tmp122);
+      wol_data = readl(__cil_tmp94);
       }
     }
     {
 #line 129
-    __cil_tmp123 = (unsigned long )hw;
+    __cil_tmp95 = hw->hibernate;
 #line 129
-    __cil_tmp124 = __cil_tmp123 + 237;
+    __cil_tmp96 = (long )__cil_tmp95;
 #line 129
-    __cil_tmp125 = *((bool *)__cil_tmp124);
-#line 129
-    __cil_tmp126 = (long )__cil_tmp125;
-#line 129
-    tmp___4 = __builtin_expect(__cil_tmp126, 0L);
+    tmp___4 = __builtin_expect(__cil_tmp96, 0L);
     }
 #line 129
     if (tmp___4 != 0L) {
       {
 #line 129
-      __cil_tmp127 = *((u8 **)hw);
+      __cil_tmp97 = hw->hw_addr;
 #line 129
-      __cil_tmp128 = (void const volatile   *)__cil_tmp127;
+      __cil_tmp98 = (void const volatile   *)__cil_tmp97;
 #line 129
-      __cil_tmp129 = __cil_tmp128 + 536U;
+      __cil_tmp99 = __cil_tmp98 + 536U;
 #line 129
-      readl(__cil_tmp129);
+      readl(__cil_tmp99);
 #line 129
-      __cil_tmp130 = *((u8 **)hw);
+      __cil_tmp100 = hw->hw_addr;
 #line 129
-      __cil_tmp131 = (void const volatile   *)__cil_tmp130;
+      __cil_tmp101 = (void const volatile   *)__cil_tmp100;
 #line 129
-      __cil_tmp132 = __cil_tmp131 + 536U;
+      __cil_tmp102 = __cil_tmp101 + 536U;
 #line 129
-      twsi_ctrl_data = readl(__cil_tmp132);
+      twsi_ctrl_data = readl(__cil_tmp102);
       }
     } else {
       {
 #line 129
-      __cil_tmp133 = *((u8 **)hw);
+      __cil_tmp103 = hw->hw_addr;
 #line 129
-      __cil_tmp134 = (void const volatile   *)__cil_tmp133;
+      __cil_tmp104 = (void const volatile   *)__cil_tmp103;
 #line 129
-      __cil_tmp135 = __cil_tmp134 + 536U;
+      __cil_tmp105 = __cil_tmp104 + 536U;
 #line 129
-      twsi_ctrl_data = readl(__cil_tmp135);
+      twsi_ctrl_data = readl(__cil_tmp105);
       }
     }
     {
 #line 130
     twsi_ctrl_data = twsi_ctrl_data | 2048U;
 #line 131
-    __cil_tmp136 = *((u8 **)hw);
+    __cil_tmp106 = hw->hw_addr;
 #line 131
-    __cil_tmp137 = (void volatile   *)__cil_tmp136;
+    __cil_tmp107 = (void volatile   *)__cil_tmp106;
 #line 131
-    __cil_tmp138 = __cil_tmp137 + 536U;
+    __cil_tmp108 = __cil_tmp107 + 536U;
 #line 131
-    writel(twsi_ctrl_data, __cil_tmp138);
+    writel(twsi_ctrl_data, __cil_tmp108);
 #line 132
     i = 0U;
     }
+#line 132
     goto ldv_42431;
     ldv_42430: 
     {
 #line 133
     msleep(10U);
 #line 134
-    __cil_tmp139 = (unsigned long )hw;
+    __cil_tmp109 = hw->hibernate;
 #line 134
-    __cil_tmp140 = __cil_tmp139 + 237;
+    __cil_tmp110 = (long )__cil_tmp109;
 #line 134
-    __cil_tmp141 = *((bool *)__cil_tmp140);
-#line 134
-    __cil_tmp142 = (long )__cil_tmp141;
-#line 134
-    tmp___5 = __builtin_expect(__cil_tmp142, 0L);
+    tmp___5 = __builtin_expect(__cil_tmp110, 0L);
     }
 #line 134
     if (tmp___5 != 0L) {
       {
 #line 134
-      __cil_tmp143 = *((u8 **)hw);
+      __cil_tmp111 = hw->hw_addr;
 #line 134
-      __cil_tmp144 = (void const volatile   *)__cil_tmp143;
+      __cil_tmp112 = (void const volatile   *)__cil_tmp111;
 #line 134
-      __cil_tmp145 = __cil_tmp144 + 536U;
+      __cil_tmp113 = __cil_tmp112 + 536U;
 #line 134
-      readl(__cil_tmp145);
+      readl(__cil_tmp113);
 #line 134
-      __cil_tmp146 = *((u8 **)hw);
+      __cil_tmp114 = hw->hw_addr;
 #line 134
-      __cil_tmp147 = (void const volatile   *)__cil_tmp146;
+      __cil_tmp115 = (void const volatile   *)__cil_tmp114;
 #line 134
-      __cil_tmp148 = __cil_tmp147 + 536U;
+      __cil_tmp116 = __cil_tmp115 + 536U;
 #line 134
-      twsi_ctrl_data = readl(__cil_tmp148);
+      twsi_ctrl_data = readl(__cil_tmp116);
       }
     } else {
       {
 #line 134
-      __cil_tmp149 = *((u8 **)hw);
+      __cil_tmp117 = hw->hw_addr;
 #line 134
-      __cil_tmp150 = (void const volatile   *)__cil_tmp149;
+      __cil_tmp118 = (void const volatile   *)__cil_tmp117;
 #line 134
-      __cil_tmp151 = __cil_tmp150 + 536U;
+      __cil_tmp119 = __cil_tmp118 + 536U;
 #line 134
-      twsi_ctrl_data = readl(__cil_tmp151);
+      twsi_ctrl_data = readl(__cil_tmp119);
       }
     }
     {
 #line 135
-    __cil_tmp152 = twsi_ctrl_data & 2048U;
+    __cil_tmp120 = twsi_ctrl_data & 2048U;
 #line 135
-    if (__cil_tmp152 == 0U) {
+    if (__cil_tmp120 == 0U) {
+#line 136
       goto ldv_42429;
     } else {
 
@@ -17303,8 +14903,10 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
     ldv_42431: ;
 #line 132
     if (i <= 99U) {
+#line 133
       goto ldv_42430;
     } else {
+#line 135
       goto ldv_42429;
     }
     ldv_42429: ;
@@ -17320,52 +14922,44 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
   }
   {
 #line 142
-  __cil_tmp153 = (unsigned long )hw;
+  __cil_tmp121 = hw->nic_type;
 #line 142
-  __cil_tmp154 = __cil_tmp153 + 16;
+  __cil_tmp122 = (unsigned int )__cil_tmp121;
 #line 142
-  __cil_tmp155 = *((enum atl1c_nic_type *)__cil_tmp154);
-#line 142
-  __cil_tmp156 = (unsigned int )__cil_tmp155;
-#line 142
-  if (__cil_tmp156 == 0U) {
+  if (__cil_tmp122 == 0U) {
     {
 #line 143
     otp_ctrl_data = otp_ctrl_data & 4294967293U;
 #line 144
-    __cil_tmp157 = *((u8 **)hw);
+    __cil_tmp123 = hw->hw_addr;
 #line 144
-    __cil_tmp158 = (void volatile   *)__cil_tmp157;
+    __cil_tmp124 = (void volatile   *)__cil_tmp123;
 #line 144
-    __cil_tmp159 = __cil_tmp158 + 4848U;
+    __cil_tmp125 = __cil_tmp124 + 4848U;
 #line 144
-    writel(otp_ctrl_data, __cil_tmp159);
+    writel(otp_ctrl_data, __cil_tmp125);
 #line 145
     msleep(1U);
     }
   } else {
     {
 #line 142
-    __cil_tmp160 = (unsigned long )hw;
+    __cil_tmp126 = hw->nic_type;
 #line 142
-    __cil_tmp161 = __cil_tmp160 + 16;
+    __cil_tmp127 = (unsigned int )__cil_tmp126;
 #line 142
-    __cil_tmp162 = *((enum atl1c_nic_type *)__cil_tmp161);
-#line 142
-    __cil_tmp163 = (unsigned int )__cil_tmp162;
-#line 142
-    if (__cil_tmp163 == 1U) {
+    if (__cil_tmp127 == 1U) {
       {
 #line 143
       otp_ctrl_data = otp_ctrl_data & 4294967293U;
 #line 144
-      __cil_tmp164 = *((u8 **)hw);
+      __cil_tmp128 = hw->hw_addr;
 #line 144
-      __cil_tmp165 = (void volatile   *)__cil_tmp164;
+      __cil_tmp129 = (void volatile   *)__cil_tmp128;
 #line 144
-      __cil_tmp166 = __cil_tmp165 + 4848U;
+      __cil_tmp130 = __cil_tmp129 + 4848U;
 #line 144
-      writel(otp_ctrl_data, __cil_tmp166);
+      writel(otp_ctrl_data, __cil_tmp130);
 #line 145
       msleep(1U);
       }
@@ -17379,124 +14973,101 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
   if ((int )raise_vol) {
     {
 #line 148
-    __cil_tmp167 = (unsigned long )hw;
+    __cil_tmp131 = hw->nic_type;
 #line 148
-    __cil_tmp168 = __cil_tmp167 + 16;
+    __cil_tmp132 = (unsigned int )__cil_tmp131;
 #line 148
-    __cil_tmp169 = *((enum atl1c_nic_type *)__cil_tmp168);
+    if (__cil_tmp132 == 2U) {
 #line 148
-    __cil_tmp170 = (unsigned int )__cil_tmp169;
-#line 148
-    if (__cil_tmp170 == 2U) {
       goto _L___1;
     } else {
       {
 #line 148
-      __cil_tmp171 = (unsigned long )hw;
+      __cil_tmp133 = hw->nic_type;
 #line 148
-      __cil_tmp172 = __cil_tmp171 + 16;
+      __cil_tmp134 = (unsigned int )__cil_tmp133;
 #line 148
-      __cil_tmp173 = *((enum atl1c_nic_type *)__cil_tmp172);
+      if (__cil_tmp134 == 3U) {
 #line 148
-      __cil_tmp174 = (unsigned int )__cil_tmp173;
-#line 148
-      if (__cil_tmp174 == 3U) {
         goto _L___1;
       } else {
         {
 #line 148
-        __cil_tmp175 = (unsigned long )hw;
+        __cil_tmp135 = hw->nic_type;
 #line 148
-        __cil_tmp176 = __cil_tmp175 + 16;
+        __cil_tmp136 = (unsigned int )__cil_tmp135;
 #line 148
-        __cil_tmp177 = *((enum atl1c_nic_type *)__cil_tmp176);
+        if (__cil_tmp136 == 4U) {
 #line 148
-        __cil_tmp178 = (unsigned int )__cil_tmp177;
-#line 148
-        if (__cil_tmp178 == 4U) {
           goto _L___1;
         } else {
           {
 #line 148
-          __cil_tmp179 = (unsigned long )hw;
+          __cil_tmp137 = hw->nic_type;
 #line 148
-          __cil_tmp180 = __cil_tmp179 + 16;
+          __cil_tmp138 = (unsigned int )__cil_tmp137;
 #line 148
-          __cil_tmp181 = *((enum atl1c_nic_type *)__cil_tmp180);
-#line 148
-          __cil_tmp182 = (unsigned int )__cil_tmp181;
-#line 148
-          if (__cil_tmp182 == 5U) {
+          if (__cil_tmp138 == 5U) {
             _L___1: 
             {
 #line 152
-            atl1c_write_phy_reg(hw, 29U, (unsigned short)0);
+            __cil_tmp139 = (u16 )0;
+#line 152
+            atl1c_write_phy_reg(hw, 29U, __cil_tmp139);
 #line 153
-            tmp___7 = atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+            __cil_tmp140 = (u16 )30;
+#line 153
+            tmp___7 = atl1c_read_phy_reg(hw, __cil_tmp140, & phy_data);
             }
 #line 153
             if (tmp___7 != 0) {
+#line 154
               goto out;
             } else {
 
             }
             {
 #line 155
-            __cil_tmp183 = & phy_data;
+            __cil_tmp141 = (unsigned int )phy_data;
 #line 155
-            __cil_tmp184 = & phy_data;
+            __cil_tmp142 = __cil_tmp141 | 128U;
 #line 155
-            __cil_tmp185 = *__cil_tmp184;
-#line 155
-            __cil_tmp186 = (unsigned int )__cil_tmp185;
-#line 155
-            __cil_tmp187 = __cil_tmp186 | 128U;
-#line 155
-            *__cil_tmp183 = (unsigned short )__cil_tmp187;
+            phy_data = (u16 )__cil_tmp142;
 #line 156
-            __cil_tmp188 = & phy_data;
+            __cil_tmp143 = (int )phy_data;
 #line 156
-            __cil_tmp189 = *__cil_tmp188;
+            __cil_tmp144 = (u16 )__cil_tmp143;
 #line 156
-            __cil_tmp190 = (int )__cil_tmp189;
-#line 156
-            __cil_tmp191 = (unsigned short )__cil_tmp190;
-#line 156
-            atl1c_write_phy_reg(hw, 30U, __cil_tmp191);
+            atl1c_write_phy_reg(hw, 30U, __cil_tmp144);
 #line 158
-            atl1c_write_phy_reg(hw, 29U, (unsigned short)59);
+            __cil_tmp145 = (u16 )59;
+#line 158
+            atl1c_write_phy_reg(hw, 29U, __cil_tmp145);
 #line 159
-            tmp___8 = atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+            __cil_tmp146 = (u16 )30;
+#line 159
+            tmp___8 = atl1c_read_phy_reg(hw, __cil_tmp146, & phy_data);
             }
 #line 159
             if (tmp___8 != 0) {
+#line 160
               goto out;
             } else {
 
             }
             {
 #line 161
-            __cil_tmp192 = & phy_data;
+            __cil_tmp147 = (unsigned int )phy_data;
 #line 161
-            __cil_tmp193 = & phy_data;
+            __cil_tmp148 = __cil_tmp147 & 65527U;
 #line 161
-            __cil_tmp194 = *__cil_tmp193;
-#line 161
-            __cil_tmp195 = (unsigned int )__cil_tmp194;
-#line 161
-            __cil_tmp196 = __cil_tmp195 & 65527U;
-#line 161
-            *__cil_tmp192 = (unsigned short )__cil_tmp196;
+            phy_data = (u16 )__cil_tmp148;
 #line 162
-            __cil_tmp197 = & phy_data;
+            __cil_tmp149 = (int )phy_data;
 #line 162
-            __cil_tmp198 = *__cil_tmp197;
+            __cil_tmp150 = (u16 )__cil_tmp149;
 #line 162
-            __cil_tmp199 = (int )__cil_tmp198;
-#line 162
-            __cil_tmp200 = (unsigned short )__cil_tmp199;
-#line 162
-            atl1c_write_phy_reg(hw, 30U, __cil_tmp200);
+            atl1c_write_phy_reg(hw, 30U, __cil_tmp150);
 #line 163
             __const_udelay(85900UL);
             }
@@ -17515,139 +15086,125 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
   }
   {
 #line 168
-  __cil_tmp201 = (unsigned long )hw;
+  __cil_tmp151 = hw->hibernate;
 #line 168
-  __cil_tmp202 = __cil_tmp201 + 237;
+  __cil_tmp152 = (long )__cil_tmp151;
 #line 168
-  __cil_tmp203 = *((bool *)__cil_tmp202);
-#line 168
-  __cil_tmp204 = (long )__cil_tmp203;
-#line 168
-  tmp___9 = __builtin_expect(__cil_tmp204, 0L);
+  tmp___9 = __builtin_expect(__cil_tmp152, 0L);
   }
 #line 168
   if (tmp___9 != 0L) {
     {
 #line 168
-    __cil_tmp205 = *((u8 **)hw);
+    __cil_tmp153 = hw->hw_addr;
 #line 168
-    __cil_tmp206 = (void const volatile   *)__cil_tmp205;
+    __cil_tmp154 = (void const volatile   *)__cil_tmp153;
 #line 168
-    __cil_tmp207 = __cil_tmp206 + 5256U;
+    __cil_tmp155 = __cil_tmp154 + 5256U;
 #line 168
-    readl(__cil_tmp207);
+    readl(__cil_tmp155);
 #line 168
-    __cil_tmp208 = (u32 *)(& addr);
+    __cil_tmp156 = (u32 *)(& addr);
 #line 168
-    __cil_tmp209 = *((u8 **)hw);
+    __cil_tmp157 = hw->hw_addr;
 #line 168
-    __cil_tmp210 = (void const volatile   *)__cil_tmp209;
+    __cil_tmp158 = (void const volatile   *)__cil_tmp157;
 #line 168
-    __cil_tmp211 = __cil_tmp210 + 5256U;
+    __cil_tmp159 = __cil_tmp158 + 5256U;
 #line 168
-    *__cil_tmp208 = readl(__cil_tmp211);
+    *__cil_tmp156 = readl(__cil_tmp159);
     }
   } else {
     {
 #line 168
-    __cil_tmp212 = (u32 *)(& addr);
+    __cil_tmp160 = (u32 *)(& addr);
 #line 168
-    __cil_tmp213 = *((u8 **)hw);
+    __cil_tmp161 = hw->hw_addr;
 #line 168
-    __cil_tmp214 = (void const volatile   *)__cil_tmp213;
+    __cil_tmp162 = (void const volatile   *)__cil_tmp161;
 #line 168
-    __cil_tmp215 = __cil_tmp214 + 5256U;
+    __cil_tmp163 = __cil_tmp162 + 5256U;
 #line 168
-    *__cil_tmp212 = readl(__cil_tmp215);
+    *__cil_tmp160 = readl(__cil_tmp163);
     }
   }
   {
 #line 169
-  __cil_tmp216 = (unsigned long )hw;
+  __cil_tmp164 = hw->hibernate;
 #line 169
-  __cil_tmp217 = __cil_tmp216 + 237;
+  __cil_tmp165 = (long )__cil_tmp164;
 #line 169
-  __cil_tmp218 = *((bool *)__cil_tmp217);
-#line 169
-  __cil_tmp219 = (long )__cil_tmp218;
-#line 169
-  tmp___10 = __builtin_expect(__cil_tmp219, 0L);
+  tmp___10 = __builtin_expect(__cil_tmp165, 0L);
   }
 #line 169
   if (tmp___10 != 0L) {
     {
 #line 169
-    __cil_tmp220 = *((u8 **)hw);
+    __cil_tmp166 = hw->hw_addr;
 #line 169
-    __cil_tmp221 = (void const volatile   *)__cil_tmp220;
+    __cil_tmp167 = (void const volatile   *)__cil_tmp166;
 #line 169
-    __cil_tmp222 = __cil_tmp221 + 5260U;
+    __cil_tmp168 = __cil_tmp167 + 5260U;
 #line 169
-    readl(__cil_tmp222);
+    readl(__cil_tmp168);
 #line 169
-    __cil_tmp223 = (u32 *)(& addr);
+    __cil_tmp169 = (u32 *)(& addr);
 #line 169
-    __cil_tmp224 = __cil_tmp223 + 1UL;
+    __cil_tmp170 = __cil_tmp169 + 1UL;
 #line 169
-    __cil_tmp225 = *((u8 **)hw);
+    __cil_tmp171 = hw->hw_addr;
 #line 169
-    __cil_tmp226 = (void const volatile   *)__cil_tmp225;
+    __cil_tmp172 = (void const volatile   *)__cil_tmp171;
 #line 169
-    __cil_tmp227 = __cil_tmp226 + 5260U;
+    __cil_tmp173 = __cil_tmp172 + 5260U;
 #line 169
-    *__cil_tmp224 = readl(__cil_tmp227);
+    *__cil_tmp170 = readl(__cil_tmp173);
     }
   } else {
     {
 #line 169
-    __cil_tmp228 = (u32 *)(& addr);
+    __cil_tmp174 = (u32 *)(& addr);
 #line 169
-    __cil_tmp229 = __cil_tmp228 + 1UL;
+    __cil_tmp175 = __cil_tmp174 + 1UL;
 #line 169
-    __cil_tmp230 = *((u8 **)hw);
+    __cil_tmp176 = hw->hw_addr;
 #line 169
-    __cil_tmp231 = (void const volatile   *)__cil_tmp230;
+    __cil_tmp177 = (void const volatile   *)__cil_tmp176;
 #line 169
-    __cil_tmp232 = __cil_tmp231 + 5260U;
+    __cil_tmp178 = __cil_tmp177 + 5260U;
 #line 169
-    *__cil_tmp229 = readl(__cil_tmp232);
+    *__cil_tmp175 = readl(__cil_tmp178);
     }
   }
   {
 #line 170
-  __cil_tmp233 = 0 * 4UL;
+  tmp___11 = __fswab32(addr[0]);
 #line 170
-  __cil_tmp234 = (unsigned long )(addr) + __cil_tmp233;
+  __cil_tmp179 = (u32 *)(& eth_addr);
 #line 170
-  __cil_tmp235 = *((u32 *)__cil_tmp234);
+  __cil_tmp180 = __cil_tmp179 + 2U;
 #line 170
-  tmp___11 = __fswab32(__cil_tmp235);
-#line 170
-  __cil_tmp236 = (u32 *)(& eth_addr);
-#line 170
-  __cil_tmp237 = __cil_tmp236 + 2U;
-#line 170
-  *__cil_tmp237 = tmp___11;
+  *__cil_tmp180 = tmp___11;
 #line 171
-  __cil_tmp238 = (u16 *)(& addr);
+  __cil_tmp181 = (u16 *)(& addr);
 #line 171
-  __cil_tmp239 = __cil_tmp238 + 1U;
+  __cil_tmp182 = __cil_tmp181 + 1U;
 #line 171
-  __cil_tmp240 = *__cil_tmp239;
+  __cil_tmp183 = *__cil_tmp182;
 #line 171
-  __cil_tmp241 = (int )__cil_tmp240;
+  __cil_tmp184 = (int )__cil_tmp183;
 #line 171
-  __cil_tmp242 = (unsigned short )__cil_tmp241;
+  __cil_tmp185 = (__u16 )__cil_tmp184;
 #line 171
-  tmp___12 = __fswab16(__cil_tmp242);
+  tmp___12 = __fswab16(__cil_tmp185);
 #line 171
-  __cil_tmp243 = (u16 *)(& eth_addr);
+  __cil_tmp186 = (u16 *)(& eth_addr);
 #line 171
-  *__cil_tmp243 = tmp___12;
+  *__cil_tmp186 = tmp___12;
 #line 173
-  __cil_tmp244 = (u8 const   *)(& eth_addr);
+  __cil_tmp187 = (u8 const   *)(& eth_addr);
 #line 173
-  tmp___13 = is_valid_ether_addr(__cil_tmp244);
+  tmp___13 = is_valid_ether_addr(__cil_tmp187);
   }
 #line 173
   if (tmp___13 != 0) {
@@ -17657,32 +15214,24 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
     if (__len > 63UL) {
       {
 #line 174
-      __cil_tmp245 = (unsigned long )hw;
+      __cil_tmp188 = & hw->perm_mac_addr;
 #line 174
-      __cil_tmp246 = __cil_tmp245 + 358;
+      __cil_tmp189 = (void *)__cil_tmp188;
 #line 174
-      __cil_tmp247 = (u8 (*)[6U])__cil_tmp246;
+      __cil_tmp190 = (void const   *)(& eth_addr);
 #line 174
-      __cil_tmp248 = (void *)__cil_tmp247;
-#line 174
-      __cil_tmp249 = (void const   *)(& eth_addr);
-#line 174
-      __ret = __memcpy(__cil_tmp248, __cil_tmp249, __len);
+      __ret = __memcpy(__cil_tmp189, __cil_tmp190, __len);
       }
     } else {
       {
 #line 174
-      __cil_tmp250 = (unsigned long )hw;
+      __cil_tmp191 = & hw->perm_mac_addr;
 #line 174
-      __cil_tmp251 = __cil_tmp250 + 358;
+      __cil_tmp192 = (void *)__cil_tmp191;
 #line 174
-      __cil_tmp252 = (u8 (*)[6U])__cil_tmp251;
+      __cil_tmp193 = (void const   *)(& eth_addr);
 #line 174
-      __cil_tmp253 = (void *)__cil_tmp252;
-#line 174
-      __cil_tmp254 = (void const   *)(& eth_addr);
-#line 174
-      __ret = __builtin_memcpy(__cil_tmp253, __cil_tmp254, __len);
+      __ret = __builtin_memcpy(__cil_tmp192, __cil_tmp193, __len);
       }
     }
 #line 175
@@ -17709,81 +15258,73 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   __u32 tmp___3 ;
   unsigned int __cil_tmp14 ;
   int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  bool __cil_tmp18 ;
-  long __cil_tmp19 ;
-  u8 *__cil_tmp20 ;
-  void const volatile   *__cil_tmp21 ;
+  bool __cil_tmp16 ;
+  long __cil_tmp17 ;
+  u8 *__cil_tmp18 ;
+  void const volatile   *__cil_tmp19 ;
+  void const volatile   *__cil_tmp20 ;
+  u8 *__cil_tmp21 ;
   void const volatile   *__cil_tmp22 ;
-  u8 *__cil_tmp23 ;
-  void const volatile   *__cil_tmp24 ;
+  void const volatile   *__cil_tmp23 ;
+  u8 *__cil_tmp24 ;
   void const volatile   *__cil_tmp25 ;
-  u8 *__cil_tmp26 ;
-  void const volatile   *__cil_tmp27 ;
-  void const volatile   *__cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  u8 *__cil_tmp31 ;
-  void volatile   *__cil_tmp32 ;
+  void const volatile   *__cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  u8 *__cil_tmp29 ;
+  void volatile   *__cil_tmp30 ;
+  void volatile   *__cil_tmp31 ;
+  u8 *__cil_tmp32 ;
   void volatile   *__cil_tmp33 ;
-  u8 *__cil_tmp34 ;
-  void volatile   *__cil_tmp35 ;
-  void volatile   *__cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  u8 *__cil_tmp38 ;
-  void volatile   *__cil_tmp39 ;
-  void volatile   *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  bool __cil_tmp43 ;
-  long __cil_tmp44 ;
-  u8 *__cil_tmp45 ;
+  void volatile   *__cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  u8 *__cil_tmp36 ;
+  void volatile   *__cil_tmp37 ;
+  void volatile   *__cil_tmp38 ;
+  bool __cil_tmp39 ;
+  long __cil_tmp40 ;
+  u8 *__cil_tmp41 ;
+  void const volatile   *__cil_tmp42 ;
+  void const volatile   *__cil_tmp43 ;
+  u8 *__cil_tmp44 ;
+  void const volatile   *__cil_tmp45 ;
   void const volatile   *__cil_tmp46 ;
-  void const volatile   *__cil_tmp47 ;
-  u8 *__cil_tmp48 ;
+  u8 *__cil_tmp47 ;
+  void const volatile   *__cil_tmp48 ;
   void const volatile   *__cil_tmp49 ;
-  void const volatile   *__cil_tmp50 ;
-  u8 *__cil_tmp51 ;
-  void const volatile   *__cil_tmp52 ;
-  void const volatile   *__cil_tmp53 ;
-  int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  bool __cil_tmp58 ;
-  long __cil_tmp59 ;
+  int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  bool __cil_tmp52 ;
+  long __cil_tmp53 ;
+  u8 *__cil_tmp54 ;
+  void const volatile   *__cil_tmp55 ;
+  void const volatile   *__cil_tmp56 ;
+  u8 *__cil_tmp57 ;
+  void const volatile   *__cil_tmp58 ;
+  void const volatile   *__cil_tmp59 ;
   u8 *__cil_tmp60 ;
   void const volatile   *__cil_tmp61 ;
   void const volatile   *__cil_tmp62 ;
-  u8 *__cil_tmp63 ;
-  void const volatile   *__cil_tmp64 ;
-  void const volatile   *__cil_tmp65 ;
-  u8 *__cil_tmp66 ;
+  bool __cil_tmp63 ;
+  long __cil_tmp64 ;
+  u8 *__cil_tmp65 ;
+  void const volatile   *__cil_tmp66 ;
   void const volatile   *__cil_tmp67 ;
-  void const volatile   *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  bool __cil_tmp71 ;
-  long __cil_tmp72 ;
-  u8 *__cil_tmp73 ;
-  void const volatile   *__cil_tmp74 ;
-  void const volatile   *__cil_tmp75 ;
-  u8 *__cil_tmp76 ;
-  void const volatile   *__cil_tmp77 ;
-  void const volatile   *__cil_tmp78 ;
+  u8 *__cil_tmp68 ;
+  void const volatile   *__cil_tmp69 ;
+  void const volatile   *__cil_tmp70 ;
+  u8 *__cil_tmp71 ;
+  void const volatile   *__cil_tmp72 ;
+  void const volatile   *__cil_tmp73 ;
+  u32 __cil_tmp74 ;
+  u32 __cil_tmp75 ;
+  u32 __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
   u8 *__cil_tmp79 ;
-  void const volatile   *__cil_tmp80 ;
-  void const volatile   *__cil_tmp81 ;
-  u32 __cil_tmp82 ;
-  u32 __cil_tmp83 ;
-  u32 __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  u8 *__cil_tmp87 ;
-  void volatile   *__cil_tmp88 ;
-  void volatile   *__cil_tmp89 ;
-  int __cil_tmp90 ;
+  void volatile   *__cil_tmp80 ;
+  void volatile   *__cil_tmp81 ;
+  int __cil_tmp82 ;
 
   {
 #line 185
@@ -17797,7 +15338,7 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
 #line 191
     __cil_tmp15 = ret != 0;
 #line 191
-    return ((_Bool )__cil_tmp15);
+    return ((bool )__cil_tmp15);
     }
   } else {
 
@@ -17805,64 +15346,60 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   }
   {
 #line 193
-  __cil_tmp16 = (unsigned long )hw;
+  __cil_tmp16 = hw->hibernate;
 #line 193
-  __cil_tmp17 = __cil_tmp16 + 237;
+  __cil_tmp17 = (long )__cil_tmp16;
 #line 193
-  __cil_tmp18 = *((bool *)__cil_tmp17);
-#line 193
-  __cil_tmp19 = (long )__cil_tmp18;
-#line 193
-  tmp = __builtin_expect(__cil_tmp19, 0L);
+  tmp = __builtin_expect(__cil_tmp17, 0L);
   }
 #line 193
   if (tmp != 0L) {
     {
 #line 193
-    __cil_tmp20 = *((u8 **)hw);
+    __cil_tmp18 = hw->hw_addr;
 #line 193
-    __cil_tmp21 = (void const volatile   *)__cil_tmp20;
+    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
 #line 193
-    __cil_tmp22 = __cil_tmp21 + 4848U;
+    __cil_tmp20 = __cil_tmp19 + 4848U;
 #line 193
-    readl(__cil_tmp22);
+    readl(__cil_tmp20);
 #line 193
-    __cil_tmp23 = *((u8 **)hw);
+    __cil_tmp21 = hw->hw_addr;
 #line 193
-    __cil_tmp24 = (void const volatile   *)__cil_tmp23;
+    __cil_tmp22 = (void const volatile   *)__cil_tmp21;
 #line 193
-    __cil_tmp25 = __cil_tmp24 + 4848U;
+    __cil_tmp23 = __cil_tmp22 + 4848U;
 #line 193
-    otp_ctrl_data = readl(__cil_tmp25);
+    otp_ctrl_data = readl(__cil_tmp23);
     }
   } else {
     {
 #line 193
-    __cil_tmp26 = *((u8 **)hw);
+    __cil_tmp24 = hw->hw_addr;
 #line 193
-    __cil_tmp27 = (void const volatile   *)__cil_tmp26;
+    __cil_tmp25 = (void const volatile   *)__cil_tmp24;
 #line 193
-    __cil_tmp28 = __cil_tmp27 + 4848U;
+    __cil_tmp26 = __cil_tmp25 + 4848U;
 #line 193
-    otp_ctrl_data = readl(__cil_tmp28);
+    otp_ctrl_data = readl(__cil_tmp26);
     }
   }
   {
 #line 194
-  __cil_tmp29 = otp_ctrl_data & 2U;
+  __cil_tmp27 = otp_ctrl_data & 2U;
 #line 194
-  if (__cil_tmp29 == 0U) {
+  if (__cil_tmp27 == 0U) {
     {
 #line 195
-    __cil_tmp30 = otp_ctrl_data | 2U;
+    __cil_tmp28 = otp_ctrl_data | 2U;
 #line 195
-    __cil_tmp31 = *((u8 **)hw);
+    __cil_tmp29 = hw->hw_addr;
 #line 195
-    __cil_tmp32 = (void volatile   *)__cil_tmp31;
+    __cil_tmp30 = (void volatile   *)__cil_tmp29;
 #line 195
-    __cil_tmp33 = __cil_tmp32 + 4848U;
+    __cil_tmp31 = __cil_tmp30 + 4848U;
 #line 195
-    writel(__cil_tmp30, __cil_tmp33);
+    writel(__cil_tmp28, __cil_tmp31);
     }
   } else {
 
@@ -17870,81 +15407,79 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   }
   {
 #line 198
-  __cil_tmp34 = *((u8 **)hw);
+  __cil_tmp32 = hw->hw_addr;
 #line 198
-  __cil_tmp35 = (void volatile   *)__cil_tmp34;
+  __cil_tmp33 = (void volatile   *)__cil_tmp32;
 #line 198
-  __cil_tmp36 = __cil_tmp35 + 4804U;
+  __cil_tmp34 = __cil_tmp33 + 4804U;
 #line 198
-  writel(0U, __cil_tmp36);
+  writel(0U, __cil_tmp34);
 #line 199
-  __cil_tmp37 = offset & 1023U;
+  __cil_tmp35 = offset & 1023U;
 #line 199
-  control = __cil_tmp37 << 16;
+  control = __cil_tmp35 << 16;
 #line 200
-  __cil_tmp38 = *((u8 **)hw);
+  __cil_tmp36 = hw->hw_addr;
 #line 200
-  __cil_tmp39 = (void volatile   *)__cil_tmp38;
+  __cil_tmp37 = (void volatile   *)__cil_tmp36;
 #line 200
-  __cil_tmp40 = __cil_tmp39 + 4800U;
+  __cil_tmp38 = __cil_tmp37 + 4800U;
 #line 200
-  writel(control, __cil_tmp40);
+  writel(control, __cil_tmp38);
 #line 202
   i = 0;
   }
+#line 202
   goto ldv_42447;
   ldv_42446: 
   {
 #line 203
   __const_udelay(429500UL);
 #line 204
-  __cil_tmp41 = (unsigned long )hw;
+  __cil_tmp39 = hw->hibernate;
 #line 204
-  __cil_tmp42 = __cil_tmp41 + 237;
+  __cil_tmp40 = (long )__cil_tmp39;
 #line 204
-  __cil_tmp43 = *((bool *)__cil_tmp42);
-#line 204
-  __cil_tmp44 = (long )__cil_tmp43;
-#line 204
-  tmp___0 = __builtin_expect(__cil_tmp44, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp40, 0L);
   }
 #line 204
   if (tmp___0 != 0L) {
     {
 #line 204
-    __cil_tmp45 = *((u8 **)hw);
+    __cil_tmp41 = hw->hw_addr;
 #line 204
-    __cil_tmp46 = (void const volatile   *)__cil_tmp45;
+    __cil_tmp42 = (void const volatile   *)__cil_tmp41;
 #line 204
-    __cil_tmp47 = __cil_tmp46 + 4800U;
+    __cil_tmp43 = __cil_tmp42 + 4800U;
 #line 204
-    readl(__cil_tmp47);
+    readl(__cil_tmp43);
 #line 204
-    __cil_tmp48 = *((u8 **)hw);
+    __cil_tmp44 = hw->hw_addr;
 #line 204
-    __cil_tmp49 = (void const volatile   *)__cil_tmp48;
+    __cil_tmp45 = (void const volatile   *)__cil_tmp44;
 #line 204
-    __cil_tmp50 = __cil_tmp49 + 4800U;
+    __cil_tmp46 = __cil_tmp45 + 4800U;
 #line 204
-    control = readl(__cil_tmp50);
+    control = readl(__cil_tmp46);
     }
   } else {
     {
 #line 204
-    __cil_tmp51 = *((u8 **)hw);
+    __cil_tmp47 = hw->hw_addr;
 #line 204
-    __cil_tmp52 = (void const volatile   *)__cil_tmp51;
+    __cil_tmp48 = (void const volatile   *)__cil_tmp47;
 #line 204
-    __cil_tmp53 = __cil_tmp52 + 4800U;
+    __cil_tmp49 = __cil_tmp48 + 4800U;
 #line 204
-    control = readl(__cil_tmp53);
+    control = readl(__cil_tmp49);
     }
   }
   {
 #line 205
-  __cil_tmp54 = (int )control;
+  __cil_tmp50 = (int )control;
 #line 205
-  if (__cil_tmp54 < 0) {
+  if (__cil_tmp50 < 0) {
+#line 206
     goto ldv_42445;
   } else {
 
@@ -17955,117 +15490,111 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   ldv_42447: ;
 #line 202
   if (i <= 9) {
+#line 203
     goto ldv_42446;
   } else {
+#line 205
     goto ldv_42445;
   }
   ldv_42445: ;
   {
 #line 208
-  __cil_tmp55 = (int )control;
+  __cil_tmp51 = (int )control;
 #line 208
-  if (__cil_tmp55 < 0) {
+  if (__cil_tmp51 < 0) {
     {
 #line 209
-    __cil_tmp56 = (unsigned long )hw;
+    __cil_tmp52 = hw->hibernate;
 #line 209
-    __cil_tmp57 = __cil_tmp56 + 237;
+    __cil_tmp53 = (long )__cil_tmp52;
 #line 209
-    __cil_tmp58 = *((bool *)__cil_tmp57);
-#line 209
-    __cil_tmp59 = (long )__cil_tmp58;
-#line 209
-    tmp___1 = __builtin_expect(__cil_tmp59, 0L);
+    tmp___1 = __builtin_expect(__cil_tmp53, 0L);
     }
 #line 209
     if (tmp___1 != 0L) {
       {
 #line 209
-      __cil_tmp60 = *((u8 **)hw);
+      __cil_tmp54 = hw->hw_addr;
+#line 209
+      __cil_tmp55 = (void const volatile   *)__cil_tmp54;
+#line 209
+      __cil_tmp56 = __cil_tmp55 + 4800U;
+#line 209
+      readl(__cil_tmp56);
+#line 209
+      __cil_tmp57 = hw->hw_addr;
+#line 209
+      __cil_tmp58 = (void const volatile   *)__cil_tmp57;
+#line 209
+      __cil_tmp59 = __cil_tmp58 + 4800U;
+#line 209
+      data = readl(__cil_tmp59);
+      }
+    } else {
+      {
+#line 209
+      __cil_tmp60 = hw->hw_addr;
 #line 209
       __cil_tmp61 = (void const volatile   *)__cil_tmp60;
 #line 209
       __cil_tmp62 = __cil_tmp61 + 4800U;
 #line 209
-      readl(__cil_tmp62);
-#line 209
-      __cil_tmp63 = *((u8 **)hw);
-#line 209
-      __cil_tmp64 = (void const volatile   *)__cil_tmp63;
-#line 209
-      __cil_tmp65 = __cil_tmp64 + 4800U;
-#line 209
-      data = readl(__cil_tmp65);
-      }
-    } else {
-      {
-#line 209
-      __cil_tmp66 = *((u8 **)hw);
-#line 209
-      __cil_tmp67 = (void const volatile   *)__cil_tmp66;
-#line 209
-      __cil_tmp68 = __cil_tmp67 + 4800U;
-#line 209
-      data = readl(__cil_tmp68);
+      data = readl(__cil_tmp62);
       }
     }
     {
 #line 210
-    __cil_tmp69 = (unsigned long )hw;
+    __cil_tmp63 = hw->hibernate;
 #line 210
-    __cil_tmp70 = __cil_tmp69 + 237;
+    __cil_tmp64 = (long )__cil_tmp63;
 #line 210
-    __cil_tmp71 = *((bool *)__cil_tmp70);
-#line 210
-    __cil_tmp72 = (long )__cil_tmp71;
-#line 210
-    tmp___2 = __builtin_expect(__cil_tmp72, 0L);
+    tmp___2 = __builtin_expect(__cil_tmp64, 0L);
     }
 #line 210
     if (tmp___2 != 0L) {
       {
 #line 210
-      __cil_tmp73 = *((u8 **)hw);
+      __cil_tmp65 = hw->hw_addr;
 #line 210
-      __cil_tmp74 = (void const volatile   *)__cil_tmp73;
+      __cil_tmp66 = (void const volatile   *)__cil_tmp65;
 #line 210
-      __cil_tmp75 = __cil_tmp74 + 4804U;
+      __cil_tmp67 = __cil_tmp66 + 4804U;
 #line 210
-      readl(__cil_tmp75);
+      readl(__cil_tmp67);
 #line 210
-      __cil_tmp76 = *((u8 **)hw);
+      __cil_tmp68 = hw->hw_addr;
 #line 210
-      __cil_tmp77 = (void const volatile   *)__cil_tmp76;
+      __cil_tmp69 = (void const volatile   *)__cil_tmp68;
 #line 210
-      __cil_tmp78 = __cil_tmp77 + 4804U;
+      __cil_tmp70 = __cil_tmp69 + 4804U;
 #line 210
-      *p_value = readl(__cil_tmp78);
+      *p_value = readl(__cil_tmp70);
       }
     } else {
       {
 #line 210
-      __cil_tmp79 = *((u8 **)hw);
+      __cil_tmp71 = hw->hw_addr;
 #line 210
-      __cil_tmp80 = (void const volatile   *)__cil_tmp79;
+      __cil_tmp72 = (void const volatile   *)__cil_tmp71;
 #line 210
-      __cil_tmp81 = __cil_tmp80 + 4804U;
+      __cil_tmp73 = __cil_tmp72 + 4804U;
 #line 210
-      *p_value = readl(__cil_tmp81);
+      *p_value = readl(__cil_tmp73);
       }
     }
     {
 #line 211
     data = data & 65535U;
 #line 212
-    __cil_tmp82 = *p_value;
+    __cil_tmp74 = *p_value;
 #line 212
-    __cil_tmp83 = __cil_tmp82 >> 16;
+    __cil_tmp75 = __cil_tmp74 >> 16;
 #line 212
-    __cil_tmp84 = data << 16;
+    __cil_tmp76 = data << 16;
 #line 212
-    __cil_tmp85 = __cil_tmp84 | __cil_tmp83;
+    __cil_tmp77 = __cil_tmp76 | __cil_tmp75;
 #line 212
-    tmp___3 = __fswab32(__cil_tmp85);
+    tmp___3 = __fswab32(__cil_tmp77);
 #line 212
     *p_value = tmp___3;
 #line 213
@@ -18077,18 +15606,18 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   }
   {
 #line 215
-  __cil_tmp86 = otp_ctrl_data & 2U;
+  __cil_tmp78 = otp_ctrl_data & 2U;
 #line 215
-  if (__cil_tmp86 == 0U) {
+  if (__cil_tmp78 == 0U) {
     {
 #line 216
-    __cil_tmp87 = *((u8 **)hw);
+    __cil_tmp79 = hw->hw_addr;
 #line 216
-    __cil_tmp88 = (void volatile   *)__cil_tmp87;
+    __cil_tmp80 = (void volatile   *)__cil_tmp79;
 #line 216
-    __cil_tmp89 = __cil_tmp88 + 4848U;
+    __cil_tmp81 = __cil_tmp80 + 4848U;
 #line 216
-    writel(otp_ctrl_data, __cil_tmp89);
+    writel(otp_ctrl_data, __cil_tmp81);
     }
   } else {
 
@@ -18096,9 +15625,9 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   }
   {
 #line 218
-  __cil_tmp90 = ret != 0;
+  __cil_tmp82 = ret != 0;
 #line 218
-  return ((_Bool )__cil_tmp90);
+  return ((bool )__cil_tmp82);
   }
 }
 }
@@ -18107,26 +15636,16 @@ int atl1c_read_mac_addr(struct atl1c_hw *hw )
 { int err ;
   size_t __len ;
   void *__ret ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  u8 (*__cil_tmp5)[6U] ;
+  u8 *__cil_tmp6 ;
   u8 (*__cil_tmp7)[6U] ;
-  u8 *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  void *__cil_tmp8 ;
+  u8 (*__cil_tmp9)[6U] ;
+  void const   *__cil_tmp10 ;
   u8 (*__cil_tmp11)[6U] ;
   void *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  u8 (*__cil_tmp15)[6U] ;
-  void const   *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  u8 (*__cil_tmp19)[6U] ;
-  void *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  u8 (*__cil_tmp23)[6U] ;
-  void const   *__cil_tmp24 ;
+  u8 (*__cil_tmp13)[6U] ;
+  void const   *__cil_tmp14 ;
 
   {
   {
@@ -18139,15 +15658,11 @@ int atl1c_read_mac_addr(struct atl1c_hw *hw )
   if (err != 0) {
     {
 #line 231
-    __cil_tmp5 = (unsigned long )hw;
+    __cil_tmp5 = & hw->perm_mac_addr;
 #line 231
-    __cil_tmp6 = __cil_tmp5 + 358;
+    __cil_tmp6 = (u8 *)__cil_tmp5;
 #line 231
-    __cil_tmp7 = (u8 (*)[6U])__cil_tmp6;
-#line 231
-    __cil_tmp8 = (u8 *)__cil_tmp7;
-#line 231
-    random_ether_addr(__cil_tmp8);
+    random_ether_addr(__cil_tmp6);
     }
   } else {
 
@@ -18158,44 +15673,28 @@ int atl1c_read_mac_addr(struct atl1c_hw *hw )
   if (__len > 63UL) {
     {
 #line 233
-    __cil_tmp9 = (unsigned long )hw;
+    __cil_tmp7 = & hw->mac_addr;
 #line 233
-    __cil_tmp10 = __cil_tmp9 + 352;
+    __cil_tmp8 = (void *)__cil_tmp7;
 #line 233
-    __cil_tmp11 = (u8 (*)[6U])__cil_tmp10;
+    __cil_tmp9 = & hw->perm_mac_addr;
 #line 233
-    __cil_tmp12 = (void *)__cil_tmp11;
+    __cil_tmp10 = (void const   *)__cil_tmp9;
 #line 233
-    __cil_tmp13 = (unsigned long )hw;
-#line 233
-    __cil_tmp14 = __cil_tmp13 + 358;
-#line 233
-    __cil_tmp15 = (u8 (*)[6U])__cil_tmp14;
-#line 233
-    __cil_tmp16 = (void const   *)__cil_tmp15;
-#line 233
-    __ret = __memcpy(__cil_tmp12, __cil_tmp16, __len);
+    __ret = __memcpy(__cil_tmp8, __cil_tmp10, __len);
     }
   } else {
     {
 #line 233
-    __cil_tmp17 = (unsigned long )hw;
+    __cil_tmp11 = & hw->mac_addr;
 #line 233
-    __cil_tmp18 = __cil_tmp17 + 352;
+    __cil_tmp12 = (void *)__cil_tmp11;
 #line 233
-    __cil_tmp19 = (u8 (*)[6U])__cil_tmp18;
+    __cil_tmp13 = & hw->perm_mac_addr;
 #line 233
-    __cil_tmp20 = (void *)__cil_tmp19;
+    __cil_tmp14 = (void const   *)__cil_tmp13;
 #line 233
-    __cil_tmp21 = (unsigned long )hw;
-#line 233
-    __cil_tmp22 = __cil_tmp21 + 358;
-#line 233
-    __cil_tmp23 = (u8 (*)[6U])__cil_tmp22;
-#line 233
-    __cil_tmp24 = (void const   *)__cil_tmp23;
-#line 233
-    __ret = __builtin_memcpy(__cil_tmp20, __cil_tmp24, __len);
+    __ret = __builtin_memcpy(__cil_tmp12, __cil_tmp14, __len);
     }
   }
 #line 234
@@ -18224,6 +15723,7 @@ u32 atl1c_hash_mc_addr(struct atl1c_hw *hw , u8 *mc_addr )
 #line 252
   i = 0;
   }
+#line 252
   goto ldv_42463;
   ldv_42462: 
 #line 253
@@ -18241,8 +15741,10 @@ u32 atl1c_hash_mc_addr(struct atl1c_hw *hw , u8 *mc_addr )
   ldv_42463: ;
 #line 252
   if (i <= 31) {
+#line 253
     goto ldv_42462;
   } else {
+#line 255
     goto ldv_42464;
   }
   ldv_42464: ;
@@ -18264,7 +15766,7 @@ void atl1c_hash_set(struct atl1c_hw *hw , u32 hash_value )
   void const volatile   *__cil_tmp12 ;
   int __cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
+  u32 __cil_tmp15 ;
   u32 __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
@@ -18287,7 +15789,7 @@ void atl1c_hash_set(struct atl1c_hw *hw , u32 hash_value )
 #line 280
   __cil_tmp9 = __cil_tmp8 + 5264UL;
 #line 280
-  __cil_tmp10 = *((u8 **)hw);
+  __cil_tmp10 = hw->hw_addr;
 #line 280
   __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
 #line 280
@@ -18299,7 +15801,7 @@ void atl1c_hash_set(struct atl1c_hw *hw , u32 hash_value )
 #line 282
   __cil_tmp14 = 1 << __cil_tmp13;
 #line 282
-  __cil_tmp15 = (unsigned int )__cil_tmp14;
+  __cil_tmp15 = (u32 )__cil_tmp14;
 #line 282
   mta = __cil_tmp15 | mta;
 #line 284
@@ -18309,7 +15811,7 @@ void atl1c_hash_set(struct atl1c_hw *hw , u32 hash_value )
 #line 284
   __cil_tmp18 = __cil_tmp17 + 5264UL;
 #line 284
-  __cil_tmp19 = *((u8 **)hw);
+  __cil_tmp19 = hw->hw_addr;
 #line 284
   __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
 #line 284
@@ -18332,21 +15834,19 @@ int atl1c_read_phy_reg(struct atl1c_hw *hw , u16 reg_addr , u16 *phy_data )
   u8 *__cil_tmp10 ;
   void volatile   *__cil_tmp11 ;
   void volatile   *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  bool __cil_tmp15 ;
-  long __cil_tmp16 ;
-  u8 *__cil_tmp17 ;
-  void const volatile   *__cil_tmp18 ;
+  bool __cil_tmp13 ;
+  long __cil_tmp14 ;
+  u8 *__cil_tmp15 ;
+  void const volatile   *__cil_tmp16 ;
+  void const volatile   *__cil_tmp17 ;
+  u8 *__cil_tmp18 ;
   void const volatile   *__cil_tmp19 ;
-  u8 *__cil_tmp20 ;
-  void const volatile   *__cil_tmp21 ;
+  void const volatile   *__cil_tmp20 ;
+  u8 *__cil_tmp21 ;
   void const volatile   *__cil_tmp22 ;
-  u8 *__cil_tmp23 ;
-  void const volatile   *__cil_tmp24 ;
-  void const volatile   *__cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
+  void const volatile   *__cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
 
   {
   {
@@ -18359,7 +15859,7 @@ int atl1c_read_phy_reg(struct atl1c_hw *hw , u16 reg_addr , u16 *phy_data )
 #line 297
   val = __cil_tmp9 | 14680064U;
 #line 301
-  __cil_tmp10 = *((u8 **)hw);
+  __cil_tmp10 = hw->hw_addr;
 #line 301
   __cil_tmp11 = (void volatile   *)__cil_tmp10;
 #line 301
@@ -18369,59 +15869,57 @@ int atl1c_read_phy_reg(struct atl1c_hw *hw , u16 reg_addr , u16 *phy_data )
 #line 303
   i = 0;
   }
+#line 303
   goto ldv_42481;
   ldv_42480: 
   {
 #line 304
   __const_udelay(8590UL);
 #line 305
-  __cil_tmp13 = (unsigned long )hw;
+  __cil_tmp13 = hw->hibernate;
 #line 305
-  __cil_tmp14 = __cil_tmp13 + 237;
+  __cil_tmp14 = (long )__cil_tmp13;
 #line 305
-  __cil_tmp15 = *((bool *)__cil_tmp14);
-#line 305
-  __cil_tmp16 = (long )__cil_tmp15;
-#line 305
-  tmp = __builtin_expect(__cil_tmp16, 0L);
+  tmp = __builtin_expect(__cil_tmp14, 0L);
   }
 #line 305
   if (tmp != 0L) {
     {
 #line 305
-    __cil_tmp17 = *((u8 **)hw);
+    __cil_tmp15 = hw->hw_addr;
 #line 305
-    __cil_tmp18 = (void const volatile   *)__cil_tmp17;
+    __cil_tmp16 = (void const volatile   *)__cil_tmp15;
 #line 305
-    __cil_tmp19 = __cil_tmp18 + 5140U;
+    __cil_tmp17 = __cil_tmp16 + 5140U;
 #line 305
-    readl(__cil_tmp19);
+    readl(__cil_tmp17);
 #line 305
-    __cil_tmp20 = *((u8 **)hw);
+    __cil_tmp18 = hw->hw_addr;
 #line 305
-    __cil_tmp21 = (void const volatile   *)__cil_tmp20;
+    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
 #line 305
-    __cil_tmp22 = __cil_tmp21 + 5140U;
+    __cil_tmp20 = __cil_tmp19 + 5140U;
 #line 305
-    val = readl(__cil_tmp22);
+    val = readl(__cil_tmp20);
     }
   } else {
     {
 #line 305
-    __cil_tmp23 = *((u8 **)hw);
+    __cil_tmp21 = hw->hw_addr;
 #line 305
-    __cil_tmp24 = (void const volatile   *)__cil_tmp23;
+    __cil_tmp22 = (void const volatile   *)__cil_tmp21;
 #line 305
-    __cil_tmp25 = __cil_tmp24 + 5140U;
+    __cil_tmp23 = __cil_tmp22 + 5140U;
 #line 305
-    val = readl(__cil_tmp25);
+    val = readl(__cil_tmp23);
     }
   }
   {
 #line 306
-  __cil_tmp26 = val & 142606336U;
+  __cil_tmp24 = val & 142606336U;
 #line 306
-  if (__cil_tmp26 == 0U) {
+  if (__cil_tmp24 == 0U) {
+#line 307
     goto ldv_42479;
   } else {
 
@@ -18432,16 +15930,18 @@ int atl1c_read_phy_reg(struct atl1c_hw *hw , u16 reg_addr , u16 *phy_data )
   ldv_42481: ;
 #line 303
   if (i <= 9) {
+#line 304
     goto ldv_42480;
   } else {
+#line 306
     goto ldv_42479;
   }
   ldv_42479: ;
   {
 #line 309
-  __cil_tmp27 = val & 142606336U;
+  __cil_tmp25 = val & 142606336U;
 #line 309
-  if (__cil_tmp27 == 0U) {
+  if (__cil_tmp25 == 0U) {
 #line 310
     *phy_data = (unsigned short )val;
 #line 311
@@ -18466,21 +15966,19 @@ int atl1c_write_phy_reg(struct atl1c_hw *hw , u32 reg_addr , u16 phy_data )
   u8 *__cil_tmp11 ;
   void volatile   *__cil_tmp12 ;
   void volatile   *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  bool __cil_tmp16 ;
-  long __cil_tmp17 ;
-  u8 *__cil_tmp18 ;
-  void const volatile   *__cil_tmp19 ;
+  bool __cil_tmp14 ;
+  long __cil_tmp15 ;
+  u8 *__cil_tmp16 ;
+  void const volatile   *__cil_tmp17 ;
+  void const volatile   *__cil_tmp18 ;
+  u8 *__cil_tmp19 ;
   void const volatile   *__cil_tmp20 ;
-  u8 *__cil_tmp21 ;
-  void const volatile   *__cil_tmp22 ;
+  void const volatile   *__cil_tmp21 ;
+  u8 *__cil_tmp22 ;
   void const volatile   *__cil_tmp23 ;
-  u8 *__cil_tmp24 ;
-  void const volatile   *__cil_tmp25 ;
-  void const volatile   *__cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
+  void const volatile   *__cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
 
   {
   {
@@ -18495,7 +15993,7 @@ int atl1c_write_phy_reg(struct atl1c_hw *hw , u32 reg_addr , u16 phy_data )
 #line 328
   val = __cil_tmp10 | 12582912U;
 #line 333
-  __cil_tmp11 = *((u8 **)hw);
+  __cil_tmp11 = hw->hw_addr;
 #line 333
   __cil_tmp12 = (void volatile   *)__cil_tmp11;
 #line 333
@@ -18505,59 +16003,57 @@ int atl1c_write_phy_reg(struct atl1c_hw *hw , u32 reg_addr , u16 phy_data )
 #line 335
   i = 0;
   }
+#line 335
   goto ldv_42491;
   ldv_42490: 
   {
 #line 336
   __const_udelay(8590UL);
 #line 337
-  __cil_tmp14 = (unsigned long )hw;
+  __cil_tmp14 = hw->hibernate;
 #line 337
-  __cil_tmp15 = __cil_tmp14 + 237;
+  __cil_tmp15 = (long )__cil_tmp14;
 #line 337
-  __cil_tmp16 = *((bool *)__cil_tmp15);
-#line 337
-  __cil_tmp17 = (long )__cil_tmp16;
-#line 337
-  tmp = __builtin_expect(__cil_tmp17, 0L);
+  tmp = __builtin_expect(__cil_tmp15, 0L);
   }
 #line 337
   if (tmp != 0L) {
     {
 #line 337
-    __cil_tmp18 = *((u8 **)hw);
+    __cil_tmp16 = hw->hw_addr;
 #line 337
-    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
+    __cil_tmp17 = (void const volatile   *)__cil_tmp16;
 #line 337
-    __cil_tmp20 = __cil_tmp19 + 5140U;
+    __cil_tmp18 = __cil_tmp17 + 5140U;
 #line 337
-    readl(__cil_tmp20);
+    readl(__cil_tmp18);
 #line 337
-    __cil_tmp21 = *((u8 **)hw);
+    __cil_tmp19 = hw->hw_addr;
 #line 337
-    __cil_tmp22 = (void const volatile   *)__cil_tmp21;
+    __cil_tmp20 = (void const volatile   *)__cil_tmp19;
 #line 337
-    __cil_tmp23 = __cil_tmp22 + 5140U;
+    __cil_tmp21 = __cil_tmp20 + 5140U;
 #line 337
-    val = readl(__cil_tmp23);
+    val = readl(__cil_tmp21);
     }
   } else {
     {
 #line 337
-    __cil_tmp24 = *((u8 **)hw);
+    __cil_tmp22 = hw->hw_addr;
 #line 337
-    __cil_tmp25 = (void const volatile   *)__cil_tmp24;
+    __cil_tmp23 = (void const volatile   *)__cil_tmp22;
 #line 337
-    __cil_tmp26 = __cil_tmp25 + 5140U;
+    __cil_tmp24 = __cil_tmp23 + 5140U;
 #line 337
-    val = readl(__cil_tmp26);
+    val = readl(__cil_tmp24);
     }
   }
   {
 #line 338
-  __cil_tmp27 = val & 142606336U;
+  __cil_tmp25 = val & 142606336U;
 #line 338
-  if (__cil_tmp27 == 0U) {
+  if (__cil_tmp25 == 0U) {
+#line 339
     goto ldv_42489;
   } else {
 
@@ -18568,16 +16064,18 @@ int atl1c_write_phy_reg(struct atl1c_hw *hw , u32 reg_addr , u16 phy_data )
   ldv_42491: ;
 #line 335
   if (i <= 9) {
+#line 336
     goto ldv_42490;
   } else {
+#line 338
     goto ldv_42489;
   }
   ldv_42489: ;
   {
 #line 342
-  __cil_tmp28 = val & 142606336U;
+  __cil_tmp26 = val & 142606336U;
 #line 342
-  if (__cil_tmp28 == 0U) {
+  if (__cil_tmp26 == 0U) {
 #line 343
     return (0);
   } else {
@@ -18594,264 +16092,210 @@ static int atl1c_phy_setup_adv(struct atl1c_hw *hw )
   u16 mii_giga_ctrl_data ;
   int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  u16 __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u16 __cil_tmp14 ;
-  int __cil_tmp15 ;
+  u16 __cil_tmp6 ;
+  int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  u16 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  u16 __cil_tmp15 ;
   int __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
+  int __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  u16 __cil_tmp21 ;
+  unsigned int __cil_tmp19 ;
+  u16 __cil_tmp20 ;
+  int __cil_tmp21 ;
   int __cil_tmp22 ;
-  int __cil_tmp23 ;
+  unsigned int __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  u16 __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u16 __cil_tmp35 ;
-  int __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
+  u16 __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  u16 __cil_tmp30 ;
+  int __cil_tmp31 ;
+  u16 __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  u16 __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
   u16 __cil_tmp42 ;
   int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  u16 __cil_tmp46 ;
+  int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
   int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  unsigned int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  u16 __cil_tmp53 ;
-  int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  u16 __cil_tmp60 ;
-  int __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  unsigned int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  unsigned short __cil_tmp66 ;
-  int __cil_tmp67 ;
-  unsigned short __cil_tmp68 ;
+  u16 __cil_tmp48 ;
+  int __cil_tmp49 ;
+  u16 __cil_tmp50 ;
 
   {
 #line 355
-  mii_adv_data = (unsigned short)3072;
+  mii_adv_data = (u16 )3072U;
 #line 356
-  mii_giga_ctrl_data = (unsigned short)0;
+  mii_giga_ctrl_data = (u16 )0U;
   {
 #line 359
-  __cil_tmp6 = (unsigned long )hw;
+  __cil_tmp6 = hw->autoneg_advertised;
 #line 359
-  __cil_tmp7 = __cil_tmp6 + 240;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 359
-  __cil_tmp8 = *((u16 *)__cil_tmp7);
-#line 359
-  __cil_tmp9 = (int )__cil_tmp8;
-#line 359
-  if (__cil_tmp9 & 1) {
+  if (__cil_tmp7 & 1) {
 #line 360
-    __cil_tmp10 = (unsigned int )mii_adv_data;
+    __cil_tmp8 = (unsigned int )mii_adv_data;
 #line 360
-    __cil_tmp11 = __cil_tmp10 | 32U;
+    __cil_tmp9 = __cil_tmp8 | 32U;
 #line 360
-    mii_adv_data = (unsigned short )__cil_tmp11;
+    mii_adv_data = (u16 )__cil_tmp9;
   } else {
 
   }
   }
   {
 #line 361
-  __cil_tmp12 = (unsigned long )hw;
+  __cil_tmp10 = hw->autoneg_advertised;
 #line 361
-  __cil_tmp13 = __cil_tmp12 + 240;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 361
-  __cil_tmp14 = *((u16 *)__cil_tmp13);
+  __cil_tmp12 = __cil_tmp11 & 2;
 #line 361
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 361
-  __cil_tmp16 = __cil_tmp15 & 2;
-#line 361
-  if (__cil_tmp16 != 0) {
+  if (__cil_tmp12 != 0) {
 #line 362
-    __cil_tmp17 = (unsigned int )mii_adv_data;
+    __cil_tmp13 = (unsigned int )mii_adv_data;
 #line 362
-    __cil_tmp18 = __cil_tmp17 | 64U;
+    __cil_tmp14 = __cil_tmp13 | 64U;
 #line 362
-    mii_adv_data = (unsigned short )__cil_tmp18;
+    mii_adv_data = (u16 )__cil_tmp14;
   } else {
 
   }
   }
   {
 #line 363
-  __cil_tmp19 = (unsigned long )hw;
+  __cil_tmp15 = hw->autoneg_advertised;
 #line 363
-  __cil_tmp20 = __cil_tmp19 + 240;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 363
-  __cil_tmp21 = *((u16 *)__cil_tmp20);
+  __cil_tmp17 = __cil_tmp16 & 4;
 #line 363
-  __cil_tmp22 = (int )__cil_tmp21;
-#line 363
-  __cil_tmp23 = __cil_tmp22 & 4;
-#line 363
-  if (__cil_tmp23 != 0) {
+  if (__cil_tmp17 != 0) {
 #line 364
-    __cil_tmp24 = (unsigned int )mii_adv_data;
+    __cil_tmp18 = (unsigned int )mii_adv_data;
 #line 364
-    __cil_tmp25 = __cil_tmp24 | 128U;
+    __cil_tmp19 = __cil_tmp18 | 128U;
 #line 364
-    mii_adv_data = (unsigned short )__cil_tmp25;
+    mii_adv_data = (u16 )__cil_tmp19;
   } else {
 
   }
   }
   {
 #line 365
-  __cil_tmp26 = (unsigned long )hw;
+  __cil_tmp20 = hw->autoneg_advertised;
 #line 365
-  __cil_tmp27 = __cil_tmp26 + 240;
+  __cil_tmp21 = (int )__cil_tmp20;
 #line 365
-  __cil_tmp28 = *((u16 *)__cil_tmp27);
+  __cil_tmp22 = __cil_tmp21 & 8;
 #line 365
-  __cil_tmp29 = (int )__cil_tmp28;
-#line 365
-  __cil_tmp30 = __cil_tmp29 & 8;
-#line 365
-  if (__cil_tmp30 != 0) {
+  if (__cil_tmp22 != 0) {
 #line 366
-    __cil_tmp31 = (unsigned int )mii_adv_data;
+    __cil_tmp23 = (unsigned int )mii_adv_data;
 #line 366
-    __cil_tmp32 = __cil_tmp31 | 256U;
+    __cil_tmp24 = __cil_tmp23 | 256U;
 #line 366
-    mii_adv_data = (unsigned short )__cil_tmp32;
+    mii_adv_data = (u16 )__cil_tmp24;
   } else {
 
   }
   }
   {
 #line 368
-  __cil_tmp33 = (unsigned long )hw;
+  __cil_tmp25 = hw->autoneg_advertised;
 #line 368
-  __cil_tmp34 = __cil_tmp33 + 240;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 368
-  __cil_tmp35 = *((u16 *)__cil_tmp34);
+  __cil_tmp27 = __cil_tmp26 & 64;
 #line 368
-  __cil_tmp36 = (int )__cil_tmp35;
-#line 368
-  __cil_tmp37 = __cil_tmp36 & 64;
-#line 368
-  if (__cil_tmp37 != 0) {
+  if (__cil_tmp27 != 0) {
 #line 369
-    __cil_tmp38 = (unsigned int )mii_adv_data;
+    __cil_tmp28 = (unsigned int )mii_adv_data;
 #line 369
-    __cil_tmp39 = __cil_tmp38 | 480U;
+    __cil_tmp29 = __cil_tmp28 | 480U;
 #line 369
-    mii_adv_data = (unsigned short )__cil_tmp39;
+    mii_adv_data = (u16 )__cil_tmp29;
   } else {
 
   }
   }
   {
 #line 372
-  __cil_tmp40 = (unsigned long )hw;
+  __cil_tmp30 = hw->link_cap_flags;
 #line 372
-  __cil_tmp41 = __cil_tmp40 + 254;
+  __cil_tmp31 = (int )__cil_tmp30;
 #line 372
-  __cil_tmp42 = *((u16 *)__cil_tmp41);
-#line 372
-  __cil_tmp43 = (int )__cil_tmp42;
-#line 372
-  if (__cil_tmp43 & 1) {
+  if (__cil_tmp31 & 1) {
     {
 #line 373
-    __cil_tmp44 = (unsigned long )hw;
+    __cil_tmp32 = hw->autoneg_advertised;
 #line 373
-    __cil_tmp45 = __cil_tmp44 + 240;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 373
-    __cil_tmp46 = *((u16 *)__cil_tmp45);
+    __cil_tmp34 = __cil_tmp33 & 16;
 #line 373
-    __cil_tmp47 = (int )__cil_tmp46;
-#line 373
-    __cil_tmp48 = __cil_tmp47 & 16;
-#line 373
-    if (__cil_tmp48 != 0) {
+    if (__cil_tmp34 != 0) {
 #line 374
-      __cil_tmp49 = (unsigned int )mii_giga_ctrl_data;
+      __cil_tmp35 = (unsigned int )mii_giga_ctrl_data;
 #line 374
-      __cil_tmp50 = __cil_tmp49 | 256U;
+      __cil_tmp36 = __cil_tmp35 | 256U;
 #line 374
-      mii_giga_ctrl_data = (unsigned short )__cil_tmp50;
+      mii_giga_ctrl_data = (u16 )__cil_tmp36;
     } else {
 
     }
     }
     {
 #line 375
-    __cil_tmp51 = (unsigned long )hw;
+    __cil_tmp37 = hw->autoneg_advertised;
 #line 375
-    __cil_tmp52 = __cil_tmp51 + 240;
+    __cil_tmp38 = (int )__cil_tmp37;
 #line 375
-    __cil_tmp53 = *((u16 *)__cil_tmp52);
+    __cil_tmp39 = __cil_tmp38 & 32;
 #line 375
-    __cil_tmp54 = (int )__cil_tmp53;
-#line 375
-    __cil_tmp55 = __cil_tmp54 & 32;
-#line 375
-    if (__cil_tmp55 != 0) {
+    if (__cil_tmp39 != 0) {
 #line 376
-      __cil_tmp56 = (unsigned int )mii_giga_ctrl_data;
+      __cil_tmp40 = (unsigned int )mii_giga_ctrl_data;
 #line 376
-      __cil_tmp57 = __cil_tmp56 | 512U;
+      __cil_tmp41 = __cil_tmp40 | 512U;
 #line 376
-      mii_giga_ctrl_data = (unsigned short )__cil_tmp57;
+      mii_giga_ctrl_data = (u16 )__cil_tmp41;
     } else {
 
     }
     }
     {
 #line 377
-    __cil_tmp58 = (unsigned long )hw;
+    __cil_tmp42 = hw->autoneg_advertised;
 #line 377
-    __cil_tmp59 = __cil_tmp58 + 240;
+    __cil_tmp43 = (int )__cil_tmp42;
 #line 377
-    __cil_tmp60 = *((u16 *)__cil_tmp59);
+    __cil_tmp44 = __cil_tmp43 & 64;
 #line 377
-    __cil_tmp61 = (int )__cil_tmp60;
-#line 377
-    __cil_tmp62 = __cil_tmp61 & 64;
-#line 377
-    if (__cil_tmp62 != 0) {
+    if (__cil_tmp44 != 0) {
 #line 378
-      __cil_tmp63 = (unsigned int )mii_giga_ctrl_data;
+      __cil_tmp45 = (unsigned int )mii_giga_ctrl_data;
 #line 378
-      __cil_tmp64 = __cil_tmp63 | 768U;
+      __cil_tmp46 = __cil_tmp45 | 768U;
 #line 378
-      mii_giga_ctrl_data = (unsigned short )__cil_tmp64;
+      mii_giga_ctrl_data = (u16 )__cil_tmp46;
     } else {
 
     }
@@ -18862,11 +16306,11 @@ static int atl1c_phy_setup_adv(struct atl1c_hw *hw )
   }
   {
 #line 382
-  __cil_tmp65 = (int )mii_adv_data;
+  __cil_tmp47 = (int )mii_adv_data;
 #line 382
-  __cil_tmp66 = (unsigned short )__cil_tmp65;
+  __cil_tmp48 = (u16 )__cil_tmp47;
 #line 382
-  tmp = atl1c_write_phy_reg(hw, 4U, __cil_tmp66);
+  tmp = atl1c_write_phy_reg(hw, 4U, __cil_tmp48);
   }
 #line 382
   if (tmp != 0) {
@@ -18875,11 +16319,11 @@ static int atl1c_phy_setup_adv(struct atl1c_hw *hw )
   } else {
     {
 #line 382
-    __cil_tmp67 = (int )mii_giga_ctrl_data;
+    __cil_tmp49 = (int )mii_giga_ctrl_data;
 #line 382
-    __cil_tmp68 = (unsigned short )__cil_tmp67;
+    __cil_tmp50 = (u16 )__cil_tmp49;
 #line 382
-    tmp___0 = atl1c_write_phy_reg(hw, 9U, __cil_tmp68);
+    tmp___0 = atl1c_write_phy_reg(hw, 9U, __cil_tmp50);
     }
 #line 382
     if (tmp___0 != 0) {
@@ -18902,7 +16346,7 @@ void atl1c_phy_disable(struct atl1c_hw *hw )
   {
   {
 #line 390
-  __cil_tmp2 = *((u8 **)hw);
+  __cil_tmp2 = hw->hw_addr;
 #line 390
   __cil_tmp3 = (void volatile   *)__cil_tmp2;
 #line 390
@@ -18919,156 +16363,118 @@ static void atl1c_phy_magic_data(struct atl1c_hw *hw )
 { u16 data ;
   int tmp ;
   int tmp___0 ;
-  u16 *__cil_tmp5 ;
-  u16 *__cil_tmp6 ;
+  u16 __cil_tmp5 ;
+  int __cil_tmp6 ;
   u16 __cil_tmp7 ;
-  int __cil_tmp8 ;
-  unsigned short __cil_tmp9 ;
-  u16 *__cil_tmp10 ;
-  u16 *__cil_tmp11 ;
-  u16 __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned short __cil_tmp14 ;
-  u16 *__cil_tmp15 ;
-  u16 *__cil_tmp16 ;
+  u16 __cil_tmp8 ;
+  int __cil_tmp9 ;
+  u16 __cil_tmp10 ;
+  u16 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  u16 __cil_tmp13 ;
+  u16 __cil_tmp14 ;
+  int __cil_tmp15 ;
+  u16 __cil_tmp16 ;
   u16 __cil_tmp17 ;
   int __cil_tmp18 ;
-  unsigned short __cil_tmp19 ;
-  u16 *__cil_tmp20 ;
-  u16 *__cil_tmp21 ;
-  u16 __cil_tmp22 ;
-  int __cil_tmp23 ;
-  unsigned short __cil_tmp24 ;
-  u16 *__cil_tmp25 ;
-  u16 *__cil_tmp26 ;
-  u16 __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned short __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u16 __cil_tmp32 ;
+  u16 __cil_tmp19 ;
+  u16 __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  u16 __cil_tmp23 ;
+  u16 __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  u16 __cil_tmp28 ;
+  u16 __cil_tmp29 ;
+  u16 __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
   int __cil_tmp33 ;
-  int __cil_tmp34 ;
-  u16 *__cil_tmp35 ;
-  u16 *__cil_tmp36 ;
-  u16 __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  u16 *__cil_tmp40 ;
-  u16 __cil_tmp41 ;
-  int __cil_tmp42 ;
-  unsigned short __cil_tmp43 ;
-  u16 *__cil_tmp44 ;
-  u16 *__cil_tmp45 ;
-  u16 __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  u16 *__cil_tmp49 ;
-  u16 __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned short __cil_tmp52 ;
+  u16 __cil_tmp34 ;
 
   {
   {
 #line 398
-  __cil_tmp5 = & data;
-#line 398
-  *__cil_tmp5 = (unsigned short)19460;
+  data = (u16 )19460U;
 #line 402
-  atl1c_write_phy_reg(hw, 29U, (unsigned short)18);
+  __cil_tmp5 = (u16 )18;
+#line 402
+  atl1c_write_phy_reg(hw, 29U, __cil_tmp5);
 #line 403
-  __cil_tmp6 = & data;
+  __cil_tmp6 = (int )data;
 #line 403
-  __cil_tmp7 = *__cil_tmp6;
+  __cil_tmp7 = (u16 )__cil_tmp6;
 #line 403
-  __cil_tmp8 = (int )__cil_tmp7;
-#line 403
-  __cil_tmp9 = (unsigned short )__cil_tmp8;
-#line 403
-  atl1c_write_phy_reg(hw, 30U, __cil_tmp9);
+  atl1c_write_phy_reg(hw, 30U, __cil_tmp7);
 #line 405
-  __cil_tmp10 = & data;
-#line 405
-  *__cil_tmp10 = (unsigned short)11334;
+  data = (u16 )11334U;
 #line 409
-  atl1c_write_phy_reg(hw, 29U, (unsigned short)5);
+  __cil_tmp8 = (u16 )5;
+#line 409
+  atl1c_write_phy_reg(hw, 29U, __cil_tmp8);
 #line 410
-  __cil_tmp11 = & data;
+  __cil_tmp9 = (int )data;
 #line 410
-  __cil_tmp12 = *__cil_tmp11;
+  __cil_tmp10 = (u16 )__cil_tmp9;
 #line 410
-  __cil_tmp13 = (int )__cil_tmp12;
-#line 410
-  __cil_tmp14 = (unsigned short )__cil_tmp13;
-#line 410
-  atl1c_write_phy_reg(hw, 30U, __cil_tmp14);
+  atl1c_write_phy_reg(hw, 30U, __cil_tmp10);
 #line 412
-  __cil_tmp15 = & data;
-#line 412
-  *__cil_tmp15 = (unsigned short)57644;
+  data = (u16 )57644U;
 #line 417
-  atl1c_write_phy_reg(hw, 29U, (unsigned short)54);
+  __cil_tmp11 = (u16 )54;
+#line 417
+  atl1c_write_phy_reg(hw, 29U, __cil_tmp11);
 #line 418
-  __cil_tmp16 = & data;
+  __cil_tmp12 = (int )data;
 #line 418
-  __cil_tmp17 = *__cil_tmp16;
+  __cil_tmp13 = (u16 )__cil_tmp12;
 #line 418
-  __cil_tmp18 = (int )__cil_tmp17;
-#line 418
-  __cil_tmp19 = (unsigned short )__cil_tmp18;
-#line 418
-  atl1c_write_phy_reg(hw, 30U, __cil_tmp19);
+  atl1c_write_phy_reg(hw, 30U, __cil_tmp13);
 #line 420
-  __cil_tmp20 = & data;
-#line 420
-  *__cil_tmp20 = (unsigned short)35003;
+  data = (u16 )35003U;
 #line 425
-  atl1c_write_phy_reg(hw, 29U, (unsigned short)4);
+  __cil_tmp14 = (u16 )4;
+#line 425
+  atl1c_write_phy_reg(hw, 29U, __cil_tmp14);
 #line 426
-  __cil_tmp21 = & data;
+  __cil_tmp15 = (int )data;
 #line 426
-  __cil_tmp22 = *__cil_tmp21;
+  __cil_tmp16 = (u16 )__cil_tmp15;
 #line 426
-  __cil_tmp23 = (int )__cil_tmp22;
-#line 426
-  __cil_tmp24 = (unsigned short )__cil_tmp23;
-#line 426
-  atl1c_write_phy_reg(hw, 30U, __cil_tmp24);
+  atl1c_write_phy_reg(hw, 30U, __cil_tmp16);
 #line 428
-  __cil_tmp25 = & data;
-#line 428
-  *__cil_tmp25 = (unsigned short)751;
+  data = (u16 )751U;
 #line 432
-  atl1c_write_phy_reg(hw, 29U, (unsigned short)0);
+  __cil_tmp17 = (u16 )0;
+#line 432
+  atl1c_write_phy_reg(hw, 29U, __cil_tmp17);
 #line 433
-  __cil_tmp26 = & data;
+  __cil_tmp18 = (int )data;
 #line 433
-  __cil_tmp27 = *__cil_tmp26;
+  __cil_tmp19 = (u16 )__cil_tmp18;
 #line 433
-  __cil_tmp28 = (int )__cil_tmp27;
-#line 433
-  __cil_tmp29 = (unsigned short )__cil_tmp28;
-#line 433
-  atl1c_write_phy_reg(hw, 30U, __cil_tmp29);
+  atl1c_write_phy_reg(hw, 30U, __cil_tmp19);
   }
   {
 #line 435
-  __cil_tmp30 = (unsigned long )hw;
+  __cil_tmp20 = hw->ctrl_flags;
 #line 435
-  __cil_tmp31 = __cil_tmp30 + 252;
+  __cil_tmp21 = (int )__cil_tmp20;
 #line 435
-  __cil_tmp32 = *((u16 *)__cil_tmp31);
+  __cil_tmp22 = __cil_tmp21 & 1024;
 #line 435
-  __cil_tmp33 = (int )__cil_tmp32;
-#line 435
-  __cil_tmp34 = __cil_tmp33 & 1024;
-#line 435
-  if (__cil_tmp34 != 0) {
+  if (__cil_tmp22 != 0) {
     {
 #line 436
-    atl1c_write_phy_reg(hw, 29U, (unsigned short)41);
+    __cil_tmp23 = (u16 )41;
+#line 436
+    atl1c_write_phy_reg(hw, 29U, __cil_tmp23);
 #line 437
-    tmp = atl1c_read_phy_reg(hw, (unsigned short)30, & data);
+    __cil_tmp24 = (u16 )30;
+#line 437
+    tmp = atl1c_read_phy_reg(hw, __cil_tmp24, & data);
     }
 #line 437
     if (tmp != 0) {
@@ -19079,31 +16485,25 @@ static void atl1c_phy_magic_data(struct atl1c_hw *hw )
     }
     {
 #line 439
-    __cil_tmp35 = & data;
+    __cil_tmp25 = (unsigned int )data;
 #line 439
-    __cil_tmp36 = & data;
+    __cil_tmp26 = __cil_tmp25 & 32767U;
 #line 439
-    __cil_tmp37 = *__cil_tmp36;
-#line 439
-    __cil_tmp38 = (unsigned int )__cil_tmp37;
-#line 439
-    __cil_tmp39 = __cil_tmp38 & 32767U;
-#line 439
-    *__cil_tmp35 = (unsigned short )__cil_tmp39;
+    data = (u16 )__cil_tmp26;
 #line 440
-    __cil_tmp40 = & data;
+    __cil_tmp27 = (int )data;
 #line 440
-    __cil_tmp41 = *__cil_tmp40;
+    __cil_tmp28 = (u16 )__cil_tmp27;
 #line 440
-    __cil_tmp42 = (int )__cil_tmp41;
-#line 440
-    __cil_tmp43 = (unsigned short )__cil_tmp42;
-#line 440
-    atl1c_write_phy_reg(hw, 30U, __cil_tmp43);
+    atl1c_write_phy_reg(hw, 30U, __cil_tmp28);
 #line 442
-    atl1c_write_phy_reg(hw, 29U, (unsigned short)11);
+    __cil_tmp29 = (u16 )11;
+#line 442
+    atl1c_write_phy_reg(hw, 29U, __cil_tmp29);
 #line 443
-    tmp___0 = atl1c_read_phy_reg(hw, (unsigned short)30, & data);
+    __cil_tmp30 = (u16 )30;
+#line 443
+    tmp___0 = atl1c_read_phy_reg(hw, __cil_tmp30, & data);
     }
 #line 443
     if (tmp___0 != 0) {
@@ -19114,27 +16514,17 @@ static void atl1c_phy_magic_data(struct atl1c_hw *hw )
     }
     {
 #line 445
-    __cil_tmp44 = & data;
+    __cil_tmp31 = (unsigned int )data;
 #line 445
-    __cil_tmp45 = & data;
+    __cil_tmp32 = __cil_tmp31 & 32767U;
 #line 445
-    __cil_tmp46 = *__cil_tmp45;
-#line 445
-    __cil_tmp47 = (unsigned int )__cil_tmp46;
-#line 445
-    __cil_tmp48 = __cil_tmp47 & 32767U;
-#line 445
-    *__cil_tmp44 = (unsigned short )__cil_tmp48;
+    data = (u16 )__cil_tmp32;
 #line 446
-    __cil_tmp49 = & data;
+    __cil_tmp33 = (int )data;
 #line 446
-    __cil_tmp50 = *__cil_tmp49;
+    __cil_tmp34 = (u16 )__cil_tmp33;
 #line 446
-    __cil_tmp51 = (int )__cil_tmp50;
-#line 446
-    __cil_tmp52 = (unsigned short )__cil_tmp51;
-#line 446
-    atl1c_write_phy_reg(hw, 30U, __cil_tmp52);
+    atl1c_write_phy_reg(hw, 30U, __cil_tmp34);
     }
   } else {
 
@@ -19152,133 +16542,99 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   u32 phy_ctrl_data ;
   u32 mii_ier_data ;
   int err ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u16 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  u8 *__cil_tmp17 ;
+  u16 __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  u8 *__cil_tmp11 ;
+  void volatile   *__cil_tmp12 ;
+  void volatile   *__cil_tmp13 ;
+  u8 *__cil_tmp14 ;
+  void const volatile   *__cil_tmp15 ;
+  u8 *__cil_tmp16 ;
+  void volatile   *__cil_tmp17 ;
   void volatile   *__cil_tmp18 ;
-  void volatile   *__cil_tmp19 ;
-  u8 *__cil_tmp20 ;
-  void const volatile   *__cil_tmp21 ;
-  u8 *__cil_tmp22 ;
-  void volatile   *__cil_tmp23 ;
-  void volatile   *__cil_tmp24 ;
-  u8 *__cil_tmp25 ;
-  void const volatile   *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  enum atl1c_nic_type __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  u16 *__cil_tmp31 ;
-  u16 __cil_tmp32 ;
+  u8 *__cil_tmp19 ;
+  void const volatile   *__cil_tmp20 ;
+  enum atl1c_nic_type __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  u16 __cil_tmp23 ;
+  u16 __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u16 __cil_tmp27 ;
+  enum atl1c_nic_type __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  u16 __cil_tmp30 ;
+  u16 __cil_tmp31 ;
+  int __cil_tmp32 ;
   int __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned short __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  enum atl1c_nic_type __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  u16 *__cil_tmp40 ;
+  u16 __cil_tmp34 ;
+  enum atl1c_nic_type __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  u16 __cil_tmp37 ;
+  u16 __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
   u16 __cil_tmp41 ;
-  int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned short __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  enum atl1c_nic_type __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  u16 *__cil_tmp49 ;
-  u16 __cil_tmp50 ;
-  int __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned short __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
+  enum atl1c_nic_type __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  u16 __cil_tmp44 ;
+  u16 __cil_tmp45 ;
+  int __cil_tmp46 ;
+  int __cil_tmp47 ;
+  u16 __cil_tmp48 ;
+  enum atl1c_nic_type __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  u16 __cil_tmp51 ;
+  u16 __cil_tmp52 ;
+  int __cil_tmp53 ;
+  int __cil_tmp54 ;
+  u16 __cil_tmp55 ;
   enum atl1c_nic_type __cil_tmp56 ;
   unsigned int __cil_tmp57 ;
-  u16 *__cil_tmp58 ;
+  u16 __cil_tmp58 ;
   u16 __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned short __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  enum atl1c_nic_type __cil_tmp65 ;
-  unsigned int __cil_tmp66 ;
-  u16 *__cil_tmp67 ;
-  u16 __cil_tmp68 ;
-  int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned short __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  enum atl1c_nic_type __cil_tmp74 ;
-  unsigned int __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  enum atl1c_nic_type __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  enum atl1c_nic_type __cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  enum atl1c_nic_type __cil_tmp86 ;
-  unsigned int __cil_tmp87 ;
-  unsigned short __cil_tmp88 ;
-  int __cil_tmp89 ;
-  unsigned short __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  u32 __cil_tmp93 ;
-  unsigned int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  struct device *__cil_tmp97 ;
-  struct device  const  *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  u16 __cil_tmp101 ;
-  short __cil_tmp102 ;
-  int __cil_tmp103 ;
+  enum atl1c_nic_type __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  u16 __cil_tmp62 ;
+  u16 __cil_tmp63 ;
+  enum atl1c_nic_type __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  u16 __cil_tmp66 ;
+  u16 __cil_tmp67 ;
+  enum atl1c_nic_type __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  u16 __cil_tmp70 ;
+  u16 __cil_tmp71 ;
+  u16 __cil_tmp72 ;
+  int __cil_tmp73 ;
+  u16 __cil_tmp74 ;
+  u32 __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  struct device *__cil_tmp77 ;
+  struct device  const  *__cil_tmp78 ;
+  u16 __cil_tmp79 ;
+  short __cil_tmp80 ;
+  int __cil_tmp81 ;
 
   {
 #line 452
-  __cil_tmp8 = (unsigned long )hw;
-#line 452
-  __cil_tmp9 = __cil_tmp8 + 8;
-#line 452
-  adapter = *((struct atl1c_adapter **)__cil_tmp9);
+  adapter = hw->adapter;
 #line 453
-  __cil_tmp10 = (unsigned long )adapter;
-#line 453
-  __cil_tmp11 = __cil_tmp10 + 8;
-#line 453
-  pdev = *((struct pci_dev **)__cil_tmp11);
+  pdev = adapter->pdev;
 #line 455
   phy_ctrl_data = 7168U;
 #line 456
   mii_ier_data = 3072U;
   {
 #line 459
-  __cil_tmp12 = (unsigned long )hw;
+  __cil_tmp8 = hw->ctrl_flags;
 #line 459
-  __cil_tmp13 = __cil_tmp12 + 252;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 459
-  __cil_tmp14 = *((u16 *)__cil_tmp13);
+  __cil_tmp10 = __cil_tmp9 & 1024;
 #line 459
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 459
-  __cil_tmp16 = __cil_tmp15 & 1024;
-#line 459
-  if (__cil_tmp16 != 0) {
+  if (__cil_tmp10 != 0) {
 #line 460
     phy_ctrl_data = phy_ctrl_data & 4294966271U;
   } else {
@@ -19287,68 +16643,64 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   }
   {
 #line 462
-  __cil_tmp17 = *((u8 **)hw);
+  __cil_tmp11 = hw->hw_addr;
 #line 462
-  __cil_tmp18 = (void volatile   *)__cil_tmp17;
+  __cil_tmp12 = (void volatile   *)__cil_tmp11;
 #line 462
-  __cil_tmp19 = __cil_tmp18 + 5132U;
+  __cil_tmp13 = __cil_tmp12 + 5132U;
 #line 462
-  writel(phy_ctrl_data, __cil_tmp19);
+  writel(phy_ctrl_data, __cil_tmp13);
 #line 463
-  __cil_tmp20 = *((u8 **)hw);
+  __cil_tmp14 = hw->hw_addr;
 #line 463
-  __cil_tmp21 = (void const volatile   *)__cil_tmp20;
+  __cil_tmp15 = (void const volatile   *)__cil_tmp14;
 #line 463
-  readl(__cil_tmp21);
+  readl(__cil_tmp15);
 #line 464
   msleep(40U);
 #line 465
   phy_ctrl_data = phy_ctrl_data | 1U;
 #line 466
-  __cil_tmp22 = *((u8 **)hw);
+  __cil_tmp16 = hw->hw_addr;
 #line 466
-  __cil_tmp23 = (void volatile   *)__cil_tmp22;
+  __cil_tmp17 = (void volatile   *)__cil_tmp16;
 #line 466
-  __cil_tmp24 = __cil_tmp23 + 5132U;
+  __cil_tmp18 = __cil_tmp17 + 5132U;
 #line 466
-  writel(phy_ctrl_data, __cil_tmp24);
+  writel(phy_ctrl_data, __cil_tmp18);
 #line 467
-  __cil_tmp25 = *((u8 **)hw);
+  __cil_tmp19 = hw->hw_addr;
 #line 467
-  __cil_tmp26 = (void const volatile   *)__cil_tmp25;
+  __cil_tmp20 = (void const volatile   *)__cil_tmp19;
 #line 467
-  readl(__cil_tmp26);
+  readl(__cil_tmp20);
 #line 468
   msleep(10U);
   }
   {
 #line 470
-  __cil_tmp27 = (unsigned long )hw;
+  __cil_tmp21 = hw->nic_type;
 #line 470
-  __cil_tmp28 = __cil_tmp27 + 16;
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 470
-  __cil_tmp29 = *((enum atl1c_nic_type *)__cil_tmp28);
-#line 470
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
-#line 470
-  if (__cil_tmp30 == 2U) {
+  if (__cil_tmp22 == 2U) {
     {
 #line 471
-    atl1c_write_phy_reg(hw, 29U, (unsigned short)10);
+    __cil_tmp23 = (u16 )10;
+#line 471
+    atl1c_write_phy_reg(hw, 29U, __cil_tmp23);
 #line 472
-    atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+    __cil_tmp24 = (u16 )30;
+#line 472
+    atl1c_read_phy_reg(hw, __cil_tmp24, & phy_data);
 #line 473
-    __cil_tmp31 = & phy_data;
+    __cil_tmp25 = (int )phy_data;
 #line 473
-    __cil_tmp32 = *__cil_tmp31;
+    __cil_tmp26 = __cil_tmp25 & 57343;
 #line 473
-    __cil_tmp33 = (int )__cil_tmp32;
+    __cil_tmp27 = (u16 )__cil_tmp26;
 #line 473
-    __cil_tmp34 = __cil_tmp33 & 57343;
-#line 473
-    __cil_tmp35 = (unsigned short )__cil_tmp34;
-#line 473
-    atl1c_write_phy_reg(hw, 30U, __cil_tmp35);
+    atl1c_write_phy_reg(hw, 30U, __cil_tmp27);
     }
   } else {
 
@@ -19356,128 +16708,112 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   }
   {
 #line 476
-  __cil_tmp36 = (unsigned long )hw;
+  __cil_tmp28 = hw->nic_type;
 #line 476
-  __cil_tmp37 = __cil_tmp36 + 16;
+  __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 476
-  __cil_tmp38 = *((enum atl1c_nic_type *)__cil_tmp37);
-#line 476
-  __cil_tmp39 = (unsigned int )__cil_tmp38;
-#line 476
-  if (__cil_tmp39 == 2U) {
+  if (__cil_tmp29 == 2U) {
     {
 #line 480
-    atl1c_write_phy_reg(hw, 29U, (unsigned short)59);
+    __cil_tmp30 = (u16 )59;
+#line 480
+    atl1c_write_phy_reg(hw, 29U, __cil_tmp30);
 #line 481
-    atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+    __cil_tmp31 = (u16 )30;
+#line 481
+    atl1c_read_phy_reg(hw, __cil_tmp31, & phy_data);
 #line 482
-    __cil_tmp40 = & phy_data;
+    __cil_tmp32 = (int )phy_data;
 #line 482
-    __cil_tmp41 = *__cil_tmp40;
+    __cil_tmp33 = __cil_tmp32 & 65527;
 #line 482
-    __cil_tmp42 = (int )__cil_tmp41;
+    __cil_tmp34 = (u16 )__cil_tmp33;
 #line 482
-    __cil_tmp43 = __cil_tmp42 & 65527;
-#line 482
-    __cil_tmp44 = (unsigned short )__cil_tmp43;
-#line 482
-    atl1c_write_phy_reg(hw, 30U, __cil_tmp44);
+    atl1c_write_phy_reg(hw, 30U, __cil_tmp34);
 #line 483
     msleep(20U);
     }
   } else {
     {
 #line 476
-    __cil_tmp45 = (unsigned long )hw;
+    __cil_tmp35 = hw->nic_type;
 #line 476
-    __cil_tmp46 = __cil_tmp45 + 16;
+    __cil_tmp36 = (unsigned int )__cil_tmp35;
 #line 476
-    __cil_tmp47 = *((enum atl1c_nic_type *)__cil_tmp46);
-#line 476
-    __cil_tmp48 = (unsigned int )__cil_tmp47;
-#line 476
-    if (__cil_tmp48 == 3U) {
+    if (__cil_tmp36 == 3U) {
       {
 #line 480
-      atl1c_write_phy_reg(hw, 29U, (unsigned short)59);
+      __cil_tmp37 = (u16 )59;
+#line 480
+      atl1c_write_phy_reg(hw, 29U, __cil_tmp37);
 #line 481
-      atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+      __cil_tmp38 = (u16 )30;
+#line 481
+      atl1c_read_phy_reg(hw, __cil_tmp38, & phy_data);
 #line 482
-      __cil_tmp49 = & phy_data;
+      __cil_tmp39 = (int )phy_data;
 #line 482
-      __cil_tmp50 = *__cil_tmp49;
+      __cil_tmp40 = __cil_tmp39 & 65527;
 #line 482
-      __cil_tmp51 = (int )__cil_tmp50;
+      __cil_tmp41 = (u16 )__cil_tmp40;
 #line 482
-      __cil_tmp52 = __cil_tmp51 & 65527;
-#line 482
-      __cil_tmp53 = (unsigned short )__cil_tmp52;
-#line 482
-      atl1c_write_phy_reg(hw, 30U, __cil_tmp53);
+      atl1c_write_phy_reg(hw, 30U, __cil_tmp41);
 #line 483
       msleep(20U);
       }
     } else {
       {
 #line 476
-      __cil_tmp54 = (unsigned long )hw;
+      __cil_tmp42 = hw->nic_type;
 #line 476
-      __cil_tmp55 = __cil_tmp54 + 16;
+      __cil_tmp43 = (unsigned int )__cil_tmp42;
 #line 476
-      __cil_tmp56 = *((enum atl1c_nic_type *)__cil_tmp55);
-#line 476
-      __cil_tmp57 = (unsigned int )__cil_tmp56;
-#line 476
-      if (__cil_tmp57 == 4U) {
+      if (__cil_tmp43 == 4U) {
         {
 #line 480
-        atl1c_write_phy_reg(hw, 29U, (unsigned short)59);
+        __cil_tmp44 = (u16 )59;
+#line 480
+        atl1c_write_phy_reg(hw, 29U, __cil_tmp44);
 #line 481
-        atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+        __cil_tmp45 = (u16 )30;
+#line 481
+        atl1c_read_phy_reg(hw, __cil_tmp45, & phy_data);
 #line 482
-        __cil_tmp58 = & phy_data;
+        __cil_tmp46 = (int )phy_data;
 #line 482
-        __cil_tmp59 = *__cil_tmp58;
+        __cil_tmp47 = __cil_tmp46 & 65527;
 #line 482
-        __cil_tmp60 = (int )__cil_tmp59;
+        __cil_tmp48 = (u16 )__cil_tmp47;
 #line 482
-        __cil_tmp61 = __cil_tmp60 & 65527;
-#line 482
-        __cil_tmp62 = (unsigned short )__cil_tmp61;
-#line 482
-        atl1c_write_phy_reg(hw, 30U, __cil_tmp62);
+        atl1c_write_phy_reg(hw, 30U, __cil_tmp48);
 #line 483
         msleep(20U);
         }
       } else {
         {
 #line 476
-        __cil_tmp63 = (unsigned long )hw;
+        __cil_tmp49 = hw->nic_type;
 #line 476
-        __cil_tmp64 = __cil_tmp63 + 16;
+        __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 476
-        __cil_tmp65 = *((enum atl1c_nic_type *)__cil_tmp64);
-#line 476
-        __cil_tmp66 = (unsigned int )__cil_tmp65;
-#line 476
-        if (__cil_tmp66 == 5U) {
+        if (__cil_tmp50 == 5U) {
           {
 #line 480
-          atl1c_write_phy_reg(hw, 29U, (unsigned short)59);
+          __cil_tmp51 = (u16 )59;
+#line 480
+          atl1c_write_phy_reg(hw, 29U, __cil_tmp51);
 #line 481
-          atl1c_read_phy_reg(hw, (unsigned short)30, & phy_data);
+          __cil_tmp52 = (u16 )30;
+#line 481
+          atl1c_read_phy_reg(hw, __cil_tmp52, & phy_data);
 #line 482
-          __cil_tmp67 = & phy_data;
+          __cil_tmp53 = (int )phy_data;
 #line 482
-          __cil_tmp68 = *__cil_tmp67;
+          __cil_tmp54 = __cil_tmp53 & 65527;
 #line 482
-          __cil_tmp69 = (int )__cil_tmp68;
+          __cil_tmp55 = (u16 )__cil_tmp54;
 #line 482
-          __cil_tmp70 = __cil_tmp69 & 65527;
-#line 482
-          __cil_tmp71 = (unsigned short )__cil_tmp70;
-#line 482
-          atl1c_write_phy_reg(hw, 30U, __cil_tmp71);
+          atl1c_write_phy_reg(hw, 30U, __cil_tmp55);
 #line 483
           msleep(20U);
           }
@@ -19493,20 +16829,20 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   }
   {
 #line 485
-  __cil_tmp72 = (unsigned long )hw;
+  __cil_tmp56 = hw->nic_type;
 #line 485
-  __cil_tmp73 = __cil_tmp72 + 16;
+  __cil_tmp57 = (unsigned int )__cil_tmp56;
 #line 485
-  __cil_tmp74 = *((enum atl1c_nic_type *)__cil_tmp73);
-#line 485
-  __cil_tmp75 = (unsigned int )__cil_tmp74;
-#line 485
-  if (__cil_tmp75 == 4U) {
+  if (__cil_tmp57 == 4U) {
     {
 #line 486
-    atl1c_write_phy_reg(hw, 29U, (unsigned short)41);
+    __cil_tmp58 = (u16 )41;
+#line 486
+    atl1c_write_phy_reg(hw, 29U, __cil_tmp58);
 #line 487
-    atl1c_write_phy_reg(hw, 30U, (unsigned short)37533);
+    __cil_tmp59 = (u16 )37533;
+#line 487
+    atl1c_write_phy_reg(hw, 30U, __cil_tmp59);
     }
   } else {
 
@@ -19514,56 +16850,56 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   }
   {
 #line 489
-  __cil_tmp76 = (unsigned long )hw;
+  __cil_tmp60 = hw->nic_type;
 #line 489
-  __cil_tmp77 = __cil_tmp76 + 16;
+  __cil_tmp61 = (unsigned int )__cil_tmp60;
 #line 489
-  __cil_tmp78 = *((enum atl1c_nic_type *)__cil_tmp77);
-#line 489
-  __cil_tmp79 = (unsigned int )__cil_tmp78;
-#line 489
-  if (__cil_tmp79 == 0U) {
+  if (__cil_tmp61 == 0U) {
     {
 #line 491
-    atl1c_write_phy_reg(hw, 29U, (unsigned short)41);
+    __cil_tmp62 = (u16 )41;
+#line 491
+    atl1c_write_phy_reg(hw, 29U, __cil_tmp62);
 #line 492
-    atl1c_write_phy_reg(hw, 30U, (unsigned short)46813);
+    __cil_tmp63 = (u16 )46813;
+#line 492
+    atl1c_write_phy_reg(hw, 30U, __cil_tmp63);
     }
   } else {
     {
 #line 489
-    __cil_tmp80 = (unsigned long )hw;
+    __cil_tmp64 = hw->nic_type;
 #line 489
-    __cil_tmp81 = __cil_tmp80 + 16;
+    __cil_tmp65 = (unsigned int )__cil_tmp64;
 #line 489
-    __cil_tmp82 = *((enum atl1c_nic_type *)__cil_tmp81);
-#line 489
-    __cil_tmp83 = (unsigned int )__cil_tmp82;
-#line 489
-    if (__cil_tmp83 == 3U) {
+    if (__cil_tmp65 == 3U) {
       {
 #line 491
-      atl1c_write_phy_reg(hw, 29U, (unsigned short)41);
+      __cil_tmp66 = (u16 )41;
+#line 491
+      atl1c_write_phy_reg(hw, 29U, __cil_tmp66);
 #line 492
-      atl1c_write_phy_reg(hw, 30U, (unsigned short)46813);
+      __cil_tmp67 = (u16 )46813;
+#line 492
+      atl1c_write_phy_reg(hw, 30U, __cil_tmp67);
       }
     } else {
       {
 #line 489
-      __cil_tmp84 = (unsigned long )hw;
+      __cil_tmp68 = hw->nic_type;
 #line 489
-      __cil_tmp85 = __cil_tmp84 + 16;
+      __cil_tmp69 = (unsigned int )__cil_tmp68;
 #line 489
-      __cil_tmp86 = *((enum atl1c_nic_type *)__cil_tmp85);
-#line 489
-      __cil_tmp87 = (unsigned int )__cil_tmp86;
-#line 489
-      if (__cil_tmp87 == 1U) {
+      if (__cil_tmp69 == 1U) {
         {
 #line 491
-        atl1c_write_phy_reg(hw, 29U, (unsigned short)41);
+        __cil_tmp70 = (u16 )41;
+#line 491
+        atl1c_write_phy_reg(hw, 29U, __cil_tmp70);
 #line 492
-        atl1c_write_phy_reg(hw, 30U, (unsigned short)46813);
+        __cil_tmp71 = (u16 )46813;
+#line 492
+        atl1c_write_phy_reg(hw, 30U, __cil_tmp71);
         }
       } else {
 
@@ -19575,38 +16911,30 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   }
   {
 #line 494
-  __cil_tmp88 = (unsigned short )mii_ier_data;
+  __cil_tmp72 = (u16 )mii_ier_data;
 #line 494
-  __cil_tmp89 = (int )__cil_tmp88;
+  __cil_tmp73 = (int )__cil_tmp72;
 #line 494
-  __cil_tmp90 = (unsigned short )__cil_tmp89;
+  __cil_tmp74 = (u16 )__cil_tmp73;
 #line 494
-  err = atl1c_write_phy_reg(hw, 18U, __cil_tmp90);
+  err = atl1c_write_phy_reg(hw, 18U, __cil_tmp74);
   }
 #line 495
   if (err != 0) {
     {
 #line 496
-    __cil_tmp91 = (unsigned long )adapter;
+    __cil_tmp75 = adapter->msg_enable;
 #line 496
-    __cil_tmp92 = __cil_tmp91 + 1016;
+    __cil_tmp76 = __cil_tmp75 & 8192U;
 #line 496
-    __cil_tmp93 = *((u32 *)__cil_tmp92);
-#line 496
-    __cil_tmp94 = __cil_tmp93 & 8192U;
-#line 496
-    if (__cil_tmp94 != 0U) {
+    if (__cil_tmp76 != 0U) {
       {
 #line 497
-      __cil_tmp95 = (unsigned long )pdev;
+      __cil_tmp77 = & pdev->dev;
 #line 497
-      __cil_tmp96 = __cil_tmp95 + 144;
+      __cil_tmp78 = (struct device  const  *)__cil_tmp77;
 #line 497
-      __cil_tmp97 = (struct device *)__cil_tmp96;
-#line 497
-      __cil_tmp98 = (struct device  const  *)__cil_tmp97;
-#line 497
-      dev_err(__cil_tmp98, "Error enable PHY linkChange Interrupt\n");
+      dev_err(__cil_tmp78, "Error enable PHY linkChange Interrupt\n");
       }
     } else {
 
@@ -19619,17 +16947,13 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   }
   {
 #line 501
-  __cil_tmp99 = (unsigned long )hw;
+  __cil_tmp79 = hw->ctrl_flags;
 #line 501
-  __cil_tmp100 = __cil_tmp99 + 252;
+  __cil_tmp80 = (short )__cil_tmp79;
 #line 501
-  __cil_tmp101 = *((u16 *)__cil_tmp100);
+  __cil_tmp81 = (int )__cil_tmp80;
 #line 501
-  __cil_tmp102 = (short )__cil_tmp101;
-#line 501
-  __cil_tmp103 = (int )__cil_tmp102;
-#line 501
-  if (__cil_tmp103 >= 0) {
+  if (__cil_tmp81 >= 0) {
     {
 #line 502
     atl1c_phy_magic_data(hw);
@@ -19650,142 +16974,90 @@ int atl1c_phy_init(struct atl1c_hw *hw )
   u16 mii_bmcr_data ;
   int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u16 *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct device *__cil_tmp17 ;
-  struct device  const  *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  u16 *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct device *__cil_tmp24 ;
-  struct device  const  *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  u16 __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u16 __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u16 __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  u16 __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  u16 __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  u32 __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct device *__cil_tmp52 ;
-  struct device  const  *__cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  unsigned int __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u32 __cil_tmp64 ;
-  unsigned int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct device *__cil_tmp68 ;
-  struct device  const  *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  u16 __cil_tmp72 ;
-  int __cil_tmp73 ;
-  int __cil_tmp74 ;
-  unsigned short __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
+  u16 __cil_tmp8 ;
+  u16 *__cil_tmp9 ;
+  struct device *__cil_tmp10 ;
+  struct device  const  *__cil_tmp11 ;
+  u16 __cil_tmp12 ;
+  u16 *__cil_tmp13 ;
+  struct device *__cil_tmp14 ;
+  struct device  const  *__cil_tmp15 ;
+  u16 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  u16 __cil_tmp18 ;
+  int __cil_tmp19 ;
+  u16 __cil_tmp20 ;
+  int __cil_tmp21 ;
+  u16 __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u16 __cil_tmp24 ;
+  int __cil_tmp25 ;
+  u32 __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  struct device *__cil_tmp28 ;
+  struct device  const  *__cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  u32 __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  struct device *__cil_tmp40 ;
+  struct device  const  *__cil_tmp41 ;
+  u16 __cil_tmp42 ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  u16 __cil_tmp45 ;
 
   {
   {
 #line 508
-  __cil_tmp8 = (unsigned long )hw;
-#line 508
-  __cil_tmp9 = __cil_tmp8 + 8;
-#line 508
-  adapter = *((struct atl1c_adapter **)__cil_tmp9);
+  adapter = hw->adapter;
 #line 509
-  __cil_tmp10 = (unsigned long )adapter;
-#line 509
-  __cil_tmp11 = __cil_tmp10 + 8;
-#line 509
-  pdev = *((struct pci_dev **)__cil_tmp11);
+  pdev = adapter->pdev;
 #line 511
-  mii_bmcr_data = (unsigned short)32768;
+  mii_bmcr_data = (u16 )32768U;
 #line 513
-  __cil_tmp12 = (unsigned long )hw;
+  __cil_tmp8 = (u16 )2;
 #line 513
-  __cil_tmp13 = __cil_tmp12 + 186;
+  __cil_tmp9 = & hw->phy_id1;
 #line 513
-  __cil_tmp14 = (u16 *)__cil_tmp13;
-#line 513
-  tmp = atl1c_read_phy_reg(hw, (unsigned short)2, __cil_tmp14);
+  tmp = atl1c_read_phy_reg(hw, __cil_tmp8, __cil_tmp9);
   }
 #line 513
   if (tmp != 0) {
     {
 #line 515
-    __cil_tmp15 = (unsigned long )pdev;
+    __cil_tmp10 = & pdev->dev;
 #line 515
-    __cil_tmp16 = __cil_tmp15 + 144;
+    __cil_tmp11 = (struct device  const  *)__cil_tmp10;
 #line 515
-    __cil_tmp17 = (struct device *)__cil_tmp16;
-#line 515
-    __cil_tmp18 = (struct device  const  *)__cil_tmp17;
-#line 515
-    dev_err(__cil_tmp18, "Error get phy ID\n");
+    dev_err(__cil_tmp11, "Error get phy ID\n");
     }
 #line 516
     return (-1);
   } else {
     {
 #line 513
-    __cil_tmp19 = (unsigned long )hw;
+    __cil_tmp12 = (u16 )3;
 #line 513
-    __cil_tmp20 = __cil_tmp19 + 188;
+    __cil_tmp13 = & hw->phy_id2;
 #line 513
-    __cil_tmp21 = (u16 *)__cil_tmp20;
-#line 513
-    tmp___0 = atl1c_read_phy_reg(hw, (unsigned short)3, __cil_tmp21);
+    tmp___0 = atl1c_read_phy_reg(hw, __cil_tmp12, __cil_tmp13);
     }
 #line 513
     if (tmp___0 != 0) {
       {
 #line 515
-      __cil_tmp22 = (unsigned long )pdev;
+      __cil_tmp14 = & pdev->dev;
 #line 515
-      __cil_tmp23 = __cil_tmp22 + 144;
+      __cil_tmp15 = (struct device  const  *)__cil_tmp14;
 #line 515
-      __cil_tmp24 = (struct device *)__cil_tmp23;
-#line 515
-      __cil_tmp25 = (struct device  const  *)__cil_tmp24;
-#line 515
-      dev_err(__cil_tmp25, "Error get phy ID\n");
+      dev_err(__cil_tmp15, "Error get phy ID\n");
       }
 #line 516
       return (-1);
@@ -19795,69 +17067,55 @@ int atl1c_phy_init(struct atl1c_hw *hw )
   }
   {
 #line 519
-  __cil_tmp26 = (unsigned long )hw;
+  __cil_tmp16 = hw->media_type;
 #line 519
-  __cil_tmp27 = __cil_tmp26 + 238;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 519
-  __cil_tmp28 = *((u16 *)__cil_tmp27);
+  if (__cil_tmp17 == 0) {
 #line 519
-  __cil_tmp29 = (int )__cil_tmp28;
-#line 519
-  if (__cil_tmp29 == 0) {
     goto case_0;
   } else {
     {
 #line 529
-    __cil_tmp30 = (unsigned long )hw;
+    __cil_tmp18 = hw->media_type;
 #line 529
-    __cil_tmp31 = __cil_tmp30 + 238;
+    __cil_tmp19 = (int )__cil_tmp18;
 #line 529
-    __cil_tmp32 = *((u16 *)__cil_tmp31);
+    if (__cil_tmp19 == 1) {
 #line 529
-    __cil_tmp33 = (int )__cil_tmp32;
-#line 529
-    if (__cil_tmp33 == 1) {
       goto case_1;
     } else {
       {
 #line 532
-      __cil_tmp34 = (unsigned long )hw;
+      __cil_tmp20 = hw->media_type;
 #line 532
-      __cil_tmp35 = __cil_tmp34 + 238;
+      __cil_tmp21 = (int )__cil_tmp20;
 #line 532
-      __cil_tmp36 = *((u16 *)__cil_tmp35);
+      if (__cil_tmp21 == 2) {
 #line 532
-      __cil_tmp37 = (int )__cil_tmp36;
-#line 532
-      if (__cil_tmp37 == 2) {
         goto case_2;
       } else {
         {
 #line 535
-        __cil_tmp38 = (unsigned long )hw;
+        __cil_tmp22 = hw->media_type;
 #line 535
-        __cil_tmp39 = __cil_tmp38 + 238;
+        __cil_tmp23 = (int )__cil_tmp22;
 #line 535
-        __cil_tmp40 = *((u16 *)__cil_tmp39);
+        if (__cil_tmp23 == 3) {
 #line 535
-        __cil_tmp41 = (int )__cil_tmp40;
-#line 535
-        if (__cil_tmp41 == 3) {
           goto case_3;
         } else {
           {
 #line 538
-          __cil_tmp42 = (unsigned long )hw;
+          __cil_tmp24 = hw->media_type;
 #line 538
-          __cil_tmp43 = __cil_tmp42 + 238;
+          __cil_tmp25 = (int )__cil_tmp24;
 #line 538
-          __cil_tmp44 = *((u16 *)__cil_tmp43);
+          if (__cil_tmp25 == 4) {
 #line 538
-          __cil_tmp45 = (int )__cil_tmp44;
-#line 538
-          if (__cil_tmp45 == 4) {
             goto case_4;
           } else {
+#line 540
             goto switch_default;
 #line 518
             if (0) {
@@ -19870,26 +17128,18 @@ int atl1c_phy_init(struct atl1c_hw *hw )
               if (ret_val != 0) {
                 {
 #line 522
-                __cil_tmp46 = (unsigned long )adapter;
+                __cil_tmp26 = adapter->msg_enable;
 #line 522
-                __cil_tmp47 = __cil_tmp46 + 1016;
+                __cil_tmp27 = __cil_tmp26 & 4U;
 #line 522
-                __cil_tmp48 = *((u32 *)__cil_tmp47);
-#line 522
-                __cil_tmp49 = __cil_tmp48 & 4U;
-#line 522
-                if (__cil_tmp49 != 0U) {
+                if (__cil_tmp27 != 0U) {
                   {
 #line 523
-                  __cil_tmp50 = (unsigned long )pdev;
+                  __cil_tmp28 = & pdev->dev;
 #line 523
-                  __cil_tmp51 = __cil_tmp50 + 144;
+                  __cil_tmp29 = (struct device  const  *)__cil_tmp28;
 #line 523
-                  __cil_tmp52 = (struct device *)__cil_tmp51;
-#line 523
-                  __cil_tmp53 = (struct device  const  *)__cil_tmp52;
-#line 523
-                  dev_err(__cil_tmp53, "Error Setting up Auto-Negotiation\n");
+                  dev_err(__cil_tmp29, "Error Setting up Auto-Negotiation\n");
                   }
                 } else {
 
@@ -19901,69 +17151,62 @@ int atl1c_phy_init(struct atl1c_hw *hw )
 
               }
 #line 527
-              __cil_tmp54 = (unsigned int )mii_bmcr_data;
+              __cil_tmp30 = (unsigned int )mii_bmcr_data;
 #line 527
-              __cil_tmp55 = __cil_tmp54 | 4608U;
+              __cil_tmp31 = __cil_tmp30 | 4608U;
 #line 527
-              mii_bmcr_data = (unsigned short )__cil_tmp55;
+              mii_bmcr_data = (u16 )__cil_tmp31;
+#line 528
               goto ldv_42521;
               case_1: 
 #line 530
-              __cil_tmp56 = (unsigned int )mii_bmcr_data;
+              __cil_tmp32 = (unsigned int )mii_bmcr_data;
 #line 530
-              __cil_tmp57 = __cil_tmp56 | 8448U;
+              __cil_tmp33 = __cil_tmp32 | 8448U;
 #line 530
-              mii_bmcr_data = (unsigned short )__cil_tmp57;
+              mii_bmcr_data = (u16 )__cil_tmp33;
+#line 531
               goto ldv_42521;
               case_2: 
 #line 533
-              __cil_tmp58 = (unsigned int )mii_bmcr_data;
+              __cil_tmp34 = (unsigned int )mii_bmcr_data;
 #line 533
-              __cil_tmp59 = __cil_tmp58 | 8192U;
+              __cil_tmp35 = __cil_tmp34 | 8192U;
 #line 533
-              mii_bmcr_data = (unsigned short )__cil_tmp59;
+              mii_bmcr_data = (u16 )__cil_tmp35;
+#line 534
               goto ldv_42521;
               case_3: 
 #line 536
-              __cil_tmp60 = (unsigned int )mii_bmcr_data;
+              __cil_tmp36 = (unsigned int )mii_bmcr_data;
 #line 536
-              __cil_tmp61 = __cil_tmp60 | 256U;
+              __cil_tmp37 = __cil_tmp36 | 256U;
 #line 536
-              mii_bmcr_data = (unsigned short )__cil_tmp61;
+              mii_bmcr_data = (u16 )__cil_tmp37;
+#line 537
               goto ldv_42521;
               case_4: ;
+#line 539
               goto ldv_42521;
               switch_default: ;
               {
 #line 541
-              __cil_tmp62 = (unsigned long )adapter;
+              __cil_tmp38 = adapter->msg_enable;
 #line 541
-              __cil_tmp63 = __cil_tmp62 + 1016;
+              __cil_tmp39 = __cil_tmp38 & 4U;
 #line 541
-              __cil_tmp64 = *((u32 *)__cil_tmp63);
-#line 541
-              __cil_tmp65 = __cil_tmp64 & 4U;
-#line 541
-              if (__cil_tmp65 != 0U) {
+              if (__cil_tmp39 != 0U) {
                 {
 #line 542
-                __cil_tmp66 = (unsigned long )pdev;
+                __cil_tmp40 = & pdev->dev;
 #line 542
-                __cil_tmp67 = __cil_tmp66 + 144;
+                __cil_tmp41 = (struct device  const  *)__cil_tmp40;
 #line 542
-                __cil_tmp68 = (struct device *)__cil_tmp67;
+                __cil_tmp42 = hw->media_type;
 #line 542
-                __cil_tmp69 = (struct device  const  *)__cil_tmp68;
+                __cil_tmp43 = (int )__cil_tmp42;
 #line 542
-                __cil_tmp70 = (unsigned long )hw;
-#line 542
-                __cil_tmp71 = __cil_tmp70 + 238;
-#line 542
-                __cil_tmp72 = *((u16 *)__cil_tmp71);
-#line 542
-                __cil_tmp73 = (int )__cil_tmp72;
-#line 542
-                dev_err(__cil_tmp69, "Wrong Media type %d\n", __cil_tmp73);
+                dev_err(__cil_tmp41, "Wrong Media type %d\n", __cil_tmp43);
                 }
               } else {
 
@@ -19987,11 +17230,11 @@ int atl1c_phy_init(struct atl1c_hw *hw )
   ldv_42521: 
   {
 #line 548
-  __cil_tmp74 = (int )mii_bmcr_data;
+  __cil_tmp44 = (int )mii_bmcr_data;
 #line 548
-  __cil_tmp75 = (unsigned short )__cil_tmp74;
+  __cil_tmp45 = (u16 )__cil_tmp44;
 #line 548
-  ret_val = atl1c_write_phy_reg(hw, 0U, __cil_tmp75);
+  ret_val = atl1c_write_phy_reg(hw, 0U, __cil_tmp45);
   }
 #line 549
   if (ret_val != 0) {
@@ -20001,11 +17244,7 @@ int atl1c_phy_init(struct atl1c_hw *hw )
 
   }
 #line 551
-  __cil_tmp76 = (unsigned long )hw;
-#line 551
-  __cil_tmp77 = __cil_tmp76 + 364;
-#line 551
-  *((bool *)__cil_tmp77) = (_Bool)1;
+  hw->phy_configured = (bool )1;
 #line 553
   return (0);
 }
@@ -20014,31 +17253,24 @@ int atl1c_phy_init(struct atl1c_hw *hw )
 int atl1c_get_speed_and_duplex(struct atl1c_hw *hw , u16 *speed , u16 *duplex ) 
 { int err ;
   u16 phy_data ;
-  u16 *__cil_tmp6 ;
-  u16 __cil_tmp7 ;
+  u16 __cil_tmp6 ;
+  int __cil_tmp7 ;
   int __cil_tmp8 ;
   int __cil_tmp9 ;
-  u16 *__cil_tmp10 ;
-  u16 __cil_tmp11 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
   int __cil_tmp12 ;
   int __cil_tmp13 ;
-  u16 *__cil_tmp14 ;
-  u16 __cil_tmp15 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
   int __cil_tmp16 ;
-  int __cil_tmp17 ;
-  u16 *__cil_tmp18 ;
-  u16 __cil_tmp19 ;
-  int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  u16 *__cil_tmp22 ;
-  u16 __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
 
   {
   {
 #line 569
-  err = atl1c_read_phy_reg(hw, (unsigned short)17, & phy_data);
+  __cil_tmp6 = (u16 )17;
+#line 569
+  err = atl1c_read_phy_reg(hw, __cil_tmp6, & phy_data);
   }
 #line 570
   if (err != 0) {
@@ -20049,15 +17281,11 @@ int atl1c_get_speed_and_duplex(struct atl1c_hw *hw , u16 *speed , u16 *duplex )
   }
   {
 #line 573
-  __cil_tmp6 = & phy_data;
+  __cil_tmp7 = (int )phy_data;
 #line 573
-  __cil_tmp7 = *__cil_tmp6;
+  __cil_tmp8 = __cil_tmp7 & 2048;
 #line 573
-  __cil_tmp8 = (int )__cil_tmp7;
-#line 573
-  __cil_tmp9 = __cil_tmp8 & 2048;
-#line 573
-  if (__cil_tmp9 == 0) {
+  if (__cil_tmp8 == 0) {
 #line 574
     return (-1);
   } else {
@@ -20066,57 +17294,52 @@ int atl1c_get_speed_and_duplex(struct atl1c_hw *hw , u16 *speed , u16 *duplex )
   }
   {
 #line 577
-  __cil_tmp10 = & phy_data;
+  __cil_tmp9 = (int )phy_data;
 #line 577
-  __cil_tmp11 = *__cil_tmp10;
+  __cil_tmp10 = __cil_tmp9 & 49152;
 #line 577
-  __cil_tmp12 = (int )__cil_tmp11;
+  if (__cil_tmp10 == 32768) {
 #line 577
-  __cil_tmp13 = __cil_tmp12 & 49152;
-#line 577
-  if (__cil_tmp13 == 32768) {
     goto case_32768;
   } else {
     {
 #line 580
-    __cil_tmp14 = & phy_data;
+    __cil_tmp11 = (int )phy_data;
 #line 580
-    __cil_tmp15 = *__cil_tmp14;
+    __cil_tmp12 = __cil_tmp11 & 49152;
 #line 580
-    __cil_tmp16 = (int )__cil_tmp15;
+    if (__cil_tmp12 == 16384) {
 #line 580
-    __cil_tmp17 = __cil_tmp16 & 49152;
-#line 580
-    if (__cil_tmp17 == 16384) {
       goto case_16384;
     } else {
       {
 #line 583
-      __cil_tmp18 = & phy_data;
+      __cil_tmp13 = (int )phy_data;
 #line 583
-      __cil_tmp19 = *__cil_tmp18;
+      __cil_tmp14 = __cil_tmp13 & 49152;
 #line 583
-      __cil_tmp20 = (int )__cil_tmp19;
+      if (__cil_tmp14 == 0) {
 #line 583
-      __cil_tmp21 = __cil_tmp20 & 49152;
-#line 583
-      if (__cil_tmp21 == 0) {
         goto case_0;
       } else {
+#line 586
         goto switch_default;
 #line 576
         if (0) {
           case_32768: 
 #line 578
-          *speed = (unsigned short)1000;
+          *speed = (u16 )1000U;
+#line 579
           goto ldv_42535;
           case_16384: 
 #line 581
-          *speed = (unsigned short)100;
+          *speed = (u16 )100U;
+#line 582
           goto ldv_42535;
           case_0: 
 #line 584
-          *speed = (unsigned short)10;
+          *speed = (u16 )10U;
+#line 585
           goto ldv_42535;
           switch_default: ;
 #line 587
@@ -20133,20 +17356,16 @@ int atl1c_get_speed_and_duplex(struct atl1c_hw *hw , u16 *speed , u16 *duplex )
   ldv_42535: ;
   {
 #line 591
-  __cil_tmp22 = & phy_data;
+  __cil_tmp15 = (int )phy_data;
 #line 591
-  __cil_tmp23 = *__cil_tmp22;
+  __cil_tmp16 = __cil_tmp15 & 8192;
 #line 591
-  __cil_tmp24 = (int )__cil_tmp23;
-#line 591
-  __cil_tmp25 = __cil_tmp24 & 8192;
-#line 591
-  if (__cil_tmp25 != 0) {
+  if (__cil_tmp16 != 0) {
 #line 592
-    *duplex = (unsigned short)2;
+    *duplex = (u16 )2U;
   } else {
 #line 594
-    *duplex = (unsigned short)1;
+    *duplex = (u16 )1U;
   }
   }
 #line 596
@@ -20173,187 +17392,112 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
   struct _ddebug descriptor___0 ;
   long tmp___2 ;
   int tmp___3 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u16 *__cil_tmp24 ;
-  u16 *__cil_tmp25 ;
-  u16 *__cil_tmp26 ;
-  u16 __cil_tmp27 ;
+  u16 __cil_tmp20 ;
+  u16 __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u16 __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
   int __cil_tmp28 ;
   int __cil_tmp29 ;
-  u16 *__cil_tmp30 ;
-  u16 __cil_tmp31 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
   int __cil_tmp32 ;
-  int __cil_tmp33 ;
-  u16 *__cil_tmp34 ;
-  u16 __cil_tmp35 ;
-  int __cil_tmp36 ;
-  int __cil_tmp37 ;
-  u16 *__cil_tmp38 ;
-  u16 __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  u16 *__cil_tmp42 ;
-  u16 __cil_tmp43 ;
-  int __cil_tmp44 ;
+  signed char __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  long __cil_tmp36 ;
+  struct device *__cil_tmp37 ;
+  struct device  const  *__cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  u16 __cil_tmp40 ;
+  u16 __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  signed char __cil_tmp44 ;
   int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  signed char __cil_tmp52 ;
-  int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct device *__cil_tmp58 ;
-  struct device  const  *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u16 *__cil_tmp62 ;
-  u16 __cil_tmp63 ;
-  unsigned int __cil_tmp64 ;
-  u16 *__cil_tmp65 ;
-  u16 __cil_tmp66 ;
-  int __cil_tmp67 ;
-  int __cil_tmp68 ;
-  signed char __cil_tmp69 ;
-  int __cil_tmp70 ;
-  int __cil_tmp71 ;
-  long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  struct device *__cil_tmp75 ;
-  struct device  const  *__cil_tmp76 ;
-  u16 *__cil_tmp77 ;
-  u16 *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  u16 *__cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  u16 *__cil_tmp84 ;
-  char descriptor_enabled85 ;
-  unsigned char descriptor_flags86 ;
-  unsigned int descriptor_lineno87 ;
-  char const   *descriptor_format88 ;
-  char const   *descriptor_filename89 ;
-  char const   *descriptor_function90 ;
-  char const   *descriptor_modname91 ;
-  char descriptor___0_enabled92 ;
-  unsigned char descriptor___0_flags93 ;
-  unsigned int descriptor___0_lineno94 ;
-  char const   *descriptor___0_format95 ;
-  char const   *descriptor___0_filename96 ;
-  char const   *descriptor___0_function97 ;
-  char const   *descriptor___0_modname98 ;
+  int __cil_tmp46 ;
+  long __cil_tmp47 ;
+  struct device *__cil_tmp48 ;
+  struct device  const  *__cil_tmp49 ;
 
   {
   {
 #line 601
-  __cil_tmp20 = (unsigned long )hw;
-#line 601
-  __cil_tmp21 = __cil_tmp20 + 8;
-#line 601
-  adapter = *((struct atl1c_adapter **)__cil_tmp21);
+  adapter = hw->adapter;
 #line 602
-  __cil_tmp22 = (unsigned long )adapter;
-#line 602
-  __cil_tmp23 = __cil_tmp22 + 8;
-#line 602
-  pdev = *((struct pci_dev **)__cil_tmp23);
+  pdev = adapter->pdev;
 #line 603
   ret = 0;
 #line 604
-  autoneg_advertised = (unsigned short)1;
+  autoneg_advertised = (u16 )1U;
 #line 608
-  __cil_tmp24 = & speed;
-#line 608
-  *__cil_tmp24 = (unsigned short)65535;
+  speed = (u16 )65535U;
 #line 609
-  __cil_tmp25 = & duplex;
-#line 609
-  *__cil_tmp25 = (unsigned short)2;
+  duplex = (u16 )2U;
 #line 612
-  atl1c_read_phy_reg(hw, (unsigned short)1, & phy_data);
+  __cil_tmp20 = (u16 )1;
+#line 612
+  atl1c_read_phy_reg(hw, __cil_tmp20, & phy_data);
 #line 613
-  atl1c_read_phy_reg(hw, (unsigned short)1, & phy_data);
+  __cil_tmp21 = (u16 )1;
+#line 613
+  atl1c_read_phy_reg(hw, __cil_tmp21, & phy_data);
   }
   {
 #line 614
-  __cil_tmp26 = & phy_data;
+  __cil_tmp22 = (int )phy_data;
 #line 614
-  __cil_tmp27 = *__cil_tmp26;
+  __cil_tmp23 = __cil_tmp22 & 4;
 #line 614
-  __cil_tmp28 = (int )__cil_tmp27;
-#line 614
-  __cil_tmp29 = __cil_tmp28 & 4;
-#line 614
-  if (__cil_tmp29 != 0) {
+  if (__cil_tmp23 != 0) {
     {
 #line 615
-    atl1c_read_phy_reg(hw, (unsigned short)5, & mii_lpa_data);
+    __cil_tmp24 = (u16 )5;
+#line 615
+    atl1c_read_phy_reg(hw, __cil_tmp24, & mii_lpa_data);
     }
     {
 #line 616
-    __cil_tmp30 = & mii_lpa_data;
+    __cil_tmp25 = (int )mii_lpa_data;
 #line 616
-    __cil_tmp31 = *__cil_tmp30;
+    __cil_tmp26 = __cil_tmp25 & 64;
 #line 616
-    __cil_tmp32 = (int )__cil_tmp31;
-#line 616
-    __cil_tmp33 = __cil_tmp32 & 64;
-#line 616
-    if (__cil_tmp33 != 0) {
+    if (__cil_tmp26 != 0) {
 #line 617
-      autoneg_advertised = (unsigned short)2;
+      autoneg_advertised = (u16 )2U;
     } else {
       {
 #line 618
-      __cil_tmp34 = & mii_lpa_data;
+      __cil_tmp27 = (int )mii_lpa_data;
 #line 618
-      __cil_tmp35 = *__cil_tmp34;
+      __cil_tmp28 = __cil_tmp27 & 32;
 #line 618
-      __cil_tmp36 = (int )__cil_tmp35;
-#line 618
-      __cil_tmp37 = __cil_tmp36 & 32;
-#line 618
-      if (__cil_tmp37 != 0) {
+      if (__cil_tmp28 != 0) {
 #line 619
-        autoneg_advertised = (unsigned short)1;
+        autoneg_advertised = (u16 )1U;
       } else {
         {
 #line 620
-        __cil_tmp38 = & mii_lpa_data;
+        __cil_tmp29 = (int )mii_lpa_data;
 #line 620
-        __cil_tmp39 = *__cil_tmp38;
+        __cil_tmp30 = __cil_tmp29 & 128;
 #line 620
-        __cil_tmp40 = (int )__cil_tmp39;
-#line 620
-        __cil_tmp41 = __cil_tmp40 & 128;
-#line 620
-        if (__cil_tmp41 != 0) {
+        if (__cil_tmp30 != 0) {
 #line 621
-          autoneg_advertised = (unsigned short)4;
+          autoneg_advertised = (u16 )4U;
         } else {
           {
 #line 622
-          __cil_tmp42 = & mii_lpa_data;
+          __cil_tmp31 = (int )mii_lpa_data;
 #line 622
-          __cil_tmp43 = *__cil_tmp42;
+          __cil_tmp32 = __cil_tmp31 & 256;
 #line 622
-          __cil_tmp44 = (int )__cil_tmp43;
-#line 622
-          __cil_tmp45 = __cil_tmp44 & 256;
-#line 622
-          if (__cil_tmp45 != 0) {
+          if (__cil_tmp32 != 0) {
 #line 623
-            autoneg_advertised = (unsigned short)8;
+            autoneg_advertised = (u16 )8U;
           } else {
 
           }
@@ -20366,23 +17510,11 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
     }
     {
 #line 625
-    __cil_tmp46 = (unsigned long )hw;
-#line 625
-    __cil_tmp47 = __cil_tmp46 + 240;
-#line 625
-    save_autoneg_advertised = *((u16 *)__cil_tmp47);
+    save_autoneg_advertised = hw->autoneg_advertised;
 #line 626
-    __cil_tmp48 = (unsigned long )hw;
-#line 626
-    __cil_tmp49 = __cil_tmp48 + 364;
-#line 626
-    *((bool *)__cil_tmp49) = (_Bool)0;
+    hw->phy_configured = (bool )0;
 #line 627
-    __cil_tmp50 = (unsigned long )hw;
-#line 627
-    __cil_tmp51 = __cil_tmp50 + 240;
-#line 627
-    *((u16 *)__cil_tmp51) = autoneg_advertised;
+    hw->autoneg_advertised = autoneg_advertised;
 #line 628
     tmp___0 = atl1c_restart_autoneg(hw);
     }
@@ -20390,43 +17522,39 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
     if (tmp___0 != 0) {
       {
 #line 629
-      descriptor_modname91 = "atl1c";
+      descriptor.modname = "atl1c";
 #line 629
-      descriptor_function90 = "atl1c_phy_power_saving";
+      descriptor.function = "atl1c_phy_power_saving";
 #line 629
-      descriptor_filename89 = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_hw.c.p";
+      descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_hw.c.p";
 #line 629
-      descriptor_format88 = "phy autoneg failed\n";
+      descriptor.format = "phy autoneg failed\n";
 #line 629
-      descriptor_lineno87 = 629U;
+      descriptor.lineno = 629U;
 #line 629
-      descriptor_flags86 = (unsigned char)0;
+      descriptor.flags = (unsigned char)0;
 #line 629
-      descriptor_enabled85 = (char)0;
+      descriptor.enabled = (char)0;
 #line 629
-      __cil_tmp52 = (signed char )descriptor_enabled85;
+      __cil_tmp33 = (signed char )descriptor.enabled;
 #line 629
-      __cil_tmp53 = (int )__cil_tmp52;
+      __cil_tmp34 = (int )__cil_tmp33;
 #line 629
-      __cil_tmp54 = __cil_tmp53 != 0;
+      __cil_tmp35 = __cil_tmp34 != 0;
 #line 629
-      __cil_tmp55 = (long )__cil_tmp54;
+      __cil_tmp36 = (long )__cil_tmp35;
 #line 629
-      tmp = __builtin_expect(__cil_tmp55, 0L);
+      tmp = __builtin_expect(__cil_tmp36, 0L);
       }
 #line 629
       if (tmp != 0L) {
         {
 #line 629
-        __cil_tmp56 = (unsigned long )pdev;
+        __cil_tmp37 = & pdev->dev;
 #line 629
-        __cil_tmp57 = __cil_tmp56 + 144;
+        __cil_tmp38 = (struct device  const  *)__cil_tmp37;
 #line 629
-        __cil_tmp58 = (struct device *)__cil_tmp57;
-#line 629
-        __cil_tmp59 = (struct device  const  *)__cil_tmp58;
-#line 629
-        dev_printk("<7>", __cil_tmp59, "phy autoneg failed\n");
+        dev_printk("<7>", __cil_tmp38, "phy autoneg failed\n");
         }
       } else {
 
@@ -20437,26 +17565,20 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
 
     }
 #line 632
-    __cil_tmp60 = (unsigned long )hw;
-#line 632
-    __cil_tmp61 = __cil_tmp60 + 240;
-#line 632
-    *((u16 *)__cil_tmp61) = save_autoneg_advertised;
+    hw->autoneg_advertised = save_autoneg_advertised;
     {
 #line 634
-    __cil_tmp62 = & mii_lpa_data;
+    __cil_tmp39 = (unsigned int )mii_lpa_data;
 #line 634
-    __cil_tmp63 = *__cil_tmp62;
-#line 634
-    __cil_tmp64 = (unsigned int )__cil_tmp63;
-#line 634
-    if (__cil_tmp64 != 0U) {
+    if (__cil_tmp39 != 0U) {
 #line 635
       i = 0;
+#line 635
       goto ldv_42561;
       ldv_42560: 
 #line 636
       __ms = 100UL;
+#line 636
       goto ldv_42556;
       ldv_42555: 
       {
@@ -20470,28 +17592,30 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
       __ms = __ms - 1UL;
 #line 636
       if (tmp___1 != 0UL) {
+#line 637
         goto ldv_42555;
       } else {
+#line 639
         goto ldv_42557;
       }
       ldv_42557: 
       {
 #line 637
-      atl1c_read_phy_reg(hw, (unsigned short)1, & phy_data);
+      __cil_tmp40 = (u16 )1;
+#line 637
+      atl1c_read_phy_reg(hw, __cil_tmp40, & phy_data);
 #line 638
-      atl1c_read_phy_reg(hw, (unsigned short)1, & phy_data);
+      __cil_tmp41 = (u16 )1;
+#line 638
+      atl1c_read_phy_reg(hw, __cil_tmp41, & phy_data);
       }
       {
 #line 639
-      __cil_tmp65 = & phy_data;
+      __cil_tmp42 = (int )phy_data;
 #line 639
-      __cil_tmp66 = *__cil_tmp65;
+      __cil_tmp43 = __cil_tmp42 & 4;
 #line 639
-      __cil_tmp67 = (int )__cil_tmp66;
-#line 639
-      __cil_tmp68 = __cil_tmp67 & 4;
-#line 639
-      if (__cil_tmp68 != 0) {
+      if (__cil_tmp43 != 0) {
         {
 #line 640
         tmp___3 = atl1c_get_speed_and_duplex(hw, & speed, & duplex);
@@ -20500,43 +17624,39 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
         if (tmp___3 != 0) {
           {
 #line 642
-          descriptor___0_modname98 = "atl1c";
+          descriptor___0.modname = "atl1c";
 #line 642
-          descriptor___0_function97 = "atl1c_phy_power_saving";
+          descriptor___0.function = "atl1c_phy_power_saving";
 #line 642
-          descriptor___0_filename96 = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_hw.c.p";
+          descriptor___0.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_hw.c.p";
 #line 642
-          descriptor___0_format95 = "get speed and duplex failed\n";
+          descriptor___0.format = "get speed and duplex failed\n";
 #line 642
-          descriptor___0_lineno94 = 643U;
+          descriptor___0.lineno = 643U;
 #line 642
-          descriptor___0_flags93 = (unsigned char)0;
+          descriptor___0.flags = (unsigned char)0;
 #line 642
-          descriptor___0_enabled92 = (char)0;
+          descriptor___0.enabled = (char)0;
 #line 642
-          __cil_tmp69 = (signed char )descriptor___0_enabled92;
+          __cil_tmp44 = (signed char )descriptor___0.enabled;
 #line 642
-          __cil_tmp70 = (int )__cil_tmp69;
+          __cil_tmp45 = (int )__cil_tmp44;
 #line 642
-          __cil_tmp71 = __cil_tmp70 != 0;
+          __cil_tmp46 = __cil_tmp45 != 0;
 #line 642
-          __cil_tmp72 = (long )__cil_tmp71;
+          __cil_tmp47 = (long )__cil_tmp46;
 #line 642
-          tmp___2 = __builtin_expect(__cil_tmp72, 0L);
+          tmp___2 = __builtin_expect(__cil_tmp47, 0L);
           }
 #line 642
           if (tmp___2 != 0L) {
             {
 #line 642
-            __cil_tmp73 = (unsigned long )pdev;
+            __cil_tmp48 = & pdev->dev;
 #line 642
-            __cil_tmp74 = __cil_tmp73 + 144;
+            __cil_tmp49 = (struct device  const  *)__cil_tmp48;
 #line 642
-            __cil_tmp75 = (struct device *)__cil_tmp74;
-#line 642
-            __cil_tmp76 = (struct device  const  *)__cil_tmp75;
-#line 642
-            dev_printk("<7>", __cil_tmp76, "get speed and duplex failed\n");
+            dev_printk("<7>", __cil_tmp49, "get speed and duplex failed\n");
             }
           } else {
 
@@ -20544,6 +17664,7 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
         } else {
 
         }
+#line 644
         goto ldv_42559;
       } else {
 
@@ -20554,8 +17675,10 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
       ldv_42561: ;
 #line 635
       if (i <= 99) {
+#line 636
         goto ldv_42560;
       } else {
+#line 638
         goto ldv_42559;
       }
       ldv_42559: ;
@@ -20565,31 +17688,15 @@ int atl1c_phy_power_saving(struct atl1c_hw *hw )
     }
   } else {
 #line 649
-    __cil_tmp77 = & speed;
-#line 649
-    *__cil_tmp77 = (unsigned short)10;
+    speed = (u16 )10U;
 #line 650
-    __cil_tmp78 = & duplex;
-#line 650
-    *__cil_tmp78 = (unsigned short)1;
+    duplex = (u16 )1U;
   }
   }
 #line 652
-  __cil_tmp79 = (unsigned long )adapter;
-#line 652
-  __cil_tmp80 = __cil_tmp79 + 1028;
-#line 652
-  __cil_tmp81 = & speed;
-#line 652
-  *((u16 *)__cil_tmp80) = *__cil_tmp81;
+  adapter->link_speed = speed;
 #line 653
-  __cil_tmp82 = (unsigned long )adapter;
-#line 653
-  __cil_tmp83 = __cil_tmp82 + 1030;
-#line 653
-  __cil_tmp84 = & duplex;
-#line 653
-  *((u16 *)__cil_tmp83) = *__cil_tmp84;
+  adapter->link_duplex = duplex;
 #line 655
   return (ret);
 }
@@ -20602,14 +17709,14 @@ int atl1c_restart_autoneg(struct atl1c_hw *hw )
   unsigned int __cil_tmp5 ;
   unsigned int __cil_tmp6 ;
   int __cil_tmp7 ;
-  unsigned short __cil_tmp8 ;
+  u16 __cil_tmp8 ;
 
   {
   {
 #line 660
   err = 0;
 #line 661
-  mii_bmcr_data = (unsigned short)32768;
+  mii_bmcr_data = (u16 )32768U;
 #line 663
   err = atl1c_phy_setup_adv(hw);
   }
@@ -20626,11 +17733,11 @@ int atl1c_restart_autoneg(struct atl1c_hw *hw )
 #line 666
   __cil_tmp6 = __cil_tmp5 | 4608U;
 #line 666
-  mii_bmcr_data = (unsigned short )__cil_tmp6;
+  mii_bmcr_data = (u16 )__cil_tmp6;
 #line 668
   __cil_tmp7 = (int )mii_bmcr_data;
 #line 668
-  __cil_tmp8 = (unsigned short )__cil_tmp7;
+  __cil_tmp8 = (u16 )__cil_tmp7;
 #line 668
   tmp = atl1c_write_phy_reg(hw, 0U, __cil_tmp8);
   }
@@ -20647,7 +17754,7 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
   {
   {
 #line 82
-  __cil_tmp2 = *((char const   * const  *)kobj);
+  __cil_tmp2 = kobj->name;
 #line 82
   return ((char const   *)__cil_tmp2);
   }
@@ -20658,16 +17765,10 @@ __inline static char const   *dev_name(struct device  const  *dev )
 { char const   *tmp ;
   char const   *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  char const   *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   char const   *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char const   *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct kobject  const  *__cil_tmp14 ;
+  struct kobject  const  *__cil_tmp8 ;
 
   {
   {
@@ -20676,24 +17777,16 @@ __inline static char const   *dev_name(struct device  const  *dev )
 #line 611
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 611
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->init_name;
 #line 611
-  __cil_tmp6 = __cil_tmp5 + 80;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 611
-  __cil_tmp7 = *((char const   * const  *)__cil_tmp6);
-#line 611
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 611
-  if (__cil_tmp8 != __cil_tmp4) {
+  if (__cil_tmp6 != __cil_tmp4) {
     {
 #line 612
-    __cil_tmp9 = (unsigned long )dev;
+    __cil_tmp7 = dev->init_name;
 #line 612
-    __cil_tmp10 = __cil_tmp9 + 80;
-#line 612
-    __cil_tmp11 = *((char const   * const  *)__cil_tmp10);
-#line 612
-    return ((char const   *)__cil_tmp11);
+    return ((char const   *)__cil_tmp7);
     }
   } else {
 
@@ -20701,13 +17794,9 @@ __inline static char const   *dev_name(struct device  const  *dev )
   }
   {
 #line 614
-  __cil_tmp12 = (unsigned long )dev;
+  __cil_tmp8 = & dev->kobj;
 #line 614
-  __cil_tmp13 = __cil_tmp12 + 16;
-#line 614
-  __cil_tmp14 = (struct kobject  const  *)__cil_tmp13;
-#line 614
-  tmp = kobject_name(__cil_tmp14);
+  tmp = kobject_name(__cil_tmp8);
   }
 #line 614
   return (tmp);
@@ -20715,68 +17804,44 @@ __inline static char const   *dev_name(struct device  const  *dev )
 }
 #line 49 "include/linux/ethtool.h"
 __inline static void ethtool_cmd_speed_set(struct ethtool_cmd *ep , __u32 speed ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  __u32 __cil_tmp7 ;
+{ __u32 __cil_tmp3 ;
 
   {
 #line 53
-  __cil_tmp3 = (unsigned long )ep;
-#line 53
-  __cil_tmp4 = __cil_tmp3 + 12;
-#line 53
-  *((__u16 *)__cil_tmp4) = (unsigned short )speed;
+  ep->speed = (unsigned short )speed;
 #line 54
-  __cil_tmp5 = (unsigned long )ep;
+  __cil_tmp3 = speed >> 16;
 #line 54
-  __cil_tmp6 = __cil_tmp5 + 28;
-#line 54
-  __cil_tmp7 = speed >> 16;
-#line 54
-  *((__u16 *)__cil_tmp6) = (unsigned short )__cil_tmp7;
+  ep->speed_hi = (unsigned short )__cil_tmp3;
 #line 55
   return;
 }
 }
 #line 57 "include/linux/ethtool.h"
 __inline static __u32 ethtool_cmd_speed(struct ethtool_cmd  const  *ep ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ __u16 __cil_tmp2 ;
+  int __cil_tmp3 ;
   __u16 __cil_tmp4 ;
   int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  __u16 __cil_tmp8 ;
-  int __cil_tmp9 ;
-  int __cil_tmp10 ;
-  int __cil_tmp11 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
 
   {
   {
 #line 59
-  __cil_tmp2 = (unsigned long )ep;
+  __cil_tmp2 = ep->speed;
 #line 59
-  __cil_tmp3 = __cil_tmp2 + 12;
+  __cil_tmp3 = (int )__cil_tmp2;
 #line 59
-  __cil_tmp4 = *((__u16 const   *)__cil_tmp3);
+  __cil_tmp4 = ep->speed_hi;
 #line 59
   __cil_tmp5 = (int )__cil_tmp4;
 #line 59
-  __cil_tmp6 = (unsigned long )ep;
+  __cil_tmp6 = __cil_tmp5 << 16;
 #line 59
-  __cil_tmp7 = __cil_tmp6 + 28;
+  __cil_tmp7 = __cil_tmp6 | __cil_tmp3;
 #line 59
-  __cil_tmp8 = *((__u16 const   *)__cil_tmp7);
-#line 59
-  __cil_tmp9 = (int )__cil_tmp8;
-#line 59
-  __cil_tmp10 = __cil_tmp9 << 16;
-#line 59
-  __cil_tmp11 = __cil_tmp10 | __cil_tmp5;
-#line 59
-  return ((unsigned int )__cil_tmp11);
+  return ((__u32 )__cil_tmp7);
   }
 }
 }
@@ -20785,20 +17850,14 @@ extern u32 ethtool_op_get_link(struct net_device * ) ;
 #line 1329 "include/linux/pci.h"
 __inline static char const   *pci_name(struct pci_dev  const  *pdev ) 
 { char const   *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device  const  *__cil_tmp5 ;
+  struct device  const  *__cil_tmp3 ;
 
   {
   {
 #line 1331
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1331
-  __cil_tmp4 = __cil_tmp3 + 144;
-#line 1331
-  __cil_tmp5 = (struct device  const  *)__cil_tmp4;
-#line 1331
-  tmp = dev_name(__cil_tmp5);
+  tmp = dev_name(__cil_tmp3);
   }
 #line 1331
   return (tmp);
@@ -20810,56 +17869,18 @@ static int atl1c_get_settings(struct net_device *netdev , struct ethtool_cmd *ec
   void *tmp ;
   struct atl1c_hw *hw ;
   struct net_device  const  *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  u16 __cil_tmp7 ;
+  int __cil_tmp8 ;
+  __u32 __cil_tmp9 ;
+  u16 __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
+  __u32 __cil_tmp12 ;
   u16 __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  __u32 __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  u16 __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  __u32 __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u16 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u16 __cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  u16 __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
+  unsigned int __cil_tmp14 ;
+  u16 __cil_tmp15 ;
+  __u32 __cil_tmp16 ;
+  u16 __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
 
   {
   {
@@ -20870,136 +17891,68 @@ static int atl1c_get_settings(struct net_device *netdev , struct ethtool_cmd *ec
 #line 40
   adapter = (struct atl1c_adapter *)tmp;
 #line 41
-  __cil_tmp7 = (unsigned long )adapter;
-#line 41
-  __cil_tmp8 = __cil_tmp7 + 184;
-#line 41
-  hw = (struct atl1c_hw *)__cil_tmp8;
+  hw = & adapter->hw;
 #line 43
-  __cil_tmp9 = (unsigned long )ecmd;
-#line 43
-  __cil_tmp10 = __cil_tmp9 + 4;
-#line 43
-  *((__u32 *)__cil_tmp10) = 207U;
+  ecmd->supported = 207U;
   }
   {
 #line 49
-  __cil_tmp11 = (unsigned long )hw;
+  __cil_tmp7 = hw->link_cap_flags;
 #line 49
-  __cil_tmp12 = __cil_tmp11 + 254;
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 49
-  __cil_tmp13 = *((u16 *)__cil_tmp12);
-#line 49
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 49
-  if (__cil_tmp14 & 1) {
+  if (__cil_tmp8 & 1) {
 #line 50
-    __cil_tmp15 = (unsigned long )ecmd;
+    __cil_tmp9 = ecmd->supported;
 #line 50
-    __cil_tmp16 = __cil_tmp15 + 4;
-#line 50
-    __cil_tmp17 = (unsigned long )ecmd;
-#line 50
-    __cil_tmp18 = __cil_tmp17 + 4;
-#line 50
-    __cil_tmp19 = *((__u32 *)__cil_tmp18);
-#line 50
-    *((__u32 *)__cil_tmp16) = __cil_tmp19 | 32U;
+    ecmd->supported = __cil_tmp9 | 32U;
   } else {
 
   }
   }
 #line 52
-  __cil_tmp20 = (unsigned long )ecmd;
-#line 52
-  __cil_tmp21 = __cil_tmp20 + 8;
-#line 52
-  *((__u32 *)__cil_tmp21) = 128U;
+  ecmd->advertising = 128U;
 #line 54
-  __cil_tmp22 = (unsigned long )ecmd;
+  __cil_tmp10 = hw->autoneg_advertised;
 #line 54
-  __cil_tmp23 = __cil_tmp22 + 8;
+  __cil_tmp11 = (__u32 )__cil_tmp10;
 #line 54
-  __cil_tmp24 = (unsigned long )hw;
+  __cil_tmp12 = ecmd->advertising;
 #line 54
-  __cil_tmp25 = __cil_tmp24 + 240;
-#line 54
-  __cil_tmp26 = *((u16 *)__cil_tmp25);
-#line 54
-  __cil_tmp27 = (unsigned int )__cil_tmp26;
-#line 54
-  __cil_tmp28 = (unsigned long )ecmd;
-#line 54
-  __cil_tmp29 = __cil_tmp28 + 8;
-#line 54
-  __cil_tmp30 = *((__u32 *)__cil_tmp29);
-#line 54
-  *((__u32 *)__cil_tmp23) = __cil_tmp30 | __cil_tmp27;
+  ecmd->advertising = __cil_tmp12 | __cil_tmp11;
 #line 56
-  __cil_tmp31 = (unsigned long )ecmd;
-#line 56
-  __cil_tmp32 = __cil_tmp31 + 15;
-#line 56
-  *((__u8 *)__cil_tmp32) = (unsigned char)0;
+  ecmd->port = (__u8 )0U;
 #line 57
-  __cil_tmp33 = (unsigned long )ecmd;
-#line 57
-  __cil_tmp34 = __cil_tmp33 + 16;
-#line 57
-  *((__u8 *)__cil_tmp34) = (unsigned char)0;
+  ecmd->phy_address = (__u8 )0U;
 #line 58
-  __cil_tmp35 = (unsigned long )ecmd;
-#line 58
-  __cil_tmp36 = __cil_tmp35 + 17;
-#line 58
-  *((__u8 *)__cil_tmp36) = (unsigned char)0;
+  ecmd->transceiver = (__u8 )0U;
   {
 #line 60
-  __cil_tmp37 = (unsigned long )adapter;
+  __cil_tmp13 = adapter->link_speed;
 #line 60
-  __cil_tmp38 = __cil_tmp37 + 1028;
+  __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 60
-  __cil_tmp39 = *((u16 *)__cil_tmp38);
-#line 60
-  __cil_tmp40 = (unsigned int )__cil_tmp39;
-#line 60
-  if (__cil_tmp40 != 65535U) {
+  if (__cil_tmp14 != 65535U) {
     {
 #line 61
-    __cil_tmp41 = (unsigned long )adapter;
+    __cil_tmp15 = adapter->link_speed;
 #line 61
-    __cil_tmp42 = __cil_tmp41 + 1028;
+    __cil_tmp16 = (__u32 )__cil_tmp15;
 #line 61
-    __cil_tmp43 = *((u16 *)__cil_tmp42);
-#line 61
-    __cil_tmp44 = (unsigned int )__cil_tmp43;
-#line 61
-    ethtool_cmd_speed_set(ecmd, __cil_tmp44);
+    ethtool_cmd_speed_set(ecmd, __cil_tmp16);
     }
     {
 #line 62
-    __cil_tmp45 = (unsigned long )adapter;
+    __cil_tmp17 = adapter->link_duplex;
 #line 62
-    __cil_tmp46 = __cil_tmp45 + 1030;
+    __cil_tmp18 = (unsigned int )__cil_tmp17;
 #line 62
-    __cil_tmp47 = *((u16 *)__cil_tmp46);
-#line 62
-    __cil_tmp48 = (unsigned int )__cil_tmp47;
-#line 62
-    if (__cil_tmp48 == 2U) {
+    if (__cil_tmp18 == 2U) {
 #line 63
-      __cil_tmp49 = (unsigned long )ecmd;
-#line 63
-      __cil_tmp50 = __cil_tmp49 + 14;
-#line 63
-      *((__u8 *)__cil_tmp50) = (unsigned char)1;
+      ecmd->duplex = (__u8 )1U;
     } else {
 #line 65
-      __cil_tmp51 = (unsigned long )ecmd;
-#line 65
-      __cil_tmp52 = __cil_tmp51 + 14;
-#line 65
-      *((__u8 *)__cil_tmp52) = (unsigned char)0;
+      ecmd->duplex = (__u8 )0U;
     }
     }
   } else {
@@ -21007,20 +17960,12 @@ static int atl1c_get_settings(struct net_device *netdev , struct ethtool_cmd *ec
 #line 67
     ethtool_cmd_speed_set(ecmd, 4294967295U);
 #line 68
-    __cil_tmp53 = (unsigned long )ecmd;
-#line 68
-    __cil_tmp54 = __cil_tmp53 + 14;
-#line 68
-    *((__u8 *)__cil_tmp54) = (unsigned char)255;
+    ecmd->duplex = (__u8 )255U;
     }
   }
   }
 #line 71
-  __cil_tmp55 = (unsigned long )ecmd;
-#line 71
-  __cil_tmp56 = __cil_tmp55 + 18;
-#line 71
-  *((__u8 *)__cil_tmp56) = (unsigned char)1;
+  ecmd->autoneg = (__u8 )1U;
 #line 72
   return (0);
 }
@@ -21036,70 +17981,36 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
   __u32 tmp___1 ;
   int tmp___2 ;
   struct net_device  const  *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long *__cil_tmp16 ;
-  unsigned long volatile   *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  __u8 __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  struct ethtool_cmd  const  *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  __u8 __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u32 __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct pci_dev *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  unsigned long *__cil_tmp12 ;
+  unsigned long volatile   *__cil_tmp13 ;
+  __u8 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  struct ethtool_cmd  const  *__cil_tmp16 ;
+  __u8 __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  u32 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  struct pci_dev *__cil_tmp21 ;
+  struct device *__cil_tmp22 ;
+  struct device  const  *__cil_tmp23 ;
+  unsigned long *__cil_tmp24 ;
+  unsigned long volatile   *__cil_tmp25 ;
+  __u8 __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  __u8 __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  u16 __cil_tmp31 ;
+  int __cil_tmp32 ;
+  u32 __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  struct pci_dev *__cil_tmp35 ;
   struct device *__cil_tmp36 ;
   struct device  const  *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  unsigned long *__cil_tmp38 ;
+  unsigned long volatile   *__cil_tmp39 ;
   unsigned long *__cil_tmp40 ;
   unsigned long volatile   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  __u8 __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  __u8 __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  u16 __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  u32 __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct pci_dev *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct device *__cil_tmp66 ;
-  struct device  const  *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long *__cil_tmp70 ;
-  unsigned long volatile   *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long *__cil_tmp74 ;
-  unsigned long volatile   *__cil_tmp75 ;
 
   {
   {
@@ -21110,12 +18021,9 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
 #line 78
   adapter = (struct atl1c_adapter *)tmp;
 #line 79
-  __cil_tmp12 = (unsigned long )adapter;
-#line 79
-  __cil_tmp13 = __cil_tmp12 + 184;
-#line 79
-  hw = (struct atl1c_hw *)__cil_tmp13;
+  hw = & adapter->hw;
   }
+#line 82
   goto ldv_42406;
   ldv_42405: 
   {
@@ -21125,42 +18033,36 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
   ldv_42406: 
   {
 #line 82
-  __cil_tmp14 = (unsigned long )adapter;
+  __cil_tmp12 = & adapter->flags;
 #line 82
-  __cil_tmp15 = __cil_tmp14 + 1000;
+  __cil_tmp13 = (unsigned long volatile   *)__cil_tmp12;
 #line 82
-  __cil_tmp16 = (unsigned long *)__cil_tmp15;
-#line 82
-  __cil_tmp17 = (unsigned long volatile   *)__cil_tmp16;
-#line 82
-  tmp___0 = test_and_set_bit(2, __cil_tmp17);
+  tmp___0 = test_and_set_bit(2, __cil_tmp13);
   }
 #line 82
   if (tmp___0 != 0) {
+#line 83
     goto ldv_42405;
   } else {
+#line 85
     goto ldv_42407;
   }
   ldv_42407: ;
   {
 #line 85
-  __cil_tmp18 = (unsigned long )ecmd;
+  __cil_tmp14 = ecmd->autoneg;
 #line 85
-  __cil_tmp19 = __cil_tmp18 + 18;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 85
-  __cil_tmp20 = *((__u8 *)__cil_tmp19);
-#line 85
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 85
-  if (__cil_tmp21 == 1U) {
+  if (__cil_tmp15 == 1U) {
 #line 86
-    autoneg_advertised = (unsigned short)64;
+    autoneg_advertised = (u16 )64U;
   } else {
     {
 #line 88
-    __cil_tmp22 = (struct ethtool_cmd  const  *)ecmd;
+    __cil_tmp16 = (struct ethtool_cmd  const  *)ecmd;
 #line 88
-    tmp___1 = ethtool_cmd_speed(__cil_tmp22);
+    tmp___1 = ethtool_cmd_speed(__cil_tmp16);
 #line 88
     speed = tmp___1;
     }
@@ -21168,43 +18070,27 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
     if (speed == 1000U) {
       {
 #line 90
-      __cil_tmp23 = (unsigned long )ecmd;
+      __cil_tmp17 = ecmd->duplex;
 #line 90
-      __cil_tmp24 = __cil_tmp23 + 14;
+      __cil_tmp18 = (unsigned int )__cil_tmp17;
 #line 90
-      __cil_tmp25 = *((__u8 *)__cil_tmp24);
-#line 90
-      __cil_tmp26 = (unsigned int )__cil_tmp25;
-#line 90
-      if (__cil_tmp26 != 1U) {
+      if (__cil_tmp18 != 1U) {
         {
 #line 91
-        __cil_tmp27 = (unsigned long )adapter;
+        __cil_tmp19 = adapter->msg_enable;
 #line 91
-        __cil_tmp28 = __cil_tmp27 + 1016;
+        __cil_tmp20 = __cil_tmp19 & 4U;
 #line 91
-        __cil_tmp29 = *((u32 *)__cil_tmp28);
-#line 91
-        __cil_tmp30 = __cil_tmp29 & 4U;
-#line 91
-        if (__cil_tmp30 != 0U) {
+        if (__cil_tmp20 != 0U) {
           {
 #line 92
-          __cil_tmp31 = (unsigned long )adapter;
+          __cil_tmp21 = adapter->pdev;
 #line 92
-          __cil_tmp32 = __cil_tmp31 + 8;
+          __cil_tmp22 = & __cil_tmp21->dev;
 #line 92
-          __cil_tmp33 = *((struct pci_dev **)__cil_tmp32);
+          __cil_tmp23 = (struct device  const  *)__cil_tmp22;
 #line 92
-          __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 92
-          __cil_tmp35 = __cil_tmp34 + 144;
-#line 92
-          __cil_tmp36 = (struct device *)__cil_tmp35;
-#line 92
-          __cil_tmp37 = (struct device  const  *)__cil_tmp36;
-#line 92
-          dev_warn(__cil_tmp37, "1000M half is invalid\n");
+          dev_warn(__cil_tmp23, "1000M half is invalid\n");
           }
         } else {
 
@@ -21212,15 +18098,11 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
         }
         {
 #line 94
-        __cil_tmp38 = (unsigned long )adapter;
+        __cil_tmp24 = & adapter->flags;
 #line 94
-        __cil_tmp39 = __cil_tmp38 + 1000;
+        __cil_tmp25 = (unsigned long volatile   *)__cil_tmp24;
 #line 94
-        __cil_tmp40 = (unsigned long *)__cil_tmp39;
-#line 94
-        __cil_tmp41 = (unsigned long volatile   *)__cil_tmp40;
-#line 94
-        clear_bit(2, __cil_tmp41);
+        clear_bit(2, __cil_tmp25);
         }
 #line 95
         return (-22);
@@ -21229,71 +18111,54 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
       }
       }
 #line 97
-      autoneg_advertised = (unsigned short)32;
-    } else {
+      autoneg_advertised = (u16 )32U;
+    } else
 #line 98
-      if (speed == 100U) {
-        {
+    if (speed == 100U) {
+      {
 #line 99
-        __cil_tmp42 = (unsigned long )ecmd;
+      __cil_tmp26 = ecmd->duplex;
 #line 99
-        __cil_tmp43 = __cil_tmp42 + 14;
+      __cil_tmp27 = (unsigned int )__cil_tmp26;
 #line 99
-        __cil_tmp44 = *((__u8 *)__cil_tmp43);
-#line 99
-        __cil_tmp45 = (unsigned int )__cil_tmp44;
-#line 99
-        if (__cil_tmp45 == 1U) {
+      if (__cil_tmp27 == 1U) {
 #line 100
-          autoneg_advertised = (unsigned short)8;
-        } else {
-#line 102
-          autoneg_advertised = (unsigned short)4;
-        }
-        }
+        autoneg_advertised = (u16 )8U;
       } else {
-        {
+#line 102
+        autoneg_advertised = (u16 )4U;
+      }
+      }
+    } else {
+      {
 #line 104
-        __cil_tmp46 = (unsigned long )ecmd;
+      __cil_tmp28 = ecmd->duplex;
 #line 104
-        __cil_tmp47 = __cil_tmp46 + 14;
+      __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 104
-        __cil_tmp48 = *((__u8 *)__cil_tmp47);
-#line 104
-        __cil_tmp49 = (unsigned int )__cil_tmp48;
-#line 104
-        if (__cil_tmp49 == 1U) {
+      if (__cil_tmp29 == 1U) {
 #line 105
-          autoneg_advertised = (unsigned short)2;
-        } else {
+        autoneg_advertised = (u16 )2U;
+      } else {
 #line 107
-          autoneg_advertised = (unsigned short)1;
-        }
-        }
+        autoneg_advertised = (u16 )1U;
+      }
       }
     }
   }
   }
   {
 #line 111
-  __cil_tmp50 = (int )autoneg_advertised;
+  __cil_tmp30 = (int )autoneg_advertised;
 #line 111
-  __cil_tmp51 = (unsigned long )hw;
+  __cil_tmp31 = hw->autoneg_advertised;
 #line 111
-  __cil_tmp52 = __cil_tmp51 + 240;
+  __cil_tmp32 = (int )__cil_tmp31;
 #line 111
-  __cil_tmp53 = *((u16 *)__cil_tmp52);
-#line 111
-  __cil_tmp54 = (int )__cil_tmp53;
-#line 111
-  if (__cil_tmp54 != __cil_tmp50) {
+  if (__cil_tmp32 != __cil_tmp30) {
     {
 #line 112
-    __cil_tmp55 = (unsigned long )hw;
-#line 112
-    __cil_tmp56 = __cil_tmp55 + 240;
-#line 112
-    *((u16 *)__cil_tmp56) = autoneg_advertised;
+    hw->autoneg_advertised = autoneg_advertised;
 #line 113
     tmp___2 = atl1c_restart_autoneg(hw);
     }
@@ -21301,32 +18166,20 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
     if (tmp___2 != 0) {
       {
 #line 114
-      __cil_tmp57 = (unsigned long )adapter;
+      __cil_tmp33 = adapter->msg_enable;
 #line 114
-      __cil_tmp58 = __cil_tmp57 + 1016;
+      __cil_tmp34 = __cil_tmp33 & 4U;
 #line 114
-      __cil_tmp59 = *((u32 *)__cil_tmp58);
-#line 114
-      __cil_tmp60 = __cil_tmp59 & 4U;
-#line 114
-      if (__cil_tmp60 != 0U) {
+      if (__cil_tmp34 != 0U) {
         {
 #line 115
-        __cil_tmp61 = (unsigned long )adapter;
+        __cil_tmp35 = adapter->pdev;
 #line 115
-        __cil_tmp62 = __cil_tmp61 + 8;
+        __cil_tmp36 = & __cil_tmp35->dev;
 #line 115
-        __cil_tmp63 = *((struct pci_dev **)__cil_tmp62);
+        __cil_tmp37 = (struct device  const  *)__cil_tmp36;
 #line 115
-        __cil_tmp64 = (unsigned long )__cil_tmp63;
-#line 115
-        __cil_tmp65 = __cil_tmp64 + 144;
-#line 115
-        __cil_tmp66 = (struct device *)__cil_tmp65;
-#line 115
-        __cil_tmp67 = (struct device  const  *)__cil_tmp66;
-#line 115
-        dev_warn(__cil_tmp67, "ethtool speed/duplex setting failed\n");
+        dev_warn(__cil_tmp37, "ethtool speed/duplex setting failed\n");
         }
       } else {
 
@@ -21334,15 +18187,11 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
       }
       {
 #line 117
-      __cil_tmp68 = (unsigned long )adapter;
+      __cil_tmp38 = & adapter->flags;
 #line 117
-      __cil_tmp69 = __cil_tmp68 + 1000;
+      __cil_tmp39 = (unsigned long volatile   *)__cil_tmp38;
 #line 117
-      __cil_tmp70 = (unsigned long *)__cil_tmp69;
-#line 117
-      __cil_tmp71 = (unsigned long volatile   *)__cil_tmp70;
-#line 117
-      clear_bit(2, __cil_tmp71);
+      clear_bit(2, __cil_tmp39);
       }
 #line 118
       return (-22);
@@ -21355,15 +18204,11 @@ static int atl1c_set_settings(struct net_device *netdev , struct ethtool_cmd *ec
   }
   {
 #line 121
-  __cil_tmp72 = (unsigned long )adapter;
+  __cil_tmp40 = & adapter->flags;
 #line 121
-  __cil_tmp73 = __cil_tmp72 + 1000;
+  __cil_tmp41 = (unsigned long volatile   *)__cil_tmp40;
 #line 121
-  __cil_tmp74 = (unsigned long *)__cil_tmp73;
-#line 121
-  __cil_tmp75 = (unsigned long volatile   *)__cil_tmp74;
-#line 121
-  clear_bit(2, __cil_tmp75);
+  clear_bit(2, __cil_tmp41);
   }
 #line 122
   return (0);
@@ -21374,8 +18219,6 @@ static u32 atl1c_get_msglevel(struct net_device *netdev )
 { struct atl1c_adapter *adapter ;
   void *tmp ;
   struct net_device  const  *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
 
   {
   {
@@ -21386,14 +18229,8 @@ static u32 atl1c_get_msglevel(struct net_device *netdev )
 #line 127
   adapter = (struct atl1c_adapter *)tmp;
   }
-  {
 #line 128
-  __cil_tmp5 = (unsigned long )adapter;
-#line 128
-  __cil_tmp6 = __cil_tmp5 + 1016;
-#line 128
-  return (*((u32 *)__cil_tmp6));
-  }
+  return (adapter->msg_enable);
 }
 }
 #line 131 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_ethtool.c.p"
@@ -21401,8 +18238,6 @@ static void atl1c_set_msglevel(struct net_device *netdev , u32 data )
 { struct atl1c_adapter *adapter ;
   void *tmp ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
 
   {
   {
@@ -21413,11 +18248,7 @@ static void atl1c_set_msglevel(struct net_device *netdev , u32 data )
 #line 133
   adapter = (struct atl1c_adapter *)tmp;
 #line 134
-  __cil_tmp6 = (unsigned long )adapter;
-#line 134
-  __cil_tmp7 = __cil_tmp6 + 1016;
-#line 134
-  *((u32 *)__cil_tmp7) = data;
+  adapter->msg_enable = data;
   }
 #line 135
   return;
@@ -21510,138 +18341,138 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
   void *tmp___67 ;
   long tmp___68 ;
   struct net_device  const  *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  bool __cil_tmp85 ;
-  long __cil_tmp86 ;
-  u8 *__cil_tmp87 ;
-  void const volatile   *__cil_tmp88 ;
-  void const volatile   *__cil_tmp89 ;
-  u32 *__cil_tmp90 ;
-  u8 *__cil_tmp91 ;
-  void const volatile   *__cil_tmp92 ;
-  void const volatile   *__cil_tmp93 ;
-  u32 *__cil_tmp94 ;
-  u8 *__cil_tmp95 ;
+  bool __cil_tmp79 ;
+  long __cil_tmp80 ;
+  u8 *__cil_tmp81 ;
+  void const volatile   *__cil_tmp82 ;
+  void const volatile   *__cil_tmp83 ;
+  u32 *__cil_tmp84 ;
+  u8 *__cil_tmp85 ;
+  void const volatile   *__cil_tmp86 ;
+  void const volatile   *__cil_tmp87 ;
+  u32 *__cil_tmp88 ;
+  u8 *__cil_tmp89 ;
+  void const volatile   *__cil_tmp90 ;
+  void const volatile   *__cil_tmp91 ;
+  bool __cil_tmp92 ;
+  long __cil_tmp93 ;
+  u8 *__cil_tmp94 ;
+  void const volatile   *__cil_tmp95 ;
   void const volatile   *__cil_tmp96 ;
-  void const volatile   *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  bool __cil_tmp100 ;
-  long __cil_tmp101 ;
+  u32 *__cil_tmp97 ;
+  u8 *__cil_tmp98 ;
+  void const volatile   *__cil_tmp99 ;
+  void const volatile   *__cil_tmp100 ;
+  u32 *__cil_tmp101 ;
   u8 *__cil_tmp102 ;
   void const volatile   *__cil_tmp103 ;
   void const volatile   *__cil_tmp104 ;
-  u32 *__cil_tmp105 ;
-  u8 *__cil_tmp106 ;
-  void const volatile   *__cil_tmp107 ;
+  bool __cil_tmp105 ;
+  long __cil_tmp106 ;
+  u8 *__cil_tmp107 ;
   void const volatile   *__cil_tmp108 ;
-  u32 *__cil_tmp109 ;
-  u8 *__cil_tmp110 ;
-  void const volatile   *__cil_tmp111 ;
+  void const volatile   *__cil_tmp109 ;
+  u32 *__cil_tmp110 ;
+  u8 *__cil_tmp111 ;
   void const volatile   *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  bool __cil_tmp115 ;
-  long __cil_tmp116 ;
-  u8 *__cil_tmp117 ;
-  void const volatile   *__cil_tmp118 ;
-  void const volatile   *__cil_tmp119 ;
-  u32 *__cil_tmp120 ;
-  u8 *__cil_tmp121 ;
+  void const volatile   *__cil_tmp113 ;
+  u32 *__cil_tmp114 ;
+  u8 *__cil_tmp115 ;
+  void const volatile   *__cil_tmp116 ;
+  void const volatile   *__cil_tmp117 ;
+  bool __cil_tmp118 ;
+  long __cil_tmp119 ;
+  u8 *__cil_tmp120 ;
+  void const volatile   *__cil_tmp121 ;
   void const volatile   *__cil_tmp122 ;
-  void const volatile   *__cil_tmp123 ;
-  u32 *__cil_tmp124 ;
-  u8 *__cil_tmp125 ;
+  u32 *__cil_tmp123 ;
+  u8 *__cil_tmp124 ;
+  void const volatile   *__cil_tmp125 ;
   void const volatile   *__cil_tmp126 ;
-  void const volatile   *__cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  bool __cil_tmp130 ;
-  long __cil_tmp131 ;
-  u8 *__cil_tmp132 ;
-  void const volatile   *__cil_tmp133 ;
+  u32 *__cil_tmp127 ;
+  u8 *__cil_tmp128 ;
+  void const volatile   *__cil_tmp129 ;
+  void const volatile   *__cil_tmp130 ;
+  bool __cil_tmp131 ;
+  long __cil_tmp132 ;
+  u8 *__cil_tmp133 ;
   void const volatile   *__cil_tmp134 ;
-  u32 *__cil_tmp135 ;
-  u8 *__cil_tmp136 ;
-  void const volatile   *__cil_tmp137 ;
+  void const volatile   *__cil_tmp135 ;
+  u32 *__cil_tmp136 ;
+  u8 *__cil_tmp137 ;
   void const volatile   *__cil_tmp138 ;
-  u32 *__cil_tmp139 ;
-  u8 *__cil_tmp140 ;
-  void const volatile   *__cil_tmp141 ;
+  void const volatile   *__cil_tmp139 ;
+  u32 *__cil_tmp140 ;
+  u8 *__cil_tmp141 ;
   void const volatile   *__cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  bool __cil_tmp145 ;
-  long __cil_tmp146 ;
-  u8 *__cil_tmp147 ;
+  void const volatile   *__cil_tmp143 ;
+  bool __cil_tmp144 ;
+  long __cil_tmp145 ;
+  u8 *__cil_tmp146 ;
+  void const volatile   *__cil_tmp147 ;
   void const volatile   *__cil_tmp148 ;
-  void const volatile   *__cil_tmp149 ;
-  u32 *__cil_tmp150 ;
-  u8 *__cil_tmp151 ;
+  u32 *__cil_tmp149 ;
+  u8 *__cil_tmp150 ;
+  void const volatile   *__cil_tmp151 ;
   void const volatile   *__cil_tmp152 ;
-  void const volatile   *__cil_tmp153 ;
-  u32 *__cil_tmp154 ;
-  u8 *__cil_tmp155 ;
+  u32 *__cil_tmp153 ;
+  u8 *__cil_tmp154 ;
+  void const volatile   *__cil_tmp155 ;
   void const volatile   *__cil_tmp156 ;
-  void const volatile   *__cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  bool __cil_tmp160 ;
-  long __cil_tmp161 ;
-  u8 *__cil_tmp162 ;
-  void const volatile   *__cil_tmp163 ;
+  bool __cil_tmp157 ;
+  long __cil_tmp158 ;
+  u8 *__cil_tmp159 ;
+  void const volatile   *__cil_tmp160 ;
+  void const volatile   *__cil_tmp161 ;
+  u32 *__cil_tmp162 ;
+  u8 *__cil_tmp163 ;
   void const volatile   *__cil_tmp164 ;
-  u32 *__cil_tmp165 ;
-  u8 *__cil_tmp166 ;
-  void const volatile   *__cil_tmp167 ;
+  void const volatile   *__cil_tmp165 ;
+  u32 *__cil_tmp166 ;
+  u8 *__cil_tmp167 ;
   void const volatile   *__cil_tmp168 ;
-  u32 *__cil_tmp169 ;
-  u8 *__cil_tmp170 ;
-  void const volatile   *__cil_tmp171 ;
-  void const volatile   *__cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  bool __cil_tmp175 ;
-  long __cil_tmp176 ;
-  u8 *__cil_tmp177 ;
+  void const volatile   *__cil_tmp169 ;
+  bool __cil_tmp170 ;
+  long __cil_tmp171 ;
+  u8 *__cil_tmp172 ;
+  void const volatile   *__cil_tmp173 ;
+  void const volatile   *__cil_tmp174 ;
+  u32 *__cil_tmp175 ;
+  u8 *__cil_tmp176 ;
+  void const volatile   *__cil_tmp177 ;
   void const volatile   *__cil_tmp178 ;
-  void const volatile   *__cil_tmp179 ;
-  u32 *__cil_tmp180 ;
-  u8 *__cil_tmp181 ;
+  u32 *__cil_tmp179 ;
+  u8 *__cil_tmp180 ;
+  void const volatile   *__cil_tmp181 ;
   void const volatile   *__cil_tmp182 ;
-  void const volatile   *__cil_tmp183 ;
-  u32 *__cil_tmp184 ;
+  bool __cil_tmp183 ;
+  long __cil_tmp184 ;
   u8 *__cil_tmp185 ;
   void const volatile   *__cil_tmp186 ;
   void const volatile   *__cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  bool __cil_tmp190 ;
-  long __cil_tmp191 ;
-  u8 *__cil_tmp192 ;
-  void const volatile   *__cil_tmp193 ;
+  u32 *__cil_tmp188 ;
+  u8 *__cil_tmp189 ;
+  void const volatile   *__cil_tmp190 ;
+  void const volatile   *__cil_tmp191 ;
+  u32 *__cil_tmp192 ;
+  u8 *__cil_tmp193 ;
   void const volatile   *__cil_tmp194 ;
-  u32 *__cil_tmp195 ;
-  u8 *__cil_tmp196 ;
-  void const volatile   *__cil_tmp197 ;
-  void const volatile   *__cil_tmp198 ;
-  u32 *__cil_tmp199 ;
-  u8 *__cil_tmp200 ;
-  void const volatile   *__cil_tmp201 ;
-  void const volatile   *__cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  bool __cil_tmp205 ;
-  long __cil_tmp206 ;
-  u8 *__cil_tmp207 ;
+  void const volatile   *__cil_tmp195 ;
+  bool __cil_tmp196 ;
+  long __cil_tmp197 ;
+  u8 *__cil_tmp198 ;
+  void const volatile   *__cil_tmp199 ;
+  void const volatile   *__cil_tmp200 ;
+  u32 *__cil_tmp201 ;
+  u8 *__cil_tmp202 ;
+  void const volatile   *__cil_tmp203 ;
+  void const volatile   *__cil_tmp204 ;
+  u32 *__cil_tmp205 ;
+  u8 *__cil_tmp206 ;
+  void const volatile   *__cil_tmp207 ;
   void const volatile   *__cil_tmp208 ;
-  void const volatile   *__cil_tmp209 ;
-  u32 *__cil_tmp210 ;
+  bool __cil_tmp209 ;
+  long __cil_tmp210 ;
   u8 *__cil_tmp211 ;
   void const volatile   *__cil_tmp212 ;
   void const volatile   *__cil_tmp213 ;
@@ -21649,23 +18480,23 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
   u8 *__cil_tmp215 ;
   void const volatile   *__cil_tmp216 ;
   void const volatile   *__cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  bool __cil_tmp220 ;
-  long __cil_tmp221 ;
-  u8 *__cil_tmp222 ;
-  void const volatile   *__cil_tmp223 ;
-  void const volatile   *__cil_tmp224 ;
-  u32 *__cil_tmp225 ;
-  u8 *__cil_tmp226 ;
-  void const volatile   *__cil_tmp227 ;
-  void const volatile   *__cil_tmp228 ;
-  u32 *__cil_tmp229 ;
-  u8 *__cil_tmp230 ;
-  void const volatile   *__cil_tmp231 ;
-  void const volatile   *__cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
+  u32 *__cil_tmp218 ;
+  u8 *__cil_tmp219 ;
+  void const volatile   *__cil_tmp220 ;
+  void const volatile   *__cil_tmp221 ;
+  bool __cil_tmp222 ;
+  long __cil_tmp223 ;
+  u8 *__cil_tmp224 ;
+  void const volatile   *__cil_tmp225 ;
+  void const volatile   *__cil_tmp226 ;
+  u32 *__cil_tmp227 ;
+  u8 *__cil_tmp228 ;
+  void const volatile   *__cil_tmp229 ;
+  void const volatile   *__cil_tmp230 ;
+  u32 *__cil_tmp231 ;
+  u8 *__cil_tmp232 ;
+  void const volatile   *__cil_tmp233 ;
+  void const volatile   *__cil_tmp234 ;
   bool __cil_tmp235 ;
   long __cil_tmp236 ;
   u8 *__cil_tmp237 ;
@@ -21679,25 +18510,25 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
   u8 *__cil_tmp245 ;
   void const volatile   *__cil_tmp246 ;
   void const volatile   *__cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  bool __cil_tmp250 ;
-  long __cil_tmp251 ;
-  u8 *__cil_tmp252 ;
-  void const volatile   *__cil_tmp253 ;
-  void const volatile   *__cil_tmp254 ;
-  u32 *__cil_tmp255 ;
-  u8 *__cil_tmp256 ;
-  void const volatile   *__cil_tmp257 ;
-  void const volatile   *__cil_tmp258 ;
-  u32 *__cil_tmp259 ;
-  u8 *__cil_tmp260 ;
-  void const volatile   *__cil_tmp261 ;
-  void const volatile   *__cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  unsigned long __cil_tmp264 ;
-  bool __cil_tmp265 ;
-  long __cil_tmp266 ;
+  bool __cil_tmp248 ;
+  long __cil_tmp249 ;
+  u8 *__cil_tmp250 ;
+  void const volatile   *__cil_tmp251 ;
+  void const volatile   *__cil_tmp252 ;
+  u32 *__cil_tmp253 ;
+  u8 *__cil_tmp254 ;
+  void const volatile   *__cil_tmp255 ;
+  void const volatile   *__cil_tmp256 ;
+  u32 *__cil_tmp257 ;
+  u8 *__cil_tmp258 ;
+  void const volatile   *__cil_tmp259 ;
+  void const volatile   *__cil_tmp260 ;
+  bool __cil_tmp261 ;
+  long __cil_tmp262 ;
+  u8 *__cil_tmp263 ;
+  void const volatile   *__cil_tmp264 ;
+  void const volatile   *__cil_tmp265 ;
+  u32 *__cil_tmp266 ;
   u8 *__cil_tmp267 ;
   void const volatile   *__cil_tmp268 ;
   void const volatile   *__cil_tmp269 ;
@@ -21705,166 +18536,114 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
   u8 *__cil_tmp271 ;
   void const volatile   *__cil_tmp272 ;
   void const volatile   *__cil_tmp273 ;
-  u32 *__cil_tmp274 ;
-  u8 *__cil_tmp275 ;
-  void const volatile   *__cil_tmp276 ;
+  bool __cil_tmp274 ;
+  long __cil_tmp275 ;
+  u8 *__cil_tmp276 ;
   void const volatile   *__cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  bool __cil_tmp280 ;
-  long __cil_tmp281 ;
-  u8 *__cil_tmp282 ;
-  void const volatile   *__cil_tmp283 ;
-  void const volatile   *__cil_tmp284 ;
-  u32 *__cil_tmp285 ;
-  u8 *__cil_tmp286 ;
-  void const volatile   *__cil_tmp287 ;
-  void const volatile   *__cil_tmp288 ;
-  u32 *__cil_tmp289 ;
-  u8 *__cil_tmp290 ;
+  void const volatile   *__cil_tmp278 ;
+  u32 *__cil_tmp279 ;
+  u8 *__cil_tmp280 ;
+  void const volatile   *__cil_tmp281 ;
+  void const volatile   *__cil_tmp282 ;
+  u32 *__cil_tmp283 ;
+  u8 *__cil_tmp284 ;
+  void const volatile   *__cil_tmp285 ;
+  void const volatile   *__cil_tmp286 ;
+  bool __cil_tmp287 ;
+  long __cil_tmp288 ;
+  u8 *__cil_tmp289 ;
+  void const volatile   *__cil_tmp290 ;
   void const volatile   *__cil_tmp291 ;
-  void const volatile   *__cil_tmp292 ;
-  unsigned long __cil_tmp293 ;
-  unsigned long __cil_tmp294 ;
-  bool __cil_tmp295 ;
-  long __cil_tmp296 ;
+  u32 *__cil_tmp292 ;
+  u8 *__cil_tmp293 ;
+  void const volatile   *__cil_tmp294 ;
+  void const volatile   *__cil_tmp295 ;
+  u32 *__cil_tmp296 ;
   u8 *__cil_tmp297 ;
   void const volatile   *__cil_tmp298 ;
   void const volatile   *__cil_tmp299 ;
-  u32 *__cil_tmp300 ;
-  u8 *__cil_tmp301 ;
-  void const volatile   *__cil_tmp302 ;
+  bool __cil_tmp300 ;
+  long __cil_tmp301 ;
+  u8 *__cil_tmp302 ;
   void const volatile   *__cil_tmp303 ;
-  u32 *__cil_tmp304 ;
-  u8 *__cil_tmp305 ;
-  void const volatile   *__cil_tmp306 ;
+  void const volatile   *__cil_tmp304 ;
+  u32 *__cil_tmp305 ;
+  u8 *__cil_tmp306 ;
   void const volatile   *__cil_tmp307 ;
-  unsigned long __cil_tmp308 ;
-  unsigned long __cil_tmp309 ;
-  bool __cil_tmp310 ;
-  long __cil_tmp311 ;
-  u8 *__cil_tmp312 ;
-  void const volatile   *__cil_tmp313 ;
-  void const volatile   *__cil_tmp314 ;
-  u32 *__cil_tmp315 ;
-  u8 *__cil_tmp316 ;
+  void const volatile   *__cil_tmp308 ;
+  u32 *__cil_tmp309 ;
+  u8 *__cil_tmp310 ;
+  void const volatile   *__cil_tmp311 ;
+  void const volatile   *__cil_tmp312 ;
+  bool __cil_tmp313 ;
+  long __cil_tmp314 ;
+  u8 *__cil_tmp315 ;
+  void const volatile   *__cil_tmp316 ;
   void const volatile   *__cil_tmp317 ;
-  void const volatile   *__cil_tmp318 ;
-  u32 *__cil_tmp319 ;
-  u8 *__cil_tmp320 ;
+  u32 *__cil_tmp318 ;
+  u8 *__cil_tmp319 ;
+  void const volatile   *__cil_tmp320 ;
   void const volatile   *__cil_tmp321 ;
-  void const volatile   *__cil_tmp322 ;
-  unsigned long __cil_tmp323 ;
-  unsigned long __cil_tmp324 ;
-  bool __cil_tmp325 ;
-  long __cil_tmp326 ;
-  u8 *__cil_tmp327 ;
-  void const volatile   *__cil_tmp328 ;
+  u32 *__cil_tmp322 ;
+  u8 *__cil_tmp323 ;
+  void const volatile   *__cil_tmp324 ;
+  void const volatile   *__cil_tmp325 ;
+  bool __cil_tmp326 ;
+  long __cil_tmp327 ;
+  u8 *__cil_tmp328 ;
   void const volatile   *__cil_tmp329 ;
-  u32 *__cil_tmp330 ;
-  u8 *__cil_tmp331 ;
-  void const volatile   *__cil_tmp332 ;
+  void const volatile   *__cil_tmp330 ;
+  u32 *__cil_tmp331 ;
+  u8 *__cil_tmp332 ;
   void const volatile   *__cil_tmp333 ;
-  u32 *__cil_tmp334 ;
-  u8 *__cil_tmp335 ;
-  void const volatile   *__cil_tmp336 ;
+  void const volatile   *__cil_tmp334 ;
+  u32 *__cil_tmp335 ;
+  u8 *__cil_tmp336 ;
   void const volatile   *__cil_tmp337 ;
-  unsigned long __cil_tmp338 ;
-  unsigned long __cil_tmp339 ;
-  bool __cil_tmp340 ;
-  long __cil_tmp341 ;
-  u8 *__cil_tmp342 ;
+  void const volatile   *__cil_tmp338 ;
+  bool __cil_tmp339 ;
+  long __cil_tmp340 ;
+  u8 *__cil_tmp341 ;
+  void const volatile   *__cil_tmp342 ;
   void const volatile   *__cil_tmp343 ;
-  void const volatile   *__cil_tmp344 ;
-  u32 *__cil_tmp345 ;
-  u8 *__cil_tmp346 ;
+  u32 *__cil_tmp344 ;
+  u8 *__cil_tmp345 ;
+  void const volatile   *__cil_tmp346 ;
   void const volatile   *__cil_tmp347 ;
-  void const volatile   *__cil_tmp348 ;
-  u32 *__cil_tmp349 ;
-  u8 *__cil_tmp350 ;
+  u32 *__cil_tmp348 ;
+  u8 *__cil_tmp349 ;
+  void const volatile   *__cil_tmp350 ;
   void const volatile   *__cil_tmp351 ;
-  void const volatile   *__cil_tmp352 ;
-  unsigned long __cil_tmp353 ;
-  unsigned long __cil_tmp354 ;
-  bool __cil_tmp355 ;
-  long __cil_tmp356 ;
-  u8 *__cil_tmp357 ;
-  void const volatile   *__cil_tmp358 ;
+  bool __cil_tmp352 ;
+  long __cil_tmp353 ;
+  u8 *__cil_tmp354 ;
+  void const volatile   *__cil_tmp355 ;
+  void const volatile   *__cil_tmp356 ;
+  u32 *__cil_tmp357 ;
+  u8 *__cil_tmp358 ;
   void const volatile   *__cil_tmp359 ;
-  u32 *__cil_tmp360 ;
-  u8 *__cil_tmp361 ;
-  void const volatile   *__cil_tmp362 ;
+  void const volatile   *__cil_tmp360 ;
+  u32 *__cil_tmp361 ;
+  u8 *__cil_tmp362 ;
   void const volatile   *__cil_tmp363 ;
-  u32 *__cil_tmp364 ;
-  u8 *__cil_tmp365 ;
-  void const volatile   *__cil_tmp366 ;
-  void const volatile   *__cil_tmp367 ;
-  unsigned long __cil_tmp368 ;
-  unsigned long __cil_tmp369 ;
-  bool __cil_tmp370 ;
-  long __cil_tmp371 ;
-  u8 *__cil_tmp372 ;
+  void const volatile   *__cil_tmp364 ;
+  bool __cil_tmp365 ;
+  long __cil_tmp366 ;
+  u8 *__cil_tmp367 ;
+  void const volatile   *__cil_tmp368 ;
+  void const volatile   *__cil_tmp369 ;
+  u32 *__cil_tmp370 ;
+  u8 *__cil_tmp371 ;
+  void const volatile   *__cil_tmp372 ;
   void const volatile   *__cil_tmp373 ;
-  void const volatile   *__cil_tmp374 ;
-  u32 *__cil_tmp375 ;
-  u8 *__cil_tmp376 ;
+  u32 *__cil_tmp374 ;
+  u8 *__cil_tmp375 ;
+  void const volatile   *__cil_tmp376 ;
   void const volatile   *__cil_tmp377 ;
-  void const volatile   *__cil_tmp378 ;
+  u16 __cil_tmp378 ;
   u32 *__cil_tmp379 ;
-  u8 *__cil_tmp380 ;
-  void const volatile   *__cil_tmp381 ;
-  void const volatile   *__cil_tmp382 ;
-  unsigned long __cil_tmp383 ;
-  unsigned long __cil_tmp384 ;
-  bool __cil_tmp385 ;
-  long __cil_tmp386 ;
-  u8 *__cil_tmp387 ;
-  void const volatile   *__cil_tmp388 ;
-  void const volatile   *__cil_tmp389 ;
-  u32 *__cil_tmp390 ;
-  u8 *__cil_tmp391 ;
-  void const volatile   *__cil_tmp392 ;
-  void const volatile   *__cil_tmp393 ;
-  u32 *__cil_tmp394 ;
-  u8 *__cil_tmp395 ;
-  void const volatile   *__cil_tmp396 ;
-  void const volatile   *__cil_tmp397 ;
-  unsigned long __cil_tmp398 ;
-  unsigned long __cil_tmp399 ;
-  bool __cil_tmp400 ;
-  long __cil_tmp401 ;
-  u8 *__cil_tmp402 ;
-  void const volatile   *__cil_tmp403 ;
-  void const volatile   *__cil_tmp404 ;
-  u32 *__cil_tmp405 ;
-  u8 *__cil_tmp406 ;
-  void const volatile   *__cil_tmp407 ;
-  void const volatile   *__cil_tmp408 ;
-  u32 *__cil_tmp409 ;
-  u8 *__cil_tmp410 ;
-  void const volatile   *__cil_tmp411 ;
-  void const volatile   *__cil_tmp412 ;
-  unsigned long __cil_tmp413 ;
-  unsigned long __cil_tmp414 ;
-  bool __cil_tmp415 ;
-  long __cil_tmp416 ;
-  u8 *__cil_tmp417 ;
-  void const volatile   *__cil_tmp418 ;
-  void const volatile   *__cil_tmp419 ;
-  u32 *__cil_tmp420 ;
-  u8 *__cil_tmp421 ;
-  void const volatile   *__cil_tmp422 ;
-  void const volatile   *__cil_tmp423 ;
-  u32 *__cil_tmp424 ;
-  u8 *__cil_tmp425 ;
-  void const volatile   *__cil_tmp426 ;
-  void const volatile   *__cil_tmp427 ;
-  u32 *__cil_tmp428 ;
-  u16 *__cil_tmp429 ;
-  u16 __cil_tmp430 ;
-  u32 *__cil_tmp431 ;
-  u16 *__cil_tmp432 ;
-  u16 __cil_tmp433 ;
+  u16 __cil_tmp380 ;
+  u32 *__cil_tmp381 ;
 
   {
   {
@@ -21875,57 +18654,45 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 145
   adapter = (struct atl1c_adapter *)tmp;
 #line 146
-  __cil_tmp79 = (unsigned long )adapter;
-#line 146
-  __cil_tmp80 = __cil_tmp79 + 184;
-#line 146
-  hw = (struct atl1c_hw *)__cil_tmp80;
+  hw = & adapter->hw;
 #line 147
   regs_buff = (u32 *)p;
 #line 150
   memset(p, 0, 300UL);
 #line 152
-  __cil_tmp81 = (unsigned long )regs;
-#line 152
-  __cil_tmp82 = __cil_tmp81 + 4;
-#line 152
-  *((__u32 *)__cil_tmp82) = 0U;
+  regs->version = 0U;
 #line 153
-  __cil_tmp83 = (unsigned long )hw;
+  __cil_tmp79 = hw->hibernate;
 #line 153
-  __cil_tmp84 = __cil_tmp83 + 237;
+  __cil_tmp80 = (long )__cil_tmp79;
 #line 153
-  __cil_tmp85 = *((bool *)__cil_tmp84);
-#line 153
-  __cil_tmp86 = (long )__cil_tmp85;
-#line 153
-  tmp___2 = __builtin_expect(__cil_tmp86, 0L);
+  tmp___2 = __builtin_expect(__cil_tmp80, 0L);
   }
 #line 153
   if (tmp___2 != 0L) {
     {
 #line 153
-    __cil_tmp87 = *((u8 **)hw);
+    __cil_tmp81 = hw->hw_addr;
 #line 153
-    __cil_tmp88 = (void const volatile   *)__cil_tmp87;
+    __cil_tmp82 = (void const volatile   *)__cil_tmp81;
 #line 153
-    __cil_tmp89 = __cil_tmp88 + 108U;
+    __cil_tmp83 = __cil_tmp82 + 108U;
 #line 153
-    readl(__cil_tmp89);
+    readl(__cil_tmp83);
 #line 153
     tmp___0 = p;
 #line 153
     p = p + 1;
 #line 153
-    __cil_tmp90 = (u32 *)tmp___0;
+    __cil_tmp84 = (u32 *)tmp___0;
 #line 153
-    __cil_tmp91 = *((u8 **)hw);
+    __cil_tmp85 = hw->hw_addr;
 #line 153
-    __cil_tmp92 = (void const volatile   *)__cil_tmp91;
+    __cil_tmp86 = (void const volatile   *)__cil_tmp85;
 #line 153
-    __cil_tmp93 = __cil_tmp92 + 108U;
+    __cil_tmp87 = __cil_tmp86 + 108U;
 #line 153
-    *__cil_tmp90 = readl(__cil_tmp93);
+    *__cil_tmp84 = readl(__cil_tmp87);
     }
   } else {
     {
@@ -21934,54 +18701,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 153
     p = p + 1;
 #line 153
-    __cil_tmp94 = (u32 *)tmp___1;
+    __cil_tmp88 = (u32 *)tmp___1;
 #line 153
-    __cil_tmp95 = *((u8 **)hw);
+    __cil_tmp89 = hw->hw_addr;
 #line 153
-    __cil_tmp96 = (void const volatile   *)__cil_tmp95;
+    __cil_tmp90 = (void const volatile   *)__cil_tmp89;
 #line 153
-    __cil_tmp97 = __cil_tmp96 + 108U;
+    __cil_tmp91 = __cil_tmp90 + 108U;
 #line 153
-    *__cil_tmp94 = readl(__cil_tmp97);
+    *__cil_tmp88 = readl(__cil_tmp91);
     }
   }
   {
 #line 154
-  __cil_tmp98 = (unsigned long )hw;
+  __cil_tmp92 = hw->hibernate;
 #line 154
-  __cil_tmp99 = __cil_tmp98 + 237;
+  __cil_tmp93 = (long )__cil_tmp92;
 #line 154
-  __cil_tmp100 = *((bool *)__cil_tmp99);
-#line 154
-  __cil_tmp101 = (long )__cil_tmp100;
-#line 154
-  tmp___5 = __builtin_expect(__cil_tmp101, 0L);
+  tmp___5 = __builtin_expect(__cil_tmp93, 0L);
   }
 #line 154
   if (tmp___5 != 0L) {
     {
 #line 154
-    __cil_tmp102 = *((u8 **)hw);
+    __cil_tmp94 = hw->hw_addr;
 #line 154
-    __cil_tmp103 = (void const volatile   *)__cil_tmp102;
+    __cil_tmp95 = (void const volatile   *)__cil_tmp94;
 #line 154
-    __cil_tmp104 = __cil_tmp103 + 4856U;
+    __cil_tmp96 = __cil_tmp95 + 4856U;
 #line 154
-    readl(__cil_tmp104);
+    readl(__cil_tmp96);
 #line 154
     tmp___3 = p;
 #line 154
     p = p + 1;
 #line 154
-    __cil_tmp105 = (u32 *)tmp___3;
+    __cil_tmp97 = (u32 *)tmp___3;
 #line 154
-    __cil_tmp106 = *((u8 **)hw);
+    __cil_tmp98 = hw->hw_addr;
 #line 154
-    __cil_tmp107 = (void const volatile   *)__cil_tmp106;
+    __cil_tmp99 = (void const volatile   *)__cil_tmp98;
 #line 154
-    __cil_tmp108 = __cil_tmp107 + 4856U;
+    __cil_tmp100 = __cil_tmp99 + 4856U;
 #line 154
-    *__cil_tmp105 = readl(__cil_tmp108);
+    *__cil_tmp97 = readl(__cil_tmp100);
     }
   } else {
     {
@@ -21990,54 +18753,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 154
     p = p + 1;
 #line 154
-    __cil_tmp109 = (u32 *)tmp___4;
+    __cil_tmp101 = (u32 *)tmp___4;
 #line 154
-    __cil_tmp110 = *((u8 **)hw);
+    __cil_tmp102 = hw->hw_addr;
 #line 154
-    __cil_tmp111 = (void const volatile   *)__cil_tmp110;
+    __cil_tmp103 = (void const volatile   *)__cil_tmp102;
 #line 154
-    __cil_tmp112 = __cil_tmp111 + 4856U;
+    __cil_tmp104 = __cil_tmp103 + 4856U;
 #line 154
-    *__cil_tmp109 = readl(__cil_tmp112);
+    *__cil_tmp101 = readl(__cil_tmp104);
     }
   }
   {
 #line 155
-  __cil_tmp113 = (unsigned long )hw;
+  __cil_tmp105 = hw->hibernate;
 #line 155
-  __cil_tmp114 = __cil_tmp113 + 237;
+  __cil_tmp106 = (long )__cil_tmp105;
 #line 155
-  __cil_tmp115 = *((bool *)__cil_tmp114);
-#line 155
-  __cil_tmp116 = (long )__cil_tmp115;
-#line 155
-  tmp___8 = __builtin_expect(__cil_tmp116, 0L);
+  tmp___8 = __builtin_expect(__cil_tmp106, 0L);
   }
 #line 155
   if (tmp___8 != 0L) {
     {
 #line 155
-    __cil_tmp117 = *((u8 **)hw);
+    __cil_tmp107 = hw->hw_addr;
 #line 155
-    __cil_tmp118 = (void const volatile   *)__cil_tmp117;
+    __cil_tmp108 = (void const volatile   *)__cil_tmp107;
 #line 155
-    __cil_tmp119 = __cil_tmp118 + 5272U;
+    __cil_tmp109 = __cil_tmp108 + 5272U;
 #line 155
-    readl(__cil_tmp119);
+    readl(__cil_tmp109);
 #line 155
     tmp___6 = p;
 #line 155
     p = p + 1;
 #line 155
-    __cil_tmp120 = (u32 *)tmp___6;
+    __cil_tmp110 = (u32 *)tmp___6;
 #line 155
-    __cil_tmp121 = *((u8 **)hw);
+    __cil_tmp111 = hw->hw_addr;
 #line 155
-    __cil_tmp122 = (void const volatile   *)__cil_tmp121;
+    __cil_tmp112 = (void const volatile   *)__cil_tmp111;
 #line 155
-    __cil_tmp123 = __cil_tmp122 + 5272U;
+    __cil_tmp113 = __cil_tmp112 + 5272U;
 #line 155
-    *__cil_tmp120 = readl(__cil_tmp123);
+    *__cil_tmp110 = readl(__cil_tmp113);
     }
   } else {
     {
@@ -22046,54 +18805,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 155
     p = p + 1;
 #line 155
-    __cil_tmp124 = (u32 *)tmp___7;
+    __cil_tmp114 = (u32 *)tmp___7;
 #line 155
-    __cil_tmp125 = *((u8 **)hw);
+    __cil_tmp115 = hw->hw_addr;
 #line 155
-    __cil_tmp126 = (void const volatile   *)__cil_tmp125;
+    __cil_tmp116 = (void const volatile   *)__cil_tmp115;
 #line 155
-    __cil_tmp127 = __cil_tmp126 + 5272U;
+    __cil_tmp117 = __cil_tmp116 + 5272U;
 #line 155
-    *__cil_tmp124 = readl(__cil_tmp127);
+    *__cil_tmp114 = readl(__cil_tmp117);
     }
   }
   {
 #line 156
-  __cil_tmp128 = (unsigned long )hw;
+  __cil_tmp118 = hw->hibernate;
 #line 156
-  __cil_tmp129 = __cil_tmp128 + 237;
+  __cil_tmp119 = (long )__cil_tmp118;
 #line 156
-  __cil_tmp130 = *((bool *)__cil_tmp129);
-#line 156
-  __cil_tmp131 = (long )__cil_tmp130;
-#line 156
-  tmp___11 = __builtin_expect(__cil_tmp131, 0L);
+  tmp___11 = __builtin_expect(__cil_tmp119, 0L);
   }
 #line 156
   if (tmp___11 != 0L) {
     {
 #line 156
-    __cil_tmp132 = *((u8 **)hw);
+    __cil_tmp120 = hw->hw_addr;
 #line 156
-    __cil_tmp133 = (void const volatile   *)__cil_tmp132;
+    __cil_tmp121 = (void const volatile   *)__cil_tmp120;
 #line 156
-    __cil_tmp134 = __cil_tmp133 + 536U;
+    __cil_tmp122 = __cil_tmp121 + 536U;
 #line 156
-    readl(__cil_tmp134);
+    readl(__cil_tmp122);
 #line 156
     tmp___9 = p;
 #line 156
     p = p + 1;
 #line 156
-    __cil_tmp135 = (u32 *)tmp___9;
+    __cil_tmp123 = (u32 *)tmp___9;
 #line 156
-    __cil_tmp136 = *((u8 **)hw);
+    __cil_tmp124 = hw->hw_addr;
 #line 156
-    __cil_tmp137 = (void const volatile   *)__cil_tmp136;
+    __cil_tmp125 = (void const volatile   *)__cil_tmp124;
 #line 156
-    __cil_tmp138 = __cil_tmp137 + 536U;
+    __cil_tmp126 = __cil_tmp125 + 536U;
 #line 156
-    *__cil_tmp135 = readl(__cil_tmp138);
+    *__cil_tmp123 = readl(__cil_tmp126);
     }
   } else {
     {
@@ -22102,54 +18857,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 156
     p = p + 1;
 #line 156
-    __cil_tmp139 = (u32 *)tmp___10;
+    __cil_tmp127 = (u32 *)tmp___10;
 #line 156
-    __cil_tmp140 = *((u8 **)hw);
+    __cil_tmp128 = hw->hw_addr;
 #line 156
-    __cil_tmp141 = (void const volatile   *)__cil_tmp140;
+    __cil_tmp129 = (void const volatile   *)__cil_tmp128;
 #line 156
-    __cil_tmp142 = __cil_tmp141 + 536U;
+    __cil_tmp130 = __cil_tmp129 + 536U;
 #line 156
-    *__cil_tmp139 = readl(__cil_tmp142);
+    *__cil_tmp127 = readl(__cil_tmp130);
     }
   }
   {
 #line 157
-  __cil_tmp143 = (unsigned long )hw;
+  __cil_tmp131 = hw->hibernate;
 #line 157
-  __cil_tmp144 = __cil_tmp143 + 237;
+  __cil_tmp132 = (long )__cil_tmp131;
 #line 157
-  __cil_tmp145 = *((bool *)__cil_tmp144);
-#line 157
-  __cil_tmp146 = (long )__cil_tmp145;
-#line 157
-  tmp___14 = __builtin_expect(__cil_tmp146, 0L);
+  tmp___14 = __builtin_expect(__cil_tmp132, 0L);
   }
 #line 157
   if (tmp___14 != 0L) {
     {
 #line 157
-    __cil_tmp147 = *((u8 **)hw);
+    __cil_tmp133 = hw->hw_addr;
 #line 157
-    __cil_tmp148 = (void const volatile   *)__cil_tmp147;
+    __cil_tmp134 = (void const volatile   *)__cil_tmp133;
 #line 157
-    __cil_tmp149 = __cil_tmp148 + 540U;
+    __cil_tmp135 = __cil_tmp134 + 540U;
 #line 157
-    readl(__cil_tmp149);
+    readl(__cil_tmp135);
 #line 157
     tmp___12 = p;
 #line 157
     p = p + 1;
 #line 157
-    __cil_tmp150 = (u32 *)tmp___12;
+    __cil_tmp136 = (u32 *)tmp___12;
 #line 157
-    __cil_tmp151 = *((u8 **)hw);
+    __cil_tmp137 = hw->hw_addr;
 #line 157
-    __cil_tmp152 = (void const volatile   *)__cil_tmp151;
+    __cil_tmp138 = (void const volatile   *)__cil_tmp137;
 #line 157
-    __cil_tmp153 = __cil_tmp152 + 540U;
+    __cil_tmp139 = __cil_tmp138 + 540U;
 #line 157
-    *__cil_tmp150 = readl(__cil_tmp153);
+    *__cil_tmp136 = readl(__cil_tmp139);
     }
   } else {
     {
@@ -22158,54 +18909,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 157
     p = p + 1;
 #line 157
-    __cil_tmp154 = (u32 *)tmp___13;
+    __cil_tmp140 = (u32 *)tmp___13;
 #line 157
-    __cil_tmp155 = *((u8 **)hw);
+    __cil_tmp141 = hw->hw_addr;
 #line 157
-    __cil_tmp156 = (void const volatile   *)__cil_tmp155;
+    __cil_tmp142 = (void const volatile   *)__cil_tmp141;
 #line 157
-    __cil_tmp157 = __cil_tmp156 + 540U;
+    __cil_tmp143 = __cil_tmp142 + 540U;
 #line 157
-    *__cil_tmp154 = readl(__cil_tmp157);
+    *__cil_tmp140 = readl(__cil_tmp143);
     }
   }
   {
 #line 158
-  __cil_tmp158 = (unsigned long )hw;
+  __cil_tmp144 = hw->hibernate;
 #line 158
-  __cil_tmp159 = __cil_tmp158 + 237;
+  __cil_tmp145 = (long )__cil_tmp144;
 #line 158
-  __cil_tmp160 = *((bool *)__cil_tmp159);
-#line 158
-  __cil_tmp161 = (long )__cil_tmp160;
-#line 158
-  tmp___17 = __builtin_expect(__cil_tmp161, 0L);
+  tmp___17 = __builtin_expect(__cil_tmp145, 0L);
   }
 #line 158
   if (tmp___17 != 0L) {
     {
 #line 158
-    __cil_tmp162 = *((u8 **)hw);
+    __cil_tmp146 = hw->hw_addr;
 #line 158
-    __cil_tmp163 = (void const volatile   *)__cil_tmp162;
+    __cil_tmp147 = (void const volatile   *)__cil_tmp146;
 #line 158
-    __cil_tmp164 = __cil_tmp163 + 5120U;
+    __cil_tmp148 = __cil_tmp147 + 5120U;
 #line 158
-    readl(__cil_tmp164);
+    readl(__cil_tmp148);
 #line 158
     tmp___15 = p;
 #line 158
     p = p + 1;
 #line 158
-    __cil_tmp165 = (u32 *)tmp___15;
+    __cil_tmp149 = (u32 *)tmp___15;
 #line 158
-    __cil_tmp166 = *((u8 **)hw);
+    __cil_tmp150 = hw->hw_addr;
 #line 158
-    __cil_tmp167 = (void const volatile   *)__cil_tmp166;
+    __cil_tmp151 = (void const volatile   *)__cil_tmp150;
 #line 158
-    __cil_tmp168 = __cil_tmp167 + 5120U;
+    __cil_tmp152 = __cil_tmp151 + 5120U;
 #line 158
-    *__cil_tmp165 = readl(__cil_tmp168);
+    *__cil_tmp149 = readl(__cil_tmp152);
     }
   } else {
     {
@@ -22214,54 +18961,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 158
     p = p + 1;
 #line 158
-    __cil_tmp169 = (u32 *)tmp___16;
+    __cil_tmp153 = (u32 *)tmp___16;
 #line 158
-    __cil_tmp170 = *((u8 **)hw);
+    __cil_tmp154 = hw->hw_addr;
 #line 158
-    __cil_tmp171 = (void const volatile   *)__cil_tmp170;
+    __cil_tmp155 = (void const volatile   *)__cil_tmp154;
 #line 158
-    __cil_tmp172 = __cil_tmp171 + 5120U;
+    __cil_tmp156 = __cil_tmp155 + 5120U;
 #line 158
-    *__cil_tmp169 = readl(__cil_tmp172);
+    *__cil_tmp153 = readl(__cil_tmp156);
     }
   }
   {
 #line 159
-  __cil_tmp173 = (unsigned long )hw;
+  __cil_tmp157 = hw->hibernate;
 #line 159
-  __cil_tmp174 = __cil_tmp173 + 237;
+  __cil_tmp158 = (long )__cil_tmp157;
 #line 159
-  __cil_tmp175 = *((bool *)__cil_tmp174);
-#line 159
-  __cil_tmp176 = (long )__cil_tmp175;
-#line 159
-  tmp___20 = __builtin_expect(__cil_tmp176, 0L);
+  tmp___20 = __builtin_expect(__cil_tmp158, 0L);
   }
 #line 159
   if (tmp___20 != 0L) {
     {
 #line 159
-    __cil_tmp177 = *((u8 **)hw);
+    __cil_tmp159 = hw->hw_addr;
 #line 159
-    __cil_tmp178 = (void const volatile   *)__cil_tmp177;
+    __cil_tmp160 = (void const volatile   *)__cil_tmp159;
 #line 159
-    __cil_tmp179 = __cil_tmp178 + 5124U;
+    __cil_tmp161 = __cil_tmp160 + 5124U;
 #line 159
-    readl(__cil_tmp179);
+    readl(__cil_tmp161);
 #line 159
     tmp___18 = p;
 #line 159
     p = p + 1;
 #line 159
-    __cil_tmp180 = (u32 *)tmp___18;
+    __cil_tmp162 = (u32 *)tmp___18;
 #line 159
-    __cil_tmp181 = *((u8 **)hw);
+    __cil_tmp163 = hw->hw_addr;
 #line 159
-    __cil_tmp182 = (void const volatile   *)__cil_tmp181;
+    __cil_tmp164 = (void const volatile   *)__cil_tmp163;
 #line 159
-    __cil_tmp183 = __cil_tmp182 + 5124U;
+    __cil_tmp165 = __cil_tmp164 + 5124U;
 #line 159
-    *__cil_tmp180 = readl(__cil_tmp183);
+    *__cil_tmp162 = readl(__cil_tmp165);
     }
   } else {
     {
@@ -22270,54 +19013,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 159
     p = p + 1;
 #line 159
-    __cil_tmp184 = (u32 *)tmp___19;
+    __cil_tmp166 = (u32 *)tmp___19;
 #line 159
-    __cil_tmp185 = *((u8 **)hw);
+    __cil_tmp167 = hw->hw_addr;
 #line 159
-    __cil_tmp186 = (void const volatile   *)__cil_tmp185;
+    __cil_tmp168 = (void const volatile   *)__cil_tmp167;
 #line 159
-    __cil_tmp187 = __cil_tmp186 + 5124U;
+    __cil_tmp169 = __cil_tmp168 + 5124U;
 #line 159
-    *__cil_tmp184 = readl(__cil_tmp187);
+    *__cil_tmp166 = readl(__cil_tmp169);
     }
   }
   {
 #line 160
-  __cil_tmp188 = (unsigned long )hw;
+  __cil_tmp170 = hw->hibernate;
 #line 160
-  __cil_tmp189 = __cil_tmp188 + 237;
+  __cil_tmp171 = (long )__cil_tmp170;
 #line 160
-  __cil_tmp190 = *((bool *)__cil_tmp189);
-#line 160
-  __cil_tmp191 = (long )__cil_tmp190;
-#line 160
-  tmp___23 = __builtin_expect(__cil_tmp191, 0L);
+  tmp___23 = __builtin_expect(__cil_tmp171, 0L);
   }
 #line 160
   if (tmp___23 != 0L) {
     {
 #line 160
-    __cil_tmp192 = *((u8 **)hw);
+    __cil_tmp172 = hw->hw_addr;
 #line 160
-    __cil_tmp193 = (void const volatile   *)__cil_tmp192;
+    __cil_tmp173 = (void const volatile   *)__cil_tmp172;
 #line 160
-    __cil_tmp194 = __cil_tmp193 + 5128U;
+    __cil_tmp174 = __cil_tmp173 + 5128U;
 #line 160
-    readl(__cil_tmp194);
+    readl(__cil_tmp174);
 #line 160
     tmp___21 = p;
 #line 160
     p = p + 1;
 #line 160
-    __cil_tmp195 = (u32 *)tmp___21;
+    __cil_tmp175 = (u32 *)tmp___21;
 #line 160
-    __cil_tmp196 = *((u8 **)hw);
+    __cil_tmp176 = hw->hw_addr;
 #line 160
-    __cil_tmp197 = (void const volatile   *)__cil_tmp196;
+    __cil_tmp177 = (void const volatile   *)__cil_tmp176;
 #line 160
-    __cil_tmp198 = __cil_tmp197 + 5128U;
+    __cil_tmp178 = __cil_tmp177 + 5128U;
 #line 160
-    *__cil_tmp195 = readl(__cil_tmp198);
+    *__cil_tmp175 = readl(__cil_tmp178);
     }
   } else {
     {
@@ -22326,54 +19065,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 160
     p = p + 1;
 #line 160
-    __cil_tmp199 = (u32 *)tmp___22;
+    __cil_tmp179 = (u32 *)tmp___22;
 #line 160
-    __cil_tmp200 = *((u8 **)hw);
+    __cil_tmp180 = hw->hw_addr;
 #line 160
-    __cil_tmp201 = (void const volatile   *)__cil_tmp200;
+    __cil_tmp181 = (void const volatile   *)__cil_tmp180;
 #line 160
-    __cil_tmp202 = __cil_tmp201 + 5128U;
+    __cil_tmp182 = __cil_tmp181 + 5128U;
 #line 160
-    *__cil_tmp199 = readl(__cil_tmp202);
+    *__cil_tmp179 = readl(__cil_tmp182);
     }
   }
   {
 #line 161
-  __cil_tmp203 = (unsigned long )hw;
+  __cil_tmp183 = hw->hibernate;
 #line 161
-  __cil_tmp204 = __cil_tmp203 + 237;
+  __cil_tmp184 = (long )__cil_tmp183;
 #line 161
-  __cil_tmp205 = *((bool *)__cil_tmp204);
-#line 161
-  __cil_tmp206 = (long )__cil_tmp205;
-#line 161
-  tmp___26 = __builtin_expect(__cil_tmp206, 0L);
+  tmp___26 = __builtin_expect(__cil_tmp184, 0L);
   }
 #line 161
   if (tmp___26 != 0L) {
     {
 #line 161
-    __cil_tmp207 = *((u8 **)hw);
+    __cil_tmp185 = hw->hw_addr;
 #line 161
-    __cil_tmp208 = (void const volatile   *)__cil_tmp207;
+    __cil_tmp186 = (void const volatile   *)__cil_tmp185;
 #line 161
-    __cil_tmp209 = __cil_tmp208 + 5132U;
+    __cil_tmp187 = __cil_tmp186 + 5132U;
 #line 161
-    readl(__cil_tmp209);
+    readl(__cil_tmp187);
 #line 161
     tmp___24 = p;
 #line 161
     p = p + 1;
 #line 161
-    __cil_tmp210 = (u32 *)tmp___24;
+    __cil_tmp188 = (u32 *)tmp___24;
 #line 161
-    __cil_tmp211 = *((u8 **)hw);
+    __cil_tmp189 = hw->hw_addr;
 #line 161
-    __cil_tmp212 = (void const volatile   *)__cil_tmp211;
+    __cil_tmp190 = (void const volatile   *)__cil_tmp189;
 #line 161
-    __cil_tmp213 = __cil_tmp212 + 5132U;
+    __cil_tmp191 = __cil_tmp190 + 5132U;
 #line 161
-    *__cil_tmp210 = readl(__cil_tmp213);
+    *__cil_tmp188 = readl(__cil_tmp191);
     }
   } else {
     {
@@ -22382,54 +19117,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 161
     p = p + 1;
 #line 161
-    __cil_tmp214 = (u32 *)tmp___25;
+    __cil_tmp192 = (u32 *)tmp___25;
 #line 161
-    __cil_tmp215 = *((u8 **)hw);
+    __cil_tmp193 = hw->hw_addr;
 #line 161
-    __cil_tmp216 = (void const volatile   *)__cil_tmp215;
+    __cil_tmp194 = (void const volatile   *)__cil_tmp193;
 #line 161
-    __cil_tmp217 = __cil_tmp216 + 5132U;
+    __cil_tmp195 = __cil_tmp194 + 5132U;
 #line 161
-    *__cil_tmp214 = readl(__cil_tmp217);
+    *__cil_tmp192 = readl(__cil_tmp195);
     }
   }
   {
 #line 162
-  __cil_tmp218 = (unsigned long )hw;
+  __cil_tmp196 = hw->hibernate;
 #line 162
-  __cil_tmp219 = __cil_tmp218 + 237;
+  __cil_tmp197 = (long )__cil_tmp196;
 #line 162
-  __cil_tmp220 = *((bool *)__cil_tmp219);
-#line 162
-  __cil_tmp221 = (long )__cil_tmp220;
-#line 162
-  tmp___29 = __builtin_expect(__cil_tmp221, 0L);
+  tmp___29 = __builtin_expect(__cil_tmp197, 0L);
   }
 #line 162
   if (tmp___29 != 0L) {
     {
 #line 162
-    __cil_tmp222 = *((u8 **)hw);
+    __cil_tmp198 = hw->hw_addr;
 #line 162
-    __cil_tmp223 = (void const volatile   *)__cil_tmp222;
+    __cil_tmp199 = (void const volatile   *)__cil_tmp198;
 #line 162
-    __cil_tmp224 = __cil_tmp223 + 104U;
+    __cil_tmp200 = __cil_tmp199 + 104U;
 #line 162
-    readl(__cil_tmp224);
+    readl(__cil_tmp200);
 #line 162
     tmp___27 = p;
 #line 162
     p = p + 1;
 #line 162
-    __cil_tmp225 = (u32 *)tmp___27;
+    __cil_tmp201 = (u32 *)tmp___27;
 #line 162
-    __cil_tmp226 = *((u8 **)hw);
+    __cil_tmp202 = hw->hw_addr;
 #line 162
-    __cil_tmp227 = (void const volatile   *)__cil_tmp226;
+    __cil_tmp203 = (void const volatile   *)__cil_tmp202;
 #line 162
-    __cil_tmp228 = __cil_tmp227 + 104U;
+    __cil_tmp204 = __cil_tmp203 + 104U;
 #line 162
-    *__cil_tmp225 = readl(__cil_tmp228);
+    *__cil_tmp201 = readl(__cil_tmp204);
     }
   } else {
     {
@@ -22438,54 +19169,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 162
     p = p + 1;
 #line 162
-    __cil_tmp229 = (u32 *)tmp___28;
+    __cil_tmp205 = (u32 *)tmp___28;
 #line 162
-    __cil_tmp230 = *((u8 **)hw);
+    __cil_tmp206 = hw->hw_addr;
 #line 162
-    __cil_tmp231 = (void const volatile   *)__cil_tmp230;
+    __cil_tmp207 = (void const volatile   *)__cil_tmp206;
 #line 162
-    __cil_tmp232 = __cil_tmp231 + 104U;
+    __cil_tmp208 = __cil_tmp207 + 104U;
 #line 162
-    *__cil_tmp229 = readl(__cil_tmp232);
+    *__cil_tmp205 = readl(__cil_tmp208);
     }
   }
   {
 #line 163
-  __cil_tmp233 = (unsigned long )hw;
+  __cil_tmp209 = hw->hibernate;
 #line 163
-  __cil_tmp234 = __cil_tmp233 + 237;
+  __cil_tmp210 = (long )__cil_tmp209;
 #line 163
-  __cil_tmp235 = *((bool *)__cil_tmp234);
-#line 163
-  __cil_tmp236 = (long )__cil_tmp235;
-#line 163
-  tmp___32 = __builtin_expect(__cil_tmp236, 0L);
+  tmp___32 = __builtin_expect(__cil_tmp210, 0L);
   }
 #line 163
   if (tmp___32 != 0L) {
     {
 #line 163
-    __cil_tmp237 = *((u8 **)hw);
+    __cil_tmp211 = hw->hw_addr;
 #line 163
-    __cil_tmp238 = (void const volatile   *)__cil_tmp237;
+    __cil_tmp212 = (void const volatile   *)__cil_tmp211;
 #line 163
-    __cil_tmp239 = __cil_tmp238 + 5136U;
+    __cil_tmp213 = __cil_tmp212 + 5136U;
 #line 163
-    readl(__cil_tmp239);
+    readl(__cil_tmp213);
 #line 163
     tmp___30 = p;
 #line 163
     p = p + 1;
 #line 163
-    __cil_tmp240 = (u32 *)tmp___30;
+    __cil_tmp214 = (u32 *)tmp___30;
 #line 163
-    __cil_tmp241 = *((u8 **)hw);
+    __cil_tmp215 = hw->hw_addr;
 #line 163
-    __cil_tmp242 = (void const volatile   *)__cil_tmp241;
+    __cil_tmp216 = (void const volatile   *)__cil_tmp215;
 #line 163
-    __cil_tmp243 = __cil_tmp242 + 5136U;
+    __cil_tmp217 = __cil_tmp216 + 5136U;
 #line 163
-    *__cil_tmp240 = readl(__cil_tmp243);
+    *__cil_tmp214 = readl(__cil_tmp217);
     }
   } else {
     {
@@ -22494,54 +19221,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 163
     p = p + 1;
 #line 163
-    __cil_tmp244 = (u32 *)tmp___31;
+    __cil_tmp218 = (u32 *)tmp___31;
 #line 163
-    __cil_tmp245 = *((u8 **)hw);
+    __cil_tmp219 = hw->hw_addr;
 #line 163
-    __cil_tmp246 = (void const volatile   *)__cil_tmp245;
+    __cil_tmp220 = (void const volatile   *)__cil_tmp219;
 #line 163
-    __cil_tmp247 = __cil_tmp246 + 5136U;
+    __cil_tmp221 = __cil_tmp220 + 5136U;
 #line 163
-    *__cil_tmp244 = readl(__cil_tmp247);
+    *__cil_tmp218 = readl(__cil_tmp221);
     }
   }
   {
 #line 164
-  __cil_tmp248 = (unsigned long )hw;
+  __cil_tmp222 = hw->hibernate;
 #line 164
-  __cil_tmp249 = __cil_tmp248 + 237;
+  __cil_tmp223 = (long )__cil_tmp222;
 #line 164
-  __cil_tmp250 = *((bool *)__cil_tmp249);
-#line 164
-  __cil_tmp251 = (long )__cil_tmp250;
-#line 164
-  tmp___35 = __builtin_expect(__cil_tmp251, 0L);
+  tmp___35 = __builtin_expect(__cil_tmp223, 0L);
   }
 #line 164
   if (tmp___35 != 0L) {
     {
 #line 164
-    __cil_tmp252 = *((u8 **)hw);
+    __cil_tmp224 = hw->hw_addr;
 #line 164
-    __cil_tmp253 = (void const volatile   *)__cil_tmp252;
+    __cil_tmp225 = (void const volatile   *)__cil_tmp224;
 #line 164
-    __cil_tmp254 = __cil_tmp253 + 5140U;
+    __cil_tmp226 = __cil_tmp225 + 5140U;
 #line 164
-    readl(__cil_tmp254);
+    readl(__cil_tmp226);
 #line 164
     tmp___33 = p;
 #line 164
     p = p + 1;
 #line 164
-    __cil_tmp255 = (u32 *)tmp___33;
+    __cil_tmp227 = (u32 *)tmp___33;
 #line 164
-    __cil_tmp256 = *((u8 **)hw);
+    __cil_tmp228 = hw->hw_addr;
 #line 164
-    __cil_tmp257 = (void const volatile   *)__cil_tmp256;
+    __cil_tmp229 = (void const volatile   *)__cil_tmp228;
 #line 164
-    __cil_tmp258 = __cil_tmp257 + 5140U;
+    __cil_tmp230 = __cil_tmp229 + 5140U;
 #line 164
-    *__cil_tmp255 = readl(__cil_tmp258);
+    *__cil_tmp227 = readl(__cil_tmp230);
     }
   } else {
     {
@@ -22550,54 +19273,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 164
     p = p + 1;
 #line 164
-    __cil_tmp259 = (u32 *)tmp___34;
+    __cil_tmp231 = (u32 *)tmp___34;
 #line 164
-    __cil_tmp260 = *((u8 **)hw);
+    __cil_tmp232 = hw->hw_addr;
 #line 164
-    __cil_tmp261 = (void const volatile   *)__cil_tmp260;
+    __cil_tmp233 = (void const volatile   *)__cil_tmp232;
 #line 164
-    __cil_tmp262 = __cil_tmp261 + 5140U;
+    __cil_tmp234 = __cil_tmp233 + 5140U;
 #line 164
-    *__cil_tmp259 = readl(__cil_tmp262);
+    *__cil_tmp231 = readl(__cil_tmp234);
     }
   }
   {
 #line 165
-  __cil_tmp263 = (unsigned long )hw;
+  __cil_tmp235 = hw->hibernate;
 #line 165
-  __cil_tmp264 = __cil_tmp263 + 237;
+  __cil_tmp236 = (long )__cil_tmp235;
 #line 165
-  __cil_tmp265 = *((bool *)__cil_tmp264);
-#line 165
-  __cil_tmp266 = (long )__cil_tmp265;
-#line 165
-  tmp___38 = __builtin_expect(__cil_tmp266, 0L);
+  tmp___38 = __builtin_expect(__cil_tmp236, 0L);
   }
 #line 165
   if (tmp___38 != 0L) {
     {
 #line 165
-    __cil_tmp267 = *((u8 **)hw);
+    __cil_tmp237 = hw->hw_addr;
 #line 165
-    __cil_tmp268 = (void const volatile   *)__cil_tmp267;
+    __cil_tmp238 = (void const volatile   *)__cil_tmp237;
 #line 165
-    __cil_tmp269 = __cil_tmp268 + 5156U;
+    __cil_tmp239 = __cil_tmp238 + 5156U;
 #line 165
-    readl(__cil_tmp269);
+    readl(__cil_tmp239);
 #line 165
     tmp___36 = p;
 #line 165
     p = p + 1;
 #line 165
-    __cil_tmp270 = (u32 *)tmp___36;
+    __cil_tmp240 = (u32 *)tmp___36;
 #line 165
-    __cil_tmp271 = *((u8 **)hw);
+    __cil_tmp241 = hw->hw_addr;
 #line 165
-    __cil_tmp272 = (void const volatile   *)__cil_tmp271;
+    __cil_tmp242 = (void const volatile   *)__cil_tmp241;
 #line 165
-    __cil_tmp273 = __cil_tmp272 + 5156U;
+    __cil_tmp243 = __cil_tmp242 + 5156U;
 #line 165
-    *__cil_tmp270 = readl(__cil_tmp273);
+    *__cil_tmp240 = readl(__cil_tmp243);
     }
   } else {
     {
@@ -22606,54 +19325,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 165
     p = p + 1;
 #line 165
-    __cil_tmp274 = (u32 *)tmp___37;
+    __cil_tmp244 = (u32 *)tmp___37;
 #line 165
-    __cil_tmp275 = *((u8 **)hw);
+    __cil_tmp245 = hw->hw_addr;
 #line 165
-    __cil_tmp276 = (void const volatile   *)__cil_tmp275;
+    __cil_tmp246 = (void const volatile   *)__cil_tmp245;
 #line 165
-    __cil_tmp277 = __cil_tmp276 + 5156U;
+    __cil_tmp247 = __cil_tmp246 + 5156U;
 #line 165
-    *__cil_tmp274 = readl(__cil_tmp277);
+    *__cil_tmp244 = readl(__cil_tmp247);
     }
   }
   {
 #line 166
-  __cil_tmp278 = (unsigned long )hw;
+  __cil_tmp248 = hw->hibernate;
 #line 166
-  __cil_tmp279 = __cil_tmp278 + 237;
+  __cil_tmp249 = (long )__cil_tmp248;
 #line 166
-  __cil_tmp280 = *((bool *)__cil_tmp279);
-#line 166
-  __cil_tmp281 = (long )__cil_tmp280;
-#line 166
-  tmp___41 = __builtin_expect(__cil_tmp281, 0L);
+  tmp___41 = __builtin_expect(__cil_tmp249, 0L);
   }
 #line 166
   if (tmp___41 != 0L) {
     {
 #line 166
-    __cil_tmp282 = *((u8 **)hw);
+    __cil_tmp250 = hw->hw_addr;
 #line 166
-    __cil_tmp283 = (void const volatile   *)__cil_tmp282;
+    __cil_tmp251 = (void const volatile   *)__cil_tmp250;
 #line 166
-    __cil_tmp284 = __cil_tmp283 + 5248U;
+    __cil_tmp252 = __cil_tmp251 + 5248U;
 #line 166
-    readl(__cil_tmp284);
+    readl(__cil_tmp252);
 #line 166
     tmp___39 = p;
 #line 166
     p = p + 1;
 #line 166
-    __cil_tmp285 = (u32 *)tmp___39;
+    __cil_tmp253 = (u32 *)tmp___39;
 #line 166
-    __cil_tmp286 = *((u8 **)hw);
+    __cil_tmp254 = hw->hw_addr;
 #line 166
-    __cil_tmp287 = (void const volatile   *)__cil_tmp286;
+    __cil_tmp255 = (void const volatile   *)__cil_tmp254;
 #line 166
-    __cil_tmp288 = __cil_tmp287 + 5248U;
+    __cil_tmp256 = __cil_tmp255 + 5248U;
 #line 166
-    *__cil_tmp285 = readl(__cil_tmp288);
+    *__cil_tmp253 = readl(__cil_tmp256);
     }
   } else {
     {
@@ -22662,54 +19377,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 166
     p = p + 1;
 #line 166
-    __cil_tmp289 = (u32 *)tmp___40;
+    __cil_tmp257 = (u32 *)tmp___40;
 #line 166
-    __cil_tmp290 = *((u8 **)hw);
+    __cil_tmp258 = hw->hw_addr;
 #line 166
-    __cil_tmp291 = (void const volatile   *)__cil_tmp290;
+    __cil_tmp259 = (void const volatile   *)__cil_tmp258;
 #line 166
-    __cil_tmp292 = __cil_tmp291 + 5248U;
+    __cil_tmp260 = __cil_tmp259 + 5248U;
 #line 166
-    *__cil_tmp289 = readl(__cil_tmp292);
+    *__cil_tmp257 = readl(__cil_tmp260);
     }
   }
   {
 #line 167
-  __cil_tmp293 = (unsigned long )hw;
+  __cil_tmp261 = hw->hibernate;
 #line 167
-  __cil_tmp294 = __cil_tmp293 + 237;
+  __cil_tmp262 = (long )__cil_tmp261;
 #line 167
-  __cil_tmp295 = *((bool *)__cil_tmp294);
-#line 167
-  __cil_tmp296 = (long )__cil_tmp295;
-#line 167
-  tmp___44 = __builtin_expect(__cil_tmp296, 0L);
+  tmp___44 = __builtin_expect(__cil_tmp262, 0L);
   }
 #line 167
   if (tmp___44 != 0L) {
     {
 #line 167
-    __cil_tmp297 = *((u8 **)hw);
+    __cil_tmp263 = hw->hw_addr;
 #line 167
-    __cil_tmp298 = (void const volatile   *)__cil_tmp297;
+    __cil_tmp264 = (void const volatile   *)__cil_tmp263;
 #line 167
-    __cil_tmp299 = __cil_tmp298 + 5252U;
+    __cil_tmp265 = __cil_tmp264 + 5252U;
 #line 167
-    readl(__cil_tmp299);
+    readl(__cil_tmp265);
 #line 167
     tmp___42 = p;
 #line 167
     p = p + 1;
 #line 167
-    __cil_tmp300 = (u32 *)tmp___42;
+    __cil_tmp266 = (u32 *)tmp___42;
 #line 167
-    __cil_tmp301 = *((u8 **)hw);
+    __cil_tmp267 = hw->hw_addr;
 #line 167
-    __cil_tmp302 = (void const volatile   *)__cil_tmp301;
+    __cil_tmp268 = (void const volatile   *)__cil_tmp267;
 #line 167
-    __cil_tmp303 = __cil_tmp302 + 5252U;
+    __cil_tmp269 = __cil_tmp268 + 5252U;
 #line 167
-    *__cil_tmp300 = readl(__cil_tmp303);
+    *__cil_tmp266 = readl(__cil_tmp269);
     }
   } else {
     {
@@ -22718,54 +19429,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 167
     p = p + 1;
 #line 167
-    __cil_tmp304 = (u32 *)tmp___43;
+    __cil_tmp270 = (u32 *)tmp___43;
 #line 167
-    __cil_tmp305 = *((u8 **)hw);
+    __cil_tmp271 = hw->hw_addr;
 #line 167
-    __cil_tmp306 = (void const volatile   *)__cil_tmp305;
+    __cil_tmp272 = (void const volatile   *)__cil_tmp271;
 #line 167
-    __cil_tmp307 = __cil_tmp306 + 5252U;
+    __cil_tmp273 = __cil_tmp272 + 5252U;
 #line 167
-    *__cil_tmp304 = readl(__cil_tmp307);
+    *__cil_tmp270 = readl(__cil_tmp273);
     }
   }
   {
 #line 168
-  __cil_tmp308 = (unsigned long )hw;
+  __cil_tmp274 = hw->hibernate;
 #line 168
-  __cil_tmp309 = __cil_tmp308 + 237;
+  __cil_tmp275 = (long )__cil_tmp274;
 #line 168
-  __cil_tmp310 = *((bool *)__cil_tmp309);
-#line 168
-  __cil_tmp311 = (long )__cil_tmp310;
-#line 168
-  tmp___47 = __builtin_expect(__cil_tmp311, 0L);
+  tmp___47 = __builtin_expect(__cil_tmp275, 0L);
   }
 #line 168
   if (tmp___47 != 0L) {
     {
 #line 168
-    __cil_tmp312 = *((u8 **)hw);
+    __cil_tmp276 = hw->hw_addr;
 #line 168
-    __cil_tmp313 = (void const volatile   *)__cil_tmp312;
+    __cil_tmp277 = (void const volatile   *)__cil_tmp276;
 #line 168
-    __cil_tmp314 = __cil_tmp313 + 5256U;
+    __cil_tmp278 = __cil_tmp277 + 5256U;
 #line 168
-    readl(__cil_tmp314);
+    readl(__cil_tmp278);
 #line 168
     tmp___45 = p;
 #line 168
     p = p + 1;
 #line 168
-    __cil_tmp315 = (u32 *)tmp___45;
+    __cil_tmp279 = (u32 *)tmp___45;
 #line 168
-    __cil_tmp316 = *((u8 **)hw);
+    __cil_tmp280 = hw->hw_addr;
 #line 168
-    __cil_tmp317 = (void const volatile   *)__cil_tmp316;
+    __cil_tmp281 = (void const volatile   *)__cil_tmp280;
 #line 168
-    __cil_tmp318 = __cil_tmp317 + 5256U;
+    __cil_tmp282 = __cil_tmp281 + 5256U;
 #line 168
-    *__cil_tmp315 = readl(__cil_tmp318);
+    *__cil_tmp279 = readl(__cil_tmp282);
     }
   } else {
     {
@@ -22774,54 +19481,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 168
     p = p + 1;
 #line 168
-    __cil_tmp319 = (u32 *)tmp___46;
+    __cil_tmp283 = (u32 *)tmp___46;
 #line 168
-    __cil_tmp320 = *((u8 **)hw);
+    __cil_tmp284 = hw->hw_addr;
 #line 168
-    __cil_tmp321 = (void const volatile   *)__cil_tmp320;
+    __cil_tmp285 = (void const volatile   *)__cil_tmp284;
 #line 168
-    __cil_tmp322 = __cil_tmp321 + 5256U;
+    __cil_tmp286 = __cil_tmp285 + 5256U;
 #line 168
-    *__cil_tmp319 = readl(__cil_tmp322);
+    *__cil_tmp283 = readl(__cil_tmp286);
     }
   }
   {
 #line 169
-  __cil_tmp323 = (unsigned long )hw;
+  __cil_tmp287 = hw->hibernate;
 #line 169
-  __cil_tmp324 = __cil_tmp323 + 237;
+  __cil_tmp288 = (long )__cil_tmp287;
 #line 169
-  __cil_tmp325 = *((bool *)__cil_tmp324);
-#line 169
-  __cil_tmp326 = (long )__cil_tmp325;
-#line 169
-  tmp___50 = __builtin_expect(__cil_tmp326, 0L);
+  tmp___50 = __builtin_expect(__cil_tmp288, 0L);
   }
 #line 169
   if (tmp___50 != 0L) {
     {
 #line 169
-    __cil_tmp327 = *((u8 **)hw);
+    __cil_tmp289 = hw->hw_addr;
 #line 169
-    __cil_tmp328 = (void const volatile   *)__cil_tmp327;
+    __cil_tmp290 = (void const volatile   *)__cil_tmp289;
 #line 169
-    __cil_tmp329 = __cil_tmp328 + 5260U;
+    __cil_tmp291 = __cil_tmp290 + 5260U;
 #line 169
-    readl(__cil_tmp329);
+    readl(__cil_tmp291);
 #line 169
     tmp___48 = p;
 #line 169
     p = p + 1;
 #line 169
-    __cil_tmp330 = (u32 *)tmp___48;
+    __cil_tmp292 = (u32 *)tmp___48;
 #line 169
-    __cil_tmp331 = *((u8 **)hw);
+    __cil_tmp293 = hw->hw_addr;
 #line 169
-    __cil_tmp332 = (void const volatile   *)__cil_tmp331;
+    __cil_tmp294 = (void const volatile   *)__cil_tmp293;
 #line 169
-    __cil_tmp333 = __cil_tmp332 + 5260U;
+    __cil_tmp295 = __cil_tmp294 + 5260U;
 #line 169
-    *__cil_tmp330 = readl(__cil_tmp333);
+    *__cil_tmp292 = readl(__cil_tmp295);
     }
   } else {
     {
@@ -22830,54 +19533,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 169
     p = p + 1;
 #line 169
-    __cil_tmp334 = (u32 *)tmp___49;
+    __cil_tmp296 = (u32 *)tmp___49;
 #line 169
-    __cil_tmp335 = *((u8 **)hw);
+    __cil_tmp297 = hw->hw_addr;
 #line 169
-    __cil_tmp336 = (void const volatile   *)__cil_tmp335;
+    __cil_tmp298 = (void const volatile   *)__cil_tmp297;
 #line 169
-    __cil_tmp337 = __cil_tmp336 + 5260U;
+    __cil_tmp299 = __cil_tmp298 + 5260U;
 #line 169
-    *__cil_tmp334 = readl(__cil_tmp337);
+    *__cil_tmp296 = readl(__cil_tmp299);
     }
   }
   {
 #line 170
-  __cil_tmp338 = (unsigned long )hw;
+  __cil_tmp300 = hw->hibernate;
 #line 170
-  __cil_tmp339 = __cil_tmp338 + 237;
+  __cil_tmp301 = (long )__cil_tmp300;
 #line 170
-  __cil_tmp340 = *((bool *)__cil_tmp339);
-#line 170
-  __cil_tmp341 = (long )__cil_tmp340;
-#line 170
-  tmp___53 = __builtin_expect(__cil_tmp341, 0L);
+  tmp___53 = __builtin_expect(__cil_tmp301, 0L);
   }
 #line 170
   if (tmp___53 != 0L) {
     {
 #line 170
-    __cil_tmp342 = *((u8 **)hw);
+    __cil_tmp302 = hw->hw_addr;
 #line 170
-    __cil_tmp343 = (void const volatile   *)__cil_tmp342;
+    __cil_tmp303 = (void const volatile   *)__cil_tmp302;
 #line 170
-    __cil_tmp344 = __cil_tmp343 + 5264U;
+    __cil_tmp304 = __cil_tmp303 + 5264U;
 #line 170
-    readl(__cil_tmp344);
+    readl(__cil_tmp304);
 #line 170
     tmp___51 = p;
 #line 170
     p = p + 1;
 #line 170
-    __cil_tmp345 = (u32 *)tmp___51;
+    __cil_tmp305 = (u32 *)tmp___51;
 #line 170
-    __cil_tmp346 = *((u8 **)hw);
+    __cil_tmp306 = hw->hw_addr;
 #line 170
-    __cil_tmp347 = (void const volatile   *)__cil_tmp346;
+    __cil_tmp307 = (void const volatile   *)__cil_tmp306;
 #line 170
-    __cil_tmp348 = __cil_tmp347 + 5264U;
+    __cil_tmp308 = __cil_tmp307 + 5264U;
 #line 170
-    *__cil_tmp345 = readl(__cil_tmp348);
+    *__cil_tmp305 = readl(__cil_tmp308);
     }
   } else {
     {
@@ -22886,54 +19585,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 170
     p = p + 1;
 #line 170
-    __cil_tmp349 = (u32 *)tmp___52;
+    __cil_tmp309 = (u32 *)tmp___52;
 #line 170
-    __cil_tmp350 = *((u8 **)hw);
+    __cil_tmp310 = hw->hw_addr;
 #line 170
-    __cil_tmp351 = (void const volatile   *)__cil_tmp350;
+    __cil_tmp311 = (void const volatile   *)__cil_tmp310;
 #line 170
-    __cil_tmp352 = __cil_tmp351 + 5264U;
+    __cil_tmp312 = __cil_tmp311 + 5264U;
 #line 170
-    *__cil_tmp349 = readl(__cil_tmp352);
+    *__cil_tmp309 = readl(__cil_tmp312);
     }
   }
   {
 #line 171
-  __cil_tmp353 = (unsigned long )hw;
+  __cil_tmp313 = hw->hibernate;
 #line 171
-  __cil_tmp354 = __cil_tmp353 + 237;
+  __cil_tmp314 = (long )__cil_tmp313;
 #line 171
-  __cil_tmp355 = *((bool *)__cil_tmp354);
-#line 171
-  __cil_tmp356 = (long )__cil_tmp355;
-#line 171
-  tmp___56 = __builtin_expect(__cil_tmp356, 0L);
+  tmp___56 = __builtin_expect(__cil_tmp314, 0L);
   }
 #line 171
   if (tmp___56 != 0L) {
     {
 #line 171
-    __cil_tmp357 = *((u8 **)hw);
+    __cil_tmp315 = hw->hw_addr;
 #line 171
-    __cil_tmp358 = (void const volatile   *)__cil_tmp357;
+    __cil_tmp316 = (void const volatile   *)__cil_tmp315;
 #line 171
-    __cil_tmp359 = __cil_tmp358 + 5268U;
+    __cil_tmp317 = __cil_tmp316 + 5268U;
 #line 171
-    readl(__cil_tmp359);
+    readl(__cil_tmp317);
 #line 171
     tmp___54 = p;
 #line 171
     p = p + 1;
 #line 171
-    __cil_tmp360 = (u32 *)tmp___54;
+    __cil_tmp318 = (u32 *)tmp___54;
 #line 171
-    __cil_tmp361 = *((u8 **)hw);
+    __cil_tmp319 = hw->hw_addr;
 #line 171
-    __cil_tmp362 = (void const volatile   *)__cil_tmp361;
+    __cil_tmp320 = (void const volatile   *)__cil_tmp319;
 #line 171
-    __cil_tmp363 = __cil_tmp362 + 5268U;
+    __cil_tmp321 = __cil_tmp320 + 5268U;
 #line 171
-    *__cil_tmp360 = readl(__cil_tmp363);
+    *__cil_tmp318 = readl(__cil_tmp321);
     }
   } else {
     {
@@ -22942,54 +19637,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 171
     p = p + 1;
 #line 171
-    __cil_tmp364 = (u32 *)tmp___55;
+    __cil_tmp322 = (u32 *)tmp___55;
 #line 171
-    __cil_tmp365 = *((u8 **)hw);
+    __cil_tmp323 = hw->hw_addr;
 #line 171
-    __cil_tmp366 = (void const volatile   *)__cil_tmp365;
+    __cil_tmp324 = (void const volatile   *)__cil_tmp323;
 #line 171
-    __cil_tmp367 = __cil_tmp366 + 5268U;
+    __cil_tmp325 = __cil_tmp324 + 5268U;
 #line 171
-    *__cil_tmp364 = readl(__cil_tmp367);
+    *__cil_tmp322 = readl(__cil_tmp325);
     }
   }
   {
 #line 172
-  __cil_tmp368 = (unsigned long )hw;
+  __cil_tmp326 = hw->hibernate;
 #line 172
-  __cil_tmp369 = __cil_tmp368 + 237;
+  __cil_tmp327 = (long )__cil_tmp326;
 #line 172
-  __cil_tmp370 = *((bool *)__cil_tmp369);
-#line 172
-  __cil_tmp371 = (long )__cil_tmp370;
-#line 172
-  tmp___59 = __builtin_expect(__cil_tmp371, 0L);
+  tmp___59 = __builtin_expect(__cil_tmp327, 0L);
   }
 #line 172
   if (tmp___59 != 0L) {
     {
 #line 172
-    __cil_tmp372 = *((u8 **)hw);
+    __cil_tmp328 = hw->hw_addr;
 #line 172
-    __cil_tmp373 = (void const volatile   *)__cil_tmp372;
+    __cil_tmp329 = (void const volatile   *)__cil_tmp328;
 #line 172
-    __cil_tmp374 = __cil_tmp373 + 5536U;
+    __cil_tmp330 = __cil_tmp329 + 5536U;
 #line 172
-    readl(__cil_tmp374);
+    readl(__cil_tmp330);
 #line 172
     tmp___57 = p;
 #line 172
     p = p + 1;
 #line 172
-    __cil_tmp375 = (u32 *)tmp___57;
+    __cil_tmp331 = (u32 *)tmp___57;
 #line 172
-    __cil_tmp376 = *((u8 **)hw);
+    __cil_tmp332 = hw->hw_addr;
 #line 172
-    __cil_tmp377 = (void const volatile   *)__cil_tmp376;
+    __cil_tmp333 = (void const volatile   *)__cil_tmp332;
 #line 172
-    __cil_tmp378 = __cil_tmp377 + 5536U;
+    __cil_tmp334 = __cil_tmp333 + 5536U;
 #line 172
-    *__cil_tmp375 = readl(__cil_tmp378);
+    *__cil_tmp331 = readl(__cil_tmp334);
     }
   } else {
     {
@@ -22998,54 +19689,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 172
     p = p + 1;
 #line 172
-    __cil_tmp379 = (u32 *)tmp___58;
+    __cil_tmp335 = (u32 *)tmp___58;
 #line 172
-    __cil_tmp380 = *((u8 **)hw);
+    __cil_tmp336 = hw->hw_addr;
 #line 172
-    __cil_tmp381 = (void const volatile   *)__cil_tmp380;
+    __cil_tmp337 = (void const volatile   *)__cil_tmp336;
 #line 172
-    __cil_tmp382 = __cil_tmp381 + 5536U;
+    __cil_tmp338 = __cil_tmp337 + 5536U;
 #line 172
-    *__cil_tmp379 = readl(__cil_tmp382);
+    *__cil_tmp335 = readl(__cil_tmp338);
     }
   }
   {
 #line 173
-  __cil_tmp383 = (unsigned long )hw;
+  __cil_tmp339 = hw->hibernate;
 #line 173
-  __cil_tmp384 = __cil_tmp383 + 237;
+  __cil_tmp340 = (long )__cil_tmp339;
 #line 173
-  __cil_tmp385 = *((bool *)__cil_tmp384);
-#line 173
-  __cil_tmp386 = (long )__cil_tmp385;
-#line 173
-  tmp___62 = __builtin_expect(__cil_tmp386, 0L);
+  tmp___62 = __builtin_expect(__cil_tmp340, 0L);
   }
 #line 173
   if (tmp___62 != 0L) {
     {
 #line 173
-    __cil_tmp387 = *((u8 **)hw);
+    __cil_tmp341 = hw->hw_addr;
 #line 173
-    __cil_tmp388 = (void const volatile   *)__cil_tmp387;
+    __cil_tmp342 = (void const volatile   *)__cil_tmp341;
 #line 173
-    __cil_tmp389 = __cil_tmp388 + 5520U;
+    __cil_tmp343 = __cil_tmp342 + 5520U;
 #line 173
-    readl(__cil_tmp389);
+    readl(__cil_tmp343);
 #line 173
     tmp___60 = p;
 #line 173
     p = p + 1;
 #line 173
-    __cil_tmp390 = (u32 *)tmp___60;
+    __cil_tmp344 = (u32 *)tmp___60;
 #line 173
-    __cil_tmp391 = *((u8 **)hw);
+    __cil_tmp345 = hw->hw_addr;
 #line 173
-    __cil_tmp392 = (void const volatile   *)__cil_tmp391;
+    __cil_tmp346 = (void const volatile   *)__cil_tmp345;
 #line 173
-    __cil_tmp393 = __cil_tmp392 + 5520U;
+    __cil_tmp347 = __cil_tmp346 + 5520U;
 #line 173
-    *__cil_tmp390 = readl(__cil_tmp393);
+    *__cil_tmp344 = readl(__cil_tmp347);
     }
   } else {
     {
@@ -23054,54 +19741,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 173
     p = p + 1;
 #line 173
-    __cil_tmp394 = (u32 *)tmp___61;
+    __cil_tmp348 = (u32 *)tmp___61;
 #line 173
-    __cil_tmp395 = *((u8 **)hw);
+    __cil_tmp349 = hw->hw_addr;
 #line 173
-    __cil_tmp396 = (void const volatile   *)__cil_tmp395;
+    __cil_tmp350 = (void const volatile   *)__cil_tmp349;
 #line 173
-    __cil_tmp397 = __cil_tmp396 + 5520U;
+    __cil_tmp351 = __cil_tmp350 + 5520U;
 #line 173
-    *__cil_tmp394 = readl(__cil_tmp397);
+    *__cil_tmp348 = readl(__cil_tmp351);
     }
   }
   {
 #line 174
-  __cil_tmp398 = (unsigned long )hw;
+  __cil_tmp352 = hw->hibernate;
 #line 174
-  __cil_tmp399 = __cil_tmp398 + 237;
+  __cil_tmp353 = (long )__cil_tmp352;
 #line 174
-  __cil_tmp400 = *((bool *)__cil_tmp399);
-#line 174
-  __cil_tmp401 = (long )__cil_tmp400;
-#line 174
-  tmp___65 = __builtin_expect(__cil_tmp401, 0L);
+  tmp___65 = __builtin_expect(__cil_tmp353, 0L);
   }
 #line 174
   if (tmp___65 != 0L) {
     {
 #line 174
-    __cil_tmp402 = *((u8 **)hw);
+    __cil_tmp354 = hw->hw_addr;
 #line 174
-    __cil_tmp403 = (void const volatile   *)__cil_tmp402;
+    __cil_tmp355 = (void const volatile   *)__cil_tmp354;
 #line 174
-    __cil_tmp404 = __cil_tmp403 + 5276U;
+    __cil_tmp356 = __cil_tmp355 + 5276U;
 #line 174
-    readl(__cil_tmp404);
+    readl(__cil_tmp356);
 #line 174
     tmp___63 = p;
 #line 174
     p = p + 1;
 #line 174
-    __cil_tmp405 = (u32 *)tmp___63;
+    __cil_tmp357 = (u32 *)tmp___63;
 #line 174
-    __cil_tmp406 = *((u8 **)hw);
+    __cil_tmp358 = hw->hw_addr;
 #line 174
-    __cil_tmp407 = (void const volatile   *)__cil_tmp406;
+    __cil_tmp359 = (void const volatile   *)__cil_tmp358;
 #line 174
-    __cil_tmp408 = __cil_tmp407 + 5276U;
+    __cil_tmp360 = __cil_tmp359 + 5276U;
 #line 174
-    *__cil_tmp405 = readl(__cil_tmp408);
+    *__cil_tmp357 = readl(__cil_tmp360);
     }
   } else {
     {
@@ -23110,54 +19793,50 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 174
     p = p + 1;
 #line 174
-    __cil_tmp409 = (u32 *)tmp___64;
+    __cil_tmp361 = (u32 *)tmp___64;
 #line 174
-    __cil_tmp410 = *((u8 **)hw);
+    __cil_tmp362 = hw->hw_addr;
 #line 174
-    __cil_tmp411 = (void const volatile   *)__cil_tmp410;
+    __cil_tmp363 = (void const volatile   *)__cil_tmp362;
 #line 174
-    __cil_tmp412 = __cil_tmp411 + 5276U;
+    __cil_tmp364 = __cil_tmp363 + 5276U;
 #line 174
-    *__cil_tmp409 = readl(__cil_tmp412);
+    *__cil_tmp361 = readl(__cil_tmp364);
     }
   }
   {
 #line 175
-  __cil_tmp413 = (unsigned long )hw;
+  __cil_tmp365 = hw->hibernate;
 #line 175
-  __cil_tmp414 = __cil_tmp413 + 237;
+  __cil_tmp366 = (long )__cil_tmp365;
 #line 175
-  __cil_tmp415 = *((bool *)__cil_tmp414);
-#line 175
-  __cil_tmp416 = (long )__cil_tmp415;
-#line 175
-  tmp___68 = __builtin_expect(__cil_tmp416, 0L);
+  tmp___68 = __builtin_expect(__cil_tmp366, 0L);
   }
 #line 175
   if (tmp___68 != 0L) {
     {
 #line 175
-    __cil_tmp417 = *((u8 **)hw);
+    __cil_tmp367 = hw->hw_addr;
 #line 175
-    __cil_tmp418 = (void const volatile   *)__cil_tmp417;
+    __cil_tmp368 = (void const volatile   *)__cil_tmp367;
 #line 175
-    __cil_tmp419 = __cil_tmp418 + 5280U;
+    __cil_tmp369 = __cil_tmp368 + 5280U;
 #line 175
-    readl(__cil_tmp419);
+    readl(__cil_tmp369);
 #line 175
     tmp___66 = p;
 #line 175
     p = p + 1;
 #line 175
-    __cil_tmp420 = (u32 *)tmp___66;
+    __cil_tmp370 = (u32 *)tmp___66;
 #line 175
-    __cil_tmp421 = *((u8 **)hw);
+    __cil_tmp371 = hw->hw_addr;
 #line 175
-    __cil_tmp422 = (void const volatile   *)__cil_tmp421;
+    __cil_tmp372 = (void const volatile   *)__cil_tmp371;
 #line 175
-    __cil_tmp423 = __cil_tmp422 + 5280U;
+    __cil_tmp373 = __cil_tmp372 + 5280U;
 #line 175
-    *__cil_tmp420 = readl(__cil_tmp423);
+    *__cil_tmp370 = readl(__cil_tmp373);
     }
   } else {
     {
@@ -23166,38 +19845,34 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
 #line 175
     p = p + 1;
 #line 175
-    __cil_tmp424 = (u32 *)tmp___67;
+    __cil_tmp374 = (u32 *)tmp___67;
 #line 175
-    __cil_tmp425 = *((u8 **)hw);
+    __cil_tmp375 = hw->hw_addr;
 #line 175
-    __cil_tmp426 = (void const volatile   *)__cil_tmp425;
+    __cil_tmp376 = (void const volatile   *)__cil_tmp375;
 #line 175
-    __cil_tmp427 = __cil_tmp426 + 5280U;
+    __cil_tmp377 = __cil_tmp376 + 5280U;
 #line 175
-    *__cil_tmp424 = readl(__cil_tmp427);
+    *__cil_tmp374 = readl(__cil_tmp377);
     }
   }
   {
 #line 177
-  atl1c_read_phy_reg(hw, (unsigned short)0, & phy_data);
+  __cil_tmp378 = (u16 )0;
+#line 177
+  atl1c_read_phy_reg(hw, __cil_tmp378, & phy_data);
 #line 178
-  __cil_tmp428 = regs_buff + 73UL;
+  __cil_tmp379 = regs_buff + 73UL;
 #line 178
-  __cil_tmp429 = & phy_data;
-#line 178
-  __cil_tmp430 = *__cil_tmp429;
-#line 178
-  *__cil_tmp428 = (unsigned int )__cil_tmp430;
+  *__cil_tmp379 = (unsigned int )phy_data;
 #line 179
-  atl1c_read_phy_reg(hw, (unsigned short)1, & phy_data);
+  __cil_tmp380 = (u16 )1;
+#line 179
+  atl1c_read_phy_reg(hw, __cil_tmp380, & phy_data);
 #line 180
-  __cil_tmp431 = regs_buff + 74UL;
+  __cil_tmp381 = regs_buff + 74UL;
 #line 180
-  __cil_tmp432 = & phy_data;
-#line 180
-  __cil_tmp433 = *__cil_tmp432;
-#line 180
-  *__cil_tmp431 = (unsigned int )__cil_tmp433;
+  *__cil_tmp381 = (unsigned int )phy_data;
   }
 #line 181
   return;
@@ -23209,9 +19884,7 @@ static int atl1c_get_eeprom_len(struct net_device *netdev )
   void *tmp ;
   int tmp___0 ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct atl1c_hw *__cil_tmp8 ;
+  struct atl1c_hw *__cil_tmp6 ;
 
   {
   {
@@ -23222,13 +19895,9 @@ static int atl1c_get_eeprom_len(struct net_device *netdev )
 #line 185
   adapter = (struct atl1c_adapter *)tmp;
 #line 187
-  __cil_tmp6 = (unsigned long )adapter;
+  __cil_tmp6 = & adapter->hw;
 #line 187
-  __cil_tmp7 = __cil_tmp6 + 184;
-#line 187
-  __cil_tmp8 = (struct atl1c_hw *)__cil_tmp7;
-#line 187
-  tmp___0 = atl1c_check_eeprom_exist(__cil_tmp8);
+  tmp___0 = atl1c_check_eeprom_exist(__cil_tmp6);
   }
 #line 187
   if (tmp___0 != 0) {
@@ -23258,67 +19927,43 @@ static int atl1c_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
   size_t __len ;
   void *__ret ;
   struct net_device  const  *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  __u32 __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct pci_dev *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned short __cil_tmp31 ;
-  int __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct pci_dev *__cil_tmp36 ;
+  __u32 __cil_tmp19 ;
+  struct pci_dev *__cil_tmp20 ;
+  unsigned short __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  struct pci_dev *__cil_tmp24 ;
+  unsigned short __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  __u32 __cil_tmp28 ;
+  __u32 __cil_tmp29 ;
+  __u32 __cil_tmp30 ;
+  __u32 __cil_tmp31 ;
+  __u32 __cil_tmp32 ;
+  __u32 __cil_tmp33 ;
+  __u32 __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
-  unsigned short __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  __u32 __cil_tmp44 ;
-  __u32 __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  u32 *__cil_tmp39 ;
+  unsigned long __cil_tmp40 ;
+  unsigned long __cil_tmp41 ;
+  int __cil_tmp42 ;
+  u32 __cil_tmp43 ;
+  int __cil_tmp44 ;
+  unsigned long __cil_tmp45 ;
+  u32 *__cil_tmp46 ;
+  void const   *__cil_tmp47 ;
   __u32 __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  __u32 __cil_tmp51 ;
-  __u32 __cil_tmp52 ;
-  __u32 __cil_tmp53 ;
-  __u32 __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  u32 *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  u32 *__cil_tmp66 ;
-  void const   *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  __u32 __cil_tmp70 ;
-  void *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  __u32 __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  void const   *__cil_tmp77 ;
-  void const   *__cil_tmp78 ;
-  void const   *__cil_tmp79 ;
+  void *__cil_tmp49 ;
+  __u32 __cil_tmp50 ;
+  unsigned long __cil_tmp51 ;
+  unsigned long __cil_tmp52 ;
+  void const   *__cil_tmp53 ;
+  void const   *__cil_tmp54 ;
+  void const   *__cil_tmp55 ;
 
   {
   {
@@ -23329,23 +19974,15 @@ static int atl1c_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
 #line 196
   adapter = (struct atl1c_adapter *)tmp;
 #line 197
-  __cil_tmp19 = (unsigned long )adapter;
-#line 197
-  __cil_tmp20 = __cil_tmp19 + 184;
-#line 197
-  hw = (struct atl1c_hw *)__cil_tmp20;
+  hw = & adapter->hw;
 #line 200
   ret_val = 0;
   }
   {
 #line 203
-  __cil_tmp21 = (unsigned long )eeprom;
+  __cil_tmp19 = eeprom->len;
 #line 203
-  __cil_tmp22 = __cil_tmp21 + 12;
-#line 203
-  __cil_tmp23 = *((__u32 *)__cil_tmp22);
-#line 203
-  if (__cil_tmp23 == 0U) {
+  if (__cil_tmp19 == 0U) {
 #line 204
     return (-22);
   } else {
@@ -23365,95 +20002,63 @@ static int atl1c_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
   }
   {
 #line 209
-  __cil_tmp24 = (unsigned long )eeprom;
+  __cil_tmp20 = adapter->pdev;
 #line 209
-  __cil_tmp25 = __cil_tmp24 + 4;
+  __cil_tmp21 = __cil_tmp20->device;
 #line 209
-  __cil_tmp26 = (unsigned long )adapter;
+  __cil_tmp22 = (int )__cil_tmp21;
 #line 209
-  __cil_tmp27 = __cil_tmp26 + 8;
+  __cil_tmp23 = __cil_tmp22 << 16;
 #line 209
-  __cil_tmp28 = *((struct pci_dev **)__cil_tmp27);
+  __cil_tmp24 = adapter->pdev;
 #line 209
-  __cil_tmp29 = (unsigned long )__cil_tmp28;
+  __cil_tmp25 = __cil_tmp24->vendor;
 #line 209
-  __cil_tmp30 = __cil_tmp29 + 62;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 209
-  __cil_tmp31 = *((unsigned short *)__cil_tmp30);
+  __cil_tmp27 = __cil_tmp26 | __cil_tmp23;
 #line 209
-  __cil_tmp32 = (int )__cil_tmp31;
-#line 209
-  __cil_tmp33 = __cil_tmp32 << 16;
-#line 209
-  __cil_tmp34 = (unsigned long )adapter;
-#line 209
-  __cil_tmp35 = __cil_tmp34 + 8;
-#line 209
-  __cil_tmp36 = *((struct pci_dev **)__cil_tmp35);
-#line 209
+  eeprom->magic = (__u32 )__cil_tmp27;
+#line 212
+  __cil_tmp28 = eeprom->offset;
+#line 212
+  __cil_tmp29 = __cil_tmp28 >> 2;
+#line 212
+  first_dword = (int )__cil_tmp29;
+#line 213
+  __cil_tmp30 = eeprom->len;
+#line 213
+  __cil_tmp31 = eeprom->offset;
+#line 213
+  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
+#line 213
+  __cil_tmp33 = __cil_tmp32 - 1U;
+#line 213
+  __cil_tmp34 = __cil_tmp33 >> 2;
+#line 213
+  last_dword = (int )__cil_tmp34;
+#line 215
+  __cil_tmp35 = last_dword - first_dword;
+#line 215
+  __cil_tmp36 = __cil_tmp35 + 1;
+#line 215
   __cil_tmp37 = (unsigned long )__cil_tmp36;
-#line 209
-  __cil_tmp38 = __cil_tmp37 + 60;
-#line 209
-  __cil_tmp39 = *((unsigned short *)__cil_tmp38);
-#line 209
-  __cil_tmp40 = (int )__cil_tmp39;
-#line 209
-  __cil_tmp41 = __cil_tmp40 | __cil_tmp33;
-#line 209
-  *((__u32 *)__cil_tmp25) = (unsigned int )__cil_tmp41;
-#line 212
-  __cil_tmp42 = (unsigned long )eeprom;
-#line 212
-  __cil_tmp43 = __cil_tmp42 + 8;
-#line 212
-  __cil_tmp44 = *((__u32 *)__cil_tmp43);
-#line 212
-  __cil_tmp45 = __cil_tmp44 >> 2;
-#line 212
-  first_dword = (int )__cil_tmp45;
-#line 213
-  __cil_tmp46 = (unsigned long )eeprom;
-#line 213
-  __cil_tmp47 = __cil_tmp46 + 12;
-#line 213
-  __cil_tmp48 = *((__u32 *)__cil_tmp47);
-#line 213
-  __cil_tmp49 = (unsigned long )eeprom;
-#line 213
-  __cil_tmp50 = __cil_tmp49 + 8;
-#line 213
-  __cil_tmp51 = *((__u32 *)__cil_tmp50);
-#line 213
-  __cil_tmp52 = __cil_tmp51 + __cil_tmp48;
-#line 213
-  __cil_tmp53 = __cil_tmp52 - 1U;
-#line 213
-  __cil_tmp54 = __cil_tmp53 >> 2;
-#line 213
-  last_dword = (int )__cil_tmp54;
 #line 215
-  __cil_tmp55 = last_dword - first_dword;
+  __cil_tmp38 = __cil_tmp37 * 4UL;
 #line 215
-  __cil_tmp56 = __cil_tmp55 + 1;
-#line 215
-  __cil_tmp57 = (unsigned long )__cil_tmp56;
-#line 215
-  __cil_tmp58 = __cil_tmp57 * 4UL;
-#line 215
-  tmp___1 = kmalloc(__cil_tmp58, 208U);
+  tmp___1 = kmalloc(__cil_tmp38, 208U);
 #line 215
   eeprom_buff = (u32 *)tmp___1;
   }
   {
 #line 217
-  __cil_tmp59 = (u32 *)0;
+  __cil_tmp39 = (u32 *)0;
 #line 217
-  __cil_tmp60 = (unsigned long )__cil_tmp59;
+  __cil_tmp40 = (unsigned long )__cil_tmp39;
 #line 217
-  __cil_tmp61 = (unsigned long )eeprom_buff;
+  __cil_tmp41 = (unsigned long )eeprom_buff;
 #line 217
-  if (__cil_tmp61 == __cil_tmp60) {
+  if (__cil_tmp41 == __cil_tmp40) {
 #line 218
     return (-12);
   } else {
@@ -23462,21 +20067,22 @@ static int atl1c_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
   }
 #line 220
   i = first_dword;
+#line 220
   goto ldv_42447;
   ldv_42446: 
   {
 #line 221
-  __cil_tmp62 = i * 4;
+  __cil_tmp42 = i * 4;
 #line 221
-  __cil_tmp63 = (unsigned int )__cil_tmp62;
+  __cil_tmp43 = (u32 )__cil_tmp42;
 #line 221
-  __cil_tmp64 = i - first_dword;
+  __cil_tmp44 = i - first_dword;
 #line 221
-  __cil_tmp65 = (unsigned long )__cil_tmp64;
+  __cil_tmp45 = (unsigned long )__cil_tmp44;
 #line 221
-  __cil_tmp66 = eeprom_buff + __cil_tmp65;
+  __cil_tmp46 = eeprom_buff + __cil_tmp45;
 #line 221
-  tmp___2 = atl1c_read_eeprom(hw, __cil_tmp63, __cil_tmp66);
+  tmp___2 = atl1c_read_eeprom(hw, __cil_tmp43, __cil_tmp46);
   }
 #line 221
   if (tmp___2) {
@@ -23490,9 +20096,9 @@ static int atl1c_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
   if (tmp___3) {
     {
 #line 222
-    __cil_tmp67 = (void const   *)eeprom_buff;
+    __cil_tmp47 = (void const   *)eeprom_buff;
 #line 222
-    kfree(__cil_tmp67);
+    kfree(__cil_tmp47);
     }
 #line 223
     return (-5);
@@ -23504,42 +20110,36 @@ static int atl1c_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
   ldv_42447: ;
 #line 220
   if (i < last_dword) {
+#line 221
     goto ldv_42446;
   } else {
+#line 223
     goto ldv_42448;
   }
   ldv_42448: 
   {
 #line 227
-  __cil_tmp68 = (unsigned long )eeprom;
+  __cil_tmp48 = eeprom->len;
 #line 227
-  __cil_tmp69 = __cil_tmp68 + 12;
+  __len = (size_t )__cil_tmp48;
 #line 227
-  __cil_tmp70 = *((__u32 *)__cil_tmp69);
+  __cil_tmp49 = (void *)bytes;
 #line 227
-  __len = (unsigned long )__cil_tmp70;
+  __cil_tmp50 = eeprom->offset;
 #line 227
-  __cil_tmp71 = (void *)bytes;
+  __cil_tmp51 = (unsigned long )__cil_tmp50;
 #line 227
-  __cil_tmp72 = (unsigned long )eeprom;
+  __cil_tmp52 = __cil_tmp51 & 3UL;
 #line 227
-  __cil_tmp73 = __cil_tmp72 + 8;
+  __cil_tmp53 = (void const   *)eeprom_buff;
 #line 227
-  __cil_tmp74 = *((__u32 *)__cil_tmp73);
+  __cil_tmp54 = __cil_tmp53 + __cil_tmp52;
 #line 227
-  __cil_tmp75 = (unsigned long )__cil_tmp74;
-#line 227
-  __cil_tmp76 = __cil_tmp75 & 3UL;
-#line 227
-  __cil_tmp77 = (void const   *)eeprom_buff;
-#line 227
-  __cil_tmp78 = __cil_tmp77 + __cil_tmp76;
-#line 227
-  __ret = __builtin_memcpy(__cil_tmp71, __cil_tmp78, __len);
+  __ret = __builtin_memcpy(__cil_tmp49, __cil_tmp54, __len);
 #line 229
-  __cil_tmp79 = (void const   *)eeprom_buff;
+  __cil_tmp55 = (void const   *)eeprom_buff;
 #line 229
-  kfree(__cil_tmp79);
+  kfree(__cil_tmp55);
   }
 #line 231
   return (ret_val);
@@ -23555,36 +20155,18 @@ static void atl1c_get_drvinfo(struct net_device *netdev , struct ethtool_drvinfo
   int tmp___1 ;
   int tmp___2 ;
   struct net_device  const  *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char (*__cil_tmp11)[32U] ;
-  char *__cil_tmp12 ;
-  char const   *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  char (*__cil_tmp16)[32U] ;
-  char *__cil_tmp17 ;
-  char const   *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  char (*__cil_tmp21)[32U] ;
-  char *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct pci_dev *__cil_tmp25 ;
-  struct pci_dev  const  *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  char (*__cil_tmp29)[32U] ;
-  char *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  char (*__cil_tmp9)[32U] ;
+  char *__cil_tmp10 ;
+  char const   *__cil_tmp11 ;
+  char (*__cil_tmp12)[32U] ;
+  char *__cil_tmp13 ;
+  char const   *__cil_tmp14 ;
+  char (*__cil_tmp15)[32U] ;
+  char *__cil_tmp16 ;
+  struct pci_dev *__cil_tmp17 ;
+  struct pci_dev  const  *__cil_tmp18 ;
+  char (*__cil_tmp19)[32U] ;
+  char *__cil_tmp20 ;
 
   {
   {
@@ -23595,87 +20177,51 @@ static void atl1c_get_drvinfo(struct net_device *netdev , struct ethtool_drvinfo
 #line 238
   adapter = (struct atl1c_adapter *)tmp;
 #line 240
-  __cil_tmp9 = (unsigned long )drvinfo;
+  __cil_tmp9 = & drvinfo->driver;
 #line 240
-  __cil_tmp10 = __cil_tmp9 + 4;
+  __cil_tmp10 = (char *)__cil_tmp9;
 #line 240
-  __cil_tmp11 = (char (*)[32U])__cil_tmp10;
+  __cil_tmp11 = (char const   *)(& atl1c_driver_name);
 #line 240
-  __cil_tmp12 = (char *)__cil_tmp11;
-#line 240
-  __cil_tmp13 = (char const   *)(& atl1c_driver_name);
-#line 240
-  strlcpy(__cil_tmp12, __cil_tmp13, 32UL);
+  strlcpy(__cil_tmp10, __cil_tmp11, 32UL);
 #line 241
-  __cil_tmp14 = (unsigned long )drvinfo;
+  __cil_tmp12 = & drvinfo->version;
 #line 241
-  __cil_tmp15 = __cil_tmp14 + 36;
+  __cil_tmp13 = (char *)__cil_tmp12;
 #line 241
-  __cil_tmp16 = (char (*)[32U])__cil_tmp15;
+  __cil_tmp14 = (char const   *)(& atl1c_driver_version);
 #line 241
-  __cil_tmp17 = (char *)__cil_tmp16;
-#line 241
-  __cil_tmp18 = (char const   *)(& atl1c_driver_version);
-#line 241
-  strlcpy(__cil_tmp17, __cil_tmp18, 32UL);
+  strlcpy(__cil_tmp13, __cil_tmp14, 32UL);
 #line 243
-  __cil_tmp19 = (unsigned long )drvinfo;
+  __cil_tmp15 = & drvinfo->fw_version;
 #line 243
-  __cil_tmp20 = __cil_tmp19 + 68;
+  __cil_tmp16 = (char *)__cil_tmp15;
 #line 243
-  __cil_tmp21 = (char (*)[32U])__cil_tmp20;
-#line 243
-  __cil_tmp22 = (char *)__cil_tmp21;
-#line 243
-  strlcpy(__cil_tmp22, "N/A", 32UL);
+  strlcpy(__cil_tmp16, "N/A", 32UL);
 #line 244
-  __cil_tmp23 = (unsigned long )adapter;
+  __cil_tmp17 = adapter->pdev;
 #line 244
-  __cil_tmp24 = __cil_tmp23 + 8;
+  __cil_tmp18 = (struct pci_dev  const  *)__cil_tmp17;
 #line 244
-  __cil_tmp25 = *((struct pci_dev **)__cil_tmp24);
+  tmp___0 = pci_name(__cil_tmp18);
 #line 244
-  __cil_tmp26 = (struct pci_dev  const  *)__cil_tmp25;
+  __cil_tmp19 = & drvinfo->bus_info;
 #line 244
-  tmp___0 = pci_name(__cil_tmp26);
+  __cil_tmp20 = (char *)__cil_tmp19;
 #line 244
-  __cil_tmp27 = (unsigned long )drvinfo;
-#line 244
-  __cil_tmp28 = __cil_tmp27 + 100;
-#line 244
-  __cil_tmp29 = (char (*)[32U])__cil_tmp28;
-#line 244
-  __cil_tmp30 = (char *)__cil_tmp29;
-#line 244
-  strlcpy(__cil_tmp30, tmp___0, 32UL);
+  strlcpy(__cil_tmp20, tmp___0, 32UL);
 #line 246
-  __cil_tmp31 = (unsigned long )drvinfo;
-#line 246
-  __cil_tmp32 = __cil_tmp31 + 180;
-#line 246
-  *((__u32 *)__cil_tmp32) = 0U;
+  drvinfo->n_stats = 0U;
 #line 247
-  __cil_tmp33 = (unsigned long )drvinfo;
-#line 247
-  __cil_tmp34 = __cil_tmp33 + 184;
-#line 247
-  *((__u32 *)__cil_tmp34) = 0U;
+  drvinfo->testinfo_len = 0U;
 #line 248
   tmp___1 = atl1c_get_regs_len(netdev);
 #line 248
-  __cil_tmp35 = (unsigned long )drvinfo;
-#line 248
-  __cil_tmp36 = __cil_tmp35 + 192;
-#line 248
-  *((__u32 *)__cil_tmp36) = (unsigned int )tmp___1;
+  drvinfo->regdump_len = (__u32 )tmp___1;
 #line 249
   tmp___2 = atl1c_get_eeprom_len(netdev);
 #line 249
-  __cil_tmp37 = (unsigned long )drvinfo;
-#line 249
-  __cil_tmp38 = __cil_tmp37 + 188;
-#line 249
-  *((__u32 *)__cil_tmp38) = (unsigned int )tmp___2;
+  drvinfo->eedump_len = (__u32 )tmp___2;
   }
 #line 250
   return;
@@ -23686,55 +20232,21 @@ static void atl1c_get_wol(struct net_device *netdev , struct ethtool_wolinfo *wo
 { struct atl1c_adapter *adapter ;
   void *tmp ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  u32 __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  __u32 __cil_tmp8 ;
+  u32 __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
   u32 __cil_tmp12 ;
   unsigned int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u32 __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  u32 __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  __u32 __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u32 __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  __u32 __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u32 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  __u32 __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  u32 __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  __u32 __cil_tmp54 ;
+  __u32 __cil_tmp14 ;
+  u32 __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  __u32 __cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  int __cil_tmp19 ;
+  __u32 __cil_tmp20 ;
 
   {
   {
@@ -23745,149 +20257,81 @@ static void atl1c_get_wol(struct net_device *netdev , struct ethtool_wolinfo *wo
 #line 255
   adapter = (struct atl1c_adapter *)tmp;
 #line 257
-  __cil_tmp6 = (unsigned long )wol;
-#line 257
-  __cil_tmp7 = __cil_tmp6 + 4;
-#line 257
-  *((__u32 *)__cil_tmp7) = 33U;
+  wol->supported = 33U;
 #line 258
-  __cil_tmp8 = (unsigned long )wol;
-#line 258
-  __cil_tmp9 = __cil_tmp8 + 8;
-#line 258
-  *((__u32 *)__cil_tmp9) = 0U;
+  wol->wolopts = 0U;
   }
   {
 #line 260
-  __cil_tmp10 = (unsigned long )adapter;
+  __cil_tmp6 = adapter->wol;
 #line 260
-  __cil_tmp11 = __cil_tmp10 + 1024;
+  __cil_tmp7 = __cil_tmp6 & 4U;
 #line 260
-  __cil_tmp12 = *((u32 *)__cil_tmp11);
-#line 260
-  __cil_tmp13 = __cil_tmp12 & 4U;
-#line 260
+  if (__cil_tmp7 != 0U) {
+#line 261
+    __cil_tmp8 = wol->wolopts;
+#line 261
+    wol->wolopts = __cil_tmp8 | 2U;
+  } else {
+
+  }
+  }
+  {
+#line 262
+  __cil_tmp9 = adapter->wol;
+#line 262
+  __cil_tmp10 = __cil_tmp9 & 8U;
+#line 262
+  if (__cil_tmp10 != 0U) {
+#line 263
+    __cil_tmp11 = wol->wolopts;
+#line 263
+    wol->wolopts = __cil_tmp11 | 4U;
+  } else {
+
+  }
+  }
+  {
+#line 264
+  __cil_tmp12 = adapter->wol;
+#line 264
+  __cil_tmp13 = __cil_tmp12 & 16U;
+#line 264
   if (__cil_tmp13 != 0U) {
-#line 261
-    __cil_tmp14 = (unsigned long )wol;
-#line 261
-    __cil_tmp15 = __cil_tmp14 + 8;
-#line 261
-    __cil_tmp16 = (unsigned long )wol;
-#line 261
-    __cil_tmp17 = __cil_tmp16 + 8;
-#line 261
-    __cil_tmp18 = *((__u32 *)__cil_tmp17);
-#line 261
-    *((__u32 *)__cil_tmp15) = __cil_tmp18 | 2U;
-  } else {
-
-  }
-  }
-  {
-#line 262
-  __cil_tmp19 = (unsigned long )adapter;
-#line 262
-  __cil_tmp20 = __cil_tmp19 + 1024;
-#line 262
-  __cil_tmp21 = *((u32 *)__cil_tmp20);
-#line 262
-  __cil_tmp22 = __cil_tmp21 & 8U;
-#line 262
-  if (__cil_tmp22 != 0U) {
-#line 263
-    __cil_tmp23 = (unsigned long )wol;
-#line 263
-    __cil_tmp24 = __cil_tmp23 + 8;
-#line 263
-    __cil_tmp25 = (unsigned long )wol;
-#line 263
-    __cil_tmp26 = __cil_tmp25 + 8;
-#line 263
-    __cil_tmp27 = *((__u32 *)__cil_tmp26);
-#line 263
-    *((__u32 *)__cil_tmp24) = __cil_tmp27 | 4U;
-  } else {
-
-  }
-  }
-  {
-#line 264
-  __cil_tmp28 = (unsigned long )adapter;
-#line 264
-  __cil_tmp29 = __cil_tmp28 + 1024;
-#line 264
-  __cil_tmp30 = *((u32 *)__cil_tmp29);
-#line 264
-  __cil_tmp31 = __cil_tmp30 & 16U;
-#line 264
-  if (__cil_tmp31 != 0U) {
 #line 265
-    __cil_tmp32 = (unsigned long )wol;
+    __cil_tmp14 = wol->wolopts;
 #line 265
-    __cil_tmp33 = __cil_tmp32 + 8;
-#line 265
-    __cil_tmp34 = (unsigned long )wol;
-#line 265
-    __cil_tmp35 = __cil_tmp34 + 8;
-#line 265
-    __cil_tmp36 = *((__u32 *)__cil_tmp35);
-#line 265
-    *((__u32 *)__cil_tmp33) = __cil_tmp36 | 8U;
+    wol->wolopts = __cil_tmp14 | 8U;
   } else {
 
   }
   }
   {
 #line 266
-  __cil_tmp37 = (unsigned long )adapter;
+  __cil_tmp15 = adapter->wol;
 #line 266
-  __cil_tmp38 = __cil_tmp37 + 1024;
+  __cil_tmp16 = __cil_tmp15 & 2U;
 #line 266
-  __cil_tmp39 = *((u32 *)__cil_tmp38);
-#line 266
-  __cil_tmp40 = __cil_tmp39 & 2U;
-#line 266
-  if (__cil_tmp40 != 0U) {
+  if (__cil_tmp16 != 0U) {
 #line 267
-    __cil_tmp41 = (unsigned long )wol;
+    __cil_tmp17 = wol->wolopts;
 #line 267
-    __cil_tmp42 = __cil_tmp41 + 8;
-#line 267
-    __cil_tmp43 = (unsigned long )wol;
-#line 267
-    __cil_tmp44 = __cil_tmp43 + 8;
-#line 267
-    __cil_tmp45 = *((__u32 *)__cil_tmp44);
-#line 267
-    *((__u32 *)__cil_tmp42) = __cil_tmp45 | 32U;
+    wol->wolopts = __cil_tmp17 | 32U;
   } else {
 
   }
   }
   {
 #line 268
-  __cil_tmp46 = (unsigned long )adapter;
+  __cil_tmp18 = adapter->wol;
 #line 268
-  __cil_tmp47 = __cil_tmp46 + 1024;
+  __cil_tmp19 = (int )__cil_tmp18;
 #line 268
-  __cil_tmp48 = *((u32 *)__cil_tmp47);
-#line 268
-  __cil_tmp49 = (int )__cil_tmp48;
-#line 268
-  if (__cil_tmp49 & 1) {
+  if (__cil_tmp19 & 1) {
 #line 269
-    __cil_tmp50 = (unsigned long )wol;
+    __cil_tmp20 = wol->wolopts;
 #line 269
-    __cil_tmp51 = __cil_tmp50 + 8;
-#line 269
-    __cil_tmp52 = (unsigned long )wol;
-#line 269
-    __cil_tmp53 = __cil_tmp52 + 8;
-#line 269
-    __cil_tmp54 = *((__u32 *)__cil_tmp53);
-#line 269
-    *((__u32 *)__cil_tmp51) = __cil_tmp54 | 1U;
+    wol->wolopts = __cil_tmp20 | 1U;
   } else {
 
   }
@@ -23901,41 +20345,19 @@ static int atl1c_set_wol(struct net_device *netdev , struct ethtool_wolinfo *wol
 { struct atl1c_adapter *adapter ;
   void *tmp ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  __u32 __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
   __u32 __cil_tmp8 ;
   unsigned int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  __u32 __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u32 __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  __u32 __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u32 __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct pci_dev *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct device *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  u32 __cil_tmp38 ;
-  int __cil_tmp39 ;
-  _Bool __cil_tmp40 ;
+  u32 __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  u32 __cil_tmp13 ;
+  struct pci_dev *__cil_tmp14 ;
+  struct device *__cil_tmp15 ;
+  u32 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  bool __cil_tmp18 ;
 
   {
   {
@@ -23948,15 +20370,11 @@ static int atl1c_set_wol(struct net_device *netdev , struct ethtool_wolinfo *wol
   }
   {
 #line 276
-  __cil_tmp6 = (unsigned long )wol;
+  __cil_tmp6 = wol->wolopts;
 #line 276
-  __cil_tmp7 = __cil_tmp6 + 8;
+  __cil_tmp7 = __cil_tmp6 & 94U;
 #line 276
-  __cil_tmp8 = *((__u32 *)__cil_tmp7);
-#line 276
-  __cil_tmp9 = __cil_tmp8 & 94U;
-#line 276
-  if (__cil_tmp9 != 0U) {
+  if (__cil_tmp7 != 0U) {
 #line 278
     return (-95);
   } else {
@@ -23964,90 +20382,50 @@ static int atl1c_set_wol(struct net_device *netdev , struct ethtool_wolinfo *wol
   }
   }
 #line 280
-  __cil_tmp10 = (unsigned long )adapter;
-#line 280
-  __cil_tmp11 = __cil_tmp10 + 1024;
-#line 280
-  *((u32 *)__cil_tmp11) = 0U;
+  adapter->wol = 0U;
   {
 #line 282
-  __cil_tmp12 = (unsigned long )wol;
+  __cil_tmp8 = wol->wolopts;
 #line 282
-  __cil_tmp13 = __cil_tmp12 + 8;
+  __cil_tmp9 = __cil_tmp8 & 32U;
 #line 282
-  __cil_tmp14 = *((__u32 *)__cil_tmp13);
-#line 282
-  __cil_tmp15 = __cil_tmp14 & 32U;
-#line 282
-  if (__cil_tmp15 != 0U) {
+  if (__cil_tmp9 != 0U) {
 #line 283
-    __cil_tmp16 = (unsigned long )adapter;
+    __cil_tmp10 = adapter->wol;
 #line 283
-    __cil_tmp17 = __cil_tmp16 + 1024;
-#line 283
-    __cil_tmp18 = (unsigned long )adapter;
-#line 283
-    __cil_tmp19 = __cil_tmp18 + 1024;
-#line 283
-    __cil_tmp20 = *((u32 *)__cil_tmp19);
-#line 283
-    *((u32 *)__cil_tmp17) = __cil_tmp20 | 2U;
+    adapter->wol = __cil_tmp10 | 2U;
   } else {
 
   }
   }
   {
 #line 284
-  __cil_tmp21 = (unsigned long )wol;
+  __cil_tmp11 = wol->wolopts;
 #line 284
-  __cil_tmp22 = __cil_tmp21 + 8;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 284
-  __cil_tmp23 = *((__u32 *)__cil_tmp22);
-#line 284
-  __cil_tmp24 = (int )__cil_tmp23;
-#line 284
-  if (__cil_tmp24 & 1) {
+  if (__cil_tmp12 & 1) {
 #line 285
-    __cil_tmp25 = (unsigned long )adapter;
+    __cil_tmp13 = adapter->wol;
 #line 285
-    __cil_tmp26 = __cil_tmp25 + 1024;
-#line 285
-    __cil_tmp27 = (unsigned long )adapter;
-#line 285
-    __cil_tmp28 = __cil_tmp27 + 1024;
-#line 285
-    __cil_tmp29 = *((u32 *)__cil_tmp28);
-#line 285
-    *((u32 *)__cil_tmp26) = __cil_tmp29 | 1U;
+    adapter->wol = __cil_tmp13 | 1U;
   } else {
 
   }
   }
   {
 #line 287
-  __cil_tmp30 = (unsigned long )adapter;
+  __cil_tmp14 = adapter->pdev;
 #line 287
-  __cil_tmp31 = __cil_tmp30 + 8;
+  __cil_tmp15 = & __cil_tmp14->dev;
 #line 287
-  __cil_tmp32 = *((struct pci_dev **)__cil_tmp31);
+  __cil_tmp16 = adapter->wol;
 #line 287
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
+  __cil_tmp17 = __cil_tmp16 != 0U;
 #line 287
-  __cil_tmp34 = __cil_tmp33 + 144;
+  __cil_tmp18 = (bool )__cil_tmp17;
 #line 287
-  __cil_tmp35 = (struct device *)__cil_tmp34;
-#line 287
-  __cil_tmp36 = (unsigned long )adapter;
-#line 287
-  __cil_tmp37 = __cil_tmp36 + 1024;
-#line 287
-  __cil_tmp38 = *((u32 *)__cil_tmp37);
-#line 287
-  __cil_tmp39 = __cil_tmp38 != 0U;
-#line 287
-  __cil_tmp40 = (_Bool )__cil_tmp39;
-#line 287
-  device_set_wakeup_enable(__cil_tmp35, __cil_tmp40);
+  device_set_wakeup_enable(__cil_tmp15, __cil_tmp18);
   }
 #line 289
   return (0);
@@ -24132,16 +20510,11 @@ static struct ethtool_ops  const  atl1c_ethtool_ops  =
     (int (*)(struct net_device * , struct ethtool_dump * ))0};
 #line 316 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_ethtool.c.p"
 void atl1c_set_ethtool_ops(struct net_device *netdev ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ 
 
   {
 #line 318
-  __cil_tmp2 = (unsigned long )netdev;
-#line 318
-  __cil_tmp3 = __cil_tmp2 + 416;
-#line 318
-  *((struct ethtool_ops  const  **)__cil_tmp3) = & atl1c_ethtool_ops;
+  netdev->ethtool_ops = & atl1c_ethtool_ops;
 #line 319
   return;
 }
@@ -24167,6 +20540,7 @@ void main(void)
 #line 417
   ldv_initialize();
   }
+#line 421
   goto ldv_42511;
   ldv_42510: 
   {
@@ -24175,142 +20549,157 @@ void main(void)
   }
 #line 426
   if (tmp == 0) {
+#line 426
     goto case_0;
-  } else {
+  } else
 #line 442
-    if (tmp == 1) {
-      goto case_1;
-    } else {
+  if (tmp == 1) {
+#line 442
+    goto case_1;
+  } else
 #line 458
-      if (tmp == 2) {
-        goto case_2;
-      } else {
+  if (tmp == 2) {
+#line 458
+    goto case_2;
+  } else
 #line 474
-        if (tmp == 3) {
-          goto case_3;
-        } else {
+  if (tmp == 3) {
+#line 474
+    goto case_3;
+  } else
 #line 490
-          if (tmp == 4) {
-            goto case_4;
-          } else {
+  if (tmp == 4) {
+#line 490
+    goto case_4;
+  } else
 #line 506
-            if (tmp == 5) {
-              goto case_5;
-            } else {
+  if (tmp == 5) {
+#line 506
+    goto case_5;
+  } else
 #line 522
-              if (tmp == 6) {
-                goto case_6;
-              } else {
+  if (tmp == 6) {
+#line 522
+    goto case_6;
+  } else
 #line 538
-                if (tmp == 7) {
-                  goto case_7;
-                } else {
+  if (tmp == 7) {
+#line 538
+    goto case_7;
+  } else
 #line 554
-                  if (tmp == 8) {
-                    goto case_8;
-                  } else {
+  if (tmp == 8) {
+#line 554
+    goto case_8;
+  } else
 #line 570
-                    if (tmp == 9) {
-                      goto case_9;
-                    } else {
+  if (tmp == 9) {
+#line 570
+    goto case_9;
+  } else
 #line 586
-                      if (tmp == 10) {
-                        goto case_10;
-                      } else {
+  if (tmp == 10) {
+#line 586
+    goto case_10;
+  } else
 #line 602
-                        if (tmp == 11) {
-                          goto case_11;
-                        } else {
-                          goto switch_default;
+  if (tmp == 11) {
+#line 602
+    goto case_11;
+  } else {
+#line 618
+    goto switch_default;
 #line 424
-                          if (0) {
-                            case_0: 
-                            {
+    if (0) {
+      case_0: 
+      {
 #line 434
-                            atl1c_get_settings(var_group1, var_group2);
-                            }
-                            goto ldv_42497;
-                            case_1: 
-                            {
-#line 450
-                            atl1c_set_settings(var_group1, var_group2);
-                            }
-                            goto ldv_42497;
-                            case_2: 
-                            {
-#line 466
-                            atl1c_get_drvinfo(var_group1, var_group3);
-                            }
-                            goto ldv_42497;
-                            case_3: 
-                            {
-#line 482
-                            atl1c_get_regs_len(var_group1);
-                            }
-                            goto ldv_42497;
-                            case_4: 
-                            {
-#line 498
-                            atl1c_get_regs(var_group1, var_group4, var_atl1c_get_regs_5_p2);
-                            }
-                            goto ldv_42497;
-                            case_5: 
-                            {
-#line 514
-                            atl1c_get_wol(var_group1, var_group5);
-                            }
-                            goto ldv_42497;
-                            case_6: 
-                            {
-#line 530
-                            atl1c_set_wol(var_group1, var_group5);
-                            }
-                            goto ldv_42497;
-                            case_7: 
-                            {
-#line 546
-                            atl1c_get_msglevel(var_group1);
-                            }
-                            goto ldv_42497;
-                            case_8: 
-                            {
-#line 562
-                            atl1c_set_msglevel(var_group1, var_atl1c_set_msglevel_3_p1);
-                            }
-                            goto ldv_42497;
-                            case_9: 
-                            {
-#line 578
-                            atl1c_nway_reset(var_group1);
-                            }
-                            goto ldv_42497;
-                            case_10: 
-                            {
-#line 594
-                            atl1c_get_eeprom_len(var_group1);
-                            }
-                            goto ldv_42497;
-                            case_11: 
-                            {
-#line 610
-                            atl1c_get_eeprom(var_group1, var_group6, var_atl1c_get_eeprom_7_p2);
-                            }
-                            goto ldv_42497;
-                            switch_default: ;
-                            goto ldv_42497;
-                          } else {
-
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+      atl1c_get_settings(var_group1, var_group2);
       }
+#line 441
+      goto ldv_42497;
+      case_1: 
+      {
+#line 450
+      atl1c_set_settings(var_group1, var_group2);
+      }
+#line 457
+      goto ldv_42497;
+      case_2: 
+      {
+#line 466
+      atl1c_get_drvinfo(var_group1, var_group3);
+      }
+#line 473
+      goto ldv_42497;
+      case_3: 
+      {
+#line 482
+      atl1c_get_regs_len(var_group1);
+      }
+#line 489
+      goto ldv_42497;
+      case_4: 
+      {
+#line 498
+      atl1c_get_regs(var_group1, var_group4, var_atl1c_get_regs_5_p2);
+      }
+#line 505
+      goto ldv_42497;
+      case_5: 
+      {
+#line 514
+      atl1c_get_wol(var_group1, var_group5);
+      }
+#line 521
+      goto ldv_42497;
+      case_6: 
+      {
+#line 530
+      atl1c_set_wol(var_group1, var_group5);
+      }
+#line 537
+      goto ldv_42497;
+      case_7: 
+      {
+#line 546
+      atl1c_get_msglevel(var_group1);
+      }
+#line 553
+      goto ldv_42497;
+      case_8: 
+      {
+#line 562
+      atl1c_set_msglevel(var_group1, var_atl1c_set_msglevel_3_p1);
+      }
+#line 569
+      goto ldv_42497;
+      case_9: 
+      {
+#line 578
+      atl1c_nway_reset(var_group1);
+      }
+#line 585
+      goto ldv_42497;
+      case_10: 
+      {
+#line 594
+      atl1c_get_eeprom_len(var_group1);
+      }
+#line 601
+      goto ldv_42497;
+      case_11: 
+      {
+#line 610
+      atl1c_get_eeprom(var_group1, var_group6, var_atl1c_get_eeprom_7_p2);
+      }
+#line 617
+      goto ldv_42497;
+      switch_default: ;
+#line 618
+      goto ldv_42497;
+    } else {
+
     }
   }
   ldv_42497: ;
@@ -24321,8 +20710,10 @@ void main(void)
   }
 #line 421
   if (tmp___0 != 0) {
+#line 422
     goto ldv_42510;
   } else {
+#line 424
     goto ldv_42512;
   }
   ldv_42512: 

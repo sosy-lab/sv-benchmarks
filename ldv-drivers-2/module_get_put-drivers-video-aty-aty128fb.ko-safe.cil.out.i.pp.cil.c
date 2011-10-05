@@ -4966,96 +4966,58 @@ extern void *dev_get_drvdata(struct device  const  * ) ;
 extern int dev_set_drvdata(struct device * , void * ) ;
 #line 106 "include/linux/backlight.h"
 __inline static void backlight_update_status(struct backlight_device *bd ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct mutex *__cil_tmp4 ;
+{ struct mutex *__cil_tmp2 ;
+  struct backlight_ops  const  *__cil_tmp3 ;
+  unsigned long __cil_tmp4 ;
   struct backlight_ops  const  *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  int (*__cil_tmp7)(struct backlight_device * ) ;
   unsigned long __cil_tmp8 ;
   struct backlight_ops  const  *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  int (*__cil_tmp11)(struct backlight_device * ) ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct backlight_ops  const  *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  int (*__cil_tmp18)(struct backlight_device * ) ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct backlight_ops  const  *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int (*__cil_tmp25)(struct backlight_device * ) ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct mutex *__cil_tmp28 ;
+  int (*__cil_tmp10)(struct backlight_device * ) ;
+  unsigned long __cil_tmp11 ;
+  struct backlight_ops  const  *__cil_tmp12 ;
+  int (*__cil_tmp13)(struct backlight_device * ) ;
+  struct mutex *__cil_tmp14 ;
 
   {
   {
 #line 108
-  __cil_tmp2 = (unsigned long )bd;
+  __cil_tmp2 = & bd->update_lock;
 #line 108
-  __cil_tmp3 = __cil_tmp2 + 56;
-#line 108
-  __cil_tmp4 = (struct mutex *)__cil_tmp3;
-#line 108
-  mutex_lock_nested(__cil_tmp4, 0U);
+  mutex_lock_nested(__cil_tmp2, 0U);
   }
   {
 #line 109
-  __cil_tmp5 = (struct backlight_ops  const  *)0;
+  __cil_tmp3 = (struct backlight_ops  const  *)0;
+#line 109
+  __cil_tmp4 = (unsigned long )__cil_tmp3;
+#line 109
+  __cil_tmp5 = bd->ops;
 #line 109
   __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 109
-  __cil_tmp7 = (unsigned long )bd;
-#line 109
-  __cil_tmp8 = __cil_tmp7 + 392;
-#line 109
-  __cil_tmp9 = *((struct backlight_ops  const  **)__cil_tmp8);
-#line 109
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 109
-  if (__cil_tmp10 != __cil_tmp6) {
+  if (__cil_tmp6 != __cil_tmp4) {
     {
 #line 109
-    __cil_tmp11 = (int (* const  )(struct backlight_device * ))0;
+    __cil_tmp7 = (int (* const  )(struct backlight_device * ))0;
 #line 109
-    __cil_tmp12 = (unsigned long )__cil_tmp11;
+    __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 109
-    __cil_tmp13 = (unsigned long )bd;
+    __cil_tmp9 = bd->ops;
 #line 109
-    __cil_tmp14 = __cil_tmp13 + 392;
+    __cil_tmp10 = __cil_tmp9->update_status;
 #line 109
-    __cil_tmp15 = *((struct backlight_ops  const  **)__cil_tmp14);
+    __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 109
-    __cil_tmp16 = (unsigned long )__cil_tmp15;
-#line 109
-    __cil_tmp17 = __cil_tmp16 + 8;
-#line 109
-    __cil_tmp18 = *((int (* const  *)(struct backlight_device * ))__cil_tmp17);
-#line 109
-    __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 109
-    if (__cil_tmp19 != __cil_tmp12) {
+    if (__cil_tmp11 != __cil_tmp8) {
       {
 #line 110
-      __cil_tmp20 = (unsigned long )bd;
+      __cil_tmp12 = bd->ops;
 #line 110
-      __cil_tmp21 = __cil_tmp20 + 392;
+      __cil_tmp13 = __cil_tmp12->update_status;
 #line 110
-      __cil_tmp22 = *((struct backlight_ops  const  **)__cil_tmp21);
-#line 110
-      __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 110
-      __cil_tmp24 = __cil_tmp23 + 8;
-#line 110
-      __cil_tmp25 = *((int (* const  *)(struct backlight_device * ))__cil_tmp24);
-#line 110
-      (*__cil_tmp25)(bd);
+      (*__cil_tmp13)(bd);
       }
     } else {
 
@@ -5067,13 +5029,9 @@ __inline static void backlight_update_status(struct backlight_device *bd )
   }
   {
 #line 111
-  __cil_tmp26 = (unsigned long )bd;
+  __cil_tmp14 = & bd->update_lock;
 #line 111
-  __cil_tmp27 = __cil_tmp26 + 56;
-#line 111
-  __cil_tmp28 = (struct mutex *)__cil_tmp27;
-#line 111
-  mutex_unlock(__cil_tmp28);
+  mutex_unlock(__cil_tmp14);
   }
 #line 112
   return;
@@ -5088,23 +5046,17 @@ extern void backlight_device_unregister(struct backlight_device * ) ;
 #line 123 "include/linux/backlight.h"
 __inline static void *bl_get_data(struct backlight_device *bl_dev ) 
 { void *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 125
-  __cil_tmp3 = (unsigned long )bl_dev;
+  __cil_tmp3 = & bl_dev->dev;
 #line 125
-  __cil_tmp4 = __cil_tmp3 + 424;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 125
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 125
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 125
-  tmp = dev_get_drvdata(__cil_tmp6);
+  tmp = dev_get_drvdata(__cil_tmp4);
   }
 #line 125
   return (tmp);
@@ -5157,23 +5109,17 @@ extern void pci_unregister_driver(struct pci_driver * ) ;
 #line 1316 "include/linux/pci.h"
 __inline static void *pci_get_drvdata(struct pci_dev *pdev ) 
 { void *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 1318
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1318
-  __cil_tmp4 = __cil_tmp3 + 144;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 1318
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1318
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 1318
-  tmp = dev_get_drvdata(__cil_tmp6);
+  tmp = dev_get_drvdata(__cil_tmp4);
   }
 #line 1318
   return (tmp);
@@ -5181,20 +5127,14 @@ __inline static void *pci_get_drvdata(struct pci_dev *pdev )
 }
 #line 1321 "include/linux/pci.h"
 __inline static void pci_set_drvdata(struct pci_dev *pdev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 1323
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1323
-  __cil_tmp4 = __cil_tmp3 + 144;
-#line 1323
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1323
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 1324
   return;
@@ -5231,7 +5171,7 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
 #line 175
 static void aty128_remove(struct pci_dev *pdev ) ;
 #line 176
-static int aty128_pci_suspend(struct pci_dev *pdev , int state_event21 ) ;
+static int aty128_pci_suspend(struct pci_dev *pdev , pm_message_t state ) ;
 #line 177
 static int aty128_pci_resume(struct pci_dev *pdev ) ;
 #line 178
@@ -5310,29 +5250,25 @@ static struct pci_driver aty128fb_driver  =
 #line 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static struct aty128_meminfo  const  sdr_128  = 
 #line 334
-     {(unsigned char)4, (unsigned char)4, (unsigned char)3, (unsigned char)3, (unsigned char)1,
-    (unsigned char)3, (unsigned char)1, (unsigned char)16, (unsigned char)30, (unsigned char)16,
-    "128-bit SDR SGRAM (1:1)"};
+     {(u8 )4U, (u8 )4U, (u8 )3U, (u8 )3U, (u8 )1U, (u8 )3U, (u8 )1U, (u8 )16U, (u8 )30U,
+    (u8 )16U, "128-bit SDR SGRAM (1:1)"};
 #line 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static struct aty128_meminfo  const  sdr_sgram  = 
 #line 338
-     {(unsigned char)4, (unsigned char)4, (unsigned char)1, (unsigned char)2, (unsigned char)1,
-    (unsigned char)2, (unsigned char)1, (unsigned char)16, (unsigned char)24, (unsigned char)16,
-    "64-bit SDR SGRAM (2:1)"};
+     {(u8 )4U, (u8 )4U, (u8 )1U, (u8 )2U, (u8 )1U, (u8 )2U, (u8 )1U, (u8 )16U, (u8 )24U,
+    (u8 )16U, "64-bit SDR SGRAM (2:1)"};
 #line 340 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static struct aty128_meminfo  const  ddr_sgram  = 
 #line 340
-     {(unsigned char)4, (unsigned char)4, (unsigned char)3, (unsigned char)3, (unsigned char)2,
-    (unsigned char)3, (unsigned char)1, (unsigned char)16, (unsigned char)31, (unsigned char)16,
-    "64-bit DDR SGRAM"};
+     {(u8 )4U, (u8 )4U, (u8 )3U, (u8 )3U, (u8 )2U, (u8 )3U, (u8 )1U, (u8 )16U, (u8 )31U,
+    (u8 )16U, "64-bit DDR SGRAM"};
 #line 343 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static struct fb_fix_screeninfo aty128fb_fix  = 
 #line 343
      {{(char )'A', (char )'T', (char )'Y', (char )' ', (char )'R', (char )'a', (char )'g',
      (char )'e', (char )'1', (char )'2', (char )'8', (char )'\000', (char)0, (char)0,
-     (char)0, (char)0}, 0UL, 0U, 0U, 0U, 3U, (unsigned short)8, (unsigned short)1,
-    (unsigned short)0, 0U, 0UL, 8192U, 32U, {(unsigned short)0, (unsigned short)0,
-                                             (unsigned short)0}};
+     (char)0, (char)0}, 0UL, 0U, 0U, 0U, 3U, (__u16 )8U, (__u16 )1U, (unsigned short)0,
+    0U, 0UL, 8192U, 32U, {(unsigned short)0, (unsigned short)0, (unsigned short)0}};
 #line 353 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static char *mode_option  =    (char *)0;
 #line 360 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
@@ -5340,7 +5276,7 @@ static int default_crt_on  =    0;
 #line 361 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static int default_lcd_on  =    1;
 #line 364 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
-static bool mtrr  =    (_Bool)1;
+static bool mtrr  =    (bool )1;
 #line 370 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static int backlight  =    0;
 #line 439
@@ -5402,28 +5338,22 @@ static struct fb_ops aty128fb_ops  =
 __inline static u32 _aty_ld_le32(unsigned int volatile   regindex , struct aty128fb_par  const  *par ) 
 { unsigned int tmp ;
   unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  void const volatile   *__cil_tmp8 ;
-  void const volatile   *__cil_tmp9 ;
+  void *__cil_tmp5 ;
+  void const volatile   *__cil_tmp6 ;
+  void const volatile   *__cil_tmp7 ;
 
   {
   {
 #line 507
   __cil_tmp4 = (unsigned long )regindex;
 #line 507
-  __cil_tmp5 = (unsigned long )par;
+  __cil_tmp5 = par->regbase;
 #line 507
-  __cil_tmp6 = __cil_tmp5 + 112;
+  __cil_tmp6 = (void const volatile   *)__cil_tmp5;
 #line 507
-  __cil_tmp7 = *((void * const  *)__cil_tmp6);
+  __cil_tmp7 = __cil_tmp6 + __cil_tmp4;
 #line 507
-  __cil_tmp8 = (void const volatile   *)__cil_tmp7;
-#line 507
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp4;
-#line 507
-  tmp = readl(__cil_tmp9);
+  tmp = readl(__cil_tmp7);
   }
 #line 507
   return (tmp);
@@ -5432,28 +5362,22 @@ __inline static u32 _aty_ld_le32(unsigned int volatile   regindex , struct aty12
 #line 510 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 __inline static void _aty_st_le32(unsigned int volatile   regindex , u32 val , struct aty128fb_par  const  *par ) 
 { unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  void volatile   *__cil_tmp8 ;
-  void volatile   *__cil_tmp9 ;
+  void *__cil_tmp5 ;
+  void volatile   *__cil_tmp6 ;
+  void volatile   *__cil_tmp7 ;
 
   {
   {
 #line 513
   __cil_tmp4 = (unsigned long )regindex;
 #line 513
-  __cil_tmp5 = (unsigned long )par;
+  __cil_tmp5 = par->regbase;
 #line 513
-  __cil_tmp6 = __cil_tmp5 + 112;
+  __cil_tmp6 = (void volatile   *)__cil_tmp5;
 #line 513
-  __cil_tmp7 = *((void * const  *)__cil_tmp6);
+  __cil_tmp7 = __cil_tmp6 + __cil_tmp4;
 #line 513
-  __cil_tmp8 = (void volatile   *)__cil_tmp7;
-#line 513
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp4;
-#line 513
-  writel(val, __cil_tmp9);
+  writel(val, __cil_tmp7);
   }
 #line 514
   return;
@@ -5464,11 +5388,9 @@ __inline static void _aty_st_8(unsigned int regindex , u8 val , struct aty128fb_
 { int __cil_tmp4 ;
   unsigned char __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  void volatile   *__cil_tmp10 ;
-  void volatile   *__cil_tmp11 ;
+  void *__cil_tmp7 ;
+  void volatile   *__cil_tmp8 ;
+  void volatile   *__cil_tmp9 ;
 
   {
   {
@@ -5479,17 +5401,13 @@ __inline static void _aty_st_8(unsigned int regindex , u8 val , struct aty128fb_
 #line 525
   __cil_tmp6 = (unsigned long )regindex;
 #line 525
-  __cil_tmp7 = (unsigned long )par;
+  __cil_tmp7 = par->regbase;
 #line 525
-  __cil_tmp8 = __cil_tmp7 + 112;
+  __cil_tmp8 = (void volatile   *)__cil_tmp7;
 #line 525
-  __cil_tmp9 = *((void * const  *)__cil_tmp8);
+  __cil_tmp9 = __cil_tmp8 + __cil_tmp6;
 #line 525
-  __cil_tmp10 = (void volatile   *)__cil_tmp9;
-#line 525
-  __cil_tmp11 = __cil_tmp10 + __cil_tmp6;
-#line 525
-  writeb(__cil_tmp5, __cil_tmp11);
+  writeb(__cil_tmp5, __cil_tmp9);
   }
 #line 526
   return;
@@ -5498,22 +5416,22 @@ __inline static void _aty_st_8(unsigned int regindex , u8 val , struct aty128fb_
 #line 541 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static u32 _aty_ld_pll(unsigned int pll_index , struct aty128fb_par  const  *par ) 
 { u32 tmp ;
-  unsigned char __cil_tmp4 ;
+  u8 __cil_tmp4 ;
   int __cil_tmp5 ;
   int __cil_tmp6 ;
-  unsigned char __cil_tmp7 ;
+  u8 __cil_tmp7 ;
   unsigned int volatile   __cil_tmp8 ;
 
   {
   {
 #line 544
-  __cil_tmp4 = (unsigned char )pll_index;
+  __cil_tmp4 = (u8 )pll_index;
 #line 544
   __cil_tmp5 = (int )__cil_tmp4;
 #line 544
   __cil_tmp6 = __cil_tmp5 & 63;
 #line 544
-  __cil_tmp7 = (unsigned char )__cil_tmp6;
+  __cil_tmp7 = (u8 )__cil_tmp6;
 #line 544
   _aty_st_8(8U, __cil_tmp7, par);
 #line 545
@@ -5527,18 +5445,18 @@ static u32 _aty_ld_pll(unsigned int pll_index , struct aty128fb_par  const  *par
 }
 #line 549 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static void _aty_st_pll(unsigned int pll_index , u32 val , struct aty128fb_par  const  *par ) 
-{ unsigned char __cil_tmp4 ;
+{ u8 __cil_tmp4 ;
   unsigned int __cil_tmp5 ;
   unsigned int __cil_tmp6 ;
   unsigned int __cil_tmp7 ;
   int __cil_tmp8 ;
-  unsigned char __cil_tmp9 ;
+  u8 __cil_tmp9 ;
   unsigned int volatile   __cil_tmp10 ;
 
   {
   {
 #line 552
-  __cil_tmp4 = (unsigned char )pll_index;
+  __cil_tmp4 = (u8 )pll_index;
 #line 552
   __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 552
@@ -5548,7 +5466,7 @@ static void _aty_st_pll(unsigned int pll_index , u32 val , struct aty128fb_par  
 #line 552
   __cil_tmp8 = (int )__cil_tmp7;
 #line 552
-  __cil_tmp9 = (unsigned char )__cil_tmp8;
+  __cil_tmp9 = (u8 )__cil_tmp8;
 #line 552
   _aty_st_8(8U, __cil_tmp9, par);
 #line 553
@@ -5595,6 +5513,7 @@ static void aty_pll_wait_readupdate(struct aty128fb_par  const  *par )
   timeout = __cil_tmp5 + 2UL;
 #line 567
   reset = 1;
+#line 569
   goto ldv_31341;
   ldv_31340: 
   {
@@ -5605,6 +5524,7 @@ static void aty_pll_wait_readupdate(struct aty128fb_par  const  *par )
   if (tmp != 0) {
 #line 571
     reset = 0;
+#line 572
     goto ldv_31339;
   } else {
 
@@ -5619,8 +5539,10 @@ static void aty_pll_wait_readupdate(struct aty128fb_par  const  *par )
   __cil_tmp8 = __cil_tmp7 - __cil_tmp6;
 #line 569
   if (__cil_tmp8 < 0L) {
+#line 570
     goto ldv_31340;
   } else {
+#line 572
     goto ldv_31339;
   }
   }
@@ -5726,19 +5648,16 @@ static void do_wait_for_fifo(u16 entries , struct aty128fb_par *par )
   u32 tmp ;
   unsigned int volatile   __cil_tmp5 ;
   struct aty128fb_par  const  *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  struct aty128fb_par  const  *__cil_tmp14 ;
+  struct aty128fb_par  const  *__cil_tmp10 ;
 
   {
   ldv_31358: 
 #line 619
   i = 0;
+#line 619
   goto ldv_31356;
   ldv_31355: 
   {
@@ -5749,25 +5668,17 @@ static void do_wait_for_fifo(u16 entries , struct aty128fb_par *par )
 #line 620
   tmp = _aty_ld_le32(__cil_tmp5, __cil_tmp6);
 #line 620
-  __cil_tmp7 = (unsigned long )par;
+  __cil_tmp7 = (int )tmp;
 #line 620
-  __cil_tmp8 = __cil_tmp7 + 148;
-#line 620
-  __cil_tmp9 = (int )tmp;
-#line 620
-  *((int *)__cil_tmp8) = __cil_tmp9 & 4095;
+  par->fifo_slots = __cil_tmp7 & 4095;
   }
   {
 #line 621
-  __cil_tmp10 = (int )entries;
+  __cil_tmp8 = (int )entries;
 #line 621
-  __cil_tmp11 = (unsigned long )par;
+  __cil_tmp9 = par->fifo_slots;
 #line 621
-  __cil_tmp12 = __cil_tmp11 + 148;
-#line 621
-  __cil_tmp13 = *((int *)__cil_tmp12);
-#line 621
-  if (__cil_tmp13 >= __cil_tmp10) {
+  if (__cil_tmp9 >= __cil_tmp8) {
 #line 622
     return;
   } else {
@@ -5779,17 +5690,20 @@ static void do_wait_for_fifo(u16 entries , struct aty128fb_par *par )
   ldv_31356: ;
 #line 619
   if (i <= 1999999) {
+#line 620
     goto ldv_31355;
   } else {
+#line 622
     goto ldv_31357;
   }
   ldv_31357: 
   {
 #line 624
-  __cil_tmp14 = (struct aty128fb_par  const  *)par;
+  __cil_tmp10 = (struct aty128fb_par  const  *)par;
 #line 624
-  aty128_reset_engine(__cil_tmp14);
+  aty128_reset_engine(__cil_tmp10);
   }
+#line 625
   goto ldv_31358;
 }
 }
@@ -5797,48 +5711,46 @@ static void do_wait_for_fifo(u16 entries , struct aty128fb_par *par )
 static void wait_for_idle(struct aty128fb_par *par ) 
 { int i ;
   u32 tmp ;
-  unsigned int volatile   __cil_tmp4 ;
-  struct aty128fb_par  const  *__cil_tmp5 ;
-  int __cil_tmp6 ;
-  struct aty128fb_par  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct aty128fb_par  const  *__cil_tmp10 ;
+  u16 __cil_tmp4 ;
+  unsigned int volatile   __cil_tmp5 ;
+  struct aty128fb_par  const  *__cil_tmp6 ;
+  int __cil_tmp7 ;
+  struct aty128fb_par  const  *__cil_tmp8 ;
+  struct aty128fb_par  const  *__cil_tmp9 ;
 
   {
   {
 #line 633
-  do_wait_for_fifo((unsigned short)64, par);
+  __cil_tmp4 = (u16 )64;
+#line 633
+  do_wait_for_fifo(__cil_tmp4, par);
   }
   ldv_31366: 
 #line 636
   i = 0;
+#line 636
   goto ldv_31364;
   ldv_31363: 
   {
 #line 637
-  __cil_tmp4 = (unsigned int volatile   )5952U;
+  __cil_tmp5 = (unsigned int volatile   )5952U;
 #line 637
-  __cil_tmp5 = (struct aty128fb_par  const  *)par;
+  __cil_tmp6 = (struct aty128fb_par  const  *)par;
 #line 637
-  tmp = _aty_ld_le32(__cil_tmp4, __cil_tmp5);
+  tmp = _aty_ld_le32(__cil_tmp5, __cil_tmp6);
   }
   {
 #line 637
-  __cil_tmp6 = (int )tmp;
+  __cil_tmp7 = (int )tmp;
 #line 637
-  if (__cil_tmp6 >= 0) {
+  if (__cil_tmp7 >= 0) {
     {
 #line 638
-    __cil_tmp7 = (struct aty128fb_par  const  *)par;
+    __cil_tmp8 = (struct aty128fb_par  const  *)par;
 #line 638
-    aty128_flush_pixel_cache(__cil_tmp7);
+    aty128_flush_pixel_cache(__cil_tmp8);
 #line 639
-    __cil_tmp8 = (unsigned long )par;
-#line 639
-    __cil_tmp9 = __cil_tmp8 + 144;
-#line 639
-    *((int *)__cil_tmp9) = 0;
+    par->blitter_may_be_busy = 0;
     }
 #line 640
     return;
@@ -5851,67 +5763,55 @@ static void wait_for_idle(struct aty128fb_par *par )
   ldv_31364: ;
 #line 636
   if (i <= 1999999) {
+#line 637
     goto ldv_31363;
   } else {
+#line 639
     goto ldv_31365;
   }
   ldv_31365: 
   {
 #line 643
-  __cil_tmp10 = (struct aty128fb_par  const  *)par;
+  __cil_tmp9 = (struct aty128fb_par  const  *)par;
 #line 643
-  aty128_reset_engine(__cil_tmp10);
+  aty128_reset_engine(__cil_tmp9);
   }
+#line 644
   goto ldv_31366;
 }
 }
 #line 648 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static void wait_for_fifo(u16 entries , struct aty128fb_par *par ) 
 { int __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  int __cil_tmp4 ;
+  u16 __cil_tmp5 ;
   int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
+  int __cil_tmp7 ;
 
   {
   {
 #line 650
   __cil_tmp3 = (int )entries;
 #line 650
-  __cil_tmp4 = (unsigned long )par;
+  __cil_tmp4 = par->fifo_slots;
 #line 650
-  __cil_tmp5 = __cil_tmp4 + 148;
-#line 650
-  __cil_tmp6 = *((int *)__cil_tmp5);
-#line 650
-  if (__cil_tmp6 < __cil_tmp3) {
+  if (__cil_tmp4 < __cil_tmp3) {
     {
 #line 651
-    do_wait_for_fifo((unsigned short)64, par);
+    __cil_tmp5 = (u16 )64;
+#line 651
+    do_wait_for_fifo(__cil_tmp5, par);
     }
   } else {
 
   }
   }
 #line 652
-  __cil_tmp7 = (unsigned long )par;
+  __cil_tmp6 = (int )entries;
 #line 652
-  __cil_tmp8 = __cil_tmp7 + 148;
+  __cil_tmp7 = par->fifo_slots;
 #line 652
-  __cil_tmp9 = (int )entries;
-#line 652
-  __cil_tmp10 = (unsigned long )par;
-#line 652
-  __cil_tmp11 = __cil_tmp10 + 148;
-#line 652
-  __cil_tmp12 = *((int *)__cil_tmp11);
-#line 652
-  *((int *)__cil_tmp8) = __cil_tmp12 - __cil_tmp9;
+  par->fifo_slots = __cil_tmp7 - __cil_tmp6;
 #line 653
   return;
 }
@@ -5943,6 +5843,7 @@ static void aty128_flush_pixel_cache(struct aty128fb_par  const  *par )
 #line 666
   i = 0;
   }
+#line 666
   goto ldv_31378;
   ldv_31377: 
   {
@@ -5956,6 +5857,7 @@ static void aty128_flush_pixel_cache(struct aty128fb_par  const  *par )
   __cil_tmp8 = (int )tmp___0;
 #line 667
   if (__cil_tmp8 >= 0) {
+#line 668
     goto ldv_31376;
   } else {
 
@@ -5966,8 +5868,10 @@ static void aty128_flush_pixel_cache(struct aty128fb_par  const  *par )
   ldv_31378: ;
 #line 666
   if (i <= 1999999) {
+#line 667
     goto ldv_31377;
   } else {
+#line 669
     goto ldv_31376;
   }
   ldv_31376: ;
@@ -6054,29 +5958,29 @@ static void aty128_reset_engine(struct aty128fb_par  const  *par )
 static void aty128_init_engine(struct aty128fb_par *par ) 
 { u32 pitch_value ;
   u32 tmp ;
-  unsigned int volatile   __cil_tmp4 ;
-  struct aty128fb_par  const  *__cil_tmp5 ;
+  u16 __cil_tmp4 ;
+  unsigned int volatile   __cil_tmp5 ;
   struct aty128fb_par  const  *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u32 __cil_tmp13 ;
+  struct aty128fb_par  const  *__cil_tmp7 ;
+  u32 __cil_tmp8 ;
+  u16 __cil_tmp9 ;
+  unsigned int volatile   __cil_tmp10 ;
+  struct aty128fb_par  const  *__cil_tmp11 ;
+  unsigned int volatile   __cil_tmp12 ;
+  struct aty128fb_par  const  *__cil_tmp13 ;
   unsigned int volatile   __cil_tmp14 ;
   struct aty128fb_par  const  *__cil_tmp15 ;
-  unsigned int volatile   __cil_tmp16 ;
-  struct aty128fb_par  const  *__cil_tmp17 ;
-  unsigned int volatile   __cil_tmp18 ;
-  struct aty128fb_par  const  *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  u32 __cil_tmp23 ;
+  u32 __cil_tmp16 ;
+  unsigned int volatile   __cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  struct aty128fb_par  const  *__cil_tmp20 ;
+  u16 __cil_tmp21 ;
+  unsigned int volatile   __cil_tmp22 ;
+  struct aty128fb_par  const  *__cil_tmp23 ;
   unsigned int volatile   __cil_tmp24 ;
-  u32 __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
+  struct aty128fb_par  const  *__cil_tmp25 ;
+  unsigned int volatile   __cil_tmp26 ;
   struct aty128fb_par  const  *__cil_tmp27 ;
   unsigned int volatile   __cil_tmp28 ;
   struct aty128fb_par  const  *__cil_tmp29 ;
@@ -6088,49 +5992,33 @@ static void aty128_init_engine(struct aty128fb_par *par )
   struct aty128fb_par  const  *__cil_tmp35 ;
   unsigned int volatile   __cil_tmp36 ;
   struct aty128fb_par  const  *__cil_tmp37 ;
-  unsigned int volatile   __cil_tmp38 ;
-  struct aty128fb_par  const  *__cil_tmp39 ;
-  unsigned int volatile   __cil_tmp40 ;
-  struct aty128fb_par  const  *__cil_tmp41 ;
-  unsigned int volatile   __cil_tmp42 ;
-  struct aty128fb_par  const  *__cil_tmp43 ;
 
   {
   {
 #line 704
   wait_for_idle(par);
 #line 707
-  wait_for_fifo((unsigned short)1, par);
+  __cil_tmp4 = (u16 )1;
+#line 707
+  wait_for_fifo(__cil_tmp4, par);
 #line 708
-  __cil_tmp4 = (unsigned int volatile   )6656U;
+  __cil_tmp5 = (unsigned int volatile   )6656U;
 #line 708
-  __cil_tmp5 = (struct aty128fb_par  const  *)par;
-#line 708
-  _aty_st_le32(__cil_tmp4, 0U, __cil_tmp5);
-#line 710
   __cil_tmp6 = (struct aty128fb_par  const  *)par;
+#line 708
+  _aty_st_le32(__cil_tmp5, 0U, __cil_tmp6);
 #line 710
-  aty128_reset_engine(__cil_tmp6);
+  __cil_tmp7 = (struct aty128fb_par  const  *)par;
+#line 710
+  aty128_reset_engine(__cil_tmp7);
 #line 712
-  __cil_tmp7 = 0 + 20;
-#line 712
-  __cil_tmp8 = (unsigned long )par;
-#line 712
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 712
-  pitch_value = *((u32 *)__cil_tmp9);
+  pitch_value = par->crtc.pitch;
   }
   {
 #line 713
-  __cil_tmp10 = 0 + 52;
+  __cil_tmp8 = par->crtc.bpp;
 #line 713
-  __cil_tmp11 = (unsigned long )par;
-#line 713
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 713
-  __cil_tmp13 = *((u32 *)__cil_tmp12);
-#line 713
-  if (__cil_tmp13 == 24U) {
+  if (__cil_tmp8 == 24U) {
 #line 714
     pitch_value = pitch_value * 3U;
   } else {
@@ -6139,95 +6027,93 @@ static void aty128_init_engine(struct aty128fb_par *par )
   }
   {
 #line 717
-  wait_for_fifo((unsigned short)4, par);
+  __cil_tmp9 = (u16 )4;
+#line 717
+  wait_for_fifo(__cil_tmp9, par);
 #line 719
-  __cil_tmp14 = (unsigned int volatile   )5856U;
+  __cil_tmp10 = (unsigned int volatile   )5856U;
 #line 719
+  __cil_tmp11 = (struct aty128fb_par  const  *)par;
+#line 719
+  _aty_st_le32(__cil_tmp10, 0U, __cil_tmp11);
+#line 722
+  __cil_tmp12 = (unsigned int volatile   )5860U;
+#line 722
+  __cil_tmp13 = (struct aty128fb_par  const  *)par;
+#line 722
+  _aty_st_le32(__cil_tmp12, pitch_value, __cil_tmp13);
+#line 725
+  __cil_tmp14 = (unsigned int volatile   )5864U;
+#line 725
   __cil_tmp15 = (struct aty128fb_par  const  *)par;
-#line 719
-  _aty_st_le32(__cil_tmp14, 0U, __cil_tmp15);
-#line 722
-  __cil_tmp16 = (unsigned int volatile   )5860U;
-#line 722
-  __cil_tmp17 = (struct aty128fb_par  const  *)par;
-#line 722
-  _aty_st_le32(__cil_tmp16, pitch_value, __cil_tmp17);
 #line 725
-  __cil_tmp18 = (unsigned int volatile   )5864U;
-#line 725
-  __cil_tmp19 = (struct aty128fb_par  const  *)par;
-#line 725
-  _aty_st_le32(__cil_tmp18, 536813567U, __cil_tmp19);
+  _aty_st_le32(__cil_tmp14, 536813567U, __cil_tmp15);
 #line 728
-  __cil_tmp20 = 0 + 48;
+  __cil_tmp16 = par->crtc.depth;
 #line 728
-  __cil_tmp21 = (unsigned long )par;
+  tmp = depth_to_dst(__cil_tmp16);
 #line 728
-  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
+  __cil_tmp17 = (unsigned int volatile   )5228U;
 #line 728
-  __cil_tmp23 = *((u32 *)__cil_tmp22);
+  __cil_tmp18 = tmp << 8;
 #line 728
-  tmp = depth_to_dst(__cil_tmp23);
+  __cil_tmp19 = __cil_tmp18 | 1928343760U;
 #line 728
-  __cil_tmp24 = (unsigned int volatile   )5228U;
+  __cil_tmp20 = (struct aty128fb_par  const  *)par;
 #line 728
-  __cil_tmp25 = tmp << 8;
-#line 728
-  __cil_tmp26 = __cil_tmp25 | 1928343760U;
-#line 728
-  __cil_tmp27 = (struct aty128fb_par  const  *)par;
-#line 728
-  _aty_st_le32(__cil_tmp24, __cil_tmp26, __cil_tmp27);
+  _aty_st_le32(__cil_tmp17, __cil_tmp19, __cil_tmp20);
 #line 745
-  wait_for_fifo((unsigned short)8, par);
+  __cil_tmp21 = (u16 )8;
+#line 745
+  wait_for_fifo(__cil_tmp21, par);
 #line 747
-  __cil_tmp28 = (unsigned int volatile   )5672U;
+  __cil_tmp22 = (unsigned int volatile   )5672U;
 #line 747
+  __cil_tmp23 = (struct aty128fb_par  const  *)par;
+#line 747
+  _aty_st_le32(__cil_tmp22, 0U, __cil_tmp23);
+#line 748
+  __cil_tmp24 = (unsigned int volatile   )5676U;
+#line 748
+  __cil_tmp25 = (struct aty128fb_par  const  *)par;
+#line 748
+  _aty_st_le32(__cil_tmp24, 0U, __cil_tmp25);
+#line 749
+  __cil_tmp26 = (unsigned int volatile   )5680U;
+#line 749
+  __cil_tmp27 = (struct aty128fb_par  const  *)par;
+#line 749
+  _aty_st_le32(__cil_tmp26, 0U, __cil_tmp27);
+#line 752
+  __cil_tmp28 = (unsigned int volatile   )5244U;
+#line 752
   __cil_tmp29 = (struct aty128fb_par  const  *)par;
-#line 747
-  _aty_st_le32(__cil_tmp28, 0U, __cil_tmp29);
-#line 748
-  __cil_tmp30 = (unsigned int volatile   )5676U;
-#line 748
+#line 752
+  _aty_st_le32(__cil_tmp28, 4294967295U, __cil_tmp29);
+#line 753
+  __cil_tmp30 = (unsigned int volatile   )5240U;
+#line 753
   __cil_tmp31 = (struct aty128fb_par  const  *)par;
-#line 748
+#line 753
   _aty_st_le32(__cil_tmp30, 0U, __cil_tmp31);
-#line 749
-  __cil_tmp32 = (unsigned int volatile   )5680U;
-#line 749
+#line 756
+  __cil_tmp32 = (unsigned int volatile   )5592U;
+#line 756
   __cil_tmp33 = (struct aty128fb_par  const  *)par;
-#line 749
-  _aty_st_le32(__cil_tmp32, 0U, __cil_tmp33);
-#line 752
-  __cil_tmp34 = (unsigned int volatile   )5244U;
-#line 752
+#line 756
+  _aty_st_le32(__cil_tmp32, 4294967295U, __cil_tmp33);
+#line 757
+  __cil_tmp34 = (unsigned int volatile   )5596U;
+#line 757
   __cil_tmp35 = (struct aty128fb_par  const  *)par;
-#line 752
-  _aty_st_le32(__cil_tmp34, 4294967295U, __cil_tmp35);
-#line 753
-  __cil_tmp36 = (unsigned int volatile   )5240U;
-#line 753
+#line 757
+  _aty_st_le32(__cil_tmp34, 0U, __cil_tmp35);
+#line 760
+  __cil_tmp36 = (unsigned int volatile   )5836U;
+#line 760
   __cil_tmp37 = (struct aty128fb_par  const  *)par;
-#line 753
-  _aty_st_le32(__cil_tmp36, 0U, __cil_tmp37);
-#line 756
-  __cil_tmp38 = (unsigned int volatile   )5592U;
-#line 756
-  __cil_tmp39 = (struct aty128fb_par  const  *)par;
-#line 756
-  _aty_st_le32(__cil_tmp38, 4294967295U, __cil_tmp39);
-#line 757
-  __cil_tmp40 = (unsigned int volatile   )5596U;
-#line 757
-  __cil_tmp41 = (struct aty128fb_par  const  *)par;
-#line 757
-  _aty_st_le32(__cil_tmp40, 0U, __cil_tmp41);
 #line 760
-  __cil_tmp42 = (unsigned int volatile   )5836U;
-#line 760
-  __cil_tmp43 = (struct aty128fb_par  const  *)par;
-#line 760
-  _aty_st_le32(__cil_tmp42, 4294967295U, __cil_tmp43);
+  _aty_st_le32(__cil_tmp36, 4294967295U, __cil_tmp37);
 #line 763
   wait_for_idle(par);
   }
@@ -6244,32 +6130,28 @@ static u32 depth_to_dst(u32 depth )
   if (depth <= 8U) {
 #line 771
     return (2U);
-  } else {
+  } else
 #line 772
-    if (depth <= 15U) {
+  if (depth <= 15U) {
 #line 773
-      return (3U);
-    } else {
+    return (3U);
+  } else
 #line 774
-      if (depth == 16U) {
+  if (depth == 16U) {
 #line 775
-        return (4U);
-      } else {
+    return (4U);
+  } else
 #line 776
-        if (depth <= 24U) {
+  if (depth <= 24U) {
 #line 777
-          return (5U);
-        } else {
+    return (5U);
+  } else
 #line 778
-          if (depth <= 32U) {
+  if (depth <= 32U) {
 #line 779
-            return (6U);
-          } else {
+    return (6U);
+  } else {
 
-          }
-        }
-      }
-    }
   }
 #line 781
   return (4294967274U);
@@ -6471,6 +6353,7 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
 #line 814
     printk("<7>aty128fb: Invalid ROM signature %x should  be 0xaa55\n", __cil_tmp41);
     }
+#line 816
     goto failed;
   } else {
 
@@ -6504,7 +6387,7 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
 #line 820
   __cil_tmp52 = __cil_tmp51 | __cil_tmp49;
 #line 820
-  dptr = (unsigned short )__cil_tmp52;
+  dptr = (u16 )__cil_tmp52;
 #line 846
   __cil_tmp53 = (unsigned long )dptr;
 #line 846
@@ -6629,6 +6512,7 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
 #line 847
     printk("<4>aty128fb: PCI DATA signature in ROM incorrect: %08x\n", __cil_tmp102);
     }
+#line 849
     goto anyway;
   } else {
 
@@ -6651,6 +6535,7 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
   __cil_tmp107 = (int )rom_type;
 #line 853
   if (__cil_tmp107 == 0) {
+#line 853
     goto case_0;
   } else {
     {
@@ -6658,6 +6543,7 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
     __cil_tmp108 = (int )rom_type;
 #line 856
     if (__cil_tmp108 == 1) {
+#line 856
       goto case_1;
     } else {
       {
@@ -6665,8 +6551,10 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
       __cil_tmp109 = (int )rom_type;
 #line 859
       if (__cil_tmp109 == 2) {
+#line 859
         goto case_2;
       } else {
+#line 862
         goto switch_default;
 #line 852
         if (0) {
@@ -6675,18 +6563,21 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
 #line 854
           printk("<6>aty128fb: Found Intel x86 BIOS ROM Image\n");
           }
+#line 855
           goto ldv_31404;
           case_1: 
           {
 #line 857
           printk("<6>aty128fb: Found Open Firmware ROM Image\n");
           }
+#line 858
           goto failed;
           case_2: 
           {
 #line 860
           printk("<6>aty128fb: Found HP PA-RISC ROM Image\n");
           }
+#line 861
           goto failed;
           switch_default: 
           {
@@ -6695,6 +6586,7 @@ static void *aty128_map_ROM(struct aty128fb_par  const  *par , struct pci_dev *d
 #line 863
           printk("<6>aty128fb: Found unknown type %d ROM Image\n", __cil_tmp110);
           }
+#line 864
           goto failed;
         } else {
 
@@ -6780,9 +6672,9 @@ static void aty128_get_pllinfo(struct aty128fb_par *par , unsigned char *bios )
   unsigned long __cil_tmp60 ;
   unsigned char *__cil_tmp61 ;
   void const volatile   *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
   int __cil_tmp66 ;
   int __cil_tmp67 ;
   int __cil_tmp68 ;
@@ -6790,88 +6682,74 @@ static void aty128_get_pllinfo(struct aty128fb_par *par , unsigned char *bios )
   int __cil_tmp70 ;
   int __cil_tmp71 ;
   int __cil_tmp72 ;
-  int __cil_tmp73 ;
-  int __cil_tmp74 ;
-  int __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  void const volatile   *__cil_tmp78 ;
-  void const volatile   *__cil_tmp79 ;
-  unsigned int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned char *__cil_tmp83 ;
-  void const volatile   *__cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned char *__cil_tmp88 ;
-  void const volatile   *__cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned char *__cil_tmp93 ;
-  void const volatile   *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
+  unsigned int __cil_tmp73 ;
+  unsigned long __cil_tmp74 ;
+  void const volatile   *__cil_tmp75 ;
+  void const volatile   *__cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
+  unsigned long __cil_tmp78 ;
+  unsigned long __cil_tmp79 ;
+  unsigned char *__cil_tmp80 ;
+  void const volatile   *__cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  unsigned long __cil_tmp83 ;
+  unsigned long __cil_tmp84 ;
+  unsigned char *__cil_tmp85 ;
+  void const volatile   *__cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
+  unsigned long __cil_tmp88 ;
+  unsigned long __cil_tmp89 ;
+  unsigned char *__cil_tmp90 ;
+  void const volatile   *__cil_tmp91 ;
+  int __cil_tmp92 ;
+  int __cil_tmp93 ;
+  int __cil_tmp94 ;
+  int __cil_tmp95 ;
+  int __cil_tmp96 ;
+  int __cil_tmp97 ;
   int __cil_tmp98 ;
   int __cil_tmp99 ;
   int __cil_tmp100 ;
   int __cil_tmp101 ;
-  int __cil_tmp102 ;
-  int __cil_tmp103 ;
-  int __cil_tmp104 ;
-  int __cil_tmp105 ;
-  int __cil_tmp106 ;
-  int __cil_tmp107 ;
-  unsigned int __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
+  unsigned int __cil_tmp102 ;
+  unsigned long __cil_tmp103 ;
+  void const volatile   *__cil_tmp104 ;
+  void const volatile   *__cil_tmp105 ;
+  unsigned int __cil_tmp106 ;
+  unsigned long __cil_tmp107 ;
+  unsigned long __cil_tmp108 ;
+  unsigned char *__cil_tmp109 ;
   void const volatile   *__cil_tmp110 ;
-  void const volatile   *__cil_tmp111 ;
-  unsigned int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned char *__cil_tmp115 ;
-  void const volatile   *__cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  int __cil_tmp120 ;
-  int __cil_tmp121 ;
-  int __cil_tmp122 ;
-  int __cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  void const volatile   *__cil_tmp126 ;
-  void const volatile   *__cil_tmp127 ;
+  int __cil_tmp111 ;
+  int __cil_tmp112 ;
+  int __cil_tmp113 ;
+  int __cil_tmp114 ;
+  unsigned int __cil_tmp115 ;
+  unsigned long __cil_tmp116 ;
+  void const volatile   *__cil_tmp117 ;
+  void const volatile   *__cil_tmp118 ;
+  unsigned int __cil_tmp119 ;
+  unsigned long __cil_tmp120 ;
+  unsigned long __cil_tmp121 ;
+  unsigned char *__cil_tmp122 ;
+  void const volatile   *__cil_tmp123 ;
+  int __cil_tmp124 ;
+  int __cil_tmp125 ;
+  int __cil_tmp126 ;
+  int __cil_tmp127 ;
   unsigned int __cil_tmp128 ;
   unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned char *__cil_tmp131 ;
-  void const volatile   *__cil_tmp132 ;
+  void const volatile   *__cil_tmp130 ;
+  void const volatile   *__cil_tmp131 ;
+  unsigned int __cil_tmp132 ;
   unsigned long __cil_tmp133 ;
   unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  int __cil_tmp136 ;
+  unsigned char *__cil_tmp135 ;
+  void const volatile   *__cil_tmp136 ;
   int __cil_tmp137 ;
   int __cil_tmp138 ;
   int __cil_tmp139 ;
-  unsigned int __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  void const volatile   *__cil_tmp142 ;
-  void const volatile   *__cil_tmp143 ;
-  unsigned int __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned char *__cil_tmp147 ;
-  void const volatile   *__cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  int __cil_tmp151 ;
-  int __cil_tmp152 ;
-  int __cil_tmp153 ;
-  int __cil_tmp154 ;
+  int __cil_tmp140 ;
 
   {
   {
@@ -6976,219 +6854,191 @@ static void aty128_get_pllinfo(struct aty128fb_par *par , unsigned char *bios )
 #line 882
   tmp___6 = readb(__cil_tmp62);
 #line 882
-  __cil_tmp63 = 80 + 8;
+  __cil_tmp63 = (int )tmp___6;
 #line 882
-  __cil_tmp64 = (unsigned long )par;
+  __cil_tmp64 = __cil_tmp63 << 24;
 #line 882
-  __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
+  __cil_tmp65 = (int )tmp___5;
 #line 882
-  __cil_tmp66 = (int )tmp___6;
+  __cil_tmp66 = __cil_tmp65 << 16;
 #line 882
-  __cil_tmp67 = __cil_tmp66 << 24;
+  __cil_tmp67 = (int )tmp___4;
 #line 882
-  __cil_tmp68 = (int )tmp___5;
+  __cil_tmp68 = __cil_tmp67 << 8;
 #line 882
-  __cil_tmp69 = __cil_tmp68 << 16;
+  __cil_tmp69 = (int )tmp___3;
 #line 882
-  __cil_tmp70 = (int )tmp___4;
+  __cil_tmp70 = __cil_tmp69 | __cil_tmp68;
 #line 882
-  __cil_tmp71 = __cil_tmp70 << 8;
+  __cil_tmp71 = __cil_tmp70 | __cil_tmp66;
 #line 882
-  __cil_tmp72 = (int )tmp___3;
+  __cil_tmp72 = __cil_tmp71 | __cil_tmp64;
 #line 882
-  __cil_tmp73 = __cil_tmp72 | __cil_tmp71;
-#line 882
-  __cil_tmp74 = __cil_tmp73 | __cil_tmp69;
-#line 882
-  __cil_tmp75 = __cil_tmp74 | __cil_tmp67;
-#line 882
-  *((u32 *)__cil_tmp65) = (unsigned int )__cil_tmp75;
+  par->constants.ppll_max = (u32 )__cil_tmp72;
 #line 883
-  __cil_tmp76 = bios_pll + 18U;
+  __cil_tmp73 = bios_pll + 18U;
 #line 883
-  __cil_tmp77 = (unsigned long )__cil_tmp76;
+  __cil_tmp74 = (unsigned long )__cil_tmp73;
 #line 883
-  __cil_tmp78 = (void const volatile   *)bios;
+  __cil_tmp75 = (void const volatile   *)bios;
 #line 883
-  __cil_tmp79 = __cil_tmp78 + __cil_tmp77;
+  __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
 #line 883
-  tmp___7 = readb(__cil_tmp79);
+  tmp___7 = readb(__cil_tmp76);
 #line 883
-  __cil_tmp80 = bios_pll + 18U;
+  __cil_tmp77 = bios_pll + 18U;
 #line 883
-  __cil_tmp81 = (unsigned long )__cil_tmp80;
+  __cil_tmp78 = (unsigned long )__cil_tmp77;
 #line 883
-  __cil_tmp82 = __cil_tmp81 + 1UL;
+  __cil_tmp79 = __cil_tmp78 + 1UL;
 #line 883
-  __cil_tmp83 = bios + __cil_tmp82;
+  __cil_tmp80 = bios + __cil_tmp79;
 #line 883
-  __cil_tmp84 = (void const volatile   *)__cil_tmp83;
+  __cil_tmp81 = (void const volatile   *)__cil_tmp80;
 #line 883
-  tmp___8 = readb(__cil_tmp84);
+  tmp___8 = readb(__cil_tmp81);
 #line 883
-  __cil_tmp85 = bios_pll + 18U;
+  __cil_tmp82 = bios_pll + 18U;
 #line 883
-  __cil_tmp86 = (unsigned long )__cil_tmp85;
+  __cil_tmp83 = (unsigned long )__cil_tmp82;
 #line 883
-  __cil_tmp87 = __cil_tmp86 + 2UL;
+  __cil_tmp84 = __cil_tmp83 + 2UL;
 #line 883
-  __cil_tmp88 = bios + __cil_tmp87;
+  __cil_tmp85 = bios + __cil_tmp84;
 #line 883
-  __cil_tmp89 = (void const volatile   *)__cil_tmp88;
+  __cil_tmp86 = (void const volatile   *)__cil_tmp85;
 #line 883
-  tmp___9 = readb(__cil_tmp89);
+  tmp___9 = readb(__cil_tmp86);
 #line 883
-  __cil_tmp90 = bios_pll + 18U;
+  __cil_tmp87 = bios_pll + 18U;
 #line 883
-  __cil_tmp91 = (unsigned long )__cil_tmp90;
+  __cil_tmp88 = (unsigned long )__cil_tmp87;
 #line 883
-  __cil_tmp92 = __cil_tmp91 + 3UL;
+  __cil_tmp89 = __cil_tmp88 + 3UL;
 #line 883
-  __cil_tmp93 = bios + __cil_tmp92;
+  __cil_tmp90 = bios + __cil_tmp89;
 #line 883
-  __cil_tmp94 = (void const volatile   *)__cil_tmp93;
+  __cil_tmp91 = (void const volatile   *)__cil_tmp90;
 #line 883
-  tmp___10 = readb(__cil_tmp94);
+  tmp___10 = readb(__cil_tmp91);
 #line 883
-  __cil_tmp95 = 80 + 4;
+  __cil_tmp92 = (int )tmp___10;
 #line 883
-  __cil_tmp96 = (unsigned long )par;
+  __cil_tmp93 = __cil_tmp92 << 24;
 #line 883
-  __cil_tmp97 = __cil_tmp96 + __cil_tmp95;
+  __cil_tmp94 = (int )tmp___9;
 #line 883
-  __cil_tmp98 = (int )tmp___10;
+  __cil_tmp95 = __cil_tmp94 << 16;
 #line 883
-  __cil_tmp99 = __cil_tmp98 << 24;
+  __cil_tmp96 = (int )tmp___8;
 #line 883
-  __cil_tmp100 = (int )tmp___9;
+  __cil_tmp97 = __cil_tmp96 << 8;
 #line 883
-  __cil_tmp101 = __cil_tmp100 << 16;
+  __cil_tmp98 = (int )tmp___7;
 #line 883
-  __cil_tmp102 = (int )tmp___8;
+  __cil_tmp99 = __cil_tmp98 | __cil_tmp97;
 #line 883
-  __cil_tmp103 = __cil_tmp102 << 8;
+  __cil_tmp100 = __cil_tmp99 | __cil_tmp95;
 #line 883
-  __cil_tmp104 = (int )tmp___7;
+  __cil_tmp101 = __cil_tmp100 | __cil_tmp93;
 #line 883
-  __cil_tmp105 = __cil_tmp104 | __cil_tmp103;
-#line 883
-  __cil_tmp106 = __cil_tmp105 | __cil_tmp101;
-#line 883
-  __cil_tmp107 = __cil_tmp106 | __cil_tmp99;
-#line 883
-  *((u32 *)__cil_tmp97) = (unsigned int )__cil_tmp107;
+  par->constants.ppll_min = (u32 )__cil_tmp101;
 #line 884
-  __cil_tmp108 = bios_pll + 8U;
+  __cil_tmp102 = bios_pll + 8U;
 #line 884
-  __cil_tmp109 = (unsigned long )__cil_tmp108;
+  __cil_tmp103 = (unsigned long )__cil_tmp102;
 #line 884
-  __cil_tmp110 = (void const volatile   *)bios;
+  __cil_tmp104 = (void const volatile   *)bios;
 #line 884
-  __cil_tmp111 = __cil_tmp110 + __cil_tmp109;
+  __cil_tmp105 = __cil_tmp104 + __cil_tmp103;
 #line 884
-  tmp___11 = readb(__cil_tmp111);
+  tmp___11 = readb(__cil_tmp105);
 #line 884
-  __cil_tmp112 = bios_pll + 8U;
+  __cil_tmp106 = bios_pll + 8U;
 #line 884
-  __cil_tmp113 = (unsigned long )__cil_tmp112;
+  __cil_tmp107 = (unsigned long )__cil_tmp106;
 #line 884
-  __cil_tmp114 = __cil_tmp113 + 1UL;
+  __cil_tmp108 = __cil_tmp107 + 1UL;
 #line 884
-  __cil_tmp115 = bios + __cil_tmp114;
+  __cil_tmp109 = bios + __cil_tmp108;
 #line 884
-  __cil_tmp116 = (void const volatile   *)__cil_tmp115;
+  __cil_tmp110 = (void const volatile   *)__cil_tmp109;
 #line 884
-  tmp___12 = readb(__cil_tmp116);
+  tmp___12 = readb(__cil_tmp110);
 #line 884
-  __cil_tmp117 = 80 + 16;
+  __cil_tmp111 = (int )tmp___12;
 #line 884
-  __cil_tmp118 = (unsigned long )par;
+  __cil_tmp112 = __cil_tmp111 << 8;
 #line 884
-  __cil_tmp119 = __cil_tmp118 + __cil_tmp117;
+  __cil_tmp113 = (int )tmp___11;
 #line 884
-  __cil_tmp120 = (int )tmp___12;
+  __cil_tmp114 = __cil_tmp113 | __cil_tmp112;
 #line 884
-  __cil_tmp121 = __cil_tmp120 << 8;
-#line 884
-  __cil_tmp122 = (int )tmp___11;
-#line 884
-  __cil_tmp123 = __cil_tmp122 | __cil_tmp121;
-#line 884
-  *((u32 *)__cil_tmp119) = (unsigned int )__cil_tmp123;
+  par->constants.xclk = (u32 )__cil_tmp114;
 #line 885
-  __cil_tmp124 = bios_pll + 16U;
+  __cil_tmp115 = bios_pll + 16U;
 #line 885
-  __cil_tmp125 = (unsigned long )__cil_tmp124;
+  __cil_tmp116 = (unsigned long )__cil_tmp115;
 #line 885
-  __cil_tmp126 = (void const volatile   *)bios;
+  __cil_tmp117 = (void const volatile   *)bios;
 #line 885
-  __cil_tmp127 = __cil_tmp126 + __cil_tmp125;
+  __cil_tmp118 = __cil_tmp117 + __cil_tmp116;
 #line 885
-  tmp___13 = readb(__cil_tmp127);
+  tmp___13 = readb(__cil_tmp118);
 #line 885
-  __cil_tmp128 = bios_pll + 16U;
+  __cil_tmp119 = bios_pll + 16U;
 #line 885
+  __cil_tmp120 = (unsigned long )__cil_tmp119;
+#line 885
+  __cil_tmp121 = __cil_tmp120 + 1UL;
+#line 885
+  __cil_tmp122 = bios + __cil_tmp121;
+#line 885
+  __cil_tmp123 = (void const volatile   *)__cil_tmp122;
+#line 885
+  tmp___14 = readb(__cil_tmp123);
+#line 885
+  __cil_tmp124 = (int )tmp___14;
+#line 885
+  __cil_tmp125 = __cil_tmp124 << 8;
+#line 885
+  __cil_tmp126 = (int )tmp___13;
+#line 885
+  __cil_tmp127 = __cil_tmp126 | __cil_tmp125;
+#line 885
+  par->constants.ref_divider = (u32 )__cil_tmp127;
+#line 886
+  __cil_tmp128 = bios_pll + 14U;
+#line 886
   __cil_tmp129 = (unsigned long )__cil_tmp128;
-#line 885
-  __cil_tmp130 = __cil_tmp129 + 1UL;
-#line 885
-  __cil_tmp131 = bios + __cil_tmp130;
-#line 885
-  __cil_tmp132 = (void const volatile   *)__cil_tmp131;
-#line 885
-  tmp___14 = readb(__cil_tmp132);
-#line 885
-  __cil_tmp133 = 80 + 12;
-#line 885
-  __cil_tmp134 = (unsigned long )par;
-#line 885
-  __cil_tmp135 = __cil_tmp134 + __cil_tmp133;
-#line 885
-  __cil_tmp136 = (int )tmp___14;
-#line 885
-  __cil_tmp137 = __cil_tmp136 << 8;
-#line 885
-  __cil_tmp138 = (int )tmp___13;
-#line 885
-  __cil_tmp139 = __cil_tmp138 | __cil_tmp137;
-#line 885
-  *((u32 *)__cil_tmp135) = (unsigned int )__cil_tmp139;
 #line 886
-  __cil_tmp140 = bios_pll + 14U;
+  __cil_tmp130 = (void const volatile   *)bios;
 #line 886
-  __cil_tmp141 = (unsigned long )__cil_tmp140;
+  __cil_tmp131 = __cil_tmp130 + __cil_tmp129;
 #line 886
-  __cil_tmp142 = (void const volatile   *)bios;
+  tmp___15 = readb(__cil_tmp131);
 #line 886
-  __cil_tmp143 = __cil_tmp142 + __cil_tmp141;
+  __cil_tmp132 = bios_pll + 14U;
 #line 886
-  tmp___15 = readb(__cil_tmp143);
+  __cil_tmp133 = (unsigned long )__cil_tmp132;
 #line 886
-  __cil_tmp144 = bios_pll + 14U;
+  __cil_tmp134 = __cil_tmp133 + 1UL;
 #line 886
-  __cil_tmp145 = (unsigned long )__cil_tmp144;
+  __cil_tmp135 = bios + __cil_tmp134;
 #line 886
-  __cil_tmp146 = __cil_tmp145 + 1UL;
+  __cil_tmp136 = (void const volatile   *)__cil_tmp135;
 #line 886
-  __cil_tmp147 = bios + __cil_tmp146;
+  tmp___16 = readb(__cil_tmp136);
 #line 886
-  __cil_tmp148 = (void const volatile   *)__cil_tmp147;
+  __cil_tmp137 = (int )tmp___16;
 #line 886
-  tmp___16 = readb(__cil_tmp148);
+  __cil_tmp138 = __cil_tmp137 << 8;
 #line 886
-  __cil_tmp149 = (unsigned long )par;
+  __cil_tmp139 = (int )tmp___15;
 #line 886
-  __cil_tmp150 = __cil_tmp149 + 80;
+  __cil_tmp140 = __cil_tmp139 | __cil_tmp138;
 #line 886
-  __cil_tmp151 = (int )tmp___16;
-#line 886
-  __cil_tmp152 = __cil_tmp151 << 8;
-#line 886
-  __cil_tmp153 = (int )tmp___15;
-#line 886
-  __cil_tmp154 = __cil_tmp153 | __cil_tmp152;
-#line 886
-  *((u32 *)__cil_tmp150) = (unsigned int )__cil_tmp154;
+  par->constants.ref_clk = (u32 )__cil_tmp140;
   }
 #line 887
   return;
@@ -7201,7 +7051,7 @@ static void *aty128_find_mem_vbios(struct aty128fb_par *par )
   void *tmp ;
   unsigned char tmp___0 ;
   unsigned char tmp___1 ;
-  unsigned long long __cil_tmp7 ;
+  resource_size_t __cil_tmp7 ;
   unsigned char *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
@@ -7217,11 +7067,12 @@ static void *aty128_find_mem_vbios(struct aty128fb_par *par )
   rom_base = (unsigned char *)0;
 #line 906
   segstart = 786432U;
+#line 906
   goto ldv_31421;
   ldv_31420: 
   {
 #line 907
-  __cil_tmp7 = (unsigned long long )segstart;
+  __cil_tmp7 = (resource_size_t )segstart;
 #line 907
   tmp = ioremap(__cil_tmp7, 65536UL);
 #line 907
@@ -7266,6 +7117,7 @@ static void *aty128_find_mem_vbios(struct aty128fb_par *par )
     __cil_tmp15 = (unsigned int )tmp___1;
 #line 910
     if (__cil_tmp15 == 170U) {
+#line 911
       goto ldv_31419;
     } else {
 
@@ -7288,8 +7140,10 @@ static void *aty128_find_mem_vbios(struct aty128fb_par *par )
   ldv_31421: ;
 #line 906
   if (segstart <= 983039U) {
+#line 907
     goto ldv_31420;
   } else {
+#line 909
     goto ldv_31419;
   }
   ldv_31419: ;
@@ -7300,118 +7154,53 @@ static void *aty128_find_mem_vbios(struct aty128fb_par *par )
 #line 921 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static void aty128_timings(struct aty128fb_par *par ) 
 { u32 tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  u32 __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  u32 __cil_tmp3 ;
+  u32 __cil_tmp4 ;
+  struct aty128fb_par  const  *__cil_tmp5 ;
+  struct aty128fb_par  const  *__cil_tmp6 ;
+  u32 __cil_tmp7 ;
+  struct aty128fb_par  const  *__cil_tmp8 ;
+  struct aty128fb_par  const  *__cil_tmp9 ;
+  u32 __cil_tmp10 ;
   u32 __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct aty128fb_par  const  *__cil_tmp15 ;
-  struct aty128fb_par  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u32 __cil_tmp20 ;
-  struct aty128fb_par  const  *__cil_tmp21 ;
-  struct aty128fb_par  const  *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  u32 __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  u32 __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  u32 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned int volatile   __cil_tmp50 ;
-  struct aty128fb_par  const  *__cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  u32 __cil_tmp12 ;
+  unsigned int volatile   __cil_tmp13 ;
+  struct aty128fb_par  const  *__cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
 
   {
   {
 #line 934
-  __cil_tmp3 = (unsigned long )par;
+  __cil_tmp3 = par->constants.ref_clk;
 #line 934
-  __cil_tmp4 = __cil_tmp3 + 80;
-#line 934
-  __cil_tmp5 = *((u32 *)__cil_tmp4);
-#line 934
-  if (__cil_tmp5 == 0U) {
+  if (__cil_tmp3 == 0U) {
 #line 935
-    __cil_tmp6 = (unsigned long )par;
-#line 935
-    __cil_tmp7 = __cil_tmp6 + 80;
-#line 935
-    *((u32 *)__cil_tmp7) = 2950U;
+    par->constants.ref_clk = 2950U;
   } else {
 
   }
   }
   {
 #line 950
-  __cil_tmp8 = 80 + 12;
+  __cil_tmp4 = par->constants.ref_divider;
 #line 950
-  __cil_tmp9 = (unsigned long )par;
-#line 950
-  __cil_tmp10 = __cil_tmp9 + __cil_tmp8;
-#line 950
-  __cil_tmp11 = *((u32 *)__cil_tmp10);
-#line 950
-  if (__cil_tmp11 == 0U) {
+  if (__cil_tmp4 == 0U) {
     {
 #line 951
-    __cil_tmp12 = 80 + 12;
-#line 951
-    __cil_tmp13 = (unsigned long )par;
-#line 951
-    __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 951
-    *((u32 *)__cil_tmp14) = 59U;
+    par->constants.ref_divider = 59U;
 #line 953
-    __cil_tmp15 = (struct aty128fb_par  const  *)par;
+    __cil_tmp5 = (struct aty128fb_par  const  *)par;
 #line 953
-    _aty_st_pll(10U, 5000222U, __cil_tmp15);
+    _aty_st_pll(10U, 5000222U, __cil_tmp5);
 #line 954
-    __cil_tmp16 = (struct aty128fb_par  const  *)par;
+    __cil_tmp6 = (struct aty128fb_par  const  *)par;
 #line 954
-    aty_pll_writeupdate(__cil_tmp16);
+    aty_pll_writeupdate(__cil_tmp6);
     }
   } else {
 
@@ -7419,176 +7208,113 @@ static void aty128_timings(struct aty128fb_par *par )
   }
   {
 #line 956
-  __cil_tmp17 = 80 + 12;
+  __cil_tmp7 = par->constants.ref_divider;
 #line 956
-  __cil_tmp18 = (unsigned long )par;
+  __cil_tmp8 = (struct aty128fb_par  const  *)par;
 #line 956
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 956
-  __cil_tmp20 = *((u32 *)__cil_tmp19);
-#line 956
-  __cil_tmp21 = (struct aty128fb_par  const  *)par;
-#line 956
-  _aty_st_pll(3U, __cil_tmp20, __cil_tmp21);
+  _aty_st_pll(3U, __cil_tmp7, __cil_tmp8);
 #line 957
-  __cil_tmp22 = (struct aty128fb_par  const  *)par;
+  __cil_tmp9 = (struct aty128fb_par  const  *)par;
 #line 957
-  aty_pll_writeupdate(__cil_tmp22);
+  aty_pll_writeupdate(__cil_tmp9);
   }
   {
 #line 960
-  __cil_tmp23 = 80 + 4;
+  __cil_tmp10 = par->constants.ppll_min;
 #line 960
-  __cil_tmp24 = (unsigned long )par;
-#line 960
-  __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 960
-  __cil_tmp26 = *((u32 *)__cil_tmp25);
-#line 960
-  if (__cil_tmp26 == 0U) {
+  if (__cil_tmp10 == 0U) {
 #line 961
-    __cil_tmp27 = 80 + 4;
-#line 961
-    __cil_tmp28 = (unsigned long )par;
-#line 961
-    __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 961
-    *((u32 *)__cil_tmp29) = 12500U;
+    par->constants.ppll_min = 12500U;
   } else {
 
   }
   }
   {
 #line 962
-  __cil_tmp30 = 80 + 8;
+  __cil_tmp11 = par->constants.ppll_max;
 #line 962
-  __cil_tmp31 = (unsigned long )par;
-#line 962
-  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 962
-  __cil_tmp33 = *((u32 *)__cil_tmp32);
-#line 962
-  if (__cil_tmp33 == 0U) {
+  if (__cil_tmp11 == 0U) {
 #line 963
-    __cil_tmp34 = 80 + 8;
-#line 963
-    __cil_tmp35 = (unsigned long )par;
-#line 963
-    __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
-#line 963
-    *((u32 *)__cil_tmp36) = 25000U;
+    par->constants.ppll_max = 25000U;
   } else {
 
   }
   }
   {
 #line 964
-  __cil_tmp37 = 80 + 16;
+  __cil_tmp12 = par->constants.xclk;
 #line 964
-  __cil_tmp38 = (unsigned long )par;
-#line 964
-  __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 964
-  __cil_tmp40 = *((u32 *)__cil_tmp39);
-#line 964
-  if (__cil_tmp40 == 0U) {
+  if (__cil_tmp12 == 0U) {
 #line 965
-    __cil_tmp41 = 80 + 16;
-#line 965
-    __cil_tmp42 = (unsigned long )par;
-#line 965
-    __cil_tmp43 = __cil_tmp42 + __cil_tmp41;
-#line 965
-    *((u32 *)__cil_tmp43) = 7501U;
+    par->constants.xclk = 7501U;
   } else {
 
   }
   }
   {
 #line 967
-  __cil_tmp44 = 80 + 20;
-#line 967
-  __cil_tmp45 = (unsigned long )par;
-#line 967
-  __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
-#line 967
-  *((u32 *)__cil_tmp46) = 128U;
+  par->constants.fifo_width = 128U;
 #line 968
-  __cil_tmp47 = 80 + 24;
-#line 968
-  __cil_tmp48 = (unsigned long )par;
-#line 968
-  __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
-#line 968
-  *((u32 *)__cil_tmp49) = 32U;
+  par->constants.fifo_depth = 32U;
 #line 970
-  __cil_tmp50 = (unsigned int volatile   )320U;
+  __cil_tmp13 = (unsigned int volatile   )320U;
 #line 970
-  __cil_tmp51 = (struct aty128fb_par  const  *)par;
+  __cil_tmp14 = (struct aty128fb_par  const  *)par;
 #line 970
-  tmp = _aty_ld_le32(__cil_tmp50, __cil_tmp51);
+  tmp = _aty_ld_le32(__cil_tmp13, __cil_tmp14);
   }
   {
 #line 971
-  __cil_tmp52 = tmp & 3U;
+  __cil_tmp15 = tmp & 3U;
 #line 971
-  __cil_tmp53 = (int )__cil_tmp52;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 971
-  if (__cil_tmp53 == 0) {
+  if (__cil_tmp16 == 0) {
+#line 971
     goto case_0;
   } else {
     {
 #line 974
-    __cil_tmp54 = tmp & 3U;
+    __cil_tmp17 = tmp & 3U;
 #line 974
-    __cil_tmp55 = (int )__cil_tmp54;
+    __cil_tmp18 = (int )__cil_tmp17;
 #line 974
-    if (__cil_tmp55 == 1) {
+    if (__cil_tmp18 == 1) {
+#line 974
       goto case_1;
     } else {
       {
 #line 977
-      __cil_tmp56 = tmp & 3U;
+      __cil_tmp19 = tmp & 3U;
 #line 977
-      __cil_tmp57 = (int )__cil_tmp56;
+      __cil_tmp20 = (int )__cil_tmp19;
 #line 977
-      if (__cil_tmp57 == 2) {
+      if (__cil_tmp20 == 2) {
+#line 977
         goto case_2;
       } else {
+#line 980
         goto switch_default;
 #line 970
         if (0) {
           case_0: 
 #line 972
-          __cil_tmp58 = (unsigned long )par;
-#line 972
-          __cil_tmp59 = __cil_tmp58 + 128;
-#line 972
-          *((struct aty128_meminfo  const  **)__cil_tmp59) = & sdr_128;
+          par->mem = & sdr_128;
+#line 973
           goto ldv_31426;
           case_1: 
 #line 975
-          __cil_tmp60 = (unsigned long )par;
-#line 975
-          __cil_tmp61 = __cil_tmp60 + 128;
-#line 975
-          *((struct aty128_meminfo  const  **)__cil_tmp61) = & sdr_sgram;
+          par->mem = & sdr_sgram;
+#line 976
           goto ldv_31426;
           case_2: 
 #line 978
-          __cil_tmp62 = (unsigned long )par;
-#line 978
-          __cil_tmp63 = __cil_tmp62 + 128;
-#line 978
-          *((struct aty128_meminfo  const  **)__cil_tmp63) = & ddr_sgram;
+          par->mem = & ddr_sgram;
+#line 979
           goto ldv_31426;
           switch_default: 
 #line 981
-          __cil_tmp64 = (unsigned long )par;
-#line 981
-          __cil_tmp65 = __cil_tmp64 + 128;
-#line 981
-          *((struct aty128_meminfo  const  **)__cil_tmp65) = & sdr_sgram;
+          par->mem = & sdr_sgram;
         } else {
 
         }
@@ -7608,144 +7334,102 @@ static void aty128_set_crtc(struct aty128_crtc  const  *crtc , struct aty128fb_p
 { u32 tmp ;
   unsigned int volatile   __cil_tmp4 ;
   u32 __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
+  u32 __cil_tmp6 ;
   unsigned int volatile   __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  u32 __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned int volatile   __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  u32 __cil_tmp8 ;
+  u32 __cil_tmp9 ;
+  unsigned int volatile   __cil_tmp10 ;
+  u32 __cil_tmp11 ;
+  u32 __cil_tmp12 ;
+  unsigned int volatile   __cil_tmp13 ;
+  u32 __cil_tmp14 ;
   u32 __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned int volatile   __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  unsigned int volatile   __cil_tmp16 ;
+  u32 __cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  unsigned int volatile   __cil_tmp19 ;
   u32 __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
+  u32 __cil_tmp21 ;
   unsigned int volatile   __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  u32 __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned int volatile   __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u32 __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned int volatile   __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u32 __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned int volatile   __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  u32 __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
+  u32 __cil_tmp23 ;
+  u32 __cil_tmp24 ;
+  unsigned int volatile   __cil_tmp25 ;
+  u32 __cil_tmp26 ;
+  u32 __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
 
   {
   {
 #line 995
   __cil_tmp4 = (unsigned int volatile   )80U;
 #line 995
-  __cil_tmp5 = *((u32 const   *)crtc);
+  __cil_tmp5 = crtc->gen_cntl;
 #line 995
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
+  __cil_tmp6 = (u32 )__cil_tmp5;
 #line 995
   _aty_st_le32(__cil_tmp4, __cil_tmp6, par);
 #line 996
   __cil_tmp7 = (unsigned int volatile   )512U;
 #line 996
-  __cil_tmp8 = (unsigned long )crtc;
+  __cil_tmp8 = crtc->h_total;
 #line 996
-  __cil_tmp9 = __cil_tmp8 + 4;
+  __cil_tmp9 = (u32 )__cil_tmp8;
 #line 996
-  __cil_tmp10 = *((u32 const   *)__cil_tmp9);
-#line 996
-  __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 996
-  _aty_st_le32(__cil_tmp7, __cil_tmp11, par);
+  _aty_st_le32(__cil_tmp7, __cil_tmp9, par);
 #line 997
-  __cil_tmp12 = (unsigned int volatile   )516U;
+  __cil_tmp10 = (unsigned int volatile   )516U;
 #line 997
-  __cil_tmp13 = (unsigned long )crtc;
+  __cil_tmp11 = crtc->h_sync_strt_wid;
 #line 997
-  __cil_tmp14 = __cil_tmp13 + 8;
+  __cil_tmp12 = (u32 )__cil_tmp11;
 #line 997
-  __cil_tmp15 = *((u32 const   *)__cil_tmp14);
-#line 997
-  __cil_tmp16 = (unsigned int )__cil_tmp15;
-#line 997
-  _aty_st_le32(__cil_tmp12, __cil_tmp16, par);
+  _aty_st_le32(__cil_tmp10, __cil_tmp12, par);
 #line 998
-  __cil_tmp17 = (unsigned int volatile   )520U;
+  __cil_tmp13 = (unsigned int volatile   )520U;
 #line 998
-  __cil_tmp18 = (unsigned long )crtc;
+  __cil_tmp14 = crtc->v_total;
 #line 998
-  __cil_tmp19 = __cil_tmp18 + 12;
+  __cil_tmp15 = (u32 )__cil_tmp14;
 #line 998
-  __cil_tmp20 = *((u32 const   *)__cil_tmp19);
-#line 998
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 998
-  _aty_st_le32(__cil_tmp17, __cil_tmp21, par);
+  _aty_st_le32(__cil_tmp13, __cil_tmp15, par);
 #line 999
-  __cil_tmp22 = (unsigned int volatile   )524U;
+  __cil_tmp16 = (unsigned int volatile   )524U;
 #line 999
-  __cil_tmp23 = (unsigned long )crtc;
+  __cil_tmp17 = crtc->v_sync_strt_wid;
 #line 999
-  __cil_tmp24 = __cil_tmp23 + 16;
+  __cil_tmp18 = (u32 )__cil_tmp17;
 #line 999
-  __cil_tmp25 = *((u32 const   *)__cil_tmp24);
-#line 999
-  __cil_tmp26 = (unsigned int )__cil_tmp25;
-#line 999
-  _aty_st_le32(__cil_tmp22, __cil_tmp26, par);
+  _aty_st_le32(__cil_tmp16, __cil_tmp18, par);
 #line 1000
-  __cil_tmp27 = (unsigned int volatile   )556U;
+  __cil_tmp19 = (unsigned int volatile   )556U;
 #line 1000
-  __cil_tmp28 = (unsigned long )crtc;
+  __cil_tmp20 = crtc->pitch;
 #line 1000
-  __cil_tmp29 = __cil_tmp28 + 20;
+  __cil_tmp21 = (u32 )__cil_tmp20;
 #line 1000
-  __cil_tmp30 = *((u32 const   *)__cil_tmp29);
-#line 1000
-  __cil_tmp31 = (unsigned int )__cil_tmp30;
-#line 1000
-  _aty_st_le32(__cil_tmp27, __cil_tmp31, par);
+  _aty_st_le32(__cil_tmp19, __cil_tmp21, par);
 #line 1001
-  __cil_tmp32 = (unsigned int volatile   )548U;
+  __cil_tmp22 = (unsigned int volatile   )548U;
 #line 1001
-  __cil_tmp33 = (unsigned long )crtc;
+  __cil_tmp23 = crtc->offset;
 #line 1001
-  __cil_tmp34 = __cil_tmp33 + 24;
+  __cil_tmp24 = (u32 )__cil_tmp23;
 #line 1001
-  __cil_tmp35 = *((u32 const   *)__cil_tmp34);
-#line 1001
-  __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 1001
-  _aty_st_le32(__cil_tmp32, __cil_tmp36, par);
+  _aty_st_le32(__cil_tmp22, __cil_tmp24, par);
 #line 1002
-  __cil_tmp37 = (unsigned int volatile   )552U;
+  __cil_tmp25 = (unsigned int volatile   )552U;
 #line 1002
-  __cil_tmp38 = (unsigned long )crtc;
+  __cil_tmp26 = crtc->offset_cntl;
 #line 1002
-  __cil_tmp39 = __cil_tmp38 + 28;
+  __cil_tmp27 = (u32 )__cil_tmp26;
 #line 1002
-  __cil_tmp40 = *((u32 const   *)__cil_tmp39);
-#line 1002
-  __cil_tmp41 = (unsigned int )__cil_tmp40;
-#line 1002
-  _aty_st_le32(__cil_tmp37, __cil_tmp41, par);
+  _aty_st_le32(__cil_tmp25, __cil_tmp27, par);
 #line 1004
   tmp = _aty_ld_pll(2U, par);
 #line 1004
-  __cil_tmp42 = tmp & 4294770687U;
+  __cil_tmp28 = tmp & 4294770687U;
 #line 1004
-  _aty_st_pll(2U, __cil_tmp42, par);
+  _aty_st_pll(2U, __cil_tmp28, par);
   }
 #line 1005
   return;
@@ -7784,304 +7468,140 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   u32 depth ;
   u32 bytpp ;
   u8 mode_bytpp[7U] ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  __u32 __cil_tmp34 ;
+  __u32 __cil_tmp35 ;
+  __u32 __cil_tmp36 ;
+  __u32 __cil_tmp37 ;
+  __u32 __cil_tmp38 ;
+  __u32 __cil_tmp39 ;
+  __u32 __cil_tmp40 ;
+  __u32 __cil_tmp41 ;
+  __u32 __cil_tmp42 ;
+  __u32 __cil_tmp43 ;
+  __u32 __cil_tmp44 ;
+  __u32 __cil_tmp45 ;
+  __u32 __cil_tmp46 ;
+  __u32 __cil_tmp47 ;
   __u32 __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  __u32 __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  __u32 __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  __u32 __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  __u32 __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  __u32 __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  __u32 __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  __u32 __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  __u32 __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  __u32 __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  __u32 __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  __u32 __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  __u32 __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  __u32 __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  __u32 __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  __u32 __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
-  unsigned int __cil_tmp96 ;
-  u32 __cil_tmp97 ;
-  u32 __cil_tmp98 ;
-  u32 __cil_tmp99 ;
-  u32 __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  u8 __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  u32 __cil_tmp106 ;
-  unsigned int __cil_tmp107 ;
-  u32 __cil_tmp108 ;
-  u32 __cil_tmp109 ;
-  u32 __cil_tmp110 ;
-  u32 __cil_tmp111 ;
-  u32 __cil_tmp112 ;
-  u32 __cil_tmp113 ;
-  u32 __cil_tmp114 ;
-  u32 __cil_tmp115 ;
-  u32 __cil_tmp116 ;
-  u32 __cil_tmp117 ;
-  u32 __cil_tmp118 ;
-  u32 __cil_tmp119 ;
-  u32 __cil_tmp120 ;
-  u32 __cil_tmp121 ;
-  u32 __cil_tmp122 ;
-  u32 __cil_tmp123 ;
-  u32 __cil_tmp124 ;
-  int __cil_tmp125 ;
-  unsigned int __cil_tmp126 ;
-  int __cil_tmp127 ;
-  unsigned int __cil_tmp128 ;
-  u32 __cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  u32 __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  u32 __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  u32 __cil_tmp139 ;
-  u32 __cil_tmp140 ;
-  unsigned int __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  u32 __cil_tmp144 ;
-  u32 __cil_tmp145 ;
-  unsigned int __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  __u32 __cil_tmp153 ;
-  unsigned int __cil_tmp154 ;
-  unsigned int __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
+  __u32 __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  u32 __cil_tmp52 ;
+  u32 __cil_tmp53 ;
+  u32 __cil_tmp54 ;
+  u32 __cil_tmp55 ;
+  u32 __cil_tmp56 ;
+  u32 __cil_tmp57 ;
+  u32 __cil_tmp58 ;
+  u32 __cil_tmp59 ;
+  u32 __cil_tmp60 ;
+  u32 __cil_tmp61 ;
+  u32 __cil_tmp62 ;
+  u32 __cil_tmp63 ;
+  u32 __cil_tmp64 ;
+  u32 __cil_tmp65 ;
+  u32 __cil_tmp66 ;
+  u32 __cil_tmp67 ;
+  u32 __cil_tmp68 ;
+  u32 __cil_tmp69 ;
+  u32 __cil_tmp70 ;
+  u32 __cil_tmp71 ;
+  u32 __cil_tmp72 ;
+  u32 __cil_tmp73 ;
+  u32 __cil_tmp74 ;
+  int __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  u32 __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  u32 __cil_tmp81 ;
+  u32 __cil_tmp82 ;
+  u32 __cil_tmp83 ;
+  u32 __cil_tmp84 ;
+  unsigned int __cil_tmp85 ;
+  u32 __cil_tmp86 ;
+  u32 __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  __u32 __cil_tmp89 ;
+  unsigned int __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
 
   {
 #line 1017
-  __cil_tmp34 = 0 * 1UL;
+  mode_bytpp[0] = (u8 )0U;
 #line 1017
-  __cil_tmp35 = (unsigned long )(mode_bytpp) + __cil_tmp34;
+  mode_bytpp[1] = (u8 )0U;
 #line 1017
-  *((u8 *)__cil_tmp35) = (unsigned char)0;
+  mode_bytpp[2] = (u8 )1U;
 #line 1017
-  __cil_tmp36 = 1 * 1UL;
+  mode_bytpp[3] = (u8 )2U;
 #line 1017
-  __cil_tmp37 = (unsigned long )(mode_bytpp) + __cil_tmp36;
+  mode_bytpp[4] = (u8 )2U;
 #line 1017
-  *((u8 *)__cil_tmp37) = (unsigned char)0;
+  mode_bytpp[5] = (u8 )3U;
 #line 1017
-  __cil_tmp38 = 2 * 1UL;
-#line 1017
-  __cil_tmp39 = (unsigned long )(mode_bytpp) + __cil_tmp38;
-#line 1017
-  *((u8 *)__cil_tmp39) = (unsigned char)1;
-#line 1017
-  __cil_tmp40 = 3 * 1UL;
-#line 1017
-  __cil_tmp41 = (unsigned long )(mode_bytpp) + __cil_tmp40;
-#line 1017
-  *((u8 *)__cil_tmp41) = (unsigned char)2;
-#line 1017
-  __cil_tmp42 = 4 * 1UL;
-#line 1017
-  __cil_tmp43 = (unsigned long )(mode_bytpp) + __cil_tmp42;
-#line 1017
-  *((u8 *)__cil_tmp43) = (unsigned char)2;
-#line 1017
-  __cil_tmp44 = 5 * 1UL;
-#line 1017
-  __cil_tmp45 = (unsigned long )(mode_bytpp) + __cil_tmp44;
-#line 1017
-  *((u8 *)__cil_tmp45) = (unsigned char)3;
-#line 1017
-  __cil_tmp46 = 6 * 1UL;
-#line 1017
-  __cil_tmp47 = (unsigned long )(mode_bytpp) + __cil_tmp46;
-#line 1017
-  *((u8 *)__cil_tmp47) = (unsigned char)4;
+  mode_bytpp[6] = (u8 )4U;
 #line 1020
-  __cil_tmp48 = *((__u32 const   *)var);
+  __cil_tmp34 = var->xres;
 #line 1020
-  xres = (unsigned int )__cil_tmp48;
+  xres = (u32 )__cil_tmp34;
 #line 1021
-  __cil_tmp49 = (unsigned long )var;
+  __cil_tmp35 = var->yres;
 #line 1021
-  __cil_tmp50 = __cil_tmp49 + 4;
-#line 1021
-  __cil_tmp51 = *((__u32 const   *)__cil_tmp50);
-#line 1021
-  yres = (unsigned int )__cil_tmp51;
+  yres = (u32 )__cil_tmp35;
 #line 1022
-  __cil_tmp52 = (unsigned long )var;
+  __cil_tmp36 = var->xres_virtual;
 #line 1022
-  __cil_tmp53 = __cil_tmp52 + 8;
-#line 1022
-  __cil_tmp54 = *((__u32 const   *)__cil_tmp53);
-#line 1022
-  vxres = (unsigned int )__cil_tmp54;
+  vxres = (u32 )__cil_tmp36;
 #line 1023
-  __cil_tmp55 = (unsigned long )var;
+  __cil_tmp37 = var->yres_virtual;
 #line 1023
-  __cil_tmp56 = __cil_tmp55 + 12;
-#line 1023
-  __cil_tmp57 = *((__u32 const   *)__cil_tmp56);
-#line 1023
-  vyres = (unsigned int )__cil_tmp57;
+  vyres = (u32 )__cil_tmp37;
 #line 1024
-  __cil_tmp58 = (unsigned long )var;
+  __cil_tmp38 = var->xoffset;
 #line 1024
-  __cil_tmp59 = __cil_tmp58 + 16;
-#line 1024
-  __cil_tmp60 = *((__u32 const   *)__cil_tmp59);
-#line 1024
-  xoffset = (unsigned int )__cil_tmp60;
+  xoffset = (u32 )__cil_tmp38;
 #line 1025
-  __cil_tmp61 = (unsigned long )var;
+  __cil_tmp39 = var->yoffset;
 #line 1025
-  __cil_tmp62 = __cil_tmp61 + 20;
-#line 1025
-  __cil_tmp63 = *((__u32 const   *)__cil_tmp62);
-#line 1025
-  yoffset = (unsigned int )__cil_tmp63;
+  yoffset = (u32 )__cil_tmp39;
 #line 1026
-  __cil_tmp64 = (unsigned long )var;
+  __cil_tmp40 = var->bits_per_pixel;
 #line 1026
-  __cil_tmp65 = __cil_tmp64 + 24;
-#line 1026
-  __cil_tmp66 = *((__u32 const   *)__cil_tmp65);
-#line 1026
-  bpp = (unsigned int )__cil_tmp66;
+  bpp = (u32 )__cil_tmp40;
 #line 1027
-  __cil_tmp67 = (unsigned long )var;
+  __cil_tmp41 = var->left_margin;
 #line 1027
-  __cil_tmp68 = __cil_tmp67 + 104;
-#line 1027
-  __cil_tmp69 = *((__u32 const   *)__cil_tmp68);
-#line 1027
-  left = (unsigned int )__cil_tmp69;
+  left = (u32 )__cil_tmp41;
 #line 1028
-  __cil_tmp70 = (unsigned long )var;
+  __cil_tmp42 = var->right_margin;
 #line 1028
-  __cil_tmp71 = __cil_tmp70 + 108;
-#line 1028
-  __cil_tmp72 = *((__u32 const   *)__cil_tmp71);
-#line 1028
-  right = (unsigned int )__cil_tmp72;
+  right = (u32 )__cil_tmp42;
 #line 1029
-  __cil_tmp73 = (unsigned long )var;
+  __cil_tmp43 = var->upper_margin;
 #line 1029
-  __cil_tmp74 = __cil_tmp73 + 112;
-#line 1029
-  __cil_tmp75 = *((__u32 const   *)__cil_tmp74);
-#line 1029
-  upper = (unsigned int )__cil_tmp75;
+  upper = (u32 )__cil_tmp43;
 #line 1030
-  __cil_tmp76 = (unsigned long )var;
+  __cil_tmp44 = var->lower_margin;
 #line 1030
-  __cil_tmp77 = __cil_tmp76 + 116;
-#line 1030
-  __cil_tmp78 = *((__u32 const   *)__cil_tmp77);
-#line 1030
-  lower = (unsigned int )__cil_tmp78;
+  lower = (u32 )__cil_tmp44;
 #line 1031
-  __cil_tmp79 = (unsigned long )var;
+  __cil_tmp45 = var->hsync_len;
 #line 1031
-  __cil_tmp80 = __cil_tmp79 + 120;
-#line 1031
-  __cil_tmp81 = *((__u32 const   *)__cil_tmp80);
-#line 1031
-  hslen = (unsigned int )__cil_tmp81;
+  hslen = (u32 )__cil_tmp45;
 #line 1032
-  __cil_tmp82 = (unsigned long )var;
+  __cil_tmp46 = var->vsync_len;
 #line 1032
-  __cil_tmp83 = __cil_tmp82 + 124;
-#line 1032
-  __cil_tmp84 = *((__u32 const   *)__cil_tmp83);
-#line 1032
-  vslen = (unsigned int )__cil_tmp84;
+  vslen = (u32 )__cil_tmp46;
 #line 1033
-  __cil_tmp85 = (unsigned long )var;
+  __cil_tmp47 = var->sync;
 #line 1033
-  __cil_tmp86 = __cil_tmp85 + 128;
-#line 1033
-  __cil_tmp87 = *((__u32 const   *)__cil_tmp86);
-#line 1033
-  sync = (unsigned int )__cil_tmp87;
+  sync = (u32 )__cil_tmp47;
 #line 1034
-  __cil_tmp88 = (unsigned long )var;
+  __cil_tmp48 = var->vmode;
 #line 1034
-  __cil_tmp89 = __cil_tmp88 + 132;
-#line 1034
-  __cil_tmp90 = *((__u32 const   *)__cil_tmp89);
-#line 1034
-  vmode = (unsigned int )__cil_tmp90;
+  vmode = (u32 )__cil_tmp48;
 #line 1036
   if (bpp != 16U) {
 #line 1037
@@ -8089,17 +7609,11 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   } else {
     {
 #line 1039
-    __cil_tmp91 = 44 + 4;
+    __cil_tmp49 = var->green.length;
 #line 1039
-    __cil_tmp92 = (unsigned long )var;
+    __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 1039
-    __cil_tmp93 = __cil_tmp92 + __cil_tmp91;
-#line 1039
-    __cil_tmp94 = *((__u32 const   *)__cil_tmp93);
-#line 1039
-    __cil_tmp95 = (unsigned int )__cil_tmp94;
-#line 1039
-    if (__cil_tmp95 == 6U) {
+    if (__cil_tmp50 == 6U) {
 #line 1039
       depth = 16U;
     } else {
@@ -8110,9 +7624,9 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   }
   {
 #line 1043
-  __cil_tmp96 = vmode & 255U;
+  __cil_tmp51 = vmode & 255U;
 #line 1043
-  if (__cil_tmp96 != 0U) {
+  if (__cil_tmp51 != 0U) {
 #line 1044
     return (-22);
   } else {
@@ -8120,18 +7634,18 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   }
   }
 #line 1047
-  __cil_tmp97 = xres + 7U;
+  __cil_tmp52 = xres + 7U;
 #line 1047
-  xres = __cil_tmp97 & 4294967288U;
+  xres = __cil_tmp52 & 4294967288U;
 #line 1048
-  __cil_tmp98 = xoffset + 7U;
+  __cil_tmp53 = xoffset + 7U;
 #line 1048
-  xoffset = __cil_tmp98 & 4294967288U;
+  xoffset = __cil_tmp53 & 4294967288U;
   {
 #line 1050
-  __cil_tmp99 = xres + xoffset;
+  __cil_tmp54 = xres + xoffset;
 #line 1050
-  if (__cil_tmp99 > vxres) {
+  if (__cil_tmp54 > vxres) {
 #line 1051
     vxres = xres + xoffset;
   } else {
@@ -8140,9 +7654,9 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   }
   {
 #line 1053
-  __cil_tmp100 = yres + yoffset;
+  __cil_tmp55 = yres + yoffset;
 #line 1053
-  if (__cil_tmp100 > vyres) {
+  if (__cil_tmp55 > vyres) {
 #line 1054
     vyres = yres + yoffset;
   } else {
@@ -8165,28 +7679,18 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
 
   }
 #line 1065
-  __cil_tmp101 = dst * 1UL;
-#line 1065
-  __cil_tmp102 = (unsigned long )(mode_bytpp) + __cil_tmp101;
-#line 1065
-  __cil_tmp103 = *((u8 *)__cil_tmp102);
-#line 1065
-  bytpp = (unsigned int )__cil_tmp103;
+  bytpp = (u32 )mode_bytpp[dst];
   {
 #line 1068
-  __cil_tmp104 = (unsigned long )par;
+  __cil_tmp56 = par->vram_size;
 #line 1068
-  __cil_tmp105 = __cil_tmp104 + 120;
+  __cil_tmp57 = (u32 )__cil_tmp56;
 #line 1068
-  __cil_tmp106 = *((u32 const   *)__cil_tmp105);
+  __cil_tmp58 = vxres * vyres;
 #line 1068
-  __cil_tmp107 = (unsigned int )__cil_tmp106;
+  __cil_tmp59 = __cil_tmp58 * bytpp;
 #line 1068
-  __cil_tmp108 = vxres * vyres;
-#line 1068
-  __cil_tmp109 = __cil_tmp108 * bytpp;
-#line 1068
-  if (__cil_tmp109 > __cil_tmp107) {
+  if (__cil_tmp59 > __cil_tmp57) {
     {
 #line 1069
     printk("<3>aty128fb: Not enough memory for mode\n");
@@ -8198,40 +7702,40 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   }
   }
 #line 1073
-  __cil_tmp110 = xres >> 3;
+  __cil_tmp60 = xres >> 3;
 #line 1073
-  h_disp = __cil_tmp110 - 1U;
+  h_disp = __cil_tmp60 - 1U;
 #line 1074
-  __cil_tmp111 = xres + right;
+  __cil_tmp61 = xres + right;
 #line 1074
-  __cil_tmp112 = __cil_tmp111 + hslen;
+  __cil_tmp62 = __cil_tmp61 + hslen;
 #line 1074
-  __cil_tmp113 = __cil_tmp112 + left;
+  __cil_tmp63 = __cil_tmp62 + left;
 #line 1074
-  __cil_tmp114 = __cil_tmp113 >> 3;
+  __cil_tmp64 = __cil_tmp63 >> 3;
 #line 1074
-  __cil_tmp115 = __cil_tmp114 - 1U;
+  __cil_tmp65 = __cil_tmp64 - 1U;
 #line 1074
-  h_total = __cil_tmp115 & 65535U;
+  h_total = __cil_tmp65 & 65535U;
 #line 1076
   v_disp = yres - 1U;
 #line 1077
-  __cil_tmp116 = yres + upper;
+  __cil_tmp66 = yres + upper;
 #line 1077
-  __cil_tmp117 = __cil_tmp116 + vslen;
+  __cil_tmp67 = __cil_tmp66 + vslen;
 #line 1077
-  __cil_tmp118 = __cil_tmp117 + lower;
+  __cil_tmp68 = __cil_tmp67 + lower;
 #line 1077
-  __cil_tmp119 = __cil_tmp118 - 1U;
+  __cil_tmp69 = __cil_tmp68 - 1U;
 #line 1077
-  v_total = __cil_tmp119 & 65535U;
+  v_total = __cil_tmp69 & 65535U;
   {
 #line 1080
-  __cil_tmp120 = h_total >> 3;
+  __cil_tmp70 = h_total >> 3;
 #line 1080
-  __cil_tmp121 = __cil_tmp120 - 1U;
+  __cil_tmp71 = __cil_tmp70 - 1U;
 #line 1080
-  if (__cil_tmp121 > 511U) {
+  if (__cil_tmp71 > 511U) {
     {
 #line 1081
     printk("<3>aty128fb: invalid width ranges\n");
@@ -8241,9 +7745,9 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   } else {
     {
 #line 1080
-    __cil_tmp122 = v_total - 1U;
+    __cil_tmp72 = v_total - 1U;
 #line 1080
-    if (__cil_tmp122 > 2047U) {
+    if (__cil_tmp72 > 2047U) {
       {
 #line 1081
       printk("<3>aty128fb: invalid width ranges\n");
@@ -8257,48 +7761,46 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   }
   }
 #line 1085
-  __cil_tmp123 = hslen + 7U;
+  __cil_tmp73 = hslen + 7U;
 #line 1085
-  h_sync_wid = __cil_tmp123 >> 3;
+  h_sync_wid = __cil_tmp73 >> 3;
 #line 1086
   if (h_sync_wid == 0U) {
 #line 1087
     h_sync_wid = 1U;
-  } else {
+  } else
 #line 1088
-    if (h_sync_wid > 63U) {
+  if (h_sync_wid > 63U) {
 #line 1089
-      h_sync_wid = 63U;
-    } else {
+    h_sync_wid = 63U;
+  } else {
 
-    }
   }
 #line 1091
-  __cil_tmp124 = h_disp << 3;
+  __cil_tmp74 = h_disp << 3;
 #line 1091
-  h_sync_strt = __cil_tmp124 + right;
+  h_sync_strt = __cil_tmp74 + right;
 #line 1093
   v_sync_wid = vslen;
 #line 1094
   if (v_sync_wid == 0U) {
 #line 1095
     v_sync_wid = 1U;
-  } else {
+  } else
 #line 1096
-    if (v_sync_wid > 31U) {
+  if (v_sync_wid > 31U) {
 #line 1097
-      v_sync_wid = 31U;
-    } else {
+    v_sync_wid = 31U;
+  } else {
 
-    }
   }
 #line 1099
   v_sync_strt = v_disp + lower;
   {
 #line 1101
-  __cil_tmp125 = (int )sync;
+  __cil_tmp75 = (int )sync;
 #line 1101
-  if (__cil_tmp125 & 1) {
+  if (__cil_tmp75 & 1) {
 #line 1101
     h_sync_pol = 0U;
   } else {
@@ -8307,16 +7809,16 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   }
   }
 #line 1102
-  __cil_tmp126 = sync & 2U;
+  __cil_tmp76 = sync & 2U;
 #line 1102
-  __cil_tmp127 = __cil_tmp126 == 0U;
+  __cil_tmp77 = __cil_tmp76 == 0U;
 #line 1102
-  v_sync_pol = (unsigned int )__cil_tmp127;
+  v_sync_pol = (u32 )__cil_tmp77;
   {
 #line 1104
-  __cil_tmp128 = sync & 8U;
+  __cil_tmp78 = sync & 8U;
 #line 1104
-  if (__cil_tmp128 != 0U) {
+  if (__cil_tmp78 != 0U) {
 #line 1104
     c_sync = 16U;
   } else {
@@ -8325,556 +7827,207 @@ static int aty128_var_to_crtc(struct fb_var_screeninfo  const  *var , struct aty
   }
   }
 #line 1106
-  __cil_tmp129 = dst << 8;
+  __cil_tmp79 = dst << 8;
 #line 1106
-  __cil_tmp130 = __cil_tmp129 | c_sync;
+  __cil_tmp80 = __cil_tmp79 | c_sync;
 #line 1106
-  *((u32 *)crtc) = __cil_tmp130 | 50331648U;
+  crtc->gen_cntl = __cil_tmp80 | 50331648U;
 #line 1108
-  __cil_tmp131 = (unsigned long )crtc;
+  __cil_tmp81 = h_disp << 16;
 #line 1108
-  __cil_tmp132 = __cil_tmp131 + 4;
-#line 1108
-  __cil_tmp133 = h_disp << 16;
-#line 1108
-  *((u32 *)__cil_tmp132) = __cil_tmp133 | h_total;
+  crtc->h_total = __cil_tmp81 | h_total;
 #line 1109
-  __cil_tmp134 = (unsigned long )crtc;
+  __cil_tmp82 = v_disp << 16;
 #line 1109
-  __cil_tmp135 = __cil_tmp134 + 12;
-#line 1109
-  __cil_tmp136 = v_disp << 16;
-#line 1109
-  *((u32 *)__cil_tmp135) = __cil_tmp136 | v_total;
+  crtc->v_total = __cil_tmp82 | v_total;
 #line 1111
-  __cil_tmp137 = (unsigned long )crtc;
+  __cil_tmp83 = h_sync_pol << 23;
 #line 1111
-  __cil_tmp138 = __cil_tmp137 + 8;
+  __cil_tmp84 = h_sync_wid << 16;
 #line 1111
-  __cil_tmp139 = h_sync_pol << 23;
+  __cil_tmp85 = __cil_tmp84 | h_sync_strt;
 #line 1111
-  __cil_tmp140 = h_sync_wid << 16;
-#line 1111
-  __cil_tmp141 = __cil_tmp140 | h_sync_strt;
-#line 1111
-  *((u32 *)__cil_tmp138) = __cil_tmp141 | __cil_tmp139;
+  crtc->h_sync_strt_wid = __cil_tmp85 | __cil_tmp83;
 #line 1113
-  __cil_tmp142 = (unsigned long )crtc;
+  __cil_tmp86 = v_sync_pol << 23;
 #line 1113
-  __cil_tmp143 = __cil_tmp142 + 16;
+  __cil_tmp87 = v_sync_wid << 16;
 #line 1113
-  __cil_tmp144 = v_sync_pol << 23;
+  __cil_tmp88 = __cil_tmp87 | v_sync_strt;
 #line 1113
-  __cil_tmp145 = v_sync_wid << 16;
-#line 1113
-  __cil_tmp146 = __cil_tmp145 | v_sync_strt;
-#line 1113
-  *((u32 *)__cil_tmp143) = __cil_tmp146 | __cil_tmp144;
+  crtc->v_sync_strt_wid = __cil_tmp88 | __cil_tmp86;
 #line 1116
-  __cil_tmp147 = (unsigned long )crtc;
-#line 1116
-  __cil_tmp148 = __cil_tmp147 + 20;
-#line 1116
-  *((u32 *)__cil_tmp148) = vxres >> 3;
+  crtc->pitch = vxres >> 3;
 #line 1118
-  __cil_tmp149 = (unsigned long )crtc;
-#line 1118
-  __cil_tmp150 = __cil_tmp149 + 24;
-#line 1118
-  *((u32 *)__cil_tmp150) = 0U;
+  crtc->offset = 0U;
   {
 #line 1120
-  __cil_tmp151 = (unsigned long )var;
+  __cil_tmp89 = var->activate;
 #line 1120
-  __cil_tmp152 = __cil_tmp151 + 84;
+  __cil_tmp90 = (unsigned int )__cil_tmp89;
 #line 1120
-  __cil_tmp153 = *((__u32 const   *)__cil_tmp152);
+  __cil_tmp91 = __cil_tmp90 & 15U;
 #line 1120
-  __cil_tmp154 = (unsigned int )__cil_tmp153;
-#line 1120
-  __cil_tmp155 = __cil_tmp154 & 15U;
-#line 1120
-  if (__cil_tmp155 == 0U) {
+  if (__cil_tmp91 == 0U) {
 #line 1121
-    __cil_tmp156 = (unsigned long )crtc;
-#line 1121
-    __cil_tmp157 = __cil_tmp156 + 28;
-#line 1121
-    *((u32 *)__cil_tmp157) = 65536U;
+    crtc->offset_cntl = 65536U;
   } else {
 #line 1123
-    __cil_tmp158 = (unsigned long )crtc;
-#line 1123
-    __cil_tmp159 = __cil_tmp158 + 28;
-#line 1123
-    *((u32 *)__cil_tmp159) = 0U;
+    crtc->offset_cntl = 0U;
   }
   }
 #line 1125
-  __cil_tmp160 = (unsigned long )crtc;
-#line 1125
-  __cil_tmp161 = __cil_tmp160 + 40;
-#line 1125
-  *((u32 *)__cil_tmp161) = vxres;
+  crtc->vxres = vxres;
 #line 1126
-  __cil_tmp162 = (unsigned long )crtc;
-#line 1126
-  __cil_tmp163 = __cil_tmp162 + 44;
-#line 1126
-  *((u32 *)__cil_tmp163) = vyres;
+  crtc->vyres = vyres;
 #line 1127
-  __cil_tmp164 = (unsigned long )crtc;
-#line 1127
-  __cil_tmp165 = __cil_tmp164 + 32;
-#line 1127
-  *((u32 *)__cil_tmp165) = xoffset;
+  crtc->xoffset = xoffset;
 #line 1128
-  __cil_tmp166 = (unsigned long )crtc;
-#line 1128
-  __cil_tmp167 = __cil_tmp166 + 36;
-#line 1128
-  *((u32 *)__cil_tmp167) = yoffset;
+  crtc->yoffset = yoffset;
 #line 1129
-  __cil_tmp168 = (unsigned long )crtc;
-#line 1129
-  __cil_tmp169 = __cil_tmp168 + 48;
-#line 1129
-  *((u32 *)__cil_tmp169) = depth;
+  crtc->depth = depth;
 #line 1130
-  __cil_tmp170 = (unsigned long )crtc;
-#line 1130
-  __cil_tmp171 = __cil_tmp170 + 52;
-#line 1130
-  *((u32 *)__cil_tmp171) = bpp;
+  crtc->bpp = bpp;
 #line 1132
   return (0);
 }
 }
 #line 1136 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static int aty128_pix_width_to_var(int pix_width , struct fb_var_screeninfo *var ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
+{ 
 
   {
 #line 1140
-  __cil_tmp3 = 32 + 8;
-#line 1140
-  __cil_tmp4 = (unsigned long )var;
-#line 1140
-  __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
-#line 1140
-  *((__u32 *)__cil_tmp5) = 0U;
+  var->red.msb_right = 0U;
 #line 1141
-  __cil_tmp6 = 44 + 8;
-#line 1141
-  __cil_tmp7 = (unsigned long )var;
-#line 1141
-  __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
-#line 1141
-  *((__u32 *)__cil_tmp8) = 0U;
+  var->green.msb_right = 0U;
 #line 1142
-  __cil_tmp9 = (unsigned long )var;
-#line 1142
-  __cil_tmp10 = __cil_tmp9 + 56;
-#line 1142
-  *((__u32 *)__cil_tmp10) = 0U;
+  var->blue.offset = 0U;
 #line 1143
-  __cil_tmp11 = 56 + 8;
-#line 1143
-  __cil_tmp12 = (unsigned long )var;
-#line 1143
-  __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 1143
-  *((__u32 *)__cil_tmp13) = 0U;
+  var->blue.msb_right = 0U;
 #line 1144
-  __cil_tmp14 = (unsigned long )var;
-#line 1144
-  __cil_tmp15 = __cil_tmp14 + 68;
-#line 1144
-  *((__u32 *)__cil_tmp15) = 0U;
+  var->transp.offset = 0U;
 #line 1145
-  __cil_tmp16 = 68 + 4;
-#line 1145
-  __cil_tmp17 = (unsigned long )var;
-#line 1145
-  __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 1145
-  *((__u32 *)__cil_tmp18) = 0U;
+  var->transp.length = 0U;
 #line 1146
-  __cil_tmp19 = 68 + 8;
-#line 1146
-  __cil_tmp20 = (unsigned long )var;
-#line 1146
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 1146
-  *((__u32 *)__cil_tmp21) = 0U;
+  var->transp.msb_right = 0U;
 #line 1148
   if (pix_width == 512) {
+#line 1148
     goto case_512;
-  } else {
+  } else
 #line 1156
-    if (pix_width == 768) {
-      goto case_768;
-    } else {
+  if (pix_width == 768) {
+#line 1156
+    goto case_768;
+  } else
 #line 1164
-      if (pix_width == 1024) {
-        goto case_1024;
-      } else {
+  if (pix_width == 1024) {
+#line 1164
+    goto case_1024;
+  } else
 #line 1172
-        if (pix_width == 1280) {
-          goto case_1280;
-        } else {
+  if (pix_width == 1280) {
+#line 1172
+    goto case_1280;
+  } else
 #line 1180
-          if (pix_width == 1536) {
-            goto case_1536;
-          } else {
-            goto switch_default;
+  if (pix_width == 1536) {
+#line 1180
+    goto case_1536;
+  } else {
+#line 1190
+    goto switch_default;
 #line 1147
-            if (0) {
-              case_512: 
+    if (0) {
+      case_512: 
 #line 1149
-              __cil_tmp22 = (unsigned long )var;
-#line 1149
-              __cil_tmp23 = __cil_tmp22 + 24;
-#line 1149
-              *((__u32 *)__cil_tmp23) = 8U;
+      var->bits_per_pixel = 8U;
 #line 1150
-              __cil_tmp24 = (unsigned long )var;
-#line 1150
-              __cil_tmp25 = __cil_tmp24 + 32;
-#line 1150
-              *((__u32 *)__cil_tmp25) = 0U;
+      var->red.offset = 0U;
 #line 1151
-              __cil_tmp26 = 32 + 4;
-#line 1151
-              __cil_tmp27 = (unsigned long )var;
-#line 1151
-              __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 1151
-              *((__u32 *)__cil_tmp28) = 8U;
+      var->red.length = 8U;
 #line 1152
-              __cil_tmp29 = (unsigned long )var;
-#line 1152
-              __cil_tmp30 = __cil_tmp29 + 44;
-#line 1152
-              *((__u32 *)__cil_tmp30) = 0U;
+      var->green.offset = 0U;
 #line 1153
-              __cil_tmp31 = 44 + 4;
-#line 1153
-              __cil_tmp32 = (unsigned long )var;
-#line 1153
-              __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 1153
-              *((__u32 *)__cil_tmp33) = 8U;
+      var->green.length = 8U;
 #line 1154
-              __cil_tmp34 = 56 + 4;
-#line 1154
-              __cil_tmp35 = (unsigned long )var;
-#line 1154
-              __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
-#line 1154
-              *((__u32 *)__cil_tmp36) = 8U;
-              goto ldv_31474;
-              case_768: 
+      var->blue.length = 8U;
+#line 1155
+      goto ldv_31474;
+      case_768: 
 #line 1157
-              __cil_tmp37 = (unsigned long )var;
-#line 1157
-              __cil_tmp38 = __cil_tmp37 + 24;
-#line 1157
-              *((__u32 *)__cil_tmp38) = 16U;
+      var->bits_per_pixel = 16U;
 #line 1158
-              __cil_tmp39 = (unsigned long )var;
-#line 1158
-              __cil_tmp40 = __cil_tmp39 + 32;
-#line 1158
-              *((__u32 *)__cil_tmp40) = 10U;
+      var->red.offset = 10U;
 #line 1159
-              __cil_tmp41 = 32 + 4;
-#line 1159
-              __cil_tmp42 = (unsigned long )var;
-#line 1159
-              __cil_tmp43 = __cil_tmp42 + __cil_tmp41;
-#line 1159
-              *((__u32 *)__cil_tmp43) = 5U;
+      var->red.length = 5U;
 #line 1160
-              __cil_tmp44 = (unsigned long )var;
-#line 1160
-              __cil_tmp45 = __cil_tmp44 + 44;
-#line 1160
-              *((__u32 *)__cil_tmp45) = 5U;
+      var->green.offset = 5U;
 #line 1161
-              __cil_tmp46 = 44 + 4;
-#line 1161
-              __cil_tmp47 = (unsigned long )var;
-#line 1161
-              __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
-#line 1161
-              *((__u32 *)__cil_tmp48) = 5U;
+      var->green.length = 5U;
 #line 1162
-              __cil_tmp49 = 56 + 4;
-#line 1162
-              __cil_tmp50 = (unsigned long )var;
-#line 1162
-              __cil_tmp51 = __cil_tmp50 + __cil_tmp49;
-#line 1162
-              *((__u32 *)__cil_tmp51) = 5U;
-              goto ldv_31474;
-              case_1024: 
+      var->blue.length = 5U;
+#line 1163
+      goto ldv_31474;
+      case_1024: 
 #line 1165
-              __cil_tmp52 = (unsigned long )var;
-#line 1165
-              __cil_tmp53 = __cil_tmp52 + 24;
-#line 1165
-              *((__u32 *)__cil_tmp53) = 16U;
+      var->bits_per_pixel = 16U;
 #line 1166
-              __cil_tmp54 = (unsigned long )var;
-#line 1166
-              __cil_tmp55 = __cil_tmp54 + 32;
-#line 1166
-              *((__u32 *)__cil_tmp55) = 11U;
+      var->red.offset = 11U;
 #line 1167
-              __cil_tmp56 = 32 + 4;
-#line 1167
-              __cil_tmp57 = (unsigned long )var;
-#line 1167
-              __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
-#line 1167
-              *((__u32 *)__cil_tmp58) = 5U;
+      var->red.length = 5U;
 #line 1168
-              __cil_tmp59 = (unsigned long )var;
-#line 1168
-              __cil_tmp60 = __cil_tmp59 + 44;
-#line 1168
-              *((__u32 *)__cil_tmp60) = 5U;
+      var->green.offset = 5U;
 #line 1169
-              __cil_tmp61 = 44 + 4;
-#line 1169
-              __cil_tmp62 = (unsigned long )var;
-#line 1169
-              __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
-#line 1169
-              *((__u32 *)__cil_tmp63) = 6U;
+      var->green.length = 6U;
 #line 1170
-              __cil_tmp64 = 56 + 4;
-#line 1170
-              __cil_tmp65 = (unsigned long )var;
-#line 1170
-              __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
-#line 1170
-              *((__u32 *)__cil_tmp66) = 5U;
-              goto ldv_31474;
-              case_1280: 
+      var->blue.length = 5U;
+#line 1171
+      goto ldv_31474;
+      case_1280: 
 #line 1173
-              __cil_tmp67 = (unsigned long )var;
-#line 1173
-              __cil_tmp68 = __cil_tmp67 + 24;
-#line 1173
-              *((__u32 *)__cil_tmp68) = 24U;
+      var->bits_per_pixel = 24U;
 #line 1174
-              __cil_tmp69 = (unsigned long )var;
-#line 1174
-              __cil_tmp70 = __cil_tmp69 + 32;
-#line 1174
-              *((__u32 *)__cil_tmp70) = 16U;
+      var->red.offset = 16U;
 #line 1175
-              __cil_tmp71 = 32 + 4;
-#line 1175
-              __cil_tmp72 = (unsigned long )var;
-#line 1175
-              __cil_tmp73 = __cil_tmp72 + __cil_tmp71;
-#line 1175
-              *((__u32 *)__cil_tmp73) = 8U;
+      var->red.length = 8U;
 #line 1176
-              __cil_tmp74 = (unsigned long )var;
-#line 1176
-              __cil_tmp75 = __cil_tmp74 + 44;
-#line 1176
-              *((__u32 *)__cil_tmp75) = 8U;
+      var->green.offset = 8U;
 #line 1177
-              __cil_tmp76 = 44 + 4;
-#line 1177
-              __cil_tmp77 = (unsigned long )var;
-#line 1177
-              __cil_tmp78 = __cil_tmp77 + __cil_tmp76;
-#line 1177
-              *((__u32 *)__cil_tmp78) = 8U;
+      var->green.length = 8U;
 #line 1178
-              __cil_tmp79 = 56 + 4;
-#line 1178
-              __cil_tmp80 = (unsigned long )var;
-#line 1178
-              __cil_tmp81 = __cil_tmp80 + __cil_tmp79;
-#line 1178
-              *((__u32 *)__cil_tmp81) = 8U;
-              goto ldv_31474;
-              case_1536: 
+      var->blue.length = 8U;
+#line 1179
+      goto ldv_31474;
+      case_1536: 
 #line 1181
-              __cil_tmp82 = (unsigned long )var;
-#line 1181
-              __cil_tmp83 = __cil_tmp82 + 24;
-#line 1181
-              *((__u32 *)__cil_tmp83) = 32U;
+      var->bits_per_pixel = 32U;
 #line 1182
-              __cil_tmp84 = (unsigned long )var;
-#line 1182
-              __cil_tmp85 = __cil_tmp84 + 32;
-#line 1182
-              *((__u32 *)__cil_tmp85) = 16U;
+      var->red.offset = 16U;
 #line 1183
-              __cil_tmp86 = 32 + 4;
-#line 1183
-              __cil_tmp87 = (unsigned long )var;
-#line 1183
-              __cil_tmp88 = __cil_tmp87 + __cil_tmp86;
-#line 1183
-              *((__u32 *)__cil_tmp88) = 8U;
+      var->red.length = 8U;
 #line 1184
-              __cil_tmp89 = (unsigned long )var;
-#line 1184
-              __cil_tmp90 = __cil_tmp89 + 44;
-#line 1184
-              *((__u32 *)__cil_tmp90) = 8U;
+      var->green.offset = 8U;
 #line 1185
-              __cil_tmp91 = 44 + 4;
-#line 1185
-              __cil_tmp92 = (unsigned long )var;
-#line 1185
-              __cil_tmp93 = __cil_tmp92 + __cil_tmp91;
-#line 1185
-              *((__u32 *)__cil_tmp93) = 8U;
+      var->green.length = 8U;
 #line 1186
-              __cil_tmp94 = 56 + 4;
-#line 1186
-              __cil_tmp95 = (unsigned long )var;
-#line 1186
-              __cil_tmp96 = __cil_tmp95 + __cil_tmp94;
-#line 1186
-              *((__u32 *)__cil_tmp96) = 8U;
+      var->blue.length = 8U;
 #line 1187
-              __cil_tmp97 = (unsigned long )var;
-#line 1187
-              __cil_tmp98 = __cil_tmp97 + 68;
-#line 1187
-              *((__u32 *)__cil_tmp98) = 24U;
+      var->transp.offset = 24U;
 #line 1188
-              __cil_tmp99 = 68 + 4;
-#line 1188
-              __cil_tmp100 = (unsigned long )var;
-#line 1188
-              __cil_tmp101 = __cil_tmp100 + __cil_tmp99;
-#line 1188
-              *((__u32 *)__cil_tmp101) = 8U;
-              goto ldv_31474;
-              switch_default: 
-              {
+      var->transp.length = 8U;
+#line 1189
+      goto ldv_31474;
+      switch_default: 
+      {
 #line 1191
-              printk("<3>aty128fb: Invalid pixel width\n");
-              }
-#line 1192
-              return (-22);
-            } else {
-
-            }
-          }
-        }
+      printk("<3>aty128fb: Invalid pixel width\n");
       }
+#line 1192
+      return (-22);
+    } else {
+
     }
   }
   ldv_31474: ;
@@ -8908,280 +8061,180 @@ static int aty128_crtc_to_var(struct aty128_crtc  const  *crtc , struct fb_var_s
   u32 pix_width ;
   int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  u32 __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
   u32 __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  u32 __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  u32 __cil_tmp32 ;
   u32 __cil_tmp33 ;
-  u32 __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  unsigned int __cil_tmp34 ;
+  u32 __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  u32 __cil_tmp37 ;
   u32 __cil_tmp38 ;
-  u32 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  unsigned int __cil_tmp39 ;
+  u32 __cil_tmp40 ;
+  u32 __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
   u32 __cil_tmp43 ;
   unsigned int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  u32 __cil_tmp47 ;
+  u32 __cil_tmp45 ;
+  u32 __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
   u32 __cil_tmp48 ;
   unsigned int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u32 __cil_tmp52 ;
+  u32 __cil_tmp50 ;
+  u32 __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
   u32 __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  u32 __cil_tmp57 ;
+  u32 __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  u32 __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
   unsigned int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  u32 __cil_tmp61 ;
+  int __cil_tmp59 ;
+  u32 __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
   u32 __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  u32 __cil_tmp63 ;
+  u32 __cil_tmp64 ;
+  u32 __cil_tmp65 ;
   u32 __cil_tmp66 ;
-  unsigned int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  u32 __cil_tmp70 ;
-  u32 __cil_tmp71 ;
-  unsigned int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
+  u32 __cil_tmp67 ;
+  u32 __cil_tmp68 ;
+  int __cil_tmp69 ;
+  int __cil_tmp70 ;
+  int __cil_tmp71 ;
+  int __cil_tmp72 ;
+  u32 __cil_tmp73 ;
+  u32 __cil_tmp74 ;
   u32 __cil_tmp75 ;
   u32 __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  u32 __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  unsigned int __cil_tmp80 ;
-  int __cil_tmp81 ;
-  u32 __cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
-  u32 __cil_tmp84 ;
-  u32 __cil_tmp85 ;
-  u32 __cil_tmp86 ;
-  u32 __cil_tmp87 ;
-  u32 __cil_tmp88 ;
-  u32 __cil_tmp89 ;
-  u32 __cil_tmp90 ;
-  int __cil_tmp91 ;
-  int __cil_tmp92 ;
-  int __cil_tmp93 ;
-  int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  u32 __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  u32 __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  u32 __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  u32 __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
 
   {
 #line 1208
-  __cil_tmp27 = (unsigned long )crtc;
+  __cil_tmp27 = crtc->h_total;
 #line 1208
-  __cil_tmp28 = __cil_tmp27 + 4;
+  __cil_tmp28 = (unsigned int )__cil_tmp27;
 #line 1208
-  __cil_tmp29 = *((u32 const   *)__cil_tmp28);
-#line 1208
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
-#line 1208
-  h_total = __cil_tmp30 & 511U;
+  h_total = __cil_tmp28 & 511U;
 #line 1209
-  __cil_tmp31 = (unsigned long )crtc;
+  __cil_tmp29 = crtc->h_total;
 #line 1209
-  __cil_tmp32 = __cil_tmp31 + 4;
+  __cil_tmp30 = __cil_tmp29 >> 16;
 #line 1209
-  __cil_tmp33 = *((u32 const   *)__cil_tmp32);
+  __cil_tmp31 = (unsigned int )__cil_tmp30;
 #line 1209
-  __cil_tmp34 = __cil_tmp33 >> 16;
-#line 1209
-  __cil_tmp35 = (unsigned int )__cil_tmp34;
-#line 1209
-  h_disp = __cil_tmp35 & 255U;
+  h_disp = __cil_tmp31 & 255U;
 #line 1210
-  __cil_tmp36 = (unsigned long )crtc;
+  __cil_tmp32 = crtc->h_sync_strt_wid;
 #line 1210
-  __cil_tmp37 = __cil_tmp36 + 8;
+  __cil_tmp33 = __cil_tmp32 >> 3;
 #line 1210
-  __cil_tmp38 = *((u32 const   *)__cil_tmp37);
+  __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 1210
-  __cil_tmp39 = __cil_tmp38 >> 3;
-#line 1210
-  __cil_tmp40 = (unsigned int )__cil_tmp39;
-#line 1210
-  h_sync_strt = __cil_tmp40 & 511U;
+  h_sync_strt = __cil_tmp34 & 511U;
 #line 1211
-  __cil_tmp41 = (unsigned long )crtc;
+  __cil_tmp35 = crtc->h_sync_strt_wid;
 #line 1211
-  __cil_tmp42 = __cil_tmp41 + 8;
+  __cil_tmp36 = (unsigned int )__cil_tmp35;
 #line 1211
-  __cil_tmp43 = *((u32 const   *)__cil_tmp42);
-#line 1211
+  h_sync_dly = __cil_tmp36 & 7U;
+#line 1212
+  __cil_tmp37 = crtc->h_sync_strt_wid;
+#line 1212
+  __cil_tmp38 = __cil_tmp37 >> 16;
+#line 1212
+  __cil_tmp39 = (unsigned int )__cil_tmp38;
+#line 1212
+  h_sync_wid = __cil_tmp39 & 63U;
+#line 1213
+  __cil_tmp40 = crtc->h_sync_strt_wid;
+#line 1213
+  __cil_tmp41 = __cil_tmp40 >> 23;
+#line 1213
+  __cil_tmp42 = (unsigned int )__cil_tmp41;
+#line 1213
+  h_sync_pol = __cil_tmp42 & 1U;
+#line 1214
+  __cil_tmp43 = crtc->v_total;
+#line 1214
   __cil_tmp44 = (unsigned int )__cil_tmp43;
-#line 1211
-  h_sync_dly = __cil_tmp44 & 7U;
-#line 1212
-  __cil_tmp45 = (unsigned long )crtc;
-#line 1212
-  __cil_tmp46 = __cil_tmp45 + 8;
-#line 1212
-  __cil_tmp47 = *((u32 const   *)__cil_tmp46);
-#line 1212
-  __cil_tmp48 = __cil_tmp47 >> 16;
-#line 1212
+#line 1214
+  v_total = __cil_tmp44 & 2047U;
+#line 1215
+  __cil_tmp45 = crtc->v_total;
+#line 1215
+  __cil_tmp46 = __cil_tmp45 >> 16;
+#line 1215
+  __cil_tmp47 = (unsigned int )__cil_tmp46;
+#line 1215
+  v_disp = __cil_tmp47 & 2047U;
+#line 1216
+  __cil_tmp48 = crtc->v_sync_strt_wid;
+#line 1216
   __cil_tmp49 = (unsigned int )__cil_tmp48;
-#line 1212
-  h_sync_wid = __cil_tmp49 & 63U;
-#line 1213
-  __cil_tmp50 = (unsigned long )crtc;
-#line 1213
-  __cil_tmp51 = __cil_tmp50 + 8;
-#line 1213
-  __cil_tmp52 = *((u32 const   *)__cil_tmp51);
-#line 1213
-  __cil_tmp53 = __cil_tmp52 >> 23;
-#line 1213
-  __cil_tmp54 = (unsigned int )__cil_tmp53;
-#line 1213
-  h_sync_pol = __cil_tmp54 & 1U;
-#line 1214
-  __cil_tmp55 = (unsigned long )crtc;
-#line 1214
-  __cil_tmp56 = __cil_tmp55 + 12;
-#line 1214
-  __cil_tmp57 = *((u32 const   *)__cil_tmp56);
-#line 1214
-  __cil_tmp58 = (unsigned int )__cil_tmp57;
-#line 1214
-  v_total = __cil_tmp58 & 2047U;
-#line 1215
-  __cil_tmp59 = (unsigned long )crtc;
-#line 1215
-  __cil_tmp60 = __cil_tmp59 + 12;
-#line 1215
-  __cil_tmp61 = *((u32 const   *)__cil_tmp60);
-#line 1215
-  __cil_tmp62 = __cil_tmp61 >> 16;
-#line 1215
-  __cil_tmp63 = (unsigned int )__cil_tmp62;
-#line 1215
-  v_disp = __cil_tmp63 & 2047U;
 #line 1216
-  __cil_tmp64 = (unsigned long )crtc;
-#line 1216
-  __cil_tmp65 = __cil_tmp64 + 16;
-#line 1216
-  __cil_tmp66 = *((u32 const   *)__cil_tmp65);
-#line 1216
-  __cil_tmp67 = (unsigned int )__cil_tmp66;
-#line 1216
-  v_sync_strt = __cil_tmp67 & 2047U;
+  v_sync_strt = __cil_tmp49 & 2047U;
 #line 1217
-  __cil_tmp68 = (unsigned long )crtc;
+  __cil_tmp50 = crtc->v_sync_strt_wid;
 #line 1217
-  __cil_tmp69 = __cil_tmp68 + 16;
+  __cil_tmp51 = __cil_tmp50 >> 16;
 #line 1217
-  __cil_tmp70 = *((u32 const   *)__cil_tmp69);
+  __cil_tmp52 = (unsigned int )__cil_tmp51;
 #line 1217
-  __cil_tmp71 = __cil_tmp70 >> 16;
-#line 1217
-  __cil_tmp72 = (unsigned int )__cil_tmp71;
-#line 1217
-  v_sync_wid = __cil_tmp72 & 31U;
+  v_sync_wid = __cil_tmp52 & 31U;
 #line 1218
-  __cil_tmp73 = (unsigned long )crtc;
+  __cil_tmp53 = crtc->v_sync_strt_wid;
 #line 1218
-  __cil_tmp74 = __cil_tmp73 + 16;
+  __cil_tmp54 = __cil_tmp53 >> 23;
 #line 1218
-  __cil_tmp75 = *((u32 const   *)__cil_tmp74);
+  __cil_tmp55 = (unsigned int )__cil_tmp54;
 #line 1218
-  __cil_tmp76 = __cil_tmp75 >> 23;
-#line 1218
-  __cil_tmp77 = (unsigned int )__cil_tmp76;
-#line 1218
-  v_sync_pol = __cil_tmp77 & 1U;
+  v_sync_pol = __cil_tmp55 & 1U;
 #line 1219
-  __cil_tmp78 = *((u32 const   *)crtc);
+  __cil_tmp56 = crtc->gen_cntl;
 #line 1219
-  __cil_tmp79 = (unsigned int )__cil_tmp78;
+  __cil_tmp57 = (unsigned int )__cil_tmp56;
 #line 1219
-  __cil_tmp80 = __cil_tmp79 & 16U;
+  __cil_tmp58 = __cil_tmp57 & 16U;
 #line 1219
-  __cil_tmp81 = __cil_tmp80 != 0U;
+  __cil_tmp59 = __cil_tmp58 != 0U;
 #line 1219
-  c_sync = (unsigned int )__cil_tmp81;
+  c_sync = (u32 )__cil_tmp59;
 #line 1220
-  __cil_tmp82 = *((u32 const   *)crtc);
+  __cil_tmp60 = crtc->gen_cntl;
 #line 1220
-  __cil_tmp83 = (unsigned int )__cil_tmp82;
+  __cil_tmp61 = (unsigned int )__cil_tmp60;
 #line 1220
-  pix_width = __cil_tmp83 & 1792U;
+  pix_width = __cil_tmp61 & 1792U;
 #line 1223
-  __cil_tmp84 = h_disp + 1U;
+  __cil_tmp62 = h_disp + 1U;
 #line 1223
-  xres = __cil_tmp84 << 3;
+  xres = __cil_tmp62 << 3;
 #line 1224
   yres = v_disp + 1U;
 #line 1225
-  __cil_tmp85 = h_total - h_sync_strt;
+  __cil_tmp63 = h_total - h_sync_strt;
 #line 1225
-  __cil_tmp86 = __cil_tmp85 - h_sync_wid;
+  __cil_tmp64 = __cil_tmp63 - h_sync_wid;
 #line 1225
-  __cil_tmp87 = __cil_tmp86 << 3;
+  __cil_tmp65 = __cil_tmp64 << 3;
 #line 1225
-  left = __cil_tmp87 - h_sync_dly;
+  left = __cil_tmp65 - h_sync_dly;
 #line 1226
-  __cil_tmp88 = h_sync_strt - h_disp;
+  __cil_tmp66 = h_sync_strt - h_disp;
 #line 1226
-  __cil_tmp89 = __cil_tmp88 << 3;
+  __cil_tmp67 = __cil_tmp66 << 3;
 #line 1226
-  right = __cil_tmp89 + h_sync_dly;
+  right = __cil_tmp67 + h_sync_dly;
 #line 1227
   hslen = h_sync_wid << 3;
 #line 1228
-  __cil_tmp90 = v_total - v_sync_strt;
+  __cil_tmp68 = v_total - v_sync_strt;
 #line 1228
-  upper = __cil_tmp90 - v_sync_wid;
+  upper = __cil_tmp68 - v_sync_wid;
 #line 1229
   lower = v_sync_strt - v_disp;
 #line 1230
@@ -9204,121 +8257,53 @@ static int aty128_crtc_to_var(struct aty128_crtc  const  *crtc , struct fb_var_s
   }
   {
 #line 1231
-  __cil_tmp91 = h_sync_pol == 0U;
+  __cil_tmp69 = h_sync_pol == 0U;
 #line 1231
-  __cil_tmp92 = __cil_tmp91 | tmp;
+  __cil_tmp70 = __cil_tmp69 | tmp;
 #line 1231
-  __cil_tmp93 = __cil_tmp92 | tmp___0;
+  __cil_tmp71 = __cil_tmp70 | tmp___0;
 #line 1231
-  sync = (unsigned int )__cil_tmp93;
+  sync = (u32 )__cil_tmp71;
 #line 1235
-  __cil_tmp94 = (int )pix_width;
+  __cil_tmp72 = (int )pix_width;
 #line 1235
-  aty128_pix_width_to_var(__cil_tmp94, var);
+  aty128_pix_width_to_var(__cil_tmp72, var);
 #line 1237
-  *((__u32 *)var) = xres;
+  var->xres = xres;
 #line 1238
-  __cil_tmp95 = (unsigned long )var;
-#line 1238
-  __cil_tmp96 = __cil_tmp95 + 4;
-#line 1238
-  *((__u32 *)__cil_tmp96) = yres;
+  var->yres = yres;
 #line 1239
-  __cil_tmp97 = (unsigned long )var;
+  __cil_tmp73 = crtc->vxres;
 #line 1239
-  __cil_tmp98 = __cil_tmp97 + 8;
-#line 1239
-  __cil_tmp99 = (unsigned long )crtc;
-#line 1239
-  __cil_tmp100 = __cil_tmp99 + 40;
-#line 1239
-  __cil_tmp101 = *((u32 const   *)__cil_tmp100);
-#line 1239
-  *((__u32 *)__cil_tmp98) = (unsigned int )__cil_tmp101;
+  var->xres_virtual = (__u32 )__cil_tmp73;
 #line 1240
-  __cil_tmp102 = (unsigned long )var;
+  __cil_tmp74 = crtc->vyres;
 #line 1240
-  __cil_tmp103 = __cil_tmp102 + 12;
-#line 1240
-  __cil_tmp104 = (unsigned long )crtc;
-#line 1240
-  __cil_tmp105 = __cil_tmp104 + 44;
-#line 1240
-  __cil_tmp106 = *((u32 const   *)__cil_tmp105);
-#line 1240
-  *((__u32 *)__cil_tmp103) = (unsigned int )__cil_tmp106;
+  var->yres_virtual = (__u32 )__cil_tmp74;
 #line 1241
-  __cil_tmp107 = (unsigned long )var;
+  __cil_tmp75 = crtc->xoffset;
 #line 1241
-  __cil_tmp108 = __cil_tmp107 + 16;
-#line 1241
-  __cil_tmp109 = (unsigned long )crtc;
-#line 1241
-  __cil_tmp110 = __cil_tmp109 + 32;
-#line 1241
-  __cil_tmp111 = *((u32 const   *)__cil_tmp110);
-#line 1241
-  *((__u32 *)__cil_tmp108) = (unsigned int )__cil_tmp111;
+  var->xoffset = (__u32 )__cil_tmp75;
 #line 1242
-  __cil_tmp112 = (unsigned long )var;
+  __cil_tmp76 = crtc->yoffset;
 #line 1242
-  __cil_tmp113 = __cil_tmp112 + 20;
-#line 1242
-  __cil_tmp114 = (unsigned long )crtc;
-#line 1242
-  __cil_tmp115 = __cil_tmp114 + 36;
-#line 1242
-  __cil_tmp116 = *((u32 const   *)__cil_tmp115);
-#line 1242
-  *((__u32 *)__cil_tmp113) = (unsigned int )__cil_tmp116;
+  var->yoffset = (__u32 )__cil_tmp76;
 #line 1243
-  __cil_tmp117 = (unsigned long )var;
-#line 1243
-  __cil_tmp118 = __cil_tmp117 + 104;
-#line 1243
-  *((__u32 *)__cil_tmp118) = left;
+  var->left_margin = left;
 #line 1244
-  __cil_tmp119 = (unsigned long )var;
-#line 1244
-  __cil_tmp120 = __cil_tmp119 + 108;
-#line 1244
-  *((__u32 *)__cil_tmp120) = right;
+  var->right_margin = right;
 #line 1245
-  __cil_tmp121 = (unsigned long )var;
-#line 1245
-  __cil_tmp122 = __cil_tmp121 + 112;
-#line 1245
-  *((__u32 *)__cil_tmp122) = upper;
+  var->upper_margin = upper;
 #line 1246
-  __cil_tmp123 = (unsigned long )var;
-#line 1246
-  __cil_tmp124 = __cil_tmp123 + 116;
-#line 1246
-  *((__u32 *)__cil_tmp124) = lower;
+  var->lower_margin = lower;
 #line 1247
-  __cil_tmp125 = (unsigned long )var;
-#line 1247
-  __cil_tmp126 = __cil_tmp125 + 120;
-#line 1247
-  *((__u32 *)__cil_tmp126) = hslen;
+  var->hsync_len = hslen;
 #line 1248
-  __cil_tmp127 = (unsigned long )var;
-#line 1248
-  __cil_tmp128 = __cil_tmp127 + 124;
-#line 1248
-  *((__u32 *)__cil_tmp128) = vslen;
+  var->vsync_len = vslen;
 #line 1249
-  __cil_tmp129 = (unsigned long )var;
-#line 1249
-  __cil_tmp130 = __cil_tmp129 + 128;
-#line 1249
-  *((__u32 *)__cil_tmp130) = sync;
+  var->sync = sync;
 #line 1250
-  __cil_tmp131 = (unsigned long )var;
-#line 1250
-  __cil_tmp132 = __cil_tmp131 + 132;
-#line 1250
-  *((__u32 *)__cil_tmp132) = 0U;
+  var->vmode = 0U;
   }
 #line 1252
   return (0);
@@ -9407,9 +8392,9 @@ static void aty128_set_lcd_enable(struct aty128fb_par *par , int on )
   void *tmp ;
   unsigned long __ms ;
   unsigned long tmp___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct pci_dev *__cil_tmp10 ;
+  struct pci_dev *__cil_tmp8 ;
+  unsigned int volatile   __cil_tmp9 ;
+  struct aty128fb_par  const  *__cil_tmp10 ;
   unsigned int volatile   __cil_tmp11 ;
   struct aty128fb_par  const  *__cil_tmp12 ;
   unsigned int volatile   __cil_tmp13 ;
@@ -9418,19 +8403,13 @@ static void aty128_set_lcd_enable(struct aty128fb_par *par , int on )
   struct aty128fb_par  const  *__cil_tmp16 ;
   unsigned int volatile   __cil_tmp17 ;
   struct aty128fb_par  const  *__cil_tmp18 ;
-  unsigned int volatile   __cil_tmp19 ;
-  struct aty128fb_par  const  *__cil_tmp20 ;
 
   {
   {
 #line 1268
-  __cil_tmp8 = (unsigned long )par;
+  __cil_tmp8 = par->pdev;
 #line 1268
-  __cil_tmp9 = __cil_tmp8 + 168;
-#line 1268
-  __cil_tmp10 = *((struct pci_dev **)__cil_tmp9);
-#line 1268
-  tmp = pci_get_drvdata(__cil_tmp10);
+  tmp = pci_get_drvdata(__cil_tmp8);
 #line 1268
   info = (struct fb_info *)tmp;
   }
@@ -9438,21 +8417,21 @@ static void aty128_set_lcd_enable(struct aty128fb_par *par , int on )
   if (on != 0) {
     {
 #line 1272
-    __cil_tmp11 = (unsigned int volatile   )720U;
+    __cil_tmp9 = (unsigned int volatile   )720U;
 #line 1272
-    __cil_tmp12 = (struct aty128fb_par  const  *)par;
+    __cil_tmp10 = (struct aty128fb_par  const  *)par;
 #line 1272
-    reg = _aty_ld_le32(__cil_tmp11, __cil_tmp12);
+    reg = _aty_ld_le32(__cil_tmp9, __cil_tmp10);
 #line 1273
     reg = reg | 786561U;
 #line 1274
     reg = reg & 4294967293U;
 #line 1275
-    __cil_tmp13 = (unsigned int volatile   )720U;
+    __cil_tmp11 = (unsigned int volatile   )720U;
 #line 1275
-    __cil_tmp14 = (struct aty128fb_par  const  *)par;
+    __cil_tmp12 = (struct aty128fb_par  const  *)par;
 #line 1275
-    _aty_st_le32(__cil_tmp13, reg, __cil_tmp14);
+    _aty_st_le32(__cil_tmp11, reg, __cil_tmp12);
 #line 1277
     aty128_bl_set_power(info, 0);
     }
@@ -9461,22 +8440,23 @@ static void aty128_set_lcd_enable(struct aty128fb_par *par , int on )
 #line 1281
     aty128_bl_set_power(info, 4);
 #line 1283
-    __cil_tmp15 = (unsigned int volatile   )720U;
+    __cil_tmp13 = (unsigned int volatile   )720U;
 #line 1283
-    __cil_tmp16 = (struct aty128fb_par  const  *)par;
+    __cil_tmp14 = (struct aty128fb_par  const  *)par;
 #line 1283
-    reg = _aty_ld_le32(__cil_tmp15, __cil_tmp16);
+    reg = _aty_ld_le32(__cil_tmp13, __cil_tmp14);
 #line 1284
     reg = reg | 2U;
 #line 1285
-    __cil_tmp17 = (unsigned int volatile   )720U;
+    __cil_tmp15 = (unsigned int volatile   )720U;
 #line 1285
-    __cil_tmp18 = (struct aty128fb_par  const  *)par;
+    __cil_tmp16 = (struct aty128fb_par  const  *)par;
 #line 1285
-    _aty_st_le32(__cil_tmp17, reg, __cil_tmp18);
+    _aty_st_le32(__cil_tmp15, reg, __cil_tmp16);
 #line 1286
     __ms = 100UL;
     }
+#line 1286
     goto ldv_31518;
     ldv_31517: 
     {
@@ -9490,8 +8470,10 @@ static void aty128_set_lcd_enable(struct aty128fb_par *par , int on )
     __ms = __ms - 1UL;
 #line 1286
     if (tmp___0 != 0UL) {
+#line 1287
       goto ldv_31517;
     } else {
+#line 1289
       goto ldv_31519;
     }
     ldv_31519: 
@@ -9499,11 +8481,11 @@ static void aty128_set_lcd_enable(struct aty128fb_par *par , int on )
 #line 1287
     reg = reg & 4294967294U;
 #line 1288
-    __cil_tmp19 = (unsigned int volatile   )720U;
+    __cil_tmp17 = (unsigned int volatile   )720U;
 #line 1288
-    __cil_tmp20 = (struct aty128fb_par  const  *)par;
+    __cil_tmp18 = (struct aty128fb_par  const  *)par;
 #line 1288
-    _aty_st_le32(__cil_tmp19, reg, __cil_tmp20);
+    _aty_st_le32(__cil_tmp17, reg, __cil_tmp18);
     }
   }
 #line 1290
@@ -9517,166 +8499,73 @@ static void aty128_set_pll(struct aty128_pll *pll , struct aty128fb_par  const  
   u32 tmp ;
   u32 tmp___0 ;
   u32 tmp___1 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned int volatile   __cil_tmp34 ;
-  unsigned int volatile   __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  u32 __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  u32 __cil_tmp46 ;
-  u32 __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned char __cil_tmp50 ;
-  int __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
+  unsigned int volatile   __cil_tmp8 ;
+  unsigned int volatile   __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  u32 __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  u32 __cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
 
   {
   {
 #line 1296
-  __cil_tmp8 = 0 * 1UL;
+  post_conv[0] = (unsigned char)2;
 #line 1296
-  __cil_tmp9 = (unsigned long )(post_conv) + __cil_tmp8;
+  post_conv[1] = (unsigned char)0;
 #line 1296
-  *((unsigned char *)__cil_tmp9) = (unsigned char)2;
+  post_conv[2] = (unsigned char)1;
 #line 1296
-  __cil_tmp10 = 1 * 1UL;
+  post_conv[3] = (unsigned char)4;
 #line 1296
-  __cil_tmp11 = (unsigned long )(post_conv) + __cil_tmp10;
+  post_conv[4] = (unsigned char)2;
 #line 1296
-  *((unsigned char *)__cil_tmp11) = (unsigned char)0;
+  post_conv[5] = (unsigned char)2;
 #line 1296
-  __cil_tmp12 = 2 * 1UL;
+  post_conv[6] = (unsigned char)6;
 #line 1296
-  __cil_tmp13 = (unsigned long )(post_conv) + __cil_tmp12;
+  post_conv[7] = (unsigned char)2;
 #line 1296
-  *((unsigned char *)__cil_tmp13) = (unsigned char)1;
+  post_conv[8] = (unsigned char)3;
 #line 1296
-  __cil_tmp14 = 3 * 1UL;
+  post_conv[9] = (unsigned char)2;
 #line 1296
-  __cil_tmp15 = (unsigned long )(post_conv) + __cil_tmp14;
+  post_conv[10] = (unsigned char)2;
 #line 1296
-  *((unsigned char *)__cil_tmp15) = (unsigned char)4;
+  post_conv[11] = (unsigned char)2;
 #line 1296
-  __cil_tmp16 = 4 * 1UL;
-#line 1296
-  __cil_tmp17 = (unsigned long )(post_conv) + __cil_tmp16;
-#line 1296
-  *((unsigned char *)__cil_tmp17) = (unsigned char)2;
-#line 1296
-  __cil_tmp18 = 5 * 1UL;
-#line 1296
-  __cil_tmp19 = (unsigned long )(post_conv) + __cil_tmp18;
-#line 1296
-  *((unsigned char *)__cil_tmp19) = (unsigned char)2;
-#line 1296
-  __cil_tmp20 = 6 * 1UL;
-#line 1296
-  __cil_tmp21 = (unsigned long )(post_conv) + __cil_tmp20;
-#line 1296
-  *((unsigned char *)__cil_tmp21) = (unsigned char)6;
-#line 1296
-  __cil_tmp22 = 7 * 1UL;
-#line 1296
-  __cil_tmp23 = (unsigned long )(post_conv) + __cil_tmp22;
-#line 1296
-  *((unsigned char *)__cil_tmp23) = (unsigned char)2;
-#line 1296
-  __cil_tmp24 = 8 * 1UL;
-#line 1296
-  __cil_tmp25 = (unsigned long )(post_conv) + __cil_tmp24;
-#line 1296
-  *((unsigned char *)__cil_tmp25) = (unsigned char)3;
-#line 1296
-  __cil_tmp26 = 9 * 1UL;
-#line 1296
-  __cil_tmp27 = (unsigned long )(post_conv) + __cil_tmp26;
-#line 1296
-  *((unsigned char *)__cil_tmp27) = (unsigned char)2;
-#line 1296
-  __cil_tmp28 = 10 * 1UL;
-#line 1296
-  __cil_tmp29 = (unsigned long )(post_conv) + __cil_tmp28;
-#line 1296
-  *((unsigned char *)__cil_tmp29) = (unsigned char)2;
-#line 1296
-  __cil_tmp30 = 11 * 1UL;
-#line 1296
-  __cil_tmp31 = (unsigned long )(post_conv) + __cil_tmp30;
-#line 1296
-  *((unsigned char *)__cil_tmp31) = (unsigned char)2;
-#line 1296
-  __cil_tmp32 = 12 * 1UL;
-#line 1296
-  __cil_tmp33 = (unsigned long )(post_conv) + __cil_tmp32;
-#line 1296
-  *((unsigned char *)__cil_tmp33) = (unsigned char)7;
+  post_conv[12] = (unsigned char)7;
 #line 1300
-  __cil_tmp34 = (unsigned int volatile   )8U;
+  __cil_tmp8 = (unsigned int volatile   )8U;
 #line 1300
-  tmp = _aty_ld_le32(__cil_tmp34, par);
+  tmp = _aty_ld_le32(__cil_tmp8, par);
 #line 1300
-  __cil_tmp35 = (unsigned int volatile   )8U;
+  __cil_tmp9 = (unsigned int volatile   )8U;
 #line 1300
-  __cil_tmp36 = tmp | 768U;
+  __cil_tmp10 = tmp | 768U;
 #line 1300
-  _aty_st_le32(__cil_tmp35, __cil_tmp36, par);
+  _aty_st_le32(__cil_tmp9, __cil_tmp10, par);
 #line 1303
   tmp___0 = _aty_ld_pll(2U, par);
 #line 1303
-  __cil_tmp37 = tmp___0 | 65537U;
+  __cil_tmp11 = tmp___0 | 65537U;
 #line 1303
-  _aty_st_pll(2U, __cil_tmp37, par);
+  _aty_st_pll(2U, __cil_tmp11, par);
 #line 1307
   aty_pll_wait_readupdate(par);
 #line 1308
-  __cil_tmp38 = 80 + 12;
+  __cil_tmp12 = par->constants.ref_divider;
 #line 1308
-  __cil_tmp39 = (unsigned long )par;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1308
-  __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
+  __cil_tmp14 = __cil_tmp13 & 1023U;
 #line 1308
-  __cil_tmp41 = *((u32 const   *)__cil_tmp40);
-#line 1308
-  __cil_tmp42 = (unsigned int )__cil_tmp41;
-#line 1308
-  __cil_tmp43 = __cil_tmp42 & 1023U;
-#line 1308
-  _aty_st_pll(3U, __cil_tmp43, par);
+  _aty_st_pll(3U, __cil_tmp14, par);
 #line 1309
   aty_pll_writeupdate(par);
 #line 1311
@@ -9684,31 +8573,19 @@ static void aty128_set_pll(struct aty128_pll *pll , struct aty128fb_par  const  
 #line 1312
   div3 = div3 & 4294965248U;
 #line 1313
-  __cil_tmp44 = (unsigned long )pll;
+  __cil_tmp15 = pll->feedback_divider;
 #line 1313
-  __cil_tmp45 = __cil_tmp44 + 4;
-#line 1313
-  __cil_tmp46 = *((u32 *)__cil_tmp45);
-#line 1313
-  div3 = __cil_tmp46 | div3;
+  div3 = __cil_tmp15 | div3;
 #line 1314
   div3 = div3 & 4294508543U;
 #line 1315
-  __cil_tmp47 = *((u32 *)pll);
+  __cil_tmp16 = (int )post_conv[pll->post_divider];
 #line 1315
-  __cil_tmp48 = __cil_tmp47 * 1UL;
+  __cil_tmp17 = __cil_tmp16 << 16;
 #line 1315
-  __cil_tmp49 = (unsigned long )(post_conv) + __cil_tmp48;
+  __cil_tmp18 = (u32 )__cil_tmp17;
 #line 1315
-  __cil_tmp50 = *((unsigned char *)__cil_tmp49);
-#line 1315
-  __cil_tmp51 = (int )__cil_tmp50;
-#line 1315
-  __cil_tmp52 = __cil_tmp51 << 16;
-#line 1315
-  __cil_tmp53 = (unsigned int )__cil_tmp52;
-#line 1315
-  div3 = __cil_tmp53 | div3;
+  div3 = __cil_tmp18 | div3;
 #line 1318
   aty_pll_wait_readupdate(par);
 #line 1319
@@ -9724,9 +8601,9 @@ static void aty128_set_pll(struct aty128_pll *pll , struct aty128fb_par  const  
 #line 1327
   tmp___1 = _aty_ld_pll(2U, par);
 #line 1327
-  __cil_tmp54 = tmp___1 & 4294967294U;
+  __cil_tmp19 = tmp___1 & 4294967294U;
 #line 1327
-  _aty_st_pll(2U, __cil_tmp54, par);
+  _aty_st_pll(2U, __cil_tmp19, par);
   }
 #line 1328
   return;
@@ -9741,185 +8618,70 @@ static int aty128_var_to_pll(u32 period_in_ps , struct aty128_pll *pll , struct 
   int i ;
   u32 n ;
   u32 d ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct aty128_constants __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  u32 __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned char __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u32 __cil_tmp39 ;
-  u32 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u32 c_fifo_depth43 ;
-  u32 c_fifo_width44 ;
-  u32 c_xclk45 ;
-  u32 c_ref_divider46 ;
-  u32 c_ppll_max47 ;
-  u32 c_ppll_min48 ;
-  u32 c_ref_clk49 ;
-  u32 __cil_tmp13_fifo_depth50 ;
-  u32 __cil_tmp13_fifo_width51 ;
-  u32 __cil_tmp13_xclk52 ;
-  u32 __cil_tmp13_ref_divider53 ;
-  u32 __cil_tmp13_ppll_max54 ;
-  u32 __cil_tmp13_ppll_min55 ;
-  u32 __cil_tmp13_ref_clk56 ;
-  u32 __cil_tmp57 ;
-  u32 __cil_tmp58 ;
-  u32 __cil_tmp59 ;
-  u32 __cil_tmp60 ;
-  u32 __cil_tmp61 ;
-  u32 __cil_tmp62 ;
-  u32 __cil_tmp63 ;
+  struct aty128_constants __cil_tmp11 ;
+  u32 __cil_tmp12 ;
+  u32 __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  u32 __cil_tmp15 ;
+  u32 __cil_tmp16 ;
 
   {
 #line 1334
-  __cil_tmp11 = (unsigned long )par;
+  __cil_tmp11 = par->constants;
 #line 1334
-  __cil_tmp12 = __cil_tmp11 + 80;
-#line 1334
-  __cil_tmp57 = ((struct aty128_constants  const  *)__cil_tmp12)->ref_clk;
-#line 1334
-  __cil_tmp58 = ((struct aty128_constants  const  *)__cil_tmp12)->ppll_min;
-#line 1334
-  __cil_tmp59 = ((struct aty128_constants  const  *)__cil_tmp12)->ppll_max;
-#line 1334
-  __cil_tmp60 = ((struct aty128_constants  const  *)__cil_tmp12)->ref_divider;
-#line 1334
-  __cil_tmp61 = ((struct aty128_constants  const  *)__cil_tmp12)->xclk;
-#line 1334
-  __cil_tmp62 = ((struct aty128_constants  const  *)__cil_tmp12)->fifo_width;
-#line 1334
-  __cil_tmp63 = ((struct aty128_constants  const  *)__cil_tmp12)->fifo_depth;
-#line 1334
-  __cil_tmp13_ref_clk56 = __cil_tmp57;
-#line 1334
-  __cil_tmp13_ppll_min55 = __cil_tmp58;
-#line 1334
-  __cil_tmp13_ppll_max54 = __cil_tmp59;
-#line 1334
-  __cil_tmp13_ref_divider53 = __cil_tmp60;
-#line 1334
-  __cil_tmp13_xclk52 = __cil_tmp61;
-#line 1334
-  __cil_tmp13_fifo_width51 = __cil_tmp62;
-#line 1334
-  __cil_tmp13_fifo_depth50 = __cil_tmp63;
-#line 1334
-  c = (struct aty128_constants )__cil_tmp13;
+  c = (struct aty128_constants )__cil_tmp11;
 #line 1335
-  __cil_tmp14 = 0 * 1UL;
+  post_dividers[0] = (unsigned char)1;
 #line 1335
-  __cil_tmp15 = (unsigned long )(post_dividers) + __cil_tmp14;
+  post_dividers[1] = (unsigned char)2;
 #line 1335
-  *((unsigned char *)__cil_tmp15) = (unsigned char)1;
+  post_dividers[2] = (unsigned char)4;
 #line 1335
-  __cil_tmp16 = 1 * 1UL;
+  post_dividers[3] = (unsigned char)8;
 #line 1335
-  __cil_tmp17 = (unsigned long )(post_dividers) + __cil_tmp16;
+  post_dividers[4] = (unsigned char)3;
 #line 1335
-  *((unsigned char *)__cil_tmp17) = (unsigned char)2;
+  post_dividers[5] = (unsigned char)6;
 #line 1335
-  __cil_tmp18 = 2 * 1UL;
-#line 1335
-  __cil_tmp19 = (unsigned long )(post_dividers) + __cil_tmp18;
-#line 1335
-  *((unsigned char *)__cil_tmp19) = (unsigned char)4;
-#line 1335
-  __cil_tmp20 = 3 * 1UL;
-#line 1335
-  __cil_tmp21 = (unsigned long )(post_dividers) + __cil_tmp20;
-#line 1335
-  *((unsigned char *)__cil_tmp21) = (unsigned char)8;
-#line 1335
-  __cil_tmp22 = 4 * 1UL;
-#line 1335
-  __cil_tmp23 = (unsigned long )(post_dividers) + __cil_tmp22;
-#line 1335
-  *((unsigned char *)__cil_tmp23) = (unsigned char)3;
-#line 1335
-  __cil_tmp24 = 5 * 1UL;
-#line 1335
-  __cil_tmp25 = (unsigned long )(post_dividers) + __cil_tmp24;
-#line 1335
-  *((unsigned char *)__cil_tmp25) = (unsigned char)6;
-#line 1335
-  __cil_tmp26 = 6 * 1UL;
-#line 1335
-  __cil_tmp27 = (unsigned long )(post_dividers) + __cil_tmp26;
-#line 1335
-  *((unsigned char *)__cil_tmp27) = (unsigned char)12;
+  post_dividers[6] = (unsigned char)12;
 #line 1338
   i = 0;
 #line 1341
   vclk = 100000000U / period_in_ps;
 #line 1344
-  if (c_ppll_max47 < vclk) {
+  if (c.ppll_max < vclk) {
 #line 1345
-    vclk = c_ppll_max47;
+    vclk = c.ppll_max;
   } else {
 
   }
   {
 #line 1346
-  __cil_tmp28 = vclk * 12U;
+  __cil_tmp12 = vclk * 12U;
 #line 1346
-  if (__cil_tmp28 < c_ppll_min48) {
+  if (__cil_tmp12 < c.ppll_min) {
 #line 1347
-    vclk = c_ppll_min48 / 12U;
+    vclk = c.ppll_min / 12U;
   } else {
 
   }
   }
 #line 1350
   i = 0;
+#line 1350
   goto ldv_31542;
   ldv_31541: 
 #line 1351
-  __cil_tmp29 = i * 1UL;
+  __cil_tmp13 = (u32 )post_dividers[i];
 #line 1351
-  __cil_tmp30 = (unsigned long )(post_dividers) + __cil_tmp29;
-#line 1351
-  __cil_tmp31 = *((unsigned char *)__cil_tmp30);
-#line 1351
-  __cil_tmp32 = (unsigned int )__cil_tmp31;
-#line 1351
-  output_freq = __cil_tmp32 * vclk;
+  output_freq = __cil_tmp13 * vclk;
 #line 1352
-  if (c_ppll_min48 <= output_freq) {
+  if (c.ppll_min <= output_freq) {
 #line 1352
-    if (c_ppll_max47 >= output_freq) {
+    if (c.ppll_max >= output_freq) {
 #line 1353
-      __cil_tmp33 = i * 1UL;
-#line 1353
-      __cil_tmp34 = (unsigned long )(post_dividers) + __cil_tmp33;
-#line 1353
-      __cil_tmp35 = *((unsigned char *)__cil_tmp34);
-#line 1353
-      *((u32 *)pll) = (unsigned int )__cil_tmp35;
+      pll->post_divider = (u32 )post_dividers[i];
+#line 1354
       goto ldv_31540;
     } else {
 
@@ -9932,11 +8694,13 @@ static int aty128_var_to_pll(u32 period_in_ps , struct aty128_pll *pll , struct 
   ldv_31542: ;
   {
 #line 1350
-  __cil_tmp36 = (unsigned int )i;
+  __cil_tmp14 = (unsigned int )i;
 #line 1350
-  if (__cil_tmp36 <= 6U) {
+  if (__cil_tmp14 <= 6U) {
+#line 1351
     goto ldv_31541;
   } else {
+#line 1353
     goto ldv_31540;
   }
   }
@@ -9949,53 +8713,33 @@ static int aty128_var_to_pll(u32 period_in_ps , struct aty128_pll *pll , struct 
 
   }
 #line 1362
-  n = c_ref_divider46 * output_freq;
+  n = c.ref_divider * output_freq;
 #line 1363
-  d = c_ref_clk49;
+  d = c.ref_clk;
 #line 1365
-  __cil_tmp37 = (unsigned long )pll;
+  __cil_tmp15 = d / 2U;
 #line 1365
-  __cil_tmp38 = __cil_tmp37 + 4;
+  __cil_tmp16 = __cil_tmp15 + n;
 #line 1365
-  __cil_tmp39 = d / 2U;
-#line 1365
-  __cil_tmp40 = __cil_tmp39 + n;
-#line 1365
-  *((u32 *)__cil_tmp38) = __cil_tmp40 / d;
+  pll->feedback_divider = __cil_tmp16 / d;
 #line 1366
-  __cil_tmp41 = (unsigned long )pll;
-#line 1366
-  __cil_tmp42 = __cil_tmp41 + 8;
-#line 1366
-  *((u32 *)__cil_tmp42) = vclk;
+  pll->vclk = vclk;
 #line 1373
   return (0);
 }
 }
 #line 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static int aty128_pll_to_var(struct aty128_pll  const  *pll , struct fb_var_screeninfo *var ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  u32 __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
+{ u32 __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
 
   {
 #line 1379
-  __cil_tmp3 = (unsigned long )var;
+  __cil_tmp3 = pll->vclk;
 #line 1379
-  __cil_tmp4 = __cil_tmp3 + 100;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 1379
-  __cil_tmp5 = (unsigned long )pll;
-#line 1379
-  __cil_tmp6 = __cil_tmp5 + 8;
-#line 1379
-  __cil_tmp7 = *((u32 const   *)__cil_tmp6);
-#line 1379
-  __cil_tmp8 = (unsigned int )__cil_tmp7;
-#line 1379
-  *((__u32 *)__cil_tmp4) = 100000000U / __cil_tmp8;
+  var->pixclock = 100000000U / __cil_tmp4;
 #line 1381
   return (0);
 }
@@ -10004,35 +8748,29 @@ static int aty128_pll_to_var(struct aty128_pll  const  *pll , struct fb_var_scre
 static void aty128_set_fifo(struct aty128_ddafifo  const  *dsp , struct aty128fb_par  const  *par ) 
 { unsigned int volatile   __cil_tmp3 ;
   u32 __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
+  u32 __cil_tmp5 ;
   unsigned int volatile   __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  u32 __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
+  u32 __cil_tmp7 ;
+  u32 __cil_tmp8 ;
 
   {
   {
 #line 1388
   __cil_tmp3 = (unsigned int volatile   )736U;
 #line 1388
-  __cil_tmp4 = *((u32 const   *)dsp);
+  __cil_tmp4 = dsp->dda_config;
 #line 1388
-  __cil_tmp5 = (unsigned int )__cil_tmp4;
+  __cil_tmp5 = (u32 )__cil_tmp4;
 #line 1388
   _aty_st_le32(__cil_tmp3, __cil_tmp5, par);
 #line 1389
   __cil_tmp6 = (unsigned int volatile   )740U;
 #line 1389
-  __cil_tmp7 = (unsigned long )dsp;
+  __cil_tmp7 = dsp->dda_on_off;
 #line 1389
-  __cil_tmp8 = __cil_tmp7 + 4;
+  __cil_tmp8 = (u32 )__cil_tmp7;
 #line 1389
-  __cil_tmp9 = *((u32 const   *)__cil_tmp8);
-#line 1389
-  __cil_tmp10 = (unsigned int )__cil_tmp9;
-#line 1389
-  _aty_st_le32(__cil_tmp6, __cil_tmp10, par);
+  _aty_st_le32(__cil_tmp6, __cil_tmp8, par);
   }
 #line 1390
   return;
@@ -10054,246 +8792,160 @@ static int aty128_ddafifo(struct aty128_ddafifo *dsp , struct aty128_pll  const 
   u32 d ;
   u32 bpp ;
   int tmp ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct aty128_meminfo  const  *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u32 __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  u32 __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u32 __cil_tmp32 ;
-  u32 __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u32 __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  u32 __cil_tmp38 ;
-  u32 __cil_tmp39 ;
-  u32 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  struct aty128_meminfo  const  *__cil_tmp18 ;
+  u32 __cil_tmp19 ;
+  u32 __cil_tmp20 ;
+  u32 __cil_tmp21 ;
+  u32 __cil_tmp22 ;
+  u32 __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  u32 __cil_tmp25 ;
+  u32 __cil_tmp26 ;
+  u32 __cil_tmp27 ;
+  u8 __cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  u8 __cil_tmp35 ;
+  int __cil_tmp36 ;
+  u8 __cil_tmp37 ;
+  int __cil_tmp38 ;
+  u8 __cil_tmp39 ;
+  int __cil_tmp40 ;
+  u8 __cil_tmp41 ;
+  int __cil_tmp42 ;
   u8 __cil_tmp43 ;
   int __cil_tmp44 ;
   int __cil_tmp45 ;
   int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  u8 __cil_tmp49 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  int __cil_tmp49 ;
   int __cil_tmp50 ;
   int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  u8 __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  u8 __cil_tmp58 ;
-  int __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u8 __cil_tmp62 ;
-  int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  u8 __cil_tmp66 ;
+  int __cil_tmp52 ;
+  int __cil_tmp53 ;
+  u32 __cil_tmp54 ;
+  u32 __cil_tmp55 ;
+  u32 __cil_tmp56 ;
+  u32 __cil_tmp57 ;
+  u32 __cil_tmp58 ;
+  u32 __cil_tmp59 ;
+  u8 __cil_tmp60 ;
+  int __cil_tmp61 ;
+  int __cil_tmp62 ;
+  u8 __cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
+  s32 __cil_tmp66 ;
   int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  u8 __cil_tmp70 ;
-  int __cil_tmp71 ;
-  int __cil_tmp72 ;
-  int __cil_tmp73 ;
-  int __cil_tmp74 ;
-  int __cil_tmp75 ;
-  int __cil_tmp76 ;
-  int __cil_tmp77 ;
-  int __cil_tmp78 ;
-  int __cil_tmp79 ;
-  int __cil_tmp80 ;
-  u32 __cil_tmp81 ;
-  u32 __cil_tmp82 ;
-  u32 __cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  u32 __cil_tmp85 ;
-  u32 __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  u8 __cil_tmp89 ;
-  int __cil_tmp90 ;
-  int __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  u8 __cil_tmp94 ;
-  int __cil_tmp95 ;
-  int __cil_tmp96 ;
-  s32 __cil_tmp97 ;
-  int __cil_tmp98 ;
-  int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  s32 __cil_tmp102 ;
-  int __cil_tmp103 ;
+  int __cil_tmp68 ;
+  s32 __cil_tmp69 ;
+  int __cil_tmp70 ;
 
   {
 #line 1398
-  __cil_tmp18 = (unsigned long )par;
+  __cil_tmp18 = par->mem;
 #line 1398
-  __cil_tmp19 = __cil_tmp18 + 128;
-#line 1398
-  __cil_tmp20 = *((struct aty128_meminfo  const  * const  *)__cil_tmp19);
-#line 1398
-  m = (struct aty128_meminfo  const  *)__cil_tmp20;
+  m = (struct aty128_meminfo  const  *)__cil_tmp18;
 #line 1399
-  __cil_tmp21 = 80 + 16;
+  __cil_tmp19 = par->constants.xclk;
 #line 1399
-  __cil_tmp22 = (unsigned long )par;
-#line 1399
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 1399
-  __cil_tmp24 = *((u32 const   *)__cil_tmp23);
-#line 1399
-  xclk = (unsigned int )__cil_tmp24;
+  xclk = (u32 )__cil_tmp19;
 #line 1400
-  __cil_tmp25 = 80 + 20;
+  __cil_tmp20 = par->constants.fifo_width;
 #line 1400
-  __cil_tmp26 = (unsigned long )par;
-#line 1400
-  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 1400
-  __cil_tmp28 = *((u32 const   *)__cil_tmp27);
-#line 1400
-  fifo_width = (unsigned int )__cil_tmp28;
+  fifo_width = (u32 )__cil_tmp20;
 #line 1401
-  __cil_tmp29 = 80 + 24;
+  __cil_tmp21 = par->constants.fifo_depth;
 #line 1401
-  __cil_tmp30 = (unsigned long )par;
-#line 1401
-  __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 1401
-  __cil_tmp32 = *((u32 const   *)__cil_tmp31);
-#line 1401
-  fifo_depth = (unsigned int )__cil_tmp32;
+  fifo_depth = (u32 )__cil_tmp21;
 #line 1406
-  __cil_tmp33 = depth + 7U;
+  __cil_tmp22 = depth + 7U;
 #line 1406
-  bpp = __cil_tmp33 & 4294967288U;
+  bpp = __cil_tmp22 & 4294967288U;
 #line 1408
   n = xclk * fifo_width;
 #line 1409
-  __cil_tmp34 = (unsigned long )pll;
+  __cil_tmp23 = pll->vclk;
 #line 1409
-  __cil_tmp35 = __cil_tmp34 + 8;
+  __cil_tmp24 = (unsigned int )__cil_tmp23;
 #line 1409
-  __cil_tmp36 = *((u32 const   *)__cil_tmp35);
-#line 1409
-  __cil_tmp37 = (unsigned int )__cil_tmp36;
-#line 1409
-  d = __cil_tmp37 * bpp;
+  d = __cil_tmp24 * bpp;
 #line 1410
-  __cil_tmp38 = d / 2U;
+  __cil_tmp25 = d / 2U;
 #line 1410
-  __cil_tmp39 = __cil_tmp38 + n;
+  __cil_tmp26 = __cil_tmp25 + n;
 #line 1410
-  __cil_tmp40 = __cil_tmp39 / d;
+  __cil_tmp27 = __cil_tmp26 / d;
 #line 1410
-  x = (int )__cil_tmp40;
+  x = (s32 )__cil_tmp27;
   {
 #line 1412
-  __cil_tmp41 = (unsigned long )m;
+  __cil_tmp28 = m->Trcd;
 #line 1412
-  __cil_tmp42 = __cil_tmp41 + 2;
+  __cil_tmp29 = (int )__cil_tmp28;
 #line 1412
-  __cil_tmp43 = *((u8 const   *)__cil_tmp42);
+  __cil_tmp30 = __cil_tmp29 * 3;
 #line 1412
-  __cil_tmp44 = (int )__cil_tmp43;
+  __cil_tmp31 = __cil_tmp30 + -6;
 #line 1412
-  __cil_tmp45 = __cil_tmp44 * 3;
-#line 1412
-  __cil_tmp46 = __cil_tmp45 + -6;
-#line 1412
-  if (0 > __cil_tmp46) {
+  if (0 > __cil_tmp31) {
 #line 1412
     tmp = 0;
   } else {
 #line 1412
-    __cil_tmp47 = (unsigned long )m;
+    __cil_tmp32 = m->Trcd;
 #line 1412
-    __cil_tmp48 = __cil_tmp47 + 2;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 1412
-    __cil_tmp49 = *((u8 const   *)__cil_tmp48);
+    __cil_tmp34 = __cil_tmp33 * 3;
 #line 1412
-    __cil_tmp50 = (int )__cil_tmp49;
-#line 1412
-    __cil_tmp51 = __cil_tmp50 * 3;
-#line 1412
-    tmp = __cil_tmp51 + -6;
+    tmp = __cil_tmp34 + -6;
   }
   }
 #line 1412
-  __cil_tmp52 = (unsigned long )m;
+  __cil_tmp35 = m->Tr2w;
 #line 1412
-  __cil_tmp53 = __cil_tmp52 + 6;
+  __cil_tmp36 = (int )__cil_tmp35;
 #line 1412
-  __cil_tmp54 = *((u8 const   *)__cil_tmp53);
+  __cil_tmp37 = m->CL;
 #line 1412
-  __cil_tmp55 = (int )__cil_tmp54;
+  __cil_tmp38 = (int )__cil_tmp37;
 #line 1412
-  __cil_tmp56 = (unsigned long )m;
+  __cil_tmp39 = m->Twr;
 #line 1412
-  __cil_tmp57 = __cil_tmp56 + 5;
+  __cil_tmp40 = (int )__cil_tmp39;
 #line 1412
-  __cil_tmp58 = *((u8 const   *)__cil_tmp57);
+  __cil_tmp41 = m->Trp;
 #line 1412
-  __cil_tmp59 = (int )__cil_tmp58;
+  __cil_tmp42 = (int )__cil_tmp41;
 #line 1412
-  __cil_tmp60 = (unsigned long )m;
+  __cil_tmp43 = m->MB;
 #line 1412
-  __cil_tmp61 = __cil_tmp60 + 4;
+  __cil_tmp44 = (int )__cil_tmp43;
 #line 1412
-  __cil_tmp62 = *((u8 const   *)__cil_tmp61);
+  __cil_tmp45 = __cil_tmp44 * 2;
 #line 1412
-  __cil_tmp63 = (int )__cil_tmp62;
+  __cil_tmp46 = __cil_tmp45 + __cil_tmp42;
 #line 1412
-  __cil_tmp64 = (unsigned long )m;
+  __cil_tmp47 = __cil_tmp46 * 2;
 #line 1412
-  __cil_tmp65 = __cil_tmp64 + 3;
+  __cil_tmp48 = __cil_tmp47 + tmp;
 #line 1412
-  __cil_tmp66 = *((u8 const   *)__cil_tmp65);
+  __cil_tmp49 = __cil_tmp48 + __cil_tmp40;
 #line 1412
-  __cil_tmp67 = (int )__cil_tmp66;
+  __cil_tmp50 = __cil_tmp49 + __cil_tmp38;
 #line 1412
-  __cil_tmp68 = (unsigned long )m;
+  __cil_tmp51 = __cil_tmp50 + __cil_tmp36;
 #line 1412
-  __cil_tmp69 = __cil_tmp68 + 1;
-#line 1412
-  __cil_tmp70 = *((u8 const   *)__cil_tmp69);
-#line 1412
-  __cil_tmp71 = (int )__cil_tmp70;
-#line 1412
-  __cil_tmp72 = __cil_tmp71 * 2;
-#line 1412
-  __cil_tmp73 = __cil_tmp72 + __cil_tmp67;
-#line 1412
-  __cil_tmp74 = __cil_tmp73 * 2;
-#line 1412
-  __cil_tmp75 = __cil_tmp74 + tmp;
-#line 1412
-  __cil_tmp76 = __cil_tmp75 + __cil_tmp63;
-#line 1412
-  __cil_tmp77 = __cil_tmp76 + __cil_tmp59;
-#line 1412
-  __cil_tmp78 = __cil_tmp77 + __cil_tmp55;
-#line 1412
-  ron = __cil_tmp78 + x;
+  ron = __cil_tmp51 + x;
 #line 1422
   b = 0;
+#line 1423
   goto ldv_31572;
   ldv_31571: 
 #line 1424
@@ -10303,50 +8955,48 @@ static int aty128_ddafifo(struct aty128_ddafifo *dsp , struct aty128_pll  const 
   ldv_31572: ;
 #line 1423
   if (x != 0) {
+#line 1424
     goto ldv_31571;
   } else {
+#line 1426
     goto ldv_31573;
   }
   ldv_31573: 
 #line 1427
   p = b + 1;
 #line 1429
-  __cil_tmp79 = 11 - p;
+  __cil_tmp52 = 11 - p;
 #line 1429
-  ron = ron << __cil_tmp79;
+  ron = ron << __cil_tmp52;
 #line 1431
-  __cil_tmp80 = 11 - p;
+  __cil_tmp53 = 11 - p;
 #line 1431
-  n = n << __cil_tmp80;
+  n = n << __cil_tmp53;
 #line 1432
-  __cil_tmp81 = d / 2U;
+  __cil_tmp54 = d / 2U;
 #line 1432
-  __cil_tmp82 = __cil_tmp81 + n;
+  __cil_tmp55 = __cil_tmp54 + n;
 #line 1432
-  __cil_tmp83 = __cil_tmp82 / d;
+  __cil_tmp56 = __cil_tmp55 / d;
 #line 1432
-  x = (int )__cil_tmp83;
+  x = (s32 )__cil_tmp56;
 #line 1433
-  __cil_tmp84 = (unsigned int )x;
+  __cil_tmp57 = (u32 )x;
 #line 1433
-  __cil_tmp85 = fifo_depth - 4U;
+  __cil_tmp58 = fifo_depth - 4U;
 #line 1433
-  __cil_tmp86 = __cil_tmp85 * __cil_tmp84;
+  __cil_tmp59 = __cil_tmp58 * __cil_tmp57;
 #line 1433
-  roff = (int )__cil_tmp86;
+  roff = (s32 )__cil_tmp59;
   {
 #line 1435
-  __cil_tmp87 = (unsigned long )m;
+  __cil_tmp60 = m->Rloop;
 #line 1435
-  __cil_tmp88 = __cil_tmp87 + 9;
+  __cil_tmp61 = (int )__cil_tmp60;
 #line 1435
-  __cil_tmp89 = *((u8 const   *)__cil_tmp88);
+  __cil_tmp62 = __cil_tmp61 + ron;
 #line 1435
-  __cil_tmp90 = (int )__cil_tmp89;
-#line 1435
-  __cil_tmp91 = __cil_tmp90 + ron;
-#line 1435
-  if (__cil_tmp91 >= roff) {
+  if (__cil_tmp62 >= roff) {
     {
 #line 1436
     printk("<3>aty128fb: Mode out of range!\n");
@@ -10358,33 +9008,25 @@ static int aty128_ddafifo(struct aty128_ddafifo *dsp , struct aty128_pll  const 
   }
   }
 #line 1443
-  __cil_tmp92 = (unsigned long )m;
+  __cil_tmp63 = m->Rloop;
 #line 1443
-  __cil_tmp93 = __cil_tmp92 + 9;
+  __cil_tmp64 = (int )__cil_tmp63;
 #line 1443
-  __cil_tmp94 = *((u8 const   *)__cil_tmp93);
+  __cil_tmp65 = __cil_tmp64 << 20;
 #line 1443
-  __cil_tmp95 = (int )__cil_tmp94;
+  __cil_tmp66 = p << 16;
 #line 1443
-  __cil_tmp96 = __cil_tmp95 << 20;
+  __cil_tmp67 = __cil_tmp66 | __cil_tmp65;
 #line 1443
-  __cil_tmp97 = p << 16;
+  __cil_tmp68 = __cil_tmp67 | x;
 #line 1443
-  __cil_tmp98 = __cil_tmp97 | __cil_tmp96;
-#line 1443
-  __cil_tmp99 = __cil_tmp98 | x;
-#line 1443
-  *((u32 *)dsp) = (unsigned int )__cil_tmp99;
+  dsp->dda_config = (u32 )__cil_tmp68;
 #line 1444
-  __cil_tmp100 = (unsigned long )dsp;
+  __cil_tmp69 = ron << 16;
 #line 1444
-  __cil_tmp101 = __cil_tmp100 + 4;
+  __cil_tmp70 = __cil_tmp69 | roff;
 #line 1444
-  __cil_tmp102 = ron << 16;
-#line 1444
-  __cil_tmp103 = __cil_tmp102 | roff;
-#line 1444
-  *((u32 *)__cil_tmp101) = (unsigned int )__cil_tmp103;
+  dsp->dda_on_off = (u32 )__cil_tmp70;
 #line 1446
   return (0);
 }
@@ -10395,15 +9037,15 @@ static int aty128fb_set_par(struct fb_info *info )
   u32 config ;
   int err ;
   u32 tmp ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct fb_var_screeninfo *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
+  void *__cil_tmp6 ;
+  struct fb_var_screeninfo *__cil_tmp7 ;
+  int __cil_tmp8 ;
+  unsigned int volatile   __cil_tmp9 ;
+  struct aty128fb_par  const  *__cil_tmp10 ;
+  unsigned int volatile   __cil_tmp11 ;
+  struct aty128fb_par  const  *__cil_tmp12 ;
+  unsigned int volatile   __cil_tmp13 ;
+  struct aty128fb_par  const  *__cil_tmp14 ;
   unsigned int volatile   __cil_tmp15 ;
   struct aty128fb_par  const  *__cil_tmp16 ;
   unsigned int volatile   __cil_tmp17 ;
@@ -10422,84 +9064,42 @@ static int aty128fb_set_par(struct fb_info *info )
   struct aty128fb_par  const  *__cil_tmp30 ;
   unsigned int volatile   __cil_tmp31 ;
   struct aty128fb_par  const  *__cil_tmp32 ;
-  unsigned int volatile   __cil_tmp33 ;
+  u8 __cil_tmp33 ;
   struct aty128fb_par  const  *__cil_tmp34 ;
-  unsigned int volatile   __cil_tmp35 ;
-  struct aty128fb_par  const  *__cil_tmp36 ;
-  unsigned int volatile   __cil_tmp37 ;
-  struct aty128fb_par  const  *__cil_tmp38 ;
+  struct aty128_crtc *__cil_tmp35 ;
+  struct aty128_crtc  const  *__cil_tmp36 ;
+  struct aty128fb_par  const  *__cil_tmp37 ;
+  struct aty128_pll *__cil_tmp38 ;
   struct aty128fb_par  const  *__cil_tmp39 ;
-  struct aty128_crtc *__cil_tmp40 ;
-  struct aty128_crtc  const  *__cil_tmp41 ;
+  struct aty128_ddafifo *__cil_tmp40 ;
+  struct aty128_ddafifo  const  *__cil_tmp41 ;
   struct aty128fb_par  const  *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct aty128_pll *__cil_tmp45 ;
+  unsigned int volatile   __cil_tmp43 ;
+  struct aty128fb_par  const  *__cil_tmp44 ;
+  unsigned int volatile   __cil_tmp45 ;
   struct aty128fb_par  const  *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct aty128_ddafifo *__cil_tmp49 ;
-  struct aty128_ddafifo  const  *__cil_tmp50 ;
-  struct aty128fb_par  const  *__cil_tmp51 ;
-  unsigned int volatile   __cil_tmp52 ;
-  struct aty128fb_par  const  *__cil_tmp53 ;
-  unsigned int volatile   __cil_tmp54 ;
-  struct aty128fb_par  const  *__cil_tmp55 ;
-  struct aty128fb_par  const  *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  u32 __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  u32 __cil_tmp67 ;
-  u32 __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  u32 __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  u32 __cil_tmp90 ;
-  int __cil_tmp91 ;
+  u8 __cil_tmp47 ;
+  struct aty128fb_par  const  *__cil_tmp48 ;
+  u32 __cil_tmp49 ;
+  u32 __cil_tmp50 ;
+  u32 __cil_tmp51 ;
+  u32 __cil_tmp52 ;
+  int __cil_tmp53 ;
+  int __cil_tmp54 ;
+  int __cil_tmp55 ;
+  u32 __cil_tmp56 ;
+  int __cil_tmp57 ;
 
   {
   {
 #line 1455
-  __cil_tmp6 = (unsigned long )info;
+  __cil_tmp6 = info->par;
 #line 1455
-  __cil_tmp7 = __cil_tmp6 + 1592;
-#line 1455
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 1455
-  par = (struct aty128fb_par *)__cil_tmp8;
+  par = (struct aty128fb_par *)__cil_tmp6;
 #line 1459
-  __cil_tmp9 = (unsigned long )info;
+  __cil_tmp7 = & info->var;
 #line 1459
-  __cil_tmp10 = __cil_tmp9 + 352;
-#line 1459
-  __cil_tmp11 = (struct fb_var_screeninfo *)__cil_tmp10;
-#line 1459
-  err = aty128_decode_var(__cil_tmp11, par);
+  err = aty128_decode_var(__cil_tmp7, par);
   }
 #line 1459
   if (err != 0) {
@@ -10510,13 +9110,9 @@ static int aty128fb_set_par(struct fb_info *info )
   }
   {
 #line 1462
-  __cil_tmp12 = (unsigned long )par;
+  __cil_tmp8 = par->blitter_may_be_busy;
 #line 1462
-  __cil_tmp13 = __cil_tmp12 + 144;
-#line 1462
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 1462
-  if (__cil_tmp14 != 0) {
+  if (__cil_tmp8 != 0) {
     {
 #line 1463
     wait_for_idle(par);
@@ -10527,212 +9123,160 @@ static int aty128fb_set_par(struct fb_info *info )
   }
   {
 #line 1466
-  __cil_tmp15 = (unsigned int volatile   )560U;
+  __cil_tmp9 = (unsigned int volatile   )560U;
 #line 1466
+  __cil_tmp10 = (struct aty128fb_par  const  *)par;
+#line 1466
+  _aty_st_le32(__cil_tmp9, 0U, __cil_tmp10);
+#line 1467
+  __cil_tmp11 = (unsigned int volatile   )564U;
+#line 1467
+  __cil_tmp12 = (struct aty128fb_par  const  *)par;
+#line 1467
+  _aty_st_le32(__cil_tmp11, 0U, __cil_tmp12);
+#line 1468
+  __cil_tmp13 = (unsigned int volatile   )568U;
+#line 1468
+  __cil_tmp14 = (struct aty128fb_par  const  *)par;
+#line 1468
+  _aty_st_le32(__cil_tmp13, 0U, __cil_tmp14);
+#line 1469
+  __cil_tmp15 = (unsigned int volatile   )1056U;
+#line 1469
   __cil_tmp16 = (struct aty128fb_par  const  *)par;
-#line 1466
+#line 1469
   _aty_st_le32(__cil_tmp15, 0U, __cil_tmp16);
-#line 1467
-  __cil_tmp17 = (unsigned int volatile   )564U;
-#line 1467
+#line 1470
+  __cil_tmp17 = (unsigned int volatile   )448U;
+#line 1470
   __cil_tmp18 = (struct aty128fb_par  const  *)par;
-#line 1467
+#line 1470
   _aty_st_le32(__cil_tmp17, 0U, __cil_tmp18);
-#line 1468
-  __cil_tmp19 = (unsigned int volatile   )568U;
-#line 1468
+#line 1471
+  __cil_tmp19 = (unsigned int volatile   )456U;
+#line 1471
   __cil_tmp20 = (struct aty128fb_par  const  *)par;
-#line 1468
+#line 1471
   _aty_st_le32(__cil_tmp19, 0U, __cil_tmp20);
-#line 1469
-  __cil_tmp21 = (unsigned int volatile   )1056U;
-#line 1469
+#line 1472
+  __cil_tmp21 = (unsigned int volatile   )1344U;
+#line 1472
   __cil_tmp22 = (struct aty128fb_par  const  *)par;
-#line 1469
+#line 1472
   _aty_st_le32(__cil_tmp21, 0U, __cil_tmp22);
-#line 1470
-  __cil_tmp23 = (unsigned int volatile   )448U;
-#line 1470
+#line 1473
+  __cil_tmp23 = (unsigned int volatile   )464U;
+#line 1473
   __cil_tmp24 = (struct aty128fb_par  const  *)par;
-#line 1470
+#line 1473
   _aty_st_le32(__cil_tmp23, 0U, __cil_tmp24);
-#line 1471
-  __cil_tmp25 = (unsigned int volatile   )456U;
-#line 1471
+#line 1474
+  __cil_tmp25 = (unsigned int volatile   )148U;
+#line 1474
   __cil_tmp26 = (struct aty128fb_par  const  *)par;
-#line 1471
+#line 1474
   _aty_st_le32(__cil_tmp25, 0U, __cil_tmp26);
-#line 1472
-  __cil_tmp27 = (unsigned int volatile   )1344U;
-#line 1472
+#line 1475
+  __cil_tmp27 = (unsigned int volatile   )64U;
+#line 1475
   __cil_tmp28 = (struct aty128fb_par  const  *)par;
-#line 1472
+#line 1475
   _aty_st_le32(__cil_tmp27, 0U, __cil_tmp28);
-#line 1473
-  __cil_tmp29 = (unsigned int volatile   )464U;
-#line 1473
+#line 1476
+  __cil_tmp29 = (unsigned int volatile   )2384U;
+#line 1476
   __cil_tmp30 = (struct aty128fb_par  const  *)par;
-#line 1473
+#line 1476
   _aty_st_le32(__cil_tmp29, 0U, __cil_tmp30);
-#line 1474
-  __cil_tmp31 = (unsigned int volatile   )148U;
-#line 1474
+#line 1477
+  __cil_tmp31 = (unsigned int volatile   )2496U;
+#line 1477
   __cil_tmp32 = (struct aty128fb_par  const  *)par;
-#line 1474
+#line 1477
   _aty_st_le32(__cil_tmp31, 0U, __cil_tmp32);
-#line 1475
-  __cil_tmp33 = (unsigned int volatile   )64U;
-#line 1475
+#line 1479
+  __cil_tmp33 = (u8 )4;
+#line 1479
   __cil_tmp34 = (struct aty128fb_par  const  *)par;
-#line 1475
-  _aty_st_le32(__cil_tmp33, 0U, __cil_tmp34);
-#line 1476
-  __cil_tmp35 = (unsigned int volatile   )2384U;
-#line 1476
-  __cil_tmp36 = (struct aty128fb_par  const  *)par;
-#line 1476
-  _aty_st_le32(__cil_tmp35, 0U, __cil_tmp36);
-#line 1477
-  __cil_tmp37 = (unsigned int volatile   )2496U;
-#line 1477
-  __cil_tmp38 = (struct aty128fb_par  const  *)par;
-#line 1477
-  _aty_st_le32(__cil_tmp37, 0U, __cil_tmp38);
 #line 1479
+  _aty_st_8(85U, __cil_tmp33, __cil_tmp34);
+#line 1481
+  __cil_tmp35 = & par->crtc;
+#line 1481
+  __cil_tmp36 = (struct aty128_crtc  const  *)__cil_tmp35;
+#line 1481
+  __cil_tmp37 = (struct aty128fb_par  const  *)par;
+#line 1481
+  aty128_set_crtc(__cil_tmp36, __cil_tmp37);
+#line 1482
+  __cil_tmp38 = & par->pll;
+#line 1482
   __cil_tmp39 = (struct aty128fb_par  const  *)par;
-#line 1479
-  _aty_st_8(85U, (unsigned char)4, __cil_tmp39);
-#line 1481
-  __cil_tmp40 = (struct aty128_crtc *)par;
-#line 1481
-  __cil_tmp41 = (struct aty128_crtc  const  *)__cil_tmp40;
-#line 1481
+#line 1482
+  aty128_set_pll(__cil_tmp38, __cil_tmp39);
+#line 1483
+  __cil_tmp40 = & par->fifo_reg;
+#line 1483
+  __cil_tmp41 = (struct aty128_ddafifo  const  *)__cil_tmp40;
+#line 1483
   __cil_tmp42 = (struct aty128fb_par  const  *)par;
-#line 1481
-  aty128_set_crtc(__cil_tmp41, __cil_tmp42);
-#line 1482
-  __cil_tmp43 = (unsigned long )par;
-#line 1482
-  __cil_tmp44 = __cil_tmp43 + 56;
-#line 1482
-  __cil_tmp45 = (struct aty128_pll *)__cil_tmp44;
-#line 1482
-  __cil_tmp46 = (struct aty128fb_par  const  *)par;
-#line 1482
-  aty128_set_pll(__cil_tmp45, __cil_tmp46);
 #line 1483
-  __cil_tmp47 = (unsigned long )par;
-#line 1483
-  __cil_tmp48 = __cil_tmp47 + 68;
-#line 1483
-  __cil_tmp49 = (struct aty128_ddafifo *)__cil_tmp48;
-#line 1483
-  __cil_tmp50 = (struct aty128_ddafifo  const  *)__cil_tmp49;
-#line 1483
-  __cil_tmp51 = (struct aty128fb_par  const  *)par;
-#line 1483
-  aty128_set_fifo(__cil_tmp50, __cil_tmp51);
+  aty128_set_fifo(__cil_tmp41, __cil_tmp42);
 #line 1485
-  __cil_tmp52 = (unsigned int volatile   )224U;
+  __cil_tmp43 = (unsigned int volatile   )224U;
 #line 1485
-  __cil_tmp53 = (struct aty128fb_par  const  *)par;
+  __cil_tmp44 = (struct aty128fb_par  const  *)par;
 #line 1485
-  tmp = _aty_ld_le32(__cil_tmp52, __cil_tmp53);
+  tmp = _aty_ld_le32(__cil_tmp43, __cil_tmp44);
 #line 1485
   config = tmp & 4294967292U;
 #line 1494
-  __cil_tmp54 = (unsigned int volatile   )224U;
+  __cil_tmp45 = (unsigned int volatile   )224U;
 #line 1494
-  __cil_tmp55 = (struct aty128fb_par  const  *)par;
+  __cil_tmp46 = (struct aty128fb_par  const  *)par;
 #line 1494
-  _aty_st_le32(__cil_tmp54, config, __cil_tmp55);
+  _aty_st_le32(__cil_tmp45, config, __cil_tmp46);
 #line 1495
-  __cil_tmp56 = (struct aty128fb_par  const  *)par;
+  __cil_tmp47 = (u8 )0;
 #line 1495
-  _aty_st_8(85U, (unsigned char)0, __cil_tmp56);
+  __cil_tmp48 = (struct aty128fb_par  const  *)par;
+#line 1495
+  _aty_st_8(85U, __cil_tmp47, __cil_tmp48);
 #line 1497
-  __cil_tmp57 = 512 + 48;
+  __cil_tmp49 = par->crtc.bpp;
 #line 1497
-  __cil_tmp58 = (unsigned long )info;
+  __cil_tmp50 = par->crtc.vxres;
 #line 1497
-  __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
+  __cil_tmp51 = __cil_tmp50 * __cil_tmp49;
 #line 1497
-  __cil_tmp60 = 0 + 52;
-#line 1497
-  __cil_tmp61 = (unsigned long )par;
-#line 1497
-  __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
-#line 1497
-  __cil_tmp63 = *((u32 *)__cil_tmp62);
-#line 1497
-  __cil_tmp64 = 0 + 40;
-#line 1497
-  __cil_tmp65 = (unsigned long )par;
-#line 1497
-  __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
-#line 1497
-  __cil_tmp67 = *((u32 *)__cil_tmp66);
-#line 1497
-  __cil_tmp68 = __cil_tmp67 * __cil_tmp63;
-#line 1497
-  *((__u32 *)__cil_tmp59) = __cil_tmp68 >> 3;
+  info->fix.line_length = __cil_tmp51 >> 3;
   }
   {
 #line 1498
-  __cil_tmp69 = 0 + 52;
+  __cil_tmp52 = par->crtc.bpp;
 #line 1498
-  __cil_tmp70 = (unsigned long )par;
+  if (__cil_tmp52 == 8U) {
 #line 1498
-  __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 1498
-  __cil_tmp72 = *((u32 *)__cil_tmp71);
-#line 1498
-  if (__cil_tmp72 == 8U) {
-#line 1498
-    __cil_tmp73 = 512 + 36;
-#line 1498
-    __cil_tmp74 = (unsigned long )info;
-#line 1498
-    __cil_tmp75 = __cil_tmp74 + __cil_tmp73;
-#line 1498
-    *((__u32 *)__cil_tmp75) = 3U;
+    info->fix.visual = 3U;
   } else {
 #line 1498
-    __cil_tmp76 = 512 + 36;
-#line 1498
-    __cil_tmp77 = (unsigned long )info;
-#line 1498
-    __cil_tmp78 = __cil_tmp77 + __cil_tmp76;
-#line 1498
-    *((__u32 *)__cil_tmp78) = 4U;
+    info->fix.visual = 4U;
   }
   }
   {
 #line 1501
-  __cil_tmp79 = (unsigned long )par;
+  __cil_tmp53 = par->chip_gen;
 #line 1501
-  __cil_tmp80 = __cil_tmp79 + 124;
-#line 1501
-  __cil_tmp81 = *((int *)__cil_tmp80);
-#line 1501
-  if (__cil_tmp81 == 4) {
+  if (__cil_tmp53 == 4) {
     {
 #line 1502
-    __cil_tmp82 = (unsigned long )par;
+    __cil_tmp54 = par->crt_on;
 #line 1502
-    __cil_tmp83 = __cil_tmp82 + 156;
-#line 1502
-    __cil_tmp84 = *((int *)__cil_tmp83);
-#line 1502
-    aty128_set_crt_enable(par, __cil_tmp84);
+    aty128_set_crt_enable(par, __cil_tmp54);
 #line 1503
-    __cil_tmp85 = (unsigned long )par;
+    __cil_tmp55 = par->lcd_on;
 #line 1503
-    __cil_tmp86 = __cil_tmp85 + 160;
-#line 1503
-    __cil_tmp87 = *((int *)__cil_tmp86);
-#line 1503
-    aty128_set_lcd_enable(par, __cil_tmp87);
+    aty128_set_lcd_enable(par, __cil_tmp55);
     }
   } else {
 
@@ -10740,15 +9284,11 @@ static int aty128fb_set_par(struct fb_info *info )
   }
   {
 #line 1505
-  __cil_tmp88 = (unsigned long )par;
+  __cil_tmp56 = par->accel_flags;
 #line 1505
-  __cil_tmp89 = __cil_tmp88 + 76;
+  __cil_tmp57 = (int )__cil_tmp56;
 #line 1505
-  __cil_tmp90 = *((u32 *)__cil_tmp89);
-#line 1505
-  __cil_tmp91 = (int )__cil_tmp90;
-#line 1505
-  if (__cil_tmp91 & 1) {
+  if (__cil_tmp57 & 1) {
     {
 #line 1506
     aty128_init_engine(par);
@@ -10769,25 +9309,10 @@ static int aty128_decode_var(struct fb_var_screeninfo *var , struct aty128fb_par
   struct aty128_ddafifo fifo_reg ;
   struct fb_var_screeninfo  const  *__cil_tmp7 ;
   struct aty128fb_par  const  *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  __u32 __cil_tmp11 ;
+  __u32 __cil_tmp9 ;
+  struct aty128fb_par  const  *__cil_tmp10 ;
+  struct aty128_pll  const  *__cil_tmp11 ;
   struct aty128fb_par  const  *__cil_tmp12 ;
-  struct aty128_pll  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  u32 __cil_tmp15 ;
-  struct aty128fb_par  const  *__cil_tmp16 ;
-  struct aty128_crtc *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct aty128_pll *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct aty128_ddafifo *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
 
   {
   {
@@ -10807,15 +9332,11 @@ static int aty128_decode_var(struct fb_var_screeninfo *var , struct aty128fb_par
   }
   {
 #line 1533
-  __cil_tmp9 = (unsigned long )var;
+  __cil_tmp9 = var->pixclock;
 #line 1533
-  __cil_tmp10 = __cil_tmp9 + 100;
+  __cil_tmp10 = (struct aty128fb_par  const  *)par;
 #line 1533
-  __cil_tmp11 = *((__u32 *)__cil_tmp10);
-#line 1533
-  __cil_tmp12 = (struct aty128fb_par  const  *)par;
-#line 1533
-  err = aty128_var_to_pll(__cil_tmp11, & pll, __cil_tmp12);
+  err = aty128_var_to_pll(__cil_tmp9, & pll, __cil_tmp10);
   }
 #line 1533
   if (err != 0) {
@@ -10826,15 +9347,11 @@ static int aty128_decode_var(struct fb_var_screeninfo *var , struct aty128fb_par
   }
   {
 #line 1536
-  __cil_tmp13 = (struct aty128_pll  const  *)(& pll);
+  __cil_tmp11 = (struct aty128_pll  const  *)(& pll);
 #line 1536
-  __cil_tmp14 = (unsigned long )(& crtc) + 48;
+  __cil_tmp12 = (struct aty128fb_par  const  *)par;
 #line 1536
-  __cil_tmp15 = *((u32 *)__cil_tmp14);
-#line 1536
-  __cil_tmp16 = (struct aty128fb_par  const  *)par;
-#line 1536
-  err = aty128_ddafifo(& fifo_reg, __cil_tmp13, __cil_tmp15, __cil_tmp16);
+  err = aty128_ddafifo(& fifo_reg, __cil_tmp11, crtc.depth, __cil_tmp12);
   }
 #line 1536
   if (err != 0) {
@@ -10844,35 +9361,13 @@ static int aty128_decode_var(struct fb_var_screeninfo *var , struct aty128fb_par
 
   }
 #line 1539
-  __cil_tmp17 = & crtc;
-#line 1539
-  *((struct aty128_crtc *)par) = *__cil_tmp17;
+  par->crtc = crtc;
 #line 1540
-  __cil_tmp18 = (unsigned long )par;
-#line 1540
-  __cil_tmp19 = __cil_tmp18 + 56;
-#line 1540
-  __cil_tmp20 = & pll;
-#line 1540
-  *((struct aty128_pll *)__cil_tmp19) = *__cil_tmp20;
+  par->pll = pll;
 #line 1541
-  __cil_tmp21 = (unsigned long )par;
-#line 1541
-  __cil_tmp22 = __cil_tmp21 + 68;
-#line 1541
-  __cil_tmp23 = & fifo_reg;
-#line 1541
-  *((struct aty128_ddafifo *)__cil_tmp22) = *__cil_tmp23;
+  par->fifo_reg = fifo_reg;
 #line 1542
-  __cil_tmp24 = (unsigned long )par;
-#line 1542
-  __cil_tmp25 = __cil_tmp24 + 76;
-#line 1542
-  __cil_tmp26 = (unsigned long )var;
-#line 1542
-  __cil_tmp27 = __cil_tmp26 + 96;
-#line 1542
-  *((u32 *)__cil_tmp25) = *((__u32 *)__cil_tmp27);
+  par->accel_flags = var->accel_flags;
 #line 1544
   return (0);
 }
@@ -10881,27 +9376,13 @@ static int aty128_decode_var(struct fb_var_screeninfo *var , struct aty128fb_par
 static int aty128_encode_var(struct fb_var_screeninfo *var , struct aty128fb_par  const  *par ) 
 { int err ;
   struct aty128_crtc  const  *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct aty128_pll  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u32 __cil_tmp20 ;
+  struct aty128_pll  const  *__cil_tmp5 ;
+  u32 __cil_tmp6 ;
 
   {
   {
 #line 1553
-  __cil_tmp4 = (struct aty128_crtc  const  *)par;
+  __cil_tmp4 = & par->crtc;
 #line 1553
   err = aty128_crtc_to_var(__cil_tmp4, var);
   }
@@ -10914,13 +9395,9 @@ static int aty128_encode_var(struct fb_var_screeninfo *var , struct aty128fb_par
   }
   {
 #line 1556
-  __cil_tmp5 = (unsigned long )par;
+  __cil_tmp5 = & par->pll;
 #line 1556
-  __cil_tmp6 = __cil_tmp5 + 56;
-#line 1556
-  __cil_tmp7 = (struct aty128_pll  const  *)__cil_tmp6;
-#line 1556
-  err = aty128_pll_to_var(__cil_tmp7, var);
+  err = aty128_pll_to_var(__cil_tmp5, var);
   }
 #line 1556
   if (err != 0) {
@@ -10930,41 +9407,17 @@ static int aty128_encode_var(struct fb_var_screeninfo *var , struct aty128fb_par
 
   }
 #line 1559
-  __cil_tmp8 = (unsigned long )var;
-#line 1559
-  __cil_tmp9 = __cil_tmp8 + 80;
-#line 1559
-  *((__u32 *)__cil_tmp9) = 0U;
+  var->nonstd = 0U;
 #line 1560
-  __cil_tmp10 = (unsigned long )var;
-#line 1560
-  __cil_tmp11 = __cil_tmp10 + 84;
-#line 1560
-  *((__u32 *)__cil_tmp11) = 0U;
+  var->activate = 0U;
 #line 1562
-  __cil_tmp12 = (unsigned long )var;
-#line 1562
-  __cil_tmp13 = __cil_tmp12 + 88;
-#line 1562
-  *((__u32 *)__cil_tmp13) = 4294967295U;
+  var->height = 4294967295U;
 #line 1563
-  __cil_tmp14 = (unsigned long )var;
-#line 1563
-  __cil_tmp15 = __cil_tmp14 + 92;
-#line 1563
-  *((__u32 *)__cil_tmp15) = 4294967295U;
+  var->width = 4294967295U;
 #line 1564
-  __cil_tmp16 = (unsigned long )var;
+  __cil_tmp6 = par->accel_flags;
 #line 1564
-  __cil_tmp17 = __cil_tmp16 + 96;
-#line 1564
-  __cil_tmp18 = (unsigned long )par;
-#line 1564
-  __cil_tmp19 = __cil_tmp18 + 76;
-#line 1564
-  __cil_tmp20 = *((u32 const   *)__cil_tmp19);
-#line 1564
-  *((__u32 *)__cil_tmp17) = (unsigned int )__cil_tmp20;
+  var->accel_flags = (__u32 )__cil_tmp6;
 #line 1566
   return (0);
 }
@@ -10973,27 +9426,18 @@ static int aty128_encode_var(struct fb_var_screeninfo *var , struct aty128fb_par
 static int aty128fb_check_var(struct fb_var_screeninfo *var , struct fb_info *info ) 
 { struct aty128fb_par par ;
   int err ;
-  struct aty128fb_par *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  struct aty128fb_par *__cil_tmp9 ;
-  struct aty128fb_par  const  *__cil_tmp10 ;
+  void *__cil_tmp5 ;
+  struct aty128fb_par *__cil_tmp6 ;
+  struct aty128fb_par  const  *__cil_tmp7 ;
 
   {
   {
 #line 1575
-  __cil_tmp5 = & par;
+  __cil_tmp5 = info->par;
 #line 1575
-  __cil_tmp6 = (unsigned long )info;
+  __cil_tmp6 = (struct aty128fb_par *)__cil_tmp5;
 #line 1575
-  __cil_tmp7 = __cil_tmp6 + 1592;
-#line 1575
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 1575
-  __cil_tmp9 = (struct aty128fb_par *)__cil_tmp8;
-#line 1575
-  *__cil_tmp5 = *__cil_tmp9;
+  par = *__cil_tmp6;
 #line 1576
   err = aty128_decode_var(var, & par);
   }
@@ -11006,9 +9450,9 @@ static int aty128fb_check_var(struct fb_var_screeninfo *var , struct fb_info *in
   }
   {
 #line 1578
-  __cil_tmp10 = (struct aty128fb_par  const  *)(& par);
+  __cil_tmp7 = (struct aty128fb_par  const  *)(& par);
 #line 1578
-  aty128_encode_var(var, __cil_tmp10);
+  aty128_encode_var(var, __cil_tmp7);
   }
 #line 1579
   return (0);
@@ -11022,149 +9466,80 @@ static int aty128fb_pan_display(struct fb_var_screeninfo *var , struct fb_info *
   u32 offset ;
   u32 xres ;
   u32 yres ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  void *__cil_tmp9 ;
+  u32 __cil_tmp10 ;
+  u32 __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  u32 __cil_tmp14 ;
   u32 __cil_tmp15 ;
-  u32 __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  unsigned int __cil_tmp16 ;
+  __u32 __cil_tmp17 ;
+  __u32 __cil_tmp18 ;
+  u32 __cil_tmp19 ;
+  u32 __cil_tmp20 ;
+  u32 __cil_tmp21 ;
   u32 __cil_tmp22 ;
   u32 __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  __u32 __cil_tmp27 ;
-  __u32 __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  u32 __cil_tmp34 ;
-  u32 __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u32 __cil_tmp39 ;
-  u32 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  u32 __cil_tmp50 ;
-  u32 __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  u32 __cil_tmp55 ;
-  u32 __cil_tmp56 ;
-  u32 __cil_tmp57 ;
-  u32 __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u32 __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  unsigned int __cil_tmp64 ;
-  unsigned int volatile   __cil_tmp65 ;
-  struct aty128fb_par  const  *__cil_tmp66 ;
+  u32 __cil_tmp24 ;
+  u32 __cil_tmp25 ;
+  u32 __cil_tmp26 ;
+  u32 __cil_tmp27 ;
+  u32 __cil_tmp28 ;
+  u32 __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int volatile   __cil_tmp32 ;
+  struct aty128fb_par  const  *__cil_tmp33 ;
 
   {
 #line 1588
-  __cil_tmp9 = (unsigned long )fb;
+  __cil_tmp9 = fb->par;
 #line 1588
-  __cil_tmp10 = __cil_tmp9 + 1592;
-#line 1588
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 1588
-  par = (struct aty128fb_par *)__cil_tmp11;
+  par = (struct aty128fb_par *)__cil_tmp9;
 #line 1593
-  __cil_tmp12 = 0 + 4;
+  __cil_tmp10 = par->crtc.h_total;
 #line 1593
-  __cil_tmp13 = (unsigned long )par;
+  __cil_tmp11 = __cil_tmp10 >> 16;
 #line 1593
-  __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
+  __cil_tmp12 = __cil_tmp11 & 255U;
 #line 1593
-  __cil_tmp15 = *((u32 *)__cil_tmp14);
+  __cil_tmp13 = __cil_tmp12 + 1U;
 #line 1593
-  __cil_tmp16 = __cil_tmp15 >> 16;
-#line 1593
-  __cil_tmp17 = __cil_tmp16 & 255U;
-#line 1593
-  __cil_tmp18 = __cil_tmp17 + 1U;
-#line 1593
-  xres = __cil_tmp18 << 3;
+  xres = __cil_tmp13 << 3;
 #line 1594
-  __cil_tmp19 = 0 + 12;
+  __cil_tmp14 = par->crtc.v_total;
 #line 1594
-  __cil_tmp20 = (unsigned long )par;
+  __cil_tmp15 = __cil_tmp14 >> 16;
 #line 1594
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
+  __cil_tmp16 = __cil_tmp15 & 2047U;
 #line 1594
-  __cil_tmp22 = *((u32 *)__cil_tmp21);
-#line 1594
-  __cil_tmp23 = __cil_tmp22 >> 16;
-#line 1594
-  __cil_tmp24 = __cil_tmp23 & 2047U;
-#line 1594
-  yres = __cil_tmp24 + 1U;
+  yres = __cil_tmp16 + 1U;
 #line 1596
-  __cil_tmp25 = (unsigned long )var;
+  __cil_tmp17 = var->xoffset;
 #line 1596
-  __cil_tmp26 = __cil_tmp25 + 16;
+  __cil_tmp18 = __cil_tmp17 + 7U;
 #line 1596
-  __cil_tmp27 = *((__u32 *)__cil_tmp26);
-#line 1596
-  __cil_tmp28 = __cil_tmp27 + 7U;
-#line 1596
-  xoffset = __cil_tmp28 & 4294967288U;
+  xoffset = __cil_tmp18 & 4294967288U;
 #line 1597
-  __cil_tmp29 = (unsigned long )var;
-#line 1597
-  __cil_tmp30 = __cil_tmp29 + 20;
-#line 1597
-  yoffset = *((__u32 *)__cil_tmp30);
+  yoffset = var->yoffset;
   {
 #line 1599
-  __cil_tmp31 = 0 + 40;
+  __cil_tmp19 = par->crtc.vxres;
 #line 1599
-  __cil_tmp32 = (unsigned long )par;
+  __cil_tmp20 = xoffset + xres;
 #line 1599
-  __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 1599
-  __cil_tmp34 = *((u32 *)__cil_tmp33);
-#line 1599
-  __cil_tmp35 = xoffset + xres;
-#line 1599
-  if (__cil_tmp35 > __cil_tmp34) {
+  if (__cil_tmp20 > __cil_tmp19) {
 #line 1600
     return (-22);
   } else {
     {
 #line 1599
-    __cil_tmp36 = 0 + 44;
+    __cil_tmp21 = par->crtc.vyres;
 #line 1599
-    __cil_tmp37 = (unsigned long )par;
+    __cil_tmp22 = yoffset + yres;
 #line 1599
-    __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 1599
-    __cil_tmp39 = *((u32 *)__cil_tmp38);
-#line 1599
-    __cil_tmp40 = yoffset + yres;
-#line 1599
-    if (__cil_tmp40 > __cil_tmp39) {
+    if (__cil_tmp22 > __cil_tmp21) {
 #line 1600
       return (-22);
     } else {
@@ -11174,75 +9549,45 @@ static int aty128fb_pan_display(struct fb_var_screeninfo *var , struct fb_info *
   }
   }
 #line 1602
-  __cil_tmp41 = 0 + 32;
-#line 1602
-  __cil_tmp42 = (unsigned long )par;
-#line 1602
-  __cil_tmp43 = __cil_tmp42 + __cil_tmp41;
-#line 1602
-  *((u32 *)__cil_tmp43) = xoffset;
+  par->crtc.xoffset = xoffset;
 #line 1603
-  __cil_tmp44 = 0 + 36;
-#line 1603
-  __cil_tmp45 = (unsigned long )par;
-#line 1603
-  __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
-#line 1603
-  *((u32 *)__cil_tmp46) = yoffset;
+  par->crtc.yoffset = yoffset;
 #line 1605
-  __cil_tmp47 = 0 + 52;
+  __cil_tmp23 = par->crtc.bpp;
 #line 1605
-  __cil_tmp48 = (unsigned long )par;
+  __cil_tmp24 = __cil_tmp23 >> 3;
 #line 1605
-  __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
+  __cil_tmp25 = par->crtc.vxres;
 #line 1605
-  __cil_tmp50 = *((u32 *)__cil_tmp49);
+  __cil_tmp26 = __cil_tmp25 * yoffset;
 #line 1605
-  __cil_tmp51 = __cil_tmp50 >> 3;
+  __cil_tmp27 = __cil_tmp26 + xoffset;
 #line 1605
-  __cil_tmp52 = 0 + 40;
+  __cil_tmp28 = __cil_tmp27 * __cil_tmp24;
 #line 1605
-  __cil_tmp53 = (unsigned long )par;
-#line 1605
-  __cil_tmp54 = __cil_tmp53 + __cil_tmp52;
-#line 1605
-  __cil_tmp55 = *((u32 *)__cil_tmp54);
-#line 1605
-  __cil_tmp56 = __cil_tmp55 * yoffset;
-#line 1605
-  __cil_tmp57 = __cil_tmp56 + xoffset;
-#line 1605
-  __cil_tmp58 = __cil_tmp57 * __cil_tmp51;
-#line 1605
-  offset = __cil_tmp58 & 4294967288U;
+  offset = __cil_tmp28 & 4294967288U;
   {
 #line 1607
-  __cil_tmp59 = 0 + 52;
+  __cil_tmp29 = par->crtc.bpp;
 #line 1607
-  __cil_tmp60 = (unsigned long )par;
-#line 1607
-  __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 1607
-  __cil_tmp62 = *((u32 *)__cil_tmp61);
-#line 1607
-  if (__cil_tmp62 == 24U) {
+  if (__cil_tmp29 == 24U) {
 #line 1608
-    __cil_tmp63 = offset % 3U;
+    __cil_tmp30 = offset % 3U;
 #line 1608
-    __cil_tmp64 = __cil_tmp63 * 8U;
+    __cil_tmp31 = __cil_tmp30 * 8U;
 #line 1608
-    offset = __cil_tmp64 + offset;
+    offset = __cil_tmp31 + offset;
   } else {
 
   }
   }
   {
 #line 1610
-  __cil_tmp65 = (unsigned int volatile   )548U;
+  __cil_tmp32 = (unsigned int volatile   )548U;
 #line 1610
-  __cil_tmp66 = (struct aty128fb_par  const  *)par;
+  __cil_tmp33 = (struct aty128fb_par  const  *)par;
 #line 1610
-  _aty_st_le32(__cil_tmp65, offset, __cil_tmp66);
+  _aty_st_le32(__cil_tmp32, offset, __cil_tmp33);
   }
 #line 1612
   return (0);
@@ -11251,50 +9596,44 @@ static int aty128fb_pan_display(struct fb_var_screeninfo *var , struct fb_info *
 #line 1619 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static void aty128_st_pal(u_int regno , u_int red , u_int green , u_int blue , struct aty128fb_par *par ) 
 { u32 tmp ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
+  int __cil_tmp7 ;
+  unsigned int volatile   __cil_tmp8 ;
+  struct aty128fb_par  const  *__cil_tmp9 ;
   unsigned int volatile   __cil_tmp10 ;
-  struct aty128fb_par  const  *__cil_tmp11 ;
-  unsigned int volatile   __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  struct aty128fb_par  const  *__cil_tmp14 ;
-  unsigned char __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
-  struct aty128fb_par  const  *__cil_tmp18 ;
-  unsigned int volatile   __cil_tmp19 ;
-  u_int __cil_tmp20 ;
-  u_int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  struct aty128fb_par  const  *__cil_tmp24 ;
+  unsigned int __cil_tmp11 ;
+  struct aty128fb_par  const  *__cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  int __cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  struct aty128fb_par  const  *__cil_tmp16 ;
+  unsigned int volatile   __cil_tmp17 ;
+  u_int __cil_tmp18 ;
+  u_int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  struct aty128fb_par  const  *__cil_tmp22 ;
 
   {
   {
 #line 1622
-  __cil_tmp7 = (unsigned long )par;
+  __cil_tmp7 = par->chip_gen;
 #line 1622
-  __cil_tmp8 = __cil_tmp7 + 124;
-#line 1622
-  __cil_tmp9 = *((int *)__cil_tmp8);
-#line 1622
-  if (__cil_tmp9 == 4) {
+  if (__cil_tmp7 == 4) {
     {
+#line 1635
+    __cil_tmp8 = (unsigned int volatile   )88U;
+#line 1635
+    __cil_tmp9 = (struct aty128fb_par  const  *)par;
+#line 1635
+    tmp = _aty_ld_le32(__cil_tmp8, __cil_tmp9);
 #line 1635
     __cil_tmp10 = (unsigned int volatile   )88U;
 #line 1635
-    __cil_tmp11 = (struct aty128fb_par  const  *)par;
+    __cil_tmp11 = tmp & 4294967263U;
 #line 1635
-    tmp = _aty_ld_le32(__cil_tmp10, __cil_tmp11);
+    __cil_tmp12 = (struct aty128fb_par  const  *)par;
 #line 1635
-    __cil_tmp12 = (unsigned int volatile   )88U;
-#line 1635
-    __cil_tmp13 = tmp & 4294967263U;
-#line 1635
-    __cil_tmp14 = (struct aty128fb_par  const  *)par;
-#line 1635
-    _aty_st_le32(__cil_tmp12, __cil_tmp13, __cil_tmp14);
+    _aty_st_le32(__cil_tmp10, __cil_tmp11, __cil_tmp12);
     }
   } else {
 
@@ -11302,29 +9641,29 @@ static void aty128_st_pal(u_int regno , u_int red , u_int green , u_int blue , s
   }
   {
 #line 1638
-  __cil_tmp15 = (unsigned char )regno;
+  __cil_tmp13 = (u8 )regno;
 #line 1638
-  __cil_tmp16 = (int )__cil_tmp15;
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 1638
-  __cil_tmp17 = (unsigned char )__cil_tmp16;
+  __cil_tmp15 = (u8 )__cil_tmp14;
 #line 1638
-  __cil_tmp18 = (struct aty128fb_par  const  *)par;
+  __cil_tmp16 = (struct aty128fb_par  const  *)par;
 #line 1638
-  _aty_st_8(176U, __cil_tmp17, __cil_tmp18);
+  _aty_st_8(176U, __cil_tmp15, __cil_tmp16);
 #line 1639
-  __cil_tmp19 = (unsigned int volatile   )180U;
+  __cil_tmp17 = (unsigned int volatile   )180U;
 #line 1639
-  __cil_tmp20 = green << 8;
+  __cil_tmp18 = green << 8;
 #line 1639
-  __cil_tmp21 = red << 16;
+  __cil_tmp19 = red << 16;
 #line 1639
-  __cil_tmp22 = __cil_tmp21 | __cil_tmp20;
+  __cil_tmp20 = __cil_tmp19 | __cil_tmp18;
 #line 1639
-  __cil_tmp23 = __cil_tmp22 | blue;
+  __cil_tmp21 = __cil_tmp20 | blue;
 #line 1639
-  __cil_tmp24 = (struct aty128fb_par  const  *)par;
+  __cil_tmp22 = (struct aty128fb_par  const  *)par;
 #line 1639
-  _aty_st_le32(__cil_tmp19, __cil_tmp23, __cil_tmp24);
+  _aty_st_le32(__cil_tmp17, __cil_tmp21, __cil_tmp22);
   }
 #line 1640
   return;
@@ -11333,31 +9672,19 @@ static void aty128_st_pal(u_int regno , u_int red , u_int green , u_int blue , s
 #line 1642 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 static int aty128fb_sync(struct fb_info *info ) 
 { struct aty128fb_par *par ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  int __cil_tmp8 ;
+  void *__cil_tmp3 ;
+  int __cil_tmp4 ;
 
   {
 #line 1644
-  __cil_tmp3 = (unsigned long )info;
+  __cil_tmp3 = info->par;
 #line 1644
-  __cil_tmp4 = __cil_tmp3 + 1592;
-#line 1644
-  __cil_tmp5 = *((void **)__cil_tmp4);
-#line 1644
-  par = (struct aty128fb_par *)__cil_tmp5;
+  par = (struct aty128fb_par *)__cil_tmp3;
   {
 #line 1646
-  __cil_tmp6 = (unsigned long )par;
+  __cil_tmp4 = par->blitter_may_be_busy;
 #line 1646
-  __cil_tmp7 = __cil_tmp6 + 144;
-#line 1646
-  __cil_tmp8 = *((int *)__cil_tmp7);
-#line 1646
-  if (__cil_tmp8 != 0) {
+  if (__cil_tmp4 != 0) {
     {
 #line 1647
     wait_for_idle(par);
@@ -11375,61 +9702,42 @@ static int aty128_bl_get_level_brightness(struct aty128fb_par *par , int level )
 { struct fb_info *info ;
   void *tmp ;
   int atylevel ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct pci_dev *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u8 __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
+  struct pci_dev *__cil_tmp6 ;
+  u8 __cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
 
   {
   {
 #line 1715
-  __cil_tmp6 = (unsigned long )par;
+  __cil_tmp6 = par->pdev;
 #line 1715
-  __cil_tmp7 = __cil_tmp6 + 168;
-#line 1715
-  __cil_tmp8 = *((struct pci_dev **)__cil_tmp7);
-#line 1715
-  tmp = pci_get_drvdata(__cil_tmp8);
+  tmp = pci_get_drvdata(__cil_tmp6);
 #line 1715
   info = (struct fb_info *)tmp;
 #line 1720
-  __cil_tmp9 = level * 1UL;
+  __cil_tmp7 = info->bl_curve[level];
 #line 1720
-  __cil_tmp10 = 1168 + __cil_tmp9;
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 1720
-  __cil_tmp11 = (unsigned long )info;
+  __cil_tmp9 = __cil_tmp8 * 255;
 #line 1720
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
+  __cil_tmp10 = __cil_tmp9 / 255;
 #line 1720
-  __cil_tmp13 = *((u8 *)__cil_tmp12);
-#line 1720
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 1720
-  __cil_tmp15 = __cil_tmp14 * 255;
-#line 1720
-  __cil_tmp16 = __cil_tmp15 / 255;
-#line 1720
-  atylevel = 255 - __cil_tmp16;
+  atylevel = 255 - __cil_tmp10;
   }
 #line 1723
   if (atylevel < 0) {
 #line 1724
     atylevel = 0;
-  } else {
+  } else
 #line 1725
-    if (atylevel > 255) {
+  if (atylevel > 255) {
 #line 1726
-      atylevel = 255;
-    } else {
+    atylevel = 255;
+  } else {
 
-    }
   }
 #line 1728
   return (atylevel);
@@ -11448,36 +9756,28 @@ static int aty128_bl_update_status(struct backlight_device *bd )
   int tmp___3 ;
   unsigned int volatile   __cil_tmp11 ;
   struct aty128fb_par  const  *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int volatile   __cil_tmp17 ;
+  struct aty128fb_par  const  *__cil_tmp18 ;
+  unsigned int volatile   __cil_tmp19 ;
+  struct aty128fb_par  const  *__cil_tmp20 ;
+  unsigned int volatile   __cil_tmp21 ;
+  struct aty128fb_par  const  *__cil_tmp22 ;
   int __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
   unsigned int volatile   __cil_tmp25 ;
   struct aty128fb_par  const  *__cil_tmp26 ;
-  unsigned int volatile   __cil_tmp27 ;
-  struct aty128fb_par  const  *__cil_tmp28 ;
+  int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
   unsigned int volatile   __cil_tmp29 ;
   struct aty128fb_par  const  *__cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
+  unsigned int volatile   __cil_tmp31 ;
+  struct aty128fb_par  const  *__cil_tmp32 ;
   unsigned int volatile   __cil_tmp33 ;
   struct aty128fb_par  const  *__cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned int volatile   __cil_tmp37 ;
-  struct aty128fb_par  const  *__cil_tmp38 ;
-  unsigned int volatile   __cil_tmp39 ;
-  struct aty128fb_par  const  *__cil_tmp40 ;
-  unsigned int volatile   __cil_tmp41 ;
-  struct aty128fb_par  const  *__cil_tmp42 ;
 
   {
   {
@@ -11496,46 +9796,30 @@ static int aty128_bl_update_status(struct backlight_device *bd )
   }
   {
 #line 1745
-  __cil_tmp13 = 0 + 8;
+  __cil_tmp13 = bd->props.power;
 #line 1745
-  __cil_tmp14 = (unsigned long )bd;
-#line 1745
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 1745
-  __cil_tmp16 = *((int *)__cil_tmp15);
-#line 1745
-  if (__cil_tmp16 != 0) {
+  if (__cil_tmp13 != 0) {
 #line 1748
     level = 0;
   } else {
     {
 #line 1745
-    __cil_tmp17 = 0 + 12;
+    __cil_tmp14 = bd->props.fb_blank;
 #line 1745
-    __cil_tmp18 = (unsigned long )bd;
-#line 1745
-    __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 1745
-    __cil_tmp20 = *((int *)__cil_tmp19);
-#line 1745
-    if (__cil_tmp20 != 0) {
+    if (__cil_tmp14 != 0) {
 #line 1748
       level = 0;
     } else {
       {
 #line 1745
-      __cil_tmp21 = (unsigned long )par;
+      __cil_tmp15 = par->lcd_on;
 #line 1745
-      __cil_tmp22 = __cil_tmp21 + 160;
-#line 1745
-      __cil_tmp23 = *((int *)__cil_tmp22);
-#line 1745
-      if (__cil_tmp23 == 0) {
+      if (__cil_tmp15 == 0) {
 #line 1748
         level = 0;
       } else {
 #line 1750
-        level = *((int *)bd);
+        level = bd->props.brightness;
       }
       }
     }
@@ -11550,27 +9834,28 @@ static int aty128_bl_update_status(struct backlight_device *bd )
     reg = reg | 262144U;
     {
 #line 1755
-    __cil_tmp24 = reg & 1U;
+    __cil_tmp16 = reg & 1U;
 #line 1755
-    if (__cil_tmp24 == 0U) {
+    if (__cil_tmp16 == 0U) {
       {
 #line 1756
       reg = reg & 4294443007U;
 #line 1757
-      __cil_tmp25 = (unsigned int volatile   )720U;
+      __cil_tmp17 = (unsigned int volatile   )720U;
 #line 1757
-      __cil_tmp26 = (struct aty128fb_par  const  *)par;
+      __cil_tmp18 = (struct aty128fb_par  const  *)par;
 #line 1757
-      _aty_st_le32(__cil_tmp25, reg, __cil_tmp26);
+      _aty_st_le32(__cil_tmp17, reg, __cil_tmp18);
 #line 1758
-      __cil_tmp27 = (unsigned int volatile   )720U;
+      __cil_tmp19 = (unsigned int volatile   )720U;
 #line 1758
-      __cil_tmp28 = (struct aty128fb_par  const  *)par;
+      __cil_tmp20 = (struct aty128fb_par  const  *)par;
 #line 1758
-      _aty_ld_le32(__cil_tmp27, __cil_tmp28);
+      _aty_ld_le32(__cil_tmp19, __cil_tmp20);
 #line 1759
       __ms = 10UL;
       }
+#line 1759
       goto ldv_31634;
       ldv_31633: 
       {
@@ -11584,8 +9869,10 @@ static int aty128_bl_update_status(struct backlight_device *bd )
       __ms = __ms - 1UL;
 #line 1759
       if (tmp___1 != 0UL) {
+#line 1760
         goto ldv_31633;
       } else {
+#line 1762
         goto ldv_31635;
       }
       ldv_31635: 
@@ -11593,11 +9880,11 @@ static int aty128_bl_update_status(struct backlight_device *bd )
 #line 1760
       reg = reg | 524288U;
 #line 1761
-      __cil_tmp29 = (unsigned int volatile   )720U;
+      __cil_tmp21 = (unsigned int volatile   )720U;
 #line 1761
-      __cil_tmp30 = (struct aty128fb_par  const  *)par;
+      __cil_tmp22 = (struct aty128fb_par  const  *)par;
 #line 1761
-      _aty_st_le32(__cil_tmp29, reg, __cil_tmp30);
+      _aty_st_le32(__cil_tmp21, reg, __cil_tmp22);
       }
     } else {
 
@@ -11609,21 +9896,21 @@ static int aty128_bl_update_status(struct backlight_device *bd )
 #line 1764
     tmp___2 = aty128_bl_get_level_brightness(par, level);
 #line 1764
-    __cil_tmp31 = tmp___2 << 8;
+    __cil_tmp23 = tmp___2 << 8;
 #line 1764
-    __cil_tmp32 = (unsigned int )__cil_tmp31;
+    __cil_tmp24 = (unsigned int )__cil_tmp23;
 #line 1764
-    reg = __cil_tmp32 | reg;
+    reg = __cil_tmp24 | reg;
 #line 1766
     reg = reg | 129U;
 #line 1767
     reg = reg & 4294967293U;
 #line 1769
-    __cil_tmp33 = (unsigned int volatile   )720U;
+    __cil_tmp25 = (unsigned int volatile   )720U;
 #line 1769
-    __cil_tmp34 = (struct aty128fb_par  const  *)par;
+    __cil_tmp26 = (struct aty128fb_par  const  *)par;
 #line 1769
-    _aty_st_le32(__cil_tmp33, reg, __cil_tmp34);
+    _aty_st_le32(__cil_tmp25, reg, __cil_tmp26);
     }
   } else {
     {
@@ -11632,35 +9919,35 @@ static int aty128_bl_update_status(struct backlight_device *bd )
 #line 1775
     tmp___3 = aty128_bl_get_level_brightness(par, 0);
 #line 1775
-    __cil_tmp35 = tmp___3 << 8;
+    __cil_tmp27 = tmp___3 << 8;
 #line 1775
-    __cil_tmp36 = (unsigned int )__cil_tmp35;
+    __cil_tmp28 = (unsigned int )__cil_tmp27;
 #line 1775
-    reg = __cil_tmp36 | reg;
+    reg = __cil_tmp28 | reg;
 #line 1777
     reg = reg | 2U;
 #line 1778
-    __cil_tmp37 = (unsigned int volatile   )720U;
+    __cil_tmp29 = (unsigned int volatile   )720U;
 #line 1778
-    __cil_tmp38 = (struct aty128fb_par  const  *)par;
+    __cil_tmp30 = (struct aty128fb_par  const  *)par;
 #line 1778
-    _aty_st_le32(__cil_tmp37, reg, __cil_tmp38);
+    _aty_st_le32(__cil_tmp29, reg, __cil_tmp30);
 #line 1779
-    __cil_tmp39 = (unsigned int volatile   )720U;
+    __cil_tmp31 = (unsigned int volatile   )720U;
 #line 1779
-    __cil_tmp40 = (struct aty128fb_par  const  *)par;
+    __cil_tmp32 = (struct aty128fb_par  const  *)par;
 #line 1779
-    _aty_ld_le32(__cil_tmp39, __cil_tmp40);
+    _aty_ld_le32(__cil_tmp31, __cil_tmp32);
 #line 1780
     __const_udelay(42950UL);
 #line 1781
     reg = reg & 4294180734U;
 #line 1783
-    __cil_tmp41 = (unsigned int volatile   )720U;
+    __cil_tmp33 = (unsigned int volatile   )720U;
 #line 1783
-    __cil_tmp42 = (struct aty128fb_par  const  *)par;
+    __cil_tmp34 = (struct aty128fb_par  const  *)par;
 #line 1783
-    _aty_st_le32(__cil_tmp41, reg, __cil_tmp42);
+    _aty_st_le32(__cil_tmp33, reg, __cil_tmp34);
     }
   }
 #line 1789
@@ -11673,7 +9960,7 @@ static int aty128_bl_get_brightness(struct backlight_device *bd )
 
   {
 #line 1794
-  return (*((int *)bd));
+  return (bd->props.brightness);
 }
 }
 #line 1797 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
@@ -11683,19 +9970,10 @@ static struct backlight_ops  const  aty128_bl_data  =    {0U, & aty128_bl_update
 static void aty128_bl_set_power(struct fb_info *info , int power ) 
 { struct backlight_device *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  struct backlight_device *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   struct backlight_device *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct backlight_device *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct backlight_device *__cil_tmp17 ;
+  struct backlight_device *__cil_tmp8 ;
 
   {
   {
@@ -11704,38 +9982,20 @@ static void aty128_bl_set_power(struct fb_info *info , int power )
 #line 1804
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 1804
-  __cil_tmp5 = (unsigned long )info;
+  __cil_tmp5 = info->bl_dev;
 #line 1804
-  __cil_tmp6 = __cil_tmp5 + 992;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 1804
-  __cil_tmp7 = *((struct backlight_device **)__cil_tmp6);
-#line 1804
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 1804
-  if (__cil_tmp8 != __cil_tmp4) {
+  if (__cil_tmp6 != __cil_tmp4) {
     {
 #line 1805
-    __cil_tmp9 = 0 + 8;
+    __cil_tmp7 = info->bl_dev;
 #line 1805
-    __cil_tmp10 = (unsigned long )info;
-#line 1805
-    __cil_tmp11 = __cil_tmp10 + 992;
-#line 1805
-    __cil_tmp12 = *((struct backlight_device **)__cil_tmp11);
-#line 1805
-    __cil_tmp13 = (unsigned long )__cil_tmp12;
-#line 1805
-    __cil_tmp14 = __cil_tmp13 + __cil_tmp9;
-#line 1805
-    *((int *)__cil_tmp14) = power;
+    __cil_tmp7->props.power = power;
 #line 1806
-    __cil_tmp15 = (unsigned long )info;
+    __cil_tmp8 = info->bl_dev;
 #line 1806
-    __cil_tmp16 = __cil_tmp15 + 992;
-#line 1806
-    __cil_tmp17 = *((struct backlight_device **)__cil_tmp16);
-#line 1806
-    backlight_update_status(__cil_tmp17);
+    backlight_update_status(__cil_tmp8);
     }
   } else {
 
@@ -11753,60 +10013,35 @@ static void aty128_bl_init(struct aty128fb_par *par )
   struct backlight_device *bd ;
   char name[12U] ;
   long tmp___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct pci_dev *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  char *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  char const   *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct device *__cil_tmp24 ;
-  void *__cil_tmp25 ;
-  struct backlight_properties  const  *__cil_tmp26 ;
-  void const   *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  char *__cil_tmp38 ;
+  struct pci_dev *__cil_tmp8 ;
+  int __cil_tmp9 ;
+  char *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  void *__cil_tmp12 ;
+  char const   *__cil_tmp13 ;
+  struct device *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  struct backlight_properties  const  *__cil_tmp16 ;
+  void const   *__cil_tmp17 ;
+  u8 __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  u8 __cil_tmp20 ;
+  char *__cil_tmp21 ;
 
   {
   {
 #line 1813
-  __cil_tmp8 = (unsigned long )par;
+  __cil_tmp8 = par->pdev;
 #line 1813
-  __cil_tmp9 = __cil_tmp8 + 168;
-#line 1813
-  __cil_tmp10 = *((struct pci_dev **)__cil_tmp9);
-#line 1813
-  tmp = pci_get_drvdata(__cil_tmp10);
+  tmp = pci_get_drvdata(__cil_tmp8);
 #line 1813
   info = (struct fb_info *)tmp;
   }
   {
 #line 1818
-  __cil_tmp11 = (unsigned long )par;
+  __cil_tmp9 = par->chip_gen;
 #line 1818
-  __cil_tmp12 = __cil_tmp11 + 124;
-#line 1818
-  __cil_tmp13 = *((int *)__cil_tmp12);
-#line 1818
-  if (__cil_tmp13 != 4) {
+  if (__cil_tmp9 != 4) {
 #line 1819
     return;
   } else {
@@ -11815,94 +10050,69 @@ static void aty128_bl_init(struct aty128fb_par *par )
   }
   {
 #line 1826
-  __cil_tmp14 = (char *)(& name);
+  __cil_tmp10 = (char *)(& name);
 #line 1826
-  __cil_tmp15 = (unsigned long )info;
+  __cil_tmp11 = info->node;
 #line 1826
-  __cil_tmp16 = __cil_tmp15 + 4;
-#line 1826
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 1826
-  snprintf(__cil_tmp14, 12UL, "aty128bl%d", __cil_tmp17);
+  snprintf(__cil_tmp10, 12UL, "aty128bl%d", __cil_tmp11);
 #line 1828
-  __cil_tmp18 = (void *)(& props);
+  __cil_tmp12 = (void *)(& props);
 #line 1828
-  memset(__cil_tmp18, 0, 24UL);
+  memset(__cil_tmp12, 0, 24UL);
 #line 1829
-  __cil_tmp19 = (unsigned long )(& props) + 16;
-#line 1829
-  *((enum backlight_type *)__cil_tmp19) = (enum backlight_type )1;
+  props.type = (enum backlight_type )1;
 #line 1830
-  __cil_tmp20 = (unsigned long )(& props) + 4;
-#line 1830
-  *((int *)__cil_tmp20) = 127;
+  props.max_brightness = 127;
 #line 1831
-  __cil_tmp21 = (char const   *)(& name);
+  __cil_tmp13 = (char const   *)(& name);
 #line 1831
-  __cil_tmp22 = (unsigned long )info;
+  __cil_tmp14 = info->dev;
 #line 1831
-  __cil_tmp23 = __cil_tmp22 + 1528;
+  __cil_tmp15 = (void *)par;
 #line 1831
-  __cil_tmp24 = *((struct device **)__cil_tmp23);
+  __cil_tmp16 = (struct backlight_properties  const  *)(& props);
 #line 1831
-  __cil_tmp25 = (void *)par;
-#line 1831
-  __cil_tmp26 = (struct backlight_properties  const  *)(& props);
-#line 1831
-  bd = backlight_device_register(__cil_tmp21, __cil_tmp24, __cil_tmp25, & aty128_bl_data,
-                                 __cil_tmp26);
+  bd = backlight_device_register(__cil_tmp13, __cil_tmp14, __cil_tmp15, & aty128_bl_data,
+                                 __cil_tmp16);
 #line 1833
-  __cil_tmp27 = (void const   *)bd;
+  __cil_tmp17 = (void const   *)bd;
 #line 1833
-  tmp___0 = IS_ERR(__cil_tmp27);
+  tmp___0 = IS_ERR(__cil_tmp17);
   }
 #line 1833
   if (tmp___0 != 0L) {
     {
 #line 1834
-    __cil_tmp28 = (unsigned long )info;
-#line 1834
-    __cil_tmp29 = __cil_tmp28 + 992;
-#line 1834
-    *((struct backlight_device **)__cil_tmp29) = (struct backlight_device *)0;
+    info->bl_dev = (struct backlight_device *)0;
 #line 1835
     printk("<4>aty128: Backlight registration failed\n");
     }
+#line 1836
     goto error;
   } else {
 
   }
   {
 #line 1839
-  __cil_tmp30 = (unsigned long )info;
-#line 1839
-  __cil_tmp31 = __cil_tmp30 + 992;
-#line 1839
-  *((struct backlight_device **)__cil_tmp31) = bd;
+  info->bl_dev = bd;
 #line 1840
-  fb_bl_default_curve(info, (unsigned char)0, (unsigned char)63, (unsigned char)219);
+  __cil_tmp18 = (u8 )0;
+#line 1840
+  __cil_tmp19 = (u8 )63;
+#line 1840
+  __cil_tmp20 = (u8 )219;
+#line 1840
+  fb_bl_default_curve(info, __cil_tmp18, __cil_tmp19, __cil_tmp20);
 #line 1844
-  __cil_tmp32 = 0 + 4;
-#line 1844
-  __cil_tmp33 = (unsigned long )bd;
-#line 1844
-  __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
-#line 1844
-  *((int *)bd) = *((int *)__cil_tmp34);
+  bd->props.brightness = bd->props.max_brightness;
 #line 1845
-  __cil_tmp35 = 0 + 8;
-#line 1845
-  __cil_tmp36 = (unsigned long )bd;
-#line 1845
-  __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 1845
-  *((int *)__cil_tmp37) = 0;
+  bd->props.power = 0;
 #line 1846
   backlight_update_status(bd);
 #line 1848
-  __cil_tmp38 = (char *)(& name);
+  __cil_tmp21 = (char *)(& name);
 #line 1848
-  printk("aty128: Backlight initialized (%s)\n", __cil_tmp38);
+  printk("aty128: Backlight initialized (%s)\n", __cil_tmp21);
   }
 #line 1850
   return;
@@ -11940,123 +10150,54 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   int tmp___2 ;
   u32 tmp___3 ;
   int tmp___4 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  void *__cil_tmp17 ;
-  unsigned int volatile   __cil_tmp18 ;
-  struct aty128fb_par  const  *__cil_tmp19 ;
-  u32 __cil_tmp20 ;
-  unsigned char __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  char *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  void *__cil_tmp15 ;
+  unsigned int volatile   __cil_tmp16 ;
+  struct aty128fb_par  const  *__cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  char *__cil_tmp22 ;
+  __u32 __cil_tmp23 ;
+  __u32 __cil_tmp24 ;
+  __u32 __cil_tmp25 ;
+  kernel_ulong_t __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  __u32 __cil_tmp29 ;
-  __u32 __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  __u32 __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  kernel_ulong_t __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  char *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  kernel_ulong_t __cil_tmp43 ;
+  char *__cil_tmp28 ;
+  char *__cil_tmp29 ;
+  int __cil_tmp30 ;
+  u32 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  u32 __cil_tmp33 ;
+  u32 __cil_tmp34 ;
+  struct aty128_meminfo  const  *__cil_tmp35 ;
+  char const   *__cil_tmp36 ;
+  u32 __cil_tmp37 ;
+  u32 __cil_tmp38 ;
+  struct aty128_meminfo  const  *__cil_tmp39 ;
+  char const   *__cil_tmp40 ;
+  kernel_ulong_t __cil_tmp41 ;
+  char *__cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
   unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  char const   *__cil_tmp46 ;
-  char *__cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u32 __cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  u32 __cil_tmp55 ;
-  u32 __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  struct aty128_meminfo  const  *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  char const   *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  u32 __cil_tmp65 ;
-  u32 __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct aty128_meminfo  const  *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  char const   *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  kernel_ulong_t __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  struct fb_var_screeninfo *__cil_tmp86 ;
-  char *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  char const   *__cil_tmp90 ;
-  struct fb_videomode  const  *__cil_tmp91 ;
-  struct fb_videomode  const  *__cil_tmp92 ;
-  struct fb_var_screeninfo *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  __u32 __cil_tmp96 ;
-  unsigned int volatile   __cil_tmp97 ;
-  struct aty128fb_par  const  *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  int __cil_tmp101 ;
-  unsigned int volatile   __cil_tmp102 ;
-  struct aty128fb_par  const  *__cil_tmp103 ;
-  unsigned int volatile   __cil_tmp104 ;
-  struct aty128fb_par  const  *__cil_tmp105 ;
-  unsigned int volatile   __cil_tmp106 ;
-  unsigned int __cil_tmp107 ;
-  struct aty128fb_par  const  *__cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  struct fb_var_screeninfo *__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  struct fb_cmap *__cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  int __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  char (*__cil_tmp129)[16U] ;
-  char *__cil_tmp130 ;
-  char *__cil_tmp131 ;
+  char const   *__cil_tmp45 ;
+  struct fb_videomode  const  *__cil_tmp46 ;
+  struct fb_videomode  const  *__cil_tmp47 ;
+  unsigned int volatile   __cil_tmp48 ;
+  struct aty128fb_par  const  *__cil_tmp49 ;
+  int __cil_tmp50 ;
+  unsigned int volatile   __cil_tmp51 ;
+  struct aty128fb_par  const  *__cil_tmp52 ;
+  unsigned int volatile   __cil_tmp53 ;
+  struct aty128fb_par  const  *__cil_tmp54 ;
+  unsigned int volatile   __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  struct aty128fb_par  const  *__cil_tmp57 ;
+  struct fb_cmap *__cil_tmp58 ;
+  int __cil_tmp59 ;
+  char (*__cil_tmp60)[16U] ;
+  char *__cil_tmp61 ;
+  char *__cil_tmp62 ;
 
   {
   {
@@ -12065,88 +10206,52 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
 #line 1882
   info = (struct fb_info *)tmp;
 #line 1883
-  __cil_tmp15 = (unsigned long )info;
+  __cil_tmp15 = info->par;
 #line 1883
-  __cil_tmp16 = __cil_tmp15 + 1592;
-#line 1883
-  __cil_tmp17 = *((void **)__cil_tmp16);
-#line 1883
-  par = (struct aty128fb_par *)__cil_tmp17;
+  par = (struct aty128fb_par *)__cil_tmp15;
 #line 1890
-  __cil_tmp18 = (unsigned int volatile   )224U;
+  __cil_tmp16 = (unsigned int volatile   )224U;
 #line 1890
-  __cil_tmp19 = (struct aty128fb_par  const  *)par;
+  __cil_tmp17 = (struct aty128fb_par  const  *)par;
 #line 1890
-  tmp___0 = _aty_ld_le32(__cil_tmp18, __cil_tmp19);
+  tmp___0 = _aty_ld_le32(__cil_tmp16, __cil_tmp17);
 #line 1890
-  __cil_tmp20 = tmp___0 >> 16;
+  __cil_tmp18 = tmp___0 >> 16;
 #line 1890
-  __cil_tmp21 = (unsigned char )__cil_tmp20;
+  __cil_tmp19 = (u8 )__cil_tmp18;
 #line 1890
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 1890
-  __cil_tmp23 = __cil_tmp22 & 31U;
+  __cil_tmp21 = __cil_tmp20 & 31U;
 #line 1890
-  chip_rev = (unsigned char )__cil_tmp23;
+  chip_rev = (u8 )__cil_tmp21;
 #line 1892
-  __cil_tmp24 = (char *)(& video_card);
+  __cil_tmp22 = (char *)(& video_card);
 #line 1892
-  strcpy(__cil_tmp24, "Rage128 XX ");
+  strcpy(__cil_tmp22, "Rage128 XX ");
 #line 1893
-  __cil_tmp25 = 8 * 1UL;
+  __cil_tmp23 = ent->device;
 #line 1893
-  __cil_tmp26 = (unsigned long )(video_card) + __cil_tmp25;
+  __cil_tmp24 = __cil_tmp23 >> 8;
 #line 1893
-  __cil_tmp27 = (unsigned long )ent;
-#line 1893
-  __cil_tmp28 = __cil_tmp27 + 4;
-#line 1893
-  __cil_tmp29 = *((__u32 const   *)__cil_tmp28);
-#line 1893
-  __cil_tmp30 = __cil_tmp29 >> 8;
-#line 1893
-  *((char *)__cil_tmp26) = (char )__cil_tmp30;
+  video_card[8] = (char )__cil_tmp24;
 #line 1894
-  __cil_tmp31 = 9 * 1UL;
+  __cil_tmp25 = ent->device;
 #line 1894
-  __cil_tmp32 = (unsigned long )(video_card) + __cil_tmp31;
-#line 1894
-  __cil_tmp33 = (unsigned long )ent;
-#line 1894
-  __cil_tmp34 = __cil_tmp33 + 4;
-#line 1894
-  __cil_tmp35 = *((__u32 const   *)__cil_tmp34);
-#line 1894
-  *((char *)__cil_tmp32) = (char )__cil_tmp35;
+  video_card[9] = (char )__cil_tmp25;
   }
   {
 #line 1897
-  __cil_tmp36 = (unsigned long )ent;
+  __cil_tmp26 = ent->driver_data;
 #line 1897
-  __cil_tmp37 = __cil_tmp36 + 24;
+  __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 1897
-  __cil_tmp38 = *((kernel_ulong_t const   *)__cil_tmp37);
-#line 1897
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 1897
-  if (__cil_tmp39 <= 7UL) {
+  if (__cil_tmp27 <= 7UL) {
     {
 #line 1898
-    __cil_tmp40 = (char *)(& video_card);
+    __cil_tmp28 = (char *)(& video_card);
 #line 1898
-    __cil_tmp41 = (unsigned long )ent;
-#line 1898
-    __cil_tmp42 = __cil_tmp41 + 24;
-#line 1898
-    __cil_tmp43 = *((kernel_ulong_t const   *)__cil_tmp42);
-#line 1898
-    __cil_tmp44 = __cil_tmp43 * 8UL;
-#line 1898
-    __cil_tmp45 = (unsigned long )(r128_family) + __cil_tmp44;
-#line 1898
-    __cil_tmp46 = *((char const   **)__cil_tmp45);
-#line 1898
-    strlcat(__cil_tmp40, __cil_tmp46, 50UL);
+    strlcat(__cil_tmp28, r128_family[ent->driver_data], 50UL);
     }
   } else {
 
@@ -12154,140 +10259,84 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   }
   {
 #line 1900
-  __cil_tmp47 = (char *)(& video_card);
+  __cil_tmp29 = (char *)(& video_card);
 #line 1900
-  __cil_tmp48 = (int )chip_rev;
+  __cil_tmp30 = (int )chip_rev;
 #line 1900
-  printk("<6>aty128fb: %s [chip rev 0x%x] ", __cil_tmp47, __cil_tmp48);
+  printk("<6>aty128fb: %s [chip rev 0x%x] ", __cil_tmp29, __cil_tmp30);
   }
   {
 #line 1902
-  __cil_tmp49 = (unsigned long )par;
+  __cil_tmp31 = par->vram_size;
 #line 1902
-  __cil_tmp50 = __cil_tmp49 + 120;
+  __cil_tmp32 = __cil_tmp31 & 1048575U;
 #line 1902
-  __cil_tmp51 = *((u32 *)__cil_tmp50);
-#line 1902
-  __cil_tmp52 = __cil_tmp51 & 1048575U;
-#line 1902
-  if (__cil_tmp52 == 0U) {
+  if (__cil_tmp32 == 0U) {
     {
 #line 1903
-    __cil_tmp53 = (unsigned long )par;
+    __cil_tmp33 = par->vram_size;
 #line 1903
-    __cil_tmp54 = __cil_tmp53 + 120;
+    __cil_tmp34 = __cil_tmp33 / 1048576U;
 #line 1903
-    __cil_tmp55 = *((u32 *)__cil_tmp54);
+    __cil_tmp35 = par->mem;
 #line 1903
-    __cil_tmp56 = __cil_tmp55 / 1048576U;
+    __cil_tmp36 = __cil_tmp35->name;
 #line 1903
-    __cil_tmp57 = (unsigned long )par;
-#line 1903
-    __cil_tmp58 = __cil_tmp57 + 128;
-#line 1903
-    __cil_tmp59 = *((struct aty128_meminfo  const  **)__cil_tmp58);
-#line 1903
-    __cil_tmp60 = (unsigned long )__cil_tmp59;
-#line 1903
-    __cil_tmp61 = __cil_tmp60 + 16;
-#line 1903
-    __cil_tmp62 = *((char const   * const  *)__cil_tmp61);
-#line 1903
-    printk("%dM %s\n", __cil_tmp56, __cil_tmp62);
+    printk("%dM %s\n", __cil_tmp34, __cil_tmp36);
     }
   } else {
     {
 #line 1905
-    __cil_tmp63 = (unsigned long )par;
+    __cil_tmp37 = par->vram_size;
 #line 1905
-    __cil_tmp64 = __cil_tmp63 + 120;
+    __cil_tmp38 = __cil_tmp37 / 1024U;
 #line 1905
-    __cil_tmp65 = *((u32 *)__cil_tmp64);
+    __cil_tmp39 = par->mem;
 #line 1905
-    __cil_tmp66 = __cil_tmp65 / 1024U;
+    __cil_tmp40 = __cil_tmp39->name;
 #line 1905
-    __cil_tmp67 = (unsigned long )par;
-#line 1905
-    __cil_tmp68 = __cil_tmp67 + 128;
-#line 1905
-    __cil_tmp69 = *((struct aty128_meminfo  const  **)__cil_tmp68);
-#line 1905
-    __cil_tmp70 = (unsigned long )__cil_tmp69;
-#line 1905
-    __cil_tmp71 = __cil_tmp70 + 16;
-#line 1905
-    __cil_tmp72 = *((char const   * const  *)__cil_tmp71);
-#line 1905
-    printk("%dk %s\n", __cil_tmp66, __cil_tmp72);
+    printk("%dk %s\n", __cil_tmp38, __cil_tmp40);
     }
   }
   }
 #line 1907
-  __cil_tmp73 = (unsigned long )par;
+  __cil_tmp41 = ent->driver_data;
 #line 1907
-  __cil_tmp74 = __cil_tmp73 + 124;
-#line 1907
-  __cil_tmp75 = (unsigned long )ent;
-#line 1907
-  __cil_tmp76 = __cil_tmp75 + 24;
-#line 1907
-  __cil_tmp77 = *((kernel_ulong_t const   *)__cil_tmp76);
-#line 1907
-  *((int *)__cil_tmp74) = (int )__cil_tmp77;
+  par->chip_gen = (int )__cil_tmp41;
 #line 1910
-  __cil_tmp78 = (unsigned long )info;
-#line 1910
-  __cil_tmp79 = __cil_tmp78 + 1512;
-#line 1910
-  *((struct fb_ops **)__cil_tmp79) = & aty128fb_ops;
+  info->fbops = & aty128fb_ops;
 #line 1911
-  __cil_tmp80 = (unsigned long )info;
-#line 1911
-  __cil_tmp81 = __cil_tmp80 + 8;
-#line 1911
-  *((int *)__cil_tmp81) = 1;
+  info->flags = 1;
 #line 1913
-  __cil_tmp82 = (unsigned long )par;
-#line 1913
-  __cil_tmp83 = __cil_tmp82 + 160;
-#line 1913
-  *((int *)__cil_tmp83) = default_lcd_on;
+  par->lcd_on = default_lcd_on;
 #line 1914
-  __cil_tmp84 = (unsigned long )par;
-#line 1914
-  __cil_tmp85 = __cil_tmp84 + 156;
-#line 1914
-  *((int *)__cil_tmp85) = default_crt_on;
+  par->crt_on = default_crt_on;
 #line 1916
-  __cil_tmp86 = & var;
-#line 1916
-  *__cil_tmp86 = default_var;
+  var = default_var;
   {
 #line 1976
-  __cil_tmp87 = (char *)0;
+  __cil_tmp42 = (char *)0;
 #line 1976
-  __cil_tmp88 = (unsigned long )__cil_tmp87;
+  __cil_tmp43 = (unsigned long )__cil_tmp42;
 #line 1976
-  __cil_tmp89 = (unsigned long )mode_option;
+  __cil_tmp44 = (unsigned long )mode_option;
 #line 1976
-  if (__cil_tmp89 != __cil_tmp88) {
+  if (__cil_tmp44 != __cil_tmp43) {
     {
 #line 1977
-    __cil_tmp90 = (char const   *)mode_option;
+    __cil_tmp45 = (char const   *)mode_option;
 #line 1977
-    __cil_tmp91 = (struct fb_videomode  const  *)0;
+    __cil_tmp46 = (struct fb_videomode  const  *)0;
 #line 1977
-    __cil_tmp92 = (struct fb_videomode  const  *)(& defaultmode);
+    __cil_tmp47 = (struct fb_videomode  const  *)(& defaultmode);
 #line 1977
-    tmp___1 = fb_find_mode(& var, info, __cil_tmp90, __cil_tmp91, 0U, __cil_tmp92,
+    tmp___1 = fb_find_mode(& var, info, __cil_tmp45, __cil_tmp46, 0U, __cil_tmp47,
                            8U);
     }
 #line 1977
     if (tmp___1 == 0) {
 #line 1979
-      __cil_tmp93 = & var;
-#line 1979
-      *__cil_tmp93 = default_var;
+      var = default_var;
     } else {
 
     }
@@ -12297,13 +10346,7 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   }
   {
 #line 1982
-  __cil_tmp94 = (unsigned long )(& var) + 96;
-#line 1982
-  __cil_tmp95 = (unsigned long )(& var) + 96;
-#line 1982
-  __cil_tmp96 = *((__u32 *)__cil_tmp95);
-#line 1982
-  *((__u32 *)__cil_tmp94) = __cil_tmp96 & 4294967294U;
+  var.accel_flags = var.accel_flags & 4294967294U;
 #line 1985
   tmp___2 = aty128fb_check_var(& var, info);
   }
@@ -12320,11 +10363,11 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   }
   {
 #line 1991
-  __cil_tmp97 = (unsigned int volatile   )88U;
+  __cil_tmp48 = (unsigned int volatile   )88U;
 #line 1991
-  __cil_tmp98 = (struct aty128fb_par  const  *)par;
+  __cil_tmp49 = (struct aty128fb_par  const  *)par;
 #line 1991
-  dac = _aty_ld_le32(__cil_tmp97, __cil_tmp98);
+  dac = _aty_ld_le32(__cil_tmp48, __cil_tmp49);
 #line 1992
   dac = dac | 259U;
 #line 1993
@@ -12332,13 +10375,9 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   }
   {
 #line 1994
-  __cil_tmp99 = (unsigned long )par;
+  __cil_tmp50 = par->chip_gen;
 #line 1994
-  __cil_tmp100 = __cil_tmp99 + 124;
-#line 1994
-  __cil_tmp101 = *((int *)__cil_tmp100);
-#line 1994
-  if (__cil_tmp101 == 4) {
+  if (__cil_tmp50 == 4) {
 #line 1995
     dac = dac | 64U;
   } else {
@@ -12347,71 +10386,43 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   }
   {
 #line 1996
-  __cil_tmp102 = (unsigned int volatile   )88U;
+  __cil_tmp51 = (unsigned int volatile   )88U;
 #line 1996
-  __cil_tmp103 = (struct aty128fb_par  const  *)par;
+  __cil_tmp52 = (struct aty128fb_par  const  *)par;
 #line 1996
-  _aty_st_le32(__cil_tmp102, dac, __cil_tmp103);
+  _aty_st_le32(__cil_tmp51, dac, __cil_tmp52);
 #line 1999
-  __cil_tmp104 = (unsigned int volatile   )48U;
+  __cil_tmp53 = (unsigned int volatile   )48U;
 #line 1999
-  __cil_tmp105 = (struct aty128fb_par  const  *)par;
+  __cil_tmp54 = (struct aty128fb_par  const  *)par;
 #line 1999
-  tmp___3 = _aty_ld_le32(__cil_tmp104, __cil_tmp105);
+  tmp___3 = _aty_ld_le32(__cil_tmp53, __cil_tmp54);
 #line 1999
-  __cil_tmp106 = (unsigned int volatile   )48U;
+  __cil_tmp55 = (unsigned int volatile   )48U;
 #line 1999
-  __cil_tmp107 = tmp___3 | 64U;
+  __cil_tmp56 = tmp___3 | 64U;
 #line 1999
-  __cil_tmp108 = (struct aty128fb_par  const  *)par;
+  __cil_tmp57 = (struct aty128fb_par  const  *)par;
 #line 1999
-  _aty_st_le32(__cil_tmp106, __cil_tmp107, __cil_tmp108);
+  _aty_st_le32(__cil_tmp55, __cil_tmp56, __cil_tmp57);
 #line 2001
-  __cil_tmp109 = (unsigned long )info;
-#line 2001
-  __cil_tmp110 = __cil_tmp109 + 352;
-#line 2001
-  __cil_tmp111 = & var;
-#line 2001
-  *((struct fb_var_screeninfo *)__cil_tmp110) = *__cil_tmp111;
+  info->var = var;
 #line 2002
-  __cil_tmp112 = (unsigned long )info;
+  __cil_tmp58 = & info->cmap;
 #line 2002
-  __cil_tmp113 = __cil_tmp112 + 928;
-#line 2002
-  __cil_tmp114 = (struct fb_cmap *)__cil_tmp113;
-#line 2002
-  fb_alloc_cmap(__cil_tmp114, 256, 0);
+  fb_alloc_cmap(__cil_tmp58, 256, 0);
 #line 2004
-  __cil_tmp115 = (unsigned long )(& var) + 84;
-#line 2004
-  *((__u32 *)__cil_tmp115) = 0U;
+  var.activate = 0U;
 #line 2006
   aty128_init_engine(par);
 #line 2008
-  __cil_tmp116 = (unsigned long )par;
-#line 2008
-  __cil_tmp117 = __cil_tmp116 + 152;
-#line 2008
-  *((int *)__cil_tmp117) = pci_find_capability(pdev, 1);
+  par->pm_reg = pci_find_capability(pdev, 1);
 #line 2009
-  __cil_tmp118 = (unsigned long )par;
-#line 2009
-  __cil_tmp119 = __cil_tmp118 + 168;
-#line 2009
-  *((struct pci_dev **)__cil_tmp119) = pdev;
+  par->pdev = pdev;
 #line 2010
-  __cil_tmp120 = (unsigned long )par;
-#line 2010
-  __cil_tmp121 = __cil_tmp120 + 184;
-#line 2010
-  *((int *)__cil_tmp121) = 0;
+  par->asleep = 0;
 #line 2011
-  __cil_tmp122 = (unsigned long )par;
-#line 2011
-  __cil_tmp123 = __cil_tmp122 + 188;
-#line 2011
-  *((int *)__cil_tmp123) = 0;
+  par->lock_blank = 0;
   }
 #line 2014
   if (backlight != 0) {
@@ -12435,23 +10446,15 @@ static int aty128_init(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   }
   {
 #line 2021
-  __cil_tmp124 = (unsigned long )info;
+  __cil_tmp59 = info->node;
 #line 2021
-  __cil_tmp125 = __cil_tmp124 + 4;
+  __cil_tmp60 = & info->fix.id;
 #line 2021
-  __cil_tmp126 = *((int *)__cil_tmp125);
+  __cil_tmp61 = (char *)__cil_tmp60;
 #line 2021
-  __cil_tmp127 = (unsigned long )info;
+  __cil_tmp62 = (char *)(& video_card);
 #line 2021
-  __cil_tmp128 = __cil_tmp127 + 512;
-#line 2021
-  __cil_tmp129 = (char (*)[16U])__cil_tmp128;
-#line 2021
-  __cil_tmp130 = (char *)__cil_tmp129;
-#line 2021
-  __cil_tmp131 = (char *)(& video_card);
-#line 2021
-  printk("<6>fb%d: %s frame buffer device on %s\n", __cil_tmp126, __cil_tmp130, __cil_tmp131);
+  printk("<6>fb%d: %s frame buffer device on %s\n", __cil_tmp59, __cil_tmp61, __cil_tmp62);
   }
 #line 2024
   return (1);
@@ -12475,280 +10478,91 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   int tmp___6 ;
   resource_size_t tmp___7 ;
   resource_size_t tmp___8 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  resource_size_t __cil_tmp19 ;
+  resource_size_t __cil_tmp20 ;
+  resource_size_t __cil_tmp21 ;
+  resource_size_t __cil_tmp22 ;
   resource_size_t __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  resource_size_t __cil_tmp24 ;
+  resource_size_t __cil_tmp25 ;
+  resource_size_t __cil_tmp26 ;
+  resource_size_t __cil_tmp27 ;
   resource_size_t __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  resource_size_t __cil_tmp29 ;
+  struct resource *__cil_tmp30 ;
   unsigned long __cil_tmp31 ;
   unsigned long __cil_tmp32 ;
   resource_size_t __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  resource_size_t __cil_tmp34 ;
+  resource_size_t __cil_tmp35 ;
+  resource_size_t __cil_tmp36 ;
+  resource_size_t __cil_tmp37 ;
+  resource_size_t __cil_tmp38 ;
   resource_size_t __cil_tmp39 ;
   resource_size_t __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  resource_size_t __cil_tmp45 ;
+  resource_size_t __cil_tmp41 ;
+  resource_size_t __cil_tmp42 ;
+  resource_size_t __cil_tmp43 ;
+  struct resource *__cil_tmp44 ;
+  unsigned long __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  struct device *__cil_tmp47 ;
+  struct fb_info *__cil_tmp48 ;
   unsigned long __cil_tmp49 ;
   unsigned long __cil_tmp50 ;
-  resource_size_t __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
+  void *__cil_tmp51 ;
+  u32 (*__cil_tmp52)[16U] ;
+  void *__cil_tmp53 ;
   unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  resource_size_t __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  void *__cil_tmp55 ;
+  unsigned long __cil_tmp56 ;
+  unsigned int volatile   __cil_tmp57 ;
+  struct aty128fb_par  const  *__cil_tmp58 ;
+  resource_size_t __cil_tmp59 ;
+  u32 __cil_tmp60 ;
   unsigned long __cil_tmp61 ;
-  resource_size_t __cil_tmp62 ;
-  resource_size_t __cil_tmp63 ;
-  unsigned long long __cil_tmp64 ;
-  struct resource *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
+  char *__cil_tmp62 ;
+  unsigned long __cil_tmp63 ;
+  char *__cil_tmp64 ;
+  unsigned long __cil_tmp65 ;
+  struct aty128fb_par  const  *__cil_tmp66 ;
+  struct aty128fb_par  const  *__cil_tmp67 ;
+  void *__cil_tmp68 ;
   unsigned long __cil_tmp69 ;
   unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  resource_size_t __cil_tmp72 ;
+  void *__cil_tmp71 ;
+  unsigned long __cil_tmp72 ;
   unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
+  unsigned char *__cil_tmp74 ;
+  void *__cil_tmp75 ;
   unsigned long __cil_tmp76 ;
-  resource_size_t __cil_tmp77 ;
+  u32 __cil_tmp77 ;
   unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  resource_size_t __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
+  bool __cil_tmp79 ;
+  char *__cil_tmp80 ;
+  void volatile   *__cil_tmp81 ;
+  void *__cil_tmp82 ;
+  void volatile   *__cil_tmp83 ;
+  resource_size_t __cil_tmp84 ;
+  resource_size_t __cil_tmp85 ;
+  resource_size_t __cil_tmp86 ;
+  resource_size_t __cil_tmp87 ;
   resource_size_t __cil_tmp88 ;
   resource_size_t __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
+  resource_size_t __cil_tmp90 ;
+  resource_size_t __cil_tmp91 ;
+  resource_size_t __cil_tmp92 ;
+  resource_size_t __cil_tmp93 ;
   resource_size_t __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
+  resource_size_t __cil_tmp95 ;
+  resource_size_t __cil_tmp96 ;
+  resource_size_t __cil_tmp97 ;
+  resource_size_t __cil_tmp98 ;
+  resource_size_t __cil_tmp99 ;
   resource_size_t __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  resource_size_t __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  resource_size_t __cil_tmp111 ;
-  resource_size_t __cil_tmp112 ;
-  unsigned long long __cil_tmp113 ;
-  struct resource *__cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  struct device *__cil_tmp119 ;
-  struct fb_info *__cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  void *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  u32 (*__cil_tmp130)[16U] ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  void *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  void *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned int volatile   __cil_tmp142 ;
-  struct aty128fb_par  const  *__cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  u32 __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  char *__cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  char *__cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  struct aty128fb_par  const  *__cil_tmp172 ;
-  struct aty128fb_par  const  *__cil_tmp173 ;
-  void *__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  void *__cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned char *__cil_tmp180 ;
-  void *__cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  u32 __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  char *__cil_tmp197 ;
-  void volatile   *__cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  void *__cil_tmp201 ;
-  void volatile   *__cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  resource_size_t __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  resource_size_t __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  resource_size_t __cil_tmp218 ;
-  resource_size_t __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  resource_size_t __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  resource_size_t __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  resource_size_t __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  resource_size_t __cil_tmp241 ;
-  resource_size_t __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  resource_size_t __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  resource_size_t __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  resource_size_t __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  resource_size_t __cil_tmp263 ;
-  resource_size_t __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  resource_size_t __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  resource_size_t __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  unsigned long __cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  resource_size_t __cil_tmp280 ;
-  unsigned long __cil_tmp281 ;
-  unsigned long __cil_tmp282 ;
-  unsigned long __cil_tmp283 ;
-  unsigned long __cil_tmp284 ;
-  unsigned long __cil_tmp285 ;
-  resource_size_t __cil_tmp286 ;
-  resource_size_t __cil_tmp287 ;
-  unsigned long __cil_tmp288 ;
-  unsigned long __cil_tmp289 ;
-  unsigned long __cil_tmp290 ;
-  unsigned long __cil_tmp291 ;
-  resource_size_t __cil_tmp292 ;
+  resource_size_t __cil_tmp101 ;
+  resource_size_t __cil_tmp102 ;
+  resource_size_t __cil_tmp103 ;
 
   {
   {
@@ -12769,108 +10583,38 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
 
   }
 #line 2046
-  __cil_tmp19 = 0 * 56UL;
+  __cil_tmp19 = pdev->resource[0].start;
 #line 2046
-  __cil_tmp20 = 1320 + __cil_tmp19;
-#line 2046
-  __cil_tmp21 = (unsigned long )pdev;
-#line 2046
-  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 2046
-  __cil_tmp23 = *((resource_size_t *)__cil_tmp22);
-#line 2046
-  fb_addr = (unsigned long )__cil_tmp23;
+  fb_addr = (unsigned long )__cil_tmp19;
   {
 #line 2047
-  __cil_tmp24 = 0 * 56UL;
+  __cil_tmp20 = pdev->resource[0].start;
 #line 2047
-  __cil_tmp25 = 1320 + __cil_tmp24;
+  if (__cil_tmp20 != 0ULL) {
 #line 2047
-  __cil_tmp26 = (unsigned long )pdev;
+    __cil_tmp21 = pdev->resource[0].start;
 #line 2047
-  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
+    __cil_tmp22 = pdev->resource[0].end;
 #line 2047
-  __cil_tmp28 = *((resource_size_t *)__cil_tmp27);
+    __cil_tmp23 = __cil_tmp22 - __cil_tmp21;
 #line 2047
-  if (__cil_tmp28 != 0ULL) {
-#line 2047
-    __cil_tmp29 = 0 * 56UL;
-#line 2047
-    __cil_tmp30 = 1320 + __cil_tmp29;
-#line 2047
-    __cil_tmp31 = (unsigned long )pdev;
-#line 2047
-    __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 2047
-    __cil_tmp33 = *((resource_size_t *)__cil_tmp32);
-#line 2047
-    __cil_tmp34 = 0 * 56UL;
-#line 2047
-    __cil_tmp35 = __cil_tmp34 + 8;
-#line 2047
-    __cil_tmp36 = 1320 + __cil_tmp35;
-#line 2047
-    __cil_tmp37 = (unsigned long )pdev;
-#line 2047
-    __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 2047
-    __cil_tmp39 = *((resource_size_t *)__cil_tmp38);
-#line 2047
-    __cil_tmp40 = __cil_tmp39 - __cil_tmp33;
-#line 2047
-    tmp = __cil_tmp40 + 1ULL;
+    tmp = __cil_tmp23 + 1ULL;
   } else {
     {
 #line 2047
-    __cil_tmp41 = 0 * 56UL;
+    __cil_tmp24 = pdev->resource[0].start;
 #line 2047
-    __cil_tmp42 = 1320 + __cil_tmp41;
+    __cil_tmp25 = pdev->resource[0].end;
 #line 2047
-    __cil_tmp43 = (unsigned long )pdev;
+    if (__cil_tmp25 != __cil_tmp24) {
 #line 2047
-    __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
+      __cil_tmp26 = pdev->resource[0].start;
 #line 2047
-    __cil_tmp45 = *((resource_size_t *)__cil_tmp44);
+      __cil_tmp27 = pdev->resource[0].end;
 #line 2047
-    __cil_tmp46 = 0 * 56UL;
+      __cil_tmp28 = __cil_tmp27 - __cil_tmp26;
 #line 2047
-    __cil_tmp47 = __cil_tmp46 + 8;
-#line 2047
-    __cil_tmp48 = 1320 + __cil_tmp47;
-#line 2047
-    __cil_tmp49 = (unsigned long )pdev;
-#line 2047
-    __cil_tmp50 = __cil_tmp49 + __cil_tmp48;
-#line 2047
-    __cil_tmp51 = *((resource_size_t *)__cil_tmp50);
-#line 2047
-    if (__cil_tmp51 != __cil_tmp45) {
-#line 2047
-      __cil_tmp52 = 0 * 56UL;
-#line 2047
-      __cil_tmp53 = 1320 + __cil_tmp52;
-#line 2047
-      __cil_tmp54 = (unsigned long )pdev;
-#line 2047
-      __cil_tmp55 = __cil_tmp54 + __cil_tmp53;
-#line 2047
-      __cil_tmp56 = *((resource_size_t *)__cil_tmp55);
-#line 2047
-      __cil_tmp57 = 0 * 56UL;
-#line 2047
-      __cil_tmp58 = __cil_tmp57 + 8;
-#line 2047
-      __cil_tmp59 = 1320 + __cil_tmp58;
-#line 2047
-      __cil_tmp60 = (unsigned long )pdev;
-#line 2047
-      __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 2047
-      __cil_tmp62 = *((resource_size_t *)__cil_tmp61);
-#line 2047
-      __cil_tmp63 = __cil_tmp62 - __cil_tmp56;
-#line 2047
-      tmp = __cil_tmp63 + 1ULL;
+      tmp = __cil_tmp28 + 1ULL;
     } else {
 #line 2047
       tmp = 0ULL;
@@ -12880,19 +10624,19 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2047
-  __cil_tmp64 = (unsigned long long )fb_addr;
+  __cil_tmp29 = (resource_size_t )fb_addr;
 #line 2047
-  tmp___0 = __request_region(& iomem_resource, __cil_tmp64, tmp, "aty128fb FB", 0);
+  tmp___0 = __request_region(& iomem_resource, __cil_tmp29, tmp, "aty128fb FB", 0);
   }
   {
 #line 2047
-  __cil_tmp65 = (struct resource *)0;
+  __cil_tmp30 = (struct resource *)0;
 #line 2047
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
+  __cil_tmp31 = (unsigned long )__cil_tmp30;
 #line 2047
-  __cil_tmp67 = (unsigned long )tmp___0;
+  __cil_tmp32 = (unsigned long )tmp___0;
 #line 2047
-  if (__cil_tmp67 == __cil_tmp66) {
+  if (__cil_tmp32 == __cil_tmp31) {
     {
 #line 2049
     printk("<3>aty128fb: cannot reserve frame buffer memory\n");
@@ -12904,108 +10648,38 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   }
 #line 2054
-  __cil_tmp68 = 2 * 56UL;
+  __cil_tmp33 = pdev->resource[2].start;
 #line 2054
-  __cil_tmp69 = 1320 + __cil_tmp68;
-#line 2054
-  __cil_tmp70 = (unsigned long )pdev;
-#line 2054
-  __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 2054
-  __cil_tmp72 = *((resource_size_t *)__cil_tmp71);
-#line 2054
-  reg_addr = (unsigned long )__cil_tmp72;
+  reg_addr = (unsigned long )__cil_tmp33;
   {
 #line 2055
-  __cil_tmp73 = 2 * 56UL;
+  __cil_tmp34 = pdev->resource[2].start;
 #line 2055
-  __cil_tmp74 = 1320 + __cil_tmp73;
+  if (__cil_tmp34 != 0ULL) {
 #line 2055
-  __cil_tmp75 = (unsigned long )pdev;
+    __cil_tmp35 = pdev->resource[2].start;
 #line 2055
-  __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
+    __cil_tmp36 = pdev->resource[2].end;
 #line 2055
-  __cil_tmp77 = *((resource_size_t *)__cil_tmp76);
+    __cil_tmp37 = __cil_tmp36 - __cil_tmp35;
 #line 2055
-  if (__cil_tmp77 != 0ULL) {
-#line 2055
-    __cil_tmp78 = 2 * 56UL;
-#line 2055
-    __cil_tmp79 = 1320 + __cil_tmp78;
-#line 2055
-    __cil_tmp80 = (unsigned long )pdev;
-#line 2055
-    __cil_tmp81 = __cil_tmp80 + __cil_tmp79;
-#line 2055
-    __cil_tmp82 = *((resource_size_t *)__cil_tmp81);
-#line 2055
-    __cil_tmp83 = 2 * 56UL;
-#line 2055
-    __cil_tmp84 = __cil_tmp83 + 8;
-#line 2055
-    __cil_tmp85 = 1320 + __cil_tmp84;
-#line 2055
-    __cil_tmp86 = (unsigned long )pdev;
-#line 2055
-    __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
-#line 2055
-    __cil_tmp88 = *((resource_size_t *)__cil_tmp87);
-#line 2055
-    __cil_tmp89 = __cil_tmp88 - __cil_tmp82;
-#line 2055
-    tmp___1 = __cil_tmp89 + 1ULL;
+    tmp___1 = __cil_tmp37 + 1ULL;
   } else {
     {
 #line 2055
-    __cil_tmp90 = 2 * 56UL;
+    __cil_tmp38 = pdev->resource[2].start;
 #line 2055
-    __cil_tmp91 = 1320 + __cil_tmp90;
+    __cil_tmp39 = pdev->resource[2].end;
 #line 2055
-    __cil_tmp92 = (unsigned long )pdev;
+    if (__cil_tmp39 != __cil_tmp38) {
 #line 2055
-    __cil_tmp93 = __cil_tmp92 + __cil_tmp91;
+      __cil_tmp40 = pdev->resource[2].start;
 #line 2055
-    __cil_tmp94 = *((resource_size_t *)__cil_tmp93);
+      __cil_tmp41 = pdev->resource[2].end;
 #line 2055
-    __cil_tmp95 = 2 * 56UL;
+      __cil_tmp42 = __cil_tmp41 - __cil_tmp40;
 #line 2055
-    __cil_tmp96 = __cil_tmp95 + 8;
-#line 2055
-    __cil_tmp97 = 1320 + __cil_tmp96;
-#line 2055
-    __cil_tmp98 = (unsigned long )pdev;
-#line 2055
-    __cil_tmp99 = __cil_tmp98 + __cil_tmp97;
-#line 2055
-    __cil_tmp100 = *((resource_size_t *)__cil_tmp99);
-#line 2055
-    if (__cil_tmp100 != __cil_tmp94) {
-#line 2055
-      __cil_tmp101 = 2 * 56UL;
-#line 2055
-      __cil_tmp102 = 1320 + __cil_tmp101;
-#line 2055
-      __cil_tmp103 = (unsigned long )pdev;
-#line 2055
-      __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
-#line 2055
-      __cil_tmp105 = *((resource_size_t *)__cil_tmp104);
-#line 2055
-      __cil_tmp106 = 2 * 56UL;
-#line 2055
-      __cil_tmp107 = __cil_tmp106 + 8;
-#line 2055
-      __cil_tmp108 = 1320 + __cil_tmp107;
-#line 2055
-      __cil_tmp109 = (unsigned long )pdev;
-#line 2055
-      __cil_tmp110 = __cil_tmp109 + __cil_tmp108;
-#line 2055
-      __cil_tmp111 = *((resource_size_t *)__cil_tmp110);
-#line 2055
-      __cil_tmp112 = __cil_tmp111 - __cil_tmp105;
-#line 2055
-      tmp___1 = __cil_tmp112 + 1ULL;
+      tmp___1 = __cil_tmp42 + 1ULL;
     } else {
 #line 2055
       tmp___1 = 0ULL;
@@ -13015,24 +10689,25 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2055
-  __cil_tmp113 = (unsigned long long )reg_addr;
+  __cil_tmp43 = (resource_size_t )reg_addr;
 #line 2055
-  tmp___2 = __request_region(& iomem_resource, __cil_tmp113, tmp___1, "aty128fb MMIO",
+  tmp___2 = __request_region(& iomem_resource, __cil_tmp43, tmp___1, "aty128fb MMIO",
                              0);
   }
   {
 #line 2055
-  __cil_tmp114 = (struct resource *)0;
+  __cil_tmp44 = (struct resource *)0;
 #line 2055
-  __cil_tmp115 = (unsigned long )__cil_tmp114;
+  __cil_tmp45 = (unsigned long )__cil_tmp44;
 #line 2055
-  __cil_tmp116 = (unsigned long )tmp___2;
+  __cil_tmp46 = (unsigned long )tmp___2;
 #line 2055
-  if (__cil_tmp116 == __cil_tmp115) {
+  if (__cil_tmp46 == __cil_tmp45) {
     {
 #line 2057
     printk("<3>aty128fb: cannot reserve MMIO region\n");
     }
+#line 2058
     goto err_free_fb;
   } else {
 
@@ -13040,27 +10715,24 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2062
-  __cil_tmp117 = (unsigned long )pdev;
+  __cil_tmp47 = & pdev->dev;
 #line 2062
-  __cil_tmp118 = __cil_tmp117 + 144;
-#line 2062
-  __cil_tmp119 = (struct device *)__cil_tmp118;
-#line 2062
-  info = framebuffer_alloc(384UL, __cil_tmp119);
+  info = framebuffer_alloc(384UL, __cil_tmp47);
   }
   {
 #line 2063
-  __cil_tmp120 = (struct fb_info *)0;
+  __cil_tmp48 = (struct fb_info *)0;
 #line 2063
-  __cil_tmp121 = (unsigned long )__cil_tmp120;
+  __cil_tmp49 = (unsigned long )__cil_tmp48;
 #line 2063
-  __cil_tmp122 = (unsigned long )info;
+  __cil_tmp50 = (unsigned long )info;
 #line 2063
-  if (__cil_tmp122 == __cil_tmp121) {
+  if (__cil_tmp50 == __cil_tmp49) {
     {
 #line 2064
     printk("<3>aty128fb: can\'t alloc fb_info_aty128\n");
     }
+#line 2065
     goto err_free_mmio;
   } else {
 
@@ -13068,55 +10740,30 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2067
-  __cil_tmp123 = (unsigned long )info;
+  __cil_tmp51 = info->par;
 #line 2067
-  __cil_tmp124 = __cil_tmp123 + 1592;
-#line 2067
-  __cil_tmp125 = *((void **)__cil_tmp124);
-#line 2067
-  par = (struct aty128fb_par *)__cil_tmp125;
+  par = (struct aty128fb_par *)__cil_tmp51;
 #line 2069
-  __cil_tmp126 = (unsigned long )info;
+  __cil_tmp52 = & par->pseudo_palette;
 #line 2069
-  __cil_tmp127 = __cil_tmp126 + 1568;
-#line 2069
-  __cil_tmp128 = (unsigned long )par;
-#line 2069
-  __cil_tmp129 = __cil_tmp128 + 320;
-#line 2069
-  __cil_tmp130 = (u32 (*)[16U])__cil_tmp129;
-#line 2069
-  *((void **)__cil_tmp127) = (void *)__cil_tmp130;
+  info->pseudo_palette = (void *)__cil_tmp52;
 #line 2072
-  __cil_tmp131 = 512 + 56;
-#line 2072
-  __cil_tmp132 = (unsigned long )info;
-#line 2072
-  __cil_tmp133 = __cil_tmp132 + __cil_tmp131;
-#line 2072
-  *((unsigned long *)__cil_tmp133) = reg_addr;
+  info->fix.mmio_start = reg_addr;
 #line 2073
-  __cil_tmp134 = (unsigned long )par;
-#line 2073
-  __cil_tmp135 = __cil_tmp134 + 112;
-#line 2073
-  *((void **)__cil_tmp135) = pci_ioremap_bar(pdev, 2);
+  par->regbase = pci_ioremap_bar(pdev, 2);
   }
   {
 #line 2074
-  __cil_tmp136 = (void *)0;
+  __cil_tmp53 = (void *)0;
 #line 2074
-  __cil_tmp137 = (unsigned long )__cil_tmp136;
+  __cil_tmp54 = (unsigned long )__cil_tmp53;
 #line 2074
-  __cil_tmp138 = (unsigned long )par;
+  __cil_tmp55 = par->regbase;
 #line 2074
-  __cil_tmp139 = __cil_tmp138 + 112;
+  __cil_tmp56 = (unsigned long )__cil_tmp55;
 #line 2074
-  __cil_tmp140 = *((void **)__cil_tmp139);
-#line 2074
-  __cil_tmp141 = (unsigned long )__cil_tmp140;
-#line 2074
-  if (__cil_tmp141 == __cil_tmp137) {
+  if (__cil_tmp56 == __cil_tmp54) {
+#line 2075
     goto err_free_info;
   } else {
 
@@ -13124,51 +10771,36 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2079
-  __cil_tmp142 = (unsigned int volatile   )248U;
+  __cil_tmp57 = (unsigned int volatile   )248U;
 #line 2079
-  __cil_tmp143 = (struct aty128fb_par  const  *)par;
+  __cil_tmp58 = (struct aty128fb_par  const  *)par;
 #line 2079
-  tmp___3 = _aty_ld_le32(__cil_tmp142, __cil_tmp143);
+  tmp___3 = _aty_ld_le32(__cil_tmp57, __cil_tmp58);
 #line 2079
-  __cil_tmp144 = (unsigned long )par;
-#line 2079
-  __cil_tmp145 = __cil_tmp144 + 120;
-#line 2079
-  *((u32 *)__cil_tmp145) = tmp___3 & 67108863U;
+  par->vram_size = tmp___3 & 67108863U;
 #line 2082
-  __cil_tmp146 = (unsigned long long )fb_addr;
+  __cil_tmp59 = (resource_size_t )fb_addr;
 #line 2082
-  __cil_tmp147 = (unsigned long )par;
+  __cil_tmp60 = par->vram_size;
 #line 2082
-  __cil_tmp148 = __cil_tmp147 + 120;
+  __cil_tmp61 = (unsigned long )__cil_tmp60;
 #line 2082
-  __cil_tmp149 = *((u32 *)__cil_tmp148);
+  tmp___4 = ioremap(__cil_tmp59, __cil_tmp61);
 #line 2082
-  __cil_tmp150 = (unsigned long )__cil_tmp149;
-#line 2082
-  tmp___4 = ioremap(__cil_tmp146, __cil_tmp150);
-#line 2082
-  __cil_tmp151 = (unsigned long )info;
-#line 2082
-  __cil_tmp152 = __cil_tmp151 + 1552;
-#line 2082
-  *((char **)__cil_tmp152) = (char *)tmp___4;
+  info->screen_base = (char *)tmp___4;
   }
   {
 #line 2083
-  __cil_tmp153 = (char *)0;
+  __cil_tmp62 = (char *)0;
 #line 2083
-  __cil_tmp154 = (unsigned long )__cil_tmp153;
+  __cil_tmp63 = (unsigned long )__cil_tmp62;
 #line 2083
-  __cil_tmp155 = (unsigned long )info;
+  __cil_tmp64 = info->screen_base;
 #line 2083
-  __cil_tmp156 = __cil_tmp155 + 1552;
+  __cil_tmp65 = (unsigned long )__cil_tmp64;
 #line 2083
-  __cil_tmp157 = *((char **)__cil_tmp156);
-#line 2083
-  __cil_tmp158 = (unsigned long )__cil_tmp157;
-#line 2083
-  if (__cil_tmp158 == __cil_tmp154) {
+  if (__cil_tmp65 == __cil_tmp63) {
+#line 2084
     goto err_unmap_out;
   } else {
 
@@ -13176,43 +10808,17 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2087
-  __cil_tmp159 = (unsigned long )info;
-#line 2087
-  __cil_tmp160 = __cil_tmp159 + 512;
-#line 2087
-  *((struct fb_fix_screeninfo *)__cil_tmp160) = aty128fb_fix;
+  info->fix = aty128fb_fix;
 #line 2088
-  __cil_tmp161 = 512 + 16;
-#line 2088
-  __cil_tmp162 = (unsigned long )info;
-#line 2088
-  __cil_tmp163 = __cil_tmp162 + __cil_tmp161;
-#line 2088
-  *((unsigned long *)__cil_tmp163) = fb_addr;
+  info->fix.smem_start = fb_addr;
 #line 2089
-  __cil_tmp164 = 512 + 24;
-#line 2089
-  __cil_tmp165 = (unsigned long )info;
-#line 2089
-  __cil_tmp166 = __cil_tmp165 + __cil_tmp164;
-#line 2089
-  __cil_tmp167 = (unsigned long )par;
-#line 2089
-  __cil_tmp168 = __cil_tmp167 + 120;
-#line 2089
-  *((__u32 *)__cil_tmp166) = *((u32 *)__cil_tmp168);
+  info->fix.smem_len = par->vram_size;
 #line 2090
-  __cil_tmp169 = 512 + 56;
-#line 2090
-  __cil_tmp170 = (unsigned long )info;
-#line 2090
-  __cil_tmp171 = __cil_tmp170 + __cil_tmp169;
-#line 2090
-  *((unsigned long *)__cil_tmp171) = reg_addr;
+  info->fix.mmio_start = reg_addr;
 #line 2093
-  __cil_tmp172 = (struct aty128fb_par  const  *)par;
+  __cil_tmp66 = (struct aty128fb_par  const  *)par;
 #line 2093
-  tmp___5 = register_test(__cil_tmp172);
+  tmp___5 = register_test(__cil_tmp66);
   }
 #line 2093
   if (tmp___5 == 0) {
@@ -13220,25 +10826,26 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
 #line 2094
     printk("<3>aty128fb: Can\'t write to video register!\n");
     }
+#line 2095
     goto err_out;
   } else {
 
   }
   {
 #line 2099
-  __cil_tmp173 = (struct aty128fb_par  const  *)par;
+  __cil_tmp67 = (struct aty128fb_par  const  *)par;
 #line 2099
-  bios = aty128_map_ROM(__cil_tmp173, pdev);
+  bios = aty128_map_ROM(__cil_tmp67, pdev);
   }
   {
 #line 2101
-  __cil_tmp174 = (void *)0;
+  __cil_tmp68 = (void *)0;
 #line 2101
-  __cil_tmp175 = (unsigned long )__cil_tmp174;
+  __cil_tmp69 = (unsigned long )__cil_tmp68;
 #line 2101
-  __cil_tmp176 = (unsigned long )bios;
+  __cil_tmp70 = (unsigned long )bios;
 #line 2101
-  if (__cil_tmp176 == __cil_tmp175) {
+  if (__cil_tmp70 == __cil_tmp69) {
     {
 #line 2102
     bios = aty128_find_mem_vbios(par);
@@ -13249,13 +10856,13 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2104
-  __cil_tmp177 = (void *)0;
+  __cil_tmp71 = (void *)0;
 #line 2104
-  __cil_tmp178 = (unsigned long )__cil_tmp177;
+  __cil_tmp72 = (unsigned long )__cil_tmp71;
 #line 2104
-  __cil_tmp179 = (unsigned long )bios;
+  __cil_tmp73 = (unsigned long )bios;
 #line 2104
-  if (__cil_tmp179 == __cil_tmp178) {
+  if (__cil_tmp73 == __cil_tmp72) {
     {
 #line 2105
     printk("<6>aty128fb: BIOS not located, guessing timings.\n");
@@ -13265,9 +10872,9 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
 #line 2107
     printk("<6>aty128fb: Rage128 BIOS located\n");
 #line 2108
-    __cil_tmp180 = (unsigned char *)bios;
+    __cil_tmp74 = (unsigned char *)bios;
 #line 2108
-    aty128_get_pllinfo(par, __cil_tmp180);
+    aty128_get_pllinfo(par, __cil_tmp74);
 #line 2109
     pci_unmap_rom(pdev, bios);
     }
@@ -13277,14 +10884,15 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
 #line 2113
   aty128_timings(par);
 #line 2114
-  __cil_tmp181 = (void *)info;
+  __cil_tmp75 = (void *)info;
 #line 2114
-  pci_set_drvdata(pdev, __cil_tmp181);
+  pci_set_drvdata(pdev, __cil_tmp75);
 #line 2116
   tmp___6 = aty128_init(pdev, ent);
   }
 #line 2116
   if (tmp___6 == 0) {
+#line 2117
     goto err_out;
   } else {
 
@@ -13293,35 +10901,17 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   if ((int )mtrr) {
     {
 #line 2121
-    __cil_tmp182 = (unsigned long )par;
+    __cil_tmp76 = info->fix.smem_start;
 #line 2121
-    __cil_tmp183 = __cil_tmp182 + 136;
+    __cil_tmp77 = par->vram_size;
 #line 2121
-    __cil_tmp184 = 512 + 16;
+    __cil_tmp78 = (unsigned long )__cil_tmp77;
 #line 2121
-    __cil_tmp185 = (unsigned long )info;
+    __cil_tmp79 = (bool )1;
 #line 2121
-    __cil_tmp186 = __cil_tmp185 + __cil_tmp184;
-#line 2121
-    __cil_tmp187 = *((unsigned long *)__cil_tmp186);
-#line 2121
-    __cil_tmp188 = (unsigned long )par;
-#line 2121
-    __cil_tmp189 = __cil_tmp188 + 120;
-#line 2121
-    __cil_tmp190 = *((u32 *)__cil_tmp189);
-#line 2121
-    __cil_tmp191 = (unsigned long )__cil_tmp190;
-#line 2121
-    *((int *)__cil_tmp183) = mtrr_add(__cil_tmp187, __cil_tmp191, 1U, (_Bool)1);
+    par->mtrr.vram = mtrr_add(__cil_tmp76, __cil_tmp78, 1U, __cil_tmp79);
 #line 2123
-    __cil_tmp192 = 136 + 4;
-#line 2123
-    __cil_tmp193 = (unsigned long )par;
-#line 2123
-    __cil_tmp194 = __cil_tmp193 + __cil_tmp192;
-#line 2123
-    *((int *)__cil_tmp194) = 1;
+    par->mtrr.vram_valid = 1;
 #line 2125
     printk("<6>aty128fb: Rage128 MTRR set to ON\n");
     }
@@ -13333,28 +10923,20 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   err_out: 
   {
 #line 2131
-  __cil_tmp195 = (unsigned long )info;
+  __cil_tmp80 = info->screen_base;
 #line 2131
-  __cil_tmp196 = __cil_tmp195 + 1552;
+  __cil_tmp81 = (void volatile   *)__cil_tmp80;
 #line 2131
-  __cil_tmp197 = *((char **)__cil_tmp196);
-#line 2131
-  __cil_tmp198 = (void volatile   *)__cil_tmp197;
-#line 2131
-  iounmap(__cil_tmp198);
+  iounmap(__cil_tmp81);
   }
   err_unmap_out: 
   {
 #line 2133
-  __cil_tmp199 = (unsigned long )par;
+  __cil_tmp82 = par->regbase;
 #line 2133
-  __cil_tmp200 = __cil_tmp199 + 112;
+  __cil_tmp83 = (void volatile   *)__cil_tmp82;
 #line 2133
-  __cil_tmp201 = *((void **)__cil_tmp200);
-#line 2133
-  __cil_tmp202 = (void volatile   *)__cil_tmp201;
-#line 2133
-  iounmap(__cil_tmp202);
+  iounmap(__cil_tmp83);
   }
   err_free_info: 
   {
@@ -13364,95 +10946,33 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   err_free_mmio: ;
   {
 #line 2137
-  __cil_tmp203 = 2 * 56UL;
+  __cil_tmp84 = pdev->resource[2].start;
 #line 2137
-  __cil_tmp204 = 1320 + __cil_tmp203;
+  if (__cil_tmp84 != 0ULL) {
 #line 2137
-  __cil_tmp205 = (unsigned long )pdev;
+    __cil_tmp85 = pdev->resource[2].start;
 #line 2137
-  __cil_tmp206 = __cil_tmp205 + __cil_tmp204;
+    __cil_tmp86 = pdev->resource[2].end;
 #line 2137
-  __cil_tmp207 = *((resource_size_t *)__cil_tmp206);
+    __cil_tmp87 = __cil_tmp86 - __cil_tmp85;
 #line 2137
-  if (__cil_tmp207 != 0ULL) {
-#line 2137
-    __cil_tmp208 = 2 * 56UL;
-#line 2137
-    __cil_tmp209 = 1320 + __cil_tmp208;
-#line 2137
-    __cil_tmp210 = (unsigned long )pdev;
-#line 2137
-    __cil_tmp211 = __cil_tmp210 + __cil_tmp209;
-#line 2137
-    __cil_tmp212 = *((resource_size_t *)__cil_tmp211);
-#line 2137
-    __cil_tmp213 = 2 * 56UL;
-#line 2137
-    __cil_tmp214 = __cil_tmp213 + 8;
-#line 2137
-    __cil_tmp215 = 1320 + __cil_tmp214;
-#line 2137
-    __cil_tmp216 = (unsigned long )pdev;
-#line 2137
-    __cil_tmp217 = __cil_tmp216 + __cil_tmp215;
-#line 2137
-    __cil_tmp218 = *((resource_size_t *)__cil_tmp217);
-#line 2137
-    __cil_tmp219 = __cil_tmp218 - __cil_tmp212;
-#line 2137
-    tmp___7 = __cil_tmp219 + 1ULL;
+    tmp___7 = __cil_tmp87 + 1ULL;
   } else {
     {
 #line 2137
-    __cil_tmp220 = 2 * 56UL;
+    __cil_tmp88 = pdev->resource[2].start;
 #line 2137
-    __cil_tmp221 = 1320 + __cil_tmp220;
+    __cil_tmp89 = pdev->resource[2].end;
 #line 2137
-    __cil_tmp222 = (unsigned long )pdev;
+    if (__cil_tmp89 != __cil_tmp88) {
 #line 2137
-    __cil_tmp223 = __cil_tmp222 + __cil_tmp221;
+      __cil_tmp90 = pdev->resource[2].start;
 #line 2137
-    __cil_tmp224 = *((resource_size_t *)__cil_tmp223);
+      __cil_tmp91 = pdev->resource[2].end;
 #line 2137
-    __cil_tmp225 = 2 * 56UL;
+      __cil_tmp92 = __cil_tmp91 - __cil_tmp90;
 #line 2137
-    __cil_tmp226 = __cil_tmp225 + 8;
-#line 2137
-    __cil_tmp227 = 1320 + __cil_tmp226;
-#line 2137
-    __cil_tmp228 = (unsigned long )pdev;
-#line 2137
-    __cil_tmp229 = __cil_tmp228 + __cil_tmp227;
-#line 2137
-    __cil_tmp230 = *((resource_size_t *)__cil_tmp229);
-#line 2137
-    if (__cil_tmp230 != __cil_tmp224) {
-#line 2137
-      __cil_tmp231 = 2 * 56UL;
-#line 2137
-      __cil_tmp232 = 1320 + __cil_tmp231;
-#line 2137
-      __cil_tmp233 = (unsigned long )pdev;
-#line 2137
-      __cil_tmp234 = __cil_tmp233 + __cil_tmp232;
-#line 2137
-      __cil_tmp235 = *((resource_size_t *)__cil_tmp234);
-#line 2137
-      __cil_tmp236 = 2 * 56UL;
-#line 2137
-      __cil_tmp237 = __cil_tmp236 + 8;
-#line 2137
-      __cil_tmp238 = 1320 + __cil_tmp237;
-#line 2137
-      __cil_tmp239 = (unsigned long )pdev;
-#line 2137
-      __cil_tmp240 = __cil_tmp239 + __cil_tmp238;
-#line 2137
-      __cil_tmp241 = *((resource_size_t *)__cil_tmp240);
-#line 2137
-      __cil_tmp242 = __cil_tmp241 - __cil_tmp235;
-#line 2137
-      tmp___7 = __cil_tmp242 + 1ULL;
+      tmp___7 = __cil_tmp92 + 1ULL;
     } else {
 #line 2137
       tmp___7 = 0ULL;
@@ -13462,110 +10982,40 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2137
-  __cil_tmp243 = 2 * 56UL;
+  __cil_tmp93 = pdev->resource[2].start;
 #line 2137
-  __cil_tmp244 = 1320 + __cil_tmp243;
-#line 2137
-  __cil_tmp245 = (unsigned long )pdev;
-#line 2137
-  __cil_tmp246 = __cil_tmp245 + __cil_tmp244;
-#line 2137
-  __cil_tmp247 = *((resource_size_t *)__cil_tmp246);
-#line 2137
-  __release_region(& iomem_resource, __cil_tmp247, tmp___7);
+  __release_region(& iomem_resource, __cil_tmp93, tmp___7);
   }
   err_free_fb: ;
   {
 #line 2140
-  __cil_tmp248 = 0 * 56UL;
+  __cil_tmp94 = pdev->resource[0].start;
 #line 2140
-  __cil_tmp249 = 1320 + __cil_tmp248;
+  if (__cil_tmp94 != 0ULL) {
 #line 2140
-  __cil_tmp250 = (unsigned long )pdev;
+    __cil_tmp95 = pdev->resource[0].start;
 #line 2140
-  __cil_tmp251 = __cil_tmp250 + __cil_tmp249;
+    __cil_tmp96 = pdev->resource[0].end;
 #line 2140
-  __cil_tmp252 = *((resource_size_t *)__cil_tmp251);
+    __cil_tmp97 = __cil_tmp96 - __cil_tmp95;
 #line 2140
-  if (__cil_tmp252 != 0ULL) {
-#line 2140
-    __cil_tmp253 = 0 * 56UL;
-#line 2140
-    __cil_tmp254 = 1320 + __cil_tmp253;
-#line 2140
-    __cil_tmp255 = (unsigned long )pdev;
-#line 2140
-    __cil_tmp256 = __cil_tmp255 + __cil_tmp254;
-#line 2140
-    __cil_tmp257 = *((resource_size_t *)__cil_tmp256);
-#line 2140
-    __cil_tmp258 = 0 * 56UL;
-#line 2140
-    __cil_tmp259 = __cil_tmp258 + 8;
-#line 2140
-    __cil_tmp260 = 1320 + __cil_tmp259;
-#line 2140
-    __cil_tmp261 = (unsigned long )pdev;
-#line 2140
-    __cil_tmp262 = __cil_tmp261 + __cil_tmp260;
-#line 2140
-    __cil_tmp263 = *((resource_size_t *)__cil_tmp262);
-#line 2140
-    __cil_tmp264 = __cil_tmp263 - __cil_tmp257;
-#line 2140
-    tmp___8 = __cil_tmp264 + 1ULL;
+    tmp___8 = __cil_tmp97 + 1ULL;
   } else {
     {
 #line 2140
-    __cil_tmp265 = 0 * 56UL;
+    __cil_tmp98 = pdev->resource[0].start;
 #line 2140
-    __cil_tmp266 = 1320 + __cil_tmp265;
+    __cil_tmp99 = pdev->resource[0].end;
 #line 2140
-    __cil_tmp267 = (unsigned long )pdev;
+    if (__cil_tmp99 != __cil_tmp98) {
 #line 2140
-    __cil_tmp268 = __cil_tmp267 + __cil_tmp266;
+      __cil_tmp100 = pdev->resource[0].start;
 #line 2140
-    __cil_tmp269 = *((resource_size_t *)__cil_tmp268);
+      __cil_tmp101 = pdev->resource[0].end;
 #line 2140
-    __cil_tmp270 = 0 * 56UL;
+      __cil_tmp102 = __cil_tmp101 - __cil_tmp100;
 #line 2140
-    __cil_tmp271 = __cil_tmp270 + 8;
-#line 2140
-    __cil_tmp272 = 1320 + __cil_tmp271;
-#line 2140
-    __cil_tmp273 = (unsigned long )pdev;
-#line 2140
-    __cil_tmp274 = __cil_tmp273 + __cil_tmp272;
-#line 2140
-    __cil_tmp275 = *((resource_size_t *)__cil_tmp274);
-#line 2140
-    if (__cil_tmp275 != __cil_tmp269) {
-#line 2140
-      __cil_tmp276 = 0 * 56UL;
-#line 2140
-      __cil_tmp277 = 1320 + __cil_tmp276;
-#line 2140
-      __cil_tmp278 = (unsigned long )pdev;
-#line 2140
-      __cil_tmp279 = __cil_tmp278 + __cil_tmp277;
-#line 2140
-      __cil_tmp280 = *((resource_size_t *)__cil_tmp279);
-#line 2140
-      __cil_tmp281 = 0 * 56UL;
-#line 2140
-      __cil_tmp282 = __cil_tmp281 + 8;
-#line 2140
-      __cil_tmp283 = 1320 + __cil_tmp282;
-#line 2140
-      __cil_tmp284 = (unsigned long )pdev;
-#line 2140
-      __cil_tmp285 = __cil_tmp284 + __cil_tmp283;
-#line 2140
-      __cil_tmp286 = *((resource_size_t *)__cil_tmp285);
-#line 2140
-      __cil_tmp287 = __cil_tmp286 - __cil_tmp280;
-#line 2140
-      tmp___8 = __cil_tmp287 + 1ULL;
+      tmp___8 = __cil_tmp102 + 1ULL;
     } else {
 #line 2140
       tmp___8 = 0ULL;
@@ -13575,17 +11025,9 @@ static int aty128_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent
   }
   {
 #line 2140
-  __cil_tmp288 = 0 * 56UL;
+  __cil_tmp103 = pdev->resource[0].start;
 #line 2140
-  __cil_tmp289 = 1320 + __cil_tmp288;
-#line 2140
-  __cil_tmp290 = (unsigned long )pdev;
-#line 2140
-  __cil_tmp291 = __cil_tmp290 + __cil_tmp289;
-#line 2140
-  __cil_tmp292 = *((resource_size_t *)__cil_tmp291);
-#line 2140
-  __release_region(& iomem_resource, __cil_tmp292, tmp___8);
+  __release_region(& iomem_resource, __cil_tmp103, tmp___8);
   }
 #line 2142
   return (-19);
@@ -13601,125 +11043,37 @@ static void aty128_remove(struct pci_dev *pdev )
   struct fb_info *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  void *__cil_tmp10 ;
+  struct backlight_device *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  struct backlight_device *__cil_tmp15 ;
+  u32 __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u32 __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  void *__cil_tmp33 ;
-  void volatile   *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  char *__cil_tmp37 ;
-  void volatile   *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  resource_size_t __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  resource_size_t __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  resource_size_t __cil_tmp54 ;
-  resource_size_t __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  resource_size_t __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  resource_size_t __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  resource_size_t __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  resource_size_t __cil_tmp77 ;
-  resource_size_t __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  resource_size_t __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  resource_size_t __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  resource_size_t __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  resource_size_t __cil_tmp99 ;
-  resource_size_t __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  resource_size_t __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  resource_size_t __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  resource_size_t __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  resource_size_t __cil_tmp122 ;
-  resource_size_t __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  resource_size_t __cil_tmp128 ;
+  void *__cil_tmp17 ;
+  void volatile   *__cil_tmp18 ;
+  char *__cil_tmp19 ;
+  void volatile   *__cil_tmp20 ;
+  resource_size_t __cil_tmp21 ;
+  resource_size_t __cil_tmp22 ;
+  resource_size_t __cil_tmp23 ;
+  resource_size_t __cil_tmp24 ;
+  resource_size_t __cil_tmp25 ;
+  resource_size_t __cil_tmp26 ;
+  resource_size_t __cil_tmp27 ;
+  resource_size_t __cil_tmp28 ;
+  resource_size_t __cil_tmp29 ;
+  resource_size_t __cil_tmp30 ;
+  resource_size_t __cil_tmp31 ;
+  resource_size_t __cil_tmp32 ;
+  resource_size_t __cil_tmp33 ;
+  resource_size_t __cil_tmp34 ;
+  resource_size_t __cil_tmp35 ;
+  resource_size_t __cil_tmp36 ;
+  resource_size_t __cil_tmp37 ;
+  resource_size_t __cil_tmp38 ;
+  resource_size_t __cil_tmp39 ;
+  resource_size_t __cil_tmp40 ;
 
   {
   {
@@ -13745,60 +11099,32 @@ static void aty128_remove(struct pci_dev *pdev )
   }
   {
 #line 2153
-  __cil_tmp10 = (unsigned long )info;
+  __cil_tmp10 = info->par;
 #line 2153
-  __cil_tmp11 = __cil_tmp10 + 1592;
-#line 2153
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 2153
-  par = (struct aty128fb_par *)__cil_tmp12;
+  par = (struct aty128fb_par *)__cil_tmp10;
 #line 2155
   unregister_framebuffer(info);
 #line 2158
-  __cil_tmp13 = (unsigned long )info;
+  __cil_tmp11 = info->bl_dev;
 #line 2158
-  __cil_tmp14 = __cil_tmp13 + 992;
-#line 2158
-  __cil_tmp15 = *((struct backlight_device **)__cil_tmp14);
-#line 2158
-  aty128_bl_exit(__cil_tmp15);
+  aty128_bl_exit(__cil_tmp11);
   }
   {
 #line 2162
-  __cil_tmp16 = 136 + 4;
+  __cil_tmp12 = par->mtrr.vram_valid;
 #line 2162
-  __cil_tmp17 = (unsigned long )par;
-#line 2162
-  __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 2162
-  __cil_tmp19 = *((int *)__cil_tmp18);
-#line 2162
-  if (__cil_tmp19 != 0) {
+  if (__cil_tmp12 != 0) {
     {
 #line 2163
-    __cil_tmp20 = (unsigned long )par;
+    __cil_tmp13 = par->mtrr.vram;
 #line 2163
-    __cil_tmp21 = __cil_tmp20 + 136;
+    __cil_tmp14 = info->fix.smem_start;
 #line 2163
-    __cil_tmp22 = *((int *)__cil_tmp21);
+    __cil_tmp15 = par->vram_size;
 #line 2163
-    __cil_tmp23 = 512 + 16;
+    __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 2163
-    __cil_tmp24 = (unsigned long )info;
-#line 2163
-    __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 2163
-    __cil_tmp26 = *((unsigned long *)__cil_tmp25);
-#line 2163
-    __cil_tmp27 = (unsigned long )par;
-#line 2163
-    __cil_tmp28 = __cil_tmp27 + 120;
-#line 2163
-    __cil_tmp29 = *((u32 *)__cil_tmp28);
-#line 2163
-    __cil_tmp30 = (unsigned long )__cil_tmp29;
-#line 2163
-    mtrr_del(__cil_tmp22, __cil_tmp26, __cil_tmp30);
+    mtrr_del(__cil_tmp13, __cil_tmp14, __cil_tmp16);
     }
   } else {
 
@@ -13806,117 +11132,47 @@ static void aty128_remove(struct pci_dev *pdev )
   }
   {
 #line 2166
-  __cil_tmp31 = (unsigned long )par;
+  __cil_tmp17 = par->regbase;
 #line 2166
-  __cil_tmp32 = __cil_tmp31 + 112;
+  __cil_tmp18 = (void volatile   *)__cil_tmp17;
 #line 2166
-  __cil_tmp33 = *((void **)__cil_tmp32);
-#line 2166
-  __cil_tmp34 = (void volatile   *)__cil_tmp33;
-#line 2166
-  iounmap(__cil_tmp34);
+  iounmap(__cil_tmp18);
 #line 2167
-  __cil_tmp35 = (unsigned long )info;
+  __cil_tmp19 = info->screen_base;
 #line 2167
-  __cil_tmp36 = __cil_tmp35 + 1552;
+  __cil_tmp20 = (void volatile   *)__cil_tmp19;
 #line 2167
-  __cil_tmp37 = *((char **)__cil_tmp36);
-#line 2167
-  __cil_tmp38 = (void volatile   *)__cil_tmp37;
-#line 2167
-  iounmap(__cil_tmp38);
+  iounmap(__cil_tmp20);
   }
   {
 #line 2169
-  __cil_tmp39 = 0 * 56UL;
+  __cil_tmp21 = pdev->resource[0].start;
 #line 2169
-  __cil_tmp40 = 1320 + __cil_tmp39;
+  if (__cil_tmp21 != 0ULL) {
 #line 2169
-  __cil_tmp41 = (unsigned long )pdev;
+    __cil_tmp22 = pdev->resource[0].start;
 #line 2169
-  __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
+    __cil_tmp23 = pdev->resource[0].end;
 #line 2169
-  __cil_tmp43 = *((resource_size_t *)__cil_tmp42);
+    __cil_tmp24 = __cil_tmp23 - __cil_tmp22;
 #line 2169
-  if (__cil_tmp43 != 0ULL) {
-#line 2169
-    __cil_tmp44 = 0 * 56UL;
-#line 2169
-    __cil_tmp45 = 1320 + __cil_tmp44;
-#line 2169
-    __cil_tmp46 = (unsigned long )pdev;
-#line 2169
-    __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
-#line 2169
-    __cil_tmp48 = *((resource_size_t *)__cil_tmp47);
-#line 2169
-    __cil_tmp49 = 0 * 56UL;
-#line 2169
-    __cil_tmp50 = __cil_tmp49 + 8;
-#line 2169
-    __cil_tmp51 = 1320 + __cil_tmp50;
-#line 2169
-    __cil_tmp52 = (unsigned long )pdev;
-#line 2169
-    __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
-#line 2169
-    __cil_tmp54 = *((resource_size_t *)__cil_tmp53);
-#line 2169
-    __cil_tmp55 = __cil_tmp54 - __cil_tmp48;
-#line 2169
-    tmp___0 = __cil_tmp55 + 1ULL;
+    tmp___0 = __cil_tmp24 + 1ULL;
   } else {
     {
 #line 2169
-    __cil_tmp56 = 0 * 56UL;
+    __cil_tmp25 = pdev->resource[0].start;
 #line 2169
-    __cil_tmp57 = 1320 + __cil_tmp56;
+    __cil_tmp26 = pdev->resource[0].end;
 #line 2169
-    __cil_tmp58 = (unsigned long )pdev;
+    if (__cil_tmp26 != __cil_tmp25) {
 #line 2169
-    __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
+      __cil_tmp27 = pdev->resource[0].start;
 #line 2169
-    __cil_tmp60 = *((resource_size_t *)__cil_tmp59);
+      __cil_tmp28 = pdev->resource[0].end;
 #line 2169
-    __cil_tmp61 = 0 * 56UL;
+      __cil_tmp29 = __cil_tmp28 - __cil_tmp27;
 #line 2169
-    __cil_tmp62 = __cil_tmp61 + 8;
-#line 2169
-    __cil_tmp63 = 1320 + __cil_tmp62;
-#line 2169
-    __cil_tmp64 = (unsigned long )pdev;
-#line 2169
-    __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 2169
-    __cil_tmp66 = *((resource_size_t *)__cil_tmp65);
-#line 2169
-    if (__cil_tmp66 != __cil_tmp60) {
-#line 2169
-      __cil_tmp67 = 0 * 56UL;
-#line 2169
-      __cil_tmp68 = 1320 + __cil_tmp67;
-#line 2169
-      __cil_tmp69 = (unsigned long )pdev;
-#line 2169
-      __cil_tmp70 = __cil_tmp69 + __cil_tmp68;
-#line 2169
-      __cil_tmp71 = *((resource_size_t *)__cil_tmp70);
-#line 2169
-      __cil_tmp72 = 0 * 56UL;
-#line 2169
-      __cil_tmp73 = __cil_tmp72 + 8;
-#line 2169
-      __cil_tmp74 = 1320 + __cil_tmp73;
-#line 2169
-      __cil_tmp75 = (unsigned long )pdev;
-#line 2169
-      __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
-#line 2169
-      __cil_tmp77 = *((resource_size_t *)__cil_tmp76);
-#line 2169
-      __cil_tmp78 = __cil_tmp77 - __cil_tmp71;
-#line 2169
-      tmp___0 = __cil_tmp78 + 1ULL;
+      tmp___0 = __cil_tmp29 + 1ULL;
     } else {
 #line 2169
       tmp___0 = 0ULL;
@@ -13926,109 +11182,39 @@ static void aty128_remove(struct pci_dev *pdev )
   }
   {
 #line 2169
-  __cil_tmp79 = 0 * 56UL;
+  __cil_tmp30 = pdev->resource[0].start;
 #line 2169
-  __cil_tmp80 = 1320 + __cil_tmp79;
-#line 2169
-  __cil_tmp81 = (unsigned long )pdev;
-#line 2169
-  __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
-#line 2169
-  __cil_tmp83 = *((resource_size_t *)__cil_tmp82);
-#line 2169
-  __release_region(& iomem_resource, __cil_tmp83, tmp___0);
+  __release_region(& iomem_resource, __cil_tmp30, tmp___0);
   }
   {
 #line 2171
-  __cil_tmp84 = 2 * 56UL;
+  __cil_tmp31 = pdev->resource[2].start;
 #line 2171
-  __cil_tmp85 = 1320 + __cil_tmp84;
+  if (__cil_tmp31 != 0ULL) {
 #line 2171
-  __cil_tmp86 = (unsigned long )pdev;
+    __cil_tmp32 = pdev->resource[2].start;
 #line 2171
-  __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
+    __cil_tmp33 = pdev->resource[2].end;
 #line 2171
-  __cil_tmp88 = *((resource_size_t *)__cil_tmp87);
+    __cil_tmp34 = __cil_tmp33 - __cil_tmp32;
 #line 2171
-  if (__cil_tmp88 != 0ULL) {
-#line 2171
-    __cil_tmp89 = 2 * 56UL;
-#line 2171
-    __cil_tmp90 = 1320 + __cil_tmp89;
-#line 2171
-    __cil_tmp91 = (unsigned long )pdev;
-#line 2171
-    __cil_tmp92 = __cil_tmp91 + __cil_tmp90;
-#line 2171
-    __cil_tmp93 = *((resource_size_t *)__cil_tmp92);
-#line 2171
-    __cil_tmp94 = 2 * 56UL;
-#line 2171
-    __cil_tmp95 = __cil_tmp94 + 8;
-#line 2171
-    __cil_tmp96 = 1320 + __cil_tmp95;
-#line 2171
-    __cil_tmp97 = (unsigned long )pdev;
-#line 2171
-    __cil_tmp98 = __cil_tmp97 + __cil_tmp96;
-#line 2171
-    __cil_tmp99 = *((resource_size_t *)__cil_tmp98);
-#line 2171
-    __cil_tmp100 = __cil_tmp99 - __cil_tmp93;
-#line 2171
-    tmp___1 = __cil_tmp100 + 1ULL;
+    tmp___1 = __cil_tmp34 + 1ULL;
   } else {
     {
 #line 2171
-    __cil_tmp101 = 2 * 56UL;
+    __cil_tmp35 = pdev->resource[2].start;
 #line 2171
-    __cil_tmp102 = 1320 + __cil_tmp101;
+    __cil_tmp36 = pdev->resource[2].end;
 #line 2171
-    __cil_tmp103 = (unsigned long )pdev;
+    if (__cil_tmp36 != __cil_tmp35) {
 #line 2171
-    __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
+      __cil_tmp37 = pdev->resource[2].start;
 #line 2171
-    __cil_tmp105 = *((resource_size_t *)__cil_tmp104);
+      __cil_tmp38 = pdev->resource[2].end;
 #line 2171
-    __cil_tmp106 = 2 * 56UL;
+      __cil_tmp39 = __cil_tmp38 - __cil_tmp37;
 #line 2171
-    __cil_tmp107 = __cil_tmp106 + 8;
-#line 2171
-    __cil_tmp108 = 1320 + __cil_tmp107;
-#line 2171
-    __cil_tmp109 = (unsigned long )pdev;
-#line 2171
-    __cil_tmp110 = __cil_tmp109 + __cil_tmp108;
-#line 2171
-    __cil_tmp111 = *((resource_size_t *)__cil_tmp110);
-#line 2171
-    if (__cil_tmp111 != __cil_tmp105) {
-#line 2171
-      __cil_tmp112 = 2 * 56UL;
-#line 2171
-      __cil_tmp113 = 1320 + __cil_tmp112;
-#line 2171
-      __cil_tmp114 = (unsigned long )pdev;
-#line 2171
-      __cil_tmp115 = __cil_tmp114 + __cil_tmp113;
-#line 2171
-      __cil_tmp116 = *((resource_size_t *)__cil_tmp115);
-#line 2171
-      __cil_tmp117 = 2 * 56UL;
-#line 2171
-      __cil_tmp118 = __cil_tmp117 + 8;
-#line 2171
-      __cil_tmp119 = 1320 + __cil_tmp118;
-#line 2171
-      __cil_tmp120 = (unsigned long )pdev;
-#line 2171
-      __cil_tmp121 = __cil_tmp120 + __cil_tmp119;
-#line 2171
-      __cil_tmp122 = *((resource_size_t *)__cil_tmp121);
-#line 2171
-      __cil_tmp123 = __cil_tmp122 - __cil_tmp116;
-#line 2171
-      tmp___1 = __cil_tmp123 + 1ULL;
+      tmp___1 = __cil_tmp39 + 1ULL;
     } else {
 #line 2171
       tmp___1 = 0ULL;
@@ -14038,17 +11224,9 @@ static void aty128_remove(struct pci_dev *pdev )
   }
   {
 #line 2171
-  __cil_tmp124 = 2 * 56UL;
+  __cil_tmp40 = pdev->resource[2].start;
 #line 2171
-  __cil_tmp125 = 1320 + __cil_tmp124;
-#line 2171
-  __cil_tmp126 = (unsigned long )pdev;
-#line 2171
-  __cil_tmp127 = __cil_tmp126 + __cil_tmp125;
-#line 2171
-  __cil_tmp128 = *((resource_size_t *)__cil_tmp127);
-#line 2171
-  __release_region(& iomem_resource, __cil_tmp128, tmp___1);
+  __release_region(& iomem_resource, __cil_tmp40, tmp___1);
 #line 2173
   framebuffer_release(info);
   }
@@ -14062,58 +11240,34 @@ static int aty128fb_blank(int blank , struct fb_info *fb )
   u8 state ;
   int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  void *__cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  struct aty128fb_par  const  *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
   int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
-  struct aty128fb_par  const  *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
 
   {
 #line 2184
-  __cil_tmp7 = (unsigned long )fb;
+  __cil_tmp7 = fb->par;
 #line 2184
-  __cil_tmp8 = __cil_tmp7 + 1592;
-#line 2184
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 2184
-  par = (struct aty128fb_par *)__cil_tmp9;
+  par = (struct aty128fb_par *)__cil_tmp7;
   {
 #line 2187
-  __cil_tmp10 = (unsigned long )par;
+  __cil_tmp8 = par->lock_blank;
 #line 2187
-  __cil_tmp11 = __cil_tmp10 + 188;
-#line 2187
-  __cil_tmp12 = *((int *)__cil_tmp11);
-#line 2187
-  if (__cil_tmp12 != 0) {
+  if (__cil_tmp8 != 0) {
 #line 2188
     return (0);
   } else {
     {
 #line 2187
-    __cil_tmp13 = (unsigned long )par;
+    __cil_tmp9 = par->asleep;
 #line 2187
-    __cil_tmp14 = __cil_tmp13 + 184;
-#line 2187
-    __cil_tmp15 = *((int *)__cil_tmp14);
-#line 2187
-    if (__cil_tmp15 != 0) {
+    if (__cil_tmp9 != 0) {
 #line 2188
       return (0);
     } else {
@@ -14124,85 +11278,84 @@ static int aty128fb_blank(int blank , struct fb_info *fb )
   }
 #line 2191
   if (blank == 1) {
+#line 2191
     goto case_1;
-  } else {
+  } else
 #line 2194
-    if (blank == 2) {
-      goto case_2;
-    } else {
+  if (blank == 2) {
+#line 2194
+    goto case_2;
+  } else
 #line 2197
-      if (blank == 3) {
-        goto case_3;
-      } else {
+  if (blank == 3) {
+#line 2197
+    goto case_3;
+  } else
 #line 2200
-        if (blank == 4) {
-          goto case_4;
-        } else {
+  if (blank == 4) {
+#line 2200
+    goto case_4;
+  } else
 #line 2203
-          if (blank == 0) {
-            goto case_0;
-          } else {
-            goto switch_default;
+  if (blank == 0) {
+#line 2203
+    goto case_0;
+  } else {
+#line 2204
+    goto switch_default;
 #line 2190
-            if (0) {
-              case_1: 
+    if (0) {
+      case_1: 
 #line 2192
-              state = (unsigned char)4;
-              goto ldv_31694;
-              case_2: 
+      state = (u8 )4U;
+#line 2193
+      goto ldv_31694;
+      case_2: 
 #line 2195
-              state = (unsigned char)6;
-              goto ldv_31694;
-              case_3: 
+      state = (u8 )6U;
+#line 2196
+      goto ldv_31694;
+      case_3: 
 #line 2198
-              state = (unsigned char)5;
-              goto ldv_31694;
-              case_4: 
+      state = (u8 )5U;
+#line 2199
+      goto ldv_31694;
+      case_4: 
 #line 2201
-              state = (unsigned char)7;
-              goto ldv_31694;
-              case_0: ;
-              switch_default: 
+      state = (u8 )7U;
+#line 2202
+      goto ldv_31694;
+      case_0: ;
+      switch_default: 
 #line 2205
-              state = (unsigned char)0;
-              goto ldv_31694;
-            } else {
+      state = (u8 )0U;
+#line 2206
+      goto ldv_31694;
+    } else {
 
-            }
-          }
-        }
-      }
     }
   }
   ldv_31694: 
   {
 #line 2208
-  __cil_tmp16 = (int )state;
+  __cil_tmp10 = (int )state;
 #line 2208
-  __cil_tmp17 = (unsigned char )__cil_tmp16;
+  __cil_tmp11 = (u8 )__cil_tmp10;
 #line 2208
-  __cil_tmp18 = (struct aty128fb_par  const  *)par;
+  __cil_tmp12 = (struct aty128fb_par  const  *)par;
 #line 2208
-  _aty_st_8(85U, __cil_tmp17, __cil_tmp18);
+  _aty_st_8(85U, __cil_tmp11, __cil_tmp12);
   }
   {
 #line 2210
-  __cil_tmp19 = (unsigned long )par;
+  __cil_tmp13 = par->chip_gen;
 #line 2210
-  __cil_tmp20 = __cil_tmp19 + 124;
-#line 2210
-  __cil_tmp21 = *((int *)__cil_tmp20);
-#line 2210
-  if (__cil_tmp21 == 4) {
+  if (__cil_tmp13 == 4) {
     {
 #line 2211
-    __cil_tmp22 = (unsigned long )par;
+    __cil_tmp14 = par->crt_on;
 #line 2211
-    __cil_tmp23 = __cil_tmp22 + 156;
-#line 2211
-    __cil_tmp24 = *((int *)__cil_tmp23);
-#line 2211
-    if (__cil_tmp24 != 0) {
+    if (__cil_tmp14 != 0) {
 #line 2211
       if (blank == 0) {
 #line 2211
@@ -14222,13 +11375,9 @@ static int aty128fb_blank(int blank , struct fb_info *fb )
     }
     {
 #line 2212
-    __cil_tmp25 = (unsigned long )par;
+    __cil_tmp15 = par->lcd_on;
 #line 2212
-    __cil_tmp26 = __cil_tmp25 + 160;
-#line 2212
-    __cil_tmp27 = *((int *)__cil_tmp26);
-#line 2212
-    if (__cil_tmp27 != 0) {
+    if (__cil_tmp15 != 0) {
 #line 2212
       if (blank == 0) {
 #line 2212
@@ -14260,111 +11409,52 @@ static int aty128fb_setcolreg(u_int regno , u_int red , u_int green , u_int blue
 { struct aty128fb_par *par ;
   int i ;
   u32 *pal ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp10 ;
+  u32 __cil_tmp11 ;
+  u32 __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  u32 __cil_tmp14 ;
+  int __cil_tmp15 ;
   u32 __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  int __cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  int __cil_tmp19 ;
   u32 __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  int __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  void *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  u32 __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u32 __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  u32 __cil_tmp37 ;
-  int __cil_tmp38 ;
+  u32 *__cil_tmp23 ;
+  u_int __cil_tmp24 ;
+  u_int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned long __cil_tmp27 ;
+  u32 *__cil_tmp28 ;
+  u_int __cil_tmp29 ;
+  u_int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned long __cil_tmp32 ;
+  u32 *__cil_tmp33 ;
+  u_int __cil_tmp34 ;
+  u_int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  u_int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  u32 __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u32 *__cil_tmp45 ;
+  u32 *__cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  u32 __cil_tmp43 ;
+  u_int __cil_tmp44 ;
+  u8 __cil_tmp45 ;
   u_int __cil_tmp46 ;
-  u_int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  u32 *__cil_tmp50 ;
-  u_int __cil_tmp51 ;
-  u_int __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  u32 *__cil_tmp55 ;
-  u_int __cil_tmp56 ;
-  u_int __cil_tmp57 ;
-  unsigned int __cil_tmp58 ;
-  u_int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u32 *__cil_tmp62 ;
-  int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  u32 __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  u_int __cil_tmp81 ;
-  u_int __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  u8 __cil_tmp87 ;
-  unsigned int __cil_tmp88 ;
-  u_int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  u8 __cil_tmp94 ;
-  u_int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  u8 __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  u32 __cil_tmp104 ;
+  u8 __cil_tmp47 ;
+  u8 __cil_tmp48 ;
+  u32 __cil_tmp49 ;
 
   {
 #line 2226
-  __cil_tmp10 = (unsigned long )info;
+  __cil_tmp10 = info->par;
 #line 2226
-  __cil_tmp11 = __cil_tmp10 + 1592;
-#line 2226
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 2226
-  par = (struct aty128fb_par *)__cil_tmp12;
+  par = (struct aty128fb_par *)__cil_tmp10;
 #line 2228
   if (regno > 255U) {
 #line 2231
@@ -14372,35 +11462,24 @@ static int aty128fb_setcolreg(u_int regno , u_int red , u_int green , u_int blue
   } else {
     {
 #line 2228
-    __cil_tmp13 = 0 + 48;
+    __cil_tmp11 = par->crtc.depth;
 #line 2228
-    __cil_tmp14 = (unsigned long )par;
-#line 2228
-    __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 2228
-    __cil_tmp16 = *((u32 *)__cil_tmp15);
-#line 2228
-    if (__cil_tmp16 == 16U) {
+    if (__cil_tmp11 == 16U) {
 #line 2228
       if (regno > 63U) {
 #line 2231
         return (1);
       } else {
+#line 2228
         goto _L;
       }
     } else {
       _L: 
       {
 #line 2228
-      __cil_tmp17 = 0 + 48;
+      __cil_tmp12 = par->crtc.depth;
 #line 2228
-      __cil_tmp18 = (unsigned long )par;
-#line 2228
-      __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 2228
-      __cil_tmp20 = *((u32 *)__cil_tmp19);
-#line 2228
-      if (__cil_tmp20 == 15U) {
+      if (__cil_tmp12 == 15U) {
 #line 2228
         if (regno > 31U) {
 #line 2231
@@ -14424,138 +11503,117 @@ static int aty128fb_setcolreg(u_int regno , u_int red , u_int green , u_int blue
 #line 2237
   if (regno <= 15U) {
 #line 2239
-    __cil_tmp21 = (unsigned long )info;
+    __cil_tmp13 = info->pseudo_palette;
 #line 2239
-    __cil_tmp22 = __cil_tmp21 + 1568;
-#line 2239
-    __cil_tmp23 = *((void **)__cil_tmp22);
-#line 2239
-    pal = (u32 *)__cil_tmp23;
+    pal = (u32 *)__cil_tmp13;
     {
 #line 2242
-    __cil_tmp24 = 0 + 48;
+    __cil_tmp14 = par->crtc.depth;
 #line 2242
-    __cil_tmp25 = (unsigned long )par;
+    __cil_tmp15 = (int )__cil_tmp14;
 #line 2242
-    __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
+    if (__cil_tmp15 == 15) {
 #line 2242
-    __cil_tmp27 = *((u32 *)__cil_tmp26);
-#line 2242
-    __cil_tmp28 = (int )__cil_tmp27;
-#line 2242
-    if (__cil_tmp28 == 15) {
       goto case_15;
     } else {
       {
 #line 2245
-      __cil_tmp29 = 0 + 48;
+      __cil_tmp16 = par->crtc.depth;
 #line 2245
-      __cil_tmp30 = (unsigned long )par;
+      __cil_tmp17 = (int )__cil_tmp16;
 #line 2245
-      __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
+      if (__cil_tmp17 == 16) {
 #line 2245
-      __cil_tmp32 = *((u32 *)__cil_tmp31);
-#line 2245
-      __cil_tmp33 = (int )__cil_tmp32;
-#line 2245
-      if (__cil_tmp33 == 16) {
         goto case_16;
       } else {
         {
 #line 2248
-        __cil_tmp34 = 0 + 48;
+        __cil_tmp18 = par->crtc.depth;
 #line 2248
-        __cil_tmp35 = (unsigned long )par;
+        __cil_tmp19 = (int )__cil_tmp18;
 #line 2248
-        __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
+        if (__cil_tmp19 == 24) {
 #line 2248
-        __cil_tmp37 = *((u32 *)__cil_tmp36);
-#line 2248
-        __cil_tmp38 = (int )__cil_tmp37;
-#line 2248
-        if (__cil_tmp38 == 24) {
           goto case_24;
         } else {
           {
 #line 2251
-          __cil_tmp39 = 0 + 48;
+          __cil_tmp20 = par->crtc.depth;
 #line 2251
-          __cil_tmp40 = (unsigned long )par;
+          __cil_tmp21 = (int )__cil_tmp20;
 #line 2251
-          __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
+          if (__cil_tmp21 == 32) {
 #line 2251
-          __cil_tmp42 = *((u32 *)__cil_tmp41);
-#line 2251
-          __cil_tmp43 = (int )__cil_tmp42;
-#line 2251
-          if (__cil_tmp43 == 32) {
             goto case_32;
-          } else {
+          } else
 #line 2241
-            if (0) {
-              case_15: 
+          if (0) {
+            case_15: 
 #line 2243
-              __cil_tmp44 = (unsigned long )regno;
+            __cil_tmp22 = (unsigned long )regno;
 #line 2243
-              __cil_tmp45 = pal + __cil_tmp44;
+            __cil_tmp23 = pal + __cil_tmp22;
 #line 2243
-              __cil_tmp46 = regno << 5;
+            __cil_tmp24 = regno << 5;
 #line 2243
-              __cil_tmp47 = regno << 10;
+            __cil_tmp25 = regno << 10;
 #line 2243
-              __cil_tmp48 = __cil_tmp47 | __cil_tmp46;
+            __cil_tmp26 = __cil_tmp25 | __cil_tmp24;
 #line 2243
-              *__cil_tmp45 = __cil_tmp48 | regno;
-              goto ldv_31712;
-              case_16: 
+            *__cil_tmp23 = __cil_tmp26 | regno;
+#line 2244
+            goto ldv_31712;
+            case_16: 
 #line 2246
-              __cil_tmp49 = (unsigned long )regno;
+            __cil_tmp27 = (unsigned long )regno;
 #line 2246
-              __cil_tmp50 = pal + __cil_tmp49;
+            __cil_tmp28 = pal + __cil_tmp27;
 #line 2246
-              __cil_tmp51 = regno << 6;
+            __cil_tmp29 = regno << 6;
 #line 2246
-              __cil_tmp52 = regno << 11;
+            __cil_tmp30 = regno << 11;
 #line 2246
-              __cil_tmp53 = __cil_tmp52 | __cil_tmp51;
+            __cil_tmp31 = __cil_tmp30 | __cil_tmp29;
 #line 2246
-              *__cil_tmp50 = __cil_tmp53 | regno;
-              goto ldv_31712;
-              case_24: 
+            *__cil_tmp28 = __cil_tmp31 | regno;
+#line 2247
+            goto ldv_31712;
+            case_24: 
 #line 2249
-              __cil_tmp54 = (unsigned long )regno;
+            __cil_tmp32 = (unsigned long )regno;
 #line 2249
-              __cil_tmp55 = pal + __cil_tmp54;
+            __cil_tmp33 = pal + __cil_tmp32;
 #line 2249
-              __cil_tmp56 = regno << 8;
+            __cil_tmp34 = regno << 8;
 #line 2249
-              __cil_tmp57 = regno << 16;
+            __cil_tmp35 = regno << 16;
 #line 2249
-              __cil_tmp58 = __cil_tmp57 | __cil_tmp56;
+            __cil_tmp36 = __cil_tmp35 | __cil_tmp34;
 #line 2249
-              *__cil_tmp55 = __cil_tmp58 | regno;
-              goto ldv_31712;
-              case_32: 
+            *__cil_tmp33 = __cil_tmp36 | regno;
+#line 2250
+            goto ldv_31712;
+            case_32: 
 #line 2252
-              __cil_tmp59 = regno << 8;
+            __cil_tmp37 = regno << 8;
 #line 2252
-              __cil_tmp60 = __cil_tmp59 | regno;
+            __cil_tmp38 = __cil_tmp37 | regno;
 #line 2252
-              i = (int )__cil_tmp60;
+            i = (int )__cil_tmp38;
 #line 2253
-              __cil_tmp61 = (unsigned long )regno;
+            __cil_tmp39 = (unsigned long )regno;
 #line 2253
-              __cil_tmp62 = pal + __cil_tmp61;
+            __cil_tmp40 = pal + __cil_tmp39;
 #line 2253
-              __cil_tmp63 = i << 16;
+            __cil_tmp41 = i << 16;
 #line 2253
-              __cil_tmp64 = __cil_tmp63 | i;
+            __cil_tmp42 = __cil_tmp41 | i;
 #line 2253
-              *__cil_tmp62 = (unsigned int )__cil_tmp64;
-              goto ldv_31712;
-            } else {
+            *__cil_tmp40 = (u32 )__cil_tmp42;
+#line 2254
+            goto ldv_31712;
+          } else {
 
-            }
           }
           }
         }
@@ -14570,118 +11628,53 @@ static int aty128fb_setcolreg(u_int regno , u_int red , u_int green , u_int blue
   }
   {
 #line 2258
-  __cil_tmp65 = 0 + 48;
+  __cil_tmp43 = par->crtc.depth;
 #line 2258
-  __cil_tmp66 = (unsigned long )par;
-#line 2258
-  __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 2258
-  __cil_tmp68 = *((u32 *)__cil_tmp67);
-#line 2258
-  if (__cil_tmp68 == 16U) {
+  if (__cil_tmp43 == 16U) {
 #line 2258
     if (regno != 0U) {
 #line 2266
-      __cil_tmp69 = regno * 1UL;
-#line 2266
-      __cil_tmp70 = 224 + __cil_tmp69;
-#line 2266
-      __cil_tmp71 = (unsigned long )par;
-#line 2266
-      __cil_tmp72 = __cil_tmp71 + __cil_tmp70;
-#line 2266
-      *((u8 *)__cil_tmp72) = (unsigned char )green;
+      par->green[regno] = (u8 )green;
 #line 2267
       if (regno <= 31U) {
         {
 #line 2268
-        __cil_tmp73 = regno * 1UL;
-#line 2268
-        __cil_tmp74 = 192 + __cil_tmp73;
-#line 2268
-        __cil_tmp75 = (unsigned long )par;
-#line 2268
-        __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
-#line 2268
-        *((u8 *)__cil_tmp76) = (unsigned char )red;
+        par->red[regno] = (u8 )red;
 #line 2269
-        __cil_tmp77 = regno * 1UL;
-#line 2269
-        __cil_tmp78 = 288 + __cil_tmp77;
-#line 2269
-        __cil_tmp79 = (unsigned long )par;
-#line 2269
-        __cil_tmp80 = __cil_tmp79 + __cil_tmp78;
-#line 2269
-        *((u8 *)__cil_tmp80) = (unsigned char )blue;
+        par->blue[regno] = (u8 )blue;
 #line 2270
-        __cil_tmp81 = regno * 8U;
+        __cil_tmp44 = regno * 8U;
 #line 2270
-        __cil_tmp82 = regno * 2U;
+        __cil_tmp45 = par->green[regno * 2U];
 #line 2270
-        __cil_tmp83 = __cil_tmp82 * 1UL;
+        __cil_tmp46 = (u_int )__cil_tmp45;
 #line 2270
-        __cil_tmp84 = 224 + __cil_tmp83;
-#line 2270
-        __cil_tmp85 = (unsigned long )par;
-#line 2270
-        __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
-#line 2270
-        __cil_tmp87 = *((u8 *)__cil_tmp86);
-#line 2270
-        __cil_tmp88 = (unsigned int )__cil_tmp87;
-#line 2270
-        aty128_st_pal(__cil_tmp81, red, __cil_tmp88, blue, par);
+        aty128_st_pal(__cil_tmp44, red, __cil_tmp46, blue, par);
         }
       } else {
 
       }
 #line 2273
-      __cil_tmp89 = regno / 2U;
+      __cil_tmp47 = par->red[regno / 2U];
 #line 2273
-      __cil_tmp90 = __cil_tmp89 * 1UL;
-#line 2273
-      __cil_tmp91 = 192 + __cil_tmp90;
-#line 2273
-      __cil_tmp92 = (unsigned long )par;
-#line 2273
-      __cil_tmp93 = __cil_tmp92 + __cil_tmp91;
-#line 2273
-      __cil_tmp94 = *((u8 *)__cil_tmp93);
-#line 2273
-      red = (unsigned int )__cil_tmp94;
+      red = (u_int )__cil_tmp47;
 #line 2274
-      __cil_tmp95 = regno / 2U;
+      __cil_tmp48 = par->blue[regno / 2U];
 #line 2274
-      __cil_tmp96 = __cil_tmp95 * 1UL;
-#line 2274
-      __cil_tmp97 = 288 + __cil_tmp96;
-#line 2274
-      __cil_tmp98 = (unsigned long )par;
-#line 2274
-      __cil_tmp99 = __cil_tmp98 + __cil_tmp97;
-#line 2274
-      __cil_tmp100 = *((u8 *)__cil_tmp99);
-#line 2274
-      blue = (unsigned int )__cil_tmp100;
+      blue = (u_int )__cil_tmp48;
 #line 2275
       regno = regno << 2;
     } else {
+#line 2258
       goto _L___0;
     }
   } else {
     _L___0: 
     {
 #line 2276
-    __cil_tmp101 = 0 + 52;
+    __cil_tmp49 = par->crtc.bpp;
 #line 2276
-    __cil_tmp102 = (unsigned long )par;
-#line 2276
-    __cil_tmp103 = __cil_tmp102 + __cil_tmp101;
-#line 2276
-    __cil_tmp104 = *((u32 *)__cil_tmp103);
-#line 2276
-    if (__cil_tmp104 == 16U) {
+    if (__cil_tmp49 == 16U) {
 #line 2277
       regno = regno << 3;
     } else {
@@ -14707,278 +11700,221 @@ static int aty128fb_ioctl(struct fb_info *info , u_int cmd , unsigned long arg )
   unsigned long __val_gu ;
   int __ret_pu ;
   __u32 __pu_val ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  void *__cil_tmp13 ;
+  void *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
   int __cil_tmp14 ;
   int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  unsigned int __cil_tmp16 ;
+  int __cil_tmp17 ;
   int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  int __cil_tmp49 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
 
   {
 #line 2293
-  __cil_tmp11 = (unsigned long )info;
+  __cil_tmp11 = info->par;
 #line 2293
-  __cil_tmp12 = __cil_tmp11 + 1592;
-#line 2293
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 2293
-  par = (struct aty128fb_par *)__cil_tmp13;
+  par = (struct aty128fb_par *)__cil_tmp11;
   {
 #line 2298
-  __cil_tmp14 = (int )cmd;
+  __cil_tmp12 = (int )cmd;
 #line 2298
-  if (__cil_tmp14 == 1074020354) {
+  if (__cil_tmp12 == 1074020354) {
+#line 2298
     goto case_1074020354;
   } else {
     {
 #line 2311
-    __cil_tmp15 = (int )cmd;
+    __cil_tmp13 = (int )cmd;
 #line 2311
-    if (__cil_tmp15 == -2147205119) {
+    if (__cil_tmp13 == -2147205119) {
+#line 2311
       goto case_neg_2147205119;
-    } else {
+    } else
 #line 2297
-      if (0) {
-        case_1074020354: ;
-        {
+    if (0) {
+      case_1074020354: ;
+      {
 #line 2299
-        __cil_tmp16 = (unsigned long )par;
+      __cil_tmp14 = par->chip_gen;
 #line 2299
-        __cil_tmp17 = __cil_tmp16 + 124;
-#line 2299
-        __cil_tmp18 = *((int *)__cil_tmp17);
-#line 2299
-        if (__cil_tmp18 != 4) {
+      if (__cil_tmp14 != 4) {
 #line 2300
-          return (-22);
-        } else {
-
-        }
-        }
-        {
-#line 2301
-        might_fault();
-        }
-#line 2301
-        if (1) {
-          goto case_4;
-        } else {
-          goto switch_default;
-#line 2301
-          if (0) {
-#line 2301
-            __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
-            goto ldv_31728;
-#line 2301
-            __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
-            goto ldv_31728;
-            case_4: 
-#line 2301
-            __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
-            goto ldv_31728;
-#line 2301
-            __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
-            goto ldv_31728;
-            switch_default: 
-#line 2301
-            __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
-            goto ldv_31728;
-          } else {
-
-          }
-        }
-        ldv_31728: 
-#line 2301
-        value = (unsigned int )__val_gu;
-#line 2301
-        rc = __ret_gu;
-#line 2302
-        if (rc != 0) {
-#line 2303
-          return (rc);
-        } else {
-
-        }
-#line 2304
-        __cil_tmp19 = (unsigned long )par;
-#line 2304
-        __cil_tmp20 = __cil_tmp19 + 160;
-#line 2304
-        __cil_tmp21 = (int )value;
-#line 2304
-        *((int *)__cil_tmp20) = __cil_tmp21 & 1;
-#line 2305
-        __cil_tmp22 = (unsigned long )par;
-#line 2305
-        __cil_tmp23 = __cil_tmp22 + 156;
-#line 2305
-        __cil_tmp24 = value & 2U;
-#line 2305
-        *((int *)__cil_tmp23) = __cil_tmp24 != 0U;
-        {
-#line 2306
-        __cil_tmp25 = (unsigned long )par;
-#line 2306
-        __cil_tmp26 = __cil_tmp25 + 156;
-#line 2306
-        __cil_tmp27 = *((int *)__cil_tmp26);
-#line 2306
-        if (__cil_tmp27 == 0) {
-          {
-#line 2306
-          __cil_tmp28 = (unsigned long )par;
-#line 2306
-          __cil_tmp29 = __cil_tmp28 + 160;
-#line 2306
-          __cil_tmp30 = *((int *)__cil_tmp29);
-#line 2306
-          if (__cil_tmp30 == 0) {
-#line 2307
-            __cil_tmp31 = (unsigned long )par;
-#line 2307
-            __cil_tmp32 = __cil_tmp31 + 160;
-#line 2307
-            *((int *)__cil_tmp32) = 1;
-          } else {
-
-          }
-          }
-        } else {
-
-        }
-        }
-        {
-#line 2308
-        __cil_tmp33 = (unsigned long )par;
-#line 2308
-        __cil_tmp34 = __cil_tmp33 + 156;
-#line 2308
-        __cil_tmp35 = *((int *)__cil_tmp34);
-#line 2308
-        aty128_set_crt_enable(par, __cil_tmp35);
-#line 2309
-        __cil_tmp36 = (unsigned long )par;
-#line 2309
-        __cil_tmp37 = __cil_tmp36 + 160;
-#line 2309
-        __cil_tmp38 = *((int *)__cil_tmp37);
-#line 2309
-        aty128_set_lcd_enable(par, __cil_tmp38);
-        }
-#line 2310
-        return (0);
-        case_neg_2147205119: ;
-        {
-#line 2312
-        __cil_tmp39 = (unsigned long )par;
-#line 2312
-        __cil_tmp40 = __cil_tmp39 + 124;
-#line 2312
-        __cil_tmp41 = *((int *)__cil_tmp40);
-#line 2312
-        if (__cil_tmp41 != 4) {
-#line 2313
-          return (-22);
-        } else {
-
-        }
-        }
-        {
-#line 2314
-        __cil_tmp42 = (unsigned long )par;
-#line 2314
-        __cil_tmp43 = __cil_tmp42 + 160;
-#line 2314
-        __cil_tmp44 = *((int *)__cil_tmp43);
-#line 2314
-        __cil_tmp45 = (unsigned long )par;
-#line 2314
-        __cil_tmp46 = __cil_tmp45 + 156;
-#line 2314
-        __cil_tmp47 = *((int *)__cil_tmp46);
-#line 2314
-        __cil_tmp48 = __cil_tmp47 << 1;
-#line 2314
-        __cil_tmp49 = __cil_tmp48 | __cil_tmp44;
-#line 2314
-        value = (unsigned int )__cil_tmp49;
-#line 2315
-        might_fault();
-#line 2315
-        __pu_val = value;
-        }
-#line 2315
-        if (1) {
-          goto case_4___0;
-        } else {
-          goto switch_default___0;
-#line 2315
-          if (0) {
-#line 2315
-            __asm__  volatile   ("call __put_user_1": "=a" (__ret_pu): "0" (__pu_val),
-                                 "c" ((__u32 *)arg): "ebx");
-            goto ldv_31738;
-#line 2315
-            __asm__  volatile   ("call __put_user_2": "=a" (__ret_pu): "0" (__pu_val),
-                                 "c" ((__u32 *)arg): "ebx");
-            goto ldv_31738;
-            case_4___0: 
-#line 2315
-            __asm__  volatile   ("call __put_user_4": "=a" (__ret_pu): "0" (__pu_val),
-                                 "c" ((__u32 *)arg): "ebx");
-            goto ldv_31738;
-#line 2315
-            __asm__  volatile   ("call __put_user_8": "=a" (__ret_pu): "0" (__pu_val),
-                                 "c" ((__u32 *)arg): "ebx");
-            goto ldv_31738;
-            switch_default___0: 
-#line 2315
-            __asm__  volatile   ("call __put_user_X": "=a" (__ret_pu): "0" (__pu_val),
-                                 "c" ((__u32 *)arg): "ebx");
-            goto ldv_31738;
-          } else {
-
-          }
-        }
-        ldv_31738: ;
-#line 2315
-        return (__ret_pu);
+        return (-22);
       } else {
 
       }
+      }
+      {
+#line 2301
+      might_fault();
+      }
+#line 2301
+      if (1) {
+#line 2301
+        goto case_4;
+      } else {
+#line 2301
+        goto switch_default;
+#line 2301
+        if (0) {
+#line 2301
+          __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
+#line 2301
+          goto ldv_31728;
+#line 2301
+          __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
+#line 2301
+          goto ldv_31728;
+          case_4: 
+#line 2301
+          __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
+#line 2301
+          goto ldv_31728;
+#line 2301
+          __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
+#line 2301
+          goto ldv_31728;
+          switch_default: 
+#line 2301
+          __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu), "=d" (__val_gu): "0" ((__u32 *)arg));
+#line 2301
+          goto ldv_31728;
+        } else {
+
+        }
+      }
+      ldv_31728: 
+#line 2301
+      value = (unsigned int )__val_gu;
+#line 2301
+      rc = __ret_gu;
+#line 2302
+      if (rc != 0) {
+#line 2303
+        return (rc);
+      } else {
+
+      }
+#line 2304
+      __cil_tmp15 = (int )value;
+#line 2304
+      par->lcd_on = __cil_tmp15 & 1;
+#line 2305
+      __cil_tmp16 = value & 2U;
+#line 2305
+      par->crt_on = __cil_tmp16 != 0U;
+      {
+#line 2306
+      __cil_tmp17 = par->crt_on;
+#line 2306
+      if (__cil_tmp17 == 0) {
+        {
+#line 2306
+        __cil_tmp18 = par->lcd_on;
+#line 2306
+        if (__cil_tmp18 == 0) {
+#line 2307
+          par->lcd_on = 1;
+        } else {
+
+        }
+        }
+      } else {
+
+      }
+      }
+      {
+#line 2308
+      __cil_tmp19 = par->crt_on;
+#line 2308
+      aty128_set_crt_enable(par, __cil_tmp19);
+#line 2309
+      __cil_tmp20 = par->lcd_on;
+#line 2309
+      aty128_set_lcd_enable(par, __cil_tmp20);
+      }
+#line 2310
+      return (0);
+      case_neg_2147205119: ;
+      {
+#line 2312
+      __cil_tmp21 = par->chip_gen;
+#line 2312
+      if (__cil_tmp21 != 4) {
+#line 2313
+        return (-22);
+      } else {
+
+      }
+      }
+      {
+#line 2314
+      __cil_tmp22 = par->lcd_on;
+#line 2314
+      __cil_tmp23 = par->crt_on;
+#line 2314
+      __cil_tmp24 = __cil_tmp23 << 1;
+#line 2314
+      __cil_tmp25 = __cil_tmp24 | __cil_tmp22;
+#line 2314
+      value = (u32 )__cil_tmp25;
+#line 2315
+      might_fault();
+#line 2315
+      __pu_val = value;
+      }
+#line 2315
+      if (1) {
+#line 2315
+        goto case_4___0;
+      } else {
+#line 2315
+        goto switch_default___0;
+#line 2315
+        if (0) {
+#line 2315
+          __asm__  volatile   ("call __put_user_1": "=a" (__ret_pu): "0" (__pu_val),
+                               "c" ((__u32 *)arg): "ebx");
+#line 2315
+          goto ldv_31738;
+#line 2315
+          __asm__  volatile   ("call __put_user_2": "=a" (__ret_pu): "0" (__pu_val),
+                               "c" ((__u32 *)arg): "ebx");
+#line 2315
+          goto ldv_31738;
+          case_4___0: 
+#line 2315
+          __asm__  volatile   ("call __put_user_4": "=a" (__ret_pu): "0" (__pu_val),
+                               "c" ((__u32 *)arg): "ebx");
+#line 2315
+          goto ldv_31738;
+#line 2315
+          __asm__  volatile   ("call __put_user_8": "=a" (__ret_pu): "0" (__pu_val),
+                               "c" ((__u32 *)arg): "ebx");
+#line 2315
+          goto ldv_31738;
+          switch_default___0: 
+#line 2315
+          __asm__  volatile   ("call __put_user_X": "=a" (__ret_pu): "0" (__pu_val),
+                               "c" ((__u32 *)arg): "ebx");
+#line 2315
+          goto ldv_31738;
+        } else {
+
+        }
+      }
+      ldv_31738: ;
+#line 2315
+      return (__ret_pu);
+    } else {
+
     }
     }
   }
@@ -14994,39 +11930,27 @@ static void aty128_set_suspend(struct aty128fb_par *par , int suspend )
   u32 tmp ;
   unsigned long __ms ;
   unsigned long tmp___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned int volatile   __cil_tmp13 ;
+  int __cil_tmp8 ;
+  unsigned int volatile   __cil_tmp9 ;
+  struct aty128fb_par  const  *__cil_tmp10 ;
+  unsigned int volatile   __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  struct aty128fb_par  const  *__cil_tmp13 ;
   struct aty128fb_par  const  *__cil_tmp14 ;
-  unsigned int volatile   __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
+  struct aty128fb_par  const  *__cil_tmp15 ;
+  unsigned int volatile   __cil_tmp16 ;
   struct aty128fb_par  const  *__cil_tmp17 ;
-  struct aty128fb_par  const  *__cil_tmp18 ;
+  unsigned int volatile   __cil_tmp18 ;
   struct aty128fb_par  const  *__cil_tmp19 ;
-  unsigned int volatile   __cil_tmp20 ;
-  struct aty128fb_par  const  *__cil_tmp21 ;
-  unsigned int volatile   __cil_tmp22 ;
-  struct aty128fb_par  const  *__cil_tmp23 ;
 
   {
 #line 2387
-  __cil_tmp8 = (unsigned long )par;
-#line 2387
-  __cil_tmp9 = __cil_tmp8 + 168;
-#line 2387
-  pdev = *((struct pci_dev **)__cil_tmp9);
+  pdev = par->pdev;
   {
 #line 2389
-  __cil_tmp10 = (unsigned long )par;
+  __cil_tmp8 = par->pm_reg;
 #line 2389
-  __cil_tmp11 = __cil_tmp10 + 152;
-#line 2389
-  __cil_tmp12 = *((int *)__cil_tmp11);
-#line 2389
-  if (__cil_tmp12 == 0) {
+  if (__cil_tmp8 == 0) {
 #line 2390
     return;
   } else {
@@ -15037,44 +11961,45 @@ static void aty128_set_suspend(struct aty128fb_par *par , int suspend )
   if (suspend != 0) {
     {
 #line 2403
-    __cil_tmp13 = (unsigned int volatile   )1016U;
+    __cil_tmp9 = (unsigned int volatile   )1016U;
 #line 2403
-    __cil_tmp14 = (struct aty128fb_par  const  *)par;
+    __cil_tmp10 = (struct aty128fb_par  const  *)par;
 #line 2403
-    tmp = _aty_ld_le32(__cil_tmp13, __cil_tmp14);
+    tmp = _aty_ld_le32(__cil_tmp9, __cil_tmp10);
 #line 2403
-    __cil_tmp15 = (unsigned int volatile   )1016U;
+    __cil_tmp11 = (unsigned int volatile   )1016U;
 #line 2403
-    __cil_tmp16 = tmp & 4261412863U;
+    __cil_tmp12 = tmp & 4261412863U;
 #line 2403
-    __cil_tmp17 = (struct aty128fb_par  const  *)par;
+    __cil_tmp13 = (struct aty128fb_par  const  *)par;
 #line 2403
-    _aty_st_le32(__cil_tmp15, __cil_tmp16, __cil_tmp17);
+    _aty_st_le32(__cil_tmp11, __cil_tmp12, __cil_tmp13);
 #line 2408
     pmgt = 201348103U;
 #line 2409
-    __cil_tmp18 = (struct aty128fb_par  const  *)par;
+    __cil_tmp14 = (struct aty128fb_par  const  *)par;
 #line 2409
-    _aty_st_pll(47U, pmgt, __cil_tmp18);
+    _aty_st_pll(47U, pmgt, __cil_tmp14);
 #line 2410
+    __cil_tmp15 = (struct aty128fb_par  const  *)par;
+#line 2410
+    _aty_ld_pll(47U, __cil_tmp15);
+#line 2411
+    __cil_tmp16 = (unsigned int volatile   )52U;
+#line 2411
+    __cil_tmp17 = (struct aty128fb_par  const  *)par;
+#line 2411
+    _aty_st_le32(__cil_tmp16, 16U, __cil_tmp17);
+#line 2412
+    __cil_tmp18 = (unsigned int volatile   )348U;
+#line 2412
     __cil_tmp19 = (struct aty128fb_par  const  *)par;
-#line 2410
-    _aty_ld_pll(47U, __cil_tmp19);
-#line 2411
-    __cil_tmp20 = (unsigned int volatile   )52U;
-#line 2411
-    __cil_tmp21 = (struct aty128fb_par  const  *)par;
-#line 2411
-    _aty_st_le32(__cil_tmp20, 16U, __cil_tmp21);
 #line 2412
-    __cil_tmp22 = (unsigned int volatile   )348U;
-#line 2412
-    __cil_tmp23 = (struct aty128fb_par  const  *)par;
-#line 2412
-    _aty_st_le32(__cil_tmp22, 209911808U, __cil_tmp23);
+    _aty_st_le32(__cil_tmp18, 209911808U, __cil_tmp19);
 #line 2413
     __ms = 100UL;
     }
+#line 2413
     goto ldv_31752;
     ldv_31751: 
     {
@@ -15088,8 +12013,10 @@ static void aty128_set_suspend(struct aty128fb_par *par , int suspend )
     __ms = __ms - 1UL;
 #line 2413
     if (tmp___0 != 0UL) {
+#line 2414
       goto ldv_31751;
     } else {
+#line 2416
       goto ldv_31753;
     }
     ldv_31753: 
@@ -15105,25 +12032,13 @@ static void aty128_set_suspend(struct aty128fb_par *par , int suspend )
 }
 }
 #line 2420 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
-static int aty128_pci_suspend(struct pci_dev *pdev , int state_event21 ) 
+static int aty128_pci_suspend(struct pci_dev *pdev , pm_message_t state ) 
 { struct fb_info *info ;
   void *tmp ;
   struct aty128fb_par *par ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  struct aty128fb_par  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp6 ;
+  int __cil_tmp7 ;
+  struct aty128fb_par  const  *__cil_tmp8 ;
 
   {
   {
@@ -15132,13 +12047,9 @@ static int aty128_pci_suspend(struct pci_dev *pdev , int state_event21 )
 #line 2422
   info = (struct fb_info *)tmp;
 #line 2423
-  __cil_tmp6 = (unsigned long )info;
+  __cil_tmp6 = info->par;
 #line 2423
-  __cil_tmp7 = __cil_tmp6 + 1592;
-#line 2423
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 2423
-  par = (struct aty128fb_par *)__cil_tmp8;
+  par = (struct aty128fb_par *)__cil_tmp6;
 #line 2429
   pci_save_state(pdev);
   }
@@ -15146,15 +12057,9 @@ static int aty128_pci_suspend(struct pci_dev *pdev , int state_event21 )
   return (0);
   {
 #line 2445
-  __cil_tmp9 = 144 + 288;
+  __cil_tmp7 = pdev->dev.power.power_state.event;
 #line 2445
-  __cil_tmp10 = (unsigned long )pdev;
-#line 2445
-  __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
-#line 2445
-  __cil_tmp12 = *((int *)__cil_tmp11);
-#line 2445
-  if (state_event21 == __cil_tmp12) {
+  if (state.event == __cil_tmp7) {
 #line 2446
     return (0);
   } else {
@@ -15171,28 +12076,20 @@ static int aty128_pci_suspend(struct pci_dev *pdev , int state_event21 )
 #line 2455
   wait_for_idle(par);
 #line 2456
-  __cil_tmp13 = (struct aty128fb_par  const  *)par;
+  __cil_tmp8 = (struct aty128fb_par  const  *)par;
 #line 2456
-  aty128_reset_engine(__cil_tmp13);
+  aty128_reset_engine(__cil_tmp8);
 #line 2457
   wait_for_idle(par);
 #line 2460
   aty128fb_blank(4, info);
 #line 2463
-  __cil_tmp14 = (unsigned long )par;
-#line 2463
-  __cil_tmp15 = __cil_tmp14 + 184;
-#line 2463
-  *((int *)__cil_tmp15) = 1;
+  par->asleep = 1;
 #line 2464
-  __cil_tmp16 = (unsigned long )par;
-#line 2464
-  __cil_tmp17 = __cil_tmp16 + 188;
-#line 2464
-  *((int *)__cil_tmp17) = 1;
+  par->lock_blank = 1;
   }
 #line 2479
-  if (state_event21 != 0) {
+  if (state.event != 0) {
     {
 #line 2480
     aty128_set_suspend(par, 1);
@@ -15204,13 +12101,7 @@ static int aty128_pci_suspend(struct pci_dev *pdev , int state_event21 )
 #line 2482
   console_unlock();
 #line 2484
-  __cil_tmp18 = 144 + 288;
-#line 2484
-  __cil_tmp19 = (unsigned long )pdev;
-#line 2484
-  __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 2484
-  ((pm_message_t *)__cil_tmp20)->event = state_event21;
+  pdev->dev.power.power_state = state;
   }
 #line 2486
   return (0);
@@ -15222,28 +12113,11 @@ static int aty128_do_resume(struct pci_dev *pdev )
   void *tmp ;
   struct aty128fb_par *par ;
   struct pm_message __constr_expr_0 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct aty128fb_par  const  *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct fb_var_screeninfo *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct fb_cmap *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __constr_expr_0_event27 ;
+  void *__cil_tmp6 ;
+  int __cil_tmp7 ;
+  struct aty128fb_par  const  *__cil_tmp8 ;
+  struct fb_var_screeninfo *__cil_tmp9 ;
+  struct fb_cmap *__cil_tmp10 ;
 
   {
   {
@@ -15252,25 +12126,15 @@ static int aty128_do_resume(struct pci_dev *pdev )
 #line 2491
   info = (struct fb_info *)tmp;
 #line 2492
-  __cil_tmp6 = (unsigned long )info;
+  __cil_tmp6 = info->par;
 #line 2492
-  __cil_tmp7 = __cil_tmp6 + 1592;
-#line 2492
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 2492
-  par = (struct aty128fb_par *)__cil_tmp8;
+  par = (struct aty128fb_par *)__cil_tmp6;
   }
   {
 #line 2494
-  __cil_tmp9 = 144 + 288;
+  __cil_tmp7 = pdev->dev.power.power_state.event;
 #line 2494
-  __cil_tmp10 = (unsigned long )pdev;
-#line 2494
-  __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
-#line 2494
-  __cil_tmp12 = *((int *)__cil_tmp11);
-#line 2494
-  if (__cil_tmp12 == 0) {
+  if (__cil_tmp7 == 0) {
 #line 2495
     return (0);
   } else {
@@ -15281,55 +12145,33 @@ static int aty128_do_resume(struct pci_dev *pdev )
 #line 2503
   aty128_set_suspend(par, 0);
 #line 2504
-  __cil_tmp13 = (unsigned long )par;
-#line 2504
-  __cil_tmp14 = __cil_tmp13 + 184;
-#line 2504
-  *((int *)__cil_tmp14) = 0;
+  par->asleep = 0;
 #line 2507
-  __cil_tmp15 = (struct aty128fb_par  const  *)par;
+  __cil_tmp8 = (struct aty128fb_par  const  *)par;
 #line 2507
-  aty128_reset_engine(__cil_tmp15);
+  aty128_reset_engine(__cil_tmp8);
 #line 2508
   wait_for_idle(par);
 #line 2509
   aty128fb_set_par(info);
 #line 2510
-  __cil_tmp16 = (unsigned long )info;
+  __cil_tmp9 = & info->var;
 #line 2510
-  __cil_tmp17 = __cil_tmp16 + 352;
-#line 2510
-  __cil_tmp18 = (struct fb_var_screeninfo *)__cil_tmp17;
-#line 2510
-  fb_pan_display(info, __cil_tmp18);
+  fb_pan_display(info, __cil_tmp9);
 #line 2511
-  __cil_tmp19 = (unsigned long )info;
+  __cil_tmp10 = & info->cmap;
 #line 2511
-  __cil_tmp20 = __cil_tmp19 + 928;
-#line 2511
-  __cil_tmp21 = (struct fb_cmap *)__cil_tmp20;
-#line 2511
-  fb_set_cmap(__cil_tmp21, info);
+  fb_set_cmap(__cil_tmp10, info);
 #line 2514
   fb_set_suspend(info, 0);
 #line 2517
-  __cil_tmp22 = (unsigned long )par;
-#line 2517
-  __cil_tmp23 = __cil_tmp22 + 188;
-#line 2517
-  *((int *)__cil_tmp23) = 0;
+  par->lock_blank = 0;
 #line 2518
   aty128fb_blank(0, info);
 #line 2528
-  __constr_expr_0_event27 = 0;
+  __constr_expr_0.event = 0;
 #line 2528
-  __cil_tmp24 = 144 + 288;
-#line 2528
-  __cil_tmp25 = (unsigned long )pdev;
-#line 2528
-  __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
-#line 2528
-  ((pm_message_t *)__cil_tmp26)->event = __constr_expr_0_event27;
+  pdev->dev.power.power_state = __constr_expr_0;
 #line 2530
   printk("<7>aty128fb: resumed !\n");
   }
@@ -15412,7 +12254,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int var_aty128_pci_suspend_56_p1_event21 ;
 
   {
   {
@@ -15427,10 +12268,12 @@ void main(void)
   }
 #line 4334
   if (tmp != 0) {
+#line 4335
     goto ldv_final;
   } else {
 
   }
+#line 4348
   goto ldv_31859;
   ldv_31858: 
   {
@@ -15439,159 +12282,175 @@ void main(void)
   }
 #line 4354
   if (tmp___0 == 0) {
+#line 4354
     goto case_0;
-  } else {
+  } else
 #line 4493
-    if (tmp___0 == 1) {
-      goto case_1;
-    } else {
+  if (tmp___0 == 1) {
+#line 4493
+    goto case_1;
+  } else
 #line 4633
-      if (tmp___0 == 2) {
-        goto case_2;
-      } else {
+  if (tmp___0 == 2) {
+#line 4633
+    goto case_2;
+  } else
 #line 4777
-        if (tmp___0 == 3) {
-          goto case_3;
-        } else {
+  if (tmp___0 == 3) {
+#line 4777
+    goto case_3;
+  } else
 #line 4921
-          if (tmp___0 == 4) {
-            goto case_4;
-          } else {
+  if (tmp___0 == 4) {
+#line 4921
+    goto case_4;
+  } else
 #line 5061
-            if (tmp___0 == 5) {
-              goto case_5;
-            } else {
+  if (tmp___0 == 5) {
+#line 5061
+    goto case_5;
+  } else
 #line 5205
-              if (tmp___0 == 6) {
-                goto case_6;
-              } else {
+  if (tmp___0 == 6) {
+#line 5205
+    goto case_6;
+  } else
 #line 5349
-                if (tmp___0 == 7) {
-                  goto case_7;
-                } else {
+  if (tmp___0 == 7) {
+#line 5349
+    goto case_7;
+  } else
 #line 5493
-                  if (tmp___0 == 8) {
-                    goto case_8;
-                  } else {
+  if (tmp___0 == 8) {
+#line 5493
+    goto case_8;
+  } else
 #line 5637
-                    if (tmp___0 == 9) {
-                      goto case_9;
-                    } else {
+  if (tmp___0 == 9) {
+#line 5637
+    goto case_9;
+  } else
 #line 5781
-                      if (tmp___0 == 10) {
-                        goto case_10;
-                      } else {
+  if (tmp___0 == 10) {
+#line 5781
+    goto case_10;
+  } else
 #line 5925
-                        if (tmp___0 == 11) {
-                          goto case_11;
-                        } else {
-                          goto switch_default;
+  if (tmp___0 == 11) {
+#line 5925
+    goto case_11;
+  } else {
+#line 6061
+    goto switch_default;
 #line 4352
-                          if (0) {
-                            case_0: ;
+    if (0) {
+      case_0: ;
 #line 4357
-                            if (ldv_s_aty128fb_driver_pci_driver == 0) {
-                              {
+      if (ldv_s_aty128fb_driver_pci_driver == 0) {
+        {
 #line 4459
-                              res_aty128_probe_48 = aty128_probe(var_group1, var_aty128_probe_48_p1);
+        res_aty128_probe_48 = aty128_probe(var_group1, var_aty128_probe_48_p1);
 #line 4460
-                              ldv_check_return_value(res_aty128_probe_48);
-                              }
-#line 4461
-                              if (res_aty128_probe_48 != 0) {
-                                goto ldv_module_exit;
-                              } else {
-
-                              }
-#line 4486
-                              ldv_s_aty128fb_driver_pci_driver = 0;
-                            } else {
-
-                            }
-                            goto ldv_31845;
-                            case_1: 
-                            {
-#line 4617
-                            aty128_pci_suspend(var_group1, var_aty128_pci_suspend_56_p1_event21);
-                            }
-                            goto ldv_31845;
-                            case_2: 
-                            {
-#line 4763
-                            aty128_pci_resume(var_group1);
-                            }
-                            goto ldv_31845;
-                            case_3: 
-                            {
-#line 4850
-                            aty128fb_check_var(var_group2, var_group3);
-                            }
-                            goto ldv_31845;
-                            case_4: 
-                            {
-#line 4990
-                            aty128fb_set_par(var_group3);
-                            }
-                            goto ldv_31845;
-                            case_5: 
-                            {
-#line 5179
-                            aty128fb_setcolreg(var_aty128fb_setcolreg_51_p0, var_aty128fb_setcolreg_51_p1,
-                                               var_aty128fb_setcolreg_51_p2, var_aty128fb_setcolreg_51_p3,
-                                               var_aty128fb_setcolreg_51_p4, var_aty128fb_setcolreg_51_p5);
-                            }
-                            goto ldv_31845;
-                            case_6: 
-                            {
-#line 5278
-                            aty128fb_pan_display(var_group2, var_group3);
-                            }
-                            goto ldv_31845;
-                            case_7: 
-                            {
-#line 5467
-                            aty128fb_blank(var_aty128fb_blank_50_p0, var_group3);
-                            }
-                            goto ldv_31845;
-                            case_8: 
-                            {
-#line 5615
-                            aty128fb_ioctl(var_group3, var_aty128fb_ioctl_52_p1, var_aty128fb_ioctl_52_p2);
-                            }
-                            goto ldv_31845;
-                            case_9: 
-                            {
-#line 5712
-                            aty128fb_sync(var_group3);
-                            }
-                            goto ldv_31845;
-                            case_10: 
-                            {
-#line 5874
-                            aty128_bl_get_brightness(var_group4);
-                            }
-                            goto ldv_31845;
-                            case_11: 
-                            {
-#line 6010
-                            aty128_bl_update_status(var_group4);
-                            }
-                            goto ldv_31845;
-                            switch_default: ;
-                            goto ldv_31845;
-                          } else {
-
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        ldv_check_return_value(res_aty128_probe_48);
         }
+#line 4461
+        if (res_aty128_probe_48 != 0) {
+#line 4462
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 4486
+        ldv_s_aty128fb_driver_pci_driver = 0;
+      } else {
+
       }
+#line 4492
+      goto ldv_31845;
+      case_1: 
+      {
+#line 4617
+      aty128_pci_suspend(var_group1, var_aty128_pci_suspend_56_p1);
+      }
+#line 4632
+      goto ldv_31845;
+      case_2: 
+      {
+#line 4763
+      aty128_pci_resume(var_group1);
+      }
+#line 4776
+      goto ldv_31845;
+      case_3: 
+      {
+#line 4850
+      aty128fb_check_var(var_group2, var_group3);
+      }
+#line 4920
+      goto ldv_31845;
+      case_4: 
+      {
+#line 4990
+      aty128fb_set_par(var_group3);
+      }
+#line 5060
+      goto ldv_31845;
+      case_5: 
+      {
+#line 5179
+      aty128fb_setcolreg(var_aty128fb_setcolreg_51_p0, var_aty128fb_setcolreg_51_p1,
+                         var_aty128fb_setcolreg_51_p2, var_aty128fb_setcolreg_51_p3,
+                         var_aty128fb_setcolreg_51_p4, var_aty128fb_setcolreg_51_p5);
+      }
+#line 5204
+      goto ldv_31845;
+      case_6: 
+      {
+#line 5278
+      aty128fb_pan_display(var_group2, var_group3);
+      }
+#line 5348
+      goto ldv_31845;
+      case_7: 
+      {
+#line 5467
+      aty128fb_blank(var_aty128fb_blank_50_p0, var_group3);
+      }
+#line 5492
+      goto ldv_31845;
+      case_8: 
+      {
+#line 5615
+      aty128fb_ioctl(var_group3, var_aty128fb_ioctl_52_p1, var_aty128fb_ioctl_52_p2);
+      }
+#line 5636
+      goto ldv_31845;
+      case_9: 
+      {
+#line 5712
+      aty128fb_sync(var_group3);
+      }
+#line 5780
+      goto ldv_31845;
+      case_10: 
+      {
+#line 5874
+      aty128_bl_get_brightness(var_group4);
+      }
+#line 5924
+      goto ldv_31845;
+      case_11: 
+      {
+#line 6010
+      aty128_bl_update_status(var_group4);
+      }
+#line 6060
+      goto ldv_31845;
+      switch_default: ;
+#line 6061
+      goto ldv_31845;
+    } else {
+
     }
   }
   ldv_31845: ;
@@ -15602,14 +12461,16 @@ void main(void)
   }
 #line 4348
   if (tmp___1 != 0) {
+#line 4350
+    goto ldv_31858;
+  } else
+#line 4348
+  if (ldv_s_aty128fb_driver_pci_driver != 0) {
+#line 4350
     goto ldv_31858;
   } else {
-#line 4348
-    if (ldv_s_aty128fb_driver_pci_driver != 0) {
-      goto ldv_31858;
-    } else {
-      goto ldv_31860;
-    }
+#line 4352
+    goto ldv_31860;
   }
   ldv_31860: ;
   ldv_module_exit: 
@@ -15632,6 +12493,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -15751,6 +12613,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 6278
   goto LDV_STOP;
 }
 }

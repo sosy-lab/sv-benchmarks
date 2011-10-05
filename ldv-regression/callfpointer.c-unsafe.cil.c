@@ -24,6 +24,7 @@ void h(int i )
 #line 11
   if (i == 1) {
     ERROR: 
+#line 12
     goto ERROR;
   } else {
 

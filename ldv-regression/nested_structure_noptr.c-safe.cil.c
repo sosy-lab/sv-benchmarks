@@ -21,6 +21,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -29,21 +30,18 @@ int VERDICT_SAFE  ;
 #line 19 "files/nested_structure_noptr.c"
 int main(void) 
 { struct Toplev good ;
-  int good_c2 ;
-  int good_b3 ;
-  int good_a4 ;
 
   {
 #line 21
-  good_a4 = 1;
+  good.a = 1;
 #line 21
-  good_b3 = 2;
+  good.x.b = 2;
 #line 21
-  good_c2 = 3;
+  good.x.y.c = 3;
 #line 22
-  good_c2 = 4;
+  good.x.y.c = 4;
 #line 23
-  if (good_c2 == 4) {
+  if (good.x.y.c == 4) {
 
   } else {
     {

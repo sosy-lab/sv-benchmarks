@@ -6750,23 +6750,29 @@ __inline static struct task_struct *get_current(void)
   {
 #line 14
   if (1) {
+#line 14
     goto case_8;
   } else {
+#line 14
     goto switch_default;
 #line 14
     if (0) {
 #line 14
       __asm__  ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       case_8: 
 #line 14
       __asm__  ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       switch_default: 
       {
@@ -6799,12 +6805,9 @@ __inline static unsigned long arch_local_save_flags(void)
   long tmp ;
   void *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  struct pv_irq_ops *__cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  long __cil_tmp14 ;
-  struct pv_irq_ops *__cil_tmp15 ;
+  unsigned long __cil_tmp10 ;
+  int __cil_tmp11 ;
+  long __cil_tmp12 ;
 
   {
   {
@@ -6823,17 +6826,13 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 853
   __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 853
-  __cil_tmp10 = & pv_irq_ops;
+  __cil_tmp10 = (unsigned long )pv_irq_ops.save_fl.func;
 #line 853
-  __cil_tmp11 = *((void **)__cil_tmp10);
+  __cil_tmp11 = __cil_tmp10 == __cil_tmp9;
 #line 853
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
+  __cil_tmp12 = (long )__cil_tmp11;
 #line 853
-  __cil_tmp13 = __cil_tmp12 == __cil_tmp9;
-#line 853
-  __cil_tmp14 = (long )__cil_tmp13;
-#line 853
-  tmp = __builtin_expect(__cil_tmp14, 0L);
+  tmp = __builtin_expect(__cil_tmp12, 0L);
   }
 #line 853
   if (tmp != 0L) {
@@ -6841,15 +6840,14 @@ __inline static unsigned long arch_local_save_flags(void)
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt.h"),
                          "i" (853), "i" (12UL));
     ldv_4705: ;
+#line 853
     goto ldv_4705;
   } else {
 
   }
 #line 853
-  __cil_tmp15 = & pv_irq_ops;
-#line 853
   __asm__  volatile   ("771:\n\tcall *%c2;\n772:\n.pushsection .parainstructions,\"a\"\n .balign 8 \n .quad  771b\n  .byte %c1\n  .byte 772b-771b\n  .short %c3\n.popsection\n": "=a" (__eax): [paravirt_typenum] "i" (46UL),
-                       [paravirt_opptr] "i" ((void **)__cil_tmp15), [paravirt_clobber] "i" (1): "memory",
+                       [paravirt_opptr] "i" (& pv_irq_ops.save_fl.func), [paravirt_clobber] "i" (1): "memory",
                        "cc");
 #line 853
   __ret = __eax;
@@ -6876,7 +6874,7 @@ __inline static void atomic_inc(atomic_t *v )
 
   {
 #line 95
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (*((int *)v)));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (v->counter));
 #line 97
   return;
 }
@@ -6887,7 +6885,7 @@ __inline static void atomic_dec(atomic_t *v )
 
   {
 #line 107
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0": "+m" (*((int *)v)));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0": "+m" (v->counter));
 #line 109
   return;
 }
@@ -6912,7 +6910,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->ldv_6060.rlock);
 }
 }
 #line 283 "include/linux/spinlock.h"
@@ -6922,7 +6920,7 @@ __inline static void spin_lock(spinlock_t *lock )
   {
   {
 #line 285
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 285
   _raw_spin_lock(__cil_tmp2);
   }
@@ -6937,7 +6935,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   {
   {
 #line 325
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 325
   _raw_spin_unlock(__cil_tmp2);
   }
@@ -6952,7 +6950,7 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   {
   {
 #line 340
-  __cil_tmp3 = (struct raw_spinlock *)lock;
+  __cil_tmp3 = & lock->ldv_6060.rlock;
 #line 340
   _raw_spin_unlock_irqrestore(__cil_tmp3, flags);
   }
@@ -7064,29 +7062,17 @@ extern int pci_bus_write_config_word(struct pci_bus * , unsigned int  , int  , u
 #line 737 "include/linux/pci.h"
 __inline static int pci_read_config_byte(struct pci_dev *dev , int where , u8 *val ) 
 { int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 739
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 739
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 739
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
-#line 739
-  __cil_tmp8 = (unsigned long )dev;
-#line 739
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 739
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 739
-  tmp = pci_bus_read_config_byte(__cil_tmp7, __cil_tmp10, where, val);
+  tmp = pci_bus_read_config_byte(__cil_tmp5, __cil_tmp6, where, val);
   }
 #line 739
   return (tmp);
@@ -7095,35 +7081,23 @@ __inline static int pci_read_config_byte(struct pci_dev *dev , int where , u8 *v
 #line 750 "include/linux/pci.h"
 __inline static int pci_write_config_byte(struct pci_dev *dev , int where , u8 val ) 
 { int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  u8 __cil_tmp8 ;
 
   {
   {
 #line 752
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 752
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 752
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
+  __cil_tmp7 = (int )val;
 #line 752
-  __cil_tmp8 = (unsigned long )dev;
+  __cil_tmp8 = (u8 )__cil_tmp7;
 #line 752
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 752
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 752
-  __cil_tmp11 = (int )val;
-#line 752
-  __cil_tmp12 = (unsigned char )__cil_tmp11;
-#line 752
-  tmp = pci_bus_write_config_byte(__cil_tmp7, __cil_tmp10, where, __cil_tmp12);
+  tmp = pci_bus_write_config_byte(__cil_tmp5, __cil_tmp6, where, __cil_tmp8);
   }
 #line 752
   return (tmp);
@@ -7132,35 +7106,23 @@ __inline static int pci_write_config_byte(struct pci_dev *dev , int where , u8 v
 #line 754 "include/linux/pci.h"
 __inline static int pci_write_config_word(struct pci_dev *dev , int where , u16 val ) 
 { int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned short __cil_tmp12 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  u16 __cil_tmp8 ;
 
   {
   {
 #line 756
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 756
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 756
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
+  __cil_tmp7 = (int )val;
 #line 756
-  __cil_tmp8 = (unsigned long )dev;
+  __cil_tmp8 = (u16 )__cil_tmp7;
 #line 756
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 756
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 756
-  __cil_tmp11 = (int )val;
-#line 756
-  __cil_tmp12 = (unsigned short )__cil_tmp11;
-#line 756
-  tmp = pci_bus_write_config_word(__cil_tmp7, __cil_tmp10, where, __cil_tmp12);
+  tmp = pci_bus_write_config_word(__cil_tmp5, __cil_tmp6, where, __cil_tmp8);
   }
 #line 756
   return (tmp);
@@ -7196,21 +7158,19 @@ __inline static int valid_dma_direction(int dma_direction )
   if (dma_direction == 0) {
 #line 82
     tmp = 1;
+  } else
+#line 82
+  if (dma_direction == 1) {
+#line 82
+    tmp = 1;
+  } else
+#line 82
+  if (dma_direction == 2) {
+#line 82
+    tmp = 1;
   } else {
 #line 82
-    if (dma_direction == 1) {
-#line 82
-      tmp = 1;
-    } else {
-#line 82
-      if (dma_direction == 2) {
-#line 82
-        tmp = 1;
-      } else {
-#line 82
-        tmp = 0;
-      }
-    }
+    tmp = 0;
   }
 #line 82
   return (tmp);
@@ -7221,14 +7181,10 @@ __inline static int is_device_dma_capable(struct device *dev )
 { int tmp ;
   u64 *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  u64 *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   u64 *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  u64 *__cil_tmp11 ;
-  u64 __cil_tmp12 ;
+  u64 __cil_tmp8 ;
 
   {
   {
@@ -7237,26 +7193,18 @@ __inline static int is_device_dma_capable(struct device *dev )
 #line 89
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 89
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->dma_mask;
 #line 89
-  __cil_tmp6 = __cil_tmp5 + 936;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 89
-  __cil_tmp7 = *((u64 **)__cil_tmp6);
-#line 89
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 89
-  if (__cil_tmp8 != __cil_tmp4) {
+  if (__cil_tmp6 != __cil_tmp4) {
     {
 #line 89
-    __cil_tmp9 = (unsigned long )dev;
+    __cil_tmp7 = dev->dma_mask;
 #line 89
-    __cil_tmp10 = __cil_tmp9 + 936;
+    __cil_tmp8 = *__cil_tmp7;
 #line 89
-    __cil_tmp11 = *((u64 **)__cil_tmp10);
-#line 89
-    __cil_tmp12 = *__cil_tmp11;
-#line 89
-    if (__cil_tmp12 != 0ULL) {
+    if (__cil_tmp8 != 0ULL) {
 #line 89
       tmp = 1;
     } else {
@@ -7306,14 +7254,8 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
   long __cil_tmp7 ;
   struct dma_map_ops *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  struct dma_map_ops *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct dma_map_ops *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
 
   {
   {
@@ -7341,30 +7283,16 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 #line 36
     __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 36
-    __cil_tmp10 = 984 + 8;
+    __cil_tmp10 = dev->archdata.dma_ops;
 #line 36
-    __cil_tmp11 = (unsigned long )dev;
+    __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 36
-    __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 36
-    __cil_tmp13 = *((struct dma_map_ops **)__cil_tmp12);
-#line 36
-    __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 36
-    if (__cil_tmp14 == __cil_tmp9) {
+    if (__cil_tmp11 == __cil_tmp9) {
 #line 37
       return (dma_ops);
     } else {
-      {
 #line 39
-      __cil_tmp15 = 984 + 8;
-#line 39
-      __cil_tmp16 = (unsigned long )dev;
-#line 39
-      __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 39
-      return (*((struct dma_map_ops **)__cil_tmp17));
-      }
+      return (dev->archdata.dma_ops);
     }
     }
   }
@@ -7385,22 +7313,21 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   int __cil_tmp15 ;
   long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  dma_addr_t (*__cil_tmp20)(struct device * , struct page * , unsigned long  , size_t  ,
+  dma_addr_t (*__cil_tmp18)(struct device * , struct page * , unsigned long  , size_t  ,
                             enum dma_data_direction  , struct dma_attrs * ) ;
-  unsigned long __cil_tmp21 ;
+  unsigned long __cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
+  struct page *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  struct page *__cil_tmp23 ;
+  unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  struct page *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  struct page *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int __cil_tmp32 ;
+  unsigned long __cil_tmp29 ;
+  int __cil_tmp30 ;
+  bool __cil_tmp31 ;
 
   {
   {
@@ -7429,6 +7356,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm-generic/dma-mapping-common.h"),
                          "i" (18), "i" (12UL));
     ldv_18949: ;
+#line 18
     goto ldv_18949;
   } else {
 
@@ -7439,42 +7367,39 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___2 = __phys_addr(__cil_tmp17);
 #line 19
-  __cil_tmp18 = (unsigned long )ops;
+  __cil_tmp18 = ops->map_page;
 #line 19
-  __cil_tmp19 = __cil_tmp18 + 16;
+  __cil_tmp19 = tmp___2 >> 12;
 #line 19
-  __cil_tmp20 = *((dma_addr_t (**)(struct device * , struct page * , unsigned long  ,
-                                   size_t  , enum dma_data_direction  , struct dma_attrs * ))__cil_tmp19);
+  __cil_tmp20 = 1152897315351035904UL + __cil_tmp19;
 #line 19
-  __cil_tmp21 = tmp___2 >> 12;
+  __cil_tmp21 = (struct page *)__cil_tmp20;
 #line 19
-  __cil_tmp22 = 1152897315351035904UL + __cil_tmp21;
+  __cil_tmp22 = (unsigned long )ptr;
 #line 19
-  __cil_tmp23 = (struct page *)__cil_tmp22;
+  __cil_tmp23 = __cil_tmp22 & 4095UL;
 #line 19
+  addr = (*__cil_tmp18)(dev, __cil_tmp21, __cil_tmp23, size, dir, attrs);
+#line 22
   __cil_tmp24 = (unsigned long )ptr;
-#line 19
-  __cil_tmp25 = __cil_tmp24 & 4095UL;
-#line 19
-  addr = (*__cil_tmp20)(dev, __cil_tmp23, __cil_tmp25, size, dir, attrs);
 #line 22
-  __cil_tmp26 = (unsigned long )ptr;
+  tmp___3 = __phys_addr(__cil_tmp24);
 #line 22
-  tmp___3 = __phys_addr(__cil_tmp26);
+  __cil_tmp25 = tmp___3 >> 12;
 #line 22
-  __cil_tmp27 = tmp___3 >> 12;
+  __cil_tmp26 = 1152897315351035904UL + __cil_tmp25;
 #line 22
-  __cil_tmp28 = 1152897315351035904UL + __cil_tmp27;
+  __cil_tmp27 = (struct page *)__cil_tmp26;
 #line 22
-  __cil_tmp29 = (struct page *)__cil_tmp28;
+  __cil_tmp28 = (unsigned long )ptr;
 #line 22
-  __cil_tmp30 = (unsigned long )ptr;
+  __cil_tmp29 = __cil_tmp28 & 4095UL;
 #line 22
-  __cil_tmp31 = __cil_tmp30 & 4095UL;
+  __cil_tmp30 = (int )dir;
 #line 22
-  __cil_tmp32 = (int )dir;
+  __cil_tmp31 = (bool )1;
 #line 22
-  debug_dma_map_page(dev, __cil_tmp29, __cil_tmp31, size, __cil_tmp32, addr, (_Bool)1);
+  debug_dma_map_page(dev, __cil_tmp27, __cil_tmp29, size, __cil_tmp30, addr, __cil_tmp31);
   }
 #line 25
   return (addr);
@@ -7494,16 +7419,13 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   void (*__cil_tmp13)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void (*__cil_tmp15)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
+                      struct dma_attrs * ) ;
   unsigned long __cil_tmp16 ;
   void (*__cil_tmp17)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  void (*__cil_tmp21)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                      struct dma_attrs * ) ;
-  int __cil_tmp22 ;
+  int __cil_tmp18 ;
+  bool __cil_tmp19 ;
 
   {
   {
@@ -7528,6 +7450,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm-generic/dma-mapping-common.h"),
                          "i" (35), "i" (12UL));
     ldv_18958: ;
+#line 35
     goto ldv_18958;
   } else {
 
@@ -7539,26 +7462,16 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 36
-  __cil_tmp15 = (unsigned long )ops;
+  __cil_tmp15 = ops->unmap_page;
 #line 36
-  __cil_tmp16 = __cil_tmp15 + 24;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 36
-  __cil_tmp17 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                             struct dma_attrs * ))__cil_tmp16);
-#line 36
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 36
-  if (__cil_tmp18 != __cil_tmp14) {
+  if (__cil_tmp16 != __cil_tmp14) {
     {
 #line 37
-    __cil_tmp19 = (unsigned long )ops;
+    __cil_tmp17 = ops->unmap_page;
 #line 37
-    __cil_tmp20 = __cil_tmp19 + 24;
-#line 37
-    __cil_tmp21 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                               struct dma_attrs * ))__cil_tmp20);
-#line 37
-    (*__cil_tmp21)(dev, addr, size, dir, attrs);
+    (*__cil_tmp17)(dev, addr, size, dir, attrs);
     }
   } else {
 
@@ -7566,9 +7479,11 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   }
   {
 #line 38
-  __cil_tmp22 = (int )dir;
+  __cil_tmp18 = (int )dir;
 #line 38
-  debug_dma_unmap_page(dev, addr, size, __cil_tmp22, (_Bool)1);
+  __cil_tmp19 = (bool )1;
+#line 38
+  debug_dma_unmap_page(dev, addr, size, __cil_tmp18, __cil_tmp19);
   }
 #line 39
   return;
@@ -7577,29 +7492,23 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 89 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"
 __inline static unsigned long dma_alloc_coherent_mask(struct device *dev , gfp_t gfp ) 
 { unsigned long dma_mask ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  u64 __cil_tmp6 ;
-  int __cil_tmp7 ;
+  u64 __cil_tmp4 ;
+  int __cil_tmp5 ;
 
   {
 #line 92
   dma_mask = 0UL;
 #line 94
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->coherent_dma_mask;
 #line 94
-  __cil_tmp5 = __cil_tmp4 + 944;
-#line 94
-  __cil_tmp6 = *((u64 *)__cil_tmp5);
-#line 94
-  dma_mask = (unsigned long )__cil_tmp6;
+  dma_mask = (unsigned long )__cil_tmp4;
 #line 95
   if (dma_mask == 0UL) {
     {
 #line 96
-    __cil_tmp7 = (int )gfp;
+    __cil_tmp5 = (int )gfp;
 #line 96
-    if (__cil_tmp7 & 1) {
+    if (__cil_tmp5 & 1) {
 #line 96
       dma_mask = 16777215UL;
     } else {
@@ -7723,7 +7632,7 @@ __inline static void *dma_alloc_coherent(struct device *dev , size_t size , dma_
 #line 132
   __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 132
-  __cil_tmp15 = *((void *(**)(struct device * , size_t  , dma_addr_t * , gfp_t  ))ops);
+  __cil_tmp15 = ops->alloc_coherent;
 #line 132
   __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 132
@@ -7738,7 +7647,7 @@ __inline static void *dma_alloc_coherent(struct device *dev , size_t size , dma_
 #line 135
   tmp___1 = dma_alloc_coherent_gfp_flags(dev, gfp);
 #line 135
-  __cil_tmp17 = *((void *(**)(struct device * , size_t  , dma_addr_t * , gfp_t  ))ops);
+  __cil_tmp17 = ops->alloc_coherent;
 #line 135
   memory = (*__cil_tmp17)(dev, size, dma_handle, tmp___1);
 #line 137
@@ -7767,13 +7676,9 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
   long __cil_tmp16 ;
   void (*__cil_tmp17)(struct device * , size_t  , void * , dma_addr_t  ) ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  void (*__cil_tmp19)(struct device * , size_t  , void * , dma_addr_t  ) ;
   unsigned long __cil_tmp20 ;
   void (*__cil_tmp21)(struct device * , size_t  , void * , dma_addr_t  ) ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  void (*__cil_tmp25)(struct device * , size_t  , void * , dma_addr_t  ) ;
 
   {
   {
@@ -7824,24 +7729,16 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
 #line 153
   __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 153
-  __cil_tmp19 = (unsigned long )ops;
+  __cil_tmp19 = ops->free_coherent;
 #line 153
-  __cil_tmp20 = __cil_tmp19 + 8;
+  __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 153
-  __cil_tmp21 = *((void (**)(struct device * , size_t  , void * , dma_addr_t  ))__cil_tmp20);
-#line 153
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 153
-  if (__cil_tmp22 != __cil_tmp18) {
+  if (__cil_tmp20 != __cil_tmp18) {
     {
 #line 154
-    __cil_tmp23 = (unsigned long )ops;
+    __cil_tmp21 = ops->free_coherent;
 #line 154
-    __cil_tmp24 = __cil_tmp23 + 8;
-#line 154
-    __cil_tmp25 = *((void (**)(struct device * , size_t  , void * , dma_addr_t  ))__cil_tmp24);
-#line 154
-    (*__cil_tmp25)(dev, size, vaddr, bus);
+    (*__cil_tmp21)(dev, size, vaddr, bus);
     }
   } else {
 
@@ -7858,8 +7755,6 @@ __inline static void *pci_alloc_consistent(struct pci_dev *hwdev , size_t size ,
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
 
   {
   {
@@ -7872,11 +7767,7 @@ __inline static void *pci_alloc_consistent(struct pci_dev *hwdev , size_t size ,
 #line 19
   if (__cil_tmp8 != __cil_tmp7) {
 #line 19
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 19
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 19
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 19
     tmp = (struct device *)0;
@@ -7897,8 +7788,6 @@ __inline static void pci_free_consistent(struct pci_dev *hwdev , size_t size , v
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
 
   {
   {
@@ -7911,11 +7800,7 @@ __inline static void pci_free_consistent(struct pci_dev *hwdev , size_t size , v
 #line 26
   if (__cil_tmp8 != __cil_tmp7) {
 #line 26
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 26
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 26
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 26
     tmp = (struct device *)0;
@@ -7937,10 +7822,8 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
   struct pci_dev *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  enum dma_data_direction __cil_tmp12 ;
-  struct dma_attrs *__cil_tmp13 ;
+  enum dma_data_direction __cil_tmp10 ;
+  struct dma_attrs *__cil_tmp11 ;
 
   {
   {
@@ -7953,11 +7836,7 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
 #line 32
   if (__cil_tmp9 != __cil_tmp8) {
 #line 32
-    __cil_tmp10 = (unsigned long )hwdev;
-#line 32
-    __cil_tmp11 = __cil_tmp10 + 144;
-#line 32
-    tmp = (struct device *)__cil_tmp11;
+    tmp = & hwdev->dev;
   } else {
 #line 32
     tmp = (struct device *)0;
@@ -7965,11 +7844,11 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
   }
   {
 #line 32
-  __cil_tmp12 = (enum dma_data_direction )direction;
+  __cil_tmp10 = (enum dma_data_direction )direction;
 #line 32
-  __cil_tmp13 = (struct dma_attrs *)0;
+  __cil_tmp11 = (struct dma_attrs *)0;
 #line 32
-  tmp___0 = dma_map_single_attrs(tmp, ptr, size, __cil_tmp12, __cil_tmp13);
+  tmp___0 = dma_map_single_attrs(tmp, ptr, size, __cil_tmp10, __cil_tmp11);
   }
 #line 32
   return (tmp___0);
@@ -7982,10 +7861,8 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  enum dma_data_direction __cil_tmp11 ;
-  struct dma_attrs *__cil_tmp12 ;
+  enum dma_data_direction __cil_tmp9 ;
+  struct dma_attrs *__cil_tmp10 ;
 
   {
   {
@@ -7998,11 +7875,7 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
 #line 39
   if (__cil_tmp8 != __cil_tmp7) {
 #line 39
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 39
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 39
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 39
     tmp = (struct device *)0;
@@ -8010,11 +7883,11 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
   }
   {
 #line 39
-  __cil_tmp11 = (enum dma_data_direction )direction;
+  __cil_tmp9 = (enum dma_data_direction )direction;
 #line 39
-  __cil_tmp12 = (struct dma_attrs *)0;
+  __cil_tmp10 = (struct dma_attrs *)0;
 #line 39
-  dma_unmap_single_attrs(tmp, dma_addr, size, __cil_tmp11, __cil_tmp12);
+  dma_unmap_single_attrs(tmp, dma_addr, size, __cil_tmp9, __cil_tmp10);
   }
 #line 40
   return;
@@ -8022,20 +7895,14 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
 }
 #line 1321 "include/linux/pci.h"
 __inline static void pci_set_drvdata(struct pci_dev *pdev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 1323
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1323
-  __cil_tmp4 = __cil_tmp3 + 144;
-#line 1323
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1323
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 1324
   return;
@@ -8162,35 +8029,23 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 extern void consume_skb(struct sk_buff * ) ;
 #line 568 "include/linux/skbuff.h"
 __inline static unsigned char *skb_end_pointer(struct sk_buff  const  *skb ) 
-{ unsigned long __cil_tmp2 ;
+{ sk_buff_data_t __cil_tmp2 ;
   unsigned long __cil_tmp3 ;
-  sk_buff_data_t __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char *__cil_tmp8 ;
-  unsigned char *__cil_tmp9 ;
+  unsigned char *__cil_tmp4 ;
+  unsigned char *__cil_tmp5 ;
 
   {
   {
 #line 570
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->end;
 #line 570
-  __cil_tmp3 = __cil_tmp2 + 208;
+  __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 570
-  __cil_tmp4 = *((sk_buff_data_t const   *)__cil_tmp3);
+  __cil_tmp4 = skb->head;
 #line 570
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
+  __cil_tmp5 = (unsigned char *)__cil_tmp4;
 #line 570
-  __cil_tmp6 = (unsigned long )skb;
-#line 570
-  __cil_tmp7 = __cil_tmp6 + 216;
-#line 570
-  __cil_tmp8 = *((unsigned char * const  *)__cil_tmp7);
-#line 570
-  __cil_tmp9 = (unsigned char *)__cil_tmp8;
-#line 570
-  return (__cil_tmp9 + __cil_tmp5);
+  return (__cil_tmp5 + __cil_tmp3);
   }
 }
 }
@@ -8206,7 +8061,7 @@ __inline static struct sk_buff *skb_peek(struct sk_buff_head *list_ )
 #line 810
   __cil_tmp3 = (struct sk_buff *)list_;
 #line 810
-  list = *((struct sk_buff **)__cil_tmp3);
+  list = __cil_tmp3->next;
   {
 #line 811
   __cil_tmp4 = (struct sk_buff *)list_;
@@ -8228,48 +8083,30 @@ __inline static struct sk_buff *skb_peek(struct sk_buff_head *list_ )
 }
 #line 843 "include/linux/skbuff.h"
 __inline static __u32 skb_queue_len(struct sk_buff_head  const  *list_ ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  __u32 __cil_tmp4 ;
+{ __u32 __cil_tmp2 ;
 
   {
   {
 #line 845
-  __cil_tmp2 = (unsigned long )list_;
+  __cil_tmp2 = list_->qlen;
 #line 845
-  __cil_tmp3 = __cil_tmp2 + 16;
-#line 845
-  __cil_tmp4 = *((__u32 const   *)__cil_tmp3);
-#line 845
-  return ((unsigned int )__cil_tmp4);
+  return ((__u32 )__cil_tmp2);
   }
 }
 }
 #line 858 "include/linux/skbuff.h"
 __inline static void __skb_queue_head_init(struct sk_buff_head *list ) 
 { struct sk_buff *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
 
   {
 #line 860
   tmp = (struct sk_buff *)list;
 #line 860
-  *((struct sk_buff **)list) = tmp;
+  list->next = tmp;
 #line 860
-  __cil_tmp3 = (unsigned long )list;
-#line 860
-  __cil_tmp4 = __cil_tmp3 + 8;
-#line 860
-  *((struct sk_buff **)__cil_tmp4) = tmp;
+  list->prev = tmp;
 #line 861
-  __cil_tmp5 = (unsigned long )list;
-#line 861
-  __cil_tmp6 = __cil_tmp5 + 16;
-#line 861
-  *((__u32 *)__cil_tmp6) = 0U;
+  list->qlen = 0U;
 #line 862
   return;
 }
@@ -8277,31 +8114,19 @@ __inline static void __skb_queue_head_init(struct sk_buff_head *list )
 #line 872 "include/linux/skbuff.h"
 __inline static void skb_queue_head_init(struct sk_buff_head *list ) 
 { struct lock_class_key __key ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  spinlock_t *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct raw_spinlock *__cil_tmp8 ;
+  spinlock_t *__cil_tmp3 ;
+  struct raw_spinlock *__cil_tmp4 ;
 
   {
   {
 #line 874
-  __cil_tmp3 = (unsigned long )list;
+  __cil_tmp3 = & list->lock;
 #line 874
-  __cil_tmp4 = __cil_tmp3 + 24;
+  spinlock_check(__cil_tmp3);
 #line 874
-  __cil_tmp5 = (spinlock_t *)__cil_tmp4;
+  __cil_tmp4 = & list->lock.ldv_6060.rlock;
 #line 874
-  spinlock_check(__cil_tmp5);
-#line 874
-  __cil_tmp6 = (unsigned long )list;
-#line 874
-  __cil_tmp7 = __cil_tmp6 + 24;
-#line 874
-  __cil_tmp8 = (struct raw_spinlock *)__cil_tmp7;
-#line 874
-  __raw_spin_lock_init(__cil_tmp8, "&(&list->lock)->rlock", & __key);
+  __raw_spin_lock_init(__cil_tmp4, "&(&list->lock)->rlock", & __key);
 #line 875
   __skb_queue_head_init(list);
   }
@@ -8317,35 +8142,23 @@ extern void skb_queue_tail(struct sk_buff_head * , struct sk_buff * ) ;
 extern struct sk_buff *skb_dequeue(struct sk_buff_head * ) ;
 #line 1098 "include/linux/skbuff.h"
 __inline static unsigned int skb_headlen(struct sk_buff  const  *skb ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   unsigned int __cil_tmp4 ;
   unsigned int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
 
   {
   {
 #line 1100
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->data_len;
 #line 1100
-  __cil_tmp3 = __cil_tmp2 + 108;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 1100
-  __cil_tmp4 = *((unsigned int const   *)__cil_tmp3);
+  __cil_tmp4 = skb->len;
 #line 1100
   __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 1100
-  __cil_tmp6 = (unsigned long )skb;
-#line 1100
-  __cil_tmp7 = __cil_tmp6 + 104;
-#line 1100
-  __cil_tmp8 = *((unsigned int const   *)__cil_tmp7);
-#line 1100
-  __cil_tmp9 = (unsigned int )__cil_tmp8;
-#line 1100
-  return (__cil_tmp9 - __cil_tmp5);
+  return (__cil_tmp5 - __cil_tmp3);
   }
 }
 }
@@ -8379,12 +8192,11 @@ extern void free_irq(unsigned int  , void * ) ;
 #line 530 "include/linux/interrupt.h"
 __inline static void tasklet_unlock_wait(struct tasklet_struct *t ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
+#line 532
   goto ldv_33859;
   ldv_33858: 
 #line 532
@@ -8392,20 +8204,18 @@ __inline static void tasklet_unlock_wait(struct tasklet_struct *t )
   ldv_33859: 
   {
 #line 532
-  __cil_tmp3 = (unsigned long )t;
+  __cil_tmp3 = & t->state;
 #line 532
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 532
-  __cil_tmp5 = (unsigned long *)__cil_tmp4;
-#line 532
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 532
-  tmp = constant_test_bit(1U, __cil_tmp6);
+  tmp = constant_test_bit(1U, __cil_tmp4);
   }
 #line 532
   if (tmp != 0) {
+#line 533
     goto ldv_33858;
   } else {
+#line 535
     goto ldv_33860;
   }
   ldv_33860: ;
@@ -8418,23 +8228,17 @@ extern void __tasklet_schedule(struct tasklet_struct * ) ;
 #line 542 "include/linux/interrupt.h"
 __inline static void tasklet_schedule(struct tasklet_struct *t ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long *__cil_tmp5 ;
-  unsigned long volatile   *__cil_tmp6 ;
+  unsigned long *__cil_tmp3 ;
+  unsigned long volatile   *__cil_tmp4 ;
 
   {
   {
 #line 544
-  __cil_tmp3 = (unsigned long )t;
+  __cil_tmp3 = & t->state;
 #line 544
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = (unsigned long volatile   *)__cil_tmp3;
 #line 544
-  __cil_tmp5 = (unsigned long *)__cil_tmp4;
-#line 544
-  __cil_tmp6 = (unsigned long volatile   *)__cil_tmp5;
-#line 544
-  tmp = test_and_set_bit(0, __cil_tmp6);
+  tmp = test_and_set_bit(0, __cil_tmp4);
   }
 #line 544
   if (tmp == 0) {
@@ -8451,20 +8255,14 @@ __inline static void tasklet_schedule(struct tasklet_struct *t )
 }
 #line 571 "include/linux/interrupt.h"
 __inline static void tasklet_disable_nosync(struct tasklet_struct *t ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  atomic_t *__cil_tmp4 ;
+{ atomic_t *__cil_tmp2 ;
 
   {
   {
 #line 573
-  __cil_tmp2 = (unsigned long )t;
+  __cil_tmp2 = & t->count;
 #line 573
-  __cil_tmp3 = __cil_tmp2 + 16;
-#line 573
-  __cil_tmp4 = (atomic_t *)__cil_tmp3;
-#line 573
-  atomic_inc(__cil_tmp4);
+  atomic_inc(__cil_tmp2);
 #line 574
   __asm__  volatile   ("": : : "memory");
   }
@@ -8491,22 +8289,16 @@ __inline static void tasklet_disable(struct tasklet_struct *t )
 }
 #line 584 "include/linux/interrupt.h"
 __inline static void tasklet_enable(struct tasklet_struct *t ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  atomic_t *__cil_tmp4 ;
+{ atomic_t *__cil_tmp2 ;
 
   {
   {
 #line 586
   __asm__  volatile   ("": : : "memory");
 #line 587
-  __cil_tmp2 = (unsigned long )t;
+  __cil_tmp2 = & t->count;
 #line 587
-  __cil_tmp3 = __cil_tmp2 + 16;
-#line 587
-  __cil_tmp4 = (atomic_t *)__cil_tmp3;
-#line 587
-  atomic_dec(__cil_tmp4);
+  atomic_dec(__cil_tmp2);
   }
 #line 588
   return;
@@ -8550,37 +8342,19 @@ static unsigned long ev_b[64U]  ;
 static int ec  =    0;
 #line 122 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
 static void EVENT(char const   *s , unsigned long a , unsigned long b ) 
-{ unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  int __cil_tmp10 ;
+{ int __cil_tmp4 ;
 
   {
 #line 124
-  __cil_tmp4 = ec * 8UL;
-#line 124
-  __cil_tmp5 = (unsigned long )(ev) + __cil_tmp4;
-#line 124
-  *((char const   **)__cil_tmp5) = s;
+  ev[ec] = s;
 #line 125
-  __cil_tmp6 = ec * 8UL;
-#line 125
-  __cil_tmp7 = (unsigned long )(ev_a) + __cil_tmp6;
-#line 125
-  *((unsigned long *)__cil_tmp7) = a;
+  ev_a[ec] = a;
 #line 126
-  __cil_tmp8 = ec * 8UL;
-#line 126
-  __cil_tmp9 = (unsigned long )(ev_b) + __cil_tmp8;
-#line 126
-  *((unsigned long *)__cil_tmp9) = b;
+  ev_b[ec] = b;
 #line 127
-  __cil_tmp10 = ec + 1;
+  __cil_tmp4 = ec + 1;
 #line 127
-  ec = __cil_tmp10 % 64;
+  ec = __cil_tmp4 % 64;
 #line 128
   return;
 }
@@ -8594,21 +8368,11 @@ static void event_dump(void)
   char const   *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  char const   *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
 
   {
 #line 135
   n = 0;
+#line 135
   goto ldv_40057;
   ldv_40056: 
   {
@@ -8625,21 +8389,11 @@ static void event_dump(void)
 #line 138
   __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 138
-  __cil_tmp7 = i * 8UL;
+  __cil_tmp7 = (unsigned long )ev[i];
 #line 138
-  __cil_tmp8 = (unsigned long )(ev) + __cil_tmp7;
+  if (__cil_tmp7 != __cil_tmp6) {
 #line 138
-  __cil_tmp9 = *((char const   **)__cil_tmp8);
-#line 138
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 138
-  if (__cil_tmp10 != __cil_tmp6) {
-#line 138
-    __cil_tmp11 = i * 8UL;
-#line 138
-    __cil_tmp12 = (unsigned long )(ev) + __cil_tmp11;
-#line 138
-    tmp = *((char const   **)__cil_tmp12);
+    tmp = ev[i];
   } else {
 #line 138
     tmp = "(null)";
@@ -8647,27 +8401,17 @@ static void event_dump(void)
   }
   {
 #line 138
-  __cil_tmp13 = i * 8UL;
-#line 138
-  __cil_tmp14 = (unsigned long )(ev_a) + __cil_tmp13;
-#line 138
-  __cil_tmp15 = *((unsigned long *)__cil_tmp14);
-#line 138
-  __cil_tmp16 = i * 8UL;
-#line 138
-  __cil_tmp17 = (unsigned long )(ev_b) + __cil_tmp16;
-#line 138
-  __cil_tmp18 = *((unsigned long *)__cil_tmp17);
-#line 138
-  printk(tmp, __cil_tmp15, __cil_tmp18);
+  printk(tmp, ev_a[i], ev_b[i]);
 #line 135
   n = n + 1;
   }
   ldv_40057: ;
 #line 135
   if (n <= 63) {
+#line 136
     goto ldv_40056;
   } else {
+#line 138
     goto ldv_40058;
   }
   ldv_40058: ;
@@ -8705,77 +8449,56 @@ static dma_addr_t zeroes  ;
 static void dump_mem(struct eni_dev *eni_dev ) 
 { int i ;
   unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct eni_free *__cil_tmp6 ;
-  struct eni_free *__cil_tmp7 ;
-  void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct eni_free *__cil_tmp12 ;
-  struct eni_free *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  int __cil_tmp20 ;
+  struct eni_free *__cil_tmp4 ;
+  struct eni_free *__cil_tmp5 ;
+  void *__cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
+  struct eni_free *__cil_tmp8 ;
+  struct eni_free *__cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
 #line 182
   i = 0;
+#line 182
   goto ldv_40077;
   ldv_40076: 
   {
 #line 183
   __cil_tmp3 = (unsigned long )i;
 #line 183
-  __cil_tmp4 = (unsigned long )eni_dev;
+  __cil_tmp4 = eni_dev->free_list;
 #line 183
-  __cil_tmp5 = __cil_tmp4 + 2592;
+  __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
 #line 183
-  __cil_tmp6 = *((struct eni_free **)__cil_tmp5);
+  __cil_tmp6 = __cil_tmp5->start;
 #line 183
-  __cil_tmp7 = __cil_tmp6 + __cil_tmp3;
+  __cil_tmp7 = (unsigned long )i;
 #line 183
-  __cil_tmp8 = *((void **)__cil_tmp7);
+  __cil_tmp8 = eni_dev->free_list;
 #line 183
-  __cil_tmp9 = (unsigned long )i;
+  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
 #line 183
-  __cil_tmp10 = (unsigned long )eni_dev;
+  __cil_tmp10 = __cil_tmp9->order;
 #line 183
-  __cil_tmp11 = __cil_tmp10 + 2592;
+  __cil_tmp11 = 1 << __cil_tmp10;
 #line 183
-  __cil_tmp12 = *((struct eni_free **)__cil_tmp11);
-#line 183
-  __cil_tmp13 = __cil_tmp12 + __cil_tmp9;
-#line 183
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 183
-  __cil_tmp15 = __cil_tmp14 + 8;
-#line 183
-  __cil_tmp16 = *((int *)__cil_tmp15);
-#line 183
-  __cil_tmp17 = 1 << __cil_tmp16;
-#line 183
-  printk("<7>  %d: %p %d\n", i, __cil_tmp8, __cil_tmp17);
+  printk("<7>  %d: %p %d\n", i, __cil_tmp6, __cil_tmp11);
 #line 182
   i = i + 1;
   }
   ldv_40077: ;
   {
 #line 182
-  __cil_tmp18 = (unsigned long )eni_dev;
+  __cil_tmp12 = eni_dev->free_len;
 #line 182
-  __cil_tmp19 = __cil_tmp18 + 2584;
-#line 182
-  __cil_tmp20 = *((int *)__cil_tmp19);
-#line 182
-  if (__cil_tmp20 > i) {
+  if (__cil_tmp12 > i) {
+#line 183
     goto ldv_40076;
   } else {
+#line 185
     goto ldv_40078;
   }
   }
@@ -8788,90 +8511,53 @@ static void dump_mem(struct eni_dev *eni_dev )
 static void dump(struct atm_dev *dev ) 
 { struct eni_dev *eni_dev ;
   int i ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
+  void *__cil_tmp4 ;
+  void *__cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
   void *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  void *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  void *__cil_tmp13 ;
+  struct atm_vcc *__cil_tmp12 ;
+  unsigned long __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct atm_vcc **__cil_tmp15 ;
+  struct atm_vcc **__cil_tmp16 ;
+  struct atm_vcc *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  void *__cil_tmp19 ;
+  int (*__cil_tmp19)(struct atm_vcc * ) ;
   unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct atm_vcc *__cil_tmp27 ;
+  struct atm_vcc **__cil_tmp22 ;
+  struct atm_vcc **__cil_tmp23 ;
+  struct atm_vcc *__cil_tmp24 ;
+  void *__cil_tmp25 ;
+  struct eni_vcc *__cil_tmp26 ;
+  int (*__cil_tmp27)(struct atm_vcc * ) ;
   unsigned long __cil_tmp28 ;
   unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct atm_vcc **__cil_tmp32 ;
-  struct atm_vcc **__cil_tmp33 ;
-  struct atm_vcc *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int (*__cil_tmp36)(struct atm_vcc * ) ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct atm_vcc **__cil_tmp41 ;
-  struct atm_vcc **__cil_tmp42 ;
-  struct atm_vcc *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  void *__cil_tmp46 ;
-  struct eni_vcc *__cil_tmp47 ;
-  int (*__cil_tmp48)(struct atm_vcc * ) ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct atm_vcc **__cil_tmp53 ;
-  struct atm_vcc **__cil_tmp54 ;
-  struct atm_vcc *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  void *__cil_tmp58 ;
-  struct eni_vcc *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  void *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct atm_vcc **__cil_tmp66 ;
-  struct atm_vcc **__cil_tmp67 ;
-  struct atm_vcc *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  void *__cil_tmp71 ;
-  struct eni_vcc *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
+  struct atm_vcc **__cil_tmp30 ;
+  struct atm_vcc **__cil_tmp31 ;
+  struct atm_vcc *__cil_tmp32 ;
+  void *__cil_tmp33 ;
+  struct eni_vcc *__cil_tmp34 ;
+  void *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  struct atm_vcc **__cil_tmp37 ;
+  struct atm_vcc **__cil_tmp38 ;
+  struct atm_vcc *__cil_tmp39 ;
+  void *__cil_tmp40 ;
+  struct eni_vcc *__cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
 
   {
   {
 #line 195
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->dev_data;
 #line 195
-  __cil_tmp5 = __cil_tmp4 + 32;
-#line 195
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 195
-  eni_dev = (struct eni_dev *)__cil_tmp6;
+  eni_dev = (struct eni_dev *)__cil_tmp4;
 #line 196
   printk("<5>Free memory\n");
 #line 197
@@ -8881,54 +8567,29 @@ static void dump(struct atm_dev *dev )
 #line 199
   i = 0;
   }
+#line 199
   goto ldv_40085;
   ldv_40084: ;
   {
 #line 200
-  __cil_tmp7 = (void *)0;
+  __cil_tmp5 = (void *)0;
+#line 200
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
+#line 200
+  __cil_tmp7 = eni_dev->tx[i].send;
 #line 200
   __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 200
-  __cil_tmp9 = i * 144UL;
-#line 200
-  __cil_tmp10 = 176 + __cil_tmp9;
-#line 200
-  __cil_tmp11 = (unsigned long )eni_dev;
-#line 200
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 200
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 200
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 200
-  if (__cil_tmp14 != __cil_tmp8) {
+  if (__cil_tmp8 != __cil_tmp6) {
     {
 #line 201
-    __cil_tmp15 = i * 144UL;
+    __cil_tmp9 = eni_dev->tx[i].send;
 #line 201
-    __cil_tmp16 = 176 + __cil_tmp15;
+    __cil_tmp10 = eni_dev->tx[i].words;
 #line 201
-    __cil_tmp17 = (unsigned long )eni_dev;
+    __cil_tmp11 = __cil_tmp10 * 4UL;
 #line 201
-    __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 201
-    __cil_tmp19 = *((void **)__cil_tmp18);
-#line 201
-    __cil_tmp20 = i * 144UL;
-#line 201
-    __cil_tmp21 = __cil_tmp20 + 24;
-#line 201
-    __cil_tmp22 = 176 + __cil_tmp21;
-#line 201
-    __cil_tmp23 = (unsigned long )eni_dev;
-#line 201
-    __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 201
-    __cil_tmp25 = *((unsigned long *)__cil_tmp24);
-#line 201
-    __cil_tmp26 = __cil_tmp25 * 4UL;
-#line 201
-    printk("<5>  TX %d @ %p: %ld\n", i, __cil_tmp19, __cil_tmp26);
+    printk("<5>  TX %d @ %p: %ld\n", i, __cil_tmp9, __cil_tmp11);
     }
   } else {
 
@@ -8939,8 +8600,10 @@ static void dump(struct atm_dev *dev )
   ldv_40085: ;
 #line 199
   if (i <= 7) {
+#line 200
     goto ldv_40084;
   } else {
+#line 202
     goto ldv_40086;
   }
   ldv_40086: 
@@ -8950,117 +8613,82 @@ static void dump(struct atm_dev *dev )
 #line 204
   i = 0;
   }
+#line 204
   goto ldv_40088;
   ldv_40087: ;
   {
 #line 205
-  __cil_tmp27 = (struct atm_vcc *)0;
+  __cil_tmp12 = (struct atm_vcc *)0;
 #line 205
-  __cil_tmp28 = (unsigned long )__cil_tmp27;
+  __cil_tmp13 = (unsigned long )__cil_tmp12;
 #line 205
-  __cil_tmp29 = (unsigned long )i;
+  __cil_tmp14 = (unsigned long )i;
 #line 205
-  __cil_tmp30 = (unsigned long )eni_dev;
+  __cil_tmp15 = eni_dev->rx_map;
 #line 205
-  __cil_tmp31 = __cil_tmp30 + 2368;
+  __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
 #line 205
-  __cil_tmp32 = *((struct atm_vcc ***)__cil_tmp31);
+  __cil_tmp17 = *__cil_tmp16;
 #line 205
-  __cil_tmp33 = __cil_tmp32 + __cil_tmp29;
+  __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 205
-  __cil_tmp34 = *__cil_tmp33;
-#line 205
-  __cil_tmp35 = (unsigned long )__cil_tmp34;
-#line 205
-  if (__cil_tmp35 != __cil_tmp28) {
+  if (__cil_tmp18 != __cil_tmp13) {
     {
 #line 205
-    __cil_tmp36 = (int (*)(struct atm_vcc * ))0;
+    __cil_tmp19 = (int (*)(struct atm_vcc * ))0;
 #line 205
-    __cil_tmp37 = (unsigned long )__cil_tmp36;
+    __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 205
-    __cil_tmp38 = (unsigned long )i;
+    __cil_tmp21 = (unsigned long )i;
 #line 205
-    __cil_tmp39 = (unsigned long )eni_dev;
+    __cil_tmp22 = eni_dev->rx_map;
 #line 205
-    __cil_tmp40 = __cil_tmp39 + 2368;
+    __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
 #line 205
-    __cil_tmp41 = *((struct atm_vcc ***)__cil_tmp40);
+    __cil_tmp24 = *__cil_tmp23;
 #line 205
-    __cil_tmp42 = __cil_tmp41 + __cil_tmp38;
+    __cil_tmp25 = __cil_tmp24->dev_data;
 #line 205
-    __cil_tmp43 = *__cil_tmp42;
+    __cil_tmp26 = (struct eni_vcc *)__cil_tmp25;
 #line 205
-    __cil_tmp44 = (unsigned long )__cil_tmp43;
+    __cil_tmp27 = __cil_tmp26->rx;
 #line 205
-    __cil_tmp45 = __cil_tmp44 + 1480;
+    __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 205
-    __cil_tmp46 = *((void **)__cil_tmp45);
-#line 205
-    __cil_tmp47 = (struct eni_vcc *)__cil_tmp46;
-#line 205
-    __cil_tmp48 = *((int (**)(struct atm_vcc * ))__cil_tmp47);
-#line 205
-    __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 205
-    if (__cil_tmp49 != __cil_tmp37) {
+    if (__cil_tmp28 != __cil_tmp20) {
       {
 #line 206
-      __cil_tmp50 = (unsigned long )i;
+      __cil_tmp29 = (unsigned long )i;
 #line 206
-      __cil_tmp51 = (unsigned long )eni_dev;
+      __cil_tmp30 = eni_dev->rx_map;
 #line 206
-      __cil_tmp52 = __cil_tmp51 + 2368;
+      __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
 #line 206
-      __cil_tmp53 = *((struct atm_vcc ***)__cil_tmp52);
+      __cil_tmp32 = *__cil_tmp31;
 #line 206
-      __cil_tmp54 = __cil_tmp53 + __cil_tmp50;
+      __cil_tmp33 = __cil_tmp32->dev_data;
 #line 206
-      __cil_tmp55 = *__cil_tmp54;
+      __cil_tmp34 = (struct eni_vcc *)__cil_tmp33;
 #line 206
-      __cil_tmp56 = (unsigned long )__cil_tmp55;
+      __cil_tmp35 = __cil_tmp34->recv;
 #line 206
-      __cil_tmp57 = __cil_tmp56 + 1480;
+      __cil_tmp36 = (unsigned long )i;
 #line 206
-      __cil_tmp58 = *((void **)__cil_tmp57);
+      __cil_tmp37 = eni_dev->rx_map;
 #line 206
-      __cil_tmp59 = (struct eni_vcc *)__cil_tmp58;
+      __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
 #line 206
-      __cil_tmp60 = (unsigned long )__cil_tmp59;
+      __cil_tmp39 = *__cil_tmp38;
 #line 206
-      __cil_tmp61 = __cil_tmp60 + 8;
+      __cil_tmp40 = __cil_tmp39->dev_data;
 #line 206
-      __cil_tmp62 = *((void **)__cil_tmp61);
+      __cil_tmp41 = (struct eni_vcc *)__cil_tmp40;
 #line 206
-      __cil_tmp63 = (unsigned long )i;
+      __cil_tmp42 = __cil_tmp41->words;
 #line 206
-      __cil_tmp64 = (unsigned long )eni_dev;
+      __cil_tmp43 = __cil_tmp42 * 4UL;
 #line 206
-      __cil_tmp65 = __cil_tmp64 + 2368;
-#line 206
-      __cil_tmp66 = *((struct atm_vcc ***)__cil_tmp65);
-#line 206
-      __cil_tmp67 = __cil_tmp66 + __cil_tmp63;
-#line 206
-      __cil_tmp68 = *__cil_tmp67;
-#line 206
-      __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 206
-      __cil_tmp70 = __cil_tmp69 + 1480;
-#line 206
-      __cil_tmp71 = *((void **)__cil_tmp70);
-#line 206
-      __cil_tmp72 = (struct eni_vcc *)__cil_tmp71;
-#line 206
-      __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 206
-      __cil_tmp74 = __cil_tmp73 + 16;
-#line 206
-      __cil_tmp75 = *((unsigned long *)__cil_tmp74);
-#line 206
-      __cil_tmp76 = __cil_tmp75 * 4UL;
-#line 206
-      printk("<5>  RX %d @ %p: %ld\n", i, __cil_tmp62, __cil_tmp76);
+      printk("<5>  RX %d @ %p: %ld\n", i, __cil_tmp35, __cil_tmp43);
       }
     } else {
 
@@ -9075,8 +8703,10 @@ static void dump(struct atm_dev *dev )
   ldv_40088: ;
 #line 204
   if (i <= 1023) {
+#line 205
     goto ldv_40087;
   } else {
+#line 207
     goto ldv_40089;
   }
   ldv_40089: 
@@ -9094,70 +8724,44 @@ static void eni_put_free(struct eni_dev *eni_dev , void *start , unsigned long s
   int len ;
   int order ;
   unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  int __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  struct eni_free *__cil_tmp16 ;
+  unsigned long __cil_tmp17 ;
+  struct eni_free *__cil_tmp18 ;
+  int __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct eni_free *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct eni_free *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  int __cil_tmp21 ;
+  unsigned long __cil_tmp22 ;
 
   {
 #line 220
-  __cil_tmp7 = (unsigned long )eni_dev;
+  __cil_tmp7 = eni_dev->base_diff;
 #line 220
-  __cil_tmp8 = __cil_tmp7 + 2576;
-#line 220
-  __cil_tmp9 = *((unsigned long *)__cil_tmp8);
-#line 220
-  start = start + __cil_tmp9;
+  start = start + __cil_tmp7;
 #line 221
-  __cil_tmp10 = (unsigned long )eni_dev;
-#line 221
-  __cil_tmp11 = __cil_tmp10 + 2592;
-#line 221
-  list = *((struct eni_free **)__cil_tmp11);
+  list = eni_dev->free_list;
 #line 222
-  __cil_tmp12 = (unsigned long )eni_dev;
-#line 222
-  __cil_tmp13 = __cil_tmp12 + 2584;
-#line 222
-  len = *((int *)__cil_tmp13);
+  len = eni_dev->free_len;
+#line 223
   goto ldv_40103;
   ldv_40102: ;
   {
 #line 224
-  __cil_tmp14 = (unsigned long )eni_dev;
+  __cil_tmp8 = eni_dev->free_list_size;
 #line 224
-  __cil_tmp15 = __cil_tmp14 + 2600;
-#line 224
-  __cil_tmp16 = *((int *)__cil_tmp15);
-#line 224
-  if (__cil_tmp16 <= len) {
+  if (__cil_tmp8 <= len) {
     {
 #line 225
     printk("<2>eni_put_free overflow (%p,%ld)\n", start, size);
     }
+#line 227
     goto ldv_40098;
   } else {
 
@@ -9165,6 +8769,7 @@ static void eni_put_free(struct eni_dev *eni_dev , void *start , unsigned long s
   }
 #line 229
   order = 0;
+#line 229
   goto ldv_40100;
   ldv_40099: 
 #line 229
@@ -9172,81 +8777,78 @@ static void eni_put_free(struct eni_dev *eni_dev , void *start , unsigned long s
   ldv_40100: ;
   {
 #line 229
-  __cil_tmp17 = 1 << order;
+  __cil_tmp9 = 1 << order;
 #line 229
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 229
-  __cil_tmp19 = (unsigned long )start;
+  __cil_tmp11 = (unsigned long )start;
 #line 229
-  __cil_tmp20 = __cil_tmp19 | size;
+  __cil_tmp12 = __cil_tmp11 | size;
 #line 229
-  __cil_tmp21 = __cil_tmp20 & __cil_tmp18;
+  __cil_tmp13 = __cil_tmp12 & __cil_tmp10;
 #line 229
-  if (__cil_tmp21 == 0UL) {
+  if (__cil_tmp13 == 0UL) {
+#line 230
     goto ldv_40099;
   } else {
+#line 232
     goto ldv_40101;
   }
   }
   ldv_40101: ;
   {
 #line 230
-  __cil_tmp22 = 1 << order;
+  __cil_tmp14 = 1 << order;
 #line 230
-  if (__cil_tmp22 <= 1023) {
+  if (__cil_tmp14 <= 1023) {
     {
 #line 231
     printk("<2>eni_put_free: order %d too small\n", order);
     }
+#line 233
     goto ldv_40098;
   } else {
 
   }
   }
 #line 235
-  __cil_tmp23 = (unsigned long )len;
+  __cil_tmp15 = (unsigned long )len;
 #line 235
-  __cil_tmp24 = list + __cil_tmp23;
+  __cil_tmp16 = list + __cil_tmp15;
 #line 235
-  *((void **)__cil_tmp24) = start;
+  __cil_tmp16->start = start;
 #line 236
-  __cil_tmp25 = (unsigned long )len;
+  __cil_tmp17 = (unsigned long )len;
 #line 236
-  __cil_tmp26 = list + __cil_tmp25;
+  __cil_tmp18 = list + __cil_tmp17;
 #line 236
-  __cil_tmp27 = (unsigned long )__cil_tmp26;
-#line 236
-  __cil_tmp28 = __cil_tmp27 + 8;
-#line 236
-  *((int *)__cil_tmp28) = order;
+  __cil_tmp18->order = order;
 #line 237
   len = len + 1;
 #line 238
-  __cil_tmp29 = 1 << order;
+  __cil_tmp19 = 1 << order;
 #line 238
-  __cil_tmp30 = (unsigned long )__cil_tmp29;
+  __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 238
-  start = start + __cil_tmp30;
+  start = start + __cil_tmp20;
 #line 239
-  __cil_tmp31 = 1 << order;
+  __cil_tmp21 = 1 << order;
 #line 239
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
+  __cil_tmp22 = (unsigned long )__cil_tmp21;
 #line 239
-  size = size - __cil_tmp32;
+  size = size - __cil_tmp22;
   ldv_40103: ;
 #line 223
   if (size != 0UL) {
+#line 224
     goto ldv_40102;
   } else {
+#line 226
     goto ldv_40098;
   }
   ldv_40098: 
 #line 241
-  __cil_tmp33 = (unsigned long )eni_dev;
-#line 241
-  __cil_tmp34 = __cil_tmp33 + 2584;
-#line 241
-  *((int *)__cil_tmp34) = len;
+  eni_dev->free_len = len;
 #line 242
   return;
 }
@@ -9263,72 +8865,48 @@ static void *eni_alloc_mem(struct eni_dev *eni_dev , unsigned long *size )
   unsigned long __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  int __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  struct eni_free *__cil_tmp16 ;
   int __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct eni_free *__cil_tmp20 ;
+  struct eni_free *__cil_tmp19 ;
+  int __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  struct eni_free *__cil_tmp22 ;
   int __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
   struct eni_free *__cil_tmp25 ;
   unsigned long __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct eni_free *__cil_tmp30 ;
+  unsigned long __cil_tmp28 ;
+  struct eni_free *__cil_tmp29 ;
+  void *__cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct eni_free *__cil_tmp35 ;
+  struct eni_free *__cil_tmp32 ;
+  unsigned long __cil_tmp33 ;
+  struct eni_free *__cil_tmp34 ;
+  int __cil_tmp35 ;
   unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  void *__cil_tmp37 ;
   unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  int __cil_tmp39 ;
   unsigned long __cil_tmp40 ;
   unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct eni_free *__cil_tmp43 ;
-  void *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct eni_free *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct eni_free *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  void *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  void volatile   *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
+  void volatile   *__cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
 
   {
 #line 252
-  __cil_tmp10 = (unsigned long )eni_dev;
-#line 252
-  __cil_tmp11 = __cil_tmp10 + 2592;
-#line 252
-  list = *((struct eni_free **)__cil_tmp11);
+  list = eni_dev->free_list;
 #line 253
-  __cil_tmp12 = (unsigned long )eni_dev;
-#line 253
-  __cil_tmp13 = __cil_tmp12 + 2584;
-#line 253
-  len = *((int *)__cil_tmp13);
+  len = eni_dev->free_len;
   {
 #line 254
-  __cil_tmp14 = *size;
+  __cil_tmp10 = *size;
 #line 254
-  if (__cil_tmp14 <= 1023UL) {
+  if (__cil_tmp10 <= 1023UL) {
 #line 254
     *size = 1024UL;
   } else {
@@ -9337,9 +8915,9 @@ static void *eni_alloc_mem(struct eni_dev *eni_dev , unsigned long *size )
   }
   {
 #line 255
-  __cil_tmp15 = *size;
+  __cil_tmp11 = *size;
 #line 255
-  if (__cil_tmp15 > 131072UL) {
+  if (__cil_tmp11 > 131072UL) {
 #line 255
     return ((void *)0);
   } else {
@@ -9348,6 +8926,7 @@ static void *eni_alloc_mem(struct eni_dev *eni_dev , unsigned long *size )
   }
 #line 256
   order = 0;
+#line 256
   goto ldv_40116;
   ldv_40115: 
 #line 256
@@ -9355,15 +8934,17 @@ static void *eni_alloc_mem(struct eni_dev *eni_dev , unsigned long *size )
   ldv_40116: ;
   {
 #line 256
-  __cil_tmp16 = *size;
+  __cil_tmp12 = *size;
 #line 256
-  __cil_tmp17 = 1 << order;
+  __cil_tmp13 = 1 << order;
 #line 256
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
+  __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 256
-  if (__cil_tmp18 < __cil_tmp16) {
+  if (__cil_tmp14 < __cil_tmp12) {
+#line 257
     goto ldv_40115;
   } else {
+#line 259
     goto ldv_40117;
   }
   }
@@ -9374,63 +8955,49 @@ static void *eni_alloc_mem(struct eni_dev *eni_dev , unsigned long *size )
   index = 0;
 #line 260
   i = 0;
+#line 260
   goto ldv_40120;
   ldv_40119: ;
   {
 #line 261
-  __cil_tmp19 = (unsigned long )i;
+  __cil_tmp15 = (unsigned long )i;
 #line 261
-  __cil_tmp20 = list + __cil_tmp19;
+  __cil_tmp16 = list + __cil_tmp15;
 #line 261
-  __cil_tmp21 = (unsigned long )__cil_tmp20;
+  __cil_tmp17 = __cil_tmp16->order;
 #line 261
-  __cil_tmp22 = __cil_tmp21 + 8;
-#line 261
-  __cil_tmp23 = *((int *)__cil_tmp22);
-#line 261
-  if (__cil_tmp23 == order) {
+  if (__cil_tmp17 == order) {
 #line 262
     best_order = order;
 #line 263
     index = i;
+#line 264
     goto ldv_40118;
   } else {
     {
 #line 266
-    __cil_tmp24 = (unsigned long )i;
+    __cil_tmp18 = (unsigned long )i;
 #line 266
-    __cil_tmp25 = list + __cil_tmp24;
+    __cil_tmp19 = list + __cil_tmp18;
 #line 266
-    __cil_tmp26 = (unsigned long )__cil_tmp25;
+    __cil_tmp20 = __cil_tmp19->order;
 #line 266
-    __cil_tmp27 = __cil_tmp26 + 8;
-#line 266
-    __cil_tmp28 = *((int *)__cil_tmp27);
-#line 266
-    if (__cil_tmp28 < best_order) {
+    if (__cil_tmp20 < best_order) {
       {
 #line 266
-      __cil_tmp29 = (unsigned long )i;
+      __cil_tmp21 = (unsigned long )i;
 #line 266
-      __cil_tmp30 = list + __cil_tmp29;
+      __cil_tmp22 = list + __cil_tmp21;
 #line 266
-      __cil_tmp31 = (unsigned long )__cil_tmp30;
+      __cil_tmp23 = __cil_tmp22->order;
 #line 266
-      __cil_tmp32 = __cil_tmp31 + 8;
-#line 266
-      __cil_tmp33 = *((int *)__cil_tmp32);
-#line 266
-      if (__cil_tmp33 > order) {
+      if (__cil_tmp23 > order) {
 #line 267
-        __cil_tmp34 = (unsigned long )i;
+        __cil_tmp24 = (unsigned long )i;
 #line 267
-        __cil_tmp35 = list + __cil_tmp34;
+        __cil_tmp25 = list + __cil_tmp24;
 #line 267
-        __cil_tmp36 = (unsigned long )__cil_tmp35;
-#line 267
-        __cil_tmp37 = __cil_tmp36 + 8;
-#line 267
-        best_order = *((int *)__cil_tmp37);
+        best_order = __cil_tmp25->order;
 #line 268
         index = i;
       } else {
@@ -9448,8 +9015,10 @@ static void *eni_alloc_mem(struct eni_dev *eni_dev , unsigned long *size )
   ldv_40120: ;
 #line 260
   if (i < len) {
+#line 261
     goto ldv_40119;
   } else {
+#line 263
     goto ldv_40118;
   }
   ldv_40118: ;
@@ -9462,63 +9031,55 @@ static void *eni_alloc_mem(struct eni_dev *eni_dev , unsigned long *size )
   }
   {
 #line 271
-  __cil_tmp38 = (unsigned long )eni_dev;
+  __cil_tmp26 = eni_dev->base_diff;
 #line 271
-  __cil_tmp39 = __cil_tmp38 + 2576;
+  __cil_tmp27 = - __cil_tmp26;
 #line 271
-  __cil_tmp40 = *((unsigned long *)__cil_tmp39);
+  __cil_tmp28 = (unsigned long )index;
 #line 271
-  __cil_tmp41 = - __cil_tmp40;
+  __cil_tmp29 = list + __cil_tmp28;
 #line 271
-  __cil_tmp42 = (unsigned long )index;
+  __cil_tmp30 = __cil_tmp29->start;
 #line 271
-  __cil_tmp43 = list + __cil_tmp42;
-#line 271
-  __cil_tmp44 = *((void **)__cil_tmp43);
-#line 271
-  start = __cil_tmp44 + __cil_tmp41;
+  start = __cil_tmp30 + __cil_tmp27;
 #line 272
   len = len - 1;
 #line 272
-  __cil_tmp45 = (unsigned long )index;
+  __cil_tmp31 = (unsigned long )index;
 #line 272
-  __cil_tmp46 = list + __cil_tmp45;
+  __cil_tmp32 = list + __cil_tmp31;
 #line 272
-  __cil_tmp47 = (unsigned long )len;
+  __cil_tmp33 = (unsigned long )len;
 #line 272
-  __cil_tmp48 = list + __cil_tmp47;
+  __cil_tmp34 = list + __cil_tmp33;
 #line 272
-  *__cil_tmp46 = *__cil_tmp48;
+  *__cil_tmp32 = *__cil_tmp34;
 #line 273
-  __cil_tmp49 = (unsigned long )eni_dev;
-#line 273
-  __cil_tmp50 = __cil_tmp49 + 2584;
-#line 273
-  *((int *)__cil_tmp50) = len;
+  eni_dev->free_len = len;
 #line 274
-  __cil_tmp51 = 1 << order;
+  __cil_tmp35 = 1 << order;
 #line 274
-  *size = (unsigned long )__cil_tmp51;
+  *size = (unsigned long )__cil_tmp35;
 #line 275
-  __cil_tmp52 = *size;
+  __cil_tmp36 = *size;
 #line 275
-  __cil_tmp53 = start + __cil_tmp52;
+  __cil_tmp37 = start + __cil_tmp36;
 #line 275
-  __cil_tmp54 = *size;
+  __cil_tmp38 = *size;
 #line 275
-  __cil_tmp55 = 1 << best_order;
+  __cil_tmp39 = 1 << best_order;
 #line 275
-  __cil_tmp56 = (unsigned long )__cil_tmp55;
+  __cil_tmp40 = (unsigned long )__cil_tmp39;
 #line 275
-  __cil_tmp57 = __cil_tmp56 - __cil_tmp54;
+  __cil_tmp41 = __cil_tmp40 - __cil_tmp38;
 #line 275
-  eni_put_free(eni_dev, __cil_tmp53, __cil_tmp57);
+  eni_put_free(eni_dev, __cil_tmp37, __cil_tmp41);
 #line 277
-  __cil_tmp58 = (void volatile   *)start;
+  __cil_tmp42 = (void volatile   *)start;
 #line 277
-  __cil_tmp59 = *size;
+  __cil_tmp43 = *size;
 #line 277
-  memset_io(__cil_tmp58, (unsigned char)0, __cil_tmp59);
+  memset_io(__cil_tmp42, (unsigned char)0, __cil_tmp43);
   }
 #line 279
   return (start);
@@ -9532,68 +9093,43 @@ static void eni_free_mem(struct eni_dev *eni_dev , void *start , unsigned long s
   int order ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  int __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
+  struct eni_free *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  unsigned long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct eni_free *__cil_tmp20 ;
-  void *__cil_tmp21 ;
+  struct eni_free *__cil_tmp18 ;
+  int __cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
+  struct eni_free *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct eni_free *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  struct eni_free *__cil_tmp23 ;
+  unsigned long __cil_tmp24 ;
+  int __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
+  unsigned long __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  struct eni_free *__cil_tmp29 ;
+  int __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   struct eni_free *__cil_tmp31 ;
   unsigned long __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct eni_free *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct eni_free *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  struct eni_free *__cil_tmp33 ;
 
   {
 #line 289
-  __cil_tmp8 = (unsigned long )eni_dev;
+  __cil_tmp8 = eni_dev->base_diff;
 #line 289
-  __cil_tmp9 = __cil_tmp8 + 2576;
-#line 289
-  __cil_tmp10 = *((unsigned long *)__cil_tmp9);
-#line 289
-  start = start + __cil_tmp10;
+  start = start + __cil_tmp8;
 #line 290
-  __cil_tmp11 = (unsigned long )eni_dev;
-#line 290
-  __cil_tmp12 = __cil_tmp11 + 2592;
-#line 290
-  list = *((struct eni_free **)__cil_tmp12);
+  list = eni_dev->free_list;
 #line 291
-  __cil_tmp13 = (unsigned long )eni_dev;
-#line 291
-  __cil_tmp14 = __cil_tmp13 + 2584;
-#line 291
-  len = *((int *)__cil_tmp14);
+  len = eni_dev->free_len;
 #line 292
   order = -1;
+#line 292
   goto ldv_40131;
   ldv_40130: 
 #line 292
@@ -9603,75 +9139,75 @@ static void eni_free_mem(struct eni_dev *eni_dev , void *start , unsigned long s
   ldv_40131: ;
 #line 292
   if (size != 0UL) {
+#line 293
     goto ldv_40130;
   } else {
+#line 295
     goto ldv_40132;
   }
   ldv_40132: 
 #line 294
   i = 0;
+#line 294
   goto ldv_40135;
   ldv_40134: ;
   {
 #line 295
-  __cil_tmp15 = (unsigned long )start;
+  __cil_tmp9 = (unsigned long )start;
 #line 295
-  __cil_tmp16 = 1 << order;
+  __cil_tmp10 = 1 << order;
 #line 295
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
+  __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 295
-  __cil_tmp18 = __cil_tmp17 ^ __cil_tmp15;
+  __cil_tmp12 = __cil_tmp11 ^ __cil_tmp9;
 #line 295
-  __cil_tmp19 = (unsigned long )i;
+  __cil_tmp13 = (unsigned long )i;
 #line 295
-  __cil_tmp20 = list + __cil_tmp19;
+  __cil_tmp14 = list + __cil_tmp13;
 #line 295
-  __cil_tmp21 = *((void **)__cil_tmp20);
+  __cil_tmp15 = __cil_tmp14->start;
 #line 295
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 295
-  if (__cil_tmp22 == __cil_tmp18) {
+  if (__cil_tmp16 == __cil_tmp12) {
     {
 #line 295
-    __cil_tmp23 = (unsigned long )i;
+    __cil_tmp17 = (unsigned long )i;
 #line 295
-    __cil_tmp24 = list + __cil_tmp23;
+    __cil_tmp18 = list + __cil_tmp17;
 #line 295
-    __cil_tmp25 = (unsigned long )__cil_tmp24;
+    __cil_tmp19 = __cil_tmp18->order;
 #line 295
-    __cil_tmp26 = __cil_tmp25 + 8;
-#line 295
-    __cil_tmp27 = *((int *)__cil_tmp26);
-#line 295
-    if (__cil_tmp27 == order) {
+    if (__cil_tmp19 == order) {
 #line 299
       len = len - 1;
 #line 299
-      __cil_tmp28 = (unsigned long )i;
+      __cil_tmp20 = (unsigned long )i;
 #line 299
-      __cil_tmp29 = list + __cil_tmp28;
+      __cil_tmp21 = list + __cil_tmp20;
 #line 299
-      __cil_tmp30 = (unsigned long )len;
+      __cil_tmp22 = (unsigned long )len;
 #line 299
-      __cil_tmp31 = list + __cil_tmp30;
+      __cil_tmp23 = list + __cil_tmp22;
 #line 299
-      *__cil_tmp29 = *__cil_tmp31;
+      *__cil_tmp21 = *__cil_tmp23;
 #line 300
-      __cil_tmp32 = (unsigned long )start;
+      __cil_tmp24 = (unsigned long )start;
 #line 300
-      __cil_tmp33 = 1 << order;
+      __cil_tmp25 = 1 << order;
 #line 300
-      __cil_tmp34 = (unsigned long )__cil_tmp33;
+      __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 300
-      __cil_tmp35 = ~ __cil_tmp34;
+      __cil_tmp27 = ~ __cil_tmp26;
 #line 300
-      __cil_tmp36 = __cil_tmp35 & __cil_tmp32;
+      __cil_tmp28 = __cil_tmp27 & __cil_tmp24;
 #line 300
-      start = (void *)__cil_tmp36;
+      start = (void *)__cil_tmp28;
 #line 301
       order = order + 1;
 #line 302
       i = -1;
+#line 303
       goto ldv_40133;
     } else {
 
@@ -9687,20 +9223,18 @@ static void eni_free_mem(struct eni_dev *eni_dev , void *start , unsigned long s
   ldv_40135: ;
 #line 294
   if (i < len) {
+#line 295
     goto ldv_40134;
   } else {
+#line 297
     goto ldv_40136;
   }
   ldv_40136: ;
   {
 #line 305
-  __cil_tmp37 = (unsigned long )eni_dev;
+  __cil_tmp29 = eni_dev->free_list_size;
 #line 305
-  __cil_tmp38 = __cil_tmp37 + 2600;
-#line 305
-  __cil_tmp39 = *((int *)__cil_tmp38);
-#line 305
-  if (__cil_tmp39 <= len) {
+  if (__cil_tmp29 <= len) {
     {
 #line 306
     printk("<1>eni_free_mem overflow (%p,%d)\n", start, order);
@@ -9712,27 +9246,19 @@ static void eni_free_mem(struct eni_dev *eni_dev , void *start , unsigned long s
   }
   }
 #line 310
-  __cil_tmp40 = (unsigned long )len;
+  __cil_tmp30 = (unsigned long )len;
 #line 310
-  __cil_tmp41 = list + __cil_tmp40;
+  __cil_tmp31 = list + __cil_tmp30;
 #line 310
-  *((void **)__cil_tmp41) = start;
+  __cil_tmp31->start = start;
 #line 311
-  __cil_tmp42 = (unsigned long )len;
+  __cil_tmp32 = (unsigned long )len;
 #line 311
-  __cil_tmp43 = list + __cil_tmp42;
+  __cil_tmp33 = list + __cil_tmp32;
 #line 311
-  __cil_tmp44 = (unsigned long )__cil_tmp43;
-#line 311
-  __cil_tmp45 = __cil_tmp44 + 8;
-#line 311
-  *((int *)__cil_tmp45) = order;
+  __cil_tmp33->order = order;
 #line 312
-  __cil_tmp46 = (unsigned long )eni_dev;
-#line 312
-  __cil_tmp47 = __cil_tmp46 + 2584;
-#line 312
-  *((int *)__cil_tmp47) = len + 1;
+  eni_dev->free_len = len + 1;
 #line 313
   return;
 }
@@ -9744,205 +9270,103 @@ static void rx_ident_err(struct atm_vcc *vcc )
   struct eni_vcc *eni_vcc ;
   unsigned int tmp ;
   unsigned int tmp___0 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  void *__cil_tmp14 ;
-  void const volatile   *__cil_tmp15 ;
-  void const volatile   *__cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  void *__cil_tmp7 ;
+  void *__cil_tmp8 ;
+  void const volatile   *__cil_tmp9 ;
+  void const volatile   *__cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  void *__cil_tmp12 ;
+  void volatile   *__cil_tmp13 ;
+  void volatile   *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  void *__cil_tmp20 ;
-  void volatile   *__cil_tmp21 ;
-  void volatile   *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  void *__cil_tmp25 ;
+  unsigned long __cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  void *__cil_tmp22 ;
+  void *__cil_tmp23 ;
+  void const volatile   *__cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  struct sk_buff *__cil_tmp27 ;
   int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  void *__cil_tmp44 ;
-  void *__cil_tmp45 ;
-  void const volatile   *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct sk_buff *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  void *__cil_tmp61 ;
-  struct eni_dev *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  void *__cil_tmp67 ;
-  struct eni_dev *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  void *__cil_tmp73 ;
-  struct eni_dev *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct sk_buff_head *__cil_tmp77 ;
+  void *__cil_tmp29 ;
+  struct eni_dev *__cil_tmp30 ;
+  void *__cil_tmp31 ;
+  struct eni_dev *__cil_tmp32 ;
+  void *__cil_tmp33 ;
+  struct eni_dev *__cil_tmp34 ;
+  struct sk_buff_head *__cil_tmp35 ;
 
   {
   {
 #line 329
-  __cil_tmp7 = (unsigned long )vcc;
-#line 329
-  __cil_tmp8 = __cil_tmp7 + 1304;
-#line 329
-  dev = *((struct atm_dev **)__cil_tmp8);
+  dev = vcc->dev;
 #line 330
-  __cil_tmp9 = (unsigned long )dev;
+  __cil_tmp7 = dev->dev_data;
 #line 330
-  __cil_tmp10 = __cil_tmp9 + 32;
-#line 330
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 330
-  eni_dev = (struct eni_dev *)__cil_tmp11;
+  eni_dev = (struct eni_dev *)__cil_tmp7;
 #line 332
-  __cil_tmp12 = (unsigned long )eni_dev;
+  __cil_tmp8 = eni_dev->reg;
 #line 332
-  __cil_tmp13 = __cil_tmp12 + 128;
+  __cil_tmp9 = (void const volatile   *)__cil_tmp8;
 #line 332
-  __cil_tmp14 = *((void **)__cil_tmp13);
+  __cil_tmp10 = __cil_tmp9 + 16U;
 #line 332
-  __cil_tmp15 = (void const volatile   *)__cil_tmp14;
+  tmp = readl(__cil_tmp10);
 #line 332
-  __cil_tmp16 = __cil_tmp15 + 16U;
+  __cil_tmp11 = tmp & 4294967267U;
 #line 332
-  tmp = readl(__cil_tmp16);
+  __cil_tmp12 = eni_dev->reg;
 #line 332
-  __cil_tmp17 = tmp & 4294967267U;
+  __cil_tmp13 = (void volatile   *)__cil_tmp12;
 #line 332
-  __cil_tmp18 = (unsigned long )eni_dev;
+  __cil_tmp14 = __cil_tmp13 + 16U;
 #line 332
-  __cil_tmp19 = __cil_tmp18 + 128;
-#line 332
-  __cil_tmp20 = *((void **)__cil_tmp19);
-#line 332
-  __cil_tmp21 = (void volatile   *)__cil_tmp20;
-#line 332
-  __cil_tmp22 = __cil_tmp21 + 16U;
-#line 332
-  writel(__cil_tmp17, __cil_tmp22);
+  writel(__cil_tmp11, __cil_tmp14);
 #line 335
-  __cil_tmp23 = (unsigned long )vcc;
+  __cil_tmp15 = vcc->dev_data;
 #line 335
-  __cil_tmp24 = __cil_tmp23 + 1480;
-#line 335
-  __cil_tmp25 = *((void **)__cil_tmp24);
-#line 335
-  eni_vcc = (struct eni_vcc *)__cil_tmp25;
+  eni_vcc = (struct eni_vcc *)__cil_tmp15;
 #line 336
-  __cil_tmp26 = (unsigned long )dev;
+  __cil_tmp16 = dev->number;
 #line 336
-  __cil_tmp27 = __cil_tmp26 + 24;
-#line 336
-  __cil_tmp28 = *((int *)__cil_tmp27);
-#line 336
-  printk("<1>eni(itf %d): driver error - RX ident mismatch\n", __cil_tmp28);
+  printk("<1>eni(itf %d): driver error - RX ident mismatch\n", __cil_tmp16);
 #line 338
-  __cil_tmp29 = (unsigned long )vcc;
+  __cil_tmp17 = vcc->vci;
 #line 338
-  __cil_tmp30 = __cil_tmp29 + 1284;
+  __cil_tmp18 = eni_vcc->rxing;
 #line 338
-  __cil_tmp31 = *((int *)__cil_tmp30);
+  __cil_tmp19 = eni_vcc->words;
 #line 338
-  __cil_tmp32 = (unsigned long )eni_vcc;
-#line 338
-  __cil_tmp33 = __cil_tmp32 + 48;
-#line 338
-  __cil_tmp34 = *((int *)__cil_tmp33);
-#line 338
-  __cil_tmp35 = (unsigned long )eni_vcc;
-#line 338
-  __cil_tmp36 = __cil_tmp35 + 16;
-#line 338
-  __cil_tmp37 = *((unsigned long *)__cil_tmp36);
-#line 338
-  printk("<1>  VCI %d, rxing %d, words %ld\n", __cil_tmp31, __cil_tmp34, __cil_tmp37);
+  printk("<1>  VCI %d, rxing %d, words %ld\n", __cil_tmp17, __cil_tmp18, __cil_tmp19);
 #line 340
-  __cil_tmp38 = (unsigned long )eni_vcc;
+  __cil_tmp20 = eni_vcc->descr;
 #line 340
-  __cil_tmp39 = __cil_tmp38 + 24;
+  __cil_tmp21 = __cil_tmp20 * 4UL;
 #line 340
-  __cil_tmp40 = *((unsigned long *)__cil_tmp39);
+  __cil_tmp22 = eni_vcc->recv;
 #line 340
-  __cil_tmp41 = __cil_tmp40 * 4UL;
+  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
 #line 340
-  __cil_tmp42 = (unsigned long )eni_vcc;
+  __cil_tmp24 = (void const volatile   *)__cil_tmp23;
 #line 340
-  __cil_tmp43 = __cil_tmp42 + 8;
+  tmp___0 = readl(__cil_tmp24);
 #line 340
-  __cil_tmp44 = *((void **)__cil_tmp43);
+  __cil_tmp25 = eni_vcc->descr;
 #line 340
-  __cil_tmp45 = __cil_tmp44 + __cil_tmp41;
+  __cil_tmp26 = eni_vcc->rx_pos;
 #line 340
-  __cil_tmp46 = (void const volatile   *)__cil_tmp45;
-#line 340
-  tmp___0 = readl(__cil_tmp46);
-#line 340
-  __cil_tmp47 = (unsigned long )eni_vcc;
-#line 340
-  __cil_tmp48 = __cil_tmp47 + 24;
-#line 340
-  __cil_tmp49 = *((unsigned long *)__cil_tmp48);
-#line 340
-  __cil_tmp50 = (unsigned long )eni_vcc;
-#line 340
-  __cil_tmp51 = __cil_tmp50 + 32;
-#line 340
-  __cil_tmp52 = *((unsigned long *)__cil_tmp51);
-#line 340
-  printk("<1>  host descr 0x%lx, rx pos 0x%lx, descr value 0x%x\n", __cil_tmp49, __cil_tmp52,
+  printk("<1>  host descr 0x%lx, rx pos 0x%lx, descr value 0x%x\n", __cil_tmp25, __cil_tmp26,
          tmp___0);
 #line 343
-  __cil_tmp53 = (unsigned long )eni_vcc;
+  __cil_tmp27 = eni_vcc->last;
 #line 343
-  __cil_tmp54 = __cil_tmp53 + 80;
+  __cil_tmp28 = eni_vcc->servicing;
 #line 343
-  __cil_tmp55 = *((struct sk_buff **)__cil_tmp54);
-#line 343
-  __cil_tmp56 = (unsigned long )eni_vcc;
-#line 343
-  __cil_tmp57 = __cil_tmp56 + 52;
-#line 343
-  __cil_tmp58 = *((int *)__cil_tmp57);
-#line 343
-  printk("<1>  last %p, servicing %d\n", __cil_tmp55, __cil_tmp58);
+  printk("<1>  last %p, servicing %d\n", __cil_tmp27, __cil_tmp28);
 #line 345
   EVENT("---dump ends here---\n", 0UL, 0UL);
 #line 346
@@ -9950,49 +9374,25 @@ static void rx_ident_err(struct atm_vcc *vcc )
 #line 347
   event_dump();
 #line 348
-  __cil_tmp59 = (unsigned long )dev;
+  __cil_tmp29 = dev->dev_data;
 #line 348
-  __cil_tmp60 = __cil_tmp59 + 32;
+  __cil_tmp30 = (struct eni_dev *)__cil_tmp29;
 #line 348
-  __cil_tmp61 = *((void **)__cil_tmp60);
-#line 348
-  __cil_tmp62 = (struct eni_dev *)__cil_tmp61;
-#line 348
-  __cil_tmp63 = (unsigned long )__cil_tmp62;
-#line 348
-  __cil_tmp64 = __cil_tmp63 + 2336;
-#line 348
-  *((struct atm_vcc **)__cil_tmp64) = (struct atm_vcc *)0;
+  __cil_tmp30->fast = (struct atm_vcc *)0;
 #line 349
-  __cil_tmp65 = (unsigned long )dev;
+  __cil_tmp31 = dev->dev_data;
 #line 349
-  __cil_tmp66 = __cil_tmp65 + 32;
+  __cil_tmp32 = (struct eni_dev *)__cil_tmp31;
 #line 349
-  __cil_tmp67 = *((void **)__cil_tmp66);
-#line 349
-  __cil_tmp68 = (struct eni_dev *)__cil_tmp67;
-#line 349
-  __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 349
-  __cil_tmp70 = __cil_tmp69 + 2352;
-#line 349
-  *((struct atm_vcc **)__cil_tmp70) = (struct atm_vcc *)0;
+  __cil_tmp32->slow = (struct atm_vcc *)0;
 #line 350
-  __cil_tmp71 = (unsigned long )dev;
+  __cil_tmp33 = dev->dev_data;
 #line 350
-  __cil_tmp72 = __cil_tmp71 + 32;
+  __cil_tmp34 = (struct eni_dev *)__cil_tmp33;
 #line 350
-  __cil_tmp73 = *((void **)__cil_tmp72);
+  __cil_tmp35 = & __cil_tmp34->rx_queue;
 #line 350
-  __cil_tmp74 = (struct eni_dev *)__cil_tmp73;
-#line 350
-  __cil_tmp75 = (unsigned long )__cil_tmp74;
-#line 350
-  __cil_tmp76 = __cil_tmp75 + 2376;
-#line 350
-  __cil_tmp77 = (struct sk_buff_head *)__cil_tmp76;
-#line 350
-  skb_queue_head_init(__cil_tmp77);
+  skb_queue_head_init(__cil_tmp35);
   }
 #line 351
   return;
@@ -10029,432 +9429,250 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
   int tmp___13 ;
   int tmp___14 ;
   int tmp___15 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct atm_dev *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  struct atm_dev *__cil_tmp34 ;
+  void *__cil_tmp35 ;
+  void *__cil_tmp36 ;
+  struct sk_buff *__cil_tmp37 ;
   unsigned long __cil_tmp38 ;
-  void *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
+  unsigned long __cil_tmp39 ;
+  struct pci_dev *__cil_tmp40 ;
+  unsigned char *__cil_tmp41 ;
   void *__cil_tmp42 ;
-  struct sk_buff *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct pci_dev *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned char *__cil_tmp51 ;
-  void *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
+  unsigned int __cil_tmp43 ;
+  size_t __cil_tmp44 ;
+  char (*__cil_tmp45)[48U] ;
+  struct eni_skb_prv *__cil_tmp46 ;
+  unsigned long long __cil_tmp47 ;
+  struct atm_dev *__cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  unsigned long __cil_tmp51 ;
+  char (*__cil_tmp52)[48U] ;
+  struct eni_skb_prv *__cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
   unsigned int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  char (*__cil_tmp59)[48U] ;
-  struct eni_skb_prv *__cil_tmp60 ;
+  unsigned int __cil_tmp56 ;
+  char (*__cil_tmp57)[48U] ;
+  struct atm_skb_data *__cil_tmp58 ;
+  unsigned long __cil_tmp59 ;
+  unsigned long __cil_tmp60 ;
   unsigned long __cil_tmp61 ;
   unsigned long __cil_tmp62 ;
-  unsigned long long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct atm_dev *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  int __cil_tmp69 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
+  u32 __cil_tmp65 ;
+  u32 __cil_tmp66 ;
+  u32 __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  unsigned long __cil_tmp69 ;
   unsigned long __cil_tmp70 ;
   unsigned long __cil_tmp71 ;
-  int __cil_tmp72 ;
+  unsigned long __cil_tmp72 ;
   unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  char (*__cil_tmp76)[48U] ;
-  struct eni_skb_prv *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned int __cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  unsigned int __cil_tmp82 ;
+  unsigned long long __cil_tmp74 ;
+  unsigned long long __cil_tmp75 ;
+  unsigned long long __cil_tmp76 ;
+  unsigned long long __cil_tmp77 ;
+  int __cil_tmp78 ;
+  int __cil_tmp79 ;
+  u32 __cil_tmp80 ;
+  u32 __cil_tmp81 ;
+  u32 __cil_tmp82 ;
   unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  char (*__cil_tmp85)[48U] ;
-  struct atm_skb_data *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
+  unsigned long long __cil_tmp84 ;
+  unsigned long __cil_tmp85 ;
+  int __cil_tmp86 ;
+  int __cil_tmp87 ;
+  u32 __cil_tmp88 ;
   unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
+  u32 __cil_tmp90 ;
+  u32 __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
   unsigned long __cil_tmp93 ;
   unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
+  unsigned long long __cil_tmp95 ;
   unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  int __cil_tmp99 ;
-  int __cil_tmp100 ;
-  unsigned int __cil_tmp101 ;
-  unsigned int __cil_tmp102 ;
+  int __cil_tmp97 ;
+  int __cil_tmp98 ;
+  u32 __cil_tmp99 ;
+  unsigned long __cil_tmp100 ;
+  u32 __cil_tmp101 ;
+  u32 __cil_tmp102 ;
   unsigned int __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
+  unsigned long __cil_tmp104 ;
   unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
+  unsigned long long __cil_tmp106 ;
   unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
+  int __cil_tmp108 ;
+  int __cil_tmp109 ;
+  u32 __cil_tmp110 ;
   unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long long __cil_tmp114 ;
-  unsigned long long __cil_tmp115 ;
-  unsigned long long __cil_tmp116 ;
+  u32 __cil_tmp112 ;
+  u32 __cil_tmp113 ;
+  unsigned int __cil_tmp114 ;
+  unsigned long __cil_tmp115 ;
+  unsigned long __cil_tmp116 ;
   unsigned long long __cil_tmp117 ;
   unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  int __cil_tmp122 ;
-  int __cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
+  int __cil_tmp119 ;
+  int __cil_tmp120 ;
+  u32 __cil_tmp121 ;
+  unsigned long __cil_tmp122 ;
+  u32 __cil_tmp123 ;
+  u32 __cil_tmp124 ;
   unsigned int __cil_tmp125 ;
-  unsigned int __cil_tmp126 ;
+  unsigned long __cil_tmp126 ;
   unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  int __cil_tmp136 ;
-  int __cil_tmp137 ;
-  unsigned int __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned int __cil_tmp140 ;
-  unsigned int __cil_tmp141 ;
-  unsigned int __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  int __cil_tmp153 ;
-  int __cil_tmp154 ;
-  unsigned int __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
+  unsigned long long __cil_tmp128 ;
+  int __cil_tmp129 ;
+  int __cil_tmp130 ;
+  u32 __cil_tmp131 ;
+  u32 __cil_tmp132 ;
+  u32 __cil_tmp133 ;
+  int __cil_tmp134 ;
+  int __cil_tmp135 ;
+  u32 __cil_tmp136 ;
+  u32 __cil_tmp137 ;
+  u32 __cil_tmp138 ;
+  unsigned int __cil_tmp139 ;
+  void *__cil_tmp140 ;
+  void const volatile   *__cil_tmp141 ;
+  void const volatile   *__cil_tmp142 ;
+  void *__cil_tmp143 ;
+  void const volatile   *__cil_tmp144 ;
+  void const volatile   *__cil_tmp145 ;
+  u32 __cil_tmp146 ;
+  u32 __cil_tmp147 ;
+  u32 __cil_tmp148 ;
+  u32 __cil_tmp149 ;
+  u32 __cil_tmp150 ;
+  unsigned int __cil_tmp151 ;
+  u32 __cil_tmp152 ;
+  u32 __cil_tmp153 ;
+  u32 __cil_tmp154 ;
+  u32 __cil_tmp155 ;
+  u32 __cil_tmp156 ;
   unsigned int __cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
-  unsigned int __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
+  u32 __cil_tmp158 ;
+  u32 __cil_tmp159 ;
+  u32 __cil_tmp160 ;
+  u32 __cil_tmp161 ;
+  u32 __cil_tmp162 ;
+  unsigned int __cil_tmp163 ;
+  struct atm_dev *__cil_tmp164 ;
+  int __cil_tmp165 ;
+  u32 __cil_tmp166 ;
   unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  int __cil_tmp170 ;
-  int __cil_tmp171 ;
-  unsigned int __cil_tmp172 ;
+  void *__cil_tmp168 ;
+  void volatile   *__cil_tmp169 ;
+  void volatile   *__cil_tmp170 ;
+  u32 __cil_tmp171 ;
+  unsigned long __cil_tmp172 ;
   unsigned long __cil_tmp173 ;
-  unsigned int __cil_tmp174 ;
-  unsigned int __cil_tmp175 ;
-  unsigned int __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
+  void *__cil_tmp174 ;
+  void *__cil_tmp175 ;
+  void volatile   *__cil_tmp176 ;
+  u32 __cil_tmp177 ;
+  struct sk_buff *__cil_tmp178 ;
   unsigned long __cil_tmp179 ;
   unsigned long __cil_tmp180 ;
-  unsigned long long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
+  char (*__cil_tmp181)[48U] ;
+  struct eni_skb_prv *__cil_tmp182 ;
   unsigned long __cil_tmp183 ;
   unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  int __cil_tmp187 ;
-  int __cil_tmp188 ;
-  unsigned int __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned int __cil_tmp191 ;
-  unsigned int __cil_tmp192 ;
-  unsigned int __cil_tmp193 ;
+  struct sk_buff_head *__cil_tmp185 ;
+  void *__cil_tmp186 ;
+  void volatile   *__cil_tmp187 ;
+  void volatile   *__cil_tmp188 ;
+  struct pci_dev *__cil_tmp189 ;
+  unsigned int __cil_tmp190 ;
+  size_t __cil_tmp191 ;
+  struct sk_buff *__cil_tmp192 ;
+  unsigned long __cil_tmp193 ;
   unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  int __cil_tmp203 ;
-  int __cil_tmp204 ;
-  unsigned int __cil_tmp205 ;
-  unsigned int __cil_tmp206 ;
-  unsigned int __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  int __cil_tmp214 ;
-  int __cil_tmp215 ;
-  unsigned int __cil_tmp216 ;
-  unsigned int __cil_tmp217 ;
-  unsigned int __cil_tmp218 ;
-  unsigned int __cil_tmp219 ;
-  int __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  int __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  u32 __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  void *__cil_tmp229 ;
-  void const volatile   *__cil_tmp230 ;
-  void const volatile   *__cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  void *__cil_tmp234 ;
-  void const volatile   *__cil_tmp235 ;
-  void const volatile   *__cil_tmp236 ;
-  unsigned int __cil_tmp237 ;
-  unsigned int __cil_tmp238 ;
-  u32 __cil_tmp239 ;
-  u32 __cil_tmp240 ;
-  u32 __cil_tmp241 ;
-  unsigned int __cil_tmp242 ;
-  unsigned int __cil_tmp243 ;
-  unsigned int __cil_tmp244 ;
-  u32 __cil_tmp245 ;
-  u32 __cil_tmp246 ;
-  u32 __cil_tmp247 ;
-  unsigned int __cil_tmp248 ;
-  unsigned int __cil_tmp249 ;
-  unsigned int __cil_tmp250 ;
-  u32 __cil_tmp251 ;
-  u32 __cil_tmp252 ;
-  u32 __cil_tmp253 ;
-  unsigned int __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  struct atm_dev *__cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  int __cil_tmp260 ;
-  int __cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  u32 __cil_tmp264 ;
-  u32 __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  void *__cil_tmp269 ;
-  void volatile   *__cil_tmp270 ;
-  void volatile   *__cil_tmp271 ;
-  int __cil_tmp272 ;
-  int __cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  u32 __cil_tmp276 ;
-  u32 __cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  unsigned long __cil_tmp280 ;
-  unsigned long __cil_tmp281 ;
-  void *__cil_tmp282 ;
-  void *__cil_tmp283 ;
-  void volatile   *__cil_tmp284 ;
-  u32 __cil_tmp285 ;
-  struct sk_buff *__cil_tmp286 ;
-  unsigned long __cil_tmp287 ;
-  unsigned long __cil_tmp288 ;
-  unsigned long __cil_tmp289 ;
-  unsigned long __cil_tmp290 ;
-  char (*__cil_tmp291)[48U] ;
-  struct eni_skb_prv *__cil_tmp292 ;
-  unsigned long __cil_tmp293 ;
-  unsigned long __cil_tmp294 ;
-  unsigned long __cil_tmp295 ;
-  unsigned long __cil_tmp296 ;
-  unsigned long __cil_tmp297 ;
-  unsigned long __cil_tmp298 ;
-  unsigned long __cil_tmp299 ;
-  unsigned long __cil_tmp300 ;
-  struct sk_buff_head *__cil_tmp301 ;
-  unsigned long __cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
-  unsigned long __cil_tmp304 ;
-  unsigned long __cil_tmp305 ;
-  unsigned long __cil_tmp306 ;
-  unsigned long __cil_tmp307 ;
-  void *__cil_tmp308 ;
-  void volatile   *__cil_tmp309 ;
-  void volatile   *__cil_tmp310 ;
-  unsigned long __cil_tmp311 ;
-  unsigned long __cil_tmp312 ;
-  struct pci_dev *__cil_tmp313 ;
-  unsigned long __cil_tmp314 ;
-  unsigned long __cil_tmp315 ;
-  unsigned int __cil_tmp316 ;
-  unsigned long __cil_tmp317 ;
-  struct sk_buff *__cil_tmp318 ;
-  unsigned long __cil_tmp319 ;
-  unsigned long __cil_tmp320 ;
 
   {
 #line 365
-  __cil_tmp34 = (unsigned long )vcc;
+  __cil_tmp34 = vcc->dev;
 #line 365
-  __cil_tmp35 = __cil_tmp34 + 1304;
+  __cil_tmp35 = __cil_tmp34->dev_data;
 #line 365
-  __cil_tmp36 = *((struct atm_dev **)__cil_tmp35);
-#line 365
-  __cil_tmp37 = (unsigned long )__cil_tmp36;
-#line 365
-  __cil_tmp38 = __cil_tmp37 + 32;
-#line 365
-  __cil_tmp39 = *((void **)__cil_tmp38);
-#line 365
-  eni_dev = (struct eni_dev *)__cil_tmp39;
+  eni_dev = (struct eni_dev *)__cil_tmp35;
 #line 366
-  __cil_tmp40 = (unsigned long )vcc;
+  __cil_tmp36 = vcc->dev_data;
 #line 366
-  __cil_tmp41 = __cil_tmp40 + 1480;
-#line 366
-  __cil_tmp42 = *((void **)__cil_tmp41);
-#line 366
-  eni_vcc = (struct eni_vcc *)__cil_tmp42;
+  eni_vcc = (struct eni_vcc *)__cil_tmp36;
 #line 367
   paddr = 0ULL;
   {
 #line 368
-  __cil_tmp43 = (struct sk_buff *)0;
+  __cil_tmp37 = (struct sk_buff *)0;
 #line 368
-  __cil_tmp44 = (unsigned long )__cil_tmp43;
+  __cil_tmp38 = (unsigned long )__cil_tmp37;
 #line 368
-  __cil_tmp45 = (unsigned long )skb;
+  __cil_tmp39 = (unsigned long )skb;
 #line 368
-  if (__cil_tmp45 != __cil_tmp44) {
+  if (__cil_tmp39 != __cil_tmp38) {
     {
 #line 369
-    __cil_tmp46 = (unsigned long )eni_dev;
+    __cil_tmp40 = eni_dev->pci_dev;
 #line 369
-    __cil_tmp47 = __cil_tmp46 + 2632;
+    __cil_tmp41 = skb->data;
 #line 369
-    __cil_tmp48 = *((struct pci_dev **)__cil_tmp47);
+    __cil_tmp42 = (void *)__cil_tmp41;
 #line 369
-    __cil_tmp49 = (unsigned long )skb;
+    __cil_tmp43 = skb->len;
 #line 369
-    __cil_tmp50 = __cil_tmp49 + 224;
+    __cil_tmp44 = (size_t )__cil_tmp43;
 #line 369
-    __cil_tmp51 = *((unsigned char **)__cil_tmp50);
-#line 369
-    __cil_tmp52 = (void *)__cil_tmp51;
-#line 369
-    __cil_tmp53 = (unsigned long )skb;
-#line 369
-    __cil_tmp54 = __cil_tmp53 + 104;
-#line 369
-    __cil_tmp55 = *((unsigned int *)__cil_tmp54);
-#line 369
-    __cil_tmp56 = (unsigned long )__cil_tmp55;
-#line 369
-    paddr = pci_map_single(__cil_tmp48, __cil_tmp52, __cil_tmp56, 2);
+    paddr = pci_map_single(__cil_tmp40, __cil_tmp42, __cil_tmp44, 2);
 #line 371
-    __cil_tmp57 = (unsigned long )skb;
+    __cil_tmp45 = & skb->cb;
 #line 371
-    __cil_tmp58 = __cil_tmp57 + 40;
+    __cil_tmp46 = (struct eni_skb_prv *)__cil_tmp45;
 #line 371
-    __cil_tmp59 = (char (*)[48U])__cil_tmp58;
-#line 371
-    __cil_tmp60 = (struct eni_skb_prv *)__cil_tmp59;
-#line 371
-    __cil_tmp61 = (unsigned long )__cil_tmp60;
-#line 371
-    __cil_tmp62 = __cil_tmp61 + 32;
-#line 371
-    *((dma_addr_t *)__cil_tmp62) = paddr;
+    __cil_tmp46->paddr = paddr;
     }
     {
 #line 372
-    __cil_tmp63 = paddr & 3ULL;
+    __cil_tmp47 = paddr & 3ULL;
 #line 372
-    if (__cil_tmp63 != 0ULL) {
+    if (__cil_tmp47 != 0ULL) {
       {
 #line 373
-      __cil_tmp64 = (unsigned long )vcc;
+      __cil_tmp48 = vcc->dev;
 #line 373
-      __cil_tmp65 = __cil_tmp64 + 1304;
+      __cil_tmp49 = __cil_tmp48->number;
 #line 373
-      __cil_tmp66 = *((struct atm_dev **)__cil_tmp65);
+      __cil_tmp50 = vcc->vci;
 #line 373
-      __cil_tmp67 = (unsigned long )__cil_tmp66;
+      __cil_tmp51 = (unsigned long )paddr;
 #line 373
-      __cil_tmp68 = __cil_tmp67 + 24;
-#line 373
-      __cil_tmp69 = *((int *)__cil_tmp68);
-#line 373
-      __cil_tmp70 = (unsigned long )vcc;
-#line 373
-      __cil_tmp71 = __cil_tmp70 + 1284;
-#line 373
-      __cil_tmp72 = *((int *)__cil_tmp71);
-#line 373
-      __cil_tmp73 = (unsigned long )paddr;
-#line 373
-      printk("<2>eni(itf %d): VCI %d has mis-aligned RX data (0x%lx)\n", __cil_tmp69,
-             __cil_tmp72, __cil_tmp73);
+      printk("<2>eni(itf %d): VCI %d has mis-aligned RX data (0x%lx)\n", __cil_tmp49,
+             __cil_tmp50, __cil_tmp51);
       }
     } else {
 
     }
     }
 #line 376
-    __cil_tmp74 = (unsigned long )skb;
+    __cil_tmp52 = & skb->cb;
 #line 376
-    __cil_tmp75 = __cil_tmp74 + 40;
+    __cil_tmp53 = (struct eni_skb_prv *)__cil_tmp52;
 #line 376
-    __cil_tmp76 = (char (*)[48U])__cil_tmp75;
+    __cil_tmp54 = (unsigned int )skip;
 #line 376
-    __cil_tmp77 = (struct eni_skb_prv *)__cil_tmp76;
+    __cil_tmp55 = (unsigned int )size;
 #line 376
-    __cil_tmp78 = (unsigned long )__cil_tmp77;
+    __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
 #line 376
-    __cil_tmp79 = __cil_tmp78 + 24;
-#line 376
-    __cil_tmp80 = (unsigned int )skip;
-#line 376
-    __cil_tmp81 = (unsigned int )size;
-#line 376
-    __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
-#line 376
-    *((int *)__cil_tmp79) = (int )__cil_tmp82;
+    __cil_tmp53->size = (int )__cil_tmp56;
 #line 378
-    __cil_tmp83 = (unsigned long )skb;
+    __cil_tmp57 = & skb->cb;
 #line 378
-    __cil_tmp84 = __cil_tmp83 + 40;
+    __cil_tmp58 = (struct atm_skb_data *)__cil_tmp57;
 #line 378
-    __cil_tmp85 = (char (*)[48U])__cil_tmp84;
-#line 378
-    __cil_tmp86 = (struct atm_skb_data *)__cil_tmp85;
-#line 378
-    *((struct atm_vcc **)__cil_tmp86) = vcc;
+    __cil_tmp58->vcc = vcc;
   } else {
 
   }
@@ -10462,71 +9680,47 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
 #line 380
   j = 0;
 #line 382
-  __cil_tmp87 = (unsigned long )eni_vcc;
+  __cil_tmp59 = eni_vcc->words;
 #line 382
-  __cil_tmp88 = __cil_tmp87 + 16;
+  __cil_tmp60 = __cil_tmp59 - 1UL;
 #line 382
-  __cil_tmp89 = *((unsigned long *)__cil_tmp88);
+  __cil_tmp61 = eni_vcc->descr;
 #line 382
-  __cil_tmp90 = __cil_tmp89 - 1UL;
+  __cil_tmp62 = __cil_tmp61 + skip;
 #line 382
-  __cil_tmp91 = (unsigned long )eni_vcc;
-#line 382
-  __cil_tmp92 = __cil_tmp91 + 24;
-#line 382
-  __cil_tmp93 = *((unsigned long *)__cil_tmp92);
-#line 382
-  __cil_tmp94 = __cil_tmp93 + skip;
-#line 382
-  here = __cil_tmp94 & __cil_tmp90;
+  here = __cil_tmp62 & __cil_tmp60;
 #line 383
   tmp = j;
 #line 383
   j = j + 1;
 #line 383
-  __cil_tmp95 = tmp * 4UL;
+  __cil_tmp63 = vcc->vci;
 #line 383
-  __cil_tmp96 = (unsigned long )(dma) + __cil_tmp95;
+  __cil_tmp64 = __cil_tmp63 << 6;
 #line 383
-  __cil_tmp97 = (unsigned long )vcc;
+  __cil_tmp65 = (u32 )__cil_tmp64;
 #line 383
-  __cil_tmp98 = __cil_tmp97 + 1284;
+  __cil_tmp66 = (u32 )here;
 #line 383
-  __cil_tmp99 = *((int *)__cil_tmp98);
+  __cil_tmp67 = __cil_tmp66 << 16U;
 #line 383
-  __cil_tmp100 = __cil_tmp99 << 6;
+  __cil_tmp68 = __cil_tmp67 | __cil_tmp65;
 #line 383
-  __cil_tmp101 = (unsigned int )__cil_tmp100;
-#line 383
-  __cil_tmp102 = (unsigned int )here;
-#line 383
-  __cil_tmp103 = __cil_tmp102 << 16U;
-#line 383
-  __cil_tmp104 = __cil_tmp103 | __cil_tmp101;
-#line 383
-  *((u32 *)__cil_tmp96) = __cil_tmp104 | 3U;
+  dma[tmp] = __cil_tmp68 | 3U;
 #line 385
   j = j + 1;
 #line 387
-  __cil_tmp105 = (unsigned long )eni_vcc;
+  __cil_tmp69 = eni_vcc->words;
 #line 387
-  __cil_tmp106 = __cil_tmp105 + 16;
+  __cil_tmp70 = __cil_tmp69 - 1UL;
 #line 387
-  __cil_tmp107 = *((unsigned long *)__cil_tmp106);
+  __cil_tmp71 = eni_vcc->descr;
 #line 387
-  __cil_tmp108 = __cil_tmp107 - 1UL;
+  __cil_tmp72 = __cil_tmp71 + size;
 #line 387
-  __cil_tmp109 = (unsigned long )eni_vcc;
+  __cil_tmp73 = __cil_tmp72 + skip;
 #line 387
-  __cil_tmp110 = __cil_tmp109 + 24;
-#line 387
-  __cil_tmp111 = *((unsigned long *)__cil_tmp110);
-#line 387
-  __cil_tmp112 = __cil_tmp111 + size;
-#line 387
-  __cil_tmp113 = __cil_tmp112 + skip;
-#line 387
-  here = __cil_tmp113 & __cil_tmp108;
+  here = __cil_tmp73 & __cil_tmp70;
 #line 388
   if (eff == 0UL) {
 #line 388
@@ -10545,17 +9739,17 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
     words = eff;
     {
 #line 398
-    __cil_tmp114 = paddr & 15ULL;
+    __cil_tmp74 = paddr & 15ULL;
 #line 398
-    if (__cil_tmp114 != 0ULL) {
+    if (__cil_tmp74 != 0ULL) {
 #line 401
-      __cil_tmp115 = paddr & 15ULL;
+      __cil_tmp75 = paddr & 15ULL;
 #line 401
-      __cil_tmp116 = __cil_tmp115 >> 2;
+      __cil_tmp76 = __cil_tmp75 >> 2;
 #line 401
-      __cil_tmp117 = 4ULL - __cil_tmp116;
+      __cil_tmp77 = 4ULL - __cil_tmp76;
 #line 401
-      init = (unsigned long )__cil_tmp117;
+      init = (unsigned long )__cil_tmp77;
 #line 402
       if (init > words) {
 #line 402
@@ -10568,41 +9762,29 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
 #line 403
       j = j + 1;
 #line 403
-      __cil_tmp118 = tmp___0 * 4UL;
+      __cil_tmp78 = vcc->vci;
 #line 403
-      __cil_tmp119 = (unsigned long )(dma) + __cil_tmp118;
+      __cil_tmp79 = __cil_tmp78 << 6;
 #line 403
-      __cil_tmp120 = (unsigned long )vcc;
+      __cil_tmp80 = (u32 )__cil_tmp79;
 #line 403
-      __cil_tmp121 = __cil_tmp120 + 1284;
+      __cil_tmp81 = (u32 )init;
 #line 403
-      __cil_tmp122 = *((int *)__cil_tmp121);
+      __cil_tmp82 = __cil_tmp81 << 16U;
 #line 403
-      __cil_tmp123 = __cil_tmp122 << 6;
-#line 403
-      __cil_tmp124 = (unsigned int )__cil_tmp123;
-#line 403
-      __cil_tmp125 = (unsigned int )init;
-#line 403
-      __cil_tmp126 = __cil_tmp125 << 16U;
-#line 403
-      *((u32 *)__cil_tmp119) = __cil_tmp126 | __cil_tmp124;
+      dma[tmp___0] = __cil_tmp82 | __cil_tmp80;
 #line 405
       tmp___1 = j;
 #line 405
       j = j + 1;
 #line 405
-      __cil_tmp127 = tmp___1 * 4UL;
-#line 405
-      __cil_tmp128 = (unsigned long )(dma) + __cil_tmp127;
-#line 405
-      *((u32 *)__cil_tmp128) = (unsigned int )paddr;
+      dma[tmp___1] = (u32 )paddr;
 #line 406
-      __cil_tmp129 = init << 2;
+      __cil_tmp83 = init << 2;
 #line 406
-      __cil_tmp130 = (unsigned long long )__cil_tmp129;
+      __cil_tmp84 = (unsigned long long )__cil_tmp83;
 #line 406
-      paddr = __cil_tmp130 + paddr;
+      paddr = __cil_tmp84 + paddr;
 #line 407
       words = words - init;
     } else {
@@ -10611,55 +9793,43 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
     }
     {
 #line 410
-    __cil_tmp131 = words & 1152921504606846960UL;
+    __cil_tmp85 = words & 1152921504606846960UL;
 #line 410
-    if (__cil_tmp131 != 0UL) {
+    if (__cil_tmp85 != 0UL) {
 #line 411
       tmp___2 = j;
 #line 411
       j = j + 1;
 #line 411
-      __cil_tmp132 = tmp___2 * 4UL;
+      __cil_tmp86 = vcc->vci;
 #line 411
-      __cil_tmp133 = (unsigned long )(dma) + __cil_tmp132;
+      __cil_tmp87 = __cil_tmp86 << 6;
 #line 411
-      __cil_tmp134 = (unsigned long )vcc;
+      __cil_tmp88 = (u32 )__cil_tmp87;
 #line 411
-      __cil_tmp135 = __cil_tmp134 + 1284;
+      __cil_tmp89 = words >> 4;
 #line 411
-      __cil_tmp136 = *((int *)__cil_tmp135);
+      __cil_tmp90 = (u32 )__cil_tmp89;
 #line 411
-      __cil_tmp137 = __cil_tmp136 << 6;
+      __cil_tmp91 = __cil_tmp90 << 16U;
 #line 411
-      __cil_tmp138 = (unsigned int )__cil_tmp137;
+      __cil_tmp92 = __cil_tmp91 | __cil_tmp88;
 #line 411
-      __cil_tmp139 = words >> 4;
-#line 411
-      __cil_tmp140 = (unsigned int )__cil_tmp139;
-#line 411
-      __cil_tmp141 = __cil_tmp140 << 16U;
-#line 411
-      __cil_tmp142 = __cil_tmp141 | __cil_tmp138;
-#line 411
-      *((u32 *)__cil_tmp133) = __cil_tmp142 | 6U;
+      dma[tmp___2] = __cil_tmp92 | 6U;
 #line 414
       tmp___3 = j;
 #line 414
       j = j + 1;
 #line 414
-      __cil_tmp143 = tmp___3 * 4UL;
-#line 414
-      __cil_tmp144 = (unsigned long )(dma) + __cil_tmp143;
-#line 414
-      *((u32 *)__cil_tmp144) = (unsigned int )paddr;
+      dma[tmp___3] = (u32 )paddr;
 #line 415
-      __cil_tmp145 = words & 1152921504606846960UL;
+      __cil_tmp93 = words & 1152921504606846960UL;
 #line 415
-      __cil_tmp146 = __cil_tmp145 << 2;
+      __cil_tmp94 = __cil_tmp93 << 2;
 #line 415
-      __cil_tmp147 = (unsigned long long )__cil_tmp146;
+      __cil_tmp95 = (unsigned long long )__cil_tmp94;
 #line 415
-      paddr = __cil_tmp147 + paddr;
+      paddr = __cil_tmp95 + paddr;
 #line 416
       words = words & 15UL;
     } else {
@@ -10668,55 +9838,43 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
     }
     {
 #line 420
-    __cil_tmp148 = words & 1152921504606846968UL;
+    __cil_tmp96 = words & 1152921504606846968UL;
 #line 420
-    if (__cil_tmp148 != 0UL) {
+    if (__cil_tmp96 != 0UL) {
 #line 421
       tmp___4 = j;
 #line 421
       j = j + 1;
 #line 421
-      __cil_tmp149 = tmp___4 * 4UL;
+      __cil_tmp97 = vcc->vci;
 #line 421
-      __cil_tmp150 = (unsigned long )(dma) + __cil_tmp149;
+      __cil_tmp98 = __cil_tmp97 << 6;
 #line 421
-      __cil_tmp151 = (unsigned long )vcc;
+      __cil_tmp99 = (u32 )__cil_tmp98;
 #line 421
-      __cil_tmp152 = __cil_tmp151 + 1284;
+      __cil_tmp100 = words >> 3;
 #line 421
-      __cil_tmp153 = *((int *)__cil_tmp152);
+      __cil_tmp101 = (u32 )__cil_tmp100;
 #line 421
-      __cil_tmp154 = __cil_tmp153 << 6;
+      __cil_tmp102 = __cil_tmp101 << 16U;
 #line 421
-      __cil_tmp155 = (unsigned int )__cil_tmp154;
+      __cil_tmp103 = __cil_tmp102 | __cil_tmp99;
 #line 421
-      __cil_tmp156 = words >> 3;
-#line 421
-      __cil_tmp157 = (unsigned int )__cil_tmp156;
-#line 421
-      __cil_tmp158 = __cil_tmp157 << 16U;
-#line 421
-      __cil_tmp159 = __cil_tmp158 | __cil_tmp155;
-#line 421
-      *((u32 *)__cil_tmp150) = __cil_tmp159 | 5U;
+      dma[tmp___4] = __cil_tmp103 | 5U;
 #line 424
       tmp___5 = j;
 #line 424
       j = j + 1;
 #line 424
-      __cil_tmp160 = tmp___5 * 4UL;
-#line 424
-      __cil_tmp161 = (unsigned long )(dma) + __cil_tmp160;
-#line 424
-      *((u32 *)__cil_tmp161) = (unsigned int )paddr;
+      dma[tmp___5] = (u32 )paddr;
 #line 425
-      __cil_tmp162 = words & 1152921504606846968UL;
+      __cil_tmp104 = words & 1152921504606846968UL;
 #line 425
-      __cil_tmp163 = __cil_tmp162 << 2;
+      __cil_tmp105 = __cil_tmp104 << 2;
 #line 425
-      __cil_tmp164 = (unsigned long long )__cil_tmp163;
+      __cil_tmp106 = (unsigned long long )__cil_tmp105;
 #line 425
-      paddr = __cil_tmp164 + paddr;
+      paddr = __cil_tmp106 + paddr;
 #line 426
       words = words & 7UL;
     } else {
@@ -10725,55 +9883,43 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
     }
     {
 #line 430
-    __cil_tmp165 = words & 1152921504606846972UL;
+    __cil_tmp107 = words & 1152921504606846972UL;
 #line 430
-    if (__cil_tmp165 != 0UL) {
+    if (__cil_tmp107 != 0UL) {
 #line 431
       tmp___6 = j;
 #line 431
       j = j + 1;
 #line 431
-      __cil_tmp166 = tmp___6 * 4UL;
+      __cil_tmp108 = vcc->vci;
 #line 431
-      __cil_tmp167 = (unsigned long )(dma) + __cil_tmp166;
+      __cil_tmp109 = __cil_tmp108 << 6;
 #line 431
-      __cil_tmp168 = (unsigned long )vcc;
+      __cil_tmp110 = (u32 )__cil_tmp109;
 #line 431
-      __cil_tmp169 = __cil_tmp168 + 1284;
+      __cil_tmp111 = words >> 2;
 #line 431
-      __cil_tmp170 = *((int *)__cil_tmp169);
+      __cil_tmp112 = (u32 )__cil_tmp111;
 #line 431
-      __cil_tmp171 = __cil_tmp170 << 6;
+      __cil_tmp113 = __cil_tmp112 << 16U;
 #line 431
-      __cil_tmp172 = (unsigned int )__cil_tmp171;
+      __cil_tmp114 = __cil_tmp113 | __cil_tmp110;
 #line 431
-      __cil_tmp173 = words >> 2;
-#line 431
-      __cil_tmp174 = (unsigned int )__cil_tmp173;
-#line 431
-      __cil_tmp175 = __cil_tmp174 << 16U;
-#line 431
-      __cil_tmp176 = __cil_tmp175 | __cil_tmp172;
-#line 431
-      *((u32 *)__cil_tmp167) = __cil_tmp176 | 4U;
+      dma[tmp___6] = __cil_tmp114 | 4U;
 #line 434
       tmp___7 = j;
 #line 434
       j = j + 1;
 #line 434
-      __cil_tmp177 = tmp___7 * 4UL;
-#line 434
-      __cil_tmp178 = (unsigned long )(dma) + __cil_tmp177;
-#line 434
-      *((u32 *)__cil_tmp178) = (unsigned int )paddr;
+      dma[tmp___7] = (u32 )paddr;
 #line 435
-      __cil_tmp179 = words & 1152921504606846972UL;
+      __cil_tmp115 = words & 1152921504606846972UL;
 #line 435
-      __cil_tmp180 = __cil_tmp179 << 2;
+      __cil_tmp116 = __cil_tmp115 << 2;
 #line 435
-      __cil_tmp181 = (unsigned long long )__cil_tmp180;
+      __cil_tmp117 = (unsigned long long )__cil_tmp116;
 #line 435
-      paddr = __cil_tmp181 + paddr;
+      paddr = __cil_tmp117 + paddr;
 #line 436
       words = words & 3UL;
     } else {
@@ -10782,55 +9928,43 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
     }
     {
 #line 440
-    __cil_tmp182 = words & 1152921504606846974UL;
+    __cil_tmp118 = words & 1152921504606846974UL;
 #line 440
-    if (__cil_tmp182 != 0UL) {
+    if (__cil_tmp118 != 0UL) {
 #line 441
       tmp___8 = j;
 #line 441
       j = j + 1;
 #line 441
-      __cil_tmp183 = tmp___8 * 4UL;
+      __cil_tmp119 = vcc->vci;
 #line 441
-      __cil_tmp184 = (unsigned long )(dma) + __cil_tmp183;
+      __cil_tmp120 = __cil_tmp119 << 6;
 #line 441
-      __cil_tmp185 = (unsigned long )vcc;
+      __cil_tmp121 = (u32 )__cil_tmp120;
 #line 441
-      __cil_tmp186 = __cil_tmp185 + 1284;
+      __cil_tmp122 = words >> 1;
 #line 441
-      __cil_tmp187 = *((int *)__cil_tmp186);
+      __cil_tmp123 = (u32 )__cil_tmp122;
 #line 441
-      __cil_tmp188 = __cil_tmp187 << 6;
+      __cil_tmp124 = __cil_tmp123 << 16U;
 #line 441
-      __cil_tmp189 = (unsigned int )__cil_tmp188;
+      __cil_tmp125 = __cil_tmp124 | __cil_tmp121;
 #line 441
-      __cil_tmp190 = words >> 1;
-#line 441
-      __cil_tmp191 = (unsigned int )__cil_tmp190;
-#line 441
-      __cil_tmp192 = __cil_tmp191 << 16U;
-#line 441
-      __cil_tmp193 = __cil_tmp192 | __cil_tmp189;
-#line 441
-      *((u32 *)__cil_tmp184) = __cil_tmp193 | 7U;
+      dma[tmp___8] = __cil_tmp125 | 7U;
 #line 444
       tmp___9 = j;
 #line 444
       j = j + 1;
 #line 444
-      __cil_tmp194 = tmp___9 * 4UL;
-#line 444
-      __cil_tmp195 = (unsigned long )(dma) + __cil_tmp194;
-#line 444
-      *((u32 *)__cil_tmp195) = (unsigned int )paddr;
+      dma[tmp___9] = (u32 )paddr;
 #line 445
-      __cil_tmp196 = words & 1152921504606846974UL;
+      __cil_tmp126 = words & 1152921504606846974UL;
 #line 445
-      __cil_tmp197 = __cil_tmp196 << 2;
+      __cil_tmp127 = __cil_tmp126 << 2;
 #line 445
-      __cil_tmp198 = (unsigned long long )__cil_tmp197;
+      __cil_tmp128 = (unsigned long long )__cil_tmp127;
 #line 445
-      paddr = __cil_tmp198 + paddr;
+      paddr = __cil_tmp128 + paddr;
 #line 446
       words = words & 1UL;
     } else {
@@ -10844,35 +9978,23 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
 #line 450
       j = j + 1;
 #line 450
-      __cil_tmp199 = tmp___10 * 4UL;
+      __cil_tmp129 = vcc->vci;
 #line 450
-      __cil_tmp200 = (unsigned long )(dma) + __cil_tmp199;
+      __cil_tmp130 = __cil_tmp129 << 6;
 #line 450
-      __cil_tmp201 = (unsigned long )vcc;
+      __cil_tmp131 = (u32 )__cil_tmp130;
 #line 450
-      __cil_tmp202 = __cil_tmp201 + 1284;
+      __cil_tmp132 = (u32 )words;
 #line 450
-      __cil_tmp203 = *((int *)__cil_tmp202);
+      __cil_tmp133 = __cil_tmp132 << 16U;
 #line 450
-      __cil_tmp204 = __cil_tmp203 << 6;
-#line 450
-      __cil_tmp205 = (unsigned int )__cil_tmp204;
-#line 450
-      __cil_tmp206 = (unsigned int )words;
-#line 450
-      __cil_tmp207 = __cil_tmp206 << 16U;
-#line 450
-      *((u32 *)__cil_tmp200) = __cil_tmp207 | __cil_tmp205;
+      dma[tmp___10] = __cil_tmp133 | __cil_tmp131;
 #line 452
       tmp___11 = j;
 #line 452
       j = j + 1;
 #line 452
-      __cil_tmp208 = tmp___11 * 4UL;
-#line 452
-      __cil_tmp209 = (unsigned long )(dma) + __cil_tmp208;
-#line 452
-      *((u32 *)__cil_tmp209) = (unsigned int )paddr;
+      dma[tmp___11] = (u32 )paddr;
     } else {
 
     }
@@ -10884,27 +10006,19 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
 #line 456
     j = j + 1;
 #line 456
-    __cil_tmp210 = tmp___12 * 4UL;
+    __cil_tmp134 = vcc->vci;
 #line 456
-    __cil_tmp211 = (unsigned long )(dma) + __cil_tmp210;
+    __cil_tmp135 = __cil_tmp134 << 6;
 #line 456
-    __cil_tmp212 = (unsigned long )vcc;
+    __cil_tmp136 = (u32 )__cil_tmp135;
 #line 456
-    __cil_tmp213 = __cil_tmp212 + 1284;
+    __cil_tmp137 = (u32 )here;
 #line 456
-    __cil_tmp214 = *((int *)__cil_tmp213);
+    __cil_tmp138 = __cil_tmp137 << 16U;
 #line 456
-    __cil_tmp215 = __cil_tmp214 << 6;
+    __cil_tmp139 = __cil_tmp138 | __cil_tmp136;
 #line 456
-    __cil_tmp216 = (unsigned int )__cil_tmp215;
-#line 456
-    __cil_tmp217 = (unsigned int )here;
-#line 456
-    __cil_tmp218 = __cil_tmp217 << 16U;
-#line 456
-    __cil_tmp219 = __cil_tmp218 | __cil_tmp216;
-#line 456
-    *((u32 *)__cil_tmp211) = __cil_tmp219 | 3U;
+    dma[tmp___12] = __cil_tmp139 | 3U;
 #line 458
     j = j + 1;
   } else {
@@ -10916,95 +10030,74 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
 #line 461
     printk("<2>eni!j or j too big!!!\n");
     }
+#line 462
+    goto trouble;
+  } else
+#line 460
+  if (j > 16) {
+    {
+#line 461
+    printk("<2>eni!j or j too big!!!\n");
+    }
+#line 462
     goto trouble;
   } else {
-#line 460
-    if (j > 16) {
-      {
-#line 461
-      printk("<2>eni!j or j too big!!!\n");
-      }
-      goto trouble;
-    } else {
 
-    }
   }
   {
 #line 464
-  __cil_tmp220 = j + -2;
-#line 464
-  __cil_tmp221 = __cil_tmp220 * 4UL;
-#line 464
-  __cil_tmp222 = (unsigned long )(dma) + __cil_tmp221;
-#line 464
-  __cil_tmp223 = j + -2;
-#line 464
-  __cil_tmp224 = __cil_tmp223 * 4UL;
-#line 464
-  __cil_tmp225 = (unsigned long )(dma) + __cil_tmp224;
-#line 464
-  __cil_tmp226 = *((u32 *)__cil_tmp225);
-#line 464
-  *((u32 *)__cil_tmp222) = __cil_tmp226 | 32U;
+  dma[j + -2] = dma[j + -2] | 32U;
 #line 465
   j = j >> 1;
 #line 466
-  __cil_tmp227 = (unsigned long )eni_dev;
+  __cil_tmp140 = eni_dev->reg;
 #line 466
-  __cil_tmp228 = __cil_tmp227 + 128;
+  __cil_tmp141 = (void const volatile   *)__cil_tmp140;
 #line 466
-  __cil_tmp229 = *((void **)__cil_tmp228);
+  __cil_tmp142 = __cil_tmp141 + 32U;
 #line 466
-  __cil_tmp230 = (void const volatile   *)__cil_tmp229;
-#line 466
-  __cil_tmp231 = __cil_tmp230 + 32U;
-#line 466
-  dma_wr = readl(__cil_tmp231);
+  dma_wr = readl(__cil_tmp142);
 #line 467
-  __cil_tmp232 = (unsigned long )eni_dev;
+  __cil_tmp143 = eni_dev->reg;
 #line 467
-  __cil_tmp233 = __cil_tmp232 + 128;
+  __cil_tmp144 = (void const volatile   *)__cil_tmp143;
 #line 467
-  __cil_tmp234 = *((void **)__cil_tmp233);
+  __cil_tmp145 = __cil_tmp144 + 36U;
 #line 467
-  __cil_tmp235 = (void const volatile   *)__cil_tmp234;
-#line 467
-  __cil_tmp236 = __cil_tmp235 + 36U;
-#line 467
-  dma_rd = readl(__cil_tmp236);
+  dma_rd = readl(__cil_tmp145);
   }
   {
 #line 472
-  __cil_tmp237 = (unsigned int )j;
+  __cil_tmp146 = (u32 )j;
 #line 472
-  __cil_tmp238 = (unsigned int )j;
+  __cil_tmp147 = (u32 )j;
 #line 472
-  __cil_tmp239 = dma_wr + __cil_tmp238;
+  __cil_tmp148 = dma_wr + __cil_tmp147;
 #line 472
-  __cil_tmp240 = __cil_tmp239 + __cil_tmp237;
+  __cil_tmp149 = __cil_tmp148 + __cil_tmp146;
 #line 472
-  __cil_tmp241 = __cil_tmp240 + 1U;
+  __cil_tmp150 = __cil_tmp149 + 1U;
 #line 472
-  __cil_tmp242 = __cil_tmp241 & 511U;
+  __cil_tmp151 = __cil_tmp150 & 511U;
 #line 472
-  if (__cil_tmp242 > dma_wr) {
+  if (__cil_tmp151 > dma_wr) {
 #line 472
     if (dma_rd > dma_wr) {
       {
 #line 472
-      __cil_tmp243 = (unsigned int )j;
+      __cil_tmp152 = (u32 )j;
 #line 472
-      __cil_tmp244 = (unsigned int )j;
+      __cil_tmp153 = (u32 )j;
 #line 472
-      __cil_tmp245 = dma_wr + __cil_tmp244;
+      __cil_tmp154 = dma_wr + __cil_tmp153;
 #line 472
-      __cil_tmp246 = __cil_tmp245 + __cil_tmp243;
+      __cil_tmp155 = __cil_tmp154 + __cil_tmp152;
 #line 472
-      __cil_tmp247 = __cil_tmp246 + 1U;
+      __cil_tmp156 = __cil_tmp155 + 1U;
 #line 472
-      __cil_tmp248 = __cil_tmp247 & 511U;
+      __cil_tmp157 = __cil_tmp156 & 511U;
 #line 472
-      if (__cil_tmp248 >= dma_rd) {
+      if (__cil_tmp157 >= dma_rd) {
 #line 472
         tmp___13 = 1;
       } else {
@@ -11026,19 +10119,19 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
     } else {
       {
 #line 472
-      __cil_tmp249 = (unsigned int )j;
+      __cil_tmp158 = (u32 )j;
 #line 472
-      __cil_tmp250 = (unsigned int )j;
+      __cil_tmp159 = (u32 )j;
 #line 472
-      __cil_tmp251 = dma_wr + __cil_tmp250;
+      __cil_tmp160 = dma_wr + __cil_tmp159;
 #line 472
-      __cil_tmp252 = __cil_tmp251 + __cil_tmp249;
+      __cil_tmp161 = __cil_tmp160 + __cil_tmp158;
 #line 472
-      __cil_tmp253 = __cil_tmp252 + 1U;
+      __cil_tmp162 = __cil_tmp161 + 1U;
 #line 472
-      __cil_tmp254 = __cil_tmp253 & 511U;
+      __cil_tmp163 = __cil_tmp162 & 511U;
 #line 472
-      if (__cil_tmp254 >= dma_rd) {
+      if (__cil_tmp163 >= dma_rd) {
 #line 472
         tmp___14 = 1;
       } else {
@@ -11055,142 +10148,92 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
   if (tmp___15) {
     {
 #line 473
-    __cil_tmp255 = (unsigned long )vcc;
+    __cil_tmp164 = vcc->dev;
 #line 473
-    __cil_tmp256 = __cil_tmp255 + 1304;
+    __cil_tmp165 = __cil_tmp164->number;
 #line 473
-    __cil_tmp257 = *((struct atm_dev **)__cil_tmp256);
-#line 473
-    __cil_tmp258 = (unsigned long )__cil_tmp257;
-#line 473
-    __cil_tmp259 = __cil_tmp258 + 24;
-#line 473
-    __cil_tmp260 = *((int *)__cil_tmp259);
-#line 473
-    printk("<4>eni(itf %d): RX DMA full\n", __cil_tmp260);
+    printk("<4>eni(itf %d): RX DMA full\n", __cil_tmp165);
     }
+#line 475
     goto trouble;
   } else {
 
   }
 #line 477
   i = 0;
+#line 477
   goto ldv_40163;
   ldv_40162: 
   {
 #line 478
-  __cil_tmp261 = i * 2;
+  __cil_tmp166 = dma_wr * 8U;
 #line 478
-  __cil_tmp262 = __cil_tmp261 * 4UL;
+  __cil_tmp167 = (unsigned long )__cil_tmp166;
 #line 478
-  __cil_tmp263 = (unsigned long )(dma) + __cil_tmp262;
+  __cil_tmp168 = eni_dev->rx_dma;
 #line 478
-  __cil_tmp264 = *((u32 *)__cil_tmp263);
+  __cil_tmp169 = (void volatile   *)__cil_tmp168;
 #line 478
-  __cil_tmp265 = dma_wr * 8U;
+  __cil_tmp170 = __cil_tmp169 + __cil_tmp167;
 #line 478
-  __cil_tmp266 = (unsigned long )__cil_tmp265;
-#line 478
-  __cil_tmp267 = (unsigned long )eni_dev;
-#line 478
-  __cil_tmp268 = __cil_tmp267 + 152;
-#line 478
-  __cil_tmp269 = *((void **)__cil_tmp268);
-#line 478
-  __cil_tmp270 = (void volatile   *)__cil_tmp269;
-#line 478
-  __cil_tmp271 = __cil_tmp270 + __cil_tmp266;
-#line 478
-  writel(__cil_tmp264, __cil_tmp271);
+  writel(dma[i * 2], __cil_tmp170);
 #line 479
-  __cil_tmp272 = i * 2;
+  __cil_tmp171 = dma_wr * 8U;
 #line 479
-  __cil_tmp273 = __cil_tmp272 + 1;
+  __cil_tmp172 = (unsigned long )__cil_tmp171;
 #line 479
-  __cil_tmp274 = __cil_tmp273 * 4UL;
+  __cil_tmp173 = __cil_tmp172 + 4UL;
 #line 479
-  __cil_tmp275 = (unsigned long )(dma) + __cil_tmp274;
+  __cil_tmp174 = eni_dev->rx_dma;
 #line 479
-  __cil_tmp276 = *((u32 *)__cil_tmp275);
+  __cil_tmp175 = __cil_tmp174 + __cil_tmp173;
 #line 479
-  __cil_tmp277 = dma_wr * 8U;
+  __cil_tmp176 = (void volatile   *)__cil_tmp175;
 #line 479
-  __cil_tmp278 = (unsigned long )__cil_tmp277;
-#line 479
-  __cil_tmp279 = __cil_tmp278 + 4UL;
-#line 479
-  __cil_tmp280 = (unsigned long )eni_dev;
-#line 479
-  __cil_tmp281 = __cil_tmp280 + 152;
-#line 479
-  __cil_tmp282 = *((void **)__cil_tmp281);
-#line 479
-  __cil_tmp283 = __cil_tmp282 + __cil_tmp279;
-#line 479
-  __cil_tmp284 = (void volatile   *)__cil_tmp283;
-#line 479
-  writel(__cil_tmp276, __cil_tmp284);
+  writel(dma[i * 2 + 1], __cil_tmp176);
 #line 480
-  __cil_tmp285 = dma_wr + 1U;
+  __cil_tmp177 = dma_wr + 1U;
 #line 480
-  dma_wr = __cil_tmp285 & 511U;
+  dma_wr = __cil_tmp177 & 511U;
 #line 477
   i = i + 1;
   }
   ldv_40163: ;
 #line 477
   if (i < j) {
+#line 478
     goto ldv_40162;
   } else {
+#line 480
     goto ldv_40164;
   }
   ldv_40164: ;
   {
 #line 482
-  __cil_tmp286 = (struct sk_buff *)0;
+  __cil_tmp178 = (struct sk_buff *)0;
 #line 482
-  __cil_tmp287 = (unsigned long )__cil_tmp286;
+  __cil_tmp179 = (unsigned long )__cil_tmp178;
 #line 482
-  __cil_tmp288 = (unsigned long )skb;
+  __cil_tmp180 = (unsigned long )skb;
 #line 482
-  if (__cil_tmp288 != __cil_tmp287) {
+  if (__cil_tmp180 != __cil_tmp179) {
     {
 #line 483
-    __cil_tmp289 = (unsigned long )skb;
+    __cil_tmp181 = & skb->cb;
 #line 483
-    __cil_tmp290 = __cil_tmp289 + 40;
+    __cil_tmp182 = (struct eni_skb_prv *)__cil_tmp181;
 #line 483
-    __cil_tmp291 = (char (*)[48U])__cil_tmp290;
+    __cil_tmp183 = eni_vcc->descr;
 #line 483
-    __cil_tmp292 = (struct eni_skb_prv *)__cil_tmp291;
+    __cil_tmp184 = __cil_tmp183 + size;
 #line 483
-    __cil_tmp293 = (unsigned long )__cil_tmp292;
-#line 483
-    __cil_tmp294 = __cil_tmp293 + 16;
-#line 483
-    __cil_tmp295 = (unsigned long )eni_vcc;
-#line 483
-    __cil_tmp296 = __cil_tmp295 + 24;
-#line 483
-    __cil_tmp297 = *((unsigned long *)__cil_tmp296);
-#line 483
-    __cil_tmp298 = __cil_tmp297 + size;
-#line 483
-    *((unsigned long *)__cil_tmp294) = __cil_tmp298 + 1UL;
+    __cil_tmp182->pos = __cil_tmp184 + 1UL;
 #line 484
-    __cil_tmp299 = (unsigned long )eni_dev;
+    __cil_tmp185 = & eni_dev->rx_queue;
 #line 484
-    __cil_tmp300 = __cil_tmp299 + 2376;
-#line 484
-    __cil_tmp301 = (struct sk_buff_head *)__cil_tmp300;
-#line 484
-    skb_queue_tail(__cil_tmp301, skb);
+    skb_queue_tail(__cil_tmp185, skb);
 #line 485
-    __cil_tmp302 = (unsigned long )eni_vcc;
-#line 485
-    __cil_tmp303 = __cil_tmp302 + 80;
-#line 485
-    *((struct sk_buff **)__cil_tmp303) = skb;
+    eni_vcc->last = skb;
 #line 486
     rx_enqueued = rx_enqueued + 1;
     }
@@ -11200,23 +10243,15 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
   }
   {
 #line 488
-  __cil_tmp304 = (unsigned long )eni_vcc;
-#line 488
-  __cil_tmp305 = __cil_tmp304 + 24;
-#line 488
-  *((unsigned long *)__cil_tmp305) = here;
+  eni_vcc->descr = here;
 #line 489
-  __cil_tmp306 = (unsigned long )eni_dev;
+  __cil_tmp186 = eni_dev->reg;
 #line 489
-  __cil_tmp307 = __cil_tmp306 + 128;
+  __cil_tmp187 = (void volatile   *)__cil_tmp186;
 #line 489
-  __cil_tmp308 = *((void **)__cil_tmp307);
+  __cil_tmp188 = __cil_tmp187 + 32U;
 #line 489
-  __cil_tmp309 = (void volatile   *)__cil_tmp308;
-#line 489
-  __cil_tmp310 = __cil_tmp309 + 32U;
-#line 489
-  writel(dma_wr, __cil_tmp310);
+  writel(dma_wr, __cil_tmp188);
   }
 #line 490
   return (0);
@@ -11225,34 +10260,26 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
   if (paddr != 0ULL) {
     {
 #line 494
-    __cil_tmp311 = (unsigned long )eni_dev;
+    __cil_tmp189 = eni_dev->pci_dev;
 #line 494
-    __cil_tmp312 = __cil_tmp311 + 2632;
+    __cil_tmp190 = skb->len;
 #line 494
-    __cil_tmp313 = *((struct pci_dev **)__cil_tmp312);
+    __cil_tmp191 = (size_t )__cil_tmp190;
 #line 494
-    __cil_tmp314 = (unsigned long )skb;
-#line 494
-    __cil_tmp315 = __cil_tmp314 + 104;
-#line 494
-    __cil_tmp316 = *((unsigned int *)__cil_tmp315);
-#line 494
-    __cil_tmp317 = (unsigned long )__cil_tmp316;
-#line 494
-    pci_unmap_single(__cil_tmp313, paddr, __cil_tmp317, 2);
+    pci_unmap_single(__cil_tmp189, paddr, __cil_tmp191, 2);
     }
   } else {
 
   }
   {
 #line 496
-  __cil_tmp318 = (struct sk_buff *)0;
+  __cil_tmp192 = (struct sk_buff *)0;
 #line 496
-  __cil_tmp319 = (unsigned long )__cil_tmp318;
+  __cil_tmp193 = (unsigned long )__cil_tmp192;
 #line 496
-  __cil_tmp320 = (unsigned long )skb;
+  __cil_tmp194 = (unsigned long )skb;
 #line 496
-  if (__cil_tmp320 != __cil_tmp319) {
+  if (__cil_tmp194 != __cil_tmp193) {
     {
 #line 496
     dev_kfree_skb_irq(skb);
@@ -11269,58 +10296,33 @@ static int do_rx_dma(struct atm_vcc *vcc , struct sk_buff *skb , unsigned long s
 static void discard(struct atm_vcc *vcc , unsigned long size ) 
 { struct eni_vcc *eni_vcc ;
   int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
+  void *__cil_tmp5 ;
+  struct sk_buff *__cil_tmp6 ;
+  int __cil_tmp7 ;
   struct sk_buff *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct sk_buff *__cil_tmp14 ;
+  char (*__cil_tmp9)[48U] ;
+  struct eni_skb_prv *__cil_tmp10 ;
+  struct sk_buff *__cil_tmp11 ;
+  char (*__cil_tmp12)[48U] ;
+  struct eni_skb_prv *__cil_tmp13 ;
+  unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  char (*__cil_tmp17)[48U] ;
-  struct eni_skb_prv *__cil_tmp18 ;
+  unsigned long __cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct sk_buff *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  char (*__cil_tmp26)[48U] ;
-  struct eni_skb_prv *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
 
   {
   {
 #line 505
-  __cil_tmp5 = (unsigned long )vcc;
+  __cil_tmp5 = vcc->dev_data;
 #line 505
-  __cil_tmp6 = __cil_tmp5 + 1480;
-#line 505
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 505
-  eni_vcc = (struct eni_vcc *)__cil_tmp7;
+  eni_vcc = (struct eni_vcc *)__cil_tmp5;
 #line 506
   EVENT("discard (size=%ld)\n", size, 0UL);
   }
+#line 507
   goto ldv_40171;
   ldv_40170: 
   {
@@ -11330,93 +10332,55 @@ static void discard(struct atm_vcc *vcc , unsigned long size )
   ldv_40171: 
   {
 #line 507
-  __cil_tmp8 = (struct sk_buff *)0;
+  __cil_tmp6 = (struct sk_buff *)0;
 #line 507
-  tmp = do_rx_dma(vcc, __cil_tmp8, 1UL, size, 0UL);
+  tmp = do_rx_dma(vcc, __cil_tmp6, 1UL, size, 0UL);
   }
 #line 507
   if (tmp != 0) {
+#line 508
     goto ldv_40170;
   } else {
+#line 510
     goto ldv_40172;
   }
   ldv_40172: ;
   {
 #line 509
-  __cil_tmp9 = (unsigned long )eni_vcc;
+  __cil_tmp7 = eni_vcc->rxing;
 #line 509
-  __cil_tmp10 = __cil_tmp9 + 48;
+  if (__cil_tmp7 != 0) {
 #line 509
-  __cil_tmp11 = *((int *)__cil_tmp10);
+    __cil_tmp8 = eni_vcc->last;
 #line 509
-  if (__cil_tmp11 != 0) {
+    __cil_tmp9 = & __cil_tmp8->cb;
 #line 509
-    __cil_tmp12 = (unsigned long )eni_vcc;
+    __cil_tmp10 = (struct eni_skb_prv *)__cil_tmp9;
 #line 509
-    __cil_tmp13 = __cil_tmp12 + 80;
+    __cil_tmp11 = eni_vcc->last;
 #line 509
-    __cil_tmp14 = *((struct sk_buff **)__cil_tmp13);
+    __cil_tmp12 = & __cil_tmp11->cb;
 #line 509
-    __cil_tmp15 = (unsigned long )__cil_tmp14;
+    __cil_tmp13 = (struct eni_skb_prv *)__cil_tmp12;
 #line 509
-    __cil_tmp16 = __cil_tmp15 + 40;
+    __cil_tmp14 = __cil_tmp13->pos;
 #line 509
-    __cil_tmp17 = (char (*)[48U])__cil_tmp16;
+    __cil_tmp15 = __cil_tmp14 + size;
 #line 509
-    __cil_tmp18 = (struct eni_skb_prv *)__cil_tmp17;
-#line 509
-    __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 509
-    __cil_tmp20 = __cil_tmp19 + 16;
-#line 509
-    __cil_tmp21 = (unsigned long )eni_vcc;
-#line 509
-    __cil_tmp22 = __cil_tmp21 + 80;
-#line 509
-    __cil_tmp23 = *((struct sk_buff **)__cil_tmp22);
-#line 509
-    __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 509
-    __cil_tmp25 = __cil_tmp24 + 40;
-#line 509
-    __cil_tmp26 = (char (*)[48U])__cil_tmp25;
-#line 509
-    __cil_tmp27 = (struct eni_skb_prv *)__cil_tmp26;
-#line 509
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 509
-    __cil_tmp29 = __cil_tmp28 + 16;
-#line 509
-    __cil_tmp30 = *((unsigned long *)__cil_tmp29);
-#line 509
-    __cil_tmp31 = __cil_tmp30 + size;
-#line 509
-    *((unsigned long *)__cil_tmp20) = __cil_tmp31 + 1UL;
+    __cil_tmp10->pos = __cil_tmp15 + 1UL;
   } else {
 #line 510
-    __cil_tmp32 = (unsigned long )eni_vcc;
+    __cil_tmp16 = eni_vcc->words;
 #line 510
-    __cil_tmp33 = __cil_tmp32 + 32;
+    __cil_tmp17 = __cil_tmp16 - 1UL;
 #line 510
-    __cil_tmp34 = (unsigned long )eni_vcc;
+    __cil_tmp18 = eni_vcc->rx_pos;
 #line 510
-    __cil_tmp35 = __cil_tmp34 + 16;
+    __cil_tmp19 = __cil_tmp18 + size;
 #line 510
-    __cil_tmp36 = *((unsigned long *)__cil_tmp35);
+    __cil_tmp20 = __cil_tmp19 + 1UL;
 #line 510
-    __cil_tmp37 = __cil_tmp36 - 1UL;
-#line 510
-    __cil_tmp38 = (unsigned long )eni_vcc;
-#line 510
-    __cil_tmp39 = __cil_tmp38 + 32;
-#line 510
-    __cil_tmp40 = *((unsigned long *)__cil_tmp39);
-#line 510
-    __cil_tmp41 = __cil_tmp40 + size;
-#line 510
-    __cil_tmp42 = __cil_tmp41 + 1UL;
-#line 510
-    *((unsigned long *)__cil_tmp33) = __cil_tmp42 & __cil_tmp37;
+    eni_vcc->rx_pos = __cil_tmp20 & __cil_tmp17;
   }
   }
 #line 511
@@ -11432,82 +10396,52 @@ static int rx_aal0(struct atm_vcc *vcc )
   unsigned int tmp ;
   struct sk_buff *tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp9 ;
+  void *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned long __cil_tmp11 ;
+  void *__cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const volatile   *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void *__cil_tmp19 ;
-  void const volatile   *__cil_tmp20 ;
+  struct k_atm_aal_stats *__cil_tmp17 ;
+  atomic_t *__cil_tmp18 ;
+  int __cil_tmp19 ;
+  struct sk_buff *__cil_tmp20 ;
   unsigned long __cil_tmp21 ;
   unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct k_atm_aal_stats *__cil_tmp25 ;
+  unsigned int __cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  atomic_t *__cil_tmp28 ;
-  int __cil_tmp29 ;
-  struct sk_buff *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int __cil_tmp45 ;
+  int __cil_tmp27 ;
 
   {
   {
 #line 527
-  __cil_tmp9 = (unsigned long )vcc;
+  __cil_tmp9 = vcc->dev_data;
 #line 527
-  __cil_tmp10 = __cil_tmp9 + 1480;
-#line 527
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 527
-  eni_vcc = (struct eni_vcc *)__cil_tmp11;
+  eni_vcc = (struct eni_vcc *)__cil_tmp9;
 #line 528
-  __cil_tmp12 = (unsigned long )eni_vcc;
+  __cil_tmp10 = eni_vcc->descr;
 #line 528
-  __cil_tmp13 = __cil_tmp12 + 24;
+  __cil_tmp11 = __cil_tmp10 * 4UL;
 #line 528
-  __cil_tmp14 = *((unsigned long *)__cil_tmp13);
+  __cil_tmp12 = eni_vcc->recv;
 #line 528
-  __cil_tmp15 = __cil_tmp14 * 4UL;
+  __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
 #line 528
-  __cil_tmp16 = (unsigned long )eni_vcc;
+  __cil_tmp14 = (void const volatile   *)__cil_tmp13;
 #line 528
-  __cil_tmp17 = __cil_tmp16 + 8;
-#line 528
-  __cil_tmp18 = *((void **)__cil_tmp17);
-#line 528
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp15;
-#line 528
-  __cil_tmp20 = (void const volatile   *)__cil_tmp19;
-#line 528
-  tmp = readl(__cil_tmp20);
+  tmp = readl(__cil_tmp14);
 #line 528
   descr = (unsigned long )tmp;
   }
   {
 #line 529
-  __cil_tmp21 = descr & 4261412864UL;
+  __cil_tmp15 = descr & 4261412864UL;
 #line 529
-  if (__cil_tmp21 != 905969664UL) {
+  if (__cil_tmp15 != 905969664UL) {
     {
 #line 530
     rx_ident_err(vcc);
@@ -11520,26 +10454,18 @@ static int rx_aal0(struct atm_vcc *vcc )
   }
   {
 #line 533
-  __cil_tmp22 = descr & 4096UL;
+  __cil_tmp16 = descr & 4096UL;
 #line 533
-  if (__cil_tmp22 != 0UL) {
+  if (__cil_tmp16 != 0UL) {
     {
 #line 536
     length = 0UL;
 #line 537
-    __cil_tmp23 = (unsigned long )vcc;
+    __cil_tmp17 = vcc->stats;
 #line 537
-    __cil_tmp24 = __cil_tmp23 + 1496;
+    __cil_tmp18 = & __cil_tmp17->rx_err;
 #line 537
-    __cil_tmp25 = *((struct k_atm_aal_stats **)__cil_tmp24);
-#line 537
-    __cil_tmp26 = (unsigned long )__cil_tmp25;
-#line 537
-    __cil_tmp27 = __cil_tmp26 + 12;
-#line 537
-    __cil_tmp28 = (atomic_t *)__cil_tmp27;
-#line 537
-    atomic_inc(__cil_tmp28);
+    atomic_inc(__cil_tmp18);
     }
   } else {
 #line 540
@@ -11550,9 +10476,9 @@ static int rx_aal0(struct atm_vcc *vcc )
   if (length != 0UL) {
     {
 #line 542
-    __cil_tmp29 = (int )length;
+    __cil_tmp19 = (int )length;
 #line 542
-    tmp___0 = atm_alloc_charge(vcc, __cil_tmp29, 32U);
+    tmp___0 = atm_alloc_charge(vcc, __cil_tmp19, 32U);
 #line 542
     skb = tmp___0;
     }
@@ -11562,18 +10488,18 @@ static int rx_aal0(struct atm_vcc *vcc )
   }
   {
 #line 543
-  __cil_tmp30 = (struct sk_buff *)0;
+  __cil_tmp20 = (struct sk_buff *)0;
 #line 543
-  __cil_tmp31 = (unsigned long )__cil_tmp30;
+  __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 543
-  __cil_tmp32 = (unsigned long )skb;
+  __cil_tmp22 = (unsigned long )skb;
 #line 543
-  if (__cil_tmp32 == __cil_tmp31) {
+  if (__cil_tmp22 == __cil_tmp21) {
     {
 #line 544
-    __cil_tmp33 = length >> 2;
+    __cil_tmp23 = length >> 2;
 #line 544
-    discard(vcc, __cil_tmp33);
+    discard(vcc, __cil_tmp23);
     }
 #line 545
     return (0);
@@ -11583,25 +10509,17 @@ static int rx_aal0(struct atm_vcc *vcc )
   }
   {
 #line 547
-  __cil_tmp34 = (unsigned int )length;
+  __cil_tmp24 = (unsigned int )length;
 #line 547
-  skb_put(skb, __cil_tmp34);
+  skb_put(skb, __cil_tmp24);
 #line 548
-  __cil_tmp35 = (unsigned long )skb;
-#line 548
-  __cil_tmp36 = __cil_tmp35 + 16;
-#line 548
-  __cil_tmp37 = (unsigned long )eni_vcc;
-#line 548
-  __cil_tmp38 = __cil_tmp37 + 64;
-#line 548
-  *((ktime_t *)__cil_tmp36) = *((ktime_t *)__cil_tmp38);
+  skb->tstamp = eni_vcc->timestamp;
 #line 550
-  __cil_tmp39 = length >> 2;
+  __cil_tmp25 = length >> 2;
 #line 550
-  __cil_tmp40 = length >> 2;
+  __cil_tmp26 = length >> 2;
 #line 550
-  tmp___1 = do_rx_dma(vcc, skb, 1UL, __cil_tmp39, __cil_tmp40);
+  tmp___1 = do_rx_dma(vcc, skb, 1UL, __cil_tmp25, __cil_tmp26);
   }
 #line 550
   if (tmp___1 != 0) {
@@ -11611,17 +10529,9 @@ static int rx_aal0(struct atm_vcc *vcc )
 
   }
 #line 551
-  __cil_tmp41 = (unsigned long )eni_vcc;
+  __cil_tmp27 = eni_vcc->rxing;
 #line 551
-  __cil_tmp42 = __cil_tmp41 + 48;
-#line 551
-  __cil_tmp43 = (unsigned long )eni_vcc;
-#line 551
-  __cil_tmp44 = __cil_tmp43 + 48;
-#line 551
-  __cil_tmp45 = *((int *)__cil_tmp44);
-#line 551
-  *((int *)__cil_tmp42) = __cil_tmp45 + 1;
+  eni_vcc->rxing = __cil_tmp27 + 1;
 #line 552
   return (0);
 }
@@ -11639,168 +10549,98 @@ static int rx_aal5(struct atm_vcc *vcc )
   unsigned int tmp___0 ;
   struct sk_buff *tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp13 ;
+  void *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  void *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned long __cil_tmp15 ;
+  void *__cil_tmp16 ;
+  void *__cil_tmp17 ;
+  void const volatile   *__cil_tmp18 ;
   unsigned long __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  void *__cil_tmp22 ;
-  void *__cil_tmp23 ;
-  void const volatile   *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  long __cil_tmp22 ;
+  long __cil_tmp23 ;
+  long __cil_tmp24 ;
+  struct atm_dev *__cil_tmp25 ;
+  int __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  long __cil_tmp28 ;
-  long __cil_tmp29 ;
-  long __cil_tmp30 ;
+  unsigned long __cil_tmp28 ;
+  struct atm_dev *__cil_tmp29 ;
+  int __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
   unsigned long __cil_tmp32 ;
-  struct atm_dev *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
+  unsigned long __cil_tmp33 ;
+  struct k_atm_aal_stats *__cil_tmp34 ;
+  atomic_t *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
   unsigned long __cil_tmp40 ;
-  struct atm_dev *__cil_tmp41 ;
+  unsigned long __cil_tmp41 ;
   unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  void *__cil_tmp44 ;
+  void *__cil_tmp45 ;
+  void const volatile   *__cil_tmp46 ;
   unsigned long __cil_tmp47 ;
   unsigned long __cil_tmp48 ;
   unsigned long __cil_tmp49 ;
-  struct k_atm_aal_stats *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  atomic_t *__cil_tmp53 ;
+  unsigned long __cil_tmp50 ;
+  struct atm_dev *__cil_tmp51 ;
+  int __cil_tmp52 ;
+  int __cil_tmp53 ;
   unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
+  struct k_atm_aal_stats *__cil_tmp55 ;
+  atomic_t *__cil_tmp56 ;
+  struct atm_dev *__cil_tmp57 ;
+  int __cil_tmp58 ;
+  int __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  struct k_atm_aal_stats *__cil_tmp61 ;
+  atomic_t *__cil_tmp62 ;
+  struct atm_dev *__cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
   unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  void *__cil_tmp68 ;
-  void *__cil_tmp69 ;
-  void const volatile   *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
+  struct k_atm_aal_stats *__cil_tmp67 ;
+  atomic_t *__cil_tmp68 ;
+  unsigned long __cil_tmp69 ;
+  int __cil_tmp70 ;
+  struct sk_buff *__cil_tmp71 ;
   unsigned long __cil_tmp72 ;
   unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct atm_dev *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  struct k_atm_aal_stats *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  atomic_t *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  struct atm_dev *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  struct k_atm_aal_stats *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  atomic_t *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  struct atm_dev *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  int __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  struct k_atm_aal_stats *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  atomic_t *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  int __cil_tmp124 ;
-  struct sk_buff *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  int __cil_tmp133 ;
+  unsigned int __cil_tmp74 ;
+  int __cil_tmp75 ;
 
   {
   {
 #line 563
   EVENT("rx_aal5\n", 0UL, 0UL);
 #line 565
-  __cil_tmp13 = (unsigned long )vcc;
+  __cil_tmp13 = vcc->dev_data;
 #line 565
-  __cil_tmp14 = __cil_tmp13 + 1480;
-#line 565
-  __cil_tmp15 = *((void **)__cil_tmp14);
-#line 565
-  eni_vcc = (struct eni_vcc *)__cil_tmp15;
+  eni_vcc = (struct eni_vcc *)__cil_tmp13;
 #line 566
-  __cil_tmp16 = (unsigned long )eni_vcc;
+  __cil_tmp14 = eni_vcc->descr;
 #line 566
-  __cil_tmp17 = __cil_tmp16 + 24;
+  __cil_tmp15 = __cil_tmp14 * 4UL;
 #line 566
-  __cil_tmp18 = *((unsigned long *)__cil_tmp17);
+  __cil_tmp16 = eni_vcc->recv;
 #line 566
-  __cil_tmp19 = __cil_tmp18 * 4UL;
+  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
 #line 566
-  __cil_tmp20 = (unsigned long )eni_vcc;
+  __cil_tmp18 = (void const volatile   *)__cil_tmp17;
 #line 566
-  __cil_tmp21 = __cil_tmp20 + 8;
-#line 566
-  __cil_tmp22 = *((void **)__cil_tmp21);
-#line 566
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp19;
-#line 566
-  __cil_tmp24 = (void const volatile   *)__cil_tmp23;
-#line 566
-  tmp = readl(__cil_tmp24);
+  tmp = readl(__cil_tmp18);
 #line 566
   descr = (unsigned long )tmp;
   }
   {
 #line 567
-  __cil_tmp25 = descr & 4261412864UL;
+  __cil_tmp19 = descr & 4261412864UL;
 #line 567
-  if (__cil_tmp25 != 905969664UL) {
+  if (__cil_tmp19 != 905969664UL) {
     {
 #line 568
     rx_ident_err(vcc);
@@ -11813,14 +10653,14 @@ static int rx_aal5(struct atm_vcc *vcc )
   }
   {
 #line 571
-  __cil_tmp26 = descr & 6144UL;
+  __cil_tmp20 = descr & 6144UL;
 #line 571
-  if (__cil_tmp26 != 0UL) {
+  if (__cil_tmp20 != 0UL) {
     {
 #line 572
-    __cil_tmp27 = descr & 4096UL;
+    __cil_tmp21 = descr & 4096UL;
 #line 572
-    if (__cil_tmp27 != 0UL) {
+    if (__cil_tmp21 != 0UL) {
       {
 #line 573
       EVENT("empty cell (descr=0x%lx)\n", descr, 0UL);
@@ -11832,70 +10672,53 @@ static int rx_aal5(struct atm_vcc *vcc )
       silence = 0UL;
       {
 #line 581
-      __cil_tmp28 = (long )jiffies;
+      __cil_tmp22 = (long )jiffies;
 #line 581
-      __cil_tmp29 = (long )silence;
+      __cil_tmp23 = (long )silence;
 #line 581
-      __cil_tmp30 = __cil_tmp29 - __cil_tmp28;
+      __cil_tmp24 = __cil_tmp23 - __cil_tmp22;
 #line 581
-      if (__cil_tmp30 < 0L) {
+      if (__cil_tmp24 < 0L) {
         {
 #line 582
-        __cil_tmp31 = (unsigned long )vcc;
+        __cil_tmp25 = vcc->dev;
 #line 582
-        __cil_tmp32 = __cil_tmp31 + 1304;
+        __cil_tmp26 = __cil_tmp25->number;
 #line 582
-        __cil_tmp33 = *((struct atm_dev **)__cil_tmp32);
-#line 582
-        __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 582
-        __cil_tmp35 = __cil_tmp34 + 24;
-#line 582
-        __cil_tmp36 = *((int *)__cil_tmp35);
-#line 582
-        printk("<4>eni(itf %d): discarding PDU(s) with CRC error\n", __cil_tmp36);
+        printk("<4>eni(itf %d): discarding PDU(s) with CRC error\n", __cil_tmp26);
 #line 585
-        __cil_tmp37 = (unsigned long )jiffies;
+        __cil_tmp27 = (unsigned long )jiffies;
 #line 585
-        __cil_tmp38 = __cil_tmp37 + 500UL;
+        __cil_tmp28 = __cil_tmp27 + 500UL;
 #line 585
-        silence = __cil_tmp38 | 1UL;
+        silence = __cil_tmp28 | 1UL;
+        }
+      } else
+#line 581
+      if (silence == 0UL) {
+        {
+#line 582
+        __cil_tmp29 = vcc->dev;
+#line 582
+        __cil_tmp30 = __cil_tmp29->number;
+#line 582
+        printk("<4>eni(itf %d): discarding PDU(s) with CRC error\n", __cil_tmp30);
+#line 585
+        __cil_tmp31 = (unsigned long )jiffies;
+#line 585
+        __cil_tmp32 = __cil_tmp31 + 500UL;
+#line 585
+        silence = __cil_tmp32 | 1UL;
         }
       } else {
-#line 581
-        if (silence == 0UL) {
-          {
-#line 582
-          __cil_tmp39 = (unsigned long )vcc;
-#line 582
-          __cil_tmp40 = __cil_tmp39 + 1304;
-#line 582
-          __cil_tmp41 = *((struct atm_dev **)__cil_tmp40);
-#line 582
-          __cil_tmp42 = (unsigned long )__cil_tmp41;
-#line 582
-          __cil_tmp43 = __cil_tmp42 + 24;
-#line 582
-          __cil_tmp44 = *((int *)__cil_tmp43);
-#line 582
-          printk("<4>eni(itf %d): discarding PDU(s) with CRC error\n", __cil_tmp44);
-#line 585
-          __cil_tmp45 = (unsigned long )jiffies;
-#line 585
-          __cil_tmp46 = __cil_tmp45 + 500UL;
-#line 585
-          silence = __cil_tmp46 | 1UL;
-          }
-        } else {
 
-        }
       }
       }
       {
 #line 587
-      __cil_tmp47 = descr & 2047UL;
+      __cil_tmp33 = descr & 2047UL;
 #line 587
-      size = __cil_tmp47 * 12UL;
+      size = __cil_tmp33 * 12UL;
 #line 588
       EVENT("CRC error (descr=0x%lx,size=%ld)\n", descr, size);
       }
@@ -11907,125 +10730,85 @@ static int rx_aal5(struct atm_vcc *vcc )
 #line 591
     eff = length;
 #line 592
-    __cil_tmp48 = (unsigned long )vcc;
+    __cil_tmp34 = vcc->stats;
 #line 592
-    __cil_tmp49 = __cil_tmp48 + 1496;
+    __cil_tmp35 = & __cil_tmp34->rx_err;
 #line 592
-    __cil_tmp50 = *((struct k_atm_aal_stats **)__cil_tmp49);
-#line 592
-    __cil_tmp51 = (unsigned long )__cil_tmp50;
-#line 592
-    __cil_tmp52 = __cil_tmp51 + 12;
-#line 592
-    __cil_tmp53 = (atomic_t *)__cil_tmp52;
-#line 592
-    atomic_inc(__cil_tmp53);
+    atomic_inc(__cil_tmp35);
     }
   } else {
     {
 #line 595
-    __cil_tmp54 = descr & 2047UL;
+    __cil_tmp36 = descr & 2047UL;
 #line 595
-    size = __cil_tmp54 * 12UL;
+    size = __cil_tmp36 * 12UL;
 #line 597
-    __cil_tmp55 = (unsigned long )eni_vcc;
+    __cil_tmp37 = eni_vcc->words;
 #line 597
-    __cil_tmp56 = __cil_tmp55 + 16;
+    __cil_tmp38 = __cil_tmp37 - 1UL;
 #line 597
-    __cil_tmp57 = *((unsigned long *)__cil_tmp56);
+    __cil_tmp39 = eni_vcc->descr;
 #line 597
-    __cil_tmp58 = __cil_tmp57 - 1UL;
+    __cil_tmp40 = __cil_tmp39 + size;
 #line 597
-    __cil_tmp59 = (unsigned long )eni_vcc;
+    __cil_tmp41 = __cil_tmp40 - 1UL;
 #line 597
-    __cil_tmp60 = __cil_tmp59 + 24;
+    __cil_tmp42 = __cil_tmp41 & __cil_tmp38;
 #line 597
-    __cil_tmp61 = *((unsigned long *)__cil_tmp60);
+    __cil_tmp43 = __cil_tmp42 * 4UL;
 #line 597
-    __cil_tmp62 = __cil_tmp61 + size;
+    __cil_tmp44 = eni_vcc->recv;
 #line 597
-    __cil_tmp63 = __cil_tmp62 - 1UL;
+    __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
 #line 597
-    __cil_tmp64 = __cil_tmp63 & __cil_tmp58;
+    __cil_tmp46 = (void const volatile   *)__cil_tmp45;
 #line 597
-    __cil_tmp65 = __cil_tmp64 * 4UL;
+    tmp___0 = readl(__cil_tmp46);
 #line 597
-    __cil_tmp66 = (unsigned long )eni_vcc;
+    __cil_tmp47 = (unsigned long )tmp___0;
 #line 597
-    __cil_tmp67 = __cil_tmp66 + 8;
-#line 597
-    __cil_tmp68 = *((void **)__cil_tmp67);
-#line 597
-    __cil_tmp69 = __cil_tmp68 + __cil_tmp65;
-#line 597
-    __cil_tmp70 = (void const volatile   *)__cil_tmp69;
-#line 597
-    tmp___0 = readl(__cil_tmp70);
-#line 597
-    __cil_tmp71 = (unsigned long )tmp___0;
-#line 597
-    length = __cil_tmp71 & 65535UL;
+    length = __cil_tmp47 & 65535UL;
     }
 #line 600
     if (length != 0UL) {
       {
 #line 600
-      __cil_tmp72 = size << 2;
+      __cil_tmp48 = size << 2;
 #line 600
-      __cil_tmp73 = __cil_tmp72 - 8UL;
+      __cil_tmp49 = __cil_tmp48 - 8UL;
 #line 600
-      if (__cil_tmp73 >= length) {
+      if (__cil_tmp49 >= length) {
 #line 600
         if (length <= 65535UL) {
 #line 601
-          __cil_tmp74 = length + 3UL;
+          __cil_tmp50 = length + 3UL;
 #line 601
-          eff = __cil_tmp74 >> 2;
+          eff = __cil_tmp50 >> 2;
         } else {
           {
 #line 603
           EVENT("bad PDU (descr=0x08%lx,length=%ld)\n", descr, length);
 #line 605
-          __cil_tmp75 = (unsigned long )vcc;
+          __cil_tmp51 = vcc->dev;
 #line 605
-          __cil_tmp76 = __cil_tmp75 + 1304;
+          __cil_tmp52 = __cil_tmp51->number;
 #line 605
-          __cil_tmp77 = *((struct atm_dev **)__cil_tmp76);
+          __cil_tmp53 = vcc->vci;
 #line 605
-          __cil_tmp78 = (unsigned long )__cil_tmp77;
-#line 605
-          __cil_tmp79 = __cil_tmp78 + 24;
-#line 605
-          __cil_tmp80 = *((int *)__cil_tmp79);
-#line 605
-          __cil_tmp81 = (unsigned long )vcc;
-#line 605
-          __cil_tmp82 = __cil_tmp81 + 1284;
-#line 605
-          __cil_tmp83 = *((int *)__cil_tmp82);
-#line 605
-          __cil_tmp84 = size << 2;
+          __cil_tmp54 = size << 2;
 #line 605
           printk("<3>eni(itf %d): bad AAL5 PDU (VCI=%d,length=%ld,size=%ld (descr 0x%lx))\n",
-                 __cil_tmp80, __cil_tmp83, length, __cil_tmp84, descr);
+                 __cil_tmp52, __cil_tmp53, length, __cil_tmp54, descr);
 #line 608
           eff = 0UL;
 #line 608
           length = eff;
 #line 609
-          __cil_tmp85 = (unsigned long )vcc;
+          __cil_tmp55 = vcc->stats;
 #line 609
-          __cil_tmp86 = __cil_tmp85 + 1496;
+          __cil_tmp56 = & __cil_tmp55->rx_err;
 #line 609
-          __cil_tmp87 = *((struct k_atm_aal_stats **)__cil_tmp86);
-#line 609
-          __cil_tmp88 = (unsigned long )__cil_tmp87;
-#line 609
-          __cil_tmp89 = __cil_tmp88 + 12;
-#line 609
-          __cil_tmp90 = (atomic_t *)__cil_tmp89;
-#line 609
-          atomic_inc(__cil_tmp90);
+          atomic_inc(__cil_tmp56);
           }
         }
       } else {
@@ -12033,46 +10816,26 @@ static int rx_aal5(struct atm_vcc *vcc )
 #line 603
         EVENT("bad PDU (descr=0x08%lx,length=%ld)\n", descr, length);
 #line 605
-        __cil_tmp91 = (unsigned long )vcc;
+        __cil_tmp57 = vcc->dev;
 #line 605
-        __cil_tmp92 = __cil_tmp91 + 1304;
+        __cil_tmp58 = __cil_tmp57->number;
 #line 605
-        __cil_tmp93 = *((struct atm_dev **)__cil_tmp92);
+        __cil_tmp59 = vcc->vci;
 #line 605
-        __cil_tmp94 = (unsigned long )__cil_tmp93;
-#line 605
-        __cil_tmp95 = __cil_tmp94 + 24;
-#line 605
-        __cil_tmp96 = *((int *)__cil_tmp95);
-#line 605
-        __cil_tmp97 = (unsigned long )vcc;
-#line 605
-        __cil_tmp98 = __cil_tmp97 + 1284;
-#line 605
-        __cil_tmp99 = *((int *)__cil_tmp98);
-#line 605
-        __cil_tmp100 = size << 2;
+        __cil_tmp60 = size << 2;
 #line 605
         printk("<3>eni(itf %d): bad AAL5 PDU (VCI=%d,length=%ld,size=%ld (descr 0x%lx))\n",
-               __cil_tmp96, __cil_tmp99, length, __cil_tmp100, descr);
+               __cil_tmp58, __cil_tmp59, length, __cil_tmp60, descr);
 #line 608
         eff = 0UL;
 #line 608
         length = eff;
 #line 609
-        __cil_tmp101 = (unsigned long )vcc;
+        __cil_tmp61 = vcc->stats;
 #line 609
-        __cil_tmp102 = __cil_tmp101 + 1496;
+        __cil_tmp62 = & __cil_tmp61->rx_err;
 #line 609
-        __cil_tmp103 = *((struct k_atm_aal_stats **)__cil_tmp102);
-#line 609
-        __cil_tmp104 = (unsigned long )__cil_tmp103;
-#line 609
-        __cil_tmp105 = __cil_tmp104 + 12;
-#line 609
-        __cil_tmp106 = (atomic_t *)__cil_tmp105;
-#line 609
-        atomic_inc(__cil_tmp106);
+        atomic_inc(__cil_tmp62);
         }
       }
       }
@@ -12081,46 +10844,26 @@ static int rx_aal5(struct atm_vcc *vcc )
 #line 603
       EVENT("bad PDU (descr=0x08%lx,length=%ld)\n", descr, length);
 #line 605
-      __cil_tmp107 = (unsigned long )vcc;
+      __cil_tmp63 = vcc->dev;
 #line 605
-      __cil_tmp108 = __cil_tmp107 + 1304;
+      __cil_tmp64 = __cil_tmp63->number;
 #line 605
-      __cil_tmp109 = *((struct atm_dev **)__cil_tmp108);
+      __cil_tmp65 = vcc->vci;
 #line 605
-      __cil_tmp110 = (unsigned long )__cil_tmp109;
-#line 605
-      __cil_tmp111 = __cil_tmp110 + 24;
-#line 605
-      __cil_tmp112 = *((int *)__cil_tmp111);
-#line 605
-      __cil_tmp113 = (unsigned long )vcc;
-#line 605
-      __cil_tmp114 = __cil_tmp113 + 1284;
-#line 605
-      __cil_tmp115 = *((int *)__cil_tmp114);
-#line 605
-      __cil_tmp116 = size << 2;
+      __cil_tmp66 = size << 2;
 #line 605
       printk("<3>eni(itf %d): bad AAL5 PDU (VCI=%d,length=%ld,size=%ld (descr 0x%lx))\n",
-             __cil_tmp112, __cil_tmp115, length, __cil_tmp116, descr);
+             __cil_tmp64, __cil_tmp65, length, __cil_tmp66, descr);
 #line 608
       eff = 0UL;
 #line 608
       length = eff;
 #line 609
-      __cil_tmp117 = (unsigned long )vcc;
+      __cil_tmp67 = vcc->stats;
 #line 609
-      __cil_tmp118 = __cil_tmp117 + 1496;
+      __cil_tmp68 = & __cil_tmp67->rx_err;
 #line 609
-      __cil_tmp119 = *((struct k_atm_aal_stats **)__cil_tmp118);
-#line 609
-      __cil_tmp120 = (unsigned long )__cil_tmp119;
-#line 609
-      __cil_tmp121 = __cil_tmp120 + 12;
-#line 609
-      __cil_tmp122 = (atomic_t *)__cil_tmp121;
-#line 609
-      atomic_inc(__cil_tmp122);
+      atomic_inc(__cil_tmp68);
       }
     }
   }
@@ -12129,11 +10872,11 @@ static int rx_aal5(struct atm_vcc *vcc )
   if (eff != 0UL) {
     {
 #line 612
-    __cil_tmp123 = eff << 2;
+    __cil_tmp69 = eff << 2;
 #line 612
-    __cil_tmp124 = (int )__cil_tmp123;
+    __cil_tmp70 = (int )__cil_tmp69;
 #line 612
-    tmp___1 = atm_alloc_charge(vcc, __cil_tmp124, 32U);
+    tmp___1 = atm_alloc_charge(vcc, __cil_tmp70, 32U);
 #line 612
     skb = tmp___1;
     }
@@ -12143,13 +10886,13 @@ static int rx_aal5(struct atm_vcc *vcc )
   }
   {
 #line 613
-  __cil_tmp125 = (struct sk_buff *)0;
+  __cil_tmp71 = (struct sk_buff *)0;
 #line 613
-  __cil_tmp126 = (unsigned long )__cil_tmp125;
+  __cil_tmp72 = (unsigned long )__cil_tmp71;
 #line 613
-  __cil_tmp127 = (unsigned long )skb;
+  __cil_tmp73 = (unsigned long )skb;
 #line 613
-  if (__cil_tmp127 == __cil_tmp126) {
+  if (__cil_tmp73 == __cil_tmp72) {
     {
 #line 614
     discard(vcc, size);
@@ -12162,9 +10905,9 @@ static int rx_aal5(struct atm_vcc *vcc )
   }
   {
 #line 617
-  __cil_tmp128 = (unsigned int )length;
+  __cil_tmp74 = (unsigned int )length;
 #line 617
-  skb_put(skb, __cil_tmp128);
+  skb_put(skb, __cil_tmp74);
 #line 619
   tmp___2 = do_rx_dma(vcc, skb, 1UL, size, eff);
   }
@@ -12176,17 +10919,9 @@ static int rx_aal5(struct atm_vcc *vcc )
 
   }
 #line 620
-  __cil_tmp129 = (unsigned long )eni_vcc;
+  __cil_tmp75 = eni_vcc->rxing;
 #line 620
-  __cil_tmp130 = __cil_tmp129 + 48;
-#line 620
-  __cil_tmp131 = (unsigned long )eni_vcc;
-#line 620
-  __cil_tmp132 = __cil_tmp131 + 48;
-#line 620
-  __cil_tmp133 = *((int *)__cil_tmp132);
-#line 620
-  *((int *)__cil_tmp130) = __cil_tmp133 + 1;
+  eni_vcc->rxing = __cil_tmp75 + 1;
 #line 621
   return (0);
 }
@@ -12201,130 +10936,79 @@ __inline static int rx_vcc(struct atm_vcc *vcc )
   unsigned int tmp___2 ;
   int tmp___3 ;
   unsigned int tmp___4 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
+  void *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct atm_dev *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  struct eni_dev *__cil_tmp16 ;
+  void *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct atm_dev *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  void *__cil_tmp23 ;
-  struct eni_dev *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  void *__cil_tmp19 ;
+  struct eni_vcc *__cil_tmp20 ;
+  int (*__cil_tmp21)(struct atm_vcc * ) ;
+  void const volatile   *__cil_tmp22 ;
+  void const volatile   *__cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  void *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  void const volatile   *__cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  void volatile   *__cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  void *__cil_tmp33 ;
-  struct eni_vcc *__cil_tmp34 ;
-  int (*__cil_tmp35)(struct atm_vcc * ) ;
-  void const volatile   *__cil_tmp36 ;
-  void const volatile   *__cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
+  void *__cil_tmp31 ;
+  struct eni_vcc *__cil_tmp32 ;
+  int (*__cil_tmp33)(struct atm_vcc * ) ;
+  void const volatile   *__cil_tmp34 ;
+  void const volatile   *__cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  void *__cil_tmp38 ;
+  struct eni_vcc *__cil_tmp39 ;
   unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  void const volatile   *__cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
-  void volatile   *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  void *__cil_tmp51 ;
-  struct eni_vcc *__cil_tmp52 ;
-  int (*__cil_tmp53)(struct atm_vcc * ) ;
-  void const volatile   *__cil_tmp54 ;
-  void const volatile   *__cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  void *__cil_tmp60 ;
-  struct eni_vcc *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
 
   {
   {
 #line 631
-  __cil_tmp10 = (unsigned long )vcc;
+  __cil_tmp10 = vcc->dev_data;
 #line 631
-  __cil_tmp11 = __cil_tmp10 + 1480;
-#line 631
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 631
-  eni_vcc = (struct eni_vcc *)__cil_tmp12;
+  eni_vcc = (struct eni_vcc *)__cil_tmp10;
 #line 632
-  __cil_tmp13 = (unsigned long )vcc;
+  __cil_tmp11 = vcc->vci;
 #line 632
-  __cil_tmp14 = __cil_tmp13 + 1284;
+  __cil_tmp12 = __cil_tmp11 * 16;
 #line 632
-  __cil_tmp15 = *((int *)__cil_tmp14);
+  __cil_tmp13 = (unsigned long )__cil_tmp12;
 #line 632
-  __cil_tmp16 = __cil_tmp15 * 16;
+  __cil_tmp14 = vcc->dev;
 #line 632
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
+  __cil_tmp15 = __cil_tmp14->dev_data;
 #line 632
-  __cil_tmp18 = (unsigned long )vcc;
+  __cil_tmp16 = (struct eni_dev *)__cil_tmp15;
 #line 632
-  __cil_tmp19 = __cil_tmp18 + 1304;
+  __cil_tmp17 = __cil_tmp16->vci;
 #line 632
-  __cil_tmp20 = *((struct atm_dev **)__cil_tmp19);
-#line 632
-  __cil_tmp21 = (unsigned long )__cil_tmp20;
-#line 632
-  __cil_tmp22 = __cil_tmp21 + 32;
-#line 632
-  __cil_tmp23 = *((void **)__cil_tmp22);
-#line 632
-  __cil_tmp24 = (struct eni_dev *)__cil_tmp23;
-#line 632
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 632
-  __cil_tmp26 = __cil_tmp25 + 144;
-#line 632
-  __cil_tmp27 = *((void **)__cil_tmp26);
-#line 632
-  vci_dsc = __cil_tmp27 + __cil_tmp17;
+  vci_dsc = __cil_tmp17 + __cil_tmp13;
 #line 633
   EVENT("rx_vcc(1)\n", 0UL, 0UL);
   }
+#line 634
   goto ldv_40203;
   ldv_40202: 
   {
 #line 636
-  __cil_tmp28 = (unsigned long )eni_vcc;
+  __cil_tmp18 = eni_vcc->descr;
 #line 636
-  __cil_tmp29 = __cil_tmp28 + 24;
-#line 636
-  __cil_tmp30 = *((unsigned long *)__cil_tmp29);
-#line 636
-  EVENT("rx_vcc(2: host dsc=0x%lx, nic dsc=0x%lx)\n", __cil_tmp30, tmp);
+  EVENT("rx_vcc(2: host dsc=0x%lx, nic dsc=0x%lx)\n", __cil_tmp18, tmp);
 #line 641
-  __cil_tmp31 = (unsigned long )vcc;
+  __cil_tmp19 = vcc->dev_data;
 #line 641
-  __cil_tmp32 = __cil_tmp31 + 1480;
+  __cil_tmp20 = (struct eni_vcc *)__cil_tmp19;
 #line 641
-  __cil_tmp33 = *((void **)__cil_tmp32);
+  __cil_tmp21 = __cil_tmp20->rx;
 #line 641
-  __cil_tmp34 = (struct eni_vcc *)__cil_tmp33;
-#line 641
-  __cil_tmp35 = *((int (**)(struct atm_vcc * ))__cil_tmp34);
-#line 641
-  tmp___0 = (*__cil_tmp35)(vcc);
+  tmp___0 = (*__cil_tmp21)(vcc);
   }
 #line 641
   if (tmp___0 != 0) {
@@ -12336,70 +11020,61 @@ __inline static int rx_vcc(struct atm_vcc *vcc )
   ldv_40203: 
   {
 #line 634
-  __cil_tmp36 = (void const volatile   *)vci_dsc;
+  __cil_tmp22 = (void const volatile   *)vci_dsc;
 #line 634
-  __cil_tmp37 = __cil_tmp36 + 4U;
+  __cil_tmp23 = __cil_tmp22 + 4U;
 #line 634
-  tmp___1 = readl(__cil_tmp37);
+  tmp___1 = readl(__cil_tmp23);
 #line 634
-  __cil_tmp38 = tmp___1 & 2147418112U;
+  __cil_tmp24 = tmp___1 & 2147418112U;
 #line 634
-  __cil_tmp39 = __cil_tmp38 >> 16;
+  __cil_tmp25 = __cil_tmp24 >> 16;
 #line 634
-  tmp = (unsigned long )__cil_tmp39;
+  tmp = (unsigned long )__cil_tmp25;
   }
   {
 #line 634
-  __cil_tmp40 = (unsigned long )eni_vcc;
+  __cil_tmp26 = eni_vcc->descr;
 #line 634
-  __cil_tmp41 = __cil_tmp40 + 24;
-#line 634
-  __cil_tmp42 = *((unsigned long *)__cil_tmp41);
-#line 634
-  if (__cil_tmp42 != tmp) {
+  if (__cil_tmp26 != tmp) {
+#line 635
     goto ldv_40202;
   } else {
+#line 637
     goto ldv_40204;
   }
   }
   ldv_40204: 
   {
 #line 644
-  __cil_tmp43 = (void const volatile   *)vci_dsc;
+  __cil_tmp27 = (void const volatile   *)vci_dsc;
 #line 644
-  tmp___2 = readl(__cil_tmp43);
+  tmp___2 = readl(__cil_tmp27);
 #line 644
-  __cil_tmp44 = tmp___2 & 4294967294U;
+  __cil_tmp28 = tmp___2 & 4294967294U;
 #line 644
-  __cil_tmp45 = (void volatile   *)vci_dsc;
+  __cil_tmp29 = (void volatile   *)vci_dsc;
 #line 644
-  writel(__cil_tmp44, __cil_tmp45);
+  writel(__cil_tmp28, __cil_tmp29);
 #line 650
   EVENT("rx_vcc(3)\n", 0UL, 0UL);
   }
+#line 651
   goto ldv_40206;
   ldv_40205: 
   {
 #line 653
-  __cil_tmp46 = (unsigned long )eni_vcc;
+  __cil_tmp30 = eni_vcc->descr;
 #line 653
-  __cil_tmp47 = __cil_tmp46 + 24;
-#line 653
-  __cil_tmp48 = *((unsigned long *)__cil_tmp47);
-#line 653
-  EVENT("rx_vcc(4: host dsc=0x%lx, nic dsc=0x%lx)\n", __cil_tmp48, tmp);
+  EVENT("rx_vcc(4: host dsc=0x%lx, nic dsc=0x%lx)\n", __cil_tmp30, tmp);
 #line 658
-  __cil_tmp49 = (unsigned long )vcc;
+  __cil_tmp31 = vcc->dev_data;
 #line 658
-  __cil_tmp50 = __cil_tmp49 + 1480;
+  __cil_tmp32 = (struct eni_vcc *)__cil_tmp31;
 #line 658
-  __cil_tmp51 = *((void **)__cil_tmp50);
+  __cil_tmp33 = __cil_tmp32->rx;
 #line 658
-  __cil_tmp52 = (struct eni_vcc *)__cil_tmp51;
-#line 658
-  __cil_tmp53 = *((int (**)(struct atm_vcc * ))__cil_tmp52);
-#line 658
-  tmp___3 = (*__cil_tmp53)(vcc);
+  tmp___3 = (*__cil_tmp33)(vcc);
   }
 #line 658
   if (tmp___3 != 0) {
@@ -12411,37 +11086,31 @@ __inline static int rx_vcc(struct atm_vcc *vcc )
   ldv_40206: 
   {
 #line 651
-  __cil_tmp54 = (void const volatile   *)vci_dsc;
+  __cil_tmp34 = (void const volatile   *)vci_dsc;
 #line 651
-  __cil_tmp55 = __cil_tmp54 + 4U;
+  __cil_tmp35 = __cil_tmp34 + 4U;
 #line 651
-  tmp___4 = readl(__cil_tmp55);
+  tmp___4 = readl(__cil_tmp35);
 #line 651
-  __cil_tmp56 = tmp___4 & 2147418112U;
+  __cil_tmp36 = tmp___4 & 2147418112U;
 #line 651
-  __cil_tmp57 = __cil_tmp56 >> 16;
+  __cil_tmp37 = __cil_tmp36 >> 16;
 #line 651
-  tmp = (unsigned long )__cil_tmp57;
+  tmp = (unsigned long )__cil_tmp37;
   }
   {
 #line 651
-  __cil_tmp58 = (unsigned long )vcc;
+  __cil_tmp38 = vcc->dev_data;
 #line 651
-  __cil_tmp59 = __cil_tmp58 + 1480;
+  __cil_tmp39 = (struct eni_vcc *)__cil_tmp38;
 #line 651
-  __cil_tmp60 = *((void **)__cil_tmp59);
+  __cil_tmp40 = __cil_tmp39->descr;
 #line 651
-  __cil_tmp61 = (struct eni_vcc *)__cil_tmp60;
-#line 651
-  __cil_tmp62 = (unsigned long )__cil_tmp61;
-#line 651
-  __cil_tmp63 = __cil_tmp62 + 24;
-#line 651
-  __cil_tmp64 = *((unsigned long *)__cil_tmp63);
-#line 651
-  if (__cil_tmp64 != tmp) {
+  if (__cil_tmp40 != tmp) {
+#line 653
     goto ldv_40205;
   } else {
+#line 655
     goto ldv_40207;
   }
   }
@@ -12456,83 +11125,38 @@ static void poll_rx(struct atm_dev *dev )
   struct atm_vcc *curr ;
   int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void *__cil_tmp6 ;
+  void *__cil_tmp7 ;
+  struct eni_vcc *__cil_tmp8 ;
+  void *__cil_tmp9 ;
+  struct eni_vcc *__cil_tmp10 ;
+  void *__cil_tmp11 ;
+  struct eni_vcc *__cil_tmp12 ;
   void *__cil_tmp13 ;
   struct eni_vcc *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  int __cil_tmp15 ;
+  struct atm_vcc *__cil_tmp16 ;
   unsigned long __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   void *__cil_tmp19 ;
   struct eni_vcc *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  void *__cil_tmp21 ;
+  struct eni_vcc *__cil_tmp22 ;
+  void *__cil_tmp23 ;
+  struct eni_vcc *__cil_tmp24 ;
   void *__cil_tmp25 ;
   struct eni_vcc *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  int __cil_tmp27 ;
+  struct atm_vcc *__cil_tmp28 ;
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  void *__cil_tmp31 ;
-  struct eni_vcc *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct atm_vcc *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  void *__cil_tmp45 ;
-  struct eni_vcc *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  void *__cil_tmp51 ;
-  struct eni_vcc *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  void *__cil_tmp57 ;
-  struct eni_vcc *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  void *__cil_tmp63 ;
-  struct eni_vcc *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  struct atm_vcc *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
 
   {
 #line 669
-  __cil_tmp6 = (unsigned long )dev;
+  __cil_tmp6 = dev->dev_data;
 #line 669
-  __cil_tmp7 = __cil_tmp6 + 32;
-#line 669
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 669
-  eni_dev = (struct eni_dev *)__cil_tmp8;
+  eni_dev = (struct eni_dev *)__cil_tmp6;
+#line 670
   goto ldv_40214;
   ldv_40213: 
   {
@@ -12549,89 +11173,52 @@ static void poll_rx(struct atm_dev *dev )
 
   }
 #line 673
-  __cil_tmp9 = (unsigned long )eni_dev;
+  __cil_tmp7 = curr->dev_data;
 #line 673
-  __cil_tmp10 = __cil_tmp9 + 2336;
+  __cil_tmp8 = (struct eni_vcc *)__cil_tmp7;
 #line 673
-  __cil_tmp11 = (unsigned long )curr;
-#line 673
-  __cil_tmp12 = __cil_tmp11 + 1480;
-#line 673
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 673
-  __cil_tmp14 = (struct eni_vcc *)__cil_tmp13;
-#line 673
-  __cil_tmp15 = (unsigned long )__cil_tmp14;
-#line 673
-  __cil_tmp16 = __cil_tmp15 + 72;
-#line 673
-  *((struct atm_vcc **)__cil_tmp10) = *((struct atm_vcc **)__cil_tmp16);
+  eni_dev->fast = __cil_tmp8->next;
 #line 674
-  __cil_tmp17 = (unsigned long )curr;
+  __cil_tmp9 = curr->dev_data;
 #line 674
-  __cil_tmp18 = __cil_tmp17 + 1480;
+  __cil_tmp10 = (struct eni_vcc *)__cil_tmp9;
 #line 674
-  __cil_tmp19 = *((void **)__cil_tmp18);
-#line 674
-  __cil_tmp20 = (struct eni_vcc *)__cil_tmp19;
-#line 674
-  __cil_tmp21 = (unsigned long )__cil_tmp20;
-#line 674
-  __cil_tmp22 = __cil_tmp21 + 72;
-#line 674
-  *((struct atm_vcc **)__cil_tmp22) = (struct atm_vcc *)1;
+  __cil_tmp10->next = (struct atm_vcc *)1;
 #line 675
   __asm__  volatile   ("": : : "memory");
 #line 676
-  __cil_tmp23 = (unsigned long )curr;
+  __cil_tmp11 = curr->dev_data;
 #line 676
-  __cil_tmp24 = __cil_tmp23 + 1480;
+  __cil_tmp12 = (struct eni_vcc *)__cil_tmp11;
 #line 676
-  __cil_tmp25 = *((void **)__cil_tmp24);
+  __cil_tmp13 = curr->dev_data;
 #line 676
-  __cil_tmp26 = (struct eni_vcc *)__cil_tmp25;
+  __cil_tmp14 = (struct eni_vcc *)__cil_tmp13;
 #line 676
-  __cil_tmp27 = (unsigned long )__cil_tmp26;
+  __cil_tmp15 = __cil_tmp14->servicing;
 #line 676
-  __cil_tmp28 = __cil_tmp27 + 52;
-#line 676
-  __cil_tmp29 = (unsigned long )curr;
-#line 676
-  __cil_tmp30 = __cil_tmp29 + 1480;
-#line 676
-  __cil_tmp31 = *((void **)__cil_tmp30);
-#line 676
-  __cil_tmp32 = (struct eni_vcc *)__cil_tmp31;
-#line 676
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 676
-  __cil_tmp34 = __cil_tmp33 + 52;
-#line 676
-  __cil_tmp35 = *((int *)__cil_tmp34);
-#line 676
-  *((int *)__cil_tmp28) = __cil_tmp35 - 1;
+  __cil_tmp12->servicing = __cil_tmp15 - 1;
   ldv_40214: 
 #line 670
-  __cil_tmp36 = (unsigned long )eni_dev;
-#line 670
-  __cil_tmp37 = __cil_tmp36 + 2336;
-#line 670
-  curr = *((struct atm_vcc **)__cil_tmp37);
+  curr = eni_dev->fast;
   {
 #line 670
-  __cil_tmp38 = (struct atm_vcc *)0;
+  __cil_tmp16 = (struct atm_vcc *)0;
 #line 670
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
+  __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 670
-  __cil_tmp40 = (unsigned long )curr;
+  __cil_tmp18 = (unsigned long )curr;
 #line 670
-  if (__cil_tmp40 != __cil_tmp39) {
+  if (__cil_tmp18 != __cil_tmp17) {
+#line 671
     goto ldv_40213;
   } else {
+#line 673
     goto ldv_40215;
   }
   }
   ldv_40215: ;
+#line 678
   goto ldv_40217;
   ldv_40216: 
   {
@@ -12648,85 +11235,47 @@ static void poll_rx(struct atm_dev *dev )
 
   }
 #line 681
-  __cil_tmp41 = (unsigned long )eni_dev;
+  __cil_tmp19 = curr->dev_data;
 #line 681
-  __cil_tmp42 = __cil_tmp41 + 2352;
+  __cil_tmp20 = (struct eni_vcc *)__cil_tmp19;
 #line 681
-  __cil_tmp43 = (unsigned long )curr;
-#line 681
-  __cil_tmp44 = __cil_tmp43 + 1480;
-#line 681
-  __cil_tmp45 = *((void **)__cil_tmp44);
-#line 681
-  __cil_tmp46 = (struct eni_vcc *)__cil_tmp45;
-#line 681
-  __cil_tmp47 = (unsigned long )__cil_tmp46;
-#line 681
-  __cil_tmp48 = __cil_tmp47 + 72;
-#line 681
-  *((struct atm_vcc **)__cil_tmp42) = *((struct atm_vcc **)__cil_tmp48);
+  eni_dev->slow = __cil_tmp20->next;
 #line 682
-  __cil_tmp49 = (unsigned long )curr;
+  __cil_tmp21 = curr->dev_data;
 #line 682
-  __cil_tmp50 = __cil_tmp49 + 1480;
+  __cil_tmp22 = (struct eni_vcc *)__cil_tmp21;
 #line 682
-  __cil_tmp51 = *((void **)__cil_tmp50);
-#line 682
-  __cil_tmp52 = (struct eni_vcc *)__cil_tmp51;
-#line 682
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 682
-  __cil_tmp54 = __cil_tmp53 + 72;
-#line 682
-  *((struct atm_vcc **)__cil_tmp54) = (struct atm_vcc *)1;
+  __cil_tmp22->next = (struct atm_vcc *)1;
 #line 683
   __asm__  volatile   ("": : : "memory");
 #line 684
-  __cil_tmp55 = (unsigned long )curr;
+  __cil_tmp23 = curr->dev_data;
 #line 684
-  __cil_tmp56 = __cil_tmp55 + 1480;
+  __cil_tmp24 = (struct eni_vcc *)__cil_tmp23;
 #line 684
-  __cil_tmp57 = *((void **)__cil_tmp56);
+  __cil_tmp25 = curr->dev_data;
 #line 684
-  __cil_tmp58 = (struct eni_vcc *)__cil_tmp57;
+  __cil_tmp26 = (struct eni_vcc *)__cil_tmp25;
 #line 684
-  __cil_tmp59 = (unsigned long )__cil_tmp58;
+  __cil_tmp27 = __cil_tmp26->servicing;
 #line 684
-  __cil_tmp60 = __cil_tmp59 + 52;
-#line 684
-  __cil_tmp61 = (unsigned long )curr;
-#line 684
-  __cil_tmp62 = __cil_tmp61 + 1480;
-#line 684
-  __cil_tmp63 = *((void **)__cil_tmp62);
-#line 684
-  __cil_tmp64 = (struct eni_vcc *)__cil_tmp63;
-#line 684
-  __cil_tmp65 = (unsigned long )__cil_tmp64;
-#line 684
-  __cil_tmp66 = __cil_tmp65 + 52;
-#line 684
-  __cil_tmp67 = *((int *)__cil_tmp66);
-#line 684
-  *((int *)__cil_tmp60) = __cil_tmp67 - 1;
+  __cil_tmp24->servicing = __cil_tmp27 - 1;
   ldv_40217: 
 #line 678
-  __cil_tmp68 = (unsigned long )eni_dev;
-#line 678
-  __cil_tmp69 = __cil_tmp68 + 2352;
-#line 678
-  curr = *((struct atm_vcc **)__cil_tmp69);
+  curr = eni_dev->slow;
   {
 #line 678
-  __cil_tmp70 = (struct atm_vcc *)0;
+  __cil_tmp28 = (struct atm_vcc *)0;
 #line 678
-  __cil_tmp71 = (unsigned long )__cil_tmp70;
+  __cil_tmp29 = (unsigned long )__cil_tmp28;
 #line 678
-  __cil_tmp72 = (unsigned long )curr;
+  __cil_tmp30 = (unsigned long )curr;
 #line 678
-  if (__cil_tmp72 != __cil_tmp71) {
+  if (__cil_tmp30 != __cil_tmp29) {
+#line 679
     goto ldv_40216;
   } else {
+#line 681
     goto ldv_40218;
   }
   }
@@ -12742,203 +11291,112 @@ static void get_service(struct atm_dev *dev )
   unsigned long vci ;
   unsigned int tmp ;
   unsigned int tmp___0 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
+  void *__cil_tmp7 ;
+  u32 __cil_tmp8 ;
+  u32 __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  u32 __cil_tmp12 ;
-  u32 __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp11 ;
+  void const volatile   *__cil_tmp12 ;
+  void const volatile   *__cil_tmp13 ;
+  u32 __cil_tmp14 ;
+  u32 __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  void *__cil_tmp17 ;
-  void const volatile   *__cil_tmp18 ;
-  void const volatile   *__cil_tmp19 ;
+  struct atm_vcc **__cil_tmp17 ;
+  struct atm_vcc **__cil_tmp18 ;
+  struct atm_vcc *__cil_tmp19 ;
   unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u32 __cil_tmp24 ;
-  u32 __cil_tmp25 ;
+  int __cil_tmp22 ;
+  void *__cil_tmp23 ;
+  struct eni_vcc *__cil_tmp24 ;
+  struct atm_vcc *__cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct atm_vcc **__cil_tmp29 ;
-  struct atm_vcc **__cil_tmp30 ;
-  struct atm_vcc *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  void *__cil_tmp27 ;
+  struct eni_vcc *__cil_tmp28 ;
+  void *__cil_tmp29 ;
+  struct eni_vcc *__cil_tmp30 ;
+  unsigned char __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  struct atm_vcc *__cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  void *__cil_tmp39 ;
-  struct eni_vcc *__cil_tmp40 ;
+  struct atm_vcc *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  struct atm_vcc *__cil_tmp37 ;
+  void *__cil_tmp38 ;
+  struct eni_vcc *__cil_tmp39 ;
+  struct atm_vcc *__cil_tmp40 ;
   unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct atm_vcc *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  struct atm_vcc *__cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
+  struct atm_vcc *__cil_tmp44 ;
+  void *__cil_tmp45 ;
+  struct eni_vcc *__cil_tmp46 ;
   void *__cil_tmp47 ;
   struct eni_vcc *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  void *__cil_tmp53 ;
-  struct eni_vcc *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned char __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  struct atm_vcc *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct atm_vcc *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  struct atm_vcc *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  void *__cil_tmp73 ;
-  struct eni_vcc *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  struct atm_vcc *__cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  struct atm_vcc *__cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  struct atm_vcc *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  void *__cil_tmp92 ;
-  struct eni_vcc *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  void *__cil_tmp102 ;
-  struct eni_vcc *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  void *__cil_tmp108 ;
-  struct eni_vcc *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  void *__cil_tmp115 ;
-  void const volatile   *__cil_tmp116 ;
-  void const volatile   *__cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  u32 __cil_tmp120 ;
+  void *__cil_tmp49 ;
+  struct eni_vcc *__cil_tmp50 ;
+  int __cil_tmp51 ;
+  void *__cil_tmp52 ;
+  void const volatile   *__cil_tmp53 ;
+  void const volatile   *__cil_tmp54 ;
+  u32 __cil_tmp55 ;
 
   {
 #line 696
-  __cil_tmp7 = (unsigned long )dev;
+  __cil_tmp7 = dev->dev_data;
 #line 696
-  __cil_tmp8 = __cil_tmp7 + 32;
-#line 696
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 696
-  eni_dev = (struct eni_dev *)__cil_tmp9;
+  eni_dev = (struct eni_dev *)__cil_tmp7;
+#line 697
   goto ldv_40225;
   ldv_40226: 
   {
 #line 698
-  __cil_tmp10 = (unsigned long )eni_dev;
+  __cil_tmp8 = eni_dev->serv_read;
 #line 698
-  __cil_tmp11 = __cil_tmp10 + 2328;
+  __cil_tmp9 = __cil_tmp8 * 4U;
 #line 698
-  __cil_tmp12 = *((u32 *)__cil_tmp11);
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 698
-  __cil_tmp13 = __cil_tmp12 * 4U;
+  __cil_tmp11 = eni_dev->service;
 #line 698
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
+  __cil_tmp12 = (void const volatile   *)__cil_tmp11;
 #line 698
-  __cil_tmp15 = (unsigned long )eni_dev;
+  __cil_tmp13 = __cil_tmp12 + __cil_tmp10;
 #line 698
-  __cil_tmp16 = __cil_tmp15 + 168;
-#line 698
-  __cil_tmp17 = *((void **)__cil_tmp16);
-#line 698
-  __cil_tmp18 = (void const volatile   *)__cil_tmp17;
-#line 698
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp14;
-#line 698
-  tmp = readl(__cil_tmp19);
+  tmp = readl(__cil_tmp13);
 #line 698
   vci = (unsigned long )tmp;
 #line 699
-  __cil_tmp20 = (unsigned long )eni_dev;
+  __cil_tmp14 = eni_dev->serv_read;
 #line 699
-  __cil_tmp21 = __cil_tmp20 + 2328;
+  __cil_tmp15 = __cil_tmp14 + 1U;
 #line 699
-  __cil_tmp22 = (unsigned long )eni_dev;
-#line 699
-  __cil_tmp23 = __cil_tmp22 + 2328;
-#line 699
-  __cil_tmp24 = *((u32 *)__cil_tmp23);
-#line 699
-  __cil_tmp25 = __cil_tmp24 + 1U;
-#line 699
-  *((u32 *)__cil_tmp21) = __cil_tmp25 & 1023U;
+  eni_dev->serv_read = __cil_tmp15 & 1023U;
 #line 700
-  __cil_tmp26 = vci & 1023UL;
+  __cil_tmp16 = vci & 1023UL;
 #line 700
-  __cil_tmp27 = (unsigned long )eni_dev;
+  __cil_tmp17 = eni_dev->rx_map;
 #line 700
-  __cil_tmp28 = __cil_tmp27 + 2368;
+  __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
 #line 700
-  __cil_tmp29 = *((struct atm_vcc ***)__cil_tmp28);
-#line 700
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp26;
-#line 700
-  vcc = *__cil_tmp30;
+  vcc = *__cil_tmp18;
   }
   {
 #line 701
-  __cil_tmp31 = (struct atm_vcc *)0;
+  __cil_tmp19 = (struct atm_vcc *)0;
 #line 701
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
+  __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 701
-  __cil_tmp33 = (unsigned long )vcc;
+  __cil_tmp21 = (unsigned long )vcc;
 #line 701
-  if (__cil_tmp33 == __cil_tmp32) {
+  if (__cil_tmp21 == __cil_tmp20) {
     {
 #line 702
-    __cil_tmp34 = (unsigned long )dev;
+    __cil_tmp22 = dev->number;
 #line 702
-    __cil_tmp35 = __cil_tmp34 + 24;
-#line 702
-    __cil_tmp36 = *((int *)__cil_tmp35);
-#line 702
-    printk("<2>eni(itf %d): VCI %ld not found\n", __cil_tmp36, vci);
+    printk("<2>eni(itf %d): VCI %ld not found\n", __cil_tmp22, vci);
     }
+#line 704
     goto ldv_40225;
   } else {
 
@@ -12950,27 +11408,20 @@ static void get_service(struct atm_dev *dev )
   }
   {
 #line 708
-  __cil_tmp37 = (unsigned long )vcc;
+  __cil_tmp23 = vcc->dev_data;
 #line 708
-  __cil_tmp38 = __cil_tmp37 + 1480;
+  __cil_tmp24 = (struct eni_vcc *)__cil_tmp23;
 #line 708
-  __cil_tmp39 = *((void **)__cil_tmp38);
+  __cil_tmp25 = __cil_tmp24->next;
 #line 708
-  __cil_tmp40 = (struct eni_vcc *)__cil_tmp39;
+  __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 708
-  __cil_tmp41 = (unsigned long )__cil_tmp40;
-#line 708
-  __cil_tmp42 = __cil_tmp41 + 72;
-#line 708
-  __cil_tmp43 = *((struct atm_vcc **)__cil_tmp42);
-#line 708
-  __cil_tmp44 = (unsigned long )__cil_tmp43;
-#line 708
-  if (__cil_tmp44 != 1UL) {
+  if (__cil_tmp26 != 1UL) {
     {
 #line 709
     EVENT("double service\n", 0UL, 0UL);
     }
+#line 711
     goto ldv_40225;
   } else {
 
@@ -12978,206 +11429,114 @@ static void get_service(struct atm_dev *dev )
   }
   {
 #line 713
-  __cil_tmp45 = (unsigned long )vcc;
+  __cil_tmp27 = vcc->dev_data;
 #line 713
-  __cil_tmp46 = __cil_tmp45 + 1480;
+  __cil_tmp28 = (struct eni_vcc *)__cil_tmp27;
 #line 713
-  __cil_tmp47 = *((void **)__cil_tmp46);
-#line 713
-  __cil_tmp48 = (struct eni_vcc *)__cil_tmp47;
-#line 713
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 713
-  __cil_tmp50 = __cil_tmp49 + 64;
-#line 713
-  *((ktime_t *)__cil_tmp50) = ktime_get_real();
+  __cil_tmp28->timestamp = ktime_get_real();
 #line 714
-  __cil_tmp51 = (unsigned long )vcc;
+  __cil_tmp29 = vcc->dev_data;
 #line 714
-  __cil_tmp52 = __cil_tmp51 + 1480;
+  __cil_tmp30 = (struct eni_vcc *)__cil_tmp29;
 #line 714
-  __cil_tmp53 = *((void **)__cil_tmp52);
-#line 714
-  __cil_tmp54 = (struct eni_vcc *)__cil_tmp53;
-#line 714
-  __cil_tmp55 = (unsigned long )__cil_tmp54;
-#line 714
-  __cil_tmp56 = __cil_tmp55 + 72;
-#line 714
-  *((struct atm_vcc **)__cil_tmp56) = (struct atm_vcc *)0;
+  __cil_tmp30->next = (struct atm_vcc *)0;
   }
   {
 #line 715
-  __cil_tmp57 = 1312 + 44;
+  __cil_tmp31 = vcc->qos.rxtp.traffic_class;
 #line 715
-  __cil_tmp58 = (unsigned long )vcc;
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 715
-  __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 715
-  __cil_tmp60 = *((unsigned char *)__cil_tmp59);
-#line 715
-  __cil_tmp61 = (unsigned int )__cil_tmp60;
-#line 715
-  if (__cil_tmp61 == 2U) {
+  if (__cil_tmp32 == 2U) {
     {
 #line 716
-    __cil_tmp62 = (struct atm_vcc *)0;
+    __cil_tmp33 = (struct atm_vcc *)0;
 #line 716
-    __cil_tmp63 = (unsigned long )__cil_tmp62;
+    __cil_tmp34 = (unsigned long )__cil_tmp33;
 #line 716
-    __cil_tmp64 = (unsigned long )eni_dev;
+    __cil_tmp35 = eni_dev->fast;
 #line 716
-    __cil_tmp65 = __cil_tmp64 + 2336;
+    __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 716
-    __cil_tmp66 = *((struct atm_vcc **)__cil_tmp65);
-#line 716
-    __cil_tmp67 = (unsigned long )__cil_tmp66;
-#line 716
-    if (__cil_tmp67 != __cil_tmp63) {
+    if (__cil_tmp36 != __cil_tmp34) {
 #line 717
-      __cil_tmp68 = (unsigned long )eni_dev;
+      __cil_tmp37 = eni_dev->last_fast;
 #line 717
-      __cil_tmp69 = __cil_tmp68 + 2344;
+      __cil_tmp38 = __cil_tmp37->dev_data;
 #line 717
-      __cil_tmp70 = *((struct atm_vcc **)__cil_tmp69);
+      __cil_tmp39 = (struct eni_vcc *)__cil_tmp38;
 #line 717
-      __cil_tmp71 = (unsigned long )__cil_tmp70;
-#line 717
-      __cil_tmp72 = __cil_tmp71 + 1480;
-#line 717
-      __cil_tmp73 = *((void **)__cil_tmp72);
-#line 717
-      __cil_tmp74 = (struct eni_vcc *)__cil_tmp73;
-#line 717
-      __cil_tmp75 = (unsigned long )__cil_tmp74;
-#line 717
-      __cil_tmp76 = __cil_tmp75 + 72;
-#line 717
-      *((struct atm_vcc **)__cil_tmp76) = vcc;
+      __cil_tmp39->next = vcc;
     } else {
 #line 718
-      __cil_tmp77 = (unsigned long )eni_dev;
-#line 718
-      __cil_tmp78 = __cil_tmp77 + 2336;
-#line 718
-      *((struct atm_vcc **)__cil_tmp78) = vcc;
+      eni_dev->fast = vcc;
     }
     }
 #line 719
-    __cil_tmp79 = (unsigned long )eni_dev;
-#line 719
-    __cil_tmp80 = __cil_tmp79 + 2344;
-#line 719
-    *((struct atm_vcc **)__cil_tmp80) = vcc;
+    eni_dev->last_fast = vcc;
   } else {
     {
 #line 722
-    __cil_tmp81 = (struct atm_vcc *)0;
+    __cil_tmp40 = (struct atm_vcc *)0;
 #line 722
-    __cil_tmp82 = (unsigned long )__cil_tmp81;
+    __cil_tmp41 = (unsigned long )__cil_tmp40;
 #line 722
-    __cil_tmp83 = (unsigned long )eni_dev;
+    __cil_tmp42 = eni_dev->slow;
 #line 722
-    __cil_tmp84 = __cil_tmp83 + 2352;
+    __cil_tmp43 = (unsigned long )__cil_tmp42;
 #line 722
-    __cil_tmp85 = *((struct atm_vcc **)__cil_tmp84);
-#line 722
-    __cil_tmp86 = (unsigned long )__cil_tmp85;
-#line 722
-    if (__cil_tmp86 != __cil_tmp82) {
+    if (__cil_tmp43 != __cil_tmp41) {
 #line 723
-      __cil_tmp87 = (unsigned long )eni_dev;
+      __cil_tmp44 = eni_dev->last_slow;
 #line 723
-      __cil_tmp88 = __cil_tmp87 + 2360;
+      __cil_tmp45 = __cil_tmp44->dev_data;
 #line 723
-      __cil_tmp89 = *((struct atm_vcc **)__cil_tmp88);
+      __cil_tmp46 = (struct eni_vcc *)__cil_tmp45;
 #line 723
-      __cil_tmp90 = (unsigned long )__cil_tmp89;
-#line 723
-      __cil_tmp91 = __cil_tmp90 + 1480;
-#line 723
-      __cil_tmp92 = *((void **)__cil_tmp91);
-#line 723
-      __cil_tmp93 = (struct eni_vcc *)__cil_tmp92;
-#line 723
-      __cil_tmp94 = (unsigned long )__cil_tmp93;
-#line 723
-      __cil_tmp95 = __cil_tmp94 + 72;
-#line 723
-      *((struct atm_vcc **)__cil_tmp95) = vcc;
+      __cil_tmp46->next = vcc;
     } else {
 #line 724
-      __cil_tmp96 = (unsigned long )eni_dev;
-#line 724
-      __cil_tmp97 = __cil_tmp96 + 2352;
-#line 724
-      *((struct atm_vcc **)__cil_tmp97) = vcc;
+      eni_dev->slow = vcc;
     }
     }
 #line 725
-    __cil_tmp98 = (unsigned long )eni_dev;
-#line 725
-    __cil_tmp99 = __cil_tmp98 + 2360;
-#line 725
-    *((struct atm_vcc **)__cil_tmp99) = vcc;
+    eni_dev->last_slow = vcc;
   }
   }
 #line 727
   putting = putting + 1;
 #line 728
-  __cil_tmp100 = (unsigned long )vcc;
+  __cil_tmp47 = vcc->dev_data;
 #line 728
-  __cil_tmp101 = __cil_tmp100 + 1480;
+  __cil_tmp48 = (struct eni_vcc *)__cil_tmp47;
 #line 728
-  __cil_tmp102 = *((void **)__cil_tmp101);
+  __cil_tmp49 = vcc->dev_data;
 #line 728
-  __cil_tmp103 = (struct eni_vcc *)__cil_tmp102;
+  __cil_tmp50 = (struct eni_vcc *)__cil_tmp49;
 #line 728
-  __cil_tmp104 = (unsigned long )__cil_tmp103;
+  __cil_tmp51 = __cil_tmp50->servicing;
 #line 728
-  __cil_tmp105 = __cil_tmp104 + 52;
-#line 728
-  __cil_tmp106 = (unsigned long )vcc;
-#line 728
-  __cil_tmp107 = __cil_tmp106 + 1480;
-#line 728
-  __cil_tmp108 = *((void **)__cil_tmp107);
-#line 728
-  __cil_tmp109 = (struct eni_vcc *)__cil_tmp108;
-#line 728
-  __cil_tmp110 = (unsigned long )__cil_tmp109;
-#line 728
-  __cil_tmp111 = __cil_tmp110 + 52;
-#line 728
-  __cil_tmp112 = *((int *)__cil_tmp111);
-#line 728
-  *((int *)__cil_tmp105) = __cil_tmp112 + 1;
+  __cil_tmp48->servicing = __cil_tmp51 + 1;
   ldv_40225: 
   {
 #line 697
-  __cil_tmp113 = (unsigned long )eni_dev;
+  __cil_tmp52 = eni_dev->reg;
 #line 697
-  __cil_tmp114 = __cil_tmp113 + 128;
+  __cil_tmp53 = (void const volatile   *)__cil_tmp52;
 #line 697
-  __cil_tmp115 = *((void **)__cil_tmp114);
+  __cil_tmp54 = __cil_tmp53 + 24U;
 #line 697
-  __cil_tmp116 = (void const volatile   *)__cil_tmp115;
-#line 697
-  __cil_tmp117 = __cil_tmp116 + 24U;
-#line 697
-  tmp___0 = readl(__cil_tmp117);
+  tmp___0 = readl(__cil_tmp54);
   }
   {
 #line 697
-  __cil_tmp118 = (unsigned long )eni_dev;
+  __cil_tmp55 = eni_dev->serv_read;
 #line 697
-  __cil_tmp119 = __cil_tmp118 + 2328;
-#line 697
-  __cil_tmp120 = *((u32 *)__cil_tmp119);
-#line 697
-  if (tmp___0 != __cil_tmp120) {
+  if (tmp___0 != __cil_tmp55) {
+#line 698
     goto ldv_40226;
   } else {
+#line 700
     goto ldv_40227;
   }
   }
@@ -13202,227 +11561,126 @@ static void dequeue_rx(struct atm_dev *dev )
   int tmp___4 ;
   int tmp___5 ;
   __u32 tmp___6 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  void *__cil_tmp18 ;
+  void *__cil_tmp16 ;
+  struct sk_buff_head *__cil_tmp17 ;
+  struct sk_buff *__cil_tmp18 ;
   unsigned long __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  struct sk_buff_head *__cil_tmp21 ;
-  struct sk_buff *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  char (*__cil_tmp21)[48U] ;
+  struct eni_skb_prv *__cil_tmp22 ;
+  int __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  char (*__cil_tmp27)[48U] ;
-  struct eni_skb_prv *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  char (*__cil_tmp25)[48U] ;
+  struct eni_skb_prv *__cil_tmp26 ;
+  unsigned long __cil_tmp27 ;
+  char (*__cil_tmp28)[48U] ;
+  struct atm_skb_data *__cil_tmp29 ;
+  void *__cil_tmp30 ;
   int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  int __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  char (*__cil_tmp35)[48U] ;
-  struct eni_skb_prv *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  void *__cil_tmp34 ;
+  unsigned long __cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  char (*__cil_tmp37)[48U] ;
+  struct eni_skb_prv *__cil_tmp38 ;
+  int __cil_tmp39 ;
   unsigned long __cil_tmp40 ;
   unsigned long __cil_tmp41 ;
-  char (*__cil_tmp42)[48U] ;
-  struct atm_skb_data *__cil_tmp43 ;
+  unsigned long __cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
   unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  void *__cil_tmp46 ;
+  void const volatile   *__cil_tmp45 ;
+  void const volatile   *__cil_tmp46 ;
   unsigned long __cil_tmp47 ;
   unsigned long __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  unsigned long __cil_tmp49 ;
+  void const volatile   *__cil_tmp50 ;
+  void const volatile   *__cil_tmp51 ;
   unsigned long __cil_tmp52 ;
   unsigned long __cil_tmp53 ;
-  void *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
+  char (*__cil_tmp54)[48U] ;
+  struct eni_skb_prv *__cil_tmp55 ;
+  int __cil_tmp56 ;
   unsigned long __cil_tmp57 ;
   unsigned long __cil_tmp58 ;
   unsigned long __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
-  char (*__cil_tmp61)[48U] ;
-  struct eni_skb_prv *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  int __cil_tmp65 ;
+  unsigned long __cil_tmp61 ;
+  unsigned long __cil_tmp62 ;
+  void const volatile   *__cil_tmp63 ;
+  void const volatile   *__cil_tmp64 ;
+  unsigned long __cil_tmp65 ;
   unsigned long __cil_tmp66 ;
   unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
+  void const volatile   *__cil_tmp68 ;
+  void const volatile   *__cil_tmp69 ;
   unsigned long __cil_tmp70 ;
   unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  void const volatile   *__cil_tmp75 ;
-  void const volatile   *__cil_tmp76 ;
+  char (*__cil_tmp72)[48U] ;
+  struct eni_skb_prv *__cil_tmp73 ;
+  int __cil_tmp74 ;
+  unsigned long __cil_tmp75 ;
+  unsigned long __cil_tmp76 ;
   unsigned long __cil_tmp77 ;
   unsigned long __cil_tmp78 ;
   unsigned long __cil_tmp79 ;
   unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  void const volatile   *__cil_tmp82 ;
-  void const volatile   *__cil_tmp83 ;
+  struct sk_buff_head *__cil_tmp81 ;
+  int __cil_tmp82 ;
+  unsigned long __cil_tmp83 ;
   unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
+  char (*__cil_tmp85)[48U] ;
+  struct eni_skb_prv *__cil_tmp86 ;
   unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  char (*__cil_tmp90)[48U] ;
-  struct eni_skb_prv *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
+  struct pci_dev *__cil_tmp88 ;
+  char (*__cil_tmp89)[48U] ;
+  struct eni_skb_prv *__cil_tmp90 ;
+  dma_addr_t __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
+  size_t __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  unsigned int __cil_tmp95 ;
   unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
+  unsigned char __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned char *__cil_tmp99 ;
+  unsigned long *__cil_tmp100 ;
   unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  void const volatile   *__cil_tmp103 ;
-  void const volatile   *__cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  void const volatile   *__cil_tmp110 ;
-  void const volatile   *__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  char (*__cil_tmp118)[48U] ;
-  struct eni_skb_prv *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  int __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  struct sk_buff_head *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  int __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  char (*__cil_tmp147)[48U] ;
-  struct eni_skb_prv *__cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  struct pci_dev *__cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  char (*__cil_tmp157)[48U] ;
-  struct eni_skb_prv *__cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  dma_addr_t __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned int __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned int __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned int __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned char __cil_tmp176 ;
-  unsigned int __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned char *__cil_tmp180 ;
-  unsigned long *__cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned int __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned char *__cil_tmp186 ;
-  unsigned long *__cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  char (*__cil_tmp190)[48U] ;
-  void *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  void (*__cil_tmp194)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  struct k_atm_aal_stats *__cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  atomic_t *__cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  wait_queue_head_t *__cil_tmp203 ;
-  void *__cil_tmp204 ;
+  unsigned int __cil_tmp102 ;
+  unsigned char *__cil_tmp103 ;
+  unsigned long *__cil_tmp104 ;
+  char (*__cil_tmp105)[48U] ;
+  void *__cil_tmp106 ;
+  void (*__cil_tmp107)(struct atm_vcc * , struct sk_buff * ) ;
+  struct k_atm_aal_stats *__cil_tmp108 ;
+  atomic_t *__cil_tmp109 ;
+  wait_queue_head_t *__cil_tmp110 ;
+  void *__cil_tmp111 ;
 
   {
 #line 742
-  __cil_tmp16 = (unsigned long )dev;
+  __cil_tmp16 = dev->dev_data;
 #line 742
-  __cil_tmp17 = __cil_tmp16 + 32;
-#line 742
-  __cil_tmp18 = *((void **)__cil_tmp17);
-#line 742
-  eni_dev = (struct eni_dev *)__cil_tmp18;
+  eni_dev = (struct eni_dev *)__cil_tmp16;
 #line 743
   first = 1;
   ldv_40238: 
   {
 #line 745
-  __cil_tmp19 = (unsigned long )eni_dev;
+  __cil_tmp17 = & eni_dev->rx_queue;
 #line 745
-  __cil_tmp20 = __cil_tmp19 + 2376;
-#line 745
-  __cil_tmp21 = (struct sk_buff_head *)__cil_tmp20;
-#line 745
-  skb = skb_dequeue(__cil_tmp21);
+  skb = skb_dequeue(__cil_tmp17);
   }
   {
 #line 746
-  __cil_tmp22 = (struct sk_buff *)0;
+  __cil_tmp18 = (struct sk_buff *)0;
 #line 746
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
+  __cil_tmp19 = (unsigned long )__cil_tmp18;
 #line 746
-  __cil_tmp24 = (unsigned long )skb;
+  __cil_tmp20 = (unsigned long )skb;
 #line 746
-  if (__cil_tmp24 == __cil_tmp23) {
+  if (__cil_tmp20 == __cil_tmp19) {
 #line 747
     if (first != 0) {
       {
@@ -13432,6 +11690,7 @@ static void dequeue_rx(struct atm_dev *dev )
     } else {
 
     }
+#line 752
     goto ldv_40237;
   } else {
 
@@ -13439,191 +11698,119 @@ static void dequeue_rx(struct atm_dev *dev )
   }
   {
 #line 754
-  __cil_tmp25 = (unsigned long )skb;
+  __cil_tmp21 = & skb->cb;
 #line 754
-  __cil_tmp26 = __cil_tmp25 + 40;
+  __cil_tmp22 = (struct eni_skb_prv *)__cil_tmp21;
 #line 754
-  __cil_tmp27 = (char (*)[48U])__cil_tmp26;
+  __cil_tmp23 = __cil_tmp22->size;
 #line 754
-  __cil_tmp28 = (struct eni_skb_prv *)__cil_tmp27;
+  __cil_tmp24 = (unsigned long )__cil_tmp23;
 #line 754
-  __cil_tmp29 = (unsigned long )__cil_tmp28;
+  __cil_tmp25 = & skb->cb;
 #line 754
-  __cil_tmp30 = __cil_tmp29 + 24;
+  __cil_tmp26 = (struct eni_skb_prv *)__cil_tmp25;
 #line 754
-  __cil_tmp31 = *((int *)__cil_tmp30);
+  __cil_tmp27 = __cil_tmp26->pos;
 #line 754
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 754
-  __cil_tmp33 = (unsigned long )skb;
-#line 754
-  __cil_tmp34 = __cil_tmp33 + 40;
-#line 754
-  __cil_tmp35 = (char (*)[48U])__cil_tmp34;
-#line 754
-  __cil_tmp36 = (struct eni_skb_prv *)__cil_tmp35;
-#line 754
-  __cil_tmp37 = (unsigned long )__cil_tmp36;
-#line 754
-  __cil_tmp38 = __cil_tmp37 + 16;
-#line 754
-  __cil_tmp39 = *((unsigned long *)__cil_tmp38);
-#line 754
-  EVENT("dequeued (size=%ld,pos=0x%lx)\n", __cil_tmp32, __cil_tmp39);
+  EVENT("dequeued (size=%ld,pos=0x%lx)\n", __cil_tmp24, __cil_tmp27);
 #line 756
   rx_dequeued = rx_dequeued + 1;
 #line 757
-  __cil_tmp40 = (unsigned long )skb;
+  __cil_tmp28 = & skb->cb;
 #line 757
-  __cil_tmp41 = __cil_tmp40 + 40;
+  __cil_tmp29 = (struct atm_skb_data *)__cil_tmp28;
 #line 757
-  __cil_tmp42 = (char (*)[48U])__cil_tmp41;
-#line 757
-  __cil_tmp43 = (struct atm_skb_data *)__cil_tmp42;
-#line 757
-  vcc = *((struct atm_vcc **)__cil_tmp43);
+  vcc = __cil_tmp29->vcc;
 #line 758
-  __cil_tmp44 = (unsigned long )vcc;
+  __cil_tmp30 = vcc->dev_data;
 #line 758
-  __cil_tmp45 = __cil_tmp44 + 1480;
-#line 758
-  __cil_tmp46 = *((void **)__cil_tmp45);
-#line 758
-  eni_vcc = (struct eni_vcc *)__cil_tmp46;
+  eni_vcc = (struct eni_vcc *)__cil_tmp30;
 #line 759
   first = 0;
 #line 760
-  __cil_tmp47 = (unsigned long )vcc;
+  __cil_tmp31 = vcc->vci;
 #line 760
-  __cil_tmp48 = __cil_tmp47 + 1284;
+  __cil_tmp32 = __cil_tmp31 * 16;
 #line 760
-  __cil_tmp49 = *((int *)__cil_tmp48);
+  __cil_tmp33 = (unsigned long )__cil_tmp32;
 #line 760
-  __cil_tmp50 = __cil_tmp49 * 16;
+  __cil_tmp34 = eni_dev->vci;
 #line 760
-  __cil_tmp51 = (unsigned long )__cil_tmp50;
-#line 760
-  __cil_tmp52 = (unsigned long )eni_dev;
-#line 760
-  __cil_tmp53 = __cil_tmp52 + 144;
-#line 760
-  __cil_tmp54 = *((void **)__cil_tmp53);
-#line 760
-  vci_dsc = __cil_tmp54 + __cil_tmp51;
+  vci_dsc = __cil_tmp34 + __cil_tmp33;
   }
   {
 #line 761
-  __cil_tmp55 = (unsigned long )eni_vcc;
+  __cil_tmp35 = eni_vcc->words;
 #line 761
-  __cil_tmp56 = __cil_tmp55 + 16;
+  __cil_tmp36 = __cil_tmp35 - 1UL;
 #line 761
-  __cil_tmp57 = *((unsigned long *)__cil_tmp56);
+  __cil_tmp37 = & skb->cb;
 #line 761
-  __cil_tmp58 = __cil_tmp57 - 1UL;
+  __cil_tmp38 = (struct eni_skb_prv *)__cil_tmp37;
 #line 761
-  __cil_tmp59 = (unsigned long )skb;
+  __cil_tmp39 = __cil_tmp38->size;
 #line 761
-  __cil_tmp60 = __cil_tmp59 + 40;
+  __cil_tmp40 = (unsigned long )__cil_tmp39;
 #line 761
-  __cil_tmp61 = (char (*)[48U])__cil_tmp60;
+  __cil_tmp41 = eni_vcc->rx_pos;
 #line 761
-  __cil_tmp62 = (struct eni_skb_prv *)__cil_tmp61;
+  __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
 #line 761
-  __cil_tmp63 = (unsigned long )__cil_tmp62;
+  __cil_tmp43 = __cil_tmp42 & __cil_tmp36;
 #line 761
-  __cil_tmp64 = __cil_tmp63 + 24;
+  __cil_tmp44 = eni_vcc->rx_pos;
 #line 761
-  __cil_tmp65 = *((int *)__cil_tmp64);
-#line 761
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
-#line 761
-  __cil_tmp67 = (unsigned long )eni_vcc;
-#line 761
-  __cil_tmp68 = __cil_tmp67 + 32;
-#line 761
-  __cil_tmp69 = *((unsigned long *)__cil_tmp68);
-#line 761
-  __cil_tmp70 = __cil_tmp69 + __cil_tmp66;
-#line 761
-  __cil_tmp71 = __cil_tmp70 & __cil_tmp58;
-#line 761
-  __cil_tmp72 = (unsigned long )eni_vcc;
-#line 761
-  __cil_tmp73 = __cil_tmp72 + 32;
-#line 761
-  __cil_tmp74 = *((unsigned long *)__cil_tmp73);
-#line 761
-  if (__cil_tmp74 < __cil_tmp71) {
+  if (__cil_tmp44 < __cil_tmp43) {
     {
 #line 761
-    __cil_tmp75 = (void const volatile   *)vci_dsc;
+    __cil_tmp45 = (void const volatile   *)vci_dsc;
 #line 761
-    __cil_tmp76 = __cil_tmp75 + 4U;
+    __cil_tmp46 = __cil_tmp45 + 4U;
 #line 761
-    tmp = readl(__cil_tmp76);
+    tmp = readl(__cil_tmp46);
     }
     {
 #line 761
-    __cil_tmp77 = (unsigned long )eni_vcc;
+    __cil_tmp47 = eni_vcc->rx_pos;
 #line 761
-    __cil_tmp78 = __cil_tmp77 + 32;
+    __cil_tmp48 = (unsigned long )tmp;
 #line 761
-    __cil_tmp79 = *((unsigned long *)__cil_tmp78);
+    __cil_tmp49 = __cil_tmp48 & 32767UL;
 #line 761
-    __cil_tmp80 = (unsigned long )tmp;
-#line 761
-    __cil_tmp81 = __cil_tmp80 & 32767UL;
-#line 761
-    if (__cil_tmp81 >= __cil_tmp79) {
+    if (__cil_tmp49 >= __cil_tmp47) {
       {
 #line 761
-      __cil_tmp82 = (void const volatile   *)vci_dsc;
+      __cil_tmp50 = (void const volatile   *)vci_dsc;
 #line 761
-      __cil_tmp83 = __cil_tmp82 + 4U;
+      __cil_tmp51 = __cil_tmp50 + 4U;
 #line 761
-      tmp___0 = readl(__cil_tmp83);
+      tmp___0 = readl(__cil_tmp51);
       }
       {
 #line 761
-      __cil_tmp84 = (unsigned long )eni_vcc;
+      __cil_tmp52 = eni_vcc->words;
 #line 761
-      __cil_tmp85 = __cil_tmp84 + 16;
+      __cil_tmp53 = __cil_tmp52 - 1UL;
 #line 761
-      __cil_tmp86 = *((unsigned long *)__cil_tmp85);
+      __cil_tmp54 = & skb->cb;
 #line 761
-      __cil_tmp87 = __cil_tmp86 - 1UL;
+      __cil_tmp55 = (struct eni_skb_prv *)__cil_tmp54;
 #line 761
-      __cil_tmp88 = (unsigned long )skb;
+      __cil_tmp56 = __cil_tmp55->size;
 #line 761
-      __cil_tmp89 = __cil_tmp88 + 40;
+      __cil_tmp57 = (unsigned long )__cil_tmp56;
 #line 761
-      __cil_tmp90 = (char (*)[48U])__cil_tmp89;
+      __cil_tmp58 = eni_vcc->rx_pos;
 #line 761
-      __cil_tmp91 = (struct eni_skb_prv *)__cil_tmp90;
+      __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
 #line 761
-      __cil_tmp92 = (unsigned long )__cil_tmp91;
+      __cil_tmp60 = __cil_tmp59 & __cil_tmp53;
 #line 761
-      __cil_tmp93 = __cil_tmp92 + 24;
+      __cil_tmp61 = (unsigned long )tmp___0;
 #line 761
-      __cil_tmp94 = *((int *)__cil_tmp93);
+      __cil_tmp62 = __cil_tmp61 & 32767UL;
 #line 761
-      __cil_tmp95 = (unsigned long )__cil_tmp94;
-#line 761
-      __cil_tmp96 = (unsigned long )eni_vcc;
-#line 761
-      __cil_tmp97 = __cil_tmp96 + 32;
-#line 761
-      __cil_tmp98 = *((unsigned long *)__cil_tmp97);
-#line 761
-      __cil_tmp99 = __cil_tmp98 + __cil_tmp95;
-#line 761
-      __cil_tmp100 = __cil_tmp99 & __cil_tmp87;
-#line 761
-      __cil_tmp101 = (unsigned long )tmp___0;
-#line 761
-      __cil_tmp102 = __cil_tmp101 & 32767UL;
-#line 761
-      if (__cil_tmp102 < __cil_tmp100) {
+      if (__cil_tmp62 < __cil_tmp60) {
 #line 761
         tmp___1 = 1;
       } else {
@@ -13641,77 +11828,57 @@ static void dequeue_rx(struct atm_dev *dev )
   } else {
     {
 #line 761
-    __cil_tmp103 = (void const volatile   *)vci_dsc;
+    __cil_tmp63 = (void const volatile   *)vci_dsc;
 #line 761
-    __cil_tmp104 = __cil_tmp103 + 4U;
+    __cil_tmp64 = __cil_tmp63 + 4U;
 #line 761
-    tmp___2 = readl(__cil_tmp104);
+    tmp___2 = readl(__cil_tmp64);
     }
     {
 #line 761
-    __cil_tmp105 = (unsigned long )eni_vcc;
+    __cil_tmp65 = eni_vcc->rx_pos;
 #line 761
-    __cil_tmp106 = __cil_tmp105 + 32;
+    __cil_tmp66 = (unsigned long )tmp___2;
 #line 761
-    __cil_tmp107 = *((unsigned long *)__cil_tmp106);
+    __cil_tmp67 = __cil_tmp66 & 32767UL;
 #line 761
-    __cil_tmp108 = (unsigned long )tmp___2;
-#line 761
-    __cil_tmp109 = __cil_tmp108 & 32767UL;
-#line 761
-    if (__cil_tmp109 >= __cil_tmp107) {
+    if (__cil_tmp67 >= __cil_tmp65) {
 #line 761
       tmp___4 = 1;
     } else {
       {
 #line 761
-      __cil_tmp110 = (void const volatile   *)vci_dsc;
+      __cil_tmp68 = (void const volatile   *)vci_dsc;
 #line 761
-      __cil_tmp111 = __cil_tmp110 + 4U;
+      __cil_tmp69 = __cil_tmp68 + 4U;
 #line 761
-      tmp___3 = readl(__cil_tmp111);
+      tmp___3 = readl(__cil_tmp69);
       }
       {
 #line 761
-      __cil_tmp112 = (unsigned long )eni_vcc;
+      __cil_tmp70 = eni_vcc->words;
 #line 761
-      __cil_tmp113 = __cil_tmp112 + 16;
+      __cil_tmp71 = __cil_tmp70 - 1UL;
 #line 761
-      __cil_tmp114 = *((unsigned long *)__cil_tmp113);
+      __cil_tmp72 = & skb->cb;
 #line 761
-      __cil_tmp115 = __cil_tmp114 - 1UL;
+      __cil_tmp73 = (struct eni_skb_prv *)__cil_tmp72;
 #line 761
-      __cil_tmp116 = (unsigned long )skb;
+      __cil_tmp74 = __cil_tmp73->size;
 #line 761
-      __cil_tmp117 = __cil_tmp116 + 40;
+      __cil_tmp75 = (unsigned long )__cil_tmp74;
 #line 761
-      __cil_tmp118 = (char (*)[48U])__cil_tmp117;
+      __cil_tmp76 = eni_vcc->rx_pos;
 #line 761
-      __cil_tmp119 = (struct eni_skb_prv *)__cil_tmp118;
+      __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
 #line 761
-      __cil_tmp120 = (unsigned long )__cil_tmp119;
+      __cil_tmp78 = __cil_tmp77 & __cil_tmp71;
 #line 761
-      __cil_tmp121 = __cil_tmp120 + 24;
+      __cil_tmp79 = (unsigned long )tmp___3;
 #line 761
-      __cil_tmp122 = *((int *)__cil_tmp121);
+      __cil_tmp80 = __cil_tmp79 & 32767UL;
 #line 761
-      __cil_tmp123 = (unsigned long )__cil_tmp122;
-#line 761
-      __cil_tmp124 = (unsigned long )eni_vcc;
-#line 761
-      __cil_tmp125 = __cil_tmp124 + 32;
-#line 761
-      __cil_tmp126 = *((unsigned long *)__cil_tmp125);
-#line 761
-      __cil_tmp127 = __cil_tmp126 + __cil_tmp123;
-#line 761
-      __cil_tmp128 = __cil_tmp127 & __cil_tmp115;
-#line 761
-      __cil_tmp129 = (unsigned long )tmp___3;
-#line 761
-      __cil_tmp130 = __cil_tmp129 & 32767UL;
-#line 761
-      if (__cil_tmp130 < __cil_tmp128) {
+      if (__cil_tmp80 < __cil_tmp78) {
 #line 761
         tmp___4 = 1;
       } else {
@@ -13731,99 +11898,52 @@ static void dequeue_rx(struct atm_dev *dev )
 #line 764
     EVENT("requeuing\n", 0UL, 0UL);
 #line 765
-    __cil_tmp131 = (unsigned long )eni_dev;
+    __cil_tmp81 = & eni_dev->rx_queue;
 #line 765
-    __cil_tmp132 = __cil_tmp131 + 2376;
-#line 765
-    __cil_tmp133 = (struct sk_buff_head *)__cil_tmp132;
-#line 765
-    skb_queue_head(__cil_tmp133, skb);
+    skb_queue_head(__cil_tmp81, skb);
     }
+#line 766
     goto ldv_40237;
   } else {
 
   }
   {
 #line 768
-  __cil_tmp134 = (unsigned long )eni_vcc;
+  __cil_tmp82 = eni_vcc->rxing;
 #line 768
-  __cil_tmp135 = __cil_tmp134 + 48;
-#line 768
-  __cil_tmp136 = (unsigned long )eni_vcc;
-#line 768
-  __cil_tmp137 = __cil_tmp136 + 48;
-#line 768
-  __cil_tmp138 = *((int *)__cil_tmp137);
-#line 768
-  *((int *)__cil_tmp135) = __cil_tmp138 - 1;
+  eni_vcc->rxing = __cil_tmp82 - 1;
 #line 769
-  __cil_tmp139 = (unsigned long )eni_vcc;
+  __cil_tmp83 = eni_vcc->words;
 #line 769
-  __cil_tmp140 = __cil_tmp139 + 32;
+  __cil_tmp84 = __cil_tmp83 - 1UL;
 #line 769
-  __cil_tmp141 = (unsigned long )eni_vcc;
+  __cil_tmp85 = & skb->cb;
 #line 769
-  __cil_tmp142 = __cil_tmp141 + 16;
+  __cil_tmp86 = (struct eni_skb_prv *)__cil_tmp85;
 #line 769
-  __cil_tmp143 = *((unsigned long *)__cil_tmp142);
+  __cil_tmp87 = __cil_tmp86->pos;
 #line 769
-  __cil_tmp144 = __cil_tmp143 - 1UL;
-#line 769
-  __cil_tmp145 = (unsigned long )skb;
-#line 769
-  __cil_tmp146 = __cil_tmp145 + 40;
-#line 769
-  __cil_tmp147 = (char (*)[48U])__cil_tmp146;
-#line 769
-  __cil_tmp148 = (struct eni_skb_prv *)__cil_tmp147;
-#line 769
-  __cil_tmp149 = (unsigned long )__cil_tmp148;
-#line 769
-  __cil_tmp150 = __cil_tmp149 + 16;
-#line 769
-  __cil_tmp151 = *((unsigned long *)__cil_tmp150);
-#line 769
-  *((unsigned long *)__cil_tmp140) = __cil_tmp151 & __cil_tmp144;
+  eni_vcc->rx_pos = __cil_tmp87 & __cil_tmp84;
 #line 770
-  __cil_tmp152 = (unsigned long )eni_dev;
+  __cil_tmp88 = eni_dev->pci_dev;
 #line 770
-  __cil_tmp153 = __cil_tmp152 + 2632;
+  __cil_tmp89 = & skb->cb;
 #line 770
-  __cil_tmp154 = *((struct pci_dev **)__cil_tmp153);
+  __cil_tmp90 = (struct eni_skb_prv *)__cil_tmp89;
 #line 770
-  __cil_tmp155 = (unsigned long )skb;
+  __cil_tmp91 = __cil_tmp90->paddr;
 #line 770
-  __cil_tmp156 = __cil_tmp155 + 40;
+  __cil_tmp92 = skb->len;
 #line 770
-  __cil_tmp157 = (char (*)[48U])__cil_tmp156;
+  __cil_tmp93 = (size_t )__cil_tmp92;
 #line 770
-  __cil_tmp158 = (struct eni_skb_prv *)__cil_tmp157;
-#line 770
-  __cil_tmp159 = (unsigned long )__cil_tmp158;
-#line 770
-  __cil_tmp160 = __cil_tmp159 + 32;
-#line 770
-  __cil_tmp161 = *((dma_addr_t *)__cil_tmp160);
-#line 770
-  __cil_tmp162 = (unsigned long )skb;
-#line 770
-  __cil_tmp163 = __cil_tmp162 + 104;
-#line 770
-  __cil_tmp164 = *((unsigned int *)__cil_tmp163);
-#line 770
-  __cil_tmp165 = (unsigned long )__cil_tmp164;
-#line 770
-  pci_unmap_single(__cil_tmp154, __cil_tmp161, __cil_tmp165, 1);
+  pci_unmap_single(__cil_tmp88, __cil_tmp91, __cil_tmp93, 1);
   }
   {
 #line 772
-  __cil_tmp166 = (unsigned long )skb;
+  __cil_tmp94 = skb->len;
 #line 772
-  __cil_tmp167 = __cil_tmp166 + 104;
-#line 772
-  __cil_tmp168 = *((unsigned int *)__cil_tmp167);
-#line 772
-  if (__cil_tmp168 == 0U) {
+  if (__cil_tmp94 == 0U) {
     {
 #line 772
     dev_kfree_skb_irq(skb);
@@ -13831,54 +11951,36 @@ static void dequeue_rx(struct atm_dev *dev )
   } else {
     {
 #line 774
-    __cil_tmp169 = (unsigned long )skb;
+    __cil_tmp95 = skb->len;
 #line 774
-    __cil_tmp170 = __cil_tmp169 + 104;
+    __cil_tmp96 = (unsigned long )__cil_tmp95;
 #line 774
-    __cil_tmp171 = *((unsigned int *)__cil_tmp170);
-#line 774
-    __cil_tmp172 = (unsigned long )__cil_tmp171;
-#line 774
-    EVENT("pushing (len=%ld)\n", __cil_tmp172, 0UL);
+    EVENT("pushing (len=%ld)\n", __cil_tmp96, 0UL);
     }
     {
 #line 775
-    __cil_tmp173 = 1312 + 88;
+    __cil_tmp97 = vcc->qos.aal;
 #line 775
-    __cil_tmp174 = (unsigned long )vcc;
+    __cil_tmp98 = (unsigned int )__cil_tmp97;
 #line 775
-    __cil_tmp175 = __cil_tmp174 + __cil_tmp173;
-#line 775
-    __cil_tmp176 = *((unsigned char *)__cil_tmp175);
-#line 775
-    __cil_tmp177 = (unsigned int )__cil_tmp176;
-#line 775
-    if (__cil_tmp177 == 13U) {
+    if (__cil_tmp98 == 13U) {
       {
 #line 776
-      __cil_tmp178 = (unsigned long )skb;
+      __cil_tmp99 = skb->data;
 #line 776
-      __cil_tmp179 = __cil_tmp178 + 224;
+      __cil_tmp100 = (unsigned long *)__cil_tmp99;
 #line 776
-      __cil_tmp180 = *((unsigned char **)__cil_tmp179);
+      __cil_tmp101 = *__cil_tmp100;
 #line 776
-      __cil_tmp181 = (unsigned long *)__cil_tmp180;
+      __cil_tmp102 = (unsigned int )__cil_tmp101;
 #line 776
-      __cil_tmp182 = *__cil_tmp181;
+      tmp___6 = __fswab32(__cil_tmp102);
 #line 776
-      __cil_tmp183 = (unsigned int )__cil_tmp182;
+      __cil_tmp103 = skb->data;
 #line 776
-      tmp___6 = __fswab32(__cil_tmp183);
+      __cil_tmp104 = (unsigned long *)__cil_tmp103;
 #line 776
-      __cil_tmp184 = (unsigned long )skb;
-#line 776
-      __cil_tmp185 = __cil_tmp184 + 224;
-#line 776
-      __cil_tmp186 = *((unsigned char **)__cil_tmp185);
-#line 776
-      __cil_tmp187 = (unsigned long *)__cil_tmp186;
-#line 776
-      *__cil_tmp187 = (unsigned long )tmp___6;
+      *__cil_tmp104 = (unsigned long )tmp___6;
       }
     } else {
 
@@ -13886,23 +11988,15 @@ static void dequeue_rx(struct atm_dev *dev )
     }
     {
 #line 778
-    __cil_tmp188 = (unsigned long )skb;
+    __cil_tmp105 = & skb->cb;
 #line 778
-    __cil_tmp189 = __cil_tmp188 + 40;
+    __cil_tmp106 = (void *)__cil_tmp105;
 #line 778
-    __cil_tmp190 = (char (*)[48U])__cil_tmp189;
-#line 778
-    __cil_tmp191 = (void *)__cil_tmp190;
-#line 778
-    memset(__cil_tmp191, 0, 40UL);
+    memset(__cil_tmp106, 0, 40UL);
 #line 779
-    __cil_tmp192 = (unsigned long )vcc;
+    __cil_tmp107 = vcc->push;
 #line 779
-    __cil_tmp193 = __cil_tmp192 + 1448;
-#line 779
-    __cil_tmp194 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp193);
-#line 779
-    (*__cil_tmp194)(vcc, skb);
+    (*__cil_tmp107)(vcc, skb);
 #line 780
     pushed = pushed + 1;
     }
@@ -13910,33 +12004,22 @@ static void dequeue_rx(struct atm_dev *dev )
   }
   {
 #line 782
-  __cil_tmp195 = (unsigned long )vcc;
+  __cil_tmp108 = vcc->stats;
 #line 782
-  __cil_tmp196 = __cil_tmp195 + 1496;
+  __cil_tmp109 = & __cil_tmp108->rx;
 #line 782
-  __cil_tmp197 = *((struct k_atm_aal_stats **)__cil_tmp196);
-#line 782
-  __cil_tmp198 = (unsigned long )__cil_tmp197;
-#line 782
-  __cil_tmp199 = __cil_tmp198 + 8;
-#line 782
-  __cil_tmp200 = (atomic_t *)__cil_tmp199;
-#line 782
-  atomic_inc(__cil_tmp200);
+  atomic_inc(__cil_tmp109);
   }
+#line 783
   goto ldv_40238;
   ldv_40237: 
   {
 #line 784
-  __cil_tmp201 = (unsigned long )eni_dev;
+  __cil_tmp110 = & eni_dev->rx_wait;
 #line 784
-  __cil_tmp202 = __cil_tmp201 + 2472;
+  __cil_tmp111 = (void *)0;
 #line 784
-  __cil_tmp203 = (wait_queue_head_t *)__cil_tmp202;
-#line 784
-  __cil_tmp204 = (void *)0;
-#line 784
-  __wake_up(__cil_tmp203, 3U, 1, __cil_tmp204);
+  __wake_up(__cil_tmp110, 3U, 1, __cil_tmp111);
   }
 #line 785
   return;
@@ -13947,105 +12030,43 @@ static int open_rx_first(struct atm_vcc *vcc )
 { struct eni_dev *eni_dev ;
   struct eni_vcc *eni_vcc ;
   unsigned long size ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct atm_dev *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  void *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  struct atm_dev *__cil_tmp5 ;
+  void *__cil_tmp6 ;
+  void *__cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  void *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  void *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  void *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
+  void *__cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  unsigned char __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
 
   {
 #line 795
-  __cil_tmp5 = (unsigned long )vcc;
+  __cil_tmp5 = vcc->dev;
 #line 795
-  __cil_tmp6 = __cil_tmp5 + 1304;
+  __cil_tmp6 = __cil_tmp5->dev_data;
 #line 795
-  __cil_tmp7 = *((struct atm_dev **)__cil_tmp6);
-#line 795
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 795
-  __cil_tmp9 = __cil_tmp8 + 32;
-#line 795
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 795
-  eni_dev = (struct eni_dev *)__cil_tmp10;
+  eni_dev = (struct eni_dev *)__cil_tmp6;
 #line 796
-  __cil_tmp11 = (unsigned long )vcc;
+  __cil_tmp7 = vcc->dev_data;
 #line 796
-  __cil_tmp12 = __cil_tmp11 + 1480;
-#line 796
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 796
-  eni_vcc = (struct eni_vcc *)__cil_tmp13;
+  eni_vcc = (struct eni_vcc *)__cil_tmp7;
 #line 797
-  *((int (**)(struct atm_vcc * ))eni_vcc) = (int (*)(struct atm_vcc * ))0;
+  eni_vcc->rx = (int (*)(struct atm_vcc * ))0;
   {
 #line 798
-  __cil_tmp14 = 1312 + 44;
+  __cil_tmp8 = vcc->qos.rxtp.traffic_class;
 #line 798
-  __cil_tmp15 = (unsigned long )vcc;
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 798
-  __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 798
-  __cil_tmp17 = *((unsigned char *)__cil_tmp16);
-#line 798
-  __cil_tmp18 = (unsigned int )__cil_tmp17;
-#line 798
-  if (__cil_tmp18 == 0U) {
+  if (__cil_tmp9 == 0U) {
 #line 798
     return (0);
   } else {
@@ -14053,53 +12074,24 @@ static int open_rx_first(struct atm_vcc *vcc )
   }
   }
 #line 799
-  __cil_tmp19 = & size;
+  __cil_tmp10 = eni_dev->rx_mult;
 #line 799
-  __cil_tmp20 = (unsigned long )eni_dev;
+  __cil_tmp11 = vcc->qos.rxtp.max_sdu;
 #line 799
-  __cil_tmp21 = __cil_tmp20 + 2560;
+  __cil_tmp12 = __cil_tmp11 * __cil_tmp10;
 #line 799
-  __cil_tmp22 = *((int *)__cil_tmp21);
+  __cil_tmp13 = __cil_tmp12 / 100;
 #line 799
-  __cil_tmp23 = 44 + 20;
-#line 799
-  __cil_tmp24 = 1312 + __cil_tmp23;
-#line 799
-  __cil_tmp25 = (unsigned long )vcc;
-#line 799
-  __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
-#line 799
-  __cil_tmp27 = *((int *)__cil_tmp26);
-#line 799
-  __cil_tmp28 = __cil_tmp27 * __cil_tmp22;
-#line 799
-  __cil_tmp29 = __cil_tmp28 / 100;
-#line 799
-  *__cil_tmp19 = (unsigned long )__cil_tmp29;
-  {
+  size = (unsigned long )__cil_tmp13;
 #line 800
-  __cil_tmp30 = & size;
-#line 800
-  __cil_tmp31 = *__cil_tmp30;
-#line 800
-  if (__cil_tmp31 > 131072UL) {
+  if (size > 131072UL) {
     {
 #line 800
-    __cil_tmp32 = 44 + 20;
+    __cil_tmp14 = vcc->qos.rxtp.max_sdu;
 #line 800
-    __cil_tmp33 = 1312 + __cil_tmp32;
-#line 800
-    __cil_tmp34 = (unsigned long )vcc;
-#line 800
-    __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 800
-    __cil_tmp36 = *((int *)__cil_tmp35);
-#line 800
-    if (__cil_tmp36 <= 131072) {
+    if (__cil_tmp14 <= 131072) {
 #line 802
-      __cil_tmp37 = & size;
-#line 802
-      *__cil_tmp37 = 131072UL;
+      size = 131072UL;
     } else {
 
     }
@@ -14107,40 +12099,23 @@ static int open_rx_first(struct atm_vcc *vcc )
   } else {
 
   }
-  }
   {
 #line 803
-  __cil_tmp38 = (unsigned long )eni_vcc;
-#line 803
-  __cil_tmp39 = __cil_tmp38 + 8;
-#line 803
-  *((void **)__cil_tmp39) = eni_alloc_mem(eni_dev, & size);
+  eni_vcc->recv = eni_alloc_mem(eni_dev, & size);
 #line 805
-  __cil_tmp40 = (unsigned long )eni_vcc;
-#line 805
-  __cil_tmp41 = __cil_tmp40 + 16;
-#line 805
-  __cil_tmp42 = & size;
-#line 805
-  __cil_tmp43 = *__cil_tmp42;
-#line 805
-  *((unsigned long *)__cil_tmp41) = __cil_tmp43 >> 2;
+  eni_vcc->words = size >> 2;
   }
   {
 #line 806
-  __cil_tmp44 = (void *)0;
+  __cil_tmp15 = (void *)0;
 #line 806
-  __cil_tmp45 = (unsigned long )__cil_tmp44;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 806
-  __cil_tmp46 = (unsigned long )eni_vcc;
+  __cil_tmp17 = eni_vcc->recv;
 #line 806
-  __cil_tmp47 = __cil_tmp46 + 8;
+  __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 806
-  __cil_tmp48 = *((void **)__cil_tmp47);
-#line 806
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 806
-  if (__cil_tmp49 == __cil_tmp45) {
+  if (__cil_tmp18 == __cil_tmp16) {
 #line 806
     return (-105);
   } else {
@@ -14149,54 +12124,28 @@ static int open_rx_first(struct atm_vcc *vcc )
   }
   {
 #line 807
-  __cil_tmp50 = 1312 + 88;
+  __cil_tmp19 = vcc->qos.aal;
 #line 807
-  __cil_tmp51 = (unsigned long )vcc;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 807
-  __cil_tmp52 = __cil_tmp51 + __cil_tmp50;
+  if (__cil_tmp20 == 5U) {
 #line 807
-  __cil_tmp53 = *((unsigned char *)__cil_tmp52);
-#line 807
-  __cil_tmp54 = (unsigned int )__cil_tmp53;
-#line 807
-  if (__cil_tmp54 == 5U) {
-#line 807
-    *((int (**)(struct atm_vcc * ))eni_vcc) = & rx_aal5;
+    eni_vcc->rx = & rx_aal5;
   } else {
 #line 807
-    *((int (**)(struct atm_vcc * ))eni_vcc) = & rx_aal0;
+    eni_vcc->rx = & rx_aal0;
   }
   }
 #line 808
-  __cil_tmp55 = (unsigned long )eni_vcc;
-#line 808
-  __cil_tmp56 = __cil_tmp55 + 24;
-#line 808
-  *((unsigned long *)__cil_tmp56) = 0UL;
+  eni_vcc->descr = 0UL;
 #line 809
-  __cil_tmp57 = (unsigned long )eni_vcc;
-#line 809
-  __cil_tmp58 = __cil_tmp57 + 32;
-#line 809
-  *((unsigned long *)__cil_tmp58) = 0UL;
+  eni_vcc->rx_pos = 0UL;
 #line 810
-  __cil_tmp59 = (unsigned long )eni_vcc;
-#line 810
-  __cil_tmp60 = __cil_tmp59 + 48;
-#line 810
-  *((int *)__cil_tmp60) = 0;
+  eni_vcc->rxing = 0;
 #line 811
-  __cil_tmp61 = (unsigned long )eni_vcc;
-#line 811
-  __cil_tmp62 = __cil_tmp61 + 52;
-#line 811
-  *((int *)__cil_tmp62) = 0;
+  eni_vcc->servicing = 0;
 #line 812
-  __cil_tmp63 = (unsigned long )eni_vcc;
-#line 812
-  __cil_tmp64 = __cil_tmp63 + 72;
-#line 812
-  *((struct atm_vcc **)__cil_tmp64) = (struct atm_vcc *)1;
+  eni_vcc->next = (struct atm_vcc *)1;
 #line 813
   return (0);
 }
@@ -14209,120 +12158,75 @@ static int open_rx_second(struct atm_vcc *vcc )
   unsigned long size ;
   int order ;
   int tmp ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct atm_dev *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  struct atm_dev *__cil_tmp8 ;
+  void *__cil_tmp9 ;
+  void *__cil_tmp10 ;
+  int (*__cil_tmp11)(struct atm_vcc * ) ;
   unsigned long __cil_tmp12 ;
-  void *__cil_tmp13 ;
+  int (*__cil_tmp13)(struct atm_vcc * ) ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  void *__cil_tmp16 ;
-  int (*__cil_tmp17)(struct atm_vcc * ) ;
-  unsigned long __cil_tmp18 ;
-  int (*__cil_tmp19)(struct atm_vcc * ) ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  unsigned long __cil_tmp17 ;
+  void *__cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
+  void volatile   *__cil_tmp20 ;
+  void volatile   *__cil_tmp21 ;
+  void volatile   *__cil_tmp22 ;
+  void volatile   *__cil_tmp23 ;
+  struct atm_vcc *__cil_tmp24 ;
   unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  int __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  void *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  struct atm_vcc **__cil_tmp28 ;
+  struct atm_vcc **__cil_tmp29 ;
+  struct atm_vcc *__cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  void volatile   *__cil_tmp32 ;
-  void volatile   *__cil_tmp33 ;
-  void volatile   *__cil_tmp34 ;
-  void volatile   *__cil_tmp35 ;
-  struct atm_vcc *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct atm_vcc **__cil_tmp44 ;
-  struct atm_vcc **__cil_tmp45 ;
-  struct atm_vcc *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct atm_dev *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  int __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct atm_vcc **__cil_tmp63 ;
-  struct atm_vcc **__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned char __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  void *__cil_tmp73 ;
-  long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  void *__cil_tmp77 ;
-  long __cil_tmp78 ;
-  long __cil_tmp79 ;
-  long __cil_tmp80 ;
-  long __cil_tmp81 ;
-  int __cil_tmp82 ;
-  int __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  void volatile   *__cil_tmp86 ;
+  struct atm_dev *__cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  struct atm_vcc **__cil_tmp37 ;
+  struct atm_vcc **__cil_tmp38 ;
+  unsigned char __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  void *__cil_tmp42 ;
+  long __cil_tmp43 ;
+  void *__cil_tmp44 ;
+  long __cil_tmp45 ;
+  long __cil_tmp46 ;
+  long __cil_tmp47 ;
+  long __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  void volatile   *__cil_tmp53 ;
 
   {
 #line 826
-  __cil_tmp8 = (unsigned long )vcc;
+  __cil_tmp8 = vcc->dev;
 #line 826
-  __cil_tmp9 = __cil_tmp8 + 1304;
+  __cil_tmp9 = __cil_tmp8->dev_data;
 #line 826
-  __cil_tmp10 = *((struct atm_dev **)__cil_tmp9);
-#line 826
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 826
-  __cil_tmp12 = __cil_tmp11 + 32;
-#line 826
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 826
-  eni_dev = (struct eni_dev *)__cil_tmp13;
+  eni_dev = (struct eni_dev *)__cil_tmp9;
 #line 827
-  __cil_tmp14 = (unsigned long )vcc;
+  __cil_tmp10 = vcc->dev_data;
 #line 827
-  __cil_tmp15 = __cil_tmp14 + 1480;
-#line 827
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 827
-  eni_vcc = (struct eni_vcc *)__cil_tmp16;
+  eni_vcc = (struct eni_vcc *)__cil_tmp10;
   {
 #line 828
-  __cil_tmp17 = (int (*)(struct atm_vcc * ))0;
+  __cil_tmp11 = (int (*)(struct atm_vcc * ))0;
 #line 828
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 828
-  __cil_tmp19 = *((int (**)(struct atm_vcc * ))eni_vcc);
+  __cil_tmp13 = eni_vcc->rx;
 #line 828
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 828
-  if (__cil_tmp20 == __cil_tmp18) {
+  if (__cil_tmp14 == __cil_tmp12) {
 #line 828
     return (0);
   } else {
@@ -14330,33 +12234,22 @@ static int open_rx_second(struct atm_vcc *vcc )
   }
   }
 #line 830
-  __cil_tmp21 = (unsigned long )vcc;
+  __cil_tmp15 = vcc->vci;
 #line 830
-  __cil_tmp22 = __cil_tmp21 + 1284;
+  __cil_tmp16 = __cil_tmp15 * 16;
 #line 830
-  __cil_tmp23 = *((int *)__cil_tmp22);
+  __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 830
-  __cil_tmp24 = __cil_tmp23 * 16;
+  __cil_tmp18 = eni_dev->vci;
 #line 830
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 830
-  __cil_tmp26 = (unsigned long )eni_dev;
-#line 830
-  __cil_tmp27 = __cil_tmp26 + 144;
-#line 830
-  __cil_tmp28 = *((void **)__cil_tmp27);
-#line 830
-  here = __cil_tmp28 + __cil_tmp25;
+  here = __cil_tmp18 + __cil_tmp17;
 #line 832
-  __cil_tmp29 = (unsigned long )eni_vcc;
+  __cil_tmp19 = eni_vcc->words;
 #line 832
-  __cil_tmp30 = __cil_tmp29 + 16;
-#line 832
-  __cil_tmp31 = *((unsigned long *)__cil_tmp30);
-#line 832
-  size = __cil_tmp31 >> 8;
+  size = __cil_tmp19 >> 8;
 #line 833
   order = -1;
+#line 833
   goto ldv_40254;
   ldv_40253: 
 #line 833
@@ -14366,109 +12259,77 @@ static int open_rx_second(struct atm_vcc *vcc )
   ldv_40254: ;
 #line 833
   if (size != 0UL) {
+#line 834
     goto ldv_40253;
   } else {
+#line 836
     goto ldv_40255;
   }
   ldv_40255: 
   {
 #line 834
-  __cil_tmp32 = (void volatile   *)here;
+  __cil_tmp20 = (void volatile   *)here;
 #line 834
-  __cil_tmp33 = __cil_tmp32 + 4U;
+  __cil_tmp21 = __cil_tmp20 + 4U;
 #line 834
-  writel(0U, __cil_tmp33);
+  writel(0U, __cil_tmp21);
 #line 835
-  __cil_tmp34 = (void volatile   *)here;
+  __cil_tmp22 = (void volatile   *)here;
 #line 835
-  __cil_tmp35 = __cil_tmp34 + 8U;
+  __cil_tmp23 = __cil_tmp22 + 8U;
 #line 835
-  writel(0U, __cil_tmp35);
+  writel(0U, __cil_tmp23);
   }
   {
 #line 836
-  __cil_tmp36 = (struct atm_vcc *)0;
+  __cil_tmp24 = (struct atm_vcc *)0;
 #line 836
-  __cil_tmp37 = (unsigned long )__cil_tmp36;
+  __cil_tmp25 = (unsigned long )__cil_tmp24;
 #line 836
-  __cil_tmp38 = (unsigned long )vcc;
+  __cil_tmp26 = vcc->vci;
 #line 836
-  __cil_tmp39 = __cil_tmp38 + 1284;
+  __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 836
-  __cil_tmp40 = *((int *)__cil_tmp39);
+  __cil_tmp28 = eni_dev->rx_map;
 #line 836
-  __cil_tmp41 = (unsigned long )__cil_tmp40;
+  __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
 #line 836
-  __cil_tmp42 = (unsigned long )eni_dev;
+  __cil_tmp30 = *__cil_tmp29;
 #line 836
-  __cil_tmp43 = __cil_tmp42 + 2368;
+  __cil_tmp31 = (unsigned long )__cil_tmp30;
 #line 836
-  __cil_tmp44 = *((struct atm_vcc ***)__cil_tmp43);
-#line 836
-  __cil_tmp45 = __cil_tmp44 + __cil_tmp41;
-#line 836
-  __cil_tmp46 = *__cil_tmp45;
-#line 836
-  __cil_tmp47 = (unsigned long )__cil_tmp46;
-#line 836
-  if (__cil_tmp47 != __cil_tmp37) {
+  if (__cil_tmp31 != __cil_tmp25) {
     {
 #line 837
-    __cil_tmp48 = (unsigned long )vcc;
+    __cil_tmp32 = vcc->dev;
 #line 837
-    __cil_tmp49 = __cil_tmp48 + 1304;
+    __cil_tmp33 = __cil_tmp32->number;
 #line 837
-    __cil_tmp50 = *((struct atm_dev **)__cil_tmp49);
+    __cil_tmp34 = vcc->vci;
 #line 837
-    __cil_tmp51 = (unsigned long )__cil_tmp50;
-#line 837
-    __cil_tmp52 = __cil_tmp51 + 24;
-#line 837
-    __cil_tmp53 = *((int *)__cil_tmp52);
-#line 837
-    __cil_tmp54 = (unsigned long )vcc;
-#line 837
-    __cil_tmp55 = __cil_tmp54 + 1284;
-#line 837
-    __cil_tmp56 = *((int *)__cil_tmp55);
-#line 837
-    printk("<2>eni(itf %d): BUG - VCI %d already in use\n", __cil_tmp53, __cil_tmp56);
+    printk("<2>eni(itf %d): BUG - VCI %d already in use\n", __cil_tmp33, __cil_tmp34);
     }
   } else {
 
   }
   }
 #line 839
-  __cil_tmp57 = (unsigned long )vcc;
+  __cil_tmp35 = vcc->vci;
 #line 839
-  __cil_tmp58 = __cil_tmp57 + 1284;
+  __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 839
-  __cil_tmp59 = *((int *)__cil_tmp58);
+  __cil_tmp37 = eni_dev->rx_map;
 #line 839
-  __cil_tmp60 = (unsigned long )__cil_tmp59;
+  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
 #line 839
-  __cil_tmp61 = (unsigned long )eni_dev;
-#line 839
-  __cil_tmp62 = __cil_tmp61 + 2368;
-#line 839
-  __cil_tmp63 = *((struct atm_vcc ***)__cil_tmp62);
-#line 839
-  __cil_tmp64 = __cil_tmp63 + __cil_tmp60;
-#line 839
-  *__cil_tmp64 = vcc;
+  *__cil_tmp38 = vcc;
   {
 #line 840
-  __cil_tmp65 = 1312 + 88;
+  __cil_tmp39 = vcc->qos.aal;
 #line 840
-  __cil_tmp66 = (unsigned long )vcc;
+  __cil_tmp40 = (unsigned int )__cil_tmp39;
 #line 840
-  __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 840
-  __cil_tmp68 = *((unsigned char *)__cil_tmp67);
-#line 840
-  __cil_tmp69 = (unsigned int )__cil_tmp68;
-#line 840
-  if (__cil_tmp69 != 5U) {
+  if (__cil_tmp40 != 5U) {
 #line 840
     tmp = 1610612736;
   } else {
@@ -14478,41 +12339,33 @@ static int open_rx_second(struct atm_vcc *vcc )
   }
   {
 #line 840
-  __cil_tmp70 = order << 15;
+  __cil_tmp41 = order << 15;
 #line 840
-  __cil_tmp71 = (unsigned long )eni_dev;
+  __cil_tmp42 = eni_dev->ram;
 #line 840
-  __cil_tmp72 = __cil_tmp71 + 136;
+  __cil_tmp43 = (long )__cil_tmp42;
 #line 840
-  __cil_tmp73 = *((void **)__cil_tmp72);
+  __cil_tmp44 = eni_vcc->recv;
 #line 840
-  __cil_tmp74 = (long )__cil_tmp73;
+  __cil_tmp45 = (long )__cil_tmp44;
 #line 840
-  __cil_tmp75 = (unsigned long )eni_vcc;
+  __cil_tmp46 = __cil_tmp45 - __cil_tmp43;
 #line 840
-  __cil_tmp76 = __cil_tmp75 + 8;
+  __cil_tmp47 = __cil_tmp46 >> 10;
 #line 840
-  __cil_tmp77 = *((void **)__cil_tmp76);
+  __cil_tmp48 = __cil_tmp47 << 18;
 #line 840
-  __cil_tmp78 = (long )__cil_tmp77;
+  __cil_tmp49 = (int )__cil_tmp48;
 #line 840
-  __cil_tmp79 = __cil_tmp78 - __cil_tmp74;
+  __cil_tmp50 = tmp | __cil_tmp49;
 #line 840
-  __cil_tmp80 = __cil_tmp79 >> 10;
+  __cil_tmp51 = __cil_tmp50 | __cil_tmp41;
 #line 840
-  __cil_tmp81 = __cil_tmp80 << 18;
+  __cil_tmp52 = (unsigned int )__cil_tmp51;
 #line 840
-  __cil_tmp82 = (int )__cil_tmp81;
+  __cil_tmp53 = (void volatile   *)here;
 #line 840
-  __cil_tmp83 = tmp | __cil_tmp82;
-#line 840
-  __cil_tmp84 = __cil_tmp83 | __cil_tmp70;
-#line 840
-  __cil_tmp85 = (unsigned int )__cil_tmp84;
-#line 840
-  __cil_tmp86 = (void volatile   *)here;
-#line 840
-  writel(__cil_tmp85, __cil_tmp86);
+  writel(__cil_tmp52, __cil_tmp53);
   }
 #line 844
   return (0);
@@ -14566,178 +12419,104 @@ static void close_rx(struct atm_vcc *vcc )
   struct task_struct *tmp___18 ;
   u64 volatile   *__ptr___14 ;
   struct task_struct *tmp___19 ;
-  wait_queue_t *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
+  void *__cil_tmp48 ;
+  int (*__cil_tmp49)(struct atm_vcc * ) ;
   unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  int (*__cil_tmp51)(struct atm_vcc * ) ;
   unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  void *__cil_tmp56 ;
-  int (*__cil_tmp57)(struct atm_vcc * ) ;
-  unsigned long __cil_tmp58 ;
-  int (*__cil_tmp59)(struct atm_vcc * ) ;
+  struct atm_dev *__cil_tmp53 ;
+  void *__cil_tmp54 ;
+  short __cil_tmp55 ;
+  int __cil_tmp56 ;
+  int __cil_tmp57 ;
+  int __cil_tmp58 ;
+  int __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct atm_dev *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  void *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  short __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  int __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  int __cil_tmp76 ;
+  void *__cil_tmp61 ;
+  void const volatile   *__cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  void volatile   *__cil_tmp64 ;
+  void const volatile   *__cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  void volatile   *__cil_tmp67 ;
+  int __cil_tmp68 ;
+  unsigned long __cil_tmp69 ;
+  struct atm_vcc **__cil_tmp70 ;
+  struct atm_vcc **__cil_tmp71 ;
+  wait_queue_head_t *__cil_tmp72 ;
+  long volatile   *__cil_tmp73 ;
+  long volatile   *__cil_tmp74 ;
+  long volatile   *__cil_tmp75 ;
+  long volatile   *__cil_tmp76 ;
   int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
+  int __cil_tmp78 ;
+  int __cil_tmp79 ;
   unsigned long __cil_tmp80 ;
-  void *__cil_tmp81 ;
-  void const volatile   *__cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
-  void volatile   *__cil_tmp84 ;
-  void const volatile   *__cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  void volatile   *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
+  int __cil_tmp81 ;
+  unsigned long __cil_tmp82 ;
+  int __cil_tmp83 ;
+  int __cil_tmp84 ;
+  long volatile   *__cil_tmp85 ;
+  long volatile   *__cil_tmp86 ;
+  long volatile   *__cil_tmp87 ;
+  long volatile   *__cil_tmp88 ;
+  struct tasklet_struct *__cil_tmp89 ;
   int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
+  int __cil_tmp91 ;
   unsigned long __cil_tmp92 ;
   unsigned long __cil_tmp93 ;
-  struct atm_vcc **__cil_tmp94 ;
-  struct atm_vcc **__cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
+  void *__cil_tmp94 ;
+  void *__cil_tmp95 ;
+  void const volatile   *__cil_tmp96 ;
   unsigned long __cil_tmp97 ;
-  wait_queue_head_t *__cil_tmp98 ;
-  long volatile   *__cil_tmp99 ;
-  long volatile   *__cil_tmp100 ;
-  long volatile   *__cil_tmp101 ;
-  long volatile   *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  int __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  int __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  int __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
+  unsigned long __cil_tmp98 ;
+  struct tasklet_struct *__cil_tmp99 ;
+  unsigned long __cil_tmp100 ;
+  unsigned long __cil_tmp101 ;
+  unsigned long __cil_tmp102 ;
+  long volatile   *__cil_tmp103 ;
+  long volatile   *__cil_tmp104 ;
+  long volatile   *__cil_tmp105 ;
+  long volatile   *__cil_tmp106 ;
+  long volatile   *__cil_tmp107 ;
+  long volatile   *__cil_tmp108 ;
+  long volatile   *__cil_tmp109 ;
+  long volatile   *__cil_tmp110 ;
+  wait_queue_head_t *__cil_tmp111 ;
+  void *__cil_tmp112 ;
   unsigned long __cil_tmp113 ;
   unsigned long __cil_tmp114 ;
-  int __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  int __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  int __cil_tmp122 ;
-  long volatile   *__cil_tmp123 ;
-  long volatile   *__cil_tmp124 ;
-  long volatile   *__cil_tmp125 ;
-  long volatile   *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  struct tasklet_struct *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  int __cil_tmp132 ;
-  int __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  void *__cil_tmp138 ;
-  void *__cil_tmp139 ;
-  void const volatile   *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  struct tasklet_struct *__cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  long volatile   *__cil_tmp155 ;
-  long volatile   *__cil_tmp156 ;
-  long volatile   *__cil_tmp157 ;
-  long volatile   *__cil_tmp158 ;
-  long volatile   *__cil_tmp159 ;
-  long volatile   *__cil_tmp160 ;
-  long volatile   *__cil_tmp161 ;
-  long volatile   *__cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  wait_queue_head_t *__cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  void *__cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
 
   {
   {
 #line 850
   tmp = get_current();
 #line 850
-  __cil_tmp48 = & wait;
+  wait.flags = 0U;
 #line 850
-  *((unsigned int *)__cil_tmp48) = 0U;
+  wait.private = (void *)tmp;
 #line 850
-  __cil_tmp49 = (unsigned long )(& wait) + 8;
+  wait.func = & default_wake_function;
 #line 850
-  *((void **)__cil_tmp49) = (void *)tmp;
+  wait.task_list.next = (struct list_head *)0;
 #line 850
-  __cil_tmp50 = (unsigned long )(& wait) + 16;
-#line 850
-  *((int (**)(wait_queue_t * , unsigned int  , int  , void * ))__cil_tmp50) = & default_wake_function;
-#line 850
-  __cil_tmp51 = (unsigned long )(& wait) + 24;
-#line 850
-  *((struct list_head **)__cil_tmp51) = (struct list_head *)0;
-#line 850
-  __cil_tmp52 = 24 + 8;
-#line 850
-  __cil_tmp53 = (unsigned long )(& wait) + __cil_tmp52;
-#line 850
-  *((struct list_head **)__cil_tmp53) = (struct list_head *)0;
+  wait.task_list.prev = (struct list_head *)0;
 #line 855
-  __cil_tmp54 = (unsigned long )vcc;
+  __cil_tmp48 = vcc->dev_data;
 #line 855
-  __cil_tmp55 = __cil_tmp54 + 1480;
-#line 855
-  __cil_tmp56 = *((void **)__cil_tmp55);
-#line 855
-  eni_vcc = (struct eni_vcc *)__cil_tmp56;
+  eni_vcc = (struct eni_vcc *)__cil_tmp48;
   }
   {
 #line 856
-  __cil_tmp57 = (int (*)(struct atm_vcc * ))0;
+  __cil_tmp49 = (int (*)(struct atm_vcc * ))0;
 #line 856
-  __cil_tmp58 = (unsigned long )__cil_tmp57;
+  __cil_tmp50 = (unsigned long )__cil_tmp49;
 #line 856
-  __cil_tmp59 = *((int (**)(struct atm_vcc * ))eni_vcc);
+  __cil_tmp51 = eni_vcc->rx;
 #line 856
-  __cil_tmp60 = (unsigned long )__cil_tmp59;
+  __cil_tmp52 = (unsigned long )__cil_tmp51;
 #line 856
-  if (__cil_tmp60 == __cil_tmp58) {
+  if (__cil_tmp52 == __cil_tmp50) {
 #line 856
     return;
   } else {
@@ -14745,115 +12524,81 @@ static void close_rx(struct atm_vcc *vcc )
   }
   }
 #line 857
-  __cil_tmp61 = (unsigned long )vcc;
+  __cil_tmp53 = vcc->dev;
 #line 857
-  __cil_tmp62 = __cil_tmp61 + 1304;
+  __cil_tmp54 = __cil_tmp53->dev_data;
 #line 857
-  __cil_tmp63 = *((struct atm_dev **)__cil_tmp62);
-#line 857
-  __cil_tmp64 = (unsigned long )__cil_tmp63;
-#line 857
-  __cil_tmp65 = __cil_tmp64 + 32;
-#line 857
-  __cil_tmp66 = *((void **)__cil_tmp65);
-#line 857
-  eni_dev = (struct eni_dev *)__cil_tmp66;
+  eni_dev = (struct eni_dev *)__cil_tmp54;
   {
 #line 858
-  __cil_tmp67 = (unsigned long )vcc;
+  __cil_tmp55 = vcc->vpi;
 #line 858
-  __cil_tmp68 = __cil_tmp67 + 1280;
+  __cil_tmp56 = (int )__cil_tmp55;
 #line 858
-  __cil_tmp69 = *((short *)__cil_tmp68);
-#line 858
-  __cil_tmp70 = (int )__cil_tmp69;
-#line 858
-  if (__cil_tmp70 != -2) {
+  if (__cil_tmp56 != -2) {
     {
 #line 858
-    __cil_tmp71 = (unsigned long )vcc;
+    __cil_tmp57 = vcc->vci;
 #line 858
-    __cil_tmp72 = __cil_tmp71 + 1284;
-#line 858
-    __cil_tmp73 = *((int *)__cil_tmp72);
-#line 858
-    if (__cil_tmp73 != -2) {
+    if (__cil_tmp57 != -2) {
       {
 #line 859
-      __cil_tmp74 = (unsigned long )vcc;
+      __cil_tmp58 = vcc->vci;
 #line 859
-      __cil_tmp75 = __cil_tmp74 + 1284;
+      __cil_tmp59 = __cil_tmp58 * 16;
 #line 859
-      __cil_tmp76 = *((int *)__cil_tmp75);
+      __cil_tmp60 = (unsigned long )__cil_tmp59;
 #line 859
-      __cil_tmp77 = __cil_tmp76 * 16;
+      __cil_tmp61 = eni_dev->vci;
 #line 859
-      __cil_tmp78 = (unsigned long )__cil_tmp77;
-#line 859
-      __cil_tmp79 = (unsigned long )eni_dev;
-#line 859
-      __cil_tmp80 = __cil_tmp79 + 144;
-#line 859
-      __cil_tmp81 = *((void **)__cil_tmp80);
-#line 859
-      here = __cil_tmp81 + __cil_tmp78;
+      here = __cil_tmp61 + __cil_tmp60;
 #line 861
-      __cil_tmp82 = (void const volatile   *)here;
+      __cil_tmp62 = (void const volatile   *)here;
 #line 861
-      tmp___0 = readl(__cil_tmp82);
+      tmp___0 = readl(__cil_tmp62);
 #line 861
-      __cil_tmp83 = tmp___0 & 1073741823U;
+      __cil_tmp63 = tmp___0 & 1073741823U;
 #line 861
-      __cil_tmp84 = (void volatile   *)here;
+      __cil_tmp64 = (void volatile   *)here;
 #line 861
-      writel(__cil_tmp83, __cil_tmp84);
+      writel(__cil_tmp63, __cil_tmp64);
 #line 864
       __const_udelay(115965UL);
 #line 866
-      __cil_tmp85 = (void const volatile   *)here;
+      __cil_tmp65 = (void const volatile   *)here;
 #line 866
-      tmp___1 = readl(__cil_tmp85);
+      tmp___1 = readl(__cil_tmp65);
 #line 866
-      __cil_tmp86 = tmp___1 & 4294967294U;
+      __cil_tmp66 = tmp___1 & 4294967294U;
 #line 866
-      __cil_tmp87 = (void volatile   *)here;
+      __cil_tmp67 = (void volatile   *)here;
 #line 866
-      writel(__cil_tmp86, __cil_tmp87);
+      writel(__cil_tmp66, __cil_tmp67);
 #line 868
-      __cil_tmp88 = (unsigned long )vcc;
+      __cil_tmp68 = vcc->vci;
 #line 868
-      __cil_tmp89 = __cil_tmp88 + 1284;
+      __cil_tmp69 = (unsigned long )__cil_tmp68;
 #line 868
-      __cil_tmp90 = *((int *)__cil_tmp89);
+      __cil_tmp70 = eni_dev->rx_map;
 #line 868
-      __cil_tmp91 = (unsigned long )__cil_tmp90;
+      __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
 #line 868
-      __cil_tmp92 = (unsigned long )eni_dev;
-#line 868
-      __cil_tmp93 = __cil_tmp92 + 2368;
-#line 868
-      __cil_tmp94 = *((struct atm_vcc ***)__cil_tmp93);
-#line 868
-      __cil_tmp95 = __cil_tmp94 + __cil_tmp91;
-#line 868
-      *__cil_tmp95 = (struct atm_vcc *)0;
+      *__cil_tmp71 = (struct atm_vcc *)0;
 #line 871
       EVENT("RX closing\n", 0UL, 0UL);
 #line 872
-      __cil_tmp96 = (unsigned long )eni_dev;
+      __cil_tmp72 = & eni_dev->rx_wait;
 #line 872
-      __cil_tmp97 = __cil_tmp96 + 2472;
-#line 872
-      __cil_tmp98 = (wait_queue_head_t *)__cil_tmp97;
-#line 872
-      add_wait_queue(__cil_tmp98, & wait);
+      add_wait_queue(__cil_tmp72, & wait);
 #line 873
       __x = (long volatile   )2L;
       }
 #line 873
       if (1) {
+#line 873
         goto case_8;
       } else {
+#line 873
         goto switch_default;
 #line 873
         if (0) {
@@ -14861,46 +12606,50 @@ static void close_rx(struct atm_vcc *vcc )
 #line 873
           tmp___2 = get_current();
 #line 873
-          __cil_tmp99 = (long volatile   *)tmp___2;
+          __cil_tmp73 = & tmp___2->state;
 #line 873
-          __ptr = (u8 volatile   *)__cil_tmp99;
+          __ptr = (u8 volatile   *)__cil_tmp73;
 #line 873
           __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
           }
+#line 873
           goto ldv_40266;
           {
 #line 873
           tmp___3 = get_current();
 #line 873
-          __cil_tmp100 = (long volatile   *)tmp___3;
+          __cil_tmp74 = & tmp___3->state;
 #line 873
-          __ptr___0 = (u16 volatile   *)__cil_tmp100;
+          __ptr___0 = (u16 volatile   *)__cil_tmp74;
 #line 873
           __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
           }
+#line 873
           goto ldv_40266;
           {
 #line 873
           tmp___4 = get_current();
 #line 873
-          __cil_tmp101 = (long volatile   *)tmp___4;
+          __cil_tmp75 = & tmp___4->state;
 #line 873
-          __ptr___1 = (u32 volatile   *)__cil_tmp101;
+          __ptr___1 = (u32 volatile   *)__cil_tmp75;
 #line 873
           __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
           }
+#line 873
           goto ldv_40266;
           case_8: 
           {
 #line 873
           tmp___5 = get_current();
 #line 873
-          __cil_tmp102 = (long volatile   *)tmp___5;
+          __cil_tmp76 = & tmp___5->state;
 #line 873
-          __ptr___2 = (u64 volatile   *)__cil_tmp102;
+          __ptr___2 = (u64 volatile   *)__cil_tmp76;
 #line 873
           __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
           }
+#line 873
           goto ldv_40266;
           switch_default: 
           {
@@ -14917,24 +12666,17 @@ static void close_rx(struct atm_vcc *vcc )
       ldv_40288: ;
       {
 #line 877
-      __cil_tmp103 = (unsigned long )eni_vcc;
+      __cil_tmp77 = eni_vcc->servicing;
 #line 877
-      __cil_tmp104 = __cil_tmp103 + 52;
-#line 877
-      __cil_tmp105 = *((int *)__cil_tmp104);
-#line 877
-      if (__cil_tmp105 == 0) {
+      if (__cil_tmp77 == 0) {
 #line 878
         __asm__  volatile   ("": : : "memory");
         {
 #line 879
-        __cil_tmp106 = (unsigned long )eni_vcc;
+        __cil_tmp78 = eni_vcc->rxing;
 #line 879
-        __cil_tmp107 = __cil_tmp106 + 48;
+        if (__cil_tmp78 == 0) {
 #line 879
-        __cil_tmp108 = *((int *)__cil_tmp107);
-#line 879
-        if (__cil_tmp108 == 0) {
           goto ldv_40275;
         } else {
 
@@ -14946,37 +12688,21 @@ static void close_rx(struct atm_vcc *vcc )
       }
       {
 #line 881
-      __cil_tmp109 = (unsigned long )eni_vcc;
+      __cil_tmp79 = eni_vcc->rxing;
 #line 881
-      __cil_tmp110 = __cil_tmp109 + 48;
+      __cil_tmp80 = (unsigned long )__cil_tmp79;
 #line 881
-      __cil_tmp111 = *((int *)__cil_tmp110);
+      __cil_tmp81 = eni_vcc->servicing;
 #line 881
-      __cil_tmp112 = (unsigned long )__cil_tmp111;
+      __cil_tmp82 = (unsigned long )__cil_tmp81;
 #line 881
-      __cil_tmp113 = (unsigned long )eni_vcc;
-#line 881
-      __cil_tmp114 = __cil_tmp113 + 52;
-#line 881
-      __cil_tmp115 = *((int *)__cil_tmp114);
-#line 881
-      __cil_tmp116 = (unsigned long )__cil_tmp115;
-#line 881
-      EVENT("drain PDUs (rx %ld, serv %ld)\n", __cil_tmp112, __cil_tmp116);
+      EVENT("drain PDUs (rx %ld, serv %ld)\n", __cil_tmp80, __cil_tmp82);
 #line 883
-      __cil_tmp117 = (unsigned long )eni_vcc;
+      __cil_tmp83 = eni_vcc->servicing;
 #line 883
-      __cil_tmp118 = __cil_tmp117 + 52;
+      __cil_tmp84 = eni_vcc->rxing;
 #line 883
-      __cil_tmp119 = *((int *)__cil_tmp118);
-#line 883
-      __cil_tmp120 = (unsigned long )eni_vcc;
-#line 883
-      __cil_tmp121 = __cil_tmp120 + 48;
-#line 883
-      __cil_tmp122 = *((int *)__cil_tmp121);
-#line 883
-      printk("<6>%d+%d RX left\n", __cil_tmp119, __cil_tmp122);
+      printk("<6>%d+%d RX left\n", __cil_tmp83, __cil_tmp84);
 #line 885
       schedule();
 #line 886
@@ -14984,8 +12710,10 @@ static void close_rx(struct atm_vcc *vcc )
       }
 #line 886
       if (1) {
+#line 886
         goto case_8___0;
       } else {
+#line 886
         goto switch_default___0;
 #line 886
         if (0) {
@@ -14993,46 +12721,50 @@ static void close_rx(struct atm_vcc *vcc )
 #line 886
           tmp___6 = get_current();
 #line 886
-          __cil_tmp123 = (long volatile   *)tmp___6;
+          __cil_tmp85 = & tmp___6->state;
 #line 886
-          __ptr___3 = (u8 volatile   *)__cil_tmp123;
+          __ptr___3 = (u8 volatile   *)__cil_tmp85;
 #line 886
           __asm__  volatile   ("xchgb %0,%1": "=q" (__x___0), "+m" (*__ptr___3): "0" (__x___0): "memory");
           }
+#line 886
           goto ldv_40279;
           {
 #line 886
           tmp___7 = get_current();
 #line 886
-          __cil_tmp124 = (long volatile   *)tmp___7;
+          __cil_tmp86 = & tmp___7->state;
 #line 886
-          __ptr___4 = (u16 volatile   *)__cil_tmp124;
+          __ptr___4 = (u16 volatile   *)__cil_tmp86;
 #line 886
           __asm__  volatile   ("xchgw %0,%1": "=r" (__x___0), "+m" (*__ptr___4): "0" (__x___0): "memory");
           }
+#line 886
           goto ldv_40279;
           {
 #line 886
           tmp___8 = get_current();
 #line 886
-          __cil_tmp125 = (long volatile   *)tmp___8;
+          __cil_tmp87 = & tmp___8->state;
 #line 886
-          __ptr___5 = (u32 volatile   *)__cil_tmp125;
+          __ptr___5 = (u32 volatile   *)__cil_tmp87;
 #line 886
           __asm__  volatile   ("xchgl %0,%1": "=r" (__x___0), "+m" (*__ptr___5): "0" (__x___0): "memory");
           }
+#line 886
           goto ldv_40279;
           case_8___0: 
           {
 #line 886
           tmp___9 = get_current();
 #line 886
-          __cil_tmp126 = (long volatile   *)tmp___9;
+          __cil_tmp88 = & tmp___9->state;
 #line 886
-          __ptr___6 = (u64 volatile   *)__cil_tmp126;
+          __ptr___6 = (u64 volatile   *)__cil_tmp88;
 #line 886
           __asm__  volatile   ("xchgq %0,%1": "=r" (__x___0), "+m" (*__ptr___6): "0" (__x___0): "memory");
           }
+#line 886
           goto ldv_40279;
           switch_default___0: 
           {
@@ -15044,88 +12776,62 @@ static void close_rx(struct atm_vcc *vcc )
         }
       }
       ldv_40279: ;
+#line 887
       goto ldv_40288;
       ldv_40275: ;
       ldv_40304: 
       {
 #line 892
-      __cil_tmp127 = (unsigned long )eni_dev;
+      __cil_tmp89 = & eni_dev->task;
 #line 892
-      __cil_tmp128 = __cil_tmp127 + 72;
-#line 892
-      __cil_tmp129 = (struct tasklet_struct *)__cil_tmp128;
-#line 892
-      tasklet_disable(__cil_tmp129);
+      tasklet_disable(__cil_tmp89);
 #line 893
-      __cil_tmp130 = (unsigned long )vcc;
+      __cil_tmp90 = vcc->vci;
 #line 893
-      __cil_tmp131 = __cil_tmp130 + 1284;
+      __cil_tmp91 = __cil_tmp90 * 16;
 #line 893
-      __cil_tmp132 = *((int *)__cil_tmp131);
+      __cil_tmp92 = (unsigned long )__cil_tmp91;
 #line 893
-      __cil_tmp133 = __cil_tmp132 * 16;
+      __cil_tmp93 = __cil_tmp92 + 4UL;
 #line 893
-      __cil_tmp134 = (unsigned long )__cil_tmp133;
+      __cil_tmp94 = eni_dev->vci;
 #line 893
-      __cil_tmp135 = __cil_tmp134 + 4UL;
+      __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
 #line 893
-      __cil_tmp136 = (unsigned long )eni_dev;
+      __cil_tmp96 = (void const volatile   *)__cil_tmp95;
 #line 893
-      __cil_tmp137 = __cil_tmp136 + 144;
-#line 893
-      __cil_tmp138 = *((void **)__cil_tmp137);
-#line 893
-      __cil_tmp139 = __cil_tmp138 + __cil_tmp135;
-#line 893
-      __cil_tmp140 = (void const volatile   *)__cil_tmp139;
-#line 893
-      tmp___11 = readl(__cil_tmp140);
+      tmp___11 = readl(__cil_tmp96);
 #line 893
       tmp___10 = tmp___11 & 32767U;
 #line 894
-      __cil_tmp141 = (unsigned long )tmp___10;
+      __cil_tmp97 = (unsigned long )tmp___10;
 #line 894
-      __cil_tmp142 = (unsigned long )eni_vcc;
+      __cil_tmp98 = eni_vcc->rx_pos;
 #line 894
-      __cil_tmp143 = __cil_tmp142 + 32;
-#line 894
-      __cil_tmp144 = *((unsigned long *)__cil_tmp143);
-#line 894
-      at_end = __cil_tmp144 == __cil_tmp141;
+      at_end = __cil_tmp98 == __cil_tmp97;
 #line 895
-      __cil_tmp145 = (unsigned long )eni_dev;
+      __cil_tmp99 = & eni_dev->task;
 #line 895
-      __cil_tmp146 = __cil_tmp145 + 72;
-#line 895
-      __cil_tmp147 = (struct tasklet_struct *)__cil_tmp146;
-#line 895
-      tasklet_enable(__cil_tmp147);
+      tasklet_enable(__cil_tmp99);
       }
 #line 896
       if (at_end != 0) {
+#line 896
         goto ldv_40291;
       } else {
 
       }
       {
 #line 897
-      __cil_tmp148 = (unsigned long )eni_vcc;
+      __cil_tmp100 = eni_vcc->rx_pos;
 #line 897
-      __cil_tmp149 = __cil_tmp148 + 32;
+      __cil_tmp101 = (unsigned long )tmp___10;
 #line 897
-      __cil_tmp150 = *((unsigned long *)__cil_tmp149);
-#line 897
-      __cil_tmp151 = (unsigned long )tmp___10;
-#line 897
-      EVENT("drain discard (host 0x%lx, nic 0x%lx)\n", __cil_tmp150, __cil_tmp151);
+      EVENT("drain discard (host 0x%lx, nic 0x%lx)\n", __cil_tmp100, __cil_tmp101);
 #line 899
-      __cil_tmp152 = (unsigned long )eni_vcc;
+      __cil_tmp102 = eni_vcc->rx_pos;
 #line 899
-      __cil_tmp153 = __cil_tmp152 + 32;
-#line 899
-      __cil_tmp154 = *((unsigned long *)__cil_tmp153);
-#line 899
-      printk("<6>draining RX: host 0x%lx, nic 0x%x\n", __cil_tmp154, tmp___10);
+      printk("<6>draining RX: host 0x%lx, nic 0x%x\n", __cil_tmp102, tmp___10);
 #line 901
       schedule();
 #line 902
@@ -15133,8 +12839,10 @@ static void close_rx(struct atm_vcc *vcc )
       }
 #line 902
       if (1) {
+#line 902
         goto case_8___1;
       } else {
+#line 902
         goto switch_default___1;
 #line 902
         if (0) {
@@ -15142,46 +12850,50 @@ static void close_rx(struct atm_vcc *vcc )
 #line 902
           tmp___12 = get_current();
 #line 902
-          __cil_tmp155 = (long volatile   *)tmp___12;
+          __cil_tmp103 = & tmp___12->state;
 #line 902
-          __ptr___7 = (u8 volatile   *)__cil_tmp155;
+          __ptr___7 = (u8 volatile   *)__cil_tmp103;
 #line 902
           __asm__  volatile   ("xchgb %0,%1": "=q" (__x___1), "+m" (*__ptr___7): "0" (__x___1): "memory");
           }
+#line 902
           goto ldv_40295;
           {
 #line 902
           tmp___13 = get_current();
 #line 902
-          __cil_tmp156 = (long volatile   *)tmp___13;
+          __cil_tmp104 = & tmp___13->state;
 #line 902
-          __ptr___8 = (u16 volatile   *)__cil_tmp156;
+          __ptr___8 = (u16 volatile   *)__cil_tmp104;
 #line 902
           __asm__  volatile   ("xchgw %0,%1": "=r" (__x___1), "+m" (*__ptr___8): "0" (__x___1): "memory");
           }
+#line 902
           goto ldv_40295;
           {
 #line 902
           tmp___14 = get_current();
 #line 902
-          __cil_tmp157 = (long volatile   *)tmp___14;
+          __cil_tmp105 = & tmp___14->state;
 #line 902
-          __ptr___9 = (u32 volatile   *)__cil_tmp157;
+          __ptr___9 = (u32 volatile   *)__cil_tmp105;
 #line 902
           __asm__  volatile   ("xchgl %0,%1": "=r" (__x___1), "+m" (*__ptr___9): "0" (__x___1): "memory");
           }
+#line 902
           goto ldv_40295;
           case_8___1: 
           {
 #line 902
           tmp___15 = get_current();
 #line 902
-          __cil_tmp158 = (long volatile   *)tmp___15;
+          __cil_tmp106 = & tmp___15->state;
 #line 902
-          __ptr___10 = (u64 volatile   *)__cil_tmp158;
+          __ptr___10 = (u64 volatile   *)__cil_tmp106;
 #line 902
           __asm__  volatile   ("xchgq %0,%1": "=r" (__x___1), "+m" (*__ptr___10): "0" (__x___1): "memory");
           }
+#line 902
           goto ldv_40295;
           switch_default___1: 
           {
@@ -15193,14 +12905,17 @@ static void close_rx(struct atm_vcc *vcc )
         }
       }
       ldv_40295: ;
+#line 903
       goto ldv_40304;
       ldv_40291: 
 #line 904
       __x___2 = (long volatile   )0L;
 #line 904
       if (1) {
+#line 904
         goto case_8___2;
       } else {
+#line 904
         goto switch_default___2;
 #line 904
         if (0) {
@@ -15208,46 +12923,50 @@ static void close_rx(struct atm_vcc *vcc )
 #line 904
           tmp___16 = get_current();
 #line 904
-          __cil_tmp159 = (long volatile   *)tmp___16;
+          __cil_tmp107 = & tmp___16->state;
 #line 904
-          __ptr___11 = (u8 volatile   *)__cil_tmp159;
+          __ptr___11 = (u8 volatile   *)__cil_tmp107;
 #line 904
           __asm__  volatile   ("xchgb %0,%1": "=q" (__x___2), "+m" (*__ptr___11): "0" (__x___2): "memory");
           }
+#line 904
           goto ldv_40308;
           {
 #line 904
           tmp___17 = get_current();
 #line 904
-          __cil_tmp160 = (long volatile   *)tmp___17;
+          __cil_tmp108 = & tmp___17->state;
 #line 904
-          __ptr___12 = (u16 volatile   *)__cil_tmp160;
+          __ptr___12 = (u16 volatile   *)__cil_tmp108;
 #line 904
           __asm__  volatile   ("xchgw %0,%1": "=r" (__x___2), "+m" (*__ptr___12): "0" (__x___2): "memory");
           }
+#line 904
           goto ldv_40308;
           {
 #line 904
           tmp___18 = get_current();
 #line 904
-          __cil_tmp161 = (long volatile   *)tmp___18;
+          __cil_tmp109 = & tmp___18->state;
 #line 904
-          __ptr___13 = (u32 volatile   *)__cil_tmp161;
+          __ptr___13 = (u32 volatile   *)__cil_tmp109;
 #line 904
           __asm__  volatile   ("xchgl %0,%1": "=r" (__x___2), "+m" (*__ptr___13): "0" (__x___2): "memory");
           }
+#line 904
           goto ldv_40308;
           case_8___2: 
           {
 #line 904
           tmp___19 = get_current();
 #line 904
-          __cil_tmp162 = (long volatile   *)tmp___19;
+          __cil_tmp110 = & tmp___19->state;
 #line 904
-          __ptr___14 = (u64 volatile   *)__cil_tmp162;
+          __ptr___14 = (u64 volatile   *)__cil_tmp110;
 #line 904
           __asm__  volatile   ("xchgq %0,%1": "=r" (__x___2), "+m" (*__ptr___14): "0" (__x___2): "memory");
           }
+#line 904
           goto ldv_40308;
           switch_default___2: 
           {
@@ -15261,13 +12980,9 @@ static void close_rx(struct atm_vcc *vcc )
       ldv_40308: 
       {
 #line 905
-      __cil_tmp163 = (unsigned long )eni_dev;
+      __cil_tmp111 = & eni_dev->rx_wait;
 #line 905
-      __cil_tmp164 = __cil_tmp163 + 2472;
-#line 905
-      __cil_tmp165 = (wait_queue_head_t *)__cil_tmp164;
-#line 905
-      remove_wait_queue(__cil_tmp165, & wait);
+      remove_wait_queue(__cil_tmp111, & wait);
       }
     } else {
 
@@ -15279,23 +12994,15 @@ static void close_rx(struct atm_vcc *vcc )
   }
   {
 #line 907
-  __cil_tmp166 = (unsigned long )eni_vcc;
+  __cil_tmp112 = eni_vcc->recv;
 #line 907
-  __cil_tmp167 = __cil_tmp166 + 8;
+  __cil_tmp113 = eni_vcc->words;
 #line 907
-  __cil_tmp168 = *((void **)__cil_tmp167);
+  __cil_tmp114 = __cil_tmp113 << 2;
 #line 907
-  __cil_tmp169 = (unsigned long )eni_vcc;
-#line 907
-  __cil_tmp170 = __cil_tmp169 + 16;
-#line 907
-  __cil_tmp171 = *((unsigned long *)__cil_tmp170);
-#line 907
-  __cil_tmp172 = __cil_tmp171 << 2;
-#line 907
-  eni_free_mem(eni_dev, __cil_tmp168, __cil_tmp172);
+  eni_free_mem(eni_dev, __cil_tmp112, __cil_tmp114);
 #line 908
-  *((int (**)(struct atm_vcc * ))eni_vcc) = (int (*)(struct atm_vcc * ))0;
+  eni_vcc->rx = (int (*)(struct atm_vcc * ))0;
   }
 #line 909
   return;
@@ -15308,106 +13015,56 @@ static int start_rx(struct atm_dev *dev )
   struct atm_vcc *tmp___0 ;
   struct atm_vcc *tmp___1 ;
   struct lock_class_key __key ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  void *__cil_tmp7 ;
+  struct atm_vcc **__cil_tmp8 ;
+  unsigned long __cil_tmp9 ;
+  struct atm_vcc **__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  struct atm_vcc **__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  int __cil_tmp12 ;
+  struct eni_free *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct atm_vcc **__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct eni_free *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  wait_queue_head_t *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct sk_buff_head *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  void *__cil_tmp45 ;
-  void const volatile   *__cil_tmp46 ;
-  void const volatile   *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  void *__cil_tmp50 ;
-  void volatile   *__cil_tmp51 ;
-  void volatile   *__cil_tmp52 ;
+  wait_queue_head_t *__cil_tmp15 ;
+  struct sk_buff_head *__cil_tmp16 ;
+  void *__cil_tmp17 ;
+  void const volatile   *__cil_tmp18 ;
+  void const volatile   *__cil_tmp19 ;
+  void *__cil_tmp20 ;
+  void volatile   *__cil_tmp21 ;
+  void volatile   *__cil_tmp22 ;
 
   {
   {
 #line 916
-  __cil_tmp7 = (unsigned long )dev;
+  __cil_tmp7 = dev->dev_data;
 #line 916
-  __cil_tmp8 = __cil_tmp7 + 32;
-#line 916
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 916
-  eni_dev = (struct eni_dev *)__cil_tmp9;
+  eni_dev = (struct eni_dev *)__cil_tmp7;
 #line 917
   tmp = get_zeroed_page(208U);
 #line 917
-  __cil_tmp10 = (unsigned long )eni_dev;
-#line 917
-  __cil_tmp11 = __cil_tmp10 + 2368;
-#line 917
-  *((struct atm_vcc ***)__cil_tmp11) = (struct atm_vcc **)tmp;
+  eni_dev->rx_map = (struct atm_vcc **)tmp;
   }
   {
 #line 918
-  __cil_tmp12 = (struct atm_vcc **)0;
+  __cil_tmp8 = (struct atm_vcc **)0;
 #line 918
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 918
-  __cil_tmp14 = (unsigned long )eni_dev;
+  __cil_tmp10 = eni_dev->rx_map;
 #line 918
-  __cil_tmp15 = __cil_tmp14 + 2368;
+  __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 918
-  __cil_tmp16 = *((struct atm_vcc ***)__cil_tmp15);
-#line 918
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 918
-  if (__cil_tmp17 == __cil_tmp13) {
+  if (__cil_tmp11 == __cil_tmp9) {
     {
 #line 919
-    __cil_tmp18 = (unsigned long )dev;
+    __cil_tmp12 = dev->number;
 #line 919
-    __cil_tmp19 = __cil_tmp18 + 24;
-#line 919
-    __cil_tmp20 = *((int *)__cil_tmp19);
-#line 919
-    printk("<3>eni(itf %d): couldn\'t get free page\n", __cil_tmp20);
+    printk("<3>eni(itf %d): couldn\'t get free page\n", __cil_tmp12);
 #line 921
-    __cil_tmp21 = (unsigned long )eni_dev;
+    __cil_tmp13 = eni_dev->free_list;
 #line 921
-    __cil_tmp22 = __cil_tmp21 + 2592;
+    __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 921
-    __cil_tmp23 = *((struct eni_free **)__cil_tmp22);
-#line 921
-    __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 921
-    free_pages(__cil_tmp24, 0U);
+    free_pages(__cil_tmp14, 0U);
     }
 #line 922
     return (-12);
@@ -15417,83 +13074,43 @@ static int start_rx(struct atm_dev *dev )
   }
   {
 #line 924
-  __cil_tmp25 = (unsigned long )eni_dev;
-#line 924
-  __cil_tmp26 = __cil_tmp25 + 2560;
-#line 924
-  *((int *)__cil_tmp26) = 300;
+  eni_dev->rx_mult = 300;
 #line 925
   tmp___0 = (struct atm_vcc *)0;
 #line 925
-  __cil_tmp27 = (unsigned long )eni_dev;
+  eni_dev->last_fast = tmp___0;
 #line 925
-  __cil_tmp28 = __cil_tmp27 + 2344;
-#line 925
-  *((struct atm_vcc **)__cil_tmp28) = tmp___0;
-#line 925
-  __cil_tmp29 = (unsigned long )eni_dev;
-#line 925
-  __cil_tmp30 = __cil_tmp29 + 2336;
-#line 925
-  *((struct atm_vcc **)__cil_tmp30) = tmp___0;
+  eni_dev->fast = tmp___0;
 #line 926
   tmp___1 = (struct atm_vcc *)0;
 #line 926
-  __cil_tmp31 = (unsigned long )eni_dev;
+  eni_dev->last_slow = tmp___1;
 #line 926
-  __cil_tmp32 = __cil_tmp31 + 2360;
-#line 926
-  *((struct atm_vcc **)__cil_tmp32) = tmp___1;
-#line 926
-  __cil_tmp33 = (unsigned long )eni_dev;
-#line 926
-  __cil_tmp34 = __cil_tmp33 + 2352;
-#line 926
-  *((struct atm_vcc **)__cil_tmp34) = tmp___1;
+  eni_dev->slow = tmp___1;
 #line 927
-  __cil_tmp35 = (unsigned long )eni_dev;
+  __cil_tmp15 = & eni_dev->rx_wait;
 #line 927
-  __cil_tmp36 = __cil_tmp35 + 2472;
-#line 927
-  __cil_tmp37 = (wait_queue_head_t *)__cil_tmp36;
-#line 927
-  __init_waitqueue_head(__cil_tmp37, & __key);
+  __init_waitqueue_head(__cil_tmp15, & __key);
 #line 928
-  __cil_tmp38 = (unsigned long )eni_dev;
+  __cil_tmp16 = & eni_dev->rx_queue;
 #line 928
-  __cil_tmp39 = __cil_tmp38 + 2376;
-#line 928
-  __cil_tmp40 = (struct sk_buff_head *)__cil_tmp39;
-#line 928
-  skb_queue_head_init(__cil_tmp40);
+  skb_queue_head_init(__cil_tmp16);
 #line 929
-  __cil_tmp41 = (unsigned long )eni_dev;
+  __cil_tmp17 = eni_dev->reg;
 #line 929
-  __cil_tmp42 = __cil_tmp41 + 2328;
+  __cil_tmp18 = (void const volatile   *)__cil_tmp17;
 #line 929
-  __cil_tmp43 = (unsigned long )eni_dev;
+  __cil_tmp19 = __cil_tmp18 + 24U;
 #line 929
-  __cil_tmp44 = __cil_tmp43 + 128;
-#line 929
-  __cil_tmp45 = *((void **)__cil_tmp44);
-#line 929
-  __cil_tmp46 = (void const volatile   *)__cil_tmp45;
-#line 929
-  __cil_tmp47 = __cil_tmp46 + 24U;
-#line 929
-  *((u32 *)__cil_tmp42) = readl(__cil_tmp47);
+  eni_dev->serv_read = readl(__cil_tmp19);
 #line 930
-  __cil_tmp48 = (unsigned long )eni_dev;
+  __cil_tmp20 = eni_dev->reg;
 #line 930
-  __cil_tmp49 = __cil_tmp48 + 128;
+  __cil_tmp21 = (void volatile   *)__cil_tmp20;
 #line 930
-  __cil_tmp50 = *((void **)__cil_tmp49);
+  __cil_tmp22 = __cil_tmp21 + 32U;
 #line 930
-  __cil_tmp51 = (void volatile   *)__cil_tmp50;
-#line 930
-  __cil_tmp52 = __cil_tmp51 + 32U;
-#line 930
-  writel(0U, __cil_tmp52);
+  writel(0U, __cil_tmp22);
   }
 #line 931
   return (0);
@@ -15522,40 +13139,40 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
   unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long long __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
+  u32 __cil_tmp27 ;
   unsigned int __cil_tmp28 ;
   int __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   u32 *__cil_tmp31 ;
   int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
+  u32 __cil_tmp33 ;
   u32 __cil_tmp34 ;
   unsigned int __cil_tmp35 ;
   int __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
   u32 *__cil_tmp38 ;
-  unsigned long long __cil_tmp39 ;
+  dma_addr_t __cil_tmp39 ;
   unsigned long long __cil_tmp40 ;
   unsigned long long __cil_tmp41 ;
   unsigned long long __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
+  u32 __cil_tmp43 ;
   int __cil_tmp44 ;
   unsigned long __cil_tmp45 ;
   u32 *__cil_tmp46 ;
   int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
+  u32 __cil_tmp48 ;
   u32 __cil_tmp49 ;
   int __cil_tmp50 ;
   unsigned long __cil_tmp51 ;
   u32 *__cil_tmp52 ;
   u32 __cil_tmp53 ;
-  unsigned long long __cil_tmp54 ;
+  dma_addr_t __cil_tmp54 ;
   unsigned int __cil_tmp55 ;
   int __cil_tmp56 ;
   unsigned long __cil_tmp57 ;
   u32 *__cil_tmp58 ;
   int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
+  u32 __cil_tmp60 ;
   u32 __cil_tmp61 ;
   u32 __cil_tmp62 ;
   unsigned int __cil_tmp63 ;
@@ -15564,13 +13181,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
   u32 *__cil_tmp66 ;
   unsigned int __cil_tmp67 ;
   unsigned int __cil_tmp68 ;
-  unsigned long long __cil_tmp69 ;
+  dma_addr_t __cil_tmp69 ;
   unsigned int __cil_tmp70 ;
   int __cil_tmp71 ;
   unsigned long __cil_tmp72 ;
   u32 *__cil_tmp73 ;
   int __cil_tmp74 ;
-  unsigned int __cil_tmp75 ;
+  u32 __cil_tmp75 ;
   u32 __cil_tmp76 ;
   u32 __cil_tmp77 ;
   unsigned int __cil_tmp78 ;
@@ -15579,13 +13196,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
   u32 *__cil_tmp81 ;
   unsigned int __cil_tmp82 ;
   unsigned int __cil_tmp83 ;
-  unsigned long long __cil_tmp84 ;
+  dma_addr_t __cil_tmp84 ;
   unsigned int __cil_tmp85 ;
   int __cil_tmp86 ;
   unsigned long __cil_tmp87 ;
   u32 *__cil_tmp88 ;
   int __cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
+  u32 __cil_tmp90 ;
   u32 __cil_tmp91 ;
   u32 __cil_tmp92 ;
   unsigned int __cil_tmp93 ;
@@ -15594,13 +13211,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
   u32 *__cil_tmp96 ;
   unsigned int __cil_tmp97 ;
   unsigned int __cil_tmp98 ;
-  unsigned long long __cil_tmp99 ;
+  dma_addr_t __cil_tmp99 ;
   unsigned int __cil_tmp100 ;
   int __cil_tmp101 ;
   unsigned long __cil_tmp102 ;
   u32 *__cil_tmp103 ;
   int __cil_tmp104 ;
-  unsigned int __cil_tmp105 ;
+  u32 __cil_tmp105 ;
   u32 __cil_tmp106 ;
   u32 __cil_tmp107 ;
   unsigned int __cil_tmp108 ;
@@ -15609,23 +13226,23 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
   u32 *__cil_tmp111 ;
   unsigned int __cil_tmp112 ;
   unsigned int __cil_tmp113 ;
-  unsigned long long __cil_tmp114 ;
+  dma_addr_t __cil_tmp114 ;
   int __cil_tmp115 ;
   unsigned long __cil_tmp116 ;
   u32 *__cil_tmp117 ;
   int __cil_tmp118 ;
-  unsigned int __cil_tmp119 ;
+  u32 __cil_tmp119 ;
   u32 __cil_tmp120 ;
   int __cil_tmp121 ;
   unsigned long __cil_tmp122 ;
   u32 *__cil_tmp123 ;
   u32 __cil_tmp124 ;
-  unsigned long long __cil_tmp125 ;
+  dma_addr_t __cil_tmp125 ;
   int __cil_tmp126 ;
   unsigned long __cil_tmp127 ;
   u32 *__cil_tmp128 ;
   int __cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
+  u32 __cil_tmp130 ;
   u32 __cil_tmp131 ;
   unsigned int __cil_tmp132 ;
   int __cil_tmp133 ;
@@ -15647,7 +13264,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 954
   if (__cil_tmp26 != 0ULL) {
 #line 955
-    __cil_tmp27 = (unsigned int )paddr;
+    __cil_tmp27 = (u32 )paddr;
 #line 955
     __cil_tmp28 = __cil_tmp27 & 3U;
 #line 955
@@ -15656,14 +13273,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
     if (init > size) {
 #line 956
       init = size;
+    } else
+#line 956
+    if (size <= 6U) {
+#line 956
+      init = size;
     } else {
-#line 956
-      if (size <= 6U) {
-#line 956
-        init = size;
-      } else {
 
-      }
     }
 #line 959
     tmp = *j;
@@ -15678,7 +13294,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 959
     __cil_tmp32 = chan << 6;
 #line 959
-    __cil_tmp33 = (unsigned int )__cil_tmp32;
+    __cil_tmp33 = (u32 )__cil_tmp32;
 #line 959
     __cil_tmp34 = init << 16;
 #line 959
@@ -15696,9 +13312,9 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 961
     __cil_tmp38 = dma + __cil_tmp37;
 #line 961
-    *__cil_tmp38 = (unsigned int )paddr;
+    *__cil_tmp38 = (u32 )paddr;
 #line 962
-    __cil_tmp39 = (unsigned long long )init;
+    __cil_tmp39 = (dma_addr_t )init;
 #line 962
     paddr = __cil_tmp39 + paddr;
 #line 963
@@ -15723,7 +13339,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 968
       __cil_tmp42 = __cil_tmp41 >> 2;
 #line 968
-      __cil_tmp43 = (unsigned int )__cil_tmp42;
+      __cil_tmp43 = (u32 )__cil_tmp42;
 #line 968
       init = 8U - __cil_tmp43;
 #line 969
@@ -15746,7 +13362,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 972
       __cil_tmp47 = chan << 6;
 #line 972
-      __cil_tmp48 = (unsigned int )__cil_tmp47;
+      __cil_tmp48 = (u32 )__cil_tmp47;
 #line 972
       __cil_tmp49 = init << 16;
 #line 972
@@ -15762,11 +13378,11 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 974
       __cil_tmp52 = dma + __cil_tmp51;
 #line 974
-      *__cil_tmp52 = (unsigned int )paddr;
+      *__cil_tmp52 = (u32 )paddr;
 #line 975
       __cil_tmp53 = init << 2;
 #line 975
-      __cil_tmp54 = (unsigned long long )__cil_tmp53;
+      __cil_tmp54 = (dma_addr_t )__cil_tmp53;
 #line 975
       paddr = __cil_tmp54 + paddr;
 #line 976
@@ -15796,7 +13412,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 982
     __cil_tmp59 = chan << 6;
 #line 982
-    __cil_tmp60 = (unsigned int )__cil_tmp59;
+    __cil_tmp60 = (u32 )__cil_tmp59;
 #line 982
     __cil_tmp61 = words >> 4;
 #line 982
@@ -15816,13 +13432,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 984
     __cil_tmp66 = dma + __cil_tmp65;
 #line 984
-    *__cil_tmp66 = (unsigned int )paddr;
+    *__cil_tmp66 = (u32 )paddr;
 #line 985
     __cil_tmp67 = words & 4294967280U;
 #line 985
     __cil_tmp68 = __cil_tmp67 << 2;
 #line 985
-    __cil_tmp69 = (unsigned long long )__cil_tmp68;
+    __cil_tmp69 = (dma_addr_t )__cil_tmp68;
 #line 985
     paddr = __cil_tmp69 + paddr;
 #line 986
@@ -15849,7 +13465,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 993
     __cil_tmp74 = chan << 6;
 #line 993
-    __cil_tmp75 = (unsigned int )__cil_tmp74;
+    __cil_tmp75 = (u32 )__cil_tmp74;
 #line 993
     __cil_tmp76 = words >> 3;
 #line 993
@@ -15869,13 +13485,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 995
     __cil_tmp81 = dma + __cil_tmp80;
 #line 995
-    *__cil_tmp81 = (unsigned int )paddr;
+    *__cil_tmp81 = (u32 )paddr;
 #line 996
     __cil_tmp82 = words & 4294967288U;
 #line 996
     __cil_tmp83 = __cil_tmp82 << 2;
 #line 996
-    __cil_tmp84 = (unsigned long long )__cil_tmp83;
+    __cil_tmp84 = (dma_addr_t )__cil_tmp83;
 #line 996
     paddr = __cil_tmp84 + paddr;
 #line 997
@@ -15902,7 +13518,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1004
     __cil_tmp89 = chan << 6;
 #line 1004
-    __cil_tmp90 = (unsigned int )__cil_tmp89;
+    __cil_tmp90 = (u32 )__cil_tmp89;
 #line 1004
     __cil_tmp91 = words >> 2;
 #line 1004
@@ -15922,13 +13538,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1006
     __cil_tmp96 = dma + __cil_tmp95;
 #line 1006
-    *__cil_tmp96 = (unsigned int )paddr;
+    *__cil_tmp96 = (u32 )paddr;
 #line 1007
     __cil_tmp97 = words & 4294967292U;
 #line 1007
     __cil_tmp98 = __cil_tmp97 << 2;
 #line 1007
-    __cil_tmp99 = (unsigned long long )__cil_tmp98;
+    __cil_tmp99 = (dma_addr_t )__cil_tmp98;
 #line 1007
     paddr = __cil_tmp99 + paddr;
 #line 1008
@@ -15955,7 +13571,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1015
     __cil_tmp104 = chan << 6;
 #line 1015
-    __cil_tmp105 = (unsigned int )__cil_tmp104;
+    __cil_tmp105 = (u32 )__cil_tmp104;
 #line 1015
     __cil_tmp106 = words >> 1;
 #line 1015
@@ -15975,13 +13591,13 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1017
     __cil_tmp111 = dma + __cil_tmp110;
 #line 1017
-    *__cil_tmp111 = (unsigned int )paddr;
+    *__cil_tmp111 = (u32 )paddr;
 #line 1018
     __cil_tmp112 = words & 4294967294U;
 #line 1018
     __cil_tmp113 = __cil_tmp112 << 2;
 #line 1018
-    __cil_tmp114 = (unsigned long long )__cil_tmp113;
+    __cil_tmp114 = (dma_addr_t )__cil_tmp113;
 #line 1018
     paddr = __cil_tmp114 + paddr;
 #line 1019
@@ -16005,7 +13621,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1025
     __cil_tmp118 = chan << 6;
 #line 1025
-    __cil_tmp119 = (unsigned int )__cil_tmp118;
+    __cil_tmp119 = (u32 )__cil_tmp118;
 #line 1025
     __cil_tmp120 = words << 16;
 #line 1025
@@ -16021,11 +13637,11 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1027
     __cil_tmp123 = dma + __cil_tmp122;
 #line 1027
-    *__cil_tmp123 = (unsigned int )paddr;
+    *__cil_tmp123 = (u32 )paddr;
 #line 1028
     __cil_tmp124 = words << 2;
 #line 1028
-    __cil_tmp125 = (unsigned long long )__cil_tmp124;
+    __cil_tmp125 = (dma_addr_t )__cil_tmp124;
 #line 1028
     paddr = __cil_tmp125 + paddr;
   } else {
@@ -16046,7 +13662,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1033
     __cil_tmp129 = chan << 6;
 #line 1033
-    __cil_tmp130 = (unsigned int )__cil_tmp129;
+    __cil_tmp130 = (u32 )__cil_tmp129;
 #line 1033
     __cil_tmp131 = size << 16;
 #line 1033
@@ -16064,7 +13680,7 @@ __inline static void put_dma(int chan , u32 *dma , int *j , dma_addr_t paddr , u
 #line 1035
     __cil_tmp135 = dma + __cil_tmp134;
 #line 1035
-    *__cil_tmp135 = (unsigned int )paddr;
+    *__cil_tmp135 = (u32 )paddr;
   } else {
 
   }
@@ -16108,49 +13724,49 @@ static enum enq_res do_tx(struct sk_buff *skb )
   unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
   unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
+  unsigned int __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  char (*__cil_tmp38)[48U] ;
+  struct atm_skb_data *__cil_tmp39 ;
   unsigned long __cil_tmp40 ;
   unsigned long __cil_tmp41 ;
-  char (*__cil_tmp42)[48U] ;
-  struct atm_skb_data *__cil_tmp43 ;
+  struct atm_dev *__cil_tmp42 ;
+  void *__cil_tmp43 ;
   unsigned long __cil_tmp44 ;
   unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  void *__cil_tmp46 ;
   unsigned long __cil_tmp47 ;
-  struct atm_dev *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  void *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
+  unsigned long __cil_tmp48 ;
+  unsigned char __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  u32 __cil_tmp53 ;
+  u32 __cil_tmp54 ;
   unsigned long __cil_tmp55 ;
-  void *__cil_tmp56 ;
+  unsigned long __cil_tmp56 ;
   unsigned long __cil_tmp57 ;
   unsigned long __cil_tmp58 ;
   unsigned long __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
   unsigned long __cil_tmp61 ;
   unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned char __cil_tmp64 ;
-  unsigned int __cil_tmp65 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
   unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned int __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  u32 __cil_tmp70 ;
-  u32 __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
+  void *__cil_tmp67 ;
+  void const volatile   *__cil_tmp68 ;
+  void const volatile   *__cil_tmp69 ;
+  unsigned long __cil_tmp70 ;
+  unsigned long __cil_tmp71 ;
+  int __cil_tmp72 ;
+  int __cil_tmp73 ;
+  int __cil_tmp74 ;
   unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
+  void *__cil_tmp76 ;
+  void const volatile   *__cil_tmp77 ;
+  void const volatile   *__cil_tmp78 ;
   unsigned long __cil_tmp79 ;
   unsigned long __cil_tmp80 ;
   unsigned long __cil_tmp81 ;
@@ -16159,441 +13775,215 @@ static enum enq_res do_tx(struct sk_buff *skb )
   unsigned long __cil_tmp84 ;
   unsigned long __cil_tmp85 ;
   unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
+  int __cil_tmp87 ;
   int __cil_tmp88 ;
   int __cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  void *__cil_tmp94 ;
-  void const volatile   *__cil_tmp95 ;
-  void const volatile   *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
+  unsigned long __cil_tmp90 ;
+  void *__cil_tmp91 ;
+  void const volatile   *__cil_tmp92 ;
+  void const volatile   *__cil_tmp93 ;
+  unsigned long __cil_tmp94 ;
+  unsigned long __cil_tmp95 ;
+  int __cil_tmp96 ;
+  int __cil_tmp97 ;
+  int __cil_tmp98 ;
   unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  int __cil_tmp103 ;
-  int __cil_tmp104 ;
-  int __cil_tmp105 ;
+  void *__cil_tmp100 ;
+  void const volatile   *__cil_tmp101 ;
+  void const volatile   *__cil_tmp102 ;
+  unsigned long __cil_tmp103 ;
+  unsigned long __cil_tmp104 ;
+  unsigned long __cil_tmp105 ;
   unsigned long __cil_tmp106 ;
   unsigned long __cil_tmp107 ;
   unsigned long __cil_tmp108 ;
-  void *__cil_tmp109 ;
-  void const volatile   *__cil_tmp110 ;
-  void const volatile   *__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
+  unsigned long __cil_tmp109 ;
+  unsigned long __cil_tmp110 ;
+  void *__cil_tmp111 ;
+  void const volatile   *__cil_tmp112 ;
+  void const volatile   *__cil_tmp113 ;
+  void *__cil_tmp114 ;
+  void const volatile   *__cil_tmp115 ;
+  void const volatile   *__cil_tmp116 ;
+  struct sk_buff  const  *__cil_tmp117 ;
+  struct skb_shared_info *__cil_tmp118 ;
+  unsigned short __cil_tmp119 ;
+  unsigned int __cil_tmp120 ;
+  struct sk_buff  const  *__cil_tmp121 ;
+  struct skb_shared_info *__cil_tmp122 ;
+  unsigned short __cil_tmp123 ;
+  int __cil_tmp124 ;
+  int __cil_tmp125 ;
   int __cil_tmp126 ;
-  int __cil_tmp127 ;
+  struct atm_dev *__cil_tmp127 ;
   int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  void *__cil_tmp132 ;
-  void const volatile   *__cil_tmp133 ;
-  void const volatile   *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
+  u32 __cil_tmp129 ;
+  u32 __cil_tmp130 ;
+  unsigned int __cil_tmp131 ;
+  struct atm_dev *__cil_tmp132 ;
+  int __cil_tmp133 ;
+  struct pci_dev *__cil_tmp134 ;
+  unsigned char *__cil_tmp135 ;
+  void *__cil_tmp136 ;
+  unsigned int __cil_tmp137 ;
+  size_t __cil_tmp138 ;
+  char (*__cil_tmp139)[48U] ;
+  struct eni_skb_prv *__cil_tmp140 ;
   int __cil_tmp141 ;
   int __cil_tmp142 ;
-  int __cil_tmp143 ;
+  u32 __cil_tmp143 ;
   unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  void *__cil_tmp147 ;
-  void const volatile   *__cil_tmp148 ;
-  void const volatile   *__cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  void *__cil_tmp164 ;
-  void const volatile   *__cil_tmp165 ;
-  void const volatile   *__cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  void *__cil_tmp169 ;
-  void const volatile   *__cil_tmp170 ;
-  void const volatile   *__cil_tmp171 ;
-  struct sk_buff  const  *__cil_tmp172 ;
-  struct skb_shared_info *__cil_tmp173 ;
-  unsigned short __cil_tmp174 ;
-  unsigned int __cil_tmp175 ;
-  struct sk_buff  const  *__cil_tmp176 ;
-  struct skb_shared_info *__cil_tmp177 ;
-  unsigned short __cil_tmp178 ;
-  int __cil_tmp179 ;
-  int __cil_tmp180 ;
-  int __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  struct atm_dev *__cil_tmp184 ;
+  u32 __cil_tmp145 ;
+  u32 __cil_tmp146 ;
+  unsigned long __cil_tmp147 ;
+  u32 __cil_tmp148 ;
+  u32 __cil_tmp149 ;
+  unsigned int __cil_tmp150 ;
+  unsigned int __cil_tmp151 ;
+  unsigned int __cil_tmp152 ;
+  struct sk_buff  const  *__cil_tmp153 ;
+  struct skb_shared_info *__cil_tmp154 ;
+  unsigned short __cil_tmp155 ;
+  unsigned int __cil_tmp156 ;
+  int __cil_tmp157 ;
+  u32 (*__cil_tmp158)[200U] ;
+  u32 *__cil_tmp159 ;
+  unsigned int __cil_tmp160 ;
+  int __cil_tmp161 ;
+  u32 (*__cil_tmp162)[200U] ;
+  u32 *__cil_tmp163 ;
+  dma_addr_t __cil_tmp164 ;
+  unsigned int __cil_tmp165 ;
+  unsigned int __cil_tmp166 ;
+  struct sk_buff  const  *__cil_tmp167 ;
+  int __cil_tmp168 ;
+  u32 (*__cil_tmp169)[200U] ;
+  u32 *__cil_tmp170 ;
+  unsigned char *__cil_tmp171 ;
+  dma_addr_t __cil_tmp172 ;
+  struct sk_buff  const  *__cil_tmp173 ;
+  struct sk_buff  const  *__cil_tmp174 ;
+  struct sk_buff  const  *__cil_tmp175 ;
+  int __cil_tmp176 ;
+  u32 (*__cil_tmp177)[200U] ;
+  u32 *__cil_tmp178 ;
+  struct skb_shared_info *__cil_tmp179 ;
+  __u32 __cil_tmp180 ;
+  unsigned long __cil_tmp181 ;
+  struct skb_shared_info *__cil_tmp182 ;
+  struct page *__cil_tmp183 ;
+  unsigned long __cil_tmp184 ;
   unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  int __cil_tmp187 ;
-  unsigned int __cil_tmp188 ;
-  u32 __cil_tmp189 ;
-  unsigned int __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  struct atm_dev *__cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  int __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  struct pci_dev *__cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned char *__cil_tmp202 ;
-  void *__cil_tmp203 ;
+  dma_addr_t __cil_tmp186 ;
+  struct skb_shared_info *__cil_tmp187 ;
+  __u32 __cil_tmp188 ;
+  struct sk_buff  const  *__cil_tmp189 ;
+  struct skb_shared_info *__cil_tmp190 ;
+  unsigned short __cil_tmp191 ;
+  int __cil_tmp192 ;
+  unsigned int __cil_tmp193 ;
+  unsigned int __cil_tmp194 ;
+  int __cil_tmp195 ;
+  u32 (*__cil_tmp196)[200U] ;
+  u32 *__cil_tmp197 ;
+  unsigned int __cil_tmp198 ;
+  unsigned int __cil_tmp199 ;
+  unsigned int __cil_tmp200 ;
+  int __cil_tmp201 ;
+  int __cil_tmp202 ;
+  u32 __cil_tmp203 ;
   unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned int __cil_tmp206 ;
+  u32 __cil_tmp205 ;
+  u32 __cil_tmp206 ;
   unsigned long __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  char (*__cil_tmp210)[48U] ;
-  struct eni_skb_prv *__cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  int *__cil_tmp214 ;
-  int *__cil_tmp215 ;
-  int *__cil_tmp216 ;
-  int *__cil_tmp217 ;
+  u32 __cil_tmp208 ;
+  u32 __cil_tmp209 ;
+  unsigned int __cil_tmp210 ;
+  unsigned int __cil_tmp211 ;
+  unsigned int __cil_tmp212 ;
+  u32 __cil_tmp213 ;
+  int __cil_tmp214 ;
+  int __cil_tmp215 ;
+  int __cil_tmp216 ;
+  int __cil_tmp217 ;
   int __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
+  int __cil_tmp219 ;
+  u32 __cil_tmp220 ;
+  unsigned int __cil_tmp221 ;
   unsigned long __cil_tmp222 ;
   unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  int __cil_tmp225 ;
-  int __cil_tmp226 ;
-  unsigned int __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned int __cil_tmp231 ;
-  unsigned int __cil_tmp232 ;
+  void *__cil_tmp224 ;
+  void *__cil_tmp225 ;
+  void volatile   *__cil_tmp226 ;
+  unsigned char *__cil_tmp227 ;
+  unsigned char *__cil_tmp228 ;
+  unsigned char __cil_tmp229 ;
+  int __cil_tmp230 ;
+  char (*__cil_tmp231)[48U] ;
+  struct atm_skb_data *__cil_tmp232 ;
   unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned int __cil_tmp236 ;
-  unsigned int __cil_tmp237 ;
-  unsigned int __cil_tmp238 ;
-  unsigned int __cil_tmp239 ;
+  int __cil_tmp234 ;
+  int __cil_tmp235 ;
+  int __cil_tmp236 ;
+  int __cil_tmp237 ;
+  int __cil_tmp238 ;
+  int __cil_tmp239 ;
   unsigned int __cil_tmp240 ;
-  int *__cil_tmp241 ;
-  int *__cil_tmp242 ;
-  int __cil_tmp243 ;
-  struct sk_buff  const  *__cil_tmp244 ;
-  struct skb_shared_info *__cil_tmp245 ;
-  unsigned short __cil_tmp246 ;
-  unsigned int __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  int __cil_tmp250 ;
+  unsigned long __cil_tmp241 ;
+  unsigned long __cil_tmp242 ;
+  unsigned long __cil_tmp243 ;
+  unsigned long __cil_tmp244 ;
+  unsigned long __cil_tmp245 ;
+  unsigned long __cil_tmp246 ;
+  void *__cil_tmp247 ;
+  void *__cil_tmp248 ;
+  void volatile   *__cil_tmp249 ;
+  unsigned int __cil_tmp250 ;
   unsigned long __cil_tmp251 ;
   unsigned long __cil_tmp252 ;
-  u32 (*__cil_tmp253)[200U] ;
-  u32 *__cil_tmp254 ;
+  unsigned long __cil_tmp253 ;
+  unsigned long __cil_tmp254 ;
   unsigned long __cil_tmp255 ;
   unsigned long __cil_tmp256 ;
-  unsigned int __cil_tmp257 ;
+  unsigned long __cil_tmp257 ;
   unsigned long __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  int __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  u32 (*__cil_tmp263)[200U] ;
-  u32 *__cil_tmp264 ;
-  dma_addr_t __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  unsigned int __cil_tmp268 ;
-  unsigned int __cil_tmp269 ;
-  struct sk_buff  const  *__cil_tmp270 ;
+  void *__cil_tmp259 ;
+  void *__cil_tmp260 ;
+  void volatile   *__cil_tmp261 ;
+  u32 __cil_tmp262 ;
+  u32 __cil_tmp263 ;
+  unsigned long __cil_tmp264 ;
+  void *__cil_tmp265 ;
+  void volatile   *__cil_tmp266 ;
+  void volatile   *__cil_tmp267 ;
+  u32 __cil_tmp268 ;
+  u32 __cil_tmp269 ;
+  unsigned long __cil_tmp270 ;
   unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  int __cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  u32 (*__cil_tmp276)[200U] ;
-  u32 *__cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  unsigned char *__cil_tmp280 ;
-  unsigned long long __cil_tmp281 ;
-  struct sk_buff  const  *__cil_tmp282 ;
-  struct sk_buff  const  *__cil_tmp283 ;
-  struct sk_buff  const  *__cil_tmp284 ;
-  unsigned long __cil_tmp285 ;
-  unsigned long __cil_tmp286 ;
-  int __cil_tmp287 ;
+  void *__cil_tmp272 ;
+  void *__cil_tmp273 ;
+  void volatile   *__cil_tmp274 ;
+  u32 __cil_tmp275 ;
+  char (*__cil_tmp276)[48U] ;
+  struct eni_skb_prv *__cil_tmp277 ;
+  char (*__cil_tmp278)[48U] ;
+  struct eni_skb_prv *__cil_tmp279 ;
+  void *__cil_tmp280 ;
+  struct eni_vcc *__cil_tmp281 ;
+  void *__cil_tmp282 ;
+  struct eni_vcc *__cil_tmp283 ;
+  int __cil_tmp284 ;
+  u32 __cil_tmp285 ;
+  u32 __cil_tmp286 ;
+  unsigned long __cil_tmp287 ;
   unsigned long __cil_tmp288 ;
   unsigned long __cil_tmp289 ;
-  u32 (*__cil_tmp290)[200U] ;
-  u32 *__cil_tmp291 ;
-  unsigned long __cil_tmp292 ;
-  unsigned long __cil_tmp293 ;
-  unsigned long __cil_tmp294 ;
-  struct skb_shared_info *__cil_tmp295 ;
-  unsigned long __cil_tmp296 ;
-  unsigned long __cil_tmp297 ;
-  __u32 __cil_tmp298 ;
-  unsigned long __cil_tmp299 ;
-  unsigned long __cil_tmp300 ;
-  unsigned long __cil_tmp301 ;
-  struct skb_shared_info *__cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
-  unsigned long __cil_tmp304 ;
-  struct page *__cil_tmp305 ;
-  unsigned long __cil_tmp306 ;
-  unsigned long __cil_tmp307 ;
-  unsigned long long __cil_tmp308 ;
-  unsigned long __cil_tmp309 ;
-  unsigned long __cil_tmp310 ;
-  unsigned long __cil_tmp311 ;
-  struct skb_shared_info *__cil_tmp312 ;
-  unsigned long __cil_tmp313 ;
-  unsigned long __cil_tmp314 ;
-  __u32 __cil_tmp315 ;
-  struct sk_buff  const  *__cil_tmp316 ;
-  struct skb_shared_info *__cil_tmp317 ;
-  unsigned short __cil_tmp318 ;
-  int __cil_tmp319 ;
-  unsigned long __cil_tmp320 ;
-  unsigned long __cil_tmp321 ;
-  unsigned int __cil_tmp322 ;
-  unsigned int __cil_tmp323 ;
-  unsigned long __cil_tmp324 ;
-  unsigned long __cil_tmp325 ;
-  int __cil_tmp326 ;
-  unsigned long __cil_tmp327 ;
-  unsigned long __cil_tmp328 ;
-  u32 (*__cil_tmp329)[200U] ;
-  u32 *__cil_tmp330 ;
-  dma_addr_t *__cil_tmp331 ;
-  dma_addr_t __cil_tmp332 ;
-  unsigned long __cil_tmp333 ;
-  unsigned long __cil_tmp334 ;
-  unsigned int __cil_tmp335 ;
-  unsigned int __cil_tmp336 ;
-  unsigned int __cil_tmp337 ;
-  int *__cil_tmp338 ;
-  int *__cil_tmp339 ;
-  int *__cil_tmp340 ;
-  int __cil_tmp341 ;
-  unsigned long __cil_tmp342 ;
-  unsigned long __cil_tmp343 ;
-  unsigned long __cil_tmp344 ;
-  unsigned long __cil_tmp345 ;
-  unsigned long __cil_tmp346 ;
-  unsigned long __cil_tmp347 ;
-  int __cil_tmp348 ;
-  int __cil_tmp349 ;
-  unsigned int __cil_tmp350 ;
-  unsigned long __cil_tmp351 ;
-  unsigned long __cil_tmp352 ;
-  unsigned long __cil_tmp353 ;
-  unsigned int __cil_tmp354 ;
-  unsigned int __cil_tmp355 ;
-  unsigned long __cil_tmp356 ;
-  unsigned long __cil_tmp357 ;
-  unsigned long __cil_tmp358 ;
-  unsigned int __cil_tmp359 ;
-  unsigned int __cil_tmp360 ;
-  unsigned int __cil_tmp361 ;
-  unsigned int __cil_tmp362 ;
-  unsigned int __cil_tmp363 ;
-  int *__cil_tmp364 ;
-  int *__cil_tmp365 ;
-  int __cil_tmp366 ;
-  u32 __cil_tmp367 ;
-  unsigned long __cil_tmp368 ;
-  unsigned long __cil_tmp369 ;
-  int __cil_tmp370 ;
-  int __cil_tmp371 ;
-  unsigned long __cil_tmp372 ;
-  unsigned long __cil_tmp373 ;
-  int __cil_tmp374 ;
-  int __cil_tmp375 ;
-  int __cil_tmp376 ;
-  int __cil_tmp377 ;
-  unsigned int __cil_tmp378 ;
-  unsigned int __cil_tmp379 ;
-  unsigned long __cil_tmp380 ;
-  unsigned long __cil_tmp381 ;
-  unsigned long __cil_tmp382 ;
-  unsigned long __cil_tmp383 ;
-  void *__cil_tmp384 ;
-  void *__cil_tmp385 ;
-  void volatile   *__cil_tmp386 ;
-  unsigned long __cil_tmp387 ;
-  unsigned long __cil_tmp388 ;
-  unsigned char *__cil_tmp389 ;
-  unsigned char *__cil_tmp390 ;
-  unsigned char __cil_tmp391 ;
-  int __cil_tmp392 ;
-  unsigned long __cil_tmp393 ;
-  unsigned long __cil_tmp394 ;
-  char (*__cil_tmp395)[48U] ;
-  struct atm_skb_data *__cil_tmp396 ;
-  unsigned long __cil_tmp397 ;
-  unsigned long __cil_tmp398 ;
-  unsigned long __cil_tmp399 ;
-  int __cil_tmp400 ;
-  int __cil_tmp401 ;
-  unsigned long __cil_tmp402 ;
-  unsigned long __cil_tmp403 ;
-  int __cil_tmp404 ;
-  int __cil_tmp405 ;
-  int __cil_tmp406 ;
-  int __cil_tmp407 ;
-  unsigned int __cil_tmp408 ;
-  unsigned long __cil_tmp409 ;
-  unsigned long __cil_tmp410 ;
-  unsigned long __cil_tmp411 ;
-  unsigned long __cil_tmp412 ;
-  unsigned long __cil_tmp413 ;
-  unsigned long __cil_tmp414 ;
-  unsigned long __cil_tmp415 ;
-  unsigned long __cil_tmp416 ;
-  unsigned long __cil_tmp417 ;
-  unsigned long __cil_tmp418 ;
-  void *__cil_tmp419 ;
-  void *__cil_tmp420 ;
-  void volatile   *__cil_tmp421 ;
-  unsigned long __cil_tmp422 ;
-  unsigned long __cil_tmp423 ;
-  unsigned int __cil_tmp424 ;
-  unsigned long __cil_tmp425 ;
-  unsigned long __cil_tmp426 ;
-  unsigned long __cil_tmp427 ;
-  unsigned long __cil_tmp428 ;
-  unsigned long __cil_tmp429 ;
-  unsigned long __cil_tmp430 ;
-  unsigned long __cil_tmp431 ;
-  unsigned long __cil_tmp432 ;
-  unsigned long __cil_tmp433 ;
-  unsigned long __cil_tmp434 ;
-  unsigned long __cil_tmp435 ;
-  unsigned long __cil_tmp436 ;
-  void *__cil_tmp437 ;
-  void *__cil_tmp438 ;
-  void volatile   *__cil_tmp439 ;
-  int *__cil_tmp440 ;
-  int *__cil_tmp441 ;
-  int __cil_tmp442 ;
-  int __cil_tmp443 ;
-  unsigned long __cil_tmp444 ;
-  unsigned long __cil_tmp445 ;
-  unsigned long __cil_tmp446 ;
-  unsigned long __cil_tmp447 ;
-  u32 __cil_tmp448 ;
-  u32 __cil_tmp449 ;
-  unsigned long __cil_tmp450 ;
-  unsigned long __cil_tmp451 ;
-  unsigned long __cil_tmp452 ;
-  void *__cil_tmp453 ;
-  void volatile   *__cil_tmp454 ;
-  void volatile   *__cil_tmp455 ;
-  int __cil_tmp456 ;
-  int __cil_tmp457 ;
-  unsigned long __cil_tmp458 ;
-  unsigned long __cil_tmp459 ;
-  unsigned long __cil_tmp460 ;
-  unsigned long __cil_tmp461 ;
-  u32 __cil_tmp462 ;
-  u32 __cil_tmp463 ;
-  unsigned long __cil_tmp464 ;
-  unsigned long __cil_tmp465 ;
-  unsigned long __cil_tmp466 ;
-  unsigned long __cil_tmp467 ;
-  void *__cil_tmp468 ;
-  void *__cil_tmp469 ;
-  void volatile   *__cil_tmp470 ;
-  u32 __cil_tmp471 ;
-  int *__cil_tmp472 ;
-  int __cil_tmp473 ;
-  unsigned long __cil_tmp474 ;
-  unsigned long __cil_tmp475 ;
-  char (*__cil_tmp476)[48U] ;
-  struct eni_skb_prv *__cil_tmp477 ;
-  unsigned long __cil_tmp478 ;
-  unsigned long __cil_tmp479 ;
-  unsigned long __cil_tmp480 ;
-  unsigned long __cil_tmp481 ;
-  unsigned long __cil_tmp482 ;
-  unsigned long __cil_tmp483 ;
-  char (*__cil_tmp484)[48U] ;
-  struct eni_skb_prv *__cil_tmp485 ;
-  unsigned long __cil_tmp486 ;
-  unsigned long __cil_tmp487 ;
-  unsigned long __cil_tmp488 ;
-  unsigned long __cil_tmp489 ;
-  void *__cil_tmp490 ;
-  struct eni_vcc *__cil_tmp491 ;
-  unsigned long __cil_tmp492 ;
-  unsigned long __cil_tmp493 ;
-  unsigned long __cil_tmp494 ;
-  unsigned long __cil_tmp495 ;
-  void *__cil_tmp496 ;
-  struct eni_vcc *__cil_tmp497 ;
-  unsigned long __cil_tmp498 ;
-  unsigned long __cil_tmp499 ;
-  int __cil_tmp500 ;
-  unsigned int __cil_tmp501 ;
-  unsigned int __cil_tmp502 ;
-  unsigned long __cil_tmp503 ;
-  unsigned long __cil_tmp504 ;
-  unsigned long __cil_tmp505 ;
-  unsigned long __cil_tmp506 ;
-  unsigned long __cil_tmp507 ;
-  unsigned long __cil_tmp508 ;
-  unsigned long __cil_tmp509 ;
-  unsigned long __cil_tmp510 ;
-  unsigned long __cil_tmp511 ;
-  unsigned long __cil_tmp512 ;
-  unsigned long __cil_tmp513 ;
-  unsigned long __cil_tmp514 ;
-  unsigned long __cil_tmp515 ;
-  void *__cil_tmp516 ;
-  void volatile   *__cil_tmp517 ;
-  void volatile   *__cil_tmp518 ;
-  unsigned long __cil_tmp519 ;
-  unsigned long __cil_tmp520 ;
-  struct sk_buff_head *__cil_tmp521 ;
+  unsigned long __cil_tmp290 ;
+  unsigned long __cil_tmp291 ;
+  void *__cil_tmp292 ;
+  void volatile   *__cil_tmp293 ;
+  void volatile   *__cil_tmp294 ;
+  struct sk_buff_head *__cil_tmp295 ;
 
   {
   {
@@ -16615,254 +14005,180 @@ static enum enq_res do_tx(struct sk_buff *skb )
 #line 1053
   __cil_tmp35 = (unsigned long )skb;
 #line 1053
-  __cil_tmp36 = (unsigned long )skb;
+  __cil_tmp36 = skb->len;
 #line 1053
-  __cil_tmp37 = __cil_tmp36 + 104;
+  __cil_tmp37 = (unsigned long )__cil_tmp36;
 #line 1053
-  __cil_tmp38 = *((unsigned int *)__cil_tmp37);
-#line 1053
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 1053
-  EVENT("do_tx: skb=0x%lx, %ld bytes\n", __cil_tmp35, __cil_tmp39);
+  EVENT("do_tx: skb=0x%lx, %ld bytes\n", __cil_tmp35, __cil_tmp37);
 #line 1054
-  __cil_tmp40 = (unsigned long )skb;
+  __cil_tmp38 = & skb->cb;
 #line 1054
-  __cil_tmp41 = __cil_tmp40 + 40;
+  __cil_tmp39 = (struct atm_skb_data *)__cil_tmp38;
 #line 1054
-  __cil_tmp42 = (char (*)[48U])__cil_tmp41;
-#line 1054
-  __cil_tmp43 = (struct atm_skb_data *)__cil_tmp42;
-#line 1054
-  vcc = *((struct atm_vcc **)__cil_tmp43);
+  vcc = __cil_tmp39->vcc;
   }
   {
 #line 1055
-  __cil_tmp44 = (unsigned long )vcc;
+  __cil_tmp40 = (unsigned long )vcc;
 #line 1055
+  if (__cil_tmp40 <= 47UL) {
+    {
+#line 1055
+    __cil_tmp41 = (unsigned long )vcc;
+#line 1055
+    printk("<2>vcc==0x%lx\n", __cil_tmp41);
+    }
+  } else {
+
+  }
+  }
+#line 1056
+  __cil_tmp42 = vcc->dev;
+#line 1056
+  __cil_tmp43 = __cil_tmp42->dev_data;
+#line 1056
+  eni_dev = (struct eni_dev *)__cil_tmp43;
+  {
+#line 1057
+  __cil_tmp44 = (unsigned long )eni_dev;
+#line 1057
   if (__cil_tmp44 <= 47UL) {
     {
-#line 1055
-    __cil_tmp45 = (unsigned long )vcc;
-#line 1055
-    printk("<2>vcc==0x%lx\n", __cil_tmp45);
-    }
-  } else {
-
-  }
-  }
-#line 1056
-  __cil_tmp46 = (unsigned long )vcc;
-#line 1056
-  __cil_tmp47 = __cil_tmp46 + 1304;
-#line 1056
-  __cil_tmp48 = *((struct atm_dev **)__cil_tmp47);
-#line 1056
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 1056
-  __cil_tmp50 = __cil_tmp49 + 32;
-#line 1056
-  __cil_tmp51 = *((void **)__cil_tmp50);
-#line 1056
-  eni_dev = (struct eni_dev *)__cil_tmp51;
-  {
 #line 1057
-  __cil_tmp52 = (unsigned long )eni_dev;
+    __cil_tmp45 = (unsigned long )eni_dev;
 #line 1057
-  if (__cil_tmp52 <= 47UL) {
-    {
-#line 1057
-    __cil_tmp53 = (unsigned long )eni_dev;
-#line 1057
-    printk("<2>eni_dev==0x%lx\n", __cil_tmp53);
+    printk("<2>eni_dev==0x%lx\n", __cil_tmp45);
     }
   } else {
 
   }
   }
 #line 1058
-  __cil_tmp54 = (unsigned long )vcc;
+  __cil_tmp46 = vcc->dev_data;
 #line 1058
-  __cil_tmp55 = __cil_tmp54 + 1480;
-#line 1058
-  __cil_tmp56 = *((void **)__cil_tmp55);
-#line 1058
-  eni_vcc = (struct eni_vcc *)__cil_tmp56;
+  eni_vcc = (struct eni_vcc *)__cil_tmp46;
 #line 1059
-  __cil_tmp57 = (unsigned long )eni_vcc;
-#line 1059
-  __cil_tmp58 = __cil_tmp57 + 40;
-#line 1059
-  tx = *((struct eni_tx **)__cil_tmp58);
+  tx = eni_vcc->tx;
   {
 #line 1060
-  __cil_tmp59 = (unsigned long )tx;
+  __cil_tmp47 = (unsigned long )tx;
 #line 1060
-  if (__cil_tmp59 <= 47UL) {
+  if (__cil_tmp47 <= 47UL) {
     {
 #line 1060
-    __cil_tmp60 = (unsigned long )tx;
+    __cil_tmp48 = (unsigned long )tx;
 #line 1060
-    printk("<2>tx==0x%lx\n", __cil_tmp60);
+    printk("<2>tx==0x%lx\n", __cil_tmp48);
     }
   } else {
 
   }
   }
 #line 1082
-  __cil_tmp61 = 1312 + 88;
+  __cil_tmp49 = vcc->qos.aal;
 #line 1082
-  __cil_tmp62 = (unsigned long )vcc;
+  __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 1082
-  __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
-#line 1082
-  __cil_tmp64 = *((unsigned char *)__cil_tmp63);
-#line 1082
-  __cil_tmp65 = (unsigned int )__cil_tmp64;
-#line 1082
-  aal5 = __cil_tmp65 == 5U;
+  aal5 = __cil_tmp50 == 5U;
 #line 1084
   if (aal5 == 0) {
 #line 1085
     size = 14U;
   } else {
 #line 1089
-    __cil_tmp66 = (unsigned long )skb;
+    __cil_tmp51 = skb->len;
 #line 1089
-    __cil_tmp67 = __cil_tmp66 + 104;
-#line 1089
-    __cil_tmp68 = *((unsigned int *)__cil_tmp67);
-#line 1089
-    size = __cil_tmp68 + 55U;
+    size = __cil_tmp51 + 55U;
 #line 1091
-    __cil_tmp69 = size % 48U;
+    __cil_tmp52 = size % 48U;
 #line 1091
-    __cil_tmp70 = size - __cil_tmp69;
+    __cil_tmp53 = size - __cil_tmp52;
 #line 1091
-    __cil_tmp71 = __cil_tmp70 >> 2;
+    __cil_tmp54 = __cil_tmp53 >> 2;
 #line 1091
-    size = __cil_tmp71 + 2U;
+    size = __cil_tmp54 + 2U;
   }
   {
 #line 1099
-  __cil_tmp72 = (unsigned long )tx;
+  __cil_tmp55 = tx->words;
 #line 1099
-  __cil_tmp73 = __cil_tmp72 + 24;
+  __cil_tmp56 = __cil_tmp55 - 1UL;
 #line 1099
-  __cil_tmp74 = *((unsigned long *)__cil_tmp73);
+  __cil_tmp57 = (unsigned long )size;
 #line 1099
-  __cil_tmp75 = __cil_tmp74 - 1UL;
+  __cil_tmp58 = tx->tx_pos;
 #line 1099
-  __cil_tmp76 = (unsigned long )size;
+  __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
 #line 1099
-  __cil_tmp77 = (unsigned long )tx;
+  __cil_tmp60 = __cil_tmp59 + 8UL;
 #line 1099
-  __cil_tmp78 = __cil_tmp77 + 16;
+  __cil_tmp61 = __cil_tmp60 & __cil_tmp56;
 #line 1099
-  __cil_tmp79 = *((unsigned long *)__cil_tmp78);
+  __cil_tmp62 = tx->tx_pos;
 #line 1099
-  __cil_tmp80 = __cil_tmp79 + __cil_tmp76;
-#line 1099
-  __cil_tmp81 = __cil_tmp80 + 8UL;
-#line 1099
-  __cil_tmp82 = __cil_tmp81 & __cil_tmp75;
-#line 1099
-  __cil_tmp83 = (unsigned long )tx;
-#line 1099
-  __cil_tmp84 = __cil_tmp83 + 16;
-#line 1099
-  __cil_tmp85 = *((unsigned long *)__cil_tmp84);
-#line 1099
-  if (__cil_tmp85 < __cil_tmp82) {
+  if (__cil_tmp62 < __cil_tmp61) {
     {
 #line 1099
-    __cil_tmp86 = (unsigned long )tx;
+    __cil_tmp63 = tx->index;
 #line 1099
-    __cil_tmp87 = __cil_tmp86 + 32;
+    __cil_tmp64 = __cil_tmp63 * 16;
 #line 1099
-    __cil_tmp88 = *((int *)__cil_tmp87);
+    __cil_tmp65 = __cil_tmp64 + 68;
 #line 1099
-    __cil_tmp89 = __cil_tmp88 * 16;
+    __cil_tmp66 = (unsigned long )__cil_tmp65;
 #line 1099
-    __cil_tmp90 = __cil_tmp89 + 68;
+    __cil_tmp67 = eni_dev->reg;
 #line 1099
-    __cil_tmp91 = (unsigned long )__cil_tmp90;
+    __cil_tmp68 = (void const volatile   *)__cil_tmp67;
 #line 1099
-    __cil_tmp92 = (unsigned long )eni_dev;
+    __cil_tmp69 = __cil_tmp68 + __cil_tmp66;
 #line 1099
-    __cil_tmp93 = __cil_tmp92 + 128;
-#line 1099
-    __cil_tmp94 = *((void **)__cil_tmp93);
-#line 1099
-    __cil_tmp95 = (void const volatile   *)__cil_tmp94;
-#line 1099
-    __cil_tmp96 = __cil_tmp95 + __cil_tmp91;
-#line 1099
-    tmp = readl(__cil_tmp96);
+    tmp = readl(__cil_tmp69);
     }
     {
 #line 1099
-    __cil_tmp97 = (unsigned long )tx;
+    __cil_tmp70 = tx->tx_pos;
 #line 1099
-    __cil_tmp98 = __cil_tmp97 + 16;
+    __cil_tmp71 = (unsigned long )tmp;
 #line 1099
-    __cil_tmp99 = *((unsigned long *)__cil_tmp98);
-#line 1099
-    __cil_tmp100 = (unsigned long )tmp;
-#line 1099
-    if (__cil_tmp100 > __cil_tmp99) {
+    if (__cil_tmp71 > __cil_tmp70) {
       {
 #line 1099
-      __cil_tmp101 = (unsigned long )tx;
+      __cil_tmp72 = tx->index;
 #line 1099
-      __cil_tmp102 = __cil_tmp101 + 32;
+      __cil_tmp73 = __cil_tmp72 * 16;
 #line 1099
-      __cil_tmp103 = *((int *)__cil_tmp102);
+      __cil_tmp74 = __cil_tmp73 + 68;
 #line 1099
-      __cil_tmp104 = __cil_tmp103 * 16;
+      __cil_tmp75 = (unsigned long )__cil_tmp74;
 #line 1099
-      __cil_tmp105 = __cil_tmp104 + 68;
+      __cil_tmp76 = eni_dev->reg;
 #line 1099
-      __cil_tmp106 = (unsigned long )__cil_tmp105;
+      __cil_tmp77 = (void const volatile   *)__cil_tmp76;
 #line 1099
-      __cil_tmp107 = (unsigned long )eni_dev;
+      __cil_tmp78 = __cil_tmp77 + __cil_tmp75;
 #line 1099
-      __cil_tmp108 = __cil_tmp107 + 128;
-#line 1099
-      __cil_tmp109 = *((void **)__cil_tmp108);
-#line 1099
-      __cil_tmp110 = (void const volatile   *)__cil_tmp109;
-#line 1099
-      __cil_tmp111 = __cil_tmp110 + __cil_tmp106;
-#line 1099
-      tmp___0 = readl(__cil_tmp111);
+      tmp___0 = readl(__cil_tmp78);
       }
       {
 #line 1099
-      __cil_tmp112 = (unsigned long )tx;
+      __cil_tmp79 = tx->words;
 #line 1099
-      __cil_tmp113 = __cil_tmp112 + 24;
+      __cil_tmp80 = __cil_tmp79 - 1UL;
 #line 1099
-      __cil_tmp114 = *((unsigned long *)__cil_tmp113);
+      __cil_tmp81 = (unsigned long )size;
 #line 1099
-      __cil_tmp115 = __cil_tmp114 - 1UL;
+      __cil_tmp82 = tx->tx_pos;
 #line 1099
-      __cil_tmp116 = (unsigned long )size;
+      __cil_tmp83 = __cil_tmp82 + __cil_tmp81;
 #line 1099
-      __cil_tmp117 = (unsigned long )tx;
+      __cil_tmp84 = __cil_tmp83 + 8UL;
 #line 1099
-      __cil_tmp118 = __cil_tmp117 + 16;
+      __cil_tmp85 = __cil_tmp84 & __cil_tmp80;
 #line 1099
-      __cil_tmp119 = *((unsigned long *)__cil_tmp118);
+      __cil_tmp86 = (unsigned long )tmp___0;
 #line 1099
-      __cil_tmp120 = __cil_tmp119 + __cil_tmp116;
-#line 1099
-      __cil_tmp121 = __cil_tmp120 + 8UL;
-#line 1099
-      __cil_tmp122 = __cil_tmp121 & __cil_tmp115;
-#line 1099
-      __cil_tmp123 = (unsigned long )tmp___0;
-#line 1099
-      if (__cil_tmp123 <= __cil_tmp122) {
+      if (__cil_tmp86 <= __cil_tmp85) {
 #line 1099
         tmp___1 = 1;
       } else {
@@ -16880,97 +14196,69 @@ static enum enq_res do_tx(struct sk_buff *skb )
   } else {
     {
 #line 1099
-    __cil_tmp124 = (unsigned long )tx;
+    __cil_tmp87 = tx->index;
 #line 1099
-    __cil_tmp125 = __cil_tmp124 + 32;
+    __cil_tmp88 = __cil_tmp87 * 16;
 #line 1099
-    __cil_tmp126 = *((int *)__cil_tmp125);
+    __cil_tmp89 = __cil_tmp88 + 68;
 #line 1099
-    __cil_tmp127 = __cil_tmp126 * 16;
+    __cil_tmp90 = (unsigned long )__cil_tmp89;
 #line 1099
-    __cil_tmp128 = __cil_tmp127 + 68;
+    __cil_tmp91 = eni_dev->reg;
 #line 1099
-    __cil_tmp129 = (unsigned long )__cil_tmp128;
+    __cil_tmp92 = (void const volatile   *)__cil_tmp91;
 #line 1099
-    __cil_tmp130 = (unsigned long )eni_dev;
+    __cil_tmp93 = __cil_tmp92 + __cil_tmp90;
 #line 1099
-    __cil_tmp131 = __cil_tmp130 + 128;
-#line 1099
-    __cil_tmp132 = *((void **)__cil_tmp131);
-#line 1099
-    __cil_tmp133 = (void const volatile   *)__cil_tmp132;
-#line 1099
-    __cil_tmp134 = __cil_tmp133 + __cil_tmp129;
-#line 1099
-    tmp___2 = readl(__cil_tmp134);
+    tmp___2 = readl(__cil_tmp93);
     }
     {
 #line 1099
-    __cil_tmp135 = (unsigned long )tx;
+    __cil_tmp94 = tx->tx_pos;
 #line 1099
-    __cil_tmp136 = __cil_tmp135 + 16;
+    __cil_tmp95 = (unsigned long )tmp___2;
 #line 1099
-    __cil_tmp137 = *((unsigned long *)__cil_tmp136);
-#line 1099
-    __cil_tmp138 = (unsigned long )tmp___2;
-#line 1099
-    if (__cil_tmp138 > __cil_tmp137) {
+    if (__cil_tmp95 > __cil_tmp94) {
 #line 1099
       tmp___4 = 1;
     } else {
       {
 #line 1099
-      __cil_tmp139 = (unsigned long )tx;
+      __cil_tmp96 = tx->index;
 #line 1099
-      __cil_tmp140 = __cil_tmp139 + 32;
+      __cil_tmp97 = __cil_tmp96 * 16;
 #line 1099
-      __cil_tmp141 = *((int *)__cil_tmp140);
+      __cil_tmp98 = __cil_tmp97 + 68;
 #line 1099
-      __cil_tmp142 = __cil_tmp141 * 16;
+      __cil_tmp99 = (unsigned long )__cil_tmp98;
 #line 1099
-      __cil_tmp143 = __cil_tmp142 + 68;
+      __cil_tmp100 = eni_dev->reg;
 #line 1099
-      __cil_tmp144 = (unsigned long )__cil_tmp143;
+      __cil_tmp101 = (void const volatile   *)__cil_tmp100;
 #line 1099
-      __cil_tmp145 = (unsigned long )eni_dev;
+      __cil_tmp102 = __cil_tmp101 + __cil_tmp99;
 #line 1099
-      __cil_tmp146 = __cil_tmp145 + 128;
-#line 1099
-      __cil_tmp147 = *((void **)__cil_tmp146);
-#line 1099
-      __cil_tmp148 = (void const volatile   *)__cil_tmp147;
-#line 1099
-      __cil_tmp149 = __cil_tmp148 + __cil_tmp144;
-#line 1099
-      tmp___3 = readl(__cil_tmp149);
+      tmp___3 = readl(__cil_tmp102);
       }
       {
 #line 1099
-      __cil_tmp150 = (unsigned long )tx;
+      __cil_tmp103 = tx->words;
 #line 1099
-      __cil_tmp151 = __cil_tmp150 + 24;
+      __cil_tmp104 = __cil_tmp103 - 1UL;
 #line 1099
-      __cil_tmp152 = *((unsigned long *)__cil_tmp151);
+      __cil_tmp105 = (unsigned long )size;
 #line 1099
-      __cil_tmp153 = __cil_tmp152 - 1UL;
+      __cil_tmp106 = tx->tx_pos;
 #line 1099
-      __cil_tmp154 = (unsigned long )size;
+      __cil_tmp107 = __cil_tmp106 + __cil_tmp105;
 #line 1099
-      __cil_tmp155 = (unsigned long )tx;
+      __cil_tmp108 = __cil_tmp107 + 8UL;
 #line 1099
-      __cil_tmp156 = __cil_tmp155 + 16;
+      __cil_tmp109 = __cil_tmp108 & __cil_tmp104;
 #line 1099
-      __cil_tmp157 = *((unsigned long *)__cil_tmp156);
+      __cil_tmp110 = (unsigned long )tmp___3;
 #line 1099
-      __cil_tmp158 = __cil_tmp157 + __cil_tmp154;
-#line 1099
-      __cil_tmp159 = __cil_tmp158 + 8UL;
-#line 1099
-      __cil_tmp160 = __cil_tmp159 & __cil_tmp153;
-#line 1099
-      __cil_tmp161 = (unsigned long )tmp___3;
-#line 1099
-      if (__cil_tmp161 <= __cil_tmp160) {
+      if (__cil_tmp110 <= __cil_tmp109) {
 #line 1099
         tmp___4 = 1;
       } else {
@@ -16993,65 +14281,57 @@ static enum enq_res do_tx(struct sk_buff *skb )
   }
   {
 #line 1106
-  __cil_tmp162 = (unsigned long )eni_dev;
+  __cil_tmp111 = eni_dev->reg;
 #line 1106
-  __cil_tmp163 = __cil_tmp162 + 128;
+  __cil_tmp112 = (void const volatile   *)__cil_tmp111;
 #line 1106
-  __cil_tmp164 = *((void **)__cil_tmp163);
+  __cil_tmp113 = __cil_tmp112 + 40U;
 #line 1106
-  __cil_tmp165 = (void const volatile   *)__cil_tmp164;
-#line 1106
-  __cil_tmp166 = __cil_tmp165 + 40U;
-#line 1106
-  dma_wr = readl(__cil_tmp166);
+  dma_wr = readl(__cil_tmp113);
 #line 1107
-  __cil_tmp167 = (unsigned long )eni_dev;
+  __cil_tmp114 = eni_dev->reg;
 #line 1107
-  __cil_tmp168 = __cil_tmp167 + 128;
+  __cil_tmp115 = (void const volatile   *)__cil_tmp114;
 #line 1107
-  __cil_tmp169 = *((void **)__cil_tmp168);
+  __cil_tmp116 = __cil_tmp115 + 44U;
 #line 1107
-  __cil_tmp170 = (void const volatile   *)__cil_tmp169;
-#line 1107
-  __cil_tmp171 = __cil_tmp170 + 44U;
-#line 1107
-  dma_rd = readl(__cil_tmp171);
+  dma_rd = readl(__cil_tmp116);
 #line 1108
   dma_size = 3;
 #line 1111
-  __cil_tmp172 = (struct sk_buff  const  *)skb;
+  __cil_tmp117 = (struct sk_buff  const  *)skb;
 #line 1111
-  tmp___7 = skb_end_pointer(__cil_tmp172);
+  tmp___7 = skb_end_pointer(__cil_tmp117);
   }
   {
 #line 1111
-  __cil_tmp173 = (struct skb_shared_info *)tmp___7;
+  __cil_tmp118 = (struct skb_shared_info *)tmp___7;
 #line 1111
-  __cil_tmp174 = *((unsigned short *)__cil_tmp173);
+  __cil_tmp119 = __cil_tmp118->nr_frags;
 #line 1111
-  __cil_tmp175 = (unsigned int )__cil_tmp174;
+  __cil_tmp120 = (unsigned int )__cil_tmp119;
 #line 1111
-  if (__cil_tmp175 == 0U) {
+  if (__cil_tmp120 == 0U) {
 #line 1111
     dma_size = dma_size + 5;
   } else {
     {
 #line 1112
-    __cil_tmp176 = (struct sk_buff  const  *)skb;
+    __cil_tmp121 = (struct sk_buff  const  *)skb;
 #line 1112
-    tmp___6 = skb_end_pointer(__cil_tmp176);
+    tmp___6 = skb_end_pointer(__cil_tmp121);
 #line 1112
-    __cil_tmp177 = (struct skb_shared_info *)tmp___6;
+    __cil_tmp122 = (struct skb_shared_info *)tmp___6;
 #line 1112
-    __cil_tmp178 = *((unsigned short *)__cil_tmp177);
+    __cil_tmp123 = __cil_tmp122->nr_frags;
 #line 1112
-    __cil_tmp179 = (int )__cil_tmp178;
+    __cil_tmp124 = (int )__cil_tmp123;
 #line 1112
-    __cil_tmp180 = __cil_tmp179 + 1;
+    __cil_tmp125 = __cil_tmp124 + 1;
 #line 1112
-    __cil_tmp181 = __cil_tmp180 * 5;
+    __cil_tmp126 = __cil_tmp125 * 5;
 #line 1112
-    dma_size = __cil_tmp181 + dma_size;
+    dma_size = __cil_tmp126 + dma_size;
     }
   }
   }
@@ -17059,19 +14339,11 @@ static enum enq_res do_tx(struct sk_buff *skb )
   if (dma_size > 100) {
     {
 #line 1114
-    __cil_tmp182 = (unsigned long )vcc;
+    __cil_tmp127 = vcc->dev;
 #line 1114
-    __cil_tmp183 = __cil_tmp182 + 1304;
+    __cil_tmp128 = __cil_tmp127->number;
 #line 1114
-    __cil_tmp184 = *((struct atm_dev **)__cil_tmp183);
-#line 1114
-    __cil_tmp185 = (unsigned long )__cil_tmp184;
-#line 1114
-    __cil_tmp186 = __cil_tmp185 + 24;
-#line 1114
-    __cil_tmp187 = *((int *)__cil_tmp186);
-#line 1114
-    printk("<2>eni(itf %d): needs %d DMA entries (got only %d)\n", __cil_tmp187, dma_size,
+    printk("<2>eni(itf %d): needs %d DMA entries (got only %d)\n", __cil_tmp128, dma_size,
            100);
     }
   } else {
@@ -17081,28 +14353,20 @@ static enum enq_res do_tx(struct sk_buff *skb )
   if (dma_wr != dma_rd) {
     {
 #line 1118
-    __cil_tmp188 = (unsigned int )dma_size;
+    __cil_tmp129 = (u32 )dma_size;
 #line 1118
-    __cil_tmp189 = dma_rd - dma_wr;
+    __cil_tmp130 = dma_rd - dma_wr;
 #line 1118
-    __cil_tmp190 = __cil_tmp189 & 511U;
+    __cil_tmp131 = __cil_tmp130 & 511U;
 #line 1118
-    if (__cil_tmp190 < __cil_tmp188) {
+    if (__cil_tmp131 < __cil_tmp129) {
       {
 #line 1120
-      __cil_tmp191 = (unsigned long )vcc;
+      __cil_tmp132 = vcc->dev;
 #line 1120
-      __cil_tmp192 = __cil_tmp191 + 1304;
+      __cil_tmp133 = __cil_tmp132->number;
 #line 1120
-      __cil_tmp193 = *((struct atm_dev **)__cil_tmp192);
-#line 1120
-      __cil_tmp194 = (unsigned long )__cil_tmp193;
-#line 1120
-      __cil_tmp195 = __cil_tmp194 + 24;
-#line 1120
-      __cil_tmp196 = *((int *)__cil_tmp195);
-#line 1120
-      printk("<4>eni(itf %d): TX DMA full\n", __cil_tmp196);
+      printk("<4>eni(itf %d): TX DMA full\n", __cil_tmp133);
       }
 #line 1122
       return ((enum enq_res )2);
@@ -17115,298 +14379,171 @@ static enum enq_res do_tx(struct sk_buff *skb )
   }
   {
 #line 1124
-  __cil_tmp197 = (unsigned long )eni_dev;
+  __cil_tmp134 = eni_dev->pci_dev;
 #line 1124
-  __cil_tmp198 = __cil_tmp197 + 2632;
+  __cil_tmp135 = skb->data;
 #line 1124
-  __cil_tmp199 = *((struct pci_dev **)__cil_tmp198);
+  __cil_tmp136 = (void *)__cil_tmp135;
 #line 1124
-  __cil_tmp200 = (unsigned long )skb;
+  __cil_tmp137 = skb->len;
 #line 1124
-  __cil_tmp201 = __cil_tmp200 + 224;
+  __cil_tmp138 = (size_t )__cil_tmp137;
 #line 1124
-  __cil_tmp202 = *((unsigned char **)__cil_tmp201);
-#line 1124
-  __cil_tmp203 = (void *)__cil_tmp202;
-#line 1124
-  __cil_tmp204 = (unsigned long )skb;
-#line 1124
-  __cil_tmp205 = __cil_tmp204 + 104;
-#line 1124
-  __cil_tmp206 = *((unsigned int *)__cil_tmp205);
-#line 1124
-  __cil_tmp207 = (unsigned long )__cil_tmp206;
-#line 1124
-  paddr = pci_map_single(__cil_tmp199, __cil_tmp203, __cil_tmp207, 1);
+  paddr = pci_map_single(__cil_tmp134, __cil_tmp136, __cil_tmp138, 1);
 #line 1126
-  __cil_tmp208 = (unsigned long )skb;
+  __cil_tmp139 = & skb->cb;
 #line 1126
-  __cil_tmp209 = __cil_tmp208 + 40;
+  __cil_tmp140 = (struct eni_skb_prv *)__cil_tmp139;
 #line 1126
-  __cil_tmp210 = (char (*)[48U])__cil_tmp209;
-#line 1126
-  __cil_tmp211 = (struct eni_skb_prv *)__cil_tmp210;
-#line 1126
-  __cil_tmp212 = (unsigned long )__cil_tmp211;
-#line 1126
-  __cil_tmp213 = __cil_tmp212 + 32;
-#line 1126
-  *((dma_addr_t *)__cil_tmp213) = paddr;
+  __cil_tmp140->paddr = paddr;
 #line 1128
-  __cil_tmp214 = & j;
-#line 1128
-  *__cil_tmp214 = 0;
+  j = 0;
 #line 1129
-  __cil_tmp215 = & j;
+  tmp___8 = j;
 #line 1129
-  tmp___8 = *__cil_tmp215;
+  j = j + 1;
 #line 1129
-  __cil_tmp216 = & j;
+  __cil_tmp141 = tx->index;
 #line 1129
-  __cil_tmp217 = & j;
+  __cil_tmp142 = __cil_tmp141 << 6;
 #line 1129
-  __cil_tmp218 = *__cil_tmp217;
+  __cil_tmp143 = (u32 )__cil_tmp142;
 #line 1129
-  *__cil_tmp216 = __cil_tmp218 + 1;
+  __cil_tmp144 = tx->words;
 #line 1129
-  __cil_tmp219 = tmp___8 * 4UL;
+  __cil_tmp145 = (u32 )__cil_tmp144;
 #line 1129
-  __cil_tmp220 = 1524 + __cil_tmp219;
+  __cil_tmp146 = __cil_tmp145 - 1U;
 #line 1129
-  __cil_tmp221 = (unsigned long )eni_dev;
+  __cil_tmp147 = tx->tx_pos;
 #line 1129
-  __cil_tmp222 = __cil_tmp221 + __cil_tmp220;
+  __cil_tmp148 = (u32 )__cil_tmp147;
 #line 1129
-  __cil_tmp223 = (unsigned long )tx;
+  __cil_tmp149 = __cil_tmp148 + 2U;
 #line 1129
-  __cil_tmp224 = __cil_tmp223 + 32;
+  __cil_tmp150 = __cil_tmp149 & __cil_tmp146;
 #line 1129
-  __cil_tmp225 = *((int *)__cil_tmp224);
+  __cil_tmp151 = __cil_tmp150 << 16U;
 #line 1129
-  __cil_tmp226 = __cil_tmp225 << 6;
+  __cil_tmp152 = __cil_tmp151 | __cil_tmp143;
 #line 1129
-  __cil_tmp227 = (unsigned int )__cil_tmp226;
-#line 1129
-  __cil_tmp228 = (unsigned long )tx;
-#line 1129
-  __cil_tmp229 = __cil_tmp228 + 24;
-#line 1129
-  __cil_tmp230 = *((unsigned long *)__cil_tmp229);
-#line 1129
-  __cil_tmp231 = (unsigned int )__cil_tmp230;
-#line 1129
-  __cil_tmp232 = __cil_tmp231 - 1U;
-#line 1129
-  __cil_tmp233 = (unsigned long )tx;
-#line 1129
-  __cil_tmp234 = __cil_tmp233 + 16;
-#line 1129
-  __cil_tmp235 = *((unsigned long *)__cil_tmp234);
-#line 1129
-  __cil_tmp236 = (unsigned int )__cil_tmp235;
-#line 1129
-  __cil_tmp237 = __cil_tmp236 + 2U;
-#line 1129
-  __cil_tmp238 = __cil_tmp237 & __cil_tmp232;
-#line 1129
-  __cil_tmp239 = __cil_tmp238 << 16U;
-#line 1129
-  __cil_tmp240 = __cil_tmp239 | __cil_tmp227;
-#line 1129
-  *((u32 *)__cil_tmp222) = __cil_tmp240 | 3U;
+  eni_dev->dma[tmp___8] = __cil_tmp152 | 3U;
 #line 1132
-  __cil_tmp241 = & j;
-#line 1132
-  __cil_tmp242 = & j;
-#line 1132
-  __cil_tmp243 = *__cil_tmp242;
-#line 1132
-  *__cil_tmp241 = __cil_tmp243 + 1;
+  j = j + 1;
 #line 1133
-  __cil_tmp244 = (struct sk_buff  const  *)skb;
+  __cil_tmp153 = (struct sk_buff  const  *)skb;
 #line 1133
-  tmp___14 = skb_end_pointer(__cil_tmp244);
+  tmp___14 = skb_end_pointer(__cil_tmp153);
   }
   {
 #line 1133
-  __cil_tmp245 = (struct skb_shared_info *)tmp___14;
+  __cil_tmp154 = (struct skb_shared_info *)tmp___14;
 #line 1133
-  __cil_tmp246 = *((unsigned short *)__cil_tmp245);
+  __cil_tmp155 = __cil_tmp154->nr_frags;
 #line 1133
-  __cil_tmp247 = (unsigned int )__cil_tmp246;
+  __cil_tmp156 = (unsigned int )__cil_tmp155;
 #line 1133
-  if (__cil_tmp247 == 0U) {
+  if (__cil_tmp156 == 0U) {
 #line 1134
     if (aal5 != 0) {
       {
 #line 1134
-      __cil_tmp248 = (unsigned long )tx;
+      __cil_tmp157 = tx->index;
 #line 1134
-      __cil_tmp249 = __cil_tmp248 + 32;
+      __cil_tmp158 = & eni_dev->dma;
 #line 1134
-      __cil_tmp250 = *((int *)__cil_tmp249);
+      __cil_tmp159 = (u32 *)__cil_tmp158;
 #line 1134
-      __cil_tmp251 = (unsigned long )eni_dev;
+      __cil_tmp160 = skb->len;
 #line 1134
-      __cil_tmp252 = __cil_tmp251 + 1524;
-#line 1134
-      __cil_tmp253 = (u32 (*)[200U])__cil_tmp252;
-#line 1134
-      __cil_tmp254 = (u32 *)__cil_tmp253;
-#line 1134
-      __cil_tmp255 = (unsigned long )skb;
-#line 1134
-      __cil_tmp256 = __cil_tmp255 + 104;
-#line 1134
-      __cil_tmp257 = *((unsigned int *)__cil_tmp256);
-#line 1134
-      put_dma(__cil_tmp250, __cil_tmp254, & j, paddr, __cil_tmp257);
+      put_dma(__cil_tmp157, __cil_tmp159, & j, paddr, __cil_tmp160);
       }
     } else {
       {
 #line 1135
-      __cil_tmp258 = (unsigned long )tx;
+      __cil_tmp161 = tx->index;
 #line 1135
-      __cil_tmp259 = __cil_tmp258 + 32;
+      __cil_tmp162 = & eni_dev->dma;
 #line 1135
-      __cil_tmp260 = *((int *)__cil_tmp259);
+      __cil_tmp163 = (u32 *)__cil_tmp162;
 #line 1135
-      __cil_tmp261 = (unsigned long )eni_dev;
+      __cil_tmp164 = paddr + 4ULL;
 #line 1135
-      __cil_tmp262 = __cil_tmp261 + 1524;
+      __cil_tmp165 = skb->len;
 #line 1135
-      __cil_tmp263 = (u32 (*)[200U])__cil_tmp262;
+      __cil_tmp166 = __cil_tmp165 - 4U;
 #line 1135
-      __cil_tmp264 = (u32 *)__cil_tmp263;
-#line 1135
-      __cil_tmp265 = paddr + 4ULL;
-#line 1135
-      __cil_tmp266 = (unsigned long )skb;
-#line 1135
-      __cil_tmp267 = __cil_tmp266 + 104;
-#line 1135
-      __cil_tmp268 = *((unsigned int *)__cil_tmp267);
-#line 1135
-      __cil_tmp269 = __cil_tmp268 - 4U;
-#line 1135
-      put_dma(__cil_tmp260, __cil_tmp264, & j, __cil_tmp265, __cil_tmp269);
+      put_dma(__cil_tmp161, __cil_tmp163, & j, __cil_tmp164, __cil_tmp166);
       }
     }
   } else {
 #line 1138
     i = -1;
+#line 1138
     goto ldv_40351;
     ldv_40350: ;
 #line 1139
     if (i == -1) {
       {
 #line 1140
-      __cil_tmp270 = (struct sk_buff  const  *)skb;
+      __cil_tmp167 = (struct sk_buff  const  *)skb;
 #line 1140
-      tmp___9 = skb_headlen(__cil_tmp270);
+      tmp___9 = skb_headlen(__cil_tmp167);
 #line 1140
-      __cil_tmp271 = (unsigned long )tx;
+      __cil_tmp168 = tx->index;
 #line 1140
-      __cil_tmp272 = __cil_tmp271 + 32;
+      __cil_tmp169 = & eni_dev->dma;
 #line 1140
-      __cil_tmp273 = *((int *)__cil_tmp272);
+      __cil_tmp170 = (u32 *)__cil_tmp169;
 #line 1140
-      __cil_tmp274 = (unsigned long )eni_dev;
+      __cil_tmp171 = skb->data;
 #line 1140
-      __cil_tmp275 = __cil_tmp274 + 1524;
+      __cil_tmp172 = (dma_addr_t )__cil_tmp171;
 #line 1140
-      __cil_tmp276 = (u32 (*)[200U])__cil_tmp275;
-#line 1140
-      __cil_tmp277 = (u32 *)__cil_tmp276;
-#line 1140
-      __cil_tmp278 = (unsigned long )skb;
-#line 1140
-      __cil_tmp279 = __cil_tmp278 + 224;
-#line 1140
-      __cil_tmp280 = *((unsigned char **)__cil_tmp279);
-#line 1140
-      __cil_tmp281 = (unsigned long long )__cil_tmp280;
-#line 1140
-      put_dma(__cil_tmp273, __cil_tmp277, & j, __cil_tmp281, tmp___9);
+      put_dma(__cil_tmp168, __cil_tmp170, & j, __cil_tmp172, tmp___9);
       }
     } else {
       {
 #line 1144
-      __cil_tmp282 = (struct sk_buff  const  *)skb;
+      __cil_tmp173 = (struct sk_buff  const  *)skb;
 #line 1144
-      tmp___10 = skb_end_pointer(__cil_tmp282);
+      tmp___10 = skb_end_pointer(__cil_tmp173);
 #line 1144
-      __cil_tmp283 = (struct sk_buff  const  *)skb;
+      __cil_tmp174 = (struct sk_buff  const  *)skb;
 #line 1144
-      tmp___11 = skb_end_pointer(__cil_tmp283);
+      tmp___11 = skb_end_pointer(__cil_tmp174);
 #line 1144
-      __cil_tmp284 = (struct sk_buff  const  *)skb;
+      __cil_tmp175 = (struct sk_buff  const  *)skb;
 #line 1144
-      tmp___12 = skb_end_pointer(__cil_tmp284);
+      tmp___12 = skb_end_pointer(__cil_tmp175);
 #line 1144
-      __cil_tmp285 = (unsigned long )tx;
+      __cil_tmp176 = tx->index;
 #line 1144
-      __cil_tmp286 = __cil_tmp285 + 32;
+      __cil_tmp177 = & eni_dev->dma;
 #line 1144
-      __cil_tmp287 = *((int *)__cil_tmp286);
+      __cil_tmp178 = (u32 *)__cil_tmp177;
 #line 1144
-      __cil_tmp288 = (unsigned long )eni_dev;
+      __cil_tmp179 = (struct skb_shared_info *)tmp___12;
 #line 1144
-      __cil_tmp289 = __cil_tmp288 + 1524;
+      __cil_tmp180 = __cil_tmp179->frags[i].page_offset;
 #line 1144
-      __cil_tmp290 = (u32 (*)[200U])__cil_tmp289;
+      __cil_tmp181 = (unsigned long )__cil_tmp180;
 #line 1144
-      __cil_tmp291 = (u32 *)__cil_tmp290;
+      __cil_tmp182 = (struct skb_shared_info *)tmp___11;
 #line 1144
-      __cil_tmp292 = i * 16UL;
+      __cil_tmp183 = __cil_tmp182->frags[i].page;
 #line 1144
-      __cil_tmp293 = __cil_tmp292 + 8;
+      __cil_tmp184 = (unsigned long )__cil_tmp183;
 #line 1144
-      __cil_tmp294 = 56 + __cil_tmp293;
+      __cil_tmp185 = __cil_tmp184 + __cil_tmp181;
 #line 1144
-      __cil_tmp295 = (struct skb_shared_info *)tmp___12;
+      __cil_tmp186 = (dma_addr_t )__cil_tmp185;
 #line 1144
-      __cil_tmp296 = (unsigned long )__cil_tmp295;
+      __cil_tmp187 = (struct skb_shared_info *)tmp___10;
 #line 1144
-      __cil_tmp297 = __cil_tmp296 + __cil_tmp294;
+      __cil_tmp188 = __cil_tmp187->frags[i].size;
 #line 1144
-      __cil_tmp298 = *((__u32 *)__cil_tmp297);
-#line 1144
-      __cil_tmp299 = (unsigned long )__cil_tmp298;
-#line 1144
-      __cil_tmp300 = i * 16UL;
-#line 1144
-      __cil_tmp301 = 56 + __cil_tmp300;
-#line 1144
-      __cil_tmp302 = (struct skb_shared_info *)tmp___11;
-#line 1144
-      __cil_tmp303 = (unsigned long )__cil_tmp302;
-#line 1144
-      __cil_tmp304 = __cil_tmp303 + __cil_tmp301;
-#line 1144
-      __cil_tmp305 = *((struct page **)__cil_tmp304);
-#line 1144
-      __cil_tmp306 = (unsigned long )__cil_tmp305;
-#line 1144
-      __cil_tmp307 = __cil_tmp306 + __cil_tmp299;
-#line 1144
-      __cil_tmp308 = (unsigned long long )__cil_tmp307;
-#line 1144
-      __cil_tmp309 = i * 16UL;
-#line 1144
-      __cil_tmp310 = __cil_tmp309 + 12;
-#line 1144
-      __cil_tmp311 = 56 + __cil_tmp310;
-#line 1144
-      __cil_tmp312 = (struct skb_shared_info *)tmp___10;
-#line 1144
-      __cil_tmp313 = (unsigned long )__cil_tmp312;
-#line 1144
-      __cil_tmp314 = __cil_tmp313 + __cil_tmp311;
-#line 1144
-      __cil_tmp315 = *((__u32 *)__cil_tmp314);
-#line 1144
-      put_dma(__cil_tmp287, __cil_tmp291, & j, __cil_tmp308, __cil_tmp315);
+      put_dma(__cil_tmp176, __cil_tmp178, & j, __cil_tmp186, __cil_tmp188);
       }
     }
 #line 1138
@@ -17414,21 +14551,23 @@ static enum enq_res do_tx(struct sk_buff *skb )
     ldv_40351: 
     {
 #line 1138
-    __cil_tmp316 = (struct sk_buff  const  *)skb;
+    __cil_tmp189 = (struct sk_buff  const  *)skb;
 #line 1138
-    tmp___13 = skb_end_pointer(__cil_tmp316);
+    tmp___13 = skb_end_pointer(__cil_tmp189);
     }
     {
 #line 1138
-    __cil_tmp317 = (struct skb_shared_info *)tmp___13;
+    __cil_tmp190 = (struct skb_shared_info *)tmp___13;
 #line 1138
-    __cil_tmp318 = *((unsigned short *)__cil_tmp317);
+    __cil_tmp191 = __cil_tmp190->nr_frags;
 #line 1138
-    __cil_tmp319 = (int )__cil_tmp318;
+    __cil_tmp192 = (int )__cil_tmp191;
 #line 1138
-    if (__cil_tmp319 > i) {
+    if (__cil_tmp192 > i) {
+#line 1139
       goto ldv_40350;
     } else {
+#line 1141
       goto ldv_40352;
     }
     }
@@ -17437,117 +14576,63 @@ static enum enq_res do_tx(struct sk_buff *skb )
   }
   {
 #line 1148
-  __cil_tmp320 = (unsigned long )skb;
+  __cil_tmp193 = skb->len;
 #line 1148
-  __cil_tmp321 = __cil_tmp320 + 104;
+  __cil_tmp194 = __cil_tmp193 & 3U;
 #line 1148
-  __cil_tmp322 = *((unsigned int *)__cil_tmp321);
-#line 1148
-  __cil_tmp323 = __cil_tmp322 & 3U;
-#line 1148
-  if (__cil_tmp323 != 0U) {
+  if (__cil_tmp194 != 0U) {
     {
 #line 1149
-    __cil_tmp324 = (unsigned long )tx;
+    __cil_tmp195 = tx->index;
 #line 1149
-    __cil_tmp325 = __cil_tmp324 + 32;
+    __cil_tmp196 = & eni_dev->dma;
 #line 1149
-    __cil_tmp326 = *((int *)__cil_tmp325);
+    __cil_tmp197 = (u32 *)__cil_tmp196;
 #line 1149
-    __cil_tmp327 = (unsigned long )eni_dev;
+    __cil_tmp198 = skb->len;
 #line 1149
-    __cil_tmp328 = __cil_tmp327 + 1524;
+    __cil_tmp199 = __cil_tmp198 & 3U;
 #line 1149
-    __cil_tmp329 = (u32 (*)[200U])__cil_tmp328;
+    __cil_tmp200 = 4U - __cil_tmp199;
 #line 1149
-    __cil_tmp330 = (u32 *)__cil_tmp329;
-#line 1149
-    __cil_tmp331 = & zeroes;
-#line 1149
-    __cil_tmp332 = *__cil_tmp331;
-#line 1149
-    __cil_tmp333 = (unsigned long )skb;
-#line 1149
-    __cil_tmp334 = __cil_tmp333 + 104;
-#line 1149
-    __cil_tmp335 = *((unsigned int *)__cil_tmp334);
-#line 1149
-    __cil_tmp336 = __cil_tmp335 & 3U;
-#line 1149
-    __cil_tmp337 = 4U - __cil_tmp336;
-#line 1149
-    put_dma(__cil_tmp326, __cil_tmp330, & j, __cil_tmp332, __cil_tmp337);
+    put_dma(__cil_tmp195, __cil_tmp197, & j, zeroes, __cil_tmp200);
     }
   } else {
 
   }
   }
 #line 1151
-  __cil_tmp338 = & j;
+  tmp___15 = j;
 #line 1151
-  tmp___15 = *__cil_tmp338;
+  j = j + 1;
 #line 1151
-  __cil_tmp339 = & j;
+  __cil_tmp201 = tx->index;
 #line 1151
-  __cil_tmp340 = & j;
+  __cil_tmp202 = __cil_tmp201 << 6;
 #line 1151
-  __cil_tmp341 = *__cil_tmp340;
+  __cil_tmp203 = (u32 )__cil_tmp202;
 #line 1151
-  *__cil_tmp339 = __cil_tmp341 + 1;
+  __cil_tmp204 = tx->words;
 #line 1151
-  __cil_tmp342 = tmp___15 * 4UL;
+  __cil_tmp205 = (u32 )__cil_tmp204;
 #line 1151
-  __cil_tmp343 = 1524 + __cil_tmp342;
+  __cil_tmp206 = __cil_tmp205 - 1U;
 #line 1151
-  __cil_tmp344 = (unsigned long )eni_dev;
+  __cil_tmp207 = tx->tx_pos;
 #line 1151
-  __cil_tmp345 = __cil_tmp344 + __cil_tmp343;
+  __cil_tmp208 = (u32 )__cil_tmp207;
 #line 1151
-  __cil_tmp346 = (unsigned long )tx;
+  __cil_tmp209 = __cil_tmp208 + size;
 #line 1151
-  __cil_tmp347 = __cil_tmp346 + 32;
+  __cil_tmp210 = __cil_tmp209 & __cil_tmp206;
 #line 1151
-  __cil_tmp348 = *((int *)__cil_tmp347);
+  __cil_tmp211 = __cil_tmp210 << 16U;
 #line 1151
-  __cil_tmp349 = __cil_tmp348 << 6;
+  __cil_tmp212 = __cil_tmp211 | __cil_tmp203;
 #line 1151
-  __cil_tmp350 = (unsigned int )__cil_tmp349;
-#line 1151
-  __cil_tmp351 = (unsigned long )tx;
-#line 1151
-  __cil_tmp352 = __cil_tmp351 + 24;
-#line 1151
-  __cil_tmp353 = *((unsigned long *)__cil_tmp352);
-#line 1151
-  __cil_tmp354 = (unsigned int )__cil_tmp353;
-#line 1151
-  __cil_tmp355 = __cil_tmp354 - 1U;
-#line 1151
-  __cil_tmp356 = (unsigned long )tx;
-#line 1151
-  __cil_tmp357 = __cil_tmp356 + 16;
-#line 1151
-  __cil_tmp358 = *((unsigned long *)__cil_tmp357);
-#line 1151
-  __cil_tmp359 = (unsigned int )__cil_tmp358;
-#line 1151
-  __cil_tmp360 = __cil_tmp359 + size;
-#line 1151
-  __cil_tmp361 = __cil_tmp360 & __cil_tmp355;
-#line 1151
-  __cil_tmp362 = __cil_tmp361 << 16U;
-#line 1151
-  __cil_tmp363 = __cil_tmp362 | __cil_tmp350;
-#line 1151
-  *((u32 *)__cil_tmp345) = __cil_tmp363 | 35U;
+  eni_dev->dma[tmp___15] = __cil_tmp212 | 35U;
 #line 1154
-  __cil_tmp364 = & j;
-#line 1154
-  __cil_tmp365 = & j;
-#line 1154
-  __cil_tmp366 = *__cil_tmp365;
-#line 1154
-  *__cil_tmp364 = __cil_tmp366 + 1;
+  j = j + 1;
 #line 1157
   if (aal5 != 0) {
 #line 1157
@@ -17558,378 +14643,235 @@ static enum enq_res do_tx(struct sk_buff *skb )
   }
   {
 #line 1157
-  __cil_tmp367 = size / 12U;
+  __cil_tmp213 = size / 12U;
 #line 1157
-  __cil_tmp368 = (unsigned long )tx;
+  __cil_tmp214 = tx->resolution;
 #line 1157
-  __cil_tmp369 = __cil_tmp368 + 12;
+  __cil_tmp215 = __cil_tmp214 << 19;
 #line 1157
-  __cil_tmp370 = *((int *)__cil_tmp369);
+  __cil_tmp216 = tx->prescaler;
 #line 1157
-  __cil_tmp371 = __cil_tmp370 << 19;
+  __cil_tmp217 = __cil_tmp216 << 25;
 #line 1157
-  __cil_tmp372 = (unsigned long )tx;
+  __cil_tmp218 = tmp___16 | __cil_tmp217;
 #line 1157
-  __cil_tmp373 = __cil_tmp372 + 8;
+  __cil_tmp219 = __cil_tmp218 | __cil_tmp215;
 #line 1157
-  __cil_tmp374 = *((int *)__cil_tmp373);
+  __cil_tmp220 = (u32 )__cil_tmp219;
 #line 1157
-  __cil_tmp375 = __cil_tmp374 << 25;
+  __cil_tmp221 = __cil_tmp220 | __cil_tmp213;
 #line 1157
-  __cil_tmp376 = tmp___16 | __cil_tmp375;
+  __cil_tmp222 = tx->tx_pos;
 #line 1157
-  __cil_tmp377 = __cil_tmp376 | __cil_tmp371;
+  __cil_tmp223 = __cil_tmp222 * 4UL;
 #line 1157
-  __cil_tmp378 = (unsigned int )__cil_tmp377;
+  __cil_tmp224 = tx->send;
 #line 1157
-  __cil_tmp379 = __cil_tmp378 | __cil_tmp367;
+  __cil_tmp225 = __cil_tmp224 + __cil_tmp223;
 #line 1157
-  __cil_tmp380 = (unsigned long )tx;
+  __cil_tmp226 = (void volatile   *)__cil_tmp225;
 #line 1157
-  __cil_tmp381 = __cil_tmp380 + 16;
-#line 1157
-  __cil_tmp382 = *((unsigned long *)__cil_tmp381);
-#line 1157
-  __cil_tmp383 = __cil_tmp382 * 4UL;
-#line 1157
-  __cil_tmp384 = *((void **)tx);
-#line 1157
-  __cil_tmp385 = __cil_tmp384 + __cil_tmp383;
-#line 1157
-  __cil_tmp386 = (void volatile   *)__cil_tmp385;
-#line 1157
-  writel(__cil_tmp379, __cil_tmp386);
+  writel(__cil_tmp221, __cil_tmp226);
   }
 #line 1162
   if (aal5 == 0) {
 #line 1162
-    __cil_tmp387 = (unsigned long )skb;
+    __cil_tmp227 = skb->data;
 #line 1162
-    __cil_tmp388 = __cil_tmp387 + 224;
+    __cil_tmp228 = __cil_tmp227 + 3UL;
 #line 1162
-    __cil_tmp389 = *((unsigned char **)__cil_tmp388);
+    __cil_tmp229 = *__cil_tmp228;
 #line 1162
-    __cil_tmp390 = __cil_tmp389 + 3UL;
+    __cil_tmp230 = (int )__cil_tmp229;
 #line 1162
-    __cil_tmp391 = *__cil_tmp390;
-#line 1162
-    __cil_tmp392 = (int )__cil_tmp391;
-#line 1162
-    tmp___17 = __cil_tmp392 & 15;
+    tmp___17 = __cil_tmp230 & 15;
   } else {
 #line 1162
     tmp___17 = 0;
   }
   {
 #line 1162
-  __cil_tmp393 = (unsigned long )skb;
+  __cil_tmp231 = & skb->cb;
 #line 1162
-  __cil_tmp394 = __cil_tmp393 + 40;
+  __cil_tmp232 = (struct atm_skb_data *)__cil_tmp231;
 #line 1162
-  __cil_tmp395 = (char (*)[48U])__cil_tmp394;
+  __cil_tmp233 = __cil_tmp232->atm_options;
 #line 1162
-  __cil_tmp396 = (struct atm_skb_data *)__cil_tmp395;
+  __cil_tmp234 = (int )__cil_tmp233;
 #line 1162
-  __cil_tmp397 = (unsigned long )__cil_tmp396;
+  __cil_tmp235 = __cil_tmp234 & 1;
 #line 1162
-  __cil_tmp398 = __cil_tmp397 + 8;
+  __cil_tmp236 = vcc->vci;
 #line 1162
-  __cil_tmp399 = *((unsigned long *)__cil_tmp398);
+  __cil_tmp237 = __cil_tmp236 << 4;
 #line 1162
-  __cil_tmp400 = (int )__cil_tmp399;
+  __cil_tmp238 = __cil_tmp237 | tmp___17;
 #line 1162
-  __cil_tmp401 = __cil_tmp400 & 1;
+  __cil_tmp239 = __cil_tmp238 | __cil_tmp235;
 #line 1162
-  __cil_tmp402 = (unsigned long )vcc;
+  __cil_tmp240 = (unsigned int )__cil_tmp239;
 #line 1162
-  __cil_tmp403 = __cil_tmp402 + 1284;
+  __cil_tmp241 = tx->words;
 #line 1162
-  __cil_tmp404 = *((int *)__cil_tmp403);
+  __cil_tmp242 = __cil_tmp241 - 1UL;
 #line 1162
-  __cil_tmp405 = __cil_tmp404 << 4;
+  __cil_tmp243 = tx->tx_pos;
 #line 1162
-  __cil_tmp406 = __cil_tmp405 | tmp___17;
+  __cil_tmp244 = __cil_tmp243 + 1UL;
 #line 1162
-  __cil_tmp407 = __cil_tmp406 | __cil_tmp401;
+  __cil_tmp245 = __cil_tmp244 & __cil_tmp242;
 #line 1162
-  __cil_tmp408 = (unsigned int )__cil_tmp407;
+  __cil_tmp246 = __cil_tmp245 * 4UL;
 #line 1162
-  __cil_tmp409 = (unsigned long )tx;
+  __cil_tmp247 = tx->send;
 #line 1162
-  __cil_tmp410 = __cil_tmp409 + 24;
+  __cil_tmp248 = __cil_tmp247 + __cil_tmp246;
 #line 1162
-  __cil_tmp411 = *((unsigned long *)__cil_tmp410);
+  __cil_tmp249 = (void volatile   *)__cil_tmp248;
 #line 1162
-  __cil_tmp412 = __cil_tmp411 - 1UL;
-#line 1162
-  __cil_tmp413 = (unsigned long )tx;
-#line 1162
-  __cil_tmp414 = __cil_tmp413 + 16;
-#line 1162
-  __cil_tmp415 = *((unsigned long *)__cil_tmp414);
-#line 1162
-  __cil_tmp416 = __cil_tmp415 + 1UL;
-#line 1162
-  __cil_tmp417 = __cil_tmp416 & __cil_tmp412;
-#line 1162
-  __cil_tmp418 = __cil_tmp417 * 4UL;
-#line 1162
-  __cil_tmp419 = *((void **)tx);
-#line 1162
-  __cil_tmp420 = __cil_tmp419 + __cil_tmp418;
-#line 1162
-  __cil_tmp421 = (void volatile   *)__cil_tmp420;
-#line 1162
-  writel(__cil_tmp408, __cil_tmp421);
+  writel(__cil_tmp240, __cil_tmp249);
   }
 #line 1167
   if (aal5 != 0) {
     {
 #line 1168
-    __cil_tmp422 = (unsigned long )skb;
+    __cil_tmp250 = skb->len;
 #line 1168
-    __cil_tmp423 = __cil_tmp422 + 104;
+    __cil_tmp251 = tx->words;
 #line 1168
-    __cil_tmp424 = *((unsigned int *)__cil_tmp423);
+    __cil_tmp252 = __cil_tmp251 - 1UL;
 #line 1168
-    __cil_tmp425 = (unsigned long )tx;
+    __cil_tmp253 = (unsigned long )size;
 #line 1168
-    __cil_tmp426 = __cil_tmp425 + 24;
+    __cil_tmp254 = tx->tx_pos;
 #line 1168
-    __cil_tmp427 = *((unsigned long *)__cil_tmp426);
+    __cil_tmp255 = __cil_tmp254 + __cil_tmp253;
 #line 1168
-    __cil_tmp428 = __cil_tmp427 - 1UL;
+    __cil_tmp256 = __cil_tmp255 - 2UL;
 #line 1168
-    __cil_tmp429 = (unsigned long )size;
+    __cil_tmp257 = __cil_tmp256 & __cil_tmp252;
 #line 1168
-    __cil_tmp430 = (unsigned long )tx;
+    __cil_tmp258 = __cil_tmp257 * 4UL;
 #line 1168
-    __cil_tmp431 = __cil_tmp430 + 16;
+    __cil_tmp259 = tx->send;
 #line 1168
-    __cil_tmp432 = *((unsigned long *)__cil_tmp431);
+    __cil_tmp260 = __cil_tmp259 + __cil_tmp258;
 #line 1168
-    __cil_tmp433 = __cil_tmp432 + __cil_tmp429;
+    __cil_tmp261 = (void volatile   *)__cil_tmp260;
 #line 1168
-    __cil_tmp434 = __cil_tmp433 - 2UL;
-#line 1168
-    __cil_tmp435 = __cil_tmp434 & __cil_tmp428;
-#line 1168
-    __cil_tmp436 = __cil_tmp435 * 4UL;
-#line 1168
-    __cil_tmp437 = *((void **)tx);
-#line 1168
-    __cil_tmp438 = __cil_tmp437 + __cil_tmp436;
-#line 1168
-    __cil_tmp439 = (void volatile   *)__cil_tmp438;
-#line 1168
-    writel(__cil_tmp424, __cil_tmp439);
+    writel(__cil_tmp250, __cil_tmp261);
     }
   } else {
 
   }
 #line 1170
-  __cil_tmp440 = & j;
-#line 1170
-  __cil_tmp441 = & j;
-#line 1170
-  __cil_tmp442 = *__cil_tmp441;
-#line 1170
-  *__cil_tmp440 = __cil_tmp442 >> 1;
+  j = j >> 1;
 #line 1171
   i = 0;
+#line 1171
   goto ldv_40354;
   ldv_40353: 
   {
 #line 1172
-  __cil_tmp443 = i * 2;
+  __cil_tmp262 = eni_dev->dma[i * 2];
 #line 1172
-  __cil_tmp444 = __cil_tmp443 * 4UL;
+  __cil_tmp263 = dma_wr * 8U;
 #line 1172
-  __cil_tmp445 = 1524 + __cil_tmp444;
+  __cil_tmp264 = (unsigned long )__cil_tmp263;
 #line 1172
-  __cil_tmp446 = (unsigned long )eni_dev;
+  __cil_tmp265 = eni_dev->tx_dma;
 #line 1172
-  __cil_tmp447 = __cil_tmp446 + __cil_tmp445;
+  __cil_tmp266 = (void volatile   *)__cil_tmp265;
 #line 1172
-  __cil_tmp448 = *((u32 *)__cil_tmp447);
+  __cil_tmp267 = __cil_tmp266 + __cil_tmp264;
 #line 1172
-  __cil_tmp449 = dma_wr * 8U;
-#line 1172
-  __cil_tmp450 = (unsigned long )__cil_tmp449;
-#line 1172
-  __cil_tmp451 = (unsigned long )eni_dev;
-#line 1172
-  __cil_tmp452 = __cil_tmp451 + 160;
-#line 1172
-  __cil_tmp453 = *((void **)__cil_tmp452);
-#line 1172
-  __cil_tmp454 = (void volatile   *)__cil_tmp453;
-#line 1172
-  __cil_tmp455 = __cil_tmp454 + __cil_tmp450;
-#line 1172
-  writel(__cil_tmp448, __cil_tmp455);
+  writel(__cil_tmp262, __cil_tmp267);
 #line 1173
-  __cil_tmp456 = i * 2;
+  __cil_tmp268 = eni_dev->dma[i * 2 + 1];
 #line 1173
-  __cil_tmp457 = __cil_tmp456 + 1;
+  __cil_tmp269 = dma_wr * 8U;
 #line 1173
-  __cil_tmp458 = __cil_tmp457 * 4UL;
+  __cil_tmp270 = (unsigned long )__cil_tmp269;
 #line 1173
-  __cil_tmp459 = 1524 + __cil_tmp458;
+  __cil_tmp271 = __cil_tmp270 + 4UL;
 #line 1173
-  __cil_tmp460 = (unsigned long )eni_dev;
+  __cil_tmp272 = eni_dev->tx_dma;
 #line 1173
-  __cil_tmp461 = __cil_tmp460 + __cil_tmp459;
+  __cil_tmp273 = __cil_tmp272 + __cil_tmp271;
 #line 1173
-  __cil_tmp462 = *((u32 *)__cil_tmp461);
+  __cil_tmp274 = (void volatile   *)__cil_tmp273;
 #line 1173
-  __cil_tmp463 = dma_wr * 8U;
-#line 1173
-  __cil_tmp464 = (unsigned long )__cil_tmp463;
-#line 1173
-  __cil_tmp465 = __cil_tmp464 + 4UL;
-#line 1173
-  __cil_tmp466 = (unsigned long )eni_dev;
-#line 1173
-  __cil_tmp467 = __cil_tmp466 + 160;
-#line 1173
-  __cil_tmp468 = *((void **)__cil_tmp467);
-#line 1173
-  __cil_tmp469 = __cil_tmp468 + __cil_tmp465;
-#line 1173
-  __cil_tmp470 = (void volatile   *)__cil_tmp469;
-#line 1173
-  writel(__cil_tmp462, __cil_tmp470);
+  writel(__cil_tmp268, __cil_tmp274);
 #line 1174
-  __cil_tmp471 = dma_wr + 1U;
+  __cil_tmp275 = dma_wr + 1U;
 #line 1174
-  dma_wr = __cil_tmp471 & 511U;
+  dma_wr = __cil_tmp275 & 511U;
 #line 1171
   i = i + 1;
   }
   ldv_40354: ;
-  {
 #line 1171
-  __cil_tmp472 = & j;
-#line 1171
-  __cil_tmp473 = *__cil_tmp472;
-#line 1171
-  if (i < __cil_tmp473) {
+  if (i < j) {
+#line 1172
     goto ldv_40353;
   } else {
+#line 1174
     goto ldv_40355;
-  }
   }
   ldv_40355: 
   {
 #line 1176
-  __cil_tmp474 = (unsigned long )skb;
+  __cil_tmp276 = & skb->cb;
 #line 1176
-  __cil_tmp475 = __cil_tmp474 + 40;
+  __cil_tmp277 = (struct eni_skb_prv *)__cil_tmp276;
 #line 1176
-  __cil_tmp476 = (char (*)[48U])__cil_tmp475;
-#line 1176
-  __cil_tmp477 = (struct eni_skb_prv *)__cil_tmp476;
-#line 1176
-  __cil_tmp478 = (unsigned long )__cil_tmp477;
-#line 1176
-  __cil_tmp479 = __cil_tmp478 + 16;
-#line 1176
-  __cil_tmp480 = (unsigned long )tx;
-#line 1176
-  __cil_tmp481 = __cil_tmp480 + 16;
-#line 1176
-  *((unsigned long *)__cil_tmp479) = *((unsigned long *)__cil_tmp481);
+  __cil_tmp277->pos = tx->tx_pos;
 #line 1177
-  __cil_tmp482 = (unsigned long )skb;
+  __cil_tmp278 = & skb->cb;
 #line 1177
-  __cil_tmp483 = __cil_tmp482 + 40;
+  __cil_tmp279 = (struct eni_skb_prv *)__cil_tmp278;
 #line 1177
-  __cil_tmp484 = (char (*)[48U])__cil_tmp483;
-#line 1177
-  __cil_tmp485 = (struct eni_skb_prv *)__cil_tmp484;
-#line 1177
-  __cil_tmp486 = (unsigned long )__cil_tmp485;
-#line 1177
-  __cil_tmp487 = __cil_tmp486 + 24;
-#line 1177
-  *((int *)__cil_tmp487) = (int )size;
+  __cil_tmp279->size = (int )size;
 #line 1178
-  __cil_tmp488 = (unsigned long )vcc;
+  __cil_tmp280 = vcc->dev_data;
 #line 1178
-  __cil_tmp489 = __cil_tmp488 + 1480;
+  __cil_tmp281 = (struct eni_vcc *)__cil_tmp280;
 #line 1178
-  __cil_tmp490 = *((void **)__cil_tmp489);
+  __cil_tmp282 = vcc->dev_data;
 #line 1178
-  __cil_tmp491 = (struct eni_vcc *)__cil_tmp490;
+  __cil_tmp283 = (struct eni_vcc *)__cil_tmp282;
 #line 1178
-  __cil_tmp492 = (unsigned long )__cil_tmp491;
+  __cil_tmp284 = __cil_tmp283->txing;
 #line 1178
-  __cil_tmp493 = __cil_tmp492 + 56;
+  __cil_tmp285 = (u32 )__cil_tmp284;
 #line 1178
-  __cil_tmp494 = (unsigned long )vcc;
+  __cil_tmp286 = __cil_tmp285 + size;
 #line 1178
-  __cil_tmp495 = __cil_tmp494 + 1480;
-#line 1178
-  __cil_tmp496 = *((void **)__cil_tmp495);
-#line 1178
-  __cil_tmp497 = (struct eni_vcc *)__cil_tmp496;
-#line 1178
-  __cil_tmp498 = (unsigned long )__cil_tmp497;
-#line 1178
-  __cil_tmp499 = __cil_tmp498 + 56;
-#line 1178
-  __cil_tmp500 = *((int *)__cil_tmp499);
-#line 1178
-  __cil_tmp501 = (unsigned int )__cil_tmp500;
-#line 1178
-  __cil_tmp502 = __cil_tmp501 + size;
-#line 1178
-  *((int *)__cil_tmp493) = (int )__cil_tmp502;
+  __cil_tmp281->txing = (int )__cil_tmp286;
 #line 1179
-  __cil_tmp503 = (unsigned long )tx;
+  __cil_tmp287 = tx->words;
 #line 1179
-  __cil_tmp504 = __cil_tmp503 + 16;
+  __cil_tmp288 = __cil_tmp287 - 1UL;
 #line 1179
-  __cil_tmp505 = (unsigned long )tx;
+  __cil_tmp289 = (unsigned long )size;
 #line 1179
-  __cil_tmp506 = __cil_tmp505 + 24;
+  __cil_tmp290 = tx->tx_pos;
 #line 1179
-  __cil_tmp507 = *((unsigned long *)__cil_tmp506);
+  __cil_tmp291 = __cil_tmp290 + __cil_tmp289;
 #line 1179
-  __cil_tmp508 = __cil_tmp507 - 1UL;
-#line 1179
-  __cil_tmp509 = (unsigned long )size;
-#line 1179
-  __cil_tmp510 = (unsigned long )tx;
-#line 1179
-  __cil_tmp511 = __cil_tmp510 + 16;
-#line 1179
-  __cil_tmp512 = *((unsigned long *)__cil_tmp511);
-#line 1179
-  __cil_tmp513 = __cil_tmp512 + __cil_tmp509;
-#line 1179
-  *((unsigned long *)__cil_tmp504) = __cil_tmp513 & __cil_tmp508;
+  tx->tx_pos = __cil_tmp291 & __cil_tmp288;
 #line 1181
-  __cil_tmp514 = (unsigned long )eni_dev;
+  __cil_tmp292 = eni_dev->reg;
 #line 1181
-  __cil_tmp515 = __cil_tmp514 + 128;
+  __cil_tmp293 = (void volatile   *)__cil_tmp292;
 #line 1181
-  __cil_tmp516 = *((void **)__cil_tmp515);
+  __cil_tmp294 = __cil_tmp293 + 40U;
 #line 1181
-  __cil_tmp517 = (void volatile   *)__cil_tmp516;
-#line 1181
-  __cil_tmp518 = __cil_tmp517 + 40U;
-#line 1181
-  writel(dma_wr, __cil_tmp518);
+  writel(dma_wr, __cil_tmp294);
 #line 1182
-  __cil_tmp519 = (unsigned long )eni_dev;
+  __cil_tmp295 = & eni_dev->tx_queue;
 #line 1182
-  __cil_tmp520 = __cil_tmp519 + 1336;
-#line 1182
-  __cil_tmp521 = (struct sk_buff_head *)__cil_tmp520;
-#line 1182
-  skb_queue_tail(__cil_tmp521, skb);
+  skb_queue_tail(__cil_tmp295, skb);
 #line 1183
   queued = queued + 1;
   }
@@ -17944,66 +14886,52 @@ static void poll_tx(struct atm_dev *dev )
   enum enq_res res ;
   int i ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  struct eni_dev *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  void *__cil_tmp7 ;
+  struct eni_dev *__cil_tmp8 ;
+  struct eni_tx (*__cil_tmp9)[8U] ;
+  struct eni_tx *__cil_tmp10 ;
+  void *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  struct eni_tx (*__cil_tmp13)[8U] ;
-  struct eni_tx *__cil_tmp14 ;
-  void *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  void *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
+  void *__cil_tmp13 ;
+  unsigned long __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  struct sk_buff_head *__cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  struct sk_buff_head *__cil_tmp18 ;
+  struct sk_buff *__cil_tmp19 ;
   unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  struct sk_buff_head *__cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct sk_buff_head *__cil_tmp26 ;
-  struct sk_buff *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
 
   {
 #line 1196
   i = 7;
+#line 1196
   goto ldv_40367;
   ldv_40366: 
 #line 1197
   __cil_tmp6 = (unsigned long )i;
 #line 1197
-  __cil_tmp7 = (unsigned long )dev;
+  __cil_tmp7 = dev->dev_data;
 #line 1197
-  __cil_tmp8 = __cil_tmp7 + 32;
+  __cil_tmp8 = (struct eni_dev *)__cil_tmp7;
 #line 1197
-  __cil_tmp9 = *((void **)__cil_tmp8);
+  __cil_tmp9 = & __cil_tmp8->tx;
 #line 1197
-  __cil_tmp10 = (struct eni_dev *)__cil_tmp9;
+  __cil_tmp10 = (struct eni_tx *)__cil_tmp9;
 #line 1197
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 1197
-  __cil_tmp12 = __cil_tmp11 + 176;
-#line 1197
-  __cil_tmp13 = (struct eni_tx (*)[8U])__cil_tmp12;
-#line 1197
-  __cil_tmp14 = (struct eni_tx *)__cil_tmp13;
-#line 1197
-  tx = __cil_tmp14 + __cil_tmp6;
+  tx = __cil_tmp10 + __cil_tmp6;
   {
 #line 1198
-  __cil_tmp15 = (void *)0;
+  __cil_tmp11 = (void *)0;
 #line 1198
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 1198
-  __cil_tmp17 = *((void **)tx);
+  __cil_tmp13 = tx->send;
 #line 1198
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
+  __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 1198
-  if (__cil_tmp18 != __cil_tmp16) {
+  if (__cil_tmp14 != __cil_tmp12) {
+#line 1199
     goto ldv_40363;
     ldv_40365: 
     {
@@ -18012,9 +14940,10 @@ static void poll_tx(struct atm_dev *dev )
     }
     {
 #line 1201
-    __cil_tmp19 = (unsigned int )res;
+    __cil_tmp15 = (unsigned int )res;
 #line 1201
-    if (__cil_tmp19 == 0U) {
+    if (__cil_tmp15 == 0U) {
+#line 1201
       goto ldv_40363;
     } else {
 
@@ -18022,50 +14951,45 @@ static void poll_tx(struct atm_dev *dev )
     }
     {
 #line 1203
-    __cil_tmp20 = (unsigned long )tx;
+    __cil_tmp16 = & tx->backlog;
 #line 1203
-    __cil_tmp21 = __cil_tmp20 + 48;
-#line 1203
-    __cil_tmp22 = (struct sk_buff_head *)__cil_tmp21;
-#line 1203
-    skb_queue_head(__cil_tmp22, skb);
+    skb_queue_head(__cil_tmp16, skb);
 #line 1204
     requeued = requeued + 1;
     }
     {
 #line 1205
-    __cil_tmp23 = (unsigned int )res;
+    __cil_tmp17 = (unsigned int )res;
 #line 1205
-    if (__cil_tmp23 == 2U) {
+    if (__cil_tmp17 == 2U) {
 #line 1205
       return;
     } else {
 
     }
     }
+#line 1206
     goto ldv_40364;
     ldv_40363: 
     {
 #line 1199
-    __cil_tmp24 = (unsigned long )tx;
+    __cil_tmp18 = & tx->backlog;
 #line 1199
-    __cil_tmp25 = __cil_tmp24 + 48;
-#line 1199
-    __cil_tmp26 = (struct sk_buff_head *)__cil_tmp25;
-#line 1199
-    skb = skb_dequeue(__cil_tmp26);
+    skb = skb_dequeue(__cil_tmp18);
     }
     {
 #line 1199
-    __cil_tmp27 = (struct sk_buff *)0;
+    __cil_tmp19 = (struct sk_buff *)0;
 #line 1199
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
+    __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 1199
-    __cil_tmp29 = (unsigned long )skb;
+    __cil_tmp21 = (unsigned long )skb;
 #line 1199
-    if (__cil_tmp29 != __cil_tmp28) {
+    if (__cil_tmp21 != __cil_tmp20) {
+#line 1200
       goto ldv_40365;
     } else {
+#line 1202
       goto ldv_40364;
     }
     }
@@ -18079,8 +15003,10 @@ static void poll_tx(struct atm_dev *dev )
   ldv_40367: ;
 #line 1196
   if (i >= 0) {
+#line 1197
     goto ldv_40366;
   } else {
+#line 1199
     goto ldv_40368;
   }
   ldv_40368: ;
@@ -18097,129 +15023,67 @@ static void dequeue_tx(struct atm_dev *dev )
   unsigned int tmp ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  void *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  unsigned long __cil_tmp11 ;
+  char (*__cil_tmp12)[48U] ;
+  struct atm_skb_data *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  char (*__cil_tmp16)[48U] ;
-  struct atm_skb_data *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp16 ;
+  struct eni_vcc *__cil_tmp17 ;
+  void *__cil_tmp18 ;
+  struct eni_vcc *__cil_tmp19 ;
+  struct eni_tx *__cil_tmp20 ;
   unsigned long __cil_tmp21 ;
   void *__cil_tmp22 ;
   struct eni_vcc *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  struct eni_tx *__cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  void *__cil_tmp28 ;
-  struct eni_vcc *__cil_tmp29 ;
+  void *__cil_tmp27 ;
+  struct eni_vcc *__cil_tmp28 ;
+  int __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct eni_tx *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  void *__cil_tmp36 ;
-  struct eni_vcc *__cil_tmp37 ;
+  void *__cil_tmp35 ;
+  void const volatile   *__cil_tmp36 ;
+  void const volatile   *__cil_tmp37 ;
   unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct eni_tx *__cil_tmp40 ;
+  char (*__cil_tmp39)[48U] ;
+  struct eni_skb_prv *__cil_tmp40 ;
   unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  void *__cil_tmp47 ;
-  struct eni_vcc *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  int __cil_tmp57 ;
+  struct sk_buff_head *__cil_tmp42 ;
+  void *__cil_tmp43 ;
+  struct eni_vcc *__cil_tmp44 ;
+  char (*__cil_tmp45)[48U] ;
+  struct eni_skb_prv *__cil_tmp46 ;
+  int __cil_tmp47 ;
+  void *__cil_tmp48 ;
+  struct eni_vcc *__cil_tmp49 ;
+  int __cil_tmp50 ;
+  struct pci_dev *__cil_tmp51 ;
+  char (*__cil_tmp52)[48U] ;
+  struct eni_skb_prv *__cil_tmp53 ;
+  dma_addr_t __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  size_t __cil_tmp56 ;
+  void (*__cil_tmp57)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
+  void (*__cil_tmp59)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp60 ;
-  void *__cil_tmp61 ;
-  void const volatile   *__cil_tmp62 ;
-  void const volatile   *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  char (*__cil_tmp67)[48U] ;
-  struct eni_skb_prv *__cil_tmp68 ;
+  void (*__cil_tmp61)(struct atm_vcc * , struct sk_buff * ) ;
+  struct k_atm_aal_stats *__cil_tmp62 ;
+  atomic_t *__cil_tmp63 ;
+  wait_queue_head_t *__cil_tmp64 ;
+  void *__cil_tmp65 ;
+  struct sk_buff_head *__cil_tmp66 ;
+  struct sk_buff *__cil_tmp67 ;
+  unsigned long __cil_tmp68 ;
   unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct sk_buff_head *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  void *__cil_tmp77 ;
-  struct eni_vcc *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  char (*__cil_tmp83)[48U] ;
-  struct eni_skb_prv *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  void *__cil_tmp90 ;
-  struct eni_vcc *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  struct pci_dev *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  char (*__cil_tmp100)[48U] ;
-  struct eni_skb_prv *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  dma_addr_t __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned int __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  void (*__cil_tmp109)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  void (*__cil_tmp113)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  void (*__cil_tmp117)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  struct k_atm_aal_stats *__cil_tmp120 ;
-  atomic_t *__cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  wait_queue_head_t *__cil_tmp124 ;
-  void *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  struct sk_buff_head *__cil_tmp128 ;
-  struct sk_buff *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
 
   {
   {
@@ -18238,192 +15102,130 @@ static void dequeue_tx(struct atm_dev *dev )
   }
   }
 #line 1220
-  __cil_tmp9 = (unsigned long )dev;
+  __cil_tmp9 = dev->dev_data;
 #line 1220
-  __cil_tmp10 = __cil_tmp9 + 32;
-#line 1220
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 1220
-  eni_dev = (struct eni_dev *)__cil_tmp11;
+  eni_dev = (struct eni_dev *)__cil_tmp9;
   {
 #line 1221
-  __cil_tmp12 = (unsigned long )eni_dev;
+  __cil_tmp10 = (unsigned long )eni_dev;
 #line 1221
-  if (__cil_tmp12 <= 47UL) {
+  if (__cil_tmp10 <= 47UL) {
     {
 #line 1221
-    __cil_tmp13 = (unsigned long )eni_dev;
+    __cil_tmp11 = (unsigned long )eni_dev;
 #line 1221
-    printk("<2>eni_dev==0x%lx\n", __cil_tmp13);
+    printk("<2>eni_dev==0x%lx\n", __cil_tmp11);
     }
   } else {
 
   }
   }
+#line 1222
   goto ldv_40378;
   ldv_40377: 
 #line 1223
-  __cil_tmp14 = (unsigned long )skb;
+  __cil_tmp12 = & skb->cb;
 #line 1223
-  __cil_tmp15 = __cil_tmp14 + 40;
+  __cil_tmp13 = (struct atm_skb_data *)__cil_tmp12;
 #line 1223
-  __cil_tmp16 = (char (*)[48U])__cil_tmp15;
-#line 1223
-  __cil_tmp17 = (struct atm_skb_data *)__cil_tmp16;
-#line 1223
-  vcc = *((struct atm_vcc **)__cil_tmp17);
+  vcc = __cil_tmp13->vcc;
   {
 #line 1224
-  __cil_tmp18 = (unsigned long )vcc;
+  __cil_tmp14 = (unsigned long )vcc;
 #line 1224
-  if (__cil_tmp18 <= 47UL) {
+  if (__cil_tmp14 <= 47UL) {
     {
 #line 1224
-    __cil_tmp19 = (unsigned long )vcc;
+    __cil_tmp15 = (unsigned long )vcc;
 #line 1224
-    printk("<2>vcc==0x%lx\n", __cil_tmp19);
+    printk("<2>vcc==0x%lx\n", __cil_tmp15);
     }
   } else {
 
   }
   }
 #line 1225
-  __cil_tmp20 = (unsigned long )vcc;
+  __cil_tmp16 = vcc->dev_data;
 #line 1225
-  __cil_tmp21 = __cil_tmp20 + 1480;
+  __cil_tmp17 = (struct eni_vcc *)__cil_tmp16;
 #line 1225
-  __cil_tmp22 = *((void **)__cil_tmp21);
-#line 1225
-  __cil_tmp23 = (struct eni_vcc *)__cil_tmp22;
-#line 1225
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 1225
-  __cil_tmp25 = __cil_tmp24 + 40;
-#line 1225
-  tx = *((struct eni_tx **)__cil_tmp25);
+  tx = __cil_tmp17->tx;
   {
 #line 1226
-  __cil_tmp26 = (unsigned long )vcc;
+  __cil_tmp18 = vcc->dev_data;
 #line 1226
-  __cil_tmp27 = __cil_tmp26 + 1480;
+  __cil_tmp19 = (struct eni_vcc *)__cil_tmp18;
 #line 1226
-  __cil_tmp28 = *((void **)__cil_tmp27);
+  __cil_tmp20 = __cil_tmp19->tx;
 #line 1226
-  __cil_tmp29 = (struct eni_vcc *)__cil_tmp28;
+  __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 1226
+  if (__cil_tmp21 <= 47UL) {
+    {
+#line 1226
+    __cil_tmp22 = vcc->dev_data;
+#line 1226
+    __cil_tmp23 = (struct eni_vcc *)__cil_tmp22;
+#line 1226
+    __cil_tmp24 = __cil_tmp23->tx;
+#line 1226
+    __cil_tmp25 = (unsigned long )__cil_tmp24;
+#line 1226
+    printk("<2>ENI_VCC(vcc)->tx==0x%lx\n", __cil_tmp25);
+    }
+  } else {
+
+  }
+  }
+  {
+#line 1229
+  __cil_tmp26 = tx->words;
+#line 1229
+  __cil_tmp27 = vcc->dev_data;
+#line 1229
+  __cil_tmp28 = (struct eni_vcc *)__cil_tmp27;
+#line 1229
+  __cil_tmp29 = __cil_tmp28->txing;
+#line 1229
   __cil_tmp30 = (unsigned long )__cil_tmp29;
-#line 1226
-  __cil_tmp31 = __cil_tmp30 + 40;
-#line 1226
-  __cil_tmp32 = *((struct eni_tx **)__cil_tmp31);
-#line 1226
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 1226
-  if (__cil_tmp33 <= 47UL) {
-    {
-#line 1226
-    __cil_tmp34 = (unsigned long )vcc;
-#line 1226
-    __cil_tmp35 = __cil_tmp34 + 1480;
-#line 1226
-    __cil_tmp36 = *((void **)__cil_tmp35);
-#line 1226
-    __cil_tmp37 = (struct eni_vcc *)__cil_tmp36;
-#line 1226
-    __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 1226
-    __cil_tmp39 = __cil_tmp38 + 40;
-#line 1226
-    __cil_tmp40 = *((struct eni_tx **)__cil_tmp39);
-#line 1226
-    __cil_tmp41 = (unsigned long )__cil_tmp40;
-#line 1226
-    printk("<2>ENI_VCC(vcc)->tx==0x%lx\n", __cil_tmp41);
-    }
-  } else {
-
-  }
-  }
-  {
 #line 1229
-  __cil_tmp42 = (unsigned long )tx;
-#line 1229
-  __cil_tmp43 = __cil_tmp42 + 24;
-#line 1229
-  __cil_tmp44 = *((unsigned long *)__cil_tmp43);
-#line 1229
-  __cil_tmp45 = (unsigned long )vcc;
-#line 1229
-  __cil_tmp46 = __cil_tmp45 + 1480;
-#line 1229
-  __cil_tmp47 = *((void **)__cil_tmp46);
-#line 1229
-  __cil_tmp48 = (struct eni_vcc *)__cil_tmp47;
-#line 1229
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 1229
-  __cil_tmp50 = __cil_tmp49 + 56;
-#line 1229
-  __cil_tmp51 = *((int *)__cil_tmp50);
-#line 1229
-  __cil_tmp52 = (unsigned long )__cil_tmp51;
-#line 1229
-  if (__cil_tmp52 < __cil_tmp44) {
+  if (__cil_tmp30 < __cil_tmp26) {
     {
 #line 1229
-    __cil_tmp53 = (unsigned long )tx;
+    __cil_tmp31 = tx->index;
 #line 1229
-    __cil_tmp54 = __cil_tmp53 + 32;
+    __cil_tmp32 = __cil_tmp31 * 16;
 #line 1229
-    __cil_tmp55 = *((int *)__cil_tmp54);
+    __cil_tmp33 = __cil_tmp32 + 72;
 #line 1229
-    __cil_tmp56 = __cil_tmp55 * 16;
+    __cil_tmp34 = (unsigned long )__cil_tmp33;
 #line 1229
-    __cil_tmp57 = __cil_tmp56 + 72;
+    __cil_tmp35 = eni_dev->reg;
 #line 1229
-    __cil_tmp58 = (unsigned long )__cil_tmp57;
+    __cil_tmp36 = (void const volatile   *)__cil_tmp35;
 #line 1229
-    __cil_tmp59 = (unsigned long )eni_dev;
+    __cil_tmp37 = __cil_tmp36 + __cil_tmp34;
 #line 1229
-    __cil_tmp60 = __cil_tmp59 + 128;
-#line 1229
-    __cil_tmp61 = *((void **)__cil_tmp60);
-#line 1229
-    __cil_tmp62 = (void const volatile   *)__cil_tmp61;
-#line 1229
-    __cil_tmp63 = __cil_tmp62 + __cil_tmp58;
-#line 1229
-    tmp = readl(__cil_tmp63);
+    tmp = readl(__cil_tmp37);
     }
     {
 #line 1229
-    __cil_tmp64 = (unsigned long )tmp;
+    __cil_tmp38 = (unsigned long )tmp;
 #line 1229
-    __cil_tmp65 = (unsigned long )skb;
+    __cil_tmp39 = & skb->cb;
 #line 1229
-    __cil_tmp66 = __cil_tmp65 + 40;
+    __cil_tmp40 = (struct eni_skb_prv *)__cil_tmp39;
 #line 1229
-    __cil_tmp67 = (char (*)[48U])__cil_tmp66;
+    __cil_tmp41 = __cil_tmp40->pos;
 #line 1229
-    __cil_tmp68 = (struct eni_skb_prv *)__cil_tmp67;
-#line 1229
-    __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 1229
-    __cil_tmp70 = __cil_tmp69 + 16;
-#line 1229
-    __cil_tmp71 = *((unsigned long *)__cil_tmp70);
-#line 1229
-    if (__cil_tmp71 == __cil_tmp64) {
+    if (__cil_tmp41 == __cil_tmp38) {
       {
 #line 1231
-      __cil_tmp72 = (unsigned long )eni_dev;
+      __cil_tmp42 = & eni_dev->tx_queue;
 #line 1231
-      __cil_tmp73 = __cil_tmp72 + 1336;
-#line 1231
-      __cil_tmp74 = (struct sk_buff_head *)__cil_tmp73;
-#line 1231
-      skb_queue_head(__cil_tmp74, skb);
+      skb_queue_head(__cil_tmp42, skb);
       }
+#line 1232
       goto ldv_40376;
     } else {
 
@@ -18435,102 +15237,54 @@ static void dequeue_tx(struct atm_dev *dev )
   }
   {
 #line 1234
-  __cil_tmp75 = (unsigned long )vcc;
+  __cil_tmp43 = vcc->dev_data;
 #line 1234
-  __cil_tmp76 = __cil_tmp75 + 1480;
+  __cil_tmp44 = (struct eni_vcc *)__cil_tmp43;
 #line 1234
-  __cil_tmp77 = *((void **)__cil_tmp76);
+  __cil_tmp45 = & skb->cb;
 #line 1234
-  __cil_tmp78 = (struct eni_vcc *)__cil_tmp77;
+  __cil_tmp46 = (struct eni_skb_prv *)__cil_tmp45;
 #line 1234
-  __cil_tmp79 = (unsigned long )__cil_tmp78;
+  __cil_tmp47 = __cil_tmp46->size;
 #line 1234
-  __cil_tmp80 = __cil_tmp79 + 56;
+  __cil_tmp48 = vcc->dev_data;
 #line 1234
-  __cil_tmp81 = (unsigned long )skb;
+  __cil_tmp49 = (struct eni_vcc *)__cil_tmp48;
 #line 1234
-  __cil_tmp82 = __cil_tmp81 + 40;
+  __cil_tmp50 = __cil_tmp49->txing;
 #line 1234
-  __cil_tmp83 = (char (*)[48U])__cil_tmp82;
-#line 1234
-  __cil_tmp84 = (struct eni_skb_prv *)__cil_tmp83;
-#line 1234
-  __cil_tmp85 = (unsigned long )__cil_tmp84;
-#line 1234
-  __cil_tmp86 = __cil_tmp85 + 24;
-#line 1234
-  __cil_tmp87 = *((int *)__cil_tmp86);
-#line 1234
-  __cil_tmp88 = (unsigned long )vcc;
-#line 1234
-  __cil_tmp89 = __cil_tmp88 + 1480;
-#line 1234
-  __cil_tmp90 = *((void **)__cil_tmp89);
-#line 1234
-  __cil_tmp91 = (struct eni_vcc *)__cil_tmp90;
-#line 1234
-  __cil_tmp92 = (unsigned long )__cil_tmp91;
-#line 1234
-  __cil_tmp93 = __cil_tmp92 + 56;
-#line 1234
-  __cil_tmp94 = *((int *)__cil_tmp93);
-#line 1234
-  *((int *)__cil_tmp80) = __cil_tmp94 - __cil_tmp87;
+  __cil_tmp44->txing = __cil_tmp50 - __cil_tmp47;
 #line 1235
-  __cil_tmp95 = (unsigned long )eni_dev;
+  __cil_tmp51 = eni_dev->pci_dev;
 #line 1235
-  __cil_tmp96 = __cil_tmp95 + 2632;
+  __cil_tmp52 = & skb->cb;
 #line 1235
-  __cil_tmp97 = *((struct pci_dev **)__cil_tmp96);
+  __cil_tmp53 = (struct eni_skb_prv *)__cil_tmp52;
 #line 1235
-  __cil_tmp98 = (unsigned long )skb;
+  __cil_tmp54 = __cil_tmp53->paddr;
 #line 1235
-  __cil_tmp99 = __cil_tmp98 + 40;
+  __cil_tmp55 = skb->len;
 #line 1235
-  __cil_tmp100 = (char (*)[48U])__cil_tmp99;
+  __cil_tmp56 = (size_t )__cil_tmp55;
 #line 1235
-  __cil_tmp101 = (struct eni_skb_prv *)__cil_tmp100;
-#line 1235
-  __cil_tmp102 = (unsigned long )__cil_tmp101;
-#line 1235
-  __cil_tmp103 = __cil_tmp102 + 32;
-#line 1235
-  __cil_tmp104 = *((dma_addr_t *)__cil_tmp103);
-#line 1235
-  __cil_tmp105 = (unsigned long )skb;
-#line 1235
-  __cil_tmp106 = __cil_tmp105 + 104;
-#line 1235
-  __cil_tmp107 = *((unsigned int *)__cil_tmp106);
-#line 1235
-  __cil_tmp108 = (unsigned long )__cil_tmp107;
-#line 1235
-  pci_unmap_single(__cil_tmp97, __cil_tmp104, __cil_tmp108, 1);
+  pci_unmap_single(__cil_tmp51, __cil_tmp54, __cil_tmp56, 1);
   }
   {
 #line 1237
-  __cil_tmp109 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
+  __cil_tmp57 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
 #line 1237
-  __cil_tmp110 = (unsigned long )__cil_tmp109;
+  __cil_tmp58 = (unsigned long )__cil_tmp57;
 #line 1237
-  __cil_tmp111 = (unsigned long )vcc;
+  __cil_tmp59 = vcc->pop;
 #line 1237
-  __cil_tmp112 = __cil_tmp111 + 1456;
+  __cil_tmp60 = (unsigned long )__cil_tmp59;
 #line 1237
-  __cil_tmp113 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp112);
-#line 1237
-  __cil_tmp114 = (unsigned long )__cil_tmp113;
-#line 1237
-  if (__cil_tmp114 != __cil_tmp110) {
+  if (__cil_tmp60 != __cil_tmp58) {
     {
 #line 1237
-    __cil_tmp115 = (unsigned long )vcc;
+    __cil_tmp61 = vcc->pop;
 #line 1237
-    __cil_tmp116 = __cil_tmp115 + 1456;
-#line 1237
-    __cil_tmp117 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp116);
-#line 1237
-    (*__cil_tmp117)(vcc, skb);
+    (*__cil_tmp61)(vcc, skb);
     }
   } else {
     {
@@ -18541,50 +15295,40 @@ static void dequeue_tx(struct atm_dev *dev )
   }
   {
 #line 1239
-  __cil_tmp118 = (unsigned long )vcc;
+  __cil_tmp62 = vcc->stats;
 #line 1239
-  __cil_tmp119 = __cil_tmp118 + 1496;
+  __cil_tmp63 = & __cil_tmp62->tx;
 #line 1239
-  __cil_tmp120 = *((struct k_atm_aal_stats **)__cil_tmp119);
-#line 1239
-  __cil_tmp121 = (atomic_t *)__cil_tmp120;
-#line 1239
-  atomic_inc(__cil_tmp121);
+  atomic_inc(__cil_tmp63);
 #line 1240
-  __cil_tmp122 = (unsigned long )eni_dev;
+  __cil_tmp64 = & eni_dev->tx_wait;
 #line 1240
-  __cil_tmp123 = __cil_tmp122 + 1432;
+  __cil_tmp65 = (void *)0;
 #line 1240
-  __cil_tmp124 = (wait_queue_head_t *)__cil_tmp123;
-#line 1240
-  __cil_tmp125 = (void *)0;
-#line 1240
-  __wake_up(__cil_tmp124, 3U, 1, __cil_tmp125);
+  __wake_up(__cil_tmp64, 3U, 1, __cil_tmp65);
 #line 1241
   dma_complete = dma_complete + 1;
   }
   ldv_40378: 
   {
 #line 1222
-  __cil_tmp126 = (unsigned long )eni_dev;
+  __cil_tmp66 = & eni_dev->tx_queue;
 #line 1222
-  __cil_tmp127 = __cil_tmp126 + 1336;
-#line 1222
-  __cil_tmp128 = (struct sk_buff_head *)__cil_tmp127;
-#line 1222
-  skb = skb_dequeue(__cil_tmp128);
+  skb = skb_dequeue(__cil_tmp66);
   }
   {
 #line 1222
-  __cil_tmp129 = (struct sk_buff *)0;
+  __cil_tmp67 = (struct sk_buff *)0;
 #line 1222
-  __cil_tmp130 = (unsigned long )__cil_tmp129;
+  __cil_tmp68 = (unsigned long )__cil_tmp67;
 #line 1222
-  __cil_tmp131 = (unsigned long )skb;
+  __cil_tmp69 = (unsigned long )skb;
 #line 1222
-  if (__cil_tmp131 != __cil_tmp130) {
+  if (__cil_tmp69 != __cil_tmp68) {
+#line 1223
     goto ldv_40377;
   } else {
+#line 1225
     goto ldv_40376;
   }
   }
@@ -18598,21 +15342,16 @@ static struct eni_tx *alloc_tx(struct eni_dev *eni_dev , int ubr )
 { int i ;
   void *__cil_tmp4 ;
   unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  void *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct eni_tx (*__cil_tmp15)[8U] ;
-  struct eni_tx *__cil_tmp16 ;
+  struct eni_tx (*__cil_tmp9)[8U] ;
+  struct eni_tx *__cil_tmp10 ;
 
   {
 #line 1250
   i = ubr == 0;
+#line 1250
   goto ldv_40385;
   ldv_40384: ;
   {
@@ -18621,32 +15360,20 @@ static struct eni_tx *alloc_tx(struct eni_dev *eni_dev , int ubr )
 #line 1251
   __cil_tmp5 = (unsigned long )__cil_tmp4;
 #line 1251
-  __cil_tmp6 = i * 144UL;
+  __cil_tmp6 = eni_dev->tx[i].send;
 #line 1251
-  __cil_tmp7 = 176 + __cil_tmp6;
+  __cil_tmp7 = (unsigned long )__cil_tmp6;
 #line 1251
-  __cil_tmp8 = (unsigned long )eni_dev;
-#line 1251
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 1251
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 1251
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 1251
-  if (__cil_tmp11 == __cil_tmp5) {
+  if (__cil_tmp7 == __cil_tmp5) {
     {
 #line 1251
-    __cil_tmp12 = (unsigned long )i;
+    __cil_tmp8 = (unsigned long )i;
 #line 1251
-    __cil_tmp13 = (unsigned long )eni_dev;
+    __cil_tmp9 = & eni_dev->tx;
 #line 1251
-    __cil_tmp14 = __cil_tmp13 + 176;
+    __cil_tmp10 = (struct eni_tx *)__cil_tmp9;
 #line 1251
-    __cil_tmp15 = (struct eni_tx (*)[8U])__cil_tmp14;
-#line 1251
-    __cil_tmp16 = (struct eni_tx *)__cil_tmp15;
-#line 1251
-    return (__cil_tmp16 + __cil_tmp12);
+    return (__cil_tmp10 + __cil_tmp8);
     }
   } else {
 
@@ -18657,8 +15384,10 @@ static struct eni_tx *alloc_tx(struct eni_dev *eni_dev , int ubr )
   ldv_40385: ;
 #line 1250
   if (i <= 7) {
+#line 1251
     goto ldv_40384;
   } else {
+#line 1253
     goto ldv_40386;
   }
   ldv_40386: ;
@@ -18673,87 +15402,41 @@ static int comp_tx(struct eni_dev *eni_dev , int *pcr , int reserved , int *pre 
   int tmp ;
   int div ;
   int div___0 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
   int __cil_tmp19 ;
   int __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
   int __cil_tmp24 ;
   int __cil_tmp25 ;
   int __cil_tmp26 ;
   int __cil_tmp27 ;
   int __cil_tmp28 ;
   int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
   int __cil_tmp32 ;
   int __cil_tmp33 ;
   int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
-  int __cil_tmp39 ;
-  int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  int __cil_tmp43 ;
-  int __cil_tmp44 ;
-  int __cil_tmp45 ;
-  int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int __cil_tmp58 ;
-  int __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
+  int __cil_tmp35 ;
 
   {
 #line 1259
-  __cil_tmp11 = 0 * 4UL;
+  pre_div[0] = 4;
 #line 1259
-  __cil_tmp12 = (unsigned long )(pre_div) + __cil_tmp11;
+  pre_div[1] = 16;
 #line 1259
-  *((int *)__cil_tmp12) = 4;
+  pre_div[2] = 128;
 #line 1259
-  __cil_tmp13 = 1 * 4UL;
-#line 1259
-  __cil_tmp14 = (unsigned long )(pre_div) + __cil_tmp13;
-#line 1259
-  *((int *)__cil_tmp14) = 16;
-#line 1259
-  __cil_tmp15 = 2 * 4UL;
-#line 1259
-  __cil_tmp16 = (unsigned long )(pre_div) + __cil_tmp15;
-#line 1259
-  *((int *)__cil_tmp16) = 128;
-#line 1259
-  __cil_tmp17 = 3 * 4UL;
-#line 1259
-  __cil_tmp18 = (unsigned long )(pre_div) + __cil_tmp17;
-#line 1259
-  *((int *)__cil_tmp18) = 2048;
+  pre_div[3] = 2048;
 #line 1262
   if (unlimited != 0) {
 #line 1262
@@ -18765,165 +15448,137 @@ static int comp_tx(struct eni_dev *eni_dev , int *pcr , int reserved , int *pre 
   } else {
     {
 #line 1264
-    __cil_tmp19 = *pcr;
+    __cil_tmp11 = *pcr;
 #line 1264
-    if (__cil_tmp19 > 0) {
+    if (__cil_tmp11 > 0) {
 #line 1267
       *pre = 0;
+#line 1267
       goto ldv_40399;
       ldv_40398: ;
       {
 #line 1268
-      __cil_tmp20 = *pcr;
+      __cil_tmp12 = *pcr;
 #line 1268
-      __cil_tmp21 = *pre;
+      __cil_tmp13 = 390625 / pre_div[*pre];
 #line 1268
-      __cil_tmp22 = __cil_tmp21 * 4UL;
+      if (__cil_tmp13 <= __cil_tmp12) {
 #line 1268
-      __cil_tmp23 = (unsigned long )(pre_div) + __cil_tmp22;
-#line 1268
-      __cil_tmp24 = *((int *)__cil_tmp23);
-#line 1268
-      __cil_tmp25 = 390625 / __cil_tmp24;
-#line 1268
-      if (__cil_tmp25 <= __cil_tmp20) {
         goto ldv_40397;
       } else {
 
       }
       }
 #line 1267
-      __cil_tmp26 = *pre;
+      __cil_tmp14 = *pre;
 #line 1267
-      *pre = __cil_tmp26 + 1;
+      *pre = __cil_tmp14 + 1;
       ldv_40399: ;
       {
 #line 1267
-      __cil_tmp27 = *pre;
+      __cil_tmp15 = *pre;
 #line 1267
-      if (__cil_tmp27 <= 2) {
+      if (__cil_tmp15 <= 2) {
+#line 1268
         goto ldv_40398;
       } else {
+#line 1270
         goto ldv_40397;
       }
       }
       ldv_40397: 
 #line 1269
-      __cil_tmp28 = *pcr;
+      __cil_tmp16 = *pcr;
 #line 1269
-      __cil_tmp29 = *pre;
-#line 1269
-      __cil_tmp30 = __cil_tmp29 * 4UL;
-#line 1269
-      __cil_tmp31 = (unsigned long )(pre_div) + __cil_tmp30;
-#line 1269
-      __cil_tmp32 = *((int *)__cil_tmp31);
-#line 1269
-      div = __cil_tmp32 * __cil_tmp28;
+      div = pre_div[*pre] * __cil_tmp16;
 #line 1271
-      __cil_tmp33 = 25000000 / div;
+      __cil_tmp17 = 25000000 / div;
 #line 1271
-      *res = __cil_tmp33 + -1;
+      *res = __cil_tmp17 + -1;
     } else {
       {
 #line 1276
-      __cil_tmp34 = *pcr;
+      __cil_tmp18 = *pcr;
 #line 1276
-      if (__cil_tmp34 == 0) {
+      if (__cil_tmp18 == 0) {
 #line 1276
-        __cil_tmp35 = (unsigned long )eni_dev;
+        __cil_tmp19 = eni_dev->tx_bw;
 #line 1276
-        __cil_tmp36 = __cil_tmp35 + 1520;
-#line 1276
-        __cil_tmp37 = *((int *)__cil_tmp36);
-#line 1276
-        *pcr = __cil_tmp37 + reserved;
+        *pcr = __cil_tmp19 + reserved;
       } else {
 
       }
       }
 #line 1277
       *pre = 3;
+#line 1277
       goto ldv_40403;
       ldv_40402: ;
       {
 #line 1278
-      __cil_tmp38 = *pcr;
+      __cil_tmp20 = *pcr;
 #line 1278
-      __cil_tmp39 = - __cil_tmp38;
+      __cil_tmp21 = - __cil_tmp20;
 #line 1278
-      __cil_tmp40 = *pre;
+      __cil_tmp22 = 390625 / pre_div[*pre];
 #line 1278
-      __cil_tmp41 = __cil_tmp40 * 4UL;
+      if (__cil_tmp22 > __cil_tmp21) {
 #line 1278
-      __cil_tmp42 = (unsigned long )(pre_div) + __cil_tmp41;
-#line 1278
-      __cil_tmp43 = *((int *)__cil_tmp42);
-#line 1278
-      __cil_tmp44 = 390625 / __cil_tmp43;
-#line 1278
-      if (__cil_tmp44 > __cil_tmp39) {
         goto ldv_40401;
       } else {
 
       }
       }
 #line 1277
-      __cil_tmp45 = *pre;
+      __cil_tmp23 = *pre;
 #line 1277
-      *pre = __cil_tmp45 - 1;
+      *pre = __cil_tmp23 - 1;
       ldv_40403: ;
       {
 #line 1277
-      __cil_tmp46 = *pre;
+      __cil_tmp24 = *pre;
 #line 1277
-      if (__cil_tmp46 >= 0) {
+      if (__cil_tmp24 >= 0) {
+#line 1278
         goto ldv_40402;
       } else {
+#line 1280
         goto ldv_40401;
       }
       }
       ldv_40401: ;
       {
 #line 1279
-      __cil_tmp47 = *pre;
+      __cil_tmp25 = *pre;
 #line 1279
-      if (__cil_tmp47 <= 2) {
+      if (__cil_tmp25 <= 2) {
 #line 1279
-        __cil_tmp48 = *pre;
+        __cil_tmp26 = *pre;
 #line 1279
-        *pre = __cil_tmp48 + 1;
+        *pre = __cil_tmp26 + 1;
       } else {
 
       }
       }
 #line 1280
-      __cil_tmp49 = *pcr;
+      __cil_tmp27 = *pcr;
 #line 1280
-      __cil_tmp50 = - __cil_tmp49;
+      __cil_tmp28 = - __cil_tmp27;
 #line 1280
-      __cil_tmp51 = *pre;
-#line 1280
-      __cil_tmp52 = __cil_tmp51 * 4UL;
-#line 1280
-      __cil_tmp53 = (unsigned long )(pre_div) + __cil_tmp52;
-#line 1280
-      __cil_tmp54 = *((int *)__cil_tmp53);
-#line 1280
-      div___0 = __cil_tmp54 * __cil_tmp50;
+      div___0 = pre_div[*pre] * __cil_tmp28;
 #line 1282
-      __cil_tmp55 = div___0 + 24999999;
+      __cil_tmp29 = div___0 + 24999999;
 #line 1282
-      __cil_tmp56 = __cil_tmp55 / div___0;
+      __cil_tmp30 = __cil_tmp29 / div___0;
 #line 1282
-      *res = __cil_tmp56 + -1;
+      *res = __cil_tmp30 + -1;
     }
     }
     {
 #line 1284
-    __cil_tmp57 = *res;
+    __cil_tmp31 = *res;
 #line 1284
-    if (__cil_tmp57 < 0) {
+    if (__cil_tmp31 < 0) {
 #line 1284
       *res = 0;
     } else {
@@ -18932,9 +15587,9 @@ static int comp_tx(struct eni_dev *eni_dev , int *pcr , int reserved , int *pre 
     }
     {
 #line 1285
-    __cil_tmp58 = *res;
+    __cil_tmp32 = *res;
 #line 1285
-    if (__cil_tmp58 > 63) {
+    if (__cil_tmp32 > 63) {
 #line 1285
       *res = 63;
     } else {
@@ -18943,21 +15598,13 @@ static int comp_tx(struct eni_dev *eni_dev , int *pcr , int reserved , int *pre 
     }
   }
 #line 1287
-  __cil_tmp59 = *res;
+  __cil_tmp33 = *res;
 #line 1287
-  __cil_tmp60 = __cil_tmp59 + 1;
+  __cil_tmp34 = __cil_tmp33 + 1;
 #line 1287
-  __cil_tmp61 = *pre;
+  __cil_tmp35 = 25000000 / pre_div[*pre];
 #line 1287
-  __cil_tmp62 = __cil_tmp61 * 4UL;
-#line 1287
-  __cil_tmp63 = (unsigned long )(pre_div) + __cil_tmp62;
-#line 1287
-  __cil_tmp64 = *((int *)__cil_tmp63);
-#line 1287
-  __cil_tmp65 = 25000000 / __cil_tmp64;
-#line 1287
-  *pcr = __cil_tmp65 / __cil_tmp60;
+  *pcr = __cil_tmp35 / __cil_tmp34;
 #line 1289
   return (0);
 }
@@ -18981,273 +15628,116 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
   int tmp ;
   int tmp___0 ;
   unsigned int tmp___1 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct atm_dev *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  void *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  void *__cil_tmp29 ;
-  int *__cil_tmp30 ;
-  struct atm_trafprm  const  *__cil_tmp31 ;
-  unsigned char __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  int *__cil_tmp34 ;
-  int __cil_tmp35 ;
-  int *__cil_tmp36 ;
-  int __cil_tmp37 ;
-  int *__cil_tmp38 ;
-  int __cil_tmp39 ;
-  unsigned long *__cil_tmp40 ;
+  struct atm_dev *__cil_tmp21 ;
+  void *__cil_tmp22 ;
+  void *__cil_tmp23 ;
+  struct atm_trafprm  const  *__cil_tmp24 ;
+  unsigned char __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  struct eni_tx *__cil_tmp32 ;
+  unsigned long __cil_tmp33 ;
+  struct eni_tx *__cil_tmp34 ;
+  unsigned long __cil_tmp35 ;
+  struct eni_tx *__cil_tmp36 ;
+  unsigned long __cil_tmp37 ;
+  struct eni_tx *__cil_tmp38 ;
+  unsigned long __cil_tmp39 ;
+  void *__cil_tmp40 ;
   unsigned long __cil_tmp41 ;
   unsigned long __cil_tmp42 ;
-  int __cil_tmp43 ;
+  struct eni_tx *__cil_tmp43 ;
   unsigned long __cil_tmp44 ;
   unsigned long __cil_tmp45 ;
-  int __cil_tmp46 ;
+  struct sk_buff_head *__cil_tmp46 ;
   int __cil_tmp47 ;
   int __cil_tmp48 ;
-  unsigned long *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned long *__cil_tmp54 ;
-  struct eni_tx *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  struct eni_tx *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  unsigned long __cil_tmp49 ;
+  void *__cil_tmp50 ;
+  long __cil_tmp51 ;
+  void *__cil_tmp52 ;
+  long __cil_tmp53 ;
+  long __cil_tmp54 ;
+  long __cil_tmp55 ;
+  int __cil_tmp56 ;
+  int __cil_tmp57 ;
+  int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  int __cil_tmp60 ;
+  int __cil_tmp61 ;
+  int __cil_tmp62 ;
   unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long *__cil_tmp67 ;
-  struct eni_tx *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
+  void *__cil_tmp64 ;
+  void volatile   *__cil_tmp65 ;
+  void volatile   *__cil_tmp66 ;
+  int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  int __cil_tmp69 ;
   unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  struct eni_tx *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  void *__cil_tmp71 ;
+  void const volatile   *__cil_tmp72 ;
+  void const volatile   *__cil_tmp73 ;
   unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  void *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  struct eni_tx *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  struct sk_buff_head *__cil_tmp94 ;
-  unsigned long *__cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  int __cil_tmp97 ;
-  int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  void *__cil_tmp102 ;
-  long __cil_tmp103 ;
-  void *__cil_tmp104 ;
-  long __cil_tmp105 ;
-  long __cil_tmp106 ;
-  long __cil_tmp107 ;
-  int __cil_tmp108 ;
-  int __cil_tmp109 ;
-  int __cil_tmp110 ;
-  unsigned int __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  int __cil_tmp114 ;
-  int __cil_tmp115 ;
-  int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  void *__cil_tmp120 ;
-  void volatile   *__cil_tmp121 ;
-  void volatile   *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  int __cil_tmp125 ;
-  int __cil_tmp126 ;
-  int __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  void *__cil_tmp131 ;
-  void const volatile   *__cil_tmp132 ;
-  void const volatile   *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  int __cil_tmp139 ;
-  int *__cil_tmp140 ;
-  int __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  int __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  int __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  int __cil_tmp150 ;
-  int *__cil_tmp151 ;
-  int __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  int __cil_tmp155 ;
-  int *__cil_tmp156 ;
-  int __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  int __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  int __cil_tmp163 ;
-  int __cil_tmp164 ;
-  int *__cil_tmp165 ;
-  int __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  int __cil_tmp169 ;
-  int *__cil_tmp170 ;
-  int __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  int __cil_tmp174 ;
-  unsigned long *__cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  int *__cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  int __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  int __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  int *__cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  int *__cil_tmp193 ;
-  int __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  int __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  int *__cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  int *__cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  int *__cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
+  int __cil_tmp75 ;
+  int __cil_tmp76 ;
+  int __cil_tmp77 ;
+  int __cil_tmp78 ;
+  int __cil_tmp79 ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  int __cil_tmp83 ;
+  int __cil_tmp84 ;
+  int __cil_tmp85 ;
+  int __cil_tmp86 ;
+  int __cil_tmp87 ;
 
   {
   {
 #line 1296
-  __cil_tmp21 = (unsigned long )vcc;
+  __cil_tmp21 = vcc->dev;
 #line 1296
-  __cil_tmp22 = __cil_tmp21 + 1304;
+  __cil_tmp22 = __cil_tmp21->dev_data;
 #line 1296
-  __cil_tmp23 = *((struct atm_dev **)__cil_tmp22);
-#line 1296
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 1296
-  __cil_tmp25 = __cil_tmp24 + 32;
-#line 1296
-  __cil_tmp26 = *((void **)__cil_tmp25);
-#line 1296
-  eni_dev = (struct eni_dev *)__cil_tmp26;
+  eni_dev = (struct eni_dev *)__cil_tmp22;
 #line 1297
-  __cil_tmp27 = (unsigned long )vcc;
+  __cil_tmp23 = vcc->dev_data;
 #line 1297
-  __cil_tmp28 = __cil_tmp27 + 1480;
-#line 1297
-  __cil_tmp29 = *((void **)__cil_tmp28);
-#line 1297
-  eni_vcc = (struct eni_vcc *)__cil_tmp29;
+  eni_vcc = (struct eni_vcc *)__cil_tmp23;
 #line 1305
-  __cil_tmp30 = & rate;
+  __cil_tmp24 = (struct atm_trafprm  const  *)txtp;
 #line 1305
-  __cil_tmp31 = (struct atm_trafprm  const  *)txtp;
-#line 1305
-  *__cil_tmp30 = atm_pcr_goal(__cil_tmp31);
+  rate = atm_pcr_goal(__cil_tmp24);
 #line 1306
-  __cil_tmp32 = *((unsigned char *)txtp);
+  __cil_tmp25 = txtp->traffic_class;
 #line 1306
-  __cil_tmp33 = (unsigned int )__cil_tmp32;
+  __cil_tmp26 = (unsigned int )__cil_tmp25;
 #line 1306
-  ubr = __cil_tmp33 == 1U;
+  ubr = __cil_tmp26 == 1U;
   }
 #line 1307
   if (ubr != 0) {
-    {
 #line 1307
-    __cil_tmp34 = & rate;
+    if (rate == 0) {
 #line 1307
-    __cil_tmp35 = *__cil_tmp34;
+      tmp = 1;
+    } else
 #line 1307
-    if (__cil_tmp35 == 0) {
+    if (rate < -353206) {
+#line 1307
+      tmp = 1;
+    } else
+#line 1307
+    if (rate > 353206) {
 #line 1307
       tmp = 1;
     } else {
-      {
 #line 1307
-      __cil_tmp36 = & rate;
-#line 1307
-      __cil_tmp37 = *__cil_tmp36;
-#line 1307
-      if (__cil_tmp37 < -353206) {
-#line 1307
-        tmp = 1;
-      } else {
-        {
-#line 1307
-        __cil_tmp38 = & rate;
-#line 1307
-        __cil_tmp39 = *__cil_tmp38;
-#line 1307
-        if (__cil_tmp39 > 353206) {
-#line 1307
-          tmp = 1;
-        } else {
-#line 1307
-          tmp = 0;
-        }
-        }
-      }
-      }
-    }
+      tmp = 0;
     }
   } else {
 #line 1307
@@ -19258,45 +15748,24 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
 #line 1309
   if (unlimited == 0) {
 #line 1310
-    __cil_tmp40 = & size;
+    __cil_tmp27 = eni_dev->tx_mult;
 #line 1310
-    __cil_tmp41 = (unsigned long )eni_dev;
+    __cil_tmp28 = txtp->max_sdu;
 #line 1310
-    __cil_tmp42 = __cil_tmp41 + 2324;
+    __cil_tmp29 = __cil_tmp28 * __cil_tmp27;
 #line 1310
-    __cil_tmp43 = *((int *)__cil_tmp42);
+    __cil_tmp30 = __cil_tmp29 / 100;
 #line 1310
-    __cil_tmp44 = (unsigned long )txtp;
-#line 1310
-    __cil_tmp45 = __cil_tmp44 + 20;
-#line 1310
-    __cil_tmp46 = *((int *)__cil_tmp45);
-#line 1310
-    __cil_tmp47 = __cil_tmp46 * __cil_tmp43;
-#line 1310
-    __cil_tmp48 = __cil_tmp47 / 100;
-#line 1310
-    *__cil_tmp40 = (unsigned long )__cil_tmp48;
-    {
+    size = (unsigned long )__cil_tmp30;
 #line 1311
-    __cil_tmp49 = & size;
-#line 1311
-    __cil_tmp50 = *__cil_tmp49;
-#line 1311
-    if (__cil_tmp50 > 131072UL) {
+    if (size > 131072UL) {
       {
 #line 1311
-      __cil_tmp51 = (unsigned long )txtp;
+      __cil_tmp31 = txtp->max_sdu;
 #line 1311
-      __cil_tmp52 = __cil_tmp51 + 20;
-#line 1311
-      __cil_tmp53 = *((int *)__cil_tmp52);
-#line 1311
-      if (__cil_tmp53 <= 131072) {
+      if (__cil_tmp31 <= 131072) {
 #line 1313
-        __cil_tmp54 = & size;
-#line 1313
-        *__cil_tmp54 = 131072UL;
+        size = 131072UL;
       } else {
 
       }
@@ -19304,39 +15773,22 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     } else {
 
     }
-    }
   } else {
     {
 #line 1316
-    __cil_tmp55 = (struct eni_tx *)0;
+    __cil_tmp32 = (struct eni_tx *)0;
 #line 1316
-    __cil_tmp56 = (unsigned long )__cil_tmp55;
+    __cil_tmp33 = (unsigned long )__cil_tmp32;
 #line 1316
-    __cil_tmp57 = (unsigned long )eni_dev;
+    __cil_tmp34 = eni_dev->ubr;
 #line 1316
-    __cil_tmp58 = __cil_tmp57 + 1328;
+    __cil_tmp35 = (unsigned long )__cil_tmp34;
 #line 1316
-    __cil_tmp59 = *((struct eni_tx **)__cil_tmp58);
-#line 1316
-    __cil_tmp60 = (unsigned long )__cil_tmp59;
-#line 1316
-    if (__cil_tmp60 != __cil_tmp56) {
+    if (__cil_tmp35 != __cil_tmp33) {
 #line 1317
-      __cil_tmp61 = (unsigned long )eni_vcc;
-#line 1317
-      __cil_tmp62 = __cil_tmp61 + 40;
-#line 1317
-      __cil_tmp63 = (unsigned long )eni_dev;
-#line 1317
-      __cil_tmp64 = __cil_tmp63 + 1328;
-#line 1317
-      *((struct eni_tx **)__cil_tmp62) = *((struct eni_tx **)__cil_tmp64);
+      eni_vcc->tx = eni_dev->ubr;
 #line 1318
-      __cil_tmp65 = (unsigned long )txtp;
-#line 1318
-      __cil_tmp66 = __cil_tmp65 + 8;
-#line 1318
-      *((int *)__cil_tmp66) = 353207;
+      txtp->pcr = 353207;
 #line 1319
       return (0);
     } else {
@@ -19344,34 +15796,24 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     }
     }
 #line 1321
-    __cil_tmp67 = & size;
-#line 1321
-    *__cil_tmp67 = 131072UL;
+    size = 131072UL;
   }
 #line 1323
-  __cil_tmp68 = (struct eni_tx *)0;
+  __cil_tmp36 = (struct eni_tx *)0;
 #line 1323
-  __cil_tmp69 = (unsigned long )__cil_tmp68;
+  __cil_tmp37 = (unsigned long )__cil_tmp36;
 #line 1323
-  __cil_tmp70 = (unsigned long )eni_vcc;
+  __cil_tmp38 = eni_vcc->tx;
 #line 1323
-  __cil_tmp71 = __cil_tmp70 + 40;
+  __cil_tmp39 = (unsigned long )__cil_tmp38;
 #line 1323
-  __cil_tmp72 = *((struct eni_tx **)__cil_tmp71);
-#line 1323
-  __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 1323
-  new_tx = __cil_tmp73 == __cil_tmp69;
+  new_tx = __cil_tmp39 == __cil_tmp37;
 #line 1324
   mem = (void *)0;
 #line 1325
   if (new_tx == 0) {
 #line 1325
-    __cil_tmp74 = (unsigned long )eni_vcc;
-#line 1325
-    __cil_tmp75 = __cil_tmp74 + 40;
-#line 1325
-    tx = *((struct eni_tx **)__cil_tmp75);
+    tx = eni_vcc->tx;
   } else {
     {
 #line 1327
@@ -19379,13 +15821,13 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     }
     {
 #line 1328
-    __cil_tmp76 = (void *)0;
+    __cil_tmp40 = (void *)0;
 #line 1328
-    __cil_tmp77 = (unsigned long )__cil_tmp76;
+    __cil_tmp41 = (unsigned long )__cil_tmp40;
 #line 1328
-    __cil_tmp78 = (unsigned long )mem;
+    __cil_tmp42 = (unsigned long )mem;
 #line 1328
-    if (__cil_tmp78 == __cil_tmp77) {
+    if (__cil_tmp42 == __cil_tmp41) {
 #line 1328
       return (-105);
     } else {
@@ -19398,20 +15840,16 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     }
     {
 #line 1330
-    __cil_tmp79 = (struct eni_tx *)0;
+    __cil_tmp43 = (struct eni_tx *)0;
 #line 1330
-    __cil_tmp80 = (unsigned long )__cil_tmp79;
+    __cil_tmp44 = (unsigned long )__cil_tmp43;
 #line 1330
-    __cil_tmp81 = (unsigned long )tx;
+    __cil_tmp45 = (unsigned long )tx;
 #line 1330
-    if (__cil_tmp81 == __cil_tmp80) {
+    if (__cil_tmp45 == __cil_tmp44) {
       {
 #line 1331
-      __cil_tmp82 = & size;
-#line 1331
-      __cil_tmp83 = *__cil_tmp82;
-#line 1331
-      eni_free_mem(eni_dev, mem, __cil_tmp83);
+      eni_free_mem(eni_dev, mem, size);
       }
 #line 1332
       return (-16);
@@ -19423,40 +15861,21 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
 #line 1335
     tmp___0 = 0;
 #line 1335
-    __cil_tmp84 = (unsigned long )tx;
+    tx->shaping = tmp___0;
 #line 1335
-    __cil_tmp85 = __cil_tmp84 + 40;
-#line 1335
-    *((int *)__cil_tmp85) = tmp___0;
-#line 1335
-    __cil_tmp86 = (unsigned long )tx;
-#line 1335
-    __cil_tmp87 = __cil_tmp86 + 36;
-#line 1335
-    *((int *)__cil_tmp87) = tmp___0;
+    tx->reserved = tmp___0;
 #line 1336
-    *((void **)tx) = mem;
+    tx->send = mem;
 #line 1337
-    __cil_tmp88 = (unsigned long )tx;
-#line 1337
-    __cil_tmp89 = __cil_tmp88 + 24;
-#line 1337
-    __cil_tmp90 = & size;
-#line 1337
-    __cil_tmp91 = *__cil_tmp90;
-#line 1337
-    *((unsigned long *)__cil_tmp89) = __cil_tmp91 >> 2;
+    tx->words = size >> 2;
 #line 1338
-    __cil_tmp92 = (unsigned long )tx;
+    __cil_tmp46 = & tx->backlog;
 #line 1338
-    __cil_tmp93 = __cil_tmp92 + 48;
-#line 1338
-    __cil_tmp94 = (struct sk_buff_head *)__cil_tmp93;
-#line 1338
-    skb_queue_head_init(__cil_tmp94);
+    skb_queue_head_init(__cil_tmp46);
 #line 1339
     order = 0;
     }
+#line 1339
     goto ldv_40424;
     ldv_40423: 
 #line 1339
@@ -19464,131 +15883,93 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     ldv_40424: ;
     {
 #line 1339
-    __cil_tmp95 = & size;
+    __cil_tmp47 = order + 10;
 #line 1339
-    __cil_tmp96 = *__cil_tmp95;
+    __cil_tmp48 = 1 << __cil_tmp47;
 #line 1339
-    __cil_tmp97 = order + 10;
+    __cil_tmp49 = (unsigned long )__cil_tmp48;
 #line 1339
-    __cil_tmp98 = 1 << __cil_tmp97;
-#line 1339
-    __cil_tmp99 = (unsigned long )__cil_tmp98;
-#line 1339
-    if (__cil_tmp99 < __cil_tmp96) {
+    if (__cil_tmp49 < size) {
+#line 1340
       goto ldv_40423;
     } else {
+#line 1342
       goto ldv_40425;
     }
     }
     ldv_40425: 
     {
 #line 1340
-    __cil_tmp100 = (unsigned long )eni_dev;
+    __cil_tmp50 = eni_dev->ram;
 #line 1340
-    __cil_tmp101 = __cil_tmp100 + 136;
+    __cil_tmp51 = (long )__cil_tmp50;
 #line 1340
-    __cil_tmp102 = *((void **)__cil_tmp101);
+    __cil_tmp52 = tx->send;
 #line 1340
-    __cil_tmp103 = (long )__cil_tmp102;
+    __cil_tmp53 = (long )__cil_tmp52;
 #line 1340
-    __cil_tmp104 = *((void **)tx);
+    __cil_tmp54 = __cil_tmp53 - __cil_tmp51;
 #line 1340
-    __cil_tmp105 = (long )__cil_tmp104;
+    __cil_tmp55 = __cil_tmp54 >> 10;
 #line 1340
-    __cil_tmp106 = __cil_tmp105 - __cil_tmp103;
+    __cil_tmp56 = (int )__cil_tmp55;
 #line 1340
-    __cil_tmp107 = __cil_tmp106 >> 10;
+    __cil_tmp57 = order << 11;
 #line 1340
-    __cil_tmp108 = (int )__cil_tmp107;
+    __cil_tmp58 = __cil_tmp57 | __cil_tmp56;
 #line 1340
-    __cil_tmp109 = order << 11;
+    __cil_tmp59 = (unsigned int )__cil_tmp58;
 #line 1340
-    __cil_tmp110 = __cil_tmp109 | __cil_tmp108;
+    __cil_tmp60 = tx->index;
 #line 1340
-    __cil_tmp111 = (unsigned int )__cil_tmp110;
+    __cil_tmp61 = __cil_tmp60 + 4;
 #line 1340
-    __cil_tmp112 = (unsigned long )tx;
+    __cil_tmp62 = __cil_tmp61 * 16;
 #line 1340
-    __cil_tmp113 = __cil_tmp112 + 32;
+    __cil_tmp63 = (unsigned long )__cil_tmp62;
 #line 1340
-    __cil_tmp114 = *((int *)__cil_tmp113);
+    __cil_tmp64 = eni_dev->reg;
 #line 1340
-    __cil_tmp115 = __cil_tmp114 + 4;
+    __cil_tmp65 = (void volatile   *)__cil_tmp64;
 #line 1340
-    __cil_tmp116 = __cil_tmp115 * 16;
+    __cil_tmp66 = __cil_tmp65 + __cil_tmp63;
 #line 1340
-    __cil_tmp117 = (unsigned long )__cil_tmp116;
-#line 1340
-    __cil_tmp118 = (unsigned long )eni_dev;
-#line 1340
-    __cil_tmp119 = __cil_tmp118 + 128;
-#line 1340
-    __cil_tmp120 = *((void **)__cil_tmp119);
-#line 1340
-    __cil_tmp121 = (void volatile   *)__cil_tmp120;
-#line 1340
-    __cil_tmp122 = __cil_tmp121 + __cil_tmp117;
-#line 1340
-    writel(__cil_tmp111, __cil_tmp122);
+    writel(__cil_tmp59, __cil_tmp66);
 #line 1343
-    __cil_tmp123 = (unsigned long )tx;
+    __cil_tmp67 = tx->index;
 #line 1343
-    __cil_tmp124 = __cil_tmp123 + 32;
+    __cil_tmp68 = __cil_tmp67 * 16;
 #line 1343
-    __cil_tmp125 = *((int *)__cil_tmp124);
+    __cil_tmp69 = __cil_tmp68 + 72;
 #line 1343
-    __cil_tmp126 = __cil_tmp125 * 16;
+    __cil_tmp70 = (unsigned long )__cil_tmp69;
 #line 1343
-    __cil_tmp127 = __cil_tmp126 + 72;
+    __cil_tmp71 = eni_dev->reg;
 #line 1343
-    __cil_tmp128 = (unsigned long )__cil_tmp127;
+    __cil_tmp72 = (void const volatile   *)__cil_tmp71;
 #line 1343
-    __cil_tmp129 = (unsigned long )eni_dev;
+    __cil_tmp73 = __cil_tmp72 + __cil_tmp70;
 #line 1343
-    __cil_tmp130 = __cil_tmp129 + 128;
+    tmp___1 = readl(__cil_tmp73);
 #line 1343
-    __cil_tmp131 = *((void **)__cil_tmp130);
+    __cil_tmp74 = (unsigned long )tmp___1;
 #line 1343
-    __cil_tmp132 = (void const volatile   *)__cil_tmp131;
-#line 1343
-    __cil_tmp133 = __cil_tmp132 + __cil_tmp128;
-#line 1343
-    tmp___1 = readl(__cil_tmp133);
-#line 1343
-    __cil_tmp134 = (unsigned long )tx;
-#line 1343
-    __cil_tmp135 = __cil_tmp134 + 16;
-#line 1343
-    __cil_tmp136 = (unsigned long )tmp___1;
-#line 1343
-    *((unsigned long *)__cil_tmp135) = __cil_tmp136 & 32767UL;
+    tx->tx_pos = __cil_tmp74 & 32767UL;
     }
   }
   {
 #line 1346
-  __cil_tmp137 = (unsigned long )tx;
+  __cil_tmp75 = tx->reserved;
 #line 1346
-  __cil_tmp138 = __cil_tmp137 + 36;
-#line 1346
-  __cil_tmp139 = *((int *)__cil_tmp138);
-#line 1346
-  error = comp_tx(eni_dev, & rate, __cil_tmp139, & pre, & res, unlimited);
+  error = comp_tx(eni_dev, & rate, __cil_tmp75, & pre, & res, unlimited);
   }
 #line 1347
   if (error == 0) {
     {
 #line 1347
-    __cil_tmp140 = & rate;
+    __cil_tmp76 = txtp->min_pcr;
 #line 1347
-    __cil_tmp141 = *__cil_tmp140;
-#line 1347
-    __cil_tmp142 = (unsigned long )txtp;
-#line 1347
-    __cil_tmp143 = __cil_tmp142 + 12;
-#line 1347
-    __cil_tmp144 = *((int *)__cil_tmp143);
-#line 1347
-    if (__cil_tmp144 > __cil_tmp141) {
+    if (__cil_tmp76 > rate) {
 #line 1347
       error = -22;
     } else {
@@ -19602,35 +15983,19 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
   if (error == 0) {
     {
 #line 1348
-    __cil_tmp145 = (unsigned long )txtp;
+    __cil_tmp77 = txtp->max_pcr;
 #line 1348
-    __cil_tmp146 = __cil_tmp145 + 4;
-#line 1348
-    __cil_tmp147 = *((int *)__cil_tmp146);
-#line 1348
-    if (__cil_tmp147 != 0) {
+    if (__cil_tmp77 != 0) {
       {
 #line 1348
-      __cil_tmp148 = (unsigned long )txtp;
+      __cil_tmp78 = txtp->max_pcr;
 #line 1348
-      __cil_tmp149 = __cil_tmp148 + 4;
-#line 1348
-      __cil_tmp150 = *((int *)__cil_tmp149);
-#line 1348
-      if (__cil_tmp150 != -1) {
+      if (__cil_tmp78 != -1) {
         {
 #line 1348
-        __cil_tmp151 = & rate;
+        __cil_tmp79 = txtp->max_pcr;
 #line 1348
-        __cil_tmp152 = *__cil_tmp151;
-#line 1348
-        __cil_tmp153 = (unsigned long )txtp;
-#line 1348
-        __cil_tmp154 = __cil_tmp153 + 4;
-#line 1348
-        __cil_tmp155 = *((int *)__cil_tmp154);
-#line 1348
-        if (__cil_tmp155 < __cil_tmp152) {
+        if (__cil_tmp79 < rate) {
 #line 1349
           error = -22;
         } else {
@@ -19654,25 +16019,13 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     if (ubr == 0) {
       {
 #line 1350
-      __cil_tmp156 = & rate;
+      __cil_tmp80 = tx->reserved;
 #line 1350
-      __cil_tmp157 = *__cil_tmp156;
+      __cil_tmp81 = eni_dev->tx_bw;
 #line 1350
-      __cil_tmp158 = (unsigned long )tx;
+      __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
 #line 1350
-      __cil_tmp159 = __cil_tmp158 + 36;
-#line 1350
-      __cil_tmp160 = *((int *)__cil_tmp159);
-#line 1350
-      __cil_tmp161 = (unsigned long )eni_dev;
-#line 1350
-      __cil_tmp162 = __cil_tmp161 + 1520;
-#line 1350
-      __cil_tmp163 = *((int *)__cil_tmp162);
-#line 1350
-      __cil_tmp164 = __cil_tmp163 + __cil_tmp160;
-#line 1350
-      if (__cil_tmp164 < __cil_tmp157) {
+      if (__cil_tmp82 < rate) {
 #line 1351
         error = -22;
       } else {
@@ -19693,17 +16046,9 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
       if (set_shp == 0) {
         {
 #line 1352
-        __cil_tmp165 = & rate;
+        __cil_tmp83 = tx->shaping;
 #line 1352
-        __cil_tmp166 = *__cil_tmp165;
-#line 1352
-        __cil_tmp167 = (unsigned long )tx;
-#line 1352
-        __cil_tmp168 = __cil_tmp167 + 40;
-#line 1352
-        __cil_tmp169 = *((int *)__cil_tmp168);
-#line 1352
-        if (__cil_tmp169 > __cil_tmp166) {
+        if (__cil_tmp83 > rate) {
 #line 1353
           error = -22;
         } else {
@@ -19725,17 +16070,9 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     if (set_rsv == 0) {
       {
 #line 1354
-      __cil_tmp170 = & rate;
+      __cil_tmp84 = tx->reserved;
 #line 1354
-      __cil_tmp171 = *__cil_tmp170;
-#line 1354
-      __cil_tmp172 = (unsigned long )tx;
-#line 1354
-      __cil_tmp173 = __cil_tmp172 + 36;
-#line 1354
-      __cil_tmp174 = *((int *)__cil_tmp173);
-#line 1354
-      if (__cil_tmp174 < __cil_tmp171) {
+      if (__cil_tmp84 < rate) {
 #line 1354
         if (ubr == 0) {
 #line 1355
@@ -19759,13 +16096,9 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
     if (new_tx != 0) {
       {
 #line 1358
-      *((void **)tx) = (void *)0;
+      tx->send = (void *)0;
 #line 1359
-      __cil_tmp175 = & size;
-#line 1359
-      __cil_tmp176 = *__cil_tmp175;
-#line 1359
-      eni_free_mem(eni_dev, mem, __cil_tmp176);
+      eni_free_mem(eni_dev, mem, size);
       }
     } else {
 
@@ -19776,59 +16109,23 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
 
   }
 #line 1363
-  __cil_tmp177 = (unsigned long )txtp;
-#line 1363
-  __cil_tmp178 = __cil_tmp177 + 8;
-#line 1363
-  __cil_tmp179 = & rate;
-#line 1363
-  *((int *)__cil_tmp178) = *__cil_tmp179;
+  txtp->pcr = rate;
 #line 1364
   if (set_rsv != 0) {
 #line 1364
     if (ubr == 0) {
 #line 1365
-      __cil_tmp180 = (unsigned long )eni_dev;
+      __cil_tmp85 = tx->reserved;
 #line 1365
-      __cil_tmp181 = __cil_tmp180 + 1520;
+      __cil_tmp86 = eni_dev->tx_bw;
 #line 1365
-      __cil_tmp182 = (unsigned long )tx;
-#line 1365
-      __cil_tmp183 = __cil_tmp182 + 36;
-#line 1365
-      __cil_tmp184 = *((int *)__cil_tmp183);
-#line 1365
-      __cil_tmp185 = (unsigned long )eni_dev;
-#line 1365
-      __cil_tmp186 = __cil_tmp185 + 1520;
-#line 1365
-      __cil_tmp187 = *((int *)__cil_tmp186);
-#line 1365
-      *((int *)__cil_tmp181) = __cil_tmp187 + __cil_tmp184;
+      eni_dev->tx_bw = __cil_tmp86 + __cil_tmp85;
 #line 1366
-      __cil_tmp188 = (unsigned long )tx;
-#line 1366
-      __cil_tmp189 = __cil_tmp188 + 36;
-#line 1366
-      __cil_tmp190 = & rate;
-#line 1366
-      *((int *)__cil_tmp189) = *__cil_tmp190;
+      tx->reserved = rate;
 #line 1367
-      __cil_tmp191 = (unsigned long )eni_dev;
+      __cil_tmp87 = eni_dev->tx_bw;
 #line 1367
-      __cil_tmp192 = __cil_tmp191 + 1520;
-#line 1367
-      __cil_tmp193 = & rate;
-#line 1367
-      __cil_tmp194 = *__cil_tmp193;
-#line 1367
-      __cil_tmp195 = (unsigned long )eni_dev;
-#line 1367
-      __cil_tmp196 = __cil_tmp195 + 1520;
-#line 1367
-      __cil_tmp197 = *((int *)__cil_tmp196);
-#line 1367
-      *((int *)__cil_tmp192) = __cil_tmp197 - __cil_tmp194;
+      eni_dev->tx_bw = __cil_tmp87 - rate;
     } else {
 
     }
@@ -19837,68 +16134,42 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
   }
 #line 1369
   if (set_shp != 0) {
+#line 1369
     goto _L;
-  } else {
+  } else
 #line 1369
-    if (unlimited != 0) {
+  if (unlimited != 0) {
 #line 1369
-      if (new_tx != 0) {
-        _L: 
+    if (new_tx != 0) {
+      _L: 
 #line 1370
-        if (unlimited != 0) {
+      if (unlimited != 0) {
 #line 1370
-          if (new_tx != 0) {
+        if (new_tx != 0) {
 #line 1370
-            __cil_tmp198 = (unsigned long )eni_dev;
-#line 1370
-            __cil_tmp199 = __cil_tmp198 + 1328;
-#line 1370
-            *((struct eni_tx **)__cil_tmp199) = tx;
-          } else {
-
-          }
+          eni_dev->ubr = tx;
         } else {
 
         }
-#line 1371
-        __cil_tmp200 = (unsigned long )tx;
-#line 1371
-        __cil_tmp201 = __cil_tmp200 + 8;
-#line 1371
-        __cil_tmp202 = & pre;
-#line 1371
-        *((int *)__cil_tmp201) = *__cil_tmp202;
-#line 1372
-        __cil_tmp203 = (unsigned long )tx;
-#line 1372
-        __cil_tmp204 = __cil_tmp203 + 12;
-#line 1372
-        __cil_tmp205 = & res;
-#line 1372
-        *((int *)__cil_tmp204) = *__cil_tmp205;
-#line 1373
-        __cil_tmp206 = (unsigned long )tx;
-#line 1373
-        __cil_tmp207 = __cil_tmp206 + 40;
-#line 1373
-        __cil_tmp208 = & rate;
-#line 1373
-        *((int *)__cil_tmp207) = *__cil_tmp208;
       } else {
 
       }
+#line 1371
+      tx->prescaler = pre;
+#line 1372
+      tx->resolution = res;
+#line 1373
+      tx->shaping = rate;
     } else {
 
     }
+  } else {
+
   }
 #line 1375
   if (set_shp != 0) {
 #line 1375
-    __cil_tmp209 = (unsigned long )eni_vcc;
-#line 1375
-    __cil_tmp210 = __cil_tmp209 + 40;
-#line 1375
-    *((struct eni_tx **)__cil_tmp210) = tx;
+    eni_vcc->tx = tx;
   } else {
 
   }
@@ -19909,52 +16180,28 @@ static int reserve_or_set_tx(struct atm_vcc *vcc , struct atm_trafprm *txtp , in
 #line 1381 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
 static int open_tx_first(struct atm_vcc *vcc ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void *__cil_tmp5 ;
-  struct eni_vcc *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned char __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  void *__cil_tmp15 ;
-  struct eni_vcc *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct atm_trafprm *__cil_tmp21 ;
+  void *__cil_tmp3 ;
+  struct eni_vcc *__cil_tmp4 ;
+  unsigned char __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  void *__cil_tmp7 ;
+  struct eni_vcc *__cil_tmp8 ;
+  struct atm_trafprm *__cil_tmp9 ;
 
   {
 #line 1383
-  __cil_tmp3 = (unsigned long )vcc;
+  __cil_tmp3 = vcc->dev_data;
 #line 1383
-  __cil_tmp4 = __cil_tmp3 + 1480;
+  __cil_tmp4 = (struct eni_vcc *)__cil_tmp3;
 #line 1383
-  __cil_tmp5 = *((void **)__cil_tmp4);
-#line 1383
-  __cil_tmp6 = (struct eni_vcc *)__cil_tmp5;
-#line 1383
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
-#line 1383
-  __cil_tmp8 = __cil_tmp7 + 40;
-#line 1383
-  *((struct eni_tx **)__cil_tmp8) = (struct eni_tx *)0;
+  __cil_tmp4->tx = (struct eni_tx *)0;
   {
 #line 1384
-  __cil_tmp9 = (unsigned long )vcc;
+  __cil_tmp5 = vcc->qos.txtp.traffic_class;
 #line 1384
-  __cil_tmp10 = __cil_tmp9 + 1312;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 1384
-  __cil_tmp11 = *((unsigned char *)__cil_tmp10);
-#line 1384
-  __cil_tmp12 = (unsigned int )__cil_tmp11;
-#line 1384
-  if (__cil_tmp12 == 0U) {
+  if (__cil_tmp6 == 0U) {
 #line 1384
     return (0);
   } else {
@@ -19963,27 +16210,15 @@ static int open_tx_first(struct atm_vcc *vcc )
   }
   {
 #line 1385
-  __cil_tmp13 = (unsigned long )vcc;
+  __cil_tmp7 = vcc->dev_data;
 #line 1385
-  __cil_tmp14 = __cil_tmp13 + 1480;
+  __cil_tmp8 = (struct eni_vcc *)__cil_tmp7;
 #line 1385
-  __cil_tmp15 = *((void **)__cil_tmp14);
-#line 1385
-  __cil_tmp16 = (struct eni_vcc *)__cil_tmp15;
-#line 1385
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 1385
-  __cil_tmp18 = __cil_tmp17 + 56;
-#line 1385
-  *((int *)__cil_tmp18) = 0;
+  __cil_tmp8->txing = 0;
 #line 1386
-  __cil_tmp19 = (unsigned long )vcc;
+  __cil_tmp9 = & vcc->qos.txtp;
 #line 1386
-  __cil_tmp20 = __cil_tmp19 + 1312;
-#line 1386
-  __cil_tmp21 = (struct atm_trafprm *)__cil_tmp20;
-#line 1386
-  tmp = reserve_or_set_tx(vcc, __cil_tmp21, 1, 1);
+  tmp = reserve_or_set_tx(vcc, __cil_tmp9, 1, 1);
   }
 #line 1386
   return (tmp);
@@ -20036,177 +16271,95 @@ static void close_tx(struct atm_vcc *vcc )
   struct task_struct *tmp___13 ;
   unsigned int tmp___14 ;
   unsigned int tmp___15 ;
-  wait_queue_t *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  void *__cil_tmp38 ;
+  struct eni_tx *__cil_tmp39 ;
   unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
+  struct eni_tx *__cil_tmp41 ;
   unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  void *__cil_tmp46 ;
-  struct eni_tx *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  struct atm_dev *__cil_tmp43 ;
+  void *__cil_tmp44 ;
+  wait_queue_head_t *__cil_tmp45 ;
+  long volatile   *__cil_tmp46 ;
+  long volatile   *__cil_tmp47 ;
+  long volatile   *__cil_tmp48 ;
+  long volatile   *__cil_tmp49 ;
+  struct tasklet_struct *__cil_tmp50 ;
   struct eni_tx *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
+  struct sk_buff_head *__cil_tmp52 ;
+  struct sk_buff *__cil_tmp53 ;
   unsigned long __cil_tmp54 ;
-  struct atm_dev *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  void *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  wait_queue_head_t *__cil_tmp61 ;
+  unsigned long __cil_tmp55 ;
+  int __cil_tmp56 ;
+  struct tasklet_struct *__cil_tmp57 ;
+  long volatile   *__cil_tmp58 ;
+  long volatile   *__cil_tmp59 ;
+  long volatile   *__cil_tmp60 ;
+  long volatile   *__cil_tmp61 ;
   long volatile   *__cil_tmp62 ;
   long volatile   *__cil_tmp63 ;
   long volatile   *__cil_tmp64 ;
   long volatile   *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct tasklet_struct *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
+  wait_queue_head_t *__cil_tmp66 ;
+  struct eni_tx *__cil_tmp67 ;
+  unsigned long __cil_tmp68 ;
+  struct eni_tx *__cil_tmp69 ;
   unsigned long __cil_tmp70 ;
   struct eni_tx *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct sk_buff_head *__cil_tmp74 ;
-  struct sk_buff *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
+  int __cil_tmp72 ;
+  int __cil_tmp73 ;
+  int __cil_tmp74 ;
+  unsigned long __cil_tmp75 ;
+  void *__cil_tmp76 ;
+  void const volatile   *__cil_tmp77 ;
+  void const volatile   *__cil_tmp78 ;
+  struct eni_tx *__cil_tmp79 ;
   int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct tasklet_struct *__cil_tmp83 ;
-  long volatile   *__cil_tmp84 ;
-  long volatile   *__cil_tmp85 ;
-  long volatile   *__cil_tmp86 ;
-  long volatile   *__cil_tmp87 ;
-  long volatile   *__cil_tmp88 ;
-  long volatile   *__cil_tmp89 ;
-  long volatile   *__cil_tmp90 ;
-  long volatile   *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  wait_queue_head_t *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  struct eni_tx *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  struct eni_tx *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  struct eni_tx *__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  int __cil_tmp108 ;
-  int __cil_tmp109 ;
-  int __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  void *__cil_tmp114 ;
-  void const volatile   *__cil_tmp115 ;
-  void const volatile   *__cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  struct eni_tx *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  int __cil_tmp122 ;
-  int __cil_tmp123 ;
-  int __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  void *__cil_tmp128 ;
-  void const volatile   *__cil_tmp129 ;
-  void const volatile   *__cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  struct eni_tx *__cil_tmp133 ;
-  void *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  struct eni_tx *__cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  struct eni_tx *__cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  struct eni_tx *__cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  int __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  int __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  unsigned long __cil_tmp83 ;
+  void *__cil_tmp84 ;
+  void const volatile   *__cil_tmp85 ;
+  void const volatile   *__cil_tmp86 ;
+  struct eni_tx *__cil_tmp87 ;
+  void *__cil_tmp88 ;
+  struct eni_tx *__cil_tmp89 ;
+  unsigned long __cil_tmp90 ;
+  unsigned long __cil_tmp91 ;
+  struct eni_tx *__cil_tmp92 ;
+  struct eni_tx *__cil_tmp93 ;
+  int __cil_tmp94 ;
+  int __cil_tmp95 ;
 
   {
   {
 #line 1398
   tmp = get_current();
 #line 1398
-  __cil_tmp38 = & wait;
+  wait.flags = 0U;
 #line 1398
-  *((unsigned int *)__cil_tmp38) = 0U;
+  wait.private = (void *)tmp;
 #line 1398
-  __cil_tmp39 = (unsigned long )(& wait) + 8;
+  wait.func = & default_wake_function;
 #line 1398
-  *((void **)__cil_tmp39) = (void *)tmp;
+  wait.task_list.next = (struct list_head *)0;
 #line 1398
-  __cil_tmp40 = (unsigned long )(& wait) + 16;
-#line 1398
-  *((int (**)(wait_queue_t * , unsigned int  , int  , void * ))__cil_tmp40) = & default_wake_function;
-#line 1398
-  __cil_tmp41 = (unsigned long )(& wait) + 24;
-#line 1398
-  *((struct list_head **)__cil_tmp41) = (struct list_head *)0;
-#line 1398
-  __cil_tmp42 = 24 + 8;
-#line 1398
-  __cil_tmp43 = (unsigned long )(& wait) + __cil_tmp42;
-#line 1398
-  *((struct list_head **)__cil_tmp43) = (struct list_head *)0;
+  wait.task_list.prev = (struct list_head *)0;
 #line 1402
-  __cil_tmp44 = (unsigned long )vcc;
+  __cil_tmp38 = vcc->dev_data;
 #line 1402
-  __cil_tmp45 = __cil_tmp44 + 1480;
-#line 1402
-  __cil_tmp46 = *((void **)__cil_tmp45);
-#line 1402
-  eni_vcc = (struct eni_vcc *)__cil_tmp46;
+  eni_vcc = (struct eni_vcc *)__cil_tmp38;
   }
   {
 #line 1403
-  __cil_tmp47 = (struct eni_tx *)0;
+  __cil_tmp39 = (struct eni_tx *)0;
 #line 1403
-  __cil_tmp48 = (unsigned long )__cil_tmp47;
+  __cil_tmp40 = (unsigned long )__cil_tmp39;
 #line 1403
-  __cil_tmp49 = (unsigned long )eni_vcc;
+  __cil_tmp41 = eni_vcc->tx;
 #line 1403
-  __cil_tmp50 = __cil_tmp49 + 40;
+  __cil_tmp42 = (unsigned long )__cil_tmp41;
 #line 1403
-  __cil_tmp51 = *((struct eni_tx **)__cil_tmp50);
-#line 1403
-  __cil_tmp52 = (unsigned long )__cil_tmp51;
-#line 1403
-  if (__cil_tmp52 == __cil_tmp48) {
+  if (__cil_tmp42 == __cil_tmp40) {
 #line 1403
     return;
   } else {
@@ -20215,34 +16368,24 @@ static void close_tx(struct atm_vcc *vcc )
   }
   {
 #line 1404
-  __cil_tmp53 = (unsigned long )vcc;
+  __cil_tmp43 = vcc->dev;
 #line 1404
-  __cil_tmp54 = __cil_tmp53 + 1304;
+  __cil_tmp44 = __cil_tmp43->dev_data;
 #line 1404
-  __cil_tmp55 = *((struct atm_dev **)__cil_tmp54);
-#line 1404
-  __cil_tmp56 = (unsigned long )__cil_tmp55;
-#line 1404
-  __cil_tmp57 = __cil_tmp56 + 32;
-#line 1404
-  __cil_tmp58 = *((void **)__cil_tmp57);
-#line 1404
-  eni_dev = (struct eni_dev *)__cil_tmp58;
+  eni_dev = (struct eni_dev *)__cil_tmp44;
 #line 1407
-  __cil_tmp59 = (unsigned long )eni_dev;
+  __cil_tmp45 = & eni_dev->tx_wait;
 #line 1407
-  __cil_tmp60 = __cil_tmp59 + 1432;
-#line 1407
-  __cil_tmp61 = (wait_queue_head_t *)__cil_tmp60;
-#line 1407
-  add_wait_queue(__cil_tmp61, & wait);
+  add_wait_queue(__cil_tmp45, & wait);
 #line 1408
   __x = (long volatile   )2L;
   }
 #line 1408
   if (1) {
+#line 1408
     goto case_8;
   } else {
+#line 1408
     goto switch_default;
 #line 1408
     if (0) {
@@ -20250,46 +16393,50 @@ static void close_tx(struct atm_vcc *vcc )
 #line 1408
       tmp___0 = get_current();
 #line 1408
-      __cil_tmp62 = (long volatile   *)tmp___0;
+      __cil_tmp46 = & tmp___0->state;
 #line 1408
-      __ptr = (u8 volatile   *)__cil_tmp62;
+      __ptr = (u8 volatile   *)__cil_tmp46;
 #line 1408
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
       }
+#line 1408
       goto ldv_40441;
       {
 #line 1408
       tmp___1 = get_current();
 #line 1408
-      __cil_tmp63 = (long volatile   *)tmp___1;
+      __cil_tmp47 = & tmp___1->state;
 #line 1408
-      __ptr___0 = (u16 volatile   *)__cil_tmp63;
+      __ptr___0 = (u16 volatile   *)__cil_tmp47;
 #line 1408
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
       }
+#line 1408
       goto ldv_40441;
       {
 #line 1408
       tmp___2 = get_current();
 #line 1408
-      __cil_tmp64 = (long volatile   *)tmp___2;
+      __cil_tmp48 = & tmp___2->state;
 #line 1408
-      __ptr___1 = (u32 volatile   *)__cil_tmp64;
+      __ptr___1 = (u32 volatile   *)__cil_tmp48;
 #line 1408
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
       }
+#line 1408
       goto ldv_40441;
       case_8: 
       {
 #line 1408
       tmp___3 = get_current();
 #line 1408
-      __cil_tmp65 = (long volatile   *)tmp___3;
+      __cil_tmp49 = & tmp___3->state;
 #line 1408
-      __ptr___2 = (u64 volatile   *)__cil_tmp65;
+      __ptr___2 = (u64 volatile   *)__cil_tmp49;
 #line 1408
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
       }
+#line 1408
       goto ldv_40441;
       switch_default: 
       {
@@ -20304,49 +16451,33 @@ static void close_tx(struct atm_vcc *vcc )
   ldv_40464: 
   {
 #line 1412
-  __cil_tmp66 = (unsigned long )eni_dev;
+  __cil_tmp50 = & eni_dev->task;
 #line 1412
-  __cil_tmp67 = __cil_tmp66 + 72;
-#line 1412
-  __cil_tmp68 = (struct tasklet_struct *)__cil_tmp67;
-#line 1412
-  tasklet_disable(__cil_tmp68);
+  tasklet_disable(__cil_tmp50);
 #line 1413
-  __cil_tmp69 = (unsigned long )eni_vcc;
+  __cil_tmp51 = eni_vcc->tx;
 #line 1413
-  __cil_tmp70 = __cil_tmp69 + 40;
+  __cil_tmp52 = & __cil_tmp51->backlog;
 #line 1413
-  __cil_tmp71 = *((struct eni_tx **)__cil_tmp70);
-#line 1413
-  __cil_tmp72 = (unsigned long )__cil_tmp71;
-#line 1413
-  __cil_tmp73 = __cil_tmp72 + 48;
-#line 1413
-  __cil_tmp74 = (struct sk_buff_head *)__cil_tmp73;
-#line 1413
-  tmp___4 = skb_peek(__cil_tmp74);
+  tmp___4 = skb_peek(__cil_tmp52);
   }
   {
 #line 1413
-  __cil_tmp75 = (struct sk_buff *)0;
+  __cil_tmp53 = (struct sk_buff *)0;
 #line 1413
-  __cil_tmp76 = (unsigned long )__cil_tmp75;
+  __cil_tmp54 = (unsigned long )__cil_tmp53;
 #line 1413
-  __cil_tmp77 = (unsigned long )tmp___4;
+  __cil_tmp55 = (unsigned long )tmp___4;
 #line 1413
-  if (__cil_tmp77 != __cil_tmp76) {
+  if (__cil_tmp55 != __cil_tmp54) {
 #line 1413
     tmp___5 = 1;
   } else {
     {
 #line 1413
-    __cil_tmp78 = (unsigned long )eni_vcc;
+    __cil_tmp56 = eni_vcc->txing;
 #line 1413
-    __cil_tmp79 = __cil_tmp78 + 56;
-#line 1413
-    __cil_tmp80 = *((int *)__cil_tmp79);
-#line 1413
-    if (__cil_tmp80 != 0) {
+    if (__cil_tmp56 != 0) {
 #line 1413
       tmp___5 = 1;
     } else {
@@ -20360,16 +16491,13 @@ static void close_tx(struct atm_vcc *vcc )
 #line 1413
   txing = tmp___5;
 #line 1414
-  __cil_tmp81 = (unsigned long )eni_dev;
+  __cil_tmp57 = & eni_dev->task;
 #line 1414
-  __cil_tmp82 = __cil_tmp81 + 72;
-#line 1414
-  __cil_tmp83 = (struct tasklet_struct *)__cil_tmp82;
-#line 1414
-  tasklet_enable(__cil_tmp83);
+  tasklet_enable(__cil_tmp57);
   }
 #line 1415
   if (txing == 0) {
+#line 1415
     goto ldv_40451;
   } else {
 
@@ -20382,8 +16510,10 @@ static void close_tx(struct atm_vcc *vcc )
   }
 #line 1418
   if (1) {
+#line 1418
     goto case_8___0;
   } else {
+#line 1418
     goto switch_default___0;
 #line 1418
     if (0) {
@@ -20391,46 +16521,50 @@ static void close_tx(struct atm_vcc *vcc )
 #line 1418
       tmp___6 = get_current();
 #line 1418
-      __cil_tmp84 = (long volatile   *)tmp___6;
+      __cil_tmp58 = & tmp___6->state;
 #line 1418
-      __ptr___3 = (u8 volatile   *)__cil_tmp84;
+      __ptr___3 = (u8 volatile   *)__cil_tmp58;
 #line 1418
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x___0), "+m" (*__ptr___3): "0" (__x___0): "memory");
       }
+#line 1418
       goto ldv_40455;
       {
 #line 1418
       tmp___7 = get_current();
 #line 1418
-      __cil_tmp85 = (long volatile   *)tmp___7;
+      __cil_tmp59 = & tmp___7->state;
 #line 1418
-      __ptr___4 = (u16 volatile   *)__cil_tmp85;
+      __ptr___4 = (u16 volatile   *)__cil_tmp59;
 #line 1418
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x___0), "+m" (*__ptr___4): "0" (__x___0): "memory");
       }
+#line 1418
       goto ldv_40455;
       {
 #line 1418
       tmp___8 = get_current();
 #line 1418
-      __cil_tmp86 = (long volatile   *)tmp___8;
+      __cil_tmp60 = & tmp___8->state;
 #line 1418
-      __ptr___5 = (u32 volatile   *)__cil_tmp86;
+      __ptr___5 = (u32 volatile   *)__cil_tmp60;
 #line 1418
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x___0), "+m" (*__ptr___5): "0" (__x___0): "memory");
       }
+#line 1418
       goto ldv_40455;
       case_8___0: 
       {
 #line 1418
       tmp___9 = get_current();
 #line 1418
-      __cil_tmp87 = (long volatile   *)tmp___9;
+      __cil_tmp61 = & tmp___9->state;
 #line 1418
-      __ptr___6 = (u64 volatile   *)__cil_tmp87;
+      __ptr___6 = (u64 volatile   *)__cil_tmp61;
 #line 1418
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x___0), "+m" (*__ptr___6): "0" (__x___0): "memory");
       }
+#line 1418
       goto ldv_40455;
       switch_default___0: 
       {
@@ -20442,14 +16576,17 @@ static void close_tx(struct atm_vcc *vcc )
     }
   }
   ldv_40455: ;
+#line 1419
   goto ldv_40464;
   ldv_40451: 
 #line 1420
   __x___1 = (long volatile   )0L;
 #line 1420
   if (1) {
+#line 1420
     goto case_8___1;
   } else {
+#line 1420
     goto switch_default___1;
 #line 1420
     if (0) {
@@ -20457,46 +16594,50 @@ static void close_tx(struct atm_vcc *vcc )
 #line 1420
       tmp___10 = get_current();
 #line 1420
-      __cil_tmp88 = (long volatile   *)tmp___10;
+      __cil_tmp62 = & tmp___10->state;
 #line 1420
-      __ptr___7 = (u8 volatile   *)__cil_tmp88;
+      __ptr___7 = (u8 volatile   *)__cil_tmp62;
 #line 1420
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x___1), "+m" (*__ptr___7): "0" (__x___1): "memory");
       }
+#line 1420
       goto ldv_40468;
       {
 #line 1420
       tmp___11 = get_current();
 #line 1420
-      __cil_tmp89 = (long volatile   *)tmp___11;
+      __cil_tmp63 = & tmp___11->state;
 #line 1420
-      __ptr___8 = (u16 volatile   *)__cil_tmp89;
+      __ptr___8 = (u16 volatile   *)__cil_tmp63;
 #line 1420
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x___1), "+m" (*__ptr___8): "0" (__x___1): "memory");
       }
+#line 1420
       goto ldv_40468;
       {
 #line 1420
       tmp___12 = get_current();
 #line 1420
-      __cil_tmp90 = (long volatile   *)tmp___12;
+      __cil_tmp64 = & tmp___12->state;
 #line 1420
-      __ptr___9 = (u32 volatile   *)__cil_tmp90;
+      __ptr___9 = (u32 volatile   *)__cil_tmp64;
 #line 1420
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x___1), "+m" (*__ptr___9): "0" (__x___1): "memory");
       }
+#line 1420
       goto ldv_40468;
       case_8___1: 
       {
 #line 1420
       tmp___13 = get_current();
 #line 1420
-      __cil_tmp91 = (long volatile   *)tmp___13;
+      __cil_tmp65 = & tmp___13->state;
 #line 1420
-      __ptr___10 = (u64 volatile   *)__cil_tmp91;
+      __ptr___10 = (u64 volatile   *)__cil_tmp65;
 #line 1420
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x___1), "+m" (*__ptr___10): "0" (__x___1): "memory");
       }
+#line 1420
       goto ldv_40468;
       switch_default___1: 
       {
@@ -20510,33 +16651,22 @@ static void close_tx(struct atm_vcc *vcc )
   ldv_40468: 
   {
 #line 1421
-  __cil_tmp92 = (unsigned long )eni_dev;
+  __cil_tmp66 = & eni_dev->tx_wait;
 #line 1421
-  __cil_tmp93 = __cil_tmp92 + 1432;
-#line 1421
-  __cil_tmp94 = (wait_queue_head_t *)__cil_tmp93;
-#line 1421
-  remove_wait_queue(__cil_tmp94, & wait);
+  remove_wait_queue(__cil_tmp66, & wait);
   }
   {
 #line 1422
-  __cil_tmp95 = (unsigned long )eni_dev;
+  __cil_tmp67 = eni_dev->ubr;
 #line 1422
-  __cil_tmp96 = __cil_tmp95 + 1328;
+  __cil_tmp68 = (unsigned long )__cil_tmp67;
 #line 1422
-  __cil_tmp97 = *((struct eni_tx **)__cil_tmp96);
+  __cil_tmp69 = eni_vcc->tx;
 #line 1422
-  __cil_tmp98 = (unsigned long )__cil_tmp97;
+  __cil_tmp70 = (unsigned long )__cil_tmp69;
 #line 1422
-  __cil_tmp99 = (unsigned long )eni_vcc;
-#line 1422
-  __cil_tmp100 = __cil_tmp99 + 40;
-#line 1422
-  __cil_tmp101 = *((struct eni_tx **)__cil_tmp100);
-#line 1422
-  __cil_tmp102 = (unsigned long )__cil_tmp101;
-#line 1422
-  if (__cil_tmp102 != __cil_tmp98) {
+  if (__cil_tmp70 != __cil_tmp68) {
+#line 1428
     goto ldv_40478;
     ldv_40477: 
     {
@@ -20546,141 +16676,83 @@ static void close_tx(struct atm_vcc *vcc )
     ldv_40478: 
     {
 #line 1428
-    __cil_tmp103 = (unsigned long )eni_vcc;
+    __cil_tmp71 = eni_vcc->tx;
 #line 1428
-    __cil_tmp104 = __cil_tmp103 + 40;
+    __cil_tmp72 = __cil_tmp71->index;
 #line 1428
-    __cil_tmp105 = *((struct eni_tx **)__cil_tmp104);
+    __cil_tmp73 = __cil_tmp72 * 16;
 #line 1428
-    __cil_tmp106 = (unsigned long )__cil_tmp105;
+    __cil_tmp74 = __cil_tmp73 + 68;
 #line 1428
-    __cil_tmp107 = __cil_tmp106 + 32;
+    __cil_tmp75 = (unsigned long )__cil_tmp74;
 #line 1428
-    __cil_tmp108 = *((int *)__cil_tmp107);
+    __cil_tmp76 = eni_dev->reg;
 #line 1428
-    __cil_tmp109 = __cil_tmp108 * 16;
+    __cil_tmp77 = (void const volatile   *)__cil_tmp76;
 #line 1428
-    __cil_tmp110 = __cil_tmp109 + 68;
+    __cil_tmp78 = __cil_tmp77 + __cil_tmp75;
 #line 1428
-    __cil_tmp111 = (unsigned long )__cil_tmp110;
+    tmp___14 = readl(__cil_tmp78);
 #line 1428
-    __cil_tmp112 = (unsigned long )eni_dev;
+    __cil_tmp79 = eni_vcc->tx;
 #line 1428
-    __cil_tmp113 = __cil_tmp112 + 128;
+    __cil_tmp80 = __cil_tmp79->index;
 #line 1428
-    __cil_tmp114 = *((void **)__cil_tmp113);
+    __cil_tmp81 = __cil_tmp80 * 16;
 #line 1428
-    __cil_tmp115 = (void const volatile   *)__cil_tmp114;
+    __cil_tmp82 = __cil_tmp81 + 72;
 #line 1428
-    __cil_tmp116 = __cil_tmp115 + __cil_tmp111;
+    __cil_tmp83 = (unsigned long )__cil_tmp82;
 #line 1428
-    tmp___14 = readl(__cil_tmp116);
+    __cil_tmp84 = eni_dev->reg;
 #line 1428
-    __cil_tmp117 = (unsigned long )eni_vcc;
+    __cil_tmp85 = (void const volatile   *)__cil_tmp84;
 #line 1428
-    __cil_tmp118 = __cil_tmp117 + 40;
+    __cil_tmp86 = __cil_tmp85 + __cil_tmp83;
 #line 1428
-    __cil_tmp119 = *((struct eni_tx **)__cil_tmp118);
-#line 1428
-    __cil_tmp120 = (unsigned long )__cil_tmp119;
-#line 1428
-    __cil_tmp121 = __cil_tmp120 + 32;
-#line 1428
-    __cil_tmp122 = *((int *)__cil_tmp121);
-#line 1428
-    __cil_tmp123 = __cil_tmp122 * 16;
-#line 1428
-    __cil_tmp124 = __cil_tmp123 + 72;
-#line 1428
-    __cil_tmp125 = (unsigned long )__cil_tmp124;
-#line 1428
-    __cil_tmp126 = (unsigned long )eni_dev;
-#line 1428
-    __cil_tmp127 = __cil_tmp126 + 128;
-#line 1428
-    __cil_tmp128 = *((void **)__cil_tmp127);
-#line 1428
-    __cil_tmp129 = (void const volatile   *)__cil_tmp128;
-#line 1428
-    __cil_tmp130 = __cil_tmp129 + __cil_tmp125;
-#line 1428
-    tmp___15 = readl(__cil_tmp130);
+    tmp___15 = readl(__cil_tmp86);
     }
 #line 1428
     if (tmp___14 != tmp___15) {
+#line 1430
       goto ldv_40477;
     } else {
+#line 1432
       goto ldv_40479;
     }
     ldv_40479: 
     {
 #line 1431
-    __cil_tmp131 = (unsigned long )eni_vcc;
+    __cil_tmp87 = eni_vcc->tx;
 #line 1431
-    __cil_tmp132 = __cil_tmp131 + 40;
+    __cil_tmp88 = __cil_tmp87->send;
 #line 1431
-    __cil_tmp133 = *((struct eni_tx **)__cil_tmp132);
+    __cil_tmp89 = eni_vcc->tx;
 #line 1431
-    __cil_tmp134 = *((void **)__cil_tmp133);
+    __cil_tmp90 = __cil_tmp89->words;
 #line 1431
-    __cil_tmp135 = (unsigned long )eni_vcc;
+    __cil_tmp91 = __cil_tmp90 << 2;
 #line 1431
-    __cil_tmp136 = __cil_tmp135 + 40;
-#line 1431
-    __cil_tmp137 = *((struct eni_tx **)__cil_tmp136);
-#line 1431
-    __cil_tmp138 = (unsigned long )__cil_tmp137;
-#line 1431
-    __cil_tmp139 = __cil_tmp138 + 24;
-#line 1431
-    __cil_tmp140 = *((unsigned long *)__cil_tmp139);
-#line 1431
-    __cil_tmp141 = __cil_tmp140 << 2;
-#line 1431
-    eni_free_mem(eni_dev, __cil_tmp134, __cil_tmp141);
+    eni_free_mem(eni_dev, __cil_tmp88, __cil_tmp91);
 #line 1432
-    __cil_tmp142 = (unsigned long )eni_vcc;
+    __cil_tmp92 = eni_vcc->tx;
 #line 1432
-    __cil_tmp143 = __cil_tmp142 + 40;
-#line 1432
-    __cil_tmp144 = *((struct eni_tx **)__cil_tmp143);
-#line 1432
-    *((void **)__cil_tmp144) = (void *)0;
+    __cil_tmp92->send = (void *)0;
 #line 1433
-    __cil_tmp145 = (unsigned long )eni_dev;
+    __cil_tmp93 = eni_vcc->tx;
 #line 1433
-    __cil_tmp146 = __cil_tmp145 + 1520;
+    __cil_tmp94 = __cil_tmp93->reserved;
 #line 1433
-    __cil_tmp147 = (unsigned long )eni_vcc;
+    __cil_tmp95 = eni_dev->tx_bw;
 #line 1433
-    __cil_tmp148 = __cil_tmp147 + 40;
-#line 1433
-    __cil_tmp149 = *((struct eni_tx **)__cil_tmp148);
-#line 1433
-    __cil_tmp150 = (unsigned long )__cil_tmp149;
-#line 1433
-    __cil_tmp151 = __cil_tmp150 + 36;
-#line 1433
-    __cil_tmp152 = *((int *)__cil_tmp151);
-#line 1433
-    __cil_tmp153 = (unsigned long )eni_dev;
-#line 1433
-    __cil_tmp154 = __cil_tmp153 + 1520;
-#line 1433
-    __cil_tmp155 = *((int *)__cil_tmp154);
-#line 1433
-    *((int *)__cil_tmp146) = __cil_tmp155 + __cil_tmp152;
+    eni_dev->tx_bw = __cil_tmp95 + __cil_tmp94;
     }
   } else {
 
   }
   }
 #line 1435
-  __cil_tmp156 = (unsigned long )eni_vcc;
-#line 1435
-  __cil_tmp157 = __cil_tmp156 + 40;
-#line 1435
-  *((struct eni_tx **)__cil_tmp157) = (struct eni_tx *)0;
+  eni_vcc->tx = (struct eni_tx *)0;
 #line 1436
   return;
 }
@@ -20690,134 +16762,62 @@ static int start_tx(struct atm_dev *dev )
 { struct eni_dev *eni_dev ;
   int i ;
   struct lock_class_key __key ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  wait_queue_head_t *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct sk_buff_head *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  void *__cil_tmp24 ;
-  void volatile   *__cil_tmp25 ;
-  void volatile   *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  void *__cil_tmp5 ;
+  wait_queue_head_t *__cil_tmp6 ;
+  struct sk_buff_head *__cil_tmp7 ;
+  void *__cil_tmp8 ;
+  void volatile   *__cil_tmp9 ;
+  void volatile   *__cil_tmp10 ;
 
   {
   {
 #line 1444
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->dev_data;
 #line 1444
-  __cil_tmp6 = __cil_tmp5 + 32;
-#line 1444
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 1444
-  eni_dev = (struct eni_dev *)__cil_tmp7;
+  eni_dev = (struct eni_dev *)__cil_tmp5;
 #line 1445
-  __cil_tmp8 = (unsigned long )eni_dev;
-#line 1445
-  __cil_tmp9 = __cil_tmp8 + 2568;
-#line 1445
-  *((unsigned long *)__cil_tmp9) = 0UL;
+  eni_dev->lost = 0UL;
 #line 1446
-  __cil_tmp10 = (unsigned long )eni_dev;
-#line 1446
-  __cil_tmp11 = __cil_tmp10 + 1520;
-#line 1446
-  *((int *)__cil_tmp11) = 353207;
+  eni_dev->tx_bw = 353207;
 #line 1447
-  __cil_tmp12 = (unsigned long )eni_dev;
-#line 1447
-  __cil_tmp13 = __cil_tmp12 + 2324;
-#line 1447
-  *((int *)__cil_tmp13) = 300;
+  eni_dev->tx_mult = 300;
 #line 1448
-  __cil_tmp14 = (unsigned long )eni_dev;
+  __cil_tmp6 = & eni_dev->tx_wait;
 #line 1448
-  __cil_tmp15 = __cil_tmp14 + 1432;
-#line 1448
-  __cil_tmp16 = (wait_queue_head_t *)__cil_tmp15;
-#line 1448
-  __init_waitqueue_head(__cil_tmp16, & __key);
+  __init_waitqueue_head(__cil_tmp6, & __key);
 #line 1449
-  __cil_tmp17 = (unsigned long )eni_dev;
-#line 1449
-  __cil_tmp18 = __cil_tmp17 + 1328;
-#line 1449
-  *((struct eni_tx **)__cil_tmp18) = (struct eni_tx *)0;
+  eni_dev->ubr = (struct eni_tx *)0;
 #line 1450
-  __cil_tmp19 = (unsigned long )eni_dev;
+  __cil_tmp7 = & eni_dev->tx_queue;
 #line 1450
-  __cil_tmp20 = __cil_tmp19 + 1336;
-#line 1450
-  __cil_tmp21 = (struct sk_buff_head *)__cil_tmp20;
-#line 1450
-  skb_queue_head_init(__cil_tmp21);
+  skb_queue_head_init(__cil_tmp7);
 #line 1451
-  __cil_tmp22 = (unsigned long )eni_dev;
+  __cil_tmp8 = eni_dev->reg;
 #line 1451
-  __cil_tmp23 = __cil_tmp22 + 128;
+  __cil_tmp9 = (void volatile   *)__cil_tmp8;
 #line 1451
-  __cil_tmp24 = *((void **)__cil_tmp23);
+  __cil_tmp10 = __cil_tmp9 + 40U;
 #line 1451
-  __cil_tmp25 = (void volatile   *)__cil_tmp24;
-#line 1451
-  __cil_tmp26 = __cil_tmp25 + 40U;
-#line 1451
-  writel(0U, __cil_tmp26);
+  writel(0U, __cil_tmp10);
 #line 1452
   i = 0;
   }
+#line 1452
   goto ldv_40487;
   ldv_40486: 
 #line 1453
-  __cil_tmp27 = i * 144UL;
-#line 1453
-  __cil_tmp28 = 176 + __cil_tmp27;
-#line 1453
-  __cil_tmp29 = (unsigned long )eni_dev;
-#line 1453
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-#line 1453
-  *((void **)__cil_tmp30) = (void *)0;
+  eni_dev->tx[i].send = (void *)0;
 #line 1454
-  __cil_tmp31 = i * 144UL;
-#line 1454
-  __cil_tmp32 = __cil_tmp31 + 32;
-#line 1454
-  __cil_tmp33 = 176 + __cil_tmp32;
-#line 1454
-  __cil_tmp34 = (unsigned long )eni_dev;
-#line 1454
-  __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 1454
-  *((int *)__cil_tmp35) = i;
+  eni_dev->tx[i].index = i;
 #line 1452
   i = i + 1;
   ldv_40487: ;
 #line 1452
   if (i <= 7) {
+#line 1453
     goto ldv_40486;
   } else {
+#line 1455
     goto ldv_40488;
   }
   ldv_40488: ;
@@ -20828,17 +16828,11 @@ static int start_tx(struct atm_dev *dev )
 #line 1478 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
 static void bug_int(struct atm_dev *dev , unsigned long reason ) 
 { unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  int __cil_tmp4 ;
   unsigned long __cil_tmp5 ;
   int __cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
+  int __cil_tmp8 ;
 
   {
   {
@@ -20848,13 +16842,9 @@ static void bug_int(struct atm_dev *dev , unsigned long reason )
   if (__cil_tmp3 != 0UL) {
     {
 #line 1482
-    __cil_tmp4 = (unsigned long )dev;
+    __cil_tmp4 = dev->number;
 #line 1482
-    __cil_tmp5 = __cil_tmp4 + 24;
-#line 1482
-    __cil_tmp6 = *((int *)__cil_tmp5);
-#line 1482
-    printk("<2>eni(itf %d): driver error - DMA error\n", __cil_tmp6);
+    printk("<2>eni(itf %d): driver error - DMA error\n", __cil_tmp4);
     }
   } else {
 
@@ -20862,37 +16852,29 @@ static void bug_int(struct atm_dev *dev , unsigned long reason )
   }
   {
 #line 1484
-  __cil_tmp7 = reason & 128UL;
+  __cil_tmp5 = reason & 128UL;
 #line 1484
+  if (__cil_tmp5 != 0UL) {
+    {
+#line 1485
+    __cil_tmp6 = dev->number;
+#line 1485
+    printk("<2>eni(itf %d): driver error - ident mismatch\n", __cil_tmp6);
+    }
+  } else {
+
+  }
+  }
+  {
+#line 1487
+  __cil_tmp7 = reason & 256UL;
+#line 1487
   if (__cil_tmp7 != 0UL) {
     {
-#line 1485
-    __cil_tmp8 = (unsigned long )dev;
-#line 1485
-    __cil_tmp9 = __cil_tmp8 + 24;
-#line 1485
-    __cil_tmp10 = *((int *)__cil_tmp9);
-#line 1485
-    printk("<2>eni(itf %d): driver error - ident mismatch\n", __cil_tmp10);
-    }
-  } else {
-
-  }
-  }
-  {
-#line 1487
-  __cil_tmp11 = reason & 256UL;
-#line 1487
-  if (__cil_tmp11 != 0UL) {
-    {
 #line 1488
-    __cil_tmp12 = (unsigned long )dev;
+    __cil_tmp8 = dev->number;
 #line 1488
-    __cil_tmp13 = __cil_tmp12 + 24;
-#line 1488
-    __cil_tmp14 = *((int *)__cil_tmp13);
-#line 1488
-    printk("<2>eni(itf %d): driver error - DMA overflow\n", __cil_tmp14);
+    printk("<2>eni(itf %d): driver error - DMA overflow\n", __cil_tmp8);
     }
   } else {
 
@@ -20916,106 +16898,66 @@ static irqreturn_t eni_int(int irq , void *dev_id )
   struct eni_dev *eni_dev ;
   u32 reason ;
   unsigned int tmp ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  void *__cil_tmp7 ;
+  void *__cil_tmp8 ;
+  void const volatile   *__cil_tmp9 ;
+  void const volatile   *__cil_tmp10 ;
+  int __cil_tmp11 ;
   void *__cil_tmp12 ;
   void const volatile   *__cil_tmp13 ;
   void const volatile   *__cil_tmp14 ;
-  int __cil_tmp15 ;
+  unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const volatile   *__cil_tmp19 ;
-  void const volatile   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct atmphy_ops  const  *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  void (*__cil_tmp34)(struct atm_dev * ) ;
-  spinlock_t *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  u32 __cil_tmp40 ;
-  spinlock_t *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct tasklet_struct *__cil_tmp44 ;
+  unsigned int __cil_tmp18 ;
+  struct atmphy_ops  const  *__cil_tmp19 ;
+  void (*__cil_tmp20)(struct atm_dev * ) ;
+  spinlock_t *__cil_tmp21 ;
+  u32 __cil_tmp22 ;
+  spinlock_t *__cil_tmp23 ;
+  struct tasklet_struct *__cil_tmp24 ;
 
   {
   {
 #line 1503
   dev = (struct atm_dev *)dev_id;
 #line 1504
-  __cil_tmp7 = (unsigned long )dev;
+  __cil_tmp7 = dev->dev_data;
 #line 1504
-  __cil_tmp8 = __cil_tmp7 + 32;
-#line 1504
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 1504
-  eni_dev = (struct eni_dev *)__cil_tmp9;
+  eni_dev = (struct eni_dev *)__cil_tmp7;
 #line 1505
-  __cil_tmp10 = (unsigned long )eni_dev;
+  __cil_tmp8 = eni_dev->reg;
 #line 1505
-  __cil_tmp11 = __cil_tmp10 + 128;
+  __cil_tmp9 = (void const volatile   *)__cil_tmp8;
 #line 1505
-  __cil_tmp12 = *((void **)__cil_tmp11);
+  __cil_tmp10 = __cil_tmp9 + 4U;
 #line 1505
-  __cil_tmp13 = (void const volatile   *)__cil_tmp12;
-#line 1505
-  __cil_tmp14 = __cil_tmp13 + 4U;
-#line 1505
-  reason = readl(__cil_tmp14);
+  reason = readl(__cil_tmp10);
   }
   {
 #line 1513
-  __cil_tmp15 = (int )reason;
+  __cil_tmp11 = (int )reason;
 #line 1513
-  if (__cil_tmp15 & 1) {
+  if (__cil_tmp11 & 1) {
     {
 #line 1514
     EVENT("stat overflow\n", 0UL, 0UL);
 #line 1515
-    __cil_tmp16 = (unsigned long )eni_dev;
+    __cil_tmp12 = eni_dev->reg;
 #line 1515
-    __cil_tmp17 = __cil_tmp16 + 128;
+    __cil_tmp13 = (void const volatile   *)__cil_tmp12;
 #line 1515
-    __cil_tmp18 = *((void **)__cil_tmp17);
+    __cil_tmp14 = __cil_tmp13 + 20U;
 #line 1515
-    __cil_tmp19 = (void const volatile   *)__cil_tmp18;
+    tmp = readl(__cil_tmp14);
 #line 1515
-    __cil_tmp20 = __cil_tmp19 + 20U;
+    __cil_tmp15 = (unsigned long )tmp;
 #line 1515
-    tmp = readl(__cil_tmp20);
+    __cil_tmp16 = __cil_tmp15 & 65535UL;
 #line 1515
-    __cil_tmp21 = (unsigned long )eni_dev;
+    __cil_tmp17 = eni_dev->lost;
 #line 1515
-    __cil_tmp22 = __cil_tmp21 + 2568;
-#line 1515
-    __cil_tmp23 = (unsigned long )tmp;
-#line 1515
-    __cil_tmp24 = __cil_tmp23 & 65535UL;
-#line 1515
-    __cil_tmp25 = (unsigned long )eni_dev;
-#line 1515
-    __cil_tmp26 = __cil_tmp25 + 2568;
-#line 1515
-    __cil_tmp27 = *((unsigned long *)__cil_tmp26);
-#line 1515
-    *((unsigned long *)__cil_tmp22) = __cil_tmp27 + __cil_tmp24;
+    eni_dev->lost = __cil_tmp17 + __cil_tmp16;
     }
   } else {
 
@@ -21023,26 +16965,18 @@ static irqreturn_t eni_int(int irq , void *dev_id )
   }
   {
 #line 1517
-  __cil_tmp28 = reason & 2U;
+  __cil_tmp18 = reason & 2U;
 #line 1517
-  if (__cil_tmp28 != 0U) {
+  if (__cil_tmp18 != 0U) {
     {
 #line 1518
     EVENT("SUNI int\n", 0UL, 0UL);
 #line 1519
-    __cil_tmp29 = (unsigned long )dev;
+    __cil_tmp19 = dev->phy;
 #line 1519
-    __cil_tmp30 = __cil_tmp29 + 8;
+    __cil_tmp20 = __cil_tmp19->interrupt;
 #line 1519
-    __cil_tmp31 = *((struct atmphy_ops  const  **)__cil_tmp30);
-#line 1519
-    __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 1519
-    __cil_tmp33 = __cil_tmp32 + 16;
-#line 1519
-    __cil_tmp34 = *((void (* const  *)(struct atm_dev * ))__cil_tmp33);
-#line 1519
-    (*__cil_tmp34)(dev);
+    (*__cil_tmp20)(dev);
     }
   } else {
 
@@ -21050,36 +16984,24 @@ static irqreturn_t eni_int(int irq , void *dev_id )
   }
   {
 #line 1524
-  __cil_tmp35 = (spinlock_t *)eni_dev;
+  __cil_tmp21 = & eni_dev->lock;
 #line 1524
-  spin_lock(__cil_tmp35);
+  spin_lock(__cil_tmp21);
 #line 1525
-  __cil_tmp36 = (unsigned long )eni_dev;
+  __cil_tmp22 = eni_dev->events;
 #line 1525
-  __cil_tmp37 = __cil_tmp36 + 112;
-#line 1525
-  __cil_tmp38 = (unsigned long )eni_dev;
-#line 1525
-  __cil_tmp39 = __cil_tmp38 + 112;
-#line 1525
-  __cil_tmp40 = *((u32 *)__cil_tmp39);
-#line 1525
-  *((u32 *)__cil_tmp37) = __cil_tmp40 | reason;
+  eni_dev->events = __cil_tmp22 | reason;
 #line 1526
-  __cil_tmp41 = (spinlock_t *)eni_dev;
+  __cil_tmp23 = & eni_dev->lock;
 #line 1526
-  spin_unlock(__cil_tmp41);
+  spin_unlock(__cil_tmp23);
 #line 1527
-  __cil_tmp42 = (unsigned long )eni_dev;
+  __cil_tmp24 = & eni_dev->task;
 #line 1527
-  __cil_tmp43 = __cil_tmp42 + 72;
-#line 1527
-  __cil_tmp44 = (struct tasklet_struct *)__cil_tmp43;
-#line 1527
-  tasklet_schedule(__cil_tmp44);
+  tasklet_schedule(__cil_tmp24);
   }
 #line 1528
-  return ((enum irqreturn )1);
+  return ((irqreturn_t )1);
 }
 }
 #line 1532 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
@@ -21094,50 +17016,34 @@ static void eni_tasklet(unsigned long data )
   u16 volatile   *__ptr___0 ;
   u32 volatile   *__ptr___1 ;
   u64 volatile   *__ptr___2 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  void *__cil_tmp14 ;
-  spinlock_t *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u32 *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  u32 *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u32 *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  void *__cil_tmp12 ;
+  spinlock_t *__cil_tmp13 ;
+  u32 *__cil_tmp14 ;
+  u32 *__cil_tmp15 ;
+  u32 *__cil_tmp16 ;
+  u32 *__cil_tmp17 ;
+  spinlock_t *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  wait_queue_head_t *__cil_tmp23 ;
+  void *__cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  u32 *__cil_tmp27 ;
-  spinlock_t *__cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  wait_queue_head_t *__cil_tmp35 ;
-  void *__cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
 
   {
   {
 #line 1534
   dev = (struct atm_dev *)data;
 #line 1535
-  __cil_tmp12 = (unsigned long )dev;
+  __cil_tmp12 = dev->dev_data;
 #line 1535
-  __cil_tmp13 = __cil_tmp12 + 32;
-#line 1535
-  __cil_tmp14 = *((void **)__cil_tmp13);
-#line 1535
-  eni_dev = (struct eni_dev *)__cil_tmp14;
+  eni_dev = (struct eni_dev *)__cil_tmp12;
 #line 1540
-  __cil_tmp15 = (spinlock_t *)eni_dev;
+  __cil_tmp13 = & eni_dev->lock;
 #line 1540
-  tmp = spinlock_check(__cil_tmp15);
+  tmp = spinlock_check(__cil_tmp13);
 #line 1540
   flags = _raw_spin_lock_irqsave(tmp);
 #line 1541
@@ -21145,55 +17051,45 @@ static void eni_tasklet(unsigned long data )
   }
 #line 1541
   if (1) {
+#line 1541
     goto case_4;
   } else {
+#line 1541
     goto switch_default;
 #line 1541
     if (0) {
 #line 1541
-      __cil_tmp16 = (unsigned long )eni_dev;
+      __cil_tmp14 = & eni_dev->events;
 #line 1541
-      __cil_tmp17 = __cil_tmp16 + 112;
-#line 1541
-      __cil_tmp18 = (u32 *)__cil_tmp17;
-#line 1541
-      __ptr = (u8 volatile   *)__cil_tmp18;
+      __ptr = (u8 volatile   *)__cil_tmp14;
 #line 1541
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+#line 1541
       goto ldv_40513;
 #line 1541
-      __cil_tmp19 = (unsigned long )eni_dev;
+      __cil_tmp15 = & eni_dev->events;
 #line 1541
-      __cil_tmp20 = __cil_tmp19 + 112;
-#line 1541
-      __cil_tmp21 = (u32 *)__cil_tmp20;
-#line 1541
-      __ptr___0 = (u16 volatile   *)__cil_tmp21;
+      __ptr___0 = (u16 volatile   *)__cil_tmp15;
 #line 1541
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+#line 1541
       goto ldv_40513;
       case_4: 
 #line 1541
-      __cil_tmp22 = (unsigned long )eni_dev;
+      __cil_tmp16 = & eni_dev->events;
 #line 1541
-      __cil_tmp23 = __cil_tmp22 + 112;
-#line 1541
-      __cil_tmp24 = (u32 *)__cil_tmp23;
-#line 1541
-      __ptr___1 = (u32 volatile   *)__cil_tmp24;
+      __ptr___1 = (u32 volatile   *)__cil_tmp16;
 #line 1541
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+#line 1541
       goto ldv_40513;
 #line 1541
-      __cil_tmp25 = (unsigned long )eni_dev;
+      __cil_tmp17 = & eni_dev->events;
 #line 1541
-      __cil_tmp26 = __cil_tmp25 + 112;
-#line 1541
-      __cil_tmp27 = (u32 *)__cil_tmp26;
-#line 1541
-      __ptr___2 = (u64 volatile   *)__cil_tmp27;
+      __ptr___2 = (u64 volatile   *)__cil_tmp17;
 #line 1541
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+#line 1541
       goto ldv_40513;
       switch_default: 
       {
@@ -21209,15 +17105,15 @@ static void eni_tasklet(unsigned long data )
 #line 1541
   events = __x;
 #line 1542
-  __cil_tmp28 = (spinlock_t *)eni_dev;
+  __cil_tmp18 = & eni_dev->lock;
 #line 1542
-  spin_unlock_irqrestore(__cil_tmp28, flags);
+  spin_unlock_irqrestore(__cil_tmp18, flags);
   }
   {
 #line 1543
-  __cil_tmp29 = events & 16U;
+  __cil_tmp19 = events & 16U;
 #line 1543
-  if (__cil_tmp29 != 0U) {
+  if (__cil_tmp19 != 0U) {
     {
 #line 1544
     EVENT("INT: RX DMA complete, starting dequeue_rx\n", 0UL, 0UL);
@@ -21236,9 +17132,9 @@ static void eni_tasklet(unsigned long data )
   }
   {
 #line 1551
-  __cil_tmp30 = events & 4U;
+  __cil_tmp20 = events & 4U;
 #line 1551
-  if (__cil_tmp30 != 0U) {
+  if (__cil_tmp20 != 0U) {
     {
 #line 1552
     EVENT("INT: service, starting get_service\n", 0UL, 0UL);
@@ -21257,9 +17153,9 @@ static void eni_tasklet(unsigned long data )
   }
   {
 #line 1558
-  __cil_tmp31 = events & 8U;
+  __cil_tmp21 = events & 8U;
 #line 1558
-  if (__cil_tmp31 != 0U) {
+  if (__cil_tmp21 != 0U) {
     {
 #line 1559
     EVENT("INT: TX DMA COMPLETE\n", 0UL, 0UL);
@@ -21272,24 +17168,20 @@ static void eni_tasklet(unsigned long data )
   }
   {
 #line 1562
-  __cil_tmp32 = events & 130560U;
+  __cil_tmp22 = events & 130560U;
 #line 1562
-  if (__cil_tmp32 != 0U) {
+  if (__cil_tmp22 != 0U) {
     {
 #line 1563
     EVENT("INT: TX COMPLETE\n", 0UL, 0UL);
 #line 1564
     tx_complete = tx_complete + 1;
 #line 1565
-    __cil_tmp33 = (unsigned long )eni_dev;
+    __cil_tmp23 = & eni_dev->tx_wait;
 #line 1565
-    __cil_tmp34 = __cil_tmp33 + 1432;
+    __cil_tmp24 = (void *)0;
 #line 1565
-    __cil_tmp35 = (wait_queue_head_t *)__cil_tmp34;
-#line 1565
-    __cil_tmp36 = (void *)0;
-#line 1565
-    __wake_up(__cil_tmp35, 3U, 1, __cil_tmp36);
+    __wake_up(__cil_tmp23, 3U, 1, __cil_tmp24);
     }
   } else {
 
@@ -21297,16 +17189,16 @@ static void eni_tasklet(unsigned long data )
   }
   {
 #line 1568
-  __cil_tmp37 = events & 416U;
+  __cil_tmp25 = events & 416U;
 #line 1568
-  if (__cil_tmp37 != 0U) {
+  if (__cil_tmp25 != 0U) {
     {
 #line 1569
     EVENT("bug interrupt\n", 0UL, 0UL);
 #line 1570
-    __cil_tmp38 = (unsigned long )events;
+    __cil_tmp26 = (unsigned long )events;
 #line 1570
-    bug_int(dev, __cil_tmp38);
+    bug_int(dev, __cil_tmp26);
     }
   } else {
 
@@ -21341,377 +17233,165 @@ static int get_esi_asic(struct atm_dev *dev )
   int address ;
   int i ;
   int j ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned char *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp10 ;
+  struct pci_dev *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
   struct pci_dev *__cil_tmp16 ;
-  unsigned char *__cil_tmp17 ;
-  unsigned char __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned char __cil_tmp20 ;
-  unsigned char *__cil_tmp21 ;
-  unsigned char *__cil_tmp22 ;
-  unsigned char __cil_tmp23 ;
+  int __cil_tmp17 ;
+  u8 __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  struct pci_dev *__cil_tmp21 ;
+  int __cil_tmp22 ;
+  u8 __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
   unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct pci_dev *__cil_tmp28 ;
-  unsigned char *__cil_tmp29 ;
-  unsigned char __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned char __cil_tmp32 ;
-  unsigned char *__cil_tmp33 ;
-  unsigned char *__cil_tmp34 ;
-  unsigned char __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
+  struct pci_dev *__cil_tmp26 ;
+  int __cil_tmp27 ;
+  u8 __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  struct pci_dev *__cil_tmp31 ;
+  int __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
   unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct pci_dev *__cil_tmp40 ;
-  unsigned char *__cil_tmp41 ;
-  unsigned char __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned char __cil_tmp44 ;
-  unsigned char *__cil_tmp45 ;
-  unsigned char *__cil_tmp46 ;
-  unsigned char __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  struct pci_dev *__cil_tmp41 ;
+  int __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  struct pci_dev *__cil_tmp46 ;
+  int __cil_tmp47 ;
+  u8 __cil_tmp48 ;
   unsigned int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct pci_dev *__cil_tmp52 ;
-  unsigned char *__cil_tmp53 ;
-  unsigned char __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned char __cil_tmp56 ;
-  unsigned char *__cil_tmp57 ;
-  unsigned char *__cil_tmp58 ;
-  unsigned char __cil_tmp59 ;
+  unsigned int __cil_tmp50 ;
+  struct pci_dev *__cil_tmp51 ;
+  int __cil_tmp52 ;
+  u8 __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  struct pci_dev *__cil_tmp56 ;
+  int __cil_tmp57 ;
+  u8 __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
   unsigned int __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
+  struct pci_dev *__cil_tmp61 ;
+  int __cil_tmp62 ;
+  u8 __cil_tmp63 ;
   struct pci_dev *__cil_tmp64 ;
-  unsigned char *__cil_tmp65 ;
-  unsigned char __cil_tmp66 ;
-  int __cil_tmp67 ;
-  unsigned char __cil_tmp68 ;
+  int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
+  struct pci_dev *__cil_tmp68 ;
   int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned char *__cil_tmp72 ;
-  unsigned char *__cil_tmp73 ;
-  unsigned char __cil_tmp74 ;
-  unsigned int __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  unsigned char *__cil_tmp77 ;
-  unsigned char *__cil_tmp78 ;
-  unsigned char __cil_tmp79 ;
+  u8 __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  struct pci_dev *__cil_tmp73 ;
+  int __cil_tmp74 ;
+  u8 __cil_tmp75 ;
+  unsigned char __cil_tmp76 ;
+  int __cil_tmp77 ;
+  int __cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
   unsigned int __cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  struct pci_dev *__cil_tmp84 ;
-  unsigned char *__cil_tmp85 ;
-  unsigned char __cil_tmp86 ;
+  struct pci_dev *__cil_tmp81 ;
+  int __cil_tmp82 ;
+  u8 __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
+  unsigned int __cil_tmp85 ;
+  struct pci_dev *__cil_tmp86 ;
   int __cil_tmp87 ;
-  unsigned char __cil_tmp88 ;
-  unsigned char *__cil_tmp89 ;
-  unsigned char *__cil_tmp90 ;
-  unsigned char __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
+  u8 __cil_tmp88 ;
+  struct pci_dev *__cil_tmp89 ;
+  int __cil_tmp90 ;
+  int __cil_tmp91 ;
+  unsigned char __cil_tmp92 ;
   unsigned int __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct pci_dev *__cil_tmp96 ;
-  unsigned char *__cil_tmp97 ;
-  unsigned char __cil_tmp98 ;
-  int __cil_tmp99 ;
-  unsigned char __cil_tmp100 ;
-  unsigned char *__cil_tmp101 ;
-  unsigned char *__cil_tmp102 ;
-  unsigned char __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
+  unsigned int __cil_tmp94 ;
+  unsigned int __cil_tmp95 ;
+  unsigned int __cil_tmp96 ;
+  struct pci_dev *__cil_tmp97 ;
+  int __cil_tmp98 ;
+  u8 __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
+  struct pci_dev *__cil_tmp102 ;
+  int __cil_tmp103 ;
+  u8 __cil_tmp104 ;
   unsigned int __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  struct pci_dev *__cil_tmp108 ;
-  unsigned char *__cil_tmp109 ;
-  unsigned char __cil_tmp110 ;
-  int __cil_tmp111 ;
-  unsigned char __cil_tmp112 ;
-  unsigned char *__cil_tmp113 ;
-  unsigned char *__cil_tmp114 ;
-  unsigned char __cil_tmp115 ;
-  unsigned int __cil_tmp116 ;
-  unsigned int __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
+  unsigned int __cil_tmp106 ;
+  struct pci_dev *__cil_tmp107 ;
+  int __cil_tmp108 ;
+  u8 __cil_tmp109 ;
+  unsigned int __cil_tmp110 ;
+  unsigned int __cil_tmp111 ;
+  struct pci_dev *__cil_tmp112 ;
+  int __cil_tmp113 ;
+  u8 __cil_tmp114 ;
+  struct pci_dev *__cil_tmp115 ;
+  int __cil_tmp116 ;
+  int __cil_tmp117 ;
+  unsigned int __cil_tmp118 ;
+  unsigned int __cil_tmp119 ;
   struct pci_dev *__cil_tmp120 ;
-  unsigned char *__cil_tmp121 ;
-  unsigned char __cil_tmp122 ;
-  int __cil_tmp123 ;
-  unsigned char __cil_tmp124 ;
-  unsigned char *__cil_tmp125 ;
-  unsigned char *__cil_tmp126 ;
-  unsigned char __cil_tmp127 ;
+  int __cil_tmp121 ;
+  u8 __cil_tmp122 ;
+  unsigned int __cil_tmp123 ;
+  unsigned int __cil_tmp124 ;
+  struct pci_dev *__cil_tmp125 ;
+  int __cil_tmp126 ;
+  u8 __cil_tmp127 ;
   unsigned int __cil_tmp128 ;
   unsigned int __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  struct pci_dev *__cil_tmp132 ;
-  unsigned char *__cil_tmp133 ;
-  unsigned char __cil_tmp134 ;
-  int __cil_tmp135 ;
-  unsigned char __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  struct pci_dev *__cil_tmp139 ;
-  unsigned char *__cil_tmp140 ;
-  unsigned char __cil_tmp141 ;
-  int __cil_tmp142 ;
-  unsigned char *__cil_tmp143 ;
-  unsigned char *__cil_tmp144 ;
-  unsigned char __cil_tmp145 ;
-  unsigned int __cil_tmp146 ;
-  unsigned int __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  struct pci_dev *__cil_tmp150 ;
-  unsigned char *__cil_tmp151 ;
-  unsigned char __cil_tmp152 ;
-  int __cil_tmp153 ;
-  unsigned char __cil_tmp154 ;
-  unsigned char *__cil_tmp155 ;
-  unsigned char *__cil_tmp156 ;
-  unsigned char __cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
-  unsigned int __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  struct pci_dev *__cil_tmp162 ;
-  unsigned char *__cil_tmp163 ;
-  unsigned char __cil_tmp164 ;
-  int __cil_tmp165 ;
-  unsigned char __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned char __cil_tmp179 ;
-  int __cil_tmp180 ;
-  int __cil_tmp181 ;
-  unsigned char *__cil_tmp182 ;
-  unsigned char *__cil_tmp183 ;
-  unsigned char __cil_tmp184 ;
-  unsigned int __cil_tmp185 ;
-  unsigned int __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  struct pci_dev *__cil_tmp189 ;
-  unsigned char *__cil_tmp190 ;
-  unsigned char __cil_tmp191 ;
-  int __cil_tmp192 ;
-  unsigned char __cil_tmp193 ;
-  unsigned char *__cil_tmp194 ;
-  unsigned char *__cil_tmp195 ;
-  unsigned char __cil_tmp196 ;
-  unsigned int __cil_tmp197 ;
-  unsigned int __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  struct pci_dev *__cil_tmp201 ;
-  unsigned char *__cil_tmp202 ;
-  unsigned char __cil_tmp203 ;
-  int __cil_tmp204 ;
-  unsigned char __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  struct pci_dev *__cil_tmp208 ;
-  unsigned char *__cil_tmp209 ;
-  unsigned char __cil_tmp210 ;
-  int __cil_tmp211 ;
-  int __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned char __cil_tmp221 ;
-  unsigned int __cil_tmp222 ;
-  unsigned int __cil_tmp223 ;
-  unsigned char *__cil_tmp224 ;
-  unsigned char *__cil_tmp225 ;
-  unsigned char __cil_tmp226 ;
-  unsigned int __cil_tmp227 ;
-  unsigned int __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  struct pci_dev *__cil_tmp231 ;
-  unsigned char *__cil_tmp232 ;
-  unsigned char __cil_tmp233 ;
-  int __cil_tmp234 ;
-  unsigned char __cil_tmp235 ;
-  unsigned char *__cil_tmp236 ;
-  unsigned char *__cil_tmp237 ;
-  unsigned char __cil_tmp238 ;
-  unsigned int __cil_tmp239 ;
-  unsigned int __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  struct pci_dev *__cil_tmp243 ;
-  unsigned char *__cil_tmp244 ;
-  unsigned char __cil_tmp245 ;
-  int __cil_tmp246 ;
-  unsigned char __cil_tmp247 ;
-  unsigned char *__cil_tmp248 ;
-  unsigned char *__cil_tmp249 ;
-  unsigned char __cil_tmp250 ;
-  unsigned int __cil_tmp251 ;
-  unsigned int __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  struct pci_dev *__cil_tmp255 ;
-  unsigned char *__cil_tmp256 ;
-  unsigned char __cil_tmp257 ;
-  int __cil_tmp258 ;
-  unsigned char __cil_tmp259 ;
-  unsigned char *__cil_tmp260 ;
-  unsigned char *__cil_tmp261 ;
-  unsigned char __cil_tmp262 ;
-  unsigned int __cil_tmp263 ;
-  unsigned int __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  struct pci_dev *__cil_tmp267 ;
-  unsigned char *__cil_tmp268 ;
-  unsigned char __cil_tmp269 ;
-  int __cil_tmp270 ;
-  unsigned char __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
-  struct pci_dev *__cil_tmp274 ;
-  unsigned char *__cil_tmp275 ;
-  unsigned char __cil_tmp276 ;
-  int __cil_tmp277 ;
-  int __cil_tmp278 ;
-  unsigned char *__cil_tmp279 ;
-  unsigned char *__cil_tmp280 ;
-  unsigned char __cil_tmp281 ;
-  unsigned int __cil_tmp282 ;
-  unsigned int __cil_tmp283 ;
-  unsigned long __cil_tmp284 ;
-  unsigned long __cil_tmp285 ;
-  struct pci_dev *__cil_tmp286 ;
-  unsigned char *__cil_tmp287 ;
-  unsigned char __cil_tmp288 ;
-  int __cil_tmp289 ;
-  unsigned char __cil_tmp290 ;
-  unsigned char *__cil_tmp291 ;
-  unsigned char *__cil_tmp292 ;
-  unsigned char __cil_tmp293 ;
-  unsigned int __cil_tmp294 ;
-  unsigned int __cil_tmp295 ;
-  unsigned long __cil_tmp296 ;
-  unsigned long __cil_tmp297 ;
-  struct pci_dev *__cil_tmp298 ;
-  unsigned char *__cil_tmp299 ;
-  unsigned char __cil_tmp300 ;
-  int __cil_tmp301 ;
-  unsigned char __cil_tmp302 ;
-  unsigned char *__cil_tmp303 ;
-  unsigned char *__cil_tmp304 ;
-  unsigned char __cil_tmp305 ;
-  unsigned int __cil_tmp306 ;
-  unsigned int __cil_tmp307 ;
-  unsigned long __cil_tmp308 ;
-  unsigned long __cil_tmp309 ;
-  struct pci_dev *__cil_tmp310 ;
-  unsigned char *__cil_tmp311 ;
-  unsigned char __cil_tmp312 ;
-  int __cil_tmp313 ;
-  unsigned char __cil_tmp314 ;
-  unsigned char *__cil_tmp315 ;
-  unsigned char *__cil_tmp316 ;
-  unsigned char __cil_tmp317 ;
-  unsigned int __cil_tmp318 ;
-  unsigned int __cil_tmp319 ;
-  unsigned long __cil_tmp320 ;
-  unsigned long __cil_tmp321 ;
-  struct pci_dev *__cil_tmp322 ;
-  unsigned char *__cil_tmp323 ;
-  unsigned char __cil_tmp324 ;
-  int __cil_tmp325 ;
-  unsigned char __cil_tmp326 ;
-  unsigned char *__cil_tmp327 ;
-  unsigned char *__cil_tmp328 ;
-  unsigned char __cil_tmp329 ;
-  unsigned int __cil_tmp330 ;
-  unsigned int __cil_tmp331 ;
-  unsigned long __cil_tmp332 ;
-  unsigned long __cil_tmp333 ;
-  struct pci_dev *__cil_tmp334 ;
-  unsigned char *__cil_tmp335 ;
-  unsigned char __cil_tmp336 ;
-  int __cil_tmp337 ;
-  unsigned char __cil_tmp338 ;
-  unsigned long __cil_tmp339 ;
-  unsigned long __cil_tmp340 ;
-  int __cil_tmp341 ;
+  struct pci_dev *__cil_tmp130 ;
+  int __cil_tmp131 ;
+  u8 __cil_tmp132 ;
+  unsigned int __cil_tmp133 ;
+  unsigned int __cil_tmp134 ;
+  struct pci_dev *__cil_tmp135 ;
+  int __cil_tmp136 ;
+  u8 __cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
+  unsigned int __cil_tmp139 ;
+  struct pci_dev *__cil_tmp140 ;
+  int __cil_tmp141 ;
+  u8 __cil_tmp142 ;
+  int __cil_tmp143 ;
 
   {
 #line 1610
-  __cil_tmp10 = (unsigned long )dev;
+  __cil_tmp10 = dev->dev_data;
 #line 1610
-  __cil_tmp11 = __cil_tmp10 + 32;
-#line 1610
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 1610
-  eni_dev = (struct eni_dev *)__cil_tmp12;
+  eni_dev = (struct eni_dev *)__cil_tmp10;
 #line 1611
   pci_error = 0;
 #line 1611
   error = pci_error;
 #line 1612
-  __cil_tmp13 = & tonga;
-#line 1612
-  *__cil_tmp13 = (unsigned char)15;
+  tonga = (unsigned char)15;
 #line 1613
   if (error == 0) {
 #line 1613
     if (pci_error == 0) {
       {
 #line 1613
-      __cil_tmp14 = (unsigned long )eni_dev;
+      __cil_tmp11 = eni_dev->pci_dev;
 #line 1613
-      __cil_tmp15 = __cil_tmp14 + 2632;
+      __cil_tmp12 = (int )tonga;
 #line 1613
-      __cil_tmp16 = *((struct pci_dev **)__cil_tmp15);
+      __cil_tmp13 = (u8 )__cil_tmp12;
 #line 1613
-      __cil_tmp17 = & tonga;
-#line 1613
-      __cil_tmp18 = *__cil_tmp17;
-#line 1613
-      __cil_tmp19 = (int )__cil_tmp18;
-#line 1613
-      __cil_tmp20 = (unsigned char )__cil_tmp19;
-#line 1613
-      pci_error = pci_write_config_byte(__cil_tmp16, 96, __cil_tmp20);
+      pci_error = pci_write_config_byte(__cil_tmp11, 96, __cil_tmp13);
 #line 1613
       __const_udelay(42950UL);
       }
@@ -21723,41 +17403,28 @@ static int get_esi_asic(struct atm_dev *dev )
   }
 #line 1614
   i = 0;
+#line 1614
   goto ldv_40541;
   ldv_40540: 
 #line 1616
-  __cil_tmp21 = & tonga;
+  __cil_tmp14 = (unsigned int )tonga;
 #line 1616
-  __cil_tmp22 = & tonga;
+  __cil_tmp15 = __cil_tmp14 | 2U;
 #line 1616
-  __cil_tmp23 = *__cil_tmp22;
-#line 1616
-  __cil_tmp24 = (unsigned int )__cil_tmp23;
-#line 1616
-  __cil_tmp25 = __cil_tmp24 | 2U;
-#line 1616
-  *__cil_tmp21 = (unsigned char )__cil_tmp25;
+  tonga = (unsigned char )__cil_tmp15;
 #line 1617
   if (error == 0) {
 #line 1617
     if (pci_error == 0) {
       {
 #line 1617
-      __cil_tmp26 = (unsigned long )eni_dev;
+      __cil_tmp16 = eni_dev->pci_dev;
 #line 1617
-      __cil_tmp27 = __cil_tmp26 + 2632;
+      __cil_tmp17 = (int )tonga;
 #line 1617
-      __cil_tmp28 = *((struct pci_dev **)__cil_tmp27);
+      __cil_tmp18 = (u8 )__cil_tmp17;
 #line 1617
-      __cil_tmp29 = & tonga;
-#line 1617
-      __cil_tmp30 = *__cil_tmp29;
-#line 1617
-      __cil_tmp31 = (int )__cil_tmp30;
-#line 1617
-      __cil_tmp32 = (unsigned char )__cil_tmp31;
-#line 1617
-      pci_error = pci_write_config_byte(__cil_tmp28, 96, __cil_tmp32);
+      pci_error = pci_write_config_byte(__cil_tmp16, 96, __cil_tmp18);
 #line 1617
       __const_udelay(42950UL);
       }
@@ -21768,38 +17435,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1618
-  __cil_tmp33 = & tonga;
+  __cil_tmp19 = (unsigned int )tonga;
 #line 1618
-  __cil_tmp34 = & tonga;
+  __cil_tmp20 = __cil_tmp19 | 1U;
 #line 1618
-  __cil_tmp35 = *__cil_tmp34;
-#line 1618
-  __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 1618
-  __cil_tmp37 = __cil_tmp36 | 1U;
-#line 1618
-  *__cil_tmp33 = (unsigned char )__cil_tmp37;
+  tonga = (unsigned char )__cil_tmp20;
 #line 1619
   if (error == 0) {
 #line 1619
     if (pci_error == 0) {
       {
 #line 1619
-      __cil_tmp38 = (unsigned long )eni_dev;
+      __cil_tmp21 = eni_dev->pci_dev;
 #line 1619
-      __cil_tmp39 = __cil_tmp38 + 2632;
+      __cil_tmp22 = (int )tonga;
 #line 1619
-      __cil_tmp40 = *((struct pci_dev **)__cil_tmp39);
+      __cil_tmp23 = (u8 )__cil_tmp22;
 #line 1619
-      __cil_tmp41 = & tonga;
-#line 1619
-      __cil_tmp42 = *__cil_tmp41;
-#line 1619
-      __cil_tmp43 = (int )__cil_tmp42;
-#line 1619
-      __cil_tmp44 = (unsigned char )__cil_tmp43;
-#line 1619
-      pci_error = pci_write_config_byte(__cil_tmp40, 96, __cil_tmp44);
+      pci_error = pci_write_config_byte(__cil_tmp21, 96, __cil_tmp23);
 #line 1619
       __const_udelay(42950UL);
       }
@@ -21810,38 +17463,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1620
-  __cil_tmp45 = & tonga;
+  __cil_tmp24 = (unsigned int )tonga;
 #line 1620
-  __cil_tmp46 = & tonga;
+  __cil_tmp25 = __cil_tmp24 & 253U;
 #line 1620
-  __cil_tmp47 = *__cil_tmp46;
-#line 1620
-  __cil_tmp48 = (unsigned int )__cil_tmp47;
-#line 1620
-  __cil_tmp49 = __cil_tmp48 & 253U;
-#line 1620
-  *__cil_tmp45 = (unsigned char )__cil_tmp49;
+  tonga = (unsigned char )__cil_tmp25;
 #line 1621
   if (error == 0) {
 #line 1621
     if (pci_error == 0) {
       {
 #line 1621
-      __cil_tmp50 = (unsigned long )eni_dev;
+      __cil_tmp26 = eni_dev->pci_dev;
 #line 1621
-      __cil_tmp51 = __cil_tmp50 + 2632;
+      __cil_tmp27 = (int )tonga;
 #line 1621
-      __cil_tmp52 = *((struct pci_dev **)__cil_tmp51);
+      __cil_tmp28 = (u8 )__cil_tmp27;
 #line 1621
-      __cil_tmp53 = & tonga;
-#line 1621
-      __cil_tmp54 = *__cil_tmp53;
-#line 1621
-      __cil_tmp55 = (int )__cil_tmp54;
-#line 1621
-      __cil_tmp56 = (unsigned char )__cil_tmp55;
-#line 1621
-      pci_error = pci_write_config_byte(__cil_tmp52, 96, __cil_tmp56);
+      pci_error = pci_write_config_byte(__cil_tmp26, 96, __cil_tmp28);
 #line 1621
       __const_udelay(42950UL);
       }
@@ -21852,38 +17491,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1622
-  __cil_tmp57 = & tonga;
+  __cil_tmp29 = (unsigned int )tonga;
 #line 1622
-  __cil_tmp58 = & tonga;
+  __cil_tmp30 = __cil_tmp29 & 254U;
 #line 1622
-  __cil_tmp59 = *__cil_tmp58;
-#line 1622
-  __cil_tmp60 = (unsigned int )__cil_tmp59;
-#line 1622
-  __cil_tmp61 = __cil_tmp60 & 254U;
-#line 1622
-  *__cil_tmp57 = (unsigned char )__cil_tmp61;
+  tonga = (unsigned char )__cil_tmp30;
 #line 1623
   if (error == 0) {
 #line 1623
     if (pci_error == 0) {
       {
 #line 1623
-      __cil_tmp62 = (unsigned long )eni_dev;
+      __cil_tmp31 = eni_dev->pci_dev;
 #line 1623
-      __cil_tmp63 = __cil_tmp62 + 2632;
+      __cil_tmp32 = (int )tonga;
 #line 1623
-      __cil_tmp64 = *((struct pci_dev **)__cil_tmp63);
+      __cil_tmp33 = (u8 )__cil_tmp32;
 #line 1623
-      __cil_tmp65 = & tonga;
-#line 1623
-      __cil_tmp66 = *__cil_tmp65;
-#line 1623
-      __cil_tmp67 = (int )__cil_tmp66;
-#line 1623
-      __cil_tmp68 = (unsigned char )__cil_tmp67;
-#line 1623
-      pci_error = pci_write_config_byte(__cil_tmp64, 96, __cil_tmp68);
+      pci_error = pci_write_config_byte(__cil_tmp31, 96, __cil_tmp33);
 #line 1623
       __const_udelay(42950UL);
       }
@@ -21894,45 +17519,34 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1625
-  __cil_tmp69 = i + 64;
+  __cil_tmp34 = i + 64;
 #line 1625
-  __cil_tmp70 = __cil_tmp69 << 1;
+  __cil_tmp35 = __cil_tmp34 << 1;
 #line 1625
-  address = __cil_tmp70 + 1;
+  address = __cil_tmp35 + 1;
 #line 1626
   j = 7;
+#line 1626
   goto ldv_40535;
   ldv_40534: ;
   {
 #line 1627
-  __cil_tmp71 = address >> j;
+  __cil_tmp36 = address >> j;
 #line 1627
-  if (__cil_tmp71 & 1) {
+  if (__cil_tmp36 & 1) {
 #line 1627
-    __cil_tmp72 = & tonga;
+    __cil_tmp37 = (unsigned int )tonga;
 #line 1627
-    __cil_tmp73 = & tonga;
+    __cil_tmp38 = __cil_tmp37 | 2U;
 #line 1627
-    __cil_tmp74 = *__cil_tmp73;
-#line 1627
-    __cil_tmp75 = (unsigned int )__cil_tmp74;
-#line 1627
-    __cil_tmp76 = __cil_tmp75 | 2U;
-#line 1627
-    *__cil_tmp72 = (unsigned char )__cil_tmp76;
+    tonga = (unsigned char )__cil_tmp38;
   } else {
 #line 1627
-    __cil_tmp77 = & tonga;
+    __cil_tmp39 = (unsigned int )tonga;
 #line 1627
-    __cil_tmp78 = & tonga;
+    __cil_tmp40 = __cil_tmp39 & 253U;
 #line 1627
-    __cil_tmp79 = *__cil_tmp78;
-#line 1627
-    __cil_tmp80 = (unsigned int )__cil_tmp79;
-#line 1627
-    __cil_tmp81 = __cil_tmp80 & 253U;
-#line 1627
-    *__cil_tmp77 = (unsigned char )__cil_tmp81;
+    tonga = (unsigned char )__cil_tmp40;
   }
   }
 #line 1629
@@ -21941,21 +17555,13 @@ static int get_esi_asic(struct atm_dev *dev )
     if (pci_error == 0) {
       {
 #line 1629
-      __cil_tmp82 = (unsigned long )eni_dev;
+      __cil_tmp41 = eni_dev->pci_dev;
 #line 1629
-      __cil_tmp83 = __cil_tmp82 + 2632;
+      __cil_tmp42 = (int )tonga;
 #line 1629
-      __cil_tmp84 = *((struct pci_dev **)__cil_tmp83);
+      __cil_tmp43 = (u8 )__cil_tmp42;
 #line 1629
-      __cil_tmp85 = & tonga;
-#line 1629
-      __cil_tmp86 = *__cil_tmp85;
-#line 1629
-      __cil_tmp87 = (int )__cil_tmp86;
-#line 1629
-      __cil_tmp88 = (unsigned char )__cil_tmp87;
-#line 1629
-      pci_error = pci_write_config_byte(__cil_tmp84, 96, __cil_tmp88);
+      pci_error = pci_write_config_byte(__cil_tmp41, 96, __cil_tmp43);
 #line 1629
       __const_udelay(42950UL);
       }
@@ -21966,38 +17572,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1630
-  __cil_tmp89 = & tonga;
+  __cil_tmp44 = (unsigned int )tonga;
 #line 1630
-  __cil_tmp90 = & tonga;
+  __cil_tmp45 = __cil_tmp44 | 1U;
 #line 1630
-  __cil_tmp91 = *__cil_tmp90;
-#line 1630
-  __cil_tmp92 = (unsigned int )__cil_tmp91;
-#line 1630
-  __cil_tmp93 = __cil_tmp92 | 1U;
-#line 1630
-  *__cil_tmp89 = (unsigned char )__cil_tmp93;
+  tonga = (unsigned char )__cil_tmp45;
 #line 1631
   if (error == 0) {
 #line 1631
     if (pci_error == 0) {
       {
 #line 1631
-      __cil_tmp94 = (unsigned long )eni_dev;
+      __cil_tmp46 = eni_dev->pci_dev;
 #line 1631
-      __cil_tmp95 = __cil_tmp94 + 2632;
+      __cil_tmp47 = (int )tonga;
 #line 1631
-      __cil_tmp96 = *((struct pci_dev **)__cil_tmp95);
+      __cil_tmp48 = (u8 )__cil_tmp47;
 #line 1631
-      __cil_tmp97 = & tonga;
-#line 1631
-      __cil_tmp98 = *__cil_tmp97;
-#line 1631
-      __cil_tmp99 = (int )__cil_tmp98;
-#line 1631
-      __cil_tmp100 = (unsigned char )__cil_tmp99;
-#line 1631
-      pci_error = pci_write_config_byte(__cil_tmp96, 96, __cil_tmp100);
+      pci_error = pci_write_config_byte(__cil_tmp46, 96, __cil_tmp48);
 #line 1631
       __const_udelay(42950UL);
       }
@@ -22008,38 +17600,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1632
-  __cil_tmp101 = & tonga;
+  __cil_tmp49 = (unsigned int )tonga;
 #line 1632
-  __cil_tmp102 = & tonga;
+  __cil_tmp50 = __cil_tmp49 & 254U;
 #line 1632
-  __cil_tmp103 = *__cil_tmp102;
-#line 1632
-  __cil_tmp104 = (unsigned int )__cil_tmp103;
-#line 1632
-  __cil_tmp105 = __cil_tmp104 & 254U;
-#line 1632
-  *__cil_tmp101 = (unsigned char )__cil_tmp105;
+  tonga = (unsigned char )__cil_tmp50;
 #line 1633
   if (error == 0) {
 #line 1633
     if (pci_error == 0) {
       {
 #line 1633
-      __cil_tmp106 = (unsigned long )eni_dev;
+      __cil_tmp51 = eni_dev->pci_dev;
 #line 1633
-      __cil_tmp107 = __cil_tmp106 + 2632;
+      __cil_tmp52 = (int )tonga;
 #line 1633
-      __cil_tmp108 = *((struct pci_dev **)__cil_tmp107);
+      __cil_tmp53 = (u8 )__cil_tmp52;
 #line 1633
-      __cil_tmp109 = & tonga;
-#line 1633
-      __cil_tmp110 = *__cil_tmp109;
-#line 1633
-      __cil_tmp111 = (int )__cil_tmp110;
-#line 1633
-      __cil_tmp112 = (unsigned char )__cil_tmp111;
-#line 1633
-      pci_error = pci_write_config_byte(__cil_tmp108, 96, __cil_tmp112);
+      pci_error = pci_write_config_byte(__cil_tmp51, 96, __cil_tmp53);
 #line 1633
       __const_udelay(42950UL);
       }
@@ -22054,44 +17632,32 @@ static int get_esi_asic(struct atm_dev *dev )
   ldv_40535: ;
 #line 1626
   if (j >= 0) {
+#line 1627
     goto ldv_40534;
   } else {
+#line 1629
     goto ldv_40536;
   }
   ldv_40536: 
 #line 1636
-  __cil_tmp113 = & tonga;
+  __cil_tmp54 = (unsigned int )tonga;
 #line 1636
-  __cil_tmp114 = & tonga;
+  __cil_tmp55 = __cil_tmp54 | 2U;
 #line 1636
-  __cil_tmp115 = *__cil_tmp114;
-#line 1636
-  __cil_tmp116 = (unsigned int )__cil_tmp115;
-#line 1636
-  __cil_tmp117 = __cil_tmp116 | 2U;
-#line 1636
-  *__cil_tmp113 = (unsigned char )__cil_tmp117;
+  tonga = (unsigned char )__cil_tmp55;
 #line 1637
   if (error == 0) {
 #line 1637
     if (pci_error == 0) {
       {
 #line 1637
-      __cil_tmp118 = (unsigned long )eni_dev;
+      __cil_tmp56 = eni_dev->pci_dev;
 #line 1637
-      __cil_tmp119 = __cil_tmp118 + 2632;
+      __cil_tmp57 = (int )tonga;
 #line 1637
-      __cil_tmp120 = *((struct pci_dev **)__cil_tmp119);
+      __cil_tmp58 = (u8 )__cil_tmp57;
 #line 1637
-      __cil_tmp121 = & tonga;
-#line 1637
-      __cil_tmp122 = *__cil_tmp121;
-#line 1637
-      __cil_tmp123 = (int )__cil_tmp122;
-#line 1637
-      __cil_tmp124 = (unsigned char )__cil_tmp123;
-#line 1637
-      pci_error = pci_write_config_byte(__cil_tmp120, 96, __cil_tmp124);
+      pci_error = pci_write_config_byte(__cil_tmp56, 96, __cil_tmp58);
 #line 1637
       __const_udelay(42950UL);
       }
@@ -22102,38 +17668,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1638
-  __cil_tmp125 = & tonga;
+  __cil_tmp59 = (unsigned int )tonga;
 #line 1638
-  __cil_tmp126 = & tonga;
+  __cil_tmp60 = __cil_tmp59 | 1U;
 #line 1638
-  __cil_tmp127 = *__cil_tmp126;
-#line 1638
-  __cil_tmp128 = (unsigned int )__cil_tmp127;
-#line 1638
-  __cil_tmp129 = __cil_tmp128 | 1U;
-#line 1638
-  *__cil_tmp125 = (unsigned char )__cil_tmp129;
+  tonga = (unsigned char )__cil_tmp60;
 #line 1639
   if (error == 0) {
 #line 1639
     if (pci_error == 0) {
       {
 #line 1639
-      __cil_tmp130 = (unsigned long )eni_dev;
+      __cil_tmp61 = eni_dev->pci_dev;
 #line 1639
-      __cil_tmp131 = __cil_tmp130 + 2632;
+      __cil_tmp62 = (int )tonga;
 #line 1639
-      __cil_tmp132 = *((struct pci_dev **)__cil_tmp131);
+      __cil_tmp63 = (u8 )__cil_tmp62;
 #line 1639
-      __cil_tmp133 = & tonga;
-#line 1639
-      __cil_tmp134 = *__cil_tmp133;
-#line 1639
-      __cil_tmp135 = (int )__cil_tmp134;
-#line 1639
-      __cil_tmp136 = (unsigned char )__cil_tmp135;
-#line 1639
-      pci_error = pci_write_config_byte(__cil_tmp132, 96, __cil_tmp136);
+      pci_error = pci_write_config_byte(__cil_tmp61, 96, __cil_tmp63);
 #line 1639
       __const_udelay(42950UL);
       }
@@ -22149,13 +17701,9 @@ static int get_esi_asic(struct atm_dev *dev )
     if (pci_error == 0) {
       {
 #line 1640
-      __cil_tmp137 = (unsigned long )eni_dev;
+      __cil_tmp64 = eni_dev->pci_dev;
 #line 1640
-      __cil_tmp138 = __cil_tmp137 + 2632;
-#line 1640
-      __cil_tmp139 = *((struct pci_dev **)__cil_tmp138);
-#line 1640
-      pci_error = pci_read_config_byte(__cil_tmp139, 96, & tonga);
+      pci_error = pci_read_config_byte(__cil_tmp64, 96, & tonga);
 #line 1640
       __const_udelay(42950UL);
       }
@@ -22166,46 +17714,28 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1641
-  __cil_tmp140 = & tonga;
+  __cil_tmp65 = (int )tonga;
 #line 1641
-  __cil_tmp141 = *__cil_tmp140;
-#line 1641
-  __cil_tmp142 = (int )__cil_tmp141;
-#line 1641
-  failed = __cil_tmp142 & 2;
+  failed = __cil_tmp65 & 2;
 #line 1642
-  __cil_tmp143 = & tonga;
+  __cil_tmp66 = (unsigned int )tonga;
 #line 1642
-  __cil_tmp144 = & tonga;
+  __cil_tmp67 = __cil_tmp66 & 254U;
 #line 1642
-  __cil_tmp145 = *__cil_tmp144;
-#line 1642
-  __cil_tmp146 = (unsigned int )__cil_tmp145;
-#line 1642
-  __cil_tmp147 = __cil_tmp146 & 254U;
-#line 1642
-  *__cil_tmp143 = (unsigned char )__cil_tmp147;
+  tonga = (unsigned char )__cil_tmp67;
 #line 1643
   if (error == 0) {
 #line 1643
     if (pci_error == 0) {
       {
 #line 1643
-      __cil_tmp148 = (unsigned long )eni_dev;
+      __cil_tmp68 = eni_dev->pci_dev;
 #line 1643
-      __cil_tmp149 = __cil_tmp148 + 2632;
+      __cil_tmp69 = (int )tonga;
 #line 1643
-      __cil_tmp150 = *((struct pci_dev **)__cil_tmp149);
+      __cil_tmp70 = (u8 )__cil_tmp69;
 #line 1643
-      __cil_tmp151 = & tonga;
-#line 1643
-      __cil_tmp152 = *__cil_tmp151;
-#line 1643
-      __cil_tmp153 = (int )__cil_tmp152;
-#line 1643
-      __cil_tmp154 = (unsigned char )__cil_tmp153;
-#line 1643
-      pci_error = pci_write_config_byte(__cil_tmp150, 96, __cil_tmp154);
+      pci_error = pci_write_config_byte(__cil_tmp68, 96, __cil_tmp70);
 #line 1643
       __const_udelay(42950UL);
       }
@@ -22216,38 +17746,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1644
-  __cil_tmp155 = & tonga;
+  __cil_tmp71 = (unsigned int )tonga;
 #line 1644
-  __cil_tmp156 = & tonga;
+  __cil_tmp72 = __cil_tmp71 | 2U;
 #line 1644
-  __cil_tmp157 = *__cil_tmp156;
-#line 1644
-  __cil_tmp158 = (unsigned int )__cil_tmp157;
-#line 1644
-  __cil_tmp159 = __cil_tmp158 | 2U;
-#line 1644
-  *__cil_tmp155 = (unsigned char )__cil_tmp159;
+  tonga = (unsigned char )__cil_tmp72;
 #line 1645
   if (error == 0) {
 #line 1645
     if (pci_error == 0) {
       {
 #line 1645
-      __cil_tmp160 = (unsigned long )eni_dev;
+      __cil_tmp73 = eni_dev->pci_dev;
 #line 1645
-      __cil_tmp161 = __cil_tmp160 + 2632;
+      __cil_tmp74 = (int )tonga;
 #line 1645
-      __cil_tmp162 = *((struct pci_dev **)__cil_tmp161);
+      __cil_tmp75 = (u8 )__cil_tmp74;
 #line 1645
-      __cil_tmp163 = & tonga;
-#line 1645
-      __cil_tmp164 = *__cil_tmp163;
-#line 1645
-      __cil_tmp165 = (int )__cil_tmp164;
-#line 1645
-      __cil_tmp166 = (unsigned char )__cil_tmp165;
-#line 1645
-      pci_error = pci_write_config_byte(__cil_tmp162, 96, __cil_tmp166);
+      pci_error = pci_write_config_byte(__cil_tmp73, 96, __cil_tmp75);
 #line 1645
       __const_udelay(42950UL);
       }
@@ -22263,76 +17779,39 @@ static int get_esi_asic(struct atm_dev *dev )
     error = -5;
   } else {
 #line 1648
-    __cil_tmp167 = i * 1UL;
-#line 1648
-    __cil_tmp168 = 88 + __cil_tmp167;
-#line 1648
-    __cil_tmp169 = (unsigned long )dev;
-#line 1648
-    __cil_tmp170 = __cil_tmp169 + __cil_tmp168;
-#line 1648
-    *((unsigned char *)__cil_tmp170) = (unsigned char)0;
+    dev->esi[i] = (unsigned char)0;
 #line 1649
     j = 7;
+#line 1649
     goto ldv_40538;
     ldv_40537: 
 #line 1650
-    __cil_tmp171 = i * 1UL;
+    __cil_tmp76 = dev->esi[i];
 #line 1650
-    __cil_tmp172 = 88 + __cil_tmp171;
+    __cil_tmp77 = (int )__cil_tmp76;
 #line 1650
-    __cil_tmp173 = (unsigned long )dev;
+    __cil_tmp78 = __cil_tmp77 << 1U;
 #line 1650
-    __cil_tmp174 = __cil_tmp173 + __cil_tmp172;
-#line 1650
-    __cil_tmp175 = i * 1UL;
-#line 1650
-    __cil_tmp176 = 88 + __cil_tmp175;
-#line 1650
-    __cil_tmp177 = (unsigned long )dev;
-#line 1650
-    __cil_tmp178 = __cil_tmp177 + __cil_tmp176;
-#line 1650
-    __cil_tmp179 = *((unsigned char *)__cil_tmp178);
-#line 1650
-    __cil_tmp180 = (int )__cil_tmp179;
-#line 1650
-    __cil_tmp181 = __cil_tmp180 << 1U;
-#line 1650
-    *((unsigned char *)__cil_tmp174) = (unsigned char )__cil_tmp181;
+    dev->esi[i] = (unsigned char )__cil_tmp78;
 #line 1651
-    __cil_tmp182 = & tonga;
+    __cil_tmp79 = (unsigned int )tonga;
 #line 1651
-    __cil_tmp183 = & tonga;
+    __cil_tmp80 = __cil_tmp79 | 2U;
 #line 1651
-    __cil_tmp184 = *__cil_tmp183;
-#line 1651
-    __cil_tmp185 = (unsigned int )__cil_tmp184;
-#line 1651
-    __cil_tmp186 = __cil_tmp185 | 2U;
-#line 1651
-    *__cil_tmp182 = (unsigned char )__cil_tmp186;
+    tonga = (unsigned char )__cil_tmp80;
 #line 1652
     if (error == 0) {
 #line 1652
       if (pci_error == 0) {
         {
 #line 1652
-        __cil_tmp187 = (unsigned long )eni_dev;
+        __cil_tmp81 = eni_dev->pci_dev;
 #line 1652
-        __cil_tmp188 = __cil_tmp187 + 2632;
+        __cil_tmp82 = (int )tonga;
 #line 1652
-        __cil_tmp189 = *((struct pci_dev **)__cil_tmp188);
+        __cil_tmp83 = (u8 )__cil_tmp82;
 #line 1652
-        __cil_tmp190 = & tonga;
-#line 1652
-        __cil_tmp191 = *__cil_tmp190;
-#line 1652
-        __cil_tmp192 = (int )__cil_tmp191;
-#line 1652
-        __cil_tmp193 = (unsigned char )__cil_tmp192;
-#line 1652
-        pci_error = pci_write_config_byte(__cil_tmp189, 96, __cil_tmp193);
+        pci_error = pci_write_config_byte(__cil_tmp81, 96, __cil_tmp83);
 #line 1652
         __const_udelay(42950UL);
         }
@@ -22343,38 +17822,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
     }
 #line 1653
-    __cil_tmp194 = & tonga;
+    __cil_tmp84 = (unsigned int )tonga;
 #line 1653
-    __cil_tmp195 = & tonga;
+    __cil_tmp85 = __cil_tmp84 | 1U;
 #line 1653
-    __cil_tmp196 = *__cil_tmp195;
-#line 1653
-    __cil_tmp197 = (unsigned int )__cil_tmp196;
-#line 1653
-    __cil_tmp198 = __cil_tmp197 | 1U;
-#line 1653
-    *__cil_tmp194 = (unsigned char )__cil_tmp198;
+    tonga = (unsigned char )__cil_tmp85;
 #line 1654
     if (error == 0) {
 #line 1654
       if (pci_error == 0) {
         {
 #line 1654
-        __cil_tmp199 = (unsigned long )eni_dev;
+        __cil_tmp86 = eni_dev->pci_dev;
 #line 1654
-        __cil_tmp200 = __cil_tmp199 + 2632;
+        __cil_tmp87 = (int )tonga;
 #line 1654
-        __cil_tmp201 = *((struct pci_dev **)__cil_tmp200);
+        __cil_tmp88 = (u8 )__cil_tmp87;
 #line 1654
-        __cil_tmp202 = & tonga;
-#line 1654
-        __cil_tmp203 = *__cil_tmp202;
-#line 1654
-        __cil_tmp204 = (int )__cil_tmp203;
-#line 1654
-        __cil_tmp205 = (unsigned char )__cil_tmp204;
-#line 1654
-        pci_error = pci_write_config_byte(__cil_tmp201, 96, __cil_tmp205);
+        pci_error = pci_write_config_byte(__cil_tmp86, 96, __cil_tmp88);
 #line 1654
         __const_udelay(42950UL);
         }
@@ -22390,13 +17855,9 @@ static int get_esi_asic(struct atm_dev *dev )
       if (pci_error == 0) {
         {
 #line 1655
-        __cil_tmp206 = (unsigned long )eni_dev;
+        __cil_tmp89 = eni_dev->pci_dev;
 #line 1655
-        __cil_tmp207 = __cil_tmp206 + 2632;
-#line 1655
-        __cil_tmp208 = *((struct pci_dev **)__cil_tmp207);
-#line 1655
-        pci_error = pci_read_config_byte(__cil_tmp208, 96, & tonga);
+        pci_error = pci_read_config_byte(__cil_tmp89, 96, & tonga);
 #line 1655
         __const_udelay(42950UL);
         }
@@ -22408,76 +17869,42 @@ static int get_esi_asic(struct atm_dev *dev )
     }
     {
 #line 1656
-    __cil_tmp209 = & tonga;
+    __cil_tmp90 = (int )tonga;
 #line 1656
-    __cil_tmp210 = *__cil_tmp209;
+    __cil_tmp91 = __cil_tmp90 & 2;
 #line 1656
-    __cil_tmp211 = (int )__cil_tmp210;
+    if (__cil_tmp91 != 0) {
 #line 1656
-    __cil_tmp212 = __cil_tmp211 & 2;
+      __cil_tmp92 = dev->esi[i];
 #line 1656
-    if (__cil_tmp212 != 0) {
+      __cil_tmp93 = (unsigned int )__cil_tmp92;
 #line 1656
-      __cil_tmp213 = i * 1UL;
+      __cil_tmp94 = __cil_tmp93 | 1U;
 #line 1656
-      __cil_tmp214 = 88 + __cil_tmp213;
-#line 1656
-      __cil_tmp215 = (unsigned long )dev;
-#line 1656
-      __cil_tmp216 = __cil_tmp215 + __cil_tmp214;
-#line 1656
-      __cil_tmp217 = i * 1UL;
-#line 1656
-      __cil_tmp218 = 88 + __cil_tmp217;
-#line 1656
-      __cil_tmp219 = (unsigned long )dev;
-#line 1656
-      __cil_tmp220 = __cil_tmp219 + __cil_tmp218;
-#line 1656
-      __cil_tmp221 = *((unsigned char *)__cil_tmp220);
-#line 1656
-      __cil_tmp222 = (unsigned int )__cil_tmp221;
-#line 1656
-      __cil_tmp223 = __cil_tmp222 | 1U;
-#line 1656
-      *((unsigned char *)__cil_tmp216) = (unsigned char )__cil_tmp223;
+      dev->esi[i] = (unsigned char )__cil_tmp94;
     } else {
 
     }
     }
 #line 1657
-    __cil_tmp224 = & tonga;
+    __cil_tmp95 = (unsigned int )tonga;
 #line 1657
-    __cil_tmp225 = & tonga;
+    __cil_tmp96 = __cil_tmp95 & 254U;
 #line 1657
-    __cil_tmp226 = *__cil_tmp225;
-#line 1657
-    __cil_tmp227 = (unsigned int )__cil_tmp226;
-#line 1657
-    __cil_tmp228 = __cil_tmp227 & 254U;
-#line 1657
-    *__cil_tmp224 = (unsigned char )__cil_tmp228;
+    tonga = (unsigned char )__cil_tmp96;
 #line 1658
     if (error == 0) {
 #line 1658
       if (pci_error == 0) {
         {
 #line 1658
-        __cil_tmp229 = (unsigned long )eni_dev;
+        __cil_tmp97 = eni_dev->pci_dev;
 #line 1658
-        __cil_tmp230 = __cil_tmp229 + 2632;
+        __cil_tmp98 = (int )tonga;
 #line 1658
-        __cil_tmp231 = *((struct pci_dev **)__cil_tmp230);
+        __cil_tmp99 = (u8 )__cil_tmp98;
 #line 1658
-        __cil_tmp232 = & tonga;
-#line 1658
-        __cil_tmp233 = *__cil_tmp232;
-#line 1658
-        __cil_tmp234 = (int )__cil_tmp233;
-#line 1658
-        __cil_tmp235 = (unsigned char )__cil_tmp234;
-#line 1658
-        pci_error = pci_write_config_byte(__cil_tmp231, 96, __cil_tmp235);
+        pci_error = pci_write_config_byte(__cil_tmp97, 96, __cil_tmp99);
 #line 1658
         __const_udelay(42950UL);
         }
@@ -22488,38 +17915,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
     }
 #line 1659
-    __cil_tmp236 = & tonga;
+    __cil_tmp100 = (unsigned int )tonga;
 #line 1659
-    __cil_tmp237 = & tonga;
+    __cil_tmp101 = __cil_tmp100 | 2U;
 #line 1659
-    __cil_tmp238 = *__cil_tmp237;
-#line 1659
-    __cil_tmp239 = (unsigned int )__cil_tmp238;
-#line 1659
-    __cil_tmp240 = __cil_tmp239 | 2U;
-#line 1659
-    *__cil_tmp236 = (unsigned char )__cil_tmp240;
+    tonga = (unsigned char )__cil_tmp101;
 #line 1660
     if (error == 0) {
 #line 1660
       if (pci_error == 0) {
         {
 #line 1660
-        __cil_tmp241 = (unsigned long )eni_dev;
+        __cil_tmp102 = eni_dev->pci_dev;
 #line 1660
-        __cil_tmp242 = __cil_tmp241 + 2632;
+        __cil_tmp103 = (int )tonga;
 #line 1660
-        __cil_tmp243 = *((struct pci_dev **)__cil_tmp242);
+        __cil_tmp104 = (u8 )__cil_tmp103;
 #line 1660
-        __cil_tmp244 = & tonga;
-#line 1660
-        __cil_tmp245 = *__cil_tmp244;
-#line 1660
-        __cil_tmp246 = (int )__cil_tmp245;
-#line 1660
-        __cil_tmp247 = (unsigned char )__cil_tmp246;
-#line 1660
-        pci_error = pci_write_config_byte(__cil_tmp243, 96, __cil_tmp247);
+        pci_error = pci_write_config_byte(__cil_tmp102, 96, __cil_tmp104);
 #line 1660
         __const_udelay(42950UL);
         }
@@ -22534,44 +17947,32 @@ static int get_esi_asic(struct atm_dev *dev )
     ldv_40538: ;
 #line 1649
     if (j >= 0) {
+#line 1650
       goto ldv_40537;
     } else {
+#line 1652
       goto ldv_40539;
     }
     ldv_40539: 
 #line 1663
-    __cil_tmp248 = & tonga;
+    __cil_tmp105 = (unsigned int )tonga;
 #line 1663
-    __cil_tmp249 = & tonga;
+    __cil_tmp106 = __cil_tmp105 | 2U;
 #line 1663
-    __cil_tmp250 = *__cil_tmp249;
-#line 1663
-    __cil_tmp251 = (unsigned int )__cil_tmp250;
-#line 1663
-    __cil_tmp252 = __cil_tmp251 | 2U;
-#line 1663
-    *__cil_tmp248 = (unsigned char )__cil_tmp252;
+    tonga = (unsigned char )__cil_tmp106;
 #line 1664
     if (error == 0) {
 #line 1664
       if (pci_error == 0) {
         {
 #line 1664
-        __cil_tmp253 = (unsigned long )eni_dev;
+        __cil_tmp107 = eni_dev->pci_dev;
 #line 1664
-        __cil_tmp254 = __cil_tmp253 + 2632;
+        __cil_tmp108 = (int )tonga;
 #line 1664
-        __cil_tmp255 = *((struct pci_dev **)__cil_tmp254);
+        __cil_tmp109 = (u8 )__cil_tmp108;
 #line 1664
-        __cil_tmp256 = & tonga;
-#line 1664
-        __cil_tmp257 = *__cil_tmp256;
-#line 1664
-        __cil_tmp258 = (int )__cil_tmp257;
-#line 1664
-        __cil_tmp259 = (unsigned char )__cil_tmp258;
-#line 1664
-        pci_error = pci_write_config_byte(__cil_tmp255, 96, __cil_tmp259);
+        pci_error = pci_write_config_byte(__cil_tmp107, 96, __cil_tmp109);
 #line 1664
         __const_udelay(42950UL);
         }
@@ -22582,38 +17983,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
     }
 #line 1665
-    __cil_tmp260 = & tonga;
+    __cil_tmp110 = (unsigned int )tonga;
 #line 1665
-    __cil_tmp261 = & tonga;
+    __cil_tmp111 = __cil_tmp110 | 1U;
 #line 1665
-    __cil_tmp262 = *__cil_tmp261;
-#line 1665
-    __cil_tmp263 = (unsigned int )__cil_tmp262;
-#line 1665
-    __cil_tmp264 = __cil_tmp263 | 1U;
-#line 1665
-    *__cil_tmp260 = (unsigned char )__cil_tmp264;
+    tonga = (unsigned char )__cil_tmp111;
 #line 1666
     if (error == 0) {
 #line 1666
       if (pci_error == 0) {
         {
 #line 1666
-        __cil_tmp265 = (unsigned long )eni_dev;
+        __cil_tmp112 = eni_dev->pci_dev;
 #line 1666
-        __cil_tmp266 = __cil_tmp265 + 2632;
+        __cil_tmp113 = (int )tonga;
 #line 1666
-        __cil_tmp267 = *((struct pci_dev **)__cil_tmp266);
+        __cil_tmp114 = (u8 )__cil_tmp113;
 #line 1666
-        __cil_tmp268 = & tonga;
-#line 1666
-        __cil_tmp269 = *__cil_tmp268;
-#line 1666
-        __cil_tmp270 = (int )__cil_tmp269;
-#line 1666
-        __cil_tmp271 = (unsigned char )__cil_tmp270;
-#line 1666
-        pci_error = pci_write_config_byte(__cil_tmp267, 96, __cil_tmp271);
+        pci_error = pci_write_config_byte(__cil_tmp112, 96, __cil_tmp114);
 #line 1666
         __const_udelay(42950UL);
         }
@@ -22629,13 +18016,9 @@ static int get_esi_asic(struct atm_dev *dev )
       if (pci_error == 0) {
         {
 #line 1667
-        __cil_tmp272 = (unsigned long )eni_dev;
+        __cil_tmp115 = eni_dev->pci_dev;
 #line 1667
-        __cil_tmp273 = __cil_tmp272 + 2632;
-#line 1667
-        __cil_tmp274 = *((struct pci_dev **)__cil_tmp273);
-#line 1667
-        pci_error = pci_read_config_byte(__cil_tmp274, 96, & tonga);
+        pci_error = pci_read_config_byte(__cil_tmp115, 96, & tonga);
 #line 1667
         __const_udelay(42950UL);
         }
@@ -22647,15 +18030,11 @@ static int get_esi_asic(struct atm_dev *dev )
     }
     {
 #line 1668
-    __cil_tmp275 = & tonga;
+    __cil_tmp116 = (int )tonga;
 #line 1668
-    __cil_tmp276 = *__cil_tmp275;
+    __cil_tmp117 = __cil_tmp116 & 2;
 #line 1668
-    __cil_tmp277 = (int )__cil_tmp276;
-#line 1668
-    __cil_tmp278 = __cil_tmp277 & 2;
-#line 1668
-    if (__cil_tmp278 == 0) {
+    if (__cil_tmp117 == 0) {
 #line 1668
       error = -5;
     } else {
@@ -22663,38 +18042,24 @@ static int get_esi_asic(struct atm_dev *dev )
     }
     }
 #line 1669
-    __cil_tmp279 = & tonga;
+    __cil_tmp118 = (unsigned int )tonga;
 #line 1669
-    __cil_tmp280 = & tonga;
+    __cil_tmp119 = __cil_tmp118 & 254U;
 #line 1669
-    __cil_tmp281 = *__cil_tmp280;
-#line 1669
-    __cil_tmp282 = (unsigned int )__cil_tmp281;
-#line 1669
-    __cil_tmp283 = __cil_tmp282 & 254U;
-#line 1669
-    *__cil_tmp279 = (unsigned char )__cil_tmp283;
+    tonga = (unsigned char )__cil_tmp119;
 #line 1670
     if (error == 0) {
 #line 1670
       if (pci_error == 0) {
         {
 #line 1670
-        __cil_tmp284 = (unsigned long )eni_dev;
+        __cil_tmp120 = eni_dev->pci_dev;
 #line 1670
-        __cil_tmp285 = __cil_tmp284 + 2632;
+        __cil_tmp121 = (int )tonga;
 #line 1670
-        __cil_tmp286 = *((struct pci_dev **)__cil_tmp285);
+        __cil_tmp122 = (u8 )__cil_tmp121;
 #line 1670
-        __cil_tmp287 = & tonga;
-#line 1670
-        __cil_tmp288 = *__cil_tmp287;
-#line 1670
-        __cil_tmp289 = (int )__cil_tmp288;
-#line 1670
-        __cil_tmp290 = (unsigned char )__cil_tmp289;
-#line 1670
-        pci_error = pci_write_config_byte(__cil_tmp286, 96, __cil_tmp290);
+        pci_error = pci_write_config_byte(__cil_tmp120, 96, __cil_tmp122);
 #line 1670
         __const_udelay(42950UL);
         }
@@ -22705,38 +18070,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
     }
 #line 1671
-    __cil_tmp291 = & tonga;
+    __cil_tmp123 = (unsigned int )tonga;
 #line 1671
-    __cil_tmp292 = & tonga;
+    __cil_tmp124 = __cil_tmp123 | 2U;
 #line 1671
-    __cil_tmp293 = *__cil_tmp292;
-#line 1671
-    __cil_tmp294 = (unsigned int )__cil_tmp293;
-#line 1671
-    __cil_tmp295 = __cil_tmp294 | 2U;
-#line 1671
-    *__cil_tmp291 = (unsigned char )__cil_tmp295;
+    tonga = (unsigned char )__cil_tmp124;
 #line 1672
     if (error == 0) {
 #line 1672
       if (pci_error == 0) {
         {
 #line 1672
-        __cil_tmp296 = (unsigned long )eni_dev;
+        __cil_tmp125 = eni_dev->pci_dev;
 #line 1672
-        __cil_tmp297 = __cil_tmp296 + 2632;
+        __cil_tmp126 = (int )tonga;
 #line 1672
-        __cil_tmp298 = *((struct pci_dev **)__cil_tmp297);
+        __cil_tmp127 = (u8 )__cil_tmp126;
 #line 1672
-        __cil_tmp299 = & tonga;
-#line 1672
-        __cil_tmp300 = *__cil_tmp299;
-#line 1672
-        __cil_tmp301 = (int )__cil_tmp300;
-#line 1672
-        __cil_tmp302 = (unsigned char )__cil_tmp301;
-#line 1672
-        pci_error = pci_write_config_byte(__cil_tmp298, 96, __cil_tmp302);
+        pci_error = pci_write_config_byte(__cil_tmp125, 96, __cil_tmp127);
 #line 1672
         __const_udelay(42950UL);
         }
@@ -22748,38 +18099,24 @@ static int get_esi_asic(struct atm_dev *dev )
     }
   }
 #line 1675
-  __cil_tmp303 = & tonga;
+  __cil_tmp128 = (unsigned int )tonga;
 #line 1675
-  __cil_tmp304 = & tonga;
+  __cil_tmp129 = __cil_tmp128 & 253U;
 #line 1675
-  __cil_tmp305 = *__cil_tmp304;
-#line 1675
-  __cil_tmp306 = (unsigned int )__cil_tmp305;
-#line 1675
-  __cil_tmp307 = __cil_tmp306 & 253U;
-#line 1675
-  *__cil_tmp303 = (unsigned char )__cil_tmp307;
+  tonga = (unsigned char )__cil_tmp129;
 #line 1676
   if (error == 0) {
 #line 1676
     if (pci_error == 0) {
       {
 #line 1676
-      __cil_tmp308 = (unsigned long )eni_dev;
+      __cil_tmp130 = eni_dev->pci_dev;
 #line 1676
-      __cil_tmp309 = __cil_tmp308 + 2632;
+      __cil_tmp131 = (int )tonga;
 #line 1676
-      __cil_tmp310 = *((struct pci_dev **)__cil_tmp309);
+      __cil_tmp132 = (u8 )__cil_tmp131;
 #line 1676
-      __cil_tmp311 = & tonga;
-#line 1676
-      __cil_tmp312 = *__cil_tmp311;
-#line 1676
-      __cil_tmp313 = (int )__cil_tmp312;
-#line 1676
-      __cil_tmp314 = (unsigned char )__cil_tmp313;
-#line 1676
-      pci_error = pci_write_config_byte(__cil_tmp310, 96, __cil_tmp314);
+      pci_error = pci_write_config_byte(__cil_tmp130, 96, __cil_tmp132);
 #line 1676
       __const_udelay(42950UL);
       }
@@ -22790,38 +18127,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1677
-  __cil_tmp315 = & tonga;
+  __cil_tmp133 = (unsigned int )tonga;
 #line 1677
-  __cil_tmp316 = & tonga;
+  __cil_tmp134 = __cil_tmp133 | 1U;
 #line 1677
-  __cil_tmp317 = *__cil_tmp316;
-#line 1677
-  __cil_tmp318 = (unsigned int )__cil_tmp317;
-#line 1677
-  __cil_tmp319 = __cil_tmp318 | 1U;
-#line 1677
-  *__cil_tmp315 = (unsigned char )__cil_tmp319;
+  tonga = (unsigned char )__cil_tmp134;
 #line 1678
   if (error == 0) {
 #line 1678
     if (pci_error == 0) {
       {
 #line 1678
-      __cil_tmp320 = (unsigned long )eni_dev;
+      __cil_tmp135 = eni_dev->pci_dev;
 #line 1678
-      __cil_tmp321 = __cil_tmp320 + 2632;
+      __cil_tmp136 = (int )tonga;
 #line 1678
-      __cil_tmp322 = *((struct pci_dev **)__cil_tmp321);
+      __cil_tmp137 = (u8 )__cil_tmp136;
 #line 1678
-      __cil_tmp323 = & tonga;
-#line 1678
-      __cil_tmp324 = *__cil_tmp323;
-#line 1678
-      __cil_tmp325 = (int )__cil_tmp324;
-#line 1678
-      __cil_tmp326 = (unsigned char )__cil_tmp325;
-#line 1678
-      pci_error = pci_write_config_byte(__cil_tmp322, 96, __cil_tmp326);
+      pci_error = pci_write_config_byte(__cil_tmp135, 96, __cil_tmp137);
 #line 1678
       __const_udelay(42950UL);
       }
@@ -22832,38 +18155,24 @@ static int get_esi_asic(struct atm_dev *dev )
 
   }
 #line 1679
-  __cil_tmp327 = & tonga;
+  __cil_tmp138 = (unsigned int )tonga;
 #line 1679
-  __cil_tmp328 = & tonga;
+  __cil_tmp139 = __cil_tmp138 | 2U;
 #line 1679
-  __cil_tmp329 = *__cil_tmp328;
-#line 1679
-  __cil_tmp330 = (unsigned int )__cil_tmp329;
-#line 1679
-  __cil_tmp331 = __cil_tmp330 | 2U;
-#line 1679
-  *__cil_tmp327 = (unsigned char )__cil_tmp331;
+  tonga = (unsigned char )__cil_tmp139;
 #line 1680
   if (error == 0) {
 #line 1680
     if (pci_error == 0) {
       {
 #line 1680
-      __cil_tmp332 = (unsigned long )eni_dev;
+      __cil_tmp140 = eni_dev->pci_dev;
 #line 1680
-      __cil_tmp333 = __cil_tmp332 + 2632;
+      __cil_tmp141 = (int )tonga;
 #line 1680
-      __cil_tmp334 = *((struct pci_dev **)__cil_tmp333);
+      __cil_tmp142 = (u8 )__cil_tmp141;
 #line 1680
-      __cil_tmp335 = & tonga;
-#line 1680
-      __cil_tmp336 = *__cil_tmp335;
-#line 1680
-      __cil_tmp337 = (int )__cil_tmp336;
-#line 1680
-      __cil_tmp338 = (unsigned char )__cil_tmp337;
-#line 1680
-      pci_error = pci_write_config_byte(__cil_tmp334, 96, __cil_tmp338);
+      pci_error = pci_write_config_byte(__cil_tmp140, 96, __cil_tmp142);
 #line 1680
       __const_udelay(42950UL);
       }
@@ -22882,14 +18191,18 @@ static int get_esi_asic(struct atm_dev *dev )
     if (error == 0) {
 #line 1614
       if (pci_error == 0) {
+#line 1615
         goto ldv_40540;
       } else {
+#line 1617
         goto ldv_40542;
       }
     } else {
+#line 1617
       goto ldv_40542;
     }
   } else {
+#line 1617
     goto ldv_40542;
   }
   ldv_40542: ;
@@ -22897,13 +18210,9 @@ static int get_esi_asic(struct atm_dev *dev )
   if (pci_error != 0) {
     {
 #line 1683
-    __cil_tmp339 = (unsigned long )dev;
+    __cil_tmp143 = dev->number;
 #line 1683
-    __cil_tmp340 = __cil_tmp339 + 24;
-#line 1683
-    __cil_tmp341 = *((int *)__cil_tmp340);
-#line 1683
-    printk("<3>eni(itf %d): error reading ESI (0x%02x)\n", __cil_tmp341, pci_error);
+    printk("<3>eni(itf %d): error reading ESI (0x%02x)\n", __cil_tmp143, pci_error);
 #line 1685
     error = -5;
     }
@@ -22918,49 +18227,40 @@ static int get_esi_asic(struct atm_dev *dev )
 static int get_esi_fpga(struct atm_dev *dev , void *base ) 
 { void *mac_base ;
   int i ;
-  unsigned long __cil_tmp5 ;
+  int __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void const volatile   *__cil_tmp11 ;
-  void const volatile   *__cil_tmp12 ;
+  void const volatile   *__cil_tmp7 ;
+  void const volatile   *__cil_tmp8 ;
 
   {
 #line 1700
   mac_base = base + 65472U;
 #line 1701
   i = 0;
+#line 1701
   goto ldv_40550;
   ldv_40549: 
   {
 #line 1701
-  __cil_tmp5 = i * 1UL;
+  __cil_tmp5 = i ^ 3;
 #line 1701
-  __cil_tmp6 = 88 + __cil_tmp5;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 1701
-  __cil_tmp7 = (unsigned long )dev;
+  __cil_tmp7 = (void const volatile   *)mac_base;
 #line 1701
   __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
 #line 1701
-  __cil_tmp9 = i ^ 3;
-#line 1701
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 1701
-  __cil_tmp11 = (void const volatile   *)mac_base;
-#line 1701
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 1701
-  *((unsigned char *)__cil_tmp8) = readb(__cil_tmp12);
+  dev->esi[i] = readb(__cil_tmp8);
 #line 1701
   i = i + 1;
   }
   ldv_40550: ;
 #line 1701
   if (i <= 5) {
+#line 1702
     goto ldv_40549;
   } else {
+#line 1704
     goto ldv_40551;
   }
   ldv_40551: ;
@@ -22992,237 +18292,104 @@ static int eni_do_init(struct atm_dev *dev )
   unsigned int tmp___10 ;
   char *tmp___12 ;
   unsigned int tmp___13 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  void *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  void *__cil_tmp24 ;
+  resource_size_t __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u16 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  u8 __cil_tmp30 ;
+  int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  resource_size_t __cil_tmp33 ;
+  void *__cil_tmp34 ;
   unsigned long __cil_tmp35 ;
   unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  int __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  resource_size_t __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
+  int __cil_tmp39 ;
+  struct midway_eprom *__cil_tmp40 ;
+  u32 *__cil_tmp41 ;
+  void const volatile   *__cil_tmp42 ;
+  u32 *__cil_tmp43 ;
+  void const volatile   *__cil_tmp44 ;
+  int __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned short __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
+  void *__cil_tmp47 ;
+  void volatile   *__cil_tmp48 ;
+  void volatile   *__cil_tmp49 ;
   unsigned long __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  u8 __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  unsigned long long __cil_tmp62 ;
-  void *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
+  void *__cil_tmp51 ;
+  void const volatile   *__cil_tmp52 ;
+  void const volatile   *__cil_tmp53 ;
+  unsigned long __cil_tmp54 ;
+  void *__cil_tmp55 ;
+  void volatile   *__cil_tmp56 ;
+  void volatile   *__cil_tmp57 ;
+  unsigned long __cil_tmp58 ;
+  void *__cil_tmp59 ;
+  void const volatile   *__cil_tmp60 ;
+  void const volatile   *__cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  unsigned long __cil_tmp63 ;
+  void *__cil_tmp64 ;
+  void volatile   *__cil_tmp65 ;
+  void volatile   *__cil_tmp66 ;
   unsigned long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  void *__cil_tmp68 ;
+  void const volatile   *__cil_tmp69 ;
+  void const volatile   *__cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  void *__cil_tmp72 ;
+  void volatile   *__cil_tmp73 ;
   int __cil_tmp74 ;
-  struct midway_eprom *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  u32 *__cil_tmp78 ;
+  size_t __cil_tmp75 ;
+  int __cil_tmp76 ;
+  int __cil_tmp77 ;
+  void *__cil_tmp78 ;
   void const volatile   *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  u32 *__cil_tmp82 ;
-  void const volatile   *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  int __cil_tmp83 ;
+  void *__cil_tmp84 ;
+  void const volatile   *__cil_tmp85 ;
   int __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  void *__cil_tmp96 ;
-  void volatile   *__cil_tmp97 ;
-  void volatile   *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  void *__cil_tmp102 ;
-  void const volatile   *__cil_tmp103 ;
-  void const volatile   *__cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  void *__cil_tmp108 ;
-  void volatile   *__cil_tmp109 ;
-  void volatile   *__cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  void *__cil_tmp114 ;
-  void const volatile   *__cil_tmp115 ;
-  void const volatile   *__cil_tmp116 ;
-  unsigned int __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  void *__cil_tmp121 ;
-  void volatile   *__cil_tmp122 ;
-  void volatile   *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  void *__cil_tmp127 ;
-  void const volatile   *__cil_tmp128 ;
-  void const volatile   *__cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  void *__cil_tmp135 ;
-  void volatile   *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  int __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  int __cil_tmp143 ;
-  int __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  void *__cil_tmp147 ;
-  void const volatile   *__cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  int __cil_tmp151 ;
-  int __cil_tmp152 ;
-  unsigned int __cil_tmp153 ;
-  int __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  void *__cil_tmp157 ;
-  void const volatile   *__cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  int __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  int __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned char __cil_tmp169 ;
-  int __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  void *__cil_tmp173 ;
-  void const volatile   *__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  void *__cil_tmp177 ;
-  void const volatile   *__cil_tmp178 ;
-  unsigned int __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  int __cil_tmp182 ;
-  unsigned int __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  char const   *__cil_tmp186 ;
-  void volatile   *__cil_tmp187 ;
+  int __cil_tmp87 ;
+  unsigned char __cil_tmp88 ;
+  int __cil_tmp89 ;
+  void *__cil_tmp90 ;
+  void const volatile   *__cil_tmp91 ;
+  void *__cil_tmp92 ;
+  void const volatile   *__cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  int __cil_tmp95 ;
+  void volatile   *__cil_tmp96 ;
 
   {
 #line 1716
-  __cil_tmp24 = (unsigned long )dev;
-#line 1716
-  __cil_tmp25 = __cil_tmp24 + 94;
-#line 1716
-  *((signed char *)__cil_tmp25) = (signed char)0;
+  dev->ci_range.vpi_bits = (signed char)0;
 #line 1717
-  __cil_tmp26 = 94 + 1;
-#line 1717
-  __cil_tmp27 = (unsigned long )dev;
-#line 1717
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 1717
-  *((signed char *)__cil_tmp28) = (signed char)10;
+  dev->ci_range.vci_bits = (signed char)10;
 #line 1718
-  __cil_tmp29 = (unsigned long )dev;
-#line 1718
-  __cil_tmp30 = __cil_tmp29 + 160;
-#line 1718
-  *((int *)__cil_tmp30) = 353207;
+  dev->link_rate = 353207;
 #line 1719
-  __cil_tmp31 = (unsigned long )dev;
+  __cil_tmp24 = dev->dev_data;
 #line 1719
-  __cil_tmp32 = __cil_tmp31 + 32;
-#line 1719
-  __cil_tmp33 = *((void **)__cil_tmp32);
-#line 1719
-  eni_dev = (struct eni_dev *)__cil_tmp33;
+  eni_dev = (struct eni_dev *)__cil_tmp24;
 #line 1720
-  __cil_tmp34 = (unsigned long )eni_dev;
-#line 1720
-  __cil_tmp35 = __cil_tmp34 + 2632;
-#line 1720
-  pci_dev = *((struct pci_dev **)__cil_tmp35);
+  pci_dev = eni_dev->pci_dev;
 #line 1721
-  __cil_tmp36 = 0 * 56UL;
+  __cil_tmp25 = pci_dev->resource[0].start;
 #line 1721
-  __cil_tmp37 = 1320 + __cil_tmp36;
-#line 1721
-  __cil_tmp38 = (unsigned long )pci_dev;
-#line 1721
-  __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 1721
-  __cil_tmp40 = *((resource_size_t *)__cil_tmp39);
-#line 1721
-  real_base = (unsigned long )__cil_tmp40;
+  real_base = (unsigned long )__cil_tmp25;
 #line 1722
-  __cil_tmp41 = (unsigned long )eni_dev;
-#line 1722
-  __cil_tmp42 = __cil_tmp41 + 2624;
-#line 1722
-  __cil_tmp43 = (unsigned long )pci_dev;
-#line 1722
-  __cil_tmp44 = __cil_tmp43 + 1316;
-#line 1722
-  *((unsigned int *)__cil_tmp42) = *((unsigned int *)__cil_tmp44);
+  eni_dev->irq = pci_dev->irq;
   {
 #line 1723
-  __cil_tmp45 = (unsigned long )eni_dev;
+  __cil_tmp26 = eni_dev->asic;
 #line 1723
-  __cil_tmp46 = __cil_tmp45 + 2620;
-#line 1723
-  __cil_tmp47 = *((int *)__cil_tmp46);
-#line 1723
-  if (__cil_tmp47 != 0) {
+  if (__cil_tmp26 != 0) {
 #line 1723
     tmp = 322;
   } else {
@@ -23232,21 +18399,17 @@ static int eni_do_init(struct atm_dev *dev )
   }
   {
 #line 1723
-  __cil_tmp48 = (unsigned short )tmp;
+  __cil_tmp27 = (u16 )tmp;
 #line 1723
-  error = pci_write_config_word(pci_dev, 4, __cil_tmp48);
+  error = pci_write_config_word(pci_dev, 4, __cil_tmp27);
   }
 #line 1723
   if (error != 0) {
     {
 #line 1726
-    __cil_tmp49 = (unsigned long )dev;
+    __cil_tmp28 = dev->number;
 #line 1726
-    __cil_tmp50 = __cil_tmp49 + 24;
-#line 1726
-    __cil_tmp51 = *((int *)__cil_tmp50);
-#line 1726
-    printk("<3>eni(itf %d): can\'t enable memory (0x%02x)\n", __cil_tmp51, error);
+    printk("<3>eni(itf %d): can\'t enable memory (0x%02x)\n", __cil_tmp28, error);
     }
 #line 1728
     return (-5);
@@ -23255,53 +18418,37 @@ static int eni_do_init(struct atm_dev *dev )
   }
   {
 #line 1730
-  __cil_tmp52 = (unsigned long )dev;
+  __cil_tmp29 = dev->number;
 #line 1730
-  __cil_tmp53 = __cil_tmp52 + 24;
+  __cil_tmp30 = pci_dev->revision;
 #line 1730
-  __cil_tmp54 = *((int *)__cil_tmp53);
+  __cil_tmp31 = (int )__cil_tmp30;
 #line 1730
-  __cil_tmp55 = (unsigned long )pci_dev;
+  __cil_tmp32 = eni_dev->irq;
 #line 1730
-  __cil_tmp56 = __cil_tmp55 + 72;
-#line 1730
-  __cil_tmp57 = *((u8 *)__cil_tmp56);
-#line 1730
-  __cil_tmp58 = (int )__cil_tmp57;
-#line 1730
-  __cil_tmp59 = (unsigned long )eni_dev;
-#line 1730
-  __cil_tmp60 = __cil_tmp59 + 2624;
-#line 1730
-  __cil_tmp61 = *((unsigned int *)__cil_tmp60);
-#line 1730
-  printk("<5>eni(itf %d): rev.%d,base=0x%lx,irq=%d,", __cil_tmp54, __cil_tmp58, real_base,
-         __cil_tmp61);
+  printk("<5>eni(itf %d): rev.%d,base=0x%lx,irq=%d,", __cil_tmp29, __cil_tmp31, real_base,
+         __cil_tmp32);
 #line 1732
-  __cil_tmp62 = (unsigned long long )real_base;
+  __cil_tmp33 = (resource_size_t )real_base;
 #line 1732
-  base = ioremap_nocache(__cil_tmp62, 4194304UL);
+  base = ioremap_nocache(__cil_tmp33, 4194304UL);
   }
   {
 #line 1732
-  __cil_tmp63 = (void *)0;
+  __cil_tmp34 = (void *)0;
 #line 1732
-  __cil_tmp64 = (unsigned long )__cil_tmp63;
+  __cil_tmp35 = (unsigned long )__cil_tmp34;
 #line 1732
-  __cil_tmp65 = (unsigned long )base;
+  __cil_tmp36 = (unsigned long )base;
 #line 1732
-  if (__cil_tmp65 == __cil_tmp64) {
+  if (__cil_tmp36 == __cil_tmp35) {
     {
 #line 1733
     printk("\n");
 #line 1734
-    __cil_tmp66 = (unsigned long )dev;
+    __cil_tmp37 = dev->number;
 #line 1734
-    __cil_tmp67 = __cil_tmp66 + 24;
-#line 1734
-    __cil_tmp68 = *((int *)__cil_tmp67);
-#line 1734
-    printk("<3>eni(itf %d): can\'t set up page mapping\n", __cil_tmp68);
+    printk("<3>eni(itf %d): can\'t set up page mapping\n", __cil_tmp37);
     }
 #line 1736
     return (error);
@@ -23310,37 +18457,25 @@ static int eni_do_init(struct atm_dev *dev )
   }
   }
 #line 1738
-  __cil_tmp69 = (unsigned long )eni_dev;
+  __cil_tmp38 = (unsigned long )base;
 #line 1738
-  __cil_tmp70 = __cil_tmp69 + 2576;
-#line 1738
-  __cil_tmp71 = (unsigned long )base;
-#line 1738
-  *((unsigned long *)__cil_tmp70) = real_base - __cil_tmp71;
+  eni_dev->base_diff = real_base - __cil_tmp38;
   {
 #line 1740
-  __cil_tmp72 = (unsigned long )eni_dev;
+  __cil_tmp39 = eni_dev->asic;
 #line 1740
-  __cil_tmp73 = __cil_tmp72 + 2620;
-#line 1740
-  __cil_tmp74 = *((int *)__cil_tmp73);
-#line 1740
-  if (__cil_tmp74 == 0) {
+  if (__cil_tmp39 == 0) {
     {
 #line 1741
-    __cil_tmp75 = (struct midway_eprom *)base;
+    __cil_tmp40 = (struct midway_eprom *)base;
 #line 1741
-    eprom = __cil_tmp75 + 65472U;
+    eprom = __cil_tmp40 + 65472U;
 #line 1742
-    __cil_tmp76 = (unsigned long )eprom;
+    __cil_tmp41 = & eprom->magic;
 #line 1742
-    __cil_tmp77 = __cil_tmp76 + 56;
+    __cil_tmp42 = (void const volatile   *)__cil_tmp41;
 #line 1742
-    __cil_tmp78 = (u32 *)__cil_tmp77;
-#line 1742
-    __cil_tmp79 = (void const volatile   *)__cil_tmp78;
-#line 1742
-    tmp___1 = readl(__cil_tmp79);
+    tmp___1 = readl(__cil_tmp42);
     }
 #line 1742
     if (tmp___1 != 2773190445U) {
@@ -23348,27 +18483,20 @@ static int eni_do_init(struct atm_dev *dev )
 #line 1743
       printk("\n");
 #line 1744
-      __cil_tmp80 = (unsigned long )eprom;
+      __cil_tmp43 = & eprom->magic;
 #line 1744
-      __cil_tmp81 = __cil_tmp80 + 56;
+      __cil_tmp44 = (void const volatile   *)__cil_tmp43;
 #line 1744
-      __cil_tmp82 = (u32 *)__cil_tmp81;
+      tmp___0 = readl(__cil_tmp44);
 #line 1744
-      __cil_tmp83 = (void const volatile   *)__cil_tmp82;
+      __cil_tmp45 = dev->number;
 #line 1744
-      tmp___0 = readl(__cil_tmp83);
-#line 1744
-      __cil_tmp84 = (unsigned long )dev;
-#line 1744
-      __cil_tmp85 = __cil_tmp84 + 24;
-#line 1744
-      __cil_tmp86 = *((int *)__cil_tmp85);
-#line 1744
-      printk("<3>eni(itf %d): bad magic - expected 0x%x, got 0x%x\n", __cil_tmp86,
+      printk("<3>eni(itf %d): bad magic - expected 0x%x, got 0x%x\n", __cil_tmp45,
              2773190445U, tmp___0);
 #line 1748
       error = -22;
       }
+#line 1749
       goto unmap;
     } else {
 
@@ -23378,58 +18506,39 @@ static int eni_do_init(struct atm_dev *dev )
   }
   }
 #line 1752
-  __cil_tmp87 = (unsigned long )eni_dev;
-#line 1752
-  __cil_tmp88 = __cil_tmp87 + 120;
-#line 1752
-  *((void **)__cil_tmp88) = base + 131072UL;
+  eni_dev->phy = base + 131072UL;
 #line 1753
-  __cil_tmp89 = (unsigned long )eni_dev;
-#line 1753
-  __cil_tmp90 = __cil_tmp89 + 128;
-#line 1753
-  *((void **)__cil_tmp90) = base + 262144UL;
+  eni_dev->reg = base + 262144UL;
 #line 1754
-  __cil_tmp91 = (unsigned long )eni_dev;
-#line 1754
-  __cil_tmp92 = __cil_tmp91 + 136;
-#line 1754
-  *((void **)__cil_tmp92) = base + 2097152UL;
+  eni_dev->ram = base + 2097152UL;
 #line 1755
   last = 2097152;
 #line 1756
   i = last + -131072;
+#line 1756
   goto ldv_40565;
   ldv_40564: 
   {
 #line 1757
-  __cil_tmp93 = (unsigned long )i;
+  __cil_tmp46 = (unsigned long )i;
 #line 1757
-  __cil_tmp94 = (unsigned long )eni_dev;
+  __cil_tmp47 = eni_dev->ram;
 #line 1757
-  __cil_tmp95 = __cil_tmp94 + 136;
+  __cil_tmp48 = (void volatile   *)__cil_tmp47;
 #line 1757
-  __cil_tmp96 = *((void **)__cil_tmp95);
+  __cil_tmp49 = __cil_tmp48 + __cil_tmp46;
 #line 1757
-  __cil_tmp97 = (void volatile   *)__cil_tmp96;
-#line 1757
-  __cil_tmp98 = __cil_tmp97 + __cil_tmp93;
-#line 1757
-  writel(1431655765U, __cil_tmp98);
+  writel(1431655765U, __cil_tmp49);
 #line 1758
-  __cil_tmp99 = (unsigned long )i;
+  __cil_tmp50 = (unsigned long )i;
 #line 1758
-  __cil_tmp100 = (unsigned long )eni_dev;
+  __cil_tmp51 = eni_dev->ram;
 #line 1758
-  __cil_tmp101 = __cil_tmp100 + 136;
+  __cil_tmp52 = (void const volatile   *)__cil_tmp51;
 #line 1758
-  __cil_tmp102 = *((void **)__cil_tmp101);
+  __cil_tmp53 = __cil_tmp52 + __cil_tmp50;
 #line 1758
-  __cil_tmp103 = (void const volatile   *)__cil_tmp102;
-#line 1758
-  __cil_tmp104 = __cil_tmp103 + __cil_tmp99;
-#line 1758
-  tmp___3 = readl(__cil_tmp104);
+  tmp___3 = readl(__cil_tmp53);
   }
 #line 1758
   if (tmp___3 != 1431655765U) {
@@ -23438,33 +18547,25 @@ static int eni_do_init(struct atm_dev *dev )
   } else {
     {
 #line 1760
-    __cil_tmp105 = (unsigned long )i;
+    __cil_tmp54 = (unsigned long )i;
 #line 1760
-    __cil_tmp106 = (unsigned long )eni_dev;
+    __cil_tmp55 = eni_dev->ram;
 #line 1760
-    __cil_tmp107 = __cil_tmp106 + 136;
+    __cil_tmp56 = (void volatile   *)__cil_tmp55;
 #line 1760
-    __cil_tmp108 = *((void **)__cil_tmp107);
+    __cil_tmp57 = __cil_tmp56 + __cil_tmp54;
 #line 1760
-    __cil_tmp109 = (void volatile   *)__cil_tmp108;
-#line 1760
-    __cil_tmp110 = __cil_tmp109 + __cil_tmp105;
-#line 1760
-    writel(2863311530U, __cil_tmp110);
+    writel(2863311530U, __cil_tmp57);
 #line 1761
-    __cil_tmp111 = (unsigned long )i;
+    __cil_tmp58 = (unsigned long )i;
 #line 1761
-    __cil_tmp112 = (unsigned long )eni_dev;
+    __cil_tmp59 = eni_dev->ram;
 #line 1761
-    __cil_tmp113 = __cil_tmp112 + 136;
+    __cil_tmp60 = (void const volatile   *)__cil_tmp59;
 #line 1761
-    __cil_tmp114 = *((void **)__cil_tmp113);
+    __cil_tmp61 = __cil_tmp60 + __cil_tmp58;
 #line 1761
-    __cil_tmp115 = (void const volatile   *)__cil_tmp114;
-#line 1761
-    __cil_tmp116 = __cil_tmp115 + __cil_tmp111;
-#line 1761
-    tmp___2 = readl(__cil_tmp116);
+    tmp___2 = readl(__cil_tmp61);
     }
 #line 1761
     if (tmp___2 != 2863311530U) {
@@ -23473,21 +18574,17 @@ static int eni_do_init(struct atm_dev *dev )
     } else {
       {
 #line 1762
-      __cil_tmp117 = (unsigned int )i;
+      __cil_tmp62 = (unsigned int )i;
 #line 1762
-      __cil_tmp118 = (unsigned long )i;
+      __cil_tmp63 = (unsigned long )i;
 #line 1762
-      __cil_tmp119 = (unsigned long )eni_dev;
+      __cil_tmp64 = eni_dev->ram;
 #line 1762
-      __cil_tmp120 = __cil_tmp119 + 136;
+      __cil_tmp65 = (void volatile   *)__cil_tmp64;
 #line 1762
-      __cil_tmp121 = *((void **)__cil_tmp120);
+      __cil_tmp66 = __cil_tmp65 + __cil_tmp63;
 #line 1762
-      __cil_tmp122 = (void volatile   *)__cil_tmp121;
-#line 1762
-      __cil_tmp123 = __cil_tmp122 + __cil_tmp118;
-#line 1762
-      writel(__cil_tmp117, __cil_tmp123);
+      writel(__cil_tmp62, __cil_tmp66);
       }
     }
   }
@@ -23496,36 +18593,36 @@ static int eni_do_init(struct atm_dev *dev )
   ldv_40565: ;
 #line 1756
   if (i >= 0) {
+#line 1757
     goto ldv_40564;
   } else {
+#line 1759
     goto ldv_40566;
   }
   ldv_40566: 
 #line 1765
   i = 0;
+#line 1765
   goto ldv_40569;
   ldv_40568: 
   {
 #line 1766
-  __cil_tmp124 = (unsigned long )i;
+  __cil_tmp67 = (unsigned long )i;
 #line 1766
-  __cil_tmp125 = (unsigned long )eni_dev;
+  __cil_tmp68 = eni_dev->ram;
 #line 1766
-  __cil_tmp126 = __cil_tmp125 + 136;
+  __cil_tmp69 = (void const volatile   *)__cil_tmp68;
 #line 1766
-  __cil_tmp127 = *((void **)__cil_tmp126);
+  __cil_tmp70 = __cil_tmp69 + __cil_tmp67;
 #line 1766
-  __cil_tmp128 = (void const volatile   *)__cil_tmp127;
-#line 1766
-  __cil_tmp129 = __cil_tmp128 + __cil_tmp124;
-#line 1766
-  tmp___4 = readl(__cil_tmp129);
+  tmp___4 = readl(__cil_tmp70);
   }
   {
 #line 1766
-  __cil_tmp130 = (unsigned int )i;
+  __cil_tmp71 = (unsigned int )i;
 #line 1766
-  if (tmp___4 != __cil_tmp130) {
+  if (tmp___4 != __cil_tmp71) {
+#line 1766
     goto ldv_40567;
   } else {
 
@@ -23536,96 +18633,67 @@ static int eni_do_init(struct atm_dev *dev )
   ldv_40569: ;
 #line 1765
   if (i < last) {
+#line 1766
     goto ldv_40568;
   } else {
+#line 1768
     goto ldv_40567;
   }
   ldv_40567: 
   {
 #line 1767
-  __cil_tmp131 = (unsigned long )eni_dev;
-#line 1767
-  __cil_tmp132 = __cil_tmp131 + 2616;
-#line 1767
-  *((int *)__cil_tmp132) = i;
+  eni_dev->mem = i;
 #line 1768
-  __cil_tmp133 = (unsigned long )eni_dev;
+  __cil_tmp72 = eni_dev->ram;
 #line 1768
-  __cil_tmp134 = __cil_tmp133 + 136;
+  __cil_tmp73 = (void volatile   *)__cil_tmp72;
 #line 1768
-  __cil_tmp135 = *((void **)__cil_tmp134);
+  __cil_tmp74 = eni_dev->mem;
 #line 1768
-  __cil_tmp136 = (void volatile   *)__cil_tmp135;
+  __cil_tmp75 = (size_t )__cil_tmp74;
 #line 1768
-  __cil_tmp137 = (unsigned long )eni_dev;
-#line 1768
-  __cil_tmp138 = __cil_tmp137 + 2616;
-#line 1768
-  __cil_tmp139 = *((int *)__cil_tmp138);
-#line 1768
-  __cil_tmp140 = (unsigned long )__cil_tmp139;
-#line 1768
-  memset_io(__cil_tmp136, (unsigned char)0, __cil_tmp140);
+  memset_io(__cil_tmp73, (unsigned char)0, __cil_tmp75);
 #line 1770
-  __cil_tmp141 = (unsigned long )eni_dev;
+  __cil_tmp76 = eni_dev->mem;
 #line 1770
-  __cil_tmp142 = __cil_tmp141 + 2616;
+  __cil_tmp77 = __cil_tmp76 >> 10;
 #line 1770
-  __cil_tmp143 = *((int *)__cil_tmp142);
-#line 1770
-  __cil_tmp144 = __cil_tmp143 >> 10;
-#line 1770
-  printk("mem=%dkB (", __cil_tmp144);
+  printk("mem=%dkB (", __cil_tmp77);
 #line 1772
-  __cil_tmp145 = (unsigned long )eni_dev;
+  __cil_tmp78 = eni_dev->reg;
 #line 1772
-  __cil_tmp146 = __cil_tmp145 + 128;
+  __cil_tmp79 = (void const volatile   *)__cil_tmp78;
 #line 1772
-  __cil_tmp147 = *((void **)__cil_tmp146);
-#line 1772
-  __cil_tmp148 = (void const volatile   *)__cil_tmp147;
-#line 1772
-  tmp___6 = readl(__cil_tmp148);
+  tmp___6 = readl(__cil_tmp79);
   }
   {
 #line 1772
-  __cil_tmp149 = (unsigned long )eni_dev;
+  __cil_tmp80 = eni_dev->asic;
 #line 1772
-  __cil_tmp150 = __cil_tmp149 + 2620;
+  __cil_tmp81 = __cil_tmp80 == 0;
 #line 1772
-  __cil_tmp151 = *((int *)__cil_tmp150);
+  __cil_tmp82 = tmp___6 & 512U;
 #line 1772
-  __cil_tmp152 = __cil_tmp151 == 0;
+  __cil_tmp83 = __cil_tmp82 == 0U;
 #line 1772
-  __cil_tmp153 = tmp___6 & 512U;
-#line 1772
-  __cil_tmp154 = __cil_tmp153 == 0U;
-#line 1772
-  if (__cil_tmp154 ^ __cil_tmp152) {
+  if (__cil_tmp83 ^ __cil_tmp81) {
     {
 #line 1773
     printk(")\n");
 #line 1774
-    __cil_tmp155 = (unsigned long )eni_dev;
+    __cil_tmp84 = eni_dev->reg;
 #line 1774
-    __cil_tmp156 = __cil_tmp155 + 128;
+    __cil_tmp85 = (void const volatile   *)__cil_tmp84;
 #line 1774
-    __cil_tmp157 = *((void **)__cil_tmp156);
+    tmp___5 = readl(__cil_tmp85);
 #line 1774
-    __cil_tmp158 = (void const volatile   *)__cil_tmp157;
+    __cil_tmp86 = dev->number;
 #line 1774
-    tmp___5 = readl(__cil_tmp158);
-#line 1774
-    __cil_tmp159 = (unsigned long )dev;
-#line 1774
-    __cil_tmp160 = __cil_tmp159 + 24;
-#line 1774
-    __cil_tmp161 = *((int *)__cil_tmp160);
-#line 1774
-    printk("<3>eni(itf %d): ERROR - wrong id 0x%x\n", __cil_tmp161, tmp___5);
+    printk("<3>eni(itf %d): ERROR - wrong id 0x%x\n", __cil_tmp86, tmp___5);
 #line 1776
     error = -22;
     }
+#line 1777
     goto unmap;
   } else {
 
@@ -23633,13 +18701,9 @@ static int eni_do_init(struct atm_dev *dev )
   }
   {
 #line 1779
-  __cil_tmp162 = (unsigned long )eni_dev;
+  __cil_tmp87 = eni_dev->asic;
 #line 1779
-  __cil_tmp163 = __cil_tmp162 + 2620;
-#line 1779
-  __cil_tmp164 = *((int *)__cil_tmp163);
-#line 1779
-  if (__cil_tmp164 != 0) {
+  if (__cil_tmp87 != 0) {
     {
 #line 1779
     tmp___7 = get_esi_asic(dev);
@@ -23657,12 +18721,14 @@ static int eni_do_init(struct atm_dev *dev )
   }
 #line 1780
   if (error != 0) {
+#line 1781
     goto unmap;
   } else {
 
   }
 #line 1782
   i = 0;
+#line 1782
   goto ldv_40571;
   ldv_40570: ;
 #line 1783
@@ -23675,27 +18741,21 @@ static int eni_do_init(struct atm_dev *dev )
   }
   {
 #line 1783
-  __cil_tmp165 = i * 1UL;
+  __cil_tmp88 = dev->esi[i];
 #line 1783
-  __cil_tmp166 = 88 + __cil_tmp165;
+  __cil_tmp89 = (int )__cil_tmp88;
 #line 1783
-  __cil_tmp167 = (unsigned long )dev;
-#line 1783
-  __cil_tmp168 = __cil_tmp167 + __cil_tmp166;
-#line 1783
-  __cil_tmp169 = *((unsigned char *)__cil_tmp168);
-#line 1783
-  __cil_tmp170 = (int )__cil_tmp169;
-#line 1783
-  printk("%s%02X", tmp___9, __cil_tmp170);
+  printk("%s%02X", tmp___9, __cil_tmp89);
 #line 1782
   i = i + 1;
   }
   ldv_40571: ;
 #line 1782
   if (i <= 5) {
+#line 1783
     goto ldv_40570;
   } else {
+#line 1785
     goto ldv_40572;
   }
   ldv_40572: 
@@ -23703,31 +18763,23 @@ static int eni_do_init(struct atm_dev *dev )
 #line 1784
   printk(")\n");
 #line 1785
-  __cil_tmp171 = (unsigned long )eni_dev;
+  __cil_tmp90 = eni_dev->reg;
 #line 1785
-  __cil_tmp172 = __cil_tmp171 + 128;
+  __cil_tmp91 = (void const volatile   *)__cil_tmp90;
 #line 1785
-  __cil_tmp173 = *((void **)__cil_tmp172);
+  tmp___10 = readl(__cil_tmp91);
 #line 1785
-  __cil_tmp174 = (void const volatile   *)__cil_tmp173;
+  __cil_tmp92 = eni_dev->reg;
 #line 1785
-  tmp___10 = readl(__cil_tmp174);
+  __cil_tmp93 = (void const volatile   *)__cil_tmp92;
 #line 1785
-  __cil_tmp175 = (unsigned long )eni_dev;
-#line 1785
-  __cil_tmp176 = __cil_tmp175 + 128;
-#line 1785
-  __cil_tmp177 = *((void **)__cil_tmp176);
-#line 1785
-  __cil_tmp178 = (void const volatile   *)__cil_tmp177;
-#line 1785
-  tmp___13 = readl(__cil_tmp178);
+  tmp___13 = readl(__cil_tmp93);
   }
   {
 #line 1785
-  __cil_tmp179 = tmp___13 & 512U;
+  __cil_tmp94 = tmp___13 & 512U;
 #line 1785
-  if (__cil_tmp179 != 0U) {
+  if (__cil_tmp94 != 0U) {
 #line 1785
     tmp___12 = (char *)"ASIC";
   } else {
@@ -23737,26 +18789,15 @@ static int eni_do_init(struct atm_dev *dev )
   }
   {
 #line 1785
-  __cil_tmp180 = (unsigned long )dev;
+  __cil_tmp95 = dev->number;
 #line 1785
-  __cil_tmp181 = __cil_tmp180 + 24;
-#line 1785
-  __cil_tmp182 = *((int *)__cil_tmp181);
-#line 1785
-  __cil_tmp183 = tmp___10 & 31U;
-#line 1785
-  __cil_tmp184 = __cil_tmp183 * 8UL;
-#line 1785
-  __cil_tmp185 = (unsigned long )(media_name) + __cil_tmp184;
-#line 1785
-  __cil_tmp186 = *((char const   **)__cil_tmp185);
-#line 1785
-  printk("<5>eni(itf %d): %s,%s\n", __cil_tmp182, tmp___12, __cil_tmp186);
+  printk("<5>eni(itf %d): %s,%s\n", __cil_tmp95, tmp___12, media_name[tmp___10 & 31U]);
 #line 1789
   error = suni_init(dev);
   }
 #line 1790
   if (error != 0) {
+#line 1791
     goto unmap;
   } else {
 
@@ -23767,10 +18808,11 @@ static int eni_do_init(struct atm_dev *dev )
   unmap: 
   {
 #line 1795
-  __cil_tmp187 = (void volatile   *)base;
+  __cil_tmp96 = (void volatile   *)base;
 #line 1795
-  iounmap(__cil_tmp187);
+  iounmap(__cil_tmp96);
   }
+#line 1796
   goto out;
 }
 }
@@ -23785,203 +18827,107 @@ static int eni_start(struct atm_dev *dev )
   struct lock_class_key __key ;
   void *tmp___1 ;
   unsigned int tmp___2 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void *__cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   void *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  void *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  struct pci_dev *__cil_tmp16 ;
+  int __cil_tmp17 ;
+  struct pci_dev *__cil_tmp18 ;
+  u16 __cil_tmp19 ;
   int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct pci_dev *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  struct pci_dev *__cil_tmp21 ;
+  u8 __cil_tmp22 ;
+  int __cil_tmp23 ;
+  void *__cil_tmp24 ;
+  void *__cil_tmp25 ;
+  void *__cil_tmp26 ;
+  void *__cil_tmp27 ;
+  spinlock_t *__cil_tmp28 ;
+  struct raw_spinlock *__cil_tmp29 ;
+  struct tasklet_struct *__cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  struct pci_dev *__cil_tmp32 ;
-  unsigned short __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  long __cil_tmp32 ;
+  void *__cil_tmp33 ;
+  long __cil_tmp34 ;
+  long __cil_tmp35 ;
   int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct pci_dev *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  int __cil_tmp42 ;
+  long __cil_tmp37 ;
+  long __cil_tmp38 ;
+  unsigned long __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  struct eni_free *__cil_tmp44 ;
   unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  struct eni_free *__cil_tmp46 ;
   unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  int __cil_tmp48 ;
+  void *__cil_tmp49 ;
+  void volatile   *__cil_tmp50 ;
   void *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
+  void volatile   *__cil_tmp52 ;
+  void volatile   *__cil_tmp53 ;
+  struct atmphy_ops  const  *__cil_tmp54 ;
+  int (*__cil_tmp55)(struct atm_dev * ) ;
   void *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  void *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  void *__cil_tmp64 ;
-  spinlock_t *__cil_tmp65 ;
-  struct raw_spinlock *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct tasklet_struct *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  void *__cil_tmp76 ;
-  long __cil_tmp77 ;
-  long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  int __cil_tmp81 ;
-  long __cil_tmp82 ;
-  long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  int __cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct eni_free *__cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  struct eni_free *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  void *__cil_tmp108 ;
-  void volatile   *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  void *__cil_tmp112 ;
-  void volatile   *__cil_tmp113 ;
-  void volatile   *__cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  struct atmphy_ops  const  *__cil_tmp117 ;
-  int (*__cil_tmp118)(struct atm_dev * ) ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  void *__cil_tmp121 ;
-  void const volatile   *__cil_tmp122 ;
-  void const volatile   *__cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  void *__cil_tmp127 ;
-  void volatile   *__cil_tmp128 ;
-  void volatile   *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  void *__cil_tmp132 ;
-  void const volatile   *__cil_tmp133 ;
-  void const volatile   *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  struct eni_free *__cil_tmp137 ;
-  void const   *__cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned int __cil_tmp141 ;
-  void *__cil_tmp142 ;
+  void const volatile   *__cil_tmp57 ;
+  void const volatile   *__cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  void *__cil_tmp60 ;
+  void volatile   *__cil_tmp61 ;
+  void volatile   *__cil_tmp62 ;
+  void *__cil_tmp63 ;
+  void const volatile   *__cil_tmp64 ;
+  void const volatile   *__cil_tmp65 ;
+  struct eni_free *__cil_tmp66 ;
+  void const   *__cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  void *__cil_tmp69 ;
 
   {
   {
 #line 1809
-  __cil_tmp11 = (unsigned long )dev;
+  __cil_tmp11 = dev->dev_data;
 #line 1809
-  __cil_tmp12 = __cil_tmp11 + 32;
-#line 1809
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 1809
-  eni_dev = (struct eni_dev *)__cil_tmp13;
+  eni_dev = (struct eni_dev *)__cil_tmp11;
 #line 1810
-  __cil_tmp14 = (unsigned long )eni_dev;
+  __cil_tmp12 = eni_dev->irq;
 #line 1810
-  __cil_tmp15 = __cil_tmp14 + 2624;
+  __cil_tmp13 = (void *)dev;
 #line 1810
-  __cil_tmp16 = *((unsigned int *)__cil_tmp15);
-#line 1810
-  __cil_tmp17 = (void *)dev;
-#line 1810
-  tmp = request_irq(__cil_tmp16, & eni_int, 128UL, "eni", __cil_tmp17);
+  tmp = request_irq(__cil_tmp12, & eni_int, 128UL, "eni", __cil_tmp13);
   }
 #line 1810
   if (tmp != 0) {
     {
 #line 1811
-    __cil_tmp18 = (unsigned long )dev;
+    __cil_tmp14 = dev->number;
 #line 1811
-    __cil_tmp19 = __cil_tmp18 + 24;
+    __cil_tmp15 = eni_dev->irq;
 #line 1811
-    __cil_tmp20 = *((int *)__cil_tmp19);
-#line 1811
-    __cil_tmp21 = (unsigned long )eni_dev;
-#line 1811
-    __cil_tmp22 = __cil_tmp21 + 2624;
-#line 1811
-    __cil_tmp23 = *((unsigned int *)__cil_tmp22);
-#line 1811
-    printk("<3>eni(itf %d): IRQ%d is already in use\n", __cil_tmp20, __cil_tmp23);
+    printk("<3>eni(itf %d): IRQ%d is already in use\n", __cil_tmp14, __cil_tmp15);
 #line 1813
     error = -11;
     }
+#line 1814
     goto out;
   } else {
 
   }
   {
 #line 1816
-  __cil_tmp24 = (unsigned long )eni_dev;
+  __cil_tmp16 = eni_dev->pci_dev;
 #line 1816
-  __cil_tmp25 = __cil_tmp24 + 2632;
-#line 1816
-  __cil_tmp26 = *((struct pci_dev **)__cil_tmp25);
-#line 1816
-  pci_set_master(__cil_tmp26);
+  pci_set_master(__cil_tmp16);
   }
   {
 #line 1817
-  __cil_tmp27 = (unsigned long )eni_dev;
+  __cil_tmp17 = eni_dev->asic;
 #line 1817
-  __cil_tmp28 = __cil_tmp27 + 2620;
-#line 1817
-  __cil_tmp29 = *((int *)__cil_tmp28);
-#line 1817
-  if (__cil_tmp29 != 0) {
+  if (__cil_tmp17 != 0) {
 #line 1817
     tmp___0 = 326;
   } else {
@@ -23991,218 +18937,135 @@ static int eni_start(struct atm_dev *dev )
   }
   {
 #line 1817
-  __cil_tmp30 = (unsigned long )eni_dev;
+  __cil_tmp18 = eni_dev->pci_dev;
 #line 1817
-  __cil_tmp31 = __cil_tmp30 + 2632;
+  __cil_tmp19 = (u16 )tmp___0;
 #line 1817
-  __cil_tmp32 = *((struct pci_dev **)__cil_tmp31);
-#line 1817
-  __cil_tmp33 = (unsigned short )tmp___0;
-#line 1817
-  error = pci_write_config_word(__cil_tmp32, 4, __cil_tmp33);
+  error = pci_write_config_word(__cil_tmp18, 4, __cil_tmp19);
   }
 #line 1817
   if (error != 0) {
     {
 #line 1820
-    __cil_tmp34 = (unsigned long )dev;
+    __cil_tmp20 = dev->number;
 #line 1820
-    __cil_tmp35 = __cil_tmp34 + 24;
-#line 1820
-    __cil_tmp36 = *((int *)__cil_tmp35);
-#line 1820
-    printk("<3>eni(itf %d): can\'t enable memory+master (0x%02x)\n", __cil_tmp36,
+    printk("<3>eni(itf %d): can\'t enable memory+master (0x%02x)\n", __cil_tmp20,
            error);
     }
+#line 1822
     goto free_irq;
   } else {
 
   }
   {
 #line 1824
-  __cil_tmp37 = (unsigned long )eni_dev;
+  __cil_tmp21 = eni_dev->pci_dev;
 #line 1824
-  __cil_tmp38 = __cil_tmp37 + 2632;
+  __cil_tmp22 = (u8 )128;
 #line 1824
-  __cil_tmp39 = *((struct pci_dev **)__cil_tmp38);
-#line 1824
-  error = pci_write_config_byte(__cil_tmp39, 96, (unsigned char)128);
+  error = pci_write_config_byte(__cil_tmp21, 96, __cil_tmp22);
   }
 #line 1824
   if (error != 0) {
     {
 #line 1826
-    __cil_tmp40 = (unsigned long )dev;
+    __cil_tmp23 = dev->number;
 #line 1826
-    __cil_tmp41 = __cil_tmp40 + 24;
-#line 1826
-    __cil_tmp42 = *((int *)__cil_tmp41);
-#line 1826
-    printk("<3>eni(itf %d): can\'t set endian swap (0x%02x)\n", __cil_tmp42, error);
+    printk("<3>eni(itf %d): can\'t set endian swap (0x%02x)\n", __cil_tmp23, error);
     }
+#line 1828
     goto free_irq;
   } else {
 
   }
   {
 #line 1831
-  __cil_tmp43 = (unsigned long )eni_dev;
-#line 1831
-  __cil_tmp44 = __cil_tmp43 + 144;
-#line 1831
-  __cil_tmp45 = (unsigned long )eni_dev;
-#line 1831
-  __cil_tmp46 = __cil_tmp45 + 136;
-#line 1831
-  *((void **)__cil_tmp44) = *((void **)__cil_tmp46);
+  eni_dev->vci = eni_dev->ram;
 #line 1832
-  __cil_tmp47 = (unsigned long )eni_dev;
+  __cil_tmp24 = eni_dev->ram;
 #line 1832
-  __cil_tmp48 = __cil_tmp47 + 152;
-#line 1832
-  __cil_tmp49 = (unsigned long )eni_dev;
-#line 1832
-  __cil_tmp50 = __cil_tmp49 + 136;
-#line 1832
-  __cil_tmp51 = *((void **)__cil_tmp50);
-#line 1832
-  *((void **)__cil_tmp48) = __cil_tmp51 + 16384UL;
+  eni_dev->rx_dma = __cil_tmp24 + 16384UL;
 #line 1833
-  __cil_tmp52 = (unsigned long )eni_dev;
+  __cil_tmp25 = eni_dev->rx_dma;
 #line 1833
-  __cil_tmp53 = __cil_tmp52 + 160;
-#line 1833
-  __cil_tmp54 = (unsigned long )eni_dev;
-#line 1833
-  __cil_tmp55 = __cil_tmp54 + 152;
-#line 1833
-  __cil_tmp56 = *((void **)__cil_tmp55);
-#line 1833
-  *((void **)__cil_tmp53) = __cil_tmp56 + 4096UL;
+  eni_dev->tx_dma = __cil_tmp25 + 4096UL;
 #line 1834
-  __cil_tmp57 = (unsigned long )eni_dev;
+  __cil_tmp26 = eni_dev->tx_dma;
 #line 1834
-  __cil_tmp58 = __cil_tmp57 + 168;
-#line 1834
-  __cil_tmp59 = (unsigned long )eni_dev;
-#line 1834
-  __cil_tmp60 = __cil_tmp59 + 160;
-#line 1834
-  __cil_tmp61 = *((void **)__cil_tmp60);
-#line 1834
-  *((void **)__cil_tmp58) = __cil_tmp61 + 4096UL;
+  eni_dev->service = __cil_tmp26 + 4096UL;
 #line 1835
-  __cil_tmp62 = (unsigned long )eni_dev;
+  __cil_tmp27 = eni_dev->service;
 #line 1835
-  __cil_tmp63 = __cil_tmp62 + 168;
-#line 1835
-  __cil_tmp64 = *((void **)__cil_tmp63);
-#line 1835
-  buf = __cil_tmp64 + 4096UL;
+  buf = __cil_tmp27 + 4096UL;
 #line 1839
-  __cil_tmp65 = (spinlock_t *)eni_dev;
+  __cil_tmp28 = & eni_dev->lock;
 #line 1839
-  spinlock_check(__cil_tmp65);
+  spinlock_check(__cil_tmp28);
 #line 1839
-  __cil_tmp66 = (struct raw_spinlock *)eni_dev;
+  __cil_tmp29 = & eni_dev->lock.ldv_6060.rlock;
 #line 1839
-  __raw_spin_lock_init(__cil_tmp66, "&(&eni_dev->lock)->rlock", & __key);
+  __raw_spin_lock_init(__cil_tmp29, "&(&eni_dev->lock)->rlock", & __key);
 #line 1840
-  __cil_tmp67 = (unsigned long )eni_dev;
+  __cil_tmp30 = & eni_dev->task;
 #line 1840
-  __cil_tmp68 = __cil_tmp67 + 72;
+  __cil_tmp31 = (unsigned long )dev;
 #line 1840
-  __cil_tmp69 = (struct tasklet_struct *)__cil_tmp68;
-#line 1840
-  __cil_tmp70 = (unsigned long )dev;
-#line 1840
-  tasklet_init(__cil_tmp69, & eni_tasklet, __cil_tmp70);
+  tasklet_init(__cil_tmp30, & eni_tasklet, __cil_tmp31);
 #line 1841
-  __cil_tmp71 = (unsigned long )eni_dev;
-#line 1841
-  __cil_tmp72 = __cil_tmp71 + 112;
-#line 1841
-  *((u32 *)__cil_tmp72) = 0U;
+  eni_dev->events = 0U;
 #line 1843
-  __cil_tmp73 = (long )buf;
+  __cil_tmp32 = (long )buf;
 #line 1843
-  __cil_tmp74 = (unsigned long )eni_dev;
+  __cil_tmp33 = eni_dev->ram;
 #line 1843
-  __cil_tmp75 = __cil_tmp74 + 136;
+  __cil_tmp34 = (long )__cil_tmp33;
 #line 1843
-  __cil_tmp76 = *((void **)__cil_tmp75);
+  __cil_tmp35 = __cil_tmp34 - __cil_tmp32;
 #line 1843
-  __cil_tmp77 = (long )__cil_tmp76;
+  __cil_tmp36 = eni_dev->mem;
 #line 1843
-  __cil_tmp78 = __cil_tmp77 - __cil_tmp73;
+  __cil_tmp37 = (long )__cil_tmp36;
 #line 1843
-  __cil_tmp79 = (unsigned long )eni_dev;
+  __cil_tmp38 = __cil_tmp37 + __cil_tmp35;
 #line 1843
-  __cil_tmp80 = __cil_tmp79 + 2616;
-#line 1843
-  __cil_tmp81 = *((int *)__cil_tmp80);
-#line 1843
-  __cil_tmp82 = (long )__cil_tmp81;
-#line 1843
-  __cil_tmp83 = __cil_tmp82 + __cil_tmp78;
-#line 1843
-  buffer_mem = (unsigned long )__cil_tmp83;
+  buffer_mem = (unsigned long )__cil_tmp38;
 #line 1844
-  __cil_tmp84 = (unsigned long )eni_dev;
+  __cil_tmp39 = buffer_mem / 2048UL;
 #line 1844
-  __cil_tmp85 = __cil_tmp84 + 2600;
-#line 1844
-  __cil_tmp86 = buffer_mem / 2048UL;
-#line 1844
-  *((int *)__cil_tmp85) = (int )__cil_tmp86;
+  eni_dev->free_list_size = (int )__cil_tmp39;
 #line 1845
-  __cil_tmp87 = (unsigned long )eni_dev;
+  __cil_tmp40 = eni_dev->free_list_size;
 #line 1845
-  __cil_tmp88 = __cil_tmp87 + 2600;
+  __cil_tmp41 = __cil_tmp40 + 1;
 #line 1845
-  __cil_tmp89 = *((int *)__cil_tmp88);
+  __cil_tmp42 = (unsigned long )__cil_tmp41;
 #line 1845
-  __cil_tmp90 = __cil_tmp89 + 1;
+  __cil_tmp43 = __cil_tmp42 * 16UL;
 #line 1845
-  __cil_tmp91 = (unsigned long )__cil_tmp90;
+  tmp___1 = kmalloc(__cil_tmp43, 208U);
 #line 1845
-  __cil_tmp92 = __cil_tmp91 * 16UL;
-#line 1845
-  tmp___1 = kmalloc(__cil_tmp92, 208U);
-#line 1845
-  __cil_tmp93 = (unsigned long )eni_dev;
-#line 1845
-  __cil_tmp94 = __cil_tmp93 + 2592;
-#line 1845
-  *((struct eni_free **)__cil_tmp94) = (struct eni_free *)tmp___1;
+  eni_dev->free_list = (struct eni_free *)tmp___1;
   }
   {
 #line 1847
-  __cil_tmp95 = (struct eni_free *)0;
+  __cil_tmp44 = (struct eni_free *)0;
 #line 1847
-  __cil_tmp96 = (unsigned long )__cil_tmp95;
+  __cil_tmp45 = (unsigned long )__cil_tmp44;
 #line 1847
-  __cil_tmp97 = (unsigned long )eni_dev;
+  __cil_tmp46 = eni_dev->free_list;
 #line 1847
-  __cil_tmp98 = __cil_tmp97 + 2592;
+  __cil_tmp47 = (unsigned long )__cil_tmp46;
 #line 1847
-  __cil_tmp99 = *((struct eni_free **)__cil_tmp98);
-#line 1847
-  __cil_tmp100 = (unsigned long )__cil_tmp99;
-#line 1847
-  if (__cil_tmp100 == __cil_tmp96) {
+  if (__cil_tmp47 == __cil_tmp45) {
     {
 #line 1848
-    __cil_tmp101 = (unsigned long )dev;
+    __cil_tmp48 = dev->number;
 #line 1848
-    __cil_tmp102 = __cil_tmp101 + 24;
-#line 1848
-    __cil_tmp103 = *((int *)__cil_tmp102);
-#line 1848
-    printk("<3>eni(itf %d): couldn\'t get free page\n", __cil_tmp103);
+    printk("<3>eni(itf %d): couldn\'t get free page\n", __cil_tmp48);
 #line 1850
     error = -12;
     }
+#line 1851
     goto free_irq;
   } else {
 
@@ -24210,40 +19073,29 @@ static int eni_start(struct atm_dev *dev )
   }
   {
 #line 1853
-  __cil_tmp104 = (unsigned long )eni_dev;
-#line 1853
-  __cil_tmp105 = __cil_tmp104 + 2584;
-#line 1853
-  *((int *)__cil_tmp105) = 0;
+  eni_dev->free_len = 0;
 #line 1854
   eni_put_free(eni_dev, buf, buffer_mem);
 #line 1855
-  __cil_tmp106 = (unsigned long )eni_dev;
+  __cil_tmp49 = eni_dev->vci;
 #line 1855
-  __cil_tmp107 = __cil_tmp106 + 144;
+  __cil_tmp50 = (void volatile   *)__cil_tmp49;
 #line 1855
-  __cil_tmp108 = *((void **)__cil_tmp107);
-#line 1855
-  __cil_tmp109 = (void volatile   *)__cil_tmp108;
-#line 1855
-  memset_io(__cil_tmp109, (unsigned char)0, 16384UL);
+  memset_io(__cil_tmp50, (unsigned char)0, 16384UL);
 #line 1865
-  __cil_tmp110 = (unsigned long )eni_dev;
+  __cil_tmp51 = eni_dev->reg;
 #line 1865
-  __cil_tmp111 = __cil_tmp110 + 128;
+  __cil_tmp52 = (void volatile   *)__cil_tmp51;
 #line 1865
-  __cil_tmp112 = *((void **)__cil_tmp111);
+  __cil_tmp53 = __cil_tmp52 + 12U;
 #line 1865
-  __cil_tmp113 = (void volatile   *)__cil_tmp112;
-#line 1865
-  __cil_tmp114 = __cil_tmp113 + 12U;
-#line 1865
-  writel(4294967295U, __cil_tmp114);
+  writel(4294967295U, __cil_tmp53);
 #line 1866
   error = start_tx(dev);
   }
 #line 1867
   if (error != 0) {
+#line 1867
     goto free_list;
   } else {
 
@@ -24254,95 +19106,73 @@ static int eni_start(struct atm_dev *dev )
   }
 #line 1869
   if (error != 0) {
+#line 1869
     goto free_list;
   } else {
 
   }
   {
 #line 1870
-  __cil_tmp115 = (unsigned long )dev;
+  __cil_tmp54 = dev->phy;
 #line 1870
-  __cil_tmp116 = __cil_tmp115 + 8;
+  __cil_tmp55 = __cil_tmp54->start;
 #line 1870
-  __cil_tmp117 = *((struct atmphy_ops  const  **)__cil_tmp116);
-#line 1870
-  __cil_tmp118 = *((int (* const  *)(struct atm_dev * ))__cil_tmp117);
-#line 1870
-  error = (*__cil_tmp118)(dev);
+  error = (*__cil_tmp55)(dev);
   }
 #line 1871
   if (error != 0) {
+#line 1871
     goto free_list;
   } else {
 
   }
   {
 #line 1872
-  __cil_tmp119 = (unsigned long )eni_dev;
+  __cil_tmp56 = eni_dev->reg;
 #line 1872
-  __cil_tmp120 = __cil_tmp119 + 128;
+  __cil_tmp57 = (void const volatile   *)__cil_tmp56;
 #line 1872
-  __cil_tmp121 = *((void **)__cil_tmp120);
+  __cil_tmp58 = __cil_tmp57 + 16U;
 #line 1872
-  __cil_tmp122 = (void const volatile   *)__cil_tmp121;
+  tmp___2 = readl(__cil_tmp58);
 #line 1872
-  __cil_tmp123 = __cil_tmp122 + 16U;
+  __cil_tmp59 = tmp___2 | 124U;
 #line 1872
-  tmp___2 = readl(__cil_tmp123);
+  __cil_tmp60 = eni_dev->reg;
 #line 1872
-  __cil_tmp124 = tmp___2 | 124U;
+  __cil_tmp61 = (void volatile   *)__cil_tmp60;
 #line 1872
-  __cil_tmp125 = (unsigned long )eni_dev;
+  __cil_tmp62 = __cil_tmp61 + 16U;
 #line 1872
-  __cil_tmp126 = __cil_tmp125 + 128;
-#line 1872
-  __cil_tmp127 = *((void **)__cil_tmp126);
-#line 1872
-  __cil_tmp128 = (void volatile   *)__cil_tmp127;
-#line 1872
-  __cil_tmp129 = __cil_tmp128 + 16U;
-#line 1872
-  writel(__cil_tmp124, __cil_tmp129);
+  writel(__cil_tmp59, __cil_tmp62);
 #line 1876
-  __cil_tmp130 = (unsigned long )eni_dev;
+  __cil_tmp63 = eni_dev->reg;
 #line 1876
-  __cil_tmp131 = __cil_tmp130 + 128;
+  __cil_tmp64 = (void const volatile   *)__cil_tmp63;
 #line 1876
-  __cil_tmp132 = *((void **)__cil_tmp131);
+  __cil_tmp65 = __cil_tmp64 + 4U;
 #line 1876
-  __cil_tmp133 = (void const volatile   *)__cil_tmp132;
-#line 1876
-  __cil_tmp134 = __cil_tmp133 + 4U;
-#line 1876
-  readl(__cil_tmp134);
+  readl(__cil_tmp65);
   }
 #line 1877
   return (0);
   free_list: 
   {
 #line 1880
-  __cil_tmp135 = (unsigned long )eni_dev;
+  __cil_tmp66 = eni_dev->free_list;
 #line 1880
-  __cil_tmp136 = __cil_tmp135 + 2592;
+  __cil_tmp67 = (void const   *)__cil_tmp66;
 #line 1880
-  __cil_tmp137 = *((struct eni_free **)__cil_tmp136);
-#line 1880
-  __cil_tmp138 = (void const   *)__cil_tmp137;
-#line 1880
-  kfree(__cil_tmp138);
+  kfree(__cil_tmp67);
   }
   free_irq: 
   {
 #line 1883
-  __cil_tmp139 = (unsigned long )eni_dev;
+  __cil_tmp68 = eni_dev->irq;
 #line 1883
-  __cil_tmp140 = __cil_tmp139 + 2624;
+  __cil_tmp69 = (void *)eni_dev;
 #line 1883
-  __cil_tmp141 = *((unsigned int *)__cil_tmp140);
-#line 1883
-  __cil_tmp142 = (void *)eni_dev;
-#line 1883
-  free_irq(__cil_tmp141, __cil_tmp142);
+  free_irq(__cil_tmp68, __cil_tmp69);
   }
   out: ;
 #line 1886
@@ -24353,24 +19183,14 @@ static int eni_start(struct atm_dev *dev )
 static void eni_close(struct atm_vcc *vcc ) 
 { void *__cil_tmp2 ;
   unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  void *__cil_tmp4 ;
   unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned long *__cil_tmp6 ;
+  unsigned long volatile   *__cil_tmp7 ;
+  void *__cil_tmp8 ;
+  void const   *__cil_tmp9 ;
   unsigned long *__cil_tmp10 ;
   unsigned long volatile   *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  void *__cil_tmp14 ;
-  void const   *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long *__cil_tmp20 ;
-  unsigned long volatile   *__cil_tmp21 ;
 
   {
   {
@@ -24379,15 +19199,11 @@ static void eni_close(struct atm_vcc *vcc )
 #line 1893
   __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 1893
-  __cil_tmp4 = (unsigned long )vcc;
+  __cil_tmp4 = vcc->dev_data;
 #line 1893
-  __cil_tmp5 = __cil_tmp4 + 1480;
+  __cil_tmp5 = (unsigned long )__cil_tmp4;
 #line 1893
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 1893
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
-#line 1893
-  if (__cil_tmp7 == __cil_tmp3) {
+  if (__cil_tmp5 == __cil_tmp3) {
 #line 1893
     return;
   } else {
@@ -24396,45 +19212,29 @@ static void eni_close(struct atm_vcc *vcc )
   }
   {
 #line 1894
-  __cil_tmp8 = (unsigned long )vcc;
+  __cil_tmp6 = & vcc->flags;
 #line 1894
-  __cil_tmp9 = __cil_tmp8 + 1272;
+  __cil_tmp7 = (unsigned long volatile   *)__cil_tmp6;
 #line 1894
-  __cil_tmp10 = (unsigned long *)__cil_tmp9;
-#line 1894
-  __cil_tmp11 = (unsigned long volatile   *)__cil_tmp10;
-#line 1894
-  clear_bit(1, __cil_tmp11);
+  clear_bit(1, __cil_tmp7);
 #line 1895
   close_rx(vcc);
 #line 1896
   close_tx(vcc);
 #line 1899
-  __cil_tmp12 = (unsigned long )vcc;
+  __cil_tmp8 = vcc->dev_data;
 #line 1899
-  __cil_tmp13 = __cil_tmp12 + 1480;
+  __cil_tmp9 = (void const   *)__cil_tmp8;
 #line 1899
-  __cil_tmp14 = *((void **)__cil_tmp13);
-#line 1899
-  __cil_tmp15 = (void const   *)__cil_tmp14;
-#line 1899
-  kfree(__cil_tmp15);
+  kfree(__cil_tmp9);
 #line 1900
-  __cil_tmp16 = (unsigned long )vcc;
-#line 1900
-  __cil_tmp17 = __cil_tmp16 + 1480;
-#line 1900
-  *((void **)__cil_tmp17) = (void *)0;
+  vcc->dev_data = (void *)0;
 #line 1901
-  __cil_tmp18 = (unsigned long )vcc;
+  __cil_tmp10 = & vcc->flags;
 #line 1901
-  __cil_tmp19 = __cil_tmp18 + 1272;
+  __cil_tmp11 = (unsigned long volatile   *)__cil_tmp10;
 #line 1901
-  __cil_tmp20 = (unsigned long *)__cil_tmp19;
-#line 1901
-  __cil_tmp21 = (unsigned long volatile   *)__cil_tmp20;
-#line 1901
-  clear_bit(0, __cil_tmp21);
+  clear_bit(0, __cil_tmp11);
   }
 #line 1902
   return;
@@ -24449,83 +19249,43 @@ static int eni_open(struct atm_vcc *vcc )
   int tmp ;
   void *tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long *__cil_tmp15 ;
-  unsigned long const volatile   *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned long *__cil_tmp9 ;
+  unsigned long const volatile   *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  unsigned long *__cil_tmp12 ;
+  unsigned long volatile   *__cil_tmp13 ;
+  unsigned char __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned char __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned long *__cil_tmp18 ;
+  unsigned long const volatile   *__cil_tmp19 ;
+  struct eni_vcc *__cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long *__cil_tmp22 ;
-  unsigned long volatile   *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned char __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned char __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long *__cil_tmp36 ;
-  unsigned long const volatile   *__cil_tmp37 ;
-  struct eni_vcc *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long *__cil_tmp48 ;
-  unsigned long volatile   *__cil_tmp49 ;
+  unsigned long __cil_tmp22 ;
+  int __cil_tmp23 ;
+  unsigned long *__cil_tmp24 ;
+  unsigned long volatile   *__cil_tmp25 ;
 
   {
   {
 #line 1910
-  __cil_tmp9 = (unsigned long )vcc;
-#line 1910
-  __cil_tmp10 = __cil_tmp9 + 1280;
-#line 1910
-  vpi = *((short *)__cil_tmp10);
+  vpi = vcc->vpi;
 #line 1911
-  __cil_tmp11 = (unsigned long )vcc;
-#line 1911
-  __cil_tmp12 = __cil_tmp11 + 1284;
-#line 1911
-  vci = *((int *)__cil_tmp12);
+  vci = vcc->vci;
 #line 1914
   EVENT("eni_open\n", 0UL, 0UL);
 #line 1915
-  __cil_tmp13 = (unsigned long )vcc;
+  __cil_tmp9 = & vcc->flags;
 #line 1915
-  __cil_tmp14 = __cil_tmp13 + 1272;
+  __cil_tmp10 = (unsigned long const volatile   *)__cil_tmp9;
 #line 1915
-  __cil_tmp15 = (unsigned long *)__cil_tmp14;
-#line 1915
-  __cil_tmp16 = (unsigned long const volatile   *)__cil_tmp15;
-#line 1915
-  tmp = constant_test_bit(2U, __cil_tmp16);
+  tmp = constant_test_bit(2U, __cil_tmp10);
   }
 #line 1915
   if (tmp == 0) {
 #line 1916
-    __cil_tmp17 = (unsigned long )vcc;
-#line 1916
-    __cil_tmp18 = __cil_tmp17 + 1480;
-#line 1916
-    *((void **)__cil_tmp18) = (void *)0;
+    vcc->dev_data = (void *)0;
   } else {
 
   }
@@ -24533,20 +19293,16 @@ static int eni_open(struct atm_vcc *vcc )
   if (vci != -2) {
     {
 #line 1917
-    __cil_tmp19 = (int )vpi;
+    __cil_tmp11 = (int )vpi;
 #line 1917
-    if (__cil_tmp19 != -2) {
+    if (__cil_tmp11 != -2) {
       {
 #line 1918
-      __cil_tmp20 = (unsigned long )vcc;
+      __cil_tmp12 = & vcc->flags;
 #line 1918
-      __cil_tmp21 = __cil_tmp20 + 1272;
+      __cil_tmp13 = (unsigned long volatile   *)__cil_tmp12;
 #line 1918
-      __cil_tmp22 = (unsigned long *)__cil_tmp21;
-#line 1918
-      __cil_tmp23 = (unsigned long volatile   *)__cil_tmp22;
-#line 1918
-      set_bit(0U, __cil_tmp23);
+      set_bit(0U, __cil_tmp13);
       }
     } else {
 
@@ -24557,30 +19313,18 @@ static int eni_open(struct atm_vcc *vcc )
   }
   {
 #line 1919
-  __cil_tmp24 = 1312 + 88;
+  __cil_tmp14 = vcc->qos.aal;
 #line 1919
-  __cil_tmp25 = (unsigned long )vcc;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 1919
-  __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
-#line 1919
-  __cil_tmp27 = *((unsigned char *)__cil_tmp26);
-#line 1919
-  __cil_tmp28 = (unsigned int )__cil_tmp27;
-#line 1919
-  if (__cil_tmp28 != 13U) {
+  if (__cil_tmp15 != 13U) {
     {
 #line 1919
-    __cil_tmp29 = 1312 + 88;
+    __cil_tmp16 = vcc->qos.aal;
 #line 1919
-    __cil_tmp30 = (unsigned long )vcc;
+    __cil_tmp17 = (unsigned int )__cil_tmp16;
 #line 1919
-    __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 1919
-    __cil_tmp32 = *((unsigned char *)__cil_tmp31);
-#line 1919
-    __cil_tmp33 = (unsigned int )__cil_tmp32;
-#line 1919
-    if (__cil_tmp33 != 5U) {
+    if (__cil_tmp17 != 5U) {
 #line 1920
       return (-22);
     } else {
@@ -24593,15 +19337,11 @@ static int eni_open(struct atm_vcc *vcc )
   }
   {
 #line 1923
-  __cil_tmp34 = (unsigned long )vcc;
+  __cil_tmp18 = & vcc->flags;
 #line 1923
-  __cil_tmp35 = __cil_tmp34 + 1272;
+  __cil_tmp19 = (unsigned long const volatile   *)__cil_tmp18;
 #line 1923
-  __cil_tmp36 = (unsigned long *)__cil_tmp35;
-#line 1923
-  __cil_tmp37 = (unsigned long const volatile   *)__cil_tmp36;
-#line 1923
-  tmp___1 = constant_test_bit(2U, __cil_tmp37);
+  tmp___1 = constant_test_bit(2U, __cil_tmp19);
   }
 #line 1923
   if (tmp___1 == 0) {
@@ -24613,13 +19353,13 @@ static int eni_open(struct atm_vcc *vcc )
     }
     {
 #line 1925
-    __cil_tmp38 = (struct eni_vcc *)0;
+    __cil_tmp20 = (struct eni_vcc *)0;
 #line 1925
-    __cil_tmp39 = (unsigned long )__cil_tmp38;
+    __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 1925
-    __cil_tmp40 = (unsigned long )eni_vcc;
+    __cil_tmp22 = (unsigned long )eni_vcc;
 #line 1925
-    if (__cil_tmp40 == __cil_tmp39) {
+    if (__cil_tmp22 == __cil_tmp21) {
 #line 1925
       return (-12);
     } else {
@@ -24628,17 +19368,9 @@ static int eni_open(struct atm_vcc *vcc )
     }
     {
 #line 1926
-    __cil_tmp41 = (unsigned long )vcc;
-#line 1926
-    __cil_tmp42 = __cil_tmp41 + 1480;
-#line 1926
-    *((void **)__cil_tmp42) = (void *)eni_vcc;
+    vcc->dev_data = (void *)eni_vcc;
 #line 1927
-    __cil_tmp43 = (unsigned long )eni_vcc;
-#line 1927
-    __cil_tmp44 = __cil_tmp43 + 40;
-#line 1927
-    *((struct eni_tx **)__cil_tmp44) = (struct eni_tx *)0;
+    eni_vcc->tx = (struct eni_tx *)0;
 #line 1928
     error = open_rx_first(vcc);
     }
@@ -24678,9 +19410,9 @@ static int eni_open(struct atm_vcc *vcc )
   } else {
     {
 #line 1937
-    __cil_tmp45 = (int )vpi;
+    __cil_tmp23 = (int )vpi;
 #line 1937
-    if (__cil_tmp45 == -2) {
+    if (__cil_tmp23 == -2) {
 #line 1937
       return (0);
     } else {
@@ -24720,15 +19452,11 @@ static int eni_open(struct atm_vcc *vcc )
   }
   {
 #line 1946
-  __cil_tmp46 = (unsigned long )vcc;
+  __cil_tmp24 = & vcc->flags;
 #line 1946
-  __cil_tmp47 = __cil_tmp46 + 1272;
+  __cil_tmp25 = (unsigned long volatile   *)__cil_tmp24;
 #line 1946
-  __cil_tmp48 = (unsigned long *)__cil_tmp47;
-#line 1946
-  __cil_tmp49 = (unsigned long volatile   *)__cil_tmp48;
-#line 1946
-  set_bit(1U, __cil_tmp49);
+  set_bit(1U, __cil_tmp25);
   }
 #line 1948
   return (0);
@@ -24745,127 +19473,75 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   int shp ;
   void *dsc ;
   unsigned int tmp ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct atm_dev *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  void *__cil_tmp18 ;
+  struct atm_dev *__cil_tmp13 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  struct eni_vcc *__cil_tmp16 ;
+  unsigned char __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  void *__cil_tmp21 ;
-  struct eni_vcc *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned char __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct eni_tx *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  struct eni_tx *__cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  struct atm_trafprm *__cil_tmp22 ;
+  struct atm_trafprm  const  *__cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
   struct atm_trafprm *__cil_tmp32 ;
-  struct atm_trafprm  const  *__cil_tmp33 ;
-  int __cil_tmp34 ;
+  int __cil_tmp33 ;
+  struct tasklet_struct *__cil_tmp34 ;
   unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
+  char (*__cil_tmp36)[48U] ;
+  struct atm_skb_data *__cil_tmp37 ;
+  struct atm_vcc *__cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
+  char (*__cil_tmp40)[48U] ;
+  struct eni_skb_prv *__cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int __cil_tmp45 ;
+  void *__cil_tmp44 ;
+  void const volatile   *__cil_tmp45 ;
   int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
   int __cil_tmp49 ;
-  struct atm_trafprm *__cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct tasklet_struct *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
+  int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  void volatile   *__cil_tmp55 ;
   unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
+  struct sk_buff_head *__cil_tmp57 ;
+  struct sk_buff *__cil_tmp58 ;
   unsigned long __cil_tmp59 ;
-  char (*__cil_tmp60)[48U] ;
-  struct atm_skb_data *__cil_tmp61 ;
-  struct atm_vcc *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  char (*__cil_tmp66)[48U] ;
-  struct eni_skb_prv *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  void *__cil_tmp72 ;
-  void const volatile   *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  int __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  int __cil_tmp81 ;
-  int __cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  void volatile   *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct sk_buff_head *__cil_tmp91 ;
-  struct sk_buff *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct tasklet_struct *__cil_tmp96 ;
+  struct tasklet_struct *__cil_tmp60 ;
 
   {
 #line 1954
-  __cil_tmp13 = (unsigned long )vcc;
+  __cil_tmp13 = vcc->dev;
 #line 1954
-  __cil_tmp14 = __cil_tmp13 + 1304;
+  __cil_tmp14 = __cil_tmp13->dev_data;
 #line 1954
-  __cil_tmp15 = *((struct atm_dev **)__cil_tmp14);
-#line 1954
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
-#line 1954
-  __cil_tmp17 = __cil_tmp16 + 32;
-#line 1954
-  __cil_tmp18 = *((void **)__cil_tmp17);
-#line 1954
-  eni_dev = (struct eni_dev *)__cil_tmp18;
+  eni_dev = (struct eni_dev *)__cil_tmp14;
 #line 1955
-  __cil_tmp19 = (unsigned long )vcc;
+  __cil_tmp15 = vcc->dev_data;
 #line 1955
-  __cil_tmp20 = __cil_tmp19 + 1480;
+  __cil_tmp16 = (struct eni_vcc *)__cil_tmp15;
 #line 1955
-  __cil_tmp21 = *((void **)__cil_tmp20);
-#line 1955
-  __cil_tmp22 = (struct eni_vcc *)__cil_tmp21;
-#line 1955
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 1955
-  __cil_tmp24 = __cil_tmp23 + 40;
-#line 1955
-  tx = *((struct eni_tx **)__cil_tmp24);
+  tx = __cil_tmp16->tx;
   {
 #line 1959
-  __cil_tmp25 = *((unsigned char *)qos);
+  __cil_tmp17 = qos->txtp.traffic_class;
 #line 1959
-  __cil_tmp26 = (unsigned int )__cil_tmp25;
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
 #line 1959
-  if (__cil_tmp26 == 0U) {
+  if (__cil_tmp18 == 0U) {
 #line 1959
     return (0);
   } else {
@@ -24874,17 +19550,13 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1960
-  __cil_tmp27 = (unsigned long )tx;
+  __cil_tmp19 = (unsigned long )tx;
 #line 1960
-  __cil_tmp28 = (unsigned long )eni_dev;
+  __cil_tmp20 = eni_dev->ubr;
 #line 1960
-  __cil_tmp29 = __cil_tmp28 + 1328;
+  __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 1960
-  __cil_tmp30 = *((struct eni_tx **)__cil_tmp29);
-#line 1960
-  __cil_tmp31 = (unsigned long )__cil_tmp30;
-#line 1960
-  if (__cil_tmp31 == __cil_tmp27) {
+  if (__cil_tmp21 == __cil_tmp19) {
 #line 1960
     return (-77);
   } else {
@@ -24893,11 +19565,11 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1961
-  __cil_tmp32 = (struct atm_trafprm *)qos;
+  __cil_tmp22 = & qos->txtp;
 #line 1961
-  __cil_tmp33 = (struct atm_trafprm  const  *)__cil_tmp32;
+  __cil_tmp23 = (struct atm_trafprm  const  *)__cil_tmp22;
 #line 1961
-  rate = atm_pcr_goal(__cil_tmp33);
+  rate = atm_pcr_goal(__cil_tmp23);
   }
 #line 1962
   if (rate < 0) {
@@ -24912,20 +19584,16 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   rsv = shp;
   {
 #line 1964
-  __cil_tmp34 = flgs & 8;
+  __cil_tmp24 = flgs & 8;
 #line 1964
-  if (__cil_tmp34 != 0) {
+  if (__cil_tmp24 != 0) {
 #line 1964
     if (rate != 0) {
       {
 #line 1964
-      __cil_tmp35 = (unsigned long )tx;
+      __cil_tmp25 = tx->reserved;
 #line 1964
-      __cil_tmp36 = __cil_tmp35 + 36;
-#line 1964
-      __cil_tmp37 = *((int *)__cil_tmp36);
-#line 1964
-      if (__cil_tmp37 > rate) {
+      if (__cil_tmp25 > rate) {
 #line 1964
         rsv = 1;
       } else {
@@ -24941,9 +19609,9 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1965
-  __cil_tmp38 = flgs & 2;
+  __cil_tmp26 = flgs & 2;
 #line 1965
-  if (__cil_tmp38 != 0) {
+  if (__cil_tmp26 != 0) {
 #line 1965
     if (rate == 0) {
 #line 1965
@@ -24951,13 +19619,9 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
     } else {
       {
 #line 1965
-      __cil_tmp39 = (unsigned long )tx;
+      __cil_tmp27 = tx->reserved;
 #line 1965
-      __cil_tmp40 = __cil_tmp39 + 36;
-#line 1965
-      __cil_tmp41 = *((int *)__cil_tmp40);
-#line 1965
-      if (__cil_tmp41 < rate) {
+      if (__cil_tmp27 < rate) {
 #line 1965
         rsv = 1;
       } else {
@@ -24971,20 +19635,16 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1966
-  __cil_tmp42 = flgs & 16;
+  __cil_tmp28 = flgs & 16;
 #line 1966
-  if (__cil_tmp42 != 0) {
+  if (__cil_tmp28 != 0) {
 #line 1966
     if (rate != 0) {
       {
 #line 1966
-      __cil_tmp43 = (unsigned long )tx;
+      __cil_tmp29 = tx->shaping;
 #line 1966
-      __cil_tmp44 = __cil_tmp43 + 40;
-#line 1966
-      __cil_tmp45 = *((int *)__cil_tmp44);
-#line 1966
-      if (__cil_tmp45 > rate) {
+      if (__cil_tmp29 > rate) {
 #line 1966
         shp = 1;
       } else {
@@ -25000,9 +19660,9 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1967
-  __cil_tmp46 = flgs & 4;
+  __cil_tmp30 = flgs & 4;
 #line 1967
-  if (__cil_tmp46 != 0) {
+  if (__cil_tmp30 != 0) {
 #line 1967
     if (rate == 0) {
 #line 1967
@@ -25010,13 +19670,9 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
     } else {
       {
 #line 1967
-      __cil_tmp47 = (unsigned long )tx;
+      __cil_tmp31 = tx->shaping;
 #line 1967
-      __cil_tmp48 = __cil_tmp47 + 40;
-#line 1967
-      __cil_tmp49 = *((int *)__cil_tmp48);
-#line 1967
-      if (__cil_tmp49 < rate) {
+      if (__cil_tmp31 < rate) {
 #line 1967
         shp = 1;
       } else {
@@ -25042,9 +19698,9 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1969
-  __cil_tmp50 = (struct atm_trafprm *)qos;
+  __cil_tmp32 = & qos->txtp;
 #line 1969
-  error = reserve_or_set_tx(vcc, __cil_tmp50, rsv, shp);
+  error = reserve_or_set_tx(vcc, __cil_tmp32, rsv, shp);
   }
 #line 1970
   if (error != 0) {
@@ -25057,9 +19713,9 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   if (shp != 0) {
     {
 #line 1971
-    __cil_tmp51 = flgs & 1;
+    __cil_tmp33 = flgs & 1;
 #line 1971
-    if (__cil_tmp51 == 0) {
+    if (__cil_tmp33 == 0) {
 #line 1971
       return (0);
     } else {
@@ -25071,39 +19727,29 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1976
-  __cil_tmp52 = (unsigned long )eni_dev;
+  __cil_tmp34 = & eni_dev->task;
 #line 1976
-  __cil_tmp53 = __cil_tmp52 + 72;
-#line 1976
-  __cil_tmp54 = (struct tasklet_struct *)__cil_tmp53;
-#line 1976
-  tasklet_disable(__cil_tmp54);
+  tasklet_disable(__cil_tmp34);
 #line 1977
-  __cil_tmp55 = (unsigned long )eni_dev;
-#line 1977
-  __cil_tmp56 = __cil_tmp55 + 1336;
-#line 1977
-  skb = *((struct sk_buff **)__cil_tmp56);
+  skb = eni_dev->tx_queue.next;
   }
+#line 1977
   goto ldv_40610;
   ldv_40609: ;
   {
 #line 1980
-  __cil_tmp57 = (unsigned long )vcc;
+  __cil_tmp35 = (unsigned long )vcc;
 #line 1980
-  __cil_tmp58 = (unsigned long )skb;
+  __cil_tmp36 = & skb->cb;
 #line 1980
-  __cil_tmp59 = __cil_tmp58 + 40;
+  __cil_tmp37 = (struct atm_skb_data *)__cil_tmp36;
 #line 1980
-  __cil_tmp60 = (char (*)[48U])__cil_tmp59;
+  __cil_tmp38 = __cil_tmp37->vcc;
 #line 1980
-  __cil_tmp61 = (struct atm_skb_data *)__cil_tmp60;
+  __cil_tmp39 = (unsigned long )__cil_tmp38;
 #line 1980
-  __cil_tmp62 = *((struct atm_vcc **)__cil_tmp61);
+  if (__cil_tmp39 != __cil_tmp35) {
 #line 1980
-  __cil_tmp63 = (unsigned long )__cil_tmp62;
-#line 1980
-  if (__cil_tmp63 != __cil_tmp57) {
     goto ldv_40608;
   } else {
 
@@ -25111,94 +19757,72 @@ static int eni_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int flgs )
   }
   {
 #line 1981
-  __cil_tmp64 = (unsigned long )skb;
+  __cil_tmp40 = & skb->cb;
 #line 1981
-  __cil_tmp65 = __cil_tmp64 + 40;
+  __cil_tmp41 = (struct eni_skb_prv *)__cil_tmp40;
 #line 1981
-  __cil_tmp66 = (char (*)[48U])__cil_tmp65;
+  __cil_tmp42 = __cil_tmp41->pos;
 #line 1981
-  __cil_tmp67 = (struct eni_skb_prv *)__cil_tmp66;
+  __cil_tmp43 = __cil_tmp42 * 4UL;
 #line 1981
-  __cil_tmp68 = (unsigned long )__cil_tmp67;
+  __cil_tmp44 = tx->send;
 #line 1981
-  __cil_tmp69 = __cil_tmp68 + 16;
-#line 1981
-  __cil_tmp70 = *((unsigned long *)__cil_tmp69);
-#line 1981
-  __cil_tmp71 = __cil_tmp70 * 4UL;
-#line 1981
-  __cil_tmp72 = *((void **)tx);
-#line 1981
-  dsc = __cil_tmp72 + __cil_tmp71;
+  dsc = __cil_tmp44 + __cil_tmp43;
 #line 1982
-  __cil_tmp73 = (void const volatile   *)dsc;
+  __cil_tmp45 = (void const volatile   *)dsc;
 #line 1982
-  tmp = readl(__cil_tmp73);
+  tmp = readl(__cil_tmp45);
 #line 1982
-  __cil_tmp74 = (unsigned long )tx;
+  __cil_tmp46 = tx->resolution;
 #line 1982
-  __cil_tmp75 = __cil_tmp74 + 12;
+  __cil_tmp47 = __cil_tmp46 << 19;
 #line 1982
-  __cil_tmp76 = *((int *)__cil_tmp75);
+  __cil_tmp48 = (unsigned int )__cil_tmp47;
 #line 1982
-  __cil_tmp77 = __cil_tmp76 << 19;
+  __cil_tmp49 = tx->prescaler;
 #line 1982
-  __cil_tmp78 = (unsigned int )__cil_tmp77;
+  __cil_tmp50 = __cil_tmp49 << 25;
 #line 1982
-  __cil_tmp79 = (unsigned long )tx;
+  __cil_tmp51 = (unsigned int )__cil_tmp50;
 #line 1982
-  __cil_tmp80 = __cil_tmp79 + 8;
+  __cil_tmp52 = tmp & 4161273855U;
 #line 1982
-  __cil_tmp81 = *((int *)__cil_tmp80);
+  __cil_tmp53 = __cil_tmp52 | __cil_tmp51;
 #line 1982
-  __cil_tmp82 = __cil_tmp81 << 25;
+  __cil_tmp54 = __cil_tmp53 | __cil_tmp48;
 #line 1982
-  __cil_tmp83 = (unsigned int )__cil_tmp82;
+  __cil_tmp55 = (void volatile   *)dsc;
 #line 1982
-  __cil_tmp84 = tmp & 4161273855U;
-#line 1982
-  __cil_tmp85 = __cil_tmp84 | __cil_tmp83;
-#line 1982
-  __cil_tmp86 = __cil_tmp85 | __cil_tmp78;
-#line 1982
-  __cil_tmp87 = (void volatile   *)dsc;
-#line 1982
-  writel(__cil_tmp86, __cil_tmp87);
+  writel(__cil_tmp54, __cil_tmp55);
   }
   ldv_40608: 
 #line 1977
-  skb = *((struct sk_buff **)skb);
+  skb = skb->next;
   ldv_40610: ;
   {
 #line 1977
-  __cil_tmp88 = (unsigned long )skb;
+  __cil_tmp56 = (unsigned long )skb;
 #line 1977
-  __cil_tmp89 = (unsigned long )eni_dev;
+  __cil_tmp57 = & eni_dev->tx_queue;
 #line 1977
-  __cil_tmp90 = __cil_tmp89 + 1336;
+  __cil_tmp58 = (struct sk_buff *)__cil_tmp57;
 #line 1977
-  __cil_tmp91 = (struct sk_buff_head *)__cil_tmp90;
+  __cil_tmp59 = (unsigned long )__cil_tmp58;
 #line 1977
-  __cil_tmp92 = (struct sk_buff *)__cil_tmp91;
-#line 1977
-  __cil_tmp93 = (unsigned long )__cil_tmp92;
-#line 1977
-  if (__cil_tmp93 != __cil_tmp88) {
+  if (__cil_tmp59 != __cil_tmp56) {
+#line 1978
     goto ldv_40609;
   } else {
+#line 1980
     goto ldv_40611;
   }
   }
   ldv_40611: 
   {
 #line 1986
-  __cil_tmp94 = (unsigned long )eni_dev;
+  __cil_tmp60 = & eni_dev->task;
 #line 1986
-  __cil_tmp95 = __cil_tmp94 + 72;
-#line 1986
-  __cil_tmp96 = (struct tasklet_struct *)__cil_tmp95;
-#line 1986
-  tasklet_enable(__cil_tmp96);
+  tasklet_enable(__cil_tmp60);
   }
 #line 1987
   return (0);
@@ -25216,75 +19840,29 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
   struct atm_cirange ci ;
   unsigned long tmp___4 ;
   int tmp___5 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp14 ;
+  int __cil_tmp15 ;
   void *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
-  void *__cil_tmp20 ;
-  void const   *__cil_tmp21 ;
-  struct eni_multipliers *__cil_tmp22 ;
+  void const   *__cil_tmp17 ;
+  void *__cil_tmp18 ;
+  void const   *__cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
   int __cil_tmp23 ;
-  struct eni_multipliers *__cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
+  int (*__cil_tmp24)(struct atm_dev * , unsigned int  , void * ) ;
+  unsigned long __cil_tmp25 ;
+  struct atmphy_ops  const  *__cil_tmp26 ;
+  int (*__cil_tmp27)(struct atm_dev * , unsigned int  , void * ) ;
   unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  struct eni_multipliers *__cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  int __cil_tmp33 ;
-  struct eni_multipliers *__cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct eni_multipliers *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  void *__cil_tmp44 ;
-  void const   *__cil_tmp45 ;
-  struct atm_cirange *__cil_tmp46 ;
-  signed char __cil_tmp47 ;
-  int __cil_tmp48 ;
-  struct atm_cirange *__cil_tmp49 ;
-  signed char __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  signed char __cil_tmp53 ;
-  int __cil_tmp54 ;
-  struct atm_cirange *__cil_tmp55 ;
-  signed char __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int (*__cil_tmp58)(struct atm_dev * , unsigned int  , void * ) ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  struct atmphy_ops  const  *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  int (*__cil_tmp65)(struct atm_dev * , unsigned int  , void * ) ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct atmphy_ops  const  *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  int (*__cil_tmp72)(struct atm_dev * , unsigned int  , void * ) ;
+  struct atmphy_ops  const  *__cil_tmp29 ;
+  int (*__cil_tmp30)(struct atm_dev * , unsigned int  , void * ) ;
 
   {
 #line 1993
-  __cil_tmp14 = (unsigned long )dev;
+  __cil_tmp14 = dev->dev_data;
 #line 1993
-  __cil_tmp15 = __cil_tmp14 + 32;
-#line 1993
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 1993
-  eni_dev = (struct eni_dev *)__cil_tmp16;
+  eni_dev = (struct eni_dev *)__cil_tmp14;
 #line 1995
   if (cmd == 1074815328U) {
     {
@@ -25308,14 +19886,10 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
     }
     {
 #line 1997
-    __cil_tmp17 = (unsigned long )dev;
-#line 1997
-    __cil_tmp18 = __cil_tmp17 + 24;
-#line 1997
-    __cil_tmp19 = *((int *)__cil_tmp18);
+    __cil_tmp15 = dev->number;
 #line 1997
     printk("<4>Please use /proc/atm/eni:%d instead of obsolete ioctl ENI_MEMDUMP\n",
-           __cil_tmp19);
+           __cil_tmp15);
 #line 1999
     dump(dev);
     }
@@ -25347,11 +19921,11 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
     }
     {
 #line 2006
-    __cil_tmp20 = (void *)(& mult);
+    __cil_tmp16 = (void *)(& mult);
 #line 2006
-    __cil_tmp21 = (void const   *)arg;
+    __cil_tmp17 = (void const   *)arg;
 #line 2006
-    tmp___3 = copy_from_user(__cil_tmp20, __cil_tmp21, 8UL);
+    tmp___3 = copy_from_user(__cil_tmp16, __cil_tmp17, 8UL);
     }
 #line 2006
     if (tmp___3 != 0UL) {
@@ -25360,116 +19934,55 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
     } else {
 
     }
-    {
 #line 2009
-    __cil_tmp22 = & mult;
+    if (mult.tx != 0) {
 #line 2009
-    __cil_tmp23 = *((int *)__cil_tmp22);
-#line 2009
-    if (__cil_tmp23 != 0) {
-      {
-#line 2009
-      __cil_tmp24 = & mult;
-#line 2009
-      __cil_tmp25 = *((int *)__cil_tmp24);
-#line 2009
-      if (__cil_tmp25 <= 100) {
+      if (mult.tx <= 100) {
 #line 2011
         return (-22);
       } else {
+#line 2009
         goto _L___0;
       }
-      }
-    } else {
-      _L___0: 
-      {
+    } else
+    _L___0: 
 #line 2009
-      __cil_tmp26 = (unsigned long )(& mult) + 4;
+    if (mult.rx != 0) {
 #line 2009
-      __cil_tmp27 = *((int *)__cil_tmp26);
-#line 2009
-      if (__cil_tmp27 != 0) {
-        {
-#line 2009
-        __cil_tmp28 = (unsigned long )(& mult) + 4;
-#line 2009
-        __cil_tmp29 = *((int *)__cil_tmp28);
-#line 2009
-        if (__cil_tmp29 <= 100) {
+      if (mult.rx <= 100) {
 #line 2011
-          return (-22);
-        } else {
-          goto _L;
-        }
-        }
+        return (-22);
       } else {
-        _L: 
-        {
 #line 2009
-        __cil_tmp30 = & mult;
-#line 2009
-        __cil_tmp31 = *((int *)__cil_tmp30);
-#line 2009
-        if (__cil_tmp31 > 65536) {
-#line 2011
-          return (-22);
-        } else {
-          {
-#line 2009
-          __cil_tmp32 = (unsigned long )(& mult) + 4;
-#line 2009
-          __cil_tmp33 = *((int *)__cil_tmp32);
-#line 2009
-          if (__cil_tmp33 > 65536) {
-#line 2011
-            return (-22);
-          } else {
-
-          }
-          }
-        }
-        }
+        goto _L;
       }
-      }
-    }
-    }
-    {
-#line 2012
-    __cil_tmp34 = & mult;
-#line 2012
-    __cil_tmp35 = *((int *)__cil_tmp34);
-#line 2012
-    if (__cil_tmp35 != 0) {
-#line 2012
-      __cil_tmp36 = (unsigned long )eni_dev;
-#line 2012
-      __cil_tmp37 = __cil_tmp36 + 2324;
-#line 2012
-      __cil_tmp38 = & mult;
-#line 2012
-      *((int *)__cil_tmp37) = *((int *)__cil_tmp38);
+    } else
+    _L: 
+#line 2009
+    if (mult.tx > 65536) {
+#line 2011
+      return (-22);
+    } else
+#line 2009
+    if (mult.rx > 65536) {
+#line 2011
+      return (-22);
     } else {
 
     }
-    }
-    {
-#line 2013
-    __cil_tmp39 = (unsigned long )(& mult) + 4;
-#line 2013
-    __cil_tmp40 = *((int *)__cil_tmp39);
-#line 2013
-    if (__cil_tmp40 != 0) {
-#line 2013
-      __cil_tmp41 = (unsigned long )eni_dev;
-#line 2013
-      __cil_tmp42 = __cil_tmp41 + 2560;
-#line 2013
-      __cil_tmp43 = (unsigned long )(& mult) + 4;
-#line 2013
-      *((int *)__cil_tmp42) = *((int *)__cil_tmp43);
+#line 2012
+    if (mult.tx != 0) {
+#line 2012
+      eni_dev->tx_mult = mult.tx;
     } else {
 
     }
+#line 2013
+    if (mult.rx != 0) {
+#line 2013
+      eni_dev->rx_mult = mult.rx;
+    } else {
+
     }
 #line 2014
     return (0);
@@ -25480,11 +19993,11 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
   if (cmd == 1074815371U) {
     {
 #line 2019
-    __cil_tmp44 = (void *)(& ci);
+    __cil_tmp18 = (void *)(& ci);
 #line 2019
-    __cil_tmp45 = (void const   *)arg;
+    __cil_tmp19 = (void const   *)arg;
 #line 2019
-    tmp___4 = copy_from_user(__cil_tmp44, __cil_tmp45, 2UL);
+    tmp___4 = copy_from_user(__cil_tmp18, __cil_tmp19, 2UL);
     }
 #line 2019
     if (tmp___4 != 0UL) {
@@ -25495,46 +20008,31 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
     }
     {
 #line 2021
-    __cil_tmp46 = & ci;
+    __cil_tmp20 = (int )ci.vpi_bits;
 #line 2021
-    __cil_tmp47 = *((signed char *)__cil_tmp46);
+    if (__cil_tmp20 == 0) {
 #line 2021
-    __cil_tmp48 = (int )__cil_tmp47;
-#line 2021
-    if (__cil_tmp48 == 0) {
       goto _L___1;
     } else {
       {
 #line 2021
-      __cil_tmp49 = & ci;
+      __cil_tmp21 = (int )ci.vpi_bits;
 #line 2021
-      __cil_tmp50 = *((signed char *)__cil_tmp49);
-#line 2021
-      __cil_tmp51 = (int )__cil_tmp50;
-#line 2021
-      if (__cil_tmp51 == -1) {
+      if (__cil_tmp21 == -1) {
         _L___1: 
         {
 #line 2021
-        __cil_tmp52 = (unsigned long )(& ci) + 1;
+        __cil_tmp22 = (int )ci.vci_bits;
 #line 2021
-        __cil_tmp53 = *((signed char *)__cil_tmp52);
-#line 2021
-        __cil_tmp54 = (int )__cil_tmp53;
-#line 2021
-        if (__cil_tmp54 == 10) {
+        if (__cil_tmp22 == 10) {
 #line 2023
           return (0);
         } else {
           {
 #line 2021
-          __cil_tmp55 = & ci;
+          __cil_tmp23 = (int )ci.vpi_bits;
 #line 2021
-          __cil_tmp56 = *((signed char *)__cil_tmp55);
-#line 2021
-          __cil_tmp57 = (int )__cil_tmp56;
-#line 2021
-          if (__cil_tmp57 == -1) {
+          if (__cil_tmp23 == -1) {
 #line 2023
             return (0);
           } else {
@@ -25556,25 +20054,17 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
   }
   {
 #line 2026
-  __cil_tmp58 = (int (* const  )(struct atm_dev * , unsigned int  , void * ))0;
+  __cil_tmp24 = (int (* const  )(struct atm_dev * , unsigned int  , void * ))0;
 #line 2026
-  __cil_tmp59 = (unsigned long )__cil_tmp58;
+  __cil_tmp25 = (unsigned long )__cil_tmp24;
 #line 2026
-  __cil_tmp60 = (unsigned long )dev;
+  __cil_tmp26 = dev->phy;
 #line 2026
-  __cil_tmp61 = __cil_tmp60 + 8;
+  __cil_tmp27 = __cil_tmp26->ioctl;
 #line 2026
-  __cil_tmp62 = *((struct atmphy_ops  const  **)__cil_tmp61);
+  __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 2026
-  __cil_tmp63 = (unsigned long )__cil_tmp62;
-#line 2026
-  __cil_tmp64 = __cil_tmp63 + 8;
-#line 2026
-  __cil_tmp65 = *((int (* const  *)(struct atm_dev * , unsigned int  , void * ))__cil_tmp64);
-#line 2026
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
-#line 2026
-  if (__cil_tmp66 == __cil_tmp59) {
+  if (__cil_tmp28 == __cil_tmp25) {
 #line 2026
     return (-515);
   } else {
@@ -25583,19 +20073,11 @@ static int eni_ioctl(struct atm_dev *dev , unsigned int cmd , void *arg )
   }
   {
 #line 2027
-  __cil_tmp67 = (unsigned long )dev;
+  __cil_tmp29 = dev->phy;
 #line 2027
-  __cil_tmp68 = __cil_tmp67 + 8;
+  __cil_tmp30 = __cil_tmp29->ioctl;
 #line 2027
-  __cil_tmp69 = *((struct atmphy_ops  const  **)__cil_tmp68);
-#line 2027
-  __cil_tmp70 = (unsigned long )__cil_tmp69;
-#line 2027
-  __cil_tmp71 = __cil_tmp70 + 8;
-#line 2027
-  __cil_tmp72 = *((int (* const  *)(struct atm_dev * , unsigned int  , void * ))__cil_tmp71);
-#line 2027
-  tmp___5 = (*__cil_tmp72)(dev, cmd, arg);
+  tmp___5 = (*__cil_tmp30)(dev, cmd, arg);
   }
 #line 2027
   return (tmp___5);
@@ -25627,106 +20109,55 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
   __u32 tmp ;
   struct eni_tx *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  struct eni_vcc *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  void *__cil_tmp7 ;
+  struct eni_vcc *__cil_tmp8 ;
+  struct eni_tx *__cil_tmp9 ;
+  unsigned long __cil_tmp10 ;
+  void (*__cil_tmp11)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp12 ;
-  struct eni_tx *__cil_tmp13 ;
+  void (*__cil_tmp13)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp14 ;
   void (*__cil_tmp15)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp16 ;
+  struct sk_buff *__cil_tmp16 ;
   unsigned long __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   void (*__cil_tmp19)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  void (*__cil_tmp21)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp22 ;
   void (*__cil_tmp23)(struct atm_vcc * , struct sk_buff * ) ;
-  struct sk_buff *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned char __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   void (*__cil_tmp27)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  void (*__cil_tmp29)(struct atm_vcc * , struct sk_buff * ) ;
   unsigned long __cil_tmp30 ;
   void (*__cil_tmp31)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  void (*__cil_tmp35)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned char __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  void (*__cil_tmp44)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  void (*__cil_tmp48)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  void (*__cil_tmp52)(struct atm_vcc * , struct sk_buff * ) ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned char *__cil_tmp55 ;
-  u32 *__cil_tmp56 ;
-  u32 __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned char *__cil_tmp60 ;
-  u32 *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  char (*__cil_tmp64)[48U] ;
-  struct atm_skb_data *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct atm_dev *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  void *__cil_tmp71 ;
-  struct eni_dev *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  struct tasklet_struct *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  struct atm_dev *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  void *__cil_tmp81 ;
-  struct eni_dev *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  struct tasklet_struct *__cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  void *__cil_tmp89 ;
-  struct eni_vcc *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  struct eni_tx *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct sk_buff_head *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  struct atm_dev *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  void *__cil_tmp102 ;
-  struct eni_dev *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  struct tasklet_struct *__cil_tmp106 ;
+  unsigned char *__cil_tmp32 ;
+  u32 *__cil_tmp33 ;
+  u32 __cil_tmp34 ;
+  unsigned char *__cil_tmp35 ;
+  u32 *__cil_tmp36 ;
+  char (*__cil_tmp37)[48U] ;
+  struct atm_skb_data *__cil_tmp38 ;
+  struct atm_dev *__cil_tmp39 ;
+  void *__cil_tmp40 ;
+  struct eni_dev *__cil_tmp41 ;
+  struct tasklet_struct *__cil_tmp42 ;
+  struct atm_dev *__cil_tmp43 ;
+  void *__cil_tmp44 ;
+  struct eni_dev *__cil_tmp45 ;
+  struct tasklet_struct *__cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  void *__cil_tmp48 ;
+  struct eni_vcc *__cil_tmp49 ;
+  struct eni_tx *__cil_tmp50 ;
+  struct sk_buff_head *__cil_tmp51 ;
+  struct atm_dev *__cil_tmp52 ;
+  void *__cil_tmp53 ;
+  struct eni_dev *__cil_tmp54 ;
+  struct tasklet_struct *__cil_tmp55 ;
 
   {
   {
@@ -25735,47 +20166,31 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
 #line 2050
   __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 2050
-  __cil_tmp7 = (unsigned long )vcc;
+  __cil_tmp7 = vcc->dev_data;
 #line 2050
-  __cil_tmp8 = __cil_tmp7 + 1480;
+  __cil_tmp8 = (struct eni_vcc *)__cil_tmp7;
 #line 2050
-  __cil_tmp9 = *((void **)__cil_tmp8);
+  __cil_tmp9 = __cil_tmp8->tx;
 #line 2050
-  __cil_tmp10 = (struct eni_vcc *)__cil_tmp9;
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 2050
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 2050
-  __cil_tmp12 = __cil_tmp11 + 40;
-#line 2050
-  __cil_tmp13 = *((struct eni_tx **)__cil_tmp12);
-#line 2050
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 2050
-  if (__cil_tmp14 == __cil_tmp6) {
+  if (__cil_tmp10 == __cil_tmp6) {
     {
 #line 2051
-    __cil_tmp15 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
+    __cil_tmp11 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
 #line 2051
-    __cil_tmp16 = (unsigned long )__cil_tmp15;
+    __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 2051
-    __cil_tmp17 = (unsigned long )vcc;
+    __cil_tmp13 = vcc->pop;
 #line 2051
-    __cil_tmp18 = __cil_tmp17 + 1456;
+    __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 2051
-    __cil_tmp19 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp18);
-#line 2051
-    __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 2051
-    if (__cil_tmp20 != __cil_tmp16) {
+    if (__cil_tmp14 != __cil_tmp12) {
       {
 #line 2051
-      __cil_tmp21 = (unsigned long )vcc;
+      __cil_tmp15 = vcc->pop;
 #line 2051
-      __cil_tmp22 = __cil_tmp21 + 1456;
-#line 2051
-      __cil_tmp23 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp22);
-#line 2051
-      (*__cil_tmp23)(vcc, skb);
+      (*__cil_tmp15)(vcc, skb);
       }
     } else {
       {
@@ -25792,41 +20207,33 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
   }
   {
 #line 2055
-  __cil_tmp24 = (struct sk_buff *)0;
+  __cil_tmp16 = (struct sk_buff *)0;
 #line 2055
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
+  __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 2055
-  __cil_tmp26 = (unsigned long )skb;
+  __cil_tmp18 = (unsigned long )skb;
 #line 2055
-  if (__cil_tmp26 == __cil_tmp25) {
+  if (__cil_tmp18 == __cil_tmp17) {
     {
 #line 2056
     printk("<2>!skb in eni_send ?\n");
     }
     {
 #line 2057
-    __cil_tmp27 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
+    __cil_tmp19 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
 #line 2057
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
+    __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 2057
-    __cil_tmp29 = (unsigned long )vcc;
+    __cil_tmp21 = vcc->pop;
 #line 2057
-    __cil_tmp30 = __cil_tmp29 + 1456;
+    __cil_tmp22 = (unsigned long )__cil_tmp21;
 #line 2057
-    __cil_tmp31 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp30);
-#line 2057
-    __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 2057
-    if (__cil_tmp32 != __cil_tmp28) {
+    if (__cil_tmp22 != __cil_tmp20) {
       {
 #line 2057
-      __cil_tmp33 = (unsigned long )vcc;
+      __cil_tmp23 = vcc->pop;
 #line 2057
-      __cil_tmp34 = __cil_tmp33 + 1456;
-#line 2057
-      __cil_tmp35 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp34);
-#line 2057
-      (*__cil_tmp35)(vcc, skb);
+      (*__cil_tmp23)(vcc, skb);
       }
     } else {
 
@@ -25840,50 +20247,32 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
   }
   {
 #line 2060
-  __cil_tmp36 = 1312 + 88;
+  __cil_tmp24 = vcc->qos.aal;
 #line 2060
-  __cil_tmp37 = (unsigned long )vcc;
+  __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 2060
-  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 2060
-  __cil_tmp39 = *((unsigned char *)__cil_tmp38);
-#line 2060
-  __cil_tmp40 = (unsigned int )__cil_tmp39;
-#line 2060
-  if (__cil_tmp40 == 13U) {
+  if (__cil_tmp25 == 13U) {
     {
 #line 2061
-    __cil_tmp41 = (unsigned long )skb;
+    __cil_tmp26 = skb->len;
 #line 2061
-    __cil_tmp42 = __cil_tmp41 + 104;
-#line 2061
-    __cil_tmp43 = *((unsigned int *)__cil_tmp42);
-#line 2061
-    if (__cil_tmp43 != 52U) {
+    if (__cil_tmp26 != 52U) {
       {
 #line 2062
-      __cil_tmp44 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
+      __cil_tmp27 = (void (*)(struct atm_vcc * , struct sk_buff * ))0;
 #line 2062
-      __cil_tmp45 = (unsigned long )__cil_tmp44;
+      __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 2062
-      __cil_tmp46 = (unsigned long )vcc;
+      __cil_tmp29 = vcc->pop;
 #line 2062
-      __cil_tmp47 = __cil_tmp46 + 1456;
+      __cil_tmp30 = (unsigned long )__cil_tmp29;
 #line 2062
-      __cil_tmp48 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp47);
-#line 2062
-      __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 2062
-      if (__cil_tmp49 != __cil_tmp45) {
+      if (__cil_tmp30 != __cil_tmp28) {
         {
 #line 2062
-        __cil_tmp50 = (unsigned long )vcc;
+        __cil_tmp31 = vcc->pop;
 #line 2062
-        __cil_tmp51 = __cil_tmp50 + 1456;
-#line 2062
-        __cil_tmp52 = *((void (**)(struct atm_vcc * , struct sk_buff * ))__cil_tmp51);
-#line 2062
-        (*__cil_tmp52)(vcc, skb);
+        (*__cil_tmp31)(vcc, skb);
         }
       } else {
         {
@@ -25900,27 +20289,19 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
     }
     {
 #line 2066
-    __cil_tmp53 = (unsigned long )skb;
+    __cil_tmp32 = skb->data;
 #line 2066
-    __cil_tmp54 = __cil_tmp53 + 224;
+    __cil_tmp33 = (u32 *)__cil_tmp32;
 #line 2066
-    __cil_tmp55 = *((unsigned char **)__cil_tmp54);
+    __cil_tmp34 = *__cil_tmp33;
 #line 2066
-    __cil_tmp56 = (u32 *)__cil_tmp55;
+    tmp = __fswab32(__cil_tmp34);
 #line 2066
-    __cil_tmp57 = *__cil_tmp56;
+    __cil_tmp35 = skb->data;
 #line 2066
-    tmp = __fswab32(__cil_tmp57);
+    __cil_tmp36 = (u32 *)__cil_tmp35;
 #line 2066
-    __cil_tmp58 = (unsigned long )skb;
-#line 2066
-    __cil_tmp59 = __cil_tmp58 + 224;
-#line 2066
-    __cil_tmp60 = *((unsigned char **)__cil_tmp59);
-#line 2066
-    __cil_tmp61 = (u32 *)__cil_tmp60;
-#line 2066
-    *__cil_tmp61 = tmp;
+    *__cil_tmp36 = tmp;
     }
   } else {
 
@@ -25930,67 +20311,39 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
 #line 2068
   submitted = submitted + 1;
 #line 2069
-  __cil_tmp62 = (unsigned long )skb;
+  __cil_tmp37 = & skb->cb;
 #line 2069
-  __cil_tmp63 = __cil_tmp62 + 40;
+  __cil_tmp38 = (struct atm_skb_data *)__cil_tmp37;
 #line 2069
-  __cil_tmp64 = (char (*)[48U])__cil_tmp63;
-#line 2069
-  __cil_tmp65 = (struct atm_skb_data *)__cil_tmp64;
-#line 2069
-  *((struct atm_vcc **)__cil_tmp65) = vcc;
+  __cil_tmp38->vcc = vcc;
 #line 2070
-  __cil_tmp66 = (unsigned long )vcc;
+  __cil_tmp39 = vcc->dev;
 #line 2070
-  __cil_tmp67 = __cil_tmp66 + 1304;
+  __cil_tmp40 = __cil_tmp39->dev_data;
 #line 2070
-  __cil_tmp68 = *((struct atm_dev **)__cil_tmp67);
+  __cil_tmp41 = (struct eni_dev *)__cil_tmp40;
 #line 2070
-  __cil_tmp69 = (unsigned long )__cil_tmp68;
+  __cil_tmp42 = & __cil_tmp41->task;
 #line 2070
-  __cil_tmp70 = __cil_tmp69 + 32;
-#line 2070
-  __cil_tmp71 = *((void **)__cil_tmp70);
-#line 2070
-  __cil_tmp72 = (struct eni_dev *)__cil_tmp71;
-#line 2070
-  __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 2070
-  __cil_tmp74 = __cil_tmp73 + 72;
-#line 2070
-  __cil_tmp75 = (struct tasklet_struct *)__cil_tmp74;
-#line 2070
-  tasklet_disable(__cil_tmp75);
+  tasklet_disable(__cil_tmp42);
 #line 2071
   res = do_tx(skb);
 #line 2072
-  __cil_tmp76 = (unsigned long )vcc;
+  __cil_tmp43 = vcc->dev;
 #line 2072
-  __cil_tmp77 = __cil_tmp76 + 1304;
+  __cil_tmp44 = __cil_tmp43->dev_data;
 #line 2072
-  __cil_tmp78 = *((struct atm_dev **)__cil_tmp77);
+  __cil_tmp45 = (struct eni_dev *)__cil_tmp44;
 #line 2072
-  __cil_tmp79 = (unsigned long )__cil_tmp78;
+  __cil_tmp46 = & __cil_tmp45->task;
 #line 2072
-  __cil_tmp80 = __cil_tmp79 + 32;
-#line 2072
-  __cil_tmp81 = *((void **)__cil_tmp80);
-#line 2072
-  __cil_tmp82 = (struct eni_dev *)__cil_tmp81;
-#line 2072
-  __cil_tmp83 = (unsigned long )__cil_tmp82;
-#line 2072
-  __cil_tmp84 = __cil_tmp83 + 72;
-#line 2072
-  __cil_tmp85 = (struct tasklet_struct *)__cil_tmp84;
-#line 2072
-  tasklet_enable(__cil_tmp85);
+  tasklet_enable(__cil_tmp46);
   }
   {
 #line 2073
-  __cil_tmp86 = (unsigned int )res;
+  __cil_tmp47 = (unsigned int )res;
 #line 2073
-  if (__cil_tmp86 == 0U) {
+  if (__cil_tmp47 == 0U) {
 #line 2073
     return (0);
   } else {
@@ -25999,51 +20352,27 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
   }
   {
 #line 2074
-  __cil_tmp87 = (unsigned long )vcc;
+  __cil_tmp48 = vcc->dev_data;
 #line 2074
-  __cil_tmp88 = __cil_tmp87 + 1480;
+  __cil_tmp49 = (struct eni_vcc *)__cil_tmp48;
 #line 2074
-  __cil_tmp89 = *((void **)__cil_tmp88);
+  __cil_tmp50 = __cil_tmp49->tx;
 #line 2074
-  __cil_tmp90 = (struct eni_vcc *)__cil_tmp89;
+  __cil_tmp51 = & __cil_tmp50->backlog;
 #line 2074
-  __cil_tmp91 = (unsigned long )__cil_tmp90;
-#line 2074
-  __cil_tmp92 = __cil_tmp91 + 40;
-#line 2074
-  __cil_tmp93 = *((struct eni_tx **)__cil_tmp92);
-#line 2074
-  __cil_tmp94 = (unsigned long )__cil_tmp93;
-#line 2074
-  __cil_tmp95 = __cil_tmp94 + 48;
-#line 2074
-  __cil_tmp96 = (struct sk_buff_head *)__cil_tmp95;
-#line 2074
-  skb_queue_tail(__cil_tmp96, skb);
+  skb_queue_tail(__cil_tmp51, skb);
 #line 2075
   backlogged = backlogged + 1;
 #line 2076
-  __cil_tmp97 = (unsigned long )vcc;
+  __cil_tmp52 = vcc->dev;
 #line 2076
-  __cil_tmp98 = __cil_tmp97 + 1304;
+  __cil_tmp53 = __cil_tmp52->dev_data;
 #line 2076
-  __cil_tmp99 = *((struct atm_dev **)__cil_tmp98);
+  __cil_tmp54 = (struct eni_dev *)__cil_tmp53;
 #line 2076
-  __cil_tmp100 = (unsigned long )__cil_tmp99;
+  __cil_tmp55 = & __cil_tmp54->task;
 #line 2076
-  __cil_tmp101 = __cil_tmp100 + 32;
-#line 2076
-  __cil_tmp102 = *((void **)__cil_tmp101);
-#line 2076
-  __cil_tmp103 = (struct eni_dev *)__cil_tmp102;
-#line 2076
-  __cil_tmp104 = (unsigned long )__cil_tmp103;
-#line 2076
-  __cil_tmp105 = __cil_tmp104 + 72;
-#line 2076
-  __cil_tmp106 = (struct tasklet_struct *)__cil_tmp105;
-#line 2076
-  tasklet_schedule(__cil_tmp106);
+  tasklet_schedule(__cil_tmp55);
   }
 #line 2077
   return (0);
@@ -26053,15 +20382,11 @@ static int eni_send(struct atm_vcc *vcc , struct sk_buff *skb )
 static void eni_phy_put(struct atm_dev *dev , unsigned char value , unsigned long addr ) 
 { unsigned int __cil_tmp4 ;
   unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  void *__cil_tmp6 ;
+  struct eni_dev *__cil_tmp7 ;
   void *__cil_tmp8 ;
-  struct eni_dev *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  void *__cil_tmp13 ;
-  void volatile   *__cil_tmp14 ;
+  void *__cil_tmp9 ;
+  void volatile   *__cil_tmp10 ;
 
   {
   {
@@ -26070,25 +20395,17 @@ static void eni_phy_put(struct atm_dev *dev , unsigned char value , unsigned lon
 #line 2083
   __cil_tmp5 = addr * 4UL;
 #line 2083
-  __cil_tmp6 = (unsigned long )dev;
+  __cil_tmp6 = dev->dev_data;
 #line 2083
-  __cil_tmp7 = __cil_tmp6 + 32;
+  __cil_tmp7 = (struct eni_dev *)__cil_tmp6;
 #line 2083
-  __cil_tmp8 = *((void **)__cil_tmp7);
+  __cil_tmp8 = __cil_tmp7->phy;
 #line 2083
-  __cil_tmp9 = (struct eni_dev *)__cil_tmp8;
+  __cil_tmp9 = __cil_tmp8 + __cil_tmp5;
 #line 2083
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
+  __cil_tmp10 = (void volatile   *)__cil_tmp9;
 #line 2083
-  __cil_tmp11 = __cil_tmp10 + 120;
-#line 2083
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 2083
-  __cil_tmp13 = __cil_tmp12 + __cil_tmp5;
-#line 2083
-  __cil_tmp14 = (void volatile   *)__cil_tmp13;
-#line 2083
-  writel(__cil_tmp4, __cil_tmp14);
+  writel(__cil_tmp4, __cil_tmp10);
   }
 #line 2084
   return;
@@ -26098,40 +20415,28 @@ static void eni_phy_put(struct atm_dev *dev , unsigned char value , unsigned lon
 static unsigned char eni_phy_get(struct atm_dev *dev , unsigned long addr ) 
 { unsigned int tmp ;
   unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  void *__cil_tmp5 ;
+  struct eni_dev *__cil_tmp6 ;
   void *__cil_tmp7 ;
-  struct eni_dev *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  void *__cil_tmp12 ;
-  void const volatile   *__cil_tmp13 ;
+  void *__cil_tmp8 ;
+  void const volatile   *__cil_tmp9 ;
 
   {
   {
 #line 2090
   __cil_tmp4 = addr * 4UL;
 #line 2090
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->dev_data;
 #line 2090
-  __cil_tmp6 = __cil_tmp5 + 32;
+  __cil_tmp6 = (struct eni_dev *)__cil_tmp5;
 #line 2090
-  __cil_tmp7 = *((void **)__cil_tmp6);
+  __cil_tmp7 = __cil_tmp6->phy;
 #line 2090
-  __cil_tmp8 = (struct eni_dev *)__cil_tmp7;
+  __cil_tmp8 = __cil_tmp7 + __cil_tmp4;
 #line 2090
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
+  __cil_tmp9 = (void const volatile   *)__cil_tmp8;
 #line 2090
-  __cil_tmp10 = __cil_tmp9 + 120;
-#line 2090
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 2090
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp4;
-#line 2090
-  __cil_tmp13 = (void const volatile   *)__cil_tmp12;
-#line 2090
-  tmp = readl(__cil_tmp13);
+  tmp = readl(__cil_tmp9);
   }
 #line 2090
   return ((unsigned char )tmp);
@@ -26164,274 +20469,149 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   struct eni_free *fe ;
   unsigned long offset ;
   int tmp___9 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  void *__cil_tmp37 ;
-  loff_t __cil_tmp38 ;
+  void *__cil_tmp29 ;
+  loff_t __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  char *__cil_tmp35 ;
+  char *__cil_tmp36 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  struct eni_tx (*__cil_tmp40)[8U] ;
+  struct eni_tx *__cil_tmp41 ;
+  void *__cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  char __cil_tmp44 ;
-  int __cil_tmp45 ;
+  void *__cil_tmp44 ;
+  unsigned long __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  char const   *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
+  struct eni_tx *__cil_tmp47 ;
+  unsigned long __cil_tmp48 ;
+  void *__cil_tmp49 ;
+  long __cil_tmp50 ;
+  void *__cil_tmp51 ;
+  long __cil_tmp52 ;
+  long __cil_tmp53 ;
   unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
-  char *__cil_tmp56 ;
-  char *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
+  unsigned long __cil_tmp55 ;
+  unsigned long __cil_tmp56 ;
+  void *__cil_tmp57 ;
+  long __cil_tmp58 ;
+  void *__cil_tmp59 ;
+  long __cil_tmp60 ;
+  long __cil_tmp61 ;
   unsigned long __cil_tmp62 ;
-  int __cil_tmp63 ;
+  unsigned long __cil_tmp63 ;
   unsigned long __cil_tmp64 ;
   unsigned long __cil_tmp65 ;
   unsigned long __cil_tmp66 ;
-  struct eni_tx (*__cil_tmp67)[8U] ;
-  struct eni_tx *__cil_tmp68 ;
-  void *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  void *__cil_tmp71 ;
+  int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  struct sk_buff_head *__cil_tmp69 ;
+  struct sk_buff_head  const  *__cil_tmp70 ;
+  char *__cil_tmp71 ;
   unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  struct hlist_head *__cil_tmp73 ;
   unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  struct eni_tx *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  void *__cil_tmp80 ;
-  long __cil_tmp81 ;
-  void *__cil_tmp82 ;
-  long __cil_tmp83 ;
-  long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
+  struct atm_dev *__cil_tmp75 ;
+  unsigned long __cil_tmp76 ;
+  void *__cil_tmp77 ;
+  int __cil_tmp78 ;
+  int (*__cil_tmp79)(struct atm_vcc * ) ;
+  unsigned long __cil_tmp80 ;
+  int (*__cil_tmp81)(struct atm_vcc * ) ;
+  unsigned long __cil_tmp82 ;
+  unsigned long __cil_tmp83 ;
+  char *__cil_tmp84 ;
+  void *__cil_tmp85 ;
+  long __cil_tmp86 ;
+  void *__cil_tmp87 ;
+  long __cil_tmp88 ;
+  long __cil_tmp89 ;
   unsigned long __cil_tmp90 ;
   unsigned long __cil_tmp91 ;
-  void *__cil_tmp92 ;
-  long __cil_tmp93 ;
-  void *__cil_tmp94 ;
-  long __cil_tmp95 ;
+  unsigned long __cil_tmp92 ;
+  void *__cil_tmp93 ;
+  long __cil_tmp94 ;
+  void *__cil_tmp95 ;
   long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
+  long __cil_tmp97 ;
   unsigned long __cil_tmp98 ;
   unsigned long __cil_tmp99 ;
   unsigned long __cil_tmp100 ;
   unsigned long __cil_tmp101 ;
   unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
+  struct eni_tx *__cil_tmp103 ;
   unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  int __cil_tmp106 ;
+  struct eni_tx *__cil_tmp105 ;
+  unsigned long __cil_tmp106 ;
   unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  int __cil_tmp109 ;
+  char *__cil_tmp108 ;
+  struct eni_tx *__cil_tmp109 ;
   unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  struct sk_buff_head *__cil_tmp112 ;
-  struct sk_buff_head  const  *__cil_tmp113 ;
+  struct eni_tx *__cil_tmp111 ;
+  unsigned long __cil_tmp112 ;
+  unsigned long __cil_tmp113 ;
   char *__cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  struct hlist_head *__cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
+  struct eni_tx *__cil_tmp115 ;
+  int __cil_tmp116 ;
+  int __cil_tmp117 ;
   unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  struct atm_dev *__cil_tmp120 ;
+  char *__cil_tmp119 ;
+  struct hlist_node *__cil_tmp120 ;
   unsigned long __cil_tmp121 ;
   unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  void *__cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
+  struct sock *__cil_tmp123 ;
+  unsigned long __cil_tmp124 ;
+  struct eni_free *__cil_tmp125 ;
   unsigned long __cil_tmp126 ;
-  int __cil_tmp127 ;
-  int (*__cil_tmp128)(struct atm_vcc * ) ;
+  void *__cil_tmp127 ;
+  unsigned long __cil_tmp128 ;
   unsigned long __cil_tmp129 ;
-  int (*__cil_tmp130)(struct atm_vcc * ) ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  char *__cil_tmp133 ;
+  void *__cil_tmp130 ;
+  void *__cil_tmp131 ;
+  int __cil_tmp132 ;
+  int __cil_tmp133 ;
   unsigned long __cil_tmp134 ;
   unsigned long __cil_tmp135 ;
-  void *__cil_tmp136 ;
-  long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  void *__cil_tmp140 ;
-  long __cil_tmp141 ;
-  long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  void *__cil_tmp150 ;
-  long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  void *__cil_tmp154 ;
-  long __cil_tmp155 ;
-  long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  struct eni_tx *__cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  struct eni_tx *__cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  char *__cil_tmp171 ;
-  struct eni_tx *__cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  struct eni_tx *__cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  char *__cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  struct eni_tx *__cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  int __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  int __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  char *__cil_tmp190 ;
-  struct hlist_node *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  struct sock *__cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  struct eni_free *__cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  void *__cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  void *__cil_tmp207 ;
-  void *__cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  int __cil_tmp211 ;
-  int __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  void *__cil_tmp216 ;
-  void *__cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  int __cil_tmp220 ;
-  int __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  int __cil_tmp224 ;
+  unsigned long __cil_tmp136 ;
+  void *__cil_tmp137 ;
+  void *__cil_tmp138 ;
+  int __cil_tmp139 ;
+  int __cil_tmp140 ;
+  int __cil_tmp141 ;
 
   {
 #line 2098
-  __cil_tmp29 = 0 * 8UL;
+  signal[0] = "LOST";
 #line 2098
-  __cil_tmp30 = (unsigned long )(signal) + __cil_tmp29;
+  signal[1] = "unknown";
 #line 2098
-  *((char const   **)__cil_tmp30) = "LOST";
-#line 2098
-  __cil_tmp31 = 1 * 8UL;
-#line 2098
-  __cil_tmp32 = (unsigned long )(signal) + __cil_tmp31;
-#line 2098
-  *((char const   **)__cil_tmp32) = "unknown";
-#line 2098
-  __cil_tmp33 = 2 * 8UL;
-#line 2098
-  __cil_tmp34 = (unsigned long )(signal) + __cil_tmp33;
-#line 2098
-  *((char const   **)__cil_tmp34) = "okay";
+  signal[2] = "okay";
 #line 2099
-  __cil_tmp35 = (unsigned long )dev;
+  __cil_tmp29 = dev->dev_data;
 #line 2099
-  __cil_tmp36 = __cil_tmp35 + 32;
-#line 2099
-  __cil_tmp37 = *((void **)__cil_tmp36);
-#line 2099
-  eni_dev = (struct eni_dev *)__cil_tmp37;
+  eni_dev = (struct eni_dev *)__cil_tmp29;
 #line 2103
-  __cil_tmp38 = *pos;
+  __cil_tmp30 = *pos;
 #line 2103
-  left = (int )__cil_tmp38;
+  left = (int )__cil_tmp30;
 #line 2104
   if (left == 0) {
     {
 #line 2105
-    __cil_tmp39 = (unsigned long )dev;
+    __cil_tmp31 = dev->number;
 #line 2105
-    __cil_tmp40 = __cil_tmp39 + 24;
+    __cil_tmp32 = eni_dev->mem;
 #line 2105
-    __cil_tmp41 = *((int *)__cil_tmp40);
+    __cil_tmp33 = __cil_tmp32 >> 10;
 #line 2105
-    __cil_tmp42 = (unsigned long )dev;
+    __cil_tmp34 = eni_dev->tx_bw;
 #line 2105
-    __cil_tmp43 = __cil_tmp42 + 156;
-#line 2105
-    __cil_tmp44 = *((char *)__cil_tmp43);
-#line 2105
-    __cil_tmp45 = (int )__cil_tmp44;
-#line 2105
-    __cil_tmp46 = __cil_tmp45 * 8UL;
-#line 2105
-    __cil_tmp47 = (unsigned long )(signal) + __cil_tmp46;
-#line 2105
-    __cil_tmp48 = *((char const   **)__cil_tmp47);
-#line 2105
-    __cil_tmp49 = (unsigned long )eni_dev;
-#line 2105
-    __cil_tmp50 = __cil_tmp49 + 2616;
-#line 2105
-    __cil_tmp51 = *((int *)__cil_tmp50);
-#line 2105
-    __cil_tmp52 = __cil_tmp51 >> 10;
-#line 2105
-    __cil_tmp53 = (unsigned long )eni_dev;
-#line 2105
-    __cil_tmp54 = __cil_tmp53 + 1520;
-#line 2105
-    __cil_tmp55 = *((int *)__cil_tmp54);
-#line 2105
-    tmp = sprintf(page, "eni(itf %d) signal %s, %dkB, %d cps remaining\n", __cil_tmp41,
-                  __cil_tmp48, __cil_tmp52, __cil_tmp55);
+    tmp = sprintf(page, "eni(itf %d) signal %s, %dkB, %d cps remaining\n", __cil_tmp31,
+                  signal[(int )dev->signal], __cil_tmp33, __cil_tmp34);
     }
 #line 2105
     return (tmp);
@@ -26444,9 +20624,9 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   if (left == 0) {
     {
 #line 2109
-    __cil_tmp56 = (char *)"";
+    __cil_tmp35 = (char *)"";
 #line 2109
-    tmp___0 = sprintf(page, "%4sBursts: TX 16W 8W 4W 2W, RX 16W 8W 4W 2W\n", __cil_tmp56);
+    tmp___0 = sprintf(page, "%4sBursts: TX 16W 8W 4W 2W, RX 16W 8W 4W 2W\n", __cil_tmp35);
     }
 #line 2109
     return (tmp___0);
@@ -26459,22 +20639,14 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   if (left == 0) {
     {
 #line 2152
-    __cil_tmp57 = (char *)"";
+    __cil_tmp36 = (char *)"";
 #line 2152
-    __cil_tmp58 = (unsigned long )eni_dev;
+    __cil_tmp37 = eni_dev->tx_mult;
 #line 2152
-    __cil_tmp59 = __cil_tmp58 + 2324;
+    __cil_tmp38 = eni_dev->rx_mult;
 #line 2152
-    __cil_tmp60 = *((int *)__cil_tmp59);
-#line 2152
-    __cil_tmp61 = (unsigned long )eni_dev;
-#line 2152
-    __cil_tmp62 = __cil_tmp61 + 2560;
-#line 2152
-    __cil_tmp63 = *((int *)__cil_tmp62);
-#line 2152
-    tmp___1 = sprintf(page, "%4sBuffer multipliers: tx %d%%, rx %d%%\n", __cil_tmp57,
-                      __cil_tmp60, __cil_tmp63);
+    tmp___1 = sprintf(page, "%4sBuffer multipliers: tx %d%%, rx %d%%\n", __cil_tmp36,
+                      __cil_tmp37, __cil_tmp38);
     }
 #line 2152
     return (tmp___1);
@@ -26483,31 +20655,29 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   }
 #line 2154
   i = 0;
+#line 2154
   goto ldv_40663;
   ldv_40662: 
 #line 2155
-  __cil_tmp64 = (unsigned long )i;
+  __cil_tmp39 = (unsigned long )i;
 #line 2155
-  __cil_tmp65 = (unsigned long )eni_dev;
+  __cil_tmp40 = & eni_dev->tx;
 #line 2155
-  __cil_tmp66 = __cil_tmp65 + 176;
+  __cil_tmp41 = (struct eni_tx *)__cil_tmp40;
 #line 2155
-  __cil_tmp67 = (struct eni_tx (*)[8U])__cil_tmp66;
-#line 2155
-  __cil_tmp68 = (struct eni_tx *)__cil_tmp67;
-#line 2155
-  tx = __cil_tmp68 + __cil_tmp64;
+  tx = __cil_tmp41 + __cil_tmp39;
   {
 #line 2157
-  __cil_tmp69 = (void *)0;
+  __cil_tmp42 = (void *)0;
 #line 2157
-  __cil_tmp70 = (unsigned long )__cil_tmp69;
+  __cil_tmp43 = (unsigned long )__cil_tmp42;
 #line 2157
-  __cil_tmp71 = *((void **)tx);
+  __cil_tmp44 = tx->send;
 #line 2157
-  __cil_tmp72 = (unsigned long )__cil_tmp71;
+  __cil_tmp45 = (unsigned long )__cil_tmp44;
 #line 2157
-  if (__cil_tmp72 == __cil_tmp70) {
+  if (__cil_tmp45 == __cil_tmp43) {
+#line 2157
     goto ldv_40661;
   } else {
 
@@ -26519,17 +20689,13 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   if (left == 0) {
     {
 #line 2159
-    __cil_tmp73 = (unsigned long )tx;
+    __cil_tmp46 = (unsigned long )tx;
 #line 2159
-    __cil_tmp74 = (unsigned long )eni_dev;
+    __cil_tmp47 = eni_dev->ubr;
 #line 2159
-    __cil_tmp75 = __cil_tmp74 + 1328;
+    __cil_tmp48 = (unsigned long )__cil_tmp47;
 #line 2159
-    __cil_tmp76 = *((struct eni_tx **)__cil_tmp75);
-#line 2159
-    __cil_tmp77 = (unsigned long )__cil_tmp76;
-#line 2159
-    if (__cil_tmp77 == __cil_tmp73) {
+    if (__cil_tmp48 == __cil_tmp46) {
 #line 2159
       tmp___2 = (char *)" (UBR)";
     } else {
@@ -26539,72 +20705,48 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
     }
     {
 #line 2159
-    __cil_tmp78 = (unsigned long )eni_dev;
+    __cil_tmp49 = eni_dev->ram;
 #line 2159
-    __cil_tmp79 = __cil_tmp78 + 136;
+    __cil_tmp50 = (long )__cil_tmp49;
 #line 2159
-    __cil_tmp80 = *((void **)__cil_tmp79);
+    __cil_tmp51 = tx->send;
 #line 2159
-    __cil_tmp81 = (long )__cil_tmp80;
+    __cil_tmp52 = (long )__cil_tmp51;
 #line 2159
-    __cil_tmp82 = *((void **)tx);
+    __cil_tmp53 = __cil_tmp52 - __cil_tmp50;
 #line 2159
-    __cil_tmp83 = (long )__cil_tmp82;
+    __cil_tmp54 = (unsigned long )__cil_tmp53;
 #line 2159
-    __cil_tmp84 = __cil_tmp83 - __cil_tmp81;
+    __cil_tmp55 = tx->words;
 #line 2159
-    __cil_tmp85 = (unsigned long )__cil_tmp84;
+    __cil_tmp56 = __cil_tmp55 * 4UL;
 #line 2159
-    __cil_tmp86 = (unsigned long )tx;
+    __cil_tmp57 = eni_dev->ram;
 #line 2159
-    __cil_tmp87 = __cil_tmp86 + 24;
+    __cil_tmp58 = (long )__cil_tmp57;
 #line 2159
-    __cil_tmp88 = *((unsigned long *)__cil_tmp87);
+    __cil_tmp59 = tx->send;
 #line 2159
-    __cil_tmp89 = __cil_tmp88 * 4UL;
+    __cil_tmp60 = (long )__cil_tmp59;
 #line 2159
-    __cil_tmp90 = (unsigned long )eni_dev;
+    __cil_tmp61 = __cil_tmp60 - __cil_tmp58;
 #line 2159
-    __cil_tmp91 = __cil_tmp90 + 136;
+    __cil_tmp62 = (unsigned long )__cil_tmp61;
 #line 2159
-    __cil_tmp92 = *((void **)__cil_tmp91);
+    __cil_tmp63 = __cil_tmp62 + __cil_tmp56;
 #line 2159
-    __cil_tmp93 = (long )__cil_tmp92;
+    __cil_tmp64 = __cil_tmp63 - 1UL;
 #line 2159
-    __cil_tmp94 = *((void **)tx);
+    __cil_tmp65 = tx->words;
 #line 2159
-    __cil_tmp95 = (long )__cil_tmp94;
+    __cil_tmp66 = __cil_tmp65 * 4UL;
 #line 2159
-    __cil_tmp96 = __cil_tmp95 - __cil_tmp93;
+    __cil_tmp67 = tx->reserved;
 #line 2159
-    __cil_tmp97 = (unsigned long )__cil_tmp96;
-#line 2159
-    __cil_tmp98 = __cil_tmp97 + __cil_tmp89;
-#line 2159
-    __cil_tmp99 = __cil_tmp98 - 1UL;
-#line 2159
-    __cil_tmp100 = (unsigned long )tx;
-#line 2159
-    __cil_tmp101 = __cil_tmp100 + 24;
-#line 2159
-    __cil_tmp102 = *((unsigned long *)__cil_tmp101);
-#line 2159
-    __cil_tmp103 = __cil_tmp102 * 4UL;
-#line 2159
-    __cil_tmp104 = (unsigned long )tx;
-#line 2159
-    __cil_tmp105 = __cil_tmp104 + 36;
-#line 2159
-    __cil_tmp106 = *((int *)__cil_tmp105);
-#line 2159
-    __cil_tmp107 = (unsigned long )tx;
-#line 2159
-    __cil_tmp108 = __cil_tmp107 + 40;
-#line 2159
-    __cil_tmp109 = *((int *)__cil_tmp108);
+    __cil_tmp68 = tx->shaping;
 #line 2159
     tmp___3 = sprintf(page, "tx[%d]:    0x%ld-0x%ld (%6ld bytes), rsv %d cps, shp %d cps%s\n",
-                      i, __cil_tmp85, __cil_tmp99, __cil_tmp103, __cil_tmp106, __cil_tmp109,
+                      i, __cil_tmp54, __cil_tmp64, __cil_tmp66, __cil_tmp67, __cil_tmp68,
                       tmp___2);
     }
 #line 2159
@@ -26616,25 +20758,22 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   left = left - 1;
 #line 2166
   if (left != 0) {
+#line 2166
     goto ldv_40661;
   } else {
 
   }
   {
 #line 2167
-  __cil_tmp110 = (unsigned long )tx;
+  __cil_tmp69 = & tx->backlog;
 #line 2167
-  __cil_tmp111 = __cil_tmp110 + 48;
+  __cil_tmp70 = (struct sk_buff_head  const  *)__cil_tmp69;
 #line 2167
-  __cil_tmp112 = (struct sk_buff_head *)__cil_tmp111;
+  tmp___4 = skb_queue_len(__cil_tmp70);
 #line 2167
-  __cil_tmp113 = (struct sk_buff_head  const  *)__cil_tmp112;
+  __cil_tmp71 = (char *)"";
 #line 2167
-  tmp___4 = skb_queue_len(__cil_tmp113);
-#line 2167
-  __cil_tmp114 = (char *)"";
-#line 2167
-  tmp___5 = sprintf(page, "%10sbacklog %u packets\n", __cil_tmp114, tmp___4);
+  tmp___5 = sprintf(page, "%10sbacklog %u packets\n", __cil_tmp71, tmp___4);
   }
 #line 2167
   return (tmp___5);
@@ -26644,8 +20783,10 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   ldv_40663: ;
 #line 2154
   if (i <= 7) {
+#line 2155
     goto ldv_40662;
   } else {
+#line 2157
     goto ldv_40664;
   }
   ldv_40664: 
@@ -26655,16 +20796,18 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
 #line 2171
   i = 0;
   }
+#line 2171
   goto ldv_40676;
   ldv_40675: 
 #line 2172
-  __cil_tmp115 = (unsigned long )i;
+  __cil_tmp72 = (unsigned long )i;
 #line 2172
-  __cil_tmp116 = (struct hlist_head *)(& vcc_hash);
+  __cil_tmp73 = (struct hlist_head *)(& vcc_hash);
 #line 2172
-  head = __cil_tmp116 + __cil_tmp115;
+  head = __cil_tmp73 + __cil_tmp72;
 #line 2174
-  node = *((struct hlist_node **)head);
+  node = head->first;
+#line 2174
   goto ldv_40673;
   ldv_40672: 
   {
@@ -26673,152 +20816,114 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   }
   {
 #line 2179
-  __cil_tmp117 = (unsigned long )dev;
+  __cil_tmp74 = (unsigned long )dev;
 #line 2179
-  __cil_tmp118 = (unsigned long )vcc;
+  __cil_tmp75 = vcc->dev;
 #line 2179
-  __cil_tmp119 = __cil_tmp118 + 1304;
+  __cil_tmp76 = (unsigned long )__cil_tmp75;
 #line 2179
-  __cil_tmp120 = *((struct atm_dev **)__cil_tmp119);
-#line 2179
-  __cil_tmp121 = (unsigned long )__cil_tmp120;
-#line 2179
-  if (__cil_tmp121 != __cil_tmp117) {
+  if (__cil_tmp76 != __cil_tmp74) {
+#line 2180
     goto ldv_40671;
   } else {
 
   }
   }
 #line 2181
-  __cil_tmp122 = (unsigned long )vcc;
+  __cil_tmp77 = vcc->dev_data;
 #line 2181
-  __cil_tmp123 = __cil_tmp122 + 1480;
-#line 2181
-  __cil_tmp124 = *((void **)__cil_tmp123);
-#line 2181
-  eni_vcc = (struct eni_vcc *)__cil_tmp124;
+  eni_vcc = (struct eni_vcc *)__cil_tmp77;
 #line 2182
   left = left - 1;
 #line 2182
   if (left != 0) {
+#line 2182
     goto ldv_40671;
   } else {
 
   }
   {
 #line 2183
-  __cil_tmp125 = (unsigned long )vcc;
+  __cil_tmp78 = vcc->vci;
 #line 2183
-  __cil_tmp126 = __cil_tmp125 + 1284;
-#line 2183
-  __cil_tmp127 = *((int *)__cil_tmp126);
-#line 2183
-  length = sprintf(page, "vcc %4d: ", __cil_tmp127);
+  length = sprintf(page, "vcc %4d: ", __cil_tmp78);
   }
   {
 #line 2184
-  __cil_tmp128 = (int (*)(struct atm_vcc * ))0;
+  __cil_tmp79 = (int (*)(struct atm_vcc * ))0;
 #line 2184
-  __cil_tmp129 = (unsigned long )__cil_tmp128;
+  __cil_tmp80 = (unsigned long )__cil_tmp79;
 #line 2184
-  __cil_tmp130 = *((int (**)(struct atm_vcc * ))eni_vcc);
+  __cil_tmp81 = eni_vcc->rx;
 #line 2184
-  __cil_tmp131 = (unsigned long )__cil_tmp130;
+  __cil_tmp82 = (unsigned long )__cil_tmp81;
 #line 2184
-  if (__cil_tmp131 != __cil_tmp129) {
+  if (__cil_tmp82 != __cil_tmp80) {
     {
 #line 2185
-    __cil_tmp132 = (unsigned long )length;
+    __cil_tmp83 = (unsigned long )length;
 #line 2185
-    __cil_tmp133 = page + __cil_tmp132;
+    __cil_tmp84 = page + __cil_tmp83;
 #line 2185
-    __cil_tmp134 = (unsigned long )eni_dev;
+    __cil_tmp85 = eni_dev->ram;
 #line 2185
-    __cil_tmp135 = __cil_tmp134 + 136;
+    __cil_tmp86 = (long )__cil_tmp85;
 #line 2185
-    __cil_tmp136 = *((void **)__cil_tmp135);
+    __cil_tmp87 = eni_vcc->recv;
 #line 2185
-    __cil_tmp137 = (long )__cil_tmp136;
+    __cil_tmp88 = (long )__cil_tmp87;
 #line 2185
-    __cil_tmp138 = (unsigned long )eni_vcc;
+    __cil_tmp89 = __cil_tmp88 - __cil_tmp86;
 #line 2185
-    __cil_tmp139 = __cil_tmp138 + 8;
+    __cil_tmp90 = (unsigned long )__cil_tmp89;
 #line 2185
-    __cil_tmp140 = *((void **)__cil_tmp139);
+    __cil_tmp91 = eni_vcc->words;
 #line 2185
-    __cil_tmp141 = (long )__cil_tmp140;
+    __cil_tmp92 = __cil_tmp91 * 4UL;
 #line 2185
-    __cil_tmp142 = __cil_tmp141 - __cil_tmp137;
+    __cil_tmp93 = eni_dev->ram;
 #line 2185
-    __cil_tmp143 = (unsigned long )__cil_tmp142;
+    __cil_tmp94 = (long )__cil_tmp93;
 #line 2185
-    __cil_tmp144 = (unsigned long )eni_vcc;
+    __cil_tmp95 = eni_vcc->recv;
 #line 2185
-    __cil_tmp145 = __cil_tmp144 + 16;
+    __cil_tmp96 = (long )__cil_tmp95;
 #line 2185
-    __cil_tmp146 = *((unsigned long *)__cil_tmp145);
+    __cil_tmp97 = __cil_tmp96 - __cil_tmp94;
 #line 2185
-    __cil_tmp147 = __cil_tmp146 * 4UL;
+    __cil_tmp98 = (unsigned long )__cil_tmp97;
 #line 2185
-    __cil_tmp148 = (unsigned long )eni_dev;
+    __cil_tmp99 = __cil_tmp98 + __cil_tmp92;
 #line 2185
-    __cil_tmp149 = __cil_tmp148 + 136;
+    __cil_tmp100 = __cil_tmp99 - 1UL;
 #line 2185
-    __cil_tmp150 = *((void **)__cil_tmp149);
+    __cil_tmp101 = eni_vcc->words;
 #line 2185
-    __cil_tmp151 = (long )__cil_tmp150;
+    __cil_tmp102 = __cil_tmp101 * 4UL;
 #line 2185
-    __cil_tmp152 = (unsigned long )eni_vcc;
-#line 2185
-    __cil_tmp153 = __cil_tmp152 + 8;
-#line 2185
-    __cil_tmp154 = *((void **)__cil_tmp153);
-#line 2185
-    __cil_tmp155 = (long )__cil_tmp154;
-#line 2185
-    __cil_tmp156 = __cil_tmp155 - __cil_tmp151;
-#line 2185
-    __cil_tmp157 = (unsigned long )__cil_tmp156;
-#line 2185
-    __cil_tmp158 = __cil_tmp157 + __cil_tmp147;
-#line 2185
-    __cil_tmp159 = __cil_tmp158 - 1UL;
-#line 2185
-    __cil_tmp160 = (unsigned long )eni_vcc;
-#line 2185
-    __cil_tmp161 = __cil_tmp160 + 16;
-#line 2185
-    __cil_tmp162 = *((unsigned long *)__cil_tmp161);
-#line 2185
-    __cil_tmp163 = __cil_tmp162 * 4UL;
-#line 2185
-    tmp___6 = sprintf(__cil_tmp133, "0x%ld-0x%ld (%6ld bytes)", __cil_tmp143, __cil_tmp159,
-                      __cil_tmp163);
+    tmp___6 = sprintf(__cil_tmp84, "0x%ld-0x%ld (%6ld bytes)", __cil_tmp90, __cil_tmp100,
+                      __cil_tmp102);
 #line 2185
     length = tmp___6 + length;
     }
     {
 #line 2190
-    __cil_tmp164 = (struct eni_tx *)0;
+    __cil_tmp103 = (struct eni_tx *)0;
 #line 2190
-    __cil_tmp165 = (unsigned long )__cil_tmp164;
+    __cil_tmp104 = (unsigned long )__cil_tmp103;
 #line 2190
-    __cil_tmp166 = (unsigned long )eni_vcc;
+    __cil_tmp105 = eni_vcc->tx;
 #line 2190
-    __cil_tmp167 = __cil_tmp166 + 40;
+    __cil_tmp106 = (unsigned long )__cil_tmp105;
 #line 2190
-    __cil_tmp168 = *((struct eni_tx **)__cil_tmp167);
-#line 2190
-    __cil_tmp169 = (unsigned long )__cil_tmp168;
-#line 2190
-    if (__cil_tmp169 != __cil_tmp165) {
+    if (__cil_tmp106 != __cil_tmp104) {
       {
 #line 2190
-      __cil_tmp170 = (unsigned long )length;
+      __cil_tmp107 = (unsigned long )length;
 #line 2190
-      __cil_tmp171 = page + __cil_tmp170;
+      __cil_tmp108 = page + __cil_tmp107;
 #line 2190
-      tmp___7 = sprintf(__cil_tmp171, ", ");
+      tmp___7 = sprintf(__cil_tmp108, ", ");
 #line 2190
       length = tmp___7 + length;
       }
@@ -26832,44 +20937,28 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   }
   {
 #line 2192
-  __cil_tmp172 = (struct eni_tx *)0;
+  __cil_tmp109 = (struct eni_tx *)0;
 #line 2192
-  __cil_tmp173 = (unsigned long )__cil_tmp172;
+  __cil_tmp110 = (unsigned long )__cil_tmp109;
 #line 2192
-  __cil_tmp174 = (unsigned long )eni_vcc;
+  __cil_tmp111 = eni_vcc->tx;
 #line 2192
-  __cil_tmp175 = __cil_tmp174 + 40;
+  __cil_tmp112 = (unsigned long )__cil_tmp111;
 #line 2192
-  __cil_tmp176 = *((struct eni_tx **)__cil_tmp175);
-#line 2192
-  __cil_tmp177 = (unsigned long )__cil_tmp176;
-#line 2192
-  if (__cil_tmp177 != __cil_tmp173) {
+  if (__cil_tmp112 != __cil_tmp110) {
     {
 #line 2193
-    __cil_tmp178 = (unsigned long )length;
+    __cil_tmp113 = (unsigned long )length;
 #line 2193
-    __cil_tmp179 = page + __cil_tmp178;
+    __cil_tmp114 = page + __cil_tmp113;
 #line 2193
-    __cil_tmp180 = (unsigned long )eni_vcc;
+    __cil_tmp115 = eni_vcc->tx;
 #line 2193
-    __cil_tmp181 = __cil_tmp180 + 40;
+    __cil_tmp116 = __cil_tmp115->index;
 #line 2193
-    __cil_tmp182 = *((struct eni_tx **)__cil_tmp181);
+    __cil_tmp117 = eni_vcc->txing;
 #line 2193
-    __cil_tmp183 = (unsigned long )__cil_tmp182;
-#line 2193
-    __cil_tmp184 = __cil_tmp183 + 32;
-#line 2193
-    __cil_tmp185 = *((int *)__cil_tmp184);
-#line 2193
-    __cil_tmp186 = (unsigned long )eni_vcc;
-#line 2193
-    __cil_tmp187 = __cil_tmp186 + 56;
-#line 2193
-    __cil_tmp188 = *((int *)__cil_tmp187);
-#line 2193
-    tmp___8 = sprintf(__cil_tmp179, "tx[%d], txing %d bytes", __cil_tmp185, __cil_tmp188);
+    tmp___8 = sprintf(__cil_tmp114, "tx[%d], txing %d bytes", __cil_tmp116, __cil_tmp117);
 #line 2193
     length = tmp___8 + length;
     }
@@ -26879,11 +20968,11 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   }
   {
 #line 2195
-  __cil_tmp189 = (unsigned long )length;
+  __cil_tmp118 = (unsigned long )length;
 #line 2195
-  __cil_tmp190 = page + __cil_tmp189;
+  __cil_tmp119 = page + __cil_tmp118;
 #line 2195
-  *__cil_tmp190 = (char)10;
+  *__cil_tmp119 = (char)10;
 #line 2196
   _raw_read_unlock(& vcc_sklist_lock);
   }
@@ -26891,25 +20980,27 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   return (length + 1);
   ldv_40671: 
 #line 2174
-  node = *((struct hlist_node **)node);
+  node = node->next;
   ldv_40673: ;
   {
 #line 2174
-  __cil_tmp191 = (struct hlist_node *)0;
+  __cil_tmp120 = (struct hlist_node *)0;
 #line 2174
-  __cil_tmp192 = (unsigned long )__cil_tmp191;
+  __cil_tmp121 = (unsigned long )__cil_tmp120;
 #line 2174
-  __cil_tmp193 = (unsigned long )node;
+  __cil_tmp122 = (unsigned long )node;
 #line 2174
-  if (__cil_tmp193 != __cil_tmp192) {
+  if (__cil_tmp122 != __cil_tmp121) {
 #line 2174
     __mptr = (struct hlist_node  const  *)node;
 #line 2174
-    __cil_tmp194 = (struct sock *)__mptr;
+    __cil_tmp123 = (struct sock *)__mptr;
 #line 2174
-    s = __cil_tmp194 + 1152921504606846920UL;
+    s = __cil_tmp123 + 1152921504606846920UL;
+#line 2175
     goto ldv_40672;
   } else {
+#line 2177
     goto ldv_40674;
   }
   }
@@ -26919,8 +21010,10 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   ldv_40676: ;
 #line 2171
   if (i <= 31) {
+#line 2172
     goto ldv_40675;
   } else {
+#line 2174
     goto ldv_40677;
   }
   ldv_40677: 
@@ -26930,78 +21023,60 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
 #line 2201
   i = 0;
   }
+#line 2201
   goto ldv_40682;
   ldv_40681: 
 #line 2202
-  __cil_tmp195 = (unsigned long )i;
+  __cil_tmp124 = (unsigned long )i;
 #line 2202
-  __cil_tmp196 = (unsigned long )eni_dev;
+  __cil_tmp125 = eni_dev->free_list;
 #line 2202
-  __cil_tmp197 = __cil_tmp196 + 2592;
-#line 2202
-  __cil_tmp198 = *((struct eni_free **)__cil_tmp197);
-#line 2202
-  fe = __cil_tmp198 + __cil_tmp195;
+  fe = __cil_tmp125 + __cil_tmp124;
 #line 2205
   left = left - 1;
 #line 2205
   if (left != 0) {
+#line 2205
     goto ldv_40680;
   } else {
 
   }
   {
 #line 2206
-  __cil_tmp199 = (unsigned long )eni_dev;
+  __cil_tmp126 = eni_dev->base_diff;
 #line 2206
-  __cil_tmp200 = __cil_tmp199 + 2576;
+  __cil_tmp127 = eni_dev->ram;
 #line 2206
-  __cil_tmp201 = *((unsigned long *)__cil_tmp200);
+  __cil_tmp128 = (unsigned long )__cil_tmp127;
 #line 2206
-  __cil_tmp202 = (unsigned long )eni_dev;
-#line 2206
-  __cil_tmp203 = __cil_tmp202 + 136;
-#line 2206
-  __cil_tmp204 = *((void **)__cil_tmp203);
-#line 2206
-  __cil_tmp205 = (unsigned long )__cil_tmp204;
-#line 2206
-  offset = __cil_tmp205 + __cil_tmp201;
+  offset = __cil_tmp128 + __cil_tmp126;
 #line 2207
-  __cil_tmp206 = - offset;
+  __cil_tmp129 = - offset;
 #line 2207
-  __cil_tmp207 = *((void **)fe);
+  __cil_tmp130 = fe->start;
 #line 2207
-  __cil_tmp208 = __cil_tmp207 + __cil_tmp206;
+  __cil_tmp131 = __cil_tmp130 + __cil_tmp129;
 #line 2207
-  __cil_tmp209 = (unsigned long )fe;
+  __cil_tmp132 = fe->order;
 #line 2207
-  __cil_tmp210 = __cil_tmp209 + 8;
+  __cil_tmp133 = 1 << __cil_tmp132;
 #line 2207
-  __cil_tmp211 = *((int *)__cil_tmp210);
+  __cil_tmp134 = (unsigned long )__cil_tmp133;
 #line 2207
-  __cil_tmp212 = 1 << __cil_tmp211;
+  __cil_tmp135 = __cil_tmp134 - offset;
 #line 2207
-  __cil_tmp213 = (unsigned long )__cil_tmp212;
+  __cil_tmp136 = __cil_tmp135 + 1152921504606846975UL;
 #line 2207
-  __cil_tmp214 = __cil_tmp213 - offset;
+  __cil_tmp137 = fe->start;
 #line 2207
-  __cil_tmp215 = __cil_tmp214 + 1152921504606846975UL;
+  __cil_tmp138 = __cil_tmp137 + __cil_tmp136;
 #line 2207
-  __cil_tmp216 = *((void **)fe);
+  __cil_tmp139 = fe->order;
 #line 2207
-  __cil_tmp217 = __cil_tmp216 + __cil_tmp215;
+  __cil_tmp140 = 1 << __cil_tmp139;
 #line 2207
-  __cil_tmp218 = (unsigned long )fe;
-#line 2207
-  __cil_tmp219 = __cil_tmp218 + 8;
-#line 2207
-  __cil_tmp220 = *((int *)__cil_tmp219);
-#line 2207
-  __cil_tmp221 = 1 << __cil_tmp220;
-#line 2207
-  tmp___9 = sprintf(page, "free      %p-%p (%6d bytes)\n", __cil_tmp208, __cil_tmp217,
-                    __cil_tmp221);
+  tmp___9 = sprintf(page, "free      %p-%p (%6d bytes)\n", __cil_tmp131, __cil_tmp138,
+                    __cil_tmp140);
   }
 #line 2207
   return (tmp___9);
@@ -27011,15 +21086,13 @@ static int eni_proc_read(struct atm_dev *dev , loff_t *pos , char *page )
   ldv_40682: ;
   {
 #line 2201
-  __cil_tmp222 = (unsigned long )eni_dev;
+  __cil_tmp141 = eni_dev->free_len;
 #line 2201
-  __cil_tmp223 = __cil_tmp222 + 2584;
-#line 2201
-  __cil_tmp224 = *((int *)__cil_tmp223);
-#line 2201
-  if (__cil_tmp224 > i) {
+  if (__cil_tmp141 > i) {
+#line 2202
     goto ldv_40681;
   } else {
+#line 2204
     goto ldv_40683;
   }
   }
@@ -27054,32 +21127,16 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
   u32 *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct device *__cil_tmp20 ;
-  unsigned long *__cil_tmp21 ;
-  struct atm_dev *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  void *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  kernel_ulong_t __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct pci_dev *__cil_tmp39 ;
-  void *__cil_tmp40 ;
-  dma_addr_t *__cil_tmp41 ;
-  dma_addr_t __cil_tmp42 ;
-  void const   *__cil_tmp43 ;
+  struct device *__cil_tmp18 ;
+  unsigned long *__cil_tmp19 ;
+  struct atm_dev *__cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  unsigned long __cil_tmp22 ;
+  void *__cil_tmp23 ;
+  kernel_ulong_t __cil_tmp24 ;
+  struct pci_dev *__cil_tmp25 ;
+  void *__cil_tmp26 ;
+  void const   *__cil_tmp27 ;
 
   {
   {
@@ -27092,6 +21149,7 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
   if (tmp != 0) {
 #line 2239
     error = -5;
+#line 2240
     goto out0;
   } else {
 
@@ -27111,6 +21169,7 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
   __cil_tmp11 = (unsigned long )eni_dev;
 #line 2244
   if (__cil_tmp11 == __cil_tmp10) {
+#line 2244
     goto out0;
   } else {
 
@@ -27140,6 +21199,7 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
     __cil_tmp17 = (unsigned long )cpu_zeroes;
 #line 2248
     if (__cil_tmp17 == __cil_tmp16) {
+#line 2248
       goto out1;
     } else {
 
@@ -27151,25 +21211,22 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
   {
 #line 2250
-  __cil_tmp18 = (unsigned long )pci_dev;
+  __cil_tmp18 = & pci_dev->dev;
 #line 2250
-  __cil_tmp19 = __cil_tmp18 + 144;
+  __cil_tmp19 = (unsigned long *)0;
 #line 2250
-  __cil_tmp20 = (struct device *)__cil_tmp19;
-#line 2250
-  __cil_tmp21 = (unsigned long *)0;
-#line 2250
-  dev = atm_dev_register("eni", __cil_tmp20, & ops, -1, __cil_tmp21);
+  dev = atm_dev_register("eni", __cil_tmp18, & ops, -1, __cil_tmp19);
   }
   {
 #line 2251
-  __cil_tmp22 = (struct atm_dev *)0;
+  __cil_tmp20 = (struct atm_dev *)0;
 #line 2251
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
+  __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 2251
-  __cil_tmp24 = (unsigned long )dev;
+  __cil_tmp22 = (unsigned long )dev;
 #line 2251
-  if (__cil_tmp24 == __cil_tmp23) {
+  if (__cil_tmp22 == __cil_tmp21) {
+#line 2251
     goto out2;
   } else {
 
@@ -27177,38 +21234,23 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
   {
 #line 2252
-  __cil_tmp25 = (void *)dev;
+  __cil_tmp23 = (void *)dev;
 #line 2252
-  pci_set_drvdata(pci_dev, __cil_tmp25);
+  pci_set_drvdata(pci_dev, __cil_tmp23);
 #line 2253
-  __cil_tmp26 = (unsigned long )eni_dev;
-#line 2253
-  __cil_tmp27 = __cil_tmp26 + 2632;
-#line 2253
-  *((struct pci_dev **)__cil_tmp27) = pci_dev;
+  eni_dev->pci_dev = pci_dev;
 #line 2254
-  __cil_tmp28 = (unsigned long )dev;
-#line 2254
-  __cil_tmp29 = __cil_tmp28 + 32;
-#line 2254
-  *((void **)__cil_tmp29) = (void *)eni_dev;
+  dev->dev_data = (void *)eni_dev;
 #line 2255
-  __cil_tmp30 = (unsigned long )eni_dev;
+  __cil_tmp24 = ent->driver_data;
 #line 2255
-  __cil_tmp31 = __cil_tmp30 + 2620;
-#line 2255
-  __cil_tmp32 = (unsigned long )ent;
-#line 2255
-  __cil_tmp33 = __cil_tmp32 + 24;
-#line 2255
-  __cil_tmp34 = *((kernel_ulong_t const   *)__cil_tmp33);
-#line 2255
-  *((int *)__cil_tmp31) = (int )__cil_tmp34;
+  eni_dev->asic = (int )__cil_tmp24;
 #line 2256
   error = eni_do_init(dev);
   }
 #line 2257
   if (error != 0) {
+#line 2257
     goto out3;
   } else {
 
@@ -27219,16 +21261,13 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
 #line 2259
   if (error != 0) {
+#line 2259
     goto out3;
   } else {
 
   }
 #line 2260
-  __cil_tmp35 = (unsigned long )eni_dev;
-#line 2260
-  __cil_tmp36 = __cil_tmp35 + 2608;
-#line 2260
-  *((struct atm_dev **)__cil_tmp36) = eni_boards;
+  eni_dev->more = eni_boards;
 #line 2261
   eni_boards = dev;
 #line 2262
@@ -27241,28 +21280,20 @@ static int eni_init_one(struct pci_dev *pci_dev , struct pci_device_id  const  *
   out2: 
   {
 #line 2266
-  __cil_tmp37 = (unsigned long )eni_dev;
+  __cil_tmp25 = eni_dev->pci_dev;
 #line 2266
-  __cil_tmp38 = __cil_tmp37 + 2632;
+  __cil_tmp26 = (void *)cpu_zeroes;
 #line 2266
-  __cil_tmp39 = *((struct pci_dev **)__cil_tmp38);
-#line 2266
-  __cil_tmp40 = (void *)cpu_zeroes;
-#line 2266
-  __cil_tmp41 = & zeroes;
-#line 2266
-  __cil_tmp42 = *__cil_tmp41;
-#line 2266
-  pci_free_consistent(__cil_tmp39, 4UL, __cil_tmp40, __cil_tmp42);
+  pci_free_consistent(__cil_tmp25, 4UL, __cil_tmp26, zeroes);
 #line 2267
   cpu_zeroes = (u32 *)0;
   }
   out1: 
   {
 #line 2269
-  __cil_tmp43 = (void const   *)eni_dev;
+  __cil_tmp27 = (void const   *)eni_dev;
 #line 2269
-  kfree(__cil_tmp43);
+  kfree(__cil_tmp27);
   }
   out0: ;
 #line 2271
@@ -27375,10 +21406,12 @@ void main(void)
   }
 #line 3732
   if (tmp != 0) {
+#line 3733
     goto ldv_final;
   } else {
 
   }
+#line 3742
   goto ldv_40769;
   ldv_40768: 
   {
@@ -27387,189 +21420,206 @@ void main(void)
   }
 #line 3749
   if (tmp___0 == 0) {
+#line 3749
     goto case_0;
-  } else {
+  } else
 #line 3869
-    if (tmp___0 == 1) {
-      goto case_1;
-    } else {
+  if (tmp___0 == 1) {
+#line 3869
+    goto case_1;
+  } else
 #line 3986
-      if (tmp___0 == 2) {
-        goto case_2;
-      } else {
+  if (tmp___0 == 2) {
+#line 3986
+    goto case_2;
+  } else
 #line 4103
-        if (tmp___0 == 3) {
-          goto case_3;
-        } else {
+  if (tmp___0 == 3) {
+#line 4103
+    goto case_3;
+  } else
 #line 4220
-          if (tmp___0 == 4) {
-            goto case_4;
-          } else {
+  if (tmp___0 == 4) {
+#line 4220
+    goto case_4;
+  } else
 #line 4337
-            if (tmp___0 == 5) {
-              goto case_5;
-            } else {
+  if (tmp___0 == 5) {
+#line 4337
+    goto case_5;
+  } else
 #line 4454
-              if (tmp___0 == 6) {
-                goto case_6;
-              } else {
+  if (tmp___0 == 6) {
+#line 4454
+    goto case_6;
+  } else
 #line 4571
-                if (tmp___0 == 7) {
-                  goto case_7;
-                } else {
+  if (tmp___0 == 7) {
+#line 4571
+    goto case_7;
+  } else
 #line 4688
-                  if (tmp___0 == 8) {
-                    goto case_8;
-                  } else {
+  if (tmp___0 == 8) {
+#line 4688
+    goto case_8;
+  } else
 #line 4805
-                    if (tmp___0 == 9) {
-                      goto case_9;
-                    } else {
+  if (tmp___0 == 9) {
+#line 4805
+    goto case_9;
+  } else
 #line 4892
-                      if (tmp___0 == 10) {
-                        goto case_10;
-                      } else {
+  if (tmp___0 == 10) {
+#line 4892
+    goto case_10;
+  } else
 #line 5010
-                        if (tmp___0 == 11) {
-                          goto case_11;
-                        } else {
-                          goto switch_default;
+  if (tmp___0 == 11) {
+#line 5010
+    goto case_11;
+  } else {
+#line 5125
+    goto switch_default;
 #line 3747
-                          if (0) {
-                            case_0: ;
+    if (0) {
+      case_0: ;
 #line 3752
-                            if (ldv_s_ops_atmdev_ops == 0) {
-                              {
+      if (ldv_s_ops_atmdev_ops == 0) {
+        {
 #line 3828
-                              res_eni_open_41 = eni_open(var_group1);
+        res_eni_open_41 = eni_open(var_group1);
 #line 3829
-                              ldv_check_return_value(res_eni_open_41);
-                              }
-#line 3830
-                              if (res_eni_open_41 != 0) {
-                                goto ldv_module_exit;
-                              } else {
-
-                              }
-#line 3862
-                              ldv_s_ops_atmdev_ops = ldv_s_ops_atmdev_ops + 1;
-                            } else {
-
-                            }
-                            goto ldv_40755;
-                            case_1: ;
-#line 3872
-                            if (ldv_s_ops_atmdev_ops == 1) {
-                              {
-#line 3948
-                              eni_close(var_group1);
-#line 3979
-                              ldv_s_ops_atmdev_ops = 0;
-                              }
-                            } else {
-
-                            }
-                            goto ldv_40755;
-                            case_2: 
-                            {
-#line 4065
-                            eni_ioctl(var_group2, var_eni_ioctl_43_p1, var_eni_ioctl_43_p2);
-                            }
-                            goto ldv_40755;
-                            case_3: 
-                            {
-#line 4182
-                            eni_getsockopt(var_group1, var_eni_getsockopt_44_p1, var_eni_getsockopt_44_p2,
-                                           var_eni_getsockopt_44_p3, var_eni_getsockopt_44_p4);
-                            }
-                            goto ldv_40755;
-                            case_4: 
-                            {
-#line 4299
-                            eni_setsockopt(var_group1, var_eni_setsockopt_45_p1, var_eni_setsockopt_45_p2,
-                                           var_eni_setsockopt_45_p3, var_eni_setsockopt_45_p4);
-                            }
-                            goto ldv_40755;
-                            case_5: 
-                            {
-#line 4416
-                            eni_send(var_group1, var_group3);
-                            }
-                            goto ldv_40755;
-                            case_6: 
-                            {
-#line 4533
-                            __cil_tmp32 = (int )var_eni_phy_put_47_p1;
-#line 4533
-                            __cil_tmp33 = (unsigned char )__cil_tmp32;
-#line 4533
-                            eni_phy_put(var_group2, __cil_tmp33, var_eni_phy_put_47_p2);
-                            }
-                            goto ldv_40755;
-                            case_7: 
-                            {
-#line 4650
-                            eni_phy_get(var_group2, var_eni_phy_get_48_p1);
-                            }
-                            goto ldv_40755;
-                            case_8: 
-                            {
-#line 4767
-                            eni_change_qos(var_group1, var_group4, var_eni_change_qos_42_p2);
-                            }
-                            goto ldv_40755;
-                            case_9: 
-                            {
-#line 4884
-                            eni_proc_read(var_group2, var_eni_proc_read_49_p1, var_eni_proc_read_49_p2);
-                            }
-                            goto ldv_40755;
-                            case_10: ;
-#line 4895
-                            if (ldv_s_eni_driver_pci_driver == 0) {
-                              {
-#line 4999
-                              res_eni_init_one_50 = eni_init_one(var_group5, var_eni_init_one_50_p1);
-#line 5000
-                              ldv_check_return_value(res_eni_init_one_50);
-                              }
-#line 5001
-                              if (res_eni_init_one_50 != 0) {
-                                goto ldv_module_exit;
-                              } else {
-
-                              }
-#line 5003
-                              ldv_s_eni_driver_pci_driver = 0;
-                            } else {
-
-                            }
-                            goto ldv_40755;
-                            case_11: 
-                            {
-#line 5013
-                            LDV_IN_INTERRUPT = 2;
-#line 5075
-                            eni_int(var_eni_int_34_p0, var_eni_int_34_p1);
-#line 5118
-                            LDV_IN_INTERRUPT = 1;
-                            }
-                            goto ldv_40755;
-                            switch_default: ;
-                            goto ldv_40755;
-                          } else {
-
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        ldv_check_return_value(res_eni_open_41);
         }
+#line 3830
+        if (res_eni_open_41 != 0) {
+#line 3831
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 3862
+        ldv_s_ops_atmdev_ops = ldv_s_ops_atmdev_ops + 1;
+      } else {
+
       }
+#line 3868
+      goto ldv_40755;
+      case_1: ;
+#line 3872
+      if (ldv_s_ops_atmdev_ops == 1) {
+        {
+#line 3948
+        eni_close(var_group1);
+#line 3979
+        ldv_s_ops_atmdev_ops = 0;
+        }
+      } else {
+
+      }
+#line 3985
+      goto ldv_40755;
+      case_2: 
+      {
+#line 4065
+      eni_ioctl(var_group2, var_eni_ioctl_43_p1, var_eni_ioctl_43_p2);
+      }
+#line 4102
+      goto ldv_40755;
+      case_3: 
+      {
+#line 4182
+      eni_getsockopt(var_group1, var_eni_getsockopt_44_p1, var_eni_getsockopt_44_p2,
+                     var_eni_getsockopt_44_p3, var_eni_getsockopt_44_p4);
+      }
+#line 4219
+      goto ldv_40755;
+      case_4: 
+      {
+#line 4299
+      eni_setsockopt(var_group1, var_eni_setsockopt_45_p1, var_eni_setsockopt_45_p2,
+                     var_eni_setsockopt_45_p3, var_eni_setsockopt_45_p4);
+      }
+#line 4336
+      goto ldv_40755;
+      case_5: 
+      {
+#line 4416
+      eni_send(var_group1, var_group3);
+      }
+#line 4453
+      goto ldv_40755;
+      case_6: 
+      {
+#line 4533
+      __cil_tmp32 = (int )var_eni_phy_put_47_p1;
+#line 4533
+      __cil_tmp33 = (unsigned char )__cil_tmp32;
+#line 4533
+      eni_phy_put(var_group2, __cil_tmp33, var_eni_phy_put_47_p2);
+      }
+#line 4570
+      goto ldv_40755;
+      case_7: 
+      {
+#line 4650
+      eni_phy_get(var_group2, var_eni_phy_get_48_p1);
+      }
+#line 4687
+      goto ldv_40755;
+      case_8: 
+      {
+#line 4767
+      eni_change_qos(var_group1, var_group4, var_eni_change_qos_42_p2);
+      }
+#line 4804
+      goto ldv_40755;
+      case_9: 
+      {
+#line 4884
+      eni_proc_read(var_group2, var_eni_proc_read_49_p1, var_eni_proc_read_49_p2);
+      }
+#line 4891
+      goto ldv_40755;
+      case_10: ;
+#line 4895
+      if (ldv_s_eni_driver_pci_driver == 0) {
+        {
+#line 4999
+        res_eni_init_one_50 = eni_init_one(var_group5, var_eni_init_one_50_p1);
+#line 5000
+        ldv_check_return_value(res_eni_init_one_50);
+        }
+#line 5001
+        if (res_eni_init_one_50 != 0) {
+#line 5002
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 5003
+        ldv_s_eni_driver_pci_driver = 0;
+      } else {
+
+      }
+#line 5009
+      goto ldv_40755;
+      case_11: 
+      {
+#line 5013
+      LDV_IN_INTERRUPT = 2;
+#line 5075
+      eni_int(var_eni_int_34_p0, var_eni_int_34_p1);
+#line 5118
+      LDV_IN_INTERRUPT = 1;
+      }
+#line 5124
+      goto ldv_40755;
+      switch_default: ;
+#line 5125
+      goto ldv_40755;
+    } else {
+
     }
   }
   ldv_40755: ;
@@ -27580,19 +21630,21 @@ void main(void)
   }
 #line 3742
   if (tmp___1 != 0) {
+#line 3745
+    goto ldv_40768;
+  } else
+#line 3742
+  if (ldv_s_ops_atmdev_ops != 0) {
+#line 3745
+    goto ldv_40768;
+  } else
+#line 3742
+  if (ldv_s_eni_driver_pci_driver != 0) {
+#line 3745
     goto ldv_40768;
   } else {
-#line 3742
-    if (ldv_s_ops_atmdev_ops != 0) {
-      goto ldv_40768;
-    } else {
-#line 3742
-      if (ldv_s_eni_driver_pci_driver != 0) {
-        goto ldv_40768;
-      } else {
-        goto ldv_40770;
-      }
-    }
+#line 3747
+    goto ldv_40770;
   }
   ldv_40770: ;
   ldv_module_exit: ;
@@ -27611,6 +21663,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -27730,6 +21783,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 5208
   goto LDV_STOP;
 }
 }

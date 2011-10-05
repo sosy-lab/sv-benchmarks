@@ -13,6 +13,7 @@ void err(void)
 
   {
   ERROR: 
+#line 11
   goto ERROR;
 }
 }
@@ -23,7 +24,7 @@ void mutex_lock(struct mutex *a )
   {
   {
 #line 19
-  __cil_tmp2 = *((int *)a);
+  __cil_tmp2 = a->is_locked;
 #line 19
   if (__cil_tmp2 == 1) {
     {
@@ -35,7 +36,7 @@ void mutex_lock(struct mutex *a )
   }
   }
 #line 20
-  *((int *)a) = 1;
+  a->is_locked = 1;
 #line 21
   return;
 }
@@ -47,7 +48,7 @@ void mutex_unlock(struct mutex *b )
   {
   {
 #line 25
-  __cil_tmp2 = *((int *)b);
+  __cil_tmp2 = b->is_locked;
 #line 25
   if (__cil_tmp2 != 1) {
     {
@@ -59,7 +60,7 @@ void mutex_unlock(struct mutex *b )
   }
   }
 #line 26
-  *((int *)b) = 0;
+  b->is_locked = 0;
 #line 27
   return;
 }
@@ -67,14 +68,11 @@ void mutex_unlock(struct mutex *b )
 #line 29 "files/mutex_lock_struct.c"
 int main(void) 
 { struct mutex m ;
-  struct mutex *__cil_tmp2 ;
 
   {
   {
 #line 32
-  __cil_tmp2 = & m;
-#line 32
-  *((int *)__cil_tmp2) = 0;
+  m.is_locked = 0;
 #line 34
   mutex_lock(& m);
 #line 38

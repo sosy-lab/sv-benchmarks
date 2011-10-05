@@ -4480,7 +4480,7 @@ __inline static int atomic_read(atomic_t const   *v )
   {
   {
 #line 25
-  __cil_tmp2 = (int const   *)v;
+  __cil_tmp2 = & v->counter;
 #line 25
   __cil_tmp3 = (int volatile   *)__cil_tmp2;
 #line 25
@@ -4496,7 +4496,7 @@ __inline static void atomic_set(atomic_t *v , int i )
 
   {
 #line 37
-  *((int *)v) = i;
+  v->counter = i;
 #line 38
   return;
 }
@@ -4513,7 +4513,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->__annonCompField18.rlock);
 }
 }
 #line 338 "include/linux/spinlock.h"
@@ -4524,16 +4524,17 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   {
 #line 340
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 340
-    __cil_tmp3 = (struct raw_spinlock *)lock;
+    __cil_tmp3 = & lock->__annonCompField18.rlock;
 #line 340
     _raw_spin_unlock_irqrestore(__cil_tmp3, flags);
     }
+#line 340
     goto while_break;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -4555,30 +4556,25 @@ extern void mutex_unlock(struct mutex *lock ) ;
 static struct lock_class_key __key___2  ;
 #line 73 "include/linux/completion.h"
 __inline static void init_completion(struct completion *x ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  wait_queue_head_t *__cil_tmp4 ;
+{ wait_queue_head_t *__cil_tmp2 ;
 
   {
 #line 75
-  *((unsigned int *)x) = 0U;
+  x->done = 0U;
   {
 #line 76
   while (1) {
-    while_1_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 76
-    __cil_tmp2 = (unsigned long )x;
+    __cil_tmp2 = & x->wait;
 #line 76
-    __cil_tmp3 = __cil_tmp2 + 8;
-#line 76
-    __cil_tmp4 = (wait_queue_head_t *)__cil_tmp3;
-#line 76
-    __init_waitqueue_head(__cil_tmp4, & __key___2);
+    __init_waitqueue_head(__cil_tmp2, & __key___2);
     }
+#line 76
     goto while_break;
   }
-  while_1_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -4650,10 +4646,8 @@ __inline static unsigned int iminor(struct inode  const  *inode )
 { unsigned int __cil_tmp2 ;
   unsigned int __cil_tmp3 ;
   unsigned int __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  dev_t __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
+  dev_t __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
@@ -4664,15 +4658,11 @@ __inline static unsigned int iminor(struct inode  const  *inode )
 #line 893
   __cil_tmp4 = (unsigned int const   )__cil_tmp3;
 #line 893
-  __cil_tmp5 = (unsigned long )inode;
+  __cil_tmp5 = inode->i_rdev;
 #line 893
-  __cil_tmp6 = __cil_tmp5 + 400;
+  __cil_tmp6 = __cil_tmp5 & __cil_tmp4;
 #line 893
-  __cil_tmp7 = *((dev_t const   *)__cil_tmp6);
-#line 893
-  __cil_tmp8 = __cil_tmp7 & __cil_tmp4;
-#line 893
-  return ((unsigned int )__cil_tmp8);
+  return ((unsigned int )__cil_tmp6);
   }
 }
 }
@@ -4685,23 +4675,17 @@ __inline static void *usb_get_intfdata(struct usb_interface *intf )  __attribute
 #line 191 "include/linux/usb.h"
 __inline static void *usb_get_intfdata(struct usb_interface *intf ) 
 { void *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 193
-  __cil_tmp3 = (unsigned long )intf;
+  __cil_tmp3 = & intf->dev;
 #line 193
-  __cil_tmp4 = __cil_tmp3 + 72;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 193
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 193
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 193
-  tmp___7 = dev_get_drvdata(__cil_tmp6);
+  tmp___7 = dev_get_drvdata(__cil_tmp4);
   }
 #line 193
   return (tmp___7);
@@ -4713,20 +4697,14 @@ __inline static void usb_set_intfdata(struct usb_interface *intf , void *data ) 
 __inline static void usb_set_intfdata(struct usb_interface *intf , void *data )  __attribute__((__ldv_model__)) ;
 #line 196 "include/linux/usb.h"
 __inline static void usb_set_intfdata(struct usb_interface *intf , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 198
-  __cil_tmp3 = (unsigned long )intf;
+  __cil_tmp3 = & intf->dev;
 #line 198
-  __cil_tmp4 = __cil_tmp3 + 72;
-#line 198
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 198
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 199
   return;
@@ -4735,43 +4713,31 @@ __inline static void usb_set_intfdata(struct usb_interface *intf , void *data )
 #line 497 "include/linux/usb.h"
 __inline static struct usb_device *interface_to_usbdev(struct usb_interface *intf ) 
 { struct device  const  *__mptr ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  struct device *__cil_tmp3 ;
+  struct usb_device *__cil_tmp4 ;
   struct device *__cil_tmp5 ;
-  struct usb_device *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct device *__cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  char *__cil_tmp11 ;
-  char *__cil_tmp12 ;
+  unsigned int __cil_tmp6 ;
+  char *__cil_tmp7 ;
+  char *__cil_tmp8 ;
 
   {
 #line 499
-  __cil_tmp3 = (unsigned long )intf;
+  __cil_tmp3 = intf->dev.parent;
 #line 499
-  __cil_tmp4 = __cil_tmp3 + 72;
-#line 499
-  __cil_tmp5 = *((struct device **)__cil_tmp4);
-#line 499
-  __mptr = (struct device  const  *)__cil_tmp5;
+  __mptr = (struct device  const  *)__cil_tmp3;
   {
 #line 499
-  __cil_tmp6 = (struct usb_device *)0;
+  __cil_tmp4 = (struct usb_device *)0;
 #line 499
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp5 = & __cil_tmp4->dev;
 #line 499
-  __cil_tmp8 = __cil_tmp7 + 192;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 499
-  __cil_tmp9 = (struct device *)__cil_tmp8;
+  __cil_tmp7 = (char *)__mptr;
 #line 499
-  __cil_tmp10 = (unsigned int )__cil_tmp9;
+  __cil_tmp8 = __cil_tmp7 - __cil_tmp6;
 #line 499
-  __cil_tmp11 = (char *)__mptr;
-#line 499
-  __cil_tmp12 = __cil_tmp11 - __cil_tmp10;
-#line 499
-  return ((struct usb_device *)__cil_tmp12);
+  return ((struct usb_device *)__cil_tmp8);
   }
 }
 }
@@ -4808,130 +4774,58 @@ __inline static void usb_fill_int_urb(struct urb *urb , struct usb_device *dev ,
                                       void *transfer_buffer , int buffer_length ,
                                       void (*complete_fn)(struct urb * ) , void *context ,
                                       int interval ) 
-{ unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  enum usb_device_speed __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  enum usb_device_speed __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+{ enum usb_device_speed __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  enum usb_device_speed __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  int __cil_tmp14 ;
 
   {
 #line 1318
-  __cil_tmp9 = (unsigned long )urb;
-#line 1318
-  __cil_tmp10 = __cil_tmp9 + 72;
-#line 1318
-  *((struct usb_device **)__cil_tmp10) = dev;
+  urb->dev = dev;
 #line 1319
-  __cil_tmp11 = (unsigned long )urb;
-#line 1319
-  __cil_tmp12 = __cil_tmp11 + 88;
-#line 1319
-  *((unsigned int *)__cil_tmp12) = pipe;
+  urb->pipe = pipe;
 #line 1320
-  __cil_tmp13 = (unsigned long )urb;
-#line 1320
-  __cil_tmp14 = __cil_tmp13 + 104;
-#line 1320
-  *((void **)__cil_tmp14) = transfer_buffer;
+  urb->transfer_buffer = transfer_buffer;
 #line 1321
-  __cil_tmp15 = (unsigned long )urb;
-#line 1321
-  __cil_tmp16 = __cil_tmp15 + 132;
-#line 1321
-  *((u32 *)__cil_tmp16) = (unsigned int )buffer_length;
+  urb->transfer_buffer_length = (u32 )buffer_length;
 #line 1322
-  __cil_tmp17 = (unsigned long )urb;
-#line 1322
-  __cil_tmp18 = __cil_tmp17 + 184;
-#line 1322
-  *((void (**)(struct urb * ))__cil_tmp18) = complete_fn;
+  urb->complete = complete_fn;
 #line 1323
-  __cil_tmp19 = (unsigned long )urb;
-#line 1323
-  __cil_tmp20 = __cil_tmp19 + 176;
-#line 1323
-  *((void **)__cil_tmp20) = context;
+  urb->context = context;
   {
 #line 1324
-  __cil_tmp21 = (unsigned long )dev;
+  __cil_tmp9 = dev->speed;
 #line 1324
-  __cil_tmp22 = __cil_tmp21 + 56;
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
 #line 1324
-  __cil_tmp23 = *((enum usb_device_speed *)__cil_tmp22);
-#line 1324
-  __cil_tmp24 = (unsigned int )__cil_tmp23;
-#line 1324
-  if (__cil_tmp24 == 3U) {
+  if (__cil_tmp10 == 3U) {
 #line 1325
-    __cil_tmp25 = (unsigned long )urb;
+    __cil_tmp11 = interval - 1;
 #line 1325
-    __cil_tmp26 = __cil_tmp25 + 168;
-#line 1325
-    __cil_tmp27 = interval - 1;
-#line 1325
-    *((int *)__cil_tmp26) = 1 << __cil_tmp27;
+    urb->interval = 1 << __cil_tmp11;
   } else {
     {
 #line 1324
-    __cil_tmp28 = (unsigned long )dev;
+    __cil_tmp12 = dev->speed;
 #line 1324
-    __cil_tmp29 = __cil_tmp28 + 56;
+    __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1324
-    __cil_tmp30 = *((enum usb_device_speed *)__cil_tmp29);
-#line 1324
-    __cil_tmp31 = (unsigned int )__cil_tmp30;
-#line 1324
-    if (__cil_tmp31 == 5U) {
+    if (__cil_tmp13 == 5U) {
 #line 1325
-      __cil_tmp32 = (unsigned long )urb;
+      __cil_tmp14 = interval - 1;
 #line 1325
-      __cil_tmp33 = __cil_tmp32 + 168;
-#line 1325
-      __cil_tmp34 = interval - 1;
-#line 1325
-      *((int *)__cil_tmp33) = 1 << __cil_tmp34;
+      urb->interval = 1 << __cil_tmp14;
     } else {
 #line 1327
-      __cil_tmp35 = (unsigned long )urb;
-#line 1327
-      __cil_tmp36 = __cil_tmp35 + 168;
-#line 1327
-      *((int *)__cil_tmp36) = interval;
+      urb->interval = interval;
     }
     }
   }
   }
 #line 1328
-  __cil_tmp37 = (unsigned long )urb;
-#line 1328
-  __cil_tmp38 = __cil_tmp37 + 160;
-#line 1328
-  *((int *)__cil_tmp38) = -1;
+  urb->start_frame = -1;
 #line 1329
   return;
 }
@@ -4961,7 +4855,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 #line 1529
   __cil_tmp3 = endpoint << 15;
 #line 1529
-  __cil_tmp4 = *((int *)dev);
+  __cil_tmp4 = dev->devnum;
 #line 1529
   __cil_tmp5 = __cil_tmp4 << 8;
 #line 1529
@@ -5005,106 +4899,77 @@ __inline static int lirc_buffer_init(struct lirc_buffer *buf , unsigned int chun
   int tmp ;
   int tmp___9 ;
   wait_queue_head_t *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  spinlock_t *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct raw_spinlock *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  spinlock_t *__cil_tmp12 ;
+  struct raw_spinlock *__cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
 
   {
   {
 #line 54
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 54
-    __cil_tmp11 = (wait_queue_head_t *)buf;
+    __cil_tmp11 = & buf->wait_poll;
 #line 54
     __init_waitqueue_head(__cil_tmp11, & __key___7);
     }
+#line 54
     goto while_break;
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 55
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
     {
 #line 55
-    __cil_tmp12 = (unsigned long )buf;
+    __cil_tmp12 = & buf->fifo_lock;
 #line 55
-    __cil_tmp13 = __cil_tmp12 + 88;
-#line 55
-    __cil_tmp14 = (spinlock_t *)__cil_tmp13;
-#line 55
-    spinlock_check(__cil_tmp14);
+    spinlock_check(__cil_tmp12);
     }
     {
 #line 55
     while (1) {
-      while_4_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
       {
 #line 55
-      __cil_tmp15 = (unsigned long )buf;
+      __cil_tmp13 = & buf->fifo_lock.__annonCompField18.rlock;
 #line 55
-      __cil_tmp16 = __cil_tmp15 + 88;
-#line 55
-      __cil_tmp17 = (struct raw_spinlock *)__cil_tmp16;
-#line 55
-      __raw_spin_lock_init(__cil_tmp17, "&(&buf->fifo_lock)->rlock", & __key___8);
+      __raw_spin_lock_init(__cil_tmp13, "&(&buf->fifo_lock)->rlock", & __key___8);
       }
+#line 55
       goto while_break___1;
     }
-    while_4_break: /* CIL Label */ ;
+    while_break___4: /* CIL Label */ ;
     }
 
     while_break___1: ;
+#line 55
     goto while_break___0;
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break___0: 
 #line 56
-  __cil_tmp18 = (unsigned long )buf;
-#line 56
-  __cil_tmp19 = __cil_tmp18 + 160;
-#line 56
-  *((unsigned int *)__cil_tmp19) = chunk_size;
+  buf->chunk_size = chunk_size;
 #line 57
-  __cil_tmp20 = (unsigned long )buf;
-#line 57
-  __cil_tmp21 = __cil_tmp20 + 164;
-#line 57
-  *((unsigned int *)__cil_tmp21) = size;
+  buf->size = size;
 #line 58
-  __cil_tmp22 = (unsigned long )buf;
+  __tmp = & buf->fifo;
 #line 58
-  __cil_tmp23 = __cil_tmp22 + 168;
-#line 58
-  __tmp = (struct kfifo *)__cil_tmp23;
-#line 58
-  __kfifo = (struct __kfifo *)__tmp;
+  __kfifo = & __tmp->__annonCompField41.kfifo;
 #line 58
   if (24UL == 24UL) {
     {
 #line 58
-    __cil_tmp24 = size * chunk_size;
+    __cil_tmp14 = size * chunk_size;
 #line 58
-    tmp___7 = __kfifo_alloc(__kfifo, __cil_tmp24, 1UL, 208U);
+    tmp___7 = __kfifo_alloc(__kfifo, __cil_tmp14, 1UL, 208U);
 #line 58
     tmp___8 = tmp___7;
     }
@@ -5123,11 +4988,7 @@ __inline static int lirc_buffer_init(struct lirc_buffer *buf , unsigned int chun
 #line 59
   if (ret == 0) {
 #line 60
-    __cil_tmp25 = (unsigned long )buf;
-#line 60
-    __cil_tmp26 = __cil_tmp25 + 192;
-#line 60
-    *((u8 *)__cil_tmp26) = (unsigned char)1;
+    buf->fifo_initialized = (u8 )1;
   } else {
 
   }
@@ -5141,37 +5002,22 @@ __inline static void lirc_buffer_free(struct lirc_buffer *buf )
   struct __kfifo *__kfifo ;
   int __ret_warn_on ;
   long tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  long __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
   int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  long __cil_tmp19 ;
+  long __cil_tmp13 ;
 
   {
-  {
 #line 67
-  __cil_tmp6 = (unsigned long )buf;
-#line 67
-  __cil_tmp7 = __cil_tmp6 + 192;
-#line 67
-  if (*((u8 *)__cil_tmp7)) {
+  if (buf->fifo_initialized) {
 #line 68
-    __cil_tmp8 = (unsigned long )buf;
+    __tmp = & buf->fifo;
 #line 68
-    __cil_tmp9 = __cil_tmp8 + 168;
-#line 68
-    __tmp = (struct kfifo *)__cil_tmp9;
-#line 68
-    __kfifo = (struct __kfifo *)__tmp;
+    __kfifo = & __tmp->__annonCompField41.kfifo;
 #line 68
     if (24UL == 24UL) {
       {
@@ -5182,33 +5028,29 @@ __inline static void lirc_buffer_free(struct lirc_buffer *buf )
 
     }
 #line 69
-    __cil_tmp10 = (unsigned long )buf;
-#line 69
-    __cil_tmp11 = __cil_tmp10 + 192;
-#line 69
-    *((u8 *)__cil_tmp11) = (unsigned char)0;
+    buf->fifo_initialized = (u8 )0;
   } else {
     {
 #line 71
     __ret_warn_on = 1;
 #line 71
-    __cil_tmp12 = ! __ret_warn_on;
+    __cil_tmp6 = ! __ret_warn_on;
 #line 71
-    __cil_tmp13 = ! __cil_tmp12;
+    __cil_tmp7 = ! __cil_tmp6;
 #line 71
-    __cil_tmp14 = (long )__cil_tmp13;
+    __cil_tmp8 = (long )__cil_tmp7;
 #line 71
-    tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp8, 0L);
     }
 #line 71
     if (tmp___7) {
       {
 #line 71
-      __cil_tmp15 = (int const   )72;
+      __cil_tmp9 = (int const   )72;
 #line 71
-      __cil_tmp16 = (int )__cil_tmp15;
+      __cil_tmp10 = (int )__cil_tmp9;
 #line 71
-      warn_slowpath_fmt("include/media/lirc_dev.h", __cil_tmp16, "calling %s on an uninitialized lirc_buffer\n",
+      warn_slowpath_fmt("include/media/lirc_dev.h", __cil_tmp10, "calling %s on an uninitialized lirc_buffer\n",
                         "lirc_buffer_free");
       }
     } else {
@@ -5216,15 +5058,14 @@ __inline static void lirc_buffer_free(struct lirc_buffer *buf )
     }
     {
 #line 71
-    __cil_tmp17 = ! __ret_warn_on;
+    __cil_tmp11 = ! __ret_warn_on;
 #line 71
-    __cil_tmp18 = ! __cil_tmp17;
+    __cil_tmp12 = ! __cil_tmp11;
 #line 71
-    __cil_tmp19 = (long )__cil_tmp18;
+    __cil_tmp13 = (long )__cil_tmp12;
 #line 71
-    __builtin_expect(__cil_tmp19, 0L);
+    __builtin_expect(__cil_tmp13, 0L);
     }
-  }
   }
 #line 73
   return;
@@ -5244,96 +5085,78 @@ __inline static unsigned int lirc_buffer_write(struct lirc_buffer *buf , unsigne
   unsigned int tmp___8 ;
   unsigned int tmp___9 ;
   unsigned int tmp___10 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  spinlock_t *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  void const   *__cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  void const   *__cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  spinlock_t *__cil_tmp29 ;
+  spinlock_t *__cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  void const   *__cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  void const   *__cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  spinlock_t *__cil_tmp21 ;
 
   {
   {
 #line 119
   while (1) {
-    while_5_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 119
     while (1) {
-      while_6_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 119
-      __cil_tmp15 = (unsigned long )buf;
+      __cil_tmp15 = & buf->fifo_lock;
 #line 119
-      __cil_tmp16 = __cil_tmp15 + 88;
-#line 119
-      __cil_tmp17 = (spinlock_t *)__cil_tmp16;
-#line 119
-      tmp___7 = spinlock_check(__cil_tmp17);
+      tmp___7 = spinlock_check(__cil_tmp15);
 #line 119
       __flags = _raw_spin_lock_irqsave(tmp___7);
       }
+#line 119
       goto while_break___0;
     }
-    while_6_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 119
     goto while_break;
   }
-  while_5_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
 #line 119
-  __cil_tmp18 = (unsigned long )buf;
-#line 119
-  __cil_tmp19 = __cil_tmp18 + 168;
-#line 119
-  __tmp = (struct kfifo *)__cil_tmp19;
+  __tmp = & buf->fifo;
 #line 119
   __buf = orig;
 #line 119
-  __cil_tmp20 = (unsigned long )buf;
+  __cil_tmp16 = buf->chunk_size;
 #line 119
-  __cil_tmp21 = __cil_tmp20 + 160;
-#line 119
-  __cil_tmp22 = *((unsigned int *)__cil_tmp21);
-#line 119
-  __n = (unsigned long )__cil_tmp22;
+  __n = (unsigned long )__cil_tmp16;
 #line 119
   __recsize = 0UL;
 #line 119
-  __kfifo = (struct __kfifo *)__tmp;
+  __kfifo = & __tmp->__annonCompField41.kfifo;
 #line 119
   if (__recsize) {
     {
 #line 119
-    __cil_tmp23 = (void const   *)__buf;
+    __cil_tmp17 = (void const   *)__buf;
 #line 119
-    __cil_tmp24 = (unsigned int )__n;
+    __cil_tmp18 = (unsigned int )__n;
 #line 119
-    tmp___8 = __kfifo_in_r(__kfifo, __cil_tmp23, __cil_tmp24, __recsize);
+    tmp___8 = __kfifo_in_r(__kfifo, __cil_tmp17, __cil_tmp18, __recsize);
 #line 119
     tmp___10 = tmp___8;
     }
   } else {
     {
 #line 119
-    __cil_tmp25 = (void const   *)__buf;
+    __cil_tmp19 = (void const   *)__buf;
 #line 119
-    __cil_tmp26 = (unsigned int )__n;
+    __cil_tmp20 = (unsigned int )__n;
 #line 119
-    tmp___9 = __kfifo_in(__kfifo, __cil_tmp25, __cil_tmp26);
+    tmp___9 = __kfifo_in(__kfifo, __cil_tmp19, __cil_tmp20);
 #line 119
     tmp___10 = tmp___9;
     }
@@ -5342,13 +5165,9 @@ __inline static unsigned int lirc_buffer_write(struct lirc_buffer *buf , unsigne
 #line 119
   __ret = tmp___10;
 #line 119
-  __cil_tmp27 = (unsigned long )buf;
+  __cil_tmp21 = & buf->fifo_lock;
 #line 119
-  __cil_tmp28 = __cil_tmp27 + 88;
-#line 119
-  __cil_tmp29 = (spinlock_t *)__cil_tmp28;
-#line 119
-  spin_unlock_irqrestore(__cil_tmp29, __flags);
+  spin_unlock_irqrestore(__cil_tmp21, __flags);
 #line 119
   ret = __ret;
   }
@@ -5371,7 +5190,7 @@ static void usb_tx_callback(struct urb *urb ) ;
 #line 59
 static int imon_resume(struct usb_interface *intf ) ;
 #line 60
-static int imon_suspend(struct usb_interface *intf , int message_event8 ) ;
+static int imon_suspend(struct usb_interface *intf , pm_message_t message ) ;
 #line 63
 static int display_open(struct inode *inode , struct file *file ) ;
 #line 64
@@ -5418,29 +5237,29 @@ static struct file_operations  const  display_fops  =
                                                                         loff_t offset ,
                                                                         loff_t len ))0};
 #line 133 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
-static struct usb_device_id imon_usb_id_table[4]  = {      {(unsigned short)3, (unsigned short)2728, (unsigned short)32769, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)3, (unsigned short)1256, (unsigned short)65328, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)3, (unsigned short)2728, (unsigned short)65498, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)3, (unsigned short)5570, (unsigned short)65498, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}};
+static struct usb_device_id imon_usb_id_table[4]  = {      {(__u16 )3, (__u16 )2728, (__u16 )32769, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}, 
+        {(__u16 )3, (__u16 )1256, (__u16 )65328, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}, 
+        {(__u16 )3, (__u16 )2728, (__u16 )65498, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}, 
+        {(__u16 )3, (__u16 )5570, (__u16 )65498, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}};
 #line 150 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
-static struct usb_device_id vfd_proto_6p_list[1]  = {      {(unsigned short)3, (unsigned short)5570, (unsigned short)65498, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}};
+static struct usb_device_id vfd_proto_6p_list[1]  = {      {(__u16 )3, (__u16 )5570, (__u16 )65498, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}};
 #line 156 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
-static struct usb_device_id ir_only_list[2]  = {      {(unsigned short)3, (unsigned short)2728, (unsigned short)32769, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)3, (unsigned short)1256, (unsigned short)65328, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}};
+static struct usb_device_id ir_only_list[2]  = {      {(__u16 )3, (__u16 )2728, (__u16 )32769, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}, 
+        {(__u16 )3, (__u16 )1256, (__u16 )65328, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}};
 #line 163 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
 static struct usb_driver imon_driver  = 
 #line 163
@@ -5530,8 +5349,8 @@ static char const   __param_str_debug[6]  = {      (char const   )'d',      (cha
         (char const   )'g',      (char const   )'\000'};
 #line 190 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
 static struct kernel_param  const  __param_debug  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)420,
-    (unsigned short)0, {(void *)(& debug)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )420,
+    (u16 )0, {(void *)(& debug)}};
 #line 190 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
 static char const   __mod_debugtype190[19]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -5568,154 +5387,102 @@ __aligned__(8)))  =    {"lirc_imon", "free_imon_context", "/anthill/stuff/tacas-
 static void free_imon_context(struct imon_context *context ) 
 { struct device *dev ;
   long tmp___7 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct lirc_driver *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct urb *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct urb *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct lirc_driver *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct lirc_buffer *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct lirc_driver *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct lirc_buffer *__cil_tmp26 ;
-  void const   *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct lirc_driver *__cil_tmp30 ;
-  void const   *__cil_tmp31 ;
-  void const   *__cil_tmp32 ;
-  int __cil_tmp33 ;
-  int __cil_tmp34 ;
-  long __cil_tmp35 ;
-  struct device  const  *__cil_tmp36 ;
+  struct lirc_driver *__cil_tmp4 ;
+  struct urb *__cil_tmp5 ;
+  struct urb *__cil_tmp6 ;
+  struct lirc_driver *__cil_tmp7 ;
+  struct lirc_buffer *__cil_tmp8 ;
+  struct lirc_driver *__cil_tmp9 ;
+  struct lirc_buffer *__cil_tmp10 ;
+  void const   *__cil_tmp11 ;
+  struct lirc_driver *__cil_tmp12 ;
+  void const   *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  long __cil_tmp17 ;
+  struct device  const  *__cil_tmp18 ;
 
   {
   {
 #line 195
-  __cil_tmp4 = (unsigned long )context;
+  __cil_tmp4 = context->driver;
 #line 195
-  __cil_tmp5 = __cil_tmp4 + 288;
-#line 195
-  __cil_tmp6 = *((struct lirc_driver **)__cil_tmp5);
-#line 195
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
-#line 195
-  __cil_tmp8 = __cil_tmp7 + 120;
-#line 195
-  dev = *((struct device **)__cil_tmp8);
+  dev = __cil_tmp4->dev;
 #line 196
-  __cil_tmp9 = (unsigned long )context;
+  __cil_tmp5 = context->tx_urb;
 #line 196
-  __cil_tmp10 = __cil_tmp9 + 320;
-#line 196
-  __cil_tmp11 = *((struct urb **)__cil_tmp10);
-#line 196
-  usb_free_urb(__cil_tmp11);
+  usb_free_urb(__cil_tmp5);
 #line 197
-  __cil_tmp12 = (unsigned long )context;
+  __cil_tmp6 = context->rx_urb;
 #line 197
-  __cil_tmp13 = __cil_tmp12 + 312;
-#line 197
-  __cil_tmp14 = *((struct urb **)__cil_tmp13);
-#line 197
-  usb_free_urb(__cil_tmp14);
+  usb_free_urb(__cil_tmp6);
 #line 198
-  __cil_tmp15 = (unsigned long )context;
+  __cil_tmp7 = context->driver;
 #line 198
-  __cil_tmp16 = __cil_tmp15 + 288;
+  __cil_tmp8 = __cil_tmp7->rbuf;
 #line 198
-  __cil_tmp17 = *((struct lirc_driver **)__cil_tmp16);
-#line 198
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 198
-  __cil_tmp19 = __cil_tmp18 + 88;
-#line 198
-  __cil_tmp20 = *((struct lirc_buffer **)__cil_tmp19);
-#line 198
-  lirc_buffer_free(__cil_tmp20);
+  lirc_buffer_free(__cil_tmp8);
 #line 199
-  __cil_tmp21 = (unsigned long )context;
+  __cil_tmp9 = context->driver;
 #line 199
-  __cil_tmp22 = __cil_tmp21 + 288;
+  __cil_tmp10 = __cil_tmp9->rbuf;
 #line 199
-  __cil_tmp23 = *((struct lirc_driver **)__cil_tmp22);
+  __cil_tmp11 = (void const   *)__cil_tmp10;
 #line 199
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 199
-  __cil_tmp25 = __cil_tmp24 + 88;
-#line 199
-  __cil_tmp26 = *((struct lirc_buffer **)__cil_tmp25);
-#line 199
-  __cil_tmp27 = (void const   *)__cil_tmp26;
-#line 199
-  kfree(__cil_tmp27);
+  kfree(__cil_tmp11);
 #line 200
-  __cil_tmp28 = (unsigned long )context;
+  __cil_tmp12 = context->driver;
 #line 200
-  __cil_tmp29 = __cil_tmp28 + 288;
+  __cil_tmp13 = (void const   *)__cil_tmp12;
 #line 200
-  __cil_tmp30 = *((struct lirc_driver **)__cil_tmp29);
-#line 200
-  __cil_tmp31 = (void const   *)__cil_tmp30;
-#line 200
-  kfree(__cil_tmp31);
+  kfree(__cil_tmp13);
 #line 201
-  __cil_tmp32 = (void const   *)context;
+  __cil_tmp14 = (void const   *)context;
 #line 201
-  kfree(__cil_tmp32);
+  kfree(__cil_tmp14);
   }
   {
 #line 203
   while (1) {
-    while_7_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 203
     while (1) {
-      while_8_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 203
-      __cil_tmp33 = ! descriptor.enabled;
+      __cil_tmp15 = ! descriptor.enabled;
 #line 203
-      __cil_tmp34 = ! __cil_tmp33;
+      __cil_tmp16 = ! __cil_tmp15;
 #line 203
-      __cil_tmp35 = (long )__cil_tmp34;
+      __cil_tmp17 = (long )__cil_tmp16;
 #line 203
-      tmp___7 = __builtin_expect(__cil_tmp35, 0L);
+      tmp___7 = __builtin_expect(__cil_tmp17, 0L);
       }
 #line 203
       if (tmp___7) {
         {
 #line 203
-        __cil_tmp36 = (struct device  const  *)dev;
+        __cil_tmp18 = (struct device  const  *)dev;
 #line 203
-        dev_printk("<7>", __cil_tmp36, "%s: iMON context freed\n", "free_imon_context");
+        dev_printk("<7>", __cil_tmp18, "%s: iMON context freed\n", "free_imon_context");
         }
       } else {
 
       }
+#line 203
       goto while_break___0;
     }
-    while_8_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 203
     goto while_break;
   }
-  while_7_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -5727,26 +5494,14 @@ static void free_imon_context(struct imon_context *context )
 static void deregister_from_lirc(struct imon_context *context ) 
 { int retval ;
   int minor ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct lirc_driver *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  struct lirc_driver *__cil_tmp4 ;
 
   {
   {
 #line 209
-  __cil_tmp4 = (unsigned long )context;
+  __cil_tmp4 = context->driver;
 #line 209
-  __cil_tmp5 = __cil_tmp4 + 288;
-#line 209
-  __cil_tmp6 = *((struct lirc_driver **)__cil_tmp5);
-#line 209
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
-#line 209
-  __cil_tmp8 = __cil_tmp7 + 40;
-#line 209
-  minor = *((int *)__cil_tmp8);
+  minor = __cil_tmp4->minor;
 #line 211
   retval = lirc_unregister_driver(minor);
   }
@@ -5777,28 +5532,12 @@ static int display_open(struct inode *inode , struct file *file )
   void *tmp___8 ;
   void *__cil_tmp9 ;
   struct inode  const  *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct mutex *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct lirc_driver *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct device *__cil_tmp28 ;
-  struct device  const  *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct mutex *__cil_tmp32 ;
+  struct mutex *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  struct lirc_driver *__cil_tmp13 ;
+  struct device *__cil_tmp14 ;
+  struct device  const  *__cil_tmp15 ;
+  struct mutex *__cil_tmp16 ;
 
   {
   {
@@ -5828,6 +5567,7 @@ static int display_open(struct inode *inode , struct file *file )
 #line 240
     retval = -19;
     }
+#line 241
     goto exit;
   } else {
 
@@ -5846,93 +5586,59 @@ static int display_open(struct inode *inode , struct file *file )
 #line 248
     retval = -19;
     }
+#line 249
     goto exit;
   } else {
 
   }
   {
 #line 252
-  __cil_tmp11 = (unsigned long )context;
+  __cil_tmp11 = & context->ctx_lock;
 #line 252
-  __cil_tmp12 = __cil_tmp11 + 24;
-#line 252
-  __cil_tmp13 = (struct mutex *)__cil_tmp12;
-#line 252
-  mutex_lock_nested(__cil_tmp13, 0U);
+  mutex_lock_nested(__cil_tmp11, 0U);
   }
   {
 #line 254
-  __cil_tmp14 = (unsigned long )context;
+  __cil_tmp12 = context->display;
 #line 254
-  __cil_tmp15 = __cil_tmp14 + 8;
-#line 254
-  __cil_tmp16 = *((int *)__cil_tmp15);
-#line 254
-  if (! __cil_tmp16) {
+  if (! __cil_tmp12) {
     {
 #line 255
     printk("<3>lirc_imon: %s: display not supported by device\n", "display_open");
 #line 256
     retval = -19;
     }
+  } else
+#line 257
+  if (context->display_isopen) {
+    {
+#line 258
+    printk("<3>lirc_imon: %s: display port is already open\n", "display_open");
+#line 259
+    retval = -16;
+    }
   } else {
     {
-#line 257
-    __cil_tmp17 = (unsigned long )context;
-#line 257
-    __cil_tmp18 = __cil_tmp17 + 12;
-#line 257
-    if (*((int *)__cil_tmp18)) {
-      {
-#line 258
-      printk("<3>lirc_imon: %s: display port is already open\n", "display_open");
-#line 259
-      retval = -16;
-      }
-    } else {
-      {
 #line 261
-      __cil_tmp19 = (unsigned long )context;
-#line 261
-      __cil_tmp20 = __cil_tmp19 + 12;
-#line 261
-      *((int *)__cil_tmp20) = 1;
+    context->display_isopen = 1;
 #line 262
-      __cil_tmp21 = (unsigned long )file;
-#line 262
-      __cil_tmp22 = __cil_tmp21 + 328;
-#line 262
-      *((void **)__cil_tmp22) = (void *)context;
+    file->private_data = (void *)context;
 #line 263
-      __cil_tmp23 = (unsigned long )context;
+    __cil_tmp13 = context->driver;
 #line 263
-      __cil_tmp24 = __cil_tmp23 + 288;
+    __cil_tmp14 = __cil_tmp13->dev;
 #line 263
-      __cil_tmp25 = *((struct lirc_driver **)__cil_tmp24);
+    __cil_tmp15 = (struct device  const  *)__cil_tmp14;
 #line 263
-      __cil_tmp26 = (unsigned long )__cil_tmp25;
-#line 263
-      __cil_tmp27 = __cil_tmp26 + 120;
-#line 263
-      __cil_tmp28 = *((struct device **)__cil_tmp27);
-#line 263
-      __cil_tmp29 = (struct device  const  *)__cil_tmp28;
-#line 263
-      _dev_info(__cil_tmp29, "display port opened\n");
-      }
-    }
+    _dev_info(__cil_tmp15, "display port opened\n");
     }
   }
   }
   {
 #line 266
-  __cil_tmp30 = (unsigned long )context;
+  __cil_tmp16 = & context->ctx_lock;
 #line 266
-  __cil_tmp31 = __cil_tmp30 + 24;
-#line 266
-  __cil_tmp32 = (struct mutex *)__cil_tmp31;
-#line 266
-  mutex_unlock(__cil_tmp32);
+  mutex_unlock(__cil_tmp16);
   }
   exit: 
   {
@@ -5948,39 +5654,17 @@ static int display_close(struct inode *inode , struct file *file )
 { struct imon_context *context ;
   int retval ;
   void *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct mutex *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  void *__cil_tmp6 ;
+  struct mutex *__cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  struct lirc_driver *__cil_tmp10 ;
+  struct device *__cil_tmp11 ;
+  struct device  const  *__cil_tmp12 ;
+  int __cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct lirc_driver *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct device *__cil_tmp25 ;
-  struct device  const  *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct mutex *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct mutex *__cil_tmp38 ;
+  struct mutex *__cil_tmp15 ;
+  struct mutex *__cil_tmp16 ;
 
   {
 #line 279
@@ -5990,13 +5674,9 @@ static int display_close(struct inode *inode , struct file *file )
 #line 280
   retval = 0;
 #line 282
-  __cil_tmp6 = (unsigned long )file;
+  __cil_tmp6 = file->private_data;
 #line 282
-  __cil_tmp7 = __cil_tmp6 + 328;
-#line 282
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 282
-  context = (struct imon_context *)__cil_tmp8;
+  context = (struct imon_context *)__cil_tmp6;
 #line 284
   if (! context) {
     {
@@ -6010,23 +5690,15 @@ static int display_close(struct inode *inode , struct file *file )
   }
   {
 #line 289
-  __cil_tmp9 = (unsigned long )context;
+  __cil_tmp7 = & context->ctx_lock;
 #line 289
-  __cil_tmp10 = __cil_tmp9 + 24;
-#line 289
-  __cil_tmp11 = (struct mutex *)__cil_tmp10;
-#line 289
-  mutex_lock_nested(__cil_tmp11, 0U);
+  mutex_lock_nested(__cil_tmp7, 0U);
   }
   {
 #line 291
-  __cil_tmp12 = (unsigned long )context;
+  __cil_tmp8 = context->display;
 #line 291
-  __cil_tmp13 = __cil_tmp12 + 8;
-#line 291
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 291
-  if (! __cil_tmp14) {
+  if (! __cil_tmp8) {
     {
 #line 292
     printk("<3>lirc_imon: %s: display not supported by device\n", "display_close");
@@ -6036,13 +5708,9 @@ static int display_close(struct inode *inode , struct file *file )
   } else {
     {
 #line 294
-    __cil_tmp15 = (unsigned long )context;
+    __cil_tmp9 = context->display_isopen;
 #line 294
-    __cil_tmp16 = __cil_tmp15 + 12;
-#line 294
-    __cil_tmp17 = *((int *)__cil_tmp16);
-#line 294
-    if (! __cil_tmp17) {
+    if (! __cil_tmp9) {
       {
 #line 295
       printk("<3>lirc_imon: %s: display is not open\n", "display_close");
@@ -6052,55 +5720,31 @@ static int display_close(struct inode *inode , struct file *file )
     } else {
       {
 #line 298
-      __cil_tmp18 = (unsigned long )context;
-#line 298
-      __cil_tmp19 = __cil_tmp18 + 12;
-#line 298
-      *((int *)__cil_tmp19) = 0;
+      context->display_isopen = 0;
 #line 299
-      __cil_tmp20 = (unsigned long )context;
+      __cil_tmp10 = context->driver;
 #line 299
-      __cil_tmp21 = __cil_tmp20 + 288;
+      __cil_tmp11 = __cil_tmp10->dev;
 #line 299
-      __cil_tmp22 = *((struct lirc_driver **)__cil_tmp21);
+      __cil_tmp12 = (struct device  const  *)__cil_tmp11;
 #line 299
-      __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 299
-      __cil_tmp24 = __cil_tmp23 + 120;
-#line 299
-      __cil_tmp25 = *((struct device **)__cil_tmp24);
-#line 299
-      __cil_tmp26 = (struct device  const  *)__cil_tmp25;
-#line 299
-      _dev_info(__cil_tmp26, "display port closed\n");
+      _dev_info(__cil_tmp12, "display port closed\n");
       }
       {
 #line 300
-      __cil_tmp27 = (unsigned long )context;
+      __cil_tmp13 = context->dev_present;
 #line 300
-      __cil_tmp28 = __cil_tmp27 + 20;
-#line 300
-      __cil_tmp29 = *((int *)__cil_tmp28);
-#line 300
-      if (! __cil_tmp29) {
+      if (! __cil_tmp13) {
         {
 #line 300
-        __cil_tmp30 = (unsigned long )context;
+        __cil_tmp14 = context->ir_isopen;
 #line 300
-        __cil_tmp31 = __cil_tmp30 + 16;
-#line 300
-        __cil_tmp32 = *((int *)__cil_tmp31);
-#line 300
-        if (! __cil_tmp32) {
+        if (! __cil_tmp14) {
           {
 #line 306
-          __cil_tmp33 = (unsigned long )context;
+          __cil_tmp15 = & context->ctx_lock;
 #line 306
-          __cil_tmp34 = __cil_tmp33 + 24;
-#line 306
-          __cil_tmp35 = (struct mutex *)__cil_tmp34;
-#line 306
-          mutex_unlock(__cil_tmp35);
+          mutex_unlock(__cil_tmp15);
 #line 307
           free_imon_context(context);
           }
@@ -6120,13 +5764,9 @@ static int display_close(struct inode *inode , struct file *file )
   }
   {
 #line 312
-  __cil_tmp36 = (unsigned long )context;
+  __cil_tmp16 = & context->ctx_lock;
 #line 312
-  __cil_tmp37 = __cil_tmp36 + 24;
-#line 312
-  __cil_tmp38 = (struct mutex *)__cil_tmp37;
-#line 312
-  mutex_unlock(__cil_tmp38);
+  mutex_unlock(__cil_tmp16);
   }
 #line 313
   return (retval);
@@ -6139,66 +5779,27 @@ static int send_packet(struct imon_context *context )
   int retval ;
   unsigned int tmp___7 ;
   struct usb_device *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct usb_endpoint_descriptor *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  __u8 __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct usb_endpoint_descriptor *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  __u8 __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct urb *__cil_tmp24 ;
-  struct usb_device *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned char *__cil_tmp30 ;
-  void *__cil_tmp31 ;
-  int __cil_tmp32 ;
-  void *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct urb *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct completion *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  atomic_t *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct urb *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  atomic_t *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct mutex *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  struct completion *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct mutex *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
+  struct usb_endpoint_descriptor *__cil_tmp7 ;
+  __u8 __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  struct usb_endpoint_descriptor *__cil_tmp12 ;
+  __u8 __cil_tmp13 ;
+  struct urb *__cil_tmp14 ;
+  struct usb_device *__cil_tmp15 ;
+  unsigned char *__cil_tmp16 ;
+  void *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  void *__cil_tmp19 ;
+  struct urb *__cil_tmp20 ;
+  struct completion *__cil_tmp21 ;
+  atomic_t *__cil_tmp22 ;
+  struct urb *__cil_tmp23 ;
+  atomic_t *__cil_tmp24 ;
+  struct mutex *__cil_tmp25 ;
+  struct completion *__cil_tmp26 ;
+  struct mutex *__cil_tmp27 ;
 
   {
   {
@@ -6207,147 +5808,79 @@ static int send_packet(struct imon_context *context )
 #line 324
   retval = 0;
 #line 327
-  __cil_tmp6 = *((struct usb_device **)context);
+  __cil_tmp6 = context->usbdev;
 #line 327
-  __cil_tmp7 = (unsigned long )context;
+  __cil_tmp7 = context->tx_endpoint;
 #line 327
-  __cil_tmp8 = __cil_tmp7 + 304;
+  __cil_tmp8 = __cil_tmp7->bEndpointAddress;
 #line 327
-  __cil_tmp9 = *((struct usb_endpoint_descriptor **)__cil_tmp8);
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 327
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
+  tmp___7 = __create_pipe(__cil_tmp6, __cil_tmp9);
 #line 327
-  __cil_tmp11 = __cil_tmp10 + 2;
+  __cil_tmp10 = 1 << 30;
 #line 327
-  __cil_tmp12 = *((__u8 *)__cil_tmp11);
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
 #line 327
-  __cil_tmp13 = (unsigned int )__cil_tmp12;
-#line 327
-  tmp___7 = __create_pipe(__cil_tmp6, __cil_tmp13);
-#line 327
-  __cil_tmp14 = 1 << 30;
-#line 327
-  __cil_tmp15 = (unsigned int )__cil_tmp14;
-#line 327
-  pipe = __cil_tmp15 | tmp___7;
+  pipe = __cil_tmp11 | tmp___7;
 #line 329
-  __cil_tmp16 = (unsigned long )context;
+  __cil_tmp12 = context->tx_endpoint;
 #line 329
-  __cil_tmp17 = __cil_tmp16 + 304;
+  __cil_tmp13 = __cil_tmp12->bInterval;
 #line 329
-  __cil_tmp18 = *((struct usb_endpoint_descriptor **)__cil_tmp17);
-#line 329
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 329
-  __cil_tmp20 = __cil_tmp19 + 6;
-#line 329
-  __cil_tmp21 = *((__u8 *)__cil_tmp20);
-#line 329
-  interval = (int )__cil_tmp21;
+  interval = (int )__cil_tmp13;
 #line 331
-  __cil_tmp22 = (unsigned long )context;
+  __cil_tmp14 = context->tx_urb;
 #line 331
-  __cil_tmp23 = __cil_tmp22 + 320;
+  __cil_tmp15 = context->usbdev;
 #line 331
-  __cil_tmp24 = *((struct urb **)__cil_tmp23);
+  __cil_tmp16 = & context->usb_tx_buf[0];
 #line 331
-  __cil_tmp25 = *((struct usb_device **)context);
+  __cil_tmp17 = (void *)__cil_tmp16;
 #line 331
-  __cil_tmp26 = 0 * 1UL;
+  __cil_tmp18 = (int )8UL;
 #line 331
-  __cil_tmp27 = 336 + __cil_tmp26;
+  __cil_tmp19 = (void *)context;
 #line 331
-  __cil_tmp28 = (unsigned long )context;
-#line 331
-  __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 331
-  __cil_tmp30 = (unsigned char *)__cil_tmp29;
-#line 331
-  __cil_tmp31 = (void *)__cil_tmp30;
-#line 331
-  __cil_tmp32 = (int )8UL;
-#line 331
-  __cil_tmp33 = (void *)context;
-#line 331
-  usb_fill_int_urb(__cil_tmp24, __cil_tmp25, pipe, __cil_tmp31, __cil_tmp32, & usb_tx_callback,
-                   __cil_tmp33, interval);
+  usb_fill_int_urb(__cil_tmp14, __cil_tmp15, pipe, __cil_tmp17, __cil_tmp18, & usb_tx_callback,
+                   __cil_tmp19, interval);
 #line 336
-  __cil_tmp34 = (unsigned long )context;
+  __cil_tmp20 = context->tx_urb;
 #line 336
-  __cil_tmp35 = __cil_tmp34 + 320;
-#line 336
-  __cil_tmp36 = *((struct urb **)__cil_tmp35);
-#line 336
-  __cil_tmp37 = (unsigned long )__cil_tmp36;
-#line 336
-  __cil_tmp38 = __cil_tmp37 + 136;
-#line 336
-  *((u32 *)__cil_tmp38) = 0U;
+  __cil_tmp20->actual_length = (u32 )0;
 #line 338
-  __cil_tmp39 = 360 + 40;
+  __cil_tmp21 = & context->tx.finished;
 #line 338
-  __cil_tmp40 = (unsigned long )context;
-#line 338
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
-#line 338
-  __cil_tmp42 = (struct completion *)__cil_tmp41;
-#line 338
-  init_completion(__cil_tmp42);
+  init_completion(__cil_tmp21);
 #line 339
-  __cil_tmp43 = 360 + 136;
+  __cil_tmp22 = & context->tx.busy;
 #line 339
-  __cil_tmp44 = (unsigned long )context;
-#line 339
-  __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 339
-  __cil_tmp46 = (atomic_t *)__cil_tmp45;
-#line 339
-  atomic_set(__cil_tmp46, 1);
+  atomic_set(__cil_tmp22, 1);
 #line 341
-  __cil_tmp47 = (unsigned long )context;
+  __cil_tmp23 = context->tx_urb;
 #line 341
-  __cil_tmp48 = __cil_tmp47 + 320;
-#line 341
-  __cil_tmp49 = *((struct urb **)__cil_tmp48);
-#line 341
-  retval = usb_submit_urb(__cil_tmp49, 208U);
+  retval = usb_submit_urb(__cil_tmp23, 208U);
   }
 #line 342
   if (retval) {
     {
 #line 343
-    __cil_tmp50 = 360 + 136;
+    __cil_tmp24 = & context->tx.busy;
 #line 343
-    __cil_tmp51 = (unsigned long )context;
-#line 343
-    __cil_tmp52 = __cil_tmp51 + __cil_tmp50;
-#line 343
-    __cil_tmp53 = (atomic_t *)__cil_tmp52;
-#line 343
-    atomic_set(__cil_tmp53, 0);
+    atomic_set(__cil_tmp24, 0);
 #line 344
     printk("<3>lirc_imon: %s: error submitting urb(%d)\n", "send_packet", retval);
     }
   } else {
     {
 #line 347
-    __cil_tmp54 = (unsigned long )context;
+    __cil_tmp25 = & context->ctx_lock;
 #line 347
-    __cil_tmp55 = __cil_tmp54 + 24;
-#line 347
-    __cil_tmp56 = (struct mutex *)__cil_tmp55;
-#line 347
-    mutex_unlock(__cil_tmp56);
+    mutex_unlock(__cil_tmp25);
 #line 348
-    __cil_tmp57 = 360 + 40;
+    __cil_tmp26 = & context->tx.finished;
 #line 348
-    __cil_tmp58 = (unsigned long )context;
-#line 348
-    __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 348
-    __cil_tmp60 = (struct completion *)__cil_tmp59;
-#line 348
-    retval = wait_for_completion_interruptible(__cil_tmp60);
+    retval = wait_for_completion_interruptible(__cil_tmp26);
     }
 #line 350
     if (retval) {
@@ -6360,21 +5893,11 @@ static int send_packet(struct imon_context *context )
     }
     {
 #line 352
-    __cil_tmp61 = (unsigned long )context;
+    __cil_tmp27 = & context->ctx_lock;
 #line 352
-    __cil_tmp62 = __cil_tmp61 + 24;
-#line 352
-    __cil_tmp63 = (struct mutex *)__cil_tmp62;
-#line 352
-    mutex_lock_nested(__cil_tmp63, 0U);
+    mutex_lock_nested(__cil_tmp27, 0U);
 #line 354
-    __cil_tmp64 = 360 + 140;
-#line 354
-    __cil_tmp65 = (unsigned long )context;
-#line 354
-    __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
-#line 354
-    retval = *((int *)__cil_tmp66);
+    retval = context->tx.status;
     }
 #line 355
     if (retval) {
@@ -6414,167 +5937,62 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   long tmp___11 ;
   long tmp___12 ;
   long tmp___13 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  void *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  void *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct mutex *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  int __cil_tmp49 ;
-  void const   *__cil_tmp50 ;
-  void const   *__cil_tmp51 ;
+  void *__cil_tmp26 ;
+  void *__cil_tmp27 ;
+  struct mutex *__cil_tmp28 ;
+  int __cil_tmp29 ;
+  void const   *__cil_tmp30 ;
+  void const   *__cil_tmp31 ;
+  void const   *__cil_tmp32 ;
+  unsigned char *__cil_tmp33 ;
+  void *__cil_tmp34 ;
+  void const   *__cil_tmp35 ;
+  unsigned char *__cil_tmp36 ;
+  void *__cil_tmp37 ;
+  unsigned char *__cil_tmp38 ;
+  unsigned char *__cil_tmp39 ;
+  void const   *__cil_tmp40 ;
+  unsigned char *__cil_tmp41 ;
+  void *__cil_tmp42 ;
+  unsigned char *__cil_tmp43 ;
+  unsigned char *__cil_tmp44 ;
+  void const   *__cil_tmp45 ;
+  int __cil_tmp46 ;
+  unsigned char *__cil_tmp47 ;
+  void *__cil_tmp48 ;
+  void const   *__cil_tmp49 ;
+  unsigned char *__cil_tmp50 ;
+  void *__cil_tmp51 ;
   void const   *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned char *__cil_tmp58 ;
-  void *__cil_tmp59 ;
-  void const   *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned char *__cil_tmp75 ;
-  void *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned char *__cil_tmp82 ;
-  unsigned char *__cil_tmp83 ;
-  void const   *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned char *__cil_tmp89 ;
-  void *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned char *__cil_tmp96 ;
-  unsigned char *__cil_tmp97 ;
-  void const   *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned char *__cil_tmp110 ;
-  void *__cil_tmp111 ;
-  void const   *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned char *__cil_tmp117 ;
-  void *__cil_tmp118 ;
-  void const   *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  int __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  struct mutex *__cil_tmp127 ;
-  void const   *__cil_tmp128 ;
+  int __cil_tmp53 ;
+  struct mutex *__cil_tmp54 ;
+  void const   *__cil_tmp55 ;
 
   {
 #line 379
   retval = 0;
 #line 381
-  __cil_tmp26 = 0 * 1UL;
+  vfd_packet6[0] = (unsigned char)1;
 #line 381
-  __cil_tmp27 = (unsigned long )(vfd_packet6) + __cil_tmp26;
+  vfd_packet6[1] = (unsigned char)0;
 #line 381
-  *((unsigned char *)__cil_tmp27) = (unsigned char)1;
+  vfd_packet6[2] = (unsigned char)0;
 #line 381
-  __cil_tmp28 = 1 * 1UL;
+  vfd_packet6[3] = (unsigned char)0;
 #line 381
-  __cil_tmp29 = (unsigned long )(vfd_packet6) + __cil_tmp28;
+  vfd_packet6[4] = (unsigned char)0;
 #line 381
-  *((unsigned char *)__cil_tmp29) = (unsigned char)0;
+  vfd_packet6[5] = (unsigned char)255;
 #line 381
-  __cil_tmp30 = 2 * 1UL;
-#line 381
-  __cil_tmp31 = (unsigned long )(vfd_packet6) + __cil_tmp30;
-#line 381
-  *((unsigned char *)__cil_tmp31) = (unsigned char)0;
-#line 381
-  __cil_tmp32 = 3 * 1UL;
-#line 381
-  __cil_tmp33 = (unsigned long )(vfd_packet6) + __cil_tmp32;
-#line 381
-  *((unsigned char *)__cil_tmp33) = (unsigned char)0;
-#line 381
-  __cil_tmp34 = 4 * 1UL;
-#line 381
-  __cil_tmp35 = (unsigned long )(vfd_packet6) + __cil_tmp34;
-#line 381
-  *((unsigned char *)__cil_tmp35) = (unsigned char)0;
-#line 381
-  __cil_tmp36 = 5 * 1UL;
-#line 381
-  __cil_tmp37 = (unsigned long )(vfd_packet6) + __cil_tmp36;
-#line 381
-  *((unsigned char *)__cil_tmp37) = (unsigned char)255;
-#line 381
-  __cil_tmp38 = 6 * 1UL;
-#line 381
-  __cil_tmp39 = (unsigned long )(vfd_packet6) + __cil_tmp38;
-#line 381
-  *((unsigned char *)__cil_tmp39) = (unsigned char)255;
+  vfd_packet6[6] = (unsigned char)255;
 #line 383
-  __cil_tmp40 = (void *)0;
+  __cil_tmp26 = (void *)0;
 #line 383
-  data_buf = (int *)__cil_tmp40;
+  data_buf = (int *)__cil_tmp26;
 #line 385
-  __cil_tmp41 = (unsigned long )file;
+  __cil_tmp27 = file->private_data;
 #line 385
-  __cil_tmp42 = __cil_tmp41 + 328;
-#line 385
-  __cil_tmp43 = *((void **)__cil_tmp42);
-#line 385
-  context = (struct imon_context *)__cil_tmp43;
+  context = (struct imon_context *)__cil_tmp27;
 #line 386
   if (! context) {
     {
@@ -6582,35 +6000,28 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     printk("<3>lirc_imon: %s: no context for device\n", "vfd_write");
     }
 #line 388
-    return (-19L);
+    return ((ssize_t )-19);
   } else {
 
   }
   {
 #line 391
-  __cil_tmp44 = (unsigned long )context;
+  __cil_tmp28 = & context->ctx_lock;
 #line 391
-  __cil_tmp45 = __cil_tmp44 + 24;
-#line 391
-  __cil_tmp46 = (struct mutex *)__cil_tmp45;
-#line 391
-  mutex_lock_nested(__cil_tmp46, 0U);
+  mutex_lock_nested(__cil_tmp28, 0U);
   }
   {
 #line 393
-  __cil_tmp47 = (unsigned long )context;
+  __cil_tmp29 = context->dev_present;
 #line 393
-  __cil_tmp48 = __cil_tmp47 + 20;
-#line 393
-  __cil_tmp49 = *((int *)__cil_tmp48);
-#line 393
-  if (! __cil_tmp49) {
+  if (! __cil_tmp29) {
     {
 #line 394
     printk("<3>lirc_imon: %s: no iMON device present\n", "vfd_write");
 #line 395
     retval = -19;
     }
+#line 396
     goto exit;
   } else {
 
@@ -6624,32 +6035,33 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
 #line 401
     retval = -22;
     }
+#line 402
+    goto exit;
+  } else
+#line 399
+  if (n_bytes > 32UL) {
+    {
+#line 400
+    printk("<3>lirc_imon: %s: invalid payload size\n", "vfd_write");
+#line 401
+    retval = -22;
+    }
+#line 402
     goto exit;
   } else {
-#line 399
-    if (n_bytes > 32UL) {
-      {
-#line 400
-      printk("<3>lirc_imon: %s: invalid payload size\n", "vfd_write");
-#line 401
-      retval = -22;
-      }
-      goto exit;
-    } else {
 
-    }
   }
   {
 #line 405
-  __cil_tmp50 = (void const   *)buf;
+  __cil_tmp30 = (void const   *)buf;
 #line 405
-  tmp___7 = memdup_user(__cil_tmp50, n_bytes);
+  tmp___7 = memdup_user(__cil_tmp30, n_bytes);
 #line 405
   data_buf = (int *)tmp___7;
 #line 406
-  __cil_tmp51 = (void const   *)data_buf;
+  __cil_tmp31 = (void const   *)data_buf;
 #line 406
-  tmp___12 = (long )IS_ERR(__cil_tmp51);
+  tmp___12 = (long )IS_ERR(__cil_tmp31);
 #line 406
   tmp = tmp___12;
 #line 406
@@ -6659,9 +6071,9 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   if (tmp___9) {
     {
 #line 407
-    __cil_tmp52 = (void const   *)data_buf;
+    __cil_tmp32 = (void const   *)data_buf;
 #line 407
-    tmp___13 = (long )PTR_ERR(__cil_tmp52);
+    tmp___13 = (long )PTR_ERR(__cil_tmp32);
 #line 407
     tmp___11 = tmp___13;
 #line 407
@@ -6669,6 +6081,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
 #line 407
     retval = (int )tmp___8;
     }
+#line 408
     goto exit;
   } else {
 
@@ -6677,53 +6090,34 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
 #line 411
   __len = n_bytes;
 #line 411
-  __cil_tmp53 = 0 * 1UL;
+  __cil_tmp33 = & context->tx.data_buf[0];
 #line 411
-  __cil_tmp54 = 0 + __cil_tmp53;
+  __cil_tmp34 = (void *)__cil_tmp33;
 #line 411
-  __cil_tmp55 = 360 + __cil_tmp54;
+  __cil_tmp35 = (void const   *)data_buf;
 #line 411
-  __cil_tmp56 = (unsigned long )context;
-#line 411
-  __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
-#line 411
-  __cil_tmp58 = (unsigned char *)__cil_tmp57;
-#line 411
-  __cil_tmp59 = (void *)__cil_tmp58;
-#line 411
-  __cil_tmp60 = (void const   *)data_buf;
-#line 411
-  __ret = __builtin_memcpy(__cil_tmp59, __cil_tmp60, __len);
+  __ret = __builtin_memcpy(__cil_tmp34, __cil_tmp35, __len);
 #line 414
   i = (int )n_bytes;
   }
   {
 #line 414
   while (1) {
-    while_9_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 414
     if (i < 32) {
 
     } else {
+#line 414
       goto while_break;
     }
 #line 415
-    __cil_tmp61 = i * 1UL;
-#line 415
-    __cil_tmp62 = 0 + __cil_tmp61;
-#line 415
-    __cil_tmp63 = 360 + __cil_tmp62;
-#line 415
-    __cil_tmp64 = (unsigned long )context;
-#line 415
-    __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 415
-    *((unsigned char *)__cil_tmp65) = (unsigned char )' ';
+    context->tx.data_buf[i] = (unsigned char )' ';
 #line 414
     i = i + 1;
   }
-  while_9_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break: 
@@ -6732,30 +6126,21 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   {
 #line 417
   while (1) {
-    while_10_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 417
     if (i < 35) {
 
     } else {
+#line 417
       goto while_break___0;
     }
 #line 418
-    __cil_tmp66 = i * 1UL;
-#line 418
-    __cil_tmp67 = 0 + __cil_tmp66;
-#line 418
-    __cil_tmp68 = 360 + __cil_tmp67;
-#line 418
-    __cil_tmp69 = (unsigned long )context;
-#line 418
-    __cil_tmp70 = __cil_tmp69 + __cil_tmp68;
-#line 418
-    *((unsigned char *)__cil_tmp70) = (unsigned char)255;
+    context->tx.data_buf[i] = (unsigned char)255;
 #line 417
     i = i + 1;
   }
-  while_10_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -6766,88 +6151,44 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   {
 #line 423
   while (1) {
-    while_11_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 #line 424
-    __len___0 = 7UL;
+    __len___0 = (size_t )7;
 #line 424
     if (__len___0 >= 64UL) {
       {
 #line 424
-      __cil_tmp71 = 0 * 1UL;
+      __cil_tmp36 = & context->usb_tx_buf[0];
 #line 424
-      __cil_tmp72 = 336 + __cil_tmp71;
+      __cil_tmp37 = (void *)__cil_tmp36;
 #line 424
-      __cil_tmp73 = (unsigned long )context;
+      __cil_tmp38 = & context->tx.data_buf[0];
 #line 424
-      __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
+      __cil_tmp39 = __cil_tmp38 + offset;
 #line 424
-      __cil_tmp75 = (unsigned char *)__cil_tmp74;
+      __cil_tmp40 = (void const   *)__cil_tmp39;
 #line 424
-      __cil_tmp76 = (void *)__cil_tmp75;
-#line 424
-      __cil_tmp77 = 0 * 1UL;
-#line 424
-      __cil_tmp78 = 0 + __cil_tmp77;
-#line 424
-      __cil_tmp79 = 360 + __cil_tmp78;
-#line 424
-      __cil_tmp80 = (unsigned long )context;
-#line 424
-      __cil_tmp81 = __cil_tmp80 + __cil_tmp79;
-#line 424
-      __cil_tmp82 = (unsigned char *)__cil_tmp81;
-#line 424
-      __cil_tmp83 = __cil_tmp82 + offset;
-#line 424
-      __cil_tmp84 = (void const   *)__cil_tmp83;
-#line 424
-      __ret___0 = __memcpy(__cil_tmp76, __cil_tmp84, __len___0);
+      __ret___0 = __memcpy(__cil_tmp37, __cil_tmp40, __len___0);
       }
     } else {
       {
 #line 424
-      __cil_tmp85 = 0 * 1UL;
+      __cil_tmp41 = & context->usb_tx_buf[0];
 #line 424
-      __cil_tmp86 = 336 + __cil_tmp85;
+      __cil_tmp42 = (void *)__cil_tmp41;
 #line 424
-      __cil_tmp87 = (unsigned long )context;
+      __cil_tmp43 = & context->tx.data_buf[0];
 #line 424
-      __cil_tmp88 = __cil_tmp87 + __cil_tmp86;
+      __cil_tmp44 = __cil_tmp43 + offset;
 #line 424
-      __cil_tmp89 = (unsigned char *)__cil_tmp88;
+      __cil_tmp45 = (void const   *)__cil_tmp44;
 #line 424
-      __cil_tmp90 = (void *)__cil_tmp89;
-#line 424
-      __cil_tmp91 = 0 * 1UL;
-#line 424
-      __cil_tmp92 = 0 + __cil_tmp91;
-#line 424
-      __cil_tmp93 = 360 + __cil_tmp92;
-#line 424
-      __cil_tmp94 = (unsigned long )context;
-#line 424
-      __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
-#line 424
-      __cil_tmp96 = (unsigned char *)__cil_tmp95;
-#line 424
-      __cil_tmp97 = __cil_tmp96 + offset;
-#line 424
-      __cil_tmp98 = (void const   *)__cil_tmp97;
-#line 424
-      __ret___0 = __builtin_memcpy(__cil_tmp90, __cil_tmp98, __len___0);
+      __ret___0 = __builtin_memcpy(__cil_tmp42, __cil_tmp45, __len___0);
       }
     }
     {
 #line 425
-    __cil_tmp99 = 7 * 1UL;
-#line 425
-    __cil_tmp100 = 336 + __cil_tmp99;
-#line 425
-    __cil_tmp101 = (unsigned long )context;
-#line 425
-    __cil_tmp102 = __cil_tmp101 + __cil_tmp100;
-#line 425
-    *((unsigned char *)__cil_tmp102) = (unsigned char )seq;
+    context->usb_tx_buf[7] = (unsigned char )seq;
 #line 427
     retval = send_packet(context);
     }
@@ -6855,11 +6196,12 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     if (retval) {
       {
 #line 429
-      __cil_tmp103 = seq / 2;
+      __cil_tmp46 = seq / 2;
 #line 429
       printk("<3>lirc_imon: %s: send packet failed for packet #%d\n", "vfd_write",
-             __cil_tmp103);
+             __cil_tmp46);
       }
+#line 431
       goto exit;
     } else {
 #line 433
@@ -6871,73 +6213,45 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     if (offset < 35) {
 
     } else {
+#line 423
       goto while_break___1;
     }
   }
-  while_11_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break___1: ;
-  {
 #line 439
-  __cil_tmp104 = (unsigned long )context;
-#line 439
-  __cil_tmp105 = __cil_tmp104 + 280;
-#line 439
-  if (*((int *)__cil_tmp105)) {
+  if (context->vfd_proto_6p) {
 #line 441
     __len___1 = 7UL;
 #line 441
     if (__len___1 >= 64UL) {
       {
 #line 441
-      __cil_tmp106 = 0 * 1UL;
+      __cil_tmp47 = & context->usb_tx_buf[0];
 #line 441
-      __cil_tmp107 = 336 + __cil_tmp106;
+      __cil_tmp48 = (void *)__cil_tmp47;
 #line 441
-      __cil_tmp108 = (unsigned long )context;
+      __cil_tmp49 = (void const   *)(& vfd_packet6);
 #line 441
-      __cil_tmp109 = __cil_tmp108 + __cil_tmp107;
-#line 441
-      __cil_tmp110 = (unsigned char *)__cil_tmp109;
-#line 441
-      __cil_tmp111 = (void *)__cil_tmp110;
-#line 441
-      __cil_tmp112 = (void const   *)(& vfd_packet6);
-#line 441
-      __ret___1 = __memcpy(__cil_tmp111, __cil_tmp112, __len___1);
+      __ret___1 = __memcpy(__cil_tmp48, __cil_tmp49, __len___1);
       }
     } else {
       {
 #line 441
-      __cil_tmp113 = 0 * 1UL;
+      __cil_tmp50 = & context->usb_tx_buf[0];
 #line 441
-      __cil_tmp114 = 336 + __cil_tmp113;
+      __cil_tmp51 = (void *)__cil_tmp50;
 #line 441
-      __cil_tmp115 = (unsigned long )context;
+      __cil_tmp52 = (void const   *)(& vfd_packet6);
 #line 441
-      __cil_tmp116 = __cil_tmp115 + __cil_tmp114;
-#line 441
-      __cil_tmp117 = (unsigned char *)__cil_tmp116;
-#line 441
-      __cil_tmp118 = (void *)__cil_tmp117;
-#line 441
-      __cil_tmp119 = (void const   *)(& vfd_packet6);
-#line 441
-      __ret___1 = __builtin_memcpy(__cil_tmp118, __cil_tmp119, __len___1);
+      __ret___1 = __builtin_memcpy(__cil_tmp51, __cil_tmp52, __len___1);
       }
     }
     {
 #line 442
-    __cil_tmp120 = 7 * 1UL;
-#line 442
-    __cil_tmp121 = 336 + __cil_tmp120;
-#line 442
-    __cil_tmp122 = (unsigned long )context;
-#line 442
-    __cil_tmp123 = __cil_tmp122 + __cil_tmp121;
-#line 442
-    *((unsigned char *)__cil_tmp123) = (unsigned char )seq;
+    context->usb_tx_buf[7] = (unsigned char )seq;
 #line 443
     retval = send_packet(context);
     }
@@ -6945,10 +6259,10 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     if (retval) {
       {
 #line 445
-      __cil_tmp124 = seq / 2;
+      __cil_tmp53 = seq / 2;
 #line 445
       printk("<3>lirc_imon: %s: send packet failed for packet #%d\n", "vfd_write",
-             __cil_tmp124);
+             __cil_tmp53);
       }
     } else {
 
@@ -6956,21 +6270,16 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   } else {
 
   }
-  }
   exit: 
   {
 #line 450
-  __cil_tmp125 = (unsigned long )context;
+  __cil_tmp54 = & context->ctx_lock;
 #line 450
-  __cil_tmp126 = __cil_tmp125 + 24;
-#line 450
-  __cil_tmp127 = (struct mutex *)__cil_tmp126;
-#line 450
-  mutex_unlock(__cil_tmp127);
+  mutex_unlock(__cil_tmp54);
 #line 451
-  __cil_tmp128 = (void const   *)data_buf;
+  __cil_tmp55 = (void const   *)data_buf;
 #line 451
-  kfree(__cil_tmp128);
+  kfree(__cil_tmp55);
   }
 #line 453
   if (! retval) {
@@ -6978,31 +6287,18 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     tmp___10 = n_bytes;
   } else {
 #line 453
-    tmp___10 = (unsigned long )retval;
+    tmp___10 = (size_t )retval;
   }
 #line 453
-  return ((long )tmp___10);
+  return ((ssize_t )tmp___10);
 }
 }
 #line 459 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
 static void usb_tx_callback(struct urb *urb ) 
 { struct imon_context *context ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  atomic_t *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct completion *__cil_tmp18 ;
+  void *__cil_tmp3 ;
+  atomic_t *__cil_tmp4 ;
+  struct completion *__cil_tmp5 ;
 
   {
 #line 463
@@ -7013,13 +6309,9 @@ static void usb_tx_callback(struct urb *urb )
 
   }
 #line 465
-  __cil_tmp3 = (unsigned long )urb;
+  __cil_tmp3 = urb->context;
 #line 465
-  __cil_tmp4 = __cil_tmp3 + 176;
-#line 465
-  __cil_tmp5 = *((void **)__cil_tmp4);
-#line 465
-  context = (struct imon_context *)__cil_tmp5;
+  context = (struct imon_context *)__cil_tmp3;
 #line 466
   if (! context) {
 #line 467
@@ -7029,37 +6321,15 @@ static void usb_tx_callback(struct urb *urb )
   }
   {
 #line 469
-  __cil_tmp6 = 360 + 140;
-#line 469
-  __cil_tmp7 = (unsigned long )context;
-#line 469
-  __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
-#line 469
-  __cil_tmp9 = (unsigned long )urb;
-#line 469
-  __cil_tmp10 = __cil_tmp9 + 96;
-#line 469
-  *((int *)__cil_tmp8) = *((int *)__cil_tmp10);
+  context->tx.status = urb->status;
 #line 472
-  __cil_tmp11 = 360 + 136;
+  __cil_tmp4 = & context->tx.busy;
 #line 472
-  __cil_tmp12 = (unsigned long )context;
-#line 472
-  __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 472
-  __cil_tmp14 = (atomic_t *)__cil_tmp13;
-#line 472
-  atomic_set(__cil_tmp14, 0);
+  atomic_set(__cil_tmp4, 0);
 #line 473
-  __cil_tmp15 = 360 + 40;
+  __cil_tmp5 = & context->tx.finished;
 #line 473
-  __cil_tmp16 = (unsigned long )context;
-#line 473
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 473
-  __cil_tmp18 = (struct completion *)__cil_tmp17;
-#line 473
-  complete(__cil_tmp18);
+  complete(__cil_tmp5);
   }
 #line 475
   return;
@@ -7069,23 +6339,9 @@ static void usb_tx_callback(struct urb *urb )
 static int ir_open(void *data ) 
 { int retval ;
   struct imon_context *context ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct lirc_driver *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct device *__cil_tmp19 ;
-  struct device  const  *__cil_tmp20 ;
+  struct lirc_driver *__cil_tmp4 ;
+  struct device *__cil_tmp5 ;
+  struct device  const  *__cil_tmp6 ;
 
   {
   {
@@ -7096,49 +6352,21 @@ static int ir_open(void *data )
 #line 489
   context = (struct imon_context *)data;
 #line 492
-  __cil_tmp4 = (unsigned long )context;
-#line 492
-  __cil_tmp5 = __cil_tmp4 + 344;
-#line 492
-  *((int *)__cil_tmp5) = 0;
+  context->rx.count = 0;
 #line 493
-  __cil_tmp6 = 344 + 8;
-#line 493
-  __cil_tmp7 = (unsigned long )context;
-#line 493
-  __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
-#line 493
-  *((int *)__cil_tmp8) = 1;
+  context->rx.initial_space = 1;
 #line 494
-  __cil_tmp9 = 344 + 4;
-#line 494
-  __cil_tmp10 = (unsigned long )context;
-#line 494
-  __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
-#line 494
-  *((int *)__cil_tmp11) = 0;
+  context->rx.prev_bit = 0;
 #line 496
-  __cil_tmp12 = (unsigned long )context;
-#line 496
-  __cil_tmp13 = __cil_tmp12 + 16;
-#line 496
-  *((int *)__cil_tmp13) = 1;
+  context->ir_isopen = 1;
 #line 497
-  __cil_tmp14 = (unsigned long )context;
+  __cil_tmp4 = context->driver;
 #line 497
-  __cil_tmp15 = __cil_tmp14 + 288;
+  __cil_tmp5 = __cil_tmp4->dev;
 #line 497
-  __cil_tmp16 = *((struct lirc_driver **)__cil_tmp15);
+  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
 #line 497
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 497
-  __cil_tmp18 = __cil_tmp17 + 120;
-#line 497
-  __cil_tmp19 = *((struct device **)__cil_tmp18);
-#line 497
-  __cil_tmp20 = (struct device  const  *)__cil_tmp19;
-#line 497
-  _dev_info(__cil_tmp20, "IR port opened\n");
+  _dev_info(__cil_tmp6, "IR port opened\n");
 #line 499
   mutex_unlock(& driver_lock);
   }
@@ -7149,30 +6377,14 @@ static int ir_open(void *data )
 #line 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
 static void ir_close(void *data ) 
 { struct imon_context *context ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct mutex *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct lirc_driver *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct device *__cil_tmp13 ;
-  struct device  const  *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct mutex *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct mutex *__cil_tmp26 ;
+  struct mutex *__cil_tmp3 ;
+  struct lirc_driver *__cil_tmp4 ;
+  struct device *__cil_tmp5 ;
+  struct device  const  *__cil_tmp6 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
+  struct mutex *__cil_tmp9 ;
+  struct mutex *__cil_tmp10 ;
 
   {
 #line 510
@@ -7190,67 +6402,39 @@ static void ir_close(void *data )
   }
   {
 #line 516
-  __cil_tmp3 = (unsigned long )context;
+  __cil_tmp3 = & context->ctx_lock;
 #line 516
-  __cil_tmp4 = __cil_tmp3 + 24;
-#line 516
-  __cil_tmp5 = (struct mutex *)__cil_tmp4;
-#line 516
-  mutex_lock_nested(__cil_tmp5, 0U);
+  mutex_lock_nested(__cil_tmp3, 0U);
 #line 518
-  __cil_tmp6 = (unsigned long )context;
-#line 518
-  __cil_tmp7 = __cil_tmp6 + 16;
-#line 518
-  *((int *)__cil_tmp7) = 0;
+  context->ir_isopen = 0;
 #line 519
-  __cil_tmp8 = (unsigned long )context;
+  __cil_tmp4 = context->driver;
 #line 519
-  __cil_tmp9 = __cil_tmp8 + 288;
+  __cil_tmp5 = __cil_tmp4->dev;
 #line 519
-  __cil_tmp10 = *((struct lirc_driver **)__cil_tmp9);
+  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
 #line 519
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 519
-  __cil_tmp12 = __cil_tmp11 + 120;
-#line 519
-  __cil_tmp13 = *((struct device **)__cil_tmp12);
-#line 519
-  __cil_tmp14 = (struct device  const  *)__cil_tmp13;
-#line 519
-  _dev_info(__cil_tmp14, "IR port closed\n");
+  _dev_info(__cil_tmp6, "IR port closed\n");
   }
   {
 #line 521
-  __cil_tmp15 = (unsigned long )context;
+  __cil_tmp7 = context->dev_present;
 #line 521
-  __cil_tmp16 = __cil_tmp15 + 20;
-#line 521
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 521
-  if (! __cil_tmp17) {
+  if (! __cil_tmp7) {
     {
 #line 526
     deregister_from_lirc(context);
     }
     {
 #line 528
-    __cil_tmp18 = (unsigned long )context;
+    __cil_tmp8 = context->display_isopen;
 #line 528
-    __cil_tmp19 = __cil_tmp18 + 12;
-#line 528
-    __cil_tmp20 = *((int *)__cil_tmp19);
-#line 528
-    if (! __cil_tmp20) {
+    if (! __cil_tmp8) {
       {
 #line 529
-      __cil_tmp21 = (unsigned long )context;
+      __cil_tmp9 = & context->ctx_lock;
 #line 529
-      __cil_tmp22 = __cil_tmp21 + 24;
-#line 529
-      __cil_tmp23 = (struct mutex *)__cil_tmp22;
-#line 529
-      mutex_unlock(__cil_tmp23);
+      mutex_unlock(__cil_tmp9);
 #line 530
       free_imon_context(context);
       }
@@ -7266,13 +6450,9 @@ static void ir_close(void *data )
   }
   {
 #line 539
-  __cil_tmp24 = (unsigned long )context;
+  __cil_tmp10 = & context->ctx_lock;
 #line 539
-  __cil_tmp25 = __cil_tmp24 + 24;
-#line 539
-  __cil_tmp26 = (struct mutex *)__cil_tmp25;
-#line 539
-  mutex_unlock(__cil_tmp26);
+  mutex_unlock(__cil_tmp10);
   }
 #line 540
   return;
@@ -7290,101 +6470,70 @@ static void submit_data(struct imon_context *context )
   int value ;
   int i ;
   long tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  int __cil_tmp8 ;
-  int __cil_tmp9 ;
-  long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct lirc_driver *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct device *__cil_tmp16 ;
-  struct device  const  *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct lirc_driver *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct lirc_buffer *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned char *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct lirc_driver *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct lirc_buffer *__cil_tmp39 ;
-  wait_queue_head_t *__cil_tmp40 ;
-  void *__cil_tmp41 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  long __cil_tmp8 ;
+  struct lirc_driver *__cil_tmp9 ;
+  struct device *__cil_tmp10 ;
+  struct device  const  *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  struct lirc_driver *__cil_tmp14 ;
+  struct lirc_buffer *__cil_tmp15 ;
+  unsigned char *__cil_tmp16 ;
+  struct lirc_driver *__cil_tmp17 ;
+  struct lirc_buffer *__cil_tmp18 ;
+  wait_queue_head_t *__cil_tmp19 ;
+  void *__cil_tmp20 ;
 
   {
 #line 550
-  __cil_tmp6 = (unsigned long )context;
-#line 550
-  __cil_tmp7 = __cil_tmp6 + 344;
-#line 550
-  value = *((int *)__cil_tmp7);
+  value = context->rx.count;
   {
 #line 553
   while (1) {
-    while_12_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 553
     while (1) {
-      while_13_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 553
-      __cil_tmp8 = ! descriptor___0.enabled;
+      __cil_tmp6 = ! descriptor___0.enabled;
 #line 553
-      __cil_tmp9 = ! __cil_tmp8;
+      __cil_tmp7 = ! __cil_tmp6;
 #line 553
-      __cil_tmp10 = (long )__cil_tmp9;
+      __cil_tmp8 = (long )__cil_tmp7;
 #line 553
-      tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
       }
 #line 553
       if (tmp___7) {
         {
 #line 553
-        __cil_tmp11 = (unsigned long )context;
+        __cil_tmp9 = context->driver;
 #line 553
-        __cil_tmp12 = __cil_tmp11 + 288;
+        __cil_tmp10 = __cil_tmp9->dev;
 #line 553
-        __cil_tmp13 = *((struct lirc_driver **)__cil_tmp12);
+        __cil_tmp11 = (struct device  const  *)__cil_tmp10;
 #line 553
-        __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 553
-        __cil_tmp15 = __cil_tmp14 + 120;
-#line 553
-        __cil_tmp16 = *((struct device **)__cil_tmp15);
-#line 553
-        __cil_tmp17 = (struct device  const  *)__cil_tmp16;
-#line 553
-        dev_printk("<7>", __cil_tmp17, "submitting data to LIRC\n");
+        dev_printk("<7>", __cil_tmp11, "submitting data to LIRC\n");
         }
       } else {
 
       }
+#line 553
       goto while_break___0;
     }
-    while_13_break: /* CIL Label */ ;
+    while_break___3: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 553
     goto while_break;
   }
-  while_12_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break: 
@@ -7392,90 +6541,59 @@ static void submit_data(struct imon_context *context )
   value = value * 250;
 #line 556
   value = value & 16777215;
-  {
 #line 557
-  __cil_tmp18 = 344 + 4;
-#line 557
-  __cil_tmp19 = (unsigned long )context;
-#line 557
-  __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 557
-  if (*((int *)__cil_tmp20)) {
+  if (context->rx.prev_bit) {
 #line 558
     value = value | 16777216;
   } else {
 
-  }
   }
 #line 560
   i = 0;
   {
 #line 560
   while (1) {
-    while_14_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
 #line 560
     if (i < 4) {
 
     } else {
+#line 560
       goto while_break___1;
     }
 #line 561
-    __cil_tmp21 = i * 1UL;
+    __cil_tmp12 = i * 8;
 #line 561
-    __cil_tmp22 = (unsigned long )(buf) + __cil_tmp21;
+    __cil_tmp13 = value >> __cil_tmp12;
 #line 561
-    __cil_tmp23 = i * 8;
-#line 561
-    __cil_tmp24 = value >> __cil_tmp23;
-#line 561
-    *((unsigned char *)__cil_tmp22) = (unsigned char )__cil_tmp24;
+    buf[i] = (unsigned char )__cil_tmp13;
 #line 560
     i = i + 1;
   }
-  while_14_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break___1: 
   {
 #line 563
-  __cil_tmp25 = (unsigned long )context;
+  __cil_tmp14 = context->driver;
 #line 563
-  __cil_tmp26 = __cil_tmp25 + 288;
+  __cil_tmp15 = __cil_tmp14->rbuf;
 #line 563
-  __cil_tmp27 = *((struct lirc_driver **)__cil_tmp26);
+  __cil_tmp16 = & buf[0];
 #line 563
-  __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 563
-  __cil_tmp29 = __cil_tmp28 + 88;
-#line 563
-  __cil_tmp30 = *((struct lirc_buffer **)__cil_tmp29);
-#line 563
-  __cil_tmp31 = 0 * 1UL;
-#line 563
-  __cil_tmp32 = (unsigned long )(buf) + __cil_tmp31;
-#line 563
-  __cil_tmp33 = (unsigned char *)__cil_tmp32;
-#line 563
-  lirc_buffer_write(__cil_tmp30, __cil_tmp33);
+  lirc_buffer_write(__cil_tmp15, __cil_tmp16);
 #line 564
-  __cil_tmp34 = (unsigned long )context;
+  __cil_tmp17 = context->driver;
 #line 564
-  __cil_tmp35 = __cil_tmp34 + 288;
+  __cil_tmp18 = __cil_tmp17->rbuf;
 #line 564
-  __cil_tmp36 = *((struct lirc_driver **)__cil_tmp35);
+  __cil_tmp19 = & __cil_tmp18->wait_poll;
 #line 564
-  __cil_tmp37 = (unsigned long )__cil_tmp36;
+  __cil_tmp20 = (void *)0;
 #line 564
-  __cil_tmp38 = __cil_tmp37 + 88;
-#line 564
-  __cil_tmp39 = *((struct lirc_buffer **)__cil_tmp38);
-#line 564
-  __cil_tmp40 = (wait_queue_head_t *)__cil_tmp39;
-#line 564
-  __cil_tmp41 = (void *)0;
-#line 564
-  __wake_up(__cil_tmp40, 3U, 1, __cil_tmp41);
+  __wake_up(__cil_tmp19, 3U, 1, __cil_tmp20);
   }
 #line 565
   return;
@@ -7492,113 +6610,48 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
   unsigned char mask ;
   int i ;
   int curr_bit ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u32 __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  void *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct lirc_driver *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int __cil_tmp25 ;
-  struct device  const  *__cil_tmp26 ;
-  int *__cil_tmp27 ;
-  unsigned char *__cil_tmp28 ;
-  unsigned char __cil_tmp29 ;
+  u32 __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  struct lirc_driver *__cil_tmp14 ;
+  int __cil_tmp15 ;
+  struct device  const  *__cil_tmp16 ;
+  unsigned char *__cil_tmp17 ;
+  unsigned char __cil_tmp18 ;
+  int __cil_tmp19 ;
+  unsigned char *__cil_tmp20 ;
+  unsigned char __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  unsigned char *__cil_tmp24 ;
+  unsigned char __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
   int __cil_tmp30 ;
-  unsigned char *__cil_tmp31 ;
-  unsigned char __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned char *__cil_tmp45 ;
-  unsigned char __cil_tmp46 ;
-  int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  unsigned char *__cil_tmp67 ;
-  unsigned char __cil_tmp68 ;
-  int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
+  int __cil_tmp31 ;
+  unsigned char *__cil_tmp32 ;
+  unsigned char __cil_tmp33 ;
+  int __cil_tmp34 ;
 
   {
 #line 597
-  __cil_tmp12 = (unsigned long )urb;
+  __cil_tmp12 = urb->actual_length;
 #line 597
-  __cil_tmp13 = __cil_tmp12 + 136;
-#line 597
-  __cil_tmp14 = *((u32 *)__cil_tmp13);
-#line 597
-  len = (int )__cil_tmp14;
+  len = (int )__cil_tmp12;
 #line 598
-  __cil_tmp15 = (unsigned long )urb;
+  __cil_tmp13 = urb->transfer_buffer;
 #line 598
-  __cil_tmp16 = __cil_tmp15 + 104;
-#line 598
-  __cil_tmp17 = *((void **)__cil_tmp16);
-#line 598
-  buf = (unsigned char *)__cil_tmp17;
+  buf = (unsigned char *)__cil_tmp13;
 #line 599
-  __cil_tmp18 = (unsigned long )context;
+  __cil_tmp14 = context->driver;
 #line 599
-  __cil_tmp19 = __cil_tmp18 + 288;
-#line 599
-  __cil_tmp20 = *((struct lirc_driver **)__cil_tmp19);
-#line 599
-  __cil_tmp21 = (unsigned long )__cil_tmp20;
-#line 599
-  __cil_tmp22 = __cil_tmp21 + 120;
-#line 599
-  dev = *((struct device **)__cil_tmp22);
+  dev = __cil_tmp14->dev;
   {
 #line 607
-  __cil_tmp23 = (unsigned long )context;
+  __cil_tmp15 = context->ir_isopen;
 #line 607
-  __cil_tmp24 = __cil_tmp23 + 16;
-#line 607
-  __cil_tmp25 = *((int *)__cil_tmp24);
-#line 607
-  if (! __cil_tmp25) {
+  if (! __cil_tmp15) {
 #line 608
     return;
   } else {
@@ -7609,9 +6662,9 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
   if (len != 8) {
     {
 #line 611
-    __cil_tmp26 = (struct device  const  *)dev;
+    __cil_tmp16 = (struct device  const  *)dev;
 #line 611
-    dev_warn(__cil_tmp26, "imon %s: invalid incoming packet size (len = %d, intf%d)\n",
+    dev_warn(__cil_tmp16, "imon %s: invalid incoming packet size (len = %d, intf%d)\n",
              "imon_incoming_packet", len, intf);
     }
 #line 613
@@ -7619,11 +6672,8 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
   } else {
 
   }
-  {
 #line 616
-  __cil_tmp27 = & debug;
-#line 616
-  if (*__cil_tmp27) {
+  if (debug) {
     {
 #line 617
     printk("<6>raw packet: ");
@@ -7633,28 +6683,29 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
     {
 #line 618
     while (1) {
-      while_15_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
 #line 618
       if (i < len) {
 
       } else {
+#line 618
         goto while_break;
       }
       {
 #line 619
-      __cil_tmp28 = buf + i;
+      __cil_tmp17 = buf + i;
 #line 619
-      __cil_tmp29 = *__cil_tmp28;
+      __cil_tmp18 = *__cil_tmp17;
 #line 619
-      __cil_tmp30 = (int )__cil_tmp29;
+      __cil_tmp19 = (int )__cil_tmp18;
 #line 619
-      printk("%02x ", __cil_tmp30);
+      printk("%02x ", __cil_tmp19);
 #line 618
       i = i + 1;
       }
     }
-    while_15_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break: 
@@ -7665,52 +6716,29 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
   } else {
 
   }
-  }
   {
 #line 637
-  __cil_tmp31 = buf + 7;
+  __cil_tmp20 = buf + 7;
 #line 637
-  __cil_tmp32 = *__cil_tmp31;
+  __cil_tmp21 = *__cil_tmp20;
 #line 637
-  __cil_tmp33 = (int )__cil_tmp32;
+  __cil_tmp22 = (int )__cil_tmp21;
 #line 637
-  if (__cil_tmp33 == 1) {
-    {
+  if (__cil_tmp22 == 1) {
 #line 637
-    __cil_tmp34 = 344 + 8;
-#line 637
-    __cil_tmp35 = (unsigned long )context;
-#line 637
-    __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
-#line 637
-    if (*((int *)__cil_tmp36)) {
+    if (context->rx.initial_space) {
       {
 #line 639
-      __cil_tmp37 = 344 + 4;
-#line 639
-      __cil_tmp38 = (unsigned long )context;
-#line 639
-      __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 639
-      *((int *)__cil_tmp39) = 0;
+      context->rx.prev_bit = 0;
 #line 640
-      __cil_tmp40 = (unsigned long )context;
-#line 640
-      __cil_tmp41 = __cil_tmp40 + 344;
-#line 640
-      *((int *)__cil_tmp41) = 4;
+      context->rx.count = 4;
 #line 641
       submit_data(context);
 #line 642
-      __cil_tmp42 = (unsigned long )context;
-#line 642
-      __cil_tmp43 = __cil_tmp42 + 344;
-#line 642
-      *((int *)__cil_tmp43) = 0;
+      context->rx.count = 0;
       }
     } else {
 
-    }
     }
   } else {
 
@@ -7721,12 +6749,13 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
   {
 #line 645
   while (1) {
-    while_16_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 645
     if (octet < 5) {
 
     } else {
+#line 645
       goto while_break___0;
     }
 #line 646
@@ -7736,146 +6765,95 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
     {
 #line 647
     while (1) {
-      while_17_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
 #line 647
       if (bit < 8) {
 
       } else {
+#line 647
         goto while_break___1;
       }
 #line 648
-      __cil_tmp44 = (int )mask;
+      __cil_tmp23 = (int )mask;
 #line 648
-      __cil_tmp45 = buf + octet;
+      __cil_tmp24 = buf + octet;
 #line 648
-      __cil_tmp46 = *__cil_tmp45;
+      __cil_tmp25 = *__cil_tmp24;
 #line 648
-      __cil_tmp47 = (int )__cil_tmp46;
+      __cil_tmp26 = (int )__cil_tmp25;
 #line 648
-      __cil_tmp48 = __cil_tmp47 & __cil_tmp44;
+      __cil_tmp27 = __cil_tmp26 & __cil_tmp23;
 #line 648
-      curr_bit = ! __cil_tmp48;
+      curr_bit = ! __cil_tmp27;
       {
 #line 649
-      __cil_tmp49 = 344 + 4;
+      __cil_tmp28 = context->rx.prev_bit;
 #line 649
-      __cil_tmp50 = (unsigned long )context;
-#line 649
-      __cil_tmp51 = __cil_tmp50 + __cil_tmp49;
-#line 649
-      __cil_tmp52 = *((int *)__cil_tmp51);
-#line 649
-      if (curr_bit != __cil_tmp52) {
-        {
+      if (curr_bit != __cil_tmp28) {
 #line 650
-        __cil_tmp53 = (unsigned long )context;
-#line 650
-        __cil_tmp54 = __cil_tmp53 + 344;
-#line 650
-        if (*((int *)__cil_tmp54)) {
+        if (context->rx.count) {
           {
 #line 651
           submit_data(context);
 #line 652
-          __cil_tmp55 = (unsigned long )context;
-#line 652
-          __cil_tmp56 = __cil_tmp55 + 344;
-#line 652
-          *((int *)__cil_tmp56) = 0;
+          context->rx.count = 0;
           }
         } else {
 
         }
-        }
 #line 654
-        __cil_tmp57 = 344 + 4;
-#line 654
-        __cil_tmp58 = (unsigned long )context;
-#line 654
-        __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 654
-        *((int *)__cil_tmp59) = curr_bit;
+        context->rx.prev_bit = curr_bit;
       } else {
 
       }
       }
 #line 656
-      __cil_tmp60 = (unsigned long )context;
+      __cil_tmp29 = context->rx.count;
 #line 656
-      __cil_tmp61 = __cil_tmp60 + 344;
-#line 656
-      __cil_tmp62 = (unsigned long )context;
-#line 656
-      __cil_tmp63 = __cil_tmp62 + 344;
-#line 656
-      __cil_tmp64 = *((int *)__cil_tmp63);
-#line 656
-      *((int *)__cil_tmp61) = __cil_tmp64 + 1;
+      context->rx.count = __cil_tmp29 + 1;
 #line 657
-      __cil_tmp65 = (int )mask;
+      __cil_tmp30 = (int )mask;
 #line 657
-      __cil_tmp66 = __cil_tmp65 >> 1;
+      __cil_tmp31 = __cil_tmp30 >> 1;
 #line 657
-      mask = (unsigned char )__cil_tmp66;
+      mask = (unsigned char )__cil_tmp31;
 #line 647
       bit = bit + 1;
     }
-    while_17_break: /* CIL Label */ ;
+    while_break___4: /* CIL Label */ ;
     }
 
     while_break___1: 
 #line 645
     octet = octet + 1;
   }
-  while_16_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break___0: ;
   {
 #line 661
-  __cil_tmp67 = buf + 7;
+  __cil_tmp32 = buf + 7;
 #line 661
-  __cil_tmp68 = *__cil_tmp67;
+  __cil_tmp33 = *__cil_tmp32;
 #line 661
-  __cil_tmp69 = (int )__cil_tmp68;
+  __cil_tmp34 = (int )__cil_tmp33;
 #line 661
-  if (__cil_tmp69 == 10) {
-    {
+  if (__cil_tmp34 == 10) {
 #line 662
-    __cil_tmp70 = (unsigned long )context;
-#line 662
-    __cil_tmp71 = __cil_tmp70 + 344;
-#line 662
-    if (*((int *)__cil_tmp71)) {
+    if (context->rx.count) {
       {
 #line 663
       submit_data(context);
 #line 664
-      __cil_tmp72 = (unsigned long )context;
-#line 664
-      __cil_tmp73 = __cil_tmp72 + 344;
-#line 664
-      *((int *)__cil_tmp73) = 0;
+      context->rx.count = 0;
       }
     } else {
 
     }
-    }
 #line 666
-    __cil_tmp74 = 344 + 8;
-#line 666
-    __cil_tmp75 = (unsigned long )context;
-#line 666
-    __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
-#line 666
-    __cil_tmp77 = 344 + 4;
-#line 666
-    __cil_tmp78 = (unsigned long )context;
-#line 666
-    __cil_tmp79 = __cil_tmp78 + __cil_tmp77;
-#line 666
-    *((int *)__cil_tmp76) = *((int *)__cil_tmp79);
+    context->rx.initial_space = context->rx.prev_bit;
   } else {
 
   }
@@ -7888,28 +6866,14 @@ static void imon_incoming_packet(struct imon_context *context , struct urb *urb 
 static void usb_rx_callback(struct urb *urb ) 
 { struct imon_context *context ;
   int intfnum ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct lirc_driver *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct device *__cil_tmp18 ;
-  struct device  const  *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct urb *__cil_tmp25 ;
+  void *__cil_tmp4 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
+  struct lirc_driver *__cil_tmp7 ;
+  struct device *__cil_tmp8 ;
+  struct device  const  *__cil_tmp9 ;
+  int __cil_tmp10 ;
+  struct urb *__cil_tmp11 ;
 
   {
 #line 676
@@ -7922,13 +6886,9 @@ static void usb_rx_callback(struct urb *urb )
 
   }
 #line 681
-  __cil_tmp4 = (unsigned long )urb;
+  __cil_tmp4 = urb->context;
 #line 681
-  __cil_tmp5 = __cil_tmp4 + 176;
-#line 681
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 681
-  context = (struct imon_context *)__cil_tmp6;
+  context = (struct imon_context *)__cil_tmp4;
 #line 682
   if (! context) {
 #line 683
@@ -7938,26 +6898,21 @@ static void usb_rx_callback(struct urb *urb )
   }
   {
 #line 686
-  __cil_tmp7 = (unsigned long )urb;
+  __cil_tmp5 = urb->status;
 #line 686
-  __cil_tmp8 = __cil_tmp7 + 96;
+  if (__cil_tmp5 == -2) {
 #line 686
-  __cil_tmp9 = *((int *)__cil_tmp8);
-#line 686
-  if (__cil_tmp9 == -2) {
     goto case_neg_2;
   } else {
     {
 #line 689
-    __cil_tmp10 = (unsigned long )urb;
+    __cil_tmp6 = urb->status;
 #line 689
-    __cil_tmp11 = __cil_tmp10 + 96;
+    if (__cil_tmp6 == 0) {
 #line 689
-    __cil_tmp12 = *((int *)__cil_tmp11);
-#line 689
-    if (__cil_tmp12 == 0) {
       goto case_0;
     } else {
+#line 693
       goto switch_default;
 #line 685
       if (0) {
@@ -7969,33 +6924,23 @@ static void usb_rx_callback(struct urb *urb )
 #line 690
         imon_incoming_packet(context, urb, intfnum);
         }
+#line 691
         goto switch_break;
         switch_default: 
         {
 #line 694
-        __cil_tmp13 = (unsigned long )context;
+        __cil_tmp7 = context->driver;
 #line 694
-        __cil_tmp14 = __cil_tmp13 + 288;
+        __cil_tmp8 = __cil_tmp7->dev;
 #line 694
-        __cil_tmp15 = *((struct lirc_driver **)__cil_tmp14);
+        __cil_tmp9 = (struct device  const  *)__cil_tmp8;
 #line 694
-        __cil_tmp16 = (unsigned long )__cil_tmp15;
+        __cil_tmp10 = urb->status;
 #line 694
-        __cil_tmp17 = __cil_tmp16 + 120;
-#line 694
-        __cil_tmp18 = *((struct device **)__cil_tmp17);
-#line 694
-        __cil_tmp19 = (struct device  const  *)__cil_tmp18;
-#line 694
-        __cil_tmp20 = (unsigned long )urb;
-#line 694
-        __cil_tmp21 = __cil_tmp20 + 96;
-#line 694
-        __cil_tmp22 = *((int *)__cil_tmp21);
-#line 694
-        dev_warn(__cil_tmp19, "imon %s: status(%d): ignored\n", "usb_rx_callback",
-                 __cil_tmp22);
+        dev_warn(__cil_tmp9, "imon %s: status(%d): ignored\n", "usb_rx_callback",
+                 __cil_tmp10);
         }
+#line 696
         goto switch_break;
       } else {
         switch_break: ;
@@ -8006,13 +6951,9 @@ static void usb_rx_callback(struct urb *urb )
   }
   {
 #line 699
-  __cil_tmp23 = (unsigned long )context;
+  __cil_tmp11 = context->rx_urb;
 #line 699
-  __cil_tmp24 = __cil_tmp23 + 312;
-#line 699
-  __cil_tmp25 = *((struct urb **)__cil_tmp24);
-#line 699
-  usb_submit_urb(__cil_tmp25, 32U);
+  usb_submit_urb(__cil_tmp11, 32U);
   }
 #line 701
   return;
@@ -8093,189 +7034,83 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
   void *__cil_tmp47 ;
   void *__cil_tmp48 ;
   void *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  void *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct usb_device_id *__cil_tmp55 ;
-  struct usb_device_id  const  *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  __u8 __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  __u8 __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
+  void *__cil_tmp50 ;
+  struct usb_device_id *__cil_tmp51 ;
+  struct usb_device_id  const  *__cil_tmp52 ;
+  __u8 __cil_tmp53 ;
+  __u8 __cil_tmp54 ;
+  int __cil_tmp55 ;
+  int __cil_tmp56 ;
+  long __cil_tmp57 ;
+  struct device  const  *__cil_tmp58 ;
+  int __cil_tmp59 ;
+  int __cil_tmp60 ;
+  struct usb_host_endpoint *__cil_tmp61 ;
+  struct usb_host_endpoint *__cil_tmp62 ;
+  __u8 __cil_tmp63 ;
+  int __cil_tmp64 ;
+  __u8 __cil_tmp65 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  long __cil_tmp69 ;
+  struct device  const  *__cil_tmp70 ;
+  int __cil_tmp71 ;
+  int __cil_tmp72 ;
+  long __cil_tmp73 ;
+  struct device  const  *__cil_tmp74 ;
+  int __cil_tmp75 ;
+  int __cil_tmp76 ;
   int __cil_tmp77 ;
-  int __cil_tmp78 ;
-  long __cil_tmp79 ;
-  struct device  const  *__cil_tmp80 ;
-  int __cil_tmp81 ;
+  long __cil_tmp78 ;
+  struct device  const  *__cil_tmp79 ;
+  struct usb_device_id *__cil_tmp80 ;
+  struct usb_device_id  const  *__cil_tmp81 ;
   int __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  struct usb_host_endpoint *__cil_tmp85 ;
-  struct usb_host_endpoint *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  __u8 __cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
+  int __cil_tmp83 ;
+  long __cil_tmp84 ;
+  struct device  const  *__cil_tmp85 ;
+  struct mutex *__cil_tmp86 ;
+  char *__cil_tmp87 ;
+  int __cil_tmp88 ;
+  struct mutex *__cil_tmp89 ;
+  struct device  const  *__cil_tmp90 ;
+  struct usb_device *__cil_tmp91 ;
+  struct usb_endpoint_descriptor *__cil_tmp92 ;
   __u8 __cil_tmp93 ;
-  int __cil_tmp94 ;
-  int __cil_tmp95 ;
-  int __cil_tmp96 ;
-  long __cil_tmp97 ;
-  struct device  const  *__cil_tmp98 ;
-  int __cil_tmp99 ;
-  int __cil_tmp100 ;
-  long __cil_tmp101 ;
-  struct device  const  *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  int __cil_tmp105 ;
-  int __cil_tmp106 ;
+  unsigned int __cil_tmp94 ;
+  struct urb *__cil_tmp95 ;
+  struct usb_device *__cil_tmp96 ;
+  int __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  unsigned char *__cil_tmp101 ;
+  void *__cil_tmp102 ;
+  int __cil_tmp103 ;
+  void *__cil_tmp104 ;
+  struct usb_endpoint_descriptor *__cil_tmp105 ;
+  __u8 __cil_tmp106 ;
   int __cil_tmp107 ;
-  long __cil_tmp108 ;
-  struct device  const  *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  struct usb_device_id *__cil_tmp112 ;
-  struct usb_device_id  const  *__cil_tmp113 ;
-  int __cil_tmp114 ;
-  int __cil_tmp115 ;
-  long __cil_tmp116 ;
-  struct device  const  *__cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  struct mutex *__cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  char *__cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  int __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  struct mutex *__cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  struct device  const  *__cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  struct usb_device *__cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  struct usb_endpoint_descriptor *__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  __u8 __cil_tmp177 ;
-  unsigned int __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  struct urb *__cil_tmp181 ;
-  struct usb_device *__cil_tmp182 ;
-  int __cil_tmp183 ;
-  unsigned int __cil_tmp184 ;
-  unsigned int __cil_tmp185 ;
-  unsigned int __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned char *__cil_tmp191 ;
-  void *__cil_tmp192 ;
-  int __cil_tmp193 ;
-  void *__cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  struct usb_endpoint_descriptor *__cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  __u8 __cil_tmp200 ;
-  int __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  struct urb *__cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  struct mutex *__cil_tmp207 ;
-  void *__cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  int __cil_tmp211 ;
-  int __cil_tmp212 ;
-  long __cil_tmp213 ;
-  struct device  const  *__cil_tmp214 ;
-  struct device  const  *__cil_tmp215 ;
-  struct device  const  *__cil_tmp216 ;
-  int __cil_tmp217 ;
-  int __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  struct usb_bus *__cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  int __cil_tmp224 ;
-  int __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  struct mutex *__cil_tmp228 ;
-  void const   *__cil_tmp229 ;
-  void const   *__cil_tmp230 ;
-  void const   *__cil_tmp231 ;
-  void *__cil_tmp232 ;
+  struct urb *__cil_tmp108 ;
+  struct mutex *__cil_tmp109 ;
+  void *__cil_tmp110 ;
+  int __cil_tmp111 ;
+  int __cil_tmp112 ;
+  long __cil_tmp113 ;
+  struct device  const  *__cil_tmp114 ;
+  struct device  const  *__cil_tmp115 ;
+  struct device  const  *__cil_tmp116 ;
+  int __cil_tmp117 ;
+  int __cil_tmp118 ;
+  struct usb_bus *__cil_tmp119 ;
+  int __cil_tmp120 ;
+  int __cil_tmp121 ;
+  struct mutex *__cil_tmp122 ;
+  void const   *__cil_tmp123 ;
+  void const   *__cil_tmp124 ;
+  void const   *__cil_tmp125 ;
+  void *__cil_tmp126 ;
 
   {
   {
@@ -8312,11 +7147,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 717
   rbuf = (struct lirc_buffer *)__cil_tmp49;
 #line 718
-  __cil_tmp50 = (unsigned long )interface;
-#line 718
-  __cil_tmp51 = __cil_tmp50 + 72;
-#line 718
-  dev = (struct device *)__cil_tmp51;
+  dev = & interface->dev;
 #line 720
   lirc_minor = 0;
 #line 722
@@ -8330,9 +7161,9 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 726
   vfd_proto_6p = 0;
 #line 727
-  __cil_tmp52 = (void *)0;
+  __cil_tmp50 = (void *)0;
 #line 727
-  context = (struct imon_context *)__cil_tmp52;
+  context = (struct imon_context *)__cil_tmp50;
 #line 731
   tmp___7 = kzalloc(504UL, 208U);
 #line 731
@@ -8346,37 +7177,26 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 734
     alloc_status = 1;
     }
+#line 735
     goto alloc_status_switch;
   } else {
 
   }
   {
 #line 742
-  __cil_tmp53 = 0 * 24UL;
+  __cil_tmp51 = & ir_only_list[0];
 #line 742
-  __cil_tmp54 = (unsigned long )(ir_only_list) + __cil_tmp53;
+  __cil_tmp52 = (struct usb_device_id  const  *)__cil_tmp51;
 #line 742
-  __cil_tmp55 = (struct usb_device_id *)__cil_tmp54;
-#line 742
-  __cil_tmp56 = (struct usb_device_id  const  *)__cil_tmp55;
-#line 742
-  tmp___8 = usb_match_id(interface, __cil_tmp56);
+  tmp___8 = usb_match_id(interface, __cil_tmp52);
   }
 #line 742
   if (tmp___8) {
 #line 743
-    __cil_tmp57 = (unsigned long )context;
-#line 743
-    __cil_tmp58 = __cil_tmp57 + 8;
-#line 743
-    *((int *)__cil_tmp58) = 0;
+    context->display = 0;
   } else {
 #line 745
-    __cil_tmp59 = (unsigned long )context;
-#line 745
-    __cil_tmp60 = __cil_tmp59 + 8;
-#line 745
-    *((int *)__cil_tmp60) = 1;
+    context->display = 1;
   }
   {
 #line 747
@@ -8384,92 +7204,66 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 747
   usbdev = usb_get_dev(tmp___9);
 #line 748
-  __cil_tmp61 = (unsigned long )interface;
-#line 748
-  __cil_tmp62 = __cil_tmp61 + 8;
-#line 748
-  iface_desc = *((struct usb_host_interface **)__cil_tmp62);
+  iface_desc = interface->cur_altsetting;
 #line 749
-  __cil_tmp63 = 0 + 4;
+  __cil_tmp53 = iface_desc->desc.bNumEndpoints;
 #line 749
-  __cil_tmp64 = (unsigned long )iface_desc;
-#line 749
-  __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 749
-  __cil_tmp66 = *((__u8 *)__cil_tmp65);
-#line 749
-  num_endpts = (int )__cil_tmp66;
+  num_endpts = (int )__cil_tmp53;
 #line 750
-  __cil_tmp67 = 0 + 2;
+  __cil_tmp54 = iface_desc->desc.bInterfaceNumber;
 #line 750
-  __cil_tmp68 = (unsigned long )iface_desc;
-#line 750
-  __cil_tmp69 = __cil_tmp68 + __cil_tmp67;
-#line 750
-  __cil_tmp70 = *((__u8 *)__cil_tmp69);
-#line 750
-  ifnum = (int )__cil_tmp70;
+  ifnum = (int )__cil_tmp54;
 #line 751
-  __cil_tmp71 = 1360 + 8;
-#line 751
-  __cil_tmp72 = (unsigned long )usbdev;
-#line 751
-  __cil_tmp73 = __cil_tmp72 + __cil_tmp71;
-#line 751
-  vendor = *((__le16 *)__cil_tmp73);
+  vendor = usbdev->descriptor.idVendor;
 #line 752
-  __cil_tmp74 = 1360 + 10;
-#line 752
-  __cil_tmp75 = (unsigned long )usbdev;
-#line 752
-  __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
-#line 752
-  product = *((__le16 *)__cil_tmp76);
+  product = usbdev->descriptor.idProduct;
   }
   {
 #line 754
   while (1) {
-    while_18_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 754
     while (1) {
-      while_19_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 754
-      __cil_tmp77 = ! descriptor___1.enabled;
+      __cil_tmp55 = ! descriptor___1.enabled;
 #line 754
-      __cil_tmp78 = ! __cil_tmp77;
+      __cil_tmp56 = ! __cil_tmp55;
 #line 754
-      __cil_tmp79 = (long )__cil_tmp78;
+      __cil_tmp57 = (long )__cil_tmp56;
 #line 754
-      tmp___10 = __builtin_expect(__cil_tmp79, 0L);
+      tmp___10 = __builtin_expect(__cil_tmp57, 0L);
       }
 #line 754
       if (tmp___10) {
         {
 #line 754
-        __cil_tmp80 = (struct device  const  *)dev;
+        __cil_tmp58 = (struct device  const  *)dev;
 #line 754
-        __cil_tmp81 = (int )vendor;
+        __cil_tmp59 = (int )vendor;
 #line 754
-        __cil_tmp82 = (int )product;
+        __cil_tmp60 = (int )product;
 #line 754
-        dev_printk("<7>", __cil_tmp80, "%s: found iMON device (%04x:%04x, intf%d)\n",
-                   "imon_probe", __cil_tmp81, __cil_tmp82, ifnum);
+        dev_printk("<7>", __cil_tmp58, "%s: found iMON device (%04x:%04x, intf%d)\n",
+                   "imon_probe", __cil_tmp59, __cil_tmp60, ifnum);
         }
       } else {
 
       }
+#line 754
       goto while_break___0;
     }
-    while_19_break: /* CIL Label */ ;
+    while_break___14: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 754
     goto while_break;
   }
-  while_18_break: /* CIL Label */ ;
+  while_break___13: /* CIL Label */ ;
   }
 
   while_break: 
@@ -8482,7 +7276,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
   {
 #line 765
   while (1) {
-    while_20_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
 #line 765
     if (i < num_endpts) {
@@ -8490,6 +7284,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
       if (ir_ep_found) {
 #line 765
         if (display_ep_found) {
+#line 765
           goto while_break___1;
         } else {
 
@@ -8498,38 +7293,27 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 
       }
     } else {
+#line 765
       goto while_break___1;
     }
 #line 769
-    __cil_tmp83 = (unsigned long )iface_desc;
+    __cil_tmp61 = iface_desc->endpoint;
 #line 769
-    __cil_tmp84 = __cil_tmp83 + 16;
+    __cil_tmp62 = __cil_tmp61 + i;
 #line 769
-    __cil_tmp85 = *((struct usb_host_endpoint **)__cil_tmp84);
-#line 769
-    __cil_tmp86 = __cil_tmp85 + i;
-#line 769
-    ep = (struct usb_endpoint_descriptor *)__cil_tmp86;
+    ep = & __cil_tmp62->desc;
 #line 770
-    __cil_tmp87 = (unsigned long )ep;
+    __cil_tmp63 = ep->bEndpointAddress;
 #line 770
-    __cil_tmp88 = __cil_tmp87 + 2;
+    __cil_tmp64 = (int )__cil_tmp63;
 #line 770
-    __cil_tmp89 = *((__u8 *)__cil_tmp88);
-#line 770
-    __cil_tmp90 = (int )__cil_tmp89;
-#line 770
-    ep_dir = __cil_tmp90 & 128;
+    ep_dir = __cil_tmp64 & 128;
 #line 771
-    __cil_tmp91 = (unsigned long )ep;
+    __cil_tmp65 = ep->bmAttributes;
 #line 771
-    __cil_tmp92 = __cil_tmp91 + 3;
+    __cil_tmp66 = (int )__cil_tmp65;
 #line 771
-    __cil_tmp93 = *((__u8 *)__cil_tmp92);
-#line 771
-    __cil_tmp94 = (int )__cil_tmp93;
-#line 771
-    ep_type = __cil_tmp94 & 3;
+    ep_type = __cil_tmp66 & 3;
 #line 773
     if (! ir_ep_found) {
 #line 773
@@ -8543,173 +7327,175 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
           {
 #line 779
           while (1) {
-            while_21_continue: /* CIL Label */ ;
+            while_continue___2: /* CIL Label */ ;
 
             {
 #line 779
             while (1) {
-              while_22_continue: /* CIL Label */ ;
+              while_continue___3: /* CIL Label */ ;
               {
 #line 779
-              __cil_tmp95 = ! descriptor___2.enabled;
+              __cil_tmp67 = ! descriptor___2.enabled;
 #line 779
-              __cil_tmp96 = ! __cil_tmp95;
+              __cil_tmp68 = ! __cil_tmp67;
 #line 779
-              __cil_tmp97 = (long )__cil_tmp96;
+              __cil_tmp69 = (long )__cil_tmp68;
 #line 779
-              tmp___11 = __builtin_expect(__cil_tmp97, 0L);
+              tmp___11 = __builtin_expect(__cil_tmp69, 0L);
               }
 #line 779
               if (tmp___11) {
                 {
 #line 779
-                __cil_tmp98 = (struct device  const  *)dev;
+                __cil_tmp70 = (struct device  const  *)dev;
 #line 779
-                dev_printk("<7>", __cil_tmp98, "%s: found IR endpoint\n", "imon_probe");
+                dev_printk("<7>", __cil_tmp70, "%s: found IR endpoint\n", "imon_probe");
                 }
               } else {
 
               }
+#line 779
               goto while_break___3;
             }
-            while_22_break: /* CIL Label */ ;
+            while_break___17: /* CIL Label */ ;
             }
 
             while_break___3: ;
+#line 779
             goto while_break___2;
           }
-          while_21_break: /* CIL Label */ ;
+          while_break___16: /* CIL Label */ ;
           }
 
           while_break___2: ;
         } else {
+#line 773
           goto _L___0;
         }
       } else {
+#line 773
         goto _L___0;
       }
-    } else {
-      _L___0: 
+    } else
+    _L___0: 
 #line 781
-      if (! display_ep_found) {
+    if (! display_ep_found) {
 #line 781
-        if (ep_dir == 0) {
+      if (ep_dir == 0) {
 #line 781
-          if (ep_type == 3) {
+        if (ep_type == 3) {
 #line 783
-            tx_endpoint = ep;
+          tx_endpoint = ep;
 #line 784
-            display_ep_found = 1;
+          display_ep_found = 1;
+          {
+#line 785
+          while (1) {
+            while_continue___4: /* CIL Label */ ;
+
             {
 #line 785
             while (1) {
-              while_23_continue: /* CIL Label */ ;
-
+              while_continue___5: /* CIL Label */ ;
               {
 #line 785
-              while (1) {
-                while_24_continue: /* CIL Label */ ;
+              __cil_tmp71 = ! descriptor___3.enabled;
+#line 785
+              __cil_tmp72 = ! __cil_tmp71;
+#line 785
+              __cil_tmp73 = (long )__cil_tmp72;
+#line 785
+              tmp___12 = __builtin_expect(__cil_tmp73, 0L);
+              }
+#line 785
+              if (tmp___12) {
                 {
 #line 785
-                __cil_tmp99 = ! descriptor___3.enabled;
+                __cil_tmp74 = (struct device  const  *)dev;
 #line 785
-                __cil_tmp100 = ! __cil_tmp99;
-#line 785
-                __cil_tmp101 = (long )__cil_tmp100;
-#line 785
-                tmp___12 = __builtin_expect(__cil_tmp101, 0L);
+                dev_printk("<7>", __cil_tmp74, "%s: found display endpoint\n", "imon_probe");
                 }
-#line 785
-                if (tmp___12) {
-                  {
-#line 785
-                  __cil_tmp102 = (struct device  const  *)dev;
-#line 785
-                  dev_printk("<7>", __cil_tmp102, "%s: found display endpoint\n",
-                             "imon_probe");
-                  }
-                } else {
+              } else {
 
-                }
-                goto while_break___5;
               }
-              while_24_break: /* CIL Label */ ;
-              }
-
-              while_break___5: ;
-              goto while_break___4;
+#line 785
+              goto while_break___5;
             }
-            while_23_break: /* CIL Label */ ;
+            while_break___19: /* CIL Label */ ;
             }
 
-            while_break___4: ;
-          } else {
-
+            while_break___5: ;
+#line 785
+            goto while_break___4;
           }
+          while_break___18: /* CIL Label */ ;
+          }
+
+          while_break___4: ;
         } else {
 
         }
       } else {
 
       }
+    } else {
+
     }
 #line 765
     i = i + 1;
   }
-  while_20_break: /* CIL Label */ ;
+  while_break___15: /* CIL Label */ ;
   }
 
   while_break___1: ;
   {
 #line 794
-  __cil_tmp103 = (unsigned long )context;
+  __cil_tmp75 = context->display;
 #line 794
-  __cil_tmp104 = __cil_tmp103 + 8;
-#line 794
-  __cil_tmp105 = *((int *)__cil_tmp104);
-#line 794
-  if (__cil_tmp105 == 0) {
+  if (__cil_tmp75 == 0) {
 #line 795
     display_ep_found = 0;
     {
 #line 796
     while (1) {
-      while_25_continue: /* CIL Label */ ;
+      while_continue___6: /* CIL Label */ ;
 
       {
 #line 796
       while (1) {
-        while_26_continue: /* CIL Label */ ;
+        while_continue___7: /* CIL Label */ ;
         {
 #line 796
-        __cil_tmp106 = ! descriptor___4.enabled;
+        __cil_tmp76 = ! descriptor___4.enabled;
 #line 796
-        __cil_tmp107 = ! __cil_tmp106;
+        __cil_tmp77 = ! __cil_tmp76;
 #line 796
-        __cil_tmp108 = (long )__cil_tmp107;
+        __cil_tmp78 = (long )__cil_tmp77;
 #line 796
-        tmp___13 = __builtin_expect(__cil_tmp108, 0L);
+        tmp___13 = __builtin_expect(__cil_tmp78, 0L);
         }
 #line 796
         if (tmp___13) {
           {
 #line 796
-          __cil_tmp109 = (struct device  const  *)dev;
+          __cil_tmp79 = (struct device  const  *)dev;
 #line 796
-          dev_printk("<7>", __cil_tmp109, "%s: device has no display\n", "imon_probe");
+          dev_printk("<7>", __cil_tmp79, "%s: device has no display\n", "imon_probe");
           }
         } else {
 
         }
+#line 796
         goto while_break___7;
       }
-      while_26_break: /* CIL Label */ ;
+      while_break___21: /* CIL Label */ ;
       }
 
       while_break___7: ;
+#line 796
       goto while_break___6;
     }
-    while_25_break: /* CIL Label */ ;
+    while_break___20: /* CIL Label */ ;
     }
 
     while_break___6: ;
@@ -8727,6 +7513,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 803
     alloc_status = 2;
     }
+#line 804
     goto alloc_status_switch;
   } else {
 
@@ -8735,15 +7522,11 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
   if (display_ep_found) {
     {
 #line 809
-    __cil_tmp110 = 0 * 24UL;
+    __cil_tmp80 = & vfd_proto_6p_list[0];
 #line 809
-    __cil_tmp111 = (unsigned long )(vfd_proto_6p_list) + __cil_tmp110;
+    __cil_tmp81 = (struct usb_device_id  const  *)__cil_tmp80;
 #line 809
-    __cil_tmp112 = (struct usb_device_id *)__cil_tmp111;
-#line 809
-    __cil_tmp113 = (struct usb_device_id  const  *)__cil_tmp112;
-#line 809
-    tmp___14 = usb_match_id(interface, __cil_tmp113);
+    tmp___14 = usb_match_id(interface, __cil_tmp81);
     }
 #line 809
     if (tmp___14) {
@@ -8755,43 +7538,44 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
     {
 #line 812
     while (1) {
-      while_27_continue: /* CIL Label */ ;
+      while_continue___8: /* CIL Label */ ;
 
       {
 #line 812
       while (1) {
-        while_28_continue: /* CIL Label */ ;
+        while_continue___9: /* CIL Label */ ;
         {
 #line 812
-        __cil_tmp114 = ! descriptor___5.enabled;
+        __cil_tmp82 = ! descriptor___5.enabled;
 #line 812
-        __cil_tmp115 = ! __cil_tmp114;
+        __cil_tmp83 = ! __cil_tmp82;
 #line 812
-        __cil_tmp116 = (long )__cil_tmp115;
+        __cil_tmp84 = (long )__cil_tmp83;
 #line 812
-        tmp___15 = __builtin_expect(__cil_tmp116, 0L);
+        tmp___15 = __builtin_expect(__cil_tmp84, 0L);
         }
 #line 812
         if (tmp___15) {
           {
 #line 812
-          __cil_tmp117 = (struct device  const  *)dev;
+          __cil_tmp85 = (struct device  const  *)dev;
 #line 812
-          dev_printk("<7>", __cil_tmp117, "%s: vfd_proto_6p: %d\n", "imon_probe",
-                     vfd_proto_6p);
+          dev_printk("<7>", __cil_tmp85, "%s: vfd_proto_6p: %d\n", "imon_probe", vfd_proto_6p);
           }
         } else {
 
         }
+#line 812
         goto while_break___9;
       }
-      while_28_break: /* CIL Label */ ;
+      while_break___23: /* CIL Label */ ;
       }
 
       while_break___9: ;
+#line 812
       goto while_break___8;
     }
-    while_27_break: /* CIL Label */ ;
+    while_break___22: /* CIL Label */ ;
     }
 
     while_break___8: ;
@@ -8812,6 +7596,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 819
     alloc_status = 2;
     }
+#line 820
     goto alloc_status_switch;
   } else {
 
@@ -8830,6 +7615,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 825
     alloc_status = 3;
     }
+#line 826
     goto alloc_status_switch;
   } else {
 
@@ -8846,6 +7632,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 830
     alloc_status = 4;
     }
+#line 831
     goto alloc_status_switch;
   } else {
 
@@ -8862,6 +7649,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 836
     alloc_status = 5;
     }
+#line 837
     goto alloc_status_switch;
   } else {
 
@@ -8878,6 +7666,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 843
     alloc_status = 6;
     }
+#line 844
     goto alloc_status_switch;
   } else {
 
@@ -8885,122 +7674,55 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
   {
 #line 847
   while (1) {
-    while_29_continue: /* CIL Label */ ;
+    while_continue___10: /* CIL Label */ ;
     {
 #line 847
-    __cil_tmp118 = (unsigned long )context;
+    __cil_tmp86 = & context->ctx_lock;
 #line 847
-    __cil_tmp119 = __cil_tmp118 + 24;
-#line 847
-    __cil_tmp120 = (struct mutex *)__cil_tmp119;
-#line 847
-    __mutex_init(__cil_tmp120, "&context->ctx_lock", & __key___9);
+    __mutex_init(__cil_tmp86, "&context->ctx_lock", & __key___9);
     }
+#line 847
     goto while_break___10;
   }
-  while_29_break: /* CIL Label */ ;
+  while_break___24: /* CIL Label */ ;
   }
 
   while_break___10: 
   {
 #line 848
-  __cil_tmp121 = (unsigned long )context;
-#line 848
-  __cil_tmp122 = __cil_tmp121 + 280;
-#line 848
-  *((int *)__cil_tmp122) = vfd_proto_6p;
+  context->vfd_proto_6p = vfd_proto_6p;
 #line 850
-  __cil_tmp123 = 0 * 1UL;
+  __cil_tmp87 = & driver->name[0];
 #line 850
-  __cil_tmp124 = 0 + __cil_tmp123;
-#line 850
-  __cil_tmp125 = (unsigned long )driver;
-#line 850
-  __cil_tmp126 = __cil_tmp125 + __cil_tmp124;
-#line 850
-  __cil_tmp127 = (char *)__cil_tmp126;
-#line 850
-  strcpy(__cil_tmp127, "lirc_imon");
+  strcpy(__cil_tmp87, "lirc_imon");
 #line 851
-  __cil_tmp128 = (unsigned long )driver;
-#line 851
-  __cil_tmp129 = __cil_tmp128 + 40;
-#line 851
-  *((int *)__cil_tmp129) = -1;
+  driver->minor = -1;
 #line 852
-  __cil_tmp130 = (unsigned long )driver;
-#line 852
-  __cil_tmp131 = __cil_tmp130 + 44;
-#line 852
-  *((__u32 *)__cil_tmp131) = 32U;
+  driver->code_length = (__u32 )32;
 #line 853
-  __cil_tmp132 = (unsigned long )driver;
-#line 853
-  __cil_tmp133 = __cil_tmp132 + 52;
-#line 853
-  *((int *)__cil_tmp133) = 0;
+  driver->sample_rate = 0;
 #line 854
-  __cil_tmp134 = (unsigned long )driver;
+  __cil_tmp88 = 4 << 16;
 #line 854
-  __cil_tmp135 = __cil_tmp134 + 56;
-#line 854
-  __cil_tmp136 = 4 << 16;
-#line 854
-  *((__u32 *)__cil_tmp135) = (unsigned int )__cil_tmp136;
+  driver->features = (__u32 )__cil_tmp88;
 #line 855
-  __cil_tmp137 = (unsigned long )driver;
-#line 855
-  __cil_tmp138 = __cil_tmp137 + 64;
-#line 855
-  *((void **)__cil_tmp138) = (void *)context;
+  driver->data = (void *)context;
 #line 856
-  __cil_tmp139 = (unsigned long )driver;
-#line 856
-  __cil_tmp140 = __cil_tmp139 + 88;
-#line 856
-  *((struct lirc_buffer **)__cil_tmp140) = rbuf;
+  driver->rbuf = rbuf;
 #line 857
-  __cil_tmp141 = (unsigned long )driver;
-#line 857
-  __cil_tmp142 = __cil_tmp141 + 96;
-#line 857
-  *((int (**)(void *data ))__cil_tmp142) = & ir_open;
+  driver->set_use_inc = & ir_open;
 #line 858
-  __cil_tmp143 = (unsigned long )driver;
-#line 858
-  __cil_tmp144 = __cil_tmp143 + 104;
-#line 858
-  *((void (**)(void *data ))__cil_tmp144) = & ir_close;
+  driver->set_use_dec = & ir_close;
 #line 859
-  __cil_tmp145 = (unsigned long )driver;
-#line 859
-  __cil_tmp146 = __cil_tmp145 + 120;
-#line 859
-  __cil_tmp147 = (unsigned long )interface;
-#line 859
-  __cil_tmp148 = __cil_tmp147 + 72;
-#line 859
-  *((struct device **)__cil_tmp146) = (struct device *)__cil_tmp148;
+  driver->dev = & interface->dev;
 #line 860
-  __cil_tmp149 = (unsigned long )driver;
-#line 860
-  __cil_tmp150 = __cil_tmp149 + 128;
-#line 860
-  *((struct module **)__cil_tmp150) = & __this_module;
+  driver->owner = & __this_module;
 #line 862
-  __cil_tmp151 = (unsigned long )context;
+  __cil_tmp89 = & context->ctx_lock;
 #line 862
-  __cil_tmp152 = __cil_tmp151 + 24;
-#line 862
-  __cil_tmp153 = (struct mutex *)__cil_tmp152;
-#line 862
-  mutex_lock_nested(__cil_tmp153, 0U);
+  mutex_lock_nested(__cil_tmp89, 0U);
 #line 864
-  __cil_tmp154 = (unsigned long )context;
-#line 864
-  __cil_tmp155 = __cil_tmp154 + 288;
-#line 864
-  *((struct lirc_driver **)__cil_tmp155) = driver;
+  context->driver = driver;
 #line 867
   lirc_minor = lirc_register_driver(driver);
   }
@@ -9012,140 +7734,81 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 870
     alloc_status = 7;
     }
+#line 871
     goto unlock;
   } else {
     {
 #line 873
-    __cil_tmp156 = (struct device  const  *)dev;
+    __cil_tmp90 = (struct device  const  *)dev;
 #line 873
-    _dev_info(__cil_tmp156, "Registered iMON driver (lirc minor: %d)\n", lirc_minor);
+    _dev_info(__cil_tmp90, "Registered iMON driver (lirc minor: %d)\n", lirc_minor);
     }
   }
 #line 877
-  __cil_tmp157 = (unsigned long )driver;
-#line 877
-  __cil_tmp158 = __cil_tmp157 + 40;
-#line 877
-  *((int *)__cil_tmp158) = lirc_minor;
+  driver->minor = lirc_minor;
 #line 879
-  *((struct usb_device **)context) = usbdev;
+  context->usbdev = usbdev;
 #line 880
-  __cil_tmp159 = (unsigned long )context;
-#line 880
-  __cil_tmp160 = __cil_tmp159 + 20;
-#line 880
-  *((int *)__cil_tmp160) = 1;
+  context->dev_present = 1;
 #line 881
-  __cil_tmp161 = (unsigned long )context;
-#line 881
-  __cil_tmp162 = __cil_tmp161 + 296;
-#line 881
-  *((struct usb_endpoint_descriptor **)__cil_tmp162) = rx_endpoint;
+  context->rx_endpoint = rx_endpoint;
 #line 882
-  __cil_tmp163 = (unsigned long )context;
-#line 882
-  __cil_tmp164 = __cil_tmp163 + 312;
-#line 882
-  *((struct urb **)__cil_tmp164) = rx_urb;
+  context->rx_urb = rx_urb;
 #line 888
-  __cil_tmp165 = (unsigned long )context;
-#line 888
-  __cil_tmp166 = __cil_tmp165 + 304;
-#line 888
-  *((struct usb_endpoint_descriptor **)__cil_tmp166) = tx_endpoint;
+  context->tx_endpoint = tx_endpoint;
 #line 889
-  __cil_tmp167 = (unsigned long )context;
-#line 889
-  __cil_tmp168 = __cil_tmp167 + 320;
-#line 889
-  *((struct urb **)__cil_tmp168) = tx_urb;
+  context->tx_urb = tx_urb;
 #line 891
   if (display_ep_found) {
 #line 892
-    __cil_tmp169 = (unsigned long )context;
-#line 892
-    __cil_tmp170 = __cil_tmp169 + 8;
-#line 892
-    *((int *)__cil_tmp170) = 1;
+    context->display = 1;
   } else {
 
   }
   {
 #line 894
-  __cil_tmp171 = *((struct usb_device **)context);
+  __cil_tmp91 = context->usbdev;
 #line 894
-  __cil_tmp172 = (unsigned long )context;
+  __cil_tmp92 = context->rx_endpoint;
 #line 894
-  __cil_tmp173 = __cil_tmp172 + 296;
+  __cil_tmp93 = __cil_tmp92->bEndpointAddress;
 #line 894
-  __cil_tmp174 = *((struct usb_endpoint_descriptor **)__cil_tmp173);
+  __cil_tmp94 = (unsigned int )__cil_tmp93;
 #line 894
-  __cil_tmp175 = (unsigned long )__cil_tmp174;
+  tmp___19 = __create_pipe(__cil_tmp91, __cil_tmp94);
 #line 894
-  __cil_tmp176 = __cil_tmp175 + 2;
+  __cil_tmp95 = context->rx_urb;
 #line 894
-  __cil_tmp177 = *((__u8 *)__cil_tmp176);
+  __cil_tmp96 = context->usbdev;
 #line 894
-  __cil_tmp178 = (unsigned int )__cil_tmp177;
+  __cil_tmp97 = 1 << 30;
 #line 894
-  tmp___19 = __create_pipe(__cil_tmp171, __cil_tmp178);
+  __cil_tmp98 = (unsigned int )__cil_tmp97;
 #line 894
-  __cil_tmp179 = (unsigned long )context;
+  __cil_tmp99 = __cil_tmp98 | tmp___19;
 #line 894
-  __cil_tmp180 = __cil_tmp179 + 312;
+  __cil_tmp100 = __cil_tmp99 | 128U;
 #line 894
-  __cil_tmp181 = *((struct urb **)__cil_tmp180);
+  __cil_tmp101 = & context->usb_rx_buf[0];
 #line 894
-  __cil_tmp182 = *((struct usb_device **)context);
+  __cil_tmp102 = (void *)__cil_tmp101;
 #line 894
-  __cil_tmp183 = 1 << 30;
+  __cil_tmp103 = (int )8UL;
 #line 894
-  __cil_tmp184 = (unsigned int )__cil_tmp183;
+  __cil_tmp104 = (void *)context;
 #line 894
-  __cil_tmp185 = __cil_tmp184 | tmp___19;
+  __cil_tmp105 = context->rx_endpoint;
 #line 894
-  __cil_tmp186 = __cil_tmp185 | 128U;
+  __cil_tmp106 = __cil_tmp105->bInterval;
 #line 894
-  __cil_tmp187 = 0 * 1UL;
+  __cil_tmp107 = (int )__cil_tmp106;
 #line 894
-  __cil_tmp188 = 328 + __cil_tmp187;
-#line 894
-  __cil_tmp189 = (unsigned long )context;
-#line 894
-  __cil_tmp190 = __cil_tmp189 + __cil_tmp188;
-#line 894
-  __cil_tmp191 = (unsigned char *)__cil_tmp190;
-#line 894
-  __cil_tmp192 = (void *)__cil_tmp191;
-#line 894
-  __cil_tmp193 = (int )8UL;
-#line 894
-  __cil_tmp194 = (void *)context;
-#line 894
-  __cil_tmp195 = (unsigned long )context;
-#line 894
-  __cil_tmp196 = __cil_tmp195 + 296;
-#line 894
-  __cil_tmp197 = *((struct usb_endpoint_descriptor **)__cil_tmp196);
-#line 894
-  __cil_tmp198 = (unsigned long )__cil_tmp197;
-#line 894
-  __cil_tmp199 = __cil_tmp198 + 6;
-#line 894
-  __cil_tmp200 = *((__u8 *)__cil_tmp199);
-#line 894
-  __cil_tmp201 = (int )__cil_tmp200;
-#line 894
-  usb_fill_int_urb(__cil_tmp181, __cil_tmp182, __cil_tmp186, __cil_tmp192, __cil_tmp193,
-                   & usb_rx_callback, __cil_tmp194, __cil_tmp201);
+  usb_fill_int_urb(__cil_tmp95, __cil_tmp96, __cil_tmp100, __cil_tmp102, __cil_tmp103,
+                   & usb_rx_callback, __cil_tmp104, __cil_tmp107);
 #line 901
-  __cil_tmp202 = (unsigned long )context;
+  __cil_tmp108 = context->rx_urb;
 #line 901
-  __cil_tmp203 = __cil_tmp202 + 312;
-#line 901
-  __cil_tmp204 = *((struct urb **)__cil_tmp203);
-#line 901
-  retval = usb_submit_urb(__cil_tmp204, 208U);
+  retval = usb_submit_urb(__cil_tmp108, 208U);
   }
 #line 903
   if (retval) {
@@ -9154,73 +7817,67 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
     printk("<3>lirc_imon: %s: usb_submit_urb failed for intf0 (%d)\n", "imon_probe",
            retval);
 #line 906
-    __cil_tmp205 = (unsigned long )context;
+    __cil_tmp109 = & context->ctx_lock;
 #line 906
-    __cil_tmp206 = __cil_tmp205 + 24;
-#line 906
-    __cil_tmp207 = (struct mutex *)__cil_tmp206;
-#line 906
-    mutex_unlock(__cil_tmp207);
+    mutex_unlock(__cil_tmp109);
     }
+#line 907
     goto exit;
   } else {
 
   }
   {
 #line 910
-  __cil_tmp208 = (void *)context;
+  __cil_tmp110 = (void *)context;
 #line 910
-  usb_set_intfdata(interface, __cil_tmp208);
+  usb_set_intfdata(interface, __cil_tmp110);
   }
-  {
 #line 912
-  __cil_tmp209 = (unsigned long )context;
-#line 912
-  __cil_tmp210 = __cil_tmp209 + 8;
-#line 912
-  if (*((int *)__cil_tmp210)) {
+  if (context->display) {
 #line 912
     if (ifnum == 0) {
       {
 #line 913
       while (1) {
-        while_30_continue: /* CIL Label */ ;
+        while_continue___11: /* CIL Label */ ;
 
         {
 #line 913
         while (1) {
-          while_31_continue: /* CIL Label */ ;
+          while_continue___12: /* CIL Label */ ;
           {
 #line 913
-          __cil_tmp211 = ! descriptor___6.enabled;
+          __cil_tmp111 = ! descriptor___6.enabled;
 #line 913
-          __cil_tmp212 = ! __cil_tmp211;
+          __cil_tmp112 = ! __cil_tmp111;
 #line 913
-          __cil_tmp213 = (long )__cil_tmp212;
+          __cil_tmp113 = (long )__cil_tmp112;
 #line 913
-          tmp___20 = __builtin_expect(__cil_tmp213, 0L);
+          tmp___20 = __builtin_expect(__cil_tmp113, 0L);
           }
 #line 913
           if (tmp___20) {
             {
 #line 913
-            __cil_tmp214 = (struct device  const  *)dev;
+            __cil_tmp114 = (struct device  const  *)dev;
 #line 913
-            dev_printk("<7>", __cil_tmp214, "%s: Registering iMON display with sysfs\n",
+            dev_printk("<7>", __cil_tmp114, "%s: Registering iMON display with sysfs\n",
                        "imon_probe");
             }
           } else {
 
           }
+#line 913
           goto while_break___12;
         }
-        while_31_break: /* CIL Label */ ;
+        while_break___26: /* CIL Label */ ;
         }
 
         while_break___12: ;
+#line 913
         goto while_break___11;
       }
-      while_30_break: /* CIL Label */ ;
+      while_break___25: /* CIL Label */ ;
       }
 
       while_break___11: 
@@ -9232,9 +7889,9 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
       if (tmp___21) {
         {
 #line 918
-        __cil_tmp215 = (struct device  const  *)dev;
+        __cil_tmp115 = (struct device  const  *)dev;
 #line 918
-        _dev_info(__cil_tmp215, "%s: could not get a minor number for display\n",
+        _dev_info(__cil_tmp115, "%s: could not get a minor number for display\n",
                   "imon_probe");
         }
       } else {
@@ -9246,145 +7903,133 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
   } else {
 
   }
-  }
   {
 #line 923
-  __cil_tmp216 = (struct device  const  *)dev;
+  __cil_tmp116 = (struct device  const  *)dev;
 #line 923
-  __cil_tmp217 = (int )vendor;
+  __cil_tmp117 = (int )vendor;
 #line 923
-  __cil_tmp218 = (int )product;
+  __cil_tmp118 = (int )product;
 #line 923
-  __cil_tmp219 = (unsigned long )usbdev;
+  __cil_tmp119 = usbdev->bus;
 #line 923
-  __cil_tmp220 = __cil_tmp219 + 120;
+  __cil_tmp120 = __cil_tmp119->busnum;
 #line 923
-  __cil_tmp221 = *((struct usb_bus **)__cil_tmp220);
+  __cil_tmp121 = usbdev->devnum;
 #line 923
-  __cil_tmp222 = (unsigned long )__cil_tmp221;
-#line 923
-  __cil_tmp223 = __cil_tmp222 + 8;
-#line 923
-  __cil_tmp224 = *((int *)__cil_tmp223);
-#line 923
-  __cil_tmp225 = *((int *)usbdev);
-#line 923
-  _dev_info(__cil_tmp216, "iMON device (%04x:%04x, intf%d) on usb<%d:%d> initialized\n",
-            __cil_tmp217, __cil_tmp218, ifnum, __cil_tmp224, __cil_tmp225);
+  _dev_info(__cil_tmp116, "iMON device (%04x:%04x, intf%d) on usb<%d:%d> initialized\n",
+            __cil_tmp117, __cil_tmp118, ifnum, __cil_tmp120, __cil_tmp121);
   }
   unlock: 
   {
 #line 928
-  __cil_tmp226 = (unsigned long )context;
+  __cil_tmp122 = & context->ctx_lock;
 #line 928
-  __cil_tmp227 = __cil_tmp226 + 24;
-#line 928
-  __cil_tmp228 = (struct mutex *)__cil_tmp227;
-#line 928
-  mutex_unlock(__cil_tmp228);
+  mutex_unlock(__cil_tmp122);
   }
   alloc_status_switch: 
 #line 932
   if (alloc_status == 7) {
+#line 932
     goto case_7;
-  } else {
+  } else
 #line 934
-    if (alloc_status == 6) {
-      goto case_6;
-    } else {
+  if (alloc_status == 6) {
+#line 934
+    goto case_6;
+  } else
 #line 936
-      if (alloc_status == 5) {
-        goto case_5;
-      } else {
+  if (alloc_status == 5) {
+#line 936
+    goto case_5;
+  } else
 #line 939
-        if (alloc_status == 4) {
-          goto case_4;
-        } else {
+  if (alloc_status == 4) {
+#line 939
+    goto case_4;
+  } else
 #line 941
-          if (alloc_status == 3) {
-            goto case_3;
-          } else {
+  if (alloc_status == 3) {
+#line 941
+    goto case_3;
+  } else
 #line 943
-            if (alloc_status == 2) {
-              goto case_2;
-            } else {
+  if (alloc_status == 2) {
+#line 943
+    goto case_2;
+  } else
 #line 946
-              if (alloc_status == 1) {
-                goto case_1;
-              } else {
+  if (alloc_status == 1) {
+#line 946
+    goto case_1;
+  } else
 #line 950
-                if (alloc_status == 0) {
-                  goto case_0;
-                } else {
+  if (alloc_status == 0) {
+#line 950
+    goto case_0;
+  } else
 #line 931
-                  if (0) {
-                    case_7: 
-                    {
+  if (0) {
+    case_7: 
+    {
 #line 933
-                    usb_free_urb(tx_urb);
-                    }
-                    case_6: 
-                    {
-#line 935
-                    usb_free_urb(rx_urb);
-                    }
-                    case_5: 
-#line 937
-                    if (rbuf) {
-                      {
-#line 938
-                      lirc_buffer_free(rbuf);
-                      }
-                    } else {
-
-                    }
-                    case_4: 
-                    {
-#line 940
-                    __cil_tmp229 = (void const   *)rbuf;
-#line 940
-                    kfree(__cil_tmp229);
-                    }
-                    case_3: 
-                    {
-#line 942
-                    __cil_tmp230 = (void const   *)driver;
-#line 942
-                    kfree(__cil_tmp230);
-                    }
-                    case_2: 
-                    {
-#line 944
-                    __cil_tmp231 = (void const   *)context;
-#line 944
-                    kfree(__cil_tmp231);
-#line 945
-                    __cil_tmp232 = (void *)0;
-#line 945
-                    context = (struct imon_context *)__cil_tmp232;
-                    }
-                    case_1: 
-#line 947
-                    if (retval != -19) {
-#line 948
-                      retval = -12;
-                    } else {
-
-                    }
-                    goto switch_break;
-                    case_0: 
-#line 951
-                    retval = 0;
-                  } else {
-                    switch_break: ;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+    usb_free_urb(tx_urb);
     }
+    case_6: 
+    {
+#line 935
+    usb_free_urb(rx_urb);
+    }
+    case_5: 
+#line 937
+    if (rbuf) {
+      {
+#line 938
+      lirc_buffer_free(rbuf);
+      }
+    } else {
+
+    }
+    case_4: 
+    {
+#line 940
+    __cil_tmp123 = (void const   *)rbuf;
+#line 940
+    kfree(__cil_tmp123);
+    }
+    case_3: 
+    {
+#line 942
+    __cil_tmp124 = (void const   *)driver;
+#line 942
+    kfree(__cil_tmp124);
+    }
+    case_2: 
+    {
+#line 944
+    __cil_tmp125 = (void const   *)context;
+#line 944
+    kfree(__cil_tmp125);
+#line 945
+    __cil_tmp126 = (void *)0;
+#line 945
+    context = (struct imon_context *)__cil_tmp126;
+    }
+    case_1: 
+#line 947
+    if (retval != -19) {
+#line 948
+      retval = -12;
+    } else {
+
+    }
+#line 949
+    goto switch_break;
+    case_0: 
+#line 951
+    retval = 0;
+  } else {
+    switch_break: ;
   }
   exit: 
   {
@@ -9401,54 +8046,21 @@ static void imon_disconnect(struct usb_interface *interface )
   int ifnum ;
   void *tmp___7 ;
   int tmp___8 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct usb_host_interface *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  __u8 __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct mutex *__cil_tmp15 ;
-  void *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  atomic_t *__cil_tmp20 ;
-  atomic_t const   *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct urb *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct completion *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct urb *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct mutex *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct mutex *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct mutex *__cil_tmp53 ;
+  struct usb_host_interface *__cil_tmp6 ;
+  __u8 __cil_tmp7 ;
+  struct mutex *__cil_tmp8 ;
+  void *__cil_tmp9 ;
+  atomic_t *__cil_tmp10 ;
+  atomic_t const   *__cil_tmp11 ;
+  struct urb *__cil_tmp12 ;
+  struct completion *__cil_tmp13 ;
+  struct urb *__cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  struct mutex *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  struct mutex *__cil_tmp19 ;
+  struct mutex *__cil_tmp20 ;
 
   {
   {
@@ -9459,94 +8071,51 @@ static void imon_disconnect(struct usb_interface *interface )
 #line 971
   context = (struct imon_context *)tmp___7;
 #line 972
-  __cil_tmp6 = 0 + 2;
+  __cil_tmp6 = interface->cur_altsetting;
 #line 972
-  __cil_tmp7 = (unsigned long )interface;
+  __cil_tmp7 = __cil_tmp6->desc.bInterfaceNumber;
 #line 972
-  __cil_tmp8 = __cil_tmp7 + 8;
-#line 972
-  __cil_tmp9 = *((struct usb_host_interface **)__cil_tmp8);
-#line 972
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 972
-  __cil_tmp11 = __cil_tmp10 + __cil_tmp6;
-#line 972
-  __cil_tmp12 = *((__u8 *)__cil_tmp11);
-#line 972
-  ifnum = (int )__cil_tmp12;
+  ifnum = (int )__cil_tmp7;
 #line 974
-  __cil_tmp13 = (unsigned long )context;
+  __cil_tmp8 = & context->ctx_lock;
 #line 974
-  __cil_tmp14 = __cil_tmp13 + 24;
-#line 974
-  __cil_tmp15 = (struct mutex *)__cil_tmp14;
-#line 974
-  mutex_lock_nested(__cil_tmp15, 0U);
+  mutex_lock_nested(__cil_tmp8, 0U);
 #line 976
-  __cil_tmp16 = (void *)0;
+  __cil_tmp9 = (void *)0;
 #line 976
-  usb_set_intfdata(interface, __cil_tmp16);
+  usb_set_intfdata(interface, __cil_tmp9);
 #line 979
-  __cil_tmp17 = 360 + 136;
+  __cil_tmp10 = & context->tx.busy;
 #line 979
-  __cil_tmp18 = (unsigned long )context;
+  __cil_tmp11 = (atomic_t const   *)__cil_tmp10;
 #line 979
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 979
-  __cil_tmp20 = (atomic_t *)__cil_tmp19;
-#line 979
-  __cil_tmp21 = (atomic_t const   *)__cil_tmp20;
-#line 979
-  tmp___8 = atomic_read(__cil_tmp21);
+  tmp___8 = atomic_read(__cil_tmp11);
   }
 #line 979
   if (tmp___8) {
     {
 #line 980
-    __cil_tmp22 = (unsigned long )context;
+    __cil_tmp12 = context->tx_urb;
 #line 980
-    __cil_tmp23 = __cil_tmp22 + 320;
-#line 980
-    __cil_tmp24 = *((struct urb **)__cil_tmp23);
-#line 980
-    usb_kill_urb(__cil_tmp24);
+    usb_kill_urb(__cil_tmp12);
 #line 981
-    __cil_tmp25 = 360 + 40;
+    __cil_tmp13 = & context->tx.finished;
 #line 981
-    __cil_tmp26 = (unsigned long )context;
-#line 981
-    __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 981
-    __cil_tmp28 = (struct completion *)__cil_tmp27;
-#line 981
-    complete_all(__cil_tmp28);
+    complete_all(__cil_tmp13);
     }
   } else {
 
   }
   {
 #line 984
-  __cil_tmp29 = (unsigned long )context;
-#line 984
-  __cil_tmp30 = __cil_tmp29 + 20;
-#line 984
-  *((int *)__cil_tmp30) = 0;
+  context->dev_present = 0;
 #line 985
-  __cil_tmp31 = (unsigned long )context;
+  __cil_tmp14 = context->rx_urb;
 #line 985
-  __cil_tmp32 = __cil_tmp31 + 312;
-#line 985
-  __cil_tmp33 = *((struct urb **)__cil_tmp32);
-#line 985
-  usb_kill_urb(__cil_tmp33);
+  usb_kill_urb(__cil_tmp14);
   }
-  {
 #line 986
-  __cil_tmp34 = (unsigned long )context;
-#line 986
-  __cil_tmp35 = __cil_tmp34 + 8;
-#line 986
-  if (*((int *)__cil_tmp35)) {
+  if (context->display) {
     {
 #line 987
     usb_deregister_dev(interface, & imon_class);
@@ -9554,46 +8123,29 @@ static void imon_disconnect(struct usb_interface *interface )
   } else {
 
   }
-  }
   {
 #line 989
-  __cil_tmp36 = (unsigned long )context;
+  __cil_tmp15 = context->ir_isopen;
 #line 989
-  __cil_tmp37 = __cil_tmp36 + 16;
-#line 989
-  __cil_tmp38 = *((int *)__cil_tmp37);
-#line 989
-  if (! __cil_tmp38) {
+  if (! __cil_tmp15) {
     {
 #line 989
-    __cil_tmp39 = (unsigned long )context;
+    __cil_tmp16 = context->dev_present;
 #line 989
-    __cil_tmp40 = __cil_tmp39 + 20;
-#line 989
-    __cil_tmp41 = *((int *)__cil_tmp40);
-#line 989
-    if (! __cil_tmp41) {
+    if (! __cil_tmp16) {
       {
 #line 990
       deregister_from_lirc(context);
 #line 991
-      __cil_tmp42 = (unsigned long )context;
+      __cil_tmp17 = & context->ctx_lock;
 #line 991
-      __cil_tmp43 = __cil_tmp42 + 24;
-#line 991
-      __cil_tmp44 = (struct mutex *)__cil_tmp43;
-#line 991
-      mutex_unlock(__cil_tmp44);
+      mutex_unlock(__cil_tmp17);
       }
       {
 #line 992
-      __cil_tmp45 = (unsigned long )context;
+      __cil_tmp18 = context->display_isopen;
 #line 992
-      __cil_tmp46 = __cil_tmp45 + 12;
-#line 992
-      __cil_tmp47 = *((int *)__cil_tmp46);
-#line 992
-      if (! __cil_tmp47) {
+      if (! __cil_tmp18) {
         {
 #line 993
         free_imon_context(context);
@@ -9605,26 +8157,18 @@ static void imon_disconnect(struct usb_interface *interface )
     } else {
       {
 #line 995
-      __cil_tmp48 = (unsigned long )context;
+      __cil_tmp19 = & context->ctx_lock;
 #line 995
-      __cil_tmp49 = __cil_tmp48 + 24;
-#line 995
-      __cil_tmp50 = (struct mutex *)__cil_tmp49;
-#line 995
-      mutex_unlock(__cil_tmp50);
+      mutex_unlock(__cil_tmp19);
       }
     }
     }
   } else {
     {
 #line 995
-    __cil_tmp51 = (unsigned long )context;
+    __cil_tmp20 = & context->ctx_lock;
 #line 995
-    __cil_tmp52 = __cil_tmp51 + 24;
-#line 995
-    __cil_tmp53 = (struct mutex *)__cil_tmp52;
-#line 995
-    mutex_unlock(__cil_tmp53);
+    mutex_unlock(__cil_tmp20);
     }
   }
   }
@@ -9639,12 +8183,10 @@ static void imon_disconnect(struct usb_interface *interface )
 }
 }
 #line 1003 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
-static int imon_suspend(struct usb_interface *intf , int message_event8 ) 
+static int imon_suspend(struct usb_interface *intf , pm_message_t message ) 
 { struct imon_context *context ;
   void *tmp___7 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct urb *__cil_tmp7 ;
+  struct urb *__cil_tmp5 ;
 
   {
   {
@@ -9653,13 +8195,9 @@ static int imon_suspend(struct usb_interface *intf , int message_event8 )
 #line 1005
   context = (struct imon_context *)tmp___7;
 #line 1007
-  __cil_tmp5 = (unsigned long )context;
+  __cil_tmp5 = context->rx_urb;
 #line 1007
-  __cil_tmp6 = __cil_tmp5 + 312;
-#line 1007
-  __cil_tmp7 = *((struct urb **)__cil_tmp6);
-#line 1007
-  usb_kill_urb(__cil_tmp7);
+  usb_kill_urb(__cil_tmp5);
   }
 #line 1009
   return (0);
@@ -9672,39 +8210,23 @@ static int imon_resume(struct usb_interface *intf )
   void *tmp___7 ;
   unsigned int tmp___8 ;
   struct usb_device *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct usb_endpoint_descriptor *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  __u8 __cil_tmp12 ;
+  struct usb_endpoint_descriptor *__cil_tmp7 ;
+  __u8 __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  struct urb *__cil_tmp10 ;
+  struct usb_device *__cil_tmp11 ;
+  int __cil_tmp12 ;
   unsigned int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct urb *__cil_tmp16 ;
-  struct usb_device *__cil_tmp17 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned char *__cil_tmp16 ;
+  void *__cil_tmp17 ;
   int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned char *__cil_tmp26 ;
-  void *__cil_tmp27 ;
-  int __cil_tmp28 ;
-  void *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct usb_endpoint_descriptor *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  __u8 __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct urb *__cil_tmp39 ;
+  void *__cil_tmp19 ;
+  struct usb_endpoint_descriptor *__cil_tmp20 ;
+  __u8 __cil_tmp21 ;
+  int __cil_tmp22 ;
+  struct urb *__cil_tmp23 ;
 
   {
   {
@@ -9715,80 +8237,48 @@ static int imon_resume(struct usb_interface *intf )
 #line 1015
   context = (struct imon_context *)tmp___7;
 #line 1017
-  __cil_tmp6 = *((struct usb_device **)context);
+  __cil_tmp6 = context->usbdev;
 #line 1017
-  __cil_tmp7 = (unsigned long )context;
+  __cil_tmp7 = context->rx_endpoint;
 #line 1017
-  __cil_tmp8 = __cil_tmp7 + 296;
+  __cil_tmp8 = __cil_tmp7->bEndpointAddress;
 #line 1017
-  __cil_tmp9 = *((struct usb_endpoint_descriptor **)__cil_tmp8);
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 1017
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
+  tmp___8 = __create_pipe(__cil_tmp6, __cil_tmp9);
 #line 1017
-  __cil_tmp11 = __cil_tmp10 + 2;
+  __cil_tmp10 = context->rx_urb;
 #line 1017
-  __cil_tmp12 = *((__u8 *)__cil_tmp11);
+  __cil_tmp11 = context->usbdev;
+#line 1017
+  __cil_tmp12 = 1 << 30;
 #line 1017
   __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1017
-  tmp___8 = __create_pipe(__cil_tmp6, __cil_tmp13);
+  __cil_tmp14 = __cil_tmp13 | tmp___8;
 #line 1017
-  __cil_tmp14 = (unsigned long )context;
+  __cil_tmp15 = __cil_tmp14 | 128U;
 #line 1017
-  __cil_tmp15 = __cil_tmp14 + 312;
+  __cil_tmp16 = & context->usb_rx_buf[0];
 #line 1017
-  __cil_tmp16 = *((struct urb **)__cil_tmp15);
+  __cil_tmp17 = (void *)__cil_tmp16;
 #line 1017
-  __cil_tmp17 = *((struct usb_device **)context);
+  __cil_tmp18 = (int )8UL;
 #line 1017
-  __cil_tmp18 = 1 << 30;
+  __cil_tmp19 = (void *)context;
 #line 1017
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
+  __cil_tmp20 = context->rx_endpoint;
 #line 1017
-  __cil_tmp20 = __cil_tmp19 | tmp___8;
+  __cil_tmp21 = __cil_tmp20->bInterval;
 #line 1017
-  __cil_tmp21 = __cil_tmp20 | 128U;
+  __cil_tmp22 = (int )__cil_tmp21;
 #line 1017
-  __cil_tmp22 = 0 * 1UL;
-#line 1017
-  __cil_tmp23 = 328 + __cil_tmp22;
-#line 1017
-  __cil_tmp24 = (unsigned long )context;
-#line 1017
-  __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 1017
-  __cil_tmp26 = (unsigned char *)__cil_tmp25;
-#line 1017
-  __cil_tmp27 = (void *)__cil_tmp26;
-#line 1017
-  __cil_tmp28 = (int )8UL;
-#line 1017
-  __cil_tmp29 = (void *)context;
-#line 1017
-  __cil_tmp30 = (unsigned long )context;
-#line 1017
-  __cil_tmp31 = __cil_tmp30 + 296;
-#line 1017
-  __cil_tmp32 = *((struct usb_endpoint_descriptor **)__cil_tmp31);
-#line 1017
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 1017
-  __cil_tmp34 = __cil_tmp33 + 6;
-#line 1017
-  __cil_tmp35 = *((__u8 *)__cil_tmp34);
-#line 1017
-  __cil_tmp36 = (int )__cil_tmp35;
-#line 1017
-  usb_fill_int_urb(__cil_tmp16, __cil_tmp17, __cil_tmp21, __cil_tmp27, __cil_tmp28,
-                   & usb_rx_callback, __cil_tmp29, __cil_tmp36);
+  usb_fill_int_urb(__cil_tmp10, __cil_tmp11, __cil_tmp15, __cil_tmp17, __cil_tmp18,
+                   & usb_rx_callback, __cil_tmp19, __cil_tmp22);
 #line 1024
-  __cil_tmp37 = (unsigned long )context;
+  __cil_tmp23 = context->rx_urb;
 #line 1024
-  __cil_tmp38 = __cil_tmp37 + 312;
-#line 1024
-  __cil_tmp39 = *((struct urb **)__cil_tmp38);
-#line 1024
-  rc = usb_submit_urb(__cil_tmp39, 32U);
+  rc = usb_submit_urb(__cil_tmp23, 32U);
   }
 #line 1026
   return (rc);
@@ -9887,7 +8377,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp8 ;
-  int var_imon_suspend_15_p1_event9 ;
 
   {
   {
@@ -9900,6 +8389,7 @@ void main(void)
   }
 #line 1184
   if (tmp___7) {
+#line 1185
     goto ldv_final;
   } else {
 
@@ -9909,7 +8399,7 @@ void main(void)
   {
 #line 1189
   while (1) {
-    while_32_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1189
     tmp___9 = nondet_int();
@@ -9925,6 +8415,7 @@ void main(void)
       if (! __cil_tmp8) {
 
       } else {
+#line 1189
         goto while_break;
       }
       }
@@ -9935,94 +8426,102 @@ void main(void)
     }
 #line 1195
     if (tmp___8 == 0) {
+#line 1195
       goto case_0;
-    } else {
+    } else
 #line 1225
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
+    if (tmp___8 == 1) {
+#line 1225
+      goto case_1;
+    } else
 #line 1252
-        if (tmp___8 == 2) {
-          goto case_2;
-        } else {
+    if (tmp___8 == 2) {
+#line 1252
+      goto case_2;
+    } else
 #line 1279
-          if (tmp___8 == 3) {
-            goto case_3;
-          } else {
-            goto switch_default;
+    if (tmp___8 == 3) {
+#line 1279
+      goto case_3;
+    } else {
+#line 1306
+      goto switch_default;
 #line 1193
-            if (0) {
-              case_0: 
+      if (0) {
+        case_0: 
 #line 1198
-              if (ldv_s_imon_driver_usb_driver == 0) {
-                {
+        if (ldv_s_imon_driver_usb_driver == 0) {
+          {
 #line 1214
-                res_imon_probe_13 = imon_probe(var_group1, var_imon_probe_13_p1);
+          res_imon_probe_13 = imon_probe(var_group1, var_imon_probe_13_p1);
 #line 1215
-                ldv_check_return_value(res_imon_probe_13);
-                }
-#line 1216
-                if (res_imon_probe_13) {
-                  goto ldv_module_exit;
-                } else {
-
-                }
-#line 1218
-                ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
-              } else {
-
-              }
-              goto switch_break;
-              case_1: 
-#line 1228
-              if (ldv_s_imon_driver_usb_driver == 1) {
-                {
-#line 1244
-                imon_suspend(var_group1, var_imon_suspend_15_p1_event9);
-#line 1245
-                ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
-                }
-              } else {
-
-              }
-              goto switch_break;
-              case_2: 
-#line 1255
-              if (ldv_s_imon_driver_usb_driver == 2) {
-                {
-#line 1271
-                imon_resume(var_group1);
-#line 1272
-                ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
-                }
-              } else {
-
-              }
-              goto switch_break;
-              case_3: 
-#line 1282
-              if (ldv_s_imon_driver_usb_driver == 3) {
-                {
-#line 1298
-                imon_disconnect(var_group1);
-#line 1299
-                ldv_s_imon_driver_usb_driver = 0;
-                }
-              } else {
-
-              }
-              goto switch_break;
-              switch_default: 
-              goto switch_break;
-            } else {
-              switch_break: ;
-            }
+          ldv_check_return_value(res_imon_probe_13);
           }
+#line 1216
+          if (res_imon_probe_13) {
+#line 1217
+            goto ldv_module_exit;
+          } else {
+
+          }
+#line 1218
+          ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
+        } else {
+
         }
+#line 1224
+        goto switch_break;
+        case_1: 
+#line 1228
+        if (ldv_s_imon_driver_usb_driver == 1) {
+          {
+#line 1244
+          imon_suspend(var_group1, var_imon_suspend_15_p1);
+#line 1245
+          ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
+          }
+        } else {
+
+        }
+#line 1251
+        goto switch_break;
+        case_2: 
+#line 1255
+        if (ldv_s_imon_driver_usb_driver == 2) {
+          {
+#line 1271
+          imon_resume(var_group1);
+#line 1272
+          ldv_s_imon_driver_usb_driver = ldv_s_imon_driver_usb_driver + 1;
+          }
+        } else {
+
+        }
+#line 1278
+        goto switch_break;
+        case_3: 
+#line 1282
+        if (ldv_s_imon_driver_usb_driver == 3) {
+          {
+#line 1298
+          imon_disconnect(var_group1);
+#line 1299
+          ldv_s_imon_driver_usb_driver = 0;
+          }
+        } else {
+
+        }
+#line 1305
+        goto switch_break;
+        switch_default: 
+#line 1306
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_32_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -10046,6 +8545,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -10061,6 +8561,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -10081,7 +8582,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_33_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -10099,9 +8600,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_33_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -10122,7 +8624,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_34_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -10159,9 +8661,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_34_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -10181,7 +8684,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_35_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -10203,9 +8706,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_35_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -10226,7 +8730,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_36_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -10263,9 +8767,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_36_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

@@ -7,6 +7,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -23,7 +24,7 @@ int main(int argc , char **argv )
   {
   {
 #line 13
-  globalSize = (int )4U;
+  globalSize = (int )8UL;
 #line 14
   foo(a);
   }
@@ -33,14 +34,14 @@ int main(int argc , char **argv )
 }
 #line 18 "files/sizeofparameters_test.c"
 void foo(int a ) 
-{ unsigned int __cil_tmp2 ;
+{ unsigned long __cil_tmp2 ;
 
   {
   {
 #line 19
-  __cil_tmp2 = (unsigned int )globalSize;
+  __cil_tmp2 = (unsigned long )globalSize;
 #line 19
-  if (4U == __cil_tmp2) {
+  if (4UL == __cil_tmp2) {
 
   } else {
     {

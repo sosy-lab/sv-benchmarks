@@ -9,6 +9,7 @@ void assert(int i )
 #line 6
   if (i == 0) {
     ERROR: 
+#line 8
     goto ERROR;
   } else {
 

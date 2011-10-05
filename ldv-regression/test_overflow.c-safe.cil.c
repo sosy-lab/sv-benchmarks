@@ -13,6 +13,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -26,7 +27,7 @@ int globalSize  ;
 int main(int argc , char **argv ) 
 { int retVal ;
   ssize_t tmp ;
-  unsigned int __cil_tmp5 ;
+  unsigned long __cil_tmp5 ;
   char const   * __restrict  __cil_tmp6 ;
 
   {
@@ -38,9 +39,9 @@ int main(int argc , char **argv )
   }
   {
 #line 15
-  __cil_tmp5 = (unsigned int )globalSize;
+  __cil_tmp5 = (unsigned long )globalSize;
 #line 15
-  if (4U == __cil_tmp5) {
+  if (4UL == __cil_tmp5) {
 
   } else {
     {
@@ -67,9 +68,9 @@ ssize_t getService(void)
   {
   {
 #line 22
-  localVar = (ssize_t )999999999999LL;
+  localVar = 999999999999L;
 #line 23
-  globalSize = (int )4U;
+  globalSize = (int )8UL;
 #line 24
   __cil_tmp2 = (char const   * __restrict  )"localVar: %d\n";
 #line 24

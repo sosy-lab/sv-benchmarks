@@ -13,6 +13,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -35,7 +36,7 @@ int main(int argc , char **argv )
   {
   {
 #line 13
-  __cil_tmp5 = (int )4U;
+  __cil_tmp5 = (int )4UL;
 #line 13
   tmp = l_malloc(__cil_tmp5);
 #line 13
@@ -57,15 +58,15 @@ int main(int argc , char **argv )
 void *l_malloc(int size ) 
 { void *retVal ;
   void *tmp ;
-  unsigned long __cil_tmp4 ;
+  size_t __cil_tmp4 ;
   void *__cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
 
   {
   {
 #line 20
-  __cil_tmp4 = (unsigned long )size;
+  __cil_tmp4 = (size_t )size;
 #line 20
   tmp = malloc(__cil_tmp4);
 #line 20
@@ -75,9 +76,9 @@ void *l_malloc(int size )
 #line 21
   __cil_tmp5 = (void *)0;
 #line 21
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 21
-  __cil_tmp7 = (unsigned int )retVal;
+  __cil_tmp7 = (unsigned long )retVal;
 #line 21
   if (__cil_tmp7 != __cil_tmp6) {
 #line 22
@@ -93,17 +94,17 @@ void *l_malloc(int size )
 #line 26 "files/alt_test.c"
 void l_free(void *ptr ) 
 { void *__cil_tmp2 ;
-  unsigned int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
+  unsigned long __cil_tmp3 ;
+  unsigned long __cil_tmp4 ;
 
   {
   {
 #line 30
   __cil_tmp2 = (void *)0;
 #line 30
-  __cil_tmp3 = (unsigned int )__cil_tmp2;
+  __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 30
-  __cil_tmp4 = (unsigned int )ptr;
+  __cil_tmp4 = (unsigned long )ptr;
 #line 30
   if (__cil_tmp4 != __cil_tmp3) {
 #line 30

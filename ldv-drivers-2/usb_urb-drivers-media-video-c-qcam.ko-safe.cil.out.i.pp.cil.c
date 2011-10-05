@@ -5959,6 +5959,7 @@ __inline static struct thread_info *current_thread_info(void)
   __cil_tmp3 = (int )8UL;
 #line 222
   if (__cil_tmp3 == 1) {
+#line 222
     goto case_1;
   } else {
     {
@@ -5966,6 +5967,7 @@ __inline static struct thread_info *current_thread_info(void)
     __cil_tmp4 = (int )8UL;
 #line 222
     if (__cil_tmp4 == 2) {
+#line 222
       goto case_2;
     } else {
       {
@@ -5973,6 +5975,7 @@ __inline static struct thread_info *current_thread_info(void)
       __cil_tmp5 = (int )8UL;
 #line 222
       if (__cil_tmp5 == 4) {
+#line 222
         goto case_4;
       } else {
         {
@@ -5980,8 +5983,10 @@ __inline static struct thread_info *current_thread_info(void)
         __cil_tmp6 = (int )8UL;
 #line 222
         if (__cil_tmp6 == 8) {
+#line 222
           goto case_8;
         } else {
+#line 222
           goto switch_default;
 #line 222
           if (0) {
@@ -5995,6 +6000,7 @@ __inline static struct thread_info *current_thread_info(void)
                       "%P"
                       "1"
                       ",%0": "=q" (pfo_ret__): "p" (& kernel_stack));
+#line 222
             goto switch_break;
             case_2: 
 #line 222
@@ -6006,6 +6012,7 @@ __inline static struct thread_info *current_thread_info(void)
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+#line 222
             goto switch_break;
             case_4: 
 #line 222
@@ -6017,6 +6024,7 @@ __inline static struct thread_info *current_thread_info(void)
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+#line 222
             goto switch_break;
             case_8: 
 #line 222
@@ -6028,6 +6036,7 @@ __inline static struct thread_info *current_thread_info(void)
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+#line 222
             goto switch_break;
             switch_default: 
             {
@@ -6080,7 +6089,7 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
   {
   {
 #line 82
-  __cil_tmp2 = *((char const   * const  *)kobj);
+  __cil_tmp2 = kobj->name;
 #line 82
   return ((char const   *)__cil_tmp2);
   }
@@ -6279,6 +6288,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
   __cil_tmp13 = (int )size;
 #line 123
   if (__cil_tmp13 == 1) {
+#line 123
     goto case_1;
   } else {
     {
@@ -6286,6 +6296,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
     __cil_tmp14 = (int )size;
 #line 126
     if (__cil_tmp14 == 2) {
+#line 126
       goto case_2;
     } else {
       {
@@ -6293,6 +6304,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
       __cil_tmp15 = (int )size;
 #line 129
       if (__cil_tmp15 == 4) {
+#line 129
         goto case_4;
       } else {
         {
@@ -6300,6 +6312,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
         __cil_tmp16 = (int )size;
 #line 132
         if (__cil_tmp16 == 8) {
+#line 132
           goto case_8;
         } else {
           {
@@ -6307,6 +6320,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
           __cil_tmp17 = (int )size;
 #line 135
           if (__cil_tmp17 == 10) {
+#line 135
             goto case_10;
           } else {
             {
@@ -6314,8 +6328,10 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
             __cil_tmp18 = (int )size;
 #line 144
             if (__cil_tmp18 == 16) {
+#line 144
               goto case_16;
             } else {
+#line 153
               goto switch_default;
 #line 122
               if (0) {
@@ -6662,46 +6678,26 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
 #line 608 "include/linux/device.h"
 __inline static char const   *dev_name(struct device  const  *dev ) 
 { char const   *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  char const   *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct kobject  const  *__cil_tmp10 ;
+  char const   *__cil_tmp3 ;
+  struct kobject  const  *__cil_tmp4 ;
 
   {
-  {
 #line 611
-  __cil_tmp3 = (unsigned long )dev;
-#line 611
-  __cil_tmp4 = __cil_tmp3 + 80;
-#line 611
-  if (*((char const   * const  *)__cil_tmp4)) {
+  if (dev->init_name) {
     {
 #line 612
-    __cil_tmp5 = (unsigned long )dev;
+    __cil_tmp3 = dev->init_name;
 #line 612
-    __cil_tmp6 = __cil_tmp5 + 80;
-#line 612
-    __cil_tmp7 = *((char const   * const  *)__cil_tmp6);
-#line 612
-    return ((char const   *)__cil_tmp7);
+    return ((char const   *)__cil_tmp3);
     }
   } else {
 
   }
-  }
   {
 #line 614
-  __cil_tmp8 = (unsigned long )dev;
+  __cil_tmp4 = & dev->kobj;
 #line 614
-  __cil_tmp9 = __cil_tmp8 + 16;
-#line 614
-  __cil_tmp10 = (struct kobject  const  *)__cil_tmp9;
-#line 614
-  tmp___7 = kobject_name(__cil_tmp10);
+  tmp___7 = kobject_name(__cil_tmp4);
   }
 #line 614
   return (tmp___7);
@@ -6724,26 +6720,20 @@ __inline static int __attribute__((__warn_unused_result__))  video_register_devi
 { int tmp___7 ;
   int tmp ;
   int tmp___8 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct v4l2_file_operations  const  *__cil_tmp9 ;
-  struct module *__cil_tmp10 ;
-  struct module *__cil_tmp11 ;
+  struct v4l2_file_operations  const  *__cil_tmp7 ;
+  struct module *__cil_tmp8 ;
+  struct module *__cil_tmp9 ;
 
   {
   {
 #line 146
-  __cil_tmp7 = (unsigned long )vdev;
+  __cil_tmp7 = vdev->fops;
 #line 146
-  __cil_tmp8 = __cil_tmp7 + 128;
+  __cil_tmp8 = __cil_tmp7->owner;
 #line 146
-  __cil_tmp9 = *((struct v4l2_file_operations  const  **)__cil_tmp8);
+  __cil_tmp9 = (struct module *)__cil_tmp8;
 #line 146
-  __cil_tmp10 = *((struct module * const  *)__cil_tmp9);
-#line 146
-  __cil_tmp11 = (struct module *)__cil_tmp10;
-#line 146
-  tmp___8 = (int )__video_register_device(vdev, type, nr, 1, __cil_tmp11);
+  tmp___8 = (int )__video_register_device(vdev, type, nr, 1, __cil_tmp9);
 #line 146
   tmp = tmp___8;
 #line 146
@@ -6760,23 +6750,17 @@ extern void video_device_release_empty(struct video_device *vdev ) ;
 #line 174 "include/media/v4l2-dev.h"
 __inline static void *video_get_drvdata(struct video_device *vdev ) 
 { void *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 176
-  __cil_tmp3 = (unsigned long )vdev;
+  __cil_tmp3 = & vdev->dev;
 #line 176
-  __cil_tmp4 = __cil_tmp3 + 136;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 176
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 176
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 176
-  tmp___7 = dev_get_drvdata(__cil_tmp6);
+  tmp___7 = dev_get_drvdata(__cil_tmp4);
   }
 #line 176
   return (tmp___7);
@@ -6784,20 +6768,14 @@ __inline static void *video_get_drvdata(struct video_device *vdev )
 }
 #line 179 "include/media/v4l2-dev.h"
 __inline static void video_set_drvdata(struct video_device *vdev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 181
-  __cil_tmp3 = (unsigned long )vdev;
+  __cil_tmp3 = & vdev->dev;
 #line 181
-  __cil_tmp4 = __cil_tmp3 + 136;
-#line 181
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 181
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 182
   return;
@@ -6824,23 +6802,17 @@ __inline static void *video_drvdata(struct file *file )
 #line 193 "include/media/v4l2-dev.h"
 __inline static char const   *video_device_node_name(struct video_device *vdev ) 
 { char const   *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 195
-  __cil_tmp3 = (unsigned long )vdev;
+  __cil_tmp3 = & vdev->dev;
 #line 195
-  __cil_tmp4 = __cil_tmp3 + 136;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 195
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 195
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 195
-  tmp___7 = dev_name(__cil_tmp6);
+  tmp___7 = dev_name(__cil_tmp4);
   }
 #line 195
   return (tmp___7);
@@ -6916,8 +6888,8 @@ static char const   __param_str_parport[8]  =
         (char const   )'o',      (char const   )'r',      (char const   )'t',      (char const   )'\000'};
 #line 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param  const  __param_parport  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_parport, (struct kernel_param_ops  const  *)(& param_array_ops), (unsigned short)0,
-    (unsigned short)0, {.arr = & __param_arr_parport}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_parport, (struct kernel_param_ops  const  *)(& param_array_ops), (u16 )0,
+    (u16 )0, {.arr = & __param_arr_parport}};
 #line 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const   __mod_parporttype84[30]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6935,8 +6907,8 @@ static char const   __param_str_probe[6]  = {      (char const   )'p',      (cha
         (char const   )'e',      (char const   )'\000'};
 #line 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param  const  __param_probe  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_probe, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)0,
-    (unsigned short)0, {(void *)(& probe)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_probe, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )0,
+    (u16 )0, {(void *)(& probe)}};
 #line 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const   __mod_probetype85[19]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -6955,7 +6927,7 @@ static char const   __param_str_force_rgb[10]  =
 #line 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param  const  __param_force_rgb  __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_force_rgb, (struct kernel_param_ops  const  *)(& param_ops_bool),
-    (unsigned short)0, (unsigned short)0, {(void *)(& force_rgb)}};
+    (u16 )0, (u16 )0, {(void *)(& force_rgb)}};
 #line 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const   __mod_force_rgbtype86[24]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6974,8 +6946,8 @@ static char const   __param_str_video_nr[9]  =
         (char const   )'\000'};
 #line 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param  const  __param_video_nr  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_video_nr, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)0,
-    (unsigned short)0, {(void *)(& video_nr)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_video_nr, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )0,
+    (u16 )0, {(void *)(& video_nr)}};
 #line 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const   __mod_video_nrtype87[22]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6993,19 +6965,11 @@ static unsigned int num_cams  ;
 #line 92 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 __inline static void qcam_set_ack(struct qcam *qcam , unsigned int i ) 
 { int tmp___7 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct parport *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct parport_operations *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char (*__cil_tmp12)(struct parport * , unsigned char mask , unsigned char val ) ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct parport *__cil_tmp15 ;
-  unsigned char __cil_tmp16 ;
+  struct parport *__cil_tmp4 ;
+  struct parport_operations *__cil_tmp5 ;
+  unsigned char (*__cil_tmp6)(struct parport * , unsigned char mask , unsigned char val ) ;
+  struct parport *__cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
 
   {
 #line 96
@@ -7018,33 +6982,17 @@ __inline static void qcam_set_ack(struct qcam *qcam , unsigned int i )
   }
   {
 #line 96
-  __cil_tmp4 = (unsigned long )qcam;
+  __cil_tmp4 = qcam->pport;
 #line 96
-  __cil_tmp5 = __cil_tmp4 + 1912;
+  __cil_tmp5 = __cil_tmp4->ops;
 #line 96
-  __cil_tmp6 = *((struct parport **)__cil_tmp5);
+  __cil_tmp6 = __cil_tmp5->frob_control;
 #line 96
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp7 = qcam->pport;
 #line 96
-  __cil_tmp8 = __cil_tmp7 + 640;
+  __cil_tmp8 = (unsigned char )tmp___7;
 #line 96
-  __cil_tmp9 = *((struct parport_operations **)__cil_tmp8);
-#line 96
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 96
-  __cil_tmp11 = __cil_tmp10 + 32;
-#line 96
-  __cil_tmp12 = *((unsigned char (**)(struct parport * , unsigned char mask , unsigned char val ))__cil_tmp11);
-#line 96
-  __cil_tmp13 = (unsigned long )qcam;
-#line 96
-  __cil_tmp14 = __cil_tmp13 + 1912;
-#line 96
-  __cil_tmp15 = *((struct parport **)__cil_tmp14);
-#line 96
-  __cil_tmp16 = (unsigned char )tmp___7;
-#line 96
-  (*__cil_tmp12)(__cil_tmp15, (unsigned char)8, __cil_tmp16);
+  (*__cil_tmp6)(__cil_tmp7, (unsigned char)8, __cil_tmp8);
   }
 #line 97
   return;
@@ -7054,54 +7002,30 @@ __inline static void qcam_set_ack(struct qcam *qcam , unsigned int i )
 __inline static unsigned int qcam_ready1(struct qcam *qcam ) 
 { int tmp___8 ;
   unsigned char tmp___9 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct parport *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct parport_operations *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char (*__cil_tmp12)(struct parport * ) ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct parport *__cil_tmp15 ;
-  int __cil_tmp16 ;
+  struct parport *__cil_tmp4 ;
+  struct parport_operations *__cil_tmp5 ;
+  unsigned char (*__cil_tmp6)(struct parport * ) ;
+  struct parport *__cil_tmp7 ;
+  int __cil_tmp8 ;
 
   {
   {
 #line 101
-  __cil_tmp4 = (unsigned long )qcam;
+  __cil_tmp4 = qcam->pport;
 #line 101
-  __cil_tmp5 = __cil_tmp4 + 1912;
+  __cil_tmp5 = __cil_tmp4->ops;
 #line 101
-  __cil_tmp6 = *((struct parport **)__cil_tmp5);
+  __cil_tmp6 = __cil_tmp5->read_status;
 #line 101
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp7 = qcam->pport;
 #line 101
-  __cil_tmp8 = __cil_tmp7 + 640;
-#line 101
-  __cil_tmp9 = *((struct parport_operations **)__cil_tmp8);
-#line 101
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 101
-  __cil_tmp11 = __cil_tmp10 + 40;
-#line 101
-  __cil_tmp12 = *((unsigned char (**)(struct parport * ))__cil_tmp11);
-#line 101
-  __cil_tmp13 = (unsigned long )qcam;
-#line 101
-  __cil_tmp14 = __cil_tmp13 + 1912;
-#line 101
-  __cil_tmp15 = *((struct parport **)__cil_tmp14);
-#line 101
-  tmp___9 = (*__cil_tmp12)(__cil_tmp15);
+  tmp___9 = (*__cil_tmp6)(__cil_tmp7);
   }
   {
 #line 101
-  __cil_tmp16 = (int )tmp___9;
+  __cil_tmp8 = (int )tmp___9;
 #line 101
-  if (__cil_tmp16 & 8) {
+  if (__cil_tmp8 & 8) {
 #line 101
     tmp___8 = 1;
   } else {
@@ -7117,54 +7041,30 @@ __inline static unsigned int qcam_ready1(struct qcam *qcam )
 __inline static unsigned int qcam_ready2(struct qcam *qcam ) 
 { int tmp___8 ;
   unsigned char tmp___9 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct parport *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct parport_operations *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char (*__cil_tmp12)(struct parport * ) ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct parport *__cil_tmp15 ;
-  int __cil_tmp16 ;
+  struct parport *__cil_tmp4 ;
+  struct parport_operations *__cil_tmp5 ;
+  unsigned char (*__cil_tmp6)(struct parport * ) ;
+  struct parport *__cil_tmp7 ;
+  int __cil_tmp8 ;
 
   {
   {
 #line 106
-  __cil_tmp4 = (unsigned long )qcam;
+  __cil_tmp4 = qcam->pport;
 #line 106
-  __cil_tmp5 = __cil_tmp4 + 1912;
+  __cil_tmp5 = __cil_tmp4->ops;
 #line 106
-  __cil_tmp6 = *((struct parport **)__cil_tmp5);
+  __cil_tmp6 = __cil_tmp5->read_data;
 #line 106
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp7 = qcam->pport;
 #line 106
-  __cil_tmp8 = __cil_tmp7 + 640;
-#line 106
-  __cil_tmp9 = *((struct parport_operations **)__cil_tmp8);
-#line 106
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 106
-  __cil_tmp11 = __cil_tmp10 + 8;
-#line 106
-  __cil_tmp12 = *((unsigned char (**)(struct parport * ))__cil_tmp11);
-#line 106
-  __cil_tmp13 = (unsigned long )qcam;
-#line 106
-  __cil_tmp14 = __cil_tmp13 + 1912;
-#line 106
-  __cil_tmp15 = *((struct parport **)__cil_tmp14);
-#line 106
-  tmp___9 = (*__cil_tmp12)(__cil_tmp15);
+  tmp___9 = (*__cil_tmp6)(__cil_tmp7);
   }
   {
 #line 106
-  __cil_tmp16 = (int )tmp___9;
+  __cil_tmp8 = (int )tmp___9;
 #line 106
-  if (__cil_tmp16 & 1) {
+  if (__cil_tmp8 & 1) {
 #line 106
     tmp___8 = 1;
   } else {
@@ -7194,41 +7094,21 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
   long __cil_tmp16 ;
   unsigned int __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct parport *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  struct parport *__cil_tmp19 ;
+  struct parport_operations *__cil_tmp20 ;
+  unsigned char (*__cil_tmp21)(struct parport * ) ;
+  struct parport *__cil_tmp22 ;
+  struct parport *__cil_tmp23 ;
   struct parport_operations *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned char (*__cil_tmp27)(struct parport * ) ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct parport *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct parport *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct parport_operations *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned char (*__cil_tmp39)(struct parport * ) ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct parport *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  char *__cil_tmp47 ;
-  int __cil_tmp48 ;
-  int __cil_tmp49 ;
+  unsigned char (*__cil_tmp25)(struct parport * ) ;
+  struct parport *__cil_tmp26 ;
+  char *__cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
 
   {
 #line 111
-  v4l2_dev = (struct v4l2_device *)qcam;
+  v4l2_dev = & qcam->v4l2_dev;
 #line 112
   oldjiffies = (unsigned long )jiffies;
 #line 115
@@ -7236,7 +7116,7 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
   {
 #line 116
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 116
     __cil_tmp11 = (unsigned int const   )40;
@@ -7258,6 +7138,7 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
     if (__cil_tmp16 < 0L) {
 
     } else {
+#line 115
       goto while_break;
     }
     }
@@ -7277,7 +7158,7 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
     }
     }
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
@@ -7286,12 +7167,13 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
   {
 #line 122
   while (1) {
-    while_1_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 122
     if (i < 50U) {
 
     } else {
+#line 122
       goto while_break___0;
     }
     {
@@ -7316,79 +7198,39 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
     i = i + 1U;
     }
   }
-  while_1_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: 
   {
 #line 129
-  __cil_tmp19 = (unsigned long )qcam;
+  __cil_tmp19 = qcam->pport;
 #line 129
-  __cil_tmp20 = __cil_tmp19 + 1912;
+  __cil_tmp20 = __cil_tmp19->ops;
 #line 129
-  __cil_tmp21 = *((struct parport **)__cil_tmp20);
+  __cil_tmp21 = __cil_tmp20->read_control;
 #line 129
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
+  __cil_tmp22 = qcam->pport;
 #line 129
-  __cil_tmp23 = __cil_tmp22 + 640;
+  tmp___11 = (*__cil_tmp21)(__cil_tmp22);
 #line 129
-  __cil_tmp24 = *((struct parport_operations **)__cil_tmp23);
+  __cil_tmp23 = qcam->pport;
 #line 129
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
+  __cil_tmp24 = __cil_tmp23->ops;
 #line 129
-  __cil_tmp26 = __cil_tmp25 + 24;
+  __cil_tmp25 = __cil_tmp24->read_status;
 #line 129
-  __cil_tmp27 = *((unsigned char (**)(struct parport * ))__cil_tmp26);
+  __cil_tmp26 = qcam->pport;
 #line 129
-  __cil_tmp28 = (unsigned long )qcam;
+  tmp___12 = (*__cil_tmp25)(__cil_tmp26);
 #line 129
-  __cil_tmp29 = __cil_tmp28 + 1912;
+  __cil_tmp27 = & v4l2_dev->name[0];
 #line 129
-  __cil_tmp30 = *((struct parport **)__cil_tmp29);
+  __cil_tmp28 = (int )tmp___12;
 #line 129
-  tmp___11 = (*__cil_tmp27)(__cil_tmp30);
+  __cil_tmp29 = (int )tmp___11;
 #line 129
-  __cil_tmp31 = (unsigned long )qcam;
-#line 129
-  __cil_tmp32 = __cil_tmp31 + 1912;
-#line 129
-  __cil_tmp33 = *((struct parport **)__cil_tmp32);
-#line 129
-  __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 129
-  __cil_tmp35 = __cil_tmp34 + 640;
-#line 129
-  __cil_tmp36 = *((struct parport_operations **)__cil_tmp35);
-#line 129
-  __cil_tmp37 = (unsigned long )__cil_tmp36;
-#line 129
-  __cil_tmp38 = __cil_tmp37 + 40;
-#line 129
-  __cil_tmp39 = *((unsigned char (**)(struct parport * ))__cil_tmp38);
-#line 129
-  __cil_tmp40 = (unsigned long )qcam;
-#line 129
-  __cil_tmp41 = __cil_tmp40 + 1912;
-#line 129
-  __cil_tmp42 = *((struct parport **)__cil_tmp41);
-#line 129
-  tmp___12 = (*__cil_tmp39)(__cil_tmp42);
-#line 129
-  __cil_tmp43 = 0 * 1UL;
-#line 129
-  __cil_tmp44 = 104 + __cil_tmp43;
-#line 129
-  __cil_tmp45 = (unsigned long )v4l2_dev;
-#line 129
-  __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
-#line 129
-  __cil_tmp47 = (char *)__cil_tmp46;
-#line 129
-  __cil_tmp48 = (int )tmp___12;
-#line 129
-  __cil_tmp49 = (int )tmp___11;
-#line 129
-  printk("<3>%s: ready1 timeout (%d) %x %x\n", __cil_tmp47, value, __cil_tmp48, __cil_tmp49);
+  printk("<3>%s: ready1 timeout (%d) %x %x\n", __cil_tmp27, value, __cil_tmp28, __cil_tmp29);
   }
 #line 132
   return (1U);
@@ -7413,54 +7255,26 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
   long __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
   unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct parport *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  struct parport *__cil_tmp20 ;
+  struct parport_operations *__cil_tmp21 ;
+  unsigned char (*__cil_tmp22)(struct parport * ) ;
+  struct parport *__cil_tmp23 ;
+  struct parport *__cil_tmp24 ;
   struct parport_operations *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned char (*__cil_tmp28)(struct parport * ) ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  unsigned char (*__cil_tmp26)(struct parport * ) ;
+  struct parport *__cil_tmp27 ;
+  struct parport *__cil_tmp28 ;
+  struct parport_operations *__cil_tmp29 ;
+  unsigned char (*__cil_tmp30)(struct parport * ) ;
   struct parport *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct parport *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct parport_operations *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned char (*__cil_tmp40)(struct parport * ) ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct parport *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct parport *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct parport_operations *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned char (*__cil_tmp52)(struct parport * ) ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct parport *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  char *__cil_tmp60 ;
-  int __cil_tmp61 ;
-  int __cil_tmp62 ;
-  int __cil_tmp63 ;
+  char *__cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
 
   {
 #line 137
-  v4l2_dev = (struct v4l2_device *)qcam;
+  v4l2_dev = & qcam->v4l2_dev;
 #line 138
   oldjiffies = (unsigned long )jiffies;
 #line 141
@@ -7468,7 +7282,7 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
   {
 #line 142
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 142
     __cil_tmp12 = (unsigned int const   )40;
@@ -7490,6 +7304,7 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
     if (__cil_tmp17 < 0L) {
 
     } else {
+#line 141
       goto while_break;
     }
     }
@@ -7509,7 +7324,7 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
     }
     }
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
@@ -7518,12 +7333,13 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
   {
 #line 148
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 148
     if (i < 50U) {
 
     } else {
+#line 148
       goto while_break___0;
     }
     {
@@ -7548,108 +7364,52 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
     i = i + 1U;
     }
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: 
   {
 #line 155
-  __cil_tmp20 = (unsigned long )qcam;
+  __cil_tmp20 = qcam->pport;
 #line 155
-  __cil_tmp21 = __cil_tmp20 + 1912;
+  __cil_tmp21 = __cil_tmp20->ops;
 #line 155
-  __cil_tmp22 = *((struct parport **)__cil_tmp21);
+  __cil_tmp22 = __cil_tmp21->read_data;
 #line 155
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
+  __cil_tmp23 = qcam->pport;
 #line 155
-  __cil_tmp24 = __cil_tmp23 + 640;
+  tmp___11 = (*__cil_tmp22)(__cil_tmp23);
 #line 155
-  __cil_tmp25 = *((struct parport_operations **)__cil_tmp24);
+  __cil_tmp24 = qcam->pport;
 #line 155
-  __cil_tmp26 = (unsigned long )__cil_tmp25;
+  __cil_tmp25 = __cil_tmp24->ops;
 #line 155
-  __cil_tmp27 = __cil_tmp26 + 8;
+  __cil_tmp26 = __cil_tmp25->read_control;
 #line 155
-  __cil_tmp28 = *((unsigned char (**)(struct parport * ))__cil_tmp27);
+  __cil_tmp27 = qcam->pport;
 #line 155
-  __cil_tmp29 = (unsigned long )qcam;
+  tmp___12 = (*__cil_tmp26)(__cil_tmp27);
 #line 155
-  __cil_tmp30 = __cil_tmp29 + 1912;
+  __cil_tmp28 = qcam->pport;
 #line 155
-  __cil_tmp31 = *((struct parport **)__cil_tmp30);
+  __cil_tmp29 = __cil_tmp28->ops;
 #line 155
-  tmp___11 = (*__cil_tmp28)(__cil_tmp31);
+  __cil_tmp30 = __cil_tmp29->read_status;
 #line 155
-  __cil_tmp32 = (unsigned long )qcam;
+  __cil_tmp31 = qcam->pport;
 #line 155
-  __cil_tmp33 = __cil_tmp32 + 1912;
+  tmp___13 = (*__cil_tmp30)(__cil_tmp31);
 #line 155
-  __cil_tmp34 = *((struct parport **)__cil_tmp33);
+  __cil_tmp32 = & v4l2_dev->name[0];
 #line 155
-  __cil_tmp35 = (unsigned long )__cil_tmp34;
+  __cil_tmp33 = (int )tmp___13;
 #line 155
-  __cil_tmp36 = __cil_tmp35 + 640;
+  __cil_tmp34 = (int )tmp___12;
 #line 155
-  __cil_tmp37 = *((struct parport_operations **)__cil_tmp36);
+  __cil_tmp35 = (int )tmp___11;
 #line 155
-  __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 155
-  __cil_tmp39 = __cil_tmp38 + 24;
-#line 155
-  __cil_tmp40 = *((unsigned char (**)(struct parport * ))__cil_tmp39);
-#line 155
-  __cil_tmp41 = (unsigned long )qcam;
-#line 155
-  __cil_tmp42 = __cil_tmp41 + 1912;
-#line 155
-  __cil_tmp43 = *((struct parport **)__cil_tmp42);
-#line 155
-  tmp___12 = (*__cil_tmp40)(__cil_tmp43);
-#line 155
-  __cil_tmp44 = (unsigned long )qcam;
-#line 155
-  __cil_tmp45 = __cil_tmp44 + 1912;
-#line 155
-  __cil_tmp46 = *((struct parport **)__cil_tmp45);
-#line 155
-  __cil_tmp47 = (unsigned long )__cil_tmp46;
-#line 155
-  __cil_tmp48 = __cil_tmp47 + 640;
-#line 155
-  __cil_tmp49 = *((struct parport_operations **)__cil_tmp48);
-#line 155
-  __cil_tmp50 = (unsigned long )__cil_tmp49;
-#line 155
-  __cil_tmp51 = __cil_tmp50 + 40;
-#line 155
-  __cil_tmp52 = *((unsigned char (**)(struct parport * ))__cil_tmp51);
-#line 155
-  __cil_tmp53 = (unsigned long )qcam;
-#line 155
-  __cil_tmp54 = __cil_tmp53 + 1912;
-#line 155
-  __cil_tmp55 = *((struct parport **)__cil_tmp54);
-#line 155
-  tmp___13 = (*__cil_tmp52)(__cil_tmp55);
-#line 155
-  __cil_tmp56 = 0 * 1UL;
-#line 155
-  __cil_tmp57 = 104 + __cil_tmp56;
-#line 155
-  __cil_tmp58 = (unsigned long )v4l2_dev;
-#line 155
-  __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 155
-  __cil_tmp60 = (char *)__cil_tmp59;
-#line 155
-  __cil_tmp61 = (int )tmp___13;
-#line 155
-  __cil_tmp62 = (int )tmp___12;
-#line 155
-  __cil_tmp63 = (int )tmp___11;
-#line 155
-  printk("<3>%s: ready2 timeout (%d) %x %x %x\n", __cil_tmp60, value, __cil_tmp61,
-         __cil_tmp62, __cil_tmp63);
+  printk("<3>%s: ready2 timeout (%d) %x %x %x\n", __cil_tmp32, value, __cil_tmp33,
+         __cil_tmp34, __cil_tmp35);
   }
 #line 159
   return (1U);
@@ -7662,35 +7422,19 @@ static int qcam_read_data(struct qcam *qcam )
   unsigned char tmp___8 ;
   unsigned int tmp___9 ;
   unsigned char tmp___10 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct parport *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct parport_operations *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  struct parport *__cil_tmp7 ;
+  struct parport_operations *__cil_tmp8 ;
+  unsigned char (*__cil_tmp9)(struct parport * ) ;
+  struct parport *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  struct parport *__cil_tmp13 ;
+  struct parport_operations *__cil_tmp14 ;
   unsigned char (*__cil_tmp15)(struct parport * ) ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct parport *__cil_tmp18 ;
-  int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct parport *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct parport_operations *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned char (*__cil_tmp29)(struct parport * ) ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct parport *__cil_tmp32 ;
-  int __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
+  struct parport *__cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
 
   {
   {
@@ -7708,37 +7452,21 @@ static int qcam_read_data(struct qcam *qcam )
   }
   {
 #line 169
-  __cil_tmp7 = (unsigned long )qcam;
+  __cil_tmp7 = qcam->pport;
 #line 169
-  __cil_tmp8 = __cil_tmp7 + 1912;
+  __cil_tmp8 = __cil_tmp7->ops;
 #line 169
-  __cil_tmp9 = *((struct parport **)__cil_tmp8);
+  __cil_tmp9 = __cil_tmp8->read_status;
 #line 169
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
+  __cil_tmp10 = qcam->pport;
 #line 169
-  __cil_tmp11 = __cil_tmp10 + 640;
+  tmp___8 = (*__cil_tmp9)(__cil_tmp10);
 #line 169
-  __cil_tmp12 = *((struct parport_operations **)__cil_tmp11);
+  __cil_tmp11 = (int )tmp___8;
 #line 169
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp12 = __cil_tmp11 & 240;
 #line 169
-  __cil_tmp14 = __cil_tmp13 + 40;
-#line 169
-  __cil_tmp15 = *((unsigned char (**)(struct parport * ))__cil_tmp14);
-#line 169
-  __cil_tmp16 = (unsigned long )qcam;
-#line 169
-  __cil_tmp17 = __cil_tmp16 + 1912;
-#line 169
-  __cil_tmp18 = *((struct parport **)__cil_tmp17);
-#line 169
-  tmp___8 = (*__cil_tmp15)(__cil_tmp18);
-#line 169
-  __cil_tmp19 = (int )tmp___8;
-#line 169
-  __cil_tmp20 = __cil_tmp19 & 240;
-#line 169
-  idata = (unsigned int )__cil_tmp20;
+  idata = (unsigned int )__cil_tmp12;
 #line 170
   qcam_set_ack(qcam, 1U);
 #line 171
@@ -7753,39 +7481,23 @@ static int qcam_read_data(struct qcam *qcam )
   }
   {
 #line 173
-  __cil_tmp21 = (unsigned long )qcam;
+  __cil_tmp13 = qcam->pport;
 #line 173
-  __cil_tmp22 = __cil_tmp21 + 1912;
+  __cil_tmp14 = __cil_tmp13->ops;
 #line 173
-  __cil_tmp23 = *((struct parport **)__cil_tmp22);
+  __cil_tmp15 = __cil_tmp14->read_status;
 #line 173
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
+  __cil_tmp16 = qcam->pport;
 #line 173
-  __cil_tmp25 = __cil_tmp24 + 640;
+  tmp___10 = (*__cil_tmp15)(__cil_tmp16);
 #line 173
-  __cil_tmp26 = *((struct parport_operations **)__cil_tmp25);
+  __cil_tmp17 = (int )tmp___10;
 #line 173
-  __cil_tmp27 = (unsigned long )__cil_tmp26;
+  __cil_tmp18 = __cil_tmp17 >> 4;
 #line 173
-  __cil_tmp28 = __cil_tmp27 + 40;
+  __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 173
-  __cil_tmp29 = *((unsigned char (**)(struct parport * ))__cil_tmp28);
-#line 173
-  __cil_tmp30 = (unsigned long )qcam;
-#line 173
-  __cil_tmp31 = __cil_tmp30 + 1912;
-#line 173
-  __cil_tmp32 = *((struct parport **)__cil_tmp31);
-#line 173
-  tmp___10 = (*__cil_tmp29)(__cil_tmp32);
-#line 173
-  __cil_tmp33 = (int )tmp___10;
-#line 173
-  __cil_tmp34 = __cil_tmp33 >> 4;
-#line 173
-  __cil_tmp35 = (unsigned int )__cil_tmp34;
-#line 173
-  idata = idata | __cil_tmp35;
+  idata = idata | __cil_tmp19;
   }
 #line 174
   return ((int )idata);
@@ -7796,51 +7508,29 @@ static int qcam_write_data(struct qcam *qcam , unsigned int data )
 { struct v4l2_device *v4l2_dev ;
   unsigned int idata ;
   int tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct parport *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct parport_operations *__cil_tmp11 ;
-  void (*__cil_tmp12)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct parport *__cil_tmp15 ;
-  unsigned char __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  char *__cil_tmp21 ;
+  struct parport *__cil_tmp6 ;
+  struct parport_operations *__cil_tmp7 ;
+  void (*__cil_tmp8)(struct parport * , unsigned char  ) ;
+  struct parport *__cil_tmp9 ;
+  unsigned char __cil_tmp10 ;
+  char *__cil_tmp11 ;
 
   {
   {
 #line 179
-  v4l2_dev = (struct v4l2_device *)qcam;
+  v4l2_dev = & qcam->v4l2_dev;
 #line 182
-  __cil_tmp6 = (unsigned long )qcam;
+  __cil_tmp6 = qcam->pport;
 #line 182
-  __cil_tmp7 = __cil_tmp6 + 1912;
+  __cil_tmp7 = __cil_tmp6->ops;
 #line 182
-  __cil_tmp8 = *((struct parport **)__cil_tmp7);
+  __cil_tmp8 = __cil_tmp7->write_data;
 #line 182
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
+  __cil_tmp9 = qcam->pport;
 #line 182
-  __cil_tmp10 = __cil_tmp9 + 640;
+  __cil_tmp10 = (unsigned char )data;
 #line 182
-  __cil_tmp11 = *((struct parport_operations **)__cil_tmp10);
-#line 182
-  __cil_tmp12 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp11);
-#line 182
-  __cil_tmp13 = (unsigned long )qcam;
-#line 182
-  __cil_tmp14 = __cil_tmp13 + 1912;
-#line 182
-  __cil_tmp15 = *((struct parport **)__cil_tmp14);
-#line 182
-  __cil_tmp16 = (unsigned char )data;
-#line 182
-  (*__cil_tmp12)(__cil_tmp15, __cil_tmp16);
+  (*__cil_tmp8)(__cil_tmp9, __cil_tmp10);
 #line 183
   tmp___7 = qcam_read_data(qcam);
 #line 183
@@ -7850,17 +7540,9 @@ static int qcam_write_data(struct qcam *qcam , unsigned int data )
   if (data != idata) {
     {
 #line 185
-    __cil_tmp17 = 0 * 1UL;
+    __cil_tmp11 = & v4l2_dev->name[0];
 #line 185
-    __cil_tmp18 = 104 + __cil_tmp17;
-#line 185
-    __cil_tmp19 = (unsigned long )v4l2_dev;
-#line 185
-    __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 185
-    __cil_tmp21 = (char *)__cil_tmp20;
-#line 185
-    printk("<4>%s: sent %x but received %x\n", __cil_tmp21, data, idata);
+    printk("<4>%s: sent %x but received %x\n", __cil_tmp11, data, idata);
     }
 #line 187
     return (1);
@@ -7939,204 +7621,72 @@ static int qc_detect(struct qcam *qcam )
   unsigned char tmp___10 ;
   unsigned char tmp___13 ;
   unsigned char tmp___15 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct parport *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  parport_device_class __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  struct parport *__cil_tmp11 ;
+  parport_device_class __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  struct parport *__cil_tmp14 ;
+  struct pardevice *__cil_tmp15 ;
+  struct parport *__cil_tmp16 ;
+  char const   *__cil_tmp17 ;
+  struct parport *__cil_tmp18 ;
+  struct parport_operations *__cil_tmp19 ;
+  void (*__cil_tmp20)(struct parport * , unsigned char  ) ;
+  struct parport *__cil_tmp21 ;
+  struct parport *__cil_tmp22 ;
+  struct parport_operations *__cil_tmp23 ;
+  unsigned char (*__cil_tmp24)(struct parport * ) ;
   struct parport *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct pardevice *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct parport *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  char const   *__cil_tmp39 ;
-  int *__cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct parport *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  struct parport *__cil_tmp26 ;
+  struct parport_operations *__cil_tmp27 ;
+  unsigned char (*__cil_tmp28)(struct parport * ) ;
+  struct parport *__cil_tmp29 ;
+  struct parport *__cil_tmp30 ;
+  struct parport_operations *__cil_tmp31 ;
+  void (*__cil_tmp32)(struct parport * , unsigned char  ) ;
+  struct parport *__cil_tmp33 ;
+  struct parport *__cil_tmp34 ;
+  struct parport_operations *__cil_tmp35 ;
+  void (*__cil_tmp36)(struct parport * , unsigned char  ) ;
+  struct parport *__cil_tmp37 ;
+  struct parport *__cil_tmp38 ;
+  struct parport_operations *__cil_tmp39 ;
+  void (*__cil_tmp40)(struct parport * , unsigned char  ) ;
+  struct parport *__cil_tmp41 ;
+  struct parport *__cil_tmp42 ;
+  struct parport_operations *__cil_tmp43 ;
+  unsigned char (*__cil_tmp44)(struct parport * ) ;
+  struct parport *__cil_tmp45 ;
+  struct parport *__cil_tmp46 ;
   struct parport_operations *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  void (*__cil_tmp50)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct parport *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct parport *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  struct parport_operations *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned char (*__cil_tmp62)(struct parport * ) ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  struct parport *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct parport *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  struct parport_operations *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned char (*__cil_tmp74)(struct parport * ) ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct parport *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  struct parport *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct parport_operations *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  void (*__cil_tmp86)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  struct parport *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  struct parport *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct parport_operations *__cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  void (*__cil_tmp98)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  struct parport *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  struct parport *__cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  struct parport_operations *__cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  void (*__cil_tmp110)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  struct parport *__cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  struct parport *__cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  struct parport_operations *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned char (*__cil_tmp122)(struct parport * ) ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  struct parport *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  struct parport *__cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  struct parport_operations *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned char (*__cil_tmp134)(struct parport * ) ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  struct parport *__cil_tmp137 ;
+  unsigned char (*__cil_tmp48)(struct parport * ) ;
+  struct parport *__cil_tmp49 ;
 
   {
 #line 210
   count = 0U;
   {
 #line 217
-  __cil_tmp11 = 0 * 72UL;
+  __cil_tmp11 = qcam->pport;
 #line 217
-  __cil_tmp12 = 144 + __cil_tmp11;
+  __cil_tmp12 = __cil_tmp11->probe_info[0].class;
 #line 217
-  __cil_tmp13 = (unsigned long )qcam;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 217
-  __cil_tmp14 = __cil_tmp13 + 1912;
-#line 217
-  __cil_tmp15 = *((struct parport **)__cil_tmp14);
-#line 217
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
-#line 217
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp12;
-#line 217
-  __cil_tmp18 = *((parport_device_class *)__cil_tmp17);
-#line 217
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 217
-  if (__cil_tmp19 == 6U) {
+  if (__cil_tmp13 == 6U) {
     {
 #line 217
-    __cil_tmp20 = 0 * 72UL;
+    __cil_tmp14 = qcam->pport;
 #line 217
-    __cil_tmp21 = __cil_tmp20 + 48;
-#line 217
-    __cil_tmp22 = 144 + __cil_tmp21;
-#line 217
-    __cil_tmp23 = (unsigned long )qcam;
-#line 217
-    __cil_tmp24 = __cil_tmp23 + 1912;
-#line 217
-    __cil_tmp25 = *((struct parport **)__cil_tmp24);
-#line 217
-    __cil_tmp26 = (unsigned long )__cil_tmp25;
-#line 217
-    __cil_tmp27 = __cil_tmp26 + __cil_tmp22;
-#line 217
-    if (*((char const   **)__cil_tmp27)) {
+    if (__cil_tmp14->probe_info[0].model) {
       {
 #line 217
-      __cil_tmp28 = 0 * 72UL;
+      __cil_tmp15 = qcam->pdev;
 #line 217
-      __cil_tmp29 = __cil_tmp28 + 48;
+      __cil_tmp16 = __cil_tmp15->port;
 #line 217
-      __cil_tmp30 = 144 + __cil_tmp29;
+      __cil_tmp17 = __cil_tmp16->probe_info[0].model;
 #line 217
-      __cil_tmp31 = (unsigned long )qcam;
-#line 217
-      __cil_tmp32 = __cil_tmp31 + 1904;
-#line 217
-      __cil_tmp33 = *((struct pardevice **)__cil_tmp32);
-#line 217
-      __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 217
-      __cil_tmp35 = __cil_tmp34 + 8;
-#line 217
-      __cil_tmp36 = *((struct parport **)__cil_tmp35);
-#line 217
-      __cil_tmp37 = (unsigned long )__cil_tmp36;
-#line 217
-      __cil_tmp38 = __cil_tmp37 + __cil_tmp30;
-#line 217
-      __cil_tmp39 = *((char const   **)__cil_tmp38);
-#line 217
-      tmp___7 = strcmp(__cil_tmp39, "Color QuickCam 2.0");
+      tmp___7 = strcmp(__cil_tmp17, "Color QuickCam 2.0");
       }
 #line 217
       if (tmp___7) {
@@ -8157,72 +7707,34 @@ static int qc_detect(struct qcam *qcam )
 
   }
   }
-  {
 #line 225
-  __cil_tmp40 = & probe;
-#line 225
-  __cil_tmp41 = *__cil_tmp40;
-#line 225
-  if (__cil_tmp41 < 2) {
+  if (probe < 2) {
 #line 226
     return (0);
   } else {
 
   }
-  }
   {
 #line 228
-  __cil_tmp42 = (unsigned long )qcam;
+  __cil_tmp18 = qcam->pport;
 #line 228
-  __cil_tmp43 = __cil_tmp42 + 1912;
+  __cil_tmp19 = __cil_tmp18->ops;
 #line 228
-  __cil_tmp44 = *((struct parport **)__cil_tmp43);
+  __cil_tmp20 = __cil_tmp19->write_control;
 #line 228
-  __cil_tmp45 = (unsigned long )__cil_tmp44;
+  __cil_tmp21 = qcam->pport;
 #line 228
-  __cil_tmp46 = __cil_tmp45 + 640;
-#line 228
-  __cil_tmp47 = *((struct parport_operations **)__cil_tmp46);
-#line 228
-  __cil_tmp48 = (unsigned long )__cil_tmp47;
-#line 228
-  __cil_tmp49 = __cil_tmp48 + 16;
-#line 228
-  __cil_tmp50 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp49);
-#line 228
-  __cil_tmp51 = (unsigned long )qcam;
-#line 228
-  __cil_tmp52 = __cil_tmp51 + 1912;
-#line 228
-  __cil_tmp53 = *((struct parport **)__cil_tmp52);
-#line 228
-  (*__cil_tmp50)(__cil_tmp53, (unsigned char)12);
+  (*__cil_tmp20)(__cil_tmp21, (unsigned char)12);
 #line 231
-  __cil_tmp54 = (unsigned long )qcam;
+  __cil_tmp22 = qcam->pport;
 #line 231
-  __cil_tmp55 = __cil_tmp54 + 1912;
+  __cil_tmp23 = __cil_tmp22->ops;
 #line 231
-  __cil_tmp56 = *((struct parport **)__cil_tmp55);
+  __cil_tmp24 = __cil_tmp23->read_status;
 #line 231
-  __cil_tmp57 = (unsigned long )__cil_tmp56;
+  __cil_tmp25 = qcam->pport;
 #line 231
-  __cil_tmp58 = __cil_tmp57 + 640;
-#line 231
-  __cil_tmp59 = *((struct parport_operations **)__cil_tmp58);
-#line 231
-  __cil_tmp60 = (unsigned long )__cil_tmp59;
-#line 231
-  __cil_tmp61 = __cil_tmp60 + 40;
-#line 231
-  __cil_tmp62 = *((unsigned char (**)(struct parport * ))__cil_tmp61);
-#line 231
-  __cil_tmp63 = (unsigned long )qcam;
-#line 231
-  __cil_tmp64 = __cil_tmp63 + 1912;
-#line 231
-  __cil_tmp65 = *((struct parport **)__cil_tmp64);
-#line 231
-  tmp___8 = (*__cil_tmp62)(__cil_tmp65);
+  tmp___8 = (*__cil_tmp24)(__cil_tmp25);
 #line 231
   stat = (unsigned int )tmp___8;
 #line 231
@@ -8233,43 +7745,28 @@ static int qc_detect(struct qcam *qcam )
   {
 #line 232
   while (1) {
-    while_4_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 232
     if (i < 250U) {
 
     } else {
+#line 232
       goto while_break;
     }
     {
 #line 233
     __const_udelay(4295000UL);
 #line 234
-    __cil_tmp66 = (unsigned long )qcam;
+    __cil_tmp26 = qcam->pport;
 #line 234
-    __cil_tmp67 = __cil_tmp66 + 1912;
+    __cil_tmp27 = __cil_tmp26->ops;
 #line 234
-    __cil_tmp68 = *((struct parport **)__cil_tmp67);
+    __cil_tmp28 = __cil_tmp27->read_status;
 #line 234
-    __cil_tmp69 = (unsigned long )__cil_tmp68;
+    __cil_tmp29 = qcam->pport;
 #line 234
-    __cil_tmp70 = __cil_tmp69 + 640;
-#line 234
-    __cil_tmp71 = *((struct parport_operations **)__cil_tmp70);
-#line 234
-    __cil_tmp72 = (unsigned long )__cil_tmp71;
-#line 234
-    __cil_tmp73 = __cil_tmp72 + 40;
-#line 234
-    __cil_tmp74 = *((unsigned char (**)(struct parport * ))__cil_tmp73);
-#line 234
-    __cil_tmp75 = (unsigned long )qcam;
-#line 234
-    __cil_tmp76 = __cil_tmp75 + 1912;
-#line 234
-    __cil_tmp77 = *((struct parport **)__cil_tmp76);
-#line 234
-    tmp___10 = (*__cil_tmp74)(__cil_tmp77);
+    tmp___10 = (*__cil_tmp28)(__cil_tmp29);
 #line 234
     stat = (unsigned int )tmp___10;
     }
@@ -8292,121 +7789,57 @@ static int qc_detect(struct qcam *qcam )
 #line 232
     i = i + 1U;
   }
-  while_4_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 243
-  __cil_tmp78 = (unsigned long )qcam;
+  __cil_tmp30 = qcam->pport;
 #line 243
-  __cil_tmp79 = __cil_tmp78 + 1912;
+  __cil_tmp31 = __cil_tmp30->ops;
 #line 243
-  __cil_tmp80 = *((struct parport **)__cil_tmp79);
+  __cil_tmp32 = __cil_tmp31->write_control;
 #line 243
-  __cil_tmp81 = (unsigned long )__cil_tmp80;
+  __cil_tmp33 = qcam->pport;
 #line 243
-  __cil_tmp82 = __cil_tmp81 + 640;
-#line 243
-  __cil_tmp83 = *((struct parport_operations **)__cil_tmp82);
-#line 243
-  __cil_tmp84 = (unsigned long )__cil_tmp83;
-#line 243
-  __cil_tmp85 = __cil_tmp84 + 16;
-#line 243
-  __cil_tmp86 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp85);
-#line 243
-  __cil_tmp87 = (unsigned long )qcam;
-#line 243
-  __cil_tmp88 = __cil_tmp87 + 1912;
-#line 243
-  __cil_tmp89 = *((struct parport **)__cil_tmp88);
-#line 243
-  (*__cil_tmp86)(__cil_tmp89, (unsigned char)12);
+  (*__cil_tmp32)(__cil_tmp33, (unsigned char)12);
 #line 244
-  __cil_tmp90 = (unsigned long )qcam;
+  __cil_tmp34 = qcam->pport;
 #line 244
-  __cil_tmp91 = __cil_tmp90 + 1912;
+  __cil_tmp35 = __cil_tmp34->ops;
 #line 244
-  __cil_tmp92 = *((struct parport **)__cil_tmp91);
+  __cil_tmp36 = __cil_tmp35->write_control;
 #line 244
-  __cil_tmp93 = (unsigned long )__cil_tmp92;
+  __cil_tmp37 = qcam->pport;
 #line 244
-  __cil_tmp94 = __cil_tmp93 + 640;
-#line 244
-  __cil_tmp95 = *((struct parport_operations **)__cil_tmp94);
-#line 244
-  __cil_tmp96 = (unsigned long )__cil_tmp95;
-#line 244
-  __cil_tmp97 = __cil_tmp96 + 16;
-#line 244
-  __cil_tmp98 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp97);
-#line 244
-  __cil_tmp99 = (unsigned long )qcam;
-#line 244
-  __cil_tmp100 = __cil_tmp99 + 1912;
-#line 244
-  __cil_tmp101 = *((struct parport **)__cil_tmp100);
-#line 244
-  (*__cil_tmp98)(__cil_tmp101, (unsigned char)8);
+  (*__cil_tmp36)(__cil_tmp37, (unsigned char)8);
 #line 245
   __const_udelay(4295000UL);
 #line 246
-  __cil_tmp102 = (unsigned long )qcam;
+  __cil_tmp38 = qcam->pport;
 #line 246
-  __cil_tmp103 = __cil_tmp102 + 1912;
+  __cil_tmp39 = __cil_tmp38->ops;
 #line 246
-  __cil_tmp104 = *((struct parport **)__cil_tmp103);
+  __cil_tmp40 = __cil_tmp39->write_control;
 #line 246
-  __cil_tmp105 = (unsigned long )__cil_tmp104;
+  __cil_tmp41 = qcam->pport;
 #line 246
-  __cil_tmp106 = __cil_tmp105 + 640;
-#line 246
-  __cil_tmp107 = *((struct parport_operations **)__cil_tmp106);
-#line 246
-  __cil_tmp108 = (unsigned long )__cil_tmp107;
-#line 246
-  __cil_tmp109 = __cil_tmp108 + 16;
-#line 246
-  __cil_tmp110 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp109);
-#line 246
-  __cil_tmp111 = (unsigned long )qcam;
-#line 246
-  __cil_tmp112 = __cil_tmp111 + 1912;
-#line 246
-  __cil_tmp113 = *((struct parport **)__cil_tmp112);
-#line 246
-  (*__cil_tmp110)(__cil_tmp113, (unsigned char)12);
+  (*__cil_tmp40)(__cil_tmp41, (unsigned char)12);
 #line 247
   __const_udelay(4295000UL);
 #line 248
   count = 0U;
 #line 250
-  __cil_tmp114 = (unsigned long )qcam;
+  __cil_tmp42 = qcam->pport;
 #line 250
-  __cil_tmp115 = __cil_tmp114 + 1912;
+  __cil_tmp43 = __cil_tmp42->ops;
 #line 250
-  __cil_tmp116 = *((struct parport **)__cil_tmp115);
+  __cil_tmp44 = __cil_tmp43->read_status;
 #line 250
-  __cil_tmp117 = (unsigned long )__cil_tmp116;
+  __cil_tmp45 = qcam->pport;
 #line 250
-  __cil_tmp118 = __cil_tmp117 + 640;
-#line 250
-  __cil_tmp119 = *((struct parport_operations **)__cil_tmp118);
-#line 250
-  __cil_tmp120 = (unsigned long )__cil_tmp119;
-#line 250
-  __cil_tmp121 = __cil_tmp120 + 40;
-#line 250
-  __cil_tmp122 = *((unsigned char (**)(struct parport * ))__cil_tmp121);
-#line 250
-  __cil_tmp123 = (unsigned long )qcam;
-#line 250
-  __cil_tmp124 = __cil_tmp123 + 1912;
-#line 250
-  __cil_tmp125 = *((struct parport **)__cil_tmp124);
-#line 250
-  tmp___13 = (*__cil_tmp122)(__cil_tmp125);
+  tmp___13 = (*__cil_tmp44)(__cil_tmp45);
 #line 250
   stat = (unsigned int )tmp___13;
 #line 250
@@ -8417,43 +7850,28 @@ static int qc_detect(struct qcam *qcam )
   {
 #line 251
   while (1) {
-    while_5_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 251
     if (i < 250U) {
 
     } else {
+#line 251
       goto while_break___0;
     }
     {
 #line 252
     __const_udelay(4295000UL);
 #line 253
-    __cil_tmp126 = (unsigned long )qcam;
+    __cil_tmp46 = qcam->pport;
 #line 253
-    __cil_tmp127 = __cil_tmp126 + 1912;
+    __cil_tmp47 = __cil_tmp46->ops;
 #line 253
-    __cil_tmp128 = *((struct parport **)__cil_tmp127);
+    __cil_tmp48 = __cil_tmp47->read_status;
 #line 253
-    __cil_tmp129 = (unsigned long )__cil_tmp128;
+    __cil_tmp49 = qcam->pport;
 #line 253
-    __cil_tmp130 = __cil_tmp129 + 640;
-#line 253
-    __cil_tmp131 = *((struct parport_operations **)__cil_tmp130);
-#line 253
-    __cil_tmp132 = (unsigned long )__cil_tmp131;
-#line 253
-    __cil_tmp133 = __cil_tmp132 + 40;
-#line 253
-    __cil_tmp134 = *((unsigned char (**)(struct parport * ))__cil_tmp133);
-#line 253
-    __cil_tmp135 = (unsigned long )qcam;
-#line 253
-    __cil_tmp136 = __cil_tmp135 + 1912;
-#line 253
-    __cil_tmp137 = *((struct parport **)__cil_tmp136);
-#line 253
-    tmp___15 = (*__cil_tmp134)(__cil_tmp137);
+    tmp___15 = (*__cil_tmp48)(__cil_tmp49);
 #line 253
     stat = (unsigned int )tmp___15;
     }
@@ -8476,7 +7894,7 @@ static int qc_detect(struct qcam *qcam )
 #line 251
     i = i + 1U;
   }
-  while_5_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: ;
@@ -8486,125 +7904,53 @@ static int qc_detect(struct qcam *qcam )
 }
 #line 265 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void qc_reset(struct qcam *qcam ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct parport *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+{ struct parport *__cil_tmp2 ;
+  struct parport_operations *__cil_tmp3 ;
+  void (*__cil_tmp4)(struct parport * , unsigned char  ) ;
+  struct parport *__cil_tmp5 ;
+  struct parport *__cil_tmp6 ;
   struct parport_operations *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void (*__cil_tmp10)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void (*__cil_tmp8)(struct parport * , unsigned char  ) ;
+  struct parport *__cil_tmp9 ;
+  struct parport *__cil_tmp10 ;
+  struct parport_operations *__cil_tmp11 ;
+  void (*__cil_tmp12)(struct parport * , unsigned char  ) ;
   struct parport *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct parport *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct parport_operations *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  void (*__cil_tmp22)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct parport *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct parport *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct parport_operations *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  void (*__cil_tmp34)(struct parport * , unsigned char  ) ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct parport *__cil_tmp37 ;
 
   {
   {
 #line 267
-  __cil_tmp2 = (unsigned long )qcam;
+  __cil_tmp2 = qcam->pport;
 #line 267
-  __cil_tmp3 = __cil_tmp2 + 1912;
+  __cil_tmp3 = __cil_tmp2->ops;
 #line 267
-  __cil_tmp4 = *((struct parport **)__cil_tmp3);
+  __cil_tmp4 = __cil_tmp3->write_control;
 #line 267
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
+  __cil_tmp5 = qcam->pport;
 #line 267
-  __cil_tmp6 = __cil_tmp5 + 640;
-#line 267
-  __cil_tmp7 = *((struct parport_operations **)__cil_tmp6);
-#line 267
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 267
-  __cil_tmp9 = __cil_tmp8 + 16;
-#line 267
-  __cil_tmp10 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp9);
-#line 267
-  __cil_tmp11 = (unsigned long )qcam;
-#line 267
-  __cil_tmp12 = __cil_tmp11 + 1912;
-#line 267
-  __cil_tmp13 = *((struct parport **)__cil_tmp12);
-#line 267
-  (*__cil_tmp10)(__cil_tmp13, (unsigned char)12);
+  (*__cil_tmp4)(__cil_tmp5, (unsigned char)12);
 #line 268
-  __cil_tmp14 = (unsigned long )qcam;
+  __cil_tmp6 = qcam->pport;
 #line 268
-  __cil_tmp15 = __cil_tmp14 + 1912;
+  __cil_tmp7 = __cil_tmp6->ops;
 #line 268
-  __cil_tmp16 = *((struct parport **)__cil_tmp15);
+  __cil_tmp8 = __cil_tmp7->write_control;
 #line 268
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
+  __cil_tmp9 = qcam->pport;
 #line 268
-  __cil_tmp18 = __cil_tmp17 + 640;
-#line 268
-  __cil_tmp19 = *((struct parport_operations **)__cil_tmp18);
-#line 268
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 268
-  __cil_tmp21 = __cil_tmp20 + 16;
-#line 268
-  __cil_tmp22 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp21);
-#line 268
-  __cil_tmp23 = (unsigned long )qcam;
-#line 268
-  __cil_tmp24 = __cil_tmp23 + 1912;
-#line 268
-  __cil_tmp25 = *((struct parport **)__cil_tmp24);
-#line 268
-  (*__cil_tmp22)(__cil_tmp25, (unsigned char)8);
+  (*__cil_tmp8)(__cil_tmp9, (unsigned char)8);
 #line 269
   __const_udelay(4295000UL);
 #line 270
-  __cil_tmp26 = (unsigned long )qcam;
+  __cil_tmp10 = qcam->pport;
 #line 270
-  __cil_tmp27 = __cil_tmp26 + 1912;
+  __cil_tmp11 = __cil_tmp10->ops;
 #line 270
-  __cil_tmp28 = *((struct parport **)__cil_tmp27);
+  __cil_tmp12 = __cil_tmp11->write_control;
 #line 270
-  __cil_tmp29 = (unsigned long )__cil_tmp28;
+  __cil_tmp13 = qcam->pport;
 #line 270
-  __cil_tmp30 = __cil_tmp29 + 640;
-#line 270
-  __cil_tmp31 = *((struct parport_operations **)__cil_tmp30);
-#line 270
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 270
-  __cil_tmp33 = __cil_tmp32 + 16;
-#line 270
-  __cil_tmp34 = *((void (**)(struct parport * , unsigned char  ))__cil_tmp33);
-#line 270
-  __cil_tmp35 = (unsigned long )qcam;
-#line 270
-  __cil_tmp36 = __cil_tmp35 + 1912;
-#line 270
-  __cil_tmp37 = *((struct parport **)__cil_tmp36);
-#line 270
-  (*__cil_tmp34)(__cil_tmp37, (unsigned char)12);
+  (*__cil_tmp12)(__cil_tmp13, (unsigned char)12);
 #line 271
   __const_udelay(4295000UL);
   }
@@ -8614,112 +7960,70 @@ static void qc_reset(struct qcam *qcam )
 }
 #line 277 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void qc_setup(struct qcam *qcam ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   int __cil_tmp4 ;
   unsigned int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  int __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   int __cil_tmp13 ;
   unsigned int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
+  int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
 
   {
   {
 #line 279
   qc_reset(qcam);
 #line 282
-  __cil_tmp2 = (unsigned long )qcam;
+  __cil_tmp2 = qcam->brightness;
 #line 282
-  __cil_tmp3 = __cil_tmp2 + 1944;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 282
-  __cil_tmp4 = *((int *)__cil_tmp3);
-#line 282
+  qcam_set(qcam, 11U, __cil_tmp3);
+#line 286
+  __cil_tmp4 = qcam->ccd_height;
+#line 286
   __cil_tmp5 = (unsigned int )__cil_tmp4;
-#line 282
-  qcam_set(qcam, 11U, __cil_tmp5);
 #line 286
-  __cil_tmp6 = (unsigned long )qcam;
-#line 286
-  __cil_tmp7 = __cil_tmp6 + 1932;
-#line 286
-  __cil_tmp8 = *((int *)__cil_tmp7);
-#line 286
-  __cil_tmp9 = (unsigned int )__cil_tmp8;
-#line 286
-  qcam_set(qcam, 17U, __cil_tmp9);
+  qcam_set(qcam, 17U, __cil_tmp5);
 #line 287
-  __cil_tmp10 = (unsigned long )qcam;
+  __cil_tmp6 = qcam->ccd_width;
 #line 287
-  __cil_tmp11 = __cil_tmp10 + 1928;
+  __cil_tmp7 = __cil_tmp6 / 2;
 #line 287
-  __cil_tmp12 = *((int *)__cil_tmp11);
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 287
-  __cil_tmp13 = __cil_tmp12 / 2;
-#line 287
+  qcam_set(qcam, 19U, __cil_tmp8);
+#line 290
+  __cil_tmp9 = qcam->top;
+#line 290
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+#line 290
+  qcam_set(qcam, 13U, __cil_tmp10);
+#line 291
+  __cil_tmp11 = qcam->left;
+#line 291
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+#line 291
+  qcam_set(qcam, 15U, __cil_tmp12);
+#line 294
+  __cil_tmp13 = qcam->contrast;
+#line 294
   __cil_tmp14 = (unsigned int )__cil_tmp13;
-#line 287
-  qcam_set(qcam, 19U, __cil_tmp14);
-#line 290
-  __cil_tmp15 = (unsigned long )qcam;
-#line 290
-  __cil_tmp16 = __cil_tmp15 + 1952;
-#line 290
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 290
-  __cil_tmp18 = (unsigned int )__cil_tmp17;
-#line 290
-  qcam_set(qcam, 13U, __cil_tmp18);
-#line 291
-  __cil_tmp19 = (unsigned long )qcam;
-#line 291
-  __cil_tmp20 = __cil_tmp19 + 1956;
-#line 291
-  __cil_tmp21 = *((int *)__cil_tmp20);
-#line 291
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
-#line 291
-  qcam_set(qcam, 15U, __cil_tmp22);
 #line 294
-  __cil_tmp23 = (unsigned long )qcam;
-#line 294
-  __cil_tmp24 = __cil_tmp23 + 1940;
-#line 294
-  __cil_tmp25 = *((int *)__cil_tmp24);
-#line 294
-  __cil_tmp26 = (unsigned int )__cil_tmp25;
-#line 294
-  qcam_set(qcam, 25U, __cil_tmp26);
+  qcam_set(qcam, 25U, __cil_tmp14);
 #line 295
-  __cil_tmp27 = (unsigned long )qcam;
+  __cil_tmp15 = qcam->whitebal;
 #line 295
-  __cil_tmp28 = __cil_tmp27 + 1948;
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 295
-  __cil_tmp29 = *((int *)__cil_tmp28);
-#line 295
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
-#line 295
-  qcam_set(qcam, 31U, __cil_tmp30);
+  qcam_set(qcam, 31U, __cil_tmp16);
 #line 298
   qcam_set(qcam, 45U, 2U);
   }
@@ -8765,139 +8069,73 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
   int tmp___27 ;
   int tmp___28 ;
   int tmp___29 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct parport *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  struct parport *__cil_tmp40 ;
+  struct parport_operations *__cil_tmp41 ;
+  unsigned char (*__cil_tmp42)(struct parport * ) ;
+  struct parport *__cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  struct parport *__cil_tmp46 ;
   struct parport_operations *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned char (*__cil_tmp50)(struct parport * ) ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct parport *__cil_tmp53 ;
-  int __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct parport *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  unsigned char (*__cil_tmp48)(struct parport * ) ;
+  struct parport *__cil_tmp49 ;
+  int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  int __cil_tmp53 ;
+  struct parport *__cil_tmp54 ;
+  struct parport_operations *__cil_tmp55 ;
+  unsigned char (*__cil_tmp56)(struct parport * ) ;
+  struct parport *__cil_tmp57 ;
+  int __cil_tmp58 ;
+  int __cil_tmp59 ;
+  struct parport *__cil_tmp60 ;
   struct parport_operations *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned char (*__cil_tmp64)(struct parport * ) ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct parport *__cil_tmp67 ;
-  int __cil_tmp68 ;
-  int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct parport *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct parport_operations *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned char (*__cil_tmp80)(struct parport * ) ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct parport *__cil_tmp83 ;
-  int __cil_tmp84 ;
-  int __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
+  unsigned char (*__cil_tmp62)(struct parport * ) ;
+  struct parport *__cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  unsigned char *__cil_tmp79 ;
+  unsigned char *__cil_tmp80 ;
+  unsigned char *__cil_tmp81 ;
+  unsigned char *__cil_tmp82 ;
+  unsigned char *__cil_tmp83 ;
+  unsigned char *__cil_tmp84 ;
+  struct parport *__cil_tmp85 ;
+  struct parport_operations *__cil_tmp86 ;
+  unsigned char (*__cil_tmp87)(struct parport * ) ;
   struct parport *__cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct parport_operations *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned char (*__cil_tmp94)(struct parport * ) ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  struct parport *__cil_tmp97 ;
-  int __cil_tmp98 ;
-  int __cil_tmp99 ;
-  int __cil_tmp100 ;
-  int __cil_tmp101 ;
-  unsigned int __cil_tmp102 ;
-  unsigned int __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
-  unsigned int __cil_tmp105 ;
-  unsigned int __cil_tmp106 ;
-  unsigned int __cil_tmp107 ;
-  unsigned int __cil_tmp108 ;
-  unsigned int __cil_tmp109 ;
-  unsigned int __cil_tmp110 ;
-  unsigned int __cil_tmp111 ;
-  unsigned int __cil_tmp112 ;
-  int *__cil_tmp113 ;
-  unsigned char *__cil_tmp114 ;
-  unsigned char *__cil_tmp115 ;
-  unsigned char *__cil_tmp116 ;
-  unsigned char *__cil_tmp117 ;
-  unsigned char *__cil_tmp118 ;
-  unsigned char *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  struct parport *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  struct parport_operations *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned char (*__cil_tmp128)(struct parport * ) ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  struct parport *__cil_tmp131 ;
-  int __cil_tmp132 ;
-  int __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  struct parport *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  struct parport_operations *__cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned char (*__cil_tmp142)(struct parport * ) ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  struct parport *__cil_tmp145 ;
-  int __cil_tmp146 ;
-  int __cil_tmp147 ;
-  unsigned int __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned int __cil_tmp151 ;
-  unsigned int __cil_tmp152 ;
-  unsigned int __cil_tmp153 ;
-  int *__cil_tmp154 ;
-  unsigned char *__cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned char *__cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned char *__cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned char *__cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned char *__cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned char *__cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
+  int __cil_tmp89 ;
+  int __cil_tmp90 ;
+  struct parport *__cil_tmp91 ;
+  struct parport_operations *__cil_tmp92 ;
+  unsigned char (*__cil_tmp93)(struct parport * ) ;
+  struct parport *__cil_tmp94 ;
+  int __cil_tmp95 ;
+  int __cil_tmp96 ;
+  unsigned int __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  unsigned char *__cil_tmp101 ;
+  unsigned char *__cil_tmp102 ;
+  unsigned char *__cil_tmp103 ;
+  unsigned char *__cil_tmp104 ;
+  unsigned char *__cil_tmp105 ;
+  unsigned char *__cil_tmp106 ;
 
   {
   {
@@ -8906,22 +8144,18 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
 #line 309
   qcam_set_ack(qcam, 0U);
   }
-  {
 #line 310
-  __cil_tmp40 = (unsigned long )qcam;
-#line 310
-  __cil_tmp41 = __cil_tmp40 + 1960;
-#line 310
-  if (*((unsigned int *)__cil_tmp41)) {
+  if (qcam->bidirectional) {
     {
 #line 312
     while (1) {
-      while_6_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
 #line 312
       if (bytes < nbytes) {
 
       } else {
+#line 312
         goto while_break;
       }
       {
@@ -8937,73 +8171,41 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
       }
       {
 #line 318
-      __cil_tmp42 = (unsigned long )qcam;
+      __cil_tmp40 = qcam->pport;
 #line 318
-      __cil_tmp43 = __cil_tmp42 + 1912;
+      __cil_tmp41 = __cil_tmp40->ops;
 #line 318
-      __cil_tmp44 = *((struct parport **)__cil_tmp43);
+      __cil_tmp42 = __cil_tmp41->read_data;
 #line 318
-      __cil_tmp45 = (unsigned long )__cil_tmp44;
+      __cil_tmp43 = qcam->pport;
 #line 318
-      __cil_tmp46 = __cil_tmp45 + 640;
+      tmp___8 = (*__cil_tmp42)(__cil_tmp43);
 #line 318
-      __cil_tmp47 = *((struct parport_operations **)__cil_tmp46);
+      __cil_tmp44 = (int )tmp___8;
 #line 318
-      __cil_tmp48 = (unsigned long )__cil_tmp47;
+      __cil_tmp45 = __cil_tmp44 >> 1;
 #line 318
-      __cil_tmp49 = __cil_tmp48 + 8;
-#line 318
-      __cil_tmp50 = *((unsigned char (**)(struct parport * ))__cil_tmp49);
-#line 318
-      __cil_tmp51 = (unsigned long )qcam;
-#line 318
-      __cil_tmp52 = __cil_tmp51 + 1912;
-#line 318
-      __cil_tmp53 = *((struct parport **)__cil_tmp52);
-#line 318
-      tmp___8 = (*__cil_tmp50)(__cil_tmp53);
-#line 318
-      __cil_tmp54 = (int )tmp___8;
-#line 318
-      __cil_tmp55 = __cil_tmp54 >> 1;
-#line 318
-      lo1 = (unsigned int )__cil_tmp55;
+      lo1 = (unsigned int )__cil_tmp45;
 #line 319
-      __cil_tmp56 = (unsigned long )qcam;
+      __cil_tmp46 = qcam->pport;
 #line 319
-      __cil_tmp57 = __cil_tmp56 + 1912;
+      __cil_tmp47 = __cil_tmp46->ops;
 #line 319
-      __cil_tmp58 = *((struct parport **)__cil_tmp57);
+      __cil_tmp48 = __cil_tmp47->read_status;
 #line 319
-      __cil_tmp59 = (unsigned long )__cil_tmp58;
+      __cil_tmp49 = qcam->pport;
 #line 319
-      __cil_tmp60 = __cil_tmp59 + 640;
+      tmp___9 = (*__cil_tmp48)(__cil_tmp49);
 #line 319
-      __cil_tmp61 = *((struct parport_operations **)__cil_tmp60);
+      __cil_tmp50 = (int )tmp___9;
 #line 319
-      __cil_tmp62 = (unsigned long )__cil_tmp61;
+      __cil_tmp51 = __cil_tmp50 >> 3;
 #line 319
-      __cil_tmp63 = __cil_tmp62 + 40;
+      __cil_tmp52 = __cil_tmp51 & 31;
 #line 319
-      __cil_tmp64 = *((unsigned char (**)(struct parport * ))__cil_tmp63);
+      __cil_tmp53 = __cil_tmp52 ^ 16;
 #line 319
-      __cil_tmp65 = (unsigned long )qcam;
-#line 319
-      __cil_tmp66 = __cil_tmp65 + 1912;
-#line 319
-      __cil_tmp67 = *((struct parport **)__cil_tmp66);
-#line 319
-      tmp___9 = (*__cil_tmp64)(__cil_tmp67);
-#line 319
-      __cil_tmp68 = (int )tmp___9;
-#line 319
-      __cil_tmp69 = __cil_tmp68 >> 3;
-#line 319
-      __cil_tmp70 = __cil_tmp69 & 31;
-#line 319
-      __cil_tmp71 = __cil_tmp70 ^ 16;
-#line 319
-      hi1 = (unsigned int )__cil_tmp71;
+      hi1 = (unsigned int )__cil_tmp53;
 #line 320
       qcam_set_ack(qcam, 1U);
 #line 321
@@ -9018,162 +8220,126 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
       }
       {
 #line 323
-      __cil_tmp72 = (unsigned long )qcam;
+      __cil_tmp54 = qcam->pport;
 #line 323
-      __cil_tmp73 = __cil_tmp72 + 1912;
+      __cil_tmp55 = __cil_tmp54->ops;
 #line 323
-      __cil_tmp74 = *((struct parport **)__cil_tmp73);
+      __cil_tmp56 = __cil_tmp55->read_data;
 #line 323
-      __cil_tmp75 = (unsigned long )__cil_tmp74;
+      __cil_tmp57 = qcam->pport;
 #line 323
-      __cil_tmp76 = __cil_tmp75 + 640;
+      tmp___11 = (*__cil_tmp56)(__cil_tmp57);
 #line 323
-      __cil_tmp77 = *((struct parport_operations **)__cil_tmp76);
+      __cil_tmp58 = (int )tmp___11;
 #line 323
-      __cil_tmp78 = (unsigned long )__cil_tmp77;
+      __cil_tmp59 = __cil_tmp58 >> 1;
 #line 323
-      __cil_tmp79 = __cil_tmp78 + 8;
-#line 323
-      __cil_tmp80 = *((unsigned char (**)(struct parport * ))__cil_tmp79);
-#line 323
-      __cil_tmp81 = (unsigned long )qcam;
-#line 323
-      __cil_tmp82 = __cil_tmp81 + 1912;
-#line 323
-      __cil_tmp83 = *((struct parport **)__cil_tmp82);
-#line 323
-      tmp___11 = (*__cil_tmp80)(__cil_tmp83);
-#line 323
-      __cil_tmp84 = (int )tmp___11;
-#line 323
-      __cil_tmp85 = __cil_tmp84 >> 1;
-#line 323
-      lo2 = (unsigned int )__cil_tmp85;
+      lo2 = (unsigned int )__cil_tmp59;
 #line 324
-      __cil_tmp86 = (unsigned long )qcam;
+      __cil_tmp60 = qcam->pport;
 #line 324
-      __cil_tmp87 = __cil_tmp86 + 1912;
+      __cil_tmp61 = __cil_tmp60->ops;
 #line 324
-      __cil_tmp88 = *((struct parport **)__cil_tmp87);
+      __cil_tmp62 = __cil_tmp61->read_status;
 #line 324
-      __cil_tmp89 = (unsigned long )__cil_tmp88;
+      __cil_tmp63 = qcam->pport;
 #line 324
-      __cil_tmp90 = __cil_tmp89 + 640;
+      tmp___12 = (*__cil_tmp62)(__cil_tmp63);
 #line 324
-      __cil_tmp91 = *((struct parport_operations **)__cil_tmp90);
+      __cil_tmp64 = (int )tmp___12;
 #line 324
-      __cil_tmp92 = (unsigned long )__cil_tmp91;
+      __cil_tmp65 = __cil_tmp64 >> 3;
 #line 324
-      __cil_tmp93 = __cil_tmp92 + 40;
+      __cil_tmp66 = __cil_tmp65 & 31;
 #line 324
-      __cil_tmp94 = *((unsigned char (**)(struct parport * ))__cil_tmp93);
+      __cil_tmp67 = __cil_tmp66 ^ 16;
 #line 324
-      __cil_tmp95 = (unsigned long )qcam;
-#line 324
-      __cil_tmp96 = __cil_tmp95 + 1912;
-#line 324
-      __cil_tmp97 = *((struct parport **)__cil_tmp96);
-#line 324
-      tmp___12 = (*__cil_tmp94)(__cil_tmp97);
-#line 324
-      __cil_tmp98 = (int )tmp___12;
-#line 324
-      __cil_tmp99 = __cil_tmp98 >> 3;
-#line 324
-      __cil_tmp100 = __cil_tmp99 & 31;
-#line 324
-      __cil_tmp101 = __cil_tmp100 ^ 16;
-#line 324
-      hi2 = (unsigned int )__cil_tmp101;
+      hi2 = (unsigned int )__cil_tmp67;
 #line 325
       qcam_set_ack(qcam, 0U);
 #line 326
-      __cil_tmp102 = hi1 & 1U;
+      __cil_tmp68 = hi1 & 1U;
 #line 326
-      __cil_tmp103 = __cil_tmp102 << 7;
+      __cil_tmp69 = __cil_tmp68 << 7;
 #line 326
-      __cil_tmp104 = lo1 | __cil_tmp103;
+      __cil_tmp70 = lo1 | __cil_tmp69;
 #line 326
-      r = (unsigned char )__cil_tmp104;
+      r = (unsigned char )__cil_tmp70;
 #line 327
-      __cil_tmp105 = hi2 & 30U;
+      __cil_tmp71 = hi2 & 30U;
 #line 327
-      __cil_tmp106 = __cil_tmp105 >> 1;
+      __cil_tmp72 = __cil_tmp71 >> 1;
 #line 327
-      __cil_tmp107 = hi1 & 30U;
+      __cil_tmp73 = hi1 & 30U;
 #line 327
-      __cil_tmp108 = __cil_tmp107 << 3;
+      __cil_tmp74 = __cil_tmp73 << 3;
 #line 327
-      __cil_tmp109 = __cil_tmp108 | __cil_tmp106;
+      __cil_tmp75 = __cil_tmp74 | __cil_tmp72;
 #line 327
-      g = (unsigned char )__cil_tmp109;
+      g = (unsigned char )__cil_tmp75;
 #line 328
-      __cil_tmp110 = hi2 & 1U;
+      __cil_tmp76 = hi2 & 1U;
 #line 328
-      __cil_tmp111 = __cil_tmp110 << 7;
+      __cil_tmp77 = __cil_tmp76 << 7;
 #line 328
-      __cil_tmp112 = lo2 | __cil_tmp111;
+      __cil_tmp78 = lo2 | __cil_tmp77;
 #line 328
-      b = (unsigned char )__cil_tmp112;
+      b = (unsigned char )__cil_tmp78;
       }
-      {
 #line 329
-      __cil_tmp113 = & force_rgb;
-#line 329
-      if (*__cil_tmp113) {
+      if (force_rgb) {
 #line 330
         tmp___13 = bytes;
 #line 330
         bytes = bytes + 1U;
 #line 330
-        __cil_tmp114 = buf + tmp___13;
+        __cil_tmp79 = buf + tmp___13;
 #line 330
-        *__cil_tmp114 = r;
+        *__cil_tmp79 = r;
 #line 331
         tmp___14 = bytes;
 #line 331
         bytes = bytes + 1U;
 #line 331
-        __cil_tmp115 = buf + tmp___14;
+        __cil_tmp80 = buf + tmp___14;
 #line 331
-        *__cil_tmp115 = g;
+        *__cil_tmp80 = g;
 #line 332
         tmp___15 = bytes;
 #line 332
         bytes = bytes + 1U;
 #line 332
-        __cil_tmp116 = buf + tmp___15;
+        __cil_tmp81 = buf + tmp___15;
 #line 332
-        *__cil_tmp116 = b;
+        *__cil_tmp81 = b;
       } else {
 #line 334
         tmp___16 = bytes;
 #line 334
         bytes = bytes + 1U;
 #line 334
-        __cil_tmp117 = buf + tmp___16;
+        __cil_tmp82 = buf + tmp___16;
 #line 334
-        *__cil_tmp117 = b;
+        *__cil_tmp82 = b;
 #line 335
         tmp___17 = bytes;
 #line 335
         bytes = bytes + 1U;
 #line 335
-        __cil_tmp118 = buf + tmp___17;
+        __cil_tmp83 = buf + tmp___17;
 #line 335
-        *__cil_tmp118 = g;
+        *__cil_tmp83 = g;
 #line 336
         tmp___18 = bytes;
 #line 336
         bytes = bytes + 1U;
 #line 336
-        __cil_tmp119 = buf + tmp___18;
+        __cil_tmp84 = buf + tmp___18;
 #line 336
-        *__cil_tmp119 = r;
-      }
+        *__cil_tmp84 = r;
       }
     }
-    while_6_break: /* CIL Label */ ;
+    while_break___1: /* CIL Label */ ;
     }
 
     while_break: ;
@@ -9185,12 +8351,13 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
     {
 #line 344
     while (1) {
-      while_7_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
 #line 344
       if (bytes < nbytes) {
 
       } else {
+#line 344
         goto while_break___0;
       }
       {
@@ -9206,37 +8373,21 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
       }
       {
 #line 349
-      __cil_tmp120 = (unsigned long )qcam;
+      __cil_tmp85 = qcam->pport;
 #line 349
-      __cil_tmp121 = __cil_tmp120 + 1912;
+      __cil_tmp86 = __cil_tmp85->ops;
 #line 349
-      __cil_tmp122 = *((struct parport **)__cil_tmp121);
+      __cil_tmp87 = __cil_tmp86->read_status;
 #line 349
-      __cil_tmp123 = (unsigned long )__cil_tmp122;
+      __cil_tmp88 = qcam->pport;
 #line 349
-      __cil_tmp124 = __cil_tmp123 + 640;
+      tmp___20 = (*__cil_tmp87)(__cil_tmp88);
 #line 349
-      __cil_tmp125 = *((struct parport_operations **)__cil_tmp124);
+      __cil_tmp89 = (int )tmp___20;
 #line 349
-      __cil_tmp126 = (unsigned long )__cil_tmp125;
+      __cil_tmp90 = __cil_tmp89 & 240;
 #line 349
-      __cil_tmp127 = __cil_tmp126 + 40;
-#line 349
-      __cil_tmp128 = *((unsigned char (**)(struct parport * ))__cil_tmp127);
-#line 349
-      __cil_tmp129 = (unsigned long )qcam;
-#line 349
-      __cil_tmp130 = __cil_tmp129 + 1912;
-#line 349
-      __cil_tmp131 = *((struct parport **)__cil_tmp130);
-#line 349
-      tmp___20 = (*__cil_tmp128)(__cil_tmp131);
-#line 349
-      __cil_tmp132 = (int )tmp___20;
-#line 349
-      __cil_tmp133 = __cil_tmp132 & 240;
-#line 349
-      hi = (unsigned int )__cil_tmp133;
+      hi = (unsigned int )__cil_tmp90;
 #line 350
       qcam_set_ack(qcam, 1U);
 #line 351
@@ -9251,37 +8402,21 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
       }
       {
 #line 353
-      __cil_tmp134 = (unsigned long )qcam;
+      __cil_tmp91 = qcam->pport;
 #line 353
-      __cil_tmp135 = __cil_tmp134 + 1912;
+      __cil_tmp92 = __cil_tmp91->ops;
 #line 353
-      __cil_tmp136 = *((struct parport **)__cil_tmp135);
+      __cil_tmp93 = __cil_tmp92->read_status;
 #line 353
-      __cil_tmp137 = (unsigned long )__cil_tmp136;
+      __cil_tmp94 = qcam->pport;
 #line 353
-      __cil_tmp138 = __cil_tmp137 + 640;
+      tmp___22 = (*__cil_tmp93)(__cil_tmp94);
 #line 353
-      __cil_tmp139 = *((struct parport_operations **)__cil_tmp138);
+      __cil_tmp95 = (int )tmp___22;
 #line 353
-      __cil_tmp140 = (unsigned long )__cil_tmp139;
+      __cil_tmp96 = __cil_tmp95 & 240;
 #line 353
-      __cil_tmp141 = __cil_tmp140 + 40;
-#line 353
-      __cil_tmp142 = *((unsigned char (**)(struct parport * ))__cil_tmp141);
-#line 353
-      __cil_tmp143 = (unsigned long )qcam;
-#line 353
-      __cil_tmp144 = __cil_tmp143 + 1912;
-#line 353
-      __cil_tmp145 = *((struct parport **)__cil_tmp144);
-#line 353
-      tmp___22 = (*__cil_tmp142)(__cil_tmp145);
-#line 353
-      __cil_tmp146 = (int )tmp___22;
-#line 353
-      __cil_tmp147 = __cil_tmp146 & 240;
-#line 353
-      lo = (unsigned int )__cil_tmp147;
+      lo = (unsigned int )__cil_tmp96;
 #line 354
       qcam_set_ack(qcam, 0U);
 #line 356
@@ -9289,110 +8424,78 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
 #line 356
       bytes = bytes + 1U;
 #line 356
-      __cil_tmp148 = tmp___23 % 3U;
+      __cil_tmp97 = tmp___23 % 3U;
 #line 356
-      i = (int )__cil_tmp148;
+      i = (int )__cil_tmp97;
 #line 356
-      __cil_tmp149 = i * 1UL;
+      __cil_tmp98 = lo >> 4;
 #line 356
-      __cil_tmp150 = (unsigned long )(rgb) + __cil_tmp149;
+      __cil_tmp99 = hi | __cil_tmp98;
 #line 356
-      __cil_tmp151 = lo >> 4;
+      __cil_tmp100 = __cil_tmp99 ^ 136U;
 #line 356
-      __cil_tmp152 = hi | __cil_tmp151;
-#line 356
-      __cil_tmp153 = __cil_tmp152 ^ 136U;
-#line 356
-      *((unsigned char *)__cil_tmp150) = (unsigned char )__cil_tmp153;
+      rgb[i] = (unsigned char )__cil_tmp100;
       }
 #line 357
       if (i >= 2) {
         get_fragment: 
-        {
 #line 359
-        __cil_tmp154 = & force_rgb;
-#line 359
-        if (*__cil_tmp154) {
+        if (force_rgb) {
 #line 360
           tmp___24 = n;
 #line 360
           n = n + 1;
 #line 360
-          __cil_tmp155 = buf + tmp___24;
+          __cil_tmp101 = buf + tmp___24;
 #line 360
-          __cil_tmp156 = 0 * 1UL;
-#line 360
-          __cil_tmp157 = (unsigned long )(rgb) + __cil_tmp156;
-#line 360
-          *__cil_tmp155 = *((unsigned char *)__cil_tmp157);
+          *__cil_tmp101 = rgb[0];
 #line 361
           tmp___25 = n;
 #line 361
           n = n + 1;
 #line 361
-          __cil_tmp158 = buf + tmp___25;
+          __cil_tmp102 = buf + tmp___25;
 #line 361
-          __cil_tmp159 = 1 * 1UL;
-#line 361
-          __cil_tmp160 = (unsigned long )(rgb) + __cil_tmp159;
-#line 361
-          *__cil_tmp158 = *((unsigned char *)__cil_tmp160);
+          *__cil_tmp102 = rgb[1];
 #line 362
           tmp___26 = n;
 #line 362
           n = n + 1;
 #line 362
-          __cil_tmp161 = buf + tmp___26;
+          __cil_tmp103 = buf + tmp___26;
 #line 362
-          __cil_tmp162 = 2 * 1UL;
-#line 362
-          __cil_tmp163 = (unsigned long )(rgb) + __cil_tmp162;
-#line 362
-          *__cil_tmp161 = *((unsigned char *)__cil_tmp163);
+          *__cil_tmp103 = rgb[2];
         } else {
 #line 364
           tmp___27 = n;
 #line 364
           n = n + 1;
 #line 364
-          __cil_tmp164 = buf + tmp___27;
+          __cil_tmp104 = buf + tmp___27;
 #line 364
-          __cil_tmp165 = 2 * 1UL;
-#line 364
-          __cil_tmp166 = (unsigned long )(rgb) + __cil_tmp165;
-#line 364
-          *__cil_tmp164 = *((unsigned char *)__cil_tmp166);
+          *__cil_tmp104 = rgb[2];
 #line 365
           tmp___28 = n;
 #line 365
           n = n + 1;
 #line 365
-          __cil_tmp167 = buf + tmp___28;
+          __cil_tmp105 = buf + tmp___28;
 #line 365
-          __cil_tmp168 = 1 * 1UL;
-#line 365
-          __cil_tmp169 = (unsigned long )(rgb) + __cil_tmp168;
-#line 365
-          *__cil_tmp167 = *((unsigned char *)__cil_tmp169);
+          *__cil_tmp105 = rgb[1];
 #line 366
           tmp___29 = n;
 #line 366
           n = n + 1;
 #line 366
-          __cil_tmp170 = buf + tmp___29;
+          __cil_tmp106 = buf + tmp___29;
 #line 366
-          __cil_tmp171 = 0 * 1UL;
-#line 366
-          __cil_tmp172 = (unsigned long )(rgb) + __cil_tmp171;
-#line 366
-          *__cil_tmp170 = *((unsigned char *)__cil_tmp172);
-        }
+          *__cil_tmp106 = rgb[0];
         }
       } else {
 
       }
     }
-    while_7_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -9400,11 +8503,11 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
     if (i) {
 #line 371
       i = 0;
+#line 372
       goto get_fragment;
     } else {
 
     }
-  }
   }
 #line 375
   return (bytes);
@@ -9445,263 +8548,93 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
   unsigned int tmp___23 ;
   int tmp ;
   int tmp___24 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  long __cil_tmp41 ;
-  int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int __cil_tmp45 ;
-  int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct parport *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  struct parport_operations *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  long __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  struct parport *__cil_tmp45 ;
+  struct parport_operations *__cil_tmp46 ;
+  void (*__cil_tmp47)(struct parport * ) ;
+  struct parport *__cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  char *__cil_tmp52 ;
+  unsigned char *__cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  char *__cil_tmp55 ;
+  void *__cil_tmp56 ;
+  char *__cil_tmp57 ;
+  void const   *__cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  char *__cil_tmp60 ;
+  struct parport *__cil_tmp61 ;
+  struct parport_operations *__cil_tmp62 ;
   void (*__cil_tmp63)(struct parport * ) ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct parport *__cil_tmp66 ;
-  unsigned int __cil_tmp67 ;
-  unsigned int __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  char *__cil_tmp72 ;
-  unsigned char *__cil_tmp73 ;
-  unsigned int __cil_tmp74 ;
+  struct parport *__cil_tmp64 ;
+  char *__cil_tmp65 ;
+  unsigned char *__cil_tmp66 ;
+  int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  int __cil_tmp69 ;
+  int __cil_tmp70 ;
+  char *__cil_tmp71 ;
+  int __cil_tmp72 ;
+  char *__cil_tmp73 ;
+  int __cil_tmp74 ;
   char *__cil_tmp75 ;
-  void *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
+  int __cil_tmp76 ;
+  char *__cil_tmp77 ;
+  int __cil_tmp78 ;
   char *__cil_tmp79 ;
-  void const   *__cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  char *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  struct parport *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  struct parport_operations *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  void (*__cil_tmp95)(struct parport * ) ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  struct parport *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
+  int __cil_tmp80 ;
+  char *__cil_tmp81 ;
+  char *__cil_tmp82 ;
+  struct parport *__cil_tmp83 ;
+  struct parport_operations *__cil_tmp84 ;
+  void (*__cil_tmp85)(struct parport * ) ;
+  struct parport *__cil_tmp86 ;
+  struct parport *__cil_tmp87 ;
+  struct parport_operations *__cil_tmp88 ;
+  void (*__cil_tmp89)(struct parport * ) ;
+  struct parport *__cil_tmp90 ;
+  char *__cil_tmp91 ;
+  char *__cil_tmp92 ;
+  unsigned char *__cil_tmp93 ;
+  int __cil_tmp94 ;
+  char *__cil_tmp95 ;
+  char *__cil_tmp96 ;
+  unsigned char *__cil_tmp97 ;
+  int __cil_tmp98 ;
+  char *__cil_tmp99 ;
+  int __cil_tmp100 ;
   char *__cil_tmp101 ;
-  unsigned char *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  char __cil_tmp105 ;
+  int __cil_tmp102 ;
+  char *__cil_tmp103 ;
+  int __cil_tmp104 ;
+  char *__cil_tmp105 ;
   int __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  char __cil_tmp109 ;
-  int __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  char __cil_tmp113 ;
-  int __cil_tmp114 ;
-  int *__cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  char __cil_tmp118 ;
-  int __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  char *__cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  char __cil_tmp127 ;
-  int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  char *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  char __cil_tmp136 ;
-  int __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  char *__cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  char __cil_tmp145 ;
-  int __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  char *__cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  char __cil_tmp154 ;
-  int __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  char *__cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  char __cil_tmp163 ;
-  int __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  char *__cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  char *__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  struct parport *__cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  struct parport_operations *__cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  void (*__cil_tmp183)(struct parport * ) ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  struct parport *__cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  struct parport *__cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  struct parport_operations *__cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  void (*__cil_tmp195)(struct parport * ) ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  struct parport *__cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  char *__cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  char *__cil_tmp206 ;
-  unsigned char *__cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  char __cil_tmp210 ;
-  int __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  char *__cil_tmp214 ;
-  char *__cil_tmp215 ;
-  unsigned char *__cil_tmp216 ;
-  int *__cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  char __cil_tmp220 ;
-  int __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  char *__cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  char __cil_tmp229 ;
-  int __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  char *__cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  char __cil_tmp238 ;
-  int __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  char *__cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  char __cil_tmp247 ;
-  int __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  char *__cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  char __cil_tmp256 ;
-  int __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  char *__cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  unsigned long __cil_tmp264 ;
-  char __cil_tmp265 ;
-  int __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  char *__cil_tmp271 ;
+  char *__cil_tmp107 ;
+  int __cil_tmp108 ;
+  char *__cil_tmp109 ;
 
   {
   {
 #line 382
-  v4l2_dev = (struct v4l2_device *)qcam;
+  v4l2_dev = & qcam->v4l2_dev;
 #line 384
-  __cil_tmp37 = (unsigned long )qcam;
-#line 384
-  __cil_tmp38 = __cil_tmp37 + 1960;
-#line 384
-  is_bi_dir = *((unsigned int *)__cil_tmp38);
+  is_bi_dir = qcam->bidirectional;
 #line 385
-  outptr = 0UL;
+  outptr = (size_t )0;
 #line 388
   tmp___7 = current_thread_info();
 #line 388
-  __cil_tmp39 = (unsigned long )tmp___7;
-#line 388
-  __cil_tmp40 = __cil_tmp39 + 32;
-#line 388
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (buf),
-            "g" ((long )len), "rm" (*((unsigned long *)__cil_tmp40)));
+            "g" ((long )len), "rm" (tmp___7->addr_limit.seg));
   }
 #line 388
   if (flag == 0UL) {
@@ -9713,9 +8646,9 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
   }
   {
 #line 388
-  __cil_tmp41 = (long )tmp___8;
+  __cil_tmp37 = (long )tmp___8;
 #line 388
-  tmp___9 = __builtin_expect(__cil_tmp41, 1L);
+  tmp___9 = __builtin_expect(__cil_tmp37, 1L);
   }
 #line 388
   if (tmp___9) {
@@ -9727,7 +8660,7 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
   {
 #line 392
   while (1) {
-    while_8_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 393
     tmp___10 = qcam_get(qcam, 41U);
@@ -9747,9 +8680,10 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     }
     {
 #line 399
-    __cil_tmp42 = i & 128;
+    __cil_tmp38 = i & 128;
 #line 399
-    if (__cil_tmp42 == 0) {
+    if (__cil_tmp38 == 0) {
+#line 400
       goto while_break;
     } else {
 
@@ -9760,7 +8694,7 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     schedule();
     }
   }
-  while_8_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -9774,19 +8708,15 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
   }
   {
 #line 404
-  __cil_tmp43 = (unsigned long )qcam;
+  __cil_tmp39 = qcam->mode;
 #line 404
-  __cil_tmp44 = __cil_tmp43 + 1936;
+  __cil_tmp40 = __cil_tmp39 | tmp___11;
 #line 404
-  __cil_tmp45 = *((int *)__cil_tmp44);
+  __cil_tmp41 = __cil_tmp40 + 1;
 #line 404
-  __cil_tmp46 = __cil_tmp45 | tmp___11;
+  __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 404
-  __cil_tmp47 = __cil_tmp46 + 1;
-#line 404
-  __cil_tmp48 = (unsigned int )__cil_tmp47;
-#line 404
-  tmp___12 = qcam_set(qcam, 7U, __cil_tmp48);
+  tmp___12 = qcam_set(qcam, 7U, __cil_tmp42);
   }
 #line 404
   if (tmp___12) {
@@ -9796,21 +8726,13 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
 
   }
 #line 407
-  __cil_tmp49 = (unsigned long )qcam;
+  __cil_tmp43 = qcam->height;
 #line 407
-  __cil_tmp50 = __cil_tmp49 + 1924;
-#line 407
-  __cil_tmp51 = *((int *)__cil_tmp50);
-#line 407
-  lines = (unsigned int )__cil_tmp51;
+  lines = (unsigned int )__cil_tmp43;
 #line 408
-  __cil_tmp52 = (unsigned long )qcam;
+  __cil_tmp44 = qcam->width;
 #line 408
-  __cil_tmp53 = __cil_tmp52 + 1920;
-#line 408
-  __cil_tmp54 = *((int *)__cil_tmp53);
-#line 408
-  pixelsperline = (unsigned int )__cil_tmp54;
+  pixelsperline = (unsigned int )__cil_tmp44;
 #line 409
   if (is_bi_dir) {
 #line 409
@@ -9823,31 +8745,15 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
   if (is_bi_dir) {
     {
 #line 413
-    __cil_tmp55 = (unsigned long )qcam;
+    __cil_tmp45 = qcam->pport;
 #line 413
-    __cil_tmp56 = __cil_tmp55 + 1912;
+    __cil_tmp46 = __cil_tmp45->ops;
 #line 413
-    __cil_tmp57 = *((struct parport **)__cil_tmp56);
+    __cil_tmp47 = __cil_tmp46->data_reverse;
 #line 413
-    __cil_tmp58 = (unsigned long )__cil_tmp57;
+    __cil_tmp48 = qcam->pport;
 #line 413
-    __cil_tmp59 = __cil_tmp58 + 640;
-#line 413
-    __cil_tmp60 = *((struct parport_operations **)__cil_tmp59);
-#line 413
-    __cil_tmp61 = (unsigned long )__cil_tmp60;
-#line 413
-    __cil_tmp62 = __cil_tmp61 + 72;
-#line 413
-    __cil_tmp63 = *((void (**)(struct parport * ))__cil_tmp62);
-#line 413
-    __cil_tmp64 = (unsigned long )qcam;
-#line 413
-    __cil_tmp65 = __cil_tmp64 + 1912;
-#line 413
-    __cil_tmp66 = *((struct parport **)__cil_tmp65);
-#line 413
-    (*__cil_tmp63)(__cil_tmp66);
+    (*__cil_tmp47)(__cil_tmp48);
 #line 414
     __const_udelay(12885000UL);
 #line 415
@@ -9887,47 +8793,44 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
 
   }
 #line 427
-  __cil_tmp67 = lines * pixelsperline;
+  __cil_tmp49 = lines * pixelsperline;
 #line 427
-  __cil_tmp68 = __cil_tmp67 * 24U;
+  __cil_tmp50 = __cil_tmp49 * 24U;
 #line 427
-  __cil_tmp69 = __cil_tmp68 / 8U;
+  __cil_tmp51 = __cil_tmp50 / 8U;
 #line 427
-  wantlen = (unsigned long )__cil_tmp69;
+  wantlen = (size_t )__cil_tmp51;
   {
 #line 429
   while (1) {
-    while_9_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 429
     if (wantlen) {
 
     } else {
+#line 429
       goto while_break___0;
     }
 #line 432
     if (wantlen > 150UL) {
 #line 432
-      s = 150UL;
+      s = (size_t )150;
     } else {
 #line 432
       s = wantlen;
     }
     {
 #line 433
-    __cil_tmp70 = 0 * 1UL;
+    __cil_tmp52 = & tmpbuf[0];
 #line 433
-    __cil_tmp71 = (unsigned long )(tmpbuf) + __cil_tmp70;
+    __cil_tmp53 = (unsigned char *)__cil_tmp52;
 #line 433
-    __cil_tmp72 = (char *)__cil_tmp71;
+    __cil_tmp54 = (unsigned int )s;
 #line 433
-    __cil_tmp73 = (unsigned char *)__cil_tmp72;
+    tmp___16 = qcam_read_bytes(qcam, __cil_tmp53, __cil_tmp54);
 #line 433
-    __cil_tmp74 = (unsigned int )s;
-#line 433
-    tmp___16 = qcam_read_bytes(qcam, __cil_tmp73, __cil_tmp74);
-#line 433
-    t = (unsigned long )tmp___16;
+    t = (size_t )tmp___16;
     }
 #line 434
     if (outptr < len) {
@@ -9942,21 +8845,17 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
       }
       {
 #line 439
-      __cil_tmp75 = buf + outptr;
+      __cil_tmp55 = buf + outptr;
 #line 439
-      __cil_tmp76 = (void *)__cil_tmp75;
+      __cil_tmp56 = (void *)__cil_tmp55;
 #line 439
-      __cil_tmp77 = 0 * 1UL;
+      __cil_tmp57 = & tmpbuf[0];
 #line 439
-      __cil_tmp78 = (unsigned long )(tmpbuf) + __cil_tmp77;
+      __cil_tmp58 = (void const   *)__cil_tmp57;
 #line 439
-      __cil_tmp79 = (char *)__cil_tmp78;
+      __cil_tmp59 = (unsigned int )sz;
 #line 439
-      __cil_tmp80 = (void const   *)__cil_tmp79;
-#line 439
-      __cil_tmp81 = (unsigned int )sz;
-#line 439
-      tmp___24 = (int )__copy_to_user(__cil_tmp76, __cil_tmp80, __cil_tmp81);
+      tmp___24 = (int )__copy_to_user(__cil_tmp56, __cil_tmp58, __cil_tmp59);
 #line 439
       tmp = tmp___24;
 #line 439
@@ -9964,6 +8863,7 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
       }
 #line 439
       if (tmp___17) {
+#line 440
         goto while_break___0;
       } else {
 
@@ -9977,6 +8877,7 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     wantlen = wantlen - t;
 #line 444
     if (t < s) {
+#line 445
       goto while_break___0;
     } else {
 
@@ -9989,7 +8890,7 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     _cond_resched();
     }
   }
-  while_9_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -9999,47 +8900,23 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
   if (wantlen) {
     {
 #line 452
-    __cil_tmp82 = 0 * 1UL;
+    __cil_tmp60 = & v4l2_dev->name[0];
 #line 452
-    __cil_tmp83 = 104 + __cil_tmp82;
-#line 452
-    __cil_tmp84 = (unsigned long )v4l2_dev;
-#line 452
-    __cil_tmp85 = __cil_tmp84 + __cil_tmp83;
-#line 452
-    __cil_tmp86 = (char *)__cil_tmp85;
-#line 452
-    printk("<3>%s: short read.\n", __cil_tmp86);
+    printk("<3>%s: short read.\n", __cil_tmp60);
     }
 #line 453
     if (is_bi_dir) {
       {
 #line 454
-      __cil_tmp87 = (unsigned long )qcam;
+      __cil_tmp61 = qcam->pport;
 #line 454
-      __cil_tmp88 = __cil_tmp87 + 1912;
+      __cil_tmp62 = __cil_tmp61->ops;
 #line 454
-      __cil_tmp89 = *((struct parport **)__cil_tmp88);
+      __cil_tmp63 = __cil_tmp62->data_forward;
 #line 454
-      __cil_tmp90 = (unsigned long )__cil_tmp89;
+      __cil_tmp64 = qcam->pport;
 #line 454
-      __cil_tmp91 = __cil_tmp90 + 640;
-#line 454
-      __cil_tmp92 = *((struct parport_operations **)__cil_tmp91);
-#line 454
-      __cil_tmp93 = (unsigned long )__cil_tmp92;
-#line 454
-      __cil_tmp94 = __cil_tmp93 + 64;
-#line 454
-      __cil_tmp95 = *((void (**)(struct parport * ))__cil_tmp94);
-#line 454
-      __cil_tmp96 = (unsigned long )qcam;
-#line 454
-      __cil_tmp97 = __cil_tmp96 + 1912;
-#line 454
-      __cil_tmp98 = *((struct parport **)__cil_tmp97);
-#line 454
-      (*__cil_tmp95)(__cil_tmp98);
+      (*__cil_tmp63)(__cil_tmp64);
       }
     } else {
 
@@ -10058,18 +8935,14 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     {
 #line 462
     while (1) {
-      while_10_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
       {
 #line 463
-      __cil_tmp99 = 0 * 1UL;
+      __cil_tmp65 = & tmpbuf[0];
 #line 463
-      __cil_tmp100 = (unsigned long )(tmpbuf) + __cil_tmp99;
+      __cil_tmp66 = (unsigned char *)__cil_tmp65;
 #line 463
-      __cil_tmp101 = (char *)__cil_tmp100;
-#line 463
-      __cil_tmp102 = (unsigned char *)__cil_tmp101;
-#line 463
-      tmp___18 = qcam_read_bytes(qcam, __cil_tmp102, 3U);
+      tmp___18 = qcam_read_bytes(qcam, __cil_tmp66, 3U);
 #line 463
       l = (int )tmp___18;
 #line 464
@@ -10082,43 +8955,26 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
       if (l) {
         {
 #line 462
-        __cil_tmp103 = 0 * 1UL;
+        __cil_tmp67 = (int )tmpbuf[0];
 #line 462
-        __cil_tmp104 = (unsigned long )(tmpbuf) + __cil_tmp103;
-#line 462
-        __cil_tmp105 = *((char *)__cil_tmp104);
-#line 462
-        __cil_tmp106 = (int )__cil_tmp105;
-#line 462
-        if (__cil_tmp106 == 126) {
+        if (__cil_tmp67 == 126) {
 
         } else {
           {
 #line 462
-          __cil_tmp107 = 1 * 1UL;
+          __cil_tmp68 = (int )tmpbuf[1];
 #line 462
-          __cil_tmp108 = (unsigned long )(tmpbuf) + __cil_tmp107;
-#line 462
-          __cil_tmp109 = *((char *)__cil_tmp108);
-#line 462
-          __cil_tmp110 = (int )__cil_tmp109;
-#line 462
-          if (__cil_tmp110 == 126) {
+          if (__cil_tmp68 == 126) {
 
           } else {
             {
 #line 462
-            __cil_tmp111 = 2 * 1UL;
+            __cil_tmp69 = (int )tmpbuf[2];
 #line 462
-            __cil_tmp112 = (unsigned long )(tmpbuf) + __cil_tmp111;
-#line 462
-            __cil_tmp113 = *((char *)__cil_tmp112);
-#line 462
-            __cil_tmp114 = (int )__cil_tmp113;
-#line 462
-            if (__cil_tmp114 == 126) {
+            if (__cil_tmp69 == 126) {
 
             } else {
+#line 462
               goto while_break___1;
             }
             }
@@ -10127,94 +8983,50 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
         }
         }
       } else {
+#line 462
         goto while_break___1;
       }
     }
-    while_10_break: /* CIL Label */ ;
+    while_break___5: /* CIL Label */ ;
     }
 
     while_break___1: ;
-    {
 #line 466
-    __cil_tmp115 = & force_rgb;
-#line 466
-    if (*__cil_tmp115) {
+    if (force_rgb) {
       {
 #line 467
-      __cil_tmp116 = 0 * 1UL;
+      __cil_tmp70 = (int )tmpbuf[0];
 #line 467
-      __cil_tmp117 = (unsigned long )(tmpbuf) + __cil_tmp116;
-#line 467
-      __cil_tmp118 = *((char *)__cil_tmp117);
-#line 467
-      __cil_tmp119 = (int )__cil_tmp118;
-#line 467
-      if (__cil_tmp119 != 14) {
+      if (__cil_tmp70 != 14) {
         {
 #line 468
-        __cil_tmp120 = 0 * 1UL;
+        __cil_tmp71 = & v4l2_dev->name[0];
 #line 468
-        __cil_tmp121 = 104 + __cil_tmp120;
-#line 468
-        __cil_tmp122 = (unsigned long )v4l2_dev;
-#line 468
-        __cil_tmp123 = __cil_tmp122 + __cil_tmp121;
-#line 468
-        __cil_tmp124 = (char *)__cil_tmp123;
-#line 468
-        printk("<3>%s: bad EOF\n", __cil_tmp124);
+        printk("<3>%s: bad EOF\n", __cil_tmp71);
         }
       } else {
         {
 #line 467
-        __cil_tmp125 = 1 * 1UL;
+        __cil_tmp72 = (int )tmpbuf[1];
 #line 467
-        __cil_tmp126 = (unsigned long )(tmpbuf) + __cil_tmp125;
-#line 467
-        __cil_tmp127 = *((char *)__cil_tmp126);
-#line 467
-        __cil_tmp128 = (int )__cil_tmp127;
-#line 467
-        if (__cil_tmp128 != 0) {
+        if (__cil_tmp72 != 0) {
           {
 #line 468
-          __cil_tmp129 = 0 * 1UL;
+          __cil_tmp73 = & v4l2_dev->name[0];
 #line 468
-          __cil_tmp130 = 104 + __cil_tmp129;
-#line 468
-          __cil_tmp131 = (unsigned long )v4l2_dev;
-#line 468
-          __cil_tmp132 = __cil_tmp131 + __cil_tmp130;
-#line 468
-          __cil_tmp133 = (char *)__cil_tmp132;
-#line 468
-          printk("<3>%s: bad EOF\n", __cil_tmp133);
+          printk("<3>%s: bad EOF\n", __cil_tmp73);
           }
         } else {
           {
 #line 467
-          __cil_tmp134 = 2 * 1UL;
+          __cil_tmp74 = (int )tmpbuf[2];
 #line 467
-          __cil_tmp135 = (unsigned long )(tmpbuf) + __cil_tmp134;
-#line 467
-          __cil_tmp136 = *((char *)__cil_tmp135);
-#line 467
-          __cil_tmp137 = (int )__cil_tmp136;
-#line 467
-          if (__cil_tmp137 != 15) {
+          if (__cil_tmp74 != 15) {
             {
 #line 468
-            __cil_tmp138 = 0 * 1UL;
+            __cil_tmp75 = & v4l2_dev->name[0];
 #line 468
-            __cil_tmp139 = 104 + __cil_tmp138;
-#line 468
-            __cil_tmp140 = (unsigned long )v4l2_dev;
-#line 468
-            __cil_tmp141 = __cil_tmp140 + __cil_tmp139;
-#line 468
-            __cil_tmp142 = (char *)__cil_tmp141;
-#line 468
-            printk("<3>%s: bad EOF\n", __cil_tmp142);
+            printk("<3>%s: bad EOF\n", __cil_tmp75);
             }
           } else {
 
@@ -10227,80 +9039,38 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     } else {
       {
 #line 470
-      __cil_tmp143 = 0 * 1UL;
+      __cil_tmp76 = (int )tmpbuf[0];
 #line 470
-      __cil_tmp144 = (unsigned long )(tmpbuf) + __cil_tmp143;
-#line 470
-      __cil_tmp145 = *((char *)__cil_tmp144);
-#line 470
-      __cil_tmp146 = (int )__cil_tmp145;
-#line 470
-      if (__cil_tmp146 != 15) {
+      if (__cil_tmp76 != 15) {
         {
 #line 471
-        __cil_tmp147 = 0 * 1UL;
+        __cil_tmp77 = & v4l2_dev->name[0];
 #line 471
-        __cil_tmp148 = 104 + __cil_tmp147;
-#line 471
-        __cil_tmp149 = (unsigned long )v4l2_dev;
-#line 471
-        __cil_tmp150 = __cil_tmp149 + __cil_tmp148;
-#line 471
-        __cil_tmp151 = (char *)__cil_tmp150;
-#line 471
-        printk("<3>%s: bad EOF\n", __cil_tmp151);
+        printk("<3>%s: bad EOF\n", __cil_tmp77);
         }
       } else {
         {
 #line 470
-        __cil_tmp152 = 1 * 1UL;
+        __cil_tmp78 = (int )tmpbuf[1];
 #line 470
-        __cil_tmp153 = (unsigned long )(tmpbuf) + __cil_tmp152;
-#line 470
-        __cil_tmp154 = *((char *)__cil_tmp153);
-#line 470
-        __cil_tmp155 = (int )__cil_tmp154;
-#line 470
-        if (__cil_tmp155 != 0) {
+        if (__cil_tmp78 != 0) {
           {
 #line 471
-          __cil_tmp156 = 0 * 1UL;
+          __cil_tmp79 = & v4l2_dev->name[0];
 #line 471
-          __cil_tmp157 = 104 + __cil_tmp156;
-#line 471
-          __cil_tmp158 = (unsigned long )v4l2_dev;
-#line 471
-          __cil_tmp159 = __cil_tmp158 + __cil_tmp157;
-#line 471
-          __cil_tmp160 = (char *)__cil_tmp159;
-#line 471
-          printk("<3>%s: bad EOF\n", __cil_tmp160);
+          printk("<3>%s: bad EOF\n", __cil_tmp79);
           }
         } else {
           {
 #line 470
-          __cil_tmp161 = 2 * 1UL;
+          __cil_tmp80 = (int )tmpbuf[2];
 #line 470
-          __cil_tmp162 = (unsigned long )(tmpbuf) + __cil_tmp161;
-#line 470
-          __cil_tmp163 = *((char *)__cil_tmp162);
-#line 470
-          __cil_tmp164 = (int )__cil_tmp163;
-#line 470
-          if (__cil_tmp164 != 14) {
+          if (__cil_tmp80 != 14) {
             {
 #line 471
-            __cil_tmp165 = 0 * 1UL;
+            __cil_tmp81 = & v4l2_dev->name[0];
 #line 471
-            __cil_tmp166 = 104 + __cil_tmp165;
-#line 471
-            __cil_tmp167 = (unsigned long )v4l2_dev;
-#line 471
-            __cil_tmp168 = __cil_tmp167 + __cil_tmp166;
-#line 471
-            __cil_tmp169 = (char *)__cil_tmp168;
-#line 471
-            printk("<3>%s: bad EOF\n", __cil_tmp169);
+            printk("<3>%s: bad EOF\n", __cil_tmp81);
             }
           } else {
 
@@ -10310,7 +9080,6 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
         }
       }
       }
-    }
     }
     {
 #line 473
@@ -10322,43 +9091,19 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     if (tmp___19) {
       {
 #line 475
-      __cil_tmp170 = 0 * 1UL;
+      __cil_tmp82 = & v4l2_dev->name[0];
 #line 475
-      __cil_tmp171 = 104 + __cil_tmp170;
-#line 475
-      __cil_tmp172 = (unsigned long )v4l2_dev;
-#line 475
-      __cil_tmp173 = __cil_tmp172 + __cil_tmp171;
-#line 475
-      __cil_tmp174 = (char *)__cil_tmp173;
-#line 475
-      printk("<3>%s: no ack after EOF\n", __cil_tmp174);
+      printk("<3>%s: no ack after EOF\n", __cil_tmp82);
 #line 476
-      __cil_tmp175 = (unsigned long )qcam;
+      __cil_tmp83 = qcam->pport;
 #line 476
-      __cil_tmp176 = __cil_tmp175 + 1912;
+      __cil_tmp84 = __cil_tmp83->ops;
 #line 476
-      __cil_tmp177 = *((struct parport **)__cil_tmp176);
+      __cil_tmp85 = __cil_tmp84->data_forward;
 #line 476
-      __cil_tmp178 = (unsigned long )__cil_tmp177;
+      __cil_tmp86 = qcam->pport;
 #line 476
-      __cil_tmp179 = __cil_tmp178 + 640;
-#line 476
-      __cil_tmp180 = *((struct parport_operations **)__cil_tmp179);
-#line 476
-      __cil_tmp181 = (unsigned long )__cil_tmp180;
-#line 476
-      __cil_tmp182 = __cil_tmp181 + 64;
-#line 476
-      __cil_tmp183 = *((void (**)(struct parport * ))__cil_tmp182);
-#line 476
-      __cil_tmp184 = (unsigned long )qcam;
-#line 476
-      __cil_tmp185 = __cil_tmp184 + 1912;
-#line 476
-      __cil_tmp186 = *((struct parport **)__cil_tmp185);
-#line 476
-      (*__cil_tmp183)(__cil_tmp186);
+      (*__cil_tmp85)(__cil_tmp86);
 #line 477
       qc_setup(qcam);
       }
@@ -10369,31 +9114,15 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     }
     {
 #line 480
-    __cil_tmp187 = (unsigned long )qcam;
+    __cil_tmp87 = qcam->pport;
 #line 480
-    __cil_tmp188 = __cil_tmp187 + 1912;
+    __cil_tmp88 = __cil_tmp87->ops;
 #line 480
-    __cil_tmp189 = *((struct parport **)__cil_tmp188);
+    __cil_tmp89 = __cil_tmp88->data_forward;
 #line 480
-    __cil_tmp190 = (unsigned long )__cil_tmp189;
+    __cil_tmp90 = qcam->pport;
 #line 480
-    __cil_tmp191 = __cil_tmp190 + 640;
-#line 480
-    __cil_tmp192 = *((struct parport_operations **)__cil_tmp191);
-#line 480
-    __cil_tmp193 = (unsigned long )__cil_tmp192;
-#line 480
-    __cil_tmp194 = __cil_tmp193 + 64;
-#line 480
-    __cil_tmp195 = *((void (**)(struct parport * ))__cil_tmp194);
-#line 480
-    __cil_tmp196 = (unsigned long )qcam;
-#line 480
-    __cil_tmp197 = __cil_tmp196 + 1912;
-#line 480
-    __cil_tmp198 = *((struct parport **)__cil_tmp197);
-#line 480
-    (*__cil_tmp195)(__cil_tmp198);
+    (*__cil_tmp89)(__cil_tmp90);
 #line 481
     __const_udelay(12885000UL);
 #line 482
@@ -10405,17 +9134,9 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     if (tmp___21) {
       {
 #line 484
-      __cil_tmp199 = 0 * 1UL;
+      __cil_tmp91 = & v4l2_dev->name[0];
 #line 484
-      __cil_tmp200 = 104 + __cil_tmp199;
-#line 484
-      __cil_tmp201 = (unsigned long )v4l2_dev;
-#line 484
-      __cil_tmp202 = __cil_tmp201 + __cil_tmp200;
-#line 484
-      __cil_tmp203 = (char *)__cil_tmp202;
-#line 484
-      printk("<3>%s: no ack to port turnaround\n", __cil_tmp203);
+      printk("<3>%s: no ack to port turnaround\n", __cil_tmp91);
 #line 485
       qc_setup(qcam);
       }
@@ -10428,18 +9149,14 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     {
 #line 491
     while (1) {
-      while_11_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
       {
 #line 492
-      __cil_tmp204 = 0 * 1UL;
+      __cil_tmp92 = & tmpbuf[0];
 #line 492
-      __cil_tmp205 = (unsigned long )(tmpbuf) + __cil_tmp204;
+      __cil_tmp93 = (unsigned char *)__cil_tmp92;
 #line 492
-      __cil_tmp206 = (char *)__cil_tmp205;
-#line 492
-      __cil_tmp207 = (unsigned char *)__cil_tmp206;
-#line 492
-      tmp___22 = qcam_read_bytes(qcam, __cil_tmp207, 1U);
+      tmp___22 = qcam_read_bytes(qcam, __cil_tmp93, 1U);
 #line 492
       l___0 = (int )tmp___22;
 #line 493
@@ -10452,125 +9169,72 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
       if (l___0) {
         {
 #line 491
-        __cil_tmp208 = 0 * 1UL;
+        __cil_tmp94 = (int )tmpbuf[0];
 #line 491
-        __cil_tmp209 = (unsigned long )(tmpbuf) + __cil_tmp208;
-#line 491
-        __cil_tmp210 = *((char *)__cil_tmp209);
-#line 491
-        __cil_tmp211 = (int )__cil_tmp210;
-#line 491
-        if (__cil_tmp211 == 126) {
+        if (__cil_tmp94 == 126) {
 
         } else {
+#line 491
           goto while_break___2;
         }
         }
       } else {
+#line 491
         goto while_break___2;
       }
     }
-    while_11_break: /* CIL Label */ ;
+    while_break___6: /* CIL Label */ ;
     }
 
     while_break___2: 
     {
 #line 495
-    __cil_tmp212 = 0 * 1UL;
+    __cil_tmp95 = & tmpbuf[0];
 #line 495
-    __cil_tmp213 = (unsigned long )(tmpbuf) + __cil_tmp212;
+    __cil_tmp96 = __cil_tmp95 + 1;
 #line 495
-    __cil_tmp214 = (char *)__cil_tmp213;
+    __cil_tmp97 = (unsigned char *)__cil_tmp96;
 #line 495
-    __cil_tmp215 = __cil_tmp214 + 1;
-#line 495
-    __cil_tmp216 = (unsigned char *)__cil_tmp215;
-#line 495
-    tmp___23 = qcam_read_bytes(qcam, __cil_tmp216, 2U);
+    tmp___23 = qcam_read_bytes(qcam, __cil_tmp97, 2U);
 #line 495
     l___0 = (int )tmp___23;
     }
-    {
 #line 496
-    __cil_tmp217 = & force_rgb;
-#line 496
-    if (*__cil_tmp217) {
+    if (force_rgb) {
       {
 #line 497
-      __cil_tmp218 = 0 * 1UL;
+      __cil_tmp98 = (int )tmpbuf[0];
 #line 497
-      __cil_tmp219 = (unsigned long )(tmpbuf) + __cil_tmp218;
-#line 497
-      __cil_tmp220 = *((char *)__cil_tmp219);
-#line 497
-      __cil_tmp221 = (int )__cil_tmp220;
-#line 497
-      if (__cil_tmp221 != 14) {
+      if (__cil_tmp98 != 14) {
         {
 #line 498
-        __cil_tmp222 = 0 * 1UL;
+        __cil_tmp99 = & v4l2_dev->name[0];
 #line 498
-        __cil_tmp223 = 104 + __cil_tmp222;
-#line 498
-        __cil_tmp224 = (unsigned long )v4l2_dev;
-#line 498
-        __cil_tmp225 = __cil_tmp224 + __cil_tmp223;
-#line 498
-        __cil_tmp226 = (char *)__cil_tmp225;
-#line 498
-        printk("<3>%s: bad EOF\n", __cil_tmp226);
+        printk("<3>%s: bad EOF\n", __cil_tmp99);
         }
       } else {
         {
 #line 497
-        __cil_tmp227 = 1 * 1UL;
+        __cil_tmp100 = (int )tmpbuf[1];
 #line 497
-        __cil_tmp228 = (unsigned long )(tmpbuf) + __cil_tmp227;
-#line 497
-        __cil_tmp229 = *((char *)__cil_tmp228);
-#line 497
-        __cil_tmp230 = (int )__cil_tmp229;
-#line 497
-        if (__cil_tmp230 != 0) {
+        if (__cil_tmp100 != 0) {
           {
 #line 498
-          __cil_tmp231 = 0 * 1UL;
+          __cil_tmp101 = & v4l2_dev->name[0];
 #line 498
-          __cil_tmp232 = 104 + __cil_tmp231;
-#line 498
-          __cil_tmp233 = (unsigned long )v4l2_dev;
-#line 498
-          __cil_tmp234 = __cil_tmp233 + __cil_tmp232;
-#line 498
-          __cil_tmp235 = (char *)__cil_tmp234;
-#line 498
-          printk("<3>%s: bad EOF\n", __cil_tmp235);
+          printk("<3>%s: bad EOF\n", __cil_tmp101);
           }
         } else {
           {
 #line 497
-          __cil_tmp236 = 2 * 1UL;
+          __cil_tmp102 = (int )tmpbuf[2];
 #line 497
-          __cil_tmp237 = (unsigned long )(tmpbuf) + __cil_tmp236;
-#line 497
-          __cil_tmp238 = *((char *)__cil_tmp237);
-#line 497
-          __cil_tmp239 = (int )__cil_tmp238;
-#line 497
-          if (__cil_tmp239 != 15) {
+          if (__cil_tmp102 != 15) {
             {
 #line 498
-            __cil_tmp240 = 0 * 1UL;
+            __cil_tmp103 = & v4l2_dev->name[0];
 #line 498
-            __cil_tmp241 = 104 + __cil_tmp240;
-#line 498
-            __cil_tmp242 = (unsigned long )v4l2_dev;
-#line 498
-            __cil_tmp243 = __cil_tmp242 + __cil_tmp241;
-#line 498
-            __cil_tmp244 = (char *)__cil_tmp243;
-#line 498
-            printk("<3>%s: bad EOF\n", __cil_tmp244);
+            printk("<3>%s: bad EOF\n", __cil_tmp103);
             }
           } else {
 
@@ -10583,80 +9247,38 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     } else {
       {
 #line 500
-      __cil_tmp245 = 0 * 1UL;
+      __cil_tmp104 = (int )tmpbuf[0];
 #line 500
-      __cil_tmp246 = (unsigned long )(tmpbuf) + __cil_tmp245;
-#line 500
-      __cil_tmp247 = *((char *)__cil_tmp246);
-#line 500
-      __cil_tmp248 = (int )__cil_tmp247;
-#line 500
-      if (__cil_tmp248 != 15) {
+      if (__cil_tmp104 != 15) {
         {
 #line 501
-        __cil_tmp249 = 0 * 1UL;
+        __cil_tmp105 = & v4l2_dev->name[0];
 #line 501
-        __cil_tmp250 = 104 + __cil_tmp249;
-#line 501
-        __cil_tmp251 = (unsigned long )v4l2_dev;
-#line 501
-        __cil_tmp252 = __cil_tmp251 + __cil_tmp250;
-#line 501
-        __cil_tmp253 = (char *)__cil_tmp252;
-#line 501
-        printk("<3>%s: bad EOF\n", __cil_tmp253);
+        printk("<3>%s: bad EOF\n", __cil_tmp105);
         }
       } else {
         {
 #line 500
-        __cil_tmp254 = 1 * 1UL;
+        __cil_tmp106 = (int )tmpbuf[1];
 #line 500
-        __cil_tmp255 = (unsigned long )(tmpbuf) + __cil_tmp254;
-#line 500
-        __cil_tmp256 = *((char *)__cil_tmp255);
-#line 500
-        __cil_tmp257 = (int )__cil_tmp256;
-#line 500
-        if (__cil_tmp257 != 0) {
+        if (__cil_tmp106 != 0) {
           {
 #line 501
-          __cil_tmp258 = 0 * 1UL;
+          __cil_tmp107 = & v4l2_dev->name[0];
 #line 501
-          __cil_tmp259 = 104 + __cil_tmp258;
-#line 501
-          __cil_tmp260 = (unsigned long )v4l2_dev;
-#line 501
-          __cil_tmp261 = __cil_tmp260 + __cil_tmp259;
-#line 501
-          __cil_tmp262 = (char *)__cil_tmp261;
-#line 501
-          printk("<3>%s: bad EOF\n", __cil_tmp262);
+          printk("<3>%s: bad EOF\n", __cil_tmp107);
           }
         } else {
           {
 #line 500
-          __cil_tmp263 = 2 * 1UL;
+          __cil_tmp108 = (int )tmpbuf[2];
 #line 500
-          __cil_tmp264 = (unsigned long )(tmpbuf) + __cil_tmp263;
-#line 500
-          __cil_tmp265 = *((char *)__cil_tmp264);
-#line 500
-          __cil_tmp266 = (int )__cil_tmp265;
-#line 500
-          if (__cil_tmp266 != 14) {
+          if (__cil_tmp108 != 14) {
             {
 #line 501
-            __cil_tmp267 = 0 * 1UL;
+            __cil_tmp109 = & v4l2_dev->name[0];
 #line 501
-            __cil_tmp268 = 104 + __cil_tmp267;
-#line 501
-            __cil_tmp269 = (unsigned long )v4l2_dev;
-#line 501
-            __cil_tmp270 = __cil_tmp269 + __cil_tmp268;
-#line 501
-            __cil_tmp271 = (char *)__cil_tmp270;
-#line 501
-            printk("<3>%s: bad EOF\n", __cil_tmp271);
+            printk("<3>%s: bad EOF\n", __cil_tmp109);
             }
           } else {
 
@@ -10666,7 +9288,6 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
         }
       }
       }
-    }
     }
   }
   {
@@ -10681,35 +9302,14 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
 static int qcam_querycap(struct file *file , void *priv , struct v4l2_capability *vcap ) 
 { struct qcam *qcam ;
   void *tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  __u8 *__cil_tmp6 ;
+  char *__cil_tmp7 ;
+  char *__cil_tmp8 ;
+  char const   *__cil_tmp9 ;
   __u8 *__cil_tmp10 ;
   char *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  char *__cil_tmp17 ;
-  char const   *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  __u8 *__cil_tmp23 ;
-  char *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  __u8 *__cil_tmp29 ;
-  char *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  __u8 *__cil_tmp12 ;
+  char *__cil_tmp13 ;
 
   {
   {
@@ -10718,73 +9318,31 @@ static int qcam_querycap(struct file *file , void *priv , struct v4l2_capability
 #line 516
   qcam = (struct qcam *)tmp___7;
 #line 518
-  __cil_tmp6 = 0 * 1UL;
+  __cil_tmp6 = & vcap->driver[0];
 #line 518
-  __cil_tmp7 = 0 + __cil_tmp6;
+  __cil_tmp7 = (char *)__cil_tmp6;
 #line 518
-  __cil_tmp8 = (unsigned long )vcap;
+  __cil_tmp8 = & qcam->v4l2_dev.name[0];
 #line 518
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
+  __cil_tmp9 = (char const   *)__cil_tmp8;
 #line 518
-  __cil_tmp10 = (__u8 *)__cil_tmp9;
-#line 518
+  strlcpy(__cil_tmp7, __cil_tmp9, 16UL);
+#line 519
+  __cil_tmp10 = & vcap->card[0];
+#line 519
   __cil_tmp11 = (char *)__cil_tmp10;
-#line 518
-  __cil_tmp12 = 0 * 1UL;
-#line 518
-  __cil_tmp13 = 104 + __cil_tmp12;
-#line 518
-  __cil_tmp14 = 0 + __cil_tmp13;
-#line 518
-  __cil_tmp15 = (unsigned long )qcam;
-#line 518
-  __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 518
-  __cil_tmp17 = (char *)__cil_tmp16;
-#line 518
-  __cil_tmp18 = (char const   *)__cil_tmp17;
-#line 518
-  strlcpy(__cil_tmp11, __cil_tmp18, 16UL);
 #line 519
-  __cil_tmp19 = 0 * 1UL;
-#line 519
-  __cil_tmp20 = 16 + __cil_tmp19;
-#line 519
-  __cil_tmp21 = (unsigned long )vcap;
-#line 519
-  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 519
-  __cil_tmp23 = (__u8 *)__cil_tmp22;
-#line 519
-  __cil_tmp24 = (char *)__cil_tmp23;
-#line 519
-  strlcpy(__cil_tmp24, "Color Quickcam", 32UL);
+  strlcpy(__cil_tmp11, "Color Quickcam", 32UL);
 #line 520
-  __cil_tmp25 = 0 * 1UL;
+  __cil_tmp12 = & vcap->bus_info[0];
 #line 520
-  __cil_tmp26 = 48 + __cil_tmp25;
+  __cil_tmp13 = (char *)__cil_tmp12;
 #line 520
-  __cil_tmp27 = (unsigned long )vcap;
-#line 520
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 520
-  __cil_tmp29 = (__u8 *)__cil_tmp28;
-#line 520
-  __cil_tmp30 = (char *)__cil_tmp29;
-#line 520
-  strlcpy(__cil_tmp30, "parport", 32UL);
+  strlcpy(__cil_tmp13, "parport", 32UL);
 #line 521
-  __cil_tmp31 = (unsigned long )vcap;
-#line 521
-  __cil_tmp32 = __cil_tmp31 + 80;
-#line 521
-  *((__u32 *)__cil_tmp32) = 3U;
+  vcap->version = (__u32 )3;
 #line 522
-  __cil_tmp33 = (unsigned long )vcap;
-#line 522
-  __cil_tmp34 = __cil_tmp33 + 84;
-#line 522
-  *((__u32 *)__cil_tmp34) = 16777217U;
+  vcap->capabilities = (__u32 )16777217;
   }
 #line 523
   return (0);
@@ -10793,27 +9351,13 @@ static int qcam_querycap(struct file *file , void *priv , struct v4l2_capability
 #line 526 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_enum_input(struct file *file , void *fh , struct v4l2_input *vin ) 
 { __u32 __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  __u8 *__cil_tmp9 ;
-  char *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  __u8 *__cil_tmp5 ;
+  char *__cil_tmp6 ;
 
   {
   {
 #line 528
-  __cil_tmp4 = *((__u32 *)vin);
+  __cil_tmp4 = vin->index;
 #line 528
   if (__cil_tmp4 > 0U) {
 #line 529
@@ -10824,49 +9368,21 @@ static int qcam_enum_input(struct file *file , void *fh , struct v4l2_input *vin
   }
   {
 #line 530
-  __cil_tmp5 = 0 * 1UL;
+  __cil_tmp5 = & vin->name[0];
 #line 530
-  __cil_tmp6 = 4 + __cil_tmp5;
+  __cil_tmp6 = (char *)__cil_tmp5;
 #line 530
-  __cil_tmp7 = (unsigned long )vin;
-#line 530
-  __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
-#line 530
-  __cil_tmp9 = (__u8 *)__cil_tmp8;
-#line 530
-  __cil_tmp10 = (char *)__cil_tmp9;
-#line 530
-  strlcpy(__cil_tmp10, "Camera", 32UL);
+  strlcpy(__cil_tmp6, "Camera", 32UL);
 #line 531
-  __cil_tmp11 = (unsigned long )vin;
-#line 531
-  __cil_tmp12 = __cil_tmp11 + 36;
-#line 531
-  *((__u32 *)__cil_tmp12) = 2U;
+  vin->type = (__u32 )2;
 #line 532
-  __cil_tmp13 = (unsigned long )vin;
-#line 532
-  __cil_tmp14 = __cil_tmp13 + 40;
-#line 532
-  *((__u32 *)__cil_tmp14) = 0U;
+  vin->audioset = (__u32 )0;
 #line 533
-  __cil_tmp15 = (unsigned long )vin;
-#line 533
-  __cil_tmp16 = __cil_tmp15 + 44;
-#line 533
-  *((__u32 *)__cil_tmp16) = 0U;
+  vin->tuner = (__u32 )0;
 #line 534
-  __cil_tmp17 = (unsigned long )vin;
-#line 534
-  __cil_tmp18 = __cil_tmp17 + 48;
-#line 534
-  *((v4l2_std_id *)__cil_tmp18) = 0ULL;
+  vin->std = (v4l2_std_id )0;
 #line 535
-  __cil_tmp19 = (unsigned long )vin;
-#line 535
-  __cil_tmp20 = __cil_tmp19 + 56;
-#line 535
-  *((__u32 *)__cil_tmp20) = 0U;
+  vin->status = (__u32 )0;
   }
 #line 536
   return (0);
@@ -10915,57 +9431,59 @@ static int qcam_queryctrl(struct file *file , void *priv , struct v4l2_queryctrl
   {
   {
 #line 554
-  __cil_tmp7 = *((__u32 *)qc);
+  __cil_tmp7 = qc->id;
 #line 554
   __cil_tmp8 = (int )__cil_tmp7;
 #line 554
   if (__cil_tmp8 == 9963776) {
+#line 554
     goto case_9963776;
   } else {
     {
 #line 556
-    __cil_tmp9 = *((__u32 *)qc);
+    __cil_tmp9 = qc->id;
 #line 556
     __cil_tmp10 = (int )__cil_tmp9;
 #line 556
     if (__cil_tmp10 == 9963777) {
+#line 556
       goto case_9963777;
     } else {
       {
 #line 558
-      __cil_tmp11 = *((__u32 *)qc);
+      __cil_tmp11 = qc->id;
 #line 558
       __cil_tmp12 = (int )__cil_tmp11;
 #line 558
       if (__cil_tmp12 == 9963792) {
+#line 558
         goto case_9963792;
-      } else {
+      } else
 #line 553
-        if (0) {
-          case_9963776: 
-          {
+      if (0) {
+        case_9963776: 
+        {
 #line 555
-          tmp___7 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 240);
-          }
-#line 555
-          return (tmp___7);
-          case_9963777: 
-          {
-#line 557
-          tmp___8 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 192);
-          }
-#line 557
-          return (tmp___8);
-          case_9963792: 
-          {
-#line 559
-          tmp___9 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 128);
-          }
-#line 559
-          return (tmp___9);
-        } else {
-
+        tmp___7 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 240);
         }
+#line 555
+        return (tmp___7);
+        case_9963777: 
+        {
+#line 557
+        tmp___8 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 192);
+        }
+#line 557
+        return (tmp___8);
+        case_9963792: 
+        {
+#line 559
+        tmp___9 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 128);
+        }
+#line 559
+        return (tmp___9);
+      } else {
+
       }
       }
     }
@@ -10987,18 +9505,6 @@ static int qcam_g_ctrl(struct file *file , void *priv , struct v4l2_control *ctr
   int __cil_tmp10 ;
   __u32 __cil_tmp11 ;
   int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
 
   {
   {
@@ -11011,73 +9517,57 @@ static int qcam_g_ctrl(struct file *file , void *priv , struct v4l2_control *ctr
   }
   {
 #line 571
-  __cil_tmp7 = *((__u32 *)ctrl);
+  __cil_tmp7 = ctrl->id;
 #line 571
   __cil_tmp8 = (int )__cil_tmp7;
 #line 571
   if (__cil_tmp8 == 9963776) {
+#line 571
     goto case_9963776;
   } else {
     {
 #line 574
-    __cil_tmp9 = *((__u32 *)ctrl);
+    __cil_tmp9 = ctrl->id;
 #line 574
     __cil_tmp10 = (int )__cil_tmp9;
 #line 574
     if (__cil_tmp10 == 9963777) {
+#line 574
       goto case_9963777;
     } else {
       {
 #line 577
-      __cil_tmp11 = *((__u32 *)ctrl);
+      __cil_tmp11 = ctrl->id;
 #line 577
       __cil_tmp12 = (int )__cil_tmp11;
 #line 577
       if (__cil_tmp12 == 9963792) {
+#line 577
         goto case_9963792;
       } else {
+#line 580
         goto switch_default;
 #line 570
         if (0) {
           case_9963776: 
 #line 572
-          __cil_tmp13 = (unsigned long )ctrl;
-#line 572
-          __cil_tmp14 = __cil_tmp13 + 4;
-#line 572
-          __cil_tmp15 = (unsigned long )qcam;
-#line 572
-          __cil_tmp16 = __cil_tmp15 + 1944;
-#line 572
-          *((__s32 *)__cil_tmp14) = *((int *)__cil_tmp16);
+          ctrl->value = qcam->brightness;
+#line 573
           goto switch_break;
           case_9963777: 
 #line 575
-          __cil_tmp17 = (unsigned long )ctrl;
-#line 575
-          __cil_tmp18 = __cil_tmp17 + 4;
-#line 575
-          __cil_tmp19 = (unsigned long )qcam;
-#line 575
-          __cil_tmp20 = __cil_tmp19 + 1940;
-#line 575
-          *((__s32 *)__cil_tmp18) = *((int *)__cil_tmp20);
+          ctrl->value = qcam->contrast;
+#line 576
           goto switch_break;
           case_9963792: 
 #line 578
-          __cil_tmp21 = (unsigned long )ctrl;
-#line 578
-          __cil_tmp22 = __cil_tmp21 + 4;
-#line 578
-          __cil_tmp23 = (unsigned long )qcam;
-#line 578
-          __cil_tmp24 = __cil_tmp23 + 1948;
-#line 578
-          *((__s32 *)__cil_tmp22) = *((int *)__cil_tmp24);
+          ctrl->value = qcam->whitebal;
+#line 579
           goto switch_break;
           switch_default: 
 #line 581
           ret = -22;
+#line 582
           goto switch_break;
         } else {
           switch_break: ;
@@ -11097,36 +9587,16 @@ static int qcam_s_ctrl(struct file *file , void *priv , struct v4l2_control *ctr
 { struct qcam *qcam ;
   void *tmp___7 ;
   int ret ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct mutex *__cil_tmp9 ;
+  struct mutex *__cil_tmp7 ;
+  __u32 __cil_tmp8 ;
+  int __cil_tmp9 ;
   __u32 __cil_tmp10 ;
   int __cil_tmp11 ;
   __u32 __cil_tmp12 ;
   int __cil_tmp13 ;
-  __u32 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct pardevice *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct pardevice *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct mutex *__cil_tmp36 ;
+  struct pardevice *__cil_tmp14 ;
+  struct pardevice *__cil_tmp15 ;
+  struct mutex *__cil_tmp16 ;
 
   {
   {
@@ -11137,83 +9607,63 @@ static int qcam_s_ctrl(struct file *file , void *priv , struct v4l2_control *ctr
 #line 591
   ret = 0;
 #line 593
-  __cil_tmp7 = (unsigned long )qcam;
+  __cil_tmp7 = & qcam->lock;
 #line 593
-  __cil_tmp8 = __cil_tmp7 + 1968;
-#line 593
-  __cil_tmp9 = (struct mutex *)__cil_tmp8;
-#line 593
-  mutex_lock_nested(__cil_tmp9, 0U);
+  mutex_lock_nested(__cil_tmp7, 0U);
   }
   {
 #line 595
-  __cil_tmp10 = *((__u32 *)ctrl);
+  __cil_tmp8 = ctrl->id;
 #line 595
-  __cil_tmp11 = (int )__cil_tmp10;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 595
-  if (__cil_tmp11 == 9963776) {
+  if (__cil_tmp9 == 9963776) {
+#line 595
     goto case_9963776;
   } else {
     {
 #line 598
-    __cil_tmp12 = *((__u32 *)ctrl);
+    __cil_tmp10 = ctrl->id;
 #line 598
-    __cil_tmp13 = (int )__cil_tmp12;
+    __cil_tmp11 = (int )__cil_tmp10;
 #line 598
-    if (__cil_tmp13 == 9963777) {
+    if (__cil_tmp11 == 9963777) {
+#line 598
       goto case_9963777;
     } else {
       {
 #line 601
-      __cil_tmp14 = *((__u32 *)ctrl);
+      __cil_tmp12 = ctrl->id;
 #line 601
-      __cil_tmp15 = (int )__cil_tmp14;
+      __cil_tmp13 = (int )__cil_tmp12;
 #line 601
-      if (__cil_tmp15 == 9963792) {
+      if (__cil_tmp13 == 9963792) {
+#line 601
         goto case_9963792;
       } else {
+#line 604
         goto switch_default;
 #line 594
         if (0) {
           case_9963776: 
 #line 596
-          __cil_tmp16 = (unsigned long )qcam;
-#line 596
-          __cil_tmp17 = __cil_tmp16 + 1944;
-#line 596
-          __cil_tmp18 = (unsigned long )ctrl;
-#line 596
-          __cil_tmp19 = __cil_tmp18 + 4;
-#line 596
-          *((int *)__cil_tmp17) = *((__s32 *)__cil_tmp19);
+          qcam->brightness = ctrl->value;
+#line 597
           goto switch_break;
           case_9963777: 
 #line 599
-          __cil_tmp20 = (unsigned long )qcam;
-#line 599
-          __cil_tmp21 = __cil_tmp20 + 1940;
-#line 599
-          __cil_tmp22 = (unsigned long )ctrl;
-#line 599
-          __cil_tmp23 = __cil_tmp22 + 4;
-#line 599
-          *((int *)__cil_tmp21) = *((__s32 *)__cil_tmp23);
+          qcam->contrast = ctrl->value;
+#line 600
           goto switch_break;
           case_9963792: 
 #line 602
-          __cil_tmp24 = (unsigned long )qcam;
-#line 602
-          __cil_tmp25 = __cil_tmp24 + 1948;
-#line 602
-          __cil_tmp26 = (unsigned long )ctrl;
-#line 602
-          __cil_tmp27 = __cil_tmp26 + 4;
-#line 602
-          *((int *)__cil_tmp25) = *((__s32 *)__cil_tmp27);
+          qcam->whitebal = ctrl->value;
+#line 603
           goto switch_break;
           switch_default: 
 #line 605
           ret = -22;
+#line 606
           goto switch_break;
         } else {
           switch_break: ;
@@ -11228,36 +9678,24 @@ static int qcam_s_ctrl(struct file *file , void *priv , struct v4l2_control *ctr
   if (ret == 0) {
     {
 #line 609
-    __cil_tmp28 = (unsigned long )qcam;
+    __cil_tmp14 = qcam->pdev;
 #line 609
-    __cil_tmp29 = __cil_tmp28 + 1904;
-#line 609
-    __cil_tmp30 = *((struct pardevice **)__cil_tmp29);
-#line 609
-    parport_claim_or_block(__cil_tmp30);
+    parport_claim_or_block(__cil_tmp14);
 #line 610
     qc_setup(qcam);
 #line 611
-    __cil_tmp31 = (unsigned long )qcam;
+    __cil_tmp15 = qcam->pdev;
 #line 611
-    __cil_tmp32 = __cil_tmp31 + 1904;
-#line 611
-    __cil_tmp33 = *((struct pardevice **)__cil_tmp32);
-#line 611
-    parport_release(__cil_tmp33);
+    parport_release(__cil_tmp15);
     }
   } else {
 
   }
   {
 #line 613
-  __cil_tmp34 = (unsigned long )qcam;
+  __cil_tmp16 = & qcam->lock;
 #line 613
-  __cil_tmp35 = __cil_tmp34 + 1968;
-#line 613
-  __cil_tmp36 = (struct mutex *)__cil_tmp35;
-#line 613
-  mutex_unlock(__cil_tmp36);
+  mutex_unlock(__cil_tmp16);
   }
 #line 614
   return (ret);
@@ -11268,43 +9706,19 @@ static int qcam_g_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 { struct qcam *qcam ;
   void *tmp___7 ;
   struct v4l2_pix_format *pix ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
   int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  int __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
 
   {
   {
@@ -11313,95 +9727,47 @@ static int qcam_g_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 #line 619
   qcam = (struct qcam *)tmp___7;
 #line 620
-  __cil_tmp7 = (unsigned long )fmt;
-#line 620
-  __cil_tmp8 = __cil_tmp7 + 32;
-#line 620
-  pix = (struct v4l2_pix_format *)__cil_tmp8;
+  pix = & fmt->fmt.pix;
 #line 622
-  __cil_tmp9 = (unsigned long )qcam;
+  __cil_tmp7 = qcam->width;
 #line 622
-  __cil_tmp10 = __cil_tmp9 + 1920;
-#line 622
-  __cil_tmp11 = *((int *)__cil_tmp10);
-#line 622
-  *((__u32 *)pix) = (unsigned int )__cil_tmp11;
+  pix->width = (__u32 )__cil_tmp7;
 #line 623
-  __cil_tmp12 = (unsigned long )pix;
+  __cil_tmp8 = qcam->height;
 #line 623
-  __cil_tmp13 = __cil_tmp12 + 4;
-#line 623
-  __cil_tmp14 = (unsigned long )qcam;
-#line 623
-  __cil_tmp15 = __cil_tmp14 + 1924;
-#line 623
-  __cil_tmp16 = *((int *)__cil_tmp15);
-#line 623
-  *((__u32 *)__cil_tmp13) = (unsigned int )__cil_tmp16;
+  pix->height = (__u32 )__cil_tmp8;
 #line 624
-  __cil_tmp17 = (unsigned long )pix;
+  __cil_tmp9 = 51U << 24;
 #line 624
-  __cil_tmp18 = __cil_tmp17 + 8;
+  __cil_tmp10 = 66U << 16;
 #line 624
-  __cil_tmp19 = 51U << 24;
+  __cil_tmp11 = 71U << 8;
 #line 624
-  __cil_tmp20 = 66U << 16;
+  __cil_tmp12 = 82U | __cil_tmp11;
 #line 624
-  __cil_tmp21 = 71U << 8;
+  __cil_tmp13 = __cil_tmp12 | __cil_tmp10;
 #line 624
-  __cil_tmp22 = 82U | __cil_tmp21;
-#line 624
-  __cil_tmp23 = __cil_tmp22 | __cil_tmp20;
-#line 624
-  *((__u32 *)__cil_tmp18) = __cil_tmp23 | __cil_tmp19;
+  pix->pixelformat = __cil_tmp13 | __cil_tmp9;
 #line 625
-  __cil_tmp24 = (unsigned long )pix;
-#line 625
-  __cil_tmp25 = __cil_tmp24 + 12;
-#line 625
-  *((enum v4l2_field *)__cil_tmp25) = (enum v4l2_field )1;
+  pix->field = (enum v4l2_field )1;
 #line 626
-  __cil_tmp26 = (unsigned long )pix;
+  __cil_tmp14 = qcam->width;
 #line 626
-  __cil_tmp27 = __cil_tmp26 + 44;
+  __cil_tmp15 = 3 * __cil_tmp14;
 #line 626
-  __cil_tmp28 = (unsigned long )qcam;
-#line 626
-  __cil_tmp29 = __cil_tmp28 + 1920;
-#line 626
-  __cil_tmp30 = *((int *)__cil_tmp29);
-#line 626
-  __cil_tmp31 = 3 * __cil_tmp30;
-#line 626
-  *((__u32 *)__cil_tmp27) = (unsigned int )__cil_tmp31;
+  pix->bytesperline = (__u32 )__cil_tmp15;
 #line 627
-  __cil_tmp32 = (unsigned long )pix;
+  __cil_tmp16 = qcam->height;
 #line 627
-  __cil_tmp33 = __cil_tmp32 + 48;
+  __cil_tmp17 = qcam->width;
 #line 627
-  __cil_tmp34 = (unsigned long )qcam;
+  __cil_tmp18 = 3 * __cil_tmp17;
 #line 627
-  __cil_tmp35 = __cil_tmp34 + 1924;
+  __cil_tmp19 = __cil_tmp18 * __cil_tmp16;
 #line 627
-  __cil_tmp36 = *((int *)__cil_tmp35);
-#line 627
-  __cil_tmp37 = (unsigned long )qcam;
-#line 627
-  __cil_tmp38 = __cil_tmp37 + 1920;
-#line 627
-  __cil_tmp39 = *((int *)__cil_tmp38);
-#line 627
-  __cil_tmp40 = 3 * __cil_tmp39;
-#line 627
-  __cil_tmp41 = __cil_tmp40 * __cil_tmp36;
-#line 627
-  *((__u32 *)__cil_tmp33) = (unsigned int )__cil_tmp41;
+  pix->sizeimage = (__u32 )__cil_tmp19;
 #line 629
-  __cil_tmp42 = (unsigned long )pix;
-#line 629
-  __cil_tmp43 = __cil_tmp42 + 52;
-#line 629
-  *((enum v4l2_colorspace *)__cil_tmp43) = (enum v4l2_colorspace )8;
+  pix->colorspace = (enum v4l2_colorspace )8;
   }
 #line 630
   return (0);
@@ -11410,127 +9776,67 @@ static int qcam_g_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 #line 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_try_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format *fmt ) 
 { struct v4l2_pix_format *pix ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  __u32 __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  __u32 __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  __u32 __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  __u32 __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  __u32 __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  __u32 __cil_tmp41 ;
-  __u32 __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
+  __u32 __cil_tmp5 ;
+  __u32 __cil_tmp6 ;
+  __u32 __cil_tmp7 ;
+  __u32 __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  __u32 __cil_tmp14 ;
+  __u32 __cil_tmp15 ;
+  __u32 __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
 
   {
 #line 635
-  __cil_tmp5 = (unsigned long )fmt;
-#line 635
-  __cil_tmp6 = __cil_tmp5 + 32;
-#line 635
-  pix = (struct v4l2_pix_format *)__cil_tmp6;
+  pix = & fmt->fmt.pix;
   {
 #line 637
-  __cil_tmp7 = (unsigned long )pix;
+  __cil_tmp5 = pix->height;
 #line 637
-  __cil_tmp8 = __cil_tmp7 + 4;
-#line 637
-  __cil_tmp9 = *((__u32 *)__cil_tmp8);
-#line 637
-  if (__cil_tmp9 < 60U) {
+  if (__cil_tmp5 < 60U) {
 #line 638
-    __cil_tmp10 = (unsigned long )pix;
-#line 638
-    __cil_tmp11 = __cil_tmp10 + 4;
-#line 638
-    *((__u32 *)__cil_tmp11) = 60U;
+    pix->height = (__u32 )60;
 #line 639
-    *((__u32 *)pix) = 80U;
+    pix->width = (__u32 )80;
   } else {
     {
 #line 637
-    __cil_tmp12 = *((__u32 *)pix);
+    __cil_tmp6 = pix->width;
 #line 637
-    if (__cil_tmp12 < 80U) {
+    if (__cil_tmp6 < 80U) {
 #line 638
-      __cil_tmp13 = (unsigned long )pix;
-#line 638
-      __cil_tmp14 = __cil_tmp13 + 4;
-#line 638
-      *((__u32 *)__cil_tmp14) = 60U;
+      pix->height = (__u32 )60;
 #line 639
-      *((__u32 *)pix) = 80U;
+      pix->width = (__u32 )80;
     } else {
       {
 #line 640
-      __cil_tmp15 = (unsigned long )pix;
+      __cil_tmp7 = pix->height;
 #line 640
-      __cil_tmp16 = __cil_tmp15 + 4;
-#line 640
-      __cil_tmp17 = *((__u32 *)__cil_tmp16);
-#line 640
-      if (__cil_tmp17 < 120U) {
+      if (__cil_tmp7 < 120U) {
 #line 641
-        __cil_tmp18 = (unsigned long )pix;
-#line 641
-        __cil_tmp19 = __cil_tmp18 + 4;
-#line 641
-        *((__u32 *)__cil_tmp19) = 120U;
+        pix->height = (__u32 )120;
 #line 642
-        *((__u32 *)pix) = 160U;
+        pix->width = (__u32 )160;
       } else {
         {
 #line 640
-        __cil_tmp20 = *((__u32 *)pix);
+        __cil_tmp8 = pix->width;
 #line 640
-        if (__cil_tmp20 < 160U) {
+        if (__cil_tmp8 < 160U) {
 #line 641
-          __cil_tmp21 = (unsigned long )pix;
-#line 641
-          __cil_tmp22 = __cil_tmp21 + 4;
-#line 641
-          *((__u32 *)__cil_tmp22) = 120U;
+          pix->height = (__u32 )120;
 #line 642
-          *((__u32 *)pix) = 160U;
+          pix->width = (__u32 )160;
         } else {
 #line 644
-          __cil_tmp23 = (unsigned long )pix;
-#line 644
-          __cil_tmp24 = __cil_tmp23 + 4;
-#line 644
-          *((__u32 *)__cil_tmp24) = 240U;
+          pix->height = (__u32 )240;
 #line 645
-          *((__u32 *)pix) = 320U;
+          pix->width = (__u32 )320;
         }
         }
       }
@@ -11540,57 +9846,33 @@ static int qcam_try_fmt_vid_cap(struct file *file , void *fh , struct v4l2_forma
   }
   }
 #line 647
-  __cil_tmp25 = (unsigned long )pix;
+  __cil_tmp9 = 51U << 24;
 #line 647
-  __cil_tmp26 = __cil_tmp25 + 8;
+  __cil_tmp10 = 66U << 16;
 #line 647
-  __cil_tmp27 = 51U << 24;
+  __cil_tmp11 = 71U << 8;
 #line 647
-  __cil_tmp28 = 66U << 16;
+  __cil_tmp12 = 82U | __cil_tmp11;
 #line 647
-  __cil_tmp29 = 71U << 8;
+  __cil_tmp13 = __cil_tmp12 | __cil_tmp10;
 #line 647
-  __cil_tmp30 = 82U | __cil_tmp29;
-#line 647
-  __cil_tmp31 = __cil_tmp30 | __cil_tmp28;
-#line 647
-  *((__u32 *)__cil_tmp26) = __cil_tmp31 | __cil_tmp27;
+  pix->pixelformat = __cil_tmp13 | __cil_tmp9;
 #line 648
-  __cil_tmp32 = (unsigned long )pix;
-#line 648
-  __cil_tmp33 = __cil_tmp32 + 12;
-#line 648
-  *((enum v4l2_field *)__cil_tmp33) = (enum v4l2_field )1;
+  pix->field = (enum v4l2_field )1;
 #line 649
-  __cil_tmp34 = (unsigned long )pix;
+  __cil_tmp14 = pix->width;
 #line 649
-  __cil_tmp35 = __cil_tmp34 + 44;
-#line 649
-  __cil_tmp36 = *((__u32 *)pix);
-#line 649
-  *((__u32 *)__cil_tmp35) = 3U * __cil_tmp36;
+  pix->bytesperline = 3U * __cil_tmp14;
 #line 650
-  __cil_tmp37 = (unsigned long )pix;
+  __cil_tmp15 = pix->height;
 #line 650
-  __cil_tmp38 = __cil_tmp37 + 48;
+  __cil_tmp16 = pix->width;
 #line 650
-  __cil_tmp39 = (unsigned long )pix;
+  __cil_tmp17 = 3U * __cil_tmp16;
 #line 650
-  __cil_tmp40 = __cil_tmp39 + 4;
-#line 650
-  __cil_tmp41 = *((__u32 *)__cil_tmp40);
-#line 650
-  __cil_tmp42 = *((__u32 *)pix);
-#line 650
-  __cil_tmp43 = 3U * __cil_tmp42;
-#line 650
-  *((__u32 *)__cil_tmp38) = __cil_tmp43 * __cil_tmp41;
+  pix->sizeimage = __cil_tmp17 * __cil_tmp15;
 #line 652
-  __cil_tmp44 = (unsigned long )pix;
-#line 652
-  __cil_tmp45 = __cil_tmp44 + 52;
-#line 652
-  *((enum v4l2_colorspace *)__cil_tmp45) = (enum v4l2_colorspace )8;
+  pix->colorspace = (enum v4l2_colorspace )8;
 #line 653
   return (0);
 }
@@ -11602,47 +9884,17 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
   struct v4l2_pix_format *pix ;
   int ret ;
   int tmp___8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  __u32 __cil_tmp13 ;
+  __u32 __cil_tmp9 ;
+  int __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  __u32 __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct mutex *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  __u32 __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  __u32 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct pardevice *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct pardevice *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct mutex *__cil_tmp49 ;
+  __u32 __cil_tmp15 ;
+  __u32 __cil_tmp16 ;
+  struct pardevice *__cil_tmp17 ;
+  struct pardevice *__cil_tmp18 ;
+  struct mutex *__cil_tmp19 ;
 
   {
   {
@@ -11651,11 +9903,7 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 #line 658
   qcam = (struct qcam *)tmp___7;
 #line 659
-  __cil_tmp9 = (unsigned long )fmt;
-#line 659
-  __cil_tmp10 = __cil_tmp9 + 32;
-#line 659
-  pix = (struct v4l2_pix_format *)__cil_tmp10;
+  pix = & fmt->fmt.pix;
 #line 660
   tmp___8 = qcam_try_fmt_vid_cap(file, fh, fmt);
 #line 660
@@ -11670,56 +9918,42 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
   }
   {
 #line 665
-  __cil_tmp11 = (unsigned long )pix;
+  __cil_tmp9 = pix->height;
 #line 665
-  __cil_tmp12 = __cil_tmp11 + 4;
+  __cil_tmp10 = (int )__cil_tmp9;
 #line 665
-  __cil_tmp13 = *((__u32 *)__cil_tmp12);
+  if (__cil_tmp10 == 60) {
 #line 665
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 665
-  if (__cil_tmp14 == 60) {
     goto case_60;
   } else {
     {
 #line 668
-    __cil_tmp15 = (unsigned long )pix;
+    __cil_tmp11 = pix->height;
 #line 668
-    __cil_tmp16 = __cil_tmp15 + 4;
+    __cil_tmp12 = (int )__cil_tmp11;
 #line 668
-    __cil_tmp17 = *((__u32 *)__cil_tmp16);
+    if (__cil_tmp12 == 120) {
 #line 668
-    __cil_tmp18 = (int )__cil_tmp17;
-#line 668
-    if (__cil_tmp18 == 120) {
       goto case_120;
     } else {
+#line 671
       goto switch_default;
 #line 664
       if (0) {
         case_60: 
 #line 666
-        __cil_tmp19 = (unsigned long )qcam;
-#line 666
-        __cil_tmp20 = __cil_tmp19 + 1936;
-#line 666
-        *((int *)__cil_tmp20) = 4;
+        qcam->mode = 4;
+#line 667
         goto switch_break;
         case_120: 
 #line 669
-        __cil_tmp21 = (unsigned long )qcam;
-#line 669
-        __cil_tmp22 = __cil_tmp21 + 1936;
-#line 669
-        *((int *)__cil_tmp22) = 2;
+        qcam->mode = 2;
+#line 670
         goto switch_break;
         switch_default: 
 #line 672
-        __cil_tmp23 = (unsigned long )qcam;
-#line 672
-        __cil_tmp24 = __cil_tmp23 + 1936;
-#line 672
-        *((int *)__cil_tmp24) = 0;
+        qcam->mode = 0;
+#line 673
         goto switch_break;
       } else {
         switch_break: ;
@@ -11730,71 +9964,35 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
   }
   {
 #line 676
-  __cil_tmp25 = (unsigned long )qcam;
+  __cil_tmp13 = & qcam->lock;
 #line 676
-  __cil_tmp26 = __cil_tmp25 + 1968;
-#line 676
-  __cil_tmp27 = (struct mutex *)__cil_tmp26;
-#line 676
-  mutex_lock_nested(__cil_tmp27, 0U);
+  mutex_lock_nested(__cil_tmp13, 0U);
 #line 677
-  __cil_tmp28 = (unsigned long )qcam;
+  __cil_tmp14 = qcam->mode;
 #line 677
-  __cil_tmp29 = __cil_tmp28 + 1936;
-#line 677
-  __cil_tmp30 = (unsigned long )qcam;
-#line 677
-  __cil_tmp31 = __cil_tmp30 + 1936;
-#line 677
-  __cil_tmp32 = *((int *)__cil_tmp31);
-#line 677
-  *((int *)__cil_tmp29) = __cil_tmp32 | 24;
+  qcam->mode = __cil_tmp14 | 24;
 #line 678
-  __cil_tmp33 = (unsigned long )qcam;
+  __cil_tmp15 = pix->height;
 #line 678
-  __cil_tmp34 = __cil_tmp33 + 1924;
-#line 678
-  __cil_tmp35 = (unsigned long )pix;
-#line 678
-  __cil_tmp36 = __cil_tmp35 + 4;
-#line 678
-  __cil_tmp37 = *((__u32 *)__cil_tmp36);
-#line 678
-  *((int *)__cil_tmp34) = (int )__cil_tmp37;
+  qcam->height = (int )__cil_tmp15;
 #line 679
-  __cil_tmp38 = (unsigned long )qcam;
+  __cil_tmp16 = pix->width;
 #line 679
-  __cil_tmp39 = __cil_tmp38 + 1920;
-#line 679
-  __cil_tmp40 = *((__u32 *)pix);
-#line 679
-  *((int *)__cil_tmp39) = (int )__cil_tmp40;
+  qcam->width = (int )__cil_tmp16;
 #line 680
-  __cil_tmp41 = (unsigned long )qcam;
+  __cil_tmp17 = qcam->pdev;
 #line 680
-  __cil_tmp42 = __cil_tmp41 + 1904;
-#line 680
-  __cil_tmp43 = *((struct pardevice **)__cil_tmp42);
-#line 680
-  parport_claim_or_block(__cil_tmp43);
+  parport_claim_or_block(__cil_tmp17);
 #line 681
   qc_setup(qcam);
 #line 682
-  __cil_tmp44 = (unsigned long )qcam;
+  __cil_tmp18 = qcam->pdev;
 #line 682
-  __cil_tmp45 = __cil_tmp44 + 1904;
-#line 682
-  __cil_tmp46 = *((struct pardevice **)__cil_tmp45);
-#line 682
-  parport_release(__cil_tmp46);
+  parport_release(__cil_tmp18);
 #line 683
-  __cil_tmp47 = (unsigned long )qcam;
+  __cil_tmp19 = & qcam->lock;
 #line 683
-  __cil_tmp48 = __cil_tmp47 + 1968;
-#line 683
-  __cil_tmp49 = (struct mutex *)__cil_tmp48;
-#line 683
-  mutex_unlock(__cil_tmp49);
+  mutex_unlock(__cil_tmp19);
   }
 #line 684
   return (0);
@@ -11803,35 +10001,24 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 #line 689
 static int qcam_enum_fmt_vid_cap(struct file *file , void *fh , struct v4l2_fmtdesc *fmt ) ;
 #line 689 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
-static struct v4l2_fmtdesc formats[1]  = {      {0U, (enum v4l2_buf_type )0, 0U, {(unsigned char )'R', (unsigned char )'G', (unsigned char )'B',
-                                       (unsigned char )' ', (unsigned char )'8', (unsigned char )':',
-                                       (unsigned char )'8', (unsigned char )':', (unsigned char )'8',
-                                       (unsigned char )'\000'}, ((82U | (71U << 8)) | (66U << 16)) | (51U << 24),
-      {0U, 0U, 0U, 0U}}};
+static struct v4l2_fmtdesc formats[1]  = {      {(__u32 )0, (enum v4l2_buf_type )0, (__u32 )0, {(__u8 )'R', (__u8 )'G', (__u8 )'B',
+                                                     (__u8 )' ', (__u8 )'8', (__u8 )':',
+                                                     (__u8 )'8', (__u8 )':', (__u8 )'8',
+                                                     (__u8 )'\000'}, ((82U | (71U << 8)) | (66U << 16)) | (51U << 24),
+      {(__u32 )0, (__u32 )0, (__u32 )0, (__u32 )0}}};
 #line 687 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_enum_fmt_vid_cap(struct file *file , void *fh , struct v4l2_fmtdesc *fmt ) 
 { enum v4l2_buf_type type ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  __u32 __cil_tmp7 ;
-  __u32 __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  __u32 __cil_tmp5 ;
 
   {
 #line 695
-  __cil_tmp5 = (unsigned long )fmt;
-#line 695
-  __cil_tmp6 = __cil_tmp5 + 4;
-#line 695
-  type = *((enum v4l2_buf_type *)__cil_tmp6);
+  type = fmt->type;
   {
 #line 697
-  __cil_tmp7 = *((__u32 *)fmt);
+  __cil_tmp5 = fmt->index;
 #line 697
-  if (__cil_tmp7 > 0U) {
+  if (__cil_tmp5 > 0U) {
 #line 698
     return (-22);
   } else {
@@ -11839,19 +10026,9 @@ static int qcam_enum_fmt_vid_cap(struct file *file , void *fh , struct v4l2_fmtd
   }
   }
 #line 700
-  __cil_tmp8 = *((__u32 *)fmt);
-#line 700
-  __cil_tmp9 = __cil_tmp8 * 92UL;
-#line 700
-  __cil_tmp10 = (unsigned long )(formats) + __cil_tmp9;
-#line 700
-  *fmt = *((struct v4l2_fmtdesc *)__cil_tmp10);
+  *fmt = formats[fmt->index];
 #line 701
-  __cil_tmp11 = (unsigned long )fmt;
-#line 701
-  __cil_tmp12 = __cil_tmp11 + 4;
-#line 701
-  *((enum v4l2_buf_type *)__cil_tmp12) = type;
+  fmt->type = type;
 #line 702
   return (0);
 }
@@ -11862,18 +10039,10 @@ static ssize_t qcam_read(struct file *file , char *buf , size_t count , loff_t *
   void *tmp___7 ;
   int len ;
   long tmp___8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct mutex *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct pardevice *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct pardevice *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct mutex *__cil_tmp20 ;
+  struct mutex *__cil_tmp9 ;
+  struct pardevice *__cil_tmp10 ;
+  struct pardevice *__cil_tmp11 ;
+  struct mutex *__cil_tmp12 ;
 
   {
   {
@@ -11882,44 +10051,28 @@ static ssize_t qcam_read(struct file *file , char *buf , size_t count , loff_t *
 #line 708
   qcam = (struct qcam *)tmp___7;
 #line 711
-  __cil_tmp9 = (unsigned long )qcam;
+  __cil_tmp9 = & qcam->lock;
 #line 711
-  __cil_tmp10 = __cil_tmp9 + 1968;
-#line 711
-  __cil_tmp11 = (struct mutex *)__cil_tmp10;
-#line 711
-  mutex_lock_nested(__cil_tmp11, 0U);
+  mutex_lock_nested(__cil_tmp9, 0U);
 #line 712
-  __cil_tmp12 = (unsigned long )qcam;
+  __cil_tmp10 = qcam->pdev;
 #line 712
-  __cil_tmp13 = __cil_tmp12 + 1904;
-#line 712
-  __cil_tmp14 = *((struct pardevice **)__cil_tmp13);
-#line 712
-  parport_claim_or_block(__cil_tmp14);
+  parport_claim_or_block(__cil_tmp10);
 #line 714
   tmp___8 = qc_capture(qcam, buf, count);
 #line 714
   len = (int )tmp___8;
 #line 715
-  __cil_tmp15 = (unsigned long )qcam;
+  __cil_tmp11 = qcam->pdev;
 #line 715
-  __cil_tmp16 = __cil_tmp15 + 1904;
-#line 715
-  __cil_tmp17 = *((struct pardevice **)__cil_tmp16);
-#line 715
-  parport_release(__cil_tmp17);
+  parport_release(__cil_tmp11);
 #line 716
-  __cil_tmp18 = (unsigned long )qcam;
+  __cil_tmp12 = & qcam->lock;
 #line 716
-  __cil_tmp19 = __cil_tmp18 + 1968;
-#line 716
-  __cil_tmp20 = (struct mutex *)__cil_tmp19;
-#line 716
-  mutex_unlock(__cil_tmp20);
+  mutex_unlock(__cil_tmp12);
   }
 #line 717
-  return ((long )len);
+  return ((ssize_t )len);
 }
 }
 #line 720 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
@@ -12091,108 +10244,39 @@ static struct qcam *qcam_init(struct parport *port )
   unsigned long __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
   void *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  char *__cil_tmp18 ;
+  char *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  struct device *__cil_tmp16 ;
+  char *__cil_tmp17 ;
+  void *__cil_tmp18 ;
   void *__cil_tmp19 ;
-  struct device *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  char *__cil_tmp25 ;
-  void *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  void *__cil_tmp31 ;
-  int (*__cil_tmp32)(void * ) ;
-  void *__cil_tmp33 ;
-  void (*__cil_tmp34)(void * ) ;
-  void *__cil_tmp35 ;
-  void (*__cil_tmp36)(void * ) ;
+  int (*__cil_tmp20)(void * ) ;
+  void *__cil_tmp21 ;
+  void (*__cil_tmp22)(void * ) ;
+  void *__cil_tmp23 ;
+  void (*__cil_tmp24)(void * ) ;
+  void *__cil_tmp25 ;
+  int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  struct parport *__cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  void *__cil_tmp30 ;
+  unsigned long __cil_tmp31 ;
+  struct pardevice *__cil_tmp32 ;
+  unsigned long __cil_tmp33 ;
+  char *__cil_tmp34 ;
+  char const   *__cil_tmp35 ;
+  void const   *__cil_tmp36 ;
   void *__cil_tmp37 ;
-  int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct parport *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  void *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct pardevice *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  char *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  char const   *__cil_tmp63 ;
-  void const   *__cil_tmp64 ;
-  void *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  char *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  struct video_device *__cil_tmp86 ;
-  void *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  struct mutex *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
+  char *__cil_tmp38 ;
+  struct video_device *__cil_tmp39 ;
+  void *__cil_tmp40 ;
+  struct mutex *__cil_tmp41 ;
 
   {
   {
 #line 747
-  tmp___7 = kzalloc(2136UL, 208U);
+  tmp___7 = kzalloc(2080UL, 208U);
 #line 747
   qcam = (struct qcam *)tmp___7;
   }
@@ -12217,25 +10301,17 @@ static struct qcam *qcam_init(struct parport *port )
   }
   {
 #line 751
-  v4l2_dev = (struct v4l2_device *)qcam;
+  v4l2_dev = & qcam->v4l2_dev;
 #line 752
-  __cil_tmp14 = 0 * 1UL;
+  __cil_tmp14 = & v4l2_dev->name[0];
 #line 752
-  __cil_tmp15 = 104 + __cil_tmp14;
-#line 752
-  __cil_tmp16 = (unsigned long )v4l2_dev;
-#line 752
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 752
-  __cil_tmp18 = (char *)__cil_tmp17;
-#line 752
-  strlcpy(__cil_tmp18, "c-qcam", 36UL);
+  strlcpy(__cil_tmp14, "c-qcam", 36UL);
 #line 754
-  __cil_tmp19 = (void *)0;
+  __cil_tmp15 = (void *)0;
 #line 754
-  __cil_tmp20 = (struct device *)__cil_tmp19;
+  __cil_tmp16 = (struct device *)__cil_tmp15;
 #line 754
-  tmp___11 = (int )v4l2_device_register(__cil_tmp20, v4l2_dev);
+  tmp___11 = (int )v4l2_device_register(__cil_tmp16, v4l2_dev);
 #line 754
   tmp = tmp___11;
 #line 754
@@ -12245,135 +10321,86 @@ static struct qcam *qcam_init(struct parport *port )
   if (tmp___8 < 0) {
     {
 #line 755
-    __cil_tmp21 = 0 * 1UL;
+    __cil_tmp17 = & v4l2_dev->name[0];
 #line 755
-    __cil_tmp22 = 104 + __cil_tmp21;
-#line 755
-    __cil_tmp23 = (unsigned long )v4l2_dev;
-#line 755
-    __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 755
-    __cil_tmp25 = (char *)__cil_tmp24;
-#line 755
-    printk("<3>%s: Could not register v4l2_device\n", __cil_tmp25);
+    printk("<3>%s: Could not register v4l2_device\n", __cil_tmp17);
     }
     {
 #line 756
-    __cil_tmp26 = (void *)0;
+    __cil_tmp18 = (void *)0;
 #line 756
-    return ((struct qcam *)__cil_tmp26);
+    return ((struct qcam *)__cil_tmp18);
     }
   } else {
 
   }
   {
 #line 759
-  __cil_tmp27 = (unsigned long )qcam;
-#line 759
-  __cil_tmp28 = __cil_tmp27 + 1912;
-#line 759
-  *((struct parport **)__cil_tmp28) = port;
+  qcam->pport = port;
 #line 760
-  __cil_tmp29 = (unsigned long )qcam;
+  __cil_tmp19 = (void *)0;
 #line 760
-  __cil_tmp30 = __cil_tmp29 + 1904;
+  __cil_tmp20 = (int (*)(void * ))__cil_tmp19;
 #line 760
-  __cil_tmp31 = (void *)0;
+  __cil_tmp21 = (void *)0;
 #line 760
-  __cil_tmp32 = (int (*)(void * ))__cil_tmp31;
+  __cil_tmp22 = (void (*)(void * ))__cil_tmp21;
 #line 760
-  __cil_tmp33 = (void *)0;
+  __cil_tmp23 = (void *)0;
 #line 760
-  __cil_tmp34 = (void (*)(void * ))__cil_tmp33;
+  __cil_tmp24 = (void (*)(void * ))__cil_tmp23;
 #line 760
-  __cil_tmp35 = (void *)0;
+  __cil_tmp25 = (void *)0;
 #line 760
-  __cil_tmp36 = (void (*)(void * ))__cil_tmp35;
-#line 760
-  __cil_tmp37 = (void *)0;
-#line 760
-  *((struct pardevice **)__cil_tmp30) = parport_register_device(port, "c-qcam", __cil_tmp32,
-                                                                __cil_tmp34, __cil_tmp36,
-                                                                0, __cil_tmp37);
+  qcam->pdev = parport_register_device(port, "c-qcam", __cil_tmp20, __cil_tmp22, __cil_tmp24,
+                                       0, __cil_tmp25);
   }
   {
 #line 763
-  __cil_tmp38 = 1 << 1;
+  __cil_tmp26 = 1 << 1;
 #line 763
-  __cil_tmp39 = (unsigned int )__cil_tmp38;
+  __cil_tmp27 = (unsigned int )__cil_tmp26;
 #line 763
-  __cil_tmp40 = (unsigned long )qcam;
+  __cil_tmp28 = qcam->pport;
 #line 763
-  __cil_tmp41 = __cil_tmp40 + 1912;
+  __cil_tmp29 = __cil_tmp28->modes;
 #line 763
-  __cil_tmp42 = *((struct parport **)__cil_tmp41);
+  if (__cil_tmp29 & __cil_tmp27) {
 #line 763
-  __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 763
-  __cil_tmp44 = __cil_tmp43 + 32;
-#line 763
-  __cil_tmp45 = *((unsigned int *)__cil_tmp44);
-#line 763
-  if (__cil_tmp45 & __cil_tmp39) {
-#line 763
-    __cil_tmp46 = (unsigned long )qcam;
-#line 763
-    __cil_tmp47 = __cil_tmp46 + 1960;
-#line 763
-    *((unsigned int *)__cil_tmp47) = 1U;
+    qcam->bidirectional = 1U;
   } else {
 #line 763
-    __cil_tmp48 = (unsigned long )qcam;
-#line 763
-    __cil_tmp49 = __cil_tmp48 + 1960;
-#line 763
-    *((unsigned int *)__cil_tmp49) = 0U;
+    qcam->bidirectional = 0U;
   }
   }
   {
 #line 765
-  __cil_tmp50 = (void *)0;
+  __cil_tmp30 = (void *)0;
 #line 765
-  __cil_tmp51 = (unsigned long )__cil_tmp50;
+  __cil_tmp31 = (unsigned long )__cil_tmp30;
 #line 765
-  __cil_tmp52 = (unsigned long )qcam;
+  __cil_tmp32 = qcam->pdev;
 #line 765
-  __cil_tmp53 = __cil_tmp52 + 1904;
+  __cil_tmp33 = (unsigned long )__cil_tmp32;
 #line 765
-  __cil_tmp54 = *((struct pardevice **)__cil_tmp53);
-#line 765
-  __cil_tmp55 = (unsigned long )__cil_tmp54;
-#line 765
-  if (__cil_tmp55 == __cil_tmp51) {
+  if (__cil_tmp33 == __cil_tmp31) {
     {
 #line 766
-    __cil_tmp56 = 0 * 1UL;
+    __cil_tmp34 = & v4l2_dev->name[0];
 #line 766
-    __cil_tmp57 = 104 + __cil_tmp56;
+    __cil_tmp35 = port->name;
 #line 766
-    __cil_tmp58 = (unsigned long )v4l2_dev;
-#line 766
-    __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 766
-    __cil_tmp60 = (char *)__cil_tmp59;
-#line 766
-    __cil_tmp61 = (unsigned long )port;
-#line 766
-    __cil_tmp62 = __cil_tmp61 + 24;
-#line 766
-    __cil_tmp63 = *((char const   **)__cil_tmp62);
-#line 766
-    printk("<3>%s: couldn\'t register for %s.\n", __cil_tmp60, __cil_tmp63);
+    printk("<3>%s: couldn\'t register for %s.\n", __cil_tmp34, __cil_tmp35);
 #line 767
-    __cil_tmp64 = (void const   *)qcam;
+    __cil_tmp36 = (void const   *)qcam;
 #line 767
-    kfree(__cil_tmp64);
+    kfree(__cil_tmp36);
     }
     {
 #line 768
-    __cil_tmp65 = (void *)0;
+    __cil_tmp37 = (void *)0;
 #line 768
-    return ((struct qcam *)__cil_tmp65);
+    return ((struct qcam *)__cil_tmp37);
     }
   } else {
 
@@ -12381,146 +10408,65 @@ static struct qcam *qcam_init(struct parport *port )
   }
   {
 #line 771
-  __cil_tmp66 = 0 * 1UL;
+  __cil_tmp38 = & qcam->vdev.name[0];
 #line 771
-  __cil_tmp67 = 1344 + __cil_tmp66;
-#line 771
-  __cil_tmp68 = 360 + __cil_tmp67;
-#line 771
-  __cil_tmp69 = (unsigned long )qcam;
-#line 771
-  __cil_tmp70 = __cil_tmp69 + __cil_tmp68;
-#line 771
-  __cil_tmp71 = (char *)__cil_tmp70;
-#line 771
-  strlcpy(__cil_tmp71, "Colour QuickCam", 32UL);
+  strlcpy(__cil_tmp38, "Colour QuickCam", 32UL);
 #line 772
-  __cil_tmp72 = 360 + 1320;
-#line 772
-  __cil_tmp73 = (unsigned long )qcam;
-#line 772
-  __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
-#line 772
-  *((struct v4l2_device **)__cil_tmp74) = v4l2_dev;
+  qcam->vdev.v4l2_dev = v4l2_dev;
 #line 773
-  __cil_tmp75 = 360 + 128;
-#line 773
-  __cil_tmp76 = (unsigned long )qcam;
-#line 773
-  __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 773
-  *((struct v4l2_file_operations  const  **)__cil_tmp77) = & qcam_fops;
+  qcam->vdev.fops = & qcam_fops;
 #line 774
-  __cil_tmp78 = 360 + 1528;
-#line 774
-  __cil_tmp79 = (unsigned long )qcam;
-#line 774
-  __cil_tmp80 = __cil_tmp79 + __cil_tmp78;
-#line 774
-  *((struct v4l2_ioctl_ops  const  **)__cil_tmp80) = & qcam_ioctl_ops;
+  qcam->vdev.ioctl_ops = & qcam_ioctl_ops;
 #line 775
-  __cil_tmp81 = 360 + 1520;
-#line 775
-  __cil_tmp82 = (unsigned long )qcam;
-#line 775
-  __cil_tmp83 = __cil_tmp82 + __cil_tmp81;
-#line 775
-  *((void (**)(struct video_device *vdev ))__cil_tmp83) = & video_device_release_empty;
+  qcam->vdev.release = & video_device_release_empty;
 #line 776
-  __cil_tmp84 = (unsigned long )qcam;
+  __cil_tmp39 = & qcam->vdev;
 #line 776
-  __cil_tmp85 = __cil_tmp84 + 360;
+  __cil_tmp40 = (void *)qcam;
 #line 776
-  __cil_tmp86 = (struct video_device *)__cil_tmp85;
-#line 776
-  __cil_tmp87 = (void *)qcam;
-#line 776
-  video_set_drvdata(__cil_tmp86, __cil_tmp87);
+  video_set_drvdata(__cil_tmp39, __cil_tmp40);
   }
   {
 #line 778
   while (1) {
-    while_12_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 778
-    __cil_tmp88 = (unsigned long )qcam;
+    __cil_tmp41 = & qcam->lock;
 #line 778
-    __cil_tmp89 = __cil_tmp88 + 1968;
-#line 778
-    __cil_tmp90 = (struct mutex *)__cil_tmp89;
-#line 778
-    __mutex_init(__cil_tmp90, "&qcam->lock", & __key___5);
+    __mutex_init(__cil_tmp41, "&qcam->lock", & __key___5);
     }
+#line 778
     goto while_break;
   }
-  while_12_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
 #line 779
   tmp___9 = 320;
 #line 779
-  __cil_tmp91 = (unsigned long )qcam;
+  qcam->ccd_width = tmp___9;
 #line 779
-  __cil_tmp92 = __cil_tmp91 + 1928;
-#line 779
-  *((int *)__cil_tmp92) = tmp___9;
-#line 779
-  __cil_tmp93 = (unsigned long )qcam;
-#line 779
-  __cil_tmp94 = __cil_tmp93 + 1920;
-#line 779
-  *((int *)__cil_tmp94) = tmp___9;
+  qcam->width = tmp___9;
 #line 780
   tmp___10 = 240;
 #line 780
-  __cil_tmp95 = (unsigned long )qcam;
+  qcam->ccd_height = tmp___10;
 #line 780
-  __cil_tmp96 = __cil_tmp95 + 1932;
-#line 780
-  *((int *)__cil_tmp96) = tmp___10;
-#line 780
-  __cil_tmp97 = (unsigned long )qcam;
-#line 780
-  __cil_tmp98 = __cil_tmp97 + 1924;
-#line 780
-  *((int *)__cil_tmp98) = tmp___10;
+  qcam->height = tmp___10;
 #line 781
-  __cil_tmp99 = (unsigned long )qcam;
-#line 781
-  __cil_tmp100 = __cil_tmp99 + 1936;
-#line 781
-  *((int *)__cil_tmp100) = 24;
+  qcam->mode = 24;
 #line 782
-  __cil_tmp101 = (unsigned long )qcam;
-#line 782
-  __cil_tmp102 = __cil_tmp101 + 1940;
-#line 782
-  *((int *)__cil_tmp102) = 192;
+  qcam->contrast = 192;
 #line 783
-  __cil_tmp103 = (unsigned long )qcam;
-#line 783
-  __cil_tmp104 = __cil_tmp103 + 1944;
-#line 783
-  *((int *)__cil_tmp104) = 240;
+  qcam->brightness = 240;
 #line 784
-  __cil_tmp105 = (unsigned long )qcam;
-#line 784
-  __cil_tmp106 = __cil_tmp105 + 1948;
-#line 784
-  *((int *)__cil_tmp106) = 128;
+  qcam->whitebal = 128;
 #line 785
-  __cil_tmp107 = (unsigned long )qcam;
-#line 785
-  __cil_tmp108 = __cil_tmp107 + 1952;
-#line 785
-  *((int *)__cil_tmp108) = 1;
+  qcam->top = 1;
 #line 786
-  __cil_tmp109 = (unsigned long )qcam;
-#line 786
-  __cil_tmp110 = __cil_tmp109 + 1956;
-#line 786
-  *((int *)__cil_tmp110) = 14;
+  qcam->left = 14;
 #line 787
   return (qcam);
 }
@@ -12537,82 +10483,29 @@ static int init_cqcam(struct parport *port )
   unsigned int tmp___10 ;
   int tmp ;
   int tmp___11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  int __cil_tmp23 ;
-  void *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct pardevice *__cil_tmp29 ;
-  int *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct pardevice *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct pardevice *__cil_tmp36 ;
-  void const   *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct pardevice *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct video_device *__cil_tmp43 ;
-  int *__cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  char *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct parport *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  char const   *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  struct pardevice *__cil_tmp59 ;
-  void const   *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct video_device *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  char *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  struct parport *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  char const   *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
+  struct pardevice *__cil_tmp16 ;
+  struct pardevice *__cil_tmp17 ;
+  struct pardevice *__cil_tmp18 ;
+  void const   *__cil_tmp19 ;
+  struct pardevice *__cil_tmp20 ;
+  struct video_device *__cil_tmp21 ;
+  char *__cil_tmp22 ;
+  struct parport *__cil_tmp23 ;
+  char const   *__cil_tmp24 ;
+  struct pardevice *__cil_tmp25 ;
+  void const   *__cil_tmp26 ;
+  struct video_device *__cil_tmp27 ;
+  char *__cil_tmp28 ;
+  struct parport *__cil_tmp29 ;
+  char const   *__cil_tmp30 ;
 
   {
-  {
 #line 795
-  __cil_tmp12 = 0 * 4UL;
-#line 795
-  __cil_tmp13 = (unsigned long )(parport) + __cil_tmp12;
-#line 795
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 795
-  if (__cil_tmp14 != -1) {
+  if (parport[0] != -1) {
 #line 797
     found = 0;
 #line 799
@@ -12620,42 +10513,26 @@ static int init_cqcam(struct parport *port )
     {
 #line 799
     while (1) {
-      while_13_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
 #line 799
       if (i < 4) {
-        {
 #line 799
-        __cil_tmp15 = i * 4UL;
-#line 799
-        __cil_tmp16 = (unsigned long )(parport) + __cil_tmp15;
-#line 799
-        __cil_tmp17 = *((int *)__cil_tmp16);
-#line 799
-        if (__cil_tmp17 != -1) {
+        if (parport[i] != -1) {
 
         } else {
+#line 799
           goto while_break;
         }
-        }
       } else {
+#line 799
         goto while_break;
       }
       {
 #line 800
-      __cil_tmp18 = (unsigned long )port;
+      __cil_tmp12 = port->number;
 #line 800
-      __cil_tmp19 = __cil_tmp18 + 656;
-#line 800
-      __cil_tmp20 = *((int *)__cil_tmp19);
-#line 800
-      __cil_tmp21 = 0 * 4UL;
-#line 800
-      __cil_tmp22 = (unsigned long )(parport) + __cil_tmp21;
-#line 800
-      __cil_tmp23 = *((int *)__cil_tmp22);
-#line 800
-      if (__cil_tmp23 == __cil_tmp20) {
+      if (parport[0] == __cil_tmp12) {
 #line 801
         found = 1;
       } else {
@@ -12665,7 +10542,7 @@ static int init_cqcam(struct parport *port )
 #line 799
       i = i + 1;
     }
-    while_13_break: /* CIL Label */ ;
+    while_break___0: /* CIL Label */ ;
     }
 
     while_break: ;
@@ -12678,7 +10555,6 @@ static int init_cqcam(struct parport *port )
     }
   } else {
 
-  }
   }
 #line 807
   if (num_cams == 4U) {
@@ -12693,13 +10569,13 @@ static int init_cqcam(struct parport *port )
   }
   {
 #line 811
-  __cil_tmp24 = (void *)0;
+  __cil_tmp13 = (void *)0;
 #line 811
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
+  __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 811
-  __cil_tmp26 = (unsigned long )qcam;
+  __cil_tmp15 = (unsigned long )qcam;
 #line 811
-  if (__cil_tmp26 == __cil_tmp25) {
+  if (__cil_tmp15 == __cil_tmp14) {
 #line 812
     return (-19);
   } else {
@@ -12708,23 +10584,16 @@ static int init_cqcam(struct parport *port )
   }
   {
 #line 814
-  v4l2_dev = (struct v4l2_device *)qcam;
+  v4l2_dev = & qcam->v4l2_dev;
 #line 816
-  __cil_tmp27 = (unsigned long )qcam;
+  __cil_tmp16 = qcam->pdev;
 #line 816
-  __cil_tmp28 = __cil_tmp27 + 1904;
-#line 816
-  __cil_tmp29 = *((struct pardevice **)__cil_tmp28);
-#line 816
-  parport_claim_or_block(__cil_tmp29);
+  parport_claim_or_block(__cil_tmp16);
 #line 818
   qc_reset(qcam);
   }
-  {
 #line 820
-  __cil_tmp30 = & probe;
-#line 820
-  if (*__cil_tmp30) {
+  if (probe) {
     {
 #line 820
     tmp___7 = qc_detect(qcam);
@@ -12733,25 +10602,17 @@ static int init_cqcam(struct parport *port )
     if (tmp___7 == 0) {
       {
 #line 821
-      __cil_tmp31 = (unsigned long )qcam;
+      __cil_tmp17 = qcam->pdev;
 #line 821
-      __cil_tmp32 = __cil_tmp31 + 1904;
-#line 821
-      __cil_tmp33 = *((struct pardevice **)__cil_tmp32);
-#line 821
-      parport_release(__cil_tmp33);
+      parport_release(__cil_tmp17);
 #line 822
-      __cil_tmp34 = (unsigned long )qcam;
+      __cil_tmp18 = qcam->pdev;
 #line 822
-      __cil_tmp35 = __cil_tmp34 + 1904;
-#line 822
-      __cil_tmp36 = *((struct pardevice **)__cil_tmp35);
-#line 822
-      parport_unregister_device(__cil_tmp36);
+      parport_unregister_device(__cil_tmp18);
 #line 823
-      __cil_tmp37 = (void const   *)qcam;
+      __cil_tmp19 = (void const   *)qcam;
 #line 823
-      kfree(__cil_tmp37);
+      kfree(__cil_tmp19);
       }
 #line 824
       return (-19);
@@ -12761,30 +10622,17 @@ static int init_cqcam(struct parport *port )
   } else {
 
   }
-  }
   {
 #line 827
   qc_setup(qcam);
 #line 829
-  __cil_tmp38 = (unsigned long )qcam;
+  __cil_tmp20 = qcam->pdev;
 #line 829
-  __cil_tmp39 = __cil_tmp38 + 1904;
-#line 829
-  __cil_tmp40 = *((struct pardevice **)__cil_tmp39);
-#line 829
-  parport_release(__cil_tmp40);
+  parport_release(__cil_tmp20);
 #line 831
-  __cil_tmp41 = (unsigned long )qcam;
+  __cil_tmp21 = & qcam->vdev;
 #line 831
-  __cil_tmp42 = __cil_tmp41 + 360;
-#line 831
-  __cil_tmp43 = (struct video_device *)__cil_tmp42;
-#line 831
-  __cil_tmp44 = & video_nr;
-#line 831
-  __cil_tmp45 = *__cil_tmp44;
-#line 831
-  tmp___11 = (int )video_register_device(__cil_tmp43, 0, __cil_tmp45);
+  tmp___11 = (int )video_register_device(__cil_tmp21, 0, video_nr);
 #line 831
   tmp = tmp___11;
 #line 831
@@ -12794,41 +10642,21 @@ static int init_cqcam(struct parport *port )
   if (tmp___8 < 0) {
     {
 #line 832
-    __cil_tmp46 = 0 * 1UL;
+    __cil_tmp22 = & v4l2_dev->name[0];
 #line 832
-    __cil_tmp47 = 104 + __cil_tmp46;
+    __cil_tmp23 = qcam->pport;
 #line 832
-    __cil_tmp48 = (unsigned long )v4l2_dev;
+    __cil_tmp24 = __cil_tmp23->name;
 #line 832
-    __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
-#line 832
-    __cil_tmp50 = (char *)__cil_tmp49;
-#line 832
-    __cil_tmp51 = (unsigned long )qcam;
-#line 832
-    __cil_tmp52 = __cil_tmp51 + 1912;
-#line 832
-    __cil_tmp53 = *((struct parport **)__cil_tmp52);
-#line 832
-    __cil_tmp54 = (unsigned long )__cil_tmp53;
-#line 832
-    __cil_tmp55 = __cil_tmp54 + 24;
-#line 832
-    __cil_tmp56 = *((char const   **)__cil_tmp55);
-#line 832
-    printk("<3>%s: Unable to register Colour QuickCam on %s\n", __cil_tmp50, __cil_tmp56);
+    printk("<3>%s: Unable to register Colour QuickCam on %s\n", __cil_tmp22, __cil_tmp24);
 #line 834
-    __cil_tmp57 = (unsigned long )qcam;
+    __cil_tmp25 = qcam->pdev;
 #line 834
-    __cil_tmp58 = __cil_tmp57 + 1904;
-#line 834
-    __cil_tmp59 = *((struct pardevice **)__cil_tmp58);
-#line 834
-    parport_unregister_device(__cil_tmp59);
+    parport_unregister_device(__cil_tmp25);
 #line 835
-    __cil_tmp60 = (void const   *)qcam;
+    __cil_tmp26 = (void const   *)qcam;
 #line 835
-    kfree(__cil_tmp60);
+    kfree(__cil_tmp26);
     }
 #line 836
     return (-19);
@@ -12837,47 +10665,23 @@ static int init_cqcam(struct parport *port )
   }
   {
 #line 839
-  __cil_tmp61 = (unsigned long )qcam;
+  __cil_tmp27 = & qcam->vdev;
 #line 839
-  __cil_tmp62 = __cil_tmp61 + 360;
+  tmp___9 = video_device_node_name(__cil_tmp27);
 #line 839
-  __cil_tmp63 = (struct video_device *)__cil_tmp62;
+  __cil_tmp28 = & v4l2_dev->name[0];
 #line 839
-  tmp___9 = video_device_node_name(__cil_tmp63);
+  __cil_tmp29 = qcam->pport;
 #line 839
-  __cil_tmp64 = 0 * 1UL;
+  __cil_tmp30 = __cil_tmp29->name;
 #line 839
-  __cil_tmp65 = 104 + __cil_tmp64;
-#line 839
-  __cil_tmp66 = (unsigned long )v4l2_dev;
-#line 839
-  __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 839
-  __cil_tmp68 = (char *)__cil_tmp67;
-#line 839
-  __cil_tmp69 = (unsigned long )qcam;
-#line 839
-  __cil_tmp70 = __cil_tmp69 + 1912;
-#line 839
-  __cil_tmp71 = *((struct parport **)__cil_tmp70);
-#line 839
-  __cil_tmp72 = (unsigned long )__cil_tmp71;
-#line 839
-  __cil_tmp73 = __cil_tmp72 + 24;
-#line 839
-  __cil_tmp74 = *((char const   **)__cil_tmp73);
-#line 839
-  printk("<6>%s: %s: Colour QuickCam found on %s\n", __cil_tmp68, tmp___9, __cil_tmp74);
+  printk("<6>%s: %s: Colour QuickCam found on %s\n", __cil_tmp28, tmp___9, __cil_tmp30);
 #line 842
   tmp___10 = num_cams;
 #line 842
   num_cams = num_cams + 1U;
 #line 842
-  __cil_tmp75 = tmp___10 * 8UL;
-#line 842
-  __cil_tmp76 = (unsigned long )(qcams) + __cil_tmp75;
-#line 842
-  *((struct qcam **)__cil_tmp76) = qcam;
+  qcams[tmp___10] = qcam;
   }
 #line 844
   return (0);
@@ -12885,36 +10689,24 @@ static int init_cqcam(struct parport *port )
 }
 #line 847 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void close_cqcam(struct qcam *qcam ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct video_device *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pardevice *__cil_tmp7 ;
-  void const   *__cil_tmp8 ;
+{ struct video_device *__cil_tmp2 ;
+  struct pardevice *__cil_tmp3 ;
+  void const   *__cil_tmp4 ;
 
   {
   {
 #line 849
-  __cil_tmp2 = (unsigned long )qcam;
+  __cil_tmp2 = & qcam->vdev;
 #line 849
-  __cil_tmp3 = __cil_tmp2 + 360;
-#line 849
-  __cil_tmp4 = (struct video_device *)__cil_tmp3;
-#line 849
-  video_unregister_device(__cil_tmp4);
+  video_unregister_device(__cil_tmp2);
 #line 850
-  __cil_tmp5 = (unsigned long )qcam;
+  __cil_tmp3 = qcam->pdev;
 #line 850
-  __cil_tmp6 = __cil_tmp5 + 1904;
-#line 850
-  __cil_tmp7 = *((struct pardevice **)__cil_tmp6);
-#line 850
-  parport_unregister_device(__cil_tmp7);
+  parport_unregister_device(__cil_tmp3);
 #line 851
-  __cil_tmp8 = (void const   *)qcam;
+  __cil_tmp4 = (void const   *)qcam;
 #line 851
-  kfree(__cil_tmp8);
+  kfree(__cil_tmp4);
   }
 #line 852
   return;
@@ -12970,9 +10762,6 @@ static void cqcam_cleanup(void)  __attribute__((__section__(".exit.text"), __no_
 #line 877 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void cqcam_cleanup(void) 
 { unsigned int i ;
-  unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct qcam *__cil_tmp4 ;
 
   {
 #line 881
@@ -12980,28 +10769,23 @@ static void cqcam_cleanup(void)
   {
 #line 881
   while (1) {
-    while_14_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 881
     if (i < num_cams) {
 
     } else {
+#line 881
       goto while_break;
     }
     {
 #line 882
-    __cil_tmp2 = i * 8UL;
-#line 882
-    __cil_tmp3 = (unsigned long )(qcams) + __cil_tmp2;
-#line 882
-    __cil_tmp4 = *((struct qcam **)__cil_tmp3);
-#line 882
-    close_cqcam(__cil_tmp4);
+    close_cqcam(qcams[i]);
 #line 881
     i = i + 1U;
     }
   }
-  while_14_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -13129,6 +10913,7 @@ void main(void)
   }
 #line 1190
   if (tmp___7) {
+#line 1191
     goto ldv_final;
   } else {
 
@@ -13136,7 +10921,7 @@ void main(void)
   {
 #line 1199
   while (1) {
-    while_15_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1199
     tmp___9 = nondet_int();
@@ -13145,6 +10930,7 @@ void main(void)
     if (tmp___9) {
 
     } else {
+#line 1199
       goto while_break;
     }
     {
@@ -13153,178 +10939,185 @@ void main(void)
     }
 #line 1204
     if (tmp___8 == 0) {
+#line 1204
       goto case_0;
-    } else {
+    } else
 #line 1230
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
+    if (tmp___8 == 1) {
+#line 1230
+      goto case_1;
+    } else
 #line 1256
-        if (tmp___8 == 2) {
-          goto case_2;
-        } else {
+    if (tmp___8 == 2) {
+#line 1256
+      goto case_2;
+    } else
 #line 1282
-          if (tmp___8 == 3) {
-            goto case_3;
-          } else {
+    if (tmp___8 == 3) {
+#line 1282
+      goto case_3;
+    } else
 #line 1308
-            if (tmp___8 == 4) {
-              goto case_4;
-            } else {
+    if (tmp___8 == 4) {
+#line 1308
+      goto case_4;
+    } else
 #line 1334
-              if (tmp___8 == 5) {
-                goto case_5;
-              } else {
+    if (tmp___8 == 5) {
+#line 1334
+      goto case_5;
+    } else
 #line 1360
-                if (tmp___8 == 6) {
-                  goto case_6;
-                } else {
+    if (tmp___8 == 6) {
+#line 1360
+      goto case_6;
+    } else
 #line 1386
-                  if (tmp___8 == 7) {
-                    goto case_7;
-                  } else {
+    if (tmp___8 == 7) {
+#line 1386
+      goto case_7;
+    } else
 #line 1412
-                    if (tmp___8 == 8) {
-                      goto case_8;
-                    } else {
+    if (tmp___8 == 8) {
+#line 1412
+      goto case_8;
+    } else
 #line 1438
-                      if (tmp___8 == 9) {
-                        goto case_9;
-                      } else {
+    if (tmp___8 == 9) {
+#line 1438
+      goto case_9;
+    } else
 #line 1464
-                        if (tmp___8 == 10) {
-                          goto case_10;
-                        } else {
+    if (tmp___8 == 10) {
+#line 1464
+      goto case_10;
+    } else
 #line 1490
-                          if (tmp___8 == 11) {
-                            goto case_11;
-                          } else {
+    if (tmp___8 == 11) {
+#line 1490
+      goto case_11;
+    } else
 #line 1516
-                            if (tmp___8 == 12) {
-                              goto case_12;
-                            } else {
+    if (tmp___8 == 12) {
+#line 1516
+      goto case_12;
+    } else
 #line 1542
-                              if (tmp___8 == 13) {
-                                goto case_13;
-                              } else {
-                                goto switch_default;
+    if (tmp___8 == 13) {
+#line 1542
+      goto case_13;
+    } else {
+#line 1568
+      goto switch_default;
 #line 1202
-                                if (0) {
-                                  case_0: 
-                                  {
+      if (0) {
+        case_0: 
+        {
 #line 1222
-                                  qcam_read(var_group1, var_qcam_read_25_p1, var_qcam_read_25_p2,
-                                            var_qcam_read_25_p3);
-                                  }
-                                  goto switch_break;
-                                  case_1: 
-                                  {
-#line 1248
-                                  qcam_querycap(var_group1, var_qcam_querycap_14_p1,
-                                                var_qcam_querycap_14_p2);
-                                  }
-                                  goto switch_break;
-                                  case_2: 
-                                  {
-#line 1274
-                                  qcam_g_input(var_group1, var_qcam_g_input_16_p1,
-                                               var_qcam_g_input_16_p2);
-                                  }
-                                  goto switch_break;
-                                  case_3: 
-                                  {
-#line 1300
-                                  qcam_s_input(var_group1, var_qcam_s_input_17_p1,
-                                               var_qcam_s_input_17_p2);
-                                  }
-                                  goto switch_break;
-                                  case_4: 
-                                  {
-#line 1326
-                                  qcam_enum_input(var_group1, var_qcam_enum_input_15_p1,
-                                                  var_qcam_enum_input_15_p2);
-                                  }
-                                  goto switch_break;
-                                  case_5: 
-                                  {
-#line 1352
-                                  qcam_queryctrl(var_group1, var_qcam_queryctrl_18_p1,
-                                                 var_qcam_queryctrl_18_p2);
-                                  }
-                                  goto switch_break;
-                                  case_6: 
-                                  {
-#line 1378
-                                  qcam_g_ctrl(var_group1, var_qcam_g_ctrl_19_p1, var_qcam_g_ctrl_19_p2);
-                                  }
-                                  goto switch_break;
-                                  case_7: 
-                                  {
-#line 1404
-                                  qcam_s_ctrl(var_group1, var_qcam_s_ctrl_20_p1, var_qcam_s_ctrl_20_p2);
-                                  }
-                                  goto switch_break;
-                                  case_8: 
-                                  {
-#line 1430
-                                  qcam_enum_fmt_vid_cap(var_group1, var_qcam_enum_fmt_vid_cap_24_p1,
-                                                        var_qcam_enum_fmt_vid_cap_24_p2);
-                                  }
-                                  goto switch_break;
-                                  case_9: 
-                                  {
-#line 1456
-                                  qcam_g_fmt_vid_cap(var_group1, var_qcam_g_fmt_vid_cap_21_p1,
-                                                     var_qcam_g_fmt_vid_cap_21_p2);
-                                  }
-                                  goto switch_break;
-                                  case_10: 
-                                  {
-#line 1482
-                                  qcam_s_fmt_vid_cap(var_group1, var_qcam_s_fmt_vid_cap_23_p1,
-                                                     var_qcam_s_fmt_vid_cap_23_p2);
-                                  }
-                                  goto switch_break;
-                                  case_11: 
-                                  {
-#line 1508
-                                  qcam_try_fmt_vid_cap(var_group1, var_qcam_try_fmt_vid_cap_22_p1,
-                                                       var_qcam_try_fmt_vid_cap_22_p2);
-                                  }
-                                  goto switch_break;
-                                  case_12: 
-                                  {
-#line 1534
-                                  cq_attach(var_group2);
-                                  }
-                                  goto switch_break;
-                                  case_13: 
-                                  {
-#line 1560
-                                  cq_detach(var_group2);
-                                  }
-                                  goto switch_break;
-                                  switch_default: 
-                                  goto switch_break;
-                                } else {
-                                  switch_break: ;
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        qcam_read(var_group1, var_qcam_read_25_p1, var_qcam_read_25_p2, var_qcam_read_25_p3);
         }
+#line 1229
+        goto switch_break;
+        case_1: 
+        {
+#line 1248
+        qcam_querycap(var_group1, var_qcam_querycap_14_p1, var_qcam_querycap_14_p2);
+        }
+#line 1255
+        goto switch_break;
+        case_2: 
+        {
+#line 1274
+        qcam_g_input(var_group1, var_qcam_g_input_16_p1, var_qcam_g_input_16_p2);
+        }
+#line 1281
+        goto switch_break;
+        case_3: 
+        {
+#line 1300
+        qcam_s_input(var_group1, var_qcam_s_input_17_p1, var_qcam_s_input_17_p2);
+        }
+#line 1307
+        goto switch_break;
+        case_4: 
+        {
+#line 1326
+        qcam_enum_input(var_group1, var_qcam_enum_input_15_p1, var_qcam_enum_input_15_p2);
+        }
+#line 1333
+        goto switch_break;
+        case_5: 
+        {
+#line 1352
+        qcam_queryctrl(var_group1, var_qcam_queryctrl_18_p1, var_qcam_queryctrl_18_p2);
+        }
+#line 1359
+        goto switch_break;
+        case_6: 
+        {
+#line 1378
+        qcam_g_ctrl(var_group1, var_qcam_g_ctrl_19_p1, var_qcam_g_ctrl_19_p2);
+        }
+#line 1385
+        goto switch_break;
+        case_7: 
+        {
+#line 1404
+        qcam_s_ctrl(var_group1, var_qcam_s_ctrl_20_p1, var_qcam_s_ctrl_20_p2);
+        }
+#line 1411
+        goto switch_break;
+        case_8: 
+        {
+#line 1430
+        qcam_enum_fmt_vid_cap(var_group1, var_qcam_enum_fmt_vid_cap_24_p1, var_qcam_enum_fmt_vid_cap_24_p2);
+        }
+#line 1437
+        goto switch_break;
+        case_9: 
+        {
+#line 1456
+        qcam_g_fmt_vid_cap(var_group1, var_qcam_g_fmt_vid_cap_21_p1, var_qcam_g_fmt_vid_cap_21_p2);
+        }
+#line 1463
+        goto switch_break;
+        case_10: 
+        {
+#line 1482
+        qcam_s_fmt_vid_cap(var_group1, var_qcam_s_fmt_vid_cap_23_p1, var_qcam_s_fmt_vid_cap_23_p2);
+        }
+#line 1489
+        goto switch_break;
+        case_11: 
+        {
+#line 1508
+        qcam_try_fmt_vid_cap(var_group1, var_qcam_try_fmt_vid_cap_22_p1, var_qcam_try_fmt_vid_cap_22_p2);
+        }
+#line 1515
+        goto switch_break;
+        case_12: 
+        {
+#line 1534
+        cq_attach(var_group2);
+        }
+#line 1541
+        goto switch_break;
+        case_13: 
+        {
+#line 1560
+        cq_detach(var_group2);
+        }
+#line 1567
+        goto switch_break;
+        switch_default: 
+#line 1568
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_15_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -13347,6 +11140,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -13371,6 +11165,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -13391,7 +11186,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_16_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -13409,9 +11204,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_16_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13432,7 +11228,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_17_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -13469,9 +11265,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_17_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13491,7 +11288,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_18_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -13513,9 +11310,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_18_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13536,7 +11334,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_19_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -13573,9 +11371,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_19_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

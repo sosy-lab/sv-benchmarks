@@ -7,38 +7,27 @@ int VERDICT_SAFE  ;
 int main(void) 
 { int volatile   a ;
   int *p ;
-  int volatile   *__cil_tmp3 ;
-  int volatile   *__cil_tmp4 ;
-  int volatile   __cil_tmp5 ;
-  int volatile   *__cil_tmp6 ;
-  int volatile   __cil_tmp7 ;
-  int __cil_tmp8 ;
+  int volatile   __cil_tmp3 ;
+  int __cil_tmp4 ;
 
   {
 #line 16
-  __cil_tmp3 = & a;
-#line 16
-  *__cil_tmp3 = (int volatile   )4;
+  a = (int volatile   )4;
 #line 17
   p = (int *)(& a);
 #line 18
   p = (int *)(& a);
 #line 19
-  __cil_tmp4 = & a;
+  __cil_tmp3 = (int volatile   )4;
 #line 19
-  __cil_tmp5 = (int volatile   )4;
-#line 19
-  __cil_tmp6 = & a;
-#line 19
-  __cil_tmp7 = *__cil_tmp6;
-#line 19
-  *__cil_tmp4 = __cil_tmp7 - __cil_tmp5;
+  a = a - __cil_tmp3;
   {
 #line 20
-  __cil_tmp8 = *p;
+  __cil_tmp4 = *p;
 #line 20
-  if (__cil_tmp8 != 0) {
+  if (__cil_tmp4 != 0) {
     ERROR: 
+#line 21
     goto ERROR;
   } else {
 

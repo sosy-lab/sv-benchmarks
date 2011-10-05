@@ -3978,23 +3978,29 @@ __inline static struct task_struct *get_current(void)
   {
 #line 14
   if (1) {
+#line 14
     goto case_8;
   } else {
+#line 14
     goto switch_default;
 #line 14
     if (0) {
 #line 14
       __asm__  ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       case_8: 
 #line 14
       __asm__  ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       switch_default: 
       {
@@ -4044,7 +4050,7 @@ __inline static int atomic_read(atomic_t const   *v )
   {
   {
 #line 25
-  __cil_tmp2 = (int const   *)v;
+  __cil_tmp2 = & v->counter;
 #line 25
   __cil_tmp3 = (int volatile   *)__cil_tmp2;
 #line 25
@@ -4060,7 +4066,7 @@ __inline static void atomic_set(atomic_t *v , int i )
 
   {
 #line 37
-  *((int *)v) = i;
+  v->counter = i;
 #line 38
   return;
 }
@@ -4071,7 +4077,7 @@ __inline static void atomic_add(int i , atomic_t *v )
 
   {
 #line 49
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; addl %1,%0": "+m" (*((int *)v)): "ir" (i));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; addl %1,%0": "+m" (v->counter): "ir" (i));
 #line 51
   return;
 }
@@ -4082,7 +4088,7 @@ __inline static void atomic_dec(atomic_t *v )
 
   {
 #line 107
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0": "+m" (*((int *)v)));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0": "+m" (v->counter));
 #line 109
   return;
 }
@@ -4094,7 +4100,7 @@ __inline static int atomic_dec_and_test(atomic_t *v )
 
   {
 #line 123
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (*((int *)v)),
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (v->counter),
                        "=qm" (c): : "memory");
   {
 #line 126
@@ -4111,7 +4117,7 @@ __inline static int atomic_inc_and_test(atomic_t *v )
 
   {
 #line 141
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0; sete %1": "+m" (*((int *)v)),
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0; sete %1": "+m" (v->counter),
                        "=qm" (c): : "memory");
   {
 #line 144
@@ -4124,23 +4130,17 @@ __inline static int atomic_inc_and_test(atomic_t *v )
 #line 82 "include/linux/thread_info.h"
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  __u32 *__cil_tmp6 ;
-  unsigned long const volatile   *__cil_tmp7 ;
+  __u32 *__cil_tmp4 ;
+  unsigned long const volatile   *__cil_tmp5 ;
 
   {
   {
 #line 84
-  __cil_tmp4 = (unsigned long )ti;
+  __cil_tmp4 = & ti->flags;
 #line 84
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long const volatile   *)__cil_tmp4;
 #line 84
-  __cil_tmp6 = (__u32 *)__cil_tmp5;
-#line 84
-  __cil_tmp7 = (unsigned long const volatile   *)__cil_tmp6;
-#line 84
-  tmp = variable_test_bit(flag, __cil_tmp7);
+  tmp = variable_test_bit(flag, __cil_tmp5);
   }
 #line 84
   return (tmp);
@@ -4157,7 +4157,7 @@ __inline static void spin_lock(spinlock_t *lock )
   {
   {
 #line 285
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 285
   _raw_spin_lock(__cil_tmp2);
   }
@@ -4172,7 +4172,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   {
   {
 #line 325
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 325
   _raw_spin_unlock(__cil_tmp2);
   }
@@ -4184,26 +4184,15 @@ __inline static void spin_unlock(spinlock_t *lock )
 extern int default_wake_function(wait_queue_t * , unsigned int  , int  , void * ) ;
 #line 98 "include/linux/wait.h"
 __inline static void init_waitqueue_entry(wait_queue_t *q , struct task_struct *p ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+{ 
 
   {
 #line 100
-  *((unsigned int *)q) = 0U;
+  q->flags = 0U;
 #line 101
-  __cil_tmp3 = (unsigned long )q;
-#line 101
-  __cil_tmp4 = __cil_tmp3 + 8;
-#line 101
-  *((void **)__cil_tmp4) = (void *)p;
+  q->private = (void *)p;
 #line 102
-  __cil_tmp5 = (unsigned long )q;
-#line 102
-  __cil_tmp6 = __cil_tmp5 + 16;
-#line 102
-  *((int (**)(wait_queue_t * , unsigned int  , int  , void * ))__cil_tmp6) = & default_wake_function;
+  q->func = & default_wake_function;
 #line 103
   return;
 }
@@ -4242,23 +4231,17 @@ unsigned int ldv_module_refcount(void) ;
 void ldv_module_put_and_exit(void) ;
 #line 891 "include/linux/fs.h"
 __inline static unsigned int iminor(struct inode  const  *inode ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  dev_t __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
+{ dev_t __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
 
   {
   {
 #line 893
-  __cil_tmp2 = (unsigned long )inode;
+  __cil_tmp2 = inode->i_rdev;
 #line 893
-  __cil_tmp3 = __cil_tmp2 + 400;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 893
-  __cil_tmp4 = *((dev_t const   *)__cil_tmp3);
-#line 893
-  __cil_tmp5 = (unsigned int )__cil_tmp4;
-#line 893
-  return (__cil_tmp5 & 1048575U);
+  return (__cil_tmp3 & 1048575U);
   }
 }
 }
@@ -4430,23 +4413,17 @@ extern void schedule(void) ;
 #line 2441 "include/linux/sched.h"
 __inline static int test_tsk_thread_flag(struct task_struct *tsk , int flag ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  struct thread_info *__cil_tmp7 ;
+  void *__cil_tmp4 ;
+  struct thread_info *__cil_tmp5 ;
 
   {
   {
 #line 2443
-  __cil_tmp4 = (unsigned long )tsk;
+  __cil_tmp4 = tsk->stack;
 #line 2443
-  __cil_tmp5 = __cil_tmp4 + 8;
+  __cil_tmp5 = (struct thread_info *)__cil_tmp4;
 #line 2443
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 2443
-  __cil_tmp7 = (struct thread_info *)__cil_tmp6;
-#line 2443
-  tmp = test_ti_thread_flag(__cil_tmp7, flag);
+  tmp = test_ti_thread_flag(__cil_tmp5, flag);
   }
 #line 2443
   return (tmp);
@@ -4510,7 +4487,7 @@ __inline static void poll_wait(struct file *filp , wait_queue_head_t *wait_addre
     if (__cil_tmp9 != __cil_tmp8) {
       {
 #line 43
-      __cil_tmp10 = *((void (**)(struct file * , wait_queue_head_t * , struct poll_table_struct * ))p);
+      __cil_tmp10 = p->qproc;
 #line 43
       (*__cil_tmp10)(filp, wait_address, p);
       }
@@ -4618,19 +4595,13 @@ static int set_param_timeout(char const   *val , struct kernel_param  const  *kp
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  char **__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  char const   *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  char const   *__cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  int *__cil_tmp14 ;
+  ipmi_user_t __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  void *__cil_tmp17 ;
-  int *__cil_tmp18 ;
-  struct ipmi_user *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  ipmi_user_t *__cil_tmp21 ;
-  ipmi_user_t __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  unsigned long __cil_tmp17 ;
 
   {
 #line 212
@@ -4660,15 +4631,11 @@ static int set_param_timeout(char const   *val , struct kernel_param  const  *kp
 #line 217
   __cil_tmp10 = (unsigned long )val;
 #line 217
-  __cil_tmp11 = & endp;
+  __cil_tmp11 = (char const   *)endp;
 #line 217
-  __cil_tmp12 = *__cil_tmp11;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 217
-  __cil_tmp13 = (char const   *)__cil_tmp12;
-#line 217
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 217
-  if (__cil_tmp14 == __cil_tmp10) {
+  if (__cil_tmp12 == __cil_tmp10) {
 #line 218
     return (-22);
   } else {
@@ -4676,28 +4643,20 @@ static int set_param_timeout(char const   *val , struct kernel_param  const  *kp
   }
   }
 #line 220
-  __cil_tmp15 = (unsigned long )kp;
+  __cil_tmp13 = kp->ldv_12924.arg;
 #line 220
-  __cil_tmp16 = __cil_tmp15 + 24;
+  __cil_tmp14 = (int *)__cil_tmp13;
 #line 220
-  __cil_tmp17 = *((void * const  *)__cil_tmp16);
-#line 220
-  __cil_tmp18 = (int *)__cil_tmp17;
-#line 220
-  *__cil_tmp18 = l;
+  *__cil_tmp14 = l;
   {
 #line 221
-  __cil_tmp19 = (struct ipmi_user *)0;
+  __cil_tmp15 = (ipmi_user_t )0;
 #line 221
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 221
-  __cil_tmp21 = & watchdog_user;
+  __cil_tmp17 = (unsigned long )watchdog_user;
 #line 221
-  __cil_tmp22 = *__cil_tmp21;
-#line 221
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 221
-  if (__cil_tmp23 != __cil_tmp20) {
+  if (__cil_tmp17 != __cil_tmp16) {
     {
 #line 222
     rv = ipmi_set_timeout(1);
@@ -4724,56 +4683,43 @@ static int set_param_str(char const   *val , struct kernel_param  const  *kp )
   int rv ;
   char valcp[16U] ;
   char *s ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  char *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  char *__cil_tmp13 ;
-  char const   *__cil_tmp14 ;
-  char *__cil_tmp15 ;
-  struct ipmi_user *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  ipmi_user_t *__cil_tmp18 ;
-  ipmi_user_t __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp7 ;
+  char *__cil_tmp8 ;
+  char *__cil_tmp9 ;
+  char const   *__cil_tmp10 ;
+  char *__cil_tmp11 ;
+  ipmi_user_t __cil_tmp12 ;
+  unsigned long __cil_tmp13 ;
+  unsigned long __cil_tmp14 ;
 
   {
   {
 #line 242
-  __cil_tmp7 = (unsigned long )kp;
+  __cil_tmp7 = kp->ldv_12924.arg;
 #line 242
-  __cil_tmp8 = __cil_tmp7 + 24;
-#line 242
-  __cil_tmp9 = *((void * const  *)__cil_tmp8);
-#line 242
-  fn = (int (*)(char const   * , char * ))__cil_tmp9;
+  fn = (int (*)(char const   * , char * ))__cil_tmp7;
 #line 243
   rv = 0;
 #line 247
-  __cil_tmp10 = (char *)(& valcp);
+  __cil_tmp8 = (char *)(& valcp);
 #line 247
-  strncpy(__cil_tmp10, val, 16UL);
+  strncpy(__cil_tmp8, val, 16UL);
 #line 248
-  __cil_tmp11 = 15 * 1UL;
-#line 248
-  __cil_tmp12 = (unsigned long )(valcp) + __cil_tmp11;
-#line 248
-  *((char *)__cil_tmp12) = (char)0;
+  valcp[15] = (char)0;
 #line 250
-  __cil_tmp13 = (char *)(& valcp);
+  __cil_tmp9 = (char *)(& valcp);
 #line 250
-  s = strstrip(__cil_tmp13);
+  s = strstrip(__cil_tmp9);
 #line 252
-  __cil_tmp14 = (char const   *)s;
+  __cil_tmp10 = (char const   *)s;
 #line 252
-  __cil_tmp15 = (char *)0;
+  __cil_tmp11 = (char *)0;
 #line 252
-  rv = (*fn)(__cil_tmp14, __cil_tmp15);
+  rv = (*fn)(__cil_tmp10, __cil_tmp11);
   }
 #line 253
   if (rv != 0) {
+#line 254
     goto out;
   } else {
 
@@ -4784,17 +4730,13 @@ static int set_param_str(char const   *val , struct kernel_param  const  *kp )
   }
   {
 #line 257
-  __cil_tmp16 = (struct ipmi_user *)0;
+  __cil_tmp12 = (ipmi_user_t )0;
 #line 257
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
+  __cil_tmp13 = (unsigned long )__cil_tmp12;
 #line 257
-  __cil_tmp18 = & watchdog_user;
+  __cil_tmp14 = (unsigned long )watchdog_user;
 #line 257
-  __cil_tmp19 = *__cil_tmp18;
-#line 257
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 257
-  if (__cil_tmp20 != __cil_tmp17) {
+  if (__cil_tmp14 != __cil_tmp13) {
     {
 #line 258
     rv = ipmi_set_timeout(1);
@@ -4813,26 +4755,20 @@ static int get_param_str(char *buffer , struct kernel_param  const  *kp )
 { int (*fn)(char const   * , char * ) ;
   int rv ;
   size_t tmp ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  char const   *__cil_tmp9 ;
-  char const   *__cil_tmp10 ;
+  void *__cil_tmp6 ;
+  char const   *__cil_tmp7 ;
+  char const   *__cil_tmp8 ;
 
   {
   {
 #line 266
-  __cil_tmp6 = (unsigned long )kp;
+  __cil_tmp6 = kp->ldv_12924.arg;
 #line 266
-  __cil_tmp7 = __cil_tmp6 + 24;
-#line 266
-  __cil_tmp8 = *((void * const  *)__cil_tmp7);
-#line 266
-  fn = (int (*)(char const   * , char * ))__cil_tmp8;
+  fn = (int (*)(char const   * , char * ))__cil_tmp6;
 #line 269
-  __cil_tmp9 = (char const   *)0;
+  __cil_tmp7 = (char const   *)0;
 #line 269
-  rv = (*fn)(__cil_tmp9, buffer);
+  rv = (*fn)(__cil_tmp7, buffer);
   }
 #line 270
   if (rv != 0) {
@@ -4843,9 +4779,9 @@ static int get_param_str(char *buffer , struct kernel_param  const  *kp )
   }
   {
 #line 272
-  __cil_tmp10 = (char const   *)buffer;
+  __cil_tmp8 = (char const   *)buffer;
 #line 272
-  tmp = strlen(__cil_tmp10);
+  tmp = strlen(__cil_tmp8);
   }
 #line 272
   return ((int )tmp);
@@ -4874,14 +4810,13 @@ static int set_param_wdog_ifnum(char const   *val , struct kernel_param  const  
   if (ifnum_to_use < 0) {
 #line 282
     return (0);
-  } else {
+  } else
 #line 281
-    if (ifnum_to_use == watchdog_ifnum) {
+  if (ifnum_to_use == watchdog_ifnum) {
 #line 282
-      return (0);
-    } else {
+    return (0);
+  } else {
 
-    }
   }
   {
 #line 284
@@ -5443,124 +5378,50 @@ static int i_ipmi_set_timeout(struct ipmi_smi_msg *smi_msg , struct ipmi_recv_ms
   int rv ;
   struct ipmi_system_interface_addr addr ;
   int hbnow ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned char __cil_tmp15 ;
-  signed char __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned char *__cil_tmp20 ;
-  unsigned char __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned char __cil_tmp27 ;
+  signed char __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  signed char __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  signed char __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
   unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned char *__cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned char *__cil_tmp33 ;
-  unsigned char __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned char __cil_tmp40 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  signed char __cil_tmp32 ;
+  int __cil_tmp33 ;
+  signed char __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
   unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
+  unsigned char __cil_tmp42 ;
   unsigned int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  signed char __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
+  unsigned int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  struct ipmi_addr *__cil_tmp47 ;
+  void *__cil_tmp48 ;
+  void *__cil_tmp49 ;
+  int *__cil_tmp50 ;
   unsigned long __cil_tmp51 ;
   unsigned long __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
-  signed char __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int *__cil_tmp58 ;
-  int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  signed char __cil_tmp66 ;
-  int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned char __cil_tmp70 ;
-  signed char __cil_tmp71 ;
-  int __cil_tmp72 ;
-  int __cil_tmp73 ;
-  int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  int *__cil_tmp77 ;
-  int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned char __cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned char __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  unsigned int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  int *__cil_tmp101 ;
-  int __cil_tmp102 ;
-  unsigned char __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
-  unsigned int __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  int *__cil_tmp108 ;
-  int __cil_tmp109 ;
-  int __cil_tmp110 ;
-  int __cil_tmp111 ;
-  struct ipmi_system_interface_addr *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  struct kernel_ipmi_msg *__cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  ipmi_user_t *__cil_tmp119 ;
-  ipmi_user_t __cil_tmp120 ;
-  struct ipmi_addr *__cil_tmp121 ;
-  void *__cil_tmp122 ;
-  void *__cil_tmp123 ;
-  int *__cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
 
   {
 #line 397
@@ -5568,92 +5429,47 @@ static int i_ipmi_set_timeout(struct ipmi_smi_msg *smi_msg , struct ipmi_recv_ms
 #line 401
   pretimeout_since_last_heartbeat = (char)0;
 #line 403
-  __cil_tmp9 = 0 * 1UL;
-#line 403
-  __cil_tmp10 = (unsigned long )(data) + __cil_tmp9;
-#line 403
-  *((unsigned char *)__cil_tmp10) = (unsigned char)0;
+  data[0] = (unsigned char)0;
 #line 404
-  __cil_tmp11 = 0 * 1UL;
+  __cil_tmp9 = (signed char )data[0];
 #line 404
-  __cil_tmp12 = (unsigned long )(data) + __cil_tmp11;
+  __cil_tmp10 = (int )__cil_tmp9;
 #line 404
-  __cil_tmp13 = 0 * 1UL;
+  __cil_tmp11 = __cil_tmp10 & -8;
 #line 404
-  __cil_tmp14 = (unsigned long )(data) + __cil_tmp13;
+  __cil_tmp12 = __cil_tmp11 | 4;
 #line 404
-  __cil_tmp15 = *((unsigned char *)__cil_tmp14);
-#line 404
-  __cil_tmp16 = (signed char )__cil_tmp15;
-#line 404
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 404
-  __cil_tmp18 = __cil_tmp17 & -8;
-#line 404
-  __cil_tmp19 = __cil_tmp18 | 4;
-#line 404
-  *((unsigned char *)__cil_tmp12) = (unsigned char )__cil_tmp19;
+  data[0] = (unsigned char )__cil_tmp12;
   {
 #line 406
-  __cil_tmp20 = & ipmi_version_major;
+  __cil_tmp13 = (unsigned int )ipmi_version_major;
 #line 406
-  __cil_tmp21 = *__cil_tmp20;
-#line 406
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
-#line 406
-  if (__cil_tmp22 > 1U) {
+  if (__cil_tmp13 > 1U) {
 #line 409
-    __cil_tmp23 = 0 * 1UL;
+    __cil_tmp14 = (unsigned int )data[0];
 #line 409
-    __cil_tmp24 = (unsigned long )(data) + __cil_tmp23;
+    __cil_tmp15 = __cil_tmp14 | 64U;
 #line 409
-    __cil_tmp25 = 0 * 1UL;
-#line 409
-    __cil_tmp26 = (unsigned long )(data) + __cil_tmp25;
-#line 409
-    __cil_tmp27 = *((unsigned char *)__cil_tmp26);
-#line 409
-    __cil_tmp28 = (unsigned int )__cil_tmp27;
-#line 409
-    __cil_tmp29 = __cil_tmp28 | 64U;
-#line 409
-    *((unsigned char *)__cil_tmp24) = (unsigned char )__cil_tmp29;
+    data[0] = (unsigned char )__cil_tmp15;
   } else {
     {
 #line 406
-    __cil_tmp30 = & ipmi_version_major;
+    __cil_tmp16 = (unsigned int )ipmi_version_major;
 #line 406
-    __cil_tmp31 = *__cil_tmp30;
-#line 406
-    __cil_tmp32 = (unsigned int )__cil_tmp31;
-#line 406
-    if (__cil_tmp32 == 1U) {
+    if (__cil_tmp16 == 1U) {
       {
 #line 406
-      __cil_tmp33 = & ipmi_version_minor;
+      __cil_tmp17 = (unsigned int )ipmi_version_minor;
 #line 406
-      __cil_tmp34 = *__cil_tmp33;
-#line 406
-      __cil_tmp35 = (unsigned int )__cil_tmp34;
-#line 406
-      if (__cil_tmp35 > 4U) {
+      if (__cil_tmp17 > 4U) {
 #line 409
-        __cil_tmp36 = 0 * 1UL;
+        __cil_tmp18 = (unsigned int )data[0];
 #line 409
-        __cil_tmp37 = (unsigned long )(data) + __cil_tmp36;
+        __cil_tmp19 = __cil_tmp18 | 64U;
 #line 409
-        __cil_tmp38 = 0 * 1UL;
-#line 409
-        __cil_tmp39 = (unsigned long )(data) + __cil_tmp38;
-#line 409
-        __cil_tmp40 = *((unsigned char *)__cil_tmp39);
-#line 409
-        __cil_tmp41 = (unsigned int )__cil_tmp40;
-#line 409
-        __cil_tmp42 = __cil_tmp41 | 64U;
-#line 409
-        *((unsigned char *)__cil_tmp37) = (unsigned char )__cil_tmp42;
+        data[0] = (unsigned char )__cil_tmp19;
       } else {
+#line 406
         goto _L;
       }
       }
@@ -5661,9 +5477,9 @@ static int i_ipmi_set_timeout(struct ipmi_smi_msg *smi_msg , struct ipmi_recv_ms
       _L: 
       {
 #line 410
-      __cil_tmp43 = (unsigned int )ipmi_watchdog_state;
+      __cil_tmp20 = (unsigned int )ipmi_watchdog_state;
 #line 410
-      if (__cil_tmp43 != 0U) {
+      if (__cil_tmp20 != 0U) {
 #line 415
         hbnow = 1;
       } else {
@@ -5675,217 +5491,113 @@ static int i_ipmi_set_timeout(struct ipmi_smi_msg *smi_msg , struct ipmi_recv_ms
   }
   }
 #line 418
-  __cil_tmp44 = 1 * 1UL;
-#line 418
-  __cil_tmp45 = (unsigned long )(data) + __cil_tmp44;
-#line 418
-  *((unsigned char *)__cil_tmp45) = (unsigned char)0;
+  data[1] = (unsigned char)0;
 #line 419
-  __cil_tmp46 = 1 * 1UL;
+  __cil_tmp21 = (signed char )ipmi_watchdog_state;
 #line 419
-  __cil_tmp47 = (unsigned long )(data) + __cil_tmp46;
+  __cil_tmp22 = (int )__cil_tmp21;
 #line 419
-  __cil_tmp48 = (signed char )ipmi_watchdog_state;
+  __cil_tmp23 = __cil_tmp22 & 7;
 #line 419
-  __cil_tmp49 = (int )__cil_tmp48;
+  __cil_tmp24 = (signed char )data[1];
 #line 419
-  __cil_tmp50 = __cil_tmp49 & 7;
+  __cil_tmp25 = (int )__cil_tmp24;
 #line 419
-  __cil_tmp51 = 1 * 1UL;
+  __cil_tmp26 = __cil_tmp25 & -8;
 #line 419
-  __cil_tmp52 = (unsigned long )(data) + __cil_tmp51;
+  __cil_tmp27 = __cil_tmp26 | __cil_tmp23;
 #line 419
-  __cil_tmp53 = *((unsigned char *)__cil_tmp52);
-#line 419
-  __cil_tmp54 = (signed char )__cil_tmp53;
-#line 419
-  __cil_tmp55 = (int )__cil_tmp54;
-#line 419
-  __cil_tmp56 = __cil_tmp55 & -8;
-#line 419
-  __cil_tmp57 = __cil_tmp56 | __cil_tmp50;
-#line 419
-  *((unsigned char *)__cil_tmp47) = (unsigned char )__cil_tmp57;
-  {
+  data[1] = (unsigned char )__cil_tmp27;
 #line 420
-  __cil_tmp58 = & pretimeout;
-#line 420
-  __cil_tmp59 = *__cil_tmp58;
-#line 420
-  if (__cil_tmp59 > 0) {
+  if (pretimeout > 0) {
     {
 #line 420
-    __cil_tmp60 = (unsigned int )ipmi_watchdog_state;
+    __cil_tmp28 = (unsigned int )ipmi_watchdog_state;
 #line 420
-    if (__cil_tmp60 != 0U) {
+    if (__cil_tmp28 != 0U) {
 #line 421
-      __cil_tmp61 = 1 * 1UL;
+      __cil_tmp29 = (int )preaction_val;
 #line 421
-      __cil_tmp62 = (unsigned long )(data) + __cil_tmp61;
+      __cil_tmp30 = __cil_tmp29 & 7;
 #line 421
-      __cil_tmp63 = (int )preaction_val;
+      __cil_tmp31 = __cil_tmp30 << 4;
 #line 421
-      __cil_tmp64 = __cil_tmp63 & 7;
+      __cil_tmp32 = (signed char )__cil_tmp31;
 #line 421
-      __cil_tmp65 = __cil_tmp64 << 4;
+      __cil_tmp33 = (int )__cil_tmp32;
 #line 421
-      __cil_tmp66 = (signed char )__cil_tmp65;
+      __cil_tmp34 = (signed char )data[1];
 #line 421
-      __cil_tmp67 = (int )__cil_tmp66;
+      __cil_tmp35 = (int )__cil_tmp34;
 #line 421
-      __cil_tmp68 = 1 * 1UL;
+      __cil_tmp36 = __cil_tmp35 & -113;
 #line 421
-      __cil_tmp69 = (unsigned long )(data) + __cil_tmp68;
+      __cil_tmp37 = __cil_tmp36 | __cil_tmp33;
 #line 421
-      __cil_tmp70 = *((unsigned char *)__cil_tmp69);
-#line 421
-      __cil_tmp71 = (signed char )__cil_tmp70;
-#line 421
-      __cil_tmp72 = (int )__cil_tmp71;
-#line 421
-      __cil_tmp73 = __cil_tmp72 & -113;
-#line 421
-      __cil_tmp74 = __cil_tmp73 | __cil_tmp67;
-#line 421
-      *((unsigned char *)__cil_tmp62) = (unsigned char )__cil_tmp74;
+      data[1] = (unsigned char )__cil_tmp37;
 #line 422
-      __cil_tmp75 = 2 * 1UL;
-#line 422
-      __cil_tmp76 = (unsigned long )(data) + __cil_tmp75;
-#line 422
-      __cil_tmp77 = & pretimeout;
-#line 422
-      __cil_tmp78 = *__cil_tmp77;
-#line 422
-      *((unsigned char *)__cil_tmp76) = (unsigned char )__cil_tmp78;
+      data[2] = (unsigned char )pretimeout;
     } else {
 #line 424
-      __cil_tmp79 = 1 * 1UL;
+      __cil_tmp38 = (unsigned int )data[1];
 #line 424
-      __cil_tmp80 = (unsigned long )(data) + __cil_tmp79;
+      __cil_tmp39 = __cil_tmp38 & 143U;
 #line 424
-      __cil_tmp81 = 1 * 1UL;
-#line 424
-      __cil_tmp82 = (unsigned long )(data) + __cil_tmp81;
-#line 424
-      __cil_tmp83 = *((unsigned char *)__cil_tmp82);
-#line 424
-      __cil_tmp84 = (unsigned int )__cil_tmp83;
-#line 424
-      __cil_tmp85 = __cil_tmp84 & 143U;
-#line 424
-      *((unsigned char *)__cil_tmp80) = (unsigned char )__cil_tmp85;
+      data[1] = (unsigned char )__cil_tmp39;
 #line 425
-      __cil_tmp86 = 2 * 1UL;
-#line 425
-      __cil_tmp87 = (unsigned long )(data) + __cil_tmp86;
-#line 425
-      *((unsigned char *)__cil_tmp87) = (unsigned char)0;
+      data[2] = (unsigned char)0;
     }
     }
   } else {
 #line 424
-    __cil_tmp88 = 1 * 1UL;
+    __cil_tmp40 = (unsigned int )data[1];
 #line 424
-    __cil_tmp89 = (unsigned long )(data) + __cil_tmp88;
+    __cil_tmp41 = __cil_tmp40 & 143U;
 #line 424
-    __cil_tmp90 = 1 * 1UL;
-#line 424
-    __cil_tmp91 = (unsigned long )(data) + __cil_tmp90;
-#line 424
-    __cil_tmp92 = *((unsigned char *)__cil_tmp91);
-#line 424
-    __cil_tmp93 = (unsigned int )__cil_tmp92;
-#line 424
-    __cil_tmp94 = __cil_tmp93 & 143U;
-#line 424
-    *((unsigned char *)__cil_tmp89) = (unsigned char )__cil_tmp94;
+    data[1] = (unsigned char )__cil_tmp41;
 #line 425
-    __cil_tmp95 = 2 * 1UL;
-#line 425
-    __cil_tmp96 = (unsigned long )(data) + __cil_tmp95;
-#line 425
-    *((unsigned char *)__cil_tmp96) = (unsigned char)0;
-  }
+    data[2] = (unsigned char)0;
   }
   {
 #line 427
-  __cil_tmp97 = 3 * 1UL;
-#line 427
-  __cil_tmp98 = (unsigned long )(data) + __cil_tmp97;
-#line 427
-  *((unsigned char *)__cil_tmp98) = (unsigned char)0;
+  data[3] = (unsigned char)0;
 #line 428
-  __cil_tmp99 = 4 * 1UL;
+  __cil_tmp42 = (unsigned char )timeout;
 #line 428
-  __cil_tmp100 = (unsigned long )(data) + __cil_tmp99;
+  __cil_tmp43 = (unsigned int )__cil_tmp42;
 #line 428
-  __cil_tmp101 = & timeout;
+  __cil_tmp44 = __cil_tmp43 * 10U;
 #line 428
-  __cil_tmp102 = *__cil_tmp101;
+  data[4] = (unsigned char )__cil_tmp44;
 #line 428
-  __cil_tmp103 = (unsigned char )__cil_tmp102;
+  __cil_tmp45 = timeout * 10;
 #line 428
-  __cil_tmp104 = (unsigned int )__cil_tmp103;
+  __cil_tmp46 = __cil_tmp45 >> 8;
 #line 428
-  __cil_tmp105 = __cil_tmp104 * 10U;
-#line 428
-  *((unsigned char *)__cil_tmp100) = (unsigned char )__cil_tmp105;
-#line 428
-  __cil_tmp106 = 5 * 1UL;
-#line 428
-  __cil_tmp107 = (unsigned long )(data) + __cil_tmp106;
-#line 428
-  __cil_tmp108 = & timeout;
-#line 428
-  __cil_tmp109 = *__cil_tmp108;
-#line 428
-  __cil_tmp110 = __cil_tmp109 * 10;
-#line 428
-  __cil_tmp111 = __cil_tmp110 >> 8;
-#line 428
-  *((unsigned char *)__cil_tmp107) = (unsigned char )__cil_tmp111;
+  data[5] = (unsigned char )__cil_tmp46;
 #line 430
-  __cil_tmp112 = & addr;
-#line 430
-  *((int *)__cil_tmp112) = 12;
+  addr.addr_type = 12;
 #line 431
-  __cil_tmp113 = (unsigned long )(& addr) + 4;
-#line 431
-  *((short *)__cil_tmp113) = (short)15;
+  addr.channel = (short)15;
 #line 432
-  __cil_tmp114 = (unsigned long )(& addr) + 6;
-#line 432
-  *((unsigned char *)__cil_tmp114) = (unsigned char)0;
+  addr.lun = (unsigned char)0;
 #line 434
-  __cil_tmp115 = & msg;
-#line 434
-  *((unsigned char *)__cil_tmp115) = (unsigned char)6;
+  msg.netfn = (unsigned char)6;
 #line 435
-  __cil_tmp116 = (unsigned long )(& msg) + 1;
-#line 435
-  *((unsigned char *)__cil_tmp116) = (unsigned char)36;
+  msg.cmd = (unsigned char)36;
 #line 436
-  __cil_tmp117 = (unsigned long )(& msg) + 8;
-#line 436
-  *((unsigned char **)__cil_tmp117) = (unsigned char *)(& data);
+  msg.data = (unsigned char *)(& data);
 #line 437
-  __cil_tmp118 = (unsigned long )(& msg) + 2;
-#line 437
-  *((unsigned short *)__cil_tmp118) = (unsigned short)6;
+  msg.data_len = (unsigned short)6;
 #line 438
-  __cil_tmp119 = & watchdog_user;
+  __cil_tmp47 = (struct ipmi_addr *)(& addr);
 #line 438
-  __cil_tmp120 = *__cil_tmp119;
+  __cil_tmp48 = (void *)0;
 #line 438
-  __cil_tmp121 = (struct ipmi_addr *)(& addr);
+  __cil_tmp49 = (void *)smi_msg;
 #line 438
-  __cil_tmp122 = (void *)0;
-#line 438
-  __cil_tmp123 = (void *)smi_msg;
-#line 438
-  rv = ipmi_request_supply_msgs(__cil_tmp120, __cil_tmp121, 0L, & msg, __cil_tmp122,
-                                __cil_tmp123, recv_msg, 1);
+  rv = ipmi_request_supply_msgs(watchdog_user, __cil_tmp47, 0L, & msg, __cil_tmp48,
+                                __cil_tmp49, recv_msg, 1);
   }
 #line 446
   if (rv != 0) {
@@ -5898,13 +5610,13 @@ static int i_ipmi_set_timeout(struct ipmi_smi_msg *smi_msg , struct ipmi_recv_ms
   }
   {
 #line 451
-  __cil_tmp124 = (int *)0;
+  __cil_tmp50 = (int *)0;
 #line 451
-  __cil_tmp125 = (unsigned long )__cil_tmp124;
+  __cil_tmp51 = (unsigned long )__cil_tmp50;
 #line 451
-  __cil_tmp126 = (unsigned long )send_heartbeat_now;
+  __cil_tmp52 = (unsigned long )send_heartbeat_now;
 #line 451
-  if (__cil_tmp126 != __cil_tmp125) {
+  if (__cil_tmp52 != __cil_tmp51) {
 #line 452
     *send_heartbeat_now = hbnow;
   } else {
@@ -5919,8 +5631,6 @@ static int i_ipmi_set_timeout(struct ipmi_smi_msg *smi_msg , struct ipmi_recv_ms
 static int ipmi_set_timeout(int do_heartbeat ) 
 { int send_heartbeat_now ;
   int rv ;
-  int *__cil_tmp4 ;
-  int __cil_tmp5 ;
 
   {
   {
@@ -5937,6 +5647,7 @@ static int ipmi_set_timeout(int do_heartbeat )
 #line 472
     mutex_unlock(& set_timeout_lock);
     }
+#line 473
     goto out;
   } else {
 
@@ -5953,27 +5664,20 @@ static int ipmi_set_timeout(int do_heartbeat )
 #line 483
     rv = ipmi_heartbeat();
     }
-  } else {
-    {
+  } else
 #line 480
-    __cil_tmp4 = & send_heartbeat_now;
+  if (send_heartbeat_now != 0) {
 #line 480
-    __cil_tmp5 = *__cil_tmp4;
-#line 480
-    if (__cil_tmp5 != 0) {
-#line 480
-      if (do_heartbeat == 1) {
-        {
+    if (do_heartbeat == 1) {
+      {
 #line 483
-        rv = ipmi_heartbeat();
-        }
-      } else {
-
+      rv = ipmi_heartbeat();
       }
     } else {
 
     }
-    }
+  } else {
+
   }
   out: ;
 #line 486
@@ -6473,18 +6177,9 @@ static void panic_halt_ipmi_heartbeat(void)
   struct ipmi_system_interface_addr addr ;
   int rv ;
   unsigned int __cil_tmp4 ;
-  struct ipmi_system_interface_addr *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct kernel_ipmi_msg *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  ipmi_user_t *__cil_tmp12 ;
-  ipmi_user_t __cil_tmp13 ;
-  struct ipmi_addr *__cil_tmp14 ;
-  void *__cil_tmp15 ;
-  void *__cil_tmp16 ;
+  struct ipmi_addr *__cil_tmp5 ;
+  void *__cil_tmp6 ;
+  void *__cil_tmp7 ;
 
   {
   {
@@ -6500,46 +6195,28 @@ static void panic_halt_ipmi_heartbeat(void)
   }
   {
 #line 520
-  __cil_tmp5 = & addr;
-#line 520
-  *((int *)__cil_tmp5) = 12;
+  addr.addr_type = 12;
 #line 521
-  __cil_tmp6 = (unsigned long )(& addr) + 4;
-#line 521
-  *((short *)__cil_tmp6) = (short)15;
+  addr.channel = (short)15;
 #line 522
-  __cil_tmp7 = (unsigned long )(& addr) + 6;
-#line 522
-  *((unsigned char *)__cil_tmp7) = (unsigned char)0;
+  addr.lun = (unsigned char)0;
 #line 524
-  __cil_tmp8 = & msg;
-#line 524
-  *((unsigned char *)__cil_tmp8) = (unsigned char)6;
+  msg.netfn = (unsigned char)6;
 #line 525
-  __cil_tmp9 = (unsigned long )(& msg) + 1;
-#line 525
-  *((unsigned char *)__cil_tmp9) = (unsigned char)34;
+  msg.cmd = (unsigned char)34;
 #line 526
-  __cil_tmp10 = (unsigned long )(& msg) + 8;
-#line 526
-  *((unsigned char **)__cil_tmp10) = (unsigned char *)0;
+  msg.data = (unsigned char *)0;
 #line 527
-  __cil_tmp11 = (unsigned long )(& msg) + 2;
-#line 527
-  *((unsigned short *)__cil_tmp11) = (unsigned short)0;
+  msg.data_len = (unsigned short)0;
 #line 528
-  __cil_tmp12 = & watchdog_user;
+  __cil_tmp5 = (struct ipmi_addr *)(& addr);
 #line 528
-  __cil_tmp13 = *__cil_tmp12;
+  __cil_tmp6 = (void *)0;
 #line 528
-  __cil_tmp14 = (struct ipmi_addr *)(& addr);
+  __cil_tmp7 = (void *)(& panic_halt_heartbeat_smi_msg);
 #line 528
-  __cil_tmp15 = (void *)0;
-#line 528
-  __cil_tmp16 = (void *)(& panic_halt_heartbeat_smi_msg);
-#line 528
-  rv = ipmi_request_supply_msgs(__cil_tmp13, __cil_tmp14, 0L, & msg, __cil_tmp15,
-                                __cil_tmp16, & panic_halt_heartbeat_recv_msg, 1);
+  rv = ipmi_request_supply_msgs(watchdog_user, __cil_tmp5, 0L, & msg, __cil_tmp6,
+                                __cil_tmp7, & panic_halt_heartbeat_recv_msg, 1);
   }
 #line 536
   if (rv == 0) {
@@ -7019,37 +6696,30 @@ static void panic_halt_ipmi_set_timeout(void)
   int rv ;
   int tmp ;
   int tmp___0 ;
-  ipmi_user_t *__cil_tmp5 ;
-  ipmi_user_t __cil_tmp6 ;
-  atomic_t const   *__cil_tmp7 ;
-  int *__cil_tmp8 ;
-  int __cil_tmp9 ;
-  ipmi_user_t *__cil_tmp10 ;
-  ipmi_user_t __cil_tmp11 ;
-  atomic_t const   *__cil_tmp12 ;
+  atomic_t const   *__cil_tmp5 ;
+  atomic_t const   *__cil_tmp6 ;
 
   {
+#line 559
   goto ldv_22486;
   ldv_22485: 
   {
 #line 560
-  __cil_tmp5 = & watchdog_user;
-#line 560
-  __cil_tmp6 = *__cil_tmp5;
-#line 560
-  ipmi_poll_interface(__cil_tmp6);
+  ipmi_poll_interface(watchdog_user);
   }
   ldv_22486: 
   {
 #line 559
-  __cil_tmp7 = (atomic_t const   *)(& panic_done_count);
+  __cil_tmp5 = (atomic_t const   *)(& panic_done_count);
 #line 559
-  tmp = atomic_read(__cil_tmp7);
+  tmp = atomic_read(__cil_tmp5);
   }
 #line 559
   if (tmp != 0) {
+#line 560
     goto ldv_22485;
   } else {
+#line 562
     goto ldv_22487;
   }
   ldv_22487: 
@@ -7063,13 +6733,8 @@ static void panic_halt_ipmi_set_timeout(void)
 #line 565
     atomic_add(2, & panic_done_count);
     }
-    {
 #line 566
-    __cil_tmp8 = & send_heartbeat_now;
-#line 566
-    __cil_tmp9 = *__cil_tmp8;
-#line 566
-    if (__cil_tmp9 != 0) {
+    if (send_heartbeat_now != 0) {
       {
 #line 567
       panic_halt_ipmi_heartbeat();
@@ -7077,34 +6742,32 @@ static void panic_halt_ipmi_set_timeout(void)
     } else {
 
     }
-    }
   } else {
     {
 #line 569
     printk("<4>IPMI Watchdog: Unable to extend the watchdog timeout.");
     }
   }
+#line 571
   goto ldv_22489;
   ldv_22488: 
   {
 #line 572
-  __cil_tmp10 = & watchdog_user;
-#line 572
-  __cil_tmp11 = *__cil_tmp10;
-#line 572
-  ipmi_poll_interface(__cil_tmp11);
+  ipmi_poll_interface(watchdog_user);
   }
   ldv_22489: 
   {
 #line 571
-  __cil_tmp12 = (atomic_t const   *)(& panic_done_count);
+  __cil_tmp6 = (atomic_t const   *)(& panic_done_count);
 #line 571
-  tmp___0 = atomic_read(__cil_tmp12);
+  tmp___0 = atomic_read(__cil_tmp6);
   }
 #line 571
   if (tmp___0 != 0) {
+#line 572
     goto ldv_22488;
   } else {
+#line 574
     goto ldv_22490;
   }
   ldv_22490: ;
@@ -7644,23 +7307,11 @@ static int ipmi_heartbeat(void)
   signed char __cil_tmp6 ;
   int __cil_tmp7 ;
   unsigned int __cil_tmp8 ;
-  struct ipmi_system_interface_addr *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct kernel_ipmi_msg *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  ipmi_user_t *__cil_tmp16 ;
-  ipmi_user_t __cil_tmp17 ;
-  struct ipmi_addr *__cil_tmp18 ;
-  void *__cil_tmp19 ;
-  void *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned char *__cil_tmp23 ;
-  unsigned char __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
+  struct ipmi_addr *__cil_tmp9 ;
+  void *__cil_tmp10 ;
+  void *__cil_tmp11 ;
+  unsigned char __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
 
   {
 #line 607
@@ -7724,46 +7375,28 @@ static int ipmi_heartbeat(void)
   }
   {
 #line 637
-  __cil_tmp9 = & addr;
-#line 637
-  *((int *)__cil_tmp9) = 12;
+  addr.addr_type = 12;
 #line 638
-  __cil_tmp10 = (unsigned long )(& addr) + 4;
-#line 638
-  *((short *)__cil_tmp10) = (short)15;
+  addr.channel = (short)15;
 #line 639
-  __cil_tmp11 = (unsigned long )(& addr) + 6;
-#line 639
-  *((unsigned char *)__cil_tmp11) = (unsigned char)0;
+  addr.lun = (unsigned char)0;
 #line 641
-  __cil_tmp12 = & msg;
-#line 641
-  *((unsigned char *)__cil_tmp12) = (unsigned char)6;
+  msg.netfn = (unsigned char)6;
 #line 642
-  __cil_tmp13 = (unsigned long )(& msg) + 1;
-#line 642
-  *((unsigned char *)__cil_tmp13) = (unsigned char)34;
+  msg.cmd = (unsigned char)34;
 #line 643
-  __cil_tmp14 = (unsigned long )(& msg) + 8;
-#line 643
-  *((unsigned char **)__cil_tmp14) = (unsigned char *)0;
+  msg.data = (unsigned char *)0;
 #line 644
-  __cil_tmp15 = (unsigned long )(& msg) + 2;
-#line 644
-  *((unsigned short *)__cil_tmp15) = (unsigned short)0;
+  msg.data_len = (unsigned short)0;
 #line 645
-  __cil_tmp16 = & watchdog_user;
+  __cil_tmp9 = (struct ipmi_addr *)(& addr);
 #line 645
-  __cil_tmp17 = *__cil_tmp16;
+  __cil_tmp10 = (void *)0;
 #line 645
-  __cil_tmp18 = (struct ipmi_addr *)(& addr);
+  __cil_tmp11 = (void *)(& heartbeat_smi_msg);
 #line 645
-  __cil_tmp19 = (void *)0;
-#line 645
-  __cil_tmp20 = (void *)(& heartbeat_smi_msg);
-#line 645
-  rv = ipmi_request_supply_msgs(__cil_tmp17, __cil_tmp18, 0L, & msg, __cil_tmp19,
-                                __cil_tmp20, & heartbeat_recv_msg, 1);
+  rv = ipmi_request_supply_msgs(watchdog_user, __cil_tmp9, 0L, & msg, __cil_tmp10,
+                                __cil_tmp11, & heartbeat_recv_msg, 1);
   }
 #line 653
   if (rv != 0) {
@@ -7784,17 +7417,11 @@ static int ipmi_heartbeat(void)
   }
   {
 #line 663
-  __cil_tmp21 = 80 + 8;
+  __cil_tmp12 = *(heartbeat_recv_msg.msg.data);
 #line 663
-  __cil_tmp22 = (unsigned long )(& heartbeat_recv_msg) + __cil_tmp21;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 663
-  __cil_tmp23 = *((unsigned char **)__cil_tmp22);
-#line 663
-  __cil_tmp24 = *__cil_tmp23;
-#line 663
-  __cil_tmp25 = (unsigned int )__cil_tmp24;
-#line 663
-  if (__cil_tmp25 != 0U) {
+  if (__cil_tmp13 != 0U) {
 #line 669
     rv = -22;
   } else {
@@ -7810,8 +7437,7 @@ static int ipmi_heartbeat(void)
 }
 }
 #line 677 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
-static struct watchdog_info ident  =    {0U, 1U, {(unsigned char )'I', (unsigned char )'P', (unsigned char )'M', (unsigned char )'I',
-             (unsigned char )'\000'}};
+static struct watchdog_info ident  =    {0U, 1U, {(__u8 )'I', (__u8 )'P', (__u8 )'M', (__u8 )'I', (__u8 )'\000'}};
 #line 683 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
 static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg ) 
 { void *argp ;
@@ -7837,23 +7463,14 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   void const   *__cil_tmp24 ;
   void *__cil_tmp25 ;
   void const   *__cil_tmp26 ;
-  int *__cil_tmp27 ;
-  int *__cil_tmp28 ;
+  void const   *__cil_tmp27 ;
+  void *__cil_tmp28 ;
   void const   *__cil_tmp29 ;
-  void *__cil_tmp30 ;
-  void const   *__cil_tmp31 ;
-  int *__cil_tmp32 ;
-  int *__cil_tmp33 ;
+  void const   *__cil_tmp30 ;
+  void *__cil_tmp31 ;
+  void const   *__cil_tmp32 ;
+  int __cil_tmp33 ;
   void const   *__cil_tmp34 ;
-  void *__cil_tmp35 ;
-  void const   *__cil_tmp36 ;
-  int *__cil_tmp37 ;
-  int __cil_tmp38 ;
-  int *__cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int *__cil_tmp42 ;
-  void const   *__cil_tmp43 ;
 
   {
 #line 686
@@ -7863,6 +7480,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   __cil_tmp14 = (int )cmd;
 #line 691
   if (__cil_tmp14 == -2144839936) {
+#line 691
     goto case_neg_2144839936;
   } else {
     {
@@ -7870,6 +7488,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
     __cil_tmp15 = (int )cmd;
 #line 695
     if (__cil_tmp15 == -1073457402) {
+#line 695
       goto case_neg_1073457402;
     } else {
       {
@@ -7877,6 +7496,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
       __cil_tmp16 = (int )cmd;
 #line 702
       if (__cil_tmp16 == -2147199225) {
+#line 702
         goto case_neg_2147199225;
       } else {
         {
@@ -7884,6 +7504,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
         __cil_tmp17 = (int )cmd;
 #line 708
         if (__cil_tmp17 == 1074026261) {
+#line 708
           goto case_1074026261;
         } else {
           {
@@ -7891,6 +7512,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
           __cil_tmp18 = (int )cmd;
 #line 709
           if (__cil_tmp18 == -1073457400) {
+#line 709
             goto case_neg_1073457400;
           } else {
             {
@@ -7898,6 +7520,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
             __cil_tmp19 = (int )cmd;
 #line 716
             if (__cil_tmp19 == 1074026262) {
+#line 716
               goto case_1074026262;
             } else {
               {
@@ -7905,6 +7528,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
               __cil_tmp20 = (int )cmd;
 #line 717
               if (__cil_tmp20 == -2147199223) {
+#line 717
                 goto case_neg_2147199223;
               } else {
                 {
@@ -7912,6 +7536,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                 __cil_tmp21 = (int )cmd;
 #line 723
                 if (__cil_tmp21 == -2147199227) {
+#line 723
                   goto case_neg_2147199227;
                 } else {
                   {
@@ -7919,6 +7544,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                   __cil_tmp22 = (int )cmd;
 #line 726
                   if (__cil_tmp22 == -2147199228) {
+#line 726
                     goto case_neg_2147199228;
                   } else {
                     {
@@ -7926,8 +7552,10 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                     __cil_tmp23 = (int )cmd;
 #line 742
                     if (__cil_tmp23 == -2147199231) {
+#line 742
                       goto case_neg_2147199231;
                     } else {
+#line 749
                       goto switch_default;
 #line 690
                       if (0) {
@@ -7968,11 +7596,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         }
                         {
 #line 699
-                        __cil_tmp27 = & timeout;
-#line 699
-                        __cil_tmp28 = & val;
-#line 699
-                        *__cil_tmp27 = *__cil_tmp28;
+                        timeout = val;
 #line 700
                         tmp___1 = ipmi_set_timeout(1);
                         }
@@ -7981,9 +7605,9 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         case_neg_2147199225: 
                         {
 #line 703
-                        __cil_tmp29 = (void const   *)(& timeout);
+                        __cil_tmp27 = (void const   *)(& timeout);
 #line 703
-                        i = copy_to_user(argp, __cil_tmp29, 4U);
+                        i = copy_to_user(argp, __cil_tmp27, 4U);
                         }
 #line 704
                         if (i != 0) {
@@ -7998,11 +7622,11 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         case_neg_1073457400: 
                         {
 #line 710
-                        __cil_tmp30 = (void *)(& val);
+                        __cil_tmp28 = (void *)(& val);
 #line 710
-                        __cil_tmp31 = (void const   *)argp;
+                        __cil_tmp29 = (void const   *)argp;
 #line 710
-                        tmp___2 = copy_from_user(__cil_tmp30, __cil_tmp31, 4UL);
+                        tmp___2 = copy_from_user(__cil_tmp28, __cil_tmp29, 4UL);
 #line 710
                         i = (int )tmp___2;
                         }
@@ -8015,11 +7639,7 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         }
                         {
 #line 713
-                        __cil_tmp32 = & pretimeout;
-#line 713
-                        __cil_tmp33 = & val;
-#line 713
-                        *__cil_tmp32 = *__cil_tmp33;
+                        pretimeout = val;
 #line 714
                         tmp___3 = ipmi_set_timeout(1);
                         }
@@ -8029,9 +7649,9 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         case_neg_2147199223: 
                         {
 #line 718
-                        __cil_tmp34 = (void const   *)(& pretimeout);
+                        __cil_tmp30 = (void const   *)(& pretimeout);
 #line 718
-                        i = copy_to_user(argp, __cil_tmp34, 4U);
+                        i = copy_to_user(argp, __cil_tmp30, 4U);
                         }
 #line 719
                         if (i != 0) {
@@ -8052,11 +7672,11 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         case_neg_2147199228: 
                         {
 #line 727
-                        __cil_tmp35 = (void *)(& val);
+                        __cil_tmp31 = (void *)(& val);
 #line 727
-                        __cil_tmp36 = (void const   *)argp;
+                        __cil_tmp32 = (void const   *)argp;
 #line 727
-                        tmp___5 = copy_from_user(__cil_tmp35, __cil_tmp36, 4UL);
+                        tmp___5 = copy_from_user(__cil_tmp31, __cil_tmp32, 4UL);
 #line 727
                         i = (int )tmp___5;
                         }
@@ -8067,13 +7687,8 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         } else {
 
                         }
-                        {
 #line 730
-                        __cil_tmp37 = & val;
-#line 730
-                        __cil_tmp38 = *__cil_tmp37;
-#line 730
-                        if (__cil_tmp38 & 1) {
+                        if (val & 1) {
                           {
 #line 731
                           ipmi_watchdog_state = (unsigned char)0;
@@ -8085,16 +7700,11 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         } else {
 
                         }
-                        }
                         {
 #line 736
-                        __cil_tmp39 = & val;
+                        __cil_tmp33 = val & 2;
 #line 736
-                        __cil_tmp40 = *__cil_tmp39;
-#line 736
-                        __cil_tmp41 = __cil_tmp40 & 2;
-#line 736
-                        if (__cil_tmp41 != 0) {
+                        if (__cil_tmp33 != 0) {
                           {
 #line 737
                           ipmi_watchdog_state = action_val;
@@ -8110,13 +7720,11 @@ static int ipmi_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                         case_neg_2147199231: 
                         {
 #line 743
-                        __cil_tmp42 = & val;
-#line 743
-                        *__cil_tmp42 = 0;
+                        val = 0;
 #line 744
-                        __cil_tmp43 = (void const   *)(& val);
+                        __cil_tmp34 = (void const   *)(& val);
 #line 744
-                        i = copy_to_user(argp, __cil_tmp43, 4U);
+                        i = copy_to_user(argp, __cil_tmp34, 4U);
                         }
 #line 745
                         if (i != 0) {
@@ -8191,6 +7799,7 @@ static ssize_t ipmi_write(struct file *file , char const   *buf , size_t len , l
       expect_close = (char)0;
 #line 781
       i = 0UL;
+#line 781
       goto ldv_22555;
       ldv_22554: 
       {
@@ -8199,27 +7808,34 @@ static ssize_t ipmi_write(struct file *file , char const   *buf , size_t len , l
       }
 #line 784
       if (1) {
+#line 784
         goto case_1;
       } else {
+#line 784
         goto switch_default;
 #line 784
         if (0) {
           case_1: 
 #line 784
           __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu), "=d" (__val_gu): "0" (buf + i));
+#line 784
           goto ldv_22548;
 #line 784
           __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu), "=d" (__val_gu): "0" (buf + i));
+#line 784
           goto ldv_22548;
 #line 784
           __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu), "=d" (__val_gu): "0" (buf + i));
+#line 784
           goto ldv_22548;
 #line 784
           __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu), "=d" (__val_gu): "0" (buf + i));
+#line 784
           goto ldv_22548;
           switch_default: 
 #line 784
           __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu), "=d" (__val_gu): "0" (buf + i));
+#line 784
           goto ldv_22548;
         } else {
 
@@ -8253,8 +7869,10 @@ static ssize_t ipmi_write(struct file *file , char const   *buf , size_t len , l
       ldv_22555: ;
 #line 781
       if (i != len) {
+#line 782
         goto ldv_22554;
       } else {
+#line 784
         goto ldv_22556;
       }
       ldv_22556: ;
@@ -8268,7 +7886,7 @@ static ssize_t ipmi_write(struct file *file , char const   *buf , size_t len , l
 #line 791
     if (rv != 0) {
 #line 792
-      return ((long )rv);
+      return ((ssize_t )rv);
     } else {
 
     }
@@ -8276,7 +7894,7 @@ static ssize_t ipmi_write(struct file *file , char const   *buf , size_t len , l
 
   }
 #line 794
-  return ((long )len);
+  return ((ssize_t )len);
 }
 }
 #line 797 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
@@ -8296,25 +7914,18 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
   struct task_struct *tmp___4 ;
   int tmp___5 ;
   int tmp___6 ;
-  char *__cil_tmp20 ;
-  char __cil_tmp21 ;
-  signed char __cil_tmp22 ;
-  int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  long volatile   *__cil_tmp28 ;
-  long volatile   *__cil_tmp29 ;
-  long volatile   *__cil_tmp30 ;
-  long volatile   *__cil_tmp31 ;
-  char *__cil_tmp32 ;
-  char __cil_tmp33 ;
-  signed char __cil_tmp34 ;
-  int __cil_tmp35 ;
-  char *__cil_tmp36 ;
-  void *__cil_tmp37 ;
-  void const   *__cil_tmp38 ;
+  signed char __cil_tmp20 ;
+  int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  long volatile   *__cil_tmp24 ;
+  long volatile   *__cil_tmp25 ;
+  long volatile   *__cil_tmp26 ;
+  long volatile   *__cil_tmp27 ;
+  signed char __cil_tmp28 ;
+  int __cil_tmp29 ;
+  void *__cil_tmp30 ;
+  void const   *__cil_tmp31 ;
 
   {
 #line 802
@@ -8332,28 +7943,21 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
   }
   {
 #line 813
-  __cil_tmp20 = & data_to_read;
+  __cil_tmp20 = (signed char )data_to_read;
 #line 813
-  __cil_tmp21 = *__cil_tmp20;
+  __cil_tmp21 = (int )__cil_tmp20;
 #line 813
-  __cil_tmp22 = (signed char )__cil_tmp21;
-#line 813
-  __cil_tmp23 = (int )__cil_tmp22;
-#line 813
-  if (__cil_tmp23 == 0) {
+  if (__cil_tmp21 == 0) {
     {
 #line 814
-    __cil_tmp24 = (unsigned long )file;
+    __cil_tmp22 = file->f_flags;
 #line 814
-    __cil_tmp25 = __cil_tmp24 + 128;
+    __cil_tmp23 = __cil_tmp22 & 2048U;
 #line 814
-    __cil_tmp26 = *((unsigned int *)__cil_tmp25);
-#line 814
-    __cil_tmp27 = __cil_tmp26 & 2048U;
-#line 814
-    if (__cil_tmp27 != 0U) {
+    if (__cil_tmp23 != 0U) {
 #line 815
       rv = -11;
+#line 816
       goto out;
     } else {
 
@@ -8367,14 +7971,17 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
 #line 820
     add_wait_queue(& read_q, & wait);
     }
+#line 821
     goto ldv_22579;
     ldv_22578: 
 #line 822
     __x = (long volatile   )1L;
 #line 822
     if (1) {
+#line 822
       goto case_8;
     } else {
+#line 822
       goto switch_default;
 #line 822
       if (0) {
@@ -8382,46 +7989,50 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
 #line 822
         tmp___0 = get_current();
 #line 822
-        __cil_tmp28 = (long volatile   *)tmp___0;
+        __cil_tmp24 = & tmp___0->state;
 #line 822
-        __ptr = (u8 volatile   *)__cil_tmp28;
+        __ptr = (u8 volatile   *)__cil_tmp24;
 #line 822
         __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
         }
+#line 822
         goto ldv_22569;
         {
 #line 822
         tmp___1 = get_current();
 #line 822
-        __cil_tmp29 = (long volatile   *)tmp___1;
+        __cil_tmp25 = & tmp___1->state;
 #line 822
-        __ptr___0 = (u16 volatile   *)__cil_tmp29;
+        __ptr___0 = (u16 volatile   *)__cil_tmp25;
 #line 822
         __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
         }
+#line 822
         goto ldv_22569;
         {
 #line 822
         tmp___2 = get_current();
 #line 822
-        __cil_tmp30 = (long volatile   *)tmp___2;
+        __cil_tmp26 = & tmp___2->state;
 #line 822
-        __ptr___1 = (u32 volatile   *)__cil_tmp30;
+        __ptr___1 = (u32 volatile   *)__cil_tmp26;
 #line 822
         __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
         }
+#line 822
         goto ldv_22569;
         case_8: 
         {
 #line 822
         tmp___3 = get_current();
 #line 822
-        __cil_tmp31 = (long volatile   *)tmp___3;
+        __cil_tmp27 = & tmp___3->state;
 #line 822
-        __ptr___2 = (u64 volatile   *)__cil_tmp31;
+        __ptr___2 = (u64 volatile   *)__cil_tmp27;
 #line 822
         __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
         }
+#line 822
         goto ldv_22569;
         switch_default: 
         {
@@ -8444,17 +8055,15 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
     ldv_22579: ;
     {
 #line 821
-    __cil_tmp32 = & data_to_read;
+    __cil_tmp28 = (signed char )data_to_read;
 #line 821
-    __cil_tmp33 = *__cil_tmp32;
+    __cil_tmp29 = (int )__cil_tmp28;
 #line 821
-    __cil_tmp34 = (signed char )__cil_tmp33;
-#line 821
-    __cil_tmp35 = (int )__cil_tmp34;
-#line 821
-    if (__cil_tmp35 == 0) {
+    if (__cil_tmp29 == 0) {
+#line 822
       goto ldv_22578;
     } else {
+#line 824
       goto ldv_22580;
     }
     }
@@ -8471,6 +8080,7 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
     if (tmp___5 != 0) {
 #line 830
       rv = -512;
+#line 831
       goto out;
     } else {
 
@@ -8480,9 +8090,7 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
   }
   }
 #line 834
-  __cil_tmp36 = & data_to_read;
-#line 834
-  *__cil_tmp36 = (char)0;
+  data_to_read = (char)0;
   out: 
   {
 #line 837
@@ -8492,11 +8100,11 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
   if (rv == 0) {
     {
 #line 840
-    __cil_tmp37 = (void *)buf;
+    __cil_tmp30 = (void *)buf;
 #line 840
-    __cil_tmp38 = (void const   *)(& data_to_read);
+    __cil_tmp31 = (void const   *)(& data_to_read);
 #line 840
-    tmp___6 = copy_to_user(__cil_tmp37, __cil_tmp38, 1U);
+    tmp___6 = copy_to_user(__cil_tmp30, __cil_tmp31, 1U);
     }
 #line 840
     if (tmp___6 != 0) {
@@ -8510,7 +8118,7 @@ static ssize_t ipmi_read(struct file *file , char *buf , size_t count , loff_t *
 
   }
 #line 846
-  return ((long )rv);
+  return ((ssize_t )rv);
 }
 }
 #line 849 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
@@ -8534,8 +8142,10 @@ static int ipmi_open(struct inode *ino , struct file *filep )
   __cil_tmp7 = (int )tmp;
 #line 852
   if (__cil_tmp7 == 130) {
+#line 852
     goto case_130;
   } else {
+#line 864
     goto switch_default;
 #line 851
     if (0) {
@@ -8574,10 +8184,8 @@ static int ipmi_open(struct inode *ino , struct file *filep )
 #line 869 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
 static unsigned int ipmi_poll(struct file *file , poll_table *wait ) 
 { unsigned int mask ;
-  char *__cil_tmp4 ;
-  char __cil_tmp5 ;
-  signed char __cil_tmp6 ;
-  int __cil_tmp7 ;
+  signed char __cil_tmp4 ;
+  int __cil_tmp5 ;
 
   {
   {
@@ -8590,15 +8198,11 @@ static unsigned int ipmi_poll(struct file *file , poll_table *wait )
   }
   {
 #line 876
-  __cil_tmp4 = & data_to_read;
+  __cil_tmp4 = (signed char )data_to_read;
 #line 876
-  __cil_tmp5 = *__cil_tmp4;
+  __cil_tmp5 = (int )__cil_tmp4;
 #line 876
-  __cil_tmp6 = (signed char )__cil_tmp5;
-#line 876
-  __cil_tmp7 = (int )__cil_tmp6;
-#line 876
-  if (__cil_tmp7 != 0) {
+  if (__cil_tmp5 != 0) {
 #line 877
     mask = mask | 65U;
   } else {
@@ -8715,65 +8319,38 @@ static struct miscdevice ipmi_wdog_miscdev  =
     (struct device *)0, (struct device *)0, (char const   *)0, 0U};
 #line 929 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
 static void ipmi_wdog_msg_handler(struct ipmi_recv_msg *msg , void *handler_data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+{ unsigned char *__cil_tmp3 ;
+  unsigned char __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
   unsigned char *__cil_tmp6 ;
   unsigned char __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char *__cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned char __cil_tmp18 ;
-  int __cil_tmp19 ;
+  int __cil_tmp8 ;
+  unsigned char __cil_tmp9 ;
+  int __cil_tmp10 ;
 
   {
   {
 #line 932
-  __cil_tmp3 = 80 + 8;
+  __cil_tmp3 = msg->msg.data;
 #line 932
-  __cil_tmp4 = (unsigned long )msg;
+  __cil_tmp4 = *__cil_tmp3;
 #line 932
-  __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
+  __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 932
-  __cil_tmp6 = *((unsigned char **)__cil_tmp5);
-#line 932
-  __cil_tmp7 = *__cil_tmp6;
-#line 932
-  __cil_tmp8 = (unsigned int )__cil_tmp7;
-#line 932
-  if (__cil_tmp8 != 0U) {
+  if (__cil_tmp5 != 0U) {
     {
 #line 933
-    __cil_tmp9 = 80 + 8;
+    __cil_tmp6 = msg->msg.data;
 #line 933
-    __cil_tmp10 = (unsigned long )msg;
+    __cil_tmp7 = *__cil_tmp6;
 #line 933
-    __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
+    __cil_tmp8 = (int )__cil_tmp7;
 #line 933
-    __cil_tmp12 = *((unsigned char **)__cil_tmp11);
+    __cil_tmp9 = msg->msg.cmd;
 #line 933
-    __cil_tmp13 = *__cil_tmp12;
+    __cil_tmp10 = (int )__cil_tmp9;
 #line 933
-    __cil_tmp14 = (int )__cil_tmp13;
-#line 933
-    __cil_tmp15 = 80 + 1;
-#line 933
-    __cil_tmp16 = (unsigned long )msg;
-#line 933
-    __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 933
-    __cil_tmp18 = *((unsigned char *)__cil_tmp17);
-#line 933
-    __cil_tmp19 = (int )__cil_tmp18;
-#line 933
-    printk("<3>IPMI Watchdog: response: Error %x on cmd %x\n", __cil_tmp14, __cil_tmp19);
+    printk("<3>IPMI Watchdog: response: Error %x on cmd %x\n", __cil_tmp8, __cil_tmp10);
     }
   } else {
 
@@ -8793,8 +8370,7 @@ static void ipmi_wdog_pretimeout_handler(void *handler_data )
   unsigned int __cil_tmp3 ;
   unsigned int __cil_tmp4 ;
   unsigned int __cil_tmp5 ;
-  char *__cil_tmp6 ;
-  void *__cil_tmp7 ;
+  void *__cil_tmp6 ;
 
   {
   {
@@ -8827,13 +8403,11 @@ static void ipmi_wdog_pretimeout_handler(void *handler_data )
 #line 948
           spin_lock(& ipmi_read_lock);
 #line 949
-          __cil_tmp6 = & data_to_read;
-#line 949
-          *__cil_tmp6 = (char)1;
+          data_to_read = (char)1;
 #line 950
-          __cil_tmp7 = (void *)0;
+          __cil_tmp6 = (void *)0;
 #line 950
-          __wake_up(& read_q, 1U, 1, __cil_tmp7);
+          __wake_up(& read_q, 1U, 1, __cil_tmp6);
 #line 951
           kill_fasync(& fasync_q, 29, 131073);
 #line 953
@@ -8866,42 +8440,26 @@ static void ipmi_register_watchdog(int ipmi_intf )
   int old_pretimeout ;
   int old_timeout ;
   int old_preop_val ;
-  struct ipmi_user *__cil_tmp6 ;
+  ipmi_user_t __cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  ipmi_user_t *__cil_tmp8 ;
-  ipmi_user_t __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  ipmi_user_t **__cil_tmp13 ;
-  ipmi_user_t *__cil_tmp14 ;
-  ipmi_user_t __cil_tmp15 ;
-  ipmi_user_t *__cil_tmp16 ;
-  ipmi_user_t __cil_tmp17 ;
-  ipmi_user_t *__cil_tmp18 ;
-  int *__cil_tmp19 ;
-  int *__cil_tmp20 ;
-  int *__cil_tmp21 ;
-  int *__cil_tmp22 ;
-  int *__cil_tmp23 ;
-  int *__cil_tmp24 ;
+  unsigned long __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  void *__cil_tmp10 ;
+  ipmi_user_t **__cil_tmp11 ;
 
   {
 #line 971
   rv = -16;
   {
 #line 973
-  __cil_tmp6 = (struct ipmi_user *)0;
+  __cil_tmp6 = (ipmi_user_t )0;
 #line 973
   __cil_tmp7 = (unsigned long )__cil_tmp6;
 #line 973
-  __cil_tmp8 = & watchdog_user;
+  __cil_tmp8 = (unsigned long )watchdog_user;
 #line 973
-  __cil_tmp9 = *__cil_tmp8;
-#line 973
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 973
-  if (__cil_tmp10 != __cil_tmp7) {
+  if (__cil_tmp8 != __cil_tmp7) {
+#line 974
     goto out;
   } else {
 
@@ -8911,6 +8469,7 @@ static void ipmi_register_watchdog(int ipmi_intf )
   if (ifnum_to_use >= 0) {
 #line 976
     if (ifnum_to_use != ipmi_intf) {
+#line 977
       goto out;
     } else {
 
@@ -8922,13 +8481,13 @@ static void ipmi_register_watchdog(int ipmi_intf )
 #line 979
   watchdog_ifnum = ipmi_intf;
 #line 981
-  __cil_tmp11 = (unsigned int )ipmi_intf;
+  __cil_tmp9 = (unsigned int )ipmi_intf;
 #line 981
-  __cil_tmp12 = (void *)0;
+  __cil_tmp10 = (void *)0;
 #line 981
-  __cil_tmp13 = (ipmi_user_t **)(& watchdog_user);
+  __cil_tmp11 = (ipmi_user_t **)(& watchdog_user);
 #line 981
-  rv = ipmi_create_user(__cil_tmp11, & ipmi_hndlrs, __cil_tmp12, __cil_tmp13);
+  rv = ipmi_create_user(__cil_tmp9, & ipmi_hndlrs, __cil_tmp10, __cil_tmp11);
   }
 #line 982
   if (rv < 0) {
@@ -8936,17 +8495,14 @@ static void ipmi_register_watchdog(int ipmi_intf )
 #line 983
     printk("<2>IPMI Watchdog: Unable to register with ipmi\n");
     }
+#line 984
     goto out;
   } else {
 
   }
   {
 #line 987
-  __cil_tmp14 = & watchdog_user;
-#line 987
-  __cil_tmp15 = *__cil_tmp14;
-#line 987
-  ipmi_get_version(__cil_tmp15, & ipmi_version_major, & ipmi_version_minor);
+  ipmi_get_version(watchdog_user, & ipmi_version_major, & ipmi_version_minor);
 #line 991
   rv = misc_register(& ipmi_wdog_miscdev);
   }
@@ -8954,15 +8510,9 @@ static void ipmi_register_watchdog(int ipmi_intf )
   if (rv < 0) {
     {
 #line 993
-    __cil_tmp16 = & watchdog_user;
-#line 993
-    __cil_tmp17 = *__cil_tmp16;
-#line 993
-    ipmi_destroy_user(__cil_tmp17);
+    ipmi_destroy_user(watchdog_user);
 #line 994
-    __cil_tmp18 = & watchdog_user;
-#line 994
-    *__cil_tmp18 = (struct ipmi_user *)0;
+    watchdog_user = (ipmi_user_t )0;
 #line 995
     printk("<2>IPMI Watchdog: Unable to register misc device\n");
     }
@@ -8973,13 +8523,9 @@ static void ipmi_register_watchdog(int ipmi_intf )
   if (nmi_handler_registered != 0) {
     {
 #line 1000
-    __cil_tmp19 = & pretimeout;
-#line 1000
-    old_pretimeout = *__cil_tmp19;
+    old_pretimeout = pretimeout;
 #line 1001
-    __cil_tmp20 = & timeout;
-#line 1001
-    old_timeout = *__cil_tmp20;
+    old_timeout = timeout;
 #line 1002
     old_preop_val = (int )preop_val;
 #line 1008
@@ -8987,13 +8533,9 @@ static void ipmi_register_watchdog(int ipmi_intf )
 #line 1009
     preop_val = (unsigned char)0;
 #line 1010
-    __cil_tmp21 = & pretimeout;
-#line 1010
-    *__cil_tmp21 = 99;
+    pretimeout = 99;
 #line 1011
-    __cil_tmp22 = & timeout;
-#line 1011
-    *__cil_tmp22 = 100;
+    timeout = 100;
 #line 1013
     testing_nmi = 1;
 #line 1015
@@ -9008,6 +8550,7 @@ static void ipmi_register_watchdog(int ipmi_intf )
 #line 1020
       rv = 0;
       }
+#line 1021
       goto out_restore;
     } else {
 
@@ -9031,13 +8574,9 @@ static void ipmi_register_watchdog(int ipmi_intf )
 #line 1033
     preop_val = (unsigned char )old_preop_val;
 #line 1034
-    __cil_tmp23 = & pretimeout;
-#line 1034
-    *__cil_tmp23 = old_pretimeout;
+    pretimeout = old_pretimeout;
 #line 1035
-    __cil_tmp24 = & timeout;
-#line 1035
-    *__cil_tmp24 = old_timeout;
+    timeout = old_timeout;
   } else {
 
   }
@@ -9080,30 +8619,22 @@ static void ipmi_register_watchdog(int ipmi_intf )
 static void ipmi_unregister_watchdog(int ipmi_intf ) 
 { int rv ;
   int tmp ;
-  struct ipmi_user *__cil_tmp4 ;
+  ipmi_user_t __cil_tmp4 ;
   unsigned long __cil_tmp5 ;
-  ipmi_user_t *__cil_tmp6 ;
-  ipmi_user_t __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  atomic_t const   *__cil_tmp9 ;
-  ipmi_user_t *__cil_tmp10 ;
-  ipmi_user_t __cil_tmp11 ;
-  ipmi_user_t *__cil_tmp12 ;
+  unsigned long __cil_tmp6 ;
+  atomic_t const   *__cil_tmp7 ;
 
   {
   {
 #line 1057
-  __cil_tmp4 = (struct ipmi_user *)0;
+  __cil_tmp4 = (ipmi_user_t )0;
 #line 1057
   __cil_tmp5 = (unsigned long )__cil_tmp4;
 #line 1057
-  __cil_tmp6 = & watchdog_user;
+  __cil_tmp6 = (unsigned long )watchdog_user;
 #line 1057
-  __cil_tmp7 = *__cil_tmp6;
-#line 1057
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 1057
-  if (__cil_tmp8 == __cil_tmp5) {
+  if (__cil_tmp6 == __cil_tmp5) {
+#line 1058
     goto out;
   } else {
 
@@ -9111,6 +8642,7 @@ static void ipmi_unregister_watchdog(int ipmi_intf )
   }
 #line 1060
   if (watchdog_ifnum != ipmi_intf) {
+#line 1061
     goto out;
   } else {
 
@@ -9119,6 +8651,7 @@ static void ipmi_unregister_watchdog(int ipmi_intf )
 #line 1064
   misc_deregister(& ipmi_wdog_miscdev);
   }
+#line 1071
   goto ldv_22627;
   ldv_22626: 
   {
@@ -9128,24 +8661,22 @@ static void ipmi_unregister_watchdog(int ipmi_intf )
   ldv_22627: 
   {
 #line 1071
-  __cil_tmp9 = (atomic_t const   *)(& set_timeout_tofree);
+  __cil_tmp7 = (atomic_t const   *)(& set_timeout_tofree);
 #line 1071
-  tmp = atomic_read(__cil_tmp9);
+  tmp = atomic_read(__cil_tmp7);
   }
 #line 1071
   if (tmp != 0) {
+#line 1072
     goto ldv_22626;
   } else {
+#line 1074
     goto ldv_22628;
   }
   ldv_22628: 
   {
 #line 1075
-  __cil_tmp10 = & watchdog_user;
-#line 1075
-  __cil_tmp11 = *__cil_tmp10;
-#line 1075
-  rv = ipmi_destroy_user(__cil_tmp11);
+  rv = ipmi_destroy_user(watchdog_user);
   }
 #line 1076
   if (rv != 0) {
@@ -9157,9 +8688,7 @@ static void ipmi_unregister_watchdog(int ipmi_intf )
 
   }
 #line 1080
-  __cil_tmp12 = & watchdog_user;
-#line 1080
-  *__cil_tmp12 = (struct ipmi_user *)0;
+  watchdog_user = (ipmi_user_t )0;
   out: ;
 #line 1083
   return;
@@ -9169,13 +8698,11 @@ static void ipmi_unregister_watchdog(int ipmi_intf )
 static int ipmi_nmi(struct notifier_block *self , unsigned long val , void *data ) 
 { struct die_args *args ;
   int tmp ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  long __cil_tmp8 ;
-  long __cil_tmp9 ;
+  long __cil_tmp6 ;
+  long __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
   unsigned int __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
 
   {
 #line 1090
@@ -9189,15 +8716,11 @@ static int ipmi_nmi(struct notifier_block *self , unsigned long val , void *data
   }
   {
 #line 1096
-  __cil_tmp6 = (unsigned long )args;
+  __cil_tmp6 = args->err;
 #line 1096
-  __cil_tmp7 = __cil_tmp6 + 16;
+  __cil_tmp7 = __cil_tmp6 & 192L;
 #line 1096
-  __cil_tmp8 = *((long *)__cil_tmp7);
-#line 1096
-  __cil_tmp9 = __cil_tmp8 & 192L;
-#line 1096
-  if (__cil_tmp9 != 0L) {
+  if (__cil_tmp7 != 0L) {
 #line 1097
     return (1);
   } else {
@@ -9215,9 +8738,9 @@ static int ipmi_nmi(struct notifier_block *self , unsigned long val , void *data
   }
   {
 #line 1112
-  __cil_tmp10 = (unsigned int )ipmi_watchdog_state;
+  __cil_tmp8 = (unsigned int )ipmi_watchdog_state;
 #line 1112
-  if (__cil_tmp10 == 0U) {
+  if (__cil_tmp8 == 0U) {
 #line 1113
     return (1);
   } else {
@@ -9226,9 +8749,9 @@ static int ipmi_nmi(struct notifier_block *self , unsigned long val , void *data
   }
   {
 #line 1115
-  __cil_tmp11 = (unsigned int )preaction_val;
+  __cil_tmp9 = (unsigned int )preaction_val;
 #line 1115
-  if (__cil_tmp11 != 2U) {
+  if (__cil_tmp9 != 2U) {
 #line 1116
     return (1);
   } else {
@@ -9237,9 +8760,9 @@ static int ipmi_nmi(struct notifier_block *self , unsigned long val , void *data
   }
   {
 #line 1122
-  __cil_tmp12 = (unsigned int )preop_val;
+  __cil_tmp10 = (unsigned int )preop_val;
 #line 1122
-  if (__cil_tmp12 == 1U) {
+  if (__cil_tmp10 == 1U) {
     {
 #line 1126
     pretimeout_since_last_heartbeat = (char)1;
@@ -9269,29 +8792,21 @@ static struct notifier_block ipmi_nmi_handler  =    {& ipmi_nmi, (struct notifie
 static int wdog_reboot_handler(struct notifier_block *this , unsigned long code ,
                                void *unused ) 
 { int reboot_event_handled ;
-  struct ipmi_user *__cil_tmp5 ;
+  ipmi_user_t __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  ipmi_user_t *__cil_tmp7 ;
-  ipmi_user_t __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  int *__cil_tmp11 ;
-  int *__cil_tmp12 ;
+  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
 
   {
   {
 #line 1145
-  __cil_tmp5 = (struct ipmi_user *)0;
+  __cil_tmp5 = (ipmi_user_t )0;
 #line 1145
   __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 1145
-  __cil_tmp7 = & watchdog_user;
+  __cil_tmp7 = (unsigned long )watchdog_user;
 #line 1145
-  __cil_tmp8 = *__cil_tmp7;
-#line 1145
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
-#line 1145
-  if (__cil_tmp9 != __cil_tmp6) {
+  if (__cil_tmp7 != __cil_tmp6) {
 #line 1145
     if (reboot_event_handled == 0) {
 #line 1147
@@ -9304,39 +8819,34 @@ static int wdog_reboot_handler(struct notifier_block *this , unsigned long code 
 #line 1152
         panic_halt_ipmi_set_timeout();
         }
-      } else {
+      } else
 #line 1149
-        if (code == 2UL) {
-          {
+      if (code == 2UL) {
+        {
 #line 1151
-          ipmi_watchdog_state = (unsigned char)0;
+        ipmi_watchdog_state = (unsigned char)0;
 #line 1152
+        panic_halt_ipmi_set_timeout();
+        }
+      } else {
+        {
+#line 1153
+        __cil_tmp8 = (unsigned int )ipmi_watchdog_state;
+#line 1153
+        if (__cil_tmp8 != 0U) {
+          {
+#line 1157
+          timeout = 120;
+#line 1158
+          pretimeout = 0;
+#line 1159
+          ipmi_watchdog_state = (unsigned char)1;
+#line 1160
           panic_halt_ipmi_set_timeout();
           }
         } else {
-          {
-#line 1153
-          __cil_tmp10 = (unsigned int )ipmi_watchdog_state;
-#line 1153
-          if (__cil_tmp10 != 0U) {
-            {
-#line 1157
-            __cil_tmp11 = & timeout;
-#line 1157
-            *__cil_tmp11 = 120;
-#line 1158
-            __cil_tmp12 = & pretimeout;
-#line 1158
-            *__cil_tmp12 = 0;
-#line 1159
-            ipmi_watchdog_state = (unsigned char)1;
-#line 1160
-            panic_halt_ipmi_set_timeout();
-            }
-          } else {
 
-          }
-          }
+        }
         }
       }
     } else {
@@ -9356,47 +8866,35 @@ static struct notifier_block wdog_reboot_notifier  =    {& wdog_reboot_handler, 
 static int wdog_panic_handler(struct notifier_block *this , unsigned long event ,
                               void *unused ) 
 { int panic_event_handled ;
-  struct ipmi_user *__cil_tmp5 ;
+  ipmi_user_t __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  ipmi_user_t *__cil_tmp7 ;
-  ipmi_user_t __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  int *__cil_tmp11 ;
-  int *__cil_tmp12 ;
+  unsigned long __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
 
   {
   {
 #line 1182
-  __cil_tmp5 = (struct ipmi_user *)0;
+  __cil_tmp5 = (ipmi_user_t )0;
 #line 1182
   __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 1182
-  __cil_tmp7 = & watchdog_user;
+  __cil_tmp7 = (unsigned long )watchdog_user;
 #line 1182
-  __cil_tmp8 = *__cil_tmp7;
-#line 1182
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
-#line 1182
-  if (__cil_tmp9 != __cil_tmp6) {
+  if (__cil_tmp7 != __cil_tmp6) {
 #line 1182
     if (panic_event_handled == 0) {
       {
 #line 1182
-      __cil_tmp10 = (unsigned int )ipmi_watchdog_state;
+      __cil_tmp8 = (unsigned int )ipmi_watchdog_state;
 #line 1182
-      if (__cil_tmp10 != 0U) {
+      if (__cil_tmp8 != 0U) {
         {
 #line 1185
         panic_event_handled = 1;
 #line 1187
-        __cil_tmp11 = & timeout;
-#line 1187
-        *__cil_tmp11 = 255;
+        timeout = 255;
 #line 1188
-        __cil_tmp12 = & pretimeout;
-#line 1188
-        *__cil_tmp12 = 0;
+        pretimeout = 0;
 #line 1189
         panic_halt_ipmi_set_timeout();
         }
@@ -9803,26 +9301,26 @@ static void check_parms(void)
         nmi_handler_registered = 1;
       }
     } else {
+#line 1300
       goto _L;
     }
-  } else {
-    _L: 
+  } else
+  _L: 
 #line 1308
-    if (do_nmi == 0) {
+  if (do_nmi == 0) {
 #line 1308
-      if (nmi_handler_registered != 0) {
-        {
+    if (nmi_handler_registered != 0) {
+      {
 #line 1309
-        unregister_die_notifier(& ipmi_nmi_handler);
+      unregister_die_notifier(& ipmi_nmi_handler);
 #line 1310
-        nmi_handler_registered = 0;
-        }
-      } else {
-
+      nmi_handler_registered = 0;
       }
     } else {
 
     }
+  } else {
+
   }
 #line 1312
   return;
@@ -10059,10 +9557,12 @@ void main(void)
   }
 #line 3593
   if (tmp != 0) {
+#line 3594
     goto ldv_final;
   } else {
 
   }
+#line 3635
   goto ldv_22777;
   ldv_22776: 
   {
@@ -10071,373 +9571,386 @@ void main(void)
   }
 #line 3641
   if (tmp___0 == 0) {
+#line 3641
     goto case_0;
-  } else {
+  } else
 #line 3731
-    if (tmp___0 == 1) {
-      goto case_1;
-    } else {
+  if (tmp___0 == 1) {
+#line 3731
+    goto case_1;
+  } else
 #line 3821
-      if (tmp___0 == 2) {
-        goto case_2;
-      } else {
+  if (tmp___0 == 2) {
+#line 3821
+    goto case_2;
+  } else
 #line 3911
-        if (tmp___0 == 3) {
-          goto case_3;
-        } else {
+  if (tmp___0 == 3) {
+#line 3911
+    goto case_3;
+  } else
 #line 4001
-          if (tmp___0 == 4) {
-            goto case_4;
-          } else {
+  if (tmp___0 == 4) {
+#line 4001
+    goto case_4;
+  } else
 #line 4091
-            if (tmp___0 == 5) {
-              goto case_5;
-            } else {
+  if (tmp___0 == 5) {
+#line 4091
+    goto case_5;
+  } else
 #line 4181
-              if (tmp___0 == 6) {
-                goto case_6;
-              } else {
+  if (tmp___0 == 6) {
+#line 4181
+    goto case_6;
+  } else
 #line 4271
-                if (tmp___0 == 7) {
-                  goto case_7;
-                } else {
+  if (tmp___0 == 7) {
+#line 4271
+    goto case_7;
+  } else
 #line 4361
-                  if (tmp___0 == 8) {
-                    goto case_8;
-                  } else {
+  if (tmp___0 == 8) {
+#line 4361
+    goto case_8;
+  } else
 #line 4451
-                    if (tmp___0 == 9) {
-                      goto case_9;
-                    } else {
+  if (tmp___0 == 9) {
+#line 4451
+    goto case_9;
+  } else
 #line 4541
-                      if (tmp___0 == 10) {
-                        goto case_10;
-                      } else {
+  if (tmp___0 == 10) {
+#line 4541
+    goto case_10;
+  } else
 #line 4631
-                        if (tmp___0 == 11) {
-                          goto case_11;
-                        } else {
+  if (tmp___0 == 11) {
+#line 4631
+    goto case_11;
+  } else
 #line 4721
-                          if (tmp___0 == 12) {
-                            goto case_12;
-                          } else {
+  if (tmp___0 == 12) {
+#line 4721
+    goto case_12;
+  } else
 #line 4814
-                            if (tmp___0 == 13) {
-                              goto case_13;
-                            } else {
+  if (tmp___0 == 13) {
+#line 4814
+    goto case_13;
+  } else
 #line 4907
-                              if (tmp___0 == 14) {
-                                goto case_14;
-                              } else {
+  if (tmp___0 == 14) {
+#line 4907
+    goto case_14;
+  } else
 #line 5000
-                                if (tmp___0 == 15) {
-                                  goto case_15;
-                                } else {
+  if (tmp___0 == 15) {
+#line 5000
+    goto case_15;
+  } else
 #line 5090
-                                  if (tmp___0 == 16) {
-                                    goto case_16;
-                                  } else {
+  if (tmp___0 == 16) {
+#line 5090
+    goto case_16;
+  } else
 #line 5180
-                                    if (tmp___0 == 17) {
-                                      goto case_17;
-                                    } else {
+  if (tmp___0 == 17) {
+#line 5180
+    goto case_17;
+  } else
 #line 5270
-                                      if (tmp___0 == 18) {
-                                        goto case_18;
-                                      } else {
+  if (tmp___0 == 18) {
+#line 5270
+    goto case_18;
+  } else
 #line 5360
-                                        if (tmp___0 == 19) {
-                                          goto case_19;
-                                        } else {
+  if (tmp___0 == 19) {
+#line 5360
+    goto case_19;
+  } else
 #line 5450
-                                          if (tmp___0 == 20) {
-                                            goto case_20;
-                                          } else {
+  if (tmp___0 == 20) {
+#line 5450
+    goto case_20;
+  } else
 #line 5540
-                                            if (tmp___0 == 21) {
-                                              goto case_21;
-                                            } else {
+  if (tmp___0 == 21) {
+#line 5540
+    goto case_21;
+  } else
 #line 5630
-                                              if (tmp___0 == 22) {
-                                                goto case_22;
-                                              } else {
+  if (tmp___0 == 22) {
+#line 5630
+    goto case_22;
+  } else
 #line 5720
-                                                if (tmp___0 == 23) {
-                                                  goto case_23;
-                                                } else {
+  if (tmp___0 == 23) {
+#line 5720
+    goto case_23;
+  } else
 #line 5810
-                                                  if (tmp___0 == 24) {
-                                                    goto case_24;
-                                                  } else {
+  if (tmp___0 == 24) {
+#line 5810
+    goto case_24;
+  } else
 #line 5900
-                                                    if (tmp___0 == 25) {
-                                                      goto case_25;
-                                                    } else {
-                                                      goto switch_default;
+  if (tmp___0 == 25) {
+#line 5900
+    goto case_25;
+  } else {
+#line 5990
+    goto switch_default;
 #line 3639
-                                                      if (0) {
-                                                        case_0: 
-                                                        {
+    if (0) {
+      case_0: 
+      {
 #line 3705
-                                                        set_param_timeout(var_set_param_timeout_0_p0,
-                                                                          var_set_param_timeout_0_p1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_1: 
-                                                        {
-#line 3796
-                                                        set_param_wdog_ifnum(var_set_param_wdog_ifnum_3_p0,
-                                                                             var_set_param_wdog_ifnum_3_p1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_2: 
-                                                        {
-#line 3886
-                                                        set_param_str(var_set_param_str_1_p0,
-                                                                      var_set_param_str_1_p1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_3: 
-                                                        {
-#line 3976
-                                                        get_param_str(var_get_param_str_2_p0,
-                                                                      var_get_param_str_2_p1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_4: 
-                                                        {
-#line 4069
-                                                        set_timeout_free_smi(var_group1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_5: 
-                                                        {
-#line 4159
-                                                        set_timeout_free_recv(var_group2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_6: 
-                                                        {
-#line 4249
-                                                        panic_smi_free(var_group1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_7: 
-                                                        {
-#line 4339
-                                                        panic_recv_free(var_group2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_8: 
-                                                        {
-#line 4429
-                                                        panic_smi_free(var_group1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_9: 
-                                                        {
-#line 4519
-                                                        panic_recv_free(var_group2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_10: 
-                                                        {
-#line 4609
-                                                        heartbeat_free_smi(var_group1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_11: 
-                                                        {
-#line 4699
-                                                        heartbeat_free_recv(var_group2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_12: ;
-#line 4724
-                                                        if (ldv_s_ipmi_wdog_fops_file_operations == 0) {
-                                                          {
-#line 4789
-                                                          res_ipmi_open_19 = ipmi_open(var_group4,
-                                                                                       var_group3);
-#line 4790
-                                                          ldv_check_return_value(res_ipmi_open_19);
-                                                          }
-#line 4791
-                                                          if (res_ipmi_open_19 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 4807
-                                                          ldv_s_ipmi_wdog_fops_file_operations = ldv_s_ipmi_wdog_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_13: ;
-#line 4817
-                                                        if (ldv_s_ipmi_wdog_fops_file_operations == 1) {
-                                                          {
-#line 4882
-                                                          res_ipmi_read_18 = ipmi_read(var_group3,
-                                                                                       var_ipmi_read_18_p1,
-                                                                                       var_ipmi_read_18_p2,
-                                                                                       var_ipmi_read_18_p3);
-#line 4883
-                                                          __cil_tmp43 = (int )res_ipmi_read_18;
-#line 4883
-                                                          ldv_check_return_value(__cil_tmp43);
-                                                          }
-#line 4884
-                                                          if (res_ipmi_read_18 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 4900
-                                                          ldv_s_ipmi_wdog_fops_file_operations = ldv_s_ipmi_wdog_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_14: ;
-#line 4910
-                                                        if (ldv_s_ipmi_wdog_fops_file_operations == 2) {
-                                                          {
-#line 4975
-                                                          res_ipmi_write_17 = ipmi_write(var_group3,
-                                                                                         var_ipmi_write_17_p1,
-                                                                                         var_ipmi_write_17_p2,
-                                                                                         var_ipmi_write_17_p3);
-#line 4976
-                                                          __cil_tmp44 = (int )res_ipmi_write_17;
-#line 4976
-                                                          ldv_check_return_value(__cil_tmp44);
-                                                          }
-#line 4977
-                                                          if (res_ipmi_write_17 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 4993
-                                                          ldv_s_ipmi_wdog_fops_file_operations = ldv_s_ipmi_wdog_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_15: ;
-#line 5003
-                                                        if (ldv_s_ipmi_wdog_fops_file_operations == 3) {
-                                                          {
-#line 5068
-                                                          ipmi_close(var_group4, var_group3);
-#line 5083
-                                                          ldv_s_ipmi_wdog_fops_file_operations = 0;
-                                                          }
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_16: 
-                                                        {
-#line 5158
-                                                        ipmi_poll(var_group3, var_ipmi_poll_20_p1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_17: 
-                                                        {
-#line 5248
-                                                        ipmi_unlocked_ioctl(var_group3,
-                                                                            var_ipmi_unlocked_ioctl_16_p1,
-                                                                            var_ipmi_unlocked_ioctl_16_p2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_18: 
-                                                        {
-#line 5338
-                                                        ipmi_fasync(var_ipmi_fasync_21_p0,
-                                                                    var_group3, var_ipmi_fasync_21_p2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_19: 
-                                                        {
-#line 5428
-                                                        ipmi_wdog_msg_handler(var_group2,
-                                                                              var_ipmi_wdog_msg_handler_23_p1);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_20: 
-                                                        {
-#line 5518
-                                                        ipmi_wdog_pretimeout_handler(var_ipmi_wdog_pretimeout_handler_24_p0);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_21: 
-                                                        {
-#line 5611
-                                                        ipmi_nmi(var_group5, var_ipmi_nmi_27_p1,
-                                                                 var_ipmi_nmi_27_p2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_22: 
-                                                        {
-#line 5702
-                                                        wdog_reboot_handler(var_group5,
-                                                                            var_wdog_reboot_handler_28_p1,
-                                                                            var_wdog_reboot_handler_28_p2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_23: 
-                                                        {
-#line 5792
-                                                        wdog_panic_handler(var_group5,
-                                                                           var_wdog_panic_handler_29_p1,
-                                                                           var_wdog_panic_handler_29_p2);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_24: 
-                                                        {
-#line 5882
-                                                        ipmi_new_smi(var_ipmi_new_smi_30_p0,
-                                                                     var_group6);
-                                                        }
-                                                        goto ldv_22748;
-                                                        case_25: 
-                                                        {
-#line 5972
-                                                        ipmi_smi_gone(var_ipmi_smi_gone_31_p0);
-                                                        }
-                                                        goto ldv_22748;
-                                                        switch_default: ;
-                                                        goto ldv_22748;
-                                                      } else {
-
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+      set_param_timeout(var_set_param_timeout_0_p0, var_set_param_timeout_0_p1);
       }
+#line 3730
+      goto ldv_22748;
+      case_1: 
+      {
+#line 3796
+      set_param_wdog_ifnum(var_set_param_wdog_ifnum_3_p0, var_set_param_wdog_ifnum_3_p1);
+      }
+#line 3820
+      goto ldv_22748;
+      case_2: 
+      {
+#line 3886
+      set_param_str(var_set_param_str_1_p0, var_set_param_str_1_p1);
+      }
+#line 3910
+      goto ldv_22748;
+      case_3: 
+      {
+#line 3976
+      get_param_str(var_get_param_str_2_p0, var_get_param_str_2_p1);
+      }
+#line 4000
+      goto ldv_22748;
+      case_4: 
+      {
+#line 4069
+      set_timeout_free_smi(var_group1);
+      }
+#line 4090
+      goto ldv_22748;
+      case_5: 
+      {
+#line 4159
+      set_timeout_free_recv(var_group2);
+      }
+#line 4180
+      goto ldv_22748;
+      case_6: 
+      {
+#line 4249
+      panic_smi_free(var_group1);
+      }
+#line 4270
+      goto ldv_22748;
+      case_7: 
+      {
+#line 4339
+      panic_recv_free(var_group2);
+      }
+#line 4360
+      goto ldv_22748;
+      case_8: 
+      {
+#line 4429
+      panic_smi_free(var_group1);
+      }
+#line 4450
+      goto ldv_22748;
+      case_9: 
+      {
+#line 4519
+      panic_recv_free(var_group2);
+      }
+#line 4540
+      goto ldv_22748;
+      case_10: 
+      {
+#line 4609
+      heartbeat_free_smi(var_group1);
+      }
+#line 4630
+      goto ldv_22748;
+      case_11: 
+      {
+#line 4699
+      heartbeat_free_recv(var_group2);
+      }
+#line 4720
+      goto ldv_22748;
+      case_12: ;
+#line 4724
+      if (ldv_s_ipmi_wdog_fops_file_operations == 0) {
+        {
+#line 4789
+        res_ipmi_open_19 = ipmi_open(var_group4, var_group3);
+#line 4790
+        ldv_check_return_value(res_ipmi_open_19);
+        }
+#line 4791
+        if (res_ipmi_open_19 != 0) {
+#line 4792
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 4807
+        ldv_s_ipmi_wdog_fops_file_operations = ldv_s_ipmi_wdog_fops_file_operations + 1;
+      } else {
+
+      }
+#line 4813
+      goto ldv_22748;
+      case_13: ;
+#line 4817
+      if (ldv_s_ipmi_wdog_fops_file_operations == 1) {
+        {
+#line 4882
+        res_ipmi_read_18 = ipmi_read(var_group3, var_ipmi_read_18_p1, var_ipmi_read_18_p2,
+                                     var_ipmi_read_18_p3);
+#line 4883
+        __cil_tmp43 = (int )res_ipmi_read_18;
+#line 4883
+        ldv_check_return_value(__cil_tmp43);
+        }
+#line 4884
+        if (res_ipmi_read_18 < 0L) {
+#line 4885
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 4900
+        ldv_s_ipmi_wdog_fops_file_operations = ldv_s_ipmi_wdog_fops_file_operations + 1;
+      } else {
+
+      }
+#line 4906
+      goto ldv_22748;
+      case_14: ;
+#line 4910
+      if (ldv_s_ipmi_wdog_fops_file_operations == 2) {
+        {
+#line 4975
+        res_ipmi_write_17 = ipmi_write(var_group3, var_ipmi_write_17_p1, var_ipmi_write_17_p2,
+                                       var_ipmi_write_17_p3);
+#line 4976
+        __cil_tmp44 = (int )res_ipmi_write_17;
+#line 4976
+        ldv_check_return_value(__cil_tmp44);
+        }
+#line 4977
+        if (res_ipmi_write_17 < 0L) {
+#line 4978
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 4993
+        ldv_s_ipmi_wdog_fops_file_operations = ldv_s_ipmi_wdog_fops_file_operations + 1;
+      } else {
+
+      }
+#line 4999
+      goto ldv_22748;
+      case_15: ;
+#line 5003
+      if (ldv_s_ipmi_wdog_fops_file_operations == 3) {
+        {
+#line 5068
+        ipmi_close(var_group4, var_group3);
+#line 5083
+        ldv_s_ipmi_wdog_fops_file_operations = 0;
+        }
+      } else {
+
+      }
+#line 5089
+      goto ldv_22748;
+      case_16: 
+      {
+#line 5158
+      ipmi_poll(var_group3, var_ipmi_poll_20_p1);
+      }
+#line 5179
+      goto ldv_22748;
+      case_17: 
+      {
+#line 5248
+      ipmi_unlocked_ioctl(var_group3, var_ipmi_unlocked_ioctl_16_p1, var_ipmi_unlocked_ioctl_16_p2);
+      }
+#line 5269
+      goto ldv_22748;
+      case_18: 
+      {
+#line 5338
+      ipmi_fasync(var_ipmi_fasync_21_p0, var_group3, var_ipmi_fasync_21_p2);
+      }
+#line 5359
+      goto ldv_22748;
+      case_19: 
+      {
+#line 5428
+      ipmi_wdog_msg_handler(var_group2, var_ipmi_wdog_msg_handler_23_p1);
+      }
+#line 5449
+      goto ldv_22748;
+      case_20: 
+      {
+#line 5518
+      ipmi_wdog_pretimeout_handler(var_ipmi_wdog_pretimeout_handler_24_p0);
+      }
+#line 5539
+      goto ldv_22748;
+      case_21: 
+      {
+#line 5611
+      ipmi_nmi(var_group5, var_ipmi_nmi_27_p1, var_ipmi_nmi_27_p2);
+      }
+#line 5629
+      goto ldv_22748;
+      case_22: 
+      {
+#line 5702
+      wdog_reboot_handler(var_group5, var_wdog_reboot_handler_28_p1, var_wdog_reboot_handler_28_p2);
+      }
+#line 5719
+      goto ldv_22748;
+      case_23: 
+      {
+#line 5792
+      wdog_panic_handler(var_group5, var_wdog_panic_handler_29_p1, var_wdog_panic_handler_29_p2);
+      }
+#line 5809
+      goto ldv_22748;
+      case_24: 
+      {
+#line 5882
+      ipmi_new_smi(var_ipmi_new_smi_30_p0, var_group6);
+      }
+#line 5899
+      goto ldv_22748;
+      case_25: 
+      {
+#line 5972
+      ipmi_smi_gone(var_ipmi_smi_gone_31_p0);
+      }
+#line 5989
+      goto ldv_22748;
+      switch_default: ;
+#line 5990
+      goto ldv_22748;
+    } else {
+
     }
   }
   ldv_22748: ;
@@ -10448,14 +9961,16 @@ void main(void)
   }
 #line 3635
   if (tmp___1 != 0) {
+#line 3637
+    goto ldv_22776;
+  } else
+#line 3635
+  if (ldv_s_ipmi_wdog_fops_file_operations != 0) {
+#line 3637
     goto ldv_22776;
   } else {
-#line 3635
-    if (ldv_s_ipmi_wdog_fops_file_operations != 0) {
-      goto ldv_22776;
-    } else {
-      goto ldv_22778;
-    }
+#line 3639
+    goto ldv_22778;
   }
   ldv_22778: ;
   ldv_module_exit: 
@@ -10478,6 +9993,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -10597,6 +10113,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 6149
   goto LDV_STOP;
 }
 }

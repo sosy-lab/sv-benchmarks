@@ -7,6 +7,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -41,12 +42,13 @@ int main(void)
   {
 #line 18
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 #line 18
     if (i < 5) {
 
     } else {
-      goto while_0_break;
+#line 18
+      goto while_break;
     }
     {
 #line 19
@@ -57,7 +59,7 @@ int main(void)
     check_error(__cil_tmp2);
     }
   }
-  while_0_break: /* CIL Label */ ;
+  while_break: /* CIL Label */ ;
   }
 #line 26
   return (0);

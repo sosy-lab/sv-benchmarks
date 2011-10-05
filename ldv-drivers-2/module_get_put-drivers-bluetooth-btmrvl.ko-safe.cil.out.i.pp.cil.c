@@ -5879,23 +5879,29 @@ __inline static struct task_struct *get_current(void)
   {
 #line 14
   if (1) {
+#line 14
     goto case_8;
   } else {
+#line 14
     goto switch_default;
 #line 14
     if (0) {
 #line 14
       __asm__  ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       case_8: 
 #line 14
       __asm__  ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       switch_default: 
       {
@@ -5938,23 +5944,17 @@ __inline static long IS_ERR(void const   *ptr )
 #line 82 "include/linux/thread_info.h"
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  __u32 *__cil_tmp6 ;
-  unsigned long const volatile   *__cil_tmp7 ;
+  __u32 *__cil_tmp4 ;
+  unsigned long const volatile   *__cil_tmp5 ;
 
   {
   {
 #line 84
-  __cil_tmp4 = (unsigned long )ti;
+  __cil_tmp4 = & ti->flags;
 #line 84
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long const volatile   *)__cil_tmp4;
 #line 84
-  __cil_tmp6 = (__u32 *)__cil_tmp5;
-#line 84
-  __cil_tmp7 = (unsigned long const volatile   *)__cil_tmp6;
-#line 84
-  tmp = variable_test_bit(flag, __cil_tmp7);
+  tmp = variable_test_bit(flag, __cil_tmp5);
   }
 #line 84
   return (tmp);
@@ -5972,7 +5972,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->ldv_6060.rlock);
 }
 }
 #line 338 "include/linux/spinlock.h"
@@ -5982,7 +5982,7 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   {
   {
 #line 340
-  __cil_tmp3 = (struct raw_spinlock *)lock;
+  __cil_tmp3 = & lock->ldv_6060.rlock;
 #line 340
   _raw_spin_unlock_irqrestore(__cil_tmp3, flags);
   }
@@ -5996,26 +5996,15 @@ extern int default_wake_function(wait_queue_t * , unsigned int  , int  , void * 
 extern void __init_waitqueue_head(wait_queue_head_t * , struct lock_class_key * ) ;
 #line 98 "include/linux/wait.h"
 __inline static void init_waitqueue_entry(wait_queue_t *q , struct task_struct *p ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+{ 
 
   {
 #line 100
-  *((unsigned int *)q) = 0U;
+  q->flags = 0U;
 #line 101
-  __cil_tmp3 = (unsigned long )q;
-#line 101
-  __cil_tmp4 = __cil_tmp3 + 8;
-#line 101
-  *((void **)__cil_tmp4) = (void *)p;
+  q->private = (void *)p;
 #line 102
-  __cil_tmp5 = (unsigned long )q;
-#line 102
-  __cil_tmp6 = __cil_tmp5 + 16;
-#line 102
-  *((int (**)(wait_queue_t * , unsigned int  , int  , void * ))__cil_tmp6) = & default_wake_function;
+  q->func = & default_wake_function;
 #line 103
   return;
 }
@@ -6115,7 +6104,7 @@ __inline static int skb_queue_empty(struct sk_buff_head  const  *list )
 #line 595
   __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 595
-  __cil_tmp4 = *((struct sk_buff * const  *)list);
+  __cil_tmp4 = list->next;
 #line 595
   __cil_tmp5 = (struct sk_buff *)__cil_tmp4;
 #line 595
@@ -6128,28 +6117,16 @@ __inline static int skb_queue_empty(struct sk_buff_head  const  *list )
 #line 858 "include/linux/skbuff.h"
 __inline static void __skb_queue_head_init(struct sk_buff_head *list ) 
 { struct sk_buff *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
 
   {
 #line 860
   tmp = (struct sk_buff *)list;
 #line 860
-  *((struct sk_buff **)list) = tmp;
+  list->next = tmp;
 #line 860
-  __cil_tmp3 = (unsigned long )list;
-#line 860
-  __cil_tmp4 = __cil_tmp3 + 8;
-#line 860
-  *((struct sk_buff **)__cil_tmp4) = tmp;
+  list->prev = tmp;
 #line 861
-  __cil_tmp5 = (unsigned long )list;
-#line 861
-  __cil_tmp6 = __cil_tmp5 + 16;
-#line 861
-  *((__u32 *)__cil_tmp6) = 0U;
+  list->qlen = 0U;
 #line 862
   return;
 }
@@ -6157,31 +6134,19 @@ __inline static void __skb_queue_head_init(struct sk_buff_head *list )
 #line 872 "include/linux/skbuff.h"
 __inline static void skb_queue_head_init(struct sk_buff_head *list ) 
 { struct lock_class_key __key ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  spinlock_t *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct raw_spinlock *__cil_tmp8 ;
+  spinlock_t *__cil_tmp3 ;
+  struct raw_spinlock *__cil_tmp4 ;
 
   {
   {
 #line 874
-  __cil_tmp3 = (unsigned long )list;
+  __cil_tmp3 = & list->lock;
 #line 874
-  __cil_tmp4 = __cil_tmp3 + 24;
+  spinlock_check(__cil_tmp3);
 #line 874
-  __cil_tmp5 = (spinlock_t *)__cil_tmp4;
+  __cil_tmp4 = & list->lock.ldv_6060.rlock;
 #line 874
-  spinlock_check(__cil_tmp5);
-#line 874
-  __cil_tmp6 = (unsigned long )list;
-#line 874
-  __cil_tmp7 = __cil_tmp6 + 24;
-#line 874
-  __cil_tmp8 = (struct raw_spinlock *)__cil_tmp7;
-#line 874
-  __raw_spin_lock_init(__cil_tmp8, "&(&list->lock)->rlock", & __key);
+  __raw_spin_lock_init(__cil_tmp4, "&(&list->lock)->rlock", & __key);
 #line 875
   __skb_queue_head_init(list);
   }
@@ -6201,88 +6166,52 @@ extern unsigned char *skb_put(struct sk_buff * , unsigned int  ) ;
 extern unsigned char *skb_push(struct sk_buff * , unsigned int  ) ;
 #line 1229 "include/linux/skbuff.h"
 __inline static unsigned int skb_headroom(struct sk_buff  const  *skb ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned char *__cil_tmp4 ;
-  long __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned char *__cil_tmp9 ;
-  long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
+{ unsigned char *__cil_tmp2 ;
+  long __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned char *__cil_tmp5 ;
+  long __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
 
   {
   {
 #line 1231
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->head;
 #line 1231
-  __cil_tmp3 = __cil_tmp2 + 216;
+  __cil_tmp3 = (long )__cil_tmp2;
 #line 1231
-  __cil_tmp4 = *((unsigned char * const  *)__cil_tmp3);
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 1231
-  __cil_tmp5 = (long )__cil_tmp4;
+  __cil_tmp5 = skb->data;
 #line 1231
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
+  __cil_tmp6 = (long )__cil_tmp5;
 #line 1231
-  __cil_tmp7 = (unsigned long )skb;
+  __cil_tmp7 = (unsigned int )__cil_tmp6;
 #line 1231
-  __cil_tmp8 = __cil_tmp7 + 224;
-#line 1231
-  __cil_tmp9 = *((unsigned char * const  *)__cil_tmp8);
-#line 1231
-  __cil_tmp10 = (long )__cil_tmp9;
-#line 1231
-  __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 1231
-  return (__cil_tmp11 - __cil_tmp6);
+  return (__cil_tmp7 - __cil_tmp4);
   }
 }
 }
 #line 1253 "include/linux/skbuff.h"
 __inline static void skb_reserve(struct sk_buff *skb , int len ) 
 { unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  sk_buff_data_t __cil_tmp14 ;
+  unsigned char *__cil_tmp4 ;
+  sk_buff_data_t __cil_tmp5 ;
+  sk_buff_data_t __cil_tmp6 ;
 
   {
 #line 1255
-  __cil_tmp3 = (unsigned long )skb;
+  __cil_tmp3 = (unsigned long )len;
 #line 1255
-  __cil_tmp4 = __cil_tmp3 + 224;
+  __cil_tmp4 = skb->data;
 #line 1255
-  __cil_tmp5 = (unsigned long )len;
-#line 1255
-  __cil_tmp6 = (unsigned long )skb;
-#line 1255
-  __cil_tmp7 = __cil_tmp6 + 224;
-#line 1255
-  __cil_tmp8 = *((unsigned char **)__cil_tmp7);
-#line 1255
-  *((unsigned char **)__cil_tmp4) = __cil_tmp8 + __cil_tmp5;
+  skb->data = __cil_tmp4 + __cil_tmp3;
 #line 1256
-  __cil_tmp9 = (unsigned long )skb;
+  __cil_tmp5 = (sk_buff_data_t )len;
 #line 1256
-  __cil_tmp10 = __cil_tmp9 + 204;
+  __cil_tmp6 = skb->tail;
 #line 1256
-  __cil_tmp11 = (unsigned int )len;
-#line 1256
-  __cil_tmp12 = (unsigned long )skb;
-#line 1256
-  __cil_tmp13 = __cil_tmp12 + 204;
-#line 1256
-  __cil_tmp14 = *((sk_buff_data_t *)__cil_tmp13);
-#line 1256
-  *((sk_buff_data_t *)__cil_tmp10) = __cil_tmp14 + __cil_tmp11;
+  skb->tail = __cil_tmp6 + __cil_tmp5;
 #line 1257
   return;
 }
@@ -6298,23 +6227,17 @@ extern int wake_up_process(struct task_struct * ) ;
 #line 2441 "include/linux/sched.h"
 __inline static int test_tsk_thread_flag(struct task_struct *tsk , int flag ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  struct thread_info *__cil_tmp7 ;
+  void *__cil_tmp4 ;
+  struct thread_info *__cil_tmp5 ;
 
   {
   {
 #line 2443
-  __cil_tmp4 = (unsigned long )tsk;
+  __cil_tmp4 = tsk->stack;
 #line 2443
-  __cil_tmp5 = __cil_tmp4 + 8;
+  __cil_tmp5 = (struct thread_info *)__cil_tmp4;
 #line 2443
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 2443
-  __cil_tmp7 = (struct thread_info *)__cil_tmp6;
-#line 2443
-  tmp = test_ti_thread_flag(__cil_tmp7, flag);
+  tmp = test_ti_thread_flag(__cil_tmp5, flag);
   }
 #line 2443
   return (tmp);
@@ -6349,12 +6272,8 @@ __inline static struct sk_buff *bt_skb_alloc(unsigned int len , gfp_t how )
   struct sk_buff *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  char (*__cil_tmp10)[48U] ;
-  struct bt_skb_cb *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  char (*__cil_tmp8)[48U] ;
+  struct bt_skb_cb *__cil_tmp9 ;
 
   {
   {
@@ -6376,19 +6295,11 @@ __inline static struct sk_buff *bt_skb_alloc(unsigned int len , gfp_t how )
 #line 161
     skb_reserve(skb, 8);
 #line 162
-    __cil_tmp8 = (unsigned long )skb;
+    __cil_tmp8 = & skb->cb;
 #line 162
-    __cil_tmp9 = __cil_tmp8 + 40;
+    __cil_tmp9 = (struct bt_skb_cb *)__cil_tmp8;
 #line 162
-    __cil_tmp10 = (char (*)[48U])__cil_tmp9;
-#line 162
-    __cil_tmp11 = (struct bt_skb_cb *)__cil_tmp10;
-#line 162
-    __cil_tmp12 = (unsigned long )__cil_tmp11;
-#line 162
-    __cil_tmp13 = __cil_tmp12 + 1;
-#line 162
-    *((__u8 *)__cil_tmp13) = (unsigned char)0;
+    __cil_tmp9->incoming = (__u8 )0U;
     }
   } else {
 
@@ -6437,83 +6348,38 @@ void btmrvl_debugfs_init(struct hci_dev *hdev ) ;
 void btmrvl_debugfs_remove(struct hci_dev *hdev ) ;
 #line 40 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p"
 void btmrvl_interrupt(struct btmrvl_private *priv ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ struct btmrvl_adapter *__cil_tmp2 ;
+  struct btmrvl_adapter *__cil_tmp3 ;
   struct btmrvl_adapter *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct btmrvl_adapter *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct btmrvl_adapter *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct btmrvl_adapter *__cil_tmp17 ;
-  u32 __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  wait_queue_head_t *__cil_tmp22 ;
-  void *__cil_tmp23 ;
+  struct btmrvl_adapter *__cil_tmp5 ;
+  u32 __cil_tmp6 ;
+  wait_queue_head_t *__cil_tmp7 ;
+  void *__cil_tmp8 ;
 
   {
   {
 #line 42
-  __cil_tmp2 = (unsigned long )priv;
+  __cil_tmp2 = priv->adapter;
 #line 42
-  __cil_tmp3 = __cil_tmp2 + 32;
-#line 42
-  __cil_tmp4 = *((struct btmrvl_adapter **)__cil_tmp3);
-#line 42
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
-#line 42
-  __cil_tmp6 = __cil_tmp5 + 105;
-#line 42
-  *((u8 *)__cil_tmp6) = (unsigned char)0;
+  __cil_tmp2->ps_state = (u8 )0U;
 #line 44
-  __cil_tmp7 = (unsigned long )priv;
+  __cil_tmp3 = priv->adapter;
 #line 44
-  __cil_tmp8 = __cil_tmp7 + 32;
-#line 44
-  __cil_tmp9 = *((struct btmrvl_adapter **)__cil_tmp8);
-#line 44
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 44
-  __cil_tmp11 = __cil_tmp10 + 107;
-#line 44
-  *((u8 *)__cil_tmp11) = (unsigned char)0;
+  __cil_tmp3->wakeup_tries = (u8 )0U;
 #line 46
-  __cil_tmp12 = (unsigned long )priv;
+  __cil_tmp4 = priv->adapter;
 #line 46
-  __cil_tmp13 = __cil_tmp12 + 32;
+  __cil_tmp5 = priv->adapter;
 #line 46
-  __cil_tmp14 = *((struct btmrvl_adapter **)__cil_tmp13);
+  __cil_tmp6 = __cil_tmp5->int_count;
 #line 46
-  __cil_tmp15 = (unsigned long )priv;
-#line 46
-  __cil_tmp16 = __cil_tmp15 + 32;
-#line 46
-  __cil_tmp17 = *((struct btmrvl_adapter **)__cil_tmp16);
-#line 46
-  __cil_tmp18 = *((u32 *)__cil_tmp17);
-#line 46
-  *((u32 *)__cil_tmp14) = __cil_tmp18 + 1U;
+  __cil_tmp4->int_count = __cil_tmp6 + 1U;
 #line 48
-  __cil_tmp19 = 40 + 8;
+  __cil_tmp7 = & priv->main_thread.wait_q;
 #line 48
-  __cil_tmp20 = (unsigned long )priv;
+  __cil_tmp8 = (void *)0;
 #line 48
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 48
-  __cil_tmp22 = (wait_queue_head_t *)__cil_tmp21;
-#line 48
-  __cil_tmp23 = (void *)0;
-#line 48
-  __wake_up(__cil_tmp22, 1U, 1, __cil_tmp23);
+  __wake_up(__cil_tmp7, 1U, 1, __cil_tmp8);
   }
 #line 49
   return;
@@ -6525,134 +6391,74 @@ void btmrvl_check_evtpkt(struct btmrvl_private *priv , struct sk_buff *skb )
   struct hci_ev_cmd_complete *ec ;
   u16 opcode ;
   u16 ocf ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned char *__cil_tmp9 ;
-  __u8 __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned char *__cil_tmp14 ;
-  struct hci_ev_cmd_complete *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u8 __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct btmrvl_adapter *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct btmrvl_adapter *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  wait_queue_head_t *__cil_tmp39 ;
-  void *__cil_tmp40 ;
+  unsigned char *__cil_tmp7 ;
+  __u8 __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  unsigned char *__cil_tmp10 ;
+  struct hci_ev_cmd_complete *__cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  struct btmrvl_adapter *__cil_tmp17 ;
+  struct btmrvl_adapter *__cil_tmp18 ;
+  wait_queue_head_t *__cil_tmp19 ;
+  void *__cil_tmp20 ;
 
   {
 #line 54
-  __cil_tmp7 = (unsigned long )skb;
+  __cil_tmp7 = skb->data;
 #line 54
-  __cil_tmp8 = __cil_tmp7 + 224;
-#line 54
-  __cil_tmp9 = *((unsigned char **)__cil_tmp8);
-#line 54
-  hdr = (struct hci_event_hdr *)__cil_tmp9;
+  hdr = (struct hci_event_hdr *)__cil_tmp7;
   {
 #line 58
-  __cil_tmp10 = *((__u8 *)hdr);
+  __cil_tmp8 = hdr->evt;
 #line 58
-  __cil_tmp11 = (unsigned int )__cil_tmp10;
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 58
-  if (__cil_tmp11 == 14U) {
+  if (__cil_tmp9 == 14U) {
 #line 59
-    __cil_tmp12 = (unsigned long )skb;
+    __cil_tmp10 = skb->data;
 #line 59
-    __cil_tmp13 = __cil_tmp12 + 224;
+    __cil_tmp11 = (struct hci_ev_cmd_complete *)__cil_tmp10;
 #line 59
-    __cil_tmp14 = *((unsigned char **)__cil_tmp13);
-#line 59
-    __cil_tmp15 = (struct hci_ev_cmd_complete *)__cil_tmp14;
-#line 59
-    ec = __cil_tmp15 + 2U;
+    ec = __cil_tmp11 + 2U;
 #line 60
-    __cil_tmp16 = (unsigned long )ec;
-#line 60
-    __cil_tmp17 = __cil_tmp16 + 2;
-#line 60
-    opcode = *((__le16 *)__cil_tmp17);
+    opcode = ec->opcode;
 #line 61
-    __cil_tmp18 = (unsigned int )opcode;
+    __cil_tmp12 = (unsigned int )opcode;
 #line 61
-    __cil_tmp19 = __cil_tmp18 & 1023U;
+    __cil_tmp13 = __cil_tmp12 & 1023U;
 #line 61
-    ocf = (unsigned short )__cil_tmp19;
+    ocf = (u16 )__cil_tmp13;
     {
 #line 62
-    __cil_tmp20 = (unsigned int )ocf;
+    __cil_tmp14 = (unsigned int )ocf;
 #line 62
-    if (__cil_tmp20 == 91U) {
+    if (__cil_tmp14 == 91U) {
       {
 #line 62
-      __cil_tmp21 = 0 + 25;
+      __cil_tmp15 = priv->btmrvl_dev.sendcmdflag;
 #line 62
-      __cil_tmp22 = (unsigned long )priv;
+      __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 62
-      __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 62
-      __cil_tmp24 = *((u8 *)__cil_tmp23);
-#line 62
-      __cil_tmp25 = (unsigned int )__cil_tmp24;
-#line 62
-      if (__cil_tmp25 != 0U) {
+      if (__cil_tmp16 != 0U) {
         {
 #line 64
-        __cil_tmp26 = 0 + 25;
-#line 64
-        __cil_tmp27 = (unsigned long )priv;
-#line 64
-        __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 64
-        *((u8 *)__cil_tmp28) = (unsigned char)0;
+        priv->btmrvl_dev.sendcmdflag = (u8 )0U;
 #line 65
-        __cil_tmp29 = (unsigned long )priv;
+        __cil_tmp17 = priv->adapter;
 #line 65
-        __cil_tmp30 = __cil_tmp29 + 32;
-#line 65
-        __cil_tmp31 = *((struct btmrvl_adapter **)__cil_tmp30);
-#line 65
-        __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 65
-        __cil_tmp33 = __cil_tmp32 + 200;
-#line 65
-        *((u8 *)__cil_tmp33) = (unsigned char)1;
+        __cil_tmp17->cmd_complete = (u8 )1U;
 #line 66
-        __cil_tmp34 = (unsigned long )priv;
+        __cil_tmp18 = priv->adapter;
 #line 66
-        __cil_tmp35 = __cil_tmp34 + 32;
+        __cil_tmp19 = & __cil_tmp18->cmd_wait_q;
 #line 66
-        __cil_tmp36 = *((struct btmrvl_adapter **)__cil_tmp35);
+        __cil_tmp20 = (void *)0;
 #line 66
-        __cil_tmp37 = (unsigned long )__cil_tmp36;
-#line 66
-        __cil_tmp38 = __cil_tmp37 + 112;
-#line 66
-        __cil_tmp39 = (wait_queue_head_t *)__cil_tmp38;
-#line 66
-        __cil_tmp40 = (void *)0;
-#line 66
-        __wake_up(__cil_tmp39, 1U, 1, __cil_tmp40);
+        __wake_up(__cil_tmp19, 1U, 1, __cil_tmp20);
         }
       } else {
 
@@ -6705,437 +6511,177 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
   long tmp___14 ;
   struct _ddebug descriptor___11 ;
   long tmp___15 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned char *__cil_tmp40 ;
-  u8 __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  struct _ddebug *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  char __cil_tmp51 ;
-  signed char __cil_tmp52 ;
-  int __cil_tmp53 ;
+  unsigned char *__cil_tmp36 ;
+  u8 __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  signed char __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  long __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  int __cil_tmp44 ;
+  u8 __cil_tmp45 ;
+  int __cil_tmp46 ;
+  u8 __cil_tmp47 ;
+  int __cil_tmp48 ;
+  u8 __cil_tmp49 ;
+  int __cil_tmp50 ;
+  u8 __cil_tmp51 ;
+  int __cil_tmp52 ;
+  u8 __cil_tmp53 ;
   int __cil_tmp54 ;
-  long __cil_tmp55 ;
-  u8 __cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u8 __cil_tmp62 ;
-  int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  u8 __cil_tmp68 ;
-  int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  u8 __cil_tmp74 ;
-  int __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  u8 __cil_tmp80 ;
+  u8 __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  u8 __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  signed char __cil_tmp59 ;
+  int __cil_tmp60 ;
+  int __cil_tmp61 ;
+  long __cil_tmp62 ;
+  u8 __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  signed char __cil_tmp65 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  long __cil_tmp68 ;
+  u8 __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  signed char __cil_tmp71 ;
+  int __cil_tmp72 ;
+  int __cil_tmp73 ;
+  long __cil_tmp74 ;
+  u8 __cil_tmp75 ;
+  int __cil_tmp76 ;
+  u8 __cil_tmp77 ;
+  int __cil_tmp78 ;
+  signed char __cil_tmp79 ;
+  int __cil_tmp80 ;
   int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  u8 __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  u8 __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  u8 __cil_tmp98 ;
-  unsigned int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  struct _ddebug *__cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  char __cil_tmp112 ;
+  long __cil_tmp82 ;
+  u8 __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
+  u8 __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
+  wait_queue_head_t *__cil_tmp87 ;
+  void *__cil_tmp88 ;
+  signed char __cil_tmp89 ;
+  int __cil_tmp90 ;
+  int __cil_tmp91 ;
+  long __cil_tmp92 ;
+  signed char __cil_tmp93 ;
+  int __cil_tmp94 ;
+  int __cil_tmp95 ;
+  long __cil_tmp96 ;
+  u8 __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  u8 __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  signed char __cil_tmp101 ;
+  int __cil_tmp102 ;
+  int __cil_tmp103 ;
+  long __cil_tmp104 ;
+  u8 __cil_tmp105 ;
+  unsigned int __cil_tmp106 ;
+  u8 __cil_tmp107 ;
+  unsigned int __cil_tmp108 ;
+  u8 __cil_tmp109 ;
+  unsigned int __cil_tmp110 ;
+  u8 __cil_tmp111 ;
+  unsigned int __cil_tmp112 ;
   signed char __cil_tmp113 ;
   int __cil_tmp114 ;
   int __cil_tmp115 ;
   long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
+  u8 __cil_tmp117 ;
+  int __cil_tmp118 ;
   u8 __cil_tmp119 ;
   unsigned int __cil_tmp120 ;
-  struct _ddebug *__cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  char __cil_tmp129 ;
-  signed char __cil_tmp130 ;
+  u8 __cil_tmp121 ;
+  unsigned int __cil_tmp122 ;
+  signed char __cil_tmp123 ;
+  int __cil_tmp124 ;
+  int __cil_tmp125 ;
+  long __cil_tmp126 ;
+  u8 __cil_tmp127 ;
+  unsigned int __cil_tmp128 ;
+  signed char __cil_tmp129 ;
+  int __cil_tmp130 ;
   int __cil_tmp131 ;
-  int __cil_tmp132 ;
-  long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  u8 __cil_tmp138 ;
-  unsigned int __cil_tmp139 ;
-  struct _ddebug *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  char __cil_tmp148 ;
-  signed char __cil_tmp149 ;
-  int __cil_tmp150 ;
-  int __cil_tmp151 ;
-  long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  u8 __cil_tmp157 ;
-  int __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  u8 __cil_tmp163 ;
-  int __cil_tmp164 ;
-  struct _ddebug *__cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  char __cil_tmp173 ;
-  signed char __cil_tmp174 ;
-  int __cil_tmp175 ;
-  int __cil_tmp176 ;
-  long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  u8 __cil_tmp182 ;
-  unsigned int __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  u8 __cil_tmp188 ;
-  unsigned int __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  wait_queue_head_t *__cil_tmp194 ;
-  void *__cil_tmp195 ;
-  struct _ddebug *__cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  char __cil_tmp204 ;
-  signed char __cil_tmp205 ;
-  int __cil_tmp206 ;
-  int __cil_tmp207 ;
-  long __cil_tmp208 ;
-  struct _ddebug *__cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  char __cil_tmp217 ;
-  signed char __cil_tmp218 ;
-  int __cil_tmp219 ;
-  int __cil_tmp220 ;
-  long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  u8 __cil_tmp225 ;
-  unsigned int __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  u8 __cil_tmp231 ;
-  unsigned int __cil_tmp232 ;
-  struct _ddebug *__cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  char __cil_tmp241 ;
-  signed char __cil_tmp242 ;
-  int __cil_tmp243 ;
-  int __cil_tmp244 ;
-  long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  u8 __cil_tmp250 ;
-  unsigned int __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  u8 __cil_tmp256 ;
-  unsigned int __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  u8 __cil_tmp260 ;
-  unsigned int __cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  unsigned long __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  u8 __cil_tmp266 ;
-  unsigned int __cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  struct _ddebug *__cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  unsigned long __cil_tmp280 ;
-  unsigned long __cil_tmp281 ;
-  unsigned long __cil_tmp282 ;
-  unsigned long __cil_tmp283 ;
-  unsigned long __cil_tmp284 ;
-  char __cil_tmp285 ;
-  signed char __cil_tmp286 ;
-  int __cil_tmp287 ;
-  int __cil_tmp288 ;
-  long __cil_tmp289 ;
-  unsigned long __cil_tmp290 ;
-  unsigned long __cil_tmp291 ;
-  unsigned long __cil_tmp292 ;
-  u8 __cil_tmp293 ;
-  int __cil_tmp294 ;
-  unsigned long __cil_tmp295 ;
-  unsigned long __cil_tmp296 ;
-  unsigned long __cil_tmp297 ;
-  u8 __cil_tmp298 ;
-  unsigned int __cil_tmp299 ;
-  unsigned long __cil_tmp300 ;
-  unsigned long __cil_tmp301 ;
-  unsigned long __cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
-  u8 __cil_tmp304 ;
-  unsigned int __cil_tmp305 ;
-  struct _ddebug *__cil_tmp306 ;
-  unsigned long __cil_tmp307 ;
-  unsigned long __cil_tmp308 ;
-  unsigned long __cil_tmp309 ;
-  unsigned long __cil_tmp310 ;
-  unsigned long __cil_tmp311 ;
-  unsigned long __cil_tmp312 ;
-  unsigned long __cil_tmp313 ;
-  char __cil_tmp314 ;
-  signed char __cil_tmp315 ;
-  int __cil_tmp316 ;
-  int __cil_tmp317 ;
-  long __cil_tmp318 ;
-  unsigned long __cil_tmp319 ;
-  unsigned long __cil_tmp320 ;
-  unsigned long __cil_tmp321 ;
-  unsigned long __cil_tmp322 ;
-  u8 __cil_tmp323 ;
-  unsigned int __cil_tmp324 ;
-  struct _ddebug *__cil_tmp325 ;
-  unsigned long __cil_tmp326 ;
-  unsigned long __cil_tmp327 ;
-  unsigned long __cil_tmp328 ;
-  unsigned long __cil_tmp329 ;
-  unsigned long __cil_tmp330 ;
-  unsigned long __cil_tmp331 ;
-  unsigned long __cil_tmp332 ;
-  char __cil_tmp333 ;
-  signed char __cil_tmp334 ;
-  int __cil_tmp335 ;
-  int __cil_tmp336 ;
-  long __cil_tmp337 ;
-  unsigned long __cil_tmp338 ;
-  unsigned long __cil_tmp339 ;
-  unsigned long __cil_tmp340 ;
-  unsigned long __cil_tmp341 ;
-  u8 __cil_tmp342 ;
-  unsigned int __cil_tmp343 ;
-  unsigned long __cil_tmp344 ;
-  unsigned long __cil_tmp345 ;
-  struct _ddebug *__cil_tmp346 ;
-  unsigned long __cil_tmp347 ;
-  unsigned long __cil_tmp348 ;
-  unsigned long __cil_tmp349 ;
-  unsigned long __cil_tmp350 ;
-  unsigned long __cil_tmp351 ;
-  unsigned long __cil_tmp352 ;
-  unsigned long __cil_tmp353 ;
-  char __cil_tmp354 ;
-  signed char __cil_tmp355 ;
-  int __cil_tmp356 ;
-  int __cil_tmp357 ;
-  long __cil_tmp358 ;
-  unsigned long __cil_tmp359 ;
-  unsigned long __cil_tmp360 ;
-  u8 __cil_tmp361 ;
-  unsigned int __cil_tmp362 ;
-  struct _ddebug *__cil_tmp363 ;
-  unsigned long __cil_tmp364 ;
-  unsigned long __cil_tmp365 ;
-  unsigned long __cil_tmp366 ;
-  unsigned long __cil_tmp367 ;
-  unsigned long __cil_tmp368 ;
-  unsigned long __cil_tmp369 ;
-  unsigned long __cil_tmp370 ;
-  char __cil_tmp371 ;
-  signed char __cil_tmp372 ;
-  int __cil_tmp373 ;
-  int __cil_tmp374 ;
-  long __cil_tmp375 ;
-  unsigned long __cil_tmp376 ;
-  unsigned long __cil_tmp377 ;
-  unsigned long __cil_tmp378 ;
-  unsigned long __cil_tmp379 ;
-  u8 __cil_tmp380 ;
-  int __cil_tmp381 ;
+  long __cil_tmp132 ;
+  u8 __cil_tmp133 ;
+  unsigned int __cil_tmp134 ;
+  signed char __cil_tmp135 ;
+  int __cil_tmp136 ;
+  int __cil_tmp137 ;
+  long __cil_tmp138 ;
+  u8 __cil_tmp139 ;
+  unsigned int __cil_tmp140 ;
+  signed char __cil_tmp141 ;
+  int __cil_tmp142 ;
+  int __cil_tmp143 ;
+  long __cil_tmp144 ;
+  u8 __cil_tmp145 ;
+  int __cil_tmp146 ;
 
   {
 #line 74
-  __cil_tmp36 = (unsigned long )priv;
-#line 74
-  __cil_tmp37 = __cil_tmp36 + 32;
-#line 74
-  adapter = *((struct btmrvl_adapter **)__cil_tmp37);
+  adapter = priv->adapter;
 #line 76
   ret = 0;
 #line 78
-  __cil_tmp38 = (unsigned long )skb;
+  __cil_tmp36 = skb->data;
 #line 78
-  __cil_tmp39 = __cil_tmp38 + 224;
-#line 78
-  __cil_tmp40 = *((unsigned char **)__cil_tmp39);
-#line 78
-  event = (struct btmrvl_event *)__cil_tmp40;
+  event = (struct btmrvl_event *)__cil_tmp36;
   {
 #line 79
-  __cil_tmp41 = *((u8 *)event);
+  __cil_tmp37 = event->ec;
 #line 79
-  __cil_tmp42 = (unsigned int )__cil_tmp41;
+  __cil_tmp38 = (unsigned int )__cil_tmp37;
 #line 79
-  if (__cil_tmp42 != 255U) {
+  if (__cil_tmp38 != 255U) {
     {
 #line 80
-    __cil_tmp43 = & descriptor;
+    descriptor.modname = "btmrvl";
 #line 80
-    *((char const   **)__cil_tmp43) = "btmrvl";
+    descriptor.function = "btmrvl_process_event";
 #line 80
-    __cil_tmp44 = (unsigned long )(& descriptor) + 8;
+    descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 80
-    *((char const   **)__cil_tmp44) = "btmrvl_process_event";
+    descriptor.format = "%s: Not Marvell Event=%x\n";
 #line 80
-    __cil_tmp45 = (unsigned long )(& descriptor) + 16;
+    descriptor.lineno = 80U;
 #line 80
-    *((char const   **)__cil_tmp45) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+    descriptor.flags = (unsigned char)0;
 #line 80
-    __cil_tmp46 = (unsigned long )(& descriptor) + 24;
+    descriptor.enabled = (char)0;
 #line 80
-    *((char const   **)__cil_tmp46) = "%s: Not Marvell Event=%x\n";
+    __cil_tmp39 = (signed char )descriptor.enabled;
 #line 80
-    __cil_tmp47 = (unsigned long )(& descriptor) + 32;
+    __cil_tmp40 = (int )__cil_tmp39;
 #line 80
-    *((unsigned int *)__cil_tmp47) = 80U;
+    __cil_tmp41 = __cil_tmp40 != 0;
 #line 80
-    __cil_tmp48 = (unsigned long )(& descriptor) + 35;
+    __cil_tmp42 = (long )__cil_tmp41;
 #line 80
-    *((unsigned char *)__cil_tmp48) = (unsigned char)0;
-#line 80
-    __cil_tmp49 = (unsigned long )(& descriptor) + 36;
-#line 80
-    *((char *)__cil_tmp49) = (char)0;
-#line 80
-    __cil_tmp50 = (unsigned long )(& descriptor) + 36;
-#line 80
-    __cil_tmp51 = *((char *)__cil_tmp50);
-#line 80
-    __cil_tmp52 = (signed char )__cil_tmp51;
-#line 80
-    __cil_tmp53 = (int )__cil_tmp52;
-#line 80
-    __cil_tmp54 = __cil_tmp53 != 0;
-#line 80
-    __cil_tmp55 = (long )__cil_tmp54;
-#line 80
-    tmp = __builtin_expect(__cil_tmp55, 0L);
+    tmp = __builtin_expect(__cil_tmp42, 0L);
     }
 #line 80
     if (tmp != 0L) {
       {
 #line 80
-      __cil_tmp56 = *((u8 *)event);
+      __cil_tmp43 = event->ec;
 #line 80
-      __cil_tmp57 = (int )__cil_tmp56;
+      __cil_tmp44 = (int )__cil_tmp43;
 #line 80
       __dynamic_pr_debug(& descriptor, "%s: Not Marvell Event=%x\n", "btmrvl_process_event",
-                         __cil_tmp57);
+                         __cil_tmp44);
       }
     } else {
 
     }
 #line 81
     ret = -22;
+#line 82
     goto exit;
   } else {
 
@@ -7143,195 +6689,115 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
   }
   {
 #line 86
-  __cil_tmp58 = 0 * 1UL;
+  __cil_tmp45 = event->data[0];
 #line 86
-  __cil_tmp59 = 2 + __cil_tmp58;
+  __cil_tmp46 = (int )__cil_tmp45;
 #line 86
-  __cil_tmp60 = (unsigned long )event;
+  if (__cil_tmp46 == 35) {
 #line 86
-  __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 86
-  __cil_tmp62 = *((u8 *)__cil_tmp61);
-#line 86
-  __cil_tmp63 = (int )__cil_tmp62;
-#line 86
-  if (__cil_tmp63 == 35) {
     goto case_35;
   } else {
     {
 #line 99
-    __cil_tmp64 = 0 * 1UL;
+    __cil_tmp47 = event->data[0];
 #line 99
-    __cil_tmp65 = 2 + __cil_tmp64;
+    __cil_tmp48 = (int )__cil_tmp47;
 #line 99
-    __cil_tmp66 = (unsigned long )event;
+    if (__cil_tmp48 == 89) {
 #line 99
-    __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 99
-    __cil_tmp68 = *((u8 *)__cil_tmp67);
-#line 99
-    __cil_tmp69 = (int )__cil_tmp68;
-#line 99
-    if (__cil_tmp69 == 89) {
       goto case_89;
     } else {
       {
 #line 107
-      __cil_tmp70 = 0 * 1UL;
+      __cil_tmp49 = event->data[0];
 #line 107
-      __cil_tmp71 = 2 + __cil_tmp70;
+      __cil_tmp50 = (int )__cil_tmp49;
 #line 107
-      __cil_tmp72 = (unsigned long )event;
+      if (__cil_tmp50 == 90) {
 #line 107
-      __cil_tmp73 = __cil_tmp72 + __cil_tmp71;
-#line 107
-      __cil_tmp74 = *((u8 *)__cil_tmp73);
-#line 107
-      __cil_tmp75 = (int )__cil_tmp74;
-#line 107
-      if (__cil_tmp75 == 90) {
         goto case_90;
       } else {
         {
 #line 119
-        __cil_tmp76 = 0 * 1UL;
+        __cil_tmp51 = event->data[0];
 #line 119
-        __cil_tmp77 = 2 + __cil_tmp76;
+        __cil_tmp52 = (int )__cil_tmp51;
 #line 119
-        __cil_tmp78 = (unsigned long )event;
+        if (__cil_tmp52 == 91) {
 #line 119
-        __cil_tmp79 = __cil_tmp78 + __cil_tmp77;
-#line 119
-        __cil_tmp80 = *((u8 *)__cil_tmp79);
-#line 119
-        __cil_tmp81 = (int )__cil_tmp80;
-#line 119
-        if (__cil_tmp81 == 91) {
           goto case_91;
         } else {
           {
 #line 143
-          __cil_tmp82 = 0 * 1UL;
+          __cil_tmp53 = event->data[0];
 #line 143
-          __cil_tmp83 = 2 + __cil_tmp82;
+          __cil_tmp54 = (int )__cil_tmp53;
 #line 143
-          __cil_tmp84 = (unsigned long )event;
+          if (__cil_tmp54 == 32) {
 #line 143
-          __cil_tmp85 = __cil_tmp84 + __cil_tmp83;
-#line 143
-          __cil_tmp86 = *((u8 *)__cil_tmp85);
-#line 143
-          __cil_tmp87 = (int )__cil_tmp86;
-#line 143
-          if (__cil_tmp87 == 32) {
             goto case_32;
           } else {
+#line 150
             goto switch_default;
 #line 85
             if (0) {
               case_35: ;
               {
 #line 87
-              __cil_tmp88 = 2 * 1UL;
+              __cil_tmp55 = event->data[2];
 #line 87
-              __cil_tmp89 = 2 + __cil_tmp88;
+              __cil_tmp56 = (unsigned int )__cil_tmp55;
 #line 87
-              __cil_tmp90 = (unsigned long )event;
-#line 87
-              __cil_tmp91 = __cil_tmp90 + __cil_tmp89;
-#line 87
-              __cil_tmp92 = *((u8 *)__cil_tmp91);
-#line 87
-              __cil_tmp93 = (unsigned int )__cil_tmp92;
-#line 87
-              if (__cil_tmp93 == 0U) {
+              if (__cil_tmp56 == 0U) {
                 {
 #line 88
-                __cil_tmp94 = 1 * 1UL;
+                __cil_tmp57 = event->data[1];
 #line 88
-                __cil_tmp95 = 2 + __cil_tmp94;
+                __cil_tmp58 = (unsigned int )__cil_tmp57;
 #line 88
-                __cil_tmp96 = (unsigned long )event;
-#line 88
-                __cil_tmp97 = __cil_tmp96 + __cil_tmp95;
-#line 88
-                __cil_tmp98 = *((u8 *)__cil_tmp97);
-#line 88
-                __cil_tmp99 = (unsigned int )__cil_tmp98;
-#line 88
-                if (__cil_tmp99 == 2U) {
+                if (__cil_tmp58 == 2U) {
 #line 89
-                  __cil_tmp100 = (unsigned long )adapter;
-#line 89
-                  __cil_tmp101 = __cil_tmp100 + 104;
-#line 89
-                  *((u8 *)__cil_tmp101) = (unsigned char)1;
+                  adapter->psmode = (u8 )1U;
                 } else {
 #line 91
-                  __cil_tmp102 = (unsigned long )adapter;
-#line 91
-                  __cil_tmp103 = __cil_tmp102 + 104;
-#line 91
-                  *((u8 *)__cil_tmp103) = (unsigned char)0;
+                  adapter->psmode = (u8 )0U;
                 }
                 }
                 {
 #line 92
-                __cil_tmp104 = & descriptor___0;
+                descriptor___0.modname = "btmrvl";
 #line 92
-                *((char const   **)__cil_tmp104) = "btmrvl";
+                descriptor___0.function = "btmrvl_process_event";
 #line 92
-                __cil_tmp105 = (unsigned long )(& descriptor___0) + 8;
+                descriptor___0.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 92
-                *((char const   **)__cil_tmp105) = "btmrvl_process_event";
+                descriptor___0.format = "%s: PS Mode:%s\n";
 #line 92
-                __cil_tmp106 = (unsigned long )(& descriptor___0) + 16;
+                descriptor___0.lineno = 93U;
 #line 92
-                *((char const   **)__cil_tmp106) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                descriptor___0.flags = (unsigned char)0;
 #line 92
-                __cil_tmp107 = (unsigned long )(& descriptor___0) + 24;
+                descriptor___0.enabled = (char)0;
 #line 92
-                *((char const   **)__cil_tmp107) = "%s: PS Mode:%s\n";
+                __cil_tmp59 = (signed char )descriptor___0.enabled;
 #line 92
-                __cil_tmp108 = (unsigned long )(& descriptor___0) + 32;
+                __cil_tmp60 = (int )__cil_tmp59;
 #line 92
-                *((unsigned int *)__cil_tmp108) = 93U;
+                __cil_tmp61 = __cil_tmp60 != 0;
 #line 92
-                __cil_tmp109 = (unsigned long )(& descriptor___0) + 35;
+                __cil_tmp62 = (long )__cil_tmp61;
 #line 92
-                *((unsigned char *)__cil_tmp109) = (unsigned char)0;
-#line 92
-                __cil_tmp110 = (unsigned long )(& descriptor___0) + 36;
-#line 92
-                *((char *)__cil_tmp110) = (char)0;
-#line 92
-                __cil_tmp111 = (unsigned long )(& descriptor___0) + 36;
-#line 92
-                __cil_tmp112 = *((char *)__cil_tmp111);
-#line 92
-                __cil_tmp113 = (signed char )__cil_tmp112;
-#line 92
-                __cil_tmp114 = (int )__cil_tmp113;
-#line 92
-                __cil_tmp115 = __cil_tmp114 != 0;
-#line 92
-                __cil_tmp116 = (long )__cil_tmp115;
-#line 92
-                tmp___1 = __builtin_expect(__cil_tmp116, 0L);
+                tmp___1 = __builtin_expect(__cil_tmp62, 0L);
                 }
 #line 92
                 if (tmp___1 != 0L) {
                   {
 #line 92
-                  __cil_tmp117 = (unsigned long )adapter;
+                  __cil_tmp63 = adapter->psmode;
 #line 92
-                  __cil_tmp118 = __cil_tmp117 + 104;
+                  __cil_tmp64 = (unsigned int )__cil_tmp63;
 #line 92
-                  __cil_tmp119 = *((u8 *)__cil_tmp118);
-#line 92
-                  __cil_tmp120 = (unsigned int )__cil_tmp119;
-#line 92
-                  if (__cil_tmp120 != 0U) {
+                  if (__cil_tmp64 != 0U) {
 #line 92
                     tmp___0 = (char *)"Enable";
                   } else {
@@ -7350,47 +6816,29 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
               } else {
                 {
 #line 95
-                __cil_tmp121 = & descriptor___1;
+                descriptor___1.modname = "btmrvl";
 #line 95
-                *((char const   **)__cil_tmp121) = "btmrvl";
+                descriptor___1.function = "btmrvl_process_event";
 #line 95
-                __cil_tmp122 = (unsigned long )(& descriptor___1) + 8;
+                descriptor___1.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 95
-                *((char const   **)__cil_tmp122) = "btmrvl_process_event";
+                descriptor___1.format = "%s: PS Mode command failed\n";
 #line 95
-                __cil_tmp123 = (unsigned long )(& descriptor___1) + 16;
+                descriptor___1.lineno = 95U;
 #line 95
-                *((char const   **)__cil_tmp123) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                descriptor___1.flags = (unsigned char)0;
 #line 95
-                __cil_tmp124 = (unsigned long )(& descriptor___1) + 24;
+                descriptor___1.enabled = (char)0;
 #line 95
-                *((char const   **)__cil_tmp124) = "%s: PS Mode command failed\n";
+                __cil_tmp65 = (signed char )descriptor___1.enabled;
 #line 95
-                __cil_tmp125 = (unsigned long )(& descriptor___1) + 32;
+                __cil_tmp66 = (int )__cil_tmp65;
 #line 95
-                *((unsigned int *)__cil_tmp125) = 95U;
+                __cil_tmp67 = __cil_tmp66 != 0;
 #line 95
-                __cil_tmp126 = (unsigned long )(& descriptor___1) + 35;
+                __cil_tmp68 = (long )__cil_tmp67;
 #line 95
-                *((unsigned char *)__cil_tmp126) = (unsigned char)0;
-#line 95
-                __cil_tmp127 = (unsigned long )(& descriptor___1) + 36;
-#line 95
-                *((char *)__cil_tmp127) = (char)0;
-#line 95
-                __cil_tmp128 = (unsigned long )(& descriptor___1) + 36;
-#line 95
-                __cil_tmp129 = *((char *)__cil_tmp128);
-#line 95
-                __cil_tmp130 = (signed char )__cil_tmp129;
-#line 95
-                __cil_tmp131 = (int )__cil_tmp130;
-#line 95
-                __cil_tmp132 = __cil_tmp131 != 0;
-#line 95
-                __cil_tmp133 = (long )__cil_tmp132;
-#line 95
-                tmp___2 = __builtin_expect(__cil_tmp133, 0L);
+                tmp___2 = __builtin_expect(__cil_tmp68, 0L);
                 }
 #line 95
                 if (tmp___2 != 0L) {
@@ -7404,97 +6852,56 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
                 }
               }
               }
+#line 97
               goto ldv_39680;
               case_89: ;
               {
 #line 100
-              __cil_tmp134 = 3 * 1UL;
+              __cil_tmp69 = event->data[3];
 #line 100
-              __cil_tmp135 = 2 + __cil_tmp134;
+              __cil_tmp70 = (unsigned int )__cil_tmp69;
 #line 100
-              __cil_tmp136 = (unsigned long )event;
-#line 100
-              __cil_tmp137 = __cil_tmp136 + __cil_tmp135;
-#line 100
-              __cil_tmp138 = *((u8 *)__cil_tmp137);
-#line 100
-              __cil_tmp139 = (unsigned int )__cil_tmp138;
-#line 100
-              if (__cil_tmp139 == 0U) {
+              if (__cil_tmp70 == 0U) {
                 {
 #line 101
-                __cil_tmp140 = & descriptor___2;
+                descriptor___2.modname = "btmrvl";
 #line 101
-                *((char const   **)__cil_tmp140) = "btmrvl";
+                descriptor___2.function = "btmrvl_process_event";
 #line 101
-                __cil_tmp141 = (unsigned long )(& descriptor___2) + 8;
+                descriptor___2.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 101
-                *((char const   **)__cil_tmp141) = "btmrvl_process_event";
+                descriptor___2.format = "%s: gpio=%x, gap=%x\n";
 #line 101
-                __cil_tmp142 = (unsigned long )(& descriptor___2) + 16;
+                descriptor___2.lineno = 102U;
 #line 101
-                *((char const   **)__cil_tmp142) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                descriptor___2.flags = (unsigned char)0;
 #line 101
-                __cil_tmp143 = (unsigned long )(& descriptor___2) + 24;
+                descriptor___2.enabled = (char)0;
 #line 101
-                *((char const   **)__cil_tmp143) = "%s: gpio=%x, gap=%x\n";
+                __cil_tmp71 = (signed char )descriptor___2.enabled;
 #line 101
-                __cil_tmp144 = (unsigned long )(& descriptor___2) + 32;
+                __cil_tmp72 = (int )__cil_tmp71;
 #line 101
-                *((unsigned int *)__cil_tmp144) = 102U;
+                __cil_tmp73 = __cil_tmp72 != 0;
 #line 101
-                __cil_tmp145 = (unsigned long )(& descriptor___2) + 35;
+                __cil_tmp74 = (long )__cil_tmp73;
 #line 101
-                *((unsigned char *)__cil_tmp145) = (unsigned char)0;
-#line 101
-                __cil_tmp146 = (unsigned long )(& descriptor___2) + 36;
-#line 101
-                *((char *)__cil_tmp146) = (char)0;
-#line 101
-                __cil_tmp147 = (unsigned long )(& descriptor___2) + 36;
-#line 101
-                __cil_tmp148 = *((char *)__cil_tmp147);
-#line 101
-                __cil_tmp149 = (signed char )__cil_tmp148;
-#line 101
-                __cil_tmp150 = (int )__cil_tmp149;
-#line 101
-                __cil_tmp151 = __cil_tmp150 != 0;
-#line 101
-                __cil_tmp152 = (long )__cil_tmp151;
-#line 101
-                tmp___3 = __builtin_expect(__cil_tmp152, 0L);
+                tmp___3 = __builtin_expect(__cil_tmp74, 0L);
                 }
 #line 101
                 if (tmp___3 != 0L) {
                   {
 #line 101
-                  __cil_tmp153 = 1 * 1UL;
+                  __cil_tmp75 = event->data[1];
 #line 101
-                  __cil_tmp154 = 2 + __cil_tmp153;
+                  __cil_tmp76 = (int )__cil_tmp75;
 #line 101
-                  __cil_tmp155 = (unsigned long )event;
+                  __cil_tmp77 = event->data[2];
 #line 101
-                  __cil_tmp156 = __cil_tmp155 + __cil_tmp154;
-#line 101
-                  __cil_tmp157 = *((u8 *)__cil_tmp156);
-#line 101
-                  __cil_tmp158 = (int )__cil_tmp157;
-#line 101
-                  __cil_tmp159 = 2 * 1UL;
-#line 101
-                  __cil_tmp160 = 2 + __cil_tmp159;
-#line 101
-                  __cil_tmp161 = (unsigned long )event;
-#line 101
-                  __cil_tmp162 = __cil_tmp161 + __cil_tmp160;
-#line 101
-                  __cil_tmp163 = *((u8 *)__cil_tmp162);
-#line 101
-                  __cil_tmp164 = (int )__cil_tmp163;
+                  __cil_tmp78 = (int )__cil_tmp77;
 #line 101
                   __dynamic_pr_debug(& descriptor___2, "%s: gpio=%x, gap=%x\n", "btmrvl_process_event",
-                                     __cil_tmp158, __cil_tmp164);
+                                     __cil_tmp76, __cil_tmp78);
                   }
                 } else {
 
@@ -7502,47 +6909,29 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
               } else {
                 {
 #line 104
-                __cil_tmp165 = & descriptor___3;
+                descriptor___3.modname = "btmrvl";
 #line 104
-                *((char const   **)__cil_tmp165) = "btmrvl";
+                descriptor___3.function = "btmrvl_process_event";
 #line 104
-                __cil_tmp166 = (unsigned long )(& descriptor___3) + 8;
+                descriptor___3.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 104
-                *((char const   **)__cil_tmp166) = "btmrvl_process_event";
+                descriptor___3.format = "%s: HSCFG command failed\n";
 #line 104
-                __cil_tmp167 = (unsigned long )(& descriptor___3) + 16;
+                descriptor___3.lineno = 104U;
 #line 104
-                *((char const   **)__cil_tmp167) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                descriptor___3.flags = (unsigned char)0;
 #line 104
-                __cil_tmp168 = (unsigned long )(& descriptor___3) + 24;
+                descriptor___3.enabled = (char)0;
 #line 104
-                *((char const   **)__cil_tmp168) = "%s: HSCFG command failed\n";
+                __cil_tmp79 = (signed char )descriptor___3.enabled;
 #line 104
-                __cil_tmp169 = (unsigned long )(& descriptor___3) + 32;
+                __cil_tmp80 = (int )__cil_tmp79;
 #line 104
-                *((unsigned int *)__cil_tmp169) = 104U;
+                __cil_tmp81 = __cil_tmp80 != 0;
 #line 104
-                __cil_tmp170 = (unsigned long )(& descriptor___3) + 35;
+                __cil_tmp82 = (long )__cil_tmp81;
 #line 104
-                *((unsigned char *)__cil_tmp170) = (unsigned char)0;
-#line 104
-                __cil_tmp171 = (unsigned long )(& descriptor___3) + 36;
-#line 104
-                *((char *)__cil_tmp171) = (char)0;
-#line 104
-                __cil_tmp172 = (unsigned long )(& descriptor___3) + 36;
-#line 104
-                __cil_tmp173 = *((char *)__cil_tmp172);
-#line 104
-                __cil_tmp174 = (signed char )__cil_tmp173;
-#line 104
-                __cil_tmp175 = (int )__cil_tmp174;
-#line 104
-                __cil_tmp176 = __cil_tmp175 != 0;
-#line 104
-                __cil_tmp177 = (long )__cil_tmp176;
-#line 104
-                tmp___4 = __builtin_expect(__cil_tmp177, 0L);
+                tmp___4 = __builtin_expect(__cil_tmp82, 0L);
                 }
 #line 104
                 if (tmp___4 != 0L) {
@@ -7556,103 +6945,62 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
                 }
               }
               }
+#line 105
               goto ldv_39680;
               case_90: ;
               {
 #line 108
-              __cil_tmp178 = 1 * 1UL;
+              __cil_tmp83 = event->data[1];
 #line 108
-              __cil_tmp179 = 2 + __cil_tmp178;
+              __cil_tmp84 = (unsigned int )__cil_tmp83;
 #line 108
-              __cil_tmp180 = (unsigned long )event;
-#line 108
-              __cil_tmp181 = __cil_tmp180 + __cil_tmp179;
-#line 108
-              __cil_tmp182 = *((u8 *)__cil_tmp181);
-#line 108
-              __cil_tmp183 = (unsigned int )__cil_tmp182;
-#line 108
-              if (__cil_tmp183 == 0U) {
+              if (__cil_tmp84 == 0U) {
 #line 109
-                __cil_tmp184 = (unsigned long )adapter;
-#line 109
-                __cil_tmp185 = __cil_tmp184 + 106;
-#line 109
-                *((u8 *)__cil_tmp185) = (unsigned char)1;
+                adapter->hs_state = (u8 )1U;
                 {
 #line 110
-                __cil_tmp186 = (unsigned long )adapter;
+                __cil_tmp85 = adapter->psmode;
 #line 110
-                __cil_tmp187 = __cil_tmp186 + 104;
+                __cil_tmp86 = (unsigned int )__cil_tmp85;
 #line 110
-                __cil_tmp188 = *((u8 *)__cil_tmp187);
-#line 110
-                __cil_tmp189 = (unsigned int )__cil_tmp188;
-#line 110
-                if (__cil_tmp189 != 0U) {
+                if (__cil_tmp86 != 0U) {
 #line 111
-                  __cil_tmp190 = (unsigned long )adapter;
-#line 111
-                  __cil_tmp191 = __cil_tmp190 + 105;
-#line 111
-                  *((u8 *)__cil_tmp191) = (unsigned char)1;
+                  adapter->ps_state = (u8 )1U;
                 } else {
 
                 }
                 }
                 {
 #line 112
-                __cil_tmp192 = (unsigned long )adapter;
+                __cil_tmp87 = & adapter->cmd_wait_q;
 #line 112
-                __cil_tmp193 = __cil_tmp192 + 112;
+                __cil_tmp88 = (void *)0;
 #line 112
-                __cil_tmp194 = (wait_queue_head_t *)__cil_tmp193;
-#line 112
-                __cil_tmp195 = (void *)0;
-#line 112
-                __wake_up(__cil_tmp194, 1U, 1, __cil_tmp195);
+                __wake_up(__cil_tmp87, 1U, 1, __cil_tmp88);
 #line 113
-                __cil_tmp196 = & descriptor___4;
+                descriptor___4.modname = "btmrvl";
 #line 113
-                *((char const   **)__cil_tmp196) = "btmrvl";
+                descriptor___4.function = "btmrvl_process_event";
 #line 113
-                __cil_tmp197 = (unsigned long )(& descriptor___4) + 8;
+                descriptor___4.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 113
-                *((char const   **)__cil_tmp197) = "btmrvl_process_event";
+                descriptor___4.format = "%s: HS ACTIVATED!\n";
 #line 113
-                __cil_tmp198 = (unsigned long )(& descriptor___4) + 16;
+                descriptor___4.lineno = 113U;
 #line 113
-                *((char const   **)__cil_tmp198) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                descriptor___4.flags = (unsigned char)0;
 #line 113
-                __cil_tmp199 = (unsigned long )(& descriptor___4) + 24;
+                descriptor___4.enabled = (char)0;
 #line 113
-                *((char const   **)__cil_tmp199) = "%s: HS ACTIVATED!\n";
+                __cil_tmp89 = (signed char )descriptor___4.enabled;
 #line 113
-                __cil_tmp200 = (unsigned long )(& descriptor___4) + 32;
+                __cil_tmp90 = (int )__cil_tmp89;
 #line 113
-                *((unsigned int *)__cil_tmp200) = 113U;
+                __cil_tmp91 = __cil_tmp90 != 0;
 #line 113
-                __cil_tmp201 = (unsigned long )(& descriptor___4) + 35;
+                __cil_tmp92 = (long )__cil_tmp91;
 #line 113
-                *((unsigned char *)__cil_tmp201) = (unsigned char)0;
-#line 113
-                __cil_tmp202 = (unsigned long )(& descriptor___4) + 36;
-#line 113
-                *((char *)__cil_tmp202) = (char)0;
-#line 113
-                __cil_tmp203 = (unsigned long )(& descriptor___4) + 36;
-#line 113
-                __cil_tmp204 = *((char *)__cil_tmp203);
-#line 113
-                __cil_tmp205 = (signed char )__cil_tmp204;
-#line 113
-                __cil_tmp206 = (int )__cil_tmp205;
-#line 113
-                __cil_tmp207 = __cil_tmp206 != 0;
-#line 113
-                __cil_tmp208 = (long )__cil_tmp207;
-#line 113
-                tmp___5 = __builtin_expect(__cil_tmp208, 0L);
+                tmp___5 = __builtin_expect(__cil_tmp92, 0L);
                 }
 #line 113
                 if (tmp___5 != 0L) {
@@ -7666,47 +7014,29 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
               } else {
                 {
 #line 115
-                __cil_tmp209 = & descriptor___5;
+                descriptor___5.modname = "btmrvl";
 #line 115
-                *((char const   **)__cil_tmp209) = "btmrvl";
+                descriptor___5.function = "btmrvl_process_event";
 #line 115
-                __cil_tmp210 = (unsigned long )(& descriptor___5) + 8;
+                descriptor___5.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 115
-                *((char const   **)__cil_tmp210) = "btmrvl_process_event";
+                descriptor___5.format = "%s: HS Enable failed\n";
 #line 115
-                __cil_tmp211 = (unsigned long )(& descriptor___5) + 16;
+                descriptor___5.lineno = 115U;
 #line 115
-                *((char const   **)__cil_tmp211) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                descriptor___5.flags = (unsigned char)0;
 #line 115
-                __cil_tmp212 = (unsigned long )(& descriptor___5) + 24;
+                descriptor___5.enabled = (char)0;
 #line 115
-                *((char const   **)__cil_tmp212) = "%s: HS Enable failed\n";
+                __cil_tmp93 = (signed char )descriptor___5.enabled;
 #line 115
-                __cil_tmp213 = (unsigned long )(& descriptor___5) + 32;
+                __cil_tmp94 = (int )__cil_tmp93;
 #line 115
-                *((unsigned int *)__cil_tmp213) = 115U;
+                __cil_tmp95 = __cil_tmp94 != 0;
 #line 115
-                __cil_tmp214 = (unsigned long )(& descriptor___5) + 35;
+                __cil_tmp96 = (long )__cil_tmp95;
 #line 115
-                *((unsigned char *)__cil_tmp214) = (unsigned char)0;
-#line 115
-                __cil_tmp215 = (unsigned long )(& descriptor___5) + 36;
-#line 115
-                *((char *)__cil_tmp215) = (char)0;
-#line 115
-                __cil_tmp216 = (unsigned long )(& descriptor___5) + 36;
-#line 115
-                __cil_tmp217 = *((char *)__cil_tmp216);
-#line 115
-                __cil_tmp218 = (signed char )__cil_tmp217;
-#line 115
-                __cil_tmp219 = (int )__cil_tmp218;
-#line 115
-                __cil_tmp220 = __cil_tmp219 != 0;
-#line 115
-                __cil_tmp221 = (long )__cil_tmp220;
-#line 115
-                tmp___6 = __builtin_expect(__cil_tmp221, 0L);
+                tmp___6 = __builtin_expect(__cil_tmp96, 0L);
                 }
 #line 115
                 if (tmp___6 != 0L) {
@@ -7719,115 +7049,68 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
                 }
               }
               }
+#line 117
               goto ldv_39680;
               case_91: ;
               {
 #line 120
-              __cil_tmp222 = 0 + 25;
+              __cil_tmp97 = priv->btmrvl_dev.sendcmdflag;
 #line 120
-              __cil_tmp223 = (unsigned long )priv;
+              __cil_tmp98 = (unsigned int )__cil_tmp97;
 #line 120
-              __cil_tmp224 = __cil_tmp223 + __cil_tmp222;
-#line 120
-              __cil_tmp225 = *((u8 *)__cil_tmp224);
-#line 120
-              __cil_tmp226 = (unsigned int )__cil_tmp225;
-#line 120
-              if (__cil_tmp226 != 0U) {
+              if (__cil_tmp98 != 0U) {
                 {
 #line 120
-                __cil_tmp227 = 1 * 1UL;
+                __cil_tmp99 = event->data[1];
 #line 120
-                __cil_tmp228 = 2 + __cil_tmp227;
+                __cil_tmp100 = (unsigned int )__cil_tmp99;
 #line 120
-                __cil_tmp229 = (unsigned long )event;
-#line 120
-                __cil_tmp230 = __cil_tmp229 + __cil_tmp228;
-#line 120
-                __cil_tmp231 = *((u8 *)__cil_tmp230);
-#line 120
-                __cil_tmp232 = (unsigned int )__cil_tmp231;
-#line 120
-                if (__cil_tmp232 == 241U) {
+                if (__cil_tmp100 == 241U) {
                   {
 #line 122
-                  __cil_tmp233 = & descriptor___6;
+                  descriptor___6.modname = "btmrvl";
 #line 122
-                  *((char const   **)__cil_tmp233) = "btmrvl";
+                  descriptor___6.function = "btmrvl_process_event";
 #line 122
-                  __cil_tmp234 = (unsigned long )(& descriptor___6) + 8;
+                  descriptor___6.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 122
-                  *((char const   **)__cil_tmp234) = "btmrvl_process_event";
+                  descriptor___6.format = "%s: EVENT:%s\n";
 #line 122
-                  __cil_tmp235 = (unsigned long )(& descriptor___6) + 16;
+                  descriptor___6.lineno = 125U;
 #line 122
-                  *((char const   **)__cil_tmp235) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                  descriptor___6.flags = (unsigned char)0;
 #line 122
-                  __cil_tmp236 = (unsigned long )(& descriptor___6) + 24;
+                  descriptor___6.enabled = (char)0;
 #line 122
-                  *((char const   **)__cil_tmp236) = "%s: EVENT:%s\n";
+                  __cil_tmp101 = (signed char )descriptor___6.enabled;
 #line 122
-                  __cil_tmp237 = (unsigned long )(& descriptor___6) + 32;
+                  __cil_tmp102 = (int )__cil_tmp101;
 #line 122
-                  *((unsigned int *)__cil_tmp237) = 125U;
+                  __cil_tmp103 = __cil_tmp102 != 0;
 #line 122
-                  __cil_tmp238 = (unsigned long )(& descriptor___6) + 35;
+                  __cil_tmp104 = (long )__cil_tmp103;
 #line 122
-                  *((unsigned char *)__cil_tmp238) = (unsigned char)0;
-#line 122
-                  __cil_tmp239 = (unsigned long )(& descriptor___6) + 36;
-#line 122
-                  *((char *)__cil_tmp239) = (char)0;
-#line 122
-                  __cil_tmp240 = (unsigned long )(& descriptor___6) + 36;
-#line 122
-                  __cil_tmp241 = *((char *)__cil_tmp240);
-#line 122
-                  __cil_tmp242 = (signed char )__cil_tmp241;
-#line 122
-                  __cil_tmp243 = (int )__cil_tmp242;
-#line 122
-                  __cil_tmp244 = __cil_tmp243 != 0;
-#line 122
-                  __cil_tmp245 = (long )__cil_tmp244;
-#line 122
-                  tmp___8 = __builtin_expect(__cil_tmp245, 0L);
+                  tmp___8 = __builtin_expect(__cil_tmp104, 0L);
                   }
 #line 122
                   if (tmp___8 != 0L) {
                     {
 #line 122
-                    __cil_tmp246 = 2 * 1UL;
+                    __cil_tmp105 = event->data[2];
 #line 122
-                    __cil_tmp247 = 2 + __cil_tmp246;
+                    __cil_tmp106 = (unsigned int )__cil_tmp105;
 #line 122
-                    __cil_tmp248 = (unsigned long )event;
-#line 122
-                    __cil_tmp249 = __cil_tmp248 + __cil_tmp247;
-#line 122
-                    __cil_tmp250 = *((u8 *)__cil_tmp249);
-#line 122
-                    __cil_tmp251 = (unsigned int )__cil_tmp250;
-#line 122
-                    if (__cil_tmp251 == 0U) {
+                    if (__cil_tmp106 == 0U) {
 #line 122
                       tmp___7 = (char *)"Bring-up succeed";
                     } else {
                       {
 #line 122
-                      __cil_tmp252 = 2 * 1UL;
+                      __cil_tmp107 = event->data[2];
 #line 122
-                      __cil_tmp253 = 2 + __cil_tmp252;
+                      __cil_tmp108 = (unsigned int )__cil_tmp107;
 #line 122
-                      __cil_tmp254 = (unsigned long )event;
-#line 122
-                      __cil_tmp255 = __cil_tmp254 + __cil_tmp253;
-#line 122
-                      __cil_tmp256 = *((u8 *)__cil_tmp255);
-#line 122
-                      __cil_tmp257 = (unsigned int )__cil_tmp256;
-#line 122
-                      if (__cil_tmp257 == 12U) {
+                      if (__cil_tmp108 == 12U) {
 #line 122
                         tmp___7 = (char *)"Bring-up succeed";
                       } else {
@@ -7847,125 +7130,72 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
                   }
                   {
 #line 127
-                  __cil_tmp258 = (unsigned long )event;
+                  __cil_tmp109 = event->length;
 #line 127
-                  __cil_tmp259 = __cil_tmp258 + 1;
+                  __cil_tmp110 = (unsigned int )__cil_tmp109;
 #line 127
-                  __cil_tmp260 = *((u8 *)__cil_tmp259);
-#line 127
-                  __cil_tmp261 = (unsigned int )__cil_tmp260;
-#line 127
-                  if (__cil_tmp261 > 3U) {
+                  if (__cil_tmp110 > 3U) {
                     {
 #line 127
-                    __cil_tmp262 = 3 * 1UL;
+                    __cil_tmp111 = event->data[3];
 #line 127
-                    __cil_tmp263 = 2 + __cil_tmp262;
+                    __cil_tmp112 = (unsigned int )__cil_tmp111;
 #line 127
-                    __cil_tmp264 = (unsigned long )event;
-#line 127
-                    __cil_tmp265 = __cil_tmp264 + __cil_tmp263;
-#line 127
-                    __cil_tmp266 = *((u8 *)__cil_tmp265);
-#line 127
-                    __cil_tmp267 = (unsigned int )__cil_tmp266;
-#line 127
-                    if (__cil_tmp267 != 0U) {
+                    if (__cil_tmp112 != 0U) {
 #line 128
-                      __cil_tmp268 = 0 + 16;
-#line 128
-                      __cil_tmp269 = (unsigned long )priv;
-#line 128
-                      __cil_tmp270 = __cil_tmp269 + __cil_tmp268;
-#line 128
-                      *((u8 *)__cil_tmp270) = (unsigned char)1;
+                      priv->btmrvl_dev.dev_type = (u8 )1U;
                     } else {
 #line 130
-                      __cil_tmp271 = 0 + 16;
-#line 130
-                      __cil_tmp272 = (unsigned long )priv;
-#line 130
-                      __cil_tmp273 = __cil_tmp272 + __cil_tmp271;
-#line 130
-                      *((u8 *)__cil_tmp273) = (unsigned char)0;
+                      priv->btmrvl_dev.dev_type = (u8 )0U;
                     }
                     }
                   } else {
 #line 130
-                    __cil_tmp274 = 0 + 16;
-#line 130
-                    __cil_tmp275 = (unsigned long )priv;
-#line 130
-                    __cil_tmp276 = __cil_tmp275 + __cil_tmp274;
-#line 130
-                    *((u8 *)__cil_tmp276) = (unsigned char)0;
+                    priv->btmrvl_dev.dev_type = (u8 )0U;
                   }
                   }
                   {
 #line 132
-                  __cil_tmp277 = & descriptor___7;
+                  descriptor___7.modname = "btmrvl";
 #line 132
-                  *((char const   **)__cil_tmp277) = "btmrvl";
+                  descriptor___7.function = "btmrvl_process_event";
 #line 132
-                  __cil_tmp278 = (unsigned long )(& descriptor___7) + 8;
+                  descriptor___7.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 132
-                  *((char const   **)__cil_tmp278) = "btmrvl_process_event";
+                  descriptor___7.format = "%s: dev_type: %d\n";
 #line 132
-                  __cil_tmp279 = (unsigned long )(& descriptor___7) + 16;
+                  descriptor___7.lineno = 132U;
 #line 132
-                  *((char const   **)__cil_tmp279) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                  descriptor___7.flags = (unsigned char)0;
 #line 132
-                  __cil_tmp280 = (unsigned long )(& descriptor___7) + 24;
+                  descriptor___7.enabled = (char)0;
 #line 132
-                  *((char const   **)__cil_tmp280) = "%s: dev_type: %d\n";
+                  __cil_tmp113 = (signed char )descriptor___7.enabled;
 #line 132
-                  __cil_tmp281 = (unsigned long )(& descriptor___7) + 32;
+                  __cil_tmp114 = (int )__cil_tmp113;
 #line 132
-                  *((unsigned int *)__cil_tmp281) = 132U;
+                  __cil_tmp115 = __cil_tmp114 != 0;
 #line 132
-                  __cil_tmp282 = (unsigned long )(& descriptor___7) + 35;
+                  __cil_tmp116 = (long )__cil_tmp115;
 #line 132
-                  *((unsigned char *)__cil_tmp282) = (unsigned char)0;
-#line 132
-                  __cil_tmp283 = (unsigned long )(& descriptor___7) + 36;
-#line 132
-                  *((char *)__cil_tmp283) = (char)0;
-#line 132
-                  __cil_tmp284 = (unsigned long )(& descriptor___7) + 36;
-#line 132
-                  __cil_tmp285 = *((char *)__cil_tmp284);
-#line 132
-                  __cil_tmp286 = (signed char )__cil_tmp285;
-#line 132
-                  __cil_tmp287 = (int )__cil_tmp286;
-#line 132
-                  __cil_tmp288 = __cil_tmp287 != 0;
-#line 132
-                  __cil_tmp289 = (long )__cil_tmp288;
-#line 132
-                  tmp___9 = __builtin_expect(__cil_tmp289, 0L);
+                  tmp___9 = __builtin_expect(__cil_tmp116, 0L);
                   }
 #line 132
                   if (tmp___9 != 0L) {
                     {
 #line 132
-                    __cil_tmp290 = 0 + 16;
+                    __cil_tmp117 = priv->btmrvl_dev.dev_type;
 #line 132
-                    __cil_tmp291 = (unsigned long )priv;
-#line 132
-                    __cil_tmp292 = __cil_tmp291 + __cil_tmp290;
-#line 132
-                    __cil_tmp293 = *((u8 *)__cil_tmp292);
-#line 132
-                    __cil_tmp294 = (int )__cil_tmp293;
+                    __cil_tmp118 = (int )__cil_tmp117;
 #line 132
                     __dynamic_pr_debug(& descriptor___7, "%s: dev_type: %d\n", "btmrvl_process_event",
-                                       __cil_tmp294);
+                                       __cil_tmp118);
                     }
                   } else {
 
                   }
                 } else {
+#line 120
                   goto _L___0;
                 }
                 }
@@ -7973,93 +7203,53 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
                 _L___0: 
                 {
 #line 133
-                __cil_tmp295 = 0 + 25;
+                __cil_tmp119 = priv->btmrvl_dev.sendcmdflag;
 #line 133
-                __cil_tmp296 = (unsigned long )priv;
+                __cil_tmp120 = (unsigned int )__cil_tmp119;
 #line 133
-                __cil_tmp297 = __cil_tmp296 + __cil_tmp295;
-#line 133
-                __cil_tmp298 = *((u8 *)__cil_tmp297);
-#line 133
-                __cil_tmp299 = (unsigned int )__cil_tmp298;
-#line 133
-                if (__cil_tmp299 != 0U) {
+                if (__cil_tmp120 != 0U) {
                   {
 #line 133
-                  __cil_tmp300 = 1 * 1UL;
+                  __cil_tmp121 = event->data[1];
 #line 133
-                  __cil_tmp301 = 2 + __cil_tmp300;
+                  __cil_tmp122 = (unsigned int )__cil_tmp121;
 #line 133
-                  __cil_tmp302 = (unsigned long )event;
-#line 133
-                  __cil_tmp303 = __cil_tmp302 + __cil_tmp301;
-#line 133
-                  __cil_tmp304 = *((u8 *)__cil_tmp303);
-#line 133
-                  __cil_tmp305 = (unsigned int )__cil_tmp304;
-#line 133
-                  if (__cil_tmp305 == 242U) {
+                  if (__cil_tmp122 == 242U) {
                     {
 #line 135
-                    __cil_tmp306 = & descriptor___8;
+                    descriptor___8.modname = "btmrvl";
 #line 135
-                    *((char const   **)__cil_tmp306) = "btmrvl";
+                    descriptor___8.function = "btmrvl_process_event";
 #line 135
-                    __cil_tmp307 = (unsigned long )(& descriptor___8) + 8;
+                    descriptor___8.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 135
-                    *((char const   **)__cil_tmp307) = "btmrvl_process_event";
+                    descriptor___8.format = "%s: EVENT:%s\n";
 #line 135
-                    __cil_tmp308 = (unsigned long )(& descriptor___8) + 16;
+                    descriptor___8.lineno = 136U;
 #line 135
-                    *((char const   **)__cil_tmp308) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                    descriptor___8.flags = (unsigned char)0;
 #line 135
-                    __cil_tmp309 = (unsigned long )(& descriptor___8) + 24;
+                    descriptor___8.enabled = (char)0;
 #line 135
-                    *((char const   **)__cil_tmp309) = "%s: EVENT:%s\n";
+                    __cil_tmp123 = (signed char )descriptor___8.enabled;
 #line 135
-                    __cil_tmp310 = (unsigned long )(& descriptor___8) + 32;
+                    __cil_tmp124 = (int )__cil_tmp123;
 #line 135
-                    *((unsigned int *)__cil_tmp310) = 136U;
+                    __cil_tmp125 = __cil_tmp124 != 0;
 #line 135
-                    __cil_tmp311 = (unsigned long )(& descriptor___8) + 35;
+                    __cil_tmp126 = (long )__cil_tmp125;
 #line 135
-                    *((unsigned char *)__cil_tmp311) = (unsigned char)0;
-#line 135
-                    __cil_tmp312 = (unsigned long )(& descriptor___8) + 36;
-#line 135
-                    *((char *)__cil_tmp312) = (char)0;
-#line 135
-                    __cil_tmp313 = (unsigned long )(& descriptor___8) + 36;
-#line 135
-                    __cil_tmp314 = *((char *)__cil_tmp313);
-#line 135
-                    __cil_tmp315 = (signed char )__cil_tmp314;
-#line 135
-                    __cil_tmp316 = (int )__cil_tmp315;
-#line 135
-                    __cil_tmp317 = __cil_tmp316 != 0;
-#line 135
-                    __cil_tmp318 = (long )__cil_tmp317;
-#line 135
-                    tmp___11 = __builtin_expect(__cil_tmp318, 0L);
+                    tmp___11 = __builtin_expect(__cil_tmp126, 0L);
                     }
 #line 135
                     if (tmp___11 != 0L) {
                       {
 #line 135
-                      __cil_tmp319 = 2 * 1UL;
+                      __cil_tmp127 = event->data[2];
 #line 135
-                      __cil_tmp320 = 2 + __cil_tmp319;
+                      __cil_tmp128 = (unsigned int )__cil_tmp127;
 #line 135
-                      __cil_tmp321 = (unsigned long )event;
-#line 135
-                      __cil_tmp322 = __cil_tmp321 + __cil_tmp320;
-#line 135
-                      __cil_tmp323 = *((u8 *)__cil_tmp322);
-#line 135
-                      __cil_tmp324 = (unsigned int )__cil_tmp323;
-#line 135
-                      if (__cil_tmp324 != 0U) {
+                      if (__cil_tmp128 != 0U) {
 #line 135
                         tmp___10 = (char *)"Shutdown failed";
                       } else {
@@ -8076,6 +7266,7 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
 
                     }
                   } else {
+#line 133
                     goto _L;
                   }
                   }
@@ -8083,47 +7274,29 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
                   _L: 
                   {
 #line 138
-                  __cil_tmp325 = & descriptor___9;
+                  descriptor___9.modname = "btmrvl";
 #line 138
-                  *((char const   **)__cil_tmp325) = "btmrvl";
+                  descriptor___9.function = "btmrvl_process_event";
 #line 138
-                  __cil_tmp326 = (unsigned long )(& descriptor___9) + 8;
+                  descriptor___9.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 138
-                  *((char const   **)__cil_tmp326) = "btmrvl_process_event";
+                  descriptor___9.format = "%s: BT_CMD_MODULE_CFG_REQ resp for APP\n";
 #line 138
-                  __cil_tmp327 = (unsigned long )(& descriptor___9) + 16;
+                  descriptor___9.lineno = 138U;
 #line 138
-                  *((char const   **)__cil_tmp327) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+                  descriptor___9.flags = (unsigned char)0;
 #line 138
-                  __cil_tmp328 = (unsigned long )(& descriptor___9) + 24;
+                  descriptor___9.enabled = (char)0;
 #line 138
-                  *((char const   **)__cil_tmp328) = "%s: BT_CMD_MODULE_CFG_REQ resp for APP\n";
+                  __cil_tmp129 = (signed char )descriptor___9.enabled;
 #line 138
-                  __cil_tmp329 = (unsigned long )(& descriptor___9) + 32;
+                  __cil_tmp130 = (int )__cil_tmp129;
 #line 138
-                  *((unsigned int *)__cil_tmp329) = 138U;
+                  __cil_tmp131 = __cil_tmp130 != 0;
 #line 138
-                  __cil_tmp330 = (unsigned long )(& descriptor___9) + 35;
+                  __cil_tmp132 = (long )__cil_tmp131;
 #line 138
-                  *((unsigned char *)__cil_tmp330) = (unsigned char)0;
-#line 138
-                  __cil_tmp331 = (unsigned long )(& descriptor___9) + 36;
-#line 138
-                  *((char *)__cil_tmp331) = (char)0;
-#line 138
-                  __cil_tmp332 = (unsigned long )(& descriptor___9) + 36;
-#line 138
-                  __cil_tmp333 = *((char *)__cil_tmp332);
-#line 138
-                  __cil_tmp334 = (signed char )__cil_tmp333;
-#line 138
-                  __cil_tmp335 = (int )__cil_tmp334;
-#line 138
-                  __cil_tmp336 = __cil_tmp335 != 0;
-#line 138
-                  __cil_tmp337 = (long )__cil_tmp336;
-#line 138
-                  tmp___12 = __builtin_expect(__cil_tmp337, 0L);
+                  tmp___12 = __builtin_expect(__cil_tmp132, 0L);
                   }
 #line 138
                   if (tmp___12 != 0L) {
@@ -8141,90 +7314,57 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
                 }
               }
               }
+#line 141
               goto ldv_39680;
               case_32: ;
               {
 #line 144
-              __cil_tmp338 = 1 * 1UL;
+              __cil_tmp133 = event->data[1];
 #line 144
-              __cil_tmp339 = 2 + __cil_tmp338;
+              __cil_tmp134 = (unsigned int )__cil_tmp133;
 #line 144
-              __cil_tmp340 = (unsigned long )event;
-#line 144
-              __cil_tmp341 = __cil_tmp340 + __cil_tmp339;
-#line 144
-              __cil_tmp342 = *((u8 *)__cil_tmp341);
-#line 144
-              __cil_tmp343 = (unsigned int )__cil_tmp342;
-#line 144
-              if (__cil_tmp343 == 1U) {
+              if (__cil_tmp134 == 1U) {
 #line 145
-                __cil_tmp344 = (unsigned long )adapter;
-#line 145
-                __cil_tmp345 = __cil_tmp344 + 105;
-#line 145
-                *((u8 *)__cil_tmp345) = (unsigned char)1;
+                adapter->ps_state = (u8 )1U;
               } else {
 
               }
               }
               {
 #line 146
-              __cil_tmp346 = & descriptor___10;
+              descriptor___10.modname = "btmrvl";
 #line 146
-              *((char const   **)__cil_tmp346) = "btmrvl";
+              descriptor___10.function = "btmrvl_process_event";
 #line 146
-              __cil_tmp347 = (unsigned long )(& descriptor___10) + 8;
+              descriptor___10.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 146
-              *((char const   **)__cil_tmp347) = "btmrvl_process_event";
+              descriptor___10.format = "%s: EVENT:%s\n";
 #line 146
-              __cil_tmp348 = (unsigned long )(& descriptor___10) + 16;
+              descriptor___10.lineno = 147U;
 #line 146
-              *((char const   **)__cil_tmp348) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+              descriptor___10.flags = (unsigned char)0;
 #line 146
-              __cil_tmp349 = (unsigned long )(& descriptor___10) + 24;
+              descriptor___10.enabled = (char)0;
 #line 146
-              *((char const   **)__cil_tmp349) = "%s: EVENT:%s\n";
+              __cil_tmp135 = (signed char )descriptor___10.enabled;
 #line 146
-              __cil_tmp350 = (unsigned long )(& descriptor___10) + 32;
+              __cil_tmp136 = (int )__cil_tmp135;
 #line 146
-              *((unsigned int *)__cil_tmp350) = 147U;
+              __cil_tmp137 = __cil_tmp136 != 0;
 #line 146
-              __cil_tmp351 = (unsigned long )(& descriptor___10) + 35;
+              __cil_tmp138 = (long )__cil_tmp137;
 #line 146
-              *((unsigned char *)__cil_tmp351) = (unsigned char)0;
-#line 146
-              __cil_tmp352 = (unsigned long )(& descriptor___10) + 36;
-#line 146
-              *((char *)__cil_tmp352) = (char)0;
-#line 146
-              __cil_tmp353 = (unsigned long )(& descriptor___10) + 36;
-#line 146
-              __cil_tmp354 = *((char *)__cil_tmp353);
-#line 146
-              __cil_tmp355 = (signed char )__cil_tmp354;
-#line 146
-              __cil_tmp356 = (int )__cil_tmp355;
-#line 146
-              __cil_tmp357 = __cil_tmp356 != 0;
-#line 146
-              __cil_tmp358 = (long )__cil_tmp357;
-#line 146
-              tmp___14 = __builtin_expect(__cil_tmp358, 0L);
+              tmp___14 = __builtin_expect(__cil_tmp138, 0L);
               }
 #line 146
               if (tmp___14 != 0L) {
                 {
 #line 146
-                __cil_tmp359 = (unsigned long )adapter;
+                __cil_tmp139 = adapter->ps_state;
 #line 146
-                __cil_tmp360 = __cil_tmp359 + 105;
+                __cil_tmp140 = (unsigned int )__cil_tmp139;
 #line 146
-                __cil_tmp361 = *((u8 *)__cil_tmp360);
-#line 146
-                __cil_tmp362 = (unsigned int )__cil_tmp361;
-#line 146
-                if (__cil_tmp362 != 0U) {
+                if (__cil_tmp140 != 0U) {
 #line 146
                   tmp___13 = (char *)"PS_SLEEP";
                 } else {
@@ -8240,76 +7380,52 @@ int btmrvl_process_event(struct btmrvl_private *priv , struct sk_buff *skb )
               } else {
 
               }
+#line 148
               goto ldv_39680;
               switch_default: 
               {
 #line 151
-              __cil_tmp363 = & descriptor___11;
+              descriptor___11.modname = "btmrvl";
 #line 151
-              *((char const   **)__cil_tmp363) = "btmrvl";
+              descriptor___11.function = "btmrvl_process_event";
 #line 151
-              __cil_tmp364 = (unsigned long )(& descriptor___11) + 8;
+              descriptor___11.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 151
-              *((char const   **)__cil_tmp364) = "btmrvl_process_event";
+              descriptor___11.format = "%s: Unknown Event=%d\n";
 #line 151
-              __cil_tmp365 = (unsigned long )(& descriptor___11) + 16;
+              descriptor___11.lineno = 151U;
 #line 151
-              *((char const   **)__cil_tmp365) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+              descriptor___11.flags = (unsigned char)0;
 #line 151
-              __cil_tmp366 = (unsigned long )(& descriptor___11) + 24;
+              descriptor___11.enabled = (char)0;
 #line 151
-              *((char const   **)__cil_tmp366) = "%s: Unknown Event=%d\n";
+              __cil_tmp141 = (signed char )descriptor___11.enabled;
 #line 151
-              __cil_tmp367 = (unsigned long )(& descriptor___11) + 32;
+              __cil_tmp142 = (int )__cil_tmp141;
 #line 151
-              *((unsigned int *)__cil_tmp367) = 151U;
+              __cil_tmp143 = __cil_tmp142 != 0;
 #line 151
-              __cil_tmp368 = (unsigned long )(& descriptor___11) + 35;
+              __cil_tmp144 = (long )__cil_tmp143;
 #line 151
-              *((unsigned char *)__cil_tmp368) = (unsigned char)0;
-#line 151
-              __cil_tmp369 = (unsigned long )(& descriptor___11) + 36;
-#line 151
-              *((char *)__cil_tmp369) = (char)0;
-#line 151
-              __cil_tmp370 = (unsigned long )(& descriptor___11) + 36;
-#line 151
-              __cil_tmp371 = *((char *)__cil_tmp370);
-#line 151
-              __cil_tmp372 = (signed char )__cil_tmp371;
-#line 151
-              __cil_tmp373 = (int )__cil_tmp372;
-#line 151
-              __cil_tmp374 = __cil_tmp373 != 0;
-#line 151
-              __cil_tmp375 = (long )__cil_tmp374;
-#line 151
-              tmp___15 = __builtin_expect(__cil_tmp375, 0L);
+              tmp___15 = __builtin_expect(__cil_tmp144, 0L);
               }
 #line 151
               if (tmp___15 != 0L) {
                 {
 #line 151
-                __cil_tmp376 = 0 * 1UL;
+                __cil_tmp145 = event->data[0];
 #line 151
-                __cil_tmp377 = 2 + __cil_tmp376;
-#line 151
-                __cil_tmp378 = (unsigned long )event;
-#line 151
-                __cil_tmp379 = __cil_tmp378 + __cil_tmp377;
-#line 151
-                __cil_tmp380 = *((u8 *)__cil_tmp379);
-#line 151
-                __cil_tmp381 = (int )__cil_tmp380;
+                __cil_tmp146 = (int )__cil_tmp145;
 #line 151
                 __dynamic_pr_debug(& descriptor___11, "%s: Unknown Event=%d\n", "btmrvl_process_event",
-                                   __cil_tmp381);
+                                   __cil_tmp146);
                 }
               } else {
 
               }
 #line 152
               ret = -22;
+#line 153
               goto ldv_39680;
             } else {
 
@@ -8358,108 +7474,36 @@ int btmrvl_send_module_cfg_cmd(struct btmrvl_private *priv , int subcmd )
   struct sk_buff *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  char (*__cil_tmp28)[48U] ;
-  struct bt_skb_cb *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct hci_dev *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct btmrvl_adapter *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct sk_buff_head *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct btmrvl_adapter *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct _ddebug *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  char __cil_tmp58 ;
-  signed char __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  wait_queue_head_t *__cil_tmp66 ;
-  void *__cil_tmp67 ;
-  unsigned int __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  struct btmrvl_adapter *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  u8 __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  wait_queue_t *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  struct btmrvl_adapter *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  wait_queue_head_t *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  struct btmrvl_adapter *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  u8 __cil_tmp96 ;
-  unsigned int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  struct btmrvl_adapter *__cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  wait_queue_head_t *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  u8 __cil_tmp107 ;
-  int __cil_tmp108 ;
-  struct _ddebug *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  char __cil_tmp117 ;
-  signed char __cil_tmp118 ;
-  int __cil_tmp119 ;
-  int __cil_tmp120 ;
-  long __cil_tmp121 ;
+  char (*__cil_tmp20)[48U] ;
+  struct bt_skb_cb *__cil_tmp21 ;
+  struct hci_dev *__cil_tmp22 ;
+  struct btmrvl_adapter *__cil_tmp23 ;
+  struct sk_buff_head *__cil_tmp24 ;
+  struct btmrvl_adapter *__cil_tmp25 ;
+  signed char __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  long __cil_tmp29 ;
+  wait_queue_head_t *__cil_tmp30 ;
+  void *__cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  struct btmrvl_adapter *__cil_tmp34 ;
+  u8 __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  struct btmrvl_adapter *__cil_tmp37 ;
+  wait_queue_head_t *__cil_tmp38 ;
+  struct btmrvl_adapter *__cil_tmp39 ;
+  u8 __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  struct btmrvl_adapter *__cil_tmp42 ;
+  wait_queue_head_t *__cil_tmp43 ;
+  u8 __cil_tmp44 ;
+  int __cil_tmp45 ;
+  signed char __cil_tmp46 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  long __cil_tmp49 ;
 
   {
   {
@@ -8493,123 +7537,57 @@ int btmrvl_send_module_cfg_cmd(struct btmrvl_private *priv , int subcmd )
 #line 176
   cmd = (struct btmrvl_cmd *)tmp;
 #line 177
-  *((__le16 *)cmd) = (unsigned short)64603;
+  cmd->ocf_ogf = (__le16 )64603U;
 #line 178
-  __cil_tmp20 = (unsigned long )cmd;
-#line 178
-  __cil_tmp21 = __cil_tmp20 + 2;
-#line 178
-  *((u8 *)__cil_tmp21) = (unsigned char)1;
+  cmd->length = (u8 )1U;
 #line 179
-  __cil_tmp22 = 0 * 1UL;
-#line 179
-  __cil_tmp23 = 3 + __cil_tmp22;
-#line 179
-  __cil_tmp24 = (unsigned long )cmd;
-#line 179
-  __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 179
-  *((u8 *)__cil_tmp25) = (unsigned char )subcmd;
+  cmd->data[0] = (u8 )subcmd;
 #line 181
-  __cil_tmp26 = (unsigned long )skb;
+  __cil_tmp20 = & skb->cb;
 #line 181
-  __cil_tmp27 = __cil_tmp26 + 40;
+  __cil_tmp21 = (struct bt_skb_cb *)__cil_tmp20;
 #line 181
-  __cil_tmp28 = (char (*)[48U])__cil_tmp27;
-#line 181
-  __cil_tmp29 = (struct bt_skb_cb *)__cil_tmp28;
-#line 181
-  *((__u8 *)__cil_tmp29) = (unsigned char)254;
+  __cil_tmp21->pkt_type = (__u8 )254U;
 #line 183
-  __cil_tmp30 = (unsigned long )skb;
+  __cil_tmp22 = priv->btmrvl_dev.hcidev;
 #line 183
-  __cil_tmp31 = __cil_tmp30 + 32;
-#line 183
-  __cil_tmp32 = 0 + 8;
-#line 183
-  __cil_tmp33 = (unsigned long )priv;
-#line 183
-  __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
-#line 183
-  __cil_tmp35 = *((struct hci_dev **)__cil_tmp34);
-#line 183
-  *((struct net_device **)__cil_tmp31) = (struct net_device *)__cil_tmp35;
+  skb->dev = (struct net_device *)__cil_tmp22;
 #line 184
-  __cil_tmp36 = (unsigned long )priv;
+  __cil_tmp23 = priv->adapter;
 #line 184
-  __cil_tmp37 = __cil_tmp36 + 32;
+  __cil_tmp24 = & __cil_tmp23->tx_queue;
 #line 184
-  __cil_tmp38 = *((struct btmrvl_adapter **)__cil_tmp37);
-#line 184
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 184
-  __cil_tmp40 = __cil_tmp39 + 8;
-#line 184
-  __cil_tmp41 = (struct sk_buff_head *)__cil_tmp40;
-#line 184
-  skb_queue_head(__cil_tmp41, skb);
+  skb_queue_head(__cil_tmp24, skb);
 #line 186
-  __cil_tmp42 = 0 + 25;
-#line 186
-  __cil_tmp43 = (unsigned long )priv;
-#line 186
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
-#line 186
-  *((u8 *)__cil_tmp44) = (unsigned char)1;
+  priv->btmrvl_dev.sendcmdflag = (u8 )1U;
 #line 188
-  __cil_tmp45 = (unsigned long )priv;
+  __cil_tmp25 = priv->adapter;
 #line 188
-  __cil_tmp46 = __cil_tmp45 + 32;
-#line 188
-  __cil_tmp47 = *((struct btmrvl_adapter **)__cil_tmp46);
-#line 188
-  __cil_tmp48 = (unsigned long )__cil_tmp47;
-#line 188
-  __cil_tmp49 = __cil_tmp48 + 200;
-#line 188
-  *((u8 *)__cil_tmp49) = (unsigned char)0;
+  __cil_tmp25->cmd_complete = (u8 )0U;
 #line 190
-  __cil_tmp50 = & descriptor;
+  descriptor.modname = "btmrvl";
 #line 190
-  *((char const   **)__cil_tmp50) = "btmrvl";
+  descriptor.function = "btmrvl_send_module_cfg_cmd";
 #line 190
-  __cil_tmp51 = (unsigned long )(& descriptor) + 8;
+  descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 190
-  *((char const   **)__cil_tmp51) = "btmrvl_send_module_cfg_cmd";
+  descriptor.format = "%s: Queue module cfg Command\n";
 #line 190
-  __cil_tmp52 = (unsigned long )(& descriptor) + 16;
+  descriptor.lineno = 190U;
 #line 190
-  *((char const   **)__cil_tmp52) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+  descriptor.flags = (unsigned char)0;
 #line 190
-  __cil_tmp53 = (unsigned long )(& descriptor) + 24;
+  descriptor.enabled = (char)0;
 #line 190
-  *((char const   **)__cil_tmp53) = "%s: Queue module cfg Command\n";
+  __cil_tmp26 = (signed char )descriptor.enabled;
 #line 190
-  __cil_tmp54 = (unsigned long )(& descriptor) + 32;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 190
-  *((unsigned int *)__cil_tmp54) = 190U;
+  __cil_tmp28 = __cil_tmp27 != 0;
 #line 190
-  __cil_tmp55 = (unsigned long )(& descriptor) + 35;
+  __cil_tmp29 = (long )__cil_tmp28;
 #line 190
-  *((unsigned char *)__cil_tmp55) = (unsigned char)0;
-#line 190
-  __cil_tmp56 = (unsigned long )(& descriptor) + 36;
-#line 190
-  *((char *)__cil_tmp56) = (char)0;
-#line 190
-  __cil_tmp57 = (unsigned long )(& descriptor) + 36;
-#line 190
-  __cil_tmp58 = *((char *)__cil_tmp57);
-#line 190
-  __cil_tmp59 = (signed char )__cil_tmp58;
-#line 190
-  __cil_tmp60 = (int )__cil_tmp59;
-#line 190
-  __cil_tmp61 = __cil_tmp60 != 0;
-#line 190
-  __cil_tmp62 = (long )__cil_tmp61;
-#line 190
-  tmp___0 = __builtin_expect(__cil_tmp62, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp29, 0L);
   }
 #line 190
   if (tmp___0 != 0L) {
@@ -8622,107 +7600,62 @@ int btmrvl_send_module_cfg_cmd(struct btmrvl_private *priv , int subcmd )
   }
   {
 #line 192
-  __cil_tmp63 = 40 + 8;
+  __cil_tmp30 = & priv->main_thread.wait_q;
 #line 192
-  __cil_tmp64 = (unsigned long )priv;
+  __cil_tmp31 = (void *)0;
 #line 192
-  __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 192
-  __cil_tmp66 = (wait_queue_head_t *)__cil_tmp65;
-#line 192
-  __cil_tmp67 = (void *)0;
-#line 192
-  __wake_up(__cil_tmp66, 1U, 1, __cil_tmp67);
+  __wake_up(__cil_tmp30, 1U, 1, __cil_tmp31);
 #line 194
-  __cil_tmp68 = (unsigned int const   )5000U;
+  __cil_tmp32 = (unsigned int const   )5000U;
 #line 194
-  __cil_tmp69 = (unsigned int )__cil_tmp68;
+  __cil_tmp33 = (unsigned int )__cil_tmp32;
 #line 194
-  tmp___1 = msecs_to_jiffies(__cil_tmp69);
+  tmp___1 = msecs_to_jiffies(__cil_tmp33);
 #line 194
   __ret = (long )tmp___1;
   }
   {
 #line 194
-  __cil_tmp70 = (unsigned long )priv;
+  __cil_tmp34 = priv->adapter;
 #line 194
-  __cil_tmp71 = __cil_tmp70 + 32;
+  __cil_tmp35 = __cil_tmp34->cmd_complete;
 #line 194
-  __cil_tmp72 = *((struct btmrvl_adapter **)__cil_tmp71);
+  __cil_tmp36 = (unsigned int )__cil_tmp35;
 #line 194
-  __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 194
-  __cil_tmp74 = __cil_tmp73 + 200;
-#line 194
-  __cil_tmp75 = *((u8 *)__cil_tmp74);
-#line 194
-  __cil_tmp76 = (unsigned int )__cil_tmp75;
-#line 194
-  if (__cil_tmp76 == 0U) {
+  if (__cil_tmp36 == 0U) {
     {
 #line 194
     tmp___2 = get_current();
 #line 194
-    __cil_tmp77 = & __wait;
+    __wait.flags = 0U;
 #line 194
-    *((unsigned int *)__cil_tmp77) = 0U;
+    __wait.private = (void *)tmp___2;
 #line 194
-    __cil_tmp78 = (unsigned long )(& __wait) + 8;
+    __wait.func = & autoremove_wake_function;
 #line 194
-    *((void **)__cil_tmp78) = (void *)tmp___2;
+    __wait.task_list.next = & __wait.task_list;
 #line 194
-    __cil_tmp79 = (unsigned long )(& __wait) + 16;
-#line 194
-    *((int (**)(wait_queue_t * , unsigned int  , int  , void * ))__cil_tmp79) = & autoremove_wake_function;
-#line 194
-    __cil_tmp80 = (unsigned long )(& __wait) + 24;
-#line 194
-    __cil_tmp81 = (unsigned long )(& __wait) + 24;
-#line 194
-    *((struct list_head **)__cil_tmp80) = (struct list_head *)__cil_tmp81;
-#line 194
-    __cil_tmp82 = 24 + 8;
-#line 194
-    __cil_tmp83 = (unsigned long )(& __wait) + __cil_tmp82;
-#line 194
-    __cil_tmp84 = (unsigned long )(& __wait) + 24;
-#line 194
-    *((struct list_head **)__cil_tmp83) = (struct list_head *)__cil_tmp84;
+    __wait.task_list.prev = & __wait.task_list;
     }
     ldv_39716: 
     {
 #line 194
-    __cil_tmp85 = (unsigned long )priv;
+    __cil_tmp37 = priv->adapter;
 #line 194
-    __cil_tmp86 = __cil_tmp85 + 32;
+    __cil_tmp38 = & __cil_tmp37->cmd_wait_q;
 #line 194
-    __cil_tmp87 = *((struct btmrvl_adapter **)__cil_tmp86);
-#line 194
-    __cil_tmp88 = (unsigned long )__cil_tmp87;
-#line 194
-    __cil_tmp89 = __cil_tmp88 + 112;
-#line 194
-    __cil_tmp90 = (wait_queue_head_t *)__cil_tmp89;
-#line 194
-    prepare_to_wait(__cil_tmp90, & __wait, 1);
+    prepare_to_wait(__cil_tmp38, & __wait, 1);
     }
     {
 #line 194
-    __cil_tmp91 = (unsigned long )priv;
+    __cil_tmp39 = priv->adapter;
 #line 194
-    __cil_tmp92 = __cil_tmp91 + 32;
+    __cil_tmp40 = __cil_tmp39->cmd_complete;
 #line 194
-    __cil_tmp93 = *((struct btmrvl_adapter **)__cil_tmp92);
+    __cil_tmp41 = (unsigned int )__cil_tmp40;
 #line 194
-    __cil_tmp94 = (unsigned long )__cil_tmp93;
+    if (__cil_tmp41 != 0U) {
 #line 194
-    __cil_tmp95 = __cil_tmp94 + 200;
-#line 194
-    __cil_tmp96 = *((u8 *)__cil_tmp95);
-#line 194
-    __cil_tmp97 = (unsigned int )__cil_tmp96;
-#line 194
-    if (__cil_tmp97 != 0U) {
       goto ldv_39714;
     } else {
 
@@ -8742,35 +7675,31 @@ int btmrvl_send_module_cfg_cmd(struct btmrvl_private *priv , int subcmd )
       }
 #line 194
       if (__ret == 0L) {
+#line 194
         goto ldv_39714;
       } else {
 
       }
+#line 194
       goto ldv_39715;
     } else {
 
     }
 #line 194
     __ret = -512L;
+#line 194
     goto ldv_39714;
     ldv_39715: ;
+#line 194
     goto ldv_39716;
     ldv_39714: 
     {
 #line 194
-    __cil_tmp98 = (unsigned long )priv;
+    __cil_tmp42 = priv->adapter;
 #line 194
-    __cil_tmp99 = __cil_tmp98 + 32;
+    __cil_tmp43 = & __cil_tmp42->cmd_wait_q;
 #line 194
-    __cil_tmp100 = *((struct btmrvl_adapter **)__cil_tmp99);
-#line 194
-    __cil_tmp101 = (unsigned long )__cil_tmp100;
-#line 194
-    __cil_tmp102 = __cil_tmp101 + 112;
-#line 194
-    __cil_tmp103 = (wait_queue_head_t *)__cil_tmp102;
-#line 194
-    finish_wait(__cil_tmp103, & __wait);
+    finish_wait(__cil_tmp43, & __wait);
     }
   } else {
 
@@ -8782,65 +7711,41 @@ int btmrvl_send_module_cfg_cmd(struct btmrvl_private *priv , int subcmd )
 #line 197
     ret = -110;
 #line 198
-    __cil_tmp104 = 0 + 25;
+    __cil_tmp44 = priv->btmrvl_dev.sendcmdflag;
 #line 198
-    __cil_tmp105 = (unsigned long )priv;
-#line 198
-    __cil_tmp106 = __cil_tmp105 + __cil_tmp104;
-#line 198
-    __cil_tmp107 = *((u8 *)__cil_tmp106);
-#line 198
-    __cil_tmp108 = (int )__cil_tmp107;
+    __cil_tmp45 = (int )__cil_tmp44;
 #line 198
     printk("<3>%s: module_cfg_cmd(%x): timeout: %d\n", "btmrvl_send_module_cfg_cmd",
-           subcmd, __cil_tmp108);
+           subcmd, __cil_tmp45);
     }
   } else {
 
   }
   {
 #line 202
-  __cil_tmp109 = & descriptor___0;
+  descriptor___0.modname = "btmrvl";
 #line 202
-  *((char const   **)__cil_tmp109) = "btmrvl";
+  descriptor___0.function = "btmrvl_send_module_cfg_cmd";
 #line 202
-  __cil_tmp110 = (unsigned long )(& descriptor___0) + 8;
+  descriptor___0.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 202
-  *((char const   **)__cil_tmp110) = "btmrvl_send_module_cfg_cmd";
+  descriptor___0.format = "%s: module cfg Command done\n";
 #line 202
-  __cil_tmp111 = (unsigned long )(& descriptor___0) + 16;
+  descriptor___0.lineno = 202U;
 #line 202
-  *((char const   **)__cil_tmp111) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+  descriptor___0.flags = (unsigned char)0;
 #line 202
-  __cil_tmp112 = (unsigned long )(& descriptor___0) + 24;
+  descriptor___0.enabled = (char)0;
 #line 202
-  *((char const   **)__cil_tmp112) = "%s: module cfg Command done\n";
+  __cil_tmp46 = (signed char )descriptor___0.enabled;
 #line 202
-  __cil_tmp113 = (unsigned long )(& descriptor___0) + 32;
+  __cil_tmp47 = (int )__cil_tmp46;
 #line 202
-  *((unsigned int *)__cil_tmp113) = 202U;
+  __cil_tmp48 = __cil_tmp47 != 0;
 #line 202
-  __cil_tmp114 = (unsigned long )(& descriptor___0) + 35;
+  __cil_tmp49 = (long )__cil_tmp48;
 #line 202
-  *((unsigned char *)__cil_tmp114) = (unsigned char)0;
-#line 202
-  __cil_tmp115 = (unsigned long )(& descriptor___0) + 36;
-#line 202
-  *((char *)__cil_tmp115) = (char)0;
-#line 202
-  __cil_tmp116 = (unsigned long )(& descriptor___0) + 36;
-#line 202
-  __cil_tmp117 = *((char *)__cil_tmp116);
-#line 202
-  __cil_tmp118 = (signed char )__cil_tmp117;
-#line 202
-  __cil_tmp119 = (int )__cil_tmp118;
-#line 202
-  __cil_tmp120 = __cil_tmp119 != 0;
-#line 202
-  __cil_tmp121 = (long )__cil_tmp120;
-#line 202
-  tmp___5 = __builtin_expect(__cil_tmp121, 0L);
+  tmp___5 = __builtin_expect(__cil_tmp49, 0L);
   }
 #line 202
   if (tmp___5 != 0L) {
@@ -8865,56 +7770,19 @@ int btmrvl_enable_ps(struct btmrvl_private *priv )
   struct sk_buff *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  u8 __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  char (*__cil_tmp27)[48U] ;
-  struct bt_skb_cb *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct hci_dev *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct btmrvl_adapter *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct sk_buff_head *__cil_tmp40 ;
-  struct _ddebug *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  char __cil_tmp49 ;
-  signed char __cil_tmp50 ;
-  int __cil_tmp51 ;
-  int __cil_tmp52 ;
-  long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  u8 __cil_tmp58 ;
-  int __cil_tmp59 ;
+  u8 __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  char (*__cil_tmp12)[48U] ;
+  struct bt_skb_cb *__cil_tmp13 ;
+  struct hci_dev *__cil_tmp14 ;
+  struct btmrvl_adapter *__cil_tmp15 ;
+  struct sk_buff_head *__cil_tmp16 ;
+  signed char __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  long __cil_tmp20 ;
+  u8 __cil_tmp21 ;
+  int __cil_tmp22 ;
 
   {
   {
@@ -8946,150 +7814,76 @@ int btmrvl_enable_ps(struct btmrvl_private *priv )
 #line 219
   cmd = (struct btmrvl_cmd *)tmp;
 #line 220
-  *((__le16 *)cmd) = (unsigned short)64547;
+  cmd->ocf_ogf = (__le16 )64547U;
 #line 222
-  __cil_tmp10 = (unsigned long )cmd;
-#line 222
-  __cil_tmp11 = __cil_tmp10 + 2;
-#line 222
-  *((u8 *)__cil_tmp11) = (unsigned char)1;
+  cmd->length = (u8 )1U;
   }
   {
 #line 224
-  __cil_tmp12 = 0 + 18;
+  __cil_tmp10 = priv->btmrvl_dev.psmode;
 #line 224
-  __cil_tmp13 = (unsigned long )priv;
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
 #line 224
-  __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 224
-  __cil_tmp15 = *((u8 *)__cil_tmp14);
-#line 224
-  __cil_tmp16 = (unsigned int )__cil_tmp15;
-#line 224
-  if (__cil_tmp16 != 0U) {
+  if (__cil_tmp11 != 0U) {
 #line 225
-    __cil_tmp17 = 0 * 1UL;
-#line 225
-    __cil_tmp18 = 3 + __cil_tmp17;
-#line 225
-    __cil_tmp19 = (unsigned long )cmd;
-#line 225
-    __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 225
-    *((u8 *)__cil_tmp20) = (unsigned char)2;
+    cmd->data[0] = (u8 )2U;
   } else {
 #line 227
-    __cil_tmp21 = 0 * 1UL;
-#line 227
-    __cil_tmp22 = 3 + __cil_tmp21;
-#line 227
-    __cil_tmp23 = (unsigned long )cmd;
-#line 227
-    __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 227
-    *((u8 *)__cil_tmp24) = (unsigned char)3;
+    cmd->data[0] = (u8 )3U;
   }
   }
   {
 #line 229
-  __cil_tmp25 = (unsigned long )skb;
+  __cil_tmp12 = & skb->cb;
 #line 229
-  __cil_tmp26 = __cil_tmp25 + 40;
+  __cil_tmp13 = (struct bt_skb_cb *)__cil_tmp12;
 #line 229
-  __cil_tmp27 = (char (*)[48U])__cil_tmp26;
-#line 229
-  __cil_tmp28 = (struct bt_skb_cb *)__cil_tmp27;
-#line 229
-  *((__u8 *)__cil_tmp28) = (unsigned char)254;
+  __cil_tmp13->pkt_type = (__u8 )254U;
 #line 231
-  __cil_tmp29 = (unsigned long )skb;
+  __cil_tmp14 = priv->btmrvl_dev.hcidev;
 #line 231
-  __cil_tmp30 = __cil_tmp29 + 32;
-#line 231
-  __cil_tmp31 = 0 + 8;
-#line 231
-  __cil_tmp32 = (unsigned long )priv;
-#line 231
-  __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 231
-  __cil_tmp34 = *((struct hci_dev **)__cil_tmp33);
-#line 231
-  *((struct net_device **)__cil_tmp30) = (struct net_device *)__cil_tmp34;
+  skb->dev = (struct net_device *)__cil_tmp14;
 #line 232
-  __cil_tmp35 = (unsigned long )priv;
+  __cil_tmp15 = priv->adapter;
 #line 232
-  __cil_tmp36 = __cil_tmp35 + 32;
+  __cil_tmp16 = & __cil_tmp15->tx_queue;
 #line 232
-  __cil_tmp37 = *((struct btmrvl_adapter **)__cil_tmp36);
-#line 232
-  __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 232
-  __cil_tmp39 = __cil_tmp38 + 8;
-#line 232
-  __cil_tmp40 = (struct sk_buff_head *)__cil_tmp39;
-#line 232
-  skb_queue_head(__cil_tmp40, skb);
+  skb_queue_head(__cil_tmp16, skb);
 #line 234
-  __cil_tmp41 = & descriptor;
+  descriptor.modname = "btmrvl";
 #line 234
-  *((char const   **)__cil_tmp41) = "btmrvl";
+  descriptor.function = "btmrvl_enable_ps";
 #line 234
-  __cil_tmp42 = (unsigned long )(& descriptor) + 8;
+  descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 234
-  *((char const   **)__cil_tmp42) = "btmrvl_enable_ps";
+  descriptor.format = "%s: Queue PSMODE Command:%d\n";
 #line 234
-  __cil_tmp43 = (unsigned long )(& descriptor) + 16;
+  descriptor.lineno = 234U;
 #line 234
-  *((char const   **)__cil_tmp43) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+  descriptor.flags = (unsigned char)0;
 #line 234
-  __cil_tmp44 = (unsigned long )(& descriptor) + 24;
+  descriptor.enabled = (char)0;
 #line 234
-  *((char const   **)__cil_tmp44) = "%s: Queue PSMODE Command:%d\n";
+  __cil_tmp17 = (signed char )descriptor.enabled;
 #line 234
-  __cil_tmp45 = (unsigned long )(& descriptor) + 32;
+  __cil_tmp18 = (int )__cil_tmp17;
 #line 234
-  *((unsigned int *)__cil_tmp45) = 234U;
+  __cil_tmp19 = __cil_tmp18 != 0;
 #line 234
-  __cil_tmp46 = (unsigned long )(& descriptor) + 35;
+  __cil_tmp20 = (long )__cil_tmp19;
 #line 234
-  *((unsigned char *)__cil_tmp46) = (unsigned char)0;
-#line 234
-  __cil_tmp47 = (unsigned long )(& descriptor) + 36;
-#line 234
-  *((char *)__cil_tmp47) = (char)0;
-#line 234
-  __cil_tmp48 = (unsigned long )(& descriptor) + 36;
-#line 234
-  __cil_tmp49 = *((char *)__cil_tmp48);
-#line 234
-  __cil_tmp50 = (signed char )__cil_tmp49;
-#line 234
-  __cil_tmp51 = (int )__cil_tmp50;
-#line 234
-  __cil_tmp52 = __cil_tmp51 != 0;
-#line 234
-  __cil_tmp53 = (long )__cil_tmp52;
-#line 234
-  tmp___0 = __builtin_expect(__cil_tmp53, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp20, 0L);
   }
 #line 234
   if (tmp___0 != 0L) {
     {
 #line 234
-    __cil_tmp54 = 0 * 1UL;
+    __cil_tmp21 = cmd->data[0];
 #line 234
-    __cil_tmp55 = 3 + __cil_tmp54;
-#line 234
-    __cil_tmp56 = (unsigned long )cmd;
-#line 234
-    __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
-#line 234
-    __cil_tmp58 = *((u8 *)__cil_tmp57);
-#line 234
-    __cil_tmp59 = (int )__cil_tmp58;
+    __cil_tmp22 = (int )__cil_tmp21;
 #line 234
     __dynamic_pr_debug(& descriptor, "%s: Queue PSMODE Command:%d\n", "btmrvl_enable_ps",
-                       __cil_tmp59);
+                       __cil_tmp22);
     }
   } else {
 
@@ -9115,99 +7909,38 @@ static int btmrvl_enable_hs(struct btmrvl_private *priv )
   struct sk_buff *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  char (*__cil_tmp21)[48U] ;
-  struct bt_skb_cb *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct hci_dev *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct btmrvl_adapter *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct sk_buff_head *__cil_tmp34 ;
-  struct _ddebug *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  char __cil_tmp43 ;
-  signed char __cil_tmp44 ;
+  char (*__cil_tmp17)[48U] ;
+  struct bt_skb_cb *__cil_tmp18 ;
+  struct hci_dev *__cil_tmp19 ;
+  struct btmrvl_adapter *__cil_tmp20 ;
+  struct sk_buff_head *__cil_tmp21 ;
+  signed char __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  long __cil_tmp25 ;
+  wait_queue_head_t *__cil_tmp26 ;
+  void *__cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  struct btmrvl_adapter *__cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  struct btmrvl_adapter *__cil_tmp33 ;
+  wait_queue_head_t *__cil_tmp34 ;
+  struct btmrvl_adapter *__cil_tmp35 ;
+  u8 __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  struct btmrvl_adapter *__cil_tmp38 ;
+  wait_queue_head_t *__cil_tmp39 ;
+  struct btmrvl_adapter *__cil_tmp40 ;
+  u8 __cil_tmp41 ;
+  int __cil_tmp42 ;
+  struct btmrvl_adapter *__cil_tmp43 ;
+  u8 __cil_tmp44 ;
   int __cil_tmp45 ;
-  int __cil_tmp46 ;
-  long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  wait_queue_head_t *__cil_tmp51 ;
-  void *__cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct btmrvl_adapter *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  u8 __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  wait_queue_t *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  struct btmrvl_adapter *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  wait_queue_head_t *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  struct btmrvl_adapter *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  u8 __cil_tmp81 ;
-  unsigned int __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  struct btmrvl_adapter *__cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  wait_queue_head_t *__cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct btmrvl_adapter *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  u8 __cil_tmp94 ;
-  int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  struct btmrvl_adapter *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  u8 __cil_tmp101 ;
-  int __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  struct btmrvl_adapter *__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  u8 __cil_tmp108 ;
-  int __cil_tmp109 ;
+  struct btmrvl_adapter *__cil_tmp46 ;
+  u8 __cil_tmp47 ;
+  int __cil_tmp48 ;
 
   {
   {
@@ -9241,93 +7974,49 @@ static int btmrvl_enable_hs(struct btmrvl_private *priv )
 #line 252
   cmd = (struct btmrvl_cmd *)tmp;
 #line 253
-  *((__le16 *)cmd) = (unsigned short)64602;
+  cmd->ocf_ogf = (__le16 )64602U;
 #line 254
-  __cil_tmp17 = (unsigned long )cmd;
-#line 254
-  __cil_tmp18 = __cil_tmp17 + 2;
-#line 254
-  *((u8 *)__cil_tmp18) = (unsigned char)0;
+  cmd->length = (u8 )0U;
 #line 256
-  __cil_tmp19 = (unsigned long )skb;
+  __cil_tmp17 = & skb->cb;
 #line 256
-  __cil_tmp20 = __cil_tmp19 + 40;
+  __cil_tmp18 = (struct bt_skb_cb *)__cil_tmp17;
 #line 256
-  __cil_tmp21 = (char (*)[48U])__cil_tmp20;
-#line 256
-  __cil_tmp22 = (struct bt_skb_cb *)__cil_tmp21;
-#line 256
-  *((__u8 *)__cil_tmp22) = (unsigned char)254;
+  __cil_tmp18->pkt_type = (__u8 )254U;
 #line 258
-  __cil_tmp23 = (unsigned long )skb;
+  __cil_tmp19 = priv->btmrvl_dev.hcidev;
 #line 258
-  __cil_tmp24 = __cil_tmp23 + 32;
-#line 258
-  __cil_tmp25 = 0 + 8;
-#line 258
-  __cil_tmp26 = (unsigned long )priv;
-#line 258
-  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 258
-  __cil_tmp28 = *((struct hci_dev **)__cil_tmp27);
-#line 258
-  *((struct net_device **)__cil_tmp24) = (struct net_device *)__cil_tmp28;
+  skb->dev = (struct net_device *)__cil_tmp19;
 #line 259
-  __cil_tmp29 = (unsigned long )priv;
+  __cil_tmp20 = priv->adapter;
 #line 259
-  __cil_tmp30 = __cil_tmp29 + 32;
+  __cil_tmp21 = & __cil_tmp20->tx_queue;
 #line 259
-  __cil_tmp31 = *((struct btmrvl_adapter **)__cil_tmp30);
-#line 259
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 259
-  __cil_tmp33 = __cil_tmp32 + 8;
-#line 259
-  __cil_tmp34 = (struct sk_buff_head *)__cil_tmp33;
-#line 259
-  skb_queue_head(__cil_tmp34, skb);
+  skb_queue_head(__cil_tmp21, skb);
 #line 261
-  __cil_tmp35 = & descriptor;
+  descriptor.modname = "btmrvl";
 #line 261
-  *((char const   **)__cil_tmp35) = "btmrvl";
+  descriptor.function = "btmrvl_enable_hs";
 #line 261
-  __cil_tmp36 = (unsigned long )(& descriptor) + 8;
+  descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 261
-  *((char const   **)__cil_tmp36) = "btmrvl_enable_hs";
+  descriptor.format = "%s: Queue hs enable Command\n";
 #line 261
-  __cil_tmp37 = (unsigned long )(& descriptor) + 16;
+  descriptor.lineno = 261U;
 #line 261
-  *((char const   **)__cil_tmp37) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+  descriptor.flags = (unsigned char)0;
 #line 261
-  __cil_tmp38 = (unsigned long )(& descriptor) + 24;
+  descriptor.enabled = (char)0;
 #line 261
-  *((char const   **)__cil_tmp38) = "%s: Queue hs enable Command\n";
+  __cil_tmp22 = (signed char )descriptor.enabled;
 #line 261
-  __cil_tmp39 = (unsigned long )(& descriptor) + 32;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 261
-  *((unsigned int *)__cil_tmp39) = 261U;
+  __cil_tmp24 = __cil_tmp23 != 0;
 #line 261
-  __cil_tmp40 = (unsigned long )(& descriptor) + 35;
+  __cil_tmp25 = (long )__cil_tmp24;
 #line 261
-  *((unsigned char *)__cil_tmp40) = (unsigned char)0;
-#line 261
-  __cil_tmp41 = (unsigned long )(& descriptor) + 36;
-#line 261
-  *((char *)__cil_tmp41) = (char)0;
-#line 261
-  __cil_tmp42 = (unsigned long )(& descriptor) + 36;
-#line 261
-  __cil_tmp43 = *((char *)__cil_tmp42);
-#line 261
-  __cil_tmp44 = (signed char )__cil_tmp43;
-#line 261
-  __cil_tmp45 = (int )__cil_tmp44;
-#line 261
-  __cil_tmp46 = __cil_tmp45 != 0;
-#line 261
-  __cil_tmp47 = (long )__cil_tmp46;
-#line 261
-  tmp___0 = __builtin_expect(__cil_tmp47, 0L);
+  tmp___0 = __builtin_expect(__cil_tmp25, 0L);
   }
 #line 261
   if (tmp___0 != 0L) {
@@ -9340,107 +8029,62 @@ static int btmrvl_enable_hs(struct btmrvl_private *priv )
   }
   {
 #line 263
-  __cil_tmp48 = 40 + 8;
+  __cil_tmp26 = & priv->main_thread.wait_q;
 #line 263
-  __cil_tmp49 = (unsigned long )priv;
+  __cil_tmp27 = (void *)0;
 #line 263
-  __cil_tmp50 = __cil_tmp49 + __cil_tmp48;
-#line 263
-  __cil_tmp51 = (wait_queue_head_t *)__cil_tmp50;
-#line 263
-  __cil_tmp52 = (void *)0;
-#line 263
-  __wake_up(__cil_tmp51, 1U, 1, __cil_tmp52);
+  __wake_up(__cil_tmp26, 1U, 1, __cil_tmp27);
 #line 265
-  __cil_tmp53 = (unsigned int const   )5000U;
+  __cil_tmp28 = (unsigned int const   )5000U;
 #line 265
-  __cil_tmp54 = (unsigned int )__cil_tmp53;
+  __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 265
-  tmp___1 = msecs_to_jiffies(__cil_tmp54);
+  tmp___1 = msecs_to_jiffies(__cil_tmp29);
 #line 265
   __ret = (long )tmp___1;
   }
   {
 #line 265
-  __cil_tmp55 = (unsigned long )priv;
+  __cil_tmp30 = priv->adapter;
 #line 265
-  __cil_tmp56 = __cil_tmp55 + 32;
+  __cil_tmp31 = __cil_tmp30->hs_state;
 #line 265
-  __cil_tmp57 = *((struct btmrvl_adapter **)__cil_tmp56);
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 265
-  __cil_tmp58 = (unsigned long )__cil_tmp57;
-#line 265
-  __cil_tmp59 = __cil_tmp58 + 106;
-#line 265
-  __cil_tmp60 = *((u8 *)__cil_tmp59);
-#line 265
-  __cil_tmp61 = (unsigned int )__cil_tmp60;
-#line 265
-  if (__cil_tmp61 == 0U) {
+  if (__cil_tmp32 == 0U) {
     {
 #line 265
     tmp___2 = get_current();
 #line 265
-    __cil_tmp62 = & __wait;
+    __wait.flags = 0U;
 #line 265
-    *((unsigned int *)__cil_tmp62) = 0U;
+    __wait.private = (void *)tmp___2;
 #line 265
-    __cil_tmp63 = (unsigned long )(& __wait) + 8;
+    __wait.func = & autoremove_wake_function;
 #line 265
-    *((void **)__cil_tmp63) = (void *)tmp___2;
+    __wait.task_list.next = & __wait.task_list;
 #line 265
-    __cil_tmp64 = (unsigned long )(& __wait) + 16;
-#line 265
-    *((int (**)(wait_queue_t * , unsigned int  , int  , void * ))__cil_tmp64) = & autoremove_wake_function;
-#line 265
-    __cil_tmp65 = (unsigned long )(& __wait) + 24;
-#line 265
-    __cil_tmp66 = (unsigned long )(& __wait) + 24;
-#line 265
-    *((struct list_head **)__cil_tmp65) = (struct list_head *)__cil_tmp66;
-#line 265
-    __cil_tmp67 = 24 + 8;
-#line 265
-    __cil_tmp68 = (unsigned long )(& __wait) + __cil_tmp67;
-#line 265
-    __cil_tmp69 = (unsigned long )(& __wait) + 24;
-#line 265
-    *((struct list_head **)__cil_tmp68) = (struct list_head *)__cil_tmp69;
+    __wait.task_list.prev = & __wait.task_list;
     }
     ldv_39751: 
     {
 #line 265
-    __cil_tmp70 = (unsigned long )priv;
+    __cil_tmp33 = priv->adapter;
 #line 265
-    __cil_tmp71 = __cil_tmp70 + 32;
+    __cil_tmp34 = & __cil_tmp33->cmd_wait_q;
 #line 265
-    __cil_tmp72 = *((struct btmrvl_adapter **)__cil_tmp71);
-#line 265
-    __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 265
-    __cil_tmp74 = __cil_tmp73 + 112;
-#line 265
-    __cil_tmp75 = (wait_queue_head_t *)__cil_tmp74;
-#line 265
-    prepare_to_wait(__cil_tmp75, & __wait, 1);
+    prepare_to_wait(__cil_tmp34, & __wait, 1);
     }
     {
 #line 265
-    __cil_tmp76 = (unsigned long )priv;
+    __cil_tmp35 = priv->adapter;
 #line 265
-    __cil_tmp77 = __cil_tmp76 + 32;
+    __cil_tmp36 = __cil_tmp35->hs_state;
 #line 265
-    __cil_tmp78 = *((struct btmrvl_adapter **)__cil_tmp77);
+    __cil_tmp37 = (unsigned int )__cil_tmp36;
 #line 265
-    __cil_tmp79 = (unsigned long )__cil_tmp78;
+    if (__cil_tmp37 != 0U) {
 #line 265
-    __cil_tmp80 = __cil_tmp79 + 106;
-#line 265
-    __cil_tmp81 = *((u8 *)__cil_tmp80);
-#line 265
-    __cil_tmp82 = (unsigned int )__cil_tmp81;
-#line 265
-    if (__cil_tmp82 != 0U) {
       goto ldv_39749;
     } else {
 
@@ -9460,35 +8104,31 @@ static int btmrvl_enable_hs(struct btmrvl_private *priv )
       }
 #line 265
       if (__ret == 0L) {
+#line 265
         goto ldv_39749;
       } else {
 
       }
+#line 265
       goto ldv_39750;
     } else {
 
     }
 #line 265
     __ret = -512L;
+#line 265
     goto ldv_39749;
     ldv_39750: ;
+#line 265
     goto ldv_39751;
     ldv_39749: 
     {
 #line 265
-    __cil_tmp83 = (unsigned long )priv;
+    __cil_tmp38 = priv->adapter;
 #line 265
-    __cil_tmp84 = __cil_tmp83 + 32;
+    __cil_tmp39 = & __cil_tmp38->cmd_wait_q;
 #line 265
-    __cil_tmp85 = *((struct btmrvl_adapter **)__cil_tmp84);
-#line 265
-    __cil_tmp86 = (unsigned long )__cil_tmp85;
-#line 265
-    __cil_tmp87 = __cil_tmp86 + 112;
-#line 265
-    __cil_tmp88 = (wait_queue_head_t *)__cil_tmp87;
-#line 265
-    finish_wait(__cil_tmp88, & __wait);
+    finish_wait(__cil_tmp39, & __wait);
     }
   } else {
 
@@ -9500,50 +8140,26 @@ static int btmrvl_enable_hs(struct btmrvl_private *priv )
 #line 268
     ret = -110;
 #line 269
-    __cil_tmp89 = (unsigned long )priv;
+    __cil_tmp40 = priv->adapter;
 #line 269
-    __cil_tmp90 = __cil_tmp89 + 32;
+    __cil_tmp41 = __cil_tmp40->hs_state;
 #line 269
-    __cil_tmp91 = *((struct btmrvl_adapter **)__cil_tmp90);
+    __cil_tmp42 = (int )__cil_tmp41;
 #line 269
-    __cil_tmp92 = (unsigned long )__cil_tmp91;
+    __cil_tmp43 = priv->adapter;
 #line 269
-    __cil_tmp93 = __cil_tmp92 + 106;
+    __cil_tmp44 = __cil_tmp43->ps_state;
 #line 269
-    __cil_tmp94 = *((u8 *)__cil_tmp93);
+    __cil_tmp45 = (int )__cil_tmp44;
 #line 269
-    __cil_tmp95 = (int )__cil_tmp94;
+    __cil_tmp46 = priv->adapter;
 #line 269
-    __cil_tmp96 = (unsigned long )priv;
+    __cil_tmp47 = __cil_tmp46->wakeup_tries;
 #line 269
-    __cil_tmp97 = __cil_tmp96 + 32;
+    __cil_tmp48 = (int )__cil_tmp47;
 #line 269
-    __cil_tmp98 = *((struct btmrvl_adapter **)__cil_tmp97);
-#line 269
-    __cil_tmp99 = (unsigned long )__cil_tmp98;
-#line 269
-    __cil_tmp100 = __cil_tmp99 + 105;
-#line 269
-    __cil_tmp101 = *((u8 *)__cil_tmp100);
-#line 269
-    __cil_tmp102 = (int )__cil_tmp101;
-#line 269
-    __cil_tmp103 = (unsigned long )priv;
-#line 269
-    __cil_tmp104 = __cil_tmp103 + 32;
-#line 269
-    __cil_tmp105 = *((struct btmrvl_adapter **)__cil_tmp104);
-#line 269
-    __cil_tmp106 = (unsigned long )__cil_tmp105;
-#line 269
-    __cil_tmp107 = __cil_tmp106 + 107;
-#line 269
-    __cil_tmp108 = *((u8 *)__cil_tmp107);
-#line 269
-    __cil_tmp109 = (int )__cil_tmp108;
-#line 269
-    printk("<3>%s: timeout: %d, %d,%d\n", "btmrvl_enable_hs", __cil_tmp95, __cil_tmp102,
-           __cil_tmp109);
+    printk("<3>%s: timeout: %d, %d,%d\n", "btmrvl_enable_hs", __cil_tmp42, __cil_tmp45,
+           __cil_tmp48);
     }
   } else {
 
@@ -9560,107 +8176,36 @@ int btmrvl_prepare_command(struct btmrvl_private *priv )
   unsigned char *tmp ;
   struct _ddebug descriptor ;
   long tmp___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  u8 __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct sk_buff *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  u16 __cil_tmp28 ;
+  u8 __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  struct sk_buff *__cil_tmp10 ;
+  unsigned long __cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
+  u16 __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  u16 __cil_tmp16 ;
+  char (*__cil_tmp17)[48U] ;
+  struct bt_skb_cb *__cil_tmp18 ;
+  struct hci_dev *__cil_tmp19 ;
+  struct btmrvl_adapter *__cil_tmp20 ;
+  struct sk_buff_head *__cil_tmp21 ;
+  signed char __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  long __cil_tmp25 ;
+  u8 __cil_tmp26 ;
+  int __cil_tmp27 ;
+  u8 __cil_tmp28 ;
   int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  u16 __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  char (*__cil_tmp41)[48U] ;
-  struct bt_skb_cb *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct hci_dev *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct btmrvl_adapter *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct sk_buff_head *__cil_tmp54 ;
-  struct _ddebug *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  char __cil_tmp63 ;
-  signed char __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  u8 __cil_tmp72 ;
-  int __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  u8 __cil_tmp78 ;
-  int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  u8 __cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  u8 __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  u8 __cil_tmp99 ;
-  unsigned int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  int (*__cil_tmp103)(struct btmrvl_private * ) ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  struct btmrvl_adapter *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
+  u8 __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  u8 __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  int (*__cil_tmp36)(struct btmrvl_private * ) ;
+  struct btmrvl_adapter *__cil_tmp37 ;
 
   {
 #line 279
@@ -9669,38 +8214,26 @@ int btmrvl_prepare_command(struct btmrvl_private *priv )
   ret = 0;
   {
 #line 283
-  __cil_tmp8 = 0 + 24;
+  __cil_tmp8 = priv->btmrvl_dev.hscfgcmd;
 #line 283
-  __cil_tmp9 = (unsigned long )priv;
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 283
-  __cil_tmp10 = __cil_tmp9 + __cil_tmp8;
-#line 283
-  __cil_tmp11 = *((u8 *)__cil_tmp10);
-#line 283
-  __cil_tmp12 = (unsigned int )__cil_tmp11;
-#line 283
-  if (__cil_tmp12 != 0U) {
+  if (__cil_tmp9 != 0U) {
     {
 #line 284
-    __cil_tmp13 = 0 + 24;
-#line 284
-    __cil_tmp14 = (unsigned long )priv;
-#line 284
-    __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 284
-    *((u8 *)__cil_tmp15) = (unsigned char)0;
+    priv->btmrvl_dev.hscfgcmd = (u8 )0U;
 #line 286
     skb = bt_skb_alloc(7U, 32U);
     }
     {
 #line 287
-    __cil_tmp16 = (struct sk_buff *)0;
+    __cil_tmp10 = (struct sk_buff *)0;
 #line 287
-    __cil_tmp17 = (unsigned long )__cil_tmp16;
+    __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 287
-    __cil_tmp18 = (unsigned long )skb;
+    __cil_tmp12 = (unsigned long )skb;
 #line 287
-    if (__cil_tmp18 == __cil_tmp17) {
+    if (__cil_tmp12 == __cil_tmp11) {
       {
 #line 288
       printk("<3>%s: No free skb\n", "btmrvl_prepare_command");
@@ -9717,164 +8250,76 @@ int btmrvl_prepare_command(struct btmrvl_private *priv )
 #line 292
     cmd = (struct btmrvl_cmd *)tmp;
 #line 293
-    *((__le16 *)cmd) = (unsigned short)64601;
+    cmd->ocf_ogf = (__le16 )64601U;
 #line 294
-    __cil_tmp19 = (unsigned long )cmd;
-#line 294
-    __cil_tmp20 = __cil_tmp19 + 2;
-#line 294
-    *((u8 *)__cil_tmp20) = (unsigned char)2;
+    cmd->length = (u8 )2U;
 #line 295
-    __cil_tmp21 = 0 * 1UL;
+    __cil_tmp13 = priv->btmrvl_dev.gpio_gap;
 #line 295
-    __cil_tmp22 = 3 + __cil_tmp21;
+    __cil_tmp14 = (int )__cil_tmp13;
 #line 295
-    __cil_tmp23 = (unsigned long )cmd;
+    __cil_tmp15 = __cil_tmp14 >> 8;
 #line 295
-    __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 295
-    __cil_tmp25 = 0 + 22;
-#line 295
-    __cil_tmp26 = (unsigned long )priv;
-#line 295
-    __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 295
-    __cil_tmp28 = *((u16 *)__cil_tmp27);
-#line 295
-    __cil_tmp29 = (int )__cil_tmp28;
-#line 295
-    __cil_tmp30 = __cil_tmp29 >> 8;
-#line 295
-    *((u8 *)__cil_tmp24) = (unsigned char )__cil_tmp30;
+    cmd->data[0] = (u8 )__cil_tmp15;
 #line 296
-    __cil_tmp31 = 1 * 1UL;
+    __cil_tmp16 = priv->btmrvl_dev.gpio_gap;
 #line 296
-    __cil_tmp32 = 3 + __cil_tmp31;
-#line 296
-    __cil_tmp33 = (unsigned long )cmd;
-#line 296
-    __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
-#line 296
-    __cil_tmp35 = 0 + 22;
-#line 296
-    __cil_tmp36 = (unsigned long )priv;
-#line 296
-    __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 296
-    __cil_tmp38 = *((u16 *)__cil_tmp37);
-#line 296
-    *((u8 *)__cil_tmp34) = (unsigned char )__cil_tmp38;
+    cmd->data[1] = (unsigned char )__cil_tmp16;
 #line 298
-    __cil_tmp39 = (unsigned long )skb;
+    __cil_tmp17 = & skb->cb;
 #line 298
-    __cil_tmp40 = __cil_tmp39 + 40;
+    __cil_tmp18 = (struct bt_skb_cb *)__cil_tmp17;
 #line 298
-    __cil_tmp41 = (char (*)[48U])__cil_tmp40;
-#line 298
-    __cil_tmp42 = (struct bt_skb_cb *)__cil_tmp41;
-#line 298
-    *((__u8 *)__cil_tmp42) = (unsigned char)254;
+    __cil_tmp18->pkt_type = (__u8 )254U;
 #line 300
-    __cil_tmp43 = (unsigned long )skb;
+    __cil_tmp19 = priv->btmrvl_dev.hcidev;
 #line 300
-    __cil_tmp44 = __cil_tmp43 + 32;
-#line 300
-    __cil_tmp45 = 0 + 8;
-#line 300
-    __cil_tmp46 = (unsigned long )priv;
-#line 300
-    __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
-#line 300
-    __cil_tmp48 = *((struct hci_dev **)__cil_tmp47);
-#line 300
-    *((struct net_device **)__cil_tmp44) = (struct net_device *)__cil_tmp48;
+    skb->dev = (struct net_device *)__cil_tmp19;
 #line 301
-    __cil_tmp49 = (unsigned long )priv;
+    __cil_tmp20 = priv->adapter;
 #line 301
-    __cil_tmp50 = __cil_tmp49 + 32;
+    __cil_tmp21 = & __cil_tmp20->tx_queue;
 #line 301
-    __cil_tmp51 = *((struct btmrvl_adapter **)__cil_tmp50);
-#line 301
-    __cil_tmp52 = (unsigned long )__cil_tmp51;
-#line 301
-    __cil_tmp53 = __cil_tmp52 + 8;
-#line 301
-    __cil_tmp54 = (struct sk_buff_head *)__cil_tmp53;
-#line 301
-    skb_queue_head(__cil_tmp54, skb);
+    skb_queue_head(__cil_tmp21, skb);
 #line 303
-    __cil_tmp55 = & descriptor;
+    descriptor.modname = "btmrvl";
 #line 303
-    *((char const   **)__cil_tmp55) = "btmrvl";
+    descriptor.function = "btmrvl_prepare_command";
 #line 303
-    __cil_tmp56 = (unsigned long )(& descriptor) + 8;
+    descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 303
-    *((char const   **)__cil_tmp56) = "btmrvl_prepare_command";
+    descriptor.format = "%s: Queue HSCFG Command, gpio=0x%x, gap=0x%x\n";
 #line 303
-    __cil_tmp57 = (unsigned long )(& descriptor) + 16;
+    descriptor.lineno = 304U;
 #line 303
-    *((char const   **)__cil_tmp57) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+    descriptor.flags = (unsigned char)0;
 #line 303
-    __cil_tmp58 = (unsigned long )(& descriptor) + 24;
+    descriptor.enabled = (char)0;
 #line 303
-    *((char const   **)__cil_tmp58) = "%s: Queue HSCFG Command, gpio=0x%x, gap=0x%x\n";
+    __cil_tmp22 = (signed char )descriptor.enabled;
 #line 303
-    __cil_tmp59 = (unsigned long )(& descriptor) + 32;
+    __cil_tmp23 = (int )__cil_tmp22;
 #line 303
-    *((unsigned int *)__cil_tmp59) = 304U;
+    __cil_tmp24 = __cil_tmp23 != 0;
 #line 303
-    __cil_tmp60 = (unsigned long )(& descriptor) + 35;
+    __cil_tmp25 = (long )__cil_tmp24;
 #line 303
-    *((unsigned char *)__cil_tmp60) = (unsigned char)0;
-#line 303
-    __cil_tmp61 = (unsigned long )(& descriptor) + 36;
-#line 303
-    *((char *)__cil_tmp61) = (char)0;
-#line 303
-    __cil_tmp62 = (unsigned long )(& descriptor) + 36;
-#line 303
-    __cil_tmp63 = *((char *)__cil_tmp62);
-#line 303
-    __cil_tmp64 = (signed char )__cil_tmp63;
-#line 303
-    __cil_tmp65 = (int )__cil_tmp64;
-#line 303
-    __cil_tmp66 = __cil_tmp65 != 0;
-#line 303
-    __cil_tmp67 = (long )__cil_tmp66;
-#line 303
-    tmp___0 = __builtin_expect(__cil_tmp67, 0L);
+    tmp___0 = __builtin_expect(__cil_tmp25, 0L);
     }
 #line 303
     if (tmp___0 != 0L) {
       {
 #line 303
-      __cil_tmp68 = 0 * 1UL;
+      __cil_tmp26 = cmd->data[0];
 #line 303
-      __cil_tmp69 = 3 + __cil_tmp68;
+      __cil_tmp27 = (int )__cil_tmp26;
 #line 303
-      __cil_tmp70 = (unsigned long )cmd;
+      __cil_tmp28 = cmd->data[1];
 #line 303
-      __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 303
-      __cil_tmp72 = *((u8 *)__cil_tmp71);
-#line 303
-      __cil_tmp73 = (int )__cil_tmp72;
-#line 303
-      __cil_tmp74 = 1 * 1UL;
-#line 303
-      __cil_tmp75 = 3 + __cil_tmp74;
-#line 303
-      __cil_tmp76 = (unsigned long )cmd;
-#line 303
-      __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 303
-      __cil_tmp78 = *((u8 *)__cil_tmp77);
-#line 303
-      __cil_tmp79 = (int )__cil_tmp78;
+      __cil_tmp29 = (int )__cil_tmp28;
 #line 303
       __dynamic_pr_debug(& descriptor, "%s: Queue HSCFG Command, gpio=0x%x, gap=0x%x\n",
-                         "btmrvl_prepare_command", __cil_tmp73, __cil_tmp79);
+                         "btmrvl_prepare_command", __cil_tmp27, __cil_tmp29);
       }
     } else {
 
@@ -9885,26 +8330,14 @@ int btmrvl_prepare_command(struct btmrvl_private *priv )
   }
   {
 #line 307
-  __cil_tmp80 = 0 + 19;
+  __cil_tmp30 = priv->btmrvl_dev.pscmd;
 #line 307
-  __cil_tmp81 = (unsigned long )priv;
+  __cil_tmp31 = (unsigned int )__cil_tmp30;
 #line 307
-  __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
-#line 307
-  __cil_tmp83 = *((u8 *)__cil_tmp82);
-#line 307
-  __cil_tmp84 = (unsigned int )__cil_tmp83;
-#line 307
-  if (__cil_tmp84 != 0U) {
+  if (__cil_tmp31 != 0U) {
     {
 #line 308
-    __cil_tmp85 = 0 + 19;
-#line 308
-    __cil_tmp86 = (unsigned long )priv;
-#line 308
-    __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
-#line 308
-    *((u8 *)__cil_tmp87) = (unsigned char)0;
+    priv->btmrvl_dev.pscmd = (u8 )0U;
 #line 309
     btmrvl_enable_ps(priv);
     }
@@ -9914,38 +8347,20 @@ int btmrvl_prepare_command(struct btmrvl_private *priv )
   }
   {
 #line 312
-  __cil_tmp88 = 0 + 21;
+  __cil_tmp32 = priv->btmrvl_dev.hscmd;
 #line 312
-  __cil_tmp89 = (unsigned long )priv;
+  __cil_tmp33 = (unsigned int )__cil_tmp32;
 #line 312
-  __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
-#line 312
-  __cil_tmp91 = *((u8 *)__cil_tmp90);
-#line 312
-  __cil_tmp92 = (unsigned int )__cil_tmp91;
-#line 312
-  if (__cil_tmp92 != 0U) {
+  if (__cil_tmp33 != 0U) {
 #line 313
-    __cil_tmp93 = 0 + 21;
-#line 313
-    __cil_tmp94 = (unsigned long )priv;
-#line 313
-    __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
-#line 313
-    *((u8 *)__cil_tmp95) = (unsigned char)0;
+    priv->btmrvl_dev.hscmd = (u8 )0U;
     {
 #line 315
-    __cil_tmp96 = 0 + 20;
+    __cil_tmp34 = priv->btmrvl_dev.hsmode;
 #line 315
-    __cil_tmp97 = (unsigned long )priv;
+    __cil_tmp35 = (unsigned int )__cil_tmp34;
 #line 315
-    __cil_tmp98 = __cil_tmp97 + __cil_tmp96;
-#line 315
-    __cil_tmp99 = *((u8 *)__cil_tmp98);
-#line 315
-    __cil_tmp100 = (unsigned int )__cil_tmp99;
-#line 315
-    if (__cil_tmp100 != 0U) {
+    if (__cil_tmp35 != 0U) {
       {
 #line 316
       ret = btmrvl_enable_hs(priv);
@@ -9953,25 +8368,13 @@ int btmrvl_prepare_command(struct btmrvl_private *priv )
     } else {
       {
 #line 318
-      __cil_tmp101 = (unsigned long )priv;
+      __cil_tmp36 = priv->hw_wakeup_firmware;
 #line 318
-      __cil_tmp102 = __cil_tmp101 + 152;
-#line 318
-      __cil_tmp103 = *((int (**)(struct btmrvl_private * ))__cil_tmp102);
-#line 318
-      ret = (*__cil_tmp103)(priv);
+      ret = (*__cil_tmp36)(priv);
 #line 319
-      __cil_tmp104 = (unsigned long )priv;
+      __cil_tmp37 = priv->adapter;
 #line 319
-      __cil_tmp105 = __cil_tmp104 + 32;
-#line 319
-      __cil_tmp106 = *((struct btmrvl_adapter **)__cil_tmp105);
-#line 319
-      __cil_tmp107 = (unsigned long )__cil_tmp106;
-#line 319
-      __cil_tmp108 = __cil_tmp107 + 106;
-#line 319
-      *((u8 *)__cil_tmp108) = (unsigned char)0;
+      __cil_tmp37->hs_state = (u8 )0U;
       }
     }
     }
@@ -9993,77 +8396,43 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
   unsigned long __cil_tmp8 ;
   unsigned char *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  unsigned char *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  unsigned char *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
   unsigned int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
+  struct sk_buff  const  *__cil_tmp18 ;
+  struct sk_buff *__cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  unsigned char *__cil_tmp22 ;
   unsigned int __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned char *__cil_tmp24 ;
+  unsigned char *__cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   unsigned int __cil_tmp27 ;
-  struct sk_buff  const  *__cil_tmp28 ;
-  struct sk_buff *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp28 ;
+  unsigned char *__cil_tmp29 ;
+  unsigned char *__cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
   unsigned char *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  unsigned char *__cil_tmp35 ;
+  char (*__cil_tmp36)[48U] ;
+  struct bt_skb_cb *__cil_tmp37 ;
+  int (*__cil_tmp38)(struct btmrvl_private * , u8 * , u16  ) ;
   unsigned long __cil_tmp39 ;
-  unsigned char *__cil_tmp40 ;
-  unsigned char *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  int (*__cil_tmp40)(struct btmrvl_private * , u8 * , u16  ) ;
+  unsigned long __cil_tmp41 ;
+  int (*__cil_tmp42)(struct btmrvl_private * , u8 * , u16  ) ;
+  unsigned char *__cil_tmp43 ;
   unsigned int __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned char *__cil_tmp49 ;
-  unsigned char *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned char *__cil_tmp58 ;
-  unsigned char *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  char (*__cil_tmp62)[48U] ;
-  struct bt_skb_cb *__cil_tmp63 ;
-  int (*__cil_tmp64)(struct btmrvl_private * , u8 * , u16  ) ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  int (*__cil_tmp68)(struct btmrvl_private * , u8 * , u16  ) ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  int (*__cil_tmp72)(struct btmrvl_private * , u8 * , u16  ) ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned char *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned int __cil_tmp78 ;
-  unsigned short __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned short __cil_tmp81 ;
+  u16 __cil_tmp45 ;
+  int __cil_tmp46 ;
+  u16 __cil_tmp47 ;
 
   {
 #line 328
@@ -10086,15 +8455,11 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
 #line 330
     __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 330
-    __cil_tmp11 = (unsigned long )skb;
+    __cil_tmp11 = skb->data;
 #line 330
-    __cil_tmp12 = __cil_tmp11 + 224;
+    __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 330
-    __cil_tmp13 = *((unsigned char **)__cil_tmp12);
-#line 330
-    __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 330
-    if (__cil_tmp14 == __cil_tmp10) {
+    if (__cil_tmp12 == __cil_tmp10) {
 #line 331
       return (-22);
     } else {
@@ -10105,22 +8470,14 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
   }
   {
 #line 333
-  __cil_tmp15 = (unsigned long )skb;
+  __cil_tmp13 = skb->len;
 #line 333
-  __cil_tmp16 = __cil_tmp15 + 104;
-#line 333
-  __cil_tmp17 = *((unsigned int *)__cil_tmp16);
-#line 333
-  if (__cil_tmp17 == 0U) {
+  if (__cil_tmp13 == 0U) {
     {
 #line 334
-    __cil_tmp18 = (unsigned long )skb;
+    __cil_tmp14 = skb->len;
 #line 334
-    __cil_tmp19 = __cil_tmp18 + 104;
-#line 334
-    __cil_tmp20 = *((unsigned int *)__cil_tmp19);
-#line 334
-    printk("<3>%s: Tx Error: Bad skb length %d : %d\n", "btmrvl_tx_pkt", __cil_tmp20,
+    printk("<3>%s: Tx Error: Bad skb length %d : %d\n", "btmrvl_tx_pkt", __cil_tmp14,
            2312);
     }
 #line 336
@@ -10128,24 +8485,16 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
   } else {
     {
 #line 333
-    __cil_tmp21 = (unsigned long )skb;
+    __cil_tmp15 = skb->len;
 #line 333
-    __cil_tmp22 = __cil_tmp21 + 104;
+    __cil_tmp16 = __cil_tmp15 + 4U;
 #line 333
-    __cil_tmp23 = *((unsigned int *)__cil_tmp22);
-#line 333
-    __cil_tmp24 = __cil_tmp23 + 4U;
-#line 333
-    if (__cil_tmp24 > 2312U) {
+    if (__cil_tmp16 > 2312U) {
       {
 #line 334
-      __cil_tmp25 = (unsigned long )skb;
+      __cil_tmp17 = skb->len;
 #line 334
-      __cil_tmp26 = __cil_tmp25 + 104;
-#line 334
-      __cil_tmp27 = *((unsigned int *)__cil_tmp26);
-#line 334
-      printk("<3>%s: Tx Error: Bad skb length %d : %d\n", "btmrvl_tx_pkt", __cil_tmp27,
+      printk("<3>%s: Tx Error: Bad skb length %d : %d\n", "btmrvl_tx_pkt", __cil_tmp17,
              2312);
       }
 #line 336
@@ -10158,9 +8507,9 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
   }
   {
 #line 339
-  __cil_tmp28 = (struct sk_buff  const  *)skb;
+  __cil_tmp18 = (struct sk_buff  const  *)skb;
 #line 339
-  tmp___0 = skb_headroom(__cil_tmp28);
+  tmp___0 = skb_headroom(__cil_tmp18);
   }
 #line 339
   if (tmp___0 <= 3U) {
@@ -10172,13 +8521,13 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
     }
     {
 #line 343
-    __cil_tmp29 = (struct sk_buff *)0;
+    __cil_tmp19 = (struct sk_buff *)0;
 #line 343
-    __cil_tmp30 = (unsigned long )__cil_tmp29;
+    __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 343
-    __cil_tmp31 = (unsigned long )skb;
+    __cil_tmp21 = (unsigned long )skb;
 #line 343
-    if (__cil_tmp31 == __cil_tmp30) {
+    if (__cil_tmp21 == __cil_tmp20) {
       {
 #line 344
       printk("<3>%s: Tx Error: realloc_headroom failed %d\n", "btmrvl_tx_pkt", 4);
@@ -10202,120 +8551,72 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
 #line 353
   skb_push(skb, 4U);
 #line 360
-  __cil_tmp32 = (unsigned long )skb;
+  __cil_tmp22 = skb->data;
 #line 360
-  __cil_tmp33 = __cil_tmp32 + 224;
+  __cil_tmp23 = skb->len;
 #line 360
-  __cil_tmp34 = *((unsigned char **)__cil_tmp33);
-#line 360
-  __cil_tmp35 = (unsigned long )skb;
-#line 360
-  __cil_tmp36 = __cil_tmp35 + 104;
-#line 360
-  __cil_tmp37 = *((unsigned int *)__cil_tmp36);
-#line 360
-  *__cil_tmp34 = (unsigned char )__cil_tmp37;
+  *__cil_tmp22 = (unsigned char )__cil_tmp23;
 #line 361
-  __cil_tmp38 = (unsigned long )skb;
+  __cil_tmp24 = skb->data;
 #line 361
-  __cil_tmp39 = __cil_tmp38 + 224;
+  __cil_tmp25 = __cil_tmp24 + 1UL;
 #line 361
-  __cil_tmp40 = *((unsigned char **)__cil_tmp39);
+  __cil_tmp26 = skb->len;
 #line 361
-  __cil_tmp41 = __cil_tmp40 + 1UL;
+  __cil_tmp27 = __cil_tmp26 & 65280U;
 #line 361
-  __cil_tmp42 = (unsigned long )skb;
+  __cil_tmp28 = __cil_tmp27 >> 8;
 #line 361
-  __cil_tmp43 = __cil_tmp42 + 104;
-#line 361
-  __cil_tmp44 = *((unsigned int *)__cil_tmp43);
-#line 361
-  __cil_tmp45 = __cil_tmp44 & 65280U;
-#line 361
-  __cil_tmp46 = __cil_tmp45 >> 8;
-#line 361
-  *__cil_tmp41 = (unsigned char )__cil_tmp46;
+  *__cil_tmp25 = (unsigned char )__cil_tmp28;
 #line 362
-  __cil_tmp47 = (unsigned long )skb;
+  __cil_tmp29 = skb->data;
 #line 362
-  __cil_tmp48 = __cil_tmp47 + 224;
+  __cil_tmp30 = __cil_tmp29 + 2UL;
 #line 362
-  __cil_tmp49 = *((unsigned char **)__cil_tmp48);
+  __cil_tmp31 = skb->len;
 #line 362
-  __cil_tmp50 = __cil_tmp49 + 2UL;
+  __cil_tmp32 = __cil_tmp31 & 16711680U;
 #line 362
-  __cil_tmp51 = (unsigned long )skb;
+  __cil_tmp33 = __cil_tmp32 >> 16;
 #line 362
-  __cil_tmp52 = __cil_tmp51 + 104;
-#line 362
-  __cil_tmp53 = *((unsigned int *)__cil_tmp52);
-#line 362
-  __cil_tmp54 = __cil_tmp53 & 16711680U;
-#line 362
-  __cil_tmp55 = __cil_tmp54 >> 16;
-#line 362
-  *__cil_tmp50 = (unsigned char )__cil_tmp55;
+  *__cil_tmp30 = (unsigned char )__cil_tmp33;
 #line 363
-  __cil_tmp56 = (unsigned long )skb;
+  __cil_tmp34 = skb->data;
 #line 363
-  __cil_tmp57 = __cil_tmp56 + 224;
+  __cil_tmp35 = __cil_tmp34 + 3UL;
 #line 363
-  __cil_tmp58 = *((unsigned char **)__cil_tmp57);
+  __cil_tmp36 = & skb->cb;
 #line 363
-  __cil_tmp59 = __cil_tmp58 + 3UL;
+  __cil_tmp37 = (struct bt_skb_cb *)__cil_tmp36;
 #line 363
-  __cil_tmp60 = (unsigned long )skb;
-#line 363
-  __cil_tmp61 = __cil_tmp60 + 40;
-#line 363
-  __cil_tmp62 = (char (*)[48U])__cil_tmp61;
-#line 363
-  __cil_tmp63 = (struct bt_skb_cb *)__cil_tmp62;
-#line 363
-  *__cil_tmp59 = *((__u8 *)__cil_tmp63);
+  *__cil_tmp35 = __cil_tmp37->pkt_type;
   }
   {
 #line 365
-  __cil_tmp64 = (int (*)(struct btmrvl_private * , u8 * , u16  ))0;
+  __cil_tmp38 = (int (*)(struct btmrvl_private * , u8 * , u16  ))0;
 #line 365
-  __cil_tmp65 = (unsigned long )__cil_tmp64;
+  __cil_tmp39 = (unsigned long )__cil_tmp38;
 #line 365
-  __cil_tmp66 = (unsigned long )priv;
+  __cil_tmp40 = priv->hw_host_to_card;
 #line 365
-  __cil_tmp67 = __cil_tmp66 + 144;
+  __cil_tmp41 = (unsigned long )__cil_tmp40;
 #line 365
-  __cil_tmp68 = *((int (**)(struct btmrvl_private * , u8 * , u16  ))__cil_tmp67);
-#line 365
-  __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 365
-  if (__cil_tmp69 != __cil_tmp65) {
+  if (__cil_tmp41 != __cil_tmp39) {
     {
 #line 366
-    __cil_tmp70 = (unsigned long )priv;
+    __cil_tmp42 = priv->hw_host_to_card;
 #line 366
-    __cil_tmp71 = __cil_tmp70 + 144;
+    __cil_tmp43 = skb->data;
 #line 366
-    __cil_tmp72 = *((int (**)(struct btmrvl_private * , u8 * , u16  ))__cil_tmp71);
+    __cil_tmp44 = skb->len;
 #line 366
-    __cil_tmp73 = (unsigned long )skb;
+    __cil_tmp45 = (u16 )__cil_tmp44;
 #line 366
-    __cil_tmp74 = __cil_tmp73 + 224;
+    __cil_tmp46 = (int )__cil_tmp45;
 #line 366
-    __cil_tmp75 = *((unsigned char **)__cil_tmp74);
+    __cil_tmp47 = (u16 )__cil_tmp46;
 #line 366
-    __cil_tmp76 = (unsigned long )skb;
-#line 366
-    __cil_tmp77 = __cil_tmp76 + 104;
-#line 366
-    __cil_tmp78 = *((unsigned int *)__cil_tmp77);
-#line 366
-    __cil_tmp79 = (unsigned short )__cil_tmp78;
-#line 366
-    __cil_tmp80 = (int )__cil_tmp79;
-#line 366
-    __cil_tmp81 = (unsigned short )__cil_tmp80;
-#line 366
-    ret = (*__cil_tmp72)(priv, __cil_tmp75, __cil_tmp81);
+    ret = (*__cil_tmp42)(priv, __cil_tmp43, __cil_tmp47);
     }
   } else {
 
@@ -10328,66 +8629,30 @@ static int btmrvl_tx_pkt(struct btmrvl_private *priv , struct sk_buff *skb )
 #line 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p"
 static void btmrvl_init_adapter(struct btmrvl_private *priv ) 
 { struct lock_class_key __key ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  struct btmrvl_adapter *__cil_tmp3 ;
+  struct sk_buff_head *__cil_tmp4 ;
   struct btmrvl_adapter *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct sk_buff_head *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct btmrvl_adapter *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct btmrvl_adapter *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  wait_queue_head_t *__cil_tmp19 ;
+  struct btmrvl_adapter *__cil_tmp6 ;
+  wait_queue_head_t *__cil_tmp7 ;
 
   {
   {
 #line 373
-  __cil_tmp3 = (unsigned long )priv;
+  __cil_tmp3 = priv->adapter;
 #line 373
-  __cil_tmp4 = __cil_tmp3 + 32;
+  __cil_tmp4 = & __cil_tmp3->tx_queue;
 #line 373
-  __cil_tmp5 = *((struct btmrvl_adapter **)__cil_tmp4);
-#line 373
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
-#line 373
-  __cil_tmp7 = __cil_tmp6 + 8;
-#line 373
-  __cil_tmp8 = (struct sk_buff_head *)__cil_tmp7;
-#line 373
-  skb_queue_head_init(__cil_tmp8);
+  skb_queue_head_init(__cil_tmp4);
 #line 375
-  __cil_tmp9 = (unsigned long )priv;
+  __cil_tmp5 = priv->adapter;
 #line 375
-  __cil_tmp10 = __cil_tmp9 + 32;
-#line 375
-  __cil_tmp11 = *((struct btmrvl_adapter **)__cil_tmp10);
-#line 375
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
-#line 375
-  __cil_tmp13 = __cil_tmp12 + 105;
-#line 375
-  *((u8 *)__cil_tmp13) = (unsigned char)0;
+  __cil_tmp5->ps_state = (u8 )0U;
 #line 377
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp6 = priv->adapter;
 #line 377
-  __cil_tmp15 = __cil_tmp14 + 32;
+  __cil_tmp7 = & __cil_tmp6->cmd_wait_q;
 #line 377
-  __cil_tmp16 = *((struct btmrvl_adapter **)__cil_tmp15);
-#line 377
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 377
-  __cil_tmp18 = __cil_tmp17 + 112;
-#line 377
-  __cil_tmp19 = (wait_queue_head_t *)__cil_tmp18;
-#line 377
-  __init_waitqueue_head(__cil_tmp19, & __key);
+  __init_waitqueue_head(__cil_tmp7, & __key);
   }
 #line 379
   return;
@@ -10395,51 +8660,27 @@ static void btmrvl_init_adapter(struct btmrvl_private *priv )
 }
 #line 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p"
 static void btmrvl_free_adapter(struct btmrvl_private *priv ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ struct btmrvl_adapter *__cil_tmp2 ;
+  struct sk_buff_head *__cil_tmp3 ;
   struct btmrvl_adapter *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct sk_buff_head *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct btmrvl_adapter *__cil_tmp10 ;
-  void const   *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  void const   *__cil_tmp5 ;
 
   {
   {
 #line 382
-  __cil_tmp2 = (unsigned long )priv;
+  __cil_tmp2 = priv->adapter;
 #line 382
-  __cil_tmp3 = __cil_tmp2 + 32;
+  __cil_tmp3 = & __cil_tmp2->tx_queue;
 #line 382
-  __cil_tmp4 = *((struct btmrvl_adapter **)__cil_tmp3);
-#line 382
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
-#line 382
-  __cil_tmp6 = __cil_tmp5 + 8;
-#line 382
-  __cil_tmp7 = (struct sk_buff_head *)__cil_tmp6;
-#line 382
-  skb_queue_purge(__cil_tmp7);
+  skb_queue_purge(__cil_tmp3);
 #line 384
-  __cil_tmp8 = (unsigned long )priv;
+  __cil_tmp4 = priv->adapter;
 #line 384
-  __cil_tmp9 = __cil_tmp8 + 32;
+  __cil_tmp5 = (void const   *)__cil_tmp4;
 #line 384
-  __cil_tmp10 = *((struct btmrvl_adapter **)__cil_tmp9);
-#line 384
-  __cil_tmp11 = (void const   *)__cil_tmp10;
-#line 384
-  kfree(__cil_tmp11);
+  kfree(__cil_tmp5);
 #line 386
-  __cil_tmp12 = (unsigned long )priv;
-#line 386
-  __cil_tmp13 = __cil_tmp12 + 32;
-#line 386
-  *((struct btmrvl_adapter **)__cil_tmp13) = (struct btmrvl_adapter *)0;
+  priv->adapter = (struct btmrvl_adapter *)0;
   }
 #line 387
   return;
@@ -10470,195 +8711,107 @@ static int btmrvl_send_frame(struct sk_buff *skb )
   struct _ddebug descriptor ;
   long tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct net_device *__cil_tmp9 ;
-  struct _ddebug *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  struct net_device *__cil_tmp7 ;
+  signed char __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  long __cil_tmp11 ;
+  unsigned char __cil_tmp12 ;
+  int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  struct hci_dev *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  char __cil_tmp18 ;
-  signed char __cil_tmp19 ;
-  int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned char __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  struct hci_dev *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  void *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  void *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  void *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long *__cil_tmp44 ;
-  unsigned long const volatile   *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned char *__cil_tmp51 ;
-  void const   *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  char (*__cil_tmp59)[48U] ;
-  struct bt_skb_cb *__cil_tmp60 ;
-  __u8 __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  char (*__cil_tmp65)[48U] ;
-  struct bt_skb_cb *__cil_tmp66 ;
-  __u8 __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  char (*__cil_tmp71)[48U] ;
-  struct bt_skb_cb *__cil_tmp72 ;
-  __u8 __cil_tmp73 ;
-  int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  __u32 __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  __u32 __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  __u32 __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  struct btmrvl_adapter *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  struct sk_buff_head *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  wait_queue_head_t *__cil_tmp105 ;
-  void *__cil_tmp106 ;
+  void *__cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
+  void *__cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  void *__cil_tmp22 ;
+  unsigned long *__cil_tmp23 ;
+  unsigned long const volatile   *__cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
+  unsigned char *__cil_tmp26 ;
+  void const   *__cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  size_t __cil_tmp29 ;
+  char (*__cil_tmp30)[48U] ;
+  struct bt_skb_cb *__cil_tmp31 ;
+  __u8 __cil_tmp32 ;
+  int __cil_tmp33 ;
+  char (*__cil_tmp34)[48U] ;
+  struct bt_skb_cb *__cil_tmp35 ;
+  __u8 __cil_tmp36 ;
+  int __cil_tmp37 ;
+  char (*__cil_tmp38)[48U] ;
+  struct bt_skb_cb *__cil_tmp39 ;
+  __u8 __cil_tmp40 ;
+  int __cil_tmp41 ;
+  __u32 __cil_tmp42 ;
+  __u32 __cil_tmp43 ;
+  __u32 __cil_tmp44 ;
+  struct btmrvl_adapter *__cil_tmp45 ;
+  struct sk_buff_head *__cil_tmp46 ;
+  wait_queue_head_t *__cil_tmp47 ;
+  void *__cil_tmp48 ;
 
   {
   {
 #line 401
-  __cil_tmp7 = (unsigned long )skb;
+  __cil_tmp7 = skb->dev;
 #line 401
-  __cil_tmp8 = __cil_tmp7 + 32;
-#line 401
-  __cil_tmp9 = *((struct net_device **)__cil_tmp8);
-#line 401
-  hdev = (struct hci_dev *)__cil_tmp9;
+  hdev = (struct hci_dev *)__cil_tmp7;
 #line 402
   priv = (struct btmrvl_private *)0;
 #line 404
-  __cil_tmp10 = & descriptor;
+  descriptor.modname = "btmrvl";
 #line 404
-  *((char const   **)__cil_tmp10) = "btmrvl";
+  descriptor.function = "btmrvl_send_frame";
 #line 404
-  __cil_tmp11 = (unsigned long )(& descriptor) + 8;
+  descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 404
-  *((char const   **)__cil_tmp11) = "btmrvl_send_frame";
+  descriptor.format = "%s: type=%d, len=%d\n";
 #line 404
-  __cil_tmp12 = (unsigned long )(& descriptor) + 16;
+  descriptor.lineno = 404U;
 #line 404
-  *((char const   **)__cil_tmp12) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+  descriptor.flags = (unsigned char)0;
 #line 404
-  __cil_tmp13 = (unsigned long )(& descriptor) + 24;
+  descriptor.enabled = (char)0;
 #line 404
-  *((char const   **)__cil_tmp13) = "%s: type=%d, len=%d\n";
+  __cil_tmp8 = (signed char )descriptor.enabled;
 #line 404
-  __cil_tmp14 = (unsigned long )(& descriptor) + 32;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 404
-  *((unsigned int *)__cil_tmp14) = 404U;
+  __cil_tmp10 = __cil_tmp9 != 0;
 #line 404
-  __cil_tmp15 = (unsigned long )(& descriptor) + 35;
+  __cil_tmp11 = (long )__cil_tmp10;
 #line 404
-  *((unsigned char *)__cil_tmp15) = (unsigned char)0;
-#line 404
-  __cil_tmp16 = (unsigned long )(& descriptor) + 36;
-#line 404
-  *((char *)__cil_tmp16) = (char)0;
-#line 404
-  __cil_tmp17 = (unsigned long )(& descriptor) + 36;
-#line 404
-  __cil_tmp18 = *((char *)__cil_tmp17);
-#line 404
-  __cil_tmp19 = (signed char )__cil_tmp18;
-#line 404
-  __cil_tmp20 = (int )__cil_tmp19;
-#line 404
-  __cil_tmp21 = __cil_tmp20 != 0;
-#line 404
-  __cil_tmp22 = (long )__cil_tmp21;
-#line 404
-  tmp = __builtin_expect(__cil_tmp22, 0L);
+  tmp = __builtin_expect(__cil_tmp11, 0L);
   }
 #line 404
   if (tmp != 0L) {
     {
 #line 404
-    __cil_tmp23 = (unsigned long )skb;
+    __cil_tmp12 = skb->pkt_type;
 #line 404
-    __cil_tmp24 = __cil_tmp23 + 125;
+    __cil_tmp13 = (int )__cil_tmp12;
 #line 404
-    __cil_tmp25 = *((unsigned char *)__cil_tmp24);
-#line 404
-    __cil_tmp26 = (int )__cil_tmp25;
-#line 404
-    __cil_tmp27 = (unsigned long )skb;
-#line 404
-    __cil_tmp28 = __cil_tmp27 + 104;
-#line 404
-    __cil_tmp29 = *((unsigned int *)__cil_tmp28);
+    __cil_tmp14 = skb->len;
 #line 404
     __dynamic_pr_debug(& descriptor, "%s: type=%d, len=%d\n", "btmrvl_send_frame",
-                       __cil_tmp26, __cil_tmp29);
+                       __cil_tmp13, __cil_tmp14);
     }
   } else {
 
   }
   {
 #line 406
-  __cil_tmp30 = (struct hci_dev *)0;
+  __cil_tmp15 = (struct hci_dev *)0;
 #line 406
-  __cil_tmp31 = (unsigned long )__cil_tmp30;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 406
-  __cil_tmp32 = (unsigned long )hdev;
+  __cil_tmp17 = (unsigned long )hdev;
 #line 406
-  if (__cil_tmp32 == __cil_tmp31) {
+  if (__cil_tmp17 == __cil_tmp16) {
     {
 #line 407
     printk("<3>%s: Frame for unknown HCI device\n", "btmrvl_send_frame");
@@ -10668,19 +8821,15 @@ static int btmrvl_send_frame(struct sk_buff *skb )
   } else {
     {
 #line 406
-    __cil_tmp33 = (void *)0;
+    __cil_tmp18 = (void *)0;
 #line 406
-    __cil_tmp34 = (unsigned long )__cil_tmp33;
+    __cil_tmp19 = (unsigned long )__cil_tmp18;
 #line 406
-    __cil_tmp35 = (unsigned long )hdev;
+    __cil_tmp20 = hdev->driver_data;
 #line 406
-    __cil_tmp36 = __cil_tmp35 + 2336;
+    __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 406
-    __cil_tmp37 = *((void **)__cil_tmp36);
-#line 406
-    __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 406
-    if (__cil_tmp38 == __cil_tmp34) {
+    if (__cil_tmp21 == __cil_tmp19) {
       {
 #line 407
       printk("<3>%s: Frame for unknown HCI device\n", "btmrvl_send_frame");
@@ -10695,53 +8844,33 @@ static int btmrvl_send_frame(struct sk_buff *skb )
   }
   {
 #line 411
-  __cil_tmp39 = (unsigned long )hdev;
+  __cil_tmp22 = hdev->driver_data;
 #line 411
-  __cil_tmp40 = __cil_tmp39 + 2336;
-#line 411
-  __cil_tmp41 = *((void **)__cil_tmp40);
-#line 411
-  priv = (struct btmrvl_private *)__cil_tmp41;
+  priv = (struct btmrvl_private *)__cil_tmp22;
 #line 412
-  __cil_tmp42 = (unsigned long )hdev;
+  __cil_tmp23 = & hdev->flags;
 #line 412
-  __cil_tmp43 = __cil_tmp42 + 104;
+  __cil_tmp24 = (unsigned long const volatile   *)__cil_tmp23;
 #line 412
-  __cil_tmp44 = (unsigned long *)__cil_tmp43;
-#line 412
-  __cil_tmp45 = (unsigned long const volatile   *)__cil_tmp44;
-#line 412
-  tmp___0 = constant_test_bit(2U, __cil_tmp45);
+  tmp___0 = constant_test_bit(2U, __cil_tmp24);
   }
 #line 412
   if (tmp___0 == 0) {
     {
 #line 413
-    __cil_tmp46 = (unsigned long )hdev;
+    __cil_tmp25 = hdev->flags;
 #line 413
-    __cil_tmp47 = __cil_tmp46 + 104;
-#line 413
-    __cil_tmp48 = *((unsigned long *)__cil_tmp47);
-#line 413
-    printk("<3>%s: Failed testing HCI_RUNING, flags=%lx\n", "btmrvl_send_frame", __cil_tmp48);
+    printk("<3>%s: Failed testing HCI_RUNING, flags=%lx\n", "btmrvl_send_frame", __cil_tmp25);
 #line 414
-    __cil_tmp49 = (unsigned long )skb;
+    __cil_tmp26 = skb->data;
 #line 414
-    __cil_tmp50 = __cil_tmp49 + 224;
+    __cil_tmp27 = (void const   *)__cil_tmp26;
 #line 414
-    __cil_tmp51 = *((unsigned char **)__cil_tmp50);
+    __cil_tmp28 = skb->len;
 #line 414
-    __cil_tmp52 = (void const   *)__cil_tmp51;
+    __cil_tmp29 = (size_t )__cil_tmp28;
 #line 414
-    __cil_tmp53 = (unsigned long )skb;
-#line 414
-    __cil_tmp54 = __cil_tmp53 + 104;
-#line 414
-    __cil_tmp55 = *((unsigned int *)__cil_tmp54);
-#line 414
-    __cil_tmp56 = (unsigned long )__cil_tmp55;
-#line 414
-    print_hex_dump_bytes("data: ", 2, __cil_tmp52, __cil_tmp56);
+    print_hex_dump_bytes("data: ", 2, __cil_tmp27, __cil_tmp29);
     }
 #line 416
     return (-16);
@@ -10750,114 +8879,71 @@ static int btmrvl_send_frame(struct sk_buff *skb )
   }
   {
 #line 420
-  __cil_tmp57 = (unsigned long )skb;
+  __cil_tmp30 = & skb->cb;
 #line 420
-  __cil_tmp58 = __cil_tmp57 + 40;
+  __cil_tmp31 = (struct bt_skb_cb *)__cil_tmp30;
 #line 420
-  __cil_tmp59 = (char (*)[48U])__cil_tmp58;
+  __cil_tmp32 = __cil_tmp31->pkt_type;
 #line 420
-  __cil_tmp60 = (struct bt_skb_cb *)__cil_tmp59;
+  __cil_tmp33 = (int )__cil_tmp32;
 #line 420
-  __cil_tmp61 = *((__u8 *)__cil_tmp60);
+  if (__cil_tmp33 == 1) {
 #line 420
-  __cil_tmp62 = (int )__cil_tmp61;
-#line 420
-  if (__cil_tmp62 == 1) {
     goto case_1;
   } else {
     {
 #line 424
-    __cil_tmp63 = (unsigned long )skb;
+    __cil_tmp34 = & skb->cb;
 #line 424
-    __cil_tmp64 = __cil_tmp63 + 40;
+    __cil_tmp35 = (struct bt_skb_cb *)__cil_tmp34;
 #line 424
-    __cil_tmp65 = (char (*)[48U])__cil_tmp64;
+    __cil_tmp36 = __cil_tmp35->pkt_type;
 #line 424
-    __cil_tmp66 = (struct bt_skb_cb *)__cil_tmp65;
+    __cil_tmp37 = (int )__cil_tmp36;
 #line 424
-    __cil_tmp67 = *((__u8 *)__cil_tmp66);
+    if (__cil_tmp37 == 2) {
 #line 424
-    __cil_tmp68 = (int )__cil_tmp67;
-#line 424
-    if (__cil_tmp68 == 2) {
       goto case_2;
     } else {
       {
 #line 428
-      __cil_tmp69 = (unsigned long )skb;
+      __cil_tmp38 = & skb->cb;
 #line 428
-      __cil_tmp70 = __cil_tmp69 + 40;
+      __cil_tmp39 = (struct bt_skb_cb *)__cil_tmp38;
 #line 428
-      __cil_tmp71 = (char (*)[48U])__cil_tmp70;
+      __cil_tmp40 = __cil_tmp39->pkt_type;
 #line 428
-      __cil_tmp72 = (struct bt_skb_cb *)__cil_tmp71;
+      __cil_tmp41 = (int )__cil_tmp40;
 #line 428
-      __cil_tmp73 = *((__u8 *)__cil_tmp72);
+      if (__cil_tmp41 == 3) {
 #line 428
-      __cil_tmp74 = (int )__cil_tmp73;
-#line 428
-      if (__cil_tmp74 == 3) {
         goto case_3;
-      } else {
+      } else
 #line 419
-        if (0) {
-          case_1: 
+      if (0) {
+        case_1: 
 #line 421
-          __cil_tmp75 = 2200 + 8;
+        __cil_tmp42 = hdev->stat.cmd_tx;
 #line 421
-          __cil_tmp76 = (unsigned long )hdev;
-#line 421
-          __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 421
-          __cil_tmp78 = 2200 + 8;
-#line 421
-          __cil_tmp79 = (unsigned long )hdev;
-#line 421
-          __cil_tmp80 = __cil_tmp79 + __cil_tmp78;
-#line 421
-          __cil_tmp81 = *((__u32 *)__cil_tmp80);
-#line 421
-          *((__u32 *)__cil_tmp77) = __cil_tmp81 + 1U;
-          goto ldv_39791;
-          case_2: 
+        hdev->stat.cmd_tx = __cil_tmp42 + 1U;
+#line 422
+        goto ldv_39791;
+        case_2: 
 #line 425
-          __cil_tmp82 = 2200 + 16;
+        __cil_tmp43 = hdev->stat.acl_tx;
 #line 425
-          __cil_tmp83 = (unsigned long )hdev;
-#line 425
-          __cil_tmp84 = __cil_tmp83 + __cil_tmp82;
-#line 425
-          __cil_tmp85 = 2200 + 16;
-#line 425
-          __cil_tmp86 = (unsigned long )hdev;
-#line 425
-          __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
-#line 425
-          __cil_tmp88 = *((__u32 *)__cil_tmp87);
-#line 425
-          *((__u32 *)__cil_tmp84) = __cil_tmp88 + 1U;
-          goto ldv_39791;
-          case_3: 
+        hdev->stat.acl_tx = __cil_tmp43 + 1U;
+#line 426
+        goto ldv_39791;
+        case_3: 
 #line 429
-          __cil_tmp89 = 2200 + 24;
+        __cil_tmp44 = hdev->stat.sco_tx;
 #line 429
-          __cil_tmp90 = (unsigned long )hdev;
-#line 429
-          __cil_tmp91 = __cil_tmp90 + __cil_tmp89;
-#line 429
-          __cil_tmp92 = 2200 + 24;
-#line 429
-          __cil_tmp93 = (unsigned long )hdev;
-#line 429
-          __cil_tmp94 = __cil_tmp93 + __cil_tmp92;
-#line 429
-          __cil_tmp95 = *((__u32 *)__cil_tmp94);
-#line 429
-          *((__u32 *)__cil_tmp91) = __cil_tmp95 + 1U;
-          goto ldv_39791;
-        } else {
+        hdev->stat.sco_tx = __cil_tmp44 + 1U;
+#line 430
+        goto ldv_39791;
+      } else {
 
-        }
       }
       }
     }
@@ -10867,31 +8953,17 @@ static int btmrvl_send_frame(struct sk_buff *skb )
   ldv_39791: 
   {
 #line 433
-  __cil_tmp96 = (unsigned long )priv;
+  __cil_tmp45 = priv->adapter;
 #line 433
-  __cil_tmp97 = __cil_tmp96 + 32;
+  __cil_tmp46 = & __cil_tmp45->tx_queue;
 #line 433
-  __cil_tmp98 = *((struct btmrvl_adapter **)__cil_tmp97);
-#line 433
-  __cil_tmp99 = (unsigned long )__cil_tmp98;
-#line 433
-  __cil_tmp100 = __cil_tmp99 + 8;
-#line 433
-  __cil_tmp101 = (struct sk_buff_head *)__cil_tmp100;
-#line 433
-  skb_queue_tail(__cil_tmp101, skb);
+  skb_queue_tail(__cil_tmp46, skb);
 #line 435
-  __cil_tmp102 = 40 + 8;
+  __cil_tmp47 = & priv->main_thread.wait_q;
 #line 435
-  __cil_tmp103 = (unsigned long )priv;
+  __cil_tmp48 = (void *)0;
 #line 435
-  __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
-#line 435
-  __cil_tmp105 = (wait_queue_head_t *)__cil_tmp104;
-#line 435
-  __cil_tmp106 = (void *)0;
-#line 435
-  __wake_up(__cil_tmp105, 1U, 1, __cil_tmp106);
+  __wake_up(__cil_tmp47, 1U, 1, __cil_tmp48);
   }
 #line 437
   return (0);
@@ -10900,40 +8972,22 @@ static int btmrvl_send_frame(struct sk_buff *skb )
 #line 440 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p"
 static int btmrvl_flush(struct hci_dev *hdev ) 
 { struct btmrvl_private *priv ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct btmrvl_adapter *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct sk_buff_head *__cil_tmp11 ;
+  void *__cil_tmp3 ;
+  struct btmrvl_adapter *__cil_tmp4 ;
+  struct sk_buff_head *__cil_tmp5 ;
 
   {
   {
 #line 442
-  __cil_tmp3 = (unsigned long )hdev;
+  __cil_tmp3 = hdev->driver_data;
 #line 442
-  __cil_tmp4 = __cil_tmp3 + 2336;
-#line 442
-  __cil_tmp5 = *((void **)__cil_tmp4);
-#line 442
-  priv = (struct btmrvl_private *)__cil_tmp5;
+  priv = (struct btmrvl_private *)__cil_tmp3;
 #line 444
-  __cil_tmp6 = (unsigned long )priv;
+  __cil_tmp4 = priv->adapter;
 #line 444
-  __cil_tmp7 = __cil_tmp6 + 32;
+  __cil_tmp5 = & __cil_tmp4->tx_queue;
 #line 444
-  __cil_tmp8 = *((struct btmrvl_adapter **)__cil_tmp7);
-#line 444
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
-#line 444
-  __cil_tmp10 = __cil_tmp9 + 8;
-#line 444
-  __cil_tmp11 = (struct sk_buff_head *)__cil_tmp10;
-#line 444
-  skb_queue_purge(__cil_tmp11);
+  skb_queue_purge(__cil_tmp5);
   }
 #line 446
   return (0);
@@ -10943,40 +8997,24 @@ static int btmrvl_flush(struct hci_dev *hdev )
 static int btmrvl_close(struct hci_dev *hdev ) 
 { struct btmrvl_private *priv ;
   int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long *__cil_tmp9 ;
-  unsigned long volatile   *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct btmrvl_adapter *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct sk_buff_head *__cil_tmp16 ;
+  void *__cil_tmp4 ;
+  unsigned long *__cil_tmp5 ;
+  unsigned long volatile   *__cil_tmp6 ;
+  struct btmrvl_adapter *__cil_tmp7 ;
+  struct sk_buff_head *__cil_tmp8 ;
 
   {
   {
 #line 451
-  __cil_tmp4 = (unsigned long )hdev;
+  __cil_tmp4 = hdev->driver_data;
 #line 451
-  __cil_tmp5 = __cil_tmp4 + 2336;
-#line 451
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 451
-  priv = (struct btmrvl_private *)__cil_tmp6;
+  priv = (struct btmrvl_private *)__cil_tmp4;
 #line 453
-  __cil_tmp7 = (unsigned long )hdev;
+  __cil_tmp5 = & hdev->flags;
 #line 453
-  __cil_tmp8 = __cil_tmp7 + 104;
+  __cil_tmp6 = (unsigned long volatile   *)__cil_tmp5;
 #line 453
-  __cil_tmp9 = (unsigned long *)__cil_tmp8;
-#line 453
-  __cil_tmp10 = (unsigned long volatile   *)__cil_tmp9;
-#line 453
-  tmp = test_and_clear_bit(2, __cil_tmp10);
+  tmp = test_and_clear_bit(2, __cil_tmp6);
   }
 #line 453
   if (tmp == 0) {
@@ -10987,19 +9025,11 @@ static int btmrvl_close(struct hci_dev *hdev )
   }
   {
 #line 456
-  __cil_tmp11 = (unsigned long )priv;
+  __cil_tmp7 = priv->adapter;
 #line 456
-  __cil_tmp12 = __cil_tmp11 + 32;
+  __cil_tmp8 = & __cil_tmp7->tx_queue;
 #line 456
-  __cil_tmp13 = *((struct btmrvl_adapter **)__cil_tmp12);
-#line 456
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 456
-  __cil_tmp15 = __cil_tmp14 + 8;
-#line 456
-  __cil_tmp16 = (struct sk_buff_head *)__cil_tmp15;
-#line 456
-  skb_queue_purge(__cil_tmp16);
+  skb_queue_purge(__cil_tmp8);
   }
 #line 458
   return (0);
@@ -11007,23 +9037,17 @@ static int btmrvl_close(struct hci_dev *hdev )
 }
 #line 461 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p"
 static int btmrvl_open(struct hci_dev *hdev ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long *__cil_tmp4 ;
-  unsigned long volatile   *__cil_tmp5 ;
+{ unsigned long *__cil_tmp2 ;
+  unsigned long volatile   *__cil_tmp3 ;
 
   {
   {
 #line 463
-  __cil_tmp2 = (unsigned long )hdev;
+  __cil_tmp2 = & hdev->flags;
 #line 463
-  __cil_tmp3 = __cil_tmp2 + 104;
+  __cil_tmp3 = (unsigned long volatile   *)__cil_tmp2;
 #line 463
-  __cil_tmp4 = (unsigned long *)__cil_tmp3;
-#line 463
-  __cil_tmp5 = (unsigned long volatile   *)__cil_tmp4;
-#line 463
-  set_bit(2U, __cil_tmp5);
+  set_bit(2U, __cil_tmp3);
   }
 #line 465
   return (0);
@@ -11068,187 +9092,78 @@ static int btmrvl_service_main_thread(void *data )
   raw_spinlock_t *tmp___14 ;
   int tmp___15 ;
   int tmp___16 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  void *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  wait_queue_head_t *__cil_tmp51 ;
-  long volatile   *__cil_tmp52 ;
-  long volatile   *__cil_tmp53 ;
-  long volatile   *__cil_tmp54 ;
-  long volatile   *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  u8 __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  u32 __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u8 __cil_tmp64 ;
-  unsigned int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct sk_buff_head *__cil_tmp68 ;
-  struct sk_buff_head  const  *__cil_tmp69 ;
-  struct _ddebug *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  char __cil_tmp78 ;
-  signed char __cil_tmp79 ;
+  void *__cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  wait_queue_head_t *__cil_tmp41 ;
+  long volatile   *__cil_tmp42 ;
+  long volatile   *__cil_tmp43 ;
+  long volatile   *__cil_tmp44 ;
+  long volatile   *__cil_tmp45 ;
+  u8 __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  u32 __cil_tmp48 ;
+  u8 __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  struct sk_buff_head *__cil_tmp51 ;
+  struct sk_buff_head  const  *__cil_tmp52 ;
+  signed char __cil_tmp53 ;
+  int __cil_tmp54 ;
+  int __cil_tmp55 ;
+  long __cil_tmp56 ;
+  long volatile   *__cil_tmp57 ;
+  long volatile   *__cil_tmp58 ;
+  long volatile   *__cil_tmp59 ;
+  long volatile   *__cil_tmp60 ;
+  wait_queue_head_t *__cil_tmp61 ;
+  signed char __cil_tmp62 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
+  long __cil_tmp65 ;
+  signed char __cil_tmp66 ;
+  int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  long __cil_tmp69 ;
+  spinlock_t *__cil_tmp70 ;
+  u32 __cil_tmp71 ;
+  spinlock_t *__cil_tmp72 ;
+  int (*__cil_tmp73)(struct btmrvl_private * ) ;
+  u8 __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
+  struct sk_buff_head *__cil_tmp76 ;
+  struct sk_buff_head  const  *__cil_tmp77 ;
+  spinlock_t *__cil_tmp78 ;
+  u8 __cil_tmp79 ;
   int __cil_tmp80 ;
   int __cil_tmp81 ;
-  long __cil_tmp82 ;
-  long volatile   *__cil_tmp83 ;
-  long volatile   *__cil_tmp84 ;
-  long volatile   *__cil_tmp85 ;
-  long volatile   *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  wait_queue_head_t *__cil_tmp89 ;
-  struct _ddebug *__cil_tmp90 ;
+  int (*__cil_tmp82)(struct btmrvl_private * ) ;
+  spinlock_t *__cil_tmp83 ;
+  spinlock_t *__cil_tmp84 ;
+  u8 __cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
+  u8 __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  struct sk_buff_head *__cil_tmp89 ;
+  struct sk_buff *__cil_tmp90 ;
   unsigned long __cil_tmp91 ;
   unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  char __cil_tmp98 ;
-  signed char __cil_tmp99 ;
-  int __cil_tmp100 ;
-  int __cil_tmp101 ;
-  long __cil_tmp102 ;
-  struct _ddebug *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  char __cil_tmp111 ;
-  signed char __cil_tmp112 ;
-  int __cil_tmp113 ;
-  int __cil_tmp114 ;
-  long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  spinlock_t *__cil_tmp118 ;
-  u32 __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  spinlock_t *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  int (*__cil_tmp125)(struct btmrvl_private * ) ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  u8 __cil_tmp128 ;
-  unsigned int __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  struct sk_buff_head *__cil_tmp132 ;
-  struct sk_buff_head  const  *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  spinlock_t *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  u8 __cil_tmp141 ;
-  int __cil_tmp142 ;
-  int __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  int (*__cil_tmp146)(struct btmrvl_private * ) ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  spinlock_t *__cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  spinlock_t *__cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  u8 __cil_tmp155 ;
-  unsigned int __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  u8 __cil_tmp160 ;
-  unsigned int __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  struct sk_buff_head *__cil_tmp164 ;
-  struct sk_buff *__cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  struct hci_dev *__cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  struct hci_dev *__cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  __u32 __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  struct hci_dev *__cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned int __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  struct hci_dev *__cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  __u32 __cil_tmp200 ;
+  struct hci_dev *__cil_tmp93 ;
+  struct hci_dev *__cil_tmp94 ;
+  __u32 __cil_tmp95 ;
+  struct hci_dev *__cil_tmp96 ;
+  unsigned int __cil_tmp97 ;
+  struct hci_dev *__cil_tmp98 ;
+  __u32 __cil_tmp99 ;
 
   {
   {
 #line 474
   thread = (struct btmrvl_thread *)data;
 #line 475
-  __cil_tmp39 = (unsigned long )thread;
+  __cil_tmp39 = thread->priv;
 #line 475
-  __cil_tmp40 = __cil_tmp39 + 96;
-#line 475
-  __cil_tmp41 = *((void **)__cil_tmp40);
-#line 475
-  priv = (struct btmrvl_private *)__cil_tmp41;
+  priv = (struct btmrvl_private *)__cil_tmp39;
 #line 476
-  __cil_tmp42 = (unsigned long )priv;
-#line 476
-  __cil_tmp43 = __cil_tmp42 + 32;
-#line 476
-  adapter = *((struct btmrvl_adapter **)__cil_tmp43);
+  adapter = priv->adapter;
 #line 481
   tmp = get_current();
 #line 481
@@ -11256,35 +9171,25 @@ static int btmrvl_service_main_thread(void *data )
 #line 483
   tmp___0 = get_current();
 #line 483
-  __cil_tmp44 = (unsigned long )tmp___0;
+  __cil_tmp40 = tmp___0->flags;
 #line 483
-  __cil_tmp45 = __cil_tmp44 + 20;
-#line 483
-  __cil_tmp46 = (unsigned long )tmp___0;
-#line 483
-  __cil_tmp47 = __cil_tmp46 + 20;
-#line 483
-  __cil_tmp48 = *((unsigned int *)__cil_tmp47);
-#line 483
-  *((unsigned int *)__cil_tmp45) = __cil_tmp48 | 32768U;
+  tmp___0->flags = __cil_tmp40 | 32768U;
   }
   ldv_39847: 
   {
 #line 486
-  __cil_tmp49 = (unsigned long )thread;
+  __cil_tmp41 = & thread->wait_q;
 #line 486
-  __cil_tmp50 = __cil_tmp49 + 8;
-#line 486
-  __cil_tmp51 = (wait_queue_head_t *)__cil_tmp50;
-#line 486
-  add_wait_queue(__cil_tmp51, & wait);
+  add_wait_queue(__cil_tmp41, & wait);
 #line 488
   __x = (long volatile   )1L;
   }
 #line 488
   if (1) {
+#line 488
     goto case_8;
   } else {
+#line 488
     goto switch_default;
 #line 488
     if (0) {
@@ -11292,46 +9197,50 @@ static int btmrvl_service_main_thread(void *data )
 #line 488
       tmp___1 = get_current();
 #line 488
-      __cil_tmp52 = (long volatile   *)tmp___1;
+      __cil_tmp42 = & tmp___1->state;
 #line 488
-      __ptr = (u8 volatile   *)__cil_tmp52;
+      __ptr = (u8 volatile   *)__cil_tmp42;
 #line 488
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
       }
+#line 488
       goto ldv_39817;
       {
 #line 488
       tmp___2 = get_current();
 #line 488
-      __cil_tmp53 = (long volatile   *)tmp___2;
+      __cil_tmp43 = & tmp___2->state;
 #line 488
-      __ptr___0 = (u16 volatile   *)__cil_tmp53;
+      __ptr___0 = (u16 volatile   *)__cil_tmp43;
 #line 488
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
       }
+#line 488
       goto ldv_39817;
       {
 #line 488
       tmp___3 = get_current();
 #line 488
-      __cil_tmp54 = (long volatile   *)tmp___3;
+      __cil_tmp44 = & tmp___3->state;
 #line 488
-      __ptr___1 = (u32 volatile   *)__cil_tmp54;
+      __ptr___1 = (u32 volatile   *)__cil_tmp44;
 #line 488
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
       }
+#line 488
       goto ldv_39817;
       case_8: 
       {
 #line 488
       tmp___4 = get_current();
 #line 488
-      __cil_tmp55 = (long volatile   *)tmp___4;
+      __cil_tmp45 = & tmp___4->state;
 #line 488
-      __ptr___2 = (u64 volatile   *)__cil_tmp55;
+      __ptr___2 = (u64 volatile   *)__cil_tmp45;
 #line 488
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
       }
+#line 488
       goto ldv_39817;
       switch_default: 
       {
@@ -11345,95 +9254,65 @@ static int btmrvl_service_main_thread(void *data )
   ldv_39817: ;
   {
 #line 490
-  __cil_tmp56 = (unsigned long )adapter;
+  __cil_tmp46 = adapter->wakeup_tries;
 #line 490
-  __cil_tmp57 = __cil_tmp56 + 107;
+  __cil_tmp47 = (unsigned int )__cil_tmp46;
 #line 490
-  __cil_tmp58 = *((u8 *)__cil_tmp57);
+  if (__cil_tmp47 != 0U) {
 #line 490
-  __cil_tmp59 = (unsigned int )__cil_tmp58;
-#line 490
-  if (__cil_tmp59 != 0U) {
     goto _L___0;
   } else {
     {
 #line 490
-    __cil_tmp60 = *((u32 *)adapter);
+    __cil_tmp48 = adapter->int_count;
 #line 490
-    if (__cil_tmp60 == 0U) {
+    if (__cil_tmp48 == 0U) {
       {
 #line 490
-      __cil_tmp61 = 0 + 17;
+      __cil_tmp49 = priv->btmrvl_dev.tx_dnld_rdy;
 #line 490
-      __cil_tmp62 = (unsigned long )priv;
+      __cil_tmp50 = (unsigned int )__cil_tmp49;
 #line 490
-      __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
+      if (__cil_tmp50 == 0U) {
 #line 490
-      __cil_tmp64 = *((u8 *)__cil_tmp63);
-#line 490
-      __cil_tmp65 = (unsigned int )__cil_tmp64;
-#line 490
-      if (__cil_tmp65 == 0U) {
         goto _L___0;
       } else {
         {
 #line 490
-        __cil_tmp66 = (unsigned long )adapter;
+        __cil_tmp51 = & adapter->tx_queue;
 #line 490
-        __cil_tmp67 = __cil_tmp66 + 8;
+        __cil_tmp52 = (struct sk_buff_head  const  *)__cil_tmp51;
 #line 490
-        __cil_tmp68 = (struct sk_buff_head *)__cil_tmp67;
-#line 490
-        __cil_tmp69 = (struct sk_buff_head  const  *)__cil_tmp68;
-#line 490
-        tmp___6 = skb_queue_empty(__cil_tmp69);
+        tmp___6 = skb_queue_empty(__cil_tmp52);
         }
 #line 490
         if (tmp___6 != 0) {
           _L___0: 
           {
 #line 494
-          __cil_tmp70 = & descriptor;
+          descriptor.modname = "btmrvl";
 #line 494
-          *((char const   **)__cil_tmp70) = "btmrvl";
+          descriptor.function = "btmrvl_service_main_thread";
 #line 494
-          __cil_tmp71 = (unsigned long )(& descriptor) + 8;
+          descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 494
-          *((char const   **)__cil_tmp71) = "btmrvl_service_main_thread";
+          descriptor.format = "%s: main_thread is sleeping...\n";
 #line 494
-          __cil_tmp72 = (unsigned long )(& descriptor) + 16;
+          descriptor.lineno = 494U;
 #line 494
-          *((char const   **)__cil_tmp72) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+          descriptor.flags = (unsigned char)0;
 #line 494
-          __cil_tmp73 = (unsigned long )(& descriptor) + 24;
+          descriptor.enabled = (char)0;
 #line 494
-          *((char const   **)__cil_tmp73) = "%s: main_thread is sleeping...\n";
+          __cil_tmp53 = (signed char )descriptor.enabled;
 #line 494
-          __cil_tmp74 = (unsigned long )(& descriptor) + 32;
+          __cil_tmp54 = (int )__cil_tmp53;
 #line 494
-          *((unsigned int *)__cil_tmp74) = 494U;
+          __cil_tmp55 = __cil_tmp54 != 0;
 #line 494
-          __cil_tmp75 = (unsigned long )(& descriptor) + 35;
+          __cil_tmp56 = (long )__cil_tmp55;
 #line 494
-          *((unsigned char *)__cil_tmp75) = (unsigned char)0;
-#line 494
-          __cil_tmp76 = (unsigned long )(& descriptor) + 36;
-#line 494
-          *((char *)__cil_tmp76) = (char)0;
-#line 494
-          __cil_tmp77 = (unsigned long )(& descriptor) + 36;
-#line 494
-          __cil_tmp78 = *((char *)__cil_tmp77);
-#line 494
-          __cil_tmp79 = (signed char )__cil_tmp78;
-#line 494
-          __cil_tmp80 = (int )__cil_tmp79;
-#line 494
-          __cil_tmp81 = __cil_tmp80 != 0;
-#line 494
-          __cil_tmp82 = (long )__cil_tmp81;
-#line 494
-          tmp___5 = __builtin_expect(__cil_tmp82, 0L);
+          tmp___5 = __builtin_expect(__cil_tmp56, 0L);
           }
 #line 494
           if (tmp___5 != 0L) {
@@ -11463,8 +9342,10 @@ static int btmrvl_service_main_thread(void *data )
   __x___0 = (long volatile   )0L;
 #line 498
   if (1) {
+#line 498
     goto case_8___0;
   } else {
+#line 498
     goto switch_default___0;
 #line 498
     if (0) {
@@ -11472,46 +9353,50 @@ static int btmrvl_service_main_thread(void *data )
 #line 498
       tmp___7 = get_current();
 #line 498
-      __cil_tmp83 = (long volatile   *)tmp___7;
+      __cil_tmp57 = & tmp___7->state;
 #line 498
-      __ptr___3 = (u8 volatile   *)__cil_tmp83;
+      __ptr___3 = (u8 volatile   *)__cil_tmp57;
 #line 498
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x___0), "+m" (*__ptr___3): "0" (__x___0): "memory");
       }
+#line 498
       goto ldv_39831;
       {
 #line 498
       tmp___8 = get_current();
 #line 498
-      __cil_tmp84 = (long volatile   *)tmp___8;
+      __cil_tmp58 = & tmp___8->state;
 #line 498
-      __ptr___4 = (u16 volatile   *)__cil_tmp84;
+      __ptr___4 = (u16 volatile   *)__cil_tmp58;
 #line 498
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x___0), "+m" (*__ptr___4): "0" (__x___0): "memory");
       }
+#line 498
       goto ldv_39831;
       {
 #line 498
       tmp___9 = get_current();
 #line 498
-      __cil_tmp85 = (long volatile   *)tmp___9;
+      __cil_tmp59 = & tmp___9->state;
 #line 498
-      __ptr___5 = (u32 volatile   *)__cil_tmp85;
+      __ptr___5 = (u32 volatile   *)__cil_tmp59;
 #line 498
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x___0), "+m" (*__ptr___5): "0" (__x___0): "memory");
       }
+#line 498
       goto ldv_39831;
       case_8___0: 
       {
 #line 498
       tmp___10 = get_current();
 #line 498
-      __cil_tmp86 = (long volatile   *)tmp___10;
+      __cil_tmp60 = & tmp___10->state;
 #line 498
-      __ptr___6 = (u64 volatile   *)__cil_tmp86;
+      __ptr___6 = (u64 volatile   *)__cil_tmp60;
 #line 498
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x___0), "+m" (*__ptr___6): "0" (__x___0): "memory");
       }
+#line 498
       goto ldv_39831;
       switch_default___0: 
       {
@@ -11525,55 +9410,33 @@ static int btmrvl_service_main_thread(void *data )
   ldv_39831: 
   {
 #line 500
-  __cil_tmp87 = (unsigned long )thread;
+  __cil_tmp61 = & thread->wait_q;
 #line 500
-  __cil_tmp88 = __cil_tmp87 + 8;
-#line 500
-  __cil_tmp89 = (wait_queue_head_t *)__cil_tmp88;
-#line 500
-  remove_wait_queue(__cil_tmp89, & wait);
+  remove_wait_queue(__cil_tmp61, & wait);
 #line 502
-  __cil_tmp90 = & descriptor___0;
+  descriptor___0.modname = "btmrvl";
 #line 502
-  *((char const   **)__cil_tmp90) = "btmrvl";
+  descriptor___0.function = "btmrvl_service_main_thread";
 #line 502
-  __cil_tmp91 = (unsigned long )(& descriptor___0) + 8;
+  descriptor___0.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 502
-  *((char const   **)__cil_tmp91) = "btmrvl_service_main_thread";
+  descriptor___0.format = "%s: main_thread woke up\n";
 #line 502
-  __cil_tmp92 = (unsigned long )(& descriptor___0) + 16;
+  descriptor___0.lineno = 502U;
 #line 502
-  *((char const   **)__cil_tmp92) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+  descriptor___0.flags = (unsigned char)0;
 #line 502
-  __cil_tmp93 = (unsigned long )(& descriptor___0) + 24;
+  descriptor___0.enabled = (char)0;
 #line 502
-  *((char const   **)__cil_tmp93) = "%s: main_thread woke up\n";
+  __cil_tmp62 = (signed char )descriptor___0.enabled;
 #line 502
-  __cil_tmp94 = (unsigned long )(& descriptor___0) + 32;
+  __cil_tmp63 = (int )__cil_tmp62;
 #line 502
-  *((unsigned int *)__cil_tmp94) = 502U;
+  __cil_tmp64 = __cil_tmp63 != 0;
 #line 502
-  __cil_tmp95 = (unsigned long )(& descriptor___0) + 35;
+  __cil_tmp65 = (long )__cil_tmp64;
 #line 502
-  *((unsigned char *)__cil_tmp95) = (unsigned char)0;
-#line 502
-  __cil_tmp96 = (unsigned long )(& descriptor___0) + 36;
-#line 502
-  *((char *)__cil_tmp96) = (char)0;
-#line 502
-  __cil_tmp97 = (unsigned long )(& descriptor___0) + 36;
-#line 502
-  __cil_tmp98 = *((char *)__cil_tmp97);
-#line 502
-  __cil_tmp99 = (signed char )__cil_tmp98;
-#line 502
-  __cil_tmp100 = (int )__cil_tmp99;
-#line 502
-  __cil_tmp101 = __cil_tmp100 != 0;
-#line 502
-  __cil_tmp102 = (long )__cil_tmp101;
-#line 502
-  tmp___11 = __builtin_expect(__cil_tmp102, 0L);
+  tmp___11 = __builtin_expect(__cil_tmp65, 0L);
   }
 #line 502
   if (tmp___11 != 0L) {
@@ -11592,47 +9455,29 @@ static int btmrvl_service_main_thread(void *data )
   if (tmp___13 != 0) {
     {
 #line 505
-    __cil_tmp103 = & descriptor___1;
+    descriptor___1.modname = "btmrvl";
 #line 505
-    *((char const   **)__cil_tmp103) = "btmrvl";
+    descriptor___1.function = "btmrvl_service_main_thread";
 #line 505
-    __cil_tmp104 = (unsigned long )(& descriptor___1) + 8;
+    descriptor___1.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 505
-    *((char const   **)__cil_tmp104) = "btmrvl_service_main_thread";
+    descriptor___1.format = "%s: main_thread: break from main thread\n";
 #line 505
-    __cil_tmp105 = (unsigned long )(& descriptor___1) + 16;
+    descriptor___1.lineno = 505U;
 #line 505
-    *((char const   **)__cil_tmp105) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+    descriptor___1.flags = (unsigned char)0;
 #line 505
-    __cil_tmp106 = (unsigned long )(& descriptor___1) + 24;
+    descriptor___1.enabled = (char)0;
 #line 505
-    *((char const   **)__cil_tmp106) = "%s: main_thread: break from main thread\n";
+    __cil_tmp66 = (signed char )descriptor___1.enabled;
 #line 505
-    __cil_tmp107 = (unsigned long )(& descriptor___1) + 32;
+    __cil_tmp67 = (int )__cil_tmp66;
 #line 505
-    *((unsigned int *)__cil_tmp107) = 505U;
+    __cil_tmp68 = __cil_tmp67 != 0;
 #line 505
-    __cil_tmp108 = (unsigned long )(& descriptor___1) + 35;
+    __cil_tmp69 = (long )__cil_tmp68;
 #line 505
-    *((unsigned char *)__cil_tmp108) = (unsigned char)0;
-#line 505
-    __cil_tmp109 = (unsigned long )(& descriptor___1) + 36;
-#line 505
-    *((char *)__cil_tmp109) = (char)0;
-#line 505
-    __cil_tmp110 = (unsigned long )(& descriptor___1) + 36;
-#line 505
-    __cil_tmp111 = *((char *)__cil_tmp110);
-#line 505
-    __cil_tmp112 = (signed char )__cil_tmp111;
-#line 505
-    __cil_tmp113 = (int )__cil_tmp112;
-#line 505
-    __cil_tmp114 = __cil_tmp113 != 0;
-#line 505
-    __cil_tmp115 = (long )__cil_tmp114;
-#line 505
-    tmp___12 = __builtin_expect(__cil_tmp115, 0L);
+    tmp___12 = __builtin_expect(__cil_tmp69, 0L);
     }
 #line 505
     if (tmp___12 != 0L) {
@@ -11644,130 +9489,88 @@ static int btmrvl_service_main_thread(void *data )
     } else {
 
     }
+#line 506
     goto ldv_39842;
   } else {
 
   }
   {
 #line 509
-  __cil_tmp116 = (unsigned long )priv;
+  __cil_tmp70 = & priv->driver_lock;
 #line 509
-  __cil_tmp117 = __cil_tmp116 + 168;
-#line 509
-  __cil_tmp118 = (spinlock_t *)__cil_tmp117;
-#line 509
-  tmp___14 = spinlock_check(__cil_tmp118);
+  tmp___14 = spinlock_check(__cil_tmp70);
 #line 509
   flags = _raw_spin_lock_irqsave(tmp___14);
   }
   {
 #line 510
-  __cil_tmp119 = *((u32 *)adapter);
+  __cil_tmp71 = adapter->int_count;
 #line 510
-  if (__cil_tmp119 != 0U) {
+  if (__cil_tmp71 != 0U) {
     {
 #line 511
-    *((u32 *)adapter) = 0U;
+    adapter->int_count = 0U;
 #line 512
-    __cil_tmp120 = (unsigned long )priv;
+    __cil_tmp72 = & priv->driver_lock;
 #line 512
-    __cil_tmp121 = __cil_tmp120 + 168;
-#line 512
-    __cil_tmp122 = (spinlock_t *)__cil_tmp121;
-#line 512
-    spin_unlock_irqrestore(__cil_tmp122, flags);
+    spin_unlock_irqrestore(__cil_tmp72, flags);
 #line 513
-    __cil_tmp123 = (unsigned long )priv;
+    __cil_tmp73 = priv->hw_process_int_status;
 #line 513
-    __cil_tmp124 = __cil_tmp123 + 160;
-#line 513
-    __cil_tmp125 = *((int (**)(struct btmrvl_private * ))__cil_tmp124);
-#line 513
-    (*__cil_tmp125)(priv);
+    (*__cil_tmp73)(priv);
     }
   } else {
     {
 #line 514
-    __cil_tmp126 = (unsigned long )adapter;
+    __cil_tmp74 = adapter->ps_state;
 #line 514
-    __cil_tmp127 = __cil_tmp126 + 105;
+    __cil_tmp75 = (unsigned int )__cil_tmp74;
 #line 514
-    __cil_tmp128 = *((u8 *)__cil_tmp127);
-#line 514
-    __cil_tmp129 = (unsigned int )__cil_tmp128;
-#line 514
-    if (__cil_tmp129 == 1U) {
+    if (__cil_tmp75 == 1U) {
       {
 #line 514
-      __cil_tmp130 = (unsigned long )adapter;
+      __cil_tmp76 = & adapter->tx_queue;
 #line 514
-      __cil_tmp131 = __cil_tmp130 + 8;
+      __cil_tmp77 = (struct sk_buff_head  const  *)__cil_tmp76;
 #line 514
-      __cil_tmp132 = (struct sk_buff_head *)__cil_tmp131;
-#line 514
-      __cil_tmp133 = (struct sk_buff_head  const  *)__cil_tmp132;
-#line 514
-      tmp___15 = skb_queue_empty(__cil_tmp133);
+      tmp___15 = skb_queue_empty(__cil_tmp77);
       }
 #line 514
       if (tmp___15 == 0) {
         {
 #line 516
-        __cil_tmp134 = (unsigned long )priv;
+        __cil_tmp78 = & priv->driver_lock;
 #line 516
-        __cil_tmp135 = __cil_tmp134 + 168;
-#line 516
-        __cil_tmp136 = (spinlock_t *)__cil_tmp135;
-#line 516
-        spin_unlock_irqrestore(__cil_tmp136, flags);
+        spin_unlock_irqrestore(__cil_tmp78, flags);
 #line 517
-        __cil_tmp137 = (unsigned long )adapter;
+        __cil_tmp79 = adapter->wakeup_tries;
 #line 517
-        __cil_tmp138 = __cil_tmp137 + 107;
+        __cil_tmp80 = (int )__cil_tmp79;
 #line 517
-        __cil_tmp139 = (unsigned long )adapter;
+        __cil_tmp81 = __cil_tmp80 + 1;
 #line 517
-        __cil_tmp140 = __cil_tmp139 + 107;
-#line 517
-        __cil_tmp141 = *((u8 *)__cil_tmp140);
-#line 517
-        __cil_tmp142 = (int )__cil_tmp141;
-#line 517
-        __cil_tmp143 = __cil_tmp142 + 1;
-#line 517
-        *((u8 *)__cil_tmp138) = (unsigned char )__cil_tmp143;
+        adapter->wakeup_tries = (u8 )__cil_tmp81;
 #line 518
-        __cil_tmp144 = (unsigned long )priv;
+        __cil_tmp82 = priv->hw_wakeup_firmware;
 #line 518
-        __cil_tmp145 = __cil_tmp144 + 152;
-#line 518
-        __cil_tmp146 = *((int (**)(struct btmrvl_private * ))__cil_tmp145);
-#line 518
-        (*__cil_tmp146)(priv);
+        (*__cil_tmp82)(priv);
         }
+#line 519
         goto ldv_39846;
       } else {
         {
 #line 521
-        __cil_tmp147 = (unsigned long )priv;
+        __cil_tmp83 = & priv->driver_lock;
 #line 521
-        __cil_tmp148 = __cil_tmp147 + 168;
-#line 521
-        __cil_tmp149 = (spinlock_t *)__cil_tmp148;
-#line 521
-        spin_unlock_irqrestore(__cil_tmp149, flags);
+        spin_unlock_irqrestore(__cil_tmp83, flags);
         }
       }
     } else {
       {
 #line 521
-      __cil_tmp150 = (unsigned long )priv;
+      __cil_tmp84 = & priv->driver_lock;
 #line 521
-      __cil_tmp151 = __cil_tmp150 + 168;
-#line 521
-      __cil_tmp152 = (spinlock_t *)__cil_tmp151;
-#line 521
-      spin_unlock_irqrestore(__cil_tmp152, flags);
+      spin_unlock_irqrestore(__cil_tmp84, flags);
       }
     }
     }
@@ -11775,15 +9578,12 @@ static int btmrvl_service_main_thread(void *data )
   }
   {
 #line 524
-  __cil_tmp153 = (unsigned long )adapter;
+  __cil_tmp85 = adapter->ps_state;
 #line 524
-  __cil_tmp154 = __cil_tmp153 + 105;
+  __cil_tmp86 = (unsigned int )__cil_tmp85;
 #line 524
-  __cil_tmp155 = *((u8 *)__cil_tmp154);
-#line 524
-  __cil_tmp156 = (unsigned int )__cil_tmp155;
-#line 524
-  if (__cil_tmp156 == 1U) {
+  if (__cil_tmp86 == 1U) {
+#line 525
     goto ldv_39846;
   } else {
 
@@ -11791,17 +9591,12 @@ static int btmrvl_service_main_thread(void *data )
   }
   {
 #line 527
-  __cil_tmp157 = 0 + 17;
+  __cil_tmp87 = priv->btmrvl_dev.tx_dnld_rdy;
 #line 527
-  __cil_tmp158 = (unsigned long )priv;
+  __cil_tmp88 = (unsigned int )__cil_tmp87;
 #line 527
-  __cil_tmp159 = __cil_tmp158 + __cil_tmp157;
-#line 527
-  __cil_tmp160 = *((u8 *)__cil_tmp159);
-#line 527
-  __cil_tmp161 = (unsigned int )__cil_tmp160;
-#line 527
-  if (__cil_tmp161 == 0U) {
+  if (__cil_tmp88 == 0U) {
+#line 528
     goto ldv_39846;
   } else {
 
@@ -11809,23 +9604,19 @@ static int btmrvl_service_main_thread(void *data )
   }
   {
 #line 530
-  __cil_tmp162 = (unsigned long )adapter;
+  __cil_tmp89 = & adapter->tx_queue;
 #line 530
-  __cil_tmp163 = __cil_tmp162 + 8;
-#line 530
-  __cil_tmp164 = (struct sk_buff_head *)__cil_tmp163;
-#line 530
-  skb = skb_dequeue(__cil_tmp164);
+  skb = skb_dequeue(__cil_tmp89);
   }
   {
 #line 531
-  __cil_tmp165 = (struct sk_buff *)0;
+  __cil_tmp90 = (struct sk_buff *)0;
 #line 531
-  __cil_tmp166 = (unsigned long )__cil_tmp165;
+  __cil_tmp91 = (unsigned long )__cil_tmp90;
 #line 531
-  __cil_tmp167 = (unsigned long )skb;
+  __cil_tmp92 = (unsigned long )skb;
 #line 531
-  if (__cil_tmp167 != __cil_tmp166) {
+  if (__cil_tmp92 != __cil_tmp91) {
     {
 #line 532
     tmp___16 = btmrvl_tx_pkt(priv, skb);
@@ -11833,76 +9624,24 @@ static int btmrvl_service_main_thread(void *data )
 #line 532
     if (tmp___16 != 0) {
 #line 533
-      __cil_tmp168 = 2200 + 4;
+      __cil_tmp93 = priv->btmrvl_dev.hcidev;
 #line 533
-      __cil_tmp169 = 0 + 8;
+      __cil_tmp94 = priv->btmrvl_dev.hcidev;
 #line 533
-      __cil_tmp170 = (unsigned long )priv;
+      __cil_tmp95 = __cil_tmp94->stat.err_tx;
 #line 533
-      __cil_tmp171 = __cil_tmp170 + __cil_tmp169;
-#line 533
-      __cil_tmp172 = *((struct hci_dev **)__cil_tmp171);
-#line 533
-      __cil_tmp173 = (unsigned long )__cil_tmp172;
-#line 533
-      __cil_tmp174 = __cil_tmp173 + __cil_tmp168;
-#line 533
-      __cil_tmp175 = 2200 + 4;
-#line 533
-      __cil_tmp176 = 0 + 8;
-#line 533
-      __cil_tmp177 = (unsigned long )priv;
-#line 533
-      __cil_tmp178 = __cil_tmp177 + __cil_tmp176;
-#line 533
-      __cil_tmp179 = *((struct hci_dev **)__cil_tmp178);
-#line 533
-      __cil_tmp180 = (unsigned long )__cil_tmp179;
-#line 533
-      __cil_tmp181 = __cil_tmp180 + __cil_tmp175;
-#line 533
-      __cil_tmp182 = *((__u32 *)__cil_tmp181);
-#line 533
-      *((__u32 *)__cil_tmp174) = __cil_tmp182 + 1U;
+      __cil_tmp93->stat.err_tx = __cil_tmp95 + 1U;
     } else {
 #line 535
-      __cil_tmp183 = 2200 + 36;
+      __cil_tmp96 = priv->btmrvl_dev.hcidev;
 #line 535
-      __cil_tmp184 = 0 + 8;
+      __cil_tmp97 = skb->len;
 #line 535
-      __cil_tmp185 = (unsigned long )priv;
+      __cil_tmp98 = priv->btmrvl_dev.hcidev;
 #line 535
-      __cil_tmp186 = __cil_tmp185 + __cil_tmp184;
+      __cil_tmp99 = __cil_tmp98->stat.byte_tx;
 #line 535
-      __cil_tmp187 = *((struct hci_dev **)__cil_tmp186);
-#line 535
-      __cil_tmp188 = (unsigned long )__cil_tmp187;
-#line 535
-      __cil_tmp189 = __cil_tmp188 + __cil_tmp183;
-#line 535
-      __cil_tmp190 = (unsigned long )skb;
-#line 535
-      __cil_tmp191 = __cil_tmp190 + 104;
-#line 535
-      __cil_tmp192 = *((unsigned int *)__cil_tmp191);
-#line 535
-      __cil_tmp193 = 2200 + 36;
-#line 535
-      __cil_tmp194 = 0 + 8;
-#line 535
-      __cil_tmp195 = (unsigned long )priv;
-#line 535
-      __cil_tmp196 = __cil_tmp195 + __cil_tmp194;
-#line 535
-      __cil_tmp197 = *((struct hci_dev **)__cil_tmp196);
-#line 535
-      __cil_tmp198 = (unsigned long )__cil_tmp197;
-#line 535
-      __cil_tmp199 = __cil_tmp198 + __cil_tmp193;
-#line 535
-      __cil_tmp200 = *((__u32 *)__cil_tmp199);
-#line 535
-      *((__u32 *)__cil_tmp189) = __cil_tmp200 + __cil_tmp192;
+      __cil_tmp96->stat.byte_tx = __cil_tmp99 + __cil_tmp97;
     }
     {
 #line 537
@@ -11913,6 +9652,7 @@ static int btmrvl_service_main_thread(void *data )
   }
   }
   ldv_39846: ;
+#line 539
   goto ldv_39847;
   ldv_39842: ;
 #line 541
@@ -11926,36 +9666,8 @@ int btmrvl_register_hdev(struct btmrvl_private *priv )
   struct hci_dev *__cil_tmp4 ;
   unsigned long __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct task_struct *__cil_tmp35 ;
-  void const   *__cil_tmp36 ;
+  struct task_struct *__cil_tmp7 ;
+  void const   *__cil_tmp8 ;
 
   {
   {
@@ -11977,6 +9689,7 @@ int btmrvl_register_hdev(struct btmrvl_private *priv )
 #line 551
     printk("<3>%s: Can not allocate HCI device\n", "btmrvl_register_hdev");
     }
+#line 552
     goto err_hdev;
   } else {
 
@@ -11984,81 +9697,29 @@ int btmrvl_register_hdev(struct btmrvl_private *priv )
   }
   {
 #line 555
-  __cil_tmp7 = 0 + 8;
-#line 555
-  __cil_tmp8 = (unsigned long )priv;
-#line 555
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 555
-  *((struct hci_dev **)__cil_tmp9) = hdev;
+  priv->btmrvl_dev.hcidev = hdev;
 #line 556
-  __cil_tmp10 = (unsigned long )hdev;
-#line 556
-  __cil_tmp11 = __cil_tmp10 + 2336;
-#line 556
-  *((void **)__cil_tmp11) = (void *)priv;
+  hdev->driver_data = (void *)priv;
 #line 558
-  __cil_tmp12 = (unsigned long )hdev;
-#line 558
-  __cil_tmp13 = __cil_tmp12 + 114;
-#line 558
-  *((__u8 *)__cil_tmp13) = (unsigned char)6;
+  hdev->bus = (__u8 )6U;
 #line 559
-  __cil_tmp14 = (unsigned long )hdev;
-#line 559
-  __cil_tmp15 = __cil_tmp14 + 3560;
-#line 559
-  *((int (**)(struct hci_dev * ))__cil_tmp15) = & btmrvl_open;
+  hdev->open = & btmrvl_open;
 #line 560
-  __cil_tmp16 = (unsigned long )hdev;
-#line 560
-  __cil_tmp17 = __cil_tmp16 + 3568;
-#line 560
-  *((int (**)(struct hci_dev * ))__cil_tmp17) = & btmrvl_close;
+  hdev->close = & btmrvl_close;
 #line 561
-  __cil_tmp18 = (unsigned long )hdev;
-#line 561
-  __cil_tmp19 = __cil_tmp18 + 3576;
-#line 561
-  *((int (**)(struct hci_dev * ))__cil_tmp19) = & btmrvl_flush;
+  hdev->flush = & btmrvl_flush;
 #line 562
-  __cil_tmp20 = (unsigned long )hdev;
-#line 562
-  __cil_tmp21 = __cil_tmp20 + 3584;
-#line 562
-  *((int (**)(struct sk_buff * ))__cil_tmp21) = & btmrvl_send_frame;
+  hdev->send = & btmrvl_send_frame;
 #line 563
-  __cil_tmp22 = (unsigned long )hdev;
-#line 563
-  __cil_tmp23 = __cil_tmp22 + 3592;
-#line 563
-  *((void (**)(struct hci_dev * ))__cil_tmp23) = & btmrvl_destruct;
+  hdev->destruct = & btmrvl_destruct;
 #line 564
-  __cil_tmp24 = (unsigned long )hdev;
-#line 564
-  __cil_tmp25 = __cil_tmp24 + 3608;
-#line 564
-  *((int (**)(struct hci_dev * , unsigned int  , unsigned long  ))__cil_tmp25) = & btmrvl_ioctl;
+  hdev->ioctl = & btmrvl_ioctl;
 #line 565
-  __cil_tmp26 = (unsigned long )hdev;
-#line 565
-  __cil_tmp27 = __cil_tmp26 + 3552;
-#line 565
-  *((struct module **)__cil_tmp27) = & __this_module;
+  hdev->owner = & __this_module;
 #line 567
   btmrvl_send_module_cfg_cmd(priv, 241);
 #line 569
-  __cil_tmp28 = (unsigned long )hdev;
-#line 569
-  __cil_tmp29 = __cil_tmp28 + 115;
-#line 569
-  __cil_tmp30 = 0 + 16;
-#line 569
-  __cil_tmp31 = (unsigned long )priv;
-#line 569
-  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 569
-  *((__u8 *)__cil_tmp29) = *((u8 *)__cil_tmp32);
+  hdev->dev_type = priv->btmrvl_dev.dev_type;
 #line 571
   ret = hci_register_dev(hdev);
   }
@@ -12068,6 +9729,7 @@ int btmrvl_register_hdev(struct btmrvl_private *priv )
 #line 573
     printk("<3>%s: Can not register HCI device\n", "btmrvl_register_hdev");
     }
+#line 574
     goto err_hci_register_dev;
   } else {
 
@@ -12086,19 +9748,15 @@ int btmrvl_register_hdev(struct btmrvl_private *priv )
   err_hdev: 
   {
 #line 588
-  __cil_tmp33 = (unsigned long )priv;
+  __cil_tmp7 = priv->main_thread.task;
 #line 588
-  __cil_tmp34 = __cil_tmp33 + 40;
-#line 588
-  __cil_tmp35 = *((struct task_struct **)__cil_tmp34);
-#line 588
-  kthread_stop(__cil_tmp35);
+  kthread_stop(__cil_tmp7);
 #line 590
   btmrvl_free_adapter(priv);
 #line 591
-  __cil_tmp36 = (void const   *)priv;
+  __cil_tmp8 = (void const   *)priv;
 #line 591
-  kfree(__cil_tmp36);
+  kfree(__cil_tmp8);
   }
 #line 593
   return (-12);
@@ -12119,51 +9777,21 @@ struct btmrvl_private *btmrvl_add_card(void *card )
   struct btmrvl_private *__cil_tmp12 ;
   unsigned long __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  struct btmrvl_adapter *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
   struct btmrvl_adapter *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct btmrvl_adapter *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct _ddebug *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  char __cil_tmp31 ;
-  signed char __cil_tmp32 ;
-  int __cil_tmp33 ;
-  int __cil_tmp34 ;
-  long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  spinlock_t *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct raw_spinlock *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  wait_queue_head_t *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct btmrvl_thread *__cil_tmp51 ;
-  void *__cil_tmp52 ;
-  void const   *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  void const   *__cil_tmp59 ;
+  signed char __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  long __cil_tmp22 ;
+  spinlock_t *__cil_tmp23 ;
+  struct raw_spinlock *__cil_tmp24 ;
+  wait_queue_head_t *__cil_tmp25 ;
+  struct btmrvl_thread *__cil_tmp26 ;
+  void *__cil_tmp27 ;
+  void const   *__cil_tmp28 ;
+  void const   *__cil_tmp29 ;
 
   {
   {
@@ -12185,6 +9813,7 @@ struct btmrvl_private *btmrvl_add_card(void *card )
 #line 603
     printk("<3>%s: Can not allocate priv\n", "btmrvl_add_card");
     }
+#line 604
     goto err_priv;
   } else {
 
@@ -12194,31 +9823,24 @@ struct btmrvl_private *btmrvl_add_card(void *card )
 #line 607
   tmp___0 = kzalloc(208UL, 208U);
 #line 607
-  __cil_tmp15 = (unsigned long )priv;
-#line 607
-  __cil_tmp16 = __cil_tmp15 + 32;
-#line 607
-  *((struct btmrvl_adapter **)__cil_tmp16) = (struct btmrvl_adapter *)tmp___0;
+  priv->adapter = (struct btmrvl_adapter *)tmp___0;
   }
   {
 #line 608
-  __cil_tmp17 = (struct btmrvl_adapter *)0;
+  __cil_tmp15 = (struct btmrvl_adapter *)0;
+#line 608
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
+#line 608
+  __cil_tmp17 = priv->adapter;
 #line 608
   __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 608
-  __cil_tmp19 = (unsigned long )priv;
-#line 608
-  __cil_tmp20 = __cil_tmp19 + 32;
-#line 608
-  __cil_tmp21 = *((struct btmrvl_adapter **)__cil_tmp20);
-#line 608
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 608
-  if (__cil_tmp22 == __cil_tmp18) {
+  if (__cil_tmp18 == __cil_tmp16) {
     {
 #line 609
     printk("<3>%s: Allocate buffer for btmrvl_adapter failed!\n", "btmrvl_add_card");
     }
+#line 610
     goto err_adapter;
   } else {
 
@@ -12228,47 +9850,29 @@ struct btmrvl_private *btmrvl_add_card(void *card )
 #line 613
   btmrvl_init_adapter(priv);
 #line 615
-  __cil_tmp23 = & descriptor;
+  descriptor.modname = "btmrvl";
 #line 615
-  *((char const   **)__cil_tmp23) = "btmrvl";
+  descriptor.function = "btmrvl_add_card";
 #line 615
-  __cil_tmp24 = (unsigned long )(& descriptor) + 8;
+  descriptor.filename = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
 #line 615
-  *((char const   **)__cil_tmp24) = "btmrvl_add_card";
+  descriptor.format = "%s: Starting kthread...\n";
 #line 615
-  __cil_tmp25 = (unsigned long )(& descriptor) + 16;
+  descriptor.lineno = 615U;
 #line 615
-  *((char const   **)__cil_tmp25) = "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p";
+  descriptor.flags = (unsigned char)0;
 #line 615
-  __cil_tmp26 = (unsigned long )(& descriptor) + 24;
+  descriptor.enabled = (char)0;
 #line 615
-  *((char const   **)__cil_tmp26) = "%s: Starting kthread...\n";
+  __cil_tmp19 = (signed char )descriptor.enabled;
 #line 615
-  __cil_tmp27 = (unsigned long )(& descriptor) + 32;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 615
-  *((unsigned int *)__cil_tmp27) = 615U;
+  __cil_tmp21 = __cil_tmp20 != 0;
 #line 615
-  __cil_tmp28 = (unsigned long )(& descriptor) + 35;
+  __cil_tmp22 = (long )__cil_tmp21;
 #line 615
-  *((unsigned char *)__cil_tmp28) = (unsigned char)0;
-#line 615
-  __cil_tmp29 = (unsigned long )(& descriptor) + 36;
-#line 615
-  *((char *)__cil_tmp29) = (char)0;
-#line 615
-  __cil_tmp30 = (unsigned long )(& descriptor) + 36;
-#line 615
-  __cil_tmp31 = *((char *)__cil_tmp30);
-#line 615
-  __cil_tmp32 = (signed char )__cil_tmp31;
-#line 615
-  __cil_tmp33 = (int )__cil_tmp32;
-#line 615
-  __cil_tmp34 = __cil_tmp33 != 0;
-#line 615
-  __cil_tmp35 = (long )__cil_tmp34;
-#line 615
-  tmp___1 = __builtin_expect(__cil_tmp35, 0L);
+  tmp___1 = __builtin_expect(__cil_tmp22, 0L);
   }
 #line 615
   if (tmp___1 != 0L) {
@@ -12281,56 +9885,32 @@ struct btmrvl_private *btmrvl_add_card(void *card )
   }
   {
 #line 616
-  __cil_tmp36 = 40 + 96;
-#line 616
-  __cil_tmp37 = (unsigned long )priv;
-#line 616
-  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 616
-  *((void **)__cil_tmp38) = (void *)priv;
+  priv->main_thread.priv = (void *)priv;
 #line 617
-  __cil_tmp39 = (unsigned long )priv;
+  __cil_tmp23 = & priv->driver_lock;
 #line 617
-  __cil_tmp40 = __cil_tmp39 + 168;
+  spinlock_check(__cil_tmp23);
 #line 617
-  __cil_tmp41 = (spinlock_t *)__cil_tmp40;
+  __cil_tmp24 = & priv->driver_lock.ldv_6060.rlock;
 #line 617
-  spinlock_check(__cil_tmp41);
-#line 617
-  __cil_tmp42 = (unsigned long )priv;
-#line 617
-  __cil_tmp43 = __cil_tmp42 + 168;
-#line 617
-  __cil_tmp44 = (struct raw_spinlock *)__cil_tmp43;
-#line 617
-  __raw_spin_lock_init(__cil_tmp44, "&(&priv->driver_lock)->rlock", & __key);
+  __raw_spin_lock_init(__cil_tmp24, "&(&priv->driver_lock)->rlock", & __key);
 #line 619
-  __cil_tmp45 = 40 + 8;
+  __cil_tmp25 = & priv->main_thread.wait_q;
 #line 619
-  __cil_tmp46 = (unsigned long )priv;
-#line 619
-  __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
-#line 619
-  __cil_tmp48 = (wait_queue_head_t *)__cil_tmp47;
-#line 619
-  __init_waitqueue_head(__cil_tmp48, & __key___0);
+  __init_waitqueue_head(__cil_tmp25, & __key___0);
 #line 620
-  __cil_tmp49 = (unsigned long )priv;
+  __cil_tmp26 = & priv->main_thread;
 #line 620
-  __cil_tmp50 = __cil_tmp49 + 40;
+  __cil_tmp27 = (void *)__cil_tmp26;
 #line 620
-  __cil_tmp51 = (struct btmrvl_thread *)__cil_tmp50;
-#line 620
-  __cil_tmp52 = (void *)__cil_tmp51;
-#line 620
-  tmp___2 = kthread_create_on_node(& btmrvl_service_main_thread, __cil_tmp52, -1,
+  tmp___2 = kthread_create_on_node(& btmrvl_service_main_thread, __cil_tmp27, -1,
                                    "btmrvl_main_service");
 #line 620
   __k = tmp___2;
 #line 620
-  __cil_tmp53 = (void const   *)__k;
+  __cil_tmp28 = (void const   *)__k;
 #line 620
-  tmp___3 = IS_ERR(__cil_tmp53);
+  tmp___3 = IS_ERR(__cil_tmp28);
   }
 #line 620
   if (tmp___3 == 0L) {
@@ -12342,29 +9922,19 @@ struct btmrvl_private *btmrvl_add_card(void *card )
 
   }
 #line 620
-  __cil_tmp54 = (unsigned long )priv;
-#line 620
-  __cil_tmp55 = __cil_tmp54 + 40;
-#line 620
-  *((struct task_struct **)__cil_tmp55) = __k;
+  priv->main_thread.task = __k;
 #line 623
-  *((void **)priv) = card;
+  priv->btmrvl_dev.card = card;
 #line 624
-  __cil_tmp56 = 0 + 17;
-#line 624
-  __cil_tmp57 = (unsigned long )priv;
-#line 624
-  __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
-#line 624
-  *((u8 *)__cil_tmp58) = (unsigned char)1;
+  priv->btmrvl_dev.tx_dnld_rdy = (u8 )1U;
 #line 626
   return (priv);
   err_adapter: 
   {
 #line 629
-  __cil_tmp59 = (void const   *)priv;
+  __cil_tmp29 = (void const   *)priv;
 #line 629
-  kfree(__cil_tmp59);
+  kfree(__cil_tmp29);
   }
   err_priv: ;
 #line 632
@@ -12374,58 +9944,28 @@ struct btmrvl_private *btmrvl_add_card(void *card )
 #line 636 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_main.c.p"
 int btmrvl_remove_card(struct btmrvl_private *priv ) 
 { struct hci_dev *hdev ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct btmrvl_adapter *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  wait_queue_head_t *__cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct task_struct *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  void const   *__cil_tmp19 ;
+  struct btmrvl_adapter *__cil_tmp3 ;
+  wait_queue_head_t *__cil_tmp4 ;
+  void *__cil_tmp5 ;
+  struct task_struct *__cil_tmp6 ;
+  void const   *__cil_tmp7 ;
 
   {
   {
 #line 640
-  __cil_tmp3 = 0 + 8;
-#line 640
-  __cil_tmp4 = (unsigned long )priv;
-#line 640
-  __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
-#line 640
-  hdev = *((struct hci_dev **)__cil_tmp5);
+  hdev = priv->btmrvl_dev.hcidev;
 #line 642
-  __cil_tmp6 = (unsigned long )priv;
+  __cil_tmp3 = priv->adapter;
 #line 642
-  __cil_tmp7 = __cil_tmp6 + 32;
+  __cil_tmp4 = & __cil_tmp3->cmd_wait_q;
 #line 642
-  __cil_tmp8 = *((struct btmrvl_adapter **)__cil_tmp7);
+  __cil_tmp5 = (void *)0;
 #line 642
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
-#line 642
-  __cil_tmp10 = __cil_tmp9 + 112;
-#line 642
-  __cil_tmp11 = (wait_queue_head_t *)__cil_tmp10;
-#line 642
-  __cil_tmp12 = (void *)0;
-#line 642
-  __wake_up(__cil_tmp11, 1U, 1, __cil_tmp12);
+  __wake_up(__cil_tmp4, 1U, 1, __cil_tmp5);
 #line 644
-  __cil_tmp13 = (unsigned long )priv;
+  __cil_tmp6 = priv->main_thread.task;
 #line 644
-  __cil_tmp14 = __cil_tmp13 + 40;
-#line 644
-  __cil_tmp15 = *((struct task_struct **)__cil_tmp14);
-#line 644
-  kthread_stop(__cil_tmp15);
+  kthread_stop(__cil_tmp6);
 #line 647
   btmrvl_debugfs_remove(hdev);
 #line 650
@@ -12433,19 +9973,13 @@ int btmrvl_remove_card(struct btmrvl_private *priv )
 #line 652
   hci_free_dev(hdev);
 #line 654
-  __cil_tmp16 = 0 + 8;
-#line 654
-  __cil_tmp17 = (unsigned long )priv;
-#line 654
-  __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 654
-  *((struct hci_dev **)__cil_tmp18) = (struct hci_dev *)0;
+  priv->btmrvl_dev.hcidev = (struct hci_dev *)0;
 #line 656
   btmrvl_free_adapter(priv);
 #line 658
-  __cil_tmp19 = (void const   *)priv;
+  __cil_tmp7 = (void const   *)priv;
 #line 658
-  kfree(__cil_tmp19);
+  kfree(__cil_tmp7);
   }
 #line 660
   return (0);
@@ -12457,6 +9991,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -12578,6 +10113,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 733
   goto LDV_STOP;
 }
 }
@@ -12776,22 +10312,11 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 }
 #line 56 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
 static int btmrvl_open_generic(struct inode *inode , struct file *file ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+{ 
 
   {
 #line 58
-  __cil_tmp3 = (unsigned long )file;
-#line 58
-  __cil_tmp4 = __cil_tmp3 + 328;
-#line 58
-  __cil_tmp5 = (unsigned long )inode;
-#line 58
-  __cil_tmp6 = __cil_tmp5 + 1176;
-#line 58
-  *((void **)__cil_tmp4) = *((void **)__cil_tmp6);
+  file->private_data = inode->i_private;
 #line 59
   return (0);
 }
@@ -12808,43 +10333,26 @@ static ssize_t btmrvl_hscfgcmd_write(struct file *file , char const   *ubuf , si
   size_t tmp ;
   unsigned long tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  char const   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  long *__cil_tmp24 ;
-  long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u8 __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  wait_queue_head_t *__cil_tmp34 ;
-  void *__cil_tmp35 ;
+  void const   *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  wait_queue_head_t *__cil_tmp21 ;
+  void *__cil_tmp22 ;
 
   {
   {
 #line 65
-  __cil_tmp14 = (unsigned long )file;
+  __cil_tmp14 = file->private_data;
 #line 65
-  __cil_tmp15 = __cil_tmp14 + 328;
-#line 65
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 65
-  priv = (struct btmrvl_private *)__cil_tmp16;
+  priv = (struct btmrvl_private *)__cil_tmp14;
 #line 69
-  __cil_tmp17 = (void *)(& buf);
+  __cil_tmp15 = (void *)(& buf);
 #line 69
-  memset(__cil_tmp17, 0, 16UL);
+  memset(__cil_tmp15, 0, 16UL);
 #line 71
   __min1 = 15UL;
 #line 71
@@ -12860,11 +10368,11 @@ static ssize_t btmrvl_hscfgcmd_write(struct file *file , char const   *ubuf , si
   }
   {
 #line 71
-  __cil_tmp18 = (void *)(& buf);
+  __cil_tmp16 = (void *)(& buf);
 #line 71
-  __cil_tmp19 = (void const   *)ubuf;
+  __cil_tmp17 = (void const   *)ubuf;
 #line 71
-  tmp___0 = copy_from_user(__cil_tmp18, __cil_tmp19, tmp);
+  tmp___0 = copy_from_user(__cil_tmp16, __cil_tmp17, tmp);
   }
 #line 71
   if (tmp___0 != 0UL) {
@@ -12875,9 +10383,9 @@ static ssize_t btmrvl_hscfgcmd_write(struct file *file , char const   *ubuf , si
   }
   {
 #line 74
-  __cil_tmp20 = (char const   *)(& buf);
+  __cil_tmp18 = (char const   *)(& buf);
 #line 74
-  tmp___1 = kstrtol(__cil_tmp20, 10U, & result);
+  tmp___1 = kstrtol(__cil_tmp18, 10U, & result);
 #line 74
   ret = (long )tmp___1;
   }
@@ -12889,52 +10397,30 @@ static ssize_t btmrvl_hscfgcmd_write(struct file *file , char const   *ubuf , si
 
   }
 #line 78
-  __cil_tmp21 = 0 + 24;
-#line 78
-  __cil_tmp22 = (unsigned long )priv;
-#line 78
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 78
-  __cil_tmp24 = & result;
-#line 78
-  __cil_tmp25 = *__cil_tmp24;
-#line 78
-  *((u8 *)__cil_tmp23) = (unsigned char )__cil_tmp25;
+  priv->btmrvl_dev.hscfgcmd = (u8 )result;
   {
 #line 80
-  __cil_tmp26 = 0 + 24;
+  __cil_tmp19 = priv->btmrvl_dev.hscfgcmd;
 #line 80
-  __cil_tmp27 = (unsigned long )priv;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 80
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 80
-  __cil_tmp29 = *((u8 *)__cil_tmp28);
-#line 80
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
-#line 80
-  if (__cil_tmp30 != 0U) {
+  if (__cil_tmp20 != 0U) {
     {
 #line 81
     btmrvl_prepare_command(priv);
 #line 82
-    __cil_tmp31 = 40 + 8;
+    __cil_tmp21 = & priv->main_thread.wait_q;
 #line 82
-    __cil_tmp32 = (unsigned long )priv;
+    __cil_tmp22 = (void *)0;
 #line 82
-    __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 82
-    __cil_tmp34 = (wait_queue_head_t *)__cil_tmp33;
-#line 82
-    __cil_tmp35 = (void *)0;
-#line 82
-    __wake_up(__cil_tmp34, 1U, 1, __cil_tmp35);
+    __wake_up(__cil_tmp21, 1U, 1, __cil_tmp22);
     }
   } else {
 
   }
   }
 #line 85
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -12944,51 +10430,36 @@ static ssize_t btmrvl_hscfgcmd_read(struct file *file , char *userbuf , size_t c
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  size_t __cil_tmp15 ;
 
   {
   {
 #line 91
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 91
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 91
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 91
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 95
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 95
-  __cil_tmp13 = 0 + 24;
+  __cil_tmp11 = priv->btmrvl_dev.hscfgcmd;
 #line 95
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 95
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 95
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 95
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 95
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp17);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp12);
 #line 98
-  __cil_tmp18 = (void *)userbuf;
+  __cil_tmp13 = (void *)userbuf;
 #line 98
-  __cil_tmp19 = (void const   *)(& buf);
+  __cil_tmp14 = (void const   *)(& buf);
 #line 98
-  __cil_tmp20 = (unsigned long )ret;
+  __cil_tmp15 = (size_t )ret;
 #line 98
-  tmp = simple_read_from_buffer(__cil_tmp18, count, ppos, __cil_tmp19, __cil_tmp20);
+  tmp = simple_read_from_buffer(__cil_tmp13, count, ppos, __cil_tmp14, __cil_tmp15);
   }
 #line 98
   return (tmp);
@@ -13035,33 +10506,22 @@ static ssize_t btmrvl_psmode_write(struct file *file , char const   *ubuf , size
   size_t tmp ;
   unsigned long tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  char const   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  long *__cil_tmp24 ;
-  long __cil_tmp25 ;
+  void const   *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
 
   {
   {
 #line 111
-  __cil_tmp14 = (unsigned long )file;
+  __cil_tmp14 = file->private_data;
 #line 111
-  __cil_tmp15 = __cil_tmp14 + 328;
-#line 111
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 111
-  priv = (struct btmrvl_private *)__cil_tmp16;
+  priv = (struct btmrvl_private *)__cil_tmp14;
 #line 115
-  __cil_tmp17 = (void *)(& buf);
+  __cil_tmp15 = (void *)(& buf);
 #line 115
-  memset(__cil_tmp17, 0, 16UL);
+  memset(__cil_tmp15, 0, 16UL);
 #line 117
   __min1 = 15UL;
 #line 117
@@ -13077,11 +10537,11 @@ static ssize_t btmrvl_psmode_write(struct file *file , char const   *ubuf , size
   }
   {
 #line 117
-  __cil_tmp18 = (void *)(& buf);
+  __cil_tmp16 = (void *)(& buf);
 #line 117
-  __cil_tmp19 = (void const   *)ubuf;
+  __cil_tmp17 = (void const   *)ubuf;
 #line 117
-  tmp___0 = copy_from_user(__cil_tmp18, __cil_tmp19, tmp);
+  tmp___0 = copy_from_user(__cil_tmp16, __cil_tmp17, tmp);
   }
 #line 117
   if (tmp___0 != 0UL) {
@@ -13092,9 +10552,9 @@ static ssize_t btmrvl_psmode_write(struct file *file , char const   *ubuf , size
   }
   {
 #line 120
-  __cil_tmp20 = (char const   *)(& buf);
+  __cil_tmp18 = (char const   *)(& buf);
 #line 120
-  tmp___1 = kstrtol(__cil_tmp20, 10U, & result);
+  tmp___1 = kstrtol(__cil_tmp18, 10U, & result);
 #line 120
   ret = (long )tmp___1;
   }
@@ -13106,19 +10566,9 @@ static ssize_t btmrvl_psmode_write(struct file *file , char const   *ubuf , size
 
   }
 #line 124
-  __cil_tmp21 = 0 + 18;
-#line 124
-  __cil_tmp22 = (unsigned long )priv;
-#line 124
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 124
-  __cil_tmp24 = & result;
-#line 124
-  __cil_tmp25 = *__cil_tmp24;
-#line 124
-  *((u8 *)__cil_tmp23) = (unsigned char )__cil_tmp25;
+  priv->btmrvl_dev.psmode = (u8 )result;
 #line 126
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 129 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -13128,51 +10578,36 @@ static ssize_t btmrvl_psmode_read(struct file *file , char *userbuf , size_t cou
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  size_t __cil_tmp15 ;
 
   {
   {
 #line 132
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 132
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 132
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 132
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 136
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 136
-  __cil_tmp13 = 0 + 18;
+  __cil_tmp11 = priv->btmrvl_dev.psmode;
 #line 136
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 136
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 136
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 136
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 136
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp17);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp12);
 #line 139
-  __cil_tmp18 = (void *)userbuf;
+  __cil_tmp13 = (void *)userbuf;
 #line 139
-  __cil_tmp19 = (void const   *)(& buf);
+  __cil_tmp14 = (void const   *)(& buf);
 #line 139
-  __cil_tmp20 = (unsigned long )ret;
+  __cil_tmp15 = (size_t )ret;
 #line 139
-  tmp = simple_read_from_buffer(__cil_tmp18, count, ppos, __cil_tmp19, __cil_tmp20);
+  tmp = simple_read_from_buffer(__cil_tmp13, count, ppos, __cil_tmp14, __cil_tmp15);
   }
 #line 139
   return (tmp);
@@ -13219,43 +10654,26 @@ static ssize_t btmrvl_pscmd_write(struct file *file , char const   *ubuf , size_
   size_t tmp ;
   unsigned long tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  char const   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  long *__cil_tmp24 ;
-  long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u8 __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  wait_queue_head_t *__cil_tmp34 ;
-  void *__cil_tmp35 ;
+  void const   *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  wait_queue_head_t *__cil_tmp21 ;
+  void *__cil_tmp22 ;
 
   {
   {
 #line 152
-  __cil_tmp14 = (unsigned long )file;
+  __cil_tmp14 = file->private_data;
 #line 152
-  __cil_tmp15 = __cil_tmp14 + 328;
-#line 152
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 152
-  priv = (struct btmrvl_private *)__cil_tmp16;
+  priv = (struct btmrvl_private *)__cil_tmp14;
 #line 156
-  __cil_tmp17 = (void *)(& buf);
+  __cil_tmp15 = (void *)(& buf);
 #line 156
-  memset(__cil_tmp17, 0, 16UL);
+  memset(__cil_tmp15, 0, 16UL);
 #line 158
   __min1 = 15UL;
 #line 158
@@ -13271,11 +10689,11 @@ static ssize_t btmrvl_pscmd_write(struct file *file , char const   *ubuf , size_
   }
   {
 #line 158
-  __cil_tmp18 = (void *)(& buf);
+  __cil_tmp16 = (void *)(& buf);
 #line 158
-  __cil_tmp19 = (void const   *)ubuf;
+  __cil_tmp17 = (void const   *)ubuf;
 #line 158
-  tmp___0 = copy_from_user(__cil_tmp18, __cil_tmp19, tmp);
+  tmp___0 = copy_from_user(__cil_tmp16, __cil_tmp17, tmp);
   }
 #line 158
   if (tmp___0 != 0UL) {
@@ -13286,9 +10704,9 @@ static ssize_t btmrvl_pscmd_write(struct file *file , char const   *ubuf , size_
   }
   {
 #line 161
-  __cil_tmp20 = (char const   *)(& buf);
+  __cil_tmp18 = (char const   *)(& buf);
 #line 161
-  tmp___1 = kstrtol(__cil_tmp20, 10U, & result);
+  tmp___1 = kstrtol(__cil_tmp18, 10U, & result);
 #line 161
   ret = (long )tmp___1;
   }
@@ -13300,52 +10718,30 @@ static ssize_t btmrvl_pscmd_write(struct file *file , char const   *ubuf , size_
 
   }
 #line 165
-  __cil_tmp21 = 0 + 19;
-#line 165
-  __cil_tmp22 = (unsigned long )priv;
-#line 165
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 165
-  __cil_tmp24 = & result;
-#line 165
-  __cil_tmp25 = *__cil_tmp24;
-#line 165
-  *((u8 *)__cil_tmp23) = (unsigned char )__cil_tmp25;
+  priv->btmrvl_dev.pscmd = (u8 )result;
   {
 #line 167
-  __cil_tmp26 = 0 + 19;
+  __cil_tmp19 = priv->btmrvl_dev.pscmd;
 #line 167
-  __cil_tmp27 = (unsigned long )priv;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 167
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 167
-  __cil_tmp29 = *((u8 *)__cil_tmp28);
-#line 167
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
-#line 167
-  if (__cil_tmp30 != 0U) {
+  if (__cil_tmp20 != 0U) {
     {
 #line 168
     btmrvl_prepare_command(priv);
 #line 169
-    __cil_tmp31 = 40 + 8;
+    __cil_tmp21 = & priv->main_thread.wait_q;
 #line 169
-    __cil_tmp32 = (unsigned long )priv;
+    __cil_tmp22 = (void *)0;
 #line 169
-    __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 169
-    __cil_tmp34 = (wait_queue_head_t *)__cil_tmp33;
-#line 169
-    __cil_tmp35 = (void *)0;
-#line 169
-    __wake_up(__cil_tmp34, 1U, 1, __cil_tmp35);
+    __wake_up(__cil_tmp21, 1U, 1, __cil_tmp22);
     }
   } else {
 
   }
   }
 #line 172
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 176 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -13355,51 +10751,36 @@ static ssize_t btmrvl_pscmd_read(struct file *file , char *userbuf , size_t coun
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  size_t __cil_tmp15 ;
 
   {
   {
 #line 179
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 179
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 179
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 179
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 183
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 183
-  __cil_tmp13 = 0 + 19;
+  __cil_tmp11 = priv->btmrvl_dev.pscmd;
 #line 183
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 183
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 183
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 183
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 183
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp17);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp12);
 #line 185
-  __cil_tmp18 = (void *)userbuf;
+  __cil_tmp13 = (void *)userbuf;
 #line 185
-  __cil_tmp19 = (void const   *)(& buf);
+  __cil_tmp14 = (void const   *)(& buf);
 #line 185
-  __cil_tmp20 = (unsigned long )ret;
+  __cil_tmp15 = (size_t )ret;
 #line 185
-  tmp = simple_read_from_buffer(__cil_tmp18, count, ppos, __cil_tmp19, __cil_tmp20);
+  tmp = simple_read_from_buffer(__cil_tmp13, count, ppos, __cil_tmp14, __cil_tmp15);
   }
 #line 185
   return (tmp);
@@ -13446,33 +10827,22 @@ static ssize_t btmrvl_gpiogap_write(struct file *file , char const   *ubuf , siz
   size_t tmp ;
   unsigned long tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  char const   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  long *__cil_tmp24 ;
-  long __cil_tmp25 ;
+  void const   *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
 
   {
   {
 #line 198
-  __cil_tmp14 = (unsigned long )file;
+  __cil_tmp14 = file->private_data;
 #line 198
-  __cil_tmp15 = __cil_tmp14 + 328;
-#line 198
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 198
-  priv = (struct btmrvl_private *)__cil_tmp16;
+  priv = (struct btmrvl_private *)__cil_tmp14;
 #line 202
-  __cil_tmp17 = (void *)(& buf);
+  __cil_tmp15 = (void *)(& buf);
 #line 202
-  memset(__cil_tmp17, 0, 16UL);
+  memset(__cil_tmp15, 0, 16UL);
 #line 204
   __min1 = 15UL;
 #line 204
@@ -13488,11 +10858,11 @@ static ssize_t btmrvl_gpiogap_write(struct file *file , char const   *ubuf , siz
   }
   {
 #line 204
-  __cil_tmp18 = (void *)(& buf);
+  __cil_tmp16 = (void *)(& buf);
 #line 204
-  __cil_tmp19 = (void const   *)ubuf;
+  __cil_tmp17 = (void const   *)ubuf;
 #line 204
-  tmp___0 = copy_from_user(__cil_tmp18, __cil_tmp19, tmp);
+  tmp___0 = copy_from_user(__cil_tmp16, __cil_tmp17, tmp);
   }
 #line 204
   if (tmp___0 != 0UL) {
@@ -13503,9 +10873,9 @@ static ssize_t btmrvl_gpiogap_write(struct file *file , char const   *ubuf , siz
   }
   {
 #line 207
-  __cil_tmp20 = (char const   *)(& buf);
+  __cil_tmp18 = (char const   *)(& buf);
 #line 207
-  tmp___1 = kstrtol(__cil_tmp20, 16U, & result);
+  tmp___1 = kstrtol(__cil_tmp18, 16U, & result);
 #line 207
   ret = (long )tmp___1;
   }
@@ -13517,19 +10887,9 @@ static ssize_t btmrvl_gpiogap_write(struct file *file , char const   *ubuf , siz
 
   }
 #line 211
-  __cil_tmp21 = 0 + 22;
-#line 211
-  __cil_tmp22 = (unsigned long )priv;
-#line 211
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 211
-  __cil_tmp24 = & result;
-#line 211
-  __cil_tmp25 = *__cil_tmp24;
-#line 211
-  *((u16 *)__cil_tmp23) = (unsigned short )__cil_tmp25;
+  priv->btmrvl_dev.gpio_gap = (u16 )result;
 #line 213
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 216 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -13539,51 +10899,36 @@ static ssize_t btmrvl_gpiogap_read(struct file *file , char *userbuf , size_t co
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u16 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  u16 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  size_t __cil_tmp15 ;
 
   {
   {
 #line 219
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 219
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 219
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 219
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 223
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 223
-  __cil_tmp13 = 0 + 22;
+  __cil_tmp11 = priv->btmrvl_dev.gpio_gap;
 #line 223
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 223
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 223
-  __cil_tmp16 = *((u16 *)__cil_tmp15);
-#line 223
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 223
-  ret = snprintf(__cil_tmp12, 15UL, "0x%x\n", __cil_tmp17);
+  ret = snprintf(__cil_tmp10, 15UL, "0x%x\n", __cil_tmp12);
 #line 226
-  __cil_tmp18 = (void *)userbuf;
+  __cil_tmp13 = (void *)userbuf;
 #line 226
-  __cil_tmp19 = (void const   *)(& buf);
+  __cil_tmp14 = (void const   *)(& buf);
 #line 226
-  __cil_tmp20 = (unsigned long )ret;
+  __cil_tmp15 = (size_t )ret;
 #line 226
-  tmp = simple_read_from_buffer(__cil_tmp18, count, ppos, __cil_tmp19, __cil_tmp20);
+  tmp = simple_read_from_buffer(__cil_tmp13, count, ppos, __cil_tmp14, __cil_tmp15);
   }
 #line 226
   return (tmp);
@@ -13630,43 +10975,26 @@ static ssize_t btmrvl_hscmd_write(struct file *file , char const   *ubuf , size_
   size_t tmp ;
   unsigned long tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  char const   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  long *__cil_tmp24 ;
-  long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u8 __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  wait_queue_head_t *__cil_tmp34 ;
-  void *__cil_tmp35 ;
+  void const   *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  wait_queue_head_t *__cil_tmp21 ;
+  void *__cil_tmp22 ;
 
   {
   {
 #line 239
-  __cil_tmp14 = (unsigned long )file;
+  __cil_tmp14 = file->private_data;
 #line 239
-  __cil_tmp15 = __cil_tmp14 + 328;
-#line 239
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 239
-  priv = (struct btmrvl_private *)__cil_tmp16;
+  priv = (struct btmrvl_private *)__cil_tmp14;
 #line 243
-  __cil_tmp17 = (void *)(& buf);
+  __cil_tmp15 = (void *)(& buf);
 #line 243
-  memset(__cil_tmp17, 0, 16UL);
+  memset(__cil_tmp15, 0, 16UL);
 #line 245
   __min1 = 15UL;
 #line 245
@@ -13682,11 +11010,11 @@ static ssize_t btmrvl_hscmd_write(struct file *file , char const   *ubuf , size_
   }
   {
 #line 245
-  __cil_tmp18 = (void *)(& buf);
+  __cil_tmp16 = (void *)(& buf);
 #line 245
-  __cil_tmp19 = (void const   *)ubuf;
+  __cil_tmp17 = (void const   *)ubuf;
 #line 245
-  tmp___0 = copy_from_user(__cil_tmp18, __cil_tmp19, tmp);
+  tmp___0 = copy_from_user(__cil_tmp16, __cil_tmp17, tmp);
   }
 #line 245
   if (tmp___0 != 0UL) {
@@ -13697,9 +11025,9 @@ static ssize_t btmrvl_hscmd_write(struct file *file , char const   *ubuf , size_
   }
   {
 #line 248
-  __cil_tmp20 = (char const   *)(& buf);
+  __cil_tmp18 = (char const   *)(& buf);
 #line 248
-  tmp___1 = kstrtol(__cil_tmp20, 10U, & result);
+  tmp___1 = kstrtol(__cil_tmp18, 10U, & result);
 #line 248
   ret = (long )tmp___1;
   }
@@ -13711,52 +11039,30 @@ static ssize_t btmrvl_hscmd_write(struct file *file , char const   *ubuf , size_
 
   }
 #line 252
-  __cil_tmp21 = 0 + 21;
-#line 252
-  __cil_tmp22 = (unsigned long )priv;
-#line 252
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 252
-  __cil_tmp24 = & result;
-#line 252
-  __cil_tmp25 = *__cil_tmp24;
-#line 252
-  *((u8 *)__cil_tmp23) = (unsigned char )__cil_tmp25;
+  priv->btmrvl_dev.hscmd = (u8 )result;
   {
 #line 253
-  __cil_tmp26 = 0 + 21;
+  __cil_tmp19 = priv->btmrvl_dev.hscmd;
 #line 253
-  __cil_tmp27 = (unsigned long )priv;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 253
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 253
-  __cil_tmp29 = *((u8 *)__cil_tmp28);
-#line 253
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
-#line 253
-  if (__cil_tmp30 != 0U) {
+  if (__cil_tmp20 != 0U) {
     {
 #line 254
     btmrvl_prepare_command(priv);
 #line 255
-    __cil_tmp31 = 40 + 8;
+    __cil_tmp21 = & priv->main_thread.wait_q;
 #line 255
-    __cil_tmp32 = (unsigned long )priv;
+    __cil_tmp22 = (void *)0;
 #line 255
-    __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 255
-    __cil_tmp34 = (wait_queue_head_t *)__cil_tmp33;
-#line 255
-    __cil_tmp35 = (void *)0;
-#line 255
-    __wake_up(__cil_tmp34, 1U, 1, __cil_tmp35);
+    __wake_up(__cil_tmp21, 1U, 1, __cil_tmp22);
     }
   } else {
 
   }
   }
 #line 258
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 261 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -13766,51 +11072,36 @@ static ssize_t btmrvl_hscmd_read(struct file *file , char *userbuf , size_t coun
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  size_t __cil_tmp15 ;
 
   {
   {
 #line 264
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 264
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 264
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 264
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 268
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 268
-  __cil_tmp13 = 0 + 21;
+  __cil_tmp11 = priv->btmrvl_dev.hscmd;
 #line 268
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 268
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 268
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 268
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 268
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp17);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp12);
 #line 270
-  __cil_tmp18 = (void *)userbuf;
+  __cil_tmp13 = (void *)userbuf;
 #line 270
-  __cil_tmp19 = (void const   *)(& buf);
+  __cil_tmp14 = (void const   *)(& buf);
 #line 270
-  __cil_tmp20 = (unsigned long )ret;
+  __cil_tmp15 = (size_t )ret;
 #line 270
-  tmp = simple_read_from_buffer(__cil_tmp18, count, ppos, __cil_tmp19, __cil_tmp20);
+  tmp = simple_read_from_buffer(__cil_tmp13, count, ppos, __cil_tmp14, __cil_tmp15);
   }
 #line 270
   return (tmp);
@@ -13857,33 +11148,22 @@ static ssize_t btmrvl_hsmode_write(struct file *file , char const   *ubuf , size
   size_t tmp ;
   unsigned long tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp14 ;
+  void *__cil_tmp15 ;
   void *__cil_tmp16 ;
-  void *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  char const   *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  long *__cil_tmp24 ;
-  long __cil_tmp25 ;
+  void const   *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
 
   {
   {
 #line 283
-  __cil_tmp14 = (unsigned long )file;
+  __cil_tmp14 = file->private_data;
 #line 283
-  __cil_tmp15 = __cil_tmp14 + 328;
-#line 283
-  __cil_tmp16 = *((void **)__cil_tmp15);
-#line 283
-  priv = (struct btmrvl_private *)__cil_tmp16;
+  priv = (struct btmrvl_private *)__cil_tmp14;
 #line 287
-  __cil_tmp17 = (void *)(& buf);
+  __cil_tmp15 = (void *)(& buf);
 #line 287
-  memset(__cil_tmp17, 0, 16UL);
+  memset(__cil_tmp15, 0, 16UL);
 #line 289
   __min1 = 15UL;
 #line 289
@@ -13899,11 +11179,11 @@ static ssize_t btmrvl_hsmode_write(struct file *file , char const   *ubuf , size
   }
   {
 #line 289
-  __cil_tmp18 = (void *)(& buf);
+  __cil_tmp16 = (void *)(& buf);
 #line 289
-  __cil_tmp19 = (void const   *)ubuf;
+  __cil_tmp17 = (void const   *)ubuf;
 #line 289
-  tmp___0 = copy_from_user(__cil_tmp18, __cil_tmp19, tmp);
+  tmp___0 = copy_from_user(__cil_tmp16, __cil_tmp17, tmp);
   }
 #line 289
   if (tmp___0 != 0UL) {
@@ -13914,9 +11194,9 @@ static ssize_t btmrvl_hsmode_write(struct file *file , char const   *ubuf , size
   }
   {
 #line 292
-  __cil_tmp20 = (char const   *)(& buf);
+  __cil_tmp18 = (char const   *)(& buf);
 #line 292
-  tmp___1 = kstrtol(__cil_tmp20, 10U, & result);
+  tmp___1 = kstrtol(__cil_tmp18, 10U, & result);
 #line 292
   ret = (long )tmp___1;
   }
@@ -13928,19 +11208,9 @@ static ssize_t btmrvl_hsmode_write(struct file *file , char const   *ubuf , size
 
   }
 #line 296
-  __cil_tmp21 = 0 + 20;
-#line 296
-  __cil_tmp22 = (unsigned long )priv;
-#line 296
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 296
-  __cil_tmp24 = & result;
-#line 296
-  __cil_tmp25 = *__cil_tmp24;
-#line 296
-  *((u8 *)__cil_tmp23) = (unsigned char )__cil_tmp25;
+  priv->btmrvl_dev.hsmode = (u8 )result;
 #line 298
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 301 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -13950,51 +11220,36 @@ static ssize_t btmrvl_hsmode_read(struct file *file , char *userbuf , size_t cou
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  size_t __cil_tmp15 ;
 
   {
   {
 #line 304
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 304
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 304
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 304
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 308
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 308
-  __cil_tmp13 = 0 + 20;
+  __cil_tmp11 = priv->btmrvl_dev.hsmode;
 #line 308
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 308
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 308
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 308
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 308
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp17);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp12);
 #line 310
-  __cil_tmp18 = (void *)userbuf;
+  __cil_tmp13 = (void *)userbuf;
 #line 310
-  __cil_tmp19 = (void const   *)(& buf);
+  __cil_tmp14 = (void const   *)(& buf);
 #line 310
-  __cil_tmp20 = (unsigned long )ret;
+  __cil_tmp15 = (size_t )ret;
 #line 310
-  tmp = simple_read_from_buffer(__cil_tmp18, count, ppos, __cil_tmp19, __cil_tmp20);
+  tmp = simple_read_from_buffer(__cil_tmp13, count, ppos, __cil_tmp14, __cil_tmp15);
   }
 #line 310
   return (tmp);
@@ -14036,57 +11291,39 @@ static ssize_t btmrvl_curpsmode_read(struct file *file , char *userbuf , size_t 
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct btmrvl_adapter *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
-  void *__cil_tmp20 ;
-  void const   *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  struct btmrvl_adapter *__cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  void *__cil_tmp14 ;
+  void const   *__cil_tmp15 ;
+  size_t __cil_tmp16 ;
 
   {
   {
 #line 323
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 323
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 323
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 323
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 327
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 327
-  __cil_tmp13 = (unsigned long )priv;
+  __cil_tmp11 = priv->adapter;
 #line 327
-  __cil_tmp14 = __cil_tmp13 + 32;
+  __cil_tmp12 = __cil_tmp11->psmode;
 #line 327
-  __cil_tmp15 = *((struct btmrvl_adapter **)__cil_tmp14);
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 327
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
-#line 327
-  __cil_tmp17 = __cil_tmp16 + 104;
-#line 327
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 327
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 327
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp19);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp13);
 #line 329
-  __cil_tmp20 = (void *)userbuf;
+  __cil_tmp14 = (void *)userbuf;
 #line 329
-  __cil_tmp21 = (void const   *)(& buf);
+  __cil_tmp15 = (void const   *)(& buf);
 #line 329
-  __cil_tmp22 = (unsigned long )ret;
+  __cil_tmp16 = (size_t )ret;
 #line 329
-  tmp = simple_read_from_buffer(__cil_tmp20, count, ppos, __cil_tmp21, __cil_tmp22);
+  tmp = simple_read_from_buffer(__cil_tmp14, count, ppos, __cil_tmp15, __cil_tmp16);
   }
 #line 329
   return (tmp);
@@ -14131,57 +11368,39 @@ static ssize_t btmrvl_psstate_read(struct file *file , char *userbuf , size_t co
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct btmrvl_adapter *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
-  void *__cil_tmp20 ;
-  void const   *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  struct btmrvl_adapter *__cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  void *__cil_tmp14 ;
+  void const   *__cil_tmp15 ;
+  size_t __cil_tmp16 ;
 
   {
   {
 #line 341
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 341
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 341
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 341
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 345
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 345
-  __cil_tmp13 = (unsigned long )priv;
+  __cil_tmp11 = priv->adapter;
 #line 345
-  __cil_tmp14 = __cil_tmp13 + 32;
+  __cil_tmp12 = __cil_tmp11->ps_state;
 #line 345
-  __cil_tmp15 = *((struct btmrvl_adapter **)__cil_tmp14);
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 345
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
-#line 345
-  __cil_tmp17 = __cil_tmp16 + 105;
-#line 345
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 345
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 345
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp19);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp13);
 #line 347
-  __cil_tmp20 = (void *)userbuf;
+  __cil_tmp14 = (void *)userbuf;
 #line 347
-  __cil_tmp21 = (void const   *)(& buf);
+  __cil_tmp15 = (void const   *)(& buf);
 #line 347
-  __cil_tmp22 = (unsigned long )ret;
+  __cil_tmp16 = (size_t )ret;
 #line 347
-  tmp = simple_read_from_buffer(__cil_tmp20, count, ppos, __cil_tmp21, __cil_tmp22);
+  tmp = simple_read_from_buffer(__cil_tmp14, count, ppos, __cil_tmp15, __cil_tmp16);
   }
 #line 347
   return (tmp);
@@ -14226,57 +11445,39 @@ static ssize_t btmrvl_hsstate_read(struct file *file , char *userbuf , size_t co
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct btmrvl_adapter *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
-  void *__cil_tmp20 ;
-  void const   *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  struct btmrvl_adapter *__cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  void *__cil_tmp14 ;
+  void const   *__cil_tmp15 ;
+  size_t __cil_tmp16 ;
 
   {
   {
 #line 359
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 359
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 359
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 359
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 363
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 363
-  __cil_tmp13 = (unsigned long )priv;
+  __cil_tmp11 = priv->adapter;
 #line 363
-  __cil_tmp14 = __cil_tmp13 + 32;
+  __cil_tmp12 = __cil_tmp11->hs_state;
 #line 363
-  __cil_tmp15 = *((struct btmrvl_adapter **)__cil_tmp14);
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 363
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
-#line 363
-  __cil_tmp17 = __cil_tmp16 + 106;
-#line 363
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 363
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 363
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp19);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp13);
 #line 365
-  __cil_tmp20 = (void *)userbuf;
+  __cil_tmp14 = (void *)userbuf;
 #line 365
-  __cil_tmp21 = (void const   *)(& buf);
+  __cil_tmp15 = (void const   *)(& buf);
 #line 365
-  __cil_tmp22 = (unsigned long )ret;
+  __cil_tmp16 = (size_t )ret;
 #line 365
-  tmp = simple_read_from_buffer(__cil_tmp20, count, ppos, __cil_tmp21, __cil_tmp22);
+  tmp = simple_read_from_buffer(__cil_tmp14, count, ppos, __cil_tmp15, __cil_tmp16);
   }
 #line 365
   return (tmp);
@@ -14321,51 +11522,36 @@ static ssize_t btmrvl_txdnldready_read(struct file *file , char *userbuf , size_
   char buf[16U] ;
   int ret ;
   ssize_t tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  char *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  void *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  void *__cil_tmp13 ;
+  void const   *__cil_tmp14 ;
+  size_t __cil_tmp15 ;
 
   {
   {
 #line 377
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 377
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 377
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 377
-  priv = (struct btmrvl_private *)__cil_tmp11;
+  priv = (struct btmrvl_private *)__cil_tmp9;
 #line 381
-  __cil_tmp12 = (char *)(& buf);
+  __cil_tmp10 = (char *)(& buf);
 #line 381
-  __cil_tmp13 = 0 + 17;
+  __cil_tmp11 = priv->btmrvl_dev.tx_dnld_rdy;
 #line 381
-  __cil_tmp14 = (unsigned long )priv;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 381
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 381
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 381
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 381
-  ret = snprintf(__cil_tmp12, 15UL, "%d\n", __cil_tmp17);
+  ret = snprintf(__cil_tmp10, 15UL, "%d\n", __cil_tmp12);
 #line 384
-  __cil_tmp18 = (void *)userbuf;
+  __cil_tmp13 = (void *)userbuf;
 #line 384
-  __cil_tmp19 = (void const   *)(& buf);
+  __cil_tmp14 = (void const   *)(& buf);
 #line 384
-  __cil_tmp20 = (unsigned long )ret;
+  __cil_tmp15 = (size_t )ret;
 #line 384
-  tmp = simple_read_from_buffer(__cil_tmp18, count, ppos, __cil_tmp19, __cil_tmp20);
+  tmp = simple_read_from_buffer(__cil_tmp13, count, ppos, __cil_tmp14, __cil_tmp15);
   }
 #line 384
   return (tmp);
@@ -14408,121 +11594,53 @@ void btmrvl_debugfs_init(struct hci_dev *hdev )
 { struct btmrvl_private *priv ;
   struct btmrvl_debugfs_data *dbg ;
   void *tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
+  void *__cil_tmp5 ;
+  struct dentry *__cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
   struct dentry *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  struct btmrvl_debugfs_data *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  struct dentry *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct btmrvl_debugfs_data *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct dentry *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  unsigned long __cil_tmp12 ;
+  struct dentry *__cil_tmp13 ;
+  struct dentry *__cil_tmp14 ;
+  void *__cil_tmp15 ;
+  struct dentry *__cil_tmp16 ;
+  void *__cil_tmp17 ;
+  struct dentry *__cil_tmp18 ;
+  void *__cil_tmp19 ;
+  struct dentry *__cil_tmp20 ;
+  void *__cil_tmp21 ;
+  struct dentry *__cil_tmp22 ;
+  void *__cil_tmp23 ;
   struct dentry *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  void *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct dentry *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  void *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct dentry *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  void *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct dentry *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  void *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct dentry *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  void *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct dentry *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  void *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  struct dentry *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct dentry *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  void *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  struct dentry *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  void *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct dentry *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  void *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct dentry *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  void *__cil_tmp94 ;
+  void *__cil_tmp25 ;
+  struct dentry *__cil_tmp26 ;
+  struct dentry *__cil_tmp27 ;
+  void *__cil_tmp28 ;
+  struct dentry *__cil_tmp29 ;
+  void *__cil_tmp30 ;
+  struct dentry *__cil_tmp31 ;
+  void *__cil_tmp32 ;
+  struct dentry *__cil_tmp33 ;
+  void *__cil_tmp34 ;
 
   {
 #line 395
-  __cil_tmp5 = (unsigned long )hdev;
+  __cil_tmp5 = hdev->driver_data;
 #line 395
-  __cil_tmp6 = __cil_tmp5 + 2336;
-#line 395
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 395
-  priv = (struct btmrvl_private *)__cil_tmp7;
+  priv = (struct btmrvl_private *)__cil_tmp5;
   {
 #line 398
-  __cil_tmp8 = (struct dentry *)0;
+  __cil_tmp6 = (struct dentry *)0;
+#line 398
+  __cil_tmp7 = (unsigned long )__cil_tmp6;
+#line 398
+  __cil_tmp8 = hdev->debugfs;
 #line 398
   __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 398
-  __cil_tmp10 = (unsigned long )hdev;
-#line 398
-  __cil_tmp11 = __cil_tmp10 + 2360;
-#line 398
-  __cil_tmp12 = *((struct dentry **)__cil_tmp11);
-#line 398
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
-#line 398
-  if (__cil_tmp13 == __cil_tmp9) {
+  if (__cil_tmp9 == __cil_tmp7) {
 #line 399
     return;
   } else {
@@ -14535,21 +11653,17 @@ void btmrvl_debugfs_init(struct hci_dev *hdev )
 #line 401
   dbg = (struct btmrvl_debugfs_data *)tmp;
 #line 402
-  __cil_tmp14 = (unsigned long )priv;
-#line 402
-  __cil_tmp15 = __cil_tmp14 + 240;
-#line 402
-  *((void **)__cil_tmp15) = (void *)dbg;
+  priv->debugfs_data = (void *)dbg;
   }
   {
 #line 404
-  __cil_tmp16 = (struct btmrvl_debugfs_data *)0;
+  __cil_tmp10 = (struct btmrvl_debugfs_data *)0;
 #line 404
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
+  __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 404
-  __cil_tmp18 = (unsigned long )dbg;
+  __cil_tmp12 = (unsigned long )dbg;
 #line 404
-  if (__cil_tmp18 == __cil_tmp17) {
+  if (__cil_tmp12 == __cil_tmp11) {
     {
 #line 405
     printk("<3>%s: Can not allocate memory for btmrvl_debugfs_data.\n", "btmrvl_debugfs_init");
@@ -14562,191 +11676,76 @@ void btmrvl_debugfs_init(struct hci_dev *hdev )
   }
   {
 #line 409
-  __cil_tmp19 = (unsigned long )hdev;
+  __cil_tmp13 = hdev->debugfs;
 #line 409
-  __cil_tmp20 = __cil_tmp19 + 2360;
-#line 409
-  __cil_tmp21 = *((struct dentry **)__cil_tmp20);
-#line 409
-  *((struct dentry **)dbg) = debugfs_create_dir("config", __cil_tmp21);
+  dbg->config_dir = debugfs_create_dir("config", __cil_tmp13);
 #line 411
-  __cil_tmp22 = (unsigned long )dbg;
+  __cil_tmp14 = dbg->config_dir;
 #line 411
-  __cil_tmp23 = __cil_tmp22 + 16;
+  __cil_tmp15 = hdev->driver_data;
 #line 411
-  __cil_tmp24 = *((struct dentry **)dbg);
-#line 411
-  __cil_tmp25 = (unsigned long )hdev;
-#line 411
-  __cil_tmp26 = __cil_tmp25 + 2336;
-#line 411
-  __cil_tmp27 = *((void **)__cil_tmp26);
-#line 411
-  *((struct dentry **)__cil_tmp23) = debugfs_create_file("psmode", 420U, __cil_tmp24,
-                                                         __cil_tmp27, & btmrvl_psmode_fops);
+  dbg->psmode = debugfs_create_file("psmode", 420U, __cil_tmp14, __cil_tmp15, & btmrvl_psmode_fops);
 #line 413
-  __cil_tmp28 = (unsigned long )dbg;
+  __cil_tmp16 = dbg->config_dir;
 #line 413
-  __cil_tmp29 = __cil_tmp28 + 24;
+  __cil_tmp17 = hdev->driver_data;
 #line 413
-  __cil_tmp30 = *((struct dentry **)dbg);
-#line 413
-  __cil_tmp31 = (unsigned long )hdev;
-#line 413
-  __cil_tmp32 = __cil_tmp31 + 2336;
-#line 413
-  __cil_tmp33 = *((void **)__cil_tmp32);
-#line 413
-  *((struct dentry **)__cil_tmp29) = debugfs_create_file("pscmd", 420U, __cil_tmp30,
-                                                         __cil_tmp33, & btmrvl_pscmd_fops);
+  dbg->pscmd = debugfs_create_file("pscmd", 420U, __cil_tmp16, __cil_tmp17, & btmrvl_pscmd_fops);
 #line 415
-  __cil_tmp34 = (unsigned long )dbg;
+  __cil_tmp18 = dbg->config_dir;
 #line 415
-  __cil_tmp35 = __cil_tmp34 + 48;
+  __cil_tmp19 = hdev->driver_data;
 #line 415
-  __cil_tmp36 = *((struct dentry **)dbg);
-#line 415
-  __cil_tmp37 = (unsigned long )hdev;
-#line 415
-  __cil_tmp38 = __cil_tmp37 + 2336;
-#line 415
-  __cil_tmp39 = *((void **)__cil_tmp38);
-#line 415
-  *((struct dentry **)__cil_tmp35) = debugfs_create_file("gpiogap", 420U, __cil_tmp36,
-                                                         __cil_tmp39, & btmrvl_gpiogap_fops);
+  dbg->gpiogap = debugfs_create_file("gpiogap", 420U, __cil_tmp18, __cil_tmp19, & btmrvl_gpiogap_fops);
 #line 417
-  __cil_tmp40 = (unsigned long )dbg;
+  __cil_tmp20 = dbg->config_dir;
 #line 417
-  __cil_tmp41 = __cil_tmp40 + 32;
+  __cil_tmp21 = hdev->driver_data;
 #line 417
-  __cil_tmp42 = *((struct dentry **)dbg);
-#line 417
-  __cil_tmp43 = (unsigned long )hdev;
-#line 417
-  __cil_tmp44 = __cil_tmp43 + 2336;
-#line 417
-  __cil_tmp45 = *((void **)__cil_tmp44);
-#line 417
-  *((struct dentry **)__cil_tmp41) = debugfs_create_file("hsmode", 420U, __cil_tmp42,
-                                                         __cil_tmp45, & btmrvl_hsmode_fops);
+  dbg->hsmode = debugfs_create_file("hsmode", 420U, __cil_tmp20, __cil_tmp21, & btmrvl_hsmode_fops);
 #line 419
-  __cil_tmp46 = (unsigned long )dbg;
+  __cil_tmp22 = dbg->config_dir;
 #line 419
-  __cil_tmp47 = __cil_tmp46 + 40;
+  __cil_tmp23 = hdev->driver_data;
 #line 419
-  __cil_tmp48 = *((struct dentry **)dbg);
-#line 419
-  __cil_tmp49 = (unsigned long )hdev;
-#line 419
-  __cil_tmp50 = __cil_tmp49 + 2336;
-#line 419
-  __cil_tmp51 = *((void **)__cil_tmp50);
-#line 419
-  *((struct dentry **)__cil_tmp47) = debugfs_create_file("hscmd", 420U, __cil_tmp48,
-                                                         __cil_tmp51, & btmrvl_hscmd_fops);
+  dbg->hscmd = debugfs_create_file("hscmd", 420U, __cil_tmp22, __cil_tmp23, & btmrvl_hscmd_fops);
 #line 421
-  __cil_tmp52 = (unsigned long )dbg;
+  __cil_tmp24 = dbg->config_dir;
 #line 421
-  __cil_tmp53 = __cil_tmp52 + 56;
+  __cil_tmp25 = hdev->driver_data;
 #line 421
-  __cil_tmp54 = *((struct dentry **)dbg);
-#line 421
-  __cil_tmp55 = (unsigned long )hdev;
-#line 421
-  __cil_tmp56 = __cil_tmp55 + 2336;
-#line 421
-  __cil_tmp57 = *((void **)__cil_tmp56);
-#line 421
-  *((struct dentry **)__cil_tmp53) = debugfs_create_file("hscfgcmd", 420U, __cil_tmp54,
-                                                         __cil_tmp57, & btmrvl_hscfgcmd_fops);
+  dbg->hscfgcmd = debugfs_create_file("hscfgcmd", 420U, __cil_tmp24, __cil_tmp25,
+                                      & btmrvl_hscfgcmd_fops);
 #line 424
-  __cil_tmp58 = (unsigned long )dbg;
+  __cil_tmp26 = hdev->debugfs;
 #line 424
-  __cil_tmp59 = __cil_tmp58 + 8;
-#line 424
-  __cil_tmp60 = (unsigned long )hdev;
-#line 424
-  __cil_tmp61 = __cil_tmp60 + 2360;
-#line 424
-  __cil_tmp62 = *((struct dentry **)__cil_tmp61);
-#line 424
-  *((struct dentry **)__cil_tmp59) = debugfs_create_dir("status", __cil_tmp62);
+  dbg->status_dir = debugfs_create_dir("status", __cil_tmp26);
 #line 425
-  __cil_tmp63 = (unsigned long )dbg;
+  __cil_tmp27 = dbg->status_dir;
 #line 425
-  __cil_tmp64 = __cil_tmp63 + 64;
+  __cil_tmp28 = hdev->driver_data;
 #line 425
-  __cil_tmp65 = (unsigned long )dbg;
-#line 425
-  __cil_tmp66 = __cil_tmp65 + 8;
-#line 425
-  __cil_tmp67 = *((struct dentry **)__cil_tmp66);
-#line 425
-  __cil_tmp68 = (unsigned long )hdev;
-#line 425
-  __cil_tmp69 = __cil_tmp68 + 2336;
-#line 425
-  __cil_tmp70 = *((void **)__cil_tmp69);
-#line 425
-  *((struct dentry **)__cil_tmp64) = debugfs_create_file("curpsmode", 292U, __cil_tmp67,
-                                                         __cil_tmp70, & btmrvl_curpsmode_fops);
+  dbg->curpsmode = debugfs_create_file("curpsmode", 292U, __cil_tmp27, __cil_tmp28,
+                                       & btmrvl_curpsmode_fops);
 #line 429
-  __cil_tmp71 = (unsigned long )dbg;
+  __cil_tmp29 = dbg->status_dir;
 #line 429
-  __cil_tmp72 = __cil_tmp71 + 80;
+  __cil_tmp30 = hdev->driver_data;
 #line 429
-  __cil_tmp73 = (unsigned long )dbg;
-#line 429
-  __cil_tmp74 = __cil_tmp73 + 8;
-#line 429
-  __cil_tmp75 = *((struct dentry **)__cil_tmp74);
-#line 429
-  __cil_tmp76 = (unsigned long )hdev;
-#line 429
-  __cil_tmp77 = __cil_tmp76 + 2336;
-#line 429
-  __cil_tmp78 = *((void **)__cil_tmp77);
-#line 429
-  *((struct dentry **)__cil_tmp72) = debugfs_create_file("psstate", 292U, __cil_tmp75,
-                                                         __cil_tmp78, & btmrvl_psstate_fops);
+  dbg->psstate = debugfs_create_file("psstate", 292U, __cil_tmp29, __cil_tmp30, & btmrvl_psstate_fops);
 #line 431
-  __cil_tmp79 = (unsigned long )dbg;
+  __cil_tmp31 = dbg->status_dir;
 #line 431
-  __cil_tmp80 = __cil_tmp79 + 72;
+  __cil_tmp32 = hdev->driver_data;
 #line 431
-  __cil_tmp81 = (unsigned long )dbg;
-#line 431
-  __cil_tmp82 = __cil_tmp81 + 8;
-#line 431
-  __cil_tmp83 = *((struct dentry **)__cil_tmp82);
-#line 431
-  __cil_tmp84 = (unsigned long )hdev;
-#line 431
-  __cil_tmp85 = __cil_tmp84 + 2336;
-#line 431
-  __cil_tmp86 = *((void **)__cil_tmp85);
-#line 431
-  *((struct dentry **)__cil_tmp80) = debugfs_create_file("hsstate", 292U, __cil_tmp83,
-                                                         __cil_tmp86, & btmrvl_hsstate_fops);
+  dbg->hsstate = debugfs_create_file("hsstate", 292U, __cil_tmp31, __cil_tmp32, & btmrvl_hsstate_fops);
 #line 433
-  __cil_tmp87 = (unsigned long )dbg;
+  __cil_tmp33 = dbg->status_dir;
 #line 433
-  __cil_tmp88 = __cil_tmp87 + 88;
+  __cil_tmp34 = hdev->driver_data;
 #line 433
-  __cil_tmp89 = (unsigned long )dbg;
-#line 433
-  __cil_tmp90 = __cil_tmp89 + 8;
-#line 433
-  __cil_tmp91 = *((struct dentry **)__cil_tmp90);
-#line 433
-  __cil_tmp92 = (unsigned long )hdev;
-#line 433
-  __cil_tmp93 = __cil_tmp92 + 2336;
-#line 433
-  __cil_tmp94 = *((void **)__cil_tmp93);
-#line 433
-  *((struct dentry **)__cil_tmp88) = debugfs_create_file("txdnldready", 292U, __cil_tmp91,
-                                                         __cil_tmp94, & btmrvl_txdnldready_fops);
+  dbg->txdnldready = debugfs_create_file("txdnldready", 292U, __cil_tmp33, __cil_tmp34,
+                                         & btmrvl_txdnldready_fops);
   }
 #line 437
   return;
@@ -14756,77 +11755,43 @@ void btmrvl_debugfs_init(struct hci_dev *hdev )
 void btmrvl_debugfs_remove(struct hci_dev *hdev ) 
 { struct btmrvl_private *priv ;
   struct btmrvl_debugfs_data *dbg ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
+  void *__cil_tmp4 ;
+  void *__cil_tmp5 ;
+  struct btmrvl_debugfs_data *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  struct btmrvl_debugfs_data *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  struct dentry *__cil_tmp9 ;
+  struct dentry *__cil_tmp10 ;
+  struct dentry *__cil_tmp11 ;
+  struct dentry *__cil_tmp12 ;
+  struct dentry *__cil_tmp13 ;
+  struct dentry *__cil_tmp14 ;
   struct dentry *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct dentry *__cil_tmp16 ;
+  struct dentry *__cil_tmp17 ;
   struct dentry *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct dentry *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct dentry *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct dentry *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct dentry *__cil_tmp30 ;
-  struct dentry *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct dentry *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct dentry *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct dentry *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct dentry *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct dentry *__cil_tmp46 ;
-  void const   *__cil_tmp47 ;
+  struct dentry *__cil_tmp19 ;
+  struct dentry *__cil_tmp20 ;
+  void const   *__cil_tmp21 ;
 
   {
 #line 441
-  __cil_tmp4 = (unsigned long )hdev;
+  __cil_tmp4 = hdev->driver_data;
 #line 441
-  __cil_tmp5 = __cil_tmp4 + 2336;
-#line 441
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 441
-  priv = (struct btmrvl_private *)__cil_tmp6;
+  priv = (struct btmrvl_private *)__cil_tmp4;
 #line 442
-  __cil_tmp7 = (unsigned long )priv;
+  __cil_tmp5 = priv->debugfs_data;
 #line 442
-  __cil_tmp8 = __cil_tmp7 + 240;
-#line 442
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 442
-  dbg = (struct btmrvl_debugfs_data *)__cil_tmp9;
+  dbg = (struct btmrvl_debugfs_data *)__cil_tmp5;
   {
 #line 444
-  __cil_tmp10 = (struct btmrvl_debugfs_data *)0;
+  __cil_tmp6 = (struct btmrvl_debugfs_data *)0;
 #line 444
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
+  __cil_tmp7 = (unsigned long )__cil_tmp6;
 #line 444
-  __cil_tmp12 = (unsigned long )dbg;
+  __cil_tmp8 = (unsigned long )dbg;
 #line 444
-  if (__cil_tmp12 == __cil_tmp11) {
+  if (__cil_tmp8 == __cil_tmp7) {
 #line 445
     return;
   } else {
@@ -14835,101 +11800,57 @@ void btmrvl_debugfs_remove(struct hci_dev *hdev )
   }
   {
 #line 447
-  __cil_tmp13 = (unsigned long )dbg;
+  __cil_tmp9 = dbg->psmode;
 #line 447
-  __cil_tmp14 = __cil_tmp13 + 16;
-#line 447
-  __cil_tmp15 = *((struct dentry **)__cil_tmp14);
-#line 447
+  debugfs_remove(__cil_tmp9);
+#line 448
+  __cil_tmp10 = dbg->pscmd;
+#line 448
+  debugfs_remove(__cil_tmp10);
+#line 449
+  __cil_tmp11 = dbg->gpiogap;
+#line 449
+  debugfs_remove(__cil_tmp11);
+#line 450
+  __cil_tmp12 = dbg->hsmode;
+#line 450
+  debugfs_remove(__cil_tmp12);
+#line 451
+  __cil_tmp13 = dbg->hscmd;
+#line 451
+  debugfs_remove(__cil_tmp13);
+#line 452
+  __cil_tmp14 = dbg->hscfgcmd;
+#line 452
+  debugfs_remove(__cil_tmp14);
+#line 453
+  __cil_tmp15 = dbg->config_dir;
+#line 453
   debugfs_remove(__cil_tmp15);
-#line 448
-  __cil_tmp16 = (unsigned long )dbg;
-#line 448
-  __cil_tmp17 = __cil_tmp16 + 24;
-#line 448
-  __cil_tmp18 = *((struct dentry **)__cil_tmp17);
-#line 448
+#line 455
+  __cil_tmp16 = dbg->curpsmode;
+#line 455
+  debugfs_remove(__cil_tmp16);
+#line 456
+  __cil_tmp17 = dbg->psstate;
+#line 456
+  debugfs_remove(__cil_tmp17);
+#line 457
+  __cil_tmp18 = dbg->hsstate;
+#line 457
   debugfs_remove(__cil_tmp18);
-#line 449
-  __cil_tmp19 = (unsigned long )dbg;
-#line 449
-  __cil_tmp20 = __cil_tmp19 + 48;
-#line 449
-  __cil_tmp21 = *((struct dentry **)__cil_tmp20);
-#line 449
-  debugfs_remove(__cil_tmp21);
-#line 450
-  __cil_tmp22 = (unsigned long )dbg;
-#line 450
-  __cil_tmp23 = __cil_tmp22 + 32;
-#line 450
-  __cil_tmp24 = *((struct dentry **)__cil_tmp23);
-#line 450
-  debugfs_remove(__cil_tmp24);
-#line 451
-  __cil_tmp25 = (unsigned long )dbg;
-#line 451
-  __cil_tmp26 = __cil_tmp25 + 40;
-#line 451
-  __cil_tmp27 = *((struct dentry **)__cil_tmp26);
-#line 451
-  debugfs_remove(__cil_tmp27);
-#line 452
-  __cil_tmp28 = (unsigned long )dbg;
-#line 452
-  __cil_tmp29 = __cil_tmp28 + 56;
-#line 452
-  __cil_tmp30 = *((struct dentry **)__cil_tmp29);
-#line 452
-  debugfs_remove(__cil_tmp30);
-#line 453
-  __cil_tmp31 = *((struct dentry **)dbg);
-#line 453
-  debugfs_remove(__cil_tmp31);
-#line 455
-  __cil_tmp32 = (unsigned long )dbg;
-#line 455
-  __cil_tmp33 = __cil_tmp32 + 64;
-#line 455
-  __cil_tmp34 = *((struct dentry **)__cil_tmp33);
-#line 455
-  debugfs_remove(__cil_tmp34);
-#line 456
-  __cil_tmp35 = (unsigned long )dbg;
-#line 456
-  __cil_tmp36 = __cil_tmp35 + 80;
-#line 456
-  __cil_tmp37 = *((struct dentry **)__cil_tmp36);
-#line 456
-  debugfs_remove(__cil_tmp37);
-#line 457
-  __cil_tmp38 = (unsigned long )dbg;
-#line 457
-  __cil_tmp39 = __cil_tmp38 + 72;
-#line 457
-  __cil_tmp40 = *((struct dentry **)__cil_tmp39);
-#line 457
-  debugfs_remove(__cil_tmp40);
 #line 458
-  __cil_tmp41 = (unsigned long )dbg;
+  __cil_tmp19 = dbg->txdnldready;
 #line 458
-  __cil_tmp42 = __cil_tmp41 + 88;
-#line 458
-  __cil_tmp43 = *((struct dentry **)__cil_tmp42);
-#line 458
-  debugfs_remove(__cil_tmp43);
+  debugfs_remove(__cil_tmp19);
 #line 459
-  __cil_tmp44 = (unsigned long )dbg;
+  __cil_tmp20 = dbg->status_dir;
 #line 459
-  __cil_tmp45 = __cil_tmp44 + 8;
-#line 459
-  __cil_tmp46 = *((struct dentry **)__cil_tmp45);
-#line 459
-  debugfs_remove(__cil_tmp46);
+  debugfs_remove(__cil_tmp20);
 #line 461
-  __cil_tmp47 = (void const   *)dbg;
+  __cil_tmp21 = (void const   *)dbg;
 #line 461
-  kfree(__cil_tmp47);
+  kfree(__cil_tmp21);
   }
 #line 462
   return;
@@ -15068,6 +11989,7 @@ void main(void)
 #line 740
   ldv_initialize();
   }
+#line 762
   goto ldv_40053;
   ldv_40052: 
   {
@@ -15076,776 +11998,804 @@ void main(void)
   }
 #line 777
   if (tmp == 0) {
+#line 777
     goto case_0;
-  } else {
+  } else
 #line 796
-    if (tmp == 1) {
-      goto case_1;
-    } else {
+  if (tmp == 1) {
+#line 796
+    goto case_1;
+  } else
 #line 815
-      if (tmp == 2) {
-        goto case_2;
-      } else {
+  if (tmp == 2) {
+#line 815
+    goto case_2;
+  } else
 #line 834
-        if (tmp == 3) {
-          goto case_3;
-        } else {
+  if (tmp == 3) {
+#line 834
+    goto case_3;
+  } else
 #line 853
-          if (tmp == 4) {
-            goto case_4;
-          } else {
+  if (tmp == 4) {
+#line 853
+    goto case_4;
+  } else
 #line 872
-            if (tmp == 5) {
-              goto case_5;
-            } else {
+  if (tmp == 5) {
+#line 872
+    goto case_5;
+  } else
 #line 891
-              if (tmp == 6) {
-                goto case_6;
-              } else {
+  if (tmp == 6) {
+#line 891
+    goto case_6;
+  } else
 #line 910
-                if (tmp == 7) {
-                  goto case_7;
-                } else {
+  if (tmp == 7) {
+#line 910
+    goto case_7;
+  } else
 #line 929
-                  if (tmp == 8) {
-                    goto case_8;
-                  } else {
+  if (tmp == 8) {
+#line 929
+    goto case_8;
+  } else
 #line 948
-                    if (tmp == 9) {
-                      goto case_9;
-                    } else {
+  if (tmp == 9) {
+#line 948
+    goto case_9;
+  } else
 #line 967
-                      if (tmp == 10) {
-                        goto case_10;
-                      } else {
+  if (tmp == 10) {
+#line 967
+    goto case_10;
+  } else
 #line 986
-                        if (tmp == 11) {
-                          goto case_11;
-                        } else {
+  if (tmp == 11) {
+#line 986
+    goto case_11;
+  } else
 #line 1005
-                          if (tmp == 12) {
-                            goto case_12;
-                          } else {
+  if (tmp == 12) {
+#line 1005
+    goto case_12;
+  } else
 #line 1024
-                            if (tmp == 13) {
-                              goto case_13;
-                            } else {
+  if (tmp == 13) {
+#line 1024
+    goto case_13;
+  } else
 #line 1043
-                              if (tmp == 14) {
-                                goto case_14;
-                              } else {
+  if (tmp == 14) {
+#line 1043
+    goto case_14;
+  } else
 #line 1062
-                                if (tmp == 15) {
-                                  goto case_15;
-                                } else {
+  if (tmp == 15) {
+#line 1062
+    goto case_15;
+  } else
 #line 1081
-                                  if (tmp == 16) {
-                                    goto case_16;
-                                  } else {
+  if (tmp == 16) {
+#line 1081
+    goto case_16;
+  } else
 #line 1100
-                                    if (tmp == 17) {
-                                      goto case_17;
-                                    } else {
+  if (tmp == 17) {
+#line 1100
+    goto case_17;
+  } else
 #line 1119
-                                      if (tmp == 18) {
-                                        goto case_18;
-                                      } else {
+  if (tmp == 18) {
+#line 1119
+    goto case_18;
+  } else
 #line 1138
-                                        if (tmp == 19) {
-                                          goto case_19;
-                                        } else {
+  if (tmp == 19) {
+#line 1138
+    goto case_19;
+  } else
 #line 1157
-                                          if (tmp == 20) {
-                                            goto case_20;
-                                          } else {
+  if (tmp == 20) {
+#line 1157
+    goto case_20;
+  } else
 #line 1176
-                                            if (tmp == 21) {
-                                              goto case_21;
-                                            } else {
+  if (tmp == 21) {
+#line 1176
+    goto case_21;
+  } else
 #line 1195
-                                              if (tmp == 22) {
-                                                goto case_22;
-                                              } else {
+  if (tmp == 22) {
+#line 1195
+    goto case_22;
+  } else
 #line 1214
-                                                if (tmp == 23) {
-                                                  goto case_23;
-                                                } else {
+  if (tmp == 23) {
+#line 1214
+    goto case_23;
+  } else
 #line 1233
-                                                  if (tmp == 24) {
-                                                    goto case_24;
-                                                  } else {
+  if (tmp == 24) {
+#line 1233
+    goto case_24;
+  } else
 #line 1252
-                                                    if (tmp == 25) {
-                                                      goto case_25;
-                                                    } else {
-                                                      goto switch_default;
+  if (tmp == 25) {
+#line 1252
+    goto case_25;
+  } else {
+#line 1271
+    goto switch_default;
 #line 775
-                                                      if (0) {
-                                                        case_0: ;
+    if (0) {
+      case_0: ;
 #line 780
-                                                        if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 0) {
-                                                          {
+      if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 0) {
+        {
 #line 785
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
 #line 786
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 787
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 789
-                                                          ldv_s_btmrvl_hscfgcmd_fops_file_operations = ldv_s_btmrvl_hscfgcmd_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_1: ;
-#line 799
-                                                        if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 1) {
-                                                          {
-#line 804
-                                                          res_btmrvl_hscfgcmd_read_2 = btmrvl_hscfgcmd_read(var_group1,
-                                                                                                            var_btmrvl_hscfgcmd_read_2_p1,
-                                                                                                            var_btmrvl_hscfgcmd_read_2_p2,
-                                                                                                            var_btmrvl_hscfgcmd_read_2_p3);
-#line 805
-                                                          __cil_tmp80 = (int )res_btmrvl_hscfgcmd_read_2;
-#line 805
-                                                          ldv_check_return_value(__cil_tmp80);
-                                                          }
-#line 806
-                                                          if (res_btmrvl_hscfgcmd_read_2 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 808
-                                                          ldv_s_btmrvl_hscfgcmd_fops_file_operations = ldv_s_btmrvl_hscfgcmd_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_2: ;
-#line 818
-                                                        if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 2) {
-                                                          {
-#line 823
-                                                          res_btmrvl_hscfgcmd_write_1 = btmrvl_hscfgcmd_write(var_group1,
-                                                                                                              var_btmrvl_hscfgcmd_write_1_p1,
-                                                                                                              var_btmrvl_hscfgcmd_write_1_p2,
-                                                                                                              var_btmrvl_hscfgcmd_write_1_p3);
-#line 824
-                                                          __cil_tmp81 = (int )res_btmrvl_hscfgcmd_write_1;
-#line 824
-                                                          ldv_check_return_value(__cil_tmp81);
-                                                          }
-#line 825
-                                                          if (res_btmrvl_hscfgcmd_write_1 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 827
-                                                          ldv_s_btmrvl_hscfgcmd_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_3: ;
-#line 837
-                                                        if (ldv_s_btmrvl_psmode_fops_file_operations == 0) {
-                                                          {
-#line 842
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 843
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 844
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 846
-                                                          ldv_s_btmrvl_psmode_fops_file_operations = ldv_s_btmrvl_psmode_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_4: ;
-#line 856
-                                                        if (ldv_s_btmrvl_psmode_fops_file_operations == 1) {
-                                                          {
-#line 861
-                                                          res_btmrvl_psmode_read_4 = btmrvl_psmode_read(var_group1,
-                                                                                                        var_btmrvl_psmode_read_4_p1,
-                                                                                                        var_btmrvl_psmode_read_4_p2,
-                                                                                                        var_btmrvl_psmode_read_4_p3);
-#line 862
-                                                          __cil_tmp82 = (int )res_btmrvl_psmode_read_4;
-#line 862
-                                                          ldv_check_return_value(__cil_tmp82);
-                                                          }
-#line 863
-                                                          if (res_btmrvl_psmode_read_4 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 865
-                                                          ldv_s_btmrvl_psmode_fops_file_operations = ldv_s_btmrvl_psmode_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_5: ;
-#line 875
-                                                        if (ldv_s_btmrvl_psmode_fops_file_operations == 2) {
-                                                          {
-#line 880
-                                                          res_btmrvl_psmode_write_3 = btmrvl_psmode_write(var_group1,
-                                                                                                          var_btmrvl_psmode_write_3_p1,
-                                                                                                          var_btmrvl_psmode_write_3_p2,
-                                                                                                          var_btmrvl_psmode_write_3_p3);
-#line 881
-                                                          __cil_tmp83 = (int )res_btmrvl_psmode_write_3;
-#line 881
-                                                          ldv_check_return_value(__cil_tmp83);
-                                                          }
-#line 882
-                                                          if (res_btmrvl_psmode_write_3 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 884
-                                                          ldv_s_btmrvl_psmode_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_6: ;
-#line 894
-                                                        if (ldv_s_btmrvl_pscmd_fops_file_operations == 0) {
-                                                          {
-#line 899
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 900
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 901
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 903
-                                                          ldv_s_btmrvl_pscmd_fops_file_operations = ldv_s_btmrvl_pscmd_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_7: ;
-#line 913
-                                                        if (ldv_s_btmrvl_pscmd_fops_file_operations == 1) {
-                                                          {
-#line 918
-                                                          res_btmrvl_pscmd_read_6 = btmrvl_pscmd_read(var_group1,
-                                                                                                      var_btmrvl_pscmd_read_6_p1,
-                                                                                                      var_btmrvl_pscmd_read_6_p2,
-                                                                                                      var_btmrvl_pscmd_read_6_p3);
-#line 919
-                                                          __cil_tmp84 = (int )res_btmrvl_pscmd_read_6;
-#line 919
-                                                          ldv_check_return_value(__cil_tmp84);
-                                                          }
-#line 920
-                                                          if (res_btmrvl_pscmd_read_6 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 922
-                                                          ldv_s_btmrvl_pscmd_fops_file_operations = ldv_s_btmrvl_pscmd_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_8: ;
-#line 932
-                                                        if (ldv_s_btmrvl_pscmd_fops_file_operations == 2) {
-                                                          {
-#line 937
-                                                          res_btmrvl_pscmd_write_5 = btmrvl_pscmd_write(var_group1,
-                                                                                                        var_btmrvl_pscmd_write_5_p1,
-                                                                                                        var_btmrvl_pscmd_write_5_p2,
-                                                                                                        var_btmrvl_pscmd_write_5_p3);
-#line 938
-                                                          __cil_tmp85 = (int )res_btmrvl_pscmd_write_5;
-#line 938
-                                                          ldv_check_return_value(__cil_tmp85);
-                                                          }
-#line 939
-                                                          if (res_btmrvl_pscmd_write_5 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 941
-                                                          ldv_s_btmrvl_pscmd_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_9: ;
-#line 951
-                                                        if (ldv_s_btmrvl_gpiogap_fops_file_operations == 0) {
-                                                          {
-#line 956
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 957
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 958
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 960
-                                                          ldv_s_btmrvl_gpiogap_fops_file_operations = ldv_s_btmrvl_gpiogap_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_10: ;
-#line 970
-                                                        if (ldv_s_btmrvl_gpiogap_fops_file_operations == 1) {
-                                                          {
-#line 975
-                                                          res_btmrvl_gpiogap_read_8 = btmrvl_gpiogap_read(var_group1,
-                                                                                                          var_btmrvl_gpiogap_read_8_p1,
-                                                                                                          var_btmrvl_gpiogap_read_8_p2,
-                                                                                                          var_btmrvl_gpiogap_read_8_p3);
-#line 976
-                                                          __cil_tmp86 = (int )res_btmrvl_gpiogap_read_8;
-#line 976
-                                                          ldv_check_return_value(__cil_tmp86);
-                                                          }
-#line 977
-                                                          if (res_btmrvl_gpiogap_read_8 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 979
-                                                          ldv_s_btmrvl_gpiogap_fops_file_operations = ldv_s_btmrvl_gpiogap_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_11: ;
-#line 989
-                                                        if (ldv_s_btmrvl_gpiogap_fops_file_operations == 2) {
-                                                          {
-#line 994
-                                                          res_btmrvl_gpiogap_write_7 = btmrvl_gpiogap_write(var_group1,
-                                                                                                            var_btmrvl_gpiogap_write_7_p1,
-                                                                                                            var_btmrvl_gpiogap_write_7_p2,
-                                                                                                            var_btmrvl_gpiogap_write_7_p3);
-#line 995
-                                                          __cil_tmp87 = (int )res_btmrvl_gpiogap_write_7;
-#line 995
-                                                          ldv_check_return_value(__cil_tmp87);
-                                                          }
-#line 996
-                                                          if (res_btmrvl_gpiogap_write_7 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 998
-                                                          ldv_s_btmrvl_gpiogap_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_12: ;
-#line 1008
-                                                        if (ldv_s_btmrvl_hscmd_fops_file_operations == 0) {
-                                                          {
-#line 1013
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 1014
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 1015
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1017
-                                                          ldv_s_btmrvl_hscmd_fops_file_operations = ldv_s_btmrvl_hscmd_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_13: ;
-#line 1027
-                                                        if (ldv_s_btmrvl_hscmd_fops_file_operations == 1) {
-                                                          {
-#line 1032
-                                                          res_btmrvl_hscmd_read_10 = btmrvl_hscmd_read(var_group1,
-                                                                                                       var_btmrvl_hscmd_read_10_p1,
-                                                                                                       var_btmrvl_hscmd_read_10_p2,
-                                                                                                       var_btmrvl_hscmd_read_10_p3);
-#line 1033
-                                                          __cil_tmp88 = (int )res_btmrvl_hscmd_read_10;
-#line 1033
-                                                          ldv_check_return_value(__cil_tmp88);
-                                                          }
-#line 1034
-                                                          if (res_btmrvl_hscmd_read_10 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1036
-                                                          ldv_s_btmrvl_hscmd_fops_file_operations = ldv_s_btmrvl_hscmd_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_14: ;
-#line 1046
-                                                        if (ldv_s_btmrvl_hscmd_fops_file_operations == 2) {
-                                                          {
-#line 1051
-                                                          res_btmrvl_hscmd_write_9 = btmrvl_hscmd_write(var_group1,
-                                                                                                        var_btmrvl_hscmd_write_9_p1,
-                                                                                                        var_btmrvl_hscmd_write_9_p2,
-                                                                                                        var_btmrvl_hscmd_write_9_p3);
-#line 1052
-                                                          __cil_tmp89 = (int )res_btmrvl_hscmd_write_9;
-#line 1052
-                                                          ldv_check_return_value(__cil_tmp89);
-                                                          }
-#line 1053
-                                                          if (res_btmrvl_hscmd_write_9 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1055
-                                                          ldv_s_btmrvl_hscmd_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_15: ;
-#line 1065
-                                                        if (ldv_s_btmrvl_hsmode_fops_file_operations == 0) {
-                                                          {
-#line 1070
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 1071
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 1072
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1074
-                                                          ldv_s_btmrvl_hsmode_fops_file_operations = ldv_s_btmrvl_hsmode_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_16: ;
-#line 1084
-                                                        if (ldv_s_btmrvl_hsmode_fops_file_operations == 1) {
-                                                          {
-#line 1089
-                                                          res_btmrvl_hsmode_read_12 = btmrvl_hsmode_read(var_group1,
-                                                                                                         var_btmrvl_hsmode_read_12_p1,
-                                                                                                         var_btmrvl_hsmode_read_12_p2,
-                                                                                                         var_btmrvl_hsmode_read_12_p3);
-#line 1090
-                                                          __cil_tmp90 = (int )res_btmrvl_hsmode_read_12;
-#line 1090
-                                                          ldv_check_return_value(__cil_tmp90);
-                                                          }
-#line 1091
-                                                          if (res_btmrvl_hsmode_read_12 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1093
-                                                          ldv_s_btmrvl_hsmode_fops_file_operations = ldv_s_btmrvl_hsmode_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_17: ;
-#line 1103
-                                                        if (ldv_s_btmrvl_hsmode_fops_file_operations == 2) {
-                                                          {
-#line 1108
-                                                          res_btmrvl_hsmode_write_11 = btmrvl_hsmode_write(var_group1,
-                                                                                                           var_btmrvl_hsmode_write_11_p1,
-                                                                                                           var_btmrvl_hsmode_write_11_p2,
-                                                                                                           var_btmrvl_hsmode_write_11_p3);
-#line 1109
-                                                          __cil_tmp91 = (int )res_btmrvl_hsmode_write_11;
-#line 1109
-                                                          ldv_check_return_value(__cil_tmp91);
-                                                          }
-#line 1110
-                                                          if (res_btmrvl_hsmode_write_11 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1112
-                                                          ldv_s_btmrvl_hsmode_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_18: ;
-#line 1122
-                                                        if (ldv_s_btmrvl_curpsmode_fops_file_operations == 0) {
-                                                          {
-#line 1127
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 1128
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 1129
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1131
-                                                          ldv_s_btmrvl_curpsmode_fops_file_operations = ldv_s_btmrvl_curpsmode_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_19: ;
-#line 1141
-                                                        if (ldv_s_btmrvl_curpsmode_fops_file_operations == 1) {
-                                                          {
-#line 1146
-                                                          res_btmrvl_curpsmode_read_13 = btmrvl_curpsmode_read(var_group1,
-                                                                                                               var_btmrvl_curpsmode_read_13_p1,
-                                                                                                               var_btmrvl_curpsmode_read_13_p2,
-                                                                                                               var_btmrvl_curpsmode_read_13_p3);
-#line 1147
-                                                          __cil_tmp92 = (int )res_btmrvl_curpsmode_read_13;
-#line 1147
-                                                          ldv_check_return_value(__cil_tmp92);
-                                                          }
-#line 1148
-                                                          if (res_btmrvl_curpsmode_read_13 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1150
-                                                          ldv_s_btmrvl_curpsmode_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_20: ;
-#line 1160
-                                                        if (ldv_s_btmrvl_psstate_fops_file_operations == 0) {
-                                                          {
-#line 1165
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 1166
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 1167
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1169
-                                                          ldv_s_btmrvl_psstate_fops_file_operations = ldv_s_btmrvl_psstate_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_21: ;
-#line 1179
-                                                        if (ldv_s_btmrvl_psstate_fops_file_operations == 1) {
-                                                          {
-#line 1184
-                                                          res_btmrvl_psstate_read_14 = btmrvl_psstate_read(var_group1,
-                                                                                                           var_btmrvl_psstate_read_14_p1,
-                                                                                                           var_btmrvl_psstate_read_14_p2,
-                                                                                                           var_btmrvl_psstate_read_14_p3);
-#line 1185
-                                                          __cil_tmp93 = (int )res_btmrvl_psstate_read_14;
-#line 1185
-                                                          ldv_check_return_value(__cil_tmp93);
-                                                          }
-#line 1186
-                                                          if (res_btmrvl_psstate_read_14 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1188
-                                                          ldv_s_btmrvl_psstate_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_22: ;
-#line 1198
-                                                        if (ldv_s_btmrvl_hsstate_fops_file_operations == 0) {
-                                                          {
-#line 1203
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 1204
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 1205
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1207
-                                                          ldv_s_btmrvl_hsstate_fops_file_operations = ldv_s_btmrvl_hsstate_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_23: ;
-#line 1217
-                                                        if (ldv_s_btmrvl_hsstate_fops_file_operations == 1) {
-                                                          {
-#line 1222
-                                                          res_btmrvl_hsstate_read_15 = btmrvl_hsstate_read(var_group1,
-                                                                                                           var_btmrvl_hsstate_read_15_p1,
-                                                                                                           var_btmrvl_hsstate_read_15_p2,
-                                                                                                           var_btmrvl_hsstate_read_15_p3);
-#line 1223
-                                                          __cil_tmp94 = (int )res_btmrvl_hsstate_read_15;
-#line 1223
-                                                          ldv_check_return_value(__cil_tmp94);
-                                                          }
-#line 1224
-                                                          if (res_btmrvl_hsstate_read_15 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1226
-                                                          ldv_s_btmrvl_hsstate_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_24: ;
-#line 1236
-                                                        if (ldv_s_btmrvl_txdnldready_fops_file_operations == 0) {
-                                                          {
-#line 1241
-                                                          res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2,
-                                                                                                          var_group1);
-#line 1242
-                                                          ldv_check_return_value(res_btmrvl_open_generic_0);
-                                                          }
-#line 1243
-                                                          if (res_btmrvl_open_generic_0 != 0) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1245
-                                                          ldv_s_btmrvl_txdnldready_fops_file_operations = ldv_s_btmrvl_txdnldready_fops_file_operations + 1;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        case_25: ;
-#line 1255
-                                                        if (ldv_s_btmrvl_txdnldready_fops_file_operations == 1) {
-                                                          {
-#line 1260
-                                                          res_btmrvl_txdnldready_read_16 = btmrvl_txdnldready_read(var_group1,
-                                                                                                                   var_btmrvl_txdnldready_read_16_p1,
-                                                                                                                   var_btmrvl_txdnldready_read_16_p2,
-                                                                                                                   var_btmrvl_txdnldready_read_16_p3);
-#line 1261
-                                                          __cil_tmp95 = (int )res_btmrvl_txdnldready_read_16;
-#line 1261
-                                                          ldv_check_return_value(__cil_tmp95);
-                                                          }
-#line 1262
-                                                          if (res_btmrvl_txdnldready_read_16 < 0L) {
-                                                            goto ldv_module_exit;
-                                                          } else {
-
-                                                          }
-#line 1264
-                                                          ldv_s_btmrvl_txdnldready_fops_file_operations = 0;
-                                                        } else {
-
-                                                        }
-                                                        goto ldv_40025;
-                                                        switch_default: ;
-                                                        goto ldv_40025;
-                                                      } else {
-
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        ldv_check_return_value(res_btmrvl_open_generic_0);
         }
+#line 787
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 788
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 789
+        ldv_s_btmrvl_hscfgcmd_fops_file_operations = ldv_s_btmrvl_hscfgcmd_fops_file_operations + 1;
+      } else {
+
       }
+#line 795
+      goto ldv_40025;
+      case_1: ;
+#line 799
+      if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 1) {
+        {
+#line 804
+        res_btmrvl_hscfgcmd_read_2 = btmrvl_hscfgcmd_read(var_group1, var_btmrvl_hscfgcmd_read_2_p1,
+                                                          var_btmrvl_hscfgcmd_read_2_p2,
+                                                          var_btmrvl_hscfgcmd_read_2_p3);
+#line 805
+        __cil_tmp80 = (int )res_btmrvl_hscfgcmd_read_2;
+#line 805
+        ldv_check_return_value(__cil_tmp80);
+        }
+#line 806
+        if (res_btmrvl_hscfgcmd_read_2 < 0L) {
+#line 807
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 808
+        ldv_s_btmrvl_hscfgcmd_fops_file_operations = ldv_s_btmrvl_hscfgcmd_fops_file_operations + 1;
+      } else {
+
+      }
+#line 814
+      goto ldv_40025;
+      case_2: ;
+#line 818
+      if (ldv_s_btmrvl_hscfgcmd_fops_file_operations == 2) {
+        {
+#line 823
+        res_btmrvl_hscfgcmd_write_1 = btmrvl_hscfgcmd_write(var_group1, var_btmrvl_hscfgcmd_write_1_p1,
+                                                            var_btmrvl_hscfgcmd_write_1_p2,
+                                                            var_btmrvl_hscfgcmd_write_1_p3);
+#line 824
+        __cil_tmp81 = (int )res_btmrvl_hscfgcmd_write_1;
+#line 824
+        ldv_check_return_value(__cil_tmp81);
+        }
+#line 825
+        if (res_btmrvl_hscfgcmd_write_1 < 0L) {
+#line 826
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 827
+        ldv_s_btmrvl_hscfgcmd_fops_file_operations = 0;
+      } else {
+
+      }
+#line 833
+      goto ldv_40025;
+      case_3: ;
+#line 837
+      if (ldv_s_btmrvl_psmode_fops_file_operations == 0) {
+        {
+#line 842
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 843
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 844
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 845
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 846
+        ldv_s_btmrvl_psmode_fops_file_operations = ldv_s_btmrvl_psmode_fops_file_operations + 1;
+      } else {
+
+      }
+#line 852
+      goto ldv_40025;
+      case_4: ;
+#line 856
+      if (ldv_s_btmrvl_psmode_fops_file_operations == 1) {
+        {
+#line 861
+        res_btmrvl_psmode_read_4 = btmrvl_psmode_read(var_group1, var_btmrvl_psmode_read_4_p1,
+                                                      var_btmrvl_psmode_read_4_p2,
+                                                      var_btmrvl_psmode_read_4_p3);
+#line 862
+        __cil_tmp82 = (int )res_btmrvl_psmode_read_4;
+#line 862
+        ldv_check_return_value(__cil_tmp82);
+        }
+#line 863
+        if (res_btmrvl_psmode_read_4 < 0L) {
+#line 864
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 865
+        ldv_s_btmrvl_psmode_fops_file_operations = ldv_s_btmrvl_psmode_fops_file_operations + 1;
+      } else {
+
+      }
+#line 871
+      goto ldv_40025;
+      case_5: ;
+#line 875
+      if (ldv_s_btmrvl_psmode_fops_file_operations == 2) {
+        {
+#line 880
+        res_btmrvl_psmode_write_3 = btmrvl_psmode_write(var_group1, var_btmrvl_psmode_write_3_p1,
+                                                        var_btmrvl_psmode_write_3_p2,
+                                                        var_btmrvl_psmode_write_3_p3);
+#line 881
+        __cil_tmp83 = (int )res_btmrvl_psmode_write_3;
+#line 881
+        ldv_check_return_value(__cil_tmp83);
+        }
+#line 882
+        if (res_btmrvl_psmode_write_3 < 0L) {
+#line 883
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 884
+        ldv_s_btmrvl_psmode_fops_file_operations = 0;
+      } else {
+
+      }
+#line 890
+      goto ldv_40025;
+      case_6: ;
+#line 894
+      if (ldv_s_btmrvl_pscmd_fops_file_operations == 0) {
+        {
+#line 899
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 900
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 901
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 902
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 903
+        ldv_s_btmrvl_pscmd_fops_file_operations = ldv_s_btmrvl_pscmd_fops_file_operations + 1;
+      } else {
+
+      }
+#line 909
+      goto ldv_40025;
+      case_7: ;
+#line 913
+      if (ldv_s_btmrvl_pscmd_fops_file_operations == 1) {
+        {
+#line 918
+        res_btmrvl_pscmd_read_6 = btmrvl_pscmd_read(var_group1, var_btmrvl_pscmd_read_6_p1,
+                                                    var_btmrvl_pscmd_read_6_p2, var_btmrvl_pscmd_read_6_p3);
+#line 919
+        __cil_tmp84 = (int )res_btmrvl_pscmd_read_6;
+#line 919
+        ldv_check_return_value(__cil_tmp84);
+        }
+#line 920
+        if (res_btmrvl_pscmd_read_6 < 0L) {
+#line 921
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 922
+        ldv_s_btmrvl_pscmd_fops_file_operations = ldv_s_btmrvl_pscmd_fops_file_operations + 1;
+      } else {
+
+      }
+#line 928
+      goto ldv_40025;
+      case_8: ;
+#line 932
+      if (ldv_s_btmrvl_pscmd_fops_file_operations == 2) {
+        {
+#line 937
+        res_btmrvl_pscmd_write_5 = btmrvl_pscmd_write(var_group1, var_btmrvl_pscmd_write_5_p1,
+                                                      var_btmrvl_pscmd_write_5_p2,
+                                                      var_btmrvl_pscmd_write_5_p3);
+#line 938
+        __cil_tmp85 = (int )res_btmrvl_pscmd_write_5;
+#line 938
+        ldv_check_return_value(__cil_tmp85);
+        }
+#line 939
+        if (res_btmrvl_pscmd_write_5 < 0L) {
+#line 940
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 941
+        ldv_s_btmrvl_pscmd_fops_file_operations = 0;
+      } else {
+
+      }
+#line 947
+      goto ldv_40025;
+      case_9: ;
+#line 951
+      if (ldv_s_btmrvl_gpiogap_fops_file_operations == 0) {
+        {
+#line 956
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 957
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 958
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 959
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 960
+        ldv_s_btmrvl_gpiogap_fops_file_operations = ldv_s_btmrvl_gpiogap_fops_file_operations + 1;
+      } else {
+
+      }
+#line 966
+      goto ldv_40025;
+      case_10: ;
+#line 970
+      if (ldv_s_btmrvl_gpiogap_fops_file_operations == 1) {
+        {
+#line 975
+        res_btmrvl_gpiogap_read_8 = btmrvl_gpiogap_read(var_group1, var_btmrvl_gpiogap_read_8_p1,
+                                                        var_btmrvl_gpiogap_read_8_p2,
+                                                        var_btmrvl_gpiogap_read_8_p3);
+#line 976
+        __cil_tmp86 = (int )res_btmrvl_gpiogap_read_8;
+#line 976
+        ldv_check_return_value(__cil_tmp86);
+        }
+#line 977
+        if (res_btmrvl_gpiogap_read_8 < 0L) {
+#line 978
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 979
+        ldv_s_btmrvl_gpiogap_fops_file_operations = ldv_s_btmrvl_gpiogap_fops_file_operations + 1;
+      } else {
+
+      }
+#line 985
+      goto ldv_40025;
+      case_11: ;
+#line 989
+      if (ldv_s_btmrvl_gpiogap_fops_file_operations == 2) {
+        {
+#line 994
+        res_btmrvl_gpiogap_write_7 = btmrvl_gpiogap_write(var_group1, var_btmrvl_gpiogap_write_7_p1,
+                                                          var_btmrvl_gpiogap_write_7_p2,
+                                                          var_btmrvl_gpiogap_write_7_p3);
+#line 995
+        __cil_tmp87 = (int )res_btmrvl_gpiogap_write_7;
+#line 995
+        ldv_check_return_value(__cil_tmp87);
+        }
+#line 996
+        if (res_btmrvl_gpiogap_write_7 < 0L) {
+#line 997
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 998
+        ldv_s_btmrvl_gpiogap_fops_file_operations = 0;
+      } else {
+
+      }
+#line 1004
+      goto ldv_40025;
+      case_12: ;
+#line 1008
+      if (ldv_s_btmrvl_hscmd_fops_file_operations == 0) {
+        {
+#line 1013
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 1014
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 1015
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 1016
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1017
+        ldv_s_btmrvl_hscmd_fops_file_operations = ldv_s_btmrvl_hscmd_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1023
+      goto ldv_40025;
+      case_13: ;
+#line 1027
+      if (ldv_s_btmrvl_hscmd_fops_file_operations == 1) {
+        {
+#line 1032
+        res_btmrvl_hscmd_read_10 = btmrvl_hscmd_read(var_group1, var_btmrvl_hscmd_read_10_p1,
+                                                     var_btmrvl_hscmd_read_10_p2,
+                                                     var_btmrvl_hscmd_read_10_p3);
+#line 1033
+        __cil_tmp88 = (int )res_btmrvl_hscmd_read_10;
+#line 1033
+        ldv_check_return_value(__cil_tmp88);
+        }
+#line 1034
+        if (res_btmrvl_hscmd_read_10 < 0L) {
+#line 1035
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1036
+        ldv_s_btmrvl_hscmd_fops_file_operations = ldv_s_btmrvl_hscmd_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1042
+      goto ldv_40025;
+      case_14: ;
+#line 1046
+      if (ldv_s_btmrvl_hscmd_fops_file_operations == 2) {
+        {
+#line 1051
+        res_btmrvl_hscmd_write_9 = btmrvl_hscmd_write(var_group1, var_btmrvl_hscmd_write_9_p1,
+                                                      var_btmrvl_hscmd_write_9_p2,
+                                                      var_btmrvl_hscmd_write_9_p3);
+#line 1052
+        __cil_tmp89 = (int )res_btmrvl_hscmd_write_9;
+#line 1052
+        ldv_check_return_value(__cil_tmp89);
+        }
+#line 1053
+        if (res_btmrvl_hscmd_write_9 < 0L) {
+#line 1054
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1055
+        ldv_s_btmrvl_hscmd_fops_file_operations = 0;
+      } else {
+
+      }
+#line 1061
+      goto ldv_40025;
+      case_15: ;
+#line 1065
+      if (ldv_s_btmrvl_hsmode_fops_file_operations == 0) {
+        {
+#line 1070
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 1071
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 1072
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 1073
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1074
+        ldv_s_btmrvl_hsmode_fops_file_operations = ldv_s_btmrvl_hsmode_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1080
+      goto ldv_40025;
+      case_16: ;
+#line 1084
+      if (ldv_s_btmrvl_hsmode_fops_file_operations == 1) {
+        {
+#line 1089
+        res_btmrvl_hsmode_read_12 = btmrvl_hsmode_read(var_group1, var_btmrvl_hsmode_read_12_p1,
+                                                       var_btmrvl_hsmode_read_12_p2,
+                                                       var_btmrvl_hsmode_read_12_p3);
+#line 1090
+        __cil_tmp90 = (int )res_btmrvl_hsmode_read_12;
+#line 1090
+        ldv_check_return_value(__cil_tmp90);
+        }
+#line 1091
+        if (res_btmrvl_hsmode_read_12 < 0L) {
+#line 1092
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1093
+        ldv_s_btmrvl_hsmode_fops_file_operations = ldv_s_btmrvl_hsmode_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1099
+      goto ldv_40025;
+      case_17: ;
+#line 1103
+      if (ldv_s_btmrvl_hsmode_fops_file_operations == 2) {
+        {
+#line 1108
+        res_btmrvl_hsmode_write_11 = btmrvl_hsmode_write(var_group1, var_btmrvl_hsmode_write_11_p1,
+                                                         var_btmrvl_hsmode_write_11_p2,
+                                                         var_btmrvl_hsmode_write_11_p3);
+#line 1109
+        __cil_tmp91 = (int )res_btmrvl_hsmode_write_11;
+#line 1109
+        ldv_check_return_value(__cil_tmp91);
+        }
+#line 1110
+        if (res_btmrvl_hsmode_write_11 < 0L) {
+#line 1111
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1112
+        ldv_s_btmrvl_hsmode_fops_file_operations = 0;
+      } else {
+
+      }
+#line 1118
+      goto ldv_40025;
+      case_18: ;
+#line 1122
+      if (ldv_s_btmrvl_curpsmode_fops_file_operations == 0) {
+        {
+#line 1127
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 1128
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 1129
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 1130
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1131
+        ldv_s_btmrvl_curpsmode_fops_file_operations = ldv_s_btmrvl_curpsmode_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1137
+      goto ldv_40025;
+      case_19: ;
+#line 1141
+      if (ldv_s_btmrvl_curpsmode_fops_file_operations == 1) {
+        {
+#line 1146
+        res_btmrvl_curpsmode_read_13 = btmrvl_curpsmode_read(var_group1, var_btmrvl_curpsmode_read_13_p1,
+                                                             var_btmrvl_curpsmode_read_13_p2,
+                                                             var_btmrvl_curpsmode_read_13_p3);
+#line 1147
+        __cil_tmp92 = (int )res_btmrvl_curpsmode_read_13;
+#line 1147
+        ldv_check_return_value(__cil_tmp92);
+        }
+#line 1148
+        if (res_btmrvl_curpsmode_read_13 < 0L) {
+#line 1149
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1150
+        ldv_s_btmrvl_curpsmode_fops_file_operations = 0;
+      } else {
+
+      }
+#line 1156
+      goto ldv_40025;
+      case_20: ;
+#line 1160
+      if (ldv_s_btmrvl_psstate_fops_file_operations == 0) {
+        {
+#line 1165
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 1166
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 1167
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 1168
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1169
+        ldv_s_btmrvl_psstate_fops_file_operations = ldv_s_btmrvl_psstate_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1175
+      goto ldv_40025;
+      case_21: ;
+#line 1179
+      if (ldv_s_btmrvl_psstate_fops_file_operations == 1) {
+        {
+#line 1184
+        res_btmrvl_psstate_read_14 = btmrvl_psstate_read(var_group1, var_btmrvl_psstate_read_14_p1,
+                                                         var_btmrvl_psstate_read_14_p2,
+                                                         var_btmrvl_psstate_read_14_p3);
+#line 1185
+        __cil_tmp93 = (int )res_btmrvl_psstate_read_14;
+#line 1185
+        ldv_check_return_value(__cil_tmp93);
+        }
+#line 1186
+        if (res_btmrvl_psstate_read_14 < 0L) {
+#line 1187
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1188
+        ldv_s_btmrvl_psstate_fops_file_operations = 0;
+      } else {
+
+      }
+#line 1194
+      goto ldv_40025;
+      case_22: ;
+#line 1198
+      if (ldv_s_btmrvl_hsstate_fops_file_operations == 0) {
+        {
+#line 1203
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 1204
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 1205
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 1206
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1207
+        ldv_s_btmrvl_hsstate_fops_file_operations = ldv_s_btmrvl_hsstate_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1213
+      goto ldv_40025;
+      case_23: ;
+#line 1217
+      if (ldv_s_btmrvl_hsstate_fops_file_operations == 1) {
+        {
+#line 1222
+        res_btmrvl_hsstate_read_15 = btmrvl_hsstate_read(var_group1, var_btmrvl_hsstate_read_15_p1,
+                                                         var_btmrvl_hsstate_read_15_p2,
+                                                         var_btmrvl_hsstate_read_15_p3);
+#line 1223
+        __cil_tmp94 = (int )res_btmrvl_hsstate_read_15;
+#line 1223
+        ldv_check_return_value(__cil_tmp94);
+        }
+#line 1224
+        if (res_btmrvl_hsstate_read_15 < 0L) {
+#line 1225
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1226
+        ldv_s_btmrvl_hsstate_fops_file_operations = 0;
+      } else {
+
+      }
+#line 1232
+      goto ldv_40025;
+      case_24: ;
+#line 1236
+      if (ldv_s_btmrvl_txdnldready_fops_file_operations == 0) {
+        {
+#line 1241
+        res_btmrvl_open_generic_0 = btmrvl_open_generic(var_group2, var_group1);
+#line 1242
+        ldv_check_return_value(res_btmrvl_open_generic_0);
+        }
+#line 1243
+        if (res_btmrvl_open_generic_0 != 0) {
+#line 1244
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1245
+        ldv_s_btmrvl_txdnldready_fops_file_operations = ldv_s_btmrvl_txdnldready_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1251
+      goto ldv_40025;
+      case_25: ;
+#line 1255
+      if (ldv_s_btmrvl_txdnldready_fops_file_operations == 1) {
+        {
+#line 1260
+        res_btmrvl_txdnldready_read_16 = btmrvl_txdnldready_read(var_group1, var_btmrvl_txdnldready_read_16_p1,
+                                                                 var_btmrvl_txdnldready_read_16_p2,
+                                                                 var_btmrvl_txdnldready_read_16_p3);
+#line 1261
+        __cil_tmp95 = (int )res_btmrvl_txdnldready_read_16;
+#line 1261
+        ldv_check_return_value(__cil_tmp95);
+        }
+#line 1262
+        if (res_btmrvl_txdnldready_read_16 < 0L) {
+#line 1263
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1264
+        ldv_s_btmrvl_txdnldready_fops_file_operations = 0;
+      } else {
+
+      }
+#line 1270
+      goto ldv_40025;
+      switch_default: ;
+#line 1271
+      goto ldv_40025;
+    } else {
+
     }
   }
   ldv_40025: ;
@@ -15856,59 +12806,61 @@ void main(void)
   }
 #line 762
   if (tmp___0 != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_hscfgcmd_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_psmode_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_pscmd_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_gpiogap_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_hscmd_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_hsmode_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_curpsmode_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_psstate_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_hsstate_fops_file_operations != 0) {
+#line 773
+    goto ldv_40052;
+  } else
+#line 762
+  if (ldv_s_btmrvl_txdnldready_fops_file_operations != 0) {
+#line 773
     goto ldv_40052;
   } else {
-#line 762
-    if (ldv_s_btmrvl_hscfgcmd_fops_file_operations != 0) {
-      goto ldv_40052;
-    } else {
-#line 762
-      if (ldv_s_btmrvl_psmode_fops_file_operations != 0) {
-        goto ldv_40052;
-      } else {
-#line 762
-        if (ldv_s_btmrvl_pscmd_fops_file_operations != 0) {
-          goto ldv_40052;
-        } else {
-#line 762
-          if (ldv_s_btmrvl_gpiogap_fops_file_operations != 0) {
-            goto ldv_40052;
-          } else {
-#line 762
-            if (ldv_s_btmrvl_hscmd_fops_file_operations != 0) {
-              goto ldv_40052;
-            } else {
-#line 762
-              if (ldv_s_btmrvl_hsmode_fops_file_operations != 0) {
-                goto ldv_40052;
-              } else {
-#line 762
-                if (ldv_s_btmrvl_curpsmode_fops_file_operations != 0) {
-                  goto ldv_40052;
-                } else {
-#line 762
-                  if (ldv_s_btmrvl_psstate_fops_file_operations != 0) {
-                    goto ldv_40052;
-                  } else {
-#line 762
-                    if (ldv_s_btmrvl_hsstate_fops_file_operations != 0) {
-                      goto ldv_40052;
-                    } else {
-#line 762
-                      if (ldv_s_btmrvl_txdnldready_fops_file_operations != 0) {
-                        goto ldv_40052;
-                      } else {
-                        goto ldv_40054;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+#line 775
+    goto ldv_40054;
   }
   ldv_40054: ;
   ldv_module_exit: 

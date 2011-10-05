@@ -5879,12 +5879,9 @@ __inline static unsigned long arch_local_save_flags(void)
   long tmp ;
   void *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  struct pv_irq_ops *__cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  long __cil_tmp14 ;
-  struct pv_irq_ops *__cil_tmp15 ;
+  unsigned long __cil_tmp10 ;
+  int __cil_tmp11 ;
+  long __cil_tmp12 ;
 
   {
   {
@@ -5903,17 +5900,13 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 853
   __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 853
-  __cil_tmp10 = & pv_irq_ops;
+  __cil_tmp10 = (unsigned long )pv_irq_ops.save_fl.func;
 #line 853
-  __cil_tmp11 = *((void **)__cil_tmp10);
+  __cil_tmp11 = __cil_tmp10 == __cil_tmp9;
 #line 853
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
+  __cil_tmp12 = (long )__cil_tmp11;
 #line 853
-  __cil_tmp13 = __cil_tmp12 == __cil_tmp9;
-#line 853
-  __cil_tmp14 = (long )__cil_tmp13;
-#line 853
-  tmp = __builtin_expect(__cil_tmp14, 0L);
+  tmp = __builtin_expect(__cil_tmp12, 0L);
   }
 #line 853
   if (tmp != 0L) {
@@ -5921,15 +5914,14 @@ __inline static unsigned long arch_local_save_flags(void)
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt.h"),
                          "i" (853), "i" (12UL));
     ldv_4705: ;
+#line 853
     goto ldv_4705;
   } else {
 
   }
 #line 853
-  __cil_tmp15 = & pv_irq_ops;
-#line 853
   __asm__  volatile   ("771:\n\tcall *%c2;\n772:\n.pushsection .parainstructions,\"a\"\n .balign 8 \n .quad  771b\n  .byte %c1\n  .byte 772b-771b\n  .short %c3\n.popsection\n": "=a" (__eax): [paravirt_typenum] "i" (46UL),
-                       [paravirt_opptr] "i" ((void **)__cil_tmp15), [paravirt_clobber] "i" (1): "memory",
+                       [paravirt_opptr] "i" (& pv_irq_ops.save_fl.func), [paravirt_clobber] "i" (1): "memory",
                        "cc");
 #line 853
   __ret = __eax;
@@ -5970,7 +5962,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->ldv_6060.rlock);
 }
 }
 #line 283 "include/linux/spinlock.h"
@@ -5980,7 +5972,7 @@ __inline static void spin_lock(spinlock_t *lock )
   {
   {
 #line 285
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 285
   _raw_spin_lock(__cil_tmp2);
   }
@@ -5995,7 +5987,7 @@ __inline static void spin_lock_irq(spinlock_t *lock )
   {
   {
 #line 310
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 310
   _raw_spin_lock_irq(__cil_tmp2);
   }
@@ -6010,7 +6002,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   {
   {
 #line 325
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 325
   _raw_spin_unlock(__cil_tmp2);
   }
@@ -6025,7 +6017,7 @@ __inline static void spin_unlock_irq(spinlock_t *lock )
   {
   {
 #line 335
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 335
   _raw_spin_unlock_irq(__cil_tmp2);
   }
@@ -6040,7 +6032,7 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   {
   {
 #line 340
-  __cil_tmp3 = (struct raw_spinlock *)lock;
+  __cil_tmp3 = & lock->ldv_6060.rlock;
 #line 340
   _raw_spin_unlock_irqrestore(__cil_tmp3, flags);
   }
@@ -6120,7 +6112,7 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
   {
   {
 #line 82
-  __cil_tmp2 = *((char const   * const  *)kobj);
+  __cil_tmp2 = kobj->name;
 #line 82
   return ((char const   *)__cil_tmp2);
   }
@@ -6187,16 +6179,10 @@ __inline static char const   *dev_name(struct device  const  *dev )
 { char const   *tmp ;
   char const   *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  char const   *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   char const   *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char const   *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct kobject  const  *__cil_tmp14 ;
+  struct kobject  const  *__cil_tmp8 ;
 
   {
   {
@@ -6205,24 +6191,16 @@ __inline static char const   *dev_name(struct device  const  *dev )
 #line 611
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 611
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->init_name;
 #line 611
-  __cil_tmp6 = __cil_tmp5 + 80;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 611
-  __cil_tmp7 = *((char const   * const  *)__cil_tmp6);
-#line 611
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 611
-  if (__cil_tmp8 != __cil_tmp4) {
+  if (__cil_tmp6 != __cil_tmp4) {
     {
 #line 612
-    __cil_tmp9 = (unsigned long )dev;
+    __cil_tmp7 = dev->init_name;
 #line 612
-    __cil_tmp10 = __cil_tmp9 + 80;
-#line 612
-    __cil_tmp11 = *((char const   * const  *)__cil_tmp10);
-#line 612
-    return ((char const   *)__cil_tmp11);
+    return ((char const   *)__cil_tmp7);
     }
   } else {
 
@@ -6230,13 +6208,9 @@ __inline static char const   *dev_name(struct device  const  *dev )
   }
   {
 #line 614
-  __cil_tmp12 = (unsigned long )dev;
+  __cil_tmp8 = & dev->kobj;
 #line 614
-  __cil_tmp13 = __cil_tmp12 + 16;
-#line 614
-  __cil_tmp14 = (struct kobject  const  *)__cil_tmp13;
-#line 614
-  tmp = kobject_name(__cil_tmp14);
+  tmp = kobject_name(__cil_tmp8);
   }
 #line 614
   return (tmp);
@@ -6261,29 +6235,17 @@ extern int pci_bus_write_config_dword(struct pci_bus * , unsigned int  , int  , 
 #line 737 "include/linux/pci.h"
 __inline static int pci_read_config_byte(struct pci_dev *dev , int where , u8 *val ) 
 { int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 739
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 739
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 739
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
-#line 739
-  __cil_tmp8 = (unsigned long )dev;
-#line 739
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 739
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 739
-  tmp = pci_bus_read_config_byte(__cil_tmp7, __cil_tmp10, where, val);
+  tmp = pci_bus_read_config_byte(__cil_tmp5, __cil_tmp6, where, val);
   }
 #line 739
   return (tmp);
@@ -6292,29 +6254,17 @@ __inline static int pci_read_config_byte(struct pci_dev *dev , int where , u8 *v
 #line 745 "include/linux/pci.h"
 __inline static int pci_read_config_dword(struct pci_dev *dev , int where , u32 *val ) 
 { int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 748
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 748
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 748
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
-#line 748
-  __cil_tmp8 = (unsigned long )dev;
-#line 748
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 748
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 748
-  tmp = pci_bus_read_config_dword(__cil_tmp7, __cil_tmp10, where, val);
+  tmp = pci_bus_read_config_dword(__cil_tmp5, __cil_tmp6, where, val);
   }
 #line 748
   return (tmp);
@@ -6323,35 +6273,23 @@ __inline static int pci_read_config_dword(struct pci_dev *dev , int where , u32 
 #line 750 "include/linux/pci.h"
 __inline static int pci_write_config_byte(struct pci_dev *dev , int where , u8 val ) 
 { int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  u8 __cil_tmp8 ;
 
   {
   {
 #line 752
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 752
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 752
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
+  __cil_tmp7 = (int )val;
 #line 752
-  __cil_tmp8 = (unsigned long )dev;
+  __cil_tmp8 = (u8 )__cil_tmp7;
 #line 752
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 752
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 752
-  __cil_tmp11 = (int )val;
-#line 752
-  __cil_tmp12 = (unsigned char )__cil_tmp11;
-#line 752
-  tmp = pci_bus_write_config_byte(__cil_tmp7, __cil_tmp10, where, __cil_tmp12);
+  tmp = pci_bus_write_config_byte(__cil_tmp5, __cil_tmp6, where, __cil_tmp8);
   }
 #line 752
   return (tmp);
@@ -6360,29 +6298,17 @@ __inline static int pci_write_config_byte(struct pci_dev *dev , int where , u8 v
 #line 758 "include/linux/pci.h"
 __inline static int pci_write_config_dword(struct pci_dev *dev , int where , u32 val ) 
 { int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 761
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 761
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 761
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
-#line 761
-  __cil_tmp8 = (unsigned long )dev;
-#line 761
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 761
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 761
-  tmp = pci_bus_write_config_dword(__cil_tmp7, __cil_tmp10, where, val);
+  tmp = pci_bus_write_config_dword(__cil_tmp5, __cil_tmp6, where, val);
   }
 #line 761
   return (tmp);
@@ -6415,21 +6341,19 @@ __inline static int valid_dma_direction(int dma_direction )
   if (dma_direction == 0) {
 #line 82
     tmp = 1;
+  } else
+#line 82
+  if (dma_direction == 1) {
+#line 82
+    tmp = 1;
+  } else
+#line 82
+  if (dma_direction == 2) {
+#line 82
+    tmp = 1;
   } else {
 #line 82
-    if (dma_direction == 1) {
-#line 82
-      tmp = 1;
-    } else {
-#line 82
-      if (dma_direction == 2) {
-#line 82
-        tmp = 1;
-      } else {
-#line 82
-        tmp = 0;
-      }
-    }
+    tmp = 0;
   }
 #line 82
   return (tmp);
@@ -6440,14 +6364,10 @@ __inline static int is_device_dma_capable(struct device *dev )
 { int tmp ;
   u64 *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  u64 *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   u64 *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  u64 *__cil_tmp11 ;
-  u64 __cil_tmp12 ;
+  u64 __cil_tmp8 ;
 
   {
   {
@@ -6456,26 +6376,18 @@ __inline static int is_device_dma_capable(struct device *dev )
 #line 89
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 89
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->dma_mask;
 #line 89
-  __cil_tmp6 = __cil_tmp5 + 936;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 89
-  __cil_tmp7 = *((u64 **)__cil_tmp6);
-#line 89
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 89
-  if (__cil_tmp8 != __cil_tmp4) {
+  if (__cil_tmp6 != __cil_tmp4) {
     {
 #line 89
-    __cil_tmp9 = (unsigned long )dev;
+    __cil_tmp7 = dev->dma_mask;
 #line 89
-    __cil_tmp10 = __cil_tmp9 + 936;
+    __cil_tmp8 = *__cil_tmp7;
 #line 89
-    __cil_tmp11 = *((u64 **)__cil_tmp10);
-#line 89
-    __cil_tmp12 = *__cil_tmp11;
-#line 89
-    if (__cil_tmp12 != 0ULL) {
+    if (__cil_tmp8 != 0ULL) {
 #line 89
       tmp = 1;
     } else {
@@ -6525,14 +6437,8 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
   long __cil_tmp7 ;
   struct dma_map_ops *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  struct dma_map_ops *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct dma_map_ops *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
 
   {
   {
@@ -6560,30 +6466,16 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 #line 36
     __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 36
-    __cil_tmp10 = 984 + 8;
+    __cil_tmp10 = dev->archdata.dma_ops;
 #line 36
-    __cil_tmp11 = (unsigned long )dev;
+    __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 36
-    __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 36
-    __cil_tmp13 = *((struct dma_map_ops **)__cil_tmp12);
-#line 36
-    __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 36
-    if (__cil_tmp14 == __cil_tmp9) {
+    if (__cil_tmp11 == __cil_tmp9) {
 #line 37
       return (dma_ops);
     } else {
-      {
 #line 39
-      __cil_tmp15 = 984 + 8;
-#line 39
-      __cil_tmp16 = (unsigned long )dev;
-#line 39
-      __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 39
-      return (*((struct dma_map_ops **)__cil_tmp17));
-      }
+      return (dev->archdata.dma_ops);
     }
     }
   }
@@ -6604,22 +6496,21 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   int __cil_tmp15 ;
   long __cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  dma_addr_t (*__cil_tmp20)(struct device * , struct page * , unsigned long  , size_t  ,
+  dma_addr_t (*__cil_tmp18)(struct device * , struct page * , unsigned long  , size_t  ,
                             enum dma_data_direction  , struct dma_attrs * ) ;
-  unsigned long __cil_tmp21 ;
+  unsigned long __cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
+  struct page *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  struct page *__cil_tmp23 ;
+  unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  struct page *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  struct page *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int __cil_tmp32 ;
+  unsigned long __cil_tmp29 ;
+  int __cil_tmp30 ;
+  bool __cil_tmp31 ;
 
   {
   {
@@ -6648,6 +6539,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm-generic/dma-mapping-common.h"),
                          "i" (18), "i" (12UL));
     ldv_23480: ;
+#line 18
     goto ldv_23480;
   } else {
 
@@ -6658,42 +6550,39 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___2 = __phys_addr(__cil_tmp17);
 #line 19
-  __cil_tmp18 = (unsigned long )ops;
+  __cil_tmp18 = ops->map_page;
 #line 19
-  __cil_tmp19 = __cil_tmp18 + 16;
+  __cil_tmp19 = tmp___2 >> 12;
 #line 19
-  __cil_tmp20 = *((dma_addr_t (**)(struct device * , struct page * , unsigned long  ,
-                                   size_t  , enum dma_data_direction  , struct dma_attrs * ))__cil_tmp19);
+  __cil_tmp20 = 1152897315351035904UL + __cil_tmp19;
 #line 19
-  __cil_tmp21 = tmp___2 >> 12;
+  __cil_tmp21 = (struct page *)__cil_tmp20;
 #line 19
-  __cil_tmp22 = 1152897315351035904UL + __cil_tmp21;
+  __cil_tmp22 = (unsigned long )ptr;
 #line 19
-  __cil_tmp23 = (struct page *)__cil_tmp22;
+  __cil_tmp23 = __cil_tmp22 & 4095UL;
 #line 19
+  addr = (*__cil_tmp18)(dev, __cil_tmp21, __cil_tmp23, size, dir, attrs);
+#line 22
   __cil_tmp24 = (unsigned long )ptr;
-#line 19
-  __cil_tmp25 = __cil_tmp24 & 4095UL;
-#line 19
-  addr = (*__cil_tmp20)(dev, __cil_tmp23, __cil_tmp25, size, dir, attrs);
 #line 22
-  __cil_tmp26 = (unsigned long )ptr;
+  tmp___3 = __phys_addr(__cil_tmp24);
 #line 22
-  tmp___3 = __phys_addr(__cil_tmp26);
+  __cil_tmp25 = tmp___3 >> 12;
 #line 22
-  __cil_tmp27 = tmp___3 >> 12;
+  __cil_tmp26 = 1152897315351035904UL + __cil_tmp25;
 #line 22
-  __cil_tmp28 = 1152897315351035904UL + __cil_tmp27;
+  __cil_tmp27 = (struct page *)__cil_tmp26;
 #line 22
-  __cil_tmp29 = (struct page *)__cil_tmp28;
+  __cil_tmp28 = (unsigned long )ptr;
 #line 22
-  __cil_tmp30 = (unsigned long )ptr;
+  __cil_tmp29 = __cil_tmp28 & 4095UL;
 #line 22
-  __cil_tmp31 = __cil_tmp30 & 4095UL;
+  __cil_tmp30 = (int )dir;
 #line 22
-  __cil_tmp32 = (int )dir;
+  __cil_tmp31 = (bool )1;
 #line 22
-  debug_dma_map_page(dev, __cil_tmp29, __cil_tmp31, size, __cil_tmp32, addr, (_Bool)1);
+  debug_dma_map_page(dev, __cil_tmp27, __cil_tmp29, size, __cil_tmp30, addr, __cil_tmp31);
   }
 #line 25
   return (addr);
@@ -6713,16 +6602,13 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   void (*__cil_tmp13)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void (*__cil_tmp15)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
+                      struct dma_attrs * ) ;
   unsigned long __cil_tmp16 ;
   void (*__cil_tmp17)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
                       struct dma_attrs * ) ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  void (*__cil_tmp21)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                      struct dma_attrs * ) ;
-  int __cil_tmp22 ;
+  int __cil_tmp18 ;
+  bool __cil_tmp19 ;
 
   {
   {
@@ -6747,6 +6633,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm-generic/dma-mapping-common.h"),
                          "i" (35), "i" (12UL));
     ldv_23489: ;
+#line 35
     goto ldv_23489;
   } else {
 
@@ -6758,26 +6645,16 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 36
-  __cil_tmp15 = (unsigned long )ops;
+  __cil_tmp15 = ops->unmap_page;
 #line 36
-  __cil_tmp16 = __cil_tmp15 + 24;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 36
-  __cil_tmp17 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                             struct dma_attrs * ))__cil_tmp16);
-#line 36
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 36
-  if (__cil_tmp18 != __cil_tmp14) {
+  if (__cil_tmp16 != __cil_tmp14) {
     {
 #line 37
-    __cil_tmp19 = (unsigned long )ops;
+    __cil_tmp17 = ops->unmap_page;
 #line 37
-    __cil_tmp20 = __cil_tmp19 + 24;
-#line 37
-    __cil_tmp21 = *((void (**)(struct device * , dma_addr_t  , size_t  , enum dma_data_direction  ,
-                               struct dma_attrs * ))__cil_tmp20);
-#line 37
-    (*__cil_tmp21)(dev, addr, size, dir, attrs);
+    (*__cil_tmp17)(dev, addr, size, dir, attrs);
     }
   } else {
 
@@ -6785,9 +6662,11 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   }
   {
 #line 38
-  __cil_tmp22 = (int )dir;
+  __cil_tmp18 = (int )dir;
 #line 38
-  debug_dma_unmap_page(dev, addr, size, __cil_tmp22, (_Bool)1);
+  __cil_tmp19 = (bool )1;
+#line 38
+  debug_dma_unmap_page(dev, addr, size, __cil_tmp18, __cil_tmp19);
   }
 #line 39
   return;
@@ -6798,29 +6677,23 @@ extern int dma_set_mask(struct device * , u64  ) ;
 #line 89 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"
 __inline static unsigned long dma_alloc_coherent_mask(struct device *dev , gfp_t gfp ) 
 { unsigned long dma_mask ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  u64 __cil_tmp6 ;
-  int __cil_tmp7 ;
+  u64 __cil_tmp4 ;
+  int __cil_tmp5 ;
 
   {
 #line 92
   dma_mask = 0UL;
 #line 94
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->coherent_dma_mask;
 #line 94
-  __cil_tmp5 = __cil_tmp4 + 944;
-#line 94
-  __cil_tmp6 = *((u64 *)__cil_tmp5);
-#line 94
-  dma_mask = (unsigned long )__cil_tmp6;
+  dma_mask = (unsigned long )__cil_tmp4;
 #line 95
   if (dma_mask == 0UL) {
     {
 #line 96
-    __cil_tmp7 = (int )gfp;
+    __cil_tmp5 = (int )gfp;
 #line 96
-    if (__cil_tmp7 & 1) {
+    if (__cil_tmp5 & 1) {
 #line 96
       dma_mask = 16777215UL;
     } else {
@@ -6944,7 +6817,7 @@ __inline static void *dma_alloc_coherent(struct device *dev , size_t size , dma_
 #line 132
   __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 132
-  __cil_tmp15 = *((void *(**)(struct device * , size_t  , dma_addr_t * , gfp_t  ))ops);
+  __cil_tmp15 = ops->alloc_coherent;
 #line 132
   __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 132
@@ -6959,7 +6832,7 @@ __inline static void *dma_alloc_coherent(struct device *dev , size_t size , dma_
 #line 135
   tmp___1 = dma_alloc_coherent_gfp_flags(dev, gfp);
 #line 135
-  __cil_tmp17 = *((void *(**)(struct device * , size_t  , dma_addr_t * , gfp_t  ))ops);
+  __cil_tmp17 = ops->alloc_coherent;
 #line 135
   memory = (*__cil_tmp17)(dev, size, dma_handle, tmp___1);
 #line 137
@@ -6988,13 +6861,9 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
   long __cil_tmp16 ;
   void (*__cil_tmp17)(struct device * , size_t  , void * , dma_addr_t  ) ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  void (*__cil_tmp19)(struct device * , size_t  , void * , dma_addr_t  ) ;
   unsigned long __cil_tmp20 ;
   void (*__cil_tmp21)(struct device * , size_t  , void * , dma_addr_t  ) ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  void (*__cil_tmp25)(struct device * , size_t  , void * , dma_addr_t  ) ;
 
   {
   {
@@ -7045,24 +6914,16 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
 #line 153
   __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 153
-  __cil_tmp19 = (unsigned long )ops;
+  __cil_tmp19 = ops->free_coherent;
 #line 153
-  __cil_tmp20 = __cil_tmp19 + 8;
+  __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 153
-  __cil_tmp21 = *((void (**)(struct device * , size_t  , void * , dma_addr_t  ))__cil_tmp20);
-#line 153
-  __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 153
-  if (__cil_tmp22 != __cil_tmp18) {
+  if (__cil_tmp20 != __cil_tmp18) {
     {
 #line 154
-    __cil_tmp23 = (unsigned long )ops;
+    __cil_tmp21 = ops->free_coherent;
 #line 154
-    __cil_tmp24 = __cil_tmp23 + 8;
-#line 154
-    __cil_tmp25 = *((void (**)(struct device * , size_t  , void * , dma_addr_t  ))__cil_tmp24);
-#line 154
-    (*__cil_tmp25)(dev, size, vaddr, bus);
+    (*__cil_tmp21)(dev, size, vaddr, bus);
     }
   } else {
 
@@ -7079,8 +6940,6 @@ __inline static void *pci_alloc_consistent(struct pci_dev *hwdev , size_t size ,
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
 
   {
   {
@@ -7093,11 +6952,7 @@ __inline static void *pci_alloc_consistent(struct pci_dev *hwdev , size_t size ,
 #line 19
   if (__cil_tmp8 != __cil_tmp7) {
 #line 19
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 19
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 19
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 19
     tmp = (struct device *)0;
@@ -7118,8 +6973,6 @@ __inline static void pci_free_consistent(struct pci_dev *hwdev , size_t size , v
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
 
   {
   {
@@ -7132,11 +6985,7 @@ __inline static void pci_free_consistent(struct pci_dev *hwdev , size_t size , v
 #line 26
   if (__cil_tmp8 != __cil_tmp7) {
 #line 26
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 26
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 26
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 26
     tmp = (struct device *)0;
@@ -7158,10 +7007,8 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
   struct pci_dev *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  enum dma_data_direction __cil_tmp12 ;
-  struct dma_attrs *__cil_tmp13 ;
+  enum dma_data_direction __cil_tmp10 ;
+  struct dma_attrs *__cil_tmp11 ;
 
   {
   {
@@ -7174,11 +7021,7 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
 #line 32
   if (__cil_tmp9 != __cil_tmp8) {
 #line 32
-    __cil_tmp10 = (unsigned long )hwdev;
-#line 32
-    __cil_tmp11 = __cil_tmp10 + 144;
-#line 32
-    tmp = (struct device *)__cil_tmp11;
+    tmp = & hwdev->dev;
   } else {
 #line 32
     tmp = (struct device *)0;
@@ -7186,11 +7029,11 @@ __inline static dma_addr_t pci_map_single(struct pci_dev *hwdev , void *ptr , si
   }
   {
 #line 32
-  __cil_tmp12 = (enum dma_data_direction )direction;
+  __cil_tmp10 = (enum dma_data_direction )direction;
 #line 32
-  __cil_tmp13 = (struct dma_attrs *)0;
+  __cil_tmp11 = (struct dma_attrs *)0;
 #line 32
-  tmp___0 = dma_map_single_attrs(tmp, ptr, size, __cil_tmp12, __cil_tmp13);
+  tmp___0 = dma_map_single_attrs(tmp, ptr, size, __cil_tmp10, __cil_tmp11);
   }
 #line 32
   return (tmp___0);
@@ -7203,10 +7046,8 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
   struct pci_dev *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  enum dma_data_direction __cil_tmp11 ;
-  struct dma_attrs *__cil_tmp12 ;
+  enum dma_data_direction __cil_tmp9 ;
+  struct dma_attrs *__cil_tmp10 ;
 
   {
   {
@@ -7219,11 +7060,7 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
 #line 39
   if (__cil_tmp8 != __cil_tmp7) {
 #line 39
-    __cil_tmp9 = (unsigned long )hwdev;
-#line 39
-    __cil_tmp10 = __cil_tmp9 + 144;
-#line 39
-    tmp = (struct device *)__cil_tmp10;
+    tmp = & hwdev->dev;
   } else {
 #line 39
     tmp = (struct device *)0;
@@ -7231,11 +7068,11 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
   }
   {
 #line 39
-  __cil_tmp11 = (enum dma_data_direction )direction;
+  __cil_tmp9 = (enum dma_data_direction )direction;
 #line 39
-  __cil_tmp12 = (struct dma_attrs *)0;
+  __cil_tmp10 = (struct dma_attrs *)0;
 #line 39
-  dma_unmap_single_attrs(tmp, dma_addr, size, __cil_tmp11, __cil_tmp12);
+  dma_unmap_single_attrs(tmp, dma_addr, size, __cil_tmp9, __cil_tmp10);
   }
 #line 40
   return;
@@ -7244,20 +7081,14 @@ __inline static void pci_unmap_single(struct pci_dev *hwdev , dma_addr_t dma_add
 #line 105 "include/asm-generic/pci-dma-compat.h"
 __inline static int pci_set_dma_mask(struct pci_dev *dev , u64 mask ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct device *__cil_tmp6 ;
+  struct device *__cil_tmp4 ;
 
   {
   {
 #line 107
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = & dev->dev;
 #line 107
-  __cil_tmp5 = __cil_tmp4 + 144;
-#line 107
-  __cil_tmp6 = (struct device *)__cil_tmp5;
-#line 107
-  tmp = dma_set_mask(__cil_tmp6, mask);
+  tmp = dma_set_mask(__cil_tmp4, mask);
   }
 #line 107
   return (tmp);
@@ -7266,23 +7097,17 @@ __inline static int pci_set_dma_mask(struct pci_dev *dev , u64 mask )
 #line 1316 "include/linux/pci.h"
 __inline static void *pci_get_drvdata(struct pci_dev *pdev ) 
 { void *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 1318
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1318
-  __cil_tmp4 = __cil_tmp3 + 144;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 1318
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1318
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 1318
-  tmp = dev_get_drvdata(__cil_tmp6);
+  tmp = dev_get_drvdata(__cil_tmp4);
   }
 #line 1318
   return (tmp);
@@ -7290,20 +7115,14 @@ __inline static void *pci_get_drvdata(struct pci_dev *pdev )
 }
 #line 1321 "include/linux/pci.h"
 __inline static void pci_set_drvdata(struct pci_dev *pdev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 1323
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1323
-  __cil_tmp4 = __cil_tmp3 + 144;
-#line 1323
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1323
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 1324
   return;
@@ -7312,20 +7131,14 @@ __inline static void pci_set_drvdata(struct pci_dev *pdev , void *data )
 #line 1329 "include/linux/pci.h"
 __inline static char const   *pci_name(struct pci_dev  const  *pdev ) 
 { char const   *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device  const  *__cil_tmp5 ;
+  struct device  const  *__cil_tmp3 ;
 
   {
   {
 #line 1331
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1331
-  __cil_tmp4 = __cil_tmp3 + 144;
-#line 1331
-  __cil_tmp5 = (struct device  const  *)__cil_tmp4;
-#line 1331
-  tmp = dev_name(__cil_tmp5);
+  tmp = dev_name(__cil_tmp3);
   }
 #line 1331
   return (tmp);
@@ -7345,25 +7158,19 @@ extern void __const_udelay(unsigned long  ) ;
 __inline static struct netdev_queue *netdev_get_tx_queue(struct net_device  const  *dev ,
                                                          unsigned int index ) 
 { unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct netdev_queue *__cil_tmp6 ;
-  struct netdev_queue *__cil_tmp7 ;
+  struct netdev_queue *__cil_tmp4 ;
+  struct netdev_queue *__cil_tmp5 ;
 
   {
   {
 #line 1413
   __cil_tmp3 = (unsigned long )index;
 #line 1413
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->_tx;
 #line 1413
-  __cil_tmp5 = __cil_tmp4 + 840;
+  __cil_tmp5 = (struct netdev_queue *)__cil_tmp4;
 #line 1413
-  __cil_tmp6 = *((struct netdev_queue * const  *)__cil_tmp5);
-#line 1413
-  __cil_tmp7 = (struct netdev_queue *)__cil_tmp6;
-#line 1413
-  return (__cil_tmp7 + __cil_tmp3);
+  return (__cil_tmp5 + __cil_tmp3);
   }
 }
 }
@@ -7388,23 +7195,17 @@ extern int netpoll_trap(void) ;
 extern void __netif_schedule(struct Qdisc * ) ;
 #line 1804 "include/linux/netdevice.h"
 __inline static void netif_tx_start_queue(struct netdev_queue *dev_queue ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long *__cil_tmp4 ;
-  unsigned long volatile   *__cil_tmp5 ;
+{ unsigned long *__cil_tmp2 ;
+  unsigned long volatile   *__cil_tmp3 ;
 
   {
   {
 #line 1806
-  __cil_tmp2 = (unsigned long )dev_queue;
+  __cil_tmp2 = & dev_queue->state;
 #line 1806
-  __cil_tmp3 = __cil_tmp2 + 16;
+  __cil_tmp3 = (unsigned long volatile   *)__cil_tmp2;
 #line 1806
-  __cil_tmp4 = (unsigned long *)__cil_tmp3;
-#line 1806
-  __cil_tmp5 = (unsigned long volatile   *)__cil_tmp4;
-#line 1806
-  clear_bit(0, __cil_tmp5);
+  clear_bit(0, __cil_tmp3);
   }
 #line 1807
   return;
@@ -7432,13 +7233,9 @@ __inline static void netif_start_queue(struct net_device *dev )
 __inline static void netif_tx_wake_queue(struct netdev_queue *dev_queue ) 
 { int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long *__cil_tmp6 ;
-  unsigned long volatile   *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct Qdisc *__cil_tmp10 ;
+  unsigned long *__cil_tmp4 ;
+  unsigned long volatile   *__cil_tmp5 ;
+  struct Qdisc *__cil_tmp6 ;
 
   {
   {
@@ -7458,27 +7255,19 @@ __inline static void netif_tx_wake_queue(struct netdev_queue *dev_queue )
   }
   {
 #line 1838
-  __cil_tmp4 = (unsigned long )dev_queue;
+  __cil_tmp4 = & dev_queue->state;
 #line 1838
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long volatile   *)__cil_tmp4;
 #line 1838
-  __cil_tmp6 = (unsigned long *)__cil_tmp5;
-#line 1838
-  __cil_tmp7 = (unsigned long volatile   *)__cil_tmp6;
-#line 1838
-  tmp___0 = test_and_clear_bit(0, __cil_tmp7);
+  tmp___0 = test_and_clear_bit(0, __cil_tmp5);
   }
 #line 1838
   if (tmp___0 != 0) {
     {
 #line 1839
-    __cil_tmp8 = (unsigned long )dev_queue;
+    __cil_tmp6 = dev_queue->qdisc;
 #line 1839
-    __cil_tmp9 = __cil_tmp8 + 8;
-#line 1839
-    __cil_tmp10 = *((struct Qdisc **)__cil_tmp9);
-#line 1839
-    __netif_schedule(__cil_tmp10);
+    __netif_schedule(__cil_tmp6);
     }
   } else {
 
@@ -7519,10 +7308,8 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   int __cil_tmp11 ;
   int __cil_tmp12 ;
   long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long *__cil_tmp16 ;
-  unsigned long volatile   *__cil_tmp17 ;
+  unsigned long *__cil_tmp14 ;
+  unsigned long volatile   *__cil_tmp15 ;
 
   {
   {
@@ -7575,15 +7362,11 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   }
   {
 #line 1870
-  __cil_tmp14 = (unsigned long )dev_queue;
+  __cil_tmp14 = & dev_queue->state;
 #line 1870
-  __cil_tmp15 = __cil_tmp14 + 16;
+  __cil_tmp15 = (unsigned long volatile   *)__cil_tmp14;
 #line 1870
-  __cil_tmp16 = (unsigned long *)__cil_tmp15;
-#line 1870
-  __cil_tmp17 = (unsigned long volatile   *)__cil_tmp16;
-#line 1870
-  set_bit(0U, __cil_tmp17);
+  set_bit(0U, __cil_tmp15);
   }
 #line 1871
   return;
@@ -7610,23 +7393,17 @@ __inline static void netif_stop_queue(struct net_device *dev )
 #line 1895 "include/linux/netdevice.h"
 __inline static int netif_tx_queue_stopped(struct netdev_queue  const  *dev_queue ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long const   *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long const   *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
   {
 #line 1897
-  __cil_tmp3 = (unsigned long )dev_queue;
+  __cil_tmp3 = & dev_queue->state;
 #line 1897
-  __cil_tmp4 = __cil_tmp3 + 16;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 1897
-  __cil_tmp5 = (unsigned long const   *)__cil_tmp4;
-#line 1897
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 1897
-  tmp = constant_test_bit(0U, __cil_tmp6);
+  tmp = constant_test_bit(0U, __cil_tmp4);
   }
 #line 1897
   return (tmp);
@@ -7654,23 +7431,17 @@ __inline static int netif_queue_stopped(struct net_device  const  *dev )
 #line 1922 "include/linux/netdevice.h"
 __inline static int netif_running(struct net_device  const  *dev ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long const   *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long const   *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
   {
 #line 1924
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = & dev->state;
 #line 1924
-  __cil_tmp4 = __cil_tmp3 + 120;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 1924
-  __cil_tmp5 = (unsigned long const   *)__cil_tmp4;
-#line 1924
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 1924
-  tmp = constant_test_bit(0U, __cil_tmp6);
+  tmp = constant_test_bit(0U, __cil_tmp4);
   }
 #line 1924
   return (tmp);
@@ -7683,23 +7454,17 @@ extern int netif_rx(struct sk_buff * ) ;
 #line 2158 "include/linux/netdevice.h"
 __inline static int netif_carrier_ok(struct net_device  const  *dev ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long const   *__cil_tmp5 ;
-  unsigned long const volatile   *__cil_tmp6 ;
+  unsigned long const   *__cil_tmp3 ;
+  unsigned long const volatile   *__cil_tmp4 ;
 
   {
   {
 #line 2160
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = & dev->state;
 #line 2160
-  __cil_tmp4 = __cil_tmp3 + 120;
+  __cil_tmp4 = (unsigned long const volatile   *)__cil_tmp3;
 #line 2160
-  __cil_tmp5 = (unsigned long const   *)__cil_tmp4;
-#line 2160
-  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
-#line 2160
-  tmp = constant_test_bit(2U, __cil_tmp6);
+  tmp = constant_test_bit(2U, __cil_tmp4);
   }
 #line 2160
   return (tmp == 0);
@@ -7727,20 +7492,14 @@ extern int mii_ethtool_gset(struct mii_if_info * , struct ethtool_cmd * ) ;
 extern int mii_ethtool_sset(struct mii_if_info * , struct ethtool_cmd * ) ;
 #line 185 "include/linux/mii.h"
 __inline static struct mii_ioctl_data *if_mii(struct ifreq *rq ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  union __anonunion_ifr_ifru_166 *__cil_tmp4 ;
+{ union __anonunion_ifr_ifru_166 *__cil_tmp2 ;
 
   {
   {
 #line 187
-  __cil_tmp2 = (unsigned long )rq;
+  __cil_tmp2 = & rq->ifr_ifru;
 #line 187
-  __cil_tmp3 = __cil_tmp2 + 16;
-#line 187
-  __cil_tmp4 = (union __anonunion_ifr_ifru_166 *)__cil_tmp3;
-#line 187
-  return ((struct mii_ioctl_data *)__cil_tmp4);
+  return ((struct mii_ioctl_data *)__cil_tmp2);
   }
 }
 }
@@ -7923,7 +7682,7 @@ __inline static void random_ether_addr(u8 *addr )
 #line 138
   __cil_tmp5 = __cil_tmp4 & 254U;
 #line 138
-  *addr = (unsigned char )__cil_tmp5;
+  *addr = (u8 )__cil_tmp5;
 #line 139
   __cil_tmp6 = *addr;
 #line 139
@@ -7931,7 +7690,7 @@ __inline static void random_ether_addr(u8 *addr )
 #line 139
   __cil_tmp8 = __cil_tmp7 | 2U;
 #line 139
-  *addr = (unsigned char )__cil_tmp8;
+  *addr = (u8 )__cil_tmp8;
   }
 #line 140
   return;
@@ -7972,27 +7731,20 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
 #line 137 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
 static struct mii_chip_info  const  mii_chip_table[14U]  = 
 #line 137
-  {      {"SiS 900 Internal MII PHY", (unsigned short)29, (unsigned short)32768, (unsigned char)2}, 
-        {"SiS 7014 Physical Layer Solution",
-      (unsigned short)22, (unsigned short)63536, (unsigned char)2}, 
-        {"SiS 900 on Foxconn 661 7MI", (unsigned short)323, (unsigned short)48240, (unsigned char)2}, 
-        {"Altimata AC101LF PHY",
-      (unsigned short)34, (unsigned short)21792, (unsigned char)2}, 
-        {"ADM 7001 LAN PHY", (unsigned short)46, (unsigned short)52320, (unsigned char)2}, 
-        {"AMD 79C901 10BASE-T PHY",
-      (unsigned short)0, (unsigned short)27504, (unsigned char)2}, 
-        {"AMD 79C901 HomePNA PHY", (unsigned short)0, (unsigned short)27536, (unsigned char)1}, 
-        {"ICS LAN PHY",
-      (unsigned short)21, (unsigned short)62528, (unsigned char)2}, 
-        {"ICS LAN PHY", (unsigned short)323, (unsigned short)48240, (unsigned char)2}, 
-        {"NS 83851 PHY",
-      (unsigned short)8192, (unsigned short)23584, (unsigned char)3}, 
-        {"NS 83847 PHY", (unsigned short)8192, (unsigned short)23600, (unsigned char)3}, 
-        {"Realtek RTL8201 PHY",
-      (unsigned short)0, (unsigned short)33280, (unsigned char)2}, 
-        {"VIA 6103 PHY", (unsigned short)257, (unsigned short)36640, (unsigned char)2}, 
-        {(char const   *)0,
-      (unsigned short)0, (unsigned short)0, (unsigned char)0}};
+  {      {"SiS 900 Internal MII PHY", (u16 )29U, (u16 )32768U, (u8 )2U}, 
+        {"SiS 7014 Physical Layer Solution", (u16 )22U, (u16 )63536U, (u8 )2U}, 
+        {"SiS 900 on Foxconn 661 7MI", (u16 )323U, (u16 )48240U, (u8 )2U}, 
+        {"Altimata AC101LF PHY", (u16 )34U, (u16 )21792U, (u8 )2U}, 
+        {"ADM 7001 LAN PHY", (u16 )46U, (u16 )52320U, (u8 )2U}, 
+        {"AMD 79C901 10BASE-T PHY", (u16 )0U, (u16 )27504U, (u8 )2U}, 
+        {"AMD 79C901 HomePNA PHY", (u16 )0U, (u16 )27536U, (u8 )1U}, 
+        {"ICS LAN PHY", (u16 )21U, (u16 )62528U, (u8 )2U}, 
+        {"ICS LAN PHY", (u16 )323U, (u16 )48240U, (u8 )2U}, 
+        {"NS 83851 PHY", (u16 )8192U, (u16 )23584U, (u8 )3U}, 
+        {"NS 83847 PHY", (u16 )8192U, (u16 )23600U, (u8 )3U}, 
+        {"Realtek RTL8201 PHY", (u16 )0U, (u16 )33280U, (u8 )2U}, 
+        {"VIA 6103 PHY", (u16 )257U, (u16 )36640U, (u8 )2U}, 
+        {(char const   *)0, (unsigned short)0, (unsigned short)0, (unsigned char)0}};
 #line 213
 static void sis900_poll(struct net_device *dev ) ;
 #line 215
@@ -8059,90 +7811,68 @@ static int sis900_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   char const   *tmp ;
   size_t __len ;
   void *__ret ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  resource_size_t __cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
-  struct pci_dev  const  *__cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  struct pci_dev  const  *__cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  resource_size_t __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  struct pci_dev  const  *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  struct pci_dev  const  *__cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned long __cil_tmp16 ;
+  unsigned char *__cil_tmp17 ;
+  u16 *__cil_tmp18 ;
+  u16 *__cil_tmp19 ;
+  int __cil_tmp20 ;
+  unsigned char (*__cil_tmp21)[32U] ;
+  void *__cil_tmp22 ;
   unsigned char *__cil_tmp23 ;
-  u16 *__cil_tmp24 ;
-  u16 *__cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned char (*__cil_tmp29)[32U] ;
-  void *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned char *__cil_tmp33 ;
-  void const   *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned char (*__cil_tmp37)[32U] ;
-  void *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned char *__cil_tmp41 ;
-  void const   *__cil_tmp42 ;
+  void const   *__cil_tmp24 ;
+  unsigned char (*__cil_tmp25)[32U] ;
+  void *__cil_tmp26 ;
+  unsigned char *__cil_tmp27 ;
+  void const   *__cil_tmp28 ;
 
   {
   {
 #line 257
-  __cil_tmp9 = 0 * 56UL;
+  __cil_tmp9 = pci_dev->resource[0].start;
 #line 257
-  __cil_tmp10 = 1320 + __cil_tmp9;
-#line 257
-  __cil_tmp11 = (unsigned long )pci_dev;
-#line 257
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 257
-  __cil_tmp13 = *((resource_size_t *)__cil_tmp12);
-#line 257
-  ioaddr = (long )__cil_tmp13;
+  ioaddr = (long )__cil_tmp9;
 #line 262
   signature = read_eeprom(ioaddr, 0);
   }
   {
 #line 263
-  __cil_tmp14 = (unsigned int )signature;
+  __cil_tmp10 = (unsigned int )signature;
 #line 263
-  if (__cil_tmp14 == 65535U) {
+  if (__cil_tmp10 == 65535U) {
     {
 #line 264
-    __cil_tmp15 = (struct pci_dev  const  *)pci_dev;
+    __cil_tmp11 = (struct pci_dev  const  *)pci_dev;
 #line 264
-    tmp = pci_name(__cil_tmp15);
+    tmp = pci_name(__cil_tmp11);
 #line 264
-    __cil_tmp16 = (int )signature;
+    __cil_tmp12 = (int )signature;
 #line 264
-    printk("<4>%s: Error EERPOM read %x\n", tmp, __cil_tmp16);
+    printk("<4>%s: Error EERPOM read %x\n", tmp, __cil_tmp12);
     }
 #line 266
     return (0);
   } else {
     {
 #line 263
-    __cil_tmp17 = (unsigned int )signature;
+    __cil_tmp13 = (unsigned int )signature;
 #line 263
-    if (__cil_tmp17 == 0U) {
+    if (__cil_tmp13 == 0U) {
       {
 #line 264
-      __cil_tmp18 = (struct pci_dev  const  *)pci_dev;
+      __cil_tmp14 = (struct pci_dev  const  *)pci_dev;
 #line 264
-      tmp = pci_name(__cil_tmp18);
+      tmp = pci_name(__cil_tmp14);
 #line 264
-      __cil_tmp19 = (int )signature;
+      __cil_tmp15 = (int )signature;
 #line 264
-      printk("<4>%s: Error EERPOM read %x\n", tmp, __cil_tmp19);
+      printk("<4>%s: Error EERPOM read %x\n", tmp, __cil_tmp15);
       }
 #line 266
       return (0);
@@ -8154,33 +7884,32 @@ static int sis900_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   }
 #line 270
   i = 0;
+#line 270
   goto ldv_35377;
   ldv_35376: 
   {
 #line 271
-  __cil_tmp20 = (unsigned long )i;
+  __cil_tmp16 = (unsigned long )i;
 #line 271
-  __cil_tmp21 = (unsigned long )net_dev;
+  __cil_tmp17 = net_dev->dev_addr;
 #line 271
-  __cil_tmp22 = __cil_tmp21 + 720;
+  __cil_tmp18 = (u16 *)__cil_tmp17;
 #line 271
-  __cil_tmp23 = *((unsigned char **)__cil_tmp22);
+  __cil_tmp19 = __cil_tmp18 + __cil_tmp16;
 #line 271
-  __cil_tmp24 = (u16 *)__cil_tmp23;
+  __cil_tmp20 = i + 8;
 #line 271
-  __cil_tmp25 = __cil_tmp24 + __cil_tmp20;
-#line 271
-  __cil_tmp26 = i + 8;
-#line 271
-  *__cil_tmp25 = read_eeprom(ioaddr, __cil_tmp26);
+  *__cil_tmp19 = read_eeprom(ioaddr, __cil_tmp20);
 #line 270
   i = i + 1;
   }
   ldv_35377: ;
 #line 270
   if (i <= 2) {
+#line 271
     goto ldv_35376;
   } else {
+#line 273
     goto ldv_35378;
   }
   ldv_35378: 
@@ -8190,44 +7919,28 @@ static int sis900_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   if (__len > 63UL) {
     {
 #line 274
-    __cil_tmp27 = (unsigned long )net_dev;
+    __cil_tmp21 = & net_dev->perm_addr;
 #line 274
-    __cil_tmp28 = __cil_tmp27 + 460;
+    __cil_tmp22 = (void *)__cil_tmp21;
 #line 274
-    __cil_tmp29 = (unsigned char (*)[32U])__cil_tmp28;
+    __cil_tmp23 = net_dev->dev_addr;
 #line 274
-    __cil_tmp30 = (void *)__cil_tmp29;
+    __cil_tmp24 = (void const   *)__cil_tmp23;
 #line 274
-    __cil_tmp31 = (unsigned long )net_dev;
-#line 274
-    __cil_tmp32 = __cil_tmp31 + 720;
-#line 274
-    __cil_tmp33 = *((unsigned char **)__cil_tmp32);
-#line 274
-    __cil_tmp34 = (void const   *)__cil_tmp33;
-#line 274
-    __ret = __memcpy(__cil_tmp30, __cil_tmp34, __len);
+    __ret = __memcpy(__cil_tmp22, __cil_tmp24, __len);
     }
   } else {
     {
 #line 274
-    __cil_tmp35 = (unsigned long )net_dev;
+    __cil_tmp25 = & net_dev->perm_addr;
 #line 274
-    __cil_tmp36 = __cil_tmp35 + 460;
+    __cil_tmp26 = (void *)__cil_tmp25;
 #line 274
-    __cil_tmp37 = (unsigned char (*)[32U])__cil_tmp36;
+    __cil_tmp27 = net_dev->dev_addr;
 #line 274
-    __cil_tmp38 = (void *)__cil_tmp37;
+    __cil_tmp28 = (void const   *)__cil_tmp27;
 #line 274
-    __cil_tmp39 = (unsigned long )net_dev;
-#line 274
-    __cil_tmp40 = __cil_tmp39 + 720;
-#line 274
-    __cil_tmp41 = *((unsigned char **)__cil_tmp40);
-#line 274
-    __cil_tmp42 = (void const   *)__cil_tmp41;
-#line 274
-    __ret = __builtin_memcpy(__cil_tmp38, __cil_tmp42, __len);
+    __ret = __builtin_memcpy(__cil_tmp26, __cil_tmp28, __len);
     }
   }
 #line 276
@@ -8249,43 +7962,29 @@ static int sis630e_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net
   unsigned long __cil_tmp13 ;
   unsigned long __cil_tmp14 ;
   struct pci_dev  const  *__cil_tmp15 ;
-  u8 *__cil_tmp16 ;
-  u8 __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned char __cil_tmp21 ;
-  unsigned char __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned char __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned char __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  unsigned char __cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
+  unsigned char *__cil_tmp26 ;
+  unsigned char *__cil_tmp27 ;
+  unsigned char (*__cil_tmp28)[32U] ;
+  void *__cil_tmp29 ;
   unsigned char *__cil_tmp30 ;
-  unsigned char *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned char (*__cil_tmp34)[32U] ;
-  void *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned char *__cil_tmp38 ;
-  void const   *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned char (*__cil_tmp42)[32U] ;
-  void *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned char *__cil_tmp46 ;
-  void const   *__cil_tmp47 ;
-  u8 *__cil_tmp48 ;
-  u8 __cil_tmp49 ;
-  int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned char __cil_tmp52 ;
+  void const   *__cil_tmp31 ;
+  unsigned char (*__cil_tmp32)[32U] ;
+  void *__cil_tmp33 ;
+  unsigned char *__cil_tmp34 ;
+  void const   *__cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  u8 __cil_tmp38 ;
 
   {
   {
@@ -8338,57 +8037,52 @@ static int sis630e_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net
 #line 305
   pci_read_config_byte(isa_bridge, 72, & reg);
 #line 306
-  __cil_tmp16 = & reg;
+  __cil_tmp16 = (unsigned int )reg;
 #line 306
-  __cil_tmp17 = *__cil_tmp16;
+  __cil_tmp17 = __cil_tmp16 | 64U;
 #line 306
-  __cil_tmp18 = (unsigned int )__cil_tmp17;
+  __cil_tmp18 = (int )__cil_tmp17;
 #line 306
-  __cil_tmp19 = __cil_tmp18 | 64U;
+  __cil_tmp19 = (u8 )__cil_tmp18;
 #line 306
-  __cil_tmp20 = (int )__cil_tmp19;
-#line 306
-  __cil_tmp21 = (unsigned char )__cil_tmp20;
-#line 306
-  pci_write_config_byte(isa_bridge, 72, __cil_tmp21);
+  pci_write_config_byte(isa_bridge, 72, __cil_tmp19);
 #line 308
   i = 0;
   }
+#line 308
   goto ldv_35390;
   ldv_35389: 
   {
 #line 309
-  __cil_tmp22 = (unsigned char )i;
+  __cil_tmp20 = (unsigned char )i;
 #line 309
-  __cil_tmp23 = (unsigned int )__cil_tmp22;
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 309
-  __cil_tmp24 = __cil_tmp23 + 9U;
+  __cil_tmp22 = __cil_tmp21 + 9U;
 #line 309
-  __cil_tmp25 = (int )__cil_tmp24;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 309
-  __cil_tmp26 = (unsigned char )__cil_tmp25;
+  __cil_tmp24 = (unsigned char )__cil_tmp23;
 #line 309
-  outb(__cil_tmp26, 112);
+  outb(__cil_tmp24, 112);
 #line 310
-  __cil_tmp27 = (unsigned long )i;
+  __cil_tmp25 = (unsigned long )i;
 #line 310
-  __cil_tmp28 = (unsigned long )net_dev;
+  __cil_tmp26 = net_dev->dev_addr;
 #line 310
-  __cil_tmp29 = __cil_tmp28 + 720;
+  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
 #line 310
-  __cil_tmp30 = *((unsigned char **)__cil_tmp29);
-#line 310
-  __cil_tmp31 = __cil_tmp30 + __cil_tmp27;
-#line 310
-  *__cil_tmp31 = inb(113);
+  *__cil_tmp27 = inb(113);
 #line 308
   i = i + 1;
   }
   ldv_35390: ;
 #line 308
   if (i <= 5) {
+#line 309
     goto ldv_35389;
   } else {
+#line 311
     goto ldv_35391;
   }
   ldv_35391: 
@@ -8398,59 +8092,39 @@ static int sis630e_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net
   if (__len > 63UL) {
     {
 #line 314
-    __cil_tmp32 = (unsigned long )net_dev;
+    __cil_tmp28 = & net_dev->perm_addr;
 #line 314
-    __cil_tmp33 = __cil_tmp32 + 460;
+    __cil_tmp29 = (void *)__cil_tmp28;
 #line 314
-    __cil_tmp34 = (unsigned char (*)[32U])__cil_tmp33;
+    __cil_tmp30 = net_dev->dev_addr;
 #line 314
-    __cil_tmp35 = (void *)__cil_tmp34;
+    __cil_tmp31 = (void const   *)__cil_tmp30;
 #line 314
-    __cil_tmp36 = (unsigned long )net_dev;
-#line 314
-    __cil_tmp37 = __cil_tmp36 + 720;
-#line 314
-    __cil_tmp38 = *((unsigned char **)__cil_tmp37);
-#line 314
-    __cil_tmp39 = (void const   *)__cil_tmp38;
-#line 314
-    __ret = __memcpy(__cil_tmp35, __cil_tmp39, __len);
+    __ret = __memcpy(__cil_tmp29, __cil_tmp31, __len);
     }
   } else {
     {
 #line 314
-    __cil_tmp40 = (unsigned long )net_dev;
+    __cil_tmp32 = & net_dev->perm_addr;
 #line 314
-    __cil_tmp41 = __cil_tmp40 + 460;
+    __cil_tmp33 = (void *)__cil_tmp32;
 #line 314
-    __cil_tmp42 = (unsigned char (*)[32U])__cil_tmp41;
+    __cil_tmp34 = net_dev->dev_addr;
 #line 314
-    __cil_tmp43 = (void *)__cil_tmp42;
+    __cil_tmp35 = (void const   *)__cil_tmp34;
 #line 314
-    __cil_tmp44 = (unsigned long )net_dev;
-#line 314
-    __cil_tmp45 = __cil_tmp44 + 720;
-#line 314
-    __cil_tmp46 = *((unsigned char **)__cil_tmp45);
-#line 314
-    __cil_tmp47 = (void const   *)__cil_tmp46;
-#line 314
-    __ret = __builtin_memcpy(__cil_tmp43, __cil_tmp47, __len);
+    __ret = __builtin_memcpy(__cil_tmp33, __cil_tmp35, __len);
     }
   }
   {
 #line 316
-  __cil_tmp48 = & reg;
+  __cil_tmp36 = (int )reg;
 #line 316
-  __cil_tmp49 = *__cil_tmp48;
+  __cil_tmp37 = __cil_tmp36 & 191;
 #line 316
-  __cil_tmp50 = (int )__cil_tmp49;
+  __cil_tmp38 = (u8 )__cil_tmp37;
 #line 316
-  __cil_tmp51 = __cil_tmp50 & 191;
-#line 316
-  __cil_tmp52 = (unsigned char )__cil_tmp51;
-#line 316
-  pci_write_config_byte(isa_bridge, 72, __cil_tmp52);
+  pci_write_config_byte(isa_bridge, 72, __cil_tmp38);
 #line 317
   pci_dev_put(isa_bridge);
   }
@@ -8466,134 +8140,117 @@ static int sis635_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   size_t __len ;
   void *__ret ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  int __cil_tmp11 ;
   unsigned int __cil_tmp12 ;
   int __cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
+  int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
   unsigned int __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  u32 __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned char *__cil_tmp28 ;
-  u16 *__cil_tmp29 ;
-  u16 *__cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned char (*__cil_tmp36)[32U] ;
-  void *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned char *__cil_tmp40 ;
-  void const   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned char (*__cil_tmp44)[32U] ;
-  void *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned char *__cil_tmp48 ;
-  void const   *__cil_tmp49 ;
-  unsigned int __cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  int __cil_tmp53 ;
+  int __cil_tmp18 ;
+  u32 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  unsigned long __cil_tmp23 ;
+  unsigned char *__cil_tmp24 ;
+  u16 *__cil_tmp25 ;
+  u16 *__cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  unsigned char (*__cil_tmp30)[32U] ;
+  void *__cil_tmp31 ;
+  unsigned char *__cil_tmp32 ;
+  void const   *__cil_tmp33 ;
+  unsigned char (*__cil_tmp34)[32U] ;
+  void *__cil_tmp35 ;
+  unsigned char *__cil_tmp36 ;
+  void const   *__cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  int __cil_tmp41 ;
 
   {
   {
 #line 336
-  __cil_tmp8 = (unsigned long )net_dev;
+  __cil_tmp8 = net_dev->base_addr;
 #line 336
-  __cil_tmp9 = __cil_tmp8 + 104;
-#line 336
-  __cil_tmp10 = *((unsigned long *)__cil_tmp9);
-#line 336
-  ioaddr = (long )__cil_tmp10;
+  ioaddr = (long )__cil_tmp8;
 #line 340
-  __cil_tmp11 = (unsigned int )ioaddr;
+  __cil_tmp9 = (unsigned int )ioaddr;
 #line 340
-  __cil_tmp12 = __cil_tmp11 + 72U;
+  __cil_tmp10 = __cil_tmp9 + 72U;
 #line 340
-  __cil_tmp13 = (int )__cil_tmp12;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 340
-  rfcrSave = inl(__cil_tmp13);
+  rfcrSave = inl(__cil_tmp11);
 #line 342
-  __cil_tmp14 = rfcrSave | 1024U;
+  __cil_tmp12 = rfcrSave | 1024U;
 #line 342
-  __cil_tmp15 = (int )ioaddr;
+  __cil_tmp13 = (int )ioaddr;
 #line 342
-  outl(__cil_tmp14, __cil_tmp15);
+  outl(__cil_tmp12, __cil_tmp13);
 #line 343
-  __cil_tmp16 = (int )ioaddr;
+  __cil_tmp14 = (int )ioaddr;
 #line 343
-  outl(0U, __cil_tmp16);
+  outl(0U, __cil_tmp14);
 #line 346
-  __cil_tmp17 = rfcrSave & 2147483647U;
+  __cil_tmp15 = rfcrSave & 2147483647U;
 #line 346
-  __cil_tmp18 = (unsigned int )ioaddr;
+  __cil_tmp16 = (unsigned int )ioaddr;
 #line 346
-  __cil_tmp19 = __cil_tmp18 + 72U;
+  __cil_tmp17 = __cil_tmp16 + 72U;
 #line 346
-  __cil_tmp20 = (int )__cil_tmp19;
+  __cil_tmp18 = (int )__cil_tmp17;
 #line 346
-  outl(__cil_tmp17, __cil_tmp20);
+  outl(__cil_tmp15, __cil_tmp18);
 #line 349
   i = 0U;
   }
+#line 349
   goto ldv_35403;
   ldv_35402: 
   {
 #line 350
-  __cil_tmp21 = i << 16;
+  __cil_tmp19 = i << 16;
 #line 350
-  __cil_tmp22 = (unsigned int )ioaddr;
+  __cil_tmp20 = (unsigned int )ioaddr;
 #line 350
-  __cil_tmp23 = __cil_tmp22 + 72U;
+  __cil_tmp21 = __cil_tmp20 + 72U;
 #line 350
-  __cil_tmp24 = (int )__cil_tmp23;
+  __cil_tmp22 = (int )__cil_tmp21;
 #line 350
-  outl(__cil_tmp21, __cil_tmp24);
+  outl(__cil_tmp19, __cil_tmp22);
 #line 351
-  __cil_tmp25 = (unsigned long )i;
+  __cil_tmp23 = (unsigned long )i;
 #line 351
-  __cil_tmp26 = (unsigned long )net_dev;
+  __cil_tmp24 = net_dev->dev_addr;
 #line 351
-  __cil_tmp27 = __cil_tmp26 + 720;
+  __cil_tmp25 = (u16 *)__cil_tmp24;
 #line 351
-  __cil_tmp28 = *((unsigned char **)__cil_tmp27);
+  __cil_tmp26 = __cil_tmp25 + __cil_tmp23;
 #line 351
-  __cil_tmp29 = (u16 *)__cil_tmp28;
+  __cil_tmp27 = (unsigned int )ioaddr;
 #line 351
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp25;
+  __cil_tmp28 = __cil_tmp27 + 76U;
 #line 351
-  __cil_tmp31 = (unsigned int )ioaddr;
+  __cil_tmp29 = (int )__cil_tmp28;
 #line 351
-  __cil_tmp32 = __cil_tmp31 + 76U;
-#line 351
-  __cil_tmp33 = (int )__cil_tmp32;
-#line 351
-  *__cil_tmp30 = inw(__cil_tmp33);
+  *__cil_tmp26 = inw(__cil_tmp29);
 #line 349
   i = i + 1U;
   }
   ldv_35403: ;
 #line 349
   if (i <= 2U) {
+#line 350
     goto ldv_35402;
   } else {
+#line 352
     goto ldv_35404;
   }
   ldv_35404: 
@@ -8603,57 +8260,41 @@ static int sis635_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   if (__len > 63UL) {
     {
 #line 355
-    __cil_tmp34 = (unsigned long )net_dev;
+    __cil_tmp30 = & net_dev->perm_addr;
 #line 355
-    __cil_tmp35 = __cil_tmp34 + 460;
+    __cil_tmp31 = (void *)__cil_tmp30;
 #line 355
-    __cil_tmp36 = (unsigned char (*)[32U])__cil_tmp35;
+    __cil_tmp32 = net_dev->dev_addr;
 #line 355
-    __cil_tmp37 = (void *)__cil_tmp36;
+    __cil_tmp33 = (void const   *)__cil_tmp32;
 #line 355
-    __cil_tmp38 = (unsigned long )net_dev;
-#line 355
-    __cil_tmp39 = __cil_tmp38 + 720;
-#line 355
-    __cil_tmp40 = *((unsigned char **)__cil_tmp39);
-#line 355
-    __cil_tmp41 = (void const   *)__cil_tmp40;
-#line 355
-    __ret = __memcpy(__cil_tmp37, __cil_tmp41, __len);
+    __ret = __memcpy(__cil_tmp31, __cil_tmp33, __len);
     }
   } else {
     {
 #line 355
-    __cil_tmp42 = (unsigned long )net_dev;
+    __cil_tmp34 = & net_dev->perm_addr;
 #line 355
-    __cil_tmp43 = __cil_tmp42 + 460;
+    __cil_tmp35 = (void *)__cil_tmp34;
 #line 355
-    __cil_tmp44 = (unsigned char (*)[32U])__cil_tmp43;
+    __cil_tmp36 = net_dev->dev_addr;
 #line 355
-    __cil_tmp45 = (void *)__cil_tmp44;
+    __cil_tmp37 = (void const   *)__cil_tmp36;
 #line 355
-    __cil_tmp46 = (unsigned long )net_dev;
-#line 355
-    __cil_tmp47 = __cil_tmp46 + 720;
-#line 355
-    __cil_tmp48 = *((unsigned char **)__cil_tmp47);
-#line 355
-    __cil_tmp49 = (void const   *)__cil_tmp48;
-#line 355
-    __ret = __builtin_memcpy(__cil_tmp45, __cil_tmp49, __len);
+    __ret = __builtin_memcpy(__cil_tmp35, __cil_tmp37, __len);
     }
   }
   {
 #line 358
-  __cil_tmp50 = rfcrSave | 2147483648U;
+  __cil_tmp38 = rfcrSave | 2147483648U;
 #line 358
-  __cil_tmp51 = (unsigned int )ioaddr;
+  __cil_tmp39 = (unsigned int )ioaddr;
 #line 358
-  __cil_tmp52 = __cil_tmp51 + 72U;
+  __cil_tmp40 = __cil_tmp39 + 72U;
 #line 358
-  __cil_tmp53 = (int )__cil_tmp52;
+  __cil_tmp41 = (int )__cil_tmp40;
 #line 358
-  outl(__cil_tmp50, __cil_tmp53);
+  outl(__cil_tmp38, __cil_tmp41);
   }
 #line 360
   return (1);
@@ -8669,98 +8310,82 @@ static int sis96x_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   void *__ret ;
   unsigned int tmp ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned char *__cil_tmp19 ;
-  u16 *__cil_tmp20 ;
-  u16 *__cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned char (*__cil_tmp25)[32U] ;
-  void *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned char *__cil_tmp29 ;
-  void const   *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned char (*__cil_tmp33)[32U] ;
-  void *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned char *__cil_tmp37 ;
-  void const   *__cil_tmp38 ;
-  int __cil_tmp39 ;
-  int __cil_tmp40 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned long __cil_tmp14 ;
+  unsigned char *__cil_tmp15 ;
+  u16 *__cil_tmp16 ;
+  u16 *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  unsigned char (*__cil_tmp19)[32U] ;
+  void *__cil_tmp20 ;
+  unsigned char *__cil_tmp21 ;
+  void const   *__cil_tmp22 ;
+  unsigned char (*__cil_tmp23)[32U] ;
+  void *__cil_tmp24 ;
+  unsigned char *__cil_tmp25 ;
+  void const   *__cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
 
   {
   {
 #line 382
-  __cil_tmp10 = (unsigned long )net_dev;
+  __cil_tmp10 = net_dev->base_addr;
 #line 382
-  __cil_tmp11 = __cil_tmp10 + 104;
-#line 382
-  __cil_tmp12 = *((unsigned long *)__cil_tmp11);
-#line 382
-  ioaddr = (long )__cil_tmp12;
+  ioaddr = (long )__cil_tmp10;
 #line 383
   ee_addr = ioaddr + 8L;
 #line 384
   waittime = 0U;
 #line 387
-  __cil_tmp13 = (int )ee_addr;
+  __cil_tmp11 = (int )ee_addr;
 #line 387
-  outl(1024U, __cil_tmp13);
+  outl(1024U, __cil_tmp11);
   }
+#line 388
   goto ldv_35423;
   ldv_35422: 
   {
 #line 389
-  __cil_tmp14 = (int )ee_addr;
+  __cil_tmp12 = (int )ee_addr;
 #line 389
-  tmp = inl(__cil_tmp14);
+  tmp = inl(__cil_tmp12);
   }
   {
 #line 389
-  __cil_tmp15 = tmp & 256U;
+  __cil_tmp13 = tmp & 256U;
 #line 389
-  if (__cil_tmp15 != 0U) {
+  if (__cil_tmp13 != 0U) {
 #line 392
     i = 0;
+#line 392
     goto ldv_35417;
     ldv_35416: 
     {
 #line 393
-    __cil_tmp16 = (unsigned long )i;
+    __cil_tmp14 = (unsigned long )i;
 #line 393
-    __cil_tmp17 = (unsigned long )net_dev;
+    __cil_tmp15 = net_dev->dev_addr;
 #line 393
-    __cil_tmp18 = __cil_tmp17 + 720;
+    __cil_tmp16 = (u16 *)__cil_tmp15;
 #line 393
-    __cil_tmp19 = *((unsigned char **)__cil_tmp18);
+    __cil_tmp17 = __cil_tmp16 + __cil_tmp14;
 #line 393
-    __cil_tmp20 = (u16 *)__cil_tmp19;
+    __cil_tmp18 = i + 8;
 #line 393
-    __cil_tmp21 = __cil_tmp20 + __cil_tmp16;
-#line 393
-    __cil_tmp22 = i + 8;
-#line 393
-    *__cil_tmp21 = read_eeprom(ioaddr, __cil_tmp22);
+    *__cil_tmp17 = read_eeprom(ioaddr, __cil_tmp18);
 #line 392
     i = i + 1;
     }
     ldv_35417: ;
 #line 392
     if (i <= 2) {
+#line 393
       goto ldv_35416;
     } else {
+#line 395
       goto ldv_35418;
     }
     ldv_35418: 
@@ -8770,51 +8395,35 @@ static int sis96x_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
     if (__len > 63UL) {
       {
 #line 396
-      __cil_tmp23 = (unsigned long )net_dev;
+      __cil_tmp19 = & net_dev->perm_addr;
 #line 396
-      __cil_tmp24 = __cil_tmp23 + 460;
+      __cil_tmp20 = (void *)__cil_tmp19;
 #line 396
-      __cil_tmp25 = (unsigned char (*)[32U])__cil_tmp24;
+      __cil_tmp21 = net_dev->dev_addr;
 #line 396
-      __cil_tmp26 = (void *)__cil_tmp25;
+      __cil_tmp22 = (void const   *)__cil_tmp21;
 #line 396
-      __cil_tmp27 = (unsigned long )net_dev;
-#line 396
-      __cil_tmp28 = __cil_tmp27 + 720;
-#line 396
-      __cil_tmp29 = *((unsigned char **)__cil_tmp28);
-#line 396
-      __cil_tmp30 = (void const   *)__cil_tmp29;
-#line 396
-      __ret = __memcpy(__cil_tmp26, __cil_tmp30, __len);
+      __ret = __memcpy(__cil_tmp20, __cil_tmp22, __len);
       }
     } else {
       {
 #line 396
-      __cil_tmp31 = (unsigned long )net_dev;
+      __cil_tmp23 = & net_dev->perm_addr;
 #line 396
-      __cil_tmp32 = __cil_tmp31 + 460;
+      __cil_tmp24 = (void *)__cil_tmp23;
 #line 396
-      __cil_tmp33 = (unsigned char (*)[32U])__cil_tmp32;
+      __cil_tmp25 = net_dev->dev_addr;
 #line 396
-      __cil_tmp34 = (void *)__cil_tmp33;
+      __cil_tmp26 = (void const   *)__cil_tmp25;
 #line 396
-      __cil_tmp35 = (unsigned long )net_dev;
-#line 396
-      __cil_tmp36 = __cil_tmp35 + 720;
-#line 396
-      __cil_tmp37 = *((unsigned char **)__cil_tmp36);
-#line 396
-      __cil_tmp38 = (void const   *)__cil_tmp37;
-#line 396
-      __ret = __builtin_memcpy(__cil_tmp34, __cil_tmp38, __len);
+      __ret = __builtin_memcpy(__cil_tmp24, __cil_tmp26, __len);
       }
     }
     {
 #line 398
-    __cil_tmp39 = (int )ee_addr;
+    __cil_tmp27 = (int )ee_addr;
 #line 398
-    outl(512U, __cil_tmp39);
+    outl(512U, __cil_tmp27);
     }
 #line 399
     return (1);
@@ -8830,16 +8439,18 @@ static int sis96x_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   ldv_35423: ;
 #line 388
   if (waittime <= 1999U) {
+#line 389
     goto ldv_35422;
   } else {
+#line 391
     goto ldv_35424;
   }
   ldv_35424: 
   {
 #line 405
-  __cil_tmp40 = (int )ee_addr;
+  __cil_tmp28 = (int )ee_addr;
 #line 405
-  outl(512U, __cil_tmp40);
+  outl(512U, __cil_tmp28);
   }
 #line 406
   return (0);
@@ -8895,188 +8506,76 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   unsigned int tmp___2 ;
   int tmp___3 ;
   unsigned int tmp___4 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  kernel_ulong_t __cil_tmp22 ;
+  struct pci_dev  const  *__cil_tmp20 ;
+  struct net_device *__cil_tmp21 ;
+  unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct pci_dev  const  *__cil_tmp25 ;
-  struct net_device *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  resource_size_t __cil_tmp24 ;
+  struct net_device  const  *__cil_tmp25 ;
+  spinlock_t *__cil_tmp26 ;
+  struct raw_spinlock *__cil_tmp27 ;
+  void *__cil_tmp28 ;
+  void *__cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  void *__cil_tmp32 ;
   unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  resource_size_t __cil_tmp37 ;
-  struct net_device  const  *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  spinlock_t *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct raw_spinlock *__cil_tmp50 ;
-  void *__cil_tmp51 ;
-  void *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
+  u32 __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  u8 __cil_tmp37 ;
+  int __cil_tmp38 ;
+  u8 __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  u8 __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  u8 __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned char *__cil_tmp47 ;
+  unsigned char *__cil_tmp48 ;
+  u8 const   *__cil_tmp49 ;
+  unsigned char *__cil_tmp50 ;
+  u8 __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  int __cil_tmp55 ;
+  struct pci_dev *__cil_tmp56 ;
+  struct pci_dev *__cil_tmp57 ;
   unsigned long __cil_tmp58 ;
-  dma_addr_t *__cil_tmp59 ;
-  void *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
+  unsigned long __cil_tmp59 ;
+  char (*__cil_tmp60)[16U] ;
+  char *__cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  unsigned char *__cil_tmp63 ;
   unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  dma_addr_t *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  u32 __cil_tmp99 ;
-  unsigned int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  u8 __cil_tmp103 ;
-  int __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  u8 __cil_tmp107 ;
-  unsigned int __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  u8 __cil_tmp111 ;
-  unsigned int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  u8 __cil_tmp115 ;
-  unsigned int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  u8 __cil_tmp119 ;
-  unsigned int __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned char *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned char *__cil_tmp126 ;
-  u8 const   *__cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned char *__cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  u8 __cil_tmp133 ;
-  unsigned int __cil_tmp134 ;
-  int __cil_tmp135 ;
-  unsigned int __cil_tmp136 ;
-  int __cil_tmp137 ;
-  struct pci_dev *__cil_tmp138 ;
-  struct pci_dev *__cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  char (*__cil_tmp146)[16U] ;
-  char *__cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned char *__cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned int __cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
-  int __cil_tmp159 ;
-  unsigned int __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  u32 __cil_tmp163 ;
-  unsigned int __cil_tmp164 ;
-  int __cil_tmp165 ;
-  char (*__cil_tmp166)[16U] ;
-  char *__cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  BufferDesc *__cil_tmp170 ;
-  void *__cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  dma_addr_t __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  BufferDesc *__cil_tmp177 ;
-  void *__cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  dma_addr_t __cil_tmp181 ;
-  void *__cil_tmp182 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  u32 __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  int __cil_tmp71 ;
+  char (*__cil_tmp72)[16U] ;
+  char *__cil_tmp73 ;
+  BufferDesc *__cil_tmp74 ;
+  void *__cil_tmp75 ;
+  dma_addr_t __cil_tmp76 ;
+  BufferDesc *__cil_tmp77 ;
+  void *__cil_tmp78 ;
+  dma_addr_t __cil_tmp79 ;
+  void *__cil_tmp80 ;
 
   {
   {
 #line 446
-  __cil_tmp20 = (unsigned long )pci_id;
-#line 446
-  __cil_tmp21 = __cil_tmp20 + 24;
-#line 446
-  __cil_tmp22 = *((kernel_ulong_t const   *)__cil_tmp21);
-#line 446
-  __cil_tmp23 = __cil_tmp22 * 8UL;
-#line 446
-  __cil_tmp24 = (unsigned long )(card_names) + __cil_tmp23;
-#line 446
-  card_name = *((char const   **)__cil_tmp24);
+  card_name = card_names[pci_id->driver_data];
 #line 447
-  __cil_tmp25 = (struct pci_dev  const  *)pci_dev;
+  __cil_tmp20 = (struct pci_dev  const  *)pci_dev;
 #line 447
-  tmp = pci_name(__cil_tmp25);
+  tmp = pci_name(__cil_tmp20);
 #line 447
   dev_name___0 = tmp;
 #line 457
@@ -9112,13 +8611,13 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
   {
 #line 470
-  __cil_tmp26 = (struct net_device *)0;
+  __cil_tmp21 = (struct net_device *)0;
 #line 470
-  __cil_tmp27 = (unsigned long )__cil_tmp26;
+  __cil_tmp22 = (unsigned long )__cil_tmp21;
 #line 470
-  __cil_tmp28 = (unsigned long )net_dev;
+  __cil_tmp23 = (unsigned long )net_dev;
 #line 470
-  if (__cil_tmp28 == __cil_tmp27) {
+  if (__cil_tmp23 == __cil_tmp22) {
 #line 471
     return (-12);
   } else {
@@ -9127,95 +8626,61 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
   {
 #line 472
-  __cil_tmp29 = (unsigned long )net_dev;
-#line 472
-  __cil_tmp30 = __cil_tmp29 + 1200;
-#line 472
-  __cil_tmp31 = (unsigned long )pci_dev;
-#line 472
-  __cil_tmp32 = __cil_tmp31 + 144;
-#line 472
-  *((struct device **)__cil_tmp30) = (struct device *)__cil_tmp32;
+  net_dev->dev.parent = & pci_dev->dev;
 #line 475
-  __cil_tmp33 = 0 * 56UL;
+  __cil_tmp24 = pci_dev->resource[0].start;
 #line 475
-  __cil_tmp34 = 1320 + __cil_tmp33;
-#line 475
-  __cil_tmp35 = (unsigned long )pci_dev;
-#line 475
-  __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
-#line 475
-  __cil_tmp37 = *((resource_size_t *)__cil_tmp36);
-#line 475
-  ioaddr = (long )__cil_tmp37;
+  ioaddr = (long )__cil_tmp24;
 #line 476
   ret = pci_request_regions(pci_dev, "sis900");
   }
 #line 477
   if (ret != 0) {
+#line 478
     goto err_out;
   } else {
 
   }
   {
 #line 480
-  __cil_tmp38 = (struct net_device  const  *)net_dev;
+  __cil_tmp25 = (struct net_device  const  *)net_dev;
 #line 480
-  tmp___0 = netdev_priv(__cil_tmp38);
+  tmp___0 = netdev_priv(__cil_tmp25);
 #line 480
   sis_priv = (struct sis900_private *)tmp___0;
 #line 481
-  __cil_tmp39 = (unsigned long )net_dev;
-#line 481
-  __cil_tmp40 = __cil_tmp39 + 104;
-#line 481
-  *((unsigned long *)__cil_tmp40) = (unsigned long )ioaddr;
+  net_dev->base_addr = (unsigned long )ioaddr;
 #line 482
-  __cil_tmp41 = (unsigned long )net_dev;
-#line 482
-  __cil_tmp42 = __cil_tmp41 + 112;
-#line 482
-  __cil_tmp43 = (unsigned long )pci_dev;
-#line 482
-  __cil_tmp44 = __cil_tmp43 + 1316;
-#line 482
-  *((unsigned int *)__cil_tmp42) = *((unsigned int *)__cil_tmp44);
+  net_dev->irq = pci_dev->irq;
 #line 483
-  *((struct pci_dev **)sis_priv) = pci_dev;
+  sis_priv->pci_dev = pci_dev;
 #line 484
-  __cil_tmp45 = (unsigned long )sis_priv;
+  __cil_tmp26 = & sis_priv->lock;
 #line 484
-  __cil_tmp46 = __cil_tmp45 + 8;
+  spinlock_check(__cil_tmp26);
 #line 484
-  __cil_tmp47 = (spinlock_t *)__cil_tmp46;
+  __cil_tmp27 = & sis_priv->lock.ldv_6060.rlock;
 #line 484
-  spinlock_check(__cil_tmp47);
-#line 484
-  __cil_tmp48 = (unsigned long )sis_priv;
-#line 484
-  __cil_tmp49 = __cil_tmp48 + 8;
-#line 484
-  __cil_tmp50 = (struct raw_spinlock *)__cil_tmp49;
-#line 484
-  __raw_spin_lock_init(__cil_tmp50, "&(&sis_priv->lock)->rlock", & __key);
+  __raw_spin_lock_init(__cil_tmp27, "&(&sis_priv->lock)->rlock", & __key);
 #line 486
-  __cil_tmp51 = (void *)net_dev;
+  __cil_tmp28 = (void *)net_dev;
 #line 486
-  pci_set_drvdata(pci_dev, __cil_tmp51);
+  pci_set_drvdata(pci_dev, __cil_tmp28);
 #line 488
   ring_space = pci_alloc_consistent(pci_dev, 192UL, & ring_dma);
   }
   {
 #line 489
-  __cil_tmp52 = (void *)0;
+  __cil_tmp29 = (void *)0;
 #line 489
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
+  __cil_tmp30 = (unsigned long )__cil_tmp29;
 #line 489
-  __cil_tmp54 = (unsigned long )ring_space;
+  __cil_tmp31 = (unsigned long )ring_space;
 #line 489
-  if (__cil_tmp54 == __cil_tmp53) {
+  if (__cil_tmp31 == __cil_tmp30) {
 #line 490
     ret = -12;
+#line 491
     goto err_out_cleardev;
   } else {
 
@@ -9223,159 +8688,74 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
   {
 #line 493
-  __cil_tmp55 = (unsigned long )sis_priv;
-#line 493
-  __cil_tmp56 = __cil_tmp55 + 560;
-#line 493
-  *((BufferDesc **)__cil_tmp56) = (BufferDesc *)ring_space;
+  sis_priv->tx_ring = (BufferDesc *)ring_space;
 #line 494
-  __cil_tmp57 = (unsigned long )sis_priv;
-#line 494
-  __cil_tmp58 = __cil_tmp57 + 576;
-#line 494
-  __cil_tmp59 = & ring_dma;
-#line 494
-  *((dma_addr_t *)__cil_tmp58) = *__cil_tmp59;
+  sis_priv->tx_ring_dma = ring_dma;
 #line 496
   ring_space = pci_alloc_consistent(pci_dev, 192UL, & ring_dma);
   }
   {
 #line 497
-  __cil_tmp60 = (void *)0;
+  __cil_tmp32 = (void *)0;
 #line 497
-  __cil_tmp61 = (unsigned long )__cil_tmp60;
+  __cil_tmp33 = (unsigned long )__cil_tmp32;
 #line 497
-  __cil_tmp62 = (unsigned long )ring_space;
+  __cil_tmp34 = (unsigned long )ring_space;
 #line 497
-  if (__cil_tmp62 == __cil_tmp61) {
+  if (__cil_tmp34 == __cil_tmp33) {
 #line 498
     ret = -12;
+#line 499
     goto err_unmap_tx;
   } else {
 
   }
   }
 #line 501
-  __cil_tmp63 = (unsigned long )sis_priv;
-#line 501
-  __cil_tmp64 = __cil_tmp63 + 568;
-#line 501
-  *((BufferDesc **)__cil_tmp64) = (BufferDesc *)ring_space;
+  sis_priv->rx_ring = (BufferDesc *)ring_space;
 #line 502
-  __cil_tmp65 = (unsigned long )sis_priv;
-#line 502
-  __cil_tmp66 = __cil_tmp65 + 584;
-#line 502
-  __cil_tmp67 = & ring_dma;
-#line 502
-  *((dma_addr_t *)__cil_tmp66) = *__cil_tmp67;
+  sis_priv->rx_ring_dma = ring_dma;
 #line 505
-  __cil_tmp68 = (unsigned long )net_dev;
-#line 505
-  __cil_tmp69 = __cil_tmp68 + 408;
-#line 505
-  *((struct net_device_ops  const  **)__cil_tmp69) = & sis900_netdev_ops;
+  net_dev->netdev_ops = & sis900_netdev_ops;
 #line 506
-  __cil_tmp70 = (unsigned long )net_dev;
-#line 506
-  __cil_tmp71 = __cil_tmp70 + 960;
-#line 506
-  *((int *)__cil_tmp71) = 1000;
+  net_dev->watchdog_timeo = 1000;
 #line 507
-  __cil_tmp72 = (unsigned long )net_dev;
-#line 507
-  __cil_tmp73 = __cil_tmp72 + 416;
-#line 507
-  *((struct ethtool_ops  const  **)__cil_tmp73) = & sis900_ethtool_ops;
+  net_dev->ethtool_ops = & sis900_ethtool_ops;
 #line 509
   if (sis900_debug > 0) {
 #line 510
-    __cil_tmp74 = (unsigned long )sis_priv;
-#line 510
-    __cil_tmp75 = __cil_tmp74 + 284;
-#line 510
-    *((u32 *)__cil_tmp75) = (unsigned int )sis900_debug;
+    sis_priv->msg_enable = (u32 )sis900_debug;
   } else {
 #line 512
-    __cil_tmp76 = (unsigned long )sis_priv;
-#line 512
-    __cil_tmp77 = __cil_tmp76 + 284;
-#line 512
-    *((u32 *)__cil_tmp77) = 197U;
+    sis_priv->msg_enable = 197U;
   }
 #line 514
-  __cil_tmp78 = 104 + 24;
-#line 514
-  __cil_tmp79 = (unsigned long )sis_priv;
-#line 514
-  __cil_tmp80 = __cil_tmp79 + __cil_tmp78;
-#line 514
-  *((struct net_device **)__cil_tmp80) = net_dev;
+  sis_priv->mii_info.dev = net_dev;
 #line 515
-  __cil_tmp81 = 104 + 32;
-#line 515
-  __cil_tmp82 = (unsigned long )sis_priv;
-#line 515
-  __cil_tmp83 = __cil_tmp82 + __cil_tmp81;
-#line 515
-  *((int (**)(struct net_device * , int  , int  ))__cil_tmp83) = & mdio_read;
+  sis_priv->mii_info.mdio_read = & mdio_read;
 #line 516
-  __cil_tmp84 = 104 + 40;
-#line 516
-  __cil_tmp85 = (unsigned long )sis_priv;
-#line 516
-  __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
-#line 516
-  *((void (**)(struct net_device * , int  , int  , int  ))__cil_tmp86) = & mdio_write;
+  sis_priv->mii_info.mdio_write = & mdio_write;
 #line 517
-  __cil_tmp87 = 104 + 8;
-#line 517
-  __cil_tmp88 = (unsigned long )sis_priv;
-#line 517
-  __cil_tmp89 = __cil_tmp88 + __cil_tmp87;
-#line 517
-  *((int *)__cil_tmp89) = 31;
+  sis_priv->mii_info.phy_id_mask = 31;
 #line 518
-  __cil_tmp90 = 104 + 12;
-#line 518
-  __cil_tmp91 = (unsigned long )sis_priv;
-#line 518
-  __cil_tmp92 = __cil_tmp91 + __cil_tmp90;
-#line 518
-  *((int *)__cil_tmp92) = 31;
+  sis_priv->mii_info.reg_num_mask = 31;
 #line 521
-  __cil_tmp93 = (unsigned long )sis_priv;
-#line 521
-  __cil_tmp94 = __cil_tmp93 + 597;
-#line 521
-  __cil_tmp95 = (unsigned long )pci_dev;
-#line 521
-  __cil_tmp96 = __cil_tmp95 + 72;
-#line 521
-  *((u8 *)__cil_tmp94) = *((u8 *)__cil_tmp96);
+  sis_priv->chipset_rev = pci_dev->revision;
   {
 #line 522
-  __cil_tmp97 = (unsigned long )sis_priv;
+  __cil_tmp35 = sis_priv->msg_enable;
 #line 522
-  __cil_tmp98 = __cil_tmp97 + 284;
+  __cil_tmp36 = __cil_tmp35 & 2U;
 #line 522
-  __cil_tmp99 = *((u32 *)__cil_tmp98);
-#line 522
-  __cil_tmp100 = __cil_tmp99 & 2U;
-#line 522
-  if (__cil_tmp100 != 0U) {
+  if (__cil_tmp36 != 0U) {
     {
 #line 523
-    __cil_tmp101 = (unsigned long )sis_priv;
+    __cil_tmp37 = sis_priv->chipset_rev;
 #line 523
-    __cil_tmp102 = __cil_tmp101 + 597;
-#line 523
-    __cil_tmp103 = *((u8 *)__cil_tmp102);
-#line 523
-    __cil_tmp104 = (int )__cil_tmp103;
+    __cil_tmp38 = (int )__cil_tmp37;
 #line 523
     printk("<7>%s: detected revision %2.2x, trying to get MAC address...\n", dev_name___0,
-           __cil_tmp104);
+           __cil_tmp38);
     }
   } else {
 
@@ -9385,15 +8765,11 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   ret = 0;
   {
 #line 528
-  __cil_tmp105 = (unsigned long )sis_priv;
+  __cil_tmp39 = sis_priv->chipset_rev;
 #line 528
-  __cil_tmp106 = __cil_tmp105 + 597;
+  __cil_tmp40 = (unsigned int )__cil_tmp39;
 #line 528
-  __cil_tmp107 = *((u8 *)__cil_tmp106);
-#line 528
-  __cil_tmp108 = (unsigned int )__cil_tmp107;
-#line 528
-  if (__cil_tmp108 == 129U) {
+  if (__cil_tmp40 == 129U) {
     {
 #line 529
     ret = sis630e_get_mac_addr(pci_dev, net_dev);
@@ -9401,31 +8777,24 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   } else {
     {
 #line 530
-    __cil_tmp109 = (unsigned long )sis_priv;
+    __cil_tmp41 = sis_priv->chipset_rev;
 #line 530
-    __cil_tmp110 = __cil_tmp109 + 597;
+    __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 530
-    __cil_tmp111 = *((u8 *)__cil_tmp110);
-#line 530
-    __cil_tmp112 = (unsigned int )__cil_tmp111;
-#line 530
-    if (__cil_tmp112 > 129U) {
+    if (__cil_tmp42 > 129U) {
       {
 #line 530
-      __cil_tmp113 = (unsigned long )sis_priv;
+      __cil_tmp43 = sis_priv->chipset_rev;
 #line 530
-      __cil_tmp114 = __cil_tmp113 + 597;
+      __cil_tmp44 = (unsigned int )__cil_tmp43;
 #line 530
-      __cil_tmp115 = *((u8 *)__cil_tmp114);
-#line 530
-      __cil_tmp116 = (unsigned int )__cil_tmp115;
-#line 530
-      if (__cil_tmp116 <= 144U) {
+      if (__cil_tmp44 <= 144U) {
         {
 #line 531
         ret = sis635_get_mac_addr(pci_dev, net_dev);
         }
       } else {
+#line 530
         goto _L;
       }
       }
@@ -9433,15 +8802,11 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
       _L: 
       {
 #line 532
-      __cil_tmp117 = (unsigned long )sis_priv;
+      __cil_tmp45 = sis_priv->chipset_rev;
 #line 532
-      __cil_tmp118 = __cil_tmp117 + 597;
+      __cil_tmp46 = (unsigned int )__cil_tmp45;
 #line 532
-      __cil_tmp119 = *((u8 *)__cil_tmp118);
-#line 532
-      __cil_tmp120 = (unsigned int )__cil_tmp119;
-#line 532
-      if (__cil_tmp120 == 145U) {
+      if (__cil_tmp46 == 145U) {
         {
 #line 533
         ret = sis96x_get_mac_addr(pci_dev, net_dev);
@@ -9461,13 +8826,9 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   if (ret == 0) {
     {
 #line 538
-    __cil_tmp121 = (unsigned long )net_dev;
+    __cil_tmp47 = net_dev->dev_addr;
 #line 538
-    __cil_tmp122 = __cil_tmp121 + 720;
-#line 538
-    __cil_tmp123 = *((unsigned char **)__cil_tmp122);
-#line 538
-    random_ether_addr(__cil_tmp123);
+    random_ether_addr(__cil_tmp47);
 #line 539
     printk("<4>%s: Unreadable or invalid MAC address,using random generated one\n",
            dev_name___0);
@@ -9475,27 +8836,19 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   } else {
     {
 #line 537
-    __cil_tmp124 = (unsigned long )net_dev;
+    __cil_tmp48 = net_dev->dev_addr;
 #line 537
-    __cil_tmp125 = __cil_tmp124 + 720;
+    __cil_tmp49 = (u8 const   *)__cil_tmp48;
 #line 537
-    __cil_tmp126 = *((unsigned char **)__cil_tmp125);
-#line 537
-    __cil_tmp127 = (u8 const   *)__cil_tmp126;
-#line 537
-    tmp___1 = is_valid_ether_addr(__cil_tmp127);
+    tmp___1 = is_valid_ether_addr(__cil_tmp49);
     }
 #line 537
     if (tmp___1 == 0) {
       {
 #line 538
-      __cil_tmp128 = (unsigned long )net_dev;
+      __cil_tmp50 = net_dev->dev_addr;
 #line 538
-      __cil_tmp129 = __cil_tmp128 + 720;
-#line 538
-      __cil_tmp130 = *((unsigned char **)__cil_tmp129);
-#line 538
-      random_ether_addr(__cil_tmp130);
+      random_ether_addr(__cil_tmp50);
 #line 539
       printk("<4>%s: Unreadable or invalid MAC address,using random generated one\n",
              dev_name___0);
@@ -9506,26 +8859,22 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
   {
 #line 544
-  __cil_tmp131 = (unsigned long )sis_priv;
+  __cil_tmp51 = sis_priv->chipset_rev;
 #line 544
-  __cil_tmp132 = __cil_tmp131 + 597;
+  __cil_tmp52 = (unsigned int )__cil_tmp51;
 #line 544
-  __cil_tmp133 = *((u8 *)__cil_tmp132);
-#line 544
-  __cil_tmp134 = (unsigned int )__cil_tmp133;
-#line 544
-  if (__cil_tmp134 == 132U) {
+  if (__cil_tmp52 == 132U) {
     {
 #line 545
-    __cil_tmp135 = (int )ioaddr;
+    __cil_tmp53 = (int )ioaddr;
 #line 545
-    tmp___2 = inl(__cil_tmp135);
+    tmp___2 = inl(__cil_tmp53);
 #line 545
-    __cil_tmp136 = tmp___2 | 512U;
+    __cil_tmp54 = tmp___2 | 512U;
 #line 545
-    __cil_tmp137 = (int )ioaddr;
+    __cil_tmp55 = (int )ioaddr;
 #line 545
-    outl(__cil_tmp136, __cil_tmp137);
+    outl(__cil_tmp54, __cil_tmp55);
     }
   } else {
 
@@ -9543,36 +8892,29 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
 #line 551
     ret = -19;
     }
+#line 552
     goto err_unmap_rx;
   } else {
 
   }
   {
 #line 556
-  __cil_tmp138 = (struct pci_dev *)0;
+  __cil_tmp56 = (struct pci_dev *)0;
 #line 556
-  dev = pci_get_device(4153U, 1584U, __cil_tmp138);
+  dev = pci_get_device(4153U, 1584U, __cil_tmp56);
   }
   {
 #line 557
-  __cil_tmp139 = (struct pci_dev *)0;
+  __cil_tmp57 = (struct pci_dev *)0;
 #line 557
-  __cil_tmp140 = (unsigned long )__cil_tmp139;
+  __cil_tmp58 = (unsigned long )__cil_tmp57;
 #line 557
-  __cil_tmp141 = (unsigned long )dev;
+  __cil_tmp59 = (unsigned long )dev;
 #line 557
-  if (__cil_tmp141 != __cil_tmp140) {
+  if (__cil_tmp59 != __cil_tmp58) {
     {
 #line 558
-    __cil_tmp142 = (unsigned long )sis_priv;
-#line 558
-    __cil_tmp143 = __cil_tmp142 + 596;
-#line 558
-    __cil_tmp144 = (unsigned long )dev;
-#line 558
-    __cil_tmp145 = __cil_tmp144 + 72;
-#line 558
-    *((u8 *)__cil_tmp143) = *((u8 *)__cil_tmp145);
+    sis_priv->host_bridge_rev = dev->revision;
 #line 559
     pci_dev_put(dev);
     }
@@ -9586,72 +8928,57 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   }
 #line 563
   if (ret != 0) {
+#line 564
     goto err_unmap_rx;
   } else {
 
   }
   {
 #line 567
-  __cil_tmp146 = (char (*)[16U])net_dev;
+  __cil_tmp60 = & net_dev->name;
 #line 567
-  __cil_tmp147 = (char *)__cil_tmp146;
+  __cil_tmp61 = (char *)__cil_tmp60;
 #line 567
-  __cil_tmp148 = (unsigned long )net_dev;
+  __cil_tmp62 = net_dev->irq;
 #line 567
-  __cil_tmp149 = __cil_tmp148 + 112;
+  __cil_tmp63 = net_dev->dev_addr;
 #line 567
-  __cil_tmp150 = *((unsigned int *)__cil_tmp149);
-#line 567
-  __cil_tmp151 = (unsigned long )net_dev;
-#line 567
-  __cil_tmp152 = __cil_tmp151 + 720;
-#line 567
-  __cil_tmp153 = *((unsigned char **)__cil_tmp152);
-#line 567
-  printk("<6>%s: %s at %#lx, IRQ %d, %pM\n", __cil_tmp147, card_name, ioaddr, __cil_tmp150,
-         __cil_tmp153);
+  printk("<6>%s: %s at %#lx, IRQ %d, %pM\n", __cil_tmp61, card_name, ioaddr, __cil_tmp62,
+         __cil_tmp63);
 #line 572
-  __cil_tmp154 = (unsigned long )net_dev;
+  __cil_tmp64 = net_dev->base_addr;
 #line 572
-  __cil_tmp155 = __cil_tmp154 + 104;
+  __cil_tmp65 = (unsigned int )__cil_tmp64;
 #line 572
-  __cil_tmp156 = *((unsigned long *)__cil_tmp155);
+  __cil_tmp66 = __cil_tmp65 + 64U;
 #line 572
-  __cil_tmp157 = (unsigned int )__cil_tmp156;
+  __cil_tmp67 = (int )__cil_tmp66;
 #line 572
-  __cil_tmp158 = __cil_tmp157 + 64U;
+  tmp___4 = inl(__cil_tmp67);
 #line 572
-  __cil_tmp159 = (int )__cil_tmp158;
+  __cil_tmp68 = tmp___4 >> 27;
 #line 572
-  tmp___4 = inl(__cil_tmp159);
-#line 572
-  __cil_tmp160 = tmp___4 >> 27;
-#line 572
-  ret = (int )__cil_tmp160;
+  ret = (int )__cil_tmp68;
   }
   {
 #line 573
-  __cil_tmp161 = (unsigned long )sis_priv;
+  __cil_tmp69 = sis_priv->msg_enable;
 #line 573
-  __cil_tmp162 = __cil_tmp161 + 284;
+  __cil_tmp70 = __cil_tmp69 & 2U;
 #line 573
-  __cil_tmp163 = *((u32 *)__cil_tmp162);
-#line 573
-  __cil_tmp164 = __cil_tmp163 & 2U;
-#line 573
-  if (__cil_tmp164 != 0U) {
+  if (__cil_tmp70 != 0U) {
     {
 #line 573
-    __cil_tmp165 = ret & 16;
+    __cil_tmp71 = ret & 16;
 #line 573
-    if (__cil_tmp165 == 0) {
+    if (__cil_tmp71 == 0) {
       {
 #line 574
-      __cil_tmp166 = (char (*)[16U])net_dev;
+      __cil_tmp72 = & net_dev->name;
 #line 574
-      __cil_tmp167 = (char *)__cil_tmp166;
+      __cil_tmp73 = (char *)__cil_tmp72;
 #line 574
-      printk("<6>%s: Wake on LAN only available from suspend to RAM.", __cil_tmp167);
+      printk("<6>%s: Wake on LAN only available from suspend to RAM.", __cil_tmp73);
       }
     } else {
 
@@ -9666,47 +8993,31 @@ static int sis900_probe(struct pci_dev *pci_dev , struct pci_device_id  const  *
   err_unmap_rx: 
   {
 #line 579
-  __cil_tmp168 = (unsigned long )sis_priv;
+  __cil_tmp74 = sis_priv->rx_ring;
 #line 579
-  __cil_tmp169 = __cil_tmp168 + 568;
+  __cil_tmp75 = (void *)__cil_tmp74;
 #line 579
-  __cil_tmp170 = *((BufferDesc **)__cil_tmp169);
+  __cil_tmp76 = sis_priv->rx_ring_dma;
 #line 579
-  __cil_tmp171 = (void *)__cil_tmp170;
-#line 579
-  __cil_tmp172 = (unsigned long )sis_priv;
-#line 579
-  __cil_tmp173 = __cil_tmp172 + 584;
-#line 579
-  __cil_tmp174 = *((dma_addr_t *)__cil_tmp173);
-#line 579
-  pci_free_consistent(pci_dev, 192UL, __cil_tmp171, __cil_tmp174);
+  pci_free_consistent(pci_dev, 192UL, __cil_tmp75, __cil_tmp76);
   }
   err_unmap_tx: 
   {
 #line 582
-  __cil_tmp175 = (unsigned long )sis_priv;
+  __cil_tmp77 = sis_priv->tx_ring;
 #line 582
-  __cil_tmp176 = __cil_tmp175 + 560;
+  __cil_tmp78 = (void *)__cil_tmp77;
 #line 582
-  __cil_tmp177 = *((BufferDesc **)__cil_tmp176);
+  __cil_tmp79 = sis_priv->tx_ring_dma;
 #line 582
-  __cil_tmp178 = (void *)__cil_tmp177;
-#line 582
-  __cil_tmp179 = (unsigned long )sis_priv;
-#line 582
-  __cil_tmp180 = __cil_tmp179 + 576;
-#line 582
-  __cil_tmp181 = *((dma_addr_t *)__cil_tmp180);
-#line 582
-  pci_free_consistent(pci_dev, 192UL, __cil_tmp178, __cil_tmp181);
+  pci_free_consistent(pci_dev, 192UL, __cil_tmp78, __cil_tmp79);
   }
   err_out_cleardev: 
   {
 #line 585
-  __cil_tmp182 = (void *)0;
+  __cil_tmp80 = (void *)0;
 #line 585
-  pci_set_drvdata(pci_dev, __cil_tmp182);
+  pci_set_drvdata(pci_dev, __cil_tmp80);
 #line 586
   pci_release_regions(pci_dev);
   }
@@ -9742,182 +9053,83 @@ static int sis900_mii_probe(struct net_device *net_dev )
   struct pci_dev *__cil_tmp20 ;
   struct pci_dev  const  *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  u32 __cil_tmp25 ;
   unsigned int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  struct mii_phy *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  u32 __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
+  unsigned long __cil_tmp29 ;
+  void const   *__cil_tmp30 ;
   struct mii_phy *__cil_tmp31 ;
   unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  void const   *__cil_tmp36 ;
-  struct mii_phy *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  unsigned short __cil_tmp34 ;
+  int __cil_tmp35 ;
+  u16 __cil_tmp36 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
+  u16 __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  unsigned char __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  unsigned short __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned short __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  struct mii_phy *__cil_tmp50 ;
   unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
+  struct mii_phy *__cil_tmp52 ;
   unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  u16 __cil_tmp57 ;
-  unsigned short __cil_tmp58 ;
+  struct mii_phy *__cil_tmp54 ;
+  u16 __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  struct mii_phy *__cil_tmp57 ;
+  u16 __cil_tmp58 ;
   int __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u16 __cil_tmp62 ;
-  int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
+  int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  int __cil_tmp62 ;
+  struct mii_phy *__cil_tmp63 ;
+  u16 __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  struct mii_phy *__cil_tmp66 ;
   u16 __cil_tmp67 ;
   int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  u16 __cil_tmp71 ;
+  int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  int __cil_tmp71 ;
   int __cil_tmp72 ;
   int __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  u8 __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  u8 __cil_tmp83 ;
-  unsigned char __cil_tmp84 ;
+  unsigned int __cil_tmp74 ;
+  int __cil_tmp75 ;
+  short __cil_tmp76 ;
+  int __cil_tmp77 ;
+  short __cil_tmp78 ;
+  int __cil_tmp79 ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  long __cil_tmp82 ;
+  long __cil_tmp83 ;
+  long __cil_tmp84 ;
   unsigned int __cil_tmp85 ;
-  int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  char const   *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  u16 __cil_tmp98 ;
-  unsigned short __cil_tmp99 ;
-  unsigned int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  u16 __cil_tmp104 ;
-  unsigned short __cil_tmp105 ;
-  unsigned int __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  struct mii_phy *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  struct mii_phy *__cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  struct mii_phy *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  u16 __cil_tmp122 ;
-  unsigned int __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  struct mii_phy *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  u16 __cil_tmp129 ;
-  int __cil_tmp130 ;
-  int __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned int __cil_tmp134 ;
-  int __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  struct mii_phy *__cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  u16 __cil_tmp141 ;
-  unsigned int __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  struct mii_phy *__cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  u16 __cil_tmp148 ;
-  int __cil_tmp149 ;
-  int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned int __cil_tmp153 ;
-  int __cil_tmp154 ;
-  int __cil_tmp155 ;
-  int __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned int __cil_tmp159 ;
-  int __cil_tmp160 ;
-  short __cil_tmp161 ;
-  int __cil_tmp162 ;
-  short __cil_tmp163 ;
-  int __cil_tmp164 ;
-  int __cil_tmp165 ;
-  int __cil_tmp166 ;
-  long __cil_tmp167 ;
-  long __cil_tmp168 ;
-  long __cil_tmp169 ;
-  unsigned int __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  u8 __cil_tmp173 ;
-  unsigned int __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned int __cil_tmp177 ;
-  int __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned int __cil_tmp181 ;
-  int __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned int __cil_tmp185 ;
-  int __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned int __cil_tmp189 ;
-  int __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  struct mii_phy *__cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  u16 __cil_tmp196 ;
-  int __cil_tmp197 ;
-  int __cil_tmp198 ;
+  u8 __cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  int __cil_tmp89 ;
+  unsigned int __cil_tmp90 ;
+  int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
+  int __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  int __cil_tmp95 ;
+  struct mii_phy *__cil_tmp96 ;
+  u16 __cil_tmp97 ;
+  int __cil_tmp98 ;
+  int __cil_tmp99 ;
 
   {
   {
@@ -9928,7 +9140,7 @@ static int sis900_mii_probe(struct net_device *net_dev )
 #line 603
   sis_priv = (struct sis900_private *)tmp;
 #line 604
-  __cil_tmp20 = *((struct pci_dev **)sis_priv);
+  __cil_tmp20 = sis_priv->pci_dev;
 #line 604
   __cil_tmp21 = (struct pci_dev  const  *)__cil_tmp20;
 #line 604
@@ -9936,22 +9148,19 @@ static int sis900_mii_probe(struct net_device *net_dev )
 #line 604
   dev_name___0 = tmp___0;
 #line 605
-  poll_bit = (unsigned short)4;
+  poll_bit = (u16 )4U;
 #line 605
-  status = (unsigned short)0;
+  status = (u16 )0U;
 #line 606
   __cil_tmp22 = (unsigned long )jiffies;
 #line 606
   timeout = __cil_tmp22 + 1250UL;
 #line 609
-  __cil_tmp23 = (unsigned long )sis_priv;
-#line 609
-  __cil_tmp24 = __cil_tmp23 + 80;
-#line 609
-  *((struct mii_phy **)__cil_tmp24) = (struct mii_phy *)0;
+  sis_priv->mii = (struct mii_phy *)0;
 #line 612
   phy_addr = 0;
   }
+#line 612
   goto ldv_35469;
   ldv_35468: 
 #line 613
@@ -9960,48 +9169,48 @@ static int sis900_mii_probe(struct net_device *net_dev )
   mii_phy = (struct mii_phy *)0;
 #line 618
   i = 0;
+#line 618
   goto ldv_35458;
   ldv_35457: 
   {
 #line 619
   tmp___1 = mdio_read(net_dev, phy_addr, 1);
 #line 619
-  mii_status = (unsigned short )tmp___1;
+  mii_status = (u16 )tmp___1;
 #line 618
   i = i + 1;
   }
   ldv_35458: ;
 #line 618
   if (i <= 1) {
+#line 619
     goto ldv_35457;
   } else {
+#line 621
     goto ldv_35459;
   }
   ldv_35459: ;
   {
 #line 621
-  __cil_tmp25 = (unsigned int )mii_status;
+  __cil_tmp23 = (unsigned int )mii_status;
 #line 621
-  if (__cil_tmp25 == 65535U) {
+  if (__cil_tmp23 == 65535U) {
+#line 621
     goto _L;
   } else {
     {
 #line 621
-    __cil_tmp26 = (unsigned int )mii_status;
+    __cil_tmp24 = (unsigned int )mii_status;
 #line 621
-    if (__cil_tmp26 == 0U) {
+    if (__cil_tmp24 == 0U) {
       _L: 
       {
 #line 622
-      __cil_tmp27 = (unsigned long )sis_priv;
+      __cil_tmp25 = sis_priv->msg_enable;
 #line 622
-      __cil_tmp28 = __cil_tmp27 + 284;
+      __cil_tmp26 = __cil_tmp25 & 2U;
 #line 622
-      __cil_tmp29 = *((u32 *)__cil_tmp28);
-#line 622
-      __cil_tmp30 = __cil_tmp29 & 2U;
-#line 622
-      if (__cil_tmp30 != 0U) {
+      if (__cil_tmp26 != 0U) {
         {
 #line 623
         printk("<7>%s: MII at address %d not accessible\n", dev_name___0, phy_addr);
@@ -10010,6 +9219,7 @@ static int sis900_mii_probe(struct net_device *net_dev )
 
       }
       }
+#line 626
       goto ldv_35460;
     } else {
 
@@ -10025,47 +9235,46 @@ static int sis900_mii_probe(struct net_device *net_dev )
   }
   {
 #line 629
-  __cil_tmp31 = (struct mii_phy *)0;
+  __cil_tmp27 = (struct mii_phy *)0;
 #line 629
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
+  __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 629
-  __cil_tmp33 = (unsigned long )mii_phy;
+  __cil_tmp29 = (unsigned long )mii_phy;
 #line 629
-  if (__cil_tmp33 == __cil_tmp32) {
+  if (__cil_tmp29 == __cil_tmp28) {
     {
 #line 630
     printk("<4>Cannot allocate mem for struct mii_phy\n");
 #line 631
-    __cil_tmp34 = (unsigned long )sis_priv;
-#line 631
-    __cil_tmp35 = __cil_tmp34 + 88;
-#line 631
-    mii_phy = *((struct mii_phy **)__cil_tmp35);
+    mii_phy = sis_priv->first_mii;
     }
+#line 632
     goto ldv_35463;
     ldv_35462: 
     {
 #line 634
     phy = mii_phy;
 #line 635
-    mii_phy = *((struct mii_phy **)mii_phy);
+    mii_phy = mii_phy->next;
 #line 636
-    __cil_tmp36 = (void const   *)phy;
+    __cil_tmp30 = (void const   *)phy;
 #line 636
-    kfree(__cil_tmp36);
+    kfree(__cil_tmp30);
     }
     ldv_35463: ;
     {
 #line 632
-    __cil_tmp37 = (struct mii_phy *)0;
+    __cil_tmp31 = (struct mii_phy *)0;
 #line 632
-    __cil_tmp38 = (unsigned long )__cil_tmp37;
+    __cil_tmp32 = (unsigned long )__cil_tmp31;
 #line 632
-    __cil_tmp39 = (unsigned long )mii_phy;
+    __cil_tmp33 = (unsigned long )mii_phy;
 #line 632
-    if (__cil_tmp39 != __cil_tmp38) {
+    if (__cil_tmp33 != __cil_tmp32) {
+#line 633
       goto ldv_35462;
     } else {
+#line 635
       goto ldv_35464;
     }
     }
@@ -10080,149 +9289,70 @@ static int sis900_mii_probe(struct net_device *net_dev )
 #line 641
   tmp___3 = mdio_read(net_dev, phy_addr, 2);
 #line 641
-  __cil_tmp40 = (unsigned long )mii_phy;
-#line 641
-  __cil_tmp41 = __cil_tmp40 + 12;
-#line 641
-  *((u16 *)__cil_tmp41) = (unsigned short )tmp___3;
+  mii_phy->phy_id0 = (u16 )tmp___3;
 #line 642
   tmp___4 = mdio_read(net_dev, phy_addr, 3);
 #line 642
-  __cil_tmp42 = (unsigned long )mii_phy;
-#line 642
-  __cil_tmp43 = __cil_tmp42 + 14;
-#line 642
-  *((u16 *)__cil_tmp43) = (unsigned short )tmp___4;
+  mii_phy->phy_id1 = (u16 )tmp___4;
 #line 643
-  __cil_tmp44 = (unsigned long )mii_phy;
-#line 643
-  __cil_tmp45 = __cil_tmp44 + 8;
-#line 643
-  *((int *)__cil_tmp45) = phy_addr;
+  mii_phy->phy_addr = phy_addr;
 #line 644
-  __cil_tmp46 = (unsigned long )mii_phy;
-#line 644
-  __cil_tmp47 = __cil_tmp46 + 16;
-#line 644
-  *((u16 *)__cil_tmp47) = mii_status;
+  mii_phy->status = mii_status;
 #line 645
-  __cil_tmp48 = (unsigned long )sis_priv;
-#line 645
-  __cil_tmp49 = __cil_tmp48 + 80;
-#line 645
-  *((struct mii_phy **)mii_phy) = *((struct mii_phy **)__cil_tmp49);
+  mii_phy->next = sis_priv->mii;
 #line 646
-  __cil_tmp50 = (unsigned long )sis_priv;
-#line 646
-  __cil_tmp51 = __cil_tmp50 + 80;
-#line 646
-  *((struct mii_phy **)__cil_tmp51) = mii_phy;
+  sis_priv->mii = mii_phy;
 #line 647
-  __cil_tmp52 = (unsigned long )sis_priv;
-#line 647
-  __cil_tmp53 = __cil_tmp52 + 88;
-#line 647
-  *((struct mii_phy **)__cil_tmp53) = mii_phy;
+  sis_priv->first_mii = mii_phy;
 #line 649
   i = 0;
   }
+#line 649
   goto ldv_35467;
   ldv_35466: ;
   {
 #line 650
-  __cil_tmp54 = i * 16UL;
+  __cil_tmp34 = (unsigned short )mii_chip_table[i].phy_id0;
 #line 650
-  __cil_tmp55 = __cil_tmp54 + 8;
+  __cil_tmp35 = (int )__cil_tmp34;
 #line 650
-  __cil_tmp56 = (unsigned long )(mii_chip_table) + __cil_tmp55;
+  __cil_tmp36 = mii_phy->phy_id0;
 #line 650
-  __cil_tmp57 = *((u16 const   *)__cil_tmp56);
+  __cil_tmp37 = (int )__cil_tmp36;
 #line 650
-  __cil_tmp58 = (unsigned short )__cil_tmp57;
-#line 650
-  __cil_tmp59 = (int )__cil_tmp58;
-#line 650
-  __cil_tmp60 = (unsigned long )mii_phy;
-#line 650
-  __cil_tmp61 = __cil_tmp60 + 12;
-#line 650
-  __cil_tmp62 = *((u16 *)__cil_tmp61);
-#line 650
-  __cil_tmp63 = (int )__cil_tmp62;
-#line 650
-  if (__cil_tmp63 == __cil_tmp59) {
+  if (__cil_tmp37 == __cil_tmp35) {
     {
 #line 650
-    __cil_tmp64 = i * 16UL;
+    __cil_tmp38 = (int )mii_chip_table[i].phy_id1;
 #line 650
-    __cil_tmp65 = __cil_tmp64 + 10;
+    __cil_tmp39 = mii_phy->phy_id1;
 #line 650
-    __cil_tmp66 = (unsigned long )(mii_chip_table) + __cil_tmp65;
+    __cil_tmp40 = (int )__cil_tmp39;
 #line 650
-    __cil_tmp67 = *((u16 const   *)__cil_tmp66);
+    __cil_tmp41 = __cil_tmp40 & 65520;
 #line 650
-    __cil_tmp68 = (int )__cil_tmp67;
-#line 650
-    __cil_tmp69 = (unsigned long )mii_phy;
-#line 650
-    __cil_tmp70 = __cil_tmp69 + 14;
-#line 650
-    __cil_tmp71 = *((u16 *)__cil_tmp70);
-#line 650
-    __cil_tmp72 = (int )__cil_tmp71;
-#line 650
-    __cil_tmp73 = __cil_tmp72 & 65520;
-#line 650
-    if (__cil_tmp73 == __cil_tmp68) {
+    if (__cil_tmp41 == __cil_tmp38) {
 #line 652
-      __cil_tmp74 = (unsigned long )mii_phy;
-#line 652
-      __cil_tmp75 = __cil_tmp74 + 18;
-#line 652
-      __cil_tmp76 = i * 16UL;
-#line 652
-      __cil_tmp77 = __cil_tmp76 + 12;
-#line 652
-      __cil_tmp78 = (unsigned long )(mii_chip_table) + __cil_tmp77;
-#line 652
-      __cil_tmp79 = *((u8 const   *)__cil_tmp78);
-#line 652
-      *((u8 *)__cil_tmp75) = (unsigned char )__cil_tmp79;
+      mii_phy->phy_types = (u8 )mii_chip_table[i].phy_types;
       {
 #line 653
-      __cil_tmp80 = i * 16UL;
+      __cil_tmp42 = (unsigned char )mii_chip_table[i].phy_types;
 #line 653
-      __cil_tmp81 = __cil_tmp80 + 12;
+      __cil_tmp43 = (unsigned int )__cil_tmp42;
 #line 653
-      __cil_tmp82 = (unsigned long )(mii_chip_table) + __cil_tmp81;
-#line 653
-      __cil_tmp83 = *((u8 const   *)__cil_tmp82);
-#line 653
-      __cil_tmp84 = (unsigned char )__cil_tmp83;
-#line 653
-      __cil_tmp85 = (unsigned int )__cil_tmp84;
-#line 653
-      if (__cil_tmp85 == 3U) {
+      if (__cil_tmp43 == 3U) {
         {
 #line 654
-        __cil_tmp86 = (int )mii_status;
+        __cil_tmp44 = (int )mii_status;
 #line 654
-        __cil_tmp87 = __cil_tmp86 & 24576;
+        __cil_tmp45 = __cil_tmp44 & 24576;
 #line 654
-        if (__cil_tmp87 != 0) {
+        if (__cil_tmp45 != 0) {
 #line 654
-          __cil_tmp88 = (unsigned long )mii_phy;
-#line 654
-          __cil_tmp89 = __cil_tmp88 + 18;
-#line 654
-          *((u8 *)__cil_tmp89) = (unsigned char)2;
+          mii_phy->phy_types = (u8 )2U;
         } else {
 #line 654
-          __cil_tmp90 = (unsigned long )mii_phy;
-#line 654
-          __cil_tmp91 = __cil_tmp90 + 18;
-#line 654
-          *((u8 *)__cil_tmp91) = (unsigned char)1;
+          mii_phy->phy_types = (u8 )1U;
         }
         }
       } else {
@@ -10231,15 +9361,10 @@ static int sis900_mii_probe(struct net_device *net_dev )
       }
       {
 #line 656
-      __cil_tmp92 = i * 16UL;
-#line 656
-      __cil_tmp93 = (unsigned long )(mii_chip_table) + __cil_tmp92;
-#line 656
-      __cil_tmp94 = *((char const   * const  *)__cil_tmp93);
-#line 656
-      printk("<6>%s: %s transceiver found at address %d.\n", dev_name___0, __cil_tmp94,
+      printk("<6>%s: %s transceiver found at address %d.\n", dev_name___0, mii_chip_table[i].name,
              phy_addr);
       }
+#line 661
       goto ldv_35465;
     } else {
 
@@ -10254,50 +9379,32 @@ static int sis900_mii_probe(struct net_device *net_dev )
   ldv_35467: ;
   {
 #line 649
-  __cil_tmp95 = i * 16UL;
+  __cil_tmp46 = (unsigned short )mii_chip_table[i].phy_id1;
 #line 649
-  __cil_tmp96 = __cil_tmp95 + 10;
+  __cil_tmp47 = (unsigned int )__cil_tmp46;
 #line 649
-  __cil_tmp97 = (unsigned long )(mii_chip_table) + __cil_tmp96;
-#line 649
-  __cil_tmp98 = *((u16 const   *)__cil_tmp97);
-#line 649
-  __cil_tmp99 = (unsigned short )__cil_tmp98;
-#line 649
-  __cil_tmp100 = (unsigned int )__cil_tmp99;
-#line 649
-  if (__cil_tmp100 != 0U) {
+  if (__cil_tmp47 != 0U) {
+#line 650
     goto ldv_35466;
   } else {
+#line 652
     goto ldv_35465;
   }
   }
   ldv_35465: ;
   {
 #line 664
-  __cil_tmp101 = i * 16UL;
+  __cil_tmp48 = (unsigned short )mii_chip_table[i].phy_id1;
 #line 664
-  __cil_tmp102 = __cil_tmp101 + 10;
+  __cil_tmp49 = (unsigned int )__cil_tmp48;
 #line 664
-  __cil_tmp103 = (unsigned long )(mii_chip_table) + __cil_tmp102;
-#line 664
-  __cil_tmp104 = *((u16 const   *)__cil_tmp103);
-#line 664
-  __cil_tmp105 = (unsigned short )__cil_tmp104;
-#line 664
-  __cil_tmp106 = (unsigned int )__cil_tmp105;
-#line 664
-  if (__cil_tmp106 == 0U) {
+  if (__cil_tmp49 == 0U) {
     {
 #line 665
     printk("<6>%s: Unknown PHY transceiver found at address %d.\n", dev_name___0,
            phy_addr);
 #line 667
-    __cil_tmp107 = (unsigned long )mii_phy;
-#line 667
-    __cil_tmp108 = __cil_tmp107 + 18;
-#line 667
-    *((u8 *)__cil_tmp108) = (unsigned char)0;
+    mii_phy->phy_types = (u8 )0U;
     }
   } else {
 
@@ -10309,26 +9416,24 @@ static int sis900_mii_probe(struct net_device *net_dev )
   ldv_35469: ;
 #line 612
   if (phy_addr <= 31) {
+#line 613
     goto ldv_35468;
   } else {
+#line 615
     goto ldv_35470;
   }
   ldv_35470: ;
   {
 #line 671
-  __cil_tmp109 = (struct mii_phy *)0;
+  __cil_tmp50 = (struct mii_phy *)0;
 #line 671
-  __cil_tmp110 = (unsigned long )__cil_tmp109;
+  __cil_tmp51 = (unsigned long )__cil_tmp50;
 #line 671
-  __cil_tmp111 = (unsigned long )sis_priv;
+  __cil_tmp52 = sis_priv->mii;
 #line 671
-  __cil_tmp112 = __cil_tmp111 + 80;
+  __cil_tmp53 = (unsigned long )__cil_tmp52;
 #line 671
-  __cil_tmp113 = *((struct mii_phy **)__cil_tmp112);
-#line 671
-  __cil_tmp114 = (unsigned long )__cil_tmp113;
-#line 671
-  if (__cil_tmp114 == __cil_tmp110) {
+  if (__cil_tmp53 == __cil_tmp51) {
     {
 #line 672
     printk("<6>%s: No MII transceivers found!\n", dev_name___0);
@@ -10341,61 +9446,37 @@ static int sis900_mii_probe(struct net_device *net_dev )
   }
   {
 #line 677
-  __cil_tmp115 = (unsigned long )sis_priv;
-#line 677
-  __cil_tmp116 = __cil_tmp115 + 80;
-#line 677
-  *((struct mii_phy **)__cil_tmp116) = (struct mii_phy *)0;
+  sis_priv->mii = (struct mii_phy *)0;
 #line 678
   sis900_default_phy(net_dev);
   }
   {
 #line 681
-  __cil_tmp117 = (unsigned long )sis_priv;
+  __cil_tmp54 = sis_priv->mii;
 #line 681
-  __cil_tmp118 = __cil_tmp117 + 80;
+  __cil_tmp55 = __cil_tmp54->phy_id0;
 #line 681
-  __cil_tmp119 = *((struct mii_phy **)__cil_tmp118);
+  __cil_tmp56 = (unsigned int )__cil_tmp55;
 #line 681
-  __cil_tmp120 = (unsigned long )__cil_tmp119;
-#line 681
-  __cil_tmp121 = __cil_tmp120 + 12;
-#line 681
-  __cil_tmp122 = *((u16 *)__cil_tmp121);
-#line 681
-  __cil_tmp123 = (unsigned int )__cil_tmp122;
-#line 681
-  if (__cil_tmp123 == 29U) {
+  if (__cil_tmp56 == 29U) {
     {
 #line 681
-    __cil_tmp124 = (unsigned long )sis_priv;
+    __cil_tmp57 = sis_priv->mii;
 #line 681
-    __cil_tmp125 = __cil_tmp124 + 80;
+    __cil_tmp58 = __cil_tmp57->phy_id1;
 #line 681
-    __cil_tmp126 = *((struct mii_phy **)__cil_tmp125);
+    __cil_tmp59 = (int )__cil_tmp58;
 #line 681
-    __cil_tmp127 = (unsigned long )__cil_tmp126;
+    __cil_tmp60 = __cil_tmp59 & 65520;
 #line 681
-    __cil_tmp128 = __cil_tmp127 + 14;
-#line 681
-    __cil_tmp129 = *((u16 *)__cil_tmp128);
-#line 681
-    __cil_tmp130 = (int )__cil_tmp129;
-#line 681
-    __cil_tmp131 = __cil_tmp130 & 65520;
-#line 681
-    if (__cil_tmp131 == 32768) {
+    if (__cil_tmp60 == 32768) {
       {
 #line 683
-      __cil_tmp132 = (unsigned long )sis_priv;
+      __cil_tmp61 = sis_priv->cur_phy;
 #line 683
-      __cil_tmp133 = __cil_tmp132 + 96;
+      __cil_tmp62 = (int )__cil_tmp61;
 #line 683
-      __cil_tmp134 = *((unsigned int *)__cil_tmp133);
-#line 683
-      __cil_tmp135 = (int )__cil_tmp134;
-#line 683
-      status = sis900_reset_phy(net_dev, __cil_tmp135);
+      status = sis900_reset_phy(net_dev, __cil_tmp62);
       }
     } else {
 
@@ -10407,51 +9488,31 @@ static int sis900_mii_probe(struct net_device *net_dev )
   }
   {
 #line 686
-  __cil_tmp136 = (unsigned long )sis_priv;
+  __cil_tmp63 = sis_priv->mii;
 #line 686
-  __cil_tmp137 = __cil_tmp136 + 80;
+  __cil_tmp64 = __cil_tmp63->phy_id0;
 #line 686
-  __cil_tmp138 = *((struct mii_phy **)__cil_tmp137);
+  __cil_tmp65 = (unsigned int )__cil_tmp64;
 #line 686
-  __cil_tmp139 = (unsigned long )__cil_tmp138;
-#line 686
-  __cil_tmp140 = __cil_tmp139 + 12;
-#line 686
-  __cil_tmp141 = *((u16 *)__cil_tmp140);
-#line 686
-  __cil_tmp142 = (unsigned int )__cil_tmp141;
-#line 686
-  if (__cil_tmp142 == 21U) {
+  if (__cil_tmp65 == 21U) {
     {
 #line 686
-    __cil_tmp143 = (unsigned long )sis_priv;
+    __cil_tmp66 = sis_priv->mii;
 #line 686
-    __cil_tmp144 = __cil_tmp143 + 80;
+    __cil_tmp67 = __cil_tmp66->phy_id1;
 #line 686
-    __cil_tmp145 = *((struct mii_phy **)__cil_tmp144);
+    __cil_tmp68 = (int )__cil_tmp67;
 #line 686
-    __cil_tmp146 = (unsigned long )__cil_tmp145;
+    __cil_tmp69 = __cil_tmp68 & 65520;
 #line 686
-    __cil_tmp147 = __cil_tmp146 + 14;
-#line 686
-    __cil_tmp148 = *((u16 *)__cil_tmp147);
-#line 686
-    __cil_tmp149 = (int )__cil_tmp148;
-#line 686
-    __cil_tmp150 = __cil_tmp149 & 65520;
-#line 686
-    if (__cil_tmp150 == 62528) {
+    if (__cil_tmp69 == 62528) {
       {
 #line 688
-      __cil_tmp151 = (unsigned long )sis_priv;
+      __cil_tmp70 = sis_priv->cur_phy;
 #line 688
-      __cil_tmp152 = __cil_tmp151 + 96;
+      __cil_tmp71 = (int )__cil_tmp70;
 #line 688
-      __cil_tmp153 = *((unsigned int *)__cil_tmp152);
-#line 688
-      __cil_tmp154 = (int )__cil_tmp153;
-#line 688
-      mdio_write(net_dev, __cil_tmp154, 24, 53760);
+      mdio_write(net_dev, __cil_tmp71, 24, 53760);
       }
     } else {
 
@@ -10463,50 +9524,47 @@ static int sis900_mii_probe(struct net_device *net_dev )
   }
   {
 #line 690
-  __cil_tmp155 = (int )status;
+  __cil_tmp72 = (int )status;
 #line 690
-  __cil_tmp156 = __cil_tmp155 & 4;
+  __cil_tmp73 = __cil_tmp72 & 4;
 #line 690
-  if (__cil_tmp156 != 0) {
+  if (__cil_tmp73 != 0) {
+#line 691
     goto ldv_35478;
     ldv_35477: 
     {
 #line 692
     yield();
 #line 694
-    __cil_tmp157 = (unsigned long )sis_priv;
+    __cil_tmp74 = sis_priv->cur_phy;
 #line 694
-    __cil_tmp158 = __cil_tmp157 + 96;
+    __cil_tmp75 = (int )__cil_tmp74;
 #line 694
-    __cil_tmp159 = *((unsigned int *)__cil_tmp158);
+    tmp___5 = mdio_read(net_dev, __cil_tmp75, 1);
 #line 694
-    __cil_tmp160 = (int )__cil_tmp159;
+    __cil_tmp76 = (short )poll_bit;
 #line 694
-    tmp___5 = mdio_read(net_dev, __cil_tmp160, 1);
+    __cil_tmp77 = (int )__cil_tmp76;
 #line 694
-    __cil_tmp161 = (short )poll_bit;
+    __cil_tmp78 = (short )tmp___5;
 #line 694
-    __cil_tmp162 = (int )__cil_tmp161;
+    __cil_tmp79 = (int )__cil_tmp78;
 #line 694
-    __cil_tmp163 = (short )tmp___5;
+    __cil_tmp80 = ~ __cil_tmp79;
 #line 694
-    __cil_tmp164 = (int )__cil_tmp163;
+    __cil_tmp81 = __cil_tmp80 & __cil_tmp77;
 #line 694
-    __cil_tmp165 = ~ __cil_tmp164;
-#line 694
-    __cil_tmp166 = __cil_tmp165 & __cil_tmp162;
-#line 694
-    poll_bit = (unsigned short )__cil_tmp166;
+    poll_bit = (u16 )__cil_tmp81;
     }
     {
 #line 695
-    __cil_tmp167 = (long )timeout;
+    __cil_tmp82 = (long )timeout;
 #line 695
-    __cil_tmp168 = (long )jiffies;
+    __cil_tmp83 = (long )jiffies;
 #line 695
-    __cil_tmp169 = __cil_tmp168 - __cil_tmp167;
+    __cil_tmp84 = __cil_tmp83 - __cil_tmp82;
 #line 695
-    if (__cil_tmp169 >= 0L) {
+    if (__cil_tmp84 >= 0L) {
       {
 #line 696
       printk("<4>%s: reset phy and link down now\n", dev_name___0);
@@ -10520,11 +9578,13 @@ static int sis900_mii_probe(struct net_device *net_dev )
     ldv_35478: ;
     {
 #line 691
-    __cil_tmp170 = (unsigned int )poll_bit;
+    __cil_tmp85 = (unsigned int )poll_bit;
 #line 691
-    if (__cil_tmp170 != 0U) {
+    if (__cil_tmp85 != 0U) {
+#line 692
       goto ldv_35477;
     } else {
+#line 694
       goto ldv_35479;
     }
     }
@@ -10535,56 +9595,36 @@ static int sis900_mii_probe(struct net_device *net_dev )
   }
   {
 #line 703
-  __cil_tmp171 = (unsigned long )sis_priv;
+  __cil_tmp86 = sis_priv->chipset_rev;
 #line 703
-  __cil_tmp172 = __cil_tmp171 + 597;
+  __cil_tmp87 = (unsigned int )__cil_tmp86;
 #line 703
-  __cil_tmp173 = *((u8 *)__cil_tmp172);
-#line 703
-  __cil_tmp174 = (unsigned int )__cil_tmp173;
-#line 703
-  if (__cil_tmp174 == 129U) {
+  if (__cil_tmp87 == 129U) {
     {
 #line 705
-    __cil_tmp175 = (unsigned long )sis_priv;
+    __cil_tmp88 = sis_priv->cur_phy;
 #line 705
-    __cil_tmp176 = __cil_tmp175 + 96;
+    __cil_tmp89 = (int )__cil_tmp88;
 #line 705
-    __cil_tmp177 = *((unsigned int *)__cil_tmp176);
-#line 705
-    __cil_tmp178 = (int )__cil_tmp177;
-#line 705
-    mdio_write(net_dev, __cil_tmp178, 4, 1505);
+    mdio_write(net_dev, __cil_tmp89, 4, 1505);
 #line 706
-    __cil_tmp179 = (unsigned long )sis_priv;
+    __cil_tmp90 = sis_priv->cur_phy;
 #line 706
-    __cil_tmp180 = __cil_tmp179 + 96;
+    __cil_tmp91 = (int )__cil_tmp90;
 #line 706
-    __cil_tmp181 = *((unsigned int *)__cil_tmp180);
-#line 706
-    __cil_tmp182 = (int )__cil_tmp181;
-#line 706
-    mdio_write(net_dev, __cil_tmp182, 16, 34);
+    mdio_write(net_dev, __cil_tmp91, 16, 34);
 #line 707
-    __cil_tmp183 = (unsigned long )sis_priv;
+    __cil_tmp92 = sis_priv->cur_phy;
 #line 707
-    __cil_tmp184 = __cil_tmp183 + 96;
+    __cil_tmp93 = (int )__cil_tmp92;
 #line 707
-    __cil_tmp185 = *((unsigned int *)__cil_tmp184);
-#line 707
-    __cil_tmp186 = (int )__cil_tmp185;
-#line 707
-    mdio_write(net_dev, __cil_tmp186, 17, 65280);
+    mdio_write(net_dev, __cil_tmp93, 17, 65280);
 #line 708
-    __cil_tmp187 = (unsigned long )sis_priv;
+    __cil_tmp94 = sis_priv->cur_phy;
 #line 708
-    __cil_tmp188 = __cil_tmp187 + 96;
+    __cil_tmp95 = (int )__cil_tmp94;
 #line 708
-    __cil_tmp189 = *((unsigned int *)__cil_tmp188);
-#line 708
-    __cil_tmp190 = (int )__cil_tmp189;
-#line 708
-    mdio_write(net_dev, __cil_tmp190, 19, 65472);
+    mdio_write(net_dev, __cil_tmp95, 19, 65472);
     }
   } else {
 
@@ -10592,23 +9632,15 @@ static int sis900_mii_probe(struct net_device *net_dev )
   }
   {
 #line 712
-  __cil_tmp191 = (unsigned long )sis_priv;
+  __cil_tmp96 = sis_priv->mii;
 #line 712
-  __cil_tmp192 = __cil_tmp191 + 80;
+  __cil_tmp97 = __cil_tmp96->status;
 #line 712
-  __cil_tmp193 = *((struct mii_phy **)__cil_tmp192);
+  __cil_tmp98 = (int )__cil_tmp97;
 #line 712
-  __cil_tmp194 = (unsigned long )__cil_tmp193;
+  __cil_tmp99 = __cil_tmp98 & 4;
 #line 712
-  __cil_tmp195 = __cil_tmp194 + 16;
-#line 712
-  __cil_tmp196 = *((u16 *)__cil_tmp195);
-#line 712
-  __cil_tmp197 = (int )__cil_tmp196;
-#line 712
-  __cil_tmp198 = __cil_tmp197 & 4;
-#line 712
-  if (__cil_tmp198 != 0) {
+  if (__cil_tmp99 != 0) {
     {
 #line 713
     netif_carrier_on(net_dev);
@@ -10641,101 +9673,61 @@ static u16 sis900_default_phy(struct net_device *net_dev )
   int tmp___5 ;
   int tmp___6 ;
   struct net_device  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  struct mii_phy *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
+  u8 __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
   int __cil_tmp26 ;
-  struct mii_phy *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u8 __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
+  int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  struct mii_phy *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  int __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  int __cil_tmp42 ;
+  struct mii_phy *__cil_tmp38 ;
+  unsigned long __cil_tmp39 ;
+  unsigned long __cil_tmp40 ;
+  struct mii_phy *__cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u8 __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  struct mii_phy *__cil_tmp44 ;
+  unsigned long __cil_tmp45 ;
+  unsigned long __cil_tmp46 ;
+  struct mii_phy *__cil_tmp47 ;
   unsigned long __cil_tmp48 ;
-  u8 __cil_tmp49 ;
-  unsigned int __cil_tmp50 ;
-  struct mii_phy *__cil_tmp51 ;
+  unsigned long __cil_tmp49 ;
+  struct mii_phy *__cil_tmp50 ;
+  unsigned long __cil_tmp51 ;
   unsigned long __cil_tmp52 ;
   unsigned long __cil_tmp53 ;
   struct mii_phy *__cil_tmp54 ;
   unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct mii_phy *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  struct mii_phy *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct mii_phy *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct mii_phy *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct mii_phy *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  int __cil_tmp82 ;
-  struct pci_dev *__cil_tmp83 ;
-  struct pci_dev  const  *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned int __cil_tmp97 ;
-  unsigned int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned int __cil_tmp101 ;
-  int __cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned int __cil_tmp106 ;
-  int __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned int __cil_tmp110 ;
-  int __cil_tmp111 ;
+  int __cil_tmp56 ;
+  struct pci_dev *__cil_tmp57 ;
+  struct pci_dev  const  *__cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  int __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  int __cil_tmp71 ;
 
   {
   {
@@ -10754,70 +9746,57 @@ static u16 sis900_default_phy(struct net_device *net_dev )
 #line 733
   phy_lan = (struct mii_phy *)0;
 #line 736
-  __cil_tmp17 = (unsigned long )sis_priv;
-#line 736
-  __cil_tmp18 = __cil_tmp17 + 88;
-#line 736
-  phy = *((struct mii_phy **)__cil_tmp18);
+  phy = sis_priv->first_mii;
   }
+#line 736
   goto ldv_35490;
   ldv_35489: 
   {
 #line 737
-  __cil_tmp19 = (unsigned long )phy;
+  __cil_tmp17 = phy->phy_addr;
 #line 737
-  __cil_tmp20 = __cil_tmp19 + 8;
+  tmp___0 = mdio_read(net_dev, __cil_tmp17, 1);
 #line 737
-  __cil_tmp21 = *((int *)__cil_tmp20);
-#line 737
-  tmp___0 = mdio_read(net_dev, __cil_tmp21, 1);
-#line 737
-  status = (unsigned short )tmp___0;
+  status = (u16 )tmp___0;
 #line 738
-  __cil_tmp22 = (unsigned long )phy;
+  __cil_tmp18 = phy->phy_addr;
 #line 738
-  __cil_tmp23 = __cil_tmp22 + 8;
+  tmp___1 = mdio_read(net_dev, __cil_tmp18, 1);
 #line 738
-  __cil_tmp24 = *((int *)__cil_tmp23);
-#line 738
-  tmp___1 = mdio_read(net_dev, __cil_tmp24, 1);
-#line 738
-  status = (unsigned short )tmp___1;
+  status = (u16 )tmp___1;
   }
   {
 #line 741
-  __cil_tmp25 = (int )status;
+  __cil_tmp19 = (int )status;
 #line 741
-  __cil_tmp26 = __cil_tmp25 & 4;
+  __cil_tmp20 = __cil_tmp19 & 4;
 #line 741
-  if (__cil_tmp26 != 0) {
+  if (__cil_tmp20 != 0) {
     {
 #line 741
-    __cil_tmp27 = (struct mii_phy *)0;
+    __cil_tmp21 = (struct mii_phy *)0;
 #line 741
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
+    __cil_tmp22 = (unsigned long )__cil_tmp21;
 #line 741
-    __cil_tmp29 = (unsigned long )default_phy;
+    __cil_tmp23 = (unsigned long )default_phy;
 #line 741
-    if (__cil_tmp29 == __cil_tmp28) {
+    if (__cil_tmp23 == __cil_tmp22) {
       {
 #line 741
-      __cil_tmp30 = (unsigned long )phy;
+      __cil_tmp24 = phy->phy_types;
 #line 741
-      __cil_tmp31 = __cil_tmp30 + 18;
+      __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 741
-      __cil_tmp32 = *((u8 *)__cil_tmp31);
-#line 741
-      __cil_tmp33 = (unsigned int )__cil_tmp32;
-#line 741
-      if (__cil_tmp33 != 0U) {
+      if (__cil_tmp25 != 0U) {
 #line 743
         default_phy = phy;
       } else {
+#line 741
         goto _L___0;
       }
       }
     } else {
+#line 741
       goto _L___0;
     }
     }
@@ -10825,55 +9804,39 @@ static u16 sis900_default_phy(struct net_device *net_dev )
     _L___0: 
     {
 #line 745
-    __cil_tmp34 = (unsigned long )phy;
+    __cil_tmp26 = phy->phy_addr;
 #line 745
-    __cil_tmp35 = __cil_tmp34 + 8;
+    tmp___2 = mdio_read(net_dev, __cil_tmp26, 0);
 #line 745
-    __cil_tmp36 = *((int *)__cil_tmp35);
-#line 745
-    tmp___2 = mdio_read(net_dev, __cil_tmp36, 0);
-#line 745
-    status = (unsigned short )tmp___2;
+    status = (u16 )tmp___2;
 #line 746
-    __cil_tmp37 = (unsigned long )phy;
+    __cil_tmp27 = phy->phy_addr;
 #line 746
-    __cil_tmp38 = __cil_tmp37 + 8;
+    __cil_tmp28 = (unsigned int )status;
 #line 746
-    __cil_tmp39 = *((int *)__cil_tmp38);
+    __cil_tmp29 = __cil_tmp28 | 5120U;
 #line 746
-    __cil_tmp40 = (unsigned int )status;
+    __cil_tmp30 = (int )__cil_tmp29;
 #line 746
-    __cil_tmp41 = __cil_tmp40 | 5120U;
-#line 746
-    __cil_tmp42 = (int )__cil_tmp41;
-#line 746
-    mdio_write(net_dev, __cil_tmp39, 0, __cil_tmp42);
+    mdio_write(net_dev, __cil_tmp27, 0, __cil_tmp30);
     }
     {
 #line 748
-    __cil_tmp43 = (unsigned long )phy;
+    __cil_tmp31 = phy->phy_types;
 #line 748
-    __cil_tmp44 = __cil_tmp43 + 18;
+    __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 748
-    __cil_tmp45 = *((u8 *)__cil_tmp44);
-#line 748
-    __cil_tmp46 = (unsigned int )__cil_tmp45;
-#line 748
-    if (__cil_tmp46 == 1U) {
+    if (__cil_tmp32 == 1U) {
 #line 749
       phy_home = phy;
     } else {
       {
 #line 750
-      __cil_tmp47 = (unsigned long )phy;
+      __cil_tmp33 = phy->phy_types;
 #line 750
-      __cil_tmp48 = __cil_tmp47 + 18;
+      __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 750
-      __cil_tmp49 = *((u8 *)__cil_tmp48);
-#line 750
-      __cil_tmp50 = (unsigned int )__cil_tmp49;
-#line 750
-      if (__cil_tmp50 == 2U) {
+      if (__cil_tmp34 == 2U) {
 #line 751
         phy_lan = phy;
       } else {
@@ -10885,44 +9848,47 @@ static u16 sis900_default_phy(struct net_device *net_dev )
   }
   }
 #line 736
-  phy = *((struct mii_phy **)phy);
+  phy = phy->next;
   ldv_35490: ;
   {
 #line 736
-  __cil_tmp51 = (struct mii_phy *)0;
+  __cil_tmp35 = (struct mii_phy *)0;
 #line 736
-  __cil_tmp52 = (unsigned long )__cil_tmp51;
+  __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 736
-  __cil_tmp53 = (unsigned long )phy;
+  __cil_tmp37 = (unsigned long )phy;
 #line 736
-  if (__cil_tmp53 != __cil_tmp52) {
+  if (__cil_tmp37 != __cil_tmp36) {
+#line 737
     goto ldv_35489;
   } else {
+#line 739
     goto ldv_35491;
   }
   }
   ldv_35491: ;
   {
 #line 755
-  __cil_tmp54 = (struct mii_phy *)0;
+  __cil_tmp38 = (struct mii_phy *)0;
 #line 755
-  __cil_tmp55 = (unsigned long )__cil_tmp54;
+  __cil_tmp39 = (unsigned long )__cil_tmp38;
 #line 755
-  __cil_tmp56 = (unsigned long )default_phy;
+  __cil_tmp40 = (unsigned long )default_phy;
 #line 755
-  if (__cil_tmp56 == __cil_tmp55) {
+  if (__cil_tmp40 == __cil_tmp39) {
     {
 #line 755
-    __cil_tmp57 = (struct mii_phy *)0;
+    __cil_tmp41 = (struct mii_phy *)0;
 #line 755
-    __cil_tmp58 = (unsigned long )__cil_tmp57;
+    __cil_tmp42 = (unsigned long )__cil_tmp41;
 #line 755
-    __cil_tmp59 = (unsigned long )phy_home;
+    __cil_tmp43 = (unsigned long )phy_home;
 #line 755
-    if (__cil_tmp59 != __cil_tmp58) {
+    if (__cil_tmp43 != __cil_tmp42) {
 #line 756
       default_phy = phy_home;
     } else {
+#line 755
       goto _L___2;
     }
     }
@@ -10930,25 +9896,26 @@ static u16 sis900_default_phy(struct net_device *net_dev )
     _L___2: 
     {
 #line 757
-    __cil_tmp60 = (struct mii_phy *)0;
+    __cil_tmp44 = (struct mii_phy *)0;
 #line 757
-    __cil_tmp61 = (unsigned long )__cil_tmp60;
+    __cil_tmp45 = (unsigned long )__cil_tmp44;
 #line 757
-    __cil_tmp62 = (unsigned long )default_phy;
+    __cil_tmp46 = (unsigned long )default_phy;
 #line 757
-    if (__cil_tmp62 == __cil_tmp61) {
+    if (__cil_tmp46 == __cil_tmp45) {
       {
 #line 757
-      __cil_tmp63 = (struct mii_phy *)0;
+      __cil_tmp47 = (struct mii_phy *)0;
 #line 757
-      __cil_tmp64 = (unsigned long )__cil_tmp63;
+      __cil_tmp48 = (unsigned long )__cil_tmp47;
 #line 757
-      __cil_tmp65 = (unsigned long )phy_lan;
+      __cil_tmp49 = (unsigned long )phy_lan;
 #line 757
-      if (__cil_tmp65 != __cil_tmp64) {
+      if (__cil_tmp49 != __cil_tmp48) {
 #line 758
         default_phy = phy_lan;
       } else {
+#line 757
         goto _L___1;
       }
       }
@@ -10956,19 +9923,15 @@ static u16 sis900_default_phy(struct net_device *net_dev )
       _L___1: 
       {
 #line 759
-      __cil_tmp66 = (struct mii_phy *)0;
+      __cil_tmp50 = (struct mii_phy *)0;
 #line 759
-      __cil_tmp67 = (unsigned long )__cil_tmp66;
+      __cil_tmp51 = (unsigned long )__cil_tmp50;
 #line 759
-      __cil_tmp68 = (unsigned long )default_phy;
+      __cil_tmp52 = (unsigned long )default_phy;
 #line 759
-      if (__cil_tmp68 == __cil_tmp67) {
+      if (__cil_tmp52 == __cil_tmp51) {
 #line 760
-        __cil_tmp69 = (unsigned long )sis_priv;
-#line 760
-        __cil_tmp70 = __cil_tmp69 + 88;
-#line 760
-        default_phy = *((struct mii_phy **)__cil_tmp70);
+        default_phy = sis_priv->first_mii;
       } else {
 
       }
@@ -10979,50 +9942,30 @@ static u16 sis900_default_phy(struct net_device *net_dev )
   }
   {
 #line 762
-  __cil_tmp71 = (unsigned long )default_phy;
+  __cil_tmp53 = (unsigned long )default_phy;
 #line 762
-  __cil_tmp72 = (unsigned long )sis_priv;
+  __cil_tmp54 = sis_priv->mii;
 #line 762
-  __cil_tmp73 = __cil_tmp72 + 80;
+  __cil_tmp55 = (unsigned long )__cil_tmp54;
 #line 762
-  __cil_tmp74 = *((struct mii_phy **)__cil_tmp73);
-#line 762
-  __cil_tmp75 = (unsigned long )__cil_tmp74;
-#line 762
-  if (__cil_tmp75 != __cil_tmp71) {
+  if (__cil_tmp55 != __cil_tmp53) {
     {
 #line 763
-    __cil_tmp76 = (unsigned long )sis_priv;
-#line 763
-    __cil_tmp77 = __cil_tmp76 + 80;
-#line 763
-    *((struct mii_phy **)__cil_tmp77) = default_phy;
+    sis_priv->mii = default_phy;
 #line 764
-    __cil_tmp78 = (unsigned long )sis_priv;
+    __cil_tmp56 = default_phy->phy_addr;
 #line 764
-    __cil_tmp79 = __cil_tmp78 + 96;
-#line 764
-    __cil_tmp80 = (unsigned long )default_phy;
-#line 764
-    __cil_tmp81 = __cil_tmp80 + 8;
-#line 764
-    __cil_tmp82 = *((int *)__cil_tmp81);
-#line 764
-    *((unsigned int *)__cil_tmp79) = (unsigned int )__cil_tmp82;
+    sis_priv->cur_phy = (unsigned int )__cil_tmp56;
 #line 765
-    __cil_tmp83 = *((struct pci_dev **)sis_priv);
+    __cil_tmp57 = sis_priv->pci_dev;
 #line 765
-    __cil_tmp84 = (struct pci_dev  const  *)__cil_tmp83;
+    __cil_tmp58 = (struct pci_dev  const  *)__cil_tmp57;
 #line 765
-    tmp___3 = pci_name(__cil_tmp84);
+    tmp___3 = pci_name(__cil_tmp58);
 #line 765
-    __cil_tmp85 = (unsigned long )sis_priv;
+    __cil_tmp59 = sis_priv->cur_phy;
 #line 765
-    __cil_tmp86 = __cil_tmp85 + 96;
-#line 765
-    __cil_tmp87 = *((unsigned int *)__cil_tmp86);
-#line 765
-    printk("<6>%s: Using transceiver found at address %d as default\n", tmp___3, __cil_tmp87);
+    printk("<6>%s: Using transceiver found at address %d as default\n", tmp___3, __cil_tmp59);
     }
   } else {
 
@@ -11030,71 +9973,47 @@ static u16 sis900_default_phy(struct net_device *net_dev )
   }
   {
 #line 769
-  __cil_tmp88 = (unsigned long )sis_priv;
+  __cil_tmp60 = sis_priv->cur_phy;
 #line 769
-  __cil_tmp89 = __cil_tmp88 + 104;
-#line 769
-  __cil_tmp90 = (unsigned long )sis_priv;
-#line 769
-  __cil_tmp91 = __cil_tmp90 + 96;
-#line 769
-  __cil_tmp92 = *((unsigned int *)__cil_tmp91);
-#line 769
-  *((int *)__cil_tmp89) = (int )__cil_tmp92;
+  sis_priv->mii_info.phy_id = (int )__cil_tmp60;
 #line 771
-  __cil_tmp93 = (unsigned long )sis_priv;
+  __cil_tmp61 = sis_priv->cur_phy;
 #line 771
-  __cil_tmp94 = __cil_tmp93 + 96;
+  __cil_tmp62 = (int )__cil_tmp61;
 #line 771
-  __cil_tmp95 = *((unsigned int *)__cil_tmp94);
+  tmp___4 = mdio_read(net_dev, __cil_tmp62, 0);
 #line 771
-  __cil_tmp96 = (int )__cil_tmp95;
-#line 771
-  tmp___4 = mdio_read(net_dev, __cil_tmp96, 0);
-#line 771
-  status = (unsigned short )tmp___4;
+  status = (u16 )tmp___4;
 #line 772
-  __cil_tmp97 = (unsigned int )status;
+  __cil_tmp63 = (unsigned int )status;
 #line 772
-  __cil_tmp98 = __cil_tmp97 & 64511U;
+  __cil_tmp64 = __cil_tmp63 & 64511U;
 #line 772
-  status = (unsigned short )__cil_tmp98;
+  status = (u16 )__cil_tmp64;
 #line 774
-  __cil_tmp99 = (unsigned long )sis_priv;
+  __cil_tmp65 = sis_priv->cur_phy;
 #line 774
-  __cil_tmp100 = __cil_tmp99 + 96;
+  __cil_tmp66 = (int )__cil_tmp65;
 #line 774
-  __cil_tmp101 = *((unsigned int *)__cil_tmp100);
+  __cil_tmp67 = (int )status;
 #line 774
-  __cil_tmp102 = (int )__cil_tmp101;
-#line 774
-  __cil_tmp103 = (int )status;
-#line 774
-  mdio_write(net_dev, __cil_tmp102, 0, __cil_tmp103);
+  mdio_write(net_dev, __cil_tmp66, 0, __cil_tmp67);
 #line 775
-  __cil_tmp104 = (unsigned long )sis_priv;
+  __cil_tmp68 = sis_priv->cur_phy;
 #line 775
-  __cil_tmp105 = __cil_tmp104 + 96;
+  __cil_tmp69 = (int )__cil_tmp68;
 #line 775
-  __cil_tmp106 = *((unsigned int *)__cil_tmp105);
+  tmp___5 = mdio_read(net_dev, __cil_tmp69, 1);
 #line 775
-  __cil_tmp107 = (int )__cil_tmp106;
-#line 775
-  tmp___5 = mdio_read(net_dev, __cil_tmp107, 1);
-#line 775
-  status = (unsigned short )tmp___5;
+  status = (u16 )tmp___5;
 #line 776
-  __cil_tmp108 = (unsigned long )sis_priv;
+  __cil_tmp70 = sis_priv->cur_phy;
 #line 776
-  __cil_tmp109 = __cil_tmp108 + 96;
+  __cil_tmp71 = (int )__cil_tmp70;
 #line 776
-  __cil_tmp110 = *((unsigned int *)__cil_tmp109);
+  tmp___6 = mdio_read(net_dev, __cil_tmp71, 1);
 #line 776
-  __cil_tmp111 = (int )__cil_tmp110;
-#line 776
-  tmp___6 = mdio_read(net_dev, __cil_tmp111, 1);
-#line 776
-  status = (unsigned short )tmp___6;
+  status = (u16 )tmp___6;
   }
 #line 778
   return (status);
@@ -11110,76 +10029,50 @@ static void sis900_set_capability(struct net_device *net_dev , struct mii_phy *p
   int tmp___2 ;
   int tmp___3 ;
   int tmp___4 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  u16 __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  u16 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
   u16 __cil_tmp19 ;
   int __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u16 __cil_tmp24 ;
+  u16 __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
   int __cil_tmp25 ;
   int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  u16 __cil_tmp29 ;
-  int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  u16 __cil_tmp34 ;
-  int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
-  int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  int __cil_tmp42 ;
-  int __cil_tmp43 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
 
   {
   {
 #line 796
-  __cil_tmp11 = (unsigned long )phy;
+  __cil_tmp11 = phy->phy_addr;
 #line 796
-  __cil_tmp12 = __cil_tmp11 + 8;
+  tmp = mdio_read(net_dev, __cil_tmp11, 1);
 #line 796
-  __cil_tmp13 = *((int *)__cil_tmp12);
-#line 796
-  tmp = mdio_read(net_dev, __cil_tmp13, 1);
-#line 796
-  status = (unsigned short )tmp;
+  status = (u16 )tmp;
 #line 797
-  __cil_tmp14 = (unsigned long )phy;
+  __cil_tmp12 = phy->phy_addr;
 #line 797
-  __cil_tmp15 = __cil_tmp14 + 8;
+  tmp___0 = mdio_read(net_dev, __cil_tmp12, 1);
 #line 797
-  __cil_tmp16 = *((int *)__cil_tmp15);
-#line 797
-  tmp___0 = mdio_read(net_dev, __cil_tmp16, 1);
-#line 797
-  status = (unsigned short )tmp___0;
+  status = (u16 )tmp___0;
   }
   {
 #line 799
-  __cil_tmp17 = (unsigned long )phy;
+  __cil_tmp13 = phy->status;
 #line 799
-  __cil_tmp18 = __cil_tmp17 + 16;
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 799
-  __cil_tmp19 = *((u16 *)__cil_tmp18);
+  __cil_tmp15 = __cil_tmp14 & 16384;
 #line 799
-  __cil_tmp20 = (int )__cil_tmp19;
-#line 799
-  __cil_tmp21 = __cil_tmp20 & 16384;
-#line 799
-  if (__cil_tmp21 != 0) {
+  if (__cil_tmp15 != 0) {
 #line 799
     tmp___1 = 257;
   } else {
@@ -11189,17 +10082,13 @@ static void sis900_set_capability(struct net_device *net_dev , struct mii_phy *p
   }
   {
 #line 799
-  __cil_tmp22 = (unsigned long )phy;
+  __cil_tmp16 = phy->status;
 #line 799
-  __cil_tmp23 = __cil_tmp22 + 16;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 799
-  __cil_tmp24 = *((u16 *)__cil_tmp23);
+  __cil_tmp18 = __cil_tmp17 & 8192;
 #line 799
-  __cil_tmp25 = (int )__cil_tmp24;
-#line 799
-  __cil_tmp26 = __cil_tmp25 & 8192;
-#line 799
-  if (__cil_tmp26 != 0) {
+  if (__cil_tmp18 != 0) {
 #line 799
     tmp___2 = 128;
   } else {
@@ -11209,17 +10098,13 @@ static void sis900_set_capability(struct net_device *net_dev , struct mii_phy *p
   }
   {
 #line 799
-  __cil_tmp27 = (unsigned long )phy;
+  __cil_tmp19 = phy->status;
 #line 799
-  __cil_tmp28 = __cil_tmp27 + 16;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 799
-  __cil_tmp29 = *((u16 *)__cil_tmp28);
+  __cil_tmp21 = __cil_tmp20 & 4096;
 #line 799
-  __cil_tmp30 = (int )__cil_tmp29;
-#line 799
-  __cil_tmp31 = __cil_tmp30 & 4096;
-#line 799
-  if (__cil_tmp31 != 0) {
+  if (__cil_tmp21 != 0) {
 #line 799
     tmp___3 = 64;
   } else {
@@ -11229,17 +10114,13 @@ static void sis900_set_capability(struct net_device *net_dev , struct mii_phy *p
   }
   {
 #line 799
-  __cil_tmp32 = (unsigned long )phy;
+  __cil_tmp22 = phy->status;
 #line 799
-  __cil_tmp33 = __cil_tmp32 + 16;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 799
-  __cil_tmp34 = *((u16 *)__cil_tmp33);
+  __cil_tmp24 = __cil_tmp23 & 2048;
 #line 799
-  __cil_tmp35 = (int )__cil_tmp34;
-#line 799
-  __cil_tmp36 = __cil_tmp35 & 2048;
-#line 799
-  if (__cil_tmp36 != 0) {
+  if (__cil_tmp24 != 0) {
 #line 799
     tmp___4 = 32;
   } else {
@@ -11249,23 +10130,19 @@ static void sis900_set_capability(struct net_device *net_dev , struct mii_phy *p
   }
   {
 #line 799
-  __cil_tmp37 = tmp___1 | tmp___2;
+  __cil_tmp25 = tmp___1 | tmp___2;
 #line 799
-  __cil_tmp38 = __cil_tmp37 | tmp___3;
+  __cil_tmp26 = __cil_tmp25 | tmp___3;
 #line 799
-  __cil_tmp39 = __cil_tmp38 | tmp___4;
+  __cil_tmp27 = __cil_tmp26 | tmp___4;
 #line 799
-  cap = (unsigned short )__cil_tmp39;
+  cap = (u16 )__cil_tmp27;
 #line 805
-  __cil_tmp40 = (unsigned long )phy;
+  __cil_tmp28 = phy->phy_addr;
 #line 805
-  __cil_tmp41 = __cil_tmp40 + 8;
+  __cil_tmp29 = (int )cap;
 #line 805
-  __cil_tmp42 = *((int *)__cil_tmp41);
-#line 805
-  __cil_tmp43 = (int )cap;
-#line 805
-  mdio_write(net_dev, __cil_tmp42, 4, __cil_tmp43);
+  mdio_write(net_dev, __cil_tmp28, 4, __cil_tmp29);
   }
 #line 806
   return;
@@ -11286,7 +10163,7 @@ static u16 read_eeprom(long ioaddr , int location )
   int __cil_tmp13 ;
   int __cil_tmp14 ;
   int __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
+  u32 __cil_tmp16 ;
   unsigned int __cil_tmp17 ;
   int __cil_tmp18 ;
   int __cil_tmp19 ;
@@ -11314,13 +10191,13 @@ static u16 read_eeprom(long ioaddr , int location )
   {
   {
 #line 824
-  retval = (unsigned short)0;
+  retval = (u16 )0U;
 #line 825
   ee_addr = ioaddr + 8L;
 #line 826
   __cil_tmp10 = location | 384;
 #line 826
-  read_cmd = (unsigned int )__cil_tmp10;
+  read_cmd = (u32 )__cil_tmp10;
 #line 828
   __cil_tmp11 = (int )ee_addr;
 #line 828
@@ -11340,13 +10217,14 @@ static u16 read_eeprom(long ioaddr , int location )
 #line 834
   i = 8;
   }
+#line 834
   goto ldv_35508;
   ldv_35507: ;
   {
 #line 835
   __cil_tmp15 = 1 << i;
 #line 835
-  __cil_tmp16 = (unsigned int )__cil_tmp15;
+  __cil_tmp16 = (u32 )__cil_tmp15;
 #line 835
   __cil_tmp17 = __cil_tmp16 & read_cmd;
 #line 835
@@ -11385,8 +10263,10 @@ static u16 read_eeprom(long ioaddr , int location )
   ldv_35508: ;
 #line 834
   if (i >= 0) {
+#line 835
     goto ldv_35507;
   } else {
+#line 837
     goto ldv_35509;
   }
   ldv_35509: 
@@ -11402,6 +10282,7 @@ static u16 read_eeprom(long ioaddr , int location )
 #line 845
   i = 16;
   }
+#line 845
   goto ldv_35511;
   ldv_35510: 
   {
@@ -11440,7 +10321,7 @@ static u16 read_eeprom(long ioaddr , int location )
 #line 850
   __cil_tmp36 = __cil_tmp35 | __cil_tmp31;
 #line 850
-  retval = (unsigned short )__cil_tmp36;
+  retval = (u16 )__cil_tmp36;
 #line 851
   __cil_tmp37 = (int )ee_addr;
 #line 851
@@ -11451,8 +10332,10 @@ static u16 read_eeprom(long ioaddr , int location )
   ldv_35511: ;
 #line 845
   if (i > 0) {
+#line 846
     goto ldv_35510;
   } else {
+#line 848
     goto ldv_35512;
   }
   ldv_35512: 
@@ -11506,6 +10389,7 @@ static void mdio_reset(long mdio_addr )
   {
 #line 878
   i = 31;
+#line 878
   goto ldv_35521;
   ldv_35520: 
   {
@@ -11531,8 +10415,10 @@ static void mdio_reset(long mdio_addr )
   ldv_35521: ;
 #line 878
   if (i >= 0) {
+#line 879
     goto ldv_35520;
   } else {
+#line 881
     goto ldv_35522;
   }
   ldv_35522: ;
@@ -11551,55 +10437,49 @@ static int mdio_read(struct net_device *net_dev , int phy_id , int location )
   unsigned int tmp___0 ;
   unsigned long __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
   int __cil_tmp15 ;
   int __cil_tmp16 ;
-  int __cil_tmp17 ;
+  unsigned int __cil_tmp17 ;
   int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
+  int __cil_tmp19 ;
   int __cil_tmp20 ;
-  int __cil_tmp21 ;
+  unsigned int __cil_tmp21 ;
   int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
+  int __cil_tmp23 ;
   int __cil_tmp24 ;
   int __cil_tmp25 ;
   int __cil_tmp26 ;
-  int __cil_tmp27 ;
+  unsigned int __cil_tmp27 ;
   int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
+  int __cil_tmp29 ;
   int __cil_tmp30 ;
-  int __cil_tmp31 ;
+  short __cil_tmp31 ;
   int __cil_tmp32 ;
-  short __cil_tmp33 ;
+  int __cil_tmp33 ;
   int __cil_tmp34 ;
   int __cil_tmp35 ;
   int __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
 
   {
   {
 #line 899
-  __cil_tmp11 = (unsigned long )net_dev;
+  __cil_tmp11 = net_dev->base_addr;
 #line 899
-  __cil_tmp12 = __cil_tmp11 + 104;
+  __cil_tmp12 = __cil_tmp11 + 8UL;
 #line 899
-  __cil_tmp13 = *((unsigned long *)__cil_tmp12);
-#line 899
-  __cil_tmp14 = __cil_tmp13 + 8UL;
-#line 899
-  mdio_addr = (long )__cil_tmp14;
+  mdio_addr = (long )__cil_tmp12;
 #line 900
-  __cil_tmp15 = location << 2;
+  __cil_tmp13 = location << 2;
 #line 900
-  __cil_tmp16 = phy_id << 7;
+  __cil_tmp14 = phy_id << 7;
 #line 900
-  __cil_tmp17 = __cil_tmp16 | 24576;
+  __cil_tmp15 = __cil_tmp14 | 24576;
 #line 900
-  mii_cmd = __cil_tmp17 | __cil_tmp15;
+  mii_cmd = __cil_tmp15 | __cil_tmp13;
 #line 901
-  retval = (unsigned short)0;
+  retval = (u16 )0U;
 #line 904
   mdio_reset(mdio_addr);
 #line 905
@@ -11607,13 +10487,14 @@ static int mdio_read(struct net_device *net_dev , int phy_id , int location )
 #line 907
   i = 15;
   }
+#line 907
   goto ldv_35534;
   ldv_35533: ;
   {
 #line 908
-  __cil_tmp18 = mii_cmd >> i;
+  __cil_tmp16 = mii_cmd >> i;
 #line 908
-  if (__cil_tmp18 & 1) {
+  if (__cil_tmp16 & 1) {
 #line 908
     tmp = 48;
   } else {
@@ -11625,95 +10506,100 @@ static int mdio_read(struct net_device *net_dev , int phy_id , int location )
 #line 908
   dataval = tmp;
 #line 909
-  __cil_tmp19 = (unsigned int )dataval;
+  __cil_tmp17 = (unsigned int )dataval;
 #line 909
-  __cil_tmp20 = (int )mdio_addr;
+  __cil_tmp18 = (int )mdio_addr;
 #line 909
-  outl(__cil_tmp19, __cil_tmp20);
+  outl(__cil_tmp17, __cil_tmp18);
 #line 910
-  __cil_tmp21 = (int )mdio_addr;
+  __cil_tmp19 = (int )mdio_addr;
 #line 910
-  inl(__cil_tmp21);
+  inl(__cil_tmp19);
 #line 911
-  __cil_tmp22 = dataval | 64;
+  __cil_tmp20 = dataval | 64;
 #line 911
-  __cil_tmp23 = (unsigned int )__cil_tmp22;
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 911
-  __cil_tmp24 = (int )mdio_addr;
+  __cil_tmp22 = (int )mdio_addr;
 #line 911
-  outl(__cil_tmp23, __cil_tmp24);
+  outl(__cil_tmp21, __cil_tmp22);
 #line 912
-  __cil_tmp25 = (int )mdio_addr;
+  __cil_tmp23 = (int )mdio_addr;
 #line 912
-  inl(__cil_tmp25);
+  inl(__cil_tmp23);
 #line 907
   i = i - 1;
   }
   ldv_35534: ;
 #line 907
   if (i >= 0) {
+#line 908
     goto ldv_35533;
   } else {
+#line 910
     goto ldv_35535;
   }
   ldv_35535: 
 #line 916
   i = 16;
+#line 916
   goto ldv_35537;
   ldv_35536: 
   {
 #line 917
-  __cil_tmp26 = (int )mdio_addr;
+  __cil_tmp24 = (int )mdio_addr;
 #line 917
-  outl(0U, __cil_tmp26);
+  outl(0U, __cil_tmp24);
 #line 918
-  __cil_tmp27 = (int )mdio_addr;
+  __cil_tmp25 = (int )mdio_addr;
 #line 918
-  inl(__cil_tmp27);
+  inl(__cil_tmp25);
 #line 919
-  __cil_tmp28 = (int )mdio_addr;
+  __cil_tmp26 = (int )mdio_addr;
 #line 919
-  tmp___0 = inl(__cil_tmp28);
+  tmp___0 = inl(__cil_tmp26);
 #line 919
-  __cil_tmp29 = tmp___0 & 16U;
+  __cil_tmp27 = tmp___0 & 16U;
 #line 919
-  __cil_tmp30 = __cil_tmp29 != 0U;
+  __cil_tmp28 = __cil_tmp27 != 0U;
 #line 919
-  __cil_tmp31 = (int )retval;
+  __cil_tmp29 = (int )retval;
 #line 919
-  __cil_tmp32 = __cil_tmp31 << 1;
+  __cil_tmp30 = __cil_tmp29 << 1;
 #line 919
-  __cil_tmp33 = (short )__cil_tmp32;
+  __cil_tmp31 = (short )__cil_tmp30;
 #line 919
-  __cil_tmp34 = (int )__cil_tmp33;
+  __cil_tmp32 = (int )__cil_tmp31;
 #line 919
-  __cil_tmp35 = __cil_tmp34 | __cil_tmp30;
+  __cil_tmp33 = __cil_tmp32 | __cil_tmp28;
 #line 919
-  retval = (unsigned short )__cil_tmp35;
+  retval = (u16 )__cil_tmp33;
 #line 920
-  __cil_tmp36 = (int )mdio_addr;
+  __cil_tmp34 = (int )mdio_addr;
 #line 920
-  outl(64U, __cil_tmp36);
+  outl(64U, __cil_tmp34);
 #line 921
-  __cil_tmp37 = (int )mdio_addr;
+  __cil_tmp35 = (int )mdio_addr;
 #line 921
-  inl(__cil_tmp37);
+  inl(__cil_tmp35);
 #line 916
   i = i - 1;
   }
   ldv_35537: ;
 #line 916
   if (i > 0) {
+#line 917
     goto ldv_35536;
   } else {
+#line 919
     goto ldv_35538;
   }
   ldv_35538: 
   {
 #line 923
-  __cil_tmp38 = (int )mdio_addr;
+  __cil_tmp36 = (int )mdio_addr;
 #line 923
-  outl(0U, __cil_tmp38);
+  outl(0U, __cil_tmp36);
   }
 #line 925
   return ((int )retval);
@@ -11730,61 +10616,55 @@ static void mdio_write(struct net_device *net_dev , int phy_id , int location , 
   int tmp___0 ;
   unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
   int __cil_tmp16 ;
   int __cil_tmp17 ;
-  int __cil_tmp18 ;
+  unsigned char __cil_tmp18 ;
   int __cil_tmp19 ;
   unsigned char __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned char __cil_tmp22 ;
-  int __cil_tmp23 ;
+  int __cil_tmp22 ;
+  signed char __cil_tmp23 ;
   int __cil_tmp24 ;
-  signed char __cil_tmp25 ;
-  int __cil_tmp26 ;
+  int __cil_tmp25 ;
+  unsigned char __cil_tmp26 ;
   int __cil_tmp27 ;
   unsigned char __cil_tmp28 ;
   int __cil_tmp29 ;
-  unsigned char __cil_tmp30 ;
+  int __cil_tmp30 ;
   int __cil_tmp31 ;
   int __cil_tmp32 ;
-  int __cil_tmp33 ;
+  unsigned int __cil_tmp33 ;
   int __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
+  int __cil_tmp35 ;
   int __cil_tmp36 ;
-  int __cil_tmp37 ;
+  unsigned int __cil_tmp37 ;
   int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
+  int __cil_tmp39 ;
   int __cil_tmp40 ;
   int __cil_tmp41 ;
   int __cil_tmp42 ;
   int __cil_tmp43 ;
   int __cil_tmp44 ;
   int __cil_tmp45 ;
-  int __cil_tmp46 ;
-  int __cil_tmp47 ;
 
   {
   {
 #line 943
-  __cil_tmp12 = (unsigned long )net_dev;
+  __cil_tmp12 = net_dev->base_addr;
 #line 943
-  __cil_tmp13 = __cil_tmp12 + 104;
+  __cil_tmp13 = __cil_tmp12 + 8UL;
 #line 943
-  __cil_tmp14 = *((unsigned long *)__cil_tmp13);
-#line 943
-  __cil_tmp15 = __cil_tmp14 + 8UL;
-#line 943
-  mdio_addr = (long )__cil_tmp15;
+  mdio_addr = (long )__cil_tmp13;
 #line 944
-  __cil_tmp16 = location << 2;
+  __cil_tmp14 = location << 2;
 #line 944
-  __cil_tmp17 = phy_id << 7;
+  __cil_tmp15 = phy_id << 7;
 #line 944
-  __cil_tmp18 = __cil_tmp17 | 20482;
+  __cil_tmp16 = __cil_tmp15 | 20482;
 #line 944
-  mii_cmd = __cil_tmp18 | __cil_tmp16;
+  mii_cmd = __cil_tmp16 | __cil_tmp14;
 #line 947
   mdio_reset(mdio_addr);
 #line 948
@@ -11792,13 +10672,14 @@ static void mdio_write(struct net_device *net_dev , int phy_id , int location , 
 #line 951
   i = 15;
   }
+#line 951
   goto ldv_35550;
   ldv_35549: ;
   {
 #line 952
-  __cil_tmp19 = mii_cmd >> i;
+  __cil_tmp17 = mii_cmd >> i;
 #line 952
-  if (__cil_tmp19 & 1) {
+  if (__cil_tmp17 & 1) {
 #line 952
     tmp = 48;
   } else {
@@ -11810,65 +10691,68 @@ static void mdio_write(struct net_device *net_dev , int phy_id , int location , 
 #line 952
   dataval = tmp;
 #line 953
-  __cil_tmp20 = (unsigned char )dataval;
+  __cil_tmp18 = (unsigned char )dataval;
 #line 953
-  __cil_tmp21 = (int )__cil_tmp20;
+  __cil_tmp19 = (int )__cil_tmp18;
 #line 953
-  __cil_tmp22 = (unsigned char )__cil_tmp21;
+  __cil_tmp20 = (unsigned char )__cil_tmp19;
 #line 953
-  __cil_tmp23 = (int )mdio_addr;
+  __cil_tmp21 = (int )mdio_addr;
 #line 953
-  outb(__cil_tmp22, __cil_tmp23);
+  outb(__cil_tmp20, __cil_tmp21);
 #line 954
-  __cil_tmp24 = (int )mdio_addr;
+  __cil_tmp22 = (int )mdio_addr;
 #line 954
-  inl(__cil_tmp24);
+  inl(__cil_tmp22);
 #line 955
-  __cil_tmp25 = (signed char )dataval;
+  __cil_tmp23 = (signed char )dataval;
 #line 955
-  __cil_tmp26 = (int )__cil_tmp25;
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 955
-  __cil_tmp27 = __cil_tmp26 | 64;
+  __cil_tmp25 = __cil_tmp24 | 64;
+#line 955
+  __cil_tmp26 = (unsigned char )__cil_tmp25;
+#line 955
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 955
   __cil_tmp28 = (unsigned char )__cil_tmp27;
 #line 955
-  __cil_tmp29 = (int )__cil_tmp28;
+  __cil_tmp29 = (int )mdio_addr;
 #line 955
-  __cil_tmp30 = (unsigned char )__cil_tmp29;
-#line 955
-  __cil_tmp31 = (int )mdio_addr;
-#line 955
-  outb(__cil_tmp30, __cil_tmp31);
+  outb(__cil_tmp28, __cil_tmp29);
 #line 956
-  __cil_tmp32 = (int )mdio_addr;
+  __cil_tmp30 = (int )mdio_addr;
 #line 956
-  inl(__cil_tmp32);
+  inl(__cil_tmp30);
 #line 951
   i = i - 1;
   }
   ldv_35550: ;
 #line 951
   if (i >= 0) {
+#line 952
     goto ldv_35549;
   } else {
+#line 954
     goto ldv_35551;
   }
   ldv_35551: 
   {
 #line 958
-  __cil_tmp33 = (int )mdio_addr;
+  __cil_tmp31 = (int )mdio_addr;
 #line 958
-  inl(__cil_tmp33);
+  inl(__cil_tmp31);
 #line 961
   i = 15;
   }
+#line 961
   goto ldv_35554;
   ldv_35553: ;
   {
 #line 962
-  __cil_tmp34 = value >> i;
+  __cil_tmp32 = value >> i;
 #line 962
-  if (__cil_tmp34 & 1) {
+  if (__cil_tmp32 & 1) {
 #line 962
     tmp___0 = 48;
   } else {
@@ -11880,81 +10764,86 @@ static void mdio_write(struct net_device *net_dev , int phy_id , int location , 
 #line 962
   dataval___0 = tmp___0;
 #line 963
-  __cil_tmp35 = (unsigned int )dataval___0;
+  __cil_tmp33 = (unsigned int )dataval___0;
 #line 963
-  __cil_tmp36 = (int )mdio_addr;
+  __cil_tmp34 = (int )mdio_addr;
 #line 963
-  outl(__cil_tmp35, __cil_tmp36);
+  outl(__cil_tmp33, __cil_tmp34);
 #line 964
-  __cil_tmp37 = (int )mdio_addr;
+  __cil_tmp35 = (int )mdio_addr;
 #line 964
-  inl(__cil_tmp37);
+  inl(__cil_tmp35);
 #line 965
-  __cil_tmp38 = dataval___0 | 64;
+  __cil_tmp36 = dataval___0 | 64;
 #line 965
-  __cil_tmp39 = (unsigned int )__cil_tmp38;
+  __cil_tmp37 = (unsigned int )__cil_tmp36;
 #line 965
-  __cil_tmp40 = (int )mdio_addr;
+  __cil_tmp38 = (int )mdio_addr;
 #line 965
-  outl(__cil_tmp39, __cil_tmp40);
+  outl(__cil_tmp37, __cil_tmp38);
 #line 966
-  __cil_tmp41 = (int )mdio_addr;
+  __cil_tmp39 = (int )mdio_addr;
 #line 966
-  inl(__cil_tmp41);
+  inl(__cil_tmp39);
 #line 961
   i = i - 1;
   }
   ldv_35554: ;
 #line 961
   if (i >= 0) {
+#line 962
     goto ldv_35553;
   } else {
+#line 964
     goto ldv_35555;
   }
   ldv_35555: 
   {
 #line 968
-  __cil_tmp42 = (int )mdio_addr;
+  __cil_tmp40 = (int )mdio_addr;
 #line 968
-  inl(__cil_tmp42);
+  inl(__cil_tmp40);
 #line 971
   i = 2;
   }
+#line 971
   goto ldv_35557;
   ldv_35556: 
   {
 #line 972
-  __cil_tmp43 = (int )mdio_addr;
+  __cil_tmp41 = (int )mdio_addr;
 #line 972
-  outb((unsigned char)0, __cil_tmp43);
+  outb((unsigned char)0, __cil_tmp41);
 #line 973
+  __cil_tmp42 = (int )mdio_addr;
+#line 973
+  inl(__cil_tmp42);
+#line 974
+  __cil_tmp43 = (int )mdio_addr;
+#line 974
+  outb((unsigned char)64, __cil_tmp43);
+#line 975
   __cil_tmp44 = (int )mdio_addr;
-#line 973
+#line 975
   inl(__cil_tmp44);
-#line 974
-  __cil_tmp45 = (int )mdio_addr;
-#line 974
-  outb((unsigned char)64, __cil_tmp45);
-#line 975
-  __cil_tmp46 = (int )mdio_addr;
-#line 975
-  inl(__cil_tmp46);
 #line 971
   i = i - 1;
   }
   ldv_35557: ;
 #line 971
   if (i > 0) {
+#line 972
     goto ldv_35556;
   } else {
+#line 974
     goto ldv_35558;
   }
   ldv_35558: 
   {
 #line 977
-  __cil_tmp47 = (int )mdio_addr;
+  __cil_tmp45 = (int )mdio_addr;
 #line 977
-  outl(0U, __cil_tmp47);
+  outl(0U, __cil_tmp45);
   }
 #line 978
   return;
@@ -11969,21 +10858,24 @@ static u16 sis900_reset_phy(struct net_device *net_dev , int phy_addr )
   {
 #line 996
   i = 0;
+#line 996
   goto ldv_35566;
   ldv_35565: 
   {
 #line 997
   tmp = mdio_read(net_dev, phy_addr, 1);
 #line 997
-  status = (unsigned short )tmp;
+  status = (u16 )tmp;
 #line 996
   i = i + 1;
   }
   ldv_35566: ;
 #line 996
   if (i <= 1) {
+#line 997
     goto ldv_35565;
   } else {
+#line 999
     goto ldv_35567;
   }
   ldv_35567: 
@@ -11997,48 +10889,30 @@ static u16 sis900_reset_phy(struct net_device *net_dev , int phy_addr )
 }
 #line 1010 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
 static void sis900_poll(struct net_device *dev ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  int __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
+  int __cil_tmp4 ;
+  void *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 1012
-  __cil_tmp2 = (unsigned long )dev;
+  __cil_tmp2 = dev->irq;
 #line 1012
-  __cil_tmp3 = __cil_tmp2 + 112;
-#line 1012
-  __cil_tmp4 = *((unsigned int *)__cil_tmp3);
-#line 1012
-  disable_irq(__cil_tmp4);
+  disable_irq(__cil_tmp2);
 #line 1013
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp3 = dev->irq;
 #line 1013
-  __cil_tmp6 = __cil_tmp5 + 112;
+  __cil_tmp4 = (int )__cil_tmp3;
 #line 1013
-  __cil_tmp7 = *((unsigned int *)__cil_tmp6);
+  __cil_tmp5 = (void *)dev;
 #line 1013
-  __cil_tmp8 = (int )__cil_tmp7;
-#line 1013
-  __cil_tmp9 = (void *)dev;
-#line 1013
-  sis900_interrupt(__cil_tmp8, __cil_tmp9);
+  sis900_interrupt(__cil_tmp4, __cil_tmp5);
 #line 1014
-  __cil_tmp10 = (unsigned long )dev;
+  __cil_tmp6 = dev->irq;
 #line 1014
-  __cil_tmp11 = __cil_tmp10 + 112;
-#line 1014
-  __cil_tmp12 = *((unsigned int *)__cil_tmp11);
-#line 1014
-  enable_irq(__cil_tmp12);
+  enable_irq(__cil_tmp6);
   }
 #line 1015
   return;
@@ -12054,47 +10928,26 @@ static int sis900_open(struct net_device *net_dev )
   struct lock_class_key __key ;
   struct net_device  const  *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u8 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned char __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  char (*__cil_tmp20)[16U] ;
-  char const   *__cil_tmp21 ;
-  void *__cil_tmp22 ;
+  u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  char (*__cil_tmp14)[16U] ;
+  char const   *__cil_tmp15 ;
+  void *__cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  int __cil_tmp22 ;
   unsigned int __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
   int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct mii_phy *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct timer_list *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct timer_list *__cil_tmp50 ;
+  struct mii_phy *__cil_tmp26 ;
+  struct timer_list *__cil_tmp27 ;
+  unsigned long __cil_tmp28 ;
+  struct timer_list *__cil_tmp29 ;
 
   {
   {
@@ -12105,41 +10958,29 @@ static int sis900_open(struct net_device *net_dev )
 #line 1029
   sis_priv = (struct sis900_private *)tmp;
 #line 1030
-  __cil_tmp9 = (unsigned long )net_dev;
+  __cil_tmp9 = net_dev->base_addr;
 #line 1030
-  __cil_tmp10 = __cil_tmp9 + 104;
-#line 1030
-  __cil_tmp11 = *((unsigned long *)__cil_tmp10);
-#line 1030
-  ioaddr = (long )__cil_tmp11;
+  ioaddr = (long )__cil_tmp9;
 #line 1034
   sis900_reset(net_dev);
 #line 1037
-  __cil_tmp12 = (unsigned long )sis_priv;
+  __cil_tmp10 = sis_priv->chipset_rev;
 #line 1037
-  __cil_tmp13 = __cil_tmp12 + 597;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 1037
-  __cil_tmp14 = *((u8 *)__cil_tmp13);
+  __cil_tmp12 = (u8 )__cil_tmp11;
 #line 1037
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 1037
-  __cil_tmp16 = (unsigned char )__cil_tmp15;
-#line 1037
-  sis630_set_eq(net_dev, __cil_tmp16);
+  sis630_set_eq(net_dev, __cil_tmp12);
 #line 1039
-  __cil_tmp17 = (unsigned long )net_dev;
+  __cil_tmp13 = net_dev->irq;
 #line 1039
-  __cil_tmp18 = __cil_tmp17 + 112;
+  __cil_tmp14 = & net_dev->name;
 #line 1039
-  __cil_tmp19 = *((unsigned int *)__cil_tmp18);
+  __cil_tmp15 = (char const   *)__cil_tmp14;
 #line 1039
-  __cil_tmp20 = (char (*)[16U])net_dev;
+  __cil_tmp16 = (void *)net_dev;
 #line 1039
-  __cil_tmp21 = (char const   *)__cil_tmp20;
-#line 1039
-  __cil_tmp22 = (void *)net_dev;
-#line 1039
-  ret = request_irq(__cil_tmp19, & sis900_interrupt, 128UL, __cil_tmp21, __cil_tmp22);
+  ret = request_irq(__cil_tmp13, & sis900_interrupt, 128UL, __cil_tmp15, __cil_tmp16);
   }
 #line 1041
   if (ret != 0) {
@@ -12162,81 +11003,51 @@ static int sis900_open(struct net_device *net_dev )
 #line 1054
   sis900_set_mode(ioaddr, 10, 1);
 #line 1057
+  __cil_tmp17 = (unsigned int )ioaddr;
+#line 1057
+  __cil_tmp18 = __cil_tmp17 + 20U;
+#line 1057
+  __cil_tmp19 = (int )__cil_tmp18;
+#line 1057
+  outl(67365U, __cil_tmp19);
+#line 1058
+  __cil_tmp20 = (int )ioaddr;
+#line 1058
+  tmp___0 = inl(__cil_tmp20);
+#line 1058
+  __cil_tmp21 = tmp___0 | 4U;
+#line 1058
+  __cil_tmp22 = (int )ioaddr;
+#line 1058
+  outl(__cil_tmp21, __cil_tmp22);
+#line 1059
   __cil_tmp23 = (unsigned int )ioaddr;
-#line 1057
-  __cil_tmp24 = __cil_tmp23 + 20U;
-#line 1057
+#line 1059
+  __cil_tmp24 = __cil_tmp23 + 24U;
+#line 1059
   __cil_tmp25 = (int )__cil_tmp24;
-#line 1057
-  outl(67365U, __cil_tmp25);
-#line 1058
-  __cil_tmp26 = (int )ioaddr;
-#line 1058
-  tmp___0 = inl(__cil_tmp26);
-#line 1058
-  __cil_tmp27 = tmp___0 | 4U;
-#line 1058
-  __cil_tmp28 = (int )ioaddr;
-#line 1058
-  outl(__cil_tmp27, __cil_tmp28);
 #line 1059
-  __cil_tmp29 = (unsigned int )ioaddr;
-#line 1059
-  __cil_tmp30 = __cil_tmp29 + 24U;
-#line 1059
-  __cil_tmp31 = (int )__cil_tmp30;
-#line 1059
-  outl(1U, __cil_tmp31);
+  outl(1U, __cil_tmp25);
 #line 1061
-  __cil_tmp32 = (unsigned long )sis_priv;
+  __cil_tmp26 = sis_priv->mii;
 #line 1061
-  __cil_tmp33 = __cil_tmp32 + 80;
-#line 1061
-  __cil_tmp34 = *((struct mii_phy **)__cil_tmp33);
-#line 1061
-  sis900_check_mode(net_dev, __cil_tmp34);
+  sis900_check_mode(net_dev, __cil_tmp26);
 #line 1065
-  __cil_tmp35 = (unsigned long )sis_priv;
+  __cil_tmp27 = & sis_priv->timer;
 #line 1065
-  __cil_tmp36 = __cil_tmp35 + 152;
-#line 1065
-  __cil_tmp37 = (struct timer_list *)__cil_tmp36;
-#line 1065
-  init_timer_key(__cil_tmp37, "&sis_priv->timer", & __key);
+  init_timer_key(__cil_tmp27, "&sis_priv->timer", & __key);
 #line 1066
-  __cil_tmp38 = 152 + 16;
+  __cil_tmp28 = (unsigned long )jiffies;
 #line 1066
-  __cil_tmp39 = (unsigned long )sis_priv;
-#line 1066
-  __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
-#line 1066
-  __cil_tmp41 = (unsigned long )jiffies;
-#line 1066
-  *((unsigned long *)__cil_tmp40) = __cil_tmp41 + 250UL;
+  sis_priv->timer.expires = __cil_tmp28 + 250UL;
 #line 1067
-  __cil_tmp42 = 152 + 40;
-#line 1067
-  __cil_tmp43 = (unsigned long )sis_priv;
-#line 1067
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
-#line 1067
-  *((unsigned long *)__cil_tmp44) = (unsigned long )net_dev;
+  sis_priv->timer.data = (unsigned long )net_dev;
 #line 1068
-  __cil_tmp45 = 152 + 32;
-#line 1068
-  __cil_tmp46 = (unsigned long )sis_priv;
-#line 1068
-  __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
-#line 1068
-  *((void (**)(unsigned long  ))__cil_tmp47) = & sis900_timer;
+  sis_priv->timer.function = & sis900_timer;
 #line 1069
-  __cil_tmp48 = (unsigned long )sis_priv;
+  __cil_tmp29 = & sis_priv->timer;
 #line 1069
-  __cil_tmp49 = __cil_tmp48 + 152;
-#line 1069
-  __cil_tmp50 = (struct timer_list *)__cil_tmp49;
-#line 1069
-  add_timer(__cil_tmp50);
+  add_timer(__cil_tmp29);
   }
 #line 1071
   return (0);
@@ -12253,42 +11064,36 @@ static void sis900_init_rxfilter(struct net_device *net_dev )
   unsigned int tmp___0 ;
   struct net_device  const  *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  int __cil_tmp13 ;
   unsigned int __cil_tmp14 ;
-  int __cil_tmp15 ;
+  unsigned int __cil_tmp15 ;
   unsigned int __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned char *__cil_tmp23 ;
-  u16 *__cil_tmp24 ;
-  u16 *__cil_tmp25 ;
-  u16 __cil_tmp26 ;
-  u32 __cil_tmp27 ;
+  int __cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  unsigned char *__cil_tmp19 ;
+  u16 *__cil_tmp20 ;
+  u16 *__cil_tmp21 ;
+  u16 __cil_tmp22 ;
+  u32 __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
   unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  int __cil_tmp30 ;
+  int __cil_tmp29 ;
+  u32 __cil_tmp30 ;
   unsigned int __cil_tmp31 ;
   unsigned int __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u32 __cil_tmp36 ;
+  unsigned int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  char (*__cil_tmp35)[16U] ;
+  char *__cil_tmp36 ;
   unsigned int __cil_tmp37 ;
   unsigned int __cil_tmp38 ;
   unsigned int __cil_tmp39 ;
   int __cil_tmp40 ;
-  char (*__cil_tmp41)[16U] ;
-  char *__cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  int __cil_tmp46 ;
 
   {
   {
@@ -12299,98 +11104,87 @@ static void sis900_init_rxfilter(struct net_device *net_dev )
 #line 1085
   sis_priv = (struct sis900_private *)tmp;
 #line 1086
-  __cil_tmp10 = (unsigned long )net_dev;
+  __cil_tmp10 = net_dev->base_addr;
 #line 1086
-  __cil_tmp11 = __cil_tmp10 + 104;
-#line 1086
-  __cil_tmp12 = *((unsigned long *)__cil_tmp11);
-#line 1086
-  ioaddr = (long )__cil_tmp12;
+  ioaddr = (long )__cil_tmp10;
 #line 1090
-  __cil_tmp13 = (unsigned int )ioaddr;
+  __cil_tmp11 = (unsigned int )ioaddr;
 #line 1090
-  __cil_tmp14 = __cil_tmp13 + 72U;
+  __cil_tmp12 = __cil_tmp11 + 72U;
 #line 1090
-  __cil_tmp15 = (int )__cil_tmp14;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 1090
-  rfcrSave = inl(__cil_tmp15);
+  rfcrSave = inl(__cil_tmp13);
 #line 1093
-  __cil_tmp16 = rfcrSave & 2147483647U;
+  __cil_tmp14 = rfcrSave & 2147483647U;
 #line 1093
-  __cil_tmp17 = (unsigned int )ioaddr;
+  __cil_tmp15 = (unsigned int )ioaddr;
 #line 1093
-  __cil_tmp18 = __cil_tmp17 + 72U;
+  __cil_tmp16 = __cil_tmp15 + 72U;
 #line 1093
-  __cil_tmp19 = (int )__cil_tmp18;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 1093
-  outl(__cil_tmp16, __cil_tmp19);
+  outl(__cil_tmp14, __cil_tmp17);
 #line 1096
   i = 0U;
   }
+#line 1096
   goto ldv_35587;
   ldv_35586: 
   {
 #line 1099
-  __cil_tmp20 = (unsigned long )i;
+  __cil_tmp18 = (unsigned long )i;
 #line 1099
-  __cil_tmp21 = (unsigned long )net_dev;
+  __cil_tmp19 = net_dev->dev_addr;
 #line 1099
-  __cil_tmp22 = __cil_tmp21 + 720;
+  __cil_tmp20 = (u16 *)__cil_tmp19;
 #line 1099
-  __cil_tmp23 = *((unsigned char **)__cil_tmp22);
+  __cil_tmp21 = __cil_tmp20 + __cil_tmp18;
 #line 1099
-  __cil_tmp24 = (u16 *)__cil_tmp23;
+  __cil_tmp22 = *__cil_tmp21;
 #line 1099
-  __cil_tmp25 = __cil_tmp24 + __cil_tmp20;
-#line 1099
-  __cil_tmp26 = *__cil_tmp25;
-#line 1099
-  w = (unsigned int )__cil_tmp26;
+  w = (unsigned int )__cil_tmp22;
 #line 1100
-  __cil_tmp27 = i << 16;
+  __cil_tmp23 = i << 16;
 #line 1100
-  __cil_tmp28 = (unsigned int )ioaddr;
+  __cil_tmp24 = (unsigned int )ioaddr;
 #line 1100
-  __cil_tmp29 = __cil_tmp28 + 72U;
+  __cil_tmp25 = __cil_tmp24 + 72U;
 #line 1100
-  __cil_tmp30 = (int )__cil_tmp29;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 1100
-  outl(__cil_tmp27, __cil_tmp30);
+  outl(__cil_tmp23, __cil_tmp26);
 #line 1101
-  __cil_tmp31 = (unsigned int )ioaddr;
+  __cil_tmp27 = (unsigned int )ioaddr;
 #line 1101
-  __cil_tmp32 = __cil_tmp31 + 76U;
+  __cil_tmp28 = __cil_tmp27 + 76U;
 #line 1101
-  __cil_tmp33 = (int )__cil_tmp32;
+  __cil_tmp29 = (int )__cil_tmp28;
 #line 1101
-  outl(w, __cil_tmp33);
+  outl(w, __cil_tmp29);
   }
   {
 #line 1103
-  __cil_tmp34 = (unsigned long )sis_priv;
+  __cil_tmp30 = sis_priv->msg_enable;
 #line 1103
-  __cil_tmp35 = __cil_tmp34 + 284;
+  __cil_tmp31 = __cil_tmp30 & 8192U;
 #line 1103
-  __cil_tmp36 = *((u32 *)__cil_tmp35);
-#line 1103
-  __cil_tmp37 = __cil_tmp36 & 8192U;
-#line 1103
-  if (__cil_tmp37 != 0U) {
+  if (__cil_tmp31 != 0U) {
     {
 #line 1104
-    __cil_tmp38 = (unsigned int )ioaddr;
+    __cil_tmp32 = (unsigned int )ioaddr;
 #line 1104
-    __cil_tmp39 = __cil_tmp38 + 76U;
+    __cil_tmp33 = __cil_tmp32 + 76U;
 #line 1104
-    __cil_tmp40 = (int )__cil_tmp39;
+    __cil_tmp34 = (int )__cil_tmp33;
 #line 1104
-    tmp___0 = inl(__cil_tmp40);
+    tmp___0 = inl(__cil_tmp34);
 #line 1104
-    __cil_tmp41 = (char (*)[16U])net_dev;
+    __cil_tmp35 = & net_dev->name;
 #line 1104
-    __cil_tmp42 = (char *)__cil_tmp41;
+    __cil_tmp36 = (char *)__cil_tmp35;
 #line 1104
-    printk("<7>%s: Receive Filter Addrss[%d]=%x\n", __cil_tmp42, i, tmp___0);
+    printk("<7>%s: Receive Filter Addrss[%d]=%x\n", __cil_tmp36, i, tmp___0);
     }
   } else {
 
@@ -12401,22 +11195,24 @@ static void sis900_init_rxfilter(struct net_device *net_dev )
   ldv_35587: ;
 #line 1096
   if (i <= 2U) {
+#line 1097
     goto ldv_35586;
   } else {
+#line 1099
     goto ldv_35588;
   }
   ldv_35588: 
   {
 #line 1110
-  __cil_tmp43 = rfcrSave | 2147483648U;
+  __cil_tmp37 = rfcrSave | 2147483648U;
 #line 1110
-  __cil_tmp44 = (unsigned int )ioaddr;
+  __cil_tmp38 = (unsigned int )ioaddr;
 #line 1110
-  __cil_tmp45 = __cil_tmp44 + 72U;
+  __cil_tmp39 = __cil_tmp38 + 72U;
 #line 1110
-  __cil_tmp46 = (int )__cil_tmp45;
+  __cil_tmp40 = (int )__cil_tmp39;
 #line 1110
-  outl(__cil_tmp43, __cil_tmp46);
+  outl(__cil_tmp37, __cil_tmp40);
   }
 #line 1111
   return;
@@ -12433,61 +11229,33 @@ static void sis900_init_tx_ring(struct net_device *net_dev )
   struct net_device  const  *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  BufferDesc *__cil_tmp11 ;
+  BufferDesc *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  u32 __cil_tmp16 ;
+  u32 __cil_tmp17 ;
+  dma_addr_t __cil_tmp18 ;
+  u32 __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  BufferDesc *__cil_tmp21 ;
+  BufferDesc *__cil_tmp22 ;
   unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  BufferDesc *__cil_tmp24 ;
   BufferDesc *__cil_tmp25 ;
-  BufferDesc *__cil_tmp26 ;
-  int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  dma_addr_t __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  BufferDesc *__cil_tmp39 ;
-  BufferDesc *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  BufferDesc *__cil_tmp46 ;
-  BufferDesc *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  dma_addr_t __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  u32 __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  unsigned int __cil_tmp62 ;
-  int __cil_tmp63 ;
-  char (*__cil_tmp64)[16U] ;
-  char *__cil_tmp65 ;
+  dma_addr_t __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  u32 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  char (*__cil_tmp36)[16U] ;
+  char *__cil_tmp37 ;
 
   {
   {
@@ -12498,164 +11266,111 @@ static void sis900_init_tx_ring(struct net_device *net_dev )
 #line 1123
   sis_priv = (struct sis900_private *)tmp;
 #line 1124
-  __cil_tmp9 = (unsigned long )net_dev;
+  __cil_tmp9 = net_dev->base_addr;
 #line 1124
-  __cil_tmp10 = __cil_tmp9 + 104;
-#line 1124
-  __cil_tmp11 = *((unsigned long *)__cil_tmp10);
-#line 1124
-  ioaddr = (long )__cil_tmp11;
+  ioaddr = (long )__cil_tmp9;
 #line 1127
-  __cil_tmp12 = (unsigned long )sis_priv;
-#line 1127
-  __cil_tmp13 = __cil_tmp12 + 592;
-#line 1127
-  *((unsigned int *)__cil_tmp13) = 0U;
+  sis_priv->tx_full = 0U;
 #line 1128
   tmp___0 = 0U;
 #line 1128
-  __cil_tmp14 = (unsigned long )sis_priv;
+  sis_priv->cur_tx = tmp___0;
 #line 1128
-  __cil_tmp15 = __cil_tmp14 + 296;
-#line 1128
-  *((unsigned int *)__cil_tmp15) = tmp___0;
-#line 1128
-  __cil_tmp16 = (unsigned long )sis_priv;
-#line 1128
-  __cil_tmp17 = __cil_tmp16 + 300;
-#line 1128
-  *((unsigned int *)__cil_tmp17) = tmp___0;
+  sis_priv->dirty_tx = tmp___0;
 #line 1130
   i = 0;
   }
+#line 1130
   goto ldv_35596;
   ldv_35595: 
 #line 1131
-  __cil_tmp18 = i * 8UL;
-#line 1131
-  __cil_tmp19 = 304 + __cil_tmp18;
-#line 1131
-  __cil_tmp20 = (unsigned long )sis_priv;
-#line 1131
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 1131
-  *((struct sk_buff **)__cil_tmp21) = (struct sk_buff *)0;
+  sis_priv->tx_skbuff[i] = (struct sk_buff *)0;
 #line 1133
-  __cil_tmp22 = (unsigned long )i;
+  __cil_tmp10 = (unsigned long )i;
 #line 1133
-  __cil_tmp23 = (unsigned long )sis_priv;
+  __cil_tmp11 = sis_priv->tx_ring;
 #line 1133
-  __cil_tmp24 = __cil_tmp23 + 560;
+  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
 #line 1133
-  __cil_tmp25 = *((BufferDesc **)__cil_tmp24);
+  __cil_tmp13 = i + 1;
 #line 1133
-  __cil_tmp26 = __cil_tmp25 + __cil_tmp22;
+  __cil_tmp14 = __cil_tmp13 % 16;
 #line 1133
-  __cil_tmp27 = i + 1;
+  __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 1133
-  __cil_tmp28 = __cil_tmp27 % 16;
+  __cil_tmp16 = (u32 )__cil_tmp15;
 #line 1133
-  __cil_tmp29 = (unsigned long )__cil_tmp28;
+  __cil_tmp17 = __cil_tmp16 * 12U;
 #line 1133
-  __cil_tmp30 = (unsigned int )__cil_tmp29;
+  __cil_tmp18 = sis_priv->tx_ring_dma;
 #line 1133
-  __cil_tmp31 = __cil_tmp30 * 12U;
+  __cil_tmp19 = (u32 )__cil_tmp18;
 #line 1133
-  __cil_tmp32 = (unsigned long )sis_priv;
-#line 1133
-  __cil_tmp33 = __cil_tmp32 + 576;
-#line 1133
-  __cil_tmp34 = *((dma_addr_t *)__cil_tmp33);
-#line 1133
-  __cil_tmp35 = (unsigned int )__cil_tmp34;
-#line 1133
-  *((u32 *)__cil_tmp26) = __cil_tmp35 + __cil_tmp31;
+  __cil_tmp12->link = __cil_tmp19 + __cil_tmp17;
 #line 1135
-  __cil_tmp36 = (unsigned long )i;
+  __cil_tmp20 = (unsigned long )i;
 #line 1135
-  __cil_tmp37 = (unsigned long )sis_priv;
+  __cil_tmp21 = sis_priv->tx_ring;
 #line 1135
-  __cil_tmp38 = __cil_tmp37 + 560;
+  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
 #line 1135
-  __cil_tmp39 = *((BufferDesc **)__cil_tmp38);
-#line 1135
-  __cil_tmp40 = __cil_tmp39 + __cil_tmp36;
-#line 1135
-  __cil_tmp41 = (unsigned long )__cil_tmp40;
-#line 1135
-  __cil_tmp42 = __cil_tmp41 + 4;
-#line 1135
-  *((u32 *)__cil_tmp42) = 0U;
+  __cil_tmp22->cmdsts = 0U;
 #line 1136
-  __cil_tmp43 = (unsigned long )i;
+  __cil_tmp23 = (unsigned long )i;
 #line 1136
-  __cil_tmp44 = (unsigned long )sis_priv;
+  __cil_tmp24 = sis_priv->tx_ring;
 #line 1136
-  __cil_tmp45 = __cil_tmp44 + 560;
+  __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
 #line 1136
-  __cil_tmp46 = *((BufferDesc **)__cil_tmp45);
-#line 1136
-  __cil_tmp47 = __cil_tmp46 + __cil_tmp43;
-#line 1136
-  __cil_tmp48 = (unsigned long )__cil_tmp47;
-#line 1136
-  __cil_tmp49 = __cil_tmp48 + 8;
-#line 1136
-  *((u32 *)__cil_tmp49) = 0U;
+  __cil_tmp25->bufptr = 0U;
 #line 1130
   i = i + 1;
   ldv_35596: ;
 #line 1130
   if (i <= 15) {
+#line 1131
     goto ldv_35595;
   } else {
+#line 1133
     goto ldv_35597;
   }
   ldv_35597: 
   {
 #line 1140
-  __cil_tmp50 = (unsigned long )sis_priv;
+  __cil_tmp26 = sis_priv->tx_ring_dma;
 #line 1140
-  __cil_tmp51 = __cil_tmp50 + 576;
+  __cil_tmp27 = (unsigned int )__cil_tmp26;
 #line 1140
-  __cil_tmp52 = *((dma_addr_t *)__cil_tmp51);
+  __cil_tmp28 = (unsigned int )ioaddr;
 #line 1140
-  __cil_tmp53 = (unsigned int )__cil_tmp52;
+  __cil_tmp29 = __cil_tmp28 + 32U;
 #line 1140
-  __cil_tmp54 = (unsigned int )ioaddr;
+  __cil_tmp30 = (int )__cil_tmp29;
 #line 1140
-  __cil_tmp55 = __cil_tmp54 + 32U;
-#line 1140
-  __cil_tmp56 = (int )__cil_tmp55;
-#line 1140
-  outl(__cil_tmp53, __cil_tmp56);
+  outl(__cil_tmp27, __cil_tmp30);
   }
   {
 #line 1141
-  __cil_tmp57 = (unsigned long )sis_priv;
+  __cil_tmp31 = sis_priv->msg_enable;
 #line 1141
-  __cil_tmp58 = __cil_tmp57 + 284;
+  __cil_tmp32 = __cil_tmp31 & 8192U;
 #line 1141
-  __cil_tmp59 = *((u32 *)__cil_tmp58);
-#line 1141
-  __cil_tmp60 = __cil_tmp59 & 8192U;
-#line 1141
-  if (__cil_tmp60 != 0U) {
+  if (__cil_tmp32 != 0U) {
     {
 #line 1142
-    __cil_tmp61 = (unsigned int )ioaddr;
+    __cil_tmp33 = (unsigned int )ioaddr;
 #line 1142
-    __cil_tmp62 = __cil_tmp61 + 32U;
+    __cil_tmp34 = __cil_tmp33 + 32U;
 #line 1142
-    __cil_tmp63 = (int )__cil_tmp62;
+    __cil_tmp35 = (int )__cil_tmp34;
 #line 1142
-    tmp___1 = inl(__cil_tmp63);
+    tmp___1 = inl(__cil_tmp35);
 #line 1142
-    __cil_tmp64 = (char (*)[16U])net_dev;
+    __cil_tmp36 = & net_dev->name;
 #line 1142
-    __cil_tmp65 = (char *)__cil_tmp64;
+    __cil_tmp37 = (char *)__cil_tmp36;
 #line 1142
-    printk("<7>%s: TX descriptor register loaded with: %8.8x\n", __cil_tmp65, tmp___1);
+    printk("<7>%s: TX descriptor register loaded with: %8.8x\n", __cil_tmp37, tmp___1);
     }
   } else {
 
@@ -12677,88 +11392,46 @@ static void sis900_init_rx_ring(struct net_device *net_dev )
   struct net_device  const  *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  BufferDesc *__cil_tmp12 ;
+  BufferDesc *__cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  u32 __cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  dma_addr_t __cil_tmp19 ;
+  u32 __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  BufferDesc *__cil_tmp24 ;
+  BufferDesc *__cil_tmp22 ;
+  BufferDesc *__cil_tmp23 ;
+  unsigned long __cil_tmp24 ;
   BufferDesc *__cil_tmp25 ;
-  int __cil_tmp26 ;
-  int __cil_tmp27 ;
+  BufferDesc *__cil_tmp26 ;
+  struct sk_buff *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  dma_addr_t __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  unsigned long __cil_tmp29 ;
+  unsigned long __cil_tmp30 ;
+  BufferDesc *__cil_tmp31 ;
+  BufferDesc *__cil_tmp32 ;
+  struct pci_dev *__cil_tmp33 ;
+  unsigned char *__cil_tmp34 ;
+  void *__cil_tmp35 ;
   unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  BufferDesc *__cil_tmp37 ;
   BufferDesc *__cil_tmp38 ;
-  BufferDesc *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  BufferDesc *__cil_tmp45 ;
-  BufferDesc *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct sk_buff *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  BufferDesc *__cil_tmp59 ;
-  BufferDesc *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct pci_dev *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned char *__cil_tmp66 ;
-  void *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  BufferDesc *__cil_tmp71 ;
-  BufferDesc *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  dma_addr_t __cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  unsigned int __cil_tmp82 ;
-  unsigned int __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  u32 __cil_tmp87 ;
-  unsigned int __cil_tmp88 ;
-  unsigned int __cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
-  int __cil_tmp91 ;
-  char (*__cil_tmp92)[16U] ;
-  char *__cil_tmp93 ;
+  int __cil_tmp39 ;
+  dma_addr_t __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  u32 __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  int __cil_tmp49 ;
+  char (*__cil_tmp50)[16U] ;
+  char *__cil_tmp51 ;
 
   {
   {
@@ -12769,114 +11442,74 @@ static void sis900_init_rx_ring(struct net_device *net_dev )
 #line 1157
   sis_priv = (struct sis900_private *)tmp;
 #line 1158
-  __cil_tmp10 = (unsigned long )net_dev;
+  __cil_tmp10 = net_dev->base_addr;
 #line 1158
-  __cil_tmp11 = __cil_tmp10 + 104;
-#line 1158
-  __cil_tmp12 = *((unsigned long *)__cil_tmp11);
-#line 1158
-  ioaddr = (long )__cil_tmp12;
+  ioaddr = (long )__cil_tmp10;
 #line 1161
-  __cil_tmp13 = (unsigned long )sis_priv;
-#line 1161
-  __cil_tmp14 = __cil_tmp13 + 288;
-#line 1161
-  *((unsigned int *)__cil_tmp14) = 0U;
+  sis_priv->cur_rx = 0U;
 #line 1162
-  __cil_tmp15 = (unsigned long )sis_priv;
-#line 1162
-  __cil_tmp16 = __cil_tmp15 + 292;
-#line 1162
-  *((unsigned int *)__cil_tmp16) = 0U;
+  sis_priv->dirty_rx = 0U;
 #line 1165
   i = 0;
   }
+#line 1165
   goto ldv_35605;
   ldv_35604: 
 #line 1166
-  __cil_tmp17 = i * 8UL;
-#line 1166
-  __cil_tmp18 = 432 + __cil_tmp17;
-#line 1166
-  __cil_tmp19 = (unsigned long )sis_priv;
-#line 1166
-  __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 1166
-  *((struct sk_buff **)__cil_tmp20) = (struct sk_buff *)0;
+  sis_priv->rx_skbuff[i] = (struct sk_buff *)0;
 #line 1168
+  __cil_tmp11 = (unsigned long )i;
+#line 1168
+  __cil_tmp12 = sis_priv->rx_ring;
+#line 1168
+  __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
+#line 1168
+  __cil_tmp14 = i + 1;
+#line 1168
+  __cil_tmp15 = __cil_tmp14 % 16;
+#line 1168
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
+#line 1168
+  __cil_tmp17 = (u32 )__cil_tmp16;
+#line 1168
+  __cil_tmp18 = __cil_tmp17 * 12U;
+#line 1168
+  __cil_tmp19 = sis_priv->rx_ring_dma;
+#line 1168
+  __cil_tmp20 = (u32 )__cil_tmp19;
+#line 1168
+  __cil_tmp13->link = __cil_tmp20 + __cil_tmp18;
+#line 1170
   __cil_tmp21 = (unsigned long )i;
-#line 1168
-  __cil_tmp22 = (unsigned long )sis_priv;
-#line 1168
-  __cil_tmp23 = __cil_tmp22 + 568;
-#line 1168
-  __cil_tmp24 = *((BufferDesc **)__cil_tmp23);
-#line 1168
-  __cil_tmp25 = __cil_tmp24 + __cil_tmp21;
-#line 1168
-  __cil_tmp26 = i + 1;
-#line 1168
-  __cil_tmp27 = __cil_tmp26 % 16;
-#line 1168
-  __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 1168
-  __cil_tmp29 = (unsigned int )__cil_tmp28;
-#line 1168
-  __cil_tmp30 = __cil_tmp29 * 12U;
-#line 1168
-  __cil_tmp31 = (unsigned long )sis_priv;
-#line 1168
-  __cil_tmp32 = __cil_tmp31 + 584;
-#line 1168
-  __cil_tmp33 = *((dma_addr_t *)__cil_tmp32);
-#line 1168
-  __cil_tmp34 = (unsigned int )__cil_tmp33;
-#line 1168
-  *((u32 *)__cil_tmp25) = __cil_tmp34 + __cil_tmp30;
 #line 1170
-  __cil_tmp35 = (unsigned long )i;
+  __cil_tmp22 = sis_priv->rx_ring;
 #line 1170
-  __cil_tmp36 = (unsigned long )sis_priv;
+  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
 #line 1170
-  __cil_tmp37 = __cil_tmp36 + 568;
-#line 1170
-  __cil_tmp38 = *((BufferDesc **)__cil_tmp37);
-#line 1170
-  __cil_tmp39 = __cil_tmp38 + __cil_tmp35;
-#line 1170
-  __cil_tmp40 = (unsigned long )__cil_tmp39;
-#line 1170
-  __cil_tmp41 = __cil_tmp40 + 4;
-#line 1170
-  *((u32 *)__cil_tmp41) = 0U;
+  __cil_tmp23->cmdsts = 0U;
 #line 1171
-  __cil_tmp42 = (unsigned long )i;
+  __cil_tmp24 = (unsigned long )i;
 #line 1171
-  __cil_tmp43 = (unsigned long )sis_priv;
+  __cil_tmp25 = sis_priv->rx_ring;
 #line 1171
-  __cil_tmp44 = __cil_tmp43 + 568;
+  __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
 #line 1171
-  __cil_tmp45 = *((BufferDesc **)__cil_tmp44);
-#line 1171
-  __cil_tmp46 = __cil_tmp45 + __cil_tmp42;
-#line 1171
-  __cil_tmp47 = (unsigned long )__cil_tmp46;
-#line 1171
-  __cil_tmp48 = __cil_tmp47 + 8;
-#line 1171
-  *((u32 *)__cil_tmp48) = 0U;
+  __cil_tmp26->bufptr = 0U;
 #line 1165
   i = i + 1;
   ldv_35605: ;
 #line 1165
   if (i <= 15) {
+#line 1166
     goto ldv_35604;
   } else {
+#line 1168
     goto ldv_35606;
   }
   ldv_35606: 
 #line 1175
   i = 0;
+#line 1175
   goto ldv_35610;
   ldv_35609: 
   {
@@ -12885,13 +11518,14 @@ static void sis900_init_rx_ring(struct net_device *net_dev )
   }
   {
 #line 1178
-  __cil_tmp49 = (struct sk_buff *)0;
+  __cil_tmp27 = (struct sk_buff *)0;
 #line 1178
-  __cil_tmp50 = (unsigned long )__cil_tmp49;
+  __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 1178
-  __cil_tmp51 = (unsigned long )skb;
+  __cil_tmp29 = (unsigned long )skb;
 #line 1178
-  if (__cil_tmp51 == __cil_tmp50) {
+  if (__cil_tmp29 == __cil_tmp28) {
+#line 1183
     goto ldv_35608;
   } else {
 
@@ -12899,122 +11533,84 @@ static void sis900_init_rx_ring(struct net_device *net_dev )
   }
   {
 #line 1185
-  __cil_tmp52 = i * 8UL;
-#line 1185
-  __cil_tmp53 = 432 + __cil_tmp52;
-#line 1185
-  __cil_tmp54 = (unsigned long )sis_priv;
-#line 1185
-  __cil_tmp55 = __cil_tmp54 + __cil_tmp53;
-#line 1185
-  *((struct sk_buff **)__cil_tmp55) = skb;
+  sis_priv->rx_skbuff[i] = skb;
 #line 1186
-  __cil_tmp56 = (unsigned long )i;
+  __cil_tmp30 = (unsigned long )i;
 #line 1186
-  __cil_tmp57 = (unsigned long )sis_priv;
+  __cil_tmp31 = sis_priv->rx_ring;
 #line 1186
-  __cil_tmp58 = __cil_tmp57 + 568;
+  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
 #line 1186
-  __cil_tmp59 = *((BufferDesc **)__cil_tmp58);
-#line 1186
-  __cil_tmp60 = __cil_tmp59 + __cil_tmp56;
-#line 1186
-  __cil_tmp61 = (unsigned long )__cil_tmp60;
-#line 1186
-  __cil_tmp62 = __cil_tmp61 + 4;
-#line 1186
-  *((u32 *)__cil_tmp62) = 1540U;
+  __cil_tmp32->cmdsts = 1540U;
 #line 1187
-  __cil_tmp63 = *((struct pci_dev **)sis_priv);
+  __cil_tmp33 = sis_priv->pci_dev;
 #line 1187
-  __cil_tmp64 = (unsigned long )skb;
+  __cil_tmp34 = skb->data;
 #line 1187
-  __cil_tmp65 = __cil_tmp64 + 224;
+  __cil_tmp35 = (void *)__cil_tmp34;
 #line 1187
-  __cil_tmp66 = *((unsigned char **)__cil_tmp65);
+  tmp___0 = pci_map_single(__cil_tmp33, __cil_tmp35, 1540UL, 2);
 #line 1187
-  __cil_tmp67 = (void *)__cil_tmp66;
+  __cil_tmp36 = (unsigned long )i;
 #line 1187
-  tmp___0 = pci_map_single(__cil_tmp63, __cil_tmp67, 1540UL, 2);
+  __cil_tmp37 = sis_priv->rx_ring;
 #line 1187
-  __cil_tmp68 = (unsigned long )i;
+  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
 #line 1187
-  __cil_tmp69 = (unsigned long )sis_priv;
-#line 1187
-  __cil_tmp70 = __cil_tmp69 + 568;
-#line 1187
-  __cil_tmp71 = *((BufferDesc **)__cil_tmp70);
-#line 1187
-  __cil_tmp72 = __cil_tmp71 + __cil_tmp68;
-#line 1187
-  __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 1187
-  __cil_tmp74 = __cil_tmp73 + 8;
-#line 1187
-  *((u32 *)__cil_tmp74) = (unsigned int )tmp___0;
+  __cil_tmp38->bufptr = (u32 )tmp___0;
 #line 1175
   i = i + 1;
   }
   ldv_35610: ;
 #line 1175
   if (i <= 15) {
+#line 1176
     goto ldv_35609;
   } else {
+#line 1178
     goto ldv_35608;
   }
   ldv_35608: 
   {
 #line 1190
-  __cil_tmp75 = (unsigned long )sis_priv;
+  __cil_tmp39 = i + -16;
 #line 1190
-  __cil_tmp76 = __cil_tmp75 + 292;
-#line 1190
-  __cil_tmp77 = i + -16;
-#line 1190
-  *((unsigned int *)__cil_tmp76) = (unsigned int )__cil_tmp77;
+  sis_priv->dirty_rx = (unsigned int )__cil_tmp39;
 #line 1193
-  __cil_tmp78 = (unsigned long )sis_priv;
+  __cil_tmp40 = sis_priv->rx_ring_dma;
 #line 1193
-  __cil_tmp79 = __cil_tmp78 + 584;
+  __cil_tmp41 = (unsigned int )__cil_tmp40;
 #line 1193
-  __cil_tmp80 = *((dma_addr_t *)__cil_tmp79);
+  __cil_tmp42 = (unsigned int )ioaddr;
 #line 1193
-  __cil_tmp81 = (unsigned int )__cil_tmp80;
+  __cil_tmp43 = __cil_tmp42 + 48U;
 #line 1193
-  __cil_tmp82 = (unsigned int )ioaddr;
+  __cil_tmp44 = (int )__cil_tmp43;
 #line 1193
-  __cil_tmp83 = __cil_tmp82 + 48U;
-#line 1193
-  __cil_tmp84 = (int )__cil_tmp83;
-#line 1193
-  outl(__cil_tmp81, __cil_tmp84);
+  outl(__cil_tmp41, __cil_tmp44);
   }
   {
 #line 1194
-  __cil_tmp85 = (unsigned long )sis_priv;
+  __cil_tmp45 = sis_priv->msg_enable;
 #line 1194
-  __cil_tmp86 = __cil_tmp85 + 284;
+  __cil_tmp46 = __cil_tmp45 & 8192U;
 #line 1194
-  __cil_tmp87 = *((u32 *)__cil_tmp86);
-#line 1194
-  __cil_tmp88 = __cil_tmp87 & 8192U;
-#line 1194
-  if (__cil_tmp88 != 0U) {
+  if (__cil_tmp46 != 0U) {
     {
 #line 1195
-    __cil_tmp89 = (unsigned int )ioaddr;
+    __cil_tmp47 = (unsigned int )ioaddr;
 #line 1195
-    __cil_tmp90 = __cil_tmp89 + 48U;
+    __cil_tmp48 = __cil_tmp47 + 48U;
 #line 1195
-    __cil_tmp91 = (int )__cil_tmp90;
+    __cil_tmp49 = (int )__cil_tmp48;
 #line 1195
-    tmp___1 = inl(__cil_tmp91);
+    tmp___1 = inl(__cil_tmp49);
 #line 1195
-    __cil_tmp92 = (char (*)[16U])net_dev;
+    __cil_tmp50 = & net_dev->name;
 #line 1195
-    __cil_tmp93 = (char *)__cil_tmp92;
+    __cil_tmp51 = (char *)__cil_tmp50;
 #line 1195
-    printk("<7>%s: RX descriptor register loaded with: %8.8x\n", __cil_tmp93, tmp___1);
+    printk("<7>%s: RX descriptor register loaded with: %8.8x\n", __cil_tmp51, tmp___1);
     }
   } else {
 
@@ -13047,128 +11643,100 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
   unsigned int __cil_tmp21 ;
   unsigned int __cil_tmp22 ;
   struct net_device  const  *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp24 ;
+  int __cil_tmp25 ;
   unsigned int __cil_tmp26 ;
   int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  int __cil_tmp30 ;
   int __cil_tmp31 ;
   unsigned int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
+  int __cil_tmp33 ;
   int __cil_tmp34 ;
   int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
   int __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  int __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  int __cil_tmp47 ;
   unsigned int __cil_tmp48 ;
   unsigned int __cil_tmp49 ;
   unsigned int __cil_tmp50 ;
   unsigned int __cil_tmp51 ;
-  int __cil_tmp52 ;
+  unsigned int __cil_tmp52 ;
   int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
+  int __cil_tmp54 ;
   unsigned int __cil_tmp55 ;
   unsigned int __cil_tmp56 ;
   unsigned int __cil_tmp57 ;
   unsigned int __cil_tmp58 ;
-  int __cil_tmp59 ;
-  int __cil_tmp60 ;
+  unsigned int __cil_tmp59 ;
+  u8 __cil_tmp60 ;
   unsigned int __cil_tmp61 ;
-  unsigned int __cil_tmp62 ;
+  u8 __cil_tmp62 ;
   unsigned int __cil_tmp63 ;
   unsigned int __cil_tmp64 ;
-  unsigned int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  u8 __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  u8 __cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
-  unsigned int __cil_tmp74 ;
+  int __cil_tmp65 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  int __cil_tmp71 ;
+  int __cil_tmp72 ;
+  int __cil_tmp73 ;
+  short __cil_tmp74 ;
   int __cil_tmp75 ;
   int __cil_tmp76 ;
-  int __cil_tmp77 ;
+  short __cil_tmp77 ;
   int __cil_tmp78 ;
   int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
+  int __cil_tmp80 ;
+  unsigned int __cil_tmp81 ;
   unsigned int __cil_tmp82 ;
-  int __cil_tmp83 ;
-  int __cil_tmp84 ;
+  unsigned int __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
   int __cil_tmp85 ;
-  short __cil_tmp86 ;
-  int __cil_tmp87 ;
+  int __cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
   int __cil_tmp88 ;
-  short __cil_tmp89 ;
-  int __cil_tmp90 ;
-  int __cil_tmp91 ;
-  int __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
+  unsigned int __cil_tmp89 ;
+  u8 __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
+  int __cil_tmp93 ;
   unsigned int __cil_tmp94 ;
   unsigned int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned int __cil_tmp98 ;
-  int __cil_tmp99 ;
-  int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
+  int __cil_tmp96 ;
+  int __cil_tmp97 ;
+  u8 __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  int __cil_tmp101 ;
+  unsigned int __cil_tmp102 ;
   unsigned int __cil_tmp103 ;
   int __cil_tmp104 ;
-  unsigned int __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  u8 __cil_tmp108 ;
+  int __cil_tmp105 ;
+  unsigned int __cil_tmp106 ;
+  int __cil_tmp107 ;
+  unsigned int __cil_tmp108 ;
   unsigned int __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
+  int __cil_tmp110 ;
+  int __cil_tmp111 ;
   unsigned int __cil_tmp112 ;
   int __cil_tmp113 ;
   unsigned int __cil_tmp114 ;
   unsigned int __cil_tmp115 ;
   int __cil_tmp116 ;
   int __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  u8 __cil_tmp120 ;
-  unsigned int __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
-  int __cil_tmp125 ;
-  unsigned int __cil_tmp126 ;
-  unsigned int __cil_tmp127 ;
-  int __cil_tmp128 ;
-  int __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned int __cil_tmp132 ;
-  int __cil_tmp133 ;
-  unsigned int __cil_tmp134 ;
-  unsigned int __cil_tmp135 ;
-  int __cil_tmp136 ;
-  int __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned int __cil_tmp140 ;
-  int __cil_tmp141 ;
-  unsigned int __cil_tmp142 ;
-  unsigned int __cil_tmp143 ;
-  int __cil_tmp144 ;
-  int __cil_tmp145 ;
 
   {
   {
@@ -13179,11 +11747,11 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
 #line 1228
   sis_priv = (struct sis900_private *)tmp;
 #line 1229
-  eq_value = (unsigned short)0;
+  eq_value = (u16 )0U;
 #line 1229
-  max_value = (unsigned short)0;
+  max_value = (u16 )0U;
 #line 1229
-  min_value = (unsigned short)0;
+  min_value = (u16 )0U;
 #line 1230
   maxcount = 10;
   }
@@ -13235,57 +11803,46 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
   if (tmp___6 != 0) {
     {
 #line 1237
-    __cil_tmp24 = (unsigned long )sis_priv;
+    __cil_tmp24 = sis_priv->cur_phy;
 #line 1237
-    __cil_tmp25 = __cil_tmp24 + 96;
+    __cil_tmp25 = (int )__cil_tmp24;
 #line 1237
-    __cil_tmp26 = *((unsigned int *)__cil_tmp25);
+    tmp___0 = mdio_read(net_dev, __cil_tmp25, 20);
 #line 1237
+    reg14h = (u16 )tmp___0;
+#line 1238
+    __cil_tmp26 = sis_priv->cur_phy;
+#line 1238
     __cil_tmp27 = (int )__cil_tmp26;
-#line 1237
-    tmp___0 = mdio_read(net_dev, __cil_tmp27, 20);
-#line 1237
-    reg14h = (unsigned short )tmp___0;
 #line 1238
-    __cil_tmp28 = (unsigned long )sis_priv;
+    __cil_tmp28 = (unsigned int )reg14h;
 #line 1238
-    __cil_tmp29 = __cil_tmp28 + 96;
+    __cil_tmp29 = __cil_tmp28 | 8704U;
 #line 1238
-    __cil_tmp30 = *((unsigned int *)__cil_tmp29);
+    __cil_tmp30 = (int )__cil_tmp29;
 #line 1238
-    __cil_tmp31 = (int )__cil_tmp30;
+    __cil_tmp31 = __cil_tmp30 & 49151;
 #line 1238
-    __cil_tmp32 = (unsigned int )reg14h;
-#line 1238
-    __cil_tmp33 = __cil_tmp32 | 8704U;
-#line 1238
-    __cil_tmp34 = (int )__cil_tmp33;
-#line 1238
-    __cil_tmp35 = __cil_tmp34 & 49151;
-#line 1238
-    mdio_write(net_dev, __cil_tmp31, 20, __cil_tmp35);
+    mdio_write(net_dev, __cil_tmp27, 20, __cil_tmp31);
 #line 1240
     i = 0;
     }
+#line 1240
     goto ldv_35623;
     ldv_35622: 
     {
 #line 1241
-    __cil_tmp36 = (unsigned long )sis_priv;
+    __cil_tmp32 = sis_priv->cur_phy;
 #line 1241
-    __cil_tmp37 = __cil_tmp36 + 96;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 1241
-    __cil_tmp38 = *((unsigned int *)__cil_tmp37);
+    tmp___1 = mdio_read(net_dev, __cil_tmp33, 20);
 #line 1241
-    __cil_tmp39 = (int )__cil_tmp38;
+    __cil_tmp34 = tmp___1 & 248;
 #line 1241
-    tmp___1 = mdio_read(net_dev, __cil_tmp39, 20);
+    __cil_tmp35 = __cil_tmp34 >> 3;
 #line 1241
-    __cil_tmp40 = tmp___1 & 248;
-#line 1241
-    __cil_tmp41 = __cil_tmp40 >> 3;
-#line 1241
-    eq_value = (unsigned short )__cil_tmp41;
+    eq_value = (u16 )__cil_tmp35;
     }
 #line 1243
     if (i == 0) {
@@ -13298,11 +11855,11 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
     }
     {
 #line 1245
-    __cil_tmp42 = (int )max_value;
+    __cil_tmp36 = (int )max_value;
 #line 1245
-    __cil_tmp43 = (int )eq_value;
+    __cil_tmp37 = (int )eq_value;
 #line 1245
-    if (__cil_tmp43 > __cil_tmp42) {
+    if (__cil_tmp37 > __cil_tmp36) {
 #line 1245
       tmp___2 = (int )eq_value;
     } else {
@@ -13311,14 +11868,14 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
     }
     }
 #line 1245
-    max_value = (unsigned short )tmp___2;
+    max_value = (u16 )tmp___2;
     {
 #line 1247
-    __cil_tmp44 = (int )min_value;
+    __cil_tmp38 = (int )min_value;
 #line 1247
-    __cil_tmp45 = (int )eq_value;
+    __cil_tmp39 = (int )eq_value;
 #line 1247
-    if (__cil_tmp45 < __cil_tmp44) {
+    if (__cil_tmp39 < __cil_tmp38) {
 #line 1247
       tmp___3 = (int )eq_value;
     } else {
@@ -13327,78 +11884,83 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
     }
     }
 #line 1247
-    min_value = (unsigned short )tmp___3;
+    min_value = (u16 )tmp___3;
 #line 1240
     i = i + 1;
     ldv_35623: ;
 #line 1240
     if (i < maxcount) {
+#line 1241
       goto ldv_35622;
     } else {
+#line 1243
       goto ldv_35624;
     }
     ldv_35624: ;
     {
 #line 1251
-    __cil_tmp46 = (unsigned int )revision;
+    __cil_tmp40 = (unsigned int )revision;
 #line 1251
-    if (__cil_tmp46 == 129U) {
+    if (__cil_tmp40 == 129U) {
+#line 1251
       goto _L___0;
     } else {
       {
 #line 1251
-      __cil_tmp47 = (unsigned int )revision;
+      __cil_tmp41 = (unsigned int )revision;
 #line 1251
-      if (__cil_tmp47 == 131U) {
+      if (__cil_tmp41 == 131U) {
+#line 1251
         goto _L___0;
       } else {
         {
 #line 1251
-        __cil_tmp48 = (unsigned int )revision;
+        __cil_tmp42 = (unsigned int )revision;
 #line 1251
-        if (__cil_tmp48 == 132U) {
+        if (__cil_tmp42 == 132U) {
           _L___0: 
           {
 #line 1253
-          __cil_tmp49 = (unsigned int )max_value;
+          __cil_tmp43 = (unsigned int )max_value;
 #line 1253
-          if (__cil_tmp49 <= 4U) {
+          if (__cil_tmp43 <= 4U) {
 #line 1254
             eq_value = max_value;
           } else {
             {
 #line 1255
-            __cil_tmp50 = (unsigned int )max_value;
+            __cil_tmp44 = (unsigned int )max_value;
 #line 1255
-            if (__cil_tmp50 > 4U) {
+            if (__cil_tmp44 > 4U) {
               {
 #line 1255
-              __cil_tmp51 = (unsigned int )max_value;
+              __cil_tmp45 = (unsigned int )max_value;
 #line 1255
-              if (__cil_tmp51 <= 14U) {
+              if (__cil_tmp45 <= 14U) {
                 {
 #line 1256
-                __cil_tmp52 = (int )min_value;
+                __cil_tmp46 = (int )min_value;
 #line 1256
-                __cil_tmp53 = (int )max_value;
+                __cil_tmp47 = (int )max_value;
 #line 1256
-                if (__cil_tmp53 == __cil_tmp52) {
+                if (__cil_tmp47 == __cil_tmp46) {
 #line 1256
-                  __cil_tmp54 = (unsigned int )max_value;
+                  __cil_tmp48 = (unsigned int )max_value;
 #line 1256
-                  __cil_tmp55 = __cil_tmp54 + 2U;
+                  __cil_tmp49 = __cil_tmp48 + 2U;
 #line 1256
-                  eq_value = (unsigned short )__cil_tmp55;
+                  eq_value = (u16 )__cil_tmp49;
                 } else {
 #line 1256
-                  __cil_tmp56 = (unsigned int )max_value;
+                  __cil_tmp50 = (unsigned int )max_value;
 #line 1256
-                  __cil_tmp57 = __cil_tmp56 + 1U;
+                  __cil_tmp51 = __cil_tmp50 + 1U;
 #line 1256
-                  eq_value = (unsigned short )__cil_tmp57;
+                  eq_value = (u16 )__cil_tmp51;
                 }
                 }
               } else {
+#line 1255
                 goto _L;
               }
               }
@@ -13406,29 +11968,29 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
               _L: 
               {
 #line 1258
-              __cil_tmp58 = (unsigned int )max_value;
+              __cil_tmp52 = (unsigned int )max_value;
 #line 1258
-              if (__cil_tmp58 > 14U) {
+              if (__cil_tmp52 > 14U) {
                 {
 #line 1259
-                __cil_tmp59 = (int )min_value;
+                __cil_tmp53 = (int )min_value;
 #line 1259
-                __cil_tmp60 = (int )max_value;
+                __cil_tmp54 = (int )max_value;
 #line 1259
-                if (__cil_tmp60 == __cil_tmp59) {
+                if (__cil_tmp54 == __cil_tmp53) {
 #line 1259
-                  __cil_tmp61 = (unsigned int )max_value;
+                  __cil_tmp55 = (unsigned int )max_value;
 #line 1259
-                  __cil_tmp62 = __cil_tmp61 + 6U;
+                  __cil_tmp56 = __cil_tmp55 + 6U;
 #line 1259
-                  eq_value = (unsigned short )__cil_tmp62;
+                  eq_value = (u16 )__cil_tmp56;
                 } else {
 #line 1259
-                  __cil_tmp63 = (unsigned int )max_value;
+                  __cil_tmp57 = (unsigned int )max_value;
 #line 1259
-                  __cil_tmp64 = __cil_tmp63 + 5U;
+                  __cil_tmp58 = __cil_tmp57 + 5U;
 #line 1259
-                  eq_value = (unsigned short )__cil_tmp64;
+                  eq_value = (u16 )__cil_tmp58;
                 }
                 }
               } else {
@@ -13449,54 +12011,47 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
     }
     {
 #line 1263
-    __cil_tmp65 = (unsigned int )revision;
+    __cil_tmp59 = (unsigned int )revision;
 #line 1263
-    if (__cil_tmp65 == 128U) {
+    if (__cil_tmp59 == 128U) {
       {
 #line 1263
-      __cil_tmp66 = (unsigned long )sis_priv;
+      __cil_tmp60 = sis_priv->host_bridge_rev;
 #line 1263
-      __cil_tmp67 = __cil_tmp66 + 596;
+      __cil_tmp61 = (unsigned int )__cil_tmp60;
 #line 1263
-      __cil_tmp68 = *((u8 *)__cil_tmp67);
+      if (__cil_tmp61 == 16U) {
 #line 1263
-      __cil_tmp69 = (unsigned int )__cil_tmp68;
-#line 1263
-      if (__cil_tmp69 == 16U) {
         goto _L___1;
       } else {
         {
 #line 1263
-        __cil_tmp70 = (unsigned long )sis_priv;
+        __cil_tmp62 = sis_priv->host_bridge_rev;
 #line 1263
-        __cil_tmp71 = __cil_tmp70 + 596;
+        __cil_tmp63 = (unsigned int )__cil_tmp62;
 #line 1263
-        __cil_tmp72 = *((u8 *)__cil_tmp71);
-#line 1263
-        __cil_tmp73 = (unsigned int )__cil_tmp72;
-#line 1263
-        if (__cil_tmp73 == 17U) {
+        if (__cil_tmp63 == 17U) {
           _L___1: 
           {
 #line 1266
-          __cil_tmp74 = (unsigned int )max_value;
+          __cil_tmp64 = (unsigned int )max_value;
 #line 1266
-          if (__cil_tmp74 == 0U) {
+          if (__cil_tmp64 == 0U) {
 #line 1267
-            eq_value = (unsigned short)3;
+            eq_value = (u16 )3U;
           } else {
 #line 1269
-            __cil_tmp75 = (int )min_value;
+            __cil_tmp65 = (int )min_value;
 #line 1269
-            __cil_tmp76 = (int )max_value;
+            __cil_tmp66 = (int )max_value;
 #line 1269
-            __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
+            __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
 #line 1269
-            __cil_tmp78 = __cil_tmp77 + 1;
+            __cil_tmp68 = __cil_tmp67 + 1;
 #line 1269
-            __cil_tmp79 = __cil_tmp78 / 2;
+            __cil_tmp69 = __cil_tmp68 / 2;
 #line 1269
-            eq_value = (unsigned short )__cil_tmp79;
+            eq_value = (u16 )__cil_tmp69;
           }
           }
         } else {
@@ -13511,161 +12066,129 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
     }
     {
 #line 1272
-    __cil_tmp80 = (unsigned long )sis_priv;
+    __cil_tmp70 = sis_priv->cur_phy;
 #line 1272
-    __cil_tmp81 = __cil_tmp80 + 96;
+    __cil_tmp71 = (int )__cil_tmp70;
 #line 1272
-    __cil_tmp82 = *((unsigned int *)__cil_tmp81);
+    tmp___4 = mdio_read(net_dev, __cil_tmp71, 20);
 #line 1272
-    __cil_tmp83 = (int )__cil_tmp82;
-#line 1272
-    tmp___4 = mdio_read(net_dev, __cil_tmp83, 20);
-#line 1272
-    reg14h = (unsigned short )tmp___4;
+    reg14h = (u16 )tmp___4;
 #line 1273
-    __cil_tmp84 = (int )eq_value;
+    __cil_tmp72 = (int )eq_value;
 #line 1273
-    __cil_tmp85 = __cil_tmp84 << 3;
+    __cil_tmp73 = __cil_tmp72 << 3;
 #line 1273
-    __cil_tmp86 = (short )__cil_tmp85;
+    __cil_tmp74 = (short )__cil_tmp73;
 #line 1273
-    __cil_tmp87 = (int )__cil_tmp86;
+    __cil_tmp75 = (int )__cil_tmp74;
 #line 1273
-    __cil_tmp88 = __cil_tmp87 & 255;
+    __cil_tmp76 = __cil_tmp75 & 255;
 #line 1273
-    __cil_tmp89 = (short )reg14h;
+    __cil_tmp77 = (short )reg14h;
 #line 1273
-    __cil_tmp90 = (int )__cil_tmp89;
+    __cil_tmp78 = (int )__cil_tmp77;
 #line 1273
-    __cil_tmp91 = __cil_tmp90 & -249;
+    __cil_tmp79 = __cil_tmp78 & -249;
 #line 1273
-    __cil_tmp92 = __cil_tmp91 | __cil_tmp88;
+    __cil_tmp80 = __cil_tmp79 | __cil_tmp76;
 #line 1273
-    reg14h = (unsigned short )__cil_tmp92;
+    reg14h = (u16 )__cil_tmp80;
 #line 1274
-    __cil_tmp93 = (unsigned int )reg14h;
+    __cil_tmp81 = (unsigned int )reg14h;
 #line 1274
-    __cil_tmp94 = __cil_tmp93 & 40447U;
+    __cil_tmp82 = __cil_tmp81 & 40447U;
 #line 1274
-    __cil_tmp95 = __cil_tmp94 | 24576U;
+    __cil_tmp83 = __cil_tmp82 | 24576U;
 #line 1274
-    reg14h = (unsigned short )__cil_tmp95;
+    reg14h = (u16 )__cil_tmp83;
 #line 1275
-    __cil_tmp96 = (unsigned long )sis_priv;
+    __cil_tmp84 = sis_priv->cur_phy;
 #line 1275
-    __cil_tmp97 = __cil_tmp96 + 96;
+    __cil_tmp85 = (int )__cil_tmp84;
 #line 1275
-    __cil_tmp98 = *((unsigned int *)__cil_tmp97);
+    __cil_tmp86 = (int )reg14h;
 #line 1275
-    __cil_tmp99 = (int )__cil_tmp98;
-#line 1275
-    __cil_tmp100 = (int )reg14h;
-#line 1275
-    mdio_write(net_dev, __cil_tmp99, 20, __cil_tmp100);
+    mdio_write(net_dev, __cil_tmp85, 20, __cil_tmp86);
     }
   } else {
     {
 #line 1277
-    __cil_tmp101 = (unsigned long )sis_priv;
+    __cil_tmp87 = sis_priv->cur_phy;
 #line 1277
-    __cil_tmp102 = __cil_tmp101 + 96;
+    __cil_tmp88 = (int )__cil_tmp87;
 #line 1277
-    __cil_tmp103 = *((unsigned int *)__cil_tmp102);
+    tmp___5 = mdio_read(net_dev, __cil_tmp88, 20);
 #line 1277
-    __cil_tmp104 = (int )__cil_tmp103;
-#line 1277
-    tmp___5 = mdio_read(net_dev, __cil_tmp104, 20);
-#line 1277
-    reg14h = (unsigned short )tmp___5;
+    reg14h = (u16 )tmp___5;
     }
     {
 #line 1278
-    __cil_tmp105 = (unsigned int )revision;
+    __cil_tmp89 = (unsigned int )revision;
 #line 1278
-    if (__cil_tmp105 == 128U) {
+    if (__cil_tmp89 == 128U) {
       {
 #line 1278
-      __cil_tmp106 = (unsigned long )sis_priv;
+      __cil_tmp90 = sis_priv->host_bridge_rev;
 #line 1278
-      __cil_tmp107 = __cil_tmp106 + 596;
+      __cil_tmp91 = (unsigned int )__cil_tmp90;
 #line 1278
-      __cil_tmp108 = *((u8 *)__cil_tmp107);
-#line 1278
-      __cil_tmp109 = (unsigned int )__cil_tmp108;
-#line 1278
-      if (__cil_tmp109 == 16U) {
+      if (__cil_tmp91 == 16U) {
         {
 #line 1281
-        __cil_tmp110 = (unsigned long )sis_priv;
+        __cil_tmp92 = sis_priv->cur_phy;
 #line 1281
-        __cil_tmp111 = __cil_tmp110 + 96;
+        __cil_tmp93 = (int )__cil_tmp92;
 #line 1281
-        __cil_tmp112 = *((unsigned int *)__cil_tmp111);
+        __cil_tmp94 = (unsigned int )reg14h;
 #line 1281
-        __cil_tmp113 = (int )__cil_tmp112;
+        __cil_tmp95 = __cil_tmp94 | 8704U;
 #line 1281
-        __cil_tmp114 = (unsigned int )reg14h;
+        __cil_tmp96 = (int )__cil_tmp95;
 #line 1281
-        __cil_tmp115 = __cil_tmp114 | 8704U;
+        __cil_tmp97 = __cil_tmp96 & 49151;
 #line 1281
-        __cil_tmp116 = (int )__cil_tmp115;
-#line 1281
-        __cil_tmp117 = __cil_tmp116 & 49151;
-#line 1281
-        mdio_write(net_dev, __cil_tmp113, 20, __cil_tmp117);
+        mdio_write(net_dev, __cil_tmp93, 20, __cil_tmp97);
         }
       } else {
         {
 #line 1278
-        __cil_tmp118 = (unsigned long )sis_priv;
+        __cil_tmp98 = sis_priv->host_bridge_rev;
 #line 1278
-        __cil_tmp119 = __cil_tmp118 + 596;
+        __cil_tmp99 = (unsigned int )__cil_tmp98;
 #line 1278
-        __cil_tmp120 = *((u8 *)__cil_tmp119);
-#line 1278
-        __cil_tmp121 = (unsigned int )__cil_tmp120;
-#line 1278
-        if (__cil_tmp121 == 17U) {
+        if (__cil_tmp99 == 17U) {
           {
 #line 1281
-          __cil_tmp122 = (unsigned long )sis_priv;
+          __cil_tmp100 = sis_priv->cur_phy;
 #line 1281
-          __cil_tmp123 = __cil_tmp122 + 96;
+          __cil_tmp101 = (int )__cil_tmp100;
 #line 1281
-          __cil_tmp124 = *((unsigned int *)__cil_tmp123);
+          __cil_tmp102 = (unsigned int )reg14h;
 #line 1281
-          __cil_tmp125 = (int )__cil_tmp124;
+          __cil_tmp103 = __cil_tmp102 | 8704U;
 #line 1281
-          __cil_tmp126 = (unsigned int )reg14h;
+          __cil_tmp104 = (int )__cil_tmp103;
 #line 1281
-          __cil_tmp127 = __cil_tmp126 | 8704U;
+          __cil_tmp105 = __cil_tmp104 & 49151;
 #line 1281
-          __cil_tmp128 = (int )__cil_tmp127;
-#line 1281
-          __cil_tmp129 = __cil_tmp128 & 49151;
-#line 1281
-          mdio_write(net_dev, __cil_tmp125, 20, __cil_tmp129);
+          mdio_write(net_dev, __cil_tmp101, 20, __cil_tmp105);
           }
         } else {
           {
 #line 1284
-          __cil_tmp130 = (unsigned long )sis_priv;
+          __cil_tmp106 = sis_priv->cur_phy;
 #line 1284
-          __cil_tmp131 = __cil_tmp130 + 96;
+          __cil_tmp107 = (int )__cil_tmp106;
 #line 1284
-          __cil_tmp132 = *((unsigned int *)__cil_tmp131);
+          __cil_tmp108 = (unsigned int )reg14h;
 #line 1284
-          __cil_tmp133 = (int )__cil_tmp132;
+          __cil_tmp109 = __cil_tmp108 | 8192U;
 #line 1284
-          __cil_tmp134 = (unsigned int )reg14h;
+          __cil_tmp110 = (int )__cil_tmp109;
 #line 1284
-          __cil_tmp135 = __cil_tmp134 | 8192U;
+          __cil_tmp111 = __cil_tmp110 & 49151;
 #line 1284
-          __cil_tmp136 = (int )__cil_tmp135;
-#line 1284
-          __cil_tmp137 = __cil_tmp136 & 49151;
-#line 1284
-          mdio_write(net_dev, __cil_tmp133, 20, __cil_tmp137);
+          mdio_write(net_dev, __cil_tmp107, 20, __cil_tmp111);
           }
         }
         }
@@ -13674,23 +12197,19 @@ static void sis630_set_eq(struct net_device *net_dev , u8 revision )
     } else {
       {
 #line 1284
-      __cil_tmp138 = (unsigned long )sis_priv;
+      __cil_tmp112 = sis_priv->cur_phy;
 #line 1284
-      __cil_tmp139 = __cil_tmp138 + 96;
+      __cil_tmp113 = (int )__cil_tmp112;
 #line 1284
-      __cil_tmp140 = *((unsigned int *)__cil_tmp139);
+      __cil_tmp114 = (unsigned int )reg14h;
 #line 1284
-      __cil_tmp141 = (int )__cil_tmp140;
+      __cil_tmp115 = __cil_tmp114 | 8192U;
 #line 1284
-      __cil_tmp142 = (unsigned int )reg14h;
+      __cil_tmp116 = (int )__cil_tmp115;
 #line 1284
-      __cil_tmp143 = __cil_tmp142 | 8192U;
+      __cil_tmp117 = __cil_tmp116 & 49151;
 #line 1284
-      __cil_tmp144 = (int )__cil_tmp143;
-#line 1284
-      __cil_tmp145 = __cil_tmp144 & 49151;
-#line 1284
-      mdio_write(net_dev, __cil_tmp141, 20, __cil_tmp145);
+      mdio_write(net_dev, __cil_tmp113, 20, __cil_tmp117);
       }
     }
     }
@@ -13713,84 +12232,41 @@ static void sis900_timer(unsigned long data )
   int tmp___1 ;
   int tmp___2 ;
   struct net_device  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  u8 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  long __cil_tmp17 ;
   u8 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  int *__cil_tmp20 ;
-  int *__cil_tmp21 ;
-  int *__cil_tmp22 ;
-  int *__cil_tmp23 ;
+  int __cil_tmp19 ;
+  u8 __cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  struct timer_list *__cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  long __cil_tmp28 ;
-  int *__cil_tmp29 ;
+  unsigned int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  struct net_device  const  *__cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
   int __cil_tmp30 ;
-  int *__cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u8 __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned char __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct timer_list *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
+  int __cil_tmp31 ;
+  u32 __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  char (*__cil_tmp34)[16U] ;
+  char *__cil_tmp35 ;
+  u16 __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  u16 __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  int __cil_tmp44 ;
+  u8 __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  int __cil_tmp52 ;
-  struct net_device  const  *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  int __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int __cil_tmp58 ;
-  int __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u32 __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  char (*__cil_tmp64)[16U] ;
-  char *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  u16 __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  u16 __cil_tmp72 ;
-  int __cil_tmp73 ;
-  int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  u8 __cil_tmp81 ;
-  int __cil_tmp82 ;
-  unsigned char __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct timer_list *__cil_tmp91 ;
+  unsigned long __cil_tmp47 ;
+  struct timer_list *__cil_tmp48 ;
 
   {
   {
@@ -13803,103 +12279,57 @@ static void sis900_timer(unsigned long data )
 #line 1300
   sis_priv = (struct sis900_private *)tmp;
 #line 1301
-  __cil_tmp14 = (unsigned long )sis_priv;
-#line 1301
-  __cil_tmp15 = __cil_tmp14 + 80;
-#line 1301
-  mii_phy = *((struct mii_phy **)__cil_tmp15);
+  mii_phy = sis_priv->mii;
 #line 1302
   next_tick = 1250;
   }
   {
 #line 1305
-  __cil_tmp16 = (unsigned long )sis_priv;
+  __cil_tmp14 = sis_priv->autong_complete;
 #line 1305
-  __cil_tmp17 = __cil_tmp16 + 280;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 1305
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 1305
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 1305
-  if (__cil_tmp19 == 0U) {
+  if (__cil_tmp15 == 0U) {
     {
 #line 1306
-    __cil_tmp20 = & speed;
+    speed = speed;
 #line 1306
-    __cil_tmp21 = & speed;
-#line 1306
-    *__cil_tmp20 = *__cil_tmp21;
-#line 1306
-    __cil_tmp22 = & duplex;
-#line 1306
-    *__cil_tmp22 = 0;
+    duplex = 0;
 #line 1308
     sis900_read_mode(net_dev, & speed, & duplex);
     }
-    {
 #line 1309
-    __cil_tmp23 = & duplex;
-#line 1309
-    __cil_tmp24 = *__cil_tmp23;
-#line 1309
-    if (__cil_tmp24 != 0) {
+    if (duplex != 0) {
       {
 #line 1310
-      __cil_tmp25 = (unsigned long )net_dev;
+      __cil_tmp16 = net_dev->base_addr;
 #line 1310
-      __cil_tmp26 = __cil_tmp25 + 104;
+      __cil_tmp17 = (long )__cil_tmp16;
 #line 1310
-      __cil_tmp27 = *((unsigned long *)__cil_tmp26);
-#line 1310
-      __cil_tmp28 = (long )__cil_tmp27;
-#line 1310
-      __cil_tmp29 = & speed;
-#line 1310
-      __cil_tmp30 = *__cil_tmp29;
-#line 1310
-      __cil_tmp31 = & duplex;
-#line 1310
-      __cil_tmp32 = *__cil_tmp31;
-#line 1310
-      sis900_set_mode(__cil_tmp28, __cil_tmp30, __cil_tmp32);
+      sis900_set_mode(__cil_tmp17, speed, duplex);
 #line 1311
-      __cil_tmp33 = (unsigned long )sis_priv;
+      __cil_tmp18 = sis_priv->chipset_rev;
 #line 1311
-      __cil_tmp34 = __cil_tmp33 + 597;
+      __cil_tmp19 = (int )__cil_tmp18;
 #line 1311
-      __cil_tmp35 = *((u8 *)__cil_tmp34);
+      __cil_tmp20 = (u8 )__cil_tmp19;
 #line 1311
-      __cil_tmp36 = (int )__cil_tmp35;
-#line 1311
-      __cil_tmp37 = (unsigned char )__cil_tmp36;
-#line 1311
-      sis630_set_eq(net_dev, __cil_tmp37);
+      sis630_set_eq(net_dev, __cil_tmp20);
 #line 1312
       netif_start_queue(net_dev);
       }
     } else {
 
     }
-    }
     {
 #line 1315
-    __cil_tmp38 = 152 + 16;
+    __cil_tmp21 = (unsigned long )jiffies;
 #line 1315
-    __cil_tmp39 = (unsigned long )sis_priv;
-#line 1315
-    __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
-#line 1315
-    __cil_tmp41 = (unsigned long )jiffies;
-#line 1315
-    *((unsigned long *)__cil_tmp40) = __cil_tmp41 + 250UL;
+    sis_priv->timer.expires = __cil_tmp21 + 250UL;
 #line 1316
-    __cil_tmp42 = (unsigned long )sis_priv;
+    __cil_tmp22 = & sis_priv->timer;
 #line 1316
-    __cil_tmp43 = __cil_tmp42 + 152;
-#line 1316
-    __cil_tmp44 = (struct timer_list *)__cil_tmp43;
-#line 1316
-    add_timer(__cil_tmp44);
+    add_timer(__cil_tmp22);
     }
 #line 1317
     return;
@@ -13909,33 +12339,25 @@ static void sis900_timer(unsigned long data )
   }
   {
 #line 1320
-  __cil_tmp45 = (unsigned long )sis_priv;
+  __cil_tmp23 = sis_priv->cur_phy;
 #line 1320
-  __cil_tmp46 = __cil_tmp45 + 96;
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 1320
-  __cil_tmp47 = *((unsigned int *)__cil_tmp46);
+  tmp___0 = mdio_read(net_dev, __cil_tmp24, 1);
 #line 1320
-  __cil_tmp48 = (int )__cil_tmp47;
-#line 1320
-  tmp___0 = mdio_read(net_dev, __cil_tmp48, 1);
-#line 1320
-  status = (unsigned short )tmp___0;
+  status = (u16 )tmp___0;
 #line 1321
-  __cil_tmp49 = (unsigned long )sis_priv;
+  __cil_tmp25 = sis_priv->cur_phy;
 #line 1321
-  __cil_tmp50 = __cil_tmp49 + 96;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 1321
-  __cil_tmp51 = *((unsigned int *)__cil_tmp50);
+  tmp___1 = mdio_read(net_dev, __cil_tmp26, 1);
 #line 1321
-  __cil_tmp52 = (int )__cil_tmp51;
-#line 1321
-  tmp___1 = mdio_read(net_dev, __cil_tmp52, 1);
-#line 1321
-  status = (unsigned short )tmp___1;
+  status = (u16 )tmp___1;
 #line 1324
-  __cil_tmp53 = (struct net_device  const  *)net_dev;
+  __cil_tmp27 = (struct net_device  const  *)net_dev;
 #line 1324
-  tmp___2 = netif_carrier_ok(__cil_tmp53);
+  tmp___2 = netif_carrier_ok(__cil_tmp27);
   }
 #line 1324
   if (tmp___2 == 0) {
@@ -13944,19 +12366,15 @@ static void sis900_timer(unsigned long data )
 #line 1327
     status = sis900_default_phy(net_dev);
 #line 1328
-    __cil_tmp54 = (unsigned long )sis_priv;
-#line 1328
-    __cil_tmp55 = __cil_tmp54 + 80;
-#line 1328
-    mii_phy = *((struct mii_phy **)__cil_tmp55);
+    mii_phy = sis_priv->mii;
     }
     {
 #line 1330
-    __cil_tmp56 = (int )status;
+    __cil_tmp28 = (int )status;
 #line 1330
-    __cil_tmp57 = __cil_tmp56 & 4;
+    __cil_tmp29 = __cil_tmp28 & 4;
 #line 1330
-    if (__cil_tmp57 != 0) {
+    if (__cil_tmp29 != 0) {
       {
 #line 1331
       sis900_check_mode(net_dev, mii_phy);
@@ -13970,33 +12388,29 @@ static void sis900_timer(unsigned long data )
   } else {
     {
 #line 1336
-    __cil_tmp58 = (int )status;
+    __cil_tmp30 = (int )status;
 #line 1336
-    __cil_tmp59 = __cil_tmp58 & 4;
+    __cil_tmp31 = __cil_tmp30 & 4;
 #line 1336
-    if (__cil_tmp59 == 0) {
+    if (__cil_tmp31 == 0) {
       {
 #line 1337
       netif_carrier_off(net_dev);
       }
       {
 #line 1338
-      __cil_tmp60 = (unsigned long )sis_priv;
+      __cil_tmp32 = sis_priv->msg_enable;
 #line 1338
-      __cil_tmp61 = __cil_tmp60 + 284;
+      __cil_tmp33 = __cil_tmp32 & 4U;
 #line 1338
-      __cil_tmp62 = *((u32 *)__cil_tmp61);
-#line 1338
-      __cil_tmp63 = __cil_tmp62 & 4U;
-#line 1338
-      if (__cil_tmp63 != 0U) {
+      if (__cil_tmp33 != 0U) {
         {
 #line 1339
-        __cil_tmp64 = (char (*)[16U])net_dev;
+        __cil_tmp34 = & net_dev->name;
 #line 1339
-        __cil_tmp65 = (char *)__cil_tmp64;
+        __cil_tmp35 = (char *)__cil_tmp34;
 #line 1339
-        printk("<6>%s: Media Link Off\n", __cil_tmp65);
+        printk("<6>%s: Media Link Off\n", __cil_tmp35);
         }
       } else {
 
@@ -14004,39 +12418,27 @@ static void sis900_timer(unsigned long data )
       }
       {
 #line 1342
-      __cil_tmp66 = (unsigned long )mii_phy;
+      __cil_tmp36 = mii_phy->phy_id0;
 #line 1342
-      __cil_tmp67 = __cil_tmp66 + 12;
+      __cil_tmp37 = (unsigned int )__cil_tmp36;
 #line 1342
-      __cil_tmp68 = *((u16 *)__cil_tmp67);
-#line 1342
-      __cil_tmp69 = (unsigned int )__cil_tmp68;
-#line 1342
-      if (__cil_tmp69 == 29U) {
+      if (__cil_tmp37 == 29U) {
         {
 #line 1342
-        __cil_tmp70 = (unsigned long )mii_phy;
+        __cil_tmp38 = mii_phy->phy_id1;
 #line 1342
-        __cil_tmp71 = __cil_tmp70 + 14;
+        __cil_tmp39 = (int )__cil_tmp38;
 #line 1342
-        __cil_tmp72 = *((u16 *)__cil_tmp71);
+        __cil_tmp40 = __cil_tmp39 & 65520;
 #line 1342
-        __cil_tmp73 = (int )__cil_tmp72;
-#line 1342
-        __cil_tmp74 = __cil_tmp73 & 65520;
-#line 1342
-        if (__cil_tmp74 == 32768) {
+        if (__cil_tmp40 == 32768) {
           {
 #line 1344
-          __cil_tmp75 = (unsigned long )sis_priv;
+          __cil_tmp41 = sis_priv->cur_phy;
 #line 1344
-          __cil_tmp76 = __cil_tmp75 + 96;
+          __cil_tmp42 = (int )__cil_tmp41;
 #line 1344
-          __cil_tmp77 = *((unsigned int *)__cil_tmp76);
-#line 1344
-          __cil_tmp78 = (int )__cil_tmp77;
-#line 1344
-          sis900_reset_phy(net_dev, __cil_tmp78);
+          sis900_reset_phy(net_dev, __cil_tmp42);
           }
         } else {
 
@@ -14048,18 +12450,15 @@ static void sis900_timer(unsigned long data )
       }
       {
 #line 1346
-      __cil_tmp79 = (unsigned long )sis_priv;
+      __cil_tmp43 = sis_priv->chipset_rev;
 #line 1346
-      __cil_tmp80 = __cil_tmp79 + 597;
+      __cil_tmp44 = (int )__cil_tmp43;
 #line 1346
-      __cil_tmp81 = *((u8 *)__cil_tmp80);
+      __cil_tmp45 = (u8 )__cil_tmp44;
 #line 1346
-      __cil_tmp82 = (int )__cil_tmp81;
-#line 1346
-      __cil_tmp83 = (unsigned char )__cil_tmp82;
-#line 1346
-      sis630_set_eq(net_dev, __cil_tmp83);
+      sis630_set_eq(net_dev, __cil_tmp45);
       }
+#line 1348
       goto LookForLink;
     } else {
 
@@ -14068,25 +12467,15 @@ static void sis900_timer(unsigned long data )
   }
   {
 #line 1352
-  __cil_tmp84 = 152 + 16;
+  __cil_tmp46 = (unsigned long )jiffies;
 #line 1352
-  __cil_tmp85 = (unsigned long )sis_priv;
+  __cil_tmp47 = (unsigned long )next_tick;
 #line 1352
-  __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
-#line 1352
-  __cil_tmp87 = (unsigned long )jiffies;
-#line 1352
-  __cil_tmp88 = (unsigned long )next_tick;
-#line 1352
-  *((unsigned long *)__cil_tmp86) = __cil_tmp88 + __cil_tmp87;
+  sis_priv->timer.expires = __cil_tmp47 + __cil_tmp46;
 #line 1353
-  __cil_tmp89 = (unsigned long )sis_priv;
+  __cil_tmp48 = & sis_priv->timer;
 #line 1353
-  __cil_tmp90 = __cil_tmp89 + 152;
-#line 1353
-  __cil_tmp91 = (struct timer_list *)__cil_tmp90;
-#line 1353
-  add_timer(__cil_tmp91);
+  add_timer(__cil_tmp48);
   }
 #line 1354
   return;
@@ -14103,32 +12492,24 @@ static void sis900_check_mode(struct net_device *net_dev , struct mii_phy *mii_p
   unsigned int tmp___1 ;
   struct net_device  const  *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
+  u8 __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  int __cil_tmp16 ;
   unsigned int __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
   unsigned int __cil_tmp19 ;
   int __cil_tmp20 ;
   unsigned int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
+  int __cil_tmp22 ;
   unsigned int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   unsigned int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  unsigned int __cil_tmp28 ;
+  int __cil_tmp29 ;
 
   {
   {
@@ -14139,26 +12520,28 @@ static void sis900_check_mode(struct net_device *net_dev , struct mii_phy *mii_p
 #line 1370
   sis_priv = (struct sis900_private *)tmp;
 #line 1371
-  __cil_tmp11 = (unsigned long )net_dev;
+  __cil_tmp11 = net_dev->base_addr;
 #line 1371
-  __cil_tmp12 = __cil_tmp11 + 104;
-#line 1371
-  __cil_tmp13 = *((unsigned long *)__cil_tmp12);
-#line 1371
-  ioaddr = (long )__cil_tmp13;
+  ioaddr = (long )__cil_tmp11;
   }
   {
 #line 1374
-  __cil_tmp14 = (unsigned long )mii_phy;
+  __cil_tmp12 = mii_phy->phy_types;
 #line 1374
-  __cil_tmp15 = __cil_tmp14 + 18;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1374
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 1374
-  __cil_tmp17 = (unsigned int )__cil_tmp16;
-#line 1374
-  if (__cil_tmp17 == 2U) {
+  if (__cil_tmp13 == 2U) {
     {
+#line 1375
+    __cil_tmp14 = (unsigned int )ioaddr;
+#line 1375
+    __cil_tmp15 = __cil_tmp14 + 4U;
+#line 1375
+    __cil_tmp16 = (int )__cil_tmp15;
+#line 1375
+    tmp___0 = inl(__cil_tmp16);
+#line 1375
+    __cil_tmp17 = tmp___0 & 4294967279U;
 #line 1375
     __cil_tmp18 = (unsigned int )ioaddr;
 #line 1375
@@ -14166,50 +12549,36 @@ static void sis900_check_mode(struct net_device *net_dev , struct mii_phy *mii_p
 #line 1375
     __cil_tmp20 = (int )__cil_tmp19;
 #line 1375
-    tmp___0 = inl(__cil_tmp20);
-#line 1375
-    __cil_tmp21 = tmp___0 & 4294967279U;
-#line 1375
-    __cil_tmp22 = (unsigned int )ioaddr;
-#line 1375
-    __cil_tmp23 = __cil_tmp22 + 4U;
-#line 1375
-    __cil_tmp24 = (int )__cil_tmp23;
-#line 1375
-    outl(__cil_tmp21, __cil_tmp24);
+    outl(__cil_tmp17, __cil_tmp20);
 #line 1376
     sis900_set_capability(net_dev, mii_phy);
 #line 1377
-    __cil_tmp25 = (unsigned long )sis_priv;
+    __cil_tmp21 = sis_priv->cur_phy;
 #line 1377
-    __cil_tmp26 = __cil_tmp25 + 96;
+    __cil_tmp22 = (int )__cil_tmp21;
 #line 1377
-    __cil_tmp27 = *((unsigned int *)__cil_tmp26);
-#line 1377
-    __cil_tmp28 = (int )__cil_tmp27;
-#line 1377
-    sis900_auto_negotiate(net_dev, __cil_tmp28);
+    sis900_auto_negotiate(net_dev, __cil_tmp22);
     }
   } else {
     {
 #line 1379
-    __cil_tmp29 = (unsigned int )ioaddr;
+    __cil_tmp23 = (unsigned int )ioaddr;
 #line 1379
-    __cil_tmp30 = __cil_tmp29 + 4U;
+    __cil_tmp24 = __cil_tmp23 + 4U;
 #line 1379
-    __cil_tmp31 = (int )__cil_tmp30;
+    __cil_tmp25 = (int )__cil_tmp24;
 #line 1379
-    tmp___1 = inl(__cil_tmp31);
+    tmp___1 = inl(__cil_tmp25);
 #line 1379
-    __cil_tmp32 = tmp___1 | 16U;
+    __cil_tmp26 = tmp___1 | 16U;
 #line 1379
-    __cil_tmp33 = (unsigned int )ioaddr;
+    __cil_tmp27 = (unsigned int )ioaddr;
 #line 1379
-    __cil_tmp34 = __cil_tmp33 + 4U;
+    __cil_tmp28 = __cil_tmp27 + 4U;
 #line 1379
-    __cil_tmp35 = (int )__cil_tmp34;
+    __cil_tmp29 = (int )__cil_tmp28;
 #line 1379
-    outl(__cil_tmp32, __cil_tmp35);
+    outl(__cil_tmp26, __cil_tmp29);
 #line 1380
     speed = 1;
 #line 1381
@@ -14217,11 +12586,7 @@ static void sis900_check_mode(struct net_device *net_dev , struct mii_phy *mii_p
 #line 1382
     sis900_set_mode(ioaddr, speed, duplex);
 #line 1383
-    __cil_tmp36 = (unsigned long )sis_priv;
-#line 1383
-    __cil_tmp37 = __cil_tmp36 + 280;
-#line 1383
-    *((u8 *)__cil_tmp37) = (unsigned char)1;
+    sis_priv->autong_complete = (u8 )1U;
     }
   }
   }
@@ -14282,19 +12647,18 @@ static void sis900_set_mode(long ioaddr , int speed , int duplex )
     rx_flags = rx_flags | 48U;
 #line 1416
     tx_flags = tx_flags | 16U;
-  } else {
+  } else
 #line 1414
-    if (speed == 10) {
+  if (speed == 10) {
 #line 1415
-      rx_flags = rx_flags | 48U;
+    rx_flags = rx_flags | 48U;
 #line 1416
-      tx_flags = tx_flags | 16U;
-    } else {
+    tx_flags = tx_flags | 16U;
+  } else {
 #line 1418
-      rx_flags = rx_flags | 32U;
+    rx_flags = rx_flags | 32U;
 #line 1419
-      tx_flags = tx_flags | 48U;
-    }
+    tx_flags = tx_flags | 48U;
   }
 #line 1422
   if (duplex == 2) {
@@ -14338,16 +12702,10 @@ static void sis900_auto_negotiate(struct net_device *net_dev , int phy_addr )
   int tmp___0 ;
   struct net_device  const  *__cil_tmp8 ;
   unsigned int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  u32 __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  char (*__cil_tmp14)[16U] ;
-  char *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  u32 __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  char (*__cil_tmp12)[16U] ;
+  char *__cil_tmp13 ;
 
   {
   {
@@ -14362,21 +12720,24 @@ static void sis900_auto_negotiate(struct net_device *net_dev , int phy_addr )
 #line 1453
   i = 0;
   }
+#line 1453
   goto ldv_35659;
   ldv_35658: 
   {
 #line 1454
   tmp___0 = mdio_read(net_dev, phy_addr, 1);
 #line 1454
-  status = (unsigned int )tmp___0;
+  status = (u32 )tmp___0;
 #line 1453
   i = i + 1;
   }
   ldv_35659: ;
 #line 1453
   if (i <= 1) {
+#line 1454
     goto ldv_35658;
   } else {
+#line 1456
     goto ldv_35660;
   }
   ldv_35660: ;
@@ -14387,22 +12748,18 @@ static void sis900_auto_negotiate(struct net_device *net_dev , int phy_addr )
   if (__cil_tmp9 == 0U) {
     {
 #line 1457
-    __cil_tmp10 = (unsigned long )sis_priv;
+    __cil_tmp10 = sis_priv->msg_enable;
 #line 1457
-    __cil_tmp11 = __cil_tmp10 + 284;
+    __cil_tmp11 = __cil_tmp10 & 4U;
 #line 1457
-    __cil_tmp12 = *((u32 *)__cil_tmp11);
-#line 1457
-    __cil_tmp13 = __cil_tmp12 & 4U;
-#line 1457
-    if (__cil_tmp13 != 0U) {
+    if (__cil_tmp11 != 0U) {
       {
 #line 1458
-      __cil_tmp14 = (char (*)[16U])net_dev;
+      __cil_tmp12 = & net_dev->name;
 #line 1458
-      __cil_tmp15 = (char *)__cil_tmp14;
+      __cil_tmp13 = (char *)__cil_tmp12;
 #line 1458
-      printk("<6>%s: Media Link Off\n", __cil_tmp15);
+      printk("<6>%s: Media Link Off\n", __cil_tmp13);
       }
     } else {
 
@@ -14410,11 +12767,7 @@ static void sis900_auto_negotiate(struct net_device *net_dev , int phy_addr )
     }
     {
 #line 1459
-    __cil_tmp16 = (unsigned long )sis_priv;
-#line 1459
-    __cil_tmp17 = __cil_tmp16 + 280;
-#line 1459
-    *((u8 *)__cil_tmp17) = (unsigned char)1;
+    sis_priv->autong_complete = (u8 )1U;
 #line 1460
     netif_carrier_off(net_dev);
     }
@@ -14428,11 +12781,7 @@ static void sis900_auto_negotiate(struct net_device *net_dev , int phy_addr )
 #line 1465
   mdio_write(net_dev, phy_addr, 0, 4608);
 #line 1467
-  __cil_tmp18 = (unsigned long )sis_priv;
-#line 1467
-  __cil_tmp19 = __cil_tmp18 + 280;
-#line 1467
-  *((u8 *)__cil_tmp19) = (unsigned char)0;
+  sis_priv->autong_complete = (u8 )0U;
   }
 #line 1468
   return;
@@ -14456,37 +12805,25 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
   char *tmp___5 ;
   char *tmp___6 ;
   struct net_device  const  *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
   unsigned int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u16 __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u16 __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u32 __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  char (*__cil_tmp49)[16U] ;
-  char *__cil_tmp50 ;
+  unsigned int __cil_tmp26 ;
+  u16 __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  u16 __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  u32 __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  char (*__cil_tmp37)[16U] ;
+  char *__cil_tmp38 ;
 
   {
   {
@@ -14497,45 +12834,40 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
 #line 1484
   sis_priv = (struct sis900_private *)tmp;
 #line 1485
-  __cil_tmp20 = (unsigned long )sis_priv;
-#line 1485
-  __cil_tmp21 = __cil_tmp20 + 80;
-#line 1485
-  phy = *((struct mii_phy **)__cil_tmp21);
+  phy = sis_priv->mii;
 #line 1486
-  __cil_tmp22 = (unsigned long )sis_priv;
+  __cil_tmp20 = sis_priv->cur_phy;
 #line 1486
-  __cil_tmp23 = __cil_tmp22 + 96;
-#line 1486
-  __cil_tmp24 = *((unsigned int *)__cil_tmp23);
-#line 1486
-  phy_addr = (int )__cil_tmp24;
+  phy_addr = (int )__cil_tmp20;
 #line 1491
   i = 0;
   }
+#line 1491
   goto ldv_35674;
   ldv_35673: 
   {
 #line 1492
   tmp___0 = mdio_read(net_dev, phy_addr, 1);
 #line 1492
-  status = (unsigned int )tmp___0;
+  status = (u32 )tmp___0;
 #line 1491
   i = i + 1;
   }
   ldv_35674: ;
 #line 1491
   if (i <= 1) {
+#line 1492
     goto ldv_35673;
   } else {
+#line 1494
     goto ldv_35675;
   }
   ldv_35675: ;
   {
 #line 1494
-  __cil_tmp25 = status & 4U;
+  __cil_tmp21 = status & 4U;
 #line 1494
-  if (__cil_tmp25 == 0U) {
+  if (__cil_tmp21 == 0U) {
 #line 1495
     return;
   } else {
@@ -14546,19 +12878,19 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
 #line 1498
   tmp___1 = mdio_read(net_dev, phy_addr, 4);
 #line 1498
-  autoadv = (unsigned short )tmp___1;
+  autoadv = (u16 )tmp___1;
 #line 1499
   tmp___2 = mdio_read(net_dev, phy_addr, 5);
 #line 1499
-  autorec = (unsigned short )tmp___2;
+  autorec = (u16 )tmp___2;
 #line 1500
-  __cil_tmp26 = (int )autorec;
+  __cil_tmp22 = (int )autorec;
 #line 1500
-  __cil_tmp27 = (int )autoadv;
+  __cil_tmp23 = (int )autoadv;
 #line 1500
-  __cil_tmp28 = __cil_tmp27 & __cil_tmp26;
+  __cil_tmp24 = __cil_tmp23 & __cil_tmp22;
 #line 1500
-  status = (unsigned int )__cil_tmp28;
+  status = (u32 )__cil_tmp24;
 #line 1502
   *speed = 10;
 #line 1503
@@ -14566,9 +12898,9 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
   }
   {
 #line 1505
-  __cil_tmp29 = status & 384U;
+  __cil_tmp25 = status & 384U;
 #line 1505
-  if (__cil_tmp29 != 0U) {
+  if (__cil_tmp25 != 0U) {
 #line 1506
     *speed = 100;
   } else {
@@ -14577,9 +12909,9 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
   }
   {
 #line 1507
-  __cil_tmp30 = status & 320U;
+  __cil_tmp26 = status & 320U;
 #line 1507
-  if (__cil_tmp30 != 0U) {
+  if (__cil_tmp26 != 0U) {
 #line 1508
     *duplex = 2;
   } else {
@@ -14587,44 +12919,32 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
   }
   }
 #line 1510
-  __cil_tmp31 = (unsigned long )sis_priv;
-#line 1510
-  __cil_tmp32 = __cil_tmp31 + 280;
-#line 1510
-  *((u8 *)__cil_tmp32) = (unsigned char)1;
+  sis_priv->autong_complete = (u8 )1U;
   {
 #line 1513
-  __cil_tmp33 = (unsigned long )phy;
+  __cil_tmp27 = phy->phy_id0;
 #line 1513
-  __cil_tmp34 = __cil_tmp33 + 12;
+  __cil_tmp28 = (unsigned int )__cil_tmp27;
 #line 1513
-  __cil_tmp35 = *((u16 *)__cil_tmp34);
-#line 1513
-  __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 1513
-  if (__cil_tmp36 == 0U) {
+  if (__cil_tmp28 == 0U) {
     {
 #line 1513
-    __cil_tmp37 = (unsigned long )phy;
+    __cil_tmp29 = phy->phy_id1;
 #line 1513
-    __cil_tmp38 = __cil_tmp37 + 14;
+    __cil_tmp30 = (int )__cil_tmp29;
 #line 1513
-    __cil_tmp39 = *((u16 *)__cil_tmp38);
+    __cil_tmp31 = __cil_tmp30 & 65520;
 #line 1513
-    __cil_tmp40 = (int )__cil_tmp39;
-#line 1513
-    __cil_tmp41 = __cil_tmp40 & 65520;
-#line 1513
-    if (__cil_tmp41 == 33280) {
+    if (__cil_tmp31 == 33280) {
       {
 #line 1514
       tmp___3 = mdio_read(net_dev, phy_addr, 0);
       }
       {
 #line 1514
-      __cil_tmp42 = tmp___3 & 256;
+      __cil_tmp32 = tmp___3 & 256;
 #line 1514
-      if (__cil_tmp42 != 0) {
+      if (__cil_tmp32 != 0) {
 #line 1515
         *duplex = 2;
       } else {
@@ -14652,20 +12972,16 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
   }
   {
 #line 1520
-  __cil_tmp43 = (unsigned long )sis_priv;
+  __cil_tmp33 = sis_priv->msg_enable;
 #line 1520
-  __cil_tmp44 = __cil_tmp43 + 284;
+  __cil_tmp34 = __cil_tmp33 & 4U;
 #line 1520
-  __cil_tmp45 = *((u32 *)__cil_tmp44);
-#line 1520
-  __cil_tmp46 = __cil_tmp45 & 4U;
-#line 1520
-  if (__cil_tmp46 != 0U) {
+  if (__cil_tmp34 != 0U) {
     {
 #line 1521
-    __cil_tmp47 = *duplex;
+    __cil_tmp35 = *duplex;
 #line 1521
-    if (__cil_tmp47 == 2) {
+    if (__cil_tmp35 == 2) {
 #line 1521
       tmp___5 = (char *)"full";
     } else {
@@ -14675,9 +12991,9 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
     }
     {
 #line 1521
-    __cil_tmp48 = *speed;
+    __cil_tmp36 = *speed;
 #line 1521
-    if (__cil_tmp48 == 100) {
+    if (__cil_tmp36 == 100) {
 #line 1521
       tmp___6 = (char *)"100mbps";
     } else {
@@ -14687,11 +13003,11 @@ static void sis900_read_mode(struct net_device *net_dev , int *speed , int *dupl
     }
     {
 #line 1521
-    __cil_tmp49 = (char (*)[16U])net_dev;
+    __cil_tmp37 = & net_dev->name;
 #line 1521
-    __cil_tmp50 = (char *)__cil_tmp49;
+    __cil_tmp38 = (char *)__cil_tmp37;
 #line 1521
-    printk("<6>%s: Media Link On %s %s-duplex\n", __cil_tmp50, tmp___6, tmp___5);
+    printk("<6>%s: Media Link On %s %s-duplex\n", __cil_tmp38, tmp___6, tmp___5);
     }
   } else {
 
@@ -14715,91 +13031,45 @@ static void sis900_tx_timeout(struct net_device *net_dev )
   struct sk_buff *skb ;
   struct net_device  const  *__cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u32 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  int __cil_tmp22 ;
-  int __cil_tmp23 ;
-  char (*__cil_tmp24)[16U] ;
-  char *__cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  u32 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  char (*__cil_tmp20)[16U] ;
+  char *__cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  spinlock_t *__cil_tmp25 ;
+  struct sk_buff *__cil_tmp26 ;
+  unsigned long __cil_tmp27 ;
+  unsigned long __cil_tmp28 ;
+  struct pci_dev *__cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  spinlock_t *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
+  BufferDesc *__cil_tmp31 ;
+  BufferDesc *__cil_tmp32 ;
+  u32 __cil_tmp33 ;
+  dma_addr_t __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  size_t __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct sk_buff *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct pci_dev *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  BufferDesc *__cil_tmp47 ;
-  BufferDesc *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u32 __cil_tmp51 ;
-  unsigned long long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  BufferDesc *__cil_tmp64 ;
-  BufferDesc *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  BufferDesc *__cil_tmp71 ;
-  BufferDesc *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  spinlock_t *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  dma_addr_t __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  unsigned int __cil_tmp94 ;
-  int __cil_tmp95 ;
-  unsigned int __cil_tmp96 ;
-  unsigned int __cil_tmp97 ;
-  int __cil_tmp98 ;
+  BufferDesc *__cil_tmp38 ;
+  BufferDesc *__cil_tmp39 ;
+  unsigned long __cil_tmp40 ;
+  BufferDesc *__cil_tmp41 ;
+  BufferDesc *__cil_tmp42 ;
+  unsigned long __cil_tmp43 ;
+  spinlock_t *__cil_tmp44 ;
+  dma_addr_t __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  int __cil_tmp52 ;
 
   {
   {
@@ -14810,44 +13080,36 @@ static void sis900_tx_timeout(struct net_device *net_dev )
 #line 1539
   sis_priv = (struct sis900_private *)tmp;
 #line 1540
-  __cil_tmp13 = (unsigned long )net_dev;
+  __cil_tmp13 = net_dev->base_addr;
 #line 1540
-  __cil_tmp14 = __cil_tmp13 + 104;
-#line 1540
-  __cil_tmp15 = *((unsigned long *)__cil_tmp14);
-#line 1540
-  ioaddr = (long )__cil_tmp15;
+  ioaddr = (long )__cil_tmp13;
   }
   {
 #line 1544
-  __cil_tmp16 = (unsigned long )sis_priv;
+  __cil_tmp14 = sis_priv->msg_enable;
 #line 1544
-  __cil_tmp17 = __cil_tmp16 + 284;
+  __cil_tmp15 = __cil_tmp14 & 128U;
 #line 1544
-  __cil_tmp18 = *((u32 *)__cil_tmp17);
-#line 1544
-  __cil_tmp19 = __cil_tmp18 & 128U;
-#line 1544
-  if (__cil_tmp19 != 0U) {
+  if (__cil_tmp15 != 0U) {
     {
 #line 1545
-    __cil_tmp20 = (unsigned int )ioaddr;
+    __cil_tmp16 = (unsigned int )ioaddr;
 #line 1545
-    __cil_tmp21 = __cil_tmp20 + 16U;
+    __cil_tmp17 = __cil_tmp16 + 16U;
 #line 1545
-    __cil_tmp22 = (int )__cil_tmp21;
+    __cil_tmp18 = (int )__cil_tmp17;
 #line 1545
-    tmp___0 = inl(__cil_tmp22);
+    tmp___0 = inl(__cil_tmp18);
 #line 1545
-    __cil_tmp23 = (int )ioaddr;
+    __cil_tmp19 = (int )ioaddr;
 #line 1545
-    tmp___1 = inl(__cil_tmp23);
+    tmp___1 = inl(__cil_tmp19);
 #line 1545
-    __cil_tmp24 = (char (*)[16U])net_dev;
+    __cil_tmp20 = & net_dev->name;
 #line 1545
-    __cil_tmp25 = (char *)__cil_tmp24;
+    __cil_tmp21 = (char *)__cil_tmp20;
 #line 1545
-    printk("<6>%s: Transmit timeout, status %8.8x %8.8x\n", __cil_tmp25, tmp___1,
+    printk("<6>%s: Transmit timeout, status %8.8x %8.8x\n", __cil_tmp21, tmp___1,
            tmp___0);
     }
   } else {
@@ -14856,152 +13118,85 @@ static void sis900_tx_timeout(struct net_device *net_dev )
   }
   {
 #line 1549
-  __cil_tmp26 = (unsigned int )ioaddr;
+  __cil_tmp22 = (unsigned int )ioaddr;
 #line 1549
-  __cil_tmp27 = __cil_tmp26 + 20U;
+  __cil_tmp23 = __cil_tmp22 + 20U;
 #line 1549
-  __cil_tmp28 = (int )__cil_tmp27;
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 1549
-  outl(0U, __cil_tmp28);
+  outl(0U, __cil_tmp24);
 #line 1552
-  __cil_tmp29 = (unsigned long )sis_priv;
+  __cil_tmp25 = & sis_priv->lock;
 #line 1552
-  __cil_tmp30 = __cil_tmp29 + 8;
-#line 1552
-  __cil_tmp31 = (spinlock_t *)__cil_tmp30;
-#line 1552
-  tmp___2 = spinlock_check(__cil_tmp31);
+  tmp___2 = spinlock_check(__cil_tmp25);
 #line 1552
   flags = _raw_spin_lock_irqsave(tmp___2);
 #line 1555
   tmp___3 = 0U;
 #line 1555
-  __cil_tmp32 = (unsigned long )sis_priv;
+  sis_priv->cur_tx = tmp___3;
 #line 1555
-  __cil_tmp33 = __cil_tmp32 + 296;
-#line 1555
-  *((unsigned int *)__cil_tmp33) = tmp___3;
-#line 1555
-  __cil_tmp34 = (unsigned long )sis_priv;
-#line 1555
-  __cil_tmp35 = __cil_tmp34 + 300;
-#line 1555
-  *((unsigned int *)__cil_tmp35) = tmp___3;
+  sis_priv->dirty_tx = tmp___3;
 #line 1556
   i = 0;
   }
+#line 1556
   goto ldv_35688;
   ldv_35687: 
 #line 1557
-  __cil_tmp36 = i * 8UL;
-#line 1557
-  __cil_tmp37 = 304 + __cil_tmp36;
-#line 1557
-  __cil_tmp38 = (unsigned long )sis_priv;
-#line 1557
-  __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 1557
-  skb = *((struct sk_buff **)__cil_tmp39);
+  skb = sis_priv->tx_skbuff[i];
   {
 #line 1559
-  __cil_tmp40 = (struct sk_buff *)0;
+  __cil_tmp26 = (struct sk_buff *)0;
 #line 1559
-  __cil_tmp41 = (unsigned long )__cil_tmp40;
+  __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 1559
-  __cil_tmp42 = (unsigned long )skb;
+  __cil_tmp28 = (unsigned long )skb;
 #line 1559
-  if (__cil_tmp42 != __cil_tmp41) {
+  if (__cil_tmp28 != __cil_tmp27) {
     {
 #line 1560
-    __cil_tmp43 = *((struct pci_dev **)sis_priv);
+    __cil_tmp29 = sis_priv->pci_dev;
 #line 1560
-    __cil_tmp44 = (unsigned long )i;
+    __cil_tmp30 = (unsigned long )i;
 #line 1560
-    __cil_tmp45 = (unsigned long )sis_priv;
+    __cil_tmp31 = sis_priv->tx_ring;
 #line 1560
-    __cil_tmp46 = __cil_tmp45 + 560;
+    __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
 #line 1560
-    __cil_tmp47 = *((BufferDesc **)__cil_tmp46);
+    __cil_tmp33 = __cil_tmp32->bufptr;
 #line 1560
-    __cil_tmp48 = __cil_tmp47 + __cil_tmp44;
+    __cil_tmp34 = (dma_addr_t )__cil_tmp33;
 #line 1560
-    __cil_tmp49 = (unsigned long )__cil_tmp48;
+    __cil_tmp35 = skb->len;
 #line 1560
-    __cil_tmp50 = __cil_tmp49 + 8;
+    __cil_tmp36 = (size_t )__cil_tmp35;
 #line 1560
-    __cil_tmp51 = *((u32 *)__cil_tmp50);
-#line 1560
-    __cil_tmp52 = (unsigned long long )__cil_tmp51;
-#line 1560
-    __cil_tmp53 = (unsigned long )skb;
-#line 1560
-    __cil_tmp54 = __cil_tmp53 + 104;
-#line 1560
-    __cil_tmp55 = *((unsigned int *)__cil_tmp54);
-#line 1560
-    __cil_tmp56 = (unsigned long )__cil_tmp55;
-#line 1560
-    pci_unmap_single(__cil_tmp43, __cil_tmp52, __cil_tmp56, 1);
+    pci_unmap_single(__cil_tmp29, __cil_tmp34, __cil_tmp36, 1);
 #line 1563
     dev_kfree_skb_irq(skb);
 #line 1564
-    __cil_tmp57 = i * 8UL;
-#line 1564
-    __cil_tmp58 = 304 + __cil_tmp57;
-#line 1564
-    __cil_tmp59 = (unsigned long )sis_priv;
-#line 1564
-    __cil_tmp60 = __cil_tmp59 + __cil_tmp58;
-#line 1564
-    *((struct sk_buff **)__cil_tmp60) = (struct sk_buff *)0;
+    sis_priv->tx_skbuff[i] = (struct sk_buff *)0;
 #line 1565
-    __cil_tmp61 = (unsigned long )i;
+    __cil_tmp37 = (unsigned long )i;
 #line 1565
-    __cil_tmp62 = (unsigned long )sis_priv;
+    __cil_tmp38 = sis_priv->tx_ring;
 #line 1565
-    __cil_tmp63 = __cil_tmp62 + 560;
+    __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
 #line 1565
-    __cil_tmp64 = *((BufferDesc **)__cil_tmp63);
-#line 1565
-    __cil_tmp65 = __cil_tmp64 + __cil_tmp61;
-#line 1565
-    __cil_tmp66 = (unsigned long )__cil_tmp65;
-#line 1565
-    __cil_tmp67 = __cil_tmp66 + 4;
-#line 1565
-    *((u32 *)__cil_tmp67) = 0U;
+    __cil_tmp39->cmdsts = 0U;
 #line 1566
-    __cil_tmp68 = (unsigned long )i;
+    __cil_tmp40 = (unsigned long )i;
 #line 1566
-    __cil_tmp69 = (unsigned long )sis_priv;
+    __cil_tmp41 = sis_priv->tx_ring;
 #line 1566
-    __cil_tmp70 = __cil_tmp69 + 560;
+    __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
 #line 1566
-    __cil_tmp71 = *((BufferDesc **)__cil_tmp70);
-#line 1566
-    __cil_tmp72 = __cil_tmp71 + __cil_tmp68;
-#line 1566
-    __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 1566
-    __cil_tmp74 = __cil_tmp73 + 8;
-#line 1566
-    *((u32 *)__cil_tmp74) = 0U;
+    __cil_tmp42->bufptr = 0U;
 #line 1567
-    __cil_tmp75 = 200 + 56;
+    __cil_tmp43 = net_dev->stats.tx_dropped;
 #line 1567
-    __cil_tmp76 = (unsigned long )net_dev;
-#line 1567
-    __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 1567
-    __cil_tmp78 = 200 + 56;
-#line 1567
-    __cil_tmp79 = (unsigned long )net_dev;
-#line 1567
-    __cil_tmp80 = __cil_tmp79 + __cil_tmp78;
-#line 1567
-    __cil_tmp81 = *((unsigned long *)__cil_tmp80);
-#line 1567
-    *((unsigned long *)__cil_tmp77) = __cil_tmp81 + 1UL;
+    net_dev->stats.tx_dropped = __cil_tmp43 + 1UL;
     }
   } else {
 
@@ -15012,58 +13207,44 @@ static void sis900_tx_timeout(struct net_device *net_dev )
   ldv_35688: ;
 #line 1556
   if (i <= 15) {
+#line 1557
     goto ldv_35687;
   } else {
+#line 1559
     goto ldv_35689;
   }
   ldv_35689: 
   {
 #line 1570
-  __cil_tmp82 = (unsigned long )sis_priv;
-#line 1570
-  __cil_tmp83 = __cil_tmp82 + 592;
-#line 1570
-  *((unsigned int *)__cil_tmp83) = 0U;
+  sis_priv->tx_full = 0U;
 #line 1571
   netif_wake_queue(net_dev);
 #line 1573
-  __cil_tmp84 = (unsigned long )sis_priv;
+  __cil_tmp44 = & sis_priv->lock;
 #line 1573
-  __cil_tmp85 = __cil_tmp84 + 8;
-#line 1573
-  __cil_tmp86 = (spinlock_t *)__cil_tmp85;
-#line 1573
-  spin_unlock_irqrestore(__cil_tmp86, flags);
+  spin_unlock_irqrestore(__cil_tmp44, flags);
 #line 1575
-  __cil_tmp87 = (unsigned long )net_dev;
-#line 1575
-  __cil_tmp88 = __cil_tmp87 + 952;
-#line 1575
-  *((unsigned long *)__cil_tmp88) = (unsigned long )jiffies;
+  net_dev->trans_start = (unsigned long )jiffies;
 #line 1578
-  __cil_tmp89 = (unsigned long )sis_priv;
+  __cil_tmp45 = sis_priv->tx_ring_dma;
 #line 1578
-  __cil_tmp90 = __cil_tmp89 + 576;
+  __cil_tmp46 = (unsigned int )__cil_tmp45;
 #line 1578
-  __cil_tmp91 = *((dma_addr_t *)__cil_tmp90);
+  __cil_tmp47 = (unsigned int )ioaddr;
 #line 1578
-  __cil_tmp92 = (unsigned int )__cil_tmp91;
+  __cil_tmp48 = __cil_tmp47 + 32U;
 #line 1578
-  __cil_tmp93 = (unsigned int )ioaddr;
+  __cil_tmp49 = (int )__cil_tmp48;
 #line 1578
-  __cil_tmp94 = __cil_tmp93 + 32U;
-#line 1578
-  __cil_tmp95 = (int )__cil_tmp94;
-#line 1578
-  outl(__cil_tmp92, __cil_tmp95);
+  outl(__cil_tmp46, __cil_tmp49);
 #line 1581
-  __cil_tmp96 = (unsigned int )ioaddr;
+  __cil_tmp50 = (unsigned int )ioaddr;
 #line 1581
-  __cil_tmp97 = __cil_tmp96 + 20U;
+  __cil_tmp51 = __cil_tmp50 + 20U;
 #line 1581
-  __cil_tmp98 = (int )__cil_tmp97;
+  __cil_tmp52 = (int )__cil_tmp51;
 #line 1581
-  outl(67365U, __cil_tmp98);
+  outl(67365U, __cil_tmp52);
   }
 #line 1582
   return;
@@ -15084,80 +13265,34 @@ static netdev_tx_t sis900_start_xmit(struct sk_buff *skb , struct net_device *ne
   unsigned int tmp___2 ;
   struct net_device  const  *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u8 __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  spinlock_t *__cil_tmp24 ;
+  u8 __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  spinlock_t *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  struct pci_dev *__cil_tmp20 ;
+  unsigned char *__cil_tmp21 ;
+  void *__cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  size_t __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
+  BufferDesc *__cil_tmp26 ;
+  BufferDesc *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct pci_dev *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned char *__cil_tmp35 ;
-  void *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  BufferDesc *__cil_tmp44 ;
-  BufferDesc *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  BufferDesc *__cil_tmp51 ;
-  BufferDesc *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  spinlock_t *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  u32 __cil_tmp79 ;
-  unsigned int __cil_tmp80 ;
-  char (*__cil_tmp81)[16U] ;
-  char *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned char *__cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned int __cil_tmp88 ;
-  int __cil_tmp89 ;
+  BufferDesc *__cil_tmp29 ;
+  BufferDesc *__cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  spinlock_t *__cil_tmp36 ;
+  u32 __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  char (*__cil_tmp39)[16U] ;
+  char *__cil_tmp40 ;
+  unsigned char *__cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  int __cil_tmp43 ;
 
   {
   {
@@ -15168,159 +13303,92 @@ static netdev_tx_t sis900_start_xmit(struct sk_buff *skb , struct net_device *ne
 #line 1597
   sis_priv = (struct sis900_private *)tmp;
 #line 1598
-  __cil_tmp15 = (unsigned long )net_dev;
+  __cil_tmp15 = net_dev->base_addr;
 #line 1598
-  __cil_tmp16 = __cil_tmp15 + 104;
-#line 1598
-  __cil_tmp17 = *((unsigned long *)__cil_tmp16);
-#line 1598
-  ioaddr = (long )__cil_tmp17;
+  ioaddr = (long )__cil_tmp15;
   }
   {
 #line 1605
-  __cil_tmp18 = (unsigned long )sis_priv;
+  __cil_tmp16 = sis_priv->autong_complete;
 #line 1605
-  __cil_tmp19 = __cil_tmp18 + 280;
+  __cil_tmp17 = (unsigned int )__cil_tmp16;
 #line 1605
-  __cil_tmp20 = *((u8 *)__cil_tmp19);
-#line 1605
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 1605
-  if (__cil_tmp21 == 0U) {
+  if (__cil_tmp17 == 0U) {
     {
 #line 1606
     netif_stop_queue(net_dev);
     }
 #line 1607
-    return ((enum netdev_tx )16);
+    return ((netdev_tx_t )16);
   } else {
 
   }
   }
   {
 #line 1610
-  __cil_tmp22 = (unsigned long )sis_priv;
+  __cil_tmp18 = & sis_priv->lock;
 #line 1610
-  __cil_tmp23 = __cil_tmp22 + 8;
-#line 1610
-  __cil_tmp24 = (spinlock_t *)__cil_tmp23;
-#line 1610
-  tmp___0 = spinlock_check(__cil_tmp24);
+  tmp___0 = spinlock_check(__cil_tmp18);
 #line 1610
   flags = _raw_spin_lock_irqsave(tmp___0);
 #line 1613
-  __cil_tmp25 = (unsigned long )sis_priv;
+  __cil_tmp19 = sis_priv->cur_tx;
 #line 1613
-  __cil_tmp26 = __cil_tmp25 + 296;
-#line 1613
-  __cil_tmp27 = *((unsigned int *)__cil_tmp26);
-#line 1613
-  entry = __cil_tmp27 & 15U;
+  entry = __cil_tmp19 & 15U;
 #line 1614
-  __cil_tmp28 = entry * 8UL;
-#line 1614
-  __cil_tmp29 = 304 + __cil_tmp28;
-#line 1614
-  __cil_tmp30 = (unsigned long )sis_priv;
-#line 1614
-  __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 1614
-  *((struct sk_buff **)__cil_tmp31) = skb;
+  sis_priv->tx_skbuff[entry] = skb;
 #line 1617
-  __cil_tmp32 = *((struct pci_dev **)sis_priv);
+  __cil_tmp20 = sis_priv->pci_dev;
 #line 1617
-  __cil_tmp33 = (unsigned long )skb;
+  __cil_tmp21 = skb->data;
 #line 1617
-  __cil_tmp34 = __cil_tmp33 + 224;
+  __cil_tmp22 = (void *)__cil_tmp21;
 #line 1617
-  __cil_tmp35 = *((unsigned char **)__cil_tmp34);
+  __cil_tmp23 = skb->len;
 #line 1617
-  __cil_tmp36 = (void *)__cil_tmp35;
+  __cil_tmp24 = (size_t )__cil_tmp23;
 #line 1617
-  __cil_tmp37 = (unsigned long )skb;
+  tmp___1 = pci_map_single(__cil_tmp20, __cil_tmp22, __cil_tmp24, 1);
 #line 1617
-  __cil_tmp38 = __cil_tmp37 + 104;
+  __cil_tmp25 = (unsigned long )entry;
 #line 1617
-  __cil_tmp39 = *((unsigned int *)__cil_tmp38);
+  __cil_tmp26 = sis_priv->tx_ring;
 #line 1617
-  __cil_tmp40 = (unsigned long )__cil_tmp39;
+  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
 #line 1617
-  tmp___1 = pci_map_single(__cil_tmp32, __cil_tmp36, __cil_tmp40, 1);
-#line 1617
-  __cil_tmp41 = (unsigned long )entry;
-#line 1617
-  __cil_tmp42 = (unsigned long )sis_priv;
-#line 1617
-  __cil_tmp43 = __cil_tmp42 + 560;
-#line 1617
-  __cil_tmp44 = *((BufferDesc **)__cil_tmp43);
-#line 1617
-  __cil_tmp45 = __cil_tmp44 + __cil_tmp41;
-#line 1617
-  __cil_tmp46 = (unsigned long )__cil_tmp45;
-#line 1617
-  __cil_tmp47 = __cil_tmp46 + 8;
-#line 1617
-  *((u32 *)__cil_tmp47) = (unsigned int )tmp___1;
+  __cil_tmp27->bufptr = (u32 )tmp___1;
 #line 1619
-  __cil_tmp48 = (unsigned long )entry;
+  __cil_tmp28 = (unsigned long )entry;
 #line 1619
-  __cil_tmp49 = (unsigned long )sis_priv;
+  __cil_tmp29 = sis_priv->tx_ring;
 #line 1619
-  __cil_tmp50 = __cil_tmp49 + 560;
+  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
 #line 1619
-  __cil_tmp51 = *((BufferDesc **)__cil_tmp50);
+  __cil_tmp31 = skb->len;
 #line 1619
-  __cil_tmp52 = __cil_tmp51 + __cil_tmp48;
-#line 1619
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 1619
-  __cil_tmp54 = __cil_tmp53 + 4;
-#line 1619
-  __cil_tmp55 = (unsigned long )skb;
-#line 1619
-  __cil_tmp56 = __cil_tmp55 + 104;
-#line 1619
-  __cil_tmp57 = *((unsigned int *)__cil_tmp56);
-#line 1619
-  *((u32 *)__cil_tmp54) = __cil_tmp57 | 2147483648U;
+  __cil_tmp30->cmdsts = __cil_tmp31 | 2147483648U;
 #line 1620
-  __cil_tmp58 = (int )ioaddr;
+  __cil_tmp32 = (int )ioaddr;
 #line 1620
-  tmp___2 = inl(__cil_tmp58);
+  tmp___2 = inl(__cil_tmp32);
 #line 1620
-  __cil_tmp59 = tmp___2 | 1U;
+  __cil_tmp33 = tmp___2 | 1U;
 #line 1620
-  __cil_tmp60 = (int )ioaddr;
+  __cil_tmp34 = (int )ioaddr;
 #line 1620
-  outl(__cil_tmp59, __cil_tmp60);
+  outl(__cil_tmp33, __cil_tmp34);
 #line 1622
-  __cil_tmp61 = (unsigned long )sis_priv;
+  __cil_tmp35 = sis_priv->cur_tx;
 #line 1622
-  __cil_tmp62 = __cil_tmp61 + 296;
-#line 1622
-  __cil_tmp63 = (unsigned long )sis_priv;
-#line 1622
-  __cil_tmp64 = __cil_tmp63 + 296;
-#line 1622
-  __cil_tmp65 = *((unsigned int *)__cil_tmp64);
-#line 1622
-  *((unsigned int *)__cil_tmp62) = __cil_tmp65 + 1U;
+  sis_priv->cur_tx = __cil_tmp35 + 1U;
 #line 1623
-  __cil_tmp66 = (unsigned long )sis_priv;
-#line 1623
-  __cil_tmp67 = __cil_tmp66 + 296;
-#line 1623
-  index_cur_tx = *((unsigned int *)__cil_tmp67);
+  index_cur_tx = sis_priv->cur_tx;
 #line 1624
-  __cil_tmp68 = (unsigned long )sis_priv;
-#line 1624
-  __cil_tmp69 = __cil_tmp68 + 300;
-#line 1624
-  index_dirty_tx = *((unsigned int *)__cil_tmp69);
+  index_dirty_tx = sis_priv->dirty_tx;
 #line 1626
   count_dirty_tx = 0U;
   }
+#line 1626
   goto ldv_35705;
   ldv_35704: 
 #line 1627
@@ -15330,8 +13398,10 @@ static netdev_tx_t sis900_start_xmit(struct sk_buff *skb , struct net_device *ne
   ldv_35705: ;
 #line 1626
   if (index_cur_tx != index_dirty_tx) {
+#line 1627
     goto ldv_35704;
   } else {
+#line 1629
     goto ldv_35706;
   }
   ldv_35706: ;
@@ -15339,84 +13409,59 @@ static netdev_tx_t sis900_start_xmit(struct sk_buff *skb , struct net_device *ne
   if (index_cur_tx == index_dirty_tx) {
     {
 #line 1631
-    __cil_tmp70 = (unsigned long )sis_priv;
-#line 1631
-    __cil_tmp71 = __cil_tmp70 + 592;
-#line 1631
-    *((unsigned int *)__cil_tmp71) = 1U;
+    sis_priv->tx_full = 1U;
 #line 1632
     netif_stop_queue(net_dev);
     }
-  } else {
+  } else
 #line 1633
-    if (count_dirty_tx <= 15U) {
-      {
+  if (count_dirty_tx <= 15U) {
+    {
 #line 1635
-      netif_start_queue(net_dev);
-      }
-    } else {
-      {
+    netif_start_queue(net_dev);
+    }
+  } else {
+    {
 #line 1638
-      __cil_tmp72 = (unsigned long )sis_priv;
-#line 1638
-      __cil_tmp73 = __cil_tmp72 + 592;
-#line 1638
-      *((unsigned int *)__cil_tmp73) = 1U;
+    sis_priv->tx_full = 1U;
 #line 1639
-      netif_stop_queue(net_dev);
-      }
+    netif_stop_queue(net_dev);
     }
   }
   {
 #line 1642
-  __cil_tmp74 = (unsigned long )sis_priv;
+  __cil_tmp36 = & sis_priv->lock;
 #line 1642
-  __cil_tmp75 = __cil_tmp74 + 8;
-#line 1642
-  __cil_tmp76 = (spinlock_t *)__cil_tmp75;
-#line 1642
-  spin_unlock_irqrestore(__cil_tmp76, flags);
+  spin_unlock_irqrestore(__cil_tmp36, flags);
   }
   {
 #line 1644
-  __cil_tmp77 = (unsigned long )sis_priv;
+  __cil_tmp37 = sis_priv->msg_enable;
 #line 1644
-  __cil_tmp78 = __cil_tmp77 + 284;
+  __cil_tmp38 = __cil_tmp37 & 256U;
 #line 1644
-  __cil_tmp79 = *((u32 *)__cil_tmp78);
-#line 1644
-  __cil_tmp80 = __cil_tmp79 & 256U;
-#line 1644
-  if (__cil_tmp80 != 0U) {
+  if (__cil_tmp38 != 0U) {
     {
 #line 1645
-    __cil_tmp81 = (char (*)[16U])net_dev;
+    __cil_tmp39 = & net_dev->name;
 #line 1645
-    __cil_tmp82 = (char *)__cil_tmp81;
+    __cil_tmp40 = (char *)__cil_tmp39;
 #line 1645
-    __cil_tmp83 = (unsigned long )skb;
+    __cil_tmp41 = skb->data;
 #line 1645
-    __cil_tmp84 = __cil_tmp83 + 224;
+    __cil_tmp42 = skb->len;
 #line 1645
-    __cil_tmp85 = *((unsigned char **)__cil_tmp84);
+    __cil_tmp43 = (int )__cil_tmp42;
 #line 1645
-    __cil_tmp86 = (unsigned long )skb;
-#line 1645
-    __cil_tmp87 = __cil_tmp86 + 104;
-#line 1645
-    __cil_tmp88 = *((unsigned int *)__cil_tmp87);
-#line 1645
-    __cil_tmp89 = (int )__cil_tmp88;
-#line 1645
-    printk("<7>%s: Queued Tx packet at %p size %d to slot %d.\n", __cil_tmp82, __cil_tmp85,
-           __cil_tmp89, entry);
+    printk("<7>%s: Queued Tx packet at %p size %d to slot %d.\n", __cil_tmp40, __cil_tmp41,
+           __cil_tmp43, entry);
     }
   } else {
 
   }
   }
 #line 1649
-  return ((enum netdev_tx )0);
+  return ((netdev_tx_t )0);
 }
 }
 #line 1661 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
@@ -15431,43 +13476,31 @@ static irqreturn_t sis900_interrupt(int irq , void *dev_instance )
   unsigned int tmp___0 ;
   struct net_device  const  *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  spinlock_t *__cil_tmp17 ;
+  spinlock_t *__cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
   unsigned int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp20 ;
+  u32 __cil_tmp21 ;
   unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  u32 __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  char (*__cil_tmp29)[16U] ;
-  char *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  u32 __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  char (*__cil_tmp35)[16U] ;
-  char *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u32 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  char (*__cil_tmp44)[16U] ;
-  char *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  spinlock_t *__cil_tmp48 ;
-  int __cil_tmp49 ;
+  char (*__cil_tmp23)[16U] ;
+  char *__cil_tmp24 ;
+  u32 __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  char (*__cil_tmp27)[16U] ;
+  char *__cil_tmp28 ;
+  u32 __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  char (*__cil_tmp34)[16U] ;
+  char *__cil_tmp35 ;
+  spinlock_t *__cil_tmp36 ;
+  int __cil_tmp37 ;
 
   {
   {
@@ -15482,40 +13515,33 @@ static irqreturn_t sis900_interrupt(int irq , void *dev_instance )
 #line 1665
   boguscnt = max_interrupt_work;
 #line 1666
-  __cil_tmp12 = (unsigned long )net_dev;
+  __cil_tmp12 = net_dev->base_addr;
 #line 1666
-  __cil_tmp13 = __cil_tmp12 + 104;
-#line 1666
-  __cil_tmp14 = *((unsigned long *)__cil_tmp13);
-#line 1666
-  ioaddr = (long )__cil_tmp14;
+  ioaddr = (long )__cil_tmp12;
 #line 1668
   handled = 0U;
 #line 1670
-  __cil_tmp15 = (unsigned long )sis_priv;
+  __cil_tmp13 = & sis_priv->lock;
 #line 1670
-  __cil_tmp16 = __cil_tmp15 + 8;
-#line 1670
-  __cil_tmp17 = (spinlock_t *)__cil_tmp16;
-#line 1670
-  spin_lock(__cil_tmp17);
+  spin_lock(__cil_tmp13);
   }
   ldv_35718: 
   {
 #line 1673
-  __cil_tmp18 = (unsigned int )ioaddr;
+  __cil_tmp14 = (unsigned int )ioaddr;
 #line 1673
-  __cil_tmp19 = __cil_tmp18 + 16U;
+  __cil_tmp15 = __cil_tmp14 + 16U;
 #line 1673
-  __cil_tmp20 = (int )__cil_tmp19;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 1673
-  status = inl(__cil_tmp20);
+  status = inl(__cil_tmp16);
   }
   {
 #line 1675
-  __cil_tmp21 = status & 34597U;
+  __cil_tmp17 = status & 34597U;
 #line 1675
-  if (__cil_tmp21 == 0U) {
+  if (__cil_tmp17 == 0U) {
+#line 1677
     goto ldv_35717;
   } else {
 
@@ -15525,9 +13551,9 @@ static irqreturn_t sis900_interrupt(int irq , void *dev_instance )
   handled = 1U;
   {
 #line 1681
-  __cil_tmp22 = status & 37U;
+  __cil_tmp18 = status & 37U;
 #line 1681
-  if (__cil_tmp22 != 0U) {
+  if (__cil_tmp18 != 0U) {
     {
 #line 1683
     sis900_rx(net_dev);
@@ -15538,9 +13564,9 @@ static irqreturn_t sis900_interrupt(int irq , void *dev_instance )
   }
   {
 #line 1685
-  __cil_tmp23 = status & 1792U;
+  __cil_tmp19 = status & 1792U;
 #line 1685
-  if (__cil_tmp23 != 0U) {
+  if (__cil_tmp19 != 0U) {
     {
 #line 1687
     sis900_finish_xmit(net_dev);
@@ -15551,32 +13577,29 @@ static irqreturn_t sis900_interrupt(int irq , void *dev_instance )
   }
   {
 #line 1690
-  __cil_tmp24 = status & 32768U;
+  __cil_tmp20 = status & 32768U;
 #line 1690
-  if (__cil_tmp24 != 0U) {
+  if (__cil_tmp20 != 0U) {
     {
 #line 1691
-    __cil_tmp25 = (unsigned long )sis_priv;
+    __cil_tmp21 = sis_priv->msg_enable;
 #line 1691
-    __cil_tmp26 = __cil_tmp25 + 284;
+    __cil_tmp22 = __cil_tmp21 & 512U;
 #line 1691
-    __cil_tmp27 = *((u32 *)__cil_tmp26);
-#line 1691
-    __cil_tmp28 = __cil_tmp27 & 512U;
-#line 1691
-    if (__cil_tmp28 != 0U) {
+    if (__cil_tmp22 != 0U) {
       {
 #line 1692
-      __cil_tmp29 = (char (*)[16U])net_dev;
+      __cil_tmp23 = & net_dev->name;
 #line 1692
-      __cil_tmp30 = (char *)__cil_tmp29;
+      __cil_tmp24 = (char *)__cil_tmp23;
 #line 1692
-      printk("<6>%s: Abnormal interrupt, status %#8.8x.\n", __cil_tmp30, status);
+      printk("<6>%s: Abnormal interrupt, status %#8.8x.\n", __cil_tmp24, status);
       }
     } else {
 
     }
     }
+#line 1694
     goto ldv_35717;
   } else {
 
@@ -15588,60 +13611,54 @@ static irqreturn_t sis900_interrupt(int irq , void *dev_instance )
   if (boguscnt < 0) {
     {
 #line 1697
-    __cil_tmp31 = (unsigned long )sis_priv;
+    __cil_tmp25 = sis_priv->msg_enable;
 #line 1697
-    __cil_tmp32 = __cil_tmp31 + 284;
+    __cil_tmp26 = __cil_tmp25 & 512U;
 #line 1697
-    __cil_tmp33 = *((u32 *)__cil_tmp32);
-#line 1697
-    __cil_tmp34 = __cil_tmp33 & 512U;
-#line 1697
-    if (__cil_tmp34 != 0U) {
+    if (__cil_tmp26 != 0U) {
       {
 #line 1698
-      __cil_tmp35 = (char (*)[16U])net_dev;
+      __cil_tmp27 = & net_dev->name;
 #line 1698
-      __cil_tmp36 = (char *)__cil_tmp35;
+      __cil_tmp28 = (char *)__cil_tmp27;
 #line 1698
-      printk("<6>%s: Too much work at interrupt, interrupt status = %#8.8x.\n", __cil_tmp36,
+      printk("<6>%s: Too much work at interrupt, interrupt status = %#8.8x.\n", __cil_tmp28,
              status);
       }
     } else {
 
     }
     }
+#line 1701
     goto ldv_35717;
   } else {
 
   }
+#line 1703
   goto ldv_35718;
   ldv_35717: ;
   {
 #line 1705
-  __cil_tmp37 = (unsigned long )sis_priv;
+  __cil_tmp29 = sis_priv->msg_enable;
 #line 1705
-  __cil_tmp38 = __cil_tmp37 + 284;
+  __cil_tmp30 = __cil_tmp29 & 512U;
 #line 1705
-  __cil_tmp39 = *((u32 *)__cil_tmp38);
-#line 1705
-  __cil_tmp40 = __cil_tmp39 & 512U;
-#line 1705
-  if (__cil_tmp40 != 0U) {
+  if (__cil_tmp30 != 0U) {
     {
 #line 1706
-    __cil_tmp41 = (unsigned int )ioaddr;
+    __cil_tmp31 = (unsigned int )ioaddr;
 #line 1706
-    __cil_tmp42 = __cil_tmp41 + 16U;
+    __cil_tmp32 = __cil_tmp31 + 16U;
 #line 1706
-    __cil_tmp43 = (int )__cil_tmp42;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 1706
-    tmp___0 = inl(__cil_tmp43);
+    tmp___0 = inl(__cil_tmp33);
 #line 1706
-    __cil_tmp44 = (char (*)[16U])net_dev;
+    __cil_tmp34 = & net_dev->name;
 #line 1706
-    __cil_tmp45 = (char *)__cil_tmp44;
+    __cil_tmp35 = (char *)__cil_tmp34;
 #line 1706
-    printk("<7>%s: exiting interrupt, interrupt status = 0x%#8.8x.\n", __cil_tmp45,
+    printk("<7>%s: exiting interrupt, interrupt status = 0x%#8.8x.\n", __cil_tmp35,
            tmp___0);
     }
   } else {
@@ -15650,19 +13667,15 @@ static irqreturn_t sis900_interrupt(int irq , void *dev_instance )
   }
   {
 #line 1710
-  __cil_tmp46 = (unsigned long )sis_priv;
+  __cil_tmp36 = & sis_priv->lock;
 #line 1710
-  __cil_tmp47 = __cil_tmp46 + 8;
-#line 1710
-  __cil_tmp48 = (spinlock_t *)__cil_tmp47;
-#line 1710
-  spin_unlock(__cil_tmp48);
+  spin_unlock(__cil_tmp36);
   }
   {
 #line 1711
-  __cil_tmp49 = handled != 0U;
+  __cil_tmp37 = handled != 0U;
 #line 1711
-  return ((enum irqreturn )__cil_tmp49);
+  return ((irqreturn_t )__cil_tmp37);
   }
 }
 }
@@ -15684,269 +13697,105 @@ static int sis900_rx(struct net_device *net_dev )
   unsigned int tmp___2 ;
   struct net_device  const  *__cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  unsigned int __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  BufferDesc *__cil_tmp26 ;
-  BufferDesc *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  BufferDesc *__cil_tmp20 ;
+  BufferDesc *__cil_tmp21 ;
+  u32 __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
   u32 __cil_tmp32 ;
   unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  char (*__cil_tmp34)[16U] ;
+  char *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
   unsigned int __cil_tmp39 ;
   unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  unsigned int __cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
   unsigned long __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  unsigned long __cil_tmp45 ;
+  BufferDesc *__cil_tmp46 ;
+  BufferDesc *__cil_tmp47 ;
+  struct pci_dev *__cil_tmp48 ;
+  unsigned long __cil_tmp49 ;
+  BufferDesc *__cil_tmp50 ;
+  BufferDesc *__cil_tmp51 ;
   u32 __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  char (*__cil_tmp54)[16U] ;
-  char *__cil_tmp55 ;
+  dma_addr_t __cil_tmp53 ;
+  struct sk_buff *__cil_tmp54 ;
+  unsigned long __cil_tmp55 ;
   unsigned long __cil_tmp56 ;
   unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
+  struct sk_buff *__cil_tmp58 ;
   unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
+  struct sk_buff *__cil_tmp60 ;
   unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  u32 __cil_tmp62 ;
   unsigned int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
+  char (*__cil_tmp64)[16U] ;
+  char *__cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
   unsigned long __cil_tmp69 ;
   unsigned long __cil_tmp70 ;
-  unsigned int __cil_tmp71 ;
+  unsigned long __cil_tmp71 ;
   unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  unsigned int __cil_tmp73 ;
   unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
+  BufferDesc *__cil_tmp75 ;
+  BufferDesc *__cil_tmp76 ;
+  struct pci_dev *__cil_tmp77 ;
+  unsigned char *__cil_tmp78 ;
+  void *__cil_tmp79 ;
   unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
+  BufferDesc *__cil_tmp81 ;
+  BufferDesc *__cil_tmp82 ;
+  unsigned int __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
   unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
+  BufferDesc *__cil_tmp86 ;
+  BufferDesc *__cil_tmp87 ;
+  int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
+  struct sk_buff *__cil_tmp90 ;
   unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
+  struct sk_buff *__cil_tmp92 ;
   unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
+  struct sk_buff *__cil_tmp94 ;
   unsigned long __cil_tmp95 ;
   unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  BufferDesc *__cil_tmp98 ;
-  BufferDesc *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
+  u32 __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  char (*__cil_tmp99)[16U] ;
+  char *__cil_tmp100 ;
   unsigned long __cil_tmp101 ;
-  struct pci_dev *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  BufferDesc *__cil_tmp106 ;
-  BufferDesc *__cil_tmp107 ;
+  unsigned long __cil_tmp102 ;
+  BufferDesc *__cil_tmp103 ;
+  BufferDesc *__cil_tmp104 ;
+  struct pci_dev *__cil_tmp105 ;
+  unsigned char *__cil_tmp106 ;
+  void *__cil_tmp107 ;
   unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  u32 __cil_tmp110 ;
-  unsigned long long __cil_tmp111 ;
-  struct sk_buff *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  struct sk_buff *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  struct sk_buff *__cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  u32 __cil_tmp136 ;
-  unsigned int __cil_tmp137 ;
-  char (*__cil_tmp138)[16U] ;
-  char *__cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned int __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned int __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned int __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned int __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  BufferDesc *__cil_tmp185 ;
-  BufferDesc *__cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  struct pci_dev *__cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned char *__cil_tmp192 ;
-  void *__cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  BufferDesc *__cil_tmp197 ;
-  BufferDesc *__cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned int __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  unsigned int __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  BufferDesc *__cil_tmp212 ;
-  BufferDesc *__cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  int __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned int __cil_tmp219 ;
-  struct sk_buff *__cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  struct sk_buff *__cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  struct sk_buff *__cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  u32 __cil_tmp233 ;
-  unsigned int __cil_tmp234 ;
-  char (*__cil_tmp235)[16U] ;
-  char *__cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  BufferDesc *__cil_tmp251 ;
-  BufferDesc *__cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  struct pci_dev *__cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned char *__cil_tmp258 ;
-  void *__cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  BufferDesc *__cil_tmp263 ;
-  BufferDesc *__cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  unsigned int __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
-  unsigned int __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  unsigned int __cil_tmp277 ;
-  int __cil_tmp278 ;
-  unsigned int __cil_tmp279 ;
-  int __cil_tmp280 ;
+  BufferDesc *__cil_tmp109 ;
+  BufferDesc *__cil_tmp110 ;
+  unsigned int __cil_tmp111 ;
+  unsigned int __cil_tmp112 ;
+  unsigned int __cil_tmp113 ;
+  int __cil_tmp114 ;
+  unsigned int __cil_tmp115 ;
+  int __cil_tmp116 ;
 
   {
   {
@@ -15957,94 +13806,60 @@ static int sis900_rx(struct net_device *net_dev )
 #line 1726
   sis_priv = (struct sis900_private *)tmp;
 #line 1727
-  __cil_tmp17 = (unsigned long )net_dev;
+  __cil_tmp17 = net_dev->base_addr;
 #line 1727
-  __cil_tmp18 = __cil_tmp17 + 104;
-#line 1727
-  __cil_tmp19 = *((unsigned long *)__cil_tmp18);
-#line 1727
-  ioaddr = (long )__cil_tmp19;
+  ioaddr = (long )__cil_tmp17;
 #line 1728
-  __cil_tmp20 = (unsigned long )sis_priv;
+  __cil_tmp18 = sis_priv->cur_rx;
 #line 1728
-  __cil_tmp21 = __cil_tmp20 + 288;
-#line 1728
-  __cil_tmp22 = *((unsigned int *)__cil_tmp21);
-#line 1728
-  entry = __cil_tmp22 & 15U;
+  entry = __cil_tmp18 & 15U;
 #line 1729
-  __cil_tmp23 = (unsigned long )entry;
+  __cil_tmp19 = (unsigned long )entry;
 #line 1729
-  __cil_tmp24 = (unsigned long )sis_priv;
+  __cil_tmp20 = sis_priv->rx_ring;
 #line 1729
-  __cil_tmp25 = __cil_tmp24 + 568;
+  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
 #line 1729
-  __cil_tmp26 = *((BufferDesc **)__cil_tmp25);
-#line 1729
-  __cil_tmp27 = __cil_tmp26 + __cil_tmp23;
-#line 1729
-  __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 1729
-  __cil_tmp29 = __cil_tmp28 + 4;
-#line 1729
-  rx_status = *((u32 *)__cil_tmp29);
+  rx_status = __cil_tmp21->cmdsts;
   }
   {
 #line 1732
-  __cil_tmp30 = (unsigned long )sis_priv;
+  __cil_tmp22 = sis_priv->msg_enable;
 #line 1732
-  __cil_tmp31 = __cil_tmp30 + 284;
+  __cil_tmp23 = __cil_tmp22 & 2048U;
 #line 1732
-  __cil_tmp32 = *((u32 *)__cil_tmp31);
-#line 1732
-  __cil_tmp33 = __cil_tmp32 & 2048U;
-#line 1732
-  if (__cil_tmp33 != 0U) {
+  if (__cil_tmp23 != 0U) {
     {
 #line 1733
-    __cil_tmp34 = (unsigned long )sis_priv;
+    __cil_tmp24 = sis_priv->cur_rx;
 #line 1733
-    __cil_tmp35 = __cil_tmp34 + 288;
+    __cil_tmp25 = sis_priv->dirty_rx;
 #line 1733
-    __cil_tmp36 = *((unsigned int *)__cil_tmp35);
-#line 1733
-    __cil_tmp37 = (unsigned long )sis_priv;
-#line 1733
-    __cil_tmp38 = __cil_tmp37 + 292;
-#line 1733
-    __cil_tmp39 = *((unsigned int *)__cil_tmp38);
-#line 1733
-    printk("<7>sis900_rx, cur_rx:%4.4d, dirty_rx:%4.4d status:0x%8.8x\n", __cil_tmp36,
-           __cil_tmp39, rx_status);
+    printk("<7>sis900_rx, cur_rx:%4.4d, dirty_rx:%4.4d status:0x%8.8x\n", __cil_tmp24,
+           __cil_tmp25, rx_status);
     }
   } else {
 
   }
   }
 #line 1736
-  __cil_tmp40 = (unsigned long )sis_priv;
+  __cil_tmp26 = sis_priv->cur_rx;
 #line 1736
-  __cil_tmp41 = __cil_tmp40 + 288;
+  __cil_tmp27 = sis_priv->dirty_rx;
 #line 1736
-  __cil_tmp42 = *((unsigned int *)__cil_tmp41);
+  __cil_tmp28 = __cil_tmp27 - __cil_tmp26;
 #line 1736
-  __cil_tmp43 = (unsigned long )sis_priv;
+  __cil_tmp29 = __cil_tmp28 + 16U;
 #line 1736
-  __cil_tmp44 = __cil_tmp43 + 292;
-#line 1736
-  __cil_tmp45 = *((unsigned int *)__cil_tmp44);
-#line 1736
-  __cil_tmp46 = __cil_tmp45 - __cil_tmp42;
-#line 1736
-  __cil_tmp47 = __cil_tmp46 + 16U;
-#line 1736
-  rx_work_limit = (int )__cil_tmp47;
+  rx_work_limit = (int )__cil_tmp29;
+#line 1738
   goto ldv_35734;
   ldv_35733: 
 #line 1742
   rx_work_limit = rx_work_limit - 1;
 #line 1742
   if (rx_work_limit < 0) {
+#line 1743
     goto ldv_35729;
   } else {
 
@@ -16055,9 +13870,9 @@ static int sis900_rx(struct net_device *net_dev )
   rx_size = data_size - 4U;
   {
 #line 1750
-  __cil_tmp48 = rx_status & 4194304U;
+  __cil_tmp30 = rx_status & 4194304U;
 #line 1750
-  if (__cil_tmp48 != 0U) {
+  if (__cil_tmp30 != 0U) {
 #line 1750
     if (data_size <= 1522U) {
 #line 1751
@@ -16071,27 +13886,23 @@ static int sis900_rx(struct net_device *net_dev )
   }
   {
 #line 1754
-  __cil_tmp49 = rx_status & 108789760U;
+  __cil_tmp31 = rx_status & 108789760U;
 #line 1754
-  if (__cil_tmp49 != 0U) {
+  if (__cil_tmp31 != 0U) {
     {
 #line 1756
-    __cil_tmp50 = (unsigned long )sis_priv;
+    __cil_tmp32 = sis_priv->msg_enable;
 #line 1756
-    __cil_tmp51 = __cil_tmp50 + 284;
+    __cil_tmp33 = __cil_tmp32 & 64U;
 #line 1756
-    __cil_tmp52 = *((u32 *)__cil_tmp51);
-#line 1756
-    __cil_tmp53 = __cil_tmp52 & 64U;
-#line 1756
-    if (__cil_tmp53 != 0U) {
+    if (__cil_tmp33 != 0U) {
       {
 #line 1757
-      __cil_tmp54 = (char (*)[16U])net_dev;
+      __cil_tmp34 = & net_dev->name;
 #line 1757
-      __cil_tmp55 = (char *)__cil_tmp54;
+      __cil_tmp35 = (char *)__cil_tmp34;
 #line 1757
-      printk("<7>%s: Corrupted packet received, buffer status = 0x%8.8x/%d.\n", __cil_tmp55,
+      printk("<7>%s: Corrupted packet received, buffer status = 0x%8.8x/%d.\n", __cil_tmp35,
              rx_status, data_size);
       }
     } else {
@@ -16099,199 +13910,104 @@ static int sis900_rx(struct net_device *net_dev )
     }
     }
 #line 1760
-    __cil_tmp56 = 200 + 32;
+    __cil_tmp36 = net_dev->stats.rx_errors;
 #line 1760
-    __cil_tmp57 = (unsigned long )net_dev;
-#line 1760
-    __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
-#line 1760
-    __cil_tmp59 = 200 + 32;
-#line 1760
-    __cil_tmp60 = (unsigned long )net_dev;
-#line 1760
-    __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 1760
-    __cil_tmp62 = *((unsigned long *)__cil_tmp61);
-#line 1760
-    *((unsigned long *)__cil_tmp58) = __cil_tmp62 + 1UL;
+    net_dev->stats.rx_errors = __cil_tmp36 + 1UL;
     {
 #line 1761
-    __cil_tmp63 = rx_status & 33554432U;
+    __cil_tmp37 = rx_status & 33554432U;
 #line 1761
-    if (__cil_tmp63 != 0U) {
+    if (__cil_tmp37 != 0U) {
 #line 1762
-      __cil_tmp64 = 200 + 88;
+      __cil_tmp38 = net_dev->stats.rx_over_errors;
 #line 1762
-      __cil_tmp65 = (unsigned long )net_dev;
-#line 1762
-      __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
-#line 1762
-      __cil_tmp67 = 200 + 88;
-#line 1762
-      __cil_tmp68 = (unsigned long )net_dev;
-#line 1762
-      __cil_tmp69 = __cil_tmp68 + __cil_tmp67;
-#line 1762
-      __cil_tmp70 = *((unsigned long *)__cil_tmp69);
-#line 1762
-      *((unsigned long *)__cil_tmp66) = __cil_tmp70 + 1UL;
+      net_dev->stats.rx_over_errors = __cil_tmp38 + 1UL;
     } else {
 
     }
     }
     {
 #line 1763
-    __cil_tmp71 = rx_status & 6291456U;
+    __cil_tmp39 = rx_status & 6291456U;
 #line 1763
-    if (__cil_tmp71 != 0U) {
+    if (__cil_tmp39 != 0U) {
 #line 1764
-      __cil_tmp72 = 200 + 80;
+      __cil_tmp40 = net_dev->stats.rx_length_errors;
 #line 1764
-      __cil_tmp73 = (unsigned long )net_dev;
-#line 1764
-      __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
-#line 1764
-      __cil_tmp75 = 200 + 80;
-#line 1764
-      __cil_tmp76 = (unsigned long )net_dev;
-#line 1764
-      __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 1764
-      __cil_tmp78 = *((unsigned long *)__cil_tmp77);
-#line 1764
-      *((unsigned long *)__cil_tmp74) = __cil_tmp78 + 1UL;
+      net_dev->stats.rx_length_errors = __cil_tmp40 + 1UL;
     } else {
 
     }
     }
     {
 #line 1765
-    __cil_tmp79 = rx_status & 1310720U;
+    __cil_tmp41 = rx_status & 1310720U;
 #line 1765
-    if (__cil_tmp79 != 0U) {
+    if (__cil_tmp41 != 0U) {
 #line 1766
-      __cil_tmp80 = 200 + 104;
+      __cil_tmp42 = net_dev->stats.rx_frame_errors;
 #line 1766
-      __cil_tmp81 = (unsigned long )net_dev;
-#line 1766
-      __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
-#line 1766
-      __cil_tmp83 = 200 + 104;
-#line 1766
-      __cil_tmp84 = (unsigned long )net_dev;
-#line 1766
-      __cil_tmp85 = __cil_tmp84 + __cil_tmp83;
-#line 1766
-      __cil_tmp86 = *((unsigned long *)__cil_tmp85);
-#line 1766
-      *((unsigned long *)__cil_tmp82) = __cil_tmp86 + 1UL;
+      net_dev->stats.rx_frame_errors = __cil_tmp42 + 1UL;
     } else {
 
     }
     }
     {
 #line 1767
-    __cil_tmp87 = rx_status & 524288U;
+    __cil_tmp43 = rx_status & 524288U;
 #line 1767
-    if (__cil_tmp87 != 0U) {
+    if (__cil_tmp43 != 0U) {
 #line 1768
-      __cil_tmp88 = 200 + 96;
+      __cil_tmp44 = net_dev->stats.rx_crc_errors;
 #line 1768
-      __cil_tmp89 = (unsigned long )net_dev;
-#line 1768
-      __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
-#line 1768
-      __cil_tmp91 = 200 + 96;
-#line 1768
-      __cil_tmp92 = (unsigned long )net_dev;
-#line 1768
-      __cil_tmp93 = __cil_tmp92 + __cil_tmp91;
-#line 1768
-      __cil_tmp94 = *((unsigned long *)__cil_tmp93);
-#line 1768
-      *((unsigned long *)__cil_tmp90) = __cil_tmp94 + 1UL;
+      net_dev->stats.rx_crc_errors = __cil_tmp44 + 1UL;
     } else {
 
     }
     }
 #line 1770
-    __cil_tmp95 = (unsigned long )entry;
+    __cil_tmp45 = (unsigned long )entry;
 #line 1770
-    __cil_tmp96 = (unsigned long )sis_priv;
+    __cil_tmp46 = sis_priv->rx_ring;
 #line 1770
-    __cil_tmp97 = __cil_tmp96 + 568;
+    __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
 #line 1770
-    __cil_tmp98 = *((BufferDesc **)__cil_tmp97);
-#line 1770
-    __cil_tmp99 = __cil_tmp98 + __cil_tmp95;
-#line 1770
-    __cil_tmp100 = (unsigned long )__cil_tmp99;
-#line 1770
-    __cil_tmp101 = __cil_tmp100 + 4;
-#line 1770
-    *((u32 *)__cil_tmp101) = 1540U;
+    __cil_tmp47->cmdsts = 1540U;
   } else {
     {
 #line 1775
-    __cil_tmp102 = *((struct pci_dev **)sis_priv);
+    __cil_tmp48 = sis_priv->pci_dev;
 #line 1775
-    __cil_tmp103 = (unsigned long )entry;
+    __cil_tmp49 = (unsigned long )entry;
 #line 1775
-    __cil_tmp104 = (unsigned long )sis_priv;
+    __cil_tmp50 = sis_priv->rx_ring;
 #line 1775
-    __cil_tmp105 = __cil_tmp104 + 568;
+    __cil_tmp51 = __cil_tmp50 + __cil_tmp49;
 #line 1775
-    __cil_tmp106 = *((BufferDesc **)__cil_tmp105);
+    __cil_tmp52 = __cil_tmp51->bufptr;
 #line 1775
-    __cil_tmp107 = __cil_tmp106 + __cil_tmp103;
+    __cil_tmp53 = (dma_addr_t )__cil_tmp52;
 #line 1775
-    __cil_tmp108 = (unsigned long )__cil_tmp107;
-#line 1775
-    __cil_tmp109 = __cil_tmp108 + 8;
-#line 1775
-    __cil_tmp110 = *((u32 *)__cil_tmp109);
-#line 1775
-    __cil_tmp111 = (unsigned long long )__cil_tmp110;
-#line 1775
-    pci_unmap_single(__cil_tmp102, __cil_tmp111, 1540UL, 2);
+    pci_unmap_single(__cil_tmp48, __cil_tmp53, 1540UL, 2);
 #line 1781
     skb = dev_alloc_skb(1540U);
     }
     {
 #line 1781
-    __cil_tmp112 = (struct sk_buff *)0;
+    __cil_tmp54 = (struct sk_buff *)0;
 #line 1781
-    __cil_tmp113 = (unsigned long )__cil_tmp112;
+    __cil_tmp55 = (unsigned long )__cil_tmp54;
 #line 1781
-    __cil_tmp114 = (unsigned long )skb;
+    __cil_tmp56 = (unsigned long )skb;
 #line 1781
-    if (__cil_tmp114 == __cil_tmp113) {
+    if (__cil_tmp56 == __cil_tmp55) {
 #line 1788
-      __cil_tmp115 = entry * 8UL;
-#line 1788
-      __cil_tmp116 = 432 + __cil_tmp115;
-#line 1788
-      __cil_tmp117 = (unsigned long )sis_priv;
-#line 1788
-      __cil_tmp118 = __cil_tmp117 + __cil_tmp116;
-#line 1788
-      skb = *((struct sk_buff **)__cil_tmp118);
+      skb = sis_priv->rx_skbuff[entry];
 #line 1789
-      __cil_tmp119 = 200 + 48;
+      __cil_tmp57 = net_dev->stats.rx_dropped;
 #line 1789
-      __cil_tmp120 = (unsigned long )net_dev;
-#line 1789
-      __cil_tmp121 = __cil_tmp120 + __cil_tmp119;
-#line 1789
-      __cil_tmp122 = 200 + 48;
-#line 1789
-      __cil_tmp123 = (unsigned long )net_dev;
-#line 1789
-      __cil_tmp124 = __cil_tmp123 + __cil_tmp122;
-#line 1789
-      __cil_tmp125 = *((unsigned long *)__cil_tmp124);
-#line 1789
-      *((unsigned long *)__cil_tmp121) = __cil_tmp125 + 1UL;
+      net_dev->stats.rx_dropped = __cil_tmp57 + 1UL;
+#line 1790
       goto refill_rx_ring;
     } else {
 
@@ -16299,54 +14015,34 @@ static int sis900_rx(struct net_device *net_dev )
     }
     {
 #line 1796
-    __cil_tmp126 = (struct sk_buff *)0;
+    __cil_tmp58 = (struct sk_buff *)0;
 #line 1796
-    __cil_tmp127 = (unsigned long )__cil_tmp126;
+    __cil_tmp59 = (unsigned long )__cil_tmp58;
 #line 1796
-    __cil_tmp128 = entry * 8UL;
+    __cil_tmp60 = sis_priv->rx_skbuff[entry];
 #line 1796
-    __cil_tmp129 = 432 + __cil_tmp128;
+    __cil_tmp61 = (unsigned long )__cil_tmp60;
 #line 1796
-    __cil_tmp130 = (unsigned long )sis_priv;
-#line 1796
-    __cil_tmp131 = __cil_tmp130 + __cil_tmp129;
-#line 1796
-    __cil_tmp132 = *((struct sk_buff **)__cil_tmp131);
-#line 1796
-    __cil_tmp133 = (unsigned long )__cil_tmp132;
-#line 1796
-    if (__cil_tmp133 == __cil_tmp127) {
+    if (__cil_tmp61 == __cil_tmp59) {
       {
 #line 1797
-      __cil_tmp134 = (unsigned long )sis_priv;
+      __cil_tmp62 = sis_priv->msg_enable;
 #line 1797
-      __cil_tmp135 = __cil_tmp134 + 284;
+      __cil_tmp63 = __cil_tmp62 & 64U;
 #line 1797
-      __cil_tmp136 = *((u32 *)__cil_tmp135);
-#line 1797
-      __cil_tmp137 = __cil_tmp136 & 64U;
-#line 1797
-      if (__cil_tmp137 != 0U) {
+      if (__cil_tmp63 != 0U) {
         {
 #line 1798
-        __cil_tmp138 = (char (*)[16U])net_dev;
+        __cil_tmp64 = & net_dev->name;
 #line 1798
-        __cil_tmp139 = (char *)__cil_tmp138;
+        __cil_tmp65 = (char *)__cil_tmp64;
 #line 1798
-        __cil_tmp140 = (unsigned long )sis_priv;
+        __cil_tmp66 = sis_priv->cur_rx;
 #line 1798
-        __cil_tmp141 = __cil_tmp140 + 288;
-#line 1798
-        __cil_tmp142 = *((unsigned int *)__cil_tmp141);
-#line 1798
-        __cil_tmp143 = (unsigned long )sis_priv;
-#line 1798
-        __cil_tmp144 = __cil_tmp143 + 292;
-#line 1798
-        __cil_tmp145 = *((unsigned int *)__cil_tmp144);
+        __cil_tmp67 = sis_priv->dirty_rx;
 #line 1798
         printk("<4>%s: NULL pointer encountered in Rx ring\ncur_rx:%4.4d, dirty_rx:%4.4d\n",
-               __cil_tmp139, __cil_tmp142, __cil_tmp145);
+               __cil_tmp65, __cil_tmp66, __cil_tmp67);
         }
       } else {
 
@@ -16356,6 +14052,7 @@ static int sis900_rx(struct net_device *net_dev )
 #line 1803
       consume_skb(skb);
       }
+#line 1804
       goto ldv_35729;
     } else {
 
@@ -16363,281 +14060,157 @@ static int sis900_rx(struct net_device *net_dev )
     }
     {
 #line 1808
-    __cil_tmp146 = entry * 8UL;
-#line 1808
-    __cil_tmp147 = 432 + __cil_tmp146;
-#line 1808
-    __cil_tmp148 = (unsigned long )sis_priv;
-#line 1808
-    __cil_tmp149 = __cil_tmp148 + __cil_tmp147;
-#line 1808
-    rx_skb = *((struct sk_buff **)__cil_tmp149);
+    rx_skb = sis_priv->rx_skbuff[entry];
 #line 1809
     skb_put(rx_skb, rx_size);
 #line 1810
-    __cil_tmp150 = (unsigned long )rx_skb;
-#line 1810
-    __cil_tmp151 = __cil_tmp150 + 126;
-#line 1810
-    *((__be16 *)__cil_tmp151) = eth_type_trans(rx_skb, net_dev);
+    rx_skb->protocol = eth_type_trans(rx_skb, net_dev);
 #line 1811
     netif_rx(rx_skb);
     }
     {
 #line 1814
-    __cil_tmp152 = rx_status & 25165824U;
+    __cil_tmp68 = rx_status & 25165824U;
 #line 1814
-    if (__cil_tmp152 == 16777216U) {
+    if (__cil_tmp68 == 16777216U) {
 #line 1815
-      __cil_tmp153 = 200 + 64;
+      __cil_tmp69 = net_dev->stats.multicast;
 #line 1815
-      __cil_tmp154 = (unsigned long )net_dev;
-#line 1815
-      __cil_tmp155 = __cil_tmp154 + __cil_tmp153;
-#line 1815
-      __cil_tmp156 = 200 + 64;
-#line 1815
-      __cil_tmp157 = (unsigned long )net_dev;
-#line 1815
-      __cil_tmp158 = __cil_tmp157 + __cil_tmp156;
-#line 1815
-      __cil_tmp159 = *((unsigned long *)__cil_tmp158);
-#line 1815
-      *((unsigned long *)__cil_tmp155) = __cil_tmp159 + 1UL;
+      net_dev->stats.multicast = __cil_tmp69 + 1UL;
     } else {
 
     }
     }
 #line 1816
-    __cil_tmp160 = 200 + 16;
+    __cil_tmp70 = (unsigned long )rx_size;
 #line 1816
-    __cil_tmp161 = (unsigned long )net_dev;
+    __cil_tmp71 = net_dev->stats.rx_bytes;
 #line 1816
-    __cil_tmp162 = __cil_tmp161 + __cil_tmp160;
-#line 1816
-    __cil_tmp163 = (unsigned long )rx_size;
-#line 1816
-    __cil_tmp164 = 200 + 16;
-#line 1816
-    __cil_tmp165 = (unsigned long )net_dev;
-#line 1816
-    __cil_tmp166 = __cil_tmp165 + __cil_tmp164;
-#line 1816
-    __cil_tmp167 = *((unsigned long *)__cil_tmp166);
-#line 1816
-    *((unsigned long *)__cil_tmp162) = __cil_tmp167 + __cil_tmp163;
+    net_dev->stats.rx_bytes = __cil_tmp71 + __cil_tmp70;
 #line 1817
-    __cil_tmp168 = (unsigned long )net_dev;
+    __cil_tmp72 = net_dev->stats.rx_packets;
 #line 1817
-    __cil_tmp169 = __cil_tmp168 + 200;
-#line 1817
-    __cil_tmp170 = (unsigned long )net_dev;
-#line 1817
-    __cil_tmp171 = __cil_tmp170 + 200;
-#line 1817
-    __cil_tmp172 = *((unsigned long *)__cil_tmp171);
-#line 1817
-    *((unsigned long *)__cil_tmp169) = __cil_tmp172 + 1UL;
+    net_dev->stats.rx_packets = __cil_tmp72 + 1UL;
 #line 1818
-    __cil_tmp173 = (unsigned long )sis_priv;
+    __cil_tmp73 = sis_priv->dirty_rx;
 #line 1818
-    __cil_tmp174 = __cil_tmp173 + 292;
-#line 1818
-    __cil_tmp175 = (unsigned long )sis_priv;
-#line 1818
-    __cil_tmp176 = __cil_tmp175 + 292;
-#line 1818
-    __cil_tmp177 = *((unsigned int *)__cil_tmp176);
-#line 1818
-    *((unsigned int *)__cil_tmp174) = __cil_tmp177 + 1U;
+    sis_priv->dirty_rx = __cil_tmp73 + 1U;
     refill_rx_ring: 
     {
 #line 1820
-    __cil_tmp178 = entry * 8UL;
-#line 1820
-    __cil_tmp179 = 432 + __cil_tmp178;
-#line 1820
-    __cil_tmp180 = (unsigned long )sis_priv;
-#line 1820
-    __cil_tmp181 = __cil_tmp180 + __cil_tmp179;
-#line 1820
-    *((struct sk_buff **)__cil_tmp181) = skb;
+    sis_priv->rx_skbuff[entry] = skb;
 #line 1821
-    __cil_tmp182 = (unsigned long )entry;
+    __cil_tmp74 = (unsigned long )entry;
 #line 1821
-    __cil_tmp183 = (unsigned long )sis_priv;
+    __cil_tmp75 = sis_priv->rx_ring;
 #line 1821
-    __cil_tmp184 = __cil_tmp183 + 568;
+    __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
 #line 1821
-    __cil_tmp185 = *((BufferDesc **)__cil_tmp184);
-#line 1821
-    __cil_tmp186 = __cil_tmp185 + __cil_tmp182;
-#line 1821
-    __cil_tmp187 = (unsigned long )__cil_tmp186;
-#line 1821
-    __cil_tmp188 = __cil_tmp187 + 4;
-#line 1821
-    *((u32 *)__cil_tmp188) = 1540U;
+    __cil_tmp76->cmdsts = 1540U;
 #line 1822
-    __cil_tmp189 = *((struct pci_dev **)sis_priv);
+    __cil_tmp77 = sis_priv->pci_dev;
 #line 1822
-    __cil_tmp190 = (unsigned long )skb;
+    __cil_tmp78 = skb->data;
 #line 1822
-    __cil_tmp191 = __cil_tmp190 + 224;
+    __cil_tmp79 = (void *)__cil_tmp78;
 #line 1822
-    __cil_tmp192 = *((unsigned char **)__cil_tmp191);
+    tmp___0 = pci_map_single(__cil_tmp77, __cil_tmp79, 1540UL, 2);
 #line 1822
-    __cil_tmp193 = (void *)__cil_tmp192;
+    __cil_tmp80 = (unsigned long )entry;
 #line 1822
-    tmp___0 = pci_map_single(__cil_tmp189, __cil_tmp193, 1540UL, 2);
+    __cil_tmp81 = sis_priv->rx_ring;
 #line 1822
-    __cil_tmp194 = (unsigned long )entry;
+    __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
 #line 1822
-    __cil_tmp195 = (unsigned long )sis_priv;
-#line 1822
-    __cil_tmp196 = __cil_tmp195 + 568;
-#line 1822
-    __cil_tmp197 = *((BufferDesc **)__cil_tmp196);
-#line 1822
-    __cil_tmp198 = __cil_tmp197 + __cil_tmp194;
-#line 1822
-    __cil_tmp199 = (unsigned long )__cil_tmp198;
-#line 1822
-    __cil_tmp200 = __cil_tmp199 + 8;
-#line 1822
-    *((u32 *)__cil_tmp200) = (unsigned int )tmp___0;
+    __cil_tmp82->bufptr = (u32 )tmp___0;
     }
   }
   }
 #line 1826
-  __cil_tmp201 = (unsigned long )sis_priv;
+  __cil_tmp83 = sis_priv->cur_rx;
 #line 1826
-  __cil_tmp202 = __cil_tmp201 + 288;
-#line 1826
-  __cil_tmp203 = (unsigned long )sis_priv;
-#line 1826
-  __cil_tmp204 = __cil_tmp203 + 288;
-#line 1826
-  __cil_tmp205 = *((unsigned int *)__cil_tmp204);
-#line 1826
-  *((unsigned int *)__cil_tmp202) = __cil_tmp205 + 1U;
+  sis_priv->cur_rx = __cil_tmp83 + 1U;
 #line 1827
-  __cil_tmp206 = (unsigned long )sis_priv;
+  __cil_tmp84 = sis_priv->cur_rx;
 #line 1827
-  __cil_tmp207 = __cil_tmp206 + 288;
-#line 1827
-  __cil_tmp208 = *((unsigned int *)__cil_tmp207);
-#line 1827
-  entry = __cil_tmp208 & 15U;
+  entry = __cil_tmp84 & 15U;
 #line 1828
-  __cil_tmp209 = (unsigned long )entry;
+  __cil_tmp85 = (unsigned long )entry;
 #line 1828
-  __cil_tmp210 = (unsigned long )sis_priv;
+  __cil_tmp86 = sis_priv->rx_ring;
 #line 1828
-  __cil_tmp211 = __cil_tmp210 + 568;
+  __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
 #line 1828
-  __cil_tmp212 = *((BufferDesc **)__cil_tmp211);
-#line 1828
-  __cil_tmp213 = __cil_tmp212 + __cil_tmp209;
-#line 1828
-  __cil_tmp214 = (unsigned long )__cil_tmp213;
-#line 1828
-  __cil_tmp215 = __cil_tmp214 + 4;
-#line 1828
-  rx_status = *((u32 *)__cil_tmp215);
+  rx_status = __cil_tmp87->cmdsts;
   ldv_35734: ;
   {
 #line 1738
-  __cil_tmp216 = (int )rx_status;
+  __cil_tmp88 = (int )rx_status;
 #line 1738
-  if (__cil_tmp216 < 0) {
+  if (__cil_tmp88 < 0) {
+#line 1739
     goto ldv_35733;
   } else {
+#line 1741
     goto ldv_35729;
   }
   }
   ldv_35729: ;
+#line 1833
   goto ldv_35738;
   ldv_35737: 
 #line 1836
-  __cil_tmp217 = (unsigned long )sis_priv;
+  __cil_tmp89 = sis_priv->dirty_rx;
 #line 1836
-  __cil_tmp218 = __cil_tmp217 + 292;
-#line 1836
-  __cil_tmp219 = *((unsigned int *)__cil_tmp218);
-#line 1836
-  entry = __cil_tmp219 & 15U;
+  entry = __cil_tmp89 & 15U;
   {
 #line 1838
-  __cil_tmp220 = (struct sk_buff *)0;
+  __cil_tmp90 = (struct sk_buff *)0;
 #line 1838
-  __cil_tmp221 = (unsigned long )__cil_tmp220;
+  __cil_tmp91 = (unsigned long )__cil_tmp90;
 #line 1838
-  __cil_tmp222 = entry * 8UL;
+  __cil_tmp92 = sis_priv->rx_skbuff[entry];
 #line 1838
-  __cil_tmp223 = 432 + __cil_tmp222;
+  __cil_tmp93 = (unsigned long )__cil_tmp92;
 #line 1838
-  __cil_tmp224 = (unsigned long )sis_priv;
-#line 1838
-  __cil_tmp225 = __cil_tmp224 + __cil_tmp223;
-#line 1838
-  __cil_tmp226 = *((struct sk_buff **)__cil_tmp225);
-#line 1838
-  __cil_tmp227 = (unsigned long )__cil_tmp226;
-#line 1838
-  if (__cil_tmp227 == __cil_tmp221) {
+  if (__cil_tmp93 == __cil_tmp91) {
     {
 #line 1839
     skb___0 = dev_alloc_skb(1540U);
     }
     {
 #line 1839
-    __cil_tmp228 = (struct sk_buff *)0;
+    __cil_tmp94 = (struct sk_buff *)0;
 #line 1839
-    __cil_tmp229 = (unsigned long )__cil_tmp228;
+    __cil_tmp95 = (unsigned long )__cil_tmp94;
 #line 1839
-    __cil_tmp230 = (unsigned long )skb___0;
+    __cil_tmp96 = (unsigned long )skb___0;
 #line 1839
-    if (__cil_tmp230 == __cil_tmp229) {
+    if (__cil_tmp96 == __cil_tmp95) {
       {
 #line 1844
-      __cil_tmp231 = (unsigned long )sis_priv;
+      __cil_tmp97 = sis_priv->msg_enable;
 #line 1844
-      __cil_tmp232 = __cil_tmp231 + 284;
+      __cil_tmp98 = __cil_tmp97 & 64U;
 #line 1844
-      __cil_tmp233 = *((u32 *)__cil_tmp232);
-#line 1844
-      __cil_tmp234 = __cil_tmp233 & 64U;
-#line 1844
-      if (__cil_tmp234 != 0U) {
+      if (__cil_tmp98 != 0U) {
         {
 #line 1845
-        __cil_tmp235 = (char (*)[16U])net_dev;
+        __cil_tmp99 = & net_dev->name;
 #line 1845
-        __cil_tmp236 = (char *)__cil_tmp235;
+        __cil_tmp100 = (char *)__cil_tmp99;
 #line 1845
-        printk("<6>%s: Memory squeeze, deferring packet.\n", __cil_tmp236);
+        printk("<6>%s: Memory squeeze, deferring packet.\n", __cil_tmp100);
         }
       } else {
 
       }
       }
 #line 1848
-      __cil_tmp237 = 200 + 48;
+      __cil_tmp101 = net_dev->stats.rx_dropped;
 #line 1848
-      __cil_tmp238 = (unsigned long )net_dev;
-#line 1848
-      __cil_tmp239 = __cil_tmp238 + __cil_tmp237;
-#line 1848
-      __cil_tmp240 = 200 + 48;
-#line 1848
-      __cil_tmp241 = (unsigned long )net_dev;
-#line 1848
-      __cil_tmp242 = __cil_tmp241 + __cil_tmp240;
-#line 1848
-      __cil_tmp243 = *((unsigned long *)__cil_tmp242);
-#line 1848
-      *((unsigned long *)__cil_tmp239) = __cil_tmp243 + 1UL;
+      net_dev->stats.rx_dropped = __cil_tmp101 + 1UL;
+#line 1849
       goto ldv_35736;
     } else {
 
@@ -16645,109 +14218,67 @@ static int sis900_rx(struct net_device *net_dev )
     }
     {
 #line 1851
-    __cil_tmp244 = entry * 8UL;
-#line 1851
-    __cil_tmp245 = 432 + __cil_tmp244;
-#line 1851
-    __cil_tmp246 = (unsigned long )sis_priv;
-#line 1851
-    __cil_tmp247 = __cil_tmp246 + __cil_tmp245;
-#line 1851
-    *((struct sk_buff **)__cil_tmp247) = skb___0;
+    sis_priv->rx_skbuff[entry] = skb___0;
 #line 1852
-    __cil_tmp248 = (unsigned long )entry;
+    __cil_tmp102 = (unsigned long )entry;
 #line 1852
-    __cil_tmp249 = (unsigned long )sis_priv;
+    __cil_tmp103 = sis_priv->rx_ring;
 #line 1852
-    __cil_tmp250 = __cil_tmp249 + 568;
+    __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
 #line 1852
-    __cil_tmp251 = *((BufferDesc **)__cil_tmp250);
-#line 1852
-    __cil_tmp252 = __cil_tmp251 + __cil_tmp248;
-#line 1852
-    __cil_tmp253 = (unsigned long )__cil_tmp252;
-#line 1852
-    __cil_tmp254 = __cil_tmp253 + 4;
-#line 1852
-    *((u32 *)__cil_tmp254) = 1540U;
+    __cil_tmp104->cmdsts = 1540U;
 #line 1853
-    __cil_tmp255 = *((struct pci_dev **)sis_priv);
+    __cil_tmp105 = sis_priv->pci_dev;
 #line 1853
-    __cil_tmp256 = (unsigned long )skb___0;
+    __cil_tmp106 = skb___0->data;
 #line 1853
-    __cil_tmp257 = __cil_tmp256 + 224;
+    __cil_tmp107 = (void *)__cil_tmp106;
 #line 1853
-    __cil_tmp258 = *((unsigned char **)__cil_tmp257);
+    tmp___1 = pci_map_single(__cil_tmp105, __cil_tmp107, 1540UL, 2);
 #line 1853
-    __cil_tmp259 = (void *)__cil_tmp258;
+    __cil_tmp108 = (unsigned long )entry;
 #line 1853
-    tmp___1 = pci_map_single(__cil_tmp255, __cil_tmp259, 1540UL, 2);
+    __cil_tmp109 = sis_priv->rx_ring;
 #line 1853
-    __cil_tmp260 = (unsigned long )entry;
+    __cil_tmp110 = __cil_tmp109 + __cil_tmp108;
 #line 1853
-    __cil_tmp261 = (unsigned long )sis_priv;
-#line 1853
-    __cil_tmp262 = __cil_tmp261 + 568;
-#line 1853
-    __cil_tmp263 = *((BufferDesc **)__cil_tmp262);
-#line 1853
-    __cil_tmp264 = __cil_tmp263 + __cil_tmp260;
-#line 1853
-    __cil_tmp265 = (unsigned long )__cil_tmp264;
-#line 1853
-    __cil_tmp266 = __cil_tmp265 + 8;
-#line 1853
-    *((u32 *)__cil_tmp266) = (unsigned int )tmp___1;
+    __cil_tmp110->bufptr = (u32 )tmp___1;
     }
   } else {
 
   }
   }
 #line 1833
-  __cil_tmp267 = (unsigned long )sis_priv;
+  __cil_tmp111 = sis_priv->dirty_rx;
 #line 1833
-  __cil_tmp268 = __cil_tmp267 + 292;
-#line 1833
-  __cil_tmp269 = (unsigned long )sis_priv;
-#line 1833
-  __cil_tmp270 = __cil_tmp269 + 292;
-#line 1833
-  __cil_tmp271 = *((unsigned int *)__cil_tmp270);
-#line 1833
-  *((unsigned int *)__cil_tmp268) = __cil_tmp271 + 1U;
+  sis_priv->dirty_rx = __cil_tmp111 + 1U;
   ldv_35738: ;
   {
 #line 1833
-  __cil_tmp272 = (unsigned long )sis_priv;
+  __cil_tmp112 = sis_priv->dirty_rx;
 #line 1833
-  __cil_tmp273 = __cil_tmp272 + 292;
+  __cil_tmp113 = sis_priv->cur_rx;
 #line 1833
-  __cil_tmp274 = *((unsigned int *)__cil_tmp273);
-#line 1833
-  __cil_tmp275 = (unsigned long )sis_priv;
-#line 1833
-  __cil_tmp276 = __cil_tmp275 + 288;
-#line 1833
-  __cil_tmp277 = *((unsigned int *)__cil_tmp276);
-#line 1833
-  if (__cil_tmp277 != __cil_tmp274) {
+  if (__cil_tmp113 != __cil_tmp112) {
+#line 1834
     goto ldv_35737;
   } else {
+#line 1836
     goto ldv_35736;
   }
   }
   ldv_35736: 
   {
 #line 1859
-  __cil_tmp278 = (int )ioaddr;
+  __cil_tmp114 = (int )ioaddr;
 #line 1859
-  tmp___2 = inl(__cil_tmp278);
+  tmp___2 = inl(__cil_tmp114);
 #line 1859
-  __cil_tmp279 = tmp___2 | 4U;
+  __cil_tmp115 = tmp___2 | 4U;
 #line 1859
-  __cil_tmp280 = (int )ioaddr;
+  __cil_tmp116 = (int )ioaddr;
 #line 1859
-  outl(__cil_tmp279, __cil_tmp280);
+  outl(__cil_tmp115, __cil_tmp116);
   }
 #line 1861
   return (0);
@@ -16762,149 +14293,55 @@ static void sis900_finish_xmit(struct net_device *net_dev )
   u32 tx_status ;
   int tmp___0 ;
   struct net_device  const  *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  unsigned int __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  BufferDesc *__cil_tmp15 ;
-  BufferDesc *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
+  BufferDesc *__cil_tmp11 ;
+  BufferDesc *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  u32 __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  char (*__cil_tmp17)[16U] ;
+  char *__cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
   unsigned int __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  u32 __cil_tmp23 ;
+  unsigned int __cil_tmp22 ;
+  unsigned long __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
-  char (*__cil_tmp25)[16U] ;
-  char *__cil_tmp26 ;
+  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
   unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
+  unsigned long __cil_tmp34 ;
   unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
+  struct pci_dev *__cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
+  BufferDesc *__cil_tmp38 ;
+  BufferDesc *__cil_tmp39 ;
+  u32 __cil_tmp40 ;
+  dma_addr_t __cil_tmp41 ;
   unsigned int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  size_t __cil_tmp43 ;
   unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  BufferDesc *__cil_tmp45 ;
+  BufferDesc *__cil_tmp46 ;
   unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
+  BufferDesc *__cil_tmp48 ;
+  BufferDesc *__cil_tmp49 ;
   unsigned int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct pci_dev *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  BufferDesc *__cil_tmp100 ;
-  BufferDesc *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  u32 __cil_tmp104 ;
-  unsigned long long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned int __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  BufferDesc *__cil_tmp117 ;
-  BufferDesc *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  BufferDesc *__cil_tmp124 ;
-  BufferDesc *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned int __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned int __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned int __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned int __cil_tmp141 ;
-  struct net_device  const  *__cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned int __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned int __cil_tmp148 ;
-  unsigned int __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  struct net_device  const  *__cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
 
   {
   {
@@ -16915,37 +14352,27 @@ static void sis900_finish_xmit(struct net_device *net_dev )
 #line 1876
   sis_priv = (struct sis900_private *)tmp;
   }
+#line 1878
   goto ldv_35748;
   ldv_35747: 
 #line 1883
-  __cil_tmp9 = (unsigned long )sis_priv;
+  __cil_tmp9 = sis_priv->dirty_tx;
 #line 1883
-  __cil_tmp10 = __cil_tmp9 + 300;
-#line 1883
-  __cil_tmp11 = *((unsigned int *)__cil_tmp10);
-#line 1883
-  entry = __cil_tmp11 & 15U;
+  entry = __cil_tmp9 & 15U;
 #line 1884
-  __cil_tmp12 = (unsigned long )entry;
+  __cil_tmp10 = (unsigned long )entry;
 #line 1884
-  __cil_tmp13 = (unsigned long )sis_priv;
+  __cil_tmp11 = sis_priv->tx_ring;
 #line 1884
-  __cil_tmp14 = __cil_tmp13 + 560;
+  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
 #line 1884
-  __cil_tmp15 = *((BufferDesc **)__cil_tmp14);
-#line 1884
-  __cil_tmp16 = __cil_tmp15 + __cil_tmp12;
-#line 1884
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 1884
-  __cil_tmp18 = __cil_tmp17 + 4;
-#line 1884
-  tx_status = *((u32 *)__cil_tmp18);
+  tx_status = __cil_tmp12->cmdsts;
   {
 #line 1886
-  __cil_tmp19 = (int )tx_status;
+  __cil_tmp13 = (int )tx_status;
 #line 1886
-  if (__cil_tmp19 < 0) {
+  if (__cil_tmp13 < 0) {
+#line 1890
     goto ldv_35746;
   } else {
 
@@ -16953,370 +14380,196 @@ static void sis900_finish_xmit(struct net_device *net_dev )
   }
   {
 #line 1893
-  __cil_tmp20 = tx_status & 102760448U;
+  __cil_tmp14 = tx_status & 102760448U;
 #line 1893
-  if (__cil_tmp20 != 0U) {
+  if (__cil_tmp14 != 0U) {
     {
 #line 1895
-    __cil_tmp21 = (unsigned long )sis_priv;
+    __cil_tmp15 = sis_priv->msg_enable;
 #line 1895
-    __cil_tmp22 = __cil_tmp21 + 284;
+    __cil_tmp16 = __cil_tmp15 & 128U;
 #line 1895
-    __cil_tmp23 = *((u32 *)__cil_tmp22);
-#line 1895
-    __cil_tmp24 = __cil_tmp23 & 128U;
-#line 1895
-    if (__cil_tmp24 != 0U) {
+    if (__cil_tmp16 != 0U) {
       {
 #line 1896
-      __cil_tmp25 = (char (*)[16U])net_dev;
+      __cil_tmp17 = & net_dev->name;
 #line 1896
-      __cil_tmp26 = (char *)__cil_tmp25;
+      __cil_tmp18 = (char *)__cil_tmp17;
 #line 1896
-      printk("<7>%s: Transmit error, Tx status %8.8x.\n", __cil_tmp26, tx_status);
+      printk("<7>%s: Transmit error, Tx status %8.8x.\n", __cil_tmp18, tx_status);
       }
     } else {
 
     }
     }
 #line 1899
-    __cil_tmp27 = 200 + 40;
+    __cil_tmp19 = net_dev->stats.tx_errors;
 #line 1899
-    __cil_tmp28 = (unsigned long )net_dev;
-#line 1899
-    __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 1899
-    __cil_tmp30 = 200 + 40;
-#line 1899
-    __cil_tmp31 = (unsigned long )net_dev;
-#line 1899
-    __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 1899
-    __cil_tmp33 = *((unsigned long *)__cil_tmp32);
-#line 1899
-    *((unsigned long *)__cil_tmp29) = __cil_tmp33 + 1UL;
+    net_dev->stats.tx_errors = __cil_tmp19 + 1UL;
     {
 #line 1900
-    __cil_tmp34 = tx_status & 33554432U;
+    __cil_tmp20 = tx_status & 33554432U;
 #line 1900
-    if (__cil_tmp34 != 0U) {
+    if (__cil_tmp20 != 0U) {
 #line 1901
-      __cil_tmp35 = 200 + 144;
+      __cil_tmp21 = net_dev->stats.tx_fifo_errors;
 #line 1901
-      __cil_tmp36 = (unsigned long )net_dev;
-#line 1901
-      __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 1901
-      __cil_tmp38 = 200 + 144;
-#line 1901
-      __cil_tmp39 = (unsigned long )net_dev;
-#line 1901
-      __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
-#line 1901
-      __cil_tmp41 = *((unsigned long *)__cil_tmp40);
-#line 1901
-      *((unsigned long *)__cil_tmp37) = __cil_tmp41 + 1UL;
+      net_dev->stats.tx_fifo_errors = __cil_tmp21 + 1UL;
     } else {
 
     }
     }
     {
 #line 1902
-    __cil_tmp42 = tx_status & 67108864U;
+    __cil_tmp22 = tx_status & 67108864U;
 #line 1902
-    if (__cil_tmp42 != 0U) {
+    if (__cil_tmp22 != 0U) {
 #line 1903
-      __cil_tmp43 = 200 + 128;
+      __cil_tmp23 = net_dev->stats.tx_aborted_errors;
 #line 1903
-      __cil_tmp44 = (unsigned long )net_dev;
-#line 1903
-      __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 1903
-      __cil_tmp46 = 200 + 128;
-#line 1903
-      __cil_tmp47 = (unsigned long )net_dev;
-#line 1903
-      __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
-#line 1903
-      __cil_tmp49 = *((unsigned long *)__cil_tmp48);
-#line 1903
-      *((unsigned long *)__cil_tmp45) = __cil_tmp49 + 1UL;
+      net_dev->stats.tx_aborted_errors = __cil_tmp23 + 1UL;
     } else {
 
     }
     }
     {
 #line 1904
-    __cil_tmp50 = tx_status & 16777216U;
+    __cil_tmp24 = tx_status & 16777216U;
 #line 1904
-    if (__cil_tmp50 != 0U) {
+    if (__cil_tmp24 != 0U) {
 #line 1905
-      __cil_tmp51 = 200 + 136;
+      __cil_tmp25 = net_dev->stats.tx_carrier_errors;
 #line 1905
-      __cil_tmp52 = (unsigned long )net_dev;
-#line 1905
-      __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
-#line 1905
-      __cil_tmp54 = 200 + 136;
-#line 1905
-      __cil_tmp55 = (unsigned long )net_dev;
-#line 1905
-      __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
-#line 1905
-      __cil_tmp57 = *((unsigned long *)__cil_tmp56);
-#line 1905
-      *((unsigned long *)__cil_tmp53) = __cil_tmp57 + 1UL;
+      net_dev->stats.tx_carrier_errors = __cil_tmp25 + 1UL;
     } else {
 
     }
     }
     {
 #line 1906
-    __cil_tmp58 = tx_status & 2097152U;
+    __cil_tmp26 = tx_status & 2097152U;
 #line 1906
-    if (__cil_tmp58 != 0U) {
+    if (__cil_tmp26 != 0U) {
 #line 1907
-      __cil_tmp59 = 200 + 160;
+      __cil_tmp27 = net_dev->stats.tx_window_errors;
 #line 1907
-      __cil_tmp60 = (unsigned long )net_dev;
-#line 1907
-      __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 1907
-      __cil_tmp62 = 200 + 160;
-#line 1907
-      __cil_tmp63 = (unsigned long )net_dev;
-#line 1907
-      __cil_tmp64 = __cil_tmp63 + __cil_tmp62;
-#line 1907
-      __cil_tmp65 = *((unsigned long *)__cil_tmp64);
-#line 1907
-      *((unsigned long *)__cil_tmp61) = __cil_tmp65 + 1UL;
+      net_dev->stats.tx_window_errors = __cil_tmp27 + 1UL;
     } else {
 
     }
     }
   } else {
 #line 1910
-    __cil_tmp66 = 200 + 72;
+    __cil_tmp28 = tx_status & 983040U;
 #line 1910
-    __cil_tmp67 = (unsigned long )net_dev;
+    __cil_tmp29 = __cil_tmp28 >> 16;
 #line 1910
-    __cil_tmp68 = __cil_tmp67 + __cil_tmp66;
+    __cil_tmp30 = (unsigned long )__cil_tmp29;
 #line 1910
-    __cil_tmp69 = tx_status & 983040U;
+    __cil_tmp31 = net_dev->stats.collisions;
 #line 1910
-    __cil_tmp70 = __cil_tmp69 >> 16;
-#line 1910
-    __cil_tmp71 = (unsigned long )__cil_tmp70;
-#line 1910
-    __cil_tmp72 = 200 + 72;
-#line 1910
-    __cil_tmp73 = (unsigned long )net_dev;
-#line 1910
-    __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
-#line 1910
-    __cil_tmp75 = *((unsigned long *)__cil_tmp74);
-#line 1910
-    *((unsigned long *)__cil_tmp68) = __cil_tmp75 + __cil_tmp71;
+    net_dev->stats.collisions = __cil_tmp31 + __cil_tmp30;
 #line 1911
-    __cil_tmp76 = 200 + 24;
+    __cil_tmp32 = (unsigned long )tx_status;
 #line 1911
-    __cil_tmp77 = (unsigned long )net_dev;
+    __cil_tmp33 = __cil_tmp32 & 4095UL;
 #line 1911
-    __cil_tmp78 = __cil_tmp77 + __cil_tmp76;
+    __cil_tmp34 = net_dev->stats.tx_bytes;
 #line 1911
-    __cil_tmp79 = (unsigned long )tx_status;
-#line 1911
-    __cil_tmp80 = __cil_tmp79 & 4095UL;
-#line 1911
-    __cil_tmp81 = 200 + 24;
-#line 1911
-    __cil_tmp82 = (unsigned long )net_dev;
-#line 1911
-    __cil_tmp83 = __cil_tmp82 + __cil_tmp81;
-#line 1911
-    __cil_tmp84 = *((unsigned long *)__cil_tmp83);
-#line 1911
-    *((unsigned long *)__cil_tmp78) = __cil_tmp84 + __cil_tmp80;
+    net_dev->stats.tx_bytes = __cil_tmp34 + __cil_tmp33;
 #line 1912
-    __cil_tmp85 = 200 + 8;
+    __cil_tmp35 = net_dev->stats.tx_packets;
 #line 1912
-    __cil_tmp86 = (unsigned long )net_dev;
-#line 1912
-    __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
-#line 1912
-    __cil_tmp88 = 200 + 8;
-#line 1912
-    __cil_tmp89 = (unsigned long )net_dev;
-#line 1912
-    __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
-#line 1912
-    __cil_tmp91 = *((unsigned long *)__cil_tmp90);
-#line 1912
-    *((unsigned long *)__cil_tmp87) = __cil_tmp91 + 1UL;
+    net_dev->stats.tx_packets = __cil_tmp35 + 1UL;
   }
   }
   {
 #line 1915
-  __cil_tmp92 = entry * 8UL;
-#line 1915
-  __cil_tmp93 = 304 + __cil_tmp92;
-#line 1915
-  __cil_tmp94 = (unsigned long )sis_priv;
-#line 1915
-  __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
-#line 1915
-  skb = *((struct sk_buff **)__cil_tmp95);
+  skb = sis_priv->tx_skbuff[entry];
 #line 1916
-  __cil_tmp96 = *((struct pci_dev **)sis_priv);
+  __cil_tmp36 = sis_priv->pci_dev;
 #line 1916
-  __cil_tmp97 = (unsigned long )entry;
+  __cil_tmp37 = (unsigned long )entry;
 #line 1916
-  __cil_tmp98 = (unsigned long )sis_priv;
+  __cil_tmp38 = sis_priv->tx_ring;
 #line 1916
-  __cil_tmp99 = __cil_tmp98 + 560;
+  __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
 #line 1916
-  __cil_tmp100 = *((BufferDesc **)__cil_tmp99);
+  __cil_tmp40 = __cil_tmp39->bufptr;
 #line 1916
-  __cil_tmp101 = __cil_tmp100 + __cil_tmp97;
+  __cil_tmp41 = (dma_addr_t )__cil_tmp40;
 #line 1916
-  __cil_tmp102 = (unsigned long )__cil_tmp101;
+  __cil_tmp42 = skb->len;
 #line 1916
-  __cil_tmp103 = __cil_tmp102 + 8;
+  __cil_tmp43 = (size_t )__cil_tmp42;
 #line 1916
-  __cil_tmp104 = *((u32 *)__cil_tmp103);
-#line 1916
-  __cil_tmp105 = (unsigned long long )__cil_tmp104;
-#line 1916
-  __cil_tmp106 = (unsigned long )skb;
-#line 1916
-  __cil_tmp107 = __cil_tmp106 + 104;
-#line 1916
-  __cil_tmp108 = *((unsigned int *)__cil_tmp107);
-#line 1916
-  __cil_tmp109 = (unsigned long )__cil_tmp108;
-#line 1916
-  pci_unmap_single(__cil_tmp96, __cil_tmp105, __cil_tmp109, 1);
+  pci_unmap_single(__cil_tmp36, __cil_tmp41, __cil_tmp43, 1);
 #line 1919
   dev_kfree_skb_irq(skb);
 #line 1920
-  __cil_tmp110 = entry * 8UL;
-#line 1920
-  __cil_tmp111 = 304 + __cil_tmp110;
-#line 1920
-  __cil_tmp112 = (unsigned long )sis_priv;
-#line 1920
-  __cil_tmp113 = __cil_tmp112 + __cil_tmp111;
-#line 1920
-  *((struct sk_buff **)__cil_tmp113) = (struct sk_buff *)0;
+  sis_priv->tx_skbuff[entry] = (struct sk_buff *)0;
 #line 1921
-  __cil_tmp114 = (unsigned long )entry;
+  __cil_tmp44 = (unsigned long )entry;
 #line 1921
-  __cil_tmp115 = (unsigned long )sis_priv;
+  __cil_tmp45 = sis_priv->tx_ring;
 #line 1921
-  __cil_tmp116 = __cil_tmp115 + 560;
+  __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
 #line 1921
-  __cil_tmp117 = *((BufferDesc **)__cil_tmp116);
-#line 1921
-  __cil_tmp118 = __cil_tmp117 + __cil_tmp114;
-#line 1921
-  __cil_tmp119 = (unsigned long )__cil_tmp118;
-#line 1921
-  __cil_tmp120 = __cil_tmp119 + 8;
-#line 1921
-  *((u32 *)__cil_tmp120) = 0U;
+  __cil_tmp46->bufptr = 0U;
 #line 1922
-  __cil_tmp121 = (unsigned long )entry;
+  __cil_tmp47 = (unsigned long )entry;
 #line 1922
-  __cil_tmp122 = (unsigned long )sis_priv;
+  __cil_tmp48 = sis_priv->tx_ring;
 #line 1922
-  __cil_tmp123 = __cil_tmp122 + 560;
+  __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
 #line 1922
-  __cil_tmp124 = *((BufferDesc **)__cil_tmp123);
-#line 1922
-  __cil_tmp125 = __cil_tmp124 + __cil_tmp121;
-#line 1922
-  __cil_tmp126 = (unsigned long )__cil_tmp125;
-#line 1922
-  __cil_tmp127 = __cil_tmp126 + 4;
-#line 1922
-  *((u32 *)__cil_tmp127) = 0U;
+  __cil_tmp49->cmdsts = 0U;
 #line 1878
-  __cil_tmp128 = (unsigned long )sis_priv;
+  __cil_tmp50 = sis_priv->dirty_tx;
 #line 1878
-  __cil_tmp129 = __cil_tmp128 + 300;
-#line 1878
-  __cil_tmp130 = (unsigned long )sis_priv;
-#line 1878
-  __cil_tmp131 = __cil_tmp130 + 300;
-#line 1878
-  __cil_tmp132 = *((unsigned int *)__cil_tmp131);
-#line 1878
-  *((unsigned int *)__cil_tmp129) = __cil_tmp132 + 1U;
+  sis_priv->dirty_tx = __cil_tmp50 + 1U;
   }
   ldv_35748: ;
   {
 #line 1878
-  __cil_tmp133 = (unsigned long )sis_priv;
+  __cil_tmp51 = sis_priv->cur_tx;
 #line 1878
-  __cil_tmp134 = __cil_tmp133 + 296;
+  __cil_tmp52 = sis_priv->dirty_tx;
 #line 1878
-  __cil_tmp135 = *((unsigned int *)__cil_tmp134);
-#line 1878
-  __cil_tmp136 = (unsigned long )sis_priv;
-#line 1878
-  __cil_tmp137 = __cil_tmp136 + 300;
-#line 1878
-  __cil_tmp138 = *((unsigned int *)__cil_tmp137);
-#line 1878
-  if (__cil_tmp138 != __cil_tmp135) {
+  if (__cil_tmp52 != __cil_tmp51) {
+#line 1879
     goto ldv_35747;
   } else {
+#line 1881
     goto ldv_35746;
   }
   }
   ldv_35746: ;
   {
 #line 1925
-  __cil_tmp139 = (unsigned long )sis_priv;
+  __cil_tmp53 = sis_priv->tx_full;
 #line 1925
-  __cil_tmp140 = __cil_tmp139 + 592;
-#line 1925
-  __cil_tmp141 = *((unsigned int *)__cil_tmp140);
-#line 1925
-  if (__cil_tmp141 != 0U) {
+  if (__cil_tmp53 != 0U) {
     {
 #line 1925
-    __cil_tmp142 = (struct net_device  const  *)net_dev;
+    __cil_tmp54 = (struct net_device  const  *)net_dev;
 #line 1925
-    tmp___0 = netif_queue_stopped(__cil_tmp142);
+    tmp___0 = netif_queue_stopped(__cil_tmp54);
     }
 #line 1925
     if (tmp___0 != 0) {
       {
 #line 1925
-      __cil_tmp143 = (unsigned long )sis_priv;
+      __cil_tmp55 = sis_priv->dirty_tx;
 #line 1925
-      __cil_tmp144 = __cil_tmp143 + 300;
+      __cil_tmp56 = sis_priv->cur_tx;
 #line 1925
-      __cil_tmp145 = *((unsigned int *)__cil_tmp144);
+      __cil_tmp57 = __cil_tmp56 - __cil_tmp55;
 #line 1925
-      __cil_tmp146 = (unsigned long )sis_priv;
-#line 1925
-      __cil_tmp147 = __cil_tmp146 + 296;
-#line 1925
-      __cil_tmp148 = *((unsigned int *)__cil_tmp147);
-#line 1925
-      __cil_tmp149 = __cil_tmp148 - __cil_tmp145;
-#line 1925
-      if (__cil_tmp149 <= 11U) {
+      if (__cil_tmp57 <= 11U) {
         {
 #line 1929
-        __cil_tmp150 = (unsigned long )sis_priv;
-#line 1929
-        __cil_tmp151 = __cil_tmp150 + 592;
-#line 1929
-        *((unsigned int *)__cil_tmp151) = 0U;
+        sis_priv->tx_full = 0U;
 #line 1930
         netif_wake_queue(net_dev);
         }
@@ -17344,193 +14597,126 @@ static int sis900_close(struct net_device *net_dev )
   int i ;
   unsigned int tmp___0 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct net_device  const  *__cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+  struct net_device  const  *__cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  int __cil_tmp12 ;
   unsigned int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  int __cil_tmp17 ;
+  unsigned int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
   int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct timer_list *__cil_tmp23 ;
+  struct timer_list *__cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  void *__cil_tmp21 ;
+  struct sk_buff *__cil_tmp22 ;
+  unsigned long __cil_tmp23 ;
   unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  void *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct sk_buff *__cil_tmp32 ;
+  struct pci_dev *__cil_tmp25 ;
+  unsigned long __cil_tmp26 ;
+  BufferDesc *__cil_tmp27 ;
+  BufferDesc *__cil_tmp28 ;
+  u32 __cil_tmp29 ;
+  dma_addr_t __cil_tmp30 ;
+  struct sk_buff *__cil_tmp31 ;
+  unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct pci_dev *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  BufferDesc *__cil_tmp39 ;
-  BufferDesc *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u32 __cil_tmp43 ;
-  unsigned long long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct sk_buff *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct pci_dev *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  BufferDesc *__cil_tmp60 ;
-  BufferDesc *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u32 __cil_tmp64 ;
-  unsigned long long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  struct pci_dev *__cil_tmp34 ;
+  unsigned long __cil_tmp35 ;
+  BufferDesc *__cil_tmp36 ;
+  BufferDesc *__cil_tmp37 ;
+  u32 __cil_tmp38 ;
+  dma_addr_t __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  size_t __cil_tmp41 ;
 
   {
   {
 #line 1944
-  __cil_tmp8 = (unsigned long )net_dev;
+  __cil_tmp8 = net_dev->base_addr;
 #line 1944
-  __cil_tmp9 = __cil_tmp8 + 104;
-#line 1944
-  __cil_tmp10 = *((unsigned long *)__cil_tmp9);
-#line 1944
-  ioaddr = (long )__cil_tmp10;
+  ioaddr = (long )__cil_tmp8;
 #line 1945
-  __cil_tmp11 = (struct net_device  const  *)net_dev;
+  __cil_tmp9 = (struct net_device  const  *)net_dev;
 #line 1945
-  tmp = netdev_priv(__cil_tmp11);
+  tmp = netdev_priv(__cil_tmp9);
 #line 1945
   sis_priv = (struct sis900_private *)tmp;
 #line 1949
   netif_stop_queue(net_dev);
 #line 1952
-  __cil_tmp12 = (unsigned int )ioaddr;
+  __cil_tmp10 = (unsigned int )ioaddr;
 #line 1952
-  __cil_tmp13 = __cil_tmp12 + 20U;
+  __cil_tmp11 = __cil_tmp10 + 20U;
 #line 1952
-  __cil_tmp14 = (int )__cil_tmp13;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 1952
-  outl(0U, __cil_tmp14);
+  outl(0U, __cil_tmp12);
 #line 1953
-  __cil_tmp15 = (unsigned int )ioaddr;
+  __cil_tmp13 = (unsigned int )ioaddr;
 #line 1953
-  __cil_tmp16 = __cil_tmp15 + 24U;
+  __cil_tmp14 = __cil_tmp13 + 24U;
 #line 1953
-  __cil_tmp17 = (int )__cil_tmp16;
+  __cil_tmp15 = (int )__cil_tmp14;
 #line 1953
-  outl(0U, __cil_tmp17);
+  outl(0U, __cil_tmp15);
+#line 1956
+  __cil_tmp16 = (int )ioaddr;
+#line 1956
+  tmp___0 = inl(__cil_tmp16);
+#line 1956
+  __cil_tmp17 = tmp___0 | 10U;
 #line 1956
   __cil_tmp18 = (int )ioaddr;
 #line 1956
-  tmp___0 = inl(__cil_tmp18);
-#line 1956
-  __cil_tmp19 = tmp___0 | 10U;
-#line 1956
-  __cil_tmp20 = (int )ioaddr;
-#line 1956
-  outl(__cil_tmp19, __cil_tmp20);
+  outl(__cil_tmp17, __cil_tmp18);
 #line 1958
-  __cil_tmp21 = (unsigned long )sis_priv;
+  __cil_tmp19 = & sis_priv->timer;
 #line 1958
-  __cil_tmp22 = __cil_tmp21 + 152;
-#line 1958
-  __cil_tmp23 = (struct timer_list *)__cil_tmp22;
-#line 1958
-  del_timer(__cil_tmp23);
+  del_timer(__cil_tmp19);
 #line 1960
-  __cil_tmp24 = (unsigned long )net_dev;
+  __cil_tmp20 = net_dev->irq;
 #line 1960
-  __cil_tmp25 = __cil_tmp24 + 112;
+  __cil_tmp21 = (void *)net_dev;
 #line 1960
-  __cil_tmp26 = *((unsigned int *)__cil_tmp25);
-#line 1960
-  __cil_tmp27 = (void *)net_dev;
-#line 1960
-  free_irq(__cil_tmp26, __cil_tmp27);
+  free_irq(__cil_tmp20, __cil_tmp21);
 #line 1963
   i = 0;
   }
+#line 1963
   goto ldv_35757;
   ldv_35756: 
 #line 1964
-  __cil_tmp28 = i * 8UL;
-#line 1964
-  __cil_tmp29 = 432 + __cil_tmp28;
-#line 1964
-  __cil_tmp30 = (unsigned long )sis_priv;
-#line 1964
-  __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 1964
-  skb = *((struct sk_buff **)__cil_tmp31);
+  skb = sis_priv->rx_skbuff[i];
   {
 #line 1965
-  __cil_tmp32 = (struct sk_buff *)0;
+  __cil_tmp22 = (struct sk_buff *)0;
 #line 1965
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
+  __cil_tmp23 = (unsigned long )__cil_tmp22;
 #line 1965
-  __cil_tmp34 = (unsigned long )skb;
+  __cil_tmp24 = (unsigned long )skb;
 #line 1965
-  if (__cil_tmp34 != __cil_tmp33) {
+  if (__cil_tmp24 != __cil_tmp23) {
     {
 #line 1966
-    __cil_tmp35 = *((struct pci_dev **)sis_priv);
+    __cil_tmp25 = sis_priv->pci_dev;
 #line 1966
-    __cil_tmp36 = (unsigned long )i;
+    __cil_tmp26 = (unsigned long )i;
 #line 1966
-    __cil_tmp37 = (unsigned long )sis_priv;
+    __cil_tmp27 = sis_priv->rx_ring;
 #line 1966
-    __cil_tmp38 = __cil_tmp37 + 568;
+    __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
 #line 1966
-    __cil_tmp39 = *((BufferDesc **)__cil_tmp38);
+    __cil_tmp29 = __cil_tmp28->bufptr;
 #line 1966
-    __cil_tmp40 = __cil_tmp39 + __cil_tmp36;
+    __cil_tmp30 = (dma_addr_t )__cil_tmp29;
 #line 1966
-    __cil_tmp41 = (unsigned long )__cil_tmp40;
-#line 1966
-    __cil_tmp42 = __cil_tmp41 + 8;
-#line 1966
-    __cil_tmp43 = *((u32 *)__cil_tmp42);
-#line 1966
-    __cil_tmp44 = (unsigned long long )__cil_tmp43;
-#line 1966
-    pci_unmap_single(__cil_tmp35, __cil_tmp44, 1540UL, 2);
+    pci_unmap_single(__cil_tmp25, __cil_tmp30, 1540UL, 2);
 #line 1969
     consume_skb(skb);
 #line 1970
-    __cil_tmp45 = i * 8UL;
-#line 1970
-    __cil_tmp46 = 432 + __cil_tmp45;
-#line 1970
-    __cil_tmp47 = (unsigned long )sis_priv;
-#line 1970
-    __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
-#line 1970
-    *((struct sk_buff **)__cil_tmp48) = (struct sk_buff *)0;
+    sis_priv->rx_skbuff[i] = (struct sk_buff *)0;
     }
   } else {
 
@@ -17541,77 +14727,52 @@ static int sis900_close(struct net_device *net_dev )
   ldv_35757: ;
 #line 1963
   if (i <= 15) {
+#line 1964
     goto ldv_35756;
   } else {
+#line 1966
     goto ldv_35758;
   }
   ldv_35758: 
 #line 1973
   i = 0;
+#line 1973
   goto ldv_35760;
   ldv_35759: 
 #line 1974
-  __cil_tmp49 = i * 8UL;
-#line 1974
-  __cil_tmp50 = 304 + __cil_tmp49;
-#line 1974
-  __cil_tmp51 = (unsigned long )sis_priv;
-#line 1974
-  __cil_tmp52 = __cil_tmp51 + __cil_tmp50;
-#line 1974
-  skb = *((struct sk_buff **)__cil_tmp52);
+  skb = sis_priv->tx_skbuff[i];
   {
 #line 1975
-  __cil_tmp53 = (struct sk_buff *)0;
+  __cil_tmp31 = (struct sk_buff *)0;
 #line 1975
-  __cil_tmp54 = (unsigned long )__cil_tmp53;
+  __cil_tmp32 = (unsigned long )__cil_tmp31;
 #line 1975
-  __cil_tmp55 = (unsigned long )skb;
+  __cil_tmp33 = (unsigned long )skb;
 #line 1975
-  if (__cil_tmp55 != __cil_tmp54) {
+  if (__cil_tmp33 != __cil_tmp32) {
     {
 #line 1976
-    __cil_tmp56 = *((struct pci_dev **)sis_priv);
+    __cil_tmp34 = sis_priv->pci_dev;
 #line 1976
-    __cil_tmp57 = (unsigned long )i;
+    __cil_tmp35 = (unsigned long )i;
 #line 1976
-    __cil_tmp58 = (unsigned long )sis_priv;
+    __cil_tmp36 = sis_priv->tx_ring;
 #line 1976
-    __cil_tmp59 = __cil_tmp58 + 560;
+    __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
 #line 1976
-    __cil_tmp60 = *((BufferDesc **)__cil_tmp59);
+    __cil_tmp38 = __cil_tmp37->bufptr;
 #line 1976
-    __cil_tmp61 = __cil_tmp60 + __cil_tmp57;
+    __cil_tmp39 = (dma_addr_t )__cil_tmp38;
 #line 1976
-    __cil_tmp62 = (unsigned long )__cil_tmp61;
+    __cil_tmp40 = skb->len;
 #line 1976
-    __cil_tmp63 = __cil_tmp62 + 8;
+    __cil_tmp41 = (size_t )__cil_tmp40;
 #line 1976
-    __cil_tmp64 = *((u32 *)__cil_tmp63);
-#line 1976
-    __cil_tmp65 = (unsigned long long )__cil_tmp64;
-#line 1976
-    __cil_tmp66 = (unsigned long )skb;
-#line 1976
-    __cil_tmp67 = __cil_tmp66 + 104;
-#line 1976
-    __cil_tmp68 = *((unsigned int *)__cil_tmp67);
-#line 1976
-    __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 1976
-    pci_unmap_single(__cil_tmp56, __cil_tmp65, __cil_tmp69, 1);
+    pci_unmap_single(__cil_tmp34, __cil_tmp39, __cil_tmp41, 1);
 #line 1979
     consume_skb(skb);
 #line 1980
-    __cil_tmp70 = i * 8UL;
-#line 1980
-    __cil_tmp71 = 304 + __cil_tmp70;
-#line 1980
-    __cil_tmp72 = (unsigned long )sis_priv;
-#line 1980
-    __cil_tmp73 = __cil_tmp72 + __cil_tmp71;
-#line 1980
-    *((struct sk_buff **)__cil_tmp73) = (struct sk_buff *)0;
+    sis_priv->tx_skbuff[i] = (struct sk_buff *)0;
     }
   } else {
 
@@ -17622,8 +14783,10 @@ static int sis900_close(struct net_device *net_dev )
   ldv_35760: ;
 #line 1973
   if (i <= 15) {
+#line 1974
     goto ldv_35759;
   } else {
+#line 1976
     goto ldv_35761;
   }
   ldv_35761: ;
@@ -17637,20 +14800,14 @@ static void sis900_get_drvinfo(struct net_device *net_dev , struct ethtool_drvin
   void *tmp ;
   char const   *tmp___0 ;
   struct net_device  const  *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  char (*__cil_tmp7)[32U] ;
+  char *__cil_tmp8 ;
   char (*__cil_tmp9)[32U] ;
   char *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  struct pci_dev *__cil_tmp11 ;
+  struct pci_dev  const  *__cil_tmp12 ;
   char (*__cil_tmp13)[32U] ;
   char *__cil_tmp14 ;
-  struct pci_dev *__cil_tmp15 ;
-  struct pci_dev  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  char (*__cil_tmp19)[32U] ;
-  char *__cil_tmp20 ;
 
   {
   {
@@ -17661,41 +14818,29 @@ static void sis900_get_drvinfo(struct net_device *net_dev , struct ethtool_drvin
 #line 2000
   sis_priv = (struct sis900_private *)tmp;
 #line 2002
-  __cil_tmp7 = (unsigned long )info;
+  __cil_tmp7 = & info->driver;
 #line 2002
-  __cil_tmp8 = __cil_tmp7 + 4;
+  __cil_tmp8 = (char *)__cil_tmp7;
 #line 2002
-  __cil_tmp9 = (char (*)[32U])__cil_tmp8;
-#line 2002
+  strcpy(__cil_tmp8, "sis900");
+#line 2003
+  __cil_tmp9 = & info->version;
+#line 2003
   __cil_tmp10 = (char *)__cil_tmp9;
-#line 2002
-  strcpy(__cil_tmp10, "sis900");
 #line 2003
-  __cil_tmp11 = (unsigned long )info;
-#line 2003
-  __cil_tmp12 = __cil_tmp11 + 36;
-#line 2003
-  __cil_tmp13 = (char (*)[32U])__cil_tmp12;
-#line 2003
+  strcpy(__cil_tmp10, "v1.08.10 Apr. 2 2006");
+#line 2004
+  __cil_tmp11 = sis_priv->pci_dev;
+#line 2004
+  __cil_tmp12 = (struct pci_dev  const  *)__cil_tmp11;
+#line 2004
+  tmp___0 = pci_name(__cil_tmp12);
+#line 2004
+  __cil_tmp13 = & info->bus_info;
+#line 2004
   __cil_tmp14 = (char *)__cil_tmp13;
-#line 2003
-  strcpy(__cil_tmp14, "v1.08.10 Apr. 2 2006");
 #line 2004
-  __cil_tmp15 = *((struct pci_dev **)sis_priv);
-#line 2004
-  __cil_tmp16 = (struct pci_dev  const  *)__cil_tmp15;
-#line 2004
-  tmp___0 = pci_name(__cil_tmp16);
-#line 2004
-  __cil_tmp17 = (unsigned long )info;
-#line 2004
-  __cil_tmp18 = __cil_tmp17 + 100;
-#line 2004
-  __cil_tmp19 = (char (*)[32U])__cil_tmp18;
-#line 2004
-  __cil_tmp20 = (char *)__cil_tmp19;
-#line 2004
-  strcpy(__cil_tmp20, tmp___0);
+  strcpy(__cil_tmp14, tmp___0);
   }
 #line 2005
   return;
@@ -17706,8 +14851,6 @@ static u32 sis900_get_msglevel(struct net_device *net_dev )
 { struct sis900_private *sis_priv ;
   void *tmp ;
   struct net_device  const  *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
 
   {
   {
@@ -17718,14 +14861,8 @@ static u32 sis900_get_msglevel(struct net_device *net_dev )
 #line 2009
   sis_priv = (struct sis900_private *)tmp;
   }
-  {
 #line 2010
-  __cil_tmp5 = (unsigned long )sis_priv;
-#line 2010
-  __cil_tmp6 = __cil_tmp5 + 284;
-#line 2010
-  return (*((u32 *)__cil_tmp6));
-  }
+  return (sis_priv->msg_enable);
 }
 }
 #line 2013 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
@@ -17733,8 +14870,6 @@ static void sis900_set_msglevel(struct net_device *net_dev , u32 value )
 { struct sis900_private *sis_priv ;
   void *tmp ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
 
   {
   {
@@ -17745,11 +14880,7 @@ static void sis900_set_msglevel(struct net_device *net_dev , u32 value )
 #line 2015
   sis_priv = (struct sis900_private *)tmp;
 #line 2016
-  __cil_tmp6 = (unsigned long )sis_priv;
-#line 2016
-  __cil_tmp7 = __cil_tmp6 + 284;
-#line 2016
-  *((u32 *)__cil_tmp7) = value;
+  sis_priv->msg_enable = value;
   }
 #line 2017
   return;
@@ -17761,9 +14892,7 @@ static u32 sis900_get_link(struct net_device *net_dev )
   void *tmp ;
   int tmp___0 ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct mii_if_info *__cil_tmp8 ;
+  struct mii_if_info *__cil_tmp6 ;
 
   {
   {
@@ -17774,16 +14903,12 @@ static u32 sis900_get_link(struct net_device *net_dev )
 #line 2021
   sis_priv = (struct sis900_private *)tmp;
 #line 2022
-  __cil_tmp6 = (unsigned long )sis_priv;
+  __cil_tmp6 = & sis_priv->mii_info;
 #line 2022
-  __cil_tmp7 = __cil_tmp6 + 104;
-#line 2022
-  __cil_tmp8 = (struct mii_if_info *)__cil_tmp7;
-#line 2022
-  tmp___0 = mii_link_ok(__cil_tmp8);
+  tmp___0 = mii_link_ok(__cil_tmp6);
   }
 #line 2022
-  return ((unsigned int )tmp___0);
+  return ((u32 )tmp___0);
 }
 }
 #line 2025 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
@@ -17791,15 +14916,9 @@ static int sis900_get_settings(struct net_device *net_dev , struct ethtool_cmd *
 { struct sis900_private *sis_priv ;
   void *tmp ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  spinlock_t *__cil_tmp6 ;
+  struct mii_if_info *__cil_tmp7 ;
   spinlock_t *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct mii_if_info *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  spinlock_t *__cil_tmp14 ;
 
   {
   {
@@ -17810,29 +14929,17 @@ static int sis900_get_settings(struct net_device *net_dev , struct ethtool_cmd *
 #line 2028
   sis_priv = (struct sis900_private *)tmp;
 #line 2029
-  __cil_tmp6 = (unsigned long )sis_priv;
+  __cil_tmp6 = & sis_priv->lock;
 #line 2029
-  __cil_tmp7 = __cil_tmp6 + 8;
-#line 2029
-  __cil_tmp8 = (spinlock_t *)__cil_tmp7;
-#line 2029
-  spin_lock_irq(__cil_tmp8);
+  spin_lock_irq(__cil_tmp6);
 #line 2030
-  __cil_tmp9 = (unsigned long )sis_priv;
+  __cil_tmp7 = & sis_priv->mii_info;
 #line 2030
-  __cil_tmp10 = __cil_tmp9 + 104;
-#line 2030
-  __cil_tmp11 = (struct mii_if_info *)__cil_tmp10;
-#line 2030
-  mii_ethtool_gset(__cil_tmp11, cmd);
+  mii_ethtool_gset(__cil_tmp7, cmd);
 #line 2031
-  __cil_tmp12 = (unsigned long )sis_priv;
+  __cil_tmp8 = & sis_priv->lock;
 #line 2031
-  __cil_tmp13 = __cil_tmp12 + 8;
-#line 2031
-  __cil_tmp14 = (spinlock_t *)__cil_tmp13;
-#line 2031
-  spin_unlock_irq(__cil_tmp14);
+  spin_unlock_irq(__cil_tmp8);
   }
 #line 2032
   return (0);
@@ -17844,15 +14951,9 @@ static int sis900_set_settings(struct net_device *net_dev , struct ethtool_cmd *
   void *tmp ;
   int rt ;
   struct net_device  const  *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  spinlock_t *__cil_tmp7 ;
+  struct mii_if_info *__cil_tmp8 ;
   spinlock_t *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct mii_if_info *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  spinlock_t *__cil_tmp15 ;
 
   {
   {
@@ -17863,29 +14964,17 @@ static int sis900_set_settings(struct net_device *net_dev , struct ethtool_cmd *
 #line 2038
   sis_priv = (struct sis900_private *)tmp;
 #line 2040
-  __cil_tmp7 = (unsigned long )sis_priv;
+  __cil_tmp7 = & sis_priv->lock;
 #line 2040
-  __cil_tmp8 = __cil_tmp7 + 8;
-#line 2040
-  __cil_tmp9 = (spinlock_t *)__cil_tmp8;
-#line 2040
-  spin_lock_irq(__cil_tmp9);
+  spin_lock_irq(__cil_tmp7);
 #line 2041
-  __cil_tmp10 = (unsigned long )sis_priv;
+  __cil_tmp8 = & sis_priv->mii_info;
 #line 2041
-  __cil_tmp11 = __cil_tmp10 + 104;
-#line 2041
-  __cil_tmp12 = (struct mii_if_info *)__cil_tmp11;
-#line 2041
-  rt = mii_ethtool_sset(__cil_tmp12, cmd);
+  rt = mii_ethtool_sset(__cil_tmp8, cmd);
 #line 2042
-  __cil_tmp13 = (unsigned long )sis_priv;
+  __cil_tmp9 = & sis_priv->lock;
 #line 2042
-  __cil_tmp14 = __cil_tmp13 + 8;
-#line 2042
-  __cil_tmp15 = (spinlock_t *)__cil_tmp14;
-#line 2042
-  spin_unlock_irq(__cil_tmp15);
+  spin_unlock_irq(__cil_tmp9);
   }
 #line 2043
   return (rt);
@@ -17897,9 +14986,7 @@ static int sis900_nway_reset(struct net_device *net_dev )
   void *tmp ;
   int tmp___0 ;
   struct net_device  const  *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct mii_if_info *__cil_tmp8 ;
+  struct mii_if_info *__cil_tmp6 ;
 
   {
   {
@@ -17910,13 +14997,9 @@ static int sis900_nway_reset(struct net_device *net_dev )
 #line 2048
   sis_priv = (struct sis900_private *)tmp;
 #line 2049
-  __cil_tmp6 = (unsigned long )sis_priv;
+  __cil_tmp6 = & sis_priv->mii_info;
 #line 2049
-  __cil_tmp7 = __cil_tmp6 + 104;
-#line 2049
-  __cil_tmp8 = (struct mii_if_info *)__cil_tmp7;
-#line 2049
-  tmp___0 = mii_nway_restart(__cil_tmp8);
+  tmp___0 = mii_nway_restart(__cil_tmp6);
   }
 #line 2049
   return (tmp___0);
@@ -17932,52 +15015,27 @@ static int sis900_set_wol(struct net_device *net_dev , struct ethtool_wolinfo *w
   struct net_device  const  *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u32 *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  __u32 __cil_tmp16 ;
-  struct pci_dev *__cil_tmp17 ;
-  u32 *__cil_tmp18 ;
-  u32 *__cil_tmp19 ;
-  u32 __cil_tmp20 ;
-  struct pci_dev *__cil_tmp21 ;
-  u32 *__cil_tmp22 ;
-  u32 __cil_tmp23 ;
+  __u32 __cil_tmp11 ;
+  struct pci_dev *__cil_tmp12 ;
+  struct pci_dev *__cil_tmp13 ;
+  int __cil_tmp14 ;
+  u32 __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  char (*__cil_tmp17)[16U] ;
+  char *__cil_tmp18 ;
+  __u32 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  __u32 __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  __u32 __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  u32 __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  char (*__cil_tmp29)[16U] ;
-  char *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  __u32 __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  __u32 __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  __u32 __cil_tmp41 ;
-  int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  struct pci_dev *__cil_tmp44 ;
-  u32 *__cil_tmp45 ;
-  u32 *__cil_tmp46 ;
-  u32 __cil_tmp47 ;
-  struct pci_dev *__cil_tmp48 ;
-  u32 *__cil_tmp49 ;
-  u32 __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  u32 __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  char (*__cil_tmp55)[16U] ;
-  char *__cil_tmp56 ;
+  int __cil_tmp25 ;
+  struct pci_dev *__cil_tmp26 ;
+  struct pci_dev *__cil_tmp27 ;
+  u32 __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  char (*__cil_tmp30)[16U] ;
+  char *__cil_tmp31 ;
 
   {
   {
@@ -17988,75 +15046,51 @@ static int sis900_set_wol(struct net_device *net_dev , struct ethtool_wolinfo *w
 #line 2065
   sis_priv = (struct sis900_private *)tmp;
 #line 2066
-  __cil_tmp9 = (unsigned long )net_dev;
+  __cil_tmp9 = net_dev->base_addr;
 #line 2066
-  __cil_tmp10 = __cil_tmp9 + 104;
+  __cil_tmp10 = __cil_tmp9 + 176UL;
 #line 2066
-  __cil_tmp11 = *((unsigned long *)__cil_tmp10);
-#line 2066
-  __cil_tmp12 = __cil_tmp11 + 176UL;
-#line 2066
-  pmctrl_addr = (long )__cil_tmp12;
+  pmctrl_addr = (long )__cil_tmp10;
 #line 2067
-  __cil_tmp13 = & cfgpmcsr;
-#line 2067
-  *__cil_tmp13 = 0U;
+  cfgpmcsr = 0U;
 #line 2067
   pmctrl_bits = 0U;
   }
   {
 #line 2069
-  __cil_tmp14 = (unsigned long )wol;
+  __cil_tmp11 = wol->wolopts;
 #line 2069
-  __cil_tmp15 = __cil_tmp14 + 8;
-#line 2069
-  __cil_tmp16 = *((__u32 *)__cil_tmp15);
-#line 2069
-  if (__cil_tmp16 == 0U) {
+  if (__cil_tmp11 == 0U) {
     {
 #line 2070
-    __cil_tmp17 = *((struct pci_dev **)sis_priv);
+    __cil_tmp12 = sis_priv->pci_dev;
 #line 2070
-    pci_read_config_dword(__cil_tmp17, 68, & cfgpmcsr);
+    pci_read_config_dword(__cil_tmp12, 68, & cfgpmcsr);
 #line 2071
-    __cil_tmp18 = & cfgpmcsr;
-#line 2071
-    __cil_tmp19 = & cfgpmcsr;
-#line 2071
-    __cil_tmp20 = *__cil_tmp19;
-#line 2071
-    *__cil_tmp18 = __cil_tmp20 & 4294967039U;
+    cfgpmcsr = cfgpmcsr & 4294967039U;
 #line 2072
-    __cil_tmp21 = *((struct pci_dev **)sis_priv);
+    __cil_tmp13 = sis_priv->pci_dev;
 #line 2072
-    __cil_tmp22 = & cfgpmcsr;
-#line 2072
-    __cil_tmp23 = *__cil_tmp22;
-#line 2072
-    pci_write_config_dword(__cil_tmp21, 68, __cil_tmp23);
+    pci_write_config_dword(__cil_tmp13, 68, cfgpmcsr);
 #line 2073
-    __cil_tmp24 = (int )pmctrl_addr;
+    __cil_tmp14 = (int )pmctrl_addr;
 #line 2073
-    outl(pmctrl_bits, __cil_tmp24);
+    outl(pmctrl_bits, __cil_tmp14);
     }
     {
 #line 2074
-    __cil_tmp25 = (unsigned long )sis_priv;
+    __cil_tmp15 = sis_priv->msg_enable;
 #line 2074
-    __cil_tmp26 = __cil_tmp25 + 284;
+    __cil_tmp16 = __cil_tmp15 & 16384U;
 #line 2074
-    __cil_tmp27 = *((u32 *)__cil_tmp26);
-#line 2074
-    __cil_tmp28 = __cil_tmp27 & 16384U;
-#line 2074
-    if (__cil_tmp28 != 0U) {
+    if (__cil_tmp16 != 0U) {
       {
 #line 2075
-      __cil_tmp29 = (char (*)[16U])net_dev;
+      __cil_tmp17 = & net_dev->name;
 #line 2075
-      __cil_tmp30 = (char *)__cil_tmp29;
+      __cil_tmp18 = (char *)__cil_tmp17;
 #line 2075
-      printk("<7>%s: Wake on LAN disabled\n", __cil_tmp30);
+      printk("<7>%s: Wake on LAN disabled\n", __cil_tmp18);
       }
     } else {
 
@@ -18070,15 +15104,11 @@ static int sis900_set_wol(struct net_device *net_dev , struct ethtool_wolinfo *w
   }
   {
 #line 2079
-  __cil_tmp31 = (unsigned long )wol;
+  __cil_tmp19 = wol->wolopts;
 #line 2079
-  __cil_tmp32 = __cil_tmp31 + 8;
+  __cil_tmp20 = __cil_tmp19 & 94U;
 #line 2079
-  __cil_tmp33 = *((__u32 *)__cil_tmp32);
-#line 2079
-  __cil_tmp34 = __cil_tmp33 & 94U;
-#line 2079
-  if (__cil_tmp34 != 0U) {
+  if (__cil_tmp20 != 0U) {
 #line 2081
     return (-22);
   } else {
@@ -18087,15 +15117,11 @@ static int sis900_set_wol(struct net_device *net_dev , struct ethtool_wolinfo *w
   }
   {
 #line 2083
-  __cil_tmp35 = (unsigned long )wol;
+  __cil_tmp21 = wol->wolopts;
 #line 2083
-  __cil_tmp36 = __cil_tmp35 + 8;
+  __cil_tmp22 = __cil_tmp21 & 32U;
 #line 2083
-  __cil_tmp37 = *((__u32 *)__cil_tmp36);
-#line 2083
-  __cil_tmp38 = __cil_tmp37 & 32U;
-#line 2083
-  if (__cil_tmp38 != 0U) {
+  if (__cil_tmp22 != 0U) {
 #line 2084
     pmctrl_bits = pmctrl_bits | 1024U;
   } else {
@@ -18104,15 +15130,11 @@ static int sis900_set_wol(struct net_device *net_dev , struct ethtool_wolinfo *w
   }
   {
 #line 2085
-  __cil_tmp39 = (unsigned long )wol;
+  __cil_tmp23 = wol->wolopts;
 #line 2085
-  __cil_tmp40 = __cil_tmp39 + 8;
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 2085
-  __cil_tmp41 = *((__u32 *)__cil_tmp40);
-#line 2085
-  __cil_tmp42 = (int )__cil_tmp41;
-#line 2085
-  if (__cil_tmp42 & 1) {
+  if (__cil_tmp24 & 1) {
 #line 2086
     pmctrl_bits = pmctrl_bits | 2U;
   } else {
@@ -18121,48 +15143,34 @@ static int sis900_set_wol(struct net_device *net_dev , struct ethtool_wolinfo *w
   }
   {
 #line 2088
-  __cil_tmp43 = (int )pmctrl_addr;
+  __cil_tmp25 = (int )pmctrl_addr;
 #line 2088
-  outl(pmctrl_bits, __cil_tmp43);
+  outl(pmctrl_bits, __cil_tmp25);
 #line 2090
-  __cil_tmp44 = *((struct pci_dev **)sis_priv);
+  __cil_tmp26 = sis_priv->pci_dev;
 #line 2090
-  pci_read_config_dword(__cil_tmp44, 68, & cfgpmcsr);
+  pci_read_config_dword(__cil_tmp26, 68, & cfgpmcsr);
 #line 2091
-  __cil_tmp45 = & cfgpmcsr;
-#line 2091
-  __cil_tmp46 = & cfgpmcsr;
-#line 2091
-  __cil_tmp47 = *__cil_tmp46;
-#line 2091
-  *__cil_tmp45 = __cil_tmp47 | 256U;
+  cfgpmcsr = cfgpmcsr | 256U;
 #line 2092
-  __cil_tmp48 = *((struct pci_dev **)sis_priv);
+  __cil_tmp27 = sis_priv->pci_dev;
 #line 2092
-  __cil_tmp49 = & cfgpmcsr;
-#line 2092
-  __cil_tmp50 = *__cil_tmp49;
-#line 2092
-  pci_write_config_dword(__cil_tmp48, 68, __cil_tmp50);
+  pci_write_config_dword(__cil_tmp27, 68, cfgpmcsr);
   }
   {
 #line 2093
-  __cil_tmp51 = (unsigned long )sis_priv;
+  __cil_tmp28 = sis_priv->msg_enable;
 #line 2093
-  __cil_tmp52 = __cil_tmp51 + 284;
+  __cil_tmp29 = __cil_tmp28 & 16384U;
 #line 2093
-  __cil_tmp53 = *((u32 *)__cil_tmp52);
-#line 2093
-  __cil_tmp54 = __cil_tmp53 & 16384U;
-#line 2093
-  if (__cil_tmp54 != 0U) {
+  if (__cil_tmp29 != 0U) {
     {
 #line 2094
-    __cil_tmp55 = (char (*)[16U])net_dev;
+    __cil_tmp30 = & net_dev->name;
 #line 2094
-    __cil_tmp56 = (char *)__cil_tmp55;
+    __cil_tmp31 = (char *)__cil_tmp30;
 #line 2094
-    printk("<7>%s: Wake on LAN enabled\n", __cil_tmp56);
+    printk("<7>%s: Wake on LAN enabled\n", __cil_tmp31);
     }
   } else {
 
@@ -18178,89 +15186,53 @@ static void sis900_get_wol(struct net_device *net_dev , struct ethtool_wolinfo *
   u32 pmctrl_bits ;
   unsigned long __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
+  int __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  __u32 __cil_tmp9 ;
   unsigned int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  __u32 __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  __u32 __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  __u32 __cil_tmp11 ;
 
   {
   {
 #line 2101
-  __cil_tmp5 = (unsigned long )net_dev;
+  __cil_tmp5 = net_dev->base_addr;
 #line 2101
-  __cil_tmp6 = __cil_tmp5 + 104;
+  __cil_tmp6 = __cil_tmp5 + 176UL;
 #line 2101
-  __cil_tmp7 = *((unsigned long *)__cil_tmp6);
-#line 2101
-  __cil_tmp8 = __cil_tmp7 + 176UL;
-#line 2101
-  pmctrl_addr = (long )__cil_tmp8;
+  pmctrl_addr = (long )__cil_tmp6;
 #line 2104
-  __cil_tmp9 = (int )pmctrl_addr;
+  __cil_tmp7 = (int )pmctrl_addr;
 #line 2104
-  pmctrl_bits = inl(__cil_tmp9);
+  pmctrl_bits = inl(__cil_tmp7);
   }
   {
 #line 2105
-  __cil_tmp10 = pmctrl_bits & 1024U;
+  __cil_tmp8 = pmctrl_bits & 1024U;
 #line 2105
+  if (__cil_tmp8 != 0U) {
+#line 2106
+    __cil_tmp9 = wol->wolopts;
+#line 2106
+    wol->wolopts = __cil_tmp9 | 32U;
+  } else {
+
+  }
+  }
+  {
+#line 2107
+  __cil_tmp10 = pmctrl_bits & 2U;
+#line 2107
   if (__cil_tmp10 != 0U) {
-#line 2106
-    __cil_tmp11 = (unsigned long )wol;
-#line 2106
-    __cil_tmp12 = __cil_tmp11 + 8;
-#line 2106
-    __cil_tmp13 = (unsigned long )wol;
-#line 2106
-    __cil_tmp14 = __cil_tmp13 + 8;
-#line 2106
-    __cil_tmp15 = *((__u32 *)__cil_tmp14);
-#line 2106
-    *((__u32 *)__cil_tmp12) = __cil_tmp15 | 32U;
-  } else {
-
-  }
-  }
-  {
-#line 2107
-  __cil_tmp16 = pmctrl_bits & 2U;
-#line 2107
-  if (__cil_tmp16 != 0U) {
 #line 2108
-    __cil_tmp17 = (unsigned long )wol;
+    __cil_tmp11 = wol->wolopts;
 #line 2108
-    __cil_tmp18 = __cil_tmp17 + 8;
-#line 2108
-    __cil_tmp19 = (unsigned long )wol;
-#line 2108
-    __cil_tmp20 = __cil_tmp19 + 8;
-#line 2108
-    __cil_tmp21 = *((__u32 *)__cil_tmp20);
-#line 2108
-    *((__u32 *)__cil_tmp18) = __cil_tmp21 | 1U;
+    wol->wolopts = __cil_tmp11 | 1U;
   } else {
 
   }
   }
 #line 2110
-  __cil_tmp22 = (unsigned long )wol;
-#line 2110
-  __cil_tmp23 = __cil_tmp22 + 4;
-#line 2110
-  *((__u32 *)__cil_tmp23) = 33U;
+  wol->supported = 33U;
 #line 2111
   return;
 }
@@ -18318,34 +15290,22 @@ static int mii_ioctl(struct net_device *net_dev , struct ifreq *rq , int cmd )
   struct mii_ioctl_data *tmp___0 ;
   int tmp___1 ;
   struct net_device  const  *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct mii_phy *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  __u16 __cil_tmp16 ;
+  struct mii_phy *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  __u16 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  __u16 __cil_tmp15 ;
+  int __cil_tmp16 ;
   int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  __u16 __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
   __u16 __cil_tmp21 ;
   int __cil_tmp22 ;
   int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  __u16 __cil_tmp26 ;
-  int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  __u16 __cil_tmp31 ;
-  int __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  __u16 __cil_tmp36 ;
-  int __cil_tmp37 ;
+  __u16 __cil_tmp24 ;
+  int __cil_tmp25 ;
 
   {
   {
@@ -18362,101 +15322,79 @@ static int mii_ioctl(struct net_device *net_dev , struct ifreq *rq , int cmd )
   }
 #line 2140
   if (cmd == 35143) {
+#line 2140
     goto case_35143;
-  } else {
+  } else
 #line 2144
-    if (cmd == 35144) {
-      goto case_35144;
-    } else {
+  if (cmd == 35144) {
+#line 2144
+    goto case_35144;
+  } else
 #line 2148
-      if (cmd == 35145) {
-        goto case_35145;
-      } else {
-        goto switch_default;
+  if (cmd == 35145) {
+#line 2148
+    goto case_35145;
+  } else {
+#line 2151
+    goto switch_default;
 #line 2139
-        if (0) {
-          case_35143: 
+    if (0) {
+      case_35143: 
 #line 2141
-          __cil_tmp10 = (unsigned long )sis_priv;
+      __cil_tmp10 = sis_priv->mii;
 #line 2141
-          __cil_tmp11 = __cil_tmp10 + 80;
+      __cil_tmp11 = __cil_tmp10->phy_addr;
 #line 2141
-          __cil_tmp12 = *((struct mii_phy **)__cil_tmp11);
-#line 2141
-          __cil_tmp13 = (unsigned long )__cil_tmp12;
-#line 2141
-          __cil_tmp14 = __cil_tmp13 + 8;
-#line 2141
-          __cil_tmp15 = *((int *)__cil_tmp14);
-#line 2141
-          *((__u16 *)data) = (unsigned short )__cil_tmp15;
-          case_35144: 
-          {
+      data->phy_id = (__u16 )__cil_tmp11;
+      case_35144: 
+      {
 #line 2145
-          __cil_tmp16 = *((__u16 *)data);
+      __cil_tmp12 = data->phy_id;
 #line 2145
-          __cil_tmp17 = (int )__cil_tmp16;
+      __cil_tmp13 = (int )__cil_tmp12;
 #line 2145
-          __cil_tmp18 = __cil_tmp17 & 31;
+      __cil_tmp14 = __cil_tmp13 & 31;
 #line 2145
-          __cil_tmp19 = (unsigned long )data;
+      __cil_tmp15 = data->reg_num;
 #line 2145
-          __cil_tmp20 = __cil_tmp19 + 2;
+      __cil_tmp16 = (int )__cil_tmp15;
 #line 2145
-          __cil_tmp21 = *((__u16 *)__cil_tmp20);
+      __cil_tmp17 = __cil_tmp16 & 31;
 #line 2145
-          __cil_tmp22 = (int )__cil_tmp21;
+      tmp___1 = mdio_read(net_dev, __cil_tmp14, __cil_tmp17);
 #line 2145
-          __cil_tmp23 = __cil_tmp22 & 31;
-#line 2145
-          tmp___1 = mdio_read(net_dev, __cil_tmp18, __cil_tmp23);
-#line 2145
-          __cil_tmp24 = (unsigned long )data;
-#line 2145
-          __cil_tmp25 = __cil_tmp24 + 6;
-#line 2145
-          *((__u16 *)__cil_tmp25) = (unsigned short )tmp___1;
-          }
-#line 2146
-          return (0);
-          case_35145: 
-          {
-#line 2149
-          __cil_tmp26 = *((__u16 *)data);
-#line 2149
-          __cil_tmp27 = (int )__cil_tmp26;
-#line 2149
-          __cil_tmp28 = __cil_tmp27 & 31;
-#line 2149
-          __cil_tmp29 = (unsigned long )data;
-#line 2149
-          __cil_tmp30 = __cil_tmp29 + 2;
-#line 2149
-          __cil_tmp31 = *((__u16 *)__cil_tmp30);
-#line 2149
-          __cil_tmp32 = (int )__cil_tmp31;
-#line 2149
-          __cil_tmp33 = __cil_tmp32 & 31;
-#line 2149
-          __cil_tmp34 = (unsigned long )data;
-#line 2149
-          __cil_tmp35 = __cil_tmp34 + 4;
-#line 2149
-          __cil_tmp36 = *((__u16 *)__cil_tmp35);
-#line 2149
-          __cil_tmp37 = (int )__cil_tmp36;
-#line 2149
-          mdio_write(net_dev, __cil_tmp28, __cil_tmp33, __cil_tmp37);
-          }
-#line 2150
-          return (0);
-          switch_default: ;
-#line 2152
-          return (-95);
-        } else {
-
-        }
+      data->val_out = (__u16 )tmp___1;
       }
+#line 2146
+      return (0);
+      case_35145: 
+      {
+#line 2149
+      __cil_tmp18 = data->phy_id;
+#line 2149
+      __cil_tmp19 = (int )__cil_tmp18;
+#line 2149
+      __cil_tmp20 = __cil_tmp19 & 31;
+#line 2149
+      __cil_tmp21 = data->reg_num;
+#line 2149
+      __cil_tmp22 = (int )__cil_tmp21;
+#line 2149
+      __cil_tmp23 = __cil_tmp22 & 31;
+#line 2149
+      __cil_tmp24 = data->val_in;
+#line 2149
+      __cil_tmp25 = (int )__cil_tmp24;
+#line 2149
+      mdio_write(net_dev, __cil_tmp20, __cil_tmp23, __cil_tmp25);
+      }
+#line 2150
+      return (0);
+      switch_default: ;
+#line 2152
+      return (-95);
+    } else {
+
     }
   }
 }
@@ -18471,85 +15409,39 @@ static int sis900_set_config(struct net_device *dev , struct ifmap *map )
   int tmp___1 ;
   int tmp___2 ;
   struct net_device  const  *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  unsigned char __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned char __cil_tmp13 ;
+  int __cil_tmp14 ;
   unsigned char __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  int __cil_tmp16 ;
+  unsigned char __cil_tmp17 ;
+  int __cil_tmp18 ;
   unsigned char __cil_tmp19 ;
   int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  unsigned char __cil_tmp21 ;
+  int __cil_tmp22 ;
   unsigned char __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned char __cil_tmp25 ;
+  int __cil_tmp26 ;
   unsigned char __cil_tmp27 ;
   int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
+  unsigned char __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
   int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned char __cil_tmp35 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  int __cil_tmp35 ;
   int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned char __cil_tmp39 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
   int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned char __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned char __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned char __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  int __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  unsigned int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  int __cil_tmp75 ;
-  int __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int __cil_tmp87 ;
-  int __cil_tmp88 ;
-  int __cil_tmp89 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
 
   {
   {
@@ -18560,252 +15452,171 @@ static int sis900_set_config(struct net_device *dev , struct ifmap *map )
 #line 2168
   sis_priv = (struct sis900_private *)tmp;
 #line 2169
-  __cil_tmp11 = (unsigned long )sis_priv;
-#line 2169
-  __cil_tmp12 = __cil_tmp11 + 80;
-#line 2169
-  mii_phy = *((struct mii_phy **)__cil_tmp12);
+  mii_phy = sis_priv->mii;
   }
   {
 #line 2173
-  __cil_tmp13 = (unsigned long )map;
+  __cil_tmp11 = map->port;
 #line 2173
-  __cil_tmp14 = __cil_tmp13 + 20;
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 2173
-  __cil_tmp15 = *((unsigned char *)__cil_tmp14);
-#line 2173
-  __cil_tmp16 = (unsigned int )__cil_tmp15;
-#line 2173
-  if (__cil_tmp16 != 255U) {
+  if (__cil_tmp12 != 255U) {
     {
 #line 2173
-    __cil_tmp17 = (unsigned long )dev;
+    __cil_tmp13 = dev->if_port;
 #line 2173
-    __cil_tmp18 = __cil_tmp17 + 446;
+    __cil_tmp14 = (int )__cil_tmp13;
 #line 2173
-    __cil_tmp19 = *((unsigned char *)__cil_tmp18);
+    __cil_tmp15 = map->port;
 #line 2173
-    __cil_tmp20 = (int )__cil_tmp19;
+    __cil_tmp16 = (int )__cil_tmp15;
 #line 2173
-    __cil_tmp21 = (unsigned long )map;
-#line 2173
-    __cil_tmp22 = __cil_tmp21 + 20;
-#line 2173
-    __cil_tmp23 = *((unsigned char *)__cil_tmp22);
-#line 2173
-    __cil_tmp24 = (int )__cil_tmp23;
-#line 2173
-    if (__cil_tmp24 != __cil_tmp20) {
+    if (__cil_tmp16 != __cil_tmp14) {
       {
 #line 2181
-      __cil_tmp25 = (unsigned long )map;
+      __cil_tmp17 = map->port;
 #line 2181
-      __cil_tmp26 = __cil_tmp25 + 20;
+      __cil_tmp18 = (int )__cil_tmp17;
 #line 2181
-      __cil_tmp27 = *((unsigned char *)__cil_tmp26);
+      if (__cil_tmp18 == 0) {
 #line 2181
-      __cil_tmp28 = (int )__cil_tmp27;
-#line 2181
-      if (__cil_tmp28 == 0) {
         goto case_0;
       } else {
         {
 #line 2202
-        __cil_tmp29 = (unsigned long )map;
+        __cil_tmp19 = map->port;
 #line 2202
-        __cil_tmp30 = __cil_tmp29 + 20;
+        __cil_tmp20 = (int )__cil_tmp19;
 #line 2202
-        __cil_tmp31 = *((unsigned char *)__cil_tmp30);
+        if (__cil_tmp20 == 2) {
 #line 2202
-        __cil_tmp32 = (int )__cil_tmp31;
-#line 2202
-        if (__cil_tmp32 == 2) {
           goto case_2;
         } else {
           {
 #line 2222
-          __cil_tmp33 = (unsigned long )map;
+          __cil_tmp21 = map->port;
 #line 2222
-          __cil_tmp34 = __cil_tmp33 + 20;
+          __cil_tmp22 = (int )__cil_tmp21;
 #line 2222
-          __cil_tmp35 = *((unsigned char *)__cil_tmp34);
+          if (__cil_tmp22 == 4) {
 #line 2222
-          __cil_tmp36 = (int )__cil_tmp35;
-#line 2222
-          if (__cil_tmp36 == 4) {
             goto case_4;
           } else {
             {
 #line 2223
-            __cil_tmp37 = (unsigned long )map;
+            __cil_tmp23 = map->port;
 #line 2223
-            __cil_tmp38 = __cil_tmp37 + 20;
+            __cil_tmp24 = (int )__cil_tmp23;
 #line 2223
-            __cil_tmp39 = *((unsigned char *)__cil_tmp38);
+            if (__cil_tmp24 == 5) {
 #line 2223
-            __cil_tmp40 = (int )__cil_tmp39;
-#line 2223
-            if (__cil_tmp40 == 5) {
               goto case_5;
             } else {
               {
 #line 2242
-              __cil_tmp41 = (unsigned long )map;
+              __cil_tmp25 = map->port;
 #line 2242
-              __cil_tmp42 = __cil_tmp41 + 20;
+              __cil_tmp26 = (int )__cil_tmp25;
 #line 2242
-              __cil_tmp43 = *((unsigned char *)__cil_tmp42);
+              if (__cil_tmp26 == 1) {
 #line 2242
-              __cil_tmp44 = (int )__cil_tmp43;
-#line 2242
-              if (__cil_tmp44 == 1) {
                 goto case_1;
               } else {
                 {
 #line 2243
-                __cil_tmp45 = (unsigned long )map;
+                __cil_tmp27 = map->port;
 #line 2243
-                __cil_tmp46 = __cil_tmp45 + 20;
+                __cil_tmp28 = (int )__cil_tmp27;
 #line 2243
-                __cil_tmp47 = *((unsigned char *)__cil_tmp46);
+                if (__cil_tmp28 == 3) {
 #line 2243
-                __cil_tmp48 = (int )__cil_tmp47;
-#line 2243
-                if (__cil_tmp48 == 3) {
                   goto case_3;
                 } else {
                   {
 #line 2244
-                  __cil_tmp49 = (unsigned long )map;
+                  __cil_tmp29 = map->port;
 #line 2244
-                  __cil_tmp50 = __cil_tmp49 + 20;
+                  __cil_tmp30 = (int )__cil_tmp29;
 #line 2244
-                  __cil_tmp51 = *((unsigned char *)__cil_tmp50);
+                  if (__cil_tmp30 == 6) {
 #line 2244
-                  __cil_tmp52 = (int )__cil_tmp51;
-#line 2244
-                  if (__cil_tmp52 == 6) {
                     goto case_6;
                   } else {
+#line 2249
                     goto switch_default;
 #line 2180
                     if (0) {
                       case_0: 
                       {
 #line 2182
-                      __cil_tmp53 = (unsigned long )dev;
-#line 2182
-                      __cil_tmp54 = __cil_tmp53 + 446;
-#line 2182
-                      __cil_tmp55 = (unsigned long )map;
-#line 2182
-                      __cil_tmp56 = __cil_tmp55 + 20;
-#line 2182
-                      *((unsigned char *)__cil_tmp54) = *((unsigned char *)__cil_tmp56);
+                      dev->if_port = map->port;
 #line 2188
                       netif_carrier_off(dev);
 #line 2191
-                      __cil_tmp57 = (unsigned long )mii_phy;
+                      __cil_tmp31 = mii_phy->phy_addr;
 #line 2191
-                      __cil_tmp58 = __cil_tmp57 + 8;
+                      tmp___0 = mdio_read(dev, __cil_tmp31, 0);
 #line 2191
-                      __cil_tmp59 = *((int *)__cil_tmp58);
-#line 2191
-                      tmp___0 = mdio_read(dev, __cil_tmp59, 0);
-#line 2191
-                      status = (unsigned short )tmp___0;
+                      status = (u16 )tmp___0;
 #line 2197
-                      __cil_tmp60 = (unsigned long )mii_phy;
+                      __cil_tmp32 = mii_phy->phy_addr;
 #line 2197
-                      __cil_tmp61 = __cil_tmp60 + 8;
+                      __cil_tmp33 = (unsigned int )status;
 #line 2197
-                      __cil_tmp62 = *((int *)__cil_tmp61);
+                      __cil_tmp34 = __cil_tmp33 | 4608U;
 #line 2197
-                      __cil_tmp63 = (unsigned int )status;
+                      __cil_tmp35 = (int )__cil_tmp34;
 #line 2197
-                      __cil_tmp64 = __cil_tmp63 | 4608U;
-#line 2197
-                      __cil_tmp65 = (int )__cil_tmp64;
-#line 2197
-                      mdio_write(dev, __cil_tmp62, 0, __cil_tmp65);
+                      mdio_write(dev, __cil_tmp32, 0, __cil_tmp35);
                       }
+#line 2200
                       goto ldv_35829;
                       case_2: 
                       {
 #line 2203
-                      __cil_tmp66 = (unsigned long )dev;
-#line 2203
-                      __cil_tmp67 = __cil_tmp66 + 446;
-#line 2203
-                      __cil_tmp68 = (unsigned long )map;
-#line 2203
-                      __cil_tmp69 = __cil_tmp68 + 20;
-#line 2203
-                      *((unsigned char *)__cil_tmp67) = *((unsigned char *)__cil_tmp69);
+                      dev->if_port = map->port;
 #line 2210
                       netif_carrier_off(dev);
 #line 2214
-                      __cil_tmp70 = (unsigned long )mii_phy;
+                      __cil_tmp36 = mii_phy->phy_addr;
 #line 2214
-                      __cil_tmp71 = __cil_tmp70 + 8;
+                      tmp___1 = mdio_read(dev, __cil_tmp36, 0);
 #line 2214
-                      __cil_tmp72 = *((int *)__cil_tmp71);
-#line 2214
-                      tmp___1 = mdio_read(dev, __cil_tmp72, 0);
-#line 2214
-                      status = (unsigned short )tmp___1;
+                      status = (u16 )tmp___1;
 #line 2217
-                      __cil_tmp73 = (unsigned long )mii_phy;
+                      __cil_tmp37 = mii_phy->phy_addr;
 #line 2217
-                      __cil_tmp74 = __cil_tmp73 + 8;
+                      __cil_tmp38 = (int )status;
 #line 2217
-                      __cil_tmp75 = *((int *)__cil_tmp74);
+                      __cil_tmp39 = __cil_tmp38 & -12289;
 #line 2217
-                      __cil_tmp76 = (int )status;
-#line 2217
-                      __cil_tmp77 = __cil_tmp76 & -12289;
-#line 2217
-                      mdio_write(dev, __cil_tmp75, 0, __cil_tmp77);
+                      mdio_write(dev, __cil_tmp37, 0, __cil_tmp39);
                       }
+#line 2220
                       goto ldv_35829;
                       case_4: ;
                       case_5: 
                       {
 #line 2224
-                      __cil_tmp78 = (unsigned long )dev;
-#line 2224
-                      __cil_tmp79 = __cil_tmp78 + 446;
-#line 2224
-                      __cil_tmp80 = (unsigned long )map;
-#line 2224
-                      __cil_tmp81 = __cil_tmp80 + 20;
-#line 2224
-                      *((unsigned char *)__cil_tmp79) = *((unsigned char *)__cil_tmp81);
+                      dev->if_port = map->port;
 #line 2231
                       netif_carrier_off(dev);
 #line 2235
-                      __cil_tmp82 = (unsigned long )mii_phy;
+                      __cil_tmp40 = mii_phy->phy_addr;
 #line 2235
-                      __cil_tmp83 = __cil_tmp82 + 8;
+                      tmp___2 = mdio_read(dev, __cil_tmp40, 0);
 #line 2235
-                      __cil_tmp84 = *((int *)__cil_tmp83);
-#line 2235
-                      tmp___2 = mdio_read(dev, __cil_tmp84, 0);
-#line 2235
-                      status = (unsigned short )tmp___2;
+                      status = (u16 )tmp___2;
 #line 2236
-                      __cil_tmp85 = (unsigned long )mii_phy;
+                      __cil_tmp41 = mii_phy->phy_addr;
 #line 2236
-                      __cil_tmp86 = __cil_tmp85 + 8;
+                      __cil_tmp42 = (int )status;
 #line 2236
-                      __cil_tmp87 = *((int *)__cil_tmp86);
+                      __cil_tmp43 = __cil_tmp42 | 8192;
 #line 2236
-                      __cil_tmp88 = (int )status;
-#line 2236
-                      __cil_tmp89 = __cil_tmp88 | 8192;
-#line 2236
-                      mdio_write(dev, __cil_tmp87, 0, __cil_tmp89);
+                      mdio_write(dev, __cil_tmp41, 0, __cil_tmp43);
                       }
+#line 2240
                       goto ldv_35829;
                       case_1: ;
                       case_3: ;
@@ -18877,7 +15688,7 @@ __inline static u16 sis900_mcast_bitnr(u8 *addr , u8 revision )
 #line 2274
     __cil_tmp8 = crc >> 24;
 #line 2274
-    return ((unsigned short )__cil_tmp8);
+    return ((u16 )__cil_tmp8);
     }
   } else {
     {
@@ -18889,14 +15700,14 @@ __inline static u16 sis900_mcast_bitnr(u8 *addr , u8 revision )
 #line 2274
       __cil_tmp10 = crc >> 24;
 #line 2274
-      return ((unsigned short )__cil_tmp10);
+      return ((u16 )__cil_tmp10);
       }
     } else {
       {
 #line 2276
       __cil_tmp11 = crc >> 25;
 #line 2276
-      return ((unsigned short )__cil_tmp11);
+      return ((u16 )__cil_tmp11);
       }
     }
     }
@@ -18922,277 +15733,132 @@ static void set_rx_mode(struct net_device *net_dev )
   unsigned int tmp___1 ;
   unsigned int tmp___2 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct net_device  const  *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  struct net_device  const  *__cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  u8 __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  struct list_head *__cil_tmp28 ;
+  unsigned char (*__cil_tmp29)[32U] ;
+  u8 *__cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  int __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  short __cil_tmp37 ;
+  int __cil_tmp38 ;
+  short __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  struct list_head *__cil_tmp42 ;
+  struct list_head *__cil_tmp43 ;
   unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
+  struct list_head *__cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  u8 __cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  u8 __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
+  int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  int __cil_tmp63 ;
   unsigned int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
+  int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  int __cil_tmp72 ;
   unsigned int __cil_tmp73 ;
   unsigned int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  struct list_head *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned char (*__cil_tmp82)[32U] ;
-  u8 *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  u8 __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned char __cil_tmp88 ;
-  unsigned int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  int __cil_tmp92 ;
-  int __cil_tmp93 ;
-  int __cil_tmp94 ;
-  short __cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  u16 __cil_tmp100 ;
-  short __cil_tmp101 ;
-  int __cil_tmp102 ;
-  int __cil_tmp103 ;
-  struct list_head *__cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  struct list_head *__cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  struct list_head *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  int __cil_tmp111 ;
-  unsigned int __cil_tmp112 ;
-  unsigned int __cil_tmp113 ;
-  unsigned int __cil_tmp114 ;
-  unsigned int __cil_tmp115 ;
-  int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  u16 __cil_tmp119 ;
-  unsigned int __cil_tmp120 ;
-  unsigned int __cil_tmp121 ;
-  unsigned int __cil_tmp122 ;
-  int __cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
-  unsigned int __cil_tmp125 ;
-  unsigned int __cil_tmp126 ;
-  int __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
-  unsigned int __cil_tmp131 ;
-  int __cil_tmp132 ;
-  unsigned int __cil_tmp133 ;
-  int __cil_tmp134 ;
-  unsigned int __cil_tmp135 ;
-  unsigned int __cil_tmp136 ;
-  int __cil_tmp137 ;
-  unsigned int __cil_tmp138 ;
-  unsigned int __cil_tmp139 ;
-  unsigned int __cil_tmp140 ;
-  int __cil_tmp141 ;
-  unsigned int __cil_tmp142 ;
-  unsigned int __cil_tmp143 ;
-  int __cil_tmp144 ;
-  unsigned int __cil_tmp145 ;
-  unsigned int __cil_tmp146 ;
-  unsigned int __cil_tmp147 ;
-  int __cil_tmp148 ;
-  int __cil_tmp149 ;
+  int __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  unsigned int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  int __cil_tmp79 ;
+  int __cil_tmp80 ;
 
   {
   {
 #line 2290
-  __cil_tmp17 = (unsigned long )net_dev;
+  __cil_tmp17 = net_dev->base_addr;
 #line 2290
-  __cil_tmp18 = __cil_tmp17 + 104;
-#line 2290
-  __cil_tmp19 = *((unsigned long *)__cil_tmp18);
-#line 2290
-  ioaddr = (long )__cil_tmp19;
+  ioaddr = (long )__cil_tmp17;
 #line 2291
-  __cil_tmp20 = (struct net_device  const  *)net_dev;
+  __cil_tmp18 = (struct net_device  const  *)net_dev;
 #line 2291
-  tmp = netdev_priv(__cil_tmp20);
+  tmp = netdev_priv(__cil_tmp18);
 #line 2291
   sis_priv = (struct sis900_private *)tmp;
 #line 2292
-  __cil_tmp21 = 0 * 2UL;
+  mc_filter[0] = (u16 )0U;
 #line 2292
-  __cil_tmp22 = (unsigned long )(mc_filter) + __cil_tmp21;
+  mc_filter[1] = (unsigned short)0;
 #line 2292
-  *((u16 *)__cil_tmp22) = (unsigned short)0;
+  mc_filter[2] = (unsigned short)0;
 #line 2292
-  __cil_tmp23 = 1 * 2UL;
+  mc_filter[3] = (unsigned short)0;
 #line 2292
-  __cil_tmp24 = (unsigned long )(mc_filter) + __cil_tmp23;
+  mc_filter[4] = (unsigned short)0;
 #line 2292
-  *((u16 *)__cil_tmp24) = (unsigned short)0;
+  mc_filter[5] = (unsigned short)0;
 #line 2292
-  __cil_tmp25 = 2 * 2UL;
+  mc_filter[6] = (unsigned short)0;
 #line 2292
-  __cil_tmp26 = (unsigned long )(mc_filter) + __cil_tmp25;
+  mc_filter[7] = (unsigned short)0;
 #line 2292
-  *((u16 *)__cil_tmp26) = (unsigned short)0;
+  mc_filter[8] = (unsigned short)0;
 #line 2292
-  __cil_tmp27 = 3 * 2UL;
+  mc_filter[9] = (unsigned short)0;
 #line 2292
-  __cil_tmp28 = (unsigned long )(mc_filter) + __cil_tmp27;
+  mc_filter[10] = (unsigned short)0;
 #line 2292
-  *((u16 *)__cil_tmp28) = (unsigned short)0;
+  mc_filter[11] = (unsigned short)0;
 #line 2292
-  __cil_tmp29 = 4 * 2UL;
+  mc_filter[12] = (unsigned short)0;
 #line 2292
-  __cil_tmp30 = (unsigned long )(mc_filter) + __cil_tmp29;
+  mc_filter[13] = (unsigned short)0;
 #line 2292
-  *((u16 *)__cil_tmp30) = (unsigned short)0;
+  mc_filter[14] = (unsigned short)0;
 #line 2292
-  __cil_tmp31 = 5 * 2UL;
-#line 2292
-  __cil_tmp32 = (unsigned long )(mc_filter) + __cil_tmp31;
-#line 2292
-  *((u16 *)__cil_tmp32) = (unsigned short)0;
-#line 2292
-  __cil_tmp33 = 6 * 2UL;
-#line 2292
-  __cil_tmp34 = (unsigned long )(mc_filter) + __cil_tmp33;
-#line 2292
-  *((u16 *)__cil_tmp34) = (unsigned short)0;
-#line 2292
-  __cil_tmp35 = 7 * 2UL;
-#line 2292
-  __cil_tmp36 = (unsigned long )(mc_filter) + __cil_tmp35;
-#line 2292
-  *((u16 *)__cil_tmp36) = (unsigned short)0;
-#line 2292
-  __cil_tmp37 = 8 * 2UL;
-#line 2292
-  __cil_tmp38 = (unsigned long )(mc_filter) + __cil_tmp37;
-#line 2292
-  *((u16 *)__cil_tmp38) = (unsigned short)0;
-#line 2292
-  __cil_tmp39 = 9 * 2UL;
-#line 2292
-  __cil_tmp40 = (unsigned long )(mc_filter) + __cil_tmp39;
-#line 2292
-  *((u16 *)__cil_tmp40) = (unsigned short)0;
-#line 2292
-  __cil_tmp41 = 10 * 2UL;
-#line 2292
-  __cil_tmp42 = (unsigned long )(mc_filter) + __cil_tmp41;
-#line 2292
-  *((u16 *)__cil_tmp42) = (unsigned short)0;
-#line 2292
-  __cil_tmp43 = 11 * 2UL;
-#line 2292
-  __cil_tmp44 = (unsigned long )(mc_filter) + __cil_tmp43;
-#line 2292
-  *((u16 *)__cil_tmp44) = (unsigned short)0;
-#line 2292
-  __cil_tmp45 = 12 * 2UL;
-#line 2292
-  __cil_tmp46 = (unsigned long )(mc_filter) + __cil_tmp45;
-#line 2292
-  *((u16 *)__cil_tmp46) = (unsigned short)0;
-#line 2292
-  __cil_tmp47 = 13 * 2UL;
-#line 2292
-  __cil_tmp48 = (unsigned long )(mc_filter) + __cil_tmp47;
-#line 2292
-  *((u16 *)__cil_tmp48) = (unsigned short)0;
-#line 2292
-  __cil_tmp49 = 14 * 2UL;
-#line 2292
-  __cil_tmp50 = (unsigned long )(mc_filter) + __cil_tmp49;
-#line 2292
-  *((u16 *)__cil_tmp50) = (unsigned short)0;
-#line 2292
-  __cil_tmp51 = 15 * 2UL;
-#line 2292
-  __cil_tmp52 = (unsigned long )(mc_filter) + __cil_tmp51;
-#line 2292
-  *((u16 *)__cil_tmp52) = (unsigned short)0;
+  mc_filter[15] = (unsigned short)0;
   }
   {
 #line 2297
-  __cil_tmp53 = (unsigned long )sis_priv;
+  __cil_tmp19 = sis_priv->chipset_rev;
 #line 2297
-  __cil_tmp54 = __cil_tmp53 + 597;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 2297
-  __cil_tmp55 = *((u8 *)__cil_tmp54);
-#line 2297
-  __cil_tmp56 = (unsigned int )__cil_tmp55;
-#line 2297
-  if (__cil_tmp56 > 143U) {
+  if (__cil_tmp20 > 143U) {
 #line 2299
     table_entries = 16;
   } else {
     {
 #line 2297
-    __cil_tmp57 = (unsigned long )sis_priv;
+    __cil_tmp21 = sis_priv->chipset_rev;
 #line 2297
-    __cil_tmp58 = __cil_tmp57 + 597;
+    __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 2297
-    __cil_tmp59 = *((u8 *)__cil_tmp58);
-#line 2297
-    __cil_tmp60 = (unsigned int )__cil_tmp59;
-#line 2297
-    if (__cil_tmp60 == 3U) {
+    if (__cil_tmp22 == 3U) {
 #line 2299
       table_entries = 16;
     } else {
@@ -19204,82 +15870,67 @@ static void set_rx_mode(struct net_device *net_dev )
   }
   {
 #line 2303
-  __cil_tmp61 = (unsigned long )net_dev;
+  __cil_tmp23 = net_dev->flags;
 #line 2303
-  __cil_tmp62 = __cil_tmp61 + 432;
+  __cil_tmp24 = __cil_tmp23 & 256U;
 #line 2303
-  __cil_tmp63 = *((unsigned int *)__cil_tmp62);
-#line 2303
-  __cil_tmp64 = __cil_tmp63 & 256U;
-#line 2303
-  if (__cil_tmp64 != 0U) {
+  if (__cil_tmp24 != 0U) {
 #line 2305
     rx_mode = 1879048192U;
 #line 2306
     i = 0;
+#line 2306
     goto ldv_35852;
     ldv_35851: 
 #line 2307
-    __cil_tmp65 = i * 2UL;
-#line 2307
-    __cil_tmp66 = (unsigned long )(mc_filter) + __cil_tmp65;
-#line 2307
-    *((u16 *)__cil_tmp66) = (unsigned short)65535;
+    mc_filter[i] = (u16 )65535U;
 #line 2306
     i = i + 1;
     ldv_35852: ;
 #line 2306
     if (i < table_entries) {
+#line 2307
       goto ldv_35851;
     } else {
+#line 2309
       goto ldv_35853;
     }
     ldv_35853: ;
   } else {
     {
 #line 2308
-    __cil_tmp67 = 592 + 16;
+    __cil_tmp25 = net_dev->mc.count;
 #line 2308
-    __cil_tmp68 = (unsigned long )net_dev;
+    if (__cil_tmp25 > multicast_filter_limit) {
 #line 2308
-    __cil_tmp69 = __cil_tmp68 + __cil_tmp67;
-#line 2308
-    __cil_tmp70 = *((int *)__cil_tmp69);
-#line 2308
-    if (__cil_tmp70 > multicast_filter_limit) {
       goto _L;
     } else {
       {
 #line 2308
-      __cil_tmp71 = (unsigned long )net_dev;
+      __cil_tmp26 = net_dev->flags;
 #line 2308
-      __cil_tmp72 = __cil_tmp71 + 432;
+      __cil_tmp27 = __cil_tmp26 & 512U;
 #line 2308
-      __cil_tmp73 = *((unsigned int *)__cil_tmp72);
-#line 2308
-      __cil_tmp74 = __cil_tmp73 & 512U;
-#line 2308
-      if (__cil_tmp74 != 0U) {
+      if (__cil_tmp27 != 0U) {
         _L: 
 #line 2311
         rx_mode = 1610612736U;
 #line 2312
         i = 0;
+#line 2312
         goto ldv_35855;
         ldv_35854: 
 #line 2313
-        __cil_tmp75 = i * 2UL;
-#line 2313
-        __cil_tmp76 = (unsigned long )(mc_filter) + __cil_tmp75;
-#line 2313
-        *((u16 *)__cil_tmp76) = (unsigned short)65535;
+        mc_filter[i] = (u16 )65535U;
 #line 2312
         i = i + 1;
         ldv_35855: ;
 #line 2312
         if (i < table_entries) {
+#line 2313
           goto ldv_35854;
         } else {
+#line 2315
           goto ldv_35856;
         }
         ldv_35856: ;
@@ -19287,97 +15938,70 @@ static void set_rx_mode(struct net_device *net_dev )
 #line 2319
         rx_mode = 1073741824U;
 #line 2321
-        __cil_tmp77 = (unsigned long )net_dev;
+        __cil_tmp28 = net_dev->mc.list.next;
 #line 2321
-        __cil_tmp78 = __cil_tmp77 + 592;
-#line 2321
-        __cil_tmp79 = *((struct list_head **)__cil_tmp78);
-#line 2321
-        __mptr = (struct list_head  const  *)__cil_tmp79;
+        __mptr = (struct list_head  const  *)__cil_tmp28;
 #line 2321
         ha = (struct netdev_hw_addr *)__mptr;
+#line 2321
         goto ldv_35864;
         ldv_35863: 
         {
 #line 2324
-        __cil_tmp80 = (unsigned long )ha;
+        __cil_tmp29 = & ha->addr;
 #line 2324
-        __cil_tmp81 = __cil_tmp80 + 16;
+        __cil_tmp30 = (u8 *)__cil_tmp29;
 #line 2324
-        __cil_tmp82 = (unsigned char (*)[32U])__cil_tmp81;
+        __cil_tmp31 = sis_priv->chipset_rev;
 #line 2324
-        __cil_tmp83 = (u8 *)__cil_tmp82;
+        __cil_tmp32 = (int )__cil_tmp31;
 #line 2324
-        __cil_tmp84 = (unsigned long )sis_priv;
+        __cil_tmp33 = (u8 )__cil_tmp32;
 #line 2324
-        __cil_tmp85 = __cil_tmp84 + 597;
-#line 2324
-        __cil_tmp86 = *((u8 *)__cil_tmp85);
-#line 2324
-        __cil_tmp87 = (int )__cil_tmp86;
-#line 2324
-        __cil_tmp88 = (unsigned char )__cil_tmp87;
-#line 2324
-        tmp___0 = sis900_mcast_bitnr(__cil_tmp83, __cil_tmp88);
+        tmp___0 = sis900_mcast_bitnr(__cil_tmp30, __cil_tmp33);
 #line 2324
         bit_nr = (unsigned int )tmp___0;
 #line 2326
-        __cil_tmp89 = bit_nr >> 4;
+        __cil_tmp34 = (int )bit_nr;
 #line 2326
-        __cil_tmp90 = __cil_tmp89 * 2UL;
+        __cil_tmp35 = __cil_tmp34 & 15;
 #line 2326
-        __cil_tmp91 = (unsigned long )(mc_filter) + __cil_tmp90;
+        __cil_tmp36 = 1 << __cil_tmp35;
 #line 2326
-        __cil_tmp92 = (int )bit_nr;
+        __cil_tmp37 = (short )__cil_tmp36;
 #line 2326
-        __cil_tmp93 = __cil_tmp92 & 15;
+        __cil_tmp38 = (int )__cil_tmp37;
 #line 2326
-        __cil_tmp94 = 1 << __cil_tmp93;
+        __cil_tmp39 = (short )mc_filter[bit_nr >> 4];
 #line 2326
-        __cil_tmp95 = (short )__cil_tmp94;
+        __cil_tmp40 = (int )__cil_tmp39;
 #line 2326
-        __cil_tmp96 = (int )__cil_tmp95;
+        __cil_tmp41 = __cil_tmp40 | __cil_tmp38;
 #line 2326
-        __cil_tmp97 = bit_nr >> 4;
-#line 2326
-        __cil_tmp98 = __cil_tmp97 * 2UL;
-#line 2326
-        __cil_tmp99 = (unsigned long )(mc_filter) + __cil_tmp98;
-#line 2326
-        __cil_tmp100 = *((u16 *)__cil_tmp99);
-#line 2326
-        __cil_tmp101 = (short )__cil_tmp100;
-#line 2326
-        __cil_tmp102 = (int )__cil_tmp101;
-#line 2326
-        __cil_tmp103 = __cil_tmp102 | __cil_tmp96;
-#line 2326
-        *((u16 *)__cil_tmp91) = (unsigned short )__cil_tmp103;
+        mc_filter[bit_nr >> 4] = (u16 )__cil_tmp41;
 #line 2321
-        __cil_tmp104 = *((struct list_head **)ha);
+        __cil_tmp42 = ha->list.next;
 #line 2321
-        __mptr___0 = (struct list_head  const  *)__cil_tmp104;
+        __mptr___0 = (struct list_head  const  *)__cil_tmp42;
 #line 2321
         ha = (struct netdev_hw_addr *)__mptr___0;
         }
         ldv_35864: ;
         {
 #line 2321
-        __cil_tmp105 = (unsigned long )net_dev;
+        __cil_tmp43 = & net_dev->mc.list;
 #line 2321
-        __cil_tmp106 = __cil_tmp105 + 592;
+        __cil_tmp44 = (unsigned long )__cil_tmp43;
 #line 2321
-        __cil_tmp107 = (struct list_head *)__cil_tmp106;
+        __cil_tmp45 = & ha->list;
 #line 2321
-        __cil_tmp108 = (unsigned long )__cil_tmp107;
+        __cil_tmp46 = (unsigned long )__cil_tmp45;
 #line 2321
-        __cil_tmp109 = (struct list_head *)ha;
-#line 2321
-        __cil_tmp110 = (unsigned long )__cil_tmp109;
-#line 2321
-        if (__cil_tmp110 != __cil_tmp108) {
+        if (__cil_tmp46 != __cil_tmp44) {
+#line 2322
           goto ldv_35863;
         } else {
+#line 2324
           goto ldv_35865;
         }
         }
@@ -19390,124 +16014,117 @@ static void set_rx_mode(struct net_device *net_dev )
   }
 #line 2331
   i = 0;
+#line 2331
   goto ldv_35867;
   ldv_35866: 
   {
 #line 2333
-  __cil_tmp111 = i + 4;
+  __cil_tmp47 = i + 4;
 #line 2333
-  __cil_tmp112 = (unsigned int )__cil_tmp111;
+  __cil_tmp48 = (unsigned int )__cil_tmp47;
 #line 2333
-  __cil_tmp113 = __cil_tmp112 << 16;
+  __cil_tmp49 = __cil_tmp48 << 16;
 #line 2333
-  __cil_tmp114 = (unsigned int )ioaddr;
+  __cil_tmp50 = (unsigned int )ioaddr;
 #line 2333
-  __cil_tmp115 = __cil_tmp114 + 72U;
+  __cil_tmp51 = __cil_tmp50 + 72U;
 #line 2333
-  __cil_tmp116 = (int )__cil_tmp115;
+  __cil_tmp52 = (int )__cil_tmp51;
 #line 2333
-  outl(__cil_tmp113, __cil_tmp116);
+  outl(__cil_tmp49, __cil_tmp52);
 #line 2334
-  __cil_tmp117 = i * 2UL;
+  __cil_tmp53 = (unsigned int )mc_filter[i];
 #line 2334
-  __cil_tmp118 = (unsigned long )(mc_filter) + __cil_tmp117;
+  __cil_tmp54 = (unsigned int )ioaddr;
 #line 2334
-  __cil_tmp119 = *((u16 *)__cil_tmp118);
+  __cil_tmp55 = __cil_tmp54 + 76U;
 #line 2334
-  __cil_tmp120 = (unsigned int )__cil_tmp119;
+  __cil_tmp56 = (int )__cil_tmp55;
 #line 2334
-  __cil_tmp121 = (unsigned int )ioaddr;
-#line 2334
-  __cil_tmp122 = __cil_tmp121 + 76U;
-#line 2334
-  __cil_tmp123 = (int )__cil_tmp122;
-#line 2334
-  outl(__cil_tmp120, __cil_tmp123);
+  outl(__cil_tmp53, __cil_tmp56);
 #line 2331
   i = i + 1;
   }
   ldv_35867: ;
 #line 2331
   if (i < table_entries) {
+#line 2332
     goto ldv_35866;
   } else {
+#line 2334
     goto ldv_35868;
   }
   ldv_35868: 
   {
 #line 2337
-  __cil_tmp124 = rx_mode | 2147483648U;
+  __cil_tmp57 = rx_mode | 2147483648U;
 #line 2337
-  __cil_tmp125 = (unsigned int )ioaddr;
+  __cil_tmp58 = (unsigned int )ioaddr;
 #line 2337
-  __cil_tmp126 = __cil_tmp125 + 72U;
+  __cil_tmp59 = __cil_tmp58 + 72U;
 #line 2337
-  __cil_tmp127 = (int )__cil_tmp126;
+  __cil_tmp60 = (int )__cil_tmp59;
 #line 2337
-  outl(__cil_tmp124, __cil_tmp127);
+  outl(__cil_tmp57, __cil_tmp60);
   }
   {
 #line 2341
-  __cil_tmp128 = (unsigned long )net_dev;
+  __cil_tmp61 = net_dev->flags;
 #line 2341
-  __cil_tmp129 = __cil_tmp128 + 432;
+  __cil_tmp62 = __cil_tmp61 & 8U;
 #line 2341
-  __cil_tmp130 = *((unsigned int *)__cil_tmp129);
-#line 2341
-  __cil_tmp131 = __cil_tmp130 & 8U;
-#line 2341
-  if (__cil_tmp131 != 0U) {
+  if (__cil_tmp62 != 0U) {
     {
 #line 2344
-    __cil_tmp132 = (int )ioaddr;
+    __cil_tmp63 = (int )ioaddr;
 #line 2344
-    cr_saved = inl(__cil_tmp132);
+    cr_saved = inl(__cil_tmp63);
 #line 2345
-    __cil_tmp133 = cr_saved | 10U;
+    __cil_tmp64 = cr_saved | 10U;
 #line 2345
-    __cil_tmp134 = (int )ioaddr;
+    __cil_tmp65 = (int )ioaddr;
 #line 2345
-    outl(__cil_tmp133, __cil_tmp134);
+    outl(__cil_tmp64, __cil_tmp65);
 #line 2347
-    __cil_tmp135 = (unsigned int )ioaddr;
+    __cil_tmp66 = (unsigned int )ioaddr;
 #line 2347
-    __cil_tmp136 = __cil_tmp135 + 36U;
+    __cil_tmp67 = __cil_tmp66 + 36U;
 #line 2347
-    __cil_tmp137 = (int )__cil_tmp136;
+    __cil_tmp68 = (int )__cil_tmp67;
 #line 2347
-    tmp___1 = inl(__cil_tmp137);
+    tmp___1 = inl(__cil_tmp68);
 #line 2347
-    __cil_tmp138 = tmp___1 | 536870912U;
+    __cil_tmp69 = tmp___1 | 536870912U;
 #line 2347
-    __cil_tmp139 = (unsigned int )ioaddr;
+    __cil_tmp70 = (unsigned int )ioaddr;
 #line 2347
-    __cil_tmp140 = __cil_tmp139 + 36U;
+    __cil_tmp71 = __cil_tmp70 + 36U;
 #line 2347
-    __cil_tmp141 = (int )__cil_tmp140;
+    __cil_tmp72 = (int )__cil_tmp71;
 #line 2347
-    outl(__cil_tmp138, __cil_tmp141);
+    outl(__cil_tmp69, __cil_tmp72);
 #line 2348
-    __cil_tmp142 = (unsigned int )ioaddr;
+    __cil_tmp73 = (unsigned int )ioaddr;
 #line 2348
-    __cil_tmp143 = __cil_tmp142 + 52U;
+    __cil_tmp74 = __cil_tmp73 + 52U;
 #line 2348
-    __cil_tmp144 = (int )__cil_tmp143;
+    __cil_tmp75 = (int )__cil_tmp74;
 #line 2348
-    tmp___2 = inl(__cil_tmp144);
+    tmp___2 = inl(__cil_tmp75);
 #line 2348
-    __cil_tmp145 = tmp___2 | 268435456U;
+    __cil_tmp76 = tmp___2 | 268435456U;
 #line 2348
-    __cil_tmp146 = (unsigned int )ioaddr;
+    __cil_tmp77 = (unsigned int )ioaddr;
 #line 2348
-    __cil_tmp147 = __cil_tmp146 + 52U;
+    __cil_tmp78 = __cil_tmp77 + 52U;
 #line 2348
-    __cil_tmp148 = (int )__cil_tmp147;
+    __cil_tmp79 = (int )__cil_tmp78;
 #line 2348
-    outl(__cil_tmp145, __cil_tmp148);
+    outl(__cil_tmp76, __cil_tmp79);
 #line 2350
-    __cil_tmp149 = (int )ioaddr;
+    __cil_tmp80 = (int )ioaddr;
 #line 2350
-    outl(cr_saved, __cil_tmp149);
+    outl(cr_saved, __cil_tmp80);
     }
   } else {
 
@@ -19529,41 +16146,35 @@ static void sis900_reset(struct net_device *net_dev )
   int tmp___2 ;
   struct net_device  const  *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  int __cil_tmp14 ;
   unsigned int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp16 ;
+  int __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  int __cil_tmp22 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
   int __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp25 ;
+  int __cil_tmp26 ;
   unsigned int __cil_tmp27 ;
-  int __cil_tmp28 ;
+  u8 __cil_tmp28 ;
   unsigned int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u8 __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  u8 __cil_tmp33 ;
   unsigned int __cil_tmp34 ;
   unsigned int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u8 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  int __cil_tmp46 ;
+  unsigned int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  int __cil_tmp40 ;
 
   {
   {
@@ -19574,67 +16185,64 @@ static void sis900_reset(struct net_device *net_dev )
 #line 2365
   sis_priv = (struct sis900_private *)tmp;
 #line 2366
-  __cil_tmp11 = (unsigned long )net_dev;
+  __cil_tmp11 = net_dev->base_addr;
 #line 2366
-  __cil_tmp12 = __cil_tmp11 + 104;
-#line 2366
-  __cil_tmp13 = *((unsigned long *)__cil_tmp12);
-#line 2366
-  ioaddr = (long )__cil_tmp13;
+  ioaddr = (long )__cil_tmp11;
 #line 2367
   i = 0;
 #line 2368
   status = 50331648U;
 #line 2370
-  __cil_tmp14 = (unsigned int )ioaddr;
+  __cil_tmp12 = (unsigned int )ioaddr;
 #line 2370
-  __cil_tmp15 = __cil_tmp14 + 24U;
+  __cil_tmp13 = __cil_tmp12 + 24U;
 #line 2370
-  __cil_tmp16 = (int )__cil_tmp15;
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 2370
-  outl(0U, __cil_tmp16);
+  outl(0U, __cil_tmp14);
 #line 2371
-  __cil_tmp17 = (unsigned int )ioaddr;
+  __cil_tmp15 = (unsigned int )ioaddr;
 #line 2371
-  __cil_tmp18 = __cil_tmp17 + 20U;
+  __cil_tmp16 = __cil_tmp15 + 20U;
 #line 2371
-  __cil_tmp19 = (int )__cil_tmp18;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 2371
-  outl(0U, __cil_tmp19);
+  outl(0U, __cil_tmp17);
 #line 2372
-  __cil_tmp20 = (unsigned int )ioaddr;
+  __cil_tmp18 = (unsigned int )ioaddr;
 #line 2372
-  __cil_tmp21 = __cil_tmp20 + 72U;
+  __cil_tmp19 = __cil_tmp18 + 72U;
 #line 2372
-  __cil_tmp22 = (int )__cil_tmp21;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 2372
-  outl(0U, __cil_tmp22);
+  outl(0U, __cil_tmp20);
+#line 2374
+  __cil_tmp21 = (int )ioaddr;
+#line 2374
+  tmp___0 = inl(__cil_tmp21);
+#line 2374
+  __cil_tmp22 = tmp___0 | 304U;
 #line 2374
   __cil_tmp23 = (int )ioaddr;
 #line 2374
-  tmp___0 = inl(__cil_tmp23);
-#line 2374
-  __cil_tmp24 = tmp___0 | 304U;
-#line 2374
-  __cil_tmp25 = (int )ioaddr;
-#line 2374
-  outl(__cil_tmp24, __cil_tmp25);
+  outl(__cil_tmp22, __cil_tmp23);
   }
+#line 2377
   goto ldv_35878;
   ldv_35877: 
   {
 #line 2378
-  __cil_tmp26 = (unsigned int )ioaddr;
+  __cil_tmp24 = (unsigned int )ioaddr;
 #line 2378
-  __cil_tmp27 = __cil_tmp26 + 16U;
+  __cil_tmp25 = __cil_tmp24 + 16U;
 #line 2378
-  __cil_tmp28 = (int )__cil_tmp27;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 2378
-  tmp___1 = inl(__cil_tmp28);
+  tmp___1 = inl(__cil_tmp26);
 #line 2378
-  __cil_tmp29 = ~ tmp___1;
+  __cil_tmp27 = ~ tmp___1;
 #line 2378
-  status = __cil_tmp29 & status;
+  status = __cil_tmp27 & status;
   }
   ldv_35878: ;
 #line 2377
@@ -19645,67 +16253,62 @@ static void sis900_reset(struct net_device *net_dev )
     i = i + 1;
 #line 2377
     if (tmp___2 <= 999) {
+#line 2378
       goto ldv_35877;
     } else {
+#line 2380
       goto ldv_35879;
     }
   } else {
+#line 2380
     goto ldv_35879;
   }
   ldv_35879: ;
   {
 #line 2381
-  __cil_tmp30 = (unsigned long )sis_priv;
+  __cil_tmp28 = sis_priv->chipset_rev;
 #line 2381
-  __cil_tmp31 = __cil_tmp30 + 597;
+  __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 2381
-  __cil_tmp32 = *((u8 *)__cil_tmp31);
-#line 2381
-  __cil_tmp33 = (unsigned int )__cil_tmp32;
-#line 2381
-  if (__cil_tmp33 > 143U) {
+  if (__cil_tmp29 > 143U) {
     {
 #line 2383
-    __cil_tmp34 = (unsigned int )ioaddr;
+    __cil_tmp30 = (unsigned int )ioaddr;
 #line 2383
-    __cil_tmp35 = __cil_tmp34 + 4U;
+    __cil_tmp31 = __cil_tmp30 + 4U;
 #line 2383
-    __cil_tmp36 = (int )__cil_tmp35;
+    __cil_tmp32 = (int )__cil_tmp31;
 #line 2383
-    outl(1032U, __cil_tmp36);
+    outl(1032U, __cil_tmp32);
     }
   } else {
     {
 #line 2381
-    __cil_tmp37 = (unsigned long )sis_priv;
+    __cil_tmp33 = sis_priv->chipset_rev;
 #line 2381
-    __cil_tmp38 = __cil_tmp37 + 597;
+    __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 2381
-    __cil_tmp39 = *((u8 *)__cil_tmp38);
-#line 2381
-    __cil_tmp40 = (unsigned int )__cil_tmp39;
-#line 2381
-    if (__cil_tmp40 == 3U) {
+    if (__cil_tmp34 == 3U) {
       {
 #line 2383
-      __cil_tmp41 = (unsigned int )ioaddr;
+      __cil_tmp35 = (unsigned int )ioaddr;
 #line 2383
-      __cil_tmp42 = __cil_tmp41 + 4U;
+      __cil_tmp36 = __cil_tmp35 + 4U;
 #line 2383
-      __cil_tmp43 = (int )__cil_tmp42;
+      __cil_tmp37 = (int )__cil_tmp36;
 #line 2383
-      outl(1032U, __cil_tmp43);
+      outl(1032U, __cil_tmp37);
       }
     } else {
       {
 #line 2385
-      __cil_tmp44 = (unsigned int )ioaddr;
+      __cil_tmp38 = (unsigned int )ioaddr;
 #line 2385
-      __cil_tmp45 = __cil_tmp44 + 4U;
+      __cil_tmp39 = __cil_tmp38 + 4U;
 #line 2385
-      __cil_tmp46 = (int )__cil_tmp45;
+      __cil_tmp40 = (int )__cil_tmp39;
 #line 2385
-      outl(8U, __cil_tmp46);
+      outl(8U, __cil_tmp40);
       }
     }
     }
@@ -19723,32 +16326,18 @@ static void sis900_remove(struct pci_dev *pci_dev )
   void *tmp___0 ;
   struct mii_phy *phy ;
   struct net_device  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  void const   *__cil_tmp8 ;
+  struct mii_phy *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void const   *__cil_tmp12 ;
-  struct mii_phy *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct mii_phy *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  BufferDesc *__cil_tmp21 ;
-  void *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  dma_addr_t __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  BufferDesc *__cil_tmp28 ;
-  void *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  dma_addr_t __cil_tmp32 ;
-  void *__cil_tmp33 ;
+  struct mii_phy *__cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
+  BufferDesc *__cil_tmp13 ;
+  void *__cil_tmp14 ;
+  dma_addr_t __cil_tmp15 ;
+  BufferDesc *__cil_tmp16 ;
+  void *__cil_tmp17 ;
+  dma_addr_t __cil_tmp18 ;
+  void *__cil_tmp19 ;
 
   {
   {
@@ -19765,81 +16354,56 @@ static void sis900_remove(struct pci_dev *pci_dev )
 #line 2399
   phy = (struct mii_phy *)0;
   }
+#line 2401
   goto ldv_35887;
   ldv_35886: 
   {
 #line 2402
-  __cil_tmp8 = (unsigned long )sis_priv;
-#line 2402
-  __cil_tmp9 = __cil_tmp8 + 88;
-#line 2402
-  phy = *((struct mii_phy **)__cil_tmp9);
+  phy = sis_priv->first_mii;
 #line 2403
-  __cil_tmp10 = (unsigned long )sis_priv;
-#line 2403
-  __cil_tmp11 = __cil_tmp10 + 88;
-#line 2403
-  *((struct mii_phy **)__cil_tmp11) = *((struct mii_phy **)phy);
+  sis_priv->first_mii = phy->next;
 #line 2404
-  __cil_tmp12 = (void const   *)phy;
+  __cil_tmp8 = (void const   *)phy;
 #line 2404
-  kfree(__cil_tmp12);
+  kfree(__cil_tmp8);
   }
   ldv_35887: ;
   {
 #line 2401
-  __cil_tmp13 = (struct mii_phy *)0;
+  __cil_tmp9 = (struct mii_phy *)0;
 #line 2401
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 2401
-  __cil_tmp15 = (unsigned long )sis_priv;
+  __cil_tmp11 = sis_priv->first_mii;
 #line 2401
-  __cil_tmp16 = __cil_tmp15 + 88;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 2401
-  __cil_tmp17 = *((struct mii_phy **)__cil_tmp16);
-#line 2401
-  __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 2401
-  if (__cil_tmp18 != __cil_tmp14) {
+  if (__cil_tmp12 != __cil_tmp10) {
+#line 2402
     goto ldv_35886;
   } else {
+#line 2404
     goto ldv_35888;
   }
   }
   ldv_35888: 
   {
 #line 2407
-  __cil_tmp19 = (unsigned long )sis_priv;
+  __cil_tmp13 = sis_priv->rx_ring;
 #line 2407
-  __cil_tmp20 = __cil_tmp19 + 568;
+  __cil_tmp14 = (void *)__cil_tmp13;
 #line 2407
-  __cil_tmp21 = *((BufferDesc **)__cil_tmp20);
+  __cil_tmp15 = sis_priv->rx_ring_dma;
 #line 2407
-  __cil_tmp22 = (void *)__cil_tmp21;
-#line 2407
-  __cil_tmp23 = (unsigned long )sis_priv;
-#line 2407
-  __cil_tmp24 = __cil_tmp23 + 584;
-#line 2407
-  __cil_tmp25 = *((dma_addr_t *)__cil_tmp24);
-#line 2407
-  pci_free_consistent(pci_dev, 192UL, __cil_tmp22, __cil_tmp25);
+  pci_free_consistent(pci_dev, 192UL, __cil_tmp14, __cil_tmp15);
 #line 2409
-  __cil_tmp26 = (unsigned long )sis_priv;
+  __cil_tmp16 = sis_priv->tx_ring;
 #line 2409
-  __cil_tmp27 = __cil_tmp26 + 560;
+  __cil_tmp17 = (void *)__cil_tmp16;
 #line 2409
-  __cil_tmp28 = *((BufferDesc **)__cil_tmp27);
+  __cil_tmp18 = sis_priv->tx_ring_dma;
 #line 2409
-  __cil_tmp29 = (void *)__cil_tmp28;
-#line 2409
-  __cil_tmp30 = (unsigned long )sis_priv;
-#line 2409
-  __cil_tmp31 = __cil_tmp30 + 576;
-#line 2409
-  __cil_tmp32 = *((dma_addr_t *)__cil_tmp31);
-#line 2409
-  pci_free_consistent(pci_dev, 192UL, __cil_tmp29, __cil_tmp32);
+  pci_free_consistent(pci_dev, 192UL, __cil_tmp17, __cil_tmp18);
 #line 2411
   unregister_netdev(net_dev);
 #line 2412
@@ -19847,28 +16411,26 @@ static void sis900_remove(struct pci_dev *pci_dev )
 #line 2413
   pci_release_regions(pci_dev);
 #line 2414
-  __cil_tmp33 = (void *)0;
+  __cil_tmp19 = (void *)0;
 #line 2414
-  pci_set_drvdata(pci_dev, __cil_tmp33);
+  pci_set_drvdata(pci_dev, __cil_tmp19);
   }
 #line 2415
   return;
 }
 }
 #line 2419 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
-static int sis900_suspend(struct pci_dev *pci_dev , int state_event15 ) 
+static int sis900_suspend(struct pci_dev *pci_dev , pm_message_t state ) 
 { struct net_device *net_dev ;
   void *tmp ;
   long ioaddr ;
   int tmp___0 ;
   unsigned int tmp___1 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct net_device  const  *__cil_tmp11 ;
+  struct net_device  const  *__cil_tmp9 ;
+  int __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
   int __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  int __cil_tmp14 ;
 
   {
   {
@@ -19877,17 +16439,13 @@ static int sis900_suspend(struct pci_dev *pci_dev , int state_event15 )
 #line 2421
   net_dev = (struct net_device *)tmp;
 #line 2422
-  __cil_tmp8 = (unsigned long )net_dev;
+  __cil_tmp8 = net_dev->base_addr;
 #line 2422
-  __cil_tmp9 = __cil_tmp8 + 104;
-#line 2422
-  __cil_tmp10 = *((unsigned long *)__cil_tmp9);
-#line 2422
-  ioaddr = (long )__cil_tmp10;
+  ioaddr = (long )__cil_tmp8;
 #line 2424
-  __cil_tmp11 = (struct net_device  const  *)net_dev;
+  __cil_tmp9 = (struct net_device  const  *)net_dev;
 #line 2424
-  tmp___0 = netif_running(__cil_tmp11);
+  tmp___0 = netif_running(__cil_tmp9);
   }
 #line 2424
   if (tmp___0 == 0) {
@@ -19902,15 +16460,15 @@ static int sis900_suspend(struct pci_dev *pci_dev , int state_event15 )
 #line 2428
   netif_device_detach(net_dev);
 #line 2431
+  __cil_tmp10 = (int )ioaddr;
+#line 2431
+  tmp___1 = inl(__cil_tmp10);
+#line 2431
+  __cil_tmp11 = tmp___1 | 10U;
+#line 2431
   __cil_tmp12 = (int )ioaddr;
 #line 2431
-  tmp___1 = inl(__cil_tmp12);
-#line 2431
-  __cil_tmp13 = tmp___1 | 10U;
-#line 2431
-  __cil_tmp14 = (int )ioaddr;
-#line 2431
-  outl(__cil_tmp13, __cil_tmp14);
+  outl(__cil_tmp11, __cil_tmp12);
 #line 2433
   pci_set_power_state(pci_dev, 3);
 #line 2434
@@ -19931,21 +16489,17 @@ static int sis900_resume(struct pci_dev *pci_dev )
   unsigned int tmp___2 ;
   struct net_device  const  *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct net_device  const  *__cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  int __cil_tmp16 ;
+  struct net_device  const  *__cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
   int __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct mii_phy *__cil_tmp25 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  struct mii_phy *__cil_tmp21 ;
 
   {
   {
@@ -19960,17 +16514,13 @@ static int sis900_resume(struct pci_dev *pci_dev )
 #line 2442
   sis_priv = (struct sis900_private *)tmp___0;
 #line 2443
-  __cil_tmp10 = (unsigned long )net_dev;
+  __cil_tmp10 = net_dev->base_addr;
 #line 2443
-  __cil_tmp11 = __cil_tmp10 + 104;
-#line 2443
-  __cil_tmp12 = *((unsigned long *)__cil_tmp11);
-#line 2443
-  ioaddr = (long )__cil_tmp12;
+  ioaddr = (long )__cil_tmp10;
 #line 2445
-  __cil_tmp13 = (struct net_device  const  *)net_dev;
+  __cil_tmp11 = (struct net_device  const  *)net_dev;
 #line 2445
-  tmp___1 = netif_running(__cil_tmp13);
+  tmp___1 = netif_running(__cil_tmp11);
   }
 #line 2445
   if (tmp___1 == 0) {
@@ -19999,39 +16549,35 @@ static int sis900_resume(struct pci_dev *pci_dev )
 #line 2461
   sis900_set_mode(ioaddr, 10, 1);
 #line 2464
-  __cil_tmp14 = (unsigned int )ioaddr;
+  __cil_tmp12 = (unsigned int )ioaddr;
 #line 2464
-  __cil_tmp15 = __cil_tmp14 + 20U;
+  __cil_tmp13 = __cil_tmp12 + 20U;
 #line 2464
-  __cil_tmp16 = (int )__cil_tmp15;
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 2464
-  outl(67365U, __cil_tmp16);
+  outl(67365U, __cil_tmp14);
+#line 2465
+  __cil_tmp15 = (int )ioaddr;
+#line 2465
+  tmp___2 = inl(__cil_tmp15);
+#line 2465
+  __cil_tmp16 = tmp___2 | 4U;
 #line 2465
   __cil_tmp17 = (int )ioaddr;
 #line 2465
-  tmp___2 = inl(__cil_tmp17);
-#line 2465
-  __cil_tmp18 = tmp___2 | 4U;
-#line 2465
-  __cil_tmp19 = (int )ioaddr;
-#line 2465
-  outl(__cil_tmp18, __cil_tmp19);
+  outl(__cil_tmp16, __cil_tmp17);
 #line 2466
-  __cil_tmp20 = (unsigned int )ioaddr;
+  __cil_tmp18 = (unsigned int )ioaddr;
 #line 2466
-  __cil_tmp21 = __cil_tmp20 + 24U;
+  __cil_tmp19 = __cil_tmp18 + 24U;
 #line 2466
-  __cil_tmp22 = (int )__cil_tmp21;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 2466
-  outl(1U, __cil_tmp22);
+  outl(1U, __cil_tmp20);
 #line 2468
-  __cil_tmp23 = (unsigned long )sis_priv;
+  __cil_tmp21 = sis_priv->mii;
 #line 2468
-  __cil_tmp24 = __cil_tmp23 + 80;
-#line 2468
-  __cil_tmp25 = *((struct mii_phy **)__cil_tmp24);
-#line 2468
-  sis900_check_mode(net_dev, __cil_tmp25);
+  sis900_check_mode(net_dev, __cil_tmp21);
   }
 #line 2470
   return (0);
@@ -20121,7 +16667,6 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  int var_sis900_suspend_46_p1_event24 ;
 
   {
   {
@@ -20138,10 +16683,12 @@ void main(void)
   }
 #line 3451
   if (tmp != 0) {
+#line 3452
     goto ldv_final;
   } else {
 
   }
+#line 3466
   goto ldv_35977;
   ldv_35976: 
   {
@@ -20150,304 +16697,329 @@ void main(void)
   }
 #line 3473
   if (tmp___0 == 0) {
+#line 3473
     goto case_0;
-  } else {
+  } else
 #line 3527
-    if (tmp___0 == 1) {
-      goto case_1;
-    } else {
+  if (tmp___0 == 1) {
+#line 3527
+    goto case_1;
+  } else
 #line 3581
-      if (tmp___0 == 2) {
-        goto case_2;
-      } else {
+  if (tmp___0 == 2) {
+#line 3581
+    goto case_2;
+  } else
 #line 3632
-        if (tmp___0 == 3) {
-          goto case_3;
-        } else {
+  if (tmp___0 == 3) {
+#line 3632
+    goto case_3;
+  } else
 #line 3683
-          if (tmp___0 == 4) {
-            goto case_4;
-          } else {
+  if (tmp___0 == 4) {
+#line 3683
+    goto case_4;
+  } else
 #line 3734
-            if (tmp___0 == 5) {
-              goto case_5;
-            } else {
+  if (tmp___0 == 5) {
+#line 3734
+    goto case_5;
+  } else
 #line 3785
-              if (tmp___0 == 6) {
-                goto case_6;
-              } else {
+  if (tmp___0 == 6) {
+#line 3785
+    goto case_6;
+  } else
 #line 3836
-                if (tmp___0 == 7) {
-                  goto case_7;
-                } else {
+  if (tmp___0 == 7) {
+#line 3836
+    goto case_7;
+  } else
 #line 3887
-                  if (tmp___0 == 8) {
-                    goto case_8;
-                  } else {
+  if (tmp___0 == 8) {
+#line 3887
+    goto case_8;
+  } else
 #line 3938
-                    if (tmp___0 == 9) {
-                      goto case_9;
-                    } else {
+  if (tmp___0 == 9) {
+#line 3938
+    goto case_9;
+  } else
 #line 3989
-                      if (tmp___0 == 10) {
-                        goto case_10;
-                      } else {
+  if (tmp___0 == 10) {
+#line 3989
+    goto case_10;
+  } else
 #line 4040
-                        if (tmp___0 == 11) {
-                          goto case_11;
-                        } else {
+  if (tmp___0 == 11) {
+#line 4040
+    goto case_11;
+  } else
 #line 4091
-                          if (tmp___0 == 12) {
-                            goto case_12;
-                          } else {
+  if (tmp___0 == 12) {
+#line 4091
+    goto case_12;
+  } else
 #line 4142
-                            if (tmp___0 == 13) {
-                              goto case_13;
-                            } else {
+  if (tmp___0 == 13) {
+#line 4142
+    goto case_13;
+  } else
 #line 4193
-                              if (tmp___0 == 14) {
-                                goto case_14;
-                              } else {
+  if (tmp___0 == 14) {
+#line 4193
+    goto case_14;
+  } else
 #line 4244
-                                if (tmp___0 == 15) {
-                                  goto case_15;
-                                } else {
+  if (tmp___0 == 15) {
+#line 4244
+    goto case_15;
+  } else
 #line 4295
-                                  if (tmp___0 == 16) {
-                                    goto case_16;
-                                  } else {
+  if (tmp___0 == 16) {
+#line 4295
+    goto case_16;
+  } else
 #line 4346
-                                    if (tmp___0 == 17) {
-                                      goto case_17;
-                                    } else {
+  if (tmp___0 == 17) {
+#line 4346
+    goto case_17;
+  } else
 #line 4398
-                                      if (tmp___0 == 18) {
-                                        goto case_18;
-                                      } else {
+  if (tmp___0 == 18) {
+#line 4398
+    goto case_18;
+  } else
 #line 4449
-                                        if (tmp___0 == 19) {
-                                          goto case_19;
-                                        } else {
+  if (tmp___0 == 19) {
+#line 4449
+    goto case_19;
+  } else
 #line 4500
-                                          if (tmp___0 == 20) {
-                                            goto case_20;
-                                          } else {
+  if (tmp___0 == 20) {
+#line 4500
+    goto case_20;
+  } else
 #line 4551
-                                            if (tmp___0 == 21) {
-                                              goto case_21;
-                                            } else {
-                                              goto switch_default;
+  if (tmp___0 == 21) {
+#line 4551
+    goto case_21;
+  } else {
+#line 4602
+    goto switch_default;
 #line 3471
-                                              if (0) {
-                                                case_0: ;
+    if (0) {
+      case_0: ;
 #line 3476
-                                                if (ldv_s_sis900_netdev_ops_net_device_ops == 0) {
-                                                  {
+      if (ldv_s_sis900_netdev_ops_net_device_ops == 0) {
+        {
 #line 3504
-                                                  res_sis900_open_15 = sis900_open(var_group1);
+        res_sis900_open_15 = sis900_open(var_group1);
 #line 3505
-                                                  ldv_check_return_value(res_sis900_open_15);
-                                                  }
-#line 3506
-                                                  if (res_sis900_open_15 < 0) {
-                                                    goto ldv_module_exit;
-                                                  } else {
-
-                                                  }
-#line 3520
-                                                  ldv_s_sis900_netdev_ops_net_device_ops = ldv_s_sis900_netdev_ops_net_device_ops + 1;
-                                                } else {
-
-                                                }
-                                                goto ldv_35953;
-                                                case_1: ;
-#line 3530
-                                                if (ldv_s_sis900_netdev_ops_net_device_ops == 1) {
-                                                  {
-#line 3562
-                                                  res_sis900_close_30 = sis900_close(var_group1);
-#line 3563
-                                                  ldv_check_return_value(res_sis900_close_30);
-                                                  }
-#line 3564
-                                                  if (res_sis900_close_30 != 0) {
-                                                    goto ldv_module_exit;
-                                                  } else {
-
-                                                  }
-#line 3574
-                                                  ldv_s_sis900_netdev_ops_net_device_ops = 0;
-                                                } else {
-
-                                                }
-                                                goto ldv_35953;
-                                                case_2: 
-                                                {
-#line 3614
-                                                sis900_start_xmit(var_group2, var_group1);
-                                                }
-                                                goto ldv_35953;
-                                                case_3: 
-                                                {
-#line 3667
-                                                sis900_set_config(var_group1, var_group3);
-                                                }
-                                                goto ldv_35953;
-                                                case_4: 
-                                                {
-#line 3718
-                                                set_rx_mode(var_group1);
-                                                }
-                                                goto ldv_35953;
-                                                case_5: 
-                                                {
-#line 3769
-                                                mii_ioctl(var_group1, var_group4,
-                                                          var_mii_ioctl_40_p2);
-                                                }
-                                                goto ldv_35953;
-                                                case_6: 
-                                                {
-#line 3818
-                                                sis900_tx_timeout(var_group1);
-                                                }
-                                                goto ldv_35953;
-                                                case_7: 
-                                                {
-#line 3866
-                                                sis900_poll(var_group1);
-                                                }
-                                                goto ldv_35953;
-                                                case_8: 
-                                                {
-#line 3922
-                                                sis900_get_drvinfo(var_group1, var_group5);
-                                                }
-                                                goto ldv_35953;
-                                                case_9: 
-                                                {
-#line 3973
-                                                sis900_get_msglevel(var_group1);
-                                                }
-                                                goto ldv_35953;
-                                                case_10: 
-                                                {
-#line 4024
-                                                sis900_set_msglevel(var_group1, var_sis900_set_msglevel_33_p1);
-                                                }
-                                                goto ldv_35953;
-                                                case_11: 
-                                                {
-#line 4075
-                                                sis900_get_link(var_group1);
-                                                }
-                                                goto ldv_35953;
-                                                case_12: 
-                                                {
-#line 4126
-                                                sis900_get_settings(var_group1, var_group6);
-                                                }
-                                                goto ldv_35953;
-                                                case_13: 
-                                                {
-#line 4177
-                                                sis900_set_settings(var_group1, var_group6);
-                                                }
-                                                goto ldv_35953;
-                                                case_14: 
-                                                {
-#line 4228
-                                                sis900_nway_reset(var_group1);
-                                                }
-                                                goto ldv_35953;
-                                                case_15: 
-                                                {
-#line 4279
-                                                sis900_get_wol(var_group1, var_group7);
-                                                }
-                                                goto ldv_35953;
-                                                case_16: 
-                                                {
-#line 4330
-                                                sis900_set_wol(var_group1, var_group7);
-                                                }
-                                                goto ldv_35953;
-                                                case_17: ;
-#line 4349
-                                                if (ldv_s_sis900_pci_driver_pci_driver == 0) {
-                                                  {
-#line 4371
-                                                  res_sis900_probe_4 = sis900_probe(var_group8,
-                                                                                    var_sis900_probe_4_p1);
-#line 4372
-                                                  ldv_check_return_value(res_sis900_probe_4);
-                                                  }
-#line 4373
-                                                  if (res_sis900_probe_4 != 0) {
-                                                    goto ldv_module_exit;
-                                                  } else {
-
-                                                  }
-#line 4391
-                                                  ldv_s_sis900_pci_driver_pci_driver = 0;
-                                                } else {
-
-                                                }
-                                                goto ldv_35953;
-                                                case_18: 
-                                                {
-#line 4434
-                                                sis900_suspend(var_group8, var_sis900_suspend_46_p1_event24);
-                                                }
-                                                goto ldv_35953;
-                                                case_19: 
-                                                {
-#line 4485
-                                                sis900_resume(var_group8);
-                                                }
-                                                goto ldv_35953;
-                                                case_20: 
-                                                {
-#line 4503
-                                                LDV_IN_INTERRUPT = 2;
-#line 4533
-                                                sis900_interrupt(var_sis900_interrupt_27_p0,
-                                                                 var_sis900_interrupt_27_p1);
-#line 4544
-                                                LDV_IN_INTERRUPT = 1;
-                                                }
-                                                goto ldv_35953;
-                                                case_21: 
-                                                {
-#line 4582
-                                                sis900_timer(var_sis900_timer_20_p0);
-                                                }
-                                                goto ldv_35953;
-                                                switch_default: ;
-                                                goto ldv_35953;
-                                              } else {
-
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        ldv_check_return_value(res_sis900_open_15);
         }
+#line 3506
+        if (res_sis900_open_15 < 0) {
+#line 3507
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 3520
+        ldv_s_sis900_netdev_ops_net_device_ops = ldv_s_sis900_netdev_ops_net_device_ops + 1;
+      } else {
+
       }
+#line 3526
+      goto ldv_35953;
+      case_1: ;
+#line 3530
+      if (ldv_s_sis900_netdev_ops_net_device_ops == 1) {
+        {
+#line 3562
+        res_sis900_close_30 = sis900_close(var_group1);
+#line 3563
+        ldv_check_return_value(res_sis900_close_30);
+        }
+#line 3564
+        if (res_sis900_close_30 != 0) {
+#line 3565
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 3574
+        ldv_s_sis900_netdev_ops_net_device_ops = 0;
+      } else {
+
+      }
+#line 3580
+      goto ldv_35953;
+      case_2: 
+      {
+#line 3614
+      sis900_start_xmit(var_group2, var_group1);
+      }
+#line 3631
+      goto ldv_35953;
+      case_3: 
+      {
+#line 3667
+      sis900_set_config(var_group1, var_group3);
+      }
+#line 3682
+      goto ldv_35953;
+      case_4: 
+      {
+#line 3718
+      set_rx_mode(var_group1);
+      }
+#line 3733
+      goto ldv_35953;
+      case_5: 
+      {
+#line 3769
+      mii_ioctl(var_group1, var_group4, var_mii_ioctl_40_p2);
+      }
+#line 3784
+      goto ldv_35953;
+      case_6: 
+      {
+#line 3818
+      sis900_tx_timeout(var_group1);
+      }
+#line 3835
+      goto ldv_35953;
+      case_7: 
+      {
+#line 3866
+      sis900_poll(var_group1);
+      }
+#line 3886
+      goto ldv_35953;
+      case_8: 
+      {
+#line 3922
+      sis900_get_drvinfo(var_group1, var_group5);
+      }
+#line 3937
+      goto ldv_35953;
+      case_9: 
+      {
+#line 3973
+      sis900_get_msglevel(var_group1);
+      }
+#line 3988
+      goto ldv_35953;
+      case_10: 
+      {
+#line 4024
+      sis900_set_msglevel(var_group1, var_sis900_set_msglevel_33_p1);
+      }
+#line 4039
+      goto ldv_35953;
+      case_11: 
+      {
+#line 4075
+      sis900_get_link(var_group1);
+      }
+#line 4090
+      goto ldv_35953;
+      case_12: 
+      {
+#line 4126
+      sis900_get_settings(var_group1, var_group6);
+      }
+#line 4141
+      goto ldv_35953;
+      case_13: 
+      {
+#line 4177
+      sis900_set_settings(var_group1, var_group6);
+      }
+#line 4192
+      goto ldv_35953;
+      case_14: 
+      {
+#line 4228
+      sis900_nway_reset(var_group1);
+      }
+#line 4243
+      goto ldv_35953;
+      case_15: 
+      {
+#line 4279
+      sis900_get_wol(var_group1, var_group7);
+      }
+#line 4294
+      goto ldv_35953;
+      case_16: 
+      {
+#line 4330
+      sis900_set_wol(var_group1, var_group7);
+      }
+#line 4345
+      goto ldv_35953;
+      case_17: ;
+#line 4349
+      if (ldv_s_sis900_pci_driver_pci_driver == 0) {
+        {
+#line 4371
+        res_sis900_probe_4 = sis900_probe(var_group8, var_sis900_probe_4_p1);
+#line 4372
+        ldv_check_return_value(res_sis900_probe_4);
+        }
+#line 4373
+        if (res_sis900_probe_4 != 0) {
+#line 4374
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 4391
+        ldv_s_sis900_pci_driver_pci_driver = 0;
+      } else {
+
+      }
+#line 4397
+      goto ldv_35953;
+      case_18: 
+      {
+#line 4434
+      sis900_suspend(var_group8, var_sis900_suspend_46_p1);
+      }
+#line 4448
+      goto ldv_35953;
+      case_19: 
+      {
+#line 4485
+      sis900_resume(var_group8);
+      }
+#line 4499
+      goto ldv_35953;
+      case_20: 
+      {
+#line 4503
+      LDV_IN_INTERRUPT = 2;
+#line 4533
+      sis900_interrupt(var_sis900_interrupt_27_p0, var_sis900_interrupt_27_p1);
+#line 4544
+      LDV_IN_INTERRUPT = 1;
+      }
+#line 4550
+      goto ldv_35953;
+      case_21: 
+      {
+#line 4582
+      sis900_timer(var_sis900_timer_20_p0);
+      }
+#line 4601
+      goto ldv_35953;
+      switch_default: ;
+#line 4602
+      goto ldv_35953;
+    } else {
+
     }
   }
   ldv_35953: ;
@@ -20458,19 +17030,21 @@ void main(void)
   }
 #line 3466
   if (tmp___1 != 0) {
+#line 3469
+    goto ldv_35976;
+  } else
+#line 3466
+  if (ldv_s_sis900_netdev_ops_net_device_ops != 0) {
+#line 3469
+    goto ldv_35976;
+  } else
+#line 3466
+  if (ldv_s_sis900_pci_driver_pci_driver != 0) {
+#line 3469
     goto ldv_35976;
   } else {
-#line 3466
-    if (ldv_s_sis900_netdev_ops_net_device_ops != 0) {
-      goto ldv_35976;
-    } else {
-#line 3466
-      if (ldv_s_sis900_pci_driver_pci_driver != 0) {
-        goto ldv_35976;
-      } else {
-        goto ldv_35978;
-      }
-    }
+#line 3471
+    goto ldv_35978;
   }
   ldv_35978: ;
   ldv_module_exit: 
@@ -20493,6 +17067,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -20612,6 +17187,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 4724
   goto LDV_STOP;
 }
 }

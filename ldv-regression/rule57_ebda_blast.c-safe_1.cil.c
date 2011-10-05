@@ -27,6 +27,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -43,26 +44,26 @@ extern void *kzalloc(int  , int  ) ;
 #line 39 "files/rule57_ebda_blast.c"
 void kfree(void *p ) 
 { void *__cil_tmp2 ;
-  unsigned int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
+  unsigned long __cil_tmp3 ;
+  unsigned long __cil_tmp4 ;
+  unsigned long __cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
 
   {
   {
 #line 40
   __cil_tmp2 = (void *)0;
 #line 40
-  __cil_tmp3 = (unsigned int )__cil_tmp2;
+  __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 40
-  __cil_tmp4 = (unsigned int )p;
+  __cil_tmp4 = (unsigned long )p;
 #line 40
   if (__cil_tmp4 != __cil_tmp3) {
     {
 #line 40
-    __cil_tmp5 = (unsigned int )tmp_slot;
+    __cil_tmp5 = (unsigned long )tmp_slot;
 #line 40
-    __cil_tmp6 = (unsigned int )p;
+    __cil_tmp6 = (unsigned long )p;
 #line 40
     if (__cil_tmp6 == __cil_tmp5) {
 #line 41
@@ -93,24 +94,16 @@ int ebda_rsrc_controller(void)
   void *tmp ;
   void *tmp___0 ;
   int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  struct slot **__cil_tmp17 ;
-  struct slot *__cil_tmp18 ;
-  void *__cil_tmp19 ;
+  int __cil_tmp7 ;
+  void *__cil_tmp8 ;
+  struct slot **__cil_tmp9 ;
+  struct slot *__cil_tmp10 ;
+  void *__cil_tmp11 ;
 
   {
   {
 #line 55
-  __cil_tmp6 = (int )8U;
+  __cil_tmp6 = (int )16UL;
 #line 55
   tmp = kzalloc(__cil_tmp6, 1);
 #line 55
@@ -120,21 +113,18 @@ int ebda_rsrc_controller(void)
   if (! hp_slot_ptr) {
 #line 57
     rc = -2;
+#line 58
     goto error_no_slot;
   } else {
 
   }
   {
 #line 60
-  __cil_tmp7 = (unsigned int )hp_slot_ptr;
-#line 60
-  __cil_tmp8 = __cil_tmp7 + 4;
-#line 60
-  *((int *)__cil_tmp8) = 5;
+  hp_slot_ptr->b = 5;
 #line 62
-  __cil_tmp9 = (int )16U;
+  __cil_tmp7 = (int )24UL;
 #line 62
-  tmp___0 = kzalloc(__cil_tmp9, 1);
+  tmp___0 = kzalloc(__cil_tmp7, 1);
 #line 62
   tmp_slot = (struct slot *)tmp___0;
   }
@@ -142,6 +132,7 @@ int ebda_rsrc_controller(void)
   if (! tmp_slot) {
 #line 65
     rc = -2;
+#line 66
     goto error_no_slot;
   } else {
 
@@ -152,13 +143,9 @@ int ebda_rsrc_controller(void)
 #line 70
   freed_tmp_slot = 0;
 #line 72
-  *((int *)tmp_slot) = 2;
+  tmp_slot->a = 2;
 #line 73
-  __cil_tmp10 = (unsigned int )tmp_slot;
-#line 73
-  __cil_tmp11 = __cil_tmp10 + 4;
-#line 73
-  *((int *)__cil_tmp11) = 3;
+  tmp_slot->b = 3;
 #line 75
   bus_info_ptr1 = ibmphp_find_same_bus_num();
   }
@@ -168,33 +155,26 @@ int ebda_rsrc_controller(void)
 #line 77
     rc = -3;
 #line 80
-    __cil_tmp12 = (void *)tmp_slot;
+    __cil_tmp8 = (void *)tmp_slot;
 #line 80
-    kfree(__cil_tmp12);
+    kfree(__cil_tmp8);
 #line 81
     freed_tmp_slot = 1;
     }
+#line 83
     goto error;
   } else {
 
   }
   {
 #line 85
-  __cil_tmp13 = (unsigned int )tmp_slot;
-#line 85
-  __cil_tmp14 = __cil_tmp13 + 12;
-#line 85
-  *((struct bus_info **)__cil_tmp14) = bus_info_ptr1;
+  tmp_slot->bus_on = bus_info_ptr1;
 #line 86
   bus_info_ptr1 = (struct bus_info *)0;
 #line 88
-  __cil_tmp15 = (unsigned int )tmp_slot;
-#line 88
-  __cil_tmp16 = __cil_tmp15 + 8;
-#line 88
-  *((struct hotplug_slot **)__cil_tmp16) = hp_slot_ptr;
+  tmp_slot->hotplug_slot = hp_slot_ptr;
 #line 90
-  *((struct slot **)hp_slot_ptr) = tmp_slot;
+  hp_slot_ptr->private = tmp_slot;
 #line 91
   used_tmp_slot = 1;
 #line 93
@@ -202,18 +182,20 @@ int ebda_rsrc_controller(void)
   }
 #line 94
   if (rc) {
+#line 95
     goto error;
   } else {
 
   }
   {
 #line 97
-  __cil_tmp17 = (struct slot **)hp_slot_ptr;
+  __cil_tmp9 = & hp_slot_ptr->private;
 #line 97
-  rc = ibmphp_init_devno(__cil_tmp17);
+  rc = ibmphp_init_devno(__cil_tmp9);
   }
 #line 98
   if (rc) {
+#line 99
     goto error;
   } else {
 
@@ -223,11 +205,11 @@ int ebda_rsrc_controller(void)
   error: 
   {
 #line 104
-  __cil_tmp18 = *((struct slot **)hp_slot_ptr);
+  __cil_tmp10 = hp_slot_ptr->private;
 #line 104
-  __cil_tmp19 = (void *)__cil_tmp18;
+  __cil_tmp11 = (void *)__cil_tmp10;
 #line 104
-  kfree(__cil_tmp19);
+  kfree(__cil_tmp11);
   }
   error_no_slot: 
 #line 109

@@ -9,6 +9,7 @@ void err(void)
 
   {
   ERROR: 
+#line 12
   goto ERROR;
 }
 }
@@ -63,14 +64,11 @@ void mutex_unlock(int *b )
 #line 26 "files/mutex_lock_int.c"
 int main(void) 
 { int m ;
-  int *__cil_tmp2 ;
 
   {
   {
 #line 29
-  __cil_tmp2 = & m;
-#line 29
-  *__cil_tmp2 = 0;
+  m = 0;
 #line 31
   mutex_lock(& m);
 #line 33

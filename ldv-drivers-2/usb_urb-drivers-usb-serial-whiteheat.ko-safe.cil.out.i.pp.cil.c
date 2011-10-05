@@ -4955,7 +4955,7 @@ __inline static __u16 __fswab16(__u16 val )
 #line 51
   __cil_tmp8 = __cil_tmp7 | __cil_tmp4;
 #line 51
-  return ((unsigned short )__cil_tmp8);
+  return ((__u16 )__cil_tmp8);
   }
 }
 }
@@ -4998,6 +4998,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   __cil_tmp2 = (int )8UL;
 #line 14
   if (__cil_tmp2 == 1) {
+#line 14
     goto case_1;
   } else {
     {
@@ -5005,6 +5006,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
     __cil_tmp3 = (int )8UL;
 #line 14
     if (__cil_tmp3 == 2) {
+#line 14
       goto case_2;
     } else {
       {
@@ -5012,6 +5014,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
       __cil_tmp4 = (int )8UL;
 #line 14
       if (__cil_tmp4 == 4) {
+#line 14
         goto case_4;
       } else {
         {
@@ -5019,8 +5022,10 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
         __cil_tmp5 = (int )8UL;
 #line 14
         if (__cil_tmp5 == 8) {
+#line 14
           goto case_8;
         } else {
+#line 14
           goto switch_default;
 #line 14
           if (0) {
@@ -5034,6 +5039,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=q" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             case_2: 
 #line 14
@@ -5045,6 +5051,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             case_4: 
 #line 14
@@ -5056,6 +5063,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             case_8: 
 #line 14
@@ -5067,6 +5075,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             switch_default: 
             {
@@ -5094,18 +5103,13 @@ extern void *__memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ 
 
   {
 #line 26
-  *((struct list_head **)list) = list;
+  list->next = list;
 #line 27
-  __cil_tmp2 = (unsigned long )list;
-#line 27
-  __cil_tmp3 = __cil_tmp2 + 8;
-#line 27
-  *((struct list_head **)__cil_tmp3) = list;
+  list->prev = list;
 #line 28
   return;
 }
@@ -5119,7 +5123,7 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
   {
   {
 #line 62
-  __cil_tmp3 = *((struct list_head **)head);
+  __cil_tmp3 = head->next;
 #line 62
   __list_add(new, head, __cil_tmp3);
   }
@@ -5129,20 +5133,14 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
 }
 #line 74 "include/linux/list.h"
 __inline static void list_add_tail(struct list_head *new , struct list_head *head ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct list_head *__cil_tmp5 ;
+{ struct list_head *__cil_tmp3 ;
 
   {
   {
 #line 76
-  __cil_tmp3 = (unsigned long )head;
+  __cil_tmp3 = head->prev;
 #line 76
-  __cil_tmp4 = __cil_tmp3 + 8;
-#line 76
-  __cil_tmp5 = *((struct list_head **)__cil_tmp4);
-#line 76
-  __list_add(new, __cil_tmp5, head);
+  __list_add(new, __cil_tmp3, head);
   }
 #line 77
   return;
@@ -5178,7 +5176,7 @@ __inline static int list_empty(struct list_head  const  *head )
 #line 188
   __cil_tmp2 = (unsigned long )head;
 #line 188
-  __cil_tmp3 = *((struct list_head * const  *)head);
+  __cil_tmp3 = head->next;
 #line 188
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 188
@@ -5209,7 +5207,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->__annonCompField18.rlock);
 }
 }
 #line 283 "include/linux/spinlock.h"
@@ -5219,7 +5217,7 @@ __inline static void spin_lock(spinlock_t *lock )
   {
   {
 #line 285
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->__annonCompField18.rlock;
 #line 285
   _raw_spin_lock(__cil_tmp2);
   }
@@ -5234,7 +5232,7 @@ __inline static void spin_lock_irq(spinlock_t *lock )
   {
   {
 #line 310
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->__annonCompField18.rlock;
 #line 310
   _raw_spin_lock_irq(__cil_tmp2);
   }
@@ -5249,7 +5247,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   {
   {
 #line 325
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->__annonCompField18.rlock;
 #line 325
   _raw_spin_unlock(__cil_tmp2);
   }
@@ -5264,7 +5262,7 @@ __inline static void spin_unlock_irq(spinlock_t *lock )
   {
   {
 #line 335
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->__annonCompField18.rlock;
 #line 335
   _raw_spin_unlock_irq(__cil_tmp2);
   }
@@ -5280,16 +5278,17 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   {
 #line 340
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 340
-    __cil_tmp3 = (struct raw_spinlock *)lock;
+    __cil_tmp3 = & lock->__annonCompField18.rlock;
 #line 340
     _raw_spin_unlock_irqrestore(__cil_tmp3, flags);
     }
+#line 340
     goto while_break;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -5435,56 +5434,21 @@ __inline static void usb_fill_bulk_urb(struct urb *urb , struct usb_device *dev 
                                        unsigned int pipe , void *transfer_buffer ,
                                        int buffer_length , void (*complete_fn)(struct urb * ) ,
                                        void *context ) 
-{ unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+{ 
 
   {
 #line 1276
-  __cil_tmp8 = (unsigned long )urb;
-#line 1276
-  __cil_tmp9 = __cil_tmp8 + 72;
-#line 1276
-  *((struct usb_device **)__cil_tmp9) = dev;
+  urb->dev = dev;
 #line 1277
-  __cil_tmp10 = (unsigned long )urb;
-#line 1277
-  __cil_tmp11 = __cil_tmp10 + 88;
-#line 1277
-  *((unsigned int *)__cil_tmp11) = pipe;
+  urb->pipe = pipe;
 #line 1278
-  __cil_tmp12 = (unsigned long )urb;
-#line 1278
-  __cil_tmp13 = __cil_tmp12 + 104;
-#line 1278
-  *((void **)__cil_tmp13) = transfer_buffer;
+  urb->transfer_buffer = transfer_buffer;
 #line 1279
-  __cil_tmp14 = (unsigned long )urb;
-#line 1279
-  __cil_tmp15 = __cil_tmp14 + 132;
-#line 1279
-  *((u32 *)__cil_tmp15) = (unsigned int )buffer_length;
+  urb->transfer_buffer_length = (u32 )buffer_length;
 #line 1280
-  __cil_tmp16 = (unsigned long )urb;
-#line 1280
-  __cil_tmp17 = __cil_tmp16 + 184;
-#line 1280
-  *((void (**)(struct urb * ))__cil_tmp17) = complete_fn;
+  urb->complete = complete_fn;
 #line 1281
-  __cil_tmp18 = (unsigned long )urb;
-#line 1281
-  __cil_tmp19 = __cil_tmp18 + 176;
-#line 1281
-  *((void **)__cil_tmp19) = context;
+  urb->context = context;
 #line 1282
   return;
 }
@@ -5519,7 +5483,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 #line 1529
   __cil_tmp3 = endpoint << 15;
 #line 1529
-  __cil_tmp4 = *((int *)dev);
+  __cil_tmp4 = dev->devnum;
 #line 1529
   __cil_tmp5 = __cil_tmp4 << 8;
 #line 1529
@@ -5532,23 +5496,17 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 #line 127 "include/linux/usb/serial.h"
 __inline static void *usb_get_serial_port_data(struct usb_serial_port *port ) 
 { void *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 129
-  __cil_tmp3 = (unsigned long )port;
+  __cil_tmp3 = & port->dev;
 #line 129
-  __cil_tmp4 = __cil_tmp3 + 1208;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 129
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 129
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 129
-  tmp___7 = dev_get_drvdata(__cil_tmp6);
+  tmp___7 = dev_get_drvdata(__cil_tmp4);
   }
 #line 129
   return (tmp___7);
@@ -5556,20 +5514,14 @@ __inline static void *usb_get_serial_port_data(struct usb_serial_port *port )
 }
 #line 132 "include/linux/usb/serial.h"
 __inline static void usb_set_serial_port_data(struct usb_serial_port *port , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 135
-  __cil_tmp3 = (unsigned long )port;
+  __cil_tmp3 = & port->dev;
 #line 135
-  __cil_tmp4 = __cil_tmp3 + 1208;
-#line 135
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 135
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 136
   return;
@@ -5613,12 +5565,13 @@ __inline static void usb_serial_debug_data(int debug , struct device *dev , char
     {
 #line 373
     while (1) {
-      while_1_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
 #line 373
       if (i < size) {
 
       } else {
+#line 373
         goto while_break;
       }
       {
@@ -5634,7 +5587,7 @@ __inline static void usb_serial_debug_data(int debug , struct device *dev , char
       i = i + 1;
       }
     }
-    while_1_break: /* CIL Label */ ;
+    while_break___0: /* CIL Label */ ;
     }
 
     while_break: 
@@ -5659,69 +5612,45 @@ __inline static struct ihex_binrec  const  *ihex_next_binrec(struct ihex_binrec 
   __u16 tmp___7 ;
   struct ihex_binrec  const  *tmp___9 ;
   __u16 tmp___10 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  __be16 __cil_tmp8 ;
-  unsigned short __cil_tmp9 ;
+  __be16 __cil_tmp6 ;
+  __be16 __cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
   int __cil_tmp10 ;
-  int __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  uint8_t const   *__cil_tmp17 ;
-  void *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  __be16 __cil_tmp21 ;
-  unsigned short __cil_tmp22 ;
-  void *__cil_tmp23 ;
+  uint8_t const   *__cil_tmp11 ;
+  void *__cil_tmp12 ;
+  __be16 __cil_tmp13 ;
+  __be16 __cil_tmp14 ;
+  void *__cil_tmp15 ;
 
   {
   {
 #line 27
-  __cil_tmp6 = (unsigned long )rec;
+  __cil_tmp6 = rec->len;
 #line 27
-  __cil_tmp7 = __cil_tmp6 + 4;
+  __cil_tmp7 = (__be16 )__cil_tmp6;
 #line 27
-  __cil_tmp8 = *((__be16 const   *)__cil_tmp7);
+  tmp___7 = __fswab16(__cil_tmp7);
 #line 27
-  __cil_tmp9 = (unsigned short )__cil_tmp8;
+  __cil_tmp8 = (int )tmp___7;
 #line 27
-  tmp___7 = __fswab16(__cil_tmp9);
+  __cil_tmp9 = __cil_tmp8 + 5;
 #line 27
-  __cil_tmp10 = (int )tmp___7;
+  __cil_tmp10 = __cil_tmp9 & -4;
 #line 27
-  __cil_tmp11 = __cil_tmp10 + 5;
-#line 27
-  __cil_tmp12 = __cil_tmp11 & -4;
-#line 27
-  next = __cil_tmp12 - 2;
+  next = __cil_tmp10 - 2;
 #line 28
-  __cil_tmp13 = next * 1UL;
+  __cil_tmp11 = & rec->data[next];
 #line 28
-  __cil_tmp14 = 6 + __cil_tmp13;
+  __cil_tmp12 = (void *)__cil_tmp11;
 #line 28
-  __cil_tmp15 = (unsigned long )rec;
-#line 28
-  __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 28
-  __cil_tmp17 = (uint8_t const   *)__cil_tmp16;
-#line 28
-  __cil_tmp18 = (void *)__cil_tmp17;
-#line 28
-  rec = (struct ihex_binrec  const  *)__cil_tmp18;
+  rec = (struct ihex_binrec  const  *)__cil_tmp12;
 #line 30
-  __cil_tmp19 = (unsigned long )rec;
+  __cil_tmp13 = rec->len;
 #line 30
-  __cil_tmp20 = __cil_tmp19 + 4;
+  __cil_tmp14 = (__be16 )__cil_tmp13;
 #line 30
-  __cil_tmp21 = *((__be16 const   *)__cil_tmp20);
-#line 30
-  __cil_tmp22 = (unsigned short )__cil_tmp21;
-#line 30
-  tmp___10 = __fswab16(__cil_tmp22);
+  tmp___10 = __fswab16(__cil_tmp14);
   }
 #line 30
   if ((int )tmp___10) {
@@ -5729,9 +5658,9 @@ __inline static struct ihex_binrec  const  *ihex_next_binrec(struct ihex_binrec 
     tmp___9 = rec;
   } else {
 #line 30
-    __cil_tmp23 = (void *)0;
+    __cil_tmp15 = (void *)0;
 #line 30
-    tmp___9 = (struct ihex_binrec  const  *)__cil_tmp23;
+    tmp___9 = (struct ihex_binrec  const  *)__cil_tmp15;
   }
 #line 30
   return (tmp___9);
@@ -5743,76 +5672,63 @@ __inline static int ihex_validate_fw(struct firmware  const  *fw )
   size_t ofs ;
   __u16 tmp___7 ;
   __u16 tmp___8 ;
-  unsigned long __cil_tmp6 ;
+  size_t __cil_tmp6 ;
   size_t __cil_tmp7 ;
   size_t __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  u8 const   *__cil_tmp12 ;
-  u8 const   *__cil_tmp13 ;
-  void *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  __be16 __cil_tmp17 ;
-  unsigned short __cil_tmp18 ;
+  size_t __cil_tmp9 ;
+  u8 const   *__cil_tmp10 ;
+  u8 const   *__cil_tmp11 ;
+  void *__cil_tmp12 ;
+  __be16 __cil_tmp13 ;
+  __be16 __cil_tmp14 ;
+  __be16 __cil_tmp15 ;
+  __be16 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  __be16 __cil_tmp21 ;
-  unsigned short __cil_tmp22 ;
-  int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  unsigned long __cil_tmp21 ;
 
   {
 #line 37
-  ofs = 0UL;
+  ofs = (size_t )0;
   {
 #line 39
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 39
-    __cil_tmp6 = (unsigned long const   )6UL;
+    __cil_tmp6 = (size_t const   )6UL;
 #line 39
-    __cil_tmp7 = *((size_t const   *)fw);
+    __cil_tmp7 = fw->size;
 #line 39
     __cil_tmp8 = __cil_tmp7 - __cil_tmp6;
 #line 39
-    __cil_tmp9 = (unsigned long )__cil_tmp8;
+    __cil_tmp9 = (size_t )__cil_tmp8;
 #line 39
     if (ofs <= __cil_tmp9) {
 
     } else {
+#line 39
       goto while_break;
     }
     }
     {
 #line 40
-    __cil_tmp10 = (unsigned long )fw;
+    __cil_tmp10 = fw->data;
 #line 40
-    __cil_tmp11 = __cil_tmp10 + 8;
+    __cil_tmp11 = __cil_tmp10 + ofs;
 #line 40
-    __cil_tmp12 = *((u8 const   * const  *)__cil_tmp11);
+    __cil_tmp12 = (void *)__cil_tmp11;
 #line 40
-    __cil_tmp13 = __cil_tmp12 + ofs;
-#line 40
-    __cil_tmp14 = (void *)__cil_tmp13;
-#line 40
-    rec = (struct ihex_binrec  const  *)__cil_tmp14;
+    rec = (struct ihex_binrec  const  *)__cil_tmp12;
 #line 43
-    __cil_tmp15 = (unsigned long )rec;
+    __cil_tmp13 = rec->len;
 #line 43
-    __cil_tmp16 = __cil_tmp15 + 4;
+    __cil_tmp14 = (__be16 )__cil_tmp13;
 #line 43
-    __cil_tmp17 = *((__be16 const   *)__cil_tmp16);
-#line 43
-    __cil_tmp18 = (unsigned short )__cil_tmp17;
-#line 43
-    tmp___7 = __fswab16(__cil_tmp18);
+    tmp___7 = __fswab16(__cil_tmp14);
     }
 #line 43
     if ((int )tmp___7) {
@@ -5823,30 +5739,26 @@ __inline static int ihex_validate_fw(struct firmware  const  *fw )
     }
     {
 #line 47
-    __cil_tmp19 = (unsigned long )rec;
+    __cil_tmp15 = rec->len;
 #line 47
-    __cil_tmp20 = __cil_tmp19 + 4;
+    __cil_tmp16 = (__be16 )__cil_tmp15;
 #line 47
-    __cil_tmp21 = *((__be16 const   *)__cil_tmp20);
+    tmp___8 = __fswab16(__cil_tmp16);
 #line 47
-    __cil_tmp22 = (unsigned short )__cil_tmp21;
+    __cil_tmp17 = (int )tmp___8;
 #line 47
-    tmp___8 = __fswab16(__cil_tmp22);
+    __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 47
-    __cil_tmp23 = (int )tmp___8;
+    __cil_tmp19 = 6UL + __cil_tmp18;
 #line 47
-    __cil_tmp24 = (unsigned long )__cil_tmp23;
+    __cil_tmp20 = __cil_tmp19 + 3UL;
 #line 47
-    __cil_tmp25 = 6UL + __cil_tmp24;
+    __cil_tmp21 = __cil_tmp20 & 1152921504606846972UL;
 #line 47
-    __cil_tmp26 = __cil_tmp25 + 3UL;
-#line 47
-    __cil_tmp27 = __cil_tmp26 & 1152921504606846972UL;
-#line 47
-    ofs = ofs + __cil_tmp27;
+    ofs = ofs + __cil_tmp21;
     }
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -5859,12 +5771,7 @@ __inline static int request_ihex_firmware(struct firmware  const  **fw , char co
                                           struct device *dev ) 
 { struct firmware  const  *lfw ;
   int ret ;
-  struct firmware  const  **__cil_tmp6 ;
-  struct firmware  const  *__cil_tmp7 ;
-  struct device  const  *__cil_tmp8 ;
-  struct firmware  const  **__cil_tmp9 ;
-  struct firmware  const  *__cil_tmp10 ;
-  struct firmware  const  **__cil_tmp11 ;
+  struct device  const  *__cil_tmp6 ;
 
   {
   {
@@ -5880,25 +5787,17 @@ __inline static int request_ihex_firmware(struct firmware  const  **fw , char co
   }
   {
 #line 64
-  __cil_tmp6 = & lfw;
-#line 64
-  __cil_tmp7 = *__cil_tmp6;
-#line 64
-  ret = ihex_validate_fw(__cil_tmp7);
+  ret = ihex_validate_fw(lfw);
   }
 #line 65
   if (ret) {
     {
 #line 66
-    __cil_tmp8 = (struct device  const  *)dev;
+    __cil_tmp6 = (struct device  const  *)dev;
 #line 66
-    dev_err(__cil_tmp8, "Firmware \"%s\" not valid IHEX records\n", fw_name);
+    dev_err(__cil_tmp6, "Firmware \"%s\" not valid IHEX records\n", fw_name);
 #line 68
-    __cil_tmp9 = & lfw;
-#line 68
-    __cil_tmp10 = *__cil_tmp9;
-#line 68
-    release_firmware(__cil_tmp10);
+    release_firmware(lfw);
     }
 #line 69
     return (ret);
@@ -5906,9 +5805,7 @@ __inline static int request_ihex_firmware(struct firmware  const  **fw , char co
 
   }
 #line 71
-  __cil_tmp11 = & lfw;
-#line 71
-  *fw = *__cil_tmp11;
+  *fw = lfw;
 #line 72
   return (0);
 }
@@ -5916,20 +5813,20 @@ __inline static int request_ihex_firmware(struct firmware  const  **fw , char co
 #line 91 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static int debug  ;
 #line 115 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
-static struct usb_device_id  const  id_table_std[1]  = {      {(unsigned short)3, (unsigned short)1808, (unsigned short)32769, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}};
+static struct usb_device_id  const  id_table_std[1]  = {      {(__u16 )3, (__u16 )1808, (__u16 )32769, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}};
 #line 120 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
-static struct usb_device_id  const  id_table_prerenumeration[1]  = {      {(unsigned short)3, (unsigned short)1808, (unsigned short)1, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}};
+static struct usb_device_id  const  id_table_prerenumeration[1]  = {      {(__u16 )3, (__u16 )1808, (__u16 )1, (unsigned short)0, (unsigned short)0, (unsigned char)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      0UL}};
 #line 125 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
-static struct usb_device_id  const  id_table_combined[2]  = {      {(unsigned short)3, (unsigned short)1808, (unsigned short)32769, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}, 
-        {(unsigned short)3, (unsigned short)1808, (unsigned short)1, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}};
+static struct usb_device_id  const  id_table_combined[2]  = {      {(__u16 )3, (__u16 )1808, (__u16 )32769, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, 0UL}, 
+        {(__u16 )3, (__u16 )1808, (__u16 )1, (unsigned short)0, (unsigned short)0, (unsigned char)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      0UL}};
 #line 131
 extern struct usb_device_id  const  __mod_usb_device_table  __attribute__((__unused__,
 __alias__("id_table_combined"))) ;
@@ -6122,171 +6019,98 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
   __u16 tmp___20 ;
   __u32 tmp___21 ;
   __u32 tmp___22 ;
-  struct firmware  const  **__cil_tmp24 ;
+  void *__cil_tmp24 ;
   void *__cil_tmp25 ;
-  struct firmware  const  **__cil_tmp26 ;
-  void *__cil_tmp27 ;
-  int *__cil_tmp28 ;
-  struct usb_device *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  struct usb_device *__cil_tmp26 ;
+  struct device *__cil_tmp27 ;
+  struct usb_device *__cil_tmp28 ;
+  struct device *__cil_tmp29 ;
+  struct device  const  *__cil_tmp30 ;
+  struct usb_device *__cil_tmp31 ;
   struct device *__cil_tmp32 ;
   struct usb_device *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct device *__cil_tmp36 ;
-  struct device  const  *__cil_tmp37 ;
-  struct usb_device *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct device *__cil_tmp41 ;
-  struct usb_device *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct device *__cil_tmp45 ;
-  struct device  const  *__cil_tmp46 ;
-  struct firmware  const  **__cil_tmp47 ;
-  struct firmware  const  *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u8 const   *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  __be16 __cil_tmp54 ;
-  unsigned short __cil_tmp55 ;
+  struct device *__cil_tmp34 ;
+  struct device  const  *__cil_tmp35 ;
+  u8 const   *__cil_tmp36 ;
+  __be16 __cil_tmp37 ;
+  __be16 __cil_tmp38 ;
+  __be32 __cil_tmp39 ;
+  __be32 __cil_tmp40 ;
+  int __cil_tmp41 ;
+  uint8_t const   *__cil_tmp42 ;
+  unsigned char *__cil_tmp43 ;
+  int __cil_tmp44 ;
+  __u8 __cil_tmp45 ;
+  __be16 __cil_tmp46 ;
+  __be16 __cil_tmp47 ;
+  __be32 __cil_tmp48 ;
+  __be32 __cil_tmp49 ;
+  struct usb_device *__cil_tmp50 ;
+  struct device *__cil_tmp51 ;
+  struct device  const  *__cil_tmp52 ;
+  uint8_t const   *__cil_tmp53 ;
+  int __cil_tmp54 ;
+  u8 const   *__cil_tmp55 ;
   __be32 __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  __be32 __cil_tmp57 ;
+  __be16 __cil_tmp58 ;
+  __be16 __cil_tmp59 ;
+  __be32 __cil_tmp60 ;
+  __be32 __cil_tmp61 ;
+  int __cil_tmp62 ;
   uint8_t const   *__cil_tmp63 ;
   unsigned char *__cil_tmp64 ;
   int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
+  __u8 __cil_tmp66 ;
+  __be16 __cil_tmp67 ;
   __be16 __cil_tmp68 ;
-  unsigned short __cil_tmp69 ;
+  __be32 __cil_tmp69 ;
   __be32 __cil_tmp70 ;
-  unsigned int __cil_tmp71 ;
-  struct usb_device *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  struct device *__cil_tmp75 ;
-  struct device  const  *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  uint8_t const   *__cil_tmp81 ;
-  int __cil_tmp82 ;
-  struct firmware  const  **__cil_tmp83 ;
-  struct firmware  const  *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  u8 const   *__cil_tmp87 ;
-  __be32 __cil_tmp88 ;
-  unsigned int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  __be16 __cil_tmp92 ;
-  unsigned short __cil_tmp93 ;
-  __be32 __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
+  struct usb_device *__cil_tmp71 ;
+  struct device *__cil_tmp72 ;
+  struct device  const  *__cil_tmp73 ;
+  uint8_t const   *__cil_tmp74 ;
+  int __cil_tmp75 ;
+  u8 const   *__cil_tmp76 ;
+  __be32 __cil_tmp77 ;
+  __be32 __cil_tmp78 ;
+  __be16 __cil_tmp79 ;
+  __be16 __cil_tmp80 ;
+  __be32 __cil_tmp81 ;
+  __be32 __cil_tmp82 ;
+  int __cil_tmp83 ;
+  uint8_t const   *__cil_tmp84 ;
+  unsigned char *__cil_tmp85 ;
+  int __cil_tmp86 ;
+  __u8 __cil_tmp87 ;
+  __be16 __cil_tmp88 ;
+  __be16 __cil_tmp89 ;
+  __be32 __cil_tmp90 ;
+  __be32 __cil_tmp91 ;
+  struct usb_device *__cil_tmp92 ;
+  struct device *__cil_tmp93 ;
+  struct device  const  *__cil_tmp94 ;
+  uint8_t const   *__cil_tmp95 ;
   int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  uint8_t const   *__cil_tmp101 ;
-  unsigned char *__cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  __be16 __cil_tmp106 ;
-  unsigned short __cil_tmp107 ;
-  __be32 __cil_tmp108 ;
-  unsigned int __cil_tmp109 ;
-  struct usb_device *__cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  struct device *__cil_tmp113 ;
-  struct device  const  *__cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  uint8_t const   *__cil_tmp119 ;
-  int __cil_tmp120 ;
-  struct firmware  const  **__cil_tmp121 ;
-  struct firmware  const  *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  u8 const   *__cil_tmp125 ;
-  __be32 __cil_tmp126 ;
-  unsigned int __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  __be16 __cil_tmp130 ;
-  unsigned short __cil_tmp131 ;
-  __be32 __cil_tmp132 ;
-  unsigned int __cil_tmp133 ;
-  int __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  uint8_t const   *__cil_tmp139 ;
-  unsigned char *__cil_tmp140 ;
-  int __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  __be16 __cil_tmp144 ;
-  unsigned short __cil_tmp145 ;
-  __be32 __cil_tmp146 ;
-  unsigned int __cil_tmp147 ;
-  struct usb_device *__cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  struct device *__cil_tmp151 ;
-  struct device  const  *__cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  uint8_t const   *__cil_tmp157 ;
-  int __cil_tmp158 ;
-  struct firmware  const  **__cil_tmp159 ;
-  struct firmware  const  *__cil_tmp160 ;
-  struct firmware  const  **__cil_tmp161 ;
-  struct firmware  const  *__cil_tmp162 ;
 
   {
 #line 298
   ret = -2;
 #line 299
-  __cil_tmp24 = & loader_fw;
+  __cil_tmp24 = (void *)0;
+#line 299
+  loader_fw = (struct firmware  const  *)__cil_tmp24;
 #line 299
   __cil_tmp25 = (void *)0;
 #line 299
-  *__cil_tmp24 = (struct firmware  const  *)__cil_tmp25;
-#line 299
-  __cil_tmp26 = & firmware_fw;
-#line 299
-  __cil_tmp27 = (void *)0;
-#line 299
-  *__cil_tmp26 = (struct firmware  const  *)__cil_tmp27;
+  firmware_fw = (struct firmware  const  *)__cil_tmp25;
   {
 #line 302
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 302
-    __cil_tmp28 = & debug;
-#line 302
-    if (*__cil_tmp28) {
+    if (debug) {
       {
 #line 302
       printk("<7>%s: %s\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -6295,73 +6119,59 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
     } else {
 
     }
-    }
+#line 302
     goto while_break;
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 304
-  __cil_tmp29 = *((struct usb_device **)serial);
+  __cil_tmp26 = serial->dev;
 #line 304
-  __cil_tmp30 = (unsigned long )__cil_tmp29;
+  __cil_tmp27 = & __cil_tmp26->dev;
 #line 304
-  __cil_tmp31 = __cil_tmp30 + 192;
-#line 304
-  __cil_tmp32 = (struct device *)__cil_tmp31;
-#line 304
-  tmp___7 = request_ihex_firmware(& firmware_fw, "whiteheat.fw", __cil_tmp32);
+  tmp___7 = request_ihex_firmware(& firmware_fw, "whiteheat.fw", __cil_tmp27);
   }
 #line 304
   if (tmp___7) {
     {
 #line 306
-    __cil_tmp33 = *((struct usb_device **)serial);
+    __cil_tmp28 = serial->dev;
 #line 306
-    __cil_tmp34 = (unsigned long )__cil_tmp33;
+    __cil_tmp29 = & __cil_tmp28->dev;
 #line 306
-    __cil_tmp35 = __cil_tmp34 + 192;
+    __cil_tmp30 = (struct device  const  *)__cil_tmp29;
 #line 306
-    __cil_tmp36 = (struct device *)__cil_tmp35;
-#line 306
-    __cil_tmp37 = (struct device  const  *)__cil_tmp36;
-#line 306
-    dev_err(__cil_tmp37, "%s - request \"whiteheat.fw\" failed\n", "whiteheat_firmware_download");
+    dev_err(__cil_tmp30, "%s - request \"whiteheat.fw\" failed\n", "whiteheat_firmware_download");
     }
+#line 308
     goto out;
   } else {
 
   }
   {
 #line 310
-  __cil_tmp38 = *((struct usb_device **)serial);
+  __cil_tmp31 = serial->dev;
 #line 310
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
+  __cil_tmp32 = & __cil_tmp31->dev;
 #line 310
-  __cil_tmp40 = __cil_tmp39 + 192;
-#line 310
-  __cil_tmp41 = (struct device *)__cil_tmp40;
-#line 310
-  tmp___8 = request_ihex_firmware(& loader_fw, "whiteheat_loader.fw", __cil_tmp41);
+  tmp___8 = request_ihex_firmware(& loader_fw, "whiteheat_loader.fw", __cil_tmp32);
   }
 #line 310
   if (tmp___8) {
     {
 #line 312
-    __cil_tmp42 = *((struct usb_device **)serial);
+    __cil_tmp33 = serial->dev;
 #line 312
-    __cil_tmp43 = (unsigned long )__cil_tmp42;
+    __cil_tmp34 = & __cil_tmp33->dev;
 #line 312
-    __cil_tmp44 = __cil_tmp43 + 192;
+    __cil_tmp35 = (struct device  const  *)__cil_tmp34;
 #line 312
-    __cil_tmp45 = (struct device *)__cil_tmp44;
-#line 312
-    __cil_tmp46 = (struct device  const  *)__cil_tmp45;
-#line 312
-    dev_err(__cil_tmp46, "%s - request \"whiteheat_loader.fw\" failed\n", "whiteheat_firmware_download");
+    dev_err(__cil_tmp35, "%s - request \"whiteheat_loader.fw\" failed\n", "whiteheat_firmware_download");
     }
+#line 315
     goto out;
   } else {
 
@@ -6372,110 +6182,78 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
 #line 318
   response = ezusb_set_reset(serial, (unsigned char)1);
 #line 320
-  __cil_tmp47 = & loader_fw;
+  __cil_tmp36 = loader_fw->data;
 #line 320
-  __cil_tmp48 = *__cil_tmp47;
-#line 320
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 320
-  __cil_tmp50 = __cil_tmp49 + 8;
-#line 320
-  __cil_tmp51 = *((u8 const   * const  *)__cil_tmp50);
-#line 320
-  record = (struct ihex_binrec  const  *)__cil_tmp51;
+  record = (struct ihex_binrec  const  *)__cil_tmp36;
   }
   {
 #line 321
   while (1) {
-    while_4_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 321
     if (record) {
 
     } else {
+#line 321
       goto while_break___0;
     }
     {
 #line 322
-    __cil_tmp52 = (unsigned long )record;
+    __cil_tmp37 = record->len;
 #line 322
-    __cil_tmp53 = __cil_tmp52 + 4;
+    __cil_tmp38 = (__be16 )__cil_tmp37;
 #line 322
-    __cil_tmp54 = *((__be16 const   *)__cil_tmp53);
+    tmp___9 = __fswab16(__cil_tmp38);
 #line 322
-    __cil_tmp55 = (unsigned short )__cil_tmp54;
+    __cil_tmp39 = record->addr;
 #line 322
-    tmp___9 = __fswab16(__cil_tmp55);
+    __cil_tmp40 = (__be32 )__cil_tmp39;
 #line 322
-    __cil_tmp56 = *((__be32 const   *)record);
+    tmp___10 = __fswab32(__cil_tmp40);
 #line 322
-    __cil_tmp57 = (unsigned int )__cil_tmp56;
+    __cil_tmp41 = (int )tmp___10;
 #line 322
-    tmp___10 = __fswab32(__cil_tmp57);
+    __cil_tmp42 = & record->data[0];
 #line 322
-    __cil_tmp58 = (int )tmp___10;
+    __cil_tmp43 = (unsigned char *)__cil_tmp42;
 #line 322
-    __cil_tmp59 = 0 * 1UL;
+    __cil_tmp44 = (int )tmp___9;
 #line 322
-    __cil_tmp60 = 6 + __cil_tmp59;
+    __cil_tmp45 = (__u8 )160;
 #line 322
-    __cil_tmp61 = (unsigned long )record;
-#line 322
-    __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
-#line 322
-    __cil_tmp63 = (uint8_t const   *)__cil_tmp62;
-#line 322
-    __cil_tmp64 = (unsigned char *)__cil_tmp63;
-#line 322
-    __cil_tmp65 = (int )tmp___9;
-#line 322
-    response = ezusb_writememory(serial, __cil_tmp58, __cil_tmp64, __cil_tmp65, (unsigned char)160);
+    response = ezusb_writememory(serial, __cil_tmp41, __cil_tmp43, __cil_tmp44, __cil_tmp45);
     }
 #line 325
     if (response < 0) {
       {
 #line 326
-      __cil_tmp66 = (unsigned long )record;
+      __cil_tmp46 = record->len;
 #line 326
-      __cil_tmp67 = __cil_tmp66 + 4;
+      __cil_tmp47 = (__be16 )__cil_tmp46;
 #line 326
-      __cil_tmp68 = *((__be16 const   *)__cil_tmp67);
+      tmp___11 = __fswab16(__cil_tmp47);
 #line 326
-      __cil_tmp69 = (unsigned short )__cil_tmp68;
+      __cil_tmp48 = record->addr;
 #line 326
-      tmp___11 = __fswab16(__cil_tmp69);
+      __cil_tmp49 = (__be32 )__cil_tmp48;
 #line 326
-      __cil_tmp70 = *((__be32 const   *)record);
+      tmp___12 = __fswab32(__cil_tmp49);
 #line 326
-      __cil_tmp71 = (unsigned int )__cil_tmp70;
+      __cil_tmp50 = serial->dev;
 #line 326
-      tmp___12 = __fswab32(__cil_tmp71);
+      __cil_tmp51 = & __cil_tmp50->dev;
 #line 326
-      __cil_tmp72 = *((struct usb_device **)serial);
+      __cil_tmp52 = (struct device  const  *)__cil_tmp51;
 #line 326
-      __cil_tmp73 = (unsigned long )__cil_tmp72;
+      __cil_tmp53 = & record->data[0];
 #line 326
-      __cil_tmp74 = __cil_tmp73 + 192;
+      __cil_tmp54 = (int )tmp___11;
 #line 326
-      __cil_tmp75 = (struct device *)__cil_tmp74;
-#line 326
-      __cil_tmp76 = (struct device  const  *)__cil_tmp75;
-#line 326
-      __cil_tmp77 = 0 * 1UL;
-#line 326
-      __cil_tmp78 = 6 + __cil_tmp77;
-#line 326
-      __cil_tmp79 = (unsigned long )record;
-#line 326
-      __cil_tmp80 = __cil_tmp79 + __cil_tmp78;
-#line 326
-      __cil_tmp81 = (uint8_t const   *)__cil_tmp80;
-#line 326
-      __cil_tmp82 = (int )tmp___11;
-#line 326
-      dev_err(__cil_tmp76, "%s - ezusb_writememory failed for loader (%d %04X %p %d)\n",
-              "whiteheat_firmware_download", response, tmp___12, __cil_tmp81, __cil_tmp82);
+      dev_err(__cil_tmp52, "%s - ezusb_writememory failed for loader (%d %04X %p %d)\n",
+              "whiteheat_firmware_download", response, tmp___12, __cil_tmp53, __cil_tmp54);
       }
+#line 330
       goto while_break___0;
     } else {
 
@@ -6485,7 +6263,7 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
     record = ihex_next_binrec(record);
     }
   }
-  while_4_break: /* CIL Label */ ;
+  while_break___5: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -6493,40 +6271,34 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
 #line 335
   response = ezusb_set_reset(serial, (unsigned char)0);
 #line 337
-  __cil_tmp83 = & firmware_fw;
+  __cil_tmp55 = firmware_fw->data;
 #line 337
-  __cil_tmp84 = *__cil_tmp83;
-#line 337
-  __cil_tmp85 = (unsigned long )__cil_tmp84;
-#line 337
-  __cil_tmp86 = __cil_tmp85 + 8;
-#line 337
-  __cil_tmp87 = *((u8 const   * const  *)__cil_tmp86);
-#line 337
-  record = (struct ihex_binrec  const  *)__cil_tmp87;
+  record = (struct ihex_binrec  const  *)__cil_tmp55;
   }
   {
 #line 338
   while (1) {
-    while_5_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
 #line 338
     if (record) {
       {
 #line 338
-      __cil_tmp88 = *((__be32 const   *)record);
+      __cil_tmp56 = record->addr;
 #line 338
-      __cil_tmp89 = (unsigned int )__cil_tmp88;
+      __cil_tmp57 = (__be32 )__cil_tmp56;
 #line 338
-      tmp___13 = __fswab32(__cil_tmp89);
+      tmp___13 = __fswab32(__cil_tmp57);
       }
 #line 338
       if (tmp___13 < 6976U) {
 
       } else {
+#line 338
         goto while_break___1;
       }
     } else {
+#line 338
       goto while_break___1;
     }
     {
@@ -6534,103 +6306,78 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
     record = ihex_next_binrec(record);
     }
   }
-  while_5_break: /* CIL Label */ ;
+  while_break___6: /* CIL Label */ ;
   }
 
   while_break___1: ;
   {
 #line 340
   while (1) {
-    while_6_continue: /* CIL Label */ ;
+    while_continue___2: /* CIL Label */ ;
 
 #line 340
     if (record) {
 
     } else {
+#line 340
       goto while_break___2;
     }
     {
 #line 341
-    __cil_tmp90 = (unsigned long )record;
+    __cil_tmp58 = record->len;
 #line 341
-    __cil_tmp91 = __cil_tmp90 + 4;
+    __cil_tmp59 = (__be16 )__cil_tmp58;
 #line 341
-    __cil_tmp92 = *((__be16 const   *)__cil_tmp91);
+    tmp___14 = __fswab16(__cil_tmp59);
 #line 341
-    __cil_tmp93 = (unsigned short )__cil_tmp92;
+    __cil_tmp60 = record->addr;
 #line 341
-    tmp___14 = __fswab16(__cil_tmp93);
+    __cil_tmp61 = (__be32 )__cil_tmp60;
 #line 341
-    __cil_tmp94 = *((__be32 const   *)record);
+    tmp___15 = __fswab32(__cil_tmp61);
 #line 341
-    __cil_tmp95 = (unsigned int )__cil_tmp94;
+    __cil_tmp62 = (int )tmp___15;
 #line 341
-    tmp___15 = __fswab32(__cil_tmp95);
+    __cil_tmp63 = & record->data[0];
 #line 341
-    __cil_tmp96 = (int )tmp___15;
+    __cil_tmp64 = (unsigned char *)__cil_tmp63;
 #line 341
-    __cil_tmp97 = 0 * 1UL;
+    __cil_tmp65 = (int )tmp___14;
 #line 341
-    __cil_tmp98 = 6 + __cil_tmp97;
+    __cil_tmp66 = (__u8 )163;
 #line 341
-    __cil_tmp99 = (unsigned long )record;
-#line 341
-    __cil_tmp100 = __cil_tmp99 + __cil_tmp98;
-#line 341
-    __cil_tmp101 = (uint8_t const   *)__cil_tmp100;
-#line 341
-    __cil_tmp102 = (unsigned char *)__cil_tmp101;
-#line 341
-    __cil_tmp103 = (int )tmp___14;
-#line 341
-    response = ezusb_writememory(serial, __cil_tmp96, __cil_tmp102, __cil_tmp103,
-                                 (unsigned char)163);
+    response = ezusb_writememory(serial, __cil_tmp62, __cil_tmp64, __cil_tmp65, __cil_tmp66);
     }
 #line 344
     if (response < 0) {
       {
 #line 345
-      __cil_tmp104 = (unsigned long )record;
+      __cil_tmp67 = record->len;
 #line 345
-      __cil_tmp105 = __cil_tmp104 + 4;
+      __cil_tmp68 = (__be16 )__cil_tmp67;
 #line 345
-      __cil_tmp106 = *((__be16 const   *)__cil_tmp105);
+      tmp___16 = __fswab16(__cil_tmp68);
 #line 345
-      __cil_tmp107 = (unsigned short )__cil_tmp106;
+      __cil_tmp69 = record->addr;
 #line 345
-      tmp___16 = __fswab16(__cil_tmp107);
+      __cil_tmp70 = (__be32 )__cil_tmp69;
 #line 345
-      __cil_tmp108 = *((__be32 const   *)record);
+      tmp___17 = __fswab32(__cil_tmp70);
 #line 345
-      __cil_tmp109 = (unsigned int )__cil_tmp108;
+      __cil_tmp71 = serial->dev;
 #line 345
-      tmp___17 = __fswab32(__cil_tmp109);
+      __cil_tmp72 = & __cil_tmp71->dev;
 #line 345
-      __cil_tmp110 = *((struct usb_device **)serial);
+      __cil_tmp73 = (struct device  const  *)__cil_tmp72;
 #line 345
-      __cil_tmp111 = (unsigned long )__cil_tmp110;
+      __cil_tmp74 = & record->data[0];
 #line 345
-      __cil_tmp112 = __cil_tmp111 + 192;
+      __cil_tmp75 = (int )tmp___16;
 #line 345
-      __cil_tmp113 = (struct device *)__cil_tmp112;
-#line 345
-      __cil_tmp114 = (struct device  const  *)__cil_tmp113;
-#line 345
-      __cil_tmp115 = 0 * 1UL;
-#line 345
-      __cil_tmp116 = 6 + __cil_tmp115;
-#line 345
-      __cil_tmp117 = (unsigned long )record;
-#line 345
-      __cil_tmp118 = __cil_tmp117 + __cil_tmp116;
-#line 345
-      __cil_tmp119 = (uint8_t const   *)__cil_tmp118;
-#line 345
-      __cil_tmp120 = (int )tmp___16;
-#line 345
-      dev_err(__cil_tmp114, "%s - ezusb_writememory failed for first firmware step (%d %04X %p %d)\n",
-              "whiteheat_firmware_download", response, tmp___17, __cil_tmp119, __cil_tmp120);
+      dev_err(__cil_tmp73, "%s - ezusb_writememory failed for first firmware step (%d %04X %p %d)\n",
+              "whiteheat_firmware_download", response, tmp___17, __cil_tmp74, __cil_tmp75);
       }
+#line 350
       goto while_break___2;
     } else {
 
@@ -6638,7 +6385,7 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
 #line 352
     record = record + 1;
   }
-  while_6_break: /* CIL Label */ ;
+  while_break___7: /* CIL Label */ ;
   }
 
   while_break___2: 
@@ -6646,124 +6393,92 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
 #line 355
   response = ezusb_set_reset(serial, (unsigned char)1);
 #line 357
-  __cil_tmp121 = & firmware_fw;
+  __cil_tmp76 = firmware_fw->data;
 #line 357
-  __cil_tmp122 = *__cil_tmp121;
-#line 357
-  __cil_tmp123 = (unsigned long )__cil_tmp122;
-#line 357
-  __cil_tmp124 = __cil_tmp123 + 8;
-#line 357
-  __cil_tmp125 = *((u8 const   * const  *)__cil_tmp124);
-#line 357
-  record = (struct ihex_binrec  const  *)__cil_tmp125;
+  record = (struct ihex_binrec  const  *)__cil_tmp76;
   }
   {
 #line 358
   while (1) {
-    while_7_continue: /* CIL Label */ ;
+    while_continue___3: /* CIL Label */ ;
 
 #line 358
     if (record) {
       {
 #line 358
-      __cil_tmp126 = *((__be32 const   *)record);
+      __cil_tmp77 = record->addr;
 #line 358
-      __cil_tmp127 = (unsigned int )__cil_tmp126;
+      __cil_tmp78 = (__be32 )__cil_tmp77;
 #line 358
-      tmp___22 = __fswab32(__cil_tmp127);
+      tmp___22 = __fswab32(__cil_tmp78);
       }
 #line 358
       if (tmp___22 < 6976U) {
 
       } else {
+#line 358
         goto while_break___3;
       }
     } else {
+#line 358
       goto while_break___3;
     }
     {
 #line 359
-    __cil_tmp128 = (unsigned long )record;
+    __cil_tmp79 = record->len;
 #line 359
-    __cil_tmp129 = __cil_tmp128 + 4;
+    __cil_tmp80 = (__be16 )__cil_tmp79;
 #line 359
-    __cil_tmp130 = *((__be16 const   *)__cil_tmp129);
+    tmp___18 = __fswab16(__cil_tmp80);
 #line 359
-    __cil_tmp131 = (unsigned short )__cil_tmp130;
+    __cil_tmp81 = record->addr;
 #line 359
-    tmp___18 = __fswab16(__cil_tmp131);
+    __cil_tmp82 = (__be32 )__cil_tmp81;
 #line 359
-    __cil_tmp132 = *((__be32 const   *)record);
+    tmp___19 = __fswab32(__cil_tmp82);
 #line 359
-    __cil_tmp133 = (unsigned int )__cil_tmp132;
+    __cil_tmp83 = (int )tmp___19;
 #line 359
-    tmp___19 = __fswab32(__cil_tmp133);
+    __cil_tmp84 = & record->data[0];
 #line 359
-    __cil_tmp134 = (int )tmp___19;
+    __cil_tmp85 = (unsigned char *)__cil_tmp84;
 #line 359
-    __cil_tmp135 = 0 * 1UL;
+    __cil_tmp86 = (int )tmp___18;
 #line 359
-    __cil_tmp136 = 6 + __cil_tmp135;
+    __cil_tmp87 = (__u8 )160;
 #line 359
-    __cil_tmp137 = (unsigned long )record;
-#line 359
-    __cil_tmp138 = __cil_tmp137 + __cil_tmp136;
-#line 359
-    __cil_tmp139 = (uint8_t const   *)__cil_tmp138;
-#line 359
-    __cil_tmp140 = (unsigned char *)__cil_tmp139;
-#line 359
-    __cil_tmp141 = (int )tmp___18;
-#line 359
-    response = ezusb_writememory(serial, __cil_tmp134, __cil_tmp140, __cil_tmp141,
-                                 (unsigned char)160);
+    response = ezusb_writememory(serial, __cil_tmp83, __cil_tmp85, __cil_tmp86, __cil_tmp87);
     }
 #line 362
     if (response < 0) {
       {
 #line 363
-      __cil_tmp142 = (unsigned long )record;
+      __cil_tmp88 = record->len;
 #line 363
-      __cil_tmp143 = __cil_tmp142 + 4;
+      __cil_tmp89 = (__be16 )__cil_tmp88;
 #line 363
-      __cil_tmp144 = *((__be16 const   *)__cil_tmp143);
+      tmp___20 = __fswab16(__cil_tmp89);
 #line 363
-      __cil_tmp145 = (unsigned short )__cil_tmp144;
+      __cil_tmp90 = record->addr;
 #line 363
-      tmp___20 = __fswab16(__cil_tmp145);
+      __cil_tmp91 = (__be32 )__cil_tmp90;
 #line 363
-      __cil_tmp146 = *((__be32 const   *)record);
+      tmp___21 = __fswab32(__cil_tmp91);
 #line 363
-      __cil_tmp147 = (unsigned int )__cil_tmp146;
+      __cil_tmp92 = serial->dev;
 #line 363
-      tmp___21 = __fswab32(__cil_tmp147);
+      __cil_tmp93 = & __cil_tmp92->dev;
 #line 363
-      __cil_tmp148 = *((struct usb_device **)serial);
+      __cil_tmp94 = (struct device  const  *)__cil_tmp93;
 #line 363
-      __cil_tmp149 = (unsigned long )__cil_tmp148;
+      __cil_tmp95 = & record->data[0];
 #line 363
-      __cil_tmp150 = __cil_tmp149 + 192;
+      __cil_tmp96 = (int )tmp___20;
 #line 363
-      __cil_tmp151 = (struct device *)__cil_tmp150;
-#line 363
-      __cil_tmp152 = (struct device  const  *)__cil_tmp151;
-#line 363
-      __cil_tmp153 = 0 * 1UL;
-#line 363
-      __cil_tmp154 = 6 + __cil_tmp153;
-#line 363
-      __cil_tmp155 = (unsigned long )record;
-#line 363
-      __cil_tmp156 = __cil_tmp155 + __cil_tmp154;
-#line 363
-      __cil_tmp157 = (uint8_t const   *)__cil_tmp156;
-#line 363
-      __cil_tmp158 = (int )tmp___20;
-#line 363
-      dev_err(__cil_tmp152, "%s - ezusb_writememory failed for second firmware step (%d %04X %p %d)\n",
-              "whiteheat_firmware_download", response, tmp___21, __cil_tmp157, __cil_tmp158);
+      dev_err(__cil_tmp94, "%s - ezusb_writememory failed for second firmware step (%d %04X %p %d)\n",
+              "whiteheat_firmware_download", response, tmp___21, __cil_tmp95, __cil_tmp96);
       }
+#line 368
       goto while_break___3;
     } else {
 
@@ -6771,7 +6486,7 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
 #line 370
     record = record + 1;
   }
-  while_7_break: /* CIL Label */ ;
+  while_break___8: /* CIL Label */ ;
   }
 
   while_break___3: 
@@ -6784,17 +6499,9 @@ static int whiteheat_firmware_download(struct usb_serial *serial , struct usb_de
   out: 
   {
 #line 375
-  __cil_tmp159 = & loader_fw;
-#line 375
-  __cil_tmp160 = *__cil_tmp159;
-#line 375
-  release_firmware(__cil_tmp160);
+  release_firmware(loader_fw);
 #line 376
-  __cil_tmp161 = & firmware_fw;
-#line 376
-  __cil_tmp162 = *__cil_tmp161;
-#line 376
-  release_firmware(__cil_tmp162);
+  release_firmware(firmware_fw);
   }
 #line 377
   return (ret);
@@ -6851,669 +6558,424 @@ static int whiteheat_attach(struct usb_serial *serial )
   void *tmp___18 ;
   struct list_head  const  *__mptr ;
   struct list_head  const  *__mptr___0 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct usb_device *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  __u8 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  __u8 *__cil_tmp44 ;
-  __u8 *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct usb_device *__cil_tmp47 ;
-  struct usb_device *__cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  void *__cil_tmp50 ;
+  struct usb_device *__cil_tmp32 ;
+  __u8 __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  size_t __cil_tmp38 ;
+  __u8 *__cil_tmp39 ;
+  __u8 *__cil_tmp40 ;
+  unsigned long __cil_tmp41 ;
+  struct usb_device *__cil_tmp42 ;
+  struct usb_device *__cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  void *__cil_tmp45 ;
+  struct usb_device *__cil_tmp46 ;
+  struct device *__cil_tmp47 ;
+  struct device  const  *__cil_tmp48 ;
+  struct usb_serial_driver *__cil_tmp49 ;
+  char const   *__cil_tmp50 ;
   struct usb_device *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct device *__cil_tmp54 ;
-  struct device  const  *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct usb_serial_driver *__cil_tmp58 ;
-  char const   *__cil_tmp59 ;
-  int *__cil_tmp60 ;
-  int __cil_tmp61 ;
-  struct usb_device *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  struct device *__cil_tmp65 ;
-  struct device  const  *__cil_tmp66 ;
+  struct device *__cil_tmp52 ;
+  struct device  const  *__cil_tmp53 ;
+  struct usb_serial_driver *__cil_tmp54 ;
+  char const   *__cil_tmp55 ;
+  struct usb_device *__cil_tmp56 ;
+  __u8 __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  struct usb_device *__cil_tmp63 ;
+  struct usb_device *__cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  void *__cil_tmp66 ;
   unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct usb_serial_driver *__cil_tmp69 ;
-  char const   *__cil_tmp70 ;
-  int *__cil_tmp71 ;
-  int __cil_tmp72 ;
-  struct usb_device *__cil_tmp73 ;
+  int __cil_tmp68 ;
+  struct usb_device *__cil_tmp69 ;
+  struct device *__cil_tmp70 ;
+  struct device  const  *__cil_tmp71 ;
+  struct usb_serial_driver *__cil_tmp72 ;
+  char const   *__cil_tmp73 ;
   unsigned long __cil_tmp74 ;
   unsigned long __cil_tmp75 ;
-  __u8 __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  int __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  unsigned int __cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  struct usb_device *__cil_tmp82 ;
-  struct usb_device *__cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  void *__cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int __cil_tmp87 ;
-  struct usb_device *__cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct device *__cil_tmp91 ;
-  struct device  const  *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct usb_serial_driver *__cil_tmp95 ;
-  char const   *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  int *__cil_tmp98 ;
-  int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  struct usb_device *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  struct device *__cil_tmp104 ;
-  struct device  const  *__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  struct usb_serial_driver *__cil_tmp108 ;
-  char const   *__cil_tmp109 ;
-  int *__cil_tmp110 ;
-  int __cil_tmp111 ;
-  __u8 *__cil_tmp112 ;
-  __u8 __cil_tmp113 ;
-  int __cil_tmp114 ;
-  __u8 *__cil_tmp115 ;
-  __u8 __cil_tmp116 ;
-  int __cil_tmp117 ;
-  struct usb_device *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  struct device *__cil_tmp121 ;
-  struct device  const  *__cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  struct usb_serial_driver *__cil_tmp125 ;
-  char const   *__cil_tmp126 ;
-  __u8 *__cil_tmp127 ;
-  __u8 __cil_tmp128 ;
-  int __cil_tmp129 ;
-  __u8 *__cil_tmp130 ;
-  struct usb_device *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  struct device *__cil_tmp134 ;
-  struct device  const  *__cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  struct usb_serial_driver *__cil_tmp138 ;
-  char const   *__cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  __u8 __cil_tmp142 ;
-  int __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  __u8 __cil_tmp146 ;
-  int __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned char __cil_tmp150 ;
-  int __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  void *__cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  struct device *__cil_tmp161 ;
-  struct device  const  *__cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  struct usb_serial_driver *__cil_tmp165 ;
-  char const   *__cil_tmp166 ;
-  spinlock_t *__cil_tmp167 ;
-  struct raw_spinlock *__cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
+  struct usb_device *__cil_tmp76 ;
+  struct device *__cil_tmp77 ;
+  struct device  const  *__cil_tmp78 ;
+  struct usb_serial_driver *__cil_tmp79 ;
+  char const   *__cil_tmp80 ;
+  __u8 *__cil_tmp81 ;
+  __u8 __cil_tmp82 ;
+  int __cil_tmp83 ;
+  __u8 *__cil_tmp84 ;
+  __u8 __cil_tmp85 ;
+  int __cil_tmp86 ;
+  struct usb_device *__cil_tmp87 ;
+  struct device *__cil_tmp88 ;
+  struct device  const  *__cil_tmp89 ;
+  struct usb_serial_driver *__cil_tmp90 ;
+  char const   *__cil_tmp91 ;
+  __u8 *__cil_tmp92 ;
+  __u8 __cil_tmp93 ;
+  int __cil_tmp94 ;
+  __u8 *__cil_tmp95 ;
+  struct usb_device *__cil_tmp96 ;
+  struct device *__cil_tmp97 ;
+  struct device  const  *__cil_tmp98 ;
+  struct usb_serial_driver *__cil_tmp99 ;
+  char const   *__cil_tmp100 ;
+  __u8 __cil_tmp101 ;
+  int __cil_tmp102 ;
+  __u8 __cil_tmp103 ;
+  int __cil_tmp104 ;
+  unsigned char __cil_tmp105 ;
+  int __cil_tmp106 ;
+  void *__cil_tmp107 ;
+  unsigned long __cil_tmp108 ;
+  unsigned long __cil_tmp109 ;
+  struct device *__cil_tmp110 ;
+  struct device  const  *__cil_tmp111 ;
+  struct usb_serial_driver *__cil_tmp112 ;
+  char const   *__cil_tmp113 ;
+  spinlock_t *__cil_tmp114 ;
+  struct raw_spinlock *__cil_tmp115 ;
+  struct mutex *__cil_tmp116 ;
+  struct work_struct *__cil_tmp117 ;
+  struct lockdep_map *__cil_tmp118 ;
+  struct list_head *__cil_tmp119 ;
+  struct list_head *__cil_tmp120 ;
+  struct list_head *__cil_tmp121 ;
+  struct list_head *__cil_tmp122 ;
+  struct list_head *__cil_tmp123 ;
+  struct list_head *__cil_tmp124 ;
+  struct device *__cil_tmp125 ;
+  struct device  const  *__cil_tmp126 ;
+  struct urb *__cil_tmp127 ;
+  u32 __cil_tmp128 ;
+  size_t __cil_tmp129 ;
+  void *__cil_tmp130 ;
+  struct device *__cil_tmp131 ;
+  struct device  const  *__cil_tmp132 ;
+  struct device *__cil_tmp133 ;
+  struct device  const  *__cil_tmp134 ;
+  struct usb_device *__cil_tmp135 ;
+  __u8 __cil_tmp136 ;
+  unsigned int __cil_tmp137 ;
+  struct usb_device *__cil_tmp138 ;
+  int __cil_tmp139 ;
+  unsigned int __cil_tmp140 ;
+  unsigned int __cil_tmp141 ;
+  unsigned int __cil_tmp142 ;
+  void *__cil_tmp143 ;
+  void *__cil_tmp144 ;
+  struct list_head *__cil_tmp145 ;
+  struct list_head *__cil_tmp146 ;
+  struct device *__cil_tmp147 ;
+  struct device  const  *__cil_tmp148 ;
+  struct urb *__cil_tmp149 ;
+  u32 __cil_tmp150 ;
+  size_t __cil_tmp151 ;
+  void *__cil_tmp152 ;
+  struct device *__cil_tmp153 ;
+  struct device  const  *__cil_tmp154 ;
+  struct device *__cil_tmp155 ;
+  struct device  const  *__cil_tmp156 ;
+  struct usb_device *__cil_tmp157 ;
+  __u8 __cil_tmp158 ;
+  unsigned int __cil_tmp159 ;
+  struct usb_device *__cil_tmp160 ;
+  int __cil_tmp161 ;
+  unsigned int __cil_tmp162 ;
+  unsigned int __cil_tmp163 ;
+  void *__cil_tmp164 ;
+  void *__cil_tmp165 ;
+  struct list_head *__cil_tmp166 ;
+  struct list_head *__cil_tmp167 ;
+  void *__cil_tmp168 ;
+  void *__cil_tmp169 ;
   unsigned long __cil_tmp170 ;
-  struct mutex *__cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  struct work_struct *__cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  struct lockdep_map *__cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  struct list_head *__cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  struct list_head *__cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  struct list_head *__cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
+  unsigned long __cil_tmp171 ;
+  struct usb_device *__cil_tmp172 ;
+  struct device *__cil_tmp173 ;
+  struct device  const  *__cil_tmp174 ;
+  struct usb_serial_driver *__cil_tmp175 ;
+  char const   *__cil_tmp176 ;
+  struct mutex *__cil_tmp177 ;
+  wait_queue_head_t *__cil_tmp178 ;
+  void *__cil_tmp179 ;
+  struct urb *__cil_tmp180 ;
+  struct urb *__cil_tmp181 ;
+  void const   *__cil_tmp182 ;
+  void const   *__cil_tmp183 ;
+  struct usb_device *__cil_tmp184 ;
+  struct device *__cil_tmp185 ;
+  struct device  const  *__cil_tmp186 ;
+  struct usb_serial_driver *__cil_tmp187 ;
+  char const   *__cil_tmp188 ;
+  struct usb_device *__cil_tmp189 ;
+  struct device *__cil_tmp190 ;
+  struct device  const  *__cil_tmp191 ;
+  struct usb_serial_driver *__cil_tmp192 ;
+  char const   *__cil_tmp193 ;
+  struct usb_device *__cil_tmp194 ;
+  struct device *__cil_tmp195 ;
+  struct device  const  *__cil_tmp196 ;
+  struct usb_serial_driver *__cil_tmp197 ;
+  char const   *__cil_tmp198 ;
+  void const   *__cil_tmp199 ;
+  unsigned char __cil_tmp200 ;
+  int __cil_tmp201 ;
   struct list_head *__cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  struct list_head *__cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  struct list_head *__cil_tmp208 ;
-  int *__cil_tmp209 ;
-  int __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  struct device *__cil_tmp213 ;
-  struct device  const  *__cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  struct urb *__cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  u32 __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  void *__cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  struct device *__cil_tmp229 ;
-  struct device  const  *__cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  struct device *__cil_tmp233 ;
-  struct device  const  *__cil_tmp234 ;
-  struct usb_device *__cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  __u8 __cil_tmp238 ;
-  unsigned int __cil_tmp239 ;
-  struct usb_device *__cil_tmp240 ;
-  int __cil_tmp241 ;
-  unsigned int __cil_tmp242 ;
-  unsigned int __cil_tmp243 ;
-  unsigned int __cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  void *__cil_tmp247 ;
-  void *__cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  struct list_head *__cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  struct list_head *__cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  struct device *__cil_tmp257 ;
-  struct device  const  *__cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  struct urb *__cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  u32 __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  void *__cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  struct device *__cil_tmp273 ;
-  struct device  const  *__cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  struct device *__cil_tmp277 ;
-  struct device  const  *__cil_tmp278 ;
-  struct usb_device *__cil_tmp279 ;
-  unsigned long __cil_tmp280 ;
-  unsigned long __cil_tmp281 ;
-  __u8 __cil_tmp282 ;
-  unsigned int __cil_tmp283 ;
-  struct usb_device *__cil_tmp284 ;
-  int __cil_tmp285 ;
-  unsigned int __cil_tmp286 ;
-  unsigned int __cil_tmp287 ;
-  unsigned long __cil_tmp288 ;
-  unsigned long __cil_tmp289 ;
-  void *__cil_tmp290 ;
-  void *__cil_tmp291 ;
-  unsigned long __cil_tmp292 ;
-  unsigned long __cil_tmp293 ;
-  struct list_head *__cil_tmp294 ;
-  unsigned long __cil_tmp295 ;
-  unsigned long __cil_tmp296 ;
-  struct list_head *__cil_tmp297 ;
-  void *__cil_tmp298 ;
-  void *__cil_tmp299 ;
-  unsigned long __cil_tmp300 ;
-  unsigned long __cil_tmp301 ;
-  struct usb_device *__cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
-  unsigned long __cil_tmp304 ;
-  struct device *__cil_tmp305 ;
-  struct device  const  *__cil_tmp306 ;
-  unsigned long __cil_tmp307 ;
-  unsigned long __cil_tmp308 ;
-  struct usb_serial_driver *__cil_tmp309 ;
-  char const   *__cil_tmp310 ;
-  struct mutex *__cil_tmp311 ;
-  unsigned long __cil_tmp312 ;
-  unsigned long __cil_tmp313 ;
-  unsigned long __cil_tmp314 ;
-  unsigned long __cil_tmp315 ;
-  wait_queue_head_t *__cil_tmp316 ;
-  void *__cil_tmp317 ;
-  unsigned long __cil_tmp318 ;
-  unsigned long __cil_tmp319 ;
-  struct urb *__cil_tmp320 ;
-  unsigned long __cil_tmp321 ;
-  unsigned long __cil_tmp322 ;
-  unsigned long __cil_tmp323 ;
-  unsigned long __cil_tmp324 ;
-  struct urb *__cil_tmp325 ;
-  unsigned long __cil_tmp326 ;
-  unsigned long __cil_tmp327 ;
-  void const   *__cil_tmp328 ;
-  void const   *__cil_tmp329 ;
-  struct usb_device *__cil_tmp330 ;
-  unsigned long __cil_tmp331 ;
-  unsigned long __cil_tmp332 ;
-  struct device *__cil_tmp333 ;
-  struct device  const  *__cil_tmp334 ;
-  unsigned long __cil_tmp335 ;
-  unsigned long __cil_tmp336 ;
-  struct usb_serial_driver *__cil_tmp337 ;
-  char const   *__cil_tmp338 ;
-  struct usb_device *__cil_tmp339 ;
-  unsigned long __cil_tmp340 ;
-  unsigned long __cil_tmp341 ;
-  struct device *__cil_tmp342 ;
-  struct device  const  *__cil_tmp343 ;
-  unsigned long __cil_tmp344 ;
-  unsigned long __cil_tmp345 ;
-  struct usb_serial_driver *__cil_tmp346 ;
-  char const   *__cil_tmp347 ;
-  struct usb_device *__cil_tmp348 ;
-  unsigned long __cil_tmp349 ;
-  unsigned long __cil_tmp350 ;
-  struct device *__cil_tmp351 ;
-  struct device  const  *__cil_tmp352 ;
-  unsigned long __cil_tmp353 ;
-  unsigned long __cil_tmp354 ;
-  struct usb_serial_driver *__cil_tmp355 ;
-  char const   *__cil_tmp356 ;
-  void const   *__cil_tmp357 ;
-  unsigned long __cil_tmp358 ;
-  unsigned long __cil_tmp359 ;
-  unsigned char __cil_tmp360 ;
-  int __cil_tmp361 ;
-  unsigned long __cil_tmp362 ;
-  unsigned long __cil_tmp363 ;
-  unsigned long __cil_tmp364 ;
-  unsigned long __cil_tmp365 ;
-  int *__cil_tmp366 ;
-  int __cil_tmp367 ;
-  unsigned long __cil_tmp368 ;
-  unsigned long __cil_tmp369 ;
-  struct list_head *__cil_tmp370 ;
-  struct whiteheat_urb_wrap *__cil_tmp371 ;
-  struct list_head *__cil_tmp372 ;
-  unsigned int __cil_tmp373 ;
-  char *__cil_tmp374 ;
-  char *__cil_tmp375 ;
-  unsigned long __cil_tmp376 ;
-  unsigned long __cil_tmp377 ;
-  void const   *__cil_tmp378 ;
-  unsigned long __cil_tmp379 ;
-  unsigned long __cil_tmp380 ;
-  void *__cil_tmp381 ;
-  void const   *__cil_tmp382 ;
-  unsigned long __cil_tmp383 ;
-  unsigned long __cil_tmp384 ;
-  struct list_head *__cil_tmp385 ;
-  struct whiteheat_urb_wrap *__cil_tmp386 ;
-  struct list_head *__cil_tmp387 ;
-  unsigned int __cil_tmp388 ;
-  char *__cil_tmp389 ;
-  char *__cil_tmp390 ;
-  unsigned long __cil_tmp391 ;
-  unsigned long __cil_tmp392 ;
-  void const   *__cil_tmp393 ;
-  unsigned long __cil_tmp394 ;
-  unsigned long __cil_tmp395 ;
-  void *__cil_tmp396 ;
-  void const   *__cil_tmp397 ;
-  void const   *__cil_tmp398 ;
-  void const   *__cil_tmp399 ;
-  void const   *__cil_tmp400 ;
-  long __constr_expr_0_counter401 ;
+  struct whiteheat_urb_wrap *__cil_tmp203 ;
+  struct list_head *__cil_tmp204 ;
+  unsigned int __cil_tmp205 ;
+  char *__cil_tmp206 ;
+  char *__cil_tmp207 ;
+  void const   *__cil_tmp208 ;
+  void *__cil_tmp209 ;
+  void const   *__cil_tmp210 ;
+  struct list_head *__cil_tmp211 ;
+  struct whiteheat_urb_wrap *__cil_tmp212 ;
+  struct list_head *__cil_tmp213 ;
+  unsigned int __cil_tmp214 ;
+  char *__cil_tmp215 ;
+  char *__cil_tmp216 ;
+  void const   *__cil_tmp217 ;
+  void *__cil_tmp218 ;
+  void const   *__cil_tmp219 ;
+  void const   *__cil_tmp220 ;
+  void const   *__cil_tmp221 ;
+  void const   *__cil_tmp222 ;
 
   {
   {
 #line 410
-  __cil_tmp32 = 4 * 8UL;
-#line 410
-  __cil_tmp33 = 32 + __cil_tmp32;
-#line 410
-  __cil_tmp34 = (unsigned long )serial;
-#line 410
-  __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 410
-  command_port = *((struct usb_serial_port **)__cil_tmp35);
+  command_port = serial->port[4];
 #line 412
-  __cil_tmp36 = *((struct usb_device **)serial);
+  __cil_tmp32 = serial->dev;
 #line 412
-  __cil_tmp37 = (unsigned long )command_port;
+  __cil_tmp33 = command_port->bulk_out_endpointAddress;
 #line 412
-  __cil_tmp38 = __cil_tmp37 + 1008;
+  __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 412
-  __cil_tmp39 = *((__u8 *)__cil_tmp38);
+  tmp___8 = __create_pipe(__cil_tmp32, __cil_tmp34);
 #line 412
-  __cil_tmp40 = (unsigned int )__cil_tmp39;
+  __cil_tmp35 = 3 << 30;
 #line 412
-  tmp___8 = __create_pipe(__cil_tmp36, __cil_tmp40);
+  __cil_tmp36 = (unsigned int )__cil_tmp35;
 #line 412
-  __cil_tmp41 = 3 << 30;
+  __cil_tmp37 = __cil_tmp36 | tmp___8;
 #line 412
-  __cil_tmp42 = (unsigned int )__cil_tmp41;
-#line 412
-  __cil_tmp43 = __cil_tmp42 | tmp___8;
-#line 412
-  pipe = (int )__cil_tmp43;
+  pipe = (int )__cil_tmp37;
 #line 414
-  tmp___9 = kmalloc(2UL, 208U);
+  __cil_tmp38 = (size_t )2;
+#line 414
+  tmp___9 = kmalloc(__cil_tmp38, 208U);
 #line 414
   command = (__u8 *)tmp___9;
   }
 #line 415
   if (! command) {
+#line 416
     goto no_command_buffer;
   } else {
 
   }
   {
 #line 417
-  __cil_tmp44 = command + 0;
+  __cil_tmp39 = command + 0;
 #line 417
-  *__cil_tmp44 = (unsigned char)11;
+  *__cil_tmp39 = (__u8 )11;
 #line 418
-  __cil_tmp45 = command + 1;
+  __cil_tmp40 = command + 1;
 #line 418
-  *__cil_tmp45 = (unsigned char)0;
+  *__cil_tmp40 = (__u8 )0;
 #line 420
-  __cil_tmp46 = 19UL + 1UL;
+  __cil_tmp41 = 19UL + 1UL;
 #line 420
-  tmp___10 = kmalloc(__cil_tmp46, 208U);
+  tmp___10 = kmalloc(__cil_tmp41, 208U);
 #line 420
   result = (__u8 *)tmp___10;
   }
 #line 421
   if (! result) {
+#line 422
     goto no_result_buffer;
   } else {
 
   }
   {
 #line 428
-  __cil_tmp47 = *((struct usb_device **)serial);
+  __cil_tmp42 = serial->dev;
 #line 428
-  usb_clear_halt(__cil_tmp47, pipe);
+  usb_clear_halt(__cil_tmp42, pipe);
 #line 429
-  __cil_tmp48 = *((struct usb_device **)serial);
+  __cil_tmp43 = serial->dev;
 #line 429
-  __cil_tmp49 = (unsigned int )pipe;
+  __cil_tmp44 = (unsigned int )pipe;
 #line 429
-  __cil_tmp50 = (void *)command;
+  __cil_tmp45 = (void *)command;
 #line 429
-  ret = usb_bulk_msg(__cil_tmp48, __cil_tmp49, __cil_tmp50, 2, & alen, 2000);
+  ret = usb_bulk_msg(__cil_tmp43, __cil_tmp44, __cil_tmp45, 2, & alen, 2000);
   }
 #line 431
   if (ret) {
     {
 #line 432
-    __cil_tmp51 = *((struct usb_device **)serial);
+    __cil_tmp46 = serial->dev;
 #line 432
-    __cil_tmp52 = (unsigned long )__cil_tmp51;
+    __cil_tmp47 = & __cil_tmp46->dev;
 #line 432
-    __cil_tmp53 = __cil_tmp52 + 192;
+    __cil_tmp48 = (struct device  const  *)__cil_tmp47;
 #line 432
-    __cil_tmp54 = (struct device *)__cil_tmp53;
+    __cil_tmp49 = serial->type;
 #line 432
-    __cil_tmp55 = (struct device  const  *)__cil_tmp54;
+    __cil_tmp50 = __cil_tmp49->description;
 #line 432
-    __cil_tmp56 = (unsigned long )serial;
-#line 432
-    __cil_tmp57 = __cil_tmp56 + 8;
-#line 432
-    __cil_tmp58 = *((struct usb_serial_driver **)__cil_tmp57);
-#line 432
-    __cil_tmp59 = *((char const   **)__cil_tmp58);
-#line 432
-    dev_err(__cil_tmp55, "%s: Couldn\'t send command [%d]\n", __cil_tmp59, ret);
+    dev_err(__cil_tmp48, "%s: Couldn\'t send command [%d]\n", __cil_tmp50, ret);
     }
+#line 434
+    goto no_firmware;
+  } else
+#line 435
+  if (alen != 2) {
+    {
+#line 436
+    __cil_tmp51 = serial->dev;
+#line 436
+    __cil_tmp52 = & __cil_tmp51->dev;
+#line 436
+    __cil_tmp53 = (struct device  const  *)__cil_tmp52;
+#line 436
+    __cil_tmp54 = serial->type;
+#line 436
+    __cil_tmp55 = __cil_tmp54->description;
+#line 436
+    dev_err(__cil_tmp53, "%s: Send command incomplete [%d]\n", __cil_tmp55, alen);
+    }
+#line 438
     goto no_firmware;
   } else {
-    {
-#line 435
-    __cil_tmp60 = & alen;
-#line 435
-    __cil_tmp61 = *__cil_tmp60;
-#line 435
-    if (__cil_tmp61 != 2) {
-      {
-#line 436
-      __cil_tmp62 = *((struct usb_device **)serial);
-#line 436
-      __cil_tmp63 = (unsigned long )__cil_tmp62;
-#line 436
-      __cil_tmp64 = __cil_tmp63 + 192;
-#line 436
-      __cil_tmp65 = (struct device *)__cil_tmp64;
-#line 436
-      __cil_tmp66 = (struct device  const  *)__cil_tmp65;
-#line 436
-      __cil_tmp67 = (unsigned long )serial;
-#line 436
-      __cil_tmp68 = __cil_tmp67 + 8;
-#line 436
-      __cil_tmp69 = *((struct usb_serial_driver **)__cil_tmp68);
-#line 436
-      __cil_tmp70 = *((char const   **)__cil_tmp69);
-#line 436
-      __cil_tmp71 = & alen;
-#line 436
-      __cil_tmp72 = *__cil_tmp71;
-#line 436
-      dev_err(__cil_tmp66, "%s: Send command incomplete [%d]\n", __cil_tmp70, __cil_tmp72);
-      }
-      goto no_firmware;
-    } else {
 
-    }
-    }
   }
   {
 #line 441
-  __cil_tmp73 = *((struct usb_device **)serial);
+  __cil_tmp56 = serial->dev;
 #line 441
-  __cil_tmp74 = (unsigned long )command_port;
+  __cil_tmp57 = command_port->bulk_in_endpointAddress;
 #line 441
-  __cil_tmp75 = __cil_tmp74 + 904;
+  __cil_tmp58 = (unsigned int )__cil_tmp57;
 #line 441
-  __cil_tmp76 = *((__u8 *)__cil_tmp75);
+  tmp___11 = __create_pipe(__cil_tmp56, __cil_tmp58);
 #line 441
-  __cil_tmp77 = (unsigned int )__cil_tmp76;
+  __cil_tmp59 = 3 << 30;
 #line 441
-  tmp___11 = __create_pipe(__cil_tmp73, __cil_tmp77);
+  __cil_tmp60 = (unsigned int )__cil_tmp59;
 #line 441
-  __cil_tmp78 = 3 << 30;
+  __cil_tmp61 = __cil_tmp60 | tmp___11;
 #line 441
-  __cil_tmp79 = (unsigned int )__cil_tmp78;
+  __cil_tmp62 = __cil_tmp61 | 128U;
 #line 441
-  __cil_tmp80 = __cil_tmp79 | tmp___11;
-#line 441
-  __cil_tmp81 = __cil_tmp80 | 128U;
-#line 441
-  pipe = (int )__cil_tmp81;
+  pipe = (int )__cil_tmp62;
 #line 444
-  __cil_tmp82 = *((struct usb_device **)serial);
+  __cil_tmp63 = serial->dev;
 #line 444
-  usb_clear_halt(__cil_tmp82, pipe);
+  usb_clear_halt(__cil_tmp63, pipe);
 #line 445
-  __cil_tmp83 = *((struct usb_device **)serial);
+  __cil_tmp64 = serial->dev;
 #line 445
-  __cil_tmp84 = (unsigned int )pipe;
+  __cil_tmp65 = (unsigned int )pipe;
 #line 445
-  __cil_tmp85 = (void *)result;
+  __cil_tmp66 = (void *)result;
 #line 445
-  __cil_tmp86 = 19UL + 1UL;
+  __cil_tmp67 = 19UL + 1UL;
 #line 445
-  __cil_tmp87 = (int )__cil_tmp86;
+  __cil_tmp68 = (int )__cil_tmp67;
 #line 445
-  ret = usb_bulk_msg(__cil_tmp83, __cil_tmp84, __cil_tmp85, __cil_tmp87, & alen, 2000);
+  ret = usb_bulk_msg(__cil_tmp64, __cil_tmp65, __cil_tmp66, __cil_tmp68, & alen, 2000);
   }
 #line 447
   if (ret) {
     {
 #line 448
-    __cil_tmp88 = *((struct usb_device **)serial);
+    __cil_tmp69 = serial->dev;
 #line 448
-    __cil_tmp89 = (unsigned long )__cil_tmp88;
+    __cil_tmp70 = & __cil_tmp69->dev;
 #line 448
-    __cil_tmp90 = __cil_tmp89 + 192;
+    __cil_tmp71 = (struct device  const  *)__cil_tmp70;
 #line 448
-    __cil_tmp91 = (struct device *)__cil_tmp90;
+    __cil_tmp72 = serial->type;
 #line 448
-    __cil_tmp92 = (struct device  const  *)__cil_tmp91;
+    __cil_tmp73 = __cil_tmp72->description;
 #line 448
-    __cil_tmp93 = (unsigned long )serial;
-#line 448
-    __cil_tmp94 = __cil_tmp93 + 8;
-#line 448
-    __cil_tmp95 = *((struct usb_serial_driver **)__cil_tmp94);
-#line 448
-    __cil_tmp96 = *((char const   **)__cil_tmp95);
-#line 448
-    dev_err(__cil_tmp92, "%s: Couldn\'t get results [%d]\n", __cil_tmp96, ret);
+    dev_err(__cil_tmp71, "%s: Couldn\'t get results [%d]\n", __cil_tmp73, ret);
     }
+#line 450
     goto no_firmware;
   } else {
     {
 #line 451
-    __cil_tmp97 = 19UL + 1UL;
+    __cil_tmp74 = 19UL + 1UL;
 #line 451
-    __cil_tmp98 = & alen;
+    __cil_tmp75 = (unsigned long )alen;
 #line 451
-    __cil_tmp99 = *__cil_tmp98;
-#line 451
-    __cil_tmp100 = (unsigned long )__cil_tmp99;
-#line 451
-    if (__cil_tmp100 != __cil_tmp97) {
+    if (__cil_tmp75 != __cil_tmp74) {
       {
 #line 452
-      __cil_tmp101 = *((struct usb_device **)serial);
+      __cil_tmp76 = serial->dev;
 #line 452
-      __cil_tmp102 = (unsigned long )__cil_tmp101;
+      __cil_tmp77 = & __cil_tmp76->dev;
 #line 452
-      __cil_tmp103 = __cil_tmp102 + 192;
+      __cil_tmp78 = (struct device  const  *)__cil_tmp77;
 #line 452
-      __cil_tmp104 = (struct device *)__cil_tmp103;
+      __cil_tmp79 = serial->type;
 #line 452
-      __cil_tmp105 = (struct device  const  *)__cil_tmp104;
+      __cil_tmp80 = __cil_tmp79->description;
 #line 452
-      __cil_tmp106 = (unsigned long )serial;
-#line 452
-      __cil_tmp107 = __cil_tmp106 + 8;
-#line 452
-      __cil_tmp108 = *((struct usb_serial_driver **)__cil_tmp107);
-#line 452
-      __cil_tmp109 = *((char const   **)__cil_tmp108);
-#line 452
-      __cil_tmp110 = & alen;
-#line 452
-      __cil_tmp111 = *__cil_tmp110;
-#line 452
-      dev_err(__cil_tmp105, "%s: Get results incomplete [%d]\n", __cil_tmp109, __cil_tmp111);
+      dev_err(__cil_tmp78, "%s: Get results incomplete [%d]\n", __cil_tmp80, alen);
       }
+#line 454
       goto no_firmware;
     } else {
       {
 #line 455
-      __cil_tmp112 = command + 0;
+      __cil_tmp81 = command + 0;
 #line 455
-      __cil_tmp113 = *__cil_tmp112;
+      __cil_tmp82 = *__cil_tmp81;
 #line 455
-      __cil_tmp114 = (int )__cil_tmp113;
+      __cil_tmp83 = (int )__cil_tmp82;
 #line 455
-      __cil_tmp115 = result + 0;
+      __cil_tmp84 = result + 0;
 #line 455
-      __cil_tmp116 = *__cil_tmp115;
+      __cil_tmp85 = *__cil_tmp84;
 #line 455
-      __cil_tmp117 = (int )__cil_tmp116;
+      __cil_tmp86 = (int )__cil_tmp85;
 #line 455
-      if (__cil_tmp117 != __cil_tmp114) {
+      if (__cil_tmp86 != __cil_tmp83) {
         {
 #line 456
-        __cil_tmp118 = *((struct usb_device **)serial);
+        __cil_tmp87 = serial->dev;
 #line 456
-        __cil_tmp119 = (unsigned long )__cil_tmp118;
+        __cil_tmp88 = & __cil_tmp87->dev;
 #line 456
-        __cil_tmp120 = __cil_tmp119 + 192;
+        __cil_tmp89 = (struct device  const  *)__cil_tmp88;
 #line 456
-        __cil_tmp121 = (struct device *)__cil_tmp120;
+        __cil_tmp90 = serial->type;
 #line 456
-        __cil_tmp122 = (struct device  const  *)__cil_tmp121;
+        __cil_tmp91 = __cil_tmp90->description;
 #line 456
-        __cil_tmp123 = (unsigned long )serial;
+        __cil_tmp92 = result + 0;
 #line 456
-        __cil_tmp124 = __cil_tmp123 + 8;
+        __cil_tmp93 = *__cil_tmp92;
 #line 456
-        __cil_tmp125 = *((struct usb_serial_driver **)__cil_tmp124);
+        __cil_tmp94 = (int )__cil_tmp93;
 #line 456
-        __cil_tmp126 = *((char const   **)__cil_tmp125);
-#line 456
-        __cil_tmp127 = result + 0;
-#line 456
-        __cil_tmp128 = *__cil_tmp127;
-#line 456
-        __cil_tmp129 = (int )__cil_tmp128;
-#line 456
-        dev_err(__cil_tmp122, "%s: Command failed [%d]\n", __cil_tmp126, __cil_tmp129);
+        dev_err(__cil_tmp89, "%s: Command failed [%d]\n", __cil_tmp91, __cil_tmp94);
         }
+#line 458
         goto no_firmware;
       } else {
 
@@ -7524,81 +6986,54 @@ static int whiteheat_attach(struct usb_serial *serial )
   }
   {
 #line 461
-  __cil_tmp130 = result + 1;
+  __cil_tmp95 = result + 1;
 #line 461
-  hw_info = (struct whiteheat_hw_info *)__cil_tmp130;
+  hw_info = (struct whiteheat_hw_info *)__cil_tmp95;
 #line 463
-  __cil_tmp131 = *((struct usb_device **)serial);
+  __cil_tmp96 = serial->dev;
 #line 463
-  __cil_tmp132 = (unsigned long )__cil_tmp131;
+  __cil_tmp97 = & __cil_tmp96->dev;
 #line 463
-  __cil_tmp133 = __cil_tmp132 + 192;
+  __cil_tmp98 = (struct device  const  *)__cil_tmp97;
 #line 463
-  __cil_tmp134 = (struct device *)__cil_tmp133;
+  __cil_tmp99 = serial->type;
 #line 463
-  __cil_tmp135 = (struct device  const  *)__cil_tmp134;
+  __cil_tmp100 = __cil_tmp99->description;
 #line 463
-  __cil_tmp136 = (unsigned long )serial;
+  __cil_tmp101 = hw_info->sw_major_rev;
 #line 463
-  __cil_tmp137 = __cil_tmp136 + 8;
+  __cil_tmp102 = (int )__cil_tmp101;
 #line 463
-  __cil_tmp138 = *((struct usb_serial_driver **)__cil_tmp137);
+  __cil_tmp103 = hw_info->sw_minor_rev;
 #line 463
-  __cil_tmp139 = *((char const   **)__cil_tmp138);
+  __cil_tmp104 = (int )__cil_tmp103;
 #line 463
-  __cil_tmp140 = (unsigned long )hw_info;
-#line 463
-  __cil_tmp141 = __cil_tmp140 + 1;
-#line 463
-  __cil_tmp142 = *((__u8 *)__cil_tmp141);
-#line 463
-  __cil_tmp143 = (int )__cil_tmp142;
-#line 463
-  __cil_tmp144 = (unsigned long )hw_info;
-#line 463
-  __cil_tmp145 = __cil_tmp144 + 2;
-#line 463
-  __cil_tmp146 = *((__u8 *)__cil_tmp145);
-#line 463
-  __cil_tmp147 = (int )__cil_tmp146;
-#line 463
-  _dev_info(__cil_tmp135, "%s: Driver %s: Firmware v%d.%02d\n", __cil_tmp139, "v2.0",
-            __cil_tmp143, __cil_tmp147);
+  _dev_info(__cil_tmp98, "%s: Driver %s: Firmware v%d.%02d\n", __cil_tmp100, "v2.0",
+            __cil_tmp102, __cil_tmp104);
 #line 467
   i = 0;
   }
   {
 #line 467
   while (1) {
-    while_8_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 467
-    __cil_tmp148 = (unsigned long )serial;
+    __cil_tmp105 = serial->num_ports;
 #line 467
-    __cil_tmp149 = __cil_tmp148 + 26;
+    __cil_tmp106 = (int )__cil_tmp105;
 #line 467
-    __cil_tmp150 = *((unsigned char *)__cil_tmp149);
-#line 467
-    __cil_tmp151 = (int )__cil_tmp150;
-#line 467
-    if (i < __cil_tmp151) {
+    if (i < __cil_tmp106) {
 
     } else {
+#line 467
       goto while_break;
     }
     }
     {
 #line 468
-    __cil_tmp152 = i * 8UL;
-#line 468
-    __cil_tmp153 = 32 + __cil_tmp152;
-#line 468
-    __cil_tmp154 = (unsigned long )serial;
-#line 468
-    __cil_tmp155 = __cil_tmp154 + __cil_tmp153;
-#line 468
-    port = *((struct usb_serial_port **)__cil_tmp155);
+    port = serial->port[i];
 #line 470
     tmp___12 = kmalloc(416UL, 208U);
 #line 470
@@ -7606,33 +7041,26 @@ static int whiteheat_attach(struct usb_serial *serial )
     }
     {
 #line 471
-    __cil_tmp156 = (void *)0;
+    __cil_tmp107 = (void *)0;
 #line 471
-    __cil_tmp157 = (unsigned long )__cil_tmp156;
+    __cil_tmp108 = (unsigned long )__cil_tmp107;
 #line 471
-    __cil_tmp158 = (unsigned long )info;
+    __cil_tmp109 = (unsigned long )info;
 #line 471
-    if (__cil_tmp158 == __cil_tmp157) {
+    if (__cil_tmp109 == __cil_tmp108) {
       {
 #line 472
-      __cil_tmp159 = (unsigned long )port;
+      __cil_tmp110 = & port->dev;
 #line 472
-      __cil_tmp160 = __cil_tmp159 + 1208;
+      __cil_tmp111 = (struct device  const  *)__cil_tmp110;
 #line 472
-      __cil_tmp161 = (struct device *)__cil_tmp160;
+      __cil_tmp112 = serial->type;
 #line 472
-      __cil_tmp162 = (struct device  const  *)__cil_tmp161;
+      __cil_tmp113 = __cil_tmp112->description;
 #line 472
-      __cil_tmp163 = (unsigned long )serial;
-#line 472
-      __cil_tmp164 = __cil_tmp163 + 8;
-#line 472
-      __cil_tmp165 = *((struct usb_serial_driver **)__cil_tmp164);
-#line 472
-      __cil_tmp166 = *((char const   **)__cil_tmp165);
-#line 472
-      dev_err(__cil_tmp162, "%s: Out of memory for port structures\n", __cil_tmp166);
+      dev_err(__cil_tmp111, "%s: Out of memory for port structures\n", __cil_tmp113);
       }
+#line 475
       goto no_private;
     } else {
 
@@ -7641,210 +7069,149 @@ static int whiteheat_attach(struct usb_serial *serial )
     {
 #line 478
     while (1) {
-      while_9_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 478
-      __cil_tmp167 = (spinlock_t *)info;
+      __cil_tmp114 = & info->lock;
 #line 478
-      spinlock_check(__cil_tmp167);
+      spinlock_check(__cil_tmp114);
       }
       {
 #line 478
       while (1) {
-        while_10_continue: /* CIL Label */ ;
+        while_continue___1: /* CIL Label */ ;
         {
 #line 478
-        __cil_tmp168 = (struct raw_spinlock *)info;
+        __cil_tmp115 = & info->lock.__annonCompField18.rlock;
 #line 478
-        __raw_spin_lock_init(__cil_tmp168, "&(&info->lock)->rlock", & __key___7);
+        __raw_spin_lock_init(__cil_tmp115, "&(&info->lock)->rlock", & __key___7);
         }
+#line 478
         goto while_break___1;
       }
-      while_10_break: /* CIL Label */ ;
+      while_break___13: /* CIL Label */ ;
       }
 
       while_break___1: ;
+#line 478
       goto while_break___0;
     }
-    while_9_break: /* CIL Label */ ;
+    while_break___12: /* CIL Label */ ;
     }
 
     while_break___0: ;
     {
 #line 479
     while (1) {
-      while_11_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
       {
 #line 479
-      __cil_tmp169 = (unsigned long )info;
+      __cil_tmp116 = & info->deathwarrant;
 #line 479
-      __cil_tmp170 = __cil_tmp169 + 248;
-#line 479
-      __cil_tmp171 = (struct mutex *)__cil_tmp170;
-#line 479
-      __mutex_init(__cil_tmp171, "&info->deathwarrant", & __key___8);
+      __mutex_init(__cil_tmp116, "&info->deathwarrant", & __key___8);
       }
+#line 479
       goto while_break___2;
     }
-    while_11_break: /* CIL Label */ ;
+    while_break___14: /* CIL Label */ ;
     }
 
     while_break___2: 
 #line 480
-    __cil_tmp172 = (unsigned long )info;
-#line 480
-    __cil_tmp173 = __cil_tmp172 + 72;
-#line 480
-    *((__u8 *)__cil_tmp173) = (unsigned char)0;
+    info->flags = (__u8 )0;
 #line 481
-    __cil_tmp174 = (unsigned long )info;
-#line 481
-    __cil_tmp175 = __cil_tmp174 + 73;
-#line 481
-    *((__u8 *)__cil_tmp175) = (unsigned char)0;
+    info->mcr = (__u8 )0;
     {
 #line 482
     while (1) {
-      while_12_continue: /* CIL Label */ ;
+      while_continue___3: /* CIL Label */ ;
 
       {
 #line 482
       while (1) {
-        while_13_continue: /* CIL Label */ ;
+        while_continue___4: /* CIL Label */ ;
         {
 #line 482
-        __cil_tmp176 = (unsigned long )info;
+        __cil_tmp117 = & info->rx_work;
 #line 482
-        __cil_tmp177 = __cil_tmp176 + 128;
+        __init_work(__cil_tmp117, 0);
 #line 482
-        __cil_tmp178 = (struct work_struct *)__cil_tmp177;
+        __constr_expr_0.counter = 2097664L;
 #line 482
-        __init_work(__cil_tmp178, 0);
+        info->rx_work.data = __constr_expr_0;
 #line 482
-        __constr_expr_0_counter401 = 2097664L;
+        __cil_tmp118 = & info->rx_work.lockdep_map;
 #line 482
-        __cil_tmp179 = (unsigned long )info;
+        lockdep_init_map(__cil_tmp118, "(&info->rx_work)", & __key___9, 0);
 #line 482
-        __cil_tmp180 = __cil_tmp179 + 128;
+        __cil_tmp119 = & info->rx_work.entry;
 #line 482
-        ((atomic_long_t *)__cil_tmp180)->counter = __constr_expr_0_counter401;
-#line 482
-        __cil_tmp181 = 128 + 32;
-#line 482
-        __cil_tmp182 = (unsigned long )info;
-#line 482
-        __cil_tmp183 = __cil_tmp182 + __cil_tmp181;
-#line 482
-        __cil_tmp184 = (struct lockdep_map *)__cil_tmp183;
-#line 482
-        lockdep_init_map(__cil_tmp184, "(&info->rx_work)", & __key___9, 0);
-#line 482
-        __cil_tmp185 = 128 + 8;
-#line 482
-        __cil_tmp186 = (unsigned long )info;
-#line 482
-        __cil_tmp187 = __cil_tmp186 + __cil_tmp185;
-#line 482
-        __cil_tmp188 = (struct list_head *)__cil_tmp187;
-#line 482
-        INIT_LIST_HEAD(__cil_tmp188);
+        INIT_LIST_HEAD(__cil_tmp119);
         }
         {
 #line 482
         while (1) {
-          while_14_continue: /* CIL Label */ ;
+          while_continue___5: /* CIL Label */ ;
 #line 482
-          __cil_tmp189 = 128 + 24;
+          info->rx_work.func = & rx_data_softint;
 #line 482
-          __cil_tmp190 = (unsigned long )info;
-#line 482
-          __cil_tmp191 = __cil_tmp190 + __cil_tmp189;
-#line 482
-          *((void (**)(struct work_struct *work ))__cil_tmp191) = & rx_data_softint;
           goto while_break___5;
         }
-        while_14_break: /* CIL Label */ ;
+        while_break___17: /* CIL Label */ ;
         }
 
         while_break___5: ;
+#line 482
         goto while_break___4;
       }
-      while_13_break: /* CIL Label */ ;
+      while_break___16: /* CIL Label */ ;
       }
 
       while_break___4: ;
+#line 482
       goto while_break___3;
     }
-    while_12_break: /* CIL Label */ ;
+    while_break___15: /* CIL Label */ ;
     }
 
     while_break___3: 
     {
 #line 483
-    __cil_tmp192 = (unsigned long )info;
-#line 483
-    __cil_tmp193 = __cil_tmp192 + 208;
-#line 483
-    *((struct usb_serial_port **)__cil_tmp193) = port;
+    info->port = port;
 #line 485
-    __cil_tmp194 = (unsigned long )info;
+    __cil_tmp120 = & info->rx_urbs_free;
 #line 485
-    __cil_tmp195 = __cil_tmp194 + 80;
-#line 485
-    __cil_tmp196 = (struct list_head *)__cil_tmp195;
-#line 485
-    INIT_LIST_HEAD(__cil_tmp196);
+    INIT_LIST_HEAD(__cil_tmp120);
 #line 486
-    __cil_tmp197 = (unsigned long )info;
+    __cil_tmp121 = & info->rx_urbs_submitted;
 #line 486
-    __cil_tmp198 = __cil_tmp197 + 96;
-#line 486
-    __cil_tmp199 = (struct list_head *)__cil_tmp198;
-#line 486
-    INIT_LIST_HEAD(__cil_tmp199);
+    INIT_LIST_HEAD(__cil_tmp121);
 #line 487
-    __cil_tmp200 = (unsigned long )info;
+    __cil_tmp122 = & info->rx_urb_q;
 #line 487
-    __cil_tmp201 = __cil_tmp200 + 112;
-#line 487
-    __cil_tmp202 = (struct list_head *)__cil_tmp201;
-#line 487
-    INIT_LIST_HEAD(__cil_tmp202);
+    INIT_LIST_HEAD(__cil_tmp122);
 #line 488
-    __cil_tmp203 = (unsigned long )info;
+    __cil_tmp123 = & info->tx_urbs_free;
 #line 488
-    __cil_tmp204 = __cil_tmp203 + 216;
-#line 488
-    __cil_tmp205 = (struct list_head *)__cil_tmp204;
-#line 488
-    INIT_LIST_HEAD(__cil_tmp205);
+    INIT_LIST_HEAD(__cil_tmp123);
 #line 489
-    __cil_tmp206 = (unsigned long )info;
+    __cil_tmp124 = & info->tx_urbs_submitted;
 #line 489
-    __cil_tmp207 = __cil_tmp206 + 232;
-#line 489
-    __cil_tmp208 = (struct list_head *)__cil_tmp207;
-#line 489
-    INIT_LIST_HEAD(__cil_tmp208);
+    INIT_LIST_HEAD(__cil_tmp124);
 #line 491
     j = 0;
     }
     {
 #line 491
     while (1) {
-      while_15_continue: /* CIL Label */ ;
+      while_continue___6: /* CIL Label */ ;
 
-      {
 #line 491
-      __cil_tmp209 = & urb_pool_size;
-#line 491
-      __cil_tmp210 = *__cil_tmp209;
-#line 491
-      if (j < __cil_tmp210) {
+      if (j < urb_pool_size) {
 
       } else {
+#line 491
         goto while_break___6;
-      }
       }
       {
 #line 492
@@ -7854,65 +7221,43 @@ static int whiteheat_attach(struct usb_serial *serial )
       if (! urb) {
         {
 #line 494
-        __cil_tmp211 = (unsigned long )port;
+        __cil_tmp125 = & port->dev;
 #line 494
-        __cil_tmp212 = __cil_tmp211 + 1208;
+        __cil_tmp126 = (struct device  const  *)__cil_tmp125;
 #line 494
-        __cil_tmp213 = (struct device *)__cil_tmp212;
-#line 494
-        __cil_tmp214 = (struct device  const  *)__cil_tmp213;
-#line 494
-        dev_err(__cil_tmp214, "No free urbs available\n");
+        dev_err(__cil_tmp126, "No free urbs available\n");
         }
+#line 495
         goto no_rx_urb;
       } else {
 
       }
       {
 #line 497
-      __cil_tmp215 = (unsigned long )port;
+      __cil_tmp127 = port->read_urb;
 #line 497
-      __cil_tmp216 = __cil_tmp215 + 896;
+      __cil_tmp128 = __cil_tmp127->transfer_buffer_length;
 #line 497
-      __cil_tmp217 = *((struct urb **)__cil_tmp216);
-#line 497
-      __cil_tmp218 = (unsigned long )__cil_tmp217;
-#line 497
-      __cil_tmp219 = __cil_tmp218 + 132;
-#line 497
-      __cil_tmp220 = *((u32 *)__cil_tmp219);
-#line 497
-      buf_size = (int )__cil_tmp220;
+      buf_size = (int )__cil_tmp128;
 #line 498
-      __cil_tmp221 = (unsigned long )urb;
+      __cil_tmp129 = (size_t )buf_size;
 #line 498
-      __cil_tmp222 = __cil_tmp221 + 104;
-#line 498
-      __cil_tmp223 = (unsigned long )buf_size;
-#line 498
-      *((void **)__cil_tmp222) = kmalloc(__cil_tmp223, 208U);
+      urb->transfer_buffer = kmalloc(__cil_tmp129, 208U);
       }
       {
 #line 499
-      __cil_tmp224 = (unsigned long )urb;
+      __cil_tmp130 = urb->transfer_buffer;
 #line 499
-      __cil_tmp225 = __cil_tmp224 + 104;
-#line 499
-      __cil_tmp226 = *((void **)__cil_tmp225);
-#line 499
-      if (! __cil_tmp226) {
+      if (! __cil_tmp130) {
         {
 #line 500
-        __cil_tmp227 = (unsigned long )port;
+        __cil_tmp131 = & port->dev;
 #line 500
-        __cil_tmp228 = __cil_tmp227 + 1208;
+        __cil_tmp132 = (struct device  const  *)__cil_tmp131;
 #line 500
-        __cil_tmp229 = (struct device *)__cil_tmp228;
-#line 500
-        __cil_tmp230 = (struct device  const  *)__cil_tmp229;
-#line 500
-        dev_err(__cil_tmp230, "Couldn\'t allocate urb buffer\n");
+        dev_err(__cil_tmp132, "Couldn\'t allocate urb buffer\n");
         }
+#line 502
         goto no_rx_buf;
       } else {
 
@@ -7928,70 +7273,51 @@ static int whiteheat_attach(struct usb_serial *serial )
       if (! wrap) {
         {
 #line 506
-        __cil_tmp231 = (unsigned long )port;
+        __cil_tmp133 = & port->dev;
 #line 506
-        __cil_tmp232 = __cil_tmp231 + 1208;
+        __cil_tmp134 = (struct device  const  *)__cil_tmp133;
 #line 506
-        __cil_tmp233 = (struct device *)__cil_tmp232;
-#line 506
-        __cil_tmp234 = (struct device  const  *)__cil_tmp233;
-#line 506
-        dev_err(__cil_tmp234, "Couldn\'t allocate urb wrapper\n");
+        dev_err(__cil_tmp134, "Couldn\'t allocate urb wrapper\n");
         }
+#line 508
         goto no_rx_wrap;
       } else {
 
       }
       {
 #line 510
-      __cil_tmp235 = *((struct usb_device **)serial);
+      __cil_tmp135 = serial->dev;
 #line 510
-      __cil_tmp236 = (unsigned long )port;
+      __cil_tmp136 = port->bulk_in_endpointAddress;
 #line 510
-      __cil_tmp237 = __cil_tmp236 + 904;
+      __cil_tmp137 = (unsigned int )__cil_tmp136;
 #line 510
-      __cil_tmp238 = *((__u8 *)__cil_tmp237);
+      tmp___14 = __create_pipe(__cil_tmp135, __cil_tmp137);
 #line 510
-      __cil_tmp239 = (unsigned int )__cil_tmp238;
+      __cil_tmp138 = serial->dev;
 #line 510
-      tmp___14 = __create_pipe(__cil_tmp235, __cil_tmp239);
+      __cil_tmp139 = 3 << 30;
 #line 510
-      __cil_tmp240 = *((struct usb_device **)serial);
+      __cil_tmp140 = (unsigned int )__cil_tmp139;
 #line 510
-      __cil_tmp241 = 3 << 30;
+      __cil_tmp141 = __cil_tmp140 | tmp___14;
 #line 510
-      __cil_tmp242 = (unsigned int )__cil_tmp241;
+      __cil_tmp142 = __cil_tmp141 | 128U;
 #line 510
-      __cil_tmp243 = __cil_tmp242 | tmp___14;
+      __cil_tmp143 = urb->transfer_buffer;
 #line 510
-      __cil_tmp244 = __cil_tmp243 | 128U;
+      __cil_tmp144 = (void *)port;
 #line 510
-      __cil_tmp245 = (unsigned long )urb;
-#line 510
-      __cil_tmp246 = __cil_tmp245 + 104;
-#line 510
-      __cil_tmp247 = *((void **)__cil_tmp246);
-#line 510
-      __cil_tmp248 = (void *)port;
-#line 510
-      usb_fill_bulk_urb(urb, __cil_tmp240, __cil_tmp244, __cil_tmp247, buf_size, & whiteheat_read_callback,
-                        __cil_tmp248);
+      usb_fill_bulk_urb(urb, __cil_tmp138, __cil_tmp142, __cil_tmp143, buf_size, & whiteheat_read_callback,
+                        __cil_tmp144);
 #line 515
-      __cil_tmp249 = (unsigned long )wrap;
-#line 515
-      __cil_tmp250 = __cil_tmp249 + 16;
-#line 515
-      *((struct urb **)__cil_tmp250) = urb;
+      wrap->urb = urb;
 #line 516
-      __cil_tmp251 = (struct list_head *)wrap;
+      __cil_tmp145 = & wrap->list;
 #line 516
-      __cil_tmp252 = (unsigned long )info;
+      __cil_tmp146 = & info->rx_urbs_free;
 #line 516
-      __cil_tmp253 = __cil_tmp252 + 80;
-#line 516
-      __cil_tmp254 = (struct list_head *)__cil_tmp253;
-#line 516
-      list_add(__cil_tmp251, __cil_tmp254);
+      list_add(__cil_tmp145, __cil_tmp146);
 #line 518
       urb = usb_alloc_urb(0, 208U);
       }
@@ -7999,65 +7325,43 @@ static int whiteheat_attach(struct usb_serial *serial )
       if (! urb) {
         {
 #line 520
-        __cil_tmp255 = (unsigned long )port;
+        __cil_tmp147 = & port->dev;
 #line 520
-        __cil_tmp256 = __cil_tmp255 + 1208;
+        __cil_tmp148 = (struct device  const  *)__cil_tmp147;
 #line 520
-        __cil_tmp257 = (struct device *)__cil_tmp256;
-#line 520
-        __cil_tmp258 = (struct device  const  *)__cil_tmp257;
-#line 520
-        dev_err(__cil_tmp258, "No free urbs available\n");
+        dev_err(__cil_tmp148, "No free urbs available\n");
         }
+#line 521
         goto no_tx_urb;
       } else {
 
       }
       {
 #line 523
-      __cil_tmp259 = (unsigned long )port;
+      __cil_tmp149 = port->write_urb;
 #line 523
-      __cil_tmp260 = __cil_tmp259 + 928;
+      __cil_tmp150 = __cil_tmp149->transfer_buffer_length;
 #line 523
-      __cil_tmp261 = *((struct urb **)__cil_tmp260);
-#line 523
-      __cil_tmp262 = (unsigned long )__cil_tmp261;
-#line 523
-      __cil_tmp263 = __cil_tmp262 + 132;
-#line 523
-      __cil_tmp264 = *((u32 *)__cil_tmp263);
-#line 523
-      buf_size = (int )__cil_tmp264;
+      buf_size = (int )__cil_tmp150;
 #line 524
-      __cil_tmp265 = (unsigned long )urb;
+      __cil_tmp151 = (size_t )buf_size;
 #line 524
-      __cil_tmp266 = __cil_tmp265 + 104;
-#line 524
-      __cil_tmp267 = (unsigned long )buf_size;
-#line 524
-      *((void **)__cil_tmp266) = kmalloc(__cil_tmp267, 208U);
+      urb->transfer_buffer = kmalloc(__cil_tmp151, 208U);
       }
       {
 #line 525
-      __cil_tmp268 = (unsigned long )urb;
+      __cil_tmp152 = urb->transfer_buffer;
 #line 525
-      __cil_tmp269 = __cil_tmp268 + 104;
-#line 525
-      __cil_tmp270 = *((void **)__cil_tmp269);
-#line 525
-      if (! __cil_tmp270) {
+      if (! __cil_tmp152) {
         {
 #line 526
-        __cil_tmp271 = (unsigned long )port;
+        __cil_tmp153 = & port->dev;
 #line 526
-        __cil_tmp272 = __cil_tmp271 + 1208;
+        __cil_tmp154 = (struct device  const  *)__cil_tmp153;
 #line 526
-        __cil_tmp273 = (struct device *)__cil_tmp272;
-#line 526
-        __cil_tmp274 = (struct device  const  *)__cil_tmp273;
-#line 526
-        dev_err(__cil_tmp274, "Couldn\'t allocate urb buffer\n");
+        dev_err(__cil_tmp154, "Couldn\'t allocate urb buffer\n");
         }
+#line 528
         goto no_tx_buf;
       } else {
 
@@ -8073,86 +7377,67 @@ static int whiteheat_attach(struct usb_serial *serial )
       if (! wrap) {
         {
 #line 532
-        __cil_tmp275 = (unsigned long )port;
+        __cil_tmp155 = & port->dev;
 #line 532
-        __cil_tmp276 = __cil_tmp275 + 1208;
+        __cil_tmp156 = (struct device  const  *)__cil_tmp155;
 #line 532
-        __cil_tmp277 = (struct device *)__cil_tmp276;
-#line 532
-        __cil_tmp278 = (struct device  const  *)__cil_tmp277;
-#line 532
-        dev_err(__cil_tmp278, "Couldn\'t allocate urb wrapper\n");
+        dev_err(__cil_tmp156, "Couldn\'t allocate urb wrapper\n");
         }
+#line 534
         goto no_tx_wrap;
       } else {
 
       }
       {
 #line 536
-      __cil_tmp279 = *((struct usb_device **)serial);
+      __cil_tmp157 = serial->dev;
 #line 536
-      __cil_tmp280 = (unsigned long )port;
+      __cil_tmp158 = port->bulk_out_endpointAddress;
 #line 536
-      __cil_tmp281 = __cil_tmp280 + 1008;
+      __cil_tmp159 = (unsigned int )__cil_tmp158;
 #line 536
-      __cil_tmp282 = *((__u8 *)__cil_tmp281);
+      tmp___16 = __create_pipe(__cil_tmp157, __cil_tmp159);
 #line 536
-      __cil_tmp283 = (unsigned int )__cil_tmp282;
+      __cil_tmp160 = serial->dev;
 #line 536
-      tmp___16 = __create_pipe(__cil_tmp279, __cil_tmp283);
+      __cil_tmp161 = 3 << 30;
 #line 536
-      __cil_tmp284 = *((struct usb_device **)serial);
+      __cil_tmp162 = (unsigned int )__cil_tmp161;
 #line 536
-      __cil_tmp285 = 3 << 30;
+      __cil_tmp163 = __cil_tmp162 | tmp___16;
 #line 536
-      __cil_tmp286 = (unsigned int )__cil_tmp285;
+      __cil_tmp164 = urb->transfer_buffer;
 #line 536
-      __cil_tmp287 = __cil_tmp286 | tmp___16;
+      __cil_tmp165 = (void *)port;
 #line 536
-      __cil_tmp288 = (unsigned long )urb;
-#line 536
-      __cil_tmp289 = __cil_tmp288 + 104;
-#line 536
-      __cil_tmp290 = *((void **)__cil_tmp289);
-#line 536
-      __cil_tmp291 = (void *)port;
-#line 536
-      usb_fill_bulk_urb(urb, __cil_tmp284, __cil_tmp287, __cil_tmp290, buf_size, & whiteheat_write_callback,
-                        __cil_tmp291);
+      usb_fill_bulk_urb(urb, __cil_tmp160, __cil_tmp163, __cil_tmp164, buf_size, & whiteheat_write_callback,
+                        __cil_tmp165);
 #line 541
-      __cil_tmp292 = (unsigned long )wrap;
-#line 541
-      __cil_tmp293 = __cil_tmp292 + 16;
-#line 541
-      *((struct urb **)__cil_tmp293) = urb;
+      wrap->urb = urb;
 #line 542
-      __cil_tmp294 = (struct list_head *)wrap;
+      __cil_tmp166 = & wrap->list;
 #line 542
-      __cil_tmp295 = (unsigned long )info;
+      __cil_tmp167 = & info->tx_urbs_free;
 #line 542
-      __cil_tmp296 = __cil_tmp295 + 216;
-#line 542
-      __cil_tmp297 = (struct list_head *)__cil_tmp296;
-#line 542
-      list_add(__cil_tmp294, __cil_tmp297);
+      list_add(__cil_tmp166, __cil_tmp167);
 #line 491
       j = j + 1;
       }
     }
-    while_15_break: /* CIL Label */ ;
+    while_break___18: /* CIL Label */ ;
     }
 
     while_break___6: 
     {
 #line 545
-    __cil_tmp298 = (void *)info;
+    __cil_tmp168 = (void *)info;
 #line 545
-    usb_set_serial_port_data(port, __cil_tmp298);
+    usb_set_serial_port_data(port, __cil_tmp168);
 #line 467
     i = i + 1;
     }
   }
-  while_8_break: /* CIL Label */ ;
+  while_break___11: /* CIL Label */ ;
   }
 
   while_break: 
@@ -8164,35 +7449,28 @@ static int whiteheat_attach(struct usb_serial *serial )
   }
   {
 #line 550
-  __cil_tmp299 = (void *)0;
+  __cil_tmp169 = (void *)0;
 #line 550
-  __cil_tmp300 = (unsigned long )__cil_tmp299;
+  __cil_tmp170 = (unsigned long )__cil_tmp169;
 #line 550
-  __cil_tmp301 = (unsigned long )command_info;
+  __cil_tmp171 = (unsigned long )command_info;
 #line 550
-  if (__cil_tmp301 == __cil_tmp300) {
+  if (__cil_tmp171 == __cil_tmp170) {
     {
 #line 551
-    __cil_tmp302 = *((struct usb_device **)serial);
+    __cil_tmp172 = serial->dev;
 #line 551
-    __cil_tmp303 = (unsigned long )__cil_tmp302;
+    __cil_tmp173 = & __cil_tmp172->dev;
 #line 551
-    __cil_tmp304 = __cil_tmp303 + 192;
+    __cil_tmp174 = (struct device  const  *)__cil_tmp173;
 #line 551
-    __cil_tmp305 = (struct device *)__cil_tmp304;
+    __cil_tmp175 = serial->type;
 #line 551
-    __cil_tmp306 = (struct device  const  *)__cil_tmp305;
+    __cil_tmp176 = __cil_tmp175->description;
 #line 551
-    __cil_tmp307 = (unsigned long )serial;
-#line 551
-    __cil_tmp308 = __cil_tmp307 + 8;
-#line 551
-    __cil_tmp309 = *((struct usb_serial_driver **)__cil_tmp308);
-#line 551
-    __cil_tmp310 = *((char const   **)__cil_tmp309);
-#line 551
-    dev_err(__cil_tmp306, "%s: Out of memory for port structures\n", __cil_tmp310);
+    dev_err(__cil_tmp174, "%s: Out of memory for port structures\n", __cil_tmp176);
     }
+#line 554
     goto no_command_private;
   } else {
 
@@ -8201,259 +7479,187 @@ static int whiteheat_attach(struct usb_serial *serial )
   {
 #line 557
   while (1) {
-    while_16_continue: /* CIL Label */ ;
+    while_continue___7: /* CIL Label */ ;
     {
 #line 557
-    __cil_tmp311 = (struct mutex *)command_info;
+    __cil_tmp177 = & command_info->mutex;
 #line 557
-    __mutex_init(__cil_tmp311, "&command_info->mutex", & __key___10);
+    __mutex_init(__cil_tmp177, "&command_info->mutex", & __key___10);
     }
+#line 557
     goto while_break___7;
   }
-  while_16_break: /* CIL Label */ ;
+  while_break___19: /* CIL Label */ ;
   }
 
   while_break___7: 
 #line 558
-  __cil_tmp312 = (unsigned long )command_info;
-#line 558
-  __cil_tmp313 = __cil_tmp312 + 168;
-#line 558
-  *((__u8 *)__cil_tmp313) = (unsigned char)0;
+  command_info->port_running = (__u8 )0;
   {
 #line 559
   while (1) {
-    while_17_continue: /* CIL Label */ ;
+    while_continue___8: /* CIL Label */ ;
     {
 #line 559
-    __cil_tmp314 = (unsigned long )command_info;
+    __cil_tmp178 = & command_info->wait_command;
 #line 559
-    __cil_tmp315 = __cil_tmp314 + 176;
-#line 559
-    __cil_tmp316 = (wait_queue_head_t *)__cil_tmp315;
-#line 559
-    __init_waitqueue_head(__cil_tmp316, & __key___11);
+    __init_waitqueue_head(__cil_tmp178, & __key___11);
     }
+#line 559
     goto while_break___8;
   }
-  while_17_break: /* CIL Label */ ;
+  while_break___20: /* CIL Label */ ;
   }
 
   while_break___8: 
   {
 #line 560
-  __cil_tmp317 = (void *)command_info;
+  __cil_tmp179 = (void *)command_info;
 #line 560
-  usb_set_serial_port_data(command_port, __cil_tmp317);
+  usb_set_serial_port_data(command_port, __cil_tmp179);
 #line 561
-  __cil_tmp318 = (unsigned long )command_port;
+  __cil_tmp180 = command_port->write_urb;
 #line 561
-  __cil_tmp319 = __cil_tmp318 + 928;
-#line 561
-  __cil_tmp320 = *((struct urb **)__cil_tmp319);
-#line 561
-  __cil_tmp321 = (unsigned long )__cil_tmp320;
-#line 561
-  __cil_tmp322 = __cil_tmp321 + 184;
-#line 561
-  *((void (**)(struct urb * ))__cil_tmp322) = & command_port_write_callback;
+  __cil_tmp180->complete = & command_port_write_callback;
 #line 562
-  __cil_tmp323 = (unsigned long )command_port;
+  __cil_tmp181 = command_port->read_urb;
 #line 562
-  __cil_tmp324 = __cil_tmp323 + 896;
-#line 562
-  __cil_tmp325 = *((struct urb **)__cil_tmp324);
-#line 562
-  __cil_tmp326 = (unsigned long )__cil_tmp325;
-#line 562
-  __cil_tmp327 = __cil_tmp326 + 184;
-#line 562
-  *((void (**)(struct urb * ))__cil_tmp327) = & command_port_read_callback;
+  __cil_tmp181->complete = & command_port_read_callback;
 #line 563
-  __cil_tmp328 = (void const   *)result;
+  __cil_tmp182 = (void const   *)result;
 #line 563
-  kfree(__cil_tmp328);
+  kfree(__cil_tmp182);
 #line 564
-  __cil_tmp329 = (void const   *)command;
+  __cil_tmp183 = (void const   *)command;
 #line 564
-  kfree(__cil_tmp329);
+  kfree(__cil_tmp183);
   }
 #line 566
   return (0);
   no_firmware: 
   {
 #line 570
-  __cil_tmp330 = *((struct usb_device **)serial);
+  __cil_tmp184 = serial->dev;
 #line 570
-  __cil_tmp331 = (unsigned long )__cil_tmp330;
+  __cil_tmp185 = & __cil_tmp184->dev;
 #line 570
-  __cil_tmp332 = __cil_tmp331 + 192;
+  __cil_tmp186 = (struct device  const  *)__cil_tmp185;
 #line 570
-  __cil_tmp333 = (struct device *)__cil_tmp332;
+  __cil_tmp187 = serial->type;
 #line 570
-  __cil_tmp334 = (struct device  const  *)__cil_tmp333;
+  __cil_tmp188 = __cil_tmp187->description;
 #line 570
-  __cil_tmp335 = (unsigned long )serial;
-#line 570
-  __cil_tmp336 = __cil_tmp335 + 8;
-#line 570
-  __cil_tmp337 = *((struct usb_serial_driver **)__cil_tmp336);
-#line 570
-  __cil_tmp338 = *((char const   **)__cil_tmp337);
-#line 570
-  dev_err(__cil_tmp334, "%s: Unable to retrieve firmware version, try replugging\n",
-          __cil_tmp338);
+  dev_err(__cil_tmp186, "%s: Unable to retrieve firmware version, try replugging\n",
+          __cil_tmp188);
 #line 573
-  __cil_tmp339 = *((struct usb_device **)serial);
+  __cil_tmp189 = serial->dev;
 #line 573
-  __cil_tmp340 = (unsigned long )__cil_tmp339;
+  __cil_tmp190 = & __cil_tmp189->dev;
 #line 573
-  __cil_tmp341 = __cil_tmp340 + 192;
+  __cil_tmp191 = (struct device  const  *)__cil_tmp190;
 #line 573
-  __cil_tmp342 = (struct device *)__cil_tmp341;
+  __cil_tmp192 = serial->type;
 #line 573
-  __cil_tmp343 = (struct device  const  *)__cil_tmp342;
+  __cil_tmp193 = __cil_tmp192->description;
 #line 573
-  __cil_tmp344 = (unsigned long )serial;
-#line 573
-  __cil_tmp345 = __cil_tmp344 + 8;
-#line 573
-  __cil_tmp346 = *((struct usb_serial_driver **)__cil_tmp345);
-#line 573
-  __cil_tmp347 = *((char const   **)__cil_tmp346);
-#line 573
-  dev_err(__cil_tmp343, "%s: If the firmware is not running (status led not blinking)\n",
-          __cil_tmp347);
+  dev_err(__cil_tmp191, "%s: If the firmware is not running (status led not blinking)\n",
+          __cil_tmp193);
 #line 576
-  __cil_tmp348 = *((struct usb_device **)serial);
+  __cil_tmp194 = serial->dev;
 #line 576
-  __cil_tmp349 = (unsigned long )__cil_tmp348;
+  __cil_tmp195 = & __cil_tmp194->dev;
 #line 576
-  __cil_tmp350 = __cil_tmp349 + 192;
+  __cil_tmp196 = (struct device  const  *)__cil_tmp195;
 #line 576
-  __cil_tmp351 = (struct device *)__cil_tmp350;
+  __cil_tmp197 = serial->type;
 #line 576
-  __cil_tmp352 = (struct device  const  *)__cil_tmp351;
+  __cil_tmp198 = __cil_tmp197->description;
 #line 576
-  __cil_tmp353 = (unsigned long )serial;
-#line 576
-  __cil_tmp354 = __cil_tmp353 + 8;
-#line 576
-  __cil_tmp355 = *((struct usb_serial_driver **)__cil_tmp354);
-#line 576
-  __cil_tmp356 = *((char const   **)__cil_tmp355);
-#line 576
-  dev_err(__cil_tmp352, "%s: please contact support@connecttech.com\n", __cil_tmp356);
+  dev_err(__cil_tmp196, "%s: please contact support@connecttech.com\n", __cil_tmp198);
 #line 579
-  __cil_tmp357 = (void const   *)result;
+  __cil_tmp199 = (void const   *)result;
 #line 579
-  kfree(__cil_tmp357);
+  kfree(__cil_tmp199);
   }
 #line 580
   return (-19);
   no_command_private: 
 #line 583
-  __cil_tmp358 = (unsigned long )serial;
+  __cil_tmp200 = serial->num_ports;
 #line 583
-  __cil_tmp359 = __cil_tmp358 + 26;
+  __cil_tmp201 = (int )__cil_tmp200;
 #line 583
-  __cil_tmp360 = *((unsigned char *)__cil_tmp359);
-#line 583
-  __cil_tmp361 = (int )__cil_tmp360;
-#line 583
-  i = __cil_tmp361 - 1;
+  i = __cil_tmp201 - 1;
   {
 #line 583
   while (1) {
-    while_18_continue: /* CIL Label */ ;
+    while_continue___9: /* CIL Label */ ;
 
 #line 583
     if (i >= 0) {
 
     } else {
+#line 583
       goto while_break___9;
     }
     {
 #line 584
-    __cil_tmp362 = i * 8UL;
-#line 584
-    __cil_tmp363 = 32 + __cil_tmp362;
-#line 584
-    __cil_tmp364 = (unsigned long )serial;
-#line 584
-    __cil_tmp365 = __cil_tmp364 + __cil_tmp363;
-#line 584
-    port = *((struct usb_serial_port **)__cil_tmp365);
+    port = serial->port[i];
 #line 585
     tmp___18 = usb_get_serial_port_data(port);
 #line 585
     info = (struct whiteheat_private *)tmp___18;
 #line 586
-    __cil_tmp366 = & urb_pool_size;
-#line 586
-    __cil_tmp367 = *__cil_tmp366;
-#line 586
-    j = __cil_tmp367 - 1;
+    j = urb_pool_size - 1;
     }
     {
 #line 586
     while (1) {
-      while_19_continue: /* CIL Label */ ;
+      while_continue___10: /* CIL Label */ ;
 
 #line 586
       if (j >= 0) {
 
       } else {
+#line 586
         goto while_break___10;
       }
       {
 #line 587
-      __cil_tmp368 = (unsigned long )info;
+      __cil_tmp202 = & info->tx_urbs_free;
 #line 587
-      __cil_tmp369 = __cil_tmp368 + 216;
-#line 587
-      __cil_tmp370 = (struct list_head *)__cil_tmp369;
-#line 587
-      tmp___7 = list_first(__cil_tmp370);
+      tmp___7 = list_first(__cil_tmp202);
 #line 588
       list_del(tmp___7);
 #line 589
       __mptr = (struct list_head  const  *)tmp___7;
 #line 589
-      __cil_tmp371 = (struct whiteheat_urb_wrap *)0;
+      __cil_tmp203 = (struct whiteheat_urb_wrap *)0;
 #line 589
-      __cil_tmp372 = (struct list_head *)__cil_tmp371;
+      __cil_tmp204 = & __cil_tmp203->list;
 #line 589
-      __cil_tmp373 = (unsigned int )__cil_tmp372;
+      __cil_tmp205 = (unsigned int )__cil_tmp204;
 #line 589
-      __cil_tmp374 = (char *)__mptr;
+      __cil_tmp206 = (char *)__mptr;
 #line 589
-      __cil_tmp375 = __cil_tmp374 - __cil_tmp373;
+      __cil_tmp207 = __cil_tmp206 - __cil_tmp205;
 #line 589
-      wrap = (struct whiteheat_urb_wrap *)__cil_tmp375;
+      wrap = (struct whiteheat_urb_wrap *)__cil_tmp207;
 #line 590
-      __cil_tmp376 = (unsigned long )wrap;
-#line 590
-      __cil_tmp377 = __cil_tmp376 + 16;
-#line 590
-      urb = *((struct urb **)__cil_tmp377);
+      urb = wrap->urb;
 #line 591
-      __cil_tmp378 = (void const   *)wrap;
+      __cil_tmp208 = (void const   *)wrap;
 #line 591
-      kfree(__cil_tmp378);
+      kfree(__cil_tmp208);
       }
       no_tx_wrap: 
       {
 #line 593
-      __cil_tmp379 = (unsigned long )urb;
+      __cil_tmp209 = urb->transfer_buffer;
 #line 593
-      __cil_tmp380 = __cil_tmp379 + 104;
+      __cil_tmp210 = (void const   *)__cil_tmp209;
 #line 593
-      __cil_tmp381 = *((void **)__cil_tmp380);
-#line 593
-      __cil_tmp382 = (void const   *)__cil_tmp381;
-#line 593
-      kfree(__cil_tmp382);
+      kfree(__cil_tmp210);
       }
       no_tx_buf: 
       {
@@ -8463,52 +7669,40 @@ static int whiteheat_attach(struct usb_serial *serial )
       no_tx_urb: 
       {
 #line 597
-      __cil_tmp383 = (unsigned long )info;
+      __cil_tmp211 = & info->rx_urbs_free;
 #line 597
-      __cil_tmp384 = __cil_tmp383 + 80;
-#line 597
-      __cil_tmp385 = (struct list_head *)__cil_tmp384;
-#line 597
-      tmp___7 = list_first(__cil_tmp385);
+      tmp___7 = list_first(__cil_tmp211);
 #line 598
       list_del(tmp___7);
 #line 599
       __mptr___0 = (struct list_head  const  *)tmp___7;
 #line 599
-      __cil_tmp386 = (struct whiteheat_urb_wrap *)0;
+      __cil_tmp212 = (struct whiteheat_urb_wrap *)0;
 #line 599
-      __cil_tmp387 = (struct list_head *)__cil_tmp386;
+      __cil_tmp213 = & __cil_tmp212->list;
 #line 599
-      __cil_tmp388 = (unsigned int )__cil_tmp387;
+      __cil_tmp214 = (unsigned int )__cil_tmp213;
 #line 599
-      __cil_tmp389 = (char *)__mptr___0;
+      __cil_tmp215 = (char *)__mptr___0;
 #line 599
-      __cil_tmp390 = __cil_tmp389 - __cil_tmp388;
+      __cil_tmp216 = __cil_tmp215 - __cil_tmp214;
 #line 599
-      wrap = (struct whiteheat_urb_wrap *)__cil_tmp390;
+      wrap = (struct whiteheat_urb_wrap *)__cil_tmp216;
 #line 600
-      __cil_tmp391 = (unsigned long )wrap;
-#line 600
-      __cil_tmp392 = __cil_tmp391 + 16;
-#line 600
-      urb = *((struct urb **)__cil_tmp392);
+      urb = wrap->urb;
 #line 601
-      __cil_tmp393 = (void const   *)wrap;
+      __cil_tmp217 = (void const   *)wrap;
 #line 601
-      kfree(__cil_tmp393);
+      kfree(__cil_tmp217);
       }
       no_rx_wrap: 
       {
 #line 603
-      __cil_tmp394 = (unsigned long )urb;
+      __cil_tmp218 = urb->transfer_buffer;
 #line 603
-      __cil_tmp395 = __cil_tmp394 + 104;
+      __cil_tmp219 = (void const   *)__cil_tmp218;
 #line 603
-      __cil_tmp396 = *((void **)__cil_tmp395);
-#line 603
-      __cil_tmp397 = (void const   *)__cil_tmp396;
-#line 603
-      kfree(__cil_tmp397);
+      kfree(__cil_tmp219);
       }
       no_rx_buf: 
       {
@@ -8519,36 +7713,36 @@ static int whiteheat_attach(struct usb_serial *serial )
 #line 586
       j = j - 1;
     }
-    while_19_break: /* CIL Label */ ;
+    while_break___22: /* CIL Label */ ;
     }
 
     while_break___10: 
     {
 #line 609
-    __cil_tmp398 = (void const   *)info;
+    __cil_tmp220 = (void const   *)info;
 #line 609
-    kfree(__cil_tmp398);
+    kfree(__cil_tmp220);
     }
     no_private: 
 #line 583
     i = i - 1;
   }
-  while_18_break: /* CIL Label */ ;
+  while_break___21: /* CIL Label */ ;
   }
 
   while_break___9: 
   {
 #line 613
-  __cil_tmp399 = (void const   *)result;
+  __cil_tmp221 = (void const   *)result;
 #line 613
-  kfree(__cil_tmp399);
+  kfree(__cil_tmp221);
   }
   no_result_buffer: 
   {
 #line 615
-  __cil_tmp400 = (void const   *)command;
+  __cil_tmp222 = (void const   *)command;
 #line 615
-  kfree(__cil_tmp400);
+  kfree(__cil_tmp222);
   }
   no_command_buffer: 
 #line 617
@@ -8569,71 +7763,41 @@ static void whiteheat_release(struct usb_serial *serial )
   void *tmp___9 ;
   struct list_head  const  *__mptr ;
   struct list_head  const  *__mptr___0 ;
-  int *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  void const   *__cil_tmp14 ;
+  unsigned char __cil_tmp15 ;
+  int __cil_tmp16 ;
+  struct list_head *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned char __cil_tmp22 ;
-  int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  unsigned long __cil_tmp19 ;
+  struct whiteheat_urb_wrap *__cil_tmp20 ;
+  struct list_head *__cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  char *__cil_tmp23 ;
+  char *__cil_tmp24 ;
+  void const   *__cil_tmp25 ;
+  void *__cil_tmp26 ;
+  void const   *__cil_tmp27 ;
+  struct list_head *__cil_tmp28 ;
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  struct whiteheat_urb_wrap *__cil_tmp31 ;
   struct list_head *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct whiteheat_urb_wrap *__cil_tmp35 ;
-  struct list_head *__cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  char *__cil_tmp38 ;
-  char *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  void const   *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  void *__cil_tmp45 ;
-  void const   *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct list_head *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct whiteheat_urb_wrap *__cil_tmp54 ;
-  struct list_head *__cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  char *__cil_tmp57 ;
-  char *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  void const   *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  void *__cil_tmp64 ;
-  void const   *__cil_tmp65 ;
-  void const   *__cil_tmp66 ;
+  unsigned int __cil_tmp33 ;
+  char *__cil_tmp34 ;
+  char *__cil_tmp35 ;
+  void const   *__cil_tmp36 ;
+  void *__cil_tmp37 ;
+  void const   *__cil_tmp38 ;
+  void const   *__cil_tmp39 ;
 
   {
   {
 #line 632
   while (1) {
-    while_20_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 632
-    __cil_tmp14 = & debug;
-#line 632
-    if (*__cil_tmp14) {
+    if (debug) {
       {
 #line 632
       printk("<7>%s: %s\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -8642,98 +7806,72 @@ static void whiteheat_release(struct usb_serial *serial )
     } else {
 
     }
-    }
+#line 632
     goto while_break;
   }
-  while_20_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 635
-  __cil_tmp15 = 4 * 8UL;
-#line 635
-  __cil_tmp16 = 32 + __cil_tmp15;
-#line 635
-  __cil_tmp17 = (unsigned long )serial;
-#line 635
-  __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 635
-  command_port = *((struct usb_serial_port **)__cil_tmp18);
+  command_port = serial->port[4];
 #line 636
   tmp___8 = usb_get_serial_port_data(command_port);
 #line 636
-  __cil_tmp19 = (void const   *)tmp___8;
+  __cil_tmp14 = (void const   *)tmp___8;
 #line 636
-  kfree(__cil_tmp19);
+  kfree(__cil_tmp14);
 #line 638
   i = 0;
   }
   {
 #line 638
   while (1) {
-    while_21_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 638
-    __cil_tmp20 = (unsigned long )serial;
+    __cil_tmp15 = serial->num_ports;
 #line 638
-    __cil_tmp21 = __cil_tmp20 + 26;
+    __cil_tmp16 = (int )__cil_tmp15;
 #line 638
-    __cil_tmp22 = *((unsigned char *)__cil_tmp21);
-#line 638
-    __cil_tmp23 = (int )__cil_tmp22;
-#line 638
-    if (i < __cil_tmp23) {
+    if (i < __cil_tmp16) {
 
     } else {
+#line 638
       goto while_break___0;
     }
     }
     {
 #line 639
-    __cil_tmp24 = i * 8UL;
-#line 639
-    __cil_tmp25 = 32 + __cil_tmp24;
-#line 639
-    __cil_tmp26 = (unsigned long )serial;
-#line 639
-    __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 639
-    port = *((struct usb_serial_port **)__cil_tmp27);
+    port = serial->port[i];
 #line 640
     tmp___9 = usb_get_serial_port_data(port);
 #line 640
     info = (struct whiteheat_private *)tmp___9;
 #line 641
-    __cil_tmp28 = (unsigned long )info;
+    tmp___7 = info->rx_urbs_free.next;
 #line 641
-    __cil_tmp29 = __cil_tmp28 + 80;
-#line 641
-    tmp___7 = *((struct list_head **)__cil_tmp29);
-#line 641
-    tmp2 = *((struct list_head **)tmp___7);
+    tmp2 = tmp___7->next;
     }
     {
 #line 641
     while (1) {
-      while_22_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
       {
 #line 641
-      __cil_tmp30 = (unsigned long )info;
+      __cil_tmp17 = & info->rx_urbs_free;
 #line 641
-      __cil_tmp31 = __cil_tmp30 + 80;
+      __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 641
-      __cil_tmp32 = (struct list_head *)__cil_tmp31;
+      __cil_tmp19 = (unsigned long )tmp___7;
 #line 641
-      __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 641
-      __cil_tmp34 = (unsigned long )tmp___7;
-#line 641
-      if (__cil_tmp34 != __cil_tmp33) {
+      if (__cil_tmp19 != __cil_tmp18) {
 
       } else {
+#line 641
         goto while_break___1;
       }
       }
@@ -8743,77 +7881,62 @@ static void whiteheat_release(struct usb_serial *serial )
 #line 643
       __mptr = (struct list_head  const  *)tmp___7;
 #line 643
-      __cil_tmp35 = (struct whiteheat_urb_wrap *)0;
+      __cil_tmp20 = (struct whiteheat_urb_wrap *)0;
 #line 643
-      __cil_tmp36 = (struct list_head *)__cil_tmp35;
+      __cil_tmp21 = & __cil_tmp20->list;
 #line 643
-      __cil_tmp37 = (unsigned int )__cil_tmp36;
+      __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 643
-      __cil_tmp38 = (char *)__mptr;
+      __cil_tmp23 = (char *)__mptr;
 #line 643
-      __cil_tmp39 = __cil_tmp38 - __cil_tmp37;
+      __cil_tmp24 = __cil_tmp23 - __cil_tmp22;
 #line 643
-      wrap = (struct whiteheat_urb_wrap *)__cil_tmp39;
+      wrap = (struct whiteheat_urb_wrap *)__cil_tmp24;
 #line 644
-      __cil_tmp40 = (unsigned long )wrap;
-#line 644
-      __cil_tmp41 = __cil_tmp40 + 16;
-#line 644
-      urb = *((struct urb **)__cil_tmp41);
+      urb = wrap->urb;
 #line 645
-      __cil_tmp42 = (void const   *)wrap;
+      __cil_tmp25 = (void const   *)wrap;
 #line 645
-      kfree(__cil_tmp42);
+      kfree(__cil_tmp25);
 #line 646
-      __cil_tmp43 = (unsigned long )urb;
+      __cil_tmp26 = urb->transfer_buffer;
 #line 646
-      __cil_tmp44 = __cil_tmp43 + 104;
+      __cil_tmp27 = (void const   *)__cil_tmp26;
 #line 646
-      __cil_tmp45 = *((void **)__cil_tmp44);
-#line 646
-      __cil_tmp46 = (void const   *)__cil_tmp45;
-#line 646
-      kfree(__cil_tmp46);
+      kfree(__cil_tmp27);
 #line 647
       usb_free_urb(urb);
 #line 641
       tmp___7 = tmp2;
 #line 641
-      tmp2 = *((struct list_head **)tmp___7);
+      tmp2 = tmp___7->next;
       }
     }
-    while_22_break: /* CIL Label */ ;
+    while_break___5: /* CIL Label */ ;
     }
 
     while_break___1: 
 #line 649
-    __cil_tmp47 = (unsigned long )info;
+    tmp___7 = info->tx_urbs_free.next;
 #line 649
-    __cil_tmp48 = __cil_tmp47 + 216;
-#line 649
-    tmp___7 = *((struct list_head **)__cil_tmp48);
-#line 649
-    tmp2 = *((struct list_head **)tmp___7);
+    tmp2 = tmp___7->next;
     {
 #line 649
     while (1) {
-      while_23_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
       {
 #line 649
-      __cil_tmp49 = (unsigned long )info;
+      __cil_tmp28 = & info->tx_urbs_free;
 #line 649
-      __cil_tmp50 = __cil_tmp49 + 216;
+      __cil_tmp29 = (unsigned long )__cil_tmp28;
 #line 649
-      __cil_tmp51 = (struct list_head *)__cil_tmp50;
+      __cil_tmp30 = (unsigned long )tmp___7;
 #line 649
-      __cil_tmp52 = (unsigned long )__cil_tmp51;
-#line 649
-      __cil_tmp53 = (unsigned long )tmp___7;
-#line 649
-      if (__cil_tmp53 != __cil_tmp52) {
+      if (__cil_tmp30 != __cil_tmp29) {
 
       } else {
+#line 649
         goto while_break___2;
       }
       }
@@ -8823,59 +7946,51 @@ static void whiteheat_release(struct usb_serial *serial )
 #line 651
       __mptr___0 = (struct list_head  const  *)tmp___7;
 #line 651
-      __cil_tmp54 = (struct whiteheat_urb_wrap *)0;
+      __cil_tmp31 = (struct whiteheat_urb_wrap *)0;
 #line 651
-      __cil_tmp55 = (struct list_head *)__cil_tmp54;
+      __cil_tmp32 = & __cil_tmp31->list;
 #line 651
-      __cil_tmp56 = (unsigned int )__cil_tmp55;
+      __cil_tmp33 = (unsigned int )__cil_tmp32;
 #line 651
-      __cil_tmp57 = (char *)__mptr___0;
+      __cil_tmp34 = (char *)__mptr___0;
 #line 651
-      __cil_tmp58 = __cil_tmp57 - __cil_tmp56;
+      __cil_tmp35 = __cil_tmp34 - __cil_tmp33;
 #line 651
-      wrap = (struct whiteheat_urb_wrap *)__cil_tmp58;
+      wrap = (struct whiteheat_urb_wrap *)__cil_tmp35;
 #line 652
-      __cil_tmp59 = (unsigned long )wrap;
-#line 652
-      __cil_tmp60 = __cil_tmp59 + 16;
-#line 652
-      urb = *((struct urb **)__cil_tmp60);
+      urb = wrap->urb;
 #line 653
-      __cil_tmp61 = (void const   *)wrap;
+      __cil_tmp36 = (void const   *)wrap;
 #line 653
-      kfree(__cil_tmp61);
+      kfree(__cil_tmp36);
 #line 654
-      __cil_tmp62 = (unsigned long )urb;
+      __cil_tmp37 = urb->transfer_buffer;
 #line 654
-      __cil_tmp63 = __cil_tmp62 + 104;
+      __cil_tmp38 = (void const   *)__cil_tmp37;
 #line 654
-      __cil_tmp64 = *((void **)__cil_tmp63);
-#line 654
-      __cil_tmp65 = (void const   *)__cil_tmp64;
-#line 654
-      kfree(__cil_tmp65);
+      kfree(__cil_tmp38);
 #line 655
       usb_free_urb(urb);
 #line 649
       tmp___7 = tmp2;
 #line 649
-      tmp2 = *((struct list_head **)tmp___7);
+      tmp2 = tmp___7->next;
       }
     }
-    while_23_break: /* CIL Label */ ;
+    while_break___6: /* CIL Label */ ;
     }
 
     while_break___2: 
     {
 #line 657
-    __cil_tmp66 = (void const   *)info;
+    __cil_tmp39 = (void const   *)info;
 #line 657
-    kfree(__cil_tmp66);
+    kfree(__cil_tmp39);
 #line 638
     i = i + 1;
     }
   }
-  while_21_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break___0: ;
@@ -8886,38 +8001,25 @@ static void whiteheat_release(struct usb_serial *serial )
 #line 661 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port ) 
 { int retval ;
-  int *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned char __cil_tmp7 ;
-  int __cil_tmp8 ;
+  unsigned char __cil_tmp4 ;
+  int __cil_tmp5 ;
+  struct usb_serial *__cil_tmp6 ;
+  struct usb_serial *__cil_tmp7 ;
+  __u8 __cil_tmp8 ;
   struct usb_serial *__cil_tmp9 ;
   struct usb_serial *__cil_tmp10 ;
-  struct usb_serial *__cil_tmp11 ;
-  struct usb_serial *__cil_tmp12 ;
-  struct usb_device *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct urb *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  struct usb_serial *__cil_tmp21 ;
-  struct usb_device *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct urb *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct device *__cil_tmp32 ;
-  struct device  const  *__cil_tmp33 ;
-  struct usb_serial *__cil_tmp34 ;
-  int *__cil_tmp35 ;
+  struct usb_device *__cil_tmp11 ;
+  struct urb *__cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  struct usb_serial *__cil_tmp15 ;
+  struct usb_device *__cil_tmp16 ;
+  struct urb *__cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  struct device *__cil_tmp20 ;
+  struct device  const  *__cil_tmp21 ;
+  struct usb_serial *__cil_tmp22 ;
 
   {
 #line 663
@@ -8925,44 +8027,38 @@ static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port 
   {
 #line 665
   while (1) {
-    while_24_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 665
-    __cil_tmp4 = & debug;
-#line 665
-    if (*__cil_tmp4) {
+    if (debug) {
       {
 #line 665
-      __cil_tmp5 = (unsigned long )port;
+      __cil_tmp4 = port->number;
 #line 665
-      __cil_tmp6 = __cil_tmp5 + 816;
-#line 665
-      __cil_tmp7 = *((unsigned char *)__cil_tmp6);
-#line 665
-      __cil_tmp8 = (int )__cil_tmp7;
+      __cil_tmp5 = (int )__cil_tmp4;
 #line 665
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_open", __cil_tmp8);
+             "whiteheat_open", __cil_tmp5);
       }
     } else {
 
     }
-    }
+#line 665
     goto while_break;
   }
-  while_24_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 667
-  __cil_tmp9 = *((struct usb_serial **)port);
+  __cil_tmp6 = port->serial;
 #line 667
-  retval = start_command_port(__cil_tmp9);
+  retval = start_command_port(__cil_tmp6);
   }
 #line 668
   if (retval) {
+#line 669
     goto exit;
   } else {
 
@@ -8982,17 +8078,20 @@ static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port 
   if (retval) {
     {
 #line 677
-    __cil_tmp10 = *((struct usb_serial **)port);
+    __cil_tmp7 = port->serial;
 #line 677
-    stop_command_port(__cil_tmp10);
+    stop_command_port(__cil_tmp7);
     }
+#line 678
     goto exit;
   } else {
 
   }
   {
 #line 681
-  retval = firm_purge(port, (unsigned char)3);
+  __cil_tmp8 = (__u8 )3;
+#line 681
+  retval = firm_purge(port, __cil_tmp8);
   }
 #line 682
   if (retval) {
@@ -9000,10 +8099,11 @@ static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port 
 #line 683
     firm_close(port);
 #line 684
-    __cil_tmp11 = *((struct usb_serial **)port);
+    __cil_tmp9 = port->serial;
 #line 684
-    stop_command_port(__cil_tmp11);
+    stop_command_port(__cil_tmp9);
     }
+#line 685
     goto exit;
   } else {
 
@@ -9019,45 +8119,29 @@ static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port 
   }
   {
 #line 692
-  __cil_tmp12 = *((struct usb_serial **)port);
+  __cil_tmp10 = port->serial;
 #line 692
-  __cil_tmp13 = *((struct usb_device **)__cil_tmp12);
+  __cil_tmp11 = __cil_tmp10->dev;
 #line 692
-  __cil_tmp14 = (unsigned long )port;
+  __cil_tmp12 = port->read_urb;
 #line 692
-  __cil_tmp15 = __cil_tmp14 + 896;
+  __cil_tmp13 = __cil_tmp12->pipe;
 #line 692
-  __cil_tmp16 = *((struct urb **)__cil_tmp15);
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 692
-  __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 692
-  __cil_tmp18 = __cil_tmp17 + 88;
-#line 692
-  __cil_tmp19 = *((unsigned int *)__cil_tmp18);
-#line 692
-  __cil_tmp20 = (int )__cil_tmp19;
-#line 692
-  usb_clear_halt(__cil_tmp13, __cil_tmp20);
+  usb_clear_halt(__cil_tmp11, __cil_tmp14);
 #line 693
-  __cil_tmp21 = *((struct usb_serial **)port);
+  __cil_tmp15 = port->serial;
 #line 693
-  __cil_tmp22 = *((struct usb_device **)__cil_tmp21);
+  __cil_tmp16 = __cil_tmp15->dev;
 #line 693
-  __cil_tmp23 = (unsigned long )port;
+  __cil_tmp17 = port->write_urb;
 #line 693
-  __cil_tmp24 = __cil_tmp23 + 928;
+  __cil_tmp18 = __cil_tmp17->pipe;
 #line 693
-  __cil_tmp25 = *((struct urb **)__cil_tmp24);
+  __cil_tmp19 = (int )__cil_tmp18;
 #line 693
-  __cil_tmp26 = (unsigned long )__cil_tmp25;
-#line 693
-  __cil_tmp27 = __cil_tmp26 + 88;
-#line 693
-  __cil_tmp28 = *((unsigned int *)__cil_tmp27);
-#line 693
-  __cil_tmp29 = (int )__cil_tmp28;
-#line 693
-  usb_clear_halt(__cil_tmp22, __cil_tmp29);
+  usb_clear_halt(__cil_tmp16, __cil_tmp19);
 #line 696
   retval = start_port_read(port);
   }
@@ -9065,23 +8149,20 @@ static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port 
   if (retval) {
     {
 #line 698
-    __cil_tmp30 = (unsigned long )port;
+    __cil_tmp20 = & port->dev;
 #line 698
-    __cil_tmp31 = __cil_tmp30 + 1208;
+    __cil_tmp21 = (struct device  const  *)__cil_tmp20;
 #line 698
-    __cil_tmp32 = (struct device *)__cil_tmp31;
-#line 698
-    __cil_tmp33 = (struct device  const  *)__cil_tmp32;
-#line 698
-    dev_err(__cil_tmp33, "%s - failed submitting read urb, error %d\n", "whiteheat_open",
+    dev_err(__cil_tmp21, "%s - failed submitting read urb, error %d\n", "whiteheat_open",
             retval);
 #line 701
     firm_close(port);
 #line 702
-    __cil_tmp34 = *((struct usb_serial **)port);
+    __cil_tmp22 = port->serial;
 #line 702
-    stop_command_port(__cil_tmp34);
+    stop_command_port(__cil_tmp22);
     }
+#line 703
     goto exit;
   } else {
 
@@ -9090,13 +8171,10 @@ static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port 
   {
 #line 707
   while (1) {
-    while_25_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
-    {
 #line 707
-    __cil_tmp35 = & debug;
-#line 707
-    if (*__cil_tmp35) {
+    if (debug) {
       {
 #line 707
       printk("<7>%s: %s - exit, retval = %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -9105,10 +8183,10 @@ static int whiteheat_open(struct tty_struct *tty , struct usb_serial_port *port 
     } else {
 
     }
-    }
+#line 707
     goto while_break___0;
   }
-  while_25_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: ;
@@ -9126,68 +8204,39 @@ static void whiteheat_close(struct usb_serial_port *port )
   struct list_head *tmp2 ;
   struct list_head  const  *__mptr ;
   struct list_head  const  *__mptr___0 ;
-  int *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
-  int __cil_tmp14 ;
+  unsigned char __cil_tmp10 ;
+  int __cil_tmp11 ;
+  struct mutex *__cil_tmp12 ;
+  spinlock_t *__cil_tmp13 ;
+  struct list_head *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  struct mutex *__cil_tmp17 ;
-  spinlock_t *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct list_head *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct whiteheat_urb_wrap *__cil_tmp26 ;
-  struct list_head *__cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  char *__cil_tmp29 ;
-  char *__cil_tmp30 ;
+  struct whiteheat_urb_wrap *__cil_tmp17 ;
+  struct list_head *__cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  char *__cil_tmp20 ;
+  char *__cil_tmp21 ;
+  spinlock_t *__cil_tmp22 ;
+  spinlock_t *__cil_tmp23 ;
+  struct list_head *__cil_tmp24 ;
+  struct list_head *__cil_tmp25 ;
+  unsigned long __cil_tmp26 ;
+  unsigned long __cil_tmp27 ;
+  struct list_head *__cil_tmp28 ;
+  struct list_head *__cil_tmp29 ;
+  unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  spinlock_t *__cil_tmp33 ;
-  spinlock_t *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct list_head *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct list_head *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct list_head *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct list_head *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct whiteheat_urb_wrap *__cil_tmp55 ;
-  struct list_head *__cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  char *__cil_tmp58 ;
-  char *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  spinlock_t *__cil_tmp62 ;
-  spinlock_t *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct list_head *__cil_tmp66 ;
-  spinlock_t *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  struct mutex *__cil_tmp70 ;
-  struct usb_serial *__cil_tmp71 ;
+  struct whiteheat_urb_wrap *__cil_tmp32 ;
+  struct list_head *__cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  char *__cil_tmp35 ;
+  char *__cil_tmp36 ;
+  spinlock_t *__cil_tmp37 ;
+  spinlock_t *__cil_tmp38 ;
+  struct list_head *__cil_tmp39 ;
+  spinlock_t *__cil_tmp40 ;
+  struct mutex *__cil_tmp41 ;
+  struct usb_serial *__cil_tmp42 ;
 
   {
   {
@@ -9199,33 +8248,26 @@ static void whiteheat_close(struct usb_serial_port *port )
   {
 #line 720
   while (1) {
-    while_26_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 720
-    __cil_tmp10 = & debug;
-#line 720
-    if (*__cil_tmp10) {
+    if (debug) {
       {
 #line 720
-      __cil_tmp11 = (unsigned long )port;
+      __cil_tmp10 = port->number;
 #line 720
-      __cil_tmp12 = __cil_tmp11 + 816;
-#line 720
-      __cil_tmp13 = *((unsigned char *)__cil_tmp12);
-#line 720
-      __cil_tmp14 = (int )__cil_tmp13;
+      __cil_tmp11 = (int )__cil_tmp10;
 #line 720
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_close", __cil_tmp14);
+             "whiteheat_close", __cil_tmp11);
       }
     } else {
 
     }
-    }
+#line 720
     goto while_break;
   }
-  while_26_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break: 
@@ -9235,46 +8277,35 @@ static void whiteheat_close(struct usb_serial_port *port )
 #line 723
   firm_close(port);
 #line 726
-  __cil_tmp15 = (unsigned long )info;
+  __cil_tmp12 = & info->deathwarrant;
 #line 726
-  __cil_tmp16 = __cil_tmp15 + 248;
-#line 726
-  __cil_tmp17 = (struct mutex *)__cil_tmp16;
-#line 726
-  mutex_lock_nested(__cil_tmp17, 0U);
+  mutex_lock_nested(__cil_tmp12, 0U);
 #line 727
-  __cil_tmp18 = (spinlock_t *)info;
+  __cil_tmp13 = & info->lock;
 #line 727
-  spin_lock_irq(__cil_tmp18);
+  spin_lock_irq(__cil_tmp13);
 #line 728
-  __cil_tmp19 = (unsigned long )info;
+  tmp___8 = info->rx_urbs_submitted.next;
 #line 728
-  __cil_tmp20 = __cil_tmp19 + 96;
-#line 728
-  tmp___8 = *((struct list_head **)__cil_tmp20);
-#line 728
-  tmp2 = *((struct list_head **)tmp___8);
+  tmp2 = tmp___8->next;
   }
   {
 #line 728
   while (1) {
-    while_27_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 728
-    __cil_tmp21 = (unsigned long )info;
+    __cil_tmp14 = & info->rx_urbs_submitted;
 #line 728
-    __cil_tmp22 = __cil_tmp21 + 96;
+    __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 728
-    __cil_tmp23 = (struct list_head *)__cil_tmp22;
+    __cil_tmp16 = (unsigned long )tmp___8;
 #line 728
-    __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 728
-    __cil_tmp25 = (unsigned long )tmp___8;
-#line 728
-    if (__cil_tmp25 != __cil_tmp24) {
+    if (__cil_tmp16 != __cil_tmp15) {
 
     } else {
+#line 728
       goto while_break___0;
     }
     }
@@ -9282,131 +8313,105 @@ static void whiteheat_close(struct usb_serial_port *port )
 #line 729
     __mptr = (struct list_head  const  *)tmp___8;
 #line 729
-    __cil_tmp26 = (struct whiteheat_urb_wrap *)0;
+    __cil_tmp17 = (struct whiteheat_urb_wrap *)0;
 #line 729
-    __cil_tmp27 = (struct list_head *)__cil_tmp26;
+    __cil_tmp18 = & __cil_tmp17->list;
 #line 729
-    __cil_tmp28 = (unsigned int )__cil_tmp27;
+    __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 729
-    __cil_tmp29 = (char *)__mptr;
+    __cil_tmp20 = (char *)__mptr;
 #line 729
-    __cil_tmp30 = __cil_tmp29 - __cil_tmp28;
+    __cil_tmp21 = __cil_tmp20 - __cil_tmp19;
 #line 729
-    wrap = (struct whiteheat_urb_wrap *)__cil_tmp30;
+    wrap = (struct whiteheat_urb_wrap *)__cil_tmp21;
 #line 730
-    __cil_tmp31 = (unsigned long )wrap;
-#line 730
-    __cil_tmp32 = __cil_tmp31 + 16;
-#line 730
-    urb = *((struct urb **)__cil_tmp32);
+    urb = wrap->urb;
 #line 731
     list_del(tmp___8);
 #line 732
-    __cil_tmp33 = (spinlock_t *)info;
+    __cil_tmp22 = & info->lock;
 #line 732
-    spin_unlock_irq(__cil_tmp33);
+    spin_unlock_irq(__cil_tmp22);
 #line 733
     usb_kill_urb(urb);
 #line 734
-    __cil_tmp34 = (spinlock_t *)info;
+    __cil_tmp23 = & info->lock;
 #line 734
-    spin_lock_irq(__cil_tmp34);
+    spin_lock_irq(__cil_tmp23);
 #line 735
-    __cil_tmp35 = (unsigned long )info;
+    __cil_tmp24 = & info->rx_urbs_free;
 #line 735
-    __cil_tmp36 = __cil_tmp35 + 80;
-#line 735
-    __cil_tmp37 = (struct list_head *)__cil_tmp36;
-#line 735
-    list_add(tmp___8, __cil_tmp37);
+    list_add(tmp___8, __cil_tmp24);
 #line 728
     tmp___8 = tmp2;
 #line 728
-    tmp2 = *((struct list_head **)tmp___8);
+    tmp2 = tmp___8->next;
     }
   }
-  while_27_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break___0: 
 #line 737
-  __cil_tmp38 = (unsigned long )info;
+  tmp___8 = info->rx_urb_q.next;
 #line 737
-  __cil_tmp39 = __cil_tmp38 + 112;
-#line 737
-  tmp___8 = *((struct list_head **)__cil_tmp39);
-#line 737
-  tmp2 = *((struct list_head **)tmp___8);
+  tmp2 = tmp___8->next;
   {
 #line 737
   while (1) {
-    while_28_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
     {
 #line 737
-    __cil_tmp40 = (unsigned long )info;
+    __cil_tmp25 = & info->rx_urb_q;
 #line 737
-    __cil_tmp41 = __cil_tmp40 + 112;
+    __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 737
-    __cil_tmp42 = (struct list_head *)__cil_tmp41;
+    __cil_tmp27 = (unsigned long )tmp___8;
 #line 737
-    __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 737
-    __cil_tmp44 = (unsigned long )tmp___8;
-#line 737
-    if (__cil_tmp44 != __cil_tmp43) {
+    if (__cil_tmp27 != __cil_tmp26) {
 
     } else {
+#line 737
       goto while_break___1;
     }
     }
     {
 #line 738
-    __cil_tmp45 = (unsigned long )info;
+    __cil_tmp28 = & info->rx_urbs_free;
 #line 738
-    __cil_tmp46 = __cil_tmp45 + 80;
-#line 738
-    __cil_tmp47 = (struct list_head *)__cil_tmp46;
-#line 738
-    list_move(tmp___8, __cil_tmp47);
+    list_move(tmp___8, __cil_tmp28);
 #line 737
     tmp___8 = tmp2;
 #line 737
-    tmp2 = *((struct list_head **)tmp___8);
+    tmp2 = tmp___8->next;
     }
   }
-  while_28_break: /* CIL Label */ ;
+  while_break___5: /* CIL Label */ ;
   }
 
   while_break___1: 
 #line 739
-  __cil_tmp48 = (unsigned long )info;
+  tmp___8 = info->tx_urbs_submitted.next;
 #line 739
-  __cil_tmp49 = __cil_tmp48 + 232;
-#line 739
-  tmp___8 = *((struct list_head **)__cil_tmp49);
-#line 739
-  tmp2 = *((struct list_head **)tmp___8);
+  tmp2 = tmp___8->next;
   {
 #line 739
   while (1) {
-    while_29_continue: /* CIL Label */ ;
+    while_continue___2: /* CIL Label */ ;
 
     {
 #line 739
-    __cil_tmp50 = (unsigned long )info;
+    __cil_tmp29 = & info->tx_urbs_submitted;
 #line 739
-    __cil_tmp51 = __cil_tmp50 + 232;
+    __cil_tmp30 = (unsigned long )__cil_tmp29;
 #line 739
-    __cil_tmp52 = (struct list_head *)__cil_tmp51;
+    __cil_tmp31 = (unsigned long )tmp___8;
 #line 739
-    __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 739
-    __cil_tmp54 = (unsigned long )tmp___8;
-#line 739
-    if (__cil_tmp54 != __cil_tmp53) {
+    if (__cil_tmp31 != __cil_tmp30) {
 
     } else {
+#line 739
       goto while_break___2;
     }
     }
@@ -9414,70 +8419,58 @@ static void whiteheat_close(struct usb_serial_port *port )
 #line 740
     __mptr___0 = (struct list_head  const  *)tmp___8;
 #line 740
-    __cil_tmp55 = (struct whiteheat_urb_wrap *)0;
+    __cil_tmp32 = (struct whiteheat_urb_wrap *)0;
 #line 740
-    __cil_tmp56 = (struct list_head *)__cil_tmp55;
+    __cil_tmp33 = & __cil_tmp32->list;
 #line 740
-    __cil_tmp57 = (unsigned int )__cil_tmp56;
+    __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 740
-    __cil_tmp58 = (char *)__mptr___0;
+    __cil_tmp35 = (char *)__mptr___0;
 #line 740
-    __cil_tmp59 = __cil_tmp58 - __cil_tmp57;
+    __cil_tmp36 = __cil_tmp35 - __cil_tmp34;
 #line 740
-    wrap = (struct whiteheat_urb_wrap *)__cil_tmp59;
+    wrap = (struct whiteheat_urb_wrap *)__cil_tmp36;
 #line 741
-    __cil_tmp60 = (unsigned long )wrap;
-#line 741
-    __cil_tmp61 = __cil_tmp60 + 16;
-#line 741
-    urb = *((struct urb **)__cil_tmp61);
+    urb = wrap->urb;
 #line 742
     list_del(tmp___8);
 #line 743
-    __cil_tmp62 = (spinlock_t *)info;
+    __cil_tmp37 = & info->lock;
 #line 743
-    spin_unlock_irq(__cil_tmp62);
+    spin_unlock_irq(__cil_tmp37);
 #line 744
     usb_kill_urb(urb);
 #line 745
-    __cil_tmp63 = (spinlock_t *)info;
+    __cil_tmp38 = & info->lock;
 #line 745
-    spin_lock_irq(__cil_tmp63);
+    spin_lock_irq(__cil_tmp38);
 #line 746
-    __cil_tmp64 = (unsigned long )info;
+    __cil_tmp39 = & info->tx_urbs_free;
 #line 746
-    __cil_tmp65 = __cil_tmp64 + 216;
-#line 746
-    __cil_tmp66 = (struct list_head *)__cil_tmp65;
-#line 746
-    list_add(tmp___8, __cil_tmp66);
+    list_add(tmp___8, __cil_tmp39);
 #line 739
     tmp___8 = tmp2;
 #line 739
-    tmp2 = *((struct list_head **)tmp___8);
+    tmp2 = tmp___8->next;
     }
   }
-  while_29_break: /* CIL Label */ ;
+  while_break___6: /* CIL Label */ ;
   }
 
   while_break___2: 
   {
 #line 748
-  __cil_tmp67 = (spinlock_t *)info;
+  __cil_tmp40 = & info->lock;
 #line 748
-  spin_unlock_irq(__cil_tmp67);
+  spin_unlock_irq(__cil_tmp40);
 #line 749
-  __cil_tmp68 = (unsigned long )info;
+  __cil_tmp41 = & info->deathwarrant;
 #line 749
-  __cil_tmp69 = __cil_tmp68 + 248;
-#line 749
-  __cil_tmp70 = (struct mutex *)__cil_tmp69;
-#line 749
-  mutex_unlock(__cil_tmp70);
+  mutex_unlock(__cil_tmp41);
 #line 750
-  __cil_tmp71 = *((struct usb_serial **)port);
+  __cil_tmp42 = port->serial;
 #line 750
-  stop_command_port(__cil_tmp71);
+  stop_command_port(__cil_tmp42);
   }
 #line 751
   return;
@@ -9503,71 +8496,39 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
   void *__ret ;
   raw_spinlock_t *tmp___11 ;
   raw_spinlock_t *tmp___12 ;
-  int *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned char __cil_tmp25 ;
-  int __cil_tmp26 ;
-  int *__cil_tmp27 ;
-  spinlock_t *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  unsigned char __cil_tmp22 ;
+  int __cil_tmp23 ;
+  spinlock_t *__cil_tmp24 ;
+  struct list_head *__cil_tmp25 ;
+  struct list_head  const  *__cil_tmp26 ;
+  spinlock_t *__cil_tmp27 ;
+  struct list_head *__cil_tmp28 ;
+  spinlock_t *__cil_tmp29 ;
+  struct whiteheat_urb_wrap *__cil_tmp30 ;
   struct list_head *__cil_tmp31 ;
-  struct list_head  const  *__cil_tmp32 ;
-  spinlock_t *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct list_head *__cil_tmp36 ;
-  spinlock_t *__cil_tmp37 ;
-  struct whiteheat_urb_wrap *__cil_tmp38 ;
-  struct list_head *__cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  char *__cil_tmp41 ;
-  char *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  void *__cil_tmp52 ;
-  unsigned char const   *__cil_tmp53 ;
-  void const   *__cil_tmp54 ;
-  int *__cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  struct device *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  void *__cil_tmp62 ;
-  unsigned char const   *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  struct device *__cil_tmp70 ;
-  struct device  const  *__cil_tmp71 ;
-  spinlock_t *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  struct list_head *__cil_tmp75 ;
-  spinlock_t *__cil_tmp76 ;
-  spinlock_t *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  struct list_head *__cil_tmp80 ;
-  spinlock_t *__cil_tmp81 ;
+  unsigned int __cil_tmp32 ;
+  char *__cil_tmp33 ;
+  char *__cil_tmp34 ;
+  int __cil_tmp35 ;
+  void *__cil_tmp36 ;
+  unsigned char const   *__cil_tmp37 ;
+  void const   *__cil_tmp38 ;
+  struct device *__cil_tmp39 ;
+  void *__cil_tmp40 ;
+  unsigned char const   *__cil_tmp41 ;
+  struct device *__cil_tmp42 ;
+  struct device  const  *__cil_tmp43 ;
+  spinlock_t *__cil_tmp44 ;
+  struct list_head *__cil_tmp45 ;
+  spinlock_t *__cil_tmp46 ;
+  spinlock_t *__cil_tmp47 ;
+  struct list_head *__cil_tmp48 ;
+  spinlock_t *__cil_tmp49 ;
 
   {
   {
 #line 757
-  serial = *((struct usb_serial **)port);
+  serial = port->serial;
 #line 758
   tmp___7 = usb_get_serial_port_data(port);
 #line 758
@@ -9578,33 +8539,26 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
   {
 #line 767
   while (1) {
-    while_30_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 767
-    __cil_tmp22 = & debug;
-#line 767
-    if (*__cil_tmp22) {
+    if (debug) {
       {
 #line 767
-      __cil_tmp23 = (unsigned long )port;
+      __cil_tmp22 = port->number;
 #line 767
-      __cil_tmp24 = __cil_tmp23 + 816;
-#line 767
-      __cil_tmp25 = *((unsigned char *)__cil_tmp24);
-#line 767
-      __cil_tmp26 = (int )__cil_tmp25;
+      __cil_tmp23 = (int )__cil_tmp22;
 #line 767
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_write", __cil_tmp26);
+             "whiteheat_write", __cil_tmp23);
       }
     } else {
 
     }
-    }
+#line 767
     goto while_break;
   }
-  while_30_break: /* CIL Label */ ;
+  while_break___8: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -9613,13 +8567,10 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
     {
 #line 770
     while (1) {
-      while_31_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 770
-      __cil_tmp27 = & debug;
-#line 770
-      if (*__cil_tmp27) {
+      if (debug) {
         {
 #line 770
         printk("<7>%s: %s - write request of 0 bytes\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -9628,10 +8579,10 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
       } else {
 
       }
-      }
+#line 770
       goto while_break___0;
     }
-    while_31_break: /* CIL Label */ ;
+    while_break___9: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -9643,118 +8594,102 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
   {
 #line 774
   while (1) {
-    while_32_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
 #line 774
     if (count) {
 
     } else {
+#line 774
       goto while_break___1;
     }
     {
 #line 775
     while (1) {
-      while_33_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
       {
 #line 775
       while (1) {
-        while_34_continue: /* CIL Label */ ;
+        while_continue___3: /* CIL Label */ ;
         {
 #line 775
-        __cil_tmp28 = (spinlock_t *)info;
+        __cil_tmp24 = & info->lock;
 #line 775
-        tmp___9 = spinlock_check(__cil_tmp28);
+        tmp___9 = spinlock_check(__cil_tmp24);
 #line 775
         flags = _raw_spin_lock_irqsave(tmp___9);
         }
+#line 775
         goto while_break___3;
       }
-      while_34_break: /* CIL Label */ ;
+      while_break___12: /* CIL Label */ ;
       }
 
       while_break___3: ;
+#line 775
       goto while_break___2;
     }
-    while_33_break: /* CIL Label */ ;
+    while_break___11: /* CIL Label */ ;
     }
 
     while_break___2: 
     {
 #line 776
-    __cil_tmp29 = (unsigned long )info;
+    __cil_tmp25 = & info->tx_urbs_free;
 #line 776
-    __cil_tmp30 = __cil_tmp29 + 216;
+    __cil_tmp26 = (struct list_head  const  *)__cil_tmp25;
 #line 776
-    __cil_tmp31 = (struct list_head *)__cil_tmp30;
-#line 776
-    __cil_tmp32 = (struct list_head  const  *)__cil_tmp31;
-#line 776
-    tmp___10 = list_empty(__cil_tmp32);
+    tmp___10 = list_empty(__cil_tmp26);
     }
 #line 776
     if (tmp___10) {
       {
 #line 777
-      __cil_tmp33 = (spinlock_t *)info;
+      __cil_tmp27 = & info->lock;
 #line 777
-      spin_unlock_irqrestore(__cil_tmp33, flags);
+      spin_unlock_irqrestore(__cil_tmp27, flags);
       }
+#line 778
       goto while_break___1;
     } else {
 
     }
     {
 #line 780
-    __cil_tmp34 = (unsigned long )info;
+    __cil_tmp28 = & info->tx_urbs_free;
 #line 780
-    __cil_tmp35 = __cil_tmp34 + 216;
-#line 780
-    __cil_tmp36 = (struct list_head *)__cil_tmp35;
-#line 780
-    tmp___8 = list_first(__cil_tmp36);
+    tmp___8 = list_first(__cil_tmp28);
 #line 781
     list_del(tmp___8);
 #line 782
-    __cil_tmp37 = (spinlock_t *)info;
+    __cil_tmp29 = & info->lock;
 #line 782
-    spin_unlock_irqrestore(__cil_tmp37, flags);
+    spin_unlock_irqrestore(__cil_tmp29, flags);
 #line 784
     __mptr = (struct list_head  const  *)tmp___8;
 #line 784
-    __cil_tmp38 = (struct whiteheat_urb_wrap *)0;
+    __cil_tmp30 = (struct whiteheat_urb_wrap *)0;
 #line 784
-    __cil_tmp39 = (struct list_head *)__cil_tmp38;
+    __cil_tmp31 = & __cil_tmp30->list;
 #line 784
-    __cil_tmp40 = (unsigned int )__cil_tmp39;
+    __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 784
-    __cil_tmp41 = (char *)__mptr;
+    __cil_tmp33 = (char *)__mptr;
 #line 784
-    __cil_tmp42 = __cil_tmp41 - __cil_tmp40;
+    __cil_tmp34 = __cil_tmp33 - __cil_tmp32;
 #line 784
-    wrap = (struct whiteheat_urb_wrap *)__cil_tmp42;
+    wrap = (struct whiteheat_urb_wrap *)__cil_tmp34;
 #line 785
-    __cil_tmp43 = (unsigned long )wrap;
-#line 785
-    __cil_tmp44 = __cil_tmp43 + 16;
-#line 785
-    urb = *((struct urb **)__cil_tmp44);
+    urb = wrap->urb;
     }
     {
 #line 786
-    __cil_tmp45 = (unsigned long )port;
+    __cil_tmp35 = port->bulk_out_size;
 #line 786
-    __cil_tmp46 = __cil_tmp45 + 920;
+    if (count > __cil_tmp35) {
 #line 786
-    __cil_tmp47 = *((int *)__cil_tmp46);
-#line 786
-    if (count > __cil_tmp47) {
-#line 786
-      __cil_tmp48 = (unsigned long )port;
-#line 786
-      __cil_tmp49 = __cil_tmp48 + 920;
-#line 786
-      bytes = *((int *)__cil_tmp49);
+      bytes = port->bulk_out_size;
     } else {
 #line 786
       bytes = count;
@@ -9762,51 +8697,27 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
     }
     {
 #line 788
-    __len = (unsigned long )bytes;
+    __len = (size_t )bytes;
 #line 788
-    __cil_tmp50 = (unsigned long )urb;
+    __cil_tmp36 = urb->transfer_buffer;
 #line 788
-    __cil_tmp51 = __cil_tmp50 + 104;
+    __cil_tmp37 = buf + sent;
 #line 788
-    __cil_tmp52 = *((void **)__cil_tmp51);
+    __cil_tmp38 = (void const   *)__cil_tmp37;
 #line 788
-    __cil_tmp53 = buf + sent;
-#line 788
-    __cil_tmp54 = (void const   *)__cil_tmp53;
-#line 788
-    __ret = __builtin_memcpy(__cil_tmp52, __cil_tmp54, __len);
+    __ret = __builtin_memcpy(__cil_tmp36, __cil_tmp38, __len);
 #line 790
-    __cil_tmp55 = & debug;
+    __cil_tmp39 = & port->dev;
 #line 790
-    __cil_tmp56 = *__cil_tmp55;
+    __cil_tmp40 = urb->transfer_buffer;
 #line 790
-    __cil_tmp57 = (unsigned long )port;
+    __cil_tmp41 = (unsigned char const   *)__cil_tmp40;
 #line 790
-    __cil_tmp58 = __cil_tmp57 + 1208;
-#line 790
-    __cil_tmp59 = (struct device *)__cil_tmp58;
-#line 790
-    __cil_tmp60 = (unsigned long )urb;
-#line 790
-    __cil_tmp61 = __cil_tmp60 + 104;
-#line 790
-    __cil_tmp62 = *((void **)__cil_tmp61);
-#line 790
-    __cil_tmp63 = (unsigned char const   *)__cil_tmp62;
-#line 790
-    usb_serial_debug_data(__cil_tmp56, __cil_tmp59, "whiteheat_write", bytes, __cil_tmp63);
+    usb_serial_debug_data(debug, __cil_tmp39, "whiteheat_write", bytes, __cil_tmp41);
 #line 793
-    __cil_tmp64 = (unsigned long )urb;
-#line 793
-    __cil_tmp65 = __cil_tmp64 + 72;
-#line 793
-    *((struct usb_device **)__cil_tmp65) = *((struct usb_device **)serial);
+    urb->dev = serial->dev;
 #line 794
-    __cil_tmp66 = (unsigned long )urb;
-#line 794
-    __cil_tmp67 = __cil_tmp66 + 132;
-#line 794
-    *((u32 *)__cil_tmp67) = (unsigned int )bytes;
+    urb->transfer_buffer_length = (u32 )bytes;
 #line 795
     result = usb_submit_urb(urb, 32U);
     }
@@ -9814,15 +8725,11 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
     if (result) {
       {
 #line 797
-      __cil_tmp68 = (unsigned long )port;
+      __cil_tmp42 = & port->dev;
 #line 797
-      __cil_tmp69 = __cil_tmp68 + 1208;
+      __cil_tmp43 = (struct device  const  *)__cil_tmp42;
 #line 797
-      __cil_tmp70 = (struct device *)__cil_tmp69;
-#line 797
-      __cil_tmp71 = (struct device  const  *)__cil_tmp70;
-#line 797
-      dev_err(__cil_tmp71, "%s - failed submitting write urb, error %d\n", "whiteheat_write",
+      dev_err(__cil_tmp43, "%s - failed submitting write urb, error %d\n", "whiteheat_write",
               result);
 #line 800
       sent = result;
@@ -9830,46 +8737,45 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
       {
 #line 801
       while (1) {
-        while_35_continue: /* CIL Label */ ;
+        while_continue___4: /* CIL Label */ ;
 
         {
 #line 801
         while (1) {
-          while_36_continue: /* CIL Label */ ;
+          while_continue___5: /* CIL Label */ ;
           {
 #line 801
-          __cil_tmp72 = (spinlock_t *)info;
+          __cil_tmp44 = & info->lock;
 #line 801
-          tmp___11 = spinlock_check(__cil_tmp72);
+          tmp___11 = spinlock_check(__cil_tmp44);
 #line 801
           flags = _raw_spin_lock_irqsave(tmp___11);
           }
+#line 801
           goto while_break___5;
         }
-        while_36_break: /* CIL Label */ ;
+        while_break___14: /* CIL Label */ ;
         }
 
         while_break___5: ;
+#line 801
         goto while_break___4;
       }
-      while_35_break: /* CIL Label */ ;
+      while_break___13: /* CIL Label */ ;
       }
 
       while_break___4: 
       {
 #line 802
-      __cil_tmp73 = (unsigned long )info;
+      __cil_tmp45 = & info->tx_urbs_free;
 #line 802
-      __cil_tmp74 = __cil_tmp73 + 216;
-#line 802
-      __cil_tmp75 = (struct list_head *)__cil_tmp74;
-#line 802
-      list_add(tmp___8, __cil_tmp75);
+      list_add(tmp___8, __cil_tmp45);
 #line 803
-      __cil_tmp76 = (spinlock_t *)info;
+      __cil_tmp46 = & info->lock;
 #line 803
-      spin_unlock_irqrestore(__cil_tmp76, flags);
+      spin_unlock_irqrestore(__cil_tmp46, flags);
       }
+#line 804
       goto while_break___1;
     } else {
 #line 806
@@ -9879,49 +8785,47 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
       {
 #line 808
       while (1) {
-        while_37_continue: /* CIL Label */ ;
+        while_continue___6: /* CIL Label */ ;
 
         {
 #line 808
         while (1) {
-          while_38_continue: /* CIL Label */ ;
+          while_continue___7: /* CIL Label */ ;
           {
 #line 808
-          __cil_tmp77 = (spinlock_t *)info;
+          __cil_tmp47 = & info->lock;
 #line 808
-          tmp___12 = spinlock_check(__cil_tmp77);
+          tmp___12 = spinlock_check(__cil_tmp47);
 #line 808
           flags = _raw_spin_lock_irqsave(tmp___12);
           }
+#line 808
           goto while_break___7;
         }
-        while_38_break: /* CIL Label */ ;
+        while_break___16: /* CIL Label */ ;
         }
 
         while_break___7: ;
+#line 808
         goto while_break___6;
       }
-      while_37_break: /* CIL Label */ ;
+      while_break___15: /* CIL Label */ ;
       }
 
       while_break___6: 
       {
 #line 809
-      __cil_tmp78 = (unsigned long )info;
+      __cil_tmp48 = & info->tx_urbs_submitted;
 #line 809
-      __cil_tmp79 = __cil_tmp78 + 232;
-#line 809
-      __cil_tmp80 = (struct list_head *)__cil_tmp79;
-#line 809
-      list_add(tmp___8, __cil_tmp80);
+      list_add(tmp___8, __cil_tmp48);
 #line 810
-      __cil_tmp81 = (spinlock_t *)info;
+      __cil_tmp49 = & info->lock;
 #line 810
-      spin_unlock_irqrestore(__cil_tmp81, flags);
+      spin_unlock_irqrestore(__cil_tmp49, flags);
       }
     }
   }
-  while_32_break: /* CIL Label */ ;
+  while_break___10: /* CIL Label */ ;
   }
 
   while_break___1: ;
@@ -9938,38 +8842,22 @@ static int whiteheat_write_room(struct tty_struct *tty )
   int room ;
   unsigned long flags ;
   raw_spinlock_t *tmp___9 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  int *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  void *__cil_tmp9 ;
+  unsigned char __cil_tmp10 ;
+  int __cil_tmp11 ;
+  spinlock_t *__cil_tmp12 ;
+  struct list_head *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned char __cil_tmp15 ;
-  int __cil_tmp16 ;
-  spinlock_t *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct list_head *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  spinlock_t *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int *__cil_tmp29 ;
+  unsigned long __cil_tmp15 ;
+  spinlock_t *__cil_tmp16 ;
+  int __cil_tmp17 ;
 
   {
   {
 #line 819
-  __cil_tmp9 = (unsigned long )tty;
+  __cil_tmp9 = tty->driver_data;
 #line 819
-  __cil_tmp10 = __cil_tmp9 + 1064;
-#line 819
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 819
-  port = (struct usb_serial_port *)__cil_tmp11;
+  port = (struct usb_serial_port *)__cil_tmp9;
 #line 820
   tmp___7 = usb_get_serial_port_data(port);
 #line 820
@@ -9980,127 +8868,108 @@ static int whiteheat_write_room(struct tty_struct *tty )
   {
 #line 825
   while (1) {
-    while_39_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 825
-    __cil_tmp12 = & debug;
-#line 825
-    if (*__cil_tmp12) {
+    if (debug) {
       {
 #line 825
-      __cil_tmp13 = (unsigned long )port;
+      __cil_tmp10 = port->number;
 #line 825
-      __cil_tmp14 = __cil_tmp13 + 816;
-#line 825
-      __cil_tmp15 = *((unsigned char *)__cil_tmp14);
-#line 825
-      __cil_tmp16 = (int )__cil_tmp15;
+      __cil_tmp11 = (int )__cil_tmp10;
 #line 825
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_write_room", __cil_tmp16);
+             "whiteheat_write_room", __cil_tmp11);
       }
     } else {
 
     }
-    }
+#line 825
     goto while_break;
   }
-  while_39_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 827
   while (1) {
-    while_40_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 827
     while (1) {
-      while_41_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
       {
 #line 827
-      __cil_tmp17 = (spinlock_t *)info;
+      __cil_tmp12 = & info->lock;
 #line 827
-      tmp___9 = spinlock_check(__cil_tmp17);
+      tmp___9 = spinlock_check(__cil_tmp12);
 #line 827
       flags = _raw_spin_lock_irqsave(tmp___9);
       }
+#line 827
       goto while_break___1;
     }
-    while_41_break: /* CIL Label */ ;
+    while_break___6: /* CIL Label */ ;
     }
 
     while_break___1: ;
+#line 827
     goto while_break___0;
   }
-  while_40_break: /* CIL Label */ ;
+  while_break___5: /* CIL Label */ ;
   }
 
   while_break___0: 
 #line 828
-  __cil_tmp18 = (unsigned long )info;
-#line 828
-  __cil_tmp19 = __cil_tmp18 + 216;
-#line 828
-  tmp___8 = *((struct list_head **)__cil_tmp19);
+  tmp___8 = info->tx_urbs_free.next;
   {
 #line 828
   while (1) {
-    while_42_continue: /* CIL Label */ ;
+    while_continue___2: /* CIL Label */ ;
 
     {
 #line 828
-    __cil_tmp20 = (unsigned long )info;
+    __cil_tmp13 = & info->tx_urbs_free;
 #line 828
-    __cil_tmp21 = __cil_tmp20 + 216;
+    __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 828
-    __cil_tmp22 = (struct list_head *)__cil_tmp21;
+    __cil_tmp15 = (unsigned long )tmp___8;
 #line 828
-    __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 828
-    __cil_tmp24 = (unsigned long )tmp___8;
-#line 828
-    if (__cil_tmp24 != __cil_tmp23) {
+    if (__cil_tmp15 != __cil_tmp14) {
 
     } else {
+#line 828
       goto while_break___2;
     }
     }
 #line 829
     room = room + 1;
 #line 828
-    tmp___8 = *((struct list_head **)tmp___8);
+    tmp___8 = tmp___8->next;
   }
-  while_42_break: /* CIL Label */ ;
+  while_break___7: /* CIL Label */ ;
   }
 
   while_break___2: 
   {
 #line 830
-  __cil_tmp25 = (spinlock_t *)info;
+  __cil_tmp16 = & info->lock;
 #line 830
-  spin_unlock_irqrestore(__cil_tmp25, flags);
+  spin_unlock_irqrestore(__cil_tmp16, flags);
 #line 831
-  __cil_tmp26 = (unsigned long )port;
+  __cil_tmp17 = port->bulk_out_size;
 #line 831
-  __cil_tmp27 = __cil_tmp26 + 920;
-#line 831
-  __cil_tmp28 = *((int *)__cil_tmp27);
-#line 831
-  room = room * __cil_tmp28;
+  room = room * __cil_tmp17;
   }
   {
 #line 833
   while (1) {
-    while_43_continue: /* CIL Label */ ;
+    while_continue___3: /* CIL Label */ ;
 
-    {
 #line 833
-    __cil_tmp29 = & debug;
-#line 833
-    if (*__cil_tmp29) {
+    if (debug) {
       {
 #line 833
       printk("<7>%s: %s - returns %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -10109,10 +8978,10 @@ static int whiteheat_write_room(struct tty_struct *tty )
     } else {
 
     }
-    }
+#line 833
     goto while_break___3;
   }
-  while_43_break: /* CIL Label */ ;
+  while_break___8: /* CIL Label */ ;
   }
 
   while_break___3: ;
@@ -10126,33 +8995,20 @@ static int whiteheat_tiocmget(struct tty_struct *tty )
   struct whiteheat_private *info ;
   void *tmp___7 ;
   unsigned int modem_signals ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  int *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  __u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  __u8 __cil_tmp20 ;
-  int __cil_tmp21 ;
+  void *__cil_tmp6 ;
+  unsigned char __cil_tmp7 ;
+  int __cil_tmp8 ;
+  __u8 __cil_tmp9 ;
+  int __cil_tmp10 ;
+  __u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
 #line 839
-  __cil_tmp6 = (unsigned long )tty;
+  __cil_tmp6 = tty->driver_data;
 #line 839
-  __cil_tmp7 = __cil_tmp6 + 1064;
-#line 839
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 839
-  port = (struct usb_serial_port *)__cil_tmp8;
+  port = (struct usb_serial_port *)__cil_tmp6;
 #line 840
   tmp___7 = usb_get_serial_port_data(port);
 #line 840
@@ -10163,33 +9019,26 @@ static int whiteheat_tiocmget(struct tty_struct *tty )
   {
 #line 843
   while (1) {
-    while_44_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 843
-    __cil_tmp9 = & debug;
-#line 843
-    if (*__cil_tmp9) {
+    if (debug) {
       {
 #line 843
-      __cil_tmp10 = (unsigned long )port;
+      __cil_tmp7 = port->number;
 #line 843
-      __cil_tmp11 = __cil_tmp10 + 816;
-#line 843
-      __cil_tmp12 = *((unsigned char *)__cil_tmp11);
-#line 843
-      __cil_tmp13 = (int )__cil_tmp12;
+      __cil_tmp8 = (int )__cil_tmp7;
 #line 843
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_tiocmget", __cil_tmp13);
+             "whiteheat_tiocmget", __cil_tmp8);
       }
     } else {
 
     }
-    }
+#line 843
     goto while_break;
   }
-  while_44_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -10199,15 +9048,11 @@ static int whiteheat_tiocmget(struct tty_struct *tty )
   }
   {
 #line 846
-  __cil_tmp14 = (unsigned long )info;
+  __cil_tmp9 = info->mcr;
 #line 846
-  __cil_tmp15 = __cil_tmp14 + 73;
+  __cil_tmp10 = (int )__cil_tmp9;
 #line 846
-  __cil_tmp16 = *((__u8 *)__cil_tmp15);
-#line 846
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 846
-  if (__cil_tmp17 & 1) {
+  if (__cil_tmp10 & 1) {
 #line 847
     modem_signals = modem_signals | 2U;
   } else {
@@ -10216,15 +9061,11 @@ static int whiteheat_tiocmget(struct tty_struct *tty )
   }
   {
 #line 848
-  __cil_tmp18 = (unsigned long )info;
+  __cil_tmp11 = info->mcr;
 #line 848
-  __cil_tmp19 = __cil_tmp18 + 73;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 848
-  __cil_tmp20 = *((__u8 *)__cil_tmp19);
-#line 848
-  __cil_tmp21 = (int )__cil_tmp20;
-#line 848
-  if (__cil_tmp21 & 2) {
+  if (__cil_tmp12 & 2) {
 #line 849
     modem_signals = modem_signals | 4U;
   } else {
@@ -10240,65 +9081,36 @@ static int whiteheat_tiocmset(struct tty_struct *tty , unsigned int set , unsign
 { struct usb_serial_port *port ;
   struct whiteheat_private *info ;
   void *tmp___7 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  int *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
+  void *__cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  int __cil_tmp9 ;
+  __u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  __u8 __cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  int __cil_tmp15 ;
+  __u8 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
   __u8 __cil_tmp19 ;
   int __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  __u8 __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  __u8 __cil_tmp25 ;
   __u8 __cil_tmp26 ;
   int __cil_tmp27 ;
   int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  __u8 __cil_tmp33 ;
-  int __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  __u8 __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  __u8 __cil_tmp45 ;
-  int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned char __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  __u8 __cil_tmp51 ;
-  int __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned char __cil_tmp54 ;
+  __u8 __cil_tmp29 ;
 
   {
   {
 #line 857
-  __cil_tmp7 = (unsigned long )tty;
+  __cil_tmp7 = tty->driver_data;
 #line 857
-  __cil_tmp8 = __cil_tmp7 + 1064;
-#line 857
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 857
-  port = (struct usb_serial_port *)__cil_tmp9;
+  port = (struct usb_serial_port *)__cil_tmp7;
 #line 858
   tmp___7 = usb_get_serial_port_data(port);
 #line 858
@@ -10307,149 +9119,102 @@ static int whiteheat_tiocmset(struct tty_struct *tty , unsigned int set , unsign
   {
 #line 860
   while (1) {
-    while_45_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 860
-    __cil_tmp10 = & debug;
-#line 860
-    if (*__cil_tmp10) {
+    if (debug) {
       {
 #line 860
-      __cil_tmp11 = (unsigned long )port;
+      __cil_tmp8 = port->number;
 #line 860
-      __cil_tmp12 = __cil_tmp11 + 816;
-#line 860
-      __cil_tmp13 = *((unsigned char *)__cil_tmp12);
-#line 860
-      __cil_tmp14 = (int )__cil_tmp13;
+      __cil_tmp9 = (int )__cil_tmp8;
 #line 860
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_tiocmset", __cil_tmp14);
+             "whiteheat_tiocmset", __cil_tmp9);
       }
     } else {
 
     }
-    }
+#line 860
     goto while_break;
   }
-  while_45_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
 #line 862
   if (set & 4U) {
 #line 863
-    __cil_tmp15 = (unsigned long )info;
+    __cil_tmp10 = info->mcr;
 #line 863
-    __cil_tmp16 = __cil_tmp15 + 73;
+    __cil_tmp11 = (int )__cil_tmp10;
 #line 863
-    __cil_tmp17 = (unsigned long )info;
+    __cil_tmp12 = __cil_tmp11 | 2;
 #line 863
-    __cil_tmp18 = __cil_tmp17 + 73;
-#line 863
-    __cil_tmp19 = *((__u8 *)__cil_tmp18);
-#line 863
-    __cil_tmp20 = (int )__cil_tmp19;
-#line 863
-    __cil_tmp21 = __cil_tmp20 | 2;
-#line 863
-    *((__u8 *)__cil_tmp16) = (unsigned char )__cil_tmp21;
+    info->mcr = (__u8 )__cil_tmp12;
   } else {
 
   }
 #line 864
   if (set & 2U) {
 #line 865
-    __cil_tmp22 = (unsigned long )info;
+    __cil_tmp13 = info->mcr;
 #line 865
-    __cil_tmp23 = __cil_tmp22 + 73;
+    __cil_tmp14 = (int )__cil_tmp13;
 #line 865
-    __cil_tmp24 = (unsigned long )info;
+    __cil_tmp15 = __cil_tmp14 | 1;
 #line 865
-    __cil_tmp25 = __cil_tmp24 + 73;
-#line 865
-    __cil_tmp26 = *((__u8 *)__cil_tmp25);
-#line 865
-    __cil_tmp27 = (int )__cil_tmp26;
-#line 865
-    __cil_tmp28 = __cil_tmp27 | 1;
-#line 865
-    *((__u8 *)__cil_tmp23) = (unsigned char )__cil_tmp28;
+    info->mcr = (__u8 )__cil_tmp15;
   } else {
 
   }
 #line 867
   if (clear & 4U) {
 #line 868
-    __cil_tmp29 = (unsigned long )info;
+    __cil_tmp16 = info->mcr;
 #line 868
-    __cil_tmp30 = __cil_tmp29 + 73;
+    __cil_tmp17 = (int )__cil_tmp16;
 #line 868
-    __cil_tmp31 = (unsigned long )info;
+    __cil_tmp18 = __cil_tmp17 & -3;
 #line 868
-    __cil_tmp32 = __cil_tmp31 + 73;
-#line 868
-    __cil_tmp33 = *((__u8 *)__cil_tmp32);
-#line 868
-    __cil_tmp34 = (int )__cil_tmp33;
-#line 868
-    __cil_tmp35 = __cil_tmp34 & -3;
-#line 868
-    *((__u8 *)__cil_tmp30) = (unsigned char )__cil_tmp35;
+    info->mcr = (__u8 )__cil_tmp18;
   } else {
 
   }
 #line 869
   if (clear & 2U) {
 #line 870
-    __cil_tmp36 = (unsigned long )info;
+    __cil_tmp19 = info->mcr;
 #line 870
-    __cil_tmp37 = __cil_tmp36 + 73;
+    __cil_tmp20 = (int )__cil_tmp19;
 #line 870
-    __cil_tmp38 = (unsigned long )info;
+    __cil_tmp21 = __cil_tmp20 & -2;
 #line 870
-    __cil_tmp39 = __cil_tmp38 + 73;
-#line 870
-    __cil_tmp40 = *((__u8 *)__cil_tmp39);
-#line 870
-    __cil_tmp41 = (int )__cil_tmp40;
-#line 870
-    __cil_tmp42 = __cil_tmp41 & -2;
-#line 870
-    *((__u8 *)__cil_tmp37) = (unsigned char )__cil_tmp42;
+    info->mcr = (__u8 )__cil_tmp21;
   } else {
 
   }
   {
 #line 872
-  __cil_tmp43 = (unsigned long )info;
+  __cil_tmp22 = info->mcr;
 #line 872
-  __cil_tmp44 = __cil_tmp43 + 73;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 872
-  __cil_tmp45 = *((__u8 *)__cil_tmp44);
+  __cil_tmp24 = __cil_tmp23 & 1;
 #line 872
-  __cil_tmp46 = (int )__cil_tmp45;
+  __cil_tmp25 = (__u8 )__cil_tmp24;
 #line 872
-  __cil_tmp47 = __cil_tmp46 & 1;
-#line 872
-  __cil_tmp48 = (unsigned char )__cil_tmp47;
-#line 872
-  firm_set_dtr(port, __cil_tmp48);
+  firm_set_dtr(port, __cil_tmp25);
 #line 873
-  __cil_tmp49 = (unsigned long )info;
+  __cil_tmp26 = info->mcr;
 #line 873
-  __cil_tmp50 = __cil_tmp49 + 73;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 873
-  __cil_tmp51 = *((__u8 *)__cil_tmp50);
+  __cil_tmp28 = __cil_tmp27 & 2;
 #line 873
-  __cil_tmp52 = (int )__cil_tmp51;
+  __cil_tmp29 = (__u8 )__cil_tmp28;
 #line 873
-  __cil_tmp53 = __cil_tmp52 & 2;
-#line 873
-  __cil_tmp54 = (unsigned char )__cil_tmp53;
-#line 873
-  firm_set_rts(port, __cil_tmp54);
+  firm_set_rts(port, __cil_tmp29);
   }
 #line 874
   return (0);
@@ -10463,166 +9228,107 @@ static int whiteheat_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned 
   int tmp___7 ;
   int tmp ;
   int tmp___8 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  int *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp10 ;
+  unsigned char __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  void *__cil_tmp14 ;
+  struct usb_serial *__cil_tmp15 ;
   unsigned char __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  void *__cil_tmp19 ;
-  struct serial_struct *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct usb_serial *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned char __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned char __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  void const   *__cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
+  unsigned char __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  void const   *__cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
 
   {
 #line 881
-  __cil_tmp10 = (unsigned long )tty;
+  __cil_tmp10 = tty->driver_data;
 #line 881
-  __cil_tmp11 = __cil_tmp10 + 1064;
-#line 881
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 881
-  port = (struct usb_serial_port *)__cil_tmp12;
+  port = (struct usb_serial_port *)__cil_tmp10;
 #line 883
   user_arg = (void *)arg;
   {
 #line 885
   while (1) {
-    while_46_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 885
-    __cil_tmp13 = & debug;
-#line 885
-    if (*__cil_tmp13) {
+    if (debug) {
       {
 #line 885
-      __cil_tmp14 = (unsigned long )port;
+      __cil_tmp11 = port->number;
 #line 885
-      __cil_tmp15 = __cil_tmp14 + 816;
-#line 885
-      __cil_tmp16 = *((unsigned char *)__cil_tmp15);
-#line 885
-      __cil_tmp17 = (int )__cil_tmp16;
+      __cil_tmp12 = (int )__cil_tmp11;
 #line 885
       printk("<7>%s: %s - port %d, cmd 0x%.4x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_ioctl", __cil_tmp17, cmd);
+             "whiteheat_ioctl", __cil_tmp12, cmd);
       }
     } else {
 
     }
-    }
+#line 885
     goto while_break;
   }
-  while_46_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 888
-  __cil_tmp18 = (int )cmd;
+  __cil_tmp13 = (int )cmd;
 #line 888
-  if (__cil_tmp18 == 21534) {
+  if (__cil_tmp13 == 21534) {
+#line 888
     goto case_21534;
   } else {
+#line 903
     goto switch_default;
 #line 887
     if (0) {
       case_21534: 
       {
 #line 889
-      __cil_tmp19 = (void *)(& serstruct);
+      __cil_tmp14 = (void *)(& serstruct);
 #line 889
-      memset(__cil_tmp19, 0, 72UL);
+      memset(__cil_tmp14, 0, 72UL);
 #line 890
-      __cil_tmp20 = & serstruct;
-#line 890
-      *((int *)__cil_tmp20) = 11;
+      serstruct.type = 11;
 #line 891
-      __cil_tmp21 = (unsigned long )(& serstruct) + 4;
+      __cil_tmp15 = port->serial;
 #line 891
-      __cil_tmp22 = *((struct usb_serial **)port);
+      __cil_tmp16 = __cil_tmp15->minor;
 #line 891
-      __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 891
-      __cil_tmp24 = __cil_tmp23 + 25;
-#line 891
-      __cil_tmp25 = *((unsigned char *)__cil_tmp24);
-#line 891
-      *((int *)__cil_tmp21) = (int )__cil_tmp25;
+      serstruct.line = (int )__cil_tmp16;
 #line 892
-      __cil_tmp26 = (unsigned long )(& serstruct) + 8;
+      __cil_tmp17 = port->number;
 #line 892
-      __cil_tmp27 = (unsigned long )port;
-#line 892
-      __cil_tmp28 = __cil_tmp27 + 816;
-#line 892
-      __cil_tmp29 = *((unsigned char *)__cil_tmp28);
-#line 892
-      *((unsigned int *)__cil_tmp26) = (unsigned int )__cil_tmp29;
+      serstruct.port = (unsigned int )__cil_tmp17;
 #line 893
-      __cil_tmp30 = (unsigned long )(& serstruct) + 16;
+      __cil_tmp18 = 1U << 7;
 #line 893
-      __cil_tmp31 = 1U << 7;
+      __cil_tmp19 = 1U << 6;
 #line 893
-      __cil_tmp32 = 1U << 6;
+      __cil_tmp20 = __cil_tmp19 | __cil_tmp18;
 #line 893
-      __cil_tmp33 = __cil_tmp32 | __cil_tmp31;
-#line 893
-      *((int *)__cil_tmp30) = (int )__cil_tmp33;
+      serstruct.flags = (int )__cil_tmp20;
 #line 894
-      __cil_tmp34 = (unsigned long )(& serstruct) + 20;
-#line 894
-      __cil_tmp35 = (unsigned long )port;
-#line 894
-      __cil_tmp36 = __cil_tmp35 + 920;
-#line 894
-      *((int *)__cil_tmp34) = *((int *)__cil_tmp36);
+      serstruct.xmit_fifo_size = port->bulk_out_size;
 #line 895
-      __cil_tmp37 = (unsigned long )(& serstruct) + 24;
-#line 895
-      *((int *)__cil_tmp37) = 0;
+      serstruct.custom_divisor = 0;
 #line 896
-      __cil_tmp38 = (unsigned long )(& serstruct) + 28;
-#line 896
-      *((int *)__cil_tmp38) = 460800;
+      serstruct.baud_base = 460800;
 #line 897
-      __cil_tmp39 = (unsigned long )(& serstruct) + 32;
-#line 897
-      *((unsigned short *)__cil_tmp39) = (unsigned short)7500;
+      serstruct.close_delay = (unsigned short)7500;
 #line 898
-      __cil_tmp40 = (unsigned long )(& serstruct) + 40;
-#line 898
-      *((unsigned short *)__cil_tmp40) = (unsigned short)7500;
+      serstruct.closing_wait = (unsigned short)7500;
 #line 900
-      __cil_tmp41 = (void const   *)(& serstruct);
+      __cil_tmp21 = (void const   *)(& serstruct);
 #line 900
-      __cil_tmp42 = (unsigned int )72UL;
+      __cil_tmp22 = (unsigned int )72UL;
 #line 900
-      tmp___8 = (int )copy_to_user(user_arg, __cil_tmp41, __cil_tmp42);
+      tmp___8 = (int )copy_to_user(user_arg, __cil_tmp21, __cil_tmp22);
 #line 900
       tmp = tmp___8;
 #line 900
@@ -10635,8 +9341,10 @@ static int whiteheat_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned 
       } else {
 
       }
+#line 902
       goto switch_break;
       switch_default: 
+#line 904
       goto switch_break;
     } else {
       switch_break: ;
@@ -10664,25 +9372,19 @@ static void whiteheat_set_termios(struct tty_struct *tty , struct usb_serial_por
 #line 917 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static void whiteheat_break_ctl(struct tty_struct *tty , int break_state ) 
 { struct usb_serial_port *port ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned char __cil_tmp7 ;
+  void *__cil_tmp4 ;
+  __u8 __cil_tmp5 ;
 
   {
   {
 #line 919
-  __cil_tmp4 = (unsigned long )tty;
+  __cil_tmp4 = tty->driver_data;
 #line 919
-  __cil_tmp5 = __cil_tmp4 + 1064;
-#line 919
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 919
-  port = (struct usb_serial_port *)__cil_tmp6;
+  port = (struct usb_serial_port *)__cil_tmp4;
 #line 920
-  __cil_tmp7 = (unsigned char )break_state;
+  __cil_tmp5 = (__u8 )break_state;
 #line 920
-  firm_set_break(port, __cil_tmp7);
+  firm_set_break(port, __cil_tmp5);
   }
 #line 921
   return;
@@ -10699,48 +9401,30 @@ static int whiteheat_chars_in_buffer(struct tty_struct *tty )
   unsigned long flags ;
   raw_spinlock_t *tmp___9 ;
   struct list_head  const  *__mptr ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  void *__cil_tmp13 ;
-  int *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  void *__cil_tmp11 ;
+  unsigned char __cil_tmp12 ;
+  int __cil_tmp13 ;
+  spinlock_t *__cil_tmp14 ;
+  struct list_head *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
-  int __cil_tmp18 ;
-  spinlock_t *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct list_head *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct whiteheat_urb_wrap *__cil_tmp27 ;
-  struct list_head *__cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  char *__cil_tmp30 ;
-  char *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct urb *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  u32 __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  spinlock_t *__cil_tmp40 ;
-  int *__cil_tmp41 ;
+  unsigned long __cil_tmp17 ;
+  struct whiteheat_urb_wrap *__cil_tmp18 ;
+  struct list_head *__cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  char *__cil_tmp21 ;
+  char *__cil_tmp22 ;
+  struct urb *__cil_tmp23 ;
+  u32 __cil_tmp24 ;
+  u32 __cil_tmp25 ;
+  u32 __cil_tmp26 ;
+  spinlock_t *__cil_tmp27 ;
 
   {
   {
 #line 926
-  __cil_tmp11 = (unsigned long )tty;
+  __cil_tmp11 = tty->driver_data;
 #line 926
-  __cil_tmp12 = __cil_tmp11 + 1064;
-#line 926
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 926
-  port = (struct usb_serial_port *)__cil_tmp13;
+  port = (struct usb_serial_port *)__cil_tmp11;
 #line 927
   tmp___7 = usb_get_serial_port_data(port);
 #line 927
@@ -10751,149 +9435,126 @@ static int whiteheat_chars_in_buffer(struct tty_struct *tty )
   {
 #line 933
   while (1) {
-    while_47_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 933
-    __cil_tmp14 = & debug;
-#line 933
-    if (*__cil_tmp14) {
+    if (debug) {
       {
 #line 933
-      __cil_tmp15 = (unsigned long )port;
+      __cil_tmp12 = port->number;
 #line 933
-      __cil_tmp16 = __cil_tmp15 + 816;
-#line 933
-      __cil_tmp17 = *((unsigned char *)__cil_tmp16);
-#line 933
-      __cil_tmp18 = (int )__cil_tmp17;
+      __cil_tmp13 = (int )__cil_tmp12;
 #line 933
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_chars_in_buffer", __cil_tmp18);
+             "whiteheat_chars_in_buffer", __cil_tmp13);
       }
     } else {
 
     }
-    }
+#line 933
     goto while_break;
   }
-  while_47_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 935
   while (1) {
-    while_48_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 935
     while (1) {
-      while_49_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
       {
 #line 935
-      __cil_tmp19 = (spinlock_t *)info;
+      __cil_tmp14 = & info->lock;
 #line 935
-      tmp___9 = spinlock_check(__cil_tmp19);
+      tmp___9 = spinlock_check(__cil_tmp14);
 #line 935
       flags = _raw_spin_lock_irqsave(tmp___9);
       }
+#line 935
       goto while_break___1;
     }
-    while_49_break: /* CIL Label */ ;
+    while_break___6: /* CIL Label */ ;
     }
 
     while_break___1: ;
+#line 935
     goto while_break___0;
   }
-  while_48_break: /* CIL Label */ ;
+  while_break___5: /* CIL Label */ ;
   }
 
   while_break___0: 
 #line 936
-  __cil_tmp20 = (unsigned long )info;
-#line 936
-  __cil_tmp21 = __cil_tmp20 + 232;
-#line 936
-  tmp___8 = *((struct list_head **)__cil_tmp21);
+  tmp___8 = info->tx_urbs_submitted.next;
   {
 #line 936
   while (1) {
-    while_50_continue: /* CIL Label */ ;
+    while_continue___2: /* CIL Label */ ;
 
     {
 #line 936
-    __cil_tmp22 = (unsigned long )info;
+    __cil_tmp15 = & info->tx_urbs_submitted;
 #line 936
-    __cil_tmp23 = __cil_tmp22 + 232;
+    __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 936
-    __cil_tmp24 = (struct list_head *)__cil_tmp23;
+    __cil_tmp17 = (unsigned long )tmp___8;
 #line 936
-    __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 936
-    __cil_tmp26 = (unsigned long )tmp___8;
-#line 936
-    if (__cil_tmp26 != __cil_tmp25) {
+    if (__cil_tmp17 != __cil_tmp16) {
 
     } else {
+#line 936
       goto while_break___2;
     }
     }
 #line 937
     __mptr = (struct list_head  const  *)tmp___8;
 #line 937
-    __cil_tmp27 = (struct whiteheat_urb_wrap *)0;
+    __cil_tmp18 = (struct whiteheat_urb_wrap *)0;
 #line 937
-    __cil_tmp28 = (struct list_head *)__cil_tmp27;
+    __cil_tmp19 = & __cil_tmp18->list;
 #line 937
-    __cil_tmp29 = (unsigned int )__cil_tmp28;
+    __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 937
-    __cil_tmp30 = (char *)__mptr;
+    __cil_tmp21 = (char *)__mptr;
 #line 937
-    __cil_tmp31 = __cil_tmp30 - __cil_tmp29;
+    __cil_tmp22 = __cil_tmp21 - __cil_tmp20;
 #line 937
-    wrap = (struct whiteheat_urb_wrap *)__cil_tmp31;
+    wrap = (struct whiteheat_urb_wrap *)__cil_tmp22;
 #line 938
-    __cil_tmp32 = (unsigned long )wrap;
+    __cil_tmp23 = wrap->urb;
 #line 938
-    __cil_tmp33 = __cil_tmp32 + 16;
+    __cil_tmp24 = __cil_tmp23->transfer_buffer_length;
 #line 938
-    __cil_tmp34 = *((struct urb **)__cil_tmp33);
+    __cil_tmp25 = (u32 )chars;
 #line 938
-    __cil_tmp35 = (unsigned long )__cil_tmp34;
+    __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
 #line 938
-    __cil_tmp36 = __cil_tmp35 + 132;
-#line 938
-    __cil_tmp37 = *((u32 *)__cil_tmp36);
-#line 938
-    __cil_tmp38 = (unsigned int )chars;
-#line 938
-    __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 938
-    chars = (int )__cil_tmp39;
+    chars = (int )__cil_tmp26;
 #line 936
-    tmp___8 = *((struct list_head **)tmp___8);
+    tmp___8 = tmp___8->next;
   }
-  while_50_break: /* CIL Label */ ;
+  while_break___7: /* CIL Label */ ;
   }
 
   while_break___2: 
   {
 #line 940
-  __cil_tmp40 = (spinlock_t *)info;
+  __cil_tmp27 = & info->lock;
 #line 940
-  spin_unlock_irqrestore(__cil_tmp40, flags);
+  spin_unlock_irqrestore(__cil_tmp27, flags);
   }
   {
 #line 942
   while (1) {
-    while_51_continue: /* CIL Label */ ;
+    while_continue___3: /* CIL Label */ ;
 
-    {
 #line 942
-    __cil_tmp41 = & debug;
-#line 942
-    if (*__cil_tmp41) {
+    if (debug) {
       {
 #line 942
       printk("<7>%s: %s - returns %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -10902,10 +9563,10 @@ static int whiteheat_chars_in_buffer(struct tty_struct *tty )
     } else {
 
     }
-    }
+#line 942
     goto while_break___3;
   }
-  while_51_break: /* CIL Label */ ;
+  while_break___8: /* CIL Label */ ;
   }
 
   while_break___3: ;
@@ -10918,34 +9579,21 @@ static void whiteheat_throttle(struct tty_struct *tty )
 { struct usb_serial_port *port ;
   struct whiteheat_private *info ;
   void *tmp___7 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  int *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned char __cil_tmp11 ;
-  int __cil_tmp12 ;
-  spinlock_t *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  spinlock_t *__cil_tmp21 ;
+  void *__cil_tmp5 ;
+  unsigned char __cil_tmp6 ;
+  int __cil_tmp7 ;
+  spinlock_t *__cil_tmp8 ;
+  __u8 __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  spinlock_t *__cil_tmp12 ;
 
   {
   {
 #line 949
-  __cil_tmp5 = (unsigned long )tty;
+  __cil_tmp5 = tty->driver_data;
 #line 949
-  __cil_tmp6 = __cil_tmp5 + 1064;
-#line 949
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 949
-  port = (struct usb_serial_port *)__cil_tmp7;
+  port = (struct usb_serial_port *)__cil_tmp5;
 #line 950
   tmp___7 = usb_get_serial_port_data(port);
 #line 950
@@ -10954,61 +9602,46 @@ static void whiteheat_throttle(struct tty_struct *tty )
   {
 #line 952
   while (1) {
-    while_52_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 952
-    __cil_tmp8 = & debug;
-#line 952
-    if (*__cil_tmp8) {
+    if (debug) {
       {
 #line 952
-      __cil_tmp9 = (unsigned long )port;
+      __cil_tmp6 = port->number;
 #line 952
-      __cil_tmp10 = __cil_tmp9 + 816;
-#line 952
-      __cil_tmp11 = *((unsigned char *)__cil_tmp10);
-#line 952
-      __cil_tmp12 = (int )__cil_tmp11;
+      __cil_tmp7 = (int )__cil_tmp6;
 #line 952
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_throttle", __cil_tmp12);
+             "whiteheat_throttle", __cil_tmp7);
       }
     } else {
 
     }
-    }
+#line 952
     goto while_break;
   }
-  while_52_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 954
-  __cil_tmp13 = (spinlock_t *)info;
+  __cil_tmp8 = & info->lock;
 #line 954
-  spin_lock_irq(__cil_tmp13);
+  spin_lock_irq(__cil_tmp8);
 #line 955
-  __cil_tmp14 = (unsigned long )info;
+  __cil_tmp9 = info->flags;
 #line 955
-  __cil_tmp15 = __cil_tmp14 + 72;
+  __cil_tmp10 = (int )__cil_tmp9;
 #line 955
-  __cil_tmp16 = (unsigned long )info;
+  __cil_tmp11 = __cil_tmp10 | 1;
 #line 955
-  __cil_tmp17 = __cil_tmp16 + 72;
-#line 955
-  __cil_tmp18 = *((__u8 *)__cil_tmp17);
-#line 955
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 955
-  __cil_tmp20 = __cil_tmp19 | 1;
-#line 955
-  *((__u8 *)__cil_tmp15) = (unsigned char )__cil_tmp20;
+  info->flags = (__u8 )__cil_tmp11;
 #line 956
-  __cil_tmp21 = (spinlock_t *)info;
+  __cil_tmp12 = & info->lock;
 #line 956
-  spin_unlock_irq(__cil_tmp21);
+  spin_unlock_irq(__cil_tmp12);
   }
 #line 957
   return;
@@ -11020,41 +9653,24 @@ static void whiteheat_unthrottle(struct tty_struct *tty )
   struct whiteheat_private *info ;
   void *tmp___7 ;
   int actually_throttled ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  int *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
+  void *__cil_tmp6 ;
+  unsigned char __cil_tmp7 ;
+  int __cil_tmp8 ;
+  spinlock_t *__cil_tmp9 ;
+  __u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  __u8 __cil_tmp12 ;
   int __cil_tmp13 ;
-  spinlock_t *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  __u8 __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  __u8 __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  spinlock_t *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct work_struct *__cil_tmp29 ;
+  int __cil_tmp14 ;
+  spinlock_t *__cil_tmp15 ;
+  struct work_struct *__cil_tmp16 ;
 
   {
   {
 #line 962
-  __cil_tmp6 = (unsigned long )tty;
+  __cil_tmp6 = tty->driver_data;
 #line 962
-  __cil_tmp7 = __cil_tmp6 + 1064;
-#line 962
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 962
-  port = (struct usb_serial_port *)__cil_tmp8;
+  port = (struct usb_serial_port *)__cil_tmp6;
 #line 963
   tmp___7 = usb_get_serial_port_data(port);
 #line 963
@@ -11063,83 +9679,60 @@ static void whiteheat_unthrottle(struct tty_struct *tty )
   {
 #line 966
   while (1) {
-    while_53_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 966
-    __cil_tmp9 = & debug;
-#line 966
-    if (*__cil_tmp9) {
+    if (debug) {
       {
 #line 966
-      __cil_tmp10 = (unsigned long )port;
+      __cil_tmp7 = port->number;
 #line 966
-      __cil_tmp11 = __cil_tmp10 + 816;
-#line 966
-      __cil_tmp12 = *((unsigned char *)__cil_tmp11);
-#line 966
-      __cil_tmp13 = (int )__cil_tmp12;
+      __cil_tmp8 = (int )__cil_tmp7;
 #line 966
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_unthrottle", __cil_tmp13);
+             "whiteheat_unthrottle", __cil_tmp8);
       }
     } else {
 
     }
-    }
+#line 966
     goto while_break;
   }
-  while_53_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 968
-  __cil_tmp14 = (spinlock_t *)info;
+  __cil_tmp9 = & info->lock;
 #line 968
-  spin_lock_irq(__cil_tmp14);
+  spin_lock_irq(__cil_tmp9);
 #line 969
-  __cil_tmp15 = (unsigned long )info;
+  __cil_tmp10 = info->flags;
 #line 969
-  __cil_tmp16 = __cil_tmp15 + 72;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 969
-  __cil_tmp17 = *((__u8 *)__cil_tmp16);
-#line 969
-  __cil_tmp18 = (int )__cil_tmp17;
-#line 969
-  actually_throttled = __cil_tmp18 & 2;
+  actually_throttled = __cil_tmp11 & 2;
 #line 970
-  __cil_tmp19 = (unsigned long )info;
+  __cil_tmp12 = info->flags;
 #line 970
-  __cil_tmp20 = __cil_tmp19 + 72;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 970
-  __cil_tmp21 = (unsigned long )info;
+  __cil_tmp14 = __cil_tmp13 & -4;
 #line 970
-  __cil_tmp22 = __cil_tmp21 + 72;
-#line 970
-  __cil_tmp23 = *((__u8 *)__cil_tmp22);
-#line 970
-  __cil_tmp24 = (int )__cil_tmp23;
-#line 970
-  __cil_tmp25 = __cil_tmp24 & -4;
-#line 970
-  *((__u8 *)__cil_tmp20) = (unsigned char )__cil_tmp25;
+  info->flags = (__u8 )__cil_tmp14;
 #line 971
-  __cil_tmp26 = (spinlock_t *)info;
+  __cil_tmp15 = & info->lock;
 #line 971
-  spin_unlock_irq(__cil_tmp26);
+  spin_unlock_irq(__cil_tmp15);
   }
 #line 973
   if (actually_throttled) {
     {
 #line 974
-    __cil_tmp27 = (unsigned long )info;
+    __cil_tmp16 = & info->rx_work;
 #line 974
-    __cil_tmp28 = __cil_tmp27 + 128;
-#line 974
-    __cil_tmp29 = (struct work_struct *)__cil_tmp28;
-#line 974
-    rx_data_softint(__cil_tmp29);
+    rx_data_softint(__cil_tmp16);
     }
   } else {
 
@@ -11151,28 +9744,17 @@ static void whiteheat_unthrottle(struct tty_struct *tty )
 #line 981 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static void command_port_write_callback(struct urb *urb ) 
 { int status ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  int *__cil_tmp5 ;
-  int *__cil_tmp6 ;
 
   {
 #line 983
-  __cil_tmp3 = (unsigned long )urb;
-#line 983
-  __cil_tmp4 = __cil_tmp3 + 96;
-#line 983
-  status = *((int *)__cil_tmp4);
+  status = urb->status;
   {
 #line 985
   while (1) {
-    while_54_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 985
-    __cil_tmp5 = & debug;
-#line 985
-    if (*__cil_tmp5) {
+    if (debug) {
       {
 #line 985
       printk("<7>%s: %s\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11181,10 +9763,10 @@ static void command_port_write_callback(struct urb *urb )
     } else {
 
     }
-    }
+#line 985
     goto while_break;
   }
-  while_54_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -11193,13 +9775,10 @@ static void command_port_write_callback(struct urb *urb )
     {
 #line 988
     while (1) {
-      while_55_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 988
-      __cil_tmp6 = & debug;
-#line 988
-      if (*__cil_tmp6) {
+      if (debug) {
         {
 #line 988
         printk("<7>%s: nonzero urb status: %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11208,10 +9787,10 @@ static void command_port_write_callback(struct urb *urb )
       } else {
 
       }
-      }
+#line 988
       goto while_break___0;
     }
-    while_55_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -11234,121 +9813,60 @@ static void command_port_read_callback(struct urb *urb )
   void *tmp___7 ;
   size_t __len ;
   void *__ret ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  void *__cil_tmp17 ;
-  int *__cil_tmp18 ;
-  int *__cil_tmp19 ;
-  int *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  wait_queue_head_t *__cil_tmp25 ;
-  void *__cil_tmp26 ;
-  int *__cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct device *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  void *__cil_tmp10 ;
+  void *__cil_tmp11 ;
+  wait_queue_head_t *__cil_tmp12 ;
+  void *__cil_tmp13 ;
+  struct device *__cil_tmp14 ;
+  u32 __cil_tmp15 ;
+  int __cil_tmp16 ;
+  unsigned char const   *__cil_tmp17 ;
+  unsigned char *__cil_tmp18 ;
+  unsigned char __cil_tmp19 ;
+  int __cil_tmp20 ;
+  wait_queue_head_t *__cil_tmp21 ;
+  void *__cil_tmp22 ;
+  unsigned char *__cil_tmp23 ;
+  unsigned char __cil_tmp24 ;
+  int __cil_tmp25 ;
+  wait_queue_head_t *__cil_tmp26 ;
+  void *__cil_tmp27 ;
+  unsigned char *__cil_tmp28 ;
+  unsigned char __cil_tmp29 ;
+  int __cil_tmp30 ;
+  unsigned char *__cil_tmp31 ;
+  unsigned char __cil_tmp32 ;
+  int __cil_tmp33 ;
   u32 __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned char const   *__cil_tmp36 ;
-  unsigned char *__cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
-  int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  wait_queue_head_t *__cil_tmp44 ;
-  void *__cil_tmp45 ;
-  unsigned char *__cil_tmp46 ;
-  unsigned char __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  wait_queue_head_t *__cil_tmp53 ;
-  void *__cil_tmp54 ;
-  unsigned char *__cil_tmp55 ;
-  unsigned char __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int *__cil_tmp58 ;
-  unsigned char *__cil_tmp59 ;
-  unsigned char __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u32 __cil_tmp64 ;
-  u32 __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  __u8 *__cil_tmp70 ;
-  void *__cil_tmp71 ;
-  unsigned char *__cil_tmp72 ;
-  void const   *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  wait_queue_head_t *__cil_tmp78 ;
-  void *__cil_tmp79 ;
-  int *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct urb *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  struct usb_serial *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  struct urb *__cil_tmp89 ;
-  int *__cil_tmp90 ;
+  u32 __cil_tmp35 ;
+  __u8 *__cil_tmp36 ;
+  void *__cil_tmp37 ;
+  unsigned char *__cil_tmp38 ;
+  void const   *__cil_tmp39 ;
+  wait_queue_head_t *__cil_tmp40 ;
+  void *__cil_tmp41 ;
+  struct urb *__cil_tmp42 ;
+  struct usb_serial *__cil_tmp43 ;
+  struct urb *__cil_tmp44 ;
 
   {
 #line 996
-  __cil_tmp10 = (unsigned long )urb;
+  __cil_tmp10 = urb->context;
 #line 996
-  __cil_tmp11 = __cil_tmp10 + 176;
-#line 996
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 996
-  command_port = (struct usb_serial_port *)__cil_tmp12;
+  command_port = (struct usb_serial_port *)__cil_tmp10;
 #line 998
-  __cil_tmp13 = (unsigned long )urb;
-#line 998
-  __cil_tmp14 = __cil_tmp13 + 96;
-#line 998
-  status = *((int *)__cil_tmp14);
+  status = urb->status;
 #line 999
-  __cil_tmp15 = (unsigned long )urb;
+  __cil_tmp11 = urb->transfer_buffer;
 #line 999
-  __cil_tmp16 = __cil_tmp15 + 104;
-#line 999
-  __cil_tmp17 = *((void **)__cil_tmp16);
-#line 999
-  data = (unsigned char *)__cil_tmp17;
+  data = (unsigned char *)__cil_tmp11;
   {
 #line 1002
   while (1) {
-    while_56_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 1002
-    __cil_tmp18 = & debug;
-#line 1002
-    if (*__cil_tmp18) {
+    if (debug) {
       {
 #line 1002
       printk("<7>%s: %s\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11357,10 +9875,10 @@ static void command_port_read_callback(struct urb *urb )
     } else {
 
     }
-    }
+#line 1002
     goto while_break;
   }
-  while_56_break: /* CIL Label */ ;
+  while_break___5: /* CIL Label */ ;
   }
 
   while_break: 
@@ -11375,13 +9893,10 @@ static void command_port_read_callback(struct urb *urb )
     {
 #line 1006
     while (1) {
-      while_57_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 1006
-      __cil_tmp19 = & debug;
-#line 1006
-      if (*__cil_tmp19) {
+      if (debug) {
         {
 #line 1006
         printk("<7>%s: %s - command_info is NULL, exiting.\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11390,10 +9905,10 @@ static void command_port_read_callback(struct urb *urb )
       } else {
 
       }
-      }
+#line 1006
       goto while_break___0;
     }
-    while_57_break: /* CIL Label */ ;
+    while_break___6: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -11407,13 +9922,10 @@ static void command_port_read_callback(struct urb *urb )
     {
 #line 1010
     while (1) {
-      while_58_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
-      {
 #line 1010
-      __cil_tmp20 = & debug;
-#line 1010
-      if (*__cil_tmp20) {
+      if (debug) {
         {
 #line 1010
         printk("<7>%s: %s - nonzero urb status: %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11422,35 +9934,27 @@ static void command_port_read_callback(struct urb *urb )
       } else {
 
       }
-      }
+#line 1010
       goto while_break___1;
     }
-    while_58_break: /* CIL Label */ ;
+    while_break___7: /* CIL Label */ ;
     }
 
     while_break___1: ;
 #line 1011
     if (status != -2) {
 #line 1012
-      __cil_tmp21 = (unsigned long )command_info;
-#line 1012
-      __cil_tmp22 = __cil_tmp21 + 169;
-#line 1012
-      *((__u8 *)__cil_tmp22) = (unsigned char)17;
+      command_info->command_finished = (__u8 )17;
     } else {
 
     }
     {
 #line 1013
-    __cil_tmp23 = (unsigned long )command_info;
+    __cil_tmp12 = & command_info->wait_command;
 #line 1013
-    __cil_tmp24 = __cil_tmp23 + 176;
+    __cil_tmp13 = (void *)0;
 #line 1013
-    __cil_tmp25 = (wait_queue_head_t *)__cil_tmp24;
-#line 1013
-    __cil_tmp26 = (void *)0;
-#line 1013
-    __wake_up(__cil_tmp25, 3U, 1, __cil_tmp26);
+    __wake_up(__cil_tmp12, 3U, 1, __cil_tmp13);
     }
 #line 1014
     return;
@@ -11459,104 +9963,73 @@ static void command_port_read_callback(struct urb *urb )
   }
   {
 #line 1017
-  __cil_tmp27 = & debug;
+  __cil_tmp14 = & command_port->dev;
 #line 1017
-  __cil_tmp28 = *__cil_tmp27;
+  __cil_tmp15 = urb->actual_length;
 #line 1017
-  __cil_tmp29 = (unsigned long )command_port;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 1017
-  __cil_tmp30 = __cil_tmp29 + 1208;
+  __cil_tmp17 = (unsigned char const   *)data;
 #line 1017
-  __cil_tmp31 = (struct device *)__cil_tmp30;
-#line 1017
-  __cil_tmp32 = (unsigned long )urb;
-#line 1017
-  __cil_tmp33 = __cil_tmp32 + 136;
-#line 1017
-  __cil_tmp34 = *((u32 *)__cil_tmp33);
-#line 1017
-  __cil_tmp35 = (int )__cil_tmp34;
-#line 1017
-  __cil_tmp36 = (unsigned char const   *)data;
-#line 1017
-  usb_serial_debug_data(__cil_tmp28, __cil_tmp31, "command_port_read_callback", __cil_tmp35,
-                        __cil_tmp36);
+  usb_serial_debug_data(debug, __cil_tmp14, "command_port_read_callback", __cil_tmp16,
+                        __cil_tmp17);
   }
   {
 #line 1020
-  __cil_tmp37 = data + 0;
+  __cil_tmp18 = data + 0;
 #line 1020
-  __cil_tmp38 = *__cil_tmp37;
+  __cil_tmp19 = *__cil_tmp18;
 #line 1020
-  __cil_tmp39 = (int )__cil_tmp38;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 1020
-  if (__cil_tmp39 == 16) {
+  if (__cil_tmp20 == 16) {
     {
 #line 1021
-    __cil_tmp40 = (unsigned long )command_info;
-#line 1021
-    __cil_tmp41 = __cil_tmp40 + 169;
-#line 1021
-    *((__u8 *)__cil_tmp41) = (unsigned char)16;
+    command_info->command_finished = (__u8 )16;
 #line 1022
-    __cil_tmp42 = (unsigned long )command_info;
+    __cil_tmp21 = & command_info->wait_command;
 #line 1022
-    __cil_tmp43 = __cil_tmp42 + 176;
+    __cil_tmp22 = (void *)0;
 #line 1022
-    __cil_tmp44 = (wait_queue_head_t *)__cil_tmp43;
-#line 1022
-    __cil_tmp45 = (void *)0;
-#line 1022
-    __wake_up(__cil_tmp44, 3U, 1, __cil_tmp45);
+    __wake_up(__cil_tmp21, 3U, 1, __cil_tmp22);
     }
   } else {
     {
 #line 1023
-    __cil_tmp46 = data + 0;
+    __cil_tmp23 = data + 0;
 #line 1023
-    __cil_tmp47 = *__cil_tmp46;
+    __cil_tmp24 = *__cil_tmp23;
 #line 1023
-    __cil_tmp48 = (int )__cil_tmp47;
+    __cil_tmp25 = (int )__cil_tmp24;
 #line 1023
-    if (__cil_tmp48 == 17) {
+    if (__cil_tmp25 == 17) {
       {
 #line 1024
-      __cil_tmp49 = (unsigned long )command_info;
-#line 1024
-      __cil_tmp50 = __cil_tmp49 + 169;
-#line 1024
-      *((__u8 *)__cil_tmp50) = (unsigned char)17;
+      command_info->command_finished = (__u8 )17;
 #line 1025
-      __cil_tmp51 = (unsigned long )command_info;
+      __cil_tmp26 = & command_info->wait_command;
 #line 1025
-      __cil_tmp52 = __cil_tmp51 + 176;
+      __cil_tmp27 = (void *)0;
 #line 1025
-      __cil_tmp53 = (wait_queue_head_t *)__cil_tmp52;
-#line 1025
-      __cil_tmp54 = (void *)0;
-#line 1025
-      __wake_up(__cil_tmp53, 3U, 1, __cil_tmp54);
+      __wake_up(__cil_tmp26, 3U, 1, __cil_tmp27);
       }
     } else {
       {
 #line 1026
-      __cil_tmp55 = data + 0;
+      __cil_tmp28 = data + 0;
 #line 1026
-      __cil_tmp56 = *__cil_tmp55;
+      __cil_tmp29 = *__cil_tmp28;
 #line 1026
-      __cil_tmp57 = (int )__cil_tmp56;
+      __cil_tmp30 = (int )__cil_tmp29;
 #line 1026
-      if (__cil_tmp57 == 13) {
+      if (__cil_tmp30 == 13) {
         {
 #line 1029
         while (1) {
-          while_59_continue: /* CIL Label */ ;
+          while_continue___2: /* CIL Label */ ;
 
-          {
 #line 1029
-          __cil_tmp58 = & debug;
-#line 1029
-          if (*__cil_tmp58) {
+          if (debug) {
             {
 #line 1029
             printk("<7>%s: %s - event received\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11565,80 +10038,57 @@ static void command_port_read_callback(struct urb *urb )
           } else {
 
           }
-          }
+#line 1029
           goto while_break___2;
         }
-        while_59_break: /* CIL Label */ ;
+        while_break___8: /* CIL Label */ ;
         }
 
         while_break___2: ;
       } else {
         {
 #line 1030
-        __cil_tmp59 = data + 0;
+        __cil_tmp31 = data + 0;
 #line 1030
-        __cil_tmp60 = *__cil_tmp59;
+        __cil_tmp32 = *__cil_tmp31;
 #line 1030
-        __cil_tmp61 = (int )__cil_tmp60;
+        __cil_tmp33 = (int )__cil_tmp32;
 #line 1030
-        if (__cil_tmp61 == 10) {
+        if (__cil_tmp33 == 10) {
           {
 #line 1031
-          __cil_tmp62 = (unsigned long )urb;
+          __cil_tmp34 = urb->actual_length;
 #line 1031
-          __cil_tmp63 = __cil_tmp62 + 136;
+          __cil_tmp35 = __cil_tmp34 - 1U;
 #line 1031
-          __cil_tmp64 = *((u32 *)__cil_tmp63);
+          __len = (size_t )__cil_tmp35;
 #line 1031
-          __cil_tmp65 = __cil_tmp64 - 1U;
+          __cil_tmp36 = & command_info->result_buffer[0];
 #line 1031
-          __len = (unsigned long )__cil_tmp65;
+          __cil_tmp37 = (void *)__cil_tmp36;
 #line 1031
-          __cil_tmp66 = 0 * 1UL;
+          __cil_tmp38 = data + 1;
 #line 1031
-          __cil_tmp67 = 264 + __cil_tmp66;
+          __cil_tmp39 = (void const   *)__cil_tmp38;
 #line 1031
-          __cil_tmp68 = (unsigned long )command_info;
-#line 1031
-          __cil_tmp69 = __cil_tmp68 + __cil_tmp67;
-#line 1031
-          __cil_tmp70 = (__u8 *)__cil_tmp69;
-#line 1031
-          __cil_tmp71 = (void *)__cil_tmp70;
-#line 1031
-          __cil_tmp72 = data + 1;
-#line 1031
-          __cil_tmp73 = (void const   *)__cil_tmp72;
-#line 1031
-          __ret = __builtin_memcpy(__cil_tmp71, __cil_tmp73, __len);
+          __ret = __builtin_memcpy(__cil_tmp37, __cil_tmp39, __len);
 #line 1033
-          __cil_tmp74 = (unsigned long )command_info;
-#line 1033
-          __cil_tmp75 = __cil_tmp74 + 169;
-#line 1033
-          *((__u8 *)__cil_tmp75) = (unsigned char)16;
+          command_info->command_finished = (__u8 )16;
 #line 1034
-          __cil_tmp76 = (unsigned long )command_info;
+          __cil_tmp40 = & command_info->wait_command;
 #line 1034
-          __cil_tmp77 = __cil_tmp76 + 176;
+          __cil_tmp41 = (void *)0;
 #line 1034
-          __cil_tmp78 = (wait_queue_head_t *)__cil_tmp77;
-#line 1034
-          __cil_tmp79 = (void *)0;
-#line 1034
-          __wake_up(__cil_tmp78, 3U, 1, __cil_tmp79);
+          __wake_up(__cil_tmp40, 3U, 1, __cil_tmp41);
           }
         } else {
           {
 #line 1036
           while (1) {
-            while_60_continue: /* CIL Label */ ;
+            while_continue___3: /* CIL Label */ ;
 
-            {
 #line 1036
-            __cil_tmp80 = & debug;
-#line 1036
-            if (*__cil_tmp80) {
+            if (debug) {
               {
 #line 1036
               printk("<7>%s: %s - bad reply from firmware\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11647,10 +10097,10 @@ static void command_port_read_callback(struct urb *urb )
             } else {
 
             }
-            }
+#line 1036
             goto while_break___3;
           }
-          while_60_break: /* CIL Label */ ;
+          while_break___9: /* CIL Label */ ;
           }
 
           while_break___3: ;
@@ -11664,40 +10114,25 @@ static void command_port_read_callback(struct urb *urb )
   }
   {
 #line 1039
-  __cil_tmp81 = (unsigned long )command_port;
+  __cil_tmp42 = command_port->read_urb;
 #line 1039
-  __cil_tmp82 = __cil_tmp81 + 896;
+  __cil_tmp43 = command_port->serial;
 #line 1039
-  __cil_tmp83 = *((struct urb **)__cil_tmp82);
-#line 1039
-  __cil_tmp84 = (unsigned long )__cil_tmp83;
-#line 1039
-  __cil_tmp85 = __cil_tmp84 + 72;
-#line 1039
-  __cil_tmp86 = *((struct usb_serial **)command_port);
-#line 1039
-  *((struct usb_device **)__cil_tmp85) = *((struct usb_device **)__cil_tmp86);
+  __cil_tmp42->dev = __cil_tmp43->dev;
 #line 1040
-  __cil_tmp87 = (unsigned long )command_port;
+  __cil_tmp44 = command_port->read_urb;
 #line 1040
-  __cil_tmp88 = __cil_tmp87 + 896;
-#line 1040
-  __cil_tmp89 = *((struct urb **)__cil_tmp88);
-#line 1040
-  result = usb_submit_urb(__cil_tmp89, 32U);
+  result = usb_submit_urb(__cil_tmp44, 32U);
   }
 #line 1041
   if (result) {
     {
 #line 1042
     while (1) {
-      while_61_continue: /* CIL Label */ ;
+      while_continue___4: /* CIL Label */ ;
 
-      {
 #line 1042
-      __cil_tmp90 = & debug;
-#line 1042
-      if (*__cil_tmp90) {
+      if (debug) {
         {
 #line 1042
         printk("<7>%s: %s - failed resubmitting read urb, error %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11706,10 +10141,10 @@ static void command_port_read_callback(struct urb *urb )
       } else {
 
       }
-      }
+#line 1042
       goto while_break___4;
     }
-    while_61_break: /* CIL Label */ ;
+    while_break___10: /* CIL Label */ ;
     }
 
     while_break___4: ;
@@ -11728,162 +10163,103 @@ static void whiteheat_read_callback(struct urb *urb )
   struct whiteheat_private *info ;
   void *tmp___7 ;
   int status ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  void *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned char __cil_tmp19 ;
-  int __cil_tmp20 ;
-  spinlock_t *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct list_head *__cil_tmp24 ;
-  spinlock_t *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct device *__cil_tmp28 ;
-  struct device  const  *__cil_tmp29 ;
-  struct list_head *__cil_tmp30 ;
-  spinlock_t *__cil_tmp31 ;
-  int *__cil_tmp32 ;
-  spinlock_t *__cil_tmp33 ;
-  struct list_head *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct list_head *__cil_tmp37 ;
-  spinlock_t *__cil_tmp38 ;
-  int *__cil_tmp39 ;
-  int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct device *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  u32 __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned char const   *__cil_tmp48 ;
-  spinlock_t *__cil_tmp49 ;
-  struct list_head *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct list_head *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  __u8 __cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  __u8 __cil_tmp62 ;
-  int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  spinlock_t *__cil_tmp65 ;
-  spinlock_t *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct work_struct *__cil_tmp69 ;
+  void *__cil_tmp8 ;
+  void *__cil_tmp9 ;
+  unsigned char __cil_tmp10 ;
+  int __cil_tmp11 ;
+  spinlock_t *__cil_tmp12 ;
+  struct list_head *__cil_tmp13 ;
+  spinlock_t *__cil_tmp14 ;
+  struct device *__cil_tmp15 ;
+  struct device  const  *__cil_tmp16 ;
+  struct list_head *__cil_tmp17 ;
+  spinlock_t *__cil_tmp18 ;
+  spinlock_t *__cil_tmp19 ;
+  struct list_head *__cil_tmp20 ;
+  struct list_head *__cil_tmp21 ;
+  spinlock_t *__cil_tmp22 ;
+  struct device *__cil_tmp23 ;
+  u32 __cil_tmp24 ;
+  int __cil_tmp25 ;
+  unsigned char const   *__cil_tmp26 ;
+  spinlock_t *__cil_tmp27 ;
+  struct list_head *__cil_tmp28 ;
+  struct list_head *__cil_tmp29 ;
+  __u8 __cil_tmp30 ;
+  int __cil_tmp31 ;
+  __u8 __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  spinlock_t *__cil_tmp35 ;
+  spinlock_t *__cil_tmp36 ;
+  struct work_struct *__cil_tmp37 ;
 
   {
   {
 #line 1049
-  __cil_tmp8 = (unsigned long )urb;
+  __cil_tmp8 = urb->context;
 #line 1049
-  __cil_tmp9 = __cil_tmp8 + 176;
-#line 1049
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 1049
-  port = (struct usb_serial_port *)__cil_tmp10;
+  port = (struct usb_serial_port *)__cil_tmp8;
 #line 1051
-  __cil_tmp11 = (unsigned long )urb;
+  __cil_tmp9 = urb->transfer_buffer;
 #line 1051
-  __cil_tmp12 = __cil_tmp11 + 104;
-#line 1051
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 1051
-  data = (unsigned char *)__cil_tmp13;
+  data = (unsigned char *)__cil_tmp9;
 #line 1052
   tmp___7 = usb_get_serial_port_data(port);
 #line 1052
   info = (struct whiteheat_private *)tmp___7;
 #line 1053
-  __cil_tmp14 = (unsigned long )urb;
-#line 1053
-  __cil_tmp15 = __cil_tmp14 + 96;
-#line 1053
-  status = *((int *)__cil_tmp15);
+  status = urb->status;
   }
   {
 #line 1055
   while (1) {
-    while_62_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 1055
-    __cil_tmp16 = & debug;
-#line 1055
-    if (*__cil_tmp16) {
+    if (debug) {
       {
 #line 1055
-      __cil_tmp17 = (unsigned long )port;
+      __cil_tmp10 = port->number;
 #line 1055
-      __cil_tmp18 = __cil_tmp17 + 816;
-#line 1055
-      __cil_tmp19 = *((unsigned char *)__cil_tmp18);
-#line 1055
-      __cil_tmp20 = (int )__cil_tmp19;
+      __cil_tmp11 = (int )__cil_tmp10;
 #line 1055
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_read_callback", __cil_tmp20);
+             "whiteheat_read_callback", __cil_tmp11);
       }
     } else {
 
     }
-    }
+#line 1055
     goto while_break;
   }
-  while_62_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 1057
-  __cil_tmp21 = (spinlock_t *)info;
+  __cil_tmp12 = & info->lock;
 #line 1057
-  spin_lock(__cil_tmp21);
+  spin_lock(__cil_tmp12);
 #line 1058
-  __cil_tmp22 = (unsigned long )info;
+  __cil_tmp13 = & info->rx_urbs_submitted;
 #line 1058
-  __cil_tmp23 = __cil_tmp22 + 96;
-#line 1058
-  __cil_tmp24 = (struct list_head *)__cil_tmp23;
-#line 1058
-  wrap = urb_to_wrap(urb, __cil_tmp24);
+  wrap = urb_to_wrap(urb, __cil_tmp13);
   }
 #line 1059
   if (! wrap) {
     {
 #line 1060
-    __cil_tmp25 = (spinlock_t *)info;
+    __cil_tmp14 = & info->lock;
 #line 1060
-    spin_unlock(__cil_tmp25);
+    spin_unlock(__cil_tmp14);
 #line 1061
-    __cil_tmp26 = (unsigned long )port;
+    __cil_tmp15 = & port->dev;
 #line 1061
-    __cil_tmp27 = __cil_tmp26 + 1208;
+    __cil_tmp16 = (struct device  const  *)__cil_tmp15;
 #line 1061
-    __cil_tmp28 = (struct device *)__cil_tmp27;
-#line 1061
-    __cil_tmp29 = (struct device  const  *)__cil_tmp28;
-#line 1061
-    dev_err(__cil_tmp29, "%s - Not my urb!\n", "whiteheat_read_callback");
+    dev_err(__cil_tmp16, "%s - Not my urb!\n", "whiteheat_read_callback");
     }
 #line 1062
     return;
@@ -11892,26 +10268,23 @@ static void whiteheat_read_callback(struct urb *urb )
   }
   {
 #line 1064
-  __cil_tmp30 = (struct list_head *)wrap;
+  __cil_tmp17 = & wrap->list;
 #line 1064
-  list_del(__cil_tmp30);
+  list_del(__cil_tmp17);
 #line 1065
-  __cil_tmp31 = (spinlock_t *)info;
+  __cil_tmp18 = & info->lock;
 #line 1065
-  spin_unlock(__cil_tmp31);
+  spin_unlock(__cil_tmp18);
   }
 #line 1067
   if (status) {
     {
 #line 1068
     while (1) {
-      while_63_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 1068
-      __cil_tmp32 = & debug;
-#line 1068
-      if (*__cil_tmp32) {
+      if (debug) {
         {
 #line 1068
         printk("<7>%s: %s - nonzero read bulk status received: %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -11920,32 +10293,28 @@ static void whiteheat_read_callback(struct urb *urb )
       } else {
 
       }
-      }
+#line 1068
       goto while_break___0;
     }
-    while_63_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: 
     {
 #line 1070
-    __cil_tmp33 = (spinlock_t *)info;
+    __cil_tmp19 = & info->lock;
 #line 1070
-    spin_lock(__cil_tmp33);
+    spin_lock(__cil_tmp19);
 #line 1071
-    __cil_tmp34 = (struct list_head *)wrap;
+    __cil_tmp20 = & wrap->list;
 #line 1071
-    __cil_tmp35 = (unsigned long )info;
+    __cil_tmp21 = & info->rx_urbs_free;
 #line 1071
-    __cil_tmp36 = __cil_tmp35 + 80;
-#line 1071
-    __cil_tmp37 = (struct list_head *)__cil_tmp36;
-#line 1071
-    list_add(__cil_tmp34, __cil_tmp37);
+    list_add(__cil_tmp20, __cil_tmp21);
 #line 1072
-    __cil_tmp38 = (spinlock_t *)info;
+    __cil_tmp22 = & info->lock;
 #line 1072
-    spin_unlock(__cil_tmp38);
+    spin_unlock(__cil_tmp22);
     }
 #line 1073
     return;
@@ -11954,75 +10323,47 @@ static void whiteheat_read_callback(struct urb *urb )
   }
   {
 #line 1076
-  __cil_tmp39 = & debug;
+  __cil_tmp23 = & port->dev;
 #line 1076
-  __cil_tmp40 = *__cil_tmp39;
+  __cil_tmp24 = urb->actual_length;
 #line 1076
-  __cil_tmp41 = (unsigned long )port;
+  __cil_tmp25 = (int )__cil_tmp24;
 #line 1076
-  __cil_tmp42 = __cil_tmp41 + 1208;
+  __cil_tmp26 = (unsigned char const   *)data;
 #line 1076
-  __cil_tmp43 = (struct device *)__cil_tmp42;
-#line 1076
-  __cil_tmp44 = (unsigned long )urb;
-#line 1076
-  __cil_tmp45 = __cil_tmp44 + 136;
-#line 1076
-  __cil_tmp46 = *((u32 *)__cil_tmp45);
-#line 1076
-  __cil_tmp47 = (int )__cil_tmp46;
-#line 1076
-  __cil_tmp48 = (unsigned char const   *)data;
-#line 1076
-  usb_serial_debug_data(__cil_tmp40, __cil_tmp43, "whiteheat_read_callback", __cil_tmp47,
-                        __cil_tmp48);
+  usb_serial_debug_data(debug, __cil_tmp23, "whiteheat_read_callback", __cil_tmp25,
+                        __cil_tmp26);
 #line 1079
-  __cil_tmp49 = (spinlock_t *)info;
+  __cil_tmp27 = & info->lock;
 #line 1079
-  spin_lock(__cil_tmp49);
+  spin_lock(__cil_tmp27);
 #line 1080
-  __cil_tmp50 = (struct list_head *)wrap;
+  __cil_tmp28 = & wrap->list;
 #line 1080
-  __cil_tmp51 = (unsigned long )info;
+  __cil_tmp29 = & info->rx_urb_q;
 #line 1080
-  __cil_tmp52 = __cil_tmp51 + 112;
-#line 1080
-  __cil_tmp53 = (struct list_head *)__cil_tmp52;
-#line 1080
-  list_add_tail(__cil_tmp50, __cil_tmp53);
+  list_add_tail(__cil_tmp28, __cil_tmp29);
   }
   {
 #line 1081
-  __cil_tmp54 = (unsigned long )info;
+  __cil_tmp30 = info->flags;
 #line 1081
-  __cil_tmp55 = __cil_tmp54 + 72;
+  __cil_tmp31 = (int )__cil_tmp30;
 #line 1081
-  __cil_tmp56 = *((__u8 *)__cil_tmp55);
-#line 1081
-  __cil_tmp57 = (int )__cil_tmp56;
-#line 1081
-  if (__cil_tmp57 & 1) {
+  if (__cil_tmp31 & 1) {
     {
 #line 1082
-    __cil_tmp58 = (unsigned long )info;
+    __cil_tmp32 = info->flags;
 #line 1082
-    __cil_tmp59 = __cil_tmp58 + 72;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 1082
-    __cil_tmp60 = (unsigned long )info;
+    __cil_tmp34 = __cil_tmp33 | 2;
 #line 1082
-    __cil_tmp61 = __cil_tmp60 + 72;
-#line 1082
-    __cil_tmp62 = *((__u8 *)__cil_tmp61);
-#line 1082
-    __cil_tmp63 = (int )__cil_tmp62;
-#line 1082
-    __cil_tmp64 = __cil_tmp63 | 2;
-#line 1082
-    *((__u8 *)__cil_tmp59) = (unsigned char )__cil_tmp64;
+    info->flags = (__u8 )__cil_tmp34;
 #line 1083
-    __cil_tmp65 = (spinlock_t *)info;
+    __cil_tmp35 = & info->lock;
 #line 1083
-    spin_unlock(__cil_tmp65);
+    spin_unlock(__cil_tmp35);
     }
 #line 1084
     return;
@@ -12032,17 +10373,13 @@ static void whiteheat_read_callback(struct urb *urb )
   }
   {
 #line 1086
-  __cil_tmp66 = (spinlock_t *)info;
+  __cil_tmp36 = & info->lock;
 #line 1086
-  spin_unlock(__cil_tmp66);
+  spin_unlock(__cil_tmp36);
 #line 1088
-  __cil_tmp67 = (unsigned long )info;
+  __cil_tmp37 = & info->rx_work;
 #line 1088
-  __cil_tmp68 = __cil_tmp67 + 128;
-#line 1088
-  __cil_tmp69 = (struct work_struct *)__cil_tmp68;
-#line 1088
-  schedule_work(__cil_tmp69);
+  schedule_work(__cil_tmp37);
   }
 #line 1089
   return;
@@ -12055,117 +10392,80 @@ static void whiteheat_write_callback(struct urb *urb )
   void *tmp___7 ;
   struct whiteheat_urb_wrap *wrap ;
   int status ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned char __cil_tmp15 ;
-  int __cil_tmp16 ;
+  void *__cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  int __cil_tmp9 ;
+  spinlock_t *__cil_tmp10 ;
+  struct list_head *__cil_tmp11 ;
+  spinlock_t *__cil_tmp12 ;
+  struct device *__cil_tmp13 ;
+  struct device  const  *__cil_tmp14 ;
+  struct list_head *__cil_tmp15 ;
+  struct list_head *__cil_tmp16 ;
   spinlock_t *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct list_head *__cil_tmp20 ;
-  spinlock_t *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct device *__cil_tmp24 ;
-  struct device  const  *__cil_tmp25 ;
-  struct list_head *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct list_head *__cil_tmp29 ;
-  spinlock_t *__cil_tmp30 ;
-  int *__cil_tmp31 ;
 
   {
   {
 #line 1094
-  __cil_tmp7 = (unsigned long )urb;
+  __cil_tmp7 = urb->context;
 #line 1094
-  __cil_tmp8 = __cil_tmp7 + 176;
-#line 1094
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 1094
-  port = (struct usb_serial_port *)__cil_tmp9;
+  port = (struct usb_serial_port *)__cil_tmp7;
 #line 1095
   tmp___7 = usb_get_serial_port_data(port);
 #line 1095
   info = (struct whiteheat_private *)tmp___7;
 #line 1097
-  __cil_tmp10 = (unsigned long )urb;
-#line 1097
-  __cil_tmp11 = __cil_tmp10 + 96;
-#line 1097
-  status = *((int *)__cil_tmp11);
+  status = urb->status;
   }
   {
 #line 1099
   while (1) {
-    while_64_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 1099
-    __cil_tmp12 = & debug;
-#line 1099
-    if (*__cil_tmp12) {
+    if (debug) {
       {
 #line 1099
-      __cil_tmp13 = (unsigned long )port;
+      __cil_tmp8 = port->number;
 #line 1099
-      __cil_tmp14 = __cil_tmp13 + 816;
-#line 1099
-      __cil_tmp15 = *((unsigned char *)__cil_tmp14);
-#line 1099
-      __cil_tmp16 = (int )__cil_tmp15;
+      __cil_tmp9 = (int )__cil_tmp8;
 #line 1099
       printk("<7>%s: %s - port %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "whiteheat_write_callback", __cil_tmp16);
+             "whiteheat_write_callback", __cil_tmp9);
       }
     } else {
 
     }
-    }
+#line 1099
     goto while_break;
   }
-  while_64_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 1101
-  __cil_tmp17 = (spinlock_t *)info;
+  __cil_tmp10 = & info->lock;
 #line 1101
-  spin_lock(__cil_tmp17);
+  spin_lock(__cil_tmp10);
 #line 1102
-  __cil_tmp18 = (unsigned long )info;
+  __cil_tmp11 = & info->tx_urbs_submitted;
 #line 1102
-  __cil_tmp19 = __cil_tmp18 + 232;
-#line 1102
-  __cil_tmp20 = (struct list_head *)__cil_tmp19;
-#line 1102
-  wrap = urb_to_wrap(urb, __cil_tmp20);
+  wrap = urb_to_wrap(urb, __cil_tmp11);
   }
 #line 1103
   if (! wrap) {
     {
 #line 1104
-    __cil_tmp21 = (spinlock_t *)info;
+    __cil_tmp12 = & info->lock;
 #line 1104
-    spin_unlock(__cil_tmp21);
+    spin_unlock(__cil_tmp12);
 #line 1105
-    __cil_tmp22 = (unsigned long )port;
+    __cil_tmp13 = & port->dev;
 #line 1105
-    __cil_tmp23 = __cil_tmp22 + 1208;
+    __cil_tmp14 = (struct device  const  *)__cil_tmp13;
 #line 1105
-    __cil_tmp24 = (struct device *)__cil_tmp23;
-#line 1105
-    __cil_tmp25 = (struct device  const  *)__cil_tmp24;
-#line 1105
-    dev_err(__cil_tmp25, "%s - Not my urb!\n", "whiteheat_write_callback");
+    dev_err(__cil_tmp14, "%s - Not my urb!\n", "whiteheat_write_callback");
     }
 #line 1106
     return;
@@ -12174,32 +10474,25 @@ static void whiteheat_write_callback(struct urb *urb )
   }
   {
 #line 1108
-  __cil_tmp26 = (struct list_head *)wrap;
+  __cil_tmp15 = & wrap->list;
 #line 1108
-  __cil_tmp27 = (unsigned long )info;
+  __cil_tmp16 = & info->tx_urbs_free;
 #line 1108
-  __cil_tmp28 = __cil_tmp27 + 216;
-#line 1108
-  __cil_tmp29 = (struct list_head *)__cil_tmp28;
-#line 1108
-  list_move(__cil_tmp26, __cil_tmp29);
+  list_move(__cil_tmp15, __cil_tmp16);
 #line 1109
-  __cil_tmp30 = (spinlock_t *)info;
+  __cil_tmp17 = & info->lock;
 #line 1109
-  spin_unlock(__cil_tmp30);
+  spin_unlock(__cil_tmp17);
   }
 #line 1111
   if (status) {
     {
 #line 1112
     while (1) {
-      while_65_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 1112
-      __cil_tmp31 = & debug;
-#line 1112
-      if (*__cil_tmp31) {
+      if (debug) {
         {
 #line 1112
         printk("<7>%s: %s - nonzero write bulk status received: %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -12208,10 +10501,10 @@ static void whiteheat_write_callback(struct urb *urb )
       } else {
 
       }
-      }
+#line 1112
       goto while_break___0;
     }
-    while_65_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -12246,104 +10539,43 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   void *tmp___9 ;
   size_t __len___0 ;
   void *__ret___1 ;
-  int *__cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct usb_serial *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct mutex *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  int __cil_tmp20 ;
+  struct usb_serial *__cil_tmp21 ;
+  struct mutex *__cil_tmp22 ;
+  struct urb *__cil_tmp23 ;
+  void *__cil_tmp24 ;
+  __u8 *__cil_tmp25 ;
+  __u8 *__cil_tmp26 ;
+  void *__cil_tmp27 ;
+  void const   *__cil_tmp28 ;
+  struct urb *__cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
   struct urb *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  void *__cil_tmp35 ;
-  __u8 *__cil_tmp36 ;
-  __u8 *__cil_tmp37 ;
-  void *__cil_tmp38 ;
-  void const   *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct urb *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int __cil_tmp45 ;
+  struct usb_serial *__cil_tmp33 ;
+  struct urb *__cil_tmp34 ;
+  __u8 __cil_tmp35 ;
+  bool __cil_tmp36 ;
+  wait_queue_head_t *__cil_tmp37 ;
+  __u8 __cil_tmp38 ;
+  wait_queue_head_t *__cil_tmp39 ;
+  struct urb *__cil_tmp40 ;
+  __u8 __cil_tmp41 ;
+  int __cil_tmp42 ;
+  __u8 __cil_tmp43 ;
+  int __cil_tmp44 ;
+  __u8 __cil_tmp45 ;
   int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct urb *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct usb_serial *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct urb *__cil_tmp55 ;
-  int *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  __u8 __cil_tmp59 ;
-  _Bool __cil_tmp60 ;
-  wait_queue_t *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  wait_queue_head_t *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  __u8 __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  wait_queue_head_t *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  struct urb *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  __u8 __cil_tmp83 ;
-  int __cil_tmp84 ;
-  int *__cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  __u8 __cil_tmp88 ;
-  int __cil_tmp89 ;
-  int *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  __u8 __cil_tmp93 ;
-  int __cil_tmp94 ;
-  int *__cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  __u8 *__cil_tmp99 ;
-  void *__cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  __u8 *__cil_tmp105 ;
-  void const   *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  __u8 *__cil_tmp109 ;
-  void *__cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  __u8 *__cil_tmp115 ;
-  void const   *__cil_tmp116 ;
-  struct mutex *__cil_tmp117 ;
+  int __cil_tmp47 ;
+  __u8 *__cil_tmp48 ;
+  void *__cil_tmp49 ;
+  __u8 *__cil_tmp50 ;
+  void const   *__cil_tmp51 ;
+  __u8 *__cil_tmp52 ;
+  void *__cil_tmp53 ;
+  __u8 *__cil_tmp54 ;
+  void const   *__cil_tmp55 ;
+  struct mutex *__cil_tmp56 ;
 
   {
 #line 1131
@@ -12351,136 +10583,90 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   {
 #line 1134
   while (1) {
-    while_66_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 1134
-    __cil_tmp20 = & debug;
-#line 1134
-    if (*__cil_tmp20) {
+    if (debug) {
       {
 #line 1134
-      __cil_tmp21 = (int )command;
+      __cil_tmp20 = (int )command;
 #line 1134
       printk("<7>%s: %s - command %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "firm_send_command", __cil_tmp21);
+             "firm_send_command", __cil_tmp20);
       }
     } else {
 
     }
-    }
+#line 1134
     goto while_break;
   }
-  while_66_break: /* CIL Label */ ;
+  while_break___6: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 1136
-  __cil_tmp22 = 4 * 8UL;
+  __cil_tmp21 = port->serial;
 #line 1136
-  __cil_tmp23 = 32 + __cil_tmp22;
-#line 1136
-  __cil_tmp24 = *((struct usb_serial **)port);
-#line 1136
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 1136
-  __cil_tmp26 = __cil_tmp25 + __cil_tmp23;
-#line 1136
-  command_port = *((struct usb_serial_port **)__cil_tmp26);
+  command_port = __cil_tmp21->port[4];
 #line 1137
   tmp___7 = usb_get_serial_port_data(command_port);
 #line 1137
   command_info = (struct whiteheat_command_private *)tmp___7;
 #line 1138
-  __cil_tmp27 = (struct mutex *)command_info;
+  __cil_tmp22 = & command_info->mutex;
 #line 1138
-  mutex_lock_nested(__cil_tmp27, 0U);
+  mutex_lock_nested(__cil_tmp22, 0U);
 #line 1139
-  __cil_tmp28 = (unsigned long )command_info;
-#line 1139
-  __cil_tmp29 = __cil_tmp28 + 169;
-#line 1139
-  *((__u8 *)__cil_tmp29) = (unsigned char)0;
+  command_info->command_finished = (__u8 )0;
 #line 1141
-  __cil_tmp30 = (unsigned long )command_port;
+  __cil_tmp23 = command_port->write_urb;
 #line 1141
-  __cil_tmp31 = __cil_tmp30 + 928;
+  __cil_tmp24 = __cil_tmp23->transfer_buffer;
 #line 1141
-  __cil_tmp32 = *((struct urb **)__cil_tmp31);
-#line 1141
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 1141
-  __cil_tmp34 = __cil_tmp33 + 104;
-#line 1141
-  __cil_tmp35 = *((void **)__cil_tmp34);
-#line 1141
-  transfer_buffer = (__u8 *)__cil_tmp35;
+  transfer_buffer = (__u8 *)__cil_tmp24;
 #line 1142
-  __cil_tmp36 = transfer_buffer + 0;
+  __cil_tmp25 = transfer_buffer + 0;
 #line 1142
-  *__cil_tmp36 = command;
+  *__cil_tmp25 = command;
 #line 1143
-  __len = (unsigned long )datasize;
+  __len = (size_t )datasize;
 #line 1143
-  __cil_tmp37 = transfer_buffer + 1;
+  __cil_tmp26 = transfer_buffer + 1;
 #line 1143
-  __cil_tmp38 = (void *)__cil_tmp37;
+  __cil_tmp27 = (void *)__cil_tmp26;
 #line 1143
-  __cil_tmp39 = (void const   *)data;
+  __cil_tmp28 = (void const   *)data;
 #line 1143
-  __ret = __builtin_memcpy(__cil_tmp38, __cil_tmp39, __len);
+  __ret = __builtin_memcpy(__cil_tmp27, __cil_tmp28, __len);
 #line 1144
-  __cil_tmp40 = (unsigned long )command_port;
+  __cil_tmp29 = command_port->write_urb;
 #line 1144
-  __cil_tmp41 = __cil_tmp40 + 928;
+  __cil_tmp30 = (int )datasize;
 #line 1144
-  __cil_tmp42 = *((struct urb **)__cil_tmp41);
+  __cil_tmp31 = __cil_tmp30 + 1;
 #line 1144
-  __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 1144
-  __cil_tmp44 = __cil_tmp43 + 132;
-#line 1144
-  __cil_tmp45 = (int )datasize;
-#line 1144
-  __cil_tmp46 = __cil_tmp45 + 1;
-#line 1144
-  *((u32 *)__cil_tmp44) = (unsigned int )__cil_tmp46;
+  __cil_tmp29->transfer_buffer_length = (u32 )__cil_tmp31;
 #line 1145
-  __cil_tmp47 = (unsigned long )command_port;
+  __cil_tmp32 = command_port->write_urb;
 #line 1145
-  __cil_tmp48 = __cil_tmp47 + 928;
+  __cil_tmp33 = port->serial;
 #line 1145
-  __cil_tmp49 = *((struct urb **)__cil_tmp48);
-#line 1145
-  __cil_tmp50 = (unsigned long )__cil_tmp49;
-#line 1145
-  __cil_tmp51 = __cil_tmp50 + 72;
-#line 1145
-  __cil_tmp52 = *((struct usb_serial **)port);
-#line 1145
-  *((struct usb_device **)__cil_tmp51) = *((struct usb_device **)__cil_tmp52);
+  __cil_tmp32->dev = __cil_tmp33->dev;
 #line 1146
-  __cil_tmp53 = (unsigned long )command_port;
+  __cil_tmp34 = command_port->write_urb;
 #line 1146
-  __cil_tmp54 = __cil_tmp53 + 928;
-#line 1146
-  __cil_tmp55 = *((struct urb **)__cil_tmp54);
-#line 1146
-  retval = usb_submit_urb(__cil_tmp55, 16U);
+  retval = usb_submit_urb(__cil_tmp34, 16U);
   }
 #line 1147
   if (retval) {
     {
 #line 1148
     while (1) {
-      while_67_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 1148
-      __cil_tmp56 = & debug;
-#line 1148
-      if (*__cil_tmp56) {
+      if (debug) {
         {
 #line 1148
         printk("<7>%s: %s - submit urb failed\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -12489,13 +10675,14 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
       } else {
 
       }
-      }
+#line 1148
       goto while_break___0;
     }
-    while_67_break: /* CIL Label */ ;
+    while_break___7: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 1149
     goto exit;
   } else {
 
@@ -12504,72 +10691,45 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   __ret___0 = 500L;
   {
 #line 1153
-  __cil_tmp57 = (unsigned long )command_info;
+  __cil_tmp35 = command_info->command_finished;
 #line 1153
-  __cil_tmp58 = __cil_tmp57 + 169;
+  __cil_tmp36 = (bool )__cil_tmp35;
 #line 1153
-  __cil_tmp59 = *((__u8 *)__cil_tmp58);
-#line 1153
-  __cil_tmp60 = (_Bool )__cil_tmp59;
-#line 1153
-  if (! __cil_tmp60) {
+  if (! __cil_tmp36) {
     {
 #line 1153
     while (1) {
-      while_68_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
       {
 #line 1153
       tmp___8 = get_current();
 #line 1153
-      __cil_tmp61 = & __wait;
+      __wait.flags = 0U;
 #line 1153
-      *((unsigned int *)__cil_tmp61) = 0U;
+      __wait.private = (void *)tmp___8;
 #line 1153
-      __cil_tmp62 = (unsigned long )(& __wait) + 8;
+      __wait.func = & autoremove_wake_function;
 #line 1153
-      *((void **)__cil_tmp62) = (void *)tmp___8;
+      __wait.task_list.next = & __wait.task_list;
 #line 1153
-      __cil_tmp63 = (unsigned long )(& __wait) + 16;
-#line 1153
-      *((int (**)(wait_queue_t *wait , unsigned int mode , int flags , void *key ))__cil_tmp63) = & autoremove_wake_function;
-#line 1153
-      __cil_tmp64 = (unsigned long )(& __wait) + 24;
-#line 1153
-      __cil_tmp65 = (unsigned long )(& __wait) + 24;
-#line 1153
-      *((struct list_head **)__cil_tmp64) = (struct list_head *)__cil_tmp65;
-#line 1153
-      __cil_tmp66 = 24 + 8;
-#line 1153
-      __cil_tmp67 = (unsigned long )(& __wait) + __cil_tmp66;
-#line 1153
-      __cil_tmp68 = (unsigned long )(& __wait) + 24;
-#line 1153
-      *((struct list_head **)__cil_tmp67) = (struct list_head *)__cil_tmp68;
+      __wait.task_list.prev = & __wait.task_list;
       }
       {
 #line 1153
       while (1) {
-        while_69_continue: /* CIL Label */ ;
+        while_continue___2: /* CIL Label */ ;
         {
 #line 1153
-        __cil_tmp69 = (unsigned long )command_info;
+        __cil_tmp37 = & command_info->wait_command;
 #line 1153
-        __cil_tmp70 = __cil_tmp69 + 176;
-#line 1153
-        __cil_tmp71 = (wait_queue_head_t *)__cil_tmp70;
-#line 1153
-        prepare_to_wait(__cil_tmp71, & __wait, 2);
+        prepare_to_wait(__cil_tmp37, & __wait, 2);
         }
         {
 #line 1153
-        __cil_tmp72 = (unsigned long )command_info;
+        __cil_tmp38 = command_info->command_finished;
 #line 1153
-        __cil_tmp73 = __cil_tmp72 + 169;
+        if ((bool )__cil_tmp38) {
 #line 1153
-        __cil_tmp74 = *((__u8 *)__cil_tmp73);
-#line 1153
-        if ((_Bool )__cil_tmp74) {
           goto while_break___2;
         } else {
 
@@ -12581,28 +10741,26 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
         }
 #line 1153
         if (! __ret___0) {
+#line 1153
           goto while_break___2;
         } else {
 
         }
       }
-      while_69_break: /* CIL Label */ ;
+      while_break___9: /* CIL Label */ ;
       }
 
       while_break___2: 
       {
 #line 1153
-      __cil_tmp75 = (unsigned long )command_info;
+      __cil_tmp39 = & command_info->wait_command;
 #line 1153
-      __cil_tmp76 = __cil_tmp75 + 176;
-#line 1153
-      __cil_tmp77 = (wait_queue_head_t *)__cil_tmp76;
-#line 1153
-      finish_wait(__cil_tmp77, & __wait);
+      finish_wait(__cil_tmp39, & __wait);
       }
+#line 1153
       goto while_break___1;
     }
-    while_68_break: /* CIL Label */ ;
+    while_break___8: /* CIL Label */ ;
     }
 
     while_break___1: ;
@@ -12616,38 +10774,27 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   if (! t) {
     {
 #line 1156
-    __cil_tmp78 = (unsigned long )command_port;
+    __cil_tmp40 = command_port->write_urb;
 #line 1156
-    __cil_tmp79 = __cil_tmp78 + 928;
-#line 1156
-    __cil_tmp80 = *((struct urb **)__cil_tmp79);
-#line 1156
-    usb_kill_urb(__cil_tmp80);
+    usb_kill_urb(__cil_tmp40);
     }
   } else {
 
   }
   {
 #line 1158
-  __cil_tmp81 = (unsigned long )command_info;
+  __cil_tmp41 = command_info->command_finished;
 #line 1158
-  __cil_tmp82 = __cil_tmp81 + 169;
+  __cil_tmp42 = (int )__cil_tmp41;
 #line 1158
-  __cil_tmp83 = *((__u8 *)__cil_tmp82);
-#line 1158
-  __cil_tmp84 = (int )__cil_tmp83;
-#line 1158
-  if (__cil_tmp84 == 0) {
+  if (__cil_tmp42 == 0) {
     {
 #line 1159
     while (1) {
-      while_70_continue: /* CIL Label */ ;
+      while_continue___3: /* CIL Label */ ;
 
-      {
 #line 1159
-      __cil_tmp85 = & debug;
-#line 1159
-      if (*__cil_tmp85) {
+      if (debug) {
         {
 #line 1159
         printk("<7>%s: %s - command timed out.\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -12656,15 +10803,16 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
       } else {
 
       }
-      }
+#line 1159
       goto while_break___3;
     }
-    while_70_break: /* CIL Label */ ;
+    while_break___10: /* CIL Label */ ;
     }
 
     while_break___3: 
 #line 1160
     retval = -110;
+#line 1161
     goto exit;
   } else {
 
@@ -12672,25 +10820,18 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   }
   {
 #line 1164
-  __cil_tmp86 = (unsigned long )command_info;
+  __cil_tmp43 = command_info->command_finished;
 #line 1164
-  __cil_tmp87 = __cil_tmp86 + 169;
+  __cil_tmp44 = (int )__cil_tmp43;
 #line 1164
-  __cil_tmp88 = *((__u8 *)__cil_tmp87);
-#line 1164
-  __cil_tmp89 = (int )__cil_tmp88;
-#line 1164
-  if (__cil_tmp89 == 17) {
+  if (__cil_tmp44 == 17) {
     {
 #line 1165
     while (1) {
-      while_71_continue: /* CIL Label */ ;
+      while_continue___4: /* CIL Label */ ;
 
-      {
 #line 1165
-      __cil_tmp90 = & debug;
-#line 1165
-      if (*__cil_tmp90) {
+      if (debug) {
         {
 #line 1165
         printk("<7>%s: %s - command failed.\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -12699,15 +10840,16 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
       } else {
 
       }
-      }
+#line 1165
       goto while_break___4;
     }
-    while_71_break: /* CIL Label */ ;
+    while_break___11: /* CIL Label */ ;
     }
 
     while_break___4: 
 #line 1166
     retval = -5;
+#line 1167
     goto exit;
   } else {
 
@@ -12715,25 +10857,18 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   }
   {
 #line 1170
-  __cil_tmp91 = (unsigned long )command_info;
+  __cil_tmp45 = command_info->command_finished;
 #line 1170
-  __cil_tmp92 = __cil_tmp91 + 169;
+  __cil_tmp46 = (int )__cil_tmp45;
 #line 1170
-  __cil_tmp93 = *((__u8 *)__cil_tmp92);
-#line 1170
-  __cil_tmp94 = (int )__cil_tmp93;
-#line 1170
-  if (__cil_tmp94 == 16) {
+  if (__cil_tmp46 == 16) {
     {
 #line 1171
     while (1) {
-      while_72_continue: /* CIL Label */ ;
+      while_continue___5: /* CIL Label */ ;
 
-      {
 #line 1171
-      __cil_tmp95 = & debug;
-#line 1171
-      if (*__cil_tmp95) {
+      if (debug) {
         {
 #line 1171
         printk("<7>%s: %s - command completed.\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
@@ -12742,87 +10877,64 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
       } else {
 
       }
-      }
+#line 1171
       goto while_break___5;
     }
-    while_72_break: /* CIL Label */ ;
+    while_break___12: /* CIL Label */ ;
     }
 
     while_break___5: ;
     {
 #line 1173
-    __cil_tmp96 = (int )command;
+    __cil_tmp47 = (int )command;
 #line 1173
-    if (__cil_tmp96 == 10) {
+    if (__cil_tmp47 == 10) {
+#line 1173
       goto case_10;
-    } else {
+    } else
 #line 1172
-      if (0) {
-        case_10: 
-        {
+    if (0) {
+      case_10: 
+      {
 #line 1174
-        tmp___9 = usb_get_serial_port_data(port);
+      tmp___9 = usb_get_serial_port_data(port);
 #line 1174
-        info = (struct whiteheat_private *)tmp___9;
+      info = (struct whiteheat_private *)tmp___9;
 #line 1175
-        __len___0 = 1UL;
-        }
-#line 1175
-        if (__len___0 >= 64UL) {
-          {
-#line 1175
-          __cil_tmp97 = (unsigned long )info;
-#line 1175
-          __cil_tmp98 = __cil_tmp97 + 73;
-#line 1175
-          __cil_tmp99 = (__u8 *)__cil_tmp98;
-#line 1175
-          __cil_tmp100 = (void *)__cil_tmp99;
-#line 1175
-          __cil_tmp101 = 0 * 1UL;
-#line 1175
-          __cil_tmp102 = 264 + __cil_tmp101;
-#line 1175
-          __cil_tmp103 = (unsigned long )command_info;
-#line 1175
-          __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
-#line 1175
-          __cil_tmp105 = (__u8 *)__cil_tmp104;
-#line 1175
-          __cil_tmp106 = (void const   *)__cil_tmp105;
-#line 1175
-          __ret___1 = __memcpy(__cil_tmp100, __cil_tmp106, __len___0);
-          }
-        } else {
-          {
-#line 1175
-          __cil_tmp107 = (unsigned long )info;
-#line 1175
-          __cil_tmp108 = __cil_tmp107 + 73;
-#line 1175
-          __cil_tmp109 = (__u8 *)__cil_tmp108;
-#line 1175
-          __cil_tmp110 = (void *)__cil_tmp109;
-#line 1175
-          __cil_tmp111 = 0 * 1UL;
-#line 1175
-          __cil_tmp112 = 264 + __cil_tmp111;
-#line 1175
-          __cil_tmp113 = (unsigned long )command_info;
-#line 1175
-          __cil_tmp114 = __cil_tmp113 + __cil_tmp112;
-#line 1175
-          __cil_tmp115 = (__u8 *)__cil_tmp114;
-#line 1175
-          __cil_tmp116 = (void const   *)__cil_tmp115;
-#line 1175
-          __ret___1 = __builtin_memcpy(__cil_tmp110, __cil_tmp116, __len___0);
-          }
-        }
-        goto switch_break;
-      } else {
-        switch_break: ;
+      __len___0 = 1UL;
       }
+#line 1175
+      if (__len___0 >= 64UL) {
+        {
+#line 1175
+        __cil_tmp48 = & info->mcr;
+#line 1175
+        __cil_tmp49 = (void *)__cil_tmp48;
+#line 1175
+        __cil_tmp50 = & command_info->result_buffer[0];
+#line 1175
+        __cil_tmp51 = (void const   *)__cil_tmp50;
+#line 1175
+        __ret___1 = __memcpy(__cil_tmp49, __cil_tmp51, __len___0);
+        }
+      } else {
+        {
+#line 1175
+        __cil_tmp52 = & info->mcr;
+#line 1175
+        __cil_tmp53 = (void *)__cil_tmp52;
+#line 1175
+        __cil_tmp54 = & command_info->result_buffer[0];
+#line 1175
+        __cil_tmp55 = (void const   *)__cil_tmp54;
+#line 1175
+        __ret___1 = __builtin_memcpy(__cil_tmp53, __cil_tmp55, __len___0);
+        }
+      }
+#line 1177
+      goto switch_break;
+    } else {
+      switch_break: ;
     }
     }
   } else {
@@ -12832,9 +10944,9 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   exit: 
   {
 #line 1181
-  __cil_tmp117 = (struct mutex *)command_info;
+  __cil_tmp56 = & command_info->mutex;
 #line 1181
-  mutex_unlock(__cil_tmp117);
+  mutex_unlock(__cil_tmp56);
   }
 #line 1182
   return (retval);
@@ -12844,55 +10956,43 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
 static int firm_open(struct usb_serial_port *port ) 
 { struct whiteheat_simple open_command ;
   int tmp___7 ;
-  struct whiteheat_simple *__cil_tmp4 ;
-  struct usb_serial *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char __cil_tmp8 ;
+  struct usb_serial *__cil_tmp4 ;
+  unsigned char __cil_tmp5 ;
+  int __cil_tmp6 ;
+  unsigned char __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  __u8 *__cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
+  int __cil_tmp10 ;
+  __u8 __cil_tmp11 ;
+  __u8 *__cil_tmp12 ;
+  __u8 __cil_tmp13 ;
 
   {
   {
 #line 1190
-  __cil_tmp4 = & open_command;
+  __cil_tmp4 = port->serial;
 #line 1190
-  __cil_tmp5 = *((struct usb_serial **)port);
+  __cil_tmp5 = __cil_tmp4->minor;
 #line 1190
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
+  __cil_tmp6 = (int )__cil_tmp5;
 #line 1190
-  __cil_tmp7 = __cil_tmp6 + 25;
+  __cil_tmp7 = port->number;
 #line 1190
-  __cil_tmp8 = *((unsigned char *)__cil_tmp7);
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 1190
-  __cil_tmp9 = (int )__cil_tmp8;
+  __cil_tmp9 = __cil_tmp8 - __cil_tmp6;
 #line 1190
-  __cil_tmp10 = (unsigned long )port;
+  __cil_tmp10 = __cil_tmp9 + 1;
 #line 1190
-  __cil_tmp11 = __cil_tmp10 + 816;
-#line 1190
-  __cil_tmp12 = *((unsigned char *)__cil_tmp11);
-#line 1190
-  __cil_tmp13 = (int )__cil_tmp12;
-#line 1190
-  __cil_tmp14 = __cil_tmp13 - __cil_tmp9;
-#line 1190
-  __cil_tmp15 = __cil_tmp14 + 1;
-#line 1190
-  *((__u8 *)__cil_tmp4) = (unsigned char )__cil_tmp15;
+  open_command.port = (__u8 )__cil_tmp10;
 #line 1191
-  __cil_tmp16 = (__u8 *)(& open_command);
+  __cil_tmp11 = (__u8 )1;
 #line 1191
-  __cil_tmp17 = (unsigned char )1UL;
+  __cil_tmp12 = (__u8 *)(& open_command);
 #line 1191
-  tmp___7 = firm_send_command(port, (unsigned char)1, __cil_tmp16, __cil_tmp17);
+  __cil_tmp13 = (__u8 )1UL;
+#line 1191
+  tmp___7 = firm_send_command(port, __cil_tmp11, __cil_tmp12, __cil_tmp13);
   }
 #line 1191
   return (tmp___7);
@@ -12902,55 +11002,43 @@ static int firm_open(struct usb_serial_port *port )
 static int firm_close(struct usb_serial_port *port ) 
 { struct whiteheat_simple close_command ;
   int tmp___7 ;
-  struct whiteheat_simple *__cil_tmp4 ;
-  struct usb_serial *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char __cil_tmp8 ;
+  struct usb_serial *__cil_tmp4 ;
+  unsigned char __cil_tmp5 ;
+  int __cil_tmp6 ;
+  unsigned char __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  __u8 *__cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
+  int __cil_tmp10 ;
+  __u8 __cil_tmp11 ;
+  __u8 *__cil_tmp12 ;
+  __u8 __cil_tmp13 ;
 
   {
   {
 #line 1200
-  __cil_tmp4 = & close_command;
+  __cil_tmp4 = port->serial;
 #line 1200
-  __cil_tmp5 = *((struct usb_serial **)port);
+  __cil_tmp5 = __cil_tmp4->minor;
 #line 1200
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
+  __cil_tmp6 = (int )__cil_tmp5;
 #line 1200
-  __cil_tmp7 = __cil_tmp6 + 25;
+  __cil_tmp7 = port->number;
 #line 1200
-  __cil_tmp8 = *((unsigned char *)__cil_tmp7);
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 1200
-  __cil_tmp9 = (int )__cil_tmp8;
+  __cil_tmp9 = __cil_tmp8 - __cil_tmp6;
 #line 1200
-  __cil_tmp10 = (unsigned long )port;
+  __cil_tmp10 = __cil_tmp9 + 1;
 #line 1200
-  __cil_tmp11 = __cil_tmp10 + 816;
-#line 1200
-  __cil_tmp12 = *((unsigned char *)__cil_tmp11);
-#line 1200
-  __cil_tmp13 = (int )__cil_tmp12;
-#line 1200
-  __cil_tmp14 = __cil_tmp13 - __cil_tmp9;
-#line 1200
-  __cil_tmp15 = __cil_tmp14 + 1;
-#line 1200
-  *((__u8 *)__cil_tmp4) = (unsigned char )__cil_tmp15;
+  close_command.port = (__u8 )__cil_tmp10;
 #line 1201
-  __cil_tmp16 = (__u8 *)(& close_command);
+  __cil_tmp11 = (__u8 )2;
 #line 1201
-  __cil_tmp17 = (unsigned char )1UL;
+  __cil_tmp12 = (__u8 *)(& close_command);
 #line 1201
-  tmp___7 = firm_send_command(port, (unsigned char)2, __cil_tmp16, __cil_tmp17);
+  __cil_tmp13 = (__u8 )1UL;
+#line 1201
+  tmp___7 = firm_send_command(port, __cil_tmp11, __cil_tmp12, __cil_tmp13);
   }
 #line 1201
   return (tmp___7);
@@ -12965,197 +11053,105 @@ static void firm_setup_port(struct tty_struct *tty )
   char const   *tmp___8 ;
   char const   *tmp___9 ;
   char const   *tmp___10 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct ktermios *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct whiteheat_port_settings *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned char __cil_tmp20 ;
+  void *__cil_tmp9 ;
+  struct ktermios *__cil_tmp10 ;
+  unsigned char __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
   int __cil_tmp21 ;
   int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
+  int __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
+  int __cil_tmp25 ;
   int __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  int *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  __u8 __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  int *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  __u8 __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  int *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  __u8 __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  int *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  __u8 __cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  __u8 __cil_tmp59 ;
-  int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  __u8 __cil_tmp62 ;
-  int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  __u8 __cil_tmp65 ;
-  int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct ktermios *__cil_tmp69 ;
-  tcflag_t __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  int *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  __u8 __cil_tmp75 ;
-  int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  struct ktermios *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  struct ktermios *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  int *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  __u8 __cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  __u8 __cil_tmp98 ;
-  int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  int *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  __u32 __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  __u32 __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  __u32 __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  __u8 *__cil_tmp109 ;
-  unsigned char __cil_tmp110 ;
+  struct ktermios *__cil_tmp27 ;
+  tcflag_t __cil_tmp28 ;
+  int __cil_tmp29 ;
+  struct ktermios *__cil_tmp30 ;
+  struct ktermios *__cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  __u8 __cil_tmp34 ;
+  __u8 *__cil_tmp35 ;
+  __u8 __cil_tmp36 ;
 
   {
 #line 1208
-  __cil_tmp9 = (unsigned long )tty;
+  __cil_tmp9 = tty->driver_data;
 #line 1208
-  __cil_tmp10 = __cil_tmp9 + 1064;
-#line 1208
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 1208
-  port = (struct usb_serial_port *)__cil_tmp11;
+  port = (struct usb_serial_port *)__cil_tmp9;
 #line 1210
-  __cil_tmp12 = (unsigned long )tty;
+  __cil_tmp10 = tty->termios;
 #line 1210
-  __cil_tmp13 = __cil_tmp12 + 456;
-#line 1210
-  __cil_tmp14 = *((struct ktermios **)__cil_tmp13);
-#line 1210
-  __cil_tmp15 = (unsigned long )__cil_tmp14;
-#line 1210
-  __cil_tmp16 = __cil_tmp15 + 8;
-#line 1210
-  cflag = *((tcflag_t *)__cil_tmp16);
+  cflag = __cil_tmp10->c_cflag;
 #line 1212
-  __cil_tmp17 = & port_settings;
+  __cil_tmp11 = port->number;
 #line 1212
-  __cil_tmp18 = (unsigned long )port;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 1212
-  __cil_tmp19 = __cil_tmp18 + 816;
+  __cil_tmp13 = __cil_tmp12 + 1;
 #line 1212
-  __cil_tmp20 = *((unsigned char *)__cil_tmp19);
-#line 1212
-  __cil_tmp21 = (int )__cil_tmp20;
-#line 1212
-  __cil_tmp22 = __cil_tmp21 + 1;
-#line 1212
-  *((__u8 *)__cil_tmp17) = (unsigned char )__cil_tmp22;
+  port_settings.port = (__u8 )__cil_tmp13;
   {
 #line 1216
-  __cil_tmp23 = cflag & 48U;
+  __cil_tmp14 = cflag & 48U;
 #line 1216
-  __cil_tmp24 = (int )__cil_tmp23;
+  __cil_tmp15 = (int )__cil_tmp14;
 #line 1216
-  if (__cil_tmp24 == 0) {
+  if (__cil_tmp15 == 0) {
+#line 1216
     goto case_0;
   } else {
     {
 #line 1217
-    __cil_tmp25 = cflag & 48U;
+    __cil_tmp16 = cflag & 48U;
 #line 1217
-    __cil_tmp26 = (int )__cil_tmp25;
+    __cil_tmp17 = (int )__cil_tmp16;
 #line 1217
-    if (__cil_tmp26 == 16) {
+    if (__cil_tmp17 == 16) {
+#line 1217
       goto case_16;
     } else {
       {
 #line 1218
-      __cil_tmp27 = cflag & 48U;
+      __cil_tmp18 = cflag & 48U;
 #line 1218
-      __cil_tmp28 = (int )__cil_tmp27;
+      __cil_tmp19 = (int )__cil_tmp18;
 #line 1218
-      if (__cil_tmp28 == 32) {
+      if (__cil_tmp19 == 32) {
+#line 1218
         goto case_32;
       } else {
+#line 1219
         goto switch_default;
 #line 1215
         if (0) {
           case_0: 
 #line 1216
-          __cil_tmp29 = (unsigned long )(& port_settings) + 5;
+          port_settings.bits = (__u8 )5;
 #line 1216
-          *((__u8 *)__cil_tmp29) = (unsigned char)5;
           goto switch_break;
           case_16: 
 #line 1217
-          __cil_tmp30 = (unsigned long )(& port_settings) + 5;
+          port_settings.bits = (__u8 )6;
 #line 1217
-          *((__u8 *)__cil_tmp30) = (unsigned char)6;
           goto switch_break;
           case_32: 
 #line 1218
-          __cil_tmp31 = (unsigned long )(& port_settings) + 5;
+          port_settings.bits = (__u8 )7;
 #line 1218
-          *((__u8 *)__cil_tmp31) = (unsigned char)7;
           goto switch_break;
           switch_default: 
 #line 1220
-          __cil_tmp32 = (unsigned long )(& port_settings) + 5;
+          port_settings.bits = (__u8 )8;
 #line 1220
-          *((__u8 *)__cil_tmp32) = (unsigned char)8;
           goto switch_break;
         } else {
           switch_break: ;
@@ -13169,31 +11165,24 @@ static void firm_setup_port(struct tty_struct *tty )
   {
 #line 1222
   while (1) {
-    while_73_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 1222
-    __cil_tmp33 = & debug;
-#line 1222
-    if (*__cil_tmp33) {
+    if (debug) {
       {
 #line 1222
-      __cil_tmp34 = (unsigned long )(& port_settings) + 5;
-#line 1222
-      __cil_tmp35 = *((__u8 *)__cil_tmp34);
-#line 1222
-      __cil_tmp36 = (int )__cil_tmp35;
+      __cil_tmp20 = (int )port_settings.bits;
 #line 1222
       printk("<7>%s: %s - data bits = %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "firm_setup_port", __cil_tmp36);
+             "firm_setup_port", __cil_tmp20);
       }
     } else {
 
     }
-    }
+#line 1222
     goto while_break;
   }
-  while_73_break: /* CIL Label */ ;
+  while_break___6: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13204,140 +11193,100 @@ static void firm_setup_port(struct tty_struct *tty )
 #line 1227
       if (cflag & 512U) {
 #line 1228
-        __cil_tmp37 = (unsigned long )(& port_settings) + 7;
-#line 1228
-        *((__u8 *)__cil_tmp37) = (unsigned char )'1';
+        port_settings.parity = (__u8 )'1';
       } else {
 #line 1230
-        __cil_tmp38 = (unsigned long )(& port_settings) + 7;
-#line 1230
-        *((__u8 *)__cil_tmp38) = (unsigned char )'0';
+        port_settings.parity = (__u8 )'0';
       }
-    } else {
+    } else
 #line 1232
-      if (cflag & 512U) {
+    if (cflag & 512U) {
 #line 1233
-        __cil_tmp39 = (unsigned long )(& port_settings) + 7;
-#line 1233
-        *((__u8 *)__cil_tmp39) = (unsigned char )'o';
-      } else {
+      port_settings.parity = (__u8 )'o';
+    } else {
 #line 1235
-        __cil_tmp40 = (unsigned long )(& port_settings) + 7;
-#line 1235
-        *((__u8 *)__cil_tmp40) = (unsigned char )'e';
-      }
+      port_settings.parity = (__u8 )'e';
     }
   } else {
 #line 1237
-    __cil_tmp41 = (unsigned long )(& port_settings) + 7;
-#line 1237
-    *((__u8 *)__cil_tmp41) = (unsigned char )'n';
+    port_settings.parity = (__u8 )'n';
   }
   {
 #line 1238
   while (1) {
-    while_74_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
-    {
 #line 1238
-    __cil_tmp42 = & debug;
-#line 1238
-    if (*__cil_tmp42) {
+    if (debug) {
       {
 #line 1238
-      __cil_tmp43 = (unsigned long )(& port_settings) + 7;
-#line 1238
-      __cil_tmp44 = *((__u8 *)__cil_tmp43);
-#line 1238
-      __cil_tmp45 = (int )__cil_tmp44;
+      __cil_tmp21 = (int )port_settings.parity;
 #line 1238
       printk("<7>%s: %s - parity = %c\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "firm_setup_port", __cil_tmp45);
+             "firm_setup_port", __cil_tmp21);
       }
     } else {
 
     }
-    }
+#line 1238
     goto while_break___0;
   }
-  while_74_break: /* CIL Label */ ;
+  while_break___7: /* CIL Label */ ;
   }
 
   while_break___0: ;
 #line 1241
   if (cflag & 64U) {
 #line 1242
-    __cil_tmp46 = (unsigned long )(& port_settings) + 6;
-#line 1242
-    *((__u8 *)__cil_tmp46) = (unsigned char)2;
+    port_settings.stop = (__u8 )2;
   } else {
 #line 1244
-    __cil_tmp47 = (unsigned long )(& port_settings) + 6;
-#line 1244
-    *((__u8 *)__cil_tmp47) = (unsigned char)1;
+    port_settings.stop = (__u8 )1;
   }
   {
 #line 1245
   while (1) {
-    while_75_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
-    {
 #line 1245
-    __cil_tmp48 = & debug;
-#line 1245
-    if (*__cil_tmp48) {
+    if (debug) {
       {
 #line 1245
-      __cil_tmp49 = (unsigned long )(& port_settings) + 6;
-#line 1245
-      __cil_tmp50 = *((__u8 *)__cil_tmp49);
-#line 1245
-      __cil_tmp51 = (int )__cil_tmp50;
+      __cil_tmp22 = (int )port_settings.stop;
 #line 1245
       printk("<7>%s: %s - stop bits = %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "firm_setup_port", __cil_tmp51);
+             "firm_setup_port", __cil_tmp22);
       }
     } else {
 
     }
-    }
+#line 1245
     goto while_break___1;
   }
-  while_75_break: /* CIL Label */ ;
+  while_break___8: /* CIL Label */ ;
   }
 
   while_break___1: ;
 #line 1248
   if (cflag & 2147483648U) {
 #line 1249
-    __cil_tmp52 = (unsigned long )(& port_settings) + 11;
-#line 1249
-    *((__u8 *)__cil_tmp52) = (unsigned char)136;
+    port_settings.hflow = (__u8 )136;
   } else {
 #line 1252
-    __cil_tmp53 = (unsigned long )(& port_settings) + 11;
-#line 1252
-    *((__u8 *)__cil_tmp53) = (unsigned char)0;
+    port_settings.hflow = (__u8 )0;
   }
   {
 #line 1253
   while (1) {
-    while_76_continue: /* CIL Label */ ;
+    while_continue___2: /* CIL Label */ ;
 
-    {
 #line 1253
-    __cil_tmp54 = & debug;
-#line 1253
-    if (*__cil_tmp54) {
+    if (debug) {
       {
 #line 1253
-      __cil_tmp55 = (unsigned long )(& port_settings) + 11;
+      __cil_tmp23 = (int )port_settings.hflow;
 #line 1253
-      __cil_tmp56 = *((__u8 *)__cil_tmp55);
-#line 1253
-      __cil_tmp57 = (int )__cil_tmp56;
-#line 1253
-      if (__cil_tmp57 & 2) {
+      if (__cil_tmp23 & 2) {
 #line 1253
         tmp___7 = "DTR";
       } else {
@@ -13347,13 +11296,9 @@ static void firm_setup_port(struct tty_struct *tty )
       }
       {
 #line 1253
-      __cil_tmp58 = (unsigned long )(& port_settings) + 11;
+      __cil_tmp24 = (int )port_settings.hflow;
 #line 1253
-      __cil_tmp59 = *((__u8 *)__cil_tmp58);
-#line 1253
-      __cil_tmp60 = (int )__cil_tmp59;
-#line 1253
-      if (__cil_tmp60 & 16) {
+      if (__cil_tmp24 & 16) {
 #line 1253
         tmp___8 = "DSR";
       } else {
@@ -13363,13 +11308,9 @@ static void firm_setup_port(struct tty_struct *tty )
       }
       {
 #line 1253
-      __cil_tmp61 = (unsigned long )(& port_settings) + 11;
+      __cil_tmp25 = (int )port_settings.hflow;
 #line 1253
-      __cil_tmp62 = *((__u8 *)__cil_tmp61);
-#line 1253
-      __cil_tmp63 = (int )__cil_tmp62;
-#line 1253
-      if (__cil_tmp63 & 128) {
+      if (__cil_tmp25 & 128) {
 #line 1253
         tmp___9 = "RTS";
       } else {
@@ -13379,13 +11320,9 @@ static void firm_setup_port(struct tty_struct *tty )
       }
       {
 #line 1253
-      __cil_tmp64 = (unsigned long )(& port_settings) + 11;
+      __cil_tmp26 = (int )port_settings.hflow;
 #line 1253
-      __cil_tmp65 = *((__u8 *)__cil_tmp64);
-#line 1253
-      __cil_tmp66 = (int )__cil_tmp65;
-#line 1253
-      if (__cil_tmp66 & 8) {
+      if (__cil_tmp26 & 8) {
 #line 1253
         tmp___10 = "CTS";
       } else {
@@ -13401,195 +11338,124 @@ static void firm_setup_port(struct tty_struct *tty )
     } else {
 
     }
-    }
+#line 1253
     goto while_break___2;
   }
-  while_76_break: /* CIL Label */ ;
+  while_break___9: /* CIL Label */ ;
   }
 
   while_break___2: ;
   {
 #line 1260
-  __cil_tmp67 = (unsigned long )tty;
+  __cil_tmp27 = tty->termios;
 #line 1260
-  __cil_tmp68 = __cil_tmp67 + 456;
+  __cil_tmp28 = __cil_tmp27->c_iflag;
 #line 1260
-  __cil_tmp69 = *((struct ktermios **)__cil_tmp68);
-#line 1260
-  __cil_tmp70 = *((tcflag_t *)__cil_tmp69);
-#line 1260
-  if (__cil_tmp70 & 4096U) {
+  if (__cil_tmp28 & 4096U) {
 #line 1261
-    __cil_tmp71 = (unsigned long )(& port_settings) + 8;
-#line 1261
-    *((__u8 *)__cil_tmp71) = (unsigned char )'b';
+    port_settings.sflow = (__u8 )'b';
   } else {
 #line 1263
-    __cil_tmp72 = (unsigned long )(& port_settings) + 8;
-#line 1263
-    *((__u8 *)__cil_tmp72) = (unsigned char )'n';
+    port_settings.sflow = (__u8 )'n';
   }
   }
   {
 #line 1264
   while (1) {
-    while_77_continue: /* CIL Label */ ;
+    while_continue___3: /* CIL Label */ ;
 
-    {
 #line 1264
-    __cil_tmp73 = & debug;
-#line 1264
-    if (*__cil_tmp73) {
+    if (debug) {
       {
 #line 1264
-      __cil_tmp74 = (unsigned long )(& port_settings) + 8;
-#line 1264
-      __cil_tmp75 = *((__u8 *)__cil_tmp74);
-#line 1264
-      __cil_tmp76 = (int )__cil_tmp75;
+      __cil_tmp29 = (int )port_settings.sflow;
 #line 1264
       printk("<7>%s: %s - software flow control = %c\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "firm_setup_port", __cil_tmp76);
+             "firm_setup_port", __cil_tmp29);
       }
     } else {
 
     }
-    }
+#line 1264
     goto while_break___3;
   }
-  while_77_break: /* CIL Label */ ;
+  while_break___10: /* CIL Label */ ;
   }
 
   while_break___3: 
 #line 1266
-  __cil_tmp77 = (unsigned long )(& port_settings) + 10;
+  __cil_tmp30 = tty->termios;
 #line 1266
-  __cil_tmp78 = 8 * 1UL;
-#line 1266
-  __cil_tmp79 = 17 + __cil_tmp78;
-#line 1266
-  __cil_tmp80 = (unsigned long )tty;
-#line 1266
-  __cil_tmp81 = __cil_tmp80 + 456;
-#line 1266
-  __cil_tmp82 = *((struct ktermios **)__cil_tmp81);
-#line 1266
-  __cil_tmp83 = (unsigned long )__cil_tmp82;
-#line 1266
-  __cil_tmp84 = __cil_tmp83 + __cil_tmp79;
-#line 1266
-  *((__u8 *)__cil_tmp77) = *((cc_t *)__cil_tmp84);
+  port_settings.xon = __cil_tmp30->c_cc[8];
 #line 1267
-  __cil_tmp85 = (unsigned long )(& port_settings) + 9;
+  __cil_tmp31 = tty->termios;
 #line 1267
-  __cil_tmp86 = 9 * 1UL;
-#line 1267
-  __cil_tmp87 = 17 + __cil_tmp86;
-#line 1267
-  __cil_tmp88 = (unsigned long )tty;
-#line 1267
-  __cil_tmp89 = __cil_tmp88 + 456;
-#line 1267
-  __cil_tmp90 = *((struct ktermios **)__cil_tmp89);
-#line 1267
-  __cil_tmp91 = (unsigned long )__cil_tmp90;
-#line 1267
-  __cil_tmp92 = __cil_tmp91 + __cil_tmp87;
-#line 1267
-  *((__u8 *)__cil_tmp85) = *((cc_t *)__cil_tmp92);
+  port_settings.xoff = __cil_tmp31->c_cc[9];
   {
 #line 1268
   while (1) {
-    while_78_continue: /* CIL Label */ ;
+    while_continue___4: /* CIL Label */ ;
 
-    {
 #line 1268
-    __cil_tmp93 = & debug;
-#line 1268
-    if (*__cil_tmp93) {
+    if (debug) {
       {
 #line 1268
-      __cil_tmp94 = (unsigned long )(& port_settings) + 10;
+      __cil_tmp32 = (int )port_settings.xon;
 #line 1268
-      __cil_tmp95 = *((__u8 *)__cil_tmp94);
-#line 1268
-      __cil_tmp96 = (int )__cil_tmp95;
-#line 1268
-      __cil_tmp97 = (unsigned long )(& port_settings) + 9;
-#line 1268
-      __cil_tmp98 = *((__u8 *)__cil_tmp97);
-#line 1268
-      __cil_tmp99 = (int )__cil_tmp98;
+      __cil_tmp33 = (int )port_settings.xoff;
 #line 1268
       printk("<7>%s: %s - XON = %2x, XOFF = %2x\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "firm_setup_port", __cil_tmp96, __cil_tmp99);
+             "firm_setup_port", __cil_tmp32, __cil_tmp33);
       }
     } else {
 
     }
-    }
+#line 1268
     goto while_break___4;
   }
-  while_78_break: /* CIL Label */ ;
+  while_break___11: /* CIL Label */ ;
   }
 
   while_break___4: 
   {
 #line 1272
-  __cil_tmp100 = (unsigned long )(& port_settings) + 1;
-#line 1272
-  *((__u32 *)__cil_tmp100) = tty_get_baud_rate(tty);
+  port_settings.baud = tty_get_baud_rate(tty);
   }
   {
 #line 1273
   while (1) {
-    while_79_continue: /* CIL Label */ ;
+    while_continue___5: /* CIL Label */ ;
 
-    {
 #line 1273
-    __cil_tmp101 = & debug;
-#line 1273
-    if (*__cil_tmp101) {
+    if (debug) {
       {
 #line 1273
-      __cil_tmp102 = (unsigned long )(& port_settings) + 1;
-#line 1273
-      __cil_tmp103 = *((__u32 *)__cil_tmp102);
-#line 1273
       printk("<7>%s: %s - baud rate = %d\n", "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c",
-             "firm_setup_port", __cil_tmp103);
+             "firm_setup_port", port_settings.baud);
       }
     } else {
 
     }
-    }
+#line 1273
     goto while_break___5;
   }
-  while_79_break: /* CIL Label */ ;
+  while_break___12: /* CIL Label */ ;
   }
 
   while_break___5: 
   {
 #line 1276
-  __cil_tmp104 = (unsigned long )(& port_settings) + 1;
-#line 1276
-  __cil_tmp105 = *((__u32 *)__cil_tmp104);
-#line 1276
-  __cil_tmp106 = (unsigned long )(& port_settings) + 1;
-#line 1276
-  __cil_tmp107 = *((__u32 *)__cil_tmp106);
-#line 1276
-  tty_encode_baud_rate(tty, __cil_tmp105, __cil_tmp107);
+  tty_encode_baud_rate(tty, port_settings.baud, port_settings.baud);
 #line 1278
-  __cil_tmp108 = (unsigned long )(& port_settings) + 12;
-#line 1278
-  *((__u8 *)__cil_tmp108) = (unsigned char)0;
+  port_settings.lloop = (__u8 )0;
 #line 1281
-  __cil_tmp109 = (__u8 *)(& port_settings);
+  __cil_tmp34 = (__u8 )3;
 #line 1281
-  __cil_tmp110 = (unsigned char )13UL;
+  __cil_tmp35 = (__u8 *)(& port_settings);
 #line 1281
-  firm_send_command(port, (unsigned char)3, __cil_tmp109, __cil_tmp110);
+  __cil_tmp36 = (__u8 )13UL;
+#line 1281
+  firm_send_command(port, __cil_tmp34, __cil_tmp35, __cil_tmp36);
   }
 #line 1283
   return;
@@ -13599,60 +11465,45 @@ static void firm_setup_port(struct tty_struct *tty )
 static int firm_set_rts(struct usb_serial_port *port , __u8 onoff ) 
 { struct whiteheat_set_rdb rts_command ;
   int tmp___7 ;
-  struct whiteheat_set_rdb *__cil_tmp5 ;
-  struct usb_serial *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned char __cil_tmp9 ;
+  struct usb_serial *__cil_tmp5 ;
+  unsigned char __cil_tmp6 ;
+  int __cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  int __cil_tmp9 ;
   int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u8 *__cil_tmp18 ;
-  unsigned char __cil_tmp19 ;
+  int __cil_tmp11 ;
+  __u8 __cil_tmp12 ;
+  __u8 *__cil_tmp13 ;
+  __u8 __cil_tmp14 ;
 
   {
   {
 #line 1290
-  __cil_tmp5 = & rts_command;
+  __cil_tmp5 = port->serial;
 #line 1290
-  __cil_tmp6 = *((struct usb_serial **)port);
+  __cil_tmp6 = __cil_tmp5->minor;
 #line 1290
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 1290
-  __cil_tmp8 = __cil_tmp7 + 25;
+  __cil_tmp8 = port->number;
 #line 1290
-  __cil_tmp9 = *((unsigned char *)__cil_tmp8);
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 1290
-  __cil_tmp10 = (int )__cil_tmp9;
+  __cil_tmp10 = __cil_tmp9 - __cil_tmp7;
 #line 1290
-  __cil_tmp11 = (unsigned long )port;
+  __cil_tmp11 = __cil_tmp10 + 1;
 #line 1290
-  __cil_tmp12 = __cil_tmp11 + 816;
-#line 1290
-  __cil_tmp13 = *((unsigned char *)__cil_tmp12);
-#line 1290
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 1290
-  __cil_tmp15 = __cil_tmp14 - __cil_tmp10;
-#line 1290
-  __cil_tmp16 = __cil_tmp15 + 1;
-#line 1290
-  *((__u8 *)__cil_tmp5) = (unsigned char )__cil_tmp16;
+  rts_command.port = (__u8 )__cil_tmp11;
 #line 1291
-  __cil_tmp17 = (unsigned long )(& rts_command) + 1;
-#line 1291
-  *((__u8 *)__cil_tmp17) = onoff;
+  rts_command.state = onoff;
 #line 1292
-  __cil_tmp18 = (__u8 *)(& rts_command);
+  __cil_tmp12 = (__u8 )4;
 #line 1292
-  __cil_tmp19 = (unsigned char )2UL;
+  __cil_tmp13 = (__u8 *)(& rts_command);
 #line 1292
-  tmp___7 = firm_send_command(port, (unsigned char)4, __cil_tmp18, __cil_tmp19);
+  __cil_tmp14 = (__u8 )2UL;
+#line 1292
+  tmp___7 = firm_send_command(port, __cil_tmp12, __cil_tmp13, __cil_tmp14);
   }
 #line 1292
   return (tmp___7);
@@ -13662,60 +11513,45 @@ static int firm_set_rts(struct usb_serial_port *port , __u8 onoff )
 static int firm_set_dtr(struct usb_serial_port *port , __u8 onoff ) 
 { struct whiteheat_set_rdb dtr_command ;
   int tmp___7 ;
-  struct whiteheat_set_rdb *__cil_tmp5 ;
-  struct usb_serial *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned char __cil_tmp9 ;
+  struct usb_serial *__cil_tmp5 ;
+  unsigned char __cil_tmp6 ;
+  int __cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  int __cil_tmp9 ;
   int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u8 *__cil_tmp18 ;
-  unsigned char __cil_tmp19 ;
+  int __cil_tmp11 ;
+  __u8 __cil_tmp12 ;
+  __u8 *__cil_tmp13 ;
+  __u8 __cil_tmp14 ;
 
   {
   {
 #line 1301
-  __cil_tmp5 = & dtr_command;
+  __cil_tmp5 = port->serial;
 #line 1301
-  __cil_tmp6 = *((struct usb_serial **)port);
+  __cil_tmp6 = __cil_tmp5->minor;
 #line 1301
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 1301
-  __cil_tmp8 = __cil_tmp7 + 25;
+  __cil_tmp8 = port->number;
 #line 1301
-  __cil_tmp9 = *((unsigned char *)__cil_tmp8);
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 1301
-  __cil_tmp10 = (int )__cil_tmp9;
+  __cil_tmp10 = __cil_tmp9 - __cil_tmp7;
 #line 1301
-  __cil_tmp11 = (unsigned long )port;
+  __cil_tmp11 = __cil_tmp10 + 1;
 #line 1301
-  __cil_tmp12 = __cil_tmp11 + 816;
-#line 1301
-  __cil_tmp13 = *((unsigned char *)__cil_tmp12);
-#line 1301
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 1301
-  __cil_tmp15 = __cil_tmp14 - __cil_tmp10;
-#line 1301
-  __cil_tmp16 = __cil_tmp15 + 1;
-#line 1301
-  *((__u8 *)__cil_tmp5) = (unsigned char )__cil_tmp16;
+  dtr_command.port = (__u8 )__cil_tmp11;
 #line 1302
-  __cil_tmp17 = (unsigned long )(& dtr_command) + 1;
-#line 1302
-  *((__u8 *)__cil_tmp17) = onoff;
+  dtr_command.state = onoff;
 #line 1303
-  __cil_tmp18 = (__u8 *)(& dtr_command);
+  __cil_tmp12 = (__u8 )5;
 #line 1303
-  __cil_tmp19 = (unsigned char )2UL;
+  __cil_tmp13 = (__u8 *)(& dtr_command);
 #line 1303
-  tmp___7 = firm_send_command(port, (unsigned char)5, __cil_tmp18, __cil_tmp19);
+  __cil_tmp14 = (__u8 )2UL;
+#line 1303
+  tmp___7 = firm_send_command(port, __cil_tmp12, __cil_tmp13, __cil_tmp14);
   }
 #line 1303
   return (tmp___7);
@@ -13725,60 +11561,45 @@ static int firm_set_dtr(struct usb_serial_port *port , __u8 onoff )
 static int firm_set_break(struct usb_serial_port *port , __u8 onoff ) 
 { struct whiteheat_set_rdb break_command ;
   int tmp___7 ;
-  struct whiteheat_set_rdb *__cil_tmp5 ;
-  struct usb_serial *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned char __cil_tmp9 ;
+  struct usb_serial *__cil_tmp5 ;
+  unsigned char __cil_tmp6 ;
+  int __cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  int __cil_tmp9 ;
   int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u8 *__cil_tmp18 ;
-  unsigned char __cil_tmp19 ;
+  int __cil_tmp11 ;
+  __u8 __cil_tmp12 ;
+  __u8 *__cil_tmp13 ;
+  __u8 __cil_tmp14 ;
 
   {
   {
 #line 1312
-  __cil_tmp5 = & break_command;
+  __cil_tmp5 = port->serial;
 #line 1312
-  __cil_tmp6 = *((struct usb_serial **)port);
+  __cil_tmp6 = __cil_tmp5->minor;
 #line 1312
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 1312
-  __cil_tmp8 = __cil_tmp7 + 25;
+  __cil_tmp8 = port->number;
 #line 1312
-  __cil_tmp9 = *((unsigned char *)__cil_tmp8);
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 1312
-  __cil_tmp10 = (int )__cil_tmp9;
+  __cil_tmp10 = __cil_tmp9 - __cil_tmp7;
 #line 1312
-  __cil_tmp11 = (unsigned long )port;
+  __cil_tmp11 = __cil_tmp10 + 1;
 #line 1312
-  __cil_tmp12 = __cil_tmp11 + 816;
-#line 1312
-  __cil_tmp13 = *((unsigned char *)__cil_tmp12);
-#line 1312
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 1312
-  __cil_tmp15 = __cil_tmp14 - __cil_tmp10;
-#line 1312
-  __cil_tmp16 = __cil_tmp15 + 1;
-#line 1312
-  *((__u8 *)__cil_tmp5) = (unsigned char )__cil_tmp16;
+  break_command.port = (__u8 )__cil_tmp11;
 #line 1313
-  __cil_tmp17 = (unsigned long )(& break_command) + 1;
-#line 1313
-  *((__u8 *)__cil_tmp17) = onoff;
+  break_command.state = onoff;
 #line 1314
-  __cil_tmp18 = (__u8 *)(& break_command);
+  __cil_tmp12 = (__u8 )6;
 #line 1314
-  __cil_tmp19 = (unsigned char )2UL;
+  __cil_tmp13 = (__u8 *)(& break_command);
 #line 1314
-  tmp___7 = firm_send_command(port, (unsigned char)6, __cil_tmp18, __cil_tmp19);
+  __cil_tmp14 = (__u8 )2UL;
+#line 1314
+  tmp___7 = firm_send_command(port, __cil_tmp12, __cil_tmp13, __cil_tmp14);
   }
 #line 1314
   return (tmp___7);
@@ -13788,60 +11609,45 @@ static int firm_set_break(struct usb_serial_port *port , __u8 onoff )
 static int firm_purge(struct usb_serial_port *port , __u8 rxtx ) 
 { struct whiteheat_purge purge_command ;
   int tmp___7 ;
-  struct whiteheat_purge *__cil_tmp5 ;
-  struct usb_serial *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned char __cil_tmp9 ;
+  struct usb_serial *__cil_tmp5 ;
+  unsigned char __cil_tmp6 ;
+  int __cil_tmp7 ;
+  unsigned char __cil_tmp8 ;
+  int __cil_tmp9 ;
   int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u8 *__cil_tmp18 ;
-  unsigned char __cil_tmp19 ;
+  int __cil_tmp11 ;
+  __u8 __cil_tmp12 ;
+  __u8 *__cil_tmp13 ;
+  __u8 __cil_tmp14 ;
 
   {
   {
 #line 1323
-  __cil_tmp5 = & purge_command;
+  __cil_tmp5 = port->serial;
 #line 1323
-  __cil_tmp6 = *((struct usb_serial **)port);
+  __cil_tmp6 = __cil_tmp5->minor;
 #line 1323
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 1323
-  __cil_tmp8 = __cil_tmp7 + 25;
+  __cil_tmp8 = port->number;
 #line 1323
-  __cil_tmp9 = *((unsigned char *)__cil_tmp8);
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 1323
-  __cil_tmp10 = (int )__cil_tmp9;
+  __cil_tmp10 = __cil_tmp9 - __cil_tmp7;
 #line 1323
-  __cil_tmp11 = (unsigned long )port;
+  __cil_tmp11 = __cil_tmp10 + 1;
 #line 1323
-  __cil_tmp12 = __cil_tmp11 + 816;
-#line 1323
-  __cil_tmp13 = *((unsigned char *)__cil_tmp12);
-#line 1323
-  __cil_tmp14 = (int )__cil_tmp13;
-#line 1323
-  __cil_tmp15 = __cil_tmp14 - __cil_tmp10;
-#line 1323
-  __cil_tmp16 = __cil_tmp15 + 1;
-#line 1323
-  *((__u8 *)__cil_tmp5) = (unsigned char )__cil_tmp16;
+  purge_command.port = (__u8 )__cil_tmp11;
 #line 1324
-  __cil_tmp17 = (unsigned long )(& purge_command) + 1;
-#line 1324
-  *((__u8 *)__cil_tmp17) = rxtx;
+  purge_command.what = rxtx;
 #line 1325
-  __cil_tmp18 = (__u8 *)(& purge_command);
+  __cil_tmp12 = (__u8 )9;
 #line 1325
-  __cil_tmp19 = (unsigned char )2UL;
+  __cil_tmp13 = (__u8 *)(& purge_command);
 #line 1325
-  tmp___7 = firm_send_command(port, (unsigned char)9, __cil_tmp18, __cil_tmp19);
+  __cil_tmp14 = (__u8 )2UL;
+#line 1325
+  tmp___7 = firm_send_command(port, __cil_tmp12, __cil_tmp13, __cil_tmp14);
   }
 #line 1325
   return (tmp___7);
@@ -13851,55 +11657,43 @@ static int firm_purge(struct usb_serial_port *port , __u8 rxtx )
 static int firm_get_dtr_rts(struct usb_serial_port *port ) 
 { struct whiteheat_simple get_dr_command ;
   int tmp___7 ;
-  struct whiteheat_simple *__cil_tmp4 ;
-  struct usb_serial *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char __cil_tmp8 ;
+  struct usb_serial *__cil_tmp4 ;
+  unsigned char __cil_tmp5 ;
+  int __cil_tmp6 ;
+  unsigned char __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  __u8 *__cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
+  int __cil_tmp10 ;
+  __u8 __cil_tmp11 ;
+  __u8 *__cil_tmp12 ;
+  __u8 __cil_tmp13 ;
 
   {
   {
 #line 1334
-  __cil_tmp4 = & get_dr_command;
+  __cil_tmp4 = port->serial;
 #line 1334
-  __cil_tmp5 = *((struct usb_serial **)port);
+  __cil_tmp5 = __cil_tmp4->minor;
 #line 1334
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
+  __cil_tmp6 = (int )__cil_tmp5;
 #line 1334
-  __cil_tmp7 = __cil_tmp6 + 25;
+  __cil_tmp7 = port->number;
 #line 1334
-  __cil_tmp8 = *((unsigned char *)__cil_tmp7);
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 1334
-  __cil_tmp9 = (int )__cil_tmp8;
+  __cil_tmp9 = __cil_tmp8 - __cil_tmp6;
 #line 1334
-  __cil_tmp10 = (unsigned long )port;
+  __cil_tmp10 = __cil_tmp9 + 1;
 #line 1334
-  __cil_tmp11 = __cil_tmp10 + 816;
-#line 1334
-  __cil_tmp12 = *((unsigned char *)__cil_tmp11);
-#line 1334
-  __cil_tmp13 = (int )__cil_tmp12;
-#line 1334
-  __cil_tmp14 = __cil_tmp13 - __cil_tmp9;
-#line 1334
-  __cil_tmp15 = __cil_tmp14 + 1;
-#line 1334
-  *((__u8 *)__cil_tmp4) = (unsigned char )__cil_tmp15;
+  get_dr_command.port = (__u8 )__cil_tmp10;
 #line 1335
-  __cil_tmp16 = (__u8 *)(& get_dr_command);
+  __cil_tmp11 = (__u8 )10;
 #line 1335
-  __cil_tmp17 = (unsigned char )1UL;
+  __cil_tmp12 = (__u8 *)(& get_dr_command);
 #line 1335
-  tmp___7 = firm_send_command(port, (unsigned char)10, __cil_tmp16, __cil_tmp17);
+  __cil_tmp13 = (__u8 )1UL;
+#line 1335
+  tmp___7 = firm_send_command(port, __cil_tmp11, __cil_tmp12, __cil_tmp13);
   }
 #line 1335
   return (tmp___7);
@@ -13909,55 +11703,43 @@ static int firm_get_dtr_rts(struct usb_serial_port *port )
 static int firm_report_tx_done(struct usb_serial_port *port ) 
 { struct whiteheat_simple close_command ;
   int tmp___7 ;
-  struct whiteheat_simple *__cil_tmp4 ;
-  struct usb_serial *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char __cil_tmp8 ;
+  struct usb_serial *__cil_tmp4 ;
+  unsigned char __cil_tmp5 ;
+  int __cil_tmp6 ;
+  unsigned char __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  __u8 *__cil_tmp16 ;
-  unsigned char __cil_tmp17 ;
+  int __cil_tmp10 ;
+  __u8 __cil_tmp11 ;
+  __u8 *__cil_tmp12 ;
+  __u8 __cil_tmp13 ;
 
   {
   {
 #line 1344
-  __cil_tmp4 = & close_command;
+  __cil_tmp4 = port->serial;
 #line 1344
-  __cil_tmp5 = *((struct usb_serial **)port);
+  __cil_tmp5 = __cil_tmp4->minor;
 #line 1344
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
+  __cil_tmp6 = (int )__cil_tmp5;
 #line 1344
-  __cil_tmp7 = __cil_tmp6 + 25;
+  __cil_tmp7 = port->number;
 #line 1344
-  __cil_tmp8 = *((unsigned char *)__cil_tmp7);
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 1344
-  __cil_tmp9 = (int )__cil_tmp8;
+  __cil_tmp9 = __cil_tmp8 - __cil_tmp6;
 #line 1344
-  __cil_tmp10 = (unsigned long )port;
+  __cil_tmp10 = __cil_tmp9 + 1;
 #line 1344
-  __cil_tmp11 = __cil_tmp10 + 816;
-#line 1344
-  __cil_tmp12 = *((unsigned char *)__cil_tmp11);
-#line 1344
-  __cil_tmp13 = (int )__cil_tmp12;
-#line 1344
-  __cil_tmp14 = __cil_tmp13 - __cil_tmp9;
-#line 1344
-  __cil_tmp15 = __cil_tmp14 + 1;
-#line 1344
-  *((__u8 *)__cil_tmp4) = (unsigned char )__cil_tmp15;
+  close_command.port = (__u8 )__cil_tmp10;
 #line 1345
-  __cil_tmp16 = (__u8 *)(& close_command);
+  __cil_tmp11 = (__u8 )12;
 #line 1345
-  __cil_tmp17 = (unsigned char )1UL;
+  __cil_tmp12 = (__u8 *)(& close_command);
 #line 1345
-  tmp___7 = firm_send_command(port, (unsigned char)12, __cil_tmp16, __cil_tmp17);
+  __cil_tmp13 = (__u8 )1UL;
+#line 1345
+  tmp___7 = firm_send_command(port, __cil_tmp11, __cil_tmp12, __cil_tmp13);
   }
 #line 1345
   return (tmp___7);
@@ -13969,133 +11751,76 @@ static int start_command_port(struct usb_serial *serial )
   struct whiteheat_command_private *command_info ;
   int retval ;
   void *tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct mutex *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  __u8 __cil_tmp13 ;
+  struct mutex *__cil_tmp6 ;
+  __u8 __cil_tmp7 ;
+  struct usb_device *__cil_tmp8 ;
+  struct urb *__cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  struct urb *__cil_tmp12 ;
+  struct urb *__cil_tmp13 ;
   struct usb_device *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct urb *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct urb *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct urb *__cil_tmp29 ;
-  struct usb_device *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct device *__cil_tmp33 ;
-  struct device  const  *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  __u8 __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  struct mutex *__cil_tmp42 ;
+  struct device *__cil_tmp15 ;
+  struct device  const  *__cil_tmp16 ;
+  __u8 __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  struct mutex *__cil_tmp20 ;
 
   {
   {
 #line 1357
   retval = 0;
 #line 1359
-  __cil_tmp6 = 4 * 8UL;
-#line 1359
-  __cil_tmp7 = 32 + __cil_tmp6;
-#line 1359
-  __cil_tmp8 = (unsigned long )serial;
-#line 1359
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 1359
-  command_port = *((struct usb_serial_port **)__cil_tmp9);
+  command_port = serial->port[4];
 #line 1360
   tmp___7 = usb_get_serial_port_data(command_port);
 #line 1360
   command_info = (struct whiteheat_command_private *)tmp___7;
 #line 1361
-  __cil_tmp10 = (struct mutex *)command_info;
+  __cil_tmp6 = & command_info->mutex;
 #line 1361
-  mutex_lock_nested(__cil_tmp10, 0U);
+  mutex_lock_nested(__cil_tmp6, 0U);
   }
   {
 #line 1362
-  __cil_tmp11 = (unsigned long )command_info;
+  __cil_tmp7 = command_info->port_running;
 #line 1362
-  __cil_tmp12 = __cil_tmp11 + 168;
-#line 1362
-  __cil_tmp13 = *((__u8 *)__cil_tmp12);
-#line 1362
-  if (! __cil_tmp13) {
+  if (! __cil_tmp7) {
     {
 #line 1364
-    __cil_tmp14 = *((struct usb_device **)serial);
+    __cil_tmp8 = serial->dev;
 #line 1364
-    __cil_tmp15 = (unsigned long )command_port;
+    __cil_tmp9 = command_port->read_urb;
 #line 1364
-    __cil_tmp16 = __cil_tmp15 + 896;
+    __cil_tmp10 = __cil_tmp9->pipe;
 #line 1364
-    __cil_tmp17 = *((struct urb **)__cil_tmp16);
+    __cil_tmp11 = (int )__cil_tmp10;
 #line 1364
-    __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 1364
-    __cil_tmp19 = __cil_tmp18 + 88;
-#line 1364
-    __cil_tmp20 = *((unsigned int *)__cil_tmp19);
-#line 1364
-    __cil_tmp21 = (int )__cil_tmp20;
-#line 1364
-    usb_clear_halt(__cil_tmp14, __cil_tmp21);
+    usb_clear_halt(__cil_tmp8, __cil_tmp11);
 #line 1366
-    __cil_tmp22 = (unsigned long )command_port;
+    __cil_tmp12 = command_port->read_urb;
 #line 1366
-    __cil_tmp23 = __cil_tmp22 + 896;
-#line 1366
-    __cil_tmp24 = *((struct urb **)__cil_tmp23);
-#line 1366
-    __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 1366
-    __cil_tmp26 = __cil_tmp25 + 72;
-#line 1366
-    *((struct usb_device **)__cil_tmp26) = *((struct usb_device **)serial);
+    __cil_tmp12->dev = serial->dev;
 #line 1367
-    __cil_tmp27 = (unsigned long )command_port;
+    __cil_tmp13 = command_port->read_urb;
 #line 1367
-    __cil_tmp28 = __cil_tmp27 + 896;
-#line 1367
-    __cil_tmp29 = *((struct urb **)__cil_tmp28);
-#line 1367
-    retval = usb_submit_urb(__cil_tmp29, 208U);
+    retval = usb_submit_urb(__cil_tmp13, 208U);
     }
 #line 1368
     if (retval) {
       {
 #line 1369
-      __cil_tmp30 = *((struct usb_device **)serial);
+      __cil_tmp14 = serial->dev;
 #line 1369
-      __cil_tmp31 = (unsigned long )__cil_tmp30;
+      __cil_tmp15 = & __cil_tmp14->dev;
 #line 1369
-      __cil_tmp32 = __cil_tmp31 + 192;
+      __cil_tmp16 = (struct device  const  *)__cil_tmp15;
 #line 1369
-      __cil_tmp33 = (struct device *)__cil_tmp32;
-#line 1369
-      __cil_tmp34 = (struct device  const  *)__cil_tmp33;
-#line 1369
-      dev_err(__cil_tmp34, "%s - failed submitting read urb, error %d\n", "start_command_port",
+      dev_err(__cil_tmp16, "%s - failed submitting read urb, error %d\n", "start_command_port",
               retval);
       }
+#line 1372
       goto exit;
     } else {
 
@@ -14105,27 +11830,19 @@ static int start_command_port(struct usb_serial *serial )
   }
   }
 #line 1375
-  __cil_tmp35 = (unsigned long )command_info;
+  __cil_tmp17 = command_info->port_running;
 #line 1375
-  __cil_tmp36 = __cil_tmp35 + 168;
+  __cil_tmp18 = (int )__cil_tmp17;
 #line 1375
-  __cil_tmp37 = (unsigned long )command_info;
+  __cil_tmp19 = __cil_tmp18 + 1;
 #line 1375
-  __cil_tmp38 = __cil_tmp37 + 168;
-#line 1375
-  __cil_tmp39 = *((__u8 *)__cil_tmp38);
-#line 1375
-  __cil_tmp40 = (int )__cil_tmp39;
-#line 1375
-  __cil_tmp41 = __cil_tmp40 + 1;
-#line 1375
-  *((__u8 *)__cil_tmp36) = (unsigned char )__cil_tmp41;
+  command_info->port_running = (__u8 )__cil_tmp19;
   exit: 
   {
 #line 1378
-  __cil_tmp42 = (struct mutex *)command_info;
+  __cil_tmp20 = & command_info->mutex;
 #line 1378
-  mutex_unlock(__cil_tmp42);
+  mutex_unlock(__cil_tmp20);
   }
 #line 1379
   return (retval);
@@ -14136,81 +11853,45 @@ static void stop_command_port(struct usb_serial *serial )
 { struct usb_serial_port *command_port ;
   struct whiteheat_command_private *command_info ;
   void *tmp___7 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct mutex *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  __u8 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  __u8 __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct urb *__cil_tmp22 ;
-  struct mutex *__cil_tmp23 ;
+  struct mutex *__cil_tmp5 ;
+  __u8 __cil_tmp6 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
+  __u8 __cil_tmp9 ;
+  struct urb *__cil_tmp10 ;
+  struct mutex *__cil_tmp11 ;
 
   {
   {
 #line 1388
-  __cil_tmp5 = 4 * 8UL;
-#line 1388
-  __cil_tmp6 = 32 + __cil_tmp5;
-#line 1388
-  __cil_tmp7 = (unsigned long )serial;
-#line 1388
-  __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
-#line 1388
-  command_port = *((struct usb_serial_port **)__cil_tmp8);
+  command_port = serial->port[4];
 #line 1389
   tmp___7 = usb_get_serial_port_data(command_port);
 #line 1389
   command_info = (struct whiteheat_command_private *)tmp___7;
 #line 1390
-  __cil_tmp9 = (struct mutex *)command_info;
+  __cil_tmp5 = & command_info->mutex;
 #line 1390
-  mutex_lock_nested(__cil_tmp9, 0U);
+  mutex_lock_nested(__cil_tmp5, 0U);
 #line 1391
-  __cil_tmp10 = (unsigned long )command_info;
+  __cil_tmp6 = command_info->port_running;
 #line 1391
-  __cil_tmp11 = __cil_tmp10 + 168;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 1391
-  __cil_tmp12 = (unsigned long )command_info;
+  __cil_tmp8 = __cil_tmp7 - 1;
 #line 1391
-  __cil_tmp13 = __cil_tmp12 + 168;
-#line 1391
-  __cil_tmp14 = *((__u8 *)__cil_tmp13);
-#line 1391
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 1391
-  __cil_tmp16 = __cil_tmp15 - 1;
-#line 1391
-  *((__u8 *)__cil_tmp11) = (unsigned char )__cil_tmp16;
+  command_info->port_running = (__u8 )__cil_tmp8;
   }
   {
 #line 1392
-  __cil_tmp17 = (unsigned long )command_info;
+  __cil_tmp9 = command_info->port_running;
 #line 1392
-  __cil_tmp18 = __cil_tmp17 + 168;
-#line 1392
-  __cil_tmp19 = *((__u8 *)__cil_tmp18);
-#line 1392
-  if (! __cil_tmp19) {
+  if (! __cil_tmp9) {
     {
 #line 1393
-    __cil_tmp20 = (unsigned long )command_port;
+    __cil_tmp10 = command_port->read_urb;
 #line 1393
-    __cil_tmp21 = __cil_tmp20 + 896;
-#line 1393
-    __cil_tmp22 = *((struct urb **)__cil_tmp21);
-#line 1393
-    usb_kill_urb(__cil_tmp22);
+    usb_kill_urb(__cil_tmp10);
     }
   } else {
 
@@ -14218,9 +11899,9 @@ static void stop_command_port(struct usb_serial *serial )
   }
   {
 #line 1394
-  __cil_tmp23 = (struct mutex *)command_info;
+  __cil_tmp11 = & command_info->mutex;
 #line 1394
-  mutex_unlock(__cil_tmp23);
+  mutex_unlock(__cil_tmp11);
   }
 #line 1395
   return;
@@ -14243,52 +11924,32 @@ static int start_port_read(struct usb_serial_port *port )
   raw_spinlock_t *tmp___11 ;
   raw_spinlock_t *tmp___12 ;
   spinlock_t *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct list_head *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  struct whiteheat_urb_wrap *__cil_tmp20 ;
   struct list_head *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct whiteheat_urb_wrap *__cil_tmp24 ;
-  struct list_head *__cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  char *__cil_tmp27 ;
-  char *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  unsigned int __cil_tmp22 ;
+  char *__cil_tmp23 ;
+  char *__cil_tmp24 ;
+  struct usb_serial *__cil_tmp25 ;
+  spinlock_t *__cil_tmp26 ;
+  spinlock_t *__cil_tmp27 ;
+  struct list_head *__cil_tmp28 ;
+  struct list_head *__cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct usb_serial *__cil_tmp33 ;
-  spinlock_t *__cil_tmp34 ;
-  spinlock_t *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct list_head *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct list_head *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct whiteheat_urb_wrap *__cil_tmp46 ;
-  struct list_head *__cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  char *__cil_tmp49 ;
-  char *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  spinlock_t *__cil_tmp53 ;
-  spinlock_t *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct list_head *__cil_tmp57 ;
-  spinlock_t *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct list_head *__cil_tmp61 ;
-  spinlock_t *__cil_tmp62 ;
+  struct whiteheat_urb_wrap *__cil_tmp32 ;
+  struct list_head *__cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  char *__cil_tmp35 ;
+  char *__cil_tmp36 ;
+  spinlock_t *__cil_tmp37 ;
+  spinlock_t *__cil_tmp38 ;
+  struct list_head *__cil_tmp39 ;
+  spinlock_t *__cil_tmp40 ;
+  struct list_head *__cil_tmp41 ;
+  spinlock_t *__cil_tmp42 ;
 
   {
   {
@@ -14302,60 +11963,55 @@ static int start_port_read(struct usb_serial_port *port )
   {
 #line 1408
   while (1) {
-    while_80_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 1408
     while (1) {
-      while_81_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 1408
-      __cil_tmp16 = (spinlock_t *)info;
+      __cil_tmp16 = & info->lock;
 #line 1408
       tmp___9 = spinlock_check(__cil_tmp16);
 #line 1408
       flags = _raw_spin_lock_irqsave(tmp___9);
       }
+#line 1408
       goto while_break___0;
     }
-    while_81_break: /* CIL Label */ ;
+    while_break___10: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 1408
     goto while_break;
   }
-  while_80_break: /* CIL Label */ ;
+  while_break___9: /* CIL Label */ ;
   }
 
   while_break: 
 #line 1410
-  __cil_tmp17 = (unsigned long )info;
+  tmp___8 = info->rx_urbs_free.next;
 #line 1410
-  __cil_tmp18 = __cil_tmp17 + 80;
-#line 1410
-  tmp___8 = *((struct list_head **)__cil_tmp18);
-#line 1410
-  tmp2 = *((struct list_head **)tmp___8);
+  tmp2 = tmp___8->next;
   {
 #line 1410
   while (1) {
-    while_82_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
     {
 #line 1410
-    __cil_tmp19 = (unsigned long )info;
+    __cil_tmp17 = & info->rx_urbs_free;
 #line 1410
-    __cil_tmp20 = __cil_tmp19 + 80;
+    __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 1410
-    __cil_tmp21 = (struct list_head *)__cil_tmp20;
+    __cil_tmp19 = (unsigned long )tmp___8;
 #line 1410
-    __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 1410
-    __cil_tmp23 = (unsigned long )tmp___8;
-#line 1410
-    if (__cil_tmp23 != __cil_tmp22) {
+    if (__cil_tmp19 != __cil_tmp18) {
 
     } else {
+#line 1410
       goto while_break___1;
     }
     }
@@ -14365,35 +12021,27 @@ static int start_port_read(struct usb_serial_port *port )
 #line 1412
     __mptr = (struct list_head  const  *)tmp___8;
 #line 1412
-    __cil_tmp24 = (struct whiteheat_urb_wrap *)0;
+    __cil_tmp20 = (struct whiteheat_urb_wrap *)0;
 #line 1412
-    __cil_tmp25 = (struct list_head *)__cil_tmp24;
+    __cil_tmp21 = & __cil_tmp20->list;
 #line 1412
-    __cil_tmp26 = (unsigned int )__cil_tmp25;
+    __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 1412
-    __cil_tmp27 = (char *)__mptr;
+    __cil_tmp23 = (char *)__mptr;
 #line 1412
-    __cil_tmp28 = __cil_tmp27 - __cil_tmp26;
+    __cil_tmp24 = __cil_tmp23 - __cil_tmp22;
 #line 1412
-    wrap = (struct whiteheat_urb_wrap *)__cil_tmp28;
+    wrap = (struct whiteheat_urb_wrap *)__cil_tmp24;
 #line 1413
-    __cil_tmp29 = (unsigned long )wrap;
-#line 1413
-    __cil_tmp30 = __cil_tmp29 + 16;
-#line 1413
-    urb = *((struct urb **)__cil_tmp30);
+    urb = wrap->urb;
 #line 1414
-    __cil_tmp31 = (unsigned long )urb;
+    __cil_tmp25 = port->serial;
 #line 1414
-    __cil_tmp32 = __cil_tmp31 + 72;
-#line 1414
-    __cil_tmp33 = *((struct usb_serial **)port);
-#line 1414
-    *((struct usb_device **)__cil_tmp32) = *((struct usb_device **)__cil_tmp33);
+    urb->dev = __cil_tmp25->dev;
 #line 1415
-    __cil_tmp34 = (spinlock_t *)info;
+    __cil_tmp26 = & info->lock;
 #line 1415
-    spin_unlock_irqrestore(__cil_tmp34, flags);
+    spin_unlock_irqrestore(__cil_tmp26, flags);
 #line 1416
     retval = usb_submit_urb(urb, 208U);
     }
@@ -14402,70 +12050,61 @@ static int start_port_read(struct usb_serial_port *port )
       {
 #line 1418
       while (1) {
-        while_83_continue: /* CIL Label */ ;
+        while_continue___2: /* CIL Label */ ;
 
         {
 #line 1418
         while (1) {
-          while_84_continue: /* CIL Label */ ;
+          while_continue___3: /* CIL Label */ ;
           {
 #line 1418
-          __cil_tmp35 = (spinlock_t *)info;
+          __cil_tmp27 = & info->lock;
 #line 1418
-          tmp___10 = spinlock_check(__cil_tmp35);
+          tmp___10 = spinlock_check(__cil_tmp27);
 #line 1418
           flags = _raw_spin_lock_irqsave(tmp___10);
           }
+#line 1418
           goto while_break___3;
         }
-        while_84_break: /* CIL Label */ ;
+        while_break___13: /* CIL Label */ ;
         }
 
         while_break___3: ;
+#line 1418
         goto while_break___2;
       }
-      while_83_break: /* CIL Label */ ;
+      while_break___12: /* CIL Label */ ;
       }
 
       while_break___2: 
       {
 #line 1419
-      __cil_tmp36 = (unsigned long )info;
+      __cil_tmp28 = & info->rx_urbs_free;
 #line 1419
-      __cil_tmp37 = __cil_tmp36 + 80;
-#line 1419
-      __cil_tmp38 = (struct list_head *)__cil_tmp37;
-#line 1419
-      list_add(tmp___8, __cil_tmp38);
+      list_add(tmp___8, __cil_tmp28);
 #line 1420
-      __cil_tmp39 = (unsigned long )info;
+      tmp___8 = info->rx_urbs_submitted.next;
 #line 1420
-      __cil_tmp40 = __cil_tmp39 + 96;
-#line 1420
-      tmp___8 = *((struct list_head **)__cil_tmp40);
-#line 1420
-      tmp2 = *((struct list_head **)tmp___8);
+      tmp2 = tmp___8->next;
       }
       {
 #line 1420
       while (1) {
-        while_85_continue: /* CIL Label */ ;
+        while_continue___4: /* CIL Label */ ;
 
         {
 #line 1420
-        __cil_tmp41 = (unsigned long )info;
+        __cil_tmp29 = & info->rx_urbs_submitted;
 #line 1420
-        __cil_tmp42 = __cil_tmp41 + 96;
+        __cil_tmp30 = (unsigned long )__cil_tmp29;
 #line 1420
-        __cil_tmp43 = (struct list_head *)__cil_tmp42;
+        __cil_tmp31 = (unsigned long )tmp___8;
 #line 1420
-        __cil_tmp44 = (unsigned long )__cil_tmp43;
-#line 1420
-        __cil_tmp45 = (unsigned long )tmp___8;
-#line 1420
-        if (__cil_tmp45 != __cil_tmp44) {
+        if (__cil_tmp31 != __cil_tmp30) {
 
         } else {
+#line 1420
           goto while_break___4;
         }
         }
@@ -14473,80 +12112,75 @@ static int start_port_read(struct usb_serial_port *port )
 #line 1421
         __mptr___0 = (struct list_head  const  *)tmp___8;
 #line 1421
-        __cil_tmp46 = (struct whiteheat_urb_wrap *)0;
+        __cil_tmp32 = (struct whiteheat_urb_wrap *)0;
 #line 1421
-        __cil_tmp47 = (struct list_head *)__cil_tmp46;
+        __cil_tmp33 = & __cil_tmp32->list;
 #line 1421
-        __cil_tmp48 = (unsigned int )__cil_tmp47;
+        __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 1421
-        __cil_tmp49 = (char *)__mptr___0;
+        __cil_tmp35 = (char *)__mptr___0;
 #line 1421
-        __cil_tmp50 = __cil_tmp49 - __cil_tmp48;
+        __cil_tmp36 = __cil_tmp35 - __cil_tmp34;
 #line 1421
-        wrap = (struct whiteheat_urb_wrap *)__cil_tmp50;
+        wrap = (struct whiteheat_urb_wrap *)__cil_tmp36;
 #line 1422
-        __cil_tmp51 = (unsigned long )wrap;
-#line 1422
-        __cil_tmp52 = __cil_tmp51 + 16;
-#line 1422
-        urb = *((struct urb **)__cil_tmp52);
+        urb = wrap->urb;
 #line 1423
         list_del(tmp___8);
 #line 1424
-        __cil_tmp53 = (spinlock_t *)info;
+        __cil_tmp37 = & info->lock;
 #line 1424
-        spin_unlock_irqrestore(__cil_tmp53, flags);
+        spin_unlock_irqrestore(__cil_tmp37, flags);
 #line 1425
         usb_kill_urb(urb);
         }
         {
 #line 1426
         while (1) {
-          while_86_continue: /* CIL Label */ ;
+          while_continue___5: /* CIL Label */ ;
 
           {
 #line 1426
           while (1) {
-            while_87_continue: /* CIL Label */ ;
+            while_continue___6: /* CIL Label */ ;
             {
 #line 1426
-            __cil_tmp54 = (spinlock_t *)info;
+            __cil_tmp38 = & info->lock;
 #line 1426
-            tmp___11 = spinlock_check(__cil_tmp54);
+            tmp___11 = spinlock_check(__cil_tmp38);
 #line 1426
             flags = _raw_spin_lock_irqsave(tmp___11);
             }
+#line 1426
             goto while_break___6;
           }
-          while_87_break: /* CIL Label */ ;
+          while_break___16: /* CIL Label */ ;
           }
 
           while_break___6: ;
+#line 1426
           goto while_break___5;
         }
-        while_86_break: /* CIL Label */ ;
+        while_break___15: /* CIL Label */ ;
         }
 
         while_break___5: 
         {
 #line 1427
-        __cil_tmp55 = (unsigned long )info;
+        __cil_tmp39 = & info->rx_urbs_free;
 #line 1427
-        __cil_tmp56 = __cil_tmp55 + 80;
-#line 1427
-        __cil_tmp57 = (struct list_head *)__cil_tmp56;
-#line 1427
-        list_add(tmp___8, __cil_tmp57);
+        list_add(tmp___8, __cil_tmp39);
 #line 1420
         tmp___8 = tmp2;
 #line 1420
-        tmp2 = *((struct list_head **)tmp___8);
+        tmp2 = tmp___8->next;
         }
       }
-      while_85_break: /* CIL Label */ ;
+      while_break___14: /* CIL Label */ ;
       }
 
       while_break___4: ;
+#line 1429
       goto while_break___1;
     } else {
 
@@ -14554,56 +12188,54 @@ static int start_port_read(struct usb_serial_port *port )
     {
 #line 1431
     while (1) {
-      while_88_continue: /* CIL Label */ ;
+      while_continue___7: /* CIL Label */ ;
 
       {
 #line 1431
       while (1) {
-        while_89_continue: /* CIL Label */ ;
+        while_continue___8: /* CIL Label */ ;
         {
 #line 1431
-        __cil_tmp58 = (spinlock_t *)info;
+        __cil_tmp40 = & info->lock;
 #line 1431
-        tmp___12 = spinlock_check(__cil_tmp58);
+        tmp___12 = spinlock_check(__cil_tmp40);
 #line 1431
         flags = _raw_spin_lock_irqsave(tmp___12);
         }
+#line 1431
         goto while_break___8;
       }
-      while_89_break: /* CIL Label */ ;
+      while_break___18: /* CIL Label */ ;
       }
 
       while_break___8: ;
+#line 1431
       goto while_break___7;
     }
-    while_88_break: /* CIL Label */ ;
+    while_break___17: /* CIL Label */ ;
     }
 
     while_break___7: 
     {
 #line 1432
-    __cil_tmp59 = (unsigned long )info;
+    __cil_tmp41 = & info->rx_urbs_submitted;
 #line 1432
-    __cil_tmp60 = __cil_tmp59 + 96;
-#line 1432
-    __cil_tmp61 = (struct list_head *)__cil_tmp60;
-#line 1432
-    list_add(tmp___8, __cil_tmp61);
+    list_add(tmp___8, __cil_tmp41);
 #line 1410
     tmp___8 = tmp2;
 #line 1410
-    tmp2 = *((struct list_head **)tmp___8);
+    tmp2 = tmp___8->next;
     }
   }
-  while_82_break: /* CIL Label */ ;
+  while_break___11: /* CIL Label */ ;
   }
 
   while_break___1: 
   {
 #line 1435
-  __cil_tmp62 = (spinlock_t *)info;
+  __cil_tmp42 = & info->lock;
 #line 1435
-  spin_unlock_irqrestore(__cil_tmp62, flags);
+  spin_unlock_irqrestore(__cil_tmp42, flags);
   }
 #line 1437
   return (retval);
@@ -14622,19 +12254,17 @@ static struct whiteheat_urb_wrap *urb_to_wrap(struct urb *urb , struct list_head
   char *__cil_tmp11 ;
   char *__cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  struct urb *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  struct urb *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  void *__cil_tmp18 ;
+  void *__cil_tmp16 ;
 
   {
 #line 1447
-  tmp___7 = *((struct list_head **)head);
+  tmp___7 = head->next;
   {
 #line 1447
   while (1) {
-    while_90_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 1447
@@ -14645,6 +12275,7 @@ static struct whiteheat_urb_wrap *urb_to_wrap(struct urb *urb , struct list_head
     if (__cil_tmp7 != __cil_tmp6) {
 
     } else {
+#line 1447
       goto while_break;
     }
     }
@@ -14653,7 +12284,7 @@ static struct whiteheat_urb_wrap *urb_to_wrap(struct urb *urb , struct list_head
 #line 1448
     __cil_tmp8 = (struct whiteheat_urb_wrap *)0;
 #line 1448
-    __cil_tmp9 = (struct list_head *)__cil_tmp8;
+    __cil_tmp9 = & __cil_tmp8->list;
 #line 1448
     __cil_tmp10 = (unsigned int )__cil_tmp9;
 #line 1448
@@ -14666,15 +12297,11 @@ static struct whiteheat_urb_wrap *urb_to_wrap(struct urb *urb , struct list_head
 #line 1449
     __cil_tmp13 = (unsigned long )urb;
 #line 1449
-    __cil_tmp14 = (unsigned long )wrap;
+    __cil_tmp14 = wrap->urb;
 #line 1449
-    __cil_tmp15 = __cil_tmp14 + 16;
+    __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 1449
-    __cil_tmp16 = *((struct urb **)__cil_tmp15);
-#line 1449
-    __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 1449
-    if (__cil_tmp17 == __cil_tmp13) {
+    if (__cil_tmp15 == __cil_tmp13) {
 #line 1450
       return (wrap);
     } else {
@@ -14682,17 +12309,17 @@ static struct whiteheat_urb_wrap *urb_to_wrap(struct urb *urb , struct list_head
     }
     }
 #line 1447
-    tmp___7 = *((struct list_head **)tmp___7);
+    tmp___7 = tmp___7->next;
   }
-  while_90_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 1453
-  __cil_tmp18 = (void *)0;
+  __cil_tmp16 = (void *)0;
 #line 1453
-  return ((struct whiteheat_urb_wrap *)__cil_tmp18);
+  return ((struct whiteheat_urb_wrap *)__cil_tmp16);
   }
 }
 }
@@ -14702,7 +12329,7 @@ static struct list_head *list_first(struct list_head *head )
 
   {
 #line 1459
-  return (*((struct list_head **)head));
+  return (head->next);
 }
 }
 #line 1463 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
@@ -14725,64 +12352,36 @@ static void rx_data_softint(struct work_struct *work )
   raw_spinlock_t *tmp___11 ;
   raw_spinlock_t *tmp___12 ;
   struct whiteheat_private *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct work_struct *__cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  char *__cil_tmp24 ;
-  char *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct tty_port *__cil_tmp30 ;
-  spinlock_t *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  __u8 __cil_tmp34 ;
-  int __cil_tmp35 ;
-  spinlock_t *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct list_head *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  spinlock_t *__cil_tmp44 ;
-  struct whiteheat_urb_wrap *__cil_tmp45 ;
+  struct work_struct *__cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  char *__cil_tmp22 ;
+  char *__cil_tmp23 ;
+  struct tty_port *__cil_tmp24 ;
+  spinlock_t *__cil_tmp25 ;
+  __u8 __cil_tmp26 ;
+  int __cil_tmp27 ;
+  spinlock_t *__cil_tmp28 ;
+  struct list_head *__cil_tmp29 ;
+  unsigned long __cil_tmp30 ;
+  unsigned long __cil_tmp31 ;
+  spinlock_t *__cil_tmp32 ;
+  struct whiteheat_urb_wrap *__cil_tmp33 ;
+  struct list_head *__cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  char *__cil_tmp36 ;
+  char *__cil_tmp37 ;
+  void *__cil_tmp38 ;
+  unsigned char const   *__cil_tmp39 ;
+  u32 __cil_tmp40 ;
+  size_t __cil_tmp41 ;
+  struct usb_serial *__cil_tmp42 ;
+  struct device *__cil_tmp43 ;
+  struct device  const  *__cil_tmp44 ;
+  spinlock_t *__cil_tmp45 ;
   struct list_head *__cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  char *__cil_tmp48 ;
-  char *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  void *__cil_tmp56 ;
-  unsigned char const   *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  u32 __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  struct usb_serial *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct device *__cil_tmp67 ;
-  struct device  const  *__cil_tmp68 ;
-  spinlock_t *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  struct list_head *__cil_tmp72 ;
-  spinlock_t *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  struct list_head *__cil_tmp76 ;
-  spinlock_t *__cil_tmp77 ;
+  spinlock_t *__cil_tmp47 ;
+  struct list_head *__cil_tmp48 ;
+  spinlock_t *__cil_tmp49 ;
 
   {
   {
@@ -14791,33 +12390,21 @@ static void rx_data_softint(struct work_struct *work )
 #line 1466
   __cil_tmp19 = (struct whiteheat_private *)0;
 #line 1466
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp20 = & __cil_tmp19->rx_work;
 #line 1466
-  __cil_tmp21 = __cil_tmp20 + 128;
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 1466
-  __cil_tmp22 = (struct work_struct *)__cil_tmp21;
+  __cil_tmp22 = (char *)__mptr;
 #line 1466
-  __cil_tmp23 = (unsigned int )__cil_tmp22;
+  __cil_tmp23 = __cil_tmp22 - __cil_tmp21;
 #line 1466
-  __cil_tmp24 = (char *)__mptr;
-#line 1466
-  __cil_tmp25 = __cil_tmp24 - __cil_tmp23;
-#line 1466
-  info = (struct whiteheat_private *)__cil_tmp25;
+  info = (struct whiteheat_private *)__cil_tmp23;
 #line 1467
-  __cil_tmp26 = (unsigned long )info;
-#line 1467
-  __cil_tmp27 = __cil_tmp26 + 208;
-#line 1467
-  port = *((struct usb_serial_port **)__cil_tmp27);
+  port = info->port;
 #line 1468
-  __cil_tmp28 = (unsigned long )port;
+  __cil_tmp24 = & port->port;
 #line 1468
-  __cil_tmp29 = __cil_tmp28 + 8;
-#line 1468
-  __cil_tmp30 = (struct tty_port *)__cil_tmp29;
-#line 1468
-  tmp___7 = tty_port_tty_get(__cil_tmp30);
+  tmp___7 = tty_port_tty_get(__cil_tmp24);
 #line 1468
   tty = tmp___7;
 #line 1475
@@ -14826,82 +12413,74 @@ static void rx_data_softint(struct work_struct *work )
   {
 #line 1477
   while (1) {
-    while_91_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 1477
     while (1) {
-      while_92_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
       {
 #line 1477
-      __cil_tmp31 = (spinlock_t *)info;
+      __cil_tmp25 = & info->lock;
 #line 1477
-      tmp___9 = spinlock_check(__cil_tmp31);
+      tmp___9 = spinlock_check(__cil_tmp25);
 #line 1477
       flags = _raw_spin_lock_irqsave(tmp___9);
       }
+#line 1477
       goto while_break___0;
     }
-    while_92_break: /* CIL Label */ ;
+    while_break___7: /* CIL Label */ ;
     }
 
     while_break___0: ;
+#line 1477
     goto while_break;
   }
-  while_91_break: /* CIL Label */ ;
+  while_break___6: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 1478
-  __cil_tmp32 = (unsigned long )info;
+  __cil_tmp26 = info->flags;
 #line 1478
-  __cil_tmp33 = __cil_tmp32 + 72;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 1478
-  __cil_tmp34 = *((__u8 *)__cil_tmp33);
-#line 1478
-  __cil_tmp35 = (int )__cil_tmp34;
-#line 1478
-  if (__cil_tmp35 & 1) {
+  if (__cil_tmp27 & 1) {
     {
 #line 1479
-    __cil_tmp36 = (spinlock_t *)info;
+    __cil_tmp28 = & info->lock;
 #line 1479
-    spin_unlock_irqrestore(__cil_tmp36, flags);
+    spin_unlock_irqrestore(__cil_tmp28, flags);
     }
+#line 1480
     goto out;
   } else {
 
   }
   }
 #line 1483
-  __cil_tmp37 = (unsigned long )info;
+  tmp___8 = info->rx_urb_q.next;
 #line 1483
-  __cil_tmp38 = __cil_tmp37 + 112;
-#line 1483
-  tmp___8 = *((struct list_head **)__cil_tmp38);
-#line 1483
-  tmp2 = *((struct list_head **)tmp___8);
+  tmp2 = tmp___8->next;
   {
 #line 1483
   while (1) {
-    while_93_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
     {
 #line 1483
-    __cil_tmp39 = (unsigned long )info;
+    __cil_tmp29 = & info->rx_urb_q;
 #line 1483
-    __cil_tmp40 = __cil_tmp39 + 112;
+    __cil_tmp30 = (unsigned long )__cil_tmp29;
 #line 1483
-    __cil_tmp41 = (struct list_head *)__cil_tmp40;
+    __cil_tmp31 = (unsigned long )tmp___8;
 #line 1483
-    __cil_tmp42 = (unsigned long )__cil_tmp41;
-#line 1483
-    __cil_tmp43 = (unsigned long )tmp___8;
-#line 1483
-    if (__cil_tmp43 != __cil_tmp42) {
+    if (__cil_tmp31 != __cil_tmp30) {
 
     } else {
+#line 1483
       goto while_break___1;
     }
     }
@@ -14909,77 +12488,55 @@ static void rx_data_softint(struct work_struct *work )
 #line 1484
     list_del(tmp___8);
 #line 1485
-    __cil_tmp44 = (spinlock_t *)info;
+    __cil_tmp32 = & info->lock;
 #line 1485
-    spin_unlock_irqrestore(__cil_tmp44, flags);
+    spin_unlock_irqrestore(__cil_tmp32, flags);
 #line 1487
     __mptr___0 = (struct list_head  const  *)tmp___8;
 #line 1487
-    __cil_tmp45 = (struct whiteheat_urb_wrap *)0;
+    __cil_tmp33 = (struct whiteheat_urb_wrap *)0;
 #line 1487
-    __cil_tmp46 = (struct list_head *)__cil_tmp45;
+    __cil_tmp34 = & __cil_tmp33->list;
 #line 1487
-    __cil_tmp47 = (unsigned int )__cil_tmp46;
+    __cil_tmp35 = (unsigned int )__cil_tmp34;
 #line 1487
-    __cil_tmp48 = (char *)__mptr___0;
+    __cil_tmp36 = (char *)__mptr___0;
 #line 1487
-    __cil_tmp49 = __cil_tmp48 - __cil_tmp47;
+    __cil_tmp37 = __cil_tmp36 - __cil_tmp35;
 #line 1487
-    wrap = (struct whiteheat_urb_wrap *)__cil_tmp49;
+    wrap = (struct whiteheat_urb_wrap *)__cil_tmp37;
 #line 1488
-    __cil_tmp50 = (unsigned long )wrap;
-#line 1488
-    __cil_tmp51 = __cil_tmp50 + 16;
-#line 1488
-    urb = *((struct urb **)__cil_tmp51);
+    urb = wrap->urb;
     }
 #line 1490
     if (tty) {
-      {
 #line 1490
-      __cil_tmp52 = (unsigned long )urb;
-#line 1490
-      __cil_tmp53 = __cil_tmp52 + 136;
-#line 1490
-      if (*((u32 *)__cil_tmp53)) {
+      if (urb->actual_length) {
         {
 #line 1491
-        __cil_tmp54 = (unsigned long )urb;
+        __cil_tmp38 = urb->transfer_buffer;
 #line 1491
-        __cil_tmp55 = __cil_tmp54 + 104;
+        __cil_tmp39 = (unsigned char const   *)__cil_tmp38;
 #line 1491
-        __cil_tmp56 = *((void **)__cil_tmp55);
+        __cil_tmp40 = urb->actual_length;
 #line 1491
-        __cil_tmp57 = (unsigned char const   *)__cil_tmp56;
+        __cil_tmp41 = (size_t )__cil_tmp40;
 #line 1491
-        __cil_tmp58 = (unsigned long )urb;
-#line 1491
-        __cil_tmp59 = __cil_tmp58 + 136;
-#line 1491
-        __cil_tmp60 = *((u32 *)__cil_tmp59);
-#line 1491
-        __cil_tmp61 = (unsigned long )__cil_tmp60;
-#line 1491
-        tmp___10 = tty_insert_flip_string(tty, __cil_tmp57, __cil_tmp61);
+        tmp___10 = tty_insert_flip_string(tty, __cil_tmp39, __cil_tmp41);
 #line 1491
         sent = sent + tmp___10;
         }
       } else {
 
       }
-      }
     } else {
 
     }
     {
 #line 1494
-    __cil_tmp62 = (unsigned long )urb;
+    __cil_tmp42 = port->serial;
 #line 1494
-    __cil_tmp63 = __cil_tmp62 + 72;
-#line 1494
-    __cil_tmp64 = *((struct usb_serial **)port);
-#line 1494
-    *((struct usb_device **)__cil_tmp63) = *((struct usb_device **)__cil_tmp64);
+    urb->dev = __cil_tmp42->dev;
 #line 1495
     result = usb_submit_urb(urb, 32U);
     }
@@ -14987,56 +12544,51 @@ static void rx_data_softint(struct work_struct *work )
     if (result) {
       {
 #line 1497
-      __cil_tmp65 = (unsigned long )port;
+      __cil_tmp43 = & port->dev;
 #line 1497
-      __cil_tmp66 = __cil_tmp65 + 1208;
+      __cil_tmp44 = (struct device  const  *)__cil_tmp43;
 #line 1497
-      __cil_tmp67 = (struct device *)__cil_tmp66;
-#line 1497
-      __cil_tmp68 = (struct device  const  *)__cil_tmp67;
-#line 1497
-      dev_err(__cil_tmp68, "%s - failed resubmitting read urb, error %d\n", "rx_data_softint",
+      dev_err(__cil_tmp44, "%s - failed resubmitting read urb, error %d\n", "rx_data_softint",
               result);
       }
       {
 #line 1500
       while (1) {
-        while_94_continue: /* CIL Label */ ;
+        while_continue___2: /* CIL Label */ ;
 
         {
 #line 1500
         while (1) {
-          while_95_continue: /* CIL Label */ ;
+          while_continue___3: /* CIL Label */ ;
           {
 #line 1500
-          __cil_tmp69 = (spinlock_t *)info;
+          __cil_tmp45 = & info->lock;
 #line 1500
-          tmp___11 = spinlock_check(__cil_tmp69);
+          tmp___11 = spinlock_check(__cil_tmp45);
 #line 1500
           flags = _raw_spin_lock_irqsave(tmp___11);
           }
+#line 1500
           goto while_break___3;
         }
-        while_95_break: /* CIL Label */ ;
+        while_break___10: /* CIL Label */ ;
         }
 
         while_break___3: ;
+#line 1500
         goto while_break___2;
       }
-      while_94_break: /* CIL Label */ ;
+      while_break___9: /* CIL Label */ ;
       }
 
       while_break___2: 
       {
 #line 1501
-      __cil_tmp70 = (unsigned long )info;
+      __cil_tmp46 = & info->rx_urbs_free;
 #line 1501
-      __cil_tmp71 = __cil_tmp70 + 80;
-#line 1501
-      __cil_tmp72 = (struct list_head *)__cil_tmp71;
-#line 1501
-      list_add(tmp___8, __cil_tmp72);
+      list_add(tmp___8, __cil_tmp46);
       }
+#line 1502
       goto __Cont;
     } else {
 
@@ -15044,57 +12596,55 @@ static void rx_data_softint(struct work_struct *work )
     {
 #line 1505
     while (1) {
-      while_96_continue: /* CIL Label */ ;
+      while_continue___4: /* CIL Label */ ;
 
       {
 #line 1505
       while (1) {
-        while_97_continue: /* CIL Label */ ;
+        while_continue___5: /* CIL Label */ ;
         {
 #line 1505
-        __cil_tmp73 = (spinlock_t *)info;
+        __cil_tmp47 = & info->lock;
 #line 1505
-        tmp___12 = spinlock_check(__cil_tmp73);
+        tmp___12 = spinlock_check(__cil_tmp47);
 #line 1505
         flags = _raw_spin_lock_irqsave(tmp___12);
         }
+#line 1505
         goto while_break___5;
       }
-      while_97_break: /* CIL Label */ ;
+      while_break___12: /* CIL Label */ ;
       }
 
       while_break___5: ;
+#line 1505
       goto while_break___4;
     }
-    while_96_break: /* CIL Label */ ;
+    while_break___11: /* CIL Label */ ;
     }
 
     while_break___4: 
     {
 #line 1506
-    __cil_tmp74 = (unsigned long )info;
+    __cil_tmp48 = & info->rx_urbs_submitted;
 #line 1506
-    __cil_tmp75 = __cil_tmp74 + 96;
-#line 1506
-    __cil_tmp76 = (struct list_head *)__cil_tmp75;
-#line 1506
-    list_add(tmp___8, __cil_tmp76);
+    list_add(tmp___8, __cil_tmp48);
     }
     __Cont: 
 #line 1483
     tmp___8 = tmp2;
 #line 1483
-    tmp2 = *((struct list_head **)tmp___8);
+    tmp2 = tmp___8->next;
   }
-  while_93_break: /* CIL Label */ ;
+  while_break___8: /* CIL Label */ ;
   }
 
   while_break___1: 
   {
 #line 1508
-  __cil_tmp77 = (spinlock_t *)info;
+  __cil_tmp49 = & info->lock;
 #line 1508
-  spin_unlock_irqrestore(__cil_tmp77, flags);
+  spin_unlock_irqrestore(__cil_tmp49, flags);
   }
 #line 1510
   if (sent) {
@@ -15129,6 +12679,7 @@ static int whiteheat_init(void)
   }
 #line 1524
   if (retval) {
+#line 1525
     goto failed_fake_register;
   } else {
 
@@ -15139,6 +12690,7 @@ static int whiteheat_init(void)
   }
 #line 1527
   if (retval) {
+#line 1528
     goto failed_device_register;
   } else {
 
@@ -15149,6 +12701,7 @@ static int whiteheat_init(void)
   }
 #line 1530
   if (retval) {
+#line 1531
     goto failed_usb_register;
   } else {
 
@@ -15302,7 +12855,7 @@ static char const   __param_str_urb_pool_size[14]  =
 #line 1562 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static struct kernel_param  const  __param_urb_pool_size  __attribute__((__used__,
 __unused__, __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_urb_pool_size, (struct kernel_param_ops  const  *)(& param_ops_int),
-    (unsigned short)0, (unsigned short)0, {(void *)(& urb_pool_size)}};
+    (u16 )0, (u16 )0, {(void *)(& urb_pool_size)}};
 #line 1562 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static char const   __mod_urb_pool_sizetype1562[27]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -15337,8 +12890,8 @@ static char const   __param_str_debug[6]  = {      (char const   )'d',      (cha
         (char const   )'g',      (char const   )'\000'};
 #line 1565 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static struct kernel_param  const  __param_debug  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_bool), (unsigned short)420,
-    (unsigned short)0, {(void *)(& debug)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_bool), (u16 )420,
+    (u16 )0, {(void *)(& debug)}};
 #line 1565 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static char const   __mod_debugtype1565[20]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -15408,6 +12961,7 @@ void main(void)
   }
 #line 2000
   if (tmp___7) {
+#line 2001
     goto ldv_final;
   } else {
 
@@ -15419,7 +12973,7 @@ void main(void)
   {
 #line 2009
   while (1) {
-    while_98_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 2009
     tmp___9 = nondet_int();
@@ -15442,6 +12996,7 @@ void main(void)
         if (! __cil_tmp20) {
 
         } else {
+#line 2009
           goto while_break;
         }
         }
@@ -15454,263 +13009,280 @@ void main(void)
     }
 #line 2016
     if (tmp___8 == 0) {
+#line 2016
       goto case_0;
-    } else {
+    } else
 #line 2051
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
+    if (tmp___8 == 1) {
+#line 2051
+      goto case_1;
+    } else
 #line 2083
-        if (tmp___8 == 2) {
-          goto case_2;
-        } else {
+    if (tmp___8 == 2) {
+#line 2083
+      goto case_2;
+    } else
 #line 2118
-          if (tmp___8 == 3) {
-            goto case_3;
-          } else {
+    if (tmp___8 == 3) {
+#line 2118
+      goto case_3;
+    } else
 #line 2150
-            if (tmp___8 == 4) {
-              goto case_4;
-            } else {
+    if (tmp___8 == 4) {
+#line 2150
+      goto case_4;
+    } else
 #line 2182
-              if (tmp___8 == 5) {
-                goto case_5;
-              } else {
+    if (tmp___8 == 5) {
+#line 2182
+      goto case_5;
+    } else
 #line 2214
-                if (tmp___8 == 6) {
-                  goto case_6;
-                } else {
+    if (tmp___8 == 6) {
+#line 2214
+      goto case_6;
+    } else
 #line 2246
-                  if (tmp___8 == 7) {
-                    goto case_7;
-                  } else {
+    if (tmp___8 == 7) {
+#line 2246
+      goto case_7;
+    } else
 #line 2278
-                    if (tmp___8 == 8) {
-                      goto case_8;
-                    } else {
+    if (tmp___8 == 8) {
+#line 2278
+      goto case_8;
+    } else
 #line 2310
-                      if (tmp___8 == 9) {
-                        goto case_9;
-                      } else {
+    if (tmp___8 == 9) {
+#line 2310
+      goto case_9;
+    } else
 #line 2342
-                        if (tmp___8 == 10) {
-                          goto case_10;
-                        } else {
+    if (tmp___8 == 10) {
+#line 2342
+      goto case_10;
+    } else
 #line 2374
-                          if (tmp___8 == 11) {
-                            goto case_11;
-                          } else {
+    if (tmp___8 == 11) {
+#line 2374
+      goto case_11;
+    } else
 #line 2406
-                            if (tmp___8 == 12) {
-                              goto case_12;
-                            } else {
+    if (tmp___8 == 12) {
+#line 2406
+      goto case_12;
+    } else
 #line 2438
-                              if (tmp___8 == 13) {
-                                goto case_13;
-                              } else {
+    if (tmp___8 == 13) {
+#line 2438
+      goto case_13;
+    } else
 #line 2470
-                                if (tmp___8 == 14) {
-                                  goto case_14;
-                                } else {
+    if (tmp___8 == 14) {
+#line 2470
+      goto case_14;
+    } else
 #line 2502
-                                  if (tmp___8 == 15) {
-                                    goto case_15;
-                                  } else {
+    if (tmp___8 == 15) {
+#line 2502
+      goto case_15;
+    } else
 #line 2534
-                                    if (tmp___8 == 16) {
-                                      goto case_16;
-                                    } else {
+    if (tmp___8 == 16) {
+#line 2534
+      goto case_16;
+    } else
 #line 2566
-                                      if (tmp___8 == 17) {
-                                        goto case_17;
-                                      } else {
-                                        goto switch_default;
+    if (tmp___8 == 17) {
+#line 2566
+      goto case_17;
+    } else {
+#line 2598
+      goto switch_default;
 #line 2014
-                                        if (0) {
-                                          case_0: 
+      if (0) {
+        case_0: 
 #line 2019
-                                          if (ldv_s_whiteheat_fake_device_usb_serial_driver == 0) {
-                                            {
+        if (ldv_s_whiteheat_fake_device_usb_serial_driver == 0) {
+          {
 #line 2040
-                                            res_whiteheat_firmware_download_0 = whiteheat_firmware_download(var_group1,
-                                                                                                            var_whiteheat_firmware_download_0_p1);
+          res_whiteheat_firmware_download_0 = whiteheat_firmware_download(var_group1,
+                                                                          var_whiteheat_firmware_download_0_p1);
 #line 2041
-                                            ldv_check_return_value(res_whiteheat_firmware_download_0);
-                                            }
-#line 2042
-                                            if (res_whiteheat_firmware_download_0) {
-                                              goto ldv_module_exit;
-                                            } else {
-
-                                            }
-#line 2044
-                                            ldv_s_whiteheat_fake_device_usb_serial_driver = 0;
-                                          } else {
-
-                                          }
-                                          goto switch_break;
-                                          case_1: 
-                                          {
-#line 2075
-                                          whiteheat_firmware_attach(var_group1);
-                                          }
-                                          goto switch_break;
-                                          case_2: 
-#line 2086
-                                          if (ldv_s_whiteheat_device_usb_serial_driver == 0) {
-                                            {
-#line 2107
-                                            res_whiteheat_open_4 = whiteheat_open(var_group2,
-                                                                                  var_group3);
-#line 2108
-                                            ldv_check_return_value(res_whiteheat_open_4);
-                                            }
-#line 2109
-                                            if (res_whiteheat_open_4) {
-                                              goto ldv_module_exit;
-                                            } else {
-
-                                            }
-#line 2111
-                                            ldv_s_whiteheat_device_usb_serial_driver = ldv_s_whiteheat_device_usb_serial_driver + 1;
-                                          } else {
-
-                                          }
-                                          goto switch_break;
-                                          case_3: 
-#line 2121
-                                          if (ldv_s_whiteheat_device_usb_serial_driver == 1) {
-                                            {
-#line 2142
-                                            whiteheat_close(var_group3);
-#line 2143
-                                            ldv_s_whiteheat_device_usb_serial_driver = ldv_s_whiteheat_device_usb_serial_driver + 1;
-                                            }
-                                          } else {
-
-                                          }
-                                          goto switch_break;
-                                          case_4: 
-#line 2153
-                                          if (ldv_s_whiteheat_device_usb_serial_driver == 2) {
-                                            {
-#line 2174
-                                            whiteheat_release(var_group1);
-#line 2175
-                                            ldv_s_whiteheat_device_usb_serial_driver = 0;
-                                            }
-                                          } else {
-
-                                          }
-                                          goto switch_break;
-                                          case_5: 
-                                          {
-#line 2206
-                                          whiteheat_attach(var_group1);
-                                          }
-                                          goto switch_break;
-                                          case_6: 
-                                          {
-#line 2238
-                                          whiteheat_write(var_group2, var_group3,
-                                                          var_whiteheat_write_6_p2,
-                                                          var_whiteheat_write_6_p3);
-                                          }
-                                          goto switch_break;
-                                          case_7: 
-                                          {
-#line 2270
-                                          whiteheat_write_room(var_group2);
-                                          }
-                                          goto switch_break;
-                                          case_8: 
-                                          {
-#line 2302
-                                          whiteheat_ioctl(var_group2, var_whiteheat_ioctl_10_p1,
-                                                          var_whiteheat_ioctl_10_p2);
-                                          }
-                                          goto switch_break;
-                                          case_9: 
-                                          {
-#line 2334
-                                          whiteheat_set_termios(var_group2, var_group3,
-                                                                var_whiteheat_set_termios_11_p2);
-                                          }
-                                          goto switch_break;
-                                          case_10: 
-                                          {
-#line 2366
-                                          whiteheat_break_ctl(var_group2, var_whiteheat_break_ctl_12_p1);
-                                          }
-                                          goto switch_break;
-                                          case_11: 
-                                          {
-#line 2398
-                                          whiteheat_tiocmget(var_group2);
-                                          }
-                                          goto switch_break;
-                                          case_12: 
-                                          {
-#line 2430
-                                          whiteheat_tiocmset(var_group2, var_whiteheat_tiocmset_9_p1,
-                                                             var_whiteheat_tiocmset_9_p2);
-                                          }
-                                          goto switch_break;
-                                          case_13: 
-                                          {
-#line 2462
-                                          whiteheat_chars_in_buffer(var_group2);
-                                          }
-                                          goto switch_break;
-                                          case_14: 
-                                          {
-#line 2494
-                                          whiteheat_throttle(var_group2);
-                                          }
-                                          goto switch_break;
-                                          case_15: 
-                                          {
-#line 2526
-                                          whiteheat_unthrottle(var_group2);
-                                          }
-                                          goto switch_break;
-                                          case_16: 
-                                          {
-#line 2558
-                                          whiteheat_read_callback(var_group4);
-                                          }
-                                          goto switch_break;
-                                          case_17: 
-                                          {
-#line 2590
-                                          whiteheat_write_callback(var_group4);
-                                          }
-                                          goto switch_break;
-                                          switch_default: 
-                                          goto switch_break;
-                                        } else {
-                                          switch_break: ;
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+          ldv_check_return_value(res_whiteheat_firmware_download_0);
           }
+#line 2042
+          if (res_whiteheat_firmware_download_0) {
+#line 2043
+            goto ldv_module_exit;
+          } else {
+
+          }
+#line 2044
+          ldv_s_whiteheat_fake_device_usb_serial_driver = 0;
+        } else {
+
         }
+#line 2050
+        goto switch_break;
+        case_1: 
+        {
+#line 2075
+        whiteheat_firmware_attach(var_group1);
+        }
+#line 2082
+        goto switch_break;
+        case_2: 
+#line 2086
+        if (ldv_s_whiteheat_device_usb_serial_driver == 0) {
+          {
+#line 2107
+          res_whiteheat_open_4 = whiteheat_open(var_group2, var_group3);
+#line 2108
+          ldv_check_return_value(res_whiteheat_open_4);
+          }
+#line 2109
+          if (res_whiteheat_open_4) {
+#line 2110
+            goto ldv_module_exit;
+          } else {
+
+          }
+#line 2111
+          ldv_s_whiteheat_device_usb_serial_driver = ldv_s_whiteheat_device_usb_serial_driver + 1;
+        } else {
+
+        }
+#line 2117
+        goto switch_break;
+        case_3: 
+#line 2121
+        if (ldv_s_whiteheat_device_usb_serial_driver == 1) {
+          {
+#line 2142
+          whiteheat_close(var_group3);
+#line 2143
+          ldv_s_whiteheat_device_usb_serial_driver = ldv_s_whiteheat_device_usb_serial_driver + 1;
+          }
+        } else {
+
+        }
+#line 2149
+        goto switch_break;
+        case_4: 
+#line 2153
+        if (ldv_s_whiteheat_device_usb_serial_driver == 2) {
+          {
+#line 2174
+          whiteheat_release(var_group1);
+#line 2175
+          ldv_s_whiteheat_device_usb_serial_driver = 0;
+          }
+        } else {
+
+        }
+#line 2181
+        goto switch_break;
+        case_5: 
+        {
+#line 2206
+        whiteheat_attach(var_group1);
+        }
+#line 2213
+        goto switch_break;
+        case_6: 
+        {
+#line 2238
+        whiteheat_write(var_group2, var_group3, var_whiteheat_write_6_p2, var_whiteheat_write_6_p3);
+        }
+#line 2245
+        goto switch_break;
+        case_7: 
+        {
+#line 2270
+        whiteheat_write_room(var_group2);
+        }
+#line 2277
+        goto switch_break;
+        case_8: 
+        {
+#line 2302
+        whiteheat_ioctl(var_group2, var_whiteheat_ioctl_10_p1, var_whiteheat_ioctl_10_p2);
+        }
+#line 2309
+        goto switch_break;
+        case_9: 
+        {
+#line 2334
+        whiteheat_set_termios(var_group2, var_group3, var_whiteheat_set_termios_11_p2);
+        }
+#line 2341
+        goto switch_break;
+        case_10: 
+        {
+#line 2366
+        whiteheat_break_ctl(var_group2, var_whiteheat_break_ctl_12_p1);
+        }
+#line 2373
+        goto switch_break;
+        case_11: 
+        {
+#line 2398
+        whiteheat_tiocmget(var_group2);
+        }
+#line 2405
+        goto switch_break;
+        case_12: 
+        {
+#line 2430
+        whiteheat_tiocmset(var_group2, var_whiteheat_tiocmset_9_p1, var_whiteheat_tiocmset_9_p2);
+        }
+#line 2437
+        goto switch_break;
+        case_13: 
+        {
+#line 2462
+        whiteheat_chars_in_buffer(var_group2);
+        }
+#line 2469
+        goto switch_break;
+        case_14: 
+        {
+#line 2494
+        whiteheat_throttle(var_group2);
+        }
+#line 2501
+        goto switch_break;
+        case_15: 
+        {
+#line 2526
+        whiteheat_unthrottle(var_group2);
+        }
+#line 2533
+        goto switch_break;
+        case_16: 
+        {
+#line 2558
+        whiteheat_read_callback(var_group4);
+        }
+#line 2565
+        goto switch_break;
+        case_17: 
+        {
+#line 2590
+        whiteheat_write_callback(var_group4);
+        }
+#line 2597
+        goto switch_break;
+        switch_default: 
+#line 2598
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_98_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -15734,6 +13306,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -15749,6 +13322,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -15769,7 +13343,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_99_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -15787,9 +13361,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_99_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -15810,7 +13385,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_100_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -15847,9 +13422,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_100_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -15869,7 +13445,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_101_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -15891,9 +13467,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_101_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -15914,7 +13491,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_102_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -15951,9 +13528,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_102_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

@@ -4139,20 +4139,14 @@ extern void platform_driver_unregister(struct platform_driver * ) ;
 #line 138 "include/linux/platform_device.h"
 __inline static void *platform_get_drvdata(struct platform_device  const  *pdev ) 
 { void *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device  const  *__cil_tmp5 ;
+  struct device  const  *__cil_tmp3 ;
 
   {
   {
 #line 140
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 140
-  __cil_tmp4 = __cil_tmp3 + 16;
-#line 140
-  __cil_tmp5 = (struct device  const  *)__cil_tmp4;
-#line 140
-  tmp = dev_get_drvdata(__cil_tmp5);
+  tmp = dev_get_drvdata(__cil_tmp3);
   }
 #line 140
   return (tmp);
@@ -4160,20 +4154,14 @@ __inline static void *platform_get_drvdata(struct platform_device  const  *pdev 
 }
 #line 143 "include/linux/platform_device.h"
 __inline static void platform_set_drvdata(struct platform_device *pdev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 145
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 145
-  __cil_tmp4 = __cil_tmp3 + 16;
-#line 145
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 145
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 146
   return;
@@ -4192,15 +4180,14 @@ __inline static int SENSORS_LIMIT(long value , long low , long high )
   if (value < low) {
 #line 27
     return ((int )low);
-  } else {
+  } else
 #line 28
-    if (value > high) {
+  if (value > high) {
 #line 29
-      return ((int )high);
-    } else {
+    return ((int )high);
+  } else {
 #line 31
-      return ((int )value);
-    }
+    return ((int )value);
   }
 }
 }
@@ -4412,59 +4399,47 @@ static int update_vbat  ;
 #line 160 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static int fix_pwm_polarity  ;
 #line 196 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
-static u8 const   IT87_REG_FAN[5U]  = {      (unsigned char const   )13U,      (unsigned char const   )14U,      (unsigned char const   )15U,      (unsigned char const   )128U, 
-        (unsigned char const   )130U};
+static u8 const   IT87_REG_FAN[5U]  = {      (u8 const   )13U,      (u8 const   )14U,      (u8 const   )15U,      (u8 const   )128U, 
+        (u8 const   )130U};
 #line 197 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
-static u8 const   IT87_REG_FAN_MIN[5U]  = {      (unsigned char const   )16U,      (unsigned char const   )17U,      (unsigned char const   )18U,      (unsigned char const   )132U, 
-        (unsigned char const   )134U};
+static u8 const   IT87_REG_FAN_MIN[5U]  = {      (u8 const   )16U,      (u8 const   )17U,      (u8 const   )18U,      (u8 const   )132U, 
+        (u8 const   )134U};
 #line 198 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
-static u8 const   IT87_REG_FANX[5U]  = {      (unsigned char const   )24U,      (unsigned char const   )25U,      (unsigned char const   )26U,      (unsigned char const   )129U, 
-        (unsigned char const   )131U};
+static u8 const   IT87_REG_FANX[5U]  = {      (u8 const   )24U,      (u8 const   )25U,      (u8 const   )26U,      (u8 const   )129U, 
+        (u8 const   )131U};
 #line 199 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
-static u8 const   IT87_REG_FANX_MIN[5U]  = {      (unsigned char const   )27U,      (unsigned char const   )28U,      (unsigned char const   )29U,      (unsigned char const   )133U, 
-        (unsigned char const   )135U};
+static u8 const   IT87_REG_FANX_MIN[5U]  = {      (u8 const   )27U,      (u8 const   )28U,      (u8 const   )29U,      (u8 const   )133U, 
+        (u8 const   )135U};
 #line 285 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static u8 in_to_reg(struct it87_data  const  *data , int nr , long val ) 
 { long lsb ;
   long __divisor ;
   int tmp ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  enum chips __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u16 __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  long __cil_tmp16 ;
-  long __cil_tmp17 ;
+  enum chips __cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  u16 __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  long __cil_tmp12 ;
+  long __cil_tmp13 ;
 
   {
   {
 #line 289
-  __cil_tmp7 = (unsigned long )data;
+  __cil_tmp7 = data->type;
 #line 289
-  __cil_tmp8 = __cil_tmp7 + 8;
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
 #line 289
-  __cil_tmp9 = *((enum chips  const  *)__cil_tmp8);
-#line 289
-  __cil_tmp10 = (unsigned int )__cil_tmp9;
-#line 289
-  if (__cil_tmp10 == 5U) {
+  if (__cil_tmp8 == 5U) {
     {
 #line 290
-    __cil_tmp11 = (unsigned long )data;
+    __cil_tmp9 = data->in_scaled;
 #line 290
-    __cil_tmp12 = __cil_tmp11 + 240;
+    __cil_tmp10 = (int )__cil_tmp9;
 #line 290
-    __cil_tmp13 = *((u16 const   *)__cil_tmp12);
+    __cil_tmp11 = __cil_tmp10 >> nr;
 #line 290
-    __cil_tmp14 = (int )__cil_tmp13;
-#line 290
-    __cil_tmp15 = __cil_tmp14 >> nr;
-#line 290
-    if (__cil_tmp15 & 1) {
+    if (__cil_tmp11 & 1) {
 #line 291
       lsb = 24L;
     } else {
@@ -4481,55 +4456,43 @@ static u8 in_to_reg(struct it87_data  const  *data , int nr , long val )
 #line 297
   __divisor = lsb;
 #line 297
-  __cil_tmp16 = __divisor / 2L;
+  __cil_tmp12 = __divisor / 2L;
 #line 297
-  __cil_tmp17 = __cil_tmp16 + val;
+  __cil_tmp13 = __cil_tmp12 + val;
 #line 297
-  val = __cil_tmp17 / __divisor;
+  val = __cil_tmp13 / __divisor;
 #line 298
   tmp = SENSORS_LIMIT(val, 0L, 255L);
   }
 #line 298
-  return ((unsigned char )tmp);
+  return ((u8 )tmp);
 }
 }
 #line 301 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static int in_from_reg(struct it87_data  const  *data , int nr , int val ) 
-{ unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  enum chips __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  u16 __cil_tmp10 ;
-  int __cil_tmp11 ;
-  int __cil_tmp12 ;
+{ enum chips __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
+  u16 __cil_tmp6 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
 
   {
   {
 #line 303
-  __cil_tmp4 = (unsigned long )data;
+  __cil_tmp4 = data->type;
 #line 303
-  __cil_tmp5 = __cil_tmp4 + 8;
+  __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 303
-  __cil_tmp6 = *((enum chips  const  *)__cil_tmp5);
-#line 303
-  __cil_tmp7 = (unsigned int )__cil_tmp6;
-#line 303
-  if (__cil_tmp7 == 5U) {
+  if (__cil_tmp5 == 5U) {
     {
 #line 304
-    __cil_tmp8 = (unsigned long )data;
+    __cil_tmp6 = data->in_scaled;
 #line 304
-    __cil_tmp9 = __cil_tmp8 + 240;
+    __cil_tmp7 = (int )__cil_tmp6;
 #line 304
-    __cil_tmp10 = *((u16 const   *)__cil_tmp9);
+    __cil_tmp8 = __cil_tmp7 >> nr;
 #line 304
-    __cil_tmp11 = (int )__cil_tmp10;
-#line 304
-    __cil_tmp12 = __cil_tmp11 >> nr;
-#line 304
-    if (__cil_tmp12 & 1) {
+    if (__cil_tmp8 & 1) {
 #line 305
       return (val * 24);
     } else {
@@ -4560,7 +4523,7 @@ __inline static u8 FAN_TO_REG(long rpm , int div )
 #line 314
   if (rpm == 0L) {
 #line 315
-    return ((unsigned char)255);
+    return ((u8 )255U);
   } else {
 
   }
@@ -4587,7 +4550,7 @@ __inline static u8 FAN_TO_REG(long rpm , int div )
   tmp___0 = SENSORS_LIMIT(__cil_tmp11, 1L, 254L);
   }
 #line 317
-  return ((unsigned char )tmp___0);
+  return ((u8 )tmp___0);
 }
 }
 #line 321 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -4601,7 +4564,7 @@ __inline static u16 FAN16_TO_REG(long rpm )
 #line 323
   if (rpm == 0L) {
 #line 324
-    return ((unsigned short)65535);
+    return ((u16 )65535U);
   } else {
 
   }
@@ -4616,37 +4579,31 @@ __inline static u16 FAN16_TO_REG(long rpm )
   tmp = SENSORS_LIMIT(__cil_tmp5, 1L, 65534L);
   }
 #line 325
-  return ((unsigned short )tmp);
+  return ((u16 )tmp);
 }
 }
 #line 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static u8 pwm_to_reg(struct it87_data  const  *data , long val ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  enum chips __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  long __cil_tmp7 ;
+{ enum chips __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  long __cil_tmp5 ;
 
   {
   {
 #line 340
-  __cil_tmp3 = (unsigned long )data;
+  __cil_tmp3 = data->type;
 #line 340
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 340
-  __cil_tmp5 = *((enum chips  const  *)__cil_tmp4);
-#line 340
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
-#line 340
-  if (__cil_tmp6 == 5U) {
+  if (__cil_tmp4 == 5U) {
 #line 341
-    return ((unsigned char )val);
+    return ((u8 )val);
   } else {
     {
 #line 343
-    __cil_tmp7 = val >> 1;
+    __cil_tmp5 = val >> 1;
 #line 343
-    return ((unsigned char )__cil_tmp7);
+    return ((u8 )__cil_tmp5);
     }
   }
   }
@@ -4654,35 +4611,29 @@ static u8 pwm_to_reg(struct it87_data  const  *data , long val )
 }
 #line 346 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static int pwm_from_reg(struct it87_data  const  *data , u8 reg ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  enum chips __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  int __cil_tmp7 ;
-  int __cil_tmp8 ;
+{ enum chips __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
 
   {
   {
 #line 348
-  __cil_tmp3 = (unsigned long )data;
+  __cil_tmp3 = data->type;
 #line 348
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 348
-  __cil_tmp5 = *((enum chips  const  *)__cil_tmp4);
-#line 348
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
-#line 348
-  if (__cil_tmp6 == 5U) {
+  if (__cil_tmp4 == 5U) {
 #line 349
     return ((int )reg);
   } else {
     {
 #line 351
-    __cil_tmp7 = (int )reg;
+    __cil_tmp5 = (int )reg;
 #line 351
-    __cil_tmp8 = __cil_tmp7 << 1;
+    __cil_tmp6 = __cil_tmp5 << 1;
 #line 351
-    return (__cil_tmp8 & 255);
+    return (__cil_tmp6 & 255);
     }
   }
   }
@@ -4695,6 +4646,7 @@ static int DIV_TO_REG(int val )
   {
 #line 357
   answer = 0;
+#line 358
   goto ldv_24205;
   ldv_24204: 
 #line 359
@@ -4706,11 +4658,14 @@ static int DIV_TO_REG(int val )
     val = val >> 1;
 #line 358
     if (val != 0) {
+#line 359
       goto ldv_24204;
     } else {
+#line 361
       goto ldv_24206;
     }
   } else {
+#line 361
     goto ldv_24206;
   }
   ldv_24206: ;
@@ -4726,69 +4681,46 @@ static unsigned int const   pwm_freq[8U]  =
 #line 375 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 __inline static int has_16bit_fans(struct it87_data  const  *data ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  enum chips __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  u8 __cil_tmp9 ;
-  unsigned char __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  enum chips __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  unsigned char __cil_tmp19 ;
+  enum chips __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  u8 __cil_tmp5 ;
+  unsigned char __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  enum chips __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  u8 __cil_tmp10 ;
+  unsigned char __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  enum chips __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  enum chips __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  enum chips __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  enum chips __cil_tmp19 ;
   unsigned int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  enum chips __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  enum chips __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  enum chips __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  enum chips __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
 
   {
   {
 #line 380
-  __cil_tmp3 = (unsigned long )data;
+  __cil_tmp3 = data->type;
 #line 380
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 380
-  __cil_tmp5 = *((enum chips  const  *)__cil_tmp4);
-#line 380
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
-#line 380
-  if (__cil_tmp6 == 0U) {
+  if (__cil_tmp4 == 0U) {
     {
 #line 380
-    __cil_tmp7 = (unsigned long )data;
+    __cil_tmp5 = data->revision;
 #line 380
-    __cil_tmp8 = __cil_tmp7 + 40;
+    __cil_tmp6 = (unsigned char )__cil_tmp5;
 #line 380
-    __cil_tmp9 = *((u8 const   *)__cil_tmp8);
+    __cil_tmp7 = (unsigned int )__cil_tmp6;
 #line 380
-    __cil_tmp10 = (unsigned char )__cil_tmp9;
-#line 380
-    __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 380
-    if (__cil_tmp11 > 2U) {
+    if (__cil_tmp7 > 2U) {
 #line 380
       tmp = 1;
     } else {
+#line 380
       goto _L___0;
     }
     }
@@ -4796,31 +4728,24 @@ __inline static int has_16bit_fans(struct it87_data  const  *data )
     _L___0: 
     {
 #line 380
-    __cil_tmp12 = (unsigned long )data;
+    __cil_tmp8 = data->type;
 #line 380
-    __cil_tmp13 = __cil_tmp12 + 8;
+    __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 380
-    __cil_tmp14 = *((enum chips  const  *)__cil_tmp13);
-#line 380
-    __cil_tmp15 = (unsigned int )__cil_tmp14;
-#line 380
-    if (__cil_tmp15 == 1U) {
+    if (__cil_tmp9 == 1U) {
       {
 #line 380
-      __cil_tmp16 = (unsigned long )data;
+      __cil_tmp10 = data->revision;
 #line 380
-      __cil_tmp17 = __cil_tmp16 + 40;
+      __cil_tmp11 = (unsigned char )__cil_tmp10;
 #line 380
-      __cil_tmp18 = *((u8 const   *)__cil_tmp17);
+      __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 380
-      __cil_tmp19 = (unsigned char )__cil_tmp18;
-#line 380
-      __cil_tmp20 = (unsigned int )__cil_tmp19;
-#line 380
-      if (__cil_tmp20 > 7U) {
+      if (__cil_tmp12 > 7U) {
 #line 380
         tmp = 1;
       } else {
+#line 380
         goto _L;
       }
       }
@@ -4828,57 +4753,41 @@ __inline static int has_16bit_fans(struct it87_data  const  *data )
       _L: 
       {
 #line 380
-      __cil_tmp21 = (unsigned long )data;
+      __cil_tmp13 = data->type;
 #line 380
-      __cil_tmp22 = __cil_tmp21 + 8;
+      __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 380
-      __cil_tmp23 = *((enum chips  const  *)__cil_tmp22);
-#line 380
-      __cil_tmp24 = (unsigned int )__cil_tmp23;
-#line 380
-      if (__cil_tmp24 == 2U) {
+      if (__cil_tmp14 == 2U) {
 #line 380
         tmp = 1;
       } else {
         {
 #line 380
-        __cil_tmp25 = (unsigned long )data;
+        __cil_tmp15 = data->type;
 #line 380
-        __cil_tmp26 = __cil_tmp25 + 8;
+        __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 380
-        __cil_tmp27 = *((enum chips  const  *)__cil_tmp26);
-#line 380
-        __cil_tmp28 = (unsigned int )__cil_tmp27;
-#line 380
-        if (__cil_tmp28 == 3U) {
+        if (__cil_tmp16 == 3U) {
 #line 380
           tmp = 1;
         } else {
           {
 #line 380
-          __cil_tmp29 = (unsigned long )data;
+          __cil_tmp17 = data->type;
 #line 380
-          __cil_tmp30 = __cil_tmp29 + 8;
+          __cil_tmp18 = (unsigned int )__cil_tmp17;
 #line 380
-          __cil_tmp31 = *((enum chips  const  *)__cil_tmp30);
-#line 380
-          __cil_tmp32 = (unsigned int )__cil_tmp31;
-#line 380
-          if (__cil_tmp32 == 4U) {
+          if (__cil_tmp18 == 4U) {
 #line 380
             tmp = 1;
           } else {
             {
 #line 380
-            __cil_tmp33 = (unsigned long )data;
+            __cil_tmp19 = data->type;
 #line 380
-            __cil_tmp34 = __cil_tmp33 + 8;
+            __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 380
-            __cil_tmp35 = *((enum chips  const  *)__cil_tmp34);
-#line 380
-            __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 380
-            if (__cil_tmp36 == 5U) {
+            if (__cil_tmp20 == 5U) {
 #line 380
               tmp = 1;
             } else {
@@ -4903,53 +4812,38 @@ __inline static int has_16bit_fans(struct it87_data  const  *data )
 #line 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 __inline static int has_old_autopwm(struct it87_data  const  *data ) 
 { int tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  enum chips __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  u8 __cil_tmp9 ;
-  unsigned char __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  enum chips __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  unsigned char __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
+  enum chips __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  u8 __cil_tmp5 ;
+  unsigned char __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  enum chips __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  u8 __cil_tmp10 ;
+  unsigned char __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
 
   {
   {
 #line 393
-  __cil_tmp3 = (unsigned long )data;
+  __cil_tmp3 = data->type;
 #line 393
-  __cil_tmp4 = __cil_tmp3 + 8;
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 393
-  __cil_tmp5 = *((enum chips  const  *)__cil_tmp4);
-#line 393
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
-#line 393
-  if (__cil_tmp6 == 0U) {
+  if (__cil_tmp4 == 0U) {
     {
 #line 393
-    __cil_tmp7 = (unsigned long )data;
+    __cil_tmp5 = data->revision;
 #line 393
-    __cil_tmp8 = __cil_tmp7 + 40;
+    __cil_tmp6 = (unsigned char )__cil_tmp5;
 #line 393
-    __cil_tmp9 = *((u8 const   *)__cil_tmp8);
+    __cil_tmp7 = (unsigned int )__cil_tmp6;
 #line 393
-    __cil_tmp10 = (unsigned char )__cil_tmp9;
-#line 393
-    __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 393
-    if (__cil_tmp11 <= 2U) {
+    if (__cil_tmp7 <= 2U) {
 #line 393
       tmp = 1;
     } else {
+#line 393
       goto _L;
     }
     }
@@ -4957,28 +4851,20 @@ __inline static int has_old_autopwm(struct it87_data  const  *data )
     _L: 
     {
 #line 393
-    __cil_tmp12 = (unsigned long )data;
+    __cil_tmp8 = data->type;
 #line 393
-    __cil_tmp13 = __cil_tmp12 + 8;
+    __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 393
-    __cil_tmp14 = *((enum chips  const  *)__cil_tmp13);
-#line 393
-    __cil_tmp15 = (unsigned int )__cil_tmp14;
-#line 393
-    if (__cil_tmp15 == 1U) {
+    if (__cil_tmp9 == 1U) {
       {
 #line 393
-      __cil_tmp16 = (unsigned long )data;
+      __cil_tmp10 = data->revision;
 #line 393
-      __cil_tmp17 = __cil_tmp16 + 40;
+      __cil_tmp11 = (unsigned char )__cil_tmp10;
 #line 393
-      __cil_tmp18 = *((u8 const   *)__cil_tmp17);
+      __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 393
-      __cil_tmp19 = (unsigned char )__cil_tmp18;
-#line 393
-      __cil_tmp20 = (unsigned int )__cil_tmp19;
-#line 393
-      if (__cil_tmp20 <= 7U) {
+      if (__cil_tmp12 <= 7U) {
 #line 393
         tmp = 1;
       } else {
@@ -5031,15 +4917,9 @@ static ssize_t show_in(struct device *dev , struct device_attribute *attr , char
   struct it87_data *tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct it87_data  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
+  struct it87_data  const  *__cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
 
   {
   {
@@ -5048,36 +4928,24 @@ static ssize_t show_in(struct device *dev , struct device_attribute *attr , char
 #line 419
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 420
-  __cil_tmp11 = (unsigned long )sensor_attr;
-#line 420
-  __cil_tmp12 = __cil_tmp11 + 48;
-#line 420
-  nr = *((int *)__cil_tmp12);
+  nr = sensor_attr->index;
 #line 422
   tmp = it87_update_device(dev);
 #line 422
   data = tmp;
 #line 423
-  __cil_tmp13 = (struct it87_data  const  *)data;
+  __cil_tmp11 = (struct it87_data  const  *)data;
 #line 423
-  __cil_tmp14 = nr * 1UL;
+  __cil_tmp12 = data->in[nr];
 #line 423
-  __cil_tmp15 = 242 + __cil_tmp14;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 423
-  __cil_tmp16 = (unsigned long )data;
-#line 423
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 423
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 423
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 423
-  tmp___0 = in_from_reg(__cil_tmp13, nr, __cil_tmp19);
+  tmp___0 = in_from_reg(__cil_tmp11, nr, __cil_tmp13);
 #line 423
   tmp___1 = sprintf(buf, "%d\n", tmp___0);
   }
 #line 423
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5089,15 +4957,9 @@ static ssize_t show_in_min(struct device *dev , struct device_attribute *attr , 
   struct it87_data *tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct it87_data  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
+  struct it87_data  const  *__cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
 
   {
   {
@@ -5106,36 +4968,24 @@ static ssize_t show_in_min(struct device *dev , struct device_attribute *attr , 
 #line 429
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 430
-  __cil_tmp11 = (unsigned long )sensor_attr;
-#line 430
-  __cil_tmp12 = __cil_tmp11 + 48;
-#line 430
-  nr = *((int *)__cil_tmp12);
+  nr = sensor_attr->index;
 #line 432
   tmp = it87_update_device(dev);
 #line 432
   data = tmp;
 #line 433
-  __cil_tmp13 = (struct it87_data  const  *)data;
+  __cil_tmp11 = (struct it87_data  const  *)data;
 #line 433
-  __cil_tmp14 = nr * 1UL;
+  __cil_tmp12 = data->in_min[nr];
 #line 433
-  __cil_tmp15 = 259 + __cil_tmp14;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 433
-  __cil_tmp16 = (unsigned long )data;
-#line 433
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 433
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 433
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 433
-  tmp___0 = in_from_reg(__cil_tmp13, nr, __cil_tmp19);
+  tmp___0 = in_from_reg(__cil_tmp11, nr, __cil_tmp13);
 #line 433
   tmp___1 = sprintf(buf, "%d\n", tmp___0);
   }
 #line 433
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 436 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5147,15 +4997,9 @@ static ssize_t show_in_max(struct device *dev , struct device_attribute *attr , 
   struct it87_data *tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct it87_data  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
+  struct it87_data  const  *__cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
 
   {
   {
@@ -5164,36 +5008,24 @@ static ssize_t show_in_max(struct device *dev , struct device_attribute *attr , 
 #line 439
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 440
-  __cil_tmp11 = (unsigned long )sensor_attr;
-#line 440
-  __cil_tmp12 = __cil_tmp11 + 48;
-#line 440
-  nr = *((int *)__cil_tmp12);
+  nr = sensor_attr->index;
 #line 442
   tmp = it87_update_device(dev);
 #line 442
   data = tmp;
 #line 443
-  __cil_tmp13 = (struct it87_data  const  *)data;
+  __cil_tmp11 = (struct it87_data  const  *)data;
 #line 443
-  __cil_tmp14 = nr * 1UL;
+  __cil_tmp12 = data->in_max[nr];
 #line 443
-  __cil_tmp15 = 251 + __cil_tmp14;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 443
-  __cil_tmp16 = (unsigned long )data;
-#line 443
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 443
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 443
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 443
-  tmp___0 = in_from_reg(__cil_tmp13, nr, __cil_tmp19);
+  tmp___0 = in_from_reg(__cil_tmp11, nr, __cil_tmp13);
 #line 443
   tmp___1 = sprintf(buf, "%d\n", tmp___0);
   }
 #line 443
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 446 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5206,36 +5038,20 @@ static ssize_t set_in_min(struct device *dev , struct device_attribute *attr , c
   void *tmp ;
   unsigned long val ;
   int tmp___0 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct device  const  *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct mutex *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct it87_data  const  *__cil_tmp22 ;
-  unsigned long *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  long __cil_tmp25 ;
-  unsigned char __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u8 __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct mutex *__cil_tmp41 ;
+  struct device  const  *__cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
+  struct it87_data  const  *__cil_tmp14 ;
+  long __cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  u8 __cil_tmp21 ;
+  u8 __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u8 __cil_tmp24 ;
+  struct mutex *__cil_tmp25 ;
 
   {
   {
@@ -5244,15 +5060,11 @@ static ssize_t set_in_min(struct device *dev , struct device_attribute *attr , c
 #line 449
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 450
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 450
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 450
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 452
-  __cil_tmp14 = (struct device  const  *)dev;
+  __cil_tmp12 = (struct device  const  *)dev;
 #line 452
-  tmp = dev_get_drvdata(__cil_tmp14);
+  tmp = dev_get_drvdata(__cil_tmp12);
 #line 452
   data = (struct it87_data *)tmp;
 #line 455
@@ -5267,70 +5079,42 @@ static ssize_t set_in_min(struct device *dev , struct device_attribute *attr , c
   }
   {
 #line 458
-  __cil_tmp15 = (unsigned long )data;
+  __cil_tmp13 = & data->update_lock;
 #line 458
-  __cil_tmp16 = __cil_tmp15 + 56;
-#line 458
-  __cil_tmp17 = (struct mutex *)__cil_tmp16;
-#line 458
-  mutex_lock_nested(__cil_tmp17, 0U);
+  mutex_lock_nested(__cil_tmp13, 0U);
 #line 459
-  __cil_tmp18 = nr * 1UL;
+  __cil_tmp14 = (struct it87_data  const  *)data;
 #line 459
-  __cil_tmp19 = 259 + __cil_tmp18;
+  __cil_tmp15 = (long )val;
 #line 459
-  __cil_tmp20 = (unsigned long )data;
-#line 459
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 459
-  __cil_tmp22 = (struct it87_data  const  *)data;
-#line 459
-  __cil_tmp23 = & val;
-#line 459
-  __cil_tmp24 = *__cil_tmp23;
-#line 459
-  __cil_tmp25 = (long )__cil_tmp24;
-#line 459
-  *((u8 *)__cil_tmp21) = in_to_reg(__cil_tmp22, nr, __cil_tmp25);
+  data->in_min[nr] = in_to_reg(__cil_tmp14, nr, __cil_tmp15);
 #line 460
-  __cil_tmp26 = (unsigned char )nr;
+  __cil_tmp16 = (u8 )nr;
 #line 460
-  __cil_tmp27 = (unsigned int )__cil_tmp26;
+  __cil_tmp17 = (unsigned int )__cil_tmp16;
 #line 460
-  __cil_tmp28 = __cil_tmp27 * 2U;
+  __cil_tmp18 = __cil_tmp17 * 2U;
 #line 460
-  __cil_tmp29 = __cil_tmp28 + 49U;
+  __cil_tmp19 = __cil_tmp18 + 49U;
 #line 460
-  __cil_tmp30 = (int )__cil_tmp29;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 460
-  __cil_tmp31 = (unsigned char )__cil_tmp30;
+  __cil_tmp21 = (u8 )__cil_tmp20;
 #line 460
-  __cil_tmp32 = nr * 1UL;
+  __cil_tmp22 = data->in_min[nr];
 #line 460
-  __cil_tmp33 = 259 + __cil_tmp32;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 460
-  __cil_tmp34 = (unsigned long )data;
+  __cil_tmp24 = (u8 )__cil_tmp23;
 #line 460
-  __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 460
-  __cil_tmp36 = *((u8 *)__cil_tmp35);
-#line 460
-  __cil_tmp37 = (int )__cil_tmp36;
-#line 460
-  __cil_tmp38 = (unsigned char )__cil_tmp37;
-#line 460
-  it87_write_value(data, __cil_tmp31, __cil_tmp38);
+  it87_write_value(data, __cil_tmp21, __cil_tmp24);
 #line 462
-  __cil_tmp39 = (unsigned long )data;
+  __cil_tmp25 = & data->update_lock;
 #line 462
-  __cil_tmp40 = __cil_tmp39 + 56;
-#line 462
-  __cil_tmp41 = (struct mutex *)__cil_tmp40;
-#line 462
-  mutex_unlock(__cil_tmp41);
+  mutex_unlock(__cil_tmp25);
   }
 #line 463
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 465 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5343,36 +5127,20 @@ static ssize_t set_in_max(struct device *dev , struct device_attribute *attr , c
   void *tmp ;
   unsigned long val ;
   int tmp___0 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct device  const  *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct mutex *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct it87_data  const  *__cil_tmp22 ;
-  unsigned long *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  long __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned char __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u8 __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct mutex *__cil_tmp41 ;
+  struct device  const  *__cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
+  struct it87_data  const  *__cil_tmp14 ;
+  long __cil_tmp15 ;
+  int __cil_tmp16 ;
+  u8 __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  u8 __cil_tmp21 ;
+  u8 __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u8 __cil_tmp24 ;
+  struct mutex *__cil_tmp25 ;
 
   {
   {
@@ -5381,15 +5149,11 @@ static ssize_t set_in_max(struct device *dev , struct device_attribute *attr , c
 #line 468
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 469
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 469
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 469
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 471
-  __cil_tmp14 = (struct device  const  *)dev;
+  __cil_tmp12 = (struct device  const  *)dev;
 #line 471
-  tmp = dev_get_drvdata(__cil_tmp14);
+  tmp = dev_get_drvdata(__cil_tmp12);
 #line 471
   data = (struct it87_data *)tmp;
 #line 474
@@ -5404,70 +5168,42 @@ static ssize_t set_in_max(struct device *dev , struct device_attribute *attr , c
   }
   {
 #line 477
-  __cil_tmp15 = (unsigned long )data;
+  __cil_tmp13 = & data->update_lock;
 #line 477
-  __cil_tmp16 = __cil_tmp15 + 56;
-#line 477
-  __cil_tmp17 = (struct mutex *)__cil_tmp16;
-#line 477
-  mutex_lock_nested(__cil_tmp17, 0U);
+  mutex_lock_nested(__cil_tmp13, 0U);
 #line 478
-  __cil_tmp18 = nr * 1UL;
+  __cil_tmp14 = (struct it87_data  const  *)data;
 #line 478
-  __cil_tmp19 = 251 + __cil_tmp18;
+  __cil_tmp15 = (long )val;
 #line 478
-  __cil_tmp20 = (unsigned long )data;
-#line 478
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 478
-  __cil_tmp22 = (struct it87_data  const  *)data;
-#line 478
-  __cil_tmp23 = & val;
-#line 478
-  __cil_tmp24 = *__cil_tmp23;
-#line 478
-  __cil_tmp25 = (long )__cil_tmp24;
-#line 478
-  *((u8 *)__cil_tmp21) = in_to_reg(__cil_tmp22, nr, __cil_tmp25);
+  data->in_max[nr] = in_to_reg(__cil_tmp14, nr, __cil_tmp15);
 #line 479
-  __cil_tmp26 = nr + 24;
+  __cil_tmp16 = nr + 24;
 #line 479
-  __cil_tmp27 = (unsigned char )__cil_tmp26;
+  __cil_tmp17 = (u8 )__cil_tmp16;
 #line 479
-  __cil_tmp28 = (unsigned int )__cil_tmp27;
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
 #line 479
-  __cil_tmp29 = __cil_tmp28 * 2U;
+  __cil_tmp19 = __cil_tmp18 * 2U;
 #line 479
-  __cil_tmp30 = (int )__cil_tmp29;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 479
-  __cil_tmp31 = (unsigned char )__cil_tmp30;
+  __cil_tmp21 = (u8 )__cil_tmp20;
 #line 479
-  __cil_tmp32 = nr * 1UL;
+  __cil_tmp22 = data->in_max[nr];
 #line 479
-  __cil_tmp33 = 251 + __cil_tmp32;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 479
-  __cil_tmp34 = (unsigned long )data;
+  __cil_tmp24 = (u8 )__cil_tmp23;
 #line 479
-  __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 479
-  __cil_tmp36 = *((u8 *)__cil_tmp35);
-#line 479
-  __cil_tmp37 = (int )__cil_tmp36;
-#line 479
-  __cil_tmp38 = (unsigned char )__cil_tmp37;
-#line 479
-  it87_write_value(data, __cil_tmp31, __cil_tmp38);
+  it87_write_value(data, __cil_tmp21, __cil_tmp24);
 #line 481
-  __cil_tmp39 = (unsigned long )data;
+  __cil_tmp25 = & data->update_lock;
 #line 481
-  __cil_tmp40 = __cil_tmp39 + 56;
-#line 481
-  __cil_tmp41 = (struct mutex *)__cil_tmp40;
-#line 481
-  mutex_unlock(__cil_tmp41);
+  mutex_unlock(__cil_tmp25);
   }
 #line 482
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 495 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5612,15 +5348,9 @@ static ssize_t show_temp(struct device *dev , struct device_attribute *attr , ch
   struct it87_data *data ;
   struct it87_data *tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  s8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
+  s8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
@@ -5629,34 +5359,22 @@ static ssize_t show_temp(struct device *dev , struct device_attribute *attr , ch
 #line 517
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 518
-  __cil_tmp10 = (unsigned long )sensor_attr;
-#line 518
-  __cil_tmp11 = __cil_tmp10 + 48;
-#line 518
-  nr = *((int *)__cil_tmp11);
+  nr = sensor_attr->index;
 #line 520
   tmp = it87_update_device(dev);
 #line 520
   data = tmp;
 #line 521
-  __cil_tmp12 = nr * 1UL;
+  __cil_tmp10 = data->temp[nr];
 #line 521
-  __cil_tmp13 = 288 + __cil_tmp12;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 521
-  __cil_tmp14 = (unsigned long )data;
+  __cil_tmp12 = __cil_tmp11 * 1000;
 #line 521
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 521
-  __cil_tmp16 = *((s8 *)__cil_tmp15);
-#line 521
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 521
-  __cil_tmp18 = __cil_tmp17 * 1000;
-#line 521
-  tmp___0 = sprintf(buf, "%d\n", __cil_tmp18);
+  tmp___0 = sprintf(buf, "%d\n", __cil_tmp12);
   }
 #line 521
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 523 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5668,15 +5386,9 @@ static ssize_t show_temp_max(struct device *dev , struct device_attribute *attr 
   struct it87_data *data ;
   struct it87_data *tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  s8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
+  s8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
@@ -5685,34 +5397,22 @@ static ssize_t show_temp_max(struct device *dev , struct device_attribute *attr 
 #line 526
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 527
-  __cil_tmp10 = (unsigned long )sensor_attr;
-#line 527
-  __cil_tmp11 = __cil_tmp10 + 48;
-#line 527
-  nr = *((int *)__cil_tmp11);
+  nr = sensor_attr->index;
 #line 529
   tmp = it87_update_device(dev);
 #line 529
   data = tmp;
 #line 530
-  __cil_tmp12 = nr * 1UL;
+  __cil_tmp10 = data->temp_high[nr];
 #line 530
-  __cil_tmp13 = 291 + __cil_tmp12;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 530
-  __cil_tmp14 = (unsigned long )data;
+  __cil_tmp12 = __cil_tmp11 * 1000;
 #line 530
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 530
-  __cil_tmp16 = *((s8 *)__cil_tmp15);
-#line 530
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 530
-  __cil_tmp18 = __cil_tmp17 * 1000;
-#line 530
-  tmp___0 = sprintf(buf, "%d\n", __cil_tmp18);
+  tmp___0 = sprintf(buf, "%d\n", __cil_tmp12);
   }
 #line 530
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 532 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5724,15 +5424,9 @@ static ssize_t show_temp_min(struct device *dev , struct device_attribute *attr 
   struct it87_data *data ;
   struct it87_data *tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  s8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
+  s8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
@@ -5741,34 +5435,22 @@ static ssize_t show_temp_min(struct device *dev , struct device_attribute *attr 
 #line 535
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 536
-  __cil_tmp10 = (unsigned long )sensor_attr;
-#line 536
-  __cil_tmp11 = __cil_tmp10 + 48;
-#line 536
-  nr = *((int *)__cil_tmp11);
+  nr = sensor_attr->index;
 #line 538
   tmp = it87_update_device(dev);
 #line 538
   data = tmp;
 #line 539
-  __cil_tmp12 = nr * 1UL;
+  __cil_tmp10 = data->temp_low[nr];
 #line 539
-  __cil_tmp13 = 294 + __cil_tmp12;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 539
-  __cil_tmp14 = (unsigned long )data;
+  __cil_tmp12 = __cil_tmp11 * 1000;
 #line 539
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 539
-  __cil_tmp16 = *((s8 *)__cil_tmp15);
-#line 539
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 539
-  __cil_tmp18 = __cil_tmp17 * 1000;
-#line 539
-  tmp___0 = sprintf(buf, "%d\n", __cil_tmp18);
+  tmp___0 = sprintf(buf, "%d\n", __cil_tmp12);
   }
 #line 539
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 541 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5783,41 +5465,21 @@ static ssize_t set_temp_max(struct device *dev , struct device_attribute *attr ,
   int tmp___0 ;
   long tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct device  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct mutex *__cil_tmp19 ;
-  long *__cil_tmp20 ;
-  long __cil_tmp21 ;
-  long *__cil_tmp22 ;
-  long __cil_tmp23 ;
-  long __cil_tmp24 ;
-  long *__cil_tmp25 ;
-  long __cil_tmp26 ;
-  long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned char __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned char __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  s8 __cil_tmp42 ;
-  unsigned char __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned char __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct mutex *__cil_tmp48 ;
+  struct device  const  *__cil_tmp14 ;
+  struct mutex *__cil_tmp15 ;
+  long __cil_tmp16 ;
+  long __cil_tmp17 ;
+  int __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  u8 __cil_tmp23 ;
+  s8 __cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  struct mutex *__cil_tmp28 ;
 
   {
   {
@@ -5826,15 +5488,11 @@ static ssize_t set_temp_max(struct device *dev , struct device_attribute *attr ,
 #line 544
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 545
-  __cil_tmp14 = (unsigned long )sensor_attr;
-#line 545
-  __cil_tmp15 = __cil_tmp14 + 48;
-#line 545
-  nr = *((int *)__cil_tmp15);
+  nr = sensor_attr->index;
 #line 547
-  __cil_tmp16 = (struct device  const  *)dev;
+  __cil_tmp14 = (struct device  const  *)dev;
 #line 547
-  tmp = dev_get_drvdata(__cil_tmp16);
+  tmp = dev_get_drvdata(__cil_tmp14);
 #line 547
   data = (struct it87_data *)tmp;
 #line 550
@@ -5849,94 +5507,56 @@ static ssize_t set_temp_max(struct device *dev , struct device_attribute *attr ,
   }
   {
 #line 553
-  __cil_tmp17 = (unsigned long )data;
+  __cil_tmp15 = & data->update_lock;
 #line 553
-  __cil_tmp18 = __cil_tmp17 + 56;
-#line 553
-  __cil_tmp19 = (struct mutex *)__cil_tmp18;
-#line 553
-  mutex_lock_nested(__cil_tmp19, 0U);
+  mutex_lock_nested(__cil_tmp15, 0U);
   }
-  {
 #line 554
-  __cil_tmp20 = & val;
+  if (val < 0L) {
 #line 554
-  __cil_tmp21 = *__cil_tmp20;
+    __cil_tmp16 = val + -500L;
 #line 554
-  if (__cil_tmp21 < 0L) {
-#line 554
-    __cil_tmp22 = & val;
-#line 554
-    __cil_tmp23 = *__cil_tmp22;
-#line 554
-    __cil_tmp24 = __cil_tmp23 + -500L;
-#line 554
-    tmp___1 = __cil_tmp24 / 1000L;
+    tmp___1 = __cil_tmp16 / 1000L;
   } else {
 #line 554
-    __cil_tmp25 = & val;
+    __cil_tmp17 = val + 500L;
 #line 554
-    __cil_tmp26 = *__cil_tmp25;
-#line 554
-    __cil_tmp27 = __cil_tmp26 + 500L;
-#line 554
-    tmp___1 = __cil_tmp27 / 1000L;
-  }
+    tmp___1 = __cil_tmp17 / 1000L;
   }
   {
 #line 554
   tmp___2 = SENSORS_LIMIT(tmp___1, -128L, 127L);
 #line 554
-  __cil_tmp28 = nr * 1UL;
-#line 554
-  __cil_tmp29 = 291 + __cil_tmp28;
-#line 554
-  __cil_tmp30 = (unsigned long )data;
-#line 554
-  __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 554
-  *((s8 *)__cil_tmp31) = (signed char )tmp___2;
+  data->temp_high[nr] = (s8 )tmp___2;
 #line 555
-  __cil_tmp32 = nr + 32;
+  __cil_tmp18 = nr + 32;
 #line 555
-  __cil_tmp33 = (unsigned char )__cil_tmp32;
+  __cil_tmp19 = (u8 )__cil_tmp18;
 #line 555
-  __cil_tmp34 = (unsigned int )__cil_tmp33;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 555
-  __cil_tmp35 = __cil_tmp34 * 2U;
+  __cil_tmp21 = __cil_tmp20 * 2U;
 #line 555
-  __cil_tmp36 = (int )__cil_tmp35;
+  __cil_tmp22 = (int )__cil_tmp21;
 #line 555
-  __cil_tmp37 = (unsigned char )__cil_tmp36;
+  __cil_tmp23 = (u8 )__cil_tmp22;
 #line 555
-  __cil_tmp38 = nr * 1UL;
+  __cil_tmp24 = data->temp_high[nr];
 #line 555
-  __cil_tmp39 = 291 + __cil_tmp38;
+  __cil_tmp25 = (u8 )__cil_tmp24;
 #line 555
-  __cil_tmp40 = (unsigned long )data;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 555
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
+  __cil_tmp27 = (u8 )__cil_tmp26;
 #line 555
-  __cil_tmp42 = *((s8 *)__cil_tmp41);
-#line 555
-  __cil_tmp43 = (unsigned char )__cil_tmp42;
-#line 555
-  __cil_tmp44 = (int )__cil_tmp43;
-#line 555
-  __cil_tmp45 = (unsigned char )__cil_tmp44;
-#line 555
-  it87_write_value(data, __cil_tmp37, __cil_tmp45);
+  it87_write_value(data, __cil_tmp23, __cil_tmp27);
 #line 556
-  __cil_tmp46 = (unsigned long )data;
+  __cil_tmp28 = & data->update_lock;
 #line 556
-  __cil_tmp47 = __cil_tmp46 + 56;
-#line 556
-  __cil_tmp48 = (struct mutex *)__cil_tmp47;
-#line 556
-  mutex_unlock(__cil_tmp48);
+  mutex_unlock(__cil_tmp28);
   }
 #line 557
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 559 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -5951,41 +5571,21 @@ static ssize_t set_temp_min(struct device *dev , struct device_attribute *attr ,
   int tmp___0 ;
   long tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct device  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct mutex *__cil_tmp19 ;
-  long *__cil_tmp20 ;
-  long __cil_tmp21 ;
-  long *__cil_tmp22 ;
-  long __cil_tmp23 ;
-  long __cil_tmp24 ;
-  long *__cil_tmp25 ;
-  long __cil_tmp26 ;
-  long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned char __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned char __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  s8 __cil_tmp42 ;
-  unsigned char __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned char __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct mutex *__cil_tmp48 ;
+  struct device  const  *__cil_tmp14 ;
+  struct mutex *__cil_tmp15 ;
+  long __cil_tmp16 ;
+  long __cil_tmp17 ;
+  u8 __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  u8 __cil_tmp23 ;
+  s8 __cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  struct mutex *__cil_tmp28 ;
 
   {
   {
@@ -5994,15 +5594,11 @@ static ssize_t set_temp_min(struct device *dev , struct device_attribute *attr ,
 #line 562
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 563
-  __cil_tmp14 = (unsigned long )sensor_attr;
-#line 563
-  __cil_tmp15 = __cil_tmp14 + 48;
-#line 563
-  nr = *((int *)__cil_tmp15);
+  nr = sensor_attr->index;
 #line 565
-  __cil_tmp16 = (struct device  const  *)dev;
+  __cil_tmp14 = (struct device  const  *)dev;
 #line 565
-  tmp = dev_get_drvdata(__cil_tmp16);
+  tmp = dev_get_drvdata(__cil_tmp14);
 #line 565
   data = (struct it87_data *)tmp;
 #line 568
@@ -6017,94 +5613,56 @@ static ssize_t set_temp_min(struct device *dev , struct device_attribute *attr ,
   }
   {
 #line 571
-  __cil_tmp17 = (unsigned long )data;
+  __cil_tmp15 = & data->update_lock;
 #line 571
-  __cil_tmp18 = __cil_tmp17 + 56;
-#line 571
-  __cil_tmp19 = (struct mutex *)__cil_tmp18;
-#line 571
-  mutex_lock_nested(__cil_tmp19, 0U);
+  mutex_lock_nested(__cil_tmp15, 0U);
   }
-  {
 #line 572
-  __cil_tmp20 = & val;
+  if (val < 0L) {
 #line 572
-  __cil_tmp21 = *__cil_tmp20;
+    __cil_tmp16 = val + -500L;
 #line 572
-  if (__cil_tmp21 < 0L) {
-#line 572
-    __cil_tmp22 = & val;
-#line 572
-    __cil_tmp23 = *__cil_tmp22;
-#line 572
-    __cil_tmp24 = __cil_tmp23 + -500L;
-#line 572
-    tmp___1 = __cil_tmp24 / 1000L;
+    tmp___1 = __cil_tmp16 / 1000L;
   } else {
 #line 572
-    __cil_tmp25 = & val;
+    __cil_tmp17 = val + 500L;
 #line 572
-    __cil_tmp26 = *__cil_tmp25;
-#line 572
-    __cil_tmp27 = __cil_tmp26 + 500L;
-#line 572
-    tmp___1 = __cil_tmp27 / 1000L;
-  }
+    tmp___1 = __cil_tmp17 / 1000L;
   }
   {
 #line 572
   tmp___2 = SENSORS_LIMIT(tmp___1, -128L, 127L);
 #line 572
-  __cil_tmp28 = nr * 1UL;
-#line 572
-  __cil_tmp29 = 294 + __cil_tmp28;
-#line 572
-  __cil_tmp30 = (unsigned long )data;
-#line 572
-  __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 572
-  *((s8 *)__cil_tmp31) = (signed char )tmp___2;
+  data->temp_low[nr] = (s8 )tmp___2;
 #line 573
-  __cil_tmp32 = (unsigned char )nr;
+  __cil_tmp18 = (u8 )nr;
 #line 573
-  __cil_tmp33 = (unsigned int )__cil_tmp32;
+  __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 573
-  __cil_tmp34 = __cil_tmp33 * 2U;
+  __cil_tmp20 = __cil_tmp19 * 2U;
 #line 573
-  __cil_tmp35 = __cil_tmp34 + 65U;
+  __cil_tmp21 = __cil_tmp20 + 65U;
 #line 573
-  __cil_tmp36 = (int )__cil_tmp35;
+  __cil_tmp22 = (int )__cil_tmp21;
 #line 573
-  __cil_tmp37 = (unsigned char )__cil_tmp36;
+  __cil_tmp23 = (u8 )__cil_tmp22;
 #line 573
-  __cil_tmp38 = nr * 1UL;
+  __cil_tmp24 = data->temp_low[nr];
 #line 573
-  __cil_tmp39 = 294 + __cil_tmp38;
+  __cil_tmp25 = (u8 )__cil_tmp24;
 #line 573
-  __cil_tmp40 = (unsigned long )data;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 573
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
+  __cil_tmp27 = (u8 )__cil_tmp26;
 #line 573
-  __cil_tmp42 = *((s8 *)__cil_tmp41);
-#line 573
-  __cil_tmp43 = (unsigned char )__cil_tmp42;
-#line 573
-  __cil_tmp44 = (int )__cil_tmp43;
-#line 573
-  __cil_tmp45 = (unsigned char )__cil_tmp44;
-#line 573
-  it87_write_value(data, __cil_tmp37, __cil_tmp45);
+  it87_write_value(data, __cil_tmp23, __cil_tmp27);
 #line 574
-  __cil_tmp46 = (unsigned long )data;
+  __cil_tmp28 = & data->update_lock;
 #line 574
-  __cil_tmp47 = __cil_tmp46 + 56;
-#line 574
-  __cil_tmp48 = (struct mutex *)__cil_tmp47;
-#line 574
-  mutex_unlock(__cil_tmp48);
+  mutex_unlock(__cil_tmp28);
   }
 #line 575
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 585 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -6166,15 +5724,11 @@ static ssize_t show_sensor(struct device *dev , struct device_attribute *attr , 
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
   int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  int __cil_tmp21 ;
 
   {
   {
@@ -6183,54 +5737,46 @@ static ssize_t show_sensor(struct device *dev , struct device_attribute *attr , 
 #line 592
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 593
-  __cil_tmp13 = (unsigned long )sensor_attr;
-#line 593
-  __cil_tmp14 = __cil_tmp13 + 48;
-#line 593
-  nr = *((int *)__cil_tmp14);
+  nr = sensor_attr->index;
 #line 595
   tmp = it87_update_device(dev);
 #line 595
   data = tmp;
 #line 596
-  __cil_tmp15 = (unsigned long )data;
-#line 596
-  __cil_tmp16 = __cil_tmp15 + 297;
-#line 596
-  reg = *((u8 *)__cil_tmp16);
+  reg = data->sensor;
   }
   {
 #line 599
-  __cil_tmp17 = (int )reg;
+  __cil_tmp13 = (int )reg;
 #line 599
-  __cil_tmp18 = __cil_tmp17 >> nr;
+  __cil_tmp14 = __cil_tmp13 >> nr;
 #line 599
-  if (__cil_tmp18 & 1) {
+  if (__cil_tmp14 & 1) {
     {
 #line 600
     tmp___0 = sprintf(buf, "3\n");
     }
 #line 600
-    return ((long )tmp___0);
+    return ((ssize_t )tmp___0);
   } else {
 
   }
   }
   {
 #line 601
-  __cil_tmp19 = 8 << nr;
+  __cil_tmp15 = 8 << nr;
 #line 601
-  __cil_tmp20 = (int )reg;
+  __cil_tmp16 = (int )reg;
 #line 601
-  __cil_tmp21 = __cil_tmp20 & __cil_tmp19;
+  __cil_tmp17 = __cil_tmp16 & __cil_tmp15;
 #line 601
-  if (__cil_tmp21 != 0) {
+  if (__cil_tmp17 != 0) {
     {
 #line 602
     tmp___1 = sprintf(buf, "4\n");
     }
 #line 602
-    return ((long )tmp___1);
+    return ((ssize_t )tmp___1);
   } else {
 
   }
@@ -6240,7 +5786,7 @@ static ssize_t show_sensor(struct device *dev , struct device_attribute *attr , 
   tmp___2 = sprintf(buf, "0\n");
   }
 #line 603
-  return ((long )tmp___2);
+  return ((ssize_t )tmp___2);
 }
 }
 #line 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -6255,60 +5801,41 @@ static ssize_t set_sensor(struct device *dev , struct device_attribute *attr , c
   u8 reg ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct device  const  *__cil_tmp16 ;
-  signed char __cil_tmp17 ;
+  struct device  const  *__cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  signed char __cil_tmp16 ;
+  int __cil_tmp17 ;
   int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  signed char __cil_tmp20 ;
+  signed char __cil_tmp19 ;
+  int __cil_tmp20 ;
   int __cil_tmp21 ;
   int __cil_tmp22 ;
-  int __cil_tmp23 ;
-  signed char __cil_tmp24 ;
+  signed char __cil_tmp23 ;
+  int __cil_tmp24 ;
   int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  signed char __cil_tmp27 ;
+  signed char __cil_tmp26 ;
+  int __cil_tmp27 ;
   int __cil_tmp28 ;
   int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  long *__cil_tmp31 ;
-  long __cil_tmp32 ;
-  struct device  const  *__cil_tmp33 ;
-  long *__cil_tmp34 ;
-  long *__cil_tmp35 ;
-  long __cil_tmp36 ;
+  struct device  const  *__cil_tmp30 ;
+  signed char __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  signed char __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
   signed char __cil_tmp37 ;
   int __cil_tmp38 ;
   int __cil_tmp39 ;
   signed char __cil_tmp40 ;
   int __cil_tmp41 ;
   int __cil_tmp42 ;
-  long *__cil_tmp43 ;
-  long __cil_tmp44 ;
-  signed char __cil_tmp45 ;
+  struct mutex *__cil_tmp43 ;
+  u8 __cil_tmp44 ;
+  u8 __cil_tmp45 ;
   int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  signed char __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  long *__cil_tmp51 ;
-  long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct mutex *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  u8 __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned char __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct mutex *__cil_tmp67 ;
+  u8 __cil_tmp47 ;
+  struct mutex *__cil_tmp48 ;
 
   {
   {
@@ -6317,15 +5844,11 @@ static ssize_t set_sensor(struct device *dev , struct device_attribute *attr , c
 #line 608
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 609
-  __cil_tmp14 = (unsigned long )sensor_attr;
-#line 609
-  __cil_tmp15 = __cil_tmp14 + 48;
-#line 609
-  nr = *((int *)__cil_tmp15);
+  nr = sensor_attr->index;
 #line 611
-  __cil_tmp16 = (struct device  const  *)dev;
+  __cil_tmp14 = (struct device  const  *)dev;
 #line 611
-  tmp = dev_get_drvdata(__cil_tmp16);
+  tmp = dev_get_drvdata(__cil_tmp14);
 #line 611
   data = (struct it87_data *)tmp;
 #line 615
@@ -6340,168 +5863,124 @@ static ssize_t set_sensor(struct device *dev , struct device_attribute *attr , c
   }
   {
 #line 618
-  tmp___1 = it87_read_value(data, (unsigned char)81);
+  __cil_tmp15 = (u8 )81;
 #line 618
-  reg = (unsigned char )tmp___1;
+  tmp___1 = it87_read_value(data, __cil_tmp15);
+#line 618
+  reg = (u8 )tmp___1;
 #line 619
-  __cil_tmp17 = (signed char )reg;
+  __cil_tmp16 = (signed char )reg;
 #line 619
-  __cil_tmp18 = (int )__cil_tmp17;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 619
-  __cil_tmp19 = 1 << nr;
+  __cil_tmp18 = 1 << nr;
 #line 619
-  __cil_tmp20 = (signed char )__cil_tmp19;
+  __cil_tmp19 = (signed char )__cil_tmp18;
 #line 619
-  __cil_tmp21 = (int )__cil_tmp20;
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 619
-  __cil_tmp22 = ~ __cil_tmp21;
+  __cil_tmp21 = ~ __cil_tmp20;
 #line 619
-  __cil_tmp23 = __cil_tmp22 & __cil_tmp18;
+  __cil_tmp22 = __cil_tmp21 & __cil_tmp17;
 #line 619
-  reg = (unsigned char )__cil_tmp23;
+  reg = (u8 )__cil_tmp22;
 #line 620
-  __cil_tmp24 = (signed char )reg;
+  __cil_tmp23 = (signed char )reg;
 #line 620
-  __cil_tmp25 = (int )__cil_tmp24;
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 620
-  __cil_tmp26 = 8 << nr;
+  __cil_tmp25 = 8 << nr;
 #line 620
-  __cil_tmp27 = (signed char )__cil_tmp26;
+  __cil_tmp26 = (signed char )__cil_tmp25;
 #line 620
-  __cil_tmp28 = (int )__cil_tmp27;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 620
-  __cil_tmp29 = ~ __cil_tmp28;
+  __cil_tmp28 = ~ __cil_tmp27;
 #line 620
-  __cil_tmp30 = __cil_tmp29 & __cil_tmp25;
+  __cil_tmp29 = __cil_tmp28 & __cil_tmp24;
 #line 620
-  reg = (unsigned char )__cil_tmp30;
+  reg = (u8 )__cil_tmp29;
   }
-  {
 #line 621
-  __cil_tmp31 = & val;
-#line 621
-  __cil_tmp32 = *__cil_tmp31;
-#line 621
-  if (__cil_tmp32 == 2L) {
+  if (val == 2L) {
     {
 #line 622
-    __cil_tmp33 = (struct device  const  *)dev;
+    __cil_tmp30 = (struct device  const  *)dev;
 #line 622
-    dev_warn(__cil_tmp33, "Sensor type 2 is deprecated, please use 4 instead\n");
+    dev_warn(__cil_tmp30, "Sensor type 2 is deprecated, please use 4 instead\n");
 #line 624
-    __cil_tmp34 = & val;
-#line 624
-    *__cil_tmp34 = 4L;
+    val = 4L;
     }
   } else {
 
   }
-  }
-  {
 #line 627
-  __cil_tmp35 = & val;
-#line 627
-  __cil_tmp36 = *__cil_tmp35;
-#line 627
-  if (__cil_tmp36 == 3L) {
+  if (val == 3L) {
 #line 628
+    __cil_tmp31 = (signed char )reg;
+#line 628
+    __cil_tmp32 = (int )__cil_tmp31;
+#line 628
+    __cil_tmp33 = 1 << nr;
+#line 628
+    __cil_tmp34 = (signed char )__cil_tmp33;
+#line 628
+    __cil_tmp35 = (int )__cil_tmp34;
+#line 628
+    __cil_tmp36 = __cil_tmp35 | __cil_tmp32;
+#line 628
+    reg = (u8 )__cil_tmp36;
+  } else
+#line 629
+  if (val == 4L) {
+#line 630
     __cil_tmp37 = (signed char )reg;
-#line 628
+#line 630
     __cil_tmp38 = (int )__cil_tmp37;
-#line 628
-    __cil_tmp39 = 1 << nr;
-#line 628
+#line 630
+    __cil_tmp39 = 8 << nr;
+#line 630
     __cil_tmp40 = (signed char )__cil_tmp39;
-#line 628
+#line 630
     __cil_tmp41 = (int )__cil_tmp40;
-#line 628
+#line 630
     __cil_tmp42 = __cil_tmp41 | __cil_tmp38;
-#line 628
-    reg = (unsigned char )__cil_tmp42;
-  } else {
-    {
-#line 629
-    __cil_tmp43 = & val;
-#line 629
-    __cil_tmp44 = *__cil_tmp43;
-#line 629
-    if (__cil_tmp44 == 4L) {
 #line 630
-      __cil_tmp45 = (signed char )reg;
-#line 630
-      __cil_tmp46 = (int )__cil_tmp45;
-#line 630
-      __cil_tmp47 = 8 << nr;
-#line 630
-      __cil_tmp48 = (signed char )__cil_tmp47;
-#line 630
-      __cil_tmp49 = (int )__cil_tmp48;
-#line 630
-      __cil_tmp50 = __cil_tmp49 | __cil_tmp46;
-#line 630
-      reg = (unsigned char )__cil_tmp50;
-    } else {
-      {
+    reg = (u8 )__cil_tmp42;
+  } else
 #line 631
-      __cil_tmp51 = & val;
-#line 631
-      __cil_tmp52 = *__cil_tmp51;
-#line 631
-      if (__cil_tmp52 != 0L) {
+  if (val != 0L) {
 #line 632
-        return (-22L);
-      } else {
+    return (-22L);
+  } else {
 
-      }
-      }
-    }
-    }
-  }
   }
   {
 #line 634
-  __cil_tmp53 = (unsigned long )data;
+  __cil_tmp43 = & data->update_lock;
 #line 634
-  __cil_tmp54 = __cil_tmp53 + 56;
-#line 634
-  __cil_tmp55 = (struct mutex *)__cil_tmp54;
-#line 634
-  mutex_lock_nested(__cil_tmp55, 0U);
+  mutex_lock_nested(__cil_tmp43, 0U);
 #line 635
-  __cil_tmp56 = (unsigned long )data;
-#line 635
-  __cil_tmp57 = __cil_tmp56 + 297;
-#line 635
-  *((u8 *)__cil_tmp57) = reg;
+  data->sensor = reg;
 #line 636
-  __cil_tmp58 = (unsigned long )data;
+  __cil_tmp44 = (u8 )81;
 #line 636
-  __cil_tmp59 = __cil_tmp58 + 297;
+  __cil_tmp45 = data->sensor;
 #line 636
-  __cil_tmp60 = *((u8 *)__cil_tmp59);
+  __cil_tmp46 = (int )__cil_tmp45;
 #line 636
-  __cil_tmp61 = (int )__cil_tmp60;
+  __cil_tmp47 = (u8 )__cil_tmp46;
 #line 636
-  __cil_tmp62 = (unsigned char )__cil_tmp61;
-#line 636
-  it87_write_value(data, (unsigned char)81, __cil_tmp62);
+  it87_write_value(data, __cil_tmp44, __cil_tmp47);
 #line 637
-  __cil_tmp63 = (unsigned long )data;
-#line 637
-  __cil_tmp64 = __cil_tmp63 + 224;
-#line 637
-  *((char *)__cil_tmp64) = (char)0;
+  data->valid = (char)0;
 #line 638
-  __cil_tmp65 = (unsigned long )data;
+  __cil_tmp48 = & data->update_lock;
 #line 638
-  __cil_tmp66 = __cil_tmp65 + 56;
-#line 638
-  __cil_tmp67 = (struct mutex *)__cil_tmp66;
-#line 638
-  mutex_unlock(__cil_tmp67);
+  mutex_unlock(__cil_tmp48);
   }
 #line 639
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 645 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -6523,31 +6002,21 @@ static struct sensor_device_attribute sensor_dev_attr_temp3_type  =    {{{"temp3
 static int pwm_mode(struct it87_data  const  *data , int nr ) 
 { int ctrl ;
   int __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  u8 __cil_tmp5 ;
+  int __cil_tmp6 ;
   u8 __cil_tmp7 ;
-  int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u8 __cil_tmp13 ;
-  signed char __cil_tmp14 ;
-  int __cil_tmp15 ;
+  signed char __cil_tmp8 ;
+  int __cil_tmp9 ;
 
   {
 #line 653
   __cil_tmp4 = 1 << nr;
 #line 653
-  __cil_tmp5 = (unsigned long )data;
+  __cil_tmp5 = data->fan_main_ctrl;
 #line 653
-  __cil_tmp6 = __cil_tmp5 + 309;
+  __cil_tmp6 = (int )__cil_tmp5;
 #line 653
-  __cil_tmp7 = *((u8 const   *)__cil_tmp6);
-#line 653
-  __cil_tmp8 = (int )__cil_tmp7;
-#line 653
-  ctrl = __cil_tmp8 & __cil_tmp4;
+  ctrl = __cil_tmp6 & __cil_tmp4;
 #line 655
   if (ctrl == 0) {
 #line 656
@@ -6557,21 +6026,13 @@ static int pwm_mode(struct it87_data  const  *data , int nr )
   }
   {
 #line 657
-  __cil_tmp9 = nr * 1UL;
+  __cil_tmp7 = data->pwm_ctrl[nr];
 #line 657
-  __cil_tmp10 = 311 + __cil_tmp9;
+  __cil_tmp8 = (signed char )__cil_tmp7;
 #line 657
-  __cil_tmp11 = (unsigned long )data;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 657
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 657
-  __cil_tmp13 = *((u8 const   *)__cil_tmp12);
-#line 657
-  __cil_tmp14 = (signed char )__cil_tmp13;
-#line 657
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 657
-  if (__cil_tmp15 < 0) {
+  if (__cil_tmp9 < 0) {
 #line 658
     return (2);
   } else {
@@ -6591,33 +6052,15 @@ static ssize_t show_fan(struct device *dev , struct device_attribute *attr , cha
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  u16 __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  u16 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  int __cil_tmp17 ;
   u16 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u16 __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u8 __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u16 __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
 
   {
   {
@@ -6626,11 +6069,7 @@ static ssize_t show_fan(struct device *dev , struct device_attribute *attr , cha
 #line 666
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 667
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 667
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 667
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 669
   tmp = it87_update_device(dev);
 #line 669
@@ -6638,62 +6077,30 @@ static ssize_t show_fan(struct device *dev , struct device_attribute *attr , cha
   }
   {
 #line 670
-  __cil_tmp14 = nr * 2UL;
+  __cil_tmp12 = data->fan[nr];
 #line 670
-  __cil_tmp15 = 268 + __cil_tmp14;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 670
-  __cil_tmp16 = (unsigned long )data;
-#line 670
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 670
-  __cil_tmp18 = *((u16 *)__cil_tmp17);
-#line 670
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 670
-  if (__cil_tmp19 != 0U) {
+  if (__cil_tmp13 != 0U) {
     {
 #line 670
-    __cil_tmp20 = nr * 2UL;
+    __cil_tmp14 = data->fan[nr];
 #line 670
-    __cil_tmp21 = 268 + __cil_tmp20;
+    __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 670
-    __cil_tmp22 = (unsigned long )data;
+    if (__cil_tmp15 != 255U) {
 #line 670
-    __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
+      __cil_tmp16 = data->fan_div[nr];
 #line 670
-    __cil_tmp24 = *((u16 *)__cil_tmp23);
+      __cil_tmp17 = (int )__cil_tmp16;
 #line 670
-    __cil_tmp25 = (unsigned int )__cil_tmp24;
+      __cil_tmp18 = data->fan[nr];
 #line 670
-    if (__cil_tmp25 != 255U) {
+      __cil_tmp19 = (int )__cil_tmp18;
 #line 670
-      __cil_tmp26 = nr * 1UL;
+      __cil_tmp20 = __cil_tmp19 << __cil_tmp17;
 #line 670
-      __cil_tmp27 = 298 + __cil_tmp26;
-#line 670
-      __cil_tmp28 = (unsigned long )data;
-#line 670
-      __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 670
-      __cil_tmp30 = *((u8 *)__cil_tmp29);
-#line 670
-      __cil_tmp31 = (int )__cil_tmp30;
-#line 670
-      __cil_tmp32 = nr * 2UL;
-#line 670
-      __cil_tmp33 = 268 + __cil_tmp32;
-#line 670
-      __cil_tmp34 = (unsigned long )data;
-#line 670
-      __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 670
-      __cil_tmp36 = *((u16 *)__cil_tmp35);
-#line 670
-      __cil_tmp37 = (int )__cil_tmp36;
-#line 670
-      __cil_tmp38 = __cil_tmp37 << __cil_tmp31;
-#line 670
-      tmp___0 = 1350000 / __cil_tmp38;
+      tmp___0 = 1350000 / __cil_tmp20;
     } else {
 #line 670
       tmp___0 = 0;
@@ -6711,7 +6118,7 @@ static ssize_t show_fan(struct device *dev , struct device_attribute *attr , cha
   tmp___2 = sprintf(buf, "%d\n", tmp___1);
   }
 #line 670
-  return ((long )tmp___2);
+  return ((ssize_t )tmp___2);
 }
 }
 #line 673 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -6724,33 +6131,15 @@ static ssize_t show_fan_min(struct device *dev , struct device_attribute *attr ,
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  u16 __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  u16 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  int __cil_tmp17 ;
   u16 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u16 __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u8 __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  u16 __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
 
   {
   {
@@ -6759,11 +6148,7 @@ static ssize_t show_fan_min(struct device *dev , struct device_attribute *attr ,
 #line 676
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 677
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 677
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 677
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 679
   tmp = it87_update_device(dev);
 #line 679
@@ -6771,62 +6156,30 @@ static ssize_t show_fan_min(struct device *dev , struct device_attribute *attr ,
   }
   {
 #line 680
-  __cil_tmp14 = nr * 2UL;
+  __cil_tmp12 = data->fan_min[nr];
 #line 680
-  __cil_tmp15 = 278 + __cil_tmp14;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 680
-  __cil_tmp16 = (unsigned long )data;
-#line 680
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 680
-  __cil_tmp18 = *((u16 *)__cil_tmp17);
-#line 680
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 680
-  if (__cil_tmp19 != 0U) {
+  if (__cil_tmp13 != 0U) {
     {
 #line 680
-    __cil_tmp20 = nr * 2UL;
+    __cil_tmp14 = data->fan_min[nr];
 #line 680
-    __cil_tmp21 = 278 + __cil_tmp20;
+    __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 680
-    __cil_tmp22 = (unsigned long )data;
+    if (__cil_tmp15 != 255U) {
 #line 680
-    __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
+      __cil_tmp16 = data->fan_div[nr];
 #line 680
-    __cil_tmp24 = *((u16 *)__cil_tmp23);
+      __cil_tmp17 = (int )__cil_tmp16;
 #line 680
-    __cil_tmp25 = (unsigned int )__cil_tmp24;
+      __cil_tmp18 = data->fan_min[nr];
 #line 680
-    if (__cil_tmp25 != 255U) {
+      __cil_tmp19 = (int )__cil_tmp18;
 #line 680
-      __cil_tmp26 = nr * 1UL;
+      __cil_tmp20 = __cil_tmp19 << __cil_tmp17;
 #line 680
-      __cil_tmp27 = 298 + __cil_tmp26;
-#line 680
-      __cil_tmp28 = (unsigned long )data;
-#line 680
-      __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 680
-      __cil_tmp30 = *((u8 *)__cil_tmp29);
-#line 680
-      __cil_tmp31 = (int )__cil_tmp30;
-#line 680
-      __cil_tmp32 = nr * 2UL;
-#line 680
-      __cil_tmp33 = 278 + __cil_tmp32;
-#line 680
-      __cil_tmp34 = (unsigned long )data;
-#line 680
-      __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 680
-      __cil_tmp36 = *((u16 *)__cil_tmp35);
-#line 680
-      __cil_tmp37 = (int )__cil_tmp36;
-#line 680
-      __cil_tmp38 = __cil_tmp37 << __cil_tmp31;
-#line 680
-      tmp___0 = 1350000 / __cil_tmp38;
+      tmp___0 = 1350000 / __cil_tmp20;
     } else {
 #line 680
       tmp___0 = 0;
@@ -6844,7 +6197,7 @@ static ssize_t show_fan_min(struct device *dev , struct device_attribute *attr ,
   tmp___2 = sprintf(buf, "%d\n", tmp___1);
   }
 #line 680
-  return ((long )tmp___2);
+  return ((ssize_t )tmp___2);
 }
 }
 #line 683 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -6855,15 +6208,9 @@ static ssize_t show_fan_div(struct device *dev , struct device_attribute *attr ,
   struct it87_data *data ;
   struct it87_data *tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
+  u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
@@ -6872,34 +6219,22 @@ static ssize_t show_fan_div(struct device *dev , struct device_attribute *attr ,
 #line 686
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 687
-  __cil_tmp10 = (unsigned long )sensor_attr;
-#line 687
-  __cil_tmp11 = __cil_tmp10 + 48;
-#line 687
-  nr = *((int *)__cil_tmp11);
+  nr = sensor_attr->index;
 #line 689
   tmp = it87_update_device(dev);
 #line 689
   data = tmp;
 #line 690
-  __cil_tmp12 = nr * 1UL;
+  __cil_tmp10 = data->fan_div[nr];
 #line 690
-  __cil_tmp13 = 298 + __cil_tmp12;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 690
-  __cil_tmp14 = (unsigned long )data;
+  __cil_tmp12 = 1 << __cil_tmp11;
 #line 690
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 690
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 690
-  __cil_tmp17 = (int )__cil_tmp16;
-#line 690
-  __cil_tmp18 = 1 << __cil_tmp17;
-#line 690
-  tmp___0 = sprintf(buf, "%d\n", __cil_tmp18);
+  tmp___0 = sprintf(buf, "%d\n", __cil_tmp12);
   }
 #line 690
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 692 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -6912,9 +6247,7 @@ static ssize_t show_pwm_enable(struct device *dev , struct device_attribute *att
   struct it87_data *tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct it87_data  const  *__cil_tmp13 ;
+  struct it87_data  const  *__cil_tmp11 ;
 
   {
   {
@@ -6923,24 +6256,20 @@ static ssize_t show_pwm_enable(struct device *dev , struct device_attribute *att
 #line 695
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 696
-  __cil_tmp11 = (unsigned long )sensor_attr;
-#line 696
-  __cil_tmp12 = __cil_tmp11 + 48;
-#line 696
-  nr = *((int *)__cil_tmp12);
+  nr = sensor_attr->index;
 #line 698
   tmp = it87_update_device(dev);
 #line 698
   data = tmp;
 #line 699
-  __cil_tmp13 = (struct it87_data  const  *)data;
+  __cil_tmp11 = (struct it87_data  const  *)data;
 #line 699
-  tmp___0 = pwm_mode(__cil_tmp13, nr);
+  tmp___0 = pwm_mode(__cil_tmp11, nr);
 #line 699
   tmp___1 = sprintf(buf, "%d\n", tmp___0);
   }
 #line 699
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 701 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -6952,16 +6281,10 @@ static ssize_t show_pwm(struct device *dev , struct device_attribute *attr , cha
   struct it87_data *tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct it87_data  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned char __cil_tmp20 ;
+  struct it87_data  const  *__cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  u8 __cil_tmp14 ;
 
   {
   {
@@ -6970,38 +6293,26 @@ static ssize_t show_pwm(struct device *dev , struct device_attribute *attr , cha
 #line 704
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 705
-  __cil_tmp11 = (unsigned long )sensor_attr;
-#line 705
-  __cil_tmp12 = __cil_tmp11 + 48;
-#line 705
-  nr = *((int *)__cil_tmp12);
+  nr = sensor_attr->index;
 #line 707
   tmp = it87_update_device(dev);
 #line 707
   data = tmp;
 #line 708
-  __cil_tmp13 = (struct it87_data  const  *)data;
+  __cil_tmp11 = (struct it87_data  const  *)data;
 #line 708
-  __cil_tmp14 = nr * 1UL;
+  __cil_tmp12 = data->pwm_duty[nr];
 #line 708
-  __cil_tmp15 = 314 + __cil_tmp14;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 708
-  __cil_tmp16 = (unsigned long )data;
+  __cil_tmp14 = (u8 )__cil_tmp13;
 #line 708
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 708
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 708
-  __cil_tmp19 = (int )__cil_tmp18;
-#line 708
-  __cil_tmp20 = (unsigned char )__cil_tmp19;
-#line 708
-  tmp___0 = pwm_from_reg(__cil_tmp13, __cil_tmp20);
+  tmp___0 = pwm_from_reg(__cil_tmp11, __cil_tmp14);
 #line 708
   tmp___1 = sprintf(buf, "%d\n", tmp___0);
   }
 #line 708
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 711 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -7011,14 +6322,9 @@ static ssize_t show_pwm_freq(struct device *dev , struct device_attribute *attr 
   struct it87_data *tmp ;
   int index ;
   int tmp___0 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  u8 __cil_tmp10 ;
-  int __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
+  u8 __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
 
   {
   {
@@ -7027,28 +6333,18 @@ static ssize_t show_pwm_freq(struct device *dev , struct device_attribute *attr 
 #line 714
   data = tmp;
 #line 715
-  __cil_tmp8 = (unsigned long )data;
+  __cil_tmp8 = data->fan_ctl;
 #line 715
-  __cil_tmp9 = __cil_tmp8 + 310;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 715
-  __cil_tmp10 = *((u8 *)__cil_tmp9);
+  __cil_tmp10 = __cil_tmp9 >> 4;
 #line 715
-  __cil_tmp11 = (int )__cil_tmp10;
-#line 715
-  __cil_tmp12 = __cil_tmp11 >> 4;
-#line 715
-  index = __cil_tmp12 & 7;
+  index = __cil_tmp10 & 7;
 #line 717
-  __cil_tmp13 = index * 4UL;
-#line 717
-  __cil_tmp14 = (unsigned long )(pwm_freq) + __cil_tmp13;
-#line 717
-  __cil_tmp15 = *((unsigned int const   *)__cil_tmp14);
-#line 717
-  tmp___0 = sprintf(buf, "%u\n", __cil_tmp15);
+  tmp___0 = sprintf(buf, "%u\n", pwm_freq[index]);
   }
 #line 717
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 719 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -7064,66 +6360,28 @@ static ssize_t set_fan_min(struct device *dev , struct device_attribute *attr , 
   int tmp___0 ;
   int tmp___1 ;
   u8 tmp___2 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct device  const  *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct mutex *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned char __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  long *__cil_tmp46 ;
-  long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u8 __cil_tmp52 ;
-  int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  u8 __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned char __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  u16 __cil_tmp68 ;
-  unsigned char __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned char __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct mutex *__cil_tmp74 ;
+  struct device  const  *__cil_tmp15 ;
+  struct mutex *__cil_tmp16 ;
+  u8 __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  u8 __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  u16 __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  int __cil_tmp34 ;
+  u8 __cil_tmp35 ;
+  struct mutex *__cil_tmp36 ;
 
   {
   {
@@ -7132,15 +6390,11 @@ static ssize_t set_fan_min(struct device *dev , struct device_attribute *attr , 
 #line 722
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 723
-  __cil_tmp15 = (unsigned long )sensor_attr;
-#line 723
-  __cil_tmp16 = __cil_tmp15 + 48;
-#line 723
-  nr = *((int *)__cil_tmp16);
+  nr = sensor_attr->index;
 #line 725
-  __cil_tmp17 = (struct device  const  *)dev;
+  __cil_tmp15 = (struct device  const  *)dev;
 #line 725
-  tmp = dev_get_drvdata(__cil_tmp17);
+  tmp = dev_get_drvdata(__cil_tmp15);
 #line 725
   data = (struct it87_data *)tmp;
 #line 729
@@ -7155,179 +6409,110 @@ static ssize_t set_fan_min(struct device *dev , struct device_attribute *attr , 
   }
   {
 #line 732
-  __cil_tmp18 = (unsigned long )data;
+  __cil_tmp16 = & data->update_lock;
 #line 732
-  __cil_tmp19 = __cil_tmp18 + 56;
-#line 732
-  __cil_tmp20 = (struct mutex *)__cil_tmp19;
-#line 732
-  mutex_lock_nested(__cil_tmp20, 0U);
+  mutex_lock_nested(__cil_tmp16, 0U);
 #line 733
-  tmp___1 = it87_read_value(data, (unsigned char)11);
+  __cil_tmp17 = (u8 )11;
 #line 733
-  reg = (unsigned char )tmp___1;
+  tmp___1 = it87_read_value(data, __cil_tmp17);
+#line 733
+  reg = (u8 )tmp___1;
   }
 #line 735
   if (nr == 0) {
+#line 735
     goto case_0;
-  } else {
+  } else
 #line 738
-    if (nr == 1) {
-      goto case_1;
-    } else {
+  if (nr == 1) {
+#line 738
+    goto case_1;
+  } else
 #line 741
-      if (nr == 2) {
-        goto case_2;
-      } else {
+  if (nr == 2) {
+#line 741
+    goto case_2;
+  } else
 #line 734
-        if (0) {
-          case_0: 
+  if (0) {
+    case_0: 
 #line 736
-          __cil_tmp21 = nr * 1UL;
+    __cil_tmp18 = (unsigned int )reg;
 #line 736
-          __cil_tmp22 = 298 + __cil_tmp21;
+    __cil_tmp19 = __cil_tmp18 & 7U;
 #line 736
-          __cil_tmp23 = (unsigned long )data;
-#line 736
-          __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 736
-          __cil_tmp25 = (unsigned int )reg;
-#line 736
-          __cil_tmp26 = __cil_tmp25 & 7U;
-#line 736
-          *((u8 *)__cil_tmp24) = (unsigned char )__cil_tmp26;
-          goto ldv_24477;
-          case_1: 
+    data->fan_div[nr] = (u8 )__cil_tmp19;
+#line 737
+    goto ldv_24477;
+    case_1: 
 #line 739
-          __cil_tmp27 = nr * 1UL;
+    __cil_tmp20 = (int )reg;
 #line 739
-          __cil_tmp28 = 298 + __cil_tmp27;
+    __cil_tmp21 = __cil_tmp20 >> 3;
 #line 739
-          __cil_tmp29 = (unsigned long )data;
+    __cil_tmp22 = (u8 )__cil_tmp21;
 #line 739
-          __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
+    __cil_tmp23 = (unsigned int )__cil_tmp22;
 #line 739
-          __cil_tmp31 = (int )reg;
+    __cil_tmp24 = __cil_tmp23 & 7U;
 #line 739
-          __cil_tmp32 = __cil_tmp31 >> 3;
-#line 739
-          __cil_tmp33 = (unsigned char )__cil_tmp32;
-#line 739
-          __cil_tmp34 = (unsigned int )__cil_tmp33;
-#line 739
-          __cil_tmp35 = __cil_tmp34 & 7U;
-#line 739
-          *((u8 *)__cil_tmp30) = (unsigned char )__cil_tmp35;
-          goto ldv_24477;
-          case_2: ;
-          {
+    data->fan_div[nr] = (u8 )__cil_tmp24;
+#line 740
+    goto ldv_24477;
+    case_2: ;
+    {
 #line 742
-          __cil_tmp36 = (int )reg;
+    __cil_tmp25 = (int )reg;
 #line 742
-          __cil_tmp37 = __cil_tmp36 & 64;
+    __cil_tmp26 = __cil_tmp25 & 64;
 #line 742
-          if (__cil_tmp37 != 0) {
+    if (__cil_tmp26 != 0) {
 #line 742
-            __cil_tmp38 = nr * 1UL;
+      data->fan_div[nr] = (u8 )3U;
+    } else {
 #line 742
-            __cil_tmp39 = 298 + __cil_tmp38;
-#line 742
-            __cil_tmp40 = (unsigned long )data;
-#line 742
-            __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
-#line 742
-            *((u8 *)__cil_tmp41) = (unsigned char)3;
-          } else {
-#line 742
-            __cil_tmp42 = nr * 1UL;
-#line 742
-            __cil_tmp43 = 298 + __cil_tmp42;
-#line 742
-            __cil_tmp44 = (unsigned long )data;
-#line 742
-            __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 742
-            *((u8 *)__cil_tmp45) = (unsigned char)1;
-          }
-          }
-          goto ldv_24477;
-        } else {
-
-        }
-      }
+      data->fan_div[nr] = (u8 )1U;
     }
+    }
+#line 743
+    goto ldv_24477;
+  } else {
+
   }
   ldv_24477: 
   {
 #line 746
-  __cil_tmp46 = & val;
+  __cil_tmp27 = data->fan_div[nr];
 #line 746
-  __cil_tmp47 = *__cil_tmp46;
+  __cil_tmp28 = (int )__cil_tmp27;
 #line 746
-  __cil_tmp48 = nr * 1UL;
+  __cil_tmp29 = 1 << __cil_tmp28;
 #line 746
-  __cil_tmp49 = 298 + __cil_tmp48;
+  tmp___2 = FAN_TO_REG(val, __cil_tmp29);
 #line 746
-  __cil_tmp50 = (unsigned long )data;
-#line 746
-  __cil_tmp51 = __cil_tmp50 + __cil_tmp49;
-#line 746
-  __cil_tmp52 = *((u8 *)__cil_tmp51);
-#line 746
-  __cil_tmp53 = (int )__cil_tmp52;
-#line 746
-  __cil_tmp54 = 1 << __cil_tmp53;
-#line 746
-  tmp___2 = FAN_TO_REG(__cil_tmp47, __cil_tmp54);
-#line 746
-  __cil_tmp55 = nr * 2UL;
-#line 746
-  __cil_tmp56 = 278 + __cil_tmp55;
-#line 746
-  __cil_tmp57 = (unsigned long )data;
-#line 746
-  __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
-#line 746
-  *((u16 *)__cil_tmp58) = (unsigned short )tmp___2;
+  data->fan_min[nr] = (u16 )tmp___2;
 #line 747
-  __cil_tmp59 = nr * 1UL;
+  __cil_tmp30 = (int )IT87_REG_FAN_MIN[nr];
 #line 747
-  __cil_tmp60 = (unsigned long )(IT87_REG_FAN_MIN) + __cil_tmp59;
+  __cil_tmp31 = (u8 )__cil_tmp30;
 #line 747
-  __cil_tmp61 = *((u8 const   *)__cil_tmp60);
+  __cil_tmp32 = data->fan_min[nr];
 #line 747
-  __cil_tmp62 = (int )__cil_tmp61;
+  __cil_tmp33 = (u8 )__cil_tmp32;
 #line 747
-  __cil_tmp63 = (unsigned char )__cil_tmp62;
+  __cil_tmp34 = (int )__cil_tmp33;
 #line 747
-  __cil_tmp64 = nr * 2UL;
+  __cil_tmp35 = (u8 )__cil_tmp34;
 #line 747
-  __cil_tmp65 = 278 + __cil_tmp64;
-#line 747
-  __cil_tmp66 = (unsigned long )data;
-#line 747
-  __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 747
-  __cil_tmp68 = *((u16 *)__cil_tmp67);
-#line 747
-  __cil_tmp69 = (unsigned char )__cil_tmp68;
-#line 747
-  __cil_tmp70 = (int )__cil_tmp69;
-#line 747
-  __cil_tmp71 = (unsigned char )__cil_tmp70;
-#line 747
-  it87_write_value(data, __cil_tmp63, __cil_tmp71);
+  it87_write_value(data, __cil_tmp31, __cil_tmp35);
 #line 748
-  __cil_tmp72 = (unsigned long )data;
+  __cil_tmp36 = & data->update_lock;
 #line 748
-  __cil_tmp73 = __cil_tmp72 + 56;
-#line 748
-  __cil_tmp74 = (struct mutex *)__cil_tmp73;
-#line 748
-  mutex_unlock(__cil_tmp74);
+  mutex_unlock(__cil_tmp36);
   }
 #line 749
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 751 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -7346,120 +6531,45 @@ static ssize_t set_fan_div(struct device *dev , struct device_attribute *attr , 
   int tmp___2 ;
   int tmp___3 ;
   u8 tmp___4 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct device  const  *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct mutex *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  u16 __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  struct device  const  *__cil_tmp18 ;
+  struct mutex *__cil_tmp19 ;
+  u8 __cil_tmp20 ;
+  u16 __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  u16 __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u16 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  u8 __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  u16 __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  unsigned long __cil_tmp34 ;
+  u8 __cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
   unsigned long __cil_tmp39 ;
   u8 __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  u16 __cil_tmp46 ;
-  int __cil_tmp47 ;
+  unsigned int __cil_tmp41 ;
+  u8 __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  int __cil_tmp44 ;
+  u8 __cil_tmp45 ;
+  long __cil_tmp46 ;
+  u8 __cil_tmp47 ;
   int __cil_tmp48 ;
-  unsigned long *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long *__cil_tmp68 ;
-  unsigned long *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  u8 __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long *__cil_tmp78 ;
-  unsigned long *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  u8 __cil_tmp85 ;
-  int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  int __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  u8 __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
-  unsigned long *__cil_tmp96 ;
-  unsigned long *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned char __cil_tmp101 ;
-  int __cil_tmp102 ;
-  unsigned char __cil_tmp103 ;
-  long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  u8 __cil_tmp109 ;
-  int __cil_tmp110 ;
-  int __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  u8 __cil_tmp118 ;
-  int __cil_tmp119 ;
-  unsigned char __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  u16 __cil_tmp125 ;
-  unsigned char __cil_tmp126 ;
-  int __cil_tmp127 ;
-  unsigned char __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  struct mutex *__cil_tmp131 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  u8 __cil_tmp51 ;
+  u16 __cil_tmp52 ;
+  u8 __cil_tmp53 ;
+  int __cil_tmp54 ;
+  u8 __cil_tmp55 ;
+  struct mutex *__cil_tmp56 ;
 
   {
   {
@@ -7468,15 +6578,11 @@ static ssize_t set_fan_div(struct device *dev , struct device_attribute *attr , 
 #line 754
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 755
-  __cil_tmp18 = (unsigned long )sensor_attr;
-#line 755
-  __cil_tmp19 = __cil_tmp18 + 48;
-#line 755
-  nr = *((int *)__cil_tmp19);
+  nr = sensor_attr->index;
 #line 757
-  __cil_tmp20 = (struct device  const  *)dev;
+  __cil_tmp18 = (struct device  const  *)dev;
 #line 757
-  tmp = dev_get_drvdata(__cil_tmp20);
+  tmp = dev_get_drvdata(__cil_tmp18);
 #line 757
   data = (struct it87_data *)tmp;
 #line 762
@@ -7491,76 +6597,42 @@ static ssize_t set_fan_div(struct device *dev , struct device_attribute *attr , 
   }
   {
 #line 765
-  __cil_tmp21 = (unsigned long )data;
+  __cil_tmp19 = & data->update_lock;
 #line 765
-  __cil_tmp22 = __cil_tmp21 + 56;
-#line 765
-  __cil_tmp23 = (struct mutex *)__cil_tmp22;
-#line 765
-  mutex_lock_nested(__cil_tmp23, 0U);
+  mutex_lock_nested(__cil_tmp19, 0U);
 #line 766
-  tmp___1 = it87_read_value(data, (unsigned char)11);
+  __cil_tmp20 = (u8 )11;
 #line 766
-  old = (unsigned char )tmp___1;
+  tmp___1 = it87_read_value(data, __cil_tmp20);
+#line 766
+  old = (u8 )tmp___1;
   }
   {
 #line 769
-  __cil_tmp24 = nr * 2UL;
+  __cil_tmp21 = data->fan_min[nr];
 #line 769
-  __cil_tmp25 = 278 + __cil_tmp24;
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 769
-  __cil_tmp26 = (unsigned long )data;
-#line 769
-  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 769
-  __cil_tmp28 = *((u16 *)__cil_tmp27);
-#line 769
-  __cil_tmp29 = (unsigned int )__cil_tmp28;
-#line 769
-  if (__cil_tmp29 != 0U) {
+  if (__cil_tmp22 != 0U) {
     {
 #line 769
-    __cil_tmp30 = nr * 2UL;
+    __cil_tmp23 = data->fan_min[nr];
 #line 769
-    __cil_tmp31 = 278 + __cil_tmp30;
+    __cil_tmp24 = (unsigned int )__cil_tmp23;
 #line 769
-    __cil_tmp32 = (unsigned long )data;
+    if (__cil_tmp24 != 255U) {
 #line 769
-    __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
+      __cil_tmp25 = data->fan_div[nr];
 #line 769
-    __cil_tmp34 = *((u16 *)__cil_tmp33);
+      __cil_tmp26 = (int )__cil_tmp25;
 #line 769
-    __cil_tmp35 = (unsigned int )__cil_tmp34;
+      __cil_tmp27 = data->fan_min[nr];
 #line 769
-    if (__cil_tmp35 != 255U) {
+      __cil_tmp28 = (int )__cil_tmp27;
 #line 769
-      __cil_tmp36 = nr * 1UL;
+      __cil_tmp29 = __cil_tmp28 << __cil_tmp26;
 #line 769
-      __cil_tmp37 = 298 + __cil_tmp36;
-#line 769
-      __cil_tmp38 = (unsigned long )data;
-#line 769
-      __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 769
-      __cil_tmp40 = *((u8 *)__cil_tmp39);
-#line 769
-      __cil_tmp41 = (int )__cil_tmp40;
-#line 769
-      __cil_tmp42 = nr * 2UL;
-#line 769
-      __cil_tmp43 = 278 + __cil_tmp42;
-#line 769
-      __cil_tmp44 = (unsigned long )data;
-#line 769
-      __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 769
-      __cil_tmp46 = *((u16 *)__cil_tmp45);
-#line 769
-      __cil_tmp47 = (int )__cil_tmp46;
-#line 769
-      __cil_tmp48 = __cil_tmp47 << __cil_tmp41;
-#line 769
-      tmp___2 = 1350000 / __cil_tmp48;
+      tmp___2 = 1350000 / __cil_tmp29;
     } else {
 #line 769
       tmp___2 = 0;
@@ -7575,240 +6647,127 @@ static ssize_t set_fan_div(struct device *dev , struct device_attribute *attr , 
   }
 #line 772
   if (nr == 0) {
+#line 772
     goto case_0;
-  } else {
+  } else
 #line 773
-    if (nr == 1) {
-      goto case_1;
-    } else {
+  if (nr == 1) {
+#line 773
+    goto case_1;
+  } else
 #line 776
-      if (nr == 2) {
-        goto case_2;
-      } else {
+  if (nr == 2) {
+#line 776
+    goto case_2;
+  } else
 #line 771
-        if (0) {
-          case_0: ;
-          case_1: 
-          {
+  if (0) {
+    case_0: ;
+    case_1: 
+    {
 #line 774
-          __cil_tmp49 = & val;
+    __cil_tmp30 = (int )val;
 #line 774
-          __cil_tmp50 = *__cil_tmp49;
+    tmp___3 = DIV_TO_REG(__cil_tmp30);
 #line 774
-          __cil_tmp51 = (int )__cil_tmp50;
-#line 774
-          tmp___3 = DIV_TO_REG(__cil_tmp51);
-#line 774
-          __cil_tmp52 = nr * 1UL;
-#line 774
-          __cil_tmp53 = 298 + __cil_tmp52;
-#line 774
-          __cil_tmp54 = (unsigned long )data;
-#line 774
-          __cil_tmp55 = __cil_tmp54 + __cil_tmp53;
-#line 774
-          *((u8 *)__cil_tmp55) = (unsigned char )tmp___3;
-          }
-          goto ldv_24496;
-          case_2: ;
-          {
-#line 777
-          __cil_tmp56 = & val;
-#line 777
-          __cil_tmp57 = *__cil_tmp56;
-#line 777
-          if (__cil_tmp57 <= 7UL) {
-#line 778
-            __cil_tmp58 = nr * 1UL;
-#line 778
-            __cil_tmp59 = 298 + __cil_tmp58;
-#line 778
-            __cil_tmp60 = (unsigned long )data;
-#line 778
-            __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 778
-            *((u8 *)__cil_tmp61) = (unsigned char)1;
-          } else {
-#line 780
-            __cil_tmp62 = nr * 1UL;
-#line 780
-            __cil_tmp63 = 298 + __cil_tmp62;
-#line 780
-            __cil_tmp64 = (unsigned long )data;
-#line 780
-            __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 780
-            *((u8 *)__cil_tmp65) = (unsigned char)3;
-          }
-          }
-        } else {
-
-        }
-      }
+    data->fan_div[nr] = (u8 )tmp___3;
     }
+#line 775
+    goto ldv_24496;
+    case_2: ;
+#line 777
+    if (val <= 7UL) {
+#line 778
+      data->fan_div[nr] = (u8 )1U;
+    } else {
+#line 780
+      data->fan_div[nr] = (u8 )3U;
+    }
+  } else {
+
   }
   ldv_24496: 
 #line 782
-  __cil_tmp66 = & val;
+  __cil_tmp31 = (unsigned long )old;
 #line 782
-  __cil_tmp67 = (unsigned long )old;
-#line 782
-  *__cil_tmp66 = __cil_tmp67 & 128UL;
+  val = __cil_tmp31 & 128UL;
 #line 783
-  __cil_tmp68 = & val;
+  __cil_tmp32 = data->fan_div[0];
 #line 783
-  __cil_tmp69 = & val;
+  __cil_tmp33 = (unsigned long )__cil_tmp32;
 #line 783
-  __cil_tmp70 = *__cil_tmp69;
+  __cil_tmp34 = __cil_tmp33 & 7UL;
 #line 783
-  __cil_tmp71 = 0 * 1UL;
-#line 783
-  __cil_tmp72 = 298 + __cil_tmp71;
-#line 783
-  __cil_tmp73 = (unsigned long )data;
-#line 783
-  __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
-#line 783
-  __cil_tmp75 = *((u8 *)__cil_tmp74);
-#line 783
-  __cil_tmp76 = (unsigned long )__cil_tmp75;
-#line 783
-  __cil_tmp77 = __cil_tmp76 & 7UL;
-#line 783
-  *__cil_tmp68 = __cil_tmp77 | __cil_tmp70;
+  val = __cil_tmp34 | val;
 #line 784
-  __cil_tmp78 = & val;
+  __cil_tmp35 = data->fan_div[1];
 #line 784
-  __cil_tmp79 = & val;
+  __cil_tmp36 = (int )__cil_tmp35;
 #line 784
-  __cil_tmp80 = *__cil_tmp79;
+  __cil_tmp37 = __cil_tmp36 & 7;
 #line 784
-  __cil_tmp81 = 1 * 1UL;
+  __cil_tmp38 = __cil_tmp37 << 3;
 #line 784
-  __cil_tmp82 = 298 + __cil_tmp81;
+  __cil_tmp39 = (unsigned long )__cil_tmp38;
 #line 784
-  __cil_tmp83 = (unsigned long )data;
-#line 784
-  __cil_tmp84 = __cil_tmp83 + __cil_tmp82;
-#line 784
-  __cil_tmp85 = *((u8 *)__cil_tmp84);
-#line 784
-  __cil_tmp86 = (int )__cil_tmp85;
-#line 784
-  __cil_tmp87 = __cil_tmp86 & 7;
-#line 784
-  __cil_tmp88 = __cil_tmp87 << 3;
-#line 784
-  __cil_tmp89 = (unsigned long )__cil_tmp88;
-#line 784
-  *__cil_tmp78 = __cil_tmp89 | __cil_tmp80;
+  val = __cil_tmp39 | val;
   {
 #line 785
-  __cil_tmp90 = 2 * 1UL;
+  __cil_tmp40 = data->fan_div[2];
 #line 785
-  __cil_tmp91 = 298 + __cil_tmp90;
+  __cil_tmp41 = (unsigned int )__cil_tmp40;
 #line 785
-  __cil_tmp92 = (unsigned long )data;
-#line 785
-  __cil_tmp93 = __cil_tmp92 + __cil_tmp91;
-#line 785
-  __cil_tmp94 = *((u8 *)__cil_tmp93);
-#line 785
-  __cil_tmp95 = (unsigned int )__cil_tmp94;
-#line 785
-  if (__cil_tmp95 == 3U) {
+  if (__cil_tmp41 == 3U) {
 #line 786
-    __cil_tmp96 = & val;
-#line 786
-    __cil_tmp97 = & val;
-#line 786
-    __cil_tmp98 = *__cil_tmp97;
-#line 786
-    *__cil_tmp96 = __cil_tmp98 | 64UL;
+    val = val | 64UL;
   } else {
 
   }
   }
   {
 #line 787
-  __cil_tmp99 = & val;
+  __cil_tmp42 = (u8 )11;
 #line 787
-  __cil_tmp100 = *__cil_tmp99;
+  __cil_tmp43 = (u8 )val;
 #line 787
-  __cil_tmp101 = (unsigned char )__cil_tmp100;
+  __cil_tmp44 = (int )__cil_tmp43;
 #line 787
-  __cil_tmp102 = (int )__cil_tmp101;
+  __cil_tmp45 = (u8 )__cil_tmp44;
 #line 787
-  __cil_tmp103 = (unsigned char )__cil_tmp102;
-#line 787
-  it87_write_value(data, (unsigned char)11, __cil_tmp103);
+  it87_write_value(data, __cil_tmp42, __cil_tmp45);
 #line 790
-  __cil_tmp104 = (long )min;
+  __cil_tmp46 = (long )min;
 #line 790
-  __cil_tmp105 = nr * 1UL;
+  __cil_tmp47 = data->fan_div[nr];
 #line 790
-  __cil_tmp106 = 298 + __cil_tmp105;
+  __cil_tmp48 = (int )__cil_tmp47;
 #line 790
-  __cil_tmp107 = (unsigned long )data;
+  __cil_tmp49 = 1 << __cil_tmp48;
 #line 790
-  __cil_tmp108 = __cil_tmp107 + __cil_tmp106;
+  tmp___4 = FAN_TO_REG(__cil_tmp46, __cil_tmp49);
 #line 790
-  __cil_tmp109 = *((u8 *)__cil_tmp108);
-#line 790
-  __cil_tmp110 = (int )__cil_tmp109;
-#line 790
-  __cil_tmp111 = 1 << __cil_tmp110;
-#line 790
-  tmp___4 = FAN_TO_REG(__cil_tmp104, __cil_tmp111);
-#line 790
-  __cil_tmp112 = nr * 2UL;
-#line 790
-  __cil_tmp113 = 278 + __cil_tmp112;
-#line 790
-  __cil_tmp114 = (unsigned long )data;
-#line 790
-  __cil_tmp115 = __cil_tmp114 + __cil_tmp113;
-#line 790
-  *((u16 *)__cil_tmp115) = (unsigned short )tmp___4;
+  data->fan_min[nr] = (u16 )tmp___4;
 #line 791
-  __cil_tmp116 = nr * 1UL;
+  __cil_tmp50 = (int )IT87_REG_FAN_MIN[nr];
 #line 791
-  __cil_tmp117 = (unsigned long )(IT87_REG_FAN_MIN) + __cil_tmp116;
+  __cil_tmp51 = (u8 )__cil_tmp50;
 #line 791
-  __cil_tmp118 = *((u8 const   *)__cil_tmp117);
+  __cil_tmp52 = data->fan_min[nr];
 #line 791
-  __cil_tmp119 = (int )__cil_tmp118;
+  __cil_tmp53 = (u8 )__cil_tmp52;
 #line 791
-  __cil_tmp120 = (unsigned char )__cil_tmp119;
+  __cil_tmp54 = (int )__cil_tmp53;
 #line 791
-  __cil_tmp121 = nr * 2UL;
+  __cil_tmp55 = (u8 )__cil_tmp54;
 #line 791
-  __cil_tmp122 = 278 + __cil_tmp121;
-#line 791
-  __cil_tmp123 = (unsigned long )data;
-#line 791
-  __cil_tmp124 = __cil_tmp123 + __cil_tmp122;
-#line 791
-  __cil_tmp125 = *((u16 *)__cil_tmp124);
-#line 791
-  __cil_tmp126 = (unsigned char )__cil_tmp125;
-#line 791
-  __cil_tmp127 = (int )__cil_tmp126;
-#line 791
-  __cil_tmp128 = (unsigned char )__cil_tmp127;
-#line 791
-  it87_write_value(data, __cil_tmp120, __cil_tmp128);
+  it87_write_value(data, __cil_tmp51, __cil_tmp55);
 #line 793
-  __cil_tmp129 = (unsigned long )data;
+  __cil_tmp56 = & data->update_lock;
 #line 793
-  __cil_tmp130 = __cil_tmp129 + 56;
-#line 793
-  __cil_tmp131 = (struct mutex *)__cil_tmp130;
-#line 793
-  mutex_unlock(__cil_tmp131);
+  mutex_unlock(__cil_tmp56);
   }
 #line 794
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 798 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -7819,42 +6778,16 @@ static int check_trip_points(struct device *dev , int nr )
   int err ;
   int tmp___0 ;
   struct device  const  *__cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  s8 __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  s8 __cil_tmp24 ;
-  int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  u8 __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  u8 __cil_tmp41 ;
-  int __cil_tmp42 ;
-  struct device  const  *__cil_tmp43 ;
-  struct device  const  *__cil_tmp44 ;
+  s8 __cil_tmp9 ;
+  int __cil_tmp10 ;
+  s8 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  int __cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  int __cil_tmp16 ;
+  struct device  const  *__cil_tmp17 ;
+  struct device  const  *__cil_tmp18 ;
 
   {
   {
@@ -7873,45 +6806,20 @@ static int check_trip_points(struct device *dev , int nr )
   if (tmp___0 != 0) {
 #line 804
     i = 0;
+#line 804
     goto ldv_24506;
     ldv_24505: ;
     {
 #line 805
-    __cil_tmp9 = i + 1;
+    __cil_tmp9 = data->auto_temp[nr][i + 1];
 #line 805
-    __cil_tmp10 = __cil_tmp9 * 1UL;
+    __cil_tmp10 = (int )__cil_tmp9;
 #line 805
-    __cil_tmp11 = nr * 5UL;
+    __cil_tmp11 = data->auto_temp[nr][i];
 #line 805
-    __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
+    __cil_tmp12 = (int )__cil_tmp11;
 #line 805
-    __cil_tmp13 = 332 + __cil_tmp12;
-#line 805
-    __cil_tmp14 = (unsigned long )data;
-#line 805
-    __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 805
-    __cil_tmp16 = *((s8 const   *)__cil_tmp15);
-#line 805
-    __cil_tmp17 = (int )__cil_tmp16;
-#line 805
-    __cil_tmp18 = i * 1UL;
-#line 805
-    __cil_tmp19 = nr * 5UL;
-#line 805
-    __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 805
-    __cil_tmp21 = 332 + __cil_tmp20;
-#line 805
-    __cil_tmp22 = (unsigned long )data;
-#line 805
-    __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 805
-    __cil_tmp24 = *((s8 const   *)__cil_tmp23);
-#line 805
-    __cil_tmp25 = (int )__cil_tmp24;
-#line 805
-    if (__cil_tmp25 > __cil_tmp17) {
+    if (__cil_tmp12 > __cil_tmp10) {
 #line 806
       err = -22;
     } else {
@@ -7923,52 +6831,29 @@ static int check_trip_points(struct device *dev , int nr )
     ldv_24506: ;
 #line 804
     if (i <= 2) {
+#line 805
       goto ldv_24505;
     } else {
+#line 807
       goto ldv_24507;
     }
     ldv_24507: 
 #line 808
     i = 0;
+#line 808
     goto ldv_24509;
     ldv_24508: ;
     {
 #line 809
-    __cil_tmp26 = i + 1;
+    __cil_tmp13 = data->auto_pwm[nr][i + 1];
 #line 809
-    __cil_tmp27 = __cil_tmp26 * 1UL;
+    __cil_tmp14 = (int )__cil_tmp13;
 #line 809
-    __cil_tmp28 = nr * 4UL;
+    __cil_tmp15 = data->auto_pwm[nr][i];
 #line 809
-    __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
+    __cil_tmp16 = (int )__cil_tmp15;
 #line 809
-    __cil_tmp30 = 320 + __cil_tmp29;
-#line 809
-    __cil_tmp31 = (unsigned long )data;
-#line 809
-    __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 809
-    __cil_tmp33 = *((u8 const   *)__cil_tmp32);
-#line 809
-    __cil_tmp34 = (int )__cil_tmp33;
-#line 809
-    __cil_tmp35 = i * 1UL;
-#line 809
-    __cil_tmp36 = nr * 4UL;
-#line 809
-    __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 809
-    __cil_tmp38 = 320 + __cil_tmp37;
-#line 809
-    __cil_tmp39 = (unsigned long )data;
-#line 809
-    __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
-#line 809
-    __cil_tmp41 = *((u8 const   *)__cil_tmp40);
-#line 809
-    __cil_tmp42 = (int )__cil_tmp41;
-#line 809
-    if (__cil_tmp42 > __cil_tmp34) {
+    if (__cil_tmp16 > __cil_tmp14) {
 #line 810
       err = -22;
     } else {
@@ -7980,8 +6865,10 @@ static int check_trip_points(struct device *dev , int nr )
     ldv_24509: ;
 #line 808
     if (i <= 1) {
+#line 809
       goto ldv_24508;
     } else {
+#line 811
       goto ldv_24510;
     }
     ldv_24510: ;
@@ -7992,13 +6879,13 @@ static int check_trip_points(struct device *dev , int nr )
   if (err != 0) {
     {
 #line 815
-    __cil_tmp43 = (struct device  const  *)dev;
+    __cil_tmp17 = (struct device  const  *)dev;
 #line 815
-    dev_err(__cil_tmp43, "Inconsistent trip points, not switching to automatic mode\n");
+    dev_err(__cil_tmp17, "Inconsistent trip points, not switching to automatic mode\n");
 #line 817
-    __cil_tmp44 = (struct device  const  *)dev;
+    __cil_tmp18 = (struct device  const  *)dev;
 #line 817
-    dev_err(__cil_tmp44, "Adjust the trip points and try again\n");
+    dev_err(__cil_tmp18, "Adjust the trip points and try again\n");
     }
   } else {
 
@@ -8019,110 +6906,56 @@ static ssize_t set_pwm_enable(struct device *dev , struct device_attribute *attr
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct device  const  *__cil_tmp16 ;
-  long *__cil_tmp17 ;
-  long __cil_tmp18 ;
-  long *__cil_tmp19 ;
-  long __cil_tmp20 ;
-  long *__cil_tmp21 ;
-  long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct mutex *__cil_tmp25 ;
-  long *__cil_tmp26 ;
-  long __cil_tmp27 ;
+  struct device  const  *__cil_tmp14 ;
+  struct mutex *__cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  u8 __cil_tmp17 ;
+  signed char __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  signed char __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u8 __cil_tmp24 ;
+  int __cil_tmp25 ;
+  u8 __cil_tmp26 ;
+  int __cil_tmp27 ;
   signed char __cil_tmp28 ;
   int __cil_tmp29 ;
   int __cil_tmp30 ;
-  signed char __cil_tmp31 ;
-  int __cil_tmp32 ;
+  u8 __cil_tmp31 ;
+  signed char __cil_tmp32 ;
   int __cil_tmp33 ;
-  unsigned char __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned char __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  int __cil_tmp39 ;
-  signed char __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  u8 __cil_tmp45 ;
-  signed char __cil_tmp46 ;
+  int __cil_tmp34 ;
+  u8 __cil_tmp35 ;
+  u8 __cil_tmp36 ;
+  int __cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  enum chips __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  u8 __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  u8 __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
   int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
+  u8 __cil_tmp48 ;
+  u8 __cil_tmp49 ;
+  int __cil_tmp50 ;
   u8 __cil_tmp51 ;
   int __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
-  long *__cil_tmp54 ;
-  long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  enum chips __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  u8 __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  unsigned char __cil_tmp87 ;
-  unsigned int __cil_tmp88 ;
-  unsigned int __cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned char __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  u8 __cil_tmp96 ;
-  int __cil_tmp97 ;
-  unsigned char __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  int __cil_tmp101 ;
-  signed char __cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  u8 __cil_tmp106 ;
-  signed char __cil_tmp107 ;
-  int __cil_tmp108 ;
-  int __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  u8 __cil_tmp112 ;
-  int __cil_tmp113 ;
-  unsigned char __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  struct mutex *__cil_tmp117 ;
+  signed char __cil_tmp53 ;
+  int __cil_tmp54 ;
+  u8 __cil_tmp55 ;
+  signed char __cil_tmp56 ;
+  int __cil_tmp57 ;
+  int __cil_tmp58 ;
+  u8 __cil_tmp59 ;
+  u8 __cil_tmp60 ;
+  int __cil_tmp61 ;
+  u8 __cil_tmp62 ;
+  struct mutex *__cil_tmp63 ;
 
   {
   {
@@ -8131,15 +6964,11 @@ static ssize_t set_pwm_enable(struct device *dev , struct device_attribute *attr
 #line 825
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 826
-  __cil_tmp14 = (unsigned long )sensor_attr;
-#line 826
-  __cil_tmp15 = __cil_tmp14 + 48;
-#line 826
-  nr = *((int *)__cil_tmp15);
+  nr = sensor_attr->index;
 #line 828
-  __cil_tmp16 = (struct device  const  *)dev;
+  __cil_tmp14 = (struct device  const  *)dev;
 #line 828
-  tmp = dev_get_drvdata(__cil_tmp16);
+  tmp = dev_get_drvdata(__cil_tmp14);
 #line 828
   data = (struct it87_data *)tmp;
 #line 831
@@ -8149,40 +6978,21 @@ static ssize_t set_pwm_enable(struct device *dev , struct device_attribute *attr
   if (tmp___0 < 0) {
 #line 832
     return (-22L);
+  } else
+#line 831
+  if (val < 0L) {
+#line 832
+    return (-22L);
+  } else
+#line 831
+  if (val > 2L) {
+#line 832
+    return (-22L);
   } else {
-    {
-#line 831
-    __cil_tmp17 = & val;
-#line 831
-    __cil_tmp18 = *__cil_tmp17;
-#line 831
-    if (__cil_tmp18 < 0L) {
-#line 832
-      return (-22L);
-    } else {
-      {
-#line 831
-      __cil_tmp19 = & val;
-#line 831
-      __cil_tmp20 = *__cil_tmp19;
-#line 831
-      if (__cil_tmp20 > 2L) {
-#line 832
-        return (-22L);
-      } else {
 
-      }
-      }
-    }
-    }
   }
-  {
 #line 835
-  __cil_tmp21 = & val;
-#line 835
-  __cil_tmp22 = *__cil_tmp21;
-#line 835
-  if (__cil_tmp22 == 2L) {
+  if (val == 2L) {
     {
 #line 836
     tmp___1 = check_trip_points(dev, nr);
@@ -8197,249 +7007,152 @@ static ssize_t set_pwm_enable(struct device *dev , struct device_attribute *attr
   } else {
 
   }
-  }
   {
 #line 840
-  __cil_tmp23 = (unsigned long )data;
+  __cil_tmp15 = & data->update_lock;
 #line 840
-  __cil_tmp24 = __cil_tmp23 + 56;
-#line 840
-  __cil_tmp25 = (struct mutex *)__cil_tmp24;
-#line 840
-  mutex_lock_nested(__cil_tmp25, 0U);
+  mutex_lock_nested(__cil_tmp15, 0U);
   }
-  {
 #line 842
-  __cil_tmp26 = & val;
-#line 842
-  __cil_tmp27 = *__cil_tmp26;
-#line 842
-  if (__cil_tmp27 == 0L) {
+  if (val == 0L) {
     {
 #line 845
-    tmp___2 = it87_read_value(data, (unsigned char)20);
+    __cil_tmp16 = (u8 )20;
+#line 845
+    tmp___2 = it87_read_value(data, __cil_tmp16);
 #line 846
-    __cil_tmp28 = (signed char )tmp___2;
+    __cil_tmp17 = (u8 )20;
 #line 846
+    __cil_tmp18 = (signed char )tmp___2;
+#line 846
+    __cil_tmp19 = (int )__cil_tmp18;
+#line 846
+    __cil_tmp20 = 1 << nr;
+#line 846
+    __cil_tmp21 = (signed char )__cil_tmp20;
+#line 846
+    __cil_tmp22 = (int )__cil_tmp21;
+#line 846
+    __cil_tmp23 = __cil_tmp22 | __cil_tmp19;
+#line 846
+    __cil_tmp24 = (u8 )__cil_tmp23;
+#line 846
+    __cil_tmp25 = (int )__cil_tmp24;
+#line 846
+    __cil_tmp26 = (u8 )__cil_tmp25;
+#line 846
+    it87_write_value(data, __cil_tmp17, __cil_tmp26);
+#line 848
+    __cil_tmp27 = 1 << nr;
+#line 848
+    __cil_tmp28 = (signed char )__cil_tmp27;
+#line 848
     __cil_tmp29 = (int )__cil_tmp28;
-#line 846
-    __cil_tmp30 = 1 << nr;
-#line 846
-    __cil_tmp31 = (signed char )__cil_tmp30;
-#line 846
-    __cil_tmp32 = (int )__cil_tmp31;
-#line 846
-    __cil_tmp33 = __cil_tmp32 | __cil_tmp29;
-#line 846
-    __cil_tmp34 = (unsigned char )__cil_tmp33;
-#line 846
-    __cil_tmp35 = (int )__cil_tmp34;
-#line 846
-    __cil_tmp36 = (unsigned char )__cil_tmp35;
-#line 846
-    it87_write_value(data, (unsigned char)20, __cil_tmp36);
 #line 848
-    __cil_tmp37 = (unsigned long )data;
+    __cil_tmp30 = ~ __cil_tmp29;
 #line 848
-    __cil_tmp38 = __cil_tmp37 + 309;
+    __cil_tmp31 = data->fan_main_ctrl;
 #line 848
-    __cil_tmp39 = 1 << nr;
+    __cil_tmp32 = (signed char )__cil_tmp31;
 #line 848
-    __cil_tmp40 = (signed char )__cil_tmp39;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 848
-    __cil_tmp41 = (int )__cil_tmp40;
+    __cil_tmp34 = __cil_tmp33 & __cil_tmp30;
 #line 848
-    __cil_tmp42 = ~ __cil_tmp41;
-#line 848
-    __cil_tmp43 = (unsigned long )data;
-#line 848
-    __cil_tmp44 = __cil_tmp43 + 309;
-#line 848
-    __cil_tmp45 = *((u8 *)__cil_tmp44);
-#line 848
-    __cil_tmp46 = (signed char )__cil_tmp45;
-#line 848
-    __cil_tmp47 = (int )__cil_tmp46;
-#line 848
-    __cil_tmp48 = __cil_tmp47 & __cil_tmp42;
-#line 848
-    *((u8 *)__cil_tmp38) = (unsigned char )__cil_tmp48;
+    data->fan_main_ctrl = (u8 )__cil_tmp34;
 #line 849
-    __cil_tmp49 = (unsigned long )data;
+    __cil_tmp35 = (u8 )19;
 #line 849
-    __cil_tmp50 = __cil_tmp49 + 309;
+    __cil_tmp36 = data->fan_main_ctrl;
 #line 849
-    __cil_tmp51 = *((u8 *)__cil_tmp50);
+    __cil_tmp37 = (int )__cil_tmp36;
 #line 849
-    __cil_tmp52 = (int )__cil_tmp51;
+    __cil_tmp38 = (u8 )__cil_tmp37;
 #line 849
-    __cil_tmp53 = (unsigned char )__cil_tmp52;
-#line 849
-    it87_write_value(data, (unsigned char)19, __cil_tmp53);
+    it87_write_value(data, __cil_tmp35, __cil_tmp38);
     }
   } else {
-    {
 #line 852
-    __cil_tmp54 = & val;
-#line 852
-    __cil_tmp55 = *__cil_tmp54;
-#line 852
-    if (__cil_tmp55 == 1L) {
+    if (val == 1L) {
       {
 #line 853
-      __cil_tmp56 = (unsigned long )data;
+      __cil_tmp39 = data->type;
 #line 853
-      __cil_tmp57 = __cil_tmp56 + 8;
+      __cil_tmp40 = (unsigned int )__cil_tmp39;
 #line 853
-      __cil_tmp58 = *((enum chips *)__cil_tmp57);
+      if (__cil_tmp40 == 5U) {
 #line 853
-      __cil_tmp59 = (unsigned int )__cil_tmp58;
-#line 853
-      if (__cil_tmp59 == 5U) {
-#line 853
-        __cil_tmp60 = nr * 1UL;
-#line 853
-        __cil_tmp61 = 311 + __cil_tmp60;
-#line 853
-        __cil_tmp62 = (unsigned long )data;
-#line 853
-        __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
-#line 853
-        __cil_tmp64 = nr * 1UL;
-#line 853
-        __cil_tmp65 = 317 + __cil_tmp64;
-#line 853
-        __cil_tmp66 = (unsigned long )data;
-#line 853
-        __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 853
-        *((u8 *)__cil_tmp63) = *((u8 *)__cil_tmp67);
+        data->pwm_ctrl[nr] = data->pwm_temp_map[nr];
       } else {
 #line 853
-        __cil_tmp68 = nr * 1UL;
-#line 853
-        __cil_tmp69 = 311 + __cil_tmp68;
-#line 853
-        __cil_tmp70 = (unsigned long )data;
-#line 853
-        __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 853
-        __cil_tmp72 = nr * 1UL;
-#line 853
-        __cil_tmp73 = 314 + __cil_tmp72;
-#line 853
-        __cil_tmp74 = (unsigned long )data;
-#line 853
-        __cil_tmp75 = __cil_tmp74 + __cil_tmp73;
-#line 853
-        *((u8 *)__cil_tmp71) = *((u8 *)__cil_tmp75);
+        data->pwm_ctrl[nr] = data->pwm_duty[nr];
       }
       }
     } else {
 #line 857
-      __cil_tmp76 = nr * 1UL;
+      __cil_tmp41 = data->pwm_temp_map[nr];
 #line 857
-      __cil_tmp77 = 311 + __cil_tmp76;
+      __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 857
-      __cil_tmp78 = (unsigned long )data;
+      __cil_tmp43 = __cil_tmp42 | 128U;
 #line 857
-      __cil_tmp79 = __cil_tmp78 + __cil_tmp77;
-#line 857
-      __cil_tmp80 = nr * 1UL;
-#line 857
-      __cil_tmp81 = 317 + __cil_tmp80;
-#line 857
-      __cil_tmp82 = (unsigned long )data;
-#line 857
-      __cil_tmp83 = __cil_tmp82 + __cil_tmp81;
-#line 857
-      __cil_tmp84 = *((u8 *)__cil_tmp83);
-#line 857
-      __cil_tmp85 = (unsigned int )__cil_tmp84;
-#line 857
-      __cil_tmp86 = __cil_tmp85 | 128U;
-#line 857
-      *((u8 *)__cil_tmp79) = (unsigned char )__cil_tmp86;
-    }
+      data->pwm_ctrl[nr] = (u8 )__cil_tmp43;
     }
     {
 #line 858
-    __cil_tmp87 = (unsigned char )nr;
+    __cil_tmp44 = (u8 )nr;
 #line 858
-    __cil_tmp88 = (unsigned int )__cil_tmp87;
+    __cil_tmp45 = (unsigned int )__cil_tmp44;
 #line 858
-    __cil_tmp89 = __cil_tmp88 + 21U;
+    __cil_tmp46 = __cil_tmp45 + 21U;
 #line 858
-    __cil_tmp90 = (int )__cil_tmp89;
+    __cil_tmp47 = (int )__cil_tmp46;
 #line 858
-    __cil_tmp91 = (unsigned char )__cil_tmp90;
+    __cil_tmp48 = (u8 )__cil_tmp47;
 #line 858
-    __cil_tmp92 = nr * 1UL;
+    __cil_tmp49 = data->pwm_ctrl[nr];
 #line 858
-    __cil_tmp93 = 311 + __cil_tmp92;
+    __cil_tmp50 = (int )__cil_tmp49;
 #line 858
-    __cil_tmp94 = (unsigned long )data;
+    __cil_tmp51 = (u8 )__cil_tmp50;
 #line 858
-    __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
-#line 858
-    __cil_tmp96 = *((u8 *)__cil_tmp95);
-#line 858
-    __cil_tmp97 = (int )__cil_tmp96;
-#line 858
-    __cil_tmp98 = (unsigned char )__cil_tmp97;
-#line 858
-    it87_write_value(data, __cil_tmp91, __cil_tmp98);
+    it87_write_value(data, __cil_tmp48, __cil_tmp51);
 #line 860
-    __cil_tmp99 = (unsigned long )data;
+    __cil_tmp52 = 1 << nr;
 #line 860
-    __cil_tmp100 = __cil_tmp99 + 309;
+    __cil_tmp53 = (signed char )__cil_tmp52;
 #line 860
-    __cil_tmp101 = 1 << nr;
+    __cil_tmp54 = (int )__cil_tmp53;
 #line 860
-    __cil_tmp102 = (signed char )__cil_tmp101;
+    __cil_tmp55 = data->fan_main_ctrl;
 #line 860
-    __cil_tmp103 = (int )__cil_tmp102;
+    __cil_tmp56 = (signed char )__cil_tmp55;
 #line 860
-    __cil_tmp104 = (unsigned long )data;
+    __cil_tmp57 = (int )__cil_tmp56;
 #line 860
-    __cil_tmp105 = __cil_tmp104 + 309;
+    __cil_tmp58 = __cil_tmp57 | __cil_tmp54;
 #line 860
-    __cil_tmp106 = *((u8 *)__cil_tmp105);
-#line 860
-    __cil_tmp107 = (signed char )__cil_tmp106;
-#line 860
-    __cil_tmp108 = (int )__cil_tmp107;
-#line 860
-    __cil_tmp109 = __cil_tmp108 | __cil_tmp103;
-#line 860
-    *((u8 *)__cil_tmp100) = (unsigned char )__cil_tmp109;
+    data->fan_main_ctrl = (u8 )__cil_tmp58;
 #line 861
-    __cil_tmp110 = (unsigned long )data;
+    __cil_tmp59 = (u8 )19;
 #line 861
-    __cil_tmp111 = __cil_tmp110 + 309;
+    __cil_tmp60 = data->fan_main_ctrl;
 #line 861
-    __cil_tmp112 = *((u8 *)__cil_tmp111);
+    __cil_tmp61 = (int )__cil_tmp60;
 #line 861
-    __cil_tmp113 = (int )__cil_tmp112;
+    __cil_tmp62 = (u8 )__cil_tmp61;
 #line 861
-    __cil_tmp114 = (unsigned char )__cil_tmp113;
-#line 861
-    it87_write_value(data, (unsigned char)19, __cil_tmp114);
+    it87_write_value(data, __cil_tmp59, __cil_tmp62);
     }
-  }
   }
   {
 #line 865
-  __cil_tmp115 = (unsigned long )data;
+  __cil_tmp63 = & data->update_lock;
 #line 865
-  __cil_tmp116 = __cil_tmp115 + 56;
-#line 865
-  __cil_tmp117 = (struct mutex *)__cil_tmp116;
-#line 865
-  mutex_unlock(__cil_tmp117);
+  mutex_unlock(__cil_tmp63);
   }
 #line 866
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 868 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -8452,87 +7165,37 @@ static ssize_t set_pwm(struct device *dev , struct device_attribute *attr , char
   void *tmp ;
   long val ;
   int tmp___0 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct device  const  *__cil_tmp14 ;
-  long *__cil_tmp15 ;
-  long __cil_tmp16 ;
-  long *__cil_tmp17 ;
-  long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct mutex *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  enum chips __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u8 __cil_tmp30 ;
-  signed char __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct mutex *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct it87_data  const  *__cil_tmp40 ;
-  long *__cil_tmp41 ;
-  long __cil_tmp42 ;
-  unsigned char __cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned char __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  u8 __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned char __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  struct it87_data  const  *__cil_tmp60 ;
-  long *__cil_tmp61 ;
-  long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  u8 __cil_tmp67 ;
-  signed char __cil_tmp68 ;
-  int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned char __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  unsigned int __cil_tmp80 ;
-  int __cil_tmp81 ;
-  unsigned char __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  u8 __cil_tmp87 ;
-  int __cil_tmp88 ;
-  unsigned char __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  struct mutex *__cil_tmp92 ;
+  struct device  const  *__cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
+  enum chips __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  signed char __cil_tmp17 ;
+  int __cil_tmp18 ;
+  struct mutex *__cil_tmp19 ;
+  struct it87_data  const  *__cil_tmp20 ;
+  u8 __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  u8 __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u8 __cil_tmp29 ;
+  struct it87_data  const  *__cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  signed char __cil_tmp32 ;
+  int __cil_tmp33 ;
+  u8 __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  u8 __cil_tmp39 ;
+  int __cil_tmp40 ;
+  u8 __cil_tmp41 ;
+  struct mutex *__cil_tmp42 ;
 
   {
   {
@@ -8541,15 +7204,11 @@ static ssize_t set_pwm(struct device *dev , struct device_attribute *attr , char
 #line 871
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 872
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 872
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 872
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 874
-  __cil_tmp14 = (struct device  const  *)dev;
+  __cil_tmp12 = (struct device  const  *)dev;
 #line 874
-  tmp = dev_get_drvdata(__cil_tmp14);
+  tmp = dev_get_drvdata(__cil_tmp12);
 #line 874
   data = (struct it87_data *)tmp;
 #line 877
@@ -8559,80 +7218,46 @@ static ssize_t set_pwm(struct device *dev , struct device_attribute *attr , char
   if (tmp___0 < 0) {
 #line 878
     return (-22L);
+  } else
+#line 877
+  if (val < 0L) {
+#line 878
+    return (-22L);
+  } else
+#line 877
+  if (val > 255L) {
+#line 878
+    return (-22L);
   } else {
-    {
-#line 877
-    __cil_tmp15 = & val;
-#line 877
-    __cil_tmp16 = *__cil_tmp15;
-#line 877
-    if (__cil_tmp16 < 0L) {
-#line 878
-      return (-22L);
-    } else {
-      {
-#line 877
-      __cil_tmp17 = & val;
-#line 877
-      __cil_tmp18 = *__cil_tmp17;
-#line 877
-      if (__cil_tmp18 > 255L) {
-#line 878
-        return (-22L);
-      } else {
 
-      }
-      }
-    }
-    }
   }
   {
 #line 880
-  __cil_tmp19 = (unsigned long )data;
+  __cil_tmp13 = & data->update_lock;
 #line 880
-  __cil_tmp20 = __cil_tmp19 + 56;
-#line 880
-  __cil_tmp21 = (struct mutex *)__cil_tmp20;
-#line 880
-  mutex_lock_nested(__cil_tmp21, 0U);
+  mutex_lock_nested(__cil_tmp13, 0U);
   }
   {
 #line 881
-  __cil_tmp22 = (unsigned long )data;
+  __cil_tmp14 = data->type;
 #line 881
-  __cil_tmp23 = __cil_tmp22 + 8;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 881
-  __cil_tmp24 = *((enum chips *)__cil_tmp23);
-#line 881
-  __cil_tmp25 = (unsigned int )__cil_tmp24;
-#line 881
-  if (__cil_tmp25 == 5U) {
+  if (__cil_tmp15 == 5U) {
     {
 #line 884
-    __cil_tmp26 = nr * 1UL;
+    __cil_tmp16 = data->pwm_ctrl[nr];
 #line 884
-    __cil_tmp27 = 311 + __cil_tmp26;
+    __cil_tmp17 = (signed char )__cil_tmp16;
 #line 884
-    __cil_tmp28 = (unsigned long )data;
+    __cil_tmp18 = (int )__cil_tmp17;
 #line 884
-    __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 884
-    __cil_tmp30 = *((u8 *)__cil_tmp29);
-#line 884
-    __cil_tmp31 = (signed char )__cil_tmp30;
-#line 884
-    __cil_tmp32 = (int )__cil_tmp31;
-#line 884
-    if (__cil_tmp32 < 0) {
+    if (__cil_tmp18 < 0) {
       {
 #line 885
-      __cil_tmp33 = (unsigned long )data;
+      __cil_tmp19 = & data->update_lock;
 #line 885
-      __cil_tmp34 = __cil_tmp33 + 56;
-#line 885
-      __cil_tmp35 = (struct mutex *)__cil_tmp34;
-#line 885
-      mutex_unlock(__cil_tmp35);
+      mutex_unlock(__cil_tmp19);
       }
 #line 886
       return (-16L);
@@ -8642,131 +7267,67 @@ static ssize_t set_pwm(struct device *dev , struct device_attribute *attr , char
     }
     {
 #line 888
-    __cil_tmp36 = nr * 1UL;
+    __cil_tmp20 = (struct it87_data  const  *)data;
 #line 888
-    __cil_tmp37 = 314 + __cil_tmp36;
-#line 888
-    __cil_tmp38 = (unsigned long )data;
-#line 888
-    __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 888
-    __cil_tmp40 = (struct it87_data  const  *)data;
-#line 888
-    __cil_tmp41 = & val;
-#line 888
-    __cil_tmp42 = *__cil_tmp41;
-#line 888
-    *((u8 *)__cil_tmp39) = pwm_to_reg(__cil_tmp40, __cil_tmp42);
+    data->pwm_duty[nr] = pwm_to_reg(__cil_tmp20, val);
 #line 889
-    __cil_tmp43 = (unsigned char )nr;
+    __cil_tmp21 = (u8 )nr;
 #line 889
-    __cil_tmp44 = (unsigned int )__cil_tmp43;
+    __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 889
-    __cil_tmp45 = __cil_tmp44 * 8U;
+    __cil_tmp23 = __cil_tmp22 * 8U;
 #line 889
-    __cil_tmp46 = __cil_tmp45 + 99U;
+    __cil_tmp24 = __cil_tmp23 + 99U;
 #line 889
-    __cil_tmp47 = (int )__cil_tmp46;
+    __cil_tmp25 = (int )__cil_tmp24;
 #line 889
-    __cil_tmp48 = (unsigned char )__cil_tmp47;
+    __cil_tmp26 = (u8 )__cil_tmp25;
 #line 889
-    __cil_tmp49 = nr * 1UL;
+    __cil_tmp27 = data->pwm_duty[nr];
 #line 889
-    __cil_tmp50 = 314 + __cil_tmp49;
+    __cil_tmp28 = (int )__cil_tmp27;
 #line 889
-    __cil_tmp51 = (unsigned long )data;
+    __cil_tmp29 = (u8 )__cil_tmp28;
 #line 889
-    __cil_tmp52 = __cil_tmp51 + __cil_tmp50;
-#line 889
-    __cil_tmp53 = *((u8 *)__cil_tmp52);
-#line 889
-    __cil_tmp54 = (int )__cil_tmp53;
-#line 889
-    __cil_tmp55 = (unsigned char )__cil_tmp54;
-#line 889
-    it87_write_value(data, __cil_tmp48, __cil_tmp55);
+    it87_write_value(data, __cil_tmp26, __cil_tmp29);
     }
   } else {
     {
 #line 892
-    __cil_tmp56 = nr * 1UL;
+    __cil_tmp30 = (struct it87_data  const  *)data;
 #line 892
-    __cil_tmp57 = 314 + __cil_tmp56;
-#line 892
-    __cil_tmp58 = (unsigned long )data;
-#line 892
-    __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 892
-    __cil_tmp60 = (struct it87_data  const  *)data;
-#line 892
-    __cil_tmp61 = & val;
-#line 892
-    __cil_tmp62 = *__cil_tmp61;
-#line 892
-    *((u8 *)__cil_tmp59) = pwm_to_reg(__cil_tmp60, __cil_tmp62);
+    data->pwm_duty[nr] = pwm_to_reg(__cil_tmp30, val);
     }
     {
 #line 895
-    __cil_tmp63 = nr * 1UL;
+    __cil_tmp31 = data->pwm_ctrl[nr];
 #line 895
-    __cil_tmp64 = 311 + __cil_tmp63;
+    __cil_tmp32 = (signed char )__cil_tmp31;
 #line 895
-    __cil_tmp65 = (unsigned long )data;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 895
-    __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
-#line 895
-    __cil_tmp67 = *((u8 *)__cil_tmp66);
-#line 895
-    __cil_tmp68 = (signed char )__cil_tmp67;
-#line 895
-    __cil_tmp69 = (int )__cil_tmp68;
-#line 895
-    if (__cil_tmp69 >= 0) {
+    if (__cil_tmp33 >= 0) {
       {
 #line 896
-      __cil_tmp70 = nr * 1UL;
-#line 896
-      __cil_tmp71 = 311 + __cil_tmp70;
-#line 896
-      __cil_tmp72 = (unsigned long )data;
-#line 896
-      __cil_tmp73 = __cil_tmp72 + __cil_tmp71;
-#line 896
-      __cil_tmp74 = nr * 1UL;
-#line 896
-      __cil_tmp75 = 314 + __cil_tmp74;
-#line 896
-      __cil_tmp76 = (unsigned long )data;
-#line 896
-      __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 896
-      *((u8 *)__cil_tmp73) = *((u8 *)__cil_tmp77);
+      data->pwm_ctrl[nr] = data->pwm_duty[nr];
 #line 897
-      __cil_tmp78 = (unsigned char )nr;
+      __cil_tmp34 = (u8 )nr;
 #line 897
-      __cil_tmp79 = (unsigned int )__cil_tmp78;
+      __cil_tmp35 = (unsigned int )__cil_tmp34;
 #line 897
-      __cil_tmp80 = __cil_tmp79 + 21U;
+      __cil_tmp36 = __cil_tmp35 + 21U;
 #line 897
-      __cil_tmp81 = (int )__cil_tmp80;
+      __cil_tmp37 = (int )__cil_tmp36;
 #line 897
-      __cil_tmp82 = (unsigned char )__cil_tmp81;
+      __cil_tmp38 = (u8 )__cil_tmp37;
 #line 897
-      __cil_tmp83 = nr * 1UL;
+      __cil_tmp39 = data->pwm_ctrl[nr];
 #line 897
-      __cil_tmp84 = 311 + __cil_tmp83;
+      __cil_tmp40 = (int )__cil_tmp39;
 #line 897
-      __cil_tmp85 = (unsigned long )data;
+      __cil_tmp41 = (u8 )__cil_tmp40;
 #line 897
-      __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
-#line 897
-      __cil_tmp87 = *((u8 *)__cil_tmp86);
-#line 897
-      __cil_tmp88 = (int )__cil_tmp87;
-#line 897
-      __cil_tmp89 = (unsigned char )__cil_tmp88;
-#line 897
-      it87_write_value(data, __cil_tmp82, __cil_tmp89);
+      it87_write_value(data, __cil_tmp38, __cil_tmp41);
       }
     } else {
 
@@ -8776,16 +7337,12 @@ static ssize_t set_pwm(struct device *dev , struct device_attribute *attr , char
   }
   {
 #line 901
-  __cil_tmp90 = (unsigned long )data;
+  __cil_tmp42 = & data->update_lock;
 #line 901
-  __cil_tmp91 = __cil_tmp90 + 56;
-#line 901
-  __cil_tmp92 = (struct mutex *)__cil_tmp91;
-#line 901
-  mutex_unlock(__cil_tmp92);
+  mutex_unlock(__cil_tmp42);
   }
 #line 902
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 904 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -8798,47 +7355,28 @@ static ssize_t set_pwm_freq(struct device *dev , struct device_attribute *attr ,
   int tmp___0 ;
   int tmp___1 ;
   struct device  const  *__cil_tmp11 ;
-  unsigned long *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  struct mutex *__cil_tmp17 ;
+  u8 __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   unsigned int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct mutex *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
-  signed char __cil_tmp37 ;
-  int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  u8 __cil_tmp41 ;
-  signed char __cil_tmp42 ;
-  int __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  u8 __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned char __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct mutex *__cil_tmp52 ;
+  int __cil_tmp22 ;
+  signed char __cil_tmp23 ;
+  int __cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  signed char __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u8 __cil_tmp29 ;
+  u8 __cil_tmp30 ;
+  int __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  struct mutex *__cil_tmp33 ;
 
   {
   {
@@ -8860,39 +7398,23 @@ static ssize_t set_pwm_freq(struct device *dev , struct device_attribute *attr ,
   }
 #line 915
   i = 0;
+#line 915
   goto ldv_24547;
   ldv_24546: ;
   {
 #line 916
-  __cil_tmp12 = & val;
+  __cil_tmp12 = (unsigned int )pwm_freq[i + 1];
 #line 916
-  __cil_tmp13 = *__cil_tmp12;
+  __cil_tmp13 = (unsigned int )pwm_freq[i];
 #line 916
-  __cil_tmp14 = i + 1;
+  __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
 #line 916
-  __cil_tmp15 = __cil_tmp14 * 4UL;
+  __cil_tmp15 = __cil_tmp14 / 2U;
 #line 916
-  __cil_tmp16 = (unsigned long )(pwm_freq) + __cil_tmp15;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 916
-  __cil_tmp17 = *((unsigned int const   *)__cil_tmp16);
-#line 916
-  __cil_tmp18 = (unsigned int )__cil_tmp17;
-#line 916
-  __cil_tmp19 = i * 4UL;
-#line 916
-  __cil_tmp20 = (unsigned long )(pwm_freq) + __cil_tmp19;
-#line 916
-  __cil_tmp21 = *((unsigned int const   *)__cil_tmp20);
-#line 916
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
-#line 916
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp18;
-#line 916
-  __cil_tmp24 = __cil_tmp23 / 2U;
-#line 916
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 916
-  if (__cil_tmp25 < __cil_tmp13) {
+  if (__cil_tmp16 < val) {
+#line 917
     goto ldv_24545;
   } else {
 
@@ -8903,81 +7425,63 @@ static ssize_t set_pwm_freq(struct device *dev , struct device_attribute *attr ,
   ldv_24547: ;
 #line 915
   if (i <= 6) {
+#line 916
     goto ldv_24546;
   } else {
+#line 918
     goto ldv_24545;
   }
   ldv_24545: 
   {
 #line 920
-  __cil_tmp26 = (unsigned long )data;
+  __cil_tmp17 = & data->update_lock;
 #line 920
-  __cil_tmp27 = __cil_tmp26 + 56;
-#line 920
-  __cil_tmp28 = (struct mutex *)__cil_tmp27;
-#line 920
-  mutex_lock_nested(__cil_tmp28, 0U);
+  mutex_lock_nested(__cil_tmp17, 0U);
 #line 921
-  tmp___1 = it87_read_value(data, (unsigned char)20);
+  __cil_tmp18 = (u8 )20;
 #line 921
-  __cil_tmp29 = (unsigned long )data;
+  tmp___1 = it87_read_value(data, __cil_tmp18);
 #line 921
-  __cil_tmp30 = __cil_tmp29 + 310;
+  __cil_tmp19 = (u8 )tmp___1;
 #line 921
-  __cil_tmp31 = (unsigned char )tmp___1;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 921
-  __cil_tmp32 = (unsigned int )__cil_tmp31;
+  __cil_tmp21 = __cil_tmp20 & 143U;
 #line 921
-  __cil_tmp33 = __cil_tmp32 & 143U;
-#line 921
-  *((u8 *)__cil_tmp30) = (unsigned char )__cil_tmp33;
+  data->fan_ctl = (u8 )__cil_tmp21;
 #line 922
-  __cil_tmp34 = (unsigned long )data;
+  __cil_tmp22 = i << 4;
 #line 922
-  __cil_tmp35 = __cil_tmp34 + 310;
+  __cil_tmp23 = (signed char )__cil_tmp22;
 #line 922
-  __cil_tmp36 = i << 4;
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 922
-  __cil_tmp37 = (signed char )__cil_tmp36;
+  __cil_tmp25 = data->fan_ctl;
 #line 922
-  __cil_tmp38 = (int )__cil_tmp37;
+  __cil_tmp26 = (signed char )__cil_tmp25;
 #line 922
-  __cil_tmp39 = (unsigned long )data;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 922
-  __cil_tmp40 = __cil_tmp39 + 310;
+  __cil_tmp28 = __cil_tmp27 | __cil_tmp24;
 #line 922
-  __cil_tmp41 = *((u8 *)__cil_tmp40);
-#line 922
-  __cil_tmp42 = (signed char )__cil_tmp41;
-#line 922
-  __cil_tmp43 = (int )__cil_tmp42;
-#line 922
-  __cil_tmp44 = __cil_tmp43 | __cil_tmp38;
-#line 922
-  *((u8 *)__cil_tmp35) = (unsigned char )__cil_tmp44;
+  data->fan_ctl = (u8 )__cil_tmp28;
 #line 923
-  __cil_tmp45 = (unsigned long )data;
+  __cil_tmp29 = (u8 )20;
 #line 923
-  __cil_tmp46 = __cil_tmp45 + 310;
+  __cil_tmp30 = data->fan_ctl;
 #line 923
-  __cil_tmp47 = *((u8 *)__cil_tmp46);
+  __cil_tmp31 = (int )__cil_tmp30;
 #line 923
-  __cil_tmp48 = (int )__cil_tmp47;
+  __cil_tmp32 = (u8 )__cil_tmp31;
 #line 923
-  __cil_tmp49 = (unsigned char )__cil_tmp48;
-#line 923
-  it87_write_value(data, (unsigned char)20, __cil_tmp49);
+  it87_write_value(data, __cil_tmp29, __cil_tmp32);
 #line 924
-  __cil_tmp50 = (unsigned long )data;
+  __cil_tmp33 = & data->update_lock;
 #line 924
-  __cil_tmp51 = __cil_tmp50 + 56;
-#line 924
-  __cil_tmp52 = (struct mutex *)__cil_tmp51;
-#line 924
-  mutex_unlock(__cil_tmp52);
+  mutex_unlock(__cil_tmp33);
   }
 #line 926
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 928 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -8990,20 +7494,10 @@ static ssize_t show_pwm_temp_map(struct device *dev , struct device_attribute *a
   struct it87_data *tmp ;
   int map ;
   int tmp___0 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  u8 __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  u8 __cil_tmp23 ;
-  int __cil_tmp24 ;
+  u8 __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  int __cil_tmp14 ;
 
   {
   {
@@ -9012,11 +7506,7 @@ static ssize_t show_pwm_temp_map(struct device *dev , struct device_attribute *a
 #line 931
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 932
-  __cil_tmp11 = (unsigned long )sensor_attr;
-#line 932
-  __cil_tmp12 = __cil_tmp11 + 48;
-#line 932
-  nr = *((int *)__cil_tmp12);
+  nr = sensor_attr->index;
 #line 934
   tmp = it87_update_device(dev);
 #line 934
@@ -9024,33 +7514,17 @@ static ssize_t show_pwm_temp_map(struct device *dev , struct device_attribute *a
   }
   {
 #line 937
-  __cil_tmp13 = nr * 1UL;
+  __cil_tmp11 = data->pwm_temp_map[nr];
 #line 937
-  __cil_tmp14 = 317 + __cil_tmp13;
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 937
-  __cil_tmp15 = (unsigned long )data;
-#line 937
-  __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 937
-  __cil_tmp17 = *((u8 *)__cil_tmp16);
-#line 937
-  __cil_tmp18 = (unsigned int )__cil_tmp17;
-#line 937
-  if (__cil_tmp18 <= 2U) {
+  if (__cil_tmp12 <= 2U) {
 #line 938
-    __cil_tmp19 = nr * 1UL;
+    __cil_tmp13 = data->pwm_temp_map[nr];
 #line 938
-    __cil_tmp20 = 317 + __cil_tmp19;
+    __cil_tmp14 = (int )__cil_tmp13;
 #line 938
-    __cil_tmp21 = (unsigned long )data;
-#line 938
-    __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 938
-    __cil_tmp23 = *((u8 *)__cil_tmp22);
-#line 938
-    __cil_tmp24 = (int )__cil_tmp23;
-#line 938
-    map = 1 << __cil_tmp24;
+    map = 1 << __cil_tmp14;
   } else {
 #line 940
     map = 0;
@@ -9061,7 +7535,7 @@ static ssize_t show_pwm_temp_map(struct device *dev , struct device_attribute *a
   tmp___0 = sprintf(buf, "%d\n", map);
   }
 #line 941
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 943 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -9076,60 +7550,28 @@ static ssize_t set_pwm_temp_map(struct device *dev , struct device_attribute *at
   u8 reg ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  struct device  const  *__cil_tmp14 ;
+  struct it87_data  const  *__cil_tmp15 ;
   struct device  const  *__cil_tmp16 ;
-  struct it87_data  const  *__cil_tmp17 ;
-  struct device  const  *__cil_tmp18 ;
-  long *__cil_tmp19 ;
-  long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  long *__cil_tmp22 ;
-  long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  long *__cil_tmp25 ;
-  long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct mutex *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u8 __cil_tmp39 ;
-  signed char __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  u8 __cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned char __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  u8 __cil_tmp62 ;
-  int __cil_tmp63 ;
-  unsigned char __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct mutex *__cil_tmp67 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  struct mutex *__cil_tmp20 ;
+  u8 __cil_tmp21 ;
+  signed char __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u8 __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  int __cil_tmp33 ;
+  u8 __cil_tmp34 ;
+  struct mutex *__cil_tmp35 ;
 
   {
   {
@@ -9138,29 +7580,25 @@ static ssize_t set_pwm_temp_map(struct device *dev , struct device_attribute *at
 #line 946
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 947
-  __cil_tmp14 = (unsigned long )sensor_attr;
-#line 947
-  __cil_tmp15 = __cil_tmp14 + 48;
-#line 947
-  nr = *((int *)__cil_tmp15);
+  nr = sensor_attr->index;
 #line 949
-  __cil_tmp16 = (struct device  const  *)dev;
+  __cil_tmp14 = (struct device  const  *)dev;
 #line 949
-  tmp = dev_get_drvdata(__cil_tmp16);
+  tmp = dev_get_drvdata(__cil_tmp14);
 #line 949
   data = (struct it87_data *)tmp;
 #line 955
-  __cil_tmp17 = (struct it87_data  const  *)data;
+  __cil_tmp15 = (struct it87_data  const  *)data;
 #line 955
-  tmp___0 = has_old_autopwm(__cil_tmp17);
+  tmp___0 = has_old_autopwm(__cil_tmp15);
   }
 #line 955
   if (tmp___0 == 0) {
     {
 #line 956
-    __cil_tmp18 = (struct device  const  *)dev;
+    __cil_tmp16 = (struct device  const  *)dev;
 #line 956
-    dev_notice(__cil_tmp18, "Mapping change disabled for safety reasons\n");
+    dev_notice(__cil_tmp16, "Mapping change disabled for safety reasons\n");
     }
 #line 957
     return (-22L);
@@ -9180,51 +7618,46 @@ static ssize_t set_pwm_temp_map(struct device *dev , struct device_attribute *at
   }
   {
 #line 964
-  __cil_tmp19 = & val;
+  __cil_tmp17 = (int )val;
 #line 964
-  __cil_tmp20 = *__cil_tmp19;
+  if (__cil_tmp17 == 1) {
 #line 964
-  __cil_tmp21 = (int )__cil_tmp20;
-#line 964
-  if (__cil_tmp21 == 1) {
     goto case_1;
   } else {
     {
 #line 967
-    __cil_tmp22 = & val;
+    __cil_tmp18 = (int )val;
 #line 967
-    __cil_tmp23 = *__cil_tmp22;
+    if (__cil_tmp18 == 2) {
 #line 967
-    __cil_tmp24 = (int )__cil_tmp23;
-#line 967
-    if (__cil_tmp24 == 2) {
       goto case_2;
     } else {
       {
 #line 970
-      __cil_tmp25 = & val;
+      __cil_tmp19 = (int )val;
 #line 970
-      __cil_tmp26 = *__cil_tmp25;
+      if (__cil_tmp19 == 4) {
 #line 970
-      __cil_tmp27 = (int )__cil_tmp26;
-#line 970
-      if (__cil_tmp27 == 4) {
         goto case_4;
       } else {
+#line 973
         goto switch_default;
 #line 963
         if (0) {
           case_1: 
 #line 965
-          reg = (unsigned char)0;
+          reg = (u8 )0U;
+#line 966
           goto ldv_24573;
           case_2: 
 #line 968
-          reg = (unsigned char)1;
+          reg = (u8 )1U;
+#line 969
           goto ldv_24573;
           case_4: 
 #line 971
-          reg = (unsigned char)2;
+          reg = (u8 )2U;
+#line 972
           goto ldv_24573;
           switch_default: ;
 #line 974
@@ -9241,92 +7674,48 @@ static ssize_t set_pwm_temp_map(struct device *dev , struct device_attribute *at
   ldv_24573: 
   {
 #line 977
-  __cil_tmp28 = (unsigned long )data;
+  __cil_tmp20 = & data->update_lock;
 #line 977
-  __cil_tmp29 = __cil_tmp28 + 56;
-#line 977
-  __cil_tmp30 = (struct mutex *)__cil_tmp29;
-#line 977
-  mutex_lock_nested(__cil_tmp30, 0U);
+  mutex_lock_nested(__cil_tmp20, 0U);
 #line 978
-  __cil_tmp31 = nr * 1UL;
-#line 978
-  __cil_tmp32 = 317 + __cil_tmp31;
-#line 978
-  __cil_tmp33 = (unsigned long )data;
-#line 978
-  __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
-#line 978
-  *((u8 *)__cil_tmp34) = reg;
+  data->pwm_temp_map[nr] = reg;
   }
   {
 #line 981
-  __cil_tmp35 = nr * 1UL;
+  __cil_tmp21 = data->pwm_ctrl[nr];
 #line 981
-  __cil_tmp36 = 311 + __cil_tmp35;
+  __cil_tmp22 = (signed char )__cil_tmp21;
 #line 981
-  __cil_tmp37 = (unsigned long )data;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 981
-  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 981
-  __cil_tmp39 = *((u8 *)__cil_tmp38);
-#line 981
-  __cil_tmp40 = (signed char )__cil_tmp39;
-#line 981
-  __cil_tmp41 = (int )__cil_tmp40;
-#line 981
-  if (__cil_tmp41 < 0) {
+  if (__cil_tmp23 < 0) {
     {
 #line 982
-    __cil_tmp42 = nr * 1UL;
+    __cil_tmp24 = data->pwm_temp_map[nr];
 #line 982
-    __cil_tmp43 = 311 + __cil_tmp42;
+    __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 982
-    __cil_tmp44 = (unsigned long )data;
+    __cil_tmp26 = __cil_tmp25 | 128U;
 #line 982
-    __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 982
-    __cil_tmp46 = nr * 1UL;
-#line 982
-    __cil_tmp47 = 317 + __cil_tmp46;
-#line 982
-    __cil_tmp48 = (unsigned long )data;
-#line 982
-    __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
-#line 982
-    __cil_tmp50 = *((u8 *)__cil_tmp49);
-#line 982
-    __cil_tmp51 = (unsigned int )__cil_tmp50;
-#line 982
-    __cil_tmp52 = __cil_tmp51 | 128U;
-#line 982
-    *((u8 *)__cil_tmp45) = (unsigned char )__cil_tmp52;
+    data->pwm_ctrl[nr] = (u8 )__cil_tmp26;
 #line 983
-    __cil_tmp53 = (unsigned char )nr;
+    __cil_tmp27 = (u8 )nr;
 #line 983
-    __cil_tmp54 = (unsigned int )__cil_tmp53;
+    __cil_tmp28 = (unsigned int )__cil_tmp27;
 #line 983
-    __cil_tmp55 = __cil_tmp54 + 21U;
+    __cil_tmp29 = __cil_tmp28 + 21U;
 #line 983
-    __cil_tmp56 = (int )__cil_tmp55;
+    __cil_tmp30 = (int )__cil_tmp29;
 #line 983
-    __cil_tmp57 = (unsigned char )__cil_tmp56;
+    __cil_tmp31 = (u8 )__cil_tmp30;
 #line 983
-    __cil_tmp58 = nr * 1UL;
+    __cil_tmp32 = data->pwm_ctrl[nr];
 #line 983
-    __cil_tmp59 = 311 + __cil_tmp58;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 983
-    __cil_tmp60 = (unsigned long )data;
+    __cil_tmp34 = (u8 )__cil_tmp33;
 #line 983
-    __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 983
-    __cil_tmp62 = *((u8 *)__cil_tmp61);
-#line 983
-    __cil_tmp63 = (int )__cil_tmp62;
-#line 983
-    __cil_tmp64 = (unsigned char )__cil_tmp63;
-#line 983
-    it87_write_value(data, __cil_tmp57, __cil_tmp64);
+    it87_write_value(data, __cil_tmp31, __cil_tmp34);
     }
   } else {
 
@@ -9334,16 +7723,12 @@ static ssize_t set_pwm_temp_map(struct device *dev , struct device_attribute *at
   }
   {
 #line 985
-  __cil_tmp65 = (unsigned long )data;
+  __cil_tmp35 = & data->update_lock;
 #line 985
-  __cil_tmp66 = __cil_tmp65 + 56;
-#line 985
-  __cil_tmp67 = (struct mutex *)__cil_tmp66;
-#line 985
-  mutex_unlock(__cil_tmp67);
+  mutex_unlock(__cil_tmp35);
   }
 #line 986
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 989 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -9357,22 +7742,12 @@ static ssize_t show_auto_pwm(struct device *dev , struct device_attribute *attr 
   int point ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u8 __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  u8 __cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  struct it87_data  const  *__cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  int __cil_tmp16 ;
   u8 __cil_tmp17 ;
-  struct it87_data  const  *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  u8 __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned char __cil_tmp27 ;
 
   {
   {
@@ -9385,48 +7760,28 @@ static ssize_t show_auto_pwm(struct device *dev , struct device_attribute *attr 
 #line 994
   sensor_attr = (struct sensor_device_attribute_2 *)__mptr;
 #line 995
-  __cil_tmp12 = (unsigned long )sensor_attr;
+  __cil_tmp12 = sensor_attr->nr;
 #line 995
-  __cil_tmp13 = __cil_tmp12 + 49;
-#line 995
-  __cil_tmp14 = *((u8 *)__cil_tmp13);
-#line 995
-  nr = (int )__cil_tmp14;
+  nr = (int )__cil_tmp12;
 #line 996
-  __cil_tmp15 = (unsigned long )sensor_attr;
+  __cil_tmp13 = sensor_attr->index;
 #line 996
-  __cil_tmp16 = __cil_tmp15 + 48;
-#line 996
-  __cil_tmp17 = *((u8 *)__cil_tmp16);
-#line 996
-  point = (int )__cil_tmp17;
+  point = (int )__cil_tmp13;
 #line 998
-  __cil_tmp18 = (struct it87_data  const  *)data;
+  __cil_tmp14 = (struct it87_data  const  *)data;
 #line 998
-  __cil_tmp19 = point * 1UL;
+  __cil_tmp15 = data->auto_pwm[nr][point];
 #line 998
-  __cil_tmp20 = nr * 4UL;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 998
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
+  __cil_tmp17 = (u8 )__cil_tmp16;
 #line 998
-  __cil_tmp22 = 320 + __cil_tmp21;
-#line 998
-  __cil_tmp23 = (unsigned long )data;
-#line 998
-  __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 998
-  __cil_tmp25 = *((u8 *)__cil_tmp24);
-#line 998
-  __cil_tmp26 = (int )__cil_tmp25;
-#line 998
-  __cil_tmp27 = (unsigned char )__cil_tmp26;
-#line 998
-  tmp___0 = pwm_from_reg(__cil_tmp18, __cil_tmp27);
+  tmp___0 = pwm_from_reg(__cil_tmp14, __cil_tmp17);
 #line 998
   tmp___1 = sprintf(buf, "%d\n", tmp___0);
   }
 #line 998
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 1002 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -9441,49 +7796,23 @@ static ssize_t set_auto_pwm(struct device *dev , struct device_attribute *attr ,
   long val ;
   int tmp___0 ;
   struct device  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  u8 __cil_tmp19 ;
-  long *__cil_tmp20 ;
-  long __cil_tmp21 ;
-  long *__cil_tmp22 ;
-  long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct mutex *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct it87_data  const  *__cil_tmp33 ;
-  long *__cil_tmp34 ;
-  long __cil_tmp35 ;
-  unsigned char __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned char __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  u8 __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct mutex *__cil_tmp56 ;
+  u8 __cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  struct mutex *__cil_tmp16 ;
+  struct it87_data  const  *__cil_tmp17 ;
+  u8 __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  u8 __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  u8 __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u8 __cil_tmp29 ;
+  struct mutex *__cil_tmp30 ;
 
   {
   {
@@ -9498,21 +7827,13 @@ static ssize_t set_auto_pwm(struct device *dev , struct device_attribute *attr ,
 #line 1007
   sensor_attr = (struct sensor_device_attribute_2 *)__mptr;
 #line 1008
-  __cil_tmp14 = (unsigned long )sensor_attr;
+  __cil_tmp14 = sensor_attr->nr;
 #line 1008
-  __cil_tmp15 = __cil_tmp14 + 49;
-#line 1008
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 1008
-  nr = (int )__cil_tmp16;
+  nr = (int )__cil_tmp14;
 #line 1009
-  __cil_tmp17 = (unsigned long )sensor_attr;
+  __cil_tmp15 = sensor_attr->index;
 #line 1009
-  __cil_tmp18 = __cil_tmp17 + 48;
-#line 1009
-  __cil_tmp19 = *((u8 *)__cil_tmp18);
-#line 1009
-  point = (int )__cil_tmp19;
+  point = (int )__cil_tmp15;
 #line 1012
   tmp___0 = kstrtol(buf, 10U, & val);
   }
@@ -9520,111 +7841,61 @@ static ssize_t set_auto_pwm(struct device *dev , struct device_attribute *attr ,
   if (tmp___0 < 0) {
 #line 1013
     return (-22L);
+  } else
+#line 1012
+  if (val < 0L) {
+#line 1013
+    return (-22L);
+  } else
+#line 1012
+  if (val > 255L) {
+#line 1013
+    return (-22L);
   } else {
-    {
-#line 1012
-    __cil_tmp20 = & val;
-#line 1012
-    __cil_tmp21 = *__cil_tmp20;
-#line 1012
-    if (__cil_tmp21 < 0L) {
-#line 1013
-      return (-22L);
-    } else {
-      {
-#line 1012
-      __cil_tmp22 = & val;
-#line 1012
-      __cil_tmp23 = *__cil_tmp22;
-#line 1012
-      if (__cil_tmp23 > 255L) {
-#line 1013
-        return (-22L);
-      } else {
 
-      }
-      }
-    }
-    }
   }
   {
 #line 1015
-  __cil_tmp24 = (unsigned long )data;
+  __cil_tmp16 = & data->update_lock;
 #line 1015
-  __cil_tmp25 = __cil_tmp24 + 56;
-#line 1015
-  __cil_tmp26 = (struct mutex *)__cil_tmp25;
-#line 1015
-  mutex_lock_nested(__cil_tmp26, 0U);
+  mutex_lock_nested(__cil_tmp16, 0U);
 #line 1016
-  __cil_tmp27 = point * 1UL;
+  __cil_tmp17 = (struct it87_data  const  *)data;
 #line 1016
-  __cil_tmp28 = nr * 4UL;
-#line 1016
-  __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 1016
-  __cil_tmp30 = 320 + __cil_tmp29;
-#line 1016
-  __cil_tmp31 = (unsigned long )data;
-#line 1016
-  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 1016
-  __cil_tmp33 = (struct it87_data  const  *)data;
-#line 1016
-  __cil_tmp34 = & val;
-#line 1016
-  __cil_tmp35 = *__cil_tmp34;
-#line 1016
-  *((u8 *)__cil_tmp32) = pwm_to_reg(__cil_tmp33, __cil_tmp35);
+  data->auto_pwm[nr][point] = pwm_to_reg(__cil_tmp17, val);
 #line 1017
-  __cil_tmp36 = (unsigned char )point;
+  __cil_tmp18 = (u8 )point;
 #line 1017
-  __cil_tmp37 = (unsigned int )__cil_tmp36;
+  __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 1017
-  __cil_tmp38 = (unsigned char )nr;
+  __cil_tmp20 = (u8 )nr;
 #line 1017
-  __cil_tmp39 = (unsigned int )__cil_tmp38;
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 1017
-  __cil_tmp40 = __cil_tmp39 * 8U;
+  __cil_tmp22 = __cil_tmp21 * 8U;
 #line 1017
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp37;
+  __cil_tmp23 = __cil_tmp22 + __cil_tmp19;
 #line 1017
-  __cil_tmp42 = __cil_tmp41 + 101U;
+  __cil_tmp24 = __cil_tmp23 + 101U;
 #line 1017
-  __cil_tmp43 = (int )__cil_tmp42;
+  __cil_tmp25 = (int )__cil_tmp24;
 #line 1017
-  __cil_tmp44 = (unsigned char )__cil_tmp43;
+  __cil_tmp26 = (u8 )__cil_tmp25;
 #line 1017
-  __cil_tmp45 = point * 1UL;
+  __cil_tmp27 = data->auto_pwm[nr][point];
 #line 1017
-  __cil_tmp46 = nr * 4UL;
+  __cil_tmp28 = (int )__cil_tmp27;
 #line 1017
-  __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
+  __cil_tmp29 = (u8 )__cil_tmp28;
 #line 1017
-  __cil_tmp48 = 320 + __cil_tmp47;
-#line 1017
-  __cil_tmp49 = (unsigned long )data;
-#line 1017
-  __cil_tmp50 = __cil_tmp49 + __cil_tmp48;
-#line 1017
-  __cil_tmp51 = *((u8 *)__cil_tmp50);
-#line 1017
-  __cil_tmp52 = (int )__cil_tmp51;
-#line 1017
-  __cil_tmp53 = (unsigned char )__cil_tmp52;
-#line 1017
-  it87_write_value(data, __cil_tmp44, __cil_tmp53);
+  it87_write_value(data, __cil_tmp26, __cil_tmp29);
 #line 1019
-  __cil_tmp54 = (unsigned long )data;
+  __cil_tmp30 = & data->update_lock;
 #line 1019
-  __cil_tmp55 = __cil_tmp54 + 56;
-#line 1019
-  __cil_tmp56 = (struct mutex *)__cil_tmp55;
-#line 1019
-  mutex_unlock(__cil_tmp56);
+  mutex_unlock(__cil_tmp30);
   }
 #line 1020
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 1023 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -9637,21 +7908,11 @@ static ssize_t show_auto_temp(struct device *dev , struct device_attribute *attr
   int nr ;
   int point ;
   int tmp___0 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  u8 __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  u8 __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  s8 __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
+  u8 __cil_tmp11 ;
+  u8 __cil_tmp12 ;
+  s8 __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
 
   {
   {
@@ -9664,44 +7925,24 @@ static ssize_t show_auto_temp(struct device *dev , struct device_attribute *attr
 #line 1028
   sensor_attr = (struct sensor_device_attribute_2 *)__mptr;
 #line 1029
-  __cil_tmp11 = (unsigned long )sensor_attr;
+  __cil_tmp11 = sensor_attr->nr;
 #line 1029
-  __cil_tmp12 = __cil_tmp11 + 49;
-#line 1029
-  __cil_tmp13 = *((u8 *)__cil_tmp12);
-#line 1029
-  nr = (int )__cil_tmp13;
+  nr = (int )__cil_tmp11;
 #line 1030
-  __cil_tmp14 = (unsigned long )sensor_attr;
+  __cil_tmp12 = sensor_attr->index;
 #line 1030
-  __cil_tmp15 = __cil_tmp14 + 48;
-#line 1030
-  __cil_tmp16 = *((u8 *)__cil_tmp15);
-#line 1030
-  point = (int )__cil_tmp16;
+  point = (int )__cil_tmp12;
 #line 1032
-  __cil_tmp17 = point * 1UL;
+  __cil_tmp13 = data->auto_temp[nr][point];
 #line 1032
-  __cil_tmp18 = nr * 5UL;
+  __cil_tmp14 = (int )__cil_tmp13;
 #line 1032
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
+  __cil_tmp15 = __cil_tmp14 * 1000;
 #line 1032
-  __cil_tmp20 = 332 + __cil_tmp19;
-#line 1032
-  __cil_tmp21 = (unsigned long )data;
-#line 1032
-  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 1032
-  __cil_tmp23 = *((s8 *)__cil_tmp22);
-#line 1032
-  __cil_tmp24 = (int )__cil_tmp23;
-#line 1032
-  __cil_tmp25 = __cil_tmp24 * 1000;
-#line 1032
-  tmp___0 = sprintf(buf, "%d\n", __cil_tmp25);
+  tmp___0 = sprintf(buf, "%d\n", __cil_tmp15);
   }
 #line 1032
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 1035 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -9718,55 +7959,25 @@ static ssize_t set_auto_temp(struct device *dev , struct device_attribute *attr 
   long tmp___1 ;
   int tmp___2 ;
   struct device  const  *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u8 __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  u8 __cil_tmp16 ;
+  u8 __cil_tmp17 ;
+  struct mutex *__cil_tmp18 ;
+  long __cil_tmp19 ;
+  long __cil_tmp20 ;
   u8 __cil_tmp21 ;
-  long *__cil_tmp22 ;
-  long __cil_tmp23 ;
-  long *__cil_tmp24 ;
-  long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct mutex *__cil_tmp28 ;
-  long *__cil_tmp29 ;
-  long __cil_tmp30 ;
-  long *__cil_tmp31 ;
-  long __cil_tmp32 ;
-  long __cil_tmp33 ;
-  long *__cil_tmp34 ;
-  long __cil_tmp35 ;
-  long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned char __cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned char __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  unsigned char __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  s8 __cil_tmp58 ;
-  unsigned char __cil_tmp59 ;
-  int __cil_tmp60 ;
-  unsigned char __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  struct mutex *__cil_tmp64 ;
+  unsigned int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u8 __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u8 __cil_tmp29 ;
+  s8 __cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  int __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  struct mutex *__cil_tmp34 ;
 
   {
   {
@@ -9781,21 +7992,13 @@ static ssize_t set_auto_temp(struct device *dev , struct device_attribute *attr 
 #line 1040
   sensor_attr = (struct sensor_device_attribute_2 *)__mptr;
 #line 1041
-  __cil_tmp16 = (unsigned long )sensor_attr;
+  __cil_tmp16 = sensor_attr->nr;
 #line 1041
-  __cil_tmp17 = __cil_tmp16 + 49;
-#line 1041
-  __cil_tmp18 = *((u8 *)__cil_tmp17);
-#line 1041
-  nr = (int )__cil_tmp18;
+  nr = (int )__cil_tmp16;
 #line 1042
-  __cil_tmp19 = (unsigned long )sensor_attr;
+  __cil_tmp17 = sensor_attr->index;
 #line 1042
-  __cil_tmp20 = __cil_tmp19 + 48;
-#line 1042
-  __cil_tmp21 = *((u8 *)__cil_tmp20);
-#line 1042
-  point = (int )__cil_tmp21;
+  point = (int )__cil_tmp17;
 #line 1045
   tmp___0 = kstrtol(buf, 10U, & val);
   }
@@ -9803,137 +8006,77 @@ static ssize_t set_auto_temp(struct device *dev , struct device_attribute *attr 
   if (tmp___0 < 0) {
 #line 1046
     return (-22L);
+  } else
+#line 1045
+  if (val < -128000L) {
+#line 1046
+    return (-22L);
+  } else
+#line 1045
+  if (val > 127000L) {
+#line 1046
+    return (-22L);
   } else {
-    {
-#line 1045
-    __cil_tmp22 = & val;
-#line 1045
-    __cil_tmp23 = *__cil_tmp22;
-#line 1045
-    if (__cil_tmp23 < -128000L) {
-#line 1046
-      return (-22L);
-    } else {
-      {
-#line 1045
-      __cil_tmp24 = & val;
-#line 1045
-      __cil_tmp25 = *__cil_tmp24;
-#line 1045
-      if (__cil_tmp25 > 127000L) {
-#line 1046
-        return (-22L);
-      } else {
 
-      }
-      }
-    }
-    }
   }
   {
 #line 1048
-  __cil_tmp26 = (unsigned long )data;
+  __cil_tmp18 = & data->update_lock;
 #line 1048
-  __cil_tmp27 = __cil_tmp26 + 56;
-#line 1048
-  __cil_tmp28 = (struct mutex *)__cil_tmp27;
-#line 1048
-  mutex_lock_nested(__cil_tmp28, 0U);
+  mutex_lock_nested(__cil_tmp18, 0U);
   }
-  {
 #line 1049
-  __cil_tmp29 = & val;
+  if (val < 0L) {
 #line 1049
-  __cil_tmp30 = *__cil_tmp29;
+    __cil_tmp19 = val + -500L;
 #line 1049
-  if (__cil_tmp30 < 0L) {
-#line 1049
-    __cil_tmp31 = & val;
-#line 1049
-    __cil_tmp32 = *__cil_tmp31;
-#line 1049
-    __cil_tmp33 = __cil_tmp32 + -500L;
-#line 1049
-    tmp___1 = __cil_tmp33 / 1000L;
+    tmp___1 = __cil_tmp19 / 1000L;
   } else {
 #line 1049
-    __cil_tmp34 = & val;
+    __cil_tmp20 = val + 500L;
 #line 1049
-    __cil_tmp35 = *__cil_tmp34;
-#line 1049
-    __cil_tmp36 = __cil_tmp35 + 500L;
-#line 1049
-    tmp___1 = __cil_tmp36 / 1000L;
-  }
+    tmp___1 = __cil_tmp20 / 1000L;
   }
   {
 #line 1049
   tmp___2 = SENSORS_LIMIT(tmp___1, -128L, 127L);
 #line 1049
-  __cil_tmp37 = point * 1UL;
-#line 1049
-  __cil_tmp38 = nr * 5UL;
-#line 1049
-  __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 1049
-  __cil_tmp40 = 332 + __cil_tmp39;
-#line 1049
-  __cil_tmp41 = (unsigned long )data;
-#line 1049
-  __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
-#line 1049
-  *((s8 *)__cil_tmp42) = (signed char )tmp___2;
+  data->auto_temp[nr][point] = (s8 )tmp___2;
 #line 1050
-  __cil_tmp43 = (unsigned char )point;
+  __cil_tmp21 = (u8 )point;
 #line 1050
-  __cil_tmp44 = (unsigned int )__cil_tmp43;
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 1050
-  __cil_tmp45 = nr + 12;
+  __cil_tmp23 = nr + 12;
 #line 1050
-  __cil_tmp46 = (unsigned char )__cil_tmp45;
+  __cil_tmp24 = (u8 )__cil_tmp23;
 #line 1050
-  __cil_tmp47 = (unsigned int )__cil_tmp46;
+  __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 1050
-  __cil_tmp48 = __cil_tmp47 * 8U;
+  __cil_tmp26 = __cil_tmp25 * 8U;
 #line 1050
-  __cil_tmp49 = __cil_tmp48 + __cil_tmp44;
+  __cil_tmp27 = __cil_tmp26 + __cil_tmp22;
 #line 1050
-  __cil_tmp50 = (int )__cil_tmp49;
+  __cil_tmp28 = (int )__cil_tmp27;
 #line 1050
-  __cil_tmp51 = (unsigned char )__cil_tmp50;
+  __cil_tmp29 = (u8 )__cil_tmp28;
 #line 1050
-  __cil_tmp52 = point * 1UL;
+  __cil_tmp30 = data->auto_temp[nr][point];
 #line 1050
-  __cil_tmp53 = nr * 5UL;
+  __cil_tmp31 = (u8 )__cil_tmp30;
 #line 1050
-  __cil_tmp54 = __cil_tmp53 + __cil_tmp52;
+  __cil_tmp32 = (int )__cil_tmp31;
 #line 1050
-  __cil_tmp55 = 332 + __cil_tmp54;
+  __cil_tmp33 = (u8 )__cil_tmp32;
 #line 1050
-  __cil_tmp56 = (unsigned long )data;
-#line 1050
-  __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
-#line 1050
-  __cil_tmp58 = *((s8 *)__cil_tmp57);
-#line 1050
-  __cil_tmp59 = (unsigned char )__cil_tmp58;
-#line 1050
-  __cil_tmp60 = (int )__cil_tmp59;
-#line 1050
-  __cil_tmp61 = (unsigned char )__cil_tmp60;
-#line 1050
-  it87_write_value(data, __cil_tmp51, __cil_tmp61);
+  it87_write_value(data, __cil_tmp29, __cil_tmp33);
 #line 1052
-  __cil_tmp62 = (unsigned long )data;
+  __cil_tmp34 = & data->update_lock;
 #line 1052
-  __cil_tmp63 = __cil_tmp62 + 56;
-#line 1052
-  __cil_tmp64 = (struct mutex *)__cil_tmp63;
-#line 1052
-  mutex_unlock(__cil_tmp64);
+  mutex_unlock(__cil_tmp34);
   }
 #line 1053
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 1064 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -10009,51 +8152,51 @@ static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point1_pwm  = 
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)0, (unsigned char)0};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )0U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point2_pwm  =    {{{"pwm1_auto_point2_pwm", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)1, (unsigned char)0};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )1U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point3_pwm  =    {{{"pwm1_auto_point3_pwm", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)2, (unsigned char)0};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )2U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point4_pwm  =    {{{"pwm1_auto_point4_pwm", 292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
      & show_auto_pwm, (ssize_t (*)(struct device * , struct device_attribute * , char const   * ,
-                                   size_t  ))0}, (unsigned char)3, (unsigned char)0};
+                                   size_t  ))0}, (u8 )3U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point1_temp  =    {{{"pwm1_auto_point1_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)1, (unsigned char)0};
+     & show_auto_temp, & set_auto_temp}, (u8 )1U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point1_temp_hyst  =    {{{"pwm1_auto_point1_temp_hyst",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)0, (unsigned char)0};
+     & show_auto_temp, & set_auto_temp}, (u8 )0U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point2_temp  =    {{{"pwm1_auto_point2_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)2, (unsigned char)0};
+     & show_auto_temp, & set_auto_temp}, (u8 )2U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point3_temp  =    {{{"pwm1_auto_point3_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)3, (unsigned char)0};
+     & show_auto_temp, & set_auto_temp}, (u8 )3U, (u8 )0U};
 #line 1106 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm1_auto_point4_temp  =    {{{"pwm1_auto_point4_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)4, (unsigned char)0};
+     & show_auto_temp, & set_auto_temp}, (u8 )4U, (u8 )0U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute sensor_dev_attr_pwm2_enable  =    {{{"pwm2_enable", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
                                                          {(char)0}, {(char)0}, {(char)0},
@@ -10079,51 +8222,51 @@ static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point1_pwm  = 
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)0, (unsigned char)1};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )0U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point2_pwm  =    {{{"pwm2_auto_point2_pwm", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)1, (unsigned char)1};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )1U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point3_pwm  =    {{{"pwm2_auto_point3_pwm", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)2, (unsigned char)1};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )2U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point4_pwm  =    {{{"pwm2_auto_point4_pwm", 292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
      & show_auto_pwm, (ssize_t (*)(struct device * , struct device_attribute * , char const   * ,
-                                   size_t  ))0}, (unsigned char)3, (unsigned char)1};
+                                   size_t  ))0}, (u8 )3U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point1_temp  =    {{{"pwm2_auto_point1_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)1, (unsigned char)1};
+     & show_auto_temp, & set_auto_temp}, (u8 )1U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point1_temp_hyst  =    {{{"pwm2_auto_point1_temp_hyst",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)0, (unsigned char)1};
+     & show_auto_temp, & set_auto_temp}, (u8 )0U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point2_temp  =    {{{"pwm2_auto_point2_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)2, (unsigned char)1};
+     & show_auto_temp, & set_auto_temp}, (u8 )2U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point3_temp  =    {{{"pwm2_auto_point3_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)3, (unsigned char)1};
+     & show_auto_temp, & set_auto_temp}, (u8 )3U, (u8 )1U};
 #line 1107 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm2_auto_point4_temp  =    {{{"pwm2_auto_point4_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)4, (unsigned char)1};
+     & show_auto_temp, & set_auto_temp}, (u8 )4U, (u8 )1U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute sensor_dev_attr_pwm3_enable  =    {{{"pwm3_enable", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0},
                                                          {(char)0}, {(char)0}, {(char)0},
@@ -10149,51 +8292,51 @@ static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point1_pwm  = 
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)0, (unsigned char)2};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )0U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point2_pwm  =    {{{"pwm3_auto_point2_pwm", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)1, (unsigned char)2};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )1U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point3_pwm  =    {{{"pwm3_auto_point3_pwm", 420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
-     & show_auto_pwm, & set_auto_pwm}, (unsigned char)2, (unsigned char)2};
+     & show_auto_pwm, & set_auto_pwm}, (u8 )2U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point4_pwm  =    {{{"pwm3_auto_point4_pwm", 292U, (struct lock_class_key *)0, {{{(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0},
                                                                   {(char)0}, {(char)0}}}},
      & show_auto_pwm, (ssize_t (*)(struct device * , struct device_attribute * , char const   * ,
-                                   size_t  ))0}, (unsigned char)3, (unsigned char)2};
+                                   size_t  ))0}, (u8 )3U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point1_temp  =    {{{"pwm3_auto_point1_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)1, (unsigned char)2};
+     & show_auto_temp, & set_auto_temp}, (u8 )1U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point1_temp_hyst  =    {{{"pwm3_auto_point1_temp_hyst",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)0, (unsigned char)2};
+     & show_auto_temp, & set_auto_temp}, (u8 )0U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point2_temp  =    {{{"pwm3_auto_point2_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)2, (unsigned char)2};
+     & show_auto_temp, & set_auto_temp}, (u8 )2U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point3_temp  =    {{{"pwm3_auto_point3_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)3, (unsigned char)2};
+     & show_auto_temp, & set_auto_temp}, (u8 )3U, (u8 )2U};
 #line 1108 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static struct sensor_device_attribute_2 sensor_dev_attr_pwm3_auto_point4_temp  =    {{{"pwm3_auto_point4_temp",
       420U, (struct lock_class_key *)0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0},
                                           {(char)0}, {(char)0}, {(char)0}, {(char)0}}}},
-     & show_auto_temp, & set_auto_temp}, (unsigned char)4, (unsigned char)2};
+     & show_auto_temp, & set_auto_temp}, (u8 )4U, (u8 )2U};
 #line 1111 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 static ssize_t show_fan16(struct device *dev , struct device_attribute *attr , char *buf ) 
 { struct sensor_device_attribute *sensor_attr ;
@@ -10204,27 +8347,13 @@ static ssize_t show_fan16(struct device *dev , struct device_attribute *attr , c
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u16 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u16 __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u16 __cil_tmp30 ;
-  int __cil_tmp31 ;
-  int __cil_tmp32 ;
+  u16 __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  u16 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  u16 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
 
   {
   {
@@ -10233,11 +8362,7 @@ static ssize_t show_fan16(struct device *dev , struct device_attribute *attr , c
 #line 1114
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 1115
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 1115
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 1115
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 1116
   tmp = it87_update_device(dev);
 #line 1116
@@ -10245,50 +8370,26 @@ static ssize_t show_fan16(struct device *dev , struct device_attribute *attr , c
   }
   {
 #line 1117
-  __cil_tmp14 = nr * 2UL;
+  __cil_tmp12 = data->fan[nr];
 #line 1117
-  __cil_tmp15 = 268 + __cil_tmp14;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1117
-  __cil_tmp16 = (unsigned long )data;
-#line 1117
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 1117
-  __cil_tmp18 = *((u16 *)__cil_tmp17);
-#line 1117
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 1117
-  if (__cil_tmp19 != 0U) {
+  if (__cil_tmp13 != 0U) {
     {
 #line 1117
-    __cil_tmp20 = nr * 2UL;
+    __cil_tmp14 = data->fan[nr];
 #line 1117
-    __cil_tmp21 = 268 + __cil_tmp20;
+    __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 1117
-    __cil_tmp22 = (unsigned long )data;
+    if (__cil_tmp15 != 65535U) {
 #line 1117
-    __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
+      __cil_tmp16 = data->fan[nr];
 #line 1117
-    __cil_tmp24 = *((u16 *)__cil_tmp23);
+      __cil_tmp17 = (int )__cil_tmp16;
 #line 1117
-    __cil_tmp25 = (unsigned int )__cil_tmp24;
+      __cil_tmp18 = __cil_tmp17 * 2;
 #line 1117
-    if (__cil_tmp25 != 65535U) {
-#line 1117
-      __cil_tmp26 = nr * 2UL;
-#line 1117
-      __cil_tmp27 = 268 + __cil_tmp26;
-#line 1117
-      __cil_tmp28 = (unsigned long )data;
-#line 1117
-      __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 1117
-      __cil_tmp30 = *((u16 *)__cil_tmp29);
-#line 1117
-      __cil_tmp31 = (int )__cil_tmp30;
-#line 1117
-      __cil_tmp32 = __cil_tmp31 * 2;
-#line 1117
-      tmp___0 = 1350000 / __cil_tmp32;
+      tmp___0 = 1350000 / __cil_tmp18;
     } else {
 #line 1117
       tmp___0 = 0;
@@ -10306,7 +8407,7 @@ static ssize_t show_fan16(struct device *dev , struct device_attribute *attr , c
   tmp___2 = sprintf(buf, "%d\n", tmp___1);
   }
 #line 1117
-  return ((long )tmp___2);
+  return ((ssize_t )tmp___2);
 }
 }
 #line 1120 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -10320,27 +8421,13 @@ static ssize_t show_fan16_min(struct device *dev , struct device_attribute *attr
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  u16 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u16 __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u16 __cil_tmp30 ;
-  int __cil_tmp31 ;
-  int __cil_tmp32 ;
+  u16 __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  u16 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  u16 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
 
   {
   {
@@ -10349,11 +8436,7 @@ static ssize_t show_fan16_min(struct device *dev , struct device_attribute *attr
 #line 1123
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 1124
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 1124
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 1124
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 1125
   tmp = it87_update_device(dev);
 #line 1125
@@ -10361,50 +8444,26 @@ static ssize_t show_fan16_min(struct device *dev , struct device_attribute *attr
   }
   {
 #line 1126
-  __cil_tmp14 = nr * 2UL;
+  __cil_tmp12 = data->fan_min[nr];
 #line 1126
-  __cil_tmp15 = 278 + __cil_tmp14;
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1126
-  __cil_tmp16 = (unsigned long )data;
-#line 1126
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 1126
-  __cil_tmp18 = *((u16 *)__cil_tmp17);
-#line 1126
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 1126
-  if (__cil_tmp19 != 0U) {
+  if (__cil_tmp13 != 0U) {
     {
 #line 1126
-    __cil_tmp20 = nr * 2UL;
+    __cil_tmp14 = data->fan_min[nr];
 #line 1126
-    __cil_tmp21 = 278 + __cil_tmp20;
+    __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 1126
-    __cil_tmp22 = (unsigned long )data;
+    if (__cil_tmp15 != 65535U) {
 #line 1126
-    __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
+      __cil_tmp16 = data->fan_min[nr];
 #line 1126
-    __cil_tmp24 = *((u16 *)__cil_tmp23);
+      __cil_tmp17 = (int )__cil_tmp16;
 #line 1126
-    __cil_tmp25 = (unsigned int )__cil_tmp24;
+      __cil_tmp18 = __cil_tmp17 * 2;
 #line 1126
-    if (__cil_tmp25 != 65535U) {
-#line 1126
-      __cil_tmp26 = nr * 2UL;
-#line 1126
-      __cil_tmp27 = 278 + __cil_tmp26;
-#line 1126
-      __cil_tmp28 = (unsigned long )data;
-#line 1126
-      __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 1126
-      __cil_tmp30 = *((u16 *)__cil_tmp29);
-#line 1126
-      __cil_tmp31 = (int )__cil_tmp30;
-#line 1126
-      __cil_tmp32 = __cil_tmp31 * 2;
-#line 1126
-      tmp___0 = 1350000 / __cil_tmp32;
+      tmp___0 = 1350000 / __cil_tmp18;
     } else {
 #line 1126
       tmp___0 = 0;
@@ -10422,7 +8481,7 @@ static ssize_t show_fan16_min(struct device *dev , struct device_attribute *attr
   tmp___2 = sprintf(buf, "%d\n", tmp___1);
   }
 #line 1126
-  return ((long )tmp___2);
+  return ((ssize_t )tmp___2);
 }
 }
 #line 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -10435,49 +8494,23 @@ static ssize_t set_fan16_min(struct device *dev , struct device_attribute *attr 
   void *tmp ;
   long val ;
   int tmp___0 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct device  const  *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct mutex *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  long *__cil_tmp22 ;
-  long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  u8 __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned char __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  u16 __cil_tmp33 ;
-  unsigned char __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned char __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  u8 __cil_tmp39 ;
-  int __cil_tmp40 ;
-  unsigned char __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  u16 __cil_tmp46 ;
-  int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned char __cil_tmp49 ;
-  int __cil_tmp50 ;
-  unsigned char __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct mutex *__cil_tmp54 ;
+  struct device  const  *__cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
+  int __cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  u16 __cil_tmp16 ;
+  u8 __cil_tmp17 ;
+  int __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  int __cil_tmp20 ;
+  u8 __cil_tmp21 ;
+  u16 __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  struct mutex *__cil_tmp28 ;
 
   {
   {
@@ -10486,15 +8519,11 @@ static ssize_t set_fan16_min(struct device *dev , struct device_attribute *attr 
 #line 1132
   sensor_attr = (struct sensor_device_attribute *)__mptr;
 #line 1133
-  __cil_tmp12 = (unsigned long )sensor_attr;
-#line 1133
-  __cil_tmp13 = __cil_tmp12 + 48;
-#line 1133
-  nr = *((int *)__cil_tmp13);
+  nr = sensor_attr->index;
 #line 1134
-  __cil_tmp14 = (struct device  const  *)dev;
+  __cil_tmp12 = (struct device  const  *)dev;
 #line 1134
-  tmp = dev_get_drvdata(__cil_tmp14);
+  tmp = dev_get_drvdata(__cil_tmp12);
 #line 1134
   data = (struct it87_data *)tmp;
 #line 1137
@@ -10509,98 +8538,50 @@ static ssize_t set_fan16_min(struct device *dev , struct device_attribute *attr 
   }
   {
 #line 1140
-  __cil_tmp15 = (unsigned long )data;
+  __cil_tmp13 = & data->update_lock;
 #line 1140
-  __cil_tmp16 = __cil_tmp15 + 56;
-#line 1140
-  __cil_tmp17 = (struct mutex *)__cil_tmp16;
-#line 1140
-  mutex_lock_nested(__cil_tmp17, 0U);
+  mutex_lock_nested(__cil_tmp13, 0U);
 #line 1141
-  __cil_tmp18 = nr * 2UL;
-#line 1141
-  __cil_tmp19 = 278 + __cil_tmp18;
-#line 1141
-  __cil_tmp20 = (unsigned long )data;
-#line 1141
-  __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 1141
-  __cil_tmp22 = & val;
-#line 1141
-  __cil_tmp23 = *__cil_tmp22;
-#line 1141
-  *((u16 *)__cil_tmp21) = FAN16_TO_REG(__cil_tmp23);
+  data->fan_min[nr] = FAN16_TO_REG(val);
 #line 1142
-  __cil_tmp24 = nr * 1UL;
+  __cil_tmp14 = (int )IT87_REG_FAN_MIN[nr];
 #line 1142
-  __cil_tmp25 = (unsigned long )(IT87_REG_FAN_MIN) + __cil_tmp24;
+  __cil_tmp15 = (u8 )__cil_tmp14;
 #line 1142
-  __cil_tmp26 = *((u8 const   *)__cil_tmp25);
+  __cil_tmp16 = data->fan_min[nr];
 #line 1142
-  __cil_tmp27 = (int )__cil_tmp26;
+  __cil_tmp17 = (u8 )__cil_tmp16;
 #line 1142
-  __cil_tmp28 = (unsigned char )__cil_tmp27;
+  __cil_tmp18 = (int )__cil_tmp17;
 #line 1142
-  __cil_tmp29 = nr * 2UL;
+  __cil_tmp19 = (u8 )__cil_tmp18;
 #line 1142
-  __cil_tmp30 = 278 + __cil_tmp29;
-#line 1142
-  __cil_tmp31 = (unsigned long )data;
-#line 1142
-  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 1142
-  __cil_tmp33 = *((u16 *)__cil_tmp32);
-#line 1142
-  __cil_tmp34 = (unsigned char )__cil_tmp33;
-#line 1142
-  __cil_tmp35 = (int )__cil_tmp34;
-#line 1142
-  __cil_tmp36 = (unsigned char )__cil_tmp35;
-#line 1142
-  it87_write_value(data, __cil_tmp28, __cil_tmp36);
+  it87_write_value(data, __cil_tmp15, __cil_tmp19);
 #line 1144
-  __cil_tmp37 = nr * 1UL;
+  __cil_tmp20 = (int )IT87_REG_FANX_MIN[nr];
 #line 1144
-  __cil_tmp38 = (unsigned long )(IT87_REG_FANX_MIN) + __cil_tmp37;
+  __cil_tmp21 = (u8 )__cil_tmp20;
 #line 1144
-  __cil_tmp39 = *((u8 const   *)__cil_tmp38);
+  __cil_tmp22 = data->fan_min[nr];
 #line 1144
-  __cil_tmp40 = (int )__cil_tmp39;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 1144
-  __cil_tmp41 = (unsigned char )__cil_tmp40;
+  __cil_tmp24 = __cil_tmp23 >> 8;
 #line 1144
-  __cil_tmp42 = nr * 2UL;
+  __cil_tmp25 = (u8 )__cil_tmp24;
 #line 1144
-  __cil_tmp43 = 278 + __cil_tmp42;
+  __cil_tmp26 = (int )__cil_tmp25;
 #line 1144
-  __cil_tmp44 = (unsigned long )data;
+  __cil_tmp27 = (u8 )__cil_tmp26;
 #line 1144
-  __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 1144
-  __cil_tmp46 = *((u16 *)__cil_tmp45);
-#line 1144
-  __cil_tmp47 = (int )__cil_tmp46;
-#line 1144
-  __cil_tmp48 = __cil_tmp47 >> 8;
-#line 1144
-  __cil_tmp49 = (unsigned char )__cil_tmp48;
-#line 1144
-  __cil_tmp50 = (int )__cil_tmp49;
-#line 1144
-  __cil_tmp51 = (unsigned char )__cil_tmp50;
-#line 1144
-  it87_write_value(data, __cil_tmp41, __cil_tmp51);
+  it87_write_value(data, __cil_tmp21, __cil_tmp27);
 #line 1146
-  __cil_tmp52 = (unsigned long )data;
+  __cil_tmp28 = & data->update_lock;
 #line 1146
-  __cil_tmp53 = __cil_tmp52 + 56;
-#line 1146
-  __cil_tmp54 = (struct mutex *)__cil_tmp53;
-#line 1146
-  mutex_unlock(__cil_tmp54);
+  mutex_unlock(__cil_tmp28);
   }
 #line 1147
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 1161 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -10663,9 +8644,7 @@ static ssize_t show_alarms(struct device *dev , struct device_attribute *attr , 
 { struct it87_data *data ;
   struct it87_data *tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  u32 __cil_tmp9 ;
+  u32 __cil_tmp7 ;
 
   {
   {
@@ -10674,16 +8653,12 @@ static ssize_t show_alarms(struct device *dev , struct device_attribute *attr , 
 #line 1171
   data = tmp;
 #line 1172
-  __cil_tmp7 = (unsigned long )data;
+  __cil_tmp7 = data->alarms;
 #line 1172
-  __cil_tmp8 = __cil_tmp7 + 304;
-#line 1172
-  __cil_tmp9 = *((u32 *)__cil_tmp8);
-#line 1172
-  tmp___0 = sprintf(buf, "%u\n", __cil_tmp9);
+  tmp___0 = sprintf(buf, "%u\n", __cil_tmp7);
   }
 #line 1172
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 1174 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -10699,13 +8674,9 @@ static ssize_t show_alarm(struct device *dev , struct device_attribute *attr , c
   struct it87_data *tmp ;
   int tmp___0 ;
   struct sensor_device_attribute *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u32 __cil_tmp14 ;
-  u32 __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
+  u32 __cil_tmp10 ;
+  u32 __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
 
   {
   {
@@ -10714,30 +8685,22 @@ static ssize_t show_alarm(struct device *dev , struct device_attribute *attr , c
 #line 1179
   __cil_tmp9 = (struct sensor_device_attribute *)__mptr;
 #line 1179
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 1179
-  __cil_tmp11 = __cil_tmp10 + 48;
-#line 1179
-  bitnr = *((int *)__cil_tmp11);
+  bitnr = __cil_tmp9->index;
 #line 1180
   tmp = it87_update_device(dev);
 #line 1180
   data = tmp;
 #line 1181
-  __cil_tmp12 = (unsigned long )data;
+  __cil_tmp10 = data->alarms;
 #line 1181
-  __cil_tmp13 = __cil_tmp12 + 304;
+  __cil_tmp11 = __cil_tmp10 >> bitnr;
 #line 1181
-  __cil_tmp14 = *((u32 *)__cil_tmp13);
+  __cil_tmp12 = __cil_tmp11 & 1U;
 #line 1181
-  __cil_tmp15 = __cil_tmp14 >> bitnr;
-#line 1181
-  __cil_tmp16 = __cil_tmp15 & 1U;
-#line 1181
-  tmp___0 = sprintf(buf, "%u\n", __cil_tmp16);
+  tmp___0 = sprintf(buf, "%u\n", __cil_tmp12);
   }
 #line 1181
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 1183 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -10844,14 +8807,10 @@ static ssize_t show_beep(struct device *dev , struct device_attribute *attr , ch
   struct it87_data *tmp ;
   int tmp___0 ;
   struct sensor_device_attribute *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u8 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  int __cil_tmp17 ;
+  u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
 
   {
   {
@@ -10860,32 +8819,24 @@ static ssize_t show_beep(struct device *dev , struct device_attribute *attr , ch
 #line 1203
   __cil_tmp9 = (struct sensor_device_attribute *)__mptr;
 #line 1203
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 1203
-  __cil_tmp11 = __cil_tmp10 + 48;
-#line 1203
-  bitnr = *((int *)__cil_tmp11);
+  bitnr = __cil_tmp9->index;
 #line 1204
   tmp = it87_update_device(dev);
 #line 1204
   data = tmp;
 #line 1205
-  __cil_tmp12 = (unsigned long )data;
+  __cil_tmp10 = data->beeps;
 #line 1205
-  __cil_tmp13 = __cil_tmp12 + 308;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 1205
-  __cil_tmp14 = *((u8 *)__cil_tmp13);
+  __cil_tmp12 = __cil_tmp11 >> bitnr;
 #line 1205
-  __cil_tmp15 = (int )__cil_tmp14;
+  __cil_tmp13 = __cil_tmp12 & 1;
 #line 1205
-  __cil_tmp16 = __cil_tmp15 >> bitnr;
-#line 1205
-  __cil_tmp17 = __cil_tmp16 & 1;
-#line 1205
-  tmp___0 = sprintf(buf, "%u\n", __cil_tmp17);
+  tmp___0 = sprintf(buf, "%u\n", __cil_tmp13);
   }
 #line 1205
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 1207 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -10899,51 +8850,29 @@ static ssize_t set_beep(struct device *dev , struct device_attribute *attr , cha
   int tmp___0 ;
   int tmp___1 ;
   struct sensor_device_attribute *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct device  const  *__cil_tmp15 ;
-  long *__cil_tmp16 ;
-  long __cil_tmp17 ;
-  long *__cil_tmp18 ;
-  long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct mutex *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  long *__cil_tmp25 ;
-  long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  struct device  const  *__cil_tmp13 ;
+  struct mutex *__cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  int __cil_tmp16 ;
+  signed char __cil_tmp17 ;
+  int __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  signed char __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  signed char __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  signed char __cil_tmp28 ;
   int __cil_tmp29 ;
-  signed char __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  int __cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  int __cil_tmp33 ;
   u8 __cil_tmp34 ;
-  signed char __cil_tmp35 ;
-  int __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  int __cil_tmp40 ;
-  signed char __cil_tmp41 ;
-  int __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  u8 __cil_tmp46 ;
-  signed char __cil_tmp47 ;
-  int __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  u8 __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned char __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct mutex *__cil_tmp57 ;
+  struct mutex *__cil_tmp35 ;
 
   {
   {
@@ -10952,15 +8881,11 @@ static ssize_t set_beep(struct device *dev , struct device_attribute *attr , cha
 #line 1210
   __cil_tmp12 = (struct sensor_device_attribute *)__mptr;
 #line 1210
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
-#line 1210
-  __cil_tmp14 = __cil_tmp13 + 48;
-#line 1210
-  bitnr = *((int *)__cil_tmp14);
+  bitnr = __cil_tmp12->index;
 #line 1211
-  __cil_tmp15 = (struct device  const  *)dev;
+  __cil_tmp13 = (struct device  const  *)dev;
 #line 1211
-  tmp = dev_get_drvdata(__cil_tmp15);
+  tmp = dev_get_drvdata(__cil_tmp13);
 #line 1211
   data = (struct it87_data *)tmp;
 #line 1214
@@ -10970,134 +8895,87 @@ static ssize_t set_beep(struct device *dev , struct device_attribute *attr , cha
   if (tmp___0 < 0) {
 #line 1216
     return (-22L);
-  } else {
-    {
+  } else
 #line 1214
-    __cil_tmp16 = & val;
+  if (val != 0L) {
 #line 1214
-    __cil_tmp17 = *__cil_tmp16;
-#line 1214
-    if (__cil_tmp17 != 0L) {
-      {
-#line 1214
-      __cil_tmp18 = & val;
-#line 1214
-      __cil_tmp19 = *__cil_tmp18;
-#line 1214
-      if (__cil_tmp19 != 1L) {
+    if (val != 1L) {
 #line 1216
-        return (-22L);
-      } else {
-
-      }
-      }
+      return (-22L);
     } else {
 
     }
-    }
+  } else {
+
   }
   {
 #line 1218
-  __cil_tmp20 = (unsigned long )data;
+  __cil_tmp14 = & data->update_lock;
 #line 1218
-  __cil_tmp21 = __cil_tmp20 + 56;
-#line 1218
-  __cil_tmp22 = (struct mutex *)__cil_tmp21;
-#line 1218
-  mutex_lock_nested(__cil_tmp22, 0U);
+  mutex_lock_nested(__cil_tmp14, 0U);
 #line 1219
-  tmp___1 = it87_read_value(data, (unsigned char)92);
+  __cil_tmp15 = (u8 )92;
 #line 1219
-  __cil_tmp23 = (unsigned long )data;
+  tmp___1 = it87_read_value(data, __cil_tmp15);
 #line 1219
-  __cil_tmp24 = __cil_tmp23 + 308;
-#line 1219
-  *((u8 *)__cil_tmp24) = (unsigned char )tmp___1;
+  data->beeps = (u8 )tmp___1;
   }
-  {
 #line 1220
-  __cil_tmp25 = & val;
-#line 1220
-  __cil_tmp26 = *__cil_tmp25;
-#line 1220
-  if (__cil_tmp26 != 0L) {
+  if (val != 0L) {
 #line 1221
-    __cil_tmp27 = (unsigned long )data;
+    __cil_tmp16 = 1 << bitnr;
 #line 1221
-    __cil_tmp28 = __cil_tmp27 + 308;
+    __cil_tmp17 = (signed char )__cil_tmp16;
 #line 1221
-    __cil_tmp29 = 1 << bitnr;
+    __cil_tmp18 = (int )__cil_tmp17;
 #line 1221
-    __cil_tmp30 = (signed char )__cil_tmp29;
+    __cil_tmp19 = data->beeps;
 #line 1221
-    __cil_tmp31 = (int )__cil_tmp30;
+    __cil_tmp20 = (signed char )__cil_tmp19;
 #line 1221
-    __cil_tmp32 = (unsigned long )data;
+    __cil_tmp21 = (int )__cil_tmp20;
 #line 1221
-    __cil_tmp33 = __cil_tmp32 + 308;
+    __cil_tmp22 = __cil_tmp21 | __cil_tmp18;
 #line 1221
-    __cil_tmp34 = *((u8 *)__cil_tmp33);
-#line 1221
-    __cil_tmp35 = (signed char )__cil_tmp34;
-#line 1221
-    __cil_tmp36 = (int )__cil_tmp35;
-#line 1221
-    __cil_tmp37 = __cil_tmp36 | __cil_tmp31;
-#line 1221
-    *((u8 *)__cil_tmp28) = (unsigned char )__cil_tmp37;
+    data->beeps = (u8 )__cil_tmp22;
   } else {
 #line 1223
-    __cil_tmp38 = (unsigned long )data;
+    __cil_tmp23 = 1 << bitnr;
 #line 1223
-    __cil_tmp39 = __cil_tmp38 + 308;
+    __cil_tmp24 = (signed char )__cil_tmp23;
 #line 1223
-    __cil_tmp40 = 1 << bitnr;
+    __cil_tmp25 = (int )__cil_tmp24;
 #line 1223
-    __cil_tmp41 = (signed char )__cil_tmp40;
+    __cil_tmp26 = ~ __cil_tmp25;
 #line 1223
-    __cil_tmp42 = (int )__cil_tmp41;
+    __cil_tmp27 = data->beeps;
 #line 1223
-    __cil_tmp43 = ~ __cil_tmp42;
+    __cil_tmp28 = (signed char )__cil_tmp27;
 #line 1223
-    __cil_tmp44 = (unsigned long )data;
+    __cil_tmp29 = (int )__cil_tmp28;
 #line 1223
-    __cil_tmp45 = __cil_tmp44 + 308;
+    __cil_tmp30 = __cil_tmp29 & __cil_tmp26;
 #line 1223
-    __cil_tmp46 = *((u8 *)__cil_tmp45);
-#line 1223
-    __cil_tmp47 = (signed char )__cil_tmp46;
-#line 1223
-    __cil_tmp48 = (int )__cil_tmp47;
-#line 1223
-    __cil_tmp49 = __cil_tmp48 & __cil_tmp43;
-#line 1223
-    *((u8 *)__cil_tmp39) = (unsigned char )__cil_tmp49;
-  }
+    data->beeps = (u8 )__cil_tmp30;
   }
   {
 #line 1224
-  __cil_tmp50 = (unsigned long )data;
+  __cil_tmp31 = (u8 )92;
 #line 1224
-  __cil_tmp51 = __cil_tmp50 + 308;
+  __cil_tmp32 = data->beeps;
 #line 1224
-  __cil_tmp52 = *((u8 *)__cil_tmp51);
+  __cil_tmp33 = (int )__cil_tmp32;
 #line 1224
-  __cil_tmp53 = (int )__cil_tmp52;
+  __cil_tmp34 = (u8 )__cil_tmp33;
 #line 1224
-  __cil_tmp54 = (unsigned char )__cil_tmp53;
-#line 1224
-  it87_write_value(data, (unsigned char)92, __cil_tmp54);
+  it87_write_value(data, __cil_tmp31, __cil_tmp34);
 #line 1225
-  __cil_tmp55 = (unsigned long )data;
+  __cil_tmp35 = & data->update_lock;
 #line 1225
-  __cil_tmp56 = __cil_tmp55 + 56;
-#line 1225
-  __cil_tmp57 = (struct mutex *)__cil_tmp56;
-#line 1225
-  mutex_unlock(__cil_tmp57);
+  mutex_unlock(__cil_tmp35);
   }
 #line 1226
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 1230 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -11195,10 +9073,8 @@ static ssize_t show_vrm_reg(struct device *dev , struct device_attribute *attr ,
   void *tmp ;
   int tmp___0 ;
   struct device  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  u8 __cil_tmp10 ;
-  int __cil_tmp11 ;
+  u8 __cil_tmp8 ;
+  int __cil_tmp9 ;
 
   {
   {
@@ -11209,18 +9085,14 @@ static ssize_t show_vrm_reg(struct device *dev , struct device_attribute *attr ,
 #line 1252
   data = (struct it87_data *)tmp;
 #line 1253
-  __cil_tmp8 = (unsigned long )data;
+  __cil_tmp8 = data->vrm;
 #line 1253
-  __cil_tmp9 = __cil_tmp8 + 302;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 1253
-  __cil_tmp10 = *((u8 *)__cil_tmp9);
-#line 1253
-  __cil_tmp11 = (int )__cil_tmp10;
-#line 1253
-  tmp___0 = sprintf(buf, "%u\n", __cil_tmp11);
+  tmp___0 = sprintf(buf, "%u\n", __cil_tmp9);
   }
 #line 1253
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 1255 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -11231,10 +9103,6 @@ static ssize_t store_vrm_reg(struct device *dev , struct device_attribute *attr 
   unsigned long val ;
   int tmp___0 ;
   struct device  const  *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
 
   {
   {
@@ -11255,17 +9123,9 @@ static ssize_t store_vrm_reg(struct device *dev , struct device_attribute *attr 
 
   }
 #line 1264
-  __cil_tmp10 = (unsigned long )data;
-#line 1264
-  __cil_tmp11 = __cil_tmp10 + 302;
-#line 1264
-  __cil_tmp12 = & val;
-#line 1264
-  __cil_tmp13 = *__cil_tmp12;
-#line 1264
-  *((u8 *)__cil_tmp11) = (unsigned char )__cil_tmp13;
+  data->vrm = (u8 )val;
 #line 1266
-  return ((long )count);
+  return ((ssize_t )count);
 }
 }
 #line 1268 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -11278,16 +9138,12 @@ static ssize_t show_vid_reg(struct device *dev , struct device_attribute *attr ,
   struct it87_data *tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  u8 __cil_tmp8 ;
+  int __cil_tmp9 ;
   u8 __cil_tmp10 ;
   int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u8 __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned char __cil_tmp16 ;
-  long __cil_tmp17 ;
+  u8 __cil_tmp12 ;
+  long __cil_tmp13 ;
 
   {
   {
@@ -11296,32 +9152,24 @@ static ssize_t show_vid_reg(struct device *dev , struct device_attribute *attr ,
 #line 1273
   data = tmp;
 #line 1274
-  __cil_tmp8 = (unsigned long )data;
+  __cil_tmp8 = data->vid;
 #line 1274
-  __cil_tmp9 = __cil_tmp8 + 301;
+  __cil_tmp9 = (int )__cil_tmp8;
 #line 1274
-  __cil_tmp10 = *((u8 *)__cil_tmp9);
+  __cil_tmp10 = data->vrm;
 #line 1274
   __cil_tmp11 = (int )__cil_tmp10;
 #line 1274
-  __cil_tmp12 = (unsigned long )data;
+  __cil_tmp12 = (u8 )__cil_tmp11;
 #line 1274
-  __cil_tmp13 = __cil_tmp12 + 302;
+  tmp___0 = vid_from_reg(__cil_tmp9, __cil_tmp12);
 #line 1274
-  __cil_tmp14 = *((u8 *)__cil_tmp13);
+  __cil_tmp13 = (long )tmp___0;
 #line 1274
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 1274
-  __cil_tmp16 = (unsigned char )__cil_tmp15;
-#line 1274
-  tmp___0 = vid_from_reg(__cil_tmp11, __cil_tmp16);
-#line 1274
-  __cil_tmp17 = (long )tmp___0;
-#line 1274
-  tmp___1 = sprintf(buf, "%ld\n", __cil_tmp17);
+  tmp___1 = sprintf(buf, "%ld\n", __cil_tmp13);
   }
 #line 1274
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 1276 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -11339,110 +9187,50 @@ static ssize_t show_label(struct device *dev , struct device_attribute *attr , c
   struct device_attribute  const  *__mptr ;
   char const   *tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct device  const  *__cil_tmp24 ;
-  struct sensor_device_attribute *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  enum chips __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  struct device  const  *__cil_tmp12 ;
+  struct sensor_device_attribute *__cil_tmp13 ;
+  enum chips __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
 
   {
   {
 #line 1281
-  __cil_tmp12 = 0 * 8UL;
+  labels[0] = "+5V";
 #line 1281
-  __cil_tmp13 = (unsigned long )(labels) + __cil_tmp12;
+  labels[1] = "5VSB";
 #line 1281
-  *((char const   **)__cil_tmp13) = "+5V";
-#line 1281
-  __cil_tmp14 = 1 * 8UL;
-#line 1281
-  __cil_tmp15 = (unsigned long )(labels) + __cil_tmp14;
-#line 1281
-  *((char const   **)__cil_tmp15) = "5VSB";
-#line 1281
-  __cil_tmp16 = 2 * 8UL;
-#line 1281
-  __cil_tmp17 = (unsigned long )(labels) + __cil_tmp16;
-#line 1281
-  *((char const   **)__cil_tmp17) = "Vbat";
+  labels[2] = "Vbat";
 #line 1286
-  __cil_tmp18 = 0 * 8UL;
+  labels_it8721[0] = "+3.3V";
 #line 1286
-  __cil_tmp19 = (unsigned long )(labels_it8721) + __cil_tmp18;
+  labels_it8721[1] = "3VSB";
 #line 1286
-  *((char const   **)__cil_tmp19) = "+3.3V";
-#line 1286
-  __cil_tmp20 = 1 * 8UL;
-#line 1286
-  __cil_tmp21 = (unsigned long )(labels_it8721) + __cil_tmp20;
-#line 1286
-  *((char const   **)__cil_tmp21) = "3VSB";
-#line 1286
-  __cil_tmp22 = 2 * 8UL;
-#line 1286
-  __cil_tmp23 = (unsigned long )(labels_it8721) + __cil_tmp22;
-#line 1286
-  *((char const   **)__cil_tmp23) = "Vbat";
+  labels_it8721[2] = "Vbat";
 #line 1291
-  __cil_tmp24 = (struct device  const  *)dev;
+  __cil_tmp12 = (struct device  const  *)dev;
 #line 1291
-  tmp = dev_get_drvdata(__cil_tmp24);
+  tmp = dev_get_drvdata(__cil_tmp12);
 #line 1291
   data = (struct it87_data *)tmp;
 #line 1292
   __mptr = (struct device_attribute  const  *)attr;
 #line 1292
-  __cil_tmp25 = (struct sensor_device_attribute *)__mptr;
+  __cil_tmp13 = (struct sensor_device_attribute *)__mptr;
 #line 1292
-  __cil_tmp26 = (unsigned long )__cil_tmp25;
-#line 1292
-  __cil_tmp27 = __cil_tmp26 + 48;
-#line 1292
-  nr = *((int *)__cil_tmp27);
+  nr = __cil_tmp13->index;
   }
   {
 #line 1294
-  __cil_tmp28 = (unsigned long )data;
+  __cil_tmp14 = data->type;
 #line 1294
-  __cil_tmp29 = __cil_tmp28 + 8;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 1294
-  __cil_tmp30 = *((enum chips *)__cil_tmp29);
+  if (__cil_tmp15 == 5U) {
 #line 1294
-  __cil_tmp31 = (unsigned int )__cil_tmp30;
-#line 1294
-  if (__cil_tmp31 == 5U) {
-#line 1294
-    __cil_tmp32 = nr * 8UL;
-#line 1294
-    __cil_tmp33 = (unsigned long )(labels_it8721) + __cil_tmp32;
-#line 1294
-    tmp___0 = *((char const   **)__cil_tmp33);
+    tmp___0 = labels_it8721[nr];
   } else {
 #line 1294
-    __cil_tmp34 = nr * 8UL;
-#line 1294
-    __cil_tmp35 = (unsigned long )(labels) + __cil_tmp34;
-#line 1294
-    tmp___0 = *((char const   **)__cil_tmp35);
+    tmp___0 = labels[nr];
   }
   }
   {
@@ -11450,7 +9238,7 @@ static ssize_t show_label(struct device *dev , struct device_attribute *attr , c
   tmp___1 = sprintf(buf, "%s\n", tmp___0);
   }
 #line 1294
-  return ((long )tmp___1);
+  return ((ssize_t )tmp___1);
 }
 }
 #line 1297 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -11477,9 +9265,7 @@ static ssize_t show_name(struct device *dev , struct device_attribute *devattr ,
   void *tmp ;
   int tmp___0 ;
   struct device  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  char const   *__cil_tmp10 ;
+  char const   *__cil_tmp8 ;
 
   {
   {
@@ -11490,16 +9276,12 @@ static ssize_t show_name(struct device *dev , struct device_attribute *devattr ,
 #line 1304
   data = (struct it87_data *)tmp;
 #line 1305
-  __cil_tmp8 = (unsigned long )data;
+  __cil_tmp8 = data->name;
 #line 1305
-  __cil_tmp9 = __cil_tmp8 + 48;
-#line 1305
-  __cil_tmp10 = *((char const   **)__cil_tmp9);
-#line 1305
-  tmp___0 = sprintf(buf, "%s\n", __cil_tmp10);
+  tmp___0 = sprintf(buf, "%s\n", __cil_tmp8);
   }
 #line 1305
-  return ((long )tmp___0);
+  return ((ssize_t )tmp___0);
 }
 }
 #line 1307 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
@@ -11664,122 +9446,70 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
   unsigned int __cil_tmp30 ;
   unsigned short __cil_tmp31 ;
   unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned char __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
+  u8 __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  unsigned short __cil_tmp37 ;
   int __cil_tmp38 ;
-  unsigned short __cil_tmp39 ;
+  u8 __cil_tmp39 ;
   int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  enum chips __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
   u8 __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  enum chips __cil_tmp47 ;
-  unsigned int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  enum chips __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  int __cil_tmp49 ;
+  u8 __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  int __cil_tmp53 ;
+  u8 __cil_tmp54 ;
   unsigned int __cil_tmp55 ;
-  enum chips __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  u8 __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
+  unsigned int __cil_tmp56 ;
+  int __cil_tmp57 ;
+  u8 __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  int __cil_tmp61 ;
+  u8 __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  enum chips __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  enum chips __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  u8 __cil_tmp69 ;
   unsigned int __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  u8 __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  unsigned int __cil_tmp78 ;
-  int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  u8 __cil_tmp84 ;
+  enum chips __cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
+  int __cil_tmp73 ;
+  u8 __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
+  unsigned int __cil_tmp76 ;
+  int __cil_tmp77 ;
+  u8 __cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  enum chips __cil_tmp81 ;
+  unsigned int __cil_tmp82 ;
+  u8 __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
   unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  u8 __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  unsigned int __cil_tmp94 ;
-  enum chips __cil_tmp95 ;
-  unsigned int __cil_tmp96 ;
-  enum chips __cil_tmp97 ;
-  unsigned int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  u8 __cil_tmp101 ;
-  unsigned int __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  enum chips __cil_tmp105 ;
-  unsigned int __cil_tmp106 ;
-  int __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  u8 __cil_tmp112 ;
-  unsigned int __cil_tmp113 ;
-  unsigned int __cil_tmp114 ;
-  int __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  u8 __cil_tmp120 ;
-  unsigned int __cil_tmp121 ;
-  unsigned int __cil_tmp122 ;
-  enum chips __cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  u8 __cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
-  unsigned int __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned char __cil_tmp134 ;
-  unsigned int __cil_tmp135 ;
-  unsigned int __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  u8 __cil_tmp139 ;
-  unsigned int __cil_tmp140 ;
-  char const   *__cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  char const   *__cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
+  u8 __cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  u8 __cil_tmp89 ;
+  unsigned int __cil_tmp90 ;
+  char const   *__cil_tmp91 ;
+  unsigned long __cil_tmp92 ;
+  unsigned long __cil_tmp93 ;
+  char const   *__cil_tmp94 ;
+  unsigned long __cil_tmp95 ;
+  unsigned long __cil_tmp96 ;
 
   {
   {
@@ -11804,7 +9534,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1565
     tmp = superio_inw(32);
 #line 1565
-    chip_type = (unsigned short )tmp;
+    chip_type = (u16 )tmp;
     }
   } else {
 #line 1565
@@ -11816,6 +9546,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
   __cil_tmp18 = (int )chip_type;
 #line 1568
   if (__cil_tmp18 == 34565) {
+#line 1568
     goto case_34565;
   } else {
     {
@@ -11823,6 +9554,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
     __cil_tmp19 = (int )chip_type;
 #line 1571
     if (__cil_tmp19 == 34578) {
+#line 1571
       goto case_34578;
     } else {
       {
@@ -11830,6 +9562,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
       __cil_tmp20 = (int )chip_type;
 #line 1574
       if (__cil_tmp20 == 34582) {
+#line 1574
         goto case_34582;
       } else {
         {
@@ -11837,6 +9570,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
         __cil_tmp21 = (int )chip_type;
 #line 1575
         if (__cil_tmp21 == 34598) {
+#line 1575
           goto case_34598;
         } else {
           {
@@ -11844,6 +9578,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
           __cil_tmp22 = (int )chip_type;
 #line 1578
           if (__cil_tmp22 == 34584) {
+#line 1578
             goto case_34584;
           } else {
             {
@@ -11851,6 +9586,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
             __cil_tmp23 = (int )chip_type;
 #line 1581
             if (__cil_tmp23 == 34592) {
+#line 1581
               goto case_34592;
             } else {
               {
@@ -11858,6 +9594,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
               __cil_tmp24 = (int )chip_type;
 #line 1584
               if (__cil_tmp24 == 34593) {
+#line 1584
                 goto case_34593;
               } else {
                 {
@@ -11865,37 +9602,46 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
                 __cil_tmp25 = (int )chip_type;
 #line 1587
                 if (__cil_tmp25 == 65535) {
+#line 1587
                   goto case_65535;
                 } else {
+#line 1589
                   goto switch_default;
 #line 1567
                   if (0) {
                     case_34565: 
 #line 1569
-                    *((enum chips *)sio_data) = (enum chips )0;
+                    sio_data->type = (enum chips )0;
+#line 1570
                     goto ldv_24855;
                     case_34578: 
 #line 1572
-                    *((enum chips *)sio_data) = (enum chips )1;
+                    sio_data->type = (enum chips )1;
+#line 1573
                     goto ldv_24855;
                     case_34582: ;
                     case_34598: 
 #line 1576
-                    *((enum chips *)sio_data) = (enum chips )2;
+                    sio_data->type = (enum chips )2;
+#line 1577
                     goto ldv_24855;
                     case_34584: 
 #line 1579
-                    *((enum chips *)sio_data) = (enum chips )3;
+                    sio_data->type = (enum chips )3;
+#line 1580
                     goto ldv_24855;
                     case_34592: 
 #line 1582
-                    *((enum chips *)sio_data) = (enum chips )4;
+                    sio_data->type = (enum chips )4;
+#line 1583
                     goto ldv_24855;
                     case_34593: 
 #line 1585
-                    *((enum chips *)sio_data) = (enum chips )5;
+                    sio_data->type = (enum chips )5;
+#line 1586
                     goto ldv_24855;
                     case_65535: ;
+#line 1588
                     goto exit;
                     switch_default: 
                     {
@@ -11904,6 +9650,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1590
                     printk("<7>it87: Unsupported chip (DEVID=0x%x)\n", __cil_tmp26);
                     }
+#line 1591
                     goto exit;
                   } else {
 
@@ -11940,6 +9687,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1596
     printk("<6>it87: Device not activated, skipping\n");
     }
+#line 1597
     goto exit;
   } else {
 
@@ -11968,6 +9716,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1602
     printk("<6>it87: Base address not set, skipping\n");
     }
+#line 1603
     goto exit;
   } else {
 
@@ -11979,71 +9728,51 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1607
   tmp___2 = superio_inb(34);
 #line 1607
-  __cil_tmp33 = (unsigned long )sio_data;
+  __cil_tmp33 = (u8 )tmp___2;
 #line 1607
-  __cil_tmp34 = __cil_tmp33 + 32;
+  __cil_tmp34 = (unsigned int )__cil_tmp33;
 #line 1607
-  __cil_tmp35 = (unsigned char )tmp___2;
+  __cil_tmp35 = __cil_tmp34 & 15U;
 #line 1607
-  __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 1607
-  __cil_tmp37 = __cil_tmp36 & 15U;
-#line 1607
-  *((u8 *)__cil_tmp34) = (unsigned char )__cil_tmp37;
+  sio_data->revision = (u8 )__cil_tmp35;
 #line 1608
-  __cil_tmp38 = (int )chip_type;
+  __cil_tmp36 = (int )chip_type;
 #line 1608
-  __cil_tmp39 = *address;
+  __cil_tmp37 = *address;
+#line 1608
+  __cil_tmp38 = (int )__cil_tmp37;
+#line 1608
+  __cil_tmp39 = sio_data->revision;
 #line 1608
   __cil_tmp40 = (int )__cil_tmp39;
 #line 1608
-  __cil_tmp41 = (unsigned long )sio_data;
-#line 1608
-  __cil_tmp42 = __cil_tmp41 + 32;
-#line 1608
-  __cil_tmp43 = *((u8 *)__cil_tmp42);
-#line 1608
-  __cil_tmp44 = (int )__cil_tmp43;
-#line 1608
-  printk("<6>it87: Found IT%04xF chip at 0x%x, revision %d\n", __cil_tmp38, __cil_tmp40,
-         __cil_tmp44);
+  printk("<6>it87: Found IT%04xF chip at 0x%x, revision %d\n", __cil_tmp36, __cil_tmp38,
+         __cil_tmp40);
 #line 1612
-  __cil_tmp45 = (unsigned long )sio_data;
-#line 1612
-  __cil_tmp46 = __cil_tmp45 + 35;
-#line 1612
-  *((u8 *)__cil_tmp46) = (unsigned char)4;
+  sio_data->internal = (u8 )4U;
   }
   {
 #line 1615
-  __cil_tmp47 = *((enum chips *)sio_data);
+  __cil_tmp41 = sio_data->type;
 #line 1615
-  __cil_tmp48 = (unsigned int )__cil_tmp47;
+  __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 1615
-  if (__cil_tmp48 == 0U) {
+  if (__cil_tmp42 == 0U) {
     {
 #line 1617
-    __cil_tmp49 = (unsigned long )sio_data;
-#line 1617
-    __cil_tmp50 = __cil_tmp49 + 36;
-#line 1617
-    *((u8 *)__cil_tmp50) = (unsigned char)1;
+    sio_data->skip_vid = (u8 )1U;
 #line 1620
     superio_select(5);
 #line 1621
     tmp___3 = superio_inb(246);
 #line 1621
-    __cil_tmp51 = (unsigned long )sio_data;
+    __cil_tmp43 = (u8 )tmp___3;
 #line 1621
-    __cil_tmp52 = __cil_tmp51 + 34;
+    __cil_tmp44 = (unsigned int )__cil_tmp43;
 #line 1621
-    __cil_tmp53 = (unsigned char )tmp___3;
+    __cil_tmp45 = __cil_tmp44 & 63U;
 #line 1621
-    __cil_tmp54 = (unsigned int )__cil_tmp53;
-#line 1621
-    __cil_tmp55 = __cil_tmp54 & 63U;
-#line 1621
-    *((u8 *)__cil_tmp52) = (unsigned char )__cil_tmp55;
+    sio_data->beep_pin = (u8 )__cil_tmp45;
     }
   } else {
     {
@@ -12054,32 +9783,24 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
     }
     {
 #line 1628
-    __cil_tmp56 = *((enum chips *)sio_data);
+    __cil_tmp46 = sio_data->type;
 #line 1628
-    __cil_tmp57 = (unsigned int )__cil_tmp56;
+    __cil_tmp47 = (unsigned int )__cil_tmp46;
 #line 1628
-    if (__cil_tmp57 == 5U) {
+    if (__cil_tmp47 == 5U) {
 #line 1630
-      __cil_tmp58 = (unsigned long )sio_data;
-#line 1630
-      __cil_tmp59 = __cil_tmp58 + 36;
-#line 1630
-      *((u8 *)__cil_tmp59) = (unsigned char)1;
+      sio_data->skip_vid = (u8 )1U;
     } else {
       {
 #line 1633
-      __cil_tmp60 = reg & 15;
+      __cil_tmp48 = reg & 15;
 #line 1633
-      if (__cil_tmp60 != 0) {
+      if (__cil_tmp48 != 0) {
         {
 #line 1634
         printk("<6>it87: VID is disabled (pins used for GPIO)\n");
 #line 1635
-        __cil_tmp61 = (unsigned long )sio_data;
-#line 1635
-        __cil_tmp62 = __cil_tmp61 + 36;
-#line 1635
-        *((u8 *)__cil_tmp62) = (unsigned char)1;
+        sio_data->skip_vid = (u8 )1U;
         }
       } else {
 
@@ -12089,50 +9810,34 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
     }
     {
 #line 1640
-    __cil_tmp63 = reg & 64;
+    __cil_tmp49 = reg & 64;
 #line 1640
-    if (__cil_tmp63 != 0) {
+    if (__cil_tmp49 != 0) {
 #line 1641
-      __cil_tmp64 = (unsigned long )sio_data;
+      __cil_tmp50 = sio_data->skip_pwm;
 #line 1641
-      __cil_tmp65 = __cil_tmp64 + 38;
+      __cil_tmp51 = (unsigned int )__cil_tmp50;
 #line 1641
-      __cil_tmp66 = (unsigned long )sio_data;
+      __cil_tmp52 = __cil_tmp51 | 4U;
 #line 1641
-      __cil_tmp67 = __cil_tmp66 + 38;
-#line 1641
-      __cil_tmp68 = *((u8 *)__cil_tmp67);
-#line 1641
-      __cil_tmp69 = (unsigned int )__cil_tmp68;
-#line 1641
-      __cil_tmp70 = __cil_tmp69 | 4U;
-#line 1641
-      *((u8 *)__cil_tmp65) = (unsigned char )__cil_tmp70;
+      sio_data->skip_pwm = (u8 )__cil_tmp52;
     } else {
 
     }
     }
     {
 #line 1642
-    __cil_tmp71 = reg & 128;
+    __cil_tmp53 = reg & 128;
 #line 1642
-    if (__cil_tmp71 != 0) {
+    if (__cil_tmp53 != 0) {
 #line 1643
-      __cil_tmp72 = (unsigned long )sio_data;
+      __cil_tmp54 = sio_data->skip_fan;
 #line 1643
-      __cil_tmp73 = __cil_tmp72 + 37;
+      __cil_tmp55 = (unsigned int )__cil_tmp54;
 #line 1643
-      __cil_tmp74 = (unsigned long )sio_data;
+      __cil_tmp56 = __cil_tmp55 | 4U;
 #line 1643
-      __cil_tmp75 = __cil_tmp74 + 37;
-#line 1643
-      __cil_tmp76 = *((u8 *)__cil_tmp75);
-#line 1643
-      __cil_tmp77 = (unsigned int )__cil_tmp76;
-#line 1643
-      __cil_tmp78 = __cil_tmp77 | 4U;
-#line 1643
-      *((u8 *)__cil_tmp73) = (unsigned char )__cil_tmp78;
+      sio_data->skip_fan = (u8 )__cil_tmp56;
     } else {
 
     }
@@ -12143,91 +9848,68 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
     }
     {
 #line 1647
-    __cil_tmp79 = reg & 2;
+    __cil_tmp57 = reg & 2;
 #line 1647
-    if (__cil_tmp79 != 0) {
+    if (__cil_tmp57 != 0) {
 #line 1648
-      __cil_tmp80 = (unsigned long )sio_data;
+      __cil_tmp58 = sio_data->skip_pwm;
 #line 1648
-      __cil_tmp81 = __cil_tmp80 + 38;
+      __cil_tmp59 = (unsigned int )__cil_tmp58;
 #line 1648
-      __cil_tmp82 = (unsigned long )sio_data;
+      __cil_tmp60 = __cil_tmp59 | 2U;
 #line 1648
-      __cil_tmp83 = __cil_tmp82 + 38;
-#line 1648
-      __cil_tmp84 = *((u8 *)__cil_tmp83);
-#line 1648
-      __cil_tmp85 = (unsigned int )__cil_tmp84;
-#line 1648
-      __cil_tmp86 = __cil_tmp85 | 2U;
-#line 1648
-      *((u8 *)__cil_tmp81) = (unsigned char )__cil_tmp86;
+      sio_data->skip_pwm = (u8 )__cil_tmp60;
     } else {
 
     }
     }
     {
 #line 1649
-    __cil_tmp87 = reg & 4;
+    __cil_tmp61 = reg & 4;
 #line 1649
-    if (__cil_tmp87 != 0) {
+    if (__cil_tmp61 != 0) {
 #line 1650
-      __cil_tmp88 = (unsigned long )sio_data;
+      __cil_tmp62 = sio_data->skip_fan;
 #line 1650
-      __cil_tmp89 = __cil_tmp88 + 37;
+      __cil_tmp63 = (unsigned int )__cil_tmp62;
 #line 1650
-      __cil_tmp90 = (unsigned long )sio_data;
+      __cil_tmp64 = __cil_tmp63 | 2U;
 #line 1650
-      __cil_tmp91 = __cil_tmp90 + 37;
-#line 1650
-      __cil_tmp92 = *((u8 *)__cil_tmp91);
-#line 1650
-      __cil_tmp93 = (unsigned int )__cil_tmp92;
-#line 1650
-      __cil_tmp94 = __cil_tmp93 | 2U;
-#line 1650
-      *((u8 *)__cil_tmp89) = (unsigned char )__cil_tmp94;
+      sio_data->skip_fan = (u8 )__cil_tmp64;
     } else {
 
     }
     }
     {
 #line 1652
-    __cil_tmp95 = *((enum chips *)sio_data);
+    __cil_tmp65 = sio_data->type;
 #line 1652
-    __cil_tmp96 = (unsigned int )__cil_tmp95;
+    __cil_tmp66 = (unsigned int )__cil_tmp65;
 #line 1652
-    if (__cil_tmp96 == 3U) {
+    if (__cil_tmp66 == 3U) {
+#line 1652
       goto _L;
     } else {
       {
 #line 1652
-      __cil_tmp97 = *((enum chips *)sio_data);
+      __cil_tmp67 = sio_data->type;
 #line 1652
-      __cil_tmp98 = (unsigned int )__cil_tmp97;
+      __cil_tmp68 = (unsigned int )__cil_tmp67;
 #line 1652
-      if (__cil_tmp98 == 4U) {
+      if (__cil_tmp68 == 4U) {
         _L: 
         {
 #line 1652
-        __cil_tmp99 = (unsigned long )sio_data;
+        __cil_tmp69 = sio_data->skip_vid;
 #line 1652
-        __cil_tmp100 = __cil_tmp99 + 36;
+        __cil_tmp70 = (unsigned int )__cil_tmp69;
 #line 1652
-        __cil_tmp101 = *((u8 *)__cil_tmp100);
-#line 1652
-        __cil_tmp102 = (unsigned int )__cil_tmp101;
-#line 1652
-        if (__cil_tmp102 == 0U) {
+        if (__cil_tmp70 == 0U) {
           {
 #line 1654
           tmp___4 = superio_inb(252);
 #line 1654
-          __cil_tmp103 = (unsigned long )sio_data;
-#line 1654
-          __cil_tmp104 = __cil_tmp103 + 33;
-#line 1654
-          *((u8 *)__cil_tmp104) = (unsigned char )tmp___4;
+          sio_data->vid_value = (u8 )tmp___4;
           }
         } else {
 
@@ -12245,16 +9927,16 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
     }
     {
 #line 1667
-    __cil_tmp105 = *((enum chips *)sio_data);
+    __cil_tmp71 = sio_data->type;
 #line 1667
-    __cil_tmp106 = (unsigned int )__cil_tmp105;
+    __cil_tmp72 = (unsigned int )__cil_tmp71;
 #line 1667
-    if (__cil_tmp106 == 4U) {
+    if (__cil_tmp72 == 4U) {
       {
 #line 1667
-      __cil_tmp107 = reg & 2;
+      __cil_tmp73 = reg & 2;
 #line 1667
-      if (__cil_tmp107 == 0) {
+      if (__cil_tmp73 == 0) {
         {
 #line 1668
         reg = reg | 2;
@@ -12274,69 +9956,45 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1672
     if (reg & 1) {
 #line 1673
-      __cil_tmp108 = (unsigned long )sio_data;
+      __cil_tmp74 = sio_data->internal;
 #line 1673
-      __cil_tmp109 = __cil_tmp108 + 35;
+      __cil_tmp75 = (unsigned int )__cil_tmp74;
 #line 1673
-      __cil_tmp110 = (unsigned long )sio_data;
+      __cil_tmp76 = __cil_tmp75 | 1U;
 #line 1673
-      __cil_tmp111 = __cil_tmp110 + 35;
-#line 1673
-      __cil_tmp112 = *((u8 *)__cil_tmp111);
-#line 1673
-      __cil_tmp113 = (unsigned int )__cil_tmp112;
-#line 1673
-      __cil_tmp114 = __cil_tmp113 | 1U;
-#line 1673
-      *((u8 *)__cil_tmp109) = (unsigned char )__cil_tmp114;
+      sio_data->internal = (u8 )__cil_tmp76;
     } else {
 
     }
     {
 #line 1674
-    __cil_tmp115 = reg & 2;
+    __cil_tmp77 = reg & 2;
 #line 1674
-    if (__cil_tmp115 != 0) {
+    if (__cil_tmp77 != 0) {
 #line 1675
-      __cil_tmp116 = (unsigned long )sio_data;
+      __cil_tmp78 = sio_data->internal;
 #line 1675
-      __cil_tmp117 = __cil_tmp116 + 35;
+      __cil_tmp79 = (unsigned int )__cil_tmp78;
 #line 1675
-      __cil_tmp118 = (unsigned long )sio_data;
+      __cil_tmp80 = __cil_tmp79 | 2U;
 #line 1675
-      __cil_tmp119 = __cil_tmp118 + 35;
-#line 1675
-      __cil_tmp120 = *((u8 *)__cil_tmp119);
-#line 1675
-      __cil_tmp121 = (unsigned int )__cil_tmp120;
-#line 1675
-      __cil_tmp122 = __cil_tmp121 | 2U;
-#line 1675
-      *((u8 *)__cil_tmp117) = (unsigned char )__cil_tmp122;
+      sio_data->internal = (u8 )__cil_tmp80;
     } else {
       {
 #line 1674
-      __cil_tmp123 = *((enum chips *)sio_data);
+      __cil_tmp81 = sio_data->type;
 #line 1674
-      __cil_tmp124 = (unsigned int )__cil_tmp123;
+      __cil_tmp82 = (unsigned int )__cil_tmp81;
 #line 1674
-      if (__cil_tmp124 == 5U) {
+      if (__cil_tmp82 == 5U) {
 #line 1675
-        __cil_tmp125 = (unsigned long )sio_data;
+        __cil_tmp83 = sio_data->internal;
 #line 1675
-        __cil_tmp126 = __cil_tmp125 + 35;
+        __cil_tmp84 = (unsigned int )__cil_tmp83;
 #line 1675
-        __cil_tmp127 = (unsigned long )sio_data;
+        __cil_tmp85 = __cil_tmp84 | 2U;
 #line 1675
-        __cil_tmp128 = __cil_tmp127 + 35;
-#line 1675
-        __cil_tmp129 = *((u8 *)__cil_tmp128);
-#line 1675
-        __cil_tmp130 = (unsigned int )__cil_tmp129;
-#line 1675
-        __cil_tmp131 = __cil_tmp130 | 2U;
-#line 1675
-        *((u8 *)__cil_tmp126) = (unsigned char )__cil_tmp131;
+        sio_data->internal = (u8 )__cil_tmp85;
       } else {
 
       }
@@ -12347,31 +10005,23 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1677
     tmp___5 = superio_inb(246);
 #line 1677
-    __cil_tmp132 = (unsigned long )sio_data;
+    __cil_tmp86 = (u8 )tmp___5;
 #line 1677
-    __cil_tmp133 = __cil_tmp132 + 34;
+    __cil_tmp87 = (unsigned int )__cil_tmp86;
 #line 1677
-    __cil_tmp134 = (unsigned char )tmp___5;
+    __cil_tmp88 = __cil_tmp87 & 63U;
 #line 1677
-    __cil_tmp135 = (unsigned int )__cil_tmp134;
-#line 1677
-    __cil_tmp136 = __cil_tmp135 & 63U;
-#line 1677
-    *((u8 *)__cil_tmp133) = (unsigned char )__cil_tmp136;
+    sio_data->beep_pin = (u8 )__cil_tmp88;
     }
   }
   }
   {
 #line 1679
-  __cil_tmp137 = (unsigned long )sio_data;
+  __cil_tmp89 = sio_data->beep_pin;
 #line 1679
-  __cil_tmp138 = __cil_tmp137 + 34;
+  __cil_tmp90 = (unsigned int )__cil_tmp89;
 #line 1679
-  __cil_tmp139 = *((u8 *)__cil_tmp138);
-#line 1679
-  __cil_tmp140 = (unsigned int )__cil_tmp139;
-#line 1679
-  if (__cil_tmp140 != 0U) {
+  if (__cil_tmp90 != 0U) {
     {
 #line 1680
     printk("<6>it87: Beeping is supported\n");
@@ -12388,22 +10038,22 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
   }
   {
 #line 1685
-  __cil_tmp141 = (char const   *)0;
+  __cil_tmp91 = (char const   *)0;
 #line 1685
-  __cil_tmp142 = (unsigned long )__cil_tmp141;
+  __cil_tmp92 = (unsigned long )__cil_tmp91;
 #line 1685
-  __cil_tmp143 = (unsigned long )board_vendor;
+  __cil_tmp93 = (unsigned long )board_vendor;
 #line 1685
-  if (__cil_tmp143 != __cil_tmp142) {
+  if (__cil_tmp93 != __cil_tmp92) {
     {
 #line 1685
-    __cil_tmp144 = (char const   *)0;
+    __cil_tmp94 = (char const   *)0;
 #line 1685
-    __cil_tmp145 = (unsigned long )__cil_tmp144;
+    __cil_tmp95 = (unsigned long )__cil_tmp94;
 #line 1685
-    __cil_tmp146 = (unsigned long )board_name;
+    __cil_tmp96 = (unsigned long )board_name;
 #line 1685
-    if (__cil_tmp146 != __cil_tmp145) {
+    if (__cil_tmp96 != __cil_tmp95) {
       {
 #line 1686
       tmp___6 = strcmp(board_vendor, "nVIDIA");
@@ -12420,11 +10070,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
 #line 1694
           printk("<6>it87: Disabling pwm2 due to hardware constraints\n");
 #line 1695
-          __cil_tmp147 = (unsigned long )sio_data;
-#line 1695
-          __cil_tmp148 = __cil_tmp147 + 38;
-#line 1695
-          *((u8 *)__cil_tmp148) = (unsigned char)2;
+          sio_data->skip_pwm = (u8 )2U;
           }
         } else {
 
@@ -12459,69 +10105,38 @@ static void it87_remove_files(struct device *dev )
   int i ;
   int tmp___1 ;
   struct platform_device  const  *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  struct it87_data  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct kobject *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  u8 __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
+  void *__cil_tmp10 ;
+  struct it87_data  const  *__cil_tmp11 ;
+  struct kobject *__cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  struct kobject *__cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  struct kobject *__cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct kobject *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  u8 __cil_tmp26 ;
-  int __cil_tmp27 ;
+  struct attribute_group  const  *__cil_tmp22 ;
+  u8 __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  struct kobject *__cil_tmp25 ;
+  struct attribute  const  *__cil_tmp26 ;
+  u8 __cil_tmp27 ;
   int __cil_tmp28 ;
-  int __cil_tmp29 ;
+  struct kobject *__cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct kobject *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct attribute_group  const  *__cil_tmp34 ;
+  struct attribute_group  const  *__cil_tmp31 ;
+  struct attribute_group  const  *__cil_tmp32 ;
+  struct it87_data  const  *__cil_tmp33 ;
+  struct kobject *__cil_tmp34 ;
   unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  u8 __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
+  struct attribute_group  const  *__cil_tmp36 ;
+  struct attribute_group  const  *__cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  struct kobject *__cil_tmp40 ;
   struct kobject *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct attribute *__cil_tmp44 ;
-  struct attribute  const  *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  u8 __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct kobject *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct attribute_group  const  *__cil_tmp54 ;
-  struct attribute_group  const  *__cil_tmp55 ;
-  struct it87_data  const  *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  struct kobject *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct attribute_group  const  *__cil_tmp61 ;
-  struct attribute_group  const  *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  u8 __cil_tmp65 ;
-  unsigned int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct kobject *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  struct kobject *__cil_tmp72 ;
 
   {
   {
@@ -12532,48 +10147,32 @@ static void it87_remove_files(struct device *dev )
 #line 1706
   data = (struct it87_data *)tmp;
 #line 1707
-  __cil_tmp10 = (unsigned long )dev;
+  __cil_tmp10 = dev->platform_data;
 #line 1707
-  __cil_tmp11 = __cil_tmp10 + 280;
-#line 1707
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 1707
-  sio_data = (struct it87_sio_data *)__cil_tmp12;
+  sio_data = (struct it87_sio_data *)__cil_tmp10;
 #line 1708
-  __cil_tmp13 = (struct it87_data  const  *)data;
+  __cil_tmp11 = (struct it87_data  const  *)data;
 #line 1708
-  tmp___0 = it87_get_fan_group(__cil_tmp13);
+  tmp___0 = it87_get_fan_group(__cil_tmp11);
 #line 1708
   fan_group = tmp___0;
 #line 1711
-  __cil_tmp14 = (unsigned long )dev;
+  __cil_tmp12 = & dev->kobj;
 #line 1711
-  __cil_tmp15 = __cil_tmp14 + 16;
-#line 1711
-  __cil_tmp16 = (struct kobject *)__cil_tmp15;
-#line 1711
-  sysfs_remove_group(__cil_tmp16, & it87_group);
+  sysfs_remove_group(__cil_tmp12, & it87_group);
   }
   {
 #line 1712
-  __cil_tmp17 = (unsigned long )sio_data;
+  __cil_tmp13 = sio_data->beep_pin;
 #line 1712
-  __cil_tmp18 = __cil_tmp17 + 34;
+  __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 1712
-  __cil_tmp19 = *((u8 *)__cil_tmp18);
-#line 1712
-  __cil_tmp20 = (unsigned int )__cil_tmp19;
-#line 1712
-  if (__cil_tmp20 != 0U) {
+  if (__cil_tmp14 != 0U) {
     {
 #line 1713
-    __cil_tmp21 = (unsigned long )dev;
+    __cil_tmp15 = & dev->kobj;
 #line 1713
-    __cil_tmp22 = __cil_tmp21 + 16;
-#line 1713
-    __cil_tmp23 = (struct kobject *)__cil_tmp22;
-#line 1713
-    sysfs_remove_group(__cil_tmp23, & it87_group_beep);
+    sysfs_remove_group(__cil_tmp15, & it87_group_beep);
     }
   } else {
 
@@ -12581,23 +10180,21 @@ static void it87_remove_files(struct device *dev )
   }
 #line 1714
   i = 0;
+#line 1714
   goto ldv_24875;
   ldv_24874: ;
   {
 #line 1715
-  __cil_tmp24 = (unsigned long )data;
+  __cil_tmp16 = data->has_fan;
 #line 1715
-  __cil_tmp25 = __cil_tmp24 + 267;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 1715
-  __cil_tmp26 = *((u8 *)__cil_tmp25);
+  __cil_tmp18 = __cil_tmp17 >> i;
 #line 1715
-  __cil_tmp27 = (int )__cil_tmp26;
+  __cil_tmp19 = __cil_tmp18 & 1;
 #line 1715
-  __cil_tmp28 = __cil_tmp27 >> i;
-#line 1715
-  __cil_tmp29 = __cil_tmp28 & 1;
-#line 1715
-  if (__cil_tmp29 == 0) {
+  if (__cil_tmp19 == 0) {
+#line 1716
     goto ldv_24873;
   } else {
 
@@ -12605,46 +10202,28 @@ static void it87_remove_files(struct device *dev )
   }
   {
 #line 1717
-  __cil_tmp30 = (unsigned long )dev;
+  __cil_tmp20 = & dev->kobj;
 #line 1717
-  __cil_tmp31 = __cil_tmp30 + 16;
+  __cil_tmp21 = (unsigned long )i;
 #line 1717
-  __cil_tmp32 = (struct kobject *)__cil_tmp31;
+  __cil_tmp22 = fan_group + __cil_tmp21;
 #line 1717
-  __cil_tmp33 = (unsigned long )i;
-#line 1717
-  __cil_tmp34 = fan_group + __cil_tmp33;
-#line 1717
-  sysfs_remove_group(__cil_tmp32, __cil_tmp34);
+  sysfs_remove_group(__cil_tmp20, __cil_tmp22);
   }
   {
 #line 1718
-  __cil_tmp35 = (unsigned long )sio_data;
+  __cil_tmp23 = sio_data->beep_pin;
 #line 1718
-  __cil_tmp36 = __cil_tmp35 + 34;
+  __cil_tmp24 = (unsigned int )__cil_tmp23;
 #line 1718
-  __cil_tmp37 = *((u8 *)__cil_tmp36);
-#line 1718
-  __cil_tmp38 = (unsigned int )__cil_tmp37;
-#line 1718
-  if (__cil_tmp38 != 0U) {
+  if (__cil_tmp24 != 0U) {
     {
 #line 1719
-    __cil_tmp39 = (unsigned long )dev;
+    __cil_tmp25 = & dev->kobj;
 #line 1719
-    __cil_tmp40 = __cil_tmp39 + 16;
+    __cil_tmp26 = (struct attribute  const  *)it87_attributes_fan_beep[i];
 #line 1719
-    __cil_tmp41 = (struct kobject *)__cil_tmp40;
-#line 1719
-    __cil_tmp42 = i * 8UL;
-#line 1719
-    __cil_tmp43 = (unsigned long )(it87_attributes_fan_beep) + __cil_tmp42;
-#line 1719
-    __cil_tmp44 = *((struct attribute **)__cil_tmp43);
-#line 1719
-    __cil_tmp45 = (struct attribute  const  *)__cil_tmp44;
-#line 1719
-    sysfs_remove_file(__cil_tmp41, __cil_tmp45);
+    sysfs_remove_file(__cil_tmp25, __cil_tmp26);
     }
   } else {
 
@@ -12656,26 +10235,26 @@ static void it87_remove_files(struct device *dev )
   ldv_24875: ;
 #line 1714
   if (i <= 4) {
+#line 1715
     goto ldv_24874;
   } else {
+#line 1717
     goto ldv_24876;
   }
   ldv_24876: 
 #line 1722
   i = 0;
+#line 1722
   goto ldv_24879;
   ldv_24878: ;
   {
 #line 1723
-  __cil_tmp46 = (unsigned long )sio_data;
+  __cil_tmp27 = sio_data->skip_pwm;
 #line 1723
-  __cil_tmp47 = __cil_tmp46 + 38;
+  __cil_tmp28 = (int )__cil_tmp27;
 #line 1723
-  __cil_tmp48 = *((u8 *)__cil_tmp47);
-#line 1723
-  __cil_tmp49 = (int )__cil_tmp48;
-#line 1723
-  if (__cil_tmp49 & 1) {
+  if (__cil_tmp28 & 1) {
+#line 1724
     goto ldv_24877;
   } else {
 
@@ -12683,41 +10262,33 @@ static void it87_remove_files(struct device *dev )
   }
   {
 #line 1725
-  __cil_tmp50 = (unsigned long )dev;
+  __cil_tmp29 = & dev->kobj;
 #line 1725
-  __cil_tmp51 = __cil_tmp50 + 16;
+  __cil_tmp30 = (unsigned long )i;
 #line 1725
-  __cil_tmp52 = (struct kobject *)__cil_tmp51;
+  __cil_tmp31 = (struct attribute_group  const  *)(& it87_group_pwm);
 #line 1725
-  __cil_tmp53 = (unsigned long )i;
+  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
 #line 1725
-  __cil_tmp54 = (struct attribute_group  const  *)(& it87_group_pwm);
-#line 1725
-  __cil_tmp55 = __cil_tmp54 + __cil_tmp53;
-#line 1725
-  sysfs_remove_group(__cil_tmp52, __cil_tmp55);
+  sysfs_remove_group(__cil_tmp29, __cil_tmp32);
 #line 1726
-  __cil_tmp56 = (struct it87_data  const  *)data;
+  __cil_tmp33 = (struct it87_data  const  *)data;
 #line 1726
-  tmp___1 = has_old_autopwm(__cil_tmp56);
+  tmp___1 = has_old_autopwm(__cil_tmp33);
   }
 #line 1726
   if (tmp___1 != 0) {
     {
 #line 1727
-    __cil_tmp57 = (unsigned long )dev;
+    __cil_tmp34 = & dev->kobj;
 #line 1727
-    __cil_tmp58 = __cil_tmp57 + 16;
+    __cil_tmp35 = (unsigned long )i;
 #line 1727
-    __cil_tmp59 = (struct kobject *)__cil_tmp58;
+    __cil_tmp36 = (struct attribute_group  const  *)(& it87_group_autopwm);
 #line 1727
-    __cil_tmp60 = (unsigned long )i;
+    __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
 #line 1727
-    __cil_tmp61 = (struct attribute_group  const  *)(& it87_group_autopwm);
-#line 1727
-    __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
-#line 1727
-    sysfs_remove_group(__cil_tmp59, __cil_tmp62);
+    sysfs_remove_group(__cil_tmp34, __cil_tmp37);
     }
   } else {
 
@@ -12728,31 +10299,25 @@ static void it87_remove_files(struct device *dev )
   ldv_24879: ;
 #line 1722
   if (i <= 2) {
+#line 1723
     goto ldv_24878;
   } else {
+#line 1725
     goto ldv_24880;
   }
   ldv_24880: ;
   {
 #line 1730
-  __cil_tmp63 = (unsigned long )sio_data;
+  __cil_tmp38 = sio_data->skip_vid;
 #line 1730
-  __cil_tmp64 = __cil_tmp63 + 36;
+  __cil_tmp39 = (unsigned int )__cil_tmp38;
 #line 1730
-  __cil_tmp65 = *((u8 *)__cil_tmp64);
-#line 1730
-  __cil_tmp66 = (unsigned int )__cil_tmp65;
-#line 1730
-  if (__cil_tmp66 == 0U) {
+  if (__cil_tmp39 == 0U) {
     {
 #line 1731
-    __cil_tmp67 = (unsigned long )dev;
+    __cil_tmp40 = & dev->kobj;
 #line 1731
-    __cil_tmp68 = __cil_tmp67 + 16;
-#line 1731
-    __cil_tmp69 = (struct kobject *)__cil_tmp68;
-#line 1731
-    sysfs_remove_group(__cil_tmp69, & it87_group_vid);
+    sysfs_remove_group(__cil_tmp40, & it87_group_vid);
     }
   } else {
 
@@ -12760,13 +10325,9 @@ static void it87_remove_files(struct device *dev )
   }
   {
 #line 1732
-  __cil_tmp70 = (unsigned long )dev;
+  __cil_tmp41 = & dev->kobj;
 #line 1732
-  __cil_tmp71 = __cil_tmp70 + 16;
-#line 1732
-  __cil_tmp72 = (struct kobject *)__cil_tmp71;
-#line 1732
-  sysfs_remove_group(__cil_tmp72, & it87_group_label);
+  sysfs_remove_group(__cil_tmp41, & it87_group_label);
   }
 #line 1733
   return;
@@ -12793,277 +10354,151 @@ static int it87_probe(struct platform_device *pdev___0 )
   int tmp___4 ;
   long tmp___5 ;
   long tmp___6 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  void *__cil_tmp21 ;
+  resource_size_t __cil_tmp22 ;
+  struct resource *__cil_tmp23 ;
   unsigned long __cil_tmp24 ;
-  void *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  unsigned long __cil_tmp25 ;
+  struct device  const  *__cil_tmp26 ;
+  resource_size_t __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  resource_size_t __cil_tmp29 ;
+  resource_size_t __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  struct it87_data *__cil_tmp32 ;
   unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  resource_size_t __cil_tmp38 ;
-  struct resource *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct device  const  *__cil_tmp42 ;
-  resource_size_t __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  resource_size_t __cil_tmp45 ;
-  resource_size_t __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct it87_data *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  resource_size_t __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  enum chips __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  resource_size_t __cil_tmp35 ;
+  u8 __cil_tmp36 ;
+  int __cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  void *__cil_tmp39 ;
+  struct mutex *__cil_tmp40 ;
+  enum chips __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  int __cil_tmp44 ;
+  u16 __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  u8 __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  u16 __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  u8 __cil_tmp54 ;
+  int __cil_tmp55 ;
+  int __cil_tmp56 ;
+  u16 __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
+  struct kobject *__cil_tmp60 ;
+  u8 __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  struct kobject *__cil_tmp63 ;
+  struct it87_data  const  *__cil_tmp64 ;
+  u8 __cil_tmp65 ;
   int __cil_tmp66 ;
-  void *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  struct mutex *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  enum chips __cil_tmp73 ;
-  unsigned int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  u8 __cil_tmp77 ;
-  int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  u16 __cil_tmp83 ;
-  unsigned int __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  u8 __cil_tmp88 ;
-  int __cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  u16 __cil_tmp95 ;
-  unsigned int __cil_tmp96 ;
-  unsigned int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  u8 __cil_tmp100 ;
-  int __cil_tmp101 ;
-  int __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  u16 __cil_tmp107 ;
-  unsigned int __cil_tmp108 ;
-  unsigned int __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  struct kobject *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  u8 __cil_tmp115 ;
-  unsigned int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  struct kobject *__cil_tmp119 ;
-  struct it87_data  const  *__cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  u8 __cil_tmp123 ;
-  int __cil_tmp124 ;
-  int __cil_tmp125 ;
-  int __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  struct kobject *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  struct attribute_group  const  *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  u8 __cil_tmp134 ;
-  unsigned int __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  struct kobject *__cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  struct attribute *__cil_tmp141 ;
-  struct attribute  const  *__cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  struct kobject *__cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  struct attribute *__cil_tmp148 ;
-  struct attribute  const  *__cil_tmp149 ;
-  struct device  const  *__cil_tmp150 ;
-  int __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  u8 __cil_tmp154 ;
-  int __cil_tmp155 ;
-  int __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  struct kobject *__cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  struct attribute_group  const  *__cil_tmp161 ;
-  struct attribute_group  const  *__cil_tmp162 ;
-  struct it87_data  const  *__cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  struct kobject *__cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  struct attribute_group  const  *__cil_tmp168 ;
-  struct attribute_group  const  *__cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  u8 __cil_tmp172 ;
-  unsigned int __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  struct kobject *__cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  u8 __cil_tmp185 ;
-  int __cil_tmp186 ;
-  int __cil_tmp187 ;
-  int __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  struct kobject *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  struct attribute *__cil_tmp194 ;
-  struct attribute  const  *__cil_tmp195 ;
-  struct device *__cil_tmp196 ;
-  void const   *__cil_tmp197 ;
-  struct device *__cil_tmp198 ;
-  void const   *__cil_tmp199 ;
-  void *__cil_tmp200 ;
-  void const   *__cil_tmp201 ;
-  resource_size_t __cil_tmp202 ;
+  int __cil_tmp67 ;
+  int __cil_tmp68 ;
+  struct kobject *__cil_tmp69 ;
+  unsigned long __cil_tmp70 ;
+  struct attribute_group  const  *__cil_tmp71 ;
+  u8 __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  struct kobject *__cil_tmp74 ;
+  struct attribute  const  *__cil_tmp75 ;
+  struct kobject *__cil_tmp76 ;
+  struct attribute  const  *__cil_tmp77 ;
+  struct device  const  *__cil_tmp78 ;
+  int __cil_tmp79 ;
+  u8 __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  struct kobject *__cil_tmp83 ;
+  unsigned long __cil_tmp84 ;
+  struct attribute_group  const  *__cil_tmp85 ;
+  struct attribute_group  const  *__cil_tmp86 ;
+  struct it87_data  const  *__cil_tmp87 ;
+  struct kobject *__cil_tmp88 ;
+  unsigned long __cil_tmp89 ;
+  struct attribute_group  const  *__cil_tmp90 ;
+  struct attribute_group  const  *__cil_tmp91 ;
+  u8 __cil_tmp92 ;
+  unsigned int __cil_tmp93 ;
+  struct kobject *__cil_tmp94 ;
+  u8 __cil_tmp95 ;
+  int __cil_tmp96 ;
+  int __cil_tmp97 ;
+  int __cil_tmp98 ;
+  struct kobject *__cil_tmp99 ;
+  struct attribute  const  *__cil_tmp100 ;
+  struct device *__cil_tmp101 ;
+  void const   *__cil_tmp102 ;
+  struct device *__cil_tmp103 ;
+  void const   *__cil_tmp104 ;
+  void *__cil_tmp105 ;
+  void const   *__cil_tmp106 ;
+  resource_size_t __cil_tmp107 ;
 
   {
   {
 #line 1739
-  __cil_tmp21 = (unsigned long )pdev___0;
-#line 1739
-  __cil_tmp22 = __cil_tmp21 + 16;
-#line 1739
-  dev = (struct device *)__cil_tmp22;
+  dev = & pdev___0->dev;
 #line 1740
-  __cil_tmp23 = (unsigned long )dev;
+  __cil_tmp21 = dev->platform_data;
 #line 1740
-  __cil_tmp24 = __cil_tmp23 + 280;
-#line 1740
-  __cil_tmp25 = *((void **)__cil_tmp24);
-#line 1740
-  sio_data = (struct it87_sio_data *)__cil_tmp25;
+  sio_data = (struct it87_sio_data *)__cil_tmp21;
 #line 1742
   err = 0;
 #line 1745
-  __cil_tmp26 = 0 * 8UL;
+  names[0] = "it87";
 #line 1745
-  __cil_tmp27 = (unsigned long )(names) + __cil_tmp26;
+  names[1] = "it8712";
 #line 1745
-  *((char const   **)__cil_tmp27) = "it87";
+  names[2] = "it8716";
 #line 1745
-  __cil_tmp28 = 1 * 8UL;
+  names[3] = "it8718";
 #line 1745
-  __cil_tmp29 = (unsigned long )(names) + __cil_tmp28;
+  names[4] = "it8720";
 #line 1745
-  *((char const   **)__cil_tmp29) = "it8712";
-#line 1745
-  __cil_tmp30 = 2 * 8UL;
-#line 1745
-  __cil_tmp31 = (unsigned long )(names) + __cil_tmp30;
-#line 1745
-  *((char const   **)__cil_tmp31) = "it8716";
-#line 1745
-  __cil_tmp32 = 3 * 8UL;
-#line 1745
-  __cil_tmp33 = (unsigned long )(names) + __cil_tmp32;
-#line 1745
-  *((char const   **)__cil_tmp33) = "it8718";
-#line 1745
-  __cil_tmp34 = 4 * 8UL;
-#line 1745
-  __cil_tmp35 = (unsigned long )(names) + __cil_tmp34;
-#line 1745
-  *((char const   **)__cil_tmp35) = "it8720";
-#line 1745
-  __cil_tmp36 = 5 * 8UL;
-#line 1745
-  __cil_tmp37 = (unsigned long )(names) + __cil_tmp36;
-#line 1745
-  *((char const   **)__cil_tmp37) = "it8721";
+  names[5] = "it8721";
 #line 1754
   res = platform_get_resource(pdev___0, 256U, 0U);
 #line 1755
-  __cil_tmp38 = *((resource_size_t *)res);
+  __cil_tmp22 = res->start;
 #line 1755
-  tmp = __request_region(& ioport_resource, __cil_tmp38, 2ULL, "it87", 0);
+  tmp = __request_region(& ioport_resource, __cil_tmp22, 2ULL, "it87", 0);
   }
   {
 #line 1755
-  __cil_tmp39 = (struct resource *)0;
+  __cil_tmp23 = (struct resource *)0;
 #line 1755
-  __cil_tmp40 = (unsigned long )__cil_tmp39;
+  __cil_tmp24 = (unsigned long )__cil_tmp23;
 #line 1755
-  __cil_tmp41 = (unsigned long )tmp;
+  __cil_tmp25 = (unsigned long )tmp;
 #line 1755
-  if (__cil_tmp41 == __cil_tmp40) {
+  if (__cil_tmp25 == __cil_tmp24) {
     {
 #line 1756
-    __cil_tmp42 = (struct device  const  *)dev;
+    __cil_tmp26 = (struct device  const  *)dev;
 #line 1756
-    __cil_tmp43 = *((resource_size_t *)res);
+    __cil_tmp27 = res->start;
 #line 1756
-    __cil_tmp44 = (unsigned long )__cil_tmp43;
+    __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 1756
-    __cil_tmp45 = *((resource_size_t *)res);
+    __cil_tmp29 = res->start;
 #line 1756
-    __cil_tmp46 = __cil_tmp45 + 1ULL;
+    __cil_tmp30 = __cil_tmp29 + 1ULL;
 #line 1756
-    __cil_tmp47 = (unsigned long )__cil_tmp46;
+    __cil_tmp31 = (unsigned long )__cil_tmp30;
 #line 1756
-    dev_err(__cil_tmp42, "Failed to request region 0x%lx-0x%lx\n", __cil_tmp44, __cil_tmp47);
+    dev_err(__cil_tmp26, "Failed to request region 0x%lx-0x%lx\n", __cil_tmp28, __cil_tmp31);
 #line 1759
     err = -16;
     }
+#line 1760
     goto ERROR0;
   } else {
 
@@ -13077,15 +10512,16 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
   {
 #line 1764
-  __cil_tmp48 = (struct it87_data *)0;
+  __cil_tmp32 = (struct it87_data *)0;
 #line 1764
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
+  __cil_tmp33 = (unsigned long )__cil_tmp32;
 #line 1764
-  __cil_tmp50 = (unsigned long )data;
+  __cil_tmp34 = (unsigned long )data;
 #line 1764
-  if (__cil_tmp50 == __cil_tmp49) {
+  if (__cil_tmp34 == __cil_tmp33) {
 #line 1765
     err = -12;
+#line 1766
     goto ERROR1;
   } else {
 
@@ -13093,63 +10529,41 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
   {
 #line 1769
-  __cil_tmp51 = (unsigned long )data;
+  __cil_tmp35 = res->start;
 #line 1769
-  __cil_tmp52 = __cil_tmp51 + 42;
-#line 1769
-  __cil_tmp53 = *((resource_size_t *)res);
-#line 1769
-  *((unsigned short *)__cil_tmp52) = (unsigned short )__cil_tmp53;
+  data->addr = (unsigned short )__cil_tmp35;
 #line 1770
-  __cil_tmp54 = (unsigned long )data;
-#line 1770
-  __cil_tmp55 = __cil_tmp54 + 8;
-#line 1770
-  *((enum chips *)__cil_tmp55) = *((enum chips *)sio_data);
+  data->type = sio_data->type;
 #line 1771
-  __cil_tmp56 = (unsigned long )data;
-#line 1771
-  __cil_tmp57 = __cil_tmp56 + 40;
-#line 1771
-  __cil_tmp58 = (unsigned long )sio_data;
-#line 1771
-  __cil_tmp59 = __cil_tmp58 + 32;
-#line 1771
-  *((u8 *)__cil_tmp57) = *((u8 *)__cil_tmp59);
+  data->revision = sio_data->revision;
 #line 1772
-  __cil_tmp60 = (unsigned long )data;
-#line 1772
-  __cil_tmp61 = __cil_tmp60 + 48;
-#line 1772
-  __cil_tmp62 = *((enum chips *)sio_data);
-#line 1772
-  __cil_tmp63 = (unsigned int )__cil_tmp62;
-#line 1772
-  __cil_tmp64 = __cil_tmp63 * 8UL;
-#line 1772
-  __cil_tmp65 = (unsigned long )(names) + __cil_tmp64;
-#line 1772
-  *((char const   **)__cil_tmp61) = *((char const   **)__cil_tmp65);
+  data->name = names[(unsigned int )sio_data->type];
 #line 1775
-  tmp___1 = it87_read_value(data, (unsigned char)0);
+  __cil_tmp36 = (u8 )0;
+#line 1775
+  tmp___1 = it87_read_value(data, __cil_tmp36);
   }
   {
 #line 1775
-  __cil_tmp66 = tmp___1 & 128;
+  __cil_tmp37 = tmp___1 & 128;
 #line 1775
-  if (__cil_tmp66 != 0) {
+  if (__cil_tmp37 != 0) {
 #line 1777
     err = -19;
+#line 1778
     goto ERROR2;
   } else {
     {
 #line 1775
-    tmp___2 = it87_read_value(data, (unsigned char)88);
+    __cil_tmp38 = (u8 )88;
+#line 1775
+    tmp___2 = it87_read_value(data, __cil_tmp38);
     }
 #line 1775
     if (tmp___2 != 144) {
 #line 1777
       err = -19;
+#line 1778
       goto ERROR2;
     } else {
 
@@ -13158,124 +10572,80 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
   {
 #line 1781
-  __cil_tmp67 = (void *)data;
+  __cil_tmp39 = (void *)data;
 #line 1781
-  platform_set_drvdata(pdev___0, __cil_tmp67);
+  platform_set_drvdata(pdev___0, __cil_tmp39);
 #line 1783
-  __cil_tmp68 = (unsigned long )data;
+  __cil_tmp40 = & data->update_lock;
 #line 1783
-  __cil_tmp69 = __cil_tmp68 + 56;
-#line 1783
-  __cil_tmp70 = (struct mutex *)__cil_tmp69;
-#line 1783
-  __mutex_init(__cil_tmp70, "&data->update_lock", & __key);
+  __mutex_init(__cil_tmp40, "&data->update_lock", & __key);
 #line 1786
   enable_pwm_interface = it87_check_pwm(dev);
   }
   {
 #line 1789
-  __cil_tmp71 = (unsigned long )data;
+  __cil_tmp41 = data->type;
 #line 1789
-  __cil_tmp72 = __cil_tmp71 + 8;
+  __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 1789
-  __cil_tmp73 = *((enum chips *)__cil_tmp72);
-#line 1789
-  __cil_tmp74 = (unsigned int )__cil_tmp73;
-#line 1789
-  if (__cil_tmp74 == 5U) {
+  if (__cil_tmp42 == 5U) {
     {
 #line 1790
-    __cil_tmp75 = (unsigned long )sio_data;
+    __cil_tmp43 = sio_data->internal;
 #line 1790
-    __cil_tmp76 = __cil_tmp75 + 35;
+    __cil_tmp44 = (int )__cil_tmp43;
 #line 1790
-    __cil_tmp77 = *((u8 *)__cil_tmp76);
-#line 1790
-    __cil_tmp78 = (int )__cil_tmp77;
-#line 1790
-    if (__cil_tmp78 & 1) {
+    if (__cil_tmp44 & 1) {
 #line 1791
-      __cil_tmp79 = (unsigned long )data;
+      __cil_tmp45 = data->in_scaled;
 #line 1791
-      __cil_tmp80 = __cil_tmp79 + 240;
+      __cil_tmp46 = (unsigned int )__cil_tmp45;
 #line 1791
-      __cil_tmp81 = (unsigned long )data;
+      __cil_tmp47 = __cil_tmp46 | 8U;
 #line 1791
-      __cil_tmp82 = __cil_tmp81 + 240;
-#line 1791
-      __cil_tmp83 = *((u16 *)__cil_tmp82);
-#line 1791
-      __cil_tmp84 = (unsigned int )__cil_tmp83;
-#line 1791
-      __cil_tmp85 = __cil_tmp84 | 8U;
-#line 1791
-      *((u16 *)__cil_tmp80) = (unsigned short )__cil_tmp85;
+      data->in_scaled = (u16 )__cil_tmp47;
     } else {
 
     }
     }
     {
 #line 1792
-    __cil_tmp86 = (unsigned long )sio_data;
+    __cil_tmp48 = sio_data->internal;
 #line 1792
-    __cil_tmp87 = __cil_tmp86 + 35;
+    __cil_tmp49 = (int )__cil_tmp48;
 #line 1792
-    __cil_tmp88 = *((u8 *)__cil_tmp87);
+    __cil_tmp50 = __cil_tmp49 & 2;
 #line 1792
-    __cil_tmp89 = (int )__cil_tmp88;
-#line 1792
-    __cil_tmp90 = __cil_tmp89 & 2;
-#line 1792
-    if (__cil_tmp90 != 0) {
+    if (__cil_tmp50 != 0) {
 #line 1793
-      __cil_tmp91 = (unsigned long )data;
+      __cil_tmp51 = data->in_scaled;
 #line 1793
-      __cil_tmp92 = __cil_tmp91 + 240;
+      __cil_tmp52 = (unsigned int )__cil_tmp51;
 #line 1793
-      __cil_tmp93 = (unsigned long )data;
+      __cil_tmp53 = __cil_tmp52 | 128U;
 #line 1793
-      __cil_tmp94 = __cil_tmp93 + 240;
-#line 1793
-      __cil_tmp95 = *((u16 *)__cil_tmp94);
-#line 1793
-      __cil_tmp96 = (unsigned int )__cil_tmp95;
-#line 1793
-      __cil_tmp97 = __cil_tmp96 | 128U;
-#line 1793
-      *((u16 *)__cil_tmp92) = (unsigned short )__cil_tmp97;
+      data->in_scaled = (u16 )__cil_tmp53;
     } else {
 
     }
     }
     {
 #line 1794
-    __cil_tmp98 = (unsigned long )sio_data;
+    __cil_tmp54 = sio_data->internal;
 #line 1794
-    __cil_tmp99 = __cil_tmp98 + 35;
+    __cil_tmp55 = (int )__cil_tmp54;
 #line 1794
-    __cil_tmp100 = *((u8 *)__cil_tmp99);
+    __cil_tmp56 = __cil_tmp55 & 4;
 #line 1794
-    __cil_tmp101 = (int )__cil_tmp100;
-#line 1794
-    __cil_tmp102 = __cil_tmp101 & 4;
-#line 1794
-    if (__cil_tmp102 != 0) {
+    if (__cil_tmp56 != 0) {
 #line 1795
-      __cil_tmp103 = (unsigned long )data;
+      __cil_tmp57 = data->in_scaled;
 #line 1795
-      __cil_tmp104 = __cil_tmp103 + 240;
+      __cil_tmp58 = (unsigned int )__cil_tmp57;
 #line 1795
-      __cil_tmp105 = (unsigned long )data;
+      __cil_tmp59 = __cil_tmp58 | 256U;
 #line 1795
-      __cil_tmp106 = __cil_tmp105 + 240;
-#line 1795
-      __cil_tmp107 = *((u16 *)__cil_tmp106);
-#line 1795
-      __cil_tmp108 = (unsigned int )__cil_tmp107;
-#line 1795
-      __cil_tmp109 = __cil_tmp108 | 256U;
-#line 1795
-      *((u16 *)__cil_tmp104) = (unsigned short )__cil_tmp109;
+      data->in_scaled = (u16 )__cil_tmp59;
     } else {
 
     }
@@ -13288,43 +10658,33 @@ static int it87_probe(struct platform_device *pdev___0 )
 #line 1799
   it87_init_device(pdev___0);
 #line 1802
-  __cil_tmp110 = (unsigned long )dev;
+  __cil_tmp60 = & dev->kobj;
 #line 1802
-  __cil_tmp111 = __cil_tmp110 + 16;
-#line 1802
-  __cil_tmp112 = (struct kobject *)__cil_tmp111;
-#line 1802
-  err = sysfs_create_group(__cil_tmp112, & it87_group);
+  err = sysfs_create_group(__cil_tmp60, & it87_group);
   }
 #line 1803
   if (err != 0) {
+#line 1804
     goto ERROR2;
   } else {
 
   }
   {
 #line 1806
-  __cil_tmp113 = (unsigned long )sio_data;
+  __cil_tmp61 = sio_data->beep_pin;
 #line 1806
-  __cil_tmp114 = __cil_tmp113 + 34;
+  __cil_tmp62 = (unsigned int )__cil_tmp61;
 #line 1806
-  __cil_tmp115 = *((u8 *)__cil_tmp114);
-#line 1806
-  __cil_tmp116 = (unsigned int )__cil_tmp115;
-#line 1806
-  if (__cil_tmp116 != 0U) {
+  if (__cil_tmp62 != 0U) {
     {
 #line 1807
-    __cil_tmp117 = (unsigned long )dev;
+    __cil_tmp63 = & dev->kobj;
 #line 1807
-    __cil_tmp118 = __cil_tmp117 + 16;
-#line 1807
-    __cil_tmp119 = (struct kobject *)__cil_tmp118;
-#line 1807
-    err = sysfs_create_group(__cil_tmp119, & it87_group_beep);
+    err = sysfs_create_group(__cil_tmp63, & it87_group_beep);
     }
 #line 1808
     if (err != 0) {
+#line 1809
       goto ERROR4;
     } else {
 
@@ -13335,31 +10695,29 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
   {
 #line 1813
-  __cil_tmp120 = (struct it87_data  const  *)data;
+  __cil_tmp64 = (struct it87_data  const  *)data;
 #line 1813
-  fan_group = it87_get_fan_group(__cil_tmp120);
+  fan_group = it87_get_fan_group(__cil_tmp64);
 #line 1814
   fan_beep_need_rw = 1;
 #line 1815
   i = 0;
   }
+#line 1815
   goto ldv_24901;
   ldv_24900: ;
   {
 #line 1816
-  __cil_tmp121 = (unsigned long )data;
+  __cil_tmp65 = data->has_fan;
 #line 1816
-  __cil_tmp122 = __cil_tmp121 + 267;
+  __cil_tmp66 = (int )__cil_tmp65;
 #line 1816
-  __cil_tmp123 = *((u8 *)__cil_tmp122);
+  __cil_tmp67 = __cil_tmp66 >> i;
 #line 1816
-  __cil_tmp124 = (int )__cil_tmp123;
+  __cil_tmp68 = __cil_tmp67 & 1;
 #line 1816
-  __cil_tmp125 = __cil_tmp124 >> i;
-#line 1816
-  __cil_tmp126 = __cil_tmp125 & 1;
-#line 1816
-  if (__cil_tmp126 == 0) {
+  if (__cil_tmp68 == 0) {
+#line 1817
     goto ldv_24899;
   } else {
 
@@ -13367,92 +10725,67 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
   {
 #line 1818
-  __cil_tmp127 = (unsigned long )dev;
+  __cil_tmp69 = & dev->kobj;
 #line 1818
-  __cil_tmp128 = __cil_tmp127 + 16;
+  __cil_tmp70 = (unsigned long )i;
 #line 1818
-  __cil_tmp129 = (struct kobject *)__cil_tmp128;
+  __cil_tmp71 = fan_group + __cil_tmp70;
 #line 1818
-  __cil_tmp130 = (unsigned long )i;
-#line 1818
-  __cil_tmp131 = fan_group + __cil_tmp130;
-#line 1818
-  err = sysfs_create_group(__cil_tmp129, __cil_tmp131);
+  err = sysfs_create_group(__cil_tmp69, __cil_tmp71);
   }
 #line 1819
   if (err != 0) {
+#line 1820
     goto ERROR4;
   } else {
 
   }
   {
 #line 1822
-  __cil_tmp132 = (unsigned long )sio_data;
+  __cil_tmp72 = sio_data->beep_pin;
 #line 1822
-  __cil_tmp133 = __cil_tmp132 + 34;
+  __cil_tmp73 = (unsigned int )__cil_tmp72;
 #line 1822
-  __cil_tmp134 = *((u8 *)__cil_tmp133);
-#line 1822
-  __cil_tmp135 = (unsigned int )__cil_tmp134;
-#line 1822
-  if (__cil_tmp135 != 0U) {
+  if (__cil_tmp73 != 0U) {
     {
 #line 1823
-    __cil_tmp136 = (unsigned long )dev;
+    __cil_tmp74 = & dev->kobj;
 #line 1823
-    __cil_tmp137 = __cil_tmp136 + 16;
+    __cil_tmp75 = (struct attribute  const  *)it87_attributes_fan_beep[i];
 #line 1823
-    __cil_tmp138 = (struct kobject *)__cil_tmp137;
-#line 1823
-    __cil_tmp139 = i * 8UL;
-#line 1823
-    __cil_tmp140 = (unsigned long )(it87_attributes_fan_beep) + __cil_tmp139;
-#line 1823
-    __cil_tmp141 = *((struct attribute **)__cil_tmp140);
-#line 1823
-    __cil_tmp142 = (struct attribute  const  *)__cil_tmp141;
-#line 1823
-    err = sysfs_create_file(__cil_tmp138, __cil_tmp142);
+    err = sysfs_create_file(__cil_tmp74, __cil_tmp75);
     }
 #line 1825
     if (err != 0) {
+#line 1826
       goto ERROR4;
     } else {
 
     }
 #line 1827
     if (fan_beep_need_rw == 0) {
+#line 1828
       goto ldv_24899;
     } else {
 
     }
     {
 #line 1833
-    __cil_tmp143 = (unsigned long )dev;
+    __cil_tmp76 = & dev->kobj;
 #line 1833
-    __cil_tmp144 = __cil_tmp143 + 16;
+    __cil_tmp77 = (struct attribute  const  *)it87_attributes_fan_beep[i];
 #line 1833
-    __cil_tmp145 = (struct kobject *)__cil_tmp144;
-#line 1833
-    __cil_tmp146 = i * 8UL;
-#line 1833
-    __cil_tmp147 = (unsigned long )(it87_attributes_fan_beep) + __cil_tmp146;
-#line 1833
-    __cil_tmp148 = *((struct attribute **)__cil_tmp147);
-#line 1833
-    __cil_tmp149 = (struct attribute  const  *)__cil_tmp148;
-#line 1833
-    tmp___3 = sysfs_chmod_file(__cil_tmp145, __cil_tmp149, 420U);
+    tmp___3 = sysfs_chmod_file(__cil_tmp76, __cil_tmp77, 420U);
     }
 #line 1833
     if (tmp___3 != 0) {
       {
 #line 1836
-      __cil_tmp150 = (struct device  const  *)dev;
+      __cil_tmp78 = (struct device  const  *)dev;
 #line 1836
-      __cil_tmp151 = i + 1;
+      __cil_tmp79 = i + 1;
 #line 1836
-      dev_printk("<7>", __cil_tmp150, "chmod +w fan%d_beep failed\n", __cil_tmp151);
+      dev_printk("<7>", __cil_tmp78, "chmod +w fan%d_beep failed\n", __cil_tmp79);
       }
     } else {
 
@@ -13469,8 +10802,10 @@ static int it87_probe(struct platform_device *pdev___0 )
   ldv_24901: ;
 #line 1815
   if (i <= 4) {
+#line 1816
     goto ldv_24900;
   } else {
+#line 1818
     goto ldv_24902;
   }
   ldv_24902: ;
@@ -13478,21 +10813,19 @@ static int it87_probe(struct platform_device *pdev___0 )
   if (enable_pwm_interface != 0) {
 #line 1843
     i = 0;
+#line 1843
     goto ldv_24905;
     ldv_24904: ;
     {
 #line 1844
-    __cil_tmp152 = (unsigned long )sio_data;
+    __cil_tmp80 = sio_data->skip_pwm;
 #line 1844
-    __cil_tmp153 = __cil_tmp152 + 38;
+    __cil_tmp81 = (int )__cil_tmp80;
 #line 1844
-    __cil_tmp154 = *((u8 *)__cil_tmp153);
+    __cil_tmp82 = __cil_tmp81 >> i;
 #line 1844
-    __cil_tmp155 = (int )__cil_tmp154;
-#line 1844
-    __cil_tmp156 = __cil_tmp155 >> i;
-#line 1844
-    if (__cil_tmp156 & 1) {
+    if (__cil_tmp82 & 1) {
+#line 1845
       goto ldv_24903;
     } else {
 
@@ -13500,56 +10833,51 @@ static int it87_probe(struct platform_device *pdev___0 )
     }
     {
 #line 1846
-    __cil_tmp157 = (unsigned long )dev;
+    __cil_tmp83 = & dev->kobj;
 #line 1846
-    __cil_tmp158 = __cil_tmp157 + 16;
+    __cil_tmp84 = (unsigned long )i;
 #line 1846
-    __cil_tmp159 = (struct kobject *)__cil_tmp158;
+    __cil_tmp85 = (struct attribute_group  const  *)(& it87_group_pwm);
 #line 1846
-    __cil_tmp160 = (unsigned long )i;
+    __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
 #line 1846
-    __cil_tmp161 = (struct attribute_group  const  *)(& it87_group_pwm);
-#line 1846
-    __cil_tmp162 = __cil_tmp161 + __cil_tmp160;
-#line 1846
-    err = sysfs_create_group(__cil_tmp159, __cil_tmp162);
+    err = sysfs_create_group(__cil_tmp83, __cil_tmp86);
     }
 #line 1848
     if (err != 0) {
+#line 1849
       goto ERROR4;
     } else {
 
     }
     {
 #line 1851
-    __cil_tmp163 = (struct it87_data  const  *)data;
+    __cil_tmp87 = (struct it87_data  const  *)data;
 #line 1851
-    tmp___4 = has_old_autopwm(__cil_tmp163);
+    tmp___4 = has_old_autopwm(__cil_tmp87);
     }
 #line 1851
     if (tmp___4 == 0) {
+#line 1852
       goto ldv_24903;
     } else {
 
     }
     {
 #line 1853
-    __cil_tmp164 = (unsigned long )dev;
+    __cil_tmp88 = & dev->kobj;
 #line 1853
-    __cil_tmp165 = __cil_tmp164 + 16;
+    __cil_tmp89 = (unsigned long )i;
 #line 1853
-    __cil_tmp166 = (struct kobject *)__cil_tmp165;
+    __cil_tmp90 = (struct attribute_group  const  *)(& it87_group_autopwm);
 #line 1853
-    __cil_tmp167 = (unsigned long )i;
+    __cil_tmp91 = __cil_tmp90 + __cil_tmp89;
 #line 1853
-    __cil_tmp168 = (struct attribute_group  const  *)(& it87_group_autopwm);
-#line 1853
-    __cil_tmp169 = __cil_tmp168 + __cil_tmp167;
-#line 1853
-    err = sysfs_create_group(__cil_tmp166, __cil_tmp169);
+    err = sysfs_create_group(__cil_tmp88, __cil_tmp91);
     }
 #line 1855
     if (err != 0) {
+#line 1856
       goto ERROR4;
     } else {
 
@@ -13560,8 +10888,10 @@ static int it87_probe(struct platform_device *pdev___0 )
     ldv_24905: ;
 #line 1843
     if (i <= 2) {
+#line 1844
       goto ldv_24904;
     } else {
+#line 1846
       goto ldv_24906;
     }
     ldv_24906: ;
@@ -13570,43 +10900,24 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
   {
 #line 1860
-  __cil_tmp170 = (unsigned long )sio_data;
+  __cil_tmp92 = sio_data->skip_vid;
 #line 1860
-  __cil_tmp171 = __cil_tmp170 + 36;
+  __cil_tmp93 = (unsigned int )__cil_tmp92;
 #line 1860
-  __cil_tmp172 = *((u8 *)__cil_tmp171);
-#line 1860
-  __cil_tmp173 = (unsigned int )__cil_tmp172;
-#line 1860
-  if (__cil_tmp173 == 0U) {
+  if (__cil_tmp93 == 0U) {
     {
 #line 1861
-    __cil_tmp174 = (unsigned long )data;
-#line 1861
-    __cil_tmp175 = __cil_tmp174 + 302;
-#line 1861
-    *((u8 *)__cil_tmp175) = vid_which_vrm();
+    data->vrm = vid_which_vrm();
 #line 1863
-    __cil_tmp176 = (unsigned long )data;
-#line 1863
-    __cil_tmp177 = __cil_tmp176 + 301;
-#line 1863
-    __cil_tmp178 = (unsigned long )sio_data;
-#line 1863
-    __cil_tmp179 = __cil_tmp178 + 33;
-#line 1863
-    *((u8 *)__cil_tmp177) = *((u8 *)__cil_tmp179);
+    data->vid = sio_data->vid_value;
 #line 1864
-    __cil_tmp180 = (unsigned long )dev;
+    __cil_tmp94 = & dev->kobj;
 #line 1864
-    __cil_tmp181 = __cil_tmp180 + 16;
-#line 1864
-    __cil_tmp182 = (struct kobject *)__cil_tmp181;
-#line 1864
-    err = sysfs_create_group(__cil_tmp182, & it87_group_vid);
+    err = sysfs_create_group(__cil_tmp94, & it87_group_vid);
     }
 #line 1865
     if (err != 0) {
+#line 1866
       goto ERROR4;
     } else {
 
@@ -13617,23 +10928,21 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
 #line 1870
   i = 0;
+#line 1870
   goto ldv_24909;
   ldv_24908: ;
   {
 #line 1871
-  __cil_tmp183 = (unsigned long )sio_data;
+  __cil_tmp95 = sio_data->internal;
 #line 1871
-  __cil_tmp184 = __cil_tmp183 + 35;
+  __cil_tmp96 = (int )__cil_tmp95;
 #line 1871
-  __cil_tmp185 = *((u8 *)__cil_tmp184);
+  __cil_tmp97 = __cil_tmp96 >> i;
 #line 1871
-  __cil_tmp186 = (int )__cil_tmp185;
+  __cil_tmp98 = __cil_tmp97 & 1;
 #line 1871
-  __cil_tmp187 = __cil_tmp186 >> i;
-#line 1871
-  __cil_tmp188 = __cil_tmp187 & 1;
-#line 1871
-  if (__cil_tmp188 == 0) {
+  if (__cil_tmp98 == 0) {
+#line 1872
     goto ldv_24907;
   } else {
 
@@ -13641,24 +10950,15 @@ static int it87_probe(struct platform_device *pdev___0 )
   }
   {
 #line 1873
-  __cil_tmp189 = (unsigned long )dev;
+  __cil_tmp99 = & dev->kobj;
 #line 1873
-  __cil_tmp190 = __cil_tmp189 + 16;
+  __cil_tmp100 = (struct attribute  const  *)it87_attributes_label[i];
 #line 1873
-  __cil_tmp191 = (struct kobject *)__cil_tmp190;
-#line 1873
-  __cil_tmp192 = i * 8UL;
-#line 1873
-  __cil_tmp193 = (unsigned long )(it87_attributes_label) + __cil_tmp192;
-#line 1873
-  __cil_tmp194 = *((struct attribute **)__cil_tmp193);
-#line 1873
-  __cil_tmp195 = (struct attribute  const  *)__cil_tmp194;
-#line 1873
-  err = sysfs_create_file(__cil_tmp191, __cil_tmp195);
+  err = sysfs_create_file(__cil_tmp99, __cil_tmp100);
   }
 #line 1875
   if (err != 0) {
+#line 1876
     goto ERROR4;
   } else {
 
@@ -13669,33 +10969,36 @@ static int it87_probe(struct platform_device *pdev___0 )
   ldv_24909: ;
 #line 1870
   if (i <= 2) {
+#line 1871
     goto ldv_24908;
   } else {
+#line 1873
     goto ldv_24910;
   }
   ldv_24910: 
   {
 #line 1879
-  *((struct device **)data) = hwmon_device_register(dev);
+  data->hwmon_dev = hwmon_device_register(dev);
 #line 1880
-  __cil_tmp196 = *((struct device **)data);
+  __cil_tmp101 = data->hwmon_dev;
 #line 1880
-  __cil_tmp197 = (void const   *)__cil_tmp196;
+  __cil_tmp102 = (void const   *)__cil_tmp101;
 #line 1880
-  tmp___6 = IS_ERR(__cil_tmp197);
+  tmp___6 = IS_ERR(__cil_tmp102);
   }
 #line 1880
   if (tmp___6 != 0L) {
     {
 #line 1881
-    __cil_tmp198 = *((struct device **)data);
+    __cil_tmp103 = data->hwmon_dev;
 #line 1881
-    __cil_tmp199 = (void const   *)__cil_tmp198;
+    __cil_tmp104 = (void const   *)__cil_tmp103;
 #line 1881
-    tmp___5 = PTR_ERR(__cil_tmp199);
+    tmp___5 = PTR_ERR(__cil_tmp104);
 #line 1881
     err = (int )tmp___5;
     }
+#line 1882
     goto ERROR4;
   } else {
 
@@ -13710,20 +11013,20 @@ static int it87_probe(struct platform_device *pdev___0 )
   ERROR2: 
   {
 #line 1890
-  __cil_tmp200 = (void *)0;
+  __cil_tmp105 = (void *)0;
 #line 1890
-  platform_set_drvdata(pdev___0, __cil_tmp200);
+  platform_set_drvdata(pdev___0, __cil_tmp105);
 #line 1891
-  __cil_tmp201 = (void const   *)data;
+  __cil_tmp106 = (void const   *)data;
 #line 1891
-  kfree(__cil_tmp201);
+  kfree(__cil_tmp106);
   }
   ERROR1: 
   {
 #line 1893
-  __cil_tmp202 = *((resource_size_t *)res);
+  __cil_tmp107 = res->start;
 #line 1893
-  __release_region(& ioport_resource, __cil_tmp202, 2ULL);
+  __release_region(& ioport_resource, __cil_tmp107, 2ULL);
   }
   ERROR0: ;
 #line 1895
@@ -13736,15 +11039,11 @@ static int it87_remove(struct platform_device *pdev___0 )
   void *tmp ;
   struct platform_device  const  *__cil_tmp4 ;
   struct device *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct device *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned short __cil_tmp11 ;
-  unsigned long long __cil_tmp12 ;
-  void *__cil_tmp13 ;
-  void const   *__cil_tmp14 ;
+  struct device *__cil_tmp6 ;
+  unsigned short __cil_tmp7 ;
+  resource_size_t __cil_tmp8 ;
+  void *__cil_tmp9 ;
+  void const   *__cil_tmp10 ;
 
   {
   {
@@ -13755,35 +11054,27 @@ static int it87_remove(struct platform_device *pdev___0 )
 #line 1900
   data = (struct it87_data *)tmp;
 #line 1902
-  __cil_tmp5 = *((struct device **)data);
+  __cil_tmp5 = data->hwmon_dev;
 #line 1902
   hwmon_device_unregister(__cil_tmp5);
 #line 1903
-  __cil_tmp6 = (unsigned long )pdev___0;
+  __cil_tmp6 = & pdev___0->dev;
 #line 1903
-  __cil_tmp7 = __cil_tmp6 + 16;
-#line 1903
-  __cil_tmp8 = (struct device *)__cil_tmp7;
-#line 1903
-  it87_remove_files(__cil_tmp8);
+  it87_remove_files(__cil_tmp6);
 #line 1905
-  __cil_tmp9 = (unsigned long )data;
+  __cil_tmp7 = data->addr;
 #line 1905
-  __cil_tmp10 = __cil_tmp9 + 42;
+  __cil_tmp8 = (resource_size_t )__cil_tmp7;
 #line 1905
-  __cil_tmp11 = *((unsigned short *)__cil_tmp10);
-#line 1905
-  __cil_tmp12 = (unsigned long long )__cil_tmp11;
-#line 1905
-  __release_region(& ioport_resource, __cil_tmp12, 2ULL);
+  __release_region(& ioport_resource, __cil_tmp8, 2ULL);
 #line 1906
-  __cil_tmp13 = (void *)0;
+  __cil_tmp9 = (void *)0;
 #line 1906
-  platform_set_drvdata(pdev___0, __cil_tmp13);
+  platform_set_drvdata(pdev___0, __cil_tmp9);
 #line 1907
-  __cil_tmp14 = (void const   *)data;
+  __cil_tmp10 = (void const   *)data;
 #line 1907
-  kfree(__cil_tmp14);
+  kfree(__cil_tmp10);
   }
 #line 1909
   return (0);
@@ -13794,15 +11085,11 @@ static int it87_read_value(struct it87_data *data , u8 reg )
 { unsigned char tmp ;
   int __cil_tmp4 ;
   unsigned char __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  unsigned short __cil_tmp6 ;
+  int __cil_tmp7 ;
   unsigned short __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned short __cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
+  int __cil_tmp10 ;
 
   {
   {
@@ -13811,27 +11098,19 @@ static int it87_read_value(struct it87_data *data , u8 reg )
 #line 1917
   __cil_tmp5 = (unsigned char )__cil_tmp4;
 #line 1917
-  __cil_tmp6 = (unsigned long )data;
+  __cil_tmp6 = data->addr;
 #line 1917
-  __cil_tmp7 = __cil_tmp6 + 42;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 1917
-  __cil_tmp8 = *((unsigned short *)__cil_tmp7);
-#line 1917
+  outb_p(__cil_tmp5, __cil_tmp7);
+#line 1918
+  __cil_tmp8 = data->addr;
+#line 1918
   __cil_tmp9 = (int )__cil_tmp8;
-#line 1917
-  outb_p(__cil_tmp5, __cil_tmp9);
 #line 1918
-  __cil_tmp10 = (unsigned long )data;
+  __cil_tmp10 = __cil_tmp9 + 1;
 #line 1918
-  __cil_tmp11 = __cil_tmp10 + 42;
-#line 1918
-  __cil_tmp12 = *((unsigned short *)__cil_tmp11);
-#line 1918
-  __cil_tmp13 = (int )__cil_tmp12;
-#line 1918
-  __cil_tmp14 = __cil_tmp13 + 1;
-#line 1918
-  tmp = inb_p(__cil_tmp14);
+  tmp = inb_p(__cil_tmp10);
   }
 #line 1918
   return ((int )tmp);
@@ -13841,17 +11120,13 @@ static int it87_read_value(struct it87_data *data , u8 reg )
 static void it87_write_value(struct it87_data *data , u8 reg , u8 value ) 
 { int __cil_tmp4 ;
   unsigned char __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned short __cil_tmp8 ;
-  int __cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned char __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned short __cil_tmp14 ;
-  int __cil_tmp15 ;
-  int __cil_tmp16 ;
+  unsigned short __cil_tmp6 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
+  unsigned char __cil_tmp9 ;
+  unsigned short __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
@@ -13860,31 +11135,23 @@ static void it87_write_value(struct it87_data *data , u8 reg , u8 value )
 #line 1926
   __cil_tmp5 = (unsigned char )__cil_tmp4;
 #line 1926
-  __cil_tmp6 = (unsigned long )data;
+  __cil_tmp6 = data->addr;
 #line 1926
-  __cil_tmp7 = __cil_tmp6 + 42;
+  __cil_tmp7 = (int )__cil_tmp6;
 #line 1926
-  __cil_tmp8 = *((unsigned short *)__cil_tmp7);
-#line 1926
-  __cil_tmp9 = (int )__cil_tmp8;
-#line 1926
-  outb_p(__cil_tmp5, __cil_tmp9);
+  outb_p(__cil_tmp5, __cil_tmp7);
 #line 1927
-  __cil_tmp10 = (int )value;
+  __cil_tmp8 = (int )value;
 #line 1927
-  __cil_tmp11 = (unsigned char )__cil_tmp10;
+  __cil_tmp9 = (unsigned char )__cil_tmp8;
 #line 1927
-  __cil_tmp12 = (unsigned long )data;
+  __cil_tmp10 = data->addr;
 #line 1927
-  __cil_tmp13 = __cil_tmp12 + 42;
+  __cil_tmp11 = (int )__cil_tmp10;
 #line 1927
-  __cil_tmp14 = *((unsigned short *)__cil_tmp13);
+  __cil_tmp12 = __cil_tmp11 + 1;
 #line 1927
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 1927
-  __cil_tmp16 = __cil_tmp15 + 1;
-#line 1927
-  outb_p(__cil_tmp11, __cil_tmp16);
+  outb_p(__cil_tmp9, __cil_tmp12);
   }
 #line 1928
   return;
@@ -13900,52 +11167,40 @@ static int it87_check_pwm(struct device *dev )
   u8 pwm[3U] ;
   int tmp___2 ;
   struct device  const  *__cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned char __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+  u8 __cil_tmp10 ;
+  int __cil_tmp11 ;
+  u8 __cil_tmp12 ;
   unsigned int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned char __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u8 __cil_tmp20 ;
+  unsigned int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u8 __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  u8 __cil_tmp28 ;
-  int __cil_tmp29 ;
+  signed char __cil_tmp22 ;
+  int __cil_tmp23 ;
+  struct device  const  *__cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  signed char __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u8 __cil_tmp29 ;
   int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  signed char __cil_tmp32 ;
-  int __cil_tmp33 ;
-  struct device  const  *__cil_tmp34 ;
-  signed char __cil_tmp35 ;
-  int __cil_tmp36 ;
+  u8 __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  unsigned int __cil_tmp33 ;
+  unsigned int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  u8 __cil_tmp36 ;
   int __cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
+  int __cil_tmp38 ;
   int __cil_tmp39 ;
-  unsigned char __cil_tmp40 ;
-  unsigned char __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned char __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  u8 __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned char __cil_tmp52 ;
-  struct device  const  *__cil_tmp53 ;
-  struct device  const  *__cil_tmp54 ;
-  struct device  const  *__cil_tmp55 ;
+  u8 __cil_tmp40 ;
+  struct device  const  *__cil_tmp41 ;
+  struct device  const  *__cil_tmp42 ;
+  struct device  const  *__cil_tmp43 ;
 
   {
   {
@@ -13956,145 +11211,127 @@ static int it87_check_pwm(struct device *dev )
 #line 1933
   data = (struct it87_data *)tmp;
 #line 1937
-  tmp___1 = it87_read_value(data, (unsigned char)20);
+  __cil_tmp10 = (u8 )20;
+#line 1937
+  tmp___1 = it87_read_value(data, __cil_tmp10);
 #line 1937
   tmp___0 = tmp___1;
   }
   {
 #line 1938
-  __cil_tmp10 = tmp___0 & 135;
+  __cil_tmp11 = tmp___0 & 135;
 #line 1938
-  if (__cil_tmp10 == 0) {
+  if (__cil_tmp11 == 0) {
 #line 1939
     if (fix_pwm_polarity != 0) {
 #line 1946
       i = 0;
+#line 1946
       goto ldv_24932;
       ldv_24931: 
       {
 #line 1947
-      __cil_tmp11 = (unsigned char )i;
+      __cil_tmp12 = (u8 )i;
 #line 1947
-      __cil_tmp12 = (unsigned int )__cil_tmp11;
+      __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1947
-      __cil_tmp13 = __cil_tmp12 + 21U;
+      __cil_tmp14 = __cil_tmp13 + 21U;
 #line 1947
-      __cil_tmp14 = (int )__cil_tmp13;
+      __cil_tmp15 = (int )__cil_tmp14;
 #line 1947
-      __cil_tmp15 = (unsigned char )__cil_tmp14;
+      __cil_tmp16 = (u8 )__cil_tmp15;
 #line 1947
-      tmp___2 = it87_read_value(data, __cil_tmp15);
+      tmp___2 = it87_read_value(data, __cil_tmp16);
 #line 1947
-      __cil_tmp16 = i * 1UL;
-#line 1947
-      __cil_tmp17 = (unsigned long )(pwm) + __cil_tmp16;
-#line 1947
-      *((u8 *)__cil_tmp17) = (unsigned char )tmp___2;
+      pwm[i] = (u8 )tmp___2;
 #line 1946
       i = i + 1;
       }
       ldv_24932: ;
 #line 1946
       if (i <= 2) {
+#line 1947
         goto ldv_24931;
       } else {
+#line 1949
         goto ldv_24933;
       }
       ldv_24933: ;
       {
 #line 1954
-      __cil_tmp18 = 2 * 1UL;
+      __cil_tmp17 = (int )pwm[2];
 #line 1954
-      __cil_tmp19 = (unsigned long )(pwm) + __cil_tmp18;
+      __cil_tmp18 = (int )pwm[1];
 #line 1954
-      __cil_tmp20 = *((u8 *)__cil_tmp19);
+      __cil_tmp19 = (int )pwm[0];
 #line 1954
-      __cil_tmp21 = (int )__cil_tmp20;
+      __cil_tmp20 = __cil_tmp19 | __cil_tmp18;
 #line 1954
-      __cil_tmp22 = 1 * 1UL;
+      __cil_tmp21 = __cil_tmp20 | __cil_tmp17;
 #line 1954
-      __cil_tmp23 = (unsigned long )(pwm) + __cil_tmp22;
+      __cil_tmp22 = (signed char )__cil_tmp21;
 #line 1954
-      __cil_tmp24 = *((u8 *)__cil_tmp23);
+      __cil_tmp23 = (int )__cil_tmp22;
 #line 1954
-      __cil_tmp25 = (int )__cil_tmp24;
-#line 1954
-      __cil_tmp26 = 0 * 1UL;
-#line 1954
-      __cil_tmp27 = (unsigned long )(pwm) + __cil_tmp26;
-#line 1954
-      __cil_tmp28 = *((u8 *)__cil_tmp27);
-#line 1954
-      __cil_tmp29 = (int )__cil_tmp28;
-#line 1954
-      __cil_tmp30 = __cil_tmp29 | __cil_tmp25;
-#line 1954
-      __cil_tmp31 = __cil_tmp30 | __cil_tmp21;
-#line 1954
-      __cil_tmp32 = (signed char )__cil_tmp31;
-#line 1954
-      __cil_tmp33 = (int )__cil_tmp32;
-#line 1954
-      if (__cil_tmp33 >= 0) {
+      if (__cil_tmp23 >= 0) {
         {
 #line 1955
-        __cil_tmp34 = (struct device  const  *)dev;
+        __cil_tmp24 = (struct device  const  *)dev;
 #line 1955
-        _dev_info(__cil_tmp34, "Reconfiguring PWM to active high polarity\n");
+        _dev_info(__cil_tmp24, "Reconfiguring PWM to active high polarity\n");
 #line 1957
-        __cil_tmp35 = (signed char )tmp___0;
+        __cil_tmp25 = (u8 )20;
 #line 1957
-        __cil_tmp36 = (int )__cil_tmp35;
+        __cil_tmp26 = (signed char )tmp___0;
 #line 1957
-        __cil_tmp37 = __cil_tmp36 | -121;
+        __cil_tmp27 = (int )__cil_tmp26;
 #line 1957
-        __cil_tmp38 = (unsigned char )__cil_tmp37;
+        __cil_tmp28 = __cil_tmp27 | -121;
 #line 1957
-        __cil_tmp39 = (int )__cil_tmp38;
+        __cil_tmp29 = (u8 )__cil_tmp28;
 #line 1957
-        __cil_tmp40 = (unsigned char )__cil_tmp39;
+        __cil_tmp30 = (int )__cil_tmp29;
 #line 1957
-        it87_write_value(data, (unsigned char)20, __cil_tmp40);
+        __cil_tmp31 = (u8 )__cil_tmp30;
+#line 1957
+        it87_write_value(data, __cil_tmp25, __cil_tmp31);
 #line 1959
         i = 0;
         }
+#line 1959
         goto ldv_24935;
         ldv_24934: 
         {
 #line 1960
-        __cil_tmp41 = (unsigned char )i;
+        __cil_tmp32 = (u8 )i;
 #line 1960
-        __cil_tmp42 = (unsigned int )__cil_tmp41;
+        __cil_tmp33 = (unsigned int )__cil_tmp32;
 #line 1960
-        __cil_tmp43 = __cil_tmp42 + 21U;
+        __cil_tmp34 = __cil_tmp33 + 21U;
 #line 1960
-        __cil_tmp44 = (int )__cil_tmp43;
+        __cil_tmp35 = (int )__cil_tmp34;
 #line 1960
-        __cil_tmp45 = (unsigned char )__cil_tmp44;
+        __cil_tmp36 = (u8 )__cil_tmp35;
 #line 1960
-        __cil_tmp46 = i * 1UL;
+        __cil_tmp37 = (int )pwm[i];
 #line 1960
-        __cil_tmp47 = (unsigned long )(pwm) + __cil_tmp46;
+        __cil_tmp38 = ~ __cil_tmp37;
 #line 1960
-        __cil_tmp48 = *((u8 *)__cil_tmp47);
+        __cil_tmp39 = __cil_tmp38 & 127;
 #line 1960
-        __cil_tmp49 = (int )__cil_tmp48;
+        __cil_tmp40 = (u8 )__cil_tmp39;
 #line 1960
-        __cil_tmp50 = ~ __cil_tmp49;
-#line 1960
-        __cil_tmp51 = __cil_tmp50 & 127;
-#line 1960
-        __cil_tmp52 = (unsigned char )__cil_tmp51;
-#line 1960
-        it87_write_value(data, __cil_tmp45, __cil_tmp52);
+        it87_write_value(data, __cil_tmp36, __cil_tmp40);
 #line 1959
         i = i + 1;
         }
         ldv_24935: ;
 #line 1959
         if (i <= 2) {
+#line 1960
           goto ldv_24934;
         } else {
+#line 1962
           goto ldv_24936;
         }
         ldv_24936: ;
@@ -14106,33 +11343,32 @@ static int it87_check_pwm(struct device *dev )
       }
       {
 #line 1966
-      __cil_tmp53 = (struct device  const  *)dev;
+      __cil_tmp41 = (struct device  const  *)dev;
 #line 1966
-      _dev_info(__cil_tmp53, "PWM configuration is too broken to be fixed\n");
+      _dev_info(__cil_tmp41, "PWM configuration is too broken to be fixed\n");
       }
     } else {
 
     }
     {
 #line 1970
-    __cil_tmp54 = (struct device  const  *)dev;
+    __cil_tmp42 = (struct device  const  *)dev;
 #line 1970
-    _dev_info(__cil_tmp54, "Detected broken BIOS defaults, disabling PWM interface\n");
+    _dev_info(__cil_tmp42, "Detected broken BIOS defaults, disabling PWM interface\n");
     }
 #line 1972
     return (0);
-  } else {
+  } else
 #line 1973
-    if (fix_pwm_polarity != 0) {
-      {
+  if (fix_pwm_polarity != 0) {
+    {
 #line 1974
-      __cil_tmp55 = (struct device  const  *)dev;
+    __cil_tmp43 = (struct device  const  *)dev;
 #line 1974
-      _dev_info(__cil_tmp55, "PWM configuration looks sane, won\'t touch\n");
-      }
-    } else {
-
+    _dev_info(__cil_tmp43, "PWM configuration looks sane, won\'t touch\n");
     }
+  } else {
+
   }
   }
 #line 1978
@@ -14151,255 +11387,185 @@ static void it87_init_device(struct platform_device *pdev___0 )
   int tmp___2 ;
   int tmp___3 ;
   int tmp___4 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  void *__cil_tmp15 ;
-  struct platform_device  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned char __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned char __cil_tmp36 ;
-  unsigned char __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
+  void *__cil_tmp12 ;
+  struct platform_device  const  *__cil_tmp13 ;
+  u8 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  u8 __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  u8 __cil_tmp26 ;
+  int __cil_tmp27 ;
+  u8 __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  u8 __cil_tmp32 ;
+  int __cil_tmp33 ;
+  u8 __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  u8 __cil_tmp39 ;
+  u8 __cil_tmp40 ;
   int __cil_tmp41 ;
-  unsigned char __cil_tmp42 ;
-  int __cil_tmp43 ;
-  unsigned char __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
+  u8 __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  u8 __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
   int __cil_tmp47 ;
-  unsigned char __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned char __cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  unsigned int __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned char __cil_tmp54 ;
+  u8 __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  u8 __cil_tmp51 ;
+  int __cil_tmp52 ;
+  u8 __cil_tmp53 ;
+  int __cil_tmp54 ;
   int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
+  unsigned int __cil_tmp56 ;
+  int __cil_tmp57 ;
   u8 __cil_tmp58 ;
   int __cil_tmp59 ;
   int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned char __cil_tmp62 ;
-  unsigned int __cil_tmp63 ;
-  unsigned int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
+  u8 __cil_tmp61 ;
+  u8 __cil_tmp62 ;
+  int __cil_tmp63 ;
+  u8 __cil_tmp64 ;
+  u8 __cil_tmp65 ;
+  int __cil_tmp66 ;
   int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  u8 __cil_tmp70 ;
-  int __cil_tmp71 ;
-  int __cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
+  u8 __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  unsigned int __cil_tmp70 ;
+  struct it87_data  const  *__cil_tmp71 ;
+  u8 __cil_tmp72 ;
+  u8 __cil_tmp73 ;
+  int __cil_tmp74 ;
+  int __cil_tmp75 ;
   int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  u8 __cil_tmp79 ;
-  int __cil_tmp80 ;
-  int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
+  int __cil_tmp77 ;
+  struct device *__cil_tmp78 ;
+  struct device  const  *__cil_tmp79 ;
+  u8 __cil_tmp80 ;
+  signed char __cil_tmp81 ;
+  int __cil_tmp82 ;
+  int __cil_tmp83 ;
   u8 __cil_tmp84 ;
   int __cil_tmp85 ;
-  unsigned char __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  u8 __cil_tmp91 ;
-  int __cil_tmp92 ;
+  u8 __cil_tmp86 ;
+  enum chips __cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  int __cil_tmp89 ;
+  u8 __cil_tmp90 ;
+  unsigned int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
   int __cil_tmp93 ;
-  unsigned char __cil_tmp94 ;
+  u8 __cil_tmp94 ;
   unsigned int __cil_tmp95 ;
   unsigned int __cil_tmp96 ;
-  struct it87_data  const  *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  u8 __cil_tmp100 ;
-  int __cil_tmp101 ;
-  int __cil_tmp102 ;
+  u8 __cil_tmp97 ;
+  signed char __cil_tmp98 ;
+  int __cil_tmp99 ;
+  int __cil_tmp100 ;
+  u8 __cil_tmp101 ;
+  signed char __cil_tmp102 ;
   int __cil_tmp103 ;
   int __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  struct device *__cil_tmp107 ;
-  struct device  const  *__cil_tmp108 ;
-  signed char __cil_tmp109 ;
+  u8 __cil_tmp105 ;
+  u8 __cil_tmp106 ;
+  signed char __cil_tmp107 ;
+  int __cil_tmp108 ;
+  int __cil_tmp109 ;
   int __cil_tmp110 ;
-  int __cil_tmp111 ;
-  unsigned char __cil_tmp112 ;
-  int __cil_tmp113 ;
-  unsigned char __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  enum chips __cil_tmp117 ;
-  unsigned int __cil_tmp118 ;
-  int __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  u8 __cil_tmp124 ;
-  unsigned int __cil_tmp125 ;
-  unsigned int __cil_tmp126 ;
-  int __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  u8 __cil_tmp132 ;
-  unsigned int __cil_tmp133 ;
-  unsigned int __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  u8 __cil_tmp139 ;
-  signed char __cil_tmp140 ;
-  int __cil_tmp141 ;
-  int __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  u8 __cil_tmp145 ;
-  signed char __cil_tmp146 ;
-  int __cil_tmp147 ;
-  int __cil_tmp148 ;
-  signed char __cil_tmp149 ;
-  int __cil_tmp150 ;
-  int __cil_tmp151 ;
-  int __cil_tmp152 ;
-  unsigned char __cil_tmp153 ;
-  int __cil_tmp154 ;
-  unsigned char __cil_tmp155 ;
+  u8 __cil_tmp111 ;
+  int __cil_tmp112 ;
+  u8 __cil_tmp113 ;
 
   {
   {
 #line 1984
-  __cil_tmp12 = 16 + 280;
+  __cil_tmp12 = pdev___0->dev.platform_data;
 #line 1984
-  __cil_tmp13 = (unsigned long )pdev___0;
-#line 1984
-  __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 1984
-  __cil_tmp15 = *((void **)__cil_tmp14);
-#line 1984
-  sio_data = (struct it87_sio_data *)__cil_tmp15;
+  sio_data = (struct it87_sio_data *)__cil_tmp12;
 #line 1985
-  __cil_tmp16 = (struct platform_device  const  *)pdev___0;
+  __cil_tmp13 = (struct platform_device  const  *)pdev___0;
 #line 1985
-  tmp = platform_get_drvdata(__cil_tmp16);
+  tmp = platform_get_drvdata(__cil_tmp13);
 #line 1985
   data = (struct it87_data *)tmp;
 #line 2000
   i = 0;
   }
+#line 2000
   goto ldv_24946;
   ldv_24945: 
 #line 2001
-  __cil_tmp17 = i * 1UL;
-#line 2001
-  __cil_tmp18 = 317 + __cil_tmp17;
-#line 2001
-  __cil_tmp19 = (unsigned long )data;
-#line 2001
-  __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 2001
-  *((u8 *)__cil_tmp20) = (unsigned char )i;
+  data->pwm_temp_map[i] = (u8 )i;
 #line 2002
-  __cil_tmp21 = i * 1UL;
-#line 2002
-  __cil_tmp22 = 314 + __cil_tmp21;
-#line 2002
-  __cil_tmp23 = (unsigned long )data;
-#line 2002
-  __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 2002
-  *((u8 *)__cil_tmp24) = (unsigned char)127;
+  data->pwm_duty[i] = (u8 )127U;
 #line 2003
-  __cil_tmp25 = 3 * 1UL;
-#line 2003
-  __cil_tmp26 = i * 4UL;
-#line 2003
-  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 2003
-  __cil_tmp28 = 320 + __cil_tmp27;
-#line 2003
-  __cil_tmp29 = (unsigned long )data;
-#line 2003
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-#line 2003
-  *((u8 *)__cil_tmp30) = (unsigned char)127;
+  data->auto_pwm[i][3] = (u8 )127U;
 #line 2000
   i = i + 1;
   ldv_24946: ;
 #line 2000
   if (i <= 2) {
+#line 2001
     goto ldv_24945;
   } else {
+#line 2003
     goto ldv_24947;
   }
   ldv_24947: 
 #line 2011
   i = 0;
+#line 2011
   goto ldv_24949;
   ldv_24948: 
   {
 #line 2012
-  __cil_tmp31 = (unsigned char )i;
+  __cil_tmp14 = (u8 )i;
 #line 2012
-  __cil_tmp32 = (unsigned int )__cil_tmp31;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 2012
-  __cil_tmp33 = __cil_tmp32 * 2U;
+  __cil_tmp16 = __cil_tmp15 * 2U;
 #line 2012
-  __cil_tmp34 = __cil_tmp33 + 49U;
+  __cil_tmp17 = __cil_tmp16 + 49U;
 #line 2012
-  __cil_tmp35 = (int )__cil_tmp34;
+  __cil_tmp18 = (int )__cil_tmp17;
 #line 2012
-  __cil_tmp36 = (unsigned char )__cil_tmp35;
+  __cil_tmp19 = (u8 )__cil_tmp18;
 #line 2012
-  tmp___0 = it87_read_value(data, __cil_tmp36);
+  tmp___0 = it87_read_value(data, __cil_tmp19);
   }
 #line 2013
   if (tmp___0 == 255) {
     {
 #line 2014
-    __cil_tmp37 = (unsigned char )i;
+    __cil_tmp20 = (u8 )i;
 #line 2014
-    __cil_tmp38 = (unsigned int )__cil_tmp37;
+    __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 2014
-    __cil_tmp39 = __cil_tmp38 * 2U;
+    __cil_tmp22 = __cil_tmp21 * 2U;
 #line 2014
-    __cil_tmp40 = __cil_tmp39 + 49U;
+    __cil_tmp23 = __cil_tmp22 + 49U;
 #line 2014
-    __cil_tmp41 = (int )__cil_tmp40;
+    __cil_tmp24 = (int )__cil_tmp23;
 #line 2014
-    __cil_tmp42 = (unsigned char )__cil_tmp41;
+    __cil_tmp25 = (u8 )__cil_tmp24;
 #line 2014
-    it87_write_value(data, __cil_tmp42, (unsigned char)0);
+    __cil_tmp26 = (u8 )0;
+#line 2014
+    it87_write_value(data, __cil_tmp25, __cil_tmp26);
     }
   } else {
 
@@ -14409,48 +11575,53 @@ static void it87_init_device(struct platform_device *pdev___0 )
   ldv_24949: ;
 #line 2011
   if (i <= 7) {
+#line 2012
     goto ldv_24948;
   } else {
+#line 2014
     goto ldv_24950;
   }
   ldv_24950: 
 #line 2016
   i = 0;
+#line 2016
   goto ldv_24952;
   ldv_24951: 
   {
 #line 2017
-  __cil_tmp43 = i + 32;
+  __cil_tmp27 = i + 32;
 #line 2017
-  __cil_tmp44 = (unsigned char )__cil_tmp43;
+  __cil_tmp28 = (u8 )__cil_tmp27;
 #line 2017
-  __cil_tmp45 = (unsigned int )__cil_tmp44;
+  __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 2017
-  __cil_tmp46 = __cil_tmp45 * 2U;
+  __cil_tmp30 = __cil_tmp29 * 2U;
 #line 2017
-  __cil_tmp47 = (int )__cil_tmp46;
+  __cil_tmp31 = (int )__cil_tmp30;
 #line 2017
-  __cil_tmp48 = (unsigned char )__cil_tmp47;
+  __cil_tmp32 = (u8 )__cil_tmp31;
 #line 2017
-  tmp___0 = it87_read_value(data, __cil_tmp48);
+  tmp___0 = it87_read_value(data, __cil_tmp32);
   }
 #line 2018
   if (tmp___0 == 255) {
     {
 #line 2019
-    __cil_tmp49 = i + 32;
+    __cil_tmp33 = i + 32;
 #line 2019
-    __cil_tmp50 = (unsigned char )__cil_tmp49;
+    __cil_tmp34 = (u8 )__cil_tmp33;
 #line 2019
-    __cil_tmp51 = (unsigned int )__cil_tmp50;
+    __cil_tmp35 = (unsigned int )__cil_tmp34;
 #line 2019
-    __cil_tmp52 = __cil_tmp51 * 2U;
+    __cil_tmp36 = __cil_tmp35 * 2U;
 #line 2019
-    __cil_tmp53 = (int )__cil_tmp52;
+    __cil_tmp37 = (int )__cil_tmp36;
 #line 2019
-    __cil_tmp54 = (unsigned char )__cil_tmp53;
+    __cil_tmp38 = (u8 )__cil_tmp37;
 #line 2019
-    it87_write_value(data, __cil_tmp54, (unsigned char)127);
+    __cil_tmp39 = (u8 )127;
+#line 2019
+    it87_write_value(data, __cil_tmp38, __cil_tmp39);
     }
   } else {
 
@@ -14460,23 +11631,31 @@ static void it87_init_device(struct platform_device *pdev___0 )
   ldv_24952: ;
 #line 2016
   if (i <= 2) {
+#line 2017
     goto ldv_24951;
   } else {
+#line 2019
     goto ldv_24953;
   }
   ldv_24953: 
   {
 #line 2028
-  tmp___0 = it87_read_value(data, (unsigned char)80);
+  __cil_tmp40 = (u8 )80;
+#line 2028
+  tmp___0 = it87_read_value(data, __cil_tmp40);
   }
   {
 #line 2029
-  __cil_tmp55 = tmp___0 & 255;
+  __cil_tmp41 = tmp___0 & 255;
 #line 2029
-  if (__cil_tmp55 == 0) {
+  if (__cil_tmp41 == 0) {
     {
 #line 2031
-    it87_write_value(data, (unsigned char)80, (unsigned char)255);
+    __cil_tmp42 = (u8 )80;
+#line 2031
+    __cil_tmp43 = (u8 )255;
+#line 2031
+    it87_write_value(data, __cil_tmp42, __cil_tmp43);
     }
   } else {
 
@@ -14484,82 +11663,62 @@ static void it87_init_device(struct platform_device *pdev___0 )
   }
   {
 #line 2035
-  __cil_tmp56 = (unsigned long )sio_data;
+  __cil_tmp44 = sio_data->skip_fan;
 #line 2035
-  __cil_tmp57 = __cil_tmp56 + 37;
+  __cil_tmp45 = (int )__cil_tmp44;
 #line 2035
-  __cil_tmp58 = *((u8 *)__cil_tmp57);
+  __cil_tmp46 = __cil_tmp45 << 4U;
 #line 2035
-  __cil_tmp59 = (int )__cil_tmp58;
+  __cil_tmp47 = ~ __cil_tmp46;
 #line 2035
-  __cil_tmp60 = __cil_tmp59 << 4U;
+  __cil_tmp48 = (u8 )__cil_tmp47;
 #line 2035
-  __cil_tmp61 = ~ __cil_tmp60;
+  __cil_tmp49 = (unsigned int )__cil_tmp48;
 #line 2035
-  __cil_tmp62 = (unsigned char )__cil_tmp61;
+  __cil_tmp50 = __cil_tmp49 & 112U;
 #line 2035
-  __cil_tmp63 = (unsigned int )__cil_tmp62;
-#line 2035
-  __cil_tmp64 = __cil_tmp63 & 112U;
-#line 2035
-  mask = (unsigned char )__cil_tmp64;
+  mask = (u8 )__cil_tmp50;
 #line 2036
-  tmp___1 = it87_read_value(data, (unsigned char)19);
+  __cil_tmp51 = (u8 )19;
 #line 2036
-  __cil_tmp65 = (unsigned long )data;
+  tmp___1 = it87_read_value(data, __cil_tmp51);
 #line 2036
-  __cil_tmp66 = __cil_tmp65 + 309;
-#line 2036
-  *((u8 *)__cil_tmp66) = (unsigned char )tmp___1;
+  data->fan_main_ctrl = (u8 )tmp___1;
   }
   {
 #line 2037
-  __cil_tmp67 = (int )mask;
+  __cil_tmp52 = (int )mask;
 #line 2037
-  __cil_tmp68 = (unsigned long )data;
+  __cil_tmp53 = data->fan_main_ctrl;
 #line 2037
-  __cil_tmp69 = __cil_tmp68 + 309;
+  __cil_tmp54 = (int )__cil_tmp53;
 #line 2037
-  __cil_tmp70 = *((u8 *)__cil_tmp69);
+  __cil_tmp55 = __cil_tmp54 & __cil_tmp52;
 #line 2037
-  __cil_tmp71 = (int )__cil_tmp70;
+  __cil_tmp56 = (unsigned int )__cil_tmp55;
 #line 2037
-  __cil_tmp72 = __cil_tmp71 & __cil_tmp67;
-#line 2037
-  __cil_tmp73 = (unsigned int )__cil_tmp72;
-#line 2037
-  if (__cil_tmp73 == 0U) {
+  if (__cil_tmp56 == 0U) {
     {
 #line 2039
-    __cil_tmp74 = (unsigned long )data;
+    __cil_tmp57 = (int )mask;
 #line 2039
-    __cil_tmp75 = __cil_tmp74 + 309;
+    __cil_tmp58 = data->fan_main_ctrl;
 #line 2039
-    __cil_tmp76 = (int )mask;
+    __cil_tmp59 = (int )__cil_tmp58;
 #line 2039
-    __cil_tmp77 = (unsigned long )data;
+    __cil_tmp60 = __cil_tmp59 | __cil_tmp57;
 #line 2039
-    __cil_tmp78 = __cil_tmp77 + 309;
-#line 2039
-    __cil_tmp79 = *((u8 *)__cil_tmp78);
-#line 2039
-    __cil_tmp80 = (int )__cil_tmp79;
-#line 2039
-    __cil_tmp81 = __cil_tmp80 | __cil_tmp76;
-#line 2039
-    *((u8 *)__cil_tmp75) = (unsigned char )__cil_tmp81;
+    data->fan_main_ctrl = (u8 )__cil_tmp60;
 #line 2040
-    __cil_tmp82 = (unsigned long )data;
+    __cil_tmp61 = (u8 )19;
 #line 2040
-    __cil_tmp83 = __cil_tmp82 + 309;
+    __cil_tmp62 = data->fan_main_ctrl;
 #line 2040
-    __cil_tmp84 = *((u8 *)__cil_tmp83);
+    __cil_tmp63 = (int )__cil_tmp62;
 #line 2040
-    __cil_tmp85 = (int )__cil_tmp84;
+    __cil_tmp64 = (u8 )__cil_tmp63;
 #line 2040
-    __cil_tmp86 = (unsigned char )__cil_tmp85;
-#line 2040
-    it87_write_value(data, (unsigned char)19, __cil_tmp86);
+    it87_write_value(data, __cil_tmp61, __cil_tmp64);
     }
   } else {
 
@@ -14567,80 +11726,68 @@ static void it87_init_device(struct platform_device *pdev___0 )
   }
   {
 #line 2043
-  __cil_tmp87 = (unsigned long )data;
+  __cil_tmp65 = data->fan_main_ctrl;
 #line 2043
-  __cil_tmp88 = __cil_tmp87 + 267;
+  __cil_tmp66 = (int )__cil_tmp65;
 #line 2043
-  __cil_tmp89 = (unsigned long )data;
+  __cil_tmp67 = __cil_tmp66 >> 4;
 #line 2043
-  __cil_tmp90 = __cil_tmp89 + 309;
+  __cil_tmp68 = (u8 )__cil_tmp67;
 #line 2043
-  __cil_tmp91 = *((u8 *)__cil_tmp90);
+  __cil_tmp69 = (unsigned int )__cil_tmp68;
 #line 2043
-  __cil_tmp92 = (int )__cil_tmp91;
+  __cil_tmp70 = __cil_tmp69 & 7U;
 #line 2043
-  __cil_tmp93 = __cil_tmp92 >> 4;
-#line 2043
-  __cil_tmp94 = (unsigned char )__cil_tmp93;
-#line 2043
-  __cil_tmp95 = (unsigned int )__cil_tmp94;
-#line 2043
-  __cil_tmp96 = __cil_tmp95 & 7U;
-#line 2043
-  *((u8 *)__cil_tmp88) = (unsigned char )__cil_tmp96;
+  data->has_fan = (u8 )__cil_tmp70;
 #line 2046
-  __cil_tmp97 = (struct it87_data  const  *)data;
+  __cil_tmp71 = (struct it87_data  const  *)data;
 #line 2046
-  tmp___2 = has_16bit_fans(__cil_tmp97);
+  tmp___2 = has_16bit_fans(__cil_tmp71);
   }
 #line 2046
   if (tmp___2 != 0) {
     {
 #line 2047
-    tmp___0 = it87_read_value(data, (unsigned char)12);
+    __cil_tmp72 = (u8 )12;
+#line 2047
+    tmp___0 = it87_read_value(data, __cil_tmp72);
     }
     {
 #line 2048
-    __cil_tmp98 = (unsigned long )data;
+    __cil_tmp73 = data->has_fan;
 #line 2048
-    __cil_tmp99 = __cil_tmp98 + 267;
+    __cil_tmp74 = (int )__cil_tmp73;
 #line 2048
-    __cil_tmp100 = *((u8 *)__cil_tmp99);
+    __cil_tmp75 = ~ tmp___0;
 #line 2048
-    __cil_tmp101 = (int )__cil_tmp100;
+    __cil_tmp76 = __cil_tmp75 & 7;
 #line 2048
-    __cil_tmp102 = ~ tmp___0;
+    __cil_tmp77 = __cil_tmp76 & __cil_tmp74;
 #line 2048
-    __cil_tmp103 = __cil_tmp102 & 7;
-#line 2048
-    __cil_tmp104 = __cil_tmp103 & __cil_tmp101;
-#line 2048
-    if (__cil_tmp104 != 0) {
+    if (__cil_tmp77 != 0) {
       {
 #line 2049
-      __cil_tmp105 = (unsigned long )pdev___0;
+      __cil_tmp78 = & pdev___0->dev;
 #line 2049
-      __cil_tmp106 = __cil_tmp105 + 16;
+      __cil_tmp79 = (struct device  const  *)__cil_tmp78;
 #line 2049
-      __cil_tmp107 = (struct device *)__cil_tmp106;
-#line 2049
-      __cil_tmp108 = (struct device  const  *)__cil_tmp107;
-#line 2049
-      dev_printk("<7>", __cil_tmp108, "Setting fan1-3 to 16-bit mode\n");
+      dev_printk("<7>", __cil_tmp79, "Setting fan1-3 to 16-bit mode\n");
 #line 2051
-      __cil_tmp109 = (signed char )tmp___0;
+      __cil_tmp80 = (u8 )12;
 #line 2051
-      __cil_tmp110 = (int )__cil_tmp109;
+      __cil_tmp81 = (signed char )tmp___0;
 #line 2051
-      __cil_tmp111 = __cil_tmp110 | 7;
+      __cil_tmp82 = (int )__cil_tmp81;
 #line 2051
-      __cil_tmp112 = (unsigned char )__cil_tmp111;
+      __cil_tmp83 = __cil_tmp82 | 7;
 #line 2051
-      __cil_tmp113 = (int )__cil_tmp112;
+      __cil_tmp84 = (u8 )__cil_tmp83;
 #line 2051
-      __cil_tmp114 = (unsigned char )__cil_tmp113;
+      __cil_tmp85 = (int )__cil_tmp84;
 #line 2051
-      it87_write_value(data, (unsigned char)12, __cil_tmp114);
+      __cil_tmp86 = (u8 )__cil_tmp85;
+#line 2051
+      it87_write_value(data, __cil_tmp80, __cil_tmp86);
       }
     } else {
 
@@ -14648,61 +11795,41 @@ static void it87_init_device(struct platform_device *pdev___0 )
     }
     {
 #line 2055
-    __cil_tmp115 = (unsigned long )data;
+    __cil_tmp87 = data->type;
 #line 2055
-    __cil_tmp116 = __cil_tmp115 + 8;
+    __cil_tmp88 = (unsigned int )__cil_tmp87;
 #line 2055
-    __cil_tmp117 = *((enum chips *)__cil_tmp116);
-#line 2055
-    __cil_tmp118 = (unsigned int )__cil_tmp117;
-#line 2055
-    if (__cil_tmp118 != 0U) {
+    if (__cil_tmp88 != 0U) {
       {
 #line 2056
-      __cil_tmp119 = tmp___0 & 16;
+      __cil_tmp89 = tmp___0 & 16;
 #line 2056
-      if (__cil_tmp119 != 0) {
+      if (__cil_tmp89 != 0) {
 #line 2057
-        __cil_tmp120 = (unsigned long )data;
+        __cil_tmp90 = data->has_fan;
 #line 2057
-        __cil_tmp121 = __cil_tmp120 + 267;
+        __cil_tmp91 = (unsigned int )__cil_tmp90;
 #line 2057
-        __cil_tmp122 = (unsigned long )data;
+        __cil_tmp92 = __cil_tmp91 | 8U;
 #line 2057
-        __cil_tmp123 = __cil_tmp122 + 267;
-#line 2057
-        __cil_tmp124 = *((u8 *)__cil_tmp123);
-#line 2057
-        __cil_tmp125 = (unsigned int )__cil_tmp124;
-#line 2057
-        __cil_tmp126 = __cil_tmp125 | 8U;
-#line 2057
-        *((u8 *)__cil_tmp121) = (unsigned char )__cil_tmp126;
+        data->has_fan = (u8 )__cil_tmp92;
       } else {
 
       }
       }
       {
 #line 2058
-      __cil_tmp127 = tmp___0 & 32;
+      __cil_tmp93 = tmp___0 & 32;
 #line 2058
-      if (__cil_tmp127 != 0) {
+      if (__cil_tmp93 != 0) {
 #line 2059
-        __cil_tmp128 = (unsigned long )data;
+        __cil_tmp94 = data->has_fan;
 #line 2059
-        __cil_tmp129 = __cil_tmp128 + 267;
+        __cil_tmp95 = (unsigned int )__cil_tmp94;
 #line 2059
-        __cil_tmp130 = (unsigned long )data;
+        __cil_tmp96 = __cil_tmp95 | 16U;
 #line 2059
-        __cil_tmp131 = __cil_tmp130 + 267;
-#line 2059
-        __cil_tmp132 = *((u8 *)__cil_tmp131);
-#line 2059
-        __cil_tmp133 = (unsigned int )__cil_tmp132;
-#line 2059
-        __cil_tmp134 = __cil_tmp133 | 16U;
-#line 2059
-        *((u8 *)__cil_tmp129) = (unsigned char )__cil_tmp134;
+        data->has_fan = (u8 )__cil_tmp96;
       } else {
 
       }
@@ -14716,37 +11843,27 @@ static void it87_init_device(struct platform_device *pdev___0 )
   }
   {
 #line 2064
-  __cil_tmp135 = (unsigned long )data;
+  __cil_tmp97 = sio_data->skip_fan;
 #line 2064
-  __cil_tmp136 = __cil_tmp135 + 267;
+  __cil_tmp98 = (signed char )__cil_tmp97;
 #line 2064
-  __cil_tmp137 = (unsigned long )sio_data;
+  __cil_tmp99 = (int )__cil_tmp98;
 #line 2064
-  __cil_tmp138 = __cil_tmp137 + 37;
+  __cil_tmp100 = ~ __cil_tmp99;
 #line 2064
-  __cil_tmp139 = *((u8 *)__cil_tmp138);
+  __cil_tmp101 = data->has_fan;
 #line 2064
-  __cil_tmp140 = (signed char )__cil_tmp139;
+  __cil_tmp102 = (signed char )__cil_tmp101;
 #line 2064
-  __cil_tmp141 = (int )__cil_tmp140;
+  __cil_tmp103 = (int )__cil_tmp102;
 #line 2064
-  __cil_tmp142 = ~ __cil_tmp141;
+  __cil_tmp104 = __cil_tmp103 & __cil_tmp100;
 #line 2064
-  __cil_tmp143 = (unsigned long )data;
-#line 2064
-  __cil_tmp144 = __cil_tmp143 + 267;
-#line 2064
-  __cil_tmp145 = *((u8 *)__cil_tmp144);
-#line 2064
-  __cil_tmp146 = (signed char )__cil_tmp145;
-#line 2064
-  __cil_tmp147 = (int )__cil_tmp146;
-#line 2064
-  __cil_tmp148 = __cil_tmp147 & __cil_tmp142;
-#line 2064
-  *((u8 *)__cil_tmp136) = (unsigned char )__cil_tmp148;
+  data->has_fan = (u8 )__cil_tmp104;
 #line 2067
-  tmp___3 = it87_read_value(data, (unsigned char)0);
+  __cil_tmp105 = (u8 )0;
+#line 2067
+  tmp___3 = it87_read_value(data, __cil_tmp105);
   }
 #line 2067
   if (update_vbat != 0) {
@@ -14758,21 +11875,23 @@ static void it87_init_device(struct platform_device *pdev___0 )
   }
   {
 #line 2067
-  __cil_tmp149 = (signed char )tmp___3;
+  __cil_tmp106 = (u8 )0;
 #line 2067
-  __cil_tmp150 = (int )__cil_tmp149;
+  __cil_tmp107 = (signed char )tmp___3;
 #line 2067
-  __cil_tmp151 = __cil_tmp150 & 54;
+  __cil_tmp108 = (int )__cil_tmp107;
 #line 2067
-  __cil_tmp152 = __cil_tmp151 | tmp___4;
+  __cil_tmp109 = __cil_tmp108 & 54;
 #line 2067
-  __cil_tmp153 = (unsigned char )__cil_tmp152;
+  __cil_tmp110 = __cil_tmp109 | tmp___4;
 #line 2067
-  __cil_tmp154 = (int )__cil_tmp153;
+  __cil_tmp111 = (u8 )__cil_tmp110;
 #line 2067
-  __cil_tmp155 = (unsigned char )__cil_tmp154;
+  __cil_tmp112 = (int )__cil_tmp111;
 #line 2067
-  it87_write_value(data, (unsigned char)0, __cil_tmp155);
+  __cil_tmp113 = (u8 )__cil_tmp112;
+#line 2067
+  it87_write_value(data, __cil_tmp106, __cil_tmp113);
   }
 #line 2070
   return;
@@ -14786,105 +11905,55 @@ static void it87_update_pwm_ctrl(struct it87_data *data , int nr )
   int tmp___1 ;
   int tmp___2 ;
   int tmp___3 ;
-  unsigned char __cil_tmp9 ;
+  u8 __cil_tmp9 ;
   unsigned int __cil_tmp10 ;
   unsigned int __cil_tmp11 ;
   int __cil_tmp12 ;
-  unsigned char __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  enum chips __cil_tmp20 ;
+  u8 __cil_tmp13 ;
+  enum chips __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  u8 __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
   unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u8 __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u8 __cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  signed char __cil_tmp26 ;
+  int __cil_tmp27 ;
+  u8 __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  u8 __cil_tmp31 ;
   unsigned int __cil_tmp32 ;
-  unsigned char __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp33 ;
+  struct it87_data  const  *__cil_tmp34 ;
+  u8 __cil_tmp35 ;
   unsigned int __cil_tmp36 ;
   int __cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  u8 __cil_tmp47 ;
-  signed char __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  u8 __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  u8 __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  unsigned int __cil_tmp71 ;
-  struct it87_data  const  *__cil_tmp72 ;
-  unsigned char __cil_tmp73 ;
-  unsigned int __cil_tmp74 ;
-  int __cil_tmp75 ;
-  unsigned char __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  unsigned int __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned char __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned char __cil_tmp88 ;
-  unsigned int __cil_tmp89 ;
-  unsigned char __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  unsigned int __cil_tmp94 ;
-  int __cil_tmp95 ;
-  unsigned char __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
+  u8 __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  u8 __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  u8 __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  u8 __cil_tmp52 ;
 
   {
   {
 #line 2074
-  __cil_tmp9 = (unsigned char )nr;
+  __cil_tmp9 = (u8 )nr;
 #line 2074
   __cil_tmp10 = (unsigned int )__cil_tmp9;
 #line 2074
@@ -14892,257 +11961,163 @@ static void it87_update_pwm_ctrl(struct it87_data *data , int nr )
 #line 2074
   __cil_tmp12 = (int )__cil_tmp11;
 #line 2074
-  __cil_tmp13 = (unsigned char )__cil_tmp12;
+  __cil_tmp13 = (u8 )__cil_tmp12;
 #line 2074
   tmp = it87_read_value(data, __cil_tmp13);
 #line 2074
-  __cil_tmp14 = nr * 1UL;
-#line 2074
-  __cil_tmp15 = 311 + __cil_tmp14;
-#line 2074
-  __cil_tmp16 = (unsigned long )data;
-#line 2074
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 2074
-  *((u8 *)__cil_tmp17) = (unsigned char )tmp;
+  data->pwm_ctrl[nr] = (u8 )tmp;
   }
   {
 #line 2075
-  __cil_tmp18 = (unsigned long )data;
+  __cil_tmp14 = data->type;
 #line 2075
-  __cil_tmp19 = __cil_tmp18 + 8;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 2075
-  __cil_tmp20 = *((enum chips *)__cil_tmp19);
-#line 2075
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 2075
-  if (__cil_tmp21 == 5U) {
+  if (__cil_tmp15 == 5U) {
     {
 #line 2076
-    __cil_tmp22 = nr * 1UL;
+    __cil_tmp16 = data->pwm_ctrl[nr];
 #line 2076
-    __cil_tmp23 = 317 + __cil_tmp22;
+    __cil_tmp17 = (unsigned int )__cil_tmp16;
 #line 2076
-    __cil_tmp24 = (unsigned long )data;
+    __cil_tmp18 = __cil_tmp17 & 3U;
 #line 2076
-    __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 2076
-    __cil_tmp26 = nr * 1UL;
-#line 2076
-    __cil_tmp27 = 311 + __cil_tmp26;
-#line 2076
-    __cil_tmp28 = (unsigned long )data;
-#line 2076
-    __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 2076
-    __cil_tmp30 = *((u8 *)__cil_tmp29);
-#line 2076
-    __cil_tmp31 = (unsigned int )__cil_tmp30;
-#line 2076
-    __cil_tmp32 = __cil_tmp31 & 3U;
-#line 2076
-    *((u8 *)__cil_tmp25) = (unsigned char )__cil_tmp32;
+    data->pwm_temp_map[nr] = (u8 )__cil_tmp18;
 #line 2077
-    __cil_tmp33 = (unsigned char )nr;
+    __cil_tmp19 = (u8 )nr;
 #line 2077
-    __cil_tmp34 = (unsigned int )__cil_tmp33;
+    __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 2077
-    __cil_tmp35 = __cil_tmp34 * 8U;
+    __cil_tmp21 = __cil_tmp20 * 8U;
 #line 2077
-    __cil_tmp36 = __cil_tmp35 + 99U;
+    __cil_tmp22 = __cil_tmp21 + 99U;
 #line 2077
-    __cil_tmp37 = (int )__cil_tmp36;
+    __cil_tmp23 = (int )__cil_tmp22;
 #line 2077
-    __cil_tmp38 = (unsigned char )__cil_tmp37;
+    __cil_tmp24 = (u8 )__cil_tmp23;
 #line 2077
-    tmp___0 = it87_read_value(data, __cil_tmp38);
+    tmp___0 = it87_read_value(data, __cil_tmp24);
 #line 2077
-    __cil_tmp39 = nr * 1UL;
-#line 2077
-    __cil_tmp40 = 314 + __cil_tmp39;
-#line 2077
-    __cil_tmp41 = (unsigned long )data;
-#line 2077
-    __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
-#line 2077
-    *((u8 *)__cil_tmp42) = (unsigned char )tmp___0;
+    data->pwm_duty[nr] = (u8 )tmp___0;
     }
   } else {
     {
 #line 2080
-    __cil_tmp43 = nr * 1UL;
+    __cil_tmp25 = data->pwm_ctrl[nr];
 #line 2080
-    __cil_tmp44 = 311 + __cil_tmp43;
+    __cil_tmp26 = (signed char )__cil_tmp25;
 #line 2080
-    __cil_tmp45 = (unsigned long )data;
+    __cil_tmp27 = (int )__cil_tmp26;
 #line 2080
-    __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
-#line 2080
-    __cil_tmp47 = *((u8 *)__cil_tmp46);
-#line 2080
-    __cil_tmp48 = (signed char )__cil_tmp47;
-#line 2080
-    __cil_tmp49 = (int )__cil_tmp48;
-#line 2080
-    if (__cil_tmp49 < 0) {
+    if (__cil_tmp27 < 0) {
 #line 2081
-      __cil_tmp50 = nr * 1UL;
+      __cil_tmp28 = data->pwm_ctrl[nr];
 #line 2081
-      __cil_tmp51 = 317 + __cil_tmp50;
+      __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 2081
-      __cil_tmp52 = (unsigned long )data;
+      __cil_tmp30 = __cil_tmp29 & 3U;
 #line 2081
-      __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
-#line 2081
-      __cil_tmp54 = nr * 1UL;
-#line 2081
-      __cil_tmp55 = 311 + __cil_tmp54;
-#line 2081
-      __cil_tmp56 = (unsigned long )data;
-#line 2081
-      __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
-#line 2081
-      __cil_tmp58 = *((u8 *)__cil_tmp57);
-#line 2081
-      __cil_tmp59 = (unsigned int )__cil_tmp58;
-#line 2081
-      __cil_tmp60 = __cil_tmp59 & 3U;
-#line 2081
-      *((u8 *)__cil_tmp53) = (unsigned char )__cil_tmp60;
+      data->pwm_temp_map[nr] = (u8 )__cil_tmp30;
     } else {
 #line 2083
-      __cil_tmp61 = nr * 1UL;
+      __cil_tmp31 = data->pwm_ctrl[nr];
 #line 2083
-      __cil_tmp62 = 314 + __cil_tmp61;
+      __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 2083
-      __cil_tmp63 = (unsigned long )data;
+      __cil_tmp33 = __cil_tmp32 & 127U;
 #line 2083
-      __cil_tmp64 = __cil_tmp63 + __cil_tmp62;
-#line 2083
-      __cil_tmp65 = nr * 1UL;
-#line 2083
-      __cil_tmp66 = 311 + __cil_tmp65;
-#line 2083
-      __cil_tmp67 = (unsigned long )data;
-#line 2083
-      __cil_tmp68 = __cil_tmp67 + __cil_tmp66;
-#line 2083
-      __cil_tmp69 = *((u8 *)__cil_tmp68);
-#line 2083
-      __cil_tmp70 = (unsigned int )__cil_tmp69;
-#line 2083
-      __cil_tmp71 = __cil_tmp70 & 127U;
-#line 2083
-      *((u8 *)__cil_tmp64) = (unsigned char )__cil_tmp71;
+      data->pwm_duty[nr] = (u8 )__cil_tmp33;
     }
     }
   }
   }
   {
 #line 2086
-  __cil_tmp72 = (struct it87_data  const  *)data;
+  __cil_tmp34 = (struct it87_data  const  *)data;
 #line 2086
-  tmp___3 = has_old_autopwm(__cil_tmp72);
+  tmp___3 = has_old_autopwm(__cil_tmp34);
   }
 #line 2086
   if (tmp___3 != 0) {
 #line 2089
     i = 0;
+#line 2089
     goto ldv_24960;
     ldv_24959: 
     {
 #line 2090
-    __cil_tmp73 = (unsigned char )i;
+    __cil_tmp35 = (u8 )i;
 #line 2090
-    __cil_tmp74 = (unsigned int )__cil_tmp73;
+    __cil_tmp36 = (unsigned int )__cil_tmp35;
 #line 2090
-    __cil_tmp75 = nr + 12;
+    __cil_tmp37 = nr + 12;
 #line 2090
-    __cil_tmp76 = (unsigned char )__cil_tmp75;
+    __cil_tmp38 = (u8 )__cil_tmp37;
 #line 2090
-    __cil_tmp77 = (unsigned int )__cil_tmp76;
+    __cil_tmp39 = (unsigned int )__cil_tmp38;
 #line 2090
-    __cil_tmp78 = __cil_tmp77 * 8U;
+    __cil_tmp40 = __cil_tmp39 * 8U;
 #line 2090
-    __cil_tmp79 = __cil_tmp78 + __cil_tmp74;
+    __cil_tmp41 = __cil_tmp40 + __cil_tmp36;
 #line 2090
-    __cil_tmp80 = (int )__cil_tmp79;
+    __cil_tmp42 = (int )__cil_tmp41;
 #line 2090
-    __cil_tmp81 = (unsigned char )__cil_tmp80;
+    __cil_tmp43 = (u8 )__cil_tmp42;
 #line 2090
-    tmp___1 = it87_read_value(data, __cil_tmp81);
+    tmp___1 = it87_read_value(data, __cil_tmp43);
 #line 2090
-    __cil_tmp82 = i * 1UL;
-#line 2090
-    __cil_tmp83 = nr * 5UL;
-#line 2090
-    __cil_tmp84 = __cil_tmp83 + __cil_tmp82;
-#line 2090
-    __cil_tmp85 = 332 + __cil_tmp84;
-#line 2090
-    __cil_tmp86 = (unsigned long )data;
-#line 2090
-    __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
-#line 2090
-    *((s8 *)__cil_tmp87) = (signed char )tmp___1;
+    data->auto_temp[nr][i] = (s8 )tmp___1;
 #line 2089
     i = i + 1;
     }
     ldv_24960: ;
 #line 2089
     if (i <= 4) {
+#line 2090
       goto ldv_24959;
     } else {
+#line 2092
       goto ldv_24961;
     }
     ldv_24961: 
 #line 2092
     i = 0;
+#line 2092
     goto ldv_24963;
     ldv_24962: 
     {
 #line 2093
-    __cil_tmp88 = (unsigned char )i;
+    __cil_tmp44 = (u8 )i;
 #line 2093
-    __cil_tmp89 = (unsigned int )__cil_tmp88;
+    __cil_tmp45 = (unsigned int )__cil_tmp44;
 #line 2093
-    __cil_tmp90 = (unsigned char )nr;
+    __cil_tmp46 = (u8 )nr;
 #line 2093
-    __cil_tmp91 = (unsigned int )__cil_tmp90;
+    __cil_tmp47 = (unsigned int )__cil_tmp46;
 #line 2093
-    __cil_tmp92 = __cil_tmp91 * 8U;
+    __cil_tmp48 = __cil_tmp47 * 8U;
 #line 2093
-    __cil_tmp93 = __cil_tmp92 + __cil_tmp89;
+    __cil_tmp49 = __cil_tmp48 + __cil_tmp45;
 #line 2093
-    __cil_tmp94 = __cil_tmp93 + 101U;
+    __cil_tmp50 = __cil_tmp49 + 101U;
 #line 2093
-    __cil_tmp95 = (int )__cil_tmp94;
+    __cil_tmp51 = (int )__cil_tmp50;
 #line 2093
-    __cil_tmp96 = (unsigned char )__cil_tmp95;
+    __cil_tmp52 = (u8 )__cil_tmp51;
 #line 2093
-    tmp___2 = it87_read_value(data, __cil_tmp96);
+    tmp___2 = it87_read_value(data, __cil_tmp52);
 #line 2093
-    __cil_tmp97 = i * 1UL;
-#line 2093
-    __cil_tmp98 = nr * 4UL;
-#line 2093
-    __cil_tmp99 = __cil_tmp98 + __cil_tmp97;
-#line 2093
-    __cil_tmp100 = 320 + __cil_tmp99;
-#line 2093
-    __cil_tmp101 = (unsigned long )data;
-#line 2093
-    __cil_tmp102 = __cil_tmp101 + __cil_tmp100;
-#line 2093
-    *((u8 *)__cil_tmp102) = (unsigned char )tmp___2;
+    data->auto_pwm[nr][i] = (u8 )tmp___2;
 #line 2092
     i = i + 1;
     }
     ldv_24963: ;
 #line 2092
     if (i <= 2) {
+#line 2093
       goto ldv_24962;
     } else {
+#line 2095
       goto ldv_24964;
     }
     ldv_24964: ;
@@ -15181,231 +12156,122 @@ static struct it87_data *it87_update_device(struct device *dev )
   int tmp___20 ;
   int tmp___21 ;
   struct device  const  *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct mutex *__cil_tmp30 ;
-  long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  long __cil_tmp36 ;
-  long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  char __cil_tmp40 ;
-  signed char __cil_tmp41 ;
-  int __cil_tmp42 ;
-  signed char __cil_tmp43 ;
-  int __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned char __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned char __cil_tmp48 ;
-  unsigned char __cil_tmp49 ;
-  unsigned int __cil_tmp50 ;
+  struct mutex *__cil_tmp28 ;
+  long __cil_tmp29 ;
+  unsigned long __cil_tmp30 ;
+  unsigned long __cil_tmp31 ;
+  long __cil_tmp32 ;
+  long __cil_tmp33 ;
+  char __cil_tmp34 ;
+  signed char __cil_tmp35 ;
+  int __cil_tmp36 ;
+  u8 __cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  signed char __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  u8 __cil_tmp42 ;
+  int __cil_tmp43 ;
+  u8 __cil_tmp44 ;
+  u8 __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  u8 __cil_tmp49 ;
+  u8 __cil_tmp50 ;
   unsigned int __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned char __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned char __cil_tmp58 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  int __cil_tmp54 ;
+  u8 __cil_tmp55 ;
+  int __cil_tmp56 ;
+  u8 __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
   unsigned int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  unsigned int __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned char __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned char __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  unsigned int __cil_tmp71 ;
+  int __cil_tmp60 ;
+  u8 __cil_tmp61 ;
+  u8 __cil_tmp62 ;
+  u8 __cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  u8 __cil_tmp68 ;
+  int __cil_tmp69 ;
+  u8 __cil_tmp70 ;
+  struct it87_data  const  *__cil_tmp71 ;
   int __cil_tmp72 ;
-  unsigned char __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  u8 __cil_tmp84 ;
+  u8 __cil_tmp73 ;
+  int __cil_tmp74 ;
+  short __cil_tmp75 ;
+  int __cil_tmp76 ;
+  u16 __cil_tmp77 ;
+  short __cil_tmp78 ;
+  int __cil_tmp79 ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  u8 __cil_tmp82 ;
+  int __cil_tmp83 ;
+  short __cil_tmp84 ;
   int __cil_tmp85 ;
-  int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
+  u16 __cil_tmp86 ;
+  short __cil_tmp87 ;
+  int __cil_tmp88 ;
+  int __cil_tmp89 ;
   u8 __cil_tmp90 ;
-  int __cil_tmp91 ;
-  unsigned char __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  u8 __cil_tmp99 ;
-  int __cil_tmp100 ;
-  unsigned char __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  struct it87_data  const  *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  u8 __cil_tmp109 ;
-  int __cil_tmp110 ;
-  unsigned char __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  int __cil_tmp116 ;
-  short __cil_tmp117 ;
-  int __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  u16 __cil_tmp123 ;
-  short __cil_tmp124 ;
+  unsigned int __cil_tmp91 ;
+  unsigned int __cil_tmp92 ;
+  int __cil_tmp93 ;
+  u8 __cil_tmp94 ;
+  int __cil_tmp95 ;
+  u8 __cil_tmp96 ;
+  unsigned int __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  int __cil_tmp99 ;
+  u8 __cil_tmp100 ;
+  u8 __cil_tmp101 ;
+  unsigned int __cil_tmp102 ;
+  unsigned int __cil_tmp103 ;
+  unsigned int __cil_tmp104 ;
+  int __cil_tmp105 ;
+  u8 __cil_tmp106 ;
+  u8 __cil_tmp107 ;
+  int __cil_tmp108 ;
+  int __cil_tmp109 ;
+  struct it87_data  const  *__cil_tmp110 ;
+  u8 __cil_tmp111 ;
+  u8 __cil_tmp112 ;
+  unsigned int __cil_tmp113 ;
+  unsigned int __cil_tmp114 ;
+  int __cil_tmp115 ;
+  u8 __cil_tmp116 ;
+  unsigned int __cil_tmp117 ;
+  unsigned int __cil_tmp118 ;
+  int __cil_tmp119 ;
+  u8 __cil_tmp120 ;
+  u8 __cil_tmp121 ;
+  u8 __cil_tmp122 ;
+  int __cil_tmp123 ;
+  int __cil_tmp124 ;
   int __cil_tmp125 ;
   int __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
+  u8 __cil_tmp127 ;
+  u8 __cil_tmp128 ;
   u8 __cil_tmp129 ;
-  int __cil_tmp130 ;
-  unsigned char __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  int __cil_tmp136 ;
-  short __cil_tmp137 ;
-  int __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  u16 __cil_tmp143 ;
-  short __cil_tmp144 ;
-  int __cil_tmp145 ;
-  int __cil_tmp146 ;
-  unsigned char __cil_tmp147 ;
-  unsigned int __cil_tmp148 ;
-  unsigned int __cil_tmp149 ;
-  int __cil_tmp150 ;
-  unsigned char __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  int __cil_tmp156 ;
-  unsigned char __cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
-  unsigned int __cil_tmp159 ;
-  int __cil_tmp160 ;
-  unsigned char __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned char __cil_tmp166 ;
-  unsigned int __cil_tmp167 ;
-  unsigned int __cil_tmp168 ;
-  unsigned int __cil_tmp169 ;
-  int __cil_tmp170 ;
-  unsigned char __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  u8 __cil_tmp178 ;
-  int __cil_tmp179 ;
-  int __cil_tmp180 ;
-  struct it87_data  const  *__cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned char __cil_tmp186 ;
-  unsigned int __cil_tmp187 ;
-  unsigned int __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  int __cil_tmp193 ;
-  unsigned char __cil_tmp194 ;
-  unsigned int __cil_tmp195 ;
-  unsigned int __cil_tmp196 ;
-  int __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  int __cil_tmp208 ;
-  int __cil_tmp209 ;
-  int __cil_tmp210 ;
-  int __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  enum chips __cil_tmp222 ;
-  unsigned int __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  u8 __cil_tmp230 ;
-  unsigned int __cil_tmp231 ;
-  unsigned int __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  enum chips __cil_tmp235 ;
-  unsigned int __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  u8 __cil_tmp243 ;
-  unsigned int __cil_tmp244 ;
-  unsigned int __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  struct mutex *__cil_tmp252 ;
+  u8 __cil_tmp130 ;
+  enum chips __cil_tmp131 ;
+  unsigned int __cil_tmp132 ;
+  u8 __cil_tmp133 ;
+  u8 __cil_tmp134 ;
+  unsigned int __cil_tmp135 ;
+  unsigned int __cil_tmp136 ;
+  enum chips __cil_tmp137 ;
+  unsigned int __cil_tmp138 ;
+  u8 __cil_tmp139 ;
+  u8 __cil_tmp140 ;
+  unsigned int __cil_tmp141 ;
+  unsigned int __cil_tmp142 ;
+  struct mutex *__cil_tmp143 ;
 
   {
   {
@@ -15416,189 +12282,153 @@ static struct it87_data *it87_update_device(struct device *dev )
 #line 2100
   data = (struct it87_data *)tmp;
 #line 2103
-  __cil_tmp28 = (unsigned long )data;
+  __cil_tmp28 = & data->update_lock;
 #line 2103
-  __cil_tmp29 = __cil_tmp28 + 56;
-#line 2103
-  __cil_tmp30 = (struct mutex *)__cil_tmp29;
-#line 2103
-  mutex_lock_nested(__cil_tmp30, 0U);
+  mutex_lock_nested(__cil_tmp28, 0U);
   }
   {
 #line 2105
-  __cil_tmp31 = (long )jiffies;
+  __cil_tmp29 = (long )jiffies;
 #line 2105
-  __cil_tmp32 = (unsigned long )data;
+  __cil_tmp30 = data->last_updated;
 #line 2105
-  __cil_tmp33 = __cil_tmp32 + 232;
+  __cil_tmp31 = __cil_tmp30 + 375UL;
 #line 2105
-  __cil_tmp34 = *((unsigned long *)__cil_tmp33);
+  __cil_tmp32 = (long )__cil_tmp31;
 #line 2105
-  __cil_tmp35 = __cil_tmp34 + 375UL;
+  __cil_tmp33 = __cil_tmp32 - __cil_tmp29;
 #line 2105
-  __cil_tmp36 = (long )__cil_tmp35;
+  if (__cil_tmp33 < 0L) {
 #line 2105
-  __cil_tmp37 = __cil_tmp36 - __cil_tmp31;
-#line 2105
-  if (__cil_tmp37 < 0L) {
     goto _L;
   } else {
     {
 #line 2105
-    __cil_tmp38 = (unsigned long )data;
+    __cil_tmp34 = data->valid;
 #line 2105
-    __cil_tmp39 = __cil_tmp38 + 224;
+    __cil_tmp35 = (signed char )__cil_tmp34;
 #line 2105
-    __cil_tmp40 = *((char *)__cil_tmp39);
+    __cil_tmp36 = (int )__cil_tmp35;
 #line 2105
-    __cil_tmp41 = (signed char )__cil_tmp40;
-#line 2105
-    __cil_tmp42 = (int )__cil_tmp41;
-#line 2105
-    if (__cil_tmp42 == 0) {
+    if (__cil_tmp36 == 0) {
       _L: 
 #line 2107
       if (update_vbat != 0) {
         {
 #line 2110
-        tmp___0 = it87_read_value(data, (unsigned char)0);
+        __cil_tmp37 = (u8 )0;
 #line 2110
-        __cil_tmp43 = (signed char )tmp___0;
+        tmp___0 = it87_read_value(data, __cil_tmp37);
 #line 2110
-        __cil_tmp44 = (int )__cil_tmp43;
+        __cil_tmp38 = (u8 )0;
 #line 2110
-        __cil_tmp45 = __cil_tmp44 | 64;
+        __cil_tmp39 = (signed char )tmp___0;
 #line 2110
-        __cil_tmp46 = (unsigned char )__cil_tmp45;
+        __cil_tmp40 = (int )__cil_tmp39;
 #line 2110
-        __cil_tmp47 = (int )__cil_tmp46;
+        __cil_tmp41 = __cil_tmp40 | 64;
 #line 2110
-        __cil_tmp48 = (unsigned char )__cil_tmp47;
+        __cil_tmp42 = (u8 )__cil_tmp41;
 #line 2110
-        it87_write_value(data, (unsigned char)0, __cil_tmp48);
+        __cil_tmp43 = (int )__cil_tmp42;
+#line 2110
+        __cil_tmp44 = (u8 )__cil_tmp43;
+#line 2110
+        it87_write_value(data, __cil_tmp38, __cil_tmp44);
         }
       } else {
 
       }
 #line 2113
       i = 0;
+#line 2113
       goto ldv_24977;
       ldv_24976: 
       {
 #line 2114
-      __cil_tmp49 = (unsigned char )i;
+      __cil_tmp45 = (u8 )i;
 #line 2114
-      __cil_tmp50 = (unsigned int )__cil_tmp49;
+      __cil_tmp46 = (unsigned int )__cil_tmp45;
 #line 2114
-      __cil_tmp51 = __cil_tmp50 + 32U;
+      __cil_tmp47 = __cil_tmp46 + 32U;
 #line 2114
-      __cil_tmp52 = (int )__cil_tmp51;
+      __cil_tmp48 = (int )__cil_tmp47;
 #line 2114
-      __cil_tmp53 = (unsigned char )__cil_tmp52;
+      __cil_tmp49 = (u8 )__cil_tmp48;
 #line 2114
-      tmp___1 = it87_read_value(data, __cil_tmp53);
+      tmp___1 = it87_read_value(data, __cil_tmp49);
 #line 2114
-      __cil_tmp54 = i * 1UL;
-#line 2114
-      __cil_tmp55 = 242 + __cil_tmp54;
-#line 2114
-      __cil_tmp56 = (unsigned long )data;
-#line 2114
-      __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
-#line 2114
-      *((u8 *)__cil_tmp57) = (unsigned char )tmp___1;
+      data->in[i] = (u8 )tmp___1;
 #line 2116
-      __cil_tmp58 = (unsigned char )i;
+      __cil_tmp50 = (u8 )i;
 #line 2116
-      __cil_tmp59 = (unsigned int )__cil_tmp58;
+      __cil_tmp51 = (unsigned int )__cil_tmp50;
 #line 2116
-      __cil_tmp60 = __cil_tmp59 * 2U;
+      __cil_tmp52 = __cil_tmp51 * 2U;
 #line 2116
-      __cil_tmp61 = __cil_tmp60 + 49U;
+      __cil_tmp53 = __cil_tmp52 + 49U;
 #line 2116
-      __cil_tmp62 = (int )__cil_tmp61;
+      __cil_tmp54 = (int )__cil_tmp53;
 #line 2116
-      __cil_tmp63 = (unsigned char )__cil_tmp62;
+      __cil_tmp55 = (u8 )__cil_tmp54;
 #line 2116
-      tmp___2 = it87_read_value(data, __cil_tmp63);
+      tmp___2 = it87_read_value(data, __cil_tmp55);
 #line 2116
-      __cil_tmp64 = i * 1UL;
-#line 2116
-      __cil_tmp65 = 259 + __cil_tmp64;
-#line 2116
-      __cil_tmp66 = (unsigned long )data;
-#line 2116
-      __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 2116
-      *((u8 *)__cil_tmp67) = (unsigned char )tmp___2;
+      data->in_min[i] = (u8 )tmp___2;
 #line 2118
-      __cil_tmp68 = i + 24;
+      __cil_tmp56 = i + 24;
 #line 2118
-      __cil_tmp69 = (unsigned char )__cil_tmp68;
+      __cil_tmp57 = (u8 )__cil_tmp56;
 #line 2118
-      __cil_tmp70 = (unsigned int )__cil_tmp69;
+      __cil_tmp58 = (unsigned int )__cil_tmp57;
 #line 2118
-      __cil_tmp71 = __cil_tmp70 * 2U;
+      __cil_tmp59 = __cil_tmp58 * 2U;
 #line 2118
-      __cil_tmp72 = (int )__cil_tmp71;
+      __cil_tmp60 = (int )__cil_tmp59;
 #line 2118
-      __cil_tmp73 = (unsigned char )__cil_tmp72;
+      __cil_tmp61 = (u8 )__cil_tmp60;
 #line 2118
-      tmp___3 = it87_read_value(data, __cil_tmp73);
+      tmp___3 = it87_read_value(data, __cil_tmp61);
 #line 2118
-      __cil_tmp74 = i * 1UL;
-#line 2118
-      __cil_tmp75 = 251 + __cil_tmp74;
-#line 2118
-      __cil_tmp76 = (unsigned long )data;
-#line 2118
-      __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 2118
-      *((u8 *)__cil_tmp77) = (unsigned char )tmp___3;
+      data->in_max[i] = (u8 )tmp___3;
 #line 2113
       i = i + 1;
       }
       ldv_24977: ;
 #line 2113
       if (i <= 7) {
+#line 2114
         goto ldv_24976;
       } else {
+#line 2116
         goto ldv_24978;
       }
       ldv_24978: 
       {
 #line 2122
-      tmp___4 = it87_read_value(data, (unsigned char)40);
+      __cil_tmp62 = (u8 )40;
 #line 2122
-      __cil_tmp78 = 8 * 1UL;
+      tmp___4 = it87_read_value(data, __cil_tmp62);
 #line 2122
-      __cil_tmp79 = 242 + __cil_tmp78;
-#line 2122
-      __cil_tmp80 = (unsigned long )data;
-#line 2122
-      __cil_tmp81 = __cil_tmp80 + __cil_tmp79;
-#line 2122
-      *((u8 *)__cil_tmp81) = (unsigned char )tmp___4;
+      data->in[8] = (u8 )tmp___4;
 #line 2124
       i = 0;
       }
+#line 2124
       goto ldv_24981;
       ldv_24980: ;
       {
 #line 2126
-      __cil_tmp82 = (unsigned long )data;
+      __cil_tmp63 = data->has_fan;
 #line 2126
-      __cil_tmp83 = __cil_tmp82 + 267;
+      __cil_tmp64 = (int )__cil_tmp63;
 #line 2126
-      __cil_tmp84 = *((u8 *)__cil_tmp83);
+      __cil_tmp65 = __cil_tmp64 >> i;
 #line 2126
-      __cil_tmp85 = (int )__cil_tmp84;
+      __cil_tmp66 = __cil_tmp65 & 1;
 #line 2126
-      __cil_tmp86 = __cil_tmp85 >> i;
-#line 2126
-      __cil_tmp87 = __cil_tmp86 & 1;
-#line 2126
-      if (__cil_tmp87 == 0) {
+      if (__cil_tmp66 == 0) {
+#line 2127
         goto ldv_24979;
       } else {
 
@@ -15606,145 +12436,73 @@ static struct it87_data *it87_update_device(struct device *dev )
       }
       {
 #line 2129
-      __cil_tmp88 = i * 1UL;
+      __cil_tmp67 = (int )IT87_REG_FAN_MIN[i];
 #line 2129
-      __cil_tmp89 = (unsigned long )(IT87_REG_FAN_MIN) + __cil_tmp88;
+      __cil_tmp68 = (u8 )__cil_tmp67;
 #line 2129
-      __cil_tmp90 = *((u8 const   *)__cil_tmp89);
+      tmp___5 = it87_read_value(data, __cil_tmp68);
 #line 2129
-      __cil_tmp91 = (int )__cil_tmp90;
-#line 2129
-      __cil_tmp92 = (unsigned char )__cil_tmp91;
-#line 2129
-      tmp___5 = it87_read_value(data, __cil_tmp92);
-#line 2129
-      __cil_tmp93 = i * 2UL;
-#line 2129
-      __cil_tmp94 = 278 + __cil_tmp93;
-#line 2129
-      __cil_tmp95 = (unsigned long )data;
-#line 2129
-      __cil_tmp96 = __cil_tmp95 + __cil_tmp94;
-#line 2129
-      *((u16 *)__cil_tmp96) = (unsigned short )tmp___5;
+      data->fan_min[i] = (u16 )tmp___5;
 #line 2131
-      __cil_tmp97 = i * 1UL;
+      __cil_tmp69 = (int )IT87_REG_FAN[i];
 #line 2131
-      __cil_tmp98 = (unsigned long )(IT87_REG_FAN) + __cil_tmp97;
+      __cil_tmp70 = (u8 )__cil_tmp69;
 #line 2131
-      __cil_tmp99 = *((u8 const   *)__cil_tmp98);
+      tmp___6 = it87_read_value(data, __cil_tmp70);
 #line 2131
-      __cil_tmp100 = (int )__cil_tmp99;
-#line 2131
-      __cil_tmp101 = (unsigned char )__cil_tmp100;
-#line 2131
-      tmp___6 = it87_read_value(data, __cil_tmp101);
-#line 2131
-      __cil_tmp102 = i * 2UL;
-#line 2131
-      __cil_tmp103 = 268 + __cil_tmp102;
-#line 2131
-      __cil_tmp104 = (unsigned long )data;
-#line 2131
-      __cil_tmp105 = __cil_tmp104 + __cil_tmp103;
-#line 2131
-      *((u16 *)__cil_tmp105) = (unsigned short )tmp___6;
+      data->fan[i] = (u16 )tmp___6;
 #line 2134
-      __cil_tmp106 = (struct it87_data  const  *)data;
+      __cil_tmp71 = (struct it87_data  const  *)data;
 #line 2134
-      tmp___9 = has_16bit_fans(__cil_tmp106);
+      tmp___9 = has_16bit_fans(__cil_tmp71);
       }
 #line 2134
       if (tmp___9 != 0) {
         {
 #line 2135
-        __cil_tmp107 = i * 1UL;
+        __cil_tmp72 = (int )IT87_REG_FANX[i];
 #line 2135
-        __cil_tmp108 = (unsigned long )(IT87_REG_FANX) + __cil_tmp107;
+        __cil_tmp73 = (u8 )__cil_tmp72;
 #line 2135
-        __cil_tmp109 = *((u8 const   *)__cil_tmp108);
+        tmp___7 = it87_read_value(data, __cil_tmp73);
 #line 2135
-        __cil_tmp110 = (int )__cil_tmp109;
+        __cil_tmp74 = tmp___7 << 8;
 #line 2135
-        __cil_tmp111 = (unsigned char )__cil_tmp110;
+        __cil_tmp75 = (short )__cil_tmp74;
 #line 2135
-        tmp___7 = it87_read_value(data, __cil_tmp111);
+        __cil_tmp76 = (int )__cil_tmp75;
 #line 2135
-        __cil_tmp112 = i * 2UL;
+        __cil_tmp77 = data->fan[i];
 #line 2135
-        __cil_tmp113 = 268 + __cil_tmp112;
+        __cil_tmp78 = (short )__cil_tmp77;
 #line 2135
-        __cil_tmp114 = (unsigned long )data;
+        __cil_tmp79 = (int )__cil_tmp78;
 #line 2135
-        __cil_tmp115 = __cil_tmp114 + __cil_tmp113;
+        __cil_tmp80 = __cil_tmp79 | __cil_tmp76;
 #line 2135
-        __cil_tmp116 = tmp___7 << 8;
-#line 2135
-        __cil_tmp117 = (short )__cil_tmp116;
-#line 2135
-        __cil_tmp118 = (int )__cil_tmp117;
-#line 2135
-        __cil_tmp119 = i * 2UL;
-#line 2135
-        __cil_tmp120 = 268 + __cil_tmp119;
-#line 2135
-        __cil_tmp121 = (unsigned long )data;
-#line 2135
-        __cil_tmp122 = __cil_tmp121 + __cil_tmp120;
-#line 2135
-        __cil_tmp123 = *((u16 *)__cil_tmp122);
-#line 2135
-        __cil_tmp124 = (short )__cil_tmp123;
-#line 2135
-        __cil_tmp125 = (int )__cil_tmp124;
-#line 2135
-        __cil_tmp126 = __cil_tmp125 | __cil_tmp118;
-#line 2135
-        *((u16 *)__cil_tmp115) = (unsigned short )__cil_tmp126;
+        data->fan[i] = (u16 )__cil_tmp80;
 #line 2137
-        __cil_tmp127 = i * 1UL;
+        __cil_tmp81 = (int )IT87_REG_FANX_MIN[i];
 #line 2137
-        __cil_tmp128 = (unsigned long )(IT87_REG_FANX_MIN) + __cil_tmp127;
+        __cil_tmp82 = (u8 )__cil_tmp81;
 #line 2137
-        __cil_tmp129 = *((u8 const   *)__cil_tmp128);
+        tmp___8 = it87_read_value(data, __cil_tmp82);
 #line 2137
-        __cil_tmp130 = (int )__cil_tmp129;
+        __cil_tmp83 = tmp___8 << 8;
 #line 2137
-        __cil_tmp131 = (unsigned char )__cil_tmp130;
+        __cil_tmp84 = (short )__cil_tmp83;
 #line 2137
-        tmp___8 = it87_read_value(data, __cil_tmp131);
+        __cil_tmp85 = (int )__cil_tmp84;
 #line 2137
-        __cil_tmp132 = i * 2UL;
+        __cil_tmp86 = data->fan_min[i];
 #line 2137
-        __cil_tmp133 = 278 + __cil_tmp132;
+        __cil_tmp87 = (short )__cil_tmp86;
 #line 2137
-        __cil_tmp134 = (unsigned long )data;
+        __cil_tmp88 = (int )__cil_tmp87;
 #line 2137
-        __cil_tmp135 = __cil_tmp134 + __cil_tmp133;
+        __cil_tmp89 = __cil_tmp88 | __cil_tmp85;
 #line 2137
-        __cil_tmp136 = tmp___8 << 8;
-#line 2137
-        __cil_tmp137 = (short )__cil_tmp136;
-#line 2137
-        __cil_tmp138 = (int )__cil_tmp137;
-#line 2137
-        __cil_tmp139 = i * 2UL;
-#line 2137
-        __cil_tmp140 = 278 + __cil_tmp139;
-#line 2137
-        __cil_tmp141 = (unsigned long )data;
-#line 2137
-        __cil_tmp142 = __cil_tmp141 + __cil_tmp140;
-#line 2137
-        __cil_tmp143 = *((u16 *)__cil_tmp142);
-#line 2137
-        __cil_tmp144 = (short )__cil_tmp143;
-#line 2137
-        __cil_tmp145 = (int )__cil_tmp144;
-#line 2137
-        __cil_tmp146 = __cil_tmp145 | __cil_tmp138;
-#line 2137
-        *((u16 *)__cil_tmp135) = (unsigned short )__cil_tmp146;
+        data->fan_min[i] = (u16 )__cil_tmp89;
         }
       } else {
 
@@ -15755,182 +12513,129 @@ static struct it87_data *it87_update_device(struct device *dev )
       ldv_24981: ;
 #line 2124
       if (i <= 4) {
+#line 2125
         goto ldv_24980;
       } else {
+#line 2127
         goto ldv_24982;
       }
       ldv_24982: 
 #line 2141
       i = 0;
+#line 2141
       goto ldv_24984;
       ldv_24983: 
       {
 #line 2142
-      __cil_tmp147 = (unsigned char )i;
+      __cil_tmp90 = (u8 )i;
 #line 2142
-      __cil_tmp148 = (unsigned int )__cil_tmp147;
+      __cil_tmp91 = (unsigned int )__cil_tmp90;
 #line 2142
-      __cil_tmp149 = __cil_tmp148 + 41U;
+      __cil_tmp92 = __cil_tmp91 + 41U;
 #line 2142
-      __cil_tmp150 = (int )__cil_tmp149;
+      __cil_tmp93 = (int )__cil_tmp92;
 #line 2142
-      __cil_tmp151 = (unsigned char )__cil_tmp150;
+      __cil_tmp94 = (u8 )__cil_tmp93;
 #line 2142
-      tmp___10 = it87_read_value(data, __cil_tmp151);
+      tmp___10 = it87_read_value(data, __cil_tmp94);
 #line 2142
-      __cil_tmp152 = i * 1UL;
-#line 2142
-      __cil_tmp153 = 288 + __cil_tmp152;
-#line 2142
-      __cil_tmp154 = (unsigned long )data;
-#line 2142
-      __cil_tmp155 = __cil_tmp154 + __cil_tmp153;
-#line 2142
-      *((s8 *)__cil_tmp155) = (signed char )tmp___10;
+      data->temp[i] = (s8 )tmp___10;
 #line 2144
-      __cil_tmp156 = i + 32;
+      __cil_tmp95 = i + 32;
 #line 2144
-      __cil_tmp157 = (unsigned char )__cil_tmp156;
+      __cil_tmp96 = (u8 )__cil_tmp95;
 #line 2144
-      __cil_tmp158 = (unsigned int )__cil_tmp157;
+      __cil_tmp97 = (unsigned int )__cil_tmp96;
 #line 2144
-      __cil_tmp159 = __cil_tmp158 * 2U;
+      __cil_tmp98 = __cil_tmp97 * 2U;
 #line 2144
-      __cil_tmp160 = (int )__cil_tmp159;
+      __cil_tmp99 = (int )__cil_tmp98;
 #line 2144
-      __cil_tmp161 = (unsigned char )__cil_tmp160;
+      __cil_tmp100 = (u8 )__cil_tmp99;
 #line 2144
-      tmp___11 = it87_read_value(data, __cil_tmp161);
+      tmp___11 = it87_read_value(data, __cil_tmp100);
 #line 2144
-      __cil_tmp162 = i * 1UL;
-#line 2144
-      __cil_tmp163 = 291 + __cil_tmp162;
-#line 2144
-      __cil_tmp164 = (unsigned long )data;
-#line 2144
-      __cil_tmp165 = __cil_tmp164 + __cil_tmp163;
-#line 2144
-      *((s8 *)__cil_tmp165) = (signed char )tmp___11;
+      data->temp_high[i] = (s8 )tmp___11;
 #line 2146
-      __cil_tmp166 = (unsigned char )i;
+      __cil_tmp101 = (u8 )i;
 #line 2146
-      __cil_tmp167 = (unsigned int )__cil_tmp166;
+      __cil_tmp102 = (unsigned int )__cil_tmp101;
 #line 2146
-      __cil_tmp168 = __cil_tmp167 * 2U;
+      __cil_tmp103 = __cil_tmp102 * 2U;
 #line 2146
-      __cil_tmp169 = __cil_tmp168 + 65U;
+      __cil_tmp104 = __cil_tmp103 + 65U;
 #line 2146
-      __cil_tmp170 = (int )__cil_tmp169;
+      __cil_tmp105 = (int )__cil_tmp104;
 #line 2146
-      __cil_tmp171 = (unsigned char )__cil_tmp170;
+      __cil_tmp106 = (u8 )__cil_tmp105;
 #line 2146
-      tmp___12 = it87_read_value(data, __cil_tmp171);
+      tmp___12 = it87_read_value(data, __cil_tmp106);
 #line 2146
-      __cil_tmp172 = i * 1UL;
-#line 2146
-      __cil_tmp173 = 294 + __cil_tmp172;
-#line 2146
-      __cil_tmp174 = (unsigned long )data;
-#line 2146
-      __cil_tmp175 = __cil_tmp174 + __cil_tmp173;
-#line 2146
-      *((s8 *)__cil_tmp175) = (signed char )tmp___12;
+      data->temp_low[i] = (s8 )tmp___12;
 #line 2141
       i = i + 1;
       }
       ldv_24984: ;
 #line 2141
       if (i <= 2) {
+#line 2142
         goto ldv_24983;
       } else {
+#line 2144
         goto ldv_24985;
       }
       ldv_24985: ;
       {
 #line 2151
-      __cil_tmp176 = (unsigned long )data;
+      __cil_tmp107 = data->has_fan;
 #line 2151
-      __cil_tmp177 = __cil_tmp176 + 267;
+      __cil_tmp108 = (int )__cil_tmp107;
 #line 2151
-      __cil_tmp178 = *((u8 *)__cil_tmp177);
+      __cil_tmp109 = __cil_tmp108 & 7;
 #line 2151
-      __cil_tmp179 = (int )__cil_tmp178;
-#line 2151
-      __cil_tmp180 = __cil_tmp179 & 7;
-#line 2151
-      if (__cil_tmp180 != 0) {
+      if (__cil_tmp109 != 0) {
         {
 #line 2151
-        __cil_tmp181 = (struct it87_data  const  *)data;
+        __cil_tmp110 = (struct it87_data  const  *)data;
 #line 2151
-        tmp___13 = has_16bit_fans(__cil_tmp181);
+        tmp___13 = has_16bit_fans(__cil_tmp110);
         }
 #line 2151
         if (tmp___13 == 0) {
           {
 #line 2152
-          i = it87_read_value(data, (unsigned char)11);
+          __cil_tmp111 = (u8 )11;
+#line 2152
+          i = it87_read_value(data, __cil_tmp111);
 #line 2153
-          __cil_tmp182 = 0 * 1UL;
+          __cil_tmp112 = (u8 )i;
 #line 2153
-          __cil_tmp183 = 298 + __cil_tmp182;
+          __cil_tmp113 = (unsigned int )__cil_tmp112;
 #line 2153
-          __cil_tmp184 = (unsigned long )data;
+          __cil_tmp114 = __cil_tmp113 & 7U;
 #line 2153
-          __cil_tmp185 = __cil_tmp184 + __cil_tmp183;
-#line 2153
-          __cil_tmp186 = (unsigned char )i;
-#line 2153
-          __cil_tmp187 = (unsigned int )__cil_tmp186;
-#line 2153
-          __cil_tmp188 = __cil_tmp187 & 7U;
-#line 2153
-          *((u8 *)__cil_tmp185) = (unsigned char )__cil_tmp188;
+          data->fan_div[0] = (u8 )__cil_tmp114;
 #line 2154
-          __cil_tmp189 = 1 * 1UL;
+          __cil_tmp115 = i >> 3;
 #line 2154
-          __cil_tmp190 = 298 + __cil_tmp189;
+          __cil_tmp116 = (u8 )__cil_tmp115;
 #line 2154
-          __cil_tmp191 = (unsigned long )data;
+          __cil_tmp117 = (unsigned int )__cil_tmp116;
 #line 2154
-          __cil_tmp192 = __cil_tmp191 + __cil_tmp190;
+          __cil_tmp118 = __cil_tmp117 & 7U;
 #line 2154
-          __cil_tmp193 = i >> 3;
-#line 2154
-          __cil_tmp194 = (unsigned char )__cil_tmp193;
-#line 2154
-          __cil_tmp195 = (unsigned int )__cil_tmp194;
-#line 2154
-          __cil_tmp196 = __cil_tmp195 & 7U;
-#line 2154
-          *((u8 *)__cil_tmp192) = (unsigned char )__cil_tmp196;
+          data->fan_div[1] = (u8 )__cil_tmp118;
           }
           {
 #line 2155
-          __cil_tmp197 = i & 64;
+          __cil_tmp119 = i & 64;
 #line 2155
-          if (__cil_tmp197 != 0) {
+          if (__cil_tmp119 != 0) {
 #line 2155
-            __cil_tmp198 = 2 * 1UL;
-#line 2155
-            __cil_tmp199 = 298 + __cil_tmp198;
-#line 2155
-            __cil_tmp200 = (unsigned long )data;
-#line 2155
-            __cil_tmp201 = __cil_tmp200 + __cil_tmp199;
-#line 2155
-            *((u8 *)__cil_tmp201) = (unsigned char)3;
+            data->fan_div[2] = (u8 )3U;
           } else {
 #line 2155
-            __cil_tmp202 = 2 * 1UL;
-#line 2155
-            __cil_tmp203 = 298 + __cil_tmp202;
-#line 2155
-            __cil_tmp204 = (unsigned long )data;
-#line 2155
-            __cil_tmp205 = __cil_tmp204 + __cil_tmp203;
-#line 2155
-            *((u8 *)__cil_tmp205) = (unsigned char)1;
+            data->fan_div[2] = (u8 )1U;
           }
           }
         } else {
@@ -15942,52 +12647,49 @@ static struct it87_data *it87_update_device(struct device *dev )
       }
       {
 #line 2158
-      tmp___14 = it87_read_value(data, (unsigned char)1);
+      __cil_tmp120 = (u8 )1;
 #line 2158
-      tmp___15 = it87_read_value(data, (unsigned char)2);
+      tmp___14 = it87_read_value(data, __cil_tmp120);
 #line 2158
-      tmp___16 = it87_read_value(data, (unsigned char)3);
+      __cil_tmp121 = (u8 )2;
 #line 2158
-      __cil_tmp206 = (unsigned long )data;
+      tmp___15 = it87_read_value(data, __cil_tmp121);
 #line 2158
-      __cil_tmp207 = __cil_tmp206 + 304;
+      __cil_tmp122 = (u8 )3;
 #line 2158
-      __cil_tmp208 = tmp___16 << 16;
+      tmp___16 = it87_read_value(data, __cil_tmp122);
 #line 2158
-      __cil_tmp209 = tmp___15 << 8;
+      __cil_tmp123 = tmp___16 << 16;
 #line 2158
-      __cil_tmp210 = tmp___14 | __cil_tmp209;
+      __cil_tmp124 = tmp___15 << 8;
 #line 2158
-      __cil_tmp211 = __cil_tmp210 | __cil_tmp208;
+      __cil_tmp125 = tmp___14 | __cil_tmp124;
 #line 2158
-      *((u32 *)__cil_tmp207) = (unsigned int )__cil_tmp211;
+      __cil_tmp126 = __cil_tmp125 | __cil_tmp123;
+#line 2158
+      data->alarms = (u32 )__cil_tmp126;
 #line 2162
-      tmp___17 = it87_read_value(data, (unsigned char)92);
+      __cil_tmp127 = (u8 )92;
 #line 2162
-      __cil_tmp212 = (unsigned long )data;
+      tmp___17 = it87_read_value(data, __cil_tmp127);
 #line 2162
-      __cil_tmp213 = __cil_tmp212 + 308;
-#line 2162
-      *((u8 *)__cil_tmp213) = (unsigned char )tmp___17;
+      data->beeps = (u8 )tmp___17;
 #line 2164
-      tmp___18 = it87_read_value(data, (unsigned char)19);
+      __cil_tmp128 = (u8 )19;
 #line 2164
-      __cil_tmp214 = (unsigned long )data;
+      tmp___18 = it87_read_value(data, __cil_tmp128);
 #line 2164
-      __cil_tmp215 = __cil_tmp214 + 309;
-#line 2164
-      *((u8 *)__cil_tmp215) = (unsigned char )tmp___18;
+      data->fan_main_ctrl = (u8 )tmp___18;
 #line 2166
-      tmp___19 = it87_read_value(data, (unsigned char)20);
+      __cil_tmp129 = (u8 )20;
 #line 2166
-      __cil_tmp216 = (unsigned long )data;
+      tmp___19 = it87_read_value(data, __cil_tmp129);
 #line 2166
-      __cil_tmp217 = __cil_tmp216 + 310;
-#line 2166
-      *((u8 *)__cil_tmp217) = (unsigned char )tmp___19;
+      data->fan_ctl = (u8 )tmp___19;
 #line 2167
       i = 0;
       }
+#line 2167
       goto ldv_24987;
       ldv_24986: 
       {
@@ -15999,95 +12701,67 @@ static struct it87_data *it87_update_device(struct device *dev )
       ldv_24987: ;
 #line 2167
       if (i <= 2) {
+#line 2168
         goto ldv_24986;
       } else {
+#line 2170
         goto ldv_24988;
       }
       ldv_24988: 
       {
 #line 2170
-      tmp___20 = it87_read_value(data, (unsigned char)81);
+      __cil_tmp130 = (u8 )81;
 #line 2170
-      __cil_tmp218 = (unsigned long )data;
+      tmp___20 = it87_read_value(data, __cil_tmp130);
 #line 2170
-      __cil_tmp219 = __cil_tmp218 + 297;
-#line 2170
-      *((u8 *)__cil_tmp219) = (unsigned char )tmp___20;
+      data->sensor = (u8 )tmp___20;
       }
       {
 #line 2174
-      __cil_tmp220 = (unsigned long )data;
+      __cil_tmp131 = data->type;
 #line 2174
-      __cil_tmp221 = __cil_tmp220 + 8;
+      __cil_tmp132 = (unsigned int )__cil_tmp131;
 #line 2174
-      __cil_tmp222 = *((enum chips *)__cil_tmp221);
-#line 2174
-      __cil_tmp223 = (unsigned int )__cil_tmp222;
-#line 2174
-      if (__cil_tmp223 == 1U) {
+      if (__cil_tmp132 == 1U) {
         {
 #line 2175
-        tmp___21 = it87_read_value(data, (unsigned char)10);
+        __cil_tmp133 = (u8 )10;
 #line 2175
-        __cil_tmp224 = (unsigned long )data;
+        tmp___21 = it87_read_value(data, __cil_tmp133);
 #line 2175
-        __cil_tmp225 = __cil_tmp224 + 301;
-#line 2175
-        *((u8 *)__cil_tmp225) = (unsigned char )tmp___21;
+        data->vid = (u8 )tmp___21;
 #line 2178
-        __cil_tmp226 = (unsigned long )data;
+        __cil_tmp134 = data->vid;
 #line 2178
-        __cil_tmp227 = __cil_tmp226 + 301;
+        __cil_tmp135 = (unsigned int )__cil_tmp134;
 #line 2178
-        __cil_tmp228 = (unsigned long )data;
+        __cil_tmp136 = __cil_tmp135 & 63U;
 #line 2178
-        __cil_tmp229 = __cil_tmp228 + 301;
-#line 2178
-        __cil_tmp230 = *((u8 *)__cil_tmp229);
-#line 2178
-        __cil_tmp231 = (unsigned int )__cil_tmp230;
-#line 2178
-        __cil_tmp232 = __cil_tmp231 & 63U;
-#line 2178
-        *((u8 *)__cil_tmp227) = (unsigned char )__cil_tmp232;
+        data->vid = (u8 )__cil_tmp136;
         }
       } else {
         {
 #line 2174
-        __cil_tmp233 = (unsigned long )data;
+        __cil_tmp137 = data->type;
 #line 2174
-        __cil_tmp234 = __cil_tmp233 + 8;
+        __cil_tmp138 = (unsigned int )__cil_tmp137;
 #line 2174
-        __cil_tmp235 = *((enum chips *)__cil_tmp234);
-#line 2174
-        __cil_tmp236 = (unsigned int )__cil_tmp235;
-#line 2174
-        if (__cil_tmp236 == 2U) {
+        if (__cil_tmp138 == 2U) {
           {
 #line 2175
-          tmp___21 = it87_read_value(data, (unsigned char)10);
+          __cil_tmp139 = (u8 )10;
 #line 2175
-          __cil_tmp237 = (unsigned long )data;
+          tmp___21 = it87_read_value(data, __cil_tmp139);
 #line 2175
-          __cil_tmp238 = __cil_tmp237 + 301;
-#line 2175
-          *((u8 *)__cil_tmp238) = (unsigned char )tmp___21;
+          data->vid = (u8 )tmp___21;
 #line 2178
-          __cil_tmp239 = (unsigned long )data;
+          __cil_tmp140 = data->vid;
 #line 2178
-          __cil_tmp240 = __cil_tmp239 + 301;
+          __cil_tmp141 = (unsigned int )__cil_tmp140;
 #line 2178
-          __cil_tmp241 = (unsigned long )data;
+          __cil_tmp142 = __cil_tmp141 & 63U;
 #line 2178
-          __cil_tmp242 = __cil_tmp241 + 301;
-#line 2178
-          __cil_tmp243 = *((u8 *)__cil_tmp242);
-#line 2178
-          __cil_tmp244 = (unsigned int )__cil_tmp243;
-#line 2178
-          __cil_tmp245 = __cil_tmp244 & 63U;
-#line 2178
-          *((u8 *)__cil_tmp240) = (unsigned char )__cil_tmp245;
+          data->vid = (u8 )__cil_tmp142;
           }
         } else {
 
@@ -16096,17 +12770,9 @@ static struct it87_data *it87_update_device(struct device *dev )
       }
       }
 #line 2180
-      __cil_tmp246 = (unsigned long )data;
-#line 2180
-      __cil_tmp247 = __cil_tmp246 + 232;
-#line 2180
-      *((unsigned long *)__cil_tmp247) = (unsigned long )jiffies;
+      data->last_updated = (unsigned long )jiffies;
 #line 2181
-      __cil_tmp248 = (unsigned long )data;
-#line 2181
-      __cil_tmp249 = __cil_tmp248 + 224;
-#line 2181
-      *((char *)__cil_tmp249) = (char)1;
+      data->valid = (char)1;
     } else {
 
     }
@@ -16115,13 +12781,9 @@ static struct it87_data *it87_update_device(struct device *dev )
   }
   {
 #line 2184
-  __cil_tmp250 = (unsigned long )data;
+  __cil_tmp143 = & data->update_lock;
 #line 2184
-  __cil_tmp251 = __cil_tmp250 + 56;
-#line 2184
-  __cil_tmp252 = (struct mutex *)__cil_tmp251;
-#line 2184
-  mutex_unlock(__cil_tmp252);
+  mutex_unlock(__cil_tmp143);
   }
 #line 2186
   return (data);
@@ -16131,95 +12793,76 @@ static struct it87_data *it87_update_device(struct device *dev )
 static int it87_device_add(unsigned short address , struct it87_sio_data  const  *sio_data ) 
 { struct resource res ;
   int err ;
-  struct resource *__cil_tmp5 ;
+  int __cil_tmp5 ;
   int __cil_tmp6 ;
   int __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
+  int __cil_tmp8 ;
+  struct resource  const  *__cil_tmp9 ;
   int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  struct platform_device *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct resource  const  *__cil_tmp16 ;
-  int __cil_tmp17 ;
-  struct platform_device *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct resource  const  *__cil_tmp21 ;
-  void const   *__cil_tmp22 ;
+  struct resource  const  *__cil_tmp14 ;
+  void const   *__cil_tmp15 ;
 
   {
   {
 #line 2192
-  __cil_tmp5 = & res;
+  __cil_tmp5 = (int )address;
 #line 2192
-  __cil_tmp6 = (int )address;
+  __cil_tmp6 = __cil_tmp5 + 5;
 #line 2192
-  __cil_tmp7 = __cil_tmp6 + 5;
+  res.start = (unsigned long long )__cil_tmp6;
 #line 2192
-  *((resource_size_t *)__cil_tmp5) = (unsigned long long )__cil_tmp7;
+  __cil_tmp7 = (int )address;
 #line 2192
-  __cil_tmp8 = (unsigned long )(& res) + 8;
+  __cil_tmp8 = __cil_tmp7 + 6;
 #line 2192
-  __cil_tmp9 = (int )address;
+  res.end = (unsigned long long )__cil_tmp8;
 #line 2192
-  __cil_tmp10 = __cil_tmp9 + 6;
+  res.name = "it87";
 #line 2192
-  *((resource_size_t *)__cil_tmp8) = (unsigned long long )__cil_tmp10;
+  res.flags = 256UL;
 #line 2192
-  __cil_tmp11 = (unsigned long )(& res) + 16;
+  res.parent = (struct resource *)0;
 #line 2192
-  *((char const   **)__cil_tmp11) = "it87";
+  res.sibling = (struct resource *)0;
 #line 2192
-  __cil_tmp12 = (unsigned long )(& res) + 24;
-#line 2192
-  *((unsigned long *)__cil_tmp12) = 256UL;
-#line 2192
-  __cil_tmp13 = (unsigned long )(& res) + 32;
-#line 2192
-  *((struct resource **)__cil_tmp13) = (struct resource *)0;
-#line 2192
-  __cil_tmp14 = (unsigned long )(& res) + 40;
-#line 2192
-  *((struct resource **)__cil_tmp14) = (struct resource *)0;
-#line 2192
-  __cil_tmp15 = (unsigned long )(& res) + 48;
-#line 2192
-  *((struct resource **)__cil_tmp15) = (struct resource *)0;
+  res.child = (struct resource *)0;
 #line 2200
-  __cil_tmp16 = (struct resource  const  *)(& res);
+  __cil_tmp9 = (struct resource  const  *)(& res);
 #line 2200
-  err = acpi_check_resource_conflict(__cil_tmp16);
+  err = acpi_check_resource_conflict(__cil_tmp9);
   }
 #line 2201
   if (err != 0) {
+#line 2202
     goto exit;
   } else {
 
   }
   {
 #line 2204
-  __cil_tmp17 = (int )address;
+  __cil_tmp10 = (int )address;
 #line 2204
-  pdev = platform_device_alloc("it87", __cil_tmp17);
+  pdev = platform_device_alloc("it87", __cil_tmp10);
   }
   {
 #line 2205
-  __cil_tmp18 = (struct platform_device *)0;
+  __cil_tmp11 = (struct platform_device *)0;
 #line 2205
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 2205
-  __cil_tmp20 = (unsigned long )pdev;
+  __cil_tmp13 = (unsigned long )pdev;
 #line 2205
-  if (__cil_tmp20 == __cil_tmp19) {
+  if (__cil_tmp13 == __cil_tmp12) {
     {
 #line 2206
     err = -12;
 #line 2207
     printk("<3>it87: Device allocation failed\n");
     }
+#line 2208
     goto exit;
   } else {
 
@@ -16227,9 +12870,9 @@ static int it87_device_add(unsigned short address , struct it87_sio_data  const 
   }
   {
 #line 2211
-  __cil_tmp21 = (struct resource  const  *)(& res);
+  __cil_tmp14 = (struct resource  const  *)(& res);
 #line 2211
-  err = platform_device_add_resources(pdev, __cil_tmp21, 1U);
+  err = platform_device_add_resources(pdev, __cil_tmp14, 1U);
   }
 #line 2212
   if (err != 0) {
@@ -16237,15 +12880,16 @@ static int it87_device_add(unsigned short address , struct it87_sio_data  const 
 #line 2213
     printk("<3>it87: Device resource addition failed (%d)\n", err);
     }
+#line 2214
     goto exit_device_put;
   } else {
 
   }
   {
 #line 2217
-  __cil_tmp22 = (void const   *)sio_data;
+  __cil_tmp15 = (void const   *)sio_data;
 #line 2217
-  err = platform_device_add_data(pdev, __cil_tmp22, 12UL);
+  err = platform_device_add_data(pdev, __cil_tmp15, 12UL);
   }
 #line 2219
   if (err != 0) {
@@ -16253,6 +12897,7 @@ static int it87_device_add(unsigned short address , struct it87_sio_data  const 
 #line 2220
     printk("<3>it87: Platform data allocation failed\n");
     }
+#line 2221
     goto exit_device_put;
   } else {
 
@@ -16267,6 +12912,7 @@ static int it87_device_add(unsigned short address , struct it87_sio_data  const 
 #line 2226
     printk("<3>it87: Device addition failed (%d)\n", err);
     }
+#line 2227
     goto exit_device_put;
   } else {
 
@@ -16288,24 +12934,19 @@ static int sm_it87_init(void)
 { int err ;
   unsigned short isa_address ;
   struct it87_sio_data sio_data ;
-  unsigned short *__cil_tmp4 ;
-  void *__cil_tmp5 ;
-  unsigned short *__cil_tmp6 ;
-  unsigned short __cil_tmp7 ;
-  int __cil_tmp8 ;
-  unsigned short __cil_tmp9 ;
-  struct it87_sio_data  const  *__cil_tmp10 ;
+  void *__cil_tmp4 ;
+  int __cil_tmp5 ;
+  unsigned short __cil_tmp6 ;
+  struct it87_sio_data  const  *__cil_tmp7 ;
 
   {
   {
 #line 2241
-  __cil_tmp4 = & isa_address;
-#line 2241
-  *__cil_tmp4 = (unsigned short)0;
+  isa_address = (unsigned short)0;
 #line 2244
-  __cil_tmp5 = (void *)(& sio_data);
+  __cil_tmp4 = (void *)(& sio_data);
 #line 2244
-  memset(__cil_tmp5, 0, 12UL);
+  memset(__cil_tmp4, 0, 12UL);
 #line 2245
   err = it87_find(& isa_address, & sio_data);
   }
@@ -16329,17 +12970,13 @@ static int sm_it87_init(void)
   }
   {
 #line 2252
-  __cil_tmp6 = & isa_address;
+  __cil_tmp5 = (int )isa_address;
 #line 2252
-  __cil_tmp7 = *__cil_tmp6;
+  __cil_tmp6 = (unsigned short )__cil_tmp5;
 #line 2252
-  __cil_tmp8 = (int )__cil_tmp7;
+  __cil_tmp7 = (struct it87_sio_data  const  *)(& sio_data);
 #line 2252
-  __cil_tmp9 = (unsigned short )__cil_tmp8;
-#line 2252
-  __cil_tmp10 = (struct it87_sio_data  const  *)(& sio_data);
-#line 2252
-  err = it87_device_add(__cil_tmp9, __cil_tmp10);
+  err = it87_device_add(__cil_tmp6, __cil_tmp7);
   }
 #line 2253
   if (err != 0) {
@@ -16403,10 +13040,12 @@ void main(void)
   }
 #line 2605
   if (tmp != 0) {
+#line 2606
     goto ldv_final;
   } else {
 
   }
+#line 2610
   goto ldv_25064;
   ldv_25063: 
   {
@@ -16415,8 +13054,10 @@ void main(void)
   }
 #line 2616
   if (tmp___0 == 0) {
+#line 2616
     goto case_0;
   } else {
+#line 2764
     goto switch_default;
 #line 2614
     if (0) {
@@ -16431,6 +13072,7 @@ void main(void)
         }
 #line 2755
         if (res_it87_probe_61 != 0) {
+#line 2756
           goto ldv_module_exit;
         } else {
 
@@ -16440,8 +13082,10 @@ void main(void)
       } else {
 
       }
+#line 2763
       goto ldv_25061;
       switch_default: ;
+#line 2764
       goto ldv_25061;
     } else {
 
@@ -16455,14 +13099,16 @@ void main(void)
   }
 #line 2610
   if (tmp___1 != 0) {
+#line 2612
+    goto ldv_25063;
+  } else
+#line 2610
+  if (ldv_s_it87_driver_platform_driver != 0) {
+#line 2612
     goto ldv_25063;
   } else {
-#line 2610
-    if (ldv_s_it87_driver_platform_driver != 0) {
-      goto ldv_25063;
-    } else {
-      goto ldv_25065;
-    }
+#line 2614
+    goto ldv_25065;
   }
   ldv_25065: ;
   ldv_module_exit: 
@@ -16485,6 +13131,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -16604,6 +13251,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 2982
   goto LDV_STOP;
 }
 }

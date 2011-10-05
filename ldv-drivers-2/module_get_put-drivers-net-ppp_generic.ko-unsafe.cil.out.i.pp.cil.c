@@ -6555,18 +6555,13 @@ unsigned long __builtin_object_size(void * , int  ) ;
 long __builtin_expect(long  , long  ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ 
 
   {
 #line 26
-  *((struct list_head **)list) = list;
+  list->next = list;
 #line 27
-  __cil_tmp2 = (unsigned long )list;
-#line 27
-  __cil_tmp3 = __cil_tmp2 + 8;
-#line 27
-  *((struct list_head **)__cil_tmp3) = list;
+  list->prev = list;
 #line 28
   return;
 }
@@ -6580,7 +6575,7 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
   {
   {
 #line 62
-  __cil_tmp3 = *((struct list_head **)head);
+  __cil_tmp3 = head->next;
 #line 62
   __list_add(new, head, __cil_tmp3);
   }
@@ -6590,20 +6585,14 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
 }
 #line 74 "include/linux/list.h"
 __inline static void list_add_tail(struct list_head *new , struct list_head *head ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct list_head *__cil_tmp5 ;
+{ struct list_head *__cil_tmp3 ;
 
   {
   {
 #line 76
-  __cil_tmp3 = (unsigned long )head;
+  __cil_tmp3 = head->prev;
 #line 76
-  __cil_tmp4 = __cil_tmp3 + 8;
-#line 76
-  __cil_tmp5 = *((struct list_head **)__cil_tmp4);
-#line 76
-  __list_add(new, __cil_tmp5, head);
+  __list_add(new, __cil_tmp3, head);
   }
 #line 77
   return;
@@ -6640,7 +6629,7 @@ __inline static int list_empty(struct list_head  const  *head )
 #line 188
   __cil_tmp2 = (unsigned long )head;
 #line 188
-  __cil_tmp3 = *((struct list_head * const  *)head);
+  __cil_tmp3 = head->next;
 #line 188
   __cil_tmp4 = (struct list_head  const  *)__cil_tmp3;
 #line 188
@@ -6739,7 +6728,7 @@ __inline static __u16 __fswab16(__u16 val )
 #line 51
   __cil_tmp10 = __cil_tmp9 | __cil_tmp5;
 #line 51
-  return ((unsigned short )__cil_tmp10);
+  return ((__u16 )__cil_tmp10);
   }
 }
 }
@@ -6748,7 +6737,7 @@ __inline static __u16 __swab16p(__u16 const   *p )
 { __u16 tmp ;
   __u16 __cil_tmp3 ;
   int __cil_tmp4 ;
-  unsigned short __cil_tmp5 ;
+  __u16 __cil_tmp5 ;
 
   {
   {
@@ -6757,7 +6746,7 @@ __inline static __u16 __swab16p(__u16 const   *p )
 #line 153
   __cil_tmp4 = (int )__cil_tmp3;
 #line 153
-  __cil_tmp5 = (unsigned short )__cil_tmp4;
+  __cil_tmp5 = (__u16 )__cil_tmp4;
 #line 153
   tmp = __fswab16(__cil_tmp5);
   }
@@ -6799,23 +6788,29 @@ __inline static struct task_struct *get_current(void)
   {
 #line 14
   if (1) {
+#line 14
     goto case_8;
   } else {
+#line 14
     goto switch_default;
 #line 14
     if (0) {
 #line 14
       __asm__  ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
 #line 14
       __asm__  ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       case_8: 
 #line 14
       __asm__  ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
       goto ldv_2386;
       switch_default: 
       {
@@ -6879,7 +6874,7 @@ __inline static int atomic_read(atomic_t const   *v )
   {
   {
 #line 25
-  __cil_tmp2 = (int const   *)v;
+  __cil_tmp2 = & v->counter;
 #line 25
   __cil_tmp3 = (int volatile   *)__cil_tmp2;
 #line 25
@@ -6895,7 +6890,7 @@ __inline static void atomic_set(atomic_t *v , int i )
 
   {
 #line 37
-  *((int *)v) = i;
+  v->counter = i;
 #line 38
   return;
 }
@@ -6906,7 +6901,7 @@ __inline static void atomic_inc(atomic_t *v )
 
   {
 #line 95
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (*((int *)v)));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (v->counter));
 #line 97
   return;
 }
@@ -6917,7 +6912,7 @@ __inline static void atomic_dec(atomic_t *v )
 
   {
 #line 107
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0": "+m" (*((int *)v)));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0": "+m" (v->counter));
 #line 109
   return;
 }
@@ -6929,7 +6924,7 @@ __inline static int atomic_dec_and_test(atomic_t *v )
 
   {
 #line 123
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (*((int *)v)),
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (v->counter),
                        "=qm" (c): : "memory");
   {
 #line 126
@@ -6948,7 +6943,7 @@ __inline static long atomic64_read(atomic64_t const   *v )
   {
   {
 #line 21
-  __cil_tmp2 = (long const   *)v;
+  __cil_tmp2 = & v->counter;
 #line 21
   __cil_tmp3 = (long volatile   *)__cil_tmp2;
 #line 21
@@ -6980,23 +6975,17 @@ __inline static long atomic_long_read(atomic_long_t *l )
 #line 82 "include/linux/thread_info.h"
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  __u32 *__cil_tmp6 ;
-  unsigned long const volatile   *__cil_tmp7 ;
+  __u32 *__cil_tmp4 ;
+  unsigned long const volatile   *__cil_tmp5 ;
 
   {
   {
 #line 84
-  __cil_tmp4 = (unsigned long )ti;
+  __cil_tmp4 = & ti->flags;
 #line 84
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long const volatile   *)__cil_tmp4;
 #line 84
-  __cil_tmp6 = (__u32 *)__cil_tmp5;
-#line 84
-  __cil_tmp7 = (unsigned long const volatile   *)__cil_tmp6;
-#line 84
-  tmp = variable_test_bit(flag, __cil_tmp7);
+  tmp = variable_test_bit(flag, __cil_tmp5);
   }
 #line 84
   return (tmp);
@@ -7037,7 +7026,7 @@ __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 
   {
 #line 274
-  return ((struct raw_spinlock *)lock);
+  return (& lock->ldv_6060.rlock);
 }
 }
 #line 283 "include/linux/spinlock.h"
@@ -7047,7 +7036,7 @@ __inline static void spin_lock(spinlock_t *lock )
   {
   {
 #line 285
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 285
   _raw_spin_lock(__cil_tmp2);
   }
@@ -7062,7 +7051,7 @@ __inline static void spin_lock_bh(spinlock_t *lock )
   {
   {
 #line 290
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 290
   _raw_spin_lock_bh(__cil_tmp2);
   }
@@ -7077,7 +7066,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   {
   {
 #line 325
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 325
   _raw_spin_unlock(__cil_tmp2);
   }
@@ -7092,7 +7081,7 @@ __inline static void spin_unlock_bh(spinlock_t *lock )
   {
   {
 #line 330
-  __cil_tmp2 = (struct raw_spinlock *)lock;
+  __cil_tmp2 = & lock->ldv_6060.rlock;
 #line 330
   _raw_spin_unlock_bh(__cil_tmp2);
   }
@@ -7451,35 +7440,23 @@ __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t priority )
 extern int pskb_expand_head(struct sk_buff * , int  , int  , gfp_t  ) ;
 #line 568 "include/linux/skbuff.h"
 __inline static unsigned char *skb_end_pointer(struct sk_buff  const  *skb ) 
-{ unsigned long __cil_tmp2 ;
+{ sk_buff_data_t __cil_tmp2 ;
   unsigned long __cil_tmp3 ;
-  sk_buff_data_t __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char *__cil_tmp8 ;
-  unsigned char *__cil_tmp9 ;
+  unsigned char *__cil_tmp4 ;
+  unsigned char *__cil_tmp5 ;
 
   {
   {
 #line 570
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->end;
 #line 570
-  __cil_tmp3 = __cil_tmp2 + 208;
+  __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 570
-  __cil_tmp4 = *((sk_buff_data_t const   *)__cil_tmp3);
+  __cil_tmp4 = skb->head;
 #line 570
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
+  __cil_tmp5 = (unsigned char *)__cil_tmp4;
 #line 570
-  __cil_tmp6 = (unsigned long )skb;
-#line 570
-  __cil_tmp7 = __cil_tmp6 + 216;
-#line 570
-  __cil_tmp8 = *((unsigned char * const  *)__cil_tmp7);
-#line 570
-  __cil_tmp9 = (unsigned char *)__cil_tmp8;
-#line 570
-  return (__cil_tmp9 + __cil_tmp5);
+  return (__cil_tmp5 + __cil_tmp3);
   }
 }
 }
@@ -7498,7 +7475,7 @@ __inline static int skb_queue_empty(struct sk_buff_head  const  *list )
 #line 595
   __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 595
-  __cil_tmp4 = *((struct sk_buff * const  *)list);
+  __cil_tmp4 = list->next;
 #line 595
   __cil_tmp5 = (struct sk_buff *)__cil_tmp4;
 #line 595
@@ -7524,7 +7501,7 @@ __inline static bool skb_queue_is_last(struct sk_buff_head  const  *list , struc
 #line 608
   __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 608
-  __cil_tmp5 = *((struct sk_buff * const  *)skb);
+  __cil_tmp5 = skb->next;
 #line 608
   __cil_tmp6 = (struct sk_buff *)__cil_tmp5;
 #line 608
@@ -7532,7 +7509,7 @@ __inline static bool skb_queue_is_last(struct sk_buff_head  const  *list , struc
 #line 608
   __cil_tmp8 = __cil_tmp7 == __cil_tmp4;
 #line 608
-  return ((_Bool )__cil_tmp8);
+  return ((bool )__cil_tmp8);
   }
 }
 }
@@ -7559,13 +7536,14 @@ __inline static struct sk_buff *skb_queue_next(struct sk_buff_head  const  *list
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/skbuff.h"),
                          "i" (638), "i" (12UL));
     ldv_19859: ;
+#line 638
     goto ldv_19859;
   } else {
 
   }
   {
 #line 639
-  __cil_tmp6 = *((struct sk_buff * const  *)skb);
+  __cil_tmp6 = skb->next;
 #line 639
   return ((struct sk_buff *)__cil_tmp6);
   }
@@ -7581,11 +7559,9 @@ __inline static int skb_cloned(struct sk_buff  const  *skb )
   unsigned char __cil_tmp7 ;
   unsigned int __cil_tmp8 ;
   struct skb_shared_info *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  atomic_t *__cil_tmp12 ;
-  atomic_t const   *__cil_tmp13 ;
-  int __cil_tmp14 ;
+  atomic_t *__cil_tmp10 ;
+  atomic_t const   *__cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
@@ -7605,21 +7581,17 @@ __inline static int skb_cloned(struct sk_buff  const  *skb )
 #line 688
     __cil_tmp9 = (struct skb_shared_info *)tmp;
 #line 688
-    __cil_tmp10 = (unsigned long )__cil_tmp9;
+    __cil_tmp10 = & __cil_tmp9->dataref;
 #line 688
-    __cil_tmp11 = __cil_tmp10 + 40;
+    __cil_tmp11 = (atomic_t const   *)__cil_tmp10;
 #line 688
-    __cil_tmp12 = (atomic_t *)__cil_tmp11;
-#line 688
-    __cil_tmp13 = (atomic_t const   *)__cil_tmp12;
-#line 688
-    tmp___0 = atomic_read(__cil_tmp13);
+    tmp___0 = atomic_read(__cil_tmp11);
     }
     {
 #line 688
-    __cil_tmp14 = tmp___0 & 65535;
+    __cil_tmp12 = tmp___0 & 65535;
 #line 688
-    if (__cil_tmp14 != 1) {
+    if (__cil_tmp12 != 1) {
 #line 688
       tmp___1 = 1;
     } else {
@@ -7645,12 +7617,10 @@ __inline static int skb_header_cloned(struct sk_buff  const  *skb )
   unsigned char __cil_tmp6 ;
   unsigned int __cil_tmp7 ;
   struct skb_shared_info *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  atomic_t *__cil_tmp11 ;
-  atomic_t const   *__cil_tmp12 ;
-  int __cil_tmp13 ;
-  int __cil_tmp14 ;
+  atomic_t *__cil_tmp9 ;
+  atomic_t const   *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
 
   {
   {
@@ -7676,21 +7646,17 @@ __inline static int skb_header_cloned(struct sk_buff  const  *skb )
 #line 706
   __cil_tmp8 = (struct skb_shared_info *)tmp;
 #line 706
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
+  __cil_tmp9 = & __cil_tmp8->dataref;
 #line 706
-  __cil_tmp10 = __cil_tmp9 + 40;
+  __cil_tmp10 = (atomic_t const   *)__cil_tmp9;
 #line 706
-  __cil_tmp11 = (atomic_t *)__cil_tmp10;
-#line 706
-  __cil_tmp12 = (atomic_t const   *)__cil_tmp11;
-#line 706
-  dataref = atomic_read(__cil_tmp12);
+  dataref = atomic_read(__cil_tmp10);
 #line 707
-  __cil_tmp13 = dataref >> 16;
+  __cil_tmp11 = dataref >> 16;
 #line 707
-  __cil_tmp14 = dataref & 65535;
+  __cil_tmp12 = dataref & 65535;
 #line 707
-  dataref = __cil_tmp14 - __cil_tmp13;
+  dataref = __cil_tmp12 - __cil_tmp11;
   }
 #line 708
   return (dataref != 1);
@@ -7708,7 +7674,7 @@ __inline static struct sk_buff *skb_peek(struct sk_buff_head *list_ )
 #line 810
   __cil_tmp3 = (struct sk_buff *)list_;
 #line 810
-  list = *((struct sk_buff **)__cil_tmp3);
+  list = __cil_tmp3->next;
   {
 #line 811
   __cil_tmp4 = (struct sk_buff *)list_;
@@ -7730,48 +7696,30 @@ __inline static struct sk_buff *skb_peek(struct sk_buff_head *list_ )
 }
 #line 843 "include/linux/skbuff.h"
 __inline static __u32 skb_queue_len(struct sk_buff_head  const  *list_ ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  __u32 __cil_tmp4 ;
+{ __u32 __cil_tmp2 ;
 
   {
   {
 #line 845
-  __cil_tmp2 = (unsigned long )list_;
+  __cil_tmp2 = list_->qlen;
 #line 845
-  __cil_tmp3 = __cil_tmp2 + 16;
-#line 845
-  __cil_tmp4 = *((__u32 const   *)__cil_tmp3);
-#line 845
-  return ((unsigned int )__cil_tmp4);
+  return ((__u32 )__cil_tmp2);
   }
 }
 }
 #line 858 "include/linux/skbuff.h"
 __inline static void __skb_queue_head_init(struct sk_buff_head *list ) 
 { struct sk_buff *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
 
   {
 #line 860
   tmp = (struct sk_buff *)list;
 #line 860
-  *((struct sk_buff **)list) = tmp;
+  list->next = tmp;
 #line 860
-  __cil_tmp3 = (unsigned long )list;
-#line 860
-  __cil_tmp4 = __cil_tmp3 + 8;
-#line 860
-  *((struct sk_buff **)__cil_tmp4) = tmp;
+  list->prev = tmp;
 #line 861
-  __cil_tmp5 = (unsigned long )list;
-#line 861
-  __cil_tmp6 = __cil_tmp5 + 16;
-#line 861
-  *((__u32 *)__cil_tmp6) = 0U;
+  list->qlen = 0U;
 #line 862
   return;
 }
@@ -7779,31 +7727,19 @@ __inline static void __skb_queue_head_init(struct sk_buff_head *list )
 #line 872 "include/linux/skbuff.h"
 __inline static void skb_queue_head_init(struct sk_buff_head *list ) 
 { struct lock_class_key __key ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  spinlock_t *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct raw_spinlock *__cil_tmp8 ;
+  spinlock_t *__cil_tmp3 ;
+  struct raw_spinlock *__cil_tmp4 ;
 
   {
   {
 #line 874
-  __cil_tmp3 = (unsigned long )list;
+  __cil_tmp3 = & list->lock;
 #line 874
-  __cil_tmp4 = __cil_tmp3 + 24;
+  spinlock_check(__cil_tmp3);
 #line 874
-  __cil_tmp5 = (spinlock_t *)__cil_tmp4;
+  __cil_tmp4 = & list->lock.ldv_6060.rlock;
 #line 874
-  spinlock_check(__cil_tmp5);
-#line 874
-  __cil_tmp6 = (unsigned long )list;
-#line 874
-  __cil_tmp7 = __cil_tmp6 + 24;
-#line 874
-  __cil_tmp8 = (struct raw_spinlock *)__cil_tmp7;
-#line 874
-  __raw_spin_lock_init(__cil_tmp8, "&(&list->lock)->rlock", & __key);
+  __raw_spin_lock_init(__cil_tmp4, "&(&list->lock)->rlock", & __key);
 #line 875
   __skb_queue_head_init(list);
   }
@@ -7815,47 +7751,23 @@ __inline static void skb_queue_head_init(struct sk_buff_head *list )
 __inline static void __skb_insert(struct sk_buff *newsk , struct sk_buff *prev , struct sk_buff *next ,
                                   struct sk_buff_head *list ) 
 { struct sk_buff *tmp ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  __u32 __cil_tmp14 ;
+  __u32 __cil_tmp6 ;
 
   {
 #line 896
-  *((struct sk_buff **)newsk) = next;
+  newsk->next = next;
 #line 897
-  __cil_tmp6 = (unsigned long )newsk;
-#line 897
-  __cil_tmp7 = __cil_tmp6 + 8;
-#line 897
-  *((struct sk_buff **)__cil_tmp7) = prev;
+  newsk->prev = prev;
 #line 898
   tmp = newsk;
 #line 898
-  *((struct sk_buff **)prev) = tmp;
+  prev->next = tmp;
 #line 898
-  __cil_tmp8 = (unsigned long )next;
-#line 898
-  __cil_tmp9 = __cil_tmp8 + 8;
-#line 898
-  *((struct sk_buff **)__cil_tmp9) = tmp;
+  next->prev = tmp;
 #line 899
-  __cil_tmp10 = (unsigned long )list;
+  __cil_tmp6 = list->qlen;
 #line 899
-  __cil_tmp11 = __cil_tmp10 + 16;
-#line 899
-  __cil_tmp12 = (unsigned long )list;
-#line 899
-  __cil_tmp13 = __cil_tmp12 + 16;
-#line 899
-  __cil_tmp14 = *((__u32 *)__cil_tmp13);
-#line 899
-  *((__u32 *)__cil_tmp11) = __cil_tmp14 + 1U;
+  list->qlen = __cil_tmp6 + 1U;
 #line 900
   return;
 }
@@ -7863,20 +7775,14 @@ __inline static void __skb_insert(struct sk_buff *newsk , struct sk_buff *prev ,
 #line 1000 "include/linux/skbuff.h"
 __inline static void __skb_queue_before(struct sk_buff_head *list , struct sk_buff *next ,
                                         struct sk_buff *newsk ) 
-{ unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct sk_buff *__cil_tmp6 ;
+{ struct sk_buff *__cil_tmp4 ;
 
   {
   {
 #line 1004
-  __cil_tmp4 = (unsigned long )next;
+  __cil_tmp4 = next->prev;
 #line 1004
-  __cil_tmp5 = __cil_tmp4 + 8;
-#line 1004
-  __cil_tmp6 = *((struct sk_buff **)__cil_tmp5);
-#line 1004
-  __skb_insert(newsk, __cil_tmp6, next, list);
+  __skb_insert(newsk, __cil_tmp4, next, list);
   }
 #line 1005
   return;
@@ -7891,57 +7797,27 @@ __inline static void __skb_unlink(struct sk_buff *skb , struct sk_buff_head *lis
 { struct sk_buff *next ;
   struct sk_buff *prev ;
   struct sk_buff *tmp ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  __u32 __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  __u32 __cil_tmp6 ;
 
   {
 #line 1050
-  __cil_tmp6 = (unsigned long )list;
+  __cil_tmp6 = list->qlen;
 #line 1050
-  __cil_tmp7 = __cil_tmp6 + 16;
-#line 1050
-  __cil_tmp8 = (unsigned long )list;
-#line 1050
-  __cil_tmp9 = __cil_tmp8 + 16;
-#line 1050
-  __cil_tmp10 = *((__u32 *)__cil_tmp9);
-#line 1050
-  *((__u32 *)__cil_tmp7) = __cil_tmp10 - 1U;
+  list->qlen = __cil_tmp6 - 1U;
 #line 1051
-  next = *((struct sk_buff **)skb);
+  next = skb->next;
 #line 1052
-  __cil_tmp11 = (unsigned long )skb;
-#line 1052
-  __cil_tmp12 = __cil_tmp11 + 8;
-#line 1052
-  prev = *((struct sk_buff **)__cil_tmp12);
+  prev = skb->prev;
 #line 1053
   tmp = (struct sk_buff *)0;
 #line 1053
-  __cil_tmp13 = (unsigned long )skb;
+  skb->prev = tmp;
 #line 1053
-  __cil_tmp14 = __cil_tmp13 + 8;
-#line 1053
-  *((struct sk_buff **)__cil_tmp14) = tmp;
-#line 1053
-  *((struct sk_buff **)skb) = tmp;
+  skb->next = tmp;
 #line 1054
-  __cil_tmp15 = (unsigned long )next;
-#line 1054
-  __cil_tmp16 = __cil_tmp15 + 8;
-#line 1054
-  *((struct sk_buff **)__cil_tmp16) = prev;
+  next->prev = prev;
 #line 1055
-  *((struct sk_buff **)prev) = next;
+  prev->next = next;
 #line 1056
   return;
 }
@@ -7950,54 +7826,36 @@ __inline static void __skb_unlink(struct sk_buff *skb , struct sk_buff_head *lis
 extern struct sk_buff *skb_dequeue(struct sk_buff_head * ) ;
 #line 1093 "include/linux/skbuff.h"
 __inline static int skb_is_nonlinear(struct sk_buff  const  *skb ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
+{ unsigned int __cil_tmp2 ;
 
   {
   {
 #line 1095
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->data_len;
 #line 1095
-  __cil_tmp3 = __cil_tmp2 + 108;
-#line 1095
-  __cil_tmp4 = *((unsigned int const   *)__cil_tmp3);
-#line 1095
-  return ((int )__cil_tmp4);
+  return ((int )__cil_tmp2);
   }
 }
 }
 #line 1098 "include/linux/skbuff.h"
 __inline static unsigned int skb_headlen(struct sk_buff  const  *skb ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ unsigned int __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
   unsigned int __cil_tmp4 ;
   unsigned int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
 
   {
   {
 #line 1100
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->data_len;
 #line 1100
-  __cil_tmp3 = __cil_tmp2 + 108;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 1100
-  __cil_tmp4 = *((unsigned int const   *)__cil_tmp3);
+  __cil_tmp4 = skb->len;
 #line 1100
   __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 1100
-  __cil_tmp6 = (unsigned long )skb;
-#line 1100
-  __cil_tmp7 = __cil_tmp6 + 104;
-#line 1100
-  __cil_tmp8 = *((unsigned int const   *)__cil_tmp7);
-#line 1100
-  __cil_tmp9 = (unsigned int )__cil_tmp8;
-#line 1100
-  return (__cil_tmp9 - __cil_tmp5);
+  return (__cil_tmp5 - __cil_tmp3);
   }
 }
 }
@@ -8011,58 +7869,30 @@ extern unsigned char *skb_pull(struct sk_buff * , unsigned int  ) ;
 __inline static unsigned char *__skb_pull(struct sk_buff *skb , unsigned int len ) 
 { long tmp ;
   unsigned char *tmp___0 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  int __cil_tmp8 ;
+  long __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  int __cil_tmp16 ;
-  long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned char *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  unsigned char *__cil_tmp11 ;
 
   {
   {
 #line 1188
-  __cil_tmp5 = (unsigned long )skb;
+  __cil_tmp5 = skb->len;
 #line 1188
-  __cil_tmp6 = __cil_tmp5 + 104;
-#line 1188
-  __cil_tmp7 = (unsigned long )skb;
-#line 1188
-  __cil_tmp8 = __cil_tmp7 + 104;
-#line 1188
-  __cil_tmp9 = *((unsigned int *)__cil_tmp8);
-#line 1188
-  *((unsigned int *)__cil_tmp6) = __cil_tmp9 - len;
+  skb->len = __cil_tmp5 - len;
 #line 1189
-  __cil_tmp10 = (unsigned long )skb;
+  __cil_tmp6 = skb->data_len;
 #line 1189
-  __cil_tmp11 = __cil_tmp10 + 108;
+  __cil_tmp7 = skb->len;
 #line 1189
-  __cil_tmp12 = *((unsigned int *)__cil_tmp11);
+  __cil_tmp8 = __cil_tmp7 < __cil_tmp6;
 #line 1189
-  __cil_tmp13 = (unsigned long )skb;
+  __cil_tmp9 = (long )__cil_tmp8;
 #line 1189
-  __cil_tmp14 = __cil_tmp13 + 104;
-#line 1189
-  __cil_tmp15 = *((unsigned int *)__cil_tmp14);
-#line 1189
-  __cil_tmp16 = __cil_tmp15 < __cil_tmp12;
-#line 1189
-  __cil_tmp17 = (long )__cil_tmp16;
-#line 1189
-  tmp = __builtin_expect(__cil_tmp17, 0L);
+  tmp = __builtin_expect(__cil_tmp9, 0L);
   }
 #line 1189
   if (tmp != 0L) {
@@ -8070,26 +7900,19 @@ __inline static unsigned char *__skb_pull(struct sk_buff *skb , unsigned int len
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/skbuff.h"),
                          "i" (1189), "i" (12UL));
     ldv_20057: ;
+#line 1189
     goto ldv_20057;
   } else {
 
   }
 #line 1190
-  __cil_tmp18 = (unsigned long )len;
+  __cil_tmp10 = (unsigned long )len;
 #line 1190
-  __cil_tmp19 = (unsigned long )skb;
+  __cil_tmp11 = skb->data;
 #line 1190
-  __cil_tmp20 = __cil_tmp19 + 224;
+  tmp___0 = __cil_tmp11 + __cil_tmp10;
 #line 1190
-  __cil_tmp21 = *((unsigned char **)__cil_tmp20);
-#line 1190
-  tmp___0 = __cil_tmp21 + __cil_tmp18;
-#line 1190
-  __cil_tmp22 = (unsigned long )skb;
-#line 1190
-  __cil_tmp23 = __cil_tmp22 + 224;
-#line 1190
-  *((unsigned char **)__cil_tmp23) = tmp___0;
+  skb->data = tmp___0;
 #line 1190
   return (tmp___0);
 }
@@ -8106,17 +7929,15 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   struct sk_buff  const  *__cil_tmp8 ;
   int __cil_tmp9 ;
   long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  int __cil_tmp14 ;
-  long __cil_tmp15 ;
-  struct sk_buff  const  *__cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned char *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  unsigned int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  long __cil_tmp13 ;
+  struct sk_buff  const  *__cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  unsigned char *__cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
 
   {
   {
@@ -8140,17 +7961,13 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   }
   {
 #line 1218
-  __cil_tmp11 = (unsigned long )skb;
+  __cil_tmp11 = skb->len;
 #line 1218
-  __cil_tmp12 = __cil_tmp11 + 104;
+  __cil_tmp12 = __cil_tmp11 < len;
 #line 1218
-  __cil_tmp13 = *((unsigned int *)__cil_tmp12);
+  __cil_tmp13 = (long )__cil_tmp12;
 #line 1218
-  __cil_tmp14 = __cil_tmp13 < len;
-#line 1218
-  __cil_tmp15 = (long )__cil_tmp14;
-#line 1218
-  tmp___1 = __builtin_expect(__cil_tmp15, 0L);
+  tmp___1 = __builtin_expect(__cil_tmp13, 0L);
   }
 #line 1218
   if (tmp___1 != 0L) {
@@ -8161,65 +7978,53 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   }
   {
 #line 1220
-  __cil_tmp16 = (struct sk_buff  const  *)skb;
+  __cil_tmp14 = (struct sk_buff  const  *)skb;
 #line 1220
-  tmp___2 = skb_headlen(__cil_tmp16);
+  tmp___2 = skb_headlen(__cil_tmp14);
 #line 1220
-  __cil_tmp17 = len - tmp___2;
+  __cil_tmp15 = len - tmp___2;
 #line 1220
-  __cil_tmp18 = (int )__cil_tmp17;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 1220
-  tmp___3 = __pskb_pull_tail(skb, __cil_tmp18);
+  tmp___3 = __pskb_pull_tail(skb, __cil_tmp16);
   }
   {
 #line 1220
-  __cil_tmp19 = (unsigned char *)0;
+  __cil_tmp17 = (unsigned char *)0;
 #line 1220
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 1220
-  __cil_tmp21 = (unsigned long )tmp___3;
+  __cil_tmp19 = (unsigned long )tmp___3;
 #line 1220
-  return (__cil_tmp21 != __cil_tmp20);
+  return (__cil_tmp19 != __cil_tmp18);
   }
 }
 }
 #line 1229 "include/linux/skbuff.h"
 __inline static unsigned int skb_headroom(struct sk_buff  const  *skb ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned char *__cil_tmp4 ;
-  long __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned char *__cil_tmp9 ;
-  long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
+{ unsigned char *__cil_tmp2 ;
+  long __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  unsigned char *__cil_tmp5 ;
+  long __cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
 
   {
   {
 #line 1231
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->head;
 #line 1231
-  __cil_tmp3 = __cil_tmp2 + 216;
+  __cil_tmp3 = (long )__cil_tmp2;
 #line 1231
-  __cil_tmp4 = *((unsigned char * const  *)__cil_tmp3);
+  __cil_tmp4 = (unsigned int )__cil_tmp3;
 #line 1231
-  __cil_tmp5 = (long )__cil_tmp4;
+  __cil_tmp5 = skb->data;
 #line 1231
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
+  __cil_tmp6 = (long )__cil_tmp5;
 #line 1231
-  __cil_tmp7 = (unsigned long )skb;
+  __cil_tmp7 = (unsigned int )__cil_tmp6;
 #line 1231
-  __cil_tmp8 = __cil_tmp7 + 224;
-#line 1231
-  __cil_tmp9 = *((unsigned char * const  *)__cil_tmp8);
-#line 1231
-  __cil_tmp10 = (long )__cil_tmp9;
-#line 1231
-  __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 1231
-  return (__cil_tmp11 - __cil_tmp6);
+  return (__cil_tmp7 - __cil_tmp4);
   }
 }
 }
@@ -8227,15 +8032,11 @@ __inline static unsigned int skb_headroom(struct sk_buff  const  *skb )
 __inline static int skb_tailroom(struct sk_buff  const  *skb ) 
 { int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+  sk_buff_data_t __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
   sk_buff_data_t __cil_tmp6 ;
   unsigned int __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  sk_buff_data_t __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp8 ;
 
   {
   {
@@ -8245,25 +8046,17 @@ __inline static int skb_tailroom(struct sk_buff  const  *skb )
 #line 1242
   if (tmp___1 == 0) {
 #line 1242
-    __cil_tmp4 = (unsigned long )skb;
+    __cil_tmp4 = skb->tail;
 #line 1242
-    __cil_tmp5 = __cil_tmp4 + 204;
+    __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 1242
-    __cil_tmp6 = *((sk_buff_data_t const   *)__cil_tmp5);
+    __cil_tmp6 = skb->end;
 #line 1242
     __cil_tmp7 = (unsigned int )__cil_tmp6;
 #line 1242
-    __cil_tmp8 = (unsigned long )skb;
+    __cil_tmp8 = __cil_tmp7 - __cil_tmp5;
 #line 1242
-    __cil_tmp9 = __cil_tmp8 + 208;
-#line 1242
-    __cil_tmp10 = *((sk_buff_data_t const   *)__cil_tmp9);
-#line 1242
-    __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 1242
-    __cil_tmp12 = __cil_tmp11 - __cil_tmp7;
-#line 1242
-    tmp___0 = (int )__cil_tmp12;
+    tmp___0 = (int )__cil_tmp8;
   } else {
 #line 1242
     tmp___0 = 0;
@@ -8275,93 +8068,51 @@ __inline static int skb_tailroom(struct sk_buff  const  *skb )
 #line 1253 "include/linux/skbuff.h"
 __inline static void skb_reserve(struct sk_buff *skb , int len ) 
 { unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned char *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  sk_buff_data_t __cil_tmp14 ;
+  unsigned char *__cil_tmp4 ;
+  sk_buff_data_t __cil_tmp5 ;
+  sk_buff_data_t __cil_tmp6 ;
 
   {
 #line 1255
-  __cil_tmp3 = (unsigned long )skb;
+  __cil_tmp3 = (unsigned long )len;
 #line 1255
-  __cil_tmp4 = __cil_tmp3 + 224;
+  __cil_tmp4 = skb->data;
 #line 1255
-  __cil_tmp5 = (unsigned long )len;
-#line 1255
-  __cil_tmp6 = (unsigned long )skb;
-#line 1255
-  __cil_tmp7 = __cil_tmp6 + 224;
-#line 1255
-  __cil_tmp8 = *((unsigned char **)__cil_tmp7);
-#line 1255
-  *((unsigned char **)__cil_tmp4) = __cil_tmp8 + __cil_tmp5;
+  skb->data = __cil_tmp4 + __cil_tmp3;
 #line 1256
-  __cil_tmp9 = (unsigned long )skb;
+  __cil_tmp5 = (sk_buff_data_t )len;
 #line 1256
-  __cil_tmp10 = __cil_tmp9 + 204;
+  __cil_tmp6 = skb->tail;
 #line 1256
-  __cil_tmp11 = (unsigned int )len;
-#line 1256
-  __cil_tmp12 = (unsigned long )skb;
-#line 1256
-  __cil_tmp13 = __cil_tmp12 + 204;
-#line 1256
-  __cil_tmp14 = *((sk_buff_data_t *)__cil_tmp13);
-#line 1256
-  *((sk_buff_data_t *)__cil_tmp10) = __cil_tmp14 + __cil_tmp11;
+  skb->tail = __cil_tmp6 + __cil_tmp5;
 #line 1257
   return;
 }
 }
 #line 1308 "include/linux/skbuff.h"
 __inline static void skb_reset_mac_header(struct sk_buff *skb ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned char *__cil_tmp6 ;
-  long __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned char *__cil_tmp11 ;
-  long __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
+{ unsigned char *__cil_tmp2 ;
+  long __cil_tmp3 ;
+  sk_buff_data_t __cil_tmp4 ;
+  unsigned char *__cil_tmp5 ;
+  long __cil_tmp6 ;
+  sk_buff_data_t __cil_tmp7 ;
 
   {
 #line 1310
-  __cil_tmp2 = (unsigned long )skb;
+  __cil_tmp2 = skb->head;
 #line 1310
-  __cil_tmp3 = __cil_tmp2 + 200;
+  __cil_tmp3 = (long )__cil_tmp2;
 #line 1310
-  __cil_tmp4 = (unsigned long )skb;
+  __cil_tmp4 = (sk_buff_data_t )__cil_tmp3;
 #line 1310
-  __cil_tmp5 = __cil_tmp4 + 216;
+  __cil_tmp5 = skb->data;
 #line 1310
-  __cil_tmp6 = *((unsigned char **)__cil_tmp5);
+  __cil_tmp6 = (long )__cil_tmp5;
 #line 1310
-  __cil_tmp7 = (long )__cil_tmp6;
+  __cil_tmp7 = (sk_buff_data_t )__cil_tmp6;
 #line 1310
-  __cil_tmp8 = (unsigned int )__cil_tmp7;
-#line 1310
-  __cil_tmp9 = (unsigned long )skb;
-#line 1310
-  __cil_tmp10 = __cil_tmp9 + 224;
-#line 1310
-  __cil_tmp11 = *((unsigned char **)__cil_tmp10);
-#line 1310
-  __cil_tmp12 = (long )__cil_tmp11;
-#line 1310
-  __cil_tmp13 = (unsigned int )__cil_tmp12;
-#line 1310
-  *((sk_buff_data_t *)__cil_tmp3) = __cil_tmp13 - __cil_tmp8;
+  skb->mac_header = __cil_tmp7 - __cil_tmp4;
 #line 1311
   return;
 }
@@ -8460,52 +8211,52 @@ __inline static int __skb_cow(struct sk_buff *skb , unsigned int headroom , int 
   }
 #line 1631
   if (delta != 0) {
-    goto _L;
-  } else {
 #line 1631
-    if (cloned != 0) {
-      _L: 
+    goto _L;
+  } else
+#line 1631
+  if (cloned != 0) {
+    _L: 
 #line 1632
-      _max1___1 = 32;
+    _max1___1 = 32;
 #line 1632
-      _max2___1 = 64;
+    _max2___1 = 64;
 #line 1632
-      if (_max1___1 > _max2___1) {
+    if (_max1___1 > _max2___1) {
 #line 1632
-        tmp___3 = _max1___1;
-      } else {
-#line 1632
-        tmp___3 = _max2___1;
-      }
-#line 1632
-      _max1___2 = 32;
-#line 1632
-      _max2___2 = 64;
-#line 1632
-      if (_max1___2 > _max2___2) {
-#line 1632
-        tmp___4 = _max1___2;
-      } else {
-#line 1632
-        tmp___4 = _max2___2;
-      }
-      {
-#line 1632
-      __cil_tmp24 = - tmp___4;
-#line 1632
-      __cil_tmp25 = tmp___3 + -1;
-#line 1632
-      __cil_tmp26 = __cil_tmp25 + delta;
-#line 1632
-      __cil_tmp27 = __cil_tmp26 & __cil_tmp24;
-#line 1632
-      tmp___5 = pskb_expand_head(skb, __cil_tmp27, 0, 32U);
-      }
-#line 1632
-      return (tmp___5);
+      tmp___3 = _max1___1;
     } else {
-
+#line 1632
+      tmp___3 = _max2___1;
     }
+#line 1632
+    _max1___2 = 32;
+#line 1632
+    _max2___2 = 64;
+#line 1632
+    if (_max1___2 > _max2___2) {
+#line 1632
+      tmp___4 = _max1___2;
+    } else {
+#line 1632
+      tmp___4 = _max2___2;
+    }
+    {
+#line 1632
+    __cil_tmp24 = - tmp___4;
+#line 1632
+    __cil_tmp25 = tmp___3 + -1;
+#line 1632
+    __cil_tmp26 = __cil_tmp25 + delta;
+#line 1632
+    __cil_tmp27 = __cil_tmp26 & __cil_tmp24;
+#line 1632
+    tmp___5 = pskb_expand_head(skb, __cil_tmp27, 0, 32U);
+    }
+#line 1632
+    return (tmp___5);
+  } else {
+
   }
 #line 1634
   return (0);
@@ -8577,23 +8328,17 @@ extern void schedule(void) ;
 #line 2441 "include/linux/sched.h"
 __inline static int test_tsk_thread_flag(struct task_struct *tsk , int flag ) 
 { int tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  struct thread_info *__cil_tmp7 ;
+  void *__cil_tmp4 ;
+  struct thread_info *__cil_tmp5 ;
 
   {
   {
 #line 2443
-  __cil_tmp4 = (unsigned long )tsk;
+  __cil_tmp4 = tsk->stack;
 #line 2443
-  __cil_tmp5 = __cil_tmp4 + 8;
+  __cil_tmp5 = (struct thread_info *)__cil_tmp4;
 #line 2443
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 2443
-  __cil_tmp7 = (struct thread_info *)__cil_tmp6;
-#line 2443
-  tmp = test_ti_thread_flag(__cil_tmp7, flag);
+  tmp = test_ti_thread_flag(__cil_tmp5, flag);
   }
 #line 2443
   return (tmp);
@@ -8647,52 +8392,34 @@ extern void unregister_pernet_device(struct pernet_operations * ) ;
 __inline static struct netdev_queue *netdev_get_tx_queue(struct net_device  const  *dev ,
                                                          unsigned int index ) 
 { unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct netdev_queue *__cil_tmp6 ;
-  struct netdev_queue *__cil_tmp7 ;
+  struct netdev_queue *__cil_tmp4 ;
+  struct netdev_queue *__cil_tmp5 ;
 
   {
   {
 #line 1413
   __cil_tmp3 = (unsigned long )index;
 #line 1413
-  __cil_tmp4 = (unsigned long )dev;
+  __cil_tmp4 = dev->_tx;
 #line 1413
-  __cil_tmp5 = __cil_tmp4 + 840;
+  __cil_tmp5 = (struct netdev_queue *)__cil_tmp4;
 #line 1413
-  __cil_tmp6 = *((struct netdev_queue * const  *)__cil_tmp5);
-#line 1413
-  __cil_tmp7 = (struct netdev_queue *)__cil_tmp6;
-#line 1413
-  return (__cil_tmp7 + __cil_tmp3);
+  return (__cil_tmp5 + __cil_tmp3);
   }
 }
 }
 #line 1438 "include/linux/netdevice.h"
 __inline static void dev_net_set(struct net_device *dev , struct net *net ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct net *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+{ struct net *__cil_tmp3 ;
 
   {
   {
 #line 1441
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = dev->nd_net;
 #line 1441
-  __cil_tmp4 = __cil_tmp3 + 1176;
-#line 1441
-  __cil_tmp5 = *((struct net **)__cil_tmp4);
-#line 1441
-  release_net(__cil_tmp5);
+  release_net(__cil_tmp3);
 #line 1442
-  __cil_tmp6 = (unsigned long )dev;
-#line 1442
-  __cil_tmp7 = __cil_tmp6 + 1176;
-#line 1442
-  *((struct net **)__cil_tmp7) = hold_net(net);
+  dev->nd_net = hold_net(net);
   }
 #line 1443
   return;
@@ -8719,23 +8446,17 @@ extern int netpoll_trap(void) ;
 extern void __netif_schedule(struct Qdisc * ) ;
 #line 1804 "include/linux/netdevice.h"
 __inline static void netif_tx_start_queue(struct netdev_queue *dev_queue ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long *__cil_tmp4 ;
-  unsigned long volatile   *__cil_tmp5 ;
+{ unsigned long *__cil_tmp2 ;
+  unsigned long volatile   *__cil_tmp3 ;
 
   {
   {
 #line 1806
-  __cil_tmp2 = (unsigned long )dev_queue;
+  __cil_tmp2 = & dev_queue->state;
 #line 1806
-  __cil_tmp3 = __cil_tmp2 + 16;
+  __cil_tmp3 = (unsigned long volatile   *)__cil_tmp2;
 #line 1806
-  __cil_tmp4 = (unsigned long *)__cil_tmp3;
-#line 1806
-  __cil_tmp5 = (unsigned long volatile   *)__cil_tmp4;
-#line 1806
-  clear_bit(0, __cil_tmp5);
+  clear_bit(0, __cil_tmp3);
   }
 #line 1807
   return;
@@ -8745,13 +8466,9 @@ __inline static void netif_tx_start_queue(struct netdev_queue *dev_queue )
 __inline static void netif_tx_wake_queue(struct netdev_queue *dev_queue ) 
 { int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long *__cil_tmp6 ;
-  unsigned long volatile   *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct Qdisc *__cil_tmp10 ;
+  unsigned long *__cil_tmp4 ;
+  unsigned long volatile   *__cil_tmp5 ;
+  struct Qdisc *__cil_tmp6 ;
 
   {
   {
@@ -8771,27 +8488,19 @@ __inline static void netif_tx_wake_queue(struct netdev_queue *dev_queue )
   }
   {
 #line 1838
-  __cil_tmp4 = (unsigned long )dev_queue;
+  __cil_tmp4 = & dev_queue->state;
 #line 1838
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long volatile   *)__cil_tmp4;
 #line 1838
-  __cil_tmp6 = (unsigned long *)__cil_tmp5;
-#line 1838
-  __cil_tmp7 = (unsigned long volatile   *)__cil_tmp6;
-#line 1838
-  tmp___0 = test_and_clear_bit(0, __cil_tmp7);
+  tmp___0 = test_and_clear_bit(0, __cil_tmp5);
   }
 #line 1838
   if (tmp___0 != 0) {
     {
 #line 1839
-    __cil_tmp8 = (unsigned long )dev_queue;
+    __cil_tmp6 = dev_queue->qdisc;
 #line 1839
-    __cil_tmp9 = __cil_tmp8 + 8;
-#line 1839
-    __cil_tmp10 = *((struct Qdisc **)__cil_tmp9);
-#line 1839
-    __netif_schedule(__cil_tmp10);
+    __netif_schedule(__cil_tmp6);
     }
   } else {
 
@@ -8832,10 +8541,8 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   int __cil_tmp11 ;
   int __cil_tmp12 ;
   long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long *__cil_tmp16 ;
-  unsigned long volatile   *__cil_tmp17 ;
+  unsigned long *__cil_tmp14 ;
+  unsigned long volatile   *__cil_tmp15 ;
 
   {
   {
@@ -8888,15 +8595,11 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   }
   {
 #line 1870
-  __cil_tmp14 = (unsigned long )dev_queue;
+  __cil_tmp14 = & dev_queue->state;
 #line 1870
-  __cil_tmp15 = __cil_tmp14 + 16;
+  __cil_tmp15 = (unsigned long volatile   *)__cil_tmp14;
 #line 1870
-  __cil_tmp16 = (unsigned long *)__cil_tmp15;
-#line 1870
-  __cil_tmp17 = (unsigned long volatile   *)__cil_tmp16;
-#line 1870
-  set_bit(0U, __cil_tmp17);
+  set_bit(0U, __cil_tmp15);
   }
 #line 1871
   return;
@@ -8966,7 +8669,7 @@ __inline static void poll_wait(struct file *filp , wait_queue_head_t *wait_addre
     if (__cil_tmp9 != __cil_tmp8) {
       {
 #line 43
-      __cil_tmp10 = *((void (**)(struct file * , wait_queue_head_t * , struct poll_table_struct * ))p);
+      __cil_tmp10 = p->qproc;
 #line 43
       (*__cil_tmp10)(filp, wait_address, p);
       }
@@ -9028,7 +8731,7 @@ __inline static u16 get_unaligned_be16(void const   *p )
 __inline static void put_unaligned_be16(u16 val , void *p ) 
 { __u16 tmp ;
   int __cil_tmp4 ;
-  unsigned short __cil_tmp5 ;
+  __u16 __cil_tmp5 ;
   __be16 *__cil_tmp6 ;
 
   {
@@ -9036,7 +8739,7 @@ __inline static void put_unaligned_be16(u16 val , void *p )
 #line 54
   __cil_tmp4 = (int )val;
 #line 54
-  __cil_tmp5 = (unsigned short )__cil_tmp4;
+  __cil_tmp5 = (__u16 )__cil_tmp4;
 #line 54
   tmp = __fswab16(__cil_tmp5);
 #line 54
@@ -9071,41 +8774,30 @@ __inline static void *net_generic(struct net  const  *net , int id )
   int tmp___0 ;
   long tmp___1 ;
   long tmp___2 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct net_generic * const  *__cil_tmp13 ;
-  struct net_generic * const volatile  *__cil_tmp14 ;
-  struct net_generic * volatile  __cil_tmp15 ;
+  struct net_generic * const  *__cil_tmp11 ;
+  struct net_generic * const volatile  *__cil_tmp12 ;
+  struct net_generic * volatile  __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
   int __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  long __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  int __cil_tmp22 ;
-  long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  long __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  long __cil_tmp21 ;
 
   {
   {
 #line 38
   rcu_read_lock();
 #line 39
-  __cil_tmp11 = (unsigned long )net;
+  __cil_tmp11 = & net->gen;
 #line 39
-  __cil_tmp12 = __cil_tmp11 + 1952;
+  __cil_tmp12 = (struct net_generic * const volatile  *)__cil_tmp11;
 #line 39
-  __cil_tmp13 = (struct net_generic * const  *)__cil_tmp12;
+  __cil_tmp13 = *__cil_tmp12;
 #line 39
-  __cil_tmp14 = (struct net_generic * const volatile  *)__cil_tmp13;
-#line 39
-  __cil_tmp15 = *__cil_tmp14;
-#line 39
-  _________p1 = (struct net_generic *)__cil_tmp15;
+  _________p1 = (struct net_generic *)__cil_tmp13;
 #line 39
   tmp = debug_lockdep_rcu_enabled();
   }
@@ -9121,13 +8813,13 @@ __inline static void *net_generic(struct net  const  *net , int id )
       if (tmp___0 == 0) {
         {
 #line 39
-        __warned = (_Bool)1;
+        __warned = (bool )1;
 #line 39
-        __cil_tmp16 = (int const   )39;
+        __cil_tmp14 = (int const   )39;
 #line 39
-        __cil_tmp17 = (int )__cil_tmp16;
+        __cil_tmp15 = (int )__cil_tmp14;
 #line 39
-        lockdep_rcu_dereference("include/net/netns/generic.h", __cil_tmp17);
+        lockdep_rcu_dereference("include/net/netns/generic.h", __cil_tmp15);
         }
       } else {
 
@@ -9142,27 +8834,28 @@ __inline static void *net_generic(struct net  const  *net , int id )
 #line 39
   ng = _________p1;
 #line 40
-  __cil_tmp18 = id == 0;
+  __cil_tmp16 = id == 0;
 #line 40
-  __cil_tmp19 = (long )__cil_tmp18;
+  __cil_tmp17 = (long )__cil_tmp16;
 #line 40
-  tmp___1 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___1 = __builtin_expect(__cil_tmp17, 0L);
   }
 #line 40
   if (tmp___1 != 0L) {
+#line 40
     goto _L;
   } else {
     {
 #line 40
-    __cil_tmp20 = *((unsigned int *)ng);
+    __cil_tmp18 = ng->len;
 #line 40
-    __cil_tmp21 = (unsigned int )id;
+    __cil_tmp19 = (unsigned int )id;
 #line 40
-    __cil_tmp22 = __cil_tmp21 > __cil_tmp20;
+    __cil_tmp20 = __cil_tmp19 > __cil_tmp18;
 #line 40
-    __cil_tmp23 = (long )__cil_tmp22;
+    __cil_tmp21 = (long )__cil_tmp20;
 #line 40
-    tmp___2 = __builtin_expect(__cil_tmp23, 0L);
+    tmp___2 = __builtin_expect(__cil_tmp21, 0L);
     }
 #line 40
     if (tmp___2 != 0L) {
@@ -9171,6 +8864,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/net/netns/generic.h"),
                            "i" (40), "i" (12UL));
       ldv_39520: ;
+#line 40
       goto ldv_39520;
     } else {
 
@@ -9178,17 +8872,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
   }
   {
 #line 41
-  __cil_tmp24 = id + -1;
-#line 41
-  __cil_tmp25 = __cil_tmp24 * 8UL;
-#line 41
-  __cil_tmp26 = 24 + __cil_tmp25;
-#line 41
-  __cil_tmp27 = (unsigned long )ng;
-#line 41
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 41
-  ptr = *((void **)__cil_tmp28);
+  ptr = ng->ptr[id + -1];
 #line 42
   rcu_read_unlock();
   }
@@ -9286,8 +8970,6 @@ __inline static struct ppp_net *ppp_pernet(struct net *net )
   int __cil_tmp7 ;
   long __cil_tmp8 ;
   struct net  const  *__cil_tmp9 ;
-  int *__cil_tmp10 ;
-  int __cil_tmp11 ;
 
   {
   {
@@ -9310,6 +8992,7 @@ __inline static struct ppp_net *ppp_pernet(struct net *net )
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"),
                          "i" (287), "i" (12UL));
     ldv_39687: ;
+#line 287
     goto ldv_39687;
   } else {
 
@@ -9318,11 +9001,7 @@ __inline static struct ppp_net *ppp_pernet(struct net *net )
 #line 289
   __cil_tmp9 = (struct net  const  *)net;
 #line 289
-  __cil_tmp10 = & ppp_net_id;
-#line 289
-  __cil_tmp11 = *__cil_tmp10;
-#line 289
-  tmp___0 = net_generic(__cil_tmp9, __cil_tmp11);
+  tmp___0 = net_generic(__cil_tmp9, ppp_net_id);
   }
 #line 289
   return ((struct ppp_net *)tmp___0);
@@ -9335,56 +9014,56 @@ __inline static int proto_to_npindex(int proto )
   {
 #line 296
   if (proto == 33) {
+#line 296
     goto case_33;
-  } else {
+  } else
 #line 298
-    if (proto == 87) {
-      goto case_87;
-    } else {
+  if (proto == 87) {
+#line 298
+    goto case_87;
+  } else
 #line 300
-      if (proto == 43) {
-        goto case_43;
-      } else {
+  if (proto == 43) {
+#line 300
+    goto case_43;
+  } else
 #line 302
-        if (proto == 41) {
-          goto case_41;
-        } else {
+  if (proto == 41) {
+#line 302
+    goto case_41;
+  } else
 #line 304
-          if (proto == 641) {
-            goto case_641;
-          } else {
+  if (proto == 641) {
+#line 304
+    goto case_641;
+  } else
 #line 306
-            if (proto == 643) {
-              goto case_643;
-            } else {
+  if (proto == 643) {
+#line 306
+    goto case_643;
+  } else
 #line 295
-              if (0) {
-                case_33: ;
+  if (0) {
+    case_33: ;
 #line 297
-                return (0);
-                case_87: ;
+    return (0);
+    case_87: ;
 #line 299
-                return (1);
-                case_43: ;
+    return (1);
+    case_43: ;
 #line 301
-                return (2);
-                case_41: ;
+    return (2);
+    case_41: ;
 #line 303
-                return (3);
-                case_641: ;
+    return (3);
+    case_641: ;
 #line 305
-                return (4);
-                case_643: ;
+    return (4);
+    case_643: ;
 #line 307
-                return (5);
-              } else {
+    return (5);
+  } else {
 
-              }
-            }
-          }
-        }
-      }
-    }
   }
 #line 309
   return (-22);
@@ -9400,62 +9079,62 @@ __inline static int ethertype_to_npindex(int ethertype )
   {
 #line 326
   if (ethertype == 2048) {
+#line 326
     goto case_2048;
-  } else {
+  } else
 #line 328
-    if (ethertype == 34525) {
-      goto case_34525;
-    } else {
+  if (ethertype == 34525) {
+#line 328
+    goto case_34525;
+  } else
 #line 330
-      if (ethertype == 33079) {
-        goto case_33079;
-      } else {
+  if (ethertype == 33079) {
+#line 330
+    goto case_33079;
+  } else
 #line 332
-        if (ethertype == 16) {
-          goto case_16;
-        } else {
+  if (ethertype == 16) {
+#line 332
+    goto case_16;
+  } else
 #line 333
-          if (ethertype == 32923) {
-            goto case_32923;
-          } else {
+  if (ethertype == 32923) {
+#line 333
+    goto case_32923;
+  } else
 #line 335
-            if (ethertype == 34887) {
-              goto case_34887;
-            } else {
+  if (ethertype == 34887) {
+#line 335
+    goto case_34887;
+  } else
 #line 337
-              if (ethertype == 34888) {
-                goto case_34888;
-              } else {
+  if (ethertype == 34888) {
+#line 337
+    goto case_34888;
+  } else
 #line 325
-                if (0) {
-                  case_2048: ;
+  if (0) {
+    case_2048: ;
 #line 327
-                  return (0);
-                  case_34525: ;
+    return (0);
+    case_34525: ;
 #line 329
-                  return (1);
-                  case_33079: ;
+    return (1);
+    case_33079: ;
 #line 331
-                  return (2);
-                  case_16: ;
-                  case_32923: ;
+    return (2);
+    case_16: ;
+    case_32923: ;
 #line 334
-                  return (3);
-                  case_34887: ;
+    return (3);
+    case_34887: ;
 #line 336
-                  return (4);
-                  case_34888: ;
+    return (4);
+    case_34888: ;
 #line 338
-                  return (5);
-                } else {
+    return (5);
+  } else {
 
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 #line 340
   return (-1);
@@ -9501,81 +9180,61 @@ static int ppp_release(struct inode *unused , struct file *file )
   struct ppp_file  const  *__mptr___0 ;
   struct ppp_file  const  *__mptr___1 ;
   int tmp ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  struct ppp_file *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  void *__cil_tmp9 ;
+  struct ppp_file *__cil_tmp10 ;
+  unsigned long __cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
+  enum ldv_27071 __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  enum ldv_27071 __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct file *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  atomic_t *__cil_tmp26 ;
-  enum ldv_27071 __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  enum ldv_27071 __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  int __cil_tmp32 ;
-  struct ppp *__cil_tmp33 ;
-  struct channel *__cil_tmp34 ;
+  struct file *__cil_tmp16 ;
+  unsigned long __cil_tmp17 ;
+  atomic_t *__cil_tmp18 ;
+  enum ldv_27071 __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  enum ldv_27071 __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  struct ppp *__cil_tmp25 ;
+  struct channel *__cil_tmp26 ;
 
   {
 #line 384
-  __cil_tmp9 = (unsigned long )file;
+  __cil_tmp9 = file->private_data;
 #line 384
-  __cil_tmp10 = __cil_tmp9 + 328;
-#line 384
-  __cil_tmp11 = *((void **)__cil_tmp10);
-#line 384
-  pf = (struct ppp_file *)__cil_tmp11;
+  pf = (struct ppp_file *)__cil_tmp9;
   {
 #line 387
-  __cil_tmp12 = (struct ppp_file *)0;
+  __cil_tmp10 = (struct ppp_file *)0;
 #line 387
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 387
-  __cil_tmp14 = (unsigned long )pf;
+  __cil_tmp12 = (unsigned long )pf;
 #line 387
-  if (__cil_tmp14 != __cil_tmp13) {
+  if (__cil_tmp12 != __cil_tmp11) {
 #line 388
-    __cil_tmp15 = (unsigned long )file;
-#line 388
-    __cil_tmp16 = __cil_tmp15 + 328;
-#line 388
-    *((void **)__cil_tmp16) = (void *)0;
+    file->private_data = (void *)0;
     {
 #line 389
-    __cil_tmp17 = *((enum ldv_27071 *)pf);
+    __cil_tmp13 = pf->kind;
 #line 389
-    __cil_tmp18 = (unsigned int )__cil_tmp17;
+    __cil_tmp14 = (unsigned int )__cil_tmp13;
 #line 389
-    if (__cil_tmp18 == 1U) {
+    if (__cil_tmp14 == 1U) {
 #line 390
       __mptr = (struct ppp_file  const  *)pf;
 #line 390
       ppp = (struct ppp *)__mptr;
       {
 #line 391
-      __cil_tmp19 = (unsigned long )file;
+      __cil_tmp15 = (unsigned long )file;
 #line 391
-      __cil_tmp20 = (unsigned long )ppp;
+      __cil_tmp16 = ppp->owner;
 #line 391
-      __cil_tmp21 = __cil_tmp20 + 328;
+      __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 391
-      __cil_tmp22 = *((struct file **)__cil_tmp21);
-#line 391
-      __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 391
-      if (__cil_tmp23 == __cil_tmp19) {
+      if (__cil_tmp17 == __cil_tmp15) {
         {
 #line 392
         ppp_shutdown_interface(ppp);
@@ -9590,63 +9249,62 @@ static int ppp_release(struct inode *unused , struct file *file )
     }
     {
 #line 394
-    __cil_tmp24 = (unsigned long )pf;
+    __cil_tmp18 = & pf->refcnt;
 #line 394
-    __cil_tmp25 = __cil_tmp24 + 312;
-#line 394
-    __cil_tmp26 = (atomic_t *)__cil_tmp25;
-#line 394
-    tmp = atomic_dec_and_test(__cil_tmp26);
+    tmp = atomic_dec_and_test(__cil_tmp18);
     }
 #line 394
     if (tmp != 0) {
       {
 #line 396
-      __cil_tmp27 = *((enum ldv_27071 *)pf);
+      __cil_tmp19 = pf->kind;
 #line 396
-      __cil_tmp28 = (unsigned int )__cil_tmp27;
+      __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 396
-      __cil_tmp29 = (int )__cil_tmp28;
+      __cil_tmp21 = (int )__cil_tmp20;
 #line 396
-      if (__cil_tmp29 == 1) {
+      if (__cil_tmp21 == 1) {
+#line 396
         goto case_1;
       } else {
         {
 #line 399
-        __cil_tmp30 = *((enum ldv_27071 *)pf);
+        __cil_tmp22 = pf->kind;
 #line 399
-        __cil_tmp31 = (unsigned int )__cil_tmp30;
+        __cil_tmp23 = (unsigned int )__cil_tmp22;
 #line 399
-        __cil_tmp32 = (int )__cil_tmp31;
+        __cil_tmp24 = (int )__cil_tmp23;
 #line 399
-        if (__cil_tmp32 == 2) {
+        if (__cil_tmp24 == 2) {
+#line 399
           goto case_2;
-        } else {
+        } else
 #line 395
-          if (0) {
-            case_1: 
-            {
+        if (0) {
+          case_1: 
+          {
 #line 397
-            __mptr___0 = (struct ppp_file  const  *)pf;
+          __mptr___0 = (struct ppp_file  const  *)pf;
 #line 397
-            __cil_tmp33 = (struct ppp *)__mptr___0;
+          __cil_tmp25 = (struct ppp *)__mptr___0;
 #line 397
-            ppp_destroy_interface(__cil_tmp33);
-            }
-            goto ldv_39724;
-            case_2: 
-            {
-#line 400
-            __mptr___1 = (struct ppp_file  const  *)pf;
-#line 400
-            __cil_tmp34 = (struct channel *)__mptr___1;
-#line 400
-            ppp_destroy_channel(__cil_tmp34);
-            }
-            goto ldv_39724;
-          } else {
-
+          ppp_destroy_interface(__cil_tmp25);
           }
+#line 398
+          goto ldv_39724;
+          case_2: 
+          {
+#line 400
+          __mptr___1 = (struct ppp_file  const  *)pf;
+#line 400
+          __cil_tmp26 = (struct channel *)__mptr___1;
+#line 400
+          ppp_destroy_channel(__cil_tmp26);
+          }
+#line 401
+          goto ldv_39724;
+        } else {
+
         }
         }
       }
@@ -9694,120 +9352,74 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   u64 volatile   *__ptr___6 ;
   struct task_struct *tmp___9 ;
   int tmp___10 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  void *__cil_tmp36 ;
-  wait_queue_t *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct ppp_file *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  void *__cil_tmp34 ;
+  struct ppp_file *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  unsigned long __cil_tmp37 ;
+  wait_queue_head_t *__cil_tmp38 ;
+  long volatile   *__cil_tmp39 ;
+  long volatile   *__cil_tmp40 ;
+  long volatile   *__cil_tmp41 ;
+  long volatile   *__cil_tmp42 ;
+  struct sk_buff_head *__cil_tmp43 ;
+  struct sk_buff *__cil_tmp44 ;
   unsigned long __cil_tmp45 ;
   unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  wait_queue_head_t *__cil_tmp48 ;
-  long volatile   *__cil_tmp49 ;
-  long volatile   *__cil_tmp50 ;
-  long volatile   *__cil_tmp51 ;
-  long volatile   *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct sk_buff_head *__cil_tmp55 ;
-  struct sk_buff *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  int __cil_tmp61 ;
-  enum ldv_27071 __cil_tmp62 ;
+  int __cil_tmp47 ;
+  enum ldv_27071 __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  unsigned int __cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  long volatile   *__cil_tmp55 ;
+  long volatile   *__cil_tmp56 ;
+  long volatile   *__cil_tmp57 ;
+  long volatile   *__cil_tmp58 ;
+  wait_queue_head_t *__cil_tmp59 ;
+  struct sk_buff *__cil_tmp60 ;
+  unsigned long __cil_tmp61 ;
+  unsigned long __cil_tmp62 ;
   unsigned int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned int __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
-  unsigned int __cil_tmp74 ;
-  long volatile   *__cil_tmp75 ;
-  long volatile   *__cil_tmp76 ;
-  long volatile   *__cil_tmp77 ;
-  long volatile   *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  wait_queue_head_t *__cil_tmp81 ;
-  struct sk_buff *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  struct iovec *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct sk_buff  const  *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned int __cil_tmp94 ;
-  int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned int __cil_tmp98 ;
+  size_t __cil_tmp64 ;
+  struct sk_buff  const  *__cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
 
   {
   {
 #line 411
-  __cil_tmp34 = (unsigned long )file;
+  __cil_tmp34 = file->private_data;
 #line 411
-  __cil_tmp35 = __cil_tmp34 + 328;
-#line 411
-  __cil_tmp36 = *((void **)__cil_tmp35);
-#line 411
-  pf = (struct ppp_file *)__cil_tmp36;
+  pf = (struct ppp_file *)__cil_tmp34;
 #line 412
   tmp = get_current();
 #line 412
-  __cil_tmp37 = & wait;
+  wait.flags = 0U;
 #line 412
-  *((unsigned int *)__cil_tmp37) = 0U;
+  wait.private = (void *)tmp;
 #line 412
-  __cil_tmp38 = (unsigned long )(& wait) + 8;
+  wait.func = & default_wake_function;
 #line 412
-  *((void **)__cil_tmp38) = (void *)tmp;
+  wait.task_list.next = (struct list_head *)0;
 #line 412
-  __cil_tmp39 = (unsigned long )(& wait) + 16;
-#line 412
-  *((int (**)(wait_queue_t * , unsigned int  , int  , void * ))__cil_tmp39) = & default_wake_function;
-#line 412
-  __cil_tmp40 = (unsigned long )(& wait) + 24;
-#line 412
-  *((struct list_head **)__cil_tmp40) = (struct list_head *)0;
-#line 412
-  __cil_tmp41 = 24 + 8;
-#line 412
-  __cil_tmp42 = (unsigned long )(& wait) + __cil_tmp41;
-#line 412
-  *((struct list_head **)__cil_tmp42) = (struct list_head *)0;
+  wait.task_list.prev = (struct list_head *)0;
 #line 414
   skb = (struct sk_buff *)0;
 #line 417
-  ret = (long )count;
+  ret = (ssize_t )count;
   }
   {
 #line 419
-  __cil_tmp43 = (struct ppp_file *)0;
+  __cil_tmp35 = (struct ppp_file *)0;
 #line 419
-  __cil_tmp44 = (unsigned long )__cil_tmp43;
+  __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 419
-  __cil_tmp45 = (unsigned long )pf;
+  __cil_tmp37 = (unsigned long )pf;
 #line 419
-  if (__cil_tmp45 == __cil_tmp44) {
+  if (__cil_tmp37 == __cil_tmp36) {
 #line 420
     return (-6L);
   } else {
@@ -9816,21 +9428,19 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   }
   {
 #line 421
-  __cil_tmp46 = (unsigned long )pf;
+  __cil_tmp38 = & pf->rwait;
 #line 421
-  __cil_tmp47 = __cil_tmp46 + 224;
-#line 421
-  __cil_tmp48 = (wait_queue_head_t *)__cil_tmp47;
-#line 421
-  add_wait_queue(__cil_tmp48, & wait);
+  add_wait_queue(__cil_tmp38, & wait);
   }
   ldv_39755: 
 #line 423
   __x = (long volatile   )1L;
 #line 423
   if (1) {
+#line 423
     goto case_8;
   } else {
+#line 423
     goto switch_default;
 #line 423
     if (0) {
@@ -9838,46 +9448,50 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
 #line 423
       tmp___0 = get_current();
 #line 423
-      __cil_tmp49 = (long volatile   *)tmp___0;
+      __cil_tmp39 = & tmp___0->state;
 #line 423
-      __ptr = (u8 volatile   *)__cil_tmp49;
+      __ptr = (u8 volatile   *)__cil_tmp39;
 #line 423
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
       }
+#line 423
       goto ldv_39742;
       {
 #line 423
       tmp___1 = get_current();
 #line 423
-      __cil_tmp50 = (long volatile   *)tmp___1;
+      __cil_tmp40 = & tmp___1->state;
 #line 423
-      __ptr___0 = (u16 volatile   *)__cil_tmp50;
+      __ptr___0 = (u16 volatile   *)__cil_tmp40;
 #line 423
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
       }
+#line 423
       goto ldv_39742;
       {
 #line 423
       tmp___2 = get_current();
 #line 423
-      __cil_tmp51 = (long volatile   *)tmp___2;
+      __cil_tmp41 = & tmp___2->state;
 #line 423
-      __ptr___1 = (u32 volatile   *)__cil_tmp51;
+      __ptr___1 = (u32 volatile   *)__cil_tmp41;
 #line 423
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
       }
+#line 423
       goto ldv_39742;
       case_8: 
       {
 #line 423
       tmp___3 = get_current();
 #line 423
-      __cil_tmp52 = (long volatile   *)tmp___3;
+      __cil_tmp42 = & tmp___3->state;
 #line 423
-      __ptr___2 = (u64 volatile   *)__cil_tmp52;
+      __ptr___2 = (u64 volatile   *)__cil_tmp42;
 #line 423
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
       }
+#line 423
       goto ldv_39742;
       switch_default: 
       {
@@ -9891,23 +9505,20 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   ldv_39742: 
   {
 #line 424
-  __cil_tmp53 = (unsigned long )pf;
+  __cil_tmp43 = & pf->rq;
 #line 424
-  __cil_tmp54 = __cil_tmp53 + 128;
-#line 424
-  __cil_tmp55 = (struct sk_buff_head *)__cil_tmp54;
-#line 424
-  skb = skb_dequeue(__cil_tmp55);
+  skb = skb_dequeue(__cil_tmp43);
   }
   {
 #line 425
-  __cil_tmp56 = (struct sk_buff *)0;
+  __cil_tmp44 = (struct sk_buff *)0;
 #line 425
-  __cil_tmp57 = (unsigned long )__cil_tmp56;
+  __cil_tmp45 = (unsigned long )__cil_tmp44;
 #line 425
-  __cil_tmp58 = (unsigned long )skb;
+  __cil_tmp46 = (unsigned long )skb;
 #line 425
-  if (__cil_tmp58 != __cil_tmp57) {
+  if (__cil_tmp46 != __cil_tmp45) {
+#line 426
     goto ldv_39751;
   } else {
 
@@ -9917,13 +9528,10 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   ret = 0L;
   {
 #line 428
-  __cil_tmp59 = (unsigned long )pf;
+  __cil_tmp47 = pf->dead;
 #line 428
-  __cil_tmp60 = __cil_tmp59 + 324;
-#line 428
-  __cil_tmp61 = *((int *)__cil_tmp60);
-#line 428
-  if (__cil_tmp61 != 0) {
+  if (__cil_tmp47 != 0) {
+#line 429
     goto ldv_39751;
   } else {
 
@@ -9931,35 +9539,28 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   }
   {
 #line 430
-  __cil_tmp62 = *((enum ldv_27071 *)pf);
+  __cil_tmp48 = pf->kind;
 #line 430
-  __cil_tmp63 = (unsigned int )__cil_tmp62;
+  __cil_tmp49 = (unsigned int )__cil_tmp48;
 #line 430
-  if (__cil_tmp63 == 1U) {
+  if (__cil_tmp49 == 1U) {
 #line 436
     __mptr = (struct ppp_file  const  *)pf;
 #line 436
     ppp = (struct ppp *)__mptr;
     {
 #line 437
-    __cil_tmp64 = (unsigned long )ppp;
+    __cil_tmp50 = ppp->n_channels;
 #line 437
-    __cil_tmp65 = __cil_tmp64 + 352;
-#line 437
-    __cil_tmp66 = *((int *)__cil_tmp65);
-#line 437
-    if (__cil_tmp66 == 0) {
+    if (__cil_tmp50 == 0) {
       {
 #line 437
-      __cil_tmp67 = (unsigned long )ppp;
+      __cil_tmp51 = ppp->flags;
 #line 437
-      __cil_tmp68 = __cil_tmp67 + 508;
+      __cil_tmp52 = __cil_tmp51 & 512U;
 #line 437
-      __cil_tmp69 = *((unsigned int *)__cil_tmp68);
-#line 437
-      __cil_tmp70 = __cil_tmp69 & 512U;
-#line 437
-      if (__cil_tmp70 == 0U) {
+      if (__cil_tmp52 == 0U) {
+#line 439
         goto ldv_39751;
       } else {
 
@@ -9977,15 +9578,12 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   ret = -11L;
   {
 #line 442
-  __cil_tmp71 = (unsigned long )file;
+  __cil_tmp53 = file->f_flags;
 #line 442
-  __cil_tmp72 = __cil_tmp71 + 128;
+  __cil_tmp54 = __cil_tmp53 & 2048U;
 #line 442
-  __cil_tmp73 = *((unsigned int *)__cil_tmp72);
-#line 442
-  __cil_tmp74 = __cil_tmp73 & 2048U;
-#line 442
-  if (__cil_tmp74 != 0U) {
+  if (__cil_tmp54 != 0U) {
+#line 443
     goto ldv_39751;
   } else {
 
@@ -10001,6 +9599,7 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   }
 #line 445
   if (tmp___5 != 0) {
+#line 446
     goto ldv_39751;
   } else {
 
@@ -10009,14 +9608,17 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
 #line 447
   schedule();
   }
+#line 448
   goto ldv_39755;
   ldv_39751: 
 #line 449
   __x___0 = (long volatile   )0L;
 #line 449
   if (1) {
+#line 449
     goto case_8___0;
   } else {
+#line 449
     goto switch_default___0;
 #line 449
     if (0) {
@@ -10024,46 +9626,50 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
 #line 449
       tmp___6 = get_current();
 #line 449
-      __cil_tmp75 = (long volatile   *)tmp___6;
+      __cil_tmp55 = & tmp___6->state;
 #line 449
-      __ptr___3 = (u8 volatile   *)__cil_tmp75;
+      __ptr___3 = (u8 volatile   *)__cil_tmp55;
 #line 449
       __asm__  volatile   ("xchgb %0,%1": "=q" (__x___0), "+m" (*__ptr___3): "0" (__x___0): "memory");
       }
+#line 449
       goto ldv_39759;
       {
 #line 449
       tmp___7 = get_current();
 #line 449
-      __cil_tmp76 = (long volatile   *)tmp___7;
+      __cil_tmp56 = & tmp___7->state;
 #line 449
-      __ptr___4 = (u16 volatile   *)__cil_tmp76;
+      __ptr___4 = (u16 volatile   *)__cil_tmp56;
 #line 449
       __asm__  volatile   ("xchgw %0,%1": "=r" (__x___0), "+m" (*__ptr___4): "0" (__x___0): "memory");
       }
+#line 449
       goto ldv_39759;
       {
 #line 449
       tmp___8 = get_current();
 #line 449
-      __cil_tmp77 = (long volatile   *)tmp___8;
+      __cil_tmp57 = & tmp___8->state;
 #line 449
-      __ptr___5 = (u32 volatile   *)__cil_tmp77;
+      __ptr___5 = (u32 volatile   *)__cil_tmp57;
 #line 449
       __asm__  volatile   ("xchgl %0,%1": "=r" (__x___0), "+m" (*__ptr___5): "0" (__x___0): "memory");
       }
+#line 449
       goto ldv_39759;
       case_8___0: 
       {
 #line 449
       tmp___9 = get_current();
 #line 449
-      __cil_tmp78 = (long volatile   *)tmp___9;
+      __cil_tmp58 = & tmp___9->state;
 #line 449
-      __ptr___6 = (u64 volatile   *)__cil_tmp78;
+      __ptr___6 = (u64 volatile   *)__cil_tmp58;
 #line 449
       __asm__  volatile   ("xchgq %0,%1": "=r" (__x___0), "+m" (*__ptr___6): "0" (__x___0): "memory");
       }
+#line 449
       goto ldv_39759;
       switch_default___0: 
       {
@@ -10077,23 +9683,20 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   ldv_39759: 
   {
 #line 450
-  __cil_tmp79 = (unsigned long )pf;
+  __cil_tmp59 = & pf->rwait;
 #line 450
-  __cil_tmp80 = __cil_tmp79 + 224;
-#line 450
-  __cil_tmp81 = (wait_queue_head_t *)__cil_tmp80;
-#line 450
-  remove_wait_queue(__cil_tmp81, & wait);
+  remove_wait_queue(__cil_tmp59, & wait);
   }
   {
 #line 452
-  __cil_tmp82 = (struct sk_buff *)0;
+  __cil_tmp60 = (struct sk_buff *)0;
 #line 452
-  __cil_tmp83 = (unsigned long )__cil_tmp82;
+  __cil_tmp61 = (unsigned long )__cil_tmp60;
 #line 452
-  __cil_tmp84 = (unsigned long )skb;
+  __cil_tmp62 = (unsigned long )skb;
 #line 452
-  if (__cil_tmp84 == __cil_tmp83) {
+  if (__cil_tmp62 == __cil_tmp61) {
+#line 453
     goto out;
   } else {
 
@@ -10103,15 +9706,12 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
   ret = -75L;
   {
 #line 456
-  __cil_tmp85 = (unsigned long )skb;
+  __cil_tmp63 = skb->len;
 #line 456
-  __cil_tmp86 = __cil_tmp85 + 104;
+  __cil_tmp64 = (size_t )__cil_tmp63;
 #line 456
-  __cil_tmp87 = *((unsigned int *)__cil_tmp86);
-#line 456
-  __cil_tmp88 = (unsigned long )__cil_tmp87;
-#line 456
-  if (__cil_tmp88 > count) {
+  if (__cil_tmp64 > count) {
+#line 457
     goto outf;
   } else {
 
@@ -10121,40 +9721,29 @@ static ssize_t ppp_read(struct file *file , char *buf , size_t count , loff_t *p
 #line 458
   ret = -14L;
 #line 459
-  __cil_tmp89 = & iov;
-#line 459
-  *((void **)__cil_tmp89) = (void *)buf;
+  iov.iov_base = (void *)buf;
 #line 460
-  __cil_tmp90 = (unsigned long )(& iov) + 8;
-#line 460
-  *((__kernel_size_t *)__cil_tmp90) = count;
+  iov.iov_len = count;
 #line 461
-  __cil_tmp91 = (struct sk_buff  const  *)skb;
+  __cil_tmp65 = (struct sk_buff  const  *)skb;
 #line 461
-  __cil_tmp92 = (unsigned long )skb;
+  __cil_tmp66 = skb->len;
 #line 461
-  __cil_tmp93 = __cil_tmp92 + 104;
+  __cil_tmp67 = (int )__cil_tmp66;
 #line 461
-  __cil_tmp94 = *((unsigned int *)__cil_tmp93);
-#line 461
-  __cil_tmp95 = (int )__cil_tmp94;
-#line 461
-  tmp___10 = skb_copy_datagram_iovec(__cil_tmp91, 0, & iov, __cil_tmp95);
+  tmp___10 = skb_copy_datagram_iovec(__cil_tmp65, 0, & iov, __cil_tmp67);
   }
 #line 461
   if (tmp___10 != 0) {
+#line 462
     goto outf;
   } else {
 
   }
 #line 463
-  __cil_tmp96 = (unsigned long )skb;
+  __cil_tmp68 = skb->len;
 #line 463
-  __cil_tmp97 = __cil_tmp96 + 104;
-#line 463
-  __cil_tmp98 = *((unsigned int *)__cil_tmp97);
-#line 463
-  ret = (long )__cil_tmp98;
+  ret = (ssize_t )__cil_tmp68;
   outf: 
   {
 #line 466
@@ -10174,57 +9763,45 @@ static ssize_t ppp_write(struct file *file , char const   *buf , size_t count , 
   unsigned long tmp___0 ;
   struct ppp_file  const  *__mptr ;
   struct ppp_file  const  *__mptr___0 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  void *__cil_tmp14 ;
-  struct ppp_file *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  void *__cil_tmp12 ;
+  struct ppp_file *__cil_tmp13 ;
+  unsigned long __cil_tmp14 ;
+  unsigned long __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  int __cil_tmp17 ;
   unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  struct sk_buff *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned int __cil_tmp30 ;
-  void *__cil_tmp31 ;
-  void const   *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct sk_buff_head *__cil_tmp35 ;
-  enum ldv_27071 __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  int __cil_tmp38 ;
-  enum ldv_27071 __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  struct ppp *__cil_tmp42 ;
-  struct channel *__cil_tmp43 ;
+  unsigned int __cil_tmp19 ;
+  struct sk_buff *__cil_tmp20 ;
+  unsigned long __cil_tmp21 ;
+  unsigned long __cil_tmp22 ;
+  int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  void *__cil_tmp25 ;
+  void const   *__cil_tmp26 ;
+  struct sk_buff_head *__cil_tmp27 ;
+  enum ldv_27071 __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  enum ldv_27071 __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  struct ppp *__cil_tmp34 ;
+  struct channel *__cil_tmp35 ;
 
   {
 #line 474
-  __cil_tmp12 = (unsigned long )file;
+  __cil_tmp12 = file->private_data;
 #line 474
-  __cil_tmp13 = __cil_tmp12 + 328;
-#line 474
-  __cil_tmp14 = *((void **)__cil_tmp13);
-#line 474
-  pf = (struct ppp_file *)__cil_tmp14;
+  pf = (struct ppp_file *)__cil_tmp12;
   {
 #line 478
-  __cil_tmp15 = (struct ppp_file *)0;
+  __cil_tmp13 = (struct ppp_file *)0;
 #line 478
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
+  __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 478
-  __cil_tmp17 = (unsigned long )pf;
+  __cil_tmp15 = (unsigned long )pf;
 #line 478
-  if (__cil_tmp17 == __cil_tmp16) {
+  if (__cil_tmp15 == __cil_tmp14) {
 #line 479
     return (-6L);
   } else {
@@ -10235,29 +9812,26 @@ static ssize_t ppp_write(struct file *file , char const   *buf , size_t count , 
 #line 480
   ret = -12L;
 #line 481
-  __cil_tmp18 = (unsigned int )count;
+  __cil_tmp16 = (unsigned int )count;
 #line 481
-  __cil_tmp19 = (unsigned long )pf;
+  __cil_tmp17 = pf->hdrlen;
 #line 481
-  __cil_tmp20 = __cil_tmp19 + 316;
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
 #line 481
-  __cil_tmp21 = *((int *)__cil_tmp20);
+  __cil_tmp19 = __cil_tmp18 + __cil_tmp16;
 #line 481
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
-#line 481
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp18;
-#line 481
-  skb = alloc_skb(__cil_tmp23, 208U);
+  skb = alloc_skb(__cil_tmp19, 208U);
   }
   {
 #line 482
-  __cil_tmp24 = (struct sk_buff *)0;
+  __cil_tmp20 = (struct sk_buff *)0;
 #line 482
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
+  __cil_tmp21 = (unsigned long )__cil_tmp20;
 #line 482
-  __cil_tmp26 = (unsigned long )skb;
+  __cil_tmp22 = (unsigned long )skb;
 #line 482
-  if (__cil_tmp26 == __cil_tmp25) {
+  if (__cil_tmp22 == __cil_tmp21) {
+#line 483
     goto out;
   } else {
 
@@ -10265,25 +9839,21 @@ static ssize_t ppp_write(struct file *file , char const   *buf , size_t count , 
   }
   {
 #line 484
-  __cil_tmp27 = (unsigned long )pf;
+  __cil_tmp23 = pf->hdrlen;
 #line 484
-  __cil_tmp28 = __cil_tmp27 + 316;
-#line 484
-  __cil_tmp29 = *((int *)__cil_tmp28);
-#line 484
-  skb_reserve(skb, __cil_tmp29);
+  skb_reserve(skb, __cil_tmp23);
 #line 485
   ret = -14L;
 #line 486
-  __cil_tmp30 = (unsigned int )count;
+  __cil_tmp24 = (unsigned int )count;
 #line 486
-  tmp = skb_put(skb, __cil_tmp30);
+  tmp = skb_put(skb, __cil_tmp24);
 #line 486
-  __cil_tmp31 = (void *)tmp;
+  __cil_tmp25 = (void *)tmp;
 #line 486
-  __cil_tmp32 = (void const   *)buf;
+  __cil_tmp26 = (void const   *)buf;
 #line 486
-  tmp___0 = copy_from_user(__cil_tmp31, __cil_tmp32, count);
+  tmp___0 = copy_from_user(__cil_tmp25, __cil_tmp26, count);
   }
 #line 486
   if (tmp___0 != 0UL) {
@@ -10291,74 +9861,74 @@ static ssize_t ppp_write(struct file *file , char const   *buf , size_t count , 
 #line 487
     kfree_skb(skb);
     }
+#line 488
     goto out;
   } else {
 
   }
   {
 #line 491
-  __cil_tmp33 = (unsigned long )pf;
+  __cil_tmp27 = & pf->xq;
 #line 491
-  __cil_tmp34 = __cil_tmp33 + 32;
-#line 491
-  __cil_tmp35 = (struct sk_buff_head *)__cil_tmp34;
-#line 491
-  skb_queue_tail(__cil_tmp35, skb);
+  skb_queue_tail(__cil_tmp27, skb);
   }
   {
 #line 494
-  __cil_tmp36 = *((enum ldv_27071 *)pf);
+  __cil_tmp28 = pf->kind;
 #line 494
-  __cil_tmp37 = (unsigned int )__cil_tmp36;
+  __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 494
-  __cil_tmp38 = (int )__cil_tmp37;
+  __cil_tmp30 = (int )__cil_tmp29;
 #line 494
-  if (__cil_tmp38 == 1) {
+  if (__cil_tmp30 == 1) {
+#line 494
     goto case_1;
   } else {
     {
 #line 497
-    __cil_tmp39 = *((enum ldv_27071 *)pf);
+    __cil_tmp31 = pf->kind;
 #line 497
-    __cil_tmp40 = (unsigned int )__cil_tmp39;
+    __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 497
-    __cil_tmp41 = (int )__cil_tmp40;
+    __cil_tmp33 = (int )__cil_tmp32;
 #line 497
-    if (__cil_tmp41 == 2) {
+    if (__cil_tmp33 == 2) {
+#line 497
       goto case_2;
-    } else {
+    } else
 #line 493
-      if (0) {
-        case_1: 
-        {
+    if (0) {
+      case_1: 
+      {
 #line 495
-        __mptr = (struct ppp_file  const  *)pf;
+      __mptr = (struct ppp_file  const  *)pf;
 #line 495
-        __cil_tmp42 = (struct ppp *)__mptr;
+      __cil_tmp34 = (struct ppp *)__mptr;
 #line 495
-        ppp_xmit_process(__cil_tmp42);
-        }
-        goto ldv_39783;
-        case_2: 
-        {
-#line 498
-        __mptr___0 = (struct ppp_file  const  *)pf;
-#line 498
-        __cil_tmp43 = (struct channel *)__mptr___0;
-#line 498
-        ppp_channel_push(__cil_tmp43);
-        }
-        goto ldv_39783;
-      } else {
-
+      ppp_xmit_process(__cil_tmp34);
       }
+#line 496
+      goto ldv_39783;
+      case_2: 
+      {
+#line 498
+      __mptr___0 = (struct ppp_file  const  *)pf;
+#line 498
+      __cil_tmp35 = (struct channel *)__mptr___0;
+#line 498
+      ppp_channel_push(__cil_tmp35);
+      }
+#line 499
+      goto ldv_39783;
+    } else {
+
     }
     }
   }
   }
   ldv_39783: 
 #line 502
-  ret = (long )count;
+  ret = (ssize_t )count;
   out: ;
 #line 505
   return (ret);
@@ -10371,52 +9941,36 @@ static unsigned int ppp_poll(struct file *file , poll_table *wait )
   struct sk_buff *tmp ;
   struct ppp *ppp ;
   struct ppp_file  const  *__mptr ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  struct ppp_file *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  void *__cil_tmp8 ;
+  struct ppp_file *__cil_tmp9 ;
+  unsigned long __cil_tmp10 ;
+  unsigned long __cil_tmp11 ;
+  wait_queue_head_t *__cil_tmp12 ;
+  struct sk_buff_head *__cil_tmp13 ;
+  struct sk_buff *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  wait_queue_head_t *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct sk_buff_head *__cil_tmp19 ;
-  struct sk_buff *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int __cil_tmp25 ;
-  enum ldv_27071 __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
+  unsigned long __cil_tmp16 ;
+  int __cil_tmp17 ;
+  enum ldv_27071 __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
 
   {
 #line 511
-  __cil_tmp8 = (unsigned long )file;
+  __cil_tmp8 = file->private_data;
 #line 511
-  __cil_tmp9 = __cil_tmp8 + 328;
-#line 511
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 511
-  pf = (struct ppp_file *)__cil_tmp10;
+  pf = (struct ppp_file *)__cil_tmp8;
   {
 #line 514
-  __cil_tmp11 = (struct ppp_file *)0;
+  __cil_tmp9 = (struct ppp_file *)0;
 #line 514
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 514
-  __cil_tmp13 = (unsigned long )pf;
+  __cil_tmp11 = (unsigned long )pf;
 #line 514
-  if (__cil_tmp13 == __cil_tmp12) {
+  if (__cil_tmp11 == __cil_tmp10) {
 #line 515
     return (0U);
   } else {
@@ -10425,33 +9979,25 @@ static unsigned int ppp_poll(struct file *file , poll_table *wait )
   }
   {
 #line 516
-  __cil_tmp14 = (unsigned long )pf;
+  __cil_tmp12 = & pf->rwait;
 #line 516
-  __cil_tmp15 = __cil_tmp14 + 224;
-#line 516
-  __cil_tmp16 = (wait_queue_head_t *)__cil_tmp15;
-#line 516
-  poll_wait(file, __cil_tmp16, wait);
+  poll_wait(file, __cil_tmp12, wait);
 #line 517
   mask = 260U;
 #line 518
-  __cil_tmp17 = (unsigned long )pf;
+  __cil_tmp13 = & pf->rq;
 #line 518
-  __cil_tmp18 = __cil_tmp17 + 128;
-#line 518
-  __cil_tmp19 = (struct sk_buff_head *)__cil_tmp18;
-#line 518
-  tmp = skb_peek(__cil_tmp19);
+  tmp = skb_peek(__cil_tmp13);
   }
   {
 #line 518
-  __cil_tmp20 = (struct sk_buff *)0;
+  __cil_tmp14 = (struct sk_buff *)0;
 #line 518
-  __cil_tmp21 = (unsigned long )__cil_tmp20;
+  __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 518
-  __cil_tmp22 = (unsigned long )tmp;
+  __cil_tmp16 = (unsigned long )tmp;
 #line 518
-  if (__cil_tmp22 != __cil_tmp21) {
+  if (__cil_tmp16 != __cil_tmp15) {
 #line 519
     mask = mask | 65U;
   } else {
@@ -10460,47 +10006,35 @@ static unsigned int ppp_poll(struct file *file , poll_table *wait )
   }
   {
 #line 520
-  __cil_tmp23 = (unsigned long )pf;
+  __cil_tmp17 = pf->dead;
 #line 520
-  __cil_tmp24 = __cil_tmp23 + 324;
-#line 520
-  __cil_tmp25 = *((int *)__cil_tmp24);
-#line 520
-  if (__cil_tmp25 != 0) {
+  if (__cil_tmp17 != 0) {
 #line 521
     mask = mask | 16U;
   } else {
     {
 #line 522
-    __cil_tmp26 = *((enum ldv_27071 *)pf);
+    __cil_tmp18 = pf->kind;
 #line 522
-    __cil_tmp27 = (unsigned int )__cil_tmp26;
+    __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 522
-    if (__cil_tmp27 == 1U) {
+    if (__cil_tmp19 == 1U) {
 #line 524
       __mptr = (struct ppp_file  const  *)pf;
 #line 524
       ppp = (struct ppp *)__mptr;
       {
 #line 525
-      __cil_tmp28 = (unsigned long )ppp;
+      __cil_tmp20 = ppp->n_channels;
 #line 525
-      __cil_tmp29 = __cil_tmp28 + 352;
-#line 525
-      __cil_tmp30 = *((int *)__cil_tmp29);
-#line 525
-      if (__cil_tmp30 == 0) {
+      if (__cil_tmp20 == 0) {
         {
 #line 525
-        __cil_tmp31 = (unsigned long )ppp;
+        __cil_tmp21 = ppp->flags;
 #line 525
-        __cil_tmp32 = __cil_tmp31 + 508;
+        __cil_tmp22 = __cil_tmp21 & 512U;
 #line 525
-        __cil_tmp33 = *((unsigned int *)__cil_tmp32);
-#line 525
-        __cil_tmp34 = __cil_tmp33 & 512U;
-#line 525
-        if (__cil_tmp34 == 0U) {
+        if (__cil_tmp22 == 0U) {
 #line 527
           mask = mask | 65U;
         } else {
@@ -10533,25 +10067,15 @@ static int get_filter(void *arg , struct sock_filter **p )
   long tmp___2 ;
   void *__cil_tmp11 ;
   void const   *__cil_tmp12 ;
-  struct sock_fprog *__cil_tmp13 ;
-  unsigned short __cil_tmp14 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
   unsigned int __cil_tmp15 ;
-  struct sock_fprog *__cil_tmp16 ;
-  unsigned short __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct sock_filter *__cil_tmp21 ;
-  void const   *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  void const   *__cil_tmp24 ;
-  void const   *__cil_tmp25 ;
-  struct sock_fprog *__cil_tmp26 ;
-  unsigned short __cil_tmp27 ;
-  int __cil_tmp28 ;
-  void const   *__cil_tmp29 ;
-  struct sock_fprog *__cil_tmp30 ;
-  unsigned short __cil_tmp31 ;
+  void const   *__cil_tmp16 ;
+  size_t __cil_tmp17 ;
+  void const   *__cil_tmp18 ;
+  void const   *__cil_tmp19 ;
+  int __cil_tmp20 ;
+  void const   *__cil_tmp21 ;
 
   {
   {
@@ -10573,13 +10097,9 @@ static int get_filter(void *arg , struct sock_filter **p )
   }
   {
 #line 543
-  __cil_tmp13 = & uprog;
+  __cil_tmp13 = (unsigned int )uprog.len;
 #line 543
-  __cil_tmp14 = *((unsigned short *)__cil_tmp13);
-#line 543
-  __cil_tmp15 = (unsigned int )__cil_tmp14;
-#line 543
-  if (__cil_tmp15 == 0U) {
+  if (__cil_tmp13 == 0U) {
 #line 544
     *p = (struct sock_filter *)0;
 #line 545
@@ -10590,39 +10110,31 @@ static int get_filter(void *arg , struct sock_filter **p )
   }
   {
 #line 548
-  __cil_tmp16 = & uprog;
+  __cil_tmp14 = (unsigned int )uprog.len;
 #line 548
-  __cil_tmp17 = *((unsigned short *)__cil_tmp16);
+  __cil_tmp15 = __cil_tmp14 * 8U;
 #line 548
-  __cil_tmp18 = (unsigned int )__cil_tmp17;
-#line 548
-  __cil_tmp19 = __cil_tmp18 * 8U;
-#line 548
-  len = (int )__cil_tmp19;
+  len = (int )__cil_tmp15;
 #line 549
-  __cil_tmp20 = (unsigned long )(& uprog) + 8;
+  __cil_tmp16 = (void const   *)uprog.filter;
 #line 549
-  __cil_tmp21 = *((struct sock_filter **)__cil_tmp20);
+  __cil_tmp17 = (size_t )len;
 #line 549
-  __cil_tmp22 = (void const   *)__cil_tmp21;
-#line 549
-  __cil_tmp23 = (unsigned long )len;
-#line 549
-  tmp___0 = memdup_user(__cil_tmp22, __cil_tmp23);
+  tmp___0 = memdup_user(__cil_tmp16, __cil_tmp17);
 #line 549
   code = (struct sock_filter *)tmp___0;
 #line 550
-  __cil_tmp24 = (void const   *)code;
+  __cil_tmp18 = (void const   *)code;
 #line 550
-  tmp___2 = IS_ERR(__cil_tmp24);
+  tmp___2 = IS_ERR(__cil_tmp18);
   }
 #line 550
   if (tmp___2 != 0L) {
     {
 #line 551
-    __cil_tmp25 = (void const   *)code;
+    __cil_tmp19 = (void const   *)code;
 #line 551
-    tmp___1 = PTR_ERR(__cil_tmp25);
+    tmp___1 = PTR_ERR(__cil_tmp19);
     }
 #line 551
     return ((int )tmp___1);
@@ -10631,21 +10143,17 @@ static int get_filter(void *arg , struct sock_filter **p )
   }
   {
 #line 553
-  __cil_tmp26 = & uprog;
+  __cil_tmp20 = (int )uprog.len;
 #line 553
-  __cil_tmp27 = *((unsigned short *)__cil_tmp26);
-#line 553
-  __cil_tmp28 = (int )__cil_tmp27;
-#line 553
-  err = sk_chk_filter(code, __cil_tmp28);
+  err = sk_chk_filter(code, __cil_tmp20);
   }
 #line 554
   if (err != 0) {
     {
 #line 555
-    __cil_tmp29 = (void const   *)code;
+    __cil_tmp21 = (void const   *)code;
 #line 555
-    kfree(__cil_tmp29);
+    kfree(__cil_tmp21);
     }
 #line 556
     return (err);
@@ -10654,14 +10162,8 @@ static int get_filter(void *arg , struct sock_filter **p )
   }
 #line 559
   *p = code;
-  {
 #line 560
-  __cil_tmp30 = & uprog;
-#line 560
-  __cil_tmp31 = *((unsigned short *)__cil_tmp30);
-#line 560
-  return ((int )__cil_tmp31);
-  }
+  return ((int )uprog.len);
 }
 }
 #line 564 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
@@ -10711,246 +10213,117 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   struct sock_filter *code___0 ;
   int __ret_gu___4 ;
   unsigned long __val_gu___4 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  void *__cil_tmp51 ;
-  struct ppp_file *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct nsproxy *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
+  void *__cil_tmp49 ;
+  struct ppp_file *__cil_tmp50 ;
+  unsigned long __cil_tmp51 ;
+  unsigned long __cil_tmp52 ;
+  struct nsproxy *__cil_tmp53 ;
+  struct net *__cil_tmp54 ;
+  enum ldv_27071 __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned long __cil_tmp57 ;
+  struct file *__cil_tmp58 ;
   unsigned long __cil_tmp59 ;
-  struct net *__cil_tmp60 ;
-  enum ldv_27071 __cil_tmp61 ;
-  unsigned int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct file *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
+  atomic_long_t *__cil_tmp60 ;
+  struct inode *__cil_tmp61 ;
+  atomic_long_t *__cil_tmp62 ;
+  enum ldv_27071 __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  int __cil_tmp65 ;
+  int __cil_tmp66 ;
+  struct rw_semaphore *__cil_tmp67 ;
+  struct ppp_channel *__cil_tmp68 ;
   unsigned long __cil_tmp69 ;
-  atomic_long_t *__cil_tmp70 ;
-  struct inode *__cil_tmp71 ;
+  unsigned long __cil_tmp70 ;
+  int (*__cil_tmp71)(struct ppp_channel * , unsigned int  , unsigned long  ) ;
   unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  atomic_long_t *__cil_tmp74 ;
-  enum ldv_27071 __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  int __cil_tmp77 ;
-  int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  struct rw_semaphore *__cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  struct ppp_channel *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int (*__cil_tmp87)(struct ppp_channel * , unsigned int  , unsigned long  ) ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct ppp_channel_ops  const  *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  int (*__cil_tmp94)(struct ppp_channel * , unsigned int  , unsigned long  ) ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  struct ppp_channel_ops  const  *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  int (*__cil_tmp101)(struct ppp_channel * , unsigned int  , unsigned long  ) ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  struct rw_semaphore *__cil_tmp104 ;
-  enum ldv_27071 __cil_tmp105 ;
+  struct ppp_channel_ops  const  *__cil_tmp73 ;
+  int (*__cil_tmp74)(struct ppp_channel * , unsigned int  , unsigned long  ) ;
+  unsigned long __cil_tmp75 ;
+  struct ppp_channel_ops  const  *__cil_tmp76 ;
+  int (*__cil_tmp77)(struct ppp_channel * , unsigned int  , unsigned long  ) ;
+  struct rw_semaphore *__cil_tmp78 ;
+  enum ldv_27071 __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  int __cil_tmp83 ;
+  int __cil_tmp84 ;
+  int __cil_tmp85 ;
+  int __cil_tmp86 ;
+  int __cil_tmp87 ;
+  int __cil_tmp88 ;
+  int __cil_tmp89 ;
+  int __cil_tmp90 ;
+  int __cil_tmp91 ;
+  int __cil_tmp92 ;
+  int __cil_tmp93 ;
+  int __cil_tmp94 ;
+  spinlock_t *__cil_tmp95 ;
+  spinlock_t *__cil_tmp96 ;
+  int __cil_tmp97 ;
+  unsigned int __cil_tmp98 ;
+  unsigned int __cil_tmp99 ;
+  unsigned int __cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
+  spinlock_t *__cil_tmp102 ;
+  spinlock_t *__cil_tmp103 ;
+  int __cil_tmp104 ;
+  unsigned int __cil_tmp105 ;
   unsigned int __cil_tmp106 ;
-  int __cil_tmp107 ;
-  int __cil_tmp108 ;
-  int __cil_tmp109 ;
-  int __cil_tmp110 ;
-  int __cil_tmp111 ;
-  int __cil_tmp112 ;
-  int __cil_tmp113 ;
-  int __cil_tmp114 ;
-  int __cil_tmp115 ;
-  int __cil_tmp116 ;
-  int __cil_tmp117 ;
-  int __cil_tmp118 ;
+  unsigned int __cil_tmp107 ;
+  unsigned int __cil_tmp108 ;
+  unsigned int __cil_tmp109 ;
+  unsigned long __cil_tmp110 ;
+  unsigned long __cil_tmp111 ;
+  unsigned long __cil_tmp112 ;
+  unsigned long __cil_tmp113 ;
+  unsigned long __cil_tmp114 ;
+  unsigned long __cil_tmp115 ;
+  unsigned long __cil_tmp116 ;
+  unsigned long __cil_tmp117 ;
+  void const   *__cil_tmp118 ;
   int __cil_tmp119 ;
   int __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
+  int __cil_tmp121 ;
+  struct slcompress *__cil_tmp122 ;
   unsigned long __cil_tmp123 ;
   unsigned long __cil_tmp124 ;
-  spinlock_t *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
+  struct net_device *__cil_tmp125 ;
+  struct net_device  const  *__cil_tmp126 ;
+  spinlock_t *__cil_tmp127 ;
   spinlock_t *__cil_tmp128 ;
-  int __cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
+  struct slcompress *__cil_tmp129 ;
+  unsigned long __cil_tmp130 ;
+  struct slcompress *__cil_tmp131 ;
   unsigned long __cil_tmp132 ;
-  unsigned int __cil_tmp133 ;
-  unsigned int __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned int __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
+  struct slcompress *__cil_tmp133 ;
+  spinlock_t *__cil_tmp134 ;
+  spinlock_t *__cil_tmp135 ;
+  void *__cil_tmp136 ;
+  void const   *__cil_tmp137 ;
+  void const   *__cil_tmp138 ;
+  struct net_device *__cil_tmp139 ;
   spinlock_t *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  spinlock_t *__cil_tmp143 ;
-  int __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned int __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned int __cil_tmp153 ;
-  unsigned int __cil_tmp154 ;
-  unsigned int __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  struct ppp_idle *__cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  void const   *__cil_tmp177 ;
-  int __cil_tmp178 ;
-  int __cil_tmp179 ;
-  int __cil_tmp180 ;
-  struct slcompress *__cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  struct net_device *__cil_tmp186 ;
-  struct net_device  const  *__cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  spinlock_t *__cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  spinlock_t *__cil_tmp193 ;
-  struct slcompress *__cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  struct slcompress *__cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  struct slcompress *__cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  spinlock_t *__cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  spinlock_t *__cil_tmp210 ;
-  void *__cil_tmp211 ;
-  void const   *__cil_tmp212 ;
-  struct npioctl *__cil_tmp213 ;
-  int __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  void const   *__cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  struct net_device *__cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  spinlock_t *__cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  spinlock_t *__cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  struct sock_filter *__cil_tmp237 ;
-  void const   *__cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  struct sock_filter **__cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  spinlock_t *__cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  spinlock_t *__cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  spinlock_t *__cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  spinlock_t *__cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  struct sock_filter *__cil_tmp258 ;
-  void const   *__cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  struct sock_filter **__cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  unsigned long __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  spinlock_t *__cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  spinlock_t *__cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  spinlock_t *__cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  unsigned long __cil_tmp277 ;
-  spinlock_t *__cil_tmp278 ;
+  spinlock_t *__cil_tmp141 ;
+  struct sock_filter *__cil_tmp142 ;
+  void const   *__cil_tmp143 ;
+  spinlock_t *__cil_tmp144 ;
+  spinlock_t *__cil_tmp145 ;
+  spinlock_t *__cil_tmp146 ;
+  spinlock_t *__cil_tmp147 ;
+  struct sock_filter *__cil_tmp148 ;
+  void const   *__cil_tmp149 ;
+  spinlock_t *__cil_tmp150 ;
+  spinlock_t *__cil_tmp151 ;
+  spinlock_t *__cil_tmp152 ;
+  spinlock_t *__cil_tmp153 ;
 
   {
 #line 566
-  __cil_tmp49 = (unsigned long )file;
+  __cil_tmp49 = file->private_data;
 #line 566
-  __cil_tmp50 = __cil_tmp49 + 328;
-#line 566
-  __cil_tmp51 = *((void **)__cil_tmp50);
-#line 566
-  pf = (struct ppp_file *)__cil_tmp51;
+  pf = (struct ppp_file *)__cil_tmp49;
 #line 568
   err = -14;
 #line 573
@@ -10959,30 +10332,22 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   p = (int *)argp;
   {
 #line 576
-  __cil_tmp52 = (struct ppp_file *)0;
+  __cil_tmp50 = (struct ppp_file *)0;
 #line 576
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
+  __cil_tmp51 = (unsigned long )__cil_tmp50;
 #line 576
-  __cil_tmp54 = (unsigned long )pf;
+  __cil_tmp52 = (unsigned long )pf;
 #line 576
-  if (__cil_tmp54 == __cil_tmp53) {
+  if (__cil_tmp52 == __cil_tmp51) {
     {
 #line 577
     tmp = get_current();
 #line 577
-    __cil_tmp55 = (unsigned long )tmp;
+    __cil_tmp53 = tmp->nsproxy;
 #line 577
-    __cil_tmp56 = __cil_tmp55 + 1816;
+    __cil_tmp54 = __cil_tmp53->net_ns;
 #line 577
-    __cil_tmp57 = *((struct nsproxy **)__cil_tmp56);
-#line 577
-    __cil_tmp58 = (unsigned long )__cil_tmp57;
-#line 577
-    __cil_tmp59 = __cil_tmp58 + 40;
-#line 577
-    __cil_tmp60 = *((struct net **)__cil_tmp59);
-#line 577
-    tmp___0 = ppp_unattached_ioctl(__cil_tmp60, pf, file, cmd, arg);
+    tmp___0 = ppp_unattached_ioctl(__cil_tmp54, pf, file, cmd, arg);
     }
 #line 577
     return ((long )tmp___0);
@@ -11000,28 +10365,24 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
     }
     {
 #line 594
-    __cil_tmp61 = *((enum ldv_27071 *)pf);
+    __cil_tmp55 = pf->kind;
 #line 594
-    __cil_tmp62 = (unsigned int )__cil_tmp61;
+    __cil_tmp56 = (unsigned int )__cil_tmp55;
 #line 594
-    if (__cil_tmp62 == 1U) {
+    if (__cil_tmp56 == 1U) {
 #line 595
       __mptr = (struct ppp_file  const  *)pf;
 #line 595
       ppp = (struct ppp *)__mptr;
       {
 #line 596
-      __cil_tmp63 = (unsigned long )file;
+      __cil_tmp57 = (unsigned long )file;
 #line 596
-      __cil_tmp64 = (unsigned long )ppp;
+      __cil_tmp58 = ppp->owner;
 #line 596
-      __cil_tmp65 = __cil_tmp64 + 328;
+      __cil_tmp59 = (unsigned long )__cil_tmp58;
 #line 596
-      __cil_tmp66 = *((struct file **)__cil_tmp65);
-#line 596
-      __cil_tmp67 = (unsigned long )__cil_tmp66;
-#line 596
-      if (__cil_tmp67 == __cil_tmp63) {
+      if (__cil_tmp59 == __cil_tmp57) {
         {
 #line 597
         ppp_shutdown_interface(ppp);
@@ -11036,34 +10397,26 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
     }
     {
 #line 599
-    __cil_tmp68 = (unsigned long )file;
+    __cil_tmp60 = & file->f_count;
 #line 599
-    __cil_tmp69 = __cil_tmp68 + 120;
-#line 599
-    __cil_tmp70 = (atomic_long_t *)__cil_tmp69;
-#line 599
-    tmp___2 = atomic_long_read(__cil_tmp70);
+    tmp___2 = atomic_long_read(__cil_tmp60);
     }
 #line 599
     if (tmp___2 <= 2L) {
       {
 #line 600
-      __cil_tmp71 = (struct inode *)0;
+      __cil_tmp61 = (struct inode *)0;
 #line 600
-      ppp_release(__cil_tmp71, file);
+      ppp_release(__cil_tmp61, file);
 #line 601
       err = 0;
       }
     } else {
       {
 #line 603
-      __cil_tmp72 = (unsigned long )file;
+      __cil_tmp62 = & file->f_count;
 #line 603
-      __cil_tmp73 = __cil_tmp72 + 120;
-#line 603
-      __cil_tmp74 = (atomic_long_t *)__cil_tmp73;
-#line 603
-      tmp___1 = atomic_long_read(__cil_tmp74);
+      tmp___1 = atomic_long_read(__cil_tmp62);
 #line 603
       printk("<4>PPPIOCDETACH file->f_count=%ld\n", tmp___1);
       }
@@ -11079,11 +10432,11 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   }
   {
 #line 609
-  __cil_tmp75 = *((enum ldv_27071 *)pf);
+  __cil_tmp63 = pf->kind;
 #line 609
-  __cil_tmp76 = (unsigned int )__cil_tmp75;
+  __cil_tmp64 = (unsigned int )__cil_tmp63;
 #line 609
-  if (__cil_tmp76 == 2U) {
+  if (__cil_tmp64 == 2U) {
     {
 #line 613
     mutex_lock_nested(& ppp_mutex, 0U);
@@ -11094,18 +10447,21 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
     }
     {
 #line 617
-    __cil_tmp77 = (int )cmd;
+    __cil_tmp65 = (int )cmd;
 #line 617
-    if (__cil_tmp77 == 1074033722) {
+    if (__cil_tmp65 == 1074033722) {
+#line 617
       goto case_1074033722;
     } else {
       {
 #line 623
-      __cil_tmp78 = (int )cmd;
+      __cil_tmp66 = (int )cmd;
 #line 623
-      if (__cil_tmp78 == 29753) {
+      if (__cil_tmp66 == 29753) {
+#line 623
         goto case_29753;
       } else {
+#line 627
         goto switch_default___0;
 #line 616
         if (0) {
@@ -11116,27 +10472,34 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
           }
 #line 618
           if (1) {
+#line 618
             goto case_4;
           } else {
+#line 618
             goto switch_default;
 #line 618
             if (0) {
 #line 618
               __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 618
               goto ldv_39832;
 #line 618
               __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 618
               goto ldv_39832;
               case_4: 
 #line 618
               __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 618
               goto ldv_39832;
 #line 618
               __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 618
               goto ldv_39832;
               switch_default: 
 #line 618
               __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 618
               goto ldv_39832;
             } else {
 
@@ -11147,6 +10510,7 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
           unit = (int )__val_gu;
 #line 618
           if (__ret_gu != 0) {
+#line 619
             goto ldv_39838;
           } else {
 
@@ -11155,80 +10519,56 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 #line 620
           err = ppp_connect_channel(pch, unit);
           }
+#line 621
           goto ldv_39838;
           case_29753: 
           {
 #line 624
           err = ppp_disconnect_channel(pch);
           }
+#line 625
           goto ldv_39838;
           switch_default___0: 
           {
 #line 628
-          __cil_tmp79 = (unsigned long )pch;
+          __cil_tmp67 = & pch->chan_sem;
 #line 628
-          __cil_tmp80 = __cil_tmp79 + 352;
-#line 628
-          __cil_tmp81 = (struct rw_semaphore *)__cil_tmp80;
-#line 628
-          down_read(__cil_tmp81);
+          down_read(__cil_tmp67);
 #line 629
-          __cil_tmp82 = (unsigned long )pch;
-#line 629
-          __cil_tmp83 = __cil_tmp82 + 344;
-#line 629
-          chan = *((struct ppp_channel **)__cil_tmp83);
+          chan = pch->chan;
 #line 630
           err = -25;
           }
           {
 #line 631
-          __cil_tmp84 = (struct ppp_channel *)0;
+          __cil_tmp68 = (struct ppp_channel *)0;
 #line 631
-          __cil_tmp85 = (unsigned long )__cil_tmp84;
+          __cil_tmp69 = (unsigned long )__cil_tmp68;
 #line 631
-          __cil_tmp86 = (unsigned long )chan;
+          __cil_tmp70 = (unsigned long )chan;
 #line 631
-          if (__cil_tmp86 != __cil_tmp85) {
+          if (__cil_tmp70 != __cil_tmp69) {
             {
 #line 631
-            __cil_tmp87 = (int (* const  )(struct ppp_channel * , unsigned int  ,
+            __cil_tmp71 = (int (* const  )(struct ppp_channel * , unsigned int  ,
                                            unsigned long  ))0;
 #line 631
-            __cil_tmp88 = (unsigned long )__cil_tmp87;
+            __cil_tmp72 = (unsigned long )__cil_tmp71;
 #line 631
-            __cil_tmp89 = (unsigned long )chan;
+            __cil_tmp73 = chan->ops;
 #line 631
-            __cil_tmp90 = __cil_tmp89 + 8;
+            __cil_tmp74 = __cil_tmp73->ioctl;
 #line 631
-            __cil_tmp91 = *((struct ppp_channel_ops  const  **)__cil_tmp90);
+            __cil_tmp75 = (unsigned long )__cil_tmp74;
 #line 631
-            __cil_tmp92 = (unsigned long )__cil_tmp91;
-#line 631
-            __cil_tmp93 = __cil_tmp92 + 8;
-#line 631
-            __cil_tmp94 = *((int (* const  *)(struct ppp_channel * , unsigned int  ,
-                                              unsigned long  ))__cil_tmp93);
-#line 631
-            __cil_tmp95 = (unsigned long )__cil_tmp94;
-#line 631
-            if (__cil_tmp95 != __cil_tmp88) {
+            if (__cil_tmp75 != __cil_tmp72) {
               {
 #line 632
-              __cil_tmp96 = (unsigned long )chan;
+              __cil_tmp76 = chan->ops;
 #line 632
-              __cil_tmp97 = __cil_tmp96 + 8;
+              __cil_tmp77 = __cil_tmp76->ioctl;
 #line 632
-              __cil_tmp98 = *((struct ppp_channel_ops  const  **)__cil_tmp97);
-#line 632
-              __cil_tmp99 = (unsigned long )__cil_tmp98;
-#line 632
-              __cil_tmp100 = __cil_tmp99 + 8;
-#line 632
-              __cil_tmp101 = *((int (* const  *)(struct ppp_channel * , unsigned int  ,
-                                                 unsigned long  ))__cil_tmp100);
-#line 632
-              err = (*__cil_tmp101)(chan, cmd, arg);
+              err = (*__cil_tmp77)(chan, cmd, arg);
               }
             } else {
 
@@ -11240,13 +10580,9 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
           }
           {
 #line 633
-          __cil_tmp102 = (unsigned long )pch;
+          __cil_tmp78 = & pch->chan_sem;
 #line 633
-          __cil_tmp103 = __cil_tmp102 + 352;
-#line 633
-          __cil_tmp104 = (struct rw_semaphore *)__cil_tmp103;
-#line 633
-          up_read(__cil_tmp104);
+          up_read(__cil_tmp78);
           }
         } else {
 
@@ -11268,11 +10604,11 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   }
   {
 #line 639
-  __cil_tmp105 = *((enum ldv_27071 *)pf);
+  __cil_tmp79 = pf->kind;
 #line 639
-  __cil_tmp106 = (unsigned int )__cil_tmp105;
+  __cil_tmp80 = (unsigned int )__cil_tmp79;
 #line 639
-  if (__cil_tmp106 != 1U) {
+  if (__cil_tmp80 != 1U) {
     {
 #line 641
     printk("<3>PPP: not interface or channel??\n");
@@ -11293,102 +10629,117 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   }
   {
 #line 648
-  __cil_tmp107 = (int )cmd;
+  __cil_tmp81 = (int )cmd;
 #line 648
-  if (__cil_tmp107 == 1074033746) {
+  if (__cil_tmp81 == 1074033746) {
+#line 648
     goto case_1074033746;
   } else {
     {
 #line 655
-    __cil_tmp108 = (int )cmd;
+    __cil_tmp82 = (int )cmd;
 #line 655
-    if (__cil_tmp108 == 1074033753) {
+    if (__cil_tmp82 == 1074033753) {
+#line 655
       goto case_1074033753;
     } else {
       {
 #line 667
-      __cil_tmp109 = (int )cmd;
+      __cil_tmp83 = (int )cmd;
 #line 667
-      if (__cil_tmp109 == -2147191718) {
+      if (__cil_tmp83 == -2147191718) {
+#line 667
         goto case_neg_2147191718;
       } else {
         {
 #line 674
-        __cil_tmp110 = (int )cmd;
+        __cil_tmp84 = (int )cmd;
 #line 674
-        if (__cil_tmp110 == 1074820173) {
+        if (__cil_tmp84 == 1074820173) {
+#line 674
           goto case_1074820173;
         } else {
           {
 #line 678
-          __cil_tmp111 = (int )cmd;
+          __cil_tmp85 = (int )cmd;
 #line 678
-          if (__cil_tmp111 == -2147191722) {
+          if (__cil_tmp85 == -2147191722) {
+#line 678
             goto case_neg_2147191722;
           } else {
             {
 #line 684
-            __cil_tmp112 = (int )cmd;
+            __cil_tmp86 = (int )cmd;
 #line 684
-            if (__cil_tmp112 == 1074033728) {
+            if (__cil_tmp86 == 1074033728) {
+#line 684
               goto case_1074033728;
             } else {
               {
 #line 691
-              __cil_tmp113 = (int )cmd;
+              __cil_tmp87 = (int )cmd;
 #line 691
-              if (__cil_tmp113 == -2147191743) {
+              if (__cil_tmp87 == -2147191743) {
+#line 691
                 goto case_neg_2147191743;
               } else {
                 {
 #line 697
-                __cil_tmp114 = (int )cmd;
+                __cil_tmp88 = (int )cmd;
 #line 697
-                if (__cil_tmp114 == -2146405313) {
+                if (__cil_tmp88 == -2146405313) {
+#line 697
                   goto case_neg_2146405313;
                 } else {
                   {
 #line 705
-                  __cil_tmp115 = (int )cmd;
+                  __cil_tmp89 = (int )cmd;
 #line 705
-                  if (__cil_tmp115 == 1074033745) {
+                  if (__cil_tmp89 == 1074033745) {
+#line 705
                     goto case_1074033745;
                   } else {
                     {
 #line 728
-                    __cil_tmp116 = (int )cmd;
+                    __cil_tmp90 = (int )cmd;
 #line 728
-                    if (__cil_tmp116 == -1073187764) {
+                    if (__cil_tmp90 == -1073187764) {
+#line 728
                       goto case_neg_1073187764;
                     } else {
                       {
 #line 729
-                      __cil_tmp117 = (int )cmd;
+                      __cil_tmp91 = (int )cmd;
 #line 729
-                      if (__cil_tmp117 == 1074295883) {
+                      if (__cil_tmp91 == 1074295883) {
+#line 729
                         goto case_1074295883;
                       } else {
                         {
 #line 750
-                        __cil_tmp118 = (int )cmd;
+                        __cil_tmp92 = (int )cmd;
 #line 750
-                        if (__cil_tmp118 == 1074820167) {
+                        if (__cil_tmp92 == 1074820167) {
+#line 750
                           goto case_1074820167;
                         } else {
                           {
 #line 764
-                          __cil_tmp119 = (int )cmd;
+                          __cil_tmp93 = (int )cmd;
 #line 764
-                          if (__cil_tmp119 == 1074820166) {
+                          if (__cil_tmp93 == 1074820166) {
+#line 764
                             goto case_1074820166;
                           } else {
                             {
 #line 781
-                            __cil_tmp120 = (int )cmd;
+                            __cil_tmp94 = (int )cmd;
 #line 781
-                            if (__cil_tmp120 == 1074033723) {
+                            if (__cil_tmp94 == 1074033723) {
+#line 781
                               goto case_1074033723;
                             } else {
+#line 791
                               goto switch_default___9;
 #line 647
                               if (0) {
@@ -11399,32 +10750,39 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
 #line 649
                                 if (1) {
+#line 649
                                   goto case_4___0;
                                 } else {
+#line 649
                                   goto switch_default___1;
 #line 649
                                   if (0) {
 #line 649
                                     __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu___0),
                                                          "=d" (__val_gu___0): "0" (p));
+#line 649
                                     goto ldv_39847;
 #line 649
                                     __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu___0),
                                                          "=d" (__val_gu___0): "0" (p));
+#line 649
                                     goto ldv_39847;
                                     case_4___0: 
 #line 649
                                     __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu___0),
                                                          "=d" (__val_gu___0): "0" (p));
+#line 649
                                     goto ldv_39847;
 #line 649
                                     __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu___0),
                                                          "=d" (__val_gu___0): "0" (p));
+#line 649
                                     goto ldv_39847;
                                     switch_default___1: 
 #line 649
                                     __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu___0),
                                                          "=d" (__val_gu___0): "0" (p));
+#line 649
                                     goto ldv_39847;
                                   } else {
 
@@ -11435,18 +10793,16 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 val = (int )__val_gu___0;
 #line 649
                                 if (__ret_gu___0 != 0) {
+#line 650
                                   goto ldv_39853;
                                 } else {
 
                                 }
 #line 651
-                                __cil_tmp121 = (unsigned long )ppp;
-#line 651
-                                __cil_tmp122 = __cil_tmp121 + 504;
-#line 651
-                                *((int *)__cil_tmp122) = val;
+                                ppp->mru = val;
 #line 652
                                 err = 0;
+#line 653
                                 goto ldv_39853;
                                 case_1074033753: 
                                 {
@@ -11455,32 +10811,39 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
 #line 656
                                 if (1) {
+#line 656
                                   goto case_4___1;
                                 } else {
+#line 656
                                   goto switch_default___2;
 #line 656
                                   if (0) {
 #line 656
                                     __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu___1),
                                                          "=d" (__val_gu___1): "0" (p));
+#line 656
                                     goto ldv_39858;
 #line 656
                                     __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu___1),
                                                          "=d" (__val_gu___1): "0" (p));
+#line 656
                                     goto ldv_39858;
                                     case_4___1: 
 #line 656
                                     __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu___1),
                                                          "=d" (__val_gu___1): "0" (p));
+#line 656
                                     goto ldv_39858;
 #line 656
                                     __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu___1),
                                                          "=d" (__val_gu___1): "0" (p));
+#line 656
                                     goto ldv_39858;
                                     switch_default___2: 
 #line 656
                                     __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu___1),
                                                          "=d" (__val_gu___1): "0" (p));
+#line 656
                                     goto ldv_39858;
                                   } else {
 
@@ -11491,71 +10854,48 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 val = (int )__val_gu___1;
 #line 656
                                 if (__ret_gu___1 != 0) {
+#line 657
                                   goto ldv_39853;
                                 } else {
 
                                 }
                                 {
 #line 658
-                                __cil_tmp123 = (unsigned long )ppp;
+                                __cil_tmp95 = & ppp->wlock;
 #line 658
-                                __cil_tmp124 = __cil_tmp123 + 432;
+                                spin_lock_bh(__cil_tmp95);
 #line 658
-                                __cil_tmp125 = (spinlock_t *)__cil_tmp124;
+                                __cil_tmp96 = & ppp->rlock;
 #line 658
-                                spin_lock_bh(__cil_tmp125);
-#line 658
-                                __cil_tmp126 = (unsigned long )ppp;
-#line 658
-                                __cil_tmp127 = __cil_tmp126 + 360;
-#line 658
-                                __cil_tmp128 = (spinlock_t *)__cil_tmp127;
-#line 658
-                                spin_lock_bh(__cil_tmp128);
+                                spin_lock_bh(__cil_tmp96);
 #line 659
-                                __cil_tmp129 = ~ val;
+                                __cil_tmp97 = ~ val;
 #line 659
-                                __cil_tmp130 = (unsigned int )__cil_tmp129;
+                                __cil_tmp98 = (unsigned int )__cil_tmp97;
 #line 659
-                                __cil_tmp131 = (unsigned long )ppp;
+                                __cil_tmp99 = ppp->flags;
 #line 659
-                                __cil_tmp132 = __cil_tmp131 + 508;
+                                __cil_tmp100 = __cil_tmp99 & __cil_tmp98;
 #line 659
-                                __cil_tmp133 = *((unsigned int *)__cil_tmp132);
-#line 659
-                                __cil_tmp134 = __cil_tmp133 & __cil_tmp130;
-#line 659
-                                cflags = (int )__cil_tmp134;
+                                cflags = (int )__cil_tmp100;
 #line 660
-                                __cil_tmp135 = (unsigned long )ppp;
+                                __cil_tmp101 = (unsigned int )val;
 #line 660
-                                __cil_tmp136 = __cil_tmp135 + 508;
-#line 660
-                                __cil_tmp137 = (unsigned int )val;
-#line 660
-                                *((unsigned int *)__cil_tmp136) = __cil_tmp137 & 4214508U;
+                                ppp->flags = __cil_tmp101 & 4214508U;
 #line 661
-                                __cil_tmp138 = (unsigned long )ppp;
+                                __cil_tmp102 = & ppp->rlock;
 #line 661
-                                __cil_tmp139 = __cil_tmp138 + 360;
+                                spin_unlock_bh(__cil_tmp102);
 #line 661
-                                __cil_tmp140 = (spinlock_t *)__cil_tmp139;
+                                __cil_tmp103 = & ppp->wlock;
 #line 661
-                                spin_unlock_bh(__cil_tmp140);
-#line 661
-                                __cil_tmp141 = (unsigned long )ppp;
-#line 661
-                                __cil_tmp142 = __cil_tmp141 + 432;
-#line 661
-                                __cil_tmp143 = (spinlock_t *)__cil_tmp142;
-#line 661
-                                spin_unlock_bh(__cil_tmp143);
+                                spin_unlock_bh(__cil_tmp103);
                                 }
                                 {
 #line 662
-                                __cil_tmp144 = cflags & 64;
+                                __cil_tmp104 = cflags & 64;
 #line 662
-                                if (__cil_tmp144 != 0) {
+                                if (__cil_tmp104 != 0) {
                                   {
 #line 663
                                   ppp_ccp_closed(ppp);
@@ -11566,33 +10906,22 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
 #line 664
                                 err = 0;
+#line 665
                                 goto ldv_39853;
                                 case_neg_2147191718: 
                                 {
 #line 668
-                                __cil_tmp145 = (unsigned long )ppp;
+                                __cil_tmp105 = ppp->rstate;
 #line 668
-                                __cil_tmp146 = __cil_tmp145 + 516;
+                                __cil_tmp106 = ppp->xstate;
 #line 668
-                                __cil_tmp147 = *((unsigned int *)__cil_tmp146);
+                                __cil_tmp107 = ppp->flags;
 #line 668
-                                __cil_tmp148 = (unsigned long )ppp;
+                                __cil_tmp108 = __cil_tmp107 | __cil_tmp106;
 #line 668
-                                __cil_tmp149 = __cil_tmp148 + 512;
+                                __cil_tmp109 = __cil_tmp108 | __cil_tmp105;
 #line 668
-                                __cil_tmp150 = *((unsigned int *)__cil_tmp149);
-#line 668
-                                __cil_tmp151 = (unsigned long )ppp;
-#line 668
-                                __cil_tmp152 = __cil_tmp151 + 508;
-#line 668
-                                __cil_tmp153 = *((unsigned int *)__cil_tmp152);
-#line 668
-                                __cil_tmp154 = __cil_tmp153 | __cil_tmp150;
-#line 668
-                                __cil_tmp155 = __cil_tmp154 | __cil_tmp147;
-#line 668
-                                val = (int )__cil_tmp155;
+                                val = (int )__cil_tmp109;
 #line 669
                                 might_fault();
 #line 669
@@ -11600,32 +10929,39 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
 #line 669
                                 if (1) {
+#line 669
                                   goto case_4___2;
                                 } else {
+#line 669
                                   goto switch_default___3;
 #line 669
                                   if (0) {
 #line 669
                                     __asm__  volatile   ("call __put_user_1": "=a" (__ret_pu): "0" (__pu_val),
                                                          "c" (p): "ebx");
+#line 669
                                     goto ldv_39868;
 #line 669
                                     __asm__  volatile   ("call __put_user_2": "=a" (__ret_pu): "0" (__pu_val),
                                                          "c" (p): "ebx");
+#line 669
                                     goto ldv_39868;
                                     case_4___2: 
 #line 669
                                     __asm__  volatile   ("call __put_user_4": "=a" (__ret_pu): "0" (__pu_val),
                                                          "c" (p): "ebx");
+#line 669
                                     goto ldv_39868;
 #line 669
                                     __asm__  volatile   ("call __put_user_8": "=a" (__ret_pu): "0" (__pu_val),
                                                          "c" (p): "ebx");
+#line 669
                                     goto ldv_39868;
                                     switch_default___3: 
 #line 669
                                     __asm__  volatile   ("call __put_user_X": "=a" (__ret_pu): "0" (__pu_val),
                                                          "c" (p): "ebx");
+#line 669
                                     goto ldv_39868;
                                   } else {
 
@@ -11634,60 +10970,64 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 ldv_39868: ;
 #line 669
                                 if (__ret_pu != 0) {
+#line 670
                                   goto ldv_39853;
                                 } else {
 
                                 }
 #line 671
                                 err = 0;
+#line 672
                                 goto ldv_39853;
                                 case_1074820173: 
                                 {
 #line 675
                                 err = ppp_set_compress(ppp, arg);
                                 }
+#line 676
                                 goto ldv_39853;
                                 case_neg_2147191722: 
                                 {
 #line 679
                                 might_fault();
 #line 679
-                                __cil_tmp156 = 0 + 320;
-#line 679
-                                __cil_tmp157 = (unsigned long )ppp;
-#line 679
-                                __cil_tmp158 = __cil_tmp157 + __cil_tmp156;
-#line 679
-                                __pu_val___0 = *((int *)__cil_tmp158);
+                                __pu_val___0 = ppp->file.index;
                                 }
 #line 679
                                 if (1) {
+#line 679
                                   goto case_4___3;
                                 } else {
+#line 679
                                   goto switch_default___4;
 #line 679
                                   if (0) {
 #line 679
                                     __asm__  volatile   ("call __put_user_1": "=a" (__ret_pu___0): "0" (__pu_val___0),
                                                          "c" (p): "ebx");
+#line 679
                                     goto ldv_39879;
 #line 679
                                     __asm__  volatile   ("call __put_user_2": "=a" (__ret_pu___0): "0" (__pu_val___0),
                                                          "c" (p): "ebx");
+#line 679
                                     goto ldv_39879;
                                     case_4___3: 
 #line 679
                                     __asm__  volatile   ("call __put_user_4": "=a" (__ret_pu___0): "0" (__pu_val___0),
                                                          "c" (p): "ebx");
+#line 679
                                     goto ldv_39879;
 #line 679
                                     __asm__  volatile   ("call __put_user_8": "=a" (__ret_pu___0): "0" (__pu_val___0),
                                                          "c" (p): "ebx");
+#line 679
                                     goto ldv_39879;
                                     switch_default___4: 
 #line 679
                                     __asm__  volatile   ("call __put_user_X": "=a" (__ret_pu___0): "0" (__pu_val___0),
                                                          "c" (p): "ebx");
+#line 679
                                     goto ldv_39879;
                                   } else {
 
@@ -11696,12 +11036,14 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 ldv_39879: ;
 #line 679
                                 if (__ret_pu___0 != 0) {
+#line 680
                                   goto ldv_39853;
                                 } else {
 
                                 }
 #line 681
                                 err = 0;
+#line 682
                                 goto ldv_39853;
                                 case_1074033728: 
                                 {
@@ -11710,32 +11052,39 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
 #line 685
                                 if (1) {
+#line 685
                                   goto case_4___4;
                                 } else {
+#line 685
                                   goto switch_default___5;
 #line 685
                                   if (0) {
 #line 685
                                     __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu___2),
                                                          "=d" (__val_gu___2): "0" (p));
+#line 685
                                     goto ldv_39889;
 #line 685
                                     __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu___2),
                                                          "=d" (__val_gu___2): "0" (p));
+#line 685
                                     goto ldv_39889;
                                     case_4___4: 
 #line 685
                                     __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu___2),
                                                          "=d" (__val_gu___2): "0" (p));
+#line 685
                                     goto ldv_39889;
 #line 685
                                     __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu___2),
                                                          "=d" (__val_gu___2): "0" (p));
+#line 685
                                     goto ldv_39889;
                                     switch_default___5: 
 #line 685
                                     __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu___2),
                                                          "=d" (__val_gu___2): "0" (p));
+#line 685
                                     goto ldv_39889;
                                   } else {
 
@@ -11746,58 +11095,59 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 val = (int )__val_gu___2;
 #line 685
                                 if (__ret_gu___2 != 0) {
+#line 686
                                   goto ldv_39853;
                                 } else {
 
                                 }
 #line 687
-                                __cil_tmp159 = (unsigned long )ppp;
-#line 687
-                                __cil_tmp160 = __cil_tmp159 + 520;
-#line 687
-                                *((int *)__cil_tmp160) = val;
+                                ppp->debug = val;
 #line 688
                                 err = 0;
+#line 689
                                 goto ldv_39853;
                                 case_neg_2147191743: 
                                 {
 #line 692
                                 might_fault();
 #line 692
-                                __cil_tmp161 = (unsigned long )ppp;
-#line 692
-                                __cil_tmp162 = __cil_tmp161 + 520;
-#line 692
-                                __pu_val___1 = *((int *)__cil_tmp162);
+                                __pu_val___1 = ppp->debug;
                                 }
 #line 692
                                 if (1) {
+#line 692
                                   goto case_4___5;
                                 } else {
+#line 692
                                   goto switch_default___6;
 #line 692
                                   if (0) {
 #line 692
                                     __asm__  volatile   ("call __put_user_1": "=a" (__ret_pu___1): "0" (__pu_val___1),
                                                          "c" (p): "ebx");
+#line 692
                                     goto ldv_39899;
 #line 692
                                     __asm__  volatile   ("call __put_user_2": "=a" (__ret_pu___1): "0" (__pu_val___1),
                                                          "c" (p): "ebx");
+#line 692
                                     goto ldv_39899;
                                     case_4___5: 
 #line 692
                                     __asm__  volatile   ("call __put_user_4": "=a" (__ret_pu___1): "0" (__pu_val___1),
                                                          "c" (p): "ebx");
+#line 692
                                     goto ldv_39899;
 #line 692
                                     __asm__  volatile   ("call __put_user_8": "=a" (__ret_pu___1): "0" (__pu_val___1),
                                                          "c" (p): "ebx");
+#line 692
                                     goto ldv_39899;
                                     switch_default___6: 
 #line 692
                                     __asm__  volatile   ("call __put_user_X": "=a" (__ret_pu___1): "0" (__pu_val___1),
                                                          "c" (p): "ebx");
+#line 692
                                     goto ldv_39899;
                                   } else {
 
@@ -11806,60 +11156,52 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 ldv_39899: ;
 #line 692
                                 if (__ret_pu___1 != 0) {
+#line 693
                                   goto ldv_39853;
                                 } else {
 
                                 }
 #line 694
                                 err = 0;
+#line 695
                                 goto ldv_39853;
                                 case_neg_2146405313: 
                                 {
 #line 698
-                                __cil_tmp163 = & idle;
+                                __cil_tmp110 = ppp->last_xmit;
 #line 698
-                                __cil_tmp164 = (unsigned long )ppp;
+                                __cil_tmp111 = (unsigned long )jiffies;
 #line 698
-                                __cil_tmp165 = __cil_tmp164 + 768;
+                                __cil_tmp112 = __cil_tmp111 - __cil_tmp110;
 #line 698
-                                __cil_tmp166 = *((unsigned long *)__cil_tmp165);
+                                __cil_tmp113 = __cil_tmp112 / 250UL;
 #line 698
-                                __cil_tmp167 = (unsigned long )jiffies;
-#line 698
-                                __cil_tmp168 = __cil_tmp167 - __cil_tmp166;
-#line 698
-                                __cil_tmp169 = __cil_tmp168 / 250UL;
-#line 698
-                                *((__kernel_time_t *)__cil_tmp163) = (long )__cil_tmp169;
+                                idle.xmit_idle = (__kernel_time_t )__cil_tmp113;
 #line 699
-                                __cil_tmp170 = (unsigned long )(& idle) + 8;
+                                __cil_tmp114 = ppp->last_recv;
 #line 699
-                                __cil_tmp171 = (unsigned long )ppp;
+                                __cil_tmp115 = (unsigned long )jiffies;
 #line 699
-                                __cil_tmp172 = __cil_tmp171 + 776;
+                                __cil_tmp116 = __cil_tmp115 - __cil_tmp114;
 #line 699
-                                __cil_tmp173 = *((unsigned long *)__cil_tmp172);
+                                __cil_tmp117 = __cil_tmp116 / 250UL;
 #line 699
-                                __cil_tmp174 = (unsigned long )jiffies;
-#line 699
-                                __cil_tmp175 = __cil_tmp174 - __cil_tmp173;
-#line 699
-                                __cil_tmp176 = __cil_tmp175 / 250UL;
-#line 699
-                                *((__kernel_time_t *)__cil_tmp170) = (long )__cil_tmp176;
+                                idle.recv_idle = (__kernel_time_t )__cil_tmp117;
 #line 700
-                                __cil_tmp177 = (void const   *)(& idle);
+                                __cil_tmp118 = (void const   *)(& idle);
 #line 700
-                                tmp___3 = copy_to_user(argp, __cil_tmp177, 16U);
+                                tmp___3 = copy_to_user(argp, __cil_tmp118, 16U);
                                 }
 #line 700
                                 if (tmp___3 != 0) {
+#line 701
                                   goto ldv_39853;
                                 } else {
 
                                 }
 #line 702
                                 err = 0;
+#line 703
                                 goto ldv_39853;
                                 case_1074033745: 
                                 {
@@ -11868,32 +11210,39 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
 #line 706
                                 if (1) {
+#line 706
                                   goto case_4___6;
                                 } else {
+#line 706
                                   goto switch_default___7;
 #line 706
                                   if (0) {
 #line 706
                                     __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu___3),
                                                          "=d" (__val_gu___3): "0" (p));
+#line 706
                                     goto ldv_39910;
 #line 706
                                     __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu___3),
                                                          "=d" (__val_gu___3): "0" (p));
+#line 706
                                     goto ldv_39910;
                                     case_4___6: 
 #line 706
                                     __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu___3),
                                                          "=d" (__val_gu___3): "0" (p));
+#line 706
                                     goto ldv_39910;
 #line 706
                                     __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu___3),
                                                          "=d" (__val_gu___3): "0" (p));
+#line 706
                                     goto ldv_39910;
                                     switch_default___7: 
 #line 706
                                     __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu___3),
                                                          "=d" (__val_gu___3): "0" (p));
+#line 706
                                     goto ldv_39910;
                                   } else {
 
@@ -11904,6 +11253,7 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 val = (int )__val_gu___3;
 #line 706
                                 if (__ret_gu___3 != 0) {
+#line 707
                                   goto ldv_39853;
                                 } else {
 
@@ -11912,9 +11262,9 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 val2 = 15;
                                 {
 #line 709
-                                __cil_tmp178 = val >> 16;
+                                __cil_tmp119 = val >> 16;
 #line 709
-                                if (__cil_tmp178 != 0) {
+                                if (__cil_tmp119 != 0) {
 #line 710
                                   val2 = val >> 16;
 #line 711
@@ -11925,35 +11275,32 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
                                 {
 #line 713
-                                __cil_tmp179 = val2 + 1;
+                                __cil_tmp120 = val2 + 1;
 #line 713
-                                __cil_tmp180 = val + 1;
+                                __cil_tmp121 = val + 1;
 #line 713
-                                vj = slhc_init(__cil_tmp179, __cil_tmp180);
+                                vj = slhc_init(__cil_tmp120, __cil_tmp121);
                                 }
                                 {
 #line 714
-                                __cil_tmp181 = (struct slcompress *)0;
+                                __cil_tmp122 = (struct slcompress *)0;
 #line 714
-                                __cil_tmp182 = (unsigned long )__cil_tmp181;
+                                __cil_tmp123 = (unsigned long )__cil_tmp122;
 #line 714
-                                __cil_tmp183 = (unsigned long )vj;
+                                __cil_tmp124 = (unsigned long )vj;
 #line 714
-                                if (__cil_tmp183 == __cil_tmp182) {
+                                if (__cil_tmp124 == __cil_tmp123) {
                                   {
 #line 715
-                                  __cil_tmp184 = (unsigned long )ppp;
+                                  __cil_tmp125 = ppp->dev;
 #line 715
-                                  __cil_tmp185 = __cil_tmp184 + 784;
+                                  __cil_tmp126 = (struct net_device  const  *)__cil_tmp125;
 #line 715
-                                  __cil_tmp186 = *((struct net_device **)__cil_tmp185);
-#line 715
-                                  __cil_tmp187 = (struct net_device  const  *)__cil_tmp186;
-#line 715
-                                  netdev_err(__cil_tmp187, "PPP: no memory (VJ compressor)\n");
+                                  netdev_err(__cil_tmp126, "PPP: no memory (VJ compressor)\n");
 #line 717
                                   err = -12;
                                   }
+#line 718
                                   goto ldv_39853;
                                 } else {
 
@@ -11961,46 +11308,30 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
                                 {
 #line 720
-                                __cil_tmp188 = (unsigned long )ppp;
+                                __cil_tmp127 = & ppp->wlock;
 #line 720
-                                __cil_tmp189 = __cil_tmp188 + 432;
+                                spin_lock_bh(__cil_tmp127);
 #line 720
-                                __cil_tmp190 = (spinlock_t *)__cil_tmp189;
+                                __cil_tmp128 = & ppp->rlock;
 #line 720
-                                spin_lock_bh(__cil_tmp190);
-#line 720
-                                __cil_tmp191 = (unsigned long )ppp;
-#line 720
-                                __cil_tmp192 = __cil_tmp191 + 360;
-#line 720
-                                __cil_tmp193 = (spinlock_t *)__cil_tmp192;
-#line 720
-                                spin_lock_bh(__cil_tmp193);
+                                spin_lock_bh(__cil_tmp128);
                                 }
                                 {
 #line 721
-                                __cil_tmp194 = (struct slcompress *)0;
+                                __cil_tmp129 = (struct slcompress *)0;
 #line 721
-                                __cil_tmp195 = (unsigned long )__cil_tmp194;
+                                __cil_tmp130 = (unsigned long )__cil_tmp129;
 #line 721
-                                __cil_tmp196 = (unsigned long )ppp;
+                                __cil_tmp131 = ppp->vj;
 #line 721
-                                __cil_tmp197 = __cil_tmp196 + 528;
+                                __cil_tmp132 = (unsigned long )__cil_tmp131;
 #line 721
-                                __cil_tmp198 = *((struct slcompress **)__cil_tmp197);
-#line 721
-                                __cil_tmp199 = (unsigned long )__cil_tmp198;
-#line 721
-                                if (__cil_tmp199 != __cil_tmp195) {
+                                if (__cil_tmp132 != __cil_tmp130) {
                                   {
 #line 722
-                                  __cil_tmp200 = (unsigned long )ppp;
+                                  __cil_tmp133 = ppp->vj;
 #line 722
-                                  __cil_tmp201 = __cil_tmp200 + 528;
-#line 722
-                                  __cil_tmp202 = *((struct slcompress **)__cil_tmp201);
-#line 722
-                                  slhc_free(__cil_tmp202);
+                                  slhc_free(__cil_tmp133);
                                   }
                                 } else {
 
@@ -12008,58 +11339,45 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
                                 {
 #line 723
-                                __cil_tmp203 = (unsigned long )ppp;
-#line 723
-                                __cil_tmp204 = __cil_tmp203 + 528;
-#line 723
-                                *((struct slcompress **)__cil_tmp204) = vj;
+                                ppp->vj = vj;
 #line 724
-                                __cil_tmp205 = (unsigned long )ppp;
+                                __cil_tmp134 = & ppp->rlock;
 #line 724
-                                __cil_tmp206 = __cil_tmp205 + 360;
+                                spin_unlock_bh(__cil_tmp134);
 #line 724
-                                __cil_tmp207 = (spinlock_t *)__cil_tmp206;
+                                __cil_tmp135 = & ppp->wlock;
 #line 724
-                                spin_unlock_bh(__cil_tmp207);
-#line 724
-                                __cil_tmp208 = (unsigned long )ppp;
-#line 724
-                                __cil_tmp209 = __cil_tmp208 + 432;
-#line 724
-                                __cil_tmp210 = (spinlock_t *)__cil_tmp209;
-#line 724
-                                spin_unlock_bh(__cil_tmp210);
+                                spin_unlock_bh(__cil_tmp135);
 #line 725
                                 err = 0;
                                 }
+#line 726
                                 goto ldv_39853;
                                 case_neg_1073187764: ;
                                 case_1074295883: 
                                 {
 #line 730
-                                __cil_tmp211 = (void *)(& npi);
+                                __cil_tmp136 = (void *)(& npi);
 #line 730
-                                __cil_tmp212 = (void const   *)argp;
+                                __cil_tmp137 = (void const   *)argp;
 #line 730
-                                tmp___4 = copy_from_user(__cil_tmp211, __cil_tmp212,
+                                tmp___4 = copy_from_user(__cil_tmp136, __cil_tmp137,
                                                          8UL);
                                 }
 #line 730
                                 if (tmp___4 != 0UL) {
+#line 731
                                   goto ldv_39853;
                                 } else {
 
                                 }
                                 {
 #line 732
-                                __cil_tmp213 = & npi;
-#line 732
-                                __cil_tmp214 = *((int *)__cil_tmp213);
-#line 732
-                                err = proto_to_npindex(__cil_tmp214);
+                                err = proto_to_npindex(npi.protocol);
                                 }
 #line 733
                                 if (err < 0) {
+#line 734
                                   goto ldv_39853;
                                 } else {
 
@@ -12072,24 +11390,15 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 #line 737
                                   err = -14;
 #line 738
-                                  __cil_tmp215 = (unsigned long )(& npi) + 4;
-#line 738
-                                  __cil_tmp216 = i * 32UL;
-#line 738
-                                  __cil_tmp217 = 536 + __cil_tmp216;
-#line 738
-                                  __cil_tmp218 = (unsigned long )ppp;
-#line 738
-                                  __cil_tmp219 = __cil_tmp218 + __cil_tmp217;
-#line 738
-                                  *((enum NPmode *)__cil_tmp215) = *((enum NPmode *)__cil_tmp219);
+                                  npi.mode = ppp->npmode[i];
 #line 739
-                                  __cil_tmp220 = (void const   *)(& npi);
+                                  __cil_tmp138 = (void const   *)(& npi);
 #line 739
-                                  tmp___5 = copy_to_user(argp, __cil_tmp220, 8U);
+                                  tmp___5 = copy_to_user(argp, __cil_tmp138, 8U);
                                   }
 #line 739
                                   if (tmp___5 != 0) {
+#line 740
                                     goto ldv_39853;
                                   } else {
 
@@ -12097,29 +11406,16 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 } else {
                                   {
 #line 742
-                                  __cil_tmp221 = i * 32UL;
-#line 742
-                                  __cil_tmp222 = 536 + __cil_tmp221;
-#line 742
-                                  __cil_tmp223 = (unsigned long )ppp;
-#line 742
-                                  __cil_tmp224 = __cil_tmp223 + __cil_tmp222;
-#line 742
-                                  __cil_tmp225 = (unsigned long )(& npi) + 4;
-#line 742
-                                  *((enum NPmode *)__cil_tmp224) = *((enum NPmode *)__cil_tmp225);
+                                  ppp->npmode[i] = npi.mode;
 #line 744
-                                  __cil_tmp226 = (unsigned long )ppp;
+                                  __cil_tmp139 = ppp->dev;
 #line 744
-                                  __cil_tmp227 = __cil_tmp226 + 784;
-#line 744
-                                  __cil_tmp228 = *((struct net_device **)__cil_tmp227);
-#line 744
-                                  netif_wake_queue(__cil_tmp228);
+                                  netif_wake_queue(__cil_tmp139);
                                   }
                                 }
 #line 746
                                 err = 0;
+#line 747
                                 goto ldv_39853;
                                 case_1074820167: 
                                 {
@@ -12130,67 +11426,38 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 if (err >= 0) {
                                   {
 #line 755
-                                  __cil_tmp229 = (unsigned long )ppp;
+                                  __cil_tmp140 = & ppp->wlock;
 #line 755
-                                  __cil_tmp230 = __cil_tmp229 + 432;
+                                  spin_lock_bh(__cil_tmp140);
 #line 755
-                                  __cil_tmp231 = (spinlock_t *)__cil_tmp230;
+                                  __cil_tmp141 = & ppp->rlock;
 #line 755
-                                  spin_lock_bh(__cil_tmp231);
-#line 755
-                                  __cil_tmp232 = (unsigned long )ppp;
-#line 755
-                                  __cil_tmp233 = __cil_tmp232 + 360;
-#line 755
-                                  __cil_tmp234 = (spinlock_t *)__cil_tmp233;
-#line 755
-                                  spin_lock_bh(__cil_tmp234);
+                                  spin_lock_bh(__cil_tmp141);
 #line 756
-                                  __cil_tmp235 = (unsigned long )ppp;
+                                  __cil_tmp142 = ppp->pass_filter;
 #line 756
-                                  __cil_tmp236 = __cil_tmp235 + 912;
+                                  __cil_tmp143 = (void const   *)__cil_tmp142;
 #line 756
-                                  __cil_tmp237 = *((struct sock_filter **)__cil_tmp236);
-#line 756
-                                  __cil_tmp238 = (void const   *)__cil_tmp237;
-#line 756
-                                  kfree(__cil_tmp238);
+                                  kfree(__cil_tmp143);
 #line 757
-                                  __cil_tmp239 = (unsigned long )ppp;
-#line 757
-                                  __cil_tmp240 = __cil_tmp239 + 912;
-#line 757
-                                  __cil_tmp241 = & code;
-#line 757
-                                  *((struct sock_filter **)__cil_tmp240) = *__cil_tmp241;
+                                  ppp->pass_filter = code;
 #line 758
-                                  __cil_tmp242 = (unsigned long )ppp;
-#line 758
-                                  __cil_tmp243 = __cil_tmp242 + 928;
-#line 758
-                                  *((unsigned int *)__cil_tmp243) = (unsigned int )err;
+                                  ppp->pass_len = (unsigned int )err;
 #line 759
-                                  __cil_tmp244 = (unsigned long )ppp;
+                                  __cil_tmp144 = & ppp->rlock;
 #line 759
-                                  __cil_tmp245 = __cil_tmp244 + 360;
+                                  spin_unlock_bh(__cil_tmp144);
 #line 759
-                                  __cil_tmp246 = (spinlock_t *)__cil_tmp245;
+                                  __cil_tmp145 = & ppp->wlock;
 #line 759
-                                  spin_unlock_bh(__cil_tmp246);
-#line 759
-                                  __cil_tmp247 = (unsigned long )ppp;
-#line 759
-                                  __cil_tmp248 = __cil_tmp247 + 432;
-#line 759
-                                  __cil_tmp249 = (spinlock_t *)__cil_tmp248;
-#line 759
-                                  spin_unlock_bh(__cil_tmp249);
+                                  spin_unlock_bh(__cil_tmp145);
 #line 760
                                   err = 0;
                                   }
                                 } else {
 
                                 }
+#line 762
                                 goto ldv_39853;
                                 case_1074820166: 
                                 {
@@ -12201,67 +11468,38 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 if (err >= 0) {
                                   {
 #line 769
-                                  __cil_tmp250 = (unsigned long )ppp;
+                                  __cil_tmp146 = & ppp->wlock;
 #line 769
-                                  __cil_tmp251 = __cil_tmp250 + 432;
+                                  spin_lock_bh(__cil_tmp146);
 #line 769
-                                  __cil_tmp252 = (spinlock_t *)__cil_tmp251;
+                                  __cil_tmp147 = & ppp->rlock;
 #line 769
-                                  spin_lock_bh(__cil_tmp252);
-#line 769
-                                  __cil_tmp253 = (unsigned long )ppp;
-#line 769
-                                  __cil_tmp254 = __cil_tmp253 + 360;
-#line 769
-                                  __cil_tmp255 = (spinlock_t *)__cil_tmp254;
-#line 769
-                                  spin_lock_bh(__cil_tmp255);
+                                  spin_lock_bh(__cil_tmp147);
 #line 770
-                                  __cil_tmp256 = (unsigned long )ppp;
+                                  __cil_tmp148 = ppp->active_filter;
 #line 770
-                                  __cil_tmp257 = __cil_tmp256 + 920;
+                                  __cil_tmp149 = (void const   *)__cil_tmp148;
 #line 770
-                                  __cil_tmp258 = *((struct sock_filter **)__cil_tmp257);
-#line 770
-                                  __cil_tmp259 = (void const   *)__cil_tmp258;
-#line 770
-                                  kfree(__cil_tmp259);
+                                  kfree(__cil_tmp149);
 #line 771
-                                  __cil_tmp260 = (unsigned long )ppp;
-#line 771
-                                  __cil_tmp261 = __cil_tmp260 + 920;
-#line 771
-                                  __cil_tmp262 = & code___0;
-#line 771
-                                  *((struct sock_filter **)__cil_tmp261) = *__cil_tmp262;
+                                  ppp->active_filter = code___0;
 #line 772
-                                  __cil_tmp263 = (unsigned long )ppp;
-#line 772
-                                  __cil_tmp264 = __cil_tmp263 + 932;
-#line 772
-                                  *((unsigned int *)__cil_tmp264) = (unsigned int )err;
+                                  ppp->active_len = (unsigned int )err;
 #line 773
-                                  __cil_tmp265 = (unsigned long )ppp;
+                                  __cil_tmp150 = & ppp->rlock;
 #line 773
-                                  __cil_tmp266 = __cil_tmp265 + 360;
+                                  spin_unlock_bh(__cil_tmp150);
 #line 773
-                                  __cil_tmp267 = (spinlock_t *)__cil_tmp266;
+                                  __cil_tmp151 = & ppp->wlock;
 #line 773
-                                  spin_unlock_bh(__cil_tmp267);
-#line 773
-                                  __cil_tmp268 = (unsigned long )ppp;
-#line 773
-                                  __cil_tmp269 = __cil_tmp268 + 432;
-#line 773
-                                  __cil_tmp270 = (spinlock_t *)__cil_tmp269;
-#line 773
-                                  spin_unlock_bh(__cil_tmp270);
+                                  spin_unlock_bh(__cil_tmp151);
 #line 774
                                   err = 0;
                                   }
                                 } else {
 
                                 }
+#line 776
                                 goto ldv_39853;
                                 case_1074033723: 
                                 {
@@ -12270,32 +11508,39 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 }
 #line 782
                                 if (1) {
+#line 782
                                   goto case_4___7;
                                 } else {
+#line 782
                                   goto switch_default___8;
 #line 782
                                   if (0) {
 #line 782
                                     __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu___4),
                                                          "=d" (__val_gu___4): "0" (p));
+#line 782
                                     goto ldv_39926;
 #line 782
                                     __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu___4),
                                                          "=d" (__val_gu___4): "0" (p));
+#line 782
                                     goto ldv_39926;
                                     case_4___7: 
 #line 782
                                     __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu___4),
                                                          "=d" (__val_gu___4): "0" (p));
+#line 782
                                     goto ldv_39926;
 #line 782
                                     __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu___4),
                                                          "=d" (__val_gu___4): "0" (p));
+#line 782
                                     goto ldv_39926;
                                     switch_default___8: 
 #line 782
                                     __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu___4),
                                                          "=d" (__val_gu___4): "0" (p));
+#line 782
                                     goto ldv_39926;
                                   } else {
 
@@ -12306,36 +11551,26 @@ static long ppp_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
                                 val = (int )__val_gu___4;
 #line 782
                                 if (__ret_gu___4 != 0) {
+#line 783
                                   goto ldv_39853;
                                 } else {
 
                                 }
                                 {
 #line 784
-                                __cil_tmp271 = (unsigned long )ppp;
+                                __cil_tmp152 = & ppp->rlock;
 #line 784
-                                __cil_tmp272 = __cil_tmp271 + 360;
-#line 784
-                                __cil_tmp273 = (spinlock_t *)__cil_tmp272;
-#line 784
-                                spin_lock_bh(__cil_tmp273);
+                                spin_lock_bh(__cil_tmp152);
 #line 785
-                                __cil_tmp274 = (unsigned long )ppp;
-#line 785
-                                __cil_tmp275 = __cil_tmp274 + 804;
-#line 785
-                                *((int *)__cil_tmp275) = val;
+                                ppp->mrru = val;
 #line 786
-                                __cil_tmp276 = (unsigned long )ppp;
+                                __cil_tmp153 = & ppp->rlock;
 #line 786
-                                __cil_tmp277 = __cil_tmp276 + 360;
-#line 786
-                                __cil_tmp278 = (spinlock_t *)__cil_tmp277;
-#line 786
-                                spin_unlock_bh(__cil_tmp278);
+                                spin_unlock_bh(__cil_tmp153);
 #line 787
                                 err = 0;
                                 }
+#line 788
                                 goto ldv_39853;
                                 switch_default___9: 
 #line 792
@@ -12397,68 +11632,32 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
   unsigned long __val_gu___0 ;
   int __ret_gu___1 ;
   unsigned long __val_gu___1 ;
-  int *__cil_tmp20 ;
+  int __cil_tmp20 ;
   int __cil_tmp21 ;
   int __cil_tmp22 ;
-  int __cil_tmp23 ;
-  struct ppp *__cil_tmp24 ;
+  struct ppp *__cil_tmp23 ;
+  unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct ppp_file *__cil_tmp29 ;
+  struct ppp_file *__cil_tmp26 ;
+  struct mutex *__cil_tmp27 ;
+  struct ppp *__cil_tmp28 ;
+  unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int *__cil_tmp36 ;
-  int *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  struct mutex *__cil_tmp40 ;
-  struct ppp *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  atomic_t *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct ppp_file *__cil_tmp50 ;
-  int *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct mutex *__cil_tmp54 ;
-  int *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  spinlock_t *__cil_tmp58 ;
-  struct channel *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  atomic_t *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct ppp_file *__cil_tmp68 ;
-  int *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  spinlock_t *__cil_tmp72 ;
-  int *__cil_tmp73 ;
-  int *__cil_tmp74 ;
+  atomic_t *__cil_tmp31 ;
+  struct ppp_file *__cil_tmp32 ;
+  struct mutex *__cil_tmp33 ;
+  spinlock_t *__cil_tmp34 ;
+  struct channel *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  unsigned long __cil_tmp37 ;
+  atomic_t *__cil_tmp38 ;
+  struct ppp_file *__cil_tmp39 ;
+  spinlock_t *__cil_tmp40 ;
 
   {
   {
 #line 801
-  __cil_tmp20 = & err;
-#line 801
-  *__cil_tmp20 = -14;
+  err = -14;
 #line 805
   p = (int *)arg;
 #line 807
@@ -12466,25 +11665,29 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
   }
   {
 #line 809
-  __cil_tmp21 = (int )cmd;
+  __cil_tmp20 = (int )cmd;
 #line 809
-  if (__cil_tmp21 == -1073449922) {
+  if (__cil_tmp20 == -1073449922) {
+#line 809
     goto case_neg_1073449922;
   } else {
     {
 #line 824
-    __cil_tmp22 = (int )cmd;
+    __cil_tmp21 = (int )cmd;
 #line 824
-    if (__cil_tmp22 == 1074033725) {
+    if (__cil_tmp21 == 1074033725) {
+#line 824
       goto case_1074033725;
     } else {
       {
 #line 840
-      __cil_tmp23 = (int )cmd;
+      __cil_tmp22 = (int )cmd;
 #line 840
-      if (__cil_tmp23 == 1074033720) {
+      if (__cil_tmp22 == 1074033720) {
+#line 840
         goto case_1074033720;
       } else {
+#line 855
         goto switch_default___3;
 #line 808
         if (0) {
@@ -12495,27 +11698,34 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           }
 #line 811
           if (1) {
+#line 811
             goto case_4;
           } else {
+#line 811
             goto switch_default;
 #line 811
             if (0) {
 #line 811
               __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 811
               goto ldv_39950;
 #line 811
               __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 811
               goto ldv_39950;
               case_4: 
 #line 811
               __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 811
               goto ldv_39950;
 #line 811
               __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 811
               goto ldv_39950;
               switch_default: 
 #line 811
               __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu), "=d" (__val_gu): "0" (p));
+#line 811
               goto ldv_39950;
             } else {
 
@@ -12526,6 +11736,7 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           unit = (int )__val_gu;
 #line 811
           if (__ret_gu != 0) {
+#line 812
             goto ldv_39956;
           } else {
 
@@ -12536,13 +11747,14 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           }
           {
 #line 814
-          __cil_tmp24 = (struct ppp *)0;
+          __cil_tmp23 = (struct ppp *)0;
 #line 814
-          __cil_tmp25 = (unsigned long )__cil_tmp24;
+          __cil_tmp24 = (unsigned long )__cil_tmp23;
 #line 814
-          __cil_tmp26 = (unsigned long )ppp;
+          __cil_tmp25 = (unsigned long )ppp;
 #line 814
-          if (__cil_tmp26 == __cil_tmp25) {
+          if (__cil_tmp25 == __cil_tmp24) {
+#line 815
             goto ldv_39956;
           } else {
 
@@ -12550,62 +11762,53 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           }
           {
 #line 816
-          __cil_tmp27 = (unsigned long )file;
+          __cil_tmp26 = & ppp->file;
 #line 816
-          __cil_tmp28 = __cil_tmp27 + 328;
-#line 816
-          __cil_tmp29 = (struct ppp_file *)ppp;
-#line 816
-          *((void **)__cil_tmp28) = (void *)__cil_tmp29;
+          file->private_data = (void *)__cil_tmp26;
 #line 817
-          __cil_tmp30 = (unsigned long )ppp;
-#line 817
-          __cil_tmp31 = __cil_tmp30 + 328;
-#line 817
-          *((struct file **)__cil_tmp31) = file;
+          ppp->owner = file;
 #line 818
-          __cil_tmp32 = & err;
-#line 818
-          *__cil_tmp32 = -14;
+          err = -14;
 #line 819
           might_fault();
 #line 819
-          __cil_tmp33 = 0 + 320;
-#line 819
-          __cil_tmp34 = (unsigned long )ppp;
-#line 819
-          __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 819
-          __pu_val = *((int *)__cil_tmp35);
+          __pu_val = ppp->file.index;
           }
 #line 819
           if (1) {
+#line 819
             goto case_4___0;
           } else {
+#line 819
             goto switch_default___0;
 #line 819
             if (0) {
 #line 819
               __asm__  volatile   ("call __put_user_1": "=a" (__ret_pu): "0" (__pu_val),
                                    "c" (p): "ebx");
+#line 819
               goto ldv_39960;
 #line 819
               __asm__  volatile   ("call __put_user_2": "=a" (__ret_pu): "0" (__pu_val),
                                    "c" (p): "ebx");
+#line 819
               goto ldv_39960;
               case_4___0: 
 #line 819
               __asm__  volatile   ("call __put_user_4": "=a" (__ret_pu): "0" (__pu_val),
                                    "c" (p): "ebx");
+#line 819
               goto ldv_39960;
 #line 819
               __asm__  volatile   ("call __put_user_8": "=a" (__ret_pu): "0" (__pu_val),
                                    "c" (p): "ebx");
+#line 819
               goto ldv_39960;
               switch_default___0: 
 #line 819
               __asm__  volatile   ("call __put_user_X": "=a" (__ret_pu): "0" (__pu_val),
                                    "c" (p): "ebx");
+#line 819
               goto ldv_39960;
             } else {
 
@@ -12614,14 +11817,14 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           ldv_39960: ;
 #line 819
           if (__ret_pu != 0) {
+#line 820
             goto ldv_39956;
           } else {
 
           }
 #line 821
-          __cil_tmp36 = & err;
-#line 821
-          *__cil_tmp36 = 0;
+          err = 0;
+#line 822
           goto ldv_39956;
           case_1074033725: 
           {
@@ -12630,27 +11833,34 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           }
 #line 826
           if (1) {
+#line 826
             goto case_4___1;
           } else {
+#line 826
             goto switch_default___1;
 #line 826
             if (0) {
 #line 826
               __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu___0), "=d" (__val_gu___0): "0" (p));
+#line 826
               goto ldv_39970;
 #line 826
               __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu___0), "=d" (__val_gu___0): "0" (p));
+#line 826
               goto ldv_39970;
               case_4___1: 
 #line 826
               __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu___0), "=d" (__val_gu___0): "0" (p));
+#line 826
               goto ldv_39970;
 #line 826
               __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu___0), "=d" (__val_gu___0): "0" (p));
+#line 826
               goto ldv_39970;
               switch_default___1: 
 #line 826
               __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu___0), "=d" (__val_gu___0): "0" (p));
+#line 826
               goto ldv_39970;
             } else {
 
@@ -12661,60 +11871,43 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           unit = (int )__val_gu___0;
 #line 826
           if (__ret_gu___0 != 0) {
+#line 827
             goto ldv_39956;
           } else {
 
           }
           {
 #line 828
-          __cil_tmp37 = & err;
-#line 828
-          *__cil_tmp37 = -6;
+          err = -6;
 #line 829
           pn = ppp_pernet(net);
 #line 830
-          __cil_tmp38 = (unsigned long )pn;
+          __cil_tmp27 = & pn->all_ppp_mutex;
 #line 830
-          __cil_tmp39 = __cil_tmp38 + 96;
-#line 830
-          __cil_tmp40 = (struct mutex *)__cil_tmp39;
-#line 830
-          mutex_lock_nested(__cil_tmp40, 0U);
+          mutex_lock_nested(__cil_tmp27, 0U);
 #line 831
           ppp = ppp_find_unit(pn, unit);
           }
           {
 #line 832
-          __cil_tmp41 = (struct ppp *)0;
+          __cil_tmp28 = (struct ppp *)0;
 #line 832
-          __cil_tmp42 = (unsigned long )__cil_tmp41;
+          __cil_tmp29 = (unsigned long )__cil_tmp28;
 #line 832
-          __cil_tmp43 = (unsigned long )ppp;
+          __cil_tmp30 = (unsigned long )ppp;
 #line 832
-          if (__cil_tmp43 != __cil_tmp42) {
+          if (__cil_tmp30 != __cil_tmp29) {
             {
 #line 833
-            __cil_tmp44 = 0 + 312;
+            __cil_tmp31 = & ppp->file.refcnt;
 #line 833
-            __cil_tmp45 = (unsigned long )ppp;
-#line 833
-            __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
-#line 833
-            __cil_tmp47 = (atomic_t *)__cil_tmp46;
-#line 833
-            atomic_inc(__cil_tmp47);
+            atomic_inc(__cil_tmp31);
 #line 834
-            __cil_tmp48 = (unsigned long )file;
+            __cil_tmp32 = & ppp->file;
 #line 834
-            __cil_tmp49 = __cil_tmp48 + 328;
-#line 834
-            __cil_tmp50 = (struct ppp_file *)ppp;
-#line 834
-            *((void **)__cil_tmp49) = (void *)__cil_tmp50;
+            file->private_data = (void *)__cil_tmp32;
 #line 835
-            __cil_tmp51 = & err;
-#line 835
-            *__cil_tmp51 = 0;
+            err = 0;
             }
           } else {
 
@@ -12722,14 +11915,11 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           }
           {
 #line 837
-          __cil_tmp52 = (unsigned long )pn;
+          __cil_tmp33 = & pn->all_ppp_mutex;
 #line 837
-          __cil_tmp53 = __cil_tmp52 + 96;
-#line 837
-          __cil_tmp54 = (struct mutex *)__cil_tmp53;
-#line 837
-          mutex_unlock(__cil_tmp54);
+          mutex_unlock(__cil_tmp33);
           }
+#line 838
           goto ldv_39956;
           case_1074033720: 
           {
@@ -12738,27 +11928,34 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           }
 #line 841
           if (1) {
+#line 841
             goto case_4___2;
           } else {
+#line 841
             goto switch_default___2;
 #line 841
             if (0) {
 #line 841
               __asm__  volatile   ("call __get_user_1": "=a" (__ret_gu___1), "=d" (__val_gu___1): "0" (p));
+#line 841
               goto ldv_39980;
 #line 841
               __asm__  volatile   ("call __get_user_2": "=a" (__ret_gu___1), "=d" (__val_gu___1): "0" (p));
+#line 841
               goto ldv_39980;
               case_4___2: 
 #line 841
               __asm__  volatile   ("call __get_user_4": "=a" (__ret_gu___1), "=d" (__val_gu___1): "0" (p));
+#line 841
               goto ldv_39980;
 #line 841
               __asm__  volatile   ("call __get_user_8": "=a" (__ret_gu___1), "=d" (__val_gu___1): "0" (p));
+#line 841
               goto ldv_39980;
               switch_default___2: 
 #line 841
               __asm__  volatile   ("call __get_user_X": "=a" (__ret_gu___1), "=d" (__val_gu___1): "0" (p));
+#line 841
               goto ldv_39980;
             } else {
 
@@ -12769,60 +11966,43 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           unit = (int )__val_gu___1;
 #line 841
           if (__ret_gu___1 != 0) {
+#line 842
             goto ldv_39956;
           } else {
 
           }
           {
 #line 843
-          __cil_tmp55 = & err;
-#line 843
-          *__cil_tmp55 = -6;
+          err = -6;
 #line 844
           pn = ppp_pernet(net);
 #line 845
-          __cil_tmp56 = (unsigned long )pn;
+          __cil_tmp34 = & pn->all_channels_lock;
 #line 845
-          __cil_tmp57 = __cil_tmp56 + 304;
-#line 845
-          __cil_tmp58 = (spinlock_t *)__cil_tmp57;
-#line 845
-          spin_lock_bh(__cil_tmp58);
+          spin_lock_bh(__cil_tmp34);
 #line 846
           chan = ppp_find_channel(pn, unit);
           }
           {
 #line 847
-          __cil_tmp59 = (struct channel *)0;
+          __cil_tmp35 = (struct channel *)0;
 #line 847
-          __cil_tmp60 = (unsigned long )__cil_tmp59;
+          __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 847
-          __cil_tmp61 = (unsigned long )chan;
+          __cil_tmp37 = (unsigned long )chan;
 #line 847
-          if (__cil_tmp61 != __cil_tmp60) {
+          if (__cil_tmp37 != __cil_tmp36) {
             {
 #line 848
-            __cil_tmp62 = 0 + 312;
+            __cil_tmp38 = & chan->file.refcnt;
 #line 848
-            __cil_tmp63 = (unsigned long )chan;
-#line 848
-            __cil_tmp64 = __cil_tmp63 + __cil_tmp62;
-#line 848
-            __cil_tmp65 = (atomic_t *)__cil_tmp64;
-#line 848
-            atomic_inc(__cil_tmp65);
+            atomic_inc(__cil_tmp38);
 #line 849
-            __cil_tmp66 = (unsigned long )file;
+            __cil_tmp39 = & chan->file;
 #line 849
-            __cil_tmp67 = __cil_tmp66 + 328;
-#line 849
-            __cil_tmp68 = (struct ppp_file *)chan;
-#line 849
-            *((void **)__cil_tmp67) = (void *)__cil_tmp68;
+            file->private_data = (void *)__cil_tmp39;
 #line 850
-            __cil_tmp69 = & err;
-#line 850
-            *__cil_tmp69 = 0;
+            err = 0;
             }
           } else {
 
@@ -12830,20 +12010,15 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
           }
           {
 #line 852
-          __cil_tmp70 = (unsigned long )pn;
+          __cil_tmp40 = & pn->all_channels_lock;
 #line 852
-          __cil_tmp71 = __cil_tmp70 + 304;
-#line 852
-          __cil_tmp72 = (spinlock_t *)__cil_tmp71;
-#line 852
-          spin_unlock_bh(__cil_tmp72);
+          spin_unlock_bh(__cil_tmp40);
           }
+#line 853
           goto ldv_39956;
           switch_default___3: 
 #line 856
-          __cil_tmp73 = & err;
-#line 856
-          *__cil_tmp73 = -25;
+          err = -25;
         } else {
 
         }
@@ -12858,12 +12033,8 @@ static int ppp_unattached_ioctl(struct net *net , struct ppp_file *pf , struct f
 #line 858
   mutex_unlock(& ppp_mutex);
   }
-  {
 #line 859
-  __cil_tmp74 = & err;
-#line 859
-  return (*__cil_tmp74);
-  }
+  return (err);
 }
 }
 #line 862 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
@@ -12901,81 +12072,45 @@ static int ppp_init_net(struct net *net )
   struct lock_class_key __key ;
   struct lock_class_key __key___0 ;
   struct net  const  *__cil_tmp6 ;
-  int *__cil_tmp7 ;
-  int __cil_tmp8 ;
-  struct idr *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct mutex *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct list_head *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct list_head *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  spinlock_t *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct raw_spinlock *__cil_tmp24 ;
+  struct idr *__cil_tmp7 ;
+  struct mutex *__cil_tmp8 ;
+  struct list_head *__cil_tmp9 ;
+  struct list_head *__cil_tmp10 ;
+  spinlock_t *__cil_tmp11 ;
+  struct raw_spinlock *__cil_tmp12 ;
 
   {
   {
 #line 875
   __cil_tmp6 = (struct net  const  *)net;
 #line 875
-  __cil_tmp7 = & ppp_net_id;
-#line 875
-  __cil_tmp8 = *__cil_tmp7;
-#line 875
-  tmp = net_generic(__cil_tmp6, __cil_tmp8);
+  tmp = net_generic(__cil_tmp6, ppp_net_id);
 #line 875
   pn = (struct ppp_net *)tmp;
 #line 877
-  __cil_tmp9 = (struct idr *)pn;
+  __cil_tmp7 = & pn->units_idr;
 #line 877
-  idr_init(__cil_tmp9);
+  idr_init(__cil_tmp7);
 #line 878
-  __cil_tmp10 = (unsigned long )pn;
+  __cil_tmp8 = & pn->all_ppp_mutex;
 #line 878
-  __cil_tmp11 = __cil_tmp10 + 96;
-#line 878
-  __cil_tmp12 = (struct mutex *)__cil_tmp11;
-#line 878
-  __mutex_init(__cil_tmp12, "&pn->all_ppp_mutex", & __key);
+  __mutex_init(__cil_tmp8, "&pn->all_ppp_mutex", & __key);
 #line 880
-  __cil_tmp13 = (unsigned long )pn;
+  __cil_tmp9 = & pn->all_channels;
 #line 880
-  __cil_tmp14 = __cil_tmp13 + 264;
-#line 880
-  __cil_tmp15 = (struct list_head *)__cil_tmp14;
-#line 880
-  INIT_LIST_HEAD(__cil_tmp15);
+  INIT_LIST_HEAD(__cil_tmp9);
 #line 881
-  __cil_tmp16 = (unsigned long )pn;
+  __cil_tmp10 = & pn->new_channels;
 #line 881
-  __cil_tmp17 = __cil_tmp16 + 280;
-#line 881
-  __cil_tmp18 = (struct list_head *)__cil_tmp17;
-#line 881
-  INIT_LIST_HEAD(__cil_tmp18);
+  INIT_LIST_HEAD(__cil_tmp10);
 #line 883
-  __cil_tmp19 = (unsigned long )pn;
+  __cil_tmp11 = & pn->all_channels_lock;
 #line 883
-  __cil_tmp20 = __cil_tmp19 + 304;
+  spinlock_check(__cil_tmp11);
 #line 883
-  __cil_tmp21 = (spinlock_t *)__cil_tmp20;
+  __cil_tmp12 = & pn->all_channels_lock.ldv_6060.rlock;
 #line 883
-  spinlock_check(__cil_tmp21);
-#line 883
-  __cil_tmp22 = (unsigned long )pn;
-#line 883
-  __cil_tmp23 = __cil_tmp22 + 304;
-#line 883
-  __cil_tmp24 = (struct raw_spinlock *)__cil_tmp23;
-#line 883
-  __raw_spin_lock_init(__cil_tmp24, "&(&pn->all_channels_lock)->rlock", & __key___0);
+  __raw_spin_lock_init(__cil_tmp12, "&(&pn->all_channels_lock)->rlock", & __key___0);
   }
 #line 885
   return (0);
@@ -12986,26 +12121,20 @@ static void ppp_exit_net(struct net *net )
 { struct ppp_net *pn ;
   void *tmp ;
   struct net  const  *__cil_tmp4 ;
-  int *__cil_tmp5 ;
-  int __cil_tmp6 ;
-  struct idr *__cil_tmp7 ;
+  struct idr *__cil_tmp5 ;
 
   {
   {
 #line 890
   __cil_tmp4 = (struct net  const  *)net;
 #line 890
-  __cil_tmp5 = & ppp_net_id;
-#line 890
-  __cil_tmp6 = *__cil_tmp5;
-#line 890
-  tmp = net_generic(__cil_tmp4, __cil_tmp6);
+  tmp = net_generic(__cil_tmp4, ppp_net_id);
 #line 890
   pn = (struct ppp_net *)tmp;
 #line 892
-  __cil_tmp7 = (struct idr *)pn;
+  __cil_tmp5 = & pn->units_idr;
 #line 892
-  idr_destroy(__cil_tmp7);
+  idr_destroy(__cil_tmp5);
   }
 #line 893
   return;
@@ -13039,6 +12168,7 @@ static int ppp_init(void)
 #line 914
     printk("<3>failed to register PPP pernet device (%d)\n", err);
     }
+#line 915
     goto out;
   } else {
 
@@ -13053,6 +12183,7 @@ static int ppp_init(void)
 #line 920
     printk("<3>failed to register PPP device (%d)\n", err);
     }
+#line 921
     goto out_net;
   } else {
 
@@ -13077,6 +12208,7 @@ static int ppp_init(void)
 #line 926
     err = (int )tmp___0;
     }
+#line 927
     goto out_chrdev;
   } else {
 
@@ -13116,58 +12248,28 @@ static netdev_tx_t ppp_start_xmit(struct sk_buff *skb , struct net_device *dev )
   __u16 tmp___0 ;
   int tmp___1 ;
   struct net_device  const  *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  __be16 __cil_tmp13 ;
+  __be16 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  __u16 __cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned short __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  enum NPmode __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  enum NPmode __cil_tmp18 ;
+  unsigned int __cil_tmp19 ;
+  int __cil_tmp20 ;
   enum NPmode __cil_tmp21 ;
   unsigned int __cil_tmp22 ;
   int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  enum NPmode __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  enum NPmode __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  u16 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u16 __cil_tmp29 ;
+  void *__cil_tmp30 ;
+  struct sk_buff_head *__cil_tmp31 ;
   unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  enum NPmode __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  enum NPmode __cil_tmp42 ;
-  unsigned int __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned short __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned short __cil_tmp50 ;
-  void *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct sk_buff_head *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
 
   {
   {
@@ -13178,116 +12280,87 @@ static netdev_tx_t ppp_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 949
   ppp = (struct ppp *)tmp;
 #line 953
-  __cil_tmp11 = (unsigned long )skb;
+  __cil_tmp11 = skb->protocol;
 #line 953
-  __cil_tmp12 = __cil_tmp11 + 126;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 953
-  __cil_tmp13 = *((__be16 *)__cil_tmp12);
+  __cil_tmp13 = (__u16 )__cil_tmp12;
 #line 953
-  __cil_tmp14 = (int )__cil_tmp13;
+  tmp___0 = __fswab16(__cil_tmp13);
 #line 953
-  __cil_tmp15 = (unsigned short )__cil_tmp14;
+  __cil_tmp14 = (int )tmp___0;
 #line 953
-  tmp___0 = __fswab16(__cil_tmp15);
-#line 953
-  __cil_tmp16 = (int )tmp___0;
-#line 953
-  npi = ethertype_to_npindex(__cil_tmp16);
+  npi = ethertype_to_npindex(__cil_tmp14);
   }
 #line 954
   if (npi < 0) {
+#line 955
     goto outf;
   } else {
 
   }
   {
 #line 959
-  __cil_tmp17 = npi * 32UL;
+  __cil_tmp15 = ppp->npmode[npi];
 #line 959
-  __cil_tmp18 = 536 + __cil_tmp17;
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 959
-  __cil_tmp19 = (unsigned long )ppp;
+  __cil_tmp17 = (int )__cil_tmp16;
 #line 959
-  __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
+  if (__cil_tmp17 == 0) {
 #line 959
-  __cil_tmp21 = *((enum NPmode *)__cil_tmp20);
-#line 959
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
-#line 959
-  __cil_tmp23 = (int )__cil_tmp22;
-#line 959
-  if (__cil_tmp23 == 0) {
     goto case_0;
   } else {
     {
 #line 961
-    __cil_tmp24 = npi * 32UL;
+    __cil_tmp18 = ppp->npmode[npi];
 #line 961
-    __cil_tmp25 = 536 + __cil_tmp24;
+    __cil_tmp19 = (unsigned int )__cil_tmp18;
 #line 961
-    __cil_tmp26 = (unsigned long )ppp;
+    __cil_tmp20 = (int )__cil_tmp19;
 #line 961
-    __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
+    if (__cil_tmp20 == 3) {
 #line 961
-    __cil_tmp28 = *((enum NPmode *)__cil_tmp27);
-#line 961
-    __cil_tmp29 = (unsigned int )__cil_tmp28;
-#line 961
-    __cil_tmp30 = (int )__cil_tmp29;
-#line 961
-    if (__cil_tmp30 == 3) {
       goto case_3;
     } else {
       {
 #line 965
-      __cil_tmp31 = npi * 32UL;
+      __cil_tmp21 = ppp->npmode[npi];
 #line 965
-      __cil_tmp32 = 536 + __cil_tmp31;
+      __cil_tmp22 = (unsigned int )__cil_tmp21;
 #line 965
-      __cil_tmp33 = (unsigned long )ppp;
+      __cil_tmp23 = (int )__cil_tmp22;
 #line 965
-      __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
+      if (__cil_tmp23 == 1) {
 #line 965
-      __cil_tmp35 = *((enum NPmode *)__cil_tmp34);
-#line 965
-      __cil_tmp36 = (unsigned int )__cil_tmp35;
-#line 965
-      __cil_tmp37 = (int )__cil_tmp36;
-#line 965
-      if (__cil_tmp37 == 1) {
         goto case_1;
       } else {
         {
 #line 966
-        __cil_tmp38 = npi * 32UL;
+        __cil_tmp24 = ppp->npmode[npi];
 #line 966
-        __cil_tmp39 = 536 + __cil_tmp38;
+        __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 966
-        __cil_tmp40 = (unsigned long )ppp;
+        __cil_tmp26 = (int )__cil_tmp25;
 #line 966
-        __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
+        if (__cil_tmp26 == 2) {
 #line 966
-        __cil_tmp42 = *((enum NPmode *)__cil_tmp41);
-#line 966
-        __cil_tmp43 = (unsigned int )__cil_tmp42;
-#line 966
-        __cil_tmp44 = (int )__cil_tmp43;
-#line 966
-        if (__cil_tmp44 == 2) {
           goto case_2;
-        } else {
+        } else
 #line 958
-          if (0) {
-            case_0: ;
-            goto ldv_40018;
-            case_3: ;
-            goto outf;
-            case_1: ;
-            case_2: ;
-            goto outf;
-          } else {
+        if (0) {
+          case_0: ;
+#line 960
+          goto ldv_40018;
+          case_3: ;
+#line 964
+          goto outf;
+          case_1: ;
+          case_2: ;
+#line 967
+          goto outf;
+        } else {
 
-          }
         }
         }
       }
@@ -13303,6 +12376,7 @@ static netdev_tx_t ppp_start_xmit(struct sk_buff *skb , struct net_device *dev )
   }
 #line 972
   if (tmp___1 != 0) {
+#line 973
     goto outf;
   } else {
 
@@ -13311,63 +12385,39 @@ static netdev_tx_t ppp_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 975
   pp = skb_push(skb, 2U);
 #line 976
-  __cil_tmp45 = npi * 4UL;
-#line 976
-  __cil_tmp46 = (unsigned long )(npindex_to_proto) + __cil_tmp45;
-#line 976
-  __cil_tmp47 = *((int const   *)__cil_tmp46);
-#line 976
-  proto = (int )__cil_tmp47;
+  proto = (int )npindex_to_proto[npi];
 #line 977
-  __cil_tmp48 = (unsigned short )proto;
+  __cil_tmp27 = (u16 )proto;
 #line 977
-  __cil_tmp49 = (int )__cil_tmp48;
+  __cil_tmp28 = (int )__cil_tmp27;
 #line 977
-  __cil_tmp50 = (unsigned short )__cil_tmp49;
+  __cil_tmp29 = (u16 )__cil_tmp28;
 #line 977
-  __cil_tmp51 = (void *)pp;
+  __cil_tmp30 = (void *)pp;
 #line 977
-  put_unaligned_be16(__cil_tmp50, __cil_tmp51);
+  put_unaligned_be16(__cil_tmp29, __cil_tmp30);
 #line 979
   netif_stop_queue(dev);
 #line 980
-  __cil_tmp52 = 0 + 32;
+  __cil_tmp31 = & ppp->file.xq;
 #line 980
-  __cil_tmp53 = (unsigned long )ppp;
-#line 980
-  __cil_tmp54 = __cil_tmp53 + __cil_tmp52;
-#line 980
-  __cil_tmp55 = (struct sk_buff_head *)__cil_tmp54;
-#line 980
-  skb_queue_tail(__cil_tmp55, skb);
+  skb_queue_tail(__cil_tmp31, skb);
 #line 981
   ppp_xmit_process(ppp);
   }
 #line 982
-  return ((enum netdev_tx )0);
+  return ((netdev_tx_t )0);
   outf: 
   {
 #line 985
   kfree_skb(skb);
 #line 986
-  __cil_tmp56 = 200 + 56;
+  __cil_tmp32 = dev->stats.tx_dropped;
 #line 986
-  __cil_tmp57 = (unsigned long )dev;
-#line 986
-  __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
-#line 986
-  __cil_tmp59 = 200 + 56;
-#line 986
-  __cil_tmp60 = (unsigned long )dev;
-#line 986
-  __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 986
-  __cil_tmp62 = *((unsigned long *)__cil_tmp61);
-#line 986
-  *((unsigned long *)__cil_tmp58) = __cil_tmp62 + 1UL;
+  dev->stats.tx_dropped = __cil_tmp32 + 1UL;
   }
 #line 987
-  return ((enum netdev_tx )0);
+  return ((netdev_tx_t )0);
 }
 }
 #line 991 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
@@ -13384,49 +12434,29 @@ static int ppp_net_ioctl(struct net_device *dev , struct ifreq *ifr , int cmd )
   size_t tmp___2 ;
   int tmp___3 ;
   struct net_device  const  *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  void const   *__cil_tmp18 ;
-  void *__cil_tmp19 ;
+  void const   *__cil_tmp16 ;
+  void *__cil_tmp17 ;
+  void *__cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
   void *__cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  struct compressor *__cil_tmp22 ;
+  void (*__cil_tmp23)(void * , struct compstat * ) ;
   void *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  struct compstat *__cil_tmp25 ;
+  void *__cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  struct compressor *__cil_tmp28 ;
+  void *__cil_tmp28 ;
   unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  struct compressor *__cil_tmp30 ;
   void (*__cil_tmp31)(void * , struct compstat * ) ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  void *__cil_tmp34 ;
-  struct ppp_comp_stats *__cil_tmp35 ;
-  struct compstat *__cil_tmp36 ;
-  void *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  void *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct compressor *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  void (*__cil_tmp48)(void * , struct compstat * ) ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  void *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct compstat *__cil_tmp53 ;
-  void const   *__cil_tmp54 ;
-  char const   *__cil_tmp55 ;
-  void const   *__cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  unsigned int __cil_tmp58 ;
+  void *__cil_tmp32 ;
+  struct compstat *__cil_tmp33 ;
+  void const   *__cil_tmp34 ;
+  char const   *__cil_tmp35 ;
+  void const   *__cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
 
   {
   {
@@ -13439,190 +12469,158 @@ static int ppp_net_ioctl(struct net_device *dev , struct ifreq *ifr , int cmd )
 #line 994
   err = -14;
 #line 995
-  __cil_tmp16 = (unsigned long )ifr;
-#line 995
-  __cil_tmp17 = __cil_tmp16 + 16;
-#line 995
-  addr = *((void **)__cil_tmp17);
+  addr = ifr->ifr_ifru.ifru_data;
   }
 #line 1001
   if (cmd == 35312) {
+#line 1001
     goto case_35312;
-  } else {
+  } else
 #line 1008
-    if (cmd == 35314) {
-      goto case_35314;
-    } else {
+  if (cmd == 35314) {
+#line 1008
+    goto case_35314;
+  } else
 #line 1019
-      if (cmd == 35313) {
-        goto case_35313;
-      } else {
-        goto switch_default;
+  if (cmd == 35313) {
+#line 1019
+    goto case_35313;
+  } else {
+#line 1026
+    goto switch_default;
 #line 1000
-        if (0) {
-          case_35312: 
-          {
+    if (0) {
+      case_35312: 
+      {
 #line 1002
-          ppp_get_stats(ppp, & stats);
+      ppp_get_stats(ppp, & stats);
 #line 1003
-          __cil_tmp18 = (void const   *)(& stats);
+      __cil_tmp16 = (void const   *)(& stats);
 #line 1003
-          tmp___0 = copy_to_user(addr, __cil_tmp18, 76U);
-          }
-#line 1003
-          if (tmp___0 != 0) {
-            goto ldv_40034;
-          } else {
-
-          }
-#line 1005
-          err = 0;
-          goto ldv_40034;
-          case_35314: 
-          {
-#line 1009
-          __cil_tmp19 = (void *)(& cstats);
-#line 1009
-          memset(__cil_tmp19, 0, 80UL);
-          }
-          {
-#line 1010
-          __cil_tmp20 = (void *)0;
-#line 1010
-          __cil_tmp21 = (unsigned long )__cil_tmp20;
-#line 1010
-          __cil_tmp22 = (unsigned long )ppp;
-#line 1010
-          __cil_tmp23 = __cil_tmp22 + 744;
-#line 1010
-          __cil_tmp24 = *((void **)__cil_tmp23);
-#line 1010
-          __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 1010
-          if (__cil_tmp25 != __cil_tmp21) {
-            {
-#line 1011
-            __cil_tmp26 = (unsigned long )ppp;
-#line 1011
-            __cil_tmp27 = __cil_tmp26 + 736;
-#line 1011
-            __cil_tmp28 = *((struct compressor **)__cil_tmp27);
-#line 1011
-            __cil_tmp29 = (unsigned long )__cil_tmp28;
-#line 1011
-            __cil_tmp30 = __cil_tmp29 + 48;
-#line 1011
-            __cil_tmp31 = *((void (**)(void * , struct compstat * ))__cil_tmp30);
-#line 1011
-            __cil_tmp32 = (unsigned long )ppp;
-#line 1011
-            __cil_tmp33 = __cil_tmp32 + 744;
-#line 1011
-            __cil_tmp34 = *((void **)__cil_tmp33);
-#line 1011
-            __cil_tmp35 = & cstats;
-#line 1011
-            __cil_tmp36 = (struct compstat *)__cil_tmp35;
-#line 1011
-            (*__cil_tmp31)(__cil_tmp34, __cil_tmp36);
-            }
-          } else {
-
-          }
-          }
-          {
-#line 1012
-          __cil_tmp37 = (void *)0;
-#line 1012
-          __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 1012
-          __cil_tmp39 = (unsigned long )ppp;
-#line 1012
-          __cil_tmp40 = __cil_tmp39 + 760;
-#line 1012
-          __cil_tmp41 = *((void **)__cil_tmp40);
-#line 1012
-          __cil_tmp42 = (unsigned long )__cil_tmp41;
-#line 1012
-          if (__cil_tmp42 != __cil_tmp38) {
-            {
-#line 1013
-            __cil_tmp43 = (unsigned long )ppp;
-#line 1013
-            __cil_tmp44 = __cil_tmp43 + 752;
-#line 1013
-            __cil_tmp45 = *((struct compressor **)__cil_tmp44);
-#line 1013
-            __cil_tmp46 = (unsigned long )__cil_tmp45;
-#line 1013
-            __cil_tmp47 = __cil_tmp46 + 104;
-#line 1013
-            __cil_tmp48 = *((void (**)(void * , struct compstat * ))__cil_tmp47);
-#line 1013
-            __cil_tmp49 = (unsigned long )ppp;
-#line 1013
-            __cil_tmp50 = __cil_tmp49 + 760;
-#line 1013
-            __cil_tmp51 = *((void **)__cil_tmp50);
-#line 1013
-            __cil_tmp52 = (unsigned long )(& cstats) + 40;
-#line 1013
-            __cil_tmp53 = (struct compstat *)__cil_tmp52;
-#line 1013
-            (*__cil_tmp48)(__cil_tmp51, __cil_tmp53);
-            }
-          } else {
-
-          }
-          }
-          {
-#line 1014
-          __cil_tmp54 = (void const   *)(& cstats);
-#line 1014
-          tmp___1 = copy_to_user(addr, __cil_tmp54, 80U);
-          }
-#line 1014
-          if (tmp___1 != 0) {
-            goto ldv_40034;
-          } else {
-
-          }
-#line 1016
-          err = 0;
-          goto ldv_40034;
-          case_35313: 
-          {
-#line 1020
-          vers = (char *)"2.4.2";
-#line 1021
-          __cil_tmp55 = (char const   *)vers;
-#line 1021
-          tmp___2 = strlen(__cil_tmp55);
-#line 1021
-          __cil_tmp56 = (void const   *)vers;
-#line 1021
-          __cil_tmp57 = (unsigned int )tmp___2;
-#line 1021
-          __cil_tmp58 = __cil_tmp57 + 1U;
-#line 1021
-          tmp___3 = copy_to_user(addr, __cil_tmp56, __cil_tmp58);
-          }
-#line 1021
-          if (tmp___3 != 0) {
-            goto ldv_40034;
-          } else {
-
-          }
-#line 1023
-          err = 0;
-          goto ldv_40034;
-          switch_default: 
-#line 1027
-          err = -22;
-        } else {
-
-        }
+      tmp___0 = copy_to_user(addr, __cil_tmp16, 76U);
       }
+#line 1003
+      if (tmp___0 != 0) {
+#line 1004
+        goto ldv_40034;
+      } else {
+
+      }
+#line 1005
+      err = 0;
+#line 1006
+      goto ldv_40034;
+      case_35314: 
+      {
+#line 1009
+      __cil_tmp17 = (void *)(& cstats);
+#line 1009
+      memset(__cil_tmp17, 0, 80UL);
+      }
+      {
+#line 1010
+      __cil_tmp18 = (void *)0;
+#line 1010
+      __cil_tmp19 = (unsigned long )__cil_tmp18;
+#line 1010
+      __cil_tmp20 = ppp->xc_state;
+#line 1010
+      __cil_tmp21 = (unsigned long )__cil_tmp20;
+#line 1010
+      if (__cil_tmp21 != __cil_tmp19) {
+        {
+#line 1011
+        __cil_tmp22 = ppp->xcomp;
+#line 1011
+        __cil_tmp23 = __cil_tmp22->comp_stat;
+#line 1011
+        __cil_tmp24 = ppp->xc_state;
+#line 1011
+        __cil_tmp25 = & cstats.c;
+#line 1011
+        (*__cil_tmp23)(__cil_tmp24, __cil_tmp25);
+        }
+      } else {
+
+      }
+      }
+      {
+#line 1012
+      __cil_tmp26 = (void *)0;
+#line 1012
+      __cil_tmp27 = (unsigned long )__cil_tmp26;
+#line 1012
+      __cil_tmp28 = ppp->rc_state;
+#line 1012
+      __cil_tmp29 = (unsigned long )__cil_tmp28;
+#line 1012
+      if (__cil_tmp29 != __cil_tmp27) {
+        {
+#line 1013
+        __cil_tmp30 = ppp->rcomp;
+#line 1013
+        __cil_tmp31 = __cil_tmp30->decomp_stat;
+#line 1013
+        __cil_tmp32 = ppp->rc_state;
+#line 1013
+        __cil_tmp33 = & cstats.d;
+#line 1013
+        (*__cil_tmp31)(__cil_tmp32, __cil_tmp33);
+        }
+      } else {
+
+      }
+      }
+      {
+#line 1014
+      __cil_tmp34 = (void const   *)(& cstats);
+#line 1014
+      tmp___1 = copy_to_user(addr, __cil_tmp34, 80U);
+      }
+#line 1014
+      if (tmp___1 != 0) {
+#line 1015
+        goto ldv_40034;
+      } else {
+
+      }
+#line 1016
+      err = 0;
+#line 1017
+      goto ldv_40034;
+      case_35313: 
+      {
+#line 1020
+      vers = (char *)"2.4.2";
+#line 1021
+      __cil_tmp35 = (char const   *)vers;
+#line 1021
+      tmp___2 = strlen(__cil_tmp35);
+#line 1021
+      __cil_tmp36 = (void const   *)vers;
+#line 1021
+      __cil_tmp37 = (unsigned int )tmp___2;
+#line 1021
+      __cil_tmp38 = __cil_tmp37 + 1U;
+#line 1021
+      tmp___3 = copy_to_user(addr, __cil_tmp36, __cil_tmp38);
+      }
+#line 1021
+      if (tmp___3 != 0) {
+#line 1022
+        goto ldv_40034;
+      } else {
+
+      }
+#line 1023
+      err = 0;
+#line 1024
+      goto ldv_40034;
+      switch_default: 
+#line 1027
+      err = -22;
+    } else {
+
     }
   }
   ldv_40034: ;
@@ -13671,98 +12669,32 @@ static struct net_device_ops  const  ppp_netdev_ops  =
                                                                                         u32  ))0};
 #line 1038 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void ppp_setup(struct net_device *dev ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  u32 __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
+{ u32 __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
 
   {
 #line 1040
-  __cil_tmp2 = (unsigned long )dev;
-#line 1040
-  __cil_tmp3 = __cil_tmp2 + 408;
-#line 1040
-  *((struct net_device_ops  const  **)__cil_tmp3) = & ppp_netdev_ops;
+  dev->netdev_ops = & ppp_netdev_ops;
 #line 1041
-  __cil_tmp4 = (unsigned long )dev;
-#line 1041
-  __cil_tmp5 = __cil_tmp4 + 454;
-#line 1041
-  *((unsigned short *)__cil_tmp5) = (unsigned short)4;
+  dev->hard_header_len = (unsigned short)4;
 #line 1042
-  __cil_tmp6 = (unsigned long )dev;
-#line 1042
-  __cil_tmp7 = __cil_tmp6 + 448;
-#line 1042
-  *((unsigned int *)__cil_tmp7) = 1500U;
+  dev->mtu = 1500U;
 #line 1043
-  __cil_tmp8 = (unsigned long )dev;
-#line 1043
-  __cil_tmp9 = __cil_tmp8 + 493;
-#line 1043
-  *((unsigned char *)__cil_tmp9) = (unsigned char)0;
+  dev->addr_len = (unsigned char)0;
 #line 1044
-  __cil_tmp10 = (unsigned long )dev;
-#line 1044
-  __cil_tmp11 = __cil_tmp10 + 864;
-#line 1044
-  *((unsigned long *)__cil_tmp11) = 3UL;
+  dev->tx_queue_len = 3UL;
 #line 1045
-  __cil_tmp12 = (unsigned long )dev;
-#line 1045
-  __cil_tmp13 = __cil_tmp12 + 452;
-#line 1045
-  *((unsigned short *)__cil_tmp13) = (unsigned short)512;
+  dev->type = (unsigned short)512;
 #line 1046
-  __cil_tmp14 = (unsigned long )dev;
-#line 1046
-  __cil_tmp15 = __cil_tmp14 + 432;
-#line 1046
-  *((unsigned int *)__cil_tmp15) = 4240U;
+  dev->flags = 4240U;
 #line 1047
-  __cil_tmp16 = (unsigned long )dev;
+  __cil_tmp2 = dev->features;
 #line 1047
-  __cil_tmp17 = __cil_tmp16 + 176;
-#line 1047
-  __cil_tmp18 = (unsigned long )dev;
-#line 1047
-  __cil_tmp19 = __cil_tmp18 + 176;
-#line 1047
-  __cil_tmp20 = *((u32 *)__cil_tmp19);
-#line 1047
-  *((u32 *)__cil_tmp17) = __cil_tmp20 | 8192U;
+  dev->features = __cil_tmp2 | 8192U;
 #line 1048
-  __cil_tmp21 = (unsigned long )dev;
+  __cil_tmp3 = dev->priv_flags;
 #line 1048
-  __cil_tmp22 = __cil_tmp21 + 436;
-#line 1048
-  __cil_tmp23 = (unsigned long )dev;
-#line 1048
-  __cil_tmp24 = __cil_tmp23 + 436;
-#line 1048
-  __cil_tmp25 = *((unsigned int *)__cil_tmp24);
-#line 1048
-  *((unsigned int *)__cil_tmp22) = __cil_tmp25 & 4294966271U;
+  dev->priv_flags = __cil_tmp3 & 4294966271U;
 #line 1049
   return;
 }
@@ -13771,69 +12703,44 @@ static void ppp_setup(struct net_device *dev )
 static void ppp_xmit_process(struct ppp *ppp ) 
 { struct sk_buff *skb ;
   struct sk_buff *tmp ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  spinlock_t *__cil_tmp6 ;
+  spinlock_t *__cil_tmp4 ;
+  int __cil_tmp5 ;
+  struct sk_buff *__cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
-  struct sk_buff *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  struct sk_buff *__cil_tmp8 ;
+  unsigned long __cil_tmp9 ;
+  struct sk_buff_head *__cil_tmp10 ;
+  struct sk_buff *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
   struct sk_buff *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  struct sk_buff *__cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct sk_buff_head *__cil_tmp19 ;
-  struct sk_buff *__cil_tmp20 ;
+  struct sk_buff_head *__cil_tmp18 ;
+  struct sk_buff *__cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
   unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct sk_buff *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct sk_buff *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct sk_buff_head *__cil_tmp32 ;
-  struct sk_buff *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct net_device *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  spinlock_t *__cil_tmp41 ;
+  struct net_device *__cil_tmp22 ;
+  spinlock_t *__cil_tmp23 ;
 
   {
   {
 #line 1064
-  __cil_tmp4 = (unsigned long )ppp;
+  __cil_tmp4 = & ppp->wlock;
 #line 1064
-  __cil_tmp5 = __cil_tmp4 + 432;
-#line 1064
-  __cil_tmp6 = (spinlock_t *)__cil_tmp5;
-#line 1064
-  spin_lock_bh(__cil_tmp6);
+  spin_lock_bh(__cil_tmp4);
   }
   {
 #line 1065
-  __cil_tmp7 = (unsigned long )ppp;
+  __cil_tmp5 = ppp->closing;
 #line 1065
-  __cil_tmp8 = __cil_tmp7 + 792;
-#line 1065
-  __cil_tmp9 = *((int *)__cil_tmp8);
-#line 1065
-  if (__cil_tmp9 == 0) {
+  if (__cil_tmp5 == 0) {
     {
 #line 1066
     ppp_push(ppp);
     }
+#line 1067
     goto ldv_40047;
     ldv_40046: 
     {
@@ -13843,95 +12750,74 @@ static void ppp_xmit_process(struct ppp *ppp )
     ldv_40047: ;
     {
 #line 1067
-    __cil_tmp10 = (struct sk_buff *)0;
+    __cil_tmp6 = (struct sk_buff *)0;
 #line 1067
-    __cil_tmp11 = (unsigned long )__cil_tmp10;
+    __cil_tmp7 = (unsigned long )__cil_tmp6;
 #line 1067
-    __cil_tmp12 = (unsigned long )ppp;
+    __cil_tmp8 = ppp->xmit_pending;
 #line 1067
-    __cil_tmp13 = __cil_tmp12 + 728;
+    __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 1067
-    __cil_tmp14 = *((struct sk_buff **)__cil_tmp13);
-#line 1067
-    __cil_tmp15 = (unsigned long )__cil_tmp14;
-#line 1067
-    if (__cil_tmp15 == __cil_tmp11) {
+    if (__cil_tmp9 == __cil_tmp7) {
       {
 #line 1067
-      __cil_tmp16 = 0 + 32;
+      __cil_tmp10 = & ppp->file.xq;
 #line 1067
-      __cil_tmp17 = (unsigned long )ppp;
-#line 1067
-      __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 1067
-      __cil_tmp19 = (struct sk_buff_head *)__cil_tmp18;
-#line 1067
-      skb = skb_dequeue(__cil_tmp19);
+      skb = skb_dequeue(__cil_tmp10);
       }
       {
 #line 1067
-      __cil_tmp20 = (struct sk_buff *)0;
+      __cil_tmp11 = (struct sk_buff *)0;
 #line 1067
-      __cil_tmp21 = (unsigned long )__cil_tmp20;
+      __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 1067
-      __cil_tmp22 = (unsigned long )skb;
+      __cil_tmp13 = (unsigned long )skb;
 #line 1067
-      if (__cil_tmp22 != __cil_tmp21) {
+      if (__cil_tmp13 != __cil_tmp12) {
+#line 1068
         goto ldv_40046;
       } else {
+#line 1070
         goto ldv_40048;
       }
       }
     } else {
+#line 1070
       goto ldv_40048;
     }
     }
     ldv_40048: ;
     {
 #line 1072
-    __cil_tmp23 = (struct sk_buff *)0;
+    __cil_tmp14 = (struct sk_buff *)0;
 #line 1072
-    __cil_tmp24 = (unsigned long )__cil_tmp23;
+    __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 1072
-    __cil_tmp25 = (unsigned long )ppp;
+    __cil_tmp16 = ppp->xmit_pending;
 #line 1072
-    __cil_tmp26 = __cil_tmp25 + 728;
+    __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 1072
-    __cil_tmp27 = *((struct sk_buff **)__cil_tmp26);
-#line 1072
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 1072
-    if (__cil_tmp28 == __cil_tmp24) {
+    if (__cil_tmp17 == __cil_tmp15) {
       {
 #line 1072
-      __cil_tmp29 = 0 + 32;
+      __cil_tmp18 = & ppp->file.xq;
 #line 1072
-      __cil_tmp30 = (unsigned long )ppp;
-#line 1072
-      __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 1072
-      __cil_tmp32 = (struct sk_buff_head *)__cil_tmp31;
-#line 1072
-      tmp = skb_peek(__cil_tmp32);
+      tmp = skb_peek(__cil_tmp18);
       }
       {
 #line 1072
-      __cil_tmp33 = (struct sk_buff *)0;
+      __cil_tmp19 = (struct sk_buff *)0;
 #line 1072
-      __cil_tmp34 = (unsigned long )__cil_tmp33;
+      __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 1072
-      __cil_tmp35 = (unsigned long )tmp;
+      __cil_tmp21 = (unsigned long )tmp;
 #line 1072
-      if (__cil_tmp35 == __cil_tmp34) {
+      if (__cil_tmp21 == __cil_tmp20) {
         {
 #line 1073
-        __cil_tmp36 = (unsigned long )ppp;
+        __cil_tmp22 = ppp->dev;
 #line 1073
-        __cil_tmp37 = __cil_tmp36 + 784;
-#line 1073
-        __cil_tmp38 = *((struct net_device **)__cil_tmp37);
-#line 1073
-        netif_wake_queue(__cil_tmp38);
+        netif_wake_queue(__cil_tmp22);
         }
       } else {
 
@@ -13947,13 +12833,9 @@ static void ppp_xmit_process(struct ppp *ppp )
   }
   {
 #line 1075
-  __cil_tmp39 = (unsigned long )ppp;
+  __cil_tmp23 = & ppp->wlock;
 #line 1075
-  __cil_tmp40 = __cil_tmp39 + 432;
-#line 1075
-  __cil_tmp41 = (spinlock_t *)__cil_tmp40;
-#line 1075
-  spin_unlock_bh(__cil_tmp41);
+  spin_unlock_bh(__cil_tmp23);
   }
 #line 1076
   return;
@@ -13967,185 +12849,99 @@ __inline static struct sk_buff *pad_compress_skb(struct ppp *ppp , struct sk_buf
   int compressor_skb_size ;
   int tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct net_device *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned short __cil_tmp14 ;
+  struct net_device *__cil_tmp9 ;
+  unsigned short __cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  struct compressor *__cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  struct net_device *__cil_tmp14 ;
   unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
   struct compressor *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
+  unsigned int __cil_tmp19 ;
+  struct net_device *__cil_tmp20 ;
   unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct net_device *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  struct sk_buff *__cil_tmp25 ;
   unsigned long __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct compressor *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct net_device *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned int __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
+  unsigned long __cil_tmp27 ;
+  struct net_device *__cil_tmp28 ;
+  struct net_device  const  *__cil_tmp29 ;
+  struct net_device *__cil_tmp30 ;
+  unsigned short __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  struct net_device *__cil_tmp33 ;
+  unsigned short __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  struct compressor *__cil_tmp37 ;
+  int (*__cil_tmp38)(void * , unsigned char * , unsigned char * , int  , int  ) ;
+  void *__cil_tmp39 ;
+  unsigned char *__cil_tmp40 ;
+  unsigned char *__cil_tmp41 ;
+  unsigned char *__cil_tmp42 ;
   unsigned int __cil_tmp43 ;
   unsigned int __cil_tmp44 ;
-  struct sk_buff *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct net_device *__cil_tmp50 ;
-  struct net_device  const  *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct net_device *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned short __cil_tmp57 ;
-  unsigned int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct net_device *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned short __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  struct compressor *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  int (*__cil_tmp72)(void * , unsigned char * , unsigned char * , int  , int  ) ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  void *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned char *__cil_tmp78 ;
-  unsigned char *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned char *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct net_device *__cil_tmp95 ;
-  struct net_device  const  *__cil_tmp96 ;
+  int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  struct net_device *__cil_tmp49 ;
+  struct net_device  const  *__cil_tmp50 ;
 
   {
   {
 #line 1083
-  __cil_tmp9 = (unsigned long )ppp;
+  __cil_tmp9 = ppp->dev;
 #line 1083
-  __cil_tmp10 = __cil_tmp9 + 784;
+  __cil_tmp10 = __cil_tmp9->hard_header_len;
 #line 1083
-  __cil_tmp11 = *((struct net_device **)__cil_tmp10);
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
 #line 1083
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
+  __cil_tmp12 = ppp->xcomp;
 #line 1083
-  __cil_tmp13 = __cil_tmp12 + 454;
+  __cil_tmp13 = __cil_tmp12->comp_extra;
 #line 1083
-  __cil_tmp14 = *((unsigned short *)__cil_tmp13);
+  __cil_tmp14 = ppp->dev;
 #line 1083
-  __cil_tmp15 = (unsigned int )__cil_tmp14;
+  __cil_tmp15 = __cil_tmp14->mtu;
 #line 1083
-  __cil_tmp16 = (unsigned long )ppp;
+  __cil_tmp16 = __cil_tmp15 + __cil_tmp13;
 #line 1083
-  __cil_tmp17 = __cil_tmp16 + 736;
+  __cil_tmp17 = __cil_tmp16 + __cil_tmp11;
 #line 1083
-  __cil_tmp18 = *((struct compressor **)__cil_tmp17);
-#line 1083
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 1083
-  __cil_tmp20 = __cil_tmp19 + 120;
-#line 1083
-  __cil_tmp21 = *((unsigned int *)__cil_tmp20);
-#line 1083
-  __cil_tmp22 = (unsigned long )ppp;
-#line 1083
-  __cil_tmp23 = __cil_tmp22 + 784;
-#line 1083
-  __cil_tmp24 = *((struct net_device **)__cil_tmp23);
-#line 1083
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 1083
-  __cil_tmp26 = __cil_tmp25 + 448;
-#line 1083
-  __cil_tmp27 = *((unsigned int *)__cil_tmp26);
-#line 1083
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp21;
-#line 1083
-  __cil_tmp29 = __cil_tmp28 + __cil_tmp15;
-#line 1083
-  new_skb_size = (int )__cil_tmp29;
+  new_skb_size = (int )__cil_tmp17;
 #line 1085
-  __cil_tmp30 = (unsigned long )ppp;
+  __cil_tmp18 = ppp->xcomp;
 #line 1085
-  __cil_tmp31 = __cil_tmp30 + 736;
+  __cil_tmp19 = __cil_tmp18->comp_extra;
 #line 1085
-  __cil_tmp32 = *((struct compressor **)__cil_tmp31);
+  __cil_tmp20 = ppp->dev;
 #line 1085
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
+  __cil_tmp21 = __cil_tmp20->mtu;
 #line 1085
-  __cil_tmp34 = __cil_tmp33 + 120;
+  __cil_tmp22 = __cil_tmp21 + __cil_tmp19;
 #line 1085
-  __cil_tmp35 = *((unsigned int *)__cil_tmp34);
+  __cil_tmp23 = __cil_tmp22 + 4U;
 #line 1085
-  __cil_tmp36 = (unsigned long )ppp;
-#line 1085
-  __cil_tmp37 = __cil_tmp36 + 784;
-#line 1085
-  __cil_tmp38 = *((struct net_device **)__cil_tmp37);
-#line 1085
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 1085
-  __cil_tmp40 = __cil_tmp39 + 448;
-#line 1085
-  __cil_tmp41 = *((unsigned int *)__cil_tmp40);
-#line 1085
-  __cil_tmp42 = __cil_tmp41 + __cil_tmp35;
-#line 1085
-  __cil_tmp43 = __cil_tmp42 + 4U;
-#line 1085
-  compressor_skb_size = (int )__cil_tmp43;
+  compressor_skb_size = (int )__cil_tmp23;
 #line 1087
-  __cil_tmp44 = (unsigned int )new_skb_size;
+  __cil_tmp24 = (unsigned int )new_skb_size;
 #line 1087
-  new_skb = alloc_skb(__cil_tmp44, 32U);
+  new_skb = alloc_skb(__cil_tmp24, 32U);
   }
   {
 #line 1088
-  __cil_tmp45 = (struct sk_buff *)0;
+  __cil_tmp25 = (struct sk_buff *)0;
 #line 1088
-  __cil_tmp46 = (unsigned long )__cil_tmp45;
+  __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 1088
-  __cil_tmp47 = (unsigned long )new_skb;
+  __cil_tmp27 = (unsigned long )new_skb;
 #line 1088
-  if (__cil_tmp47 == __cil_tmp46) {
+  if (__cil_tmp27 == __cil_tmp26) {
     {
 #line 1089
     tmp = net_ratelimit();
@@ -14154,15 +12950,11 @@ __inline static struct sk_buff *pad_compress_skb(struct ppp *ppp , struct sk_buf
     if (tmp != 0) {
       {
 #line 1090
-      __cil_tmp48 = (unsigned long )ppp;
+      __cil_tmp28 = ppp->dev;
 #line 1090
-      __cil_tmp49 = __cil_tmp48 + 784;
+      __cil_tmp29 = (struct net_device  const  *)__cil_tmp28;
 #line 1090
-      __cil_tmp50 = *((struct net_device **)__cil_tmp49);
-#line 1090
-      __cil_tmp51 = (struct net_device  const  *)__cil_tmp50;
-#line 1090
-      netdev_err(__cil_tmp51, "PPP: no memory (comp pkt)\n");
+      netdev_err(__cil_tmp29, "PPP: no memory (comp pkt)\n");
       }
     } else {
 
@@ -14175,40 +12967,24 @@ __inline static struct sk_buff *pad_compress_skb(struct ppp *ppp , struct sk_buf
   }
   {
 #line 1093
-  __cil_tmp52 = (unsigned long )ppp;
+  __cil_tmp30 = ppp->dev;
 #line 1093
-  __cil_tmp53 = __cil_tmp52 + 784;
+  __cil_tmp31 = __cil_tmp30->hard_header_len;
 #line 1093
-  __cil_tmp54 = *((struct net_device **)__cil_tmp53);
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 1093
-  __cil_tmp55 = (unsigned long )__cil_tmp54;
-#line 1093
-  __cil_tmp56 = __cil_tmp55 + 454;
-#line 1093
-  __cil_tmp57 = *((unsigned short *)__cil_tmp56);
-#line 1093
-  __cil_tmp58 = (unsigned int )__cil_tmp57;
-#line 1093
-  if (__cil_tmp58 > 4U) {
+  if (__cil_tmp32 > 4U) {
     {
 #line 1094
-    __cil_tmp59 = (unsigned long )ppp;
+    __cil_tmp33 = ppp->dev;
 #line 1094
-    __cil_tmp60 = __cil_tmp59 + 784;
+    __cil_tmp34 = __cil_tmp33->hard_header_len;
 #line 1094
-    __cil_tmp61 = *((struct net_device **)__cil_tmp60);
+    __cil_tmp35 = (int )__cil_tmp34;
 #line 1094
-    __cil_tmp62 = (unsigned long )__cil_tmp61;
+    __cil_tmp36 = __cil_tmp35 + -4;
 #line 1094
-    __cil_tmp63 = __cil_tmp62 + 454;
-#line 1094
-    __cil_tmp64 = *((unsigned short *)__cil_tmp63);
-#line 1094
-    __cil_tmp65 = (int )__cil_tmp64;
-#line 1094
-    __cil_tmp66 = __cil_tmp65 + -4;
-#line 1094
-    skb_reserve(new_skb, __cil_tmp66);
+    skb_reserve(new_skb, __cil_tmp36);
     }
   } else {
 
@@ -14216,119 +12992,87 @@ __inline static struct sk_buff *pad_compress_skb(struct ppp *ppp , struct sk_buf
   }
   {
 #line 1098
-  __cil_tmp67 = (unsigned long )ppp;
+  __cil_tmp37 = ppp->xcomp;
 #line 1098
-  __cil_tmp68 = __cil_tmp67 + 736;
+  __cil_tmp38 = __cil_tmp37->compress;
 #line 1098
-  __cil_tmp69 = *((struct compressor **)__cil_tmp68);
+  __cil_tmp39 = ppp->xc_state;
 #line 1098
-  __cil_tmp70 = (unsigned long )__cil_tmp69;
+  __cil_tmp40 = skb->data;
 #line 1098
-  __cil_tmp71 = __cil_tmp70 + 40;
+  __cil_tmp41 = __cil_tmp40 + 1152921504606846974UL;
 #line 1098
-  __cil_tmp72 = *((int (**)(void * , unsigned char * , unsigned char * , int  , int  ))__cil_tmp71);
+  __cil_tmp42 = new_skb->data;
 #line 1098
-  __cil_tmp73 = (unsigned long )ppp;
+  __cil_tmp43 = skb->len;
 #line 1098
-  __cil_tmp74 = __cil_tmp73 + 744;
+  __cil_tmp44 = __cil_tmp43 + 2U;
 #line 1098
-  __cil_tmp75 = *((void **)__cil_tmp74);
+  __cil_tmp45 = (int )__cil_tmp44;
 #line 1098
-  __cil_tmp76 = (unsigned long )skb;
-#line 1098
-  __cil_tmp77 = __cil_tmp76 + 224;
-#line 1098
-  __cil_tmp78 = *((unsigned char **)__cil_tmp77);
-#line 1098
-  __cil_tmp79 = __cil_tmp78 + 1152921504606846974UL;
-#line 1098
-  __cil_tmp80 = (unsigned long )new_skb;
-#line 1098
-  __cil_tmp81 = __cil_tmp80 + 224;
-#line 1098
-  __cil_tmp82 = *((unsigned char **)__cil_tmp81);
-#line 1098
-  __cil_tmp83 = (unsigned long )skb;
-#line 1098
-  __cil_tmp84 = __cil_tmp83 + 104;
-#line 1098
-  __cil_tmp85 = *((unsigned int *)__cil_tmp84);
-#line 1098
-  __cil_tmp86 = __cil_tmp85 + 2U;
-#line 1098
-  __cil_tmp87 = (int )__cil_tmp86;
-#line 1098
-  len = (*__cil_tmp72)(__cil_tmp75, __cil_tmp79, __cil_tmp82, __cil_tmp87, compressor_skb_size);
+  len = (*__cil_tmp38)(__cil_tmp39, __cil_tmp41, __cil_tmp42, __cil_tmp45, compressor_skb_size);
   }
 #line 1101
   if (len > 0) {
     {
 #line 1101
-    __cil_tmp88 = (unsigned long )ppp;
+    __cil_tmp46 = ppp->flags;
 #line 1101
-    __cil_tmp89 = __cil_tmp88 + 508;
+    __cil_tmp47 = __cil_tmp46 & 128U;
 #line 1101
-    __cil_tmp90 = *((unsigned int *)__cil_tmp89);
-#line 1101
-    __cil_tmp91 = __cil_tmp90 & 128U;
-#line 1101
-    if (__cil_tmp91 != 0U) {
+    if (__cil_tmp47 != 0U) {
       {
 #line 1102
       kfree_skb(skb);
 #line 1103
       skb = new_skb;
 #line 1104
-      __cil_tmp92 = (unsigned int )len;
+      __cil_tmp48 = (unsigned int )len;
 #line 1104
-      skb_put(skb, __cil_tmp92);
+      skb_put(skb, __cil_tmp48);
 #line 1105
       skb_pull(skb, 2U);
       }
     } else {
+#line 1101
       goto _L;
     }
     }
-  } else {
-    _L: 
+  } else
+  _L: 
 #line 1106
-    if (len == 0) {
-      {
+  if (len == 0) {
+    {
 #line 1108
-      kfree_skb(new_skb);
+    kfree_skb(new_skb);
 #line 1109
-      new_skb = skb;
+    new_skb = skb;
+    }
+  } else {
+    {
+#line 1119
+    tmp___0 = net_ratelimit();
+    }
+#line 1119
+    if (tmp___0 != 0) {
+      {
+#line 1120
+      __cil_tmp49 = ppp->dev;
+#line 1120
+      __cil_tmp50 = (struct net_device  const  *)__cil_tmp49;
+#line 1120
+      netdev_err(__cil_tmp50, "ppp: compressor dropped pkt\n");
       }
     } else {
-      {
-#line 1119
-      tmp___0 = net_ratelimit();
-      }
-#line 1119
-      if (tmp___0 != 0) {
-        {
-#line 1120
-        __cil_tmp93 = (unsigned long )ppp;
-#line 1120
-        __cil_tmp94 = __cil_tmp93 + 784;
-#line 1120
-        __cil_tmp95 = *((struct net_device **)__cil_tmp94);
-#line 1120
-        __cil_tmp96 = (struct net_device  const  *)__cil_tmp95;
-#line 1120
-        netdev_err(__cil_tmp96, "ppp: compressor dropped pkt\n");
-        }
-      } else {
 
-      }
-      {
+    }
+    {
 #line 1121
-      kfree_skb(skb);
+    kfree_skb(skb);
 #line 1122
-      kfree_skb(new_skb);
+    kfree_skb(new_skb);
 #line 1123
-      new_skb = (struct sk_buff *)0;
-      }
+    new_skb = (struct sk_buff *)0;
     }
   }
 #line 1125
@@ -14346,239 +13090,113 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
   unsigned int tmp___1 ;
   unsigned int tmp___2 ;
   int tmp___3 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned char *__cil_tmp14 ;
-  void const   *__cil_tmp15 ;
+  unsigned char *__cil_tmp12 ;
+  void const   *__cil_tmp13 ;
+  struct sock_filter *__cil_tmp14 ;
+  unsigned long __cil_tmp15 ;
   struct sock_filter *__cil_tmp16 ;
   unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct sock_filter *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct sk_buff  const  *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct sock_filter *__cil_tmp25 ;
-  struct sock_filter  const  *__cil_tmp26 ;
+  struct sk_buff  const  *__cil_tmp18 ;
+  struct sock_filter *__cil_tmp19 ;
+  struct sock_filter  const  *__cil_tmp20 ;
+  int __cil_tmp21 ;
+  struct net_device *__cil_tmp22 ;
+  struct net_device  const  *__cil_tmp23 ;
+  struct sock_filter *__cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
+  struct sock_filter *__cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  struct sk_buff  const  *__cil_tmp28 ;
+  struct sock_filter *__cil_tmp29 ;
+  struct sock_filter  const  *__cil_tmp30 ;
+  struct net_device *__cil_tmp31 ;
   struct net_device *__cil_tmp32 ;
-  struct net_device  const  *__cil_tmp33 ;
-  struct sock_filter *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
+  unsigned long __cil_tmp33 ;
+  struct net_device *__cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
   unsigned long __cil_tmp37 ;
-  struct sock_filter *__cil_tmp38 ;
+  struct net_device *__cil_tmp38 ;
   unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
+  struct slcompress *__cil_tmp40 ;
   unsigned long __cil_tmp41 ;
-  struct sk_buff  const  *__cil_tmp42 ;
+  struct slcompress *__cil_tmp42 ;
   unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct sock_filter *__cil_tmp45 ;
-  struct sock_filter  const  *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct net_device *__cil_tmp52 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  struct net_device *__cil_tmp46 ;
+  unsigned short __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  struct sk_buff *__cil_tmp52 ;
   unsigned long __cil_tmp53 ;
   unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct net_device *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  struct net_device *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  unsigned int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  struct net_device *__cil_tmp55 ;
+  struct net_device  const  *__cil_tmp56 ;
+  struct net_device *__cil_tmp57 ;
+  unsigned short __cil_tmp58 ;
+  int __cil_tmp59 ;
+  int __cil_tmp60 ;
+  unsigned char *__cil_tmp61 ;
+  struct slcompress *__cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  int __cil_tmp65 ;
+  unsigned char *__cil_tmp66 ;
+  unsigned char *__cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  int __cil_tmp70 ;
+  unsigned long __cil_tmp71 ;
+  unsigned char *__cil_tmp72 ;
+  unsigned char *__cil_tmp73 ;
   unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  struct net_device *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  struct slcompress *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  struct slcompress *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned int __cil_tmp88 ;
-  unsigned int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
+  unsigned char __cil_tmp75 ;
+  signed char __cil_tmp76 ;
+  int __cil_tmp77 ;
+  unsigned char __cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  unsigned char *__cil_tmp81 ;
+  unsigned char *__cil_tmp82 ;
+  int __cil_tmp83 ;
+  unsigned int __cil_tmp84 ;
+  unsigned char *__cil_tmp85 ;
+  unsigned int __cil_tmp86 ;
+  unsigned int __cil_tmp87 ;
+  void *__cil_tmp88 ;
+  unsigned long __cil_tmp89 ;
+  void *__cil_tmp90 ;
   unsigned long __cil_tmp91 ;
-  struct net_device *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned short __cil_tmp95 ;
-  unsigned int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned int __cil_tmp99 ;
-  unsigned int __cil_tmp100 ;
+  unsigned int __cil_tmp92 ;
+  unsigned int __cil_tmp93 ;
+  unsigned int __cil_tmp94 ;
+  unsigned int __cil_tmp95 ;
+  struct net_device *__cil_tmp96 ;
+  struct net_device  const  *__cil_tmp97 ;
+  struct sk_buff *__cil_tmp98 ;
+  unsigned long __cil_tmp99 ;
+  unsigned long __cil_tmp100 ;
   unsigned int __cil_tmp101 ;
-  struct sk_buff *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
+  unsigned int __cil_tmp102 ;
+  __u32 __cil_tmp103 ;
+  struct sk_buff_head *__cil_tmp104 ;
+  wait_queue_head_t *__cil_tmp105 ;
+  void *__cil_tmp106 ;
   struct net_device *__cil_tmp107 ;
-  struct net_device  const  *__cil_tmp108 ;
+  struct net_device *__cil_tmp108 ;
   unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  struct net_device *__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned short __cil_tmp114 ;
-  int __cil_tmp115 ;
-  int __cil_tmp116 ;
-  unsigned char **__cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned char *__cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  struct slcompress *__cil_tmp123 ;
-  unsigned char **__cil_tmp124 ;
-  unsigned char *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned int __cil_tmp128 ;
-  unsigned int __cil_tmp129 ;
-  int __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned char *__cil_tmp133 ;
-  unsigned char *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned int __cil_tmp137 ;
-  unsigned int __cil_tmp138 ;
-  int __cil_tmp139 ;
-  unsigned char **__cil_tmp140 ;
-  unsigned char *__cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned char *__cil_tmp145 ;
-  unsigned char *__cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned char **__cil_tmp148 ;
-  unsigned char *__cil_tmp149 ;
-  unsigned char __cil_tmp150 ;
-  signed char __cil_tmp151 ;
-  int __cil_tmp152 ;
-  unsigned char **__cil_tmp153 ;
-  unsigned char *__cil_tmp154 ;
-  unsigned char **__cil_tmp155 ;
-  unsigned char *__cil_tmp156 ;
-  unsigned char __cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
-  unsigned int __cil_tmp159 ;
-  unsigned char **__cil_tmp160 ;
-  unsigned char *__cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned char *__cil_tmp164 ;
-  unsigned char *__cil_tmp165 ;
-  unsigned char **__cil_tmp166 ;
-  int __cil_tmp167 ;
-  unsigned int __cil_tmp168 ;
-  unsigned char **__cil_tmp169 ;
-  unsigned char *__cil_tmp170 ;
-  unsigned char **__cil_tmp171 ;
-  unsigned char *__cil_tmp172 ;
-  unsigned char *__cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned int __cil_tmp176 ;
-  unsigned int __cil_tmp177 ;
-  void *__cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  void *__cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned int __cil_tmp186 ;
-  unsigned int __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned int __cil_tmp190 ;
-  unsigned int __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  struct net_device *__cil_tmp194 ;
-  struct net_device  const  *__cil_tmp195 ;
-  struct sk_buff *__cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned int __cil_tmp201 ;
-  unsigned int __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  __u32 __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  struct sk_buff_head *__cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  wait_queue_head_t *__cil_tmp215 ;
-  void *__cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  struct net_device *__cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  struct net_device *__cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
 
   {
   {
 #line 1136
-  __cil_tmp12 = (unsigned long )skb;
+  __cil_tmp12 = skb->data;
 #line 1136
-  __cil_tmp13 = __cil_tmp12 + 224;
+  __cil_tmp13 = (void const   *)__cil_tmp12;
 #line 1136
-  __cil_tmp14 = *((unsigned char **)__cil_tmp13);
-#line 1136
-  __cil_tmp15 = (void const   *)__cil_tmp14;
-#line 1136
-  tmp = get_unaligned_be16(__cil_tmp15);
+  tmp = get_unaligned_be16(__cil_tmp13);
 #line 1136
   proto = (int )tmp;
   }
@@ -14592,55 +13210,39 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
     }
     {
 #line 1147
-    __cil_tmp16 = (struct sock_filter *)0;
+    __cil_tmp14 = (struct sock_filter *)0;
+#line 1147
+    __cil_tmp15 = (unsigned long )__cil_tmp14;
+#line 1147
+    __cil_tmp16 = ppp->pass_filter;
 #line 1147
     __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 1147
-    __cil_tmp18 = (unsigned long )ppp;
-#line 1147
-    __cil_tmp19 = __cil_tmp18 + 912;
-#line 1147
-    __cil_tmp20 = *((struct sock_filter **)__cil_tmp19);
-#line 1147
-    __cil_tmp21 = (unsigned long )__cil_tmp20;
-#line 1147
-    if (__cil_tmp21 != __cil_tmp17) {
+    if (__cil_tmp17 != __cil_tmp15) {
       {
 #line 1147
-      __cil_tmp22 = (struct sk_buff  const  *)skb;
+      __cil_tmp18 = (struct sk_buff  const  *)skb;
 #line 1147
-      __cil_tmp23 = (unsigned long )ppp;
+      __cil_tmp19 = ppp->pass_filter;
 #line 1147
-      __cil_tmp24 = __cil_tmp23 + 912;
+      __cil_tmp20 = (struct sock_filter  const  *)__cil_tmp19;
 #line 1147
-      __cil_tmp25 = *((struct sock_filter **)__cil_tmp24);
-#line 1147
-      __cil_tmp26 = (struct sock_filter  const  *)__cil_tmp25;
-#line 1147
-      tmp___1 = sk_run_filter(__cil_tmp22, __cil_tmp26);
+      tmp___1 = sk_run_filter(__cil_tmp18, __cil_tmp20);
       }
 #line 1147
       if (tmp___1 == 0U) {
         {
 #line 1149
-        __cil_tmp27 = (unsigned long )ppp;
+        __cil_tmp21 = ppp->debug;
 #line 1149
-        __cil_tmp28 = __cil_tmp27 + 520;
-#line 1149
-        __cil_tmp29 = *((int *)__cil_tmp28);
-#line 1149
-        if (__cil_tmp29 & 1) {
+        if (__cil_tmp21 & 1) {
           {
 #line 1150
-          __cil_tmp30 = (unsigned long )ppp;
+          __cil_tmp22 = ppp->dev;
 #line 1150
-          __cil_tmp31 = __cil_tmp30 + 784;
+          __cil_tmp23 = (struct net_device  const  *)__cil_tmp22;
 #line 1150
-          __cil_tmp32 = *((struct net_device **)__cil_tmp31);
-#line 1150
-          __cil_tmp33 = (struct net_device  const  *)__cil_tmp32;
-#line 1150
-          netdev_printk("<7>", __cil_tmp33, "PPP: outbound frame not passed\n");
+          netdev_printk("<7>", __cil_tmp23, "PPP: outbound frame not passed\n");
           }
         } else {
 
@@ -14661,48 +13263,32 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
     }
     {
 #line 1157
-    __cil_tmp34 = (struct sock_filter *)0;
+    __cil_tmp24 = (struct sock_filter *)0;
 #line 1157
-    __cil_tmp35 = (unsigned long )__cil_tmp34;
+    __cil_tmp25 = (unsigned long )__cil_tmp24;
 #line 1157
-    __cil_tmp36 = (unsigned long )ppp;
+    __cil_tmp26 = ppp->active_filter;
 #line 1157
-    __cil_tmp37 = __cil_tmp36 + 920;
+    __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 1157
-    __cil_tmp38 = *((struct sock_filter **)__cil_tmp37);
-#line 1157
-    __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 1157
-    if (__cil_tmp39 == __cil_tmp35) {
+    if (__cil_tmp27 == __cil_tmp25) {
 #line 1159
-      __cil_tmp40 = (unsigned long )ppp;
-#line 1159
-      __cil_tmp41 = __cil_tmp40 + 768;
-#line 1159
-      *((unsigned long *)__cil_tmp41) = (unsigned long )jiffies;
+      ppp->last_xmit = (unsigned long )jiffies;
     } else {
       {
 #line 1157
-      __cil_tmp42 = (struct sk_buff  const  *)skb;
+      __cil_tmp28 = (struct sk_buff  const  *)skb;
 #line 1157
-      __cil_tmp43 = (unsigned long )ppp;
+      __cil_tmp29 = ppp->active_filter;
 #line 1157
-      __cil_tmp44 = __cil_tmp43 + 920;
+      __cil_tmp30 = (struct sock_filter  const  *)__cil_tmp29;
 #line 1157
-      __cil_tmp45 = *((struct sock_filter **)__cil_tmp44);
-#line 1157
-      __cil_tmp46 = (struct sock_filter  const  *)__cil_tmp45;
-#line 1157
-      tmp___2 = sk_run_filter(__cil_tmp42, __cil_tmp46);
+      tmp___2 = sk_run_filter(__cil_tmp28, __cil_tmp30);
       }
 #line 1157
       if (tmp___2 != 0U) {
 #line 1159
-        __cil_tmp47 = (unsigned long )ppp;
-#line 1159
-        __cil_tmp48 = __cil_tmp47 + 768;
-#line 1159
-        *((unsigned long *)__cil_tmp48) = (unsigned long )jiffies;
+        ppp->last_xmit = (unsigned long )jiffies;
       } else {
 
       }
@@ -14716,411 +13302,259 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
 
   }
 #line 1167
-  __cil_tmp49 = 200 + 8;
+  __cil_tmp31 = ppp->dev;
 #line 1167
-  __cil_tmp50 = (unsigned long )ppp;
+  __cil_tmp32 = ppp->dev;
 #line 1167
-  __cil_tmp51 = __cil_tmp50 + 784;
+  __cil_tmp33 = __cil_tmp32->stats.tx_packets;
 #line 1167
-  __cil_tmp52 = *((struct net_device **)__cil_tmp51);
-#line 1167
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 1167
-  __cil_tmp54 = __cil_tmp53 + __cil_tmp49;
-#line 1167
-  __cil_tmp55 = 200 + 8;
-#line 1167
-  __cil_tmp56 = (unsigned long )ppp;
-#line 1167
-  __cil_tmp57 = __cil_tmp56 + 784;
-#line 1167
-  __cil_tmp58 = *((struct net_device **)__cil_tmp57);
-#line 1167
-  __cil_tmp59 = (unsigned long )__cil_tmp58;
-#line 1167
-  __cil_tmp60 = __cil_tmp59 + __cil_tmp55;
-#line 1167
-  __cil_tmp61 = *((unsigned long *)__cil_tmp60);
-#line 1167
-  *((unsigned long *)__cil_tmp54) = __cil_tmp61 + 1UL;
+  __cil_tmp31->stats.tx_packets = __cil_tmp33 + 1UL;
 #line 1168
-  __cil_tmp62 = 200 + 24;
+  __cil_tmp34 = ppp->dev;
 #line 1168
-  __cil_tmp63 = (unsigned long )ppp;
+  __cil_tmp35 = skb->len;
 #line 1168
-  __cil_tmp64 = __cil_tmp63 + 784;
+  __cil_tmp36 = __cil_tmp35 - 2U;
 #line 1168
-  __cil_tmp65 = *((struct net_device **)__cil_tmp64);
+  __cil_tmp37 = (unsigned long )__cil_tmp36;
 #line 1168
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
+  __cil_tmp38 = ppp->dev;
 #line 1168
-  __cil_tmp67 = __cil_tmp66 + __cil_tmp62;
+  __cil_tmp39 = __cil_tmp38->stats.tx_bytes;
 #line 1168
-  __cil_tmp68 = (unsigned long )skb;
-#line 1168
-  __cil_tmp69 = __cil_tmp68 + 104;
-#line 1168
-  __cil_tmp70 = *((unsigned int *)__cil_tmp69);
-#line 1168
-  __cil_tmp71 = __cil_tmp70 - 2U;
-#line 1168
-  __cil_tmp72 = (unsigned long )__cil_tmp71;
-#line 1168
-  __cil_tmp73 = 200 + 24;
-#line 1168
-  __cil_tmp74 = (unsigned long )ppp;
-#line 1168
-  __cil_tmp75 = __cil_tmp74 + 784;
-#line 1168
-  __cil_tmp76 = *((struct net_device **)__cil_tmp75);
-#line 1168
-  __cil_tmp77 = (unsigned long )__cil_tmp76;
-#line 1168
-  __cil_tmp78 = __cil_tmp77 + __cil_tmp73;
-#line 1168
-  __cil_tmp79 = *((unsigned long *)__cil_tmp78);
-#line 1168
-  *((unsigned long *)__cil_tmp67) = __cil_tmp79 + __cil_tmp72;
+  __cil_tmp34->stats.tx_bytes = __cil_tmp39 + __cil_tmp37;
 #line 1171
   if (proto == 33) {
+#line 1171
     goto case_33;
-  } else {
+  } else
 #line 1205
-    if (proto == 33021) {
-      goto case_33021;
-    } else {
+  if (proto == 33021) {
+#line 1205
+    goto case_33021;
+  } else
 #line 1170
-      if (0) {
-        case_33: ;
-        {
+  if (0) {
+    case_33: ;
+    {
 #line 1172
-        __cil_tmp80 = (struct slcompress *)0;
+    __cil_tmp40 = (struct slcompress *)0;
 #line 1172
-        __cil_tmp81 = (unsigned long )__cil_tmp80;
+    __cil_tmp41 = (unsigned long )__cil_tmp40;
 #line 1172
-        __cil_tmp82 = (unsigned long )ppp;
+    __cil_tmp42 = ppp->vj;
 #line 1172
-        __cil_tmp83 = __cil_tmp82 + 528;
+    __cil_tmp43 = (unsigned long )__cil_tmp42;
 #line 1172
-        __cil_tmp84 = *((struct slcompress **)__cil_tmp83);
+    if (__cil_tmp43 == __cil_tmp41) {
+#line 1173
+      goto ldv_40066;
+    } else {
+      {
 #line 1172
-        __cil_tmp85 = (unsigned long )__cil_tmp84;
+      __cil_tmp44 = ppp->flags;
 #line 1172
-        if (__cil_tmp85 == __cil_tmp81) {
-          goto ldv_40066;
-        } else {
-          {
+      __cil_tmp45 = __cil_tmp44 & 4U;
 #line 1172
-          __cil_tmp86 = (unsigned long )ppp;
-#line 1172
-          __cil_tmp87 = __cil_tmp86 + 508;
-#line 1172
-          __cil_tmp88 = *((unsigned int *)__cil_tmp87);
-#line 1172
-          __cil_tmp89 = __cil_tmp88 & 4U;
-#line 1172
-          if (__cil_tmp89 == 0U) {
-            goto ldv_40066;
-          } else {
-
-          }
-          }
-        }
-        }
-        {
-#line 1175
-        __cil_tmp90 = (unsigned long )ppp;
-#line 1175
-        __cil_tmp91 = __cil_tmp90 + 784;
-#line 1175
-        __cil_tmp92 = *((struct net_device **)__cil_tmp91);
-#line 1175
-        __cil_tmp93 = (unsigned long )__cil_tmp92;
-#line 1175
-        __cil_tmp94 = __cil_tmp93 + 454;
-#line 1175
-        __cil_tmp95 = *((unsigned short *)__cil_tmp94);
-#line 1175
-        __cil_tmp96 = (unsigned int )__cil_tmp95;
-#line 1175
-        __cil_tmp97 = (unsigned long )skb;
-#line 1175
-        __cil_tmp98 = __cil_tmp97 + 104;
-#line 1175
-        __cil_tmp99 = *((unsigned int *)__cil_tmp98);
-#line 1175
-        __cil_tmp100 = __cil_tmp99 + __cil_tmp96;
-#line 1175
-        __cil_tmp101 = __cil_tmp100 - 2U;
-#line 1175
-        new_skb = alloc_skb(__cil_tmp101, 32U);
-        }
-        {
-#line 1177
-        __cil_tmp102 = (struct sk_buff *)0;
-#line 1177
-        __cil_tmp103 = (unsigned long )__cil_tmp102;
-#line 1177
-        __cil_tmp104 = (unsigned long )new_skb;
-#line 1177
-        if (__cil_tmp104 == __cil_tmp103) {
-          {
-#line 1178
-          __cil_tmp105 = (unsigned long )ppp;
-#line 1178
-          __cil_tmp106 = __cil_tmp105 + 784;
-#line 1178
-          __cil_tmp107 = *((struct net_device **)__cil_tmp106);
-#line 1178
-          __cil_tmp108 = (struct net_device  const  *)__cil_tmp107;
-#line 1178
-          netdev_err(__cil_tmp108, "PPP: no memory (VJ comp pkt)\n");
-          }
-          goto drop;
-        } else {
-
-        }
-        }
-        {
-#line 1181
-        __cil_tmp109 = (unsigned long )ppp;
-#line 1181
-        __cil_tmp110 = __cil_tmp109 + 784;
-#line 1181
-        __cil_tmp111 = *((struct net_device **)__cil_tmp110);
-#line 1181
-        __cil_tmp112 = (unsigned long )__cil_tmp111;
-#line 1181
-        __cil_tmp113 = __cil_tmp112 + 454;
-#line 1181
-        __cil_tmp114 = *((unsigned short *)__cil_tmp113);
-#line 1181
-        __cil_tmp115 = (int )__cil_tmp114;
-#line 1181
-        __cil_tmp116 = __cil_tmp115 + -2;
-#line 1181
-        skb_reserve(new_skb, __cil_tmp116);
-#line 1182
-        __cil_tmp117 = & cp;
-#line 1182
-        __cil_tmp118 = (unsigned long )skb;
-#line 1182
-        __cil_tmp119 = __cil_tmp118 + 224;
-#line 1182
-        __cil_tmp120 = *((unsigned char **)__cil_tmp119);
-#line 1182
-        *__cil_tmp117 = __cil_tmp120 + 2UL;
-#line 1183
-        __cil_tmp121 = (unsigned long )ppp;
-#line 1183
-        __cil_tmp122 = __cil_tmp121 + 528;
-#line 1183
-        __cil_tmp123 = *((struct slcompress **)__cil_tmp122);
-#line 1183
-        __cil_tmp124 = & cp;
-#line 1183
-        __cil_tmp125 = *__cil_tmp124;
-#line 1183
-        __cil_tmp126 = (unsigned long )skb;
-#line 1183
-        __cil_tmp127 = __cil_tmp126 + 104;
-#line 1183
-        __cil_tmp128 = *((unsigned int *)__cil_tmp127);
-#line 1183
-        __cil_tmp129 = __cil_tmp128 - 2U;
-#line 1183
-        __cil_tmp130 = (int )__cil_tmp129;
-#line 1183
-        __cil_tmp131 = (unsigned long )new_skb;
-#line 1183
-        __cil_tmp132 = __cil_tmp131 + 224;
-#line 1183
-        __cil_tmp133 = *((unsigned char **)__cil_tmp132);
-#line 1183
-        __cil_tmp134 = __cil_tmp133 + 2UL;
-#line 1183
-        __cil_tmp135 = (unsigned long )ppp;
-#line 1183
-        __cil_tmp136 = __cil_tmp135 + 508;
-#line 1183
-        __cil_tmp137 = *((unsigned int *)__cil_tmp136);
-#line 1183
-        __cil_tmp138 = __cil_tmp137 & 8U;
-#line 1183
-        __cil_tmp139 = __cil_tmp138 == 0U;
-#line 1183
-        len = slhc_compress(__cil_tmp123, __cil_tmp125, __cil_tmp130, __cil_tmp134,
-                            & cp, __cil_tmp139);
-        }
-        {
-#line 1186
-        __cil_tmp140 = & cp;
-#line 1186
-        __cil_tmp141 = *__cil_tmp140;
-#line 1186
-        __cil_tmp142 = (unsigned long )__cil_tmp141;
-#line 1186
-        __cil_tmp143 = (unsigned long )skb;
-#line 1186
-        __cil_tmp144 = __cil_tmp143 + 224;
-#line 1186
-        __cil_tmp145 = *((unsigned char **)__cil_tmp144);
-#line 1186
-        __cil_tmp146 = __cil_tmp145 + 2UL;
-#line 1186
-        __cil_tmp147 = (unsigned long )__cil_tmp146;
-#line 1186
-        if (__cil_tmp147 == __cil_tmp142) {
-          {
-#line 1188
-          kfree_skb(new_skb);
-          }
-        } else {
-          {
-#line 1190
-          __cil_tmp148 = & cp;
-#line 1190
-          __cil_tmp149 = *__cil_tmp148;
-#line 1190
-          __cil_tmp150 = *__cil_tmp149;
-#line 1190
-          __cil_tmp151 = (signed char )__cil_tmp150;
-#line 1190
-          __cil_tmp152 = (int )__cil_tmp151;
-#line 1190
-          if (__cil_tmp152 < 0) {
-#line 1191
-            proto = 45;
-#line 1192
-            __cil_tmp153 = & cp;
-#line 1192
-            __cil_tmp154 = *__cil_tmp153;
-#line 1192
-            __cil_tmp155 = & cp;
-#line 1192
-            __cil_tmp156 = *__cil_tmp155;
-#line 1192
-            __cil_tmp157 = *__cil_tmp156;
-#line 1192
-            __cil_tmp158 = (unsigned int )__cil_tmp157;
-#line 1192
-            __cil_tmp159 = __cil_tmp158 & 127U;
-#line 1192
-            *__cil_tmp154 = (unsigned char )__cil_tmp159;
-          } else {
-#line 1194
-            proto = 47;
-#line 1195
-            __cil_tmp160 = & cp;
-#line 1195
-            __cil_tmp161 = *__cil_tmp160;
-#line 1195
-            __cil_tmp162 = (unsigned long )skb;
-#line 1195
-            __cil_tmp163 = __cil_tmp162 + 224;
-#line 1195
-            __cil_tmp164 = *((unsigned char **)__cil_tmp163);
-#line 1195
-            __cil_tmp165 = __cil_tmp164 + 2UL;
-#line 1195
-            *__cil_tmp161 = *__cil_tmp165;
-          }
-          }
-          {
-#line 1197
-          kfree_skb(skb);
-#line 1198
-          skb = new_skb;
-#line 1199
-          __cil_tmp166 = & cp;
-#line 1199
-          __cil_tmp167 = len + 2;
-#line 1199
-          __cil_tmp168 = (unsigned int )__cil_tmp167;
-#line 1199
-          *__cil_tmp166 = skb_put(skb, __cil_tmp168);
-#line 1200
-          __cil_tmp169 = & cp;
-#line 1200
-          __cil_tmp170 = *__cil_tmp169;
-#line 1200
-          *__cil_tmp170 = (unsigned char)0;
-#line 1201
-          __cil_tmp171 = & cp;
-#line 1201
-          __cil_tmp172 = *__cil_tmp171;
-#line 1201
-          __cil_tmp173 = __cil_tmp172 + 1UL;
-#line 1201
-          *__cil_tmp173 = (unsigned char )proto;
-          }
-        }
-        }
-        goto ldv_40066;
-        case_33021: 
-        {
-#line 1207
-        ppp_ccp_peek(ppp, skb, 0);
-        }
+      if (__cil_tmp45 == 0U) {
+#line 1173
         goto ldv_40066;
       } else {
 
       }
+      }
     }
+    }
+    {
+#line 1175
+    __cil_tmp46 = ppp->dev;
+#line 1175
+    __cil_tmp47 = __cil_tmp46->hard_header_len;
+#line 1175
+    __cil_tmp48 = (unsigned int )__cil_tmp47;
+#line 1175
+    __cil_tmp49 = skb->len;
+#line 1175
+    __cil_tmp50 = __cil_tmp49 + __cil_tmp48;
+#line 1175
+    __cil_tmp51 = __cil_tmp50 - 2U;
+#line 1175
+    new_skb = alloc_skb(__cil_tmp51, 32U);
+    }
+    {
+#line 1177
+    __cil_tmp52 = (struct sk_buff *)0;
+#line 1177
+    __cil_tmp53 = (unsigned long )__cil_tmp52;
+#line 1177
+    __cil_tmp54 = (unsigned long )new_skb;
+#line 1177
+    if (__cil_tmp54 == __cil_tmp53) {
+      {
+#line 1178
+      __cil_tmp55 = ppp->dev;
+#line 1178
+      __cil_tmp56 = (struct net_device  const  *)__cil_tmp55;
+#line 1178
+      netdev_err(__cil_tmp56, "PPP: no memory (VJ comp pkt)\n");
+      }
+#line 1179
+      goto drop;
+    } else {
+
+    }
+    }
+    {
+#line 1181
+    __cil_tmp57 = ppp->dev;
+#line 1181
+    __cil_tmp58 = __cil_tmp57->hard_header_len;
+#line 1181
+    __cil_tmp59 = (int )__cil_tmp58;
+#line 1181
+    __cil_tmp60 = __cil_tmp59 + -2;
+#line 1181
+    skb_reserve(new_skb, __cil_tmp60);
+#line 1182
+    __cil_tmp61 = skb->data;
+#line 1182
+    cp = __cil_tmp61 + 2UL;
+#line 1183
+    __cil_tmp62 = ppp->vj;
+#line 1183
+    __cil_tmp63 = skb->len;
+#line 1183
+    __cil_tmp64 = __cil_tmp63 - 2U;
+#line 1183
+    __cil_tmp65 = (int )__cil_tmp64;
+#line 1183
+    __cil_tmp66 = new_skb->data;
+#line 1183
+    __cil_tmp67 = __cil_tmp66 + 2UL;
+#line 1183
+    __cil_tmp68 = ppp->flags;
+#line 1183
+    __cil_tmp69 = __cil_tmp68 & 8U;
+#line 1183
+    __cil_tmp70 = __cil_tmp69 == 0U;
+#line 1183
+    len = slhc_compress(__cil_tmp62, cp, __cil_tmp65, __cil_tmp67, & cp, __cil_tmp70);
+    }
+    {
+#line 1186
+    __cil_tmp71 = (unsigned long )cp;
+#line 1186
+    __cil_tmp72 = skb->data;
+#line 1186
+    __cil_tmp73 = __cil_tmp72 + 2UL;
+#line 1186
+    __cil_tmp74 = (unsigned long )__cil_tmp73;
+#line 1186
+    if (__cil_tmp74 == __cil_tmp71) {
+      {
+#line 1188
+      kfree_skb(new_skb);
+      }
+    } else {
+      {
+#line 1190
+      __cil_tmp75 = *cp;
+#line 1190
+      __cil_tmp76 = (signed char )__cil_tmp75;
+#line 1190
+      __cil_tmp77 = (int )__cil_tmp76;
+#line 1190
+      if (__cil_tmp77 < 0) {
+#line 1191
+        proto = 45;
+#line 1192
+        __cil_tmp78 = *cp;
+#line 1192
+        __cil_tmp79 = (unsigned int )__cil_tmp78;
+#line 1192
+        __cil_tmp80 = __cil_tmp79 & 127U;
+#line 1192
+        *cp = (unsigned char )__cil_tmp80;
+      } else {
+#line 1194
+        proto = 47;
+#line 1195
+        __cil_tmp81 = skb->data;
+#line 1195
+        __cil_tmp82 = __cil_tmp81 + 2UL;
+#line 1195
+        *cp = *__cil_tmp82;
+      }
+      }
+      {
+#line 1197
+      kfree_skb(skb);
+#line 1198
+      skb = new_skb;
+#line 1199
+      __cil_tmp83 = len + 2;
+#line 1199
+      __cil_tmp84 = (unsigned int )__cil_tmp83;
+#line 1199
+      cp = skb_put(skb, __cil_tmp84);
+#line 1200
+      *cp = (unsigned char)0;
+#line 1201
+      __cil_tmp85 = cp + 1UL;
+#line 1201
+      *__cil_tmp85 = (unsigned char )proto;
+      }
+    }
+    }
+#line 1203
+    goto ldv_40066;
+    case_33021: 
+    {
+#line 1207
+    ppp_ccp_peek(ppp, skb, 0);
+    }
+#line 1208
+    goto ldv_40066;
+  } else {
+
   }
   ldv_40066: ;
   {
 #line 1212
-  __cil_tmp174 = (unsigned long )ppp;
+  __cil_tmp86 = ppp->xstate;
 #line 1212
-  __cil_tmp175 = __cil_tmp174 + 512;
+  __cil_tmp87 = __cil_tmp86 & 4096U;
 #line 1212
-  __cil_tmp176 = *((unsigned int *)__cil_tmp175);
-#line 1212
-  __cil_tmp177 = __cil_tmp176 & 4096U;
-#line 1212
-  if (__cil_tmp177 != 0U) {
+  if (__cil_tmp87 != 0U) {
     {
 #line 1212
-    __cil_tmp178 = (void *)0;
+    __cil_tmp88 = (void *)0;
 #line 1212
-    __cil_tmp179 = (unsigned long )__cil_tmp178;
+    __cil_tmp89 = (unsigned long )__cil_tmp88;
 #line 1212
-    __cil_tmp180 = (unsigned long )ppp;
+    __cil_tmp90 = ppp->xc_state;
 #line 1212
-    __cil_tmp181 = __cil_tmp180 + 744;
+    __cil_tmp91 = (unsigned long )__cil_tmp90;
 #line 1212
-    __cil_tmp182 = *((void **)__cil_tmp181);
-#line 1212
-    __cil_tmp183 = (unsigned long )__cil_tmp182;
-#line 1212
-    if (__cil_tmp183 != __cil_tmp179) {
+    if (__cil_tmp91 != __cil_tmp89) {
 #line 1212
       if (proto != 49185) {
 #line 1212
         if (proto != 33021) {
           {
 #line 1214
-          __cil_tmp184 = (unsigned long )ppp;
+          __cil_tmp92 = ppp->flags;
 #line 1214
-          __cil_tmp185 = __cil_tmp184 + 508;
+          __cil_tmp93 = __cil_tmp92 & 128U;
 #line 1214
-          __cil_tmp186 = *((unsigned int *)__cil_tmp185);
-#line 1214
-          __cil_tmp187 = __cil_tmp186 & 128U;
-#line 1214
-          if (__cil_tmp187 == 0U) {
+          if (__cil_tmp93 == 0U) {
             {
 #line 1214
-            __cil_tmp188 = (unsigned long )ppp;
+            __cil_tmp94 = ppp->flags;
 #line 1214
-            __cil_tmp189 = __cil_tmp188 + 508;
+            __cil_tmp95 = __cil_tmp94 & 4194304U;
 #line 1214
-            __cil_tmp190 = *((unsigned int *)__cil_tmp189);
-#line 1214
-            __cil_tmp191 = __cil_tmp190 & 4194304U;
-#line 1214
-            if (__cil_tmp191 != 0U) {
+            if (__cil_tmp95 != 0U) {
               {
 #line 1215
               tmp___3 = net_ratelimit();
@@ -15129,19 +13563,16 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
               if (tmp___3 != 0) {
                 {
 #line 1216
-                __cil_tmp192 = (unsigned long )ppp;
+                __cil_tmp96 = ppp->dev;
 #line 1216
-                __cil_tmp193 = __cil_tmp192 + 784;
+                __cil_tmp97 = (struct net_device  const  *)__cil_tmp96;
 #line 1216
-                __cil_tmp194 = *((struct net_device **)__cil_tmp193);
-#line 1216
-                __cil_tmp195 = (struct net_device  const  *)__cil_tmp194;
-#line 1216
-                netdev_err(__cil_tmp195, "ppp: compression required but down - pkt dropped.\n");
+                netdev_err(__cil_tmp97, "ppp: compression required but down - pkt dropped.\n");
                 }
               } else {
 
               }
+#line 1219
               goto drop;
             } else {
 
@@ -15157,13 +13588,14 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
           }
           {
 #line 1222
-          __cil_tmp196 = (struct sk_buff *)0;
+          __cil_tmp98 = (struct sk_buff *)0;
 #line 1222
-          __cil_tmp197 = (unsigned long )__cil_tmp196;
+          __cil_tmp99 = (unsigned long )__cil_tmp98;
 #line 1222
-          __cil_tmp198 = (unsigned long )skb;
+          __cil_tmp100 = (unsigned long )skb;
 #line 1222
-          if (__cil_tmp198 == __cil_tmp197) {
+          if (__cil_tmp100 == __cil_tmp99) {
+#line 1223
             goto drop;
           } else {
 
@@ -15185,28 +13617,17 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1230
-  __cil_tmp199 = (unsigned long )ppp;
+  __cil_tmp101 = ppp->flags;
 #line 1230
-  __cil_tmp200 = __cil_tmp199 + 508;
+  __cil_tmp102 = __cil_tmp101 & 512U;
 #line 1230
-  __cil_tmp201 = *((unsigned int *)__cil_tmp200);
-#line 1230
-  __cil_tmp202 = __cil_tmp201 & 512U;
-#line 1230
-  if (__cil_tmp202 != 0U) {
+  if (__cil_tmp102 != 0U) {
     {
 #line 1231
-    __cil_tmp203 = 128 + 16;
+    __cil_tmp103 = ppp->file.rq.qlen;
 #line 1231
-    __cil_tmp204 = 0 + __cil_tmp203;
-#line 1231
-    __cil_tmp205 = (unsigned long )ppp;
-#line 1231
-    __cil_tmp206 = __cil_tmp205 + __cil_tmp204;
-#line 1231
-    __cil_tmp207 = *((__u32 *)__cil_tmp206);
-#line 1231
-    if (__cil_tmp207 > 32U) {
+    if (__cil_tmp103 > 32U) {
+#line 1232
       goto drop;
     } else {
 
@@ -15214,27 +13635,15 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
     }
     {
 #line 1233
-    __cil_tmp208 = 0 + 128;
+    __cil_tmp104 = & ppp->file.rq;
 #line 1233
-    __cil_tmp209 = (unsigned long )ppp;
-#line 1233
-    __cil_tmp210 = __cil_tmp209 + __cil_tmp208;
-#line 1233
-    __cil_tmp211 = (struct sk_buff_head *)__cil_tmp210;
-#line 1233
-    skb_queue_tail(__cil_tmp211, skb);
+    skb_queue_tail(__cil_tmp104, skb);
 #line 1234
-    __cil_tmp212 = 0 + 224;
+    __cil_tmp105 = & ppp->file.rwait;
 #line 1234
-    __cil_tmp213 = (unsigned long )ppp;
+    __cil_tmp106 = (void *)0;
 #line 1234
-    __cil_tmp214 = __cil_tmp213 + __cil_tmp212;
-#line 1234
-    __cil_tmp215 = (wait_queue_head_t *)__cil_tmp214;
-#line 1234
-    __cil_tmp216 = (void *)0;
-#line 1234
-    __wake_up(__cil_tmp215, 1U, 1, __cil_tmp216);
+    __wake_up(__cil_tmp105, 1U, 1, __cil_tmp106);
     }
 #line 1235
     return;
@@ -15244,11 +13653,7 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1238
-  __cil_tmp217 = (unsigned long )ppp;
-#line 1238
-  __cil_tmp218 = __cil_tmp217 + 728;
-#line 1238
-  *((struct sk_buff **)__cil_tmp218) = skb;
+  ppp->xmit_pending = skb;
 #line 1239
   ppp_push(ppp);
   }
@@ -15259,33 +13664,13 @@ static void ppp_send_frame(struct ppp *ppp , struct sk_buff *skb )
 #line 1243
   kfree_skb(skb);
 #line 1244
-  __cil_tmp219 = 200 + 40;
+  __cil_tmp107 = ppp->dev;
 #line 1244
-  __cil_tmp220 = (unsigned long )ppp;
+  __cil_tmp108 = ppp->dev;
 #line 1244
-  __cil_tmp221 = __cil_tmp220 + 784;
+  __cil_tmp109 = __cil_tmp108->stats.tx_errors;
 #line 1244
-  __cil_tmp222 = *((struct net_device **)__cil_tmp221);
-#line 1244
-  __cil_tmp223 = (unsigned long )__cil_tmp222;
-#line 1244
-  __cil_tmp224 = __cil_tmp223 + __cil_tmp219;
-#line 1244
-  __cil_tmp225 = 200 + 40;
-#line 1244
-  __cil_tmp226 = (unsigned long )ppp;
-#line 1244
-  __cil_tmp227 = __cil_tmp226 + 784;
-#line 1244
-  __cil_tmp228 = *((struct net_device **)__cil_tmp227);
-#line 1244
-  __cil_tmp229 = (unsigned long )__cil_tmp228;
-#line 1244
-  __cil_tmp230 = __cil_tmp229 + __cil_tmp225;
-#line 1244
-  __cil_tmp231 = *((unsigned long *)__cil_tmp230);
-#line 1244
-  *((unsigned long *)__cil_tmp224) = __cil_tmp231 + 1UL;
+  __cil_tmp107->stats.tx_errors = __cil_tmp109 + 1UL;
   }
 #line 1245
   return;
@@ -15300,66 +13685,36 @@ static void ppp_push(struct ppp *ppp )
   struct list_head  const  *__mptr ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp9 ;
+  struct sk_buff *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  struct sk_buff *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct list_head  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  unsigned long __cil_tmp11 ;
+  struct list_head  const  *__cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  unsigned int __cil_tmp14 ;
+  struct channel *__cil_tmp15 ;
+  spinlock_t *__cil_tmp16 ;
+  struct ppp_channel *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  struct ppp_channel *__cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  struct channel *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  spinlock_t *__cil_tmp26 ;
-  struct ppp_channel *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct ppp_channel *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct ppp_channel *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct ppp_channel_ops  const  *__cil_tmp38 ;
-  int (*__cil_tmp39)(struct ppp_channel * , struct sk_buff * ) ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct ppp_channel *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  spinlock_t *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  struct ppp_channel *__cil_tmp21 ;
+  struct ppp_channel_ops  const  *__cil_tmp22 ;
+  int (*__cil_tmp23)(struct ppp_channel * , struct sk_buff * ) ;
+  struct ppp_channel *__cil_tmp24 ;
+  spinlock_t *__cil_tmp25 ;
 
   {
 #line 1256
-  __cil_tmp9 = (unsigned long )ppp;
-#line 1256
-  __cil_tmp10 = __cil_tmp9 + 728;
-#line 1256
-  skb = *((struct sk_buff **)__cil_tmp10);
+  skb = ppp->xmit_pending;
   {
 #line 1258
-  __cil_tmp11 = (struct sk_buff *)0;
+  __cil_tmp9 = (struct sk_buff *)0;
 #line 1258
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 1258
-  __cil_tmp13 = (unsigned long )skb;
+  __cil_tmp11 = (unsigned long )skb;
 #line 1258
-  if (__cil_tmp13 == __cil_tmp12) {
+  if (__cil_tmp11 == __cil_tmp10) {
 #line 1259
     return;
   } else {
@@ -15368,25 +13723,17 @@ static void ppp_push(struct ppp *ppp )
   }
   {
 #line 1261
-  __cil_tmp14 = (unsigned long )ppp;
-#line 1261
-  __cil_tmp15 = __cil_tmp14 + 336;
-#line 1261
-  list = (struct list_head *)__cil_tmp15;
+  list = & ppp->channels;
 #line 1262
-  __cil_tmp16 = (struct list_head  const  *)list;
+  __cil_tmp12 = (struct list_head  const  *)list;
 #line 1262
-  tmp = list_empty(__cil_tmp16);
+  tmp = list_empty(__cil_tmp12);
   }
 #line 1262
   if (tmp != 0) {
     {
 #line 1264
-    __cil_tmp17 = (unsigned long )ppp;
-#line 1264
-    __cil_tmp18 = __cil_tmp17 + 728;
-#line 1264
-    *((struct sk_buff **)__cil_tmp18) = (struct sk_buff *)0;
+    ppp->xmit_pending = (struct sk_buff *)0;
 #line 1265
     kfree_skb(skb);
     }
@@ -15397,90 +13744,58 @@ static void ppp_push(struct ppp *ppp )
   }
   {
 #line 1269
-  __cil_tmp19 = (unsigned long )ppp;
+  __cil_tmp13 = ppp->flags;
 #line 1269
-  __cil_tmp20 = __cil_tmp19 + 508;
+  __cil_tmp14 = __cil_tmp13 & 1024U;
 #line 1269
-  __cil_tmp21 = *((unsigned int *)__cil_tmp20);
-#line 1269
-  __cil_tmp22 = __cil_tmp21 & 1024U;
-#line 1269
-  if (__cil_tmp22 == 0U) {
+  if (__cil_tmp14 == 0U) {
     {
 #line 1271
-    list = *((struct list_head **)list);
+    list = list->next;
 #line 1272
     __mptr = (struct list_head  const  *)list;
 #line 1272
-    __cil_tmp23 = (struct channel *)__mptr;
+    __cil_tmp15 = (struct channel *)__mptr;
 #line 1272
-    pch = __cil_tmp23 + 1152921504606846416UL;
+    pch = __cil_tmp15 + 1152921504606846416UL;
 #line 1274
-    __cil_tmp24 = (unsigned long )pch;
+    __cil_tmp16 = & pch->downl;
 #line 1274
-    __cil_tmp25 = __cil_tmp24 + 496;
-#line 1274
-    __cil_tmp26 = (spinlock_t *)__cil_tmp25;
-#line 1274
-    spin_lock_bh(__cil_tmp26);
+    spin_lock_bh(__cil_tmp16);
     }
     {
 #line 1275
-    __cil_tmp27 = (struct ppp_channel *)0;
+    __cil_tmp17 = (struct ppp_channel *)0;
 #line 1275
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
+    __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 1275
-    __cil_tmp29 = (unsigned long )pch;
+    __cil_tmp19 = pch->chan;
 #line 1275
-    __cil_tmp30 = __cil_tmp29 + 344;
+    __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 1275
-    __cil_tmp31 = *((struct ppp_channel **)__cil_tmp30);
-#line 1275
-    __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 1275
-    if (__cil_tmp32 != __cil_tmp28) {
+    if (__cil_tmp20 != __cil_tmp18) {
       {
 #line 1276
-      __cil_tmp33 = (unsigned long )pch;
+      __cil_tmp21 = pch->chan;
 #line 1276
-      __cil_tmp34 = __cil_tmp33 + 344;
+      __cil_tmp22 = __cil_tmp21->ops;
 #line 1276
-      __cil_tmp35 = *((struct ppp_channel **)__cil_tmp34);
+      __cil_tmp23 = __cil_tmp22->start_xmit;
 #line 1276
-      __cil_tmp36 = (unsigned long )__cil_tmp35;
+      __cil_tmp24 = pch->chan;
 #line 1276
-      __cil_tmp37 = __cil_tmp36 + 8;
-#line 1276
-      __cil_tmp38 = *((struct ppp_channel_ops  const  **)__cil_tmp37);
-#line 1276
-      __cil_tmp39 = *((int (* const  *)(struct ppp_channel * , struct sk_buff * ))__cil_tmp38);
-#line 1276
-      __cil_tmp40 = (unsigned long )pch;
-#line 1276
-      __cil_tmp41 = __cil_tmp40 + 344;
-#line 1276
-      __cil_tmp42 = *((struct ppp_channel **)__cil_tmp41);
-#line 1276
-      tmp___0 = (*__cil_tmp39)(__cil_tmp42, skb);
+      tmp___0 = (*__cil_tmp23)(__cil_tmp24, skb);
       }
 #line 1276
       if (tmp___0 != 0) {
 #line 1277
-        __cil_tmp43 = (unsigned long )ppp;
-#line 1277
-        __cil_tmp44 = __cil_tmp43 + 728;
-#line 1277
-        *((struct sk_buff **)__cil_tmp44) = (struct sk_buff *)0;
+        ppp->xmit_pending = (struct sk_buff *)0;
       } else {
         {
 #line 1280
         kfree_skb(skb);
 #line 1281
-        __cil_tmp45 = (unsigned long )ppp;
-#line 1281
-        __cil_tmp46 = __cil_tmp45 + 728;
-#line 1281
-        *((struct sk_buff **)__cil_tmp46) = (struct sk_buff *)0;
+        ppp->xmit_pending = (struct sk_buff *)0;
         }
       }
     } else {
@@ -15489,13 +13804,9 @@ static void ppp_push(struct ppp *ppp )
     }
     {
 #line 1283
-    __cil_tmp47 = (unsigned long )pch;
+    __cil_tmp25 = & pch->downl;
 #line 1283
-    __cil_tmp48 = __cil_tmp47 + 496;
-#line 1283
-    __cil_tmp49 = (spinlock_t *)__cil_tmp48;
-#line 1283
-    spin_unlock_bh(__cil_tmp49);
+    spin_unlock_bh(__cil_tmp25);
     }
 #line 1284
     return;
@@ -15516,11 +13827,7 @@ static void ppp_push(struct ppp *ppp )
   }
   {
 #line 1294
-  __cil_tmp50 = (unsigned long )ppp;
-#line 1294
-  __cil_tmp51 = __cil_tmp50 + 728;
-#line 1294
-  *((struct sk_buff **)__cil_tmp51) = (struct sk_buff *)0;
+  ppp->xmit_pending = (struct sk_buff *)0;
 #line 1295
   kfree_skb(skb);
   }
@@ -15529,7 +13836,7 @@ static void ppp_push(struct ppp *ppp )
 }
 }
 #line 1299 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
-static bool mp_protocol_compress  =    (_Bool)1;
+static bool mp_protocol_compress  =    (bool )1;
 #line 1308 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb ) 
 { int len ;
@@ -15559,271 +13866,130 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   void *__ret ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  struct list_head *__cil_tmp32 ;
+  struct channel *__cil_tmp33 ;
+  struct ppp_channel *__cil_tmp34 ;
   unsigned long __cil_tmp35 ;
-  struct list_head *__cil_tmp36 ;
-  struct channel *__cil_tmp37 ;
+  struct ppp_channel *__cil_tmp36 ;
+  unsigned long __cil_tmp37 ;
   struct ppp_channel *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct ppp_channel *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct ppp_channel *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
+  u8 __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  struct sk_buff_head *__cil_tmp41 ;
+  struct sk_buff_head  const  *__cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  u8 __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  int __cil_tmp49 ;
+  struct list_head *__cil_tmp50 ;
+  struct channel *__cil_tmp51 ;
+  struct list_head *__cil_tmp52 ;
   unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
+  struct list_head *__cil_tmp54 ;
   unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  u8 __cil_tmp57 ;
-  unsigned int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
+  int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned char __cil_tmp58 ;
+  unsigned int __cil_tmp59 ;
   unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  struct sk_buff_head *__cil_tmp62 ;
-  struct sk_buff_head  const  *__cil_tmp63 ;
+  struct list_head *__cil_tmp61 ;
+  unsigned long __cil_tmp62 ;
+  int __cil_tmp63 ;
   unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  u8 __cil_tmp66 ;
-  unsigned int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  int __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  int __cil_tmp73 ;
+  struct list_head *__cil_tmp65 ;
+  unsigned long __cil_tmp66 ;
+  struct channel *__cil_tmp67 ;
+  u8 __cil_tmp68 ;
+  unsigned int __cil_tmp69 ;
+  u8 __cil_tmp70 ;
+  unsigned int __cil_tmp71 ;
+  spinlock_t *__cil_tmp72 ;
+  struct ppp_channel *__cil_tmp73 ;
   unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
+  struct ppp_channel *__cil_tmp75 ;
   unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  u8 __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
+  int __cil_tmp77 ;
+  int __cil_tmp78 ;
+  spinlock_t *__cil_tmp79 ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
   int __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  struct list_head *__cil_tmp87 ;
-  struct channel *__cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct list_head *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct list_head *__cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned int __cil_tmp102 ;
-  unsigned char __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
+  int __cil_tmp83 ;
+  int __cil_tmp84 ;
+  int __cil_tmp85 ;
+  int __cil_tmp86 ;
+  int __cil_tmp87 ;
+  int __cil_tmp88 ;
+  int __cil_tmp89 ;
+  int __cil_tmp90 ;
+  int __cil_tmp91 ;
+  int __cil_tmp92 ;
+  int __cil_tmp93 ;
+  int __cil_tmp94 ;
+  int __cil_tmp95 ;
+  int __cil_tmp96 ;
+  spinlock_t *__cil_tmp97 ;
+  struct ppp_channel *__cil_tmp98 ;
+  int __cil_tmp99 ;
+  int __cil_tmp100 ;
+  int __cil_tmp101 ;
+  int __cil_tmp102 ;
+  unsigned int __cil_tmp103 ;
+  struct sk_buff *__cil_tmp104 ;
   unsigned long __cil_tmp105 ;
   unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  struct list_head *__cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  int __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  struct list_head *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  struct channel *__cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  u8 __cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  u8 __cil_tmp127 ;
-  unsigned int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  spinlock_t *__cil_tmp133 ;
-  struct ppp_channel *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  struct ppp_channel *__cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  int __cil_tmp142 ;
+  int __cil_tmp107 ;
+  unsigned int __cil_tmp108 ;
+  u16 __cil_tmp109 ;
+  void *__cil_tmp110 ;
+  unsigned int __cil_tmp111 ;
+  unsigned int __cil_tmp112 ;
+  unsigned char *__cil_tmp113 ;
+  unsigned char __cil_tmp114 ;
+  unsigned int __cil_tmp115 ;
+  u32 __cil_tmp116 ;
+  u32 __cil_tmp117 ;
+  unsigned char __cil_tmp118 ;
+  unsigned int __cil_tmp119 ;
+  unsigned int __cil_tmp120 ;
+  unsigned int __cil_tmp121 ;
+  unsigned char *__cil_tmp122 ;
+  u32 __cil_tmp123 ;
+  unsigned char *__cil_tmp124 ;
+  unsigned char *__cil_tmp125 ;
+  u32 __cil_tmp126 ;
+  u32 __cil_tmp127 ;
+  unsigned char *__cil_tmp128 ;
+  u32 __cil_tmp129 ;
+  u32 __cil_tmp130 ;
+  unsigned char *__cil_tmp131 ;
+  u32 __cil_tmp132 ;
+  unsigned long __cil_tmp133 ;
+  void *__cil_tmp134 ;
+  void *__cil_tmp135 ;
+  void const   *__cil_tmp136 ;
+  struct sk_buff_head *__cil_tmp137 ;
+  struct sk_buff_head  const  *__cil_tmp138 ;
+  struct sk_buff_head *__cil_tmp139 ;
+  struct ppp_channel_ops  const  *__cil_tmp140 ;
+  int (*__cil_tmp141)(struct ppp_channel * , struct sk_buff * ) ;
+  struct sk_buff_head *__cil_tmp142 ;
   unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  int __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  spinlock_t *__cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
+  u32 __cil_tmp144 ;
+  spinlock_t *__cil_tmp145 ;
+  spinlock_t *__cil_tmp146 ;
+  int __cil_tmp147 ;
+  struct net_device *__cil_tmp148 ;
+  struct net_device  const  *__cil_tmp149 ;
+  struct net_device *__cil_tmp150 ;
+  struct net_device *__cil_tmp151 ;
   unsigned long __cil_tmp152 ;
-  int __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  int __cil_tmp156 ;
-  int __cil_tmp157 ;
-  int __cil_tmp158 ;
-  int __cil_tmp159 ;
-  int __cil_tmp160 ;
-  int __cil_tmp161 ;
-  int __cil_tmp162 ;
-  int __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  int __cil_tmp166 ;
-  int __cil_tmp167 ;
-  int __cil_tmp168 ;
-  int __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  int __cil_tmp172 ;
-  int __cil_tmp173 ;
-  int __cil_tmp174 ;
-  int __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  spinlock_t *__cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  struct ppp_channel *__cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  int __cil_tmp186 ;
-  int __cil_tmp187 ;
-  int __cil_tmp188 ;
-  int __cil_tmp189 ;
-  unsigned int __cil_tmp190 ;
-  struct sk_buff *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  int __cil_tmp194 ;
-  unsigned int __cil_tmp195 ;
-  void *__cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  unsigned int __cil_tmp199 ;
-  unsigned int __cil_tmp200 ;
-  unsigned char *__cil_tmp201 ;
-  unsigned char __cil_tmp202 ;
-  unsigned int __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  u32 __cil_tmp206 ;
-  u32 __cil_tmp207 ;
-  unsigned char __cil_tmp208 ;
-  unsigned int __cil_tmp209 ;
-  unsigned int __cil_tmp210 ;
-  unsigned int __cil_tmp211 ;
-  unsigned char *__cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  u32 __cil_tmp215 ;
-  unsigned char *__cil_tmp216 ;
-  unsigned char *__cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  u32 __cil_tmp220 ;
-  u32 __cil_tmp221 ;
-  unsigned char *__cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  u32 __cil_tmp225 ;
-  u32 __cil_tmp226 ;
-  unsigned char *__cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  u32 __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  void *__cil_tmp232 ;
-  void *__cil_tmp233 ;
-  void const   *__cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  struct sk_buff_head *__cil_tmp240 ;
-  struct sk_buff_head  const  *__cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  struct sk_buff_head *__cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  struct ppp_channel_ops  const  *__cil_tmp248 ;
-  int (*__cil_tmp249)(struct ppp_channel * , struct sk_buff * ) ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  struct sk_buff_head *__cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  u32 __cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  spinlock_t *__cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  spinlock_t *__cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  int __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  struct net_device *__cil_tmp275 ;
-  struct net_device  const  *__cil_tmp276 ;
-  unsigned long __cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  struct net_device *__cil_tmp280 ;
-  unsigned long __cil_tmp281 ;
-  unsigned long __cil_tmp282 ;
-  unsigned long __cil_tmp283 ;
-  unsigned long __cil_tmp284 ;
-  unsigned long __cil_tmp285 ;
-  struct net_device *__cil_tmp286 ;
-  unsigned long __cil_tmp287 ;
-  unsigned long __cil_tmp288 ;
-  unsigned long __cil_tmp289 ;
-  unsigned long __cil_tmp290 ;
-  unsigned long __cil_tmp291 ;
-  unsigned long __cil_tmp292 ;
-  unsigned long __cil_tmp293 ;
-  u32 __cil_tmp294 ;
+  u32 __cil_tmp153 ;
 
   {
 #line 1323
@@ -15838,15 +14004,11 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   totfree = 0;
   {
 #line 1331
-  __cil_tmp30 = (unsigned long )ppp;
+  __cil_tmp30 = ppp->flags;
 #line 1331
-  __cil_tmp31 = __cil_tmp30 + 508;
+  __cil_tmp31 = __cil_tmp30 & 16384U;
 #line 1331
-  __cil_tmp32 = *((unsigned int *)__cil_tmp31);
-#line 1331
-  __cil_tmp33 = __cil_tmp32 & 16384U;
-#line 1331
-  if (__cil_tmp33 != 0U) {
+  if (__cil_tmp31 != 0U) {
 #line 1331
     hdrlen = 4;
   } else {
@@ -15857,136 +14019,84 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
 #line 1332
   i = 0;
 #line 1333
-  __cil_tmp34 = (unsigned long )ppp;
+  __cil_tmp32 = ppp->channels.next;
 #line 1333
-  __cil_tmp35 = __cil_tmp34 + 336;
+  __mptr = (struct list_head  const  *)__cil_tmp32;
 #line 1333
-  __cil_tmp36 = *((struct list_head **)__cil_tmp35);
+  __cil_tmp33 = (struct channel *)__mptr;
 #line 1333
-  __mptr = (struct list_head  const  *)__cil_tmp36;
+  pch = __cil_tmp33 + 1152921504606846416UL;
 #line 1333
-  __cil_tmp37 = (struct channel *)__mptr;
-#line 1333
-  pch = __cil_tmp37 + 1152921504606846416UL;
   goto ldv_40118;
   ldv_40117: ;
   {
 #line 1334
-  __cil_tmp38 = (struct ppp_channel *)0;
+  __cil_tmp34 = (struct ppp_channel *)0;
 #line 1334
-  __cil_tmp39 = (unsigned long )__cil_tmp38;
+  __cil_tmp35 = (unsigned long )__cil_tmp34;
 #line 1334
-  __cil_tmp40 = (unsigned long )pch;
+  __cil_tmp36 = pch->chan;
 #line 1334
-  __cil_tmp41 = __cil_tmp40 + 344;
+  __cil_tmp37 = (unsigned long )__cil_tmp36;
 #line 1334
-  __cil_tmp42 = *((struct ppp_channel **)__cil_tmp41);
-#line 1334
-  __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 1334
-  if (__cil_tmp43 != __cil_tmp39) {
+  if (__cil_tmp37 != __cil_tmp35) {
 #line 1335
-    __cil_tmp44 = (unsigned long )pch;
-#line 1335
-    __cil_tmp45 = __cil_tmp44 + 672;
-#line 1335
-    *((u8 *)__cil_tmp45) = (unsigned char)1;
+    pch->avail = (u8 )1U;
 #line 1336
     navail = navail + 1;
 #line 1337
-    __cil_tmp46 = (unsigned long )pch;
+    __cil_tmp38 = pch->chan;
 #line 1337
-    __cil_tmp47 = __cil_tmp46 + 680;
-#line 1337
-    __cil_tmp48 = (unsigned long )pch;
-#line 1337
-    __cil_tmp49 = __cil_tmp48 + 344;
-#line 1337
-    __cil_tmp50 = *((struct ppp_channel **)__cil_tmp49);
-#line 1337
-    __cil_tmp51 = (unsigned long )__cil_tmp50;
-#line 1337
-    __cil_tmp52 = __cil_tmp51 + 32;
-#line 1337
-    *((int *)__cil_tmp47) = *((int *)__cil_tmp52);
+    pch->speed = __cil_tmp38->speed;
   } else {
 #line 1339
-    __cil_tmp53 = (unsigned long )pch;
-#line 1339
-    __cil_tmp54 = __cil_tmp53 + 672;
-#line 1339
-    *((u8 *)__cil_tmp54) = (unsigned char)0;
+    pch->avail = (u8 )0U;
   }
   }
   {
 #line 1341
-  __cil_tmp55 = (unsigned long )pch;
+  __cil_tmp39 = pch->avail;
 #line 1341
-  __cil_tmp56 = __cil_tmp55 + 672;
+  __cil_tmp40 = (unsigned int )__cil_tmp39;
 #line 1341
-  __cil_tmp57 = *((u8 *)__cil_tmp56);
-#line 1341
-  __cil_tmp58 = (unsigned int )__cil_tmp57;
-#line 1341
-  if (__cil_tmp58 != 0U) {
+  if (__cil_tmp40 != 0U) {
     {
 #line 1342
-    __cil_tmp59 = 0 + 32;
+    __cil_tmp41 = & pch->file.xq;
 #line 1342
-    __cil_tmp60 = (unsigned long )pch;
+    __cil_tmp42 = (struct sk_buff_head  const  *)__cil_tmp41;
 #line 1342
-    __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 1342
-    __cil_tmp62 = (struct sk_buff_head *)__cil_tmp61;
-#line 1342
-    __cil_tmp63 = (struct sk_buff_head  const  *)__cil_tmp62;
-#line 1342
-    tmp = skb_queue_empty(__cil_tmp63);
+    tmp = skb_queue_empty(__cil_tmp42);
     }
 #line 1342
     if (tmp != 0) {
+#line 1342
       goto _L;
     } else {
       {
 #line 1342
-      __cil_tmp64 = (unsigned long )pch;
+      __cil_tmp43 = pch->had_frag;
 #line 1342
-      __cil_tmp65 = __cil_tmp64 + 673;
+      __cil_tmp44 = (unsigned int )__cil_tmp43;
 #line 1342
-      __cil_tmp66 = *((u8 *)__cil_tmp65);
-#line 1342
-      __cil_tmp67 = (unsigned int )__cil_tmp66;
-#line 1342
-      if (__cil_tmp67 == 0U) {
+      if (__cil_tmp44 == 0U) {
         _L: 
         {
 #line 1344
-        __cil_tmp68 = (unsigned long )pch;
+        __cil_tmp45 = pch->speed;
 #line 1344
-        __cil_tmp69 = __cil_tmp68 + 680;
-#line 1344
-        __cil_tmp70 = *((int *)__cil_tmp69);
-#line 1344
-        if (__cil_tmp70 == 0) {
+        if (__cil_tmp45 == 0) {
 #line 1345
           nzero = nzero + 1;
         } else {
 #line 1347
-          __cil_tmp71 = (unsigned long )pch;
+          __cil_tmp46 = pch->speed;
 #line 1347
-          __cil_tmp72 = __cil_tmp71 + 680;
-#line 1347
-          __cil_tmp73 = *((int *)__cil_tmp72);
-#line 1347
-          totspeed = __cil_tmp73 + totspeed;
+          totspeed = __cil_tmp46 + totspeed;
         }
         }
 #line 1349
-        __cil_tmp74 = (unsigned long )pch;
-#line 1349
-        __cil_tmp75 = __cil_tmp74 + 672;
-#line 1349
-        *((u8 *)__cil_tmp75) = (unsigned char)2;
+        pch->avail = (u8 )2U;
 #line 1350
         nfree = nfree + 1;
 #line 1351
@@ -15998,30 +14108,18 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
     }
     {
 #line 1353
-    __cil_tmp76 = (unsigned long )pch;
+    __cil_tmp47 = pch->had_frag;
 #line 1353
-    __cil_tmp77 = __cil_tmp76 + 673;
+    __cil_tmp48 = (unsigned int )__cil_tmp47;
 #line 1353
-    __cil_tmp78 = *((u8 *)__cil_tmp77);
-#line 1353
-    __cil_tmp79 = (unsigned int )__cil_tmp78;
-#line 1353
-    if (__cil_tmp79 == 0U) {
+    if (__cil_tmp48 == 0U) {
       {
 #line 1353
-      __cil_tmp80 = (unsigned long )ppp;
+      __cil_tmp49 = ppp->nxchan;
 #line 1353
-      __cil_tmp81 = __cil_tmp80 + 796;
-#line 1353
-      __cil_tmp82 = *((int *)__cil_tmp81);
-#line 1353
-      if (__cil_tmp82 > i) {
+      if (__cil_tmp49 > i) {
 #line 1354
-        __cil_tmp83 = (unsigned long )ppp;
-#line 1354
-        __cil_tmp84 = __cil_tmp83 + 796;
-#line 1354
-        *((int *)__cil_tmp84) = i;
+        ppp->nxchan = i;
       } else {
 
       }
@@ -16037,39 +14135,29 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
 #line 1356
   i = i + 1;
 #line 1333
-  __cil_tmp85 = (unsigned long )pch;
+  __cil_tmp50 = pch->clist.next;
 #line 1333
-  __cil_tmp86 = __cil_tmp85 + 584;
+  __mptr___0 = (struct list_head  const  *)__cil_tmp50;
 #line 1333
-  __cil_tmp87 = *((struct list_head **)__cil_tmp86);
+  __cil_tmp51 = (struct channel *)__mptr___0;
 #line 1333
-  __mptr___0 = (struct list_head  const  *)__cil_tmp87;
-#line 1333
-  __cil_tmp88 = (struct channel *)__mptr___0;
-#line 1333
-  pch = __cil_tmp88 + 1152921504606846416UL;
+  pch = __cil_tmp51 + 1152921504606846416UL;
   ldv_40118: ;
   {
 #line 1333
-  __cil_tmp89 = (unsigned long )ppp;
+  __cil_tmp52 = & ppp->channels;
 #line 1333
-  __cil_tmp90 = __cil_tmp89 + 336;
+  __cil_tmp53 = (unsigned long )__cil_tmp52;
 #line 1333
-  __cil_tmp91 = (struct list_head *)__cil_tmp90;
+  __cil_tmp54 = & pch->clist;
 #line 1333
-  __cil_tmp92 = (unsigned long )__cil_tmp91;
+  __cil_tmp55 = (unsigned long )__cil_tmp54;
 #line 1333
-  __cil_tmp93 = (unsigned long )pch;
-#line 1333
-  __cil_tmp94 = __cil_tmp93 + 584;
-#line 1333
-  __cil_tmp95 = (struct list_head *)__cil_tmp94;
-#line 1333
-  __cil_tmp96 = (unsigned long )__cil_tmp95;
-#line 1333
-  if (__cil_tmp96 != __cil_tmp92) {
+  if (__cil_tmp55 != __cil_tmp53) {
+#line 1334
     goto ldv_40117;
   } else {
+#line 1336
     goto ldv_40119;
   }
   }
@@ -16081,9 +14169,9 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   } else {
     {
 #line 1363
-    __cil_tmp97 = navail / 2;
+    __cil_tmp56 = navail / 2;
 #line 1363
-    if (__cil_tmp97 > nfree) {
+    if (__cil_tmp56 > nfree) {
 #line 1364
       return (0);
     } else {
@@ -16092,26 +14180,18 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
     }
   }
 #line 1367
-  __cil_tmp98 = (unsigned long )skb;
-#line 1367
-  __cil_tmp99 = __cil_tmp98 + 224;
-#line 1367
-  p = *((unsigned char **)__cil_tmp99);
+  p = skb->data;
 #line 1368
-  __cil_tmp100 = (unsigned long )skb;
+  __cil_tmp57 = skb->len;
 #line 1368
-  __cil_tmp101 = __cil_tmp100 + 104;
-#line 1368
-  __cil_tmp102 = *((unsigned int *)__cil_tmp101);
-#line 1368
-  len = (int )__cil_tmp102;
+  len = (int )__cil_tmp57;
   {
 #line 1369
-  __cil_tmp103 = *p;
+  __cil_tmp58 = *p;
 #line 1369
-  __cil_tmp104 = (unsigned int )__cil_tmp103;
+  __cil_tmp59 = (unsigned int )__cil_tmp58;
 #line 1369
-  if (__cil_tmp104 == 0U) {
+  if (__cil_tmp59 == 0U) {
 #line 1369
     if ((int )mp_protocol_compress) {
 #line 1370
@@ -16130,32 +14210,26 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
 #line 1375
   nbigger = len % nfree;
 #line 1379
-  __cil_tmp105 = (unsigned long )ppp;
-#line 1379
-  __cil_tmp106 = __cil_tmp105 + 336;
-#line 1379
-  list = (struct list_head *)__cil_tmp106;
+  list = & ppp->channels;
 #line 1380
   i = 0;
+#line 1380
   goto ldv_40122;
   ldv_40121: 
 #line 1381
-  list = *((struct list_head **)list);
+  list = list->next;
   {
 #line 1382
-  __cil_tmp107 = (unsigned long )list;
+  __cil_tmp60 = (unsigned long )list;
 #line 1382
-  __cil_tmp108 = (unsigned long )ppp;
+  __cil_tmp61 = & ppp->channels;
 #line 1382
-  __cil_tmp109 = __cil_tmp108 + 336;
+  __cil_tmp62 = (unsigned long )__cil_tmp61;
 #line 1382
-  __cil_tmp110 = (struct list_head *)__cil_tmp109;
-#line 1382
-  __cil_tmp111 = (unsigned long )__cil_tmp110;
-#line 1382
-  if (__cil_tmp111 == __cil_tmp107) {
+  if (__cil_tmp62 == __cil_tmp60) {
 #line 1383
     i = 0;
+#line 1384
     goto ldv_40120;
   } else {
 
@@ -16166,40 +14240,36 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   ldv_40122: ;
   {
 #line 1380
-  __cil_tmp112 = (unsigned long )ppp;
+  __cil_tmp63 = ppp->nxchan;
 #line 1380
-  __cil_tmp113 = __cil_tmp112 + 796;
-#line 1380
-  __cil_tmp114 = *((int *)__cil_tmp113);
-#line 1380
-  if (__cil_tmp114 > i) {
+  if (__cil_tmp63 > i) {
+#line 1381
     goto ldv_40121;
   } else {
+#line 1383
     goto ldv_40120;
   }
   }
   ldv_40120: 
 #line 1389
   bits = 128;
+#line 1390
   goto ldv_40123;
   ldv_40131: 
 #line 1391
-  list = *((struct list_head **)list);
+  list = list->next;
   {
 #line 1392
-  __cil_tmp115 = (unsigned long )list;
+  __cil_tmp64 = (unsigned long )list;
 #line 1392
-  __cil_tmp116 = (unsigned long )ppp;
+  __cil_tmp65 = & ppp->channels;
 #line 1392
-  __cil_tmp117 = __cil_tmp116 + 336;
+  __cil_tmp66 = (unsigned long )__cil_tmp65;
 #line 1392
-  __cil_tmp118 = (struct list_head *)__cil_tmp117;
-#line 1392
-  __cil_tmp119 = (unsigned long )__cil_tmp118;
-#line 1392
-  if (__cil_tmp119 == __cil_tmp115) {
+  if (__cil_tmp66 == __cil_tmp64) {
 #line 1393
     i = 0;
+#line 1394
     goto ldv_40123;
   } else {
 
@@ -16208,22 +14278,19 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
 #line 1396
   __mptr___1 = (struct list_head  const  *)list;
 #line 1396
-  __cil_tmp120 = (struct channel *)__mptr___1;
+  __cil_tmp67 = (struct channel *)__mptr___1;
 #line 1396
-  pch = __cil_tmp120 + 1152921504606846416UL;
+  pch = __cil_tmp67 + 1152921504606846416UL;
 #line 1397
   i = i + 1;
   {
 #line 1398
-  __cil_tmp121 = (unsigned long )pch;
+  __cil_tmp68 = pch->avail;
 #line 1398
-  __cil_tmp122 = __cil_tmp121 + 672;
+  __cil_tmp69 = (unsigned int )__cil_tmp68;
 #line 1398
-  __cil_tmp123 = *((u8 *)__cil_tmp122);
-#line 1398
-  __cil_tmp124 = (unsigned int )__cil_tmp123;
-#line 1398
-  if (__cil_tmp124 == 0U) {
+  if (__cil_tmp69 == 0U) {
+#line 1399
     goto ldv_40123;
   } else {
 
@@ -16231,25 +14298,18 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1405
-  __cil_tmp125 = (unsigned long )pch;
+  __cil_tmp70 = pch->avail;
 #line 1405
-  __cil_tmp126 = __cil_tmp125 + 672;
+  __cil_tmp71 = (unsigned int )__cil_tmp70;
 #line 1405
-  __cil_tmp127 = *((u8 *)__cil_tmp126);
-#line 1405
-  __cil_tmp128 = (unsigned int )__cil_tmp127;
-#line 1405
-  if (__cil_tmp128 == 1U) {
+  if (__cil_tmp71 == 1U) {
 #line 1406
     if (nfree > 0) {
+#line 1407
       goto ldv_40123;
     } else {
 #line 1409
-      __cil_tmp129 = (unsigned long )pch;
-#line 1409
-      __cil_tmp130 = __cil_tmp129 + 672;
-#line 1409
-      *((u8 *)__cil_tmp130) = (unsigned char)1;
+      pch->avail = (u8 )1U;
     }
   } else {
 
@@ -16257,66 +14317,42 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1413
-  __cil_tmp131 = (unsigned long )pch;
+  __cil_tmp72 = & pch->downl;
 #line 1413
-  __cil_tmp132 = __cil_tmp131 + 496;
-#line 1413
-  __cil_tmp133 = (spinlock_t *)__cil_tmp132;
-#line 1413
-  spin_lock_bh(__cil_tmp133);
+  spin_lock_bh(__cil_tmp72);
   }
   {
 #line 1414
-  __cil_tmp134 = (struct ppp_channel *)0;
+  __cil_tmp73 = (struct ppp_channel *)0;
 #line 1414
-  __cil_tmp135 = (unsigned long )__cil_tmp134;
+  __cil_tmp74 = (unsigned long )__cil_tmp73;
 #line 1414
-  __cil_tmp136 = (unsigned long )pch;
+  __cil_tmp75 = pch->chan;
 #line 1414
-  __cil_tmp137 = __cil_tmp136 + 344;
+  __cil_tmp76 = (unsigned long )__cil_tmp75;
 #line 1414
-  __cil_tmp138 = *((struct ppp_channel **)__cil_tmp137);
-#line 1414
-  __cil_tmp139 = (unsigned long )__cil_tmp138;
-#line 1414
-  if (__cil_tmp139 == __cil_tmp135) {
+  if (__cil_tmp76 == __cil_tmp74) {
     {
 #line 1416
-    __cil_tmp140 = (unsigned long )pch;
+    __cil_tmp77 = pch->speed;
 #line 1416
-    __cil_tmp141 = __cil_tmp140 + 680;
-#line 1416
-    __cil_tmp142 = *((int *)__cil_tmp141);
-#line 1416
-    if (__cil_tmp142 == 0) {
+    if (__cil_tmp77 == 0) {
 #line 1417
       nzero = nzero - 1;
     } else {
 #line 1419
-      __cil_tmp143 = (unsigned long )pch;
+      __cil_tmp78 = pch->speed;
 #line 1419
-      __cil_tmp144 = __cil_tmp143 + 680;
-#line 1419
-      __cil_tmp145 = *((int *)__cil_tmp144);
-#line 1419
-      totspeed = totspeed - __cil_tmp145;
+      totspeed = totspeed - __cil_tmp78;
     }
     }
     {
 #line 1421
-    __cil_tmp146 = (unsigned long )pch;
+    __cil_tmp79 = & pch->downl;
 #line 1421
-    __cil_tmp147 = __cil_tmp146 + 496;
-#line 1421
-    __cil_tmp148 = (spinlock_t *)__cil_tmp147;
-#line 1421
-    spin_unlock_bh(__cil_tmp148);
+    spin_unlock_bh(__cil_tmp79);
 #line 1422
-    __cil_tmp149 = (unsigned long )pch;
-#line 1422
-    __cil_tmp150 = __cil_tmp149 + 672;
-#line 1422
-    *((u8 *)__cil_tmp150) = (unsigned char)0;
+    pch->avail = (u8 )0U;
 #line 1423
     totlen = len;
 #line 1424
@@ -16328,10 +14364,12 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
     }
 #line 1426
     if (navail == 0) {
+#line 1427
       goto ldv_40126;
     } else {
 
     }
+#line 1428
     goto ldv_40123;
   } else {
 
@@ -16343,13 +14381,9 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   if (nfree > 0) {
     {
 #line 1439
-    __cil_tmp151 = (unsigned long )pch;
+    __cil_tmp80 = pch->speed;
 #line 1439
-    __cil_tmp152 = __cil_tmp151 + 680;
-#line 1439
-    __cil_tmp153 = *((int *)__cil_tmp152);
-#line 1439
-    if (__cil_tmp153 == 0) {
+    if (__cil_tmp80 == 0) {
 #line 1440
       flen = len / nfree;
 #line 1441
@@ -16363,57 +14397,45 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
       }
     } else {
 #line 1446
-      __cil_tmp154 = (unsigned long )pch;
+      __cil_tmp81 = pch->speed;
 #line 1446
-      __cil_tmp155 = __cil_tmp154 + 680;
+      __cil_tmp82 = totspeed * totfree;
 #line 1446
-      __cil_tmp156 = *((int *)__cil_tmp155);
+      __cil_tmp83 = __cil_tmp82 / __cil_tmp81;
 #line 1446
-      __cil_tmp157 = totspeed * totfree;
+      __cil_tmp84 = hdrlen * totfree;
 #line 1446
-      __cil_tmp158 = __cil_tmp157 / __cil_tmp156;
+      __cil_tmp85 = __cil_tmp84 + totlen;
 #line 1446
-      __cil_tmp159 = hdrlen * totfree;
+      __cil_tmp86 = totfree - nzero;
 #line 1446
-      __cil_tmp160 = __cil_tmp159 + totlen;
+      __cil_tmp87 = __cil_tmp86 * __cil_tmp85;
 #line 1446
-      __cil_tmp161 = totfree - nzero;
+      __cil_tmp88 = __cil_tmp87 / __cil_tmp83;
 #line 1446
-      __cil_tmp162 = __cil_tmp161 * __cil_tmp160;
-#line 1446
-      __cil_tmp163 = __cil_tmp162 / __cil_tmp158;
-#line 1446
-      flen = __cil_tmp163 - hdrlen;
+      flen = __cil_tmp88 - hdrlen;
 #line 1448
       if (nbigger > 0) {
 #line 1449
-        __cil_tmp164 = (unsigned long )pch;
+        __cil_tmp89 = pch->speed;
 #line 1449
-        __cil_tmp165 = __cil_tmp164 + 680;
+        __cil_tmp90 = totfree - nzero;
 #line 1449
-        __cil_tmp166 = *((int *)__cil_tmp165);
+        __cil_tmp91 = __cil_tmp90 * __cil_tmp89;
 #line 1449
-        __cil_tmp167 = totfree - nzero;
+        __cil_tmp92 = __cil_tmp91 / totspeed;
 #line 1449
-        __cil_tmp168 = __cil_tmp167 * __cil_tmp166;
-#line 1449
-        __cil_tmp169 = __cil_tmp168 / totspeed;
-#line 1449
-        flen = __cil_tmp169 + flen;
+        flen = __cil_tmp92 + flen;
 #line 1450
-        __cil_tmp170 = (unsigned long )pch;
+        __cil_tmp93 = pch->speed;
 #line 1450
-        __cil_tmp171 = __cil_tmp170 + 680;
+        __cil_tmp94 = totfree - nzero;
 #line 1450
-        __cil_tmp172 = *((int *)__cil_tmp171);
+        __cil_tmp95 = __cil_tmp94 * __cil_tmp93;
 #line 1450
-        __cil_tmp173 = totfree - nzero;
+        __cil_tmp96 = __cil_tmp95 / totspeed;
 #line 1450
-        __cil_tmp174 = __cil_tmp173 * __cil_tmp172;
-#line 1450
-        __cil_tmp175 = __cil_tmp174 / totspeed;
-#line 1450
-        nbigger = nbigger - __cil_tmp175;
+        nbigger = nbigger - __cil_tmp96;
       } else {
 
       }
@@ -16428,51 +14450,35 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   if (nfree <= 0) {
 #line 1463
     flen = len;
-  } else {
+  } else
 #line 1462
-    if (flen > len) {
+  if (flen > len) {
 #line 1463
-      flen = len;
-    } else {
+    flen = len;
+  } else {
 
-    }
   }
 #line 1470
   if (flen <= 0) {
     {
 #line 1471
-    __cil_tmp176 = (unsigned long )pch;
-#line 1471
-    __cil_tmp177 = __cil_tmp176 + 672;
-#line 1471
-    *((u8 *)__cil_tmp177) = (unsigned char)2;
+    pch->avail = (u8 )2U;
 #line 1472
-    __cil_tmp178 = (unsigned long )pch;
+    __cil_tmp97 = & pch->downl;
 #line 1472
-    __cil_tmp179 = __cil_tmp178 + 496;
-#line 1472
-    __cil_tmp180 = (spinlock_t *)__cil_tmp179;
-#line 1472
-    spin_unlock_bh(__cil_tmp180);
+    spin_unlock_bh(__cil_tmp97);
     }
+#line 1473
     goto ldv_40123;
   } else {
 
   }
 #line 1476
-  __cil_tmp181 = (unsigned long )pch;
+  __cil_tmp98 = pch->chan;
 #line 1476
-  __cil_tmp182 = __cil_tmp181 + 344;
+  __cil_tmp99 = __cil_tmp98->mtu;
 #line 1476
-  __cil_tmp183 = *((struct ppp_channel **)__cil_tmp182);
-#line 1476
-  __cil_tmp184 = (unsigned long )__cil_tmp183;
-#line 1476
-  __cil_tmp185 = __cil_tmp184 + 16;
-#line 1476
-  __cil_tmp186 = *((int *)__cil_tmp185);
-#line 1476
-  mtu = __cil_tmp186 - hdrlen;
+  mtu = __cil_tmp99 - hdrlen;
 #line 1477
   if (mtu <= 3) {
 #line 1478
@@ -16496,25 +14502,26 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1483
-  __cil_tmp187 = flen == 0;
+  __cil_tmp100 = flen == 0;
 #line 1483
-  __cil_tmp188 = flen + hdrlen;
+  __cil_tmp101 = flen + hdrlen;
 #line 1483
-  __cil_tmp189 = __cil_tmp188 + __cil_tmp187;
+  __cil_tmp102 = __cil_tmp101 + __cil_tmp100;
 #line 1483
-  __cil_tmp190 = (unsigned int )__cil_tmp189;
+  __cil_tmp103 = (unsigned int )__cil_tmp102;
 #line 1483
-  frag = alloc_skb(__cil_tmp190, 32U);
+  frag = alloc_skb(__cil_tmp103, 32U);
   }
   {
 #line 1484
-  __cil_tmp191 = (struct sk_buff *)0;
+  __cil_tmp104 = (struct sk_buff *)0;
 #line 1484
-  __cil_tmp192 = (unsigned long )__cil_tmp191;
+  __cil_tmp105 = (unsigned long )__cil_tmp104;
 #line 1484
-  __cil_tmp193 = (unsigned long )frag;
+  __cil_tmp106 = (unsigned long )frag;
 #line 1484
-  if (__cil_tmp193 == __cil_tmp192) {
+  if (__cil_tmp106 == __cil_tmp105) {
+#line 1485
     goto noskb;
   } else {
 
@@ -16522,174 +14529,126 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1486
-  __cil_tmp194 = flen + hdrlen;
+  __cil_tmp107 = flen + hdrlen;
 #line 1486
-  __cil_tmp195 = (unsigned int )__cil_tmp194;
+  __cil_tmp108 = (unsigned int )__cil_tmp107;
 #line 1486
-  q = skb_put(frag, __cil_tmp195);
+  q = skb_put(frag, __cil_tmp108);
 #line 1489
-  __cil_tmp196 = (void *)q;
+  __cil_tmp109 = (u16 )61;
 #line 1489
-  put_unaligned_be16((unsigned short)61, __cil_tmp196);
+  __cil_tmp110 = (void *)q;
+#line 1489
+  put_unaligned_be16(__cil_tmp109, __cil_tmp110);
   }
   {
 #line 1490
-  __cil_tmp197 = (unsigned long )ppp;
+  __cil_tmp111 = ppp->flags;
 #line 1490
-  __cil_tmp198 = __cil_tmp197 + 508;
+  __cil_tmp112 = __cil_tmp111 & 16384U;
 #line 1490
-  __cil_tmp199 = *((unsigned int *)__cil_tmp198);
-#line 1490
-  __cil_tmp200 = __cil_tmp199 & 16384U;
-#line 1490
-  if (__cil_tmp200 != 0U) {
+  if (__cil_tmp112 != 0U) {
 #line 1491
-    __cil_tmp201 = q + 2UL;
+    __cil_tmp113 = q + 2UL;
 #line 1491
-    __cil_tmp202 = (unsigned char )bits;
+    __cil_tmp114 = (unsigned char )bits;
 #line 1491
-    __cil_tmp203 = (unsigned int )__cil_tmp202;
+    __cil_tmp115 = (unsigned int )__cil_tmp114;
 #line 1491
-    __cil_tmp204 = (unsigned long )ppp;
+    __cil_tmp116 = ppp->nxseq;
 #line 1491
-    __cil_tmp205 = __cil_tmp204 + 800;
+    __cil_tmp117 = __cil_tmp116 >> 8;
 #line 1491
-    __cil_tmp206 = *((u32 *)__cil_tmp205);
+    __cil_tmp118 = (unsigned char )__cil_tmp117;
 #line 1491
-    __cil_tmp207 = __cil_tmp206 >> 8;
+    __cil_tmp119 = (unsigned int )__cil_tmp118;
 #line 1491
-    __cil_tmp208 = (unsigned char )__cil_tmp207;
+    __cil_tmp120 = __cil_tmp119 & 15U;
 #line 1491
-    __cil_tmp209 = (unsigned int )__cil_tmp208;
+    __cil_tmp121 = __cil_tmp120 + __cil_tmp115;
 #line 1491
-    __cil_tmp210 = __cil_tmp209 & 15U;
-#line 1491
-    __cil_tmp211 = __cil_tmp210 + __cil_tmp203;
-#line 1491
-    *__cil_tmp201 = (unsigned char )__cil_tmp211;
+    *__cil_tmp113 = (unsigned char )__cil_tmp121;
 #line 1492
-    __cil_tmp212 = q + 3UL;
+    __cil_tmp122 = q + 3UL;
 #line 1492
-    __cil_tmp213 = (unsigned long )ppp;
+    __cil_tmp123 = ppp->nxseq;
 #line 1492
-    __cil_tmp214 = __cil_tmp213 + 800;
-#line 1492
-    __cil_tmp215 = *((u32 *)__cil_tmp214);
-#line 1492
-    *__cil_tmp212 = (unsigned char )__cil_tmp215;
+    *__cil_tmp122 = (unsigned char )__cil_tmp123;
   } else {
 #line 1494
-    __cil_tmp216 = q + 2UL;
+    __cil_tmp124 = q + 2UL;
 #line 1494
-    *__cil_tmp216 = (unsigned char )bits;
+    *__cil_tmp124 = (unsigned char )bits;
 #line 1495
-    __cil_tmp217 = q + 3UL;
+    __cil_tmp125 = q + 3UL;
 #line 1495
-    __cil_tmp218 = (unsigned long )ppp;
+    __cil_tmp126 = ppp->nxseq;
 #line 1495
-    __cil_tmp219 = __cil_tmp218 + 800;
+    __cil_tmp127 = __cil_tmp126 >> 16;
 #line 1495
-    __cil_tmp220 = *((u32 *)__cil_tmp219);
-#line 1495
-    __cil_tmp221 = __cil_tmp220 >> 16;
-#line 1495
-    *__cil_tmp217 = (unsigned char )__cil_tmp221;
+    *__cil_tmp125 = (unsigned char )__cil_tmp127;
 #line 1496
-    __cil_tmp222 = q + 4UL;
+    __cil_tmp128 = q + 4UL;
 #line 1496
-    __cil_tmp223 = (unsigned long )ppp;
+    __cil_tmp129 = ppp->nxseq;
 #line 1496
-    __cil_tmp224 = __cil_tmp223 + 800;
+    __cil_tmp130 = __cil_tmp129 >> 8;
 #line 1496
-    __cil_tmp225 = *((u32 *)__cil_tmp224);
-#line 1496
-    __cil_tmp226 = __cil_tmp225 >> 8;
-#line 1496
-    *__cil_tmp222 = (unsigned char )__cil_tmp226;
+    *__cil_tmp128 = (unsigned char )__cil_tmp130;
 #line 1497
-    __cil_tmp227 = q + 5UL;
+    __cil_tmp131 = q + 5UL;
 #line 1497
-    __cil_tmp228 = (unsigned long )ppp;
+    __cil_tmp132 = ppp->nxseq;
 #line 1497
-    __cil_tmp229 = __cil_tmp228 + 800;
-#line 1497
-    __cil_tmp230 = *((u32 *)__cil_tmp229);
-#line 1497
-    *__cil_tmp227 = (unsigned char )__cil_tmp230;
+    *__cil_tmp131 = (unsigned char )__cil_tmp132;
   }
   }
   {
 #line 1500
-  __len = (unsigned long )flen;
+  __len = (size_t )flen;
 #line 1500
-  __cil_tmp231 = (unsigned long )hdrlen;
+  __cil_tmp133 = (unsigned long )hdrlen;
 #line 1500
-  __cil_tmp232 = (void *)q;
+  __cil_tmp134 = (void *)q;
 #line 1500
-  __cil_tmp233 = __cil_tmp232 + __cil_tmp231;
+  __cil_tmp135 = __cil_tmp134 + __cil_tmp133;
 #line 1500
-  __cil_tmp234 = (void const   *)p;
+  __cil_tmp136 = (void const   *)p;
 #line 1500
-  __ret = __builtin_memcpy(__cil_tmp233, __cil_tmp234, __len);
+  __ret = __builtin_memcpy(__cil_tmp135, __cil_tmp136, __len);
 #line 1503
-  __cil_tmp235 = (unsigned long )pch;
-#line 1503
-  __cil_tmp236 = __cil_tmp235 + 344;
-#line 1503
-  chan = *((struct ppp_channel **)__cil_tmp236);
+  chan = pch->chan;
 #line 1504
-  __cil_tmp237 = 0 + 32;
+  __cil_tmp137 = & pch->file.xq;
 #line 1504
-  __cil_tmp238 = (unsigned long )pch;
+  __cil_tmp138 = (struct sk_buff_head  const  *)__cil_tmp137;
 #line 1504
-  __cil_tmp239 = __cil_tmp238 + __cil_tmp237;
-#line 1504
-  __cil_tmp240 = (struct sk_buff_head *)__cil_tmp239;
-#line 1504
-  __cil_tmp241 = (struct sk_buff_head  const  *)__cil_tmp240;
-#line 1504
-  tmp___0 = skb_queue_empty(__cil_tmp241);
+  tmp___0 = skb_queue_empty(__cil_tmp138);
   }
 #line 1504
   if (tmp___0 == 0) {
     {
 #line 1506
-    __cil_tmp242 = 0 + 32;
+    __cil_tmp139 = & pch->file.xq;
 #line 1506
-    __cil_tmp243 = (unsigned long )pch;
-#line 1506
-    __cil_tmp244 = __cil_tmp243 + __cil_tmp242;
-#line 1506
-    __cil_tmp245 = (struct sk_buff_head *)__cil_tmp244;
-#line 1506
-    skb_queue_tail(__cil_tmp245, frag);
+    skb_queue_tail(__cil_tmp139, frag);
     }
   } else {
     {
 #line 1504
-    __cil_tmp246 = (unsigned long )chan;
+    __cil_tmp140 = chan->ops;
 #line 1504
-    __cil_tmp247 = __cil_tmp246 + 8;
+    __cil_tmp141 = __cil_tmp140->start_xmit;
 #line 1504
-    __cil_tmp248 = *((struct ppp_channel_ops  const  **)__cil_tmp247);
-#line 1504
-    __cil_tmp249 = *((int (* const  *)(struct ppp_channel * , struct sk_buff * ))__cil_tmp248);
-#line 1504
-    tmp___1 = (*__cil_tmp249)(chan, frag);
+    tmp___1 = (*__cil_tmp141)(chan, frag);
     }
 #line 1504
     if (tmp___1 == 0) {
       {
 #line 1506
-      __cil_tmp250 = 0 + 32;
+      __cil_tmp142 = & pch->file.xq;
 #line 1506
-      __cil_tmp251 = (unsigned long )pch;
-#line 1506
-      __cil_tmp252 = __cil_tmp251 + __cil_tmp250;
-#line 1506
-      __cil_tmp253 = (struct sk_buff_head *)__cil_tmp252;
-#line 1506
-      skb_queue_tail(__cil_tmp253, frag);
+      skb_queue_tail(__cil_tmp142, frag);
       }
     } else {
 
@@ -16697,132 +14656,74 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1507
-  __cil_tmp254 = (unsigned long )pch;
-#line 1507
-  __cil_tmp255 = __cil_tmp254 + 673;
-#line 1507
-  *((u8 *)__cil_tmp255) = (unsigned char)1;
+  pch->had_frag = (u8 )1U;
 #line 1508
-  __cil_tmp256 = (unsigned long )flen;
+  __cil_tmp143 = (unsigned long )flen;
 #line 1508
-  p = p + __cil_tmp256;
+  p = p + __cil_tmp143;
 #line 1509
   len = len - flen;
 #line 1510
-  __cil_tmp257 = (unsigned long )ppp;
+  __cil_tmp144 = ppp->nxseq;
 #line 1510
-  __cil_tmp258 = __cil_tmp257 + 800;
-#line 1510
-  __cil_tmp259 = (unsigned long )ppp;
-#line 1510
-  __cil_tmp260 = __cil_tmp259 + 800;
-#line 1510
-  __cil_tmp261 = *((u32 *)__cil_tmp260);
-#line 1510
-  *((u32 *)__cil_tmp258) = __cil_tmp261 + 1U;
+  ppp->nxseq = __cil_tmp144 + 1U;
 #line 1511
   bits = 0;
 #line 1512
-  __cil_tmp262 = (unsigned long )pch;
+  __cil_tmp145 = & pch->downl;
 #line 1512
-  __cil_tmp263 = __cil_tmp262 + 496;
-#line 1512
-  __cil_tmp264 = (spinlock_t *)__cil_tmp263;
-#line 1512
-  spin_unlock_bh(__cil_tmp264);
+  spin_unlock_bh(__cil_tmp145);
   }
   ldv_40123: ;
 #line 1390
   if (len > 0) {
+#line 1391
     goto ldv_40131;
   } else {
+#line 1393
     goto ldv_40126;
   }
   ldv_40126: 
 #line 1514
-  __cil_tmp265 = (unsigned long )ppp;
-#line 1514
-  __cil_tmp266 = __cil_tmp265 + 796;
-#line 1514
-  *((int *)__cil_tmp266) = i;
+  ppp->nxchan = i;
 #line 1516
   return (1);
   noskb: 
   {
 #line 1519
-  __cil_tmp267 = (unsigned long )pch;
+  __cil_tmp146 = & pch->downl;
 #line 1519
-  __cil_tmp268 = __cil_tmp267 + 496;
-#line 1519
-  __cil_tmp269 = (spinlock_t *)__cil_tmp268;
-#line 1519
-  spin_unlock_bh(__cil_tmp269);
+  spin_unlock_bh(__cil_tmp146);
   }
   {
 #line 1520
-  __cil_tmp270 = (unsigned long )ppp;
+  __cil_tmp147 = ppp->debug;
 #line 1520
-  __cil_tmp271 = __cil_tmp270 + 520;
-#line 1520
-  __cil_tmp272 = *((int *)__cil_tmp271);
-#line 1520
-  if (__cil_tmp272 & 1) {
+  if (__cil_tmp147 & 1) {
     {
 #line 1521
-    __cil_tmp273 = (unsigned long )ppp;
+    __cil_tmp148 = ppp->dev;
 #line 1521
-    __cil_tmp274 = __cil_tmp273 + 784;
+    __cil_tmp149 = (struct net_device  const  *)__cil_tmp148;
 #line 1521
-    __cil_tmp275 = *((struct net_device **)__cil_tmp274);
-#line 1521
-    __cil_tmp276 = (struct net_device  const  *)__cil_tmp275;
-#line 1521
-    netdev_err(__cil_tmp276, "PPP: no memory (fragment)\n");
+    netdev_err(__cil_tmp149, "PPP: no memory (fragment)\n");
     }
   } else {
 
   }
   }
 #line 1522
-  __cil_tmp277 = 200 + 40;
+  __cil_tmp150 = ppp->dev;
 #line 1522
-  __cil_tmp278 = (unsigned long )ppp;
+  __cil_tmp151 = ppp->dev;
 #line 1522
-  __cil_tmp279 = __cil_tmp278 + 784;
+  __cil_tmp152 = __cil_tmp151->stats.tx_errors;
 #line 1522
-  __cil_tmp280 = *((struct net_device **)__cil_tmp279);
-#line 1522
-  __cil_tmp281 = (unsigned long )__cil_tmp280;
-#line 1522
-  __cil_tmp282 = __cil_tmp281 + __cil_tmp277;
-#line 1522
-  __cil_tmp283 = 200 + 40;
-#line 1522
-  __cil_tmp284 = (unsigned long )ppp;
-#line 1522
-  __cil_tmp285 = __cil_tmp284 + 784;
-#line 1522
-  __cil_tmp286 = *((struct net_device **)__cil_tmp285);
-#line 1522
-  __cil_tmp287 = (unsigned long )__cil_tmp286;
-#line 1522
-  __cil_tmp288 = __cil_tmp287 + __cil_tmp283;
-#line 1522
-  __cil_tmp289 = *((unsigned long *)__cil_tmp288);
-#line 1522
-  *((unsigned long *)__cil_tmp282) = __cil_tmp289 + 1UL;
+  __cil_tmp150->stats.tx_errors = __cil_tmp152 + 1UL;
 #line 1523
-  __cil_tmp290 = (unsigned long )ppp;
+  __cil_tmp153 = ppp->nxseq;
 #line 1523
-  __cil_tmp291 = __cil_tmp290 + 800;
-#line 1523
-  __cil_tmp292 = (unsigned long )ppp;
-#line 1523
-  __cil_tmp293 = __cil_tmp292 + 800;
-#line 1523
-  __cil_tmp294 = *((u32 *)__cil_tmp293);
-#line 1523
-  *((u32 *)__cil_tmp291) = __cil_tmp294 + 1U;
+  ppp->nxseq = __cil_tmp153 + 1U;
 #line 1524
   return (1);
 }
@@ -16834,138 +14735,75 @@ static void ppp_channel_push(struct channel *pch )
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  spinlock_t *__cil_tmp9 ;
+  spinlock_t *__cil_tmp7 ;
+  struct ppp_channel *__cil_tmp8 ;
+  unsigned long __cil_tmp9 ;
   struct ppp_channel *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct ppp_channel *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct sk_buff_head *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct ppp_channel *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct ppp_channel_ops  const  *__cil_tmp25 ;
-  int (*__cil_tmp26)(struct ppp_channel * , struct sk_buff * ) ;
+  struct sk_buff_head *__cil_tmp12 ;
+  struct ppp_channel *__cil_tmp13 ;
+  struct ppp_channel_ops  const  *__cil_tmp14 ;
+  int (*__cil_tmp15)(struct ppp_channel * , struct sk_buff * ) ;
+  struct ppp_channel *__cil_tmp16 ;
+  struct sk_buff_head *__cil_tmp17 ;
+  struct sk_buff_head *__cil_tmp18 ;
+  struct sk_buff_head  const  *__cil_tmp19 ;
+  struct sk_buff_head *__cil_tmp20 ;
+  spinlock_t *__cil_tmp21 ;
+  struct sk_buff_head *__cil_tmp22 ;
+  struct sk_buff_head  const  *__cil_tmp23 ;
+  rwlock_t *__cil_tmp24 ;
+  struct ppp *__cil_tmp25 ;
+  unsigned long __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct ppp_channel *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct sk_buff_head *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct sk_buff_head *__cil_tmp37 ;
-  struct sk_buff_head  const  *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct sk_buff_head *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  spinlock_t *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct sk_buff_head *__cil_tmp49 ;
-  struct sk_buff_head  const  *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  rwlock_t *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct ppp *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  rwlock_t *__cil_tmp61 ;
+  rwlock_t *__cil_tmp28 ;
 
   {
   {
 #line 1537
-  __cil_tmp7 = (unsigned long )pch;
+  __cil_tmp7 = & pch->downl;
 #line 1537
-  __cil_tmp8 = __cil_tmp7 + 496;
-#line 1537
-  __cil_tmp9 = (spinlock_t *)__cil_tmp8;
-#line 1537
-  spin_lock_bh(__cil_tmp9);
+  spin_lock_bh(__cil_tmp7);
   }
   {
 #line 1538
-  __cil_tmp10 = (struct ppp_channel *)0;
+  __cil_tmp8 = (struct ppp_channel *)0;
+#line 1538
+  __cil_tmp9 = (unsigned long )__cil_tmp8;
+#line 1538
+  __cil_tmp10 = pch->chan;
 #line 1538
   __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 1538
-  __cil_tmp12 = (unsigned long )pch;
-#line 1538
-  __cil_tmp13 = __cil_tmp12 + 344;
-#line 1538
-  __cil_tmp14 = *((struct ppp_channel **)__cil_tmp13);
-#line 1538
-  __cil_tmp15 = (unsigned long )__cil_tmp14;
-#line 1538
-  if (__cil_tmp15 != __cil_tmp11) {
+  if (__cil_tmp11 != __cil_tmp9) {
+#line 1539
     goto ldv_40139;
     ldv_40138: 
     {
 #line 1540
-    __cil_tmp16 = 0 + 32;
+    __cil_tmp12 = & pch->file.xq;
 #line 1540
-    __cil_tmp17 = (unsigned long )pch;
-#line 1540
-    __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 1540
-    __cil_tmp19 = (struct sk_buff_head *)__cil_tmp18;
-#line 1540
-    skb = skb_dequeue(__cil_tmp19);
+    skb = skb_dequeue(__cil_tmp12);
 #line 1541
-    __cil_tmp20 = (unsigned long )pch;
+    __cil_tmp13 = pch->chan;
 #line 1541
-    __cil_tmp21 = __cil_tmp20 + 344;
+    __cil_tmp14 = __cil_tmp13->ops;
 #line 1541
-    __cil_tmp22 = *((struct ppp_channel **)__cil_tmp21);
+    __cil_tmp15 = __cil_tmp14->start_xmit;
 #line 1541
-    __cil_tmp23 = (unsigned long )__cil_tmp22;
+    __cil_tmp16 = pch->chan;
 #line 1541
-    __cil_tmp24 = __cil_tmp23 + 8;
-#line 1541
-    __cil_tmp25 = *((struct ppp_channel_ops  const  **)__cil_tmp24);
-#line 1541
-    __cil_tmp26 = *((int (* const  *)(struct ppp_channel * , struct sk_buff * ))__cil_tmp25);
-#line 1541
-    __cil_tmp27 = (unsigned long )pch;
-#line 1541
-    __cil_tmp28 = __cil_tmp27 + 344;
-#line 1541
-    __cil_tmp29 = *((struct ppp_channel **)__cil_tmp28);
-#line 1541
-    tmp = (*__cil_tmp26)(__cil_tmp29, skb);
+    tmp = (*__cil_tmp15)(__cil_tmp16, skb);
     }
 #line 1541
     if (tmp == 0) {
       {
 #line 1543
-      __cil_tmp30 = 0 + 32;
+      __cil_tmp17 = & pch->file.xq;
 #line 1543
-      __cil_tmp31 = (unsigned long )pch;
-#line 1543
-      __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 1543
-      __cil_tmp33 = (struct sk_buff_head *)__cil_tmp32;
-#line 1543
-      skb_queue_head(__cil_tmp33, skb);
+      skb_queue_head(__cil_tmp17, skb);
       }
+#line 1544
       goto ldv_40137;
     } else {
 
@@ -16973,89 +14811,61 @@ static void ppp_channel_push(struct channel *pch )
     ldv_40139: 
     {
 #line 1539
-    __cil_tmp34 = 0 + 32;
+    __cil_tmp18 = & pch->file.xq;
 #line 1539
-    __cil_tmp35 = (unsigned long )pch;
+    __cil_tmp19 = (struct sk_buff_head  const  *)__cil_tmp18;
 #line 1539
-    __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
-#line 1539
-    __cil_tmp37 = (struct sk_buff_head *)__cil_tmp36;
-#line 1539
-    __cil_tmp38 = (struct sk_buff_head  const  *)__cil_tmp37;
-#line 1539
-    tmp___0 = skb_queue_empty(__cil_tmp38);
+    tmp___0 = skb_queue_empty(__cil_tmp19);
     }
 #line 1539
     if (tmp___0 == 0) {
+#line 1540
       goto ldv_40138;
     } else {
+#line 1542
       goto ldv_40137;
     }
     ldv_40137: ;
   } else {
     {
 #line 1549
-    __cil_tmp39 = 0 + 32;
+    __cil_tmp20 = & pch->file.xq;
 #line 1549
-    __cil_tmp40 = (unsigned long )pch;
-#line 1549
-    __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
-#line 1549
-    __cil_tmp42 = (struct sk_buff_head *)__cil_tmp41;
-#line 1549
-    skb_queue_purge(__cil_tmp42);
+    skb_queue_purge(__cil_tmp20);
     }
   }
   }
   {
 #line 1551
-  __cil_tmp43 = (unsigned long )pch;
+  __cil_tmp21 = & pch->downl;
 #line 1551
-  __cil_tmp44 = __cil_tmp43 + 496;
-#line 1551
-  __cil_tmp45 = (spinlock_t *)__cil_tmp44;
-#line 1551
-  spin_unlock_bh(__cil_tmp45);
+  spin_unlock_bh(__cil_tmp21);
 #line 1553
-  __cil_tmp46 = 0 + 32;
+  __cil_tmp22 = & pch->file.xq;
 #line 1553
-  __cil_tmp47 = (unsigned long )pch;
+  __cil_tmp23 = (struct sk_buff_head  const  *)__cil_tmp22;
 #line 1553
-  __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
-#line 1553
-  __cil_tmp49 = (struct sk_buff_head *)__cil_tmp48;
-#line 1553
-  __cil_tmp50 = (struct sk_buff_head  const  *)__cil_tmp49;
-#line 1553
-  tmp___1 = skb_queue_empty(__cil_tmp50);
+  tmp___1 = skb_queue_empty(__cil_tmp23);
   }
 #line 1553
   if (tmp___1 != 0) {
     {
 #line 1554
-    __cil_tmp51 = (unsigned long )pch;
+    __cil_tmp24 = & pch->upl;
 #line 1554
-    __cil_tmp52 = __cil_tmp51 + 600;
-#line 1554
-    __cil_tmp53 = (rwlock_t *)__cil_tmp52;
-#line 1554
-    _raw_read_lock_bh(__cil_tmp53);
+    _raw_read_lock_bh(__cil_tmp24);
 #line 1555
-    __cil_tmp54 = (unsigned long )pch;
-#line 1555
-    __cil_tmp55 = __cil_tmp54 + 568;
-#line 1555
-    ppp = *((struct ppp **)__cil_tmp55);
+    ppp = pch->ppp;
     }
     {
 #line 1556
-    __cil_tmp56 = (struct ppp *)0;
+    __cil_tmp25 = (struct ppp *)0;
 #line 1556
-    __cil_tmp57 = (unsigned long )__cil_tmp56;
+    __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 1556
-    __cil_tmp58 = (unsigned long )ppp;
+    __cil_tmp27 = (unsigned long )ppp;
 #line 1556
-    if (__cil_tmp58 != __cil_tmp57) {
+    if (__cil_tmp27 != __cil_tmp26) {
       {
 #line 1557
       ppp_xmit_process(ppp);
@@ -17066,13 +14876,9 @@ static void ppp_channel_push(struct channel *pch )
     }
     {
 #line 1558
-    __cil_tmp59 = (unsigned long )pch;
+    __cil_tmp28 = & pch->upl;
 #line 1558
-    __cil_tmp60 = __cil_tmp59 + 600;
-#line 1558
-    __cil_tmp61 = (rwlock_t *)__cil_tmp60;
-#line 1558
-    _raw_read_unlock_bh(__cil_tmp61);
+    _raw_read_unlock_bh(__cil_tmp28);
     }
   } else {
 
@@ -17083,36 +14889,22 @@ static void ppp_channel_push(struct channel *pch )
 }
 #line 1573 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 __inline static void ppp_do_recv(struct ppp *ppp , struct sk_buff *skb , struct channel *pch ) 
-{ unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+{ spinlock_t *__cil_tmp4 ;
+  int __cil_tmp5 ;
   spinlock_t *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  spinlock_t *__cil_tmp12 ;
 
   {
   {
 #line 1575
-  __cil_tmp4 = (unsigned long )ppp;
+  __cil_tmp4 = & ppp->rlock;
 #line 1575
-  __cil_tmp5 = __cil_tmp4 + 360;
-#line 1575
-  __cil_tmp6 = (spinlock_t *)__cil_tmp5;
-#line 1575
-  spin_lock_bh(__cil_tmp6);
+  spin_lock_bh(__cil_tmp4);
   }
   {
 #line 1576
-  __cil_tmp7 = (unsigned long )ppp;
+  __cil_tmp5 = ppp->closing;
 #line 1576
-  __cil_tmp8 = __cil_tmp7 + 792;
-#line 1576
-  __cil_tmp9 = *((int *)__cil_tmp8);
-#line 1576
-  if (__cil_tmp9 == 0) {
+  if (__cil_tmp5 == 0) {
     {
 #line 1577
     ppp_receive_frame(ppp, skb, pch);
@@ -17126,13 +14918,9 @@ __inline static void ppp_do_recv(struct ppp *ppp , struct sk_buff *skb , struct 
   }
   {
 #line 1580
-  __cil_tmp10 = (unsigned long )ppp;
+  __cil_tmp6 = & ppp->rlock;
 #line 1580
-  __cil_tmp11 = __cil_tmp10 + 360;
-#line 1580
-  __cil_tmp12 = (spinlock_t *)__cil_tmp11;
-#line 1580
-  spin_unlock_bh(__cil_tmp12);
+  spin_unlock_bh(__cil_tmp6);
   }
 #line 1581
   return;
@@ -17144,99 +14932,52 @@ void ppp_input(struct ppp_channel *chan , struct sk_buff *skb )
   int proto ;
   int tmp ;
   u16 tmp___0 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  struct channel *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void *__cil_tmp7 ;
+  struct channel *__cil_tmp8 ;
+  unsigned long __cil_tmp9 ;
+  unsigned long __cil_tmp10 ;
+  rwlock_t *__cil_tmp11 ;
+  struct ppp *__cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  rwlock_t *__cil_tmp15 ;
+  struct ppp *__cil_tmp14 ;
+  unsigned long __cil_tmp15 ;
   struct ppp *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct ppp *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct ppp *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  struct net_device *__cil_tmp17 ;
+  struct ppp *__cil_tmp18 ;
+  struct net_device *__cil_tmp19 ;
+  unsigned long __cil_tmp20 ;
+  struct ppp *__cil_tmp21 ;
+  unsigned char *__cil_tmp22 ;
+  void const   *__cil_tmp23 ;
+  struct ppp *__cil_tmp24 ;
+  unsigned long __cil_tmp25 ;
+  struct ppp *__cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  struct net_device *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
+  struct sk_buff_head *__cil_tmp28 ;
+  __u32 __cil_tmp29 ;
+  struct sk_buff_head *__cil_tmp30 ;
+  struct sk_buff *__cil_tmp31 ;
   unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
-  struct ppp *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct net_device *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct ppp *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned char *__cil_tmp46 ;
-  void const   *__cil_tmp47 ;
-  struct ppp *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct ppp *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct sk_buff_head *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  __u32 __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct sk_buff_head *__cil_tmp66 ;
-  struct sk_buff *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  wait_queue_head_t *__cil_tmp73 ;
-  void *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct ppp *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  rwlock_t *__cil_tmp80 ;
+  wait_queue_head_t *__cil_tmp34 ;
+  void *__cil_tmp35 ;
+  struct ppp *__cil_tmp36 ;
+  rwlock_t *__cil_tmp37 ;
 
   {
 #line 1586
-  __cil_tmp7 = (unsigned long )chan;
+  __cil_tmp7 = chan->ppp;
 #line 1586
-  __cil_tmp8 = __cil_tmp7 + 24;
-#line 1586
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 1586
-  pch = (struct channel *)__cil_tmp9;
+  pch = (struct channel *)__cil_tmp7;
   {
 #line 1589
-  __cil_tmp10 = (struct channel *)0;
+  __cil_tmp8 = (struct channel *)0;
 #line 1589
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
+  __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 1589
-  __cil_tmp12 = (unsigned long )pch;
+  __cil_tmp10 = (unsigned long )pch;
 #line 1589
-  if (__cil_tmp12 == __cil_tmp11) {
+  if (__cil_tmp10 == __cil_tmp9) {
     {
 #line 1590
     kfree_skb(skb);
@@ -17249,13 +14990,9 @@ void ppp_input(struct ppp_channel *chan , struct sk_buff *skb )
   }
   {
 #line 1594
-  __cil_tmp13 = (unsigned long )pch;
+  __cil_tmp11 = & pch->upl;
 #line 1594
-  __cil_tmp14 = __cil_tmp13 + 600;
-#line 1594
-  __cil_tmp15 = (rwlock_t *)__cil_tmp14;
-#line 1594
-  _raw_read_lock_bh(__cil_tmp15);
+  _raw_read_lock_bh(__cil_tmp11);
 #line 1595
   tmp = pskb_may_pull(skb, 2U);
   }
@@ -17267,217 +15004,144 @@ void ppp_input(struct ppp_channel *chan , struct sk_buff *skb )
     }
     {
 #line 1597
-    __cil_tmp16 = (struct ppp *)0;
+    __cil_tmp12 = (struct ppp *)0;
 #line 1597
-    __cil_tmp17 = (unsigned long )__cil_tmp16;
+    __cil_tmp13 = (unsigned long )__cil_tmp12;
 #line 1597
-    __cil_tmp18 = (unsigned long )pch;
+    __cil_tmp14 = pch->ppp;
 #line 1597
-    __cil_tmp19 = __cil_tmp18 + 568;
+    __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 1597
-    __cil_tmp20 = *((struct ppp **)__cil_tmp19);
-#line 1597
-    __cil_tmp21 = (unsigned long )__cil_tmp20;
-#line 1597
-    if (__cil_tmp21 != __cil_tmp17) {
+    if (__cil_tmp15 != __cil_tmp13) {
       {
 #line 1598
-      __cil_tmp22 = 200 + 80;
+      __cil_tmp16 = pch->ppp;
 #line 1598
-      __cil_tmp23 = (unsigned long )pch;
+      __cil_tmp17 = __cil_tmp16->dev;
 #line 1598
-      __cil_tmp24 = __cil_tmp23 + 568;
+      __cil_tmp18 = pch->ppp;
 #line 1598
-      __cil_tmp25 = *((struct ppp **)__cil_tmp24);
+      __cil_tmp19 = __cil_tmp18->dev;
 #line 1598
-      __cil_tmp26 = (unsigned long )__cil_tmp25;
+      __cil_tmp20 = __cil_tmp19->stats.rx_length_errors;
 #line 1598
-      __cil_tmp27 = __cil_tmp26 + 784;
-#line 1598
-      __cil_tmp28 = *((struct net_device **)__cil_tmp27);
-#line 1598
-      __cil_tmp29 = (unsigned long )__cil_tmp28;
-#line 1598
-      __cil_tmp30 = __cil_tmp29 + __cil_tmp22;
-#line 1598
-      __cil_tmp31 = 200 + 80;
-#line 1598
-      __cil_tmp32 = (unsigned long )pch;
-#line 1598
-      __cil_tmp33 = __cil_tmp32 + 568;
-#line 1598
-      __cil_tmp34 = *((struct ppp **)__cil_tmp33);
-#line 1598
-      __cil_tmp35 = (unsigned long )__cil_tmp34;
-#line 1598
-      __cil_tmp36 = __cil_tmp35 + 784;
-#line 1598
-      __cil_tmp37 = *((struct net_device **)__cil_tmp36);
-#line 1598
-      __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 1598
-      __cil_tmp39 = __cil_tmp38 + __cil_tmp31;
-#line 1598
-      __cil_tmp40 = *((unsigned long *)__cil_tmp39);
-#line 1598
-      *((unsigned long *)__cil_tmp30) = __cil_tmp40 + 1UL;
+      __cil_tmp17->stats.rx_length_errors = __cil_tmp20 + 1UL;
 #line 1599
-      __cil_tmp41 = (unsigned long )pch;
+      __cil_tmp21 = pch->ppp;
 #line 1599
-      __cil_tmp42 = __cil_tmp41 + 568;
-#line 1599
-      __cil_tmp43 = *((struct ppp **)__cil_tmp42);
-#line 1599
-      ppp_receive_error(__cil_tmp43);
+      ppp_receive_error(__cil_tmp21);
       }
     } else {
 
     }
     }
+#line 1601
     goto done;
   } else {
 
   }
   {
 #line 1604
-  __cil_tmp44 = (unsigned long )skb;
+  __cil_tmp22 = skb->data;
 #line 1604
-  __cil_tmp45 = __cil_tmp44 + 224;
+  __cil_tmp23 = (void const   *)__cil_tmp22;
 #line 1604
-  __cil_tmp46 = *((unsigned char **)__cil_tmp45);
-#line 1604
-  __cil_tmp47 = (void const   *)__cil_tmp46;
-#line 1604
-  tmp___0 = get_unaligned_be16(__cil_tmp47);
+  tmp___0 = get_unaligned_be16(__cil_tmp23);
 #line 1604
   proto = (int )tmp___0;
   }
   {
 #line 1605
-  __cil_tmp48 = (struct ppp *)0;
+  __cil_tmp24 = (struct ppp *)0;
 #line 1605
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
+  __cil_tmp25 = (unsigned long )__cil_tmp24;
 #line 1605
-  __cil_tmp50 = (unsigned long )pch;
+  __cil_tmp26 = pch->ppp;
 #line 1605
-  __cil_tmp51 = __cil_tmp50 + 568;
+  __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 1605
-  __cil_tmp52 = *((struct ppp **)__cil_tmp51);
+  if (__cil_tmp27 == __cil_tmp25) {
 #line 1605
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 1605
-  if (__cil_tmp53 == __cil_tmp49) {
     goto _L;
-  } else {
+  } else
 #line 1605
-    if (proto > 49151) {
-      goto _L;
-    } else {
+  if (proto > 49151) {
 #line 1605
-      if (proto == 33019) {
-        _L: 
-        {
+    goto _L;
+  } else
+#line 1605
+  if (proto == 33019) {
+    _L: 
+    {
 #line 1607
-        __cil_tmp54 = 0 + 128;
+    __cil_tmp28 = & pch->file.rq;
 #line 1607
-        __cil_tmp55 = (unsigned long )pch;
-#line 1607
-        __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
-#line 1607
-        __cil_tmp57 = (struct sk_buff_head *)__cil_tmp56;
-#line 1607
-        skb_queue_tail(__cil_tmp57, skb);
-        }
-        goto ldv_40156;
-        ldv_40155: 
-        {
+    skb_queue_tail(__cil_tmp28, skb);
+    }
+#line 1609
+    goto ldv_40156;
+    ldv_40155: 
+    {
 #line 1611
-        kfree_skb(skb);
-        }
-        ldv_40156: ;
-        {
+    kfree_skb(skb);
+    }
+    ldv_40156: ;
+    {
 #line 1609
-        __cil_tmp58 = 128 + 16;
+    __cil_tmp29 = pch->file.rq.qlen;
 #line 1609
-        __cil_tmp59 = 0 + __cil_tmp58;
+    if (__cil_tmp29 > 32U) {
+      {
 #line 1609
-        __cil_tmp60 = (unsigned long )pch;
+      __cil_tmp30 = & pch->file.rq;
 #line 1609
-        __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 1609
-        __cil_tmp62 = *((__u32 *)__cil_tmp61);
-#line 1609
-        if (__cil_tmp62 > 32U) {
-          {
-#line 1609
-          __cil_tmp63 = 0 + 128;
-#line 1609
-          __cil_tmp64 = (unsigned long )pch;
-#line 1609
-          __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 1609
-          __cil_tmp66 = (struct sk_buff_head *)__cil_tmp65;
-#line 1609
-          skb = skb_dequeue(__cil_tmp66);
-          }
-          {
-#line 1609
-          __cil_tmp67 = (struct sk_buff *)0;
-#line 1609
-          __cil_tmp68 = (unsigned long )__cil_tmp67;
-#line 1609
-          __cil_tmp69 = (unsigned long )skb;
-#line 1609
-          if (__cil_tmp69 != __cil_tmp68) {
-            goto ldv_40155;
-          } else {
-            goto ldv_40157;
-          }
-          }
-        } else {
-          goto ldv_40157;
-        }
-        }
-        ldv_40157: 
-        {
-#line 1612
-        __cil_tmp70 = 0 + 224;
-#line 1612
-        __cil_tmp71 = (unsigned long )pch;
-#line 1612
-        __cil_tmp72 = __cil_tmp71 + __cil_tmp70;
-#line 1612
-        __cil_tmp73 = (wait_queue_head_t *)__cil_tmp72;
-#line 1612
-        __cil_tmp74 = (void *)0;
-#line 1612
-        __wake_up(__cil_tmp73, 1U, 1, __cil_tmp74);
-        }
-      } else {
-        {
-#line 1614
-        __cil_tmp75 = (unsigned long )pch;
-#line 1614
-        __cil_tmp76 = __cil_tmp75 + 568;
-#line 1614
-        __cil_tmp77 = *((struct ppp **)__cil_tmp76);
-#line 1614
-        ppp_do_recv(__cil_tmp77, skb, pch);
-        }
+      skb = skb_dequeue(__cil_tmp30);
       }
+      {
+#line 1609
+      __cil_tmp31 = (struct sk_buff *)0;
+#line 1609
+      __cil_tmp32 = (unsigned long )__cil_tmp31;
+#line 1609
+      __cil_tmp33 = (unsigned long )skb;
+#line 1609
+      if (__cil_tmp33 != __cil_tmp32) {
+#line 1610
+        goto ldv_40155;
+      } else {
+#line 1612
+        goto ldv_40157;
+      }
+      }
+    } else {
+#line 1612
+      goto ldv_40157;
+    }
+    }
+    ldv_40157: 
+    {
+#line 1612
+    __cil_tmp34 = & pch->file.rwait;
+#line 1612
+    __cil_tmp35 = (void *)0;
+#line 1612
+    __wake_up(__cil_tmp34, 1U, 1, __cil_tmp35);
+    }
+  } else {
+    {
+#line 1614
+    __cil_tmp36 = pch->ppp;
+#line 1614
+    ppp_do_recv(__cil_tmp36, skb, pch);
     }
   }
   }
   done: 
   {
 #line 1618
-  __cil_tmp78 = (unsigned long )pch;
+  __cil_tmp37 = & pch->upl;
 #line 1618
-  __cil_tmp79 = __cil_tmp78 + 600;
-#line 1618
-  __cil_tmp80 = (rwlock_t *)__cil_tmp79;
-#line 1618
-  _raw_read_unlock_bh(__cil_tmp80);
+  _raw_read_unlock_bh(__cil_tmp37);
   }
 #line 1619
   return;
@@ -17487,55 +15151,35 @@ void ppp_input(struct ppp_channel *chan , struct sk_buff *skb )
 void ppp_input_error(struct ppp_channel *chan , int code ) 
 { struct channel *pch ;
   struct sk_buff *skb ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  struct channel *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  void *__cil_tmp5 ;
+  struct channel *__cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
+  unsigned long __cil_tmp8 ;
+  rwlock_t *__cil_tmp9 ;
+  struct ppp *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  rwlock_t *__cil_tmp13 ;
-  struct ppp *__cil_tmp14 ;
+  struct ppp *__cil_tmp12 ;
+  unsigned long __cil_tmp13 ;
+  struct sk_buff *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct ppp *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct sk_buff *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct ppp *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  rwlock_t *__cil_tmp34 ;
+  struct ppp *__cil_tmp17 ;
+  rwlock_t *__cil_tmp18 ;
 
   {
 #line 1625
-  __cil_tmp5 = (unsigned long )chan;
+  __cil_tmp5 = chan->ppp;
 #line 1625
-  __cil_tmp6 = __cil_tmp5 + 24;
-#line 1625
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 1625
-  pch = (struct channel *)__cil_tmp7;
+  pch = (struct channel *)__cil_tmp5;
   {
 #line 1628
-  __cil_tmp8 = (struct channel *)0;
+  __cil_tmp6 = (struct channel *)0;
 #line 1628
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
+  __cil_tmp7 = (unsigned long )__cil_tmp6;
 #line 1628
-  __cil_tmp10 = (unsigned long )pch;
+  __cil_tmp8 = (unsigned long )pch;
 #line 1628
-  if (__cil_tmp10 == __cil_tmp9) {
+  if (__cil_tmp8 == __cil_tmp7) {
 #line 1629
     return;
   } else {
@@ -17544,67 +15188,43 @@ void ppp_input_error(struct ppp_channel *chan , int code )
   }
   {
 #line 1631
-  __cil_tmp11 = (unsigned long )pch;
+  __cil_tmp9 = & pch->upl;
 #line 1631
-  __cil_tmp12 = __cil_tmp11 + 600;
-#line 1631
-  __cil_tmp13 = (rwlock_t *)__cil_tmp12;
-#line 1631
-  _raw_read_lock_bh(__cil_tmp13);
+  _raw_read_lock_bh(__cil_tmp9);
   }
   {
 #line 1632
-  __cil_tmp14 = (struct ppp *)0;
+  __cil_tmp10 = (struct ppp *)0;
 #line 1632
-  __cil_tmp15 = (unsigned long )__cil_tmp14;
+  __cil_tmp11 = (unsigned long )__cil_tmp10;
 #line 1632
-  __cil_tmp16 = (unsigned long )pch;
+  __cil_tmp12 = pch->ppp;
 #line 1632
-  __cil_tmp17 = __cil_tmp16 + 568;
+  __cil_tmp13 = (unsigned long )__cil_tmp12;
 #line 1632
-  __cil_tmp18 = *((struct ppp **)__cil_tmp17);
-#line 1632
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 1632
-  if (__cil_tmp19 != __cil_tmp15) {
+  if (__cil_tmp13 != __cil_tmp11) {
     {
 #line 1633
     skb = alloc_skb(0U, 32U);
     }
     {
 #line 1634
-    __cil_tmp20 = (struct sk_buff *)0;
+    __cil_tmp14 = (struct sk_buff *)0;
 #line 1634
-    __cil_tmp21 = (unsigned long )__cil_tmp20;
+    __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 1634
-    __cil_tmp22 = (unsigned long )skb;
+    __cil_tmp16 = (unsigned long )skb;
 #line 1634
-    if (__cil_tmp22 != __cil_tmp21) {
+    if (__cil_tmp16 != __cil_tmp15) {
       {
 #line 1635
-      __cil_tmp23 = (unsigned long )skb;
-#line 1635
-      __cil_tmp24 = __cil_tmp23 + 104;
-#line 1635
-      *((unsigned int *)__cil_tmp24) = 0U;
+      skb->len = 0U;
 #line 1636
-      __cil_tmp25 = 0 * 1UL;
-#line 1636
-      __cil_tmp26 = 40 + __cil_tmp25;
-#line 1636
-      __cil_tmp27 = (unsigned long )skb;
-#line 1636
-      __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 1636
-      *((char *)__cil_tmp28) = (char )code;
+      skb->cb[0] = (char )code;
 #line 1637
-      __cil_tmp29 = (unsigned long )pch;
+      __cil_tmp17 = pch->ppp;
 #line 1637
-      __cil_tmp30 = __cil_tmp29 + 568;
-#line 1637
-      __cil_tmp31 = *((struct ppp **)__cil_tmp30);
-#line 1637
-      ppp_do_recv(__cil_tmp31, skb, pch);
+      ppp_do_recv(__cil_tmp17, skb, pch);
       }
     } else {
 
@@ -17616,13 +15236,9 @@ void ppp_input_error(struct ppp_channel *chan , int code )
   }
   {
 #line 1640
-  __cil_tmp32 = (unsigned long )pch;
+  __cil_tmp18 = & pch->upl;
 #line 1640
-  __cil_tmp33 = __cil_tmp32 + 600;
-#line 1640
-  __cil_tmp34 = (rwlock_t *)__cil_tmp33;
-#line 1640
-  _raw_read_unlock_bh(__cil_tmp34);
+  _raw_read_unlock_bh(__cil_tmp18);
   }
 #line 1641
   return;
@@ -17631,42 +15247,30 @@ void ppp_input_error(struct ppp_channel *chan , int code )
 #line 1648 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void ppp_receive_frame(struct ppp *ppp , struct sk_buff *skb , struct channel *pch ) 
 { u16 tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned char *__cil_tmp10 ;
-  void const   *__cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
+  unsigned int __cil_tmp5 ;
+  unsigned char *__cil_tmp6 ;
+  void const   *__cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
 
   {
   {
 #line 1651
-  __cil_tmp5 = (unsigned long )skb;
+  __cil_tmp5 = skb->len;
 #line 1651
-  __cil_tmp6 = __cil_tmp5 + 104;
-#line 1651
-  __cil_tmp7 = *((unsigned int *)__cil_tmp6);
-#line 1651
-  if (__cil_tmp7 != 0U) {
+  if (__cil_tmp5 != 0U) {
     {
 #line 1654
-    __cil_tmp8 = (unsigned long )skb;
+    __cil_tmp6 = skb->data;
 #line 1654
-    __cil_tmp9 = __cil_tmp8 + 224;
+    __cil_tmp7 = (void const   *)__cil_tmp6;
 #line 1654
-    __cil_tmp10 = *((unsigned char **)__cil_tmp9);
-#line 1654
-    __cil_tmp11 = (void const   *)__cil_tmp10;
-#line 1654
-    tmp = get_unaligned_be16(__cil_tmp11);
+    tmp = get_unaligned_be16(__cil_tmp7);
     }
     {
 #line 1654
-    __cil_tmp12 = (unsigned int )tmp;
+    __cil_tmp8 = (unsigned int )tmp;
 #line 1654
-    if (__cil_tmp12 == 61U) {
+    if (__cil_tmp8 == 61U) {
       {
 #line 1655
       ppp_receive_mp_frame(ppp, skb, pch);
@@ -17693,82 +15297,40 @@ static void ppp_receive_frame(struct ppp *ppp , struct sk_buff *skb , struct cha
 }
 #line 1666 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void ppp_receive_error(struct ppp *ppp ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ struct net_device *__cil_tmp2 ;
+  struct net_device *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
-  struct net_device *__cil_tmp5 ;
+  struct slcompress *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  struct slcompress *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct net_device *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct slcompress *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct slcompress *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct slcompress *__cil_tmp23 ;
+  struct slcompress *__cil_tmp9 ;
 
   {
 #line 1668
-  __cil_tmp2 = 200 + 32;
+  __cil_tmp2 = ppp->dev;
 #line 1668
-  __cil_tmp3 = (unsigned long )ppp;
+  __cil_tmp3 = ppp->dev;
 #line 1668
-  __cil_tmp4 = __cil_tmp3 + 784;
+  __cil_tmp4 = __cil_tmp3->stats.rx_errors;
 #line 1668
-  __cil_tmp5 = *((struct net_device **)__cil_tmp4);
-#line 1668
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
-#line 1668
-  __cil_tmp7 = __cil_tmp6 + __cil_tmp2;
-#line 1668
-  __cil_tmp8 = 200 + 32;
-#line 1668
-  __cil_tmp9 = (unsigned long )ppp;
-#line 1668
-  __cil_tmp10 = __cil_tmp9 + 784;
-#line 1668
-  __cil_tmp11 = *((struct net_device **)__cil_tmp10);
-#line 1668
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
-#line 1668
-  __cil_tmp13 = __cil_tmp12 + __cil_tmp8;
-#line 1668
-  __cil_tmp14 = *((unsigned long *)__cil_tmp13);
-#line 1668
-  *((unsigned long *)__cil_tmp7) = __cil_tmp14 + 1UL;
+  __cil_tmp2->stats.rx_errors = __cil_tmp4 + 1UL;
   {
 #line 1669
-  __cil_tmp15 = (struct slcompress *)0;
+  __cil_tmp5 = (struct slcompress *)0;
 #line 1669
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 1669
-  __cil_tmp17 = (unsigned long )ppp;
+  __cil_tmp7 = ppp->vj;
 #line 1669
-  __cil_tmp18 = __cil_tmp17 + 528;
+  __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 1669
-  __cil_tmp19 = *((struct slcompress **)__cil_tmp18);
-#line 1669
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 1669
-  if (__cil_tmp20 != __cil_tmp16) {
+  if (__cil_tmp8 != __cil_tmp6) {
     {
 #line 1670
-    __cil_tmp21 = (unsigned long )ppp;
+    __cil_tmp9 = ppp->vj;
 #line 1670
-    __cil_tmp22 = __cil_tmp21 + 528;
-#line 1670
-    __cil_tmp23 = *((struct slcompress **)__cil_tmp22);
-#line 1670
-    slhc_toss(__cil_tmp23);
+    slhc_toss(__cil_tmp9);
     }
   } else {
 
@@ -17798,244 +15360,120 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
   __u16 tmp___10 ;
   void *__cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  void *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  void *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
   unsigned int __cil_tmp27 ;
   unsigned int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned char *__cil_tmp31 ;
+  void const   *__cil_tmp32 ;
+  struct slcompress *__cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned char *__cil_tmp43 ;
-  void const   *__cil_tmp44 ;
-  struct slcompress *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct slcompress *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  struct sk_buff  const  *__cil_tmp55 ;
-  struct sk_buff  const  *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  struct sk_buff *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct net_device *__cil_tmp66 ;
-  struct net_device  const  *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  struct sk_buff  const  *__cil_tmp71 ;
-  void *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
+  struct slcompress *__cil_tmp35 ;
+  unsigned long __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  struct sk_buff  const  *__cil_tmp39 ;
+  struct sk_buff  const  *__cil_tmp40 ;
+  unsigned int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  struct sk_buff *__cil_tmp43 ;
+  unsigned long __cil_tmp44 ;
+  unsigned long __cil_tmp45 ;
+  struct net_device *__cil_tmp46 ;
+  struct net_device  const  *__cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  struct sk_buff  const  *__cil_tmp49 ;
+  void *__cil_tmp50 ;
+  unsigned int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  struct slcompress *__cil_tmp53 ;
+  unsigned char *__cil_tmp54 ;
+  unsigned char *__cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  int __cil_tmp58 ;
+  struct net_device *__cil_tmp59 ;
+  struct net_device  const  *__cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  struct slcompress *__cil_tmp69 ;
+  unsigned long __cil_tmp70 ;
+  struct slcompress *__cil_tmp71 ;
+  unsigned long __cil_tmp72 ;
+  unsigned int __cil_tmp73 ;
+  unsigned int __cil_tmp74 ;
   unsigned int __cil_tmp75 ;
-  int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  struct slcompress *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned char *__cil_tmp82 ;
-  unsigned char *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  unsigned int __cil_tmp87 ;
-  int __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
+  struct slcompress *__cil_tmp76 ;
+  unsigned char *__cil_tmp77 ;
+  unsigned char *__cil_tmp78 ;
+  unsigned int __cil_tmp79 ;
+  unsigned int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  struct net_device *__cil_tmp82 ;
+  struct net_device  const  *__cil_tmp83 ;
+  struct net_device *__cil_tmp84 ;
+  struct net_device *__cil_tmp85 ;
+  unsigned long __cil_tmp86 ;
+  struct net_device *__cil_tmp87 ;
+  unsigned int __cil_tmp88 ;
+  unsigned int __cil_tmp89 ;
   unsigned long __cil_tmp90 ;
   struct net_device *__cil_tmp91 ;
-  struct net_device  const  *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned int __cil_tmp95 ;
-  unsigned int __cil_tmp96 ;
+  unsigned long __cil_tmp92 ;
+  struct sk_buff_head *__cil_tmp93 ;
+  __u32 __cil_tmp94 ;
+  struct sk_buff_head *__cil_tmp95 ;
+  struct sk_buff *__cil_tmp96 ;
   unsigned long __cil_tmp97 ;
   unsigned long __cil_tmp98 ;
-  unsigned int __cil_tmp99 ;
-  unsigned int __cil_tmp100 ;
-  unsigned int __cil_tmp101 ;
+  wait_queue_head_t *__cil_tmp99 ;
+  void *__cil_tmp100 ;
+  struct sock_filter *__cil_tmp101 ;
   unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
-  unsigned int __cil_tmp105 ;
-  unsigned int __cil_tmp106 ;
-  struct slcompress *__cil_tmp107 ;
+  struct sock_filter *__cil_tmp103 ;
+  unsigned long __cil_tmp104 ;
+  struct sock_filter *__cil_tmp105 ;
+  unsigned long __cil_tmp106 ;
+  struct sock_filter *__cil_tmp107 ;
   unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  struct slcompress *__cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
+  struct sk_buff  const  *__cil_tmp109 ;
+  struct sock_filter *__cil_tmp110 ;
+  unsigned long __cil_tmp111 ;
+  struct sock_filter *__cil_tmp112 ;
   unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned int __cil_tmp115 ;
-  unsigned int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned int __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
+  struct sk_buff  const  *__cil_tmp114 ;
+  struct sock_filter *__cil_tmp115 ;
+  struct sock_filter  const  *__cil_tmp116 ;
+  int __cil_tmp117 ;
+  struct net_device *__cil_tmp118 ;
+  struct net_device  const  *__cil_tmp119 ;
+  struct sock_filter *__cil_tmp120 ;
   unsigned long __cil_tmp121 ;
-  struct slcompress *__cil_tmp122 ;
+  struct sock_filter *__cil_tmp122 ;
   unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned char *__cil_tmp125 ;
-  unsigned char *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
+  struct sk_buff  const  *__cil_tmp124 ;
+  struct sock_filter *__cil_tmp125 ;
+  struct sock_filter  const  *__cil_tmp126 ;
+  struct net_device *__cil_tmp127 ;
+  unsigned int __cil_tmp128 ;
   unsigned int __cil_tmp129 ;
-  unsigned int __cil_tmp130 ;
-  int __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  struct net_device *__cil_tmp134 ;
-  struct net_device  const  *__cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  struct net_device *__cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  struct net_device *__cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  struct net_device *__cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned int __cil_tmp155 ;
-  unsigned int __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  struct net_device *__cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  struct sk_buff_head *__cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  __u32 __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  struct sk_buff_head *__cil_tmp177 ;
-  struct sk_buff *__cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  wait_queue_head_t *__cil_tmp184 ;
-  void *__cil_tmp185 ;
-  struct sock_filter *__cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  struct sock_filter *__cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  struct sock_filter *__cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  struct sock_filter *__cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  struct sk_buff  const  *__cil_tmp198 ;
-  struct sock_filter *__cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  struct sock_filter *__cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  struct sk_buff  const  *__cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  struct sock_filter *__cil_tmp208 ;
-  struct sock_filter  const  *__cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  int __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  struct net_device *__cil_tmp215 ;
-  struct net_device  const  *__cil_tmp216 ;
-  struct sock_filter *__cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  struct sock_filter *__cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  struct sk_buff  const  *__cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  struct sock_filter *__cil_tmp228 ;
-  struct sock_filter  const  *__cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  struct net_device *__cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned int __cil_tmp239 ;
-  unsigned int __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  enum NPmode __cil_tmp245 ;
-  unsigned int __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  int __cil_tmp253 ;
-  unsigned short __cil_tmp254 ;
-  int __cil_tmp255 ;
-  unsigned short __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
+  enum NPmode __cil_tmp130 ;
+  unsigned int __cil_tmp131 ;
+  __u16 __cil_tmp132 ;
+  int __cil_tmp133 ;
+  __u16 __cil_tmp134 ;
 
   {
   {
@@ -18044,37 +15482,25 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
 #line 1684
   __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 1684
-  __cil_tmp21 = (unsigned long )ppp;
+  __cil_tmp21 = ppp->rc_state;
 #line 1684
-  __cil_tmp22 = __cil_tmp21 + 760;
+  __cil_tmp22 = (unsigned long )__cil_tmp21;
 #line 1684
-  __cil_tmp23 = *((void **)__cil_tmp22);
-#line 1684
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 1684
-  if (__cil_tmp24 != __cil_tmp20) {
+  if (__cil_tmp22 != __cil_tmp20) {
     {
 #line 1684
-    __cil_tmp25 = (unsigned long )ppp;
+    __cil_tmp23 = ppp->rstate;
 #line 1684
-    __cil_tmp26 = __cil_tmp25 + 516;
+    __cil_tmp24 = __cil_tmp23 & 8192U;
 #line 1684
-    __cil_tmp27 = *((unsigned int *)__cil_tmp26);
-#line 1684
-    __cil_tmp28 = __cil_tmp27 & 8192U;
-#line 1684
-    if (__cil_tmp28 != 0U) {
+    if (__cil_tmp24 != 0U) {
       {
 #line 1684
-      __cil_tmp29 = (unsigned long )ppp;
+      __cil_tmp25 = ppp->rstate;
 #line 1684
-      __cil_tmp30 = __cil_tmp29 + 516;
+      __cil_tmp26 = __cil_tmp25 & 12582912U;
 #line 1684
-      __cil_tmp31 = *((unsigned int *)__cil_tmp30);
-#line 1684
-      __cil_tmp32 = __cil_tmp31 & 12582912U;
-#line 1684
-      if (__cil_tmp32 == 0U) {
+      if (__cil_tmp26 == 0U) {
         {
 #line 1686
         skb = ppp_decompress_frame(ppp, skb);
@@ -18093,26 +15519,19 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1688
-  __cil_tmp33 = (unsigned long )ppp;
+  __cil_tmp27 = ppp->flags;
 #line 1688
-  __cil_tmp34 = __cil_tmp33 + 508;
+  __cil_tmp28 = __cil_tmp27 & 4194304U;
 #line 1688
-  __cil_tmp35 = *((unsigned int *)__cil_tmp34);
-#line 1688
-  __cil_tmp36 = __cil_tmp35 & 4194304U;
-#line 1688
-  if (__cil_tmp36 != 0U) {
+  if (__cil_tmp28 != 0U) {
     {
 #line 1688
-    __cil_tmp37 = (unsigned long )ppp;
+    __cil_tmp29 = ppp->rstate;
 #line 1688
-    __cil_tmp38 = __cil_tmp37 + 516;
+    __cil_tmp30 = __cil_tmp29 & 8388608U;
 #line 1688
-    __cil_tmp39 = *((unsigned int *)__cil_tmp38);
-#line 1688
-    __cil_tmp40 = __cil_tmp39 & 8388608U;
-#line 1688
-    if (__cil_tmp40 != 0U) {
+    if (__cil_tmp30 != 0U) {
+#line 1689
       goto err;
     } else {
 
@@ -18124,437 +15543,325 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
   }
   {
 #line 1691
-  __cil_tmp41 = (unsigned long )skb;
+  __cil_tmp31 = skb->data;
 #line 1691
-  __cil_tmp42 = __cil_tmp41 + 224;
+  __cil_tmp32 = (void const   *)__cil_tmp31;
 #line 1691
-  __cil_tmp43 = *((unsigned char **)__cil_tmp42);
-#line 1691
-  __cil_tmp44 = (void const   *)__cil_tmp43;
-#line 1691
-  tmp = get_unaligned_be16(__cil_tmp44);
+  tmp = get_unaligned_be16(__cil_tmp32);
 #line 1691
   proto = (int )tmp;
   }
 #line 1693
   if (proto == 45) {
+#line 1693
     goto case_45;
-  } else {
+  } else
 #line 1728
-    if (proto == 47) {
-      goto case_47;
-    } else {
+  if (proto == 47) {
+#line 1728
+    goto case_47;
+  } else
 #line 1745
-      if (proto == 33021) {
-        goto case_33021;
-      } else {
+  if (proto == 33021) {
+#line 1745
+    goto case_33021;
+  } else
 #line 1692
-        if (0) {
-          case_45: ;
-          {
+  if (0) {
+    case_45: ;
+    {
 #line 1695
-          __cil_tmp45 = (struct slcompress *)0;
+    __cil_tmp33 = (struct slcompress *)0;
 #line 1695
-          __cil_tmp46 = (unsigned long )__cil_tmp45;
+    __cil_tmp34 = (unsigned long )__cil_tmp33;
 #line 1695
-          __cil_tmp47 = (unsigned long )ppp;
+    __cil_tmp35 = ppp->vj;
 #line 1695
-          __cil_tmp48 = __cil_tmp47 + 528;
+    __cil_tmp36 = (unsigned long )__cil_tmp35;
 #line 1695
-          __cil_tmp49 = *((struct slcompress **)__cil_tmp48);
+    if (__cil_tmp36 == __cil_tmp34) {
+#line 1696
+      goto err;
+    } else {
+      {
 #line 1695
-          __cil_tmp50 = (unsigned long )__cil_tmp49;
+      __cil_tmp37 = ppp->flags;
 #line 1695
-          if (__cil_tmp50 == __cil_tmp46) {
-            goto err;
-          } else {
-            {
+      __cil_tmp38 = __cil_tmp37 & 32U;
 #line 1695
-            __cil_tmp51 = (unsigned long )ppp;
-#line 1695
-            __cil_tmp52 = __cil_tmp51 + 508;
-#line 1695
-            __cil_tmp53 = *((unsigned int *)__cil_tmp52);
-#line 1695
-            __cil_tmp54 = __cil_tmp53 & 32U;
-#line 1695
-            if (__cil_tmp54 != 0U) {
-              goto err;
-            } else {
+      if (__cil_tmp38 != 0U) {
+#line 1696
+        goto err;
+      } else {
 
-            }
-            }
-          }
-          }
-          {
+      }
+      }
+    }
+    }
+    {
 #line 1698
-          __cil_tmp55 = (struct sk_buff  const  *)skb;
+    __cil_tmp39 = (struct sk_buff  const  *)skb;
 #line 1698
-          tmp___1 = skb_tailroom(__cil_tmp55);
-          }
+    tmp___1 = skb_tailroom(__cil_tmp39);
+    }
 #line 1698
-          if (tmp___1 <= 123) {
-            goto _L;
-          } else {
-            {
+    if (tmp___1 <= 123) {
 #line 1698
-            __cil_tmp56 = (struct sk_buff  const  *)skb;
+      goto _L;
+    } else {
+      {
 #line 1698
-            tmp___2 = skb_cloned(__cil_tmp56);
-            }
+      __cil_tmp40 = (struct sk_buff  const  *)skb;
 #line 1698
-            if (tmp___2 != 0) {
-              _L: 
-              {
+      tmp___2 = skb_cloned(__cil_tmp40);
+      }
+#line 1698
+      if (tmp___2 != 0) {
+        _L: 
+        {
 #line 1700
-              __cil_tmp57 = (unsigned long )skb;
+        __cil_tmp41 = skb->len;
 #line 1700
-              __cil_tmp58 = __cil_tmp57 + 104;
+        __cil_tmp42 = __cil_tmp41 + 128U;
 #line 1700
-              __cil_tmp59 = *((unsigned int *)__cil_tmp58);
-#line 1700
-              __cil_tmp60 = __cil_tmp59 + 128U;
-#line 1700
-              ns = dev_alloc_skb(__cil_tmp60);
-              }
-              {
+        ns = dev_alloc_skb(__cil_tmp42);
+        }
+        {
 #line 1701
-              __cil_tmp61 = (struct sk_buff *)0;
+        __cil_tmp43 = (struct sk_buff *)0;
 #line 1701
-              __cil_tmp62 = (unsigned long )__cil_tmp61;
+        __cil_tmp44 = (unsigned long )__cil_tmp43;
 #line 1701
-              __cil_tmp63 = (unsigned long )ns;
+        __cil_tmp45 = (unsigned long )ns;
 #line 1701
-              if (__cil_tmp63 == __cil_tmp62) {
-                {
+        if (__cil_tmp45 == __cil_tmp44) {
+          {
 #line 1702
-                __cil_tmp64 = (unsigned long )ppp;
+          __cil_tmp46 = ppp->dev;
 #line 1702
-                __cil_tmp65 = __cil_tmp64 + 784;
+          __cil_tmp47 = (struct net_device  const  *)__cil_tmp46;
 #line 1702
-                __cil_tmp66 = *((struct net_device **)__cil_tmp65);
-#line 1702
-                __cil_tmp67 = (struct net_device  const  *)__cil_tmp66;
-#line 1702
-                netdev_err(__cil_tmp67, "PPP: no memory (VJ decomp)\n");
-                }
-                goto err;
-              } else {
-
-              }
-              }
-              {
-#line 1706
-              skb_reserve(ns, 2);
-#line 1707
-              __cil_tmp68 = (unsigned long )skb;
-#line 1707
-              __cil_tmp69 = __cil_tmp68 + 104;
-#line 1707
-              __cil_tmp70 = *((unsigned int *)__cil_tmp69);
-#line 1707
-              tmp___0 = skb_put(ns, __cil_tmp70);
-#line 1707
-              __cil_tmp71 = (struct sk_buff  const  *)skb;
-#line 1707
-              __cil_tmp72 = (void *)tmp___0;
-#line 1707
-              __cil_tmp73 = (unsigned long )skb;
-#line 1707
-              __cil_tmp74 = __cil_tmp73 + 104;
-#line 1707
-              __cil_tmp75 = *((unsigned int *)__cil_tmp74);
-#line 1707
-              __cil_tmp76 = (int )__cil_tmp75;
-#line 1707
-              skb_copy_bits(__cil_tmp71, 0, __cil_tmp72, __cil_tmp76);
-#line 1708
-              kfree_skb(skb);
-#line 1709
-              skb = ns;
-              }
-            } else {
-#line 1712
-              skb->ip_summed = (unsigned char)0;
-            }
+          netdev_err(__cil_tmp47, "PPP: no memory (VJ decomp)\n");
           }
-          {
-#line 1714
-          __cil_tmp77 = (unsigned long )ppp;
-#line 1714
-          __cil_tmp78 = __cil_tmp77 + 528;
-#line 1714
-          __cil_tmp79 = *((struct slcompress **)__cil_tmp78);
-#line 1714
-          __cil_tmp80 = (unsigned long )skb;
-#line 1714
-          __cil_tmp81 = __cil_tmp80 + 224;
-#line 1714
-          __cil_tmp82 = *((unsigned char **)__cil_tmp81);
-#line 1714
-          __cil_tmp83 = __cil_tmp82 + 2UL;
-#line 1714
-          __cil_tmp84 = (unsigned long )skb;
-#line 1714
-          __cil_tmp85 = __cil_tmp84 + 104;
-#line 1714
-          __cil_tmp86 = *((unsigned int *)__cil_tmp85);
-#line 1714
-          __cil_tmp87 = __cil_tmp86 - 2U;
-#line 1714
-          __cil_tmp88 = (int )__cil_tmp87;
-#line 1714
-          len = slhc_uncompress(__cil_tmp79, __cil_tmp83, __cil_tmp88);
-          }
-#line 1715
-          if (len <= 0) {
-            {
-#line 1716
-            __cil_tmp89 = (unsigned long )ppp;
-#line 1716
-            __cil_tmp90 = __cil_tmp89 + 784;
-#line 1716
-            __cil_tmp91 = *((struct net_device **)__cil_tmp90);
-#line 1716
-            __cil_tmp92 = (struct net_device  const  *)__cil_tmp91;
-#line 1716
-            netdev_printk("<7>", __cil_tmp92, "PPP: VJ decompression error\n");
-            }
-            goto err;
-          } else {
-
-          }
-#line 1720
-          len = len + 2;
-          {
-#line 1721
-          __cil_tmp93 = (unsigned long )skb;
-#line 1721
-          __cil_tmp94 = __cil_tmp93 + 104;
-#line 1721
-          __cil_tmp95 = *((unsigned int *)__cil_tmp94);
-#line 1721
-          __cil_tmp96 = (unsigned int )len;
-#line 1721
-          if (__cil_tmp96 > __cil_tmp95) {
-            {
-#line 1722
-            __cil_tmp97 = (unsigned long )skb;
-#line 1722
-            __cil_tmp98 = __cil_tmp97 + 104;
-#line 1722
-            __cil_tmp99 = *((unsigned int *)__cil_tmp98);
-#line 1722
-            __cil_tmp100 = (unsigned int )len;
-#line 1722
-            __cil_tmp101 = __cil_tmp100 - __cil_tmp99;
-#line 1722
-            skb_put(skb, __cil_tmp101);
-            }
-          } else {
-            {
-#line 1723
-            __cil_tmp102 = (unsigned long )skb;
-#line 1723
-            __cil_tmp103 = __cil_tmp102 + 104;
-#line 1723
-            __cil_tmp104 = *((unsigned int *)__cil_tmp103);
-#line 1723
-            __cil_tmp105 = (unsigned int )len;
-#line 1723
-            if (__cil_tmp105 < __cil_tmp104) {
-              {
-#line 1724
-              __cil_tmp106 = (unsigned int )len;
-#line 1724
-              skb_trim(skb, __cil_tmp106);
-              }
-            } else {
-
-            }
-            }
-          }
-          }
-#line 1725
-          proto = 33;
-          goto ldv_40182;
-          case_47: ;
-          {
-#line 1729
-          __cil_tmp107 = (struct slcompress *)0;
-#line 1729
-          __cil_tmp108 = (unsigned long )__cil_tmp107;
-#line 1729
-          __cil_tmp109 = (unsigned long )ppp;
-#line 1729
-          __cil_tmp110 = __cil_tmp109 + 528;
-#line 1729
-          __cil_tmp111 = *((struct slcompress **)__cil_tmp110);
-#line 1729
-          __cil_tmp112 = (unsigned long )__cil_tmp111;
-#line 1729
-          if (__cil_tmp112 == __cil_tmp108) {
-            goto err;
-          } else {
-            {
-#line 1729
-            __cil_tmp113 = (unsigned long )ppp;
-#line 1729
-            __cil_tmp114 = __cil_tmp113 + 508;
-#line 1729
-            __cil_tmp115 = *((unsigned int *)__cil_tmp114);
-#line 1729
-            __cil_tmp116 = __cil_tmp115 & 32U;
-#line 1729
-            if (__cil_tmp116 != 0U) {
-              goto err;
-            } else {
-
-            }
-            }
-          }
-          }
-          {
-#line 1735
-          __cil_tmp117 = (unsigned long )skb;
-#line 1735
-          __cil_tmp118 = __cil_tmp117 + 104;
-#line 1735
-          __cil_tmp119 = *((unsigned int *)__cil_tmp118);
-#line 1735
-          tmp___3 = pskb_may_pull(skb, __cil_tmp119);
-          }
-#line 1735
-          if (tmp___3 == 0) {
-            goto err;
-          } else {
-
-          }
-          {
-#line 1738
-          __cil_tmp120 = (unsigned long )ppp;
-#line 1738
-          __cil_tmp121 = __cil_tmp120 + 528;
-#line 1738
-          __cil_tmp122 = *((struct slcompress **)__cil_tmp121);
-#line 1738
-          __cil_tmp123 = (unsigned long )skb;
-#line 1738
-          __cil_tmp124 = __cil_tmp123 + 224;
-#line 1738
-          __cil_tmp125 = *((unsigned char **)__cil_tmp124);
-#line 1738
-          __cil_tmp126 = __cil_tmp125 + 2UL;
-#line 1738
-          __cil_tmp127 = (unsigned long )skb;
-#line 1738
-          __cil_tmp128 = __cil_tmp127 + 104;
-#line 1738
-          __cil_tmp129 = *((unsigned int *)__cil_tmp128);
-#line 1738
-          __cil_tmp130 = __cil_tmp129 - 2U;
-#line 1738
-          __cil_tmp131 = (int )__cil_tmp130;
-#line 1738
-          tmp___4 = slhc_remember(__cil_tmp122, __cil_tmp126, __cil_tmp131);
-          }
-#line 1738
-          if (tmp___4 <= 0) {
-            {
-#line 1739
-            __cil_tmp132 = (unsigned long )ppp;
-#line 1739
-            __cil_tmp133 = __cil_tmp132 + 784;
-#line 1739
-            __cil_tmp134 = *((struct net_device **)__cil_tmp133);
-#line 1739
-            __cil_tmp135 = (struct net_device  const  *)__cil_tmp134;
-#line 1739
-            netdev_err(__cil_tmp135, "PPP: VJ uncompressed error\n");
-            }
-            goto err;
-          } else {
-
-          }
-#line 1742
-          proto = 33;
-          goto ldv_40182;
-          case_33021: 
-          {
-#line 1746
-          ppp_ccp_peek(ppp, skb, 1);
-          }
-          goto ldv_40182;
+#line 1704
+          goto err;
         } else {
 
         }
+        }
+        {
+#line 1706
+        skb_reserve(ns, 2);
+#line 1707
+        __cil_tmp48 = skb->len;
+#line 1707
+        tmp___0 = skb_put(ns, __cil_tmp48);
+#line 1707
+        __cil_tmp49 = (struct sk_buff  const  *)skb;
+#line 1707
+        __cil_tmp50 = (void *)tmp___0;
+#line 1707
+        __cil_tmp51 = skb->len;
+#line 1707
+        __cil_tmp52 = (int )__cil_tmp51;
+#line 1707
+        skb_copy_bits(__cil_tmp49, 0, __cil_tmp50, __cil_tmp52);
+#line 1708
+        kfree_skb(skb);
+#line 1709
+        skb = ns;
+        }
+      } else {
+#line 1712
+        skb->ip_summed = (unsigned char)0;
       }
     }
+    {
+#line 1714
+    __cil_tmp53 = ppp->vj;
+#line 1714
+    __cil_tmp54 = skb->data;
+#line 1714
+    __cil_tmp55 = __cil_tmp54 + 2UL;
+#line 1714
+    __cil_tmp56 = skb->len;
+#line 1714
+    __cil_tmp57 = __cil_tmp56 - 2U;
+#line 1714
+    __cil_tmp58 = (int )__cil_tmp57;
+#line 1714
+    len = slhc_uncompress(__cil_tmp53, __cil_tmp55, __cil_tmp58);
+    }
+#line 1715
+    if (len <= 0) {
+      {
+#line 1716
+      __cil_tmp59 = ppp->dev;
+#line 1716
+      __cil_tmp60 = (struct net_device  const  *)__cil_tmp59;
+#line 1716
+      netdev_printk("<7>", __cil_tmp60, "PPP: VJ decompression error\n");
+      }
+#line 1718
+      goto err;
+    } else {
+
+    }
+#line 1720
+    len = len + 2;
+    {
+#line 1721
+    __cil_tmp61 = skb->len;
+#line 1721
+    __cil_tmp62 = (unsigned int )len;
+#line 1721
+    if (__cil_tmp62 > __cil_tmp61) {
+      {
+#line 1722
+      __cil_tmp63 = skb->len;
+#line 1722
+      __cil_tmp64 = (unsigned int )len;
+#line 1722
+      __cil_tmp65 = __cil_tmp64 - __cil_tmp63;
+#line 1722
+      skb_put(skb, __cil_tmp65);
+      }
+    } else {
+      {
+#line 1723
+      __cil_tmp66 = skb->len;
+#line 1723
+      __cil_tmp67 = (unsigned int )len;
+#line 1723
+      if (__cil_tmp67 < __cil_tmp66) {
+        {
+#line 1724
+        __cil_tmp68 = (unsigned int )len;
+#line 1724
+        skb_trim(skb, __cil_tmp68);
+        }
+      } else {
+
+      }
+      }
+    }
+    }
+#line 1725
+    proto = 33;
+#line 1726
+    goto ldv_40182;
+    case_47: ;
+    {
+#line 1729
+    __cil_tmp69 = (struct slcompress *)0;
+#line 1729
+    __cil_tmp70 = (unsigned long )__cil_tmp69;
+#line 1729
+    __cil_tmp71 = ppp->vj;
+#line 1729
+    __cil_tmp72 = (unsigned long )__cil_tmp71;
+#line 1729
+    if (__cil_tmp72 == __cil_tmp70) {
+#line 1730
+      goto err;
+    } else {
+      {
+#line 1729
+      __cil_tmp73 = ppp->flags;
+#line 1729
+      __cil_tmp74 = __cil_tmp73 & 32U;
+#line 1729
+      if (__cil_tmp74 != 0U) {
+#line 1730
+        goto err;
+      } else {
+
+      }
+      }
+    }
+    }
+    {
+#line 1735
+    __cil_tmp75 = skb->len;
+#line 1735
+    tmp___3 = pskb_may_pull(skb, __cil_tmp75);
+    }
+#line 1735
+    if (tmp___3 == 0) {
+#line 1736
+      goto err;
+    } else {
+
+    }
+    {
+#line 1738
+    __cil_tmp76 = ppp->vj;
+#line 1738
+    __cil_tmp77 = skb->data;
+#line 1738
+    __cil_tmp78 = __cil_tmp77 + 2UL;
+#line 1738
+    __cil_tmp79 = skb->len;
+#line 1738
+    __cil_tmp80 = __cil_tmp79 - 2U;
+#line 1738
+    __cil_tmp81 = (int )__cil_tmp80;
+#line 1738
+    tmp___4 = slhc_remember(__cil_tmp76, __cil_tmp78, __cil_tmp81);
+    }
+#line 1738
+    if (tmp___4 <= 0) {
+      {
+#line 1739
+      __cil_tmp82 = ppp->dev;
+#line 1739
+      __cil_tmp83 = (struct net_device  const  *)__cil_tmp82;
+#line 1739
+      netdev_err(__cil_tmp83, "PPP: VJ uncompressed error\n");
+      }
+#line 1740
+      goto err;
+    } else {
+
+    }
+#line 1742
+    proto = 33;
+#line 1743
+    goto ldv_40182;
+    case_33021: 
+    {
+#line 1746
+    ppp_ccp_peek(ppp, skb, 1);
+    }
+#line 1747
+    goto ldv_40182;
+  } else {
+
   }
   ldv_40182: 
   {
 #line 1750
-  __cil_tmp136 = (unsigned long )ppp;
+  __cil_tmp84 = ppp->dev;
 #line 1750
-  __cil_tmp137 = __cil_tmp136 + 784;
+  __cil_tmp85 = ppp->dev;
 #line 1750
-  __cil_tmp138 = *((struct net_device **)__cil_tmp137);
+  __cil_tmp86 = __cil_tmp85->stats.rx_packets;
 #line 1750
-  __cil_tmp139 = (unsigned long )__cil_tmp138;
-#line 1750
-  __cil_tmp140 = __cil_tmp139 + 200;
-#line 1750
-  __cil_tmp141 = (unsigned long )ppp;
-#line 1750
-  __cil_tmp142 = __cil_tmp141 + 784;
-#line 1750
-  __cil_tmp143 = *((struct net_device **)__cil_tmp142);
-#line 1750
-  __cil_tmp144 = (unsigned long )__cil_tmp143;
-#line 1750
-  __cil_tmp145 = __cil_tmp144 + 200;
-#line 1750
-  __cil_tmp146 = *((unsigned long *)__cil_tmp145);
-#line 1750
-  *((unsigned long *)__cil_tmp140) = __cil_tmp146 + 1UL;
+  __cil_tmp84->stats.rx_packets = __cil_tmp86 + 1UL;
 #line 1751
-  __cil_tmp147 = 200 + 16;
+  __cil_tmp87 = ppp->dev;
 #line 1751
-  __cil_tmp148 = (unsigned long )ppp;
+  __cil_tmp88 = skb->len;
 #line 1751
-  __cil_tmp149 = __cil_tmp148 + 784;
+  __cil_tmp89 = __cil_tmp88 - 2U;
 #line 1751
-  __cil_tmp150 = *((struct net_device **)__cil_tmp149);
+  __cil_tmp90 = (unsigned long )__cil_tmp89;
 #line 1751
-  __cil_tmp151 = (unsigned long )__cil_tmp150;
+  __cil_tmp91 = ppp->dev;
 #line 1751
-  __cil_tmp152 = __cil_tmp151 + __cil_tmp147;
+  __cil_tmp92 = __cil_tmp91->stats.rx_bytes;
 #line 1751
-  __cil_tmp153 = (unsigned long )skb;
-#line 1751
-  __cil_tmp154 = __cil_tmp153 + 104;
-#line 1751
-  __cil_tmp155 = *((unsigned int *)__cil_tmp154);
-#line 1751
-  __cil_tmp156 = __cil_tmp155 - 2U;
-#line 1751
-  __cil_tmp157 = (unsigned long )__cil_tmp156;
-#line 1751
-  __cil_tmp158 = 200 + 16;
-#line 1751
-  __cil_tmp159 = (unsigned long )ppp;
-#line 1751
-  __cil_tmp160 = __cil_tmp159 + 784;
-#line 1751
-  __cil_tmp161 = *((struct net_device **)__cil_tmp160);
-#line 1751
-  __cil_tmp162 = (unsigned long )__cil_tmp161;
-#line 1751
-  __cil_tmp163 = __cil_tmp162 + __cil_tmp158;
-#line 1751
-  __cil_tmp164 = *((unsigned long *)__cil_tmp163);
-#line 1751
-  *((unsigned long *)__cil_tmp152) = __cil_tmp164 + __cil_tmp157;
+  __cil_tmp87->stats.rx_bytes = __cil_tmp92 + __cil_tmp90;
 #line 1753
   npi = proto_to_npindex(proto);
   }
@@ -18562,16 +15869,11 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
   if (npi < 0) {
     {
 #line 1756
-    __cil_tmp165 = 0 + 128;
+    __cil_tmp93 = & ppp->file.rq;
 #line 1756
-    __cil_tmp166 = (unsigned long )ppp;
-#line 1756
-    __cil_tmp167 = __cil_tmp166 + __cil_tmp165;
-#line 1756
-    __cil_tmp168 = (struct sk_buff_head *)__cil_tmp167;
-#line 1756
-    skb_queue_tail(__cil_tmp168, skb);
+    skb_queue_tail(__cil_tmp93, skb);
     }
+#line 1758
     goto ldv_40186;
     ldv_40185: 
     {
@@ -18581,101 +15883,77 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
     ldv_40186: ;
     {
 #line 1758
-    __cil_tmp169 = 128 + 16;
+    __cil_tmp94 = ppp->file.rq.qlen;
 #line 1758
-    __cil_tmp170 = 0 + __cil_tmp169;
-#line 1758
-    __cil_tmp171 = (unsigned long )ppp;
-#line 1758
-    __cil_tmp172 = __cil_tmp171 + __cil_tmp170;
-#line 1758
-    __cil_tmp173 = *((__u32 *)__cil_tmp172);
-#line 1758
-    if (__cil_tmp173 > 32U) {
+    if (__cil_tmp94 > 32U) {
       {
 #line 1758
-      __cil_tmp174 = 0 + 128;
+      __cil_tmp95 = & ppp->file.rq;
 #line 1758
-      __cil_tmp175 = (unsigned long )ppp;
-#line 1758
-      __cil_tmp176 = __cil_tmp175 + __cil_tmp174;
-#line 1758
-      __cil_tmp177 = (struct sk_buff_head *)__cil_tmp176;
-#line 1758
-      skb = skb_dequeue(__cil_tmp177);
+      skb = skb_dequeue(__cil_tmp95);
       }
       {
 #line 1758
-      __cil_tmp178 = (struct sk_buff *)0;
+      __cil_tmp96 = (struct sk_buff *)0;
 #line 1758
-      __cil_tmp179 = (unsigned long )__cil_tmp178;
+      __cil_tmp97 = (unsigned long )__cil_tmp96;
 #line 1758
-      __cil_tmp180 = (unsigned long )skb;
+      __cil_tmp98 = (unsigned long )skb;
 #line 1758
-      if (__cil_tmp180 != __cil_tmp179) {
+      if (__cil_tmp98 != __cil_tmp97) {
+#line 1759
         goto ldv_40185;
       } else {
+#line 1761
         goto ldv_40187;
       }
       }
     } else {
+#line 1761
       goto ldv_40187;
     }
     }
     ldv_40187: 
     {
 #line 1762
-    __cil_tmp181 = 0 + 224;
+    __cil_tmp99 = & ppp->file.rwait;
 #line 1762
-    __cil_tmp182 = (unsigned long )ppp;
+    __cil_tmp100 = (void *)0;
 #line 1762
-    __cil_tmp183 = __cil_tmp182 + __cil_tmp181;
-#line 1762
-    __cil_tmp184 = (wait_queue_head_t *)__cil_tmp183;
-#line 1762
-    __cil_tmp185 = (void *)0;
-#line 1762
-    __wake_up(__cil_tmp184, 1U, 1, __cil_tmp185);
+    __wake_up(__cil_tmp99, 1U, 1, __cil_tmp100);
     }
   } else {
     {
 #line 1771
-    __cil_tmp186 = (struct sock_filter *)0;
+    __cil_tmp101 = (struct sock_filter *)0;
 #line 1771
-    __cil_tmp187 = (unsigned long )__cil_tmp186;
+    __cil_tmp102 = (unsigned long )__cil_tmp101;
 #line 1771
-    __cil_tmp188 = (unsigned long )ppp;
+    __cil_tmp103 = ppp->pass_filter;
 #line 1771
-    __cil_tmp189 = __cil_tmp188 + 912;
+    __cil_tmp104 = (unsigned long )__cil_tmp103;
 #line 1771
-    __cil_tmp190 = *((struct sock_filter **)__cil_tmp189);
+    if (__cil_tmp104 != __cil_tmp102) {
 #line 1771
-    __cil_tmp191 = (unsigned long )__cil_tmp190;
-#line 1771
-    if (__cil_tmp191 != __cil_tmp187) {
       goto _L___0;
     } else {
       {
 #line 1771
-      __cil_tmp192 = (struct sock_filter *)0;
+      __cil_tmp105 = (struct sock_filter *)0;
 #line 1771
-      __cil_tmp193 = (unsigned long )__cil_tmp192;
+      __cil_tmp106 = (unsigned long )__cil_tmp105;
 #line 1771
-      __cil_tmp194 = (unsigned long )ppp;
+      __cil_tmp107 = ppp->active_filter;
 #line 1771
-      __cil_tmp195 = __cil_tmp194 + 920;
+      __cil_tmp108 = (unsigned long )__cil_tmp107;
 #line 1771
-      __cil_tmp196 = *((struct sock_filter **)__cil_tmp195);
-#line 1771
-      __cil_tmp197 = (unsigned long )__cil_tmp196;
-#line 1771
-      if (__cil_tmp197 != __cil_tmp193) {
+      if (__cil_tmp108 != __cil_tmp106) {
         _L___0: 
         {
 #line 1772
-        __cil_tmp198 = (struct sk_buff  const  *)skb;
+        __cil_tmp109 = (struct sk_buff  const  *)skb;
 #line 1772
-        tmp___5 = skb_cloned(__cil_tmp198);
+        tmp___5 = skb_cloned(__cil_tmp109);
         }
 #line 1772
         if (tmp___5 != 0) {
@@ -18685,6 +15963,7 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
           }
 #line 1772
           if (tmp___6 != 0) {
+#line 1774
             goto err;
           } else {
 
@@ -18700,55 +15979,39 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
         }
         {
 #line 1777
-        __cil_tmp199 = (struct sock_filter *)0;
+        __cil_tmp110 = (struct sock_filter *)0;
 #line 1777
-        __cil_tmp200 = (unsigned long )__cil_tmp199;
+        __cil_tmp111 = (unsigned long )__cil_tmp110;
 #line 1777
-        __cil_tmp201 = (unsigned long )ppp;
+        __cil_tmp112 = ppp->pass_filter;
 #line 1777
-        __cil_tmp202 = __cil_tmp201 + 912;
+        __cil_tmp113 = (unsigned long )__cil_tmp112;
 #line 1777
-        __cil_tmp203 = *((struct sock_filter **)__cil_tmp202);
-#line 1777
-        __cil_tmp204 = (unsigned long )__cil_tmp203;
-#line 1777
-        if (__cil_tmp204 != __cil_tmp200) {
+        if (__cil_tmp113 != __cil_tmp111) {
           {
 #line 1777
-          __cil_tmp205 = (struct sk_buff  const  *)skb;
+          __cil_tmp114 = (struct sk_buff  const  *)skb;
 #line 1777
-          __cil_tmp206 = (unsigned long )ppp;
+          __cil_tmp115 = ppp->pass_filter;
 #line 1777
-          __cil_tmp207 = __cil_tmp206 + 912;
+          __cil_tmp116 = (struct sock_filter  const  *)__cil_tmp115;
 #line 1777
-          __cil_tmp208 = *((struct sock_filter **)__cil_tmp207);
-#line 1777
-          __cil_tmp209 = (struct sock_filter  const  *)__cil_tmp208;
-#line 1777
-          tmp___8 = sk_run_filter(__cil_tmp205, __cil_tmp209);
+          tmp___8 = sk_run_filter(__cil_tmp114, __cil_tmp116);
           }
 #line 1777
           if (tmp___8 == 0U) {
             {
 #line 1779
-            __cil_tmp210 = (unsigned long )ppp;
+            __cil_tmp117 = ppp->debug;
 #line 1779
-            __cil_tmp211 = __cil_tmp210 + 520;
-#line 1779
-            __cil_tmp212 = *((int *)__cil_tmp211);
-#line 1779
-            if (__cil_tmp212 & 1) {
+            if (__cil_tmp117 & 1) {
               {
 #line 1780
-              __cil_tmp213 = (unsigned long )ppp;
+              __cil_tmp118 = ppp->dev;
 #line 1780
-              __cil_tmp214 = __cil_tmp213 + 784;
+              __cil_tmp119 = (struct net_device  const  *)__cil_tmp118;
 #line 1780
-              __cil_tmp215 = *((struct net_device **)__cil_tmp214);
-#line 1780
-              __cil_tmp216 = (struct net_device  const  *)__cil_tmp215;
-#line 1780
-              netdev_printk("<7>", __cil_tmp216, "PPP: inbound frame not passed\n");
+              netdev_printk("<7>", __cil_tmp119, "PPP: inbound frame not passed\n");
               }
             } else {
 
@@ -18769,48 +16032,32 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
         }
         {
 #line 1786
-        __cil_tmp217 = (struct sock_filter *)0;
+        __cil_tmp120 = (struct sock_filter *)0;
 #line 1786
-        __cil_tmp218 = (unsigned long )__cil_tmp217;
+        __cil_tmp121 = (unsigned long )__cil_tmp120;
 #line 1786
-        __cil_tmp219 = (unsigned long )ppp;
+        __cil_tmp122 = ppp->active_filter;
 #line 1786
-        __cil_tmp220 = __cil_tmp219 + 920;
+        __cil_tmp123 = (unsigned long )__cil_tmp122;
 #line 1786
-        __cil_tmp221 = *((struct sock_filter **)__cil_tmp220);
-#line 1786
-        __cil_tmp222 = (unsigned long )__cil_tmp221;
-#line 1786
-        if (__cil_tmp222 == __cil_tmp218) {
+        if (__cil_tmp123 == __cil_tmp121) {
 #line 1788
-          __cil_tmp223 = (unsigned long )ppp;
-#line 1788
-          __cil_tmp224 = __cil_tmp223 + 776;
-#line 1788
-          *((unsigned long *)__cil_tmp224) = (unsigned long )jiffies;
+          ppp->last_recv = (unsigned long )jiffies;
         } else {
           {
 #line 1786
-          __cil_tmp225 = (struct sk_buff  const  *)skb;
+          __cil_tmp124 = (struct sk_buff  const  *)skb;
 #line 1786
-          __cil_tmp226 = (unsigned long )ppp;
+          __cil_tmp125 = ppp->active_filter;
 #line 1786
-          __cil_tmp227 = __cil_tmp226 + 920;
+          __cil_tmp126 = (struct sock_filter  const  *)__cil_tmp125;
 #line 1786
-          __cil_tmp228 = *((struct sock_filter **)__cil_tmp227);
-#line 1786
-          __cil_tmp229 = (struct sock_filter  const  *)__cil_tmp228;
-#line 1786
-          tmp___9 = sk_run_filter(__cil_tmp225, __cil_tmp229);
+          tmp___9 = sk_run_filter(__cil_tmp124, __cil_tmp126);
           }
 #line 1786
           if (tmp___9 != 0U) {
 #line 1788
-            __cil_tmp230 = (unsigned long )ppp;
-#line 1788
-            __cil_tmp231 = __cil_tmp230 + 776;
-#line 1788
-            *((unsigned long *)__cil_tmp231) = (unsigned long )jiffies;
+            ppp->last_recv = (unsigned long )jiffies;
           } else {
 
           }
@@ -18822,32 +16069,20 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
         }
       } else {
 #line 1792
-        __cil_tmp232 = (unsigned long )ppp;
-#line 1792
-        __cil_tmp233 = __cil_tmp232 + 776;
-#line 1792
-        *((unsigned long *)__cil_tmp233) = (unsigned long )jiffies;
+        ppp->last_recv = (unsigned long )jiffies;
       }
       }
     }
     }
     {
 #line 1794
-    __cil_tmp234 = (unsigned long )ppp;
+    __cil_tmp127 = ppp->dev;
 #line 1794
-    __cil_tmp235 = __cil_tmp234 + 784;
+    __cil_tmp128 = __cil_tmp127->flags;
 #line 1794
-    __cil_tmp236 = *((struct net_device **)__cil_tmp235);
+    __cil_tmp129 = __cil_tmp128 & 1U;
 #line 1794
-    __cil_tmp237 = (unsigned long )__cil_tmp236;
-#line 1794
-    __cil_tmp238 = __cil_tmp237 + 432;
-#line 1794
-    __cil_tmp239 = *((unsigned int *)__cil_tmp238);
-#line 1794
-    __cil_tmp240 = __cil_tmp239 & 1U;
-#line 1794
-    if (__cil_tmp240 == 0U) {
+    if (__cil_tmp129 == 0U) {
       {
 #line 1796
       kfree_skb(skb);
@@ -18855,19 +16090,11 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
     } else {
       {
 #line 1794
-      __cil_tmp241 = npi * 32UL;
+      __cil_tmp130 = ppp->npmode[npi];
 #line 1794
-      __cil_tmp242 = 536 + __cil_tmp241;
+      __cil_tmp131 = (unsigned int )__cil_tmp130;
 #line 1794
-      __cil_tmp243 = (unsigned long )ppp;
-#line 1794
-      __cil_tmp244 = __cil_tmp243 + __cil_tmp242;
-#line 1794
-      __cil_tmp245 = *((enum NPmode *)__cil_tmp244);
-#line 1794
-      __cil_tmp246 = (unsigned int )__cil_tmp245;
-#line 1794
-      if (__cil_tmp246 != 0U) {
+      if (__cil_tmp131 != 0U) {
         {
 #line 1796
         kfree_skb(skb);
@@ -18877,35 +16104,17 @@ static void ppp_receive_nonmp_frame(struct ppp *ppp , struct sk_buff *skb )
 #line 1799
         skb_pull_rcsum(skb, 2U);
 #line 1800
-        __cil_tmp247 = (unsigned long )skb;
-#line 1800
-        __cil_tmp248 = __cil_tmp247 + 32;
-#line 1800
-        __cil_tmp249 = (unsigned long )ppp;
-#line 1800
-        __cil_tmp250 = __cil_tmp249 + 784;
-#line 1800
-        *((struct net_device **)__cil_tmp248) = *((struct net_device **)__cil_tmp250);
+        skb->dev = ppp->dev;
 #line 1801
-        __cil_tmp251 = npi * 4UL;
+        __cil_tmp132 = (__u16 )npindex_to_ethertype[npi];
 #line 1801
-        __cil_tmp252 = (unsigned long )(npindex_to_ethertype) + __cil_tmp251;
+        __cil_tmp133 = (int )__cil_tmp132;
 #line 1801
-        __cil_tmp253 = *((int const   *)__cil_tmp252);
+        __cil_tmp134 = (__u16 )__cil_tmp133;
 #line 1801
-        __cil_tmp254 = (unsigned short )__cil_tmp253;
+        tmp___10 = __fswab16(__cil_tmp134);
 #line 1801
-        __cil_tmp255 = (int )__cil_tmp254;
-#line 1801
-        __cil_tmp256 = (unsigned short )__cil_tmp255;
-#line 1801
-        tmp___10 = __fswab16(__cil_tmp256);
-#line 1801
-        __cil_tmp257 = (unsigned long )skb;
-#line 1801
-        __cil_tmp258 = __cil_tmp257 + 126;
-#line 1801
-        *((__be16 *)__cil_tmp258) = tmp___10;
+        skb->protocol = tmp___10;
 #line 1802
         skb_reset_mac_header(skb);
 #line 1803
@@ -18937,116 +16146,63 @@ static struct sk_buff *ppp_decompress_frame(struct ppp *ppp , struct sk_buff *sk
   int len ;
   int tmp___0 ;
   int obuff_size ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned char *__cil_tmp11 ;
-  void const   *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct compressor *__cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
-  struct sk_buff *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct net_device *__cil_tmp32 ;
-  struct net_device  const  *__cil_tmp33 ;
+  unsigned char *__cil_tmp9 ;
+  void const   *__cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  struct compressor *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  struct sk_buff *__cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
+  struct net_device *__cil_tmp20 ;
+  struct net_device  const  *__cil_tmp21 ;
+  struct compressor *__cil_tmp22 ;
+  int (*__cil_tmp23)(void * , unsigned char * , int  , unsigned char * , int  ) ;
+  void *__cil_tmp24 ;
+  unsigned char *__cil_tmp25 ;
+  unsigned char *__cil_tmp26 ;
+  unsigned int __cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  unsigned char *__cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
+  void (*__cil_tmp33)(void * , unsigned char * , int  ) ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct compressor *__cil_tmp36 ;
+  struct compressor *__cil_tmp35 ;
+  void (*__cil_tmp36)(void * , unsigned char * , int  ) ;
   unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  int (*__cil_tmp39)(void * , unsigned char * , int  , unsigned char * , int  ) ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  void *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned char *__cil_tmp45 ;
-  unsigned char *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  unsigned int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned char *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  void (*__cil_tmp61)(void * , unsigned char * , int  ) ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  struct compressor *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  void (*__cil_tmp68)(void * , unsigned char * , int  ) ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  struct compressor *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  void (*__cil_tmp75)(void * , unsigned char * , int  ) ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  void *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned char *__cil_tmp81 ;
-  unsigned char *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned int __cil_tmp85 ;
-  unsigned int __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
+  struct compressor *__cil_tmp38 ;
+  void (*__cil_tmp39)(void * , unsigned char * , int  ) ;
+  void *__cil_tmp40 ;
+  unsigned char *__cil_tmp41 ;
+  unsigned char *__cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
 
   {
   {
 #line 1816
-  __cil_tmp9 = (unsigned long )skb;
+  __cil_tmp9 = skb->data;
 #line 1816
-  __cil_tmp10 = __cil_tmp9 + 224;
+  __cil_tmp10 = (void const   *)__cil_tmp9;
 #line 1816
-  __cil_tmp11 = *((unsigned char **)__cil_tmp10);
-#line 1816
-  __cil_tmp12 = (void const   *)__cil_tmp11;
-#line 1816
-  tmp = get_unaligned_be16(__cil_tmp12);
+  tmp = get_unaligned_be16(__cil_tmp10);
 #line 1816
   proto = (int )tmp;
 #line 1823
-  __cil_tmp13 = (unsigned long )skb;
+  __cil_tmp11 = skb->len;
 #line 1823
-  __cil_tmp14 = __cil_tmp13 + 104;
-#line 1823
-  __cil_tmp15 = *((unsigned int *)__cil_tmp14);
-#line 1823
-  tmp___0 = pskb_may_pull(skb, __cil_tmp15);
+  tmp___0 = pskb_may_pull(skb, __cil_tmp11);
   }
 #line 1823
   if (tmp___0 == 0) {
+#line 1824
     goto err;
   } else {
 
@@ -19055,39 +16211,31 @@ static struct sk_buff *ppp_decompress_frame(struct ppp *ppp , struct sk_buff *sk
   if (proto == 253) {
     {
 #line 1830
-    __cil_tmp16 = (unsigned long )ppp;
+    __cil_tmp12 = ppp->rcomp;
 #line 1830
-    __cil_tmp17 = __cil_tmp16 + 752;
+    __cil_tmp13 = __cil_tmp12->compress_proto;
 #line 1830
-    __cil_tmp18 = *((struct compressor **)__cil_tmp17);
+    if (__cil_tmp13 == 18) {
 #line 1830
-    __cil_tmp19 = *((int *)__cil_tmp18);
-#line 1830
-    if (__cil_tmp19 == 18) {
       goto case_18;
     } else {
+#line 1833
       goto switch_default;
 #line 1829
       if (0) {
         case_18: 
 #line 1831
-        __cil_tmp20 = (unsigned long )ppp;
+        __cil_tmp14 = ppp->mru;
 #line 1831
-        __cil_tmp21 = __cil_tmp20 + 504;
-#line 1831
-        __cil_tmp22 = *((int *)__cil_tmp21);
-#line 1831
-        obuff_size = __cil_tmp22 + 5;
+        obuff_size = __cil_tmp14 + 5;
+#line 1832
         goto ldv_40198;
         switch_default: 
 #line 1834
-        __cil_tmp23 = (unsigned long )ppp;
+        __cil_tmp15 = ppp->mru;
 #line 1834
-        __cil_tmp24 = __cil_tmp23 + 504;
-#line 1834
-        __cil_tmp25 = *((int *)__cil_tmp24);
-#line 1834
-        obuff_size = __cil_tmp25 + 4;
+        obuff_size = __cil_tmp15 + 4;
+#line 1835
         goto ldv_40198;
       } else {
 
@@ -19097,31 +16245,28 @@ static struct sk_buff *ppp_decompress_frame(struct ppp *ppp , struct sk_buff *sk
     ldv_40198: 
     {
 #line 1838
-    __cil_tmp26 = (unsigned int )obuff_size;
+    __cil_tmp16 = (unsigned int )obuff_size;
 #line 1838
-    ns = dev_alloc_skb(__cil_tmp26);
+    ns = dev_alloc_skb(__cil_tmp16);
     }
     {
 #line 1839
-    __cil_tmp27 = (struct sk_buff *)0;
+    __cil_tmp17 = (struct sk_buff *)0;
 #line 1839
-    __cil_tmp28 = (unsigned long )__cil_tmp27;
+    __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 1839
-    __cil_tmp29 = (unsigned long )ns;
+    __cil_tmp19 = (unsigned long )ns;
 #line 1839
-    if (__cil_tmp29 == __cil_tmp28) {
+    if (__cil_tmp19 == __cil_tmp18) {
       {
 #line 1840
-      __cil_tmp30 = (unsigned long )ppp;
+      __cil_tmp20 = ppp->dev;
 #line 1840
-      __cil_tmp31 = __cil_tmp30 + 784;
+      __cil_tmp21 = (struct net_device  const  *)__cil_tmp20;
 #line 1840
-      __cil_tmp32 = *((struct net_device **)__cil_tmp31);
-#line 1840
-      __cil_tmp33 = (struct net_device  const  *)__cil_tmp32;
-#line 1840
-      netdev_err(__cil_tmp33, "ppp_decompress_frame: no memory\n");
+      netdev_err(__cil_tmp21, "ppp_decompress_frame: no memory\n");
       }
+#line 1842
       goto err;
     } else {
 
@@ -19129,67 +16274,34 @@ static struct sk_buff *ppp_decompress_frame(struct ppp *ppp , struct sk_buff *sk
     }
     {
 #line 1845
-    __cil_tmp34 = (unsigned long )ppp;
+    __cil_tmp22 = ppp->rcomp;
 #line 1845
-    __cil_tmp35 = __cil_tmp34 + 752;
+    __cil_tmp23 = __cil_tmp22->decompress;
 #line 1845
-    __cil_tmp36 = *((struct compressor **)__cil_tmp35);
+    __cil_tmp24 = ppp->rc_state;
 #line 1845
-    __cil_tmp37 = (unsigned long )__cil_tmp36;
+    __cil_tmp25 = skb->data;
 #line 1845
-    __cil_tmp38 = __cil_tmp37 + 88;
+    __cil_tmp26 = __cil_tmp25 + 1152921504606846974UL;
 #line 1845
-    __cil_tmp39 = *((int (**)(void * , unsigned char * , int  , unsigned char * ,
-                              int  ))__cil_tmp38);
+    __cil_tmp27 = skb->len;
 #line 1845
-    __cil_tmp40 = (unsigned long )ppp;
+    __cil_tmp28 = __cil_tmp27 + 2U;
 #line 1845
-    __cil_tmp41 = __cil_tmp40 + 760;
+    __cil_tmp29 = (int )__cil_tmp28;
 #line 1845
-    __cil_tmp42 = *((void **)__cil_tmp41);
+    __cil_tmp30 = ns->data;
 #line 1845
-    __cil_tmp43 = (unsigned long )skb;
-#line 1845
-    __cil_tmp44 = __cil_tmp43 + 224;
-#line 1845
-    __cil_tmp45 = *((unsigned char **)__cil_tmp44);
-#line 1845
-    __cil_tmp46 = __cil_tmp45 + 1152921504606846974UL;
-#line 1845
-    __cil_tmp47 = (unsigned long )skb;
-#line 1845
-    __cil_tmp48 = __cil_tmp47 + 104;
-#line 1845
-    __cil_tmp49 = *((unsigned int *)__cil_tmp48);
-#line 1845
-    __cil_tmp50 = __cil_tmp49 + 2U;
-#line 1845
-    __cil_tmp51 = (int )__cil_tmp50;
-#line 1845
-    __cil_tmp52 = (unsigned long )ns;
-#line 1845
-    __cil_tmp53 = __cil_tmp52 + 224;
-#line 1845
-    __cil_tmp54 = *((unsigned char **)__cil_tmp53);
-#line 1845
-    len = (*__cil_tmp39)(__cil_tmp42, __cil_tmp46, __cil_tmp51, __cil_tmp54, obuff_size);
+    len = (*__cil_tmp23)(__cil_tmp24, __cil_tmp26, __cil_tmp29, __cil_tmp30, obuff_size);
     }
 #line 1847
     if (len < 0) {
 #line 1850
       if (len == -2) {
 #line 1851
-        __cil_tmp55 = (unsigned long )ppp;
+        __cil_tmp31 = ppp->rstate;
 #line 1851
-        __cil_tmp56 = __cil_tmp55 + 516;
-#line 1851
-        __cil_tmp57 = (unsigned long )ppp;
-#line 1851
-        __cil_tmp58 = __cil_tmp57 + 516;
-#line 1851
-        __cil_tmp59 = *((unsigned int *)__cil_tmp58);
-#line 1851
-        *((unsigned int *)__cil_tmp56) = __cil_tmp59 | 8388608U;
+        ppp->rstate = __cil_tmp31 | 8388608U;
       } else {
 
       }
@@ -19197,6 +16309,7 @@ static struct sk_buff *ppp_decompress_frame(struct ppp *ppp , struct sk_buff *sk
 #line 1852
       kfree_skb(ns);
       }
+#line 1853
       goto err;
     } else {
 
@@ -19207,73 +16320,45 @@ static struct sk_buff *ppp_decompress_frame(struct ppp *ppp , struct sk_buff *sk
 #line 1857
     skb = ns;
 #line 1858
-    __cil_tmp60 = (unsigned int )len;
+    __cil_tmp32 = (unsigned int )len;
 #line 1858
-    skb_put(skb, __cil_tmp60);
+    skb_put(skb, __cil_tmp32);
 #line 1859
     skb_pull(skb, 2U);
     }
   } else {
     {
 #line 1864
-    __cil_tmp61 = (void (*)(void * , unsigned char * , int  ))0;
+    __cil_tmp33 = (void (*)(void * , unsigned char * , int  ))0;
 #line 1864
-    __cil_tmp62 = (unsigned long )__cil_tmp61;
+    __cil_tmp34 = (unsigned long )__cil_tmp33;
 #line 1864
-    __cil_tmp63 = (unsigned long )ppp;
+    __cil_tmp35 = ppp->rcomp;
 #line 1864
-    __cil_tmp64 = __cil_tmp63 + 752;
+    __cil_tmp36 = __cil_tmp35->incomp;
 #line 1864
-    __cil_tmp65 = *((struct compressor **)__cil_tmp64);
+    __cil_tmp37 = (unsigned long )__cil_tmp36;
 #line 1864
-    __cil_tmp66 = (unsigned long )__cil_tmp65;
-#line 1864
-    __cil_tmp67 = __cil_tmp66 + 96;
-#line 1864
-    __cil_tmp68 = *((void (**)(void * , unsigned char * , int  ))__cil_tmp67);
-#line 1864
-    __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 1864
-    if (__cil_tmp69 != __cil_tmp62) {
+    if (__cil_tmp37 != __cil_tmp34) {
       {
 #line 1865
-      __cil_tmp70 = (unsigned long )ppp;
+      __cil_tmp38 = ppp->rcomp;
 #line 1865
-      __cil_tmp71 = __cil_tmp70 + 752;
+      __cil_tmp39 = __cil_tmp38->incomp;
 #line 1865
-      __cil_tmp72 = *((struct compressor **)__cil_tmp71);
+      __cil_tmp40 = ppp->rc_state;
 #line 1865
-      __cil_tmp73 = (unsigned long )__cil_tmp72;
+      __cil_tmp41 = skb->data;
 #line 1865
-      __cil_tmp74 = __cil_tmp73 + 96;
+      __cil_tmp42 = __cil_tmp41 + 1152921504606846974UL;
 #line 1865
-      __cil_tmp75 = *((void (**)(void * , unsigned char * , int  ))__cil_tmp74);
+      __cil_tmp43 = skb->len;
 #line 1865
-      __cil_tmp76 = (unsigned long )ppp;
+      __cil_tmp44 = __cil_tmp43 + 2U;
 #line 1865
-      __cil_tmp77 = __cil_tmp76 + 760;
+      __cil_tmp45 = (int )__cil_tmp44;
 #line 1865
-      __cil_tmp78 = *((void **)__cil_tmp77);
-#line 1865
-      __cil_tmp79 = (unsigned long )skb;
-#line 1865
-      __cil_tmp80 = __cil_tmp79 + 224;
-#line 1865
-      __cil_tmp81 = *((unsigned char **)__cil_tmp80);
-#line 1865
-      __cil_tmp82 = __cil_tmp81 + 1152921504606846974UL;
-#line 1865
-      __cil_tmp83 = (unsigned long )skb;
-#line 1865
-      __cil_tmp84 = __cil_tmp83 + 104;
-#line 1865
-      __cil_tmp85 = *((unsigned int *)__cil_tmp84);
-#line 1865
-      __cil_tmp86 = __cil_tmp85 + 2U;
-#line 1865
-      __cil_tmp87 = (int )__cil_tmp86;
-#line 1865
-      (*__cil_tmp75)(__cil_tmp78, __cil_tmp82, __cil_tmp87);
+      (*__cil_tmp39)(__cil_tmp40, __cil_tmp42, __cil_tmp45);
       }
     } else {
 
@@ -19285,17 +16370,9 @@ static struct sk_buff *ppp_decompress_frame(struct ppp *ppp , struct sk_buff *sk
   err: 
   {
 #line 1872
-  __cil_tmp88 = (unsigned long )ppp;
+  __cil_tmp46 = ppp->rstate;
 #line 1872
-  __cil_tmp89 = __cil_tmp88 + 516;
-#line 1872
-  __cil_tmp90 = (unsigned long )ppp;
-#line 1872
-  __cil_tmp91 = __cil_tmp90 + 516;
-#line 1872
-  __cil_tmp92 = *((unsigned int *)__cil_tmp91);
-#line 1872
-  *((unsigned int *)__cil_tmp89) = __cil_tmp92 | 4194304U;
+  ppp->rstate = __cil_tmp46 | 4194304U;
 #line 1873
   ppp_receive_error(ppp);
   }
@@ -19318,208 +16395,116 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   struct sk_buff *tmp___2 ;
   __u32 tmp___3 ;
   int tmp___4 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
+  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  int __cil_tmp19 ;
   unsigned int __cil_tmp20 ;
   int __cil_tmp21 ;
   unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned char *__cil_tmp32 ;
-  unsigned char *__cil_tmp33 ;
-  unsigned char __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned char *__cil_tmp38 ;
+  unsigned int __cil_tmp23 ;
+  unsigned char *__cil_tmp24 ;
+  unsigned char *__cil_tmp25 ;
+  unsigned char __cil_tmp26 ;
+  int __cil_tmp27 ;
+  unsigned char *__cil_tmp28 ;
+  unsigned char *__cil_tmp29 ;
+  unsigned char __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  unsigned char *__cil_tmp35 ;
+  unsigned char *__cil_tmp36 ;
+  unsigned char __cil_tmp37 ;
+  int __cil_tmp38 ;
   unsigned char *__cil_tmp39 ;
-  unsigned char __cil_tmp40 ;
-  int __cil_tmp41 ;
+  unsigned char *__cil_tmp40 ;
+  unsigned char __cil_tmp41 ;
   int __cil_tmp42 ;
   int __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned char *__cil_tmp47 ;
-  unsigned char *__cil_tmp48 ;
-  unsigned char __cil_tmp49 ;
+  unsigned char *__cil_tmp44 ;
+  unsigned char *__cil_tmp45 ;
+  unsigned char __cil_tmp46 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  int __cil_tmp49 ;
   int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
+  char (*__cil_tmp51)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp52 ;
   unsigned char *__cil_tmp53 ;
   unsigned char *__cil_tmp54 ;
-  unsigned char __cil_tmp55 ;
-  int __cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned char *__cil_tmp60 ;
+  unsigned int __cil_tmp55 ;
+  char (*__cil_tmp56)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp57 ;
+  u8 __cil_tmp58 ;
+  signed char __cil_tmp59 ;
+  int __cil_tmp60 ;
   unsigned char *__cil_tmp61 ;
   unsigned char __cil_tmp62 ;
   int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  char (*__cil_tmp69)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned char *__cil_tmp75 ;
-  unsigned char *__cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  char (*__cil_tmp80)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  u8 __cil_tmp84 ;
-  signed char __cil_tmp85 ;
-  int __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned char *__cil_tmp89 ;
-  unsigned char __cil_tmp90 ;
+  u32 __cil_tmp64 ;
+  u32 __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  u32 __cil_tmp67 ;
+  int __cil_tmp68 ;
+  u32 __cil_tmp69 ;
+  u32 __cil_tmp70 ;
+  int __cil_tmp71 ;
+  u32 __cil_tmp72 ;
+  u32 __cil_tmp73 ;
+  int __cil_tmp74 ;
+  u32 __cil_tmp75 ;
+  u32 __cil_tmp76 ;
+  int __cil_tmp77 ;
+  u32 __cil_tmp78 ;
+  char (*__cil_tmp79)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp80 ;
+  u32 __cil_tmp81 ;
+  u32 __cil_tmp82 ;
+  int __cil_tmp83 ;
+  struct net_device *__cil_tmp84 ;
+  struct net_device *__cil_tmp85 ;
+  unsigned long __cil_tmp86 ;
+  struct list_head *__cil_tmp87 ;
+  struct channel *__cil_tmp88 ;
+  u32 __cil_tmp89 ;
+  u32 __cil_tmp90 ;
   int __cil_tmp91 ;
-  u32 __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  u32 __cil_tmp95 ;
-  unsigned int __cil_tmp96 ;
-  u32 __cil_tmp97 ;
-  int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  u32 __cil_tmp101 ;
-  u32 __cil_tmp102 ;
-  int __cil_tmp103 ;
-  u32 __cil_tmp104 ;
-  u32 __cil_tmp105 ;
-  int __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  u32 __cil_tmp109 ;
-  u32 __cil_tmp110 ;
-  int __cil_tmp111 ;
-  u32 __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
+  struct list_head *__cil_tmp92 ;
+  struct channel *__cil_tmp93 ;
+  struct list_head *__cil_tmp94 ;
+  unsigned long __cil_tmp95 ;
+  struct list_head *__cil_tmp96 ;
+  unsigned long __cil_tmp97 ;
+  u32 __cil_tmp98 ;
+  u32 __cil_tmp99 ;
+  int __cil_tmp100 ;
+  struct sk_buff_head *__cil_tmp101 ;
+  struct sk_buff_head  const  *__cil_tmp102 ;
+  struct sk_buff_head *__cil_tmp103 ;
+  char (*__cil_tmp104)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp105 ;
+  u32 __cil_tmp106 ;
+  u32 __cil_tmp107 ;
+  u32 __cil_tmp108 ;
+  int __cil_tmp109 ;
+  char (*__cil_tmp110)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp111 ;
+  struct net_device *__cil_tmp112 ;
+  struct net_device *__cil_tmp113 ;
   unsigned long __cil_tmp114 ;
-  char (*__cil_tmp115)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp116 ;
+  struct sk_buff *__cil_tmp115 ;
+  unsigned long __cil_tmp116 ;
   unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  u32 __cil_tmp121 ;
-  u32 __cil_tmp122 ;
-  int __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  struct net_device *__cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  struct net_device *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  struct list_head *__cil_tmp139 ;
-  struct channel *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  u32 __cil_tmp143 ;
-  u32 __cil_tmp144 ;
-  int __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  struct list_head *__cil_tmp150 ;
-  struct channel *__cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  struct list_head *__cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  struct list_head *__cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  u32 __cil_tmp162 ;
-  u32 __cil_tmp163 ;
-  int __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  struct sk_buff_head *__cil_tmp169 ;
-  struct sk_buff_head  const  *__cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  struct sk_buff_head *__cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  char (*__cil_tmp176)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp177 ;
-  u32 __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  u32 __cil_tmp181 ;
-  u32 __cil_tmp182 ;
-  int __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  char (*__cil_tmp188)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  struct net_device *__cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  struct net_device *__cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  struct sk_buff *__cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
 
   {
   {
 #line 1888
-  __cil_tmp17 = (unsigned long )ppp;
+  __cil_tmp17 = ppp->flags;
 #line 1888
-  __cil_tmp18 = __cil_tmp17 + 508;
+  __cil_tmp18 = __cil_tmp17 & 2048U;
 #line 1888
-  __cil_tmp19 = *((unsigned int *)__cil_tmp18);
-#line 1888
-  __cil_tmp20 = __cil_tmp19 & 2048U;
-#line 1888
-  if (__cil_tmp20 != 0U) {
+  if (__cil_tmp18 != 0U) {
 #line 1888
     tmp = 4;
   } else {
@@ -19531,25 +16516,23 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
 #line 1888
   mphdrlen = tmp;
 #line 1890
-  __cil_tmp21 = mphdrlen + 1;
+  __cil_tmp19 = mphdrlen + 1;
 #line 1890
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
 #line 1890
-  tmp___0 = pskb_may_pull(skb, __cil_tmp22);
+  tmp___0 = pskb_may_pull(skb, __cil_tmp20);
   }
 #line 1890
   if (tmp___0 == 0) {
+#line 1891
     goto err;
   } else {
     {
 #line 1890
-    __cil_tmp23 = (unsigned long )ppp;
+    __cil_tmp21 = ppp->mrru;
 #line 1890
-    __cil_tmp24 = __cil_tmp23 + 804;
-#line 1890
-    __cil_tmp25 = *((int *)__cil_tmp24);
-#line 1890
-    if (__cil_tmp25 == 0) {
+    if (__cil_tmp21 == 0) {
+#line 1891
       goto err;
     } else {
 
@@ -19558,162 +16541,114 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   }
   {
 #line 1894
-  __cil_tmp26 = (unsigned long )ppp;
+  __cil_tmp22 = ppp->flags;
 #line 1894
-  __cil_tmp27 = __cil_tmp26 + 508;
+  __cil_tmp23 = __cil_tmp22 & 2048U;
 #line 1894
-  __cil_tmp28 = *((unsigned int *)__cil_tmp27);
-#line 1894
-  __cil_tmp29 = __cil_tmp28 & 2048U;
-#line 1894
-  if (__cil_tmp29 != 0U) {
+  if (__cil_tmp23 != 0U) {
 #line 1895
-    __cil_tmp30 = (unsigned long )skb;
+    __cil_tmp24 = skb->data;
 #line 1895
-    __cil_tmp31 = __cil_tmp30 + 224;
+    __cil_tmp25 = __cil_tmp24 + 3UL;
 #line 1895
-    __cil_tmp32 = *((unsigned char **)__cil_tmp31);
+    __cil_tmp26 = *__cil_tmp25;
 #line 1895
-    __cil_tmp33 = __cil_tmp32 + 3UL;
+    __cil_tmp27 = (int )__cil_tmp26;
 #line 1895
-    __cil_tmp34 = *__cil_tmp33;
+    __cil_tmp28 = skb->data;
 #line 1895
-    __cil_tmp35 = (int )__cil_tmp34;
+    __cil_tmp29 = __cil_tmp28 + 2UL;
 #line 1895
-    __cil_tmp36 = (unsigned long )skb;
+    __cil_tmp30 = *__cil_tmp29;
 #line 1895
-    __cil_tmp37 = __cil_tmp36 + 224;
+    __cil_tmp31 = (int )__cil_tmp30;
 #line 1895
-    __cil_tmp38 = *((unsigned char **)__cil_tmp37);
+    __cil_tmp32 = __cil_tmp31 & 15;
 #line 1895
-    __cil_tmp39 = __cil_tmp38 + 2UL;
+    __cil_tmp33 = __cil_tmp32 << 8;
 #line 1895
-    __cil_tmp40 = *__cil_tmp39;
+    __cil_tmp34 = __cil_tmp33 | __cil_tmp27;
 #line 1895
-    __cil_tmp41 = (int )__cil_tmp40;
-#line 1895
-    __cil_tmp42 = __cil_tmp41 & 15;
-#line 1895
-    __cil_tmp43 = __cil_tmp42 << 8;
-#line 1895
-    __cil_tmp44 = __cil_tmp43 | __cil_tmp35;
-#line 1895
-    seq = (unsigned int )__cil_tmp44;
+    seq = (u32 )__cil_tmp34;
 #line 1896
     mask = 4095U;
   } else {
 #line 1898
-    __cil_tmp45 = (unsigned long )skb;
+    __cil_tmp35 = skb->data;
 #line 1898
-    __cil_tmp46 = __cil_tmp45 + 224;
+    __cil_tmp36 = __cil_tmp35 + 5UL;
 #line 1898
-    __cil_tmp47 = *((unsigned char **)__cil_tmp46);
+    __cil_tmp37 = *__cil_tmp36;
 #line 1898
-    __cil_tmp48 = __cil_tmp47 + 5UL;
+    __cil_tmp38 = (int )__cil_tmp37;
 #line 1898
-    __cil_tmp49 = *__cil_tmp48;
+    __cil_tmp39 = skb->data;
 #line 1898
-    __cil_tmp50 = (int )__cil_tmp49;
+    __cil_tmp40 = __cil_tmp39 + 4UL;
 #line 1898
-    __cil_tmp51 = (unsigned long )skb;
+    __cil_tmp41 = *__cil_tmp40;
 #line 1898
-    __cil_tmp52 = __cil_tmp51 + 224;
+    __cil_tmp42 = (int )__cil_tmp41;
 #line 1898
-    __cil_tmp53 = *((unsigned char **)__cil_tmp52);
+    __cil_tmp43 = __cil_tmp42 << 8;
 #line 1898
-    __cil_tmp54 = __cil_tmp53 + 4UL;
+    __cil_tmp44 = skb->data;
 #line 1898
-    __cil_tmp55 = *__cil_tmp54;
+    __cil_tmp45 = __cil_tmp44 + 3UL;
 #line 1898
-    __cil_tmp56 = (int )__cil_tmp55;
+    __cil_tmp46 = *__cil_tmp45;
 #line 1898
-    __cil_tmp57 = __cil_tmp56 << 8;
+    __cil_tmp47 = (int )__cil_tmp46;
 #line 1898
-    __cil_tmp58 = (unsigned long )skb;
+    __cil_tmp48 = __cil_tmp47 << 16;
 #line 1898
-    __cil_tmp59 = __cil_tmp58 + 224;
+    __cil_tmp49 = __cil_tmp48 | __cil_tmp43;
 #line 1898
-    __cil_tmp60 = *((unsigned char **)__cil_tmp59);
+    __cil_tmp50 = __cil_tmp49 | __cil_tmp38;
 #line 1898
-    __cil_tmp61 = __cil_tmp60 + 3UL;
-#line 1898
-    __cil_tmp62 = *__cil_tmp61;
-#line 1898
-    __cil_tmp63 = (int )__cil_tmp62;
-#line 1898
-    __cil_tmp64 = __cil_tmp63 << 16;
-#line 1898
-    __cil_tmp65 = __cil_tmp64 | __cil_tmp57;
-#line 1898
-    __cil_tmp66 = __cil_tmp65 | __cil_tmp50;
-#line 1898
-    seq = (unsigned int )__cil_tmp66;
+    seq = (u32 )__cil_tmp50;
 #line 1899
     mask = 16777215U;
   }
   }
   {
 #line 1901
-  __cil_tmp67 = (unsigned long )skb;
+  __cil_tmp51 = & skb->cb;
 #line 1901
-  __cil_tmp68 = __cil_tmp67 + 40;
+  __cil_tmp52 = (struct ppp_mp_skb_parm *)__cil_tmp51;
 #line 1901
-  __cil_tmp69 = (char (*)[48U])__cil_tmp68;
+  __cil_tmp53 = skb->data;
 #line 1901
-  __cil_tmp70 = (struct ppp_mp_skb_parm *)__cil_tmp69;
+  __cil_tmp54 = __cil_tmp53 + 2UL;
 #line 1901
-  __cil_tmp71 = (unsigned long )__cil_tmp70;
-#line 1901
-  __cil_tmp72 = __cil_tmp71 + 4;
-#line 1901
-  __cil_tmp73 = (unsigned long )skb;
-#line 1901
-  __cil_tmp74 = __cil_tmp73 + 224;
-#line 1901
-  __cil_tmp75 = *((unsigned char **)__cil_tmp74);
-#line 1901
-  __cil_tmp76 = __cil_tmp75 + 2UL;
-#line 1901
-  *((u8 *)__cil_tmp72) = *__cil_tmp76;
+  __cil_tmp52->BEbits = *__cil_tmp54;
 #line 1902
-  __cil_tmp77 = (unsigned int )mphdrlen;
+  __cil_tmp55 = (unsigned int )mphdrlen;
 #line 1902
-  skb_pull(skb, __cil_tmp77);
+  skb_pull(skb, __cil_tmp55);
   }
   {
 #line 1907
-  __cil_tmp78 = (unsigned long )skb;
+  __cil_tmp56 = & skb->cb;
 #line 1907
-  __cil_tmp79 = __cil_tmp78 + 40;
+  __cil_tmp57 = (struct ppp_mp_skb_parm *)__cil_tmp56;
 #line 1907
-  __cil_tmp80 = (char (*)[48U])__cil_tmp79;
+  __cil_tmp58 = __cil_tmp57->BEbits;
 #line 1907
-  __cil_tmp81 = (struct ppp_mp_skb_parm *)__cil_tmp80;
+  __cil_tmp59 = (signed char )__cil_tmp58;
 #line 1907
-  __cil_tmp82 = (unsigned long )__cil_tmp81;
+  __cil_tmp60 = (int )__cil_tmp59;
 #line 1907
-  __cil_tmp83 = __cil_tmp82 + 4;
-#line 1907
-  __cil_tmp84 = *((u8 *)__cil_tmp83);
-#line 1907
-  __cil_tmp85 = (signed char )__cil_tmp84;
-#line 1907
-  __cil_tmp86 = (int )__cil_tmp85;
-#line 1907
-  if (__cil_tmp86 < 0) {
+  if (__cil_tmp60 < 0) {
     {
 #line 1907
-    __cil_tmp87 = (unsigned long )skb;
+    __cil_tmp61 = skb->data;
 #line 1907
-    __cil_tmp88 = __cil_tmp87 + 224;
+    __cil_tmp62 = *__cil_tmp61;
 #line 1907
-    __cil_tmp89 = *((unsigned char **)__cil_tmp88);
+    __cil_tmp63 = (int )__cil_tmp62;
 #line 1907
-    __cil_tmp90 = *__cil_tmp89;
-#line 1907
-    __cil_tmp91 = (int )__cil_tmp90;
-#line 1907
-    if (__cil_tmp91 & 1) {
+    if (__cil_tmp63 & 1) {
       {
 #line 1908
       tmp___1 = skb_push(skb, 1U);
@@ -19729,60 +16664,48 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   }
   }
 #line 1914
-  __cil_tmp92 = ~ mask;
+  __cil_tmp64 = ~ mask;
 #line 1914
-  __cil_tmp93 = (unsigned long )ppp;
+  __cil_tmp65 = ppp->minseq;
 #line 1914
-  __cil_tmp94 = __cil_tmp93 + 812;
+  __cil_tmp66 = __cil_tmp65 & __cil_tmp64;
 #line 1914
-  __cil_tmp95 = *((u32 *)__cil_tmp94);
-#line 1914
-  __cil_tmp96 = __cil_tmp95 & __cil_tmp92;
-#line 1914
-  seq = __cil_tmp96 | seq;
+  seq = __cil_tmp66 | seq;
   {
 #line 1915
-  __cil_tmp97 = mask >> 1;
+  __cil_tmp67 = mask >> 1;
 #line 1915
-  __cil_tmp98 = (int )__cil_tmp97;
+  __cil_tmp68 = (int )__cil_tmp67;
 #line 1915
-  __cil_tmp99 = (unsigned long )ppp;
+  __cil_tmp69 = ppp->minseq;
 #line 1915
-  __cil_tmp100 = __cil_tmp99 + 812;
+  __cil_tmp70 = __cil_tmp69 - seq;
 #line 1915
-  __cil_tmp101 = *((u32 *)__cil_tmp100);
+  __cil_tmp71 = (int )__cil_tmp70;
 #line 1915
-  __cil_tmp102 = __cil_tmp101 - seq;
-#line 1915
-  __cil_tmp103 = (int )__cil_tmp102;
-#line 1915
-  if (__cil_tmp103 > __cil_tmp98) {
+  if (__cil_tmp71 > __cil_tmp68) {
 #line 1916
-    __cil_tmp104 = mask + seq;
+    __cil_tmp72 = mask + seq;
 #line 1916
-    seq = __cil_tmp104 + 1U;
+    seq = __cil_tmp72 + 1U;
   } else {
     {
 #line 1917
-    __cil_tmp105 = mask >> 1;
+    __cil_tmp73 = mask >> 1;
 #line 1917
-    __cil_tmp106 = (int )__cil_tmp105;
+    __cil_tmp74 = (int )__cil_tmp73;
 #line 1917
-    __cil_tmp107 = (unsigned long )ppp;
+    __cil_tmp75 = ppp->minseq;
 #line 1917
-    __cil_tmp108 = __cil_tmp107 + 812;
+    __cil_tmp76 = seq - __cil_tmp75;
 #line 1917
-    __cil_tmp109 = *((u32 *)__cil_tmp108);
+    __cil_tmp77 = (int )__cil_tmp76;
 #line 1917
-    __cil_tmp110 = seq - __cil_tmp109;
-#line 1917
-    __cil_tmp111 = (int )__cil_tmp110;
-#line 1917
-    if (__cil_tmp111 > __cil_tmp106) {
+    if (__cil_tmp77 > __cil_tmp74) {
 #line 1918
-      __cil_tmp112 = seq - mask;
+      __cil_tmp78 = seq - mask;
 #line 1918
-      seq = __cil_tmp112 - 1U;
+      seq = __cil_tmp78 - 1U;
     } else {
 
     }
@@ -19790,65 +16713,33 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   }
   }
 #line 1919
-  __cil_tmp113 = (unsigned long )skb;
+  __cil_tmp79 = & skb->cb;
 #line 1919
-  __cil_tmp114 = __cil_tmp113 + 40;
+  __cil_tmp80 = (struct ppp_mp_skb_parm *)__cil_tmp79;
 #line 1919
-  __cil_tmp115 = (char (*)[48U])__cil_tmp114;
-#line 1919
-  __cil_tmp116 = (struct ppp_mp_skb_parm *)__cil_tmp115;
-#line 1919
-  *((u32 *)__cil_tmp116) = seq;
+  __cil_tmp80->sequence = seq;
 #line 1920
-  __cil_tmp117 = (unsigned long )pch;
-#line 1920
-  __cil_tmp118 = __cil_tmp117 + 676;
-#line 1920
-  *((u32 *)__cil_tmp118) = seq;
+  pch->lastseq = seq;
   {
 #line 1926
-  __cil_tmp119 = (unsigned long )ppp;
+  __cil_tmp81 = ppp->nextseq;
 #line 1926
-  __cil_tmp120 = __cil_tmp119 + 808;
+  __cil_tmp82 = seq - __cil_tmp81;
 #line 1926
-  __cil_tmp121 = *((u32 *)__cil_tmp120);
+  __cil_tmp83 = (int )__cil_tmp82;
 #line 1926
-  __cil_tmp122 = seq - __cil_tmp121;
-#line 1926
-  __cil_tmp123 = (int )__cil_tmp122;
-#line 1926
-  if (__cil_tmp123 < 0) {
+  if (__cil_tmp83 < 0) {
     {
 #line 1927
     kfree_skb(skb);
 #line 1928
-    __cil_tmp124 = 200 + 48;
+    __cil_tmp84 = ppp->dev;
 #line 1928
-    __cil_tmp125 = (unsigned long )ppp;
+    __cil_tmp85 = ppp->dev;
 #line 1928
-    __cil_tmp126 = __cil_tmp125 + 784;
+    __cil_tmp86 = __cil_tmp85->stats.rx_dropped;
 #line 1928
-    __cil_tmp127 = *((struct net_device **)__cil_tmp126);
-#line 1928
-    __cil_tmp128 = (unsigned long )__cil_tmp127;
-#line 1928
-    __cil_tmp129 = __cil_tmp128 + __cil_tmp124;
-#line 1928
-    __cil_tmp130 = 200 + 48;
-#line 1928
-    __cil_tmp131 = (unsigned long )ppp;
-#line 1928
-    __cil_tmp132 = __cil_tmp131 + 784;
-#line 1928
-    __cil_tmp133 = *((struct net_device **)__cil_tmp132);
-#line 1928
-    __cil_tmp134 = (unsigned long )__cil_tmp133;
-#line 1928
-    __cil_tmp135 = __cil_tmp134 + __cil_tmp130;
-#line 1928
-    __cil_tmp136 = *((unsigned long *)__cil_tmp135);
-#line 1928
-    *((unsigned long *)__cil_tmp129) = __cil_tmp136 + 1UL;
+    __cil_tmp84->stats.rx_dropped = __cil_tmp86 + 1UL;
 #line 1929
     ppp_receive_error(ppp);
     }
@@ -19859,99 +16750,70 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   }
   }
 #line 1941
-  __cil_tmp137 = (unsigned long )ppp;
+  __cil_tmp87 = ppp->channels.next;
 #line 1941
-  __cil_tmp138 = __cil_tmp137 + 336;
+  __mptr = (struct list_head  const  *)__cil_tmp87;
 #line 1941
-  __cil_tmp139 = *((struct list_head **)__cil_tmp138);
+  __cil_tmp88 = (struct channel *)__mptr;
 #line 1941
-  __mptr = (struct list_head  const  *)__cil_tmp139;
+  ch = __cil_tmp88 + 1152921504606846416UL;
 #line 1941
-  __cil_tmp140 = (struct channel *)__mptr;
-#line 1941
-  ch = __cil_tmp140 + 1152921504606846416UL;
   goto ldv_40215;
   ldv_40214: ;
   {
 #line 1942
-  __cil_tmp141 = (unsigned long )ch;
+  __cil_tmp89 = ch->lastseq;
 #line 1942
-  __cil_tmp142 = __cil_tmp141 + 676;
+  __cil_tmp90 = __cil_tmp89 - seq;
 #line 1942
-  __cil_tmp143 = *((u32 *)__cil_tmp142);
+  __cil_tmp91 = (int )__cil_tmp90;
 #line 1942
-  __cil_tmp144 = __cil_tmp143 - seq;
-#line 1942
-  __cil_tmp145 = (int )__cil_tmp144;
-#line 1942
-  if (__cil_tmp145 < 0) {
+  if (__cil_tmp91 < 0) {
 #line 1943
-    __cil_tmp146 = (unsigned long )ch;
-#line 1943
-    __cil_tmp147 = __cil_tmp146 + 676;
-#line 1943
-    seq = *((u32 *)__cil_tmp147);
+    seq = ch->lastseq;
   } else {
 
   }
   }
 #line 1941
-  __cil_tmp148 = (unsigned long )ch;
+  __cil_tmp92 = ch->clist.next;
 #line 1941
-  __cil_tmp149 = __cil_tmp148 + 584;
+  __mptr___0 = (struct list_head  const  *)__cil_tmp92;
 #line 1941
-  __cil_tmp150 = *((struct list_head **)__cil_tmp149);
+  __cil_tmp93 = (struct channel *)__mptr___0;
 #line 1941
-  __mptr___0 = (struct list_head  const  *)__cil_tmp150;
-#line 1941
-  __cil_tmp151 = (struct channel *)__mptr___0;
-#line 1941
-  ch = __cil_tmp151 + 1152921504606846416UL;
+  ch = __cil_tmp93 + 1152921504606846416UL;
   ldv_40215: ;
   {
 #line 1941
-  __cil_tmp152 = (unsigned long )ppp;
+  __cil_tmp94 = & ppp->channels;
 #line 1941
-  __cil_tmp153 = __cil_tmp152 + 336;
+  __cil_tmp95 = (unsigned long )__cil_tmp94;
 #line 1941
-  __cil_tmp154 = (struct list_head *)__cil_tmp153;
+  __cil_tmp96 = & ch->clist;
 #line 1941
-  __cil_tmp155 = (unsigned long )__cil_tmp154;
+  __cil_tmp97 = (unsigned long )__cil_tmp96;
 #line 1941
-  __cil_tmp156 = (unsigned long )ch;
-#line 1941
-  __cil_tmp157 = __cil_tmp156 + 584;
-#line 1941
-  __cil_tmp158 = (struct list_head *)__cil_tmp157;
-#line 1941
-  __cil_tmp159 = (unsigned long )__cil_tmp158;
-#line 1941
-  if (__cil_tmp159 != __cil_tmp155) {
+  if (__cil_tmp97 != __cil_tmp95) {
+#line 1942
     goto ldv_40214;
   } else {
+#line 1944
     goto ldv_40216;
   }
   }
   ldv_40216: ;
   {
 #line 1945
-  __cil_tmp160 = (unsigned long )ppp;
+  __cil_tmp98 = ppp->minseq;
 #line 1945
-  __cil_tmp161 = __cil_tmp160 + 812;
+  __cil_tmp99 = __cil_tmp98 - seq;
 #line 1945
-  __cil_tmp162 = *((u32 *)__cil_tmp161);
+  __cil_tmp100 = (int )__cil_tmp99;
 #line 1945
-  __cil_tmp163 = __cil_tmp162 - seq;
-#line 1945
-  __cil_tmp164 = (int )__cil_tmp163;
-#line 1945
-  if (__cil_tmp164 < 0) {
+  if (__cil_tmp100 < 0) {
 #line 1946
-    __cil_tmp165 = (unsigned long )ppp;
-#line 1946
-    __cil_tmp166 = __cil_tmp165 + 812;
-#line 1946
-    *((u32 *)__cil_tmp166) = seq;
+    ppp->minseq = seq;
   } else {
 
   }
@@ -19960,67 +16822,43 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
 #line 1949
   ppp_mp_insert(ppp, skb);
 #line 1953
-  __cil_tmp167 = (unsigned long )ppp;
+  __cil_tmp101 = & ppp->mrq;
 #line 1953
-  __cil_tmp168 = __cil_tmp167 + 816;
+  __cil_tmp102 = (struct sk_buff_head  const  *)__cil_tmp101;
 #line 1953
-  __cil_tmp169 = (struct sk_buff_head *)__cil_tmp168;
-#line 1953
-  __cil_tmp170 = (struct sk_buff_head  const  *)__cil_tmp169;
-#line 1953
-  tmp___3 = skb_queue_len(__cil_tmp170);
+  tmp___3 = skb_queue_len(__cil_tmp102);
   }
 #line 1953
   if (tmp___3 > 127U) {
     {
 #line 1954
-    __cil_tmp171 = (unsigned long )ppp;
+    __cil_tmp103 = & ppp->mrq;
 #line 1954
-    __cil_tmp172 = __cil_tmp171 + 816;
-#line 1954
-    __cil_tmp173 = (struct sk_buff_head *)__cil_tmp172;
-#line 1954
-    tmp___2 = skb_peek(__cil_tmp173);
+    tmp___2 = skb_peek(__cil_tmp103);
 #line 1954
     mskb = tmp___2;
     }
     {
 #line 1955
-    __cil_tmp174 = (unsigned long )mskb;
+    __cil_tmp104 = & mskb->cb;
 #line 1955
-    __cil_tmp175 = __cil_tmp174 + 40;
+    __cil_tmp105 = (struct ppp_mp_skb_parm *)__cil_tmp104;
 #line 1955
-    __cil_tmp176 = (char (*)[48U])__cil_tmp175;
+    __cil_tmp106 = __cil_tmp105->sequence;
 #line 1955
-    __cil_tmp177 = (struct ppp_mp_skb_parm *)__cil_tmp176;
+    __cil_tmp107 = ppp->minseq;
 #line 1955
-    __cil_tmp178 = *((u32 *)__cil_tmp177);
+    __cil_tmp108 = __cil_tmp107 - __cil_tmp106;
 #line 1955
-    __cil_tmp179 = (unsigned long )ppp;
+    __cil_tmp109 = (int )__cil_tmp108;
 #line 1955
-    __cil_tmp180 = __cil_tmp179 + 812;
-#line 1955
-    __cil_tmp181 = *((u32 *)__cil_tmp180);
-#line 1955
-    __cil_tmp182 = __cil_tmp181 - __cil_tmp178;
-#line 1955
-    __cil_tmp183 = (int )__cil_tmp182;
-#line 1955
-    if (__cil_tmp183 < 0) {
+    if (__cil_tmp109 < 0) {
 #line 1956
-      __cil_tmp184 = (unsigned long )ppp;
+      __cil_tmp110 = & mskb->cb;
 #line 1956
-      __cil_tmp185 = __cil_tmp184 + 812;
+      __cil_tmp111 = (struct ppp_mp_skb_parm *)__cil_tmp110;
 #line 1956
-      __cil_tmp186 = (unsigned long )mskb;
-#line 1956
-      __cil_tmp187 = __cil_tmp186 + 40;
-#line 1956
-      __cil_tmp188 = (char (*)[48U])__cil_tmp187;
-#line 1956
-      __cil_tmp189 = (struct ppp_mp_skb_parm *)__cil_tmp188;
-#line 1956
-      *((u32 *)__cil_tmp185) = *((u32 *)__cil_tmp189);
+      ppp->minseq = __cil_tmp111->sequence;
     } else {
 
     }
@@ -20028,6 +16866,7 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   } else {
 
   }
+#line 1960
   goto ldv_40219;
   ldv_40218: 
   {
@@ -20043,33 +16882,13 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   } else {
     {
 #line 1964
-    __cil_tmp190 = 200 + 80;
+    __cil_tmp112 = ppp->dev;
 #line 1964
-    __cil_tmp191 = (unsigned long )ppp;
+    __cil_tmp113 = ppp->dev;
 #line 1964
-    __cil_tmp192 = __cil_tmp191 + 784;
+    __cil_tmp114 = __cil_tmp113->stats.rx_length_errors;
 #line 1964
-    __cil_tmp193 = *((struct net_device **)__cil_tmp192);
-#line 1964
-    __cil_tmp194 = (unsigned long )__cil_tmp193;
-#line 1964
-    __cil_tmp195 = __cil_tmp194 + __cil_tmp190;
-#line 1964
-    __cil_tmp196 = 200 + 80;
-#line 1964
-    __cil_tmp197 = (unsigned long )ppp;
-#line 1964
-    __cil_tmp198 = __cil_tmp197 + 784;
-#line 1964
-    __cil_tmp199 = *((struct net_device **)__cil_tmp198);
-#line 1964
-    __cil_tmp200 = (unsigned long )__cil_tmp199;
-#line 1964
-    __cil_tmp201 = __cil_tmp200 + __cil_tmp196;
-#line 1964
-    __cil_tmp202 = *((unsigned long *)__cil_tmp201);
-#line 1964
-    *((unsigned long *)__cil_tmp195) = __cil_tmp202 + 1UL;
+    __cil_tmp112->stats.rx_length_errors = __cil_tmp114 + 1UL;
 #line 1965
     kfree_skb(skb);
 #line 1966
@@ -20083,15 +16902,17 @@ static void ppp_receive_mp_frame(struct ppp *ppp , struct sk_buff *skb , struct 
   }
   {
 #line 1960
-  __cil_tmp203 = (struct sk_buff *)0;
+  __cil_tmp115 = (struct sk_buff *)0;
 #line 1960
-  __cil_tmp204 = (unsigned long )__cil_tmp203;
+  __cil_tmp116 = (unsigned long )__cil_tmp115;
 #line 1960
-  __cil_tmp205 = (unsigned long )skb;
+  __cil_tmp117 = (unsigned long )skb;
 #line 1960
-  if (__cil_tmp205 != __cil_tmp204) {
+  if (__cil_tmp117 != __cil_tmp116) {
+#line 1961
     goto ldv_40218;
   } else {
+#line 1963
     goto ldv_40220;
   }
   }
@@ -20114,80 +16935,66 @@ static void ppp_mp_insert(struct ppp *ppp , struct sk_buff *skb )
 { struct sk_buff *p ;
   struct sk_buff_head *list ;
   u32 seq ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  char (*__cil_tmp10)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  char (*__cil_tmp14)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp15 ;
-  u32 __cil_tmp16 ;
-  u32 __cil_tmp17 ;
-  int __cil_tmp18 ;
-  struct sk_buff *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  char (*__cil_tmp6)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp7 ;
+  char (*__cil_tmp8)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp9 ;
+  u32 __cil_tmp10 ;
+  u32 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  struct sk_buff *__cil_tmp13 ;
+  unsigned long __cil_tmp14 ;
+  unsigned long __cil_tmp15 ;
 
   {
 #line 1985
-  __cil_tmp6 = (unsigned long )ppp;
-#line 1985
-  __cil_tmp7 = __cil_tmp6 + 816;
-#line 1985
-  list = (struct sk_buff_head *)__cil_tmp7;
+  list = & ppp->mrq;
 #line 1986
-  __cil_tmp8 = (unsigned long )skb;
+  __cil_tmp6 = & skb->cb;
 #line 1986
-  __cil_tmp9 = __cil_tmp8 + 40;
+  __cil_tmp7 = (struct ppp_mp_skb_parm *)__cil_tmp6;
 #line 1986
-  __cil_tmp10 = (char (*)[48U])__cil_tmp9;
-#line 1986
-  __cil_tmp11 = (struct ppp_mp_skb_parm *)__cil_tmp10;
-#line 1986
-  seq = *((u32 *)__cil_tmp11);
+  seq = __cil_tmp7->sequence;
 #line 1990
-  p = *((struct sk_buff **)list);
+  p = list->next;
+#line 1990
   goto ldv_40230;
   ldv_40229: ;
   {
 #line 1991
-  __cil_tmp12 = (unsigned long )p;
+  __cil_tmp8 = & p->cb;
 #line 1991
-  __cil_tmp13 = __cil_tmp12 + 40;
+  __cil_tmp9 = (struct ppp_mp_skb_parm *)__cil_tmp8;
 #line 1991
-  __cil_tmp14 = (char (*)[48U])__cil_tmp13;
+  __cil_tmp10 = __cil_tmp9->sequence;
 #line 1991
-  __cil_tmp15 = (struct ppp_mp_skb_parm *)__cil_tmp14;
+  __cil_tmp11 = seq - __cil_tmp10;
 #line 1991
-  __cil_tmp16 = *((u32 *)__cil_tmp15);
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 1991
-  __cil_tmp17 = seq - __cil_tmp16;
-#line 1991
-  __cil_tmp18 = (int )__cil_tmp17;
-#line 1991
-  if (__cil_tmp18 < 0) {
+  if (__cil_tmp12 < 0) {
+#line 1992
     goto ldv_40228;
   } else {
 
   }
   }
 #line 1990
-  p = *((struct sk_buff **)p);
+  p = p->next;
   ldv_40230: ;
   {
 #line 1990
-  __cil_tmp19 = (struct sk_buff *)list;
+  __cil_tmp13 = (struct sk_buff *)list;
 #line 1990
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 1990
-  __cil_tmp21 = (unsigned long )p;
+  __cil_tmp15 = (unsigned long )p;
 #line 1990
-  if (__cil_tmp21 != __cil_tmp20) {
+  if (__cil_tmp15 != __cil_tmp14) {
+#line 1991
     goto ldv_40229;
   } else {
+#line 1993
     goto ldv_40228;
   }
   }
@@ -20215,230 +17022,114 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
   struct sk_buff *tmp2 ;
   struct sk_buff **fragpp ;
   unsigned char *tmp___0 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
+  int __cil_tmp15 ;
+  char (*__cil_tmp16)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp17 ;
+  u32 __cil_tmp18 ;
+  u32 __cil_tmp19 ;
+  int __cil_tmp20 ;
+  struct net_device *__cil_tmp21 ;
+  struct net_device  const  *__cil_tmp22 ;
+  char (*__cil_tmp23)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp24 ;
+  u32 __cil_tmp25 ;
   char (*__cil_tmp26)[48U] ;
   struct ppp_mp_skb_parm *__cil_tmp27 ;
   u32 __cil_tmp28 ;
   u32 __cil_tmp29 ;
   int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct net_device *__cil_tmp33 ;
-  struct net_device  const  *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  char (*__cil_tmp37)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp38 ;
-  u32 __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  char (*__cil_tmp42)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp43 ;
-  u32 __cil_tmp44 ;
-  u32 __cil_tmp45 ;
-  int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  char (*__cil_tmp49)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp50 ;
-  u32 __cil_tmp51 ;
-  u32 __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  char (*__cil_tmp56)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  char (*__cil_tmp60)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  u8 __cil_tmp64 ;
-  signed char __cil_tmp65 ;
+  char (*__cil_tmp31)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp32 ;
+  u32 __cil_tmp33 ;
+  u32 __cil_tmp34 ;
+  int __cil_tmp35 ;
+  char (*__cil_tmp36)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp37 ;
+  char (*__cil_tmp38)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp39 ;
+  u8 __cil_tmp40 ;
+  signed char __cil_tmp41 ;
+  int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  char (*__cil_tmp46)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp47 ;
+  u8 __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  char (*__cil_tmp51)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp52 ;
+  u8 __cil_tmp53 ;
+  signed char __cil_tmp54 ;
+  int __cil_tmp55 ;
+  int __cil_tmp56 ;
+  int __cil_tmp57 ;
+  struct net_device *__cil_tmp58 ;
+  struct net_device *__cil_tmp59 ;
+  unsigned long __cil_tmp60 ;
+  struct net_device *__cil_tmp61 ;
+  struct net_device  const  *__cil_tmp62 ;
+  char (*__cil_tmp63)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp64 ;
+  u8 __cil_tmp65 ;
   int __cil_tmp66 ;
-  unsigned int __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
+  int __cil_tmp67 ;
+  struct sk_buff *__cil_tmp68 ;
   unsigned long __cil_tmp69 ;
-  unsigned int __cil_tmp70 ;
-  unsigned int __cil_tmp71 ;
+  unsigned long __cil_tmp70 ;
+  struct sk_buff *__cil_tmp71 ;
   unsigned long __cil_tmp72 ;
   unsigned long __cil_tmp73 ;
-  char (*__cil_tmp74)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp75 ;
+  struct sk_buff *__cil_tmp74 ;
+  unsigned long __cil_tmp75 ;
   unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  u8 __cil_tmp78 ;
-  int __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  char (*__cil_tmp83)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  u8 __cil_tmp87 ;
-  signed char __cil_tmp88 ;
-  int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  int __cil_tmp92 ;
-  int __cil_tmp93 ;
+  struct sk_buff *__cil_tmp77 ;
+  unsigned long __cil_tmp78 ;
+  unsigned long __cil_tmp79 ;
+  u32 __cil_tmp80 ;
+  char (*__cil_tmp81)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp82 ;
+  u32 __cil_tmp83 ;
+  int __cil_tmp84 ;
+  struct net_device *__cil_tmp85 ;
+  struct net_device  const  *__cil_tmp86 ;
+  u32 __cil_tmp87 ;
+  char (*__cil_tmp88)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp89 ;
+  u32 __cil_tmp90 ;
+  u32 __cil_tmp91 ;
+  struct net_device *__cil_tmp92 ;
+  struct net_device *__cil_tmp93 ;
   unsigned long __cil_tmp94 ;
   unsigned long __cil_tmp95 ;
   unsigned long __cil_tmp96 ;
-  struct net_device *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  struct net_device *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
+  struct sk_buff  const  *__cil_tmp97 ;
+  struct skb_shared_info *__cil_tmp98 ;
+  struct sk_buff_head  const  *__cil_tmp99 ;
+  struct sk_buff  const  *__cil_tmp100 ;
+  unsigned int __cil_tmp101 ;
+  unsigned int __cil_tmp102 ;
+  unsigned int __cil_tmp103 ;
+  unsigned int __cil_tmp104 ;
+  unsigned int __cil_tmp105 ;
+  unsigned int __cil_tmp106 ;
   unsigned long __cil_tmp107 ;
   unsigned long __cil_tmp108 ;
-  struct net_device *__cil_tmp109 ;
-  struct net_device  const  *__cil_tmp110 ;
+  struct sk_buff *__cil_tmp109 ;
+  unsigned long __cil_tmp110 ;
   unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  char (*__cil_tmp115)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  u8 __cil_tmp119 ;
-  int __cil_tmp120 ;
-  int __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  struct sk_buff *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  struct sk_buff *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  struct sk_buff *__cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  struct sk_buff *__cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  u32 __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  char (*__cil_tmp143)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp144 ;
-  u32 __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  int __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  struct net_device *__cil_tmp151 ;
-  struct net_device  const  *__cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  u32 __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  char (*__cil_tmp158)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp159 ;
-  u32 __cil_tmp160 ;
-  u32 __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  struct net_device *__cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  struct net_device *__cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  struct sk_buff  const  *__cil_tmp177 ;
-  struct skb_shared_info *__cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  struct sk_buff_head  const  *__cil_tmp181 ;
-  struct sk_buff  const  *__cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned int __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned int __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned int __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned int __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned int __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned int __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  struct sk_buff *__cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  char (*__cil_tmp216)[48U] ;
-  struct ppp_mp_skb_parm *__cil_tmp217 ;
-  u32 __cil_tmp218 ;
+  char (*__cil_tmp112)[48U] ;
+  struct ppp_mp_skb_parm *__cil_tmp113 ;
+  u32 __cil_tmp114 ;
 
   {
 #line 2006
-  __cil_tmp15 = (unsigned long )ppp;
-#line 2006
-  __cil_tmp16 = __cil_tmp15 + 808;
-#line 2006
-  seq = *((u32 *)__cil_tmp16);
+  seq = ppp->nextseq;
 #line 2007
-  __cil_tmp17 = (unsigned long )ppp;
-#line 2007
-  __cil_tmp18 = __cil_tmp17 + 812;
-#line 2007
-  minseq = *((u32 *)__cil_tmp18);
+  minseq = ppp->minseq;
 #line 2008
-  __cil_tmp19 = (unsigned long )ppp;
-#line 2008
-  __cil_tmp20 = __cil_tmp19 + 816;
-#line 2008
-  list = (struct sk_buff_head *)__cil_tmp20;
+  list = & ppp->mrq;
 #line 2011
   skb = (struct sk_buff *)0;
 #line 2012
@@ -20447,13 +17138,9 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
   len = 0;
   {
 #line 2014
-  __cil_tmp21 = (unsigned long )ppp;
+  __cil_tmp15 = ppp->mrru;
 #line 2014
-  __cil_tmp22 = __cil_tmp21 + 804;
-#line 2014
-  __cil_tmp23 = *((int *)__cil_tmp22);
-#line 2014
-  if (__cil_tmp23 == 0) {
+  if (__cil_tmp15 == 0) {
 #line 2015
     return ((struct sk_buff *)0);
   } else {
@@ -20461,59 +17148,49 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
   }
   }
 #line 2016
-  head = *((struct sk_buff **)list);
+  head = list->next;
 #line 2017
   tail = (struct sk_buff *)0;
 #line 2018
-  p = *((struct sk_buff **)list);
+  p = list->next;
 #line 2018
-  tmp = *((struct sk_buff **)p);
+  tmp = p->next;
+#line 2018
   goto ldv_40252;
   ldv_40251: ;
   again: ;
   {
 #line 2020
-  __cil_tmp24 = (unsigned long )p;
+  __cil_tmp16 = & p->cb;
 #line 2020
-  __cil_tmp25 = __cil_tmp24 + 40;
+  __cil_tmp17 = (struct ppp_mp_skb_parm *)__cil_tmp16;
 #line 2020
-  __cil_tmp26 = (char (*)[48U])__cil_tmp25;
+  __cil_tmp18 = __cil_tmp17->sequence;
 #line 2020
-  __cil_tmp27 = (struct ppp_mp_skb_parm *)__cil_tmp26;
+  __cil_tmp19 = __cil_tmp18 - seq;
 #line 2020
-  __cil_tmp28 = *((u32 *)__cil_tmp27);
+  __cil_tmp20 = (int )__cil_tmp19;
 #line 2020
-  __cil_tmp29 = __cil_tmp28 - seq;
-#line 2020
-  __cil_tmp30 = (int )__cil_tmp29;
-#line 2020
-  if (__cil_tmp30 < 0) {
+  if (__cil_tmp20 < 0) {
     {
 #line 2022
-    __cil_tmp31 = (unsigned long )ppp;
+    __cil_tmp21 = ppp->dev;
 #line 2022
-    __cil_tmp32 = __cil_tmp31 + 784;
+    __cil_tmp22 = (struct net_device  const  *)__cil_tmp21;
 #line 2022
-    __cil_tmp33 = *((struct net_device **)__cil_tmp32);
+    __cil_tmp23 = & p->cb;
 #line 2022
-    __cil_tmp34 = (struct net_device  const  *)__cil_tmp33;
+    __cil_tmp24 = (struct ppp_mp_skb_parm *)__cil_tmp23;
 #line 2022
-    __cil_tmp35 = (unsigned long )p;
+    __cil_tmp25 = __cil_tmp24->sequence;
 #line 2022
-    __cil_tmp36 = __cil_tmp35 + 40;
-#line 2022
-    __cil_tmp37 = (char (*)[48U])__cil_tmp36;
-#line 2022
-    __cil_tmp38 = (struct ppp_mp_skb_parm *)__cil_tmp37;
-#line 2022
-    __cil_tmp39 = *((u32 *)__cil_tmp38);
-#line 2022
-    netdev_err(__cil_tmp34, "ppp_mp_reconstruct bad seq %u < %u\n", __cil_tmp39, seq);
+    netdev_err(__cil_tmp22, "ppp_mp_reconstruct bad seq %u < %u\n", __cil_tmp25, seq);
 #line 2025
     __skb_unlink(p, list);
 #line 2026
     kfree_skb(p);
     }
+#line 2027
     goto ldv_40245;
   } else {
 
@@ -20521,24 +17198,21 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
   }
   {
 #line 2029
-  __cil_tmp40 = (unsigned long )p;
+  __cil_tmp26 = & p->cb;
 #line 2029
-  __cil_tmp41 = __cil_tmp40 + 40;
+  __cil_tmp27 = (struct ppp_mp_skb_parm *)__cil_tmp26;
 #line 2029
-  __cil_tmp42 = (char (*)[48U])__cil_tmp41;
+  __cil_tmp28 = __cil_tmp27->sequence;
 #line 2029
-  __cil_tmp43 = (struct ppp_mp_skb_parm *)__cil_tmp42;
-#line 2029
-  __cil_tmp44 = *((u32 *)__cil_tmp43);
-#line 2029
-  if (__cil_tmp44 != seq) {
+  if (__cil_tmp28 != seq) {
     {
 #line 2032
-    __cil_tmp45 = seq - minseq;
+    __cil_tmp29 = seq - minseq;
 #line 2032
-    __cil_tmp46 = (int )__cil_tmp45;
+    __cil_tmp30 = (int )__cil_tmp29;
 #line 2032
-    if (__cil_tmp46 > 0) {
+    if (__cil_tmp30 > 0) {
+#line 2033
       goto ldv_40246;
     } else {
 
@@ -20548,36 +17222,29 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
     lost = 1;
     {
 #line 2036
-    __cil_tmp47 = (unsigned long )p;
+    __cil_tmp31 = & p->cb;
 #line 2036
-    __cil_tmp48 = __cil_tmp47 + 40;
+    __cil_tmp32 = (struct ppp_mp_skb_parm *)__cil_tmp31;
 #line 2036
-    __cil_tmp49 = (char (*)[48U])__cil_tmp48;
+    __cil_tmp33 = __cil_tmp32->sequence;
 #line 2036
-    __cil_tmp50 = (struct ppp_mp_skb_parm *)__cil_tmp49;
+    __cil_tmp34 = minseq - __cil_tmp33;
 #line 2036
-    __cil_tmp51 = *((u32 *)__cil_tmp50);
+    __cil_tmp35 = (int )__cil_tmp34;
 #line 2036
-    __cil_tmp52 = minseq - __cil_tmp51;
-#line 2036
-    __cil_tmp53 = (int )__cil_tmp52;
-#line 2036
-    if (__cil_tmp53 < 0) {
+    if (__cil_tmp35 < 0) {
 #line 2036
       seq = minseq + 1U;
     } else {
 #line 2036
-      __cil_tmp54 = (unsigned long )p;
+      __cil_tmp36 = & p->cb;
 #line 2036
-      __cil_tmp55 = __cil_tmp54 + 40;
+      __cil_tmp37 = (struct ppp_mp_skb_parm *)__cil_tmp36;
 #line 2036
-      __cil_tmp56 = (char (*)[48U])__cil_tmp55;
-#line 2036
-      __cil_tmp57 = (struct ppp_mp_skb_parm *)__cil_tmp56;
-#line 2036
-      seq = *((u32 *)__cil_tmp57);
+      seq = __cil_tmp37->sequence;
     }
     }
+#line 2038
     goto again;
   } else {
 
@@ -20585,25 +17252,17 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
   }
   {
 #line 2050
-  __cil_tmp58 = (unsigned long )p;
+  __cil_tmp38 = & p->cb;
 #line 2050
-  __cil_tmp59 = __cil_tmp58 + 40;
+  __cil_tmp39 = (struct ppp_mp_skb_parm *)__cil_tmp38;
 #line 2050
-  __cil_tmp60 = (char (*)[48U])__cil_tmp59;
+  __cil_tmp40 = __cil_tmp39->BEbits;
 #line 2050
-  __cil_tmp61 = (struct ppp_mp_skb_parm *)__cil_tmp60;
+  __cil_tmp41 = (signed char )__cil_tmp40;
 #line 2050
-  __cil_tmp62 = (unsigned long )__cil_tmp61;
+  __cil_tmp42 = (int )__cil_tmp41;
 #line 2050
-  __cil_tmp63 = __cil_tmp62 + 4;
-#line 2050
-  __cil_tmp64 = *((u8 *)__cil_tmp63);
-#line 2050
-  __cil_tmp65 = (signed char )__cil_tmp64;
-#line 2050
-  __cil_tmp66 = (int )__cil_tmp65;
-#line 2050
-  if (__cil_tmp66 < 0) {
+  if (__cil_tmp42 < 0) {
 #line 2051
     head = p;
 #line 2052
@@ -20615,125 +17274,74 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
   }
   }
 #line 2056
-  __cil_tmp67 = (unsigned int )len;
+  __cil_tmp43 = (unsigned int )len;
 #line 2056
-  __cil_tmp68 = (unsigned long )p;
+  __cil_tmp44 = p->len;
 #line 2056
-  __cil_tmp69 = __cil_tmp68 + 104;
+  __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
 #line 2056
-  __cil_tmp70 = *((unsigned int *)__cil_tmp69);
-#line 2056
-  __cil_tmp71 = __cil_tmp70 + __cil_tmp67;
-#line 2056
-  len = (int )__cil_tmp71;
+  len = (int )__cil_tmp45;
 #line 2059
   if (lost == 0) {
     {
 #line 2059
-    __cil_tmp72 = (unsigned long )p;
+    __cil_tmp46 = & p->cb;
 #line 2059
-    __cil_tmp73 = __cil_tmp72 + 40;
+    __cil_tmp47 = (struct ppp_mp_skb_parm *)__cil_tmp46;
 #line 2059
-    __cil_tmp74 = (char (*)[48U])__cil_tmp73;
+    __cil_tmp48 = __cil_tmp47->BEbits;
 #line 2059
-    __cil_tmp75 = (struct ppp_mp_skb_parm *)__cil_tmp74;
+    __cil_tmp49 = (int )__cil_tmp48;
 #line 2059
-    __cil_tmp76 = (unsigned long )__cil_tmp75;
+    __cil_tmp50 = __cil_tmp49 & 64;
 #line 2059
-    __cil_tmp77 = __cil_tmp76 + 4;
-#line 2059
-    __cil_tmp78 = *((u8 *)__cil_tmp77);
-#line 2059
-    __cil_tmp79 = (int )__cil_tmp78;
-#line 2059
-    __cil_tmp80 = __cil_tmp79 & 64;
-#line 2059
-    if (__cil_tmp80 != 0) {
+    if (__cil_tmp50 != 0) {
       {
 #line 2059
-      __cil_tmp81 = (unsigned long )head;
+      __cil_tmp51 = & head->cb;
 #line 2059
-      __cil_tmp82 = __cil_tmp81 + 40;
+      __cil_tmp52 = (struct ppp_mp_skb_parm *)__cil_tmp51;
 #line 2059
-      __cil_tmp83 = (char (*)[48U])__cil_tmp82;
+      __cil_tmp53 = __cil_tmp52->BEbits;
 #line 2059
-      __cil_tmp84 = (struct ppp_mp_skb_parm *)__cil_tmp83;
+      __cil_tmp54 = (signed char )__cil_tmp53;
 #line 2059
-      __cil_tmp85 = (unsigned long )__cil_tmp84;
+      __cil_tmp55 = (int )__cil_tmp54;
 #line 2059
-      __cil_tmp86 = __cil_tmp85 + 4;
-#line 2059
-      __cil_tmp87 = *((u8 *)__cil_tmp86);
-#line 2059
-      __cil_tmp88 = (signed char )__cil_tmp87;
-#line 2059
-      __cil_tmp89 = (int )__cil_tmp88;
-#line 2059
-      if (__cil_tmp89 < 0) {
+      if (__cil_tmp55 < 0) {
         {
 #line 2061
-        __cil_tmp90 = (unsigned long )ppp;
+        __cil_tmp56 = ppp->mrru;
 #line 2061
-        __cil_tmp91 = __cil_tmp90 + 804;
+        __cil_tmp57 = __cil_tmp56 + 2;
 #line 2061
-        __cil_tmp92 = *((int *)__cil_tmp91);
-#line 2061
-        __cil_tmp93 = __cil_tmp92 + 2;
-#line 2061
-        if (__cil_tmp93 < len) {
+        if (__cil_tmp57 < len) {
           {
 #line 2062
-          __cil_tmp94 = 200 + 80;
+          __cil_tmp58 = ppp->dev;
 #line 2062
-          __cil_tmp95 = (unsigned long )ppp;
+          __cil_tmp59 = ppp->dev;
 #line 2062
-          __cil_tmp96 = __cil_tmp95 + 784;
+          __cil_tmp60 = __cil_tmp59->stats.rx_length_errors;
 #line 2062
-          __cil_tmp97 = *((struct net_device **)__cil_tmp96);
-#line 2062
-          __cil_tmp98 = (unsigned long )__cil_tmp97;
-#line 2062
-          __cil_tmp99 = __cil_tmp98 + __cil_tmp94;
-#line 2062
-          __cil_tmp100 = 200 + 80;
-#line 2062
-          __cil_tmp101 = (unsigned long )ppp;
-#line 2062
-          __cil_tmp102 = __cil_tmp101 + 784;
-#line 2062
-          __cil_tmp103 = *((struct net_device **)__cil_tmp102);
-#line 2062
-          __cil_tmp104 = (unsigned long )__cil_tmp103;
-#line 2062
-          __cil_tmp105 = __cil_tmp104 + __cil_tmp100;
-#line 2062
-          __cil_tmp106 = *((unsigned long *)__cil_tmp105);
-#line 2062
-          *((unsigned long *)__cil_tmp99) = __cil_tmp106 + 1UL;
+          __cil_tmp58->stats.rx_length_errors = __cil_tmp60 + 1UL;
 #line 2063
-          __cil_tmp107 = (unsigned long )ppp;
+          __cil_tmp61 = ppp->dev;
 #line 2063
-          __cil_tmp108 = __cil_tmp107 + 784;
+          __cil_tmp62 = (struct net_device  const  *)__cil_tmp61;
 #line 2063
-          __cil_tmp109 = *((struct net_device **)__cil_tmp108);
-#line 2063
-          __cil_tmp110 = (struct net_device  const  *)__cil_tmp109;
-#line 2063
-          netdev_printk("<7>", __cil_tmp110, "PPP: reconstructed packet is too long (%d)\n",
+          netdev_printk("<7>", __cil_tmp62, "PPP: reconstructed packet is too long (%d)\n",
                         len);
           }
         } else {
 #line 2067
           tail = p;
+#line 2068
           goto ldv_40246;
         }
         }
 #line 2070
-        __cil_tmp111 = (unsigned long )ppp;
-#line 2070
-        __cil_tmp112 = __cil_tmp111 + 808;
-#line 2070
-        *((u32 *)__cil_tmp112) = seq + 1U;
+        ppp->nextseq = seq + 1U;
       } else {
 
       }
@@ -20747,31 +17355,20 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
   }
   {
 #line 2078
-  __cil_tmp113 = (unsigned long )p;
+  __cil_tmp63 = & p->cb;
 #line 2078
-  __cil_tmp114 = __cil_tmp113 + 40;
+  __cil_tmp64 = (struct ppp_mp_skb_parm *)__cil_tmp63;
 #line 2078
-  __cil_tmp115 = (char (*)[48U])__cil_tmp114;
+  __cil_tmp65 = __cil_tmp64->BEbits;
 #line 2078
-  __cil_tmp116 = (struct ppp_mp_skb_parm *)__cil_tmp115;
+  __cil_tmp66 = (int )__cil_tmp65;
 #line 2078
-  __cil_tmp117 = (unsigned long )__cil_tmp116;
+  __cil_tmp67 = __cil_tmp66 & 64;
 #line 2078
-  __cil_tmp118 = __cil_tmp117 + 4;
-#line 2078
-  __cil_tmp119 = *((u8 *)__cil_tmp118);
-#line 2078
-  __cil_tmp120 = (int )__cil_tmp119;
-#line 2078
-  __cil_tmp121 = __cil_tmp120 & 64;
-#line 2078
-  if (__cil_tmp121 != 0) {
+  if (__cil_tmp67 != 0) {
 #line 2081
-    __cil_tmp122 = (unsigned long )p;
+    tmp2 = p->prev;
 #line 2081
-    __cil_tmp123 = __cil_tmp122 + 8;
-#line 2081
-    tmp2 = *((struct sk_buff **)__cil_tmp123);
     goto ldv_40249;
     ldv_40248: 
     {
@@ -20782,24 +17379,22 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
 #line 2081
     p = tmp2;
 #line 2081
-    __cil_tmp124 = (unsigned long )p;
-#line 2081
-    __cil_tmp125 = __cil_tmp124 + 8;
-#line 2081
-    tmp2 = *((struct sk_buff **)__cil_tmp125);
+    tmp2 = p->prev;
     }
     ldv_40249: ;
     {
 #line 2081
-    __cil_tmp126 = (struct sk_buff *)list;
+    __cil_tmp68 = (struct sk_buff *)list;
 #line 2081
-    __cil_tmp127 = (unsigned long )__cil_tmp126;
+    __cil_tmp69 = (unsigned long )__cil_tmp68;
 #line 2081
-    __cil_tmp128 = (unsigned long )p;
+    __cil_tmp70 = (unsigned long )p;
 #line 2081
-    if (__cil_tmp128 != __cil_tmp127) {
+    if (__cil_tmp70 != __cil_tmp69) {
+#line 2082
       goto ldv_40248;
     } else {
+#line 2084
       goto ldv_40250;
     }
     }
@@ -20810,13 +17405,14 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
     }
     {
 #line 2086
-    __cil_tmp129 = (struct sk_buff *)0;
+    __cil_tmp71 = (struct sk_buff *)0;
 #line 2086
-    __cil_tmp130 = (unsigned long )__cil_tmp129;
+    __cil_tmp72 = (unsigned long )__cil_tmp71;
 #line 2086
-    __cil_tmp131 = (unsigned long )head;
+    __cil_tmp73 = (unsigned long )head;
 #line 2086
-    if (__cil_tmp131 == __cil_tmp130) {
+    if (__cil_tmp73 == __cil_tmp72) {
+#line 2087
       goto ldv_40246;
     } else {
 
@@ -20832,90 +17428,67 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
 #line 2018
   p = tmp;
 #line 2018
-  tmp = *((struct sk_buff **)p);
+  tmp = p->next;
   ldv_40252: ;
   {
 #line 2018
-  __cil_tmp132 = (struct sk_buff *)list;
+  __cil_tmp74 = (struct sk_buff *)list;
 #line 2018
-  __cil_tmp133 = (unsigned long )__cil_tmp132;
+  __cil_tmp75 = (unsigned long )__cil_tmp74;
 #line 2018
-  __cil_tmp134 = (unsigned long )p;
+  __cil_tmp76 = (unsigned long )p;
 #line 2018
-  if (__cil_tmp134 != __cil_tmp133) {
+  if (__cil_tmp76 != __cil_tmp75) {
+#line 2019
     goto ldv_40251;
   } else {
+#line 2021
     goto ldv_40246;
   }
   }
   ldv_40246: ;
   {
 #line 2093
-  __cil_tmp135 = (struct sk_buff *)0;
+  __cil_tmp77 = (struct sk_buff *)0;
 #line 2093
-  __cil_tmp136 = (unsigned long )__cil_tmp135;
+  __cil_tmp78 = (unsigned long )__cil_tmp77;
 #line 2093
-  __cil_tmp137 = (unsigned long )tail;
+  __cil_tmp79 = (unsigned long )tail;
 #line 2093
-  if (__cil_tmp137 != __cil_tmp136) {
+  if (__cil_tmp79 != __cil_tmp78) {
     {
 #line 2096
-    __cil_tmp138 = (unsigned long )ppp;
+    __cil_tmp80 = ppp->nextseq;
 #line 2096
-    __cil_tmp139 = __cil_tmp138 + 808;
+    __cil_tmp81 = & head->cb;
 #line 2096
-    __cil_tmp140 = *((u32 *)__cil_tmp139);
+    __cil_tmp82 = (struct ppp_mp_skb_parm *)__cil_tmp81;
 #line 2096
-    __cil_tmp141 = (unsigned long )head;
+    __cil_tmp83 = __cil_tmp82->sequence;
 #line 2096
-    __cil_tmp142 = __cil_tmp141 + 40;
-#line 2096
-    __cil_tmp143 = (char (*)[48U])__cil_tmp142;
-#line 2096
-    __cil_tmp144 = (struct ppp_mp_skb_parm *)__cil_tmp143;
-#line 2096
-    __cil_tmp145 = *((u32 *)__cil_tmp144);
-#line 2096
-    if (__cil_tmp145 != __cil_tmp140) {
+    if (__cil_tmp83 != __cil_tmp80) {
       {
 #line 2097
-      __cil_tmp146 = (unsigned long )ppp;
+      __cil_tmp84 = ppp->debug;
 #line 2097
-      __cil_tmp147 = __cil_tmp146 + 520;
-#line 2097
-      __cil_tmp148 = *((int *)__cil_tmp147);
-#line 2097
-      if (__cil_tmp148 & 1) {
+      if (__cil_tmp84 & 1) {
         {
 #line 2098
-        __cil_tmp149 = (unsigned long )ppp;
+        __cil_tmp85 = ppp->dev;
 #line 2098
-        __cil_tmp150 = __cil_tmp149 + 784;
+        __cil_tmp86 = (struct net_device  const  *)__cil_tmp85;
 #line 2098
-        __cil_tmp151 = *((struct net_device **)__cil_tmp150);
+        __cil_tmp87 = ppp->nextseq;
 #line 2098
-        __cil_tmp152 = (struct net_device  const  *)__cil_tmp151;
+        __cil_tmp88 = & head->cb;
 #line 2098
-        __cil_tmp153 = (unsigned long )ppp;
+        __cil_tmp89 = (struct ppp_mp_skb_parm *)__cil_tmp88;
 #line 2098
-        __cil_tmp154 = __cil_tmp153 + 808;
+        __cil_tmp90 = __cil_tmp89->sequence;
 #line 2098
-        __cil_tmp155 = *((u32 *)__cil_tmp154);
+        __cil_tmp91 = __cil_tmp90 - 1U;
 #line 2098
-        __cil_tmp156 = (unsigned long )head;
-#line 2098
-        __cil_tmp157 = __cil_tmp156 + 40;
-#line 2098
-        __cil_tmp158 = (char (*)[48U])__cil_tmp157;
-#line 2098
-        __cil_tmp159 = (struct ppp_mp_skb_parm *)__cil_tmp158;
-#line 2098
-        __cil_tmp160 = *((u32 *)__cil_tmp159);
-#line 2098
-        __cil_tmp161 = __cil_tmp160 - 1U;
-#line 2098
-        netdev_printk("<7>", __cil_tmp152, "  missed pkts %u..%u\n", __cil_tmp155,
-                      __cil_tmp161);
+        netdev_printk("<7>", __cil_tmp86, "  missed pkts %u..%u\n", __cil_tmp87, __cil_tmp91);
         }
       } else {
 
@@ -20923,33 +17496,13 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
       }
       {
 #line 2102
-      __cil_tmp162 = 200 + 48;
+      __cil_tmp92 = ppp->dev;
 #line 2102
-      __cil_tmp163 = (unsigned long )ppp;
+      __cil_tmp93 = ppp->dev;
 #line 2102
-      __cil_tmp164 = __cil_tmp163 + 784;
+      __cil_tmp94 = __cil_tmp93->stats.rx_dropped;
 #line 2102
-      __cil_tmp165 = *((struct net_device **)__cil_tmp164);
-#line 2102
-      __cil_tmp166 = (unsigned long )__cil_tmp165;
-#line 2102
-      __cil_tmp167 = __cil_tmp166 + __cil_tmp162;
-#line 2102
-      __cil_tmp168 = 200 + 48;
-#line 2102
-      __cil_tmp169 = (unsigned long )ppp;
-#line 2102
-      __cil_tmp170 = __cil_tmp169 + 784;
-#line 2102
-      __cil_tmp171 = *((struct net_device **)__cil_tmp170);
-#line 2102
-      __cil_tmp172 = (unsigned long )__cil_tmp171;
-#line 2102
-      __cil_tmp173 = __cil_tmp172 + __cil_tmp168;
-#line 2102
-      __cil_tmp174 = *((unsigned long *)__cil_tmp173);
-#line 2102
-      *((unsigned long *)__cil_tmp167) = __cil_tmp174 + 1UL;
+      __cil_tmp92->stats.rx_dropped = __cil_tmp94 + 1UL;
 #line 2103
       ppp_receive_error(ppp);
       }
@@ -20961,35 +17514,32 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
     skb = head;
     {
 #line 2107
-    __cil_tmp175 = (unsigned long )tail;
+    __cil_tmp95 = (unsigned long )tail;
 #line 2107
-    __cil_tmp176 = (unsigned long )head;
+    __cil_tmp96 = (unsigned long )head;
 #line 2107
-    if (__cil_tmp176 != __cil_tmp175) {
+    if (__cil_tmp96 != __cil_tmp95) {
       {
 #line 2108
-      __cil_tmp177 = (struct sk_buff  const  *)skb;
+      __cil_tmp97 = (struct sk_buff  const  *)skb;
 #line 2108
-      tmp___0 = skb_end_pointer(__cil_tmp177);
+      tmp___0 = skb_end_pointer(__cil_tmp97);
 #line 2108
-      __cil_tmp178 = (struct skb_shared_info *)tmp___0;
+      __cil_tmp98 = (struct skb_shared_info *)tmp___0;
 #line 2108
-      __cil_tmp179 = (unsigned long )__cil_tmp178;
-#line 2108
-      __cil_tmp180 = __cil_tmp179 + 16;
-#line 2108
-      fragpp = (struct sk_buff **)__cil_tmp180;
+      fragpp = & __cil_tmp98->frag_list;
 #line 2109
-      __cil_tmp181 = (struct sk_buff_head  const  *)list;
+      __cil_tmp99 = (struct sk_buff_head  const  *)list;
 #line 2109
-      __cil_tmp182 = (struct sk_buff  const  *)head;
+      __cil_tmp100 = (struct sk_buff  const  *)head;
 #line 2109
-      p = skb_queue_next(__cil_tmp181, __cil_tmp182);
+      p = skb_queue_next(__cil_tmp99, __cil_tmp100);
 #line 2110
       __skb_unlink(skb, list);
 #line 2111
-      tmp = *((struct sk_buff **)p);
+      tmp = p->next;
       }
+#line 2111
       goto ldv_40256;
       ldv_40255: 
       {
@@ -20998,71 +17548,36 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
 #line 2113
       *fragpp = p;
 #line 2114
-      *((struct sk_buff **)p) = (struct sk_buff *)0;
+      p->next = (struct sk_buff *)0;
 #line 2115
-      fragpp = (struct sk_buff **)p;
+      fragpp = & p->next;
 #line 2117
-      __cil_tmp183 = (unsigned long )skb;
+      __cil_tmp101 = p->len;
 #line 2117
-      __cil_tmp184 = __cil_tmp183 + 104;
+      __cil_tmp102 = skb->len;
 #line 2117
-      __cil_tmp185 = (unsigned long )p;
-#line 2117
-      __cil_tmp186 = __cil_tmp185 + 104;
-#line 2117
-      __cil_tmp187 = *((unsigned int *)__cil_tmp186);
-#line 2117
-      __cil_tmp188 = (unsigned long )skb;
-#line 2117
-      __cil_tmp189 = __cil_tmp188 + 104;
-#line 2117
-      __cil_tmp190 = *((unsigned int *)__cil_tmp189);
-#line 2117
-      *((unsigned int *)__cil_tmp184) = __cil_tmp190 + __cil_tmp187;
+      skb->len = __cil_tmp102 + __cil_tmp101;
 #line 2118
-      __cil_tmp191 = (unsigned long )skb;
+      __cil_tmp103 = p->len;
 #line 2118
-      __cil_tmp192 = __cil_tmp191 + 108;
+      __cil_tmp104 = skb->data_len;
 #line 2118
-      __cil_tmp193 = (unsigned long )p;
-#line 2118
-      __cil_tmp194 = __cil_tmp193 + 104;
-#line 2118
-      __cil_tmp195 = *((unsigned int *)__cil_tmp194);
-#line 2118
-      __cil_tmp196 = (unsigned long )skb;
-#line 2118
-      __cil_tmp197 = __cil_tmp196 + 108;
-#line 2118
-      __cil_tmp198 = *((unsigned int *)__cil_tmp197);
-#line 2118
-      *((unsigned int *)__cil_tmp192) = __cil_tmp198 + __cil_tmp195;
+      skb->data_len = __cil_tmp104 + __cil_tmp103;
 #line 2119
-      __cil_tmp199 = (unsigned long )skb;
+      __cil_tmp105 = p->len;
 #line 2119
-      __cil_tmp200 = __cil_tmp199 + 232;
+      __cil_tmp106 = skb->truesize;
 #line 2119
-      __cil_tmp201 = (unsigned long )p;
-#line 2119
-      __cil_tmp202 = __cil_tmp201 + 104;
-#line 2119
-      __cil_tmp203 = *((unsigned int *)__cil_tmp202);
-#line 2119
-      __cil_tmp204 = (unsigned long )skb;
-#line 2119
-      __cil_tmp205 = __cil_tmp204 + 232;
-#line 2119
-      __cil_tmp206 = *((unsigned int *)__cil_tmp205);
-#line 2119
-      *((unsigned int *)__cil_tmp200) = __cil_tmp206 + __cil_tmp203;
+      skb->truesize = __cil_tmp106 + __cil_tmp105;
       }
       {
 #line 2121
-      __cil_tmp207 = (unsigned long )tail;
+      __cil_tmp107 = (unsigned long )tail;
 #line 2121
-      __cil_tmp208 = (unsigned long )p;
+      __cil_tmp108 = (unsigned long )p;
 #line 2121
-      if (__cil_tmp208 == __cil_tmp207) {
+      if (__cil_tmp108 == __cil_tmp107) {
+#line 2122
         goto ldv_40254;
       } else {
 
@@ -21071,19 +17586,21 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
 #line 2111
       p = tmp;
 #line 2111
-      tmp = *((struct sk_buff **)p);
+      tmp = p->next;
       ldv_40256: ;
       {
 #line 2111
-      __cil_tmp209 = (struct sk_buff *)list;
+      __cil_tmp109 = (struct sk_buff *)list;
 #line 2111
-      __cil_tmp210 = (unsigned long )__cil_tmp209;
+      __cil_tmp110 = (unsigned long )__cil_tmp109;
 #line 2111
-      __cil_tmp211 = (unsigned long )p;
+      __cil_tmp111 = (unsigned long )p;
 #line 2111
-      if (__cil_tmp211 != __cil_tmp210) {
+      if (__cil_tmp111 != __cil_tmp110) {
+#line 2112
         goto ldv_40255;
       } else {
+#line 2114
         goto ldv_40254;
       }
       }
@@ -21096,21 +17613,13 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
     }
     }
 #line 2128
-    __cil_tmp212 = (unsigned long )ppp;
+    __cil_tmp112 = & tail->cb;
 #line 2128
-    __cil_tmp213 = __cil_tmp212 + 808;
+    __cil_tmp113 = (struct ppp_mp_skb_parm *)__cil_tmp112;
 #line 2128
-    __cil_tmp214 = (unsigned long )tail;
+    __cil_tmp114 = __cil_tmp113->sequence;
 #line 2128
-    __cil_tmp215 = __cil_tmp214 + 40;
-#line 2128
-    __cil_tmp216 = (char (*)[48U])__cil_tmp215;
-#line 2128
-    __cil_tmp217 = (struct ppp_mp_skb_parm *)__cil_tmp216;
-#line 2128
-    __cil_tmp218 = *((u32 *)__cil_tmp217);
-#line 2128
-    *((u32 *)__cil_tmp213) = __cil_tmp218 + 1U;
+    ppp->nextseq = __cil_tmp114 + 1U;
   } else {
 
   }
@@ -21123,31 +17632,19 @@ static struct sk_buff *ppp_mp_reconstruct(struct ppp *ppp )
 int ppp_register_channel(struct ppp_channel *chan ) 
 { struct task_struct *tmp ;
   int tmp___0 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct nsproxy *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct net *__cil_tmp9 ;
+  struct nsproxy *__cil_tmp4 ;
+  struct net *__cil_tmp5 ;
 
   {
   {
 #line 2142
   tmp = get_current();
 #line 2142
-  __cil_tmp4 = (unsigned long )tmp;
+  __cil_tmp4 = tmp->nsproxy;
 #line 2142
-  __cil_tmp5 = __cil_tmp4 + 1816;
+  __cil_tmp5 = __cil_tmp4->net_ns;
 #line 2142
-  __cil_tmp6 = *((struct nsproxy **)__cil_tmp5);
-#line 2142
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
-#line 2142
-  __cil_tmp8 = __cil_tmp7 + 40;
-#line 2142
-  __cil_tmp9 = *((struct net **)__cil_tmp8);
-#line 2142
-  tmp___0 = ppp_register_net_channel(__cil_tmp9, chan);
+  tmp___0 = ppp_register_net_channel(__cil_tmp5, chan);
   }
 #line 2142
   return (tmp___0);
@@ -21164,56 +17661,16 @@ int ppp_register_net_channel(struct net *net , struct ppp_channel *chan )
   struct channel *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  struct ppp_file *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct rw_semaphore *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  spinlock_t *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct raw_spinlock *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  rwlock_t *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  spinlock_t *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct list_head *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct list_head *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  spinlock_t *__cil_tmp61 ;
+  struct ppp_file *__cil_tmp12 ;
+  struct rw_semaphore *__cil_tmp13 ;
+  spinlock_t *__cil_tmp14 ;
+  struct raw_spinlock *__cil_tmp15 ;
+  rwlock_t *__cil_tmp16 ;
+  spinlock_t *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  struct list_head *__cil_tmp19 ;
+  struct list_head *__cil_tmp20 ;
+  spinlock_t *__cil_tmp21 ;
 
   {
   {
@@ -21241,139 +17698,59 @@ int ppp_register_net_channel(struct net *net , struct ppp_channel *chan )
 #line 2155
   pn = ppp_pernet(net);
 #line 2157
-  __cil_tmp12 = (unsigned long )pch;
-#line 2157
-  __cil_tmp13 = __cil_tmp12 + 568;
-#line 2157
-  *((struct ppp **)__cil_tmp13) = (struct ppp *)0;
+  pch->ppp = (struct ppp *)0;
 #line 2158
-  __cil_tmp14 = (unsigned long )pch;
-#line 2158
-  __cil_tmp15 = __cil_tmp14 + 344;
-#line 2158
-  *((struct ppp_channel **)__cil_tmp15) = chan;
+  pch->chan = chan;
 #line 2159
-  __cil_tmp16 = (unsigned long )pch;
-#line 2159
-  __cil_tmp17 = __cil_tmp16 + 576;
-#line 2159
-  *((struct net **)__cil_tmp17) = net;
+  pch->chan_net = net;
 #line 2160
-  __cil_tmp18 = (unsigned long )chan;
-#line 2160
-  __cil_tmp19 = __cil_tmp18 + 24;
-#line 2160
-  *((void **)__cil_tmp19) = (void *)pch;
+  chan->ppp = (void *)pch;
 #line 2161
-  __cil_tmp20 = (struct ppp_file *)pch;
+  __cil_tmp12 = & pch->file;
 #line 2161
-  init_ppp_file(__cil_tmp20, 2);
+  init_ppp_file(__cil_tmp12, 2);
 #line 2162
-  __cil_tmp21 = 0 + 316;
-#line 2162
-  __cil_tmp22 = (unsigned long )pch;
-#line 2162
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 2162
-  __cil_tmp24 = (unsigned long )chan;
-#line 2162
-  __cil_tmp25 = __cil_tmp24 + 20;
-#line 2162
-  *((int *)__cil_tmp23) = *((int *)__cil_tmp25);
+  pch->file.hdrlen = chan->hdrlen;
 #line 2164
-  __cil_tmp26 = (unsigned long )pch;
-#line 2164
-  __cil_tmp27 = __cil_tmp26 + 676;
-#line 2164
-  *((u32 *)__cil_tmp27) = 4294967295U;
+  pch->lastseq = 4294967295U;
 #line 2166
-  __cil_tmp28 = (unsigned long )pch;
+  __cil_tmp13 = & pch->chan_sem;
 #line 2166
-  __cil_tmp29 = __cil_tmp28 + 352;
-#line 2166
-  __cil_tmp30 = (struct rw_semaphore *)__cil_tmp29;
-#line 2166
-  __init_rwsem(__cil_tmp30, "&pch->chan_sem", & __key);
+  __init_rwsem(__cil_tmp13, "&pch->chan_sem", & __key);
 #line 2167
-  __cil_tmp31 = (unsigned long )pch;
+  __cil_tmp14 = & pch->downl;
 #line 2167
-  __cil_tmp32 = __cil_tmp31 + 496;
+  spinlock_check(__cil_tmp14);
 #line 2167
-  __cil_tmp33 = (spinlock_t *)__cil_tmp32;
+  __cil_tmp15 = & pch->downl.ldv_6060.rlock;
 #line 2167
-  spinlock_check(__cil_tmp33);
-#line 2167
-  __cil_tmp34 = (unsigned long )pch;
-#line 2167
-  __cil_tmp35 = __cil_tmp34 + 496;
-#line 2167
-  __cil_tmp36 = (struct raw_spinlock *)__cil_tmp35;
-#line 2167
-  __raw_spin_lock_init(__cil_tmp36, "&(&pch->downl)->rlock", & __key___0);
+  __raw_spin_lock_init(__cil_tmp15, "&(&pch->downl)->rlock", & __key___0);
 #line 2168
-  __cil_tmp37 = (unsigned long )pch;
+  __cil_tmp16 = & pch->upl;
 #line 2168
-  __cil_tmp38 = __cil_tmp37 + 600;
-#line 2168
-  __cil_tmp39 = (rwlock_t *)__cil_tmp38;
-#line 2168
-  __rwlock_init(__cil_tmp39, "&pch->upl", & __key___1);
+  __rwlock_init(__cil_tmp16, "&pch->upl", & __key___1);
 #line 2170
-  __cil_tmp40 = (unsigned long )pn;
+  __cil_tmp17 = & pn->all_channels_lock;
 #line 2170
-  __cil_tmp41 = __cil_tmp40 + 304;
-#line 2170
-  __cil_tmp42 = (spinlock_t *)__cil_tmp41;
-#line 2170
-  spin_lock_bh(__cil_tmp42);
+  spin_lock_bh(__cil_tmp17);
 #line 2171
-  __cil_tmp43 = (unsigned long )pn;
+  __cil_tmp18 = pn->last_channel_index;
 #line 2171
-  __cil_tmp44 = __cil_tmp43 + 296;
+  pn->last_channel_index = __cil_tmp18 + 1;
 #line 2171
-  __cil_tmp45 = (unsigned long )pn;
-#line 2171
-  __cil_tmp46 = __cil_tmp45 + 296;
-#line 2171
-  __cil_tmp47 = *((int *)__cil_tmp46);
-#line 2171
-  *((int *)__cil_tmp44) = __cil_tmp47 + 1;
-#line 2171
-  __cil_tmp48 = 0 + 320;
-#line 2171
-  __cil_tmp49 = (unsigned long )pch;
-#line 2171
-  __cil_tmp50 = __cil_tmp49 + __cil_tmp48;
-#line 2171
-  __cil_tmp51 = (unsigned long )pn;
-#line 2171
-  __cil_tmp52 = __cil_tmp51 + 296;
-#line 2171
-  *((int *)__cil_tmp50) = *((int *)__cil_tmp52);
+  pch->file.index = pn->last_channel_index;
 #line 2172
-  __cil_tmp53 = (unsigned long )pch;
+  __cil_tmp19 = & pch->list;
 #line 2172
-  __cil_tmp54 = __cil_tmp53 + 328;
+  __cil_tmp20 = & pn->new_channels;
 #line 2172
-  __cil_tmp55 = (struct list_head *)__cil_tmp54;
-#line 2172
-  __cil_tmp56 = (unsigned long )pn;
-#line 2172
-  __cil_tmp57 = __cil_tmp56 + 280;
-#line 2172
-  __cil_tmp58 = (struct list_head *)__cil_tmp57;
-#line 2172
-  list_add(__cil_tmp55, __cil_tmp58);
+  list_add(__cil_tmp19, __cil_tmp20);
 #line 2173
   atomic_inc(& channel_count);
 #line 2174
-  __cil_tmp59 = (unsigned long )pn;
+  __cil_tmp21 = & pn->all_channels_lock;
 #line 2174
-  __cil_tmp60 = __cil_tmp59 + 304;
-#line 2174
-  __cil_tmp61 = (spinlock_t *)__cil_tmp60;
-#line 2174
-  spin_unlock_bh(__cil_tmp61);
+  spin_unlock_bh(__cil_tmp21);
   }
 #line 2176
   return (0);
@@ -21382,44 +17759,27 @@ int ppp_register_net_channel(struct net *net , struct ppp_channel *chan )
 #line 2182 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 int ppp_channel_index(struct ppp_channel *chan ) 
 { struct channel *pch ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void *__cil_tmp5 ;
-  struct channel *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  void *__cil_tmp3 ;
+  struct channel *__cil_tmp4 ;
+  unsigned long __cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
 
   {
 #line 2184
-  __cil_tmp3 = (unsigned long )chan;
+  __cil_tmp3 = chan->ppp;
 #line 2184
-  __cil_tmp4 = __cil_tmp3 + 24;
-#line 2184
-  __cil_tmp5 = *((void **)__cil_tmp4);
-#line 2184
-  pch = (struct channel *)__cil_tmp5;
+  pch = (struct channel *)__cil_tmp3;
   {
 #line 2186
-  __cil_tmp6 = (struct channel *)0;
+  __cil_tmp4 = (struct channel *)0;
 #line 2186
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp5 = (unsigned long )__cil_tmp4;
 #line 2186
-  __cil_tmp8 = (unsigned long )pch;
+  __cil_tmp6 = (unsigned long )pch;
 #line 2186
-  if (__cil_tmp8 != __cil_tmp7) {
-    {
+  if (__cil_tmp6 != __cil_tmp5) {
 #line 2187
-    __cil_tmp9 = 0 + 320;
-#line 2187
-    __cil_tmp10 = (unsigned long )pch;
-#line 2187
-    __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
-#line 2187
-    return (*((int *)__cil_tmp11));
-    }
+    return (pch->file.index);
   } else {
 
   }
@@ -21432,103 +17792,64 @@ int ppp_channel_index(struct ppp_channel *chan )
 int ppp_unit_number(struct ppp_channel *chan ) 
 { struct channel *pch ;
   int unit ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  struct channel *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  void *__cil_tmp4 ;
+  struct channel *__cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
+  rwlock_t *__cil_tmp8 ;
+  struct ppp *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  rwlock_t *__cil_tmp12 ;
+  struct ppp *__cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
   struct ppp *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct ppp *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct ppp *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  rwlock_t *__cil_tmp27 ;
+  rwlock_t *__cil_tmp14 ;
 
   {
 #line 2196
-  __cil_tmp4 = (unsigned long )chan;
+  __cil_tmp4 = chan->ppp;
 #line 2196
-  __cil_tmp5 = __cil_tmp4 + 24;
-#line 2196
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 2196
-  pch = (struct channel *)__cil_tmp6;
+  pch = (struct channel *)__cil_tmp4;
 #line 2197
   unit = -1;
   {
 #line 2199
-  __cil_tmp7 = (struct channel *)0;
+  __cil_tmp5 = (struct channel *)0;
 #line 2199
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 2199
-  __cil_tmp9 = (unsigned long )pch;
+  __cil_tmp7 = (unsigned long )pch;
 #line 2199
-  if (__cil_tmp9 != __cil_tmp8) {
+  if (__cil_tmp7 != __cil_tmp6) {
     {
 #line 2200
-    __cil_tmp10 = (unsigned long )pch;
+    __cil_tmp8 = & pch->upl;
 #line 2200
-    __cil_tmp11 = __cil_tmp10 + 600;
-#line 2200
-    __cil_tmp12 = (rwlock_t *)__cil_tmp11;
-#line 2200
-    _raw_read_lock_bh(__cil_tmp12);
+    _raw_read_lock_bh(__cil_tmp8);
     }
     {
 #line 2201
-    __cil_tmp13 = (struct ppp *)0;
+    __cil_tmp9 = (struct ppp *)0;
 #line 2201
-    __cil_tmp14 = (unsigned long )__cil_tmp13;
+    __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 2201
-    __cil_tmp15 = (unsigned long )pch;
+    __cil_tmp11 = pch->ppp;
 #line 2201
-    __cil_tmp16 = __cil_tmp15 + 568;
+    __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 2201
-    __cil_tmp17 = *((struct ppp **)__cil_tmp16);
-#line 2201
-    __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 2201
-    if (__cil_tmp18 != __cil_tmp14) {
+    if (__cil_tmp12 != __cil_tmp10) {
 #line 2202
-      __cil_tmp19 = 0 + 320;
+      __cil_tmp13 = pch->ppp;
 #line 2202
-      __cil_tmp20 = (unsigned long )pch;
-#line 2202
-      __cil_tmp21 = __cil_tmp20 + 568;
-#line 2202
-      __cil_tmp22 = *((struct ppp **)__cil_tmp21);
-#line 2202
-      __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 2202
-      __cil_tmp24 = __cil_tmp23 + __cil_tmp19;
-#line 2202
-      unit = *((int *)__cil_tmp24);
+      unit = __cil_tmp13->file.index;
     } else {
 
     }
     }
     {
 #line 2203
-    __cil_tmp25 = (unsigned long )pch;
+    __cil_tmp14 = & pch->upl;
 #line 2203
-    __cil_tmp26 = __cil_tmp25 + 600;
-#line 2203
-    __cil_tmp27 = (rwlock_t *)__cil_tmp26;
-#line 2203
-    _raw_read_unlock_bh(__cil_tmp27);
+    _raw_read_unlock_bh(__cil_tmp14);
     }
   } else {
 
@@ -21542,123 +17863,79 @@ int ppp_unit_number(struct ppp_channel *chan )
 char *ppp_dev_name(struct ppp_channel *chan ) 
 { struct channel *pch ;
   char *name ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  struct channel *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  void *__cil_tmp4 ;
+  struct channel *__cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
+  rwlock_t *__cil_tmp8 ;
+  struct ppp *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  rwlock_t *__cil_tmp12 ;
-  struct ppp *__cil_tmp13 ;
+  struct ppp *__cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
+  struct net_device *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct ppp *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  struct ppp *__cil_tmp15 ;
+  struct net_device *__cil_tmp16 ;
+  unsigned long __cil_tmp17 ;
+  struct ppp *__cil_tmp18 ;
   struct net_device *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct ppp *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct net_device *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct ppp *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct net_device *__cil_tmp33 ;
-  char (*__cil_tmp34)[16U] ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  rwlock_t *__cil_tmp37 ;
+  char (*__cil_tmp20)[16U] ;
+  rwlock_t *__cil_tmp21 ;
 
   {
 #line 2213
-  __cil_tmp4 = (unsigned long )chan;
+  __cil_tmp4 = chan->ppp;
 #line 2213
-  __cil_tmp5 = __cil_tmp4 + 24;
-#line 2213
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 2213
-  pch = (struct channel *)__cil_tmp6;
+  pch = (struct channel *)__cil_tmp4;
 #line 2214
   name = (char *)0;
   {
 #line 2216
-  __cil_tmp7 = (struct channel *)0;
+  __cil_tmp5 = (struct channel *)0;
 #line 2216
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 2216
-  __cil_tmp9 = (unsigned long )pch;
+  __cil_tmp7 = (unsigned long )pch;
 #line 2216
-  if (__cil_tmp9 != __cil_tmp8) {
+  if (__cil_tmp7 != __cil_tmp6) {
     {
 #line 2217
-    __cil_tmp10 = (unsigned long )pch;
+    __cil_tmp8 = & pch->upl;
 #line 2217
-    __cil_tmp11 = __cil_tmp10 + 600;
-#line 2217
-    __cil_tmp12 = (rwlock_t *)__cil_tmp11;
-#line 2217
-    _raw_read_lock_bh(__cil_tmp12);
+    _raw_read_lock_bh(__cil_tmp8);
     }
     {
 #line 2218
-    __cil_tmp13 = (struct ppp *)0;
+    __cil_tmp9 = (struct ppp *)0;
 #line 2218
-    __cil_tmp14 = (unsigned long )__cil_tmp13;
+    __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 2218
-    __cil_tmp15 = (unsigned long )pch;
+    __cil_tmp11 = pch->ppp;
 #line 2218
-    __cil_tmp16 = __cil_tmp15 + 568;
+    __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 2218
-    __cil_tmp17 = *((struct ppp **)__cil_tmp16);
-#line 2218
-    __cil_tmp18 = (unsigned long )__cil_tmp17;
-#line 2218
-    if (__cil_tmp18 != __cil_tmp14) {
+    if (__cil_tmp12 != __cil_tmp10) {
       {
 #line 2218
-      __cil_tmp19 = (struct net_device *)0;
+      __cil_tmp13 = (struct net_device *)0;
 #line 2218
-      __cil_tmp20 = (unsigned long )__cil_tmp19;
+      __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 2218
-      __cil_tmp21 = (unsigned long )pch;
+      __cil_tmp15 = pch->ppp;
 #line 2218
-      __cil_tmp22 = __cil_tmp21 + 568;
+      __cil_tmp16 = __cil_tmp15->dev;
 #line 2218
-      __cil_tmp23 = *((struct ppp **)__cil_tmp22);
+      __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 2218
-      __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 2218
-      __cil_tmp25 = __cil_tmp24 + 784;
-#line 2218
-      __cil_tmp26 = *((struct net_device **)__cil_tmp25);
-#line 2218
-      __cil_tmp27 = (unsigned long )__cil_tmp26;
-#line 2218
-      if (__cil_tmp27 != __cil_tmp20) {
+      if (__cil_tmp17 != __cil_tmp14) {
 #line 2219
-        __cil_tmp28 = (unsigned long )pch;
+        __cil_tmp18 = pch->ppp;
 #line 2219
-        __cil_tmp29 = __cil_tmp28 + 568;
+        __cil_tmp19 = __cil_tmp18->dev;
 #line 2219
-        __cil_tmp30 = *((struct ppp **)__cil_tmp29);
+        __cil_tmp20 = & __cil_tmp19->name;
 #line 2219
-        __cil_tmp31 = (unsigned long )__cil_tmp30;
-#line 2219
-        __cil_tmp32 = __cil_tmp31 + 784;
-#line 2219
-        __cil_tmp33 = *((struct net_device **)__cil_tmp32);
-#line 2219
-        __cil_tmp34 = (char (*)[16U])__cil_tmp33;
-#line 2219
-        name = (char *)__cil_tmp34;
+        name = (char *)__cil_tmp20;
       } else {
 
       }
@@ -21669,13 +17946,9 @@ char *ppp_dev_name(struct ppp_channel *chan )
     }
     {
 #line 2220
-    __cil_tmp35 = (unsigned long )pch;
+    __cil_tmp21 = & pch->upl;
 #line 2220
-    __cil_tmp36 = __cil_tmp35 + 600;
-#line 2220
-    __cil_tmp37 = (rwlock_t *)__cil_tmp36;
-#line 2220
-    _raw_read_unlock_bh(__cil_tmp37);
+    _raw_read_unlock_bh(__cil_tmp21);
     }
   } else {
 
@@ -21690,71 +17963,36 @@ void ppp_unregister_channel(struct ppp_channel *chan )
 { struct channel *pch ;
   struct ppp_net *pn ;
   int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  struct channel *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct rw_semaphore *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  spinlock_t *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  spinlock_t *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct rw_semaphore *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct net *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  spinlock_t *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct list_head *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  spinlock_t *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  wait_queue_head_t *__cil_tmp45 ;
-  void *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  atomic_t *__cil_tmp50 ;
+  void *__cil_tmp5 ;
+  struct channel *__cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
+  unsigned long __cil_tmp8 ;
+  struct rw_semaphore *__cil_tmp9 ;
+  spinlock_t *__cil_tmp10 ;
+  spinlock_t *__cil_tmp11 ;
+  struct rw_semaphore *__cil_tmp12 ;
+  struct net *__cil_tmp13 ;
+  spinlock_t *__cil_tmp14 ;
+  struct list_head *__cil_tmp15 ;
+  spinlock_t *__cil_tmp16 ;
+  wait_queue_head_t *__cil_tmp17 ;
+  void *__cil_tmp18 ;
+  atomic_t *__cil_tmp19 ;
 
   {
 #line 2233
-  __cil_tmp5 = (unsigned long )chan;
+  __cil_tmp5 = chan->ppp;
 #line 2233
-  __cil_tmp6 = __cil_tmp5 + 24;
-#line 2233
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 2233
-  pch = (struct channel *)__cil_tmp7;
+  pch = (struct channel *)__cil_tmp5;
   {
 #line 2236
-  __cil_tmp8 = (struct channel *)0;
+  __cil_tmp6 = (struct channel *)0;
 #line 2236
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
+  __cil_tmp7 = (unsigned long )__cil_tmp6;
 #line 2236
-  __cil_tmp10 = (unsigned long )pch;
+  __cil_tmp8 = (unsigned long )pch;
 #line 2236
-  if (__cil_tmp10 == __cil_tmp9) {
+  if (__cil_tmp8 == __cil_tmp7) {
 #line 2237
     return;
   } else {
@@ -21763,113 +18001,55 @@ void ppp_unregister_channel(struct ppp_channel *chan )
   }
   {
 #line 2239
-  __cil_tmp11 = (unsigned long )chan;
-#line 2239
-  __cil_tmp12 = __cil_tmp11 + 24;
-#line 2239
-  *((void **)__cil_tmp12) = (void *)0;
+  chan->ppp = (void *)0;
 #line 2245
-  __cil_tmp13 = (unsigned long )pch;
+  __cil_tmp9 = & pch->chan_sem;
 #line 2245
-  __cil_tmp14 = __cil_tmp13 + 352;
-#line 2245
-  __cil_tmp15 = (struct rw_semaphore *)__cil_tmp14;
-#line 2245
-  down_write(__cil_tmp15);
+  down_write(__cil_tmp9);
 #line 2246
-  __cil_tmp16 = (unsigned long )pch;
+  __cil_tmp10 = & pch->downl;
 #line 2246
-  __cil_tmp17 = __cil_tmp16 + 496;
-#line 2246
-  __cil_tmp18 = (spinlock_t *)__cil_tmp17;
-#line 2246
-  spin_lock_bh(__cil_tmp18);
+  spin_lock_bh(__cil_tmp10);
 #line 2247
-  __cil_tmp19 = (unsigned long )pch;
-#line 2247
-  __cil_tmp20 = __cil_tmp19 + 344;
-#line 2247
-  *((struct ppp_channel **)__cil_tmp20) = (struct ppp_channel *)0;
+  pch->chan = (struct ppp_channel *)0;
 #line 2248
-  __cil_tmp21 = (unsigned long )pch;
+  __cil_tmp11 = & pch->downl;
 #line 2248
-  __cil_tmp22 = __cil_tmp21 + 496;
-#line 2248
-  __cil_tmp23 = (spinlock_t *)__cil_tmp22;
-#line 2248
-  spin_unlock_bh(__cil_tmp23);
+  spin_unlock_bh(__cil_tmp11);
 #line 2249
-  __cil_tmp24 = (unsigned long )pch;
+  __cil_tmp12 = & pch->chan_sem;
 #line 2249
-  __cil_tmp25 = __cil_tmp24 + 352;
-#line 2249
-  __cil_tmp26 = (struct rw_semaphore *)__cil_tmp25;
-#line 2249
-  up_write(__cil_tmp26);
+  up_write(__cil_tmp12);
 #line 2250
   ppp_disconnect_channel(pch);
 #line 2252
-  __cil_tmp27 = (unsigned long )pch;
+  __cil_tmp13 = pch->chan_net;
 #line 2252
-  __cil_tmp28 = __cil_tmp27 + 576;
-#line 2252
-  __cil_tmp29 = *((struct net **)__cil_tmp28);
-#line 2252
-  pn = ppp_pernet(__cil_tmp29);
+  pn = ppp_pernet(__cil_tmp13);
 #line 2253
-  __cil_tmp30 = (unsigned long )pn;
+  __cil_tmp14 = & pn->all_channels_lock;
 #line 2253
-  __cil_tmp31 = __cil_tmp30 + 304;
-#line 2253
-  __cil_tmp32 = (spinlock_t *)__cil_tmp31;
-#line 2253
-  spin_lock_bh(__cil_tmp32);
+  spin_lock_bh(__cil_tmp14);
 #line 2254
-  __cil_tmp33 = (unsigned long )pch;
+  __cil_tmp15 = & pch->list;
 #line 2254
-  __cil_tmp34 = __cil_tmp33 + 328;
-#line 2254
-  __cil_tmp35 = (struct list_head *)__cil_tmp34;
-#line 2254
-  list_del(__cil_tmp35);
+  list_del(__cil_tmp15);
 #line 2255
-  __cil_tmp36 = (unsigned long )pn;
+  __cil_tmp16 = & pn->all_channels_lock;
 #line 2255
-  __cil_tmp37 = __cil_tmp36 + 304;
-#line 2255
-  __cil_tmp38 = (spinlock_t *)__cil_tmp37;
-#line 2255
-  spin_unlock_bh(__cil_tmp38);
+  spin_unlock_bh(__cil_tmp16);
 #line 2257
-  __cil_tmp39 = 0 + 324;
-#line 2257
-  __cil_tmp40 = (unsigned long )pch;
-#line 2257
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
-#line 2257
-  *((int *)__cil_tmp41) = 1;
+  pch->file.dead = 1;
 #line 2258
-  __cil_tmp42 = 0 + 224;
+  __cil_tmp17 = & pch->file.rwait;
 #line 2258
-  __cil_tmp43 = (unsigned long )pch;
+  __cil_tmp18 = (void *)0;
 #line 2258
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
-#line 2258
-  __cil_tmp45 = (wait_queue_head_t *)__cil_tmp44;
-#line 2258
-  __cil_tmp46 = (void *)0;
-#line 2258
-  __wake_up(__cil_tmp45, 1U, 1, __cil_tmp46);
+  __wake_up(__cil_tmp17, 1U, 1, __cil_tmp18);
 #line 2259
-  __cil_tmp47 = 0 + 312;
+  __cil_tmp19 = & pch->file.refcnt;
 #line 2259
-  __cil_tmp48 = (unsigned long )pch;
-#line 2259
-  __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
-#line 2259
-  __cil_tmp50 = (atomic_t *)__cil_tmp49;
-#line 2259
-  tmp = atomic_dec_and_test(__cil_tmp50);
+  tmp = atomic_dec_and_test(__cil_tmp19);
   }
 #line 2259
   if (tmp != 0) {
@@ -21887,31 +18067,25 @@ void ppp_unregister_channel(struct ppp_channel *chan )
 #line 2268 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 void ppp_output_wakeup(struct ppp_channel *chan ) 
 { struct channel *pch ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void *__cil_tmp5 ;
-  struct channel *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  void *__cil_tmp3 ;
+  struct channel *__cil_tmp4 ;
+  unsigned long __cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
 
   {
 #line 2270
-  __cil_tmp3 = (unsigned long )chan;
+  __cil_tmp3 = chan->ppp;
 #line 2270
-  __cil_tmp4 = __cil_tmp3 + 24;
-#line 2270
-  __cil_tmp5 = *((void **)__cil_tmp4);
-#line 2270
-  pch = (struct channel *)__cil_tmp5;
+  pch = (struct channel *)__cil_tmp3;
   {
 #line 2272
-  __cil_tmp6 = (struct channel *)0;
+  __cil_tmp4 = (struct channel *)0;
 #line 2272
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp5 = (unsigned long )__cil_tmp4;
 #line 2272
-  __cil_tmp8 = (unsigned long )pch;
+  __cil_tmp6 = (unsigned long )pch;
 #line 2272
-  if (__cil_tmp8 == __cil_tmp7) {
+  if (__cil_tmp6 == __cil_tmp5) {
 #line 2273
     return;
   } else {
@@ -21942,133 +18116,52 @@ static int ppp_set_compress(struct ppp *ppp , unsigned long arg )
   struct compressor *tmp___4 ;
   void *__cil_tmp15 ;
   void const   *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  __u32 __cil_tmp18 ;
-  void *__cil_tmp19 ;
-  struct ppp_option_data *__cil_tmp20 ;
-  __u8 *__cil_tmp21 ;
-  void const   *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  __u32 __cil_tmp24 ;
+  void *__cil_tmp17 ;
+  void const   *__cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
+  unsigned int __cil_tmp20 ;
+  __u32 __cil_tmp21 ;
+  int __cil_tmp22 ;
+  struct compressor *__cil_tmp23 ;
+  unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  __u32 __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned char __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
+  int __cil_tmp26 ;
+  bool __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  struct compressor *__cil_tmp30 ;
+  unsigned long __cil_tmp31 ;
   unsigned long __cil_tmp32 ;
-  __u32 __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned char __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
+  void *(*__cil_tmp33)(unsigned char * , int  ) ;
+  unsigned char *__cil_tmp34 ;
+  int __cil_tmp35 ;
+  void *__cil_tmp36 ;
+  unsigned long __cil_tmp37 ;
   unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned char __cil_tmp40 ;
-  int __cil_tmp41 ;
-  struct compressor *__cil_tmp42 ;
+  spinlock_t *__cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  spinlock_t *__cil_tmp41 ;
+  void *__cil_tmp42 ;
   unsigned long __cil_tmp43 ;
   unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned char __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned char __cil_tmp51 ;
-  int __cil_tmp52 ;
+  void (*__cil_tmp45)(void * ) ;
+  struct module *__cil_tmp46 ;
+  struct module *__cil_tmp47 ;
+  void *(*__cil_tmp48)(unsigned char * , int  ) ;
+  unsigned char *__cil_tmp49 ;
+  int __cil_tmp50 ;
+  void *__cil_tmp51 ;
+  unsigned long __cil_tmp52 ;
   unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned char __cil_tmp55 ;
-  int __cil_tmp56 ;
-  struct compressor *__cil_tmp57 ;
+  spinlock_t *__cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  spinlock_t *__cil_tmp56 ;
+  void *__cil_tmp57 ;
   unsigned long __cil_tmp58 ;
   unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  void *(*__cil_tmp64)(unsigned char * , int  ) ;
-  unsigned char *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  __u32 __cil_tmp67 ;
-  int __cil_tmp68 ;
-  void *__cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  spinlock_t *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  spinlock_t *__cil_tmp90 ;
-  void *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  void (*__cil_tmp96)(void * ) ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  struct module *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  struct module *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  void *(*__cil_tmp105)(unsigned char * , int  ) ;
-  unsigned char *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  __u32 __cil_tmp108 ;
-  int __cil_tmp109 ;
-  void *__cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  spinlock_t *__cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned int __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  spinlock_t *__cil_tmp131 ;
-  void *__cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  void (*__cil_tmp137)(void * ) ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  struct module *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  struct module *__cil_tmp143 ;
+  void (*__cil_tmp60)(void * ) ;
+  struct module *__cil_tmp61 ;
+  struct module *__cil_tmp62 ;
 
   {
   {
@@ -22083,83 +18176,52 @@ static int ppp_set_compress(struct ppp *ppp , unsigned long arg )
   }
 #line 2292
   if (tmp != 0UL) {
+#line 2295
     goto out;
-  } else {
+  } else
+#line 2292
+  if (data.length <= 32U) {
     {
 #line 2292
-    __cil_tmp17 = (unsigned long )(& data) + 8;
+    __cil_tmp17 = (void *)(& ccp_option);
 #line 2292
-    __cil_tmp18 = *((__u32 *)__cil_tmp17);
+    __cil_tmp18 = (void const   *)data.ptr;
 #line 2292
-    if (__cil_tmp18 <= 32U) {
-      {
+    __cil_tmp19 = (unsigned long )data.length;
 #line 2292
-      __cil_tmp19 = (void *)(& ccp_option);
+    tmp___0 = copy_from_user(__cil_tmp17, __cil_tmp18, __cil_tmp19);
+    }
 #line 2292
-      __cil_tmp20 = & data;
-#line 2292
-      __cil_tmp21 = *((__u8 **)__cil_tmp20);
-#line 2292
-      __cil_tmp22 = (void const   *)__cil_tmp21;
-#line 2292
-      __cil_tmp23 = (unsigned long )(& data) + 8;
-#line 2292
-      __cil_tmp24 = *((__u32 *)__cil_tmp23);
-#line 2292
-      __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 2292
-      tmp___0 = copy_from_user(__cil_tmp19, __cil_tmp22, __cil_tmp25);
-      }
-#line 2292
-      if (tmp___0 != 0UL) {
-        goto out;
-      } else {
-
-      }
+    if (tmp___0 != 0UL) {
+#line 2295
+      goto out;
     } else {
 
     }
-    }
+  } else {
+
   }
 #line 2296
   err = -22;
-  {
 #line 2297
-  __cil_tmp26 = (unsigned long )(& data) + 8;
-#line 2297
-  __cil_tmp27 = *((__u32 *)__cil_tmp26);
-#line 2297
-  if (__cil_tmp27 > 32U) {
+  if (data.length > 32U) {
+#line 2299
     goto out;
   } else {
     {
 #line 2297
-    __cil_tmp28 = 1 * 1UL;
+    __cil_tmp20 = (unsigned int )ccp_option[1];
 #line 2297
-    __cil_tmp29 = (unsigned long )(ccp_option) + __cil_tmp28;
-#line 2297
-    __cil_tmp30 = *((unsigned char *)__cil_tmp29);
-#line 2297
-    __cil_tmp31 = (unsigned int )__cil_tmp30;
-#line 2297
-    if (__cil_tmp31 <= 1U) {
+    if (__cil_tmp20 <= 1U) {
+#line 2299
       goto out;
     } else {
       {
 #line 2297
-      __cil_tmp32 = (unsigned long )(& data) + 8;
+      __cil_tmp21 = (__u32 )ccp_option[1];
 #line 2297
-      __cil_tmp33 = *((__u32 *)__cil_tmp32);
-#line 2297
-      __cil_tmp34 = 1 * 1UL;
-#line 2297
-      __cil_tmp35 = (unsigned long )(ccp_option) + __cil_tmp34;
-#line 2297
-      __cil_tmp36 = *((unsigned char *)__cil_tmp35);
-#line 2297
-      __cil_tmp37 = (unsigned int )__cil_tmp36;
-#line 2297
-      if (__cil_tmp37 > __cil_tmp33) {
+      if (__cil_tmp21 > data.length) {
+#line 2299
         goto out;
       } else {
 
@@ -22168,64 +18230,41 @@ static int ppp_set_compress(struct ppp *ppp , unsigned long arg )
     }
     }
   }
+  {
+#line 2301
+  __cil_tmp22 = (int )ccp_option[0];
+#line 2301
+  tmp___4 = find_compressor(__cil_tmp22);
   }
   {
 #line 2301
-  __cil_tmp38 = 0 * 1UL;
+  __cil_tmp23 = (struct compressor *)0;
 #line 2301
-  __cil_tmp39 = (unsigned long )(ccp_option) + __cil_tmp38;
+  __cil_tmp24 = (unsigned long )__cil_tmp23;
 #line 2301
-  __cil_tmp40 = *((unsigned char *)__cil_tmp39);
+  __cil_tmp25 = (unsigned long )tmp___4;
 #line 2301
-  __cil_tmp41 = (int )__cil_tmp40;
-#line 2301
-  tmp___4 = find_compressor(__cil_tmp41);
-  }
-  {
-#line 2301
-  __cil_tmp42 = (struct compressor *)0;
-#line 2301
-  __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 2301
-  __cil_tmp44 = (unsigned long )tmp___4;
-#line 2301
-  if (__cil_tmp44 != __cil_tmp43) {
+  if (__cil_tmp25 != __cil_tmp24) {
     {
 #line 2301
-    __cil_tmp45 = 0 * 1UL;
+    __cil_tmp26 = (int )ccp_option[0];
 #line 2301
-    __cil_tmp46 = (unsigned long )(ccp_option) + __cil_tmp45;
-#line 2301
-    __cil_tmp47 = *((unsigned char *)__cil_tmp46);
-#line 2301
-    __cil_tmp48 = (int )__cil_tmp47;
-#line 2301
-    tmp___2 = find_compressor(__cil_tmp48);
+    tmp___2 = find_compressor(__cil_tmp26);
 #line 2301
     cp = tmp___2;
     }
   } else {
     {
 #line 2301
-    __cil_tmp49 = 0 * 1UL;
+    __cil_tmp27 = (bool )1;
 #line 2301
-    __cil_tmp50 = (unsigned long )(ccp_option) + __cil_tmp49;
+    __cil_tmp28 = (int )ccp_option[0];
 #line 2301
-    __cil_tmp51 = *((unsigned char *)__cil_tmp50);
+    __request_module(__cil_tmp27, "ppp-compress-%d", __cil_tmp28);
 #line 2301
-    __cil_tmp52 = (int )__cil_tmp51;
+    __cil_tmp29 = (int )ccp_option[0];
 #line 2301
-    __request_module((_Bool)1, "ppp-compress-%d", __cil_tmp52);
-#line 2301
-    __cil_tmp53 = 0 * 1UL;
-#line 2301
-    __cil_tmp54 = (unsigned long )(ccp_option) + __cil_tmp53;
-#line 2301
-    __cil_tmp55 = *((unsigned char *)__cil_tmp54);
-#line 2301
-    __cil_tmp56 = (int )__cil_tmp55;
-#line 2301
-    tmp___3 = find_compressor(__cil_tmp56);
+    tmp___3 = find_compressor(__cil_tmp29);
 #line 2301
     cp = tmp___3;
     }
@@ -22233,13 +18272,14 @@ static int ppp_set_compress(struct ppp *ppp , unsigned long arg )
   }
   {
 #line 2304
-  __cil_tmp57 = (struct compressor *)0;
+  __cil_tmp30 = (struct compressor *)0;
 #line 2304
-  __cil_tmp58 = (unsigned long )__cil_tmp57;
+  __cil_tmp31 = (unsigned long )__cil_tmp30;
 #line 2304
-  __cil_tmp59 = (unsigned long )cp;
+  __cil_tmp32 = (unsigned long )cp;
 #line 2304
-  if (__cil_tmp59 == __cil_tmp58) {
+  if (__cil_tmp32 == __cil_tmp31) {
+#line 2305
     goto out;
   } else {
 
@@ -22247,120 +18287,67 @@ static int ppp_set_compress(struct ppp *ppp , unsigned long arg )
   }
 #line 2307
   err = -105;
-  {
 #line 2308
-  __cil_tmp60 = (unsigned long )(& data) + 12;
-#line 2308
-  __cil_tmp61 = *((int *)__cil_tmp60);
-#line 2308
-  if (__cil_tmp61 != 0) {
+  if (data.transmit != 0) {
     {
 #line 2309
-    __cil_tmp62 = (unsigned long )cp;
+    __cil_tmp33 = cp->comp_alloc;
 #line 2309
-    __cil_tmp63 = __cil_tmp62 + 8;
+    __cil_tmp34 = (unsigned char *)(& ccp_option);
 #line 2309
-    __cil_tmp64 = *((void *(**)(unsigned char * , int  ))__cil_tmp63);
+    __cil_tmp35 = (int )data.length;
 #line 2309
-    __cil_tmp65 = (unsigned char *)(& ccp_option);
-#line 2309
-    __cil_tmp66 = (unsigned long )(& data) + 8;
-#line 2309
-    __cil_tmp67 = *((__u32 *)__cil_tmp66);
-#line 2309
-    __cil_tmp68 = (int )__cil_tmp67;
-#line 2309
-    state = (*__cil_tmp64)(__cil_tmp65, __cil_tmp68);
+    state = (*__cil_tmp33)(__cil_tmp34, __cil_tmp35);
     }
     {
 #line 2310
-    __cil_tmp69 = (void *)0;
+    __cil_tmp36 = (void *)0;
 #line 2310
-    __cil_tmp70 = (unsigned long )__cil_tmp69;
+    __cil_tmp37 = (unsigned long )__cil_tmp36;
 #line 2310
-    __cil_tmp71 = (unsigned long )state;
+    __cil_tmp38 = (unsigned long )state;
 #line 2310
-    if (__cil_tmp71 != __cil_tmp70) {
+    if (__cil_tmp38 != __cil_tmp37) {
       {
 #line 2311
-      __cil_tmp72 = (unsigned long )ppp;
+      __cil_tmp39 = & ppp->wlock;
 #line 2311
-      __cil_tmp73 = __cil_tmp72 + 432;
-#line 2311
-      __cil_tmp74 = (spinlock_t *)__cil_tmp73;
-#line 2311
-      spin_lock_bh(__cil_tmp74);
+      spin_lock_bh(__cil_tmp39);
 #line 2312
-      __cil_tmp75 = (unsigned long )ppp;
+      __cil_tmp40 = ppp->xstate;
 #line 2312
-      __cil_tmp76 = __cil_tmp75 + 512;
-#line 2312
-      __cil_tmp77 = (unsigned long )ppp;
-#line 2312
-      __cil_tmp78 = __cil_tmp77 + 512;
-#line 2312
-      __cil_tmp79 = *((unsigned int *)__cil_tmp78);
-#line 2312
-      *((unsigned int *)__cil_tmp76) = __cil_tmp79 & 4294963199U;
+      ppp->xstate = __cil_tmp40 & 4294963199U;
 #line 2313
-      __cil_tmp80 = (unsigned long )ppp;
-#line 2313
-      __cil_tmp81 = __cil_tmp80 + 736;
-#line 2313
-      ocomp = *((struct compressor **)__cil_tmp81);
+      ocomp = ppp->xcomp;
 #line 2314
-      __cil_tmp82 = (unsigned long )ppp;
-#line 2314
-      __cil_tmp83 = __cil_tmp82 + 744;
-#line 2314
-      ostate = *((void **)__cil_tmp83);
+      ostate = ppp->xc_state;
 #line 2315
-      __cil_tmp84 = (unsigned long )ppp;
-#line 2315
-      __cil_tmp85 = __cil_tmp84 + 736;
-#line 2315
-      *((struct compressor **)__cil_tmp85) = cp;
+      ppp->xcomp = cp;
 #line 2316
-      __cil_tmp86 = (unsigned long )ppp;
-#line 2316
-      __cil_tmp87 = __cil_tmp86 + 744;
-#line 2316
-      *((void **)__cil_tmp87) = state;
+      ppp->xc_state = state;
 #line 2317
-      __cil_tmp88 = (unsigned long )ppp;
+      __cil_tmp41 = & ppp->wlock;
 #line 2317
-      __cil_tmp89 = __cil_tmp88 + 432;
-#line 2317
-      __cil_tmp90 = (spinlock_t *)__cil_tmp89;
-#line 2317
-      spin_unlock_bh(__cil_tmp90);
+      spin_unlock_bh(__cil_tmp41);
       }
       {
 #line 2318
-      __cil_tmp91 = (void *)0;
+      __cil_tmp42 = (void *)0;
 #line 2318
-      __cil_tmp92 = (unsigned long )__cil_tmp91;
+      __cil_tmp43 = (unsigned long )__cil_tmp42;
 #line 2318
-      __cil_tmp93 = (unsigned long )ostate;
+      __cil_tmp44 = (unsigned long )ostate;
 #line 2318
-      if (__cil_tmp93 != __cil_tmp92) {
+      if (__cil_tmp44 != __cil_tmp43) {
         {
 #line 2319
-        __cil_tmp94 = (unsigned long )ocomp;
+        __cil_tmp45 = ocomp->comp_free;
 #line 2319
-        __cil_tmp95 = __cil_tmp94 + 16;
-#line 2319
-        __cil_tmp96 = *((void (**)(void * ))__cil_tmp95);
-#line 2319
-        (*__cil_tmp96)(ostate);
+        (*__cil_tmp45)(ostate);
 #line 2320
-        __cil_tmp97 = (unsigned long )ocomp;
+        __cil_tmp46 = ocomp->owner;
 #line 2320
-        __cil_tmp98 = __cil_tmp97 + 112;
-#line 2320
-        __cil_tmp99 = *((struct module **)__cil_tmp98);
-#line 2320
-        ldv_module_put_1(__cil_tmp99);
+        ldv_module_put_1(__cil_tmp46);
         }
       } else {
 
@@ -22371,124 +18358,72 @@ static int ppp_set_compress(struct ppp *ppp , unsigned long arg )
     } else {
       {
 #line 2324
-      __cil_tmp100 = (unsigned long )cp;
+      __cil_tmp47 = cp->owner;
 #line 2324
-      __cil_tmp101 = __cil_tmp100 + 112;
-#line 2324
-      __cil_tmp102 = *((struct module **)__cil_tmp101);
-#line 2324
-      ldv_module_put_2(__cil_tmp102);
+      ldv_module_put_2(__cil_tmp47);
       }
     }
     }
   } else {
     {
 #line 2327
-    __cil_tmp103 = (unsigned long )cp;
+    __cil_tmp48 = cp->decomp_alloc;
 #line 2327
-    __cil_tmp104 = __cil_tmp103 + 56;
+    __cil_tmp49 = (unsigned char *)(& ccp_option);
 #line 2327
-    __cil_tmp105 = *((void *(**)(unsigned char * , int  ))__cil_tmp104);
+    __cil_tmp50 = (int )data.length;
 #line 2327
-    __cil_tmp106 = (unsigned char *)(& ccp_option);
-#line 2327
-    __cil_tmp107 = (unsigned long )(& data) + 8;
-#line 2327
-    __cil_tmp108 = *((__u32 *)__cil_tmp107);
-#line 2327
-    __cil_tmp109 = (int )__cil_tmp108;
-#line 2327
-    state = (*__cil_tmp105)(__cil_tmp106, __cil_tmp109);
+    state = (*__cil_tmp48)(__cil_tmp49, __cil_tmp50);
     }
     {
 #line 2328
-    __cil_tmp110 = (void *)0;
+    __cil_tmp51 = (void *)0;
 #line 2328
-    __cil_tmp111 = (unsigned long )__cil_tmp110;
+    __cil_tmp52 = (unsigned long )__cil_tmp51;
 #line 2328
-    __cil_tmp112 = (unsigned long )state;
+    __cil_tmp53 = (unsigned long )state;
 #line 2328
-    if (__cil_tmp112 != __cil_tmp111) {
+    if (__cil_tmp53 != __cil_tmp52) {
       {
 #line 2329
-      __cil_tmp113 = (unsigned long )ppp;
+      __cil_tmp54 = & ppp->rlock;
 #line 2329
-      __cil_tmp114 = __cil_tmp113 + 360;
-#line 2329
-      __cil_tmp115 = (spinlock_t *)__cil_tmp114;
-#line 2329
-      spin_lock_bh(__cil_tmp115);
+      spin_lock_bh(__cil_tmp54);
 #line 2330
-      __cil_tmp116 = (unsigned long )ppp;
+      __cil_tmp55 = ppp->rstate;
 #line 2330
-      __cil_tmp117 = __cil_tmp116 + 516;
-#line 2330
-      __cil_tmp118 = (unsigned long )ppp;
-#line 2330
-      __cil_tmp119 = __cil_tmp118 + 516;
-#line 2330
-      __cil_tmp120 = *((unsigned int *)__cil_tmp119);
-#line 2330
-      *((unsigned int *)__cil_tmp117) = __cil_tmp120 & 4294959103U;
+      ppp->rstate = __cil_tmp55 & 4294959103U;
 #line 2331
-      __cil_tmp121 = (unsigned long )ppp;
-#line 2331
-      __cil_tmp122 = __cil_tmp121 + 752;
-#line 2331
-      ocomp = *((struct compressor **)__cil_tmp122);
+      ocomp = ppp->rcomp;
 #line 2332
-      __cil_tmp123 = (unsigned long )ppp;
-#line 2332
-      __cil_tmp124 = __cil_tmp123 + 760;
-#line 2332
-      ostate = *((void **)__cil_tmp124);
+      ostate = ppp->rc_state;
 #line 2333
-      __cil_tmp125 = (unsigned long )ppp;
-#line 2333
-      __cil_tmp126 = __cil_tmp125 + 752;
-#line 2333
-      *((struct compressor **)__cil_tmp126) = cp;
+      ppp->rcomp = cp;
 #line 2334
-      __cil_tmp127 = (unsigned long )ppp;
-#line 2334
-      __cil_tmp128 = __cil_tmp127 + 760;
-#line 2334
-      *((void **)__cil_tmp128) = state;
+      ppp->rc_state = state;
 #line 2335
-      __cil_tmp129 = (unsigned long )ppp;
+      __cil_tmp56 = & ppp->rlock;
 #line 2335
-      __cil_tmp130 = __cil_tmp129 + 360;
-#line 2335
-      __cil_tmp131 = (spinlock_t *)__cil_tmp130;
-#line 2335
-      spin_unlock_bh(__cil_tmp131);
+      spin_unlock_bh(__cil_tmp56);
       }
       {
 #line 2336
-      __cil_tmp132 = (void *)0;
+      __cil_tmp57 = (void *)0;
 #line 2336
-      __cil_tmp133 = (unsigned long )__cil_tmp132;
+      __cil_tmp58 = (unsigned long )__cil_tmp57;
 #line 2336
-      __cil_tmp134 = (unsigned long )ostate;
+      __cil_tmp59 = (unsigned long )ostate;
 #line 2336
-      if (__cil_tmp134 != __cil_tmp133) {
+      if (__cil_tmp59 != __cil_tmp58) {
         {
 #line 2337
-        __cil_tmp135 = (unsigned long )ocomp;
+        __cil_tmp60 = ocomp->decomp_free;
 #line 2337
-        __cil_tmp136 = __cil_tmp135 + 64;
-#line 2337
-        __cil_tmp137 = *((void (**)(void * ))__cil_tmp136);
-#line 2337
-        (*__cil_tmp137)(ostate);
+        (*__cil_tmp60)(ostate);
 #line 2338
-        __cil_tmp138 = (unsigned long )ocomp;
+        __cil_tmp61 = ocomp->owner;
 #line 2338
-        __cil_tmp139 = __cil_tmp138 + 112;
-#line 2338
-        __cil_tmp140 = *((struct module **)__cil_tmp139);
-#line 2338
-        ldv_module_put_3(__cil_tmp140);
+        ldv_module_put_3(__cil_tmp61);
         }
       } else {
 
@@ -22499,17 +18434,12 @@ static int ppp_set_compress(struct ppp *ppp , unsigned long arg )
     } else {
       {
 #line 2342
-      __cil_tmp141 = (unsigned long )cp;
+      __cil_tmp62 = cp->owner;
 #line 2342
-      __cil_tmp142 = __cil_tmp141 + 112;
-#line 2342
-      __cil_tmp143 = *((struct module **)__cil_tmp142);
-#line 2342
-      ldv_module_put_4(__cil_tmp143);
+      ldv_module_put_4(__cil_tmp62);
       }
     }
     }
-  }
   }
   out: ;
 #line 2346
@@ -22524,9 +18454,9 @@ static void ppp_ccp_peek(struct ppp *ppp , struct sk_buff *skb , int inbound )
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned char *__cil_tmp12 ;
+  unsigned char *__cil_tmp10 ;
+  unsigned char __cil_tmp11 ;
+  int __cil_tmp12 ;
   unsigned char __cil_tmp13 ;
   int __cil_tmp14 ;
   unsigned char __cil_tmp15 ;
@@ -22535,153 +18465,67 @@ static void ppp_ccp_peek(struct ppp *ppp , struct sk_buff *skb , int inbound )
   int __cil_tmp18 ;
   unsigned char __cil_tmp19 ;
   int __cil_tmp20 ;
-  unsigned char __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  unsigned int __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  unsigned char *__cil_tmp27 ;
+  unsigned char __cil_tmp28 ;
+  int __cil_tmp29 ;
+  unsigned char *__cil_tmp30 ;
+  unsigned char __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  unsigned int __cil_tmp35 ;
+  unsigned char *__cil_tmp36 ;
+  unsigned char __cil_tmp37 ;
+  int __cil_tmp38 ;
+  void *__cil_tmp39 ;
   unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned int __cil_tmp46 ;
-  unsigned char *__cil_tmp47 ;
-  unsigned char __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned char *__cil_tmp50 ;
-  unsigned char __cil_tmp51 ;
-  int __cil_tmp52 ;
-  int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned int __cil_tmp55 ;
-  unsigned char *__cil_tmp56 ;
-  unsigned char __cil_tmp57 ;
+  void *__cil_tmp41 ;
+  unsigned long __cil_tmp42 ;
+  struct compressor *__cil_tmp43 ;
+  int (*__cil_tmp44)(void * , unsigned char * , int  , int  , int  , int  , int  ) ;
+  void *__cil_tmp45 ;
+  int __cil_tmp46 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  unsigned int __cil_tmp49 ;
+  unsigned int __cil_tmp50 ;
+  void *__cil_tmp51 ;
+  unsigned long __cil_tmp52 ;
+  void *__cil_tmp53 ;
+  unsigned long __cil_tmp54 ;
+  struct compressor *__cil_tmp55 ;
+  int (*__cil_tmp56)(void * , unsigned char * , int  , int  , int  , int  ) ;
+  void *__cil_tmp57 ;
   int __cil_tmp58 ;
-  void *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
+  int __cil_tmp59 ;
+  unsigned int __cil_tmp60 ;
+  unsigned int __cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
   void *__cil_tmp63 ;
   unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  void *__cil_tmp65 ;
   unsigned long __cil_tmp66 ;
-  struct compressor *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  int (*__cil_tmp70)(void * , unsigned char * , int  , int  , int  , int  , int  ) ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
+  unsigned int __cil_tmp67 ;
+  unsigned int __cil_tmp68 ;
+  struct compressor *__cil_tmp69 ;
+  void (*__cil_tmp70)(void * ) ;
+  void *__cil_tmp71 ;
+  unsigned int __cil_tmp72 ;
   void *__cil_tmp73 ;
   unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
+  void *__cil_tmp75 ;
   unsigned long __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned int __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  void *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  void *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  struct compressor *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  int (*__cil_tmp105)(void * , unsigned char * , int  , int  , int  , int  ) ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  void *__cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  int __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned int __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned int __cil_tmp123 ;
-  unsigned int __cil_tmp124 ;
-  void *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  void *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned int __cil_tmp133 ;
-  unsigned int __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  struct compressor *__cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  void (*__cil_tmp140)(void * ) ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  void *__cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned int __cil_tmp148 ;
-  void *__cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  void *__cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned int __cil_tmp157 ;
-  unsigned int __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  struct compressor *__cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  void (*__cil_tmp164)(void * ) ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  void *__cil_tmp167 ;
+  unsigned int __cil_tmp77 ;
+  unsigned int __cil_tmp78 ;
+  struct compressor *__cil_tmp79 ;
+  void (*__cil_tmp80)(void * ) ;
+  void *__cil_tmp81 ;
 
   {
   {
@@ -22696,511 +18540,351 @@ static void ppp_ccp_peek(struct ppp *ppp , struct sk_buff *skb , int inbound )
 
   }
 #line 2361
-  __cil_tmp10 = (unsigned long )skb;
+  __cil_tmp10 = skb->data;
 #line 2361
-  __cil_tmp11 = __cil_tmp10 + 224;
-#line 2361
-  __cil_tmp12 = *((unsigned char **)__cil_tmp11);
-#line 2361
-  dp = __cil_tmp12 + 2UL;
+  dp = __cil_tmp10 + 2UL;
   {
 #line 2364
-  __cil_tmp13 = *dp;
+  __cil_tmp11 = *dp;
 #line 2364
-  __cil_tmp14 = (int )__cil_tmp13;
+  __cil_tmp12 = (int )__cil_tmp11;
 #line 2364
-  if (__cil_tmp14 == 1) {
+  if (__cil_tmp12 == 1) {
+#line 2364
     goto case_1;
   } else {
     {
 #line 2382
-    __cil_tmp15 = *dp;
+    __cil_tmp13 = *dp;
 #line 2382
-    __cil_tmp16 = (int )__cil_tmp15;
+    __cil_tmp14 = (int )__cil_tmp13;
 #line 2382
-    if (__cil_tmp16 == 5) {
+    if (__cil_tmp14 == 5) {
+#line 2382
       goto case_5;
     } else {
       {
 #line 2383
-      __cil_tmp17 = *dp;
+      __cil_tmp15 = *dp;
 #line 2383
-      __cil_tmp18 = (int )__cil_tmp17;
+      __cil_tmp16 = (int )__cil_tmp15;
 #line 2383
-      if (__cil_tmp18 == 6) {
+      if (__cil_tmp16 == 6) {
+#line 2383
         goto case_6;
       } else {
         {
 #line 2391
-        __cil_tmp19 = *dp;
+        __cil_tmp17 = *dp;
 #line 2391
-        __cil_tmp20 = (int )__cil_tmp19;
+        __cil_tmp18 = (int )__cil_tmp17;
 #line 2391
-        if (__cil_tmp20 == 2) {
+        if (__cil_tmp18 == 2) {
+#line 2391
           goto case_2;
         } else {
           {
 #line 2420
-          __cil_tmp21 = *dp;
+          __cil_tmp19 = *dp;
 #line 2420
-          __cil_tmp22 = (int )__cil_tmp21;
+          __cil_tmp20 = (int )__cil_tmp19;
 #line 2420
-          if (__cil_tmp22 == 15) {
+          if (__cil_tmp20 == 15) {
+#line 2420
             goto case_15;
-          } else {
+          } else
 #line 2363
-            if (0) {
-              case_1: ;
+          if (0) {
+            case_1: ;
 #line 2373
-              if (inbound != 0) {
+            if (inbound != 0) {
 #line 2375
-                __cil_tmp23 = (unsigned long )ppp;
+              __cil_tmp21 = ppp->xstate;
 #line 2375
-                __cil_tmp24 = __cil_tmp23 + 512;
-#line 2375
-                __cil_tmp25 = (unsigned long )ppp;
-#line 2375
-                __cil_tmp26 = __cil_tmp25 + 512;
-#line 2375
-                __cil_tmp27 = *((unsigned int *)__cil_tmp26);
-#line 2375
-                *((unsigned int *)__cil_tmp24) = __cil_tmp27 & 4294963199U;
-              } else {
+              ppp->xstate = __cil_tmp21 & 4294963199U;
+            } else {
 #line 2378
-                __cil_tmp28 = (unsigned long )ppp;
+              __cil_tmp22 = ppp->rstate;
 #line 2378
-                __cil_tmp29 = __cil_tmp28 + 516;
-#line 2378
-                __cil_tmp30 = (unsigned long )ppp;
-#line 2378
-                __cil_tmp31 = __cil_tmp30 + 516;
-#line 2378
-                __cil_tmp32 = *((unsigned int *)__cil_tmp31);
-#line 2378
-                *((unsigned int *)__cil_tmp29) = __cil_tmp32 & 4294959103U;
-              }
-              goto ldv_40312;
-              case_5: ;
-              case_6: 
+              ppp->rstate = __cil_tmp22 & 4294959103U;
+            }
+#line 2380
+            goto ldv_40312;
+            case_5: ;
+            case_6: 
 #line 2387
-              __cil_tmp33 = (unsigned long )ppp;
+            __cil_tmp23 = ppp->rstate;
 #line 2387
-              __cil_tmp34 = __cil_tmp33 + 516;
-#line 2387
-              __cil_tmp35 = (unsigned long )ppp;
-#line 2387
-              __cil_tmp36 = __cil_tmp35 + 516;
-#line 2387
-              __cil_tmp37 = *((unsigned int *)__cil_tmp36);
-#line 2387
-              *((unsigned int *)__cil_tmp34) = __cil_tmp37 & 4294959103U;
+            ppp->rstate = __cil_tmp23 & 4294959103U;
 #line 2388
-              __cil_tmp38 = (unsigned long )ppp;
+            __cil_tmp24 = ppp->xstate;
 #line 2388
-              __cil_tmp39 = __cil_tmp38 + 512;
-#line 2388
-              __cil_tmp40 = (unsigned long )ppp;
-#line 2388
-              __cil_tmp41 = __cil_tmp40 + 512;
-#line 2388
-              __cil_tmp42 = *((unsigned int *)__cil_tmp41);
-#line 2388
-              *((unsigned int *)__cil_tmp39) = __cil_tmp42 & 4294963199U;
-              goto ldv_40312;
-              case_2: ;
-              {
+            ppp->xstate = __cil_tmp24 & 4294963199U;
+#line 2389
+            goto ldv_40312;
+            case_2: ;
+            {
 #line 2392
-              __cil_tmp43 = (unsigned long )ppp;
+            __cil_tmp25 = ppp->flags;
 #line 2392
-              __cil_tmp44 = __cil_tmp43 + 508;
+            __cil_tmp26 = __cil_tmp25 & 192U;
 #line 2392
-              __cil_tmp45 = *((unsigned int *)__cil_tmp44);
-#line 2392
-              __cil_tmp46 = __cil_tmp45 & 192U;
-#line 2392
-              if (__cil_tmp46 != 64U) {
-                goto ldv_40312;
-              } else {
-
-              }
-              }
-              {
-#line 2394
-              __cil_tmp47 = dp + 3UL;
-#line 2394
-              __cil_tmp48 = *__cil_tmp47;
-#line 2394
-              __cil_tmp49 = (int )__cil_tmp48;
-#line 2394
-              __cil_tmp50 = dp + 2UL;
-#line 2394
-              __cil_tmp51 = *__cil_tmp50;
-#line 2394
-              __cil_tmp52 = (int )__cil_tmp51;
-#line 2394
-              __cil_tmp53 = __cil_tmp52 << 8;
-#line 2394
-              len = __cil_tmp53 + __cil_tmp49;
-#line 2395
-              __cil_tmp54 = len + 2;
-#line 2395
-              __cil_tmp55 = (unsigned int )__cil_tmp54;
-#line 2395
-              tmp___0 = pskb_may_pull(skb, __cil_tmp55);
-              }
-#line 2395
-              if (tmp___0 == 0) {
-#line 2396
-                return;
-              } else {
-
-              }
-#line 2397
-              dp = dp + 4UL;
-#line 2398
-              len = len + -4;
-#line 2399
-              if (len <= 1) {
-                goto ldv_40312;
-              } else {
-                {
-#line 2399
-                __cil_tmp56 = dp + 1UL;
-#line 2399
-                __cil_tmp57 = *__cil_tmp56;
-#line 2399
-                __cil_tmp58 = (int )__cil_tmp57;
-#line 2399
-                if (__cil_tmp58 > len) {
-                  goto ldv_40312;
-                } else {
-
-                }
-                }
-              }
-#line 2401
-              if (inbound != 0) {
-                {
-#line 2403
-                __cil_tmp59 = (void *)0;
-#line 2403
-                __cil_tmp60 = (unsigned long )__cil_tmp59;
-#line 2403
-                __cil_tmp61 = (unsigned long )ppp;
-#line 2403
-                __cil_tmp62 = __cil_tmp61 + 760;
-#line 2403
-                __cil_tmp63 = *((void **)__cil_tmp62);
-#line 2403
-                __cil_tmp64 = (unsigned long )__cil_tmp63;
-#line 2403
-                if (__cil_tmp64 == __cil_tmp60) {
-                  goto ldv_40312;
-                } else {
-
-                }
-                }
-                {
-#line 2405
-                __cil_tmp65 = (unsigned long )ppp;
-#line 2405
-                __cil_tmp66 = __cil_tmp65 + 752;
-#line 2405
-                __cil_tmp67 = *((struct compressor **)__cil_tmp66);
-#line 2405
-                __cil_tmp68 = (unsigned long )__cil_tmp67;
-#line 2405
-                __cil_tmp69 = __cil_tmp68 + 72;
-#line 2405
-                __cil_tmp70 = *((int (**)(void * , unsigned char * , int  , int  ,
-                                          int  , int  , int  ))__cil_tmp69);
-#line 2405
-                __cil_tmp71 = (unsigned long )ppp;
-#line 2405
-                __cil_tmp72 = __cil_tmp71 + 760;
-#line 2405
-                __cil_tmp73 = *((void **)__cil_tmp72);
-#line 2405
-                __cil_tmp74 = 0 + 320;
-#line 2405
-                __cil_tmp75 = (unsigned long )ppp;
-#line 2405
-                __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
-#line 2405
-                __cil_tmp77 = *((int *)__cil_tmp76);
-#line 2405
-                __cil_tmp78 = (unsigned long )ppp;
-#line 2405
-                __cil_tmp79 = __cil_tmp78 + 504;
-#line 2405
-                __cil_tmp80 = *((int *)__cil_tmp79);
-#line 2405
-                __cil_tmp81 = (unsigned long )ppp;
-#line 2405
-                __cil_tmp82 = __cil_tmp81 + 520;
-#line 2405
-                __cil_tmp83 = *((int *)__cil_tmp82);
-#line 2405
-                tmp___1 = (*__cil_tmp70)(__cil_tmp73, dp, len, __cil_tmp77, 0, __cil_tmp80,
-                                         __cil_tmp83);
-                }
-#line 2405
-                if (tmp___1 != 0) {
-#line 2407
-                  __cil_tmp84 = (unsigned long )ppp;
-#line 2407
-                  __cil_tmp85 = __cil_tmp84 + 516;
-#line 2407
-                  __cil_tmp86 = (unsigned long )ppp;
-#line 2407
-                  __cil_tmp87 = __cil_tmp86 + 516;
-#line 2407
-                  __cil_tmp88 = *((unsigned int *)__cil_tmp87);
-#line 2407
-                  *((unsigned int *)__cil_tmp85) = __cil_tmp88 | 8192U;
-#line 2408
-                  __cil_tmp89 = (unsigned long )ppp;
-#line 2408
-                  __cil_tmp90 = __cil_tmp89 + 516;
-#line 2408
-                  __cil_tmp91 = (unsigned long )ppp;
-#line 2408
-                  __cil_tmp92 = __cil_tmp91 + 516;
-#line 2408
-                  __cil_tmp93 = *((unsigned int *)__cil_tmp92);
-#line 2408
-                  *((unsigned int *)__cil_tmp90) = __cil_tmp93 & 4282384383U;
-                } else {
-
-                }
-              } else {
-                {
-#line 2412
-                __cil_tmp94 = (void *)0;
-#line 2412
-                __cil_tmp95 = (unsigned long )__cil_tmp94;
-#line 2412
-                __cil_tmp96 = (unsigned long )ppp;
-#line 2412
-                __cil_tmp97 = __cil_tmp96 + 744;
-#line 2412
-                __cil_tmp98 = *((void **)__cil_tmp97);
-#line 2412
-                __cil_tmp99 = (unsigned long )__cil_tmp98;
-#line 2412
-                if (__cil_tmp99 == __cil_tmp95) {
-                  goto ldv_40312;
-                } else {
-
-                }
-                }
-                {
-#line 2414
-                __cil_tmp100 = (unsigned long )ppp;
-#line 2414
-                __cil_tmp101 = __cil_tmp100 + 736;
-#line 2414
-                __cil_tmp102 = *((struct compressor **)__cil_tmp101);
-#line 2414
-                __cil_tmp103 = (unsigned long )__cil_tmp102;
-#line 2414
-                __cil_tmp104 = __cil_tmp103 + 24;
-#line 2414
-                __cil_tmp105 = *((int (**)(void * , unsigned char * , int  , int  ,
-                                           int  , int  ))__cil_tmp104);
-#line 2414
-                __cil_tmp106 = (unsigned long )ppp;
-#line 2414
-                __cil_tmp107 = __cil_tmp106 + 744;
-#line 2414
-                __cil_tmp108 = *((void **)__cil_tmp107);
-#line 2414
-                __cil_tmp109 = 0 + 320;
-#line 2414
-                __cil_tmp110 = (unsigned long )ppp;
-#line 2414
-                __cil_tmp111 = __cil_tmp110 + __cil_tmp109;
-#line 2414
-                __cil_tmp112 = *((int *)__cil_tmp111);
-#line 2414
-                __cil_tmp113 = (unsigned long )ppp;
-#line 2414
-                __cil_tmp114 = __cil_tmp113 + 520;
-#line 2414
-                __cil_tmp115 = *((int *)__cil_tmp114);
-#line 2414
-                tmp___2 = (*__cil_tmp105)(__cil_tmp108, dp, len, __cil_tmp112, 0,
-                                          __cil_tmp115);
-                }
-#line 2414
-                if (tmp___2 != 0) {
-#line 2416
-                  __cil_tmp116 = (unsigned long )ppp;
-#line 2416
-                  __cil_tmp117 = __cil_tmp116 + 512;
-#line 2416
-                  __cil_tmp118 = (unsigned long )ppp;
-#line 2416
-                  __cil_tmp119 = __cil_tmp118 + 512;
-#line 2416
-                  __cil_tmp120 = *((unsigned int *)__cil_tmp119);
-#line 2416
-                  *((unsigned int *)__cil_tmp117) = __cil_tmp120 | 4096U;
-                } else {
-
-                }
-              }
-              goto ldv_40312;
-              case_15: ;
-              {
-#line 2422
-              __cil_tmp121 = (unsigned long )ppp;
-#line 2422
-              __cil_tmp122 = __cil_tmp121 + 508;
-#line 2422
-              __cil_tmp123 = *((unsigned int *)__cil_tmp122);
-#line 2422
-              __cil_tmp124 = __cil_tmp123 & 128U;
-#line 2422
-              if (__cil_tmp124 == 0U) {
-                goto ldv_40312;
-              } else {
-
-              }
-              }
-#line 2424
-              if (inbound != 0) {
-                {
-#line 2425
-                __cil_tmp125 = (void *)0;
-#line 2425
-                __cil_tmp126 = (unsigned long )__cil_tmp125;
-#line 2425
-                __cil_tmp127 = (unsigned long )ppp;
-#line 2425
-                __cil_tmp128 = __cil_tmp127 + 760;
-#line 2425
-                __cil_tmp129 = *((void **)__cil_tmp128);
-#line 2425
-                __cil_tmp130 = (unsigned long )__cil_tmp129;
-#line 2425
-                if (__cil_tmp130 != __cil_tmp126) {
-                  {
-#line 2425
-                  __cil_tmp131 = (unsigned long )ppp;
-#line 2425
-                  __cil_tmp132 = __cil_tmp131 + 516;
-#line 2425
-                  __cil_tmp133 = *((unsigned int *)__cil_tmp132);
-#line 2425
-                  __cil_tmp134 = __cil_tmp133 & 8192U;
-#line 2425
-                  if (__cil_tmp134 != 0U) {
-                    {
-#line 2426
-                    __cil_tmp135 = (unsigned long )ppp;
-#line 2426
-                    __cil_tmp136 = __cil_tmp135 + 752;
-#line 2426
-                    __cil_tmp137 = *((struct compressor **)__cil_tmp136);
-#line 2426
-                    __cil_tmp138 = (unsigned long )__cil_tmp137;
-#line 2426
-                    __cil_tmp139 = __cil_tmp138 + 80;
-#line 2426
-                    __cil_tmp140 = *((void (**)(void * ))__cil_tmp139);
-#line 2426
-                    __cil_tmp141 = (unsigned long )ppp;
-#line 2426
-                    __cil_tmp142 = __cil_tmp141 + 760;
-#line 2426
-                    __cil_tmp143 = *((void **)__cil_tmp142);
-#line 2426
-                    (*__cil_tmp140)(__cil_tmp143);
-#line 2427
-                    __cil_tmp144 = (unsigned long )ppp;
-#line 2427
-                    __cil_tmp145 = __cil_tmp144 + 516;
-#line 2427
-                    __cil_tmp146 = (unsigned long )ppp;
-#line 2427
-                    __cil_tmp147 = __cil_tmp146 + 516;
-#line 2427
-                    __cil_tmp148 = *((unsigned int *)__cil_tmp147);
-#line 2427
-                    *((unsigned int *)__cil_tmp145) = __cil_tmp148 & 4290772991U;
-                    }
-                  } else {
-                    goto _L;
-                  }
-                  }
-                } else {
-                  _L: 
-                  {
-#line 2430
-                  __cil_tmp149 = (void *)0;
-#line 2430
-                  __cil_tmp150 = (unsigned long )__cil_tmp149;
-#line 2430
-                  __cil_tmp151 = (unsigned long )ppp;
-#line 2430
-                  __cil_tmp152 = __cil_tmp151 + 744;
-#line 2430
-                  __cil_tmp153 = *((void **)__cil_tmp152);
-#line 2430
-                  __cil_tmp154 = (unsigned long )__cil_tmp153;
-#line 2430
-                  if (__cil_tmp154 != __cil_tmp150) {
-                    {
-#line 2430
-                    __cil_tmp155 = (unsigned long )ppp;
-#line 2430
-                    __cil_tmp156 = __cil_tmp155 + 512;
-#line 2430
-                    __cil_tmp157 = *((unsigned int *)__cil_tmp156);
-#line 2430
-                    __cil_tmp158 = __cil_tmp157 & 4096U;
-#line 2430
-                    if (__cil_tmp158 != 0U) {
-                      {
-#line 2431
-                      __cil_tmp159 = (unsigned long )ppp;
-#line 2431
-                      __cil_tmp160 = __cil_tmp159 + 736;
-#line 2431
-                      __cil_tmp161 = *((struct compressor **)__cil_tmp160);
-#line 2431
-                      __cil_tmp162 = (unsigned long )__cil_tmp161;
-#line 2431
-                      __cil_tmp163 = __cil_tmp162 + 32;
-#line 2431
-                      __cil_tmp164 = *((void (**)(void * ))__cil_tmp163);
-#line 2431
-                      __cil_tmp165 = (unsigned long )ppp;
-#line 2431
-                      __cil_tmp166 = __cil_tmp165 + 744;
-#line 2431
-                      __cil_tmp167 = *((void **)__cil_tmp166);
-#line 2431
-                      (*__cil_tmp164)(__cil_tmp167);
-                      }
-                    } else {
-
-                    }
-                    }
-                  } else {
-
-                  }
-                  }
-                }
-                }
-              } else {
-
-              }
+            if (__cil_tmp26 != 64U) {
+#line 2393
               goto ldv_40312;
             } else {
 
             }
+            }
+            {
+#line 2394
+            __cil_tmp27 = dp + 3UL;
+#line 2394
+            __cil_tmp28 = *__cil_tmp27;
+#line 2394
+            __cil_tmp29 = (int )__cil_tmp28;
+#line 2394
+            __cil_tmp30 = dp + 2UL;
+#line 2394
+            __cil_tmp31 = *__cil_tmp30;
+#line 2394
+            __cil_tmp32 = (int )__cil_tmp31;
+#line 2394
+            __cil_tmp33 = __cil_tmp32 << 8;
+#line 2394
+            len = __cil_tmp33 + __cil_tmp29;
+#line 2395
+            __cil_tmp34 = len + 2;
+#line 2395
+            __cil_tmp35 = (unsigned int )__cil_tmp34;
+#line 2395
+            tmp___0 = pskb_may_pull(skb, __cil_tmp35);
+            }
+#line 2395
+            if (tmp___0 == 0) {
+#line 2396
+              return;
+            } else {
+
+            }
+#line 2397
+            dp = dp + 4UL;
+#line 2398
+            len = len + -4;
+#line 2399
+            if (len <= 1) {
+#line 2400
+              goto ldv_40312;
+            } else {
+              {
+#line 2399
+              __cil_tmp36 = dp + 1UL;
+#line 2399
+              __cil_tmp37 = *__cil_tmp36;
+#line 2399
+              __cil_tmp38 = (int )__cil_tmp37;
+#line 2399
+              if (__cil_tmp38 > len) {
+#line 2400
+                goto ldv_40312;
+              } else {
+
+              }
+              }
+            }
+#line 2401
+            if (inbound != 0) {
+              {
+#line 2403
+              __cil_tmp39 = (void *)0;
+#line 2403
+              __cil_tmp40 = (unsigned long )__cil_tmp39;
+#line 2403
+              __cil_tmp41 = ppp->rc_state;
+#line 2403
+              __cil_tmp42 = (unsigned long )__cil_tmp41;
+#line 2403
+              if (__cil_tmp42 == __cil_tmp40) {
+#line 2404
+                goto ldv_40312;
+              } else {
+
+              }
+              }
+              {
+#line 2405
+              __cil_tmp43 = ppp->rcomp;
+#line 2405
+              __cil_tmp44 = __cil_tmp43->decomp_init;
+#line 2405
+              __cil_tmp45 = ppp->rc_state;
+#line 2405
+              __cil_tmp46 = ppp->file.index;
+#line 2405
+              __cil_tmp47 = ppp->mru;
+#line 2405
+              __cil_tmp48 = ppp->debug;
+#line 2405
+              tmp___1 = (*__cil_tmp44)(__cil_tmp45, dp, len, __cil_tmp46, 0, __cil_tmp47,
+                                       __cil_tmp48);
+              }
+#line 2405
+              if (tmp___1 != 0) {
+#line 2407
+                __cil_tmp49 = ppp->rstate;
+#line 2407
+                ppp->rstate = __cil_tmp49 | 8192U;
+#line 2408
+                __cil_tmp50 = ppp->rstate;
+#line 2408
+                ppp->rstate = __cil_tmp50 & 4282384383U;
+              } else {
+
+              }
+            } else {
+              {
+#line 2412
+              __cil_tmp51 = (void *)0;
+#line 2412
+              __cil_tmp52 = (unsigned long )__cil_tmp51;
+#line 2412
+              __cil_tmp53 = ppp->xc_state;
+#line 2412
+              __cil_tmp54 = (unsigned long )__cil_tmp53;
+#line 2412
+              if (__cil_tmp54 == __cil_tmp52) {
+#line 2413
+                goto ldv_40312;
+              } else {
+
+              }
+              }
+              {
+#line 2414
+              __cil_tmp55 = ppp->xcomp;
+#line 2414
+              __cil_tmp56 = __cil_tmp55->comp_init;
+#line 2414
+              __cil_tmp57 = ppp->xc_state;
+#line 2414
+              __cil_tmp58 = ppp->file.index;
+#line 2414
+              __cil_tmp59 = ppp->debug;
+#line 2414
+              tmp___2 = (*__cil_tmp56)(__cil_tmp57, dp, len, __cil_tmp58, 0, __cil_tmp59);
+              }
+#line 2414
+              if (tmp___2 != 0) {
+#line 2416
+                __cil_tmp60 = ppp->xstate;
+#line 2416
+                ppp->xstate = __cil_tmp60 | 4096U;
+              } else {
+
+              }
+            }
+#line 2418
+            goto ldv_40312;
+            case_15: ;
+            {
+#line 2422
+            __cil_tmp61 = ppp->flags;
+#line 2422
+            __cil_tmp62 = __cil_tmp61 & 128U;
+#line 2422
+            if (__cil_tmp62 == 0U) {
+#line 2423
+              goto ldv_40312;
+            } else {
+
+            }
+            }
+#line 2424
+            if (inbound != 0) {
+              {
+#line 2425
+              __cil_tmp63 = (void *)0;
+#line 2425
+              __cil_tmp64 = (unsigned long )__cil_tmp63;
+#line 2425
+              __cil_tmp65 = ppp->rc_state;
+#line 2425
+              __cil_tmp66 = (unsigned long )__cil_tmp65;
+#line 2425
+              if (__cil_tmp66 != __cil_tmp64) {
+                {
+#line 2425
+                __cil_tmp67 = ppp->rstate;
+#line 2425
+                __cil_tmp68 = __cil_tmp67 & 8192U;
+#line 2425
+                if (__cil_tmp68 != 0U) {
+                  {
+#line 2426
+                  __cil_tmp69 = ppp->rcomp;
+#line 2426
+                  __cil_tmp70 = __cil_tmp69->decomp_reset;
+#line 2426
+                  __cil_tmp71 = ppp->rc_state;
+#line 2426
+                  (*__cil_tmp70)(__cil_tmp71);
+#line 2427
+                  __cil_tmp72 = ppp->rstate;
+#line 2427
+                  ppp->rstate = __cil_tmp72 & 4290772991U;
+                  }
+                } else {
+#line 2425
+                  goto _L;
+                }
+                }
+              } else {
+                _L: 
+                {
+#line 2430
+                __cil_tmp73 = (void *)0;
+#line 2430
+                __cil_tmp74 = (unsigned long )__cil_tmp73;
+#line 2430
+                __cil_tmp75 = ppp->xc_state;
+#line 2430
+                __cil_tmp76 = (unsigned long )__cil_tmp75;
+#line 2430
+                if (__cil_tmp76 != __cil_tmp74) {
+                  {
+#line 2430
+                  __cil_tmp77 = ppp->xstate;
+#line 2430
+                  __cil_tmp78 = __cil_tmp77 & 4096U;
+#line 2430
+                  if (__cil_tmp78 != 0U) {
+                    {
+#line 2431
+                    __cil_tmp79 = ppp->xcomp;
+#line 2431
+                    __cil_tmp80 = __cil_tmp79->comp_reset;
+#line 2431
+                    __cil_tmp81 = ppp->xc_state;
+#line 2431
+                    (*__cil_tmp80)(__cil_tmp81);
+                    }
+                  } else {
+
+                  }
+                  }
+                } else {
+
+                }
+                }
+              }
+              }
+            } else {
+
+            }
+#line 2433
+            goto ldv_40312;
+          } else {
+
           }
           }
         }
@@ -23222,179 +18906,79 @@ static void ppp_ccp_closed(struct ppp *ppp )
   void *rstate ;
   struct compressor *xcomp ;
   struct compressor *rcomp ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  spinlock_t *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  spinlock_t *__cil_tmp11 ;
+  spinlock_t *__cil_tmp6 ;
+  spinlock_t *__cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  spinlock_t *__cil_tmp9 ;
+  spinlock_t *__cil_tmp10 ;
+  void *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
   unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
+  void (*__cil_tmp14)(void * ) ;
+  struct module *__cil_tmp15 ;
+  void *__cil_tmp16 ;
   unsigned long __cil_tmp17 ;
   unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  spinlock_t *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  spinlock_t *__cil_tmp38 ;
-  void *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  void (*__cil_tmp44)(void * ) ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct module *__cil_tmp47 ;
-  void *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  void (*__cil_tmp53)(void * ) ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct module *__cil_tmp56 ;
+  void (*__cil_tmp19)(void * ) ;
+  struct module *__cil_tmp20 ;
 
   {
   {
 #line 2444
-  __cil_tmp6 = (unsigned long )ppp;
+  __cil_tmp6 = & ppp->wlock;
 #line 2444
-  __cil_tmp7 = __cil_tmp6 + 432;
+  spin_lock_bh(__cil_tmp6);
 #line 2444
-  __cil_tmp8 = (spinlock_t *)__cil_tmp7;
+  __cil_tmp7 = & ppp->rlock;
 #line 2444
-  spin_lock_bh(__cil_tmp8);
-#line 2444
-  __cil_tmp9 = (unsigned long )ppp;
-#line 2444
-  __cil_tmp10 = __cil_tmp9 + 360;
-#line 2444
-  __cil_tmp11 = (spinlock_t *)__cil_tmp10;
-#line 2444
-  spin_lock_bh(__cil_tmp11);
+  spin_lock_bh(__cil_tmp7);
 #line 2445
-  __cil_tmp12 = (unsigned long )ppp;
+  __cil_tmp8 = ppp->flags;
 #line 2445
-  __cil_tmp13 = __cil_tmp12 + 508;
-#line 2445
-  __cil_tmp14 = (unsigned long )ppp;
-#line 2445
-  __cil_tmp15 = __cil_tmp14 + 508;
-#line 2445
-  __cil_tmp16 = *((unsigned int *)__cil_tmp15);
-#line 2445
-  *((unsigned int *)__cil_tmp13) = __cil_tmp16 & 4294967103U;
+  ppp->flags = __cil_tmp8 & 4294967103U;
 #line 2446
-  __cil_tmp17 = (unsigned long )ppp;
-#line 2446
-  __cil_tmp18 = __cil_tmp17 + 512;
-#line 2446
-  *((unsigned int *)__cil_tmp18) = 0U;
+  ppp->xstate = 0U;
 #line 2447
-  __cil_tmp19 = (unsigned long )ppp;
-#line 2447
-  __cil_tmp20 = __cil_tmp19 + 736;
-#line 2447
-  xcomp = *((struct compressor **)__cil_tmp20);
+  xcomp = ppp->xcomp;
 #line 2448
-  __cil_tmp21 = (unsigned long )ppp;
-#line 2448
-  __cil_tmp22 = __cil_tmp21 + 744;
-#line 2448
-  xstate = *((void **)__cil_tmp22);
+  xstate = ppp->xc_state;
 #line 2449
-  __cil_tmp23 = (unsigned long )ppp;
-#line 2449
-  __cil_tmp24 = __cil_tmp23 + 744;
-#line 2449
-  *((void **)__cil_tmp24) = (void *)0;
+  ppp->xc_state = (void *)0;
 #line 2450
-  __cil_tmp25 = (unsigned long )ppp;
-#line 2450
-  __cil_tmp26 = __cil_tmp25 + 516;
-#line 2450
-  *((unsigned int *)__cil_tmp26) = 0U;
+  ppp->rstate = 0U;
 #line 2451
-  __cil_tmp27 = (unsigned long )ppp;
-#line 2451
-  __cil_tmp28 = __cil_tmp27 + 752;
-#line 2451
-  rcomp = *((struct compressor **)__cil_tmp28);
+  rcomp = ppp->rcomp;
 #line 2452
-  __cil_tmp29 = (unsigned long )ppp;
-#line 2452
-  __cil_tmp30 = __cil_tmp29 + 760;
-#line 2452
-  rstate = *((void **)__cil_tmp30);
+  rstate = ppp->rc_state;
 #line 2453
-  __cil_tmp31 = (unsigned long )ppp;
-#line 2453
-  __cil_tmp32 = __cil_tmp31 + 760;
-#line 2453
-  *((void **)__cil_tmp32) = (void *)0;
+  ppp->rc_state = (void *)0;
 #line 2454
-  __cil_tmp33 = (unsigned long )ppp;
+  __cil_tmp9 = & ppp->rlock;
 #line 2454
-  __cil_tmp34 = __cil_tmp33 + 360;
+  spin_unlock_bh(__cil_tmp9);
 #line 2454
-  __cil_tmp35 = (spinlock_t *)__cil_tmp34;
+  __cil_tmp10 = & ppp->wlock;
 #line 2454
-  spin_unlock_bh(__cil_tmp35);
-#line 2454
-  __cil_tmp36 = (unsigned long )ppp;
-#line 2454
-  __cil_tmp37 = __cil_tmp36 + 432;
-#line 2454
-  __cil_tmp38 = (spinlock_t *)__cil_tmp37;
-#line 2454
-  spin_unlock_bh(__cil_tmp38);
+  spin_unlock_bh(__cil_tmp10);
   }
   {
 #line 2456
-  __cil_tmp39 = (void *)0;
+  __cil_tmp11 = (void *)0;
 #line 2456
-  __cil_tmp40 = (unsigned long )__cil_tmp39;
+  __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 2456
-  __cil_tmp41 = (unsigned long )xstate;
+  __cil_tmp13 = (unsigned long )xstate;
 #line 2456
-  if (__cil_tmp41 != __cil_tmp40) {
+  if (__cil_tmp13 != __cil_tmp12) {
     {
 #line 2457
-    __cil_tmp42 = (unsigned long )xcomp;
+    __cil_tmp14 = xcomp->comp_free;
 #line 2457
-    __cil_tmp43 = __cil_tmp42 + 16;
-#line 2457
-    __cil_tmp44 = *((void (**)(void * ))__cil_tmp43);
-#line 2457
-    (*__cil_tmp44)(xstate);
+    (*__cil_tmp14)(xstate);
 #line 2458
-    __cil_tmp45 = (unsigned long )xcomp;
+    __cil_tmp15 = xcomp->owner;
 #line 2458
-    __cil_tmp46 = __cil_tmp45 + 112;
-#line 2458
-    __cil_tmp47 = *((struct module **)__cil_tmp46);
-#line 2458
-    ldv_module_put_5(__cil_tmp47);
+    ldv_module_put_5(__cil_tmp15);
     }
   } else {
 
@@ -23402,30 +18986,22 @@ static void ppp_ccp_closed(struct ppp *ppp )
   }
   {
 #line 2460
-  __cil_tmp48 = (void *)0;
+  __cil_tmp16 = (void *)0;
 #line 2460
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
+  __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 2460
-  __cil_tmp50 = (unsigned long )rstate;
+  __cil_tmp18 = (unsigned long )rstate;
 #line 2460
-  if (__cil_tmp50 != __cil_tmp49) {
+  if (__cil_tmp18 != __cil_tmp17) {
     {
 #line 2461
-    __cil_tmp51 = (unsigned long )rcomp;
+    __cil_tmp19 = rcomp->decomp_free;
 #line 2461
-    __cil_tmp52 = __cil_tmp51 + 64;
-#line 2461
-    __cil_tmp53 = *((void (**)(void * ))__cil_tmp52);
-#line 2461
-    (*__cil_tmp53)(rstate);
+    (*__cil_tmp19)(rstate);
 #line 2462
-    __cil_tmp54 = (unsigned long )rcomp;
+    __cil_tmp20 = rcomp->owner;
 #line 2462
-    __cil_tmp55 = __cil_tmp54 + 112;
-#line 2462
-    __cil_tmp56 = *((struct module **)__cil_tmp55);
-#line 2462
-    ldv_module_put_6(__cil_tmp56);
+    ldv_module_put_6(__cil_tmp20);
     }
   } else {
 
@@ -23448,39 +19024,28 @@ static struct compressor_entry *find_comp_entry(int proto )
 { struct compressor_entry *ce ;
   struct list_head  const  *__mptr ;
   struct list_head  const  *__mptr___0 ;
-  struct list_head *__cil_tmp5 ;
-  struct list_head *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  struct compressor *__cil_tmp5 ;
+  int __cil_tmp6 ;
+  struct list_head *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  struct compressor *__cil_tmp9 ;
-  int __cil_tmp10 ;
-  struct list_head *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct list_head *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  struct list_head *__cil_tmp9 ;
+  unsigned long __cil_tmp10 ;
 
   {
 #line 2480
-  __cil_tmp5 = & compressor_list;
-#line 2480
-  __cil_tmp6 = *((struct list_head **)__cil_tmp5);
-#line 2480
-  __mptr = (struct list_head  const  *)__cil_tmp6;
+  __mptr = (struct list_head  const  *)compressor_list.next;
 #line 2480
   ce = (struct compressor_entry *)__mptr;
+#line 2480
   goto ldv_40339;
   ldv_40338: ;
   {
 #line 2481
-  __cil_tmp7 = (unsigned long )ce;
+  __cil_tmp5 = ce->comp;
 #line 2481
-  __cil_tmp8 = __cil_tmp7 + 16;
+  __cil_tmp6 = __cil_tmp5->compress_proto;
 #line 2481
-  __cil_tmp9 = *((struct compressor **)__cil_tmp8);
-#line 2481
-  __cil_tmp10 = *((int *)__cil_tmp9);
-#line 2481
-  if (__cil_tmp10 == proto) {
+  if (__cil_tmp6 == proto) {
 #line 2482
     return (ce);
   } else {
@@ -23488,23 +19053,25 @@ static struct compressor_entry *find_comp_entry(int proto )
   }
   }
 #line 2480
-  __cil_tmp11 = *((struct list_head **)ce);
+  __cil_tmp7 = ce->list.next;
 #line 2480
-  __mptr___0 = (struct list_head  const  *)__cil_tmp11;
+  __mptr___0 = (struct list_head  const  *)__cil_tmp7;
 #line 2480
   ce = (struct compressor_entry *)__mptr___0;
   ldv_40339: ;
   {
 #line 2480
-  __cil_tmp12 = (unsigned long )(& compressor_list);
+  __cil_tmp8 = (unsigned long )(& compressor_list);
 #line 2480
-  __cil_tmp13 = (struct list_head *)ce;
+  __cil_tmp9 = & ce->list;
 #line 2480
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 2480
-  if (__cil_tmp14 != __cil_tmp12) {
+  if (__cil_tmp10 != __cil_tmp8) {
+#line 2481
     goto ldv_40338;
   } else {
+#line 2483
     goto ldv_40340;
   }
   }
@@ -23526,9 +19093,7 @@ int ppp_register_compressor(struct compressor *cp )
   struct compressor_entry *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct list_head *__cil_tmp15 ;
+  struct list_head *__cil_tmp13 ;
 
   {
   {
@@ -23537,7 +19102,7 @@ int ppp_register_compressor(struct compressor *cp )
 #line 2494
   ret = -17;
 #line 2495
-  __cil_tmp6 = *((int *)cp);
+  __cil_tmp6 = cp->compress_proto;
 #line 2495
   tmp = find_comp_entry(__cil_tmp6);
   }
@@ -23550,6 +19115,7 @@ int ppp_register_compressor(struct compressor *cp )
   __cil_tmp9 = (unsigned long )tmp;
 #line 2495
   if (__cil_tmp9 != __cil_tmp8) {
+#line 2496
     goto out;
   } else {
 
@@ -23572,6 +19138,7 @@ int ppp_register_compressor(struct compressor *cp )
   __cil_tmp12 = (unsigned long )ce;
 #line 2499
   if (__cil_tmp12 == __cil_tmp11) {
+#line 2500
     goto out;
   } else {
 
@@ -23581,15 +19148,11 @@ int ppp_register_compressor(struct compressor *cp )
 #line 2501
   ret = 0;
 #line 2502
-  __cil_tmp13 = (unsigned long )ce;
-#line 2502
-  __cil_tmp14 = __cil_tmp13 + 16;
-#line 2502
-  *((struct compressor **)__cil_tmp14) = cp;
+  ce->comp = cp;
 #line 2503
-  __cil_tmp15 = (struct list_head *)ce;
+  __cil_tmp13 = & ce->list;
 #line 2503
-  list_add(__cil_tmp15, & compressor_list);
+  list_add(__cil_tmp13, & compressor_list);
   }
   out: 
   {
@@ -23608,19 +19171,17 @@ void ppp_unregister_compressor(struct compressor *cp )
   unsigned long __cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  struct compressor *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  struct compressor *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct list_head *__cil_tmp12 ;
-  void const   *__cil_tmp13 ;
+  struct list_head *__cil_tmp10 ;
+  void const   *__cil_tmp11 ;
 
   {
   {
 #line 2515
   spin_lock(& compressor_list_lock);
 #line 2516
-  __cil_tmp3 = *((int *)cp);
+  __cil_tmp3 = cp->compress_proto;
 #line 2516
   ce = find_comp_entry(__cil_tmp3);
   }
@@ -23637,24 +19198,20 @@ void ppp_unregister_compressor(struct compressor *cp )
 #line 2517
     __cil_tmp7 = (unsigned long )cp;
 #line 2517
-    __cil_tmp8 = (unsigned long )ce;
+    __cil_tmp8 = ce->comp;
 #line 2517
-    __cil_tmp9 = __cil_tmp8 + 16;
+    __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 2517
-    __cil_tmp10 = *((struct compressor **)__cil_tmp9);
-#line 2517
-    __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 2517
-    if (__cil_tmp11 == __cil_tmp7) {
+    if (__cil_tmp9 == __cil_tmp7) {
       {
 #line 2518
-      __cil_tmp12 = (struct list_head *)ce;
+      __cil_tmp10 = & ce->list;
 #line 2518
-      list_del(__cil_tmp12);
+      list_del(__cil_tmp10);
 #line 2519
-      __cil_tmp13 = (void const   *)ce;
+      __cil_tmp11 = (void const   *)ce;
 #line 2519
-      kfree(__cil_tmp13);
+      kfree(__cil_tmp11);
       }
     } else {
 
@@ -23680,11 +19237,7 @@ static struct compressor *find_compressor(int type )
   struct compressor_entry *__cil_tmp5 ;
   unsigned long __cil_tmp6 ;
   unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct module *__cil_tmp12 ;
+  struct module *__cil_tmp8 ;
 
   {
   {
@@ -23706,19 +19259,11 @@ static struct compressor *find_compressor(int type )
   if (__cil_tmp7 != __cil_tmp6) {
     {
 #line 2534
-    __cil_tmp8 = (unsigned long )ce;
-#line 2534
-    __cil_tmp9 = __cil_tmp8 + 16;
-#line 2534
-    cp = *((struct compressor **)__cil_tmp9);
+    cp = ce->comp;
 #line 2535
-    __cil_tmp10 = (unsigned long )cp;
+    __cil_tmp8 = cp->owner;
 #line 2535
-    __cil_tmp11 = __cil_tmp10 + 112;
-#line 2535
-    __cil_tmp12 = *((struct module **)__cil_tmp11);
-#line 2535
-    tmp = ldv_try_module_get_7(__cil_tmp12);
+    tmp = ldv_try_module_get_7(__cil_tmp8);
     }
 #line 2535
     if (tmp == 0) {
@@ -23742,267 +19287,79 @@ static struct compressor *find_compressor(int type )
 #line 2547 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void ppp_get_stats(struct ppp *ppp , struct ppp_stats *st ) 
 { struct slcompress *vj ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  void *__cil_tmp4 ;
+  struct net_device *__cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
+  struct net_device *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  struct net_device *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct net_device *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  struct net_device *__cil_tmp11 ;
+  unsigned long __cil_tmp12 ;
+  struct net_device *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  struct net_device *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct slcompress *__cil_tmp17 ;
   unsigned long __cil_tmp18 ;
   unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct net_device *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct net_device *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  struct net_device *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct net_device *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  struct net_device *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct slcompress *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  int32 __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  int32 __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
+  int32 __cil_tmp20 ;
+  int32 __cil_tmp21 ;
 
   {
   {
 #line 2549
-  __cil_tmp4 = (unsigned long )ppp;
-#line 2549
-  __cil_tmp5 = __cil_tmp4 + 528;
-#line 2549
-  vj = *((struct slcompress **)__cil_tmp5);
+  vj = ppp->vj;
 #line 2551
-  __cil_tmp6 = (void *)st;
+  __cil_tmp4 = (void *)st;
 #line 2551
-  memset(__cil_tmp6, 0, 76UL);
+  memset(__cil_tmp4, 0, 76UL);
 #line 2552
-  __cil_tmp7 = 0 + 12;
+  __cil_tmp5 = ppp->dev;
 #line 2552
-  __cil_tmp8 = (unsigned long )st;
+  __cil_tmp6 = __cil_tmp5->stats.rx_packets;
 #line 2552
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 2552
-  __cil_tmp10 = (unsigned long )ppp;
-#line 2552
-  __cil_tmp11 = __cil_tmp10 + 784;
-#line 2552
-  __cil_tmp12 = *((struct net_device **)__cil_tmp11);
-#line 2552
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
-#line 2552
-  __cil_tmp14 = __cil_tmp13 + 200;
-#line 2552
-  __cil_tmp15 = *((unsigned long *)__cil_tmp14);
-#line 2552
-  *((__u32 *)__cil_tmp9) = (unsigned int )__cil_tmp15;
+  st->p.ppp_ipackets = (__u32 )__cil_tmp6;
 #line 2553
-  __cil_tmp16 = 0 + 16;
+  __cil_tmp7 = ppp->dev;
 #line 2553
-  __cil_tmp17 = (unsigned long )st;
+  __cil_tmp8 = __cil_tmp7->stats.rx_errors;
 #line 2553
-  __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 2553
-  __cil_tmp19 = 200 + 32;
-#line 2553
-  __cil_tmp20 = (unsigned long )ppp;
-#line 2553
-  __cil_tmp21 = __cil_tmp20 + 784;
-#line 2553
-  __cil_tmp22 = *((struct net_device **)__cil_tmp21);
-#line 2553
-  __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 2553
-  __cil_tmp24 = __cil_tmp23 + __cil_tmp19;
-#line 2553
-  __cil_tmp25 = *((unsigned long *)__cil_tmp24);
-#line 2553
-  *((__u32 *)__cil_tmp18) = (unsigned int )__cil_tmp25;
+  st->p.ppp_ierrors = (__u32 )__cil_tmp8;
 #line 2554
-  __cil_tmp26 = 0 + 4;
+  __cil_tmp9 = ppp->dev;
 #line 2554
-  __cil_tmp27 = (unsigned long )st;
+  __cil_tmp10 = __cil_tmp9->stats.rx_bytes;
 #line 2554
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 2554
-  __cil_tmp29 = 200 + 16;
-#line 2554
-  __cil_tmp30 = (unsigned long )ppp;
-#line 2554
-  __cil_tmp31 = __cil_tmp30 + 784;
-#line 2554
-  __cil_tmp32 = *((struct net_device **)__cil_tmp31);
-#line 2554
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 2554
-  __cil_tmp34 = __cil_tmp33 + __cil_tmp29;
-#line 2554
-  __cil_tmp35 = *((unsigned long *)__cil_tmp34);
-#line 2554
-  *((__u32 *)__cil_tmp28) = (unsigned int )__cil_tmp35;
+  st->p.ppp_ibytes = (__u32 )__cil_tmp10;
 #line 2555
-  __cil_tmp36 = 0 + 32;
+  __cil_tmp11 = ppp->dev;
 #line 2555
-  __cil_tmp37 = (unsigned long )st;
+  __cil_tmp12 = __cil_tmp11->stats.tx_packets;
 #line 2555
-  __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 2555
-  __cil_tmp39 = 200 + 8;
-#line 2555
-  __cil_tmp40 = (unsigned long )ppp;
-#line 2555
-  __cil_tmp41 = __cil_tmp40 + 784;
-#line 2555
-  __cil_tmp42 = *((struct net_device **)__cil_tmp41);
-#line 2555
-  __cil_tmp43 = (unsigned long )__cil_tmp42;
-#line 2555
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp39;
-#line 2555
-  __cil_tmp45 = *((unsigned long *)__cil_tmp44);
-#line 2555
-  *((__u32 *)__cil_tmp38) = (unsigned int )__cil_tmp45;
+  st->p.ppp_opackets = (__u32 )__cil_tmp12;
 #line 2556
-  __cil_tmp46 = 0 + 36;
+  __cil_tmp13 = ppp->dev;
 #line 2556
-  __cil_tmp47 = (unsigned long )st;
+  __cil_tmp14 = __cil_tmp13->stats.tx_errors;
 #line 2556
-  __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
-#line 2556
-  __cil_tmp49 = 200 + 40;
-#line 2556
-  __cil_tmp50 = (unsigned long )ppp;
-#line 2556
-  __cil_tmp51 = __cil_tmp50 + 784;
-#line 2556
-  __cil_tmp52 = *((struct net_device **)__cil_tmp51);
-#line 2556
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 2556
-  __cil_tmp54 = __cil_tmp53 + __cil_tmp49;
-#line 2556
-  __cil_tmp55 = *((unsigned long *)__cil_tmp54);
-#line 2556
-  *((__u32 *)__cil_tmp48) = (unsigned int )__cil_tmp55;
+  st->p.ppp_oerrors = (__u32 )__cil_tmp14;
 #line 2557
-  __cil_tmp56 = 0 + 24;
+  __cil_tmp15 = ppp->dev;
 #line 2557
-  __cil_tmp57 = (unsigned long )st;
+  __cil_tmp16 = __cil_tmp15->stats.tx_bytes;
 #line 2557
-  __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
-#line 2557
-  __cil_tmp59 = 200 + 24;
-#line 2557
-  __cil_tmp60 = (unsigned long )ppp;
-#line 2557
-  __cil_tmp61 = __cil_tmp60 + 784;
-#line 2557
-  __cil_tmp62 = *((struct net_device **)__cil_tmp61);
-#line 2557
-  __cil_tmp63 = (unsigned long )__cil_tmp62;
-#line 2557
-  __cil_tmp64 = __cil_tmp63 + __cil_tmp59;
-#line 2557
-  __cil_tmp65 = *((unsigned long *)__cil_tmp64);
-#line 2557
-  *((__u32 *)__cil_tmp58) = (unsigned int )__cil_tmp65;
+  st->p.ppp_obytes = (__u32 )__cil_tmp16;
   }
   {
 #line 2558
-  __cil_tmp66 = (struct slcompress *)0;
+  __cil_tmp17 = (struct slcompress *)0;
 #line 2558
-  __cil_tmp67 = (unsigned long )__cil_tmp66;
+  __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 2558
-  __cil_tmp68 = (unsigned long )vj;
+  __cil_tmp19 = (unsigned long )vj;
 #line 2558
-  if (__cil_tmp68 == __cil_tmp67) {
+  if (__cil_tmp19 == __cil_tmp18) {
 #line 2559
     return;
   } else {
@@ -24010,107 +19367,25 @@ static void ppp_get_stats(struct ppp *ppp , struct ppp_stats *st )
   }
   }
 #line 2560
-  __cil_tmp69 = (unsigned long )st;
+  __cil_tmp20 = vj->sls_o_uncompressed;
 #line 2560
-  __cil_tmp70 = __cil_tmp69 + 44;
+  __cil_tmp21 = vj->sls_o_compressed;
 #line 2560
-  __cil_tmp71 = (unsigned long )vj;
-#line 2560
-  __cil_tmp72 = __cil_tmp71 + 32;
-#line 2560
-  __cil_tmp73 = *((int32 *)__cil_tmp72);
-#line 2560
-  __cil_tmp74 = (unsigned long )vj;
-#line 2560
-  __cil_tmp75 = __cil_tmp74 + 36;
-#line 2560
-  __cil_tmp76 = *((int32 *)__cil_tmp75);
-#line 2560
-  *((__u32 *)__cil_tmp70) = __cil_tmp76 + __cil_tmp73;
+  st->vj.vjs_packets = __cil_tmp21 + __cil_tmp20;
 #line 2561
-  __cil_tmp77 = 44 + 4;
-#line 2561
-  __cil_tmp78 = (unsigned long )st;
-#line 2561
-  __cil_tmp79 = __cil_tmp78 + __cil_tmp77;
-#line 2561
-  __cil_tmp80 = (unsigned long )vj;
-#line 2561
-  __cil_tmp81 = __cil_tmp80 + 36;
-#line 2561
-  *((__u32 *)__cil_tmp79) = *((int32 *)__cil_tmp81);
+  st->vj.vjs_compressed = vj->sls_o_compressed;
 #line 2562
-  __cil_tmp82 = 44 + 8;
-#line 2562
-  __cil_tmp83 = (unsigned long )st;
-#line 2562
-  __cil_tmp84 = __cil_tmp83 + __cil_tmp82;
-#line 2562
-  __cil_tmp85 = (unsigned long )vj;
-#line 2562
-  __cil_tmp86 = __cil_tmp85 + 40;
-#line 2562
-  *((__u32 *)__cil_tmp84) = *((int32 *)__cil_tmp86);
+  st->vj.vjs_searches = vj->sls_o_searches;
 #line 2563
-  __cil_tmp87 = 44 + 12;
-#line 2563
-  __cil_tmp88 = (unsigned long )st;
-#line 2563
-  __cil_tmp89 = __cil_tmp88 + __cil_tmp87;
-#line 2563
-  __cil_tmp90 = (unsigned long )vj;
-#line 2563
-  __cil_tmp91 = __cil_tmp90 + 44;
-#line 2563
-  *((__u32 *)__cil_tmp89) = *((int32 *)__cil_tmp91);
+  st->vj.vjs_misses = vj->sls_o_misses;
 #line 2564
-  __cil_tmp92 = 44 + 24;
-#line 2564
-  __cil_tmp93 = (unsigned long )st;
-#line 2564
-  __cil_tmp94 = __cil_tmp93 + __cil_tmp92;
-#line 2564
-  __cil_tmp95 = (unsigned long )vj;
-#line 2564
-  __cil_tmp96 = __cil_tmp95 + 56;
-#line 2564
-  *((__u32 *)__cil_tmp94) = *((int32 *)__cil_tmp96);
+  st->vj.vjs_errorin = vj->sls_i_error;
 #line 2565
-  __cil_tmp97 = 44 + 28;
-#line 2565
-  __cil_tmp98 = (unsigned long )st;
-#line 2565
-  __cil_tmp99 = __cil_tmp98 + __cil_tmp97;
-#line 2565
-  __cil_tmp100 = (unsigned long )vj;
-#line 2565
-  __cil_tmp101 = __cil_tmp100 + 60;
-#line 2565
-  *((__u32 *)__cil_tmp99) = *((int32 *)__cil_tmp101);
+  st->vj.vjs_tossed = vj->sls_i_tossed;
 #line 2566
-  __cil_tmp102 = 44 + 16;
-#line 2566
-  __cil_tmp103 = (unsigned long )st;
-#line 2566
-  __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
-#line 2566
-  __cil_tmp105 = (unsigned long )vj;
-#line 2566
-  __cil_tmp106 = __cil_tmp105 + 48;
-#line 2566
-  *((__u32 *)__cil_tmp104) = *((int32 *)__cil_tmp106);
+  st->vj.vjs_uncompressedin = vj->sls_i_uncompressed;
 #line 2567
-  __cil_tmp107 = 44 + 20;
-#line 2567
-  __cil_tmp108 = (unsigned long )st;
-#line 2567
-  __cil_tmp109 = __cil_tmp108 + __cil_tmp107;
-#line 2567
-  __cil_tmp110 = (unsigned long )vj;
-#line 2567
-  __cil_tmp111 = __cil_tmp110 + 52;
-#line 2567
-  *((__u32 *)__cil_tmp109) = *((int32 *)__cil_tmp111);
+  st->vj.vjs_compressedin = vj->sls_i_compressed;
 #line 2568
   return;
 }
@@ -24130,69 +19405,31 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
   unsigned long __cil_tmp14 ;
   unsigned long __cil_tmp15 ;
   struct net_device  const  *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct ppp_file *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
+  struct ppp_file *__cil_tmp17 ;
+  struct list_head *__cil_tmp18 ;
+  spinlock_t *__cil_tmp19 ;
+  struct raw_spinlock *__cil_tmp20 ;
+  spinlock_t *__cil_tmp21 ;
+  struct raw_spinlock *__cil_tmp22 ;
+  struct sk_buff_head *__cil_tmp23 ;
+  struct mutex *__cil_tmp24 ;
+  struct idr *__cil_tmp25 ;
+  void *__cil_tmp26 ;
+  struct idr *__cil_tmp27 ;
+  void *__cil_tmp28 ;
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  struct list_head *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  spinlock_t *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct raw_spinlock *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  spinlock_t *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct raw_spinlock *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct sk_buff_head *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct mutex *__cil_tmp51 ;
-  struct idr *__cil_tmp52 ;
-  void *__cil_tmp53 ;
-  struct idr *__cil_tmp54 ;
-  void *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct idr *__cil_tmp58 ;
-  void *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  char (*__cil_tmp63)[16U] ;
-  char *__cil_tmp64 ;
-  struct idr *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct net_device *__cil_tmp68 ;
-  struct net_device  const  *__cil_tmp69 ;
-  char (*__cil_tmp70)[16U] ;
-  char *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  struct mutex *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  struct mutex *__cil_tmp79 ;
+  struct idr *__cil_tmp31 ;
+  void *__cil_tmp32 ;
+  char (*__cil_tmp33)[16U] ;
+  char *__cil_tmp34 ;
+  struct idr *__cil_tmp35 ;
+  struct net_device *__cil_tmp36 ;
+  struct net_device  const  *__cil_tmp37 ;
+  char (*__cil_tmp38)[16U] ;
+  char *__cil_tmp39 ;
+  struct mutex *__cil_tmp40 ;
+  struct mutex *__cil_tmp41 ;
 
   {
   {
@@ -24212,6 +19449,7 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
   __cil_tmp15 = (unsigned long )dev;
 #line 2590
   if (__cil_tmp15 == __cil_tmp14) {
+#line 2591
     goto out1;
   } else {
 
@@ -24227,134 +19465,84 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
 #line 2595
   ppp = (struct ppp *)tmp;
 #line 2596
-  __cil_tmp17 = (unsigned long )ppp;
-#line 2596
-  __cil_tmp18 = __cil_tmp17 + 784;
-#line 2596
-  *((struct net_device **)__cil_tmp18) = dev;
+  ppp->dev = dev;
 #line 2597
-  __cil_tmp19 = (unsigned long )ppp;
-#line 2597
-  __cil_tmp20 = __cil_tmp19 + 504;
-#line 2597
-  *((int *)__cil_tmp20) = 1500;
+  ppp->mru = 1500;
 #line 2598
-  __cil_tmp21 = (struct ppp_file *)ppp;
+  __cil_tmp17 = & ppp->file;
 #line 2598
-  init_ppp_file(__cil_tmp21, 1);
+  init_ppp_file(__cil_tmp17, 1);
 #line 2599
-  __cil_tmp22 = 0 + 316;
-#line 2599
-  __cil_tmp23 = (unsigned long )ppp;
-#line 2599
-  __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 2599
-  *((int *)__cil_tmp24) = 2;
+  ppp->file.hdrlen = 2;
 #line 2600
   i = 0;
   }
+#line 2600
   goto ldv_40373;
   ldv_40372: 
 #line 2601
-  __cil_tmp25 = i * 32UL;
-#line 2601
-  __cil_tmp26 = 536 + __cil_tmp25;
-#line 2601
-  __cil_tmp27 = (unsigned long )ppp;
-#line 2601
-  __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 2601
-  *((enum NPmode *)__cil_tmp28) = (enum NPmode )0;
+  ppp->npmode[i] = (enum NPmode )0;
 #line 2600
   i = i + 1;
   ldv_40373: ;
 #line 2600
   if (i <= 5) {
+#line 2601
     goto ldv_40372;
   } else {
+#line 2603
     goto ldv_40374;
   }
   ldv_40374: 
   {
 #line 2602
-  __cil_tmp29 = (unsigned long )ppp;
+  __cil_tmp18 = & ppp->channels;
 #line 2602
-  __cil_tmp30 = __cil_tmp29 + 336;
-#line 2602
-  __cil_tmp31 = (struct list_head *)__cil_tmp30;
-#line 2602
-  INIT_LIST_HEAD(__cil_tmp31);
+  INIT_LIST_HEAD(__cil_tmp18);
 #line 2603
-  __cil_tmp32 = (unsigned long )ppp;
+  __cil_tmp19 = & ppp->rlock;
 #line 2603
-  __cil_tmp33 = __cil_tmp32 + 360;
+  spinlock_check(__cil_tmp19);
 #line 2603
-  __cil_tmp34 = (spinlock_t *)__cil_tmp33;
+  __cil_tmp20 = & ppp->rlock.ldv_6060.rlock;
 #line 2603
-  spinlock_check(__cil_tmp34);
-#line 2603
-  __cil_tmp35 = (unsigned long )ppp;
-#line 2603
-  __cil_tmp36 = __cil_tmp35 + 360;
-#line 2603
-  __cil_tmp37 = (struct raw_spinlock *)__cil_tmp36;
-#line 2603
-  __raw_spin_lock_init(__cil_tmp37, "&(&ppp->rlock)->rlock", & __key);
+  __raw_spin_lock_init(__cil_tmp20, "&(&ppp->rlock)->rlock", & __key);
 #line 2604
-  __cil_tmp38 = (unsigned long )ppp;
+  __cil_tmp21 = & ppp->wlock;
 #line 2604
-  __cil_tmp39 = __cil_tmp38 + 432;
+  spinlock_check(__cil_tmp21);
 #line 2604
-  __cil_tmp40 = (spinlock_t *)__cil_tmp39;
+  __cil_tmp22 = & ppp->wlock.ldv_6060.rlock;
 #line 2604
-  spinlock_check(__cil_tmp40);
-#line 2604
-  __cil_tmp41 = (unsigned long )ppp;
-#line 2604
-  __cil_tmp42 = __cil_tmp41 + 432;
-#line 2604
-  __cil_tmp43 = (struct raw_spinlock *)__cil_tmp42;
-#line 2604
-  __raw_spin_lock_init(__cil_tmp43, "&(&ppp->wlock)->rlock", & __key___0);
+  __raw_spin_lock_init(__cil_tmp22, "&(&ppp->wlock)->rlock", & __key___0);
 #line 2606
-  __cil_tmp44 = (unsigned long )ppp;
-#line 2606
-  __cil_tmp45 = __cil_tmp44 + 812;
-#line 2606
-  *((u32 *)__cil_tmp45) = 4294967295U;
+  ppp->minseq = 4294967295U;
 #line 2607
-  __cil_tmp46 = (unsigned long )ppp;
+  __cil_tmp23 = & ppp->mrq;
 #line 2607
-  __cil_tmp47 = __cil_tmp46 + 816;
-#line 2607
-  __cil_tmp48 = (struct sk_buff_head *)__cil_tmp47;
-#line 2607
-  skb_queue_head_init(__cil_tmp48);
+  skb_queue_head_init(__cil_tmp23);
 #line 2614
   dev_net_set(dev, net);
 #line 2616
-  __cil_tmp49 = (unsigned long )pn;
+  __cil_tmp24 = & pn->all_ppp_mutex;
 #line 2616
-  __cil_tmp50 = __cil_tmp49 + 96;
-#line 2616
-  __cil_tmp51 = (struct mutex *)__cil_tmp50;
-#line 2616
-  mutex_lock_nested(__cil_tmp51, 0U);
+  mutex_lock_nested(__cil_tmp24, 0U);
   }
 #line 2618
   if (unit < 0) {
     {
 #line 2619
-    __cil_tmp52 = (struct idr *)pn;
+    __cil_tmp25 = & pn->units_idr;
 #line 2619
-    __cil_tmp53 = (void *)ppp;
+    __cil_tmp26 = (void *)ppp;
 #line 2619
-    unit = unit_get(__cil_tmp52, __cil_tmp53);
+    unit = unit_get(__cil_tmp25, __cil_tmp26);
     }
 #line 2620
     if (unit < 0) {
 #line 2621
       ret = unit;
+#line 2622
       goto out2;
     } else {
 
@@ -24364,19 +19552,20 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
 #line 2625
     ret = -17;
 #line 2626
-    __cil_tmp54 = (struct idr *)pn;
+    __cil_tmp27 = & pn->units_idr;
 #line 2626
-    tmp___0 = unit_find(__cil_tmp54, unit);
+    tmp___0 = unit_find(__cil_tmp27, unit);
     }
     {
 #line 2626
-    __cil_tmp55 = (void *)0;
+    __cil_tmp28 = (void *)0;
 #line 2626
-    __cil_tmp56 = (unsigned long )__cil_tmp55;
+    __cil_tmp29 = (unsigned long )__cil_tmp28;
 #line 2626
-    __cil_tmp57 = (unsigned long )tmp___0;
+    __cil_tmp30 = (unsigned long )tmp___0;
 #line 2626
-    if (__cil_tmp57 != __cil_tmp56) {
+    if (__cil_tmp30 != __cil_tmp29) {
+#line 2627
       goto out2;
     } else {
 
@@ -24384,14 +19573,15 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
     }
     {
 #line 2637
-    __cil_tmp58 = (struct idr *)pn;
+    __cil_tmp31 = & pn->units_idr;
 #line 2637
-    __cil_tmp59 = (void *)ppp;
+    __cil_tmp32 = (void *)ppp;
 #line 2637
-    unit = unit_set(__cil_tmp58, __cil_tmp59, unit);
+    unit = unit_set(__cil_tmp31, __cil_tmp32, unit);
     }
 #line 2638
     if (unit < 0) {
+#line 2639
       goto out2;
     } else {
 
@@ -24399,19 +19589,13 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
   }
   {
 #line 2643
-  __cil_tmp60 = 0 + 320;
-#line 2643
-  __cil_tmp61 = (unsigned long )ppp;
-#line 2643
-  __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
-#line 2643
-  *((int *)__cil_tmp62) = unit;
+  ppp->file.index = unit;
 #line 2644
-  __cil_tmp63 = (char (*)[16U])dev;
+  __cil_tmp33 = & dev->name;
 #line 2644
-  __cil_tmp64 = (char *)__cil_tmp63;
+  __cil_tmp34 = (char *)__cil_tmp33;
 #line 2644
-  sprintf(__cil_tmp64, "ppp%d", unit);
+  sprintf(__cil_tmp34, "ppp%d", unit);
 #line 2646
   ret = register_netdev(dev);
   }
@@ -24419,46 +19603,35 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
   if (ret != 0) {
     {
 #line 2648
-    __cil_tmp65 = (struct idr *)pn;
+    __cil_tmp35 = & pn->units_idr;
 #line 2648
-    unit_put(__cil_tmp65, unit);
+    unit_put(__cil_tmp35, unit);
 #line 2649
-    __cil_tmp66 = (unsigned long )ppp;
+    __cil_tmp36 = ppp->dev;
 #line 2649
-    __cil_tmp67 = __cil_tmp66 + 784;
+    __cil_tmp37 = (struct net_device  const  *)__cil_tmp36;
 #line 2649
-    __cil_tmp68 = *((struct net_device **)__cil_tmp67);
+    __cil_tmp38 = & dev->name;
 #line 2649
-    __cil_tmp69 = (struct net_device  const  *)__cil_tmp68;
+    __cil_tmp39 = (char *)__cil_tmp38;
 #line 2649
-    __cil_tmp70 = (char (*)[16U])dev;
-#line 2649
-    __cil_tmp71 = (char *)__cil_tmp70;
-#line 2649
-    netdev_err(__cil_tmp69, "PPP: couldn\'t register device %s (%d)\n", __cil_tmp71,
+    netdev_err(__cil_tmp37, "PPP: couldn\'t register device %s (%d)\n", __cil_tmp39,
                ret);
     }
+#line 2651
     goto out2;
   } else {
 
   }
   {
 #line 2654
-  __cil_tmp72 = (unsigned long )ppp;
-#line 2654
-  __cil_tmp73 = __cil_tmp72 + 936;
-#line 2654
-  *((struct net **)__cil_tmp73) = net;
+  ppp->ppp_net = net;
 #line 2656
   atomic_inc(& ppp_unit_count);
 #line 2657
-  __cil_tmp74 = (unsigned long )pn;
+  __cil_tmp40 = & pn->all_ppp_mutex;
 #line 2657
-  __cil_tmp75 = __cil_tmp74 + 96;
-#line 2657
-  __cil_tmp76 = (struct mutex *)__cil_tmp75;
-#line 2657
-  mutex_unlock(__cil_tmp76);
+  mutex_unlock(__cil_tmp40);
 #line 2659
   *retp = 0;
   }
@@ -24467,13 +19640,9 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
   out2: 
   {
 #line 2663
-  __cil_tmp77 = (unsigned long )pn;
+  __cil_tmp41 = & pn->all_ppp_mutex;
 #line 2663
-  __cil_tmp78 = __cil_tmp77 + 96;
-#line 2663
-  __cil_tmp79 = (struct mutex *)__cil_tmp78;
-#line 2663
-  mutex_unlock(__cil_tmp79);
+  mutex_unlock(__cil_tmp41);
 #line 2664
   free_netdev(dev);
   }
@@ -24487,55 +19656,31 @@ static struct ppp *ppp_create_interface(struct net *net , int unit , int *retp )
 #line 2674 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void init_ppp_file(struct ppp_file *pf , int kind ) 
 { struct lock_class_key __key ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct sk_buff_head *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct sk_buff_head *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  atomic_t *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  wait_queue_head_t *__cil_tmp15 ;
+  struct sk_buff_head *__cil_tmp4 ;
+  struct sk_buff_head *__cil_tmp5 ;
+  atomic_t *__cil_tmp6 ;
+  wait_queue_head_t *__cil_tmp7 ;
 
   {
   {
 #line 2676
-  *((enum ldv_27071 *)pf) = (enum ldv_27071 )kind;
+  pf->kind = (enum ldv_27071 )kind;
 #line 2677
-  __cil_tmp4 = (unsigned long )pf;
+  __cil_tmp4 = & pf->xq;
 #line 2677
-  __cil_tmp5 = __cil_tmp4 + 32;
-#line 2677
-  __cil_tmp6 = (struct sk_buff_head *)__cil_tmp5;
-#line 2677
-  skb_queue_head_init(__cil_tmp6);
+  skb_queue_head_init(__cil_tmp4);
 #line 2678
-  __cil_tmp7 = (unsigned long )pf;
+  __cil_tmp5 = & pf->rq;
 #line 2678
-  __cil_tmp8 = __cil_tmp7 + 128;
-#line 2678
-  __cil_tmp9 = (struct sk_buff_head *)__cil_tmp8;
-#line 2678
-  skb_queue_head_init(__cil_tmp9);
+  skb_queue_head_init(__cil_tmp5);
 #line 2679
-  __cil_tmp10 = (unsigned long )pf;
+  __cil_tmp6 = & pf->refcnt;
 #line 2679
-  __cil_tmp11 = __cil_tmp10 + 312;
-#line 2679
-  __cil_tmp12 = (atomic_t *)__cil_tmp11;
-#line 2679
-  atomic_set(__cil_tmp12, 1);
+  atomic_set(__cil_tmp6, 1);
 #line 2680
-  __cil_tmp13 = (unsigned long )pf;
+  __cil_tmp7 = & pf->rwait;
 #line 2680
-  __cil_tmp14 = __cil_tmp13 + 224;
-#line 2680
-  __cil_tmp15 = (wait_queue_head_t *)__cil_tmp14;
-#line 2680
-  __init_waitqueue_head(__cil_tmp15, & __key);
+  __init_waitqueue_head(__cil_tmp7, & __key);
   }
 #line 2682
   return;
@@ -24544,201 +19689,96 @@ static void init_ppp_file(struct ppp_file *pf , int kind )
 #line 2687 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void ppp_shutdown_interface(struct ppp *ppp ) 
 { struct ppp_net *pn ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct net *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct mutex *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  spinlock_t *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  struct net *__cil_tmp3 ;
+  struct mutex *__cil_tmp4 ;
+  spinlock_t *__cil_tmp5 ;
+  spinlock_t *__cil_tmp6 ;
+  int __cil_tmp7 ;
+  spinlock_t *__cil_tmp8 ;
+  spinlock_t *__cil_tmp9 ;
+  struct net_device *__cil_tmp10 ;
+  struct idr *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  spinlock_t *__cil_tmp13 ;
   spinlock_t *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  spinlock_t *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  spinlock_t *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct net_device *__cil_tmp28 ;
-  struct idr *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  spinlock_t *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  spinlock_t *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  wait_queue_head_t *__cil_tmp48 ;
-  void *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct mutex *__cil_tmp52 ;
+  wait_queue_head_t *__cil_tmp15 ;
+  void *__cil_tmp16 ;
+  struct mutex *__cil_tmp17 ;
 
   {
   {
 #line 2691
-  __cil_tmp3 = (unsigned long )ppp;
+  __cil_tmp3 = ppp->ppp_net;
 #line 2691
-  __cil_tmp4 = __cil_tmp3 + 936;
-#line 2691
-  __cil_tmp5 = *((struct net **)__cil_tmp4);
-#line 2691
-  pn = ppp_pernet(__cil_tmp5);
+  pn = ppp_pernet(__cil_tmp3);
 #line 2692
-  __cil_tmp6 = (unsigned long )pn;
+  __cil_tmp4 = & pn->all_ppp_mutex;
 #line 2692
-  __cil_tmp7 = __cil_tmp6 + 96;
-#line 2692
-  __cil_tmp8 = (struct mutex *)__cil_tmp7;
-#line 2692
-  mutex_lock_nested(__cil_tmp8, 0U);
+  mutex_lock_nested(__cil_tmp4, 0U);
 #line 2695
-  __cil_tmp9 = (unsigned long )ppp;
+  __cil_tmp5 = & ppp->wlock;
 #line 2695
-  __cil_tmp10 = __cil_tmp9 + 432;
+  spin_lock_bh(__cil_tmp5);
 #line 2695
-  __cil_tmp11 = (spinlock_t *)__cil_tmp10;
+  __cil_tmp6 = & ppp->rlock;
 #line 2695
-  spin_lock_bh(__cil_tmp11);
-#line 2695
-  __cil_tmp12 = (unsigned long )ppp;
-#line 2695
-  __cil_tmp13 = __cil_tmp12 + 360;
-#line 2695
-  __cil_tmp14 = (spinlock_t *)__cil_tmp13;
-#line 2695
-  spin_lock_bh(__cil_tmp14);
+  spin_lock_bh(__cil_tmp6);
   }
   {
 #line 2696
-  __cil_tmp15 = (unsigned long )ppp;
+  __cil_tmp7 = ppp->closing;
 #line 2696
-  __cil_tmp16 = __cil_tmp15 + 792;
-#line 2696
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 2696
-  if (__cil_tmp17 == 0) {
+  if (__cil_tmp7 == 0) {
     {
 #line 2697
-    __cil_tmp18 = (unsigned long )ppp;
-#line 2697
-    __cil_tmp19 = __cil_tmp18 + 792;
-#line 2697
-    *((int *)__cil_tmp19) = 1;
+    ppp->closing = 1;
 #line 2698
-    __cil_tmp20 = (unsigned long )ppp;
+    __cil_tmp8 = & ppp->rlock;
 #line 2698
-    __cil_tmp21 = __cil_tmp20 + 360;
+    spin_unlock_bh(__cil_tmp8);
 #line 2698
-    __cil_tmp22 = (spinlock_t *)__cil_tmp21;
+    __cil_tmp9 = & ppp->wlock;
 #line 2698
-    spin_unlock_bh(__cil_tmp22);
-#line 2698
-    __cil_tmp23 = (unsigned long )ppp;
-#line 2698
-    __cil_tmp24 = __cil_tmp23 + 432;
-#line 2698
-    __cil_tmp25 = (spinlock_t *)__cil_tmp24;
-#line 2698
-    spin_unlock_bh(__cil_tmp25);
+    spin_unlock_bh(__cil_tmp9);
 #line 2699
-    __cil_tmp26 = (unsigned long )ppp;
+    __cil_tmp10 = ppp->dev;
 #line 2699
-    __cil_tmp27 = __cil_tmp26 + 784;
-#line 2699
-    __cil_tmp28 = *((struct net_device **)__cil_tmp27);
-#line 2699
-    unregister_netdev(__cil_tmp28);
+    unregister_netdev(__cil_tmp10);
 #line 2700
-    __cil_tmp29 = (struct idr *)pn;
+    __cil_tmp11 = & pn->units_idr;
 #line 2700
-    __cil_tmp30 = 0 + 320;
+    __cil_tmp12 = ppp->file.index;
 #line 2700
-    __cil_tmp31 = (unsigned long )ppp;
-#line 2700
-    __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
-#line 2700
-    __cil_tmp33 = *((int *)__cil_tmp32);
-#line 2700
-    unit_put(__cil_tmp29, __cil_tmp33);
+    unit_put(__cil_tmp11, __cil_tmp12);
     }
   } else {
     {
 #line 2702
-    __cil_tmp34 = (unsigned long )ppp;
+    __cil_tmp13 = & ppp->rlock;
 #line 2702
-    __cil_tmp35 = __cil_tmp34 + 360;
+    spin_unlock_bh(__cil_tmp13);
 #line 2702
-    __cil_tmp36 = (spinlock_t *)__cil_tmp35;
+    __cil_tmp14 = & ppp->wlock;
 #line 2702
-    spin_unlock_bh(__cil_tmp36);
-#line 2702
-    __cil_tmp37 = (unsigned long )ppp;
-#line 2702
-    __cil_tmp38 = __cil_tmp37 + 432;
-#line 2702
-    __cil_tmp39 = (spinlock_t *)__cil_tmp38;
-#line 2702
-    spin_unlock_bh(__cil_tmp39);
+    spin_unlock_bh(__cil_tmp14);
     }
   }
   }
   {
 #line 2704
-  __cil_tmp40 = 0 + 324;
-#line 2704
-  __cil_tmp41 = (unsigned long )ppp;
-#line 2704
-  __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
-#line 2704
-  *((int *)__cil_tmp42) = 1;
+  ppp->file.dead = 1;
 #line 2705
-  __cil_tmp43 = (unsigned long )ppp;
-#line 2705
-  __cil_tmp44 = __cil_tmp43 + 328;
-#line 2705
-  *((struct file **)__cil_tmp44) = (struct file *)0;
+  ppp->owner = (struct file *)0;
 #line 2706
-  __cil_tmp45 = 0 + 224;
+  __cil_tmp15 = & ppp->file.rwait;
 #line 2706
-  __cil_tmp46 = (unsigned long )ppp;
+  __cil_tmp16 = (void *)0;
 #line 2706
-  __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
-#line 2706
-  __cil_tmp48 = (wait_queue_head_t *)__cil_tmp47;
-#line 2706
-  __cil_tmp49 = (void *)0;
-#line 2706
-  __wake_up(__cil_tmp48, 1U, 1, __cil_tmp49);
+  __wake_up(__cil_tmp15, 1U, 1, __cil_tmp16);
 #line 2708
-  __cil_tmp50 = (unsigned long )pn;
+  __cil_tmp17 = & pn->all_ppp_mutex;
 #line 2708
-  __cil_tmp51 = __cil_tmp50 + 96;
-#line 2708
-  __cil_tmp52 = (struct mutex *)__cil_tmp51;
-#line 2708
-  mutex_unlock(__cil_tmp52);
+  mutex_unlock(__cil_tmp17);
   }
 #line 2709
   return;
@@ -24746,75 +19786,30 @@ static void ppp_shutdown_interface(struct ppp *ppp )
 }
 #line 2716 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void ppp_destroy_interface(struct ppp *ppp ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+{ int __cil_tmp2 ;
+  struct net_device *__cil_tmp3 ;
+  struct net_device  const  *__cil_tmp4 ;
   int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
   struct net_device *__cil_tmp8 ;
   struct net_device  const  *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  struct slcompress *__cil_tmp12 ;
+  unsigned long __cil_tmp13 ;
+  struct slcompress *__cil_tmp14 ;
   unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct net_device *__cil_tmp22 ;
-  struct net_device  const  *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  int __cil_tmp30 ;
-  struct slcompress *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct slcompress *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct slcompress *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct sk_buff_head *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct sk_buff_head *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct sk_buff_head *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct sock_filter *__cil_tmp55 ;
-  void const   *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct sock_filter *__cil_tmp61 ;
-  void const   *__cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct sk_buff *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  struct net_device *__cil_tmp70 ;
+  struct slcompress *__cil_tmp16 ;
+  struct sk_buff_head *__cil_tmp17 ;
+  struct sk_buff_head *__cil_tmp18 ;
+  struct sk_buff_head *__cil_tmp19 ;
+  struct sock_filter *__cil_tmp20 ;
+  void const   *__cil_tmp21 ;
+  struct sock_filter *__cil_tmp22 ;
+  void const   *__cil_tmp23 ;
+  struct sk_buff *__cil_tmp24 ;
+  struct net_device *__cil_tmp25 ;
 
   {
   {
@@ -24823,80 +19818,42 @@ static void ppp_destroy_interface(struct ppp *ppp )
   }
   {
 #line 2720
-  __cil_tmp2 = 0 + 324;
+  __cil_tmp2 = ppp->file.dead;
 #line 2720
-  __cil_tmp3 = (unsigned long )ppp;
-#line 2720
-  __cil_tmp4 = __cil_tmp3 + __cil_tmp2;
-#line 2720
-  __cil_tmp5 = *((int *)__cil_tmp4);
-#line 2720
-  if (__cil_tmp5 == 0) {
+  if (__cil_tmp2 == 0) {
     {
 #line 2722
-    __cil_tmp6 = (unsigned long )ppp;
+    __cil_tmp3 = ppp->dev;
 #line 2722
-    __cil_tmp7 = __cil_tmp6 + 784;
+    __cil_tmp4 = (struct net_device  const  *)__cil_tmp3;
 #line 2722
-    __cil_tmp8 = *((struct net_device **)__cil_tmp7);
+    __cil_tmp5 = ppp->file.dead;
 #line 2722
-    __cil_tmp9 = (struct net_device  const  *)__cil_tmp8;
+    __cil_tmp6 = ppp->n_channels;
 #line 2722
-    __cil_tmp10 = 0 + 324;
-#line 2722
-    __cil_tmp11 = (unsigned long )ppp;
-#line 2722
-    __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 2722
-    __cil_tmp13 = *((int *)__cil_tmp12);
-#line 2722
-    __cil_tmp14 = (unsigned long )ppp;
-#line 2722
-    __cil_tmp15 = __cil_tmp14 + 352;
-#line 2722
-    __cil_tmp16 = *((int *)__cil_tmp15);
-#line 2722
-    netdev_err(__cil_tmp9, "ppp: destroying ppp struct %p but dead=%d n_channels=%d !\n",
-               ppp, __cil_tmp13, __cil_tmp16);
+    netdev_err(__cil_tmp4, "ppp: destroying ppp struct %p but dead=%d n_channels=%d !\n",
+               ppp, __cil_tmp5, __cil_tmp6);
     }
 #line 2725
     return;
   } else {
     {
 #line 2720
-    __cil_tmp17 = (unsigned long )ppp;
+    __cil_tmp7 = ppp->n_channels;
 #line 2720
-    __cil_tmp18 = __cil_tmp17 + 352;
-#line 2720
-    __cil_tmp19 = *((int *)__cil_tmp18);
-#line 2720
-    if (__cil_tmp19 != 0) {
+    if (__cil_tmp7 != 0) {
       {
 #line 2722
-      __cil_tmp20 = (unsigned long )ppp;
+      __cil_tmp8 = ppp->dev;
 #line 2722
-      __cil_tmp21 = __cil_tmp20 + 784;
+      __cil_tmp9 = (struct net_device  const  *)__cil_tmp8;
 #line 2722
-      __cil_tmp22 = *((struct net_device **)__cil_tmp21);
+      __cil_tmp10 = ppp->file.dead;
 #line 2722
-      __cil_tmp23 = (struct net_device  const  *)__cil_tmp22;
+      __cil_tmp11 = ppp->n_channels;
 #line 2722
-      __cil_tmp24 = 0 + 324;
-#line 2722
-      __cil_tmp25 = (unsigned long )ppp;
-#line 2722
-      __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
-#line 2722
-      __cil_tmp27 = *((int *)__cil_tmp26);
-#line 2722
-      __cil_tmp28 = (unsigned long )ppp;
-#line 2722
-      __cil_tmp29 = __cil_tmp28 + 352;
-#line 2722
-      __cil_tmp30 = *((int *)__cil_tmp29);
-#line 2722
-      netdev_err(__cil_tmp23, "ppp: destroying ppp struct %p but dead=%d n_channels=%d !\n",
-                 ppp, __cil_tmp27, __cil_tmp30);
+      netdev_err(__cil_tmp9, "ppp: destroying ppp struct %p but dead=%d n_channels=%d !\n",
+                 ppp, __cil_tmp10, __cil_tmp11);
       }
 #line 2725
       return;
@@ -24912,34 +19869,22 @@ static void ppp_destroy_interface(struct ppp *ppp )
   }
   {
 #line 2729
-  __cil_tmp31 = (struct slcompress *)0;
+  __cil_tmp12 = (struct slcompress *)0;
 #line 2729
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
+  __cil_tmp13 = (unsigned long )__cil_tmp12;
 #line 2729
-  __cil_tmp33 = (unsigned long )ppp;
+  __cil_tmp14 = ppp->vj;
 #line 2729
-  __cil_tmp34 = __cil_tmp33 + 528;
+  __cil_tmp15 = (unsigned long )__cil_tmp14;
 #line 2729
-  __cil_tmp35 = *((struct slcompress **)__cil_tmp34);
-#line 2729
-  __cil_tmp36 = (unsigned long )__cil_tmp35;
-#line 2729
-  if (__cil_tmp36 != __cil_tmp32) {
+  if (__cil_tmp15 != __cil_tmp13) {
     {
 #line 2730
-    __cil_tmp37 = (unsigned long )ppp;
+    __cil_tmp16 = ppp->vj;
 #line 2730
-    __cil_tmp38 = __cil_tmp37 + 528;
-#line 2730
-    __cil_tmp39 = *((struct slcompress **)__cil_tmp38);
-#line 2730
-    slhc_free(__cil_tmp39);
+    slhc_free(__cil_tmp16);
 #line 2731
-    __cil_tmp40 = (unsigned long )ppp;
-#line 2731
-    __cil_tmp41 = __cil_tmp40 + 528;
-#line 2731
-    *((struct slcompress **)__cil_tmp41) = (struct slcompress *)0;
+    ppp->vj = (struct slcompress *)0;
     }
   } else {
 
@@ -24947,81 +19892,41 @@ static void ppp_destroy_interface(struct ppp *ppp )
   }
   {
 #line 2733
-  __cil_tmp42 = 0 + 32;
+  __cil_tmp17 = & ppp->file.xq;
 #line 2733
-  __cil_tmp43 = (unsigned long )ppp;
-#line 2733
-  __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
-#line 2733
-  __cil_tmp45 = (struct sk_buff_head *)__cil_tmp44;
-#line 2733
-  skb_queue_purge(__cil_tmp45);
+  skb_queue_purge(__cil_tmp17);
 #line 2734
-  __cil_tmp46 = 0 + 128;
+  __cil_tmp18 = & ppp->file.rq;
 #line 2734
-  __cil_tmp47 = (unsigned long )ppp;
-#line 2734
-  __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
-#line 2734
-  __cil_tmp49 = (struct sk_buff_head *)__cil_tmp48;
-#line 2734
-  skb_queue_purge(__cil_tmp49);
+  skb_queue_purge(__cil_tmp18);
 #line 2736
-  __cil_tmp50 = (unsigned long )ppp;
+  __cil_tmp19 = & ppp->mrq;
 #line 2736
-  __cil_tmp51 = __cil_tmp50 + 816;
-#line 2736
-  __cil_tmp52 = (struct sk_buff_head *)__cil_tmp51;
-#line 2736
-  skb_queue_purge(__cil_tmp52);
+  skb_queue_purge(__cil_tmp19);
 #line 2739
-  __cil_tmp53 = (unsigned long )ppp;
+  __cil_tmp20 = ppp->pass_filter;
 #line 2739
-  __cil_tmp54 = __cil_tmp53 + 912;
+  __cil_tmp21 = (void const   *)__cil_tmp20;
 #line 2739
-  __cil_tmp55 = *((struct sock_filter **)__cil_tmp54);
-#line 2739
-  __cil_tmp56 = (void const   *)__cil_tmp55;
-#line 2739
-  kfree(__cil_tmp56);
+  kfree(__cil_tmp21);
 #line 2740
-  __cil_tmp57 = (unsigned long )ppp;
-#line 2740
-  __cil_tmp58 = __cil_tmp57 + 912;
-#line 2740
-  *((struct sock_filter **)__cil_tmp58) = (struct sock_filter *)0;
+  ppp->pass_filter = (struct sock_filter *)0;
 #line 2741
-  __cil_tmp59 = (unsigned long )ppp;
+  __cil_tmp22 = ppp->active_filter;
 #line 2741
-  __cil_tmp60 = __cil_tmp59 + 920;
+  __cil_tmp23 = (void const   *)__cil_tmp22;
 #line 2741
-  __cil_tmp61 = *((struct sock_filter **)__cil_tmp60);
-#line 2741
-  __cil_tmp62 = (void const   *)__cil_tmp61;
-#line 2741
-  kfree(__cil_tmp62);
+  kfree(__cil_tmp23);
 #line 2742
-  __cil_tmp63 = (unsigned long )ppp;
-#line 2742
-  __cil_tmp64 = __cil_tmp63 + 920;
-#line 2742
-  *((struct sock_filter **)__cil_tmp64) = (struct sock_filter *)0;
+  ppp->active_filter = (struct sock_filter *)0;
 #line 2745
-  __cil_tmp65 = (unsigned long )ppp;
+  __cil_tmp24 = ppp->xmit_pending;
 #line 2745
-  __cil_tmp66 = __cil_tmp65 + 728;
-#line 2745
-  __cil_tmp67 = *((struct sk_buff **)__cil_tmp66);
-#line 2745
-  kfree_skb(__cil_tmp67);
+  kfree_skb(__cil_tmp24);
 #line 2747
-  __cil_tmp68 = (unsigned long )ppp;
+  __cil_tmp25 = ppp->dev;
 #line 2747
-  __cil_tmp69 = __cil_tmp68 + 784;
-#line 2747
-  __cil_tmp70 = *((struct net_device **)__cil_tmp69);
-#line 2747
-  free_netdev(__cil_tmp70);
+  free_netdev(__cil_tmp25);
   }
 #line 2748
   return;
@@ -25035,7 +19940,7 @@ static struct ppp *ppp_find_unit(struct ppp_net *pn , int unit )
   {
   {
 #line 2757
-  __cil_tmp4 = (struct idr *)pn;
+  __cil_tmp4 = & pn->units_idr;
 #line 2757
   tmp = unit_find(__cil_tmp4, unit);
   }
@@ -25050,94 +19955,51 @@ static struct channel *ppp_find_channel(struct ppp_net *pn , int unit )
   struct list_head  const  *__mptr___0 ;
   struct list_head  const  *__mptr___1 ;
   struct list_head  const  *__mptr___2 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct list_head *__cil_tmp10 ;
-  struct channel *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
+  struct list_head *__cil_tmp8 ;
+  struct channel *__cil_tmp9 ;
+  int __cil_tmp10 ;
+  struct list_head *__cil_tmp11 ;
+  struct list_head *__cil_tmp12 ;
+  struct list_head *__cil_tmp13 ;
+  struct channel *__cil_tmp14 ;
+  struct list_head *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct list_head *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct list_head *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  struct list_head *__cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  struct list_head *__cil_tmp19 ;
+  struct channel *__cil_tmp20 ;
+  int __cil_tmp21 ;
+  struct list_head *__cil_tmp22 ;
+  struct channel *__cil_tmp23 ;
   struct list_head *__cil_tmp24 ;
-  struct channel *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned long __cil_tmp25 ;
+  struct list_head *__cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  struct list_head *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct list_head *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  struct list_head *__cil_tmp36 ;
-  struct channel *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  struct list_head *__cil_tmp44 ;
-  struct channel *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct list_head *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct list_head *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
 
   {
 #line 2773
-  __cil_tmp8 = (unsigned long )pn;
+  __cil_tmp8 = pn->new_channels.next;
 #line 2773
-  __cil_tmp9 = __cil_tmp8 + 280;
+  __mptr = (struct list_head  const  *)__cil_tmp8;
 #line 2773
-  __cil_tmp10 = *((struct list_head **)__cil_tmp9);
+  __cil_tmp9 = (struct channel *)__mptr;
 #line 2773
-  __mptr = (struct list_head  const  *)__cil_tmp10;
+  pch = __cil_tmp9 + 1152921504606846672UL;
 #line 2773
-  __cil_tmp11 = (struct channel *)__mptr;
-#line 2773
-  pch = __cil_tmp11 + 1152921504606846672UL;
   goto ldv_40404;
   ldv_40403: ;
   {
 #line 2774
-  __cil_tmp12 = 0 + 320;
+  __cil_tmp10 = pch->file.index;
 #line 2774
-  __cil_tmp13 = (unsigned long )pch;
-#line 2774
-  __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 2774
-  __cil_tmp15 = *((int *)__cil_tmp14);
-#line 2774
-  if (__cil_tmp15 == unit) {
+  if (__cil_tmp10 == unit) {
     {
 #line 2775
-    __cil_tmp16 = (unsigned long )pch;
+    __cil_tmp11 = & pch->list;
 #line 2775
-    __cil_tmp17 = __cil_tmp16 + 328;
+    __cil_tmp12 = & pn->all_channels;
 #line 2775
-    __cil_tmp18 = (struct list_head *)__cil_tmp17;
-#line 2775
-    __cil_tmp19 = (unsigned long )pn;
-#line 2775
-    __cil_tmp20 = __cil_tmp19 + 264;
-#line 2775
-    __cil_tmp21 = (struct list_head *)__cil_tmp20;
-#line 2775
-    list_move(__cil_tmp18, __cil_tmp21);
+    list_move(__cil_tmp11, __cil_tmp12);
     }
 #line 2776
     return (pch);
@@ -25146,68 +20008,49 @@ static struct channel *ppp_find_channel(struct ppp_net *pn , int unit )
   }
   }
 #line 2773
-  __cil_tmp22 = (unsigned long )pch;
+  __cil_tmp13 = pch->list.next;
 #line 2773
-  __cil_tmp23 = __cil_tmp22 + 328;
+  __mptr___0 = (struct list_head  const  *)__cil_tmp13;
 #line 2773
-  __cil_tmp24 = *((struct list_head **)__cil_tmp23);
+  __cil_tmp14 = (struct channel *)__mptr___0;
 #line 2773
-  __mptr___0 = (struct list_head  const  *)__cil_tmp24;
-#line 2773
-  __cil_tmp25 = (struct channel *)__mptr___0;
-#line 2773
-  pch = __cil_tmp25 + 1152921504606846672UL;
+  pch = __cil_tmp14 + 1152921504606846672UL;
   ldv_40404: ;
   {
 #line 2773
-  __cil_tmp26 = (unsigned long )pn;
+  __cil_tmp15 = & pn->new_channels;
 #line 2773
-  __cil_tmp27 = __cil_tmp26 + 280;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 2773
-  __cil_tmp28 = (struct list_head *)__cil_tmp27;
+  __cil_tmp17 = & pch->list;
 #line 2773
-  __cil_tmp29 = (unsigned long )__cil_tmp28;
+  __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 2773
-  __cil_tmp30 = (unsigned long )pch;
-#line 2773
-  __cil_tmp31 = __cil_tmp30 + 328;
-#line 2773
-  __cil_tmp32 = (struct list_head *)__cil_tmp31;
-#line 2773
-  __cil_tmp33 = (unsigned long )__cil_tmp32;
-#line 2773
-  if (__cil_tmp33 != __cil_tmp29) {
+  if (__cil_tmp18 != __cil_tmp16) {
+#line 2774
     goto ldv_40403;
   } else {
+#line 2776
     goto ldv_40405;
   }
   }
   ldv_40405: 
 #line 2780
-  __cil_tmp34 = (unsigned long )pn;
+  __cil_tmp19 = pn->all_channels.next;
 #line 2780
-  __cil_tmp35 = __cil_tmp34 + 264;
+  __mptr___1 = (struct list_head  const  *)__cil_tmp19;
 #line 2780
-  __cil_tmp36 = *((struct list_head **)__cil_tmp35);
+  __cil_tmp20 = (struct channel *)__mptr___1;
 #line 2780
-  __mptr___1 = (struct list_head  const  *)__cil_tmp36;
+  pch = __cil_tmp20 + 1152921504606846672UL;
 #line 2780
-  __cil_tmp37 = (struct channel *)__mptr___1;
-#line 2780
-  pch = __cil_tmp37 + 1152921504606846672UL;
   goto ldv_40411;
   ldv_40410: ;
   {
 #line 2781
-  __cil_tmp38 = 0 + 320;
+  __cil_tmp21 = pch->file.index;
 #line 2781
-  __cil_tmp39 = (unsigned long )pch;
-#line 2781
-  __cil_tmp40 = __cil_tmp39 + __cil_tmp38;
-#line 2781
-  __cil_tmp41 = *((int *)__cil_tmp40);
-#line 2781
-  if (__cil_tmp41 == unit) {
+  if (__cil_tmp21 == unit) {
 #line 2782
     return (pch);
   } else {
@@ -25215,39 +20058,29 @@ static struct channel *ppp_find_channel(struct ppp_net *pn , int unit )
   }
   }
 #line 2780
-  __cil_tmp42 = (unsigned long )pch;
+  __cil_tmp22 = pch->list.next;
 #line 2780
-  __cil_tmp43 = __cil_tmp42 + 328;
+  __mptr___2 = (struct list_head  const  *)__cil_tmp22;
 #line 2780
-  __cil_tmp44 = *((struct list_head **)__cil_tmp43);
+  __cil_tmp23 = (struct channel *)__mptr___2;
 #line 2780
-  __mptr___2 = (struct list_head  const  *)__cil_tmp44;
-#line 2780
-  __cil_tmp45 = (struct channel *)__mptr___2;
-#line 2780
-  pch = __cil_tmp45 + 1152921504606846672UL;
+  pch = __cil_tmp23 + 1152921504606846672UL;
   ldv_40411: ;
   {
 #line 2780
-  __cil_tmp46 = (unsigned long )pn;
+  __cil_tmp24 = & pn->all_channels;
 #line 2780
-  __cil_tmp47 = __cil_tmp46 + 264;
+  __cil_tmp25 = (unsigned long )__cil_tmp24;
 #line 2780
-  __cil_tmp48 = (struct list_head *)__cil_tmp47;
+  __cil_tmp26 = & pch->list;
 #line 2780
-  __cil_tmp49 = (unsigned long )__cil_tmp48;
+  __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 2780
-  __cil_tmp50 = (unsigned long )pch;
-#line 2780
-  __cil_tmp51 = __cil_tmp50 + 328;
-#line 2780
-  __cil_tmp52 = (struct list_head *)__cil_tmp51;
-#line 2780
-  __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 2780
-  if (__cil_tmp53 != __cil_tmp49) {
+  if (__cil_tmp27 != __cil_tmp25) {
+#line 2781
     goto ldv_40410;
   } else {
+#line 2783
     goto ldv_40412;
   }
   }
@@ -25262,122 +20095,59 @@ static int ppp_connect_channel(struct channel *pch , int unit )
   struct ppp_net *pn ;
   int ret ;
   int hdrlen ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct net *__cil_tmp9 ;
+  struct net *__cil_tmp7 ;
+  struct mutex *__cil_tmp8 ;
+  struct ppp *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
   unsigned long __cil_tmp11 ;
-  struct mutex *__cil_tmp12 ;
+  rwlock_t *__cil_tmp12 ;
   struct ppp *__cil_tmp13 ;
   unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  struct ppp *__cil_tmp15 ;
   unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  rwlock_t *__cil_tmp18 ;
-  struct ppp *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct ppp *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  spinlock_t *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  spinlock_t *__cil_tmp17 ;
+  spinlock_t *__cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  struct net_device *__cil_tmp22 ;
+  unsigned short __cil_tmp23 ;
+  int __cil_tmp24 ;
+  struct net_device *__cil_tmp25 ;
+  struct list_head *__cil_tmp26 ;
+  struct list_head *__cil_tmp27 ;
+  int __cil_tmp28 ;
+  atomic_t *__cil_tmp29 ;
   spinlock_t *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct net_device *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned short __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct net_device *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct list_head *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  struct list_head *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  atomic_t *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  spinlock_t *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  spinlock_t *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  rwlock_t *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  struct mutex *__cil_tmp89 ;
+  spinlock_t *__cil_tmp31 ;
+  rwlock_t *__cil_tmp32 ;
+  struct mutex *__cil_tmp33 ;
 
   {
   {
 #line 2796
   ret = -6;
 #line 2799
-  __cil_tmp7 = (unsigned long )pch;
+  __cil_tmp7 = pch->chan_net;
 #line 2799
-  __cil_tmp8 = __cil_tmp7 + 576;
-#line 2799
-  __cil_tmp9 = *((struct net **)__cil_tmp8);
-#line 2799
-  pn = ppp_pernet(__cil_tmp9);
+  pn = ppp_pernet(__cil_tmp7);
 #line 2801
-  __cil_tmp10 = (unsigned long )pn;
+  __cil_tmp8 = & pn->all_ppp_mutex;
 #line 2801
-  __cil_tmp11 = __cil_tmp10 + 96;
-#line 2801
-  __cil_tmp12 = (struct mutex *)__cil_tmp11;
-#line 2801
-  mutex_lock_nested(__cil_tmp12, 0U);
+  mutex_lock_nested(__cil_tmp8, 0U);
 #line 2802
   ppp = ppp_find_unit(pn, unit);
   }
   {
 #line 2803
-  __cil_tmp13 = (struct ppp *)0;
+  __cil_tmp9 = (struct ppp *)0;
 #line 2803
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 2803
-  __cil_tmp15 = (unsigned long )ppp;
+  __cil_tmp11 = (unsigned long )ppp;
 #line 2803
-  if (__cil_tmp15 == __cil_tmp14) {
+  if (__cil_tmp11 == __cil_tmp10) {
+#line 2804
     goto out;
   } else {
 
@@ -25385,31 +20155,24 @@ static int ppp_connect_channel(struct channel *pch , int unit )
   }
   {
 #line 2805
-  __cil_tmp16 = (unsigned long )pch;
+  __cil_tmp12 = & pch->upl;
 #line 2805
-  __cil_tmp17 = __cil_tmp16 + 600;
-#line 2805
-  __cil_tmp18 = (rwlock_t *)__cil_tmp17;
-#line 2805
-  _raw_write_lock_bh(__cil_tmp18);
+  _raw_write_lock_bh(__cil_tmp12);
 #line 2806
   ret = -22;
   }
   {
 #line 2807
-  __cil_tmp19 = (struct ppp *)0;
+  __cil_tmp13 = (struct ppp *)0;
 #line 2807
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp14 = (unsigned long )__cil_tmp13;
 #line 2807
-  __cil_tmp21 = (unsigned long )pch;
+  __cil_tmp15 = pch->ppp;
 #line 2807
-  __cil_tmp22 = __cil_tmp21 + 568;
+  __cil_tmp16 = (unsigned long )__cil_tmp15;
 #line 2807
-  __cil_tmp23 = *((struct ppp **)__cil_tmp22);
-#line 2807
-  __cil_tmp24 = (unsigned long )__cil_tmp23;
-#line 2807
-  if (__cil_tmp24 != __cil_tmp20) {
+  if (__cil_tmp16 != __cil_tmp14) {
+#line 2808
     goto outl;
   } else {
 
@@ -25417,185 +20180,89 @@ static int ppp_connect_channel(struct channel *pch , int unit )
   }
   {
 #line 2810
-  __cil_tmp25 = (unsigned long )ppp;
+  __cil_tmp17 = & ppp->wlock;
 #line 2810
-  __cil_tmp26 = __cil_tmp25 + 432;
+  spin_lock_bh(__cil_tmp17);
 #line 2810
-  __cil_tmp27 = (spinlock_t *)__cil_tmp26;
+  __cil_tmp18 = & ppp->rlock;
 #line 2810
-  spin_lock_bh(__cil_tmp27);
-#line 2810
-  __cil_tmp28 = (unsigned long )ppp;
-#line 2810
-  __cil_tmp29 = __cil_tmp28 + 360;
-#line 2810
-  __cil_tmp30 = (spinlock_t *)__cil_tmp29;
-#line 2810
-  spin_lock_bh(__cil_tmp30);
+  spin_lock_bh(__cil_tmp18);
   }
   {
 #line 2811
-  __cil_tmp31 = 0 + 316;
+  __cil_tmp19 = ppp->file.hdrlen;
 #line 2811
-  __cil_tmp32 = (unsigned long )ppp;
+  __cil_tmp20 = pch->file.hdrlen;
 #line 2811
-  __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 2811
-  __cil_tmp34 = *((int *)__cil_tmp33);
-#line 2811
-  __cil_tmp35 = 0 + 316;
-#line 2811
-  __cil_tmp36 = (unsigned long )pch;
-#line 2811
-  __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 2811
-  __cil_tmp38 = *((int *)__cil_tmp37);
-#line 2811
-  if (__cil_tmp38 > __cil_tmp34) {
+  if (__cil_tmp20 > __cil_tmp19) {
 #line 2812
-    __cil_tmp39 = 0 + 316;
-#line 2812
-    __cil_tmp40 = (unsigned long )ppp;
-#line 2812
-    __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
-#line 2812
-    __cil_tmp42 = 0 + 316;
-#line 2812
-    __cil_tmp43 = (unsigned long )pch;
-#line 2812
-    __cil_tmp44 = __cil_tmp43 + __cil_tmp42;
-#line 2812
-    *((int *)__cil_tmp41) = *((int *)__cil_tmp44);
+    ppp->file.hdrlen = pch->file.hdrlen;
   } else {
 
   }
   }
 #line 2813
-  __cil_tmp45 = 0 + 316;
+  __cil_tmp21 = pch->file.hdrlen;
 #line 2813
-  __cil_tmp46 = (unsigned long )pch;
-#line 2813
-  __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
-#line 2813
-  __cil_tmp48 = *((int *)__cil_tmp47);
-#line 2813
-  hdrlen = __cil_tmp48 + 2;
+  hdrlen = __cil_tmp21 + 2;
   {
 #line 2814
-  __cil_tmp49 = (unsigned long )ppp;
+  __cil_tmp22 = ppp->dev;
 #line 2814
-  __cil_tmp50 = __cil_tmp49 + 784;
+  __cil_tmp23 = __cil_tmp22->hard_header_len;
 #line 2814
-  __cil_tmp51 = *((struct net_device **)__cil_tmp50);
+  __cil_tmp24 = (int )__cil_tmp23;
 #line 2814
-  __cil_tmp52 = (unsigned long )__cil_tmp51;
-#line 2814
-  __cil_tmp53 = __cil_tmp52 + 454;
-#line 2814
-  __cil_tmp54 = *((unsigned short *)__cil_tmp53);
-#line 2814
-  __cil_tmp55 = (int )__cil_tmp54;
-#line 2814
-  if (__cil_tmp55 < hdrlen) {
+  if (__cil_tmp24 < hdrlen) {
 #line 2815
-    __cil_tmp56 = (unsigned long )ppp;
+    __cil_tmp25 = ppp->dev;
 #line 2815
-    __cil_tmp57 = __cil_tmp56 + 784;
-#line 2815
-    __cil_tmp58 = *((struct net_device **)__cil_tmp57);
-#line 2815
-    __cil_tmp59 = (unsigned long )__cil_tmp58;
-#line 2815
-    __cil_tmp60 = __cil_tmp59 + 454;
-#line 2815
-    *((unsigned short *)__cil_tmp60) = (unsigned short )hdrlen;
+    __cil_tmp25->hard_header_len = (unsigned short )hdrlen;
   } else {
 
   }
   }
   {
 #line 2816
-  __cil_tmp61 = (unsigned long )pch;
+  __cil_tmp26 = & pch->clist;
 #line 2816
-  __cil_tmp62 = __cil_tmp61 + 584;
+  __cil_tmp27 = & ppp->channels;
 #line 2816
-  __cil_tmp63 = (struct list_head *)__cil_tmp62;
-#line 2816
-  __cil_tmp64 = (unsigned long )ppp;
-#line 2816
-  __cil_tmp65 = __cil_tmp64 + 336;
-#line 2816
-  __cil_tmp66 = (struct list_head *)__cil_tmp65;
-#line 2816
-  list_add_tail(__cil_tmp63, __cil_tmp66);
+  list_add_tail(__cil_tmp26, __cil_tmp27);
 #line 2817
-  __cil_tmp67 = (unsigned long )ppp;
+  __cil_tmp28 = ppp->n_channels;
 #line 2817
-  __cil_tmp68 = __cil_tmp67 + 352;
-#line 2817
-  __cil_tmp69 = (unsigned long )ppp;
-#line 2817
-  __cil_tmp70 = __cil_tmp69 + 352;
-#line 2817
-  __cil_tmp71 = *((int *)__cil_tmp70);
-#line 2817
-  *((int *)__cil_tmp68) = __cil_tmp71 + 1;
+  ppp->n_channels = __cil_tmp28 + 1;
 #line 2818
-  __cil_tmp72 = (unsigned long )pch;
-#line 2818
-  __cil_tmp73 = __cil_tmp72 + 568;
-#line 2818
-  *((struct ppp **)__cil_tmp73) = ppp;
+  pch->ppp = ppp;
 #line 2819
-  __cil_tmp74 = 0 + 312;
+  __cil_tmp29 = & ppp->file.refcnt;
 #line 2819
-  __cil_tmp75 = (unsigned long )ppp;
-#line 2819
-  __cil_tmp76 = __cil_tmp75 + __cil_tmp74;
-#line 2819
-  __cil_tmp77 = (atomic_t *)__cil_tmp76;
-#line 2819
-  atomic_inc(__cil_tmp77);
+  atomic_inc(__cil_tmp29);
 #line 2820
-  __cil_tmp78 = (unsigned long )ppp;
+  __cil_tmp30 = & ppp->rlock;
 #line 2820
-  __cil_tmp79 = __cil_tmp78 + 360;
+  spin_unlock_bh(__cil_tmp30);
 #line 2820
-  __cil_tmp80 = (spinlock_t *)__cil_tmp79;
+  __cil_tmp31 = & ppp->wlock;
 #line 2820
-  spin_unlock_bh(__cil_tmp80);
-#line 2820
-  __cil_tmp81 = (unsigned long )ppp;
-#line 2820
-  __cil_tmp82 = __cil_tmp81 + 432;
-#line 2820
-  __cil_tmp83 = (spinlock_t *)__cil_tmp82;
-#line 2820
-  spin_unlock_bh(__cil_tmp83);
+  spin_unlock_bh(__cil_tmp31);
 #line 2821
   ret = 0;
   }
   outl: 
   {
 #line 2824
-  __cil_tmp84 = (unsigned long )pch;
+  __cil_tmp32 = & pch->upl;
 #line 2824
-  __cil_tmp85 = __cil_tmp84 + 600;
-#line 2824
-  __cil_tmp86 = (rwlock_t *)__cil_tmp85;
-#line 2824
-  _raw_write_unlock_bh(__cil_tmp86);
+  _raw_write_unlock_bh(__cil_tmp32);
   }
   out: 
   {
 #line 2826
-  __cil_tmp87 = (unsigned long )pn;
+  __cil_tmp33 = & pn->all_ppp_mutex;
 #line 2826
-  __cil_tmp88 = __cil_tmp87 + 96;
-#line 2826
-  __cil_tmp89 = (struct mutex *)__cil_tmp88;
-#line 2826
-  mutex_unlock(__cil_tmp89);
+  mutex_unlock(__cil_tmp33);
   }
 #line 2827
   return (ret);
@@ -25606,154 +20273,78 @@ static int ppp_disconnect_channel(struct channel *pch )
 { struct ppp *ppp ;
   int err ;
   int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  rwlock_t *__cil_tmp7 ;
+  rwlock_t *__cil_tmp5 ;
+  rwlock_t *__cil_tmp6 ;
+  struct ppp *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
   unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  rwlock_t *__cil_tmp14 ;
-  struct ppp *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  spinlock_t *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  spinlock_t *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  struct list_head *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  wait_queue_head_t *__cil_tmp38 ;
-  void *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  spinlock_t *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  spinlock_t *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  atomic_t *__cil_tmp49 ;
+  spinlock_t *__cil_tmp10 ;
+  spinlock_t *__cil_tmp11 ;
+  struct list_head *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  wait_queue_head_t *__cil_tmp15 ;
+  void *__cil_tmp16 ;
+  spinlock_t *__cil_tmp17 ;
+  spinlock_t *__cil_tmp18 ;
+  atomic_t *__cil_tmp19 ;
 
   {
   {
 #line 2837
   err = -22;
 #line 2839
-  __cil_tmp5 = (unsigned long )pch;
+  __cil_tmp5 = & pch->upl;
 #line 2839
-  __cil_tmp6 = __cil_tmp5 + 600;
-#line 2839
-  __cil_tmp7 = (rwlock_t *)__cil_tmp6;
-#line 2839
-  _raw_write_lock_bh(__cil_tmp7);
+  _raw_write_lock_bh(__cil_tmp5);
 #line 2840
-  __cil_tmp8 = (unsigned long )pch;
-#line 2840
-  __cil_tmp9 = __cil_tmp8 + 568;
-#line 2840
-  ppp = *((struct ppp **)__cil_tmp9);
+  ppp = pch->ppp;
 #line 2841
-  __cil_tmp10 = (unsigned long )pch;
-#line 2841
-  __cil_tmp11 = __cil_tmp10 + 568;
-#line 2841
-  *((struct ppp **)__cil_tmp11) = (struct ppp *)0;
+  pch->ppp = (struct ppp *)0;
 #line 2842
-  __cil_tmp12 = (unsigned long )pch;
+  __cil_tmp6 = & pch->upl;
 #line 2842
-  __cil_tmp13 = __cil_tmp12 + 600;
-#line 2842
-  __cil_tmp14 = (rwlock_t *)__cil_tmp13;
-#line 2842
-  _raw_write_unlock_bh(__cil_tmp14);
+  _raw_write_unlock_bh(__cil_tmp6);
   }
   {
 #line 2843
-  __cil_tmp15 = (struct ppp *)0;
+  __cil_tmp7 = (struct ppp *)0;
 #line 2843
-  __cil_tmp16 = (unsigned long )__cil_tmp15;
+  __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 2843
-  __cil_tmp17 = (unsigned long )ppp;
+  __cil_tmp9 = (unsigned long )ppp;
 #line 2843
-  if (__cil_tmp17 != __cil_tmp16) {
+  if (__cil_tmp9 != __cil_tmp8) {
     {
 #line 2845
-    __cil_tmp18 = (unsigned long )ppp;
+    __cil_tmp10 = & ppp->wlock;
 #line 2845
-    __cil_tmp19 = __cil_tmp18 + 432;
+    spin_lock_bh(__cil_tmp10);
 #line 2845
-    __cil_tmp20 = (spinlock_t *)__cil_tmp19;
+    __cil_tmp11 = & ppp->rlock;
 #line 2845
-    spin_lock_bh(__cil_tmp20);
-#line 2845
-    __cil_tmp21 = (unsigned long )ppp;
-#line 2845
-    __cil_tmp22 = __cil_tmp21 + 360;
-#line 2845
-    __cil_tmp23 = (spinlock_t *)__cil_tmp22;
-#line 2845
-    spin_lock_bh(__cil_tmp23);
+    spin_lock_bh(__cil_tmp11);
 #line 2846
-    __cil_tmp24 = (unsigned long )pch;
+    __cil_tmp12 = & pch->clist;
 #line 2846
-    __cil_tmp25 = __cil_tmp24 + 584;
-#line 2846
-    __cil_tmp26 = (struct list_head *)__cil_tmp25;
-#line 2846
-    list_del(__cil_tmp26);
+    list_del(__cil_tmp12);
 #line 2847
-    __cil_tmp27 = (unsigned long )ppp;
+    __cil_tmp13 = ppp->n_channels;
 #line 2847
-    __cil_tmp28 = __cil_tmp27 + 352;
-#line 2847
-    __cil_tmp29 = (unsigned long )ppp;
-#line 2847
-    __cil_tmp30 = __cil_tmp29 + 352;
-#line 2847
-    __cil_tmp31 = *((int *)__cil_tmp30);
-#line 2847
-    *((int *)__cil_tmp28) = __cil_tmp31 - 1;
+    ppp->n_channels = __cil_tmp13 - 1;
     }
     {
 #line 2847
-    __cil_tmp32 = (unsigned long )ppp;
+    __cil_tmp14 = ppp->n_channels;
 #line 2847
-    __cil_tmp33 = __cil_tmp32 + 352;
-#line 2847
-    __cil_tmp34 = *((int *)__cil_tmp33);
-#line 2847
-    if (__cil_tmp34 == 0) {
+    if (__cil_tmp14 == 0) {
       {
 #line 2848
-      __cil_tmp35 = 0 + 224;
+      __cil_tmp15 = & ppp->file.rwait;
 #line 2848
-      __cil_tmp36 = (unsigned long )ppp;
+      __cil_tmp16 = (void *)0;
 #line 2848
-      __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 2848
-      __cil_tmp38 = (wait_queue_head_t *)__cil_tmp37;
-#line 2848
-      __cil_tmp39 = (void *)0;
-#line 2848
-      __wake_up(__cil_tmp38, 1U, 1, __cil_tmp39);
+      __wake_up(__cil_tmp15, 1U, 1, __cil_tmp16);
       }
     } else {
 
@@ -25761,31 +20352,17 @@ static int ppp_disconnect_channel(struct channel *pch )
     }
     {
 #line 2849
-    __cil_tmp40 = (unsigned long )ppp;
+    __cil_tmp17 = & ppp->rlock;
 #line 2849
-    __cil_tmp41 = __cil_tmp40 + 360;
+    spin_unlock_bh(__cil_tmp17);
 #line 2849
-    __cil_tmp42 = (spinlock_t *)__cil_tmp41;
+    __cil_tmp18 = & ppp->wlock;
 #line 2849
-    spin_unlock_bh(__cil_tmp42);
-#line 2849
-    __cil_tmp43 = (unsigned long )ppp;
-#line 2849
-    __cil_tmp44 = __cil_tmp43 + 432;
-#line 2849
-    __cil_tmp45 = (spinlock_t *)__cil_tmp44;
-#line 2849
-    spin_unlock_bh(__cil_tmp45);
+    spin_unlock_bh(__cil_tmp18);
 #line 2850
-    __cil_tmp46 = 0 + 312;
+    __cil_tmp19 = & ppp->file.refcnt;
 #line 2850
-    __cil_tmp47 = (unsigned long )ppp;
-#line 2850
-    __cil_tmp48 = __cil_tmp47 + __cil_tmp46;
-#line 2850
-    __cil_tmp49 = (atomic_t *)__cil_tmp48;
-#line 2850
-    tmp = atomic_dec_and_test(__cil_tmp49);
+    tmp = atomic_dec_and_test(__cil_tmp19);
     }
 #line 2850
     if (tmp != 0) {
@@ -25808,19 +20385,10 @@ static int ppp_disconnect_channel(struct channel *pch )
 }
 #line 2860 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
 static void ppp_destroy_channel(struct channel *pch ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct sk_buff_head *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct sk_buff_head *__cil_tmp13 ;
-  void const   *__cil_tmp14 ;
+{ int __cil_tmp2 ;
+  struct sk_buff_head *__cil_tmp3 ;
+  struct sk_buff_head *__cil_tmp4 ;
+  void const   *__cil_tmp5 ;
 
   {
   {
@@ -25829,15 +20397,9 @@ static void ppp_destroy_channel(struct channel *pch )
   }
   {
 #line 2864
-  __cil_tmp2 = 0 + 324;
+  __cil_tmp2 = pch->file.dead;
 #line 2864
-  __cil_tmp3 = (unsigned long )pch;
-#line 2864
-  __cil_tmp4 = __cil_tmp3 + __cil_tmp2;
-#line 2864
-  __cil_tmp5 = *((int *)__cil_tmp4);
-#line 2864
-  if (__cil_tmp5 == 0) {
+  if (__cil_tmp2 == 0) {
     {
 #line 2866
     printk("<3>ppp: destroying undead channel %p !\n", pch);
@@ -25850,29 +20412,17 @@ static void ppp_destroy_channel(struct channel *pch )
   }
   {
 #line 2869
-  __cil_tmp6 = 0 + 32;
+  __cil_tmp3 = & pch->file.xq;
 #line 2869
-  __cil_tmp7 = (unsigned long )pch;
-#line 2869
-  __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
-#line 2869
-  __cil_tmp9 = (struct sk_buff_head *)__cil_tmp8;
-#line 2869
-  skb_queue_purge(__cil_tmp9);
+  skb_queue_purge(__cil_tmp3);
 #line 2870
-  __cil_tmp10 = 0 + 128;
+  __cil_tmp4 = & pch->file.rq;
 #line 2870
-  __cil_tmp11 = (unsigned long )pch;
-#line 2870
-  __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 2870
-  __cil_tmp13 = (struct sk_buff_head *)__cil_tmp12;
-#line 2870
-  skb_queue_purge(__cil_tmp13);
+  skb_queue_purge(__cil_tmp4);
 #line 2871
-  __cil_tmp14 = (void const   *)pch;
+  __cil_tmp5 = (void const   *)pch;
 #line 2871
-  kfree(__cil_tmp14);
+  kfree(__cil_tmp5);
   }
 #line 2872
   return;
@@ -25934,7 +20484,6 @@ static int __unit_alloc(struct idr *p , void *ptr , int n )
 { int unit ;
   int err ;
   int tmp ;
-  int *__cil_tmp7 ;
 
   {
   again: 
@@ -25961,6 +20510,7 @@ static int __unit_alloc(struct idr *p , void *ptr , int n )
   if (err < 0) {
 #line 2902
     if (err == -11) {
+#line 2903
       goto again;
     } else {
 
@@ -25970,12 +20520,8 @@ static int __unit_alloc(struct idr *p , void *ptr , int n )
   } else {
 
   }
-  {
 #line 2907
-  __cil_tmp7 = & unit;
-#line 2907
-  return (*__cil_tmp7);
-  }
+  return (unit);
 }
 }
 #line 2911 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"
@@ -25991,18 +20537,17 @@ static int unit_set(struct idr *p , void *ptr , int n )
   if (unit < 0) {
 #line 2917
     return (unit);
-  } else {
+  } else
 #line 2918
-    if (unit != n) {
-      {
+  if (unit != n) {
+    {
 #line 2919
-      idr_remove(p, unit);
-      }
-#line 2920
-      return (-22);
-    } else {
-
+    idr_remove(p, unit);
     }
+#line 2920
+    return (-22);
+  } else {
+
   }
 #line 2923
   return (unit);
@@ -26098,10 +20643,12 @@ void main(void)
   }
 #line 3839
   if (tmp != 0) {
+#line 3840
     goto ldv_final;
   } else {
 
   }
+#line 3873
   goto ldv_40589;
   ldv_40588: 
   {
@@ -26110,178 +20657,194 @@ void main(void)
   }
 #line 3879
   if (tmp___0 == 0) {
+#line 3879
     goto case_0;
-  } else {
+  } else
 #line 3969
-    if (tmp___0 == 1) {
-      goto case_1;
-    } else {
+  if (tmp___0 == 1) {
+#line 3969
+    goto case_1;
+  } else
 #line 4059
-      if (tmp___0 == 2) {
-        goto case_2;
-      } else {
+  if (tmp___0 == 2) {
+#line 4059
+    goto case_2;
+  } else
 #line 4149
-        if (tmp___0 == 3) {
-          goto case_3;
-        } else {
+  if (tmp___0 == 3) {
+#line 4149
+    goto case_3;
+  } else
 #line 4236
-          if (tmp___0 == 4) {
-            goto case_4;
-          } else {
+  if (tmp___0 == 4) {
+#line 4236
+    goto case_4;
+  } else
 #line 4323
-            if (tmp___0 == 5) {
-              goto case_5;
-            } else {
+  if (tmp___0 == 5) {
+#line 4323
+    goto case_5;
+  } else
 #line 4406
-              if (tmp___0 == 6) {
-                goto case_6;
-              } else {
+  if (tmp___0 == 6) {
+#line 4406
+    goto case_6;
+  } else
 #line 4493
-                if (tmp___0 == 7) {
-                  goto case_7;
-                } else {
+  if (tmp___0 == 7) {
+#line 4493
+    goto case_7;
+  } else
 #line 4580
-                  if (tmp___0 == 8) {
-                    goto case_8;
-                  } else {
+  if (tmp___0 == 8) {
+#line 4580
+    goto case_8;
+  } else
 #line 4667
-                    if (tmp___0 == 9) {
-                      goto case_9;
-                    } else {
-                      goto switch_default;
+  if (tmp___0 == 9) {
+#line 4667
+    goto case_9;
+  } else {
+#line 4754
+    goto switch_default;
 #line 3877
-                      if (0) {
-                        case_0: ;
+    if (0) {
+      case_0: ;
 #line 3882
-                        if (ldv_s_ppp_device_fops_file_operations == 0) {
-                          {
+      if (ldv_s_ppp_device_fops_file_operations == 0) {
+        {
 #line 3927
-                          res_ppp_open_3 = ppp_open(var_group2, var_group1);
+        res_ppp_open_3 = ppp_open(var_group2, var_group1);
 #line 3928
-                          ldv_check_return_value(res_ppp_open_3);
-                          }
-#line 3929
-                          if (res_ppp_open_3 != 0) {
-                            goto ldv_module_exit;
-                          } else {
-
-                          }
-#line 3962
-                          ldv_s_ppp_device_fops_file_operations = ldv_s_ppp_device_fops_file_operations + 1;
-                        } else {
-
-                        }
-                        goto ldv_40577;
-                        case_1: ;
-#line 3972
-                        if (ldv_s_ppp_device_fops_file_operations == 1) {
-                          {
-#line 4017
-                          res_ppp_read_5 = ppp_read(var_group1, var_ppp_read_5_p1,
-                                                    var_ppp_read_5_p2, var_ppp_read_5_p3);
-#line 4018
-                          __cil_tmp24 = (int )res_ppp_read_5;
-#line 4018
-                          ldv_check_return_value(__cil_tmp24);
-                          }
-#line 4019
-                          if (res_ppp_read_5 < 0L) {
-                            goto ldv_module_exit;
-                          } else {
-
-                          }
-#line 4052
-                          ldv_s_ppp_device_fops_file_operations = ldv_s_ppp_device_fops_file_operations + 1;
-                        } else {
-
-                        }
-                        goto ldv_40577;
-                        case_2: ;
-#line 4062
-                        if (ldv_s_ppp_device_fops_file_operations == 2) {
-                          {
-#line 4107
-                          res_ppp_write_6 = ppp_write(var_group1, var_ppp_write_6_p1,
-                                                      var_ppp_write_6_p2, var_ppp_write_6_p3);
-#line 4108
-                          __cil_tmp25 = (int )res_ppp_write_6;
-#line 4108
-                          ldv_check_return_value(__cil_tmp25);
-                          }
-#line 4109
-                          if (res_ppp_write_6 < 0L) {
-                            goto ldv_module_exit;
-                          } else {
-
-                          }
-#line 4142
-                          ldv_s_ppp_device_fops_file_operations = ldv_s_ppp_device_fops_file_operations + 1;
-                        } else {
-
-                        }
-                        goto ldv_40577;
-                        case_3: ;
-#line 4152
-                        if (ldv_s_ppp_device_fops_file_operations == 3) {
-                          {
-#line 4197
-                          ppp_release(var_group2, var_group1);
-#line 4229
-                          ldv_s_ppp_device_fops_file_operations = 0;
-                          }
-                        } else {
-
-                        }
-                        goto ldv_40577;
-                        case_4: 
-                        {
-#line 4284
-                        ppp_poll(var_group1, var_ppp_poll_7_p1);
-                        }
-                        goto ldv_40577;
-                        case_5: 
-                        {
-#line 4373
-                        ppp_ioctl(var_group1, var_ppp_ioctl_9_p1, var_ppp_ioctl_9_p2);
-                        }
-                        goto ldv_40577;
-                        case_6: 
-                        {
-#line 4460
-                        ppp_init_net(var_group3);
-                        }
-                        goto ldv_40577;
-                        case_7: 
-                        {
-#line 4547
-                        ppp_exit_net(var_group3);
-                        }
-                        goto ldv_40577;
-                        case_8: 
-                        {
-#line 4635
-                        ppp_start_xmit(var_group4, var_group5);
-                        }
-                        goto ldv_40577;
-                        case_9: 
-                        {
-#line 4722
-                        ppp_net_ioctl(var_group5, var_group6, var_ppp_net_ioctl_15_p2);
-                        }
-                        goto ldv_40577;
-                        switch_default: ;
-                        goto ldv_40577;
-                      } else {
-
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        ldv_check_return_value(res_ppp_open_3);
         }
+#line 3929
+        if (res_ppp_open_3 != 0) {
+#line 3930
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 3962
+        ldv_s_ppp_device_fops_file_operations = ldv_s_ppp_device_fops_file_operations + 1;
+      } else {
+
       }
+#line 3968
+      goto ldv_40577;
+      case_1: ;
+#line 3972
+      if (ldv_s_ppp_device_fops_file_operations == 1) {
+        {
+#line 4017
+        res_ppp_read_5 = ppp_read(var_group1, var_ppp_read_5_p1, var_ppp_read_5_p2,
+                                  var_ppp_read_5_p3);
+#line 4018
+        __cil_tmp24 = (int )res_ppp_read_5;
+#line 4018
+        ldv_check_return_value(__cil_tmp24);
+        }
+#line 4019
+        if (res_ppp_read_5 < 0L) {
+#line 4020
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 4052
+        ldv_s_ppp_device_fops_file_operations = ldv_s_ppp_device_fops_file_operations + 1;
+      } else {
+
+      }
+#line 4058
+      goto ldv_40577;
+      case_2: ;
+#line 4062
+      if (ldv_s_ppp_device_fops_file_operations == 2) {
+        {
+#line 4107
+        res_ppp_write_6 = ppp_write(var_group1, var_ppp_write_6_p1, var_ppp_write_6_p2,
+                                    var_ppp_write_6_p3);
+#line 4108
+        __cil_tmp25 = (int )res_ppp_write_6;
+#line 4108
+        ldv_check_return_value(__cil_tmp25);
+        }
+#line 4109
+        if (res_ppp_write_6 < 0L) {
+#line 4110
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 4142
+        ldv_s_ppp_device_fops_file_operations = ldv_s_ppp_device_fops_file_operations + 1;
+      } else {
+
+      }
+#line 4148
+      goto ldv_40577;
+      case_3: ;
+#line 4152
+      if (ldv_s_ppp_device_fops_file_operations == 3) {
+        {
+#line 4197
+        ppp_release(var_group2, var_group1);
+#line 4229
+        ldv_s_ppp_device_fops_file_operations = 0;
+        }
+      } else {
+
+      }
+#line 4235
+      goto ldv_40577;
+      case_4: 
+      {
+#line 4284
+      ppp_poll(var_group1, var_ppp_poll_7_p1);
+      }
+#line 4322
+      goto ldv_40577;
+      case_5: 
+      {
+#line 4373
+      ppp_ioctl(var_group1, var_ppp_ioctl_9_p1, var_ppp_ioctl_9_p2);
+      }
+#line 4405
+      goto ldv_40577;
+      case_6: 
+      {
+#line 4460
+      ppp_init_net(var_group3);
+      }
+#line 4492
+      goto ldv_40577;
+      case_7: 
+      {
+#line 4547
+      ppp_exit_net(var_group3);
+      }
+#line 4579
+      goto ldv_40577;
+      case_8: 
+      {
+#line 4635
+      ppp_start_xmit(var_group4, var_group5);
+      }
+#line 4666
+      goto ldv_40577;
+      case_9: 
+      {
+#line 4722
+      ppp_net_ioctl(var_group5, var_group6, var_ppp_net_ioctl_15_p2);
+      }
+#line 4753
+      goto ldv_40577;
+      switch_default: ;
+#line 4754
+      goto ldv_40577;
+    } else {
+
     }
   }
   ldv_40577: ;
@@ -26292,14 +20855,16 @@ void main(void)
   }
 #line 3873
   if (tmp___1 != 0) {
+#line 3875
+    goto ldv_40588;
+  } else
+#line 3873
+  if (ldv_s_ppp_device_fops_file_operations != 0) {
+#line 3875
     goto ldv_40588;
   } else {
-#line 3873
-    if (ldv_s_ppp_device_fops_file_operations != 0) {
-      goto ldv_40588;
-    } else {
-      goto ldv_40590;
-    }
+#line 3877
+    goto ldv_40590;
   }
   ldv_40590: ;
   ldv_module_exit: 
@@ -26322,6 +20887,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -26441,6 +21007,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 4912
   goto LDV_STOP;
 }
 }

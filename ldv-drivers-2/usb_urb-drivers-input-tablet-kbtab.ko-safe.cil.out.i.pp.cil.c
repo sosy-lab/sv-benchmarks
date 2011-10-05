@@ -4509,7 +4509,7 @@ __inline static __u16 __le16_to_cpup(__le16 const   *p )
 #line 65
   __cil_tmp2 = *p;
 #line 65
-  return ((unsigned short )__cil_tmp2);
+  return ((__u16 )__cil_tmp2);
   }
 }
 }
@@ -4572,23 +4572,17 @@ __inline static void *usb_get_intfdata(struct usb_interface *intf )  __attribute
 #line 191 "include/linux/usb.h"
 __inline static void *usb_get_intfdata(struct usb_interface *intf ) 
 { void *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 193
-  __cil_tmp3 = (unsigned long )intf;
+  __cil_tmp3 = & intf->dev;
 #line 193
-  __cil_tmp4 = __cil_tmp3 + 72;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 193
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 193
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 193
-  tmp___7 = dev_get_drvdata(__cil_tmp6);
+  tmp___7 = dev_get_drvdata(__cil_tmp4);
   }
 #line 193
   return (tmp___7);
@@ -4600,20 +4594,14 @@ __inline static void usb_set_intfdata(struct usb_interface *intf , void *data ) 
 __inline static void usb_set_intfdata(struct usb_interface *intf , void *data )  __attribute__((__ldv_model__)) ;
 #line 196 "include/linux/usb.h"
 __inline static void usb_set_intfdata(struct usb_interface *intf , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 198
-  __cil_tmp3 = (unsigned long )intf;
+  __cil_tmp3 = & intf->dev;
 #line 198
-  __cil_tmp4 = __cil_tmp3 + 72;
-#line 198
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 198
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 199
   return;
@@ -4622,43 +4610,31 @@ __inline static void usb_set_intfdata(struct usb_interface *intf , void *data )
 #line 497 "include/linux/usb.h"
 __inline static struct usb_device *interface_to_usbdev(struct usb_interface *intf ) 
 { struct device  const  *__mptr ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  struct device *__cil_tmp3 ;
+  struct usb_device *__cil_tmp4 ;
   struct device *__cil_tmp5 ;
-  struct usb_device *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct device *__cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  char *__cil_tmp11 ;
-  char *__cil_tmp12 ;
+  unsigned int __cil_tmp6 ;
+  char *__cil_tmp7 ;
+  char *__cil_tmp8 ;
 
   {
 #line 499
-  __cil_tmp3 = (unsigned long )intf;
+  __cil_tmp3 = intf->dev.parent;
 #line 499
-  __cil_tmp4 = __cil_tmp3 + 72;
-#line 499
-  __cil_tmp5 = *((struct device **)__cil_tmp4);
-#line 499
-  __mptr = (struct device  const  *)__cil_tmp5;
+  __mptr = (struct device  const  *)__cil_tmp3;
   {
 #line 499
-  __cil_tmp6 = (struct usb_device *)0;
+  __cil_tmp4 = (struct usb_device *)0;
 #line 499
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp5 = & __cil_tmp4->dev;
 #line 499
-  __cil_tmp8 = __cil_tmp7 + 192;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 499
-  __cil_tmp9 = (struct device *)__cil_tmp8;
+  __cil_tmp7 = (char *)__mptr;
 #line 499
-  __cil_tmp10 = (unsigned int )__cil_tmp9;
+  __cil_tmp8 = __cil_tmp7 - __cil_tmp6;
 #line 499
-  __cil_tmp11 = (char *)__mptr;
-#line 499
-  __cil_tmp12 = __cil_tmp11 - __cil_tmp10;
-#line 499
-  return ((struct usb_device *)__cil_tmp12);
+  return ((struct usb_device *)__cil_tmp8);
   }
 }
 }
@@ -4666,51 +4642,27 @@ __inline static struct usb_device *interface_to_usbdev(struct usb_interface *int
 __inline static int usb_make_path(struct usb_device *dev , char *buf , size_t size ) 
 { int actual ;
   int tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct usb_bus *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char const   *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  char *__cil_tmp16 ;
-  int __cil_tmp17 ;
+  struct usb_bus *__cil_tmp6 ;
+  char const   *__cil_tmp7 ;
+  char *__cil_tmp8 ;
+  int __cil_tmp9 ;
 
   {
   {
 #line 640
-  __cil_tmp6 = (unsigned long )dev;
+  __cil_tmp6 = dev->bus;
 #line 640
-  __cil_tmp7 = __cil_tmp6 + 120;
+  __cil_tmp7 = __cil_tmp6->bus_name;
 #line 640
-  __cil_tmp8 = *((struct usb_bus **)__cil_tmp7);
+  __cil_tmp8 = & dev->devpath[0];
 #line 640
-  __cil_tmp9 = (unsigned long )__cil_tmp8;
-#line 640
-  __cil_tmp10 = __cil_tmp9 + 16;
-#line 640
-  __cil_tmp11 = *((char const   **)__cil_tmp10);
-#line 640
-  __cil_tmp12 = 0 * 1UL;
-#line 640
-  __cil_tmp13 = 4 + __cil_tmp12;
-#line 640
-  __cil_tmp14 = (unsigned long )dev;
-#line 640
-  __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 640
-  __cil_tmp16 = (char *)__cil_tmp15;
-#line 640
-  actual = snprintf(buf, size, "usb-%s-%s", __cil_tmp11, __cil_tmp16);
+  actual = snprintf(buf, size, "usb-%s-%s", __cil_tmp7, __cil_tmp8);
   }
   {
 #line 642
-  __cil_tmp17 = (int )size;
+  __cil_tmp9 = (int )size;
 #line 642
-  if (actual >= __cil_tmp17) {
+  if (actual >= __cil_tmp9) {
 #line 642
     tmp___7 = -1;
   } else {
@@ -4744,130 +4696,58 @@ __inline static void usb_fill_int_urb(struct urb *urb , struct usb_device *dev ,
                                       void *transfer_buffer , int buffer_length ,
                                       void (*complete_fn)(struct urb * ) , void *context ,
                                       int interval ) 
-{ unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  enum usb_device_speed __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  enum usb_device_speed __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+{ enum usb_device_speed __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  enum usb_device_speed __cil_tmp12 ;
+  unsigned int __cil_tmp13 ;
+  int __cil_tmp14 ;
 
   {
 #line 1318
-  __cil_tmp9 = (unsigned long )urb;
-#line 1318
-  __cil_tmp10 = __cil_tmp9 + 72;
-#line 1318
-  *((struct usb_device **)__cil_tmp10) = dev;
+  urb->dev = dev;
 #line 1319
-  __cil_tmp11 = (unsigned long )urb;
-#line 1319
-  __cil_tmp12 = __cil_tmp11 + 88;
-#line 1319
-  *((unsigned int *)__cil_tmp12) = pipe;
+  urb->pipe = pipe;
 #line 1320
-  __cil_tmp13 = (unsigned long )urb;
-#line 1320
-  __cil_tmp14 = __cil_tmp13 + 104;
-#line 1320
-  *((void **)__cil_tmp14) = transfer_buffer;
+  urb->transfer_buffer = transfer_buffer;
 #line 1321
-  __cil_tmp15 = (unsigned long )urb;
-#line 1321
-  __cil_tmp16 = __cil_tmp15 + 132;
-#line 1321
-  *((u32 *)__cil_tmp16) = (unsigned int )buffer_length;
+  urb->transfer_buffer_length = (u32 )buffer_length;
 #line 1322
-  __cil_tmp17 = (unsigned long )urb;
-#line 1322
-  __cil_tmp18 = __cil_tmp17 + 184;
-#line 1322
-  *((void (**)(struct urb * ))__cil_tmp18) = complete_fn;
+  urb->complete = complete_fn;
 #line 1323
-  __cil_tmp19 = (unsigned long )urb;
-#line 1323
-  __cil_tmp20 = __cil_tmp19 + 176;
-#line 1323
-  *((void **)__cil_tmp20) = context;
+  urb->context = context;
   {
 #line 1324
-  __cil_tmp21 = (unsigned long )dev;
+  __cil_tmp9 = dev->speed;
 #line 1324
-  __cil_tmp22 = __cil_tmp21 + 56;
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
 #line 1324
-  __cil_tmp23 = *((enum usb_device_speed *)__cil_tmp22);
-#line 1324
-  __cil_tmp24 = (unsigned int )__cil_tmp23;
-#line 1324
-  if (__cil_tmp24 == 3U) {
+  if (__cil_tmp10 == 3U) {
 #line 1325
-    __cil_tmp25 = (unsigned long )urb;
+    __cil_tmp11 = interval - 1;
 #line 1325
-    __cil_tmp26 = __cil_tmp25 + 168;
-#line 1325
-    __cil_tmp27 = interval - 1;
-#line 1325
-    *((int *)__cil_tmp26) = 1 << __cil_tmp27;
+    urb->interval = 1 << __cil_tmp11;
   } else {
     {
 #line 1324
-    __cil_tmp28 = (unsigned long )dev;
+    __cil_tmp12 = dev->speed;
 #line 1324
-    __cil_tmp29 = __cil_tmp28 + 56;
+    __cil_tmp13 = (unsigned int )__cil_tmp12;
 #line 1324
-    __cil_tmp30 = *((enum usb_device_speed *)__cil_tmp29);
-#line 1324
-    __cil_tmp31 = (unsigned int )__cil_tmp30;
-#line 1324
-    if (__cil_tmp31 == 5U) {
+    if (__cil_tmp13 == 5U) {
 #line 1325
-      __cil_tmp32 = (unsigned long )urb;
+      __cil_tmp14 = interval - 1;
 #line 1325
-      __cil_tmp33 = __cil_tmp32 + 168;
-#line 1325
-      __cil_tmp34 = interval - 1;
-#line 1325
-      *((int *)__cil_tmp33) = 1 << __cil_tmp34;
+      urb->interval = 1 << __cil_tmp14;
     } else {
 #line 1327
-      __cil_tmp35 = (unsigned long )urb;
-#line 1327
-      __cil_tmp36 = __cil_tmp35 + 168;
-#line 1327
-      *((int *)__cil_tmp36) = interval;
+      urb->interval = interval;
     }
     }
   }
   }
 #line 1328
-  __cil_tmp37 = (unsigned long )urb;
-#line 1328
-  __cil_tmp38 = __cil_tmp37 + 160;
-#line 1328
-  *((int *)__cil_tmp38) = -1;
+  urb->start_frame = -1;
 #line 1329
   return;
 }
@@ -4897,7 +4777,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
 #line 1529
   __cil_tmp3 = endpoint << 15;
 #line 1529
-  __cil_tmp4 = *((int *)dev);
+  __cil_tmp4 = dev->devnum;
 #line 1529
   __cil_tmp5 = __cil_tmp4 << 8;
 #line 1529
@@ -4914,23 +4794,17 @@ extern void input_free_device(struct input_dev *dev ) ;
 #line 1439 "include/linux/input.h"
 __inline static void *input_get_drvdata(struct input_dev *dev ) 
 { void *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 1441
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = & dev->dev;
 #line 1441
-  __cil_tmp4 = __cil_tmp3 + 840;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 1441
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1441
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 1441
-  tmp___7 = dev_get_drvdata(__cil_tmp6);
+  tmp___7 = dev_get_drvdata(__cil_tmp4);
   }
 #line 1441
   return (tmp___7);
@@ -4938,20 +4812,14 @@ __inline static void *input_get_drvdata(struct input_dev *dev )
 }
 #line 1444 "include/linux/input.h"
 __inline static void input_set_drvdata(struct input_dev *dev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 1446
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = & dev->dev;
 #line 1446
-  __cil_tmp4 = __cil_tmp3 + 840;
-#line 1446
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1446
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 1447
   return;
@@ -5015,70 +4883,25 @@ extern void input_set_abs_params(struct input_dev *dev , unsigned int axis , int
                                  int max , int fuzz , int flat ) ;
 #line 16 "include/linux/usb/input.h"
 __inline static void usb_to_input_id(struct usb_device  const  *dev , struct input_id *id ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  __le16 __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  __le16 __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  __le16 __cil_tmp20 ;
+{ __le16 __cil_tmp3 ;
+  __le16 __cil_tmp4 ;
+  __le16 __cil_tmp5 ;
 
   {
 #line 19
-  *((__u16 *)id) = (unsigned short)3;
+  id->bustype = (__u16 )3;
 #line 20
-  __cil_tmp3 = (unsigned long )id;
+  __cil_tmp3 = dev->descriptor.idVendor;
 #line 20
-  __cil_tmp4 = __cil_tmp3 + 2;
-#line 20
-  __cil_tmp5 = 1360 + 8;
-#line 20
-  __cil_tmp6 = (unsigned long )dev;
-#line 20
-  __cil_tmp7 = __cil_tmp6 + __cil_tmp5;
-#line 20
-  __cil_tmp8 = *((__le16 const   *)__cil_tmp7);
-#line 20
-  *((__u16 *)__cil_tmp4) = (unsigned short )__cil_tmp8;
+  id->vendor = (__le16 )__cil_tmp3;
 #line 21
-  __cil_tmp9 = (unsigned long )id;
+  __cil_tmp4 = dev->descriptor.idProduct;
 #line 21
-  __cil_tmp10 = __cil_tmp9 + 4;
-#line 21
-  __cil_tmp11 = 1360 + 10;
-#line 21
-  __cil_tmp12 = (unsigned long )dev;
-#line 21
-  __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 21
-  __cil_tmp14 = *((__le16 const   *)__cil_tmp13);
-#line 21
-  *((__u16 *)__cil_tmp10) = (unsigned short )__cil_tmp14;
+  id->product = (__le16 )__cil_tmp4;
 #line 22
-  __cil_tmp15 = (unsigned long )id;
+  __cil_tmp5 = dev->descriptor.bcdDevice;
 #line 22
-  __cil_tmp16 = __cil_tmp15 + 6;
-#line 22
-  __cil_tmp17 = 1360 + 12;
-#line 22
-  __cil_tmp18 = (unsigned long )dev;
-#line 22
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 22
-  __cil_tmp20 = *((__le16 const   *)__cil_tmp19);
-#line 22
-  *((__u16 *)__cil_tmp16) = (unsigned short )__cil_tmp20;
+  id->version = (__le16 )__cil_tmp5;
 #line 23
   return;
 }
@@ -5152,7 +4975,7 @@ static char const   __param_str_kb_pressure_click[18]  =
 #line 29 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/tablet/kbtab.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/tablet/kbtab.c.common.c"
 static struct kernel_param  const  __param_kb_pressure_click  __attribute__((__used__,
 __unused__, __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_kb_pressure_click, (struct kernel_param_ops  const  *)(& param_ops_int),
-    (unsigned short)0, (unsigned short)0, {(void *)(& kb_pressure_click)}};
+    (u16 )0, (u16 )0, {(void *)(& kb_pressure_click)}};
 #line 29 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/tablet/kbtab.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/tablet/kbtab.c.common.c"
 static char const   __mod_kb_pressure_clicktype29[31]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -5193,115 +5016,82 @@ static void kbtab_irq(struct urb *urb )
   u16 tmp___7 ;
   u16 tmp___8 ;
   int tmp___9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  void *__cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  unsigned char *__cil_tmp15 ;
+  void const   *__cil_tmp16 ;
   int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  unsigned char *__cil_tmp18 ;
+  void const   *__cil_tmp19 ;
   int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  unsigned char *__cil_tmp21 ;
+  unsigned char __cil_tmp22 ;
   int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned char *__cil_tmp27 ;
-  void const   *__cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned char *__cil_tmp30 ;
-  void const   *__cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned char *__cil_tmp33 ;
-  unsigned char __cil_tmp34 ;
-  int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned char *__cil_tmp37 ;
-  unsigned char __cil_tmp38 ;
-  int *__cil_tmp39 ;
-  int __cil_tmp40 ;
-  int *__cil_tmp41 ;
-  int __cil_tmp42 ;
+  int __cil_tmp24 ;
+  unsigned char *__cil_tmp25 ;
+  unsigned char __cil_tmp26 ;
 
   {
 #line 43
-  __cil_tmp10 = (unsigned long )urb;
+  __cil_tmp10 = urb->context;
 #line 43
-  __cil_tmp11 = __cil_tmp10 + 176;
-#line 43
-  __cil_tmp12 = *((void **)__cil_tmp11);
-#line 43
-  kbtab = (struct kbtab *)__cil_tmp12;
+  kbtab = (struct kbtab *)__cil_tmp10;
 #line 44
-  data = *((unsigned char **)kbtab);
+  data = kbtab->data;
 #line 45
-  __cil_tmp13 = (unsigned long )kbtab;
-#line 45
-  __cil_tmp14 = __cil_tmp13 + 16;
-#line 45
-  dev = *((struct input_dev **)__cil_tmp14);
+  dev = kbtab->dev;
   {
 #line 50
-  __cil_tmp15 = (unsigned long )urb;
+  __cil_tmp11 = urb->status;
 #line 50
-  __cil_tmp16 = __cil_tmp15 + 96;
+  if (__cil_tmp11 == 0) {
 #line 50
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 50
-  if (__cil_tmp17 == 0) {
     goto case_0;
   } else {
     {
 #line 53
-    __cil_tmp18 = (unsigned long )urb;
+    __cil_tmp12 = urb->status;
 #line 53
-    __cil_tmp19 = __cil_tmp18 + 96;
+    if (__cil_tmp12 == -104) {
 #line 53
-    __cil_tmp20 = *((int *)__cil_tmp19);
-#line 53
-    if (__cil_tmp20 == -104) {
       goto case_neg_104;
     } else {
       {
 #line 54
-      __cil_tmp21 = (unsigned long )urb;
+      __cil_tmp13 = urb->status;
 #line 54
-      __cil_tmp22 = __cil_tmp21 + 96;
+      if (__cil_tmp13 == -2) {
 #line 54
-      __cil_tmp23 = *((int *)__cil_tmp22);
-#line 54
-      if (__cil_tmp23 == -2) {
         goto case_neg_104;
       } else {
         {
 #line 55
-        __cil_tmp24 = (unsigned long )urb;
+        __cil_tmp14 = urb->status;
 #line 55
-        __cil_tmp25 = __cil_tmp24 + 96;
+        if (__cil_tmp14 == -108) {
 #line 55
-        __cil_tmp26 = *((int *)__cil_tmp25);
-#line 55
-        if (__cil_tmp26 == -108) {
           goto case_neg_104;
         } else {
+#line 59
           goto switch_default;
 #line 49
           if (0) {
             case_0: 
+#line 52
             goto switch_break;
             case_neg_104: 
             {
 #line 57
             while (1) {
-              while_0_continue: /* CIL Label */ ;
+              while_continue: /* CIL Label */ ;
 
+#line 57
               goto while_break;
             }
-            while_0_break: /* CIL Label */ ;
+            while_break___1: /* CIL Label */ ;
             }
 
             while_break: ;
@@ -5311,14 +5101,16 @@ static void kbtab_irq(struct urb *urb )
             {
 #line 60
             while (1) {
-              while_1_continue: /* CIL Label */ ;
+              while_continue___0: /* CIL Label */ ;
 
+#line 60
               goto while_break___0;
             }
-            while_1_break: /* CIL Label */ ;
+            while_break___2: /* CIL Label */ ;
             }
 
             while_break___0: ;
+#line 61
             goto exit;
           } else {
             switch_break: ;
@@ -5335,73 +5127,61 @@ static void kbtab_irq(struct urb *urb )
 #line 65
   input_report_key(dev, 320U, 1);
 #line 67
-  __cil_tmp27 = data + 1;
+  __cil_tmp15 = data + 1;
 #line 67
-  __cil_tmp28 = (void const   *)__cil_tmp27;
+  __cil_tmp16 = (void const   *)__cil_tmp15;
 #line 67
-  tmp___7 = get_unaligned_le16(__cil_tmp28);
+  tmp___7 = get_unaligned_le16(__cil_tmp16);
 #line 67
-  __cil_tmp29 = (int )tmp___7;
+  __cil_tmp17 = (int )tmp___7;
 #line 67
-  input_report_abs(dev, 0U, __cil_tmp29);
+  input_report_abs(dev, 0U, __cil_tmp17);
 #line 68
-  __cil_tmp30 = data + 3;
+  __cil_tmp18 = data + 3;
 #line 68
-  __cil_tmp31 = (void const   *)__cil_tmp30;
+  __cil_tmp19 = (void const   *)__cil_tmp18;
 #line 68
-  tmp___8 = get_unaligned_le16(__cil_tmp31);
+  tmp___8 = get_unaligned_le16(__cil_tmp19);
 #line 68
-  __cil_tmp32 = (int )tmp___8;
+  __cil_tmp20 = (int )tmp___8;
 #line 68
-  input_report_abs(dev, 1U, __cil_tmp32);
+  input_report_abs(dev, 1U, __cil_tmp20);
 #line 71
-  __cil_tmp33 = data + 0;
+  __cil_tmp21 = data + 0;
 #line 71
-  __cil_tmp34 = *__cil_tmp33;
+  __cil_tmp22 = *__cil_tmp21;
 #line 71
-  __cil_tmp35 = (int )__cil_tmp34;
+  __cil_tmp23 = (int )__cil_tmp22;
 #line 71
-  __cil_tmp36 = __cil_tmp35 & 2;
+  __cil_tmp24 = __cil_tmp23 & 2;
 #line 71
-  input_report_key(dev, 273U, __cil_tmp36);
+  input_report_key(dev, 273U, __cil_tmp24);
 #line 73
-  __cil_tmp37 = data + 5;
+  __cil_tmp25 = data + 5;
 #line 73
-  __cil_tmp38 = *__cil_tmp37;
+  __cil_tmp26 = *__cil_tmp25;
 #line 73
-  pressure = (int )__cil_tmp38;
+  pressure = (int )__cil_tmp26;
   }
-  {
 #line 74
-  __cil_tmp39 = & kb_pressure_click;
-#line 74
-  __cil_tmp40 = *__cil_tmp39;
-#line 74
-  if (__cil_tmp40 == -1) {
+  if (kb_pressure_click == -1) {
     {
 #line 75
     input_report_abs(dev, 24U, pressure);
     }
   } else {
-    {
 #line 77
-    __cil_tmp41 = & kb_pressure_click;
-#line 77
-    __cil_tmp42 = *__cil_tmp41;
-#line 77
-    if (pressure > __cil_tmp42) {
+    if (pressure > kb_pressure_click) {
 #line 77
       tmp___9 = 1;
     } else {
 #line 77
       tmp___9 = 0;
     }
-    }
     {
 #line 77
     input_report_key(dev, 272U, tmp___9);
     }
-  }
   }
   {
 #line 79
@@ -5426,9 +5206,9 @@ static void kbtab_irq(struct urb *urb )
 }
 }
 #line 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/tablet/kbtab.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/tablet/kbtab.c.common.c"
-static struct usb_device_id kbtab_ids[1]  = {      {(unsigned short)3, (unsigned short)2126, (unsigned short)4097, (unsigned short)0,
-      (unsigned short)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
-      (unsigned char)0, (unsigned char)0, 0UL}};
+static struct usb_device_id kbtab_ids[1]  = {      {(__u16 )3, (__u16 )2126, (__u16 )4097, (unsigned short)0, (unsigned short)0,
+      (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0, (unsigned char)0,
+      (unsigned char)0, (kernel_ulong_t )0}};
 #line 93
 extern struct usb_device_id  const  __mod_usb_device_table  __attribute__((__unused__,
 __alias__("kbtab_ids"))) ;
@@ -5437,16 +5217,8 @@ static int kbtab_open(struct input_dev *dev )
 { struct kbtab *kbtab ;
   void *tmp___7 ;
   int tmp___8 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct urb *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct urb *__cil_tmp14 ;
+  struct urb *__cil_tmp5 ;
+  struct urb *__cil_tmp6 ;
 
   {
   {
@@ -5455,29 +5227,13 @@ static int kbtab_open(struct input_dev *dev )
 #line 97
   kbtab = (struct kbtab *)tmp___7;
 #line 99
-  __cil_tmp5 = (unsigned long )kbtab;
+  __cil_tmp5 = kbtab->irq;
 #line 99
-  __cil_tmp6 = __cil_tmp5 + 32;
-#line 99
-  __cil_tmp7 = *((struct urb **)__cil_tmp6);
-#line 99
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 99
-  __cil_tmp9 = __cil_tmp8 + 72;
-#line 99
-  __cil_tmp10 = (unsigned long )kbtab;
-#line 99
-  __cil_tmp11 = __cil_tmp10 + 24;
-#line 99
-  *((struct usb_device **)__cil_tmp9) = *((struct usb_device **)__cil_tmp11);
+  __cil_tmp5->dev = kbtab->usbdev;
 #line 100
-  __cil_tmp12 = (unsigned long )kbtab;
+  __cil_tmp6 = kbtab->irq;
 #line 100
-  __cil_tmp13 = __cil_tmp12 + 32;
-#line 100
-  __cil_tmp14 = *((struct urb **)__cil_tmp13);
-#line 100
-  tmp___8 = usb_submit_urb(__cil_tmp14, 208U);
+  tmp___8 = usb_submit_urb(__cil_tmp6, 208U);
   }
 #line 100
   if (tmp___8) {
@@ -5494,9 +5250,7 @@ static int kbtab_open(struct input_dev *dev )
 static void kbtab_close(struct input_dev *dev ) 
 { struct kbtab *kbtab ;
   void *tmp___7 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  struct urb *__cil_tmp6 ;
+  struct urb *__cil_tmp4 ;
 
   {
   {
@@ -5505,13 +5259,9 @@ static void kbtab_close(struct input_dev *dev )
 #line 108
   kbtab = (struct kbtab *)tmp___7;
 #line 110
-  __cil_tmp4 = (unsigned long )kbtab;
+  __cil_tmp4 = kbtab->irq;
 #line 110
-  __cil_tmp5 = __cil_tmp4 + 32;
-#line 110
-  __cil_tmp6 = *((struct urb **)__cil_tmp5);
-#line 110
-  usb_kill_urb(__cil_tmp6);
+  usb_kill_urb(__cil_tmp4);
   }
 #line 111
   return;
@@ -5530,16 +5280,16 @@ static int kbtab_probe(struct usb_interface *intf , struct usb_device_id  const 
   unsigned int tmp___10 ;
   int tmp ;
   int tmp___11 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  dma_addr_t *__cil_tmp16 ;
-  unsigned char *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct urb *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  size_t __cil_tmp14 ;
+  dma_addr_t *__cil_tmp15 ;
+  unsigned char *__cil_tmp16 ;
+  struct urb *__cil_tmp17 ;
+  char *__cil_tmp18 ;
+  char *__cil_tmp19 ;
+  char *__cil_tmp20 ;
+  struct usb_device  const  *__cil_tmp21 ;
+  struct input_id *__cil_tmp22 ;
+  void *__cil_tmp23 ;
   unsigned long __cil_tmp24 ;
   unsigned long __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
@@ -5547,123 +5297,37 @@ static int kbtab_probe(struct usb_interface *intf , struct usb_device_id  const 
   unsigned long __cil_tmp28 ;
   unsigned long __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
-  char *__cil_tmp31 ;
+  unsigned long __cil_tmp31 ;
   unsigned long __cil_tmp32 ;
   unsigned long __cil_tmp33 ;
   unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  char *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  char *__cil_tmp43 ;
-  struct usb_device  const  *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct input_id *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  void *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  struct usb_host_interface *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  struct usb_host_endpoint *__cil_tmp97 ;
-  struct usb_host_endpoint *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  __u8 __cil_tmp101 ;
-  unsigned int __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  struct urb *__cil_tmp105 ;
-  int __cil_tmp106 ;
-  unsigned int __cil_tmp107 ;
-  unsigned int __cil_tmp108 ;
-  unsigned int __cil_tmp109 ;
-  unsigned char *__cil_tmp110 ;
-  void *__cil_tmp111 ;
-  void *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  __u8 __cil_tmp115 ;
-  int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  struct urb *__cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  struct urb *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  struct urb *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned int __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  struct input_dev *__cil_tmp137 ;
-  void *__cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  struct urb *__cil_tmp141 ;
-  unsigned char *__cil_tmp142 ;
-  void *__cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  dma_addr_t __cil_tmp146 ;
-  void const   *__cil_tmp147 ;
+  struct usb_host_interface *__cil_tmp35 ;
+  struct usb_host_endpoint *__cil_tmp36 ;
+  struct usb_host_endpoint *__cil_tmp37 ;
+  __u8 __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  struct urb *__cil_tmp40 ;
+  int __cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  unsigned char *__cil_tmp45 ;
+  void *__cil_tmp46 ;
+  void *__cil_tmp47 ;
+  __u8 __cil_tmp48 ;
+  int __cil_tmp49 ;
+  struct urb *__cil_tmp50 ;
+  struct urb *__cil_tmp51 ;
+  struct urb *__cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  struct input_dev *__cil_tmp54 ;
+  void *__cil_tmp55 ;
+  struct urb *__cil_tmp56 ;
+  size_t __cil_tmp57 ;
+  unsigned char *__cil_tmp58 ;
+  void *__cil_tmp59 ;
+  dma_addr_t __cil_tmp60 ;
+  void const   *__cil_tmp61 ;
 
   {
   {
@@ -5682,32 +5346,32 @@ static int kbtab_probe(struct usb_interface *intf , struct usb_device_id  const 
   }
 #line 123
   if (! kbtab) {
+#line 124
     goto fail1;
-  } else {
+  } else
 #line 123
-    if (! input_dev) {
-      goto fail1;
-    } else {
+  if (! input_dev) {
+#line 124
+    goto fail1;
+  } else {
 
-    }
   }
   {
 #line 126
-  __cil_tmp14 = (unsigned long )kbtab;
+  __cil_tmp14 = (size_t )8;
 #line 126
-  __cil_tmp15 = __cil_tmp14 + 8;
+  __cil_tmp15 = & kbtab->data_dma;
 #line 126
-  __cil_tmp16 = (dma_addr_t *)__cil_tmp15;
+  tmp___9 = usb_alloc_coherent(dev, __cil_tmp14, 208U, __cil_tmp15);
 #line 126
-  tmp___9 = usb_alloc_coherent(dev, 8UL, 208U, __cil_tmp16);
-#line 126
-  *((unsigned char **)kbtab) = (unsigned char *)tmp___9;
+  kbtab->data = (unsigned char *)tmp___9;
   }
   {
 #line 127
-  __cil_tmp17 = *((unsigned char **)kbtab);
+  __cil_tmp16 = kbtab->data;
 #line 127
-  if (! __cil_tmp17) {
+  if (! __cil_tmp16) {
+#line 128
     goto fail1;
   } else {
 
@@ -5715,21 +5379,14 @@ static int kbtab_probe(struct usb_interface *intf , struct usb_device_id  const 
   }
   {
 #line 130
-  __cil_tmp18 = (unsigned long )kbtab;
-#line 130
-  __cil_tmp19 = __cil_tmp18 + 32;
-#line 130
-  *((struct urb **)__cil_tmp19) = usb_alloc_urb(0, 208U);
+  kbtab->irq = usb_alloc_urb(0, 208U);
   }
   {
 #line 131
-  __cil_tmp20 = (unsigned long )kbtab;
+  __cil_tmp17 = kbtab->irq;
 #line 131
-  __cil_tmp21 = __cil_tmp20 + 32;
-#line 131
-  __cil_tmp22 = *((struct urb **)__cil_tmp21);
-#line 131
-  if (! __cil_tmp22) {
+  if (! __cil_tmp17) {
+#line 132
     goto fail2;
   } else {
 
@@ -5737,171 +5394,67 @@ static int kbtab_probe(struct usb_interface *intf , struct usb_device_id  const 
   }
   {
 #line 134
-  __cil_tmp23 = (unsigned long )kbtab;
-#line 134
-  __cil_tmp24 = __cil_tmp23 + 24;
-#line 134
-  *((struct usb_device **)__cil_tmp24) = dev;
+  kbtab->usbdev = dev;
 #line 135
-  __cil_tmp25 = (unsigned long )kbtab;
-#line 135
-  __cil_tmp26 = __cil_tmp25 + 16;
-#line 135
-  *((struct input_dev **)__cil_tmp26) = input_dev;
+  kbtab->dev = input_dev;
 #line 137
-  __cil_tmp27 = 0 * 1UL;
+  __cil_tmp18 = & kbtab->phys[0];
 #line 137
-  __cil_tmp28 = 40 + __cil_tmp27;
-#line 137
-  __cil_tmp29 = (unsigned long )kbtab;
-#line 137
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-#line 137
-  __cil_tmp31 = (char *)__cil_tmp30;
-#line 137
-  usb_make_path(dev, __cil_tmp31, 32UL);
+  usb_make_path(dev, __cil_tmp18, 32UL);
 #line 138
-  __cil_tmp32 = 0 * 1UL;
+  __cil_tmp19 = & kbtab->phys[0];
 #line 138
-  __cil_tmp33 = 40 + __cil_tmp32;
-#line 138
-  __cil_tmp34 = (unsigned long )kbtab;
-#line 138
-  __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 138
-  __cil_tmp36 = (char *)__cil_tmp35;
-#line 138
-  strlcat(__cil_tmp36, "/input0", 32UL);
+  strlcat(__cil_tmp19, "/input0", 32UL);
 #line 140
-  *((char const   **)input_dev) = "KB Gear Tablet";
+  input_dev->name = "KB Gear Tablet";
 #line 141
-  __cil_tmp37 = (unsigned long )input_dev;
+  __cil_tmp20 = & kbtab->phys[0];
 #line 141
-  __cil_tmp38 = __cil_tmp37 + 8;
-#line 141
-  __cil_tmp39 = 0 * 1UL;
-#line 141
-  __cil_tmp40 = 40 + __cil_tmp39;
-#line 141
-  __cil_tmp41 = (unsigned long )kbtab;
-#line 141
-  __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
-#line 141
-  __cil_tmp43 = (char *)__cil_tmp42;
-#line 141
-  *((char const   **)__cil_tmp38) = (char const   *)__cil_tmp43;
+  input_dev->phys = (char const   *)__cil_tmp20;
 #line 142
-  __cil_tmp44 = (struct usb_device  const  *)dev;
+  __cil_tmp21 = (struct usb_device  const  *)dev;
 #line 142
-  __cil_tmp45 = (unsigned long )input_dev;
+  __cil_tmp22 = & input_dev->id;
 #line 142
-  __cil_tmp46 = __cil_tmp45 + 24;
-#line 142
-  __cil_tmp47 = (struct input_id *)__cil_tmp46;
-#line 142
-  usb_to_input_id(__cil_tmp44, __cil_tmp47);
+  usb_to_input_id(__cil_tmp21, __cil_tmp22);
 #line 143
-  __cil_tmp48 = (unsigned long )input_dev;
-#line 143
-  __cil_tmp49 = __cil_tmp48 + 840;
-#line 143
-  __cil_tmp50 = (unsigned long )intf;
-#line 143
-  __cil_tmp51 = __cil_tmp50 + 72;
-#line 143
-  *((struct device **)__cil_tmp49) = (struct device *)__cil_tmp51;
+  input_dev->dev.parent = & intf->dev;
 #line 145
-  __cil_tmp52 = (void *)kbtab;
+  __cil_tmp23 = (void *)kbtab;
 #line 145
-  input_set_drvdata(input_dev, __cil_tmp52);
+  input_set_drvdata(input_dev, __cil_tmp23);
 #line 147
-  __cil_tmp53 = (unsigned long )input_dev;
-#line 147
-  __cil_tmp54 = __cil_tmp53 + 552;
-#line 147
-  *((int (**)(struct input_dev *dev ))__cil_tmp54) = & kbtab_open;
+  input_dev->open = & kbtab_open;
 #line 148
-  __cil_tmp55 = (unsigned long )input_dev;
-#line 148
-  __cil_tmp56 = __cil_tmp55 + 560;
-#line 148
-  *((void (**)(struct input_dev *dev ))__cil_tmp56) = & kbtab_close;
+  input_dev->close = & kbtab_close;
 #line 150
-  __cil_tmp57 = 0 * 8UL;
+  __cil_tmp24 = 1UL << 3;
 #line 150
-  __cil_tmp58 = 40 + __cil_tmp57;
+  __cil_tmp25 = 1UL << 1;
 #line 150
-  __cil_tmp59 = (unsigned long )input_dev;
+  __cil_tmp26 = __cil_tmp25 | __cil_tmp24;
 #line 150
-  __cil_tmp60 = __cil_tmp59 + __cil_tmp58;
+  __cil_tmp27 = input_dev->evbit[0];
 #line 150
-  __cil_tmp61 = 1UL << 3;
-#line 150
-  __cil_tmp62 = 1UL << 1;
-#line 150
-  __cil_tmp63 = __cil_tmp62 | __cil_tmp61;
-#line 150
-  __cil_tmp64 = 0 * 8UL;
-#line 150
-  __cil_tmp65 = 40 + __cil_tmp64;
-#line 150
-  __cil_tmp66 = (unsigned long )input_dev;
-#line 150
-  __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 150
-  __cil_tmp68 = *((unsigned long *)__cil_tmp67);
-#line 150
-  *((unsigned long *)__cil_tmp60) = __cil_tmp68 | __cil_tmp63;
+  input_dev->evbit[0] = __cil_tmp27 | __cil_tmp26;
 #line 151
-  __cil_tmp69 = 4 * 8UL;
+  __cil_tmp28 = 1UL << 17;
 #line 151
-  __cil_tmp70 = 48 + __cil_tmp69;
+  __cil_tmp29 = 1UL << 16;
 #line 151
-  __cil_tmp71 = (unsigned long )input_dev;
+  __cil_tmp30 = __cil_tmp29 | __cil_tmp28;
 #line 151
-  __cil_tmp72 = __cil_tmp71 + __cil_tmp70;
+  __cil_tmp31 = input_dev->keybit[4];
 #line 151
-  __cil_tmp73 = 1UL << 17;
-#line 151
-  __cil_tmp74 = 1UL << 16;
-#line 151
-  __cil_tmp75 = __cil_tmp74 | __cil_tmp73;
-#line 151
-  __cil_tmp76 = 4 * 8UL;
-#line 151
-  __cil_tmp77 = 48 + __cil_tmp76;
-#line 151
-  __cil_tmp78 = (unsigned long )input_dev;
-#line 151
-  __cil_tmp79 = __cil_tmp78 + __cil_tmp77;
-#line 151
-  __cil_tmp80 = *((unsigned long *)__cil_tmp79);
-#line 151
-  *((unsigned long *)__cil_tmp72) = __cil_tmp80 | __cil_tmp75;
+  input_dev->keybit[4] = __cil_tmp31 | __cil_tmp30;
 #line 153
-  __cil_tmp81 = 5 * 8UL;
+  __cil_tmp32 = 1UL << 10;
 #line 153
-  __cil_tmp82 = 48 + __cil_tmp81;
+  __cil_tmp33 = 1UL | __cil_tmp32;
 #line 153
-  __cil_tmp83 = (unsigned long )input_dev;
+  __cil_tmp34 = input_dev->keybit[5];
 #line 153
-  __cil_tmp84 = __cil_tmp83 + __cil_tmp82;
-#line 153
-  __cil_tmp85 = 1UL << 10;
-#line 153
-  __cil_tmp86 = 1UL | __cil_tmp85;
-#line 153
-  __cil_tmp87 = 5 * 8UL;
-#line 153
-  __cil_tmp88 = 48 + __cil_tmp87;
-#line 153
-  __cil_tmp89 = (unsigned long )input_dev;
-#line 153
-  __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
-#line 153
-  __cil_tmp91 = *((unsigned long *)__cil_tmp90);
-#line 153
-  *((unsigned long *)__cil_tmp84) = __cil_tmp91 | __cil_tmp86;
+  input_dev->keybit[5] = __cil_tmp34 | __cil_tmp33;
 #line 155
   input_set_abs_params(input_dev, 0U, 0, 8192, 4, 0);
 #line 156
@@ -5909,110 +5462,58 @@ static int kbtab_probe(struct usb_interface *intf , struct usb_device_id  const 
 #line 157
   input_set_abs_params(input_dev, 24U, 0, 255, 0, 0);
 #line 159
-  __cil_tmp92 = (unsigned long )intf;
+  __cil_tmp35 = intf->cur_altsetting;
 #line 159
-  __cil_tmp93 = __cil_tmp92 + 8;
+  __cil_tmp36 = __cil_tmp35->endpoint;
 #line 159
-  __cil_tmp94 = *((struct usb_host_interface **)__cil_tmp93);
+  __cil_tmp37 = __cil_tmp36 + 0;
 #line 159
-  __cil_tmp95 = (unsigned long )__cil_tmp94;
-#line 159
-  __cil_tmp96 = __cil_tmp95 + 16;
-#line 159
-  __cil_tmp97 = *((struct usb_host_endpoint **)__cil_tmp96);
-#line 159
-  __cil_tmp98 = __cil_tmp97 + 0;
-#line 159
-  endpoint = (struct usb_endpoint_descriptor *)__cil_tmp98;
+  endpoint = & __cil_tmp37->desc;
 #line 161
-  __cil_tmp99 = (unsigned long )endpoint;
+  __cil_tmp38 = endpoint->bEndpointAddress;
 #line 161
-  __cil_tmp100 = __cil_tmp99 + 2;
+  __cil_tmp39 = (unsigned int )__cil_tmp38;
 #line 161
-  __cil_tmp101 = *((__u8 *)__cil_tmp100);
+  tmp___10 = __create_pipe(dev, __cil_tmp39);
 #line 161
-  __cil_tmp102 = (unsigned int )__cil_tmp101;
+  __cil_tmp40 = kbtab->irq;
 #line 161
-  tmp___10 = __create_pipe(dev, __cil_tmp102);
+  __cil_tmp41 = 1 << 30;
 #line 161
-  __cil_tmp103 = (unsigned long )kbtab;
+  __cil_tmp42 = (unsigned int )__cil_tmp41;
 #line 161
-  __cil_tmp104 = __cil_tmp103 + 32;
+  __cil_tmp43 = __cil_tmp42 | tmp___10;
 #line 161
-  __cil_tmp105 = *((struct urb **)__cil_tmp104);
+  __cil_tmp44 = __cil_tmp43 | 128U;
 #line 161
-  __cil_tmp106 = 1 << 30;
+  __cil_tmp45 = kbtab->data;
 #line 161
-  __cil_tmp107 = (unsigned int )__cil_tmp106;
+  __cil_tmp46 = (void *)__cil_tmp45;
 #line 161
-  __cil_tmp108 = __cil_tmp107 | tmp___10;
+  __cil_tmp47 = (void *)kbtab;
 #line 161
-  __cil_tmp109 = __cil_tmp108 | 128U;
+  __cil_tmp48 = endpoint->bInterval;
 #line 161
-  __cil_tmp110 = *((unsigned char **)kbtab);
+  __cil_tmp49 = (int )__cil_tmp48;
 #line 161
-  __cil_tmp111 = (void *)__cil_tmp110;
-#line 161
-  __cil_tmp112 = (void *)kbtab;
-#line 161
-  __cil_tmp113 = (unsigned long )endpoint;
-#line 161
-  __cil_tmp114 = __cil_tmp113 + 6;
-#line 161
-  __cil_tmp115 = *((__u8 *)__cil_tmp114);
-#line 161
-  __cil_tmp116 = (int )__cil_tmp115;
-#line 161
-  usb_fill_int_urb(__cil_tmp105, dev, __cil_tmp109, __cil_tmp111, 8, & kbtab_irq,
-                   __cil_tmp112, __cil_tmp116);
+  usb_fill_int_urb(__cil_tmp40, dev, __cil_tmp44, __cil_tmp46, 8, & kbtab_irq, __cil_tmp47,
+                   __cil_tmp49);
 #line 165
-  __cil_tmp117 = (unsigned long )kbtab;
+  __cil_tmp50 = kbtab->irq;
 #line 165
-  __cil_tmp118 = __cil_tmp117 + 32;
-#line 165
-  __cil_tmp119 = *((struct urb **)__cil_tmp118);
-#line 165
-  __cil_tmp120 = (unsigned long )__cil_tmp119;
-#line 165
-  __cil_tmp121 = __cil_tmp120 + 112;
-#line 165
-  __cil_tmp122 = (unsigned long )kbtab;
-#line 165
-  __cil_tmp123 = __cil_tmp122 + 8;
-#line 165
-  *((dma_addr_t *)__cil_tmp121) = *((dma_addr_t *)__cil_tmp123);
+  __cil_tmp50->transfer_dma = kbtab->data_dma;
 #line 166
-  __cil_tmp124 = (unsigned long )kbtab;
+  __cil_tmp51 = kbtab->irq;
 #line 166
-  __cil_tmp125 = __cil_tmp124 + 32;
+  __cil_tmp52 = kbtab->irq;
 #line 166
-  __cil_tmp126 = *((struct urb **)__cil_tmp125);
+  __cil_tmp53 = __cil_tmp52->transfer_flags;
 #line 166
-  __cil_tmp127 = (unsigned long )__cil_tmp126;
-#line 166
-  __cil_tmp128 = __cil_tmp127 + 100;
-#line 166
-  __cil_tmp129 = (unsigned long )kbtab;
-#line 166
-  __cil_tmp130 = __cil_tmp129 + 32;
-#line 166
-  __cil_tmp131 = *((struct urb **)__cil_tmp130);
-#line 166
-  __cil_tmp132 = (unsigned long )__cil_tmp131;
-#line 166
-  __cil_tmp133 = __cil_tmp132 + 100;
-#line 166
-  __cil_tmp134 = *((unsigned int *)__cil_tmp133);
-#line 166
-  *((unsigned int *)__cil_tmp128) = __cil_tmp134 | 4U;
+  __cil_tmp51->transfer_flags = __cil_tmp53 | 4U;
 #line 168
-  __cil_tmp135 = (unsigned long )kbtab;
+  __cil_tmp54 = kbtab->dev;
 #line 168
-  __cil_tmp136 = __cil_tmp135 + 16;
-#line 168
-  __cil_tmp137 = *((struct input_dev **)__cil_tmp136);
-#line 168
-  tmp___11 = (int )input_register_device(__cil_tmp137);
+  tmp___11 = (int )input_register_device(__cil_tmp54);
 #line 168
   tmp = tmp___11;
 #line 168
@@ -6020,52 +5521,47 @@ static int kbtab_probe(struct usb_interface *intf , struct usb_device_id  const 
   }
 #line 169
   if (error) {
+#line 170
     goto fail3;
   } else {
 
   }
   {
 #line 172
-  __cil_tmp138 = (void *)kbtab;
+  __cil_tmp55 = (void *)kbtab;
 #line 172
-  usb_set_intfdata(intf, __cil_tmp138);
+  usb_set_intfdata(intf, __cil_tmp55);
   }
 #line 174
   return (0);
   fail3: 
   {
 #line 176
-  __cil_tmp139 = (unsigned long )kbtab;
+  __cil_tmp56 = kbtab->irq;
 #line 176
-  __cil_tmp140 = __cil_tmp139 + 32;
-#line 176
-  __cil_tmp141 = *((struct urb **)__cil_tmp140);
-#line 176
-  usb_free_urb(__cil_tmp141);
+  usb_free_urb(__cil_tmp56);
   }
   fail2: 
   {
 #line 177
-  __cil_tmp142 = *((unsigned char **)kbtab);
+  __cil_tmp57 = (size_t )8;
 #line 177
-  __cil_tmp143 = (void *)__cil_tmp142;
+  __cil_tmp58 = kbtab->data;
 #line 177
-  __cil_tmp144 = (unsigned long )kbtab;
+  __cil_tmp59 = (void *)__cil_tmp58;
 #line 177
-  __cil_tmp145 = __cil_tmp144 + 8;
+  __cil_tmp60 = kbtab->data_dma;
 #line 177
-  __cil_tmp146 = *((dma_addr_t *)__cil_tmp145);
-#line 177
-  usb_free_coherent(dev, 8UL, __cil_tmp143, __cil_tmp146);
+  usb_free_coherent(dev, __cil_tmp57, __cil_tmp59, __cil_tmp60);
   }
   fail1: 
   {
 #line 178
   input_free_device(input_dev);
 #line 179
-  __cil_tmp147 = (void const   *)kbtab;
+  __cil_tmp61 = (void const   *)kbtab;
 #line 179
-  kfree(__cil_tmp147);
+  kfree(__cil_tmp61);
   }
 #line 180
   return (error);
@@ -6076,21 +5572,14 @@ static void kbtab_disconnect(struct usb_interface *intf )
 { struct kbtab *kbtab ;
   void *tmp___7 ;
   void *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct input_dev *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct urb *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct usb_device *__cil_tmp13 ;
-  unsigned char *__cil_tmp14 ;
-  void *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  dma_addr_t __cil_tmp18 ;
-  void const   *__cil_tmp19 ;
+  struct input_dev *__cil_tmp5 ;
+  struct urb *__cil_tmp6 ;
+  struct usb_device *__cil_tmp7 ;
+  size_t __cil_tmp8 ;
+  unsigned char *__cil_tmp9 ;
+  void *__cil_tmp10 ;
+  dma_addr_t __cil_tmp11 ;
+  void const   *__cil_tmp12 ;
 
   {
   {
@@ -6103,43 +5592,29 @@ static void kbtab_disconnect(struct usb_interface *intf )
 #line 187
   usb_set_intfdata(intf, __cil_tmp4);
 #line 189
-  __cil_tmp5 = (unsigned long )kbtab;
+  __cil_tmp5 = kbtab->dev;
 #line 189
-  __cil_tmp6 = __cil_tmp5 + 16;
-#line 189
-  __cil_tmp7 = *((struct input_dev **)__cil_tmp6);
-#line 189
-  input_unregister_device(__cil_tmp7);
+  input_unregister_device(__cil_tmp5);
 #line 190
-  __cil_tmp8 = (unsigned long )kbtab;
+  __cil_tmp6 = kbtab->irq;
 #line 190
-  __cil_tmp9 = __cil_tmp8 + 32;
-#line 190
-  __cil_tmp10 = *((struct urb **)__cil_tmp9);
-#line 190
-  usb_free_urb(__cil_tmp10);
+  usb_free_urb(__cil_tmp6);
 #line 191
-  __cil_tmp11 = (unsigned long )kbtab;
+  __cil_tmp7 = kbtab->usbdev;
 #line 191
-  __cil_tmp12 = __cil_tmp11 + 24;
+  __cil_tmp8 = (size_t )8;
 #line 191
-  __cil_tmp13 = *((struct usb_device **)__cil_tmp12);
+  __cil_tmp9 = kbtab->data;
 #line 191
-  __cil_tmp14 = *((unsigned char **)kbtab);
+  __cil_tmp10 = (void *)__cil_tmp9;
 #line 191
-  __cil_tmp15 = (void *)__cil_tmp14;
+  __cil_tmp11 = kbtab->data_dma;
 #line 191
-  __cil_tmp16 = (unsigned long )kbtab;
-#line 191
-  __cil_tmp17 = __cil_tmp16 + 8;
-#line 191
-  __cil_tmp18 = *((dma_addr_t *)__cil_tmp17);
-#line 191
-  usb_free_coherent(__cil_tmp13, 8UL, __cil_tmp15, __cil_tmp18);
+  usb_free_coherent(__cil_tmp7, __cil_tmp8, __cil_tmp10, __cil_tmp11);
 #line 192
-  __cil_tmp19 = (void const   *)kbtab;
+  __cil_tmp12 = (void const   *)kbtab;
 #line 192
-  kfree(__cil_tmp19);
+  kfree(__cil_tmp12);
   }
 #line 193
   return;
@@ -6178,6 +5653,7 @@ static int kbtab_init(void)
   }
 #line 206
   if (retval) {
+#line 207
     goto out;
   } else {
 
@@ -6267,6 +5743,7 @@ void main(void)
   }
 #line 310
   if (tmp___7) {
+#line 311
     goto ldv_final;
   } else {
 
@@ -6276,7 +5753,7 @@ void main(void)
   {
 #line 315
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 315
     tmp___9 = nondet_int();
@@ -6292,6 +5769,7 @@ void main(void)
       if (! __cil_tmp7) {
 
       } else {
+#line 315
         goto while_break;
       }
       }
@@ -6302,58 +5780,64 @@ void main(void)
     }
 #line 321
     if (tmp___8 == 0) {
+#line 321
       goto case_0;
-    } else {
+    } else
 #line 346
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
-        goto switch_default;
+    if (tmp___8 == 1) {
+#line 346
+      goto case_1;
+    } else {
+#line 368
+      goto switch_default;
 #line 319
-        if (0) {
-          case_0: 
+      if (0) {
+        case_0: 
 #line 324
-          if (ldv_s_kbtab_driver_usb_driver == 0) {
-            {
+        if (ldv_s_kbtab_driver_usb_driver == 0) {
+          {
 #line 335
-            res_kbtab_probe_3 = kbtab_probe(var_group1, var_kbtab_probe_3_p1);
+          res_kbtab_probe_3 = kbtab_probe(var_group1, var_kbtab_probe_3_p1);
 #line 336
-            ldv_check_return_value(res_kbtab_probe_3);
-            }
+          ldv_check_return_value(res_kbtab_probe_3);
+          }
 #line 337
-            if (res_kbtab_probe_3) {
-              goto ldv_module_exit;
-            } else {
+          if (res_kbtab_probe_3) {
+#line 338
+            goto ldv_module_exit;
+          } else {
 
-            }
+          }
 #line 339
-            ldv_s_kbtab_driver_usb_driver = ldv_s_kbtab_driver_usb_driver + 1;
-          } else {
-
-          }
-          goto switch_break;
-          case_1: 
-#line 349
-          if (ldv_s_kbtab_driver_usb_driver == 1) {
-            {
-#line 360
-            kbtab_disconnect(var_group1);
-#line 361
-            ldv_s_kbtab_driver_usb_driver = 0;
-            }
-          } else {
-
-          }
-          goto switch_break;
-          switch_default: 
-          goto switch_break;
+          ldv_s_kbtab_driver_usb_driver = ldv_s_kbtab_driver_usb_driver + 1;
         } else {
-          switch_break: ;
+
         }
+#line 345
+        goto switch_break;
+        case_1: 
+#line 349
+        if (ldv_s_kbtab_driver_usb_driver == 1) {
+          {
+#line 360
+          kbtab_disconnect(var_group1);
+#line 361
+          ldv_s_kbtab_driver_usb_driver = 0;
+          }
+        } else {
+
+        }
+#line 367
+        goto switch_break;
+        switch_default: 
+#line 368
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -6377,6 +5861,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -6392,6 +5877,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -6412,7 +5898,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -6430,9 +5916,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -6453,7 +5940,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_4_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -6490,9 +5977,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_4_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -6512,7 +6000,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_5_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -6534,9 +6022,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_5_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -6557,7 +6046,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_6_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -6594,9 +6083,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_6_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

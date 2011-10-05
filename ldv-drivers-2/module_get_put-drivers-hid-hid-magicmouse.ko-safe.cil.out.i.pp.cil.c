@@ -4330,16 +4330,11 @@ __inline static void input_mt_sync(struct input_dev *dev )
 }
 #line 1521 "include/linux/input.h"
 __inline static void input_set_events_per_packet(struct input_dev *dev , int n_events ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+{ 
 
   {
 #line 1523
-  __cil_tmp3 = (unsigned long )dev;
-#line 1523
-  __cil_tmp4 = __cil_tmp3 + 208;
-#line 1523
-  *((unsigned int *)__cil_tmp4) = (unsigned int )n_events;
+  dev->hint_events_per_packet = (unsigned int )n_events;
 #line 1524
   return;
 }
@@ -4350,23 +4345,17 @@ extern void input_set_abs_params(struct input_dev * , unsigned int  , int  , int
 #line 522 "include/linux/hid.h"
 __inline static void *hid_get_drvdata(struct hid_device *hdev ) 
 { void *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 524
-  __cil_tmp3 = (unsigned long )hdev;
+  __cil_tmp3 = & hdev->dev;
 #line 524
-  __cil_tmp4 = __cil_tmp3 + 6304;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 524
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 524
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 524
-  tmp = dev_get_drvdata(__cil_tmp6);
+  tmp = dev_get_drvdata(__cil_tmp4);
   }
 #line 524
   return (tmp);
@@ -4374,20 +4363,14 @@ __inline static void *hid_get_drvdata(struct hid_device *hdev )
 }
 #line 527 "include/linux/hid.h"
 __inline static void hid_set_drvdata(struct hid_device *hdev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 529
-  __cil_tmp3 = (unsigned long )hdev;
+  __cil_tmp3 = & hdev->dev;
 #line 529
-  __cil_tmp4 = __cil_tmp3 + 6304;
-#line 529
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 529
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 530
   return;
@@ -4420,34 +4403,20 @@ extern void hid_disconnect(struct hid_device * ) ;
 #line 780 "include/linux/hid.h"
 __inline static int hid_parse(struct hid_device *hdev ) 
 { int ret ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct hid_ll_driver *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int (*__cil_tmp12)(struct hid_device * ) ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
+  unsigned int __cil_tmp3 ;
+  unsigned int __cil_tmp4 ;
+  struct hid_ll_driver *__cil_tmp5 ;
+  int (*__cil_tmp6)(struct hid_device * ) ;
+  unsigned int __cil_tmp7 ;
 
   {
   {
 #line 784
-  __cil_tmp3 = (unsigned long )hdev;
+  __cil_tmp3 = hdev->status;
 #line 784
-  __cil_tmp4 = __cil_tmp3 + 7488;
+  __cil_tmp4 = __cil_tmp3 & 2U;
 #line 784
-  __cil_tmp5 = *((unsigned int *)__cil_tmp4);
-#line 784
-  __cil_tmp6 = __cil_tmp5 & 2U;
-#line 784
-  if (__cil_tmp6 != 0U) {
+  if (__cil_tmp4 != 0U) {
 #line 785
     return (0);
   } else {
@@ -4456,34 +4425,18 @@ __inline static int hid_parse(struct hid_device *hdev )
   }
   {
 #line 787
-  __cil_tmp7 = (unsigned long )hdev;
+  __cil_tmp5 = hdev->ll_driver;
 #line 787
-  __cil_tmp8 = __cil_tmp7 + 7480;
+  __cil_tmp6 = __cil_tmp5->parse;
 #line 787
-  __cil_tmp9 = *((struct hid_ll_driver **)__cil_tmp8);
-#line 787
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 787
-  __cil_tmp11 = __cil_tmp10 + 48;
-#line 787
-  __cil_tmp12 = *((int (**)(struct hid_device * ))__cil_tmp11);
-#line 787
-  ret = (*__cil_tmp12)(hdev);
+  ret = (*__cil_tmp6)(hdev);
   }
 #line 788
   if (ret == 0) {
 #line 789
-    __cil_tmp13 = (unsigned long )hdev;
+    __cil_tmp7 = hdev->status;
 #line 789
-    __cil_tmp14 = __cil_tmp13 + 7488;
-#line 789
-    __cil_tmp15 = (unsigned long )hdev;
-#line 789
-    __cil_tmp16 = __cil_tmp15 + 7488;
-#line 789
-    __cil_tmp17 = *((unsigned int *)__cil_tmp16);
-#line 789
-    *((unsigned int *)__cil_tmp14) = __cil_tmp17 | 2U;
+    hdev->status = __cil_tmp7 | 2U;
   } else {
 
   }
@@ -4495,29 +4448,19 @@ __inline static int hid_parse(struct hid_device *hdev )
 __inline static int hid_hw_start(struct hid_device *hdev , unsigned int connect_mask ) 
 { int ret ;
   int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  struct hid_ll_driver *__cil_tmp5 ;
+  int (*__cil_tmp6)(struct hid_device * ) ;
   struct hid_ll_driver *__cil_tmp7 ;
-  int (*__cil_tmp8)(struct hid_device * ) ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct hid_ll_driver *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  void (*__cil_tmp14)(struct hid_device * ) ;
+  void (*__cil_tmp8)(struct hid_device * ) ;
 
   {
   {
 #line 807
-  __cil_tmp5 = (unsigned long )hdev;
+  __cil_tmp5 = hdev->ll_driver;
 #line 807
-  __cil_tmp6 = __cil_tmp5 + 7480;
+  __cil_tmp6 = __cil_tmp5->start;
 #line 807
-  __cil_tmp7 = *((struct hid_ll_driver **)__cil_tmp6);
-#line 807
-  __cil_tmp8 = *((int (**)(struct hid_device * ))__cil_tmp7);
-#line 807
-  tmp = (*__cil_tmp8)(hdev);
+  tmp = (*__cil_tmp6)(hdev);
 #line 807
   ret = tmp;
   }
@@ -4525,14 +4468,13 @@ __inline static int hid_hw_start(struct hid_device *hdev , unsigned int connect_
   if (ret != 0) {
 #line 809
     return (ret);
-  } else {
+  } else
 #line 808
-    if (connect_mask == 0U) {
+  if (connect_mask == 0U) {
 #line 809
-      return (ret);
-    } else {
+    return (ret);
+  } else {
 
-    }
   }
   {
 #line 810
@@ -4542,19 +4484,11 @@ __inline static int hid_hw_start(struct hid_device *hdev , unsigned int connect_
   if (ret != 0) {
     {
 #line 812
-    __cil_tmp9 = (unsigned long )hdev;
+    __cil_tmp7 = hdev->ll_driver;
 #line 812
-    __cil_tmp10 = __cil_tmp9 + 7480;
+    __cil_tmp8 = __cil_tmp7->stop;
 #line 812
-    __cil_tmp11 = *((struct hid_ll_driver **)__cil_tmp10);
-#line 812
-    __cil_tmp12 = (unsigned long )__cil_tmp11;
-#line 812
-    __cil_tmp13 = __cil_tmp12 + 8;
-#line 812
-    __cil_tmp14 = *((void (**)(struct hid_device * ))__cil_tmp13);
-#line 812
-    (*__cil_tmp14)(hdev);
+    (*__cil_tmp8)(hdev);
     }
   } else {
 
@@ -4565,50 +4499,38 @@ __inline static int hid_hw_start(struct hid_device *hdev , unsigned int connect_
 }
 #line 824 "include/linux/hid.h"
 __inline static void hid_hw_stop(struct hid_device *hdev ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct hid_ll_driver *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void (*__cil_tmp7)(struct hid_device * ) ;
+{ struct hid_ll_driver *__cil_tmp2 ;
+  void (*__cil_tmp3)(struct hid_device * ) ;
 
   {
   {
 #line 826
   hid_disconnect(hdev);
 #line 827
-  __cil_tmp2 = (unsigned long )hdev;
+  __cil_tmp2 = hdev->ll_driver;
 #line 827
-  __cil_tmp3 = __cil_tmp2 + 7480;
+  __cil_tmp3 = __cil_tmp2->stop;
 #line 827
-  __cil_tmp4 = *((struct hid_ll_driver **)__cil_tmp3);
-#line 827
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
-#line 827
-  __cil_tmp6 = __cil_tmp5 + 8;
-#line 827
-  __cil_tmp7 = *((void (**)(struct hid_device * ))__cil_tmp6);
-#line 827
-  (*__cil_tmp7)(hdev);
+  (*__cil_tmp3)(hdev);
   }
 #line 828
   return;
 }
 }
 #line 33 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-static bool emulate_3button  =    (_Bool)1;
+static bool emulate_3button  =    (bool )1;
 #line 37 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 static int middle_button_start  =    -350;
 #line 38 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 static int middle_button_stop  =    350;
 #line 40 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-static bool emulate_scroll_wheel  =    (_Bool)1;
+static bool emulate_scroll_wheel  =    (bool )1;
 #line 44 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 static unsigned int scroll_speed  =    32U;
 #line 55 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-static bool scroll_acceleration  =    (_Bool)0;
+static bool scroll_acceleration  =    (bool )0;
 #line 59 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-static bool report_touches  =    (_Bool)1;
+static bool report_touches  =    (bool )1;
 #line 63 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 static bool report_undeciphered  ;
 #line 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
@@ -4616,66 +4538,38 @@ static int magicmouse_firm_touch(struct magicmouse_sc *msc )
 { int touch ;
   int ii ;
   int idx ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u8 __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  int __cil_tmp18 ;
+  u8 __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  int __cil_tmp7 ;
 
   {
 #line 123
   touch = -1;
 #line 129
   ii = 0;
+#line 129
   goto ldv_24569;
   ldv_24568: 
 #line 130
-  __cil_tmp5 = ii * 4UL;
-#line 130
-  __cil_tmp6 = 192 + __cil_tmp5;
-#line 130
-  __cil_tmp7 = (unsigned long )msc;
-#line 130
-  __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
-#line 130
-  idx = *((int *)__cil_tmp8);
+  idx = msc->tracking_ids[ii];
   {
 #line 131
-  __cil_tmp9 = idx * 10UL;
+  __cil_tmp5 = msc->touches[idx].size;
 #line 131
-  __cil_tmp10 = __cil_tmp9 + 8;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 131
-  __cil_tmp11 = 32 + __cil_tmp10;
-#line 131
-  __cil_tmp12 = (unsigned long )msc;
-#line 131
-  __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 131
-  __cil_tmp14 = *((u8 *)__cil_tmp13);
-#line 131
-  __cil_tmp15 = (unsigned int )__cil_tmp14;
-#line 131
-  if (__cil_tmp15 <= 7U) {
+  if (__cil_tmp6 <= 7U) {
 
-  } else {
+  } else
 #line 133
-    if (touch >= 0) {
+  if (touch >= 0) {
 #line 134
-      touch = -1;
-      goto ldv_24567;
-    } else {
+    touch = -1;
+#line 135
+    goto ldv_24567;
+  } else {
 #line 137
-      touch = idx;
-    }
+    touch = idx;
   }
   }
 #line 129
@@ -4683,15 +4577,13 @@ static int magicmouse_firm_touch(struct magicmouse_sc *msc )
   ldv_24569: ;
   {
 #line 129
-  __cil_tmp16 = (unsigned long )msc;
+  __cil_tmp7 = msc->ntouches;
 #line 129
-  __cil_tmp17 = __cil_tmp16 + 16;
-#line 129
-  __cil_tmp18 = *((int *)__cil_tmp17);
-#line 129
-  if (__cil_tmp18 > ii) {
+  if (__cil_tmp7 > ii) {
+#line 130
     goto ldv_24568;
   } else {
+#line 132
     goto ldv_24567;
   }
   }
@@ -4709,165 +4601,127 @@ static void magicmouse_emit_buttons(struct magicmouse_sc *msc , int state )
   int id ;
   int x ;
   struct input_dev *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long (*__cil_tmp12)[12U] ;
-  unsigned long const volatile   *__cil_tmp13 ;
-  struct input_dev *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long (*__cil_tmp17)[12U] ;
-  unsigned long const volatile   *__cil_tmp18 ;
-  struct input_dev *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long (*__cil_tmp22)[12U] ;
-  unsigned long const volatile   *__cil_tmp23 ;
-  int __cil_tmp24 ;
+  unsigned long (*__cil_tmp10)[12U] ;
+  unsigned long const volatile   *__cil_tmp11 ;
+  struct input_dev *__cil_tmp12 ;
+  unsigned long (*__cil_tmp13)[12U] ;
+  unsigned long const volatile   *__cil_tmp14 ;
+  struct input_dev *__cil_tmp15 ;
+  unsigned long (*__cil_tmp16)[12U] ;
+  unsigned long const volatile   *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  short __cil_tmp21 ;
+  struct input_dev *__cil_tmp22 ;
+  int __cil_tmp23 ;
+  struct input_dev *__cil_tmp24 ;
   int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  short __cil_tmp31 ;
-  struct input_dev *__cil_tmp32 ;
-  int __cil_tmp33 ;
-  struct input_dev *__cil_tmp34 ;
-  int __cil_tmp35 ;
-  struct input_dev *__cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  struct input_dev *__cil_tmp26 ;
+  int __cil_tmp27 ;
 
   {
   {
 #line 146
-  __cil_tmp9 = *((struct input_dev **)msc);
+  __cil_tmp9 = msc->input;
 #line 146
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
+  __cil_tmp10 = & __cil_tmp9->key;
 #line 146
-  __cil_tmp11 = __cil_tmp10 + 432;
+  __cil_tmp11 = (unsigned long const volatile   *)__cil_tmp10;
 #line 146
-  __cil_tmp12 = (unsigned long (*)[12U])__cil_tmp11;
+  tmp = constant_test_bit(272U, __cil_tmp11);
 #line 146
-  __cil_tmp13 = (unsigned long const volatile   *)__cil_tmp12;
+  __cil_tmp12 = msc->input;
 #line 146
-  tmp = constant_test_bit(272U, __cil_tmp13);
+  __cil_tmp13 = & __cil_tmp12->key;
 #line 146
-  __cil_tmp14 = *((struct input_dev **)msc);
+  __cil_tmp14 = (unsigned long const volatile   *)__cil_tmp13;
 #line 146
-  __cil_tmp15 = (unsigned long )__cil_tmp14;
+  tmp___0 = constant_test_bit(273U, __cil_tmp14);
 #line 146
-  __cil_tmp16 = __cil_tmp15 + 432;
+  __cil_tmp15 = msc->input;
 #line 146
-  __cil_tmp17 = (unsigned long (*)[12U])__cil_tmp16;
+  __cil_tmp16 = & __cil_tmp15->key;
 #line 146
-  __cil_tmp18 = (unsigned long const volatile   *)__cil_tmp17;
+  __cil_tmp17 = (unsigned long const volatile   *)__cil_tmp16;
 #line 146
-  tmp___0 = constant_test_bit(273U, __cil_tmp18);
+  tmp___1 = constant_test_bit(274U, __cil_tmp17);
 #line 146
-  __cil_tmp19 = *((struct input_dev **)msc);
+  __cil_tmp18 = tmp___1 << 2;
 #line 146
-  __cil_tmp20 = (unsigned long )__cil_tmp19;
+  __cil_tmp19 = tmp___0 << 1;
 #line 146
-  __cil_tmp21 = __cil_tmp20 + 432;
+  __cil_tmp20 = tmp | __cil_tmp19;
 #line 146
-  __cil_tmp22 = (unsigned long (*)[12U])__cil_tmp21;
-#line 146
-  __cil_tmp23 = (unsigned long const volatile   *)__cil_tmp22;
-#line 146
-  tmp___1 = constant_test_bit(274U, __cil_tmp23);
-#line 146
-  __cil_tmp24 = tmp___1 << 2;
-#line 146
-  __cil_tmp25 = tmp___0 << 1;
-#line 146
-  __cil_tmp26 = tmp | __cil_tmp25;
-#line 146
-  last_state = __cil_tmp26 | __cil_tmp24;
+  last_state = __cil_tmp20 | __cil_tmp18;
   }
 #line 150
   if ((int )emulate_3button) {
 #line 157
     if (state == 0) {
 
-    } else {
+    } else
 #line 159
-      if (last_state != 0) {
+    if (last_state != 0) {
 #line 160
-        state = last_state;
-      } else {
-        {
+      state = last_state;
+    } else {
+      {
 #line 161
-        id = magicmouse_firm_touch(msc);
-        }
+      id = magicmouse_firm_touch(msc);
+      }
 #line 161
-        if (id >= 0) {
+      if (id >= 0) {
 #line 162
-          __cil_tmp27 = id * 10UL;
+        __cil_tmp21 = msc->touches[id].x;
 #line 162
-          __cil_tmp28 = 32 + __cil_tmp27;
-#line 162
-          __cil_tmp29 = (unsigned long )msc;
-#line 162
-          __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-#line 162
-          __cil_tmp31 = *((short *)__cil_tmp30);
-#line 162
-          x = (int )__cil_tmp31;
+        x = (int )__cil_tmp21;
 #line 163
-          if (x < middle_button_start) {
+        if (x < middle_button_start) {
 #line 164
-            state = 1;
-          } else {
+          state = 1;
+        } else
 #line 165
-            if (x > middle_button_stop) {
+        if (x > middle_button_stop) {
 #line 166
-              state = 2;
-            } else {
-#line 168
-              state = 4;
-            }
-          }
+          state = 2;
         } else {
-
+#line 168
+          state = 4;
         }
+      } else {
+
       }
     }
     {
 #line 171
-    __cil_tmp32 = *((struct input_dev **)msc);
+    __cil_tmp22 = msc->input;
 #line 171
-    __cil_tmp33 = state & 4;
+    __cil_tmp23 = state & 4;
 #line 171
-    input_report_key(__cil_tmp32, 274U, __cil_tmp33);
+    input_report_key(__cil_tmp22, 274U, __cil_tmp23);
     }
   } else {
 
   }
   {
 #line 174
-  __cil_tmp34 = *((struct input_dev **)msc);
+  __cil_tmp24 = msc->input;
 #line 174
-  __cil_tmp35 = state & 1;
+  __cil_tmp25 = state & 1;
 #line 174
-  input_report_key(__cil_tmp34, 272U, __cil_tmp35);
+  input_report_key(__cil_tmp24, 272U, __cil_tmp25);
 #line 175
-  __cil_tmp36 = *((struct input_dev **)msc);
+  __cil_tmp26 = msc->input;
 #line 175
-  __cil_tmp37 = state & 2;
+  __cil_tmp27 = state & 2;
 #line 175
-  input_report_key(__cil_tmp36, 273U, __cil_tmp37);
+  input_report_key(__cil_tmp26, 273U, __cil_tmp27);
   }
 #line 177
   if (state != last_state) {
 #line 178
-    __cil_tmp38 = (unsigned long )msc;
-#line 178
-    __cil_tmp39 = __cil_tmp38 + 20;
-#line 178
-    *((int *)__cil_tmp39) = 7;
+    msc->scroll_accel = 7;
   } else {
 
   }
@@ -4893,834 +4747,572 @@ static void magicmouse_emit_touch(struct magicmouse_sc *msc , int raw_id , u8 *t
   int __max1 ;
   int __max2 ;
   int tmp ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  __u16 __cil_tmp23 ;
-  unsigned int __cil_tmp24 ;
-  u8 *__cil_tmp25 ;
-  u8 __cil_tmp26 ;
-  int __cil_tmp27 ;
+  __u16 __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  u8 *__cil_tmp22 ;
+  u8 __cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  u8 *__cil_tmp26 ;
+  u8 __cil_tmp27 ;
   int __cil_tmp28 ;
-  u8 *__cil_tmp29 ;
-  u8 __cil_tmp30 ;
-  int __cil_tmp31 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  u8 __cil_tmp31 ;
   int __cil_tmp32 ;
   int __cil_tmp33 ;
-  u8 __cil_tmp34 ;
-  int __cil_tmp35 ;
+  u8 *__cil_tmp34 ;
+  u8 __cil_tmp35 ;
   int __cil_tmp36 ;
-  u8 *__cil_tmp37 ;
-  u8 __cil_tmp38 ;
-  int __cil_tmp39 ;
-  int __cil_tmp40 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
+  u8 *__cil_tmp39 ;
+  u8 __cil_tmp40 ;
   int __cil_tmp41 ;
-  u8 *__cil_tmp42 ;
-  u8 __cil_tmp43 ;
-  int __cil_tmp44 ;
+  int __cil_tmp42 ;
+  u8 *__cil_tmp43 ;
+  u8 __cil_tmp44 ;
   int __cil_tmp45 ;
-  u8 *__cil_tmp46 ;
-  u8 __cil_tmp47 ;
+  int __cil_tmp46 ;
+  int __cil_tmp47 ;
   int __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
+  u8 *__cil_tmp49 ;
+  u8 __cil_tmp50 ;
   int __cil_tmp51 ;
   u8 *__cil_tmp52 ;
   u8 __cil_tmp53 ;
   int __cil_tmp54 ;
-  u8 *__cil_tmp55 ;
-  u8 __cil_tmp56 ;
-  int __cil_tmp57 ;
-  int __cil_tmp58 ;
-  u8 *__cil_tmp59 ;
-  u8 __cil_tmp60 ;
-  u8 *__cil_tmp61 ;
-  u8 __cil_tmp62 ;
+  int __cil_tmp55 ;
+  u8 *__cil_tmp56 ;
+  u8 __cil_tmp57 ;
+  u8 *__cil_tmp58 ;
+  u8 __cil_tmp59 ;
+  u8 *__cil_tmp60 ;
+  u8 __cil_tmp61 ;
+  int __cil_tmp62 ;
   u8 *__cil_tmp63 ;
   u8 __cil_tmp64 ;
   int __cil_tmp65 ;
-  u8 *__cil_tmp66 ;
-  u8 __cil_tmp67 ;
-  int __cil_tmp68 ;
+  int __cil_tmp66 ;
+  u8 *__cil_tmp67 ;
+  u8 __cil_tmp68 ;
   int __cil_tmp69 ;
-  u8 *__cil_tmp70 ;
-  u8 __cil_tmp71 ;
-  int __cil_tmp72 ;
+  int __cil_tmp70 ;
+  int __cil_tmp71 ;
+  u8 __cil_tmp72 ;
   int __cil_tmp73 ;
   int __cil_tmp74 ;
-  u8 __cil_tmp75 ;
-  int __cil_tmp76 ;
+  u8 *__cil_tmp75 ;
+  u8 __cil_tmp76 ;
   int __cil_tmp77 ;
-  u8 *__cil_tmp78 ;
-  u8 __cil_tmp79 ;
-  int __cil_tmp80 ;
-  int __cil_tmp81 ;
+  int __cil_tmp78 ;
+  int __cil_tmp79 ;
+  u8 *__cil_tmp80 ;
+  u8 __cil_tmp81 ;
   int __cil_tmp82 ;
-  u8 *__cil_tmp83 ;
-  u8 __cil_tmp84 ;
-  int __cil_tmp85 ;
+  int __cil_tmp83 ;
+  u8 *__cil_tmp84 ;
+  u8 __cil_tmp85 ;
   int __cil_tmp86 ;
-  u8 *__cil_tmp87 ;
-  u8 __cil_tmp88 ;
-  int __cil_tmp89 ;
+  int __cil_tmp87 ;
+  u8 *__cil_tmp88 ;
+  u8 __cil_tmp89 ;
   int __cil_tmp90 ;
-  u8 *__cil_tmp91 ;
-  u8 __cil_tmp92 ;
+  int __cil_tmp91 ;
+  int __cil_tmp92 ;
   int __cil_tmp93 ;
   int __cil_tmp94 ;
-  int __cil_tmp95 ;
-  int __cil_tmp96 ;
+  u8 *__cil_tmp95 ;
+  u8 __cil_tmp96 ;
   int __cil_tmp97 ;
   u8 *__cil_tmp98 ;
   u8 __cil_tmp99 ;
   int __cil_tmp100 ;
-  u8 *__cil_tmp101 ;
-  u8 __cil_tmp102 ;
-  int __cil_tmp103 ;
-  int __cil_tmp104 ;
-  u8 *__cil_tmp105 ;
-  u8 __cil_tmp106 ;
-  u8 *__cil_tmp107 ;
-  u8 __cil_tmp108 ;
-  u8 *__cil_tmp109 ;
-  u8 __cil_tmp110 ;
-  int __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
+  int __cil_tmp101 ;
+  u8 *__cil_tmp102 ;
+  u8 __cil_tmp103 ;
+  u8 *__cil_tmp104 ;
+  u8 __cil_tmp105 ;
+  u8 *__cil_tmp106 ;
+  u8 __cil_tmp107 ;
+  int __cil_tmp108 ;
+  short __cil_tmp109 ;
+  int __cil_tmp110 ;
+  short __cil_tmp111 ;
+  int __cil_tmp112 ;
   unsigned long __cil_tmp113 ;
   unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  short __cil_tmp135 ;
+  long __cil_tmp115 ;
+  long __cil_tmp116 ;
+  long __cil_tmp117 ;
+  int __cil_tmp118 ;
+  int __cil_tmp119 ;
+  int __cil_tmp120 ;
+  int __cil_tmp121 ;
+  int __cil_tmp122 ;
+  int __cil_tmp123 ;
+  unsigned short __cil_tmp124 ;
+  int __cil_tmp125 ;
+  unsigned short __cil_tmp126 ;
+  int __cil_tmp127 ;
+  unsigned int __cil_tmp128 ;
+  unsigned short __cil_tmp129 ;
+  int __cil_tmp130 ;
+  int __cil_tmp131 ;
+  int __cil_tmp132 ;
+  short __cil_tmp133 ;
+  unsigned short __cil_tmp134 ;
+  int __cil_tmp135 ;
   int __cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  short __cil_tmp142 ;
-  int __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  long __cil_tmp158 ;
-  long __cil_tmp159 ;
-  long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  int __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  int __cil_tmp172 ;
-  int __cil_tmp173 ;
-  int __cil_tmp174 ;
-  int __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  int __cil_tmp183 ;
-  unsigned short __cil_tmp184 ;
-  int __cil_tmp185 ;
-  unsigned short __cil_tmp186 ;
-  int __cil_tmp187 ;
-  unsigned int __cil_tmp188 ;
-  unsigned short __cil_tmp189 ;
-  int __cil_tmp190 ;
-  int __cil_tmp191 ;
-  int __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  short __cil_tmp198 ;
-  unsigned short __cil_tmp199 ;
-  int __cil_tmp200 ;
-  int __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  int __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  int __cil_tmp207 ;
-  int __cil_tmp208 ;
-  int __cil_tmp209 ;
-  int __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  int __cil_tmp218 ;
-  unsigned short __cil_tmp219 ;
-  int __cil_tmp220 ;
-  unsigned short __cil_tmp221 ;
-  int __cil_tmp222 ;
-  unsigned int __cil_tmp223 ;
-  unsigned short __cil_tmp224 ;
-  int __cil_tmp225 ;
-  int __cil_tmp226 ;
-  int __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  short __cil_tmp233 ;
-  unsigned short __cil_tmp234 ;
-  int __cil_tmp235 ;
-  int __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  int __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  int __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  int __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  int __cil_tmp254 ;
-  int __cil_tmp255 ;
-  int __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  __u16 __cil_tmp260 ;
-  unsigned int __cil_tmp261 ;
-  u8 *__cil_tmp262 ;
-  u8 __cil_tmp263 ;
-  int __cil_tmp264 ;
-  u8 *__cil_tmp265 ;
-  u8 __cil_tmp266 ;
-  int __cil_tmp267 ;
+  int __cil_tmp137 ;
+  int __cil_tmp138 ;
+  int __cil_tmp139 ;
+  int __cil_tmp140 ;
+  int __cil_tmp141 ;
+  int __cil_tmp142 ;
+  unsigned short __cil_tmp143 ;
+  int __cil_tmp144 ;
+  unsigned short __cil_tmp145 ;
+  int __cil_tmp146 ;
+  unsigned int __cil_tmp147 ;
+  unsigned short __cil_tmp148 ;
+  int __cil_tmp149 ;
+  int __cil_tmp150 ;
+  int __cil_tmp151 ;
+  short __cil_tmp152 ;
+  unsigned short __cil_tmp153 ;
+  int __cil_tmp154 ;
+  int __cil_tmp155 ;
+  int __cil_tmp156 ;
+  int __cil_tmp157 ;
+  int __cil_tmp158 ;
+  int __cil_tmp159 ;
+  int __cil_tmp160 ;
+  int __cil_tmp161 ;
+  __u16 __cil_tmp162 ;
+  unsigned int __cil_tmp163 ;
+  u8 *__cil_tmp164 ;
+  u8 __cil_tmp165 ;
+  int __cil_tmp166 ;
+  u8 *__cil_tmp167 ;
+  u8 __cil_tmp168 ;
+  int __cil_tmp169 ;
 
   {
 #line 183
-  input = *((struct input_dev **)msc);
+  input = msc->input;
   {
 #line 186
-  __cil_tmp20 = 24 + 4;
+  __cil_tmp20 = input->id.product;
 #line 186
-  __cil_tmp21 = (unsigned long )input;
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
 #line 186
-  __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 186
-  __cil_tmp23 = *((__u16 *)__cil_tmp22);
-#line 186
-  __cil_tmp24 = (unsigned int )__cil_tmp23;
-#line 186
-  if (__cil_tmp24 == 781U) {
+  if (__cil_tmp21 == 781U) {
 #line 187
-    __cil_tmp25 = tdata + 5UL;
+    __cil_tmp22 = tdata + 5UL;
 #line 187
-    __cil_tmp26 = *__cil_tmp25;
+    __cil_tmp23 = *__cil_tmp22;
 #line 187
-    __cil_tmp27 = (int )__cil_tmp26;
+    __cil_tmp24 = (int )__cil_tmp23;
 #line 187
-    __cil_tmp28 = __cil_tmp27 >> 6;
+    __cil_tmp25 = __cil_tmp24 >> 6;
 #line 187
-    __cil_tmp29 = tdata + 6UL;
+    __cil_tmp26 = tdata + 6UL;
 #line 187
-    __cil_tmp30 = *__cil_tmp29;
+    __cil_tmp27 = *__cil_tmp26;
 #line 187
-    __cil_tmp31 = (int )__cil_tmp30;
+    __cil_tmp28 = (int )__cil_tmp27;
 #line 187
-    __cil_tmp32 = __cil_tmp31 << 2;
+    __cil_tmp29 = __cil_tmp28 << 2;
 #line 187
-    __cil_tmp33 = __cil_tmp32 | __cil_tmp28;
+    __cil_tmp30 = __cil_tmp29 | __cil_tmp25;
 #line 187
-    id = __cil_tmp33 & 15;
+    id = __cil_tmp30 & 15;
 #line 188
-    __cil_tmp34 = *tdata;
+    __cil_tmp31 = *tdata;
 #line 188
-    __cil_tmp35 = (int )__cil_tmp34;
+    __cil_tmp32 = (int )__cil_tmp31;
 #line 188
-    __cil_tmp36 = __cil_tmp35 << 20;
+    __cil_tmp33 = __cil_tmp32 << 20;
 #line 188
-    __cil_tmp37 = tdata + 1UL;
+    __cil_tmp34 = tdata + 1UL;
 #line 188
-    __cil_tmp38 = *__cil_tmp37;
+    __cil_tmp35 = *__cil_tmp34;
 #line 188
-    __cil_tmp39 = (int )__cil_tmp38;
+    __cil_tmp36 = (int )__cil_tmp35;
 #line 188
-    __cil_tmp40 = __cil_tmp39 << 28;
+    __cil_tmp37 = __cil_tmp36 << 28;
 #line 188
-    __cil_tmp41 = __cil_tmp40 | __cil_tmp36;
+    __cil_tmp38 = __cil_tmp37 | __cil_tmp33;
 #line 188
-    x = __cil_tmp41 >> 20;
+    x = __cil_tmp38 >> 20;
 #line 189
-    __cil_tmp42 = tdata + 1UL;
+    __cil_tmp39 = tdata + 1UL;
 #line 189
-    __cil_tmp43 = *__cil_tmp42;
+    __cil_tmp40 = *__cil_tmp39;
 #line 189
-    __cil_tmp44 = (int )__cil_tmp43;
+    __cil_tmp41 = (int )__cil_tmp40;
 #line 189
-    __cil_tmp45 = __cil_tmp44 << 16;
+    __cil_tmp42 = __cil_tmp41 << 16;
 #line 189
-    __cil_tmp46 = tdata + 2UL;
+    __cil_tmp43 = tdata + 2UL;
 #line 189
-    __cil_tmp47 = *__cil_tmp46;
+    __cil_tmp44 = *__cil_tmp43;
 #line 189
-    __cil_tmp48 = (int )__cil_tmp47;
+    __cil_tmp45 = (int )__cil_tmp44;
 #line 189
-    __cil_tmp49 = __cil_tmp48 << 24;
+    __cil_tmp46 = __cil_tmp45 << 24;
 #line 189
-    __cil_tmp50 = __cil_tmp49 | __cil_tmp45;
+    __cil_tmp47 = __cil_tmp46 | __cil_tmp42;
 #line 189
-    __cil_tmp51 = __cil_tmp50 >> 20;
+    __cil_tmp48 = __cil_tmp47 >> 20;
 #line 189
-    y = - __cil_tmp51;
+    y = - __cil_tmp48;
 #line 190
-    __cil_tmp52 = tdata + 5UL;
+    __cil_tmp49 = tdata + 5UL;
 #line 190
+    __cil_tmp50 = *__cil_tmp49;
+#line 190
+    __cil_tmp51 = (int )__cil_tmp50;
+#line 190
+    size = __cil_tmp51 & 63;
+#line 191
+    __cil_tmp52 = tdata + 6UL;
+#line 191
     __cil_tmp53 = *__cil_tmp52;
-#line 190
+#line 191
     __cil_tmp54 = (int )__cil_tmp53;
-#line 190
-    size = __cil_tmp54 & 63;
 #line 191
-    __cil_tmp55 = tdata + 6UL;
+    __cil_tmp55 = __cil_tmp54 >> 2;
 #line 191
-    __cil_tmp56 = *__cil_tmp55;
-#line 191
-    __cil_tmp57 = (int )__cil_tmp56;
-#line 191
-    __cil_tmp58 = __cil_tmp57 >> 2;
-#line 191
-    orientation = __cil_tmp58 + -32;
+    orientation = __cil_tmp55 + -32;
 #line 192
-    __cil_tmp59 = tdata + 3UL;
+    __cil_tmp56 = tdata + 3UL;
 #line 192
-    __cil_tmp60 = *__cil_tmp59;
+    __cil_tmp57 = *__cil_tmp56;
 #line 192
-    touch_major = (int )__cil_tmp60;
+    touch_major = (int )__cil_tmp57;
 #line 193
-    __cil_tmp61 = tdata + 4UL;
+    __cil_tmp58 = tdata + 4UL;
 #line 193
-    __cil_tmp62 = *__cil_tmp61;
+    __cil_tmp59 = *__cil_tmp58;
 #line 193
-    touch_minor = (int )__cil_tmp62;
+    touch_minor = (int )__cil_tmp59;
 #line 194
-    __cil_tmp63 = tdata + 7UL;
+    __cil_tmp60 = tdata + 7UL;
 #line 194
-    __cil_tmp64 = *__cil_tmp63;
+    __cil_tmp61 = *__cil_tmp60;
 #line 194
-    __cil_tmp65 = (int )__cil_tmp64;
+    __cil_tmp62 = (int )__cil_tmp61;
 #line 194
-    state = __cil_tmp65 & 240;
+    state = __cil_tmp62 & 240;
 #line 195
     down___0 = state != 0;
   } else {
 #line 197
-    __cil_tmp66 = tdata + 6UL;
+    __cil_tmp63 = tdata + 6UL;
 #line 197
-    __cil_tmp67 = *__cil_tmp66;
+    __cil_tmp64 = *__cil_tmp63;
 #line 197
-    __cil_tmp68 = (int )__cil_tmp67;
+    __cil_tmp65 = (int )__cil_tmp64;
 #line 197
-    __cil_tmp69 = __cil_tmp68 >> 6;
+    __cil_tmp66 = __cil_tmp65 >> 6;
 #line 197
-    __cil_tmp70 = tdata + 7UL;
+    __cil_tmp67 = tdata + 7UL;
 #line 197
-    __cil_tmp71 = *__cil_tmp70;
+    __cil_tmp68 = *__cil_tmp67;
 #line 197
-    __cil_tmp72 = (int )__cil_tmp71;
+    __cil_tmp69 = (int )__cil_tmp68;
 #line 197
-    __cil_tmp73 = __cil_tmp72 << 2;
+    __cil_tmp70 = __cil_tmp69 << 2;
 #line 197
-    __cil_tmp74 = __cil_tmp73 | __cil_tmp69;
+    __cil_tmp71 = __cil_tmp70 | __cil_tmp66;
 #line 197
-    id = __cil_tmp74 & 15;
+    id = __cil_tmp71 & 15;
 #line 198
-    __cil_tmp75 = *tdata;
+    __cil_tmp72 = *tdata;
 #line 198
-    __cil_tmp76 = (int )__cil_tmp75;
+    __cil_tmp73 = (int )__cil_tmp72;
 #line 198
-    __cil_tmp77 = __cil_tmp76 << 19;
+    __cil_tmp74 = __cil_tmp73 << 19;
 #line 198
-    __cil_tmp78 = tdata + 1UL;
+    __cil_tmp75 = tdata + 1UL;
 #line 198
-    __cil_tmp79 = *__cil_tmp78;
+    __cil_tmp76 = *__cil_tmp75;
 #line 198
-    __cil_tmp80 = (int )__cil_tmp79;
+    __cil_tmp77 = (int )__cil_tmp76;
 #line 198
-    __cil_tmp81 = __cil_tmp80 << 27;
+    __cil_tmp78 = __cil_tmp77 << 27;
 #line 198
-    __cil_tmp82 = __cil_tmp81 | __cil_tmp77;
+    __cil_tmp79 = __cil_tmp78 | __cil_tmp74;
 #line 198
-    x = __cil_tmp82 >> 19;
+    x = __cil_tmp79 >> 19;
 #line 199
-    __cil_tmp83 = tdata + 1UL;
+    __cil_tmp80 = tdata + 1UL;
 #line 199
-    __cil_tmp84 = *__cil_tmp83;
+    __cil_tmp81 = *__cil_tmp80;
 #line 199
-    __cil_tmp85 = (int )__cil_tmp84;
+    __cil_tmp82 = (int )__cil_tmp81;
 #line 199
-    __cil_tmp86 = __cil_tmp85 << 14;
+    __cil_tmp83 = __cil_tmp82 << 14;
 #line 199
-    __cil_tmp87 = tdata + 2UL;
+    __cil_tmp84 = tdata + 2UL;
 #line 199
-    __cil_tmp88 = *__cil_tmp87;
+    __cil_tmp85 = *__cil_tmp84;
 #line 199
-    __cil_tmp89 = (int )__cil_tmp88;
+    __cil_tmp86 = (int )__cil_tmp85;
 #line 199
-    __cil_tmp90 = __cil_tmp89 << 22;
+    __cil_tmp87 = __cil_tmp86 << 22;
 #line 199
-    __cil_tmp91 = tdata + 3UL;
+    __cil_tmp88 = tdata + 3UL;
 #line 199
-    __cil_tmp92 = *__cil_tmp91;
+    __cil_tmp89 = *__cil_tmp88;
 #line 199
-    __cil_tmp93 = (int )__cil_tmp92;
+    __cil_tmp90 = (int )__cil_tmp89;
 #line 199
-    __cil_tmp94 = __cil_tmp93 << 30;
+    __cil_tmp91 = __cil_tmp90 << 30;
 #line 199
-    __cil_tmp95 = __cil_tmp94 | __cil_tmp90;
+    __cil_tmp92 = __cil_tmp91 | __cil_tmp87;
 #line 199
-    __cil_tmp96 = __cil_tmp95 | __cil_tmp86;
+    __cil_tmp93 = __cil_tmp92 | __cil_tmp83;
 #line 199
-    __cil_tmp97 = __cil_tmp96 >> 19;
+    __cil_tmp94 = __cil_tmp93 >> 19;
 #line 199
-    y = - __cil_tmp97;
+    y = - __cil_tmp94;
 #line 200
-    __cil_tmp98 = tdata + 6UL;
+    __cil_tmp95 = tdata + 6UL;
 #line 200
+    __cil_tmp96 = *__cil_tmp95;
+#line 200
+    __cil_tmp97 = (int )__cil_tmp96;
+#line 200
+    size = __cil_tmp97 & 63;
+#line 201
+    __cil_tmp98 = tdata + 7UL;
+#line 201
     __cil_tmp99 = *__cil_tmp98;
-#line 200
+#line 201
     __cil_tmp100 = (int )__cil_tmp99;
-#line 200
-    size = __cil_tmp100 & 63;
 #line 201
-    __cil_tmp101 = tdata + 7UL;
+    __cil_tmp101 = __cil_tmp100 >> 2;
 #line 201
-    __cil_tmp102 = *__cil_tmp101;
-#line 201
-    __cil_tmp103 = (int )__cil_tmp102;
-#line 201
-    __cil_tmp104 = __cil_tmp103 >> 2;
-#line 201
-    orientation = __cil_tmp104 + -32;
+    orientation = __cil_tmp101 + -32;
 #line 202
-    __cil_tmp105 = tdata + 4UL;
+    __cil_tmp102 = tdata + 4UL;
 #line 202
-    __cil_tmp106 = *__cil_tmp105;
+    __cil_tmp103 = *__cil_tmp102;
 #line 202
-    touch_major = (int )__cil_tmp106;
+    touch_major = (int )__cil_tmp103;
 #line 203
-    __cil_tmp107 = tdata + 5UL;
+    __cil_tmp104 = tdata + 5UL;
 #line 203
-    __cil_tmp108 = *__cil_tmp107;
+    __cil_tmp105 = *__cil_tmp104;
 #line 203
-    touch_minor = (int )__cil_tmp108;
+    touch_minor = (int )__cil_tmp105;
 #line 204
-    __cil_tmp109 = tdata + 8UL;
+    __cil_tmp106 = tdata + 8UL;
 #line 204
-    __cil_tmp110 = *__cil_tmp109;
+    __cil_tmp107 = *__cil_tmp106;
 #line 204
-    __cil_tmp111 = (int )__cil_tmp110;
+    __cil_tmp108 = (int )__cil_tmp107;
 #line 204
-    state = __cil_tmp111 & 240;
+    state = __cil_tmp108 & 240;
 #line 205
     down___0 = state != 0;
   }
   }
 #line 209
-  __cil_tmp112 = raw_id * 4UL;
-#line 209
-  __cil_tmp113 = 192 + __cil_tmp112;
-#line 209
-  __cil_tmp114 = (unsigned long )msc;
-#line 209
-  __cil_tmp115 = __cil_tmp114 + __cil_tmp113;
-#line 209
-  *((int *)__cil_tmp115) = id;
+  msc->tracking_ids[raw_id] = id;
 #line 210
-  __cil_tmp116 = id * 10UL;
-#line 210
-  __cil_tmp117 = 32 + __cil_tmp116;
-#line 210
-  __cil_tmp118 = (unsigned long )msc;
-#line 210
-  __cil_tmp119 = __cil_tmp118 + __cil_tmp117;
-#line 210
-  *((short *)__cil_tmp119) = (short )x;
+  msc->touches[id].x = (short )x;
 #line 211
-  __cil_tmp120 = id * 10UL;
-#line 211
-  __cil_tmp121 = __cil_tmp120 + 2;
-#line 211
-  __cil_tmp122 = 32 + __cil_tmp121;
-#line 211
-  __cil_tmp123 = (unsigned long )msc;
-#line 211
-  __cil_tmp124 = __cil_tmp123 + __cil_tmp122;
-#line 211
-  *((short *)__cil_tmp124) = (short )y;
+  msc->touches[id].y = (short )y;
 #line 212
-  __cil_tmp125 = id * 10UL;
-#line 212
-  __cil_tmp126 = __cil_tmp125 + 8;
-#line 212
-  __cil_tmp127 = 32 + __cil_tmp126;
-#line 212
-  __cil_tmp128 = (unsigned long )msc;
-#line 212
-  __cil_tmp129 = __cil_tmp128 + __cil_tmp127;
-#line 212
-  *((u8 *)__cil_tmp129) = (unsigned char )size;
+  msc->touches[id].size = (u8 )size;
 #line 217
   if ((int )emulate_scroll_wheel) {
 #line 218
     now = (unsigned long )jiffies;
 #line 219
-    __cil_tmp130 = id * 10UL;
+    __cil_tmp109 = msc->touches[id].scroll_x;
 #line 219
-    __cil_tmp131 = __cil_tmp130 + 4;
+    __cil_tmp110 = (int )__cil_tmp109;
 #line 219
-    __cil_tmp132 = 32 + __cil_tmp131;
-#line 219
-    __cil_tmp133 = (unsigned long )msc;
-#line 219
-    __cil_tmp134 = __cil_tmp133 + __cil_tmp132;
-#line 219
-    __cil_tmp135 = *((short *)__cil_tmp134);
-#line 219
-    __cil_tmp136 = (int )__cil_tmp135;
-#line 219
-    step_x = __cil_tmp136 - x;
+    step_x = __cil_tmp110 - x;
 #line 220
-    __cil_tmp137 = id * 10UL;
+    __cil_tmp111 = msc->touches[id].scroll_y;
 #line 220
-    __cil_tmp138 = __cil_tmp137 + 6;
+    __cil_tmp112 = (int )__cil_tmp111;
 #line 220
-    __cil_tmp139 = 32 + __cil_tmp138;
-#line 220
-    __cil_tmp140 = (unsigned long )msc;
-#line 220
-    __cil_tmp141 = __cil_tmp140 + __cil_tmp139;
-#line 220
-    __cil_tmp142 = *((short *)__cil_tmp141);
-#line 220
-    __cil_tmp143 = (int )__cil_tmp142;
-#line 220
-    step_y = __cil_tmp143 - y;
+    step_y = __cil_tmp112 - y;
 #line 224
     if (state == 48) {
+#line 224
       goto case_48;
-    } else {
+    } else
 #line 237
-      if (state == 64) {
-        goto case_64;
-      } else {
+    if (state == 64) {
+#line 237
+      goto case_64;
+    } else
 #line 223
-        if (0) {
-          case_48: 
+    if (0) {
+      case_48: 
 #line 225
-          __cil_tmp144 = id * 10UL;
-#line 225
-          __cil_tmp145 = __cil_tmp144 + 4;
-#line 225
-          __cil_tmp146 = 32 + __cil_tmp145;
-#line 225
-          __cil_tmp147 = (unsigned long )msc;
-#line 225
-          __cil_tmp148 = __cil_tmp147 + __cil_tmp146;
-#line 225
-          *((short *)__cil_tmp148) = (short )x;
+      msc->touches[id].scroll_x = (short )x;
 #line 226
-          __cil_tmp149 = id * 10UL;
-#line 226
-          __cil_tmp150 = __cil_tmp149 + 6;
-#line 226
-          __cil_tmp151 = 32 + __cil_tmp150;
-#line 226
-          __cil_tmp152 = (unsigned long )msc;
-#line 226
-          __cil_tmp153 = __cil_tmp152 + __cil_tmp151;
-#line 226
-          *((short *)__cil_tmp153) = (short )y;
+      msc->touches[id].scroll_y = (short )y;
 #line 229
-          if ((int )scroll_acceleration) {
-            {
+      if ((int )scroll_acceleration) {
+        {
 #line 229
-            __cil_tmp154 = (unsigned long )msc;
+        __cil_tmp113 = msc->scroll_jiffies;
 #line 229
-            __cil_tmp155 = __cil_tmp154 + 24;
+        __cil_tmp114 = __cil_tmp113 + 125UL;
 #line 229
-            __cil_tmp156 = *((unsigned long *)__cil_tmp155);
+        __cil_tmp115 = (long )__cil_tmp114;
 #line 229
-            __cil_tmp157 = __cil_tmp156 + 125UL;
+        __cil_tmp116 = (long )now;
 #line 229
-            __cil_tmp158 = (long )__cil_tmp157;
+        __cil_tmp117 = __cil_tmp116 - __cil_tmp115;
 #line 229
-            __cil_tmp159 = (long )now;
-#line 229
-            __cil_tmp160 = __cil_tmp159 - __cil_tmp158;
-#line 229
-            if (__cil_tmp160 < 0L) {
+        if (__cil_tmp117 < 0L) {
 #line 231
-              __cil_tmp161 = (unsigned long )msc;
+          __cil_tmp118 = msc->scroll_accel;
 #line 231
-              __cil_tmp162 = __cil_tmp161 + 20;
+          __max1 = __cil_tmp118 + -1;
 #line 231
-              __cil_tmp163 = *((int *)__cil_tmp162);
+          __max2 = 1;
 #line 231
-              __max1 = __cil_tmp163 + -1;
+          if (__max1 > __max2) {
 #line 231
-              __max2 = 1;
-#line 231
-              if (__max1 > __max2) {
-#line 231
-                tmp = __max1;
-              } else {
-#line 231
-                tmp = __max2;
-              }
-#line 231
-              __cil_tmp164 = (unsigned long )msc;
-#line 231
-              __cil_tmp165 = __cil_tmp164 + 20;
-#line 231
-              *((int *)__cil_tmp165) = tmp;
-            } else {
-#line 234
-              __cil_tmp166 = (unsigned long )msc;
-#line 234
-              __cil_tmp167 = __cil_tmp166 + 20;
-#line 234
-              *((int *)__cil_tmp167) = 7;
-            }
-            }
+            tmp = __max1;
           } else {
-#line 234
-            __cil_tmp168 = (unsigned long )msc;
-#line 234
-            __cil_tmp169 = __cil_tmp168 + 20;
-#line 234
-            *((int *)__cil_tmp169) = 7;
+#line 231
+            tmp = __max2;
           }
-          goto ldv_24605;
-          case_64: 
-#line 238
-          __cil_tmp170 = (unsigned long )msc;
-#line 238
-          __cil_tmp171 = __cil_tmp170 + 20;
-#line 238
-          __cil_tmp172 = *((int *)__cil_tmp171);
-#line 238
-          __cil_tmp173 = (int )scroll_speed;
-#line 238
-          __cil_tmp174 = 64 - __cil_tmp173;
-#line 238
-          __cil_tmp175 = __cil_tmp174 * __cil_tmp172;
-#line 238
-          step_x = step_x / __cil_tmp175;
-#line 239
-          if (step_x != 0) {
-            {
-#line 240
-            __cil_tmp176 = id * 10UL;
-#line 240
-            __cil_tmp177 = __cil_tmp176 + 4;
-#line 240
-            __cil_tmp178 = 32 + __cil_tmp177;
-#line 240
-            __cil_tmp179 = (unsigned long )msc;
-#line 240
-            __cil_tmp180 = __cil_tmp179 + __cil_tmp178;
-#line 240
-            __cil_tmp181 = (unsigned long )msc;
-#line 240
-            __cil_tmp182 = __cil_tmp181 + 20;
-#line 240
-            __cil_tmp183 = *((int *)__cil_tmp182);
-#line 240
-            __cil_tmp184 = (unsigned short )__cil_tmp183;
-#line 240
-            __cil_tmp185 = (int )__cil_tmp184;
-#line 240
-            __cil_tmp186 = (unsigned short )step_x;
-#line 240
-            __cil_tmp187 = (int )__cil_tmp186;
-#line 240
-            __cil_tmp188 = 64U - scroll_speed;
-#line 240
-            __cil_tmp189 = (unsigned short )__cil_tmp188;
-#line 240
-            __cil_tmp190 = (int )__cil_tmp189;
-#line 240
-            __cil_tmp191 = __cil_tmp190 * __cil_tmp187;
-#line 240
-            __cil_tmp192 = __cil_tmp191 * __cil_tmp185;
-#line 240
-            __cil_tmp193 = id * 10UL;
-#line 240
-            __cil_tmp194 = __cil_tmp193 + 4;
-#line 240
-            __cil_tmp195 = 32 + __cil_tmp194;
-#line 240
-            __cil_tmp196 = (unsigned long )msc;
-#line 240
-            __cil_tmp197 = __cil_tmp196 + __cil_tmp195;
-#line 240
-            __cil_tmp198 = *((short *)__cil_tmp197);
-#line 240
-            __cil_tmp199 = (unsigned short )__cil_tmp198;
-#line 240
-            __cil_tmp200 = (int )__cil_tmp199;
-#line 240
-            __cil_tmp201 = __cil_tmp200 - __cil_tmp192;
-#line 240
-            *((short *)__cil_tmp180) = (short )__cil_tmp201;
-#line 242
-            __cil_tmp202 = (unsigned long )msc;
-#line 242
-            __cil_tmp203 = __cil_tmp202 + 24;
-#line 242
-            *((unsigned long *)__cil_tmp203) = now;
-#line 243
-            __cil_tmp204 = - step_x;
-#line 243
-            input_report_rel(input, 6U, __cil_tmp204);
-            }
-          } else {
-
-          }
-#line 246
-          __cil_tmp205 = (unsigned long )msc;
-#line 246
-          __cil_tmp206 = __cil_tmp205 + 20;
-#line 246
-          __cil_tmp207 = *((int *)__cil_tmp206);
-#line 246
-          __cil_tmp208 = (int )scroll_speed;
-#line 246
-          __cil_tmp209 = 64 - __cil_tmp208;
-#line 246
-          __cil_tmp210 = __cil_tmp209 * __cil_tmp207;
-#line 246
-          step_y = step_y / __cil_tmp210;
-#line 247
-          if (step_y != 0) {
-            {
-#line 248
-            __cil_tmp211 = id * 10UL;
-#line 248
-            __cil_tmp212 = __cil_tmp211 + 6;
-#line 248
-            __cil_tmp213 = 32 + __cil_tmp212;
-#line 248
-            __cil_tmp214 = (unsigned long )msc;
-#line 248
-            __cil_tmp215 = __cil_tmp214 + __cil_tmp213;
-#line 248
-            __cil_tmp216 = (unsigned long )msc;
-#line 248
-            __cil_tmp217 = __cil_tmp216 + 20;
-#line 248
-            __cil_tmp218 = *((int *)__cil_tmp217);
-#line 248
-            __cil_tmp219 = (unsigned short )__cil_tmp218;
-#line 248
-            __cil_tmp220 = (int )__cil_tmp219;
-#line 248
-            __cil_tmp221 = (unsigned short )step_y;
-#line 248
-            __cil_tmp222 = (int )__cil_tmp221;
-#line 248
-            __cil_tmp223 = 64U - scroll_speed;
-#line 248
-            __cil_tmp224 = (unsigned short )__cil_tmp223;
-#line 248
-            __cil_tmp225 = (int )__cil_tmp224;
-#line 248
-            __cil_tmp226 = __cil_tmp225 * __cil_tmp222;
-#line 248
-            __cil_tmp227 = __cil_tmp226 * __cil_tmp220;
-#line 248
-            __cil_tmp228 = id * 10UL;
-#line 248
-            __cil_tmp229 = __cil_tmp228 + 6;
-#line 248
-            __cil_tmp230 = 32 + __cil_tmp229;
-#line 248
-            __cil_tmp231 = (unsigned long )msc;
-#line 248
-            __cil_tmp232 = __cil_tmp231 + __cil_tmp230;
-#line 248
-            __cil_tmp233 = *((short *)__cil_tmp232);
-#line 248
-            __cil_tmp234 = (unsigned short )__cil_tmp233;
-#line 248
-            __cil_tmp235 = (int )__cil_tmp234;
-#line 248
-            __cil_tmp236 = __cil_tmp235 - __cil_tmp227;
-#line 248
-            *((short *)__cil_tmp215) = (short )__cil_tmp236;
-#line 250
-            __cil_tmp237 = (unsigned long )msc;
-#line 250
-            __cil_tmp238 = __cil_tmp237 + 24;
-#line 250
-            *((unsigned long *)__cil_tmp238) = now;
-#line 251
-            input_report_rel(input, 8U, step_y);
-            }
-          } else {
-
-          }
-          goto ldv_24605;
+#line 231
+          msc->scroll_accel = tmp;
         } else {
-
+#line 234
+          msc->scroll_accel = 7;
         }
+        }
+      } else {
+#line 234
+        msc->scroll_accel = 7;
       }
+#line 236
+      goto ldv_24605;
+      case_64: 
+#line 238
+      __cil_tmp119 = msc->scroll_accel;
+#line 238
+      __cil_tmp120 = (int )scroll_speed;
+#line 238
+      __cil_tmp121 = 64 - __cil_tmp120;
+#line 238
+      __cil_tmp122 = __cil_tmp121 * __cil_tmp119;
+#line 238
+      step_x = step_x / __cil_tmp122;
+#line 239
+      if (step_x != 0) {
+        {
+#line 240
+        __cil_tmp123 = msc->scroll_accel;
+#line 240
+        __cil_tmp124 = (unsigned short )__cil_tmp123;
+#line 240
+        __cil_tmp125 = (int )__cil_tmp124;
+#line 240
+        __cil_tmp126 = (unsigned short )step_x;
+#line 240
+        __cil_tmp127 = (int )__cil_tmp126;
+#line 240
+        __cil_tmp128 = 64U - scroll_speed;
+#line 240
+        __cil_tmp129 = (unsigned short )__cil_tmp128;
+#line 240
+        __cil_tmp130 = (int )__cil_tmp129;
+#line 240
+        __cil_tmp131 = __cil_tmp130 * __cil_tmp127;
+#line 240
+        __cil_tmp132 = __cil_tmp131 * __cil_tmp125;
+#line 240
+        __cil_tmp133 = msc->touches[id].scroll_x;
+#line 240
+        __cil_tmp134 = (unsigned short )__cil_tmp133;
+#line 240
+        __cil_tmp135 = (int )__cil_tmp134;
+#line 240
+        __cil_tmp136 = __cil_tmp135 - __cil_tmp132;
+#line 240
+        msc->touches[id].scroll_x = (short )__cil_tmp136;
+#line 242
+        msc->scroll_jiffies = now;
+#line 243
+        __cil_tmp137 = - step_x;
+#line 243
+        input_report_rel(input, 6U, __cil_tmp137);
+        }
+      } else {
+
+      }
+#line 246
+      __cil_tmp138 = msc->scroll_accel;
+#line 246
+      __cil_tmp139 = (int )scroll_speed;
+#line 246
+      __cil_tmp140 = 64 - __cil_tmp139;
+#line 246
+      __cil_tmp141 = __cil_tmp140 * __cil_tmp138;
+#line 246
+      step_y = step_y / __cil_tmp141;
+#line 247
+      if (step_y != 0) {
+        {
+#line 248
+        __cil_tmp142 = msc->scroll_accel;
+#line 248
+        __cil_tmp143 = (unsigned short )__cil_tmp142;
+#line 248
+        __cil_tmp144 = (int )__cil_tmp143;
+#line 248
+        __cil_tmp145 = (unsigned short )step_y;
+#line 248
+        __cil_tmp146 = (int )__cil_tmp145;
+#line 248
+        __cil_tmp147 = 64U - scroll_speed;
+#line 248
+        __cil_tmp148 = (unsigned short )__cil_tmp147;
+#line 248
+        __cil_tmp149 = (int )__cil_tmp148;
+#line 248
+        __cil_tmp150 = __cil_tmp149 * __cil_tmp146;
+#line 248
+        __cil_tmp151 = __cil_tmp150 * __cil_tmp144;
+#line 248
+        __cil_tmp152 = msc->touches[id].scroll_y;
+#line 248
+        __cil_tmp153 = (unsigned short )__cil_tmp152;
+#line 248
+        __cil_tmp154 = (int )__cil_tmp153;
+#line 248
+        __cil_tmp155 = __cil_tmp154 - __cil_tmp151;
+#line 248
+        msc->touches[id].scroll_y = (short )__cil_tmp155;
+#line 250
+        msc->scroll_jiffies = now;
+#line 251
+        input_report_rel(input, 8U, step_y);
+        }
+      } else {
+
+      }
+#line 253
+      goto ldv_24605;
+    } else {
+
     }
     ldv_24605: ;
   } else {
@@ -5729,32 +5321,16 @@ static void magicmouse_emit_touch(struct magicmouse_sc *msc , int raw_id , u8 *t
 #line 257
   if (down___0 != 0) {
 #line 258
-    __cil_tmp239 = (unsigned long )msc;
+    __cil_tmp156 = msc->ntouches;
 #line 258
-    __cil_tmp240 = __cil_tmp239 + 16;
-#line 258
-    __cil_tmp241 = (unsigned long )msc;
-#line 258
-    __cil_tmp242 = __cil_tmp241 + 16;
-#line 258
-    __cil_tmp243 = *((int *)__cil_tmp242);
-#line 258
-    *((int *)__cil_tmp240) = __cil_tmp243 + 1;
+    msc->ntouches = __cil_tmp156 + 1;
     {
 #line 259
-    __cil_tmp244 = (unsigned long )msc;
+    __cil_tmp157 = msc->single_touch_id;
 #line 259
-    __cil_tmp245 = __cil_tmp244 + 256;
-#line 259
-    __cil_tmp246 = *((int *)__cil_tmp245);
-#line 259
-    if (__cil_tmp246 == -1) {
+    if (__cil_tmp157 == -1) {
 #line 260
-      __cil_tmp247 = (unsigned long )msc;
-#line 260
-      __cil_tmp248 = __cil_tmp247 + 256;
-#line 260
-      *((int *)__cil_tmp248) = id;
+      msc->single_touch_id = id;
     } else {
 
     }
@@ -5762,19 +5338,11 @@ static void magicmouse_emit_touch(struct magicmouse_sc *msc , int raw_id , u8 *t
   } else {
     {
 #line 261
-    __cil_tmp249 = (unsigned long )msc;
+    __cil_tmp158 = msc->single_touch_id;
 #line 261
-    __cil_tmp250 = __cil_tmp249 + 256;
-#line 261
-    __cil_tmp251 = *((int *)__cil_tmp250);
-#line 261
-    if (__cil_tmp251 == id) {
+    if (__cil_tmp158 == id) {
 #line 262
-      __cil_tmp252 = (unsigned long )msc;
-#line 262
-      __cil_tmp253 = __cil_tmp252 + 256;
-#line 262
-      *((int *)__cil_tmp253) = -2;
+      msc->single_touch_id = -2;
     } else {
 
     }
@@ -5788,17 +5356,17 @@ static void magicmouse_emit_touch(struct magicmouse_sc *msc , int raw_id , u8 *t
 #line 266
       input_report_abs(input, 57U, id);
 #line 267
-      __cil_tmp254 = touch_major << 2;
+      __cil_tmp159 = touch_major << 2;
 #line 267
-      input_report_abs(input, 48U, __cil_tmp254);
+      input_report_abs(input, 48U, __cil_tmp159);
 #line 268
-      __cil_tmp255 = touch_minor << 2;
+      __cil_tmp160 = touch_minor << 2;
 #line 268
-      input_report_abs(input, 49U, __cil_tmp255);
+      input_report_abs(input, 49U, __cil_tmp160);
 #line 269
-      __cil_tmp256 = - orientation;
+      __cil_tmp161 = - orientation;
 #line 269
-      input_report_abs(input, 52U, __cil_tmp256);
+      input_report_abs(input, 52U, __cil_tmp161);
 #line 270
       input_report_abs(input, 53U, x);
 #line 271
@@ -5808,37 +5376,31 @@ static void magicmouse_emit_touch(struct magicmouse_sc *msc , int raw_id , u8 *t
       if ((int )report_undeciphered) {
         {
 #line 274
-        __cil_tmp257 = 24 + 4;
+        __cil_tmp162 = input->id.product;
 #line 274
-        __cil_tmp258 = (unsigned long )input;
+        __cil_tmp163 = (unsigned int )__cil_tmp162;
 #line 274
-        __cil_tmp259 = __cil_tmp258 + __cil_tmp257;
-#line 274
-        __cil_tmp260 = *((__u16 *)__cil_tmp259);
-#line 274
-        __cil_tmp261 = (unsigned int )__cil_tmp260;
-#line 274
-        if (__cil_tmp261 == 781U) {
+        if (__cil_tmp163 == 781U) {
           {
 #line 275
-          __cil_tmp262 = tdata + 7UL;
+          __cil_tmp164 = tdata + 7UL;
 #line 275
-          __cil_tmp263 = *__cil_tmp262;
+          __cil_tmp165 = *__cil_tmp164;
 #line 275
-          __cil_tmp264 = (int )__cil_tmp263;
+          __cil_tmp166 = (int )__cil_tmp165;
 #line 275
-          input_event(input, 4U, 3U, __cil_tmp264);
+          input_event(input, 4U, 3U, __cil_tmp166);
           }
         } else {
           {
 #line 277
-          __cil_tmp265 = tdata + 8UL;
+          __cil_tmp167 = tdata + 8UL;
 #line 277
-          __cil_tmp266 = *__cil_tmp265;
+          __cil_tmp168 = *__cil_tmp167;
 #line 277
-          __cil_tmp267 = (int )__cil_tmp266;
+          __cil_tmp169 = (int )__cil_tmp168;
 #line 277
-          input_event(input, 4U, 3U, __cil_tmp267);
+          input_event(input, 4U, 3U, __cil_tmp169);
           }
         }
         }
@@ -5879,31 +5441,31 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
   int __cil_tmp19 ;
   int __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  int __cil_tmp22 ;
   unsigned long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  unsigned long __cil_tmp24 ;
+  u8 *__cil_tmp25 ;
+  int __cil_tmp26 ;
   u8 *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  u8 *__cil_tmp33 ;
-  u8 __cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
+  u8 __cil_tmp28 ;
+  int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  unsigned int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  unsigned long __cil_tmp34 ;
+  unsigned long __cil_tmp35 ;
+  u8 *__cil_tmp36 ;
+  int __cil_tmp37 ;
+  u8 *__cil_tmp38 ;
+  u8 __cil_tmp39 ;
+  int __cil_tmp40 ;
   int __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  u8 *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
+  u8 *__cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
   int __cil_tmp47 ;
   u8 *__cil_tmp48 ;
   u8 __cil_tmp49 ;
@@ -5917,79 +5479,39 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
   int __cil_tmp57 ;
   u8 *__cil_tmp58 ;
   u8 __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  u8 *__cil_tmp62 ;
-  u8 __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  int __cil_tmp67 ;
+  u8 *__cil_tmp60 ;
+  u8 *__cil_tmp61 ;
+  u8 __cil_tmp62 ;
+  int __cil_tmp63 ;
+  u8 *__cil_tmp64 ;
+  u8 __cil_tmp65 ;
+  unsigned long __cil_tmp66 ;
+  unsigned long __cil_tmp67 ;
   u8 *__cil_tmp68 ;
-  u8 __cil_tmp69 ;
-  u8 *__cil_tmp70 ;
-  u8 *__cil_tmp71 ;
-  u8 __cil_tmp72 ;
+  u8 *__cil_tmp69 ;
+  u8 __cil_tmp70 ;
+  int __cil_tmp71 ;
+  int __cil_tmp72 ;
   int __cil_tmp73 ;
-  u8 *__cil_tmp74 ;
-  u8 __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  u8 *__cil_tmp78 ;
-  u8 *__cil_tmp79 ;
-  u8 __cil_tmp80 ;
+  __u16 __cil_tmp74 ;
+  unsigned int __cil_tmp75 ;
+  int __cil_tmp76 ;
+  int __cil_tmp77 ;
+  int __cil_tmp78 ;
+  int __cil_tmp79 ;
+  int __cil_tmp80 ;
   int __cil_tmp81 ;
   int __cil_tmp82 ;
   int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  __u16 __cil_tmp87 ;
-  unsigned int __cil_tmp88 ;
-  int __cil_tmp89 ;
+  int __cil_tmp84 ;
+  int __cil_tmp85 ;
+  int __cil_tmp86 ;
+  int __cil_tmp87 ;
+  int __cil_tmp88 ;
+  short __cil_tmp89 ;
   int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  int __cil_tmp93 ;
-  int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  int __cil_tmp97 ;
-  int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  int __cil_tmp101 ;
-  int __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  int __cil_tmp105 ;
-  int __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  int __cil_tmp109 ;
-  int __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  int __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  short __cil_tmp121 ;
-  int __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  int __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  short __cil_tmp131 ;
-  int __cil_tmp132 ;
+  short __cil_tmp91 ;
+  int __cil_tmp92 ;
 
   {
   {
@@ -5998,7 +5520,7 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
 #line 287
   msc = (struct magicmouse_sc *)tmp;
 #line 288
-  input = *((struct input_dev **)msc);
+  input = msc->input;
 #line 289
   x = 0;
 #line 289
@@ -6013,6 +5535,7 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
   __cil_tmp14 = (int )__cil_tmp13;
 #line 292
   if (__cil_tmp14 == 40) {
+#line 292
     goto case_40;
   } else {
     {
@@ -6022,6 +5545,7 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
     __cil_tmp16 = (int )__cil_tmp15;
 #line 315
     if (__cil_tmp16 == 41) {
+#line 315
       goto case_41;
     } else {
       {
@@ -6031,8 +5555,10 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
       __cil_tmp18 = (int )__cil_tmp17;
 #line 341
       if (__cil_tmp18 == 247) {
+#line 341
         goto case_247;
       } else {
+#line 349
         goto switch_default;
 #line 291
         if (0) {
@@ -6061,62 +5587,54 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
 #line 296
           npoints = __cil_tmp21 / 9;
 #line 297
-          __cil_tmp22 = (unsigned long )msc;
-#line 297
-          __cil_tmp23 = __cil_tmp22 + 16;
-#line 297
-          *((int *)__cil_tmp23) = 0;
+          msc->ntouches = 0;
 #line 298
           ii = 0;
+#line 298
           goto ldv_24622;
           ldv_24621: 
           {
 #line 299
-          __cil_tmp24 = ii * 9;
+          __cil_tmp22 = ii * 9;
 #line 299
-          __cil_tmp25 = (unsigned long )__cil_tmp24;
+          __cil_tmp23 = (unsigned long )__cil_tmp22;
 #line 299
-          __cil_tmp26 = __cil_tmp25 + 4UL;
+          __cil_tmp24 = __cil_tmp23 + 4UL;
 #line 299
-          __cil_tmp27 = data + __cil_tmp26;
+          __cil_tmp25 = data + __cil_tmp24;
 #line 299
-          magicmouse_emit_touch(msc, ii, __cil_tmp27);
+          magicmouse_emit_touch(msc, ii, __cil_tmp25);
 #line 298
           ii = ii + 1;
           }
           ldv_24622: ;
 #line 298
           if (ii < npoints) {
+#line 299
             goto ldv_24621;
           } else {
+#line 301
             goto ldv_24623;
           }
           ldv_24623: ;
           {
 #line 304
-          __cil_tmp28 = (unsigned long )msc;
+          __cil_tmp26 = msc->ntouches;
 #line 304
-          __cil_tmp29 = __cil_tmp28 + 16;
-#line 304
-          __cil_tmp30 = *((int *)__cil_tmp29);
-#line 304
-          if (__cil_tmp30 == 0) {
+          if (__cil_tmp26 == 0) {
 #line 305
-            __cil_tmp31 = (unsigned long )msc;
-#line 305
-            __cil_tmp32 = __cil_tmp31 + 256;
-#line 305
-            *((int *)__cil_tmp32) = -1;
+            msc->single_touch_id = -1;
           } else {
 
           }
           }
 #line 307
-          __cil_tmp33 = data + 1UL;
+          __cil_tmp27 = data + 1UL;
 #line 307
-          __cil_tmp34 = *__cil_tmp33;
+          __cil_tmp28 = *__cil_tmp27;
 #line 307
-          clicks = (int )__cil_tmp34;
+          clicks = (int )__cil_tmp28;
+#line 314
           goto ldv_24624;
           case_41: ;
 #line 317
@@ -6126,13 +5644,13 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
           } else {
             {
 #line 317
-            __cil_tmp35 = size + -6;
+            __cil_tmp29 = size + -6;
 #line 317
-            __cil_tmp36 = (unsigned int )__cil_tmp35;
+            __cil_tmp30 = (unsigned int )__cil_tmp29;
 #line 317
-            __cil_tmp37 = __cil_tmp36 & 7U;
+            __cil_tmp31 = __cil_tmp30 & 7U;
 #line 317
-            if (__cil_tmp37 != 0U) {
+            if (__cil_tmp31 != 0U) {
 #line 318
               return (0);
             } else {
@@ -6141,38 +5659,37 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
             }
           }
 #line 319
-          __cil_tmp38 = size + -6;
+          __cil_tmp32 = size + -6;
 #line 319
-          npoints = __cil_tmp38 / 8;
+          npoints = __cil_tmp32 / 8;
 #line 320
-          __cil_tmp39 = (unsigned long )msc;
-#line 320
-          __cil_tmp40 = __cil_tmp39 + 16;
-#line 320
-          *((int *)__cil_tmp40) = 0;
+          msc->ntouches = 0;
 #line 321
           ii = 0;
+#line 321
           goto ldv_24627;
           ldv_24626: 
           {
 #line 322
-          __cil_tmp41 = ii * 8;
+          __cil_tmp33 = ii * 8;
 #line 322
-          __cil_tmp42 = (unsigned long )__cil_tmp41;
+          __cil_tmp34 = (unsigned long )__cil_tmp33;
 #line 322
-          __cil_tmp43 = __cil_tmp42 + 6UL;
+          __cil_tmp35 = __cil_tmp34 + 6UL;
 #line 322
-          __cil_tmp44 = data + __cil_tmp43;
+          __cil_tmp36 = data + __cil_tmp35;
 #line 322
-          magicmouse_emit_touch(msc, ii, __cil_tmp44);
+          magicmouse_emit_touch(msc, ii, __cil_tmp36);
 #line 321
           ii = ii + 1;
           }
           ldv_24627: ;
 #line 321
           if (ii < npoints) {
+#line 322
             goto ldv_24626;
           } else {
+#line 324
             goto ldv_24628;
           }
           ldv_24628: ;
@@ -6180,13 +5697,9 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
           if ((int )report_touches) {
             {
 #line 324
-            __cil_tmp45 = (unsigned long )msc;
+            __cil_tmp37 = msc->ntouches;
 #line 324
-            __cil_tmp46 = __cil_tmp45 + 16;
-#line 324
-            __cil_tmp47 = *((int *)__cil_tmp46);
-#line 324
-            if (__cil_tmp47 == 0) {
+            if (__cil_tmp37 == 0) {
               {
 #line 325
               input_mt_sync(input);
@@ -6199,91 +5712,93 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
 
           }
 #line 331
-          __cil_tmp48 = data + 1UL;
+          __cil_tmp38 = data + 1UL;
 #line 331
+          __cil_tmp39 = *__cil_tmp38;
+#line 331
+          __cil_tmp40 = (int )__cil_tmp39;
+#line 331
+          __cil_tmp41 = __cil_tmp40 << 22;
+#line 331
+          __cil_tmp42 = data + 3UL;
+#line 331
+          __cil_tmp43 = *__cil_tmp42;
+#line 331
+          __cil_tmp44 = (int )__cil_tmp43;
+#line 331
+          __cil_tmp45 = __cil_tmp44 & 12;
+#line 331
+          __cil_tmp46 = __cil_tmp45 << 28;
+#line 331
+          __cil_tmp47 = __cil_tmp46 | __cil_tmp41;
+#line 331
+          x = __cil_tmp47 >> 22;
+#line 332
+          __cil_tmp48 = data + 2UL;
+#line 332
           __cil_tmp49 = *__cil_tmp48;
-#line 331
+#line 332
           __cil_tmp50 = (int )__cil_tmp49;
-#line 331
+#line 332
           __cil_tmp51 = __cil_tmp50 << 22;
-#line 331
+#line 332
           __cil_tmp52 = data + 3UL;
-#line 331
+#line 332
           __cil_tmp53 = *__cil_tmp52;
-#line 331
+#line 332
           __cil_tmp54 = (int )__cil_tmp53;
-#line 331
-          __cil_tmp55 = __cil_tmp54 & 12;
-#line 331
-          __cil_tmp56 = __cil_tmp55 << 28;
-#line 331
+#line 332
+          __cil_tmp55 = __cil_tmp54 & 48;
+#line 332
+          __cil_tmp56 = __cil_tmp55 << 26;
+#line 332
           __cil_tmp57 = __cil_tmp56 | __cil_tmp51;
-#line 331
-          x = __cil_tmp57 >> 22;
 #line 332
-          __cil_tmp58 = data + 2UL;
-#line 332
+          y = __cil_tmp57 >> 22;
+#line 333
+          __cil_tmp58 = data + 3UL;
+#line 333
           __cil_tmp59 = *__cil_tmp58;
-#line 332
-          __cil_tmp60 = (int )__cil_tmp59;
-#line 332
-          __cil_tmp61 = __cil_tmp60 << 22;
-#line 332
-          __cil_tmp62 = data + 3UL;
-#line 332
-          __cil_tmp63 = *__cil_tmp62;
-#line 332
-          __cil_tmp64 = (int )__cil_tmp63;
-#line 332
-          __cil_tmp65 = __cil_tmp64 & 48;
-#line 332
-          __cil_tmp66 = __cil_tmp65 << 26;
-#line 332
-          __cil_tmp67 = __cil_tmp66 | __cil_tmp61;
-#line 332
-          y = __cil_tmp67 >> 22;
 #line 333
-          __cil_tmp68 = data + 3UL;
-#line 333
-          __cil_tmp69 = *__cil_tmp68;
-#line 333
-          clicks = (int )__cil_tmp69;
+          clicks = (int )__cil_tmp59;
+#line 340
           goto ldv_24624;
           case_247: 
           {
 #line 345
-          __cil_tmp70 = data + 2UL;
+          __cil_tmp60 = data + 2UL;
 #line 345
-          __cil_tmp71 = data + 1UL;
+          __cil_tmp61 = data + 1UL;
 #line 345
-          __cil_tmp72 = *__cil_tmp71;
+          __cil_tmp62 = *__cil_tmp61;
 #line 345
-          __cil_tmp73 = (int )__cil_tmp72;
+          __cil_tmp63 = (int )__cil_tmp62;
 #line 345
-          magicmouse_raw_event(hdev, report, __cil_tmp70, __cil_tmp73);
+          magicmouse_raw_event(hdev, report, __cil_tmp60, __cil_tmp63);
 #line 346
-          __cil_tmp74 = data + 1UL;
+          __cil_tmp64 = data + 1UL;
 #line 346
-          __cil_tmp75 = *__cil_tmp74;
+          __cil_tmp65 = *__cil_tmp64;
 #line 346
-          __cil_tmp76 = (unsigned long )__cil_tmp75;
+          __cil_tmp66 = (unsigned long )__cil_tmp65;
 #line 346
-          __cil_tmp77 = __cil_tmp76 + 2UL;
+          __cil_tmp67 = __cil_tmp66 + 2UL;
 #line 346
-          __cil_tmp78 = data + __cil_tmp77;
+          __cil_tmp68 = data + __cil_tmp67;
 #line 346
-          __cil_tmp79 = data + 1UL;
+          __cil_tmp69 = data + 1UL;
 #line 346
-          __cil_tmp80 = *__cil_tmp79;
+          __cil_tmp70 = *__cil_tmp69;
 #line 346
-          __cil_tmp81 = (int )__cil_tmp80;
+          __cil_tmp71 = (int )__cil_tmp70;
 #line 346
-          __cil_tmp82 = size + -2;
+          __cil_tmp72 = size + -2;
 #line 346
-          __cil_tmp83 = __cil_tmp82 - __cil_tmp81;
+          __cil_tmp73 = __cil_tmp72 - __cil_tmp71;
 #line 346
-          magicmouse_raw_event(hdev, report, __cil_tmp78, __cil_tmp83);
+          magicmouse_raw_event(hdev, report, __cil_tmp68, __cil_tmp73);
           }
+#line 348
           goto ldv_24624;
           switch_default: ;
 #line 350
@@ -6300,22 +5815,16 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
   ldv_24624: ;
   {
 #line 353
-  __cil_tmp84 = 24 + 4;
+  __cil_tmp74 = input->id.product;
 #line 353
-  __cil_tmp85 = (unsigned long )input;
+  __cil_tmp75 = (unsigned int )__cil_tmp74;
 #line 353
-  __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
-#line 353
-  __cil_tmp87 = *((__u16 *)__cil_tmp86);
-#line 353
-  __cil_tmp88 = (unsigned int )__cil_tmp87;
-#line 353
-  if (__cil_tmp88 == 781U) {
+  if (__cil_tmp75 == 781U) {
     {
 #line 354
-    __cil_tmp89 = clicks & 3;
+    __cil_tmp76 = clicks & 3;
 #line 354
-    magicmouse_emit_buttons(msc, __cil_tmp89);
+    magicmouse_emit_buttons(msc, __cil_tmp76);
 #line 355
     input_report_rel(input, 0U, x);
 #line 356
@@ -6324,112 +5833,58 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
   } else {
     {
 #line 358
-    __cil_tmp90 = clicks & 1;
+    __cil_tmp77 = clicks & 1;
 #line 358
-    input_report_key(input, 272U, __cil_tmp90);
+    input_report_key(input, 272U, __cil_tmp77);
 #line 359
-    __cil_tmp91 = (unsigned long )msc;
+    __cil_tmp78 = msc->ntouches;
 #line 359
-    __cil_tmp92 = __cil_tmp91 + 16;
+    __cil_tmp79 = __cil_tmp78 > 0;
 #line 359
-    __cil_tmp93 = *((int *)__cil_tmp92);
-#line 359
-    __cil_tmp94 = __cil_tmp93 > 0;
-#line 359
-    input_report_key(input, 330U, __cil_tmp94);
+    input_report_key(input, 330U, __cil_tmp79);
 #line 360
-    __cil_tmp95 = (unsigned long )msc;
+    __cil_tmp80 = msc->ntouches;
 #line 360
-    __cil_tmp96 = __cil_tmp95 + 16;
+    __cil_tmp81 = __cil_tmp80 == 1;
 #line 360
-    __cil_tmp97 = *((int *)__cil_tmp96);
-#line 360
-    __cil_tmp98 = __cil_tmp97 == 1;
-#line 360
-    input_report_key(input, 325U, __cil_tmp98);
+    input_report_key(input, 325U, __cil_tmp81);
 #line 361
-    __cil_tmp99 = (unsigned long )msc;
+    __cil_tmp82 = msc->ntouches;
 #line 361
-    __cil_tmp100 = __cil_tmp99 + 16;
+    __cil_tmp83 = __cil_tmp82 == 2;
 #line 361
-    __cil_tmp101 = *((int *)__cil_tmp100);
-#line 361
-    __cil_tmp102 = __cil_tmp101 == 2;
-#line 361
-    input_report_key(input, 333U, __cil_tmp102);
+    input_report_key(input, 333U, __cil_tmp83);
 #line 362
-    __cil_tmp103 = (unsigned long )msc;
+    __cil_tmp84 = msc->ntouches;
 #line 362
-    __cil_tmp104 = __cil_tmp103 + 16;
+    __cil_tmp85 = __cil_tmp84 == 3;
 #line 362
-    __cil_tmp105 = *((int *)__cil_tmp104);
-#line 362
-    __cil_tmp106 = __cil_tmp105 == 3;
-#line 362
-    input_report_key(input, 334U, __cil_tmp106);
+    input_report_key(input, 334U, __cil_tmp85);
 #line 363
-    __cil_tmp107 = (unsigned long )msc;
+    __cil_tmp86 = msc->ntouches;
 #line 363
-    __cil_tmp108 = __cil_tmp107 + 16;
+    __cil_tmp87 = __cil_tmp86 == 4;
 #line 363
-    __cil_tmp109 = *((int *)__cil_tmp108);
-#line 363
-    __cil_tmp110 = __cil_tmp109 == 4;
-#line 363
-    input_report_key(input, 335U, __cil_tmp110);
+    input_report_key(input, 335U, __cil_tmp87);
     }
     {
 #line 364
-    __cil_tmp111 = (unsigned long )msc;
+    __cil_tmp88 = msc->single_touch_id;
 #line 364
-    __cil_tmp112 = __cil_tmp111 + 256;
-#line 364
-    __cil_tmp113 = *((int *)__cil_tmp112);
-#line 364
-    if (__cil_tmp113 >= 0) {
+    if (__cil_tmp88 >= 0) {
       {
 #line 365
-      __cil_tmp114 = (unsigned long )msc;
+      __cil_tmp89 = msc->touches[msc->single_touch_id].x;
 #line 365
-      __cil_tmp115 = __cil_tmp114 + 256;
+      __cil_tmp90 = (int )__cil_tmp89;
 #line 365
-      __cil_tmp116 = *((int *)__cil_tmp115);
-#line 365
-      __cil_tmp117 = __cil_tmp116 * 10UL;
-#line 365
-      __cil_tmp118 = 32 + __cil_tmp117;
-#line 365
-      __cil_tmp119 = (unsigned long )msc;
-#line 365
-      __cil_tmp120 = __cil_tmp119 + __cil_tmp118;
-#line 365
-      __cil_tmp121 = *((short *)__cil_tmp120);
-#line 365
-      __cil_tmp122 = (int )__cil_tmp121;
-#line 365
-      input_report_abs(input, 0U, __cil_tmp122);
+      input_report_abs(input, 0U, __cil_tmp90);
 #line 367
-      __cil_tmp123 = (unsigned long )msc;
+      __cil_tmp91 = msc->touches[msc->single_touch_id].y;
 #line 367
-      __cil_tmp124 = __cil_tmp123 + 256;
+      __cil_tmp92 = (int )__cil_tmp91;
 #line 367
-      __cil_tmp125 = *((int *)__cil_tmp124);
-#line 367
-      __cil_tmp126 = __cil_tmp125 * 10UL;
-#line 367
-      __cil_tmp127 = __cil_tmp126 + 2;
-#line 367
-      __cil_tmp128 = 32 + __cil_tmp127;
-#line 367
-      __cil_tmp129 = (unsigned long )msc;
-#line 367
-      __cil_tmp130 = __cil_tmp129 + __cil_tmp128;
-#line 367
-      __cil_tmp131 = *((short *)__cil_tmp130);
-#line 367
-      __cil_tmp132 = (int )__cil_tmp131;
-#line 367
-      input_report_abs(input, 1U, __cil_tmp132);
+      input_report_abs(input, 1U, __cil_tmp92);
       }
     } else {
 
@@ -6447,209 +5902,125 @@ static int magicmouse_raw_event(struct hid_device *hdev , struct hid_report *rep
 }
 #line 376 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 static void magicmouse_setup_input(struct input_dev *input , struct hid_device *hdev ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long (*__cil_tmp5)[1U] ;
-  unsigned long volatile   *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  __u16 __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long (*__cil_tmp14)[12U] ;
-  unsigned long volatile   *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long (*__cil_tmp18)[12U] ;
-  unsigned long volatile   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long (*__cil_tmp22)[12U] ;
-  unsigned long volatile   *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long (*__cil_tmp26)[1U] ;
-  unsigned long volatile   *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long (*__cil_tmp30)[1U] ;
-  unsigned long volatile   *__cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long (*__cil_tmp34)[1U] ;
-  unsigned long volatile   *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long (*__cil_tmp38)[1U] ;
-  unsigned long volatile   *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long (*__cil_tmp42)[1U] ;
-  unsigned long volatile   *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long (*__cil_tmp46)[12U] ;
-  unsigned long volatile   *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long (*__cil_tmp50)[12U] ;
-  unsigned long volatile   *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long (*__cil_tmp54)[12U] ;
-  unsigned long volatile   *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long (*__cil_tmp58)[12U] ;
-  unsigned long volatile   *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long (*__cil_tmp62)[12U] ;
-  unsigned long volatile   *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long (*__cil_tmp66)[12U] ;
-  unsigned long volatile   *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long (*__cil_tmp70)[1U] ;
-  unsigned long volatile   *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  __u16 __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long (*__cil_tmp79)[1U] ;
-  unsigned long volatile   *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long (*__cil_tmp83)[1U] ;
-  unsigned long volatile   *__cil_tmp84 ;
+{ unsigned long (*__cil_tmp3)[1U] ;
+  unsigned long volatile   *__cil_tmp4 ;
+  __u16 __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  unsigned long (*__cil_tmp7)[12U] ;
+  unsigned long volatile   *__cil_tmp8 ;
+  unsigned long (*__cil_tmp9)[12U] ;
+  unsigned long volatile   *__cil_tmp10 ;
+  unsigned long (*__cil_tmp11)[12U] ;
+  unsigned long volatile   *__cil_tmp12 ;
+  unsigned long (*__cil_tmp13)[1U] ;
+  unsigned long volatile   *__cil_tmp14 ;
+  unsigned long (*__cil_tmp15)[1U] ;
+  unsigned long volatile   *__cil_tmp16 ;
+  unsigned long (*__cil_tmp17)[1U] ;
+  unsigned long volatile   *__cil_tmp18 ;
+  unsigned long (*__cil_tmp19)[1U] ;
+  unsigned long volatile   *__cil_tmp20 ;
+  unsigned long (*__cil_tmp21)[1U] ;
+  unsigned long volatile   *__cil_tmp22 ;
+  unsigned long (*__cil_tmp23)[12U] ;
+  unsigned long volatile   *__cil_tmp24 ;
+  unsigned long (*__cil_tmp25)[12U] ;
+  unsigned long volatile   *__cil_tmp26 ;
+  unsigned long (*__cil_tmp27)[12U] ;
+  unsigned long volatile   *__cil_tmp28 ;
+  unsigned long (*__cil_tmp29)[12U] ;
+  unsigned long volatile   *__cil_tmp30 ;
+  unsigned long (*__cil_tmp31)[12U] ;
+  unsigned long volatile   *__cil_tmp32 ;
+  unsigned long (*__cil_tmp33)[12U] ;
+  unsigned long volatile   *__cil_tmp34 ;
+  unsigned long (*__cil_tmp35)[1U] ;
+  unsigned long volatile   *__cil_tmp36 ;
+  __u16 __cil_tmp37 ;
+  unsigned int __cil_tmp38 ;
+  unsigned long (*__cil_tmp39)[1U] ;
+  unsigned long volatile   *__cil_tmp40 ;
+  unsigned long (*__cil_tmp41)[1U] ;
+  unsigned long volatile   *__cil_tmp42 ;
 
   {
   {
 #line 378
-  __cil_tmp3 = (unsigned long )input;
+  __cil_tmp3 = & input->evbit;
 #line 378
-  __cil_tmp4 = __cil_tmp3 + 40;
+  __cil_tmp4 = (unsigned long volatile   *)__cil_tmp3;
 #line 378
-  __cil_tmp5 = (unsigned long (*)[1U])__cil_tmp4;
-#line 378
-  __cil_tmp6 = (unsigned long volatile   *)__cil_tmp5;
-#line 378
-  __set_bit(1, __cil_tmp6);
+  __set_bit(1, __cil_tmp4);
   }
   {
 #line 380
-  __cil_tmp7 = 24 + 4;
+  __cil_tmp5 = input->id.product;
 #line 380
-  __cil_tmp8 = (unsigned long )input;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 380
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 380
-  __cil_tmp10 = *((__u16 *)__cil_tmp9);
-#line 380
-  __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 380
-  if (__cil_tmp11 == 781U) {
+  if (__cil_tmp6 == 781U) {
     {
 #line 381
-    __cil_tmp12 = (unsigned long )input;
+    __cil_tmp7 = & input->keybit;
 #line 381
-    __cil_tmp13 = __cil_tmp12 + 48;
+    __cil_tmp8 = (unsigned long volatile   *)__cil_tmp7;
 #line 381
-    __cil_tmp14 = (unsigned long (*)[12U])__cil_tmp13;
-#line 381
-    __cil_tmp15 = (unsigned long volatile   *)__cil_tmp14;
-#line 381
-    __set_bit(272, __cil_tmp15);
+    __set_bit(272, __cil_tmp8);
 #line 382
-    __cil_tmp16 = (unsigned long )input;
+    __cil_tmp9 = & input->keybit;
 #line 382
-    __cil_tmp17 = __cil_tmp16 + 48;
+    __cil_tmp10 = (unsigned long volatile   *)__cil_tmp9;
 #line 382
-    __cil_tmp18 = (unsigned long (*)[12U])__cil_tmp17;
-#line 382
-    __cil_tmp19 = (unsigned long volatile   *)__cil_tmp18;
-#line 382
-    __set_bit(273, __cil_tmp19);
+    __set_bit(273, __cil_tmp10);
     }
 #line 383
     if ((int )emulate_3button) {
       {
 #line 384
-      __cil_tmp20 = (unsigned long )input;
+      __cil_tmp11 = & input->keybit;
 #line 384
-      __cil_tmp21 = __cil_tmp20 + 48;
+      __cil_tmp12 = (unsigned long volatile   *)__cil_tmp11;
 #line 384
-      __cil_tmp22 = (unsigned long (*)[12U])__cil_tmp21;
-#line 384
-      __cil_tmp23 = (unsigned long volatile   *)__cil_tmp22;
-#line 384
-      __set_bit(274, __cil_tmp23);
+      __set_bit(274, __cil_tmp12);
       }
     } else {
 
     }
     {
 #line 386
-    __cil_tmp24 = (unsigned long )input;
+    __cil_tmp13 = & input->evbit;
 #line 386
-    __cil_tmp25 = __cil_tmp24 + 40;
+    __cil_tmp14 = (unsigned long volatile   *)__cil_tmp13;
 #line 386
-    __cil_tmp26 = (unsigned long (*)[1U])__cil_tmp25;
-#line 386
-    __cil_tmp27 = (unsigned long volatile   *)__cil_tmp26;
-#line 386
-    __set_bit(2, __cil_tmp27);
+    __set_bit(2, __cil_tmp14);
 #line 387
-    __cil_tmp28 = (unsigned long )input;
+    __cil_tmp15 = & input->relbit;
 #line 387
-    __cil_tmp29 = __cil_tmp28 + 144;
+    __cil_tmp16 = (unsigned long volatile   *)__cil_tmp15;
 #line 387
-    __cil_tmp30 = (unsigned long (*)[1U])__cil_tmp29;
-#line 387
-    __cil_tmp31 = (unsigned long volatile   *)__cil_tmp30;
-#line 387
-    __set_bit(0, __cil_tmp31);
+    __set_bit(0, __cil_tmp16);
 #line 388
-    __cil_tmp32 = (unsigned long )input;
+    __cil_tmp17 = & input->relbit;
 #line 388
-    __cil_tmp33 = __cil_tmp32 + 144;
+    __cil_tmp18 = (unsigned long volatile   *)__cil_tmp17;
 #line 388
-    __cil_tmp34 = (unsigned long (*)[1U])__cil_tmp33;
-#line 388
-    __cil_tmp35 = (unsigned long volatile   *)__cil_tmp34;
-#line 388
-    __set_bit(1, __cil_tmp35);
+    __set_bit(1, __cil_tmp18);
     }
 #line 389
     if ((int )emulate_scroll_wheel) {
       {
 #line 390
-      __cil_tmp36 = (unsigned long )input;
+      __cil_tmp19 = & input->relbit;
 #line 390
-      __cil_tmp37 = __cil_tmp36 + 144;
+      __cil_tmp20 = (unsigned long volatile   *)__cil_tmp19;
 #line 390
-      __cil_tmp38 = (unsigned long (*)[1U])__cil_tmp37;
-#line 390
-      __cil_tmp39 = (unsigned long volatile   *)__cil_tmp38;
-#line 390
-      __set_bit(8, __cil_tmp39);
+      __set_bit(8, __cil_tmp20);
 #line 391
-      __cil_tmp40 = (unsigned long )input;
+      __cil_tmp21 = & input->relbit;
 #line 391
-      __cil_tmp41 = __cil_tmp40 + 144;
+      __cil_tmp22 = (unsigned long volatile   *)__cil_tmp21;
 #line 391
-      __cil_tmp42 = (unsigned long (*)[1U])__cil_tmp41;
-#line 391
-      __cil_tmp43 = (unsigned long volatile   *)__cil_tmp42;
-#line 391
-      __set_bit(6, __cil_tmp43);
+      __set_bit(6, __cil_tmp22);
       }
     } else {
 
@@ -6657,65 +6028,41 @@ static void magicmouse_setup_input(struct input_dev *input , struct hid_device *
   } else {
     {
 #line 394
-    __cil_tmp44 = (unsigned long )input;
+    __cil_tmp23 = & input->keybit;
 #line 394
-    __cil_tmp45 = __cil_tmp44 + 48;
+    __cil_tmp24 = (unsigned long volatile   *)__cil_tmp23;
 #line 394
-    __cil_tmp46 = (unsigned long (*)[12U])__cil_tmp45;
-#line 394
-    __cil_tmp47 = (unsigned long volatile   *)__cil_tmp46;
-#line 394
-    __set_bit(272, __cil_tmp47);
+    __set_bit(272, __cil_tmp24);
 #line 395
-    __cil_tmp48 = (unsigned long )input;
+    __cil_tmp25 = & input->keybit;
 #line 395
-    __cil_tmp49 = __cil_tmp48 + 48;
+    __cil_tmp26 = (unsigned long volatile   *)__cil_tmp25;
 #line 395
-    __cil_tmp50 = (unsigned long (*)[12U])__cil_tmp49;
-#line 395
-    __cil_tmp51 = (unsigned long volatile   *)__cil_tmp50;
-#line 395
-    __set_bit(325, __cil_tmp51);
+    __set_bit(325, __cil_tmp26);
 #line 396
-    __cil_tmp52 = (unsigned long )input;
+    __cil_tmp27 = & input->keybit;
 #line 396
-    __cil_tmp53 = __cil_tmp52 + 48;
+    __cil_tmp28 = (unsigned long volatile   *)__cil_tmp27;
 #line 396
-    __cil_tmp54 = (unsigned long (*)[12U])__cil_tmp53;
-#line 396
-    __cil_tmp55 = (unsigned long volatile   *)__cil_tmp54;
-#line 396
-    __set_bit(333, __cil_tmp55);
+    __set_bit(333, __cil_tmp28);
 #line 397
-    __cil_tmp56 = (unsigned long )input;
+    __cil_tmp29 = & input->keybit;
 #line 397
-    __cil_tmp57 = __cil_tmp56 + 48;
+    __cil_tmp30 = (unsigned long volatile   *)__cil_tmp29;
 #line 397
-    __cil_tmp58 = (unsigned long (*)[12U])__cil_tmp57;
-#line 397
-    __cil_tmp59 = (unsigned long volatile   *)__cil_tmp58;
-#line 397
-    __set_bit(334, __cil_tmp59);
+    __set_bit(334, __cil_tmp30);
 #line 398
-    __cil_tmp60 = (unsigned long )input;
+    __cil_tmp31 = & input->keybit;
 #line 398
-    __cil_tmp61 = __cil_tmp60 + 48;
+    __cil_tmp32 = (unsigned long volatile   *)__cil_tmp31;
 #line 398
-    __cil_tmp62 = (unsigned long (*)[12U])__cil_tmp61;
-#line 398
-    __cil_tmp63 = (unsigned long volatile   *)__cil_tmp62;
-#line 398
-    __set_bit(335, __cil_tmp63);
+    __set_bit(335, __cil_tmp32);
 #line 399
-    __cil_tmp64 = (unsigned long )input;
+    __cil_tmp33 = & input->keybit;
 #line 399
-    __cil_tmp65 = __cil_tmp64 + 48;
+    __cil_tmp34 = (unsigned long volatile   *)__cil_tmp33;
 #line 399
-    __cil_tmp66 = (unsigned long (*)[12U])__cil_tmp65;
-#line 399
-    __cil_tmp67 = (unsigned long volatile   *)__cil_tmp66;
-#line 399
-    __set_bit(330, __cil_tmp67);
+    __set_bit(330, __cil_tmp34);
     }
   }
   }
@@ -6723,15 +6070,11 @@ static void magicmouse_setup_input(struct input_dev *input , struct hid_device *
   if ((int )report_touches) {
     {
 #line 403
-    __cil_tmp68 = (unsigned long )input;
+    __cil_tmp35 = & input->evbit;
 #line 403
-    __cil_tmp69 = __cil_tmp68 + 40;
+    __cil_tmp36 = (unsigned long volatile   *)__cil_tmp35;
 #line 403
-    __cil_tmp70 = (unsigned long (*)[1U])__cil_tmp69;
-#line 403
-    __cil_tmp71 = (unsigned long volatile   *)__cil_tmp70;
-#line 403
-    __set_bit(3, __cil_tmp71);
+    __set_bit(3, __cil_tmp36);
 #line 405
     input_set_abs_params(input, 57U, 0, 15, 0, 0);
 #line 406
@@ -6743,17 +6086,11 @@ static void magicmouse_setup_input(struct input_dev *input , struct hid_device *
     }
     {
 #line 416
-    __cil_tmp72 = 24 + 4;
+    __cil_tmp37 = input->id.product;
 #line 416
-    __cil_tmp73 = (unsigned long )input;
+    __cil_tmp38 = (unsigned int )__cil_tmp37;
 #line 416
-    __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
-#line 416
-    __cil_tmp75 = *((__u16 *)__cil_tmp74);
-#line 416
-    __cil_tmp76 = (unsigned int )__cil_tmp75;
-#line 416
-    if (__cil_tmp76 == 781U) {
+    if (__cil_tmp38 == 781U) {
       {
 #line 417
       input_set_abs_params(input, 53U, -1100, 1358, 4, 0);
@@ -6784,25 +6121,17 @@ static void magicmouse_setup_input(struct input_dev *input , struct hid_device *
   if ((int )report_undeciphered) {
     {
 #line 434
-    __cil_tmp77 = (unsigned long )input;
+    __cil_tmp39 = & input->evbit;
 #line 434
-    __cil_tmp78 = __cil_tmp77 + 40;
+    __cil_tmp40 = (unsigned long volatile   *)__cil_tmp39;
 #line 434
-    __cil_tmp79 = (unsigned long (*)[1U])__cil_tmp78;
-#line 434
-    __cil_tmp80 = (unsigned long volatile   *)__cil_tmp79;
-#line 434
-    __set_bit(4, __cil_tmp80);
+    __set_bit(4, __cil_tmp40);
 #line 435
-    __cil_tmp81 = (unsigned long )input;
+    __cil_tmp41 = & input->mscbit;
 #line 435
-    __cil_tmp82 = __cil_tmp81 + 160;
+    __cil_tmp42 = (unsigned long volatile   *)__cil_tmp41;
 #line 435
-    __cil_tmp83 = (unsigned long (*)[1U])__cil_tmp82;
-#line 435
-    __cil_tmp84 = (unsigned long volatile   *)__cil_tmp83;
-#line 435
-    __set_bit(3, __cil_tmp84);
+    __set_bit(3, __cil_tmp42);
     }
   } else {
 
@@ -6821,20 +6150,11 @@ static int magicmouse_input_mapping(struct hid_device *hdev , struct hid_input *
   unsigned long __cil_tmp10 ;
   struct input_dev *__cil_tmp11 ;
   unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct input_dev *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  __u16 __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  unsigned int __cil_tmp26 ;
+  struct input_dev *__cil_tmp13 ;
+  __u16 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
+  unsigned int __cil_tmp17 ;
 
   {
   {
@@ -6849,51 +6169,33 @@ static int magicmouse_input_mapping(struct hid_device *hdev , struct hid_input *
 #line 445
   __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 445
-  __cil_tmp11 = *((struct input_dev **)msc);
+  __cil_tmp11 = msc->input;
 #line 445
   __cil_tmp12 = (unsigned long )__cil_tmp11;
 #line 445
   if (__cil_tmp12 == __cil_tmp10) {
 #line 446
-    __cil_tmp13 = (unsigned long )hi;
-#line 446
-    __cil_tmp14 = __cil_tmp13 + 24;
-#line 446
-    *((struct input_dev **)msc) = *((struct input_dev **)__cil_tmp14);
+    msc->input = hi->input;
   } else {
 
   }
   }
   {
 #line 449
-  __cil_tmp15 = 24 + 4;
+  __cil_tmp13 = hi->input;
 #line 449
-  __cil_tmp16 = (unsigned long )hi;
+  __cil_tmp14 = __cil_tmp13->id.product;
 #line 449
-  __cil_tmp17 = __cil_tmp16 + 24;
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
 #line 449
-  __cil_tmp18 = *((struct input_dev **)__cil_tmp17);
-#line 449
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 449
-  __cil_tmp20 = __cil_tmp19 + __cil_tmp15;
-#line 449
-  __cil_tmp21 = *((__u16 *)__cil_tmp20);
-#line 449
-  __cil_tmp22 = (unsigned int )__cil_tmp21;
-#line 449
-  if (__cil_tmp22 == 782U) {
+  if (__cil_tmp15 == 782U) {
     {
 #line 449
-    __cil_tmp23 = (unsigned long )field;
+    __cil_tmp16 = field->flags;
 #line 449
-    __cil_tmp24 = __cil_tmp23 + 28;
+    __cil_tmp17 = __cil_tmp16 & 4U;
 #line 449
-    __cil_tmp25 = *((unsigned int *)__cil_tmp24);
-#line 449
-    __cil_tmp26 = __cil_tmp25 & 4U;
-#line 449
-    if (__cil_tmp26 != 0U) {
+    if (__cil_tmp17 != 0U) {
 #line 451
       return (-1);
     } else {
@@ -6915,77 +6217,41 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   struct hid_report *report ;
   int ret ;
   void *tmp ;
-  unsigned long __cil_tmp8 ;
+  struct magicmouse_sc *__cil_tmp8 ;
   unsigned long __cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct magicmouse_sc *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  struct device *__cil_tmp11 ;
+  struct device  const  *__cil_tmp12 ;
+  kernel_ulong_t __cil_tmp13 ;
+  void *__cil_tmp14 ;
+  struct device *__cil_tmp15 ;
+  struct device  const  *__cil_tmp16 ;
   struct device *__cil_tmp17 ;
   struct device  const  *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  struct input_dev *__cil_tmp19 ;
   unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  struct input_dev *__cil_tmp21 ;
   unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  kernel_ulong_t __cil_tmp25 ;
-  void *__cil_tmp26 ;
+  struct input_dev *__cil_tmp23 ;
+  __u32 __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  struct hid_report *__cil_tmp26 ;
   unsigned long __cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  struct device *__cil_tmp31 ;
-  struct device  const  *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct device *__cil_tmp35 ;
-  struct device  const  *__cil_tmp36 ;
-  struct input_dev *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct input_dev *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct input_dev *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  __u32 __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  struct hid_report *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct device *__cil_tmp51 ;
-  struct device  const  *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  int (*__cil_tmp57)(struct hid_device * , __u8 * , size_t  , unsigned char  ) ;
-  __u8 *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct device *__cil_tmp61 ;
-  struct device  const  *__cil_tmp62 ;
-  void const   *__cil_tmp63 ;
+  struct device *__cil_tmp29 ;
+  struct device  const  *__cil_tmp30 ;
+  int (*__cil_tmp31)(struct hid_device * , __u8 * , size_t  , unsigned char  ) ;
+  __u8 *__cil_tmp32 ;
+  struct device *__cil_tmp33 ;
+  struct device  const  *__cil_tmp34 ;
+  void const   *__cil_tmp35 ;
 
   {
   {
 #line 459
-  __cil_tmp8 = 0 * 1UL;
+  feature[0] = (__u8 )215U;
 #line 459
-  __cil_tmp9 = (unsigned long )(feature) + __cil_tmp8;
-#line 459
-  *((__u8 *)__cil_tmp9) = (unsigned char)215;
-#line 459
-  __cil_tmp10 = 1 * 1UL;
-#line 459
-  __cil_tmp11 = (unsigned long )(feature) + __cil_tmp10;
-#line 459
-  *((__u8 *)__cil_tmp11) = (unsigned char)1;
+  feature[1] = (__u8 )1U;
 #line 464
   tmp = kzalloc(264UL, 208U);
 #line 464
@@ -6993,24 +6259,20 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   }
   {
 #line 465
-  __cil_tmp12 = (struct magicmouse_sc *)0;
+  __cil_tmp8 = (struct magicmouse_sc *)0;
 #line 465
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
+  __cil_tmp9 = (unsigned long )__cil_tmp8;
 #line 465
-  __cil_tmp14 = (unsigned long )msc;
+  __cil_tmp10 = (unsigned long )msc;
 #line 465
-  if (__cil_tmp14 == __cil_tmp13) {
+  if (__cil_tmp10 == __cil_tmp9) {
     {
 #line 466
-    __cil_tmp15 = (unsigned long )hdev;
+    __cil_tmp11 = & hdev->dev;
 #line 466
-    __cil_tmp16 = __cil_tmp15 + 6304;
+    __cil_tmp12 = (struct device  const  *)__cil_tmp11;
 #line 466
-    __cil_tmp17 = (struct device *)__cil_tmp16;
-#line 466
-    __cil_tmp18 = (struct device  const  *)__cil_tmp17;
-#line 466
-    dev_err(__cil_tmp18, "can\'t alloc magicmouse descriptor\n");
+    dev_err(__cil_tmp12, "can\'t alloc magicmouse descriptor\n");
     }
 #line 467
     return (-12);
@@ -7020,33 +6282,17 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   }
   {
 #line 470
-  __cil_tmp19 = (unsigned long )msc;
-#line 470
-  __cil_tmp20 = __cil_tmp19 + 20;
-#line 470
-  *((int *)__cil_tmp20) = 7;
+  msc->scroll_accel = 7;
 #line 472
-  __cil_tmp21 = (unsigned long )msc;
+  __cil_tmp13 = id->driver_data;
 #line 472
-  __cil_tmp22 = __cil_tmp21 + 8;
-#line 472
-  __cil_tmp23 = (unsigned long )id;
-#line 472
-  __cil_tmp24 = __cil_tmp23 + 16;
-#line 472
-  __cil_tmp25 = *((kernel_ulong_t const   *)__cil_tmp24);
-#line 472
-  *((unsigned long *)__cil_tmp22) = (unsigned long )__cil_tmp25;
+  msc->quirks = (unsigned long )__cil_tmp13;
 #line 473
-  __cil_tmp26 = (void *)msc;
+  __cil_tmp14 = (void *)msc;
 #line 473
-  hid_set_drvdata(hdev, __cil_tmp26);
+  hid_set_drvdata(hdev, __cil_tmp14);
 #line 475
-  __cil_tmp27 = (unsigned long )msc;
-#line 475
-  __cil_tmp28 = __cil_tmp27 + 256;
-#line 475
-  *((int *)__cil_tmp28) = -1;
+  msc->single_touch_id = -1;
 #line 477
   ret = hid_parse(hdev);
   }
@@ -7054,16 +6300,13 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   if (ret != 0) {
     {
 #line 479
-    __cil_tmp29 = (unsigned long )hdev;
+    __cil_tmp15 = & hdev->dev;
 #line 479
-    __cil_tmp30 = __cil_tmp29 + 6304;
+    __cil_tmp16 = (struct device  const  *)__cil_tmp15;
 #line 479
-    __cil_tmp31 = (struct device *)__cil_tmp30;
-#line 479
-    __cil_tmp32 = (struct device  const  *)__cil_tmp31;
-#line 479
-    dev_err(__cil_tmp32, "magicmouse hid parse failed\n");
+    dev_err(__cil_tmp16, "magicmouse hid parse failed\n");
     }
+#line 480
     goto err_free;
   } else {
 
@@ -7076,36 +6319,33 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   if (ret != 0) {
     {
 #line 485
-    __cil_tmp33 = (unsigned long )hdev;
+    __cil_tmp17 = & hdev->dev;
 #line 485
-    __cil_tmp34 = __cil_tmp33 + 6304;
+    __cil_tmp18 = (struct device  const  *)__cil_tmp17;
 #line 485
-    __cil_tmp35 = (struct device *)__cil_tmp34;
-#line 485
-    __cil_tmp36 = (struct device  const  *)__cil_tmp35;
-#line 485
-    dev_err(__cil_tmp36, "magicmouse hw start failed\n");
+    dev_err(__cil_tmp18, "magicmouse hw start failed\n");
     }
+#line 486
     goto err_free;
   } else {
 
   }
   {
 #line 492
-  __cil_tmp37 = (struct input_dev *)0;
+  __cil_tmp19 = (struct input_dev *)0;
 #line 492
-  __cil_tmp38 = (unsigned long )__cil_tmp37;
+  __cil_tmp20 = (unsigned long )__cil_tmp19;
 #line 492
-  __cil_tmp39 = *((struct input_dev **)msc);
+  __cil_tmp21 = msc->input;
 #line 492
-  __cil_tmp40 = (unsigned long )__cil_tmp39;
+  __cil_tmp22 = (unsigned long )__cil_tmp21;
 #line 492
-  if (__cil_tmp40 != __cil_tmp38) {
+  if (__cil_tmp22 != __cil_tmp20) {
     {
 #line 493
-    __cil_tmp41 = *((struct input_dev **)msc);
+    __cil_tmp23 = msc->input;
 #line 493
-    magicmouse_setup_input(__cil_tmp41, hdev);
+    magicmouse_setup_input(__cil_tmp23, hdev);
     }
   } else {
 
@@ -7113,15 +6353,11 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   }
   {
 #line 495
-  __cil_tmp42 = (unsigned long )id;
+  __cil_tmp24 = id->product;
 #line 495
-  __cil_tmp43 = __cil_tmp42 + 8;
+  __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 495
-  __cil_tmp44 = *((__u32 const   *)__cil_tmp43);
-#line 495
-  __cil_tmp45 = (unsigned int )__cil_tmp44;
-#line 495
-  if (__cil_tmp45 == 781U) {
+  if (__cil_tmp25 == 781U) {
     {
 #line 496
     report = hid_register_report(hdev, 0U, 41U);
@@ -7137,27 +6373,24 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   }
   {
 #line 505
-  __cil_tmp46 = (struct hid_report *)0;
+  __cil_tmp26 = (struct hid_report *)0;
 #line 505
-  __cil_tmp47 = (unsigned long )__cil_tmp46;
+  __cil_tmp27 = (unsigned long )__cil_tmp26;
 #line 505
-  __cil_tmp48 = (unsigned long )report;
+  __cil_tmp28 = (unsigned long )report;
 #line 505
-  if (__cil_tmp48 == __cil_tmp47) {
+  if (__cil_tmp28 == __cil_tmp27) {
     {
 #line 506
-    __cil_tmp49 = (unsigned long )hdev;
+    __cil_tmp29 = & hdev->dev;
 #line 506
-    __cil_tmp50 = __cil_tmp49 + 6304;
+    __cil_tmp30 = (struct device  const  *)__cil_tmp29;
 #line 506
-    __cil_tmp51 = (struct device *)__cil_tmp50;
-#line 506
-    __cil_tmp52 = (struct device  const  *)__cil_tmp51;
-#line 506
-    dev_err(__cil_tmp52, "unable to register touch report\n");
+    dev_err(__cil_tmp30, "unable to register touch report\n");
 #line 507
     ret = -12;
     }
+#line 508
     goto err_stop_hw;
   } else {
 
@@ -7165,36 +6398,25 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   }
   {
 #line 510
-  __cil_tmp53 = (unsigned long )report;
-#line 510
-  __cil_tmp54 = __cil_tmp53 + 1052;
-#line 510
-  *((unsigned int *)__cil_tmp54) = 6U;
+  report->size = 6U;
 #line 512
-  __cil_tmp55 = (unsigned long )hdev;
+  __cil_tmp31 = hdev->hid_output_raw_report;
 #line 512
-  __cil_tmp56 = __cil_tmp55 + 7856;
+  __cil_tmp32 = (__u8 *)(& feature);
 #line 512
-  __cil_tmp57 = *((int (**)(struct hid_device * , __u8 * , size_t  , unsigned char  ))__cil_tmp56);
-#line 512
-  __cil_tmp58 = (__u8 *)(& feature);
-#line 512
-  ret = (*__cil_tmp57)(hdev, __cil_tmp58, 2UL, (unsigned char)2);
+  ret = (*__cil_tmp31)(hdev, __cil_tmp32, 2UL, (unsigned char)2);
   }
 #line 514
   if (ret != 2) {
     {
 #line 515
-    __cil_tmp59 = (unsigned long )hdev;
+    __cil_tmp33 = & hdev->dev;
 #line 515
-    __cil_tmp60 = __cil_tmp59 + 6304;
+    __cil_tmp34 = (struct device  const  *)__cil_tmp33;
 #line 515
-    __cil_tmp61 = (struct device *)__cil_tmp60;
-#line 515
-    __cil_tmp62 = (struct device  const  *)__cil_tmp61;
-#line 515
-    dev_err(__cil_tmp62, "unable to request touch data (%d)\n", ret);
+    dev_err(__cil_tmp34, "unable to request touch data (%d)\n", ret);
     }
+#line 516
     goto err_stop_hw;
   } else {
 
@@ -7209,9 +6431,9 @@ static int magicmouse_probe(struct hid_device *hdev , struct hid_device_id  cons
   err_free: 
   {
 #line 523
-  __cil_tmp63 = (void const   *)msc;
+  __cil_tmp35 = (void const   *)msc;
 #line 523
-  kfree(__cil_tmp63);
+  kfree(__cil_tmp35);
   }
 #line 524
   return (ret);
@@ -7241,8 +6463,8 @@ static void magicmouse_remove(struct hid_device *hdev )
 }
 }
 #line 535 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-static struct hid_device_id  const  magic_mice[3U]  = {      {(unsigned short)5, (unsigned short)0, 1452U, 781U, 0UL}, 
-        {(unsigned short)5, (unsigned short)0, 1452U, 782U, 0UL}, 
+static struct hid_device_id  const  magic_mice[3U]  = {      {(__u16 )5U, (unsigned short)0, 1452U, 781U, 0UL}, 
+        {(__u16 )5U, (unsigned short)0, 1452U, 782U, 0UL}, 
         {(unsigned short)0, (unsigned short)0, 0U, 0U, 0UL}};
 #line 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 struct hid_device_id  const  __mod_hid_device_table  ;
@@ -7348,10 +6570,12 @@ void main(void)
   }
 #line 723
   if (tmp != 0) {
+#line 724
     goto ldv_final;
   } else {
 
   }
+#line 729
   goto ldv_24712;
   ldv_24711: 
   {
@@ -7360,72 +6584,80 @@ void main(void)
   }
 #line 735
   if (tmp___0 == 0) {
+#line 735
     goto case_0;
-  } else {
+  } else
 #line 766
-    if (tmp___0 == 1) {
-      goto case_1;
-    } else {
+  if (tmp___0 == 1) {
+#line 766
+    goto case_1;
+  } else
 #line 794
-      if (tmp___0 == 2) {
-        goto case_2;
-      } else {
+  if (tmp___0 == 2) {
+#line 794
+    goto case_2;
+  } else
 #line 822
-        if (tmp___0 == 3) {
-          goto case_3;
-        } else {
-          goto switch_default;
+  if (tmp___0 == 3) {
+#line 822
+    goto case_3;
+  } else {
+#line 850
+    goto switch_default;
 #line 733
-          if (0) {
-            case_0: ;
+    if (0) {
+      case_0: ;
 #line 738
-            if (ldv_s_magicmouse_driver_hid_driver == 0) {
-              {
+      if (ldv_s_magicmouse_driver_hid_driver == 0) {
+        {
 #line 755
-              res_magicmouse_probe_7 = magicmouse_probe(var_group1, var_magicmouse_probe_7_p1);
+        res_magicmouse_probe_7 = magicmouse_probe(var_group1, var_magicmouse_probe_7_p1);
 #line 756
-              ldv_check_return_value(res_magicmouse_probe_7);
-              }
-#line 757
-              if (res_magicmouse_probe_7 != 0) {
-                goto ldv_module_exit;
-              } else {
-
-              }
-#line 759
-              ldv_s_magicmouse_driver_hid_driver = 0;
-            } else {
-
-            }
-            goto ldv_24706;
-            case_1: 
-            {
-#line 786
-            magicmouse_remove(var_group1);
-            }
-            goto ldv_24706;
-            case_2: 
-            {
-#line 814
-            magicmouse_raw_event(var_group1, var_group2, var_magicmouse_raw_event_4_p2,
-                                 var_magicmouse_raw_event_4_p3);
-            }
-            goto ldv_24706;
-            case_3: 
-            {
-#line 842
-            magicmouse_input_mapping(var_group1, var_group3, var_magicmouse_input_mapping_6_p2,
-                                     var_magicmouse_input_mapping_6_p3, var_magicmouse_input_mapping_6_p4,
-                                     var_magicmouse_input_mapping_6_p5);
-            }
-            goto ldv_24706;
-            switch_default: ;
-            goto ldv_24706;
-          } else {
-
-          }
+        ldv_check_return_value(res_magicmouse_probe_7);
         }
+#line 757
+        if (res_magicmouse_probe_7 != 0) {
+#line 758
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 759
+        ldv_s_magicmouse_driver_hid_driver = 0;
+      } else {
+
       }
+#line 765
+      goto ldv_24706;
+      case_1: 
+      {
+#line 786
+      magicmouse_remove(var_group1);
+      }
+#line 793
+      goto ldv_24706;
+      case_2: 
+      {
+#line 814
+      magicmouse_raw_event(var_group1, var_group2, var_magicmouse_raw_event_4_p2,
+                           var_magicmouse_raw_event_4_p3);
+      }
+#line 821
+      goto ldv_24706;
+      case_3: 
+      {
+#line 842
+      magicmouse_input_mapping(var_group1, var_group3, var_magicmouse_input_mapping_6_p2,
+                               var_magicmouse_input_mapping_6_p3, var_magicmouse_input_mapping_6_p4,
+                               var_magicmouse_input_mapping_6_p5);
+      }
+#line 849
+      goto ldv_24706;
+      switch_default: ;
+#line 850
+      goto ldv_24706;
+    } else {
+
     }
   }
   ldv_24706: ;
@@ -7436,14 +6668,16 @@ void main(void)
   }
 #line 729
   if (tmp___1 != 0) {
+#line 731
+    goto ldv_24711;
+  } else
+#line 729
+  if (ldv_s_magicmouse_driver_hid_driver != 0) {
+#line 731
     goto ldv_24711;
   } else {
-#line 729
-    if (ldv_s_magicmouse_driver_hid_driver != 0) {
-      goto ldv_24711;
-    } else {
-      goto ldv_24713;
-    }
+#line 733
+    goto ldv_24713;
   }
   ldv_24713: ;
   ldv_module_exit: 
@@ -7466,6 +6700,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -7585,6 +6820,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 951
   goto LDV_STOP;
 }
 }

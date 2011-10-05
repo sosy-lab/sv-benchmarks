@@ -5787,7 +5787,7 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
   {
   {
 #line 82
-  __cil_tmp2 = *((char const   * const  *)kobj);
+  __cil_tmp2 = kobj->name;
 #line 82
   return ((char const   *)__cil_tmp2);
   }
@@ -5806,46 +5806,26 @@ extern struct module __this_module ;
 #line 608 "include/linux/device.h"
 __inline static char const   *dev_name(struct device  const  *dev ) 
 { char const   *tmp ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  char const   *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct kobject  const  *__cil_tmp10 ;
+  char const   *__cil_tmp3 ;
+  struct kobject  const  *__cil_tmp4 ;
 
   {
-  {
 #line 611
-  __cil_tmp3 = (unsigned long )dev;
-#line 611
-  __cil_tmp4 = __cil_tmp3 + 80;
-#line 611
-  if (*((char const   * const  *)__cil_tmp4)) {
+  if (dev->init_name) {
     {
 #line 612
-    __cil_tmp5 = (unsigned long )dev;
+    __cil_tmp3 = dev->init_name;
 #line 612
-    __cil_tmp6 = __cil_tmp5 + 80;
-#line 612
-    __cil_tmp7 = *((char const   * const  *)__cil_tmp6);
-#line 612
-    return ((char const   *)__cil_tmp7);
+    return ((char const   *)__cil_tmp3);
     }
   } else {
 
   }
-  }
   {
 #line 614
-  __cil_tmp8 = (unsigned long )dev;
+  __cil_tmp4 = & dev->kobj;
 #line 614
-  __cil_tmp9 = __cil_tmp8 + 16;
-#line 614
-  __cil_tmp10 = (struct kobject  const  *)__cil_tmp9;
-#line 614
-  tmp = kobject_name(__cil_tmp10);
+  tmp = kobject_name(__cil_tmp4);
   }
 #line 614
   return (tmp);
@@ -5921,29 +5901,17 @@ extern int pci_bus_read_config_word(struct pci_bus *bus , unsigned int devfn , i
 #line 741 "include/linux/pci.h"
 __inline static int pci_read_config_word(struct pci_dev *dev , int where , u16 *val ) 
 { int tmp___7 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct pci_bus *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
+  struct pci_bus *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 743
-  __cil_tmp5 = (unsigned long )dev;
+  __cil_tmp5 = dev->bus;
 #line 743
-  __cil_tmp6 = __cil_tmp5 + 16;
+  __cil_tmp6 = dev->devfn;
 #line 743
-  __cil_tmp7 = *((struct pci_bus **)__cil_tmp6);
-#line 743
-  __cil_tmp8 = (unsigned long )dev;
-#line 743
-  __cil_tmp9 = __cil_tmp8 + 56;
-#line 743
-  __cil_tmp10 = *((unsigned int *)__cil_tmp9);
-#line 743
-  tmp___7 = pci_bus_read_config_word(__cil_tmp7, __cil_tmp10, where, val);
+  tmp___7 = pci_bus_read_config_word(__cil_tmp5, __cil_tmp6, where, val);
   }
 #line 743
   return (tmp___7);
@@ -5962,7 +5930,7 @@ extern void pci_restore_state(struct pci_dev *dev ) ;
 #line 820
 extern int pci_set_power_state(struct pci_dev *dev , pci_power_t state ) ;
 #line 821
-extern pci_power_t pci_choose_state(struct pci_dev *dev , int stateevent ) ;
+extern pci_power_t pci_choose_state(struct pci_dev *dev , pm_message_t state ) ;
 #line 884
 extern int __attribute__((__warn_unused_result__))  pci_request_regions(struct pci_dev * ,
                                                                         char const   * ) ;
@@ -5977,24 +5945,13 @@ extern void pci_unregister_driver(struct pci_driver *dev ) ;
 #line 25 "include/asm-generic/pci.h"
 __inline static void pcibios_bus_to_resource(struct pci_dev *dev , struct resource *res ,
                                              struct pci_bus_region *region ) 
-{ unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+{ 
 
   {
 #line 29
-  *((resource_size_t *)res) = *((resource_size_t *)region);
+  res->start = region->start;
 #line 30
-  __cil_tmp4 = (unsigned long )res;
-#line 30
-  __cil_tmp5 = __cil_tmp4 + 8;
-#line 30
-  __cil_tmp6 = (unsigned long )region;
-#line 30
-  __cil_tmp7 = __cil_tmp6 + 8;
-#line 30
-  *((resource_size_t *)__cil_tmp5) = *((resource_size_t *)__cil_tmp7);
+  res->end = region->end;
 #line 31
   return;
 }
@@ -6002,23 +5959,17 @@ __inline static void pcibios_bus_to_resource(struct pci_dev *dev , struct resour
 #line 1316 "include/linux/pci.h"
 __inline static void *pci_get_drvdata(struct pci_dev *pdev ) 
 { void *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
-  struct device  const  *__cil_tmp6 ;
+  struct device *__cil_tmp3 ;
+  struct device  const  *__cil_tmp4 ;
 
   {
   {
 #line 1318
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1318
-  __cil_tmp4 = __cil_tmp3 + 144;
+  __cil_tmp4 = (struct device  const  *)__cil_tmp3;
 #line 1318
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1318
-  __cil_tmp6 = (struct device  const  *)__cil_tmp5;
-#line 1318
-  tmp___7 = dev_get_drvdata(__cil_tmp6);
+  tmp___7 = dev_get_drvdata(__cil_tmp4);
   }
 #line 1318
   return (tmp___7);
@@ -6026,20 +5977,14 @@ __inline static void *pci_get_drvdata(struct pci_dev *pdev )
 }
 #line 1321 "include/linux/pci.h"
 __inline static void pci_set_drvdata(struct pci_dev *pdev , void *data ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device *__cil_tmp5 ;
+{ struct device *__cil_tmp3 ;
 
   {
   {
 #line 1323
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1323
-  __cil_tmp4 = __cil_tmp3 + 144;
-#line 1323
-  __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 1323
-  dev_set_drvdata(__cil_tmp5, data);
+  dev_set_drvdata(__cil_tmp3, data);
   }
 #line 1324
   return;
@@ -6048,20 +5993,14 @@ __inline static void pci_set_drvdata(struct pci_dev *pdev , void *data )
 #line 1329 "include/linux/pci.h"
 __inline static char const   *pci_name(struct pci_dev  const  *pdev ) 
 { char const   *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device  const  *__cil_tmp5 ;
+  struct device  const  *__cil_tmp3 ;
 
   {
   {
 #line 1331
-  __cil_tmp3 = (unsigned long )pdev;
+  __cil_tmp3 = & pdev->dev;
 #line 1331
-  __cil_tmp4 = __cil_tmp3 + 144;
-#line 1331
-  __cil_tmp5 = (struct device  const  *)__cil_tmp4;
-#line 1331
-  tmp___7 = dev_name(__cil_tmp5);
+  tmp___7 = dev_name(__cil_tmp3);
   }
 #line 1331
   return (tmp___7);
@@ -6435,9 +6374,7 @@ __inline static void svga_wcrt_mask(void *regbase , u8 index , u8 data , u8 mask
 #line 91 "include/linux/svga.h"
 __inline static int svga_primary_device(struct pci_dev *dev ) 
 { u16 flags ;
-  u16 *__cil_tmp3 ;
-  u16 __cil_tmp4 ;
-  int __cil_tmp5 ;
+  int __cil_tmp3 ;
 
   {
   {
@@ -6446,13 +6383,9 @@ __inline static int svga_primary_device(struct pci_dev *dev )
   }
   {
 #line 95
-  __cil_tmp3 = & flags;
+  __cil_tmp3 = (int )flags;
 #line 95
-  __cil_tmp4 = *__cil_tmp3;
-#line 95
-  __cil_tmp5 = (int )__cil_tmp4;
-#line 95
-  return (__cil_tmp5 & 1);
+  return (__cil_tmp3 & 1);
   }
 }
 }
@@ -6505,91 +6438,100 @@ extern int mtrr_del(int reg , unsigned long base , unsigned long size ) ;
 #line 49 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct svga_fb_format  const  arkfb_formats[9]  = 
 #line 49 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-  {      {0U, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 0U, 0U}, 0U, 3U, 9U, 3U,
-      8U, 8U}, 
-        {4U, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 0U, 0U}, 0U, 0U, 0U, 3U,
-      8U, 16U}, 
-        {4U, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 0U, 0U}, 1U, 2U, 1U, 3U,
-      8U, 16U}, 
-        {8U, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 6U, 0U}, {0U, 0U, 0U}, 0U, 0U, 0U, 3U,
-      8U, 8U}, 
-        {16U, {10U, 5U, 0U}, {5U, 5U, 0U}, {0U, 5U, 0U}, {0U, 0U, 0U}, 0U, 0U, 0U, 2U,
-      4U, 4U}, 
-        {16U, {11U, 5U, 0U}, {5U, 6U, 0U}, {0U, 5U, 0U}, {0U, 0U, 0U}, 0U, 0U, 0U, 2U,
-      4U, 4U}, 
-        {24U, {16U, 8U, 0U}, {8U, 8U, 0U}, {0U, 8U, 0U}, {0U, 0U, 0U}, 0U, 0U, 0U, 2U,
-      8U, 8U}, 
-        {32U, {16U, 8U, 0U}, {8U, 8U, 0U}, {0U, 8U, 0U}, {0U, 0U, 0U}, 0U, 0U, 0U, 2U,
-      2U, 2U}, 
-        {65535U, {0U, 0U, 0U}, {0U, 0U, 0U}, {0U, 0U, 0U}, {0U, 0U, 0U}, 0U, 0U, 0U,
-      0U, 0U, 0U}};
+  {      {(u32 )0, {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )6, (__u32 )0},
+      {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )3, (u32 )9, (u32 )3, (u32 )8, (u32 )8}, 
+        {(u32 )4, {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )6, (__u32 )0},
+      {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )0, (u32 )0, (u32 )3, (u32 )8, (u32 )16}, 
+        {(u32 )4, {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )6, (__u32 )0},
+      {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )1,
+      (u32 )2, (u32 )1, (u32 )3, (u32 )8, (u32 )16}, 
+        {(u32 )8, {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )6, (__u32 )0},
+      {(__u32 )0, (__u32 )6, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )0, (u32 )0, (u32 )3, (u32 )8, (u32 )8}, 
+        {(u32 )16, {(__u32 )10, (__u32 )5, (__u32 )0}, {(__u32 )5, (__u32 )5, (__u32 )0},
+      {(__u32 )0, (__u32 )5, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )0, (u32 )0, (u32 )2, (u32 )4, (u32 )4}, 
+        {(u32 )16, {(__u32 )11, (__u32 )5, (__u32 )0}, {(__u32 )5, (__u32 )6, (__u32 )0},
+      {(__u32 )0, (__u32 )5, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )0, (u32 )0, (u32 )2, (u32 )4, (u32 )4}, 
+        {(u32 )24, {(__u32 )16, (__u32 )8, (__u32 )0}, {(__u32 )8, (__u32 )8, (__u32 )0},
+      {(__u32 )0, (__u32 )8, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )0, (u32 )0, (u32 )2, (u32 )8, (u32 )8}, 
+        {(u32 )32, {(__u32 )16, (__u32 )8, (__u32 )0}, {(__u32 )8, (__u32 )8, (__u32 )0},
+      {(__u32 )0, (__u32 )8, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )0, (u32 )0, (u32 )2, (u32 )2, (u32 )2}, 
+        {(u32 )65535, {(__u32 )0, (__u32 )0, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0},
+      {(__u32 )0, (__u32 )0, (__u32 )0}, {(__u32 )0, (__u32 )0, (__u32 )0}, (u32 )0,
+      (u32 )0, (u32 )0, (u32 )0, (u32 )0, (u32 )0}};
 #line 72 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_h_total_regs[3]  = {      {(unsigned char)0, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)65, (unsigned char)7, (unsigned char)7}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_h_total_regs[3]  = {      {(u8 )0, (u8 )0, (u8 )7}, 
+        {(u8 )65, (u8 )7, (u8 )7}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 73 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_h_display_regs[3]  = {      {(unsigned char)1, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)65, (unsigned char)6, (unsigned char)6}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_h_display_regs[3]  = {      {(u8 )1, (u8 )0, (u8 )7}, 
+        {(u8 )65, (u8 )6, (u8 )6}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 74 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_h_blank_start_regs[3]  = {      {(unsigned char)2, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)65, (unsigned char)5, (unsigned char)5}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_h_blank_start_regs[3]  = {      {(u8 )2, (u8 )0, (u8 )7}, 
+        {(u8 )65, (u8 )5, (u8 )5}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_h_blank_end_regs[3]  = {      {(unsigned char)3, (unsigned char)0, (unsigned char)4}, 
-        {(unsigned char)5, (unsigned char)7, (unsigned char)7}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_h_blank_end_regs[3]  = {      {(u8 )3, (u8 )0, (u8 )4}, 
+        {(u8 )5, (u8 )7, (u8 )7}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 76 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_h_sync_start_regs[3]  = {      {(unsigned char)4, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)65, (unsigned char)4, (unsigned char)4}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_h_sync_start_regs[3]  = {      {(u8 )4, (u8 )0, (u8 )7}, 
+        {(u8 )65, (u8 )4, (u8 )4}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 77 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_h_sync_end_regs[2]  = {      {(unsigned char)5, (unsigned char)0, (unsigned char)4}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_h_sync_end_regs[2]  = {      {(u8 )5, (u8 )0, (u8 )4}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 79 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_v_total_regs[5]  = {      {(unsigned char)6, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)7, (unsigned char)0, (unsigned char)0}, 
-        {(unsigned char)7, (unsigned char)5, (unsigned char)5}, 
-        {(unsigned char)64, (unsigned char)7, (unsigned char)7}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_v_total_regs[5]  = {      {(u8 )6, (u8 )0, (u8 )7}, 
+        {(u8 )7, (u8 )0, (u8 )0}, 
+        {(u8 )7, (u8 )5, (u8 )5}, 
+        {(u8 )64, (u8 )7, (u8 )7}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_v_display_regs[5]  = {      {(unsigned char)18, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)7, (unsigned char)1, (unsigned char)1}, 
-        {(unsigned char)7, (unsigned char)6, (unsigned char)6}, 
-        {(unsigned char)64, (unsigned char)6, (unsigned char)6}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_v_display_regs[5]  = {      {(u8 )18, (u8 )0, (u8 )7}, 
+        {(u8 )7, (u8 )1, (u8 )1}, 
+        {(u8 )7, (u8 )6, (u8 )6}, 
+        {(u8 )64, (u8 )6, (u8 )6}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 81 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_v_blank_start_regs[5]  = {      {(unsigned char)21, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)7, (unsigned char)3, (unsigned char)3}, 
-        {(unsigned char)9, (unsigned char)5, (unsigned char)5}, 
-        {(unsigned char)64, (unsigned char)5, (unsigned char)5}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_v_blank_start_regs[5]  = {      {(u8 )21, (u8 )0, (u8 )7}, 
+        {(u8 )7, (u8 )3, (u8 )3}, 
+        {(u8 )9, (u8 )5, (u8 )5}, 
+        {(u8 )64, (u8 )5, (u8 )5}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 83 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_v_blank_end_regs[2]  = {      {(unsigned char)22, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_v_blank_end_regs[2]  = {      {(u8 )22, (u8 )0, (u8 )7}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_v_sync_start_regs[5]  = {      {(unsigned char)16, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)7, (unsigned char)2, (unsigned char)2}, 
-        {(unsigned char)7, (unsigned char)7, (unsigned char)7}, 
-        {(unsigned char)64, (unsigned char)4, (unsigned char)4}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_v_sync_start_regs[5]  = {      {(u8 )16, (u8 )0, (u8 )7}, 
+        {(u8 )7, (u8 )2, (u8 )2}, 
+        {(u8 )7, (u8 )7, (u8 )7}, 
+        {(u8 )64, (u8 )4, (u8 )4}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_v_sync_end_regs[2]  = {      {(unsigned char)17, (unsigned char)0, (unsigned char)3}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_v_sync_end_regs[2]  = {      {(u8 )17, (u8 )0, (u8 )3}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_line_compare_regs[4]  = {      {(unsigned char)24, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)7, (unsigned char)4, (unsigned char)4}, 
-        {(unsigned char)9, (unsigned char)6, (unsigned char)6}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_line_compare_regs[4]  = {      {(u8 )24, (u8 )0, (u8 )7}, 
+        {(u8 )7, (u8 )4, (u8 )4}, 
+        {(u8 )9, (u8 )6, (u8 )6}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_start_address_regs[4]  = {      {(unsigned char)13, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)12, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)64, (unsigned char)0, (unsigned char)2}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_start_address_regs[4]  = {      {(u8 )13, (u8 )0, (u8 )7}, 
+        {(u8 )12, (u8 )0, (u8 )7}, 
+        {(u8 )64, (u8 )0, (u8 )2}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 89 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct vga_regset  const  ark_offset_regs[3]  = {      {(unsigned char)19, (unsigned char)0, (unsigned char)7}, 
-        {(unsigned char)65, (unsigned char)3, (unsigned char)3}, 
-        {(unsigned char)255, (unsigned char)0, (unsigned char)0}};
+static struct vga_regset  const  ark_offset_regs[3]  = {      {(u8 )19, (u8 )0, (u8 )7}, 
+        {(u8 )65, (u8 )3, (u8 )3}, 
+        {(u8 )255, (u8 )0, (u8 )0}};
 #line 91 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct svga_timing_regs  const  ark_timing_regs  = 
 #line 91
@@ -6648,7 +6590,7 @@ static char const   __param_str_mode_option[12]  =
 #line 114 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct kernel_param  const  __param_mode_option  __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_mode_option, (struct kernel_param_ops  const  *)(& param_ops_charp),
-    (unsigned short)292, (unsigned short)0, {(void *)(& mode_option)}};
+    (u16 )292, (u16 )0, {(void *)(& mode_option)}};
 #line 114 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static char const   __mod_mode_optiontype114[27]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6684,8 +6626,8 @@ static char const   __param_str_mode[5]  = {      (char const   )'m',      (char
         (char const   )'\000'};
 #line 116 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct kernel_param  const  __param_mode  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_mode, (struct kernel_param_ops  const  *)(& param_ops_charp), (unsigned short)292,
-    (unsigned short)0, {(void *)(& mode_option)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_mode, (struct kernel_param_ops  const  *)(& param_ops_charp), (u16 )292,
+    (u16 )0, {(void *)(& mode_option)}};
 #line 116 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static char const   __mod_modetype116[20]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -6720,8 +6662,8 @@ static char const   __param_str_mtrr[5]  = {      (char const   )'m',      (char
         (char const   )'\000'};
 #line 120 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct kernel_param  const  __param_mtrr  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_mtrr, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)292,
-    (unsigned short)0, {(void *)(& mtrr)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_mtrr, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )292,
+    (u16 )0, {(void *)(& mtrr)}};
 #line 120 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static char const   __mod_mtrrtype120[18]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -6764,8 +6706,8 @@ static char const   __param_str_threshold[10]  =
         (char const   )'d',      (char const   )'\000'};
 #line 126 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct kernel_param  const  __param_threshold  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_threshold, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)420,
-    (unsigned short)0, {(void *)(& threshold)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_threshold, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )420,
+    (u16 )0, {(void *)(& threshold)}};
 #line 126 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static char const   __mod_thresholdtype126[23]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6794,278 +6736,146 @@ static void arkfb_settile(struct fb_info *info , struct fb_tilemap *map )
   u8 *fb ;
   int i ;
   int c ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char *__cil_tmp11 ;
+  char *__cil_tmp7 ;
+  __u32 __cil_tmp8 ;
+  int __cil_tmp9 ;
+  __u32 __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
   __u32 __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  __u32 __cil_tmp13 ;
+  __u32 __cil_tmp14 ;
   int __cil_tmp15 ;
   __u32 __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  __u32 __cil_tmp17 ;
+  __u32 __cil_tmp18 ;
   __u32 __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  __u32 __cil_tmp20 ;
+  int __cil_tmp21 ;
   __u32 __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  __u32 __cil_tmp23 ;
+  __u32 __cil_tmp24 ;
   __u32 __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
+  __u32 __cil_tmp26 ;
+  int __cil_tmp27 ;
   __u32 __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
+  __u32 __cil_tmp29 ;
+  __u32 __cil_tmp30 ;
+  __u32 __cil_tmp31 ;
   __u32 __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  __u32 __cil_tmp33 ;
+  __u32 __cil_tmp34 ;
   __u32 __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  __u32 __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  __u32 __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  __u32 __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  __u32 __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  __u32 __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  __u32 __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  __u32 __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  __u32 __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  int __cil_tmp63 ;
-  __u32 __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  __u32 __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  __u32 __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  __u32 __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  __u32 __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  __u32 __cil_tmp80 ;
-  unsigned int __cil_tmp81 ;
-  u8 const   *__cil_tmp82 ;
-  u8 __cil_tmp83 ;
-  unsigned char __cil_tmp84 ;
-  int __cil_tmp85 ;
-  u8 *__cil_tmp86 ;
-  void volatile   *__cil_tmp87 ;
-  u8 const   *__cil_tmp88 ;
-  u8 __cil_tmp89 ;
-  unsigned char __cil_tmp90 ;
-  int __cil_tmp91 ;
-  int __cil_tmp92 ;
-  u8 *__cil_tmp93 ;
-  void volatile   *__cil_tmp94 ;
-  int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  __u32 __cil_tmp98 ;
+  u8 const   *__cil_tmp36 ;
+  u8 __cil_tmp37 ;
+  unsigned char __cil_tmp38 ;
+  int __cil_tmp39 ;
+  u8 *__cil_tmp40 ;
+  void volatile   *__cil_tmp41 ;
+  u8 const   *__cil_tmp42 ;
+  u8 __cil_tmp43 ;
+  unsigned char __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  u8 *__cil_tmp47 ;
+  void volatile   *__cil_tmp48 ;
+  int __cil_tmp49 ;
+  __u32 __cil_tmp50 ;
 
   {
 #line 135
-  __cil_tmp7 = (unsigned long )map;
-#line 135
-  __cil_tmp8 = __cil_tmp7 + 16;
-#line 135
-  font = *((__u8 const   **)__cil_tmp8);
+  font = map->data;
 #line 136
-  __cil_tmp9 = (unsigned long )info;
+  __cil_tmp7 = info->screen_base;
 #line 136
-  __cil_tmp10 = __cil_tmp9 + 1552;
-#line 136
-  __cil_tmp11 = *((char **)__cil_tmp10);
-#line 136
-  fb = (u8 *)__cil_tmp11;
+  fb = (u8 *)__cil_tmp7;
   {
 #line 139
-  __cil_tmp12 = *((__u32 *)map);
+  __cil_tmp8 = map->width;
 #line 139
-  if (__cil_tmp12 != 8U) {
+  if (__cil_tmp8 != 8U) {
     {
 #line 141
-    __cil_tmp13 = (unsigned long )info;
+    __cil_tmp9 = info->node;
 #line 141
-    __cil_tmp14 = __cil_tmp13 + 4;
+    __cil_tmp10 = map->width;
 #line 141
-    __cil_tmp15 = *((int *)__cil_tmp14);
+    __cil_tmp11 = map->height;
 #line 141
-    __cil_tmp16 = *((__u32 *)map);
+    __cil_tmp12 = map->depth;
 #line 141
-    __cil_tmp17 = (unsigned long )map;
-#line 141
-    __cil_tmp18 = __cil_tmp17 + 4;
-#line 141
-    __cil_tmp19 = *((__u32 *)__cil_tmp18);
-#line 141
-    __cil_tmp20 = (unsigned long )map;
-#line 141
-    __cil_tmp21 = __cil_tmp20 + 8;
-#line 141
-    __cil_tmp22 = *((__u32 *)__cil_tmp21);
-#line 141
-    __cil_tmp23 = (unsigned long )map;
-#line 141
-    __cil_tmp24 = __cil_tmp23 + 12;
-#line 141
-    __cil_tmp25 = *((__u32 *)__cil_tmp24);
+    __cil_tmp13 = map->length;
 #line 141
     printk("<3>fb%d: unsupported font parameters: width %d, height %d, depth %d, length %d\n",
-           __cil_tmp15, __cil_tmp16, __cil_tmp19, __cil_tmp22, __cil_tmp25);
+           __cil_tmp9, __cil_tmp10, __cil_tmp11, __cil_tmp12, __cil_tmp13);
     }
 #line 144
     return;
   } else {
     {
 #line 139
-    __cil_tmp26 = (unsigned long )map;
+    __cil_tmp14 = map->height;
 #line 139
-    __cil_tmp27 = __cil_tmp26 + 4;
-#line 139
-    __cil_tmp28 = *((__u32 *)__cil_tmp27);
-#line 139
-    if (__cil_tmp28 != 16U) {
+    if (__cil_tmp14 != 16U) {
       {
 #line 141
-      __cil_tmp29 = (unsigned long )info;
+      __cil_tmp15 = info->node;
 #line 141
-      __cil_tmp30 = __cil_tmp29 + 4;
+      __cil_tmp16 = map->width;
 #line 141
-      __cil_tmp31 = *((int *)__cil_tmp30);
+      __cil_tmp17 = map->height;
 #line 141
-      __cil_tmp32 = *((__u32 *)map);
+      __cil_tmp18 = map->depth;
 #line 141
-      __cil_tmp33 = (unsigned long )map;
-#line 141
-      __cil_tmp34 = __cil_tmp33 + 4;
-#line 141
-      __cil_tmp35 = *((__u32 *)__cil_tmp34);
-#line 141
-      __cil_tmp36 = (unsigned long )map;
-#line 141
-      __cil_tmp37 = __cil_tmp36 + 8;
-#line 141
-      __cil_tmp38 = *((__u32 *)__cil_tmp37);
-#line 141
-      __cil_tmp39 = (unsigned long )map;
-#line 141
-      __cil_tmp40 = __cil_tmp39 + 12;
-#line 141
-      __cil_tmp41 = *((__u32 *)__cil_tmp40);
+      __cil_tmp19 = map->length;
 #line 141
       printk("<3>fb%d: unsupported font parameters: width %d, height %d, depth %d, length %d\n",
-             __cil_tmp31, __cil_tmp32, __cil_tmp35, __cil_tmp38, __cil_tmp41);
+             __cil_tmp15, __cil_tmp16, __cil_tmp17, __cil_tmp18, __cil_tmp19);
       }
 #line 144
       return;
     } else {
       {
 #line 139
-      __cil_tmp42 = (unsigned long )map;
+      __cil_tmp20 = map->depth;
 #line 139
-      __cil_tmp43 = __cil_tmp42 + 8;
-#line 139
-      __cil_tmp44 = *((__u32 *)__cil_tmp43);
-#line 139
-      if (__cil_tmp44 != 1U) {
+      if (__cil_tmp20 != 1U) {
         {
 #line 141
-        __cil_tmp45 = (unsigned long )info;
+        __cil_tmp21 = info->node;
 #line 141
-        __cil_tmp46 = __cil_tmp45 + 4;
+        __cil_tmp22 = map->width;
 #line 141
-        __cil_tmp47 = *((int *)__cil_tmp46);
+        __cil_tmp23 = map->height;
 #line 141
-        __cil_tmp48 = *((__u32 *)map);
+        __cil_tmp24 = map->depth;
 #line 141
-        __cil_tmp49 = (unsigned long )map;
-#line 141
-        __cil_tmp50 = __cil_tmp49 + 4;
-#line 141
-        __cil_tmp51 = *((__u32 *)__cil_tmp50);
-#line 141
-        __cil_tmp52 = (unsigned long )map;
-#line 141
-        __cil_tmp53 = __cil_tmp52 + 8;
-#line 141
-        __cil_tmp54 = *((__u32 *)__cil_tmp53);
-#line 141
-        __cil_tmp55 = (unsigned long )map;
-#line 141
-        __cil_tmp56 = __cil_tmp55 + 12;
-#line 141
-        __cil_tmp57 = *((__u32 *)__cil_tmp56);
+        __cil_tmp25 = map->length;
 #line 141
         printk("<3>fb%d: unsupported font parameters: width %d, height %d, depth %d, length %d\n",
-               __cil_tmp47, __cil_tmp48, __cil_tmp51, __cil_tmp54, __cil_tmp57);
+               __cil_tmp21, __cil_tmp22, __cil_tmp23, __cil_tmp24, __cil_tmp25);
         }
 #line 144
         return;
       } else {
         {
 #line 139
-        __cil_tmp58 = (unsigned long )map;
+        __cil_tmp26 = map->length;
 #line 139
-        __cil_tmp59 = __cil_tmp58 + 12;
-#line 139
-        __cil_tmp60 = *((__u32 *)__cil_tmp59);
-#line 139
-        if (__cil_tmp60 != 256U) {
+        if (__cil_tmp26 != 256U) {
           {
 #line 141
-          __cil_tmp61 = (unsigned long )info;
+          __cil_tmp27 = info->node;
 #line 141
-          __cil_tmp62 = __cil_tmp61 + 4;
+          __cil_tmp28 = map->width;
 #line 141
-          __cil_tmp63 = *((int *)__cil_tmp62);
+          __cil_tmp29 = map->height;
 #line 141
-          __cil_tmp64 = *((__u32 *)map);
+          __cil_tmp30 = map->depth;
 #line 141
-          __cil_tmp65 = (unsigned long )map;
-#line 141
-          __cil_tmp66 = __cil_tmp65 + 4;
-#line 141
-          __cil_tmp67 = *((__u32 *)__cil_tmp66);
-#line 141
-          __cil_tmp68 = (unsigned long )map;
-#line 141
-          __cil_tmp69 = __cil_tmp68 + 8;
-#line 141
-          __cil_tmp70 = *((__u32 *)__cil_tmp69);
-#line 141
-          __cil_tmp71 = (unsigned long )map;
-#line 141
-          __cil_tmp72 = __cil_tmp71 + 12;
-#line 141
-          __cil_tmp73 = *((__u32 *)__cil_tmp72);
+          __cil_tmp31 = map->length;
 #line 141
           printk("<3>fb%d: unsupported font parameters: width %d, height %d, depth %d, length %d\n",
-                 __cil_tmp63, __cil_tmp64, __cil_tmp67, __cil_tmp70, __cil_tmp73);
+                 __cil_tmp27, __cil_tmp28, __cil_tmp29, __cil_tmp30, __cil_tmp31);
           }
 #line 144
           return;
@@ -7086,21 +6896,18 @@ static void arkfb_settile(struct fb_info *info , struct fb_tilemap *map )
   {
 #line 148
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 148
-    __cil_tmp74 = (unsigned long )map;
+    __cil_tmp32 = map->length;
 #line 148
-    __cil_tmp75 = __cil_tmp74 + 12;
+    __cil_tmp33 = (__u32 )c;
 #line 148
-    __cil_tmp76 = *((__u32 *)__cil_tmp75);
-#line 148
-    __cil_tmp77 = (unsigned int )c;
-#line 148
-    if (__cil_tmp77 < __cil_tmp76) {
+    if (__cil_tmp33 < __cil_tmp32) {
 
     } else {
+#line 148
       goto while_break;
     }
     }
@@ -7109,60 +6916,57 @@ static void arkfb_settile(struct fb_info *info , struct fb_tilemap *map )
     {
 #line 149
     while (1) {
-      while_1_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
       {
 #line 149
-      __cil_tmp78 = (unsigned long )map;
+      __cil_tmp34 = map->height;
 #line 149
-      __cil_tmp79 = __cil_tmp78 + 4;
+      __cil_tmp35 = (__u32 )i;
 #line 149
-      __cil_tmp80 = *((__u32 *)__cil_tmp79);
-#line 149
-      __cil_tmp81 = (unsigned int )i;
-#line 149
-      if (__cil_tmp81 < __cil_tmp80) {
+      if (__cil_tmp35 < __cil_tmp34) {
 
       } else {
+#line 149
         goto while_break___0;
       }
       }
       {
 #line 150
-      __cil_tmp82 = font + i;
+      __cil_tmp36 = font + i;
 #line 150
-      __cil_tmp83 = *__cil_tmp82;
+      __cil_tmp37 = *__cil_tmp36;
 #line 150
-      __cil_tmp84 = (unsigned char )__cil_tmp83;
+      __cil_tmp38 = (unsigned char )__cil_tmp37;
 #line 150
-      __cil_tmp85 = i * 4;
+      __cil_tmp39 = i * 4;
 #line 150
-      __cil_tmp86 = fb + __cil_tmp85;
+      __cil_tmp40 = fb + __cil_tmp39;
 #line 150
-      __cil_tmp87 = (void volatile   *)__cil_tmp86;
+      __cil_tmp41 = (void volatile   *)__cil_tmp40;
 #line 150
-      __writeb(__cil_tmp84, __cil_tmp87);
+      __writeb(__cil_tmp38, __cil_tmp41);
 #line 151
-      __cil_tmp88 = font + i;
+      __cil_tmp42 = font + i;
 #line 151
-      __cil_tmp89 = *__cil_tmp88;
+      __cil_tmp43 = *__cil_tmp42;
 #line 151
-      __cil_tmp90 = (unsigned char )__cil_tmp89;
+      __cil_tmp44 = (unsigned char )__cil_tmp43;
 #line 151
-      __cil_tmp91 = i * 4;
+      __cil_tmp45 = i * 4;
 #line 151
-      __cil_tmp92 = __cil_tmp91 + 1024;
+      __cil_tmp46 = __cil_tmp45 + 1024;
 #line 151
-      __cil_tmp93 = fb + __cil_tmp92;
+      __cil_tmp47 = fb + __cil_tmp46;
 #line 151
-      __cil_tmp94 = (void volatile   *)__cil_tmp93;
+      __cil_tmp48 = (void volatile   *)__cil_tmp47;
 #line 151
-      __writeb(__cil_tmp90, __cil_tmp94);
+      __writeb(__cil_tmp44, __cil_tmp48);
 #line 149
       i = i + 1;
       }
     }
-    while_1_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: 
@@ -7170,9 +6974,9 @@ static void arkfb_settile(struct fb_info *info , struct fb_tilemap *map )
     fb = fb + 128;
     {
 #line 155
-    __cil_tmp95 = c % 8;
+    __cil_tmp49 = c % 8;
 #line 155
-    if (__cil_tmp95 == 7) {
+    if (__cil_tmp49 == 7) {
 #line 156
       fb = fb + 1024;
     } else {
@@ -7180,17 +6984,13 @@ static void arkfb_settile(struct fb_info *info , struct fb_tilemap *map )
     }
     }
 #line 158
-    __cil_tmp96 = (unsigned long )map;
+    __cil_tmp50 = map->height;
 #line 158
-    __cil_tmp97 = __cil_tmp96 + 4;
-#line 158
-    __cil_tmp98 = *((__u32 *)__cil_tmp97);
-#line 158
-    font = font + __cil_tmp98;
+    font = font + __cil_tmp50;
 #line 148
     c = c + 1;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7201,31 +7001,19 @@ static void arkfb_settile(struct fb_info *info , struct fb_tilemap *map )
 #line 162 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static void arkfb_tilecursor(struct fb_info *info , struct fb_tilecursor *cursor ) 
 { struct arkfb_info *par ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
+  void *__cil_tmp4 ;
+  void *__cil_tmp5 ;
 
   {
   {
 #line 164
-  __cil_tmp4 = (unsigned long )info;
+  __cil_tmp4 = info->par;
 #line 164
-  __cil_tmp5 = __cil_tmp4 + 1592;
-#line 164
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 164
-  par = (struct arkfb_info *)__cil_tmp6;
+  par = (struct arkfb_info *)__cil_tmp4;
 #line 166
-  __cil_tmp7 = (unsigned long )par;
+  __cil_tmp5 = par->state.vgabase;
 #line 166
-  __cil_tmp8 = __cil_tmp7 + 16;
-#line 166
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 166
-  svga_tilecursor(__cil_tmp9, info, cursor);
+  svga_tilecursor(__cil_tmp5, info, cursor);
   }
 #line 167
   return;
@@ -7289,149 +7077,98 @@ static void arkfb_iplan_imageblit(struct fb_info *info , struct fb_image  const 
   int y ;
   u8 const   *tmp___9 ;
   u32 *tmp___10 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  __u32 __cil_tmp16 ;
+  u32 __cil_tmp17 ;
   __u32 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  u32 __cil_tmp19 ;
+  char const   *__cil_tmp20 ;
+  __u32 __cil_tmp21 ;
   __u32 __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  char const   *__cil_tmp26 ;
+  __u32 __cil_tmp23 ;
+  __u32 __cil_tmp24 ;
+  __u32 __cil_tmp25 ;
+  __u32 __cil_tmp26 ;
   __u32 __cil_tmp27 ;
-  __u32 __cil_tmp28 ;
-  __u32 __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  char *__cil_tmp28 ;
+  char *__cil_tmp29 ;
+  char *__cil_tmp30 ;
+  __u32 __cil_tmp31 ;
+  __u32 __cil_tmp32 ;
   __u32 __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  __u32 __cil_tmp37 ;
-  __u32 __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  char *__cil_tmp41 ;
-  char *__cil_tmp42 ;
-  char *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  __u32 __cil_tmp46 ;
-  unsigned int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  __u32 __cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  u8 __cil_tmp52 ;
-  int __cil_tmp53 ;
-  int __cil_tmp54 ;
-  u32 __cil_tmp55 ;
-  unsigned int __cil_tmp56 ;
-  unsigned int __cil_tmp57 ;
-  void volatile   *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  __u32 __cil_tmp61 ;
-  __u32 __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  __u32 __cil_tmp66 ;
+  __u32 __cil_tmp34 ;
+  u8 __cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  u32 __cil_tmp38 ;
+  unsigned int __cil_tmp39 ;
+  unsigned int __cil_tmp40 ;
+  void volatile   *__cil_tmp41 ;
+  __u32 __cil_tmp42 ;
+  __u32 __cil_tmp43 ;
+  __u32 __cil_tmp44 ;
 
   {
   {
 #line 191
-  __cil_tmp16 = (unsigned long )image;
+  __cil_tmp16 = image->fg_color;
 #line 191
-  __cil_tmp17 = __cil_tmp16 + 16;
+  __cil_tmp17 = (u32 )__cil_tmp16;
 #line 191
-  __cil_tmp18 = *((__u32 const   *)__cil_tmp17);
-#line 191
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 191
-  tmp___7 = expand_color(__cil_tmp19);
+  tmp___7 = expand_color(__cil_tmp17);
 #line 191
   fg = tmp___7;
 #line 192
-  __cil_tmp20 = (unsigned long )image;
+  __cil_tmp18 = image->bg_color;
 #line 192
-  __cil_tmp21 = __cil_tmp20 + 20;
+  __cil_tmp19 = (u32 )__cil_tmp18;
 #line 192
-  __cil_tmp22 = *((__u32 const   *)__cil_tmp21);
-#line 192
-  __cil_tmp23 = (unsigned int )__cil_tmp22;
-#line 192
-  tmp___8 = expand_color(__cil_tmp23);
+  tmp___8 = expand_color(__cil_tmp19);
 #line 192
   bg = tmp___8;
 #line 199
-  __cil_tmp24 = (unsigned long )image;
+  __cil_tmp20 = image->data;
 #line 199
-  __cil_tmp25 = __cil_tmp24 + 32;
-#line 199
-  __cil_tmp26 = *((char const   * const  *)__cil_tmp25);
-#line 199
-  src1 = (u8 const   *)__cil_tmp26;
+  src1 = (u8 const   *)__cil_tmp20;
 #line 200
-  __cil_tmp27 = *((__u32 const   *)image);
+  __cil_tmp21 = image->dx;
 #line 200
-  __cil_tmp28 = __cil_tmp27 / 8U;
+  __cil_tmp22 = __cil_tmp21 / 8U;
 #line 200
-  __cil_tmp29 = __cil_tmp28 * 4U;
+  __cil_tmp23 = __cil_tmp22 * 4U;
 #line 200
-  __cil_tmp30 = 512 + 48;
+  __cil_tmp24 = info->fix.line_length;
 #line 200
-  __cil_tmp31 = (unsigned long )info;
+  __cil_tmp25 = (__u32 const   )__cil_tmp24;
 #line 200
-  __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
+  __cil_tmp26 = image->dy;
 #line 200
-  __cil_tmp33 = *((__u32 *)__cil_tmp32);
+  __cil_tmp27 = __cil_tmp26 * __cil_tmp25;
 #line 200
-  __cil_tmp34 = (unsigned int const   )__cil_tmp33;
+  __cil_tmp28 = info->screen_base;
 #line 200
-  __cil_tmp35 = (unsigned long )image;
+  __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
 #line 200
-  __cil_tmp36 = __cil_tmp35 + 4;
+  __cil_tmp30 = __cil_tmp29 + __cil_tmp23;
 #line 200
-  __cil_tmp37 = *((__u32 const   *)__cil_tmp36);
-#line 200
-  __cil_tmp38 = __cil_tmp37 * __cil_tmp34;
-#line 200
-  __cil_tmp39 = (unsigned long )info;
-#line 200
-  __cil_tmp40 = __cil_tmp39 + 1552;
-#line 200
-  __cil_tmp41 = *((char **)__cil_tmp40);
-#line 200
-  __cil_tmp42 = __cil_tmp41 + __cil_tmp38;
-#line 200
-  __cil_tmp43 = __cil_tmp42 + __cil_tmp29;
-#line 200
-  dst1 = (u8 *)__cil_tmp43;
+  dst1 = (u8 *)__cil_tmp30;
 #line 203
   y = 0;
   }
   {
 #line 203
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 203
-    __cil_tmp44 = (unsigned long )image;
+    __cil_tmp31 = image->height;
 #line 203
-    __cil_tmp45 = __cil_tmp44 + 12;
+    __cil_tmp32 = (__u32 const   )y;
 #line 203
-    __cil_tmp46 = *((__u32 const   *)__cil_tmp45);
-#line 203
-    __cil_tmp47 = (unsigned int const   )y;
-#line 203
-    if (__cil_tmp47 < __cil_tmp46) {
+    if (__cil_tmp32 < __cil_tmp31) {
 
     } else {
+#line 203
       goto while_break;
     }
     }
@@ -7444,21 +7181,18 @@ static void arkfb_iplan_imageblit(struct fb_info *info , struct fb_image  const 
     {
 #line 206
     while (1) {
-      while_3_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
       {
 #line 206
-      __cil_tmp48 = (unsigned long )image;
+      __cil_tmp33 = image->width;
 #line 206
-      __cil_tmp49 = __cil_tmp48 + 8;
+      __cil_tmp34 = (__u32 const   )x;
 #line 206
-      __cil_tmp50 = *((__u32 const   *)__cil_tmp49);
-#line 206
-      __cil_tmp51 = (unsigned int const   )x;
-#line 206
-      if (__cil_tmp51 < __cil_tmp50) {
+      if (__cil_tmp34 < __cil_tmp33) {
 
       } else {
+#line 206
         goto while_break___0;
       }
       }
@@ -7468,61 +7202,51 @@ static void arkfb_iplan_imageblit(struct fb_info *info , struct fb_image  const 
 #line 207
       src = src + 1;
 #line 207
-      __cil_tmp52 = *tmp___9;
+      __cil_tmp35 = *tmp___9;
 #line 207
-      __cil_tmp53 = (int const   )__cil_tmp52;
+      __cil_tmp36 = (int const   )__cil_tmp35;
 #line 207
-      __cil_tmp54 = __cil_tmp53 * 16843009;
+      __cil_tmp37 = __cil_tmp36 * 16843009;
 #line 207
-      val = (unsigned int )__cil_tmp54;
+      val = (u32 )__cil_tmp37;
 #line 208
-      __cil_tmp55 = ~ val;
+      __cil_tmp38 = ~ val;
 #line 208
-      __cil_tmp56 = __cil_tmp55 & bg;
+      __cil_tmp39 = __cil_tmp38 & bg;
 #line 208
-      __cil_tmp57 = val & fg;
+      __cil_tmp40 = val & fg;
 #line 208
-      val = __cil_tmp57 | __cil_tmp56;
+      val = __cil_tmp40 | __cil_tmp39;
 #line 209
       tmp___10 = dst;
 #line 209
       dst = dst + 1;
 #line 209
-      __cil_tmp58 = (void volatile   *)tmp___10;
+      __cil_tmp41 = (void volatile   *)tmp___10;
 #line 209
-      __writel(val, __cil_tmp58);
+      __writel(val, __cil_tmp41);
 #line 206
       x = x + 8;
       }
     }
-    while_3_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: 
 #line 211
-    __cil_tmp59 = (unsigned long )image;
+    __cil_tmp42 = image->width;
 #line 211
-    __cil_tmp60 = __cil_tmp59 + 8;
+    __cil_tmp43 = __cil_tmp42 / 8U;
 #line 211
-    __cil_tmp61 = *((__u32 const   *)__cil_tmp60);
-#line 211
-    __cil_tmp62 = __cil_tmp61 / 8U;
-#line 211
-    src1 = src1 + __cil_tmp62;
+    src1 = src1 + __cil_tmp43;
 #line 212
-    __cil_tmp63 = 512 + 48;
+    __cil_tmp44 = info->fix.line_length;
 #line 212
-    __cil_tmp64 = (unsigned long )info;
-#line 212
-    __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 212
-    __cil_tmp66 = *((__u32 *)__cil_tmp65);
-#line 212
-    dst1 = dst1 + __cil_tmp66;
+    dst1 = dst1 + __cil_tmp44;
 #line 203
     y = y + 1;
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7539,112 +7263,75 @@ static void arkfb_iplan_fillrect(struct fb_info *info , struct fb_fillrect  cons
   int x ;
   int y ;
   u32 *tmp___8 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  __u32 __cil_tmp10 ;
+  u32 __cil_tmp11 ;
   __u32 __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
+  __u32 __cil_tmp13 ;
   __u32 __cil_tmp14 ;
   __u32 __cil_tmp15 ;
   __u32 __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  __u32 __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  __u32 __cil_tmp17 ;
+  __u32 __cil_tmp18 ;
+  char *__cil_tmp19 ;
+  char *__cil_tmp20 ;
+  char *__cil_tmp21 ;
+  __u32 __cil_tmp22 ;
+  __u32 __cil_tmp23 ;
   __u32 __cil_tmp24 ;
   __u32 __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  char *__cil_tmp28 ;
-  char *__cil_tmp29 ;
-  char *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  __u32 __cil_tmp33 ;
-  unsigned int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  __u32 __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  void volatile   *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  __u32 __cil_tmp43 ;
+  void volatile   *__cil_tmp26 ;
+  __u32 __cil_tmp27 ;
 
   {
   {
 #line 220
-  __cil_tmp10 = (unsigned long )rect;
+  __cil_tmp10 = rect->color;
 #line 220
-  __cil_tmp11 = __cil_tmp10 + 16;
+  __cil_tmp11 = (u32 )__cil_tmp10;
 #line 220
-  __cil_tmp12 = *((__u32 const   *)__cil_tmp11);
-#line 220
-  __cil_tmp13 = (unsigned int )__cil_tmp12;
-#line 220
-  tmp___7 = expand_color(__cil_tmp13);
+  tmp___7 = expand_color(__cil_tmp11);
 #line 220
   fg = tmp___7;
 #line 225
-  __cil_tmp14 = *((__u32 const   *)rect);
+  __cil_tmp12 = rect->dx;
 #line 225
-  __cil_tmp15 = __cil_tmp14 / 8U;
+  __cil_tmp13 = __cil_tmp12 / 8U;
 #line 225
-  __cil_tmp16 = __cil_tmp15 * 4U;
+  __cil_tmp14 = __cil_tmp13 * 4U;
 #line 225
-  __cil_tmp17 = 512 + 48;
+  __cil_tmp15 = info->fix.line_length;
 #line 225
-  __cil_tmp18 = (unsigned long )info;
+  __cil_tmp16 = (__u32 const   )__cil_tmp15;
 #line 225
-  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
+  __cil_tmp17 = rect->dy;
 #line 225
-  __cil_tmp20 = *((__u32 *)__cil_tmp19);
+  __cil_tmp18 = __cil_tmp17 * __cil_tmp16;
 #line 225
-  __cil_tmp21 = (unsigned int const   )__cil_tmp20;
+  __cil_tmp19 = info->screen_base;
 #line 225
-  __cil_tmp22 = (unsigned long )rect;
+  __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
 #line 225
-  __cil_tmp23 = __cil_tmp22 + 4;
+  __cil_tmp21 = __cil_tmp20 + __cil_tmp14;
 #line 225
-  __cil_tmp24 = *((__u32 const   *)__cil_tmp23);
-#line 225
-  __cil_tmp25 = __cil_tmp24 * __cil_tmp21;
-#line 225
-  __cil_tmp26 = (unsigned long )info;
-#line 225
-  __cil_tmp27 = __cil_tmp26 + 1552;
-#line 225
-  __cil_tmp28 = *((char **)__cil_tmp27);
-#line 225
-  __cil_tmp29 = __cil_tmp28 + __cil_tmp25;
-#line 225
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp16;
-#line 225
-  dst1 = (u8 *)__cil_tmp30;
+  dst1 = (u8 *)__cil_tmp21;
 #line 228
   y = 0;
   }
   {
 #line 228
   while (1) {
-    while_4_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 228
-    __cil_tmp31 = (unsigned long )rect;
+    __cil_tmp22 = rect->height;
 #line 228
-    __cil_tmp32 = __cil_tmp31 + 12;
+    __cil_tmp23 = (__u32 const   )y;
 #line 228
-    __cil_tmp33 = *((__u32 const   *)__cil_tmp32);
-#line 228
-    __cil_tmp34 = (unsigned int const   )y;
-#line 228
-    if (__cil_tmp34 < __cil_tmp33) {
+    if (__cil_tmp23 < __cil_tmp22) {
 
     } else {
+#line 228
       goto while_break;
     }
     }
@@ -7655,21 +7342,18 @@ static void arkfb_iplan_fillrect(struct fb_info *info , struct fb_fillrect  cons
     {
 #line 230
     while (1) {
-      while_5_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
       {
 #line 230
-      __cil_tmp35 = (unsigned long )rect;
+      __cil_tmp24 = rect->width;
 #line 230
-      __cil_tmp36 = __cil_tmp35 + 8;
+      __cil_tmp25 = (__u32 const   )x;
 #line 230
-      __cil_tmp37 = *((__u32 const   *)__cil_tmp36);
-#line 230
-      __cil_tmp38 = (unsigned int const   )x;
-#line 230
-      if (__cil_tmp38 < __cil_tmp37) {
+      if (__cil_tmp25 < __cil_tmp24) {
 
       } else {
+#line 230
         goto while_break___0;
       }
       }
@@ -7679,31 +7363,25 @@ static void arkfb_iplan_fillrect(struct fb_info *info , struct fb_fillrect  cons
 #line 231
       dst = dst + 1;
 #line 231
-      __cil_tmp39 = (void volatile   *)tmp___8;
+      __cil_tmp26 = (void volatile   *)tmp___8;
 #line 231
-      __writel(fg, __cil_tmp39);
+      __writel(fg, __cil_tmp26);
 #line 230
       x = x + 8;
       }
     }
-    while_5_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: 
 #line 233
-    __cil_tmp40 = 512 + 48;
+    __cil_tmp27 = info->fix.line_length;
 #line 233
-    __cil_tmp41 = (unsigned long )info;
-#line 233
-    __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
-#line 233
-    __cil_tmp43 = *((__u32 *)__cil_tmp42);
-#line 233
-    dst1 = dst1 + __cil_tmp43;
+    dst1 = dst1 + __cil_tmp27;
 #line 228
     y = y + 1;
   }
-  while_4_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7803,142 +7481,91 @@ static void arkfb_cfb4_imageblit(struct fb_info *info , struct fb_image  const  
   int y ;
   u8 const   *tmp___7 ;
   u32 *tmp___8 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  __u32 __cil_tmp14 ;
+  __u32 __cil_tmp15 ;
   __u32 __cil_tmp16 ;
   __u32 __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  char const   *__cil_tmp18 ;
+  __u32 __cil_tmp19 ;
   __u32 __cil_tmp20 ;
   __u32 __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  char const   *__cil_tmp24 ;
+  __u32 __cil_tmp22 ;
+  __u32 __cil_tmp23 ;
+  __u32 __cil_tmp24 ;
   __u32 __cil_tmp25 ;
-  __u32 __cil_tmp26 ;
-  __u32 __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
+  char *__cil_tmp26 ;
+  char *__cil_tmp27 ;
+  char *__cil_tmp28 ;
+  __u32 __cil_tmp29 ;
+  __u32 __cil_tmp30 ;
   __u32 __cil_tmp31 ;
-  unsigned int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  __u32 __cil_tmp35 ;
-  __u32 __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  char *__cil_tmp39 ;
-  char *__cil_tmp40 ;
-  char *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  __u32 __cil_tmp44 ;
-  unsigned int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  __u32 __cil_tmp48 ;
-  unsigned int __cil_tmp49 ;
-  u8 __cil_tmp50 ;
-  unsigned int __cil_tmp51 ;
-  u32 __cil_tmp52 ;
-  unsigned int __cil_tmp53 ;
-  unsigned int __cil_tmp54 ;
-  void volatile   *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  __u32 __cil_tmp58 ;
-  __u32 __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  __u32 __cil_tmp63 ;
+  __u32 __cil_tmp32 ;
+  u8 __cil_tmp33 ;
+  u32 __cil_tmp34 ;
+  u32 __cil_tmp35 ;
+  unsigned int __cil_tmp36 ;
+  unsigned int __cil_tmp37 ;
+  void volatile   *__cil_tmp38 ;
+  __u32 __cil_tmp39 ;
+  __u32 __cil_tmp40 ;
+  __u32 __cil_tmp41 ;
 
   {
 #line 249
-  __cil_tmp14 = (unsigned long )image;
+  __cil_tmp14 = image->fg_color;
 #line 249
-  __cil_tmp15 = __cil_tmp14 + 16;
+  __cil_tmp15 = __cil_tmp14 * 286331153U;
 #line 249
-  __cil_tmp16 = *((__u32 const   *)__cil_tmp15);
-#line 249
+  fg = (u32 )__cil_tmp15;
+#line 250
+  __cil_tmp16 = image->bg_color;
+#line 250
   __cil_tmp17 = __cil_tmp16 * 286331153U;
-#line 249
-  fg = (unsigned int )__cil_tmp17;
 #line 250
-  __cil_tmp18 = (unsigned long )image;
-#line 250
-  __cil_tmp19 = __cil_tmp18 + 20;
-#line 250
-  __cil_tmp20 = *((__u32 const   *)__cil_tmp19);
-#line 250
-  __cil_tmp21 = __cil_tmp20 * 286331153U;
-#line 250
-  bg = (unsigned int )__cil_tmp21;
+  bg = (u32 )__cil_tmp17;
 #line 257
-  __cil_tmp22 = (unsigned long )image;
+  __cil_tmp18 = image->data;
 #line 257
-  __cil_tmp23 = __cil_tmp22 + 32;
-#line 257
-  __cil_tmp24 = *((char const   * const  *)__cil_tmp23);
-#line 257
-  src1 = (u8 const   *)__cil_tmp24;
+  src1 = (u8 const   *)__cil_tmp18;
 #line 258
-  __cil_tmp25 = *((__u32 const   *)image);
+  __cil_tmp19 = image->dx;
 #line 258
-  __cil_tmp26 = __cil_tmp25 / 8U;
+  __cil_tmp20 = __cil_tmp19 / 8U;
 #line 258
-  __cil_tmp27 = __cil_tmp26 * 4U;
+  __cil_tmp21 = __cil_tmp20 * 4U;
 #line 258
-  __cil_tmp28 = 512 + 48;
+  __cil_tmp22 = info->fix.line_length;
 #line 258
-  __cil_tmp29 = (unsigned long )info;
+  __cil_tmp23 = (__u32 const   )__cil_tmp22;
 #line 258
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
+  __cil_tmp24 = image->dy;
 #line 258
-  __cil_tmp31 = *((__u32 *)__cil_tmp30);
+  __cil_tmp25 = __cil_tmp24 * __cil_tmp23;
 #line 258
-  __cil_tmp32 = (unsigned int const   )__cil_tmp31;
+  __cil_tmp26 = info->screen_base;
 #line 258
-  __cil_tmp33 = (unsigned long )image;
+  __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
 #line 258
-  __cil_tmp34 = __cil_tmp33 + 4;
+  __cil_tmp28 = __cil_tmp27 + __cil_tmp21;
 #line 258
-  __cil_tmp35 = *((__u32 const   *)__cil_tmp34);
-#line 258
-  __cil_tmp36 = __cil_tmp35 * __cil_tmp32;
-#line 258
-  __cil_tmp37 = (unsigned long )info;
-#line 258
-  __cil_tmp38 = __cil_tmp37 + 1552;
-#line 258
-  __cil_tmp39 = *((char **)__cil_tmp38);
-#line 258
-  __cil_tmp40 = __cil_tmp39 + __cil_tmp36;
-#line 258
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp27;
-#line 258
-  dst1 = (u8 *)__cil_tmp41;
+  dst1 = (u8 *)__cil_tmp28;
 #line 261
   y = 0;
   {
 #line 261
   while (1) {
-    while_6_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 261
-    __cil_tmp42 = (unsigned long )image;
+    __cil_tmp29 = image->height;
 #line 261
-    __cil_tmp43 = __cil_tmp42 + 12;
+    __cil_tmp30 = (__u32 const   )y;
 #line 261
-    __cil_tmp44 = *((__u32 const   *)__cil_tmp43);
-#line 261
-    __cil_tmp45 = (unsigned int const   )y;
-#line 261
-    if (__cil_tmp45 < __cil_tmp44) {
+    if (__cil_tmp30 < __cil_tmp29) {
 
     } else {
+#line 261
       goto while_break;
     }
     }
@@ -7951,21 +7578,18 @@ static void arkfb_cfb4_imageblit(struct fb_info *info , struct fb_image  const  
     {
 #line 264
     while (1) {
-      while_7_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
       {
 #line 264
-      __cil_tmp46 = (unsigned long )image;
+      __cil_tmp31 = image->width;
 #line 264
-      __cil_tmp47 = __cil_tmp46 + 8;
+      __cil_tmp32 = (__u32 const   )x;
 #line 264
-      __cil_tmp48 = *((__u32 const   *)__cil_tmp47);
-#line 264
-      __cil_tmp49 = (unsigned int const   )x;
-#line 264
-      if (__cil_tmp49 < __cil_tmp48) {
+      if (__cil_tmp32 < __cil_tmp31) {
 
       } else {
+#line 264
         goto while_break___0;
       }
       }
@@ -7975,59 +7599,49 @@ static void arkfb_cfb4_imageblit(struct fb_info *info , struct fb_image  const  
 #line 265
       src = src + 1;
 #line 265
-      __cil_tmp50 = *tmp___7;
+      __cil_tmp33 = *tmp___7;
 #line 265
-      __cil_tmp51 = (unsigned int )__cil_tmp50;
+      __cil_tmp34 = (u32 )__cil_tmp33;
 #line 265
-      val = expand_pixel(__cil_tmp51);
+      val = expand_pixel(__cil_tmp34);
 #line 266
-      __cil_tmp52 = ~ val;
+      __cil_tmp35 = ~ val;
 #line 266
-      __cil_tmp53 = __cil_tmp52 & bg;
+      __cil_tmp36 = __cil_tmp35 & bg;
 #line 266
-      __cil_tmp54 = val & fg;
+      __cil_tmp37 = val & fg;
 #line 266
-      val = __cil_tmp54 | __cil_tmp53;
+      val = __cil_tmp37 | __cil_tmp36;
 #line 267
       tmp___8 = dst;
 #line 267
       dst = dst + 1;
 #line 267
-      __cil_tmp55 = (void volatile   *)tmp___8;
+      __cil_tmp38 = (void volatile   *)tmp___8;
 #line 267
-      __writel(val, __cil_tmp55);
+      __writel(val, __cil_tmp38);
 #line 264
       x = x + 8;
       }
     }
-    while_7_break: /* CIL Label */ ;
+    while_break___2: /* CIL Label */ ;
     }
 
     while_break___0: 
 #line 269
-    __cil_tmp56 = (unsigned long )image;
+    __cil_tmp39 = image->width;
 #line 269
-    __cil_tmp57 = __cil_tmp56 + 8;
+    __cil_tmp40 = __cil_tmp39 / 8U;
 #line 269
-    __cil_tmp58 = *((__u32 const   *)__cil_tmp57);
-#line 269
-    __cil_tmp59 = __cil_tmp58 / 8U;
-#line 269
-    src1 = src1 + __cil_tmp59;
+    src1 = src1 + __cil_tmp40;
 #line 270
-    __cil_tmp60 = 512 + 48;
+    __cil_tmp41 = info->fix.line_length;
 #line 270
-    __cil_tmp61 = (unsigned long )info;
-#line 270
-    __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
-#line 270
-    __cil_tmp63 = *((__u32 *)__cil_tmp62);
-#line 270
-    dst1 = dst1 + __cil_tmp63;
+    dst1 = dst1 + __cil_tmp41;
 #line 261
     y = y + 1;
   }
-  while_6_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -8037,77 +7651,47 @@ static void arkfb_cfb4_imageblit(struct fb_info *info , struct fb_image  const  
 }
 #line 275 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static void arkfb_imageblit(struct fb_info *info , struct fb_image  const  *image ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+{ __u32 __cil_tmp3 ;
+  __u8 __cil_tmp4 ;
+  int __cil_tmp5 ;
   __u32 __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  __u8 __cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  __u32 __cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
-  __u32 __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  __u32 __cil_tmp20 ;
+  unsigned int __cil_tmp7 ;
+  __u32 __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  __u32 __cil_tmp10 ;
 
   {
   {
 #line 277
-  __cil_tmp3 = 352 + 24;
+  __cil_tmp3 = info->var.bits_per_pixel;
 #line 277
-  __cil_tmp4 = (unsigned long )info;
-#line 277
-  __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
-#line 277
-  __cil_tmp6 = *((__u32 *)__cil_tmp5);
-#line 277
-  if (__cil_tmp6 == 4U) {
+  if (__cil_tmp3 == 4U) {
     {
 #line 277
-    __cil_tmp7 = (unsigned long )image;
+    __cil_tmp4 = image->depth;
 #line 277
-    __cil_tmp8 = __cil_tmp7 + 24;
+    __cil_tmp5 = (int const   )__cil_tmp4;
 #line 277
-    __cil_tmp9 = *((__u8 const   *)__cil_tmp8);
-#line 277
-    __cil_tmp10 = (int const   )__cil_tmp9;
-#line 277
-    if (__cil_tmp10 == 1) {
+    if (__cil_tmp5 == 1) {
       {
 #line 277
-      __cil_tmp11 = (unsigned long )image;
+      __cil_tmp6 = image->width;
 #line 277
-      __cil_tmp12 = __cil_tmp11 + 8;
+      __cil_tmp7 = __cil_tmp6 % 8U;
 #line 277
-      __cil_tmp13 = *((__u32 const   *)__cil_tmp12);
-#line 277
-      __cil_tmp14 = __cil_tmp13 % 8U;
-#line 277
-      if (__cil_tmp14 == 0U) {
+      if (__cil_tmp7 == 0U) {
         {
 #line 277
-        __cil_tmp15 = *((__u32 const   *)image);
+        __cil_tmp8 = image->dx;
 #line 277
-        __cil_tmp16 = __cil_tmp15 % 8U;
+        __cil_tmp9 = __cil_tmp8 % 8U;
 #line 277
-        if (__cil_tmp16 == 0U) {
+        if (__cil_tmp9 == 0U) {
           {
 #line 279
-          __cil_tmp17 = 512 + 28;
+          __cil_tmp10 = info->fix.type;
 #line 279
-          __cil_tmp18 = (unsigned long )info;
-#line 279
-          __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 279
-          __cil_tmp20 = *((__u32 *)__cil_tmp19);
-#line 279
-          if (__cil_tmp20 == 2U) {
+          if (__cil_tmp10 == 2U) {
             {
 #line 280
             arkfb_iplan_imageblit(info, image);
@@ -8153,62 +7737,38 @@ static void arkfb_imageblit(struct fb_info *info , struct fb_image  const  *imag
 }
 #line 287 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static void arkfb_fillrect(struct fb_info *info , struct fb_fillrect  const  *rect ) 
-{ unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
+{ __u32 __cil_tmp3 ;
+  __u32 __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
   __u32 __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  __u32 __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  __u32 __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  __u32 __cil_tmp16 ;
+  unsigned int __cil_tmp7 ;
+  __u32 __cil_tmp8 ;
 
   {
   {
 #line 289
-  __cil_tmp3 = 352 + 24;
+  __cil_tmp3 = info->var.bits_per_pixel;
 #line 289
-  __cil_tmp4 = (unsigned long )info;
-#line 289
-  __cil_tmp5 = __cil_tmp4 + __cil_tmp3;
-#line 289
-  __cil_tmp6 = *((__u32 *)__cil_tmp5);
-#line 289
-  if (__cil_tmp6 == 4U) {
+  if (__cil_tmp3 == 4U) {
     {
 #line 289
-    __cil_tmp7 = (unsigned long )rect;
+    __cil_tmp4 = rect->width;
 #line 289
-    __cil_tmp8 = __cil_tmp7 + 8;
+    __cil_tmp5 = __cil_tmp4 % 8U;
 #line 289
-    __cil_tmp9 = *((__u32 const   *)__cil_tmp8);
-#line 289
-    __cil_tmp10 = __cil_tmp9 % 8U;
-#line 289
-    if (__cil_tmp10 == 0U) {
+    if (__cil_tmp5 == 0U) {
       {
 #line 289
-      __cil_tmp11 = *((__u32 const   *)rect);
+      __cil_tmp6 = rect->dx;
 #line 289
-      __cil_tmp12 = __cil_tmp11 % 8U;
+      __cil_tmp7 = __cil_tmp6 % 8U;
 #line 289
-      if (__cil_tmp12 == 0U) {
+      if (__cil_tmp7 == 0U) {
         {
 #line 289
-        __cil_tmp13 = 512 + 28;
+        __cil_tmp8 = info->fix.type;
 #line 289
-        __cil_tmp14 = (unsigned long )info;
-#line 289
-        __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 289
-        __cil_tmp16 = *((__u32 *)__cil_tmp15);
-#line 289
-        if (__cil_tmp16 == 2U) {
+        if (__cil_tmp8 == 2U) {
           {
 #line 292
           arkfb_iplan_fillrect(info, rect);
@@ -8248,54 +7808,24 @@ static void arkfb_fillrect(struct fb_info *info , struct fb_fillrect  const  *re
 #line 348 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 __inline static void dac_write_reg(struct dac_info *info , u8 reg , u8 val ) 
 { u8 code[2] ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  void (*__cil_tmp11)(void *data , u8 *code , int count ) ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  void *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  u8 *__cil_tmp17 ;
+  void (*__cil_tmp5)(void *data , u8 *code , int count ) ;
+  void *__cil_tmp6 ;
+  u8 *__cil_tmp7 ;
 
   {
   {
 #line 350
-  __cil_tmp5 = 0 * 1UL;
+  code[0] = reg;
 #line 350
-  __cil_tmp6 = (unsigned long )(code) + __cil_tmp5;
-#line 350
-  *((u8 *)__cil_tmp6) = reg;
-#line 350
-  __cil_tmp7 = 1 * 1UL;
-#line 350
-  __cil_tmp8 = (unsigned long )(code) + __cil_tmp7;
-#line 350
-  *((u8 *)__cil_tmp8) = val;
+  code[1] = val;
 #line 351
-  __cil_tmp9 = (unsigned long )info;
+  __cil_tmp5 = info->dac_write_regs;
 #line 351
-  __cil_tmp10 = __cil_tmp9 + 16;
+  __cil_tmp6 = info->data;
 #line 351
-  __cil_tmp11 = *((void (**)(void *data , u8 *code , int count ))__cil_tmp10);
+  __cil_tmp7 = & code[0];
 #line 351
-  __cil_tmp12 = (unsigned long )info;
-#line 351
-  __cil_tmp13 = __cil_tmp12 + 24;
-#line 351
-  __cil_tmp14 = *((void **)__cil_tmp13);
-#line 351
-  __cil_tmp15 = 0 * 1UL;
-#line 351
-  __cil_tmp16 = (unsigned long )(code) + __cil_tmp15;
-#line 351
-  __cil_tmp17 = (u8 *)__cil_tmp16;
-#line 351
-  (*__cil_tmp11)(__cil_tmp14, __cil_tmp17, 1);
+  (*__cil_tmp5)(__cil_tmp6, __cil_tmp7, 1);
   }
 #line 352
   return;
@@ -8303,29 +7833,17 @@ __inline static void dac_write_reg(struct dac_info *info , u8 reg , u8 val )
 }
 #line 354 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 __inline static void dac_write_regs(struct dac_info *info , u8 *code , int count ) 
-{ unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void (*__cil_tmp6)(void *data , u8 *code , int count ) ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
+{ void (*__cil_tmp4)(void *data , u8 *code , int count ) ;
+  void *__cil_tmp5 ;
 
   {
   {
 #line 356
-  __cil_tmp4 = (unsigned long )info;
+  __cil_tmp4 = info->dac_write_regs;
 #line 356
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = info->data;
 #line 356
-  __cil_tmp6 = *((void (**)(void *data , u8 *code , int count ))__cil_tmp5);
-#line 356
-  __cil_tmp7 = (unsigned long )info;
-#line 356
-  __cil_tmp8 = __cil_tmp7 + 24;
-#line 356
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 356
-  (*__cil_tmp6)(__cil_tmp9, code, count);
+  (*__cil_tmp4)(__cil_tmp5, code, count);
   }
 #line 357
   return;
@@ -8335,22 +7853,16 @@ __inline static void dac_write_regs(struct dac_info *info , u8 *code , int count
 __inline static int dac_set_mode(struct dac_info *info , int mode ) 
 { int tmp___7 ;
   struct dac_ops *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  int (*__cil_tmp7)(struct dac_info *info , int mode ) ;
+  int (*__cil_tmp5)(struct dac_info *info , int mode ) ;
 
   {
   {
 #line 361
-  __cil_tmp4 = *((struct dac_ops **)info);
+  __cil_tmp4 = info->dacops;
 #line 361
-  __cil_tmp5 = (unsigned long )__cil_tmp4;
+  __cil_tmp5 = __cil_tmp4->dac_set_mode;
 #line 361
-  __cil_tmp6 = __cil_tmp5 + 8;
-#line 361
-  __cil_tmp7 = *((int (**)(struct dac_info *info , int mode ))__cil_tmp6);
-#line 361
-  tmp___7 = (*__cil_tmp7)(info, mode);
+  tmp___7 = (*__cil_tmp5)(info, mode);
   }
 #line 361
   return (tmp___7);
@@ -8360,22 +7872,16 @@ __inline static int dac_set_mode(struct dac_info *info , int mode )
 __inline static int dac_set_freq(struct dac_info *info , int channel , u32 freq ) 
 { int tmp___7 ;
   struct dac_ops *__cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  int (*__cil_tmp8)(struct dac_info *info , int channel , u32 freq ) ;
+  int (*__cil_tmp6)(struct dac_info *info , int channel , u32 freq ) ;
 
   {
   {
 #line 366
-  __cil_tmp5 = *((struct dac_ops **)info);
+  __cil_tmp5 = info->dacops;
 #line 366
-  __cil_tmp6 = (unsigned long )__cil_tmp5;
+  __cil_tmp6 = __cil_tmp5->dac_set_freq;
 #line 366
-  __cil_tmp7 = __cil_tmp6 + 24;
-#line 366
-  __cil_tmp8 = *((int (**)(struct dac_info *info , int channel , u32 freq ))__cil_tmp7);
-#line 366
-  tmp___7 = (*__cil_tmp8)(info, channel, freq);
+  tmp___7 = (*__cil_tmp6)(info, channel, freq);
   }
 #line 366
   return (tmp___7);
@@ -8384,22 +7890,16 @@ __inline static int dac_set_freq(struct dac_info *info , int channel , u32 freq 
 #line 369 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 __inline static void dac_release(struct dac_info *info ) 
 { struct dac_ops *__cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  void (*__cil_tmp5)(struct dac_info *info ) ;
+  void (*__cil_tmp3)(struct dac_info *info ) ;
 
   {
   {
 #line 371
-  __cil_tmp2 = *((struct dac_ops **)info);
+  __cil_tmp2 = info->dacops;
 #line 371
-  __cil_tmp3 = (unsigned long )__cil_tmp2;
+  __cil_tmp3 = __cil_tmp2->dac_release;
 #line 371
-  __cil_tmp4 = __cil_tmp3 + 32;
-#line 371
-  __cil_tmp5 = *((void (**)(struct dac_info *info ))__cil_tmp4);
-#line 371
-  (*__cil_tmp5)(info);
+  (*__cil_tmp3)(info);
   }
 #line 372
   return;
@@ -8408,21 +7908,17 @@ __inline static void dac_release(struct dac_info *info )
 #line 389 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static u8 const   ics5342_mode_table[10]  = 
 #line 389
-  {      (unsigned char const   )1,      (unsigned char const   )33,      (unsigned char const   )97,      (unsigned char const   )65, 
-        (unsigned char const   )(unsigned char)0,      (unsigned char const   )17,      (unsigned char const   )49,      (unsigned char const   )81, 
-        (unsigned char const   )145,      (unsigned char const   )113};
+  {      (u8 const   )1,      (u8 const   )33,      (u8 const   )97,      (u8 const   )65, 
+        (u8 const   )(unsigned char)0,      (u8 const   )17,      (u8 const   )49,      (u8 const   )81, 
+        (u8 const   )145,      (u8 const   )113};
 #line 395 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static int ics5342_set_mode(struct dac_info *info , int mode ) 
 { u8 code ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  u8 __cil_tmp6 ;
-  int __cil_tmp7 ;
-  int __cil_tmp8 ;
-  unsigned char __cil_tmp9 ;
-  struct ics5342_info *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  u8 __cil_tmp4 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
+  u8 __cil_tmp7 ;
+  struct ics5342_info *__cil_tmp8 ;
 
   {
 #line 399
@@ -8433,13 +7929,7 @@ static int ics5342_set_mode(struct dac_info *info , int mode )
 
   }
 #line 402
-  __cil_tmp4 = mode * 1UL;
-#line 402
-  __cil_tmp5 = (unsigned long )(ics5342_mode_table) + __cil_tmp4;
-#line 402
-  __cil_tmp6 = *((u8 const   *)__cil_tmp5);
-#line 402
-  code = (unsigned char )__cil_tmp6;
+  code = (u8 )ics5342_mode_table[mode];
 #line 404
   if (! code) {
 #line 405
@@ -8449,21 +7939,19 @@ static int ics5342_set_mode(struct dac_info *info , int mode )
   }
   {
 #line 407
-  __cil_tmp7 = (int )code;
+  __cil_tmp4 = (u8 )6;
 #line 407
-  __cil_tmp8 = __cil_tmp7 & 240;
+  __cil_tmp5 = (int )code;
 #line 407
-  __cil_tmp9 = (unsigned char )__cil_tmp8;
+  __cil_tmp6 = __cil_tmp5 & 240;
 #line 407
-  dac_write_reg(info, (unsigned char)6, __cil_tmp9);
+  __cil_tmp7 = (u8 )__cil_tmp6;
+#line 407
+  dac_write_reg(info, __cil_tmp4, __cil_tmp7);
 #line 408
-  __cil_tmp10 = (struct ics5342_info *)info;
+  __cil_tmp8 = (struct ics5342_info *)info;
 #line 408
-  __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 408
-  __cil_tmp12 = __cil_tmp11 + 32;
-#line 408
-  *((u8 *)__cil_tmp12) = (unsigned char )mode;
+  __cil_tmp8->mode = (u8 )mode;
   }
 #line 410
   return (0);
@@ -8472,13 +7960,13 @@ static int ics5342_set_mode(struct dac_info *info , int mode )
 #line 413 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct svga_pll  const  ics5342_pll  = 
 #line 413
-     {(unsigned short)3, (unsigned short)129, (unsigned short)3, (unsigned short)33,
-    (unsigned short)0, (unsigned short)3, 60000U, 250000U, 14318U};
+     {(u16 )3, (u16 )129, (u16 )3, (u16 )33, (u16 )0, (u16 )3, (u32 )60000, (u32 )250000,
+    (u32 )14318};
 #line 417 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static struct svga_pll  const  ics5342_pll_pd4  = 
 #line 417
-     {(unsigned short)3, (unsigned short)129, (unsigned short)3, (unsigned short)33,
-    (unsigned short)2, (unsigned short)2, 60000U, 335000U, 14318U};
+     {(u16 )3, (u16 )129, (u16 )3, (u16 )33, (u16 )2, (u16 )2, (u32 )60000, (u32 )335000,
+    (u32 )14318};
 #line 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static int ics5342_set_freq(struct dac_info *info , int channel , u32 freq ) 
 { u16 m ;
@@ -8489,53 +7977,27 @@ static int ics5342_set_freq(struct dac_info *info , int channel , u32 freq )
   int tmp___8 ;
   u8 code[6] ;
   struct ics5342_info *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  u8 __cil_tmp14 ;
+  u8 __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
   int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u16 *__cil_tmp24 ;
-  u16 __cil_tmp25 ;
-  int __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  u16 *__cil_tmp32 ;
-  u16 __cil_tmp33 ;
-  int __cil_tmp34 ;
-  int __cil_tmp35 ;
-  u16 *__cil_tmp36 ;
-  u16 __cil_tmp37 ;
-  int __cil_tmp38 ;
-  int __cil_tmp39 ;
-  int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  u8 *__cil_tmp43 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  u8 *__cil_tmp21 ;
 
   {
   {
 #line 428
   __cil_tmp11 = (struct ics5342_info *)info;
 #line 428
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
+  __cil_tmp12 = __cil_tmp11->mode;
 #line 428
-  __cil_tmp13 = __cil_tmp12 + 32;
+  __cil_tmp13 = (int )__cil_tmp12;
 #line 428
-  __cil_tmp14 = *((u8 *)__cil_tmp13);
-#line 428
-  __cil_tmp15 = (int )__cil_tmp14;
-#line 428
-  if (__cil_tmp15 == 5) {
+  if (__cil_tmp13 == 5) {
 #line 428
     tmp___7 = & ics5342_pll_pd4;
   } else {
@@ -8556,75 +8018,35 @@ static int ics5342_set_freq(struct dac_info *info , int channel , u32 freq )
   } else {
     {
 #line 435
-    __cil_tmp16 = 0 * 1UL;
+    code[0] = (u8 )4;
 #line 435
-    __cil_tmp17 = (unsigned long )(code) + __cil_tmp16;
+    code[1] = (u8 )3;
 #line 435
-    *((u8 *)__cil_tmp17) = (unsigned char)4;
+    code[2] = (u8 )5;
 #line 435
-    __cil_tmp18 = 1 * 1UL;
+    __cil_tmp14 = (int )m;
 #line 435
-    __cil_tmp19 = (unsigned long )(code) + __cil_tmp18;
+    __cil_tmp15 = __cil_tmp14 - 2;
 #line 435
-    *((u8 *)__cil_tmp19) = (unsigned char)3;
+    code[3] = (u8 )__cil_tmp15;
 #line 435
-    __cil_tmp20 = 2 * 1UL;
+    code[4] = (u8 )5;
 #line 435
-    __cil_tmp21 = (unsigned long )(code) + __cil_tmp20;
+    __cil_tmp16 = (int )r;
 #line 435
-    *((u8 *)__cil_tmp21) = (unsigned char)5;
+    __cil_tmp17 = __cil_tmp16 << 5;
 #line 435
-    __cil_tmp22 = 3 * 1UL;
+    __cil_tmp18 = (int )n;
 #line 435
-    __cil_tmp23 = (unsigned long )(code) + __cil_tmp22;
+    __cil_tmp19 = __cil_tmp18 - 2;
 #line 435
-    __cil_tmp24 = & m;
+    __cil_tmp20 = __cil_tmp19 | __cil_tmp17;
 #line 435
-    __cil_tmp25 = *__cil_tmp24;
-#line 435
-    __cil_tmp26 = (int )__cil_tmp25;
-#line 435
-    __cil_tmp27 = __cil_tmp26 - 2;
-#line 435
-    *((u8 *)__cil_tmp23) = (unsigned char )__cil_tmp27;
-#line 435
-    __cil_tmp28 = 4 * 1UL;
-#line 435
-    __cil_tmp29 = (unsigned long )(code) + __cil_tmp28;
-#line 435
-    *((u8 *)__cil_tmp29) = (unsigned char)5;
-#line 435
-    __cil_tmp30 = 5 * 1UL;
-#line 435
-    __cil_tmp31 = (unsigned long )(code) + __cil_tmp30;
-#line 435
-    __cil_tmp32 = & r;
-#line 435
-    __cil_tmp33 = *__cil_tmp32;
-#line 435
-    __cil_tmp34 = (int )__cil_tmp33;
-#line 435
-    __cil_tmp35 = __cil_tmp34 << 5;
-#line 435
-    __cil_tmp36 = & n;
-#line 435
-    __cil_tmp37 = *__cil_tmp36;
-#line 435
-    __cil_tmp38 = (int )__cil_tmp37;
-#line 435
-    __cil_tmp39 = __cil_tmp38 - 2;
-#line 435
-    __cil_tmp40 = __cil_tmp39 | __cil_tmp35;
-#line 435
-    *((u8 *)__cil_tmp31) = (unsigned char )__cil_tmp40;
+    code[5] = (u8 )__cil_tmp20;
 #line 436
-    __cil_tmp41 = 0 * 1UL;
+    __cil_tmp21 = & code[0];
 #line 436
-    __cil_tmp42 = (unsigned long )(code) + __cil_tmp41;
-#line 436
-    __cil_tmp43 = (u8 *)__cil_tmp42;
-#line 436
-    dac_write_regs(info, __cil_tmp43, 3);
+    dac_write_regs(info, __cil_tmp21, 3);
     }
 #line 437
     return (0);
@@ -8659,15 +8081,7 @@ static struct dac_info *ics5342_init(void (*drr)(void *data , u8 *code , int cou
 { struct dac_info *info ;
   void *tmp___7 ;
   void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct ics5342_info *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  struct ics5342_info *__cil_tmp7 ;
 
   {
   {
@@ -8688,33 +8102,17 @@ static struct dac_info *ics5342_init(void (*drr)(void *data , u8 *code , int cou
 
   }
 #line 461
-  *((struct dac_ops **)info) = & ics5342_ops;
+  info->dacops = & ics5342_ops;
 #line 462
-  __cil_tmp7 = (unsigned long )info;
-#line 462
-  __cil_tmp8 = __cil_tmp7 + 8;
-#line 462
-  *((void (**)(void *data , u8 *code , int count ))__cil_tmp8) = drr;
+  info->dac_read_regs = drr;
 #line 463
-  __cil_tmp9 = (unsigned long )info;
-#line 463
-  __cil_tmp10 = __cil_tmp9 + 16;
-#line 463
-  *((void (**)(void *data , u8 *code , int count ))__cil_tmp10) = dwr;
+  info->dac_write_regs = dwr;
 #line 464
-  __cil_tmp11 = (unsigned long )info;
-#line 464
-  __cil_tmp12 = __cil_tmp11 + 24;
-#line 464
-  *((void **)__cil_tmp12) = data;
+  info->data = data;
 #line 465
-  __cil_tmp13 = (struct ics5342_info *)info;
+  __cil_tmp7 = (struct ics5342_info *)info;
 #line 465
-  __cil_tmp14 = (unsigned long )__cil_tmp13;
-#line 465
-  __cil_tmp15 = __cil_tmp14 + 32;
-#line 465
-  *((u8 *)__cil_tmp15) = (unsigned char)0;
+  __cil_tmp7->mode = (u8 )0;
 #line 466
   return (info);
 }
@@ -8727,77 +8125,53 @@ static void ark_dac_read_regs(void *data , u8 *code , int count )
   struct arkfb_info *par ;
   u8 regval ;
   int tmp___7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void *__cil_tmp8 ;
+  void *__cil_tmp9 ;
+  u8 *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
   void *__cil_tmp13 ;
-  u8 *__cil_tmp14 ;
-  u8 __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned char __cil_tmp16 ;
+  u8 *__cil_tmp17 ;
+  void *__cil_tmp18 ;
   void *__cil_tmp19 ;
-  int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned char __cil_tmp22 ;
-  u8 *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  void *__cil_tmp26 ;
-  u8 *__cil_tmp27 ;
-  u8 __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned short __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  void *__cil_tmp36 ;
 
   {
   {
 #line 477
   info = (struct fb_info *)data;
 #line 481
-  __cil_tmp8 = (unsigned long )info;
+  __cil_tmp8 = info->par;
 #line 481
-  __cil_tmp9 = __cil_tmp8 + 1592;
-#line 481
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 481
-  par = (struct arkfb_info *)__cil_tmp10;
+  par = (struct arkfb_info *)__cil_tmp8;
 #line 482
-  __cil_tmp11 = (unsigned long )par;
+  __cil_tmp9 = par->state.vgabase;
 #line 482
-  __cil_tmp12 = __cil_tmp11 + 16;
-#line 482
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 482
-  regval = vga_rseq(__cil_tmp13, (unsigned char)28);
+  regval = vga_rseq(__cil_tmp9, (unsigned char)28);
   }
   {
 #line 483
   while (1) {
-    while_8_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 483
     if (count != 0) {
 
     } else {
+#line 483
       goto while_break;
     }
     {
 #line 485
-    __cil_tmp14 = code + 0;
+    __cil_tmp10 = code + 0;
 #line 485
-    __cil_tmp15 = *__cil_tmp14;
+    __cil_tmp11 = *__cil_tmp10;
 #line 485
-    __cil_tmp16 = (int )__cil_tmp15;
+    __cil_tmp12 = (int )__cil_tmp11;
 #line 485
-    if (__cil_tmp16 & 4) {
+    if (__cil_tmp12 & 4) {
 #line 485
       tmp___7 = 128;
     } else {
@@ -8807,62 +8181,36 @@ static void ark_dac_read_regs(void *data , u8 *code , int count )
     }
     {
 #line 485
-    __cil_tmp17 = (unsigned long )par;
+    __cil_tmp13 = par->state.vgabase;
 #line 485
-    __cil_tmp18 = __cil_tmp17 + 16;
+    __cil_tmp14 = (int )regval;
 #line 485
-    __cil_tmp19 = *((void **)__cil_tmp18);
+    __cil_tmp15 = __cil_tmp14 | tmp___7;
 #line 485
-    __cil_tmp20 = (int )regval;
+    __cil_tmp16 = (unsigned char )__cil_tmp15;
 #line 485
-    __cil_tmp21 = __cil_tmp20 | tmp___7;
-#line 485
-    __cil_tmp22 = (unsigned char )__cil_tmp21;
-#line 485
-    vga_wseq(__cil_tmp19, (unsigned char)28, __cil_tmp22);
+    vga_wseq(__cil_tmp13, (unsigned char)28, __cil_tmp16);
 #line 486
-    __cil_tmp23 = code + 1;
+    __cil_tmp17 = code + 1;
 #line 486
-    __cil_tmp24 = (unsigned long )par;
+    __cil_tmp18 = par->state.vgabase;
 #line 486
-    __cil_tmp25 = __cil_tmp24 + 16;
-#line 486
-    __cil_tmp26 = *((void **)__cil_tmp25);
-#line 486
-    __cil_tmp27 = code + 0;
-#line 486
-    __cil_tmp28 = *__cil_tmp27;
-#line 486
-    __cil_tmp29 = (int )__cil_tmp28;
-#line 486
-    __cil_tmp30 = __cil_tmp29 & 3;
-#line 486
-    __cil_tmp31 = __cil_tmp30 * 2UL;
-#line 486
-    __cil_tmp32 = (unsigned long )(dac_regs) + __cil_tmp31;
-#line 486
-    __cil_tmp33 = *((unsigned short *)__cil_tmp32);
-#line 486
-    *__cil_tmp23 = vga_r(__cil_tmp26, __cil_tmp33);
+    *__cil_tmp17 = vga_r(__cil_tmp18, dac_regs[(int )*(code + 0) & 3]);
 #line 487
     count = count - 1;
 #line 488
     code = code + 2;
     }
   }
-  while_8_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 491
-  __cil_tmp34 = (unsigned long )par;
+  __cil_tmp19 = par->state.vgabase;
 #line 491
-  __cil_tmp35 = __cil_tmp34 + 16;
-#line 491
-  __cil_tmp36 = *((void **)__cil_tmp35);
-#line 491
-  vga_wseq(__cil_tmp36, (unsigned char)28, regval);
+  vga_wseq(__cil_tmp19, (unsigned char)28, regval);
   }
 #line 492
   return;
@@ -8874,78 +8222,54 @@ static void ark_dac_write_regs(void *data , u8 *code , int count )
   struct arkfb_info *par ;
   u8 regval ;
   int tmp___7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void *__cil_tmp8 ;
+  void *__cil_tmp9 ;
+  u8 *__cil_tmp10 ;
+  u8 __cil_tmp11 ;
+  int __cil_tmp12 ;
   void *__cil_tmp13 ;
-  u8 *__cil_tmp14 ;
-  u8 __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  void *__cil_tmp19 ;
-  int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned char __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  void *__cil_tmp25 ;
-  u8 *__cil_tmp26 ;
-  u8 __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned short __cil_tmp32 ;
-  u8 *__cil_tmp33 ;
-  u8 __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  void *__cil_tmp37 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned char __cil_tmp16 ;
+  void *__cil_tmp17 ;
+  u8 *__cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  void *__cil_tmp20 ;
 
   {
   {
 #line 496
   info = (struct fb_info *)data;
 #line 500
-  __cil_tmp8 = (unsigned long )info;
+  __cil_tmp8 = info->par;
 #line 500
-  __cil_tmp9 = __cil_tmp8 + 1592;
-#line 500
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 500
-  par = (struct arkfb_info *)__cil_tmp10;
+  par = (struct arkfb_info *)__cil_tmp8;
 #line 501
-  __cil_tmp11 = (unsigned long )par;
+  __cil_tmp9 = par->state.vgabase;
 #line 501
-  __cil_tmp12 = __cil_tmp11 + 16;
-#line 501
-  __cil_tmp13 = *((void **)__cil_tmp12);
-#line 501
-  regval = vga_rseq(__cil_tmp13, (unsigned char)28);
+  regval = vga_rseq(__cil_tmp9, (unsigned char)28);
   }
   {
 #line 502
   while (1) {
-    while_9_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 502
     if (count != 0) {
 
     } else {
+#line 502
       goto while_break;
     }
     {
 #line 504
-    __cil_tmp14 = code + 0;
+    __cil_tmp10 = code + 0;
 #line 504
-    __cil_tmp15 = *__cil_tmp14;
+    __cil_tmp11 = *__cil_tmp10;
 #line 504
-    __cil_tmp16 = (int )__cil_tmp15;
+    __cil_tmp12 = (int )__cil_tmp11;
 #line 504
-    if (__cil_tmp16 & 4) {
+    if (__cil_tmp12 & 4) {
 #line 504
       tmp___7 = 128;
     } else {
@@ -8955,64 +8279,38 @@ static void ark_dac_write_regs(void *data , u8 *code , int count )
     }
     {
 #line 504
-    __cil_tmp17 = (unsigned long )par;
+    __cil_tmp13 = par->state.vgabase;
 #line 504
-    __cil_tmp18 = __cil_tmp17 + 16;
+    __cil_tmp14 = (int )regval;
 #line 504
-    __cil_tmp19 = *((void **)__cil_tmp18);
+    __cil_tmp15 = __cil_tmp14 | tmp___7;
 #line 504
-    __cil_tmp20 = (int )regval;
+    __cil_tmp16 = (unsigned char )__cil_tmp15;
 #line 504
-    __cil_tmp21 = __cil_tmp20 | tmp___7;
-#line 504
-    __cil_tmp22 = (unsigned char )__cil_tmp21;
-#line 504
-    vga_wseq(__cil_tmp19, (unsigned char)28, __cil_tmp22);
+    vga_wseq(__cil_tmp13, (unsigned char)28, __cil_tmp16);
 #line 505
-    __cil_tmp23 = (unsigned long )par;
+    __cil_tmp17 = par->state.vgabase;
 #line 505
-    __cil_tmp24 = __cil_tmp23 + 16;
+    __cil_tmp18 = code + 1;
 #line 505
-    __cil_tmp25 = *((void **)__cil_tmp24);
+    __cil_tmp19 = *__cil_tmp18;
 #line 505
-    __cil_tmp26 = code + 0;
-#line 505
-    __cil_tmp27 = *__cil_tmp26;
-#line 505
-    __cil_tmp28 = (int )__cil_tmp27;
-#line 505
-    __cil_tmp29 = __cil_tmp28 & 3;
-#line 505
-    __cil_tmp30 = __cil_tmp29 * 2UL;
-#line 505
-    __cil_tmp31 = (unsigned long )(dac_regs) + __cil_tmp30;
-#line 505
-    __cil_tmp32 = *((unsigned short *)__cil_tmp31);
-#line 505
-    __cil_tmp33 = code + 1;
-#line 505
-    __cil_tmp34 = *__cil_tmp33;
-#line 505
-    vga_w(__cil_tmp25, __cil_tmp32, __cil_tmp34);
+    vga_w(__cil_tmp17, dac_regs[(int )*(code + 0) & 3], __cil_tmp19);
 #line 506
     count = count - 1;
 #line 507
     code = code + 2;
     }
   }
-  while_9_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 510
-  __cil_tmp35 = (unsigned long )par;
+  __cil_tmp20 = par->state.vgabase;
 #line 510
-  __cil_tmp36 = __cil_tmp35 + 16;
-#line 510
-  __cil_tmp37 = *((void **)__cil_tmp36);
-#line 510
-  vga_wseq(__cil_tmp37, (unsigned char)28, regval);
+  vga_wseq(__cil_tmp20, (unsigned char)28, regval);
   }
 #line 511
   return;
@@ -9024,46 +8322,28 @@ static void ark_set_pixclock(struct fb_info *info , u32 pixclock )
   u8 regval ;
   int rv ;
   int tmp___7 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct dac_info *__cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  void *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  void *__cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned char __cil_tmp25 ;
+  void *__cil_tmp7 ;
+  struct dac_info *__cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  void *__cil_tmp11 ;
+  void *__cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  unsigned char __cil_tmp15 ;
 
   {
   {
 #line 516
-  __cil_tmp7 = (unsigned long )info;
+  __cil_tmp7 = info->par;
 #line 516
-  __cil_tmp8 = __cil_tmp7 + 1592;
-#line 516
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 516
-  par = (struct arkfb_info *)__cil_tmp9;
+  par = (struct arkfb_info *)__cil_tmp7;
 #line 519
-  __cil_tmp10 = (unsigned long )par;
+  __cil_tmp8 = par->dac;
 #line 519
-  __cil_tmp11 = __cil_tmp10 + 8;
+  __cil_tmp9 = 1000000000U / pixclock;
 #line 519
-  __cil_tmp12 = *((struct dac_info **)__cil_tmp11);
-#line 519
-  __cil_tmp13 = 1000000000U / pixclock;
-#line 519
-  tmp___7 = dac_set_freq(__cil_tmp12, 0, __cil_tmp13);
+  tmp___7 = dac_set_freq(__cil_tmp8, 0, __cil_tmp9);
 #line 519
   rv = tmp___7;
   }
@@ -9071,13 +8351,9 @@ static void ark_set_pixclock(struct fb_info *info , u32 pixclock )
   if (rv < 0) {
     {
 #line 521
-    __cil_tmp14 = (unsigned long )info;
+    __cil_tmp10 = info->node;
 #line 521
-    __cil_tmp15 = __cil_tmp14 + 4;
-#line 521
-    __cil_tmp16 = *((int *)__cil_tmp15);
-#line 521
-    printk("<3>fb%d: cannot set requested pixclock, keeping old value\n", __cil_tmp16);
+    printk("<3>fb%d: cannot set requested pixclock, keeping old value\n", __cil_tmp10);
     }
 #line 522
     return;
@@ -9086,27 +8362,19 @@ static void ark_set_pixclock(struct fb_info *info , u32 pixclock )
   }
   {
 #line 526
-  __cil_tmp17 = (unsigned long )par;
+  __cil_tmp11 = par->state.vgabase;
 #line 526
-  __cil_tmp18 = __cil_tmp17 + 16;
-#line 526
-  __cil_tmp19 = *((void **)__cil_tmp18);
-#line 526
-  regval = vga_r(__cil_tmp19, (unsigned short)972);
+  regval = vga_r(__cil_tmp11, (unsigned short)972);
 #line 527
-  __cil_tmp20 = (unsigned long )par;
+  __cil_tmp12 = par->state.vgabase;
 #line 527
-  __cil_tmp21 = __cil_tmp20 + 16;
+  __cil_tmp13 = (int )regval;
 #line 527
-  __cil_tmp22 = *((void **)__cil_tmp21);
+  __cil_tmp14 = __cil_tmp13 | 12;
 #line 527
-  __cil_tmp23 = (int )regval;
+  __cil_tmp15 = (unsigned char )__cil_tmp14;
 #line 527
-  __cil_tmp24 = __cil_tmp23 | 12;
-#line 527
-  __cil_tmp25 = (unsigned char )__cil_tmp24;
-#line 527
-  vga_w(__cil_tmp22, (unsigned short)962, __cil_tmp25);
+  vga_w(__cil_tmp12, (unsigned short)962, __cil_tmp15);
   }
 #line 528
   return;
@@ -9116,127 +8384,52 @@ static void ark_set_pixclock(struct fb_info *info , u32 pixclock )
 static int arkfb_open(struct fb_info *info , int user ) 
 { struct arkfb_info *par ;
   void *vgabase ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct mutex *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct vgastate *__cil_tmp18 ;
-  void *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct vgastate *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct mutex *__cil_tmp41 ;
+  void *__cil_tmp5 ;
+  struct mutex *__cil_tmp6 ;
+  unsigned int __cil_tmp7 ;
+  struct vgastate *__cil_tmp8 ;
+  void *__cil_tmp9 ;
+  struct vgastate *__cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  struct mutex *__cil_tmp12 ;
 
   {
   {
 #line 535
-  __cil_tmp5 = (unsigned long )info;
+  __cil_tmp5 = info->par;
 #line 535
-  __cil_tmp6 = __cil_tmp5 + 1592;
-#line 535
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 535
-  par = (struct arkfb_info *)__cil_tmp7;
+  par = (struct arkfb_info *)__cil_tmp5;
 #line 537
-  __cil_tmp8 = (unsigned long )par;
+  __cil_tmp6 = & par->open_lock;
 #line 537
-  __cil_tmp9 = __cil_tmp8 + 72;
-#line 537
-  __cil_tmp10 = (struct mutex *)__cil_tmp9;
-#line 537
-  mutex_lock_nested(__cil_tmp10, 0U);
+  mutex_lock_nested(__cil_tmp6, 0U);
   }
   {
 #line 538
-  __cil_tmp11 = (unsigned long )par;
+  __cil_tmp7 = par->ref_count;
 #line 538
-  __cil_tmp12 = __cil_tmp11 + 240;
-#line 538
-  __cil_tmp13 = *((unsigned int *)__cil_tmp12);
-#line 538
-  if (__cil_tmp13 == 0U) {
+  if (__cil_tmp7 == 0U) {
     {
 #line 539
-    __cil_tmp14 = (unsigned long )par;
-#line 539
-    __cil_tmp15 = __cil_tmp14 + 16;
-#line 539
-    vgabase = *((void **)__cil_tmp15);
+    vgabase = par->state.vgabase;
 #line 541
-    __cil_tmp16 = (unsigned long )par;
+    __cil_tmp8 = & par->state;
 #line 541
-    __cil_tmp17 = __cil_tmp16 + 16;
+    __cil_tmp9 = (void *)__cil_tmp8;
 #line 541
-    __cil_tmp18 = (struct vgastate *)__cil_tmp17;
-#line 541
-    __cil_tmp19 = (void *)__cil_tmp18;
-#line 541
-    memset(__cil_tmp19, 0, 56UL);
+    memset(__cil_tmp9, 0, 56UL);
 #line 542
-    __cil_tmp20 = (unsigned long )par;
-#line 542
-    __cil_tmp21 = __cil_tmp20 + 16;
-#line 542
-    *((void **)__cil_tmp21) = vgabase;
+    par->state.vgabase = vgabase;
 #line 543
-    __cil_tmp22 = 16 + 20;
-#line 543
-    __cil_tmp23 = (unsigned long )par;
-#line 543
-    __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 543
-    *((__u32 *)__cil_tmp24) = 31U;
+    par->state.flags = (__u32 )31;
 #line 544
-    __cil_tmp25 = 16 + 32;
-#line 544
-    __cil_tmp26 = (unsigned long )par;
-#line 544
-    __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 544
-    *((__u32 *)__cil_tmp27) = 96U;
+    par->state.num_crtc = (__u32 )96;
 #line 545
-    __cil_tmp28 = 16 + 40;
-#line 545
-    __cil_tmp29 = (unsigned long )par;
-#line 545
-    __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-#line 545
-    *((__u32 *)__cil_tmp30) = 48U;
+    par->state.num_seq = (__u32 )48;
 #line 546
-    __cil_tmp31 = (unsigned long )par;
+    __cil_tmp10 = & par->state;
 #line 546
-    __cil_tmp32 = __cil_tmp31 + 16;
-#line 546
-    __cil_tmp33 = (struct vgastate *)__cil_tmp32;
-#line 546
-    save_vga(__cil_tmp33);
+    save_vga(__cil_tmp10);
     }
   } else {
 
@@ -9244,25 +8437,13 @@ static int arkfb_open(struct fb_info *info , int user )
   }
   {
 #line 549
-  __cil_tmp34 = (unsigned long )par;
+  __cil_tmp11 = par->ref_count;
 #line 549
-  __cil_tmp35 = __cil_tmp34 + 240;
-#line 549
-  __cil_tmp36 = (unsigned long )par;
-#line 549
-  __cil_tmp37 = __cil_tmp36 + 240;
-#line 549
-  __cil_tmp38 = *((unsigned int *)__cil_tmp37);
-#line 549
-  *((unsigned int *)__cil_tmp35) = __cil_tmp38 + 1U;
+  par->ref_count = __cil_tmp11 + 1U;
 #line 550
-  __cil_tmp39 = (unsigned long )par;
+  __cil_tmp12 = & par->open_lock;
 #line 550
-  __cil_tmp40 = __cil_tmp39 + 72;
-#line 550
-  __cil_tmp41 = (struct mutex *)__cil_tmp40;
-#line 550
-  mutex_unlock(__cil_tmp41);
+  mutex_unlock(__cil_tmp12);
   }
 #line 552
   return (0);
@@ -9271,73 +8452,37 @@ static int arkfb_open(struct fb_info *info , int user )
 #line 557 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static int arkfb_release(struct fb_info *info , int user ) 
 { struct arkfb_info *par ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct mutex *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  struct mutex *__cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct vgastate *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct dac_info *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct mutex *__cil_tmp32 ;
+  void *__cil_tmp4 ;
+  struct mutex *__cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
+  struct mutex *__cil_tmp7 ;
+  unsigned int __cil_tmp8 ;
+  struct vgastate *__cil_tmp9 ;
+  struct dac_info *__cil_tmp10 ;
+  unsigned int __cil_tmp11 ;
+  struct mutex *__cil_tmp12 ;
 
   {
   {
 #line 559
-  __cil_tmp4 = (unsigned long )info;
+  __cil_tmp4 = info->par;
 #line 559
-  __cil_tmp5 = __cil_tmp4 + 1592;
-#line 559
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 559
-  par = (struct arkfb_info *)__cil_tmp6;
+  par = (struct arkfb_info *)__cil_tmp4;
 #line 561
-  __cil_tmp7 = (unsigned long )par;
+  __cil_tmp5 = & par->open_lock;
 #line 561
-  __cil_tmp8 = __cil_tmp7 + 72;
-#line 561
-  __cil_tmp9 = (struct mutex *)__cil_tmp8;
-#line 561
-  mutex_lock_nested(__cil_tmp9, 0U);
+  mutex_lock_nested(__cil_tmp5, 0U);
   }
   {
 #line 562
-  __cil_tmp10 = (unsigned long )par;
+  __cil_tmp6 = par->ref_count;
 #line 562
-  __cil_tmp11 = __cil_tmp10 + 240;
-#line 562
-  __cil_tmp12 = *((unsigned int *)__cil_tmp11);
-#line 562
-  if (__cil_tmp12 == 0U) {
+  if (__cil_tmp6 == 0U) {
     {
 #line 563
-    __cil_tmp13 = (unsigned long )par;
+    __cil_tmp7 = & par->open_lock;
 #line 563
-    __cil_tmp14 = __cil_tmp13 + 72;
-#line 563
-    __cil_tmp15 = (struct mutex *)__cil_tmp14;
-#line 563
-    mutex_unlock(__cil_tmp15);
+    mutex_unlock(__cil_tmp7);
     }
 #line 564
     return (-22);
@@ -9347,30 +8492,18 @@ static int arkfb_release(struct fb_info *info , int user )
   }
   {
 #line 567
-  __cil_tmp16 = (unsigned long )par;
+  __cil_tmp8 = par->ref_count;
 #line 567
-  __cil_tmp17 = __cil_tmp16 + 240;
-#line 567
-  __cil_tmp18 = *((unsigned int *)__cil_tmp17);
-#line 567
-  if (__cil_tmp18 == 1U) {
+  if (__cil_tmp8 == 1U) {
     {
 #line 568
-    __cil_tmp19 = (unsigned long )par;
+    __cil_tmp9 = & par->state;
 #line 568
-    __cil_tmp20 = __cil_tmp19 + 16;
-#line 568
-    __cil_tmp21 = (struct vgastate *)__cil_tmp20;
-#line 568
-    restore_vga(__cil_tmp21);
+    restore_vga(__cil_tmp9);
 #line 569
-    __cil_tmp22 = (unsigned long )par;
+    __cil_tmp10 = par->dac;
 #line 569
-    __cil_tmp23 = __cil_tmp22 + 8;
-#line 569
-    __cil_tmp24 = *((struct dac_info **)__cil_tmp23);
-#line 569
-    dac_set_mode(__cil_tmp24, 0);
+    dac_set_mode(__cil_tmp10, 0);
     }
   } else {
 
@@ -9378,25 +8511,13 @@ static int arkfb_release(struct fb_info *info , int user )
   }
   {
 #line 572
-  __cil_tmp25 = (unsigned long )par;
+  __cil_tmp11 = par->ref_count;
 #line 572
-  __cil_tmp26 = __cil_tmp25 + 240;
-#line 572
-  __cil_tmp27 = (unsigned long )par;
-#line 572
-  __cil_tmp28 = __cil_tmp27 + 240;
-#line 572
-  __cil_tmp29 = *((unsigned int *)__cil_tmp28);
-#line 572
-  *((unsigned int *)__cil_tmp26) = __cil_tmp29 - 1U;
+  par->ref_count = __cil_tmp11 - 1U;
 #line 573
-  __cil_tmp30 = (unsigned long )par;
+  __cil_tmp12 = & par->open_lock;
 #line 573
-  __cil_tmp31 = __cil_tmp30 + 72;
-#line 573
-  __cil_tmp32 = (struct mutex *)__cil_tmp31;
-#line 573
-  mutex_unlock(__cil_tmp32);
+  mutex_unlock(__cil_tmp12);
   }
 #line 575
   return (0);
@@ -9407,105 +8528,55 @@ static int arkfb_check_var(struct fb_var_screeninfo *var , struct fb_info *info 
 { int rv ;
   int mem ;
   int step ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct svga_fb_format  const  *__cil_tmp8 ;
-  void *__cil_tmp9 ;
-  struct fb_fix_screeninfo *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  __u32 __cil_tmp16 ;
+  struct svga_fb_format  const  *__cil_tmp6 ;
+  void *__cil_tmp7 ;
+  struct fb_fix_screeninfo *__cil_tmp8 ;
+  int __cil_tmp9 ;
+  __u32 __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
+  __u32 __cil_tmp12 ;
+  __u32 __cil_tmp13 ;
+  u32 __cil_tmp14 ;
+  int __cil_tmp15 ;
+  unsigned int __cil_tmp16 ;
   __u32 __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  __u32 __cil_tmp18 ;
+  __u32 __cil_tmp19 ;
+  __u32 __cil_tmp20 ;
+  __u32 __cil_tmp21 ;
   __u32 __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  __u32 __cil_tmp23 ;
+  __u32 __cil_tmp24 ;
   __u32 __cil_tmp25 ;
   unsigned long __cil_tmp26 ;
   unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
   unsigned long __cil_tmp30 ;
   unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  u32 __cil_tmp33 ;
-  u32 __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  int __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  __u32 __cil_tmp42 ;
-  __u32 __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  __u32 __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  __u32 __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  __u32 __cil_tmp52 ;
-  __u32 __cil_tmp53 ;
-  __u32 __cil_tmp54 ;
-  __u32 __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  int __cil_tmp62 ;
-  int __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  __u32 __cil_tmp77 ;
+  unsigned int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  __u32 __cil_tmp35 ;
 
   {
   {
 #line 585
-  __cil_tmp6 = 0 * 76UL;
+  __cil_tmp6 = & arkfb_formats[0];
 #line 585
-  __cil_tmp7 = (unsigned long )(arkfb_formats) + __cil_tmp6;
+  __cil_tmp7 = (void *)0;
 #line 585
-  __cil_tmp8 = (struct svga_fb_format  const  *)__cil_tmp7;
+  __cil_tmp8 = (struct fb_fix_screeninfo *)__cil_tmp7;
 #line 585
-  __cil_tmp9 = (void *)0;
-#line 585
-  __cil_tmp10 = (struct fb_fix_screeninfo *)__cil_tmp9;
-#line 585
-  rv = svga_match_format(__cil_tmp8, var, __cil_tmp10);
+  rv = svga_match_format(__cil_tmp6, var, __cil_tmp8);
   }
 #line 586
   if (rv < 0) {
     {
 #line 588
-    __cil_tmp11 = (unsigned long )info;
+    __cil_tmp9 = info->node;
 #line 588
-    __cil_tmp12 = __cil_tmp11 + 4;
-#line 588
-    __cil_tmp13 = *((int *)__cil_tmp12);
-#line 588
-    printk("<3>fb%d: unsupported mode requested\n", __cil_tmp13);
+    printk("<3>fb%d: unsupported mode requested\n", __cil_tmp9);
     }
 #line 589
     return (rv);
@@ -9514,145 +8585,81 @@ static int arkfb_check_var(struct fb_var_screeninfo *var , struct fb_info *info 
   }
   {
 #line 593
-  __cil_tmp14 = (unsigned long )var;
+  __cil_tmp10 = var->xres_virtual;
 #line 593
-  __cil_tmp15 = __cil_tmp14 + 8;
+  __cil_tmp11 = var->xres;
 #line 593
-  __cil_tmp16 = *((__u32 *)__cil_tmp15);
-#line 593
-  __cil_tmp17 = *((__u32 *)var);
-#line 593
-  if (__cil_tmp17 > __cil_tmp16) {
+  if (__cil_tmp11 > __cil_tmp10) {
 #line 594
-    __cil_tmp18 = (unsigned long )var;
-#line 594
-    __cil_tmp19 = __cil_tmp18 + 8;
-#line 594
-    *((__u32 *)__cil_tmp19) = *((__u32 *)var);
+    var->xres_virtual = var->xres;
   } else {
 
   }
   }
   {
 #line 596
-  __cil_tmp20 = (unsigned long )var;
+  __cil_tmp12 = var->yres_virtual;
 #line 596
-  __cil_tmp21 = __cil_tmp20 + 12;
+  __cil_tmp13 = var->yres;
 #line 596
-  __cil_tmp22 = *((__u32 *)__cil_tmp21);
-#line 596
-  __cil_tmp23 = (unsigned long )var;
-#line 596
-  __cil_tmp24 = __cil_tmp23 + 4;
-#line 596
-  __cil_tmp25 = *((__u32 *)__cil_tmp24);
-#line 596
-  if (__cil_tmp25 > __cil_tmp22) {
+  if (__cil_tmp13 > __cil_tmp12) {
 #line 597
-    __cil_tmp26 = (unsigned long )var;
-#line 597
-    __cil_tmp27 = __cil_tmp26 + 12;
-#line 597
-    __cil_tmp28 = (unsigned long )var;
-#line 597
-    __cil_tmp29 = __cil_tmp28 + 4;
-#line 597
-    *((__u32 *)__cil_tmp27) = *((__u32 *)__cil_tmp29);
+    var->yres_virtual = var->yres;
   } else {
 
   }
   }
 #line 600
-  __cil_tmp30 = rv * 76UL;
+  __cil_tmp14 = arkfb_formats[rv].xresstep - 1U;
 #line 600
-  __cil_tmp31 = __cil_tmp30 + 72;
-#line 600
-  __cil_tmp32 = (unsigned long )(arkfb_formats) + __cil_tmp31;
-#line 600
-  __cil_tmp33 = *((u32 const   *)__cil_tmp32);
-#line 600
-  __cil_tmp34 = __cil_tmp33 - 1U;
-#line 600
-  step = (int )__cil_tmp34;
+  step = (int )__cil_tmp14;
 #line 601
-  __cil_tmp35 = (unsigned long )var;
+  __cil_tmp15 = ~ step;
 #line 601
-  __cil_tmp36 = __cil_tmp35 + 8;
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
 #line 601
-  __cil_tmp37 = ~ step;
+  __cil_tmp17 = (__u32 )step;
 #line 601
-  __cil_tmp38 = (unsigned int )__cil_tmp37;
+  __cil_tmp18 = var->xres_virtual;
 #line 601
-  __cil_tmp39 = (unsigned int )step;
+  __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
 #line 601
-  __cil_tmp40 = (unsigned long )var;
-#line 601
-  __cil_tmp41 = __cil_tmp40 + 8;
-#line 601
-  __cil_tmp42 = *((__u32 *)__cil_tmp41);
-#line 601
-  __cil_tmp43 = __cil_tmp42 + __cil_tmp39;
-#line 601
-  *((__u32 *)__cil_tmp36) = __cil_tmp43 & __cil_tmp38;
+  var->xres_virtual = __cil_tmp19 & __cil_tmp16;
 #line 605
-  __cil_tmp44 = (unsigned long )var;
+  __cil_tmp20 = var->yres_virtual;
 #line 605
-  __cil_tmp45 = __cil_tmp44 + 12;
+  __cil_tmp21 = var->xres_virtual;
 #line 605
-  __cil_tmp46 = *((__u32 *)__cil_tmp45);
+  __cil_tmp22 = var->bits_per_pixel;
 #line 605
-  __cil_tmp47 = (unsigned long )var;
+  __cil_tmp23 = __cil_tmp22 * __cil_tmp21;
 #line 605
-  __cil_tmp48 = __cil_tmp47 + 8;
+  __cil_tmp24 = __cil_tmp23 >> 3;
 #line 605
-  __cil_tmp49 = *((__u32 *)__cil_tmp48);
+  __cil_tmp25 = __cil_tmp24 * __cil_tmp20;
 #line 605
-  __cil_tmp50 = (unsigned long )var;
-#line 605
-  __cil_tmp51 = __cil_tmp50 + 24;
-#line 605
-  __cil_tmp52 = *((__u32 *)__cil_tmp51);
-#line 605
-  __cil_tmp53 = __cil_tmp52 * __cil_tmp49;
-#line 605
-  __cil_tmp54 = __cil_tmp53 >> 3;
-#line 605
-  __cil_tmp55 = __cil_tmp54 * __cil_tmp46;
-#line 605
-  mem = (int )__cil_tmp55;
+  mem = (int )__cil_tmp25;
   {
 #line 606
-  __cil_tmp56 = (unsigned long )info;
+  __cil_tmp26 = info->screen_size;
 #line 606
-  __cil_tmp57 = __cil_tmp56 + 1560;
+  __cil_tmp27 = (unsigned long )mem;
 #line 606
-  __cil_tmp58 = *((unsigned long *)__cil_tmp57);
-#line 606
-  __cil_tmp59 = (unsigned long )mem;
-#line 606
-  if (__cil_tmp59 > __cil_tmp58) {
+  if (__cil_tmp27 > __cil_tmp26) {
     {
 #line 608
-    __cil_tmp60 = (unsigned long )info;
+    __cil_tmp28 = info->node;
 #line 608
-    __cil_tmp61 = __cil_tmp60 + 4;
+    __cil_tmp29 = mem >> 10;
 #line 608
-    __cil_tmp62 = *((int *)__cil_tmp61);
+    __cil_tmp30 = info->screen_size;
 #line 608
-    __cil_tmp63 = mem >> 10;
+    __cil_tmp31 = __cil_tmp30 >> 10;
 #line 608
-    __cil_tmp64 = (unsigned long )info;
-#line 608
-    __cil_tmp65 = __cil_tmp64 + 1560;
-#line 608
-    __cil_tmp66 = *((unsigned long *)__cil_tmp65);
-#line 608
-    __cil_tmp67 = __cil_tmp66 >> 10;
-#line 608
-    __cil_tmp68 = (unsigned int )__cil_tmp67;
+    __cil_tmp32 = (unsigned int )__cil_tmp31;
 #line 608
     printk("<3>fb%d: not enough framebuffer memory (%d kB requested , %d kB available)\n",
-           __cil_tmp62, __cil_tmp63, __cil_tmp68);
+           __cil_tmp28, __cil_tmp29, __cil_tmp32);
     }
 #line 609
     return (-22);
@@ -9662,25 +8669,17 @@ static int arkfb_check_var(struct fb_var_screeninfo *var , struct fb_info *info 
   }
   {
 #line 612
-  __cil_tmp69 = (unsigned long )info;
+  __cil_tmp33 = info->node;
 #line 612
-  __cil_tmp70 = __cil_tmp69 + 4;
-#line 612
-  __cil_tmp71 = *((int *)__cil_tmp70);
-#line 612
-  rv = svga_check_timings(& ark_timing_regs, var, __cil_tmp71);
+  rv = svga_check_timings(& ark_timing_regs, var, __cil_tmp33);
   }
 #line 613
   if (rv < 0) {
     {
 #line 615
-    __cil_tmp72 = (unsigned long )info;
+    __cil_tmp34 = info->node;
 #line 615
-    __cil_tmp73 = __cil_tmp72 + 4;
-#line 615
-    __cil_tmp74 = *((int *)__cil_tmp73);
-#line 615
-    printk("<3>fb%d: invalid timings requested\n", __cil_tmp74);
+    printk("<3>fb%d: invalid timings requested\n", __cil_tmp34);
     }
 #line 616
     return (rv);
@@ -9689,13 +8688,9 @@ static int arkfb_check_var(struct fb_var_screeninfo *var , struct fb_info *info 
   }
   {
 #line 620
-  __cil_tmp75 = (unsigned long )var;
+  __cil_tmp35 = var->vmode;
 #line 620
-  __cil_tmp76 = __cil_tmp75 + 132;
-#line 620
-  __cil_tmp77 = *((__u32 *)__cil_tmp76);
-#line 620
-  if (__cil_tmp77 & 1U) {
+  if (__cil_tmp35 & 1U) {
 #line 621
     return (-22);
   } else {
@@ -9777,1115 +8772,666 @@ static int arkfb_set_par(struct fb_info *info )
   long tmp___18 ;
   int tmp___19 ;
   int tmp___20 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  void *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
+  void *__cil_tmp25 ;
+  __u32 __cil_tmp26 ;
+  __u32 __cil_tmp27 ;
+  int __cil_tmp28 ;
+  void *__cil_tmp29 ;
+  int __cil_tmp30 ;
+  u32 __cil_tmp31 ;
+  u32 __cil_tmp32 ;
+  __u32 __cil_tmp33 ;
+  __u32 __cil_tmp34 ;
+  __u32 __cil_tmp35 ;
+  __u32 __cil_tmp36 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
   __u32 __cil_tmp40 ;
   __u32 __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  void *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  __u32 __cil_tmp63 ;
-  __u32 __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  __u32 __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  __u32 __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
+  __u32 __cil_tmp42 ;
+  __u32 __cil_tmp43 ;
+  void *__cil_tmp44 ;
+  u8 __cil_tmp45 ;
+  u8 __cil_tmp46 ;
+  u8 __cil_tmp47 ;
+  void *__cil_tmp48 ;
+  u8 __cil_tmp49 ;
+  u8 __cil_tmp50 ;
+  u8 __cil_tmp51 ;
+  void *__cil_tmp52 ;
+  u8 __cil_tmp53 ;
+  u8 __cil_tmp54 ;
+  u8 __cil_tmp55 ;
+  void *__cil_tmp56 ;
+  void *__cil_tmp57 ;
+  void *__cil_tmp58 ;
+  void *__cil_tmp59 ;
+  void *__cil_tmp60 ;
+  struct vga_regset  const  *__cil_tmp61 ;
+  void *__cil_tmp62 ;
+  struct vga_regset  const  *__cil_tmp63 ;
+  u32 __cil_tmp64 ;
+  void *__cil_tmp65 ;
+  u8 __cil_tmp66 ;
+  u8 __cil_tmp67 ;
+  u8 __cil_tmp68 ;
+  void *__cil_tmp69 ;
+  u8 __cil_tmp70 ;
+  u8 __cil_tmp71 ;
+  u8 __cil_tmp72 ;
+  void *__cil_tmp73 ;
   unsigned long __cil_tmp74 ;
   unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
+  unsigned char __cil_tmp76 ;
+  void *__cil_tmp77 ;
   unsigned long __cil_tmp78 ;
   unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
+  unsigned char __cil_tmp80 ;
+  void *__cil_tmp81 ;
+  void *__cil_tmp82 ;
   int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
+  int __cil_tmp84 ;
+  int __cil_tmp85 ;
+  int __cil_tmp86 ;
+  int __cil_tmp87 ;
+  int __cil_tmp88 ;
   int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
+  int __cil_tmp90 ;
+  int __cil_tmp91 ;
+  void *__cil_tmp92 ;
   int __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  __u32 __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  __u32 __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  __u32 __cil_tmp105 ;
-  __u32 __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  void *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  void *__cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  void *__cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  void *__cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  void *__cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  void *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
+  int __cil_tmp94 ;
+  long __cil_tmp95 ;
+  int __cil_tmp96 ;
+  void *__cil_tmp97 ;
+  struct vga_regset  const  *__cil_tmp98 ;
+  void *__cil_tmp99 ;
+  u8 __cil_tmp100 ;
+  u8 __cil_tmp101 ;
+  u8 __cil_tmp102 ;
+  __u32 __cil_tmp103 ;
+  void *__cil_tmp104 ;
+  u8 __cil_tmp105 ;
+  u8 __cil_tmp106 ;
+  u8 __cil_tmp107 ;
+  void *__cil_tmp108 ;
+  u8 __cil_tmp109 ;
+  u8 __cil_tmp110 ;
+  u8 __cil_tmp111 ;
+  __u32 __cil_tmp112 ;
+  void *__cil_tmp113 ;
+  u8 __cil_tmp114 ;
+  u8 __cil_tmp115 ;
+  u8 __cil_tmp116 ;
+  void *__cil_tmp117 ;
+  u8 __cil_tmp118 ;
+  u8 __cil_tmp119 ;
+  u8 __cil_tmp120 ;
+  struct svga_fb_format  const  *__cil_tmp121 ;
+  struct fb_var_screeninfo *__cil_tmp122 ;
+  struct fb_fix_screeninfo *__cil_tmp123 ;
+  int __cil_tmp124 ;
+  int __cil_tmp125 ;
+  int __cil_tmp126 ;
+  int __cil_tmp127 ;
+  int __cil_tmp128 ;
+  int __cil_tmp129 ;
+  int __cil_tmp130 ;
+  int __cil_tmp131 ;
+  int __cil_tmp132 ;
+  int __cil_tmp133 ;
+  long __cil_tmp134 ;
+  int __cil_tmp135 ;
   void *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  void *__cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  struct vga_regset  const  *__cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  void *__cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  struct vga_regset  const  *__cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  void *__cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  void *__cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  void *__cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned char __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  void *__cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned char __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  void *__cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  void *__cil_tmp178 ;
-  int *__cil_tmp179 ;
+  void *__cil_tmp137 ;
+  void *__cil_tmp138 ;
+  u8 __cil_tmp139 ;
+  u8 __cil_tmp140 ;
+  u8 __cil_tmp141 ;
+  struct dac_info *__cil_tmp142 ;
+  int __cil_tmp143 ;
+  int __cil_tmp144 ;
+  long __cil_tmp145 ;
+  int __cil_tmp146 ;
+  void *__cil_tmp147 ;
+  void *__cil_tmp148 ;
+  void *__cil_tmp149 ;
+  u8 __cil_tmp150 ;
+  u8 __cil_tmp151 ;
+  u8 __cil_tmp152 ;
+  struct dac_info *__cil_tmp153 ;
+  int __cil_tmp154 ;
+  int __cil_tmp155 ;
+  long __cil_tmp156 ;
+  int __cil_tmp157 ;
+  void *__cil_tmp158 ;
+  void *__cil_tmp159 ;
+  u8 __cil_tmp160 ;
+  u8 __cil_tmp161 ;
+  u8 __cil_tmp162 ;
+  struct dac_info *__cil_tmp163 ;
+  int __cil_tmp164 ;
+  int __cil_tmp165 ;
+  long __cil_tmp166 ;
+  int __cil_tmp167 ;
+  void *__cil_tmp168 ;
+  __u32 __cil_tmp169 ;
+  int __cil_tmp170 ;
+  int __cil_tmp171 ;
+  long __cil_tmp172 ;
+  int __cil_tmp173 ;
+  void *__cil_tmp174 ;
+  u8 __cil_tmp175 ;
+  u8 __cil_tmp176 ;
+  u8 __cil_tmp177 ;
+  struct dac_info *__cil_tmp178 ;
+  int __cil_tmp179 ;
   int __cil_tmp180 ;
-  int __cil_tmp181 ;
+  long __cil_tmp181 ;
   int __cil_tmp182 ;
-  int *__cil_tmp183 ;
-  int __cil_tmp184 ;
-  int __cil_tmp185 ;
-  int __cil_tmp186 ;
-  int *__cil_tmp187 ;
+  void *__cil_tmp183 ;
+  u8 __cil_tmp184 ;
+  u8 __cil_tmp185 ;
+  u8 __cil_tmp186 ;
+  struct dac_info *__cil_tmp187 ;
   int __cil_tmp188 ;
   int __cil_tmp189 ;
-  int __cil_tmp190 ;
+  long __cil_tmp190 ;
   int __cil_tmp191 ;
-  int __cil_tmp192 ;
-  int __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  void *__cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  char __cil_tmp198 ;
+  void *__cil_tmp192 ;
+  void *__cil_tmp193 ;
+  u8 __cil_tmp194 ;
+  u8 __cil_tmp195 ;
+  u8 __cil_tmp196 ;
+  struct dac_info *__cil_tmp197 ;
+  int __cil_tmp198 ;
   int __cil_tmp199 ;
-  int __cil_tmp200 ;
-  long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  int __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  void *__cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  struct vga_regset  const  *__cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
+  long __cil_tmp200 ;
+  int __cil_tmp201 ;
+  void *__cil_tmp202 ;
+  void *__cil_tmp203 ;
+  u8 __cil_tmp204 ;
+  u8 __cil_tmp205 ;
+  u8 __cil_tmp206 ;
+  struct dac_info *__cil_tmp207 ;
+  int __cil_tmp208 ;
+  int __cil_tmp209 ;
+  long __cil_tmp210 ;
+  int __cil_tmp211 ;
+  void *__cil_tmp212 ;
   void *__cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  __u32 __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  void *__cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
+  u8 __cil_tmp214 ;
+  u8 __cil_tmp215 ;
+  u8 __cil_tmp216 ;
+  struct dac_info *__cil_tmp217 ;
+  int __cil_tmp218 ;
+  int __cil_tmp219 ;
+  long __cil_tmp220 ;
+  int __cil_tmp221 ;
+  void *__cil_tmp222 ;
   void *__cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  __u32 __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  void *__cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  void *__cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  struct svga_fb_format  const  *__cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  struct fb_var_screeninfo *__cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  struct fb_fix_screeninfo *__cil_tmp242 ;
-  int __cil_tmp243 ;
-  int __cil_tmp244 ;
-  int __cil_tmp245 ;
-  int __cil_tmp246 ;
-  int __cil_tmp247 ;
-  int __cil_tmp248 ;
-  int __cil_tmp249 ;
-  int __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  char __cil_tmp252 ;
-  int __cil_tmp253 ;
-  int __cil_tmp254 ;
-  long __cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  int __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  void *__cil_tmp261 ;
-  unsigned long __cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  void *__cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  void *__cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  struct dac_info *__cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  char __cil_tmp272 ;
-  int __cil_tmp273 ;
-  int __cil_tmp274 ;
-  long __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  unsigned long __cil_tmp277 ;
-  int __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  unsigned long __cil_tmp280 ;
-  void *__cil_tmp281 ;
-  unsigned long __cil_tmp282 ;
-  unsigned long __cil_tmp283 ;
-  void *__cil_tmp284 ;
-  unsigned long __cil_tmp285 ;
-  unsigned long __cil_tmp286 ;
-  void *__cil_tmp287 ;
-  unsigned long __cil_tmp288 ;
-  unsigned long __cil_tmp289 ;
-  struct dac_info *__cil_tmp290 ;
-  unsigned long __cil_tmp291 ;
-  char __cil_tmp292 ;
-  int __cil_tmp293 ;
-  int __cil_tmp294 ;
-  long __cil_tmp295 ;
-  unsigned long __cil_tmp296 ;
-  unsigned long __cil_tmp297 ;
-  int __cil_tmp298 ;
-  unsigned long __cil_tmp299 ;
-  unsigned long __cil_tmp300 ;
-  void *__cil_tmp301 ;
-  unsigned long __cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
-  void *__cil_tmp304 ;
-  unsigned long __cil_tmp305 ;
-  unsigned long __cil_tmp306 ;
-  struct dac_info *__cil_tmp307 ;
-  unsigned long __cil_tmp308 ;
-  char __cil_tmp309 ;
-  int __cil_tmp310 ;
-  int __cil_tmp311 ;
-  long __cil_tmp312 ;
-  unsigned long __cil_tmp313 ;
-  unsigned long __cil_tmp314 ;
-  int __cil_tmp315 ;
-  unsigned long __cil_tmp316 ;
-  unsigned long __cil_tmp317 ;
-  void *__cil_tmp318 ;
-  unsigned long __cil_tmp319 ;
-  unsigned long __cil_tmp320 ;
-  unsigned long __cil_tmp321 ;
-  __u32 __cil_tmp322 ;
-  unsigned long __cil_tmp323 ;
-  char __cil_tmp324 ;
-  int __cil_tmp325 ;
-  int __cil_tmp326 ;
-  long __cil_tmp327 ;
-  unsigned long __cil_tmp328 ;
-  unsigned long __cil_tmp329 ;
-  int __cil_tmp330 ;
-  unsigned long __cil_tmp331 ;
-  unsigned long __cil_tmp332 ;
-  void *__cil_tmp333 ;
-  unsigned long __cil_tmp334 ;
-  unsigned long __cil_tmp335 ;
-  struct dac_info *__cil_tmp336 ;
-  unsigned long __cil_tmp337 ;
-  char __cil_tmp338 ;
-  int __cil_tmp339 ;
-  int __cil_tmp340 ;
-  long __cil_tmp341 ;
-  unsigned long __cil_tmp342 ;
-  unsigned long __cil_tmp343 ;
-  int __cil_tmp344 ;
-  unsigned long __cil_tmp345 ;
-  unsigned long __cil_tmp346 ;
-  void *__cil_tmp347 ;
-  unsigned long __cil_tmp348 ;
-  unsigned long __cil_tmp349 ;
-  struct dac_info *__cil_tmp350 ;
-  unsigned long __cil_tmp351 ;
-  char __cil_tmp352 ;
-  int __cil_tmp353 ;
-  int __cil_tmp354 ;
-  long __cil_tmp355 ;
-  unsigned long __cil_tmp356 ;
-  unsigned long __cil_tmp357 ;
-  int __cil_tmp358 ;
-  unsigned long __cil_tmp359 ;
-  unsigned long __cil_tmp360 ;
-  void *__cil_tmp361 ;
-  unsigned long __cil_tmp362 ;
-  unsigned long __cil_tmp363 ;
-  void *__cil_tmp364 ;
-  unsigned long __cil_tmp365 ;
-  unsigned long __cil_tmp366 ;
-  struct dac_info *__cil_tmp367 ;
-  unsigned long __cil_tmp368 ;
-  char __cil_tmp369 ;
-  int __cil_tmp370 ;
-  int __cil_tmp371 ;
-  long __cil_tmp372 ;
-  unsigned long __cil_tmp373 ;
-  unsigned long __cil_tmp374 ;
-  int __cil_tmp375 ;
-  unsigned long __cil_tmp376 ;
-  unsigned long __cil_tmp377 ;
-  void *__cil_tmp378 ;
-  unsigned long __cil_tmp379 ;
-  unsigned long __cil_tmp380 ;
-  void *__cil_tmp381 ;
-  unsigned long __cil_tmp382 ;
-  unsigned long __cil_tmp383 ;
-  struct dac_info *__cil_tmp384 ;
-  unsigned long __cil_tmp385 ;
-  char __cil_tmp386 ;
-  int __cil_tmp387 ;
-  int __cil_tmp388 ;
-  long __cil_tmp389 ;
-  unsigned long __cil_tmp390 ;
-  unsigned long __cil_tmp391 ;
-  int __cil_tmp392 ;
-  unsigned long __cil_tmp393 ;
-  unsigned long __cil_tmp394 ;
-  void *__cil_tmp395 ;
-  unsigned long __cil_tmp396 ;
-  unsigned long __cil_tmp397 ;
-  void *__cil_tmp398 ;
-  unsigned long __cil_tmp399 ;
-  unsigned long __cil_tmp400 ;
-  struct dac_info *__cil_tmp401 ;
-  unsigned long __cil_tmp402 ;
-  char __cil_tmp403 ;
-  int __cil_tmp404 ;
-  int __cil_tmp405 ;
-  long __cil_tmp406 ;
-  unsigned long __cil_tmp407 ;
-  unsigned long __cil_tmp408 ;
-  int __cil_tmp409 ;
-  unsigned long __cil_tmp410 ;
-  unsigned long __cil_tmp411 ;
-  void *__cil_tmp412 ;
-  unsigned long __cil_tmp413 ;
-  unsigned long __cil_tmp414 ;
-  void *__cil_tmp415 ;
-  unsigned long __cil_tmp416 ;
-  unsigned long __cil_tmp417 ;
-  struct dac_info *__cil_tmp418 ;
-  unsigned long __cil_tmp419 ;
-  unsigned long __cil_tmp420 ;
-  int __cil_tmp421 ;
-  unsigned long __cil_tmp422 ;
-  unsigned long __cil_tmp423 ;
-  unsigned long __cil_tmp424 ;
-  __u32 __cil_tmp425 ;
-  u32 __cil_tmp426 ;
-  u32 __cil_tmp427 ;
-  unsigned long __cil_tmp428 ;
-  unsigned long __cil_tmp429 ;
-  unsigned long __cil_tmp430 ;
-  __u32 __cil_tmp431 ;
-  unsigned long __cil_tmp432 ;
-  unsigned long __cil_tmp433 ;
-  unsigned long __cil_tmp434 ;
-  __u32 __cil_tmp435 ;
-  unsigned long __cil_tmp436 ;
-  unsigned long __cil_tmp437 ;
-  void *__cil_tmp438 ;
-  unsigned long __cil_tmp439 ;
-  unsigned long __cil_tmp440 ;
-  struct fb_var_screeninfo *__cil_tmp441 ;
-  unsigned int __cil_tmp442 ;
-  unsigned int __cil_tmp443 ;
-  unsigned long __cil_tmp444 ;
-  unsigned long __cil_tmp445 ;
-  int __cil_tmp446 ;
-  unsigned long __cil_tmp447 ;
-  unsigned long __cil_tmp448 ;
-  unsigned long __cil_tmp449 ;
-  __u32 __cil_tmp450 ;
-  unsigned long __cil_tmp451 ;
-  unsigned long __cil_tmp452 ;
-  unsigned long __cil_tmp453 ;
-  __u32 __cil_tmp454 ;
-  unsigned long __cil_tmp455 ;
-  unsigned long __cil_tmp456 ;
-  unsigned long __cil_tmp457 ;
-  __u32 __cil_tmp458 ;
-  unsigned long __cil_tmp459 ;
-  unsigned long __cil_tmp460 ;
-  __u32 __cil_tmp461 ;
-  __u32 __cil_tmp462 ;
-  __u32 __cil_tmp463 ;
-  u32 __cil_tmp464 ;
-  u32 __cil_tmp465 ;
-  u32 __cil_tmp466 ;
-  unsigned long __cil_tmp467 ;
-  unsigned long __cil_tmp468 ;
-  void *__cil_tmp469 ;
-  u32 __cil_tmp470 ;
-  u32 __cil_tmp471 ;
-  unsigned char __cil_tmp472 ;
-  unsigned long __cil_tmp473 ;
-  unsigned long __cil_tmp474 ;
-  char *__cil_tmp475 ;
-  void volatile   *__cil_tmp476 ;
-  unsigned long __cil_tmp477 ;
-  unsigned long __cil_tmp478 ;
-  unsigned long __cil_tmp479 ;
-  void *__cil_tmp480 ;
-  unsigned long __cil_tmp481 ;
-  unsigned long __cil_tmp482 ;
-  void *__cil_tmp483 ;
+  u8 __cil_tmp224 ;
+  u8 __cil_tmp225 ;
+  u8 __cil_tmp226 ;
+  struct dac_info *__cil_tmp227 ;
+  int __cil_tmp228 ;
+  __u32 __cil_tmp229 ;
+  u32 __cil_tmp230 ;
+  u32 __cil_tmp231 ;
+  __u32 __cil_tmp232 ;
+  __u32 __cil_tmp233 ;
+  void *__cil_tmp234 ;
+  struct fb_var_screeninfo *__cil_tmp235 ;
+  u32 __cil_tmp236 ;
+  u32 __cil_tmp237 ;
+  int __cil_tmp238 ;
+  __u32 __cil_tmp239 ;
+  __u32 __cil_tmp240 ;
+  __u32 __cil_tmp241 ;
+  __u32 __cil_tmp242 ;
+  __u32 __cil_tmp243 ;
+  __u32 __cil_tmp244 ;
+  u32 __cil_tmp245 ;
+  u32 __cil_tmp246 ;
+  u32 __cil_tmp247 ;
+  void *__cil_tmp248 ;
+  u32 __cil_tmp249 ;
+  u32 __cil_tmp250 ;
+  unsigned char __cil_tmp251 ;
+  char *__cil_tmp252 ;
+  void volatile   *__cil_tmp253 ;
+  size_t __cil_tmp254 ;
+  void *__cil_tmp255 ;
+  u8 __cil_tmp256 ;
+  u8 __cil_tmp257 ;
+  u8 __cil_tmp258 ;
+  void *__cil_tmp259 ;
+  u8 __cil_tmp260 ;
+  u8 __cil_tmp261 ;
+  u8 __cil_tmp262 ;
 
   {
 #line 630
-  __cil_tmp25 = (unsigned long )info;
+  __cil_tmp25 = info->par;
 #line 630
-  __cil_tmp26 = __cil_tmp25 + 1592;
-#line 630
-  __cil_tmp27 = *((void **)__cil_tmp26);
-#line 630
-  par = (struct arkfb_info *)__cil_tmp27;
+  par = (struct arkfb_info *)__cil_tmp25;
 #line 632
-  __cil_tmp28 = 352 + 24;
-#line 632
-  __cil_tmp29 = (unsigned long )info;
-#line 632
-  __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-#line 632
-  bpp = *((__u32 *)__cil_tmp30);
+  bpp = info->var.bits_per_pixel;
 #line 635
   if (bpp != 0U) {
 #line 636
-    __cil_tmp31 = 512 + 42;
-#line 636
-    __cil_tmp32 = (unsigned long )info;
-#line 636
-    __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 636
-    *((__u16 *)__cil_tmp33) = (unsigned short)1;
+    info->fix.ypanstep = (__u16 )1;
 #line 637
-    __cil_tmp34 = 512 + 48;
+    __cil_tmp26 = info->var.xres_virtual;
 #line 637
-    __cil_tmp35 = (unsigned long )info;
+    __cil_tmp27 = __cil_tmp26 * bpp;
 #line 637
-    __cil_tmp36 = __cil_tmp35 + __cil_tmp34;
-#line 637
-    __cil_tmp37 = 352 + 8;
-#line 637
-    __cil_tmp38 = (unsigned long )info;
-#line 637
-    __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 637
-    __cil_tmp40 = *((__u32 *)__cil_tmp39);
-#line 637
-    __cil_tmp41 = __cil_tmp40 * bpp;
-#line 637
-    *((__u32 *)__cil_tmp36) = __cil_tmp41 / 8U;
+    info->fix.line_length = __cil_tmp27 / 8U;
 #line 639
-    __cil_tmp42 = (unsigned long )info;
+    __cil_tmp28 = info->flags;
 #line 639
-    __cil_tmp43 = __cil_tmp42 + 8;
-#line 639
-    __cil_tmp44 = (unsigned long )info;
-#line 639
-    __cil_tmp45 = __cil_tmp44 + 8;
-#line 639
-    __cil_tmp46 = *((int *)__cil_tmp45);
-#line 639
-    *((int *)__cil_tmp43) = __cil_tmp46 & -131073;
+    info->flags = __cil_tmp28 & -131073;
 #line 640
-    __cil_tmp47 = (unsigned long )info;
+    __cil_tmp29 = (void *)0;
 #line 640
-    __cil_tmp48 = __cil_tmp47 + 1544;
-#line 640
-    __cil_tmp49 = (void *)0;
-#line 640
-    *((struct fb_tile_ops **)__cil_tmp48) = (struct fb_tile_ops *)__cil_tmp49;
+    info->tileops = (struct fb_tile_ops *)__cil_tmp29;
 #line 643
     if (bpp == 4U) {
 #line 643
-      __cil_tmp50 = 816 + 32;
+      __cil_tmp30 = 1 << 7;
 #line 643
-      __cil_tmp51 = (unsigned long )info;
-#line 643
-      __cil_tmp52 = __cil_tmp51 + __cil_tmp50;
-#line 643
-      __cil_tmp53 = 1 << 7;
-#line 643
-      *((u32 *)__cil_tmp52) = (unsigned int )__cil_tmp53;
+      info->pixmap.blit_x = (u32 )__cil_tmp30;
     } else {
 #line 643
-      __cil_tmp54 = 816 + 32;
+      __cil_tmp31 = (u32 )0;
 #line 643
-      __cil_tmp55 = (unsigned long )info;
-#line 643
-      __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
-#line 643
-      *((u32 *)__cil_tmp56) = ~ 0U;
+      info->pixmap.blit_x = ~ __cil_tmp31;
     }
 #line 644
-    __cil_tmp57 = 816 + 36;
+    __cil_tmp32 = (u32 )0;
 #line 644
-    __cil_tmp58 = (unsigned long )info;
-#line 644
-    __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
-#line 644
-    *((u32 *)__cil_tmp59) = ~ 0U;
+    info->pixmap.blit_y = ~ __cil_tmp32;
 #line 646
-    __cil_tmp60 = 352 + 8;
+    __cil_tmp33 = info->var.xres_virtual;
 #line 646
-    __cil_tmp61 = (unsigned long )info;
+    __cil_tmp34 = __cil_tmp33 * bpp;
 #line 646
-    __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
-#line 646
-    __cil_tmp63 = *((__u32 *)__cil_tmp62);
-#line 646
-    __cil_tmp64 = __cil_tmp63 * bpp;
-#line 646
-    offset_value = __cil_tmp64 / 64U;
+    offset_value = __cil_tmp34 / 64U;
 #line 647
-    __cil_tmp65 = 512 + 48;
+    __cil_tmp35 = info->fix.line_length;
 #line 647
-    __cil_tmp66 = (unsigned long )info;
+    __cil_tmp36 = info->var.yres_virtual;
 #line 647
-    __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 647
-    __cil_tmp68 = *((__u32 *)__cil_tmp67);
-#line 647
-    __cil_tmp69 = 352 + 12;
-#line 647
-    __cil_tmp70 = (unsigned long )info;
-#line 647
-    __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 647
-    __cil_tmp72 = *((__u32 *)__cil_tmp71);
-#line 647
-    screen_size = __cil_tmp72 * __cil_tmp68;
+    screen_size = __cil_tmp36 * __cil_tmp35;
   } else {
 #line 649
-    __cil_tmp73 = 512 + 42;
-#line 649
-    __cil_tmp74 = (unsigned long )info;
-#line 649
-    __cil_tmp75 = __cil_tmp74 + __cil_tmp73;
-#line 649
-    *((__u16 *)__cil_tmp75) = (unsigned short)16;
+    info->fix.ypanstep = (__u16 )16;
 #line 650
-    __cil_tmp76 = 512 + 48;
-#line 650
-    __cil_tmp77 = (unsigned long )info;
-#line 650
-    __cil_tmp78 = __cil_tmp77 + __cil_tmp76;
-#line 650
-    *((__u32 *)__cil_tmp78) = 0U;
+    info->fix.line_length = (__u32 )0;
 #line 652
-    __cil_tmp79 = (unsigned long )info;
+    __cil_tmp37 = info->flags;
 #line 652
-    __cil_tmp80 = __cil_tmp79 + 8;
-#line 652
-    __cil_tmp81 = (unsigned long )info;
-#line 652
-    __cil_tmp82 = __cil_tmp81 + 8;
-#line 652
-    __cil_tmp83 = *((int *)__cil_tmp82);
-#line 652
-    *((int *)__cil_tmp80) = __cil_tmp83 | 131072;
+    info->flags = __cil_tmp37 | 131072;
 #line 653
-    __cil_tmp84 = (unsigned long )info;
-#line 653
-    __cil_tmp85 = __cil_tmp84 + 1544;
-#line 653
-    *((struct fb_tile_ops **)__cil_tmp85) = & arkfb_tile_ops;
+    info->tileops = & arkfb_tile_ops;
 #line 656
-    __cil_tmp86 = 816 + 32;
+    __cil_tmp38 = 1 << 7;
 #line 656
-    __cil_tmp87 = (unsigned long )info;
-#line 656
-    __cil_tmp88 = __cil_tmp87 + __cil_tmp86;
-#line 656
-    __cil_tmp89 = 1 << 7;
-#line 656
-    *((u32 *)__cil_tmp88) = (unsigned int )__cil_tmp89;
+    info->pixmap.blit_x = (u32 )__cil_tmp38;
 #line 657
-    __cil_tmp90 = 816 + 36;
+    __cil_tmp39 = 1 << 15;
 #line 657
-    __cil_tmp91 = (unsigned long )info;
-#line 657
-    __cil_tmp92 = __cil_tmp91 + __cil_tmp90;
-#line 657
-    __cil_tmp93 = 1 << 15;
-#line 657
-    *((u32 *)__cil_tmp92) = (unsigned int )__cil_tmp93;
+    info->pixmap.blit_y = (u32 )__cil_tmp39;
 #line 659
-    __cil_tmp94 = 352 + 8;
+    __cil_tmp40 = info->var.xres_virtual;
 #line 659
-    __cil_tmp95 = (unsigned long )info;
-#line 659
-    __cil_tmp96 = __cil_tmp95 + __cil_tmp94;
-#line 659
-    __cil_tmp97 = *((__u32 *)__cil_tmp96);
-#line 659
-    offset_value = __cil_tmp97 / 16U;
+    offset_value = __cil_tmp40 / 16U;
 #line 660
-    __cil_tmp98 = 352 + 12;
+    __cil_tmp41 = info->var.yres_virtual;
 #line 660
-    __cil_tmp99 = (unsigned long )info;
+    __cil_tmp42 = info->var.xres_virtual;
 #line 660
-    __cil_tmp100 = __cil_tmp99 + __cil_tmp98;
+    __cil_tmp43 = __cil_tmp42 * __cil_tmp41;
 #line 660
-    __cil_tmp101 = *((__u32 *)__cil_tmp100);
-#line 660
-    __cil_tmp102 = 352 + 8;
-#line 660
-    __cil_tmp103 = (unsigned long )info;
-#line 660
-    __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
-#line 660
-    __cil_tmp105 = *((__u32 *)__cil_tmp104);
-#line 660
-    __cil_tmp106 = __cil_tmp105 * __cil_tmp101;
-#line 660
-    screen_size = __cil_tmp106 / 64U;
+    screen_size = __cil_tmp43 / 64U;
   }
   {
 #line 663
-  __cil_tmp107 = 352 + 16;
-#line 663
-  __cil_tmp108 = (unsigned long )info;
-#line 663
-  __cil_tmp109 = __cil_tmp108 + __cil_tmp107;
-#line 663
-  *((__u32 *)__cil_tmp109) = 0U;
+  info->var.xoffset = (__u32 )0;
 #line 664
-  __cil_tmp110 = 352 + 20;
-#line 664
-  __cil_tmp111 = (unsigned long )info;
-#line 664
-  __cil_tmp112 = __cil_tmp111 + __cil_tmp110;
-#line 664
-  *((__u32 *)__cil_tmp112) = 0U;
+  info->var.yoffset = (__u32 )0;
 #line 665
-  __cil_tmp113 = 352 + 84;
-#line 665
-  __cil_tmp114 = (unsigned long )info;
-#line 665
-  __cil_tmp115 = __cil_tmp114 + __cil_tmp113;
-#line 665
-  *((__u32 *)__cil_tmp115) = 0U;
+  info->var.activate = (__u32 )0;
 #line 668
-  __cil_tmp116 = (unsigned long )par;
+  __cil_tmp44 = par->state.vgabase;
 #line 668
-  __cil_tmp117 = __cil_tmp116 + 16;
+  __cil_tmp45 = (u8 )17;
 #line 668
-  __cil_tmp118 = *((void **)__cil_tmp117);
+  __cil_tmp46 = (u8 )0;
 #line 668
-  svga_wcrt_mask(__cil_tmp118, (unsigned char)17, (unsigned char)0, (unsigned char)128);
+  __cil_tmp47 = (u8 )128;
+#line 668
+  svga_wcrt_mask(__cil_tmp44, __cil_tmp45, __cil_tmp46, __cil_tmp47);
 #line 671
-  __cil_tmp119 = (unsigned long )par;
+  __cil_tmp48 = par->state.vgabase;
 #line 671
-  __cil_tmp120 = __cil_tmp119 + 16;
+  __cil_tmp49 = (u8 )1;
 #line 671
-  __cil_tmp121 = *((void **)__cil_tmp120);
+  __cil_tmp50 = (u8 )32;
 #line 671
-  svga_wseq_mask(__cil_tmp121, (unsigned char)1, (unsigned char)32, (unsigned char)32);
+  __cil_tmp51 = (u8 )32;
+#line 671
+  svga_wseq_mask(__cil_tmp48, __cil_tmp49, __cil_tmp50, __cil_tmp51);
 #line 672
-  __cil_tmp122 = (unsigned long )par;
+  __cil_tmp52 = par->state.vgabase;
 #line 672
-  __cil_tmp123 = __cil_tmp122 + 16;
+  __cil_tmp53 = (u8 )23;
 #line 672
-  __cil_tmp124 = *((void **)__cil_tmp123);
+  __cil_tmp54 = (u8 )0;
 #line 672
-  svga_wcrt_mask(__cil_tmp124, (unsigned char)23, (unsigned char)0, (unsigned char)128);
+  __cil_tmp55 = (u8 )128;
+#line 672
+  svga_wcrt_mask(__cil_tmp52, __cil_tmp53, __cil_tmp54, __cil_tmp55);
 #line 675
-  __cil_tmp125 = (unsigned long )par;
+  __cil_tmp56 = par->state.vgabase;
 #line 675
-  __cil_tmp126 = __cil_tmp125 + 16;
-#line 675
-  __cil_tmp127 = *((void **)__cil_tmp126);
-#line 675
-  svga_set_default_gfx_regs(__cil_tmp127);
+  svga_set_default_gfx_regs(__cil_tmp56);
 #line 676
-  __cil_tmp128 = (unsigned long )par;
+  __cil_tmp57 = par->state.vgabase;
 #line 676
-  __cil_tmp129 = __cil_tmp128 + 16;
-#line 676
-  __cil_tmp130 = *((void **)__cil_tmp129);
-#line 676
-  svga_set_default_atc_regs(__cil_tmp130);
+  svga_set_default_atc_regs(__cil_tmp57);
 #line 677
-  __cil_tmp131 = (unsigned long )par;
+  __cil_tmp58 = par->state.vgabase;
 #line 677
-  __cil_tmp132 = __cil_tmp131 + 16;
-#line 677
-  __cil_tmp133 = *((void **)__cil_tmp132);
-#line 677
-  svga_set_default_seq_regs(__cil_tmp133);
+  svga_set_default_seq_regs(__cil_tmp58);
 #line 678
-  __cil_tmp134 = (unsigned long )par;
+  __cil_tmp59 = par->state.vgabase;
 #line 678
-  __cil_tmp135 = __cil_tmp134 + 16;
-#line 678
-  __cil_tmp136 = *((void **)__cil_tmp135);
-#line 678
-  svga_set_default_crt_regs(__cil_tmp136);
+  svga_set_default_crt_regs(__cil_tmp59);
 #line 679
-  __cil_tmp137 = (unsigned long )par;
+  __cil_tmp60 = par->state.vgabase;
 #line 679
-  __cil_tmp138 = __cil_tmp137 + 16;
+  __cil_tmp61 = & ark_line_compare_regs[0];
 #line 679
-  __cil_tmp139 = *((void **)__cil_tmp138);
-#line 679
-  __cil_tmp140 = 0 * 3UL;
-#line 679
-  __cil_tmp141 = (unsigned long )(ark_line_compare_regs) + __cil_tmp140;
-#line 679
-  __cil_tmp142 = (struct vga_regset  const  *)__cil_tmp141;
-#line 679
-  svga_wcrt_multi(__cil_tmp139, __cil_tmp142, 4294967295U);
+  svga_wcrt_multi(__cil_tmp60, __cil_tmp61, 4294967295U);
 #line 680
-  __cil_tmp143 = (unsigned long )par;
+  __cil_tmp62 = par->state.vgabase;
 #line 680
-  __cil_tmp144 = __cil_tmp143 + 16;
+  __cil_tmp63 = & ark_start_address_regs[0];
 #line 680
-  __cil_tmp145 = *((void **)__cil_tmp144);
+  __cil_tmp64 = (u32 )0;
 #line 680
-  __cil_tmp146 = 0 * 3UL;
-#line 680
-  __cil_tmp147 = (unsigned long )(ark_start_address_regs) + __cil_tmp146;
-#line 680
-  __cil_tmp148 = (struct vga_regset  const  *)__cil_tmp147;
-#line 680
-  svga_wcrt_multi(__cil_tmp145, __cil_tmp148, 0U);
+  svga_wcrt_multi(__cil_tmp62, __cil_tmp63, __cil_tmp64);
 #line 683
-  __cil_tmp149 = (unsigned long )par;
+  __cil_tmp65 = par->state.vgabase;
 #line 683
-  __cil_tmp150 = __cil_tmp149 + 16;
+  __cil_tmp66 = (u8 )16;
 #line 683
-  __cil_tmp151 = *((void **)__cil_tmp150);
+  __cil_tmp67 = (u8 )31;
 #line 683
-  svga_wseq_mask(__cil_tmp151, (unsigned char)16, (unsigned char)31, (unsigned char)31);
+  __cil_tmp68 = (u8 )31;
+#line 683
+  svga_wseq_mask(__cil_tmp65, __cil_tmp66, __cil_tmp67, __cil_tmp68);
 #line 684
-  __cil_tmp152 = (unsigned long )par;
+  __cil_tmp69 = par->state.vgabase;
 #line 684
-  __cil_tmp153 = __cil_tmp152 + 16;
+  __cil_tmp70 = (u8 )18;
 #line 684
-  __cil_tmp154 = *((void **)__cil_tmp153);
+  __cil_tmp71 = (u8 )3;
 #line 684
-  svga_wseq_mask(__cil_tmp154, (unsigned char)18, (unsigned char)3, (unsigned char)3);
+  __cil_tmp72 = (u8 )3;
+#line 684
+  svga_wseq_mask(__cil_tmp69, __cil_tmp70, __cil_tmp71, __cil_tmp72);
 #line 686
-  __cil_tmp155 = (unsigned long )par;
+  __cil_tmp73 = par->state.vgabase;
 #line 686
-  __cil_tmp156 = __cil_tmp155 + 16;
+  __cil_tmp74 = info->fix.smem_start;
 #line 686
-  __cil_tmp157 = *((void **)__cil_tmp156);
+  __cil_tmp75 = __cil_tmp74 >> 16;
 #line 686
-  __cil_tmp158 = 512 + 16;
+  __cil_tmp76 = (unsigned char )__cil_tmp75;
 #line 686
-  __cil_tmp159 = (unsigned long )info;
-#line 686
-  __cil_tmp160 = __cil_tmp159 + __cil_tmp158;
-#line 686
-  __cil_tmp161 = *((unsigned long *)__cil_tmp160);
-#line 686
-  __cil_tmp162 = __cil_tmp161 >> 16;
-#line 686
-  __cil_tmp163 = (unsigned char )__cil_tmp162;
-#line 686
-  vga_wseq(__cil_tmp157, (unsigned char)19, __cil_tmp163);
+  vga_wseq(__cil_tmp73, (unsigned char)19, __cil_tmp76);
 #line 687
-  __cil_tmp164 = (unsigned long )par;
+  __cil_tmp77 = par->state.vgabase;
 #line 687
-  __cil_tmp165 = __cil_tmp164 + 16;
+  __cil_tmp78 = info->fix.smem_start;
 #line 687
-  __cil_tmp166 = *((void **)__cil_tmp165);
+  __cil_tmp79 = __cil_tmp78 >> 24;
 #line 687
-  __cil_tmp167 = 512 + 16;
+  __cil_tmp80 = (unsigned char )__cil_tmp79;
 #line 687
-  __cil_tmp168 = (unsigned long )info;
-#line 687
-  __cil_tmp169 = __cil_tmp168 + __cil_tmp167;
-#line 687
-  __cil_tmp170 = *((unsigned long *)__cil_tmp169);
-#line 687
-  __cil_tmp171 = __cil_tmp170 >> 24;
-#line 687
-  __cil_tmp172 = (unsigned char )__cil_tmp171;
-#line 687
-  vga_wseq(__cil_tmp166, (unsigned char)20, __cil_tmp172);
+  vga_wseq(__cil_tmp77, (unsigned char)20, __cil_tmp80);
 #line 688
-  __cil_tmp173 = (unsigned long )par;
+  __cil_tmp81 = par->state.vgabase;
 #line 688
-  __cil_tmp174 = __cil_tmp173 + 16;
-#line 688
-  __cil_tmp175 = *((void **)__cil_tmp174);
-#line 688
-  vga_wseq(__cil_tmp175, (unsigned char)21, (unsigned char)0);
+  vga_wseq(__cil_tmp81, (unsigned char)21, (unsigned char)0);
 #line 689
-  __cil_tmp176 = (unsigned long )par;
+  __cil_tmp82 = par->state.vgabase;
 #line 689
-  __cil_tmp177 = __cil_tmp176 + 16;
-#line 689
-  __cil_tmp178 = *((void **)__cil_tmp177);
-#line 689
-  vga_wseq(__cil_tmp178, (unsigned char)22, (unsigned char)0);
+  vga_wseq(__cil_tmp82, (unsigned char)22, (unsigned char)0);
 #line 693
-  __cil_tmp179 = & threshold;
+  __cil_tmp83 = threshold & 16;
 #line 693
-  __cil_tmp180 = *__cil_tmp179;
+  __cil_tmp84 = __cil_tmp83 << 1;
 #line 693
-  __cil_tmp181 = __cil_tmp180 & 16;
+  __cil_tmp85 = threshold & 1;
 #line 693
-  __cil_tmp182 = __cil_tmp181 << 1;
+  __cil_tmp86 = __cil_tmp85 << 7;
 #line 693
-  __cil_tmp183 = & threshold;
+  __cil_tmp87 = threshold & 14;
 #line 693
-  __cil_tmp184 = *__cil_tmp183;
+  __cil_tmp88 = __cil_tmp87 >> 1;
 #line 693
-  __cil_tmp185 = __cil_tmp184 & 1;
+  __cil_tmp89 = 16 | __cil_tmp88;
 #line 693
-  __cil_tmp186 = __cil_tmp185 << 7;
+  __cil_tmp90 = __cil_tmp89 | __cil_tmp86;
 #line 693
-  __cil_tmp187 = & threshold;
+  __cil_tmp91 = __cil_tmp90 | __cil_tmp84;
 #line 693
-  __cil_tmp188 = *__cil_tmp187;
-#line 693
-  __cil_tmp189 = __cil_tmp188 & 14;
-#line 693
-  __cil_tmp190 = __cil_tmp189 >> 1;
-#line 693
-  __cil_tmp191 = 16 | __cil_tmp190;
-#line 693
-  __cil_tmp192 = __cil_tmp191 | __cil_tmp186;
-#line 693
-  __cil_tmp193 = __cil_tmp192 | __cil_tmp182;
-#line 693
-  regval = (unsigned char )__cil_tmp193;
+  regval = (u8 )__cil_tmp91;
 #line 694
-  __cil_tmp194 = (unsigned long )par;
+  __cil_tmp92 = par->state.vgabase;
 #line 694
-  __cil_tmp195 = __cil_tmp194 + 16;
-#line 694
-  __cil_tmp196 = *((void **)__cil_tmp195);
-#line 694
-  vga_wseq(__cil_tmp196, (unsigned char)24, regval);
+  vga_wseq(__cil_tmp92, (unsigned char)24, regval);
   }
   {
 #line 697
   while (1) {
-    while_10_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 697
-    __cil_tmp197 = (unsigned long )(& descriptor) + 36;
+    __cil_tmp93 = ! descriptor.enabled;
 #line 697
-    __cil_tmp198 = *((char *)__cil_tmp197);
+    __cil_tmp94 = ! __cil_tmp93;
 #line 697
-    __cil_tmp199 = ! __cil_tmp198;
+    __cil_tmp95 = (long )__cil_tmp94;
 #line 697
-    __cil_tmp200 = ! __cil_tmp199;
-#line 697
-    __cil_tmp201 = (long )__cil_tmp200;
-#line 697
-    tmp___7 = __builtin_expect(__cil_tmp201, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp95, 0L);
     }
 #line 697
     if (tmp___7) {
       {
 #line 697
-      __cil_tmp202 = (unsigned long )info;
+      __cil_tmp96 = info->node;
 #line 697
-      __cil_tmp203 = __cil_tmp202 + 4;
-#line 697
-      __cil_tmp204 = *((int *)__cil_tmp203);
-#line 697
-      __dynamic_pr_debug(& descriptor, "fb%d: offset register       : %d\n", __cil_tmp204,
+      __dynamic_pr_debug(& descriptor, "fb%d: offset register       : %d\n", __cil_tmp96,
                          offset_value);
       }
     } else {
 
     }
+#line 697
     goto while_break;
   }
-  while_10_break: /* CIL Label */ ;
+  while_break___10: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 698
-  __cil_tmp205 = (unsigned long )par;
+  __cil_tmp97 = par->state.vgabase;
 #line 698
-  __cil_tmp206 = __cil_tmp205 + 16;
+  __cil_tmp98 = & ark_offset_regs[0];
 #line 698
-  __cil_tmp207 = *((void **)__cil_tmp206);
-#line 698
-  __cil_tmp208 = 0 * 3UL;
-#line 698
-  __cil_tmp209 = (unsigned long )(ark_offset_regs) + __cil_tmp208;
-#line 698
-  __cil_tmp210 = (struct vga_regset  const  *)__cil_tmp209;
-#line 698
-  svga_wcrt_multi(__cil_tmp207, __cil_tmp210, offset_value);
+  svga_wcrt_multi(__cil_tmp97, __cil_tmp98, offset_value);
 #line 701
-  __cil_tmp211 = (unsigned long )par;
+  __cil_tmp99 = par->state.vgabase;
 #line 701
-  __cil_tmp212 = __cil_tmp211 + 16;
+  __cil_tmp100 = (u8 )64;
 #line 701
-  __cil_tmp213 = *((void **)__cil_tmp212);
+  __cil_tmp101 = (u8 )8;
 #line 701
-  svga_wcrt_mask(__cil_tmp213, (unsigned char)64, (unsigned char)8, (unsigned char)8);
+  __cil_tmp102 = (u8 )8;
+#line 701
+  svga_wcrt_mask(__cil_tmp99, __cil_tmp100, __cil_tmp101, __cil_tmp102);
   }
   {
 #line 703
-  __cil_tmp214 = 352 + 132;
+  __cil_tmp103 = info->var.vmode;
 #line 703
-  __cil_tmp215 = (unsigned long )info;
-#line 703
-  __cil_tmp216 = __cil_tmp215 + __cil_tmp214;
-#line 703
-  __cil_tmp217 = *((__u32 *)__cil_tmp216);
-#line 703
-  if (__cil_tmp217 & 2U) {
+  if (__cil_tmp103 & 2U) {
     {
 #line 704
-    __cil_tmp218 = (unsigned long )par;
+    __cil_tmp104 = par->state.vgabase;
 #line 704
-    __cil_tmp219 = __cil_tmp218 + 16;
+    __cil_tmp105 = (u8 )9;
 #line 704
-    __cil_tmp220 = *((void **)__cil_tmp219);
+    __cil_tmp106 = (u8 )128;
 #line 704
-    svga_wcrt_mask(__cil_tmp220, (unsigned char)9, (unsigned char)128, (unsigned char)128);
+    __cil_tmp107 = (u8 )128;
+#line 704
+    svga_wcrt_mask(__cil_tmp104, __cil_tmp105, __cil_tmp106, __cil_tmp107);
     }
   } else {
     {
 #line 706
-    __cil_tmp221 = (unsigned long )par;
+    __cil_tmp108 = par->state.vgabase;
 #line 706
-    __cil_tmp222 = __cil_tmp221 + 16;
+    __cil_tmp109 = (u8 )9;
 #line 706
-    __cil_tmp223 = *((void **)__cil_tmp222);
+    __cil_tmp110 = (u8 )0;
 #line 706
-    svga_wcrt_mask(__cil_tmp223, (unsigned char)9, (unsigned char)0, (unsigned char)128);
+    __cil_tmp111 = (u8 )128;
+#line 706
+    svga_wcrt_mask(__cil_tmp108, __cil_tmp109, __cil_tmp110, __cil_tmp111);
     }
   }
   }
   {
 #line 708
-  __cil_tmp224 = 352 + 132;
+  __cil_tmp112 = info->var.vmode;
 #line 708
-  __cil_tmp225 = (unsigned long )info;
-#line 708
-  __cil_tmp226 = __cil_tmp225 + __cil_tmp224;
-#line 708
-  __cil_tmp227 = *((__u32 *)__cil_tmp226);
-#line 708
-  if (__cil_tmp227 & 1U) {
+  if (__cil_tmp112 & 1U) {
     {
 #line 709
-    __cil_tmp228 = (unsigned long )par;
+    __cil_tmp113 = par->state.vgabase;
 #line 709
-    __cil_tmp229 = __cil_tmp228 + 16;
+    __cil_tmp114 = (u8 )68;
 #line 709
-    __cil_tmp230 = *((void **)__cil_tmp229);
+    __cil_tmp115 = (u8 )4;
 #line 709
-    svga_wcrt_mask(__cil_tmp230, (unsigned char)68, (unsigned char)4, (unsigned char)4);
+    __cil_tmp116 = (u8 )4;
+#line 709
+    svga_wcrt_mask(__cil_tmp113, __cil_tmp114, __cil_tmp115, __cil_tmp116);
     }
   } else {
     {
 #line 711
-    __cil_tmp231 = (unsigned long )par;
+    __cil_tmp117 = par->state.vgabase;
 #line 711
-    __cil_tmp232 = __cil_tmp231 + 16;
+    __cil_tmp118 = (u8 )68;
 #line 711
-    __cil_tmp233 = *((void **)__cil_tmp232);
+    __cil_tmp119 = (u8 )0;
 #line 711
-    svga_wcrt_mask(__cil_tmp233, (unsigned char)68, (unsigned char)0, (unsigned char)4);
+    __cil_tmp120 = (u8 )4;
+#line 711
+    svga_wcrt_mask(__cil_tmp117, __cil_tmp118, __cil_tmp119, __cil_tmp120);
     }
   }
   }
   {
 #line 713
-  hmul = 1U;
+  hmul = (u32 )1;
 #line 714
-  hdiv = 1U;
+  hdiv = (u32 )1;
 #line 715
-  __cil_tmp234 = 0 * 76UL;
+  __cil_tmp121 = & arkfb_formats[0];
 #line 715
-  __cil_tmp235 = (unsigned long )(arkfb_formats) + __cil_tmp234;
+  __cil_tmp122 = & info->var;
 #line 715
-  __cil_tmp236 = (struct svga_fb_format  const  *)__cil_tmp235;
+  __cil_tmp123 = & info->fix;
 #line 715
-  __cil_tmp237 = (unsigned long )info;
+  tmp___8 = svga_match_format(__cil_tmp121, __cil_tmp122, __cil_tmp123);
 #line 715
-  __cil_tmp238 = __cil_tmp237 + 352;
-#line 715
-  __cil_tmp239 = (struct fb_var_screeninfo *)__cil_tmp238;
-#line 715
-  __cil_tmp240 = (unsigned long )info;
-#line 715
-  __cil_tmp241 = __cil_tmp240 + 512;
-#line 715
-  __cil_tmp242 = (struct fb_fix_screeninfo *)__cil_tmp241;
-#line 715
-  tmp___8 = svga_match_format(__cil_tmp236, __cil_tmp239, __cil_tmp242);
-#line 715
-  mode = (unsigned int )tmp___8;
+  mode = (u32 )tmp___8;
   }
   {
 #line 719
-  __cil_tmp243 = (int )mode;
+  __cil_tmp124 = (int )mode;
 #line 719
-  if (__cil_tmp243 == 0) {
+  if (__cil_tmp124 == 0) {
+#line 719
     goto case_0;
   } else {
     {
 #line 728
-    __cil_tmp244 = (int )mode;
+    __cil_tmp125 = (int )mode;
 #line 728
-    if (__cil_tmp244 == 1) {
+    if (__cil_tmp125 == 1) {
+#line 728
       goto case_1;
     } else {
       {
 #line 736
-      __cil_tmp245 = (int )mode;
+      __cil_tmp126 = (int )mode;
 #line 736
-      if (__cil_tmp245 == 2) {
+      if (__cil_tmp126 == 2) {
+#line 736
         goto case_2;
       } else {
         {
 #line 743
-        __cil_tmp246 = (int )mode;
+        __cil_tmp127 = (int )mode;
 #line 743
-        if (__cil_tmp246 == 3) {
+        if (__cil_tmp127 == 3) {
+#line 743
           goto case_3;
         } else {
           {
 #line 759
-          __cil_tmp247 = (int )mode;
+          __cil_tmp128 = (int )mode;
 #line 759
-          if (__cil_tmp247 == 4) {
+          if (__cil_tmp128 == 4) {
+#line 759
             goto case_4;
           } else {
             {
 #line 766
-            __cil_tmp248 = (int )mode;
+            __cil_tmp129 = (int )mode;
 #line 766
-            if (__cil_tmp248 == 5) {
+            if (__cil_tmp129 == 5) {
+#line 766
               goto case_5;
             } else {
               {
 #line 773
-              __cil_tmp249 = (int )mode;
+              __cil_tmp130 = (int )mode;
 #line 773
-              if (__cil_tmp249 == 6) {
+              if (__cil_tmp130 == 6) {
+#line 773
                 goto case_6;
               } else {
                 {
 #line 782
-                __cil_tmp250 = (int )mode;
+                __cil_tmp131 = (int )mode;
 #line 782
-                if (__cil_tmp250 == 7) {
+                if (__cil_tmp131 == 7) {
+#line 782
                   goto case_7;
                 } else {
+#line 790
                   goto switch_default;
 #line 718
                   if (0) {
@@ -10893,703 +9439,564 @@ static int arkfb_set_par(struct fb_info *info )
                     {
 #line 720
                     while (1) {
-                      while_11_continue: /* CIL Label */ ;
+                      while_continue___0: /* CIL Label */ ;
                       {
 #line 720
-                      __cil_tmp251 = (unsigned long )(& descriptor___0) + 36;
+                      __cil_tmp132 = ! descriptor___0.enabled;
 #line 720
-                      __cil_tmp252 = *((char *)__cil_tmp251);
+                      __cil_tmp133 = ! __cil_tmp132;
 #line 720
-                      __cil_tmp253 = ! __cil_tmp252;
+                      __cil_tmp134 = (long )__cil_tmp133;
 #line 720
-                      __cil_tmp254 = ! __cil_tmp253;
-#line 720
-                      __cil_tmp255 = (long )__cil_tmp254;
-#line 720
-                      tmp___9 = __builtin_expect(__cil_tmp255, 0L);
+                      tmp___9 = __builtin_expect(__cil_tmp134, 0L);
                       }
 #line 720
                       if (tmp___9) {
                         {
 #line 720
-                        __cil_tmp256 = (unsigned long )info;
-#line 720
-                        __cil_tmp257 = __cil_tmp256 + 4;
-#line 720
-                        __cil_tmp258 = *((int *)__cil_tmp257);
+                        __cil_tmp135 = info->node;
 #line 720
                         __dynamic_pr_debug(& descriptor___0, "fb%d: text mode\n",
-                                           __cil_tmp258);
+                                           __cil_tmp135);
                         }
                       } else {
 
                       }
+#line 720
                       goto while_break___0;
                     }
-                    while_11_break: /* CIL Label */ ;
+                    while_break___11: /* CIL Label */ ;
                     }
 
                     while_break___0: 
                     {
 #line 721
-                    __cil_tmp259 = (unsigned long )par;
+                    __cil_tmp136 = par->state.vgabase;
 #line 721
-                    __cil_tmp260 = __cil_tmp259 + 16;
-#line 721
-                    __cil_tmp261 = *((void **)__cil_tmp260);
-#line 721
-                    svga_set_textmode_vga_regs(__cil_tmp261);
+                    svga_set_textmode_vga_regs(__cil_tmp136);
 #line 723
-                    __cil_tmp262 = (unsigned long )par;
+                    __cil_tmp137 = par->state.vgabase;
 #line 723
-                    __cil_tmp263 = __cil_tmp262 + 16;
-#line 723
-                    __cil_tmp264 = *((void **)__cil_tmp263);
-#line 723
-                    vga_wseq(__cil_tmp264, (unsigned char)17, (unsigned char)16);
+                    vga_wseq(__cil_tmp137, (unsigned char)17, (unsigned char)16);
 #line 724
-                    __cil_tmp265 = (unsigned long )par;
+                    __cil_tmp138 = par->state.vgabase;
 #line 724
-                    __cil_tmp266 = __cil_tmp265 + 16;
+                    __cil_tmp139 = (u8 )70;
 #line 724
-                    __cil_tmp267 = *((void **)__cil_tmp266);
+                    __cil_tmp140 = (u8 )0;
 #line 724
-                    svga_wcrt_mask(__cil_tmp267, (unsigned char)70, (unsigned char)0,
-                                   (unsigned char)4);
+                    __cil_tmp141 = (u8 )4;
+#line 724
+                    svga_wcrt_mask(__cil_tmp138, __cil_tmp139, __cil_tmp140, __cil_tmp141);
 #line 725
-                    __cil_tmp268 = (unsigned long )par;
+                    __cil_tmp142 = par->dac;
 #line 725
-                    __cil_tmp269 = __cil_tmp268 + 8;
-#line 725
-                    __cil_tmp270 = *((struct dac_info **)__cil_tmp269);
-#line 725
-                    dac_set_mode(__cil_tmp270, 0);
+                    dac_set_mode(__cil_tmp142, 0);
                     }
+#line 727
                     goto switch_break;
                     case_1: 
                     {
 #line 729
                     while (1) {
-                      while_12_continue: /* CIL Label */ ;
+                      while_continue___1: /* CIL Label */ ;
                       {
 #line 729
-                      __cil_tmp271 = (unsigned long )(& descriptor___1) + 36;
+                      __cil_tmp143 = ! descriptor___1.enabled;
 #line 729
-                      __cil_tmp272 = *((char *)__cil_tmp271);
+                      __cil_tmp144 = ! __cil_tmp143;
 #line 729
-                      __cil_tmp273 = ! __cil_tmp272;
+                      __cil_tmp145 = (long )__cil_tmp144;
 #line 729
-                      __cil_tmp274 = ! __cil_tmp273;
-#line 729
-                      __cil_tmp275 = (long )__cil_tmp274;
-#line 729
-                      tmp___10 = __builtin_expect(__cil_tmp275, 0L);
+                      tmp___10 = __builtin_expect(__cil_tmp145, 0L);
                       }
 #line 729
                       if (tmp___10) {
                         {
 #line 729
-                        __cil_tmp276 = (unsigned long )info;
-#line 729
-                        __cil_tmp277 = __cil_tmp276 + 4;
-#line 729
-                        __cil_tmp278 = *((int *)__cil_tmp277);
+                        __cil_tmp146 = info->node;
 #line 729
                         __dynamic_pr_debug(& descriptor___1, "fb%d: 4 bit pseudocolor\n",
-                                           __cil_tmp278);
+                                           __cil_tmp146);
                         }
                       } else {
 
                       }
+#line 729
                       goto while_break___1;
                     }
-                    while_12_break: /* CIL Label */ ;
+                    while_break___12: /* CIL Label */ ;
                     }
 
                     while_break___1: 
                     {
 #line 730
-                    __cil_tmp279 = (unsigned long )par;
+                    __cil_tmp147 = par->state.vgabase;
 #line 730
-                    __cil_tmp280 = __cil_tmp279 + 16;
-#line 730
-                    __cil_tmp281 = *((void **)__cil_tmp280);
-#line 730
-                    vga_wgfx(__cil_tmp281, (unsigned char)5, (unsigned char)64);
+                    vga_wgfx(__cil_tmp147, (unsigned char)5, (unsigned char)64);
 #line 732
-                    __cil_tmp282 = (unsigned long )par;
+                    __cil_tmp148 = par->state.vgabase;
 #line 732
-                    __cil_tmp283 = __cil_tmp282 + 16;
-#line 732
-                    __cil_tmp284 = *((void **)__cil_tmp283);
-#line 732
-                    vga_wseq(__cil_tmp284, (unsigned char)17, (unsigned char)16);
+                    vga_wseq(__cil_tmp148, (unsigned char)17, (unsigned char)16);
 #line 733
-                    __cil_tmp285 = (unsigned long )par;
+                    __cil_tmp149 = par->state.vgabase;
 #line 733
-                    __cil_tmp286 = __cil_tmp285 + 16;
+                    __cil_tmp150 = (u8 )70;
 #line 733
-                    __cil_tmp287 = *((void **)__cil_tmp286);
+                    __cil_tmp151 = (u8 )0;
 #line 733
-                    svga_wcrt_mask(__cil_tmp287, (unsigned char)70, (unsigned char)0,
-                                   (unsigned char)4);
+                    __cil_tmp152 = (u8 )4;
+#line 733
+                    svga_wcrt_mask(__cil_tmp149, __cil_tmp150, __cil_tmp151, __cil_tmp152);
 #line 734
-                    __cil_tmp288 = (unsigned long )par;
+                    __cil_tmp153 = par->dac;
 #line 734
-                    __cil_tmp289 = __cil_tmp288 + 8;
-#line 734
-                    __cil_tmp290 = *((struct dac_info **)__cil_tmp289);
-#line 734
-                    dac_set_mode(__cil_tmp290, 0);
+                    dac_set_mode(__cil_tmp153, 0);
                     }
+#line 735
                     goto switch_break;
                     case_2: 
                     {
 #line 737
                     while (1) {
-                      while_13_continue: /* CIL Label */ ;
+                      while_continue___2: /* CIL Label */ ;
                       {
 #line 737
-                      __cil_tmp291 = (unsigned long )(& descriptor___2) + 36;
+                      __cil_tmp154 = ! descriptor___2.enabled;
 #line 737
-                      __cil_tmp292 = *((char *)__cil_tmp291);
+                      __cil_tmp155 = ! __cil_tmp154;
 #line 737
-                      __cil_tmp293 = ! __cil_tmp292;
+                      __cil_tmp156 = (long )__cil_tmp155;
 #line 737
-                      __cil_tmp294 = ! __cil_tmp293;
-#line 737
-                      __cil_tmp295 = (long )__cil_tmp294;
-#line 737
-                      tmp___11 = __builtin_expect(__cil_tmp295, 0L);
+                      tmp___11 = __builtin_expect(__cil_tmp156, 0L);
                       }
 #line 737
                       if (tmp___11) {
                         {
 #line 737
-                        __cil_tmp296 = (unsigned long )info;
-#line 737
-                        __cil_tmp297 = __cil_tmp296 + 4;
-#line 737
-                        __cil_tmp298 = *((int *)__cil_tmp297);
+                        __cil_tmp157 = info->node;
 #line 737
                         __dynamic_pr_debug(& descriptor___2, "fb%d: 4 bit pseudocolor, planar\n",
-                                           __cil_tmp298);
+                                           __cil_tmp157);
                         }
                       } else {
 
                       }
+#line 737
                       goto while_break___2;
                     }
-                    while_13_break: /* CIL Label */ ;
+                    while_break___13: /* CIL Label */ ;
                     }
 
                     while_break___2: 
                     {
 #line 739
-                    __cil_tmp299 = (unsigned long )par;
+                    __cil_tmp158 = par->state.vgabase;
 #line 739
-                    __cil_tmp300 = __cil_tmp299 + 16;
-#line 739
-                    __cil_tmp301 = *((void **)__cil_tmp300);
-#line 739
-                    vga_wseq(__cil_tmp301, (unsigned char)17, (unsigned char)16);
+                    vga_wseq(__cil_tmp158, (unsigned char)17, (unsigned char)16);
 #line 740
-                    __cil_tmp302 = (unsigned long )par;
+                    __cil_tmp159 = par->state.vgabase;
 #line 740
-                    __cil_tmp303 = __cil_tmp302 + 16;
+                    __cil_tmp160 = (u8 )70;
 #line 740
-                    __cil_tmp304 = *((void **)__cil_tmp303);
+                    __cil_tmp161 = (u8 )0;
 #line 740
-                    svga_wcrt_mask(__cil_tmp304, (unsigned char)70, (unsigned char)0,
-                                   (unsigned char)4);
+                    __cil_tmp162 = (u8 )4;
+#line 740
+                    svga_wcrt_mask(__cil_tmp159, __cil_tmp160, __cil_tmp161, __cil_tmp162);
 #line 741
-                    __cil_tmp305 = (unsigned long )par;
+                    __cil_tmp163 = par->dac;
 #line 741
-                    __cil_tmp306 = __cil_tmp305 + 8;
-#line 741
-                    __cil_tmp307 = *((struct dac_info **)__cil_tmp306);
-#line 741
-                    dac_set_mode(__cil_tmp307, 0);
+                    dac_set_mode(__cil_tmp163, 0);
                     }
+#line 742
                     goto switch_break;
                     case_3: 
                     {
 #line 744
                     while (1) {
-                      while_14_continue: /* CIL Label */ ;
+                      while_continue___3: /* CIL Label */ ;
                       {
 #line 744
-                      __cil_tmp308 = (unsigned long )(& descriptor___3) + 36;
+                      __cil_tmp164 = ! descriptor___3.enabled;
 #line 744
-                      __cil_tmp309 = *((char *)__cil_tmp308);
+                      __cil_tmp165 = ! __cil_tmp164;
 #line 744
-                      __cil_tmp310 = ! __cil_tmp309;
+                      __cil_tmp166 = (long )__cil_tmp165;
 #line 744
-                      __cil_tmp311 = ! __cil_tmp310;
-#line 744
-                      __cil_tmp312 = (long )__cil_tmp311;
-#line 744
-                      tmp___12 = __builtin_expect(__cil_tmp312, 0L);
+                      tmp___12 = __builtin_expect(__cil_tmp166, 0L);
                       }
 #line 744
                       if (tmp___12) {
                         {
 #line 744
-                        __cil_tmp313 = (unsigned long )info;
-#line 744
-                        __cil_tmp314 = __cil_tmp313 + 4;
-#line 744
-                        __cil_tmp315 = *((int *)__cil_tmp314);
+                        __cil_tmp167 = info->node;
 #line 744
                         __dynamic_pr_debug(& descriptor___3, "fb%d: 8 bit pseudocolor\n",
-                                           __cil_tmp315);
+                                           __cil_tmp167);
                         }
                       } else {
 
                       }
+#line 744
                       goto while_break___3;
                     }
-                    while_14_break: /* CIL Label */ ;
+                    while_break___14: /* CIL Label */ ;
                     }
 
                     while_break___3: 
                     {
 #line 746
-                    __cil_tmp316 = (unsigned long )par;
+                    __cil_tmp168 = par->state.vgabase;
 #line 746
-                    __cil_tmp317 = __cil_tmp316 + 16;
-#line 746
-                    __cil_tmp318 = *((void **)__cil_tmp317);
-#line 746
-                    vga_wseq(__cil_tmp318, (unsigned char)17, (unsigned char)22);
+                    vga_wseq(__cil_tmp168, (unsigned char)17, (unsigned char)22);
                     }
                     {
 #line 748
-                    __cil_tmp319 = 352 + 100;
+                    __cil_tmp169 = info->var.pixclock;
 #line 748
-                    __cil_tmp320 = (unsigned long )info;
-#line 748
-                    __cil_tmp321 = __cil_tmp320 + __cil_tmp319;
-#line 748
-                    __cil_tmp322 = *((__u32 *)__cil_tmp321);
-#line 748
-                    if (__cil_tmp322 > 20000U) {
+                    if (__cil_tmp169 > 20000U) {
                       {
 #line 749
                       while (1) {
-                        while_15_continue: /* CIL Label */ ;
+                        while_continue___4: /* CIL Label */ ;
                         {
 #line 749
-                        __cil_tmp323 = (unsigned long )(& descriptor___4) + 36;
+                        __cil_tmp170 = ! descriptor___4.enabled;
 #line 749
-                        __cil_tmp324 = *((char *)__cil_tmp323);
+                        __cil_tmp171 = ! __cil_tmp170;
 #line 749
-                        __cil_tmp325 = ! __cil_tmp324;
+                        __cil_tmp172 = (long )__cil_tmp171;
 #line 749
-                        __cil_tmp326 = ! __cil_tmp325;
-#line 749
-                        __cil_tmp327 = (long )__cil_tmp326;
-#line 749
-                        tmp___13 = __builtin_expect(__cil_tmp327, 0L);
+                        tmp___13 = __builtin_expect(__cil_tmp172, 0L);
                         }
 #line 749
                         if (tmp___13) {
                           {
 #line 749
-                          __cil_tmp328 = (unsigned long )info;
-#line 749
-                          __cil_tmp329 = __cil_tmp328 + 4;
-#line 749
-                          __cil_tmp330 = *((int *)__cil_tmp329);
+                          __cil_tmp173 = info->node;
 #line 749
                           __dynamic_pr_debug(& descriptor___4, "fb%d: not using multiplex\n",
-                                             __cil_tmp330);
+                                             __cil_tmp173);
                           }
                         } else {
 
                         }
+#line 749
                         goto while_break___4;
                       }
-                      while_15_break: /* CIL Label */ ;
+                      while_break___15: /* CIL Label */ ;
                       }
 
                       while_break___4: 
                       {
 #line 750
-                      __cil_tmp331 = (unsigned long )par;
+                      __cil_tmp174 = par->state.vgabase;
 #line 750
-                      __cil_tmp332 = __cil_tmp331 + 16;
+                      __cil_tmp175 = (u8 )70;
 #line 750
-                      __cil_tmp333 = *((void **)__cil_tmp332);
+                      __cil_tmp176 = (u8 )0;
 #line 750
-                      svga_wcrt_mask(__cil_tmp333, (unsigned char)70, (unsigned char)0,
-                                     (unsigned char)4);
+                      __cil_tmp177 = (u8 )4;
+#line 750
+                      svga_wcrt_mask(__cil_tmp174, __cil_tmp175, __cil_tmp176, __cil_tmp177);
 #line 751
-                      __cil_tmp334 = (unsigned long )par;
+                      __cil_tmp178 = par->dac;
 #line 751
-                      __cil_tmp335 = __cil_tmp334 + 8;
-#line 751
-                      __cil_tmp336 = *((struct dac_info **)__cil_tmp335);
-#line 751
-                      dac_set_mode(__cil_tmp336, 0);
+                      dac_set_mode(__cil_tmp178, 0);
                       }
                     } else {
                       {
 #line 753
                       while (1) {
-                        while_16_continue: /* CIL Label */ ;
+                        while_continue___5: /* CIL Label */ ;
                         {
 #line 753
-                        __cil_tmp337 = (unsigned long )(& descriptor___5) + 36;
+                        __cil_tmp179 = ! descriptor___5.enabled;
 #line 753
-                        __cil_tmp338 = *((char *)__cil_tmp337);
+                        __cil_tmp180 = ! __cil_tmp179;
 #line 753
-                        __cil_tmp339 = ! __cil_tmp338;
+                        __cil_tmp181 = (long )__cil_tmp180;
 #line 753
-                        __cil_tmp340 = ! __cil_tmp339;
-#line 753
-                        __cil_tmp341 = (long )__cil_tmp340;
-#line 753
-                        tmp___14 = __builtin_expect(__cil_tmp341, 0L);
+                        tmp___14 = __builtin_expect(__cil_tmp181, 0L);
                         }
 #line 753
                         if (tmp___14) {
                           {
 #line 753
-                          __cil_tmp342 = (unsigned long )info;
-#line 753
-                          __cil_tmp343 = __cil_tmp342 + 4;
-#line 753
-                          __cil_tmp344 = *((int *)__cil_tmp343);
+                          __cil_tmp182 = info->node;
 #line 753
                           __dynamic_pr_debug(& descriptor___5, "fb%d: using multiplex\n",
-                                             __cil_tmp344);
+                                             __cil_tmp182);
                           }
                         } else {
 
                         }
+#line 753
                         goto while_break___5;
                       }
-                      while_16_break: /* CIL Label */ ;
+                      while_break___16: /* CIL Label */ ;
                       }
 
                       while_break___5: 
                       {
 #line 754
-                      __cil_tmp345 = (unsigned long )par;
+                      __cil_tmp183 = par->state.vgabase;
 #line 754
-                      __cil_tmp346 = __cil_tmp345 + 16;
+                      __cil_tmp184 = (u8 )70;
 #line 754
-                      __cil_tmp347 = *((void **)__cil_tmp346);
+                      __cil_tmp185 = (u8 )4;
 #line 754
-                      svga_wcrt_mask(__cil_tmp347, (unsigned char)70, (unsigned char)4,
-                                     (unsigned char)4);
+                      __cil_tmp186 = (u8 )4;
+#line 754
+                      svga_wcrt_mask(__cil_tmp183, __cil_tmp184, __cil_tmp185, __cil_tmp186);
 #line 755
-                      __cil_tmp348 = (unsigned long )par;
+                      __cil_tmp187 = par->dac;
 #line 755
-                      __cil_tmp349 = __cil_tmp348 + 8;
-#line 755
-                      __cil_tmp350 = *((struct dac_info **)__cil_tmp349);
-#line 755
-                      dac_set_mode(__cil_tmp350, 5);
+                      dac_set_mode(__cil_tmp187, 5);
 #line 756
-                      hdiv = 2U;
+                      hdiv = (u32 )2;
                       }
                     }
                     }
+#line 758
                     goto switch_break;
                     case_4: 
                     {
 #line 760
                     while (1) {
-                      while_17_continue: /* CIL Label */ ;
+                      while_continue___6: /* CIL Label */ ;
                       {
 #line 760
-                      __cil_tmp351 = (unsigned long )(& descriptor___6) + 36;
+                      __cil_tmp188 = ! descriptor___6.enabled;
 #line 760
-                      __cil_tmp352 = *((char *)__cil_tmp351);
+                      __cil_tmp189 = ! __cil_tmp188;
 #line 760
-                      __cil_tmp353 = ! __cil_tmp352;
+                      __cil_tmp190 = (long )__cil_tmp189;
 #line 760
-                      __cil_tmp354 = ! __cil_tmp353;
-#line 760
-                      __cil_tmp355 = (long )__cil_tmp354;
-#line 760
-                      tmp___15 = __builtin_expect(__cil_tmp355, 0L);
+                      tmp___15 = __builtin_expect(__cil_tmp190, 0L);
                       }
 #line 760
                       if (tmp___15) {
                         {
 #line 760
-                        __cil_tmp356 = (unsigned long )info;
-#line 760
-                        __cil_tmp357 = __cil_tmp356 + 4;
-#line 760
-                        __cil_tmp358 = *((int *)__cil_tmp357);
+                        __cil_tmp191 = info->node;
 #line 760
                         __dynamic_pr_debug(& descriptor___6, "fb%d: 5/5/5 truecolor\n",
-                                           __cil_tmp358);
+                                           __cil_tmp191);
                         }
                       } else {
 
                       }
+#line 760
                       goto while_break___6;
                     }
-                    while_17_break: /* CIL Label */ ;
+                    while_break___17: /* CIL Label */ ;
                     }
 
                     while_break___6: 
                     {
 #line 762
-                    __cil_tmp359 = (unsigned long )par;
+                    __cil_tmp192 = par->state.vgabase;
 #line 762
-                    __cil_tmp360 = __cil_tmp359 + 16;
-#line 762
-                    __cil_tmp361 = *((void **)__cil_tmp360);
-#line 762
-                    vga_wseq(__cil_tmp361, (unsigned char)17, (unsigned char)26);
+                    vga_wseq(__cil_tmp192, (unsigned char)17, (unsigned char)26);
 #line 763
-                    __cil_tmp362 = (unsigned long )par;
+                    __cil_tmp193 = par->state.vgabase;
 #line 763
-                    __cil_tmp363 = __cil_tmp362 + 16;
+                    __cil_tmp194 = (u8 )70;
 #line 763
-                    __cil_tmp364 = *((void **)__cil_tmp363);
+                    __cil_tmp195 = (u8 )4;
 #line 763
-                    svga_wcrt_mask(__cil_tmp364, (unsigned char)70, (unsigned char)4,
-                                   (unsigned char)4);
+                    __cil_tmp196 = (u8 )4;
+#line 763
+                    svga_wcrt_mask(__cil_tmp193, __cil_tmp194, __cil_tmp195, __cil_tmp196);
 #line 764
-                    __cil_tmp365 = (unsigned long )par;
+                    __cil_tmp197 = par->dac;
 #line 764
-                    __cil_tmp366 = __cil_tmp365 + 8;
-#line 764
-                    __cil_tmp367 = *((struct dac_info **)__cil_tmp366);
-#line 764
-                    dac_set_mode(__cil_tmp367, 6);
+                    dac_set_mode(__cil_tmp197, 6);
                     }
+#line 765
                     goto switch_break;
                     case_5: 
                     {
 #line 767
                     while (1) {
-                      while_18_continue: /* CIL Label */ ;
+                      while_continue___7: /* CIL Label */ ;
                       {
 #line 767
-                      __cil_tmp368 = (unsigned long )(& descriptor___7) + 36;
+                      __cil_tmp198 = ! descriptor___7.enabled;
 #line 767
-                      __cil_tmp369 = *((char *)__cil_tmp368);
+                      __cil_tmp199 = ! __cil_tmp198;
 #line 767
-                      __cil_tmp370 = ! __cil_tmp369;
+                      __cil_tmp200 = (long )__cil_tmp199;
 #line 767
-                      __cil_tmp371 = ! __cil_tmp370;
-#line 767
-                      __cil_tmp372 = (long )__cil_tmp371;
-#line 767
-                      tmp___16 = __builtin_expect(__cil_tmp372, 0L);
+                      tmp___16 = __builtin_expect(__cil_tmp200, 0L);
                       }
 #line 767
                       if (tmp___16) {
                         {
 #line 767
-                        __cil_tmp373 = (unsigned long )info;
-#line 767
-                        __cil_tmp374 = __cil_tmp373 + 4;
-#line 767
-                        __cil_tmp375 = *((int *)__cil_tmp374);
+                        __cil_tmp201 = info->node;
 #line 767
                         __dynamic_pr_debug(& descriptor___7, "fb%d: 5/6/5 truecolor\n",
-                                           __cil_tmp375);
+                                           __cil_tmp201);
                         }
                       } else {
 
                       }
+#line 767
                       goto while_break___7;
                     }
-                    while_18_break: /* CIL Label */ ;
+                    while_break___18: /* CIL Label */ ;
                     }
 
                     while_break___7: 
                     {
 #line 769
-                    __cil_tmp376 = (unsigned long )par;
+                    __cil_tmp202 = par->state.vgabase;
 #line 769
-                    __cil_tmp377 = __cil_tmp376 + 16;
-#line 769
-                    __cil_tmp378 = *((void **)__cil_tmp377);
-#line 769
-                    vga_wseq(__cil_tmp378, (unsigned char)17, (unsigned char)26);
+                    vga_wseq(__cil_tmp202, (unsigned char)17, (unsigned char)26);
 #line 770
-                    __cil_tmp379 = (unsigned long )par;
+                    __cil_tmp203 = par->state.vgabase;
 #line 770
-                    __cil_tmp380 = __cil_tmp379 + 16;
+                    __cil_tmp204 = (u8 )70;
 #line 770
-                    __cil_tmp381 = *((void **)__cil_tmp380);
+                    __cil_tmp205 = (u8 )4;
 #line 770
-                    svga_wcrt_mask(__cil_tmp381, (unsigned char)70, (unsigned char)4,
-                                   (unsigned char)4);
+                    __cil_tmp206 = (u8 )4;
+#line 770
+                    svga_wcrt_mask(__cil_tmp203, __cil_tmp204, __cil_tmp205, __cil_tmp206);
 #line 771
-                    __cil_tmp382 = (unsigned long )par;
+                    __cil_tmp207 = par->dac;
 #line 771
-                    __cil_tmp383 = __cil_tmp382 + 8;
-#line 771
-                    __cil_tmp384 = *((struct dac_info **)__cil_tmp383);
-#line 771
-                    dac_set_mode(__cil_tmp384, 7);
+                    dac_set_mode(__cil_tmp207, 7);
                     }
+#line 772
                     goto switch_break;
                     case_6: 
                     {
 #line 774
                     while (1) {
-                      while_19_continue: /* CIL Label */ ;
+                      while_continue___8: /* CIL Label */ ;
                       {
 #line 774
-                      __cil_tmp385 = (unsigned long )(& descriptor___8) + 36;
+                      __cil_tmp208 = ! descriptor___8.enabled;
 #line 774
-                      __cil_tmp386 = *((char *)__cil_tmp385);
+                      __cil_tmp209 = ! __cil_tmp208;
 #line 774
-                      __cil_tmp387 = ! __cil_tmp386;
+                      __cil_tmp210 = (long )__cil_tmp209;
 #line 774
-                      __cil_tmp388 = ! __cil_tmp387;
-#line 774
-                      __cil_tmp389 = (long )__cil_tmp388;
-#line 774
-                      tmp___17 = __builtin_expect(__cil_tmp389, 0L);
+                      tmp___17 = __builtin_expect(__cil_tmp210, 0L);
                       }
 #line 774
                       if (tmp___17) {
                         {
 #line 774
-                        __cil_tmp390 = (unsigned long )info;
-#line 774
-                        __cil_tmp391 = __cil_tmp390 + 4;
-#line 774
-                        __cil_tmp392 = *((int *)__cil_tmp391);
+                        __cil_tmp211 = info->node;
 #line 774
                         __dynamic_pr_debug(& descriptor___8, "fb%d: 8/8/8 truecolor\n",
-                                           __cil_tmp392);
+                                           __cil_tmp211);
                         }
                       } else {
 
                       }
+#line 774
                       goto while_break___8;
                     }
-                    while_19_break: /* CIL Label */ ;
+                    while_break___19: /* CIL Label */ ;
                     }
 
                     while_break___8: 
                     {
 #line 776
-                    __cil_tmp393 = (unsigned long )par;
+                    __cil_tmp212 = par->state.vgabase;
 #line 776
-                    __cil_tmp394 = __cil_tmp393 + 16;
-#line 776
-                    __cil_tmp395 = *((void **)__cil_tmp394);
-#line 776
-                    vga_wseq(__cil_tmp395, (unsigned char)17, (unsigned char)22);
+                    vga_wseq(__cil_tmp212, (unsigned char)17, (unsigned char)22);
 #line 777
-                    __cil_tmp396 = (unsigned long )par;
+                    __cil_tmp213 = par->state.vgabase;
 #line 777
-                    __cil_tmp397 = __cil_tmp396 + 16;
+                    __cil_tmp214 = (u8 )70;
 #line 777
-                    __cil_tmp398 = *((void **)__cil_tmp397);
+                    __cil_tmp215 = (u8 )4;
 #line 777
-                    svga_wcrt_mask(__cil_tmp398, (unsigned char)70, (unsigned char)4,
-                                   (unsigned char)4);
+                    __cil_tmp216 = (u8 )4;
+#line 777
+                    svga_wcrt_mask(__cil_tmp213, __cil_tmp214, __cil_tmp215, __cil_tmp216);
 #line 778
-                    __cil_tmp399 = (unsigned long )par;
+                    __cil_tmp217 = par->dac;
 #line 778
-                    __cil_tmp400 = __cil_tmp399 + 8;
-#line 778
-                    __cil_tmp401 = *((struct dac_info **)__cil_tmp400);
-#line 778
-                    dac_set_mode(__cil_tmp401, 8);
+                    dac_set_mode(__cil_tmp217, 8);
 #line 779
-                    hmul = 3U;
+                    hmul = (u32 )3;
 #line 780
-                    hdiv = 2U;
+                    hdiv = (u32 )2;
                     }
+#line 781
                     goto switch_break;
                     case_7: 
                     {
 #line 783
                     while (1) {
-                      while_20_continue: /* CIL Label */ ;
+                      while_continue___9: /* CIL Label */ ;
                       {
 #line 783
-                      __cil_tmp402 = (unsigned long )(& descriptor___9) + 36;
+                      __cil_tmp218 = ! descriptor___9.enabled;
 #line 783
-                      __cil_tmp403 = *((char *)__cil_tmp402);
+                      __cil_tmp219 = ! __cil_tmp218;
 #line 783
-                      __cil_tmp404 = ! __cil_tmp403;
+                      __cil_tmp220 = (long )__cil_tmp219;
 #line 783
-                      __cil_tmp405 = ! __cil_tmp404;
-#line 783
-                      __cil_tmp406 = (long )__cil_tmp405;
-#line 783
-                      tmp___18 = __builtin_expect(__cil_tmp406, 0L);
+                      tmp___18 = __builtin_expect(__cil_tmp220, 0L);
                       }
 #line 783
                       if (tmp___18) {
                         {
 #line 783
-                        __cil_tmp407 = (unsigned long )info;
-#line 783
-                        __cil_tmp408 = __cil_tmp407 + 4;
-#line 783
-                        __cil_tmp409 = *((int *)__cil_tmp408);
+                        __cil_tmp221 = info->node;
 #line 783
                         __dynamic_pr_debug(& descriptor___9, "fb%d: 8/8/8/8 truecolor\n",
-                                           __cil_tmp409);
+                                           __cil_tmp221);
                         }
                       } else {
 
                       }
+#line 783
                       goto while_break___9;
                     }
-                    while_20_break: /* CIL Label */ ;
+                    while_break___20: /* CIL Label */ ;
                     }
 
                     while_break___9: 
                     {
 #line 785
-                    __cil_tmp410 = (unsigned long )par;
+                    __cil_tmp222 = par->state.vgabase;
 #line 785
-                    __cil_tmp411 = __cil_tmp410 + 16;
-#line 785
-                    __cil_tmp412 = *((void **)__cil_tmp411);
-#line 785
-                    vga_wseq(__cil_tmp412, (unsigned char)17, (unsigned char)30);
+                    vga_wseq(__cil_tmp222, (unsigned char)17, (unsigned char)30);
 #line 786
-                    __cil_tmp413 = (unsigned long )par;
+                    __cil_tmp223 = par->state.vgabase;
 #line 786
-                    __cil_tmp414 = __cil_tmp413 + 16;
+                    __cil_tmp224 = (u8 )70;
 #line 786
-                    __cil_tmp415 = *((void **)__cil_tmp414);
+                    __cil_tmp225 = (u8 )4;
 #line 786
-                    svga_wcrt_mask(__cil_tmp415, (unsigned char)70, (unsigned char)4,
-                                   (unsigned char)4);
+                    __cil_tmp226 = (u8 )4;
+#line 786
+                    svga_wcrt_mask(__cil_tmp223, __cil_tmp224, __cil_tmp225, __cil_tmp226);
 #line 787
-                    __cil_tmp416 = (unsigned long )par;
+                    __cil_tmp227 = par->dac;
 #line 787
-                    __cil_tmp417 = __cil_tmp416 + 8;
-#line 787
-                    __cil_tmp418 = *((struct dac_info **)__cil_tmp417);
-#line 787
-                    dac_set_mode(__cil_tmp418, 9);
+                    dac_set_mode(__cil_tmp227, 9);
 #line 788
-                    hmul = 2U;
+                    hmul = (u32 )2;
                     }
+#line 789
                     goto switch_break;
                     switch_default: 
                     {
 #line 791
-                    __cil_tmp419 = (unsigned long )info;
+                    __cil_tmp228 = info->node;
 #line 791
-                    __cil_tmp420 = __cil_tmp419 + 4;
-#line 791
-                    __cil_tmp421 = *((int *)__cil_tmp420);
-#line 791
-                    printk("<3>fb%d: unsupported mode - bug\n", __cil_tmp421);
+                    printk("<3>fb%d: unsupported mode - bug\n", __cil_tmp228);
                     }
 #line 792
                     return (-22);
@@ -11614,31 +10021,19 @@ static int arkfb_set_par(struct fb_info *info )
   }
   {
 #line 795
-  __cil_tmp422 = 352 + 100;
+  __cil_tmp229 = info->var.pixclock;
 #line 795
-  __cil_tmp423 = (unsigned long )info;
+  __cil_tmp230 = hdiv * __cil_tmp229;
 #line 795
-  __cil_tmp424 = __cil_tmp423 + __cil_tmp422;
+  __cil_tmp231 = __cil_tmp230 / hmul;
 #line 795
-  __cil_tmp425 = *((__u32 *)__cil_tmp424);
-#line 795
-  __cil_tmp426 = hdiv * __cil_tmp425;
-#line 795
-  __cil_tmp427 = __cil_tmp426 / hmul;
-#line 795
-  ark_set_pixclock(info, __cil_tmp427);
+  ark_set_pixclock(info, __cil_tmp231);
   }
   {
 #line 796
-  __cil_tmp428 = 352 + 132;
+  __cil_tmp232 = info->var.vmode;
 #line 796
-  __cil_tmp429 = (unsigned long )info;
-#line 796
-  __cil_tmp430 = __cil_tmp429 + __cil_tmp428;
-#line 796
-  __cil_tmp431 = *((__u32 *)__cil_tmp430);
-#line 796
-  if (__cil_tmp431 & 1U) {
+  if (__cil_tmp232 & 1U) {
 #line 796
     tmp___19 = 2;
   } else {
@@ -11648,15 +10043,9 @@ static int arkfb_set_par(struct fb_info *info )
   }
   {
 #line 796
-  __cil_tmp432 = 352 + 132;
+  __cil_tmp233 = info->var.vmode;
 #line 796
-  __cil_tmp433 = (unsigned long )info;
-#line 796
-  __cil_tmp434 = __cil_tmp433 + __cil_tmp432;
-#line 796
-  __cil_tmp435 = *((__u32 *)__cil_tmp434);
-#line 796
-  if (__cil_tmp435 & 2U) {
+  if (__cil_tmp233 & 2U) {
 #line 796
     tmp___20 = 2;
   } else {
@@ -11666,116 +10055,78 @@ static int arkfb_set_par(struct fb_info *info )
   }
   {
 #line 796
-  __cil_tmp436 = (unsigned long )par;
+  __cil_tmp234 = par->state.vgabase;
 #line 796
-  __cil_tmp437 = __cil_tmp436 + 16;
+  __cil_tmp235 = & info->var;
 #line 796
-  __cil_tmp438 = *((void **)__cil_tmp437);
+  __cil_tmp236 = (u32 )tmp___20;
 #line 796
-  __cil_tmp439 = (unsigned long )info;
+  __cil_tmp237 = (u32 )tmp___19;
 #line 796
-  __cil_tmp440 = __cil_tmp439 + 352;
+  __cil_tmp238 = info->node;
 #line 796
-  __cil_tmp441 = (struct fb_var_screeninfo *)__cil_tmp440;
-#line 796
-  __cil_tmp442 = (unsigned int )tmp___20;
-#line 796
-  __cil_tmp443 = (unsigned int )tmp___19;
-#line 796
-  __cil_tmp444 = (unsigned long )info;
-#line 796
-  __cil_tmp445 = __cil_tmp444 + 4;
-#line 796
-  __cil_tmp446 = *((int *)__cil_tmp445);
-#line 796
-  svga_set_timings(__cil_tmp438, & ark_timing_regs, __cil_tmp441, hmul, hdiv, __cil_tmp442,
-                   __cil_tmp443, hmul, __cil_tmp446);
+  svga_set_timings(__cil_tmp234, & ark_timing_regs, __cil_tmp235, hmul, hdiv, __cil_tmp236,
+                   __cil_tmp237, hmul, __cil_tmp238);
 #line 802
-  __cil_tmp447 = 352 + 120;
+  __cil_tmp239 = info->var.hsync_len;
 #line 802
-  __cil_tmp448 = (unsigned long )info;
+  __cil_tmp240 = info->var.right_margin;
 #line 802
-  __cil_tmp449 = __cil_tmp448 + __cil_tmp447;
+  __cil_tmp241 = info->var.left_margin;
 #line 802
-  __cil_tmp450 = *((__u32 *)__cil_tmp449);
+  __cil_tmp242 = info->var.xres;
 #line 802
-  __cil_tmp451 = 352 + 108;
+  __cil_tmp243 = __cil_tmp242 + __cil_tmp241;
 #line 802
-  __cil_tmp452 = (unsigned long )info;
+  __cil_tmp244 = __cil_tmp243 + __cil_tmp240;
 #line 802
-  __cil_tmp453 = __cil_tmp452 + __cil_tmp451;
-#line 802
-  __cil_tmp454 = *((__u32 *)__cil_tmp453);
-#line 802
-  __cil_tmp455 = 352 + 104;
-#line 802
-  __cil_tmp456 = (unsigned long )info;
-#line 802
-  __cil_tmp457 = __cil_tmp456 + __cil_tmp455;
-#line 802
-  __cil_tmp458 = *((__u32 *)__cil_tmp457);
-#line 802
-  __cil_tmp459 = (unsigned long )info;
-#line 802
-  __cil_tmp460 = __cil_tmp459 + 352;
-#line 802
-  __cil_tmp461 = *((__u32 *)__cil_tmp460);
-#line 802
-  __cil_tmp462 = __cil_tmp461 + __cil_tmp458;
-#line 802
-  __cil_tmp463 = __cil_tmp462 + __cil_tmp454;
-#line 802
-  value = __cil_tmp463 + __cil_tmp450;
+  value = __cil_tmp244 + __cil_tmp239;
 #line 803
-  __cil_tmp464 = value * hmul;
+  __cil_tmp245 = value * hmul;
 #line 803
-  __cil_tmp465 = __cil_tmp464 / hdiv;
+  __cil_tmp246 = __cil_tmp245 / hdiv;
 #line 803
-  __cil_tmp466 = __cil_tmp465 / 8U;
+  __cil_tmp247 = __cil_tmp246 / 8U;
 #line 803
-  value = __cil_tmp466 - 5U;
+  value = __cil_tmp247 - 5U;
 #line 804
-  __cil_tmp467 = (unsigned long )par;
+  __cil_tmp248 = par->state.vgabase;
 #line 804
-  __cil_tmp468 = __cil_tmp467 + 16;
+  __cil_tmp249 = value + 1U;
 #line 804
-  __cil_tmp469 = *((void **)__cil_tmp468);
+  __cil_tmp250 = __cil_tmp249 / 2U;
 #line 804
-  __cil_tmp470 = value + 1U;
+  __cil_tmp251 = (unsigned char )__cil_tmp250;
 #line 804
-  __cil_tmp471 = __cil_tmp470 / 2U;
-#line 804
-  __cil_tmp472 = (unsigned char )__cil_tmp471;
-#line 804
-  vga_wcrt(__cil_tmp469, (unsigned char)66, __cil_tmp472);
+  vga_wcrt(__cil_tmp248, (unsigned char)66, __cil_tmp251);
 #line 806
-  __cil_tmp473 = (unsigned long )info;
+  __cil_tmp252 = info->screen_base;
 #line 806
-  __cil_tmp474 = __cil_tmp473 + 1552;
+  __cil_tmp253 = (void volatile   *)__cil_tmp252;
 #line 806
-  __cil_tmp475 = *((char **)__cil_tmp474);
+  __cil_tmp254 = (size_t )screen_size;
 #line 806
-  __cil_tmp476 = (void volatile   *)__cil_tmp475;
-#line 806
-  __cil_tmp477 = (unsigned long )screen_size;
-#line 806
-  memset_io(__cil_tmp476, (unsigned char)0, __cil_tmp477);
+  memset_io(__cil_tmp253, (unsigned char)0, __cil_tmp254);
 #line 808
-  __cil_tmp478 = (unsigned long )par;
+  __cil_tmp255 = par->state.vgabase;
 #line 808
-  __cil_tmp479 = __cil_tmp478 + 16;
+  __cil_tmp256 = (u8 )23;
 #line 808
-  __cil_tmp480 = *((void **)__cil_tmp479);
+  __cil_tmp257 = (u8 )128;
 #line 808
-  svga_wcrt_mask(__cil_tmp480, (unsigned char)23, (unsigned char)128, (unsigned char)128);
+  __cil_tmp258 = (u8 )128;
+#line 808
+  svga_wcrt_mask(__cil_tmp255, __cil_tmp256, __cil_tmp257, __cil_tmp258);
 #line 809
-  __cil_tmp481 = (unsigned long )par;
+  __cil_tmp259 = par->state.vgabase;
 #line 809
-  __cil_tmp482 = __cil_tmp481 + 16;
+  __cil_tmp260 = (u8 )1;
 #line 809
-  __cil_tmp483 = *((void **)__cil_tmp482);
+  __cil_tmp261 = (u8 )0;
 #line 809
-  svga_wseq_mask(__cil_tmp483, (unsigned char)1, (unsigned char)0, (unsigned char)32);
+  __cil_tmp262 = (u8 )32;
+#line 809
+  svga_wseq_mask(__cil_tmp259, __cil_tmp260, __cil_tmp261, __cil_tmp262);
   }
 #line 811
   return (0);
@@ -11784,197 +10135,130 @@ static int arkfb_set_par(struct fb_info *info )
 #line 816 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static int arkfb_setcolreg(u_int regno , u_int red , u_int green , u_int blue , u_int transp ,
                            struct fb_info *fb ) 
-{ unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  __u32 __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+{ __u32 __cil_tmp7 ;
+  int __cil_tmp8 ;
+  __u32 __cil_tmp9 ;
+  int __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
+  int __cil_tmp12 ;
+  __u32 __cil_tmp13 ;
+  int __cil_tmp14 ;
   __u32 __cil_tmp15 ;
   int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  __u32 __cil_tmp17 ;
+  int __cil_tmp18 ;
+  __u32 __cil_tmp19 ;
   __u32 __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  __u32 __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  __u32 __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  __u32 __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  __u32 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  __u32 __cil_tmp44 ;
-  u_int __cil_tmp45 ;
-  unsigned char __cil_tmp46 ;
-  unsigned char __cil_tmp47 ;
-  unsigned char __cil_tmp48 ;
-  u_int __cil_tmp49 ;
-  unsigned char __cil_tmp50 ;
-  u_int __cil_tmp51 ;
-  unsigned char __cil_tmp52 ;
-  u_int __cil_tmp53 ;
-  unsigned char __cil_tmp54 ;
-  unsigned char __cil_tmp55 ;
-  u_int __cil_tmp56 ;
-  unsigned char __cil_tmp57 ;
-  u_int __cil_tmp58 ;
-  unsigned char __cil_tmp59 ;
-  u_int __cil_tmp60 ;
-  unsigned char __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  __u32 __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  void *__cil_tmp69 ;
-  u32 *__cil_tmp70 ;
-  u32 *__cil_tmp71 ;
-  unsigned int __cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
-  unsigned int __cil_tmp74 ;
-  unsigned int __cil_tmp75 ;
-  unsigned int __cil_tmp76 ;
-  unsigned int __cil_tmp77 ;
-  unsigned int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  __u32 __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  void *__cil_tmp86 ;
-  u32 *__cil_tmp87 ;
-  u32 *__cil_tmp88 ;
-  unsigned int __cil_tmp89 ;
-  unsigned int __cil_tmp90 ;
-  unsigned int __cil_tmp91 ;
-  unsigned int __cil_tmp92 ;
-  unsigned int __cil_tmp93 ;
-  unsigned int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  void *__cil_tmp97 ;
-  u32 *__cil_tmp98 ;
-  u32 *__cil_tmp99 ;
-  unsigned int __cil_tmp100 ;
-  unsigned int __cil_tmp101 ;
-  unsigned int __cil_tmp102 ;
-  unsigned int __cil_tmp103 ;
-  unsigned int __cil_tmp104 ;
-  unsigned int __cil_tmp105 ;
+  u_int __cil_tmp21 ;
+  unsigned char __cil_tmp22 ;
+  unsigned char __cil_tmp23 ;
+  unsigned char __cil_tmp24 ;
+  u_int __cil_tmp25 ;
+  unsigned char __cil_tmp26 ;
+  u_int __cil_tmp27 ;
+  unsigned char __cil_tmp28 ;
+  u_int __cil_tmp29 ;
+  unsigned char __cil_tmp30 ;
+  unsigned char __cil_tmp31 ;
+  u_int __cil_tmp32 ;
+  unsigned char __cil_tmp33 ;
+  u_int __cil_tmp34 ;
+  unsigned char __cil_tmp35 ;
+  u_int __cil_tmp36 ;
+  unsigned char __cil_tmp37 ;
+  __u32 __cil_tmp38 ;
+  void *__cil_tmp39 ;
+  u32 *__cil_tmp40 ;
+  u32 *__cil_tmp41 ;
+  unsigned int __cil_tmp42 ;
+  unsigned int __cil_tmp43 ;
+  unsigned int __cil_tmp44 ;
+  unsigned int __cil_tmp45 ;
+  unsigned int __cil_tmp46 ;
+  unsigned int __cil_tmp47 ;
+  unsigned int __cil_tmp48 ;
+  __u32 __cil_tmp49 ;
+  void *__cil_tmp50 ;
+  u32 *__cil_tmp51 ;
+  u32 *__cil_tmp52 ;
+  unsigned int __cil_tmp53 ;
+  unsigned int __cil_tmp54 ;
+  unsigned int __cil_tmp55 ;
+  unsigned int __cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  unsigned int __cil_tmp58 ;
+  void *__cil_tmp59 ;
+  u32 *__cil_tmp60 ;
+  u32 *__cil_tmp61 ;
+  unsigned int __cil_tmp62 ;
+  unsigned int __cil_tmp63 ;
+  unsigned int __cil_tmp64 ;
+  unsigned int __cil_tmp65 ;
+  unsigned int __cil_tmp66 ;
+  unsigned int __cil_tmp67 ;
 
   {
   {
 #line 820
-  __cil_tmp7 = 352 + 24;
+  __cil_tmp7 = fb->var.bits_per_pixel;
 #line 820
-  __cil_tmp8 = (unsigned long )fb;
+  __cil_tmp8 = (int )__cil_tmp7;
 #line 820
-  __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
+  if (__cil_tmp8 == 0) {
 #line 820
-  __cil_tmp10 = *((__u32 *)__cil_tmp9);
-#line 820
-  __cil_tmp11 = (int )__cil_tmp10;
-#line 820
-  if (__cil_tmp11 == 0) {
     goto case_0;
   } else {
     {
 #line 821
-    __cil_tmp12 = 352 + 24;
+    __cil_tmp9 = fb->var.bits_per_pixel;
 #line 821
-    __cil_tmp13 = (unsigned long )fb;
+    __cil_tmp10 = (int )__cil_tmp9;
 #line 821
-    __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
+    if (__cil_tmp10 == 4) {
 #line 821
-    __cil_tmp15 = *((__u32 *)__cil_tmp14);
-#line 821
-    __cil_tmp16 = (int )__cil_tmp15;
-#line 821
-    if (__cil_tmp16 == 4) {
       goto case_0;
     } else {
       {
 #line 837
-      __cil_tmp17 = 352 + 24;
+      __cil_tmp11 = fb->var.bits_per_pixel;
 #line 837
-      __cil_tmp18 = (unsigned long )fb;
+      __cil_tmp12 = (int )__cil_tmp11;
 #line 837
-      __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
+      if (__cil_tmp12 == 8) {
 #line 837
-      __cil_tmp20 = *((__u32 *)__cil_tmp19);
-#line 837
-      __cil_tmp21 = (int )__cil_tmp20;
-#line 837
-      if (__cil_tmp21 == 8) {
         goto case_8;
       } else {
         {
 #line 847
-        __cil_tmp22 = 352 + 24;
+        __cil_tmp13 = fb->var.bits_per_pixel;
 #line 847
-        __cil_tmp23 = (unsigned long )fb;
+        __cil_tmp14 = (int )__cil_tmp13;
 #line 847
-        __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
+        if (__cil_tmp14 == 16) {
 #line 847
-        __cil_tmp25 = *((__u32 *)__cil_tmp24);
-#line 847
-        __cil_tmp26 = (int )__cil_tmp25;
-#line 847
-        if (__cil_tmp26 == 16) {
           goto case_16;
         } else {
           {
 #line 860
-          __cil_tmp27 = 352 + 24;
+          __cil_tmp15 = fb->var.bits_per_pixel;
 #line 860
-          __cil_tmp28 = (unsigned long )fb;
+          __cil_tmp16 = (int )__cil_tmp15;
 #line 860
-          __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
+          if (__cil_tmp16 == 24) {
 #line 860
-          __cil_tmp30 = *((__u32 *)__cil_tmp29);
-#line 860
-          __cil_tmp31 = (int )__cil_tmp30;
-#line 860
-          if (__cil_tmp31 == 24) {
             goto case_24;
           } else {
             {
 #line 861
-            __cil_tmp32 = 352 + 24;
+            __cil_tmp17 = fb->var.bits_per_pixel;
 #line 861
-            __cil_tmp33 = (unsigned long )fb;
+            __cil_tmp18 = (int )__cil_tmp17;
 #line 861
-            __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
+            if (__cil_tmp18 == 32) {
 #line 861
-            __cil_tmp35 = *((__u32 *)__cil_tmp34);
-#line 861
-            __cil_tmp36 = (int )__cil_tmp35;
-#line 861
-            if (__cil_tmp36 == 32) {
               goto case_24;
             } else {
+#line 868
               goto switch_default;
 #line 819
               if (0) {
@@ -11988,44 +10272,32 @@ static int arkfb_setcolreg(u_int regno , u_int red , u_int green , u_int blue , 
                 }
                 {
 #line 825
-                __cil_tmp37 = 352 + 24;
+                __cil_tmp19 = fb->var.bits_per_pixel;
 #line 825
-                __cil_tmp38 = (unsigned long )fb;
-#line 825
-                __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
-#line 825
-                __cil_tmp40 = *((__u32 *)__cil_tmp39);
-#line 825
-                if (__cil_tmp40 == 4U) {
+                if (__cil_tmp19 == 4U) {
                   {
 #line 825
-                  __cil_tmp41 = 352 + 80;
+                  __cil_tmp20 = fb->var.nonstd;
 #line 825
-                  __cil_tmp42 = (unsigned long )fb;
-#line 825
-                  __cil_tmp43 = __cil_tmp42 + __cil_tmp41;
-#line 825
-                  __cil_tmp44 = *((__u32 *)__cil_tmp43);
-#line 825
-                  if (__cil_tmp44 == 0U) {
+                  if (__cil_tmp20 == 0U) {
                     {
 #line 827
                     outb((unsigned char)240, 966);
 #line 828
-                    __cil_tmp45 = regno * 16U;
+                    __cil_tmp21 = regno * 16U;
 #line 828
-                    __cil_tmp46 = (unsigned char )__cil_tmp45;
+                    __cil_tmp22 = (unsigned char )__cil_tmp21;
 #line 828
-                    outb(__cil_tmp46, 968);
+                    outb(__cil_tmp22, 968);
                     }
                   } else {
                     {
 #line 830
                     outb((unsigned char)15, 966);
 #line 831
-                    __cil_tmp47 = (unsigned char )regno;
+                    __cil_tmp23 = (unsigned char )regno;
 #line 831
-                    outb(__cil_tmp47, 968);
+                    outb(__cil_tmp23, 968);
                     }
                   }
                   }
@@ -12034,32 +10306,33 @@ static int arkfb_setcolreg(u_int regno , u_int red , u_int green , u_int blue , 
 #line 830
                   outb((unsigned char)15, 966);
 #line 831
-                  __cil_tmp48 = (unsigned char )regno;
+                  __cil_tmp24 = (unsigned char )regno;
 #line 831
-                  outb(__cil_tmp48, 968);
+                  outb(__cil_tmp24, 968);
                   }
                 }
                 }
                 {
 #line 833
-                __cil_tmp49 = red >> 10;
+                __cil_tmp25 = red >> 10;
 #line 833
-                __cil_tmp50 = (unsigned char )__cil_tmp49;
+                __cil_tmp26 = (unsigned char )__cil_tmp25;
 #line 833
-                outb(__cil_tmp50, 969);
+                outb(__cil_tmp26, 969);
 #line 834
-                __cil_tmp51 = green >> 10;
+                __cil_tmp27 = green >> 10;
 #line 834
-                __cil_tmp52 = (unsigned char )__cil_tmp51;
+                __cil_tmp28 = (unsigned char )__cil_tmp27;
 #line 834
-                outb(__cil_tmp52, 969);
+                outb(__cil_tmp28, 969);
 #line 835
-                __cil_tmp53 = blue >> 10;
+                __cil_tmp29 = blue >> 10;
 #line 835
-                __cil_tmp54 = (unsigned char )__cil_tmp53;
+                __cil_tmp30 = (unsigned char )__cil_tmp29;
 #line 835
-                outb(__cil_tmp54, 969);
+                outb(__cil_tmp30, 969);
                 }
+#line 836
                 goto switch_break;
                 case_8: 
 #line 838
@@ -12073,28 +10346,29 @@ static int arkfb_setcolreg(u_int regno , u_int red , u_int green , u_int blue , 
 #line 841
                 outb((unsigned char)255, 966);
 #line 842
-                __cil_tmp55 = (unsigned char )regno;
+                __cil_tmp31 = (unsigned char )regno;
 #line 842
-                outb(__cil_tmp55, 968);
+                outb(__cil_tmp31, 968);
 #line 843
-                __cil_tmp56 = red >> 10;
+                __cil_tmp32 = red >> 10;
 #line 843
-                __cil_tmp57 = (unsigned char )__cil_tmp56;
+                __cil_tmp33 = (unsigned char )__cil_tmp32;
 #line 843
-                outb(__cil_tmp57, 969);
+                outb(__cil_tmp33, 969);
 #line 844
-                __cil_tmp58 = green >> 10;
+                __cil_tmp34 = green >> 10;
 #line 844
-                __cil_tmp59 = (unsigned char )__cil_tmp58;
+                __cil_tmp35 = (unsigned char )__cil_tmp34;
 #line 844
-                outb(__cil_tmp59, 969);
+                outb(__cil_tmp35, 969);
 #line 845
-                __cil_tmp60 = blue >> 10;
+                __cil_tmp36 = blue >> 10;
 #line 845
-                __cil_tmp61 = (unsigned char )__cil_tmp60;
+                __cil_tmp37 = (unsigned char )__cil_tmp36;
 #line 845
-                outb(__cil_tmp61, 969);
+                outb(__cil_tmp37, 969);
                 }
+#line 846
                 goto switch_break;
                 case_16: 
 #line 848
@@ -12106,81 +10380,57 @@ static int arkfb_setcolreg(u_int regno , u_int red , u_int green , u_int blue , 
                 }
                 {
 #line 851
-                __cil_tmp62 = 44 + 4;
+                __cil_tmp38 = fb->var.green.length;
 #line 851
-                __cil_tmp63 = 352 + __cil_tmp62;
-#line 851
-                __cil_tmp64 = (unsigned long )fb;
-#line 851
-                __cil_tmp65 = __cil_tmp64 + __cil_tmp63;
-#line 851
-                __cil_tmp66 = *((__u32 *)__cil_tmp65);
-#line 851
-                if (__cil_tmp66 == 5U) {
+                if (__cil_tmp38 == 5U) {
 #line 852
-                  __cil_tmp67 = (unsigned long )fb;
+                  __cil_tmp39 = fb->pseudo_palette;
 #line 852
-                  __cil_tmp68 = __cil_tmp67 + 1568;
+                  __cil_tmp40 = (u32 *)__cil_tmp39;
 #line 852
-                  __cil_tmp69 = *((void **)__cil_tmp68);
+                  __cil_tmp41 = __cil_tmp40 + regno;
 #line 852
-                  __cil_tmp70 = (u32 *)__cil_tmp69;
+                  __cil_tmp42 = blue & 63488U;
 #line 852
-                  __cil_tmp71 = __cil_tmp70 + regno;
+                  __cil_tmp43 = __cil_tmp42 >> 11;
 #line 852
-                  __cil_tmp72 = blue & 63488U;
+                  __cil_tmp44 = green & 63488U;
 #line 852
-                  __cil_tmp73 = __cil_tmp72 >> 11;
+                  __cil_tmp45 = __cil_tmp44 >> 6;
 #line 852
-                  __cil_tmp74 = green & 63488U;
+                  __cil_tmp46 = red & 63488U;
 #line 852
-                  __cil_tmp75 = __cil_tmp74 >> 6;
+                  __cil_tmp47 = __cil_tmp46 >> 1;
 #line 852
-                  __cil_tmp76 = red & 63488U;
+                  __cil_tmp48 = __cil_tmp47 | __cil_tmp45;
 #line 852
-                  __cil_tmp77 = __cil_tmp76 >> 1;
-#line 852
-                  __cil_tmp78 = __cil_tmp77 | __cil_tmp75;
-#line 852
-                  *__cil_tmp71 = __cil_tmp78 | __cil_tmp73;
+                  *__cil_tmp41 = __cil_tmp48 | __cil_tmp43;
                 } else {
                   {
 #line 854
-                  __cil_tmp79 = 44 + 4;
+                  __cil_tmp49 = fb->var.green.length;
 #line 854
-                  __cil_tmp80 = 352 + __cil_tmp79;
-#line 854
-                  __cil_tmp81 = (unsigned long )fb;
-#line 854
-                  __cil_tmp82 = __cil_tmp81 + __cil_tmp80;
-#line 854
-                  __cil_tmp83 = *((__u32 *)__cil_tmp82);
-#line 854
-                  if (__cil_tmp83 == 6U) {
+                  if (__cil_tmp49 == 6U) {
 #line 855
-                    __cil_tmp84 = (unsigned long )fb;
+                    __cil_tmp50 = fb->pseudo_palette;
 #line 855
-                    __cil_tmp85 = __cil_tmp84 + 1568;
+                    __cil_tmp51 = (u32 *)__cil_tmp50;
 #line 855
-                    __cil_tmp86 = *((void **)__cil_tmp85);
+                    __cil_tmp52 = __cil_tmp51 + regno;
 #line 855
-                    __cil_tmp87 = (u32 *)__cil_tmp86;
+                    __cil_tmp53 = blue & 63488U;
 #line 855
-                    __cil_tmp88 = __cil_tmp87 + regno;
+                    __cil_tmp54 = __cil_tmp53 >> 11;
 #line 855
-                    __cil_tmp89 = blue & 63488U;
+                    __cil_tmp55 = green & 64512U;
 #line 855
-                    __cil_tmp90 = __cil_tmp89 >> 11;
+                    __cil_tmp56 = __cil_tmp55 >> 5;
 #line 855
-                    __cil_tmp91 = green & 64512U;
+                    __cil_tmp57 = red & 63488U;
 #line 855
-                    __cil_tmp92 = __cil_tmp91 >> 5;
+                    __cil_tmp58 = __cil_tmp57 | __cil_tmp56;
 #line 855
-                    __cil_tmp93 = red & 63488U;
-#line 855
-                    __cil_tmp94 = __cil_tmp93 | __cil_tmp92;
-#line 855
-                    *__cil_tmp88 = __cil_tmp94 | __cil_tmp90;
+                    *__cil_tmp52 = __cil_tmp58 | __cil_tmp54;
                   } else {
 #line 858
                     return (-22);
@@ -12188,6 +10438,7 @@ static int arkfb_setcolreg(u_int regno , u_int red , u_int green , u_int blue , 
                   }
                 }
                 }
+#line 859
                 goto switch_break;
                 case_24: 
 #line 862
@@ -12198,29 +10449,26 @@ static int arkfb_setcolreg(u_int regno , u_int red , u_int green , u_int blue , 
 
                 }
 #line 865
-                __cil_tmp95 = (unsigned long )fb;
+                __cil_tmp59 = fb->pseudo_palette;
 #line 865
-                __cil_tmp96 = __cil_tmp95 + 1568;
+                __cil_tmp60 = (u32 *)__cil_tmp59;
 #line 865
-                __cil_tmp97 = *((void **)__cil_tmp96);
+                __cil_tmp61 = __cil_tmp60 + regno;
 #line 865
-                __cil_tmp98 = (u32 *)__cil_tmp97;
+                __cil_tmp62 = blue & 65280U;
 #line 865
-                __cil_tmp99 = __cil_tmp98 + regno;
+                __cil_tmp63 = __cil_tmp62 >> 8;
 #line 865
-                __cil_tmp100 = blue & 65280U;
+                __cil_tmp64 = green & 65280U;
 #line 865
-                __cil_tmp101 = __cil_tmp100 >> 8;
+                __cil_tmp65 = red & 65280U;
 #line 865
-                __cil_tmp102 = green & 65280U;
+                __cil_tmp66 = __cil_tmp65 << 8;
 #line 865
-                __cil_tmp103 = red & 65280U;
+                __cil_tmp67 = __cil_tmp66 | __cil_tmp64;
 #line 865
-                __cil_tmp104 = __cil_tmp103 << 8;
-#line 865
-                __cil_tmp105 = __cil_tmp104 | __cil_tmp102;
-#line 865
-                *__cil_tmp99 = __cil_tmp105 | __cil_tmp101;
+                *__cil_tmp61 = __cil_tmp67 | __cil_tmp63;
+#line 867
                 goto switch_break;
                 switch_default: 
 #line 869
@@ -12264,267 +10512,249 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   long tmp___7 ;
   long tmp___8 ;
   long tmp___9 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  char __cil_tmp11 ;
-  int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  void *__cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  void *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  char __cil_tmp25 ;
-  int __cil_tmp26 ;
-  int __cil_tmp27 ;
-  long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  void *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  void *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  char __cil_tmp39 ;
-  int __cil_tmp40 ;
-  int __cil_tmp41 ;
-  long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  void *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  void *__cil_tmp51 ;
+  void *__cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  long __cil_tmp10 ;
+  int __cil_tmp11 ;
+  void *__cil_tmp12 ;
+  u8 __cil_tmp13 ;
+  u8 __cil_tmp14 ;
+  u8 __cil_tmp15 ;
+  void *__cil_tmp16 ;
+  u8 __cil_tmp17 ;
+  u8 __cil_tmp18 ;
+  u8 __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  long __cil_tmp22 ;
+  int __cil_tmp23 ;
+  void *__cil_tmp24 ;
+  u8 __cil_tmp25 ;
+  u8 __cil_tmp26 ;
+  u8 __cil_tmp27 ;
+  void *__cil_tmp28 ;
+  u8 __cil_tmp29 ;
+  u8 __cil_tmp30 ;
+  u8 __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  long __cil_tmp34 ;
+  int __cil_tmp35 ;
+  void *__cil_tmp36 ;
+  u8 __cil_tmp37 ;
+  u8 __cil_tmp38 ;
+  u8 __cil_tmp39 ;
+  void *__cil_tmp40 ;
+  u8 __cil_tmp41 ;
+  u8 __cil_tmp42 ;
+  u8 __cil_tmp43 ;
 
   {
 #line 879
-  __cil_tmp7 = (unsigned long )info;
+  __cil_tmp7 = info->par;
 #line 879
-  __cil_tmp8 = __cil_tmp7 + 1592;
-#line 879
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 879
-  par = (struct arkfb_info *)__cil_tmp9;
+  par = (struct arkfb_info *)__cil_tmp7;
 #line 882
   if (blank_mode == 0) {
+#line 882
     goto case_0;
-  } else {
+  } else
 #line 887
-    if (blank_mode == 1) {
-      goto case_1;
-    } else {
+  if (blank_mode == 1) {
+#line 887
+    goto case_1;
+  } else
 #line 892
-      if (blank_mode == 4) {
-        goto case_4;
-      } else {
+  if (blank_mode == 4) {
+#line 892
+    goto case_4;
+  } else
 #line 893
-        if (blank_mode == 3) {
-          goto case_4;
-        } else {
+  if (blank_mode == 3) {
+#line 893
+    goto case_4;
+  } else
 #line 894
-          if (blank_mode == 2) {
-            goto case_4;
-          } else {
+  if (blank_mode == 2) {
+#line 894
+    goto case_4;
+  } else
 #line 881
-            if (0) {
-              case_0: 
-              {
+  if (0) {
+    case_0: 
+    {
 #line 883
-              while (1) {
-                while_21_continue: /* CIL Label */ ;
-                {
+    while (1) {
+      while_continue: /* CIL Label */ ;
+      {
 #line 883
-                __cil_tmp10 = (unsigned long )(& descriptor___10) + 36;
+      __cil_tmp8 = ! descriptor___10.enabled;
 #line 883
-                __cil_tmp11 = *((char *)__cil_tmp10);
+      __cil_tmp9 = ! __cil_tmp8;
 #line 883
-                __cil_tmp12 = ! __cil_tmp11;
+      __cil_tmp10 = (long )__cil_tmp9;
 #line 883
-                __cil_tmp13 = ! __cil_tmp12;
-#line 883
-                __cil_tmp14 = (long )__cil_tmp13;
-#line 883
-                tmp___7 = __builtin_expect(__cil_tmp14, 0L);
-                }
-#line 883
-                if (tmp___7) {
-                  {
-#line 883
-                  __cil_tmp15 = (unsigned long )info;
-#line 883
-                  __cil_tmp16 = __cil_tmp15 + 4;
-#line 883
-                  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 883
-                  __dynamic_pr_debug(& descriptor___10, "fb%d: unblank\n", __cil_tmp17);
-                  }
-                } else {
-
-                }
-                goto while_break;
-              }
-              while_21_break: /* CIL Label */ ;
-              }
-
-              while_break: 
-              {
-#line 884
-              __cil_tmp18 = (unsigned long )par;
-#line 884
-              __cil_tmp19 = __cil_tmp18 + 16;
-#line 884
-              __cil_tmp20 = *((void **)__cil_tmp19);
-#line 884
-              svga_wseq_mask(__cil_tmp20, (unsigned char)1, (unsigned char)0, (unsigned char)32);
-#line 885
-              __cil_tmp21 = (unsigned long )par;
-#line 885
-              __cil_tmp22 = __cil_tmp21 + 16;
-#line 885
-              __cil_tmp23 = *((void **)__cil_tmp22);
-#line 885
-              svga_wcrt_mask(__cil_tmp23, (unsigned char)23, (unsigned char)128, (unsigned char)128);
-              }
-              goto switch_break;
-              case_1: 
-              {
-#line 888
-              while (1) {
-                while_22_continue: /* CIL Label */ ;
-                {
-#line 888
-                __cil_tmp24 = (unsigned long )(& descriptor___11) + 36;
-#line 888
-                __cil_tmp25 = *((char *)__cil_tmp24);
-#line 888
-                __cil_tmp26 = ! __cil_tmp25;
-#line 888
-                __cil_tmp27 = ! __cil_tmp26;
-#line 888
-                __cil_tmp28 = (long )__cil_tmp27;
-#line 888
-                tmp___8 = __builtin_expect(__cil_tmp28, 0L);
-                }
-#line 888
-                if (tmp___8) {
-                  {
-#line 888
-                  __cil_tmp29 = (unsigned long )info;
-#line 888
-                  __cil_tmp30 = __cil_tmp29 + 4;
-#line 888
-                  __cil_tmp31 = *((int *)__cil_tmp30);
-#line 888
-                  __dynamic_pr_debug(& descriptor___11, "fb%d: blank\n", __cil_tmp31);
-                  }
-                } else {
-
-                }
-                goto while_break___0;
-              }
-              while_22_break: /* CIL Label */ ;
-              }
-
-              while_break___0: 
-              {
-#line 889
-              __cil_tmp32 = (unsigned long )par;
-#line 889
-              __cil_tmp33 = __cil_tmp32 + 16;
-#line 889
-              __cil_tmp34 = *((void **)__cil_tmp33);
-#line 889
-              svga_wseq_mask(__cil_tmp34, (unsigned char)1, (unsigned char)32, (unsigned char)32);
-#line 890
-              __cil_tmp35 = (unsigned long )par;
-#line 890
-              __cil_tmp36 = __cil_tmp35 + 16;
-#line 890
-              __cil_tmp37 = *((void **)__cil_tmp36);
-#line 890
-              svga_wcrt_mask(__cil_tmp37, (unsigned char)23, (unsigned char)128, (unsigned char)128);
-              }
-              goto switch_break;
-              case_4: 
-              {
-#line 895
-              while (1) {
-                while_23_continue: /* CIL Label */ ;
-                {
-#line 895
-                __cil_tmp38 = (unsigned long )(& descriptor___12) + 36;
-#line 895
-                __cil_tmp39 = *((char *)__cil_tmp38);
-#line 895
-                __cil_tmp40 = ! __cil_tmp39;
-#line 895
-                __cil_tmp41 = ! __cil_tmp40;
-#line 895
-                __cil_tmp42 = (long )__cil_tmp41;
-#line 895
-                tmp___9 = __builtin_expect(__cil_tmp42, 0L);
-                }
-#line 895
-                if (tmp___9) {
-                  {
-#line 895
-                  __cil_tmp43 = (unsigned long )info;
-#line 895
-                  __cil_tmp44 = __cil_tmp43 + 4;
-#line 895
-                  __cil_tmp45 = *((int *)__cil_tmp44);
-#line 895
-                  __dynamic_pr_debug(& descriptor___12, "fb%d: sync down\n", __cil_tmp45);
-                  }
-                } else {
-
-                }
-                goto while_break___1;
-              }
-              while_23_break: /* CIL Label */ ;
-              }
-
-              while_break___1: 
-              {
-#line 896
-              __cil_tmp46 = (unsigned long )par;
-#line 896
-              __cil_tmp47 = __cil_tmp46 + 16;
-#line 896
-              __cil_tmp48 = *((void **)__cil_tmp47);
-#line 896
-              svga_wseq_mask(__cil_tmp48, (unsigned char)1, (unsigned char)32, (unsigned char)32);
-#line 897
-              __cil_tmp49 = (unsigned long )par;
-#line 897
-              __cil_tmp50 = __cil_tmp49 + 16;
-#line 897
-              __cil_tmp51 = *((void **)__cil_tmp50);
-#line 897
-              svga_wcrt_mask(__cil_tmp51, (unsigned char)23, (unsigned char)0, (unsigned char)128);
-              }
-              goto switch_break;
-            } else {
-              switch_break: ;
-            }
-          }
-        }
+      tmp___7 = __builtin_expect(__cil_tmp10, 0L);
       }
+#line 883
+      if (tmp___7) {
+        {
+#line 883
+        __cil_tmp11 = info->node;
+#line 883
+        __dynamic_pr_debug(& descriptor___10, "fb%d: unblank\n", __cil_tmp11);
+        }
+      } else {
+
+      }
+#line 883
+      goto while_break;
     }
+    while_break___2: /* CIL Label */ ;
+    }
+
+    while_break: 
+    {
+#line 884
+    __cil_tmp12 = par->state.vgabase;
+#line 884
+    __cil_tmp13 = (u8 )1;
+#line 884
+    __cil_tmp14 = (u8 )0;
+#line 884
+    __cil_tmp15 = (u8 )32;
+#line 884
+    svga_wseq_mask(__cil_tmp12, __cil_tmp13, __cil_tmp14, __cil_tmp15);
+#line 885
+    __cil_tmp16 = par->state.vgabase;
+#line 885
+    __cil_tmp17 = (u8 )23;
+#line 885
+    __cil_tmp18 = (u8 )128;
+#line 885
+    __cil_tmp19 = (u8 )128;
+#line 885
+    svga_wcrt_mask(__cil_tmp16, __cil_tmp17, __cil_tmp18, __cil_tmp19);
+    }
+#line 886
+    goto switch_break;
+    case_1: 
+    {
+#line 888
+    while (1) {
+      while_continue___0: /* CIL Label */ ;
+      {
+#line 888
+      __cil_tmp20 = ! descriptor___11.enabled;
+#line 888
+      __cil_tmp21 = ! __cil_tmp20;
+#line 888
+      __cil_tmp22 = (long )__cil_tmp21;
+#line 888
+      tmp___8 = __builtin_expect(__cil_tmp22, 0L);
+      }
+#line 888
+      if (tmp___8) {
+        {
+#line 888
+        __cil_tmp23 = info->node;
+#line 888
+        __dynamic_pr_debug(& descriptor___11, "fb%d: blank\n", __cil_tmp23);
+        }
+      } else {
+
+      }
+#line 888
+      goto while_break___0;
+    }
+    while_break___3: /* CIL Label */ ;
+    }
+
+    while_break___0: 
+    {
+#line 889
+    __cil_tmp24 = par->state.vgabase;
+#line 889
+    __cil_tmp25 = (u8 )1;
+#line 889
+    __cil_tmp26 = (u8 )32;
+#line 889
+    __cil_tmp27 = (u8 )32;
+#line 889
+    svga_wseq_mask(__cil_tmp24, __cil_tmp25, __cil_tmp26, __cil_tmp27);
+#line 890
+    __cil_tmp28 = par->state.vgabase;
+#line 890
+    __cil_tmp29 = (u8 )23;
+#line 890
+    __cil_tmp30 = (u8 )128;
+#line 890
+    __cil_tmp31 = (u8 )128;
+#line 890
+    svga_wcrt_mask(__cil_tmp28, __cil_tmp29, __cil_tmp30, __cil_tmp31);
+    }
+#line 891
+    goto switch_break;
+    case_4: 
+    {
+#line 895
+    while (1) {
+      while_continue___1: /* CIL Label */ ;
+      {
+#line 895
+      __cil_tmp32 = ! descriptor___12.enabled;
+#line 895
+      __cil_tmp33 = ! __cil_tmp32;
+#line 895
+      __cil_tmp34 = (long )__cil_tmp33;
+#line 895
+      tmp___9 = __builtin_expect(__cil_tmp34, 0L);
+      }
+#line 895
+      if (tmp___9) {
+        {
+#line 895
+        __cil_tmp35 = info->node;
+#line 895
+        __dynamic_pr_debug(& descriptor___12, "fb%d: sync down\n", __cil_tmp35);
+        }
+      } else {
+
+      }
+#line 895
+      goto while_break___1;
+    }
+    while_break___4: /* CIL Label */ ;
+    }
+
+    while_break___1: 
+    {
+#line 896
+    __cil_tmp36 = par->state.vgabase;
+#line 896
+    __cil_tmp37 = (u8 )1;
+#line 896
+    __cil_tmp38 = (u8 )32;
+#line 896
+    __cil_tmp39 = (u8 )32;
+#line 896
+    svga_wseq_mask(__cil_tmp36, __cil_tmp37, __cil_tmp38, __cil_tmp39);
+#line 897
+    __cil_tmp40 = par->state.vgabase;
+#line 897
+    __cil_tmp41 = (u8 )23;
+#line 897
+    __cil_tmp42 = (u8 )0;
+#line 897
+    __cil_tmp43 = (u8 )128;
+#line 897
+    svga_wcrt_mask(__cil_tmp40, __cil_tmp41, __cil_tmp42, __cil_tmp43);
+    }
+#line 898
+    goto switch_break;
+  } else {
+    switch_break: ;
   }
 #line 900
   return (0);
@@ -12535,143 +10765,76 @@ static int arkfb_pan_display(struct fb_var_screeninfo *var , struct fb_info *inf
 { struct arkfb_info *par ;
   unsigned int offset ;
   int tmp___7 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  void *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  void *__cil_tmp6 ;
+  __u32 __cil_tmp7 ;
+  __u32 __cil_tmp8 ;
+  __u32 __cil_tmp9 ;
+  __u32 __cil_tmp10 ;
   __u32 __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  __u32 __cil_tmp12 ;
+  __u32 __cil_tmp13 ;
   __u32 __cil_tmp14 ;
   __u32 __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  __u32 __cil_tmp16 ;
+  __u32 __cil_tmp17 ;
   __u32 __cil_tmp18 ;
   __u32 __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
+  __u32 __cil_tmp20 ;
+  __u32 __cil_tmp21 ;
   __u32 __cil_tmp22 ;
-  __u32 __cil_tmp23 ;
-  __u32 __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  __u32 __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  __u32 __cil_tmp30 ;
-  __u32 __cil_tmp31 ;
-  __u32 __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  __u32 __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  __u32 __cil_tmp39 ;
-  __u32 __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  __u32 __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  void *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct vga_regset  const  *__cil_tmp49 ;
+  void *__cil_tmp23 ;
+  struct vga_regset  const  *__cil_tmp24 ;
 
   {
 #line 908
-  __cil_tmp6 = (unsigned long )info;
+  __cil_tmp6 = info->par;
 #line 908
-  __cil_tmp7 = __cil_tmp6 + 1592;
-#line 908
-  __cil_tmp8 = *((void **)__cil_tmp7);
-#line 908
-  par = (struct arkfb_info *)__cil_tmp8;
+  par = (struct arkfb_info *)__cil_tmp6;
   {
 #line 912
-  __cil_tmp9 = (unsigned long )var;
+  __cil_tmp7 = var->bits_per_pixel;
 #line 912
-  __cil_tmp10 = __cil_tmp9 + 24;
-#line 912
-  __cil_tmp11 = *((__u32 *)__cil_tmp10);
-#line 912
-  if (__cil_tmp11 == 0U) {
+  if (__cil_tmp7 == 0U) {
 #line 913
-    __cil_tmp12 = (unsigned long )var;
+    __cil_tmp8 = var->xoffset;
 #line 913
-    __cil_tmp13 = __cil_tmp12 + 16;
+    __cil_tmp9 = __cil_tmp8 / 2U;
 #line 913
-    __cil_tmp14 = *((__u32 *)__cil_tmp13);
+    __cil_tmp10 = var->xres_virtual;
 #line 913
-    __cil_tmp15 = __cil_tmp14 / 2U;
+    __cil_tmp11 = __cil_tmp10 / 2U;
 #line 913
-    __cil_tmp16 = (unsigned long )var;
+    __cil_tmp12 = var->yoffset;
 #line 913
-    __cil_tmp17 = __cil_tmp16 + 8;
+    __cil_tmp13 = __cil_tmp12 / 16U;
 #line 913
-    __cil_tmp18 = *((__u32 *)__cil_tmp17);
+    __cil_tmp14 = __cil_tmp13 * __cil_tmp11;
 #line 913
-    __cil_tmp19 = __cil_tmp18 / 2U;
-#line 913
-    __cil_tmp20 = (unsigned long )var;
-#line 913
-    __cil_tmp21 = __cil_tmp20 + 20;
-#line 913
-    __cil_tmp22 = *((__u32 *)__cil_tmp21);
-#line 913
-    __cil_tmp23 = __cil_tmp22 / 16U;
-#line 913
-    __cil_tmp24 = __cil_tmp23 * __cil_tmp19;
-#line 913
-    offset = __cil_tmp24 + __cil_tmp15;
+    offset = __cil_tmp14 + __cil_tmp9;
 #line 914
     offset = offset >> 2;
   } else {
 #line 916
-    __cil_tmp25 = (unsigned long )var;
+    __cil_tmp15 = var->bits_per_pixel;
 #line 916
-    __cil_tmp26 = __cil_tmp25 + 24;
+    __cil_tmp16 = var->xoffset;
 #line 916
-    __cil_tmp27 = *((__u32 *)__cil_tmp26);
+    __cil_tmp17 = __cil_tmp16 * __cil_tmp15;
 #line 916
-    __cil_tmp28 = (unsigned long )var;
+    __cil_tmp18 = __cil_tmp17 / 8U;
 #line 916
-    __cil_tmp29 = __cil_tmp28 + 16;
+    __cil_tmp19 = info->fix.line_length;
 #line 916
-    __cil_tmp30 = *((__u32 *)__cil_tmp29);
+    __cil_tmp20 = var->yoffset;
 #line 916
-    __cil_tmp31 = __cil_tmp30 * __cil_tmp27;
+    __cil_tmp21 = __cil_tmp20 * __cil_tmp19;
 #line 916
-    __cil_tmp32 = __cil_tmp31 / 8U;
-#line 916
-    __cil_tmp33 = 512 + 48;
-#line 916
-    __cil_tmp34 = (unsigned long )info;
-#line 916
-    __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 916
-    __cil_tmp36 = *((__u32 *)__cil_tmp35);
-#line 916
-    __cil_tmp37 = (unsigned long )var;
-#line 916
-    __cil_tmp38 = __cil_tmp37 + 20;
-#line 916
-    __cil_tmp39 = *((__u32 *)__cil_tmp38);
-#line 916
-    __cil_tmp40 = __cil_tmp39 * __cil_tmp36;
-#line 916
-    offset = __cil_tmp40 + __cil_tmp32;
+    offset = __cil_tmp21 + __cil_tmp18;
     {
 #line 918
-    __cil_tmp41 = (unsigned long )var;
+    __cil_tmp22 = var->bits_per_pixel;
 #line 918
-    __cil_tmp42 = __cil_tmp41 + 24;
-#line 918
-    __cil_tmp43 = *((__u32 *)__cil_tmp42);
-#line 918
-    if (__cil_tmp43 == 4U) {
+    if (__cil_tmp22 == 4U) {
 #line 918
       tmp___7 = 2;
     } else {
@@ -12685,19 +10848,11 @@ static int arkfb_pan_display(struct fb_var_screeninfo *var , struct fb_info *inf
   }
   {
 #line 922
-  __cil_tmp44 = (unsigned long )par;
+  __cil_tmp23 = par->state.vgabase;
 #line 922
-  __cil_tmp45 = __cil_tmp44 + 16;
+  __cil_tmp24 = & ark_start_address_regs[0];
 #line 922
-  __cil_tmp46 = *((void **)__cil_tmp45);
-#line 922
-  __cil_tmp47 = 0 * 3UL;
-#line 922
-  __cil_tmp48 = (unsigned long )(ark_start_address_regs) + __cil_tmp47;
-#line 922
-  __cil_tmp49 = (struct vga_regset  const  *)__cil_tmp48;
-#line 922
-  svga_wcrt_multi(__cil_tmp46, __cil_tmp49, offset);
+  svga_wcrt_multi(__cil_tmp23, __cil_tmp24, offset);
   }
 #line 924
   return (0);
@@ -12744,233 +10899,71 @@ static int ark_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
   int tmp___10 ;
   int tmp___11 ;
   int tmp___12 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct device *__cil_tmp16 ;
+  struct device  const  *__cil_tmp17 ;
   struct device *__cil_tmp18 ;
-  struct device  const  *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct device *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  struct device *__cil_tmp19 ;
+  struct device  const  *__cil_tmp20 ;
+  void *__cil_tmp21 ;
+  struct mutex *__cil_tmp22 ;
+  struct device *__cil_tmp23 ;
+  struct device  const  *__cil_tmp24 ;
   struct device *__cil_tmp25 ;
   struct device  const  *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  void *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct mutex *__cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct device *__cil_tmp39 ;
-  struct device  const  *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct device *__cil_tmp43 ;
-  struct device  const  *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  void *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct dac_info *__cil_tmp50 ;
+  void *__cil_tmp27 ;
+  struct dac_info *__cil_tmp28 ;
+  struct device *__cil_tmp29 ;
+  struct device  const  *__cil_tmp30 ;
+  resource_size_t __cil_tmp31 ;
+  resource_size_t __cil_tmp32 ;
+  resource_size_t __cil_tmp33 ;
+  resource_size_t __cil_tmp34 ;
+  resource_size_t __cil_tmp35 ;
+  resource_size_t __cil_tmp36 ;
+  resource_size_t __cil_tmp37 ;
+  resource_size_t __cil_tmp38 ;
+  resource_size_t __cil_tmp39 ;
+  resource_size_t __cil_tmp40 ;
+  resource_size_t __cil_tmp41 ;
+  resource_size_t __cil_tmp42 ;
+  char *__cil_tmp43 ;
+  struct device *__cil_tmp44 ;
+  struct device  const  *__cil_tmp45 ;
+  void *__cil_tmp46 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
   unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  struct device *__cil_tmp53 ;
-  struct device  const  *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  resource_size_t __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  resource_size_t __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  resource_size_t __cil_tmp72 ;
+  char *__cil_tmp52 ;
+  u32 *__cil_tmp53 ;
+  struct fb_var_screeninfo *__cil_tmp54 ;
+  char const   *__cil_tmp55 ;
+  void *__cil_tmp56 ;
+  struct fb_videomode  const  *__cil_tmp57 ;
+  void *__cil_tmp58 ;
+  struct fb_videomode  const  *__cil_tmp59 ;
+  struct device *__cil_tmp60 ;
+  struct device  const  *__cil_tmp61 ;
+  struct fb_cmap *__cil_tmp62 ;
+  struct device *__cil_tmp63 ;
+  struct device  const  *__cil_tmp64 ;
+  struct device *__cil_tmp65 ;
+  struct device  const  *__cil_tmp66 ;
+  struct pci_dev  const  *__cil_tmp67 ;
+  int __cil_tmp68 ;
+  char *__cil_tmp69 ;
+  __u32 __cil_tmp70 ;
+  __u32 __cil_tmp71 ;
+  void *__cil_tmp72 ;
   unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
+  __u32 __cil_tmp74 ;
   unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  resource_size_t __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  resource_size_t __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  resource_size_t __cil_tmp95 ;
-  resource_size_t __cil_tmp96 ;
-  resource_size_t __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  resource_size_t __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  resource_size_t __cil_tmp111 ;
-  resource_size_t __cil_tmp112 ;
-  resource_size_t __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  char *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  struct device *__cil_tmp121 ;
-  struct device  const  *__cil_tmp122 ;
-  struct pci_bus_region *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  struct resource *__cil_tmp128 ;
-  resource_size_t __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  void *__cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  int __cil_tmp135 ;
-  int __cil_tmp136 ;
-  int __cil_tmp137 ;
-  int __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  char *__cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  u32 *__cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  struct fb_var_screeninfo *__cil_tmp178 ;
-  char **__cil_tmp179 ;
-  char *__cil_tmp180 ;
-  char const   *__cil_tmp181 ;
-  void *__cil_tmp182 ;
-  struct fb_videomode  const  *__cil_tmp183 ;
-  void *__cil_tmp184 ;
-  struct fb_videomode  const  *__cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  struct device *__cil_tmp188 ;
-  struct device  const  *__cil_tmp189 ;
-  char **__cil_tmp190 ;
-  char *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  struct fb_cmap *__cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  struct device *__cil_tmp197 ;
-  struct device  const  *__cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  struct device *__cil_tmp201 ;
-  struct device  const  *__cil_tmp202 ;
-  struct pci_dev  const  *__cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  int __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  char *__cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  __u32 __cil_tmp216 ;
-  __u32 __cil_tmp217 ;
-  void *__cil_tmp218 ;
-  int *__cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  __u32 __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  struct fb_cmap *__cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  char *__cil_tmp238 ;
-  void *__cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  struct dac_info *__cil_tmp242 ;
+  bool __cil_tmp76 ;
+  struct fb_cmap *__cil_tmp77 ;
+  char *__cil_tmp78 ;
+  void *__cil_tmp79 ;
+  struct dac_info *__cil_tmp80 ;
 
   {
   {
@@ -12983,42 +10976,30 @@ static int ark_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
   } else {
     {
 #line 964
-    __cil_tmp16 = (unsigned long )dev;
+    __cil_tmp16 = & dev->dev;
 #line 964
-    __cil_tmp17 = __cil_tmp16 + 144;
+    __cil_tmp17 = (struct device  const  *)__cil_tmp16;
 #line 964
-    __cil_tmp18 = (struct device *)__cil_tmp17;
-#line 964
-    __cil_tmp19 = (struct device  const  *)__cil_tmp18;
-#line 964
-    _dev_info(__cil_tmp19, "ignoring secondary device\n");
+    _dev_info(__cil_tmp17, "ignoring secondary device\n");
     }
 #line 965
     return (-19);
   }
   {
 #line 969
-  __cil_tmp20 = (unsigned long )dev;
+  __cil_tmp18 = & dev->dev;
 #line 969
-  __cil_tmp21 = __cil_tmp20 + 144;
-#line 969
-  __cil_tmp22 = (struct device *)__cil_tmp21;
-#line 969
-  info = framebuffer_alloc(312UL, __cil_tmp22);
+  info = framebuffer_alloc(312UL, __cil_tmp18);
   }
 #line 970
   if (! info) {
     {
 #line 971
-    __cil_tmp23 = (unsigned long )dev;
+    __cil_tmp19 = & dev->dev;
 #line 971
-    __cil_tmp24 = __cil_tmp23 + 144;
+    __cil_tmp20 = (struct device  const  *)__cil_tmp19;
 #line 971
-    __cil_tmp25 = (struct device *)__cil_tmp24;
-#line 971
-    __cil_tmp26 = (struct device  const  *)__cil_tmp25;
-#line 971
-    dev_err(__cil_tmp26, "cannot allocate memory\n");
+    dev_err(__cil_tmp20, "cannot allocate memory\n");
     }
 #line 972
     return (-12);
@@ -13026,46 +11007,31 @@ static int ark_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
 
   }
 #line 975
-  __cil_tmp27 = (unsigned long )info;
+  __cil_tmp21 = info->par;
 #line 975
-  __cil_tmp28 = __cil_tmp27 + 1592;
-#line 975
-  __cil_tmp29 = *((void **)__cil_tmp28);
-#line 975
-  par = (struct arkfb_info *)__cil_tmp29;
+  par = (struct arkfb_info *)__cil_tmp21;
   {
 #line 976
   while (1) {
-    while_24_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 976
-    __cil_tmp30 = (unsigned long )par;
+    __cil_tmp22 = & par->open_lock;
 #line 976
-    __cil_tmp31 = __cil_tmp30 + 72;
-#line 976
-    __cil_tmp32 = (struct mutex *)__cil_tmp31;
-#line 976
-    __mutex_init(__cil_tmp32, "&par->open_lock", & __key___5);
+    __mutex_init(__cil_tmp22, "&par->open_lock", & __key___5);
     }
+#line 976
     goto while_break;
   }
-  while_24_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 978
-  __cil_tmp33 = (unsigned long )info;
-#line 978
-  __cil_tmp34 = __cil_tmp33 + 8;
-#line 978
-  *((int *)__cil_tmp34) = 8256;
+  info->flags = 8256;
 #line 979
-  __cil_tmp35 = (unsigned long )info;
-#line 979
-  __cil_tmp36 = __cil_tmp35 + 1512;
-#line 979
-  *((struct fb_ops **)__cil_tmp36) = & arkfb_ops;
+  info->fbops = & arkfb_ops;
 #line 982
   tmp___11 = (int )pci_enable_device(dev);
 #line 982
@@ -13077,16 +11043,13 @@ static int ark_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
   if (rc < 0) {
     {
 #line 984
-    __cil_tmp37 = (unsigned long )info;
+    __cil_tmp23 = info->device;
 #line 984
-    __cil_tmp38 = __cil_tmp37 + 1520;
+    __cil_tmp24 = (struct device  const  *)__cil_tmp23;
 #line 984
-    __cil_tmp39 = *((struct device **)__cil_tmp38);
-#line 984
-    __cil_tmp40 = (struct device  const  *)__cil_tmp39;
-#line 984
-    dev_err(__cil_tmp40, "cannot enable PCI device\n");
+    dev_err(__cil_tmp24, "cannot enable PCI device\n");
     }
+#line 985
     goto err_request_regions;
   } else {
 
@@ -13103,230 +11066,110 @@ static int ark_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
   if (rc < 0) {
     {
 #line 990
-    __cil_tmp41 = (unsigned long )info;
+    __cil_tmp25 = info->device;
 #line 990
-    __cil_tmp42 = __cil_tmp41 + 1520;
+    __cil_tmp26 = (struct device  const  *)__cil_tmp25;
 #line 990
-    __cil_tmp43 = *((struct device **)__cil_tmp42);
-#line 990
-    __cil_tmp44 = (struct device  const  *)__cil_tmp43;
-#line 990
-    dev_err(__cil_tmp44, "cannot reserve framebuffer region\n");
+    dev_err(__cil_tmp26, "cannot reserve framebuffer region\n");
     }
+#line 991
     goto err_request_regions;
   } else {
 
   }
   {
 #line 994
-  __cil_tmp45 = (unsigned long )par;
+  __cil_tmp27 = (void *)info;
 #line 994
-  __cil_tmp46 = __cil_tmp45 + 8;
-#line 994
-  __cil_tmp47 = (void *)info;
-#line 994
-  *((struct dac_info **)__cil_tmp46) = ics5342_init(& ark_dac_read_regs, & ark_dac_write_regs,
-                                                    __cil_tmp47);
+  par->dac = ics5342_init(& ark_dac_read_regs, & ark_dac_write_regs, __cil_tmp27);
   }
   {
 #line 995
-  __cil_tmp48 = (unsigned long )par;
+  __cil_tmp28 = par->dac;
 #line 995
-  __cil_tmp49 = __cil_tmp48 + 8;
-#line 995
-  __cil_tmp50 = *((struct dac_info **)__cil_tmp49);
-#line 995
-  if (! __cil_tmp50) {
+  if (! __cil_tmp28) {
     {
 #line 996
     rc = -12;
 #line 997
-    __cil_tmp51 = (unsigned long )info;
+    __cil_tmp29 = info->device;
 #line 997
-    __cil_tmp52 = __cil_tmp51 + 1520;
+    __cil_tmp30 = (struct device  const  *)__cil_tmp29;
 #line 997
-    __cil_tmp53 = *((struct device **)__cil_tmp52);
-#line 997
-    __cil_tmp54 = (struct device  const  *)__cil_tmp53;
-#line 997
-    dev_err(__cil_tmp54, "RAMDAC initialization failed\n");
+    dev_err(__cil_tmp30, "RAMDAC initialization failed\n");
     }
+#line 998
     goto err_dac;
   } else {
 
   }
   }
 #line 1001
-  __cil_tmp55 = 512 + 16;
+  __cil_tmp31 = dev->resource[0].start;
 #line 1001
-  __cil_tmp56 = (unsigned long )info;
-#line 1001
-  __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
-#line 1001
-  __cil_tmp58 = 0 * 56UL;
-#line 1001
-  __cil_tmp59 = 1320 + __cil_tmp58;
-#line 1001
-  __cil_tmp60 = (unsigned long )dev;
-#line 1001
-  __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 1001
-  __cil_tmp62 = *((resource_size_t *)__cil_tmp61);
-#line 1001
-  *((unsigned long *)__cil_tmp57) = (unsigned long )__cil_tmp62;
+  info->fix.smem_start = (unsigned long )__cil_tmp31;
   {
 #line 1002
-  __cil_tmp63 = 0 * 56UL;
+  __cil_tmp32 = dev->resource[0].start;
 #line 1002
-  __cil_tmp64 = 1320 + __cil_tmp63;
-#line 1002
-  __cil_tmp65 = (unsigned long )dev;
-#line 1002
-  __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
-#line 1002
-  __cil_tmp67 = *((resource_size_t *)__cil_tmp66);
-#line 1002
-  if (__cil_tmp67 == 0ULL) {
+  if (__cil_tmp32 == 0ULL) {
     {
 #line 1002
-    __cil_tmp68 = 0 * 56UL;
+    __cil_tmp33 = dev->resource[0].start;
 #line 1002
-    __cil_tmp69 = 1320 + __cil_tmp68;
+    __cil_tmp34 = dev->resource[0].end;
 #line 1002
-    __cil_tmp70 = (unsigned long )dev;
+    if (__cil_tmp34 == __cil_tmp33) {
 #line 1002
-    __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 1002
-    __cil_tmp72 = *((resource_size_t *)__cil_tmp71);
-#line 1002
-    __cil_tmp73 = 0 * 56UL;
-#line 1002
-    __cil_tmp74 = __cil_tmp73 + 8;
-#line 1002
-    __cil_tmp75 = 1320 + __cil_tmp74;
-#line 1002
-    __cil_tmp76 = (unsigned long )dev;
-#line 1002
-    __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
-#line 1002
-    __cil_tmp78 = *((resource_size_t *)__cil_tmp77);
-#line 1002
-    if (__cil_tmp78 == __cil_tmp72) {
-#line 1002
-      __cil_tmp79 = 512 + 24;
-#line 1002
-      __cil_tmp80 = (unsigned long )info;
-#line 1002
-      __cil_tmp81 = __cil_tmp80 + __cil_tmp79;
-#line 1002
-      *((__u32 *)__cil_tmp81) = 0U;
+      info->fix.smem_len = (__u32 )0;
     } else {
 #line 1002
-      __cil_tmp82 = 512 + 24;
+      __cil_tmp35 = dev->resource[0].start;
 #line 1002
-      __cil_tmp83 = (unsigned long )info;
+      __cil_tmp36 = dev->resource[0].end;
 #line 1002
-      __cil_tmp84 = __cil_tmp83 + __cil_tmp82;
+      __cil_tmp37 = __cil_tmp36 - __cil_tmp35;
 #line 1002
-      __cil_tmp85 = 0 * 56UL;
+      __cil_tmp38 = __cil_tmp37 + 1ULL;
 #line 1002
-      __cil_tmp86 = 1320 + __cil_tmp85;
-#line 1002
-      __cil_tmp87 = (unsigned long )dev;
-#line 1002
-      __cil_tmp88 = __cil_tmp87 + __cil_tmp86;
-#line 1002
-      __cil_tmp89 = *((resource_size_t *)__cil_tmp88);
-#line 1002
-      __cil_tmp90 = 0 * 56UL;
-#line 1002
-      __cil_tmp91 = __cil_tmp90 + 8;
-#line 1002
-      __cil_tmp92 = 1320 + __cil_tmp91;
-#line 1002
-      __cil_tmp93 = (unsigned long )dev;
-#line 1002
-      __cil_tmp94 = __cil_tmp93 + __cil_tmp92;
-#line 1002
-      __cil_tmp95 = *((resource_size_t *)__cil_tmp94);
-#line 1002
-      __cil_tmp96 = __cil_tmp95 - __cil_tmp89;
-#line 1002
-      __cil_tmp97 = __cil_tmp96 + 1ULL;
-#line 1002
-      *((__u32 *)__cil_tmp84) = (unsigned int )__cil_tmp97;
+      info->fix.smem_len = (__u32 )__cil_tmp38;
     }
     }
   } else {
 #line 1002
-    __cil_tmp98 = 512 + 24;
+    __cil_tmp39 = dev->resource[0].start;
 #line 1002
-    __cil_tmp99 = (unsigned long )info;
+    __cil_tmp40 = dev->resource[0].end;
 #line 1002
-    __cil_tmp100 = __cil_tmp99 + __cil_tmp98;
+    __cil_tmp41 = __cil_tmp40 - __cil_tmp39;
 #line 1002
-    __cil_tmp101 = 0 * 56UL;
+    __cil_tmp42 = __cil_tmp41 + 1ULL;
 #line 1002
-    __cil_tmp102 = 1320 + __cil_tmp101;
-#line 1002
-    __cil_tmp103 = (unsigned long )dev;
-#line 1002
-    __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
-#line 1002
-    __cil_tmp105 = *((resource_size_t *)__cil_tmp104);
-#line 1002
-    __cil_tmp106 = 0 * 56UL;
-#line 1002
-    __cil_tmp107 = __cil_tmp106 + 8;
-#line 1002
-    __cil_tmp108 = 1320 + __cil_tmp107;
-#line 1002
-    __cil_tmp109 = (unsigned long )dev;
-#line 1002
-    __cil_tmp110 = __cil_tmp109 + __cil_tmp108;
-#line 1002
-    __cil_tmp111 = *((resource_size_t *)__cil_tmp110);
-#line 1002
-    __cil_tmp112 = __cil_tmp111 - __cil_tmp105;
-#line 1002
-    __cil_tmp113 = __cil_tmp112 + 1ULL;
-#line 1002
-    *((__u32 *)__cil_tmp100) = (unsigned int )__cil_tmp113;
+    info->fix.smem_len = (__u32 )__cil_tmp42;
   }
   }
   {
 #line 1005
   tmp___8 = pci_iomap(dev, 0, 0UL);
 #line 1005
-  __cil_tmp114 = (unsigned long )info;
-#line 1005
-  __cil_tmp115 = __cil_tmp114 + 1552;
-#line 1005
-  *((char **)__cil_tmp115) = (char *)tmp___8;
+  info->screen_base = (char *)tmp___8;
   }
   {
 #line 1006
-  __cil_tmp116 = (unsigned long )info;
+  __cil_tmp43 = info->screen_base;
 #line 1006
-  __cil_tmp117 = __cil_tmp116 + 1552;
-#line 1006
-  __cil_tmp118 = *((char **)__cil_tmp117);
-#line 1006
-  if (! __cil_tmp118) {
+  if (! __cil_tmp43) {
     {
 #line 1007
     rc = -12;
 #line 1008
-    __cil_tmp119 = (unsigned long )info;
+    __cil_tmp44 = info->device;
 #line 1008
-    __cil_tmp120 = __cil_tmp119 + 1520;
+    __cil_tmp45 = (struct device  const  *)__cil_tmp44;
 #line 1008
-    __cil_tmp121 = *((struct device **)__cil_tmp120);
-#line 1008
-    __cil_tmp122 = (struct device  const  *)__cil_tmp121;
-#line 1008
-    dev_err(__cil_tmp122, "iomap for framebuffer failed\n");
+    dev_err(__cil_tmp45, "iomap for framebuffer failed\n");
     }
+#line 1009
     goto err_iomap;
   } else {
 
@@ -13334,220 +11177,107 @@ static int ark_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
   }
   {
 #line 1012
-  __cil_tmp123 = & bus_reg;
-#line 1012
-  *((resource_size_t *)__cil_tmp123) = 0ULL;
+  bus_reg.start = (resource_size_t )0;
 #line 1013
-  __cil_tmp124 = (unsigned long )(& bus_reg) + 8;
-#line 1013
-  *((resource_size_t *)__cil_tmp124) = 65536ULL;
+  bus_reg.end = (resource_size_t )65536;
 #line 1015
-  __cil_tmp125 = (unsigned long )(& vga_res) + 24;
-#line 1015
-  *((unsigned long *)__cil_tmp125) = 256UL;
+  vga_res.flags = 256UL;
 #line 1017
   pcibios_bus_to_resource(dev, & vga_res, & bus_reg);
 #line 1019
-  __cil_tmp126 = (unsigned long )par;
-#line 1019
-  __cil_tmp127 = __cil_tmp126 + 16;
-#line 1019
-  __cil_tmp128 = & vga_res;
-#line 1019
-  __cil_tmp129 = *((resource_size_t *)__cil_tmp128);
-#line 1019
-  *((void **)__cil_tmp127) = (void *)__cil_tmp129;
+  par->state.vgabase = (void *)vga_res.start;
 #line 1022
-  __cil_tmp130 = (unsigned long )par;
+  __cil_tmp46 = par->state.vgabase;
 #line 1022
-  __cil_tmp131 = __cil_tmp130 + 16;
-#line 1022
-  __cil_tmp132 = *((void **)__cil_tmp131);
-#line 1022
-  regval = vga_rseq(__cil_tmp132, (unsigned char)16);
+  regval = vga_rseq(__cil_tmp46, (unsigned char)16);
 #line 1023
-  __cil_tmp133 = (unsigned long )info;
+  __cil_tmp47 = (int )regval;
 #line 1023
-  __cil_tmp134 = __cil_tmp133 + 1560;
+  __cil_tmp48 = __cil_tmp47 >> 6;
 #line 1023
-  __cil_tmp135 = (int )regval;
+  __cil_tmp49 = 1 << __cil_tmp48;
 #line 1023
-  __cil_tmp136 = __cil_tmp135 >> 6;
+  __cil_tmp50 = __cil_tmp49 << 20;
 #line 1023
-  __cil_tmp137 = 1 << __cil_tmp136;
-#line 1023
-  __cil_tmp138 = __cil_tmp137 << 20;
-#line 1023
-  *((unsigned long *)__cil_tmp134) = (unsigned long )__cil_tmp138;
+  info->screen_size = (unsigned long )__cil_tmp50;
 #line 1024
-  __cil_tmp139 = 512 + 24;
+  __cil_tmp51 = info->screen_size;
 #line 1024
-  __cil_tmp140 = (unsigned long )info;
-#line 1024
-  __cil_tmp141 = __cil_tmp140 + __cil_tmp139;
-#line 1024
-  __cil_tmp142 = (unsigned long )info;
-#line 1024
-  __cil_tmp143 = __cil_tmp142 + 1560;
-#line 1024
-  __cil_tmp144 = *((unsigned long *)__cil_tmp143);
-#line 1024
-  *((__u32 *)__cil_tmp141) = (unsigned int )__cil_tmp144;
+  info->fix.smem_len = (__u32 )__cil_tmp51;
 #line 1026
-  __cil_tmp145 = 0 * 1UL;
+  __cil_tmp52 = & info->fix.id[0];
 #line 1026
-  __cil_tmp146 = 0 + __cil_tmp145;
-#line 1026
-  __cil_tmp147 = 512 + __cil_tmp146;
-#line 1026
-  __cil_tmp148 = (unsigned long )info;
-#line 1026
-  __cil_tmp149 = __cil_tmp148 + __cil_tmp147;
-#line 1026
-  __cil_tmp150 = (char *)__cil_tmp149;
-#line 1026
-  strcpy(__cil_tmp150, "ARK 2000PV");
+  strcpy(__cil_tmp52, "ARK 2000PV");
 #line 1027
-  __cil_tmp151 = 512 + 56;
-#line 1027
-  __cil_tmp152 = (unsigned long )info;
-#line 1027
-  __cil_tmp153 = __cil_tmp152 + __cil_tmp151;
-#line 1027
-  *((unsigned long *)__cil_tmp153) = 0UL;
+  info->fix.mmio_start = 0UL;
 #line 1028
-  __cil_tmp154 = 512 + 64;
-#line 1028
-  __cil_tmp155 = (unsigned long )info;
-#line 1028
-  __cil_tmp156 = __cil_tmp155 + __cil_tmp154;
-#line 1028
-  *((__u32 *)__cil_tmp156) = 0U;
+  info->fix.mmio_len = (__u32 )0;
 #line 1029
-  __cil_tmp157 = 512 + 28;
-#line 1029
-  __cil_tmp158 = (unsigned long )info;
-#line 1029
-  __cil_tmp159 = __cil_tmp158 + __cil_tmp157;
-#line 1029
-  *((__u32 *)__cil_tmp159) = 0U;
+  info->fix.type = (__u32 )0;
 #line 1030
-  __cil_tmp160 = 512 + 36;
-#line 1030
-  __cil_tmp161 = (unsigned long )info;
-#line 1030
-  __cil_tmp162 = __cil_tmp161 + __cil_tmp160;
-#line 1030
-  *((__u32 *)__cil_tmp162) = 3U;
+  info->fix.visual = (__u32 )3;
 #line 1031
-  __cil_tmp163 = 512 + 42;
-#line 1031
-  __cil_tmp164 = (unsigned long )info;
-#line 1031
-  __cil_tmp165 = __cil_tmp164 + __cil_tmp163;
-#line 1031
-  *((__u16 *)__cil_tmp165) = (unsigned short)0;
+  info->fix.ypanstep = (__u16 )0;
 #line 1032
-  __cil_tmp166 = 512 + 68;
-#line 1032
-  __cil_tmp167 = (unsigned long )info;
-#line 1032
-  __cil_tmp168 = __cil_tmp167 + __cil_tmp166;
-#line 1032
-  *((__u32 *)__cil_tmp168) = 0U;
+  info->fix.accel = (__u32 )0;
 #line 1033
-  __cil_tmp169 = (unsigned long )info;
+  __cil_tmp53 = & par->pseudo_palette[0];
 #line 1033
-  __cil_tmp170 = __cil_tmp169 + 1568;
-#line 1033
-  __cil_tmp171 = 0 * 4UL;
-#line 1033
-  __cil_tmp172 = 244 + __cil_tmp171;
-#line 1033
-  __cil_tmp173 = (unsigned long )par;
-#line 1033
-  __cil_tmp174 = __cil_tmp173 + __cil_tmp172;
-#line 1033
-  __cil_tmp175 = (u32 *)__cil_tmp174;
-#line 1033
-  *((void **)__cil_tmp170) = (void *)__cil_tmp175;
+  info->pseudo_palette = (void *)__cil_tmp53;
 #line 1036
-  __cil_tmp176 = (unsigned long )info;
+  __cil_tmp54 = & info->var;
 #line 1036
-  __cil_tmp177 = __cil_tmp176 + 352;
+  __cil_tmp55 = (char const   *)mode_option;
 #line 1036
-  __cil_tmp178 = (struct fb_var_screeninfo *)__cil_tmp177;
+  __cil_tmp56 = (void *)0;
 #line 1036
-  __cil_tmp179 = & mode_option;
+  __cil_tmp57 = (struct fb_videomode  const  *)__cil_tmp56;
 #line 1036
-  __cil_tmp180 = *__cil_tmp179;
+  __cil_tmp58 = (void *)0;
 #line 1036
-  __cil_tmp181 = (char const   *)__cil_tmp180;
+  __cil_tmp59 = (struct fb_videomode  const  *)__cil_tmp58;
 #line 1036
-  __cil_tmp182 = (void *)0;
-#line 1036
-  __cil_tmp183 = (struct fb_videomode  const  *)__cil_tmp182;
-#line 1036
-  __cil_tmp184 = (void *)0;
-#line 1036
-  __cil_tmp185 = (struct fb_videomode  const  *)__cil_tmp184;
-#line 1036
-  rc = fb_find_mode(__cil_tmp178, info, __cil_tmp181, __cil_tmp183, 0U, __cil_tmp185,
+  rc = fb_find_mode(__cil_tmp54, info, __cil_tmp55, __cil_tmp57, 0U, __cil_tmp59,
                     8U);
   }
 #line 1037
   if (rc == 1) {
 
-  } else {
+  } else
 #line 1037
-    if (rc == 2) {
+  if (rc == 2) {
 
-    } else {
-      {
+  } else {
+    {
 #line 1038
-      rc = -22;
+    rc = -22;
 #line 1039
-      __cil_tmp186 = (unsigned long )info;
+    __cil_tmp60 = info->device;
 #line 1039
-      __cil_tmp187 = __cil_tmp186 + 1520;
+    __cil_tmp61 = (struct device  const  *)__cil_tmp60;
 #line 1039
-      __cil_tmp188 = *((struct device **)__cil_tmp187);
-#line 1039
-      __cil_tmp189 = (struct device  const  *)__cil_tmp188;
-#line 1039
-      __cil_tmp190 = & mode_option;
-#line 1039
-      __cil_tmp191 = *__cil_tmp190;
-#line 1039
-      dev_err(__cil_tmp189, "mode %s not found\n", __cil_tmp191);
-      }
-      goto err_alloc_cmap;
+    dev_err(__cil_tmp61, "mode %s not found\n", mode_option);
     }
+#line 1040
+    goto err_alloc_cmap;
   }
   {
 #line 1043
-  __cil_tmp192 = (unsigned long )info;
+  __cil_tmp62 = & info->cmap;
 #line 1043
-  __cil_tmp193 = __cil_tmp192 + 928;
-#line 1043
-  __cil_tmp194 = (struct fb_cmap *)__cil_tmp193;
-#line 1043
-  rc = fb_alloc_cmap(__cil_tmp194, 256, 0);
+  rc = fb_alloc_cmap(__cil_tmp62, 256, 0);
   }
 #line 1044
   if (rc < 0) {
     {
 #line 1045
-    __cil_tmp195 = (unsigned long )info;
+    __cil_tmp63 = info->device;
 #line 1045
-    __cil_tmp196 = __cil_tmp195 + 1520;
+    __cil_tmp64 = (struct device  const  *)__cil_tmp63;
 #line 1045
-    __cil_tmp197 = *((struct device **)__cil_tmp196);
-#line 1045
-    __cil_tmp198 = (struct device  const  *)__cil_tmp197;
-#line 1045
-    dev_err(__cil_tmp198, "cannot allocate colormap\n");
+    dev_err(__cil_tmp64, "cannot allocate colormap\n");
     }
+#line 1046
     goto err_alloc_cmap;
   } else {
 
@@ -13560,137 +11290,80 @@ static int ark_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
   if (rc < 0) {
     {
 #line 1051
-    __cil_tmp199 = (unsigned long )info;
+    __cil_tmp65 = info->device;
 #line 1051
-    __cil_tmp200 = __cil_tmp199 + 1520;
+    __cil_tmp66 = (struct device  const  *)__cil_tmp65;
 #line 1051
-    __cil_tmp201 = *((struct device **)__cil_tmp200);
-#line 1051
-    __cil_tmp202 = (struct device  const  *)__cil_tmp201;
-#line 1051
-    dev_err(__cil_tmp202, "cannot register framebugger\n");
+    dev_err(__cil_tmp66, "cannot register framebugger\n");
     }
+#line 1052
     goto err_reg_fb;
   } else {
 
   }
   {
 #line 1055
-  __cil_tmp203 = (struct pci_dev  const  *)dev;
+  __cil_tmp67 = (struct pci_dev  const  *)dev;
 #line 1055
-  tmp___9 = pci_name(__cil_tmp203);
+  tmp___9 = pci_name(__cil_tmp67);
 #line 1055
-  __cil_tmp204 = (unsigned long )info;
+  __cil_tmp68 = info->node;
 #line 1055
-  __cil_tmp205 = __cil_tmp204 + 4;
+  __cil_tmp69 = & info->fix.id[0];
 #line 1055
-  __cil_tmp206 = *((int *)__cil_tmp205);
+  __cil_tmp70 = info->fix.smem_len;
 #line 1055
-  __cil_tmp207 = 0 * 1UL;
+  __cil_tmp71 = __cil_tmp70 >> 20;
 #line 1055
-  __cil_tmp208 = 0 + __cil_tmp207;
-#line 1055
-  __cil_tmp209 = 512 + __cil_tmp208;
-#line 1055
-  __cil_tmp210 = (unsigned long )info;
-#line 1055
-  __cil_tmp211 = __cil_tmp210 + __cil_tmp209;
-#line 1055
-  __cil_tmp212 = (char *)__cil_tmp211;
-#line 1055
-  __cil_tmp213 = 512 + 24;
-#line 1055
-  __cil_tmp214 = (unsigned long )info;
-#line 1055
-  __cil_tmp215 = __cil_tmp214 + __cil_tmp213;
-#line 1055
-  __cil_tmp216 = *((__u32 *)__cil_tmp215);
-#line 1055
-  __cil_tmp217 = __cil_tmp216 >> 20;
-#line 1055
-  printk("<6>fb%d: %s on %s, %d MB RAM\n", __cil_tmp206, __cil_tmp212, tmp___9, __cil_tmp217);
+  printk("<6>fb%d: %s on %s, %d MB RAM\n", __cil_tmp68, __cil_tmp69, tmp___9, __cil_tmp71);
 #line 1059
-  __cil_tmp218 = (void *)info;
+  __cil_tmp72 = (void *)info;
 #line 1059
-  pci_set_drvdata(dev, __cil_tmp218);
+  pci_set_drvdata(dev, __cil_tmp72);
   }
-  {
 #line 1062
-  __cil_tmp219 = & mtrr;
-#line 1062
-  if (*__cil_tmp219) {
+  if (mtrr) {
     {
 #line 1063
-    __cil_tmp220 = (unsigned long )par;
-#line 1063
-    __cil_tmp221 = __cil_tmp220 + 4;
-#line 1063
-    *((int *)__cil_tmp221) = -1;
+    par->mtrr_reg = -1;
 #line 1064
-    __cil_tmp222 = (unsigned long )par;
+    __cil_tmp73 = info->fix.smem_start;
 #line 1064
-    __cil_tmp223 = __cil_tmp222 + 4;
+    __cil_tmp74 = info->fix.smem_len;
 #line 1064
-    __cil_tmp224 = 512 + 16;
+    __cil_tmp75 = (unsigned long )__cil_tmp74;
 #line 1064
-    __cil_tmp225 = (unsigned long )info;
+    __cil_tmp76 = (bool )1;
 #line 1064
-    __cil_tmp226 = __cil_tmp225 + __cil_tmp224;
-#line 1064
-    __cil_tmp227 = *((unsigned long *)__cil_tmp226);
-#line 1064
-    __cil_tmp228 = 512 + 24;
-#line 1064
-    __cil_tmp229 = (unsigned long )info;
-#line 1064
-    __cil_tmp230 = __cil_tmp229 + __cil_tmp228;
-#line 1064
-    __cil_tmp231 = *((__u32 *)__cil_tmp230);
-#line 1064
-    __cil_tmp232 = (unsigned long )__cil_tmp231;
-#line 1064
-    *((int *)__cil_tmp223) = mtrr_add(__cil_tmp227, __cil_tmp232, 1U, (_Bool)1);
+    par->mtrr_reg = mtrr_add(__cil_tmp73, __cil_tmp75, 1U, __cil_tmp76);
     }
   } else {
 
-  }
   }
 #line 1068
   return (0);
   err_reg_fb: 
   {
 #line 1072
-  __cil_tmp233 = (unsigned long )info;
+  __cil_tmp77 = & info->cmap;
 #line 1072
-  __cil_tmp234 = __cil_tmp233 + 928;
-#line 1072
-  __cil_tmp235 = (struct fb_cmap *)__cil_tmp234;
-#line 1072
-  fb_dealloc_cmap(__cil_tmp235);
+  fb_dealloc_cmap(__cil_tmp77);
   }
   err_alloc_cmap: 
   {
 #line 1075
-  __cil_tmp236 = (unsigned long )info;
+  __cil_tmp78 = info->screen_base;
 #line 1075
-  __cil_tmp237 = __cil_tmp236 + 1552;
+  __cil_tmp79 = (void *)__cil_tmp78;
 #line 1075
-  __cil_tmp238 = *((char **)__cil_tmp237);
-#line 1075
-  __cil_tmp239 = (void *)__cil_tmp238;
-#line 1075
-  pci_iounmap(dev, __cil_tmp239);
+  pci_iounmap(dev, __cil_tmp79);
   }
   err_iomap: 
   {
 #line 1077
-  __cil_tmp240 = (unsigned long )par;
+  __cil_tmp80 = par->dac;
 #line 1077
-  __cil_tmp241 = __cil_tmp240 + 8;
-#line 1077
-  __cil_tmp242 = *((struct dac_info **)__cil_tmp241);
-#line 1077
-  dac_release(__cil_tmp242);
+  dac_release(__cil_tmp80);
   }
   err_dac: 
   {
@@ -13717,28 +11390,14 @@ static void ark_pci_remove(struct pci_dev *dev )
 { struct fb_info *info ;
   void *tmp___7 ;
   struct arkfb_info *par ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct dac_info *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct fb_cmap *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  char *__cil_tmp24 ;
-  void *__cil_tmp25 ;
-  void *__cil_tmp26 ;
+  void *__cil_tmp5 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
+  struct dac_info *__cil_tmp8 ;
+  struct fb_cmap *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  void *__cil_tmp11 ;
+  void *__cil_tmp12 ;
 
   {
   {
@@ -13750,37 +11409,21 @@ static void ark_pci_remove(struct pci_dev *dev )
 #line 1093
   if (info) {
 #line 1094
-    __cil_tmp5 = (unsigned long )info;
+    __cil_tmp5 = info->par;
 #line 1094
-    __cil_tmp6 = __cil_tmp5 + 1592;
-#line 1094
-    __cil_tmp7 = *((void **)__cil_tmp6);
-#line 1094
-    par = (struct arkfb_info *)__cil_tmp7;
+    par = (struct arkfb_info *)__cil_tmp5;
     {
 #line 1097
-    __cil_tmp8 = (unsigned long )par;
+    __cil_tmp6 = par->mtrr_reg;
 #line 1097
-    __cil_tmp9 = __cil_tmp8 + 4;
-#line 1097
-    __cil_tmp10 = *((int *)__cil_tmp9);
-#line 1097
-    if (__cil_tmp10 >= 0) {
+    if (__cil_tmp6 >= 0) {
       {
 #line 1098
-      __cil_tmp11 = (unsigned long )par;
+      __cil_tmp7 = par->mtrr_reg;
 #line 1098
-      __cil_tmp12 = __cil_tmp11 + 4;
-#line 1098
-      __cil_tmp13 = *((int *)__cil_tmp12);
-#line 1098
-      mtrr_del(__cil_tmp13, 0UL, 0UL);
+      mtrr_del(__cil_tmp7, 0UL, 0UL);
 #line 1099
-      __cil_tmp14 = (unsigned long )par;
-#line 1099
-      __cil_tmp15 = __cil_tmp14 + 4;
-#line 1099
-      *((int *)__cil_tmp15) = -1;
+      par->mtrr_reg = -1;
       }
     } else {
 
@@ -13788,39 +11431,27 @@ static void ark_pci_remove(struct pci_dev *dev )
     }
     {
 #line 1103
-    __cil_tmp16 = (unsigned long )par;
+    __cil_tmp8 = par->dac;
 #line 1103
-    __cil_tmp17 = __cil_tmp16 + 8;
-#line 1103
-    __cil_tmp18 = *((struct dac_info **)__cil_tmp17);
-#line 1103
-    dac_release(__cil_tmp18);
+    dac_release(__cil_tmp8);
 #line 1104
     unregister_framebuffer(info);
 #line 1105
-    __cil_tmp19 = (unsigned long )info;
+    __cil_tmp9 = & info->cmap;
 #line 1105
-    __cil_tmp20 = __cil_tmp19 + 928;
-#line 1105
-    __cil_tmp21 = (struct fb_cmap *)__cil_tmp20;
-#line 1105
-    fb_dealloc_cmap(__cil_tmp21);
+    fb_dealloc_cmap(__cil_tmp9);
 #line 1107
-    __cil_tmp22 = (unsigned long )info;
+    __cil_tmp10 = info->screen_base;
 #line 1107
-    __cil_tmp23 = __cil_tmp22 + 1552;
+    __cil_tmp11 = (void *)__cil_tmp10;
 #line 1107
-    __cil_tmp24 = *((char **)__cil_tmp23);
-#line 1107
-    __cil_tmp25 = (void *)__cil_tmp24;
-#line 1107
-    pci_iounmap(dev, __cil_tmp25);
+    pci_iounmap(dev, __cil_tmp11);
 #line 1108
     pci_release_regions(dev);
 #line 1111
-    __cil_tmp26 = (void *)0;
+    __cil_tmp12 = (void *)0;
 #line 1111
-    pci_set_drvdata(dev, __cil_tmp26);
+    pci_set_drvdata(dev, __cil_tmp12);
 #line 1112
     framebuffer_release(info);
     }
@@ -13832,33 +11463,19 @@ static void ark_pci_remove(struct pci_dev *dev )
 }
 }
 #line 1120 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static int ark_pci_suspend(struct pci_dev *dev , int state_event29 ) 
+static int ark_pci_suspend(struct pci_dev *dev , pm_message_t state ) 
 { struct fb_info *info ;
   void *tmp___7 ;
   struct arkfb_info *par ;
   pci_power_t tmp___8 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  void *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct device *__cil_tmp12 ;
-  struct device  const  *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct mutex *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct mutex *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  struct mutex *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  struct mutex *__cil_tmp28 ;
+  void *__cil_tmp7 ;
+  struct device *__cil_tmp8 ;
+  struct device  const  *__cil_tmp9 ;
+  struct mutex *__cil_tmp10 ;
+  struct mutex *__cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
+  struct mutex *__cil_tmp14 ;
 
   {
   {
@@ -13867,45 +11484,29 @@ static int ark_pci_suspend(struct pci_dev *dev , int state_event29 )
 #line 1122
   info = (struct fb_info *)tmp___7;
 #line 1123
-  __cil_tmp7 = (unsigned long )info;
+  __cil_tmp7 = info->par;
 #line 1123
-  __cil_tmp8 = __cil_tmp7 + 1592;
-#line 1123
-  __cil_tmp9 = *((void **)__cil_tmp8);
-#line 1123
-  par = (struct arkfb_info *)__cil_tmp9;
+  par = (struct arkfb_info *)__cil_tmp7;
 #line 1125
-  __cil_tmp10 = (unsigned long )info;
+  __cil_tmp8 = info->device;
 #line 1125
-  __cil_tmp11 = __cil_tmp10 + 1520;
+  __cil_tmp9 = (struct device  const  *)__cil_tmp8;
 #line 1125
-  __cil_tmp12 = *((struct device **)__cil_tmp11);
-#line 1125
-  __cil_tmp13 = (struct device  const  *)__cil_tmp12;
-#line 1125
-  _dev_info(__cil_tmp13, "suspend\n");
+  _dev_info(__cil_tmp9, "suspend\n");
 #line 1127
   console_lock();
 #line 1128
-  __cil_tmp14 = (unsigned long )par;
+  __cil_tmp10 = & par->open_lock;
 #line 1128
-  __cil_tmp15 = __cil_tmp14 + 72;
-#line 1128
-  __cil_tmp16 = (struct mutex *)__cil_tmp15;
-#line 1128
-  mutex_lock_nested(__cil_tmp16, 0U);
+  mutex_lock_nested(__cil_tmp10, 0U);
   }
 #line 1130
-  if (state_event29 == 1) {
+  if (state.event == 1) {
     {
 #line 1131
-    __cil_tmp17 = (unsigned long )par;
+    __cil_tmp11 = & par->open_lock;
 #line 1131
-    __cil_tmp18 = __cil_tmp17 + 72;
-#line 1131
-    __cil_tmp19 = (struct mutex *)__cil_tmp18;
-#line 1131
-    mutex_unlock(__cil_tmp19);
+    mutex_unlock(__cil_tmp11);
 #line 1132
     console_unlock();
     }
@@ -13914,22 +11515,14 @@ static int ark_pci_suspend(struct pci_dev *dev , int state_event29 )
   } else {
     {
 #line 1130
-    __cil_tmp20 = (unsigned long )par;
+    __cil_tmp12 = par->ref_count;
 #line 1130
-    __cil_tmp21 = __cil_tmp20 + 240;
-#line 1130
-    __cil_tmp22 = *((unsigned int *)__cil_tmp21);
-#line 1130
-    if (__cil_tmp22 == 0U) {
+    if (__cil_tmp12 == 0U) {
       {
 #line 1131
-      __cil_tmp23 = (unsigned long )par;
+      __cil_tmp13 = & par->open_lock;
 #line 1131
-      __cil_tmp24 = __cil_tmp23 + 72;
-#line 1131
-      __cil_tmp25 = (struct mutex *)__cil_tmp24;
-#line 1131
-      mutex_unlock(__cil_tmp25);
+      mutex_unlock(__cil_tmp13);
 #line 1132
       console_unlock();
       }
@@ -13948,17 +11541,13 @@ static int ark_pci_suspend(struct pci_dev *dev , int state_event29 )
 #line 1139
   pci_disable_device(dev);
 #line 1140
-  tmp___8 = pci_choose_state(dev, state_event29);
+  tmp___8 = pci_choose_state(dev, state);
 #line 1140
   pci_set_power_state(dev, tmp___8);
 #line 1142
-  __cil_tmp26 = (unsigned long )par;
+  __cil_tmp14 = & par->open_lock;
 #line 1142
-  __cil_tmp27 = __cil_tmp26 + 72;
-#line 1142
-  __cil_tmp28 = (struct mutex *)__cil_tmp27;
-#line 1142
-  mutex_unlock(__cil_tmp28);
+  mutex_unlock(__cil_tmp14);
 #line 1143
   console_unlock();
   }
@@ -13974,22 +11563,12 @@ static int ark_pci_resume(struct pci_dev *dev )
   int tmp___8 ;
   int tmp ;
   int tmp___9 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  void *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct device *__cil_tmp13 ;
-  struct device  const  *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct mutex *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  struct mutex *__cil_tmp23 ;
+  void *__cil_tmp8 ;
+  struct device *__cil_tmp9 ;
+  struct device  const  *__cil_tmp10 ;
+  struct mutex *__cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  struct mutex *__cil_tmp13 ;
 
   {
   {
@@ -13998,43 +11577,28 @@ static int ark_pci_resume(struct pci_dev *dev )
 #line 1153
   info = (struct fb_info *)tmp___7;
 #line 1154
-  __cil_tmp8 = (unsigned long )info;
+  __cil_tmp8 = info->par;
 #line 1154
-  __cil_tmp9 = __cil_tmp8 + 1592;
-#line 1154
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 1154
-  par = (struct arkfb_info *)__cil_tmp10;
+  par = (struct arkfb_info *)__cil_tmp8;
 #line 1156
-  __cil_tmp11 = (unsigned long )info;
+  __cil_tmp9 = info->device;
 #line 1156
-  __cil_tmp12 = __cil_tmp11 + 1520;
+  __cil_tmp10 = (struct device  const  *)__cil_tmp9;
 #line 1156
-  __cil_tmp13 = *((struct device **)__cil_tmp12);
-#line 1156
-  __cil_tmp14 = (struct device  const  *)__cil_tmp13;
-#line 1156
-  _dev_info(__cil_tmp14, "resume\n");
+  _dev_info(__cil_tmp10, "resume\n");
 #line 1158
   console_lock();
 #line 1159
-  __cil_tmp15 = (unsigned long )par;
+  __cil_tmp11 = & par->open_lock;
 #line 1159
-  __cil_tmp16 = __cil_tmp15 + 72;
-#line 1159
-  __cil_tmp17 = (struct mutex *)__cil_tmp16;
-#line 1159
-  mutex_lock_nested(__cil_tmp17, 0U);
+  mutex_lock_nested(__cil_tmp11, 0U);
   }
   {
 #line 1161
-  __cil_tmp18 = (unsigned long )par;
+  __cil_tmp12 = par->ref_count;
 #line 1161
-  __cil_tmp19 = __cil_tmp18 + 240;
-#line 1161
-  __cil_tmp20 = *((unsigned int *)__cil_tmp19);
-#line 1161
-  if (__cil_tmp20 == 0U) {
+  if (__cil_tmp12 == 0U) {
+#line 1162
     goto fail;
   } else {
 
@@ -14054,6 +11618,7 @@ static int ark_pci_resume(struct pci_dev *dev )
   }
 #line 1167
   if (tmp___8) {
+#line 1168
     goto fail;
   } else {
 
@@ -14069,13 +11634,9 @@ static int ark_pci_resume(struct pci_dev *dev )
   fail: 
   {
 #line 1176
-  __cil_tmp21 = (unsigned long )par;
+  __cil_tmp13 = & par->open_lock;
 #line 1176
-  __cil_tmp22 = __cil_tmp21 + 72;
-#line 1176
-  __cil_tmp23 = (struct mutex *)__cil_tmp22;
-#line 1176
-  mutex_unlock(__cil_tmp23);
+  mutex_unlock(__cil_tmp13);
 #line 1177
   console_unlock();
   }
@@ -14084,9 +11645,9 @@ static int ark_pci_resume(struct pci_dev *dev )
 }
 }
 #line 1187 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
-static struct pci_device_id ark_devices[2]  __attribute__((__section__(".devinit.data")))  = {      {60888U,
-      41113U, (unsigned int )(~ 0), (unsigned int )(~ 0), 0U, 0U, 0UL}, 
-        {0U, 0U, 0U, 0U, 0U, 0U, 0UL}};
+static struct pci_device_id ark_devices[2]  __attribute__((__section__(".devinit.data")))  = {      {(__u32 )60888,
+      (__u32 )41113, (__u32 )(~ 0), (__u32 )(~ 0), 0U, 0U, 0UL}, 
+        {(__u32 )0, (__u32 )0, (__u32 )0, (__u32 )0, (__u32 )0, (__u32 )0, (kernel_ulong_t )0}};
 #line 1193
 extern struct pci_device_id  const  __mod_pci_device_table  __attribute__((__unused__,
 __alias__("ark_devices"))) ;
@@ -14119,30 +11680,24 @@ static void arkfb_cleanup(void)  __attribute__((__section__(".exit.text"), __no_
 #line 1206 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/arkfb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c.common.c"
 static void arkfb_cleanup(void) 
 { long tmp___7 ;
-  unsigned long __cil_tmp2 ;
-  char __cil_tmp3 ;
-  int __cil_tmp4 ;
-  int __cil_tmp5 ;
-  long __cil_tmp6 ;
+  int __cil_tmp2 ;
+  int __cil_tmp3 ;
+  long __cil_tmp4 ;
 
   {
   {
 #line 1208
   while (1) {
-    while_25_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1208
-    __cil_tmp2 = (unsigned long )(& descriptor___13) + 36;
+    __cil_tmp2 = ! descriptor___13.enabled;
 #line 1208
-    __cil_tmp3 = *((char *)__cil_tmp2);
+    __cil_tmp3 = ! __cil_tmp2;
 #line 1208
-    __cil_tmp4 = ! __cil_tmp3;
+    __cil_tmp4 = (long )__cil_tmp3;
 #line 1208
-    __cil_tmp5 = ! __cil_tmp4;
-#line 1208
-    __cil_tmp6 = (long )__cil_tmp5;
-#line 1208
-    tmp___7 = __builtin_expect(__cil_tmp6, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp4, 0L);
     }
 #line 1208
     if (tmp___7) {
@@ -14153,9 +11708,10 @@ static void arkfb_cleanup(void)
     } else {
 
     }
+#line 1208
     goto while_break;
   }
-  while_25_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -14181,30 +11737,24 @@ static int arkfb_init(void)
   int tmp___8 ;
   int tmp ;
   int tmp___9 ;
-  unsigned long __cil_tmp5 ;
-  char __cil_tmp6 ;
-  int __cil_tmp7 ;
-  int __cil_tmp8 ;
-  long __cil_tmp9 ;
+  int __cil_tmp5 ;
+  int __cil_tmp6 ;
+  long __cil_tmp7 ;
 
   {
   {
 #line 1227
   while (1) {
-    while_26_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1227
-    __cil_tmp5 = (unsigned long )(& descriptor___14) + 36;
+    __cil_tmp5 = ! descriptor___14.enabled;
 #line 1227
-    __cil_tmp6 = *((char *)__cil_tmp5);
+    __cil_tmp6 = ! __cil_tmp5;
 #line 1227
-    __cil_tmp7 = ! __cil_tmp6;
+    __cil_tmp7 = (long )__cil_tmp6;
 #line 1227
-    __cil_tmp8 = ! __cil_tmp7;
-#line 1227
-    __cil_tmp9 = (long )__cil_tmp8;
-#line 1227
-    tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___7 = __builtin_expect(__cil_tmp7, 0L);
     }
 #line 1227
     if (tmp___7) {
@@ -14215,9 +11765,10 @@ static int arkfb_init(void)
     } else {
 
     }
+#line 1227
     goto while_break;
   }
-  while_26_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -14301,7 +11852,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp28 ;
-  int var_ark_pci_suspend_32_p1_event29 ;
 
   {
   {
@@ -14314,6 +11864,7 @@ void main(void)
   }
 #line 1754
   if (tmp___7) {
+#line 1755
     goto ldv_final;
   } else {
 
@@ -14323,7 +11874,7 @@ void main(void)
   {
 #line 1766
   while (1) {
-    while_27_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1766
     tmp___9 = nondet_int();
@@ -14339,6 +11890,7 @@ void main(void)
       if (! __cil_tmp28) {
 
       } else {
+#line 1766
         goto while_break;
       }
       }
@@ -14349,223 +11901,238 @@ void main(void)
     }
 #line 1772
     if (tmp___8 == 0) {
+#line 1772
       goto case_0;
-    } else {
+    } else
 #line 1809
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
+    if (tmp___8 == 1) {
+#line 1809
+      goto case_1;
+    } else
 #line 1846
-        if (tmp___8 == 2) {
-          goto case_2;
-        } else {
+    if (tmp___8 == 2) {
+#line 1846
+      goto case_2;
+    } else
 #line 1883
-          if (tmp___8 == 3) {
-            goto case_3;
-          } else {
+    if (tmp___8 == 3) {
+#line 1883
+      goto case_3;
+    } else
 #line 1920
-            if (tmp___8 == 4) {
-              goto case_4;
-            } else {
+    if (tmp___8 == 4) {
+#line 1920
+      goto case_4;
+    } else
 #line 1957
-              if (tmp___8 == 5) {
-                goto case_5;
-              } else {
+    if (tmp___8 == 5) {
+#line 1957
+      goto case_5;
+    } else
 #line 1994
-                if (tmp___8 == 6) {
-                  goto case_6;
-                } else {
+    if (tmp___8 == 6) {
+#line 1994
+      goto case_6;
+    } else
 #line 2031
-                  if (tmp___8 == 7) {
-                    goto case_7;
-                  } else {
+    if (tmp___8 == 7) {
+#line 2031
+      goto case_7;
+    } else
 #line 2068
-                    if (tmp___8 == 8) {
-                      goto case_8;
-                    } else {
+    if (tmp___8 == 8) {
+#line 2068
+      goto case_8;
+    } else
 #line 2105
-                      if (tmp___8 == 9) {
-                        goto case_9;
-                      } else {
+    if (tmp___8 == 9) {
+#line 2105
+      goto case_9;
+    } else
 #line 2142
-                        if (tmp___8 == 10) {
-                          goto case_10;
-                        } else {
+    if (tmp___8 == 10) {
+#line 2142
+      goto case_10;
+    } else
 #line 2179
-                          if (tmp___8 == 11) {
-                            goto case_11;
-                          } else {
+    if (tmp___8 == 11) {
+#line 2179
+      goto case_11;
+    } else
 #line 2216
-                            if (tmp___8 == 12) {
-                              goto case_12;
-                            } else {
+    if (tmp___8 == 12) {
+#line 2216
+      goto case_12;
+    } else
 #line 2253
-                              if (tmp___8 == 13) {
-                                goto case_13;
-                              } else {
+    if (tmp___8 == 13) {
+#line 2253
+      goto case_13;
+    } else
 #line 2290
-                                if (tmp___8 == 14) {
-                                  goto case_14;
-                                } else {
+    if (tmp___8 == 14) {
+#line 2290
+      goto case_14;
+    } else
 #line 2328
-                                  if (tmp___8 == 15) {
-                                    goto case_15;
-                                  } else {
+    if (tmp___8 == 15) {
+#line 2328
+      goto case_15;
+    } else
 #line 2365
-                                    if (tmp___8 == 16) {
-                                      goto case_16;
-                                    } else {
-                                      goto switch_default;
+    if (tmp___8 == 16) {
+#line 2365
+      goto case_16;
+    } else {
+#line 2402
+      goto switch_default;
 #line 1770
-                                      if (0) {
-                                        case_0: 
-                                        {
+      if (0) {
+        case_0: 
+        {
 #line 1787
-                                        arkfb_settile(var_group1, var_group2);
-                                        }
-                                        goto switch_break;
-                                        case_1: 
-                                        {
-#line 1824
-                                        arkfb_tilecursor(var_group1, var_group3);
-                                        }
-                                        goto switch_break;
-                                        case_2: 
-                                        {
-#line 1862
-                                        ics5342_set_mode(var_group4, var_ics5342_set_mode_16_p1);
-                                        }
-                                        goto switch_break;
-                                        case_3: 
-                                        {
-#line 1899
-                                        ics5342_set_freq(var_group4, var_ics5342_set_freq_17_p1,
-                                                         var_ics5342_set_freq_17_p2);
-                                        }
-                                        goto switch_break;
-                                        case_4: 
-                                        {
-#line 1936
-                                        ics5342_release(var_group4);
-                                        }
-                                        goto switch_break;
-                                        case_5: 
-                                        {
-#line 1973
-                                        arkfb_open(var_group1, var_arkfb_open_23_p1);
-                                        }
-                                        goto switch_break;
-                                        case_6: 
-                                        {
-#line 2010
-                                        arkfb_release(var_group1, var_arkfb_release_24_p1);
-                                        }
-                                        goto switch_break;
-                                        case_7: 
-                                        {
-#line 2047
-                                        arkfb_check_var(var_group5, var_group1);
-                                        }
-                                        goto switch_break;
-                                        case_8: 
-                                        {
-#line 2084
-                                        arkfb_set_par(var_group1);
-                                        }
-                                        goto switch_break;
-                                        case_9: 
-                                        {
-#line 2121
-                                        arkfb_setcolreg(var_arkfb_setcolreg_27_p0,
-                                                        var_arkfb_setcolreg_27_p1,
-                                                        var_arkfb_setcolreg_27_p2,
-                                                        var_arkfb_setcolreg_27_p3,
-                                                        var_arkfb_setcolreg_27_p4,
-                                                        var_arkfb_setcolreg_27_p5);
-                                        }
-                                        goto switch_break;
-                                        case_10: 
-                                        {
-#line 2158
-                                        arkfb_blank(var_arkfb_blank_28_p0, var_group1);
-                                        }
-                                        goto switch_break;
-                                        case_11: 
-                                        {
-#line 2195
-                                        arkfb_pan_display(var_group5, var_group1);
-                                        }
-                                        goto switch_break;
-                                        case_12: 
-                                        {
-#line 2231
-                                        arkfb_fillrect(var_group1, var_arkfb_fillrect_8_p1);
-                                        }
-                                        goto switch_break;
-                                        case_13: 
-                                        {
-#line 2268
-                                        arkfb_imageblit(var_group1, var_arkfb_imageblit_7_p1);
-                                        }
-                                        goto switch_break;
-                                        case_14: 
-#line 2293
-                                        if (ldv_s_arkfb_pci_driver_pci_driver == 0) {
-                                          {
-#line 2306
-                                          res_ark_pci_probe_30 = ark_pci_probe(var_group6,
-                                                                               var_ark_pci_probe_30_p1);
-#line 2307
-                                          ldv_check_return_value(res_ark_pci_probe_30);
-                                          }
-#line 2308
-                                          if (res_ark_pci_probe_30) {
-                                            goto ldv_module_exit;
-                                          } else {
-
-                                          }
-#line 2321
-                                          ldv_s_arkfb_pci_driver_pci_driver = 0;
-                                        } else {
-
-                                        }
-                                        goto switch_break;
-                                        case_15: 
-                                        {
-#line 2349
-                                        ark_pci_suspend(var_group7, var_ark_pci_suspend_32_p1_event29);
-                                        }
-                                        goto switch_break;
-                                        case_16: 
-                                        {
-#line 2386
-                                        ark_pci_resume(var_group7);
-                                        }
-                                        goto switch_break;
-                                        switch_default: 
-                                        goto switch_break;
-                                      } else {
-                                        switch_break: ;
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        arkfb_settile(var_group1, var_group2);
         }
+#line 1808
+        goto switch_break;
+        case_1: 
+        {
+#line 1824
+        arkfb_tilecursor(var_group1, var_group3);
+        }
+#line 1845
+        goto switch_break;
+        case_2: 
+        {
+#line 1862
+        ics5342_set_mode(var_group4, var_ics5342_set_mode_16_p1);
+        }
+#line 1882
+        goto switch_break;
+        case_3: 
+        {
+#line 1899
+        ics5342_set_freq(var_group4, var_ics5342_set_freq_17_p1, var_ics5342_set_freq_17_p2);
+        }
+#line 1919
+        goto switch_break;
+        case_4: 
+        {
+#line 1936
+        ics5342_release(var_group4);
+        }
+#line 1956
+        goto switch_break;
+        case_5: 
+        {
+#line 1973
+        arkfb_open(var_group1, var_arkfb_open_23_p1);
+        }
+#line 1993
+        goto switch_break;
+        case_6: 
+        {
+#line 2010
+        arkfb_release(var_group1, var_arkfb_release_24_p1);
+        }
+#line 2030
+        goto switch_break;
+        case_7: 
+        {
+#line 2047
+        arkfb_check_var(var_group5, var_group1);
+        }
+#line 2067
+        goto switch_break;
+        case_8: 
+        {
+#line 2084
+        arkfb_set_par(var_group1);
+        }
+#line 2104
+        goto switch_break;
+        case_9: 
+        {
+#line 2121
+        arkfb_setcolreg(var_arkfb_setcolreg_27_p0, var_arkfb_setcolreg_27_p1, var_arkfb_setcolreg_27_p2,
+                        var_arkfb_setcolreg_27_p3, var_arkfb_setcolreg_27_p4, var_arkfb_setcolreg_27_p5);
+        }
+#line 2141
+        goto switch_break;
+        case_10: 
+        {
+#line 2158
+        arkfb_blank(var_arkfb_blank_28_p0, var_group1);
+        }
+#line 2178
+        goto switch_break;
+        case_11: 
+        {
+#line 2195
+        arkfb_pan_display(var_group5, var_group1);
+        }
+#line 2215
+        goto switch_break;
+        case_12: 
+        {
+#line 2231
+        arkfb_fillrect(var_group1, var_arkfb_fillrect_8_p1);
+        }
+#line 2252
+        goto switch_break;
+        case_13: 
+        {
+#line 2268
+        arkfb_imageblit(var_group1, var_arkfb_imageblit_7_p1);
+        }
+#line 2289
+        goto switch_break;
+        case_14: 
+#line 2293
+        if (ldv_s_arkfb_pci_driver_pci_driver == 0) {
+          {
+#line 2306
+          res_ark_pci_probe_30 = ark_pci_probe(var_group6, var_ark_pci_probe_30_p1);
+#line 2307
+          ldv_check_return_value(res_ark_pci_probe_30);
+          }
+#line 2308
+          if (res_ark_pci_probe_30) {
+#line 2309
+            goto ldv_module_exit;
+          } else {
+
+          }
+#line 2321
+          ldv_s_arkfb_pci_driver_pci_driver = 0;
+        } else {
+
+        }
+#line 2327
+        goto switch_break;
+        case_15: 
+        {
+#line 2349
+        ark_pci_suspend(var_group7, var_ark_pci_suspend_32_p1);
+        }
+#line 2364
+        goto switch_break;
+        case_16: 
+        {
+#line 2386
+        ark_pci_resume(var_group7);
+        }
+#line 2401
+        goto switch_break;
+        switch_default: 
+#line 2402
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_27_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -14589,6 +12156,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -14613,6 +12181,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -14633,7 +12202,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_28_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -14651,9 +12220,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_28_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -14674,7 +12244,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_29_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -14711,9 +12281,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_29_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -14733,7 +12304,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_30_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -14755,9 +12326,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_30_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -14778,7 +12350,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_31_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -14815,9 +12387,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_31_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;

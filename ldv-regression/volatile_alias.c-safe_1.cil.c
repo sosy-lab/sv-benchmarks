@@ -7,35 +7,24 @@ int VERDICT_SAFE  ;
 int main(void) 
 { int a ;
   int *p ;
-  int *__cil_tmp3 ;
-  int *__cil_tmp4 ;
-  int *__cil_tmp5 ;
-  int __cil_tmp6 ;
-  int __cil_tmp7 ;
+  int __cil_tmp3 ;
 
   {
 #line 16
-  __cil_tmp3 = & a;
-#line 16
-  *__cil_tmp3 = 4;
+  a = 4;
 #line 17
   p = & a;
 #line 18
   p = & a;
 #line 19
-  __cil_tmp4 = & a;
-#line 19
-  __cil_tmp5 = & a;
-#line 19
-  __cil_tmp6 = *__cil_tmp5;
-#line 19
-  *__cil_tmp4 = __cil_tmp6 - 4;
+  a = a - 4;
   {
 #line 20
-  __cil_tmp7 = *p;
+  __cil_tmp3 = *p;
 #line 20
-  if (__cil_tmp7 != 0) {
+  if (__cil_tmp3 != 0) {
     ERROR: 
+#line 21
     goto ERROR;
   } else {
 

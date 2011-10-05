@@ -21,6 +21,7 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
@@ -32,79 +33,40 @@ int main(void)
   struct Inner inner ;
   struct Toplev good ;
   struct Toplev *ptr ;
-  struct Innermost *__cil_tmp5 ;
-  struct Inner *__cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  struct Toplev *__cil_tmp8 ;
-  unsigned int __cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  struct Inner *__cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
-  struct Innermost *__cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  struct Inner *__cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  struct Innermost *__cil_tmp21 ;
-  int __cil_tmp22 ;
+  struct Inner *__cil_tmp5 ;
+  struct Innermost *__cil_tmp6 ;
+  struct Inner *__cil_tmp7 ;
+  struct Innermost *__cil_tmp8 ;
+  int __cil_tmp9 ;
 
   {
 #line 21
-  __cil_tmp5 = & im;
-#line 21
-  *((int *)__cil_tmp5) = 3;
+  im.c = 3;
 #line 22
-  __cil_tmp6 = & inner;
+  inner.b = 2;
 #line 22
-  *((int *)__cil_tmp6) = 2;
-#line 22
-  __cil_tmp7 = (unsigned int )(& inner) + 4;
-#line 22
-  *((struct Innermost **)__cil_tmp7) = & im;
+  inner.y = & im;
 #line 23
-  __cil_tmp8 = & good;
+  good.a = 1;
 #line 23
-  *((int *)__cil_tmp8) = 1;
-#line 23
-  __cil_tmp9 = (unsigned int )(& good) + 4;
-#line 23
-  *((struct Inner **)__cil_tmp9) = & inner;
+  good.x = & inner;
 #line 24
   ptr = & good;
 #line 25
-  __cil_tmp10 = (unsigned int )ptr;
+  __cil_tmp5 = ptr->x;
 #line 25
-  __cil_tmp11 = __cil_tmp10 + 4;
+  __cil_tmp6 = __cil_tmp5->y;
 #line 25
-  __cil_tmp12 = *((struct Inner **)__cil_tmp11);
-#line 25
-  __cil_tmp13 = (unsigned int )__cil_tmp12;
-#line 25
-  __cil_tmp14 = __cil_tmp13 + 4;
-#line 25
-  __cil_tmp15 = *((struct Innermost **)__cil_tmp14);
-#line 25
-  *((int *)__cil_tmp15) = 4;
+  __cil_tmp6->c = 4;
   {
 #line 26
-  __cil_tmp16 = (unsigned int )ptr;
+  __cil_tmp7 = ptr->x;
 #line 26
-  __cil_tmp17 = __cil_tmp16 + 4;
+  __cil_tmp8 = __cil_tmp7->y;
 #line 26
-  __cil_tmp18 = *((struct Inner **)__cil_tmp17);
+  __cil_tmp9 = __cil_tmp8->c;
 #line 26
-  __cil_tmp19 = (unsigned int )__cil_tmp18;
-#line 26
-  __cil_tmp20 = __cil_tmp19 + 4;
-#line 26
-  __cil_tmp21 = *((struct Innermost **)__cil_tmp20);
-#line 26
-  __cil_tmp22 = *((int *)__cil_tmp21);
-#line 26
-  if (__cil_tmp22 == 4) {
+  if (__cil_tmp9 == 4) {
 
   } else {
     {

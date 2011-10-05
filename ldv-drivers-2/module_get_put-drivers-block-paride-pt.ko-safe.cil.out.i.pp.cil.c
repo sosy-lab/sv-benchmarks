@@ -3790,7 +3790,7 @@ __inline static int atomic_read(atomic_t const   *v )
   {
   {
 #line 25
-  __cil_tmp2 = (int const   *)v;
+  __cil_tmp2 = & v->counter;
 #line 25
   __cil_tmp3 = (int volatile   *)__cil_tmp2;
 #line 25
@@ -3806,7 +3806,7 @@ __inline static void atomic_set(atomic_t *v , int i )
 
   {
 #line 37
-  *((int *)v) = i;
+  v->counter = i;
 #line 38
   return;
 }
@@ -3817,7 +3817,7 @@ __inline static void atomic_inc(atomic_t *v )
 
   {
 #line 95
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (*((int *)v)));
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; incl %0": "+m" (v->counter));
 #line 97
   return;
 }
@@ -3829,7 +3829,7 @@ __inline static int atomic_dec_and_test(atomic_t *v )
 
   {
 #line 123
-  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (*((int *)v)),
+  __asm__  volatile   (".section .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.previous\n671:\n\tlock; decl %0; sete %1": "+m" (v->counter),
                        "=qm" (c): : "memory");
   {
 #line 126
@@ -3881,23 +3881,17 @@ static int drive3[6U]  = {      0,      0,      0,      -1,
 static int (*drives[4U])[6U]  = {      & drive0,      & drive1,      & drive2,      & drive3};
 #line 891 "include/linux/fs.h"
 __inline static unsigned int iminor(struct inode  const  *inode ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  dev_t __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
+{ dev_t __cil_tmp2 ;
+  unsigned int __cil_tmp3 ;
 
   {
   {
 #line 893
-  __cil_tmp2 = (unsigned long )inode;
+  __cil_tmp2 = inode->i_rdev;
 #line 893
-  __cil_tmp3 = __cil_tmp2 + 400;
+  __cil_tmp3 = (unsigned int )__cil_tmp2;
 #line 893
-  __cil_tmp4 = *((dev_t const   *)__cil_tmp3);
-#line 893
-  __cil_tmp5 = (unsigned int )__cil_tmp4;
-#line 893
-  return (__cil_tmp5 & 1048575U);
+  return (__cil_tmp3 & 1048575U);
   }
 }
 }
@@ -4207,32 +4201,26 @@ __inline static void write_reg(struct pi_adapter *pi , int reg , int val )
 }
 #line 272 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
 __inline static u8 DRIVE(struct pt_unit *tape ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  int __cil_tmp4 ;
-  int __cil_tmp5 ;
-  unsigned char __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
+{ int __cil_tmp2 ;
+  int __cil_tmp3 ;
+  u8 __cil_tmp4 ;
+  unsigned int __cil_tmp5 ;
+  unsigned int __cil_tmp6 ;
 
   {
   {
 #line 274
-  __cil_tmp2 = (unsigned long )tape;
+  __cil_tmp2 = tape->drive;
 #line 274
-  __cil_tmp3 = __cil_tmp2 + 192;
+  __cil_tmp3 = __cil_tmp2 + 10;
 #line 274
-  __cil_tmp4 = *((int *)__cil_tmp3);
+  __cil_tmp4 = (u8 )__cil_tmp3;
 #line 274
-  __cil_tmp5 = __cil_tmp4 + 10;
+  __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 274
-  __cil_tmp6 = (unsigned char )__cil_tmp5;
+  __cil_tmp6 = __cil_tmp5 * 16U;
 #line 274
-  __cil_tmp7 = (unsigned int )__cil_tmp6;
-#line 274
-  __cil_tmp8 = __cil_tmp7 * 16U;
-#line 274
-  return ((unsigned char )__cil_tmp8);
+  return ((u8 )__cil_tmp6);
   }
 }
 }
@@ -4245,30 +4233,23 @@ static int pt_wait(struct pt_unit *tape , int go , int stop , char *fun , char *
   int p ;
   struct pi_adapter *pi ;
   int tmp ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
   int __cil_tmp15 ;
   int __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  char *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  char (*__cil_tmp24)[8U] ;
-  char *__cil_tmp25 ;
-  int __cil_tmp26 ;
+  char *__cil_tmp17 ;
+  unsigned long __cil_tmp18 ;
+  unsigned long __cil_tmp19 ;
+  char (*__cil_tmp20)[8U] ;
+  char *__cil_tmp21 ;
+  int __cil_tmp22 ;
 
   {
 #line 280
-  __cil_tmp13 = (unsigned long )tape;
-#line 280
-  __cil_tmp14 = __cil_tmp13 + 176;
-#line 280
-  pi = *((struct pi_adapter **)__cil_tmp14);
+  pi = tape->pi;
 #line 282
   j = 0;
+#line 283
   goto ldv_21508;
   ldv_21507: 
   {
@@ -4282,101 +4263,101 @@ static int pt_wait(struct pt_unit *tape , int go , int stop , char *fun , char *
   }
   {
 #line 283
-  __cil_tmp15 = r & go;
+  __cil_tmp13 = r & go;
 #line 283
-  if (__cil_tmp15 != 0) {
+  if (__cil_tmp13 != 0) {
+#line 283
     goto _L;
-  } else {
+  } else
 #line 283
-    if (stop != 0) {
-      {
+  if (stop != 0) {
+    {
 #line 283
-      __cil_tmp16 = r & stop;
+    __cil_tmp14 = r & stop;
 #line 283
-      if (__cil_tmp16 == 0) {
-        _L: 
+    if (__cil_tmp14 == 0) {
+      _L: 
 #line 283
-        tmp = j;
+      tmp = j;
 #line 283
-        j = j + 1;
+      j = j + 1;
 #line 283
-        if (tmp <= 239999) {
-          goto ldv_21507;
-        } else {
-          goto ldv_21509;
-        }
+      if (tmp <= 239999) {
+#line 285
+        goto ldv_21507;
       } else {
+#line 287
         goto ldv_21509;
       }
-      }
     } else {
+#line 287
       goto ldv_21509;
     }
+    }
+  } else {
+#line 287
+    goto ldv_21509;
   }
   }
   ldv_21509: ;
   {
 #line 287
-  __cil_tmp17 = stop & 1;
+  __cil_tmp15 = stop & 1;
 #line 287
-  __cil_tmp18 = __cil_tmp17 & r;
+  __cil_tmp16 = __cil_tmp15 & r;
 #line 287
-  if (__cil_tmp18 != 0) {
+  if (__cil_tmp16 != 0) {
+#line 287
     goto _L___0;
-  } else {
+  } else
 #line 287
-    if (j > 240000) {
-      _L___0: 
-      {
+  if (j > 240000) {
+    _L___0: 
+    {
 #line 288
-      s = read_reg(pi, 7);
+    s = read_reg(pi, 7);
 #line 289
-      e = read_reg(pi, 1);
+    e = read_reg(pi, 1);
 #line 290
-      p = read_reg(pi, 2);
-      }
+    p = read_reg(pi, 2);
+    }
 #line 291
-      if (j > 240000) {
+    if (j > 240000) {
 #line 292
-        e = e | 256;
-      } else {
+      e = e | 256;
+    } else {
 
-      }
+    }
+    {
+#line 293
+    __cil_tmp17 = (char *)0;
+#line 293
+    __cil_tmp18 = (unsigned long )__cil_tmp17;
+#line 293
+    __cil_tmp19 = (unsigned long )fun;
+#line 293
+    if (__cil_tmp19 != __cil_tmp18) {
       {
-#line 293
-      __cil_tmp19 = (char *)0;
-#line 293
-      __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 293
-      __cil_tmp21 = (unsigned long )fun;
-#line 293
-      if (__cil_tmp21 != __cil_tmp20) {
-        {
 #line 294
-        __cil_tmp22 = (unsigned long )tape;
+      __cil_tmp20 = & tape->name;
 #line 294
-        __cil_tmp23 = __cil_tmp22 + 224;
+      __cil_tmp21 = (char *)__cil_tmp20;
 #line 294
-        __cil_tmp24 = (char (*)[8U])__cil_tmp23;
-#line 294
-        __cil_tmp25 = (char *)__cil_tmp24;
-#line 294
-        printk("%s: %s %s: alt=0x%x stat=0x%x err=0x%x loop=%d phase=%d\n", __cil_tmp25,
-               fun, msg, r, s, e, j, p);
-        }
-      } else {
-
-      }
-      }
-      {
-#line 297
-      __cil_tmp26 = e << 8;
-#line 297
-      return (__cil_tmp26 + s);
+      printk("%s: %s %s: alt=0x%x stat=0x%x err=0x%x loop=%d phase=%d\n", __cil_tmp21,
+             fun, msg, r, s, e, j, p);
       }
     } else {
 
     }
+    }
+    {
+#line 297
+    __cil_tmp22 = e << 8;
+#line 297
+    return (__cil_tmp22 + s);
+    }
+  } else {
+
   }
   }
 #line 299
@@ -4390,38 +4371,30 @@ static int pt_command(struct pt_unit *tape , char *cmd , int dlen , char *fun )
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  int __cil_tmp10 ;
+  char *__cil_tmp11 ;
   int __cil_tmp12 ;
-  char *__cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
+  int __cil_tmp13 ;
+  char *__cil_tmp14 ;
+  char (*__cil_tmp15)[8U] ;
   char *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  char (*__cil_tmp19)[8U] ;
-  char *__cil_tmp20 ;
 
   {
   {
 #line 304
-  __cil_tmp10 = (unsigned long )tape;
-#line 304
-  __cil_tmp11 = __cil_tmp10 + 176;
-#line 304
-  pi = *((struct pi_adapter **)__cil_tmp11);
+  pi = tape->pi;
 #line 305
   pi_connect(pi);
 #line 307
   tmp = DRIVE(tape);
 #line 307
-  __cil_tmp12 = (int )tmp;
+  __cil_tmp10 = (int )tmp;
 #line 307
-  write_reg(pi, 6, __cil_tmp12);
+  write_reg(pi, 6, __cil_tmp10);
 #line 309
-  __cil_tmp13 = (char *)"before command";
+  __cil_tmp11 = (char *)"before command";
 #line 309
-  tmp___0 = pt_wait(tape, 136, 0, fun, __cil_tmp13);
+  tmp___0 = pt_wait(tape, 136, 0, fun, __cil_tmp11);
   }
 #line 309
   if (tmp___0 != 0) {
@@ -4436,19 +4409,19 @@ static int pt_command(struct pt_unit *tape , char *cmd , int dlen , char *fun )
   }
   {
 #line 314
-  __cil_tmp14 = dlen % 256;
+  __cil_tmp12 = dlen % 256;
 #line 314
-  write_reg(pi, 4, __cil_tmp14);
+  write_reg(pi, 4, __cil_tmp12);
 #line 315
-  __cil_tmp15 = dlen / 256;
+  __cil_tmp13 = dlen / 256;
 #line 315
-  write_reg(pi, 5, __cil_tmp15);
+  write_reg(pi, 5, __cil_tmp13);
 #line 316
   write_reg(pi, 7, 160);
 #line 318
-  __cil_tmp16 = (char *)"command DRQ";
+  __cil_tmp14 = (char *)"command DRQ";
 #line 318
-  tmp___1 = pt_wait(tape, 128, 8, fun, __cil_tmp16);
+  tmp___1 = pt_wait(tape, 128, 8, fun, __cil_tmp14);
   }
 #line 318
   if (tmp___1 != 0) {
@@ -4469,15 +4442,11 @@ static int pt_command(struct pt_unit *tape , char *cmd , int dlen , char *fun )
   if (tmp___2 != 1) {
     {
 #line 324
-    __cil_tmp17 = (unsigned long )tape;
+    __cil_tmp15 = & tape->name;
 #line 324
-    __cil_tmp18 = __cil_tmp17 + 224;
+    __cil_tmp16 = (char *)__cil_tmp15;
 #line 324
-    __cil_tmp19 = (char (*)[8U])__cil_tmp18;
-#line 324
-    __cil_tmp20 = (char *)__cil_tmp19;
-#line 324
-    printk("%s: %s: command phase error\n", __cil_tmp20, fun);
+    printk("%s: %s: command phase error\n", __cil_tmp16, fun);
 #line 325
     pi_disconnect(pi);
     }
@@ -4506,48 +4475,42 @@ static int pt_completion(struct pt_unit *tape , char *buf , char *fun )
   int tmp___1 ;
   int tmp___2 ;
   int tmp___3 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  char *__cil_tmp16 ;
+  char *__cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
   int __cil_tmp17 ;
   int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  char *__cil_tmp21 ;
+  char *__cil_tmp19 ;
 
   {
   {
 #line 336
-  __cil_tmp14 = (unsigned long )tape;
-#line 336
-  __cil_tmp15 = __cil_tmp14 + 176;
-#line 336
-  pi = *((struct pi_adapter **)__cil_tmp15);
+  pi = tape->pi;
 #line 339
-  __cil_tmp16 = (char *)"completion";
+  __cil_tmp14 = (char *)"completion";
 #line 339
-  r = pt_wait(tape, 128, 73, fun, __cil_tmp16);
+  r = pt_wait(tape, 128, 73, fun, __cil_tmp14);
 #line 342
   tmp___2 = read_reg(pi, 7);
   }
   {
 #line 342
-  __cil_tmp17 = tmp___2 & 8;
+  __cil_tmp15 = tmp___2 & 8;
 #line 342
-  if (__cil_tmp17 != 0) {
+  if (__cil_tmp15 != 0) {
     {
 #line 343
     tmp = read_reg(pi, 4);
 #line 343
     tmp___0 = read_reg(pi, 5);
 #line 343
-    __cil_tmp18 = tmp___0 * 256;
+    __cil_tmp16 = tmp___0 * 256;
 #line 343
-    __cil_tmp19 = tmp + __cil_tmp18;
+    __cil_tmp17 = tmp + __cil_tmp16;
 #line 343
-    __cil_tmp20 = __cil_tmp19 + 3;
+    __cil_tmp18 = __cil_tmp17 + 3;
 #line 343
-    n = __cil_tmp20 & 65532;
+    n = __cil_tmp18 & 65532;
 #line 345
     tmp___1 = read_reg(pi, 2);
 #line 345
@@ -4577,9 +4540,9 @@ static int pt_completion(struct pt_unit *tape , char *buf , char *fun )
   }
   {
 #line 352
-  __cil_tmp21 = (char *)"data done";
+  __cil_tmp19 = (char *)"data done";
 #line 352
-  s = pt_wait(tape, 128, 65, fun, __cil_tmp21);
+  s = pt_wait(tape, 128, 65, fun, __cil_tmp19);
 #line 354
   pi_disconnect(pi);
   }
@@ -4602,154 +4565,58 @@ static void pt_req_sense(struct pt_unit *tape , int quiet )
   int r ;
   unsigned long __ms ;
   unsigned long tmp ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  char *__cil_tmp32 ;
-  char *__cil_tmp33 ;
-  char *__cil_tmp34 ;
-  char *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  char (*__cil_tmp40)[8U] ;
-  char *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  char __cil_tmp44 ;
-  int __cil_tmp45 ;
-  int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  char __cil_tmp49 ;
-  int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  char __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  char __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  char __cil_tmp65 ;
-  int __cil_tmp66 ;
-  int __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  char __cil_tmp71 ;
-  int __cil_tmp72 ;
-  int __cil_tmp73 ;
-  int __cil_tmp74 ;
+  char *__cil_tmp8 ;
+  char *__cil_tmp9 ;
+  char *__cil_tmp10 ;
+  char *__cil_tmp11 ;
+  char (*__cil_tmp12)[8U] ;
+  char *__cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
 
   {
   {
 #line 361
-  __cil_tmp8 = 0 * 1UL;
+  rs_cmd[0] = (char)3;
 #line 361
-  __cil_tmp9 = (unsigned long )(rs_cmd) + __cil_tmp8;
+  rs_cmd[1] = (char)0;
 #line 361
-  *((char *)__cil_tmp9) = (char)3;
+  rs_cmd[2] = (char)0;
 #line 361
-  __cil_tmp10 = 1 * 1UL;
+  rs_cmd[3] = (char)0;
 #line 361
-  __cil_tmp11 = (unsigned long )(rs_cmd) + __cil_tmp10;
+  rs_cmd[4] = (char)16;
 #line 361
-  *((char *)__cil_tmp11) = (char)0;
+  rs_cmd[5] = (char)0;
 #line 361
-  __cil_tmp12 = 2 * 1UL;
+  rs_cmd[6] = (char)0;
 #line 361
-  __cil_tmp13 = (unsigned long )(rs_cmd) + __cil_tmp12;
+  rs_cmd[7] = (char)0;
 #line 361
-  *((char *)__cil_tmp13) = (char)0;
+  rs_cmd[8] = (char)0;
 #line 361
-  __cil_tmp14 = 3 * 1UL;
+  rs_cmd[9] = (char)0;
 #line 361
-  __cil_tmp15 = (unsigned long )(rs_cmd) + __cil_tmp14;
+  rs_cmd[10] = (char)0;
 #line 361
-  *((char *)__cil_tmp15) = (char)0;
-#line 361
-  __cil_tmp16 = 4 * 1UL;
-#line 361
-  __cil_tmp17 = (unsigned long )(rs_cmd) + __cil_tmp16;
-#line 361
-  *((char *)__cil_tmp17) = (char)16;
-#line 361
-  __cil_tmp18 = 5 * 1UL;
-#line 361
-  __cil_tmp19 = (unsigned long )(rs_cmd) + __cil_tmp18;
-#line 361
-  *((char *)__cil_tmp19) = (char)0;
-#line 361
-  __cil_tmp20 = 6 * 1UL;
-#line 361
-  __cil_tmp21 = (unsigned long )(rs_cmd) + __cil_tmp20;
-#line 361
-  *((char *)__cil_tmp21) = (char)0;
-#line 361
-  __cil_tmp22 = 7 * 1UL;
-#line 361
-  __cil_tmp23 = (unsigned long )(rs_cmd) + __cil_tmp22;
-#line 361
-  *((char *)__cil_tmp23) = (char)0;
-#line 361
-  __cil_tmp24 = 8 * 1UL;
-#line 361
-  __cil_tmp25 = (unsigned long )(rs_cmd) + __cil_tmp24;
-#line 361
-  *((char *)__cil_tmp25) = (char)0;
-#line 361
-  __cil_tmp26 = 9 * 1UL;
-#line 361
-  __cil_tmp27 = (unsigned long )(rs_cmd) + __cil_tmp26;
-#line 361
-  *((char *)__cil_tmp27) = (char)0;
-#line 361
-  __cil_tmp28 = 10 * 1UL;
-#line 361
-  __cil_tmp29 = (unsigned long )(rs_cmd) + __cil_tmp28;
-#line 361
-  *((char *)__cil_tmp29) = (char)0;
-#line 361
-  __cil_tmp30 = 11 * 1UL;
-#line 361
-  __cil_tmp31 = (unsigned long )(rs_cmd) + __cil_tmp30;
-#line 361
-  *((char *)__cil_tmp31) = (char)0;
+  rs_cmd[11] = (char)0;
 #line 365
-  __cil_tmp32 = (char *)(& rs_cmd);
+  __cil_tmp8 = (char *)(& rs_cmd);
 #line 365
-  __cil_tmp33 = (char *)"Request sense";
+  __cil_tmp9 = (char *)"Request sense";
 #line 365
-  r = pt_command(tape, __cil_tmp32, 16, __cil_tmp33);
+  r = pt_command(tape, __cil_tmp8, 16, __cil_tmp9);
   }
 #line 366
   if (1) {
@@ -4760,6 +4627,7 @@ static void pt_req_sense(struct pt_unit *tape , int quiet )
   } else {
 #line 366
     __ms = 1UL;
+#line 366
     goto ldv_21536;
     ldv_21535: 
     {
@@ -4773,8 +4641,10 @@ static void pt_req_sense(struct pt_unit *tape , int quiet )
     __ms = __ms - 1UL;
 #line 366
     if (tmp != 0UL) {
+#line 367
       goto ldv_21535;
     } else {
+#line 369
       goto ldv_21537;
     }
     ldv_21537: ;
@@ -4783,109 +4653,61 @@ static void pt_req_sense(struct pt_unit *tape , int quiet )
   if (r == 0) {
     {
 #line 368
-    __cil_tmp34 = (char *)(& buf);
+    __cil_tmp10 = (char *)(& buf);
 #line 368
-    __cil_tmp35 = (char *)"Request sense";
+    __cil_tmp11 = (char *)"Request sense";
 #line 368
-    pt_completion(tape, __cil_tmp34, __cil_tmp35);
+    pt_completion(tape, __cil_tmp10, __cil_tmp11);
     }
   } else {
 
   }
 #line 370
-  __cil_tmp36 = (unsigned long )tape;
-#line 370
-  __cil_tmp37 = __cil_tmp36 + 188;
-#line 370
-  *((int *)__cil_tmp37) = -1;
+  tape->last_sense = -1;
 #line 371
   if (r == 0) {
 #line 372
     if (quiet == 0) {
       {
 #line 373
-      __cil_tmp38 = (unsigned long )tape;
+      __cil_tmp12 = & tape->name;
 #line 373
-      __cil_tmp39 = __cil_tmp38 + 224;
+      __cil_tmp13 = (char *)__cil_tmp12;
 #line 373
-      __cil_tmp40 = (char (*)[8U])__cil_tmp39;
+      __cil_tmp14 = (int )buf[2];
 #line 373
-      __cil_tmp41 = (char *)__cil_tmp40;
+      __cil_tmp15 = __cil_tmp14 & 15;
 #line 373
-      __cil_tmp42 = 2 * 1UL;
+      __cil_tmp16 = (int )buf[12];
 #line 373
-      __cil_tmp43 = (unsigned long )(buf) + __cil_tmp42;
+      __cil_tmp17 = (int )buf[13];
 #line 373
-      __cil_tmp44 = *((char *)__cil_tmp43);
-#line 373
-      __cil_tmp45 = (int )__cil_tmp44;
-#line 373
-      __cil_tmp46 = __cil_tmp45 & 15;
-#line 373
-      __cil_tmp47 = 12 * 1UL;
-#line 373
-      __cil_tmp48 = (unsigned long )(buf) + __cil_tmp47;
-#line 373
-      __cil_tmp49 = *((char *)__cil_tmp48);
-#line 373
-      __cil_tmp50 = (int )__cil_tmp49;
-#line 373
-      __cil_tmp51 = 13 * 1UL;
-#line 373
-      __cil_tmp52 = (unsigned long )(buf) + __cil_tmp51;
-#line 373
-      __cil_tmp53 = *((char *)__cil_tmp52);
-#line 373
-      __cil_tmp54 = (int )__cil_tmp53;
-#line 373
-      printk("%s: Sense key: %x, ASC: %x, ASQ: %x\n", __cil_tmp41, __cil_tmp46, __cil_tmp50,
-             __cil_tmp54);
+      printk("%s: Sense key: %x, ASC: %x, ASQ: %x\n", __cil_tmp13, __cil_tmp15, __cil_tmp16,
+             __cil_tmp17);
       }
     } else {
 
     }
 #line 375
-    __cil_tmp55 = (unsigned long )tape;
+    __cil_tmp18 = (int )buf[13];
 #line 375
-    __cil_tmp56 = __cil_tmp55 + 188;
+    __cil_tmp19 = __cil_tmp18 & 255;
 #line 375
-    __cil_tmp57 = 13 * 1UL;
+    __cil_tmp20 = __cil_tmp19 << 16;
 #line 375
-    __cil_tmp58 = (unsigned long )(buf) + __cil_tmp57;
+    __cil_tmp21 = (int )buf[12];
 #line 375
-    __cil_tmp59 = *((char *)__cil_tmp58);
+    __cil_tmp22 = __cil_tmp21 << 8;
 #line 375
-    __cil_tmp60 = (int )__cil_tmp59;
+    __cil_tmp23 = __cil_tmp22 & 65535;
 #line 375
-    __cil_tmp61 = __cil_tmp60 & 255;
+    __cil_tmp24 = (int )buf[2];
 #line 375
-    __cil_tmp62 = __cil_tmp61 << 16;
+    __cil_tmp25 = __cil_tmp24 & 15;
 #line 375
-    __cil_tmp63 = 12 * 1UL;
+    __cil_tmp26 = __cil_tmp25 | __cil_tmp23;
 #line 375
-    __cil_tmp64 = (unsigned long )(buf) + __cil_tmp63;
-#line 375
-    __cil_tmp65 = *((char *)__cil_tmp64);
-#line 375
-    __cil_tmp66 = (int )__cil_tmp65;
-#line 375
-    __cil_tmp67 = __cil_tmp66 << 8;
-#line 375
-    __cil_tmp68 = __cil_tmp67 & 65535;
-#line 375
-    __cil_tmp69 = 2 * 1UL;
-#line 375
-    __cil_tmp70 = (unsigned long )(buf) + __cil_tmp69;
-#line 375
-    __cil_tmp71 = *((char *)__cil_tmp70);
-#line 375
-    __cil_tmp72 = (int )__cil_tmp71;
-#line 375
-    __cil_tmp73 = __cil_tmp72 & 15;
-#line 375
-    __cil_tmp74 = __cil_tmp73 | __cil_tmp68;
-#line 375
-    *((int *)__cil_tmp56) = __cil_tmp74 | __cil_tmp62;
+    tape->last_sense = __cil_tmp26 | __cil_tmp20;
   } else {
 
   }
@@ -4917,6 +4739,7 @@ static int pt_atapi(struct pt_unit *tape , char *cmd , int dlen , char *buf , ch
   } else {
 #line 385
     __ms = 1UL;
+#line 385
     goto ldv_21548;
     ldv_21547: 
     {
@@ -4930,8 +4753,10 @@ static int pt_atapi(struct pt_unit *tape , char *cmd , int dlen , char *buf , ch
     __ms = __ms - 1UL;
 #line 385
     if (tmp != 0UL) {
+#line 386
       goto ldv_21547;
     } else {
+#line 388
       goto ldv_21549;
     }
     ldv_21549: ;
@@ -4988,32 +4813,23 @@ static int pt_poll_dsc(struct pt_unit *tape , int pause , int tmo , char *msg )
   int e ;
   int s ;
   u8 tmp ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  char (*__cil_tmp16)[8U] ;
-  char *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  char (*__cil_tmp20)[8U] ;
-  char *__cil_tmp21 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  char (*__cil_tmp12)[8U] ;
+  char *__cil_tmp13 ;
+  char (*__cil_tmp14)[8U] ;
+  char *__cil_tmp15 ;
 
   {
 #line 401
-  __cil_tmp10 = (unsigned long )tape;
-#line 401
-  __cil_tmp11 = __cil_tmp10 + 176;
-#line 401
-  pi = *((struct pi_adapter **)__cil_tmp11);
+  pi = tape->pi;
 #line 404
   k = 0;
 #line 405
   e = 0;
 #line 406
   s = 0;
+#line 407
   goto ldv_21565;
   ldv_21564: 
   {
@@ -5026,9 +4842,9 @@ static int pt_poll_dsc(struct pt_unit *tape , int pause , int tmo , char *msg )
 #line 411
   tmp = DRIVE(tape);
 #line 411
-  __cil_tmp12 = (int )tmp;
+  __cil_tmp10 = (int )tmp;
 #line 411
-  write_reg(pi, 6, __cil_tmp12);
+  write_reg(pi, 6, __cil_tmp10);
 #line 412
   s = read_reg(pi, 7);
 #line 413
@@ -5038,9 +4854,10 @@ static int pt_poll_dsc(struct pt_unit *tape , int pause , int tmo , char *msg )
   }
   {
 #line 415
-  __cil_tmp13 = s & 17;
+  __cil_tmp11 = s & 17;
 #line 415
-  if (__cil_tmp13 != 0) {
+  if (__cil_tmp11 != 0) {
+#line 416
     goto ldv_21563;
   } else {
 
@@ -5049,55 +4866,49 @@ static int pt_poll_dsc(struct pt_unit *tape , int pause , int tmo , char *msg )
   ldv_21565: ;
 #line 407
   if (k < tmo) {
+#line 408
     goto ldv_21564;
   } else {
+#line 410
     goto ldv_21563;
   }
   ldv_21563: ;
 #line 418
   if (k >= tmo) {
-    goto _L;
-  } else {
 #line 418
-    if (s & 1) {
-      _L: 
+    goto _L;
+  } else
+#line 418
+  if (s & 1) {
+    _L: 
 #line 419
-      if (k >= tmo) {
-        {
-#line 420
-        __cil_tmp14 = (unsigned long )tape;
-#line 420
-        __cil_tmp15 = __cil_tmp14 + 224;
-#line 420
-        __cil_tmp16 = (char (*)[8U])__cil_tmp15;
-#line 420
-        __cil_tmp17 = (char *)__cil_tmp16;
-#line 420
-        printk("%s: %s DSC timeout\n", __cil_tmp17, msg);
-        }
-      } else {
-        {
-#line 422
-        __cil_tmp18 = (unsigned long )tape;
-#line 422
-        __cil_tmp19 = __cil_tmp18 + 224;
-#line 422
-        __cil_tmp20 = (char (*)[8U])__cil_tmp19;
-#line 422
-        __cil_tmp21 = (char *)__cil_tmp20;
-#line 422
-        printk("%s: %s stat=0x%x err=0x%x\n", __cil_tmp21, msg, s, e);
-        }
-      }
+    if (k >= tmo) {
       {
-#line 424
-      pt_req_sense(tape, 0);
+#line 420
+      __cil_tmp12 = & tape->name;
+#line 420
+      __cil_tmp13 = (char *)__cil_tmp12;
+#line 420
+      printk("%s: %s DSC timeout\n", __cil_tmp13, msg);
       }
-#line 425
-      return (0);
     } else {
-
+      {
+#line 422
+      __cil_tmp14 = & tape->name;
+#line 422
+      __cil_tmp15 = (char *)__cil_tmp14;
+#line 422
+      printk("%s: %s stat=0x%x err=0x%x\n", __cil_tmp15, msg, s, e);
+      }
     }
+    {
+#line 424
+    pt_req_sense(tape, 0);
+    }
+#line 425
+    return (0);
+  } else {
+
   }
 #line 427
   return (1);
@@ -5106,9 +4917,7 @@ static int pt_poll_dsc(struct pt_unit *tape , int pause , int tmo , char *msg )
 #line 430 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
 static void pt_media_access_cmd(struct pt_unit *tape , int tmo , char *cmd , char *fun ) 
 { int tmp ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct pi_adapter *__cil_tmp8 ;
+  struct pi_adapter *__cil_tmp6 ;
 
   {
   {
@@ -5128,13 +4937,9 @@ static void pt_media_access_cmd(struct pt_unit *tape , int tmo , char *cmd , cha
   }
   {
 #line 436
-  __cil_tmp6 = (unsigned long )tape;
+  __cil_tmp6 = tape->pi;
 #line 436
-  __cil_tmp7 = __cil_tmp6 + 176;
-#line 436
-  __cil_tmp8 = *((struct pi_adapter **)__cil_tmp7);
-#line 436
-  pi_disconnect(__cil_tmp8);
+  pi_disconnect(__cil_tmp6);
 #line 437
   pt_poll_dsc(tape, 250, tmo, fun);
   }
@@ -5145,113 +4950,41 @@ static void pt_media_access_cmd(struct pt_unit *tape , int tmo , char *cmd , cha
 #line 440 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
 static void pt_rewind(struct pt_unit *tape ) 
 { char rw_cmd[12U] ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  char *__cil_tmp27 ;
-  char *__cil_tmp28 ;
+  char *__cil_tmp3 ;
+  char *__cil_tmp4 ;
 
   {
   {
 #line 442
-  __cil_tmp3 = 0 * 1UL;
+  rw_cmd[0] = (char)1;
 #line 442
-  __cil_tmp4 = (unsigned long )(rw_cmd) + __cil_tmp3;
+  rw_cmd[1] = (char)0;
 #line 442
-  *((char *)__cil_tmp4) = (char)1;
+  rw_cmd[2] = (char)0;
 #line 442
-  __cil_tmp5 = 1 * 1UL;
+  rw_cmd[3] = (char)0;
 #line 442
-  __cil_tmp6 = (unsigned long )(rw_cmd) + __cil_tmp5;
+  rw_cmd[4] = (char)0;
 #line 442
-  *((char *)__cil_tmp6) = (char)0;
+  rw_cmd[5] = (char)0;
 #line 442
-  __cil_tmp7 = 2 * 1UL;
+  rw_cmd[6] = (char)0;
 #line 442
-  __cil_tmp8 = (unsigned long )(rw_cmd) + __cil_tmp7;
+  rw_cmd[7] = (char)0;
 #line 442
-  *((char *)__cil_tmp8) = (char)0;
+  rw_cmd[8] = (char)0;
 #line 442
-  __cil_tmp9 = 3 * 1UL;
+  rw_cmd[9] = (char)0;
 #line 442
-  __cil_tmp10 = (unsigned long )(rw_cmd) + __cil_tmp9;
+  rw_cmd[10] = (char)0;
 #line 442
-  *((char *)__cil_tmp10) = (char)0;
-#line 442
-  __cil_tmp11 = 4 * 1UL;
-#line 442
-  __cil_tmp12 = (unsigned long )(rw_cmd) + __cil_tmp11;
-#line 442
-  *((char *)__cil_tmp12) = (char)0;
-#line 442
-  __cil_tmp13 = 5 * 1UL;
-#line 442
-  __cil_tmp14 = (unsigned long )(rw_cmd) + __cil_tmp13;
-#line 442
-  *((char *)__cil_tmp14) = (char)0;
-#line 442
-  __cil_tmp15 = 6 * 1UL;
-#line 442
-  __cil_tmp16 = (unsigned long )(rw_cmd) + __cil_tmp15;
-#line 442
-  *((char *)__cil_tmp16) = (char)0;
-#line 442
-  __cil_tmp17 = 7 * 1UL;
-#line 442
-  __cil_tmp18 = (unsigned long )(rw_cmd) + __cil_tmp17;
-#line 442
-  *((char *)__cil_tmp18) = (char)0;
-#line 442
-  __cil_tmp19 = 8 * 1UL;
-#line 442
-  __cil_tmp20 = (unsigned long )(rw_cmd) + __cil_tmp19;
-#line 442
-  *((char *)__cil_tmp20) = (char)0;
-#line 442
-  __cil_tmp21 = 9 * 1UL;
-#line 442
-  __cil_tmp22 = (unsigned long )(rw_cmd) + __cil_tmp21;
-#line 442
-  *((char *)__cil_tmp22) = (char)0;
-#line 442
-  __cil_tmp23 = 10 * 1UL;
-#line 442
-  __cil_tmp24 = (unsigned long )(rw_cmd) + __cil_tmp23;
-#line 442
-  *((char *)__cil_tmp24) = (char)0;
-#line 442
-  __cil_tmp25 = 11 * 1UL;
-#line 442
-  __cil_tmp26 = (unsigned long )(rw_cmd) + __cil_tmp25;
-#line 442
-  *((char *)__cil_tmp26) = (char)0;
+  rw_cmd[11] = (char)0;
 #line 444
-  __cil_tmp27 = (char *)(& rw_cmd);
+  __cil_tmp3 = (char *)(& rw_cmd);
 #line 444
-  __cil_tmp28 = (char *)"rewind";
+  __cil_tmp4 = (char *)"rewind";
 #line 444
-  pt_media_access_cmd(tape, 1200, __cil_tmp27, __cil_tmp28);
+  pt_media_access_cmd(tape, 1200, __cil_tmp3, __cil_tmp4);
   }
 #line 445
   return;
@@ -5260,113 +4993,41 @@ static void pt_rewind(struct pt_unit *tape )
 #line 447 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
 static void pt_write_fm(struct pt_unit *tape ) 
 { char wm_cmd[12U] ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  char *__cil_tmp27 ;
-  char *__cil_tmp28 ;
+  char *__cil_tmp3 ;
+  char *__cil_tmp4 ;
 
   {
   {
 #line 449
-  __cil_tmp3 = 0 * 1UL;
+  wm_cmd[0] = (char)16;
 #line 449
-  __cil_tmp4 = (unsigned long )(wm_cmd) + __cil_tmp3;
+  wm_cmd[1] = (char)0;
 #line 449
-  *((char *)__cil_tmp4) = (char)16;
+  wm_cmd[2] = (char)0;
 #line 449
-  __cil_tmp5 = 1 * 1UL;
+  wm_cmd[3] = (char)0;
 #line 449
-  __cil_tmp6 = (unsigned long )(wm_cmd) + __cil_tmp5;
+  wm_cmd[4] = (char)1;
 #line 449
-  *((char *)__cil_tmp6) = (char)0;
+  wm_cmd[5] = (char)0;
 #line 449
-  __cil_tmp7 = 2 * 1UL;
+  wm_cmd[6] = (char)0;
 #line 449
-  __cil_tmp8 = (unsigned long )(wm_cmd) + __cil_tmp7;
+  wm_cmd[7] = (char)0;
 #line 449
-  *((char *)__cil_tmp8) = (char)0;
+  wm_cmd[8] = (char)0;
 #line 449
-  __cil_tmp9 = 3 * 1UL;
+  wm_cmd[9] = (char)0;
 #line 449
-  __cil_tmp10 = (unsigned long )(wm_cmd) + __cil_tmp9;
+  wm_cmd[10] = (char)0;
 #line 449
-  *((char *)__cil_tmp10) = (char)0;
-#line 449
-  __cil_tmp11 = 4 * 1UL;
-#line 449
-  __cil_tmp12 = (unsigned long )(wm_cmd) + __cil_tmp11;
-#line 449
-  *((char *)__cil_tmp12) = (char)1;
-#line 449
-  __cil_tmp13 = 5 * 1UL;
-#line 449
-  __cil_tmp14 = (unsigned long )(wm_cmd) + __cil_tmp13;
-#line 449
-  *((char *)__cil_tmp14) = (char)0;
-#line 449
-  __cil_tmp15 = 6 * 1UL;
-#line 449
-  __cil_tmp16 = (unsigned long )(wm_cmd) + __cil_tmp15;
-#line 449
-  *((char *)__cil_tmp16) = (char)0;
-#line 449
-  __cil_tmp17 = 7 * 1UL;
-#line 449
-  __cil_tmp18 = (unsigned long )(wm_cmd) + __cil_tmp17;
-#line 449
-  *((char *)__cil_tmp18) = (char)0;
-#line 449
-  __cil_tmp19 = 8 * 1UL;
-#line 449
-  __cil_tmp20 = (unsigned long )(wm_cmd) + __cil_tmp19;
-#line 449
-  *((char *)__cil_tmp20) = (char)0;
-#line 449
-  __cil_tmp21 = 9 * 1UL;
-#line 449
-  __cil_tmp22 = (unsigned long )(wm_cmd) + __cil_tmp21;
-#line 449
-  *((char *)__cil_tmp22) = (char)0;
-#line 449
-  __cil_tmp23 = 10 * 1UL;
-#line 449
-  __cil_tmp24 = (unsigned long )(wm_cmd) + __cil_tmp23;
-#line 449
-  *((char *)__cil_tmp24) = (char)0;
-#line 449
-  __cil_tmp25 = 11 * 1UL;
-#line 449
-  __cil_tmp26 = (unsigned long )(wm_cmd) + __cil_tmp25;
-#line 449
-  *((char *)__cil_tmp26) = (char)0;
+  wm_cmd[11] = (char)0;
 #line 451
-  __cil_tmp27 = (char *)(& wm_cmd);
+  __cil_tmp3 = (char *)(& wm_cmd);
 #line 451
-  __cil_tmp28 = (char *)"write filemark";
+  __cil_tmp4 = (char *)"write filemark";
 #line 451
-  pt_media_access_cmd(tape, 3000, __cil_tmp27, __cil_tmp28);
+  pt_media_access_cmd(tape, 3000, __cil_tmp3, __cil_tmp4);
   }
 #line 452
   return;
@@ -5384,77 +5045,36 @@ static int pt_reset(struct pt_unit *tape )
   int tmp___1 ;
   int tmp___2 ;
   int tmp___3 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  char (*__cil_tmp33)[8U] ;
-  char *__cil_tmp34 ;
-  int __cil_tmp35 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  char (*__cil_tmp16)[8U] ;
+  char *__cil_tmp17 ;
+  int __cil_tmp18 ;
 
   {
   {
 #line 458
-  __cil_tmp12 = (unsigned long )tape;
-#line 458
-  __cil_tmp13 = __cil_tmp12 + 176;
-#line 458
-  pi = *((struct pi_adapter **)__cil_tmp13);
+  pi = tape->pi;
 #line 460
-  __cil_tmp14 = 0 * 4UL;
+  expect[0] = 1;
 #line 460
-  __cil_tmp15 = (unsigned long )(expect) + __cil_tmp14;
+  expect[1] = 1;
 #line 460
-  *((int *)__cil_tmp15) = 1;
+  expect[2] = 1;
 #line 460
-  __cil_tmp16 = 1 * 4UL;
+  expect[3] = 20;
 #line 460
-  __cil_tmp17 = (unsigned long )(expect) + __cil_tmp16;
-#line 460
-  *((int *)__cil_tmp17) = 1;
-#line 460
-  __cil_tmp18 = 2 * 4UL;
-#line 460
-  __cil_tmp19 = (unsigned long )(expect) + __cil_tmp18;
-#line 460
-  *((int *)__cil_tmp19) = 1;
-#line 460
-  __cil_tmp20 = 3 * 4UL;
-#line 460
-  __cil_tmp21 = (unsigned long )(expect) + __cil_tmp20;
-#line 460
-  *((int *)__cil_tmp21) = 20;
-#line 460
-  __cil_tmp22 = 4 * 4UL;
-#line 460
-  __cil_tmp23 = (unsigned long )(expect) + __cil_tmp22;
-#line 460
-  *((int *)__cil_tmp23) = 235;
+  expect[4] = 235;
 #line 462
   pi_connect(pi);
 #line 463
   tmp = DRIVE(tape);
 #line 463
-  __cil_tmp24 = (int )tmp;
+  __cil_tmp12 = (int )tmp;
 #line 463
-  write_reg(pi, 6, __cil_tmp24);
+  write_reg(pi, 6, __cil_tmp12);
 #line 464
   write_reg(pi, 7, 8);
 #line 466
@@ -5462,6 +5082,7 @@ static int pt_reset(struct pt_unit *tape )
 #line 468
   k = 0;
   }
+#line 469
   goto ldv_21589;
   ldv_21588: 
   {
@@ -5481,15 +5102,18 @@ static int pt_reset(struct pt_unit *tape )
     }
     {
 #line 469
-    __cil_tmp25 = tmp___1 & 128;
+    __cil_tmp13 = tmp___1 & 128;
 #line 469
-    if (__cil_tmp25 != 0) {
+    if (__cil_tmp13 != 0) {
+#line 470
       goto ldv_21588;
     } else {
+#line 472
       goto ldv_21590;
     }
     }
   } else {
+#line 472
     goto ldv_21590;
   }
   ldv_21590: 
@@ -5497,31 +5121,28 @@ static int pt_reset(struct pt_unit *tape )
   flg = 1;
 #line 473
   i = 0;
+#line 473
   goto ldv_21592;
   ldv_21591: 
   {
 #line 474
-  __cil_tmp26 = i + 1;
+  __cil_tmp14 = i + 1;
 #line 474
-  tmp___2 = read_reg(pi, __cil_tmp26);
+  tmp___2 = read_reg(pi, __cil_tmp14);
 #line 474
-  __cil_tmp27 = i * 4UL;
+  __cil_tmp15 = tmp___2 == expect[i];
 #line 474
-  __cil_tmp28 = (unsigned long )(expect) + __cil_tmp27;
-#line 474
-  __cil_tmp29 = *((int *)__cil_tmp28);
-#line 474
-  __cil_tmp30 = tmp___2 == __cil_tmp29;
-#line 474
-  flg = __cil_tmp30 & flg;
+  flg = __cil_tmp15 & flg;
 #line 473
   i = i + 1;
   }
   ldv_21592: ;
 #line 473
   if (i <= 4) {
+#line 474
     goto ldv_21591;
   } else {
+#line 476
     goto ldv_21593;
   }
   ldv_21593: ;
@@ -5529,25 +5150,22 @@ static int pt_reset(struct pt_unit *tape )
   if (verbose != 0) {
     {
 #line 477
-    __cil_tmp31 = (unsigned long )tape;
+    __cil_tmp16 = & tape->name;
 #line 477
-    __cil_tmp32 = __cil_tmp31 + 224;
+    __cil_tmp17 = (char *)__cil_tmp16;
 #line 477
-    __cil_tmp33 = (char (*)[8U])__cil_tmp32;
-#line 477
-    __cil_tmp34 = (char *)__cil_tmp33;
-#line 477
-    printk("%s: Reset (%d) signature = ", __cil_tmp34, k);
+    printk("%s: Reset (%d) signature = ", __cil_tmp17, k);
 #line 478
     i = 0;
     }
+#line 478
     goto ldv_21595;
     ldv_21594: 
     {
 #line 479
-    __cil_tmp35 = i + 1;
+    __cil_tmp18 = i + 1;
 #line 479
-    tmp___3 = read_reg(pi, __cil_tmp35);
+    tmp___3 = read_reg(pi, __cil_tmp18);
 #line 479
     printk("%3x", tmp___3);
 #line 478
@@ -5556,8 +5174,10 @@ static int pt_reset(struct pt_unit *tape )
     ldv_21595: ;
 #line 478
     if (i <= 4) {
+#line 479
       goto ldv_21594;
     } else {
+#line 481
       goto ldv_21596;
     }
     ldv_21596: ;
@@ -5591,122 +5211,43 @@ static int pt_ready_wait(struct pt_unit *tape , int tmo )
   int k ;
   int p ;
   char *tmp ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  char *__cil_tmp33 ;
-  char *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  int __cil_tmp37 ;
-  int __cil_tmp38 ;
+  char *__cil_tmp7 ;
+  char *__cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
 
   {
 #line 491
-  __cil_tmp7 = 0 * 1UL;
+  tr_cmd[0] = (char)0;
 #line 491
-  __cil_tmp8 = (unsigned long )(tr_cmd) + __cil_tmp7;
+  tr_cmd[1] = (char)0;
 #line 491
-  *((char *)__cil_tmp8) = (char)0;
+  tr_cmd[2] = (char)0;
 #line 491
-  __cil_tmp9 = 1 * 1UL;
+  tr_cmd[3] = (char)0;
 #line 491
-  __cil_tmp10 = (unsigned long )(tr_cmd) + __cil_tmp9;
+  tr_cmd[4] = (char)0;
 #line 491
-  *((char *)__cil_tmp10) = (char)0;
+  tr_cmd[5] = (char)0;
 #line 491
-  __cil_tmp11 = 2 * 1UL;
+  tr_cmd[6] = (char)0;
 #line 491
-  __cil_tmp12 = (unsigned long )(tr_cmd) + __cil_tmp11;
+  tr_cmd[7] = (char)0;
 #line 491
-  *((char *)__cil_tmp12) = (char)0;
+  tr_cmd[8] = (char)0;
 #line 491
-  __cil_tmp13 = 3 * 1UL;
+  tr_cmd[9] = (char)0;
 #line 491
-  __cil_tmp14 = (unsigned long )(tr_cmd) + __cil_tmp13;
+  tr_cmd[10] = (char)0;
 #line 491
-  *((char *)__cil_tmp14) = (char)0;
-#line 491
-  __cil_tmp15 = 4 * 1UL;
-#line 491
-  __cil_tmp16 = (unsigned long )(tr_cmd) + __cil_tmp15;
-#line 491
-  *((char *)__cil_tmp16) = (char)0;
-#line 491
-  __cil_tmp17 = 5 * 1UL;
-#line 491
-  __cil_tmp18 = (unsigned long )(tr_cmd) + __cil_tmp17;
-#line 491
-  *((char *)__cil_tmp18) = (char)0;
-#line 491
-  __cil_tmp19 = 6 * 1UL;
-#line 491
-  __cil_tmp20 = (unsigned long )(tr_cmd) + __cil_tmp19;
-#line 491
-  *((char *)__cil_tmp20) = (char)0;
-#line 491
-  __cil_tmp21 = 7 * 1UL;
-#line 491
-  __cil_tmp22 = (unsigned long )(tr_cmd) + __cil_tmp21;
-#line 491
-  *((char *)__cil_tmp22) = (char)0;
-#line 491
-  __cil_tmp23 = 8 * 1UL;
-#line 491
-  __cil_tmp24 = (unsigned long )(tr_cmd) + __cil_tmp23;
-#line 491
-  *((char *)__cil_tmp24) = (char)0;
-#line 491
-  __cil_tmp25 = 9 * 1UL;
-#line 491
-  __cil_tmp26 = (unsigned long )(tr_cmd) + __cil_tmp25;
-#line 491
-  *((char *)__cil_tmp26) = (char)0;
-#line 491
-  __cil_tmp27 = 10 * 1UL;
-#line 491
-  __cil_tmp28 = (unsigned long )(tr_cmd) + __cil_tmp27;
-#line 491
-  *((char *)__cil_tmp28) = (char)0;
-#line 491
-  __cil_tmp29 = 11 * 1UL;
-#line 491
-  __cil_tmp30 = (unsigned long )(tr_cmd) + __cil_tmp29;
-#line 491
-  *((char *)__cil_tmp30) = (char)0;
+  tr_cmd[11] = (char)0;
 #line 494
   k = 0;
+#line 495
   goto ldv_21605;
   ldv_21604: 
 #line 496
-  __cil_tmp31 = (unsigned long )tape;
-#line 496
-  __cil_tmp32 = __cil_tmp31 + 188;
-#line 496
-  *((int *)__cil_tmp32) = 0;
+  tape->last_sense = 0;
 #line 497
   if (verbose > 1) {
 #line 497
@@ -5717,17 +5258,13 @@ static int pt_ready_wait(struct pt_unit *tape , int tmo )
   }
   {
 #line 497
-  __cil_tmp33 = (char *)(& tr_cmd);
+  __cil_tmp7 = (char *)(& tr_cmd);
 #line 497
-  __cil_tmp34 = (char *)0;
+  __cil_tmp8 = (char *)0;
 #line 497
-  pt_atapi(tape, __cil_tmp33, 0, __cil_tmp34, tmp);
+  pt_atapi(tape, __cil_tmp7, 0, __cil_tmp8, tmp);
 #line 498
-  __cil_tmp35 = (unsigned long )tape;
-#line 498
-  __cil_tmp36 = __cil_tmp35 + 188;
-#line 498
-  p = *((int *)__cil_tmp36);
+  p = tape->last_sense;
   }
 #line 499
   if (p == 0) {
@@ -5738,14 +5275,14 @@ static int pt_ready_wait(struct pt_unit *tape , int tmo )
   }
   {
 #line 501
-  __cil_tmp37 = p & 65535;
+  __cil_tmp9 = p & 65535;
 #line 501
-  if (__cil_tmp37 != 1026) {
+  if (__cil_tmp9 != 1026) {
     {
 #line 501
-    __cil_tmp38 = p & 255;
+    __cil_tmp10 = p & 255;
 #line 501
-    if (__cil_tmp38 != 6) {
+    if (__cil_tmp10 != 6) {
 #line 502
       return (p);
     } else {
@@ -5765,8 +5302,10 @@ static int pt_ready_wait(struct pt_unit *tape , int tmo )
   ldv_21605: ;
 #line 495
   if (k < tmo) {
+#line 496
     goto ldv_21604;
   } else {
+#line 498
     goto ldv_21606;
   }
   ldv_21606: ;
@@ -5812,6 +5351,7 @@ static void xs(char *buf , char *targ , int offs , int len )
   l = 0;
 #line 515
   k = 0;
+#line 515
   goto ldv_21617;
   ldv_21616: ;
   {
@@ -5894,8 +5434,10 @@ static void xs(char *buf , char *targ , int offs , int len )
   ldv_21617: ;
 #line 515
   if (k < len) {
+#line 516
     goto ldv_21616;
   } else {
+#line 518
     goto ldv_21618;
   }
   ldv_21618: ;
@@ -5933,6 +5475,7 @@ static int xn(char *buf , int offs , int size )
   v = 0;
 #line 528
   k = 0;
+#line 528
   goto ldv_21627;
   ldv_21626: 
 #line 529
@@ -5956,8 +5499,10 @@ static int xn(char *buf , int offs , int size )
   ldv_21627: ;
 #line 528
   if (k < size) {
+#line 529
     goto ldv_21626;
   } else {
+#line 531
     goto ldv_21628;
   }
   ldv_21628: ;
@@ -5979,398 +5524,126 @@ static int pt_identify(struct pt_unit *tape )
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  char *__cil_tmp90 ;
-  char *__cil_tmp91 ;
-  char *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  char __cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  char (*__cil_tmp99)[8U] ;
-  char *__cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  int __cil_tmp103 ;
-  char *__cil_tmp104 ;
-  char *__cil_tmp105 ;
-  char *__cil_tmp106 ;
-  char *__cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  int __cil_tmp118 ;
-  char *__cil_tmp119 ;
-  char *__cil_tmp120 ;
-  char *__cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  char __cil_tmp124 ;
-  int __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  int __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  char *__cil_tmp133 ;
-  char *__cil_tmp134 ;
-  char *__cil_tmp135 ;
-  char *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  char *__cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  char (*__cil_tmp142)[8U] ;
-  char *__cil_tmp143 ;
-  char *__cil_tmp144 ;
-  char *__cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  int __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned long __cil_tmp150 ;
-  char *__cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  int __cil_tmp154 ;
-  int __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  int __cil_tmp158 ;
-  int __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  int __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  int __cil_tmp165 ;
-  int __cil_tmp166 ;
+  char *__cil_tmp14 ;
+  char *__cil_tmp15 ;
+  char *__cil_tmp16 ;
+  int __cil_tmp17 ;
+  char (*__cil_tmp18)[8U] ;
+  char *__cil_tmp19 ;
+  int __cil_tmp20 ;
+  char *__cil_tmp21 ;
+  char *__cil_tmp22 ;
+  char *__cil_tmp23 ;
+  char *__cil_tmp24 ;
+  int __cil_tmp25 ;
+  char *__cil_tmp26 ;
+  char *__cil_tmp27 ;
+  char *__cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  char *__cil_tmp31 ;
+  char *__cil_tmp32 ;
+  char *__cil_tmp33 ;
+  char *__cil_tmp34 ;
+  char *__cil_tmp35 ;
+  char (*__cil_tmp36)[8U] ;
+  char *__cil_tmp37 ;
+  char *__cil_tmp38 ;
+  char *__cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
 
   {
   {
 #line 536
-  __cil_tmp14 = 0 * 8UL;
+  ms[0] = (char *)"master";
 #line 536
-  __cil_tmp15 = (unsigned long )(ms) + __cil_tmp14;
-#line 536
-  *((char **)__cil_tmp15) = (char *)"master";
-#line 536
-  __cil_tmp16 = 1 * 8UL;
-#line 536
-  __cil_tmp17 = (unsigned long )(ms) + __cil_tmp16;
-#line 536
-  *((char **)__cil_tmp17) = (char *)"slave";
+  ms[1] = (char *)"slave";
 #line 538
-  __cil_tmp18 = 0 * 1UL;
+  id_cmd[0] = (char)18;
 #line 538
-  __cil_tmp19 = (unsigned long )(id_cmd) + __cil_tmp18;
+  id_cmd[1] = (char)0;
 #line 538
-  *((char *)__cil_tmp19) = (char)18;
+  id_cmd[2] = (char)0;
 #line 538
-  __cil_tmp20 = 1 * 1UL;
+  id_cmd[3] = (char)0;
 #line 538
-  __cil_tmp21 = (unsigned long )(id_cmd) + __cil_tmp20;
+  id_cmd[4] = (char)36;
 #line 538
-  *((char *)__cil_tmp21) = (char)0;
+  id_cmd[5] = (char)0;
 #line 538
-  __cil_tmp22 = 2 * 1UL;
+  id_cmd[6] = (char)0;
 #line 538
-  __cil_tmp23 = (unsigned long )(id_cmd) + __cil_tmp22;
+  id_cmd[7] = (char)0;
 #line 538
-  *((char *)__cil_tmp23) = (char)0;
+  id_cmd[8] = (char)0;
 #line 538
-  __cil_tmp24 = 3 * 1UL;
+  id_cmd[9] = (char)0;
 #line 538
-  __cil_tmp25 = (unsigned long )(id_cmd) + __cil_tmp24;
+  id_cmd[10] = (char)0;
 #line 538
-  *((char *)__cil_tmp25) = (char)0;
-#line 538
-  __cil_tmp26 = 4 * 1UL;
-#line 538
-  __cil_tmp27 = (unsigned long )(id_cmd) + __cil_tmp26;
-#line 538
-  *((char *)__cil_tmp27) = (char)36;
-#line 538
-  __cil_tmp28 = 5 * 1UL;
-#line 538
-  __cil_tmp29 = (unsigned long )(id_cmd) + __cil_tmp28;
-#line 538
-  *((char *)__cil_tmp29) = (char)0;
-#line 538
-  __cil_tmp30 = 6 * 1UL;
-#line 538
-  __cil_tmp31 = (unsigned long )(id_cmd) + __cil_tmp30;
-#line 538
-  *((char *)__cil_tmp31) = (char)0;
-#line 538
-  __cil_tmp32 = 7 * 1UL;
-#line 538
-  __cil_tmp33 = (unsigned long )(id_cmd) + __cil_tmp32;
-#line 538
-  *((char *)__cil_tmp33) = (char)0;
-#line 538
-  __cil_tmp34 = 8 * 1UL;
-#line 538
-  __cil_tmp35 = (unsigned long )(id_cmd) + __cil_tmp34;
-#line 538
-  *((char *)__cil_tmp35) = (char)0;
-#line 538
-  __cil_tmp36 = 9 * 1UL;
-#line 538
-  __cil_tmp37 = (unsigned long )(id_cmd) + __cil_tmp36;
-#line 538
-  *((char *)__cil_tmp37) = (char)0;
-#line 538
-  __cil_tmp38 = 10 * 1UL;
-#line 538
-  __cil_tmp39 = (unsigned long )(id_cmd) + __cil_tmp38;
-#line 538
-  *((char *)__cil_tmp39) = (char)0;
-#line 538
-  __cil_tmp40 = 11 * 1UL;
-#line 538
-  __cil_tmp41 = (unsigned long )(id_cmd) + __cil_tmp40;
-#line 538
-  *((char *)__cil_tmp41) = (char)0;
+  id_cmd[11] = (char)0;
 #line 539
-  __cil_tmp42 = 0 * 1UL;
+  ms_cmd[0] = (char)26;
 #line 539
-  __cil_tmp43 = (unsigned long )(ms_cmd) + __cil_tmp42;
+  ms_cmd[1] = (char)0;
 #line 539
-  *((char *)__cil_tmp43) = (char)26;
+  ms_cmd[2] = (char)42;
 #line 539
-  __cil_tmp44 = 1 * 1UL;
+  ms_cmd[3] = (char)0;
 #line 539
-  __cil_tmp45 = (unsigned long )(ms_cmd) + __cil_tmp44;
+  ms_cmd[4] = (char)36;
 #line 539
-  *((char *)__cil_tmp45) = (char)0;
+  ms_cmd[5] = (char)0;
 #line 539
-  __cil_tmp46 = 2 * 1UL;
+  ms_cmd[6] = (char)0;
 #line 539
-  __cil_tmp47 = (unsigned long )(ms_cmd) + __cil_tmp46;
+  ms_cmd[7] = (char)0;
 #line 539
-  *((char *)__cil_tmp47) = (char)42;
+  ms_cmd[8] = (char)0;
 #line 539
-  __cil_tmp48 = 3 * 1UL;
+  ms_cmd[9] = (char)0;
 #line 539
-  __cil_tmp49 = (unsigned long )(ms_cmd) + __cil_tmp48;
+  ms_cmd[10] = (char)0;
 #line 539
-  *((char *)__cil_tmp49) = (char)0;
-#line 539
-  __cil_tmp50 = 4 * 1UL;
-#line 539
-  __cil_tmp51 = (unsigned long )(ms_cmd) + __cil_tmp50;
-#line 539
-  *((char *)__cil_tmp51) = (char)36;
-#line 539
-  __cil_tmp52 = 5 * 1UL;
-#line 539
-  __cil_tmp53 = (unsigned long )(ms_cmd) + __cil_tmp52;
-#line 539
-  *((char *)__cil_tmp53) = (char)0;
-#line 539
-  __cil_tmp54 = 6 * 1UL;
-#line 539
-  __cil_tmp55 = (unsigned long )(ms_cmd) + __cil_tmp54;
-#line 539
-  *((char *)__cil_tmp55) = (char)0;
-#line 539
-  __cil_tmp56 = 7 * 1UL;
-#line 539
-  __cil_tmp57 = (unsigned long )(ms_cmd) + __cil_tmp56;
-#line 539
-  *((char *)__cil_tmp57) = (char)0;
-#line 539
-  __cil_tmp58 = 8 * 1UL;
-#line 539
-  __cil_tmp59 = (unsigned long )(ms_cmd) + __cil_tmp58;
-#line 539
-  *((char *)__cil_tmp59) = (char)0;
-#line 539
-  __cil_tmp60 = 9 * 1UL;
-#line 539
-  __cil_tmp61 = (unsigned long )(ms_cmd) + __cil_tmp60;
-#line 539
-  *((char *)__cil_tmp61) = (char)0;
-#line 539
-  __cil_tmp62 = 10 * 1UL;
-#line 539
-  __cil_tmp63 = (unsigned long )(ms_cmd) + __cil_tmp62;
-#line 539
-  *((char *)__cil_tmp63) = (char)0;
-#line 539
-  __cil_tmp64 = 11 * 1UL;
-#line 539
-  __cil_tmp65 = (unsigned long )(ms_cmd) + __cil_tmp64;
-#line 539
-  *((char *)__cil_tmp65) = (char)0;
+  ms_cmd[11] = (char)0;
 #line 541
-  __cil_tmp66 = 0 * 1UL;
+  ls_cmd[0] = (char)77;
 #line 541
-  __cil_tmp67 = (unsigned long )(ls_cmd) + __cil_tmp66;
+  ls_cmd[1] = (char)0;
 #line 541
-  *((char *)__cil_tmp67) = (char)77;
+  ls_cmd[2] = (char)113;
 #line 541
-  __cil_tmp68 = 1 * 1UL;
+  ls_cmd[3] = (char)0;
 #line 541
-  __cil_tmp69 = (unsigned long )(ls_cmd) + __cil_tmp68;
+  ls_cmd[4] = (char)0;
 #line 541
-  *((char *)__cil_tmp69) = (char)0;
+  ls_cmd[5] = (char)0;
 #line 541
-  __cil_tmp70 = 2 * 1UL;
+  ls_cmd[6] = (char)0;
 #line 541
-  __cil_tmp71 = (unsigned long )(ls_cmd) + __cil_tmp70;
+  ls_cmd[7] = (char)0;
 #line 541
-  *((char *)__cil_tmp71) = (char)113;
+  ls_cmd[8] = (char)36;
 #line 541
-  __cil_tmp72 = 3 * 1UL;
+  ls_cmd[9] = (char)0;
 #line 541
-  __cil_tmp73 = (unsigned long )(ls_cmd) + __cil_tmp72;
+  ls_cmd[10] = (char)0;
 #line 541
-  *((char *)__cil_tmp73) = (char)0;
-#line 541
-  __cil_tmp74 = 4 * 1UL;
-#line 541
-  __cil_tmp75 = (unsigned long )(ls_cmd) + __cil_tmp74;
-#line 541
-  *((char *)__cil_tmp75) = (char)0;
-#line 541
-  __cil_tmp76 = 5 * 1UL;
-#line 541
-  __cil_tmp77 = (unsigned long )(ls_cmd) + __cil_tmp76;
-#line 541
-  *((char *)__cil_tmp77) = (char)0;
-#line 541
-  __cil_tmp78 = 6 * 1UL;
-#line 541
-  __cil_tmp79 = (unsigned long )(ls_cmd) + __cil_tmp78;
-#line 541
-  *((char *)__cil_tmp79) = (char)0;
-#line 541
-  __cil_tmp80 = 7 * 1UL;
-#line 541
-  __cil_tmp81 = (unsigned long )(ls_cmd) + __cil_tmp80;
-#line 541
-  *((char *)__cil_tmp81) = (char)0;
-#line 541
-  __cil_tmp82 = 8 * 1UL;
-#line 541
-  __cil_tmp83 = (unsigned long )(ls_cmd) + __cil_tmp82;
-#line 541
-  *((char *)__cil_tmp83) = (char)36;
-#line 541
-  __cil_tmp84 = 9 * 1UL;
-#line 541
-  __cil_tmp85 = (unsigned long )(ls_cmd) + __cil_tmp84;
-#line 541
-  *((char *)__cil_tmp85) = (char)0;
-#line 541
-  __cil_tmp86 = 10 * 1UL;
-#line 541
-  __cil_tmp87 = (unsigned long )(ls_cmd) + __cil_tmp86;
-#line 541
-  *((char *)__cil_tmp87) = (char)0;
-#line 541
-  __cil_tmp88 = 11 * 1UL;
-#line 541
-  __cil_tmp89 = (unsigned long )(ls_cmd) + __cil_tmp88;
-#line 541
-  *((char *)__cil_tmp89) = (char)0;
+  ls_cmd[11] = (char)0;
 #line 545
-  __cil_tmp90 = (char *)(& id_cmd);
+  __cil_tmp14 = (char *)(& id_cmd);
 #line 545
-  __cil_tmp91 = (char *)(& buf);
+  __cil_tmp15 = (char *)(& buf);
 #line 545
-  __cil_tmp92 = (char *)"identify";
+  __cil_tmp16 = (char *)"identify";
 #line 545
-  s = pt_atapi(tape, __cil_tmp90, 36, __cil_tmp91, __cil_tmp92);
+  s = pt_atapi(tape, __cil_tmp14, 36, __cil_tmp15, __cil_tmp16);
   }
 #line 546
   if (s != 0) {
@@ -6380,36 +5653,22 @@ static int pt_identify(struct pt_unit *tape )
 
   }
 #line 549
-  __cil_tmp93 = 0 * 1UL;
+  __cil_tmp17 = (int )buf[0];
 #line 549
-  __cil_tmp94 = (unsigned long )(buf) + __cil_tmp93;
-#line 549
-  __cil_tmp95 = *((char *)__cil_tmp94);
-#line 549
-  __cil_tmp96 = (int )__cil_tmp95;
-#line 549
-  dt = __cil_tmp96 & 31;
+  dt = __cil_tmp17 & 31;
 #line 550
   if (dt != 1) {
 #line 551
     if (verbose != 0) {
       {
 #line 552
-      __cil_tmp97 = (unsigned long )tape;
+      __cil_tmp18 = & tape->name;
 #line 552
-      __cil_tmp98 = __cil_tmp97 + 224;
+      __cil_tmp19 = (char *)__cil_tmp18;
 #line 552
-      __cil_tmp99 = (char (*)[8U])__cil_tmp98;
+      __cil_tmp20 = tape->drive;
 #line 552
-      __cil_tmp100 = (char *)__cil_tmp99;
-#line 552
-      __cil_tmp101 = (unsigned long )tape;
-#line 552
-      __cil_tmp102 = __cil_tmp101 + 192;
-#line 552
-      __cil_tmp103 = *((int *)__cil_tmp102);
-#line 552
-      printk("%s: Drive %d, unsupported type %d\n", __cil_tmp100, __cil_tmp103, dt);
+      printk("%s: Drive %d, unsupported type %d\n", __cil_tmp19, __cil_tmp20, dt);
       }
     } else {
 
@@ -6421,171 +5680,109 @@ static int pt_identify(struct pt_unit *tape )
   }
   {
 #line 557
-  __cil_tmp104 = (char *)(& buf);
+  __cil_tmp21 = (char *)(& buf);
 #line 557
-  __cil_tmp105 = (char *)(& mf);
+  __cil_tmp22 = (char *)(& mf);
 #line 557
-  xs(__cil_tmp104, __cil_tmp105, 8, 8);
+  xs(__cil_tmp21, __cil_tmp22, 8, 8);
 #line 558
-  __cil_tmp106 = (char *)(& buf);
+  __cil_tmp23 = (char *)(& buf);
 #line 558
-  __cil_tmp107 = (char *)(& id);
+  __cil_tmp24 = (char *)(& id);
 #line 558
-  xs(__cil_tmp106, __cil_tmp107, 16, 16);
+  xs(__cil_tmp23, __cil_tmp24, 16, 16);
 #line 560
-  __cil_tmp108 = (unsigned long )tape;
-#line 560
-  __cil_tmp109 = __cil_tmp108 + 184;
-#line 560
-  *((int *)__cil_tmp109) = 0;
+  tape->flags = 0;
 #line 561
-  __cil_tmp110 = (unsigned long )tape;
-#line 561
-  __cil_tmp111 = __cil_tmp110 + 204;
-#line 561
-  *((int *)__cil_tmp111) = 0;
+  tape->capacity = 0;
 #line 562
-  __cil_tmp112 = (unsigned long )tape;
-#line 562
-  __cil_tmp113 = __cil_tmp112 + 200;
-#line 562
-  *((int *)__cil_tmp113) = 0;
+  tape->bs = 0;
 #line 564
   tmp = pt_ready_wait(tape, 60);
   }
 #line 564
   if (tmp == 0) {
 #line 565
-    __cil_tmp114 = (unsigned long )tape;
+    __cil_tmp25 = tape->flags;
 #line 565
-    __cil_tmp115 = __cil_tmp114 + 184;
-#line 565
-    __cil_tmp116 = (unsigned long )tape;
-#line 565
-    __cil_tmp117 = __cil_tmp116 + 184;
-#line 565
-    __cil_tmp118 = *((int *)__cil_tmp117);
-#line 565
-    *((int *)__cil_tmp115) = __cil_tmp118 | 1;
+    tape->flags = __cil_tmp25 | 1;
   } else {
 
   }
   {
 #line 567
-  __cil_tmp119 = (char *)(& ms_cmd);
+  __cil_tmp26 = (char *)(& ms_cmd);
 #line 567
-  __cil_tmp120 = (char *)(& buf);
+  __cil_tmp27 = (char *)(& buf);
 #line 567
-  __cil_tmp121 = (char *)"mode sense";
+  __cil_tmp28 = (char *)"mode sense";
 #line 567
-  tmp___0 = pt_atapi(tape, __cil_tmp119, 36, __cil_tmp120, __cil_tmp121);
+  tmp___0 = pt_atapi(tape, __cil_tmp26, 36, __cil_tmp27, __cil_tmp28);
   }
 #line 567
   if (tmp___0 == 0) {
     {
 #line 568
-    __cil_tmp122 = 2 * 1UL;
+    __cil_tmp29 = (int )buf[2];
 #line 568
-    __cil_tmp123 = (unsigned long )(buf) + __cil_tmp122;
-#line 568
-    __cil_tmp124 = *((char *)__cil_tmp123);
-#line 568
-    __cil_tmp125 = (int )__cil_tmp124;
-#line 568
-    if (__cil_tmp125 >= 0) {
+    if (__cil_tmp29 >= 0) {
 #line 569
-      __cil_tmp126 = (unsigned long )tape;
+      __cil_tmp30 = tape->flags;
 #line 569
-      __cil_tmp127 = __cil_tmp126 + 184;
-#line 569
-      __cil_tmp128 = (unsigned long )tape;
-#line 569
-      __cil_tmp129 = __cil_tmp128 + 184;
-#line 569
-      __cil_tmp130 = *((int *)__cil_tmp129);
-#line 569
-      *((int *)__cil_tmp127) = __cil_tmp130 | 2;
+      tape->flags = __cil_tmp30 | 2;
     } else {
 
     }
     }
     {
 #line 570
-    __cil_tmp131 = (unsigned long )tape;
+    __cil_tmp31 = (char *)(& buf);
 #line 570
-    __cil_tmp132 = __cil_tmp131 + 200;
-#line 570
-    __cil_tmp133 = (char *)(& buf);
-#line 570
-    *((int *)__cil_tmp132) = xn(__cil_tmp133, 10, 2);
+    tape->bs = xn(__cil_tmp31, 10, 2);
     }
   } else {
 
   }
   {
 #line 573
-  __cil_tmp134 = (char *)(& ls_cmd);
+  __cil_tmp32 = (char *)(& ls_cmd);
 #line 573
-  __cil_tmp135 = (char *)(& buf);
+  __cil_tmp33 = (char *)(& buf);
 #line 573
-  __cil_tmp136 = (char *)"log sense";
+  __cil_tmp34 = (char *)"log sense";
 #line 573
-  tmp___1 = pt_atapi(tape, __cil_tmp134, 36, __cil_tmp135, __cil_tmp136);
+  tmp___1 = pt_atapi(tape, __cil_tmp32, 36, __cil_tmp33, __cil_tmp34);
   }
 #line 573
   if (tmp___1 == 0) {
     {
 #line 574
-    __cil_tmp137 = (unsigned long )tape;
+    __cil_tmp35 = (char *)(& buf);
 #line 574
-    __cil_tmp138 = __cil_tmp137 + 204;
-#line 574
-    __cil_tmp139 = (char *)(& buf);
-#line 574
-    *((int *)__cil_tmp138) = xn(__cil_tmp139, 24, 4);
+    tape->capacity = xn(__cil_tmp35, 24, 4);
     }
   } else {
 
   }
   {
 #line 576
-  __cil_tmp140 = (unsigned long )tape;
+  __cil_tmp36 = & tape->name;
 #line 576
-  __cil_tmp141 = __cil_tmp140 + 224;
+  __cil_tmp37 = (char *)__cil_tmp36;
 #line 576
-  __cil_tmp142 = (char (*)[8U])__cil_tmp141;
+  __cil_tmp38 = (char *)(& mf);
 #line 576
-  __cil_tmp143 = (char *)__cil_tmp142;
+  __cil_tmp39 = (char *)(& id);
 #line 576
-  __cil_tmp144 = (char *)(& mf);
-#line 576
-  __cil_tmp145 = (char *)(& id);
-#line 576
-  __cil_tmp146 = (unsigned long )tape;
-#line 576
-  __cil_tmp147 = __cil_tmp146 + 192;
-#line 576
-  __cil_tmp148 = *((int *)__cil_tmp147);
-#line 576
-  __cil_tmp149 = __cil_tmp148 * 8UL;
-#line 576
-  __cil_tmp150 = (unsigned long )(ms) + __cil_tmp149;
-#line 576
-  __cil_tmp151 = *((char **)__cil_tmp150);
-#line 576
-  printk("%s: %s %s, %s", __cil_tmp143, __cil_tmp144, __cil_tmp145, __cil_tmp151);
+  printk("%s: %s %s, %s", __cil_tmp37, __cil_tmp38, __cil_tmp39, ms[tape->drive]);
   }
   {
 #line 577
-  __cil_tmp152 = (unsigned long )tape;
+  __cil_tmp40 = tape->flags;
 #line 577
-  __cil_tmp153 = __cil_tmp152 + 184;
+  __cil_tmp41 = __cil_tmp40 & 1;
 #line 577
-  __cil_tmp154 = *((int *)__cil_tmp153);
-#line 577
-  __cil_tmp155 = __cil_tmp154 & 1;
-#line 577
-  if (__cil_tmp155 == 0) {
+  if (__cil_tmp41 == 0) {
     {
 #line 578
     printk(", no media\n");
@@ -6593,15 +5790,11 @@ static int pt_identify(struct pt_unit *tape )
   } else {
     {
 #line 580
-    __cil_tmp156 = (unsigned long )tape;
+    __cil_tmp42 = tape->flags;
 #line 580
-    __cil_tmp157 = __cil_tmp156 + 184;
+    __cil_tmp43 = __cil_tmp42 & 2;
 #line 580
-    __cil_tmp158 = *((int *)__cil_tmp157);
-#line 580
-    __cil_tmp159 = __cil_tmp158 & 2;
-#line 580
-    if (__cil_tmp159 == 0) {
+    if (__cil_tmp43 == 0) {
       {
 #line 581
       printk(", RO");
@@ -6612,21 +5805,13 @@ static int pt_identify(struct pt_unit *tape )
     }
     {
 #line 582
-    __cil_tmp160 = (unsigned long )tape;
+    __cil_tmp44 = tape->bs;
 #line 582
-    __cil_tmp161 = __cil_tmp160 + 200;
+    __cil_tmp45 = tape->capacity;
 #line 582
-    __cil_tmp162 = *((int *)__cil_tmp161);
+    __cil_tmp46 = __cil_tmp45 / 1024;
 #line 582
-    __cil_tmp163 = (unsigned long )tape;
-#line 582
-    __cil_tmp164 = __cil_tmp163 + 204;
-#line 582
-    __cil_tmp165 = *((int *)__cil_tmp164);
-#line 582
-    __cil_tmp166 = __cil_tmp165 / 1024;
-#line 582
-    printk(", blocksize %d, %d MB\n", __cil_tmp162, __cil_tmp166);
+    printk(", blocksize %d, %d MB\n", __cil_tmp44, __cil_tmp46);
     }
   }
   }
@@ -6640,36 +5825,19 @@ static int pt_probe(struct pt_unit *tape )
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  int __cil_tmp6 ;
+  int __cil_tmp7 ;
   int __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  int __cil_tmp18 ;
 
   {
   {
 #line 595
-  __cil_tmp6 = (unsigned long )tape;
+  __cil_tmp6 = tape->drive;
 #line 595
-  __cil_tmp7 = __cil_tmp6 + 192;
-#line 595
-  __cil_tmp8 = *((int *)__cil_tmp7);
-#line 595
-  if (__cil_tmp8 == -1) {
+  if (__cil_tmp6 == -1) {
 #line 596
-    __cil_tmp9 = (unsigned long )tape;
+    tape->drive = 0;
 #line 596
-    __cil_tmp10 = __cil_tmp9 + 192;
-#line 596
-    *((int *)__cil_tmp10) = 0;
     goto ldv_21645;
     ldv_21644: 
     {
@@ -6688,29 +5856,19 @@ static int pt_probe(struct pt_unit *tape )
 
     }
 #line 596
-    __cil_tmp11 = (unsigned long )tape;
+    __cil_tmp7 = tape->drive;
 #line 596
-    __cil_tmp12 = __cil_tmp11 + 192;
-#line 596
-    __cil_tmp13 = (unsigned long )tape;
-#line 596
-    __cil_tmp14 = __cil_tmp13 + 192;
-#line 596
-    __cil_tmp15 = *((int *)__cil_tmp14);
-#line 596
-    *((int *)__cil_tmp12) = __cil_tmp15 + 1;
+    tape->drive = __cil_tmp7 + 1;
     ldv_21645: ;
     {
 #line 596
-    __cil_tmp16 = (unsigned long )tape;
+    __cil_tmp8 = tape->drive;
 #line 596
-    __cil_tmp17 = __cil_tmp16 + 192;
-#line 596
-    __cil_tmp18 = *((int *)__cil_tmp17);
-#line 596
-    if (__cil_tmp18 <= 1) {
+    if (__cil_tmp8 <= 1) {
+#line 597
       goto ldv_21644;
     } else {
+#line 599
       goto ldv_21646;
     }
     }
@@ -6751,99 +5909,25 @@ static int pt_detect(void)
   char *__cil_tmp10 ;
   unsigned long __cil_tmp11 ;
   struct pt_unit *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  atomic_t *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int (*__cil_tmp31)[6U] ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  char (*__cil_tmp36)[8U] ;
-  char *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int (*__cil_tmp41)[6U] ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  int __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  struct pi_adapter *__cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int (*__cil_tmp51)[6U] ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  int __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  int (*__cil_tmp58)[6U] ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  int (*__cil_tmp65)[6U] ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  int (*__cil_tmp72)[6U] ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  int __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  int (*__cil_tmp79)[6U] ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  int __cil_tmp82 ;
-  char *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  char (*__cil_tmp86)[8U] ;
-  char *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  struct pi_adapter *__cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct pi_adapter *__cil_tmp95 ;
-  char *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  char (*__cil_tmp99)[8U] ;
-  char *__cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  struct pi_adapter *__cil_tmp105 ;
+  atomic_t *__cil_tmp13 ;
+  char (*__cil_tmp14)[8U] ;
+  char *__cil_tmp15 ;
+  int __cil_tmp16 ;
+  struct pi_adapter *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  char *__cil_tmp23 ;
+  char (*__cil_tmp24)[8U] ;
+  char *__cil_tmp25 ;
+  struct pi_adapter *__cil_tmp26 ;
+  struct pi_adapter *__cil_tmp27 ;
+  char *__cil_tmp28 ;
+  char (*__cil_tmp29)[8U] ;
+  char *__cil_tmp30 ;
+  struct pi_adapter *__cil_tmp31 ;
 
   {
   {
@@ -6860,6 +5944,7 @@ static int pt_detect(void)
 #line 615
   unit = 0;
   }
+#line 615
   goto ldv_21657;
   ldv_21656: 
   {
@@ -6870,89 +5955,34 @@ static int pt_detect(void)
 #line 616
   tape___0 = __cil_tmp12 + __cil_tmp11;
 #line 617
-  __cil_tmp13 = (unsigned long )tape___0;
-#line 617
-  __cil_tmp14 = __cil_tmp13 + 176;
-#line 617
-  *((struct pi_adapter **)__cil_tmp14) = (struct pi_adapter *)tape___0;
+  tape___0->pi = & tape___0->pia;
 #line 618
-  __cil_tmp15 = (unsigned long )tape___0;
+  __cil_tmp13 = & tape___0->available;
 #line 618
-  __cil_tmp16 = __cil_tmp15 + 196;
-#line 618
-  __cil_tmp17 = (atomic_t *)__cil_tmp16;
-#line 618
-  atomic_set(__cil_tmp17, 1);
+  atomic_set(__cil_tmp13, 1);
 #line 619
-  __cil_tmp18 = (unsigned long )tape___0;
-#line 619
-  __cil_tmp19 = __cil_tmp18 + 184;
-#line 619
-  *((int *)__cil_tmp19) = 0;
+  tape___0->flags = 0;
 #line 620
-  __cil_tmp20 = (unsigned long )tape___0;
-#line 620
-  __cil_tmp21 = __cil_tmp20 + 188;
-#line 620
-  *((int *)__cil_tmp21) = 0;
+  tape___0->last_sense = 0;
 #line 621
-  __cil_tmp22 = (unsigned long )tape___0;
-#line 621
-  __cil_tmp23 = __cil_tmp22 + 208;
-#line 621
-  *((int *)__cil_tmp23) = 0;
+  tape___0->present = 0;
 #line 622
-  __cil_tmp24 = (unsigned long )tape___0;
-#line 622
-  __cil_tmp25 = __cil_tmp24 + 216;
-#line 622
-  *((char **)__cil_tmp25) = (char *)0;
+  tape___0->bufptr = (char *)0;
 #line 623
-  __cil_tmp26 = (unsigned long )tape___0;
-#line 623
-  __cil_tmp27 = __cil_tmp26 + 192;
-#line 623
-  __cil_tmp28 = 4 * 4UL;
-#line 623
-  __cil_tmp29 = unit * 8UL;
-#line 623
-  __cil_tmp30 = (unsigned long )(drives) + __cil_tmp29;
-#line 623
-  __cil_tmp31 = *((int (**)[6U])__cil_tmp30);
-#line 623
-  __cil_tmp32 = (unsigned long )__cil_tmp31;
-#line 623
-  __cil_tmp33 = __cil_tmp32 + __cil_tmp28;
-#line 623
-  *((int *)__cil_tmp27) = *((int *)__cil_tmp33);
+  tape___0->drive = (*(drives[unit]))[4];
 #line 624
-  __cil_tmp34 = (unsigned long )tape___0;
+  __cil_tmp14 = & tape___0->name;
 #line 624
-  __cil_tmp35 = __cil_tmp34 + 224;
+  __cil_tmp15 = (char *)__cil_tmp14;
 #line 624
-  __cil_tmp36 = (char (*)[8U])__cil_tmp35;
-#line 624
-  __cil_tmp37 = (char *)__cil_tmp36;
-#line 624
-  snprintf(__cil_tmp37, 8UL, "%s%d", name, unit);
+  snprintf(__cil_tmp15, 8UL, "%s%d", name, unit);
   }
   {
 #line 625
-  __cil_tmp38 = 0 * 4UL;
+  __cil_tmp16 = (*(drives[unit]))[0];
 #line 625
-  __cil_tmp39 = unit * 8UL;
-#line 625
-  __cil_tmp40 = (unsigned long )(drives) + __cil_tmp39;
-#line 625
-  __cil_tmp41 = *((int (**)[6U])__cil_tmp40);
-#line 625
-  __cil_tmp42 = (unsigned long )__cil_tmp41;
-#line 625
-  __cil_tmp43 = __cil_tmp42 + __cil_tmp38;
-#line 625
-  __cil_tmp44 = *((int *)__cil_tmp43);
-#line 625
-  if (__cil_tmp44 == 0) {
+  if (__cil_tmp16 == 0) {
+#line 626
     goto ldv_21655;
   } else {
 
@@ -6962,94 +5992,26 @@ static int pt_detect(void)
 #line 627
   specified = specified + 1;
 #line 628
-  __cil_tmp45 = (unsigned long )tape___0;
+  __cil_tmp17 = tape___0->pi;
 #line 628
-  __cil_tmp46 = __cil_tmp45 + 176;
+  __cil_tmp18 = (*(drives[unit]))[0];
 #line 628
-  __cil_tmp47 = *((struct pi_adapter **)__cil_tmp46);
+  __cil_tmp19 = (*(drives[unit]))[3];
 #line 628
-  __cil_tmp48 = 0 * 4UL;
+  __cil_tmp20 = (*(drives[unit]))[2];
 #line 628
-  __cil_tmp49 = unit * 8UL;
+  __cil_tmp21 = (*(drives[unit]))[1];
 #line 628
-  __cil_tmp50 = (unsigned long )(drives) + __cil_tmp49;
+  __cil_tmp22 = (*(drives[unit]))[5];
 #line 628
-  __cil_tmp51 = *((int (**)[6U])__cil_tmp50);
+  __cil_tmp23 = (char *)(& pt_scratch);
 #line 628
-  __cil_tmp52 = (unsigned long )__cil_tmp51;
+  __cil_tmp24 = & tape___0->name;
 #line 628
-  __cil_tmp53 = __cil_tmp52 + __cil_tmp48;
+  __cil_tmp25 = (char *)__cil_tmp24;
 #line 628
-  __cil_tmp54 = *((int *)__cil_tmp53);
-#line 628
-  __cil_tmp55 = 3 * 4UL;
-#line 628
-  __cil_tmp56 = unit * 8UL;
-#line 628
-  __cil_tmp57 = (unsigned long )(drives) + __cil_tmp56;
-#line 628
-  __cil_tmp58 = *((int (**)[6U])__cil_tmp57);
-#line 628
-  __cil_tmp59 = (unsigned long )__cil_tmp58;
-#line 628
-  __cil_tmp60 = __cil_tmp59 + __cil_tmp55;
-#line 628
-  __cil_tmp61 = *((int *)__cil_tmp60);
-#line 628
-  __cil_tmp62 = 2 * 4UL;
-#line 628
-  __cil_tmp63 = unit * 8UL;
-#line 628
-  __cil_tmp64 = (unsigned long )(drives) + __cil_tmp63;
-#line 628
-  __cil_tmp65 = *((int (**)[6U])__cil_tmp64);
-#line 628
-  __cil_tmp66 = (unsigned long )__cil_tmp65;
-#line 628
-  __cil_tmp67 = __cil_tmp66 + __cil_tmp62;
-#line 628
-  __cil_tmp68 = *((int *)__cil_tmp67);
-#line 628
-  __cil_tmp69 = 1 * 4UL;
-#line 628
-  __cil_tmp70 = unit * 8UL;
-#line 628
-  __cil_tmp71 = (unsigned long )(drives) + __cil_tmp70;
-#line 628
-  __cil_tmp72 = *((int (**)[6U])__cil_tmp71);
-#line 628
-  __cil_tmp73 = (unsigned long )__cil_tmp72;
-#line 628
-  __cil_tmp74 = __cil_tmp73 + __cil_tmp69;
-#line 628
-  __cil_tmp75 = *((int *)__cil_tmp74);
-#line 628
-  __cil_tmp76 = 5 * 4UL;
-#line 628
-  __cil_tmp77 = unit * 8UL;
-#line 628
-  __cil_tmp78 = (unsigned long )(drives) + __cil_tmp77;
-#line 628
-  __cil_tmp79 = *((int (**)[6U])__cil_tmp78);
-#line 628
-  __cil_tmp80 = (unsigned long )__cil_tmp79;
-#line 628
-  __cil_tmp81 = __cil_tmp80 + __cil_tmp76;
-#line 628
-  __cil_tmp82 = *((int *)__cil_tmp81);
-#line 628
-  __cil_tmp83 = (char *)(& pt_scratch);
-#line 628
-  __cil_tmp84 = (unsigned long )tape___0;
-#line 628
-  __cil_tmp85 = __cil_tmp84 + 224;
-#line 628
-  __cil_tmp86 = (char (*)[8U])__cil_tmp85;
-#line 628
-  __cil_tmp87 = (char *)__cil_tmp86;
-#line 628
-  tmp___0 = pi_init(__cil_tmp47, 0, __cil_tmp54, __cil_tmp61, __cil_tmp68, __cil_tmp75,
-                    __cil_tmp82, __cil_tmp83, 3, verbose, __cil_tmp87);
+  tmp___0 = pi_init(__cil_tmp17, 0, __cil_tmp18, __cil_tmp19, __cil_tmp20, __cil_tmp21,
+                    __cil_tmp22, __cil_tmp23, 3, verbose, __cil_tmp25);
   }
 #line 628
   if (tmp___0 != 0) {
@@ -7060,23 +6022,15 @@ static int pt_detect(void)
 #line 631
     if (tmp == 0) {
 #line 632
-      __cil_tmp88 = (unsigned long )tape___0;
-#line 632
-      __cil_tmp89 = __cil_tmp88 + 208;
-#line 632
-      *((int *)__cil_tmp89) = 1;
+      tape___0->present = 1;
 #line 633
       found = found + 1;
     } else {
       {
 #line 635
-      __cil_tmp90 = (unsigned long )tape___0;
+      __cil_tmp26 = tape___0->pi;
 #line 635
-      __cil_tmp91 = __cil_tmp90 + 176;
-#line 635
-      __cil_tmp92 = *((struct pi_adapter **)__cil_tmp91);
-#line 635
-      pi_release(__cil_tmp92);
+      pi_release(__cil_tmp26);
       }
     }
   } else {
@@ -7088,8 +6042,10 @@ static int pt_detect(void)
   ldv_21657: ;
 #line 615
   if (unit <= 3) {
+#line 616
     goto ldv_21656;
   } else {
+#line 618
     goto ldv_21658;
   }
   ldv_21658: ;
@@ -7099,24 +6055,16 @@ static int pt_detect(void)
 #line 639
     tape = (struct pt_unit *)(& pt);
 #line 640
-    __cil_tmp93 = (unsigned long )tape;
+    __cil_tmp27 = tape->pi;
 #line 640
-    __cil_tmp94 = __cil_tmp93 + 176;
+    __cil_tmp28 = (char *)(& pt_scratch);
 #line 640
-    __cil_tmp95 = *((struct pi_adapter **)__cil_tmp94);
+    __cil_tmp29 = & tape->name;
 #line 640
-    __cil_tmp96 = (char *)(& pt_scratch);
+    __cil_tmp30 = (char *)__cil_tmp29;
 #line 640
-    __cil_tmp97 = (unsigned long )tape;
-#line 640
-    __cil_tmp98 = __cil_tmp97 + 224;
-#line 640
-    __cil_tmp99 = (char (*)[8U])__cil_tmp98;
-#line 640
-    __cil_tmp100 = (char *)__cil_tmp99;
-#line 640
-    tmp___2 = pi_init(__cil_tmp95, 1, -1, -1, -1, -1, -1, __cil_tmp96, 3, verbose,
-                      __cil_tmp100);
+    tmp___2 = pi_init(__cil_tmp27, 1, -1, -1, -1, -1, -1, __cil_tmp28, 3, verbose,
+                      __cil_tmp30);
     }
 #line 640
     if (tmp___2 != 0) {
@@ -7127,23 +6075,15 @@ static int pt_detect(void)
 #line 642
       if (tmp___1 == 0) {
 #line 643
-        __cil_tmp101 = (unsigned long )tape;
-#line 643
-        __cil_tmp102 = __cil_tmp101 + 208;
-#line 643
-        *((int *)__cil_tmp102) = 1;
+        tape->present = 1;
 #line 644
         found = found + 1;
       } else {
         {
 #line 646
-        __cil_tmp103 = (unsigned long )tape;
+        __cil_tmp31 = tape->pi;
 #line 646
-        __cil_tmp104 = __cil_tmp103 + 176;
-#line 646
-        __cil_tmp105 = *((struct pi_adapter **)__cil_tmp104);
-#line 646
-        pi_release(__cil_tmp105);
+        pi_release(__cil_tmp31);
         }
       }
     } else {
@@ -7180,48 +6120,24 @@ static int pt_open(struct inode *inode , struct file *file )
   int __cil_tmp11 ;
   unsigned long __cil_tmp12 ;
   struct pt_unit *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
+  int __cil_tmp14 ;
+  atomic_t *__cil_tmp15 ;
   int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  atomic_t *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  int __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  int __cil_tmp26 ;
-  int __cil_tmp27 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  fmode_t __cil_tmp20 ;
+  unsigned int __cil_tmp21 ;
+  struct inode  const  *__cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  char *__cil_tmp25 ;
+  unsigned long __cil_tmp26 ;
+  char *__cil_tmp27 ;
   unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  fmode_t __cil_tmp30 ;
-  unsigned int __cil_tmp31 ;
-  struct inode  const  *__cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  char *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  char *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  char (*__cil_tmp49)[8U] ;
-  char *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  atomic_t *__cil_tmp55 ;
+  char (*__cil_tmp29)[8U] ;
+  char *__cil_tmp30 ;
+  atomic_t *__cil_tmp31 ;
 
   {
   {
@@ -7253,13 +6169,9 @@ static int pt_open(struct inode *inode , struct file *file )
   } else {
     {
 #line 664
-    __cil_tmp14 = (unsigned long )tape;
+    __cil_tmp14 = tape->present;
 #line 664
-    __cil_tmp15 = __cil_tmp14 + 208;
-#line 664
-    __cil_tmp16 = *((int *)__cil_tmp15);
-#line 664
-    if (__cil_tmp16 == 0) {
+    if (__cil_tmp14 == 0) {
       {
 #line 665
       mutex_unlock(& pt_mutex);
@@ -7275,16 +6187,13 @@ static int pt_open(struct inode *inode , struct file *file )
 #line 669
   err = -16;
 #line 670
-  __cil_tmp17 = (unsigned long )tape;
+  __cil_tmp15 = & tape->available;
 #line 670
-  __cil_tmp18 = __cil_tmp17 + 196;
-#line 670
-  __cil_tmp19 = (atomic_t *)__cil_tmp18;
-#line 670
-  tmp___0 = atomic_dec_and_test(__cil_tmp19);
+  tmp___0 = atomic_dec_and_test(__cil_tmp15);
   }
 #line 670
   if (tmp___0 == 0) {
+#line 671
     goto out;
   } else {
 
@@ -7297,15 +6206,12 @@ static int pt_open(struct inode *inode , struct file *file )
   }
   {
 #line 676
-  __cil_tmp20 = (unsigned long )tape;
+  __cil_tmp16 = tape->flags;
 #line 676
-  __cil_tmp21 = __cil_tmp20 + 184;
+  __cil_tmp17 = __cil_tmp16 & 1;
 #line 676
-  __cil_tmp22 = *((int *)__cil_tmp21);
-#line 676
-  __cil_tmp23 = __cil_tmp22 & 1;
-#line 676
-  if (__cil_tmp23 == 0) {
+  if (__cil_tmp17 == 0) {
+#line 677
     goto out;
   } else {
 
@@ -7315,26 +6221,19 @@ static int pt_open(struct inode *inode , struct file *file )
   err = -30;
   {
 #line 680
-  __cil_tmp24 = (unsigned long )tape;
+  __cil_tmp18 = tape->flags;
 #line 680
-  __cil_tmp25 = __cil_tmp24 + 184;
+  __cil_tmp19 = __cil_tmp18 & 2;
 #line 680
-  __cil_tmp26 = *((int *)__cil_tmp25);
-#line 680
-  __cil_tmp27 = __cil_tmp26 & 2;
-#line 680
-  if (__cil_tmp27 == 0) {
+  if (__cil_tmp19 == 0) {
     {
 #line 680
-    __cil_tmp28 = (unsigned long )file;
+    __cil_tmp20 = file->f_mode;
 #line 680
-    __cil_tmp29 = __cil_tmp28 + 132;
+    __cil_tmp21 = __cil_tmp20 & 2U;
 #line 680
-    __cil_tmp30 = *((fmode_t *)__cil_tmp29);
-#line 680
-    __cil_tmp31 = __cil_tmp30 & 2U;
-#line 680
-    if (__cil_tmp31 != 0U) {
+    if (__cil_tmp21 != 0U) {
+#line 681
       goto out;
     } else {
 
@@ -7346,27 +6245,19 @@ static int pt_open(struct inode *inode , struct file *file )
   }
   {
 #line 683
-  __cil_tmp32 = (struct inode  const  *)inode;
+  __cil_tmp22 = (struct inode  const  *)inode;
 #line 683
-  tmp___1 = iminor(__cil_tmp32);
+  tmp___1 = iminor(__cil_tmp22);
   }
   {
 #line 683
-  __cil_tmp33 = tmp___1 & 128U;
+  __cil_tmp23 = tmp___1 & 128U;
 #line 683
-  if (__cil_tmp33 == 0U) {
+  if (__cil_tmp23 == 0U) {
 #line 684
-    __cil_tmp34 = (unsigned long )tape;
+    __cil_tmp24 = tape->flags;
 #line 684
-    __cil_tmp35 = __cil_tmp34 + 184;
-#line 684
-    __cil_tmp36 = (unsigned long )tape;
-#line 684
-    __cil_tmp37 = __cil_tmp36 + 184;
-#line 684
-    __cil_tmp38 = *((int *)__cil_tmp37);
-#line 684
-    *((int *)__cil_tmp35) = __cil_tmp38 | 4;
+    tape->flags = __cil_tmp24 | 4;
   } else {
 
   }
@@ -7377,39 +6268,28 @@ static int pt_open(struct inode *inode , struct file *file )
 #line 687
   tmp___2 = kmalloc(16384UL, 208U);
 #line 687
-  __cil_tmp39 = (unsigned long )tape;
-#line 687
-  __cil_tmp40 = __cil_tmp39 + 216;
-#line 687
-  *((char **)__cil_tmp40) = (char *)tmp___2;
+  tape->bufptr = (char *)tmp___2;
   }
   {
 #line 688
-  __cil_tmp41 = (char *)0;
+  __cil_tmp25 = (char *)0;
 #line 688
-  __cil_tmp42 = (unsigned long )__cil_tmp41;
+  __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 688
-  __cil_tmp43 = (unsigned long )tape;
+  __cil_tmp27 = tape->bufptr;
 #line 688
-  __cil_tmp44 = __cil_tmp43 + 216;
+  __cil_tmp28 = (unsigned long )__cil_tmp27;
 #line 688
-  __cil_tmp45 = *((char **)__cil_tmp44);
-#line 688
-  __cil_tmp46 = (unsigned long )__cil_tmp45;
-#line 688
-  if (__cil_tmp46 == __cil_tmp42) {
+  if (__cil_tmp28 == __cil_tmp26) {
     {
 #line 689
-    __cil_tmp47 = (unsigned long )tape;
+    __cil_tmp29 = & tape->name;
 #line 689
-    __cil_tmp48 = __cil_tmp47 + 224;
+    __cil_tmp30 = (char *)__cil_tmp29;
 #line 689
-    __cil_tmp49 = (char (*)[8U])__cil_tmp48;
-#line 689
-    __cil_tmp50 = (char *)__cil_tmp49;
-#line 689
-    printk("%s: buffer allocation failed\n", __cil_tmp50);
+    printk("%s: buffer allocation failed\n", __cil_tmp30);
     }
+#line 690
     goto out;
   } else {
 
@@ -7417,11 +6297,7 @@ static int pt_open(struct inode *inode , struct file *file )
   }
   {
 #line 693
-  __cil_tmp51 = (unsigned long )file;
-#line 693
-  __cil_tmp52 = __cil_tmp51 + 328;
-#line 693
-  *((void **)__cil_tmp52) = (void *)tape;
+  file->private_data = (void *)tape;
 #line 694
   mutex_unlock(& pt_mutex);
   }
@@ -7430,13 +6306,9 @@ static int pt_open(struct inode *inode , struct file *file )
   out: 
   {
 #line 698
-  __cil_tmp53 = (unsigned long )tape;
+  __cil_tmp31 = & tape->available;
 #line 698
-  __cil_tmp54 = __cil_tmp53 + 196;
-#line 698
-  __cil_tmp55 = (atomic_t *)__cil_tmp54;
-#line 698
-  atomic_inc(__cil_tmp55);
+  atomic_inc(__cil_tmp31);
 #line 699
   mutex_unlock(& pt_mutex);
   }
@@ -7450,55 +6322,43 @@ static long pt_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
   struct mtop *p ;
   struct mtop mtop ;
   unsigned long tmp ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
+  void *__cil_tmp8 ;
+  int __cil_tmp9 ;
   void *__cil_tmp10 ;
-  int __cil_tmp11 ;
-  void *__cil_tmp12 ;
-  void const   *__cil_tmp13 ;
-  struct mtop *__cil_tmp14 ;
-  short __cil_tmp15 ;
+  void const   *__cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  char (*__cil_tmp14)[8U] ;
+  char *__cil_tmp15 ;
   int __cil_tmp16 ;
-  struct mtop *__cil_tmp17 ;
-  short __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  char (*__cil_tmp22)[8U] ;
-  char *__cil_tmp23 ;
-  struct mtop *__cil_tmp24 ;
-  short __cil_tmp25 ;
-  int __cil_tmp26 ;
 
   {
 #line 705
-  __cil_tmp8 = (unsigned long )file;
+  __cil_tmp8 = file->private_data;
 #line 705
-  __cil_tmp9 = __cil_tmp8 + 328;
-#line 705
-  __cil_tmp10 = *((void **)__cil_tmp9);
-#line 705
-  tape = (struct pt_unit *)__cil_tmp10;
+  tape = (struct pt_unit *)__cil_tmp8;
 #line 706
   p = (struct mtop *)arg;
   {
 #line 710
-  __cil_tmp11 = (int )cmd;
+  __cil_tmp9 = (int )cmd;
 #line 710
-  if (__cil_tmp11 == 1074294017) {
+  if (__cil_tmp9 == 1074294017) {
+#line 710
     goto case_1074294017;
   } else {
+#line 735
     goto switch_default___0;
 #line 709
     if (0) {
       case_1074294017: 
       {
 #line 711
-      __cil_tmp12 = (void *)(& mtop);
+      __cil_tmp10 = (void *)(& mtop);
 #line 711
-      __cil_tmp13 = (void const   *)p;
+      __cil_tmp11 = (void const   *)p;
 #line 711
-      tmp = copy_from_user(__cil_tmp12, __cil_tmp13, 8UL);
+      tmp = copy_from_user(__cil_tmp10, __cil_tmp11, 8UL);
       }
 #line 711
       if (tmp != 0UL) {
@@ -7509,26 +6369,21 @@ static long pt_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
       }
       {
 #line 716
-      __cil_tmp14 = & mtop;
+      __cil_tmp12 = (int )mtop.mt_op;
 #line 716
-      __cil_tmp15 = *((short *)__cil_tmp14);
+      if (__cil_tmp12 == 6) {
 #line 716
-      __cil_tmp16 = (int )__cil_tmp15;
-#line 716
-      if (__cil_tmp16 == 6) {
         goto case_6;
       } else {
         {
 #line 722
-        __cil_tmp17 = & mtop;
+        __cil_tmp13 = (int )mtop.mt_op;
 #line 722
-        __cil_tmp18 = *((short *)__cil_tmp17);
+        if (__cil_tmp13 == 5) {
 #line 722
-        __cil_tmp19 = (int )__cil_tmp18;
-#line 722
-        if (__cil_tmp19 == 5) {
           goto case_5;
         } else {
+#line 728
           goto switch_default;
 #line 714
           if (0) {
@@ -7557,21 +6412,13 @@ static long pt_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
             switch_default: 
             {
 #line 730
-            __cil_tmp20 = (unsigned long )tape;
+            __cil_tmp14 = & tape->name;
 #line 730
-            __cil_tmp21 = __cil_tmp20 + 224;
+            __cil_tmp15 = (char *)__cil_tmp14;
 #line 730
-            __cil_tmp22 = (char (*)[8U])__cil_tmp21;
+            __cil_tmp16 = (int )mtop.mt_op;
 #line 730
-            __cil_tmp23 = (char *)__cil_tmp22;
-#line 730
-            __cil_tmp24 = & mtop;
-#line 730
-            __cil_tmp25 = *((short *)__cil_tmp24);
-#line 730
-            __cil_tmp26 = (int )__cil_tmp25;
-#line 730
-            printk("<7>%s: Unimplemented mt_op %d\n", __cil_tmp23, __cil_tmp26);
+            printk("<7>%s: Unimplemented mt_op %d\n", __cil_tmp15, __cil_tmp16);
             }
 #line 732
             return (-22L);
@@ -7596,51 +6443,29 @@ static long pt_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 static int pt_release(struct inode *inode , struct file *file ) 
 { struct pt_unit *tape ;
   int tmp ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  void *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  atomic_t *__cil_tmp10 ;
-  atomic_t const   *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  char *__cil_tmp22 ;
-  void const   *__cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  atomic_t *__cil_tmp28 ;
+  void *__cil_tmp5 ;
+  atomic_t *__cil_tmp6 ;
+  atomic_t const   *__cil_tmp7 ;
+  int __cil_tmp8 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  char *__cil_tmp12 ;
+  void const   *__cil_tmp13 ;
+  atomic_t *__cil_tmp14 ;
 
   {
   {
 #line 743
-  __cil_tmp5 = (unsigned long )file;
+  __cil_tmp5 = file->private_data;
 #line 743
-  __cil_tmp6 = __cil_tmp5 + 328;
-#line 743
-  __cil_tmp7 = *((void **)__cil_tmp6);
-#line 743
-  tape = (struct pt_unit *)__cil_tmp7;
+  tape = (struct pt_unit *)__cil_tmp5;
 #line 745
-  __cil_tmp8 = (unsigned long )tape;
+  __cil_tmp6 = & tape->available;
 #line 745
-  __cil_tmp9 = __cil_tmp8 + 196;
+  __cil_tmp7 = (atomic_t const   *)__cil_tmp6;
 #line 745
-  __cil_tmp10 = (atomic_t *)__cil_tmp9;
-#line 745
-  __cil_tmp11 = (atomic_t const   *)__cil_tmp10;
-#line 745
-  tmp = atomic_read(__cil_tmp11);
+  tmp = atomic_read(__cil_tmp7);
   }
 #line 745
   if (tmp > 1) {
@@ -7651,15 +6476,11 @@ static int pt_release(struct inode *inode , struct file *file )
   }
   {
 #line 748
-  __cil_tmp12 = (unsigned long )tape;
+  __cil_tmp8 = tape->flags;
 #line 748
-  __cil_tmp13 = __cil_tmp12 + 184;
+  __cil_tmp9 = __cil_tmp8 & 8;
 #line 748
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 748
-  __cil_tmp15 = __cil_tmp14 & 8;
-#line 748
-  if (__cil_tmp15 != 0) {
+  if (__cil_tmp9 != 0) {
     {
 #line 749
     pt_write_fm(tape);
@@ -7670,15 +6491,11 @@ static int pt_release(struct inode *inode , struct file *file )
   }
   {
 #line 751
-  __cil_tmp16 = (unsigned long )tape;
+  __cil_tmp10 = tape->flags;
 #line 751
-  __cil_tmp17 = __cil_tmp16 + 184;
+  __cil_tmp11 = __cil_tmp10 & 4;
 #line 751
-  __cil_tmp18 = *((int *)__cil_tmp17);
-#line 751
-  __cil_tmp19 = __cil_tmp18 & 4;
-#line 751
-  if (__cil_tmp19 != 0) {
+  if (__cil_tmp11 != 0) {
     {
 #line 752
     pt_rewind(tape);
@@ -7689,29 +6506,17 @@ static int pt_release(struct inode *inode , struct file *file )
   }
   {
 #line 754
-  __cil_tmp20 = (unsigned long )tape;
+  __cil_tmp12 = tape->bufptr;
 #line 754
-  __cil_tmp21 = __cil_tmp20 + 216;
+  __cil_tmp13 = (void const   *)__cil_tmp12;
 #line 754
-  __cil_tmp22 = *((char **)__cil_tmp21);
-#line 754
-  __cil_tmp23 = (void const   *)__cil_tmp22;
-#line 754
-  kfree(__cil_tmp23);
+  kfree(__cil_tmp13);
 #line 755
-  __cil_tmp24 = (unsigned long )tape;
-#line 755
-  __cil_tmp25 = __cil_tmp24 + 216;
-#line 755
-  *((char **)__cil_tmp25) = (char *)0;
+  tape->bufptr = (char *)0;
 #line 757
-  __cil_tmp26 = (unsigned long )tape;
+  __cil_tmp14 = & tape->available;
 #line 757
-  __cil_tmp27 = __cil_tmp26 + 196;
-#line 757
-  __cil_tmp28 = (atomic_t *)__cil_tmp27;
-#line 757
-  atomic_inc(__cil_tmp28);
+  atomic_inc(__cil_tmp14);
   }
 #line 759
   return (0);
@@ -7738,221 +6543,95 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   int tmp___4 ;
   int tmp___5 ;
   int tmp___6 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  void *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  void *__cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  char *__cil_tmp28 ;
+  char *__cil_tmp29 ;
+  char *__cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  char *__cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  char *__cil_tmp41 ;
+  char *__cil_tmp42 ;
+  char *__cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  int __cil_tmp47 ;
+  char (*__cil_tmp48)[8U] ;
+  char *__cil_tmp49 ;
+  char *__cil_tmp50 ;
+  size_t __cil_tmp51 ;
   unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  int __cil_tmp61 ;
-  char *__cil_tmp62 ;
-  char *__cil_tmp63 ;
-  char *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  int __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  int __cil_tmp71 ;
-  int __cil_tmp72 ;
-  char *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  int __cil_tmp79 ;
-  int __cil_tmp80 ;
-  int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  char *__cil_tmp87 ;
-  char *__cil_tmp88 ;
-  char *__cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  int __cil_tmp95 ;
-  int __cil_tmp96 ;
-  int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  char (*__cil_tmp100)[8U] ;
-  char *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  char *__cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  void *__cil_tmp107 ;
-  void *__cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  char *__cil_tmp111 ;
-  void const   *__cil_tmp112 ;
-  unsigned int __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  int __cil_tmp117 ;
-  int __cil_tmp118 ;
+  void *__cil_tmp53 ;
+  void *__cil_tmp54 ;
+  char *__cil_tmp55 ;
+  void const   *__cil_tmp56 ;
+  unsigned int __cil_tmp57 ;
+  size_t __cil_tmp58 ;
+  int __cil_tmp59 ;
+  int __cil_tmp60 ;
 
   {
 #line 765
-  __cil_tmp24 = (unsigned long )filp;
+  __cil_tmp24 = filp->private_data;
 #line 765
-  __cil_tmp25 = __cil_tmp24 + 328;
-#line 765
-  __cil_tmp26 = *((void **)__cil_tmp25);
-#line 765
-  tape = (struct pt_unit *)__cil_tmp26;
+  tape = (struct pt_unit *)__cil_tmp24;
 #line 766
-  __cil_tmp27 = (unsigned long )tape;
-#line 766
-  __cil_tmp28 = __cil_tmp27 + 176;
-#line 766
-  pi = *((struct pi_adapter **)__cil_tmp28);
+  pi = tape->pi;
 #line 767
-  __cil_tmp29 = 0 * 1UL;
+  rd_cmd[0] = (char)8;
 #line 767
-  __cil_tmp30 = (unsigned long )(rd_cmd) + __cil_tmp29;
+  rd_cmd[1] = (char)1;
 #line 767
-  *((char *)__cil_tmp30) = (char)8;
+  rd_cmd[2] = (char)0;
 #line 767
-  __cil_tmp31 = 1 * 1UL;
+  rd_cmd[3] = (char)0;
 #line 767
-  __cil_tmp32 = (unsigned long )(rd_cmd) + __cil_tmp31;
+  rd_cmd[4] = (char)0;
 #line 767
-  *((char *)__cil_tmp32) = (char)1;
+  rd_cmd[5] = (char)0;
 #line 767
-  __cil_tmp33 = 2 * 1UL;
+  rd_cmd[6] = (char)0;
 #line 767
-  __cil_tmp34 = (unsigned long )(rd_cmd) + __cil_tmp33;
+  rd_cmd[7] = (char)0;
 #line 767
-  *((char *)__cil_tmp34) = (char)0;
+  rd_cmd[8] = (char)0;
 #line 767
-  __cil_tmp35 = 3 * 1UL;
+  rd_cmd[9] = (char)0;
 #line 767
-  __cil_tmp36 = (unsigned long )(rd_cmd) + __cil_tmp35;
+  rd_cmd[10] = (char)0;
 #line 767
-  *((char *)__cil_tmp36) = (char)0;
-#line 767
-  __cil_tmp37 = 4 * 1UL;
-#line 767
-  __cil_tmp38 = (unsigned long )(rd_cmd) + __cil_tmp37;
-#line 767
-  *((char *)__cil_tmp38) = (char)0;
-#line 767
-  __cil_tmp39 = 5 * 1UL;
-#line 767
-  __cil_tmp40 = (unsigned long )(rd_cmd) + __cil_tmp39;
-#line 767
-  *((char *)__cil_tmp40) = (char)0;
-#line 767
-  __cil_tmp41 = 6 * 1UL;
-#line 767
-  __cil_tmp42 = (unsigned long )(rd_cmd) + __cil_tmp41;
-#line 767
-  *((char *)__cil_tmp42) = (char)0;
-#line 767
-  __cil_tmp43 = 7 * 1UL;
-#line 767
-  __cil_tmp44 = (unsigned long )(rd_cmd) + __cil_tmp43;
-#line 767
-  *((char *)__cil_tmp44) = (char)0;
-#line 767
-  __cil_tmp45 = 8 * 1UL;
-#line 767
-  __cil_tmp46 = (unsigned long )(rd_cmd) + __cil_tmp45;
-#line 767
-  *((char *)__cil_tmp46) = (char)0;
-#line 767
-  __cil_tmp47 = 9 * 1UL;
-#line 767
-  __cil_tmp48 = (unsigned long )(rd_cmd) + __cil_tmp47;
-#line 767
-  *((char *)__cil_tmp48) = (char)0;
-#line 767
-  __cil_tmp49 = 10 * 1UL;
-#line 767
-  __cil_tmp50 = (unsigned long )(rd_cmd) + __cil_tmp49;
-#line 767
-  *((char *)__cil_tmp50) = (char)0;
-#line 767
-  __cil_tmp51 = 11 * 1UL;
-#line 767
-  __cil_tmp52 = (unsigned long )(rd_cmd) + __cil_tmp51;
-#line 767
-  *((char *)__cil_tmp52) = (char)0;
+  rd_cmd[11] = (char)0;
   {
 #line 770
-  __cil_tmp53 = (unsigned long )tape;
+  __cil_tmp25 = tape->flags;
 #line 770
-  __cil_tmp54 = __cil_tmp53 + 184;
+  __cil_tmp26 = __cil_tmp25 & 24;
 #line 770
-  __cil_tmp55 = *((int *)__cil_tmp54);
-#line 770
-  __cil_tmp56 = __cil_tmp55 & 24;
-#line 770
-  if (__cil_tmp56 == 0) {
+  if (__cil_tmp26 == 0) {
     {
 #line 771
-    __cil_tmp57 = (unsigned long )tape;
+    __cil_tmp27 = tape->flags;
 #line 771
-    __cil_tmp58 = __cil_tmp57 + 184;
-#line 771
-    __cil_tmp59 = (unsigned long )tape;
-#line 771
-    __cil_tmp60 = __cil_tmp59 + 184;
-#line 771
-    __cil_tmp61 = *((int *)__cil_tmp60);
-#line 771
-    *((int *)__cil_tmp58) = __cil_tmp61 | 16;
+    tape->flags = __cil_tmp27 | 16;
 #line 772
-    __cil_tmp62 = (char *)(& rd_cmd);
+    __cil_tmp28 = (char *)(& rd_cmd);
 #line 772
-    __cil_tmp63 = (char *)0;
+    __cil_tmp29 = (char *)0;
 #line 772
-    __cil_tmp64 = (char *)"start read-ahead";
+    __cil_tmp30 = (char *)"start read-ahead";
 #line 772
-    tmp = pt_atapi(tape, __cil_tmp62, 0, __cil_tmp63, __cil_tmp64);
+    tmp = pt_atapi(tape, __cil_tmp28, 0, __cil_tmp29, __cil_tmp30);
     }
 #line 772
     if (tmp != 0) {
@@ -7964,15 +6643,11 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   } else {
     {
 #line 774
-    __cil_tmp65 = (unsigned long )tape;
+    __cil_tmp31 = tape->flags;
 #line 774
-    __cil_tmp66 = __cil_tmp65 + 184;
+    __cil_tmp32 = __cil_tmp31 & 8;
 #line 774
-    __cil_tmp67 = *((int *)__cil_tmp66);
-#line 774
-    __cil_tmp68 = __cil_tmp67 & 8;
-#line 774
-    if (__cil_tmp68 != 0) {
+    if (__cil_tmp32 != 0) {
 #line 775
       return (-5L);
     } else {
@@ -7983,15 +6658,11 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 777
-  __cil_tmp69 = (unsigned long )tape;
+  __cil_tmp33 = tape->flags;
 #line 777
-  __cil_tmp70 = __cil_tmp69 + 184;
+  __cil_tmp34 = __cil_tmp33 & 32;
 #line 777
-  __cil_tmp71 = *((int *)__cil_tmp70);
-#line 777
-  __cil_tmp72 = __cil_tmp71 & 32;
-#line 777
-  if (__cil_tmp72 != 0) {
+  if (__cil_tmp34 != 0) {
 #line 778
     return (0L);
   } else {
@@ -8000,13 +6671,14 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
 #line 780
   t = 0;
+#line 782
   goto ldv_21712;
   ldv_21711: 
   {
 #line 784
-  __cil_tmp73 = (char *)"read";
+  __cil_tmp35 = (char *)"read";
 #line 784
-  tmp___0 = pt_poll_dsc(tape, 2, 3000, __cil_tmp73);
+  tmp___0 = pt_poll_dsc(tape, 2, 3000, __cil_tmp35);
   }
 #line 784
   if (tmp___0 == 0) {
@@ -8026,43 +6698,27 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 790
-  __cil_tmp74 = (unsigned long )tape;
+  __cil_tmp36 = tape->bs;
 #line 790
-  __cil_tmp75 = __cil_tmp74 + 200;
+  __cil_tmp37 = tape->bs;
 #line 790
-  __cil_tmp76 = *((int *)__cil_tmp75);
+  __cil_tmp38 = n + -1;
 #line 790
-  __cil_tmp77 = (unsigned long )tape;
+  __cil_tmp39 = __cil_tmp38 + __cil_tmp37;
 #line 790
-  __cil_tmp78 = __cil_tmp77 + 200;
-#line 790
-  __cil_tmp79 = *((int *)__cil_tmp78);
-#line 790
-  __cil_tmp80 = n + -1;
-#line 790
-  __cil_tmp81 = __cil_tmp80 + __cil_tmp79;
-#line 790
-  b = __cil_tmp81 / __cil_tmp76;
+  b = __cil_tmp39 / __cil_tmp36;
 #line 791
-  __cil_tmp82 = (unsigned long )tape;
+  __cil_tmp40 = tape->bs;
 #line 791
-  __cil_tmp83 = __cil_tmp82 + 200;
-#line 791
-  __cil_tmp84 = *((int *)__cil_tmp83);
-#line 791
-  n = __cil_tmp84 * b;
+  n = __cil_tmp40 * b;
 #line 793
-  __cil_tmp85 = 4 * 1UL;
-#line 793
-  __cil_tmp86 = (unsigned long )(rd_cmd) + __cil_tmp85;
-#line 793
-  *((char *)__cil_tmp86) = (char )b;
+  rd_cmd[4] = (char )b;
 #line 795
-  __cil_tmp87 = (char *)(& rd_cmd);
+  __cil_tmp41 = (char *)(& rd_cmd);
 #line 795
-  __cil_tmp88 = (char *)"read";
+  __cil_tmp42 = (char *)"read";
 #line 795
-  r = pt_command(tape, __cil_tmp87, n, __cil_tmp88);
+  r = pt_command(tape, __cil_tmp41, n, __cil_tmp42);
   }
 #line 797
   if (1) {
@@ -8073,6 +6729,7 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   } else {
 #line 797
     __ms = 1UL;
+#line 797
     goto ldv_21703;
     ldv_21702: 
     {
@@ -8086,8 +6743,10 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
     __ms = __ms - 1UL;
 #line 797
     if (tmp___1 != 0UL) {
+#line 798
       goto ldv_21702;
     } else {
+#line 800
       goto ldv_21704;
     }
     ldv_21704: ;
@@ -8114,15 +6773,15 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 806
-  __cil_tmp89 = (char *)"";
+  __cil_tmp43 = (char *)"";
 #line 806
-  r = pt_wait(tape, 128, 73, tmp___2, __cil_tmp89);
+  r = pt_wait(tape, 128, 73, tmp___2, __cil_tmp43);
   }
   {
 #line 810
-  __cil_tmp90 = r & 126976;
+  __cil_tmp44 = r & 126976;
 #line 810
-  if (__cil_tmp90 != 0) {
+  if (__cil_tmp44 != 0) {
     {
 #line 811
     pi_disconnect(pi);
@@ -8138,17 +6797,9 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
 #line 816
   if (r != 0) {
 #line 817
-    __cil_tmp91 = (unsigned long )tape;
+    __cil_tmp45 = tape->flags;
 #line 817
-    __cil_tmp92 = __cil_tmp91 + 184;
-#line 817
-    __cil_tmp93 = (unsigned long )tape;
-#line 817
-    __cil_tmp94 = __cil_tmp93 + 184;
-#line 817
-    __cil_tmp95 = *((int *)__cil_tmp94);
-#line 817
-    *((int *)__cil_tmp92) = __cil_tmp95 | 32;
+    tape->flags = __cil_tmp45 | 32;
   } else {
 
   }
@@ -8158,9 +6809,10 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 821
-  __cil_tmp96 = s & 8;
+  __cil_tmp46 = s & 8;
 #line 821
-  if (__cil_tmp96 == 0) {
+  if (__cil_tmp46 == 0) {
+#line 822
     goto ldv_21705;
   } else {
 
@@ -8172,9 +6824,9 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
 #line 824
   tmp___4 = read_reg(pi, 5);
 #line 824
-  __cil_tmp97 = tmp___4 * 256;
+  __cil_tmp47 = tmp___4 * 256;
 #line 824
-  n = tmp___3 + __cil_tmp97;
+  n = tmp___3 + __cil_tmp47;
 #line 825
   tmp___5 = read_reg(pi, 2);
 #line 825
@@ -8186,21 +6838,18 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
 #line 827
     pi_disconnect(pi);
 #line 828
-    __cil_tmp98 = (unsigned long )tape;
+    __cil_tmp48 = & tape->name;
 #line 828
-    __cil_tmp99 = __cil_tmp98 + 224;
+    __cil_tmp49 = (char *)__cil_tmp48;
 #line 828
-    __cil_tmp100 = (char (*)[8U])__cil_tmp99;
-#line 828
-    __cil_tmp101 = (char *)__cil_tmp100;
-#line 828
-    printk("%s: Phase error on read: %d\n", __cil_tmp101, p);
+    printk("%s: Phase error on read: %d\n", __cil_tmp49, p);
     }
 #line 830
     return (-5L);
   } else {
 
   }
+#line 833
   goto ldv_21707;
   ldv_21706: 
 #line 834
@@ -8214,13 +6863,9 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 837
-  __cil_tmp102 = (unsigned long )tape;
+  __cil_tmp50 = tape->bufptr;
 #line 837
-  __cil_tmp103 = __cil_tmp102 + 216;
-#line 837
-  __cil_tmp104 = *((char **)__cil_tmp103);
-#line 837
-  pi_read_block(pi, __cil_tmp104, k);
+  pi_read_block(pi, __cil_tmp50, k);
 #line 838
   n = n - k;
 #line 839
@@ -8228,9 +6873,9 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 840
-  __cil_tmp105 = (unsigned long )b;
+  __cil_tmp51 = (size_t )b;
 #line 840
-  if (__cil_tmp105 > count) {
+  if (__cil_tmp51 > count) {
 #line 841
     b = (int )count;
   } else {
@@ -8239,23 +6884,19 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 842
-  __cil_tmp106 = (unsigned long )t;
+  __cil_tmp52 = (unsigned long )t;
 #line 842
-  __cil_tmp107 = (void *)buf;
+  __cil_tmp53 = (void *)buf;
 #line 842
-  __cil_tmp108 = __cil_tmp107 + __cil_tmp106;
+  __cil_tmp54 = __cil_tmp53 + __cil_tmp52;
 #line 842
-  __cil_tmp109 = (unsigned long )tape;
+  __cil_tmp55 = tape->bufptr;
 #line 842
-  __cil_tmp110 = __cil_tmp109 + 216;
+  __cil_tmp56 = (void const   *)__cil_tmp55;
 #line 842
-  __cil_tmp111 = *((char **)__cil_tmp110);
+  __cil_tmp57 = (unsigned int )b;
 #line 842
-  __cil_tmp112 = (void const   *)__cil_tmp111;
-#line 842
-  __cil_tmp113 = (unsigned int )b;
-#line 842
-  tmp___6 = copy_to_user(__cil_tmp108, __cil_tmp112, __cil_tmp113);
+  tmp___6 = copy_to_user(__cil_tmp54, __cil_tmp56, __cil_tmp57);
   }
 #line 842
   if (tmp___6 != 0) {
@@ -8271,17 +6912,20 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
 #line 846
   t = t + b;
 #line 847
-  __cil_tmp114 = (unsigned long )b;
+  __cil_tmp58 = (size_t )b;
 #line 847
-  count = count - __cil_tmp114;
+  count = count - __cil_tmp58;
   ldv_21707: ;
 #line 833
   if (n > 0) {
+#line 834
     goto ldv_21706;
   } else {
+#line 836
     goto ldv_21708;
   }
   ldv_21708: ;
+#line 850
   goto ldv_21709;
   ldv_21705: 
   {
@@ -8290,15 +6934,12 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   {
 #line 852
-  __cil_tmp115 = (unsigned long )tape;
+  __cil_tmp59 = tape->flags;
 #line 852
-  __cil_tmp116 = __cil_tmp115 + 184;
+  __cil_tmp60 = __cil_tmp59 & 32;
 #line 852
-  __cil_tmp117 = *((int *)__cil_tmp116);
-#line 852
-  __cil_tmp118 = __cil_tmp117 & 32;
-#line 852
-  if (__cil_tmp118 != 0) {
+  if (__cil_tmp60 != 0) {
+#line 853
     goto ldv_21710;
   } else {
 
@@ -8307,13 +6948,15 @@ static ssize_t pt_read(struct file *filp , char *buf , size_t count , loff_t *pp
   ldv_21712: ;
 #line 782
   if (count != 0UL) {
+#line 783
     goto ldv_21711;
   } else {
+#line 785
     goto ldv_21710;
   }
   ldv_21710: ;
 #line 856
-  return ((long )t);
+  return ((ssize_t )t);
 }
 }
 #line 860 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
@@ -8337,204 +6980,84 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   int tmp___4 ;
   int tmp___5 ;
   unsigned long tmp___6 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  void *__cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
+  void *__cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  char *__cil_tmp30 ;
+  char *__cil_tmp31 ;
+  char *__cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  char *__cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  char *__cil_tmp43 ;
+  char *__cil_tmp44 ;
+  char *__cil_tmp45 ;
+  int __cil_tmp46 ;
+  int __cil_tmp47 ;
+  int __cil_tmp48 ;
+  int __cil_tmp49 ;
+  char (*__cil_tmp50)[8U] ;
+  char *__cil_tmp51 ;
+  size_t __cil_tmp52 ;
+  char *__cil_tmp53 ;
+  void *__cil_tmp54 ;
+  unsigned long __cil_tmp55 ;
+  void const   *__cil_tmp56 ;
+  void const   *__cil_tmp57 ;
   unsigned long __cil_tmp58 ;
-  int __cil_tmp59 ;
-  int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  int __cil_tmp65 ;
-  char *__cil_tmp66 ;
-  char *__cil_tmp67 ;
-  char *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  int __cil_tmp71 ;
-  int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  int __cil_tmp75 ;
-  int __cil_tmp76 ;
-  char *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  int __cil_tmp83 ;
-  int __cil_tmp84 ;
-  int __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  int __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  char *__cil_tmp91 ;
-  char *__cil_tmp92 ;
-  char *__cil_tmp93 ;
-  int __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  int __cil_tmp99 ;
-  int __cil_tmp100 ;
-  int __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  char (*__cil_tmp104)[8U] ;
-  char *__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  char *__cil_tmp109 ;
-  void *__cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  void const   *__cil_tmp112 ;
-  void const   *__cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  char *__cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  int __cil_tmp121 ;
-  int __cil_tmp122 ;
+  char *__cil_tmp59 ;
+  size_t __cil_tmp60 ;
+  int __cil_tmp61 ;
+  int __cil_tmp62 ;
 
   {
 #line 862
-  __cil_tmp24 = (unsigned long )filp;
+  __cil_tmp24 = filp->private_data;
 #line 862
-  __cil_tmp25 = __cil_tmp24 + 328;
-#line 862
-  __cil_tmp26 = *((void **)__cil_tmp25);
-#line 862
-  tape = (struct pt_unit *)__cil_tmp26;
+  tape = (struct pt_unit *)__cil_tmp24;
 #line 863
-  __cil_tmp27 = (unsigned long )tape;
-#line 863
-  __cil_tmp28 = __cil_tmp27 + 176;
-#line 863
-  pi = *((struct pi_adapter **)__cil_tmp28);
+  pi = tape->pi;
 #line 864
-  __cil_tmp29 = 0 * 1UL;
+  wr_cmd[0] = (char)10;
 #line 864
-  __cil_tmp30 = (unsigned long )(wr_cmd) + __cil_tmp29;
+  wr_cmd[1] = (char)1;
 #line 864
-  *((char *)__cil_tmp30) = (char)10;
+  wr_cmd[2] = (char)0;
 #line 864
-  __cil_tmp31 = 1 * 1UL;
+  wr_cmd[3] = (char)0;
 #line 864
-  __cil_tmp32 = (unsigned long )(wr_cmd) + __cil_tmp31;
+  wr_cmd[4] = (char)0;
 #line 864
-  *((char *)__cil_tmp32) = (char)1;
+  wr_cmd[5] = (char)0;
 #line 864
-  __cil_tmp33 = 2 * 1UL;
+  wr_cmd[6] = (char)0;
 #line 864
-  __cil_tmp34 = (unsigned long )(wr_cmd) + __cil_tmp33;
+  wr_cmd[7] = (char)0;
 #line 864
-  *((char *)__cil_tmp34) = (char)0;
+  wr_cmd[8] = (char)0;
 #line 864
-  __cil_tmp35 = 3 * 1UL;
+  wr_cmd[9] = (char)0;
 #line 864
-  __cil_tmp36 = (unsigned long )(wr_cmd) + __cil_tmp35;
+  wr_cmd[10] = (char)0;
 #line 864
-  *((char *)__cil_tmp36) = (char)0;
-#line 864
-  __cil_tmp37 = 4 * 1UL;
-#line 864
-  __cil_tmp38 = (unsigned long )(wr_cmd) + __cil_tmp37;
-#line 864
-  *((char *)__cil_tmp38) = (char)0;
-#line 864
-  __cil_tmp39 = 5 * 1UL;
-#line 864
-  __cil_tmp40 = (unsigned long )(wr_cmd) + __cil_tmp39;
-#line 864
-  *((char *)__cil_tmp40) = (char)0;
-#line 864
-  __cil_tmp41 = 6 * 1UL;
-#line 864
-  __cil_tmp42 = (unsigned long )(wr_cmd) + __cil_tmp41;
-#line 864
-  *((char *)__cil_tmp42) = (char)0;
-#line 864
-  __cil_tmp43 = 7 * 1UL;
-#line 864
-  __cil_tmp44 = (unsigned long )(wr_cmd) + __cil_tmp43;
-#line 864
-  *((char *)__cil_tmp44) = (char)0;
-#line 864
-  __cil_tmp45 = 8 * 1UL;
-#line 864
-  __cil_tmp46 = (unsigned long )(wr_cmd) + __cil_tmp45;
-#line 864
-  *((char *)__cil_tmp46) = (char)0;
-#line 864
-  __cil_tmp47 = 9 * 1UL;
-#line 864
-  __cil_tmp48 = (unsigned long )(wr_cmd) + __cil_tmp47;
-#line 864
-  *((char *)__cil_tmp48) = (char)0;
-#line 864
-  __cil_tmp49 = 10 * 1UL;
-#line 864
-  __cil_tmp50 = (unsigned long )(wr_cmd) + __cil_tmp49;
-#line 864
-  *((char *)__cil_tmp50) = (char)0;
-#line 864
-  __cil_tmp51 = 11 * 1UL;
-#line 864
-  __cil_tmp52 = (unsigned long )(wr_cmd) + __cil_tmp51;
-#line 864
-  *((char *)__cil_tmp52) = (char)0;
+  wr_cmd[11] = (char)0;
   {
 #line 867
-  __cil_tmp53 = (unsigned long )tape;
+  __cil_tmp25 = tape->flags;
 #line 867
-  __cil_tmp54 = __cil_tmp53 + 184;
+  __cil_tmp26 = __cil_tmp25 & 2;
 #line 867
-  __cil_tmp55 = *((int *)__cil_tmp54);
-#line 867
-  __cil_tmp56 = __cil_tmp55 & 2;
-#line 867
-  if (__cil_tmp56 == 0) {
+  if (__cil_tmp26 == 0) {
 #line 868
     return (-30L);
   } else {
@@ -8543,36 +7066,24 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 870
-  __cil_tmp57 = (unsigned long )tape;
+  __cil_tmp27 = tape->flags;
 #line 870
-  __cil_tmp58 = __cil_tmp57 + 184;
+  __cil_tmp28 = __cil_tmp27 & 24;
 #line 870
-  __cil_tmp59 = *((int *)__cil_tmp58);
-#line 870
-  __cil_tmp60 = __cil_tmp59 & 24;
-#line 870
-  if (__cil_tmp60 == 0) {
+  if (__cil_tmp28 == 0) {
     {
 #line 871
-    __cil_tmp61 = (unsigned long )tape;
+    __cil_tmp29 = tape->flags;
 #line 871
-    __cil_tmp62 = __cil_tmp61 + 184;
-#line 871
-    __cil_tmp63 = (unsigned long )tape;
-#line 871
-    __cil_tmp64 = __cil_tmp63 + 184;
-#line 871
-    __cil_tmp65 = *((int *)__cil_tmp64);
-#line 871
-    *((int *)__cil_tmp62) = __cil_tmp65 | 8;
+    tape->flags = __cil_tmp29 | 8;
 #line 872
-    __cil_tmp66 = (char *)(& wr_cmd);
+    __cil_tmp30 = (char *)(& wr_cmd);
 #line 872
-    __cil_tmp67 = (char *)0;
+    __cil_tmp31 = (char *)0;
 #line 872
-    __cil_tmp68 = (char *)"start buffer-available mode";
+    __cil_tmp32 = (char *)"start buffer-available mode";
 #line 872
-    tmp = pt_atapi(tape, __cil_tmp66, 0, __cil_tmp67, __cil_tmp68);
+    tmp = pt_atapi(tape, __cil_tmp30, 0, __cil_tmp31, __cil_tmp32);
     }
 #line 872
     if (tmp != 0) {
@@ -8584,15 +7095,11 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   } else {
     {
 #line 875
-    __cil_tmp69 = (unsigned long )tape;
+    __cil_tmp33 = tape->flags;
 #line 875
-    __cil_tmp70 = __cil_tmp69 + 184;
+    __cil_tmp34 = __cil_tmp33 & 16;
 #line 875
-    __cil_tmp71 = *((int *)__cil_tmp70);
-#line 875
-    __cil_tmp72 = __cil_tmp71 & 16;
-#line 875
-    if (__cil_tmp72 != 0) {
+    if (__cil_tmp34 != 0) {
 #line 876
       return (-5L);
     } else {
@@ -8603,15 +7110,11 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 878
-  __cil_tmp73 = (unsigned long )tape;
+  __cil_tmp35 = tape->flags;
 #line 878
-  __cil_tmp74 = __cil_tmp73 + 184;
+  __cil_tmp36 = __cil_tmp35 & 32;
 #line 878
-  __cil_tmp75 = *((int *)__cil_tmp74);
-#line 878
-  __cil_tmp76 = __cil_tmp75 & 32;
-#line 878
-  if (__cil_tmp76 != 0) {
+  if (__cil_tmp36 != 0) {
 #line 879
     return (-28L);
   } else {
@@ -8620,13 +7123,14 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
 #line 881
   t = 0;
+#line 883
   goto ldv_21740;
   ldv_21739: 
   {
 #line 885
-  __cil_tmp77 = (char *)"write";
+  __cil_tmp37 = (char *)"write";
 #line 885
-  tmp___0 = pt_poll_dsc(tape, 2, 3000, __cil_tmp77);
+  tmp___0 = pt_poll_dsc(tape, 2, 3000, __cil_tmp37);
   }
 #line 885
   if (tmp___0 == 0) {
@@ -8646,43 +7150,27 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 891
-  __cil_tmp78 = (unsigned long )tape;
+  __cil_tmp38 = tape->bs;
 #line 891
-  __cil_tmp79 = __cil_tmp78 + 200;
+  __cil_tmp39 = tape->bs;
 #line 891
-  __cil_tmp80 = *((int *)__cil_tmp79);
+  __cil_tmp40 = n + -1;
 #line 891
-  __cil_tmp81 = (unsigned long )tape;
+  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
 #line 891
-  __cil_tmp82 = __cil_tmp81 + 200;
-#line 891
-  __cil_tmp83 = *((int *)__cil_tmp82);
-#line 891
-  __cil_tmp84 = n + -1;
-#line 891
-  __cil_tmp85 = __cil_tmp84 + __cil_tmp83;
-#line 891
-  b = __cil_tmp85 / __cil_tmp80;
+  b = __cil_tmp41 / __cil_tmp38;
 #line 892
-  __cil_tmp86 = (unsigned long )tape;
+  __cil_tmp42 = tape->bs;
 #line 892
-  __cil_tmp87 = __cil_tmp86 + 200;
-#line 892
-  __cil_tmp88 = *((int *)__cil_tmp87);
-#line 892
-  n = __cil_tmp88 * b;
+  n = __cil_tmp42 * b;
 #line 894
-  __cil_tmp89 = 4 * 1UL;
-#line 894
-  __cil_tmp90 = (unsigned long )(wr_cmd) + __cil_tmp89;
-#line 894
-  *((char *)__cil_tmp90) = (char )b;
+  wr_cmd[4] = (char )b;
 #line 896
-  __cil_tmp91 = (char *)(& wr_cmd);
+  __cil_tmp43 = (char *)(& wr_cmd);
 #line 896
-  __cil_tmp92 = (char *)"write";
+  __cil_tmp44 = (char *)"write";
 #line 896
-  r = pt_command(tape, __cil_tmp91, n, __cil_tmp92);
+  r = pt_command(tape, __cil_tmp43, n, __cil_tmp44);
   }
 #line 898
   if (1) {
@@ -8693,6 +7181,7 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   } else {
 #line 898
     __ms = 1UL;
+#line 898
     goto ldv_21731;
     ldv_21730: 
     {
@@ -8706,8 +7195,10 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
     __ms = __ms - 1UL;
 #line 898
     if (tmp___1 != 0UL) {
+#line 899
       goto ldv_21730;
     } else {
+#line 901
       goto ldv_21732;
     }
     ldv_21732: ;
@@ -8734,15 +7225,15 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 907
-  __cil_tmp93 = (char *)0;
+  __cil_tmp45 = (char *)0;
 #line 907
-  r = pt_wait(tape, 128, 73, tmp___2, __cil_tmp93);
+  r = pt_wait(tape, 128, 73, tmp___2, __cil_tmp45);
   }
   {
 #line 911
-  __cil_tmp94 = r & 126976;
+  __cil_tmp46 = r & 126976;
 #line 911
-  if (__cil_tmp94 != 0) {
+  if (__cil_tmp46 != 0) {
     {
 #line 912
     pi_disconnect(pi);
@@ -8758,17 +7249,9 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
 #line 917
   if (r != 0) {
 #line 918
-    __cil_tmp95 = (unsigned long )tape;
+    __cil_tmp47 = tape->flags;
 #line 918
-    __cil_tmp96 = __cil_tmp95 + 184;
-#line 918
-    __cil_tmp97 = (unsigned long )tape;
-#line 918
-    __cil_tmp98 = __cil_tmp97 + 184;
-#line 918
-    __cil_tmp99 = *((int *)__cil_tmp98);
-#line 918
-    *((int *)__cil_tmp96) = __cil_tmp99 | 32;
+    tape->flags = __cil_tmp47 | 32;
   } else {
 
   }
@@ -8778,9 +7261,10 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 922
-  __cil_tmp100 = s & 8;
+  __cil_tmp48 = s & 8;
 #line 922
-  if (__cil_tmp100 == 0) {
+  if (__cil_tmp48 == 0) {
+#line 923
     goto ldv_21733;
   } else {
 
@@ -8792,9 +7276,9 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
 #line 925
   tmp___4 = read_reg(pi, 5);
 #line 925
-  __cil_tmp101 = tmp___4 * 256;
+  __cil_tmp49 = tmp___4 * 256;
 #line 925
-  n = tmp___3 + __cil_tmp101;
+  n = tmp___3 + __cil_tmp49;
 #line 926
   tmp___5 = read_reg(pi, 2);
 #line 926
@@ -8806,21 +7290,18 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
 #line 928
     pi_disconnect(pi);
 #line 929
-    __cil_tmp102 = (unsigned long )tape;
+    __cil_tmp50 = & tape->name;
 #line 929
-    __cil_tmp103 = __cil_tmp102 + 224;
+    __cil_tmp51 = (char *)__cil_tmp50;
 #line 929
-    __cil_tmp104 = (char (*)[8U])__cil_tmp103;
-#line 929
-    __cil_tmp105 = (char *)__cil_tmp104;
-#line 929
-    printk("%s: Phase error on write: %d \n", __cil_tmp105, p);
+    printk("%s: Phase error on write: %d \n", __cil_tmp51, p);
     }
 #line 931
     return (-5L);
   } else {
 
   }
+#line 934
   goto ldv_21735;
   ldv_21734: 
 #line 935
@@ -8836,9 +7317,9 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   b = k;
   {
 #line 939
-  __cil_tmp106 = (unsigned long )b;
+  __cil_tmp52 = (size_t )b;
 #line 939
-  if (__cil_tmp106 > count) {
+  if (__cil_tmp52 > count) {
 #line 940
     b = (int )count;
   } else {
@@ -8847,23 +7328,19 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 941
-  __cil_tmp107 = (unsigned long )tape;
+  __cil_tmp53 = tape->bufptr;
 #line 941
-  __cil_tmp108 = __cil_tmp107 + 216;
+  __cil_tmp54 = (void *)__cil_tmp53;
 #line 941
-  __cil_tmp109 = *((char **)__cil_tmp108);
+  __cil_tmp55 = (unsigned long )t;
 #line 941
-  __cil_tmp110 = (void *)__cil_tmp109;
+  __cil_tmp56 = (void const   *)buf;
 #line 941
-  __cil_tmp111 = (unsigned long )t;
+  __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
 #line 941
-  __cil_tmp112 = (void const   *)buf;
+  __cil_tmp58 = (unsigned long )b;
 #line 941
-  __cil_tmp113 = __cil_tmp112 + __cil_tmp111;
-#line 941
-  __cil_tmp114 = (unsigned long )b;
-#line 941
-  tmp___6 = copy_from_user(__cil_tmp110, __cil_tmp113, __cil_tmp114);
+  tmp___6 = copy_from_user(__cil_tmp54, __cil_tmp57, __cil_tmp58);
   }
 #line 941
   if (tmp___6 != 0UL) {
@@ -8878,30 +7355,29 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 945
-  __cil_tmp115 = (unsigned long )tape;
+  __cil_tmp59 = tape->bufptr;
 #line 945
-  __cil_tmp116 = __cil_tmp115 + 216;
-#line 945
-  __cil_tmp117 = *((char **)__cil_tmp116);
-#line 945
-  pi_write_block(pi, __cil_tmp117, k);
+  pi_write_block(pi, __cil_tmp59, k);
 #line 946
   t = t + b;
 #line 947
-  __cil_tmp118 = (unsigned long )b;
+  __cil_tmp60 = (size_t )b;
 #line 947
-  count = count - __cil_tmp118;
+  count = count - __cil_tmp60;
 #line 948
   n = n - k;
   }
   ldv_21735: ;
 #line 934
   if (n > 0) {
+#line 935
     goto ldv_21734;
   } else {
+#line 937
     goto ldv_21736;
   }
   ldv_21736: ;
+#line 951
   goto ldv_21737;
   ldv_21733: 
   {
@@ -8910,15 +7386,12 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   }
   {
 #line 953
-  __cil_tmp119 = (unsigned long )tape;
+  __cil_tmp61 = tape->flags;
 #line 953
-  __cil_tmp120 = __cil_tmp119 + 184;
+  __cil_tmp62 = __cil_tmp61 & 32;
 #line 953
-  __cil_tmp121 = *((int *)__cil_tmp120);
-#line 953
-  __cil_tmp122 = __cil_tmp121 & 32;
-#line 953
-  if (__cil_tmp122 != 0) {
+  if (__cil_tmp62 != 0) {
+#line 954
     goto ldv_21738;
   } else {
 
@@ -8927,13 +7400,15 @@ static ssize_t pt_write(struct file *filp , char const   *buf , size_t count , l
   ldv_21740: ;
 #line 883
   if (count != 0UL) {
+#line 884
     goto ldv_21739;
   } else {
+#line 886
     goto ldv_21738;
   }
   ldv_21738: ;
 #line 957
-  return ((long )t);
+  return ((ssize_t )t);
 }
 }
 #line 960 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
@@ -8947,38 +7422,27 @@ static int pt_init(void)
   long tmp___2 ;
   unsigned int __cil_tmp8 ;
   char const   *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
+  void const   *__cil_tmp10 ;
+  void const   *__cil_tmp11 ;
+  struct device *__cil_tmp12 ;
   int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct pi_adapter *__cil_tmp17 ;
-  void const   *__cil_tmp18 ;
-  void const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  int __cil_tmp23 ;
-  struct device *__cil_tmp24 ;
-  int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned int __cil_tmp27 ;
-  void *__cil_tmp28 ;
-  struct device *__cil_tmp29 ;
-  int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned int __cil_tmp33 ;
-  void *__cil_tmp34 ;
-  unsigned int __cil_tmp35 ;
+  int __cil_tmp14 ;
+  dev_t __cil_tmp15 ;
+  void *__cil_tmp16 ;
+  struct device *__cil_tmp17 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
+  dev_t __cil_tmp21 ;
+  void *__cil_tmp22 ;
+  unsigned int __cil_tmp23 ;
 
   {
 #line 965
   if (disable != 0) {
 #line 966
     err = -22;
+#line 967
     goto out;
   } else {
 
@@ -8991,6 +7455,7 @@ static int pt_init(void)
   if (tmp != 0) {
 #line 971
     err = -19;
+#line 972
     goto out;
   } else {
 
@@ -9011,45 +7476,31 @@ static int pt_init(void)
 #line 978
     unit = 0;
     }
+#line 978
     goto ldv_21748;
     ldv_21747: ;
-    {
 #line 979
-    __cil_tmp10 = unit * 232UL;
-#line 979
-    __cil_tmp11 = __cil_tmp10 + 208;
-#line 979
-    __cil_tmp12 = (unsigned long )(pt) + __cil_tmp11;
-#line 979
-    __cil_tmp13 = *((int *)__cil_tmp12);
-#line 979
-    if (__cil_tmp13 != 0) {
+    if (pt[unit].present != 0) {
       {
 #line 980
-      __cil_tmp14 = unit * 232UL;
-#line 980
-      __cil_tmp15 = __cil_tmp14 + 176;
-#line 980
-      __cil_tmp16 = (unsigned long )(pt) + __cil_tmp15;
-#line 980
-      __cil_tmp17 = *((struct pi_adapter **)__cil_tmp16);
-#line 980
-      pi_release(__cil_tmp17);
+      pi_release(pt[unit].pi);
       }
     } else {
 
-    }
     }
 #line 978
     unit = unit + 1;
     ldv_21748: ;
 #line 978
     if (unit <= 3) {
+#line 979
       goto ldv_21747;
     } else {
+#line 981
       goto ldv_21749;
     }
     ldv_21749: ;
+#line 981
     goto out;
   } else {
 
@@ -9062,88 +7513,83 @@ static int pt_init(void)
 #line 984
   pt_class = tmp___0;
 #line 985
-  __cil_tmp18 = (void const   *)pt_class;
+  __cil_tmp10 = (void const   *)pt_class;
 #line 985
-  tmp___2 = IS_ERR(__cil_tmp18);
+  tmp___2 = IS_ERR(__cil_tmp10);
   }
 #line 985
   if (tmp___2 != 0L) {
     {
 #line 986
-    __cil_tmp19 = (void const   *)pt_class;
+    __cil_tmp11 = (void const   *)pt_class;
 #line 986
-    tmp___1 = PTR_ERR(__cil_tmp19);
+    tmp___1 = PTR_ERR(__cil_tmp11);
 #line 986
     err = (int )tmp___1;
     }
+#line 987
     goto out_chrdev;
   } else {
 
   }
 #line 990
   unit = 0;
+#line 990
   goto ldv_21754;
   ldv_21753: ;
-  {
 #line 991
-  __cil_tmp20 = unit * 232UL;
-#line 991
-  __cil_tmp21 = __cil_tmp20 + 208;
-#line 991
-  __cil_tmp22 = (unsigned long )(pt) + __cil_tmp21;
-#line 991
-  __cil_tmp23 = *((int *)__cil_tmp22);
-#line 991
-  if (__cil_tmp23 != 0) {
+  if (pt[unit].present != 0) {
     {
 #line 992
-    __cil_tmp24 = (struct device *)0;
+    __cil_tmp12 = (struct device *)0;
 #line 992
-    __cil_tmp25 = major << 20;
+    __cil_tmp13 = major << 20;
 #line 992
-    __cil_tmp26 = __cil_tmp25 | unit;
+    __cil_tmp14 = __cil_tmp13 | unit;
 #line 992
-    __cil_tmp27 = (unsigned int )__cil_tmp26;
+    __cil_tmp15 = (dev_t )__cil_tmp14;
 #line 992
-    __cil_tmp28 = (void *)0;
+    __cil_tmp16 = (void *)0;
 #line 992
-    device_create(pt_class, __cil_tmp24, __cil_tmp27, __cil_tmp28, "pt%d", unit);
+    device_create(pt_class, __cil_tmp12, __cil_tmp15, __cil_tmp16, "pt%d", unit);
 #line 994
-    __cil_tmp29 = (struct device *)0;
+    __cil_tmp17 = (struct device *)0;
 #line 994
-    __cil_tmp30 = unit + 128;
+    __cil_tmp18 = unit + 128;
 #line 994
-    __cil_tmp31 = major << 20;
+    __cil_tmp19 = major << 20;
 #line 994
-    __cil_tmp32 = __cil_tmp31 | __cil_tmp30;
+    __cil_tmp20 = __cil_tmp19 | __cil_tmp18;
 #line 994
-    __cil_tmp33 = (unsigned int )__cil_tmp32;
+    __cil_tmp21 = (dev_t )__cil_tmp20;
 #line 994
-    __cil_tmp34 = (void *)0;
+    __cil_tmp22 = (void *)0;
 #line 994
-    device_create(pt_class, __cil_tmp29, __cil_tmp33, __cil_tmp34, "pt%dn", unit);
+    device_create(pt_class, __cil_tmp17, __cil_tmp21, __cil_tmp22, "pt%dn", unit);
     }
   } else {
 
-  }
   }
 #line 990
   unit = unit + 1;
   ldv_21754: ;
 #line 990
   if (unit <= 3) {
+#line 991
     goto ldv_21753;
   } else {
+#line 993
     goto ldv_21755;
   }
   ldv_21755: ;
+#line 997
   goto out;
   out_chrdev: 
   {
 #line 1000
-  __cil_tmp35 = (unsigned int )major;
+  __cil_tmp23 = (unsigned int )major;
 #line 1000
-  unregister_chrdev(__cil_tmp35, "pt");
+  unregister_chrdev(__cil_tmp23, "pt");
   }
   out: ;
 #line 1002
@@ -9153,75 +7599,56 @@ static int pt_init(void)
 #line 1005 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
 static void pt_exit(void) 
 { int unit ;
-  unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  int __cil_tmp2 ;
+  int __cil_tmp3 ;
+  dev_t __cil_tmp4 ;
   int __cil_tmp5 ;
   int __cil_tmp6 ;
   int __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
-  int __cil_tmp9 ;
-  int __cil_tmp10 ;
-  int __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
-  unsigned int __cil_tmp13 ;
-  char const   *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  int __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct pi_adapter *__cil_tmp22 ;
+  dev_t __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  char const   *__cil_tmp10 ;
 
   {
 #line 1008
   unit = 0;
+#line 1008
   goto ldv_21761;
   ldv_21760: ;
-  {
 #line 1009
-  __cil_tmp2 = unit * 232UL;
-#line 1009
-  __cil_tmp3 = __cil_tmp2 + 208;
-#line 1009
-  __cil_tmp4 = (unsigned long )(pt) + __cil_tmp3;
-#line 1009
-  __cil_tmp5 = *((int *)__cil_tmp4);
-#line 1009
-  if (__cil_tmp5 != 0) {
+  if (pt[unit].present != 0) {
     {
 #line 1010
+    __cil_tmp2 = major << 20;
+#line 1010
+    __cil_tmp3 = __cil_tmp2 | unit;
+#line 1010
+    __cil_tmp4 = (dev_t )__cil_tmp3;
+#line 1010
+    device_destroy(pt_class, __cil_tmp4);
+#line 1011
+    __cil_tmp5 = unit + 128;
+#line 1011
     __cil_tmp6 = major << 20;
-#line 1010
-    __cil_tmp7 = __cil_tmp6 | unit;
-#line 1010
-    __cil_tmp8 = (unsigned int )__cil_tmp7;
-#line 1010
+#line 1011
+    __cil_tmp7 = __cil_tmp6 | __cil_tmp5;
+#line 1011
+    __cil_tmp8 = (dev_t )__cil_tmp7;
+#line 1011
     device_destroy(pt_class, __cil_tmp8);
-#line 1011
-    __cil_tmp9 = unit + 128;
-#line 1011
-    __cil_tmp10 = major << 20;
-#line 1011
-    __cil_tmp11 = __cil_tmp10 | __cil_tmp9;
-#line 1011
-    __cil_tmp12 = (unsigned int )__cil_tmp11;
-#line 1011
-    device_destroy(pt_class, __cil_tmp12);
     }
   } else {
 
-  }
   }
 #line 1008
   unit = unit + 1;
   ldv_21761: ;
 #line 1008
   if (unit <= 3) {
+#line 1009
     goto ldv_21760;
   } else {
+#line 1011
     goto ldv_21762;
   }
   ldv_21762: 
@@ -9229,50 +7656,35 @@ static void pt_exit(void)
 #line 1013
   class_destroy(pt_class);
 #line 1014
-  __cil_tmp13 = (unsigned int )major;
+  __cil_tmp9 = (unsigned int )major;
 #line 1014
-  __cil_tmp14 = (char const   *)name;
+  __cil_tmp10 = (char const   *)name;
 #line 1014
-  unregister_chrdev(__cil_tmp13, __cil_tmp14);
+  unregister_chrdev(__cil_tmp9, __cil_tmp10);
 #line 1015
   unit = 0;
   }
+#line 1015
   goto ldv_21764;
   ldv_21763: ;
-  {
 #line 1016
-  __cil_tmp15 = unit * 232UL;
-#line 1016
-  __cil_tmp16 = __cil_tmp15 + 208;
-#line 1016
-  __cil_tmp17 = (unsigned long )(pt) + __cil_tmp16;
-#line 1016
-  __cil_tmp18 = *((int *)__cil_tmp17);
-#line 1016
-  if (__cil_tmp18 != 0) {
+  if (pt[unit].present != 0) {
     {
 #line 1017
-    __cil_tmp19 = unit * 232UL;
-#line 1017
-    __cil_tmp20 = __cil_tmp19 + 176;
-#line 1017
-    __cil_tmp21 = (unsigned long )(pt) + __cil_tmp20;
-#line 1017
-    __cil_tmp22 = *((struct pi_adapter **)__cil_tmp21);
-#line 1017
-    pi_release(__cil_tmp22);
+    pi_release(pt[unit].pi);
     }
   } else {
 
-  }
   }
 #line 1015
   unit = unit + 1;
   ldv_21764: ;
 #line 1015
   if (unit <= 3) {
+#line 1016
     goto ldv_21763;
   } else {
+#line 1018
     goto ldv_21765;
   }
   ldv_21765: ;
@@ -9325,10 +7737,12 @@ void main(void)
   }
 #line 1396
   if (tmp != 0) {
+#line 1397
     goto ldv_final;
   } else {
 
   }
+#line 1402
   goto ldv_21813;
   ldv_21812: 
   {
@@ -9337,123 +7751,134 @@ void main(void)
   }
 #line 1408
   if (tmp___0 == 0) {
+#line 1408
     goto case_0;
-  } else {
+  } else
 #line 1473
-    if (tmp___0 == 1) {
-      goto case_1;
-    } else {
+  if (tmp___0 == 1) {
+#line 1473
+    goto case_1;
+  } else
 #line 1538
-      if (tmp___0 == 2) {
-        goto case_2;
-      } else {
+  if (tmp___0 == 2) {
+#line 1538
+    goto case_2;
+  } else
 #line 1603
-        if (tmp___0 == 3) {
-          goto case_3;
-        } else {
+  if (tmp___0 == 3) {
+#line 1603
+    goto case_3;
+  } else
 #line 1665
-          if (tmp___0 == 4) {
-            goto case_4;
-          } else {
-            goto switch_default;
+  if (tmp___0 == 4) {
+#line 1665
+    goto case_4;
+  } else {
+#line 1727
+    goto switch_default;
 #line 1406
-            if (0) {
-              case_0: ;
+    if (0) {
+      case_0: ;
 #line 1411
-              if (ldv_s_pt_fops_file_operations == 0) {
-                {
+      if (ldv_s_pt_fops_file_operations == 0) {
+        {
 #line 1462
-                res_pt_open_21 = pt_open(var_group2, var_group1);
+        res_pt_open_21 = pt_open(var_group2, var_group1);
 #line 1463
-                ldv_check_return_value(res_pt_open_21);
-                }
-#line 1464
-                if (res_pt_open_21 != 0) {
-                  goto ldv_module_exit;
-                } else {
-
-                }
-#line 1466
-                ldv_s_pt_fops_file_operations = ldv_s_pt_fops_file_operations + 1;
-              } else {
-
-              }
-              goto ldv_21806;
-              case_1: ;
-#line 1476
-              if (ldv_s_pt_fops_file_operations == 1) {
-                {
-#line 1527
-                res_pt_read_24 = pt_read(var_group1, var_pt_read_24_p1, var_pt_read_24_p2,
-                                         var_pt_read_24_p3);
-#line 1528
-                __cil_tmp18 = (int )res_pt_read_24;
-#line 1528
-                ldv_check_return_value(__cil_tmp18);
-                }
-#line 1529
-                if (res_pt_read_24 < 0L) {
-                  goto ldv_module_exit;
-                } else {
-
-                }
-#line 1531
-                ldv_s_pt_fops_file_operations = ldv_s_pt_fops_file_operations + 1;
-              } else {
-
-              }
-              goto ldv_21806;
-              case_2: ;
-#line 1541
-              if (ldv_s_pt_fops_file_operations == 2) {
-                {
-#line 1592
-                res_pt_write_25 = pt_write(var_group1, var_pt_write_25_p1, var_pt_write_25_p2,
-                                           var_pt_write_25_p3);
-#line 1593
-                __cil_tmp19 = (int )res_pt_write_25;
-#line 1593
-                ldv_check_return_value(__cil_tmp19);
-                }
-#line 1594
-                if (res_pt_write_25 < 0L) {
-                  goto ldv_module_exit;
-                } else {
-
-                }
-#line 1596
-                ldv_s_pt_fops_file_operations = ldv_s_pt_fops_file_operations + 1;
-              } else {
-
-              }
-              goto ldv_21806;
-              case_3: ;
-#line 1606
-              if (ldv_s_pt_fops_file_operations == 3) {
-                {
-#line 1657
-                pt_release(var_group2, var_group1);
-#line 1658
-                ldv_s_pt_fops_file_operations = 0;
-                }
-              } else {
-
-              }
-              goto ldv_21806;
-              case_4: 
-              {
-#line 1719
-              pt_ioctl(var_group1, var_pt_ioctl_22_p1, var_pt_ioctl_22_p2);
-              }
-              goto ldv_21806;
-              switch_default: ;
-              goto ldv_21806;
-            } else {
-
-            }
-          }
+        ldv_check_return_value(res_pt_open_21);
         }
+#line 1464
+        if (res_pt_open_21 != 0) {
+#line 1465
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1466
+        ldv_s_pt_fops_file_operations = ldv_s_pt_fops_file_operations + 1;
+      } else {
+
       }
+#line 1472
+      goto ldv_21806;
+      case_1: ;
+#line 1476
+      if (ldv_s_pt_fops_file_operations == 1) {
+        {
+#line 1527
+        res_pt_read_24 = pt_read(var_group1, var_pt_read_24_p1, var_pt_read_24_p2,
+                                 var_pt_read_24_p3);
+#line 1528
+        __cil_tmp18 = (int )res_pt_read_24;
+#line 1528
+        ldv_check_return_value(__cil_tmp18);
+        }
+#line 1529
+        if (res_pt_read_24 < 0L) {
+#line 1530
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1531
+        ldv_s_pt_fops_file_operations = ldv_s_pt_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1537
+      goto ldv_21806;
+      case_2: ;
+#line 1541
+      if (ldv_s_pt_fops_file_operations == 2) {
+        {
+#line 1592
+        res_pt_write_25 = pt_write(var_group1, var_pt_write_25_p1, var_pt_write_25_p2,
+                                   var_pt_write_25_p3);
+#line 1593
+        __cil_tmp19 = (int )res_pt_write_25;
+#line 1593
+        ldv_check_return_value(__cil_tmp19);
+        }
+#line 1594
+        if (res_pt_write_25 < 0L) {
+#line 1595
+          goto ldv_module_exit;
+        } else {
+
+        }
+#line 1596
+        ldv_s_pt_fops_file_operations = ldv_s_pt_fops_file_operations + 1;
+      } else {
+
+      }
+#line 1602
+      goto ldv_21806;
+      case_3: ;
+#line 1606
+      if (ldv_s_pt_fops_file_operations == 3) {
+        {
+#line 1657
+        pt_release(var_group2, var_group1);
+#line 1658
+        ldv_s_pt_fops_file_operations = 0;
+        }
+      } else {
+
+      }
+#line 1664
+      goto ldv_21806;
+      case_4: 
+      {
+#line 1719
+      pt_ioctl(var_group1, var_pt_ioctl_22_p1, var_pt_ioctl_22_p2);
+      }
+#line 1726
+      goto ldv_21806;
+      switch_default: ;
+#line 1727
+      goto ldv_21806;
+    } else {
+
     }
   }
   ldv_21806: ;
@@ -9464,14 +7889,16 @@ void main(void)
   }
 #line 1402
   if (tmp___1 != 0) {
+#line 1404
+    goto ldv_21812;
+  } else
+#line 1402
+  if (ldv_s_pt_fops_file_operations != 0) {
+#line 1404
     goto ldv_21812;
   } else {
-#line 1402
-    if (ldv_s_pt_fops_file_operations != 0) {
-      goto ldv_21812;
-    } else {
-      goto ldv_21814;
-    }
+#line 1406
+    goto ldv_21814;
   }
   ldv_21814: ;
   ldv_module_exit: 
@@ -9494,6 +7921,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: ;
+#line 6
   goto ERROR;
 }
 }
@@ -9613,6 +8041,7 @@ void ldv_module_put_and_exit(void)
   ldv_module_put(__cil_tmp1);
   }
   LDV_STOP: ;
+#line 1862
   goto LDV_STOP;
 }
 }

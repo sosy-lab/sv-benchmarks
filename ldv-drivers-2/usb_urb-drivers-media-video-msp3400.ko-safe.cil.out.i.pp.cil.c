@@ -5372,6 +5372,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   __cil_tmp2 = (int )8UL;
 #line 14
   if (__cil_tmp2 == 1) {
+#line 14
     goto case_1;
   } else {
     {
@@ -5379,6 +5380,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
     __cil_tmp3 = (int )8UL;
 #line 14
     if (__cil_tmp3 == 2) {
+#line 14
       goto case_2;
     } else {
       {
@@ -5386,6 +5388,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
       __cil_tmp4 = (int )8UL;
 #line 14
       if (__cil_tmp4 == 4) {
+#line 14
         goto case_4;
       } else {
         {
@@ -5393,8 +5396,10 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
         __cil_tmp5 = (int )8UL;
 #line 14
         if (__cil_tmp5 == 8) {
+#line 14
           goto case_8;
         } else {
+#line 14
           goto switch_default;
 #line 14
           if (0) {
@@ -5408,6 +5413,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=q" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             case_2: 
 #line 14
@@ -5419,6 +5425,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             case_4: 
 #line 14
@@ -5430,6 +5437,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             case_8: 
 #line 14
@@ -5441,6 +5449,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+#line 14
             goto switch_break;
             switch_default: 
             {
@@ -5497,26 +5506,20 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 82 "include/linux/thread_info.h"
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag ) 
 { int tmp___0 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  __u32 *__cil_tmp6 ;
-  unsigned long *__cil_tmp7 ;
-  unsigned long const volatile   *__cil_tmp8 ;
+  __u32 *__cil_tmp4 ;
+  unsigned long *__cil_tmp5 ;
+  unsigned long const volatile   *__cil_tmp6 ;
 
   {
   {
 #line 84
-  __cil_tmp4 = (unsigned long )ti;
+  __cil_tmp4 = & ti->flags;
 #line 84
-  __cil_tmp5 = __cil_tmp4 + 16;
+  __cil_tmp5 = (unsigned long *)__cil_tmp4;
 #line 84
-  __cil_tmp6 = (__u32 *)__cil_tmp5;
+  __cil_tmp6 = (unsigned long const volatile   *)__cil_tmp5;
 #line 84
-  __cil_tmp7 = (unsigned long *)__cil_tmp6;
-#line 84
-  __cil_tmp8 = (unsigned long const volatile   *)__cil_tmp7;
-#line 84
-  tmp___0 = variable_test_bit(flag, __cil_tmp8);
+  tmp___0 = variable_test_bit(flag, __cil_tmp6);
   }
 #line 84
   return (tmp___0);
@@ -5594,23 +5597,17 @@ extern int wake_up_process(struct task_struct *tsk ) ;
 #line 2441 "include/linux/sched.h"
 __inline static int test_tsk_thread_flag(struct task_struct *tsk , int flag ) 
 { int tmp___7 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  void *__cil_tmp6 ;
-  struct thread_info *__cil_tmp7 ;
+  void *__cil_tmp4 ;
+  struct thread_info *__cil_tmp5 ;
 
   {
   {
 #line 2443
-  __cil_tmp4 = (unsigned long )tsk;
+  __cil_tmp4 = tsk->stack;
 #line 2443
-  __cil_tmp5 = __cil_tmp4 + 8;
+  __cil_tmp5 = (struct thread_info *)__cil_tmp4;
 #line 2443
-  __cil_tmp6 = *((void **)__cil_tmp5);
-#line 2443
-  __cil_tmp7 = (struct thread_info *)__cil_tmp6;
-#line 2443
-  tmp___7 = test_ti_thread_flag(__cil_tmp7, flag);
+  tmp___7 = test_ti_thread_flag(__cil_tmp5, flag);
   }
 #line 2443
   return (tmp___7);
@@ -5624,20 +5621,14 @@ extern int i2c_transfer(struct i2c_adapter *adap , struct i2c_msg *msgs , int nu
 #line 223 "include/linux/i2c.h"
 __inline static void *i2c_get_clientdata(struct i2c_client  const  *dev ) 
 { void *tmp___7 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  struct device  const  *__cil_tmp5 ;
+  struct device  const  *__cil_tmp3 ;
 
   {
   {
 #line 225
-  __cil_tmp3 = (unsigned long )dev;
+  __cil_tmp3 = & dev->dev;
 #line 225
-  __cil_tmp4 = __cil_tmp3 + 40;
-#line 225
-  __cil_tmp5 = (struct device  const  *)__cil_tmp4;
-#line 225
-  tmp___7 = dev_get_drvdata(__cil_tmp5);
+  tmp___7 = dev_get_drvdata(__cil_tmp3);
   }
 #line 225
   return (tmp___7);
@@ -5662,18 +5653,11 @@ __inline static int i2c_add_driver(struct i2c_driver *driver )
 }
 #line 467 "include/linux/i2c.h"
 __inline static int i2c_adapter_id(struct i2c_adapter *adap ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ 
 
   {
-  {
 #line 469
-  __cil_tmp2 = (unsigned long )adap;
-#line 469
-  __cil_tmp3 = __cil_tmp2 + 1360;
-#line 469
-  return (*((int *)__cil_tmp3));
-  }
+  return (adap->nr);
 }
 }
 #line 7 "include/linux/kthread.h"
@@ -5733,20 +5717,14 @@ extern void v4l2_i2c_subdev_init(struct v4l2_subdev *sd , struct i2c_client *cli
                                  struct v4l2_subdev_ops  const  *ops ) ;
 #line 560 "include/media/v4l2-subdev.h"
 __inline static void *v4l2_get_subdevdata(struct v4l2_subdev  const  *sd ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  void *__cil_tmp4 ;
+{ void *__cil_tmp2 ;
 
   {
   {
 #line 562
-  __cil_tmp2 = (unsigned long )sd;
+  __cil_tmp2 = sd->dev_priv;
 #line 562
-  __cil_tmp3 = __cil_tmp2 + 232;
-#line 562
-  __cil_tmp4 = *((void * const  *)__cil_tmp3);
-#line 562
-  return ((void *)__cil_tmp4);
+  return ((void *)__cil_tmp2);
   }
 }
 }
@@ -5768,23 +5746,17 @@ extern struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *hdl , struc
 extern void v4l2_ctrl_cluster(unsigned int ncontrols , struct v4l2_ctrl **controls ) ;
 #line 406 "include/media/v4l2-ctrls.h"
 __inline static void v4l2_ctrl_lock(struct v4l2_ctrl *ctrl ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct v4l2_ctrl_handler *__cil_tmp4 ;
-  struct mutex *__cil_tmp5 ;
+{ struct v4l2_ctrl_handler *__cil_tmp2 ;
+  struct mutex *__cil_tmp3 ;
 
   {
   {
 #line 408
-  __cil_tmp2 = (unsigned long )ctrl;
+  __cil_tmp2 = ctrl->handler;
 #line 408
-  __cil_tmp3 = __cil_tmp2 + 16;
+  __cil_tmp3 = & __cil_tmp2->lock;
 #line 408
-  __cil_tmp4 = *((struct v4l2_ctrl_handler **)__cil_tmp3);
-#line 408
-  __cil_tmp5 = (struct mutex *)__cil_tmp4;
-#line 408
-  mutex_lock_nested(__cil_tmp5, 0U);
+  mutex_lock_nested(__cil_tmp3, 0U);
   }
 #line 409
   return;
@@ -5792,23 +5764,17 @@ __inline static void v4l2_ctrl_lock(struct v4l2_ctrl *ctrl )
 }
 #line 415 "include/media/v4l2-ctrls.h"
 __inline static void v4l2_ctrl_unlock(struct v4l2_ctrl *ctrl ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  struct v4l2_ctrl_handler *__cil_tmp4 ;
-  struct mutex *__cil_tmp5 ;
+{ struct v4l2_ctrl_handler *__cil_tmp2 ;
+  struct mutex *__cil_tmp3 ;
 
   {
   {
 #line 417
-  __cil_tmp2 = (unsigned long )ctrl;
+  __cil_tmp2 = ctrl->handler;
 #line 417
-  __cil_tmp3 = __cil_tmp2 + 16;
+  __cil_tmp3 = & __cil_tmp2->lock;
 #line 417
-  __cil_tmp4 = *((struct v4l2_ctrl_handler **)__cil_tmp3);
-#line 417
-  __cil_tmp5 = (struct mutex *)__cil_tmp4;
-#line 417
-  mutex_unlock(__cil_tmp5);
+  mutex_unlock(__cil_tmp3);
   }
 #line 418
   return;
@@ -5856,7 +5822,7 @@ __inline static struct msp_state *to_state(struct v4l2_subdev *sd )
 #line 109
   __cil_tmp3 = (struct msp_state *)0;
 #line 109
-  __cil_tmp4 = (struct v4l2_subdev *)__cil_tmp3;
+  __cil_tmp4 = & __cil_tmp3->sd;
 #line 109
   __cil_tmp5 = (unsigned int )__cil_tmp4;
 #line 109
@@ -5871,43 +5837,31 @@ __inline static struct msp_state *to_state(struct v4l2_subdev *sd )
 #line 112 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/media/video/msp3400-driver.h"
 __inline static struct msp_state *ctrl_to_state(struct v4l2_ctrl *ctrl ) 
 { struct v4l2_ctrl_handler  const  *__mptr ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
+  struct v4l2_ctrl_handler *__cil_tmp3 ;
+  struct msp_state *__cil_tmp4 ;
   struct v4l2_ctrl_handler *__cil_tmp5 ;
-  struct msp_state *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  struct v4l2_ctrl_handler *__cil_tmp9 ;
-  unsigned int __cil_tmp10 ;
-  char *__cil_tmp11 ;
-  char *__cil_tmp12 ;
+  unsigned int __cil_tmp6 ;
+  char *__cil_tmp7 ;
+  char *__cil_tmp8 ;
 
   {
 #line 114
-  __cil_tmp3 = (unsigned long )ctrl;
+  __cil_tmp3 = ctrl->handler;
 #line 114
-  __cil_tmp4 = __cil_tmp3 + 16;
-#line 114
-  __cil_tmp5 = *((struct v4l2_ctrl_handler **)__cil_tmp4);
-#line 114
-  __mptr = (struct v4l2_ctrl_handler  const  *)__cil_tmp5;
+  __mptr = (struct v4l2_ctrl_handler  const  *)__cil_tmp3;
   {
 #line 114
-  __cil_tmp6 = (struct msp_state *)0;
+  __cil_tmp4 = (struct msp_state *)0;
 #line 114
-  __cil_tmp7 = (unsigned long )__cil_tmp6;
+  __cil_tmp5 = & __cil_tmp4->hdl;
 #line 114
-  __cil_tmp8 = __cil_tmp7 + 1800;
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
 #line 114
-  __cil_tmp9 = (struct v4l2_ctrl_handler *)__cil_tmp8;
+  __cil_tmp7 = (char *)__mptr;
 #line 114
-  __cil_tmp10 = (unsigned int )__cil_tmp9;
+  __cil_tmp8 = __cil_tmp7 - __cil_tmp6;
 #line 114
-  __cil_tmp11 = (char *)__mptr;
-#line 114
-  __cil_tmp12 = __cil_tmp11 - __cil_tmp10;
-#line 114
-  return ((struct msp_state *)__cil_tmp12);
+  return ((struct msp_state *)__cil_tmp8);
   }
 }
 }
@@ -5989,8 +5943,8 @@ static char const   __param_str_opmode[7]  = {      (char const   )'o',      (ch
         (char const   )'d',      (char const   )'e',      (char const   )'\000'};
 #line 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct kernel_param  const  __param_opmode  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_opmode, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)292,
-    (unsigned short)0, {(void *)(& opmode)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_opmode, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )292,
+    (u16 )0, {(void *)(& opmode)}};
 #line 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static char const   __mod_opmodetype84[20]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -6005,8 +5959,8 @@ static char const   __param_str_once[5]  = {      (char const   )'o',      (char
         (char const   )'\000'};
 #line 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct kernel_param  const  __param_once  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_once, (struct kernel_param_ops  const  *)(& param_ops_bool), (unsigned short)420,
-    (unsigned short)0, {(void *)(& msp_once)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_once, (struct kernel_param_ops  const  *)(& param_ops_bool), (u16 )420,
+    (u16 )0, {(void *)(& msp_once)}};
 #line 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static char const   __mod_oncetype87[19]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -6021,8 +5975,8 @@ static char const   __param_str_debug[6]  = {      (char const   )'d',      (cha
         (char const   )'g',      (char const   )'\000'};
 #line 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct kernel_param  const  __param_debug  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)420,
-    (unsigned short)0, {(void *)(& msp_debug)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )420,
+    (u16 )0, {(void *)(& msp_debug)}};
 #line 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static char const   __mod_debugtype88[19]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -6043,7 +5997,7 @@ static char const   __param_str_stereo_threshold[17]  =
 #line 89 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct kernel_param  const  __param_stereo_threshold  __attribute__((__used__,
 __unused__, __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_stereo_threshold, (struct kernel_param_ops  const  *)(& param_ops_int),
-    (unsigned short)420, (unsigned short)0, {(void *)(& msp_stereo_thresh)}};
+    (u16 )420, (u16 )0, {(void *)(& msp_stereo_thresh)}};
 #line 89 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static char const   __mod_stereo_thresholdtype89[30]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6064,8 +6018,8 @@ static char const   __param_str_standard[9]  =
         (char const   )'\000'};
 #line 90 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct kernel_param  const  __param_standard  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_standard, (struct kernel_param_ops  const  *)(& param_ops_int), (unsigned short)420,
-    (unsigned short)0, {(void *)(& msp_standard)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_standard, (struct kernel_param_ops  const  *)(& param_ops_int), (u16 )420,
+    (u16 )0, {(void *)(& msp_standard)}};
 #line 90 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static char const   __mod_standardtype90[22]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6083,8 +6037,8 @@ static char const   __param_str_amsound[8]  =
         (char const   )'u',      (char const   )'n',      (char const   )'d',      (char const   )'\000'};
 #line 91 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct kernel_param  const  __param_amsound  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_amsound, (struct kernel_param_ops  const  *)(& param_ops_bool), (unsigned short)420,
-    (unsigned short)0, {(void *)(& msp_amsound)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_amsound, (struct kernel_param_ops  const  *)(& param_ops_bool), (u16 )420,
+    (u16 )0, {(void *)(& msp_amsound)}};
 #line 91 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static char const   __mod_amsoundtype91[22]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
@@ -6100,8 +6054,8 @@ static char const   __param_str_dolby[6]  = {      (char const   )'d',      (cha
         (char const   )'y',      (char const   )'\000'};
 #line 92 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct kernel_param  const  __param_dolby  __attribute__((__used__, __unused__,
-__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_dolby, (struct kernel_param_ops  const  *)(& param_ops_bool), (unsigned short)420,
-    (unsigned short)0, {(void *)(& msp_dolby)}};
+__section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_dolby, (struct kernel_param_ops  const  *)(& param_ops_bool), (u16 )420,
+    (u16 )0, {(void *)(& msp_dolby)}};
 #line 92 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static char const   __mod_dolbytype92[20]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
@@ -6248,11 +6202,11 @@ __aligned__(1)))  =
         (char const   )'s',      (char const   )'s',      (char const   )'i',      (char const   )'n', 
         (char const   )'g',      (char const   )'\000'};
 #line 118 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
-static u8 reset_off[3]  = {      (unsigned char)0,      (unsigned char)128,      (unsigned char)0};
+static u8 reset_off[3]  = {      (u8 )0,      (u8 )128,      (u8 )0};
 #line 119 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
-static u8 reset_on[3]  = {      (unsigned char)0,      (unsigned char)0,      (unsigned char)0};
+static u8 reset_on[3]  = {      (u8 )0,      (u8 )0,      (u8 )0};
 #line 120 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
-static u8 write[3]  = {      (unsigned char)19,      (unsigned char)0,      (unsigned char)30};
+static u8 write[3]  = {      (u8 )19,      (u8 )0,      (u8 )30};
 #line 115 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 int msp_reset(struct i2c_client *client ) 
 { u8 read[2] ;
@@ -6263,501 +6217,182 @@ int msp_reset(struct i2c_client *client )
   int tmp___9 ;
   int tmp___10 ;
   int tmp___11 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  int *__cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct i2c_adapter *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct i2c_driver *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  char const   *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned short __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  struct i2c_adapter *__cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  struct i2c_msg *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  struct i2c_adapter *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct i2c_driver *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  char const   *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned short __cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  struct i2c_adapter *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  struct i2c_msg *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  struct i2c_adapter *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  struct i2c_driver *__cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  char const   *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned short __cil_tmp121 ;
-  int __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  struct i2c_adapter *__cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  struct i2c_msg *__cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  struct i2c_adapter *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  struct i2c_driver *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  char const   *__cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned short __cil_tmp140 ;
-  int __cil_tmp141 ;
+  struct i2c_adapter *__cil_tmp10 ;
+  struct i2c_driver *__cil_tmp11 ;
+  char const   *__cil_tmp12 ;
+  unsigned short __cil_tmp13 ;
+  int __cil_tmp14 ;
+  struct i2c_adapter *__cil_tmp15 ;
+  struct i2c_msg *__cil_tmp16 ;
+  struct i2c_adapter *__cil_tmp17 ;
+  struct i2c_driver *__cil_tmp18 ;
+  char const   *__cil_tmp19 ;
+  unsigned short __cil_tmp20 ;
+  int __cil_tmp21 ;
+  struct i2c_adapter *__cil_tmp22 ;
+  struct i2c_msg *__cil_tmp23 ;
+  struct i2c_adapter *__cil_tmp24 ;
+  struct i2c_driver *__cil_tmp25 ;
+  char const   *__cil_tmp26 ;
+  unsigned short __cil_tmp27 ;
+  int __cil_tmp28 ;
+  struct i2c_adapter *__cil_tmp29 ;
+  struct i2c_msg *__cil_tmp30 ;
+  struct i2c_adapter *__cil_tmp31 ;
+  struct i2c_driver *__cil_tmp32 ;
+  char const   *__cil_tmp33 ;
+  unsigned short __cil_tmp34 ;
+  int __cil_tmp35 ;
 
   {
 #line 122
-  __cil_tmp10 = 0 * 16UL;
+  reset[0].addr = client->addr;
 #line 122
-  __cil_tmp11 = (unsigned long )(reset) + __cil_tmp10;
+  reset[0].flags = (__u16 )4096;
 #line 122
-  __cil_tmp12 = (unsigned long )client;
+  reset[0].len = (__u16 )3;
 #line 122
-  __cil_tmp13 = __cil_tmp12 + 2;
+  reset[0].buf = & reset_off[0];
 #line 122
-  *((__u16 *)__cil_tmp11) = *((unsigned short *)__cil_tmp13);
+  reset[1].addr = client->addr;
 #line 122
-  __cil_tmp14 = 0 * 16UL;
+  reset[1].flags = (__u16 )4096;
 #line 122
-  __cil_tmp15 = __cil_tmp14 + 2;
+  reset[1].len = (__u16 )3;
 #line 122
-  __cil_tmp16 = (unsigned long )(reset) + __cil_tmp15;
-#line 122
-  *((__u16 *)__cil_tmp16) = (unsigned short)4096;
-#line 122
-  __cil_tmp17 = 0 * 16UL;
-#line 122
-  __cil_tmp18 = __cil_tmp17 + 4;
-#line 122
-  __cil_tmp19 = (unsigned long )(reset) + __cil_tmp18;
-#line 122
-  *((__u16 *)__cil_tmp19) = (unsigned short)3;
-#line 122
-  __cil_tmp20 = 0 * 16UL;
-#line 122
-  __cil_tmp21 = __cil_tmp20 + 8;
-#line 122
-  __cil_tmp22 = (unsigned long )(reset) + __cil_tmp21;
-#line 122
-  __cil_tmp23 = 0 * 1UL;
-#line 122
-  __cil_tmp24 = (unsigned long )(reset_off) + __cil_tmp23;
-#line 122
-  *((__u8 **)__cil_tmp22) = (u8 *)__cil_tmp24;
-#line 122
-  __cil_tmp25 = 1 * 16UL;
-#line 122
-  __cil_tmp26 = (unsigned long )(reset) + __cil_tmp25;
-#line 122
-  __cil_tmp27 = (unsigned long )client;
-#line 122
-  __cil_tmp28 = __cil_tmp27 + 2;
-#line 122
-  *((__u16 *)__cil_tmp26) = *((unsigned short *)__cil_tmp28);
-#line 122
-  __cil_tmp29 = 1 * 16UL;
-#line 122
-  __cil_tmp30 = __cil_tmp29 + 2;
-#line 122
-  __cil_tmp31 = (unsigned long )(reset) + __cil_tmp30;
-#line 122
-  *((__u16 *)__cil_tmp31) = (unsigned short)4096;
-#line 122
-  __cil_tmp32 = 1 * 16UL;
-#line 122
-  __cil_tmp33 = __cil_tmp32 + 4;
-#line 122
-  __cil_tmp34 = (unsigned long )(reset) + __cil_tmp33;
-#line 122
-  *((__u16 *)__cil_tmp34) = (unsigned short)3;
-#line 122
-  __cil_tmp35 = 1 * 16UL;
-#line 122
-  __cil_tmp36 = __cil_tmp35 + 8;
-#line 122
-  __cil_tmp37 = (unsigned long )(reset) + __cil_tmp36;
-#line 122
-  __cil_tmp38 = 0 * 1UL;
-#line 122
-  __cil_tmp39 = (unsigned long )(reset_on) + __cil_tmp38;
-#line 122
-  *((__u8 **)__cil_tmp37) = (u8 *)__cil_tmp39;
+  reset[1].buf = & reset_on[0];
 #line 126
-  __cil_tmp40 = 0 * 16UL;
+  test[0].addr = client->addr;
 #line 126
-  __cil_tmp41 = (unsigned long )(test) + __cil_tmp40;
+  test[0].flags = (__u16 )0;
 #line 126
-  __cil_tmp42 = (unsigned long )client;
+  test[0].len = (__u16 )3;
 #line 126
-  __cil_tmp43 = __cil_tmp42 + 2;
+  test[0].buf = & write[0];
 #line 126
-  *((__u16 *)__cil_tmp41) = *((unsigned short *)__cil_tmp43);
+  test[1].addr = client->addr;
 #line 126
-  __cil_tmp44 = 0 * 16UL;
+  test[1].flags = (__u16 )1;
 #line 126
-  __cil_tmp45 = __cil_tmp44 + 2;
+  test[1].len = (__u16 )2;
 #line 126
-  __cil_tmp46 = (unsigned long )(test) + __cil_tmp45;
-#line 126
-  *((__u16 *)__cil_tmp46) = (unsigned short)0;
-#line 126
-  __cil_tmp47 = 0 * 16UL;
-#line 126
-  __cil_tmp48 = __cil_tmp47 + 4;
-#line 126
-  __cil_tmp49 = (unsigned long )(test) + __cil_tmp48;
-#line 126
-  *((__u16 *)__cil_tmp49) = (unsigned short)3;
-#line 126
-  __cil_tmp50 = 0 * 16UL;
-#line 126
-  __cil_tmp51 = __cil_tmp50 + 8;
-#line 126
-  __cil_tmp52 = (unsigned long )(test) + __cil_tmp51;
-#line 126
-  __cil_tmp53 = 0 * 1UL;
-#line 126
-  __cil_tmp54 = (unsigned long )(write) + __cil_tmp53;
-#line 126
-  *((__u8 **)__cil_tmp52) = (u8 *)__cil_tmp54;
-#line 126
-  __cil_tmp55 = 1 * 16UL;
-#line 126
-  __cil_tmp56 = (unsigned long )(test) + __cil_tmp55;
-#line 126
-  __cil_tmp57 = (unsigned long )client;
-#line 126
-  __cil_tmp58 = __cil_tmp57 + 2;
-#line 126
-  *((__u16 *)__cil_tmp56) = *((unsigned short *)__cil_tmp58);
-#line 126
-  __cil_tmp59 = 1 * 16UL;
-#line 126
-  __cil_tmp60 = __cil_tmp59 + 2;
-#line 126
-  __cil_tmp61 = (unsigned long )(test) + __cil_tmp60;
-#line 126
-  *((__u16 *)__cil_tmp61) = (unsigned short)1;
-#line 126
-  __cil_tmp62 = 1 * 16UL;
-#line 126
-  __cil_tmp63 = __cil_tmp62 + 4;
-#line 126
-  __cil_tmp64 = (unsigned long )(test) + __cil_tmp63;
-#line 126
-  *((__u16 *)__cil_tmp64) = (unsigned short)2;
-#line 126
-  __cil_tmp65 = 1 * 16UL;
-#line 126
-  __cil_tmp66 = __cil_tmp65 + 8;
-#line 126
-  __cil_tmp67 = (unsigned long )(test) + __cil_tmp66;
-#line 126
-  __cil_tmp68 = 0 * 1UL;
-#line 126
-  __cil_tmp69 = (unsigned long )(read) + __cil_tmp68;
-#line 126
-  *((__u8 **)__cil_tmp67) = (u8 *)__cil_tmp69;
+  test[1].buf = & read[0];
   {
 #line 131
   while (1) {
-    while_0_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 131
-    __cil_tmp70 = & msp_debug;
-#line 131
-    __cil_tmp71 = *__cil_tmp70;
-#line 131
-    if (__cil_tmp71 >= 3) {
+    if (msp_debug >= 3) {
       {
 #line 131
-      __cil_tmp72 = (unsigned long )client;
+      __cil_tmp10 = client->adapter;
 #line 131
-      __cil_tmp73 = __cil_tmp72 + 24;
+      tmp___7 = i2c_adapter_id(__cil_tmp10);
 #line 131
-      __cil_tmp74 = *((struct i2c_adapter **)__cil_tmp73);
+      __cil_tmp11 = client->driver;
 #line 131
-      tmp___7 = i2c_adapter_id(__cil_tmp74);
+      __cil_tmp12 = __cil_tmp11->driver.name;
 #line 131
-      __cil_tmp75 = (unsigned long )client;
+      __cil_tmp13 = client->addr;
 #line 131
-      __cil_tmp76 = __cil_tmp75 + 32;
+      __cil_tmp14 = (int )__cil_tmp13;
 #line 131
-      __cil_tmp77 = *((struct i2c_driver **)__cil_tmp76);
-#line 131
-      __cil_tmp78 = (unsigned long )__cil_tmp77;
-#line 131
-      __cil_tmp79 = __cil_tmp78 + 80;
-#line 131
-      __cil_tmp80 = *((char const   **)__cil_tmp79);
-#line 131
-      __cil_tmp81 = (unsigned long )client;
-#line 131
-      __cil_tmp82 = __cil_tmp81 + 2;
-#line 131
-      __cil_tmp83 = *((unsigned short *)__cil_tmp82);
-#line 131
-      __cil_tmp84 = (int )__cil_tmp83;
-#line 131
-      printk("<7>%s %d-%04x: msp_reset\n", __cil_tmp80, tmp___7, __cil_tmp84);
+      printk("<7>%s %d-%04x: msp_reset\n", __cil_tmp12, tmp___7, __cil_tmp14);
       }
     } else {
 
     }
-    }
+#line 131
     goto while_break;
   }
-  while_0_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 132
-  __cil_tmp85 = (unsigned long )client;
+  __cil_tmp15 = client->adapter;
 #line 132
-  __cil_tmp86 = __cil_tmp85 + 24;
+  __cil_tmp16 = & reset[0];
 #line 132
-  __cil_tmp87 = *((struct i2c_adapter **)__cil_tmp86);
-#line 132
-  __cil_tmp88 = 0 * 16UL;
-#line 132
-  __cil_tmp89 = (unsigned long )(reset) + __cil_tmp88;
-#line 132
-  __cil_tmp90 = (struct i2c_msg *)__cil_tmp89;
-#line 132
-  tmp___9 = i2c_transfer(__cil_tmp87, __cil_tmp90, 1);
+  tmp___9 = i2c_transfer(__cil_tmp15, __cil_tmp16, 1);
   }
 #line 132
   if (tmp___9 != 1) {
     {
 #line 135
-    __cil_tmp91 = (unsigned long )client;
+    __cil_tmp17 = client->adapter;
 #line 135
-    __cil_tmp92 = __cil_tmp91 + 24;
+    tmp___8 = i2c_adapter_id(__cil_tmp17);
 #line 135
-    __cil_tmp93 = *((struct i2c_adapter **)__cil_tmp92);
+    __cil_tmp18 = client->driver;
 #line 135
-    tmp___8 = i2c_adapter_id(__cil_tmp93);
+    __cil_tmp19 = __cil_tmp18->driver.name;
 #line 135
-    __cil_tmp94 = (unsigned long )client;
+    __cil_tmp20 = client->addr;
 #line 135
-    __cil_tmp95 = __cil_tmp94 + 32;
+    __cil_tmp21 = (int )__cil_tmp20;
 #line 135
-    __cil_tmp96 = *((struct i2c_driver **)__cil_tmp95);
-#line 135
-    __cil_tmp97 = (unsigned long )__cil_tmp96;
-#line 135
-    __cil_tmp98 = __cil_tmp97 + 80;
-#line 135
-    __cil_tmp99 = *((char const   **)__cil_tmp98);
-#line 135
-    __cil_tmp100 = (unsigned long )client;
-#line 135
-    __cil_tmp101 = __cil_tmp100 + 2;
-#line 135
-    __cil_tmp102 = *((unsigned short *)__cil_tmp101);
-#line 135
-    __cil_tmp103 = (int )__cil_tmp102;
-#line 135
-    printk("<3>%s %d-%04x: chip reset failed\n", __cil_tmp99, tmp___8, __cil_tmp103);
+    printk("<3>%s %d-%04x: chip reset failed\n", __cil_tmp19, tmp___8, __cil_tmp21);
     }
 #line 136
     return (-1);
   } else {
     {
 #line 132
-    __cil_tmp104 = (unsigned long )client;
+    __cil_tmp22 = client->adapter;
 #line 132
-    __cil_tmp105 = __cil_tmp104 + 24;
+    __cil_tmp23 = & reset[1];
 #line 132
-    __cil_tmp106 = *((struct i2c_adapter **)__cil_tmp105);
-#line 132
-    __cil_tmp107 = 1 * 16UL;
-#line 132
-    __cil_tmp108 = (unsigned long )(reset) + __cil_tmp107;
-#line 132
-    __cil_tmp109 = (struct i2c_msg *)__cil_tmp108;
-#line 132
-    tmp___10 = i2c_transfer(__cil_tmp106, __cil_tmp109, 1);
+    tmp___10 = i2c_transfer(__cil_tmp22, __cil_tmp23, 1);
     }
 #line 132
     if (tmp___10 != 1) {
       {
 #line 135
-      __cil_tmp110 = (unsigned long )client;
+      __cil_tmp24 = client->adapter;
 #line 135
-      __cil_tmp111 = __cil_tmp110 + 24;
+      tmp___8 = i2c_adapter_id(__cil_tmp24);
 #line 135
-      __cil_tmp112 = *((struct i2c_adapter **)__cil_tmp111);
+      __cil_tmp25 = client->driver;
 #line 135
-      tmp___8 = i2c_adapter_id(__cil_tmp112);
+      __cil_tmp26 = __cil_tmp25->driver.name;
 #line 135
-      __cil_tmp113 = (unsigned long )client;
+      __cil_tmp27 = client->addr;
 #line 135
-      __cil_tmp114 = __cil_tmp113 + 32;
+      __cil_tmp28 = (int )__cil_tmp27;
 #line 135
-      __cil_tmp115 = *((struct i2c_driver **)__cil_tmp114);
-#line 135
-      __cil_tmp116 = (unsigned long )__cil_tmp115;
-#line 135
-      __cil_tmp117 = __cil_tmp116 + 80;
-#line 135
-      __cil_tmp118 = *((char const   **)__cil_tmp117);
-#line 135
-      __cil_tmp119 = (unsigned long )client;
-#line 135
-      __cil_tmp120 = __cil_tmp119 + 2;
-#line 135
-      __cil_tmp121 = *((unsigned short *)__cil_tmp120);
-#line 135
-      __cil_tmp122 = (int )__cil_tmp121;
-#line 135
-      printk("<3>%s %d-%04x: chip reset failed\n", __cil_tmp118, tmp___8, __cil_tmp122);
+      printk("<3>%s %d-%04x: chip reset failed\n", __cil_tmp26, tmp___8, __cil_tmp28);
       }
 #line 136
       return (-1);
     } else {
       {
 #line 132
-      __cil_tmp123 = (unsigned long )client;
+      __cil_tmp29 = client->adapter;
 #line 132
-      __cil_tmp124 = __cil_tmp123 + 24;
+      __cil_tmp30 = & test[0];
 #line 132
-      __cil_tmp125 = *((struct i2c_adapter **)__cil_tmp124);
-#line 132
-      __cil_tmp126 = 0 * 16UL;
-#line 132
-      __cil_tmp127 = (unsigned long )(test) + __cil_tmp126;
-#line 132
-      __cil_tmp128 = (struct i2c_msg *)__cil_tmp127;
-#line 132
-      tmp___11 = i2c_transfer(__cil_tmp125, __cil_tmp128, 2);
+      tmp___11 = i2c_transfer(__cil_tmp29, __cil_tmp30, 2);
       }
 #line 132
       if (tmp___11 != 2) {
         {
 #line 135
-        __cil_tmp129 = (unsigned long )client;
+        __cil_tmp31 = client->adapter;
 #line 135
-        __cil_tmp130 = __cil_tmp129 + 24;
+        tmp___8 = i2c_adapter_id(__cil_tmp31);
 #line 135
-        __cil_tmp131 = *((struct i2c_adapter **)__cil_tmp130);
+        __cil_tmp32 = client->driver;
 #line 135
-        tmp___8 = i2c_adapter_id(__cil_tmp131);
+        __cil_tmp33 = __cil_tmp32->driver.name;
 #line 135
-        __cil_tmp132 = (unsigned long )client;
+        __cil_tmp34 = client->addr;
 #line 135
-        __cil_tmp133 = __cil_tmp132 + 32;
+        __cil_tmp35 = (int )__cil_tmp34;
 #line 135
-        __cil_tmp134 = *((struct i2c_driver **)__cil_tmp133);
-#line 135
-        __cil_tmp135 = (unsigned long )__cil_tmp134;
-#line 135
-        __cil_tmp136 = __cil_tmp135 + 80;
-#line 135
-        __cil_tmp137 = *((char const   **)__cil_tmp136);
-#line 135
-        __cil_tmp138 = (unsigned long )client;
-#line 135
-        __cil_tmp139 = __cil_tmp138 + 2;
-#line 135
-        __cil_tmp140 = *((unsigned short *)__cil_tmp139);
-#line 135
-        __cil_tmp141 = (int )__cil_tmp140;
-#line 135
-        printk("<3>%s %d-%04x: chip reset failed\n", __cil_tmp137, tmp___8, __cil_tmp141);
+        printk("<3>%s %d-%04x: chip reset failed\n", __cil_tmp33, tmp___8, __cil_tmp35);
         }
 #line 136
         return (-1);
@@ -6782,288 +6417,122 @@ static int msp_read(struct i2c_client *client , int dev , int addr )
   unsigned long tmp___9 ;
   int tmp___10 ;
   int tmp___11 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct i2c_adapter *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  struct i2c_msg *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct i2c_adapter *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  struct i2c_driver *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  char const   *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned short __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned int __cil_tmp72 ;
-  unsigned int __cil_tmp73 ;
-  long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  struct i2c_adapter *__cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  struct i2c_driver *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  char const   *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned short __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  u8 __cil_tmp90 ;
-  int __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  u8 __cil_tmp94 ;
-  int __cil_tmp95 ;
-  int __cil_tmp96 ;
-  int *__cil_tmp97 ;
-  int __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  struct i2c_adapter *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  struct i2c_driver *__cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  char const   *__cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned short __cil_tmp110 ;
-  int __cil_tmp111 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  struct i2c_adapter *__cil_tmp17 ;
+  struct i2c_msg *__cil_tmp18 ;
+  struct i2c_adapter *__cil_tmp19 ;
+  struct i2c_driver *__cil_tmp20 ;
+  char const   *__cil_tmp21 ;
+  unsigned short __cil_tmp22 ;
+  int __cil_tmp23 ;
+  unsigned int __cil_tmp24 ;
+  unsigned int __cil_tmp25 ;
+  long __cil_tmp26 ;
+  struct i2c_adapter *__cil_tmp27 ;
+  struct i2c_driver *__cil_tmp28 ;
+  char const   *__cil_tmp29 ;
+  unsigned short __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  struct i2c_adapter *__cil_tmp35 ;
+  struct i2c_driver *__cil_tmp36 ;
+  char const   *__cil_tmp37 ;
+  unsigned short __cil_tmp38 ;
+  int __cil_tmp39 ;
 
   {
 #line 146
-  __cil_tmp14 = 0 * 16UL;
+  msgs[0].addr = client->addr;
 #line 146
-  __cil_tmp15 = (unsigned long )(msgs) + __cil_tmp14;
+  msgs[0].flags = (__u16 )0;
 #line 146
-  __cil_tmp16 = (unsigned long )client;
+  msgs[0].len = (__u16 )3;
 #line 146
-  __cil_tmp17 = __cil_tmp16 + 2;
+  msgs[0].buf = & write___0[0];
 #line 146
-  *((__u16 *)__cil_tmp15) = *((unsigned short *)__cil_tmp17);
+  msgs[1].addr = client->addr;
 #line 146
-  __cil_tmp18 = 0 * 16UL;
+  msgs[1].flags = (__u16 )1;
 #line 146
-  __cil_tmp19 = __cil_tmp18 + 2;
+  msgs[1].len = (__u16 )2;
 #line 146
-  __cil_tmp20 = (unsigned long )(msgs) + __cil_tmp19;
-#line 146
-  *((__u16 *)__cil_tmp20) = (unsigned short)0;
-#line 146
-  __cil_tmp21 = 0 * 16UL;
-#line 146
-  __cil_tmp22 = __cil_tmp21 + 4;
-#line 146
-  __cil_tmp23 = (unsigned long )(msgs) + __cil_tmp22;
-#line 146
-  *((__u16 *)__cil_tmp23) = (unsigned short)3;
-#line 146
-  __cil_tmp24 = 0 * 16UL;
-#line 146
-  __cil_tmp25 = __cil_tmp24 + 8;
-#line 146
-  __cil_tmp26 = (unsigned long )(msgs) + __cil_tmp25;
-#line 146
-  __cil_tmp27 = 0 * 1UL;
-#line 146
-  __cil_tmp28 = (unsigned long )(write___0) + __cil_tmp27;
-#line 146
-  *((__u8 **)__cil_tmp26) = (u8 *)__cil_tmp28;
-#line 146
-  __cil_tmp29 = 1 * 16UL;
-#line 146
-  __cil_tmp30 = (unsigned long )(msgs) + __cil_tmp29;
-#line 146
-  __cil_tmp31 = (unsigned long )client;
-#line 146
-  __cil_tmp32 = __cil_tmp31 + 2;
-#line 146
-  *((__u16 *)__cil_tmp30) = *((unsigned short *)__cil_tmp32);
-#line 146
-  __cil_tmp33 = 1 * 16UL;
-#line 146
-  __cil_tmp34 = __cil_tmp33 + 2;
-#line 146
-  __cil_tmp35 = (unsigned long )(msgs) + __cil_tmp34;
-#line 146
-  *((__u16 *)__cil_tmp35) = (unsigned short)1;
-#line 146
-  __cil_tmp36 = 1 * 16UL;
-#line 146
-  __cil_tmp37 = __cil_tmp36 + 4;
-#line 146
-  __cil_tmp38 = (unsigned long )(msgs) + __cil_tmp37;
-#line 146
-  *((__u16 *)__cil_tmp38) = (unsigned short)2;
-#line 146
-  __cil_tmp39 = 1 * 16UL;
-#line 146
-  __cil_tmp40 = __cil_tmp39 + 8;
-#line 146
-  __cil_tmp41 = (unsigned long )(msgs) + __cil_tmp40;
-#line 146
-  __cil_tmp42 = 0 * 1UL;
-#line 146
-  __cil_tmp43 = (unsigned long )(read) + __cil_tmp42;
-#line 146
-  *((__u8 **)__cil_tmp41) = (u8 *)__cil_tmp43;
+  msgs[1].buf = & read[0];
 #line 151
-  __cil_tmp44 = 0 * 1UL;
+  __cil_tmp14 = dev + 1;
 #line 151
-  __cil_tmp45 = (unsigned long )(write___0) + __cil_tmp44;
-#line 151
-  __cil_tmp46 = dev + 1;
-#line 151
-  *((u8 *)__cil_tmp45) = (unsigned char )__cil_tmp46;
+  write___0[0] = (u8 )__cil_tmp14;
 #line 152
-  __cil_tmp47 = 1 * 1UL;
+  __cil_tmp15 = addr >> 8;
 #line 152
-  __cil_tmp48 = (unsigned long )(write___0) + __cil_tmp47;
-#line 152
-  __cil_tmp49 = addr >> 8;
-#line 152
-  *((u8 *)__cil_tmp48) = (unsigned char )__cil_tmp49;
+  write___0[1] = (u8 )__cil_tmp15;
 #line 153
-  __cil_tmp50 = 2 * 1UL;
+  __cil_tmp16 = addr & 255;
 #line 153
-  __cil_tmp51 = (unsigned long )(write___0) + __cil_tmp50;
-#line 153
-  __cil_tmp52 = addr & 255;
-#line 153
-  *((u8 *)__cil_tmp51) = (unsigned char )__cil_tmp52;
+  write___0[2] = (u8 )__cil_tmp16;
 #line 155
   err = 0;
   {
 #line 155
   while (1) {
-    while_1_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 155
     if (err < 3) {
 
     } else {
+#line 155
       goto while_break;
     }
     {
 #line 156
-    __cil_tmp53 = (unsigned long )client;
+    __cil_tmp17 = client->adapter;
 #line 156
-    __cil_tmp54 = __cil_tmp53 + 24;
+    __cil_tmp18 = & msgs[0];
 #line 156
-    __cil_tmp55 = *((struct i2c_adapter **)__cil_tmp54);
-#line 156
-    __cil_tmp56 = 0 * 16UL;
-#line 156
-    __cil_tmp57 = (unsigned long )(msgs) + __cil_tmp56;
-#line 156
-    __cil_tmp58 = (struct i2c_msg *)__cil_tmp57;
-#line 156
-    tmp___7 = i2c_transfer(__cil_tmp55, __cil_tmp58, 2);
+    tmp___7 = i2c_transfer(__cil_tmp17, __cil_tmp18, 2);
     }
 #line 156
     if (tmp___7 == 2) {
+#line 157
       goto while_break;
     } else {
 
     }
     {
 #line 158
-    __cil_tmp59 = (unsigned long )client;
+    __cil_tmp19 = client->adapter;
 #line 158
-    __cil_tmp60 = __cil_tmp59 + 24;
+    tmp___8 = i2c_adapter_id(__cil_tmp19);
 #line 158
-    __cil_tmp61 = *((struct i2c_adapter **)__cil_tmp60);
+    __cil_tmp20 = client->driver;
 #line 158
-    tmp___8 = i2c_adapter_id(__cil_tmp61);
+    __cil_tmp21 = __cil_tmp20->driver.name;
 #line 158
-    __cil_tmp62 = (unsigned long )client;
+    __cil_tmp22 = client->addr;
 #line 158
-    __cil_tmp63 = __cil_tmp62 + 32;
+    __cil_tmp23 = (int )__cil_tmp22;
 #line 158
-    __cil_tmp64 = *((struct i2c_driver **)__cil_tmp63);
-#line 158
-    __cil_tmp65 = (unsigned long )__cil_tmp64;
-#line 158
-    __cil_tmp66 = __cil_tmp65 + 80;
-#line 158
-    __cil_tmp67 = *((char const   **)__cil_tmp66);
-#line 158
-    __cil_tmp68 = (unsigned long )client;
-#line 158
-    __cil_tmp69 = __cil_tmp68 + 2;
-#line 158
-    __cil_tmp70 = *((unsigned short *)__cil_tmp69);
-#line 158
-    __cil_tmp71 = (int )__cil_tmp70;
-#line 158
-    printk("<4>%s %d-%04x: I/O error #%d (read 0x%02x/0x%02x)\n", __cil_tmp67, tmp___8,
-           __cil_tmp71, err, dev, addr);
+    printk("<4>%s %d-%04x: I/O error #%d (read 0x%02x/0x%02x)\n", __cil_tmp21, tmp___8,
+           __cil_tmp23, err, dev, addr);
 #line 160
-    __cil_tmp72 = (unsigned int const   )10;
+    __cil_tmp24 = (unsigned int const   )10;
 #line 160
-    __cil_tmp73 = (unsigned int )__cil_tmp72;
+    __cil_tmp25 = (unsigned int )__cil_tmp24;
 #line 160
-    tmp___9 = msecs_to_jiffies(__cil_tmp73);
+    tmp___9 = msecs_to_jiffies(__cil_tmp25);
 #line 160
-    __cil_tmp74 = (long )tmp___9;
+    __cil_tmp26 = (long )tmp___9;
 #line 160
-    schedule_timeout_interruptible(__cil_tmp74);
+    schedule_timeout_interruptible(__cil_tmp26);
 #line 155
     err = err + 1;
     }
   }
-  while_1_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -7071,36 +6540,20 @@ static int msp_read(struct i2c_client *client , int dev , int addr )
   if (err == 3) {
     {
 #line 163
-    __cil_tmp75 = (unsigned long )client;
+    __cil_tmp27 = client->adapter;
 #line 163
-    __cil_tmp76 = __cil_tmp75 + 24;
+    tmp___10 = i2c_adapter_id(__cil_tmp27);
 #line 163
-    __cil_tmp77 = *((struct i2c_adapter **)__cil_tmp76);
+    __cil_tmp28 = client->driver;
 #line 163
-    tmp___10 = i2c_adapter_id(__cil_tmp77);
+    __cil_tmp29 = __cil_tmp28->driver.name;
 #line 163
-    __cil_tmp78 = (unsigned long )client;
+    __cil_tmp30 = client->addr;
 #line 163
-    __cil_tmp79 = __cil_tmp78 + 32;
+    __cil_tmp31 = (int )__cil_tmp30;
 #line 163
-    __cil_tmp80 = *((struct i2c_driver **)__cil_tmp79);
-#line 163
-    __cil_tmp81 = (unsigned long )__cil_tmp80;
-#line 163
-    __cil_tmp82 = __cil_tmp81 + 80;
-#line 163
-    __cil_tmp83 = *((char const   **)__cil_tmp82);
-#line 163
-    __cil_tmp84 = (unsigned long )client;
-#line 163
-    __cil_tmp85 = __cil_tmp84 + 2;
-#line 163
-    __cil_tmp86 = *((unsigned short *)__cil_tmp85);
-#line 163
-    __cil_tmp87 = (int )__cil_tmp86;
-#line 163
-    printk("<4>%s %d-%04x: resetting chip, sound will go off.\n", __cil_tmp83, tmp___10,
-           __cil_tmp87);
+    printk("<4>%s %d-%04x: resetting chip, sound will go off.\n", __cil_tmp29, tmp___10,
+           __cil_tmp31);
 #line 164
     msp_reset(client);
     }
@@ -7110,77 +6563,44 @@ static int msp_read(struct i2c_client *client , int dev , int addr )
 
   }
 #line 167
-  __cil_tmp88 = 1 * 1UL;
+  __cil_tmp32 = (int )read[1];
 #line 167
-  __cil_tmp89 = (unsigned long )(read) + __cil_tmp88;
+  __cil_tmp33 = (int )read[0];
 #line 167
-  __cil_tmp90 = *((u8 *)__cil_tmp89);
+  __cil_tmp34 = __cil_tmp33 << 8;
 #line 167
-  __cil_tmp91 = (int )__cil_tmp90;
-#line 167
-  __cil_tmp92 = 0 * 1UL;
-#line 167
-  __cil_tmp93 = (unsigned long )(read) + __cil_tmp92;
-#line 167
-  __cil_tmp94 = *((u8 *)__cil_tmp93);
-#line 167
-  __cil_tmp95 = (int )__cil_tmp94;
-#line 167
-  __cil_tmp96 = __cil_tmp95 << 8;
-#line 167
-  retval = __cil_tmp96 | __cil_tmp91;
+  retval = __cil_tmp34 | __cil_tmp32;
   {
 #line 168
   while (1) {
-    while_2_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
-    {
 #line 168
-    __cil_tmp97 = & msp_debug;
-#line 168
-    __cil_tmp98 = *__cil_tmp97;
-#line 168
-    if (__cil_tmp98 >= 3) {
+    if (msp_debug >= 3) {
       {
 #line 168
-      __cil_tmp99 = (unsigned long )client;
+      __cil_tmp35 = client->adapter;
 #line 168
-      __cil_tmp100 = __cil_tmp99 + 24;
+      tmp___11 = i2c_adapter_id(__cil_tmp35);
 #line 168
-      __cil_tmp101 = *((struct i2c_adapter **)__cil_tmp100);
+      __cil_tmp36 = client->driver;
 #line 168
-      tmp___11 = i2c_adapter_id(__cil_tmp101);
+      __cil_tmp37 = __cil_tmp36->driver.name;
 #line 168
-      __cil_tmp102 = (unsigned long )client;
+      __cil_tmp38 = client->addr;
 #line 168
-      __cil_tmp103 = __cil_tmp102 + 32;
+      __cil_tmp39 = (int )__cil_tmp38;
 #line 168
-      __cil_tmp104 = *((struct i2c_driver **)__cil_tmp103);
-#line 168
-      __cil_tmp105 = (unsigned long )__cil_tmp104;
-#line 168
-      __cil_tmp106 = __cil_tmp105 + 80;
-#line 168
-      __cil_tmp107 = *((char const   **)__cil_tmp106);
-#line 168
-      __cil_tmp108 = (unsigned long )client;
-#line 168
-      __cil_tmp109 = __cil_tmp108 + 2;
-#line 168
-      __cil_tmp110 = *((unsigned short *)__cil_tmp109);
-#line 168
-      __cil_tmp111 = (int )__cil_tmp110;
-#line 168
-      printk("<7>%s %d-%04x: msp_read(0x%x, 0x%x): 0x%x\n", __cil_tmp107, tmp___11,
-             __cil_tmp111, dev, addr, retval);
+      printk("<7>%s %d-%04x: msp_read(0x%x, 0x%x): 0x%x\n", __cil_tmp37, tmp___11,
+             __cil_tmp39, dev, addr, retval);
       }
     } else {
 
     }
-    }
+#line 168
     goto while_break___0;
   }
-  while_2_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: ;
@@ -7223,161 +6643,82 @@ static int msp_write(struct i2c_client *client , int dev , int addr , int val )
   int tmp___9 ;
   unsigned long tmp___10 ;
   int tmp___11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  int __cil_tmp25 ;
-  int *__cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct i2c_adapter *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  struct i2c_adapter *__cil_tmp16 ;
+  struct i2c_driver *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
+  unsigned short __cil_tmp19 ;
+  int __cil_tmp20 ;
+  struct i2c_client  const  *__cil_tmp21 ;
+  u8 *__cil_tmp22 ;
+  char const   *__cil_tmp23 ;
+  struct i2c_adapter *__cil_tmp24 ;
+  struct i2c_driver *__cil_tmp25 ;
+  char const   *__cil_tmp26 ;
+  unsigned short __cil_tmp27 ;
+  int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  long __cil_tmp31 ;
+  struct i2c_adapter *__cil_tmp32 ;
   struct i2c_driver *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  char const   *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned short __cil_tmp39 ;
-  int __cil_tmp40 ;
-  struct i2c_client  const  *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  u8 *__cil_tmp44 ;
-  char const   *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  struct i2c_adapter *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  struct i2c_driver *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  char const   *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned short __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned int __cil_tmp59 ;
-  unsigned int __cil_tmp60 ;
-  long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  struct i2c_adapter *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct i2c_driver *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  char const   *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned short __cil_tmp73 ;
-  int __cil_tmp74 ;
+  char const   *__cil_tmp34 ;
+  unsigned short __cil_tmp35 ;
+  int __cil_tmp36 ;
 
   {
 #line 188
-  __cil_tmp12 = 0 * 1UL;
-#line 188
-  __cil_tmp13 = (unsigned long )(buffer) + __cil_tmp12;
-#line 188
-  *((u8 *)__cil_tmp13) = (unsigned char )dev;
+  buffer[0] = (u8 )dev;
 #line 189
-  __cil_tmp14 = 1 * 1UL;
+  __cil_tmp12 = addr >> 8;
 #line 189
-  __cil_tmp15 = (unsigned long )(buffer) + __cil_tmp14;
-#line 189
-  __cil_tmp16 = addr >> 8;
-#line 189
-  *((u8 *)__cil_tmp15) = (unsigned char )__cil_tmp16;
+  buffer[1] = (u8 )__cil_tmp12;
 #line 190
-  __cil_tmp17 = 2 * 1UL;
+  __cil_tmp13 = addr & 255;
 #line 190
-  __cil_tmp18 = (unsigned long )(buffer) + __cil_tmp17;
-#line 190
-  __cil_tmp19 = addr & 255;
-#line 190
-  *((u8 *)__cil_tmp18) = (unsigned char )__cil_tmp19;
+  buffer[2] = (u8 )__cil_tmp13;
 #line 191
-  __cil_tmp20 = 3 * 1UL;
+  __cil_tmp14 = val >> 8;
 #line 191
-  __cil_tmp21 = (unsigned long )(buffer) + __cil_tmp20;
-#line 191
-  __cil_tmp22 = val >> 8;
-#line 191
-  *((u8 *)__cil_tmp21) = (unsigned char )__cil_tmp22;
+  buffer[3] = (u8 )__cil_tmp14;
 #line 192
-  __cil_tmp23 = 4 * 1UL;
+  __cil_tmp15 = val & 255;
 #line 192
-  __cil_tmp24 = (unsigned long )(buffer) + __cil_tmp23;
-#line 192
-  __cil_tmp25 = val & 255;
-#line 192
-  *((u8 *)__cil_tmp24) = (unsigned char )__cil_tmp25;
+  buffer[4] = (u8 )__cil_tmp15;
   {
 #line 194
   while (1) {
-    while_3_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 194
-    __cil_tmp26 = & msp_debug;
-#line 194
-    __cil_tmp27 = *__cil_tmp26;
-#line 194
-    if (__cil_tmp27 >= 3) {
+    if (msp_debug >= 3) {
       {
 #line 194
-      __cil_tmp28 = (unsigned long )client;
+      __cil_tmp16 = client->adapter;
 #line 194
-      __cil_tmp29 = __cil_tmp28 + 24;
+      tmp___7 = i2c_adapter_id(__cil_tmp16);
 #line 194
-      __cil_tmp30 = *((struct i2c_adapter **)__cil_tmp29);
+      __cil_tmp17 = client->driver;
 #line 194
-      tmp___7 = i2c_adapter_id(__cil_tmp30);
+      __cil_tmp18 = __cil_tmp17->driver.name;
 #line 194
-      __cil_tmp31 = (unsigned long )client;
+      __cil_tmp19 = client->addr;
 #line 194
-      __cil_tmp32 = __cil_tmp31 + 32;
+      __cil_tmp20 = (int )__cil_tmp19;
 #line 194
-      __cil_tmp33 = *((struct i2c_driver **)__cil_tmp32);
-#line 194
-      __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 194
-      __cil_tmp35 = __cil_tmp34 + 80;
-#line 194
-      __cil_tmp36 = *((char const   **)__cil_tmp35);
-#line 194
-      __cil_tmp37 = (unsigned long )client;
-#line 194
-      __cil_tmp38 = __cil_tmp37 + 2;
-#line 194
-      __cil_tmp39 = *((unsigned short *)__cil_tmp38);
-#line 194
-      __cil_tmp40 = (int )__cil_tmp39;
-#line 194
-      printk("<7>%s %d-%04x: msp_write(0x%x, 0x%x, 0x%x)\n", __cil_tmp36, tmp___7,
-             __cil_tmp40, dev, addr, val);
+      printk("<7>%s %d-%04x: msp_write(0x%x, 0x%x, 0x%x)\n", __cil_tmp18, tmp___7,
+             __cil_tmp20, dev, addr, val);
       }
     } else {
 
     }
-    }
+#line 194
     goto while_break;
   }
-  while_3_break: /* CIL Label */ ;
+  while_break___1: /* CIL Label */ ;
   }
 
   while_break: 
@@ -7386,81 +6727,63 @@ static int msp_write(struct i2c_client *client , int dev , int addr , int val )
   {
 #line 196
   while (1) {
-    while_4_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 196
     if (err < 3) {
 
     } else {
+#line 196
       goto while_break___0;
     }
     {
 #line 197
-    __cil_tmp41 = (struct i2c_client  const  *)client;
+    __cil_tmp21 = (struct i2c_client  const  *)client;
 #line 197
-    __cil_tmp42 = 0 * 1UL;
+    __cil_tmp22 = & buffer[0];
 #line 197
-    __cil_tmp43 = (unsigned long )(buffer) + __cil_tmp42;
+    __cil_tmp23 = (char const   *)__cil_tmp22;
 #line 197
-    __cil_tmp44 = (u8 *)__cil_tmp43;
-#line 197
-    __cil_tmp45 = (char const   *)__cil_tmp44;
-#line 197
-    tmp___8 = i2c_master_send(__cil_tmp41, __cil_tmp45, 5);
+    tmp___8 = i2c_master_send(__cil_tmp21, __cil_tmp23, 5);
     }
 #line 197
     if (tmp___8 == 5) {
+#line 198
       goto while_break___0;
     } else {
 
     }
     {
 #line 199
-    __cil_tmp46 = (unsigned long )client;
+    __cil_tmp24 = client->adapter;
 #line 199
-    __cil_tmp47 = __cil_tmp46 + 24;
+    tmp___9 = i2c_adapter_id(__cil_tmp24);
 #line 199
-    __cil_tmp48 = *((struct i2c_adapter **)__cil_tmp47);
+    __cil_tmp25 = client->driver;
 #line 199
-    tmp___9 = i2c_adapter_id(__cil_tmp48);
+    __cil_tmp26 = __cil_tmp25->driver.name;
 #line 199
-    __cil_tmp49 = (unsigned long )client;
+    __cil_tmp27 = client->addr;
 #line 199
-    __cil_tmp50 = __cil_tmp49 + 32;
+    __cil_tmp28 = (int )__cil_tmp27;
 #line 199
-    __cil_tmp51 = *((struct i2c_driver **)__cil_tmp50);
-#line 199
-    __cil_tmp52 = (unsigned long )__cil_tmp51;
-#line 199
-    __cil_tmp53 = __cil_tmp52 + 80;
-#line 199
-    __cil_tmp54 = *((char const   **)__cil_tmp53);
-#line 199
-    __cil_tmp55 = (unsigned long )client;
-#line 199
-    __cil_tmp56 = __cil_tmp55 + 2;
-#line 199
-    __cil_tmp57 = *((unsigned short *)__cil_tmp56);
-#line 199
-    __cil_tmp58 = (int )__cil_tmp57;
-#line 199
-    printk("<4>%s %d-%04x: I/O error #%d (write 0x%02x/0x%02x)\n", __cil_tmp54, tmp___9,
-           __cil_tmp58, err, dev, addr);
+    printk("<4>%s %d-%04x: I/O error #%d (write 0x%02x/0x%02x)\n", __cil_tmp26, tmp___9,
+           __cil_tmp28, err, dev, addr);
 #line 201
-    __cil_tmp59 = (unsigned int const   )10;
+    __cil_tmp29 = (unsigned int const   )10;
 #line 201
-    __cil_tmp60 = (unsigned int )__cil_tmp59;
+    __cil_tmp30 = (unsigned int )__cil_tmp29;
 #line 201
-    tmp___10 = msecs_to_jiffies(__cil_tmp60);
+    tmp___10 = msecs_to_jiffies(__cil_tmp30);
 #line 201
-    __cil_tmp61 = (long )tmp___10;
+    __cil_tmp31 = (long )tmp___10;
 #line 201
-    schedule_timeout_interruptible(__cil_tmp61);
+    schedule_timeout_interruptible(__cil_tmp31);
 #line 196
     err = err + 1;
     }
   }
-  while_4_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break___0: ;
@@ -7468,36 +6791,20 @@ static int msp_write(struct i2c_client *client , int dev , int addr , int val )
   if (err == 3) {
     {
 #line 204
-    __cil_tmp62 = (unsigned long )client;
+    __cil_tmp32 = client->adapter;
 #line 204
-    __cil_tmp63 = __cil_tmp62 + 24;
+    tmp___11 = i2c_adapter_id(__cil_tmp32);
 #line 204
-    __cil_tmp64 = *((struct i2c_adapter **)__cil_tmp63);
+    __cil_tmp33 = client->driver;
 #line 204
-    tmp___11 = i2c_adapter_id(__cil_tmp64);
+    __cil_tmp34 = __cil_tmp33->driver.name;
 #line 204
-    __cil_tmp65 = (unsigned long )client;
+    __cil_tmp35 = client->addr;
 #line 204
-    __cil_tmp66 = __cil_tmp65 + 32;
+    __cil_tmp36 = (int )__cil_tmp35;
 #line 204
-    __cil_tmp67 = *((struct i2c_driver **)__cil_tmp66);
-#line 204
-    __cil_tmp68 = (unsigned long )__cil_tmp67;
-#line 204
-    __cil_tmp69 = __cil_tmp68 + 80;
-#line 204
-    __cil_tmp70 = *((char const   **)__cil_tmp69);
-#line 204
-    __cil_tmp71 = (unsigned long )client;
-#line 204
-    __cil_tmp72 = __cil_tmp71 + 2;
-#line 204
-    __cil_tmp73 = *((unsigned short *)__cil_tmp72);
-#line 204
-    __cil_tmp74 = (int )__cil_tmp73;
-#line 204
-    printk("<4>%s %d-%04x: resetting chip, sound will go off.\n", __cil_tmp70, tmp___11,
-           __cil_tmp74);
+    printk("<4>%s %d-%04x: resetting chip, sound will go off.\n", __cil_tmp34, tmp___11,
+           __cil_tmp36);
 #line 205
     msp_reset(client);
     }
@@ -7559,73 +6866,17 @@ void msp_set_scart(struct i2c_client *client , int in , int out )
   int tmp___9 ;
   struct i2c_client  const  *__cil_tmp8 ;
   struct v4l2_subdev *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
   int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  struct i2c_adapter *__cil_tmp13 ;
+  struct i2c_driver *__cil_tmp14 ;
+  char const   *__cil_tmp15 ;
+  unsigned short __cil_tmp16 ;
   int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  int *__cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct i2c_adapter *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct i2c_driver *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  char const   *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned short __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  char *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  int __cil_tmp76 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  int __cil_tmp20 ;
 
   {
   {
@@ -7640,11 +6891,7 @@ void msp_set_scart(struct i2c_client *client , int in , int out )
 #line 264
   state = tmp___8;
 #line 266
-  __cil_tmp10 = (unsigned long )state;
-#line 266
-  __cil_tmp11 = __cil_tmp10 + 2088;
-#line 266
-  *((int *)__cil_tmp11) = in;
+  state->in_scart = in;
   }
 #line 268
   if (in >= 0) {
@@ -7654,204 +6901,91 @@ void msp_set_scart(struct i2c_client *client , int in , int out )
       if (out >= 0) {
 #line 268
         if (out <= 2) {
-          {
 #line 269
-          __cil_tmp12 = in + 1;
-#line 269
-          __cil_tmp13 = __cil_tmp12 * 4UL;
-#line 269
-          __cil_tmp14 = out * 36UL;
-#line 269
-          __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 269
-          __cil_tmp16 = (unsigned long )(scarts) + __cil_tmp15;
-#line 269
-          __cil_tmp17 = *((int *)__cil_tmp16);
-#line 269
-          if (-1 == __cil_tmp17) {
+          if (-1 == scarts[out][in + 1]) {
 #line 270
             return;
           } else {
 
           }
-          }
 #line 272
-          __cil_tmp18 = (unsigned long )state;
+          __cil_tmp10 = ~ scarts[out][0];
 #line 272
-          __cil_tmp19 = __cil_tmp18 + 2084;
+          __cil_tmp11 = state->acb;
 #line 272
-          __cil_tmp20 = 0 * 4UL;
-#line 272
-          __cil_tmp21 = out * 36UL;
-#line 272
-          __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
-#line 272
-          __cil_tmp23 = (unsigned long )(scarts) + __cil_tmp22;
-#line 272
-          __cil_tmp24 = *((int *)__cil_tmp23);
-#line 272
-          __cil_tmp25 = ~ __cil_tmp24;
-#line 272
-          __cil_tmp26 = (unsigned long )state;
-#line 272
-          __cil_tmp27 = __cil_tmp26 + 2084;
-#line 272
-          __cil_tmp28 = *((int *)__cil_tmp27);
-#line 272
-          *((int *)__cil_tmp19) = __cil_tmp28 & __cil_tmp25;
+          state->acb = __cil_tmp11 & __cil_tmp10;
 #line 273
-          __cil_tmp29 = (unsigned long )state;
+          __cil_tmp12 = state->acb;
 #line 273
-          __cil_tmp30 = __cil_tmp29 + 2084;
-#line 273
-          __cil_tmp31 = in + 1;
-#line 273
-          __cil_tmp32 = __cil_tmp31 * 4UL;
-#line 273
-          __cil_tmp33 = out * 36UL;
-#line 273
-          __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
-#line 273
-          __cil_tmp35 = (unsigned long )(scarts) + __cil_tmp34;
-#line 273
-          __cil_tmp36 = *((int *)__cil_tmp35);
-#line 273
-          __cil_tmp37 = (unsigned long )state;
-#line 273
-          __cil_tmp38 = __cil_tmp37 + 2084;
-#line 273
-          __cil_tmp39 = *((int *)__cil_tmp38);
-#line 273
-          *((int *)__cil_tmp30) = __cil_tmp39 | __cil_tmp36;
+          state->acb = __cil_tmp12 | scarts[out][in + 1];
         } else {
 #line 275
-          __cil_tmp40 = (unsigned long )state;
-#line 275
-          __cil_tmp41 = __cil_tmp40 + 2084;
-#line 275
-          *((int *)__cil_tmp41) = 3936;
+          state->acb = 3936;
         }
       } else {
 #line 275
-        __cil_tmp42 = (unsigned long )state;
-#line 275
-        __cil_tmp43 = __cil_tmp42 + 2084;
-#line 275
-        *((int *)__cil_tmp43) = 3936;
+        state->acb = 3936;
       }
     } else {
 #line 275
-      __cil_tmp44 = (unsigned long )state;
-#line 275
-      __cil_tmp45 = __cil_tmp44 + 2084;
-#line 275
-      *((int *)__cil_tmp45) = 3936;
+      state->acb = 3936;
     }
   } else {
 #line 275
-    __cil_tmp46 = (unsigned long )state;
-#line 275
-    __cil_tmp47 = __cil_tmp46 + 2084;
-#line 275
-    *((int *)__cil_tmp47) = 3936;
+    state->acb = 3936;
   }
   {
 #line 277
   while (1) {
-    while_5_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 277
-    __cil_tmp48 = & msp_debug;
-#line 277
-    __cil_tmp49 = *__cil_tmp48;
-#line 277
-    if (__cil_tmp49 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 277
-      __cil_tmp50 = (unsigned long )client;
+      __cil_tmp13 = client->adapter;
 #line 277
-      __cil_tmp51 = __cil_tmp50 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp13);
 #line 277
-      __cil_tmp52 = *((struct i2c_adapter **)__cil_tmp51);
+      __cil_tmp14 = client->driver;
 #line 277
-      tmp___9 = i2c_adapter_id(__cil_tmp52);
+      __cil_tmp15 = __cil_tmp14->driver.name;
 #line 277
-      __cil_tmp53 = (unsigned long )client;
+      __cil_tmp16 = client->addr;
 #line 277
-      __cil_tmp54 = __cil_tmp53 + 32;
+      __cil_tmp17 = (int )__cil_tmp16;
 #line 277
-      __cil_tmp55 = *((struct i2c_driver **)__cil_tmp54);
+      __cil_tmp18 = state->acb;
 #line 277
-      __cil_tmp56 = (unsigned long )__cil_tmp55;
-#line 277
-      __cil_tmp57 = __cil_tmp56 + 80;
-#line 277
-      __cil_tmp58 = *((char const   **)__cil_tmp57);
-#line 277
-      __cil_tmp59 = (unsigned long )client;
-#line 277
-      __cil_tmp60 = __cil_tmp59 + 2;
-#line 277
-      __cil_tmp61 = *((unsigned short *)__cil_tmp60);
-#line 277
-      __cil_tmp62 = (int )__cil_tmp61;
-#line 277
-      __cil_tmp63 = in * 8UL;
-#line 277
-      __cil_tmp64 = (unsigned long )(scart_names) + __cil_tmp63;
-#line 277
-      __cil_tmp65 = *((char **)__cil_tmp64);
-#line 277
-      __cil_tmp66 = (unsigned long )state;
-#line 277
-      __cil_tmp67 = __cil_tmp66 + 2084;
-#line 277
-      __cil_tmp68 = *((int *)__cil_tmp67);
-#line 277
-      printk("<7>%s %d-%04x: scart switch: %s => %d (ACB=0x%04x)\n", __cil_tmp58,
-             tmp___9, __cil_tmp62, __cil_tmp65, out, __cil_tmp68);
+      printk("<7>%s %d-%04x: scart switch: %s => %d (ACB=0x%04x)\n", __cil_tmp15,
+             tmp___9, __cil_tmp17, scart_names[in], out, __cil_tmp18);
       }
     } else {
 
     }
-    }
+#line 277
     goto while_break;
   }
-  while_5_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 279
-  __cil_tmp69 = (unsigned long )state;
+  __cil_tmp19 = state->acb;
 #line 279
-  __cil_tmp70 = __cil_tmp69 + 2084;
-#line 279
-  __cil_tmp71 = *((int *)__cil_tmp70);
-#line 279
-  msp_write_dsp(client, 19, __cil_tmp71);
+  msp_write_dsp(client, 19, __cil_tmp19);
   }
-  {
 #line 282
-  __cil_tmp72 = (unsigned long )state;
-#line 282
-  __cil_tmp73 = __cil_tmp72 + 2045;
-#line 282
-  if (*((u8 *)__cil_tmp73)) {
+  if (state->has_i2s_conf) {
     {
 #line 283
-    __cil_tmp74 = (unsigned long )state;
+    __cil_tmp20 = state->i2s_mode;
 #line 283
-    __cil_tmp75 = __cil_tmp74 + 2092;
-#line 283
-    __cil_tmp76 = *((int *)__cil_tmp75);
-#line 283
-    msp_write_dem(client, 64, __cil_tmp76);
+    msp_write_dem(client, 64, __cil_tmp20);
     }
   } else {
 
-  }
   }
 #line 284
   return;
@@ -7864,18 +6998,12 @@ static void msp_wake_thread(struct i2c_client *client )
   struct msp_state *tmp___8 ;
   struct i2c_client  const  *__cil_tmp5 ;
   struct v4l2_subdev *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
+  struct task_struct *__cil_tmp7 ;
   unsigned long __cil_tmp8 ;
-  struct task_struct *__cil_tmp9 ;
+  void *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  void *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  wait_queue_head_t *__cil_tmp17 ;
-  void *__cil_tmp18 ;
+  wait_queue_head_t *__cil_tmp11 ;
+  void *__cil_tmp12 ;
 
   {
   {
@@ -7892,19 +7020,15 @@ static void msp_wake_thread(struct i2c_client *client )
   }
   {
 #line 292
-  __cil_tmp7 = (unsigned long )state;
+  __cil_tmp7 = state->kthread;
 #line 292
-  __cil_tmp8 = __cil_tmp7 + 2152;
+  __cil_tmp8 = (unsigned long )__cil_tmp7;
 #line 292
-  __cil_tmp9 = *((struct task_struct **)__cil_tmp8);
+  __cil_tmp9 = (void *)0;
 #line 292
   __cil_tmp10 = (unsigned long )__cil_tmp9;
 #line 292
-  __cil_tmp11 = (void *)0;
-#line 292
-  __cil_tmp12 = (unsigned long )__cil_tmp11;
-#line 292
-  if (__cil_tmp12 == __cil_tmp10) {
+  if (__cil_tmp10 == __cil_tmp8) {
 #line 293
     return;
   } else {
@@ -7915,21 +7039,13 @@ static void msp_wake_thread(struct i2c_client *client )
 #line 294
   state->watch_stereo = 0U;
 #line 295
-  __cil_tmp13 = (unsigned long )state;
-#line 295
-  __cil_tmp14 = __cil_tmp13 + 2248;
-#line 295
-  *((unsigned int *)__cil_tmp14) = 1U;
+  state->restart = 1U;
 #line 296
-  __cil_tmp15 = (unsigned long )state;
+  __cil_tmp11 = & state->wq;
 #line 296
-  __cil_tmp16 = __cil_tmp15 + 2160;
+  __cil_tmp12 = (void *)0;
 #line 296
-  __cil_tmp17 = (wait_queue_head_t *)__cil_tmp16;
-#line 296
-  __cil_tmp18 = (void *)0;
-#line 296
-  __wake_up(__cil_tmp17, 1U, 1, __cil_tmp18);
+  __wake_up(__cil_tmp11, 1U, 1, __cil_tmp12);
   }
 #line 297
   return;
@@ -7951,176 +7067,155 @@ int msp_sleep(struct msp_state *state , int timeout )
   struct task_struct *tmp___13 ;
   unsigned long tmp___14 ;
   int tmp___15 ;
-  wait_queue_t *__cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  void *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  void *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  wait_queue_head_t *__cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  int __cil_tmp31 ;
-  long volatile   *__cil_tmp32 ;
-  long volatile   *__cil_tmp33 ;
-  long volatile   *__cil_tmp34 ;
-  long volatile   *__cil_tmp35 ;
-  unsigned int __cil_tmp36 ;
-  unsigned int __cil_tmp37 ;
-  long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  wait_queue_head_t *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned int __cil_tmp44 ;
+  void *__cil_tmp17 ;
+  void *__cil_tmp18 ;
+  wait_queue_head_t *__cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  long volatile   *__cil_tmp24 ;
+  long volatile   *__cil_tmp25 ;
+  long volatile   *__cil_tmp26 ;
+  long volatile   *__cil_tmp27 ;
+  unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  long __cil_tmp30 ;
+  wait_queue_head_t *__cil_tmp31 ;
+  unsigned int __cil_tmp32 ;
 
   {
   {
 #line 301
   tmp___7 = get_current();
 #line 301
-  __cil_tmp17 = & wait;
+  wait.flags = 0U;
 #line 301
-  *((unsigned int *)__cil_tmp17) = 0U;
+  wait.private = (void *)tmp___7;
 #line 301
-  __cil_tmp18 = (unsigned long )(& wait) + 8;
+  wait.func = & default_wake_function;
 #line 301
-  *((void **)__cil_tmp18) = (void *)tmp___7;
+  __cil_tmp17 = (void *)0;
 #line 301
-  __cil_tmp19 = (unsigned long )(& wait) + 16;
+  wait.task_list.next = (struct list_head *)__cil_tmp17;
 #line 301
-  *((int (**)(wait_queue_t *wait , unsigned int mode , int flags , void *key ))__cil_tmp19) = & default_wake_function;
+  __cil_tmp18 = (void *)0;
 #line 301
-  __cil_tmp20 = (unsigned long )(& wait) + 24;
-#line 301
-  __cil_tmp21 = (void *)0;
-#line 301
-  *((struct list_head **)__cil_tmp20) = (struct list_head *)__cil_tmp21;
-#line 301
-  __cil_tmp22 = 24 + 8;
-#line 301
-  __cil_tmp23 = (unsigned long )(& wait) + __cil_tmp22;
-#line 301
-  __cil_tmp24 = (void *)0;
-#line 301
-  *((struct list_head **)__cil_tmp23) = (struct list_head *)__cil_tmp24;
+  wait.task_list.prev = (struct list_head *)__cil_tmp18;
 #line 303
-  __cil_tmp25 = (unsigned long )state;
+  __cil_tmp19 = & state->wq;
 #line 303
-  __cil_tmp26 = __cil_tmp25 + 2160;
-#line 303
-  __cil_tmp27 = (wait_queue_head_t *)__cil_tmp26;
-#line 303
-  add_wait_queue(__cil_tmp27, & wait);
+  add_wait_queue(__cil_tmp19, & wait);
 #line 304
   tmp___15 = kthread_should_stop();
   }
 #line 304
   if (tmp___15) {
 
-  } else {
+  } else
 #line 305
-    if (timeout < 0) {
+  if (timeout < 0) {
+    {
+#line 306
+    while (1) {
+      while_continue: /* CIL Label */ ;
+#line 306
+      __x = (long volatile   )1;
       {
 #line 306
-      while (1) {
-        while_6_continue: /* CIL Label */ ;
+      __cil_tmp20 = (int )8UL;
 #line 306
-        __x = (long volatile   )1;
+      if (__cil_tmp20 == 1) {
+#line 306
+        goto case_1;
+      } else {
         {
 #line 306
-        __cil_tmp28 = (int )8UL;
+        __cil_tmp21 = (int )8UL;
 #line 306
-        if (__cil_tmp28 == 1) {
-          goto case_1;
+        if (__cil_tmp21 == 2) {
+#line 306
+          goto case_2;
         } else {
           {
 #line 306
-          __cil_tmp29 = (int )8UL;
+          __cil_tmp22 = (int )8UL;
 #line 306
-          if (__cil_tmp29 == 2) {
-            goto case_2;
+          if (__cil_tmp22 == 4) {
+#line 306
+            goto case_4;
           } else {
             {
 #line 306
-            __cil_tmp30 = (int )8UL;
+            __cil_tmp23 = (int )8UL;
 #line 306
-            if (__cil_tmp30 == 4) {
-              goto case_4;
+            if (__cil_tmp23 == 8) {
+#line 306
+              goto case_8;
             } else {
-              {
 #line 306
-              __cil_tmp31 = (int )8UL;
+              goto switch_default;
 #line 306
-              if (__cil_tmp31 == 8) {
-                goto case_8;
-              } else {
-                goto switch_default;
+              if (0) {
+                case_1: 
+                {
 #line 306
-                if (0) {
-                  case_1: 
-                  {
+                tmp___10 = get_current();
 #line 306
-                  tmp___10 = get_current();
+                __cil_tmp24 = & tmp___10->state;
 #line 306
-                  __cil_tmp32 = (long volatile   *)tmp___10;
+                __ptr = (u8 volatile   *)__cil_tmp24;
 #line 306
-                  __ptr = (u8 volatile   *)__cil_tmp32;
-#line 306
-                  __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
-                  }
-                  goto switch_break;
-                  case_2: 
-                  {
-#line 306
-                  tmp___11 = get_current();
-#line 306
-                  __cil_tmp33 = (long volatile   *)tmp___11;
-#line 306
-                  __ptr___0 = (u16 volatile   *)__cil_tmp33;
-#line 306
-                  __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
-                  }
-                  goto switch_break;
-                  case_4: 
-                  {
-#line 306
-                  tmp___12 = get_current();
-#line 306
-                  __cil_tmp34 = (long volatile   *)tmp___12;
-#line 306
-                  __ptr___1 = (u32 volatile   *)__cil_tmp34;
-#line 306
-                  __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
-                  }
-                  goto switch_break;
-                  case_8: 
-                  {
-#line 306
-                  tmp___13 = get_current();
-#line 306
-                  __cil_tmp35 = (long volatile   *)tmp___13;
-#line 306
-                  __ptr___2 = (u64 volatile   *)__cil_tmp35;
-#line 306
-                  __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
-                  }
-                  goto switch_break;
-                  switch_default: 
-                  {
-#line 306
-                  __xchg_wrong_size();
-                  }
-                } else {
-                  switch_break: ;
+                __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
                 }
-              }
+#line 306
+                goto switch_break;
+                case_2: 
+                {
+#line 306
+                tmp___11 = get_current();
+#line 306
+                __cil_tmp25 = & tmp___11->state;
+#line 306
+                __ptr___0 = (u16 volatile   *)__cil_tmp25;
+#line 306
+                __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+                }
+#line 306
+                goto switch_break;
+                case_4: 
+                {
+#line 306
+                tmp___12 = get_current();
+#line 306
+                __cil_tmp26 = & tmp___12->state;
+#line 306
+                __ptr___1 = (u32 volatile   *)__cil_tmp26;
+#line 306
+                __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+                }
+#line 306
+                goto switch_break;
+                case_8: 
+                {
+#line 306
+                tmp___13 = get_current();
+#line 306
+                __cil_tmp27 = & tmp___13->state;
+#line 306
+                __ptr___2 = (u64 volatile   *)__cil_tmp27;
+#line 306
+                __asm__  volatile   ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+                }
+#line 306
+                goto switch_break;
+                switch_default: 
+                {
+#line 306
+                __xchg_wrong_size();
+                }
+              } else {
+                switch_break: ;
               }
             }
             }
@@ -8128,52 +7223,46 @@ int msp_sleep(struct msp_state *state , int timeout )
           }
         }
         }
-        goto while_break;
       }
-      while_6_break: /* CIL Label */ ;
       }
+#line 306
+      goto while_break;
+    }
+    while_break___0: /* CIL Label */ ;
+    }
 
-      while_break: 
-      {
+    while_break: 
+    {
 #line 307
-      schedule();
-      }
-    } else {
-      {
+    schedule();
+    }
+  } else {
+    {
 #line 309
-      __cil_tmp36 = (unsigned int const   )timeout;
+    __cil_tmp28 = (unsigned int const   )timeout;
 #line 309
-      __cil_tmp37 = (unsigned int )__cil_tmp36;
+    __cil_tmp29 = (unsigned int )__cil_tmp28;
 #line 309
-      tmp___14 = msecs_to_jiffies(__cil_tmp37);
+    tmp___14 = msecs_to_jiffies(__cil_tmp29);
 #line 309
-      __cil_tmp38 = (long )tmp___14;
+    __cil_tmp30 = (long )tmp___14;
 #line 309
-      schedule_timeout_interruptible(__cil_tmp38);
-      }
+    schedule_timeout_interruptible(__cil_tmp30);
     }
   }
   {
 #line 314
-  __cil_tmp39 = (unsigned long )state;
+  __cil_tmp31 = & state->wq;
 #line 314
-  __cil_tmp40 = __cil_tmp39 + 2160;
-#line 314
-  __cil_tmp41 = (wait_queue_head_t *)__cil_tmp40;
-#line 314
-  remove_wait_queue(__cil_tmp41, & wait);
+  remove_wait_queue(__cil_tmp31, & wait);
 #line 315
   try_to_freeze();
   }
   {
 #line 316
-  __cil_tmp42 = (unsigned long )state;
+  __cil_tmp32 = state->restart;
 #line 316
-  __cil_tmp43 = __cil_tmp42 + 2248;
-#line 316
-  __cil_tmp44 = *((unsigned int *)__cil_tmp43);
-#line 316
-  return ((int )__cil_tmp44);
+  return ((int )__cil_tmp32);
   }
 }
 }
@@ -8192,92 +7281,40 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
   int tmp___13 ;
   struct v4l2_subdev *__cil_tmp13 ;
   struct v4l2_subdev  const  *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  u32 __cil_tmp15 ;
+  int __cil_tmp16 ;
+  u32 __cil_tmp17 ;
+  int __cil_tmp18 ;
   u32 __cil_tmp19 ;
   int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
+  u32 __cil_tmp21 ;
+  int __cil_tmp22 ;
   u32 __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  u32 __cil_tmp27 ;
+  int __cil_tmp25 ;
+  struct v4l2_ctrl *__cil_tmp26 ;
+  s32 __cil_tmp27 ;
   int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  u32 __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  u32 __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  int __cil_tmp29 ;
+  struct v4l2_ctrl *__cil_tmp30 ;
+  struct i2c_adapter *__cil_tmp31 ;
+  struct i2c_driver *__cil_tmp32 ;
+  char const   *__cil_tmp33 ;
+  unsigned short __cil_tmp34 ;
+  int __cil_tmp35 ;
+  struct v4l2_ctrl *__cil_tmp36 ;
+  s32 __cil_tmp37 ;
+  int __cil_tmp38 ;
   int __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct v4l2_ctrl *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  s32 __cil_tmp46 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  u8 __cil_tmp46 ;
   int __cil_tmp47 ;
   int __cil_tmp48 ;
-  int *__cil_tmp49 ;
-  int __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  struct v4l2_ctrl *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  struct i2c_adapter *__cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  struct i2c_driver *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  char const   *__cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned short __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  struct v4l2_ctrl *__cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  s32 __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  int __cil_tmp82 ;
-  int __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int __cil_tmp87 ;
-  int __cil_tmp88 ;
-  int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  int __cil_tmp94 ;
-  int __cil_tmp95 ;
-  unsigned char __cil_tmp96 ;
-  int __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  int __cil_tmp100 ;
 
   {
   {
@@ -8286,7 +7323,7 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
 #line 323
   state = tmp___7;
 #line 324
-  __cil_tmp13 = (struct v4l2_subdev *)state;
+  __cil_tmp13 = & state->sd;
 #line 324
   __cil_tmp14 = (struct v4l2_subdev  const  *)__cil_tmp13;
 #line 324
@@ -8294,155 +7331,102 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
 #line 324
   client = (struct i2c_client *)tmp___8;
 #line 325
-  __cil_tmp15 = (unsigned long )ctrl;
-#line 325
-  __cil_tmp16 = __cil_tmp15 + 136;
-#line 325
-  val = *((s32 *)__cil_tmp16);
+  val = ctrl->__annonCompField51.val;
   }
   {
 #line 328
-  __cil_tmp17 = (unsigned long )ctrl;
+  __cil_tmp15 = ctrl->id;
 #line 328
-  __cil_tmp18 = __cil_tmp17 + 48;
+  __cil_tmp16 = (int )__cil_tmp15;
 #line 328
-  __cil_tmp19 = *((u32 *)__cil_tmp18);
+  if (__cil_tmp16 == 9963781) {
 #line 328
-  __cil_tmp20 = (int )__cil_tmp19;
-#line 328
-  if (__cil_tmp20 == 9963781) {
     goto case_9963781;
   } else {
     {
 #line 349
-    __cil_tmp21 = (unsigned long )ctrl;
+    __cil_tmp17 = ctrl->id;
 #line 349
-    __cil_tmp22 = __cil_tmp21 + 48;
+    __cil_tmp18 = (int )__cil_tmp17;
 #line 349
-    __cil_tmp23 = *((u32 *)__cil_tmp22);
+    if (__cil_tmp18 == 9963783) {
 #line 349
-    __cil_tmp24 = (int )__cil_tmp23;
-#line 349
-    if (__cil_tmp24 == 9963783) {
       goto case_9963783;
     } else {
       {
 #line 356
-      __cil_tmp25 = (unsigned long )ctrl;
+      __cil_tmp19 = ctrl->id;
 #line 356
-      __cil_tmp26 = __cil_tmp25 + 48;
+      __cil_tmp20 = (int )__cil_tmp19;
 #line 356
-      __cil_tmp27 = *((u32 *)__cil_tmp26);
+      if (__cil_tmp20 == 9963784) {
 #line 356
-      __cil_tmp28 = (int )__cil_tmp27;
-#line 356
-      if (__cil_tmp28 == 9963784) {
         goto case_9963784;
       } else {
         {
 #line 363
-        __cil_tmp29 = (unsigned long )ctrl;
+        __cil_tmp21 = ctrl->id;
 #line 363
-        __cil_tmp30 = __cil_tmp29 + 48;
+        __cil_tmp22 = (int )__cil_tmp21;
 #line 363
-        __cil_tmp31 = *((u32 *)__cil_tmp30);
+        if (__cil_tmp22 == 9963786) {
 #line 363
-        __cil_tmp32 = (int )__cil_tmp31;
-#line 363
-        if (__cil_tmp32 == 9963786) {
           goto case_9963786;
         } else {
           {
 #line 370
-          __cil_tmp33 = (unsigned long )ctrl;
+          __cil_tmp23 = ctrl->id;
 #line 370
-          __cil_tmp34 = __cil_tmp33 + 48;
+          __cil_tmp24 = (int )__cil_tmp23;
 #line 370
-          __cil_tmp35 = *((u32 *)__cil_tmp34);
+          if (__cil_tmp24 == 9963782) {
 #line 370
-          __cil_tmp36 = (int )__cil_tmp35;
-#line 370
-          if (__cil_tmp36 == 9963782) {
             goto case_9963782;
           } else {
+#line 377
             goto switch_default;
 #line 327
             if (0) {
               case_9963781: 
 #line 330
-              __cil_tmp37 = (unsigned long )state;
+              __cil_tmp25 = state->scan_in_progress;
 #line 330
-              __cil_tmp38 = __cil_tmp37 + 2144;
+              __cil_tmp26 = state->__annonCompField52.muted;
 #line 330
-              __cil_tmp39 = *((int *)__cil_tmp38);
+              __cil_tmp27 = __cil_tmp26->__annonCompField51.val;
 #line 330
-              __cil_tmp40 = 2128 + 8;
-#line 330
-              __cil_tmp41 = (unsigned long )state;
-#line 330
-              __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
-#line 330
-              __cil_tmp43 = *((struct v4l2_ctrl **)__cil_tmp42);
-#line 330
-              __cil_tmp44 = (unsigned long )__cil_tmp43;
-#line 330
-              __cil_tmp45 = __cil_tmp44 + 136;
-#line 330
-              __cil_tmp46 = *((s32 *)__cil_tmp45);
-#line 330
-              reallymuted = __cil_tmp46 | __cil_tmp39;
+              reallymuted = __cil_tmp27 | __cil_tmp25;
 #line 332
               if (! reallymuted) {
 #line 333
-                __cil_tmp47 = val * 127;
+                __cil_tmp28 = val * 127;
 #line 333
-                __cil_tmp48 = __cil_tmp47 / 65535;
+                __cil_tmp29 = __cil_tmp28 / 65535;
 #line 333
-                val = __cil_tmp48 << 8;
+                val = __cil_tmp29 << 8;
               } else {
 
               }
               {
 #line 335
               while (1) {
-                while_7_continue: /* CIL Label */ ;
+                while_continue: /* CIL Label */ ;
 
-                {
 #line 335
-                __cil_tmp49 = & msp_debug;
+                if (msp_debug >= 1) {
 #line 335
-                __cil_tmp50 = *__cil_tmp49;
-#line 335
-                if (__cil_tmp50 >= 1) {
-                  {
-#line 335
-                  __cil_tmp51 = (unsigned long )state;
-#line 335
-                  __cil_tmp52 = __cil_tmp51 + 2144;
-#line 335
-                  if (*((int *)__cil_tmp52)) {
+                  if (state->scan_in_progress) {
 #line 335
                     tmp___9 = "yes";
                   } else {
 #line 335
                     tmp___9 = "no";
                   }
-                  }
                   {
 #line 335
-                  __cil_tmp53 = 2128 + 8;
+                  __cil_tmp30 = state->__annonCompField52.muted;
 #line 335
-                  __cil_tmp54 = (unsigned long )state;
-#line 335
-                  __cil_tmp55 = __cil_tmp54 + __cil_tmp53;
-#line 335
-                  __cil_tmp56 = *((struct v4l2_ctrl **)__cil_tmp55);
-#line 335
-                  __cil_tmp57 = (unsigned long )__cil_tmp56;
-#line 335
-                  __cil_tmp58 = __cil_tmp57 + 136;
-#line 335
-                  if (*((s32 *)__cil_tmp58)) {
+                  if (__cil_tmp30->__annonCompField51.val) {
 #line 335
                     tmp___10 = "on";
                   } else {
@@ -8452,56 +7436,32 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
                   }
                   {
 #line 335
-                  __cil_tmp59 = (unsigned long )client;
+                  __cil_tmp31 = client->adapter;
 #line 335
-                  __cil_tmp60 = __cil_tmp59 + 24;
+                  tmp___11 = i2c_adapter_id(__cil_tmp31);
 #line 335
-                  __cil_tmp61 = *((struct i2c_adapter **)__cil_tmp60);
+                  __cil_tmp32 = client->driver;
 #line 335
-                  tmp___11 = i2c_adapter_id(__cil_tmp61);
+                  __cil_tmp33 = __cil_tmp32->driver.name;
 #line 335
-                  __cil_tmp62 = (unsigned long )client;
+                  __cil_tmp34 = client->addr;
 #line 335
-                  __cil_tmp63 = __cil_tmp62 + 32;
+                  __cil_tmp35 = (int )__cil_tmp34;
 #line 335
-                  __cil_tmp64 = *((struct i2c_driver **)__cil_tmp63);
+                  __cil_tmp36 = state->__annonCompField52.volume;
 #line 335
-                  __cil_tmp65 = (unsigned long )__cil_tmp64;
+                  __cil_tmp37 = __cil_tmp36->__annonCompField51.val;
 #line 335
-                  __cil_tmp66 = __cil_tmp65 + 80;
-#line 335
-                  __cil_tmp67 = *((char const   **)__cil_tmp66);
-#line 335
-                  __cil_tmp68 = (unsigned long )client;
-#line 335
-                  __cil_tmp69 = __cil_tmp68 + 2;
-#line 335
-                  __cil_tmp70 = *((unsigned short *)__cil_tmp69);
-#line 335
-                  __cil_tmp71 = (int )__cil_tmp70;
-#line 335
-                  __cil_tmp72 = (unsigned long )state;
-#line 335
-                  __cil_tmp73 = __cil_tmp72 + 2128;
-#line 335
-                  __cil_tmp74 = *((struct v4l2_ctrl **)__cil_tmp73);
-#line 335
-                  __cil_tmp75 = (unsigned long )__cil_tmp74;
-#line 335
-                  __cil_tmp76 = __cil_tmp75 + 136;
-#line 335
-                  __cil_tmp77 = *((s32 *)__cil_tmp76);
-#line 335
-                  printk("<7>%s %d-%04x: mute=%s scanning=%s volume=%d\n", __cil_tmp67,
-                         tmp___11, __cil_tmp71, tmp___10, tmp___9, __cil_tmp77);
+                  printk("<7>%s %d-%04x: mute=%s scanning=%s volume=%d\n", __cil_tmp33,
+                         tmp___11, __cil_tmp35, tmp___10, tmp___9, __cil_tmp37);
                   }
                 } else {
 
                 }
-                }
+#line 335
                 goto while_break;
               }
-              while_7_break: /* CIL Label */ ;
+              while_break___0: /* CIL Label */ ;
               }
 
               while_break: 
@@ -8521,13 +7481,8 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
 #line 341
               msp_write_dsp(client, 7, tmp___12);
               }
-              {
 #line 342
-              __cil_tmp78 = (unsigned long )state;
-#line 342
-              __cil_tmp79 = __cil_tmp78 + 2044;
-#line 342
-              if (*((u8 *)__cil_tmp79)) {
+              if (state->has_scart2_out_volume) {
 #line 343
                 if (reallymuted) {
 #line 343
@@ -8543,14 +7498,8 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
               } else {
 
               }
-              }
-              {
 #line 344
-              __cil_tmp80 = (unsigned long )state;
-#line 344
-              __cil_tmp81 = __cil_tmp80 + 2038;
-#line 344
-              if (*((u8 *)__cil_tmp81)) {
+              if (state->has_headphones) {
                 {
 #line 345
                 msp_write_dsp(client, 6, val);
@@ -8558,28 +7507,23 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
               } else {
 
               }
-              }
+#line 346
               goto switch_break;
               case_9963783: 
               {
 #line 350
-              __cil_tmp82 = val - 32768;
+              __cil_tmp38 = val - 32768;
 #line 350
-              __cil_tmp83 = __cil_tmp82 * 96;
+              __cil_tmp39 = __cil_tmp38 * 96;
 #line 350
-              __cil_tmp84 = __cil_tmp83 / 65535;
+              __cil_tmp40 = __cil_tmp39 / 65535;
 #line 350
-              val = __cil_tmp84 << 8;
+              val = __cil_tmp40 << 8;
 #line 351
               msp_write_dsp(client, 2, val);
               }
-              {
 #line 352
-              __cil_tmp85 = (unsigned long )state;
-#line 352
-              __cil_tmp86 = __cil_tmp85 + 2038;
-#line 352
-              if (*((u8 *)__cil_tmp86)) {
+              if (state->has_headphones) {
                 {
 #line 353
                 msp_write_dsp(client, 49, val);
@@ -8587,28 +7531,23 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
               } else {
 
               }
-              }
+#line 354
               goto switch_break;
               case_9963784: 
               {
 #line 357
-              __cil_tmp87 = val - 32768;
+              __cil_tmp41 = val - 32768;
 #line 357
-              __cil_tmp88 = __cil_tmp87 * 96;
+              __cil_tmp42 = __cil_tmp41 * 96;
 #line 357
-              __cil_tmp89 = __cil_tmp88 / 65535;
+              __cil_tmp43 = __cil_tmp42 / 65535;
 #line 357
-              val = __cil_tmp89 << 8;
+              val = __cil_tmp43 << 8;
 #line 358
               msp_write_dsp(client, 3, val);
               }
-              {
 #line 359
-              __cil_tmp90 = (unsigned long )state;
-#line 359
-              __cil_tmp91 = __cil_tmp90 + 2038;
-#line 359
-              if (*((u8 *)__cil_tmp91)) {
+              if (state->has_headphones) {
                 {
 #line 360
                 msp_write_dsp(client, 50, val);
@@ -8616,7 +7555,7 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
               } else {
 
               }
-              }
+#line 361
               goto switch_break;
               case_9963786: 
 #line 364
@@ -8631,13 +7570,8 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
 #line 365
               msp_write_dsp(client, 4, val);
               }
-              {
 #line 366
-              __cil_tmp92 = (unsigned long )state;
-#line 366
-              __cil_tmp93 = __cil_tmp92 + 2038;
-#line 366
-              if (*((u8 *)__cil_tmp93)) {
+              if (state->has_headphones) {
                 {
 #line 367
                 msp_write_dsp(client, 51, val);
@@ -8645,40 +7579,35 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
               } else {
 
               }
-              }
+#line 368
               goto switch_break;
               case_9963782: 
               {
 #line 371
-              __cil_tmp94 = val / 256;
+              __cil_tmp44 = val / 256;
 #line 371
-              __cil_tmp95 = __cil_tmp94 - 128;
+              __cil_tmp45 = __cil_tmp44 - 128;
 #line 371
-              __cil_tmp96 = (unsigned char )__cil_tmp95;
+              __cil_tmp46 = (u8 )__cil_tmp45;
 #line 371
-              val = (int )__cil_tmp96;
+              val = (int )__cil_tmp46;
 #line 372
-              __cil_tmp97 = val << 8;
+              __cil_tmp47 = val << 8;
 #line 372
-              msp_write_dsp(client, 1, __cil_tmp97);
+              msp_write_dsp(client, 1, __cil_tmp47);
               }
-              {
 #line 373
-              __cil_tmp98 = (unsigned long )state;
-#line 373
-              __cil_tmp99 = __cil_tmp98 + 2038;
-#line 373
-              if (*((u8 *)__cil_tmp99)) {
+              if (state->has_headphones) {
                 {
 #line 374
-                __cil_tmp100 = val << 8;
+                __cil_tmp48 = val << 8;
 #line 374
-                msp_write_dsp(client, 48, __cil_tmp100);
+                msp_write_dsp(client, 48, __cil_tmp48);
                 }
               } else {
 
               }
-              }
+#line 375
               goto switch_break;
               switch_default: 
 #line 378
@@ -8702,112 +7631,40 @@ static int msp_s_ctrl(struct v4l2_ctrl *ctrl )
 }
 #line 383 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 void msp_update_volume(struct msp_state *state ) 
-{ unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
+{ struct v4l2_ctrl *__cil_tmp2 ;
+  struct v4l2_ctrl *__cil_tmp3 ;
   struct v4l2_ctrl *__cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
+  struct v4l2_ctrl *__cil_tmp5 ;
+  struct v4l2_ctrl *__cil_tmp6 ;
   struct v4l2_ctrl *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  struct v4l2_ctrl *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  struct v4l2_ctrl *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct v4l2_ctrl *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  struct v4l2_ctrl *__cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  struct v4l2_ctrl *__cil_tmp32 ;
+  struct v4l2_ctrl *__cil_tmp8 ;
 
   {
   {
 #line 386
-  __cil_tmp2 = (unsigned long )state;
+  __cil_tmp2 = state->__annonCompField52.volume;
 #line 386
-  __cil_tmp3 = __cil_tmp2 + 2128;
-#line 386
-  __cil_tmp4 = *((struct v4l2_ctrl **)__cil_tmp3);
-#line 386
-  v4l2_ctrl_lock(__cil_tmp4);
+  v4l2_ctrl_lock(__cil_tmp2);
 #line 387
-  __cil_tmp5 = (unsigned long )state;
+  __cil_tmp3 = state->__annonCompField52.volume;
 #line 387
-  __cil_tmp6 = __cil_tmp5 + 2128;
+  __cil_tmp4 = state->__annonCompField52.volume;
 #line 387
-  __cil_tmp7 = *((struct v4l2_ctrl **)__cil_tmp6);
-#line 387
-  __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 387
-  __cil_tmp9 = __cil_tmp8 + 136;
-#line 387
-  __cil_tmp10 = (unsigned long )state;
-#line 387
-  __cil_tmp11 = __cil_tmp10 + 2128;
-#line 387
-  __cil_tmp12 = *((struct v4l2_ctrl **)__cil_tmp11);
-#line 387
-  __cil_tmp13 = (unsigned long )__cil_tmp12;
-#line 387
-  __cil_tmp14 = __cil_tmp13 + 128;
-#line 387
-  *((s32 *)__cil_tmp9) = *((s32 *)__cil_tmp14);
+  __cil_tmp3->__annonCompField51.val = __cil_tmp4->cur.val;
 #line 388
-  __cil_tmp15 = 2128 + 8;
+  __cil_tmp5 = state->__annonCompField52.muted;
 #line 388
-  __cil_tmp16 = (unsigned long )state;
+  __cil_tmp6 = state->__annonCompField52.muted;
 #line 388
-  __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 388
-  __cil_tmp18 = *((struct v4l2_ctrl **)__cil_tmp17);
-#line 388
-  __cil_tmp19 = (unsigned long )__cil_tmp18;
-#line 388
-  __cil_tmp20 = __cil_tmp19 + 136;
-#line 388
-  __cil_tmp21 = 2128 + 8;
-#line 388
-  __cil_tmp22 = (unsigned long )state;
-#line 388
-  __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 388
-  __cil_tmp24 = *((struct v4l2_ctrl **)__cil_tmp23);
-#line 388
-  __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 388
-  __cil_tmp26 = __cil_tmp25 + 128;
-#line 388
-  *((s32 *)__cil_tmp20) = *((s32 *)__cil_tmp26);
+  __cil_tmp5->__annonCompField51.val = __cil_tmp6->cur.val;
 #line 389
-  __cil_tmp27 = (unsigned long )state;
+  __cil_tmp7 = state->__annonCompField52.volume;
 #line 389
-  __cil_tmp28 = __cil_tmp27 + 2128;
-#line 389
-  __cil_tmp29 = *((struct v4l2_ctrl **)__cil_tmp28);
-#line 389
-  msp_s_ctrl(__cil_tmp29);
+  msp_s_ctrl(__cil_tmp7);
 #line 390
-  __cil_tmp30 = (unsigned long )state;
+  __cil_tmp8 = state->__annonCompField52.volume;
 #line 390
-  __cil_tmp31 = __cil_tmp30 + 2128;
-#line 390
-  __cil_tmp32 = *((struct v4l2_ctrl **)__cil_tmp31);
-#line 390
-  v4l2_ctrl_unlock(__cil_tmp32);
+  v4l2_ctrl_unlock(__cil_tmp8);
   }
 #line 391
   return;
@@ -8821,46 +7678,26 @@ static int msp_s_radio(struct v4l2_subdev *sd )
   void *tmp___8 ;
   int tmp___9 ;
   struct v4l2_subdev  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int *__cil_tmp12 ;
+  struct i2c_adapter *__cil_tmp8 ;
+  struct i2c_driver *__cil_tmp9 ;
+  char const   *__cil_tmp10 ;
+  unsigned short __cil_tmp11 ;
+  int __cil_tmp12 ;
   int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct i2c_adapter *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  struct i2c_driver *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  char const   *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned short __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  int __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  float __cil_tmp37 ;
-  double __cil_tmp38 ;
-  float __cil_tmp39 ;
-  float __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
-  float __cil_tmp43 ;
-  double __cil_tmp44 ;
-  float __cil_tmp45 ;
-  float __cil_tmp46 ;
-  int __cil_tmp47 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  float __cil_tmp17 ;
+  double __cil_tmp18 ;
+  float __cil_tmp19 ;
+  float __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  float __cil_tmp23 ;
+  double __cil_tmp24 ;
+  float __cil_tmp25 ;
+  float __cil_tmp26 ;
+  int __cil_tmp27 ;
 
   {
   {
@@ -8875,76 +7712,45 @@ static int msp_s_radio(struct v4l2_subdev *sd )
 #line 397
   client = (struct i2c_client *)tmp___8;
   }
-  {
 #line 399
-  __cil_tmp8 = (unsigned long )state;
-#line 399
-  __cil_tmp9 = __cil_tmp8 + 2052;
-#line 399
-  if (*((int *)__cil_tmp9)) {
+  if (state->radio) {
 #line 400
     return (0);
   } else {
 
   }
-  }
 #line 401
-  __cil_tmp10 = (unsigned long )state;
-#line 401
-  __cil_tmp11 = __cil_tmp10 + 2052;
-#line 401
-  *((int *)__cil_tmp11) = 1;
+  state->radio = 1;
   {
 #line 402
   while (1) {
-    while_8_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 402
-    __cil_tmp12 = & msp_debug;
-#line 402
-    __cil_tmp13 = *__cil_tmp12;
-#line 402
-    if (__cil_tmp13 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 402
-      __cil_tmp14 = (unsigned long )client;
+      __cil_tmp8 = client->adapter;
 #line 402
-      __cil_tmp15 = __cil_tmp14 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp8);
 #line 402
-      __cil_tmp16 = *((struct i2c_adapter **)__cil_tmp15);
+      __cil_tmp9 = client->driver;
 #line 402
-      tmp___9 = i2c_adapter_id(__cil_tmp16);
+      __cil_tmp10 = __cil_tmp9->driver.name;
 #line 402
-      __cil_tmp17 = (unsigned long )client;
+      __cil_tmp11 = client->addr;
 #line 402
-      __cil_tmp18 = __cil_tmp17 + 32;
+      __cil_tmp12 = (int )__cil_tmp11;
 #line 402
-      __cil_tmp19 = *((struct i2c_driver **)__cil_tmp18);
-#line 402
-      __cil_tmp20 = (unsigned long )__cil_tmp19;
-#line 402
-      __cil_tmp21 = __cil_tmp20 + 80;
-#line 402
-      __cil_tmp22 = *((char const   **)__cil_tmp21);
-#line 402
-      __cil_tmp23 = (unsigned long )client;
-#line 402
-      __cil_tmp24 = __cil_tmp23 + 2;
-#line 402
-      __cil_tmp25 = *((unsigned short *)__cil_tmp24);
-#line 402
-      __cil_tmp26 = (int )__cil_tmp25;
-#line 402
-      printk("<7>%s %d-%04x: switching to radio mode\n", __cil_tmp22, tmp___9, __cil_tmp26);
+      printk("<7>%s %d-%04x: switching to radio mode\n", __cil_tmp10, tmp___9, __cil_tmp12);
       }
     } else {
 
     }
-    }
+#line 402
     goto while_break;
   }
-  while_8_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -8952,82 +7758,74 @@ static int msp_s_radio(struct v4l2_subdev *sd )
   state->watch_stereo = 0U;
   {
 #line 405
-  __cil_tmp27 = (unsigned long )state;
+  __cil_tmp13 = state->opmode;
 #line 405
-  __cil_tmp28 = __cil_tmp27 + 2056;
+  if (__cil_tmp13 == 0) {
 #line 405
-  __cil_tmp29 = *((int *)__cil_tmp28);
-#line 405
-  if (__cil_tmp29 == 0) {
     goto case_0;
   } else {
     {
 #line 412
-    __cil_tmp30 = (unsigned long )state;
+    __cil_tmp14 = state->opmode;
 #line 412
-    __cil_tmp31 = __cil_tmp30 + 2056;
+    if (__cil_tmp14 == 1) {
 #line 412
-    __cil_tmp32 = *((int *)__cil_tmp31);
-#line 412
-    if (__cil_tmp32 == 1) {
       goto case_1;
     } else {
       {
 #line 413
-      __cil_tmp33 = (unsigned long )state;
+      __cil_tmp15 = state->opmode;
 #line 413
-      __cil_tmp34 = __cil_tmp33 + 2056;
+      if (__cil_tmp15 == 2) {
 #line 413
-      __cil_tmp35 = *((int *)__cil_tmp34);
-#line 413
-      if (__cil_tmp35 == 2) {
         goto case_1;
-      } else {
+      } else
 #line 404
-        if (0) {
-          case_0: 
-          {
+      if (0) {
+        case_0: 
+        {
 #line 407
-          msp3400c_set_mode(client, 2);
+        msp3400c_set_mode(client, 2);
 #line 408
-          __cil_tmp36 = 1 << 24;
+        __cil_tmp16 = 1 << 24;
 #line 408
-          __cil_tmp37 = (float )__cil_tmp36;
+        __cil_tmp17 = (float )__cil_tmp16;
 #line 408
-          __cil_tmp38 = 10.7 / 18.432;
+        __cil_tmp18 = 10.7 / 18.432;
 #line 408
-          __cil_tmp39 = (float )__cil_tmp38;
+        __cil_tmp19 = (float )__cil_tmp18;
 #line 408
-          __cil_tmp40 = __cil_tmp39 * __cil_tmp37;
+        __cil_tmp20 = __cil_tmp19 * __cil_tmp17;
 #line 408
-          __cil_tmp41 = (int )__cil_tmp40;
+        __cil_tmp21 = (int )__cil_tmp20;
 #line 408
-          __cil_tmp42 = 1 << 24;
+        __cil_tmp22 = 1 << 24;
 #line 408
-          __cil_tmp43 = (float )__cil_tmp42;
+        __cil_tmp23 = (float )__cil_tmp22;
 #line 408
-          __cil_tmp44 = 10.7 / 18.432;
+        __cil_tmp24 = 10.7 / 18.432;
 #line 408
-          __cil_tmp45 = (float )__cil_tmp44;
+        __cil_tmp25 = (float )__cil_tmp24;
 #line 408
-          __cil_tmp46 = __cil_tmp45 * __cil_tmp43;
+        __cil_tmp26 = __cil_tmp25 * __cil_tmp23;
 #line 408
-          __cil_tmp47 = (int )__cil_tmp46;
+        __cil_tmp27 = (int )__cil_tmp26;
 #line 408
-          msp3400c_set_carrier(client, __cil_tmp41, __cil_tmp47);
+        msp3400c_set_carrier(client, __cil_tmp21, __cil_tmp27);
 #line 410
-          msp_update_volume(state);
-          }
-          goto switch_break;
-          case_1: 
-          {
-#line 415
-          msp_wake_thread(client);
-          }
-          goto switch_break;
-        } else {
-          switch_break: ;
+        msp_update_volume(state);
         }
+#line 411
+        goto switch_break;
+        case_1: 
+        {
+#line 415
+        msp_wake_thread(client);
+        }
+#line 416
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
       }
     }
@@ -9068,15 +7866,7 @@ static int msp_s_std(struct v4l2_subdev *sd , v4l2_std_id id )
   int update ;
   int tmp___9 ;
   struct v4l2_subdev  const  *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  v4l2_std_id __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
+  v4l2_std_id __cil_tmp10 ;
 
   {
   {
@@ -9091,25 +7881,16 @@ static int msp_s_std(struct v4l2_subdev *sd , v4l2_std_id id )
 #line 433
   client = (struct i2c_client *)tmp___8;
   }
-  {
 #line 434
-  __cil_tmp10 = (unsigned long )state;
-#line 434
-  __cil_tmp11 = __cil_tmp10 + 2052;
-#line 434
-  if (*((int *)__cil_tmp11)) {
+  if (state->radio) {
 #line 434
     tmp___9 = 1;
   } else {
     {
 #line 434
-    __cil_tmp12 = (unsigned long )state;
+    __cil_tmp10 = state->v4l2_std;
 #line 434
-    __cil_tmp13 = __cil_tmp12 + 2072;
-#line 434
-    __cil_tmp14 = *((v4l2_std_id *)__cil_tmp13);
-#line 434
-    if (__cil_tmp14 != id) {
+    if (__cil_tmp10 != id) {
 #line 434
       tmp___9 = 1;
     } else {
@@ -9118,21 +7899,12 @@ static int msp_s_std(struct v4l2_subdev *sd , v4l2_std_id id )
     }
     }
   }
-  }
 #line 434
   update = tmp___9;
 #line 436
-  __cil_tmp15 = (unsigned long )state;
-#line 436
-  __cil_tmp16 = __cil_tmp15 + 2072;
-#line 436
-  *((v4l2_std_id *)__cil_tmp16) = id;
+  state->v4l2_std = id;
 #line 437
-  __cil_tmp17 = (unsigned long )state;
-#line 437
-  __cil_tmp18 = __cil_tmp17 + 2052;
-#line 437
-  *((int *)__cil_tmp18) = 0;
+  state->radio = 0;
 #line 438
   if (update) {
     {
@@ -9168,35 +7940,19 @@ static int msp_s_routing(struct v4l2_subdev *sd , u32 input , u32 output , u32 c
   unsigned int __cil_tmp22 ;
   u32 __cil_tmp23 ;
   unsigned int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  u32 __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  u32 __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  u32 __cil_tmp25 ;
+  u32 __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u32 __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
   int __cil_tmp35 ;
   int __cil_tmp36 ;
-  u32 __cil_tmp37 ;
-  unsigned int __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  int __cil_tmp48 ;
-  int __cil_tmp49 ;
-  int __cil_tmp50 ;
-  int __cil_tmp51 ;
-  int __cil_tmp52 ;
-  int __cil_tmp53 ;
+  int __cil_tmp37 ;
 
   {
   {
@@ -9235,22 +7991,14 @@ static int msp_s_routing(struct v4l2_subdev *sd , u32 input , u32 output , u32 c
   }
   {
 #line 456
-  __cil_tmp25 = (unsigned long )state;
+  __cil_tmp25 = state->route_in;
 #line 456
-  __cil_tmp26 = __cil_tmp25 + 2108;
-#line 456
-  __cil_tmp27 = *((u32 *)__cil_tmp26);
-#line 456
-  if (__cil_tmp27 == input) {
+  if (__cil_tmp25 == input) {
     {
 #line 456
-    __cil_tmp28 = (unsigned long )state;
+    __cil_tmp26 = state->route_out;
 #line 456
-    __cil_tmp29 = __cil_tmp28 + 2112;
-#line 456
-    __cil_tmp30 = *((u32 *)__cil_tmp29);
-#line 456
-    if (__cil_tmp30 == output) {
+    if (__cil_tmp26 == output) {
 #line 457
       return (0);
     } else {
@@ -9262,41 +8010,34 @@ static int msp_s_routing(struct v4l2_subdev *sd , u32 input , u32 output , u32 c
   }
   }
 #line 458
-  __cil_tmp31 = (unsigned long )state;
-#line 458
-  __cil_tmp32 = __cil_tmp31 + 2108;
-#line 458
-  *((u32 *)__cil_tmp32) = input;
+  state->route_in = input;
 #line 459
-  __cil_tmp33 = (unsigned long )state;
-#line 459
-  __cil_tmp34 = __cil_tmp33 + 2112;
-#line 459
-  *((u32 *)__cil_tmp34) = output;
+  state->route_out = output;
 #line 461
   i = 0;
   {
 #line 461
   while (1) {
-    while_9_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
 #line 461
     if (i < 5) {
 
     } else {
+#line 461
       goto while_break;
     }
     {
 #line 462
-    __cil_tmp35 = i * 4;
+    __cil_tmp27 = i * 4;
 #line 462
-    __cil_tmp36 = 4 + __cil_tmp35;
+    __cil_tmp28 = 4 + __cil_tmp27;
 #line 462
-    __cil_tmp37 = input >> __cil_tmp36;
+    __cil_tmp29 = input >> __cil_tmp28;
 #line 462
-    __cil_tmp38 = __cil_tmp37 & 15U;
+    __cil_tmp30 = __cil_tmp29 & 15U;
 #line 462
-    if (__cil_tmp38 == 0U) {
+    if (__cil_tmp30 == 0U) {
 #line 463
       extern_input = 0;
     } else {
@@ -9306,33 +8047,21 @@ static int msp_s_routing(struct v4l2_subdev *sd , u32 input , u32 output , u32 c
 #line 461
     i = i + 1;
   }
-  while_9_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
 #line 465
   if (extern_input) {
 #line 465
-    __cil_tmp39 = (unsigned long )state;
-#line 465
-    __cil_tmp40 = __cil_tmp39 + 2064;
-#line 465
-    *((int *)__cil_tmp40) = 9;
+    state->mode = 9;
   } else {
 #line 465
-    __cil_tmp41 = (unsigned long )state;
-#line 465
-    __cil_tmp42 = __cil_tmp41 + 2064;
-#line 465
-    *((int *)__cil_tmp42) = 0;
+    state->mode = 0;
   }
   {
 #line 466
-  __cil_tmp43 = (unsigned long )state;
-#line 466
-  __cil_tmp44 = __cil_tmp43 + 2120;
-#line 466
-  *((int *)__cil_tmp44) = 2;
+  state->rxsubchans = 2;
 #line 467
   msp_set_scart(client, sc_in, 0);
 #line 468
@@ -9344,39 +8073,35 @@ static int msp_s_routing(struct v4l2_subdev *sd , u32 input , u32 output , u32 c
   }
   {
 #line 471
-  __cil_tmp45 = (unsigned long )state;
+  __cil_tmp31 = state->opmode;
 #line 471
-  __cil_tmp46 = __cil_tmp45 + 2056;
+  if (__cil_tmp31 == 2) {
 #line 471
-  __cil_tmp47 = *((int *)__cil_tmp46);
-#line 471
-  if (__cil_tmp47 == 2) {
-#line 471
-    reg = (unsigned short)48;
+    reg = (u16 )48;
   } else {
 #line 471
-    reg = (unsigned short)187;
+    reg = (u16 )187;
   }
   }
   {
 #line 472
-  __cil_tmp48 = (int )reg;
+  __cil_tmp32 = (int )reg;
 #line 472
-  tmp___9 = msp_read_dem(client, __cil_tmp48);
+  tmp___9 = msp_read_dem(client, __cil_tmp32);
 #line 472
-  val = (unsigned short )tmp___9;
+  val = (u16 )tmp___9;
 #line 473
-  __cil_tmp49 = (int )reg;
+  __cil_tmp33 = (int )reg;
 #line 473
-  __cil_tmp50 = tuner << 8;
+  __cil_tmp34 = tuner << 8;
 #line 473
-  __cil_tmp51 = (int )val;
+  __cil_tmp35 = (int )val;
 #line 473
-  __cil_tmp52 = __cil_tmp51 & -257;
+  __cil_tmp36 = __cil_tmp35 & -257;
 #line 473
-  __cil_tmp53 = __cil_tmp52 | __cil_tmp50;
+  __cil_tmp37 = __cil_tmp36 | __cil_tmp34;
 #line 473
-  msp_write_dem(client, __cil_tmp49, __cil_tmp53);
+  msp_write_dem(client, __cil_tmp33, __cil_tmp37);
 #line 475
   msp_wake_thread(client);
   }
@@ -9391,31 +8116,13 @@ static int msp_g_tuner(struct v4l2_subdev *sd , struct v4l2_tuner *vt )
   struct i2c_client *client ;
   void *tmp___8 ;
   struct v4l2_subdev  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  enum v4l2_tuner_type __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  int __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  __u32 __cil_tmp32 ;
+  enum v4l2_tuner_type __cil_tmp8 ;
+  unsigned int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  __u32 __cil_tmp14 ;
 
   {
   {
@@ -9432,15 +8139,11 @@ static int msp_g_tuner(struct v4l2_subdev *sd , struct v4l2_tuner *vt )
   }
   {
 #line 484
-  __cil_tmp8 = (unsigned long )vt;
+  __cil_tmp8 = vt->type;
 #line 484
-  __cil_tmp9 = __cil_tmp8 + 36;
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
 #line 484
-  __cil_tmp10 = *((enum v4l2_tuner_type *)__cil_tmp9);
-#line 484
-  __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 484
-  if (__cil_tmp11 != 2U) {
+  if (__cil_tmp9 != 2U) {
 #line 485
     return (0);
   } else {
@@ -9449,22 +8152,14 @@ static int msp_g_tuner(struct v4l2_subdev *sd , struct v4l2_tuner *vt )
   }
   {
 #line 486
-  __cil_tmp12 = (unsigned long )state;
+  __cil_tmp10 = state->radio;
 #line 486
-  __cil_tmp13 = __cil_tmp12 + 2052;
-#line 486
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 486
-  if (! __cil_tmp14) {
+  if (! __cil_tmp10) {
     {
 #line 487
-    __cil_tmp15 = (unsigned long )state;
+    __cil_tmp11 = state->opmode;
 #line 487
-    __cil_tmp16 = __cil_tmp15 + 2056;
-#line 487
-    __cil_tmp17 = *((int *)__cil_tmp16);
-#line 487
-    if (__cil_tmp17 == 2) {
+    if (__cil_tmp11 == 2) {
       {
 #line 488
       msp_detect_stereo(client);
@@ -9474,45 +8169,21 @@ static int msp_g_tuner(struct v4l2_subdev *sd , struct v4l2_tuner *vt )
     }
     }
 #line 489
-    __cil_tmp18 = (unsigned long )vt;
+    __cil_tmp12 = state->rxsubchans;
 #line 489
-    __cil_tmp19 = __cil_tmp18 + 80;
-#line 489
-    __cil_tmp20 = (unsigned long )state;
-#line 489
-    __cil_tmp21 = __cil_tmp20 + 2120;
-#line 489
-    __cil_tmp22 = *((int *)__cil_tmp21);
-#line 489
-    *((__u32 *)__cil_tmp19) = (unsigned int )__cil_tmp22;
+    vt->rxsubchans = (__u32 )__cil_tmp12;
   } else {
 
   }
   }
 #line 491
-  __cil_tmp23 = (unsigned long )vt;
+  __cil_tmp13 = state->audmode;
 #line 491
-  __cil_tmp24 = __cil_tmp23 + 84;
-#line 491
-  __cil_tmp25 = (unsigned long )state;
-#line 491
-  __cil_tmp26 = __cil_tmp25 + 2116;
-#line 491
-  __cil_tmp27 = *((int *)__cil_tmp26);
-#line 491
-  *((__u32 *)__cil_tmp24) = (unsigned int )__cil_tmp27;
+  vt->audmode = (__u32 )__cil_tmp13;
 #line 492
-  __cil_tmp28 = (unsigned long )vt;
+  __cil_tmp14 = vt->capability;
 #line 492
-  __cil_tmp29 = __cil_tmp28 + 68;
-#line 492
-  __cil_tmp30 = (unsigned long )vt;
-#line 492
-  __cil_tmp31 = __cil_tmp30 + 68;
-#line 492
-  __cil_tmp32 = *((__u32 *)__cil_tmp31);
-#line 492
-  *((__u32 *)__cil_tmp29) = __cil_tmp32 | 112U;
+  vt->capability = __cil_tmp14 | 112U;
 #line 494
   return (0);
 }
@@ -9524,20 +8195,10 @@ static int msp_s_tuner(struct v4l2_subdev *sd , struct v4l2_tuner *vt )
   struct i2c_client *client ;
   void *tmp___8 ;
   struct v4l2_subdev  const  *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  __u32 __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned int __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  __u32 __cil_tmp21 ;
+  __u32 __cil_tmp8 ;
+  int __cil_tmp9 ;
+  __u32 __cil_tmp10 ;
+  __u32 __cil_tmp11 ;
 
   {
   {
@@ -9552,36 +8213,22 @@ static int msp_s_tuner(struct v4l2_subdev *sd , struct v4l2_tuner *vt )
 #line 500
   client = (struct i2c_client *)tmp___8;
   }
-  {
 #line 502
-  __cil_tmp8 = (unsigned long )state;
-#line 502
-  __cil_tmp9 = __cil_tmp8 + 2052;
-#line 502
-  if (*((int *)__cil_tmp9)) {
+  if (state->radio) {
 #line 503
     return (0);
   } else {
 
   }
-  }
   {
 #line 504
-  __cil_tmp10 = (unsigned long )vt;
+  __cil_tmp8 = vt->audmode;
 #line 504
-  __cil_tmp11 = __cil_tmp10 + 84;
+  __cil_tmp9 = state->audmode;
 #line 504
-  __cil_tmp12 = *((__u32 *)__cil_tmp11);
+  __cil_tmp10 = (__u32 )__cil_tmp9;
 #line 504
-  __cil_tmp13 = (unsigned long )state;
-#line 504
-  __cil_tmp14 = __cil_tmp13 + 2116;
-#line 504
-  __cil_tmp15 = *((int *)__cil_tmp14);
-#line 504
-  __cil_tmp16 = (unsigned int )__cil_tmp15;
-#line 504
-  if (__cil_tmp16 == __cil_tmp12) {
+  if (__cil_tmp10 == __cil_tmp8) {
 #line 505
     return (0);
   } else {
@@ -9590,17 +8237,9 @@ static int msp_s_tuner(struct v4l2_subdev *sd , struct v4l2_tuner *vt )
   }
   {
 #line 506
-  __cil_tmp17 = (unsigned long )state;
+  __cil_tmp11 = vt->audmode;
 #line 506
-  __cil_tmp18 = __cil_tmp17 + 2116;
-#line 506
-  __cil_tmp19 = (unsigned long )vt;
-#line 506
-  __cil_tmp20 = __cil_tmp19 + 84;
-#line 506
-  __cil_tmp21 = *((__u32 *)__cil_tmp20);
-#line 506
-  *((int *)__cil_tmp18) = (int )__cil_tmp21;
+  state->audmode = (int )__cil_tmp11;
 #line 508
   msp_set_audmode(client);
   }
@@ -9616,27 +8255,13 @@ static int msp_s_i2s_clock_freq(struct v4l2_subdev *sd , u32 freq )
   void *tmp___8 ;
   int tmp___9 ;
   struct v4l2_subdev  const  *__cil_tmp8 ;
-  int *__cil_tmp9 ;
-  int __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  struct i2c_adapter *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  struct i2c_driver *__cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  char const   *__cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned short __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  int __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  struct i2c_adapter *__cil_tmp9 ;
+  struct i2c_driver *__cil_tmp10 ;
+  char const   *__cil_tmp11 ;
+  unsigned short __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
 
   {
   {
@@ -9654,90 +8279,66 @@ static int msp_s_i2s_clock_freq(struct v4l2_subdev *sd , u32 freq )
   {
 #line 517
   while (1) {
-    while_10_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 517
-    __cil_tmp9 = & msp_debug;
-#line 517
-    __cil_tmp10 = *__cil_tmp9;
-#line 517
-    if (__cil_tmp10 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 517
-      __cil_tmp11 = (unsigned long )client;
+      __cil_tmp9 = client->adapter;
 #line 517
-      __cil_tmp12 = __cil_tmp11 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp9);
 #line 517
-      __cil_tmp13 = *((struct i2c_adapter **)__cil_tmp12);
+      __cil_tmp10 = client->driver;
 #line 517
-      tmp___9 = i2c_adapter_id(__cil_tmp13);
+      __cil_tmp11 = __cil_tmp10->driver.name;
 #line 517
-      __cil_tmp14 = (unsigned long )client;
+      __cil_tmp12 = client->addr;
 #line 517
-      __cil_tmp15 = __cil_tmp14 + 32;
+      __cil_tmp13 = (int )__cil_tmp12;
 #line 517
-      __cil_tmp16 = *((struct i2c_driver **)__cil_tmp15);
-#line 517
-      __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 517
-      __cil_tmp18 = __cil_tmp17 + 80;
-#line 517
-      __cil_tmp19 = *((char const   **)__cil_tmp18);
-#line 517
-      __cil_tmp20 = (unsigned long )client;
-#line 517
-      __cil_tmp21 = __cil_tmp20 + 2;
-#line 517
-      __cil_tmp22 = *((unsigned short *)__cil_tmp21);
-#line 517
-      __cil_tmp23 = (int )__cil_tmp22;
-#line 517
-      printk("<7>%s %d-%04x: Setting I2S speed to %d\n", __cil_tmp19, tmp___9, __cil_tmp23,
+      printk("<7>%s %d-%04x: Setting I2S speed to %d\n", __cil_tmp11, tmp___9, __cil_tmp13,
              freq);
       }
     } else {
 
     }
-    }
+#line 517
     goto while_break;
   }
-  while_10_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 520
-  __cil_tmp24 = (int )freq;
+  __cil_tmp14 = (int )freq;
 #line 520
-  if (__cil_tmp24 == 1024000) {
+  if (__cil_tmp14 == 1024000) {
+#line 520
     goto case_1024000;
   } else {
     {
 #line 523
-    __cil_tmp25 = (int )freq;
+    __cil_tmp15 = (int )freq;
 #line 523
-    if (__cil_tmp25 == 2048000) {
+    if (__cil_tmp15 == 2048000) {
+#line 523
       goto case_2048000;
     } else {
+#line 526
       goto switch_default;
 #line 519
       if (0) {
         case_1024000: 
 #line 521
-        __cil_tmp26 = (unsigned long )state;
-#line 521
-        __cil_tmp27 = __cil_tmp26 + 2092;
-#line 521
-        *((int *)__cil_tmp27) = 0;
+        state->i2s_mode = 0;
+#line 522
         goto switch_break;
         case_2048000: 
 #line 524
-        __cil_tmp28 = (unsigned long )state;
-#line 524
-        __cil_tmp29 = __cil_tmp28 + 2092;
-#line 524
-        *((int *)__cil_tmp29) = 1;
+        state->i2s_mode = 1;
+#line 525
         goto switch_break;
         switch_default: 
 #line 527
@@ -9761,19 +8362,13 @@ static int msp_g_chip_ident(struct v4l2_subdev *sd , struct v4l2_dbg_chip_ident 
   void *tmp___8 ;
   int tmp___9 ;
   struct v4l2_subdev  const  *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  int __cil_tmp9 ;
+  u32 __cil_tmp10 ;
   int __cil_tmp11 ;
-  unsigned int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  int __cil_tmp18 ;
-  int __cil_tmp19 ;
-  int __cil_tmp20 ;
-  unsigned int __cil_tmp21 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  u32 __cil_tmp15 ;
 
   {
   {
@@ -9788,33 +8383,21 @@ static int msp_g_chip_ident(struct v4l2_subdev *sd , struct v4l2_dbg_chip_ident 
 #line 535
   client = (struct i2c_client *)tmp___8;
 #line 537
-  __cil_tmp9 = (unsigned long )state;
+  __cil_tmp9 = state->ident;
 #line 537
-  __cil_tmp10 = __cil_tmp9 + 2032;
+  __cil_tmp10 = (u32 )__cil_tmp9;
 #line 537
-  __cil_tmp11 = *((int *)__cil_tmp10);
+  __cil_tmp11 = state->rev2;
 #line 537
-  __cil_tmp12 = (unsigned int )__cil_tmp11;
+  __cil_tmp12 = state->rev1;
 #line 537
-  __cil_tmp13 = (unsigned long )state;
+  __cil_tmp13 = __cil_tmp12 << 16;
 #line 537
-  __cil_tmp14 = __cil_tmp13 + 2028;
+  __cil_tmp14 = __cil_tmp13 | __cil_tmp11;
 #line 537
-  __cil_tmp15 = *((int *)__cil_tmp14);
+  __cil_tmp15 = (u32 )__cil_tmp14;
 #line 537
-  __cil_tmp16 = (unsigned long )state;
-#line 537
-  __cil_tmp17 = __cil_tmp16 + 2024;
-#line 537
-  __cil_tmp18 = *((int *)__cil_tmp17);
-#line 537
-  __cil_tmp19 = __cil_tmp18 << 16;
-#line 537
-  __cil_tmp20 = __cil_tmp19 | __cil_tmp15;
-#line 537
-  __cil_tmp21 = (unsigned int )__cil_tmp20;
-#line 537
-  tmp___9 = v4l2_chip_ident_i2c_client(client, chip, __cil_tmp12, __cil_tmp21);
+  tmp___9 = v4l2_chip_ident_i2c_client(client, chip, __cil_tmp10, __cil_tmp15);
   }
 #line 537
   return (tmp___9);
@@ -9842,202 +8425,76 @@ static int msp_log_status(struct v4l2_subdev *sd )
   int tmp___20 ;
   int tmp___21 ;
   struct v4l2_subdev  const  *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct i2c_adapter *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct i2c_driver *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  char const   *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned short __cil_tmp36 ;
+  int __cil_tmp22 ;
+  struct i2c_adapter *__cil_tmp23 ;
+  struct i2c_driver *__cil_tmp24 ;
+  char const   *__cil_tmp25 ;
+  unsigned short __cil_tmp26 ;
+  int __cil_tmp27 ;
+  char *__cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  char *__cil_tmp31 ;
+  char *__cil_tmp32 ;
+  struct v4l2_ctrl_handler *__cil_tmp33 ;
+  char *__cil_tmp34 ;
+  char const   *__cil_tmp35 ;
+  int __cil_tmp36 ;
   int __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  char *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
   int __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  char *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  char *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  struct v4l2_ctrl_handler *__cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  char *__cil_tmp62 ;
-  char const   *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
+  struct i2c_adapter *__cil_tmp46 ;
+  struct i2c_driver *__cil_tmp47 ;
+  char const   *__cil_tmp48 ;
+  unsigned short __cil_tmp49 ;
+  int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  int __cil_tmp53 ;
+  struct i2c_adapter *__cil_tmp54 ;
+  struct i2c_driver *__cil_tmp55 ;
+  char const   *__cil_tmp56 ;
+  unsigned short __cil_tmp57 ;
+  int __cil_tmp58 ;
+  int __cil_tmp59 ;
+  struct i2c_adapter *__cil_tmp60 ;
+  struct i2c_driver *__cil_tmp61 ;
+  char const   *__cil_tmp62 ;
+  unsigned short __cil_tmp63 ;
+  int __cil_tmp64 ;
+  int __cil_tmp65 ;
   int __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
+  int __cil_tmp67 ;
+  struct i2c_adapter *__cil_tmp68 ;
+  struct i2c_driver *__cil_tmp69 ;
+  char const   *__cil_tmp70 ;
+  unsigned short __cil_tmp71 ;
   int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  int __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
+  struct i2c_adapter *__cil_tmp73 ;
+  struct i2c_driver *__cil_tmp74 ;
+  char const   *__cil_tmp75 ;
+  unsigned short __cil_tmp76 ;
+  int __cil_tmp77 ;
   int __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  int __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
+  struct i2c_adapter *__cil_tmp79 ;
+  struct i2c_driver *__cil_tmp80 ;
+  char const   *__cil_tmp81 ;
+  unsigned short __cil_tmp82 ;
+  int __cil_tmp83 ;
+  u32 __cil_tmp84 ;
+  u32 __cil_tmp85 ;
+  struct i2c_adapter *__cil_tmp86 ;
+  struct i2c_driver *__cil_tmp87 ;
+  char const   *__cil_tmp88 ;
+  unsigned short __cil_tmp89 ;
   int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  int __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  struct i2c_adapter *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  struct i2c_driver *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  char const   *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned short __cil_tmp105 ;
-  int __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  int __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  int __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  struct i2c_adapter *__cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  struct i2c_driver *__cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  char const   *__cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned short __cil_tmp127 ;
-  int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  int __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  struct i2c_adapter *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  struct i2c_driver *__cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  char const   *__cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned short __cil_tmp143 ;
-  int __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  int __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  int __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  struct i2c_adapter *__cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  struct i2c_driver *__cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  char const   *__cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned short __cil_tmp165 ;
-  int __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  struct i2c_adapter *__cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  struct i2c_driver *__cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  char const   *__cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned short __cil_tmp178 ;
-  int __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  int __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  struct i2c_adapter *__cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  struct i2c_driver *__cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  char const   *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned short __cil_tmp194 ;
-  int __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  u32 __cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  u32 __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  struct i2c_adapter *__cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  struct i2c_driver *__cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  char const   *__cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned short __cil_tmp213 ;
-  int __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  int __cil_tmp217 ;
+  int __cil_tmp91 ;
 
   {
   {
@@ -10054,13 +8511,9 @@ static int msp_log_status(struct v4l2_subdev *sd )
   }
   {
 #line 548
-  __cil_tmp22 = (unsigned long )state;
+  __cil_tmp22 = state->opmode;
 #line 548
-  __cil_tmp23 = __cil_tmp22 + 2056;
-#line 548
-  __cil_tmp24 = *((int *)__cil_tmp23);
-#line 548
-  if (__cil_tmp24 == 2) {
+  if (__cil_tmp22 == 2) {
     {
 #line 549
     msp_detect_stereo(client);
@@ -10071,234 +8524,166 @@ static int msp_log_status(struct v4l2_subdev *sd )
   }
   {
 #line 550
-  __cil_tmp25 = (unsigned long )client;
+  __cil_tmp23 = client->adapter;
 #line 550
-  __cil_tmp26 = __cil_tmp25 + 24;
+  tmp___9 = i2c_adapter_id(__cil_tmp23);
 #line 550
-  __cil_tmp27 = *((struct i2c_adapter **)__cil_tmp26);
+  __cil_tmp24 = client->driver;
 #line 550
-  tmp___9 = i2c_adapter_id(__cil_tmp27);
+  __cil_tmp25 = __cil_tmp24->driver.name;
 #line 550
-  __cil_tmp28 = (unsigned long )client;
+  __cil_tmp26 = client->addr;
 #line 550
-  __cil_tmp29 = __cil_tmp28 + 32;
+  __cil_tmp27 = (int )__cil_tmp26;
 #line 550
-  __cil_tmp30 = *((struct i2c_driver **)__cil_tmp29);
+  __cil_tmp28 = & client->name[0];
 #line 550
-  __cil_tmp31 = (unsigned long )__cil_tmp30;
+  __cil_tmp29 = state->rev1;
 #line 550
-  __cil_tmp32 = __cil_tmp31 + 80;
+  __cil_tmp30 = state->rev2;
 #line 550
-  __cil_tmp33 = *((char const   **)__cil_tmp32);
-#line 550
-  __cil_tmp34 = (unsigned long )client;
-#line 550
-  __cil_tmp35 = __cil_tmp34 + 2;
-#line 550
-  __cil_tmp36 = *((unsigned short *)__cil_tmp35);
-#line 550
-  __cil_tmp37 = (int )__cil_tmp36;
-#line 550
-  __cil_tmp38 = 0 * 1UL;
-#line 550
-  __cil_tmp39 = 4 + __cil_tmp38;
-#line 550
-  __cil_tmp40 = (unsigned long )client;
-#line 550
-  __cil_tmp41 = __cil_tmp40 + __cil_tmp39;
-#line 550
-  __cil_tmp42 = (char *)__cil_tmp41;
-#line 550
-  __cil_tmp43 = (unsigned long )state;
-#line 550
-  __cil_tmp44 = __cil_tmp43 + 2024;
-#line 550
-  __cil_tmp45 = *((int *)__cil_tmp44);
-#line 550
-  __cil_tmp46 = (unsigned long )state;
-#line 550
-  __cil_tmp47 = __cil_tmp46 + 2028;
-#line 550
-  __cil_tmp48 = *((int *)__cil_tmp47);
-#line 550
-  printk("<6>%s %d-%04x: %s rev1 = 0x%04x rev2 = 0x%04x\n", __cil_tmp33, tmp___9,
-         __cil_tmp37, __cil_tmp42, __cil_tmp45, __cil_tmp48);
+  printk("<6>%s %d-%04x: %s rev1 = 0x%04x rev2 = 0x%04x\n", __cil_tmp25, tmp___9,
+         __cil_tmp27, __cil_tmp28, __cil_tmp29, __cil_tmp30);
 #line 552
-  __cil_tmp49 = 0 * 1UL;
+  __cil_tmp31 = & prefix[0];
 #line 552
-  __cil_tmp50 = (unsigned long )(prefix) + __cil_tmp49;
+  __cil_tmp32 = & sd->name[0];
 #line 552
-  __cil_tmp51 = (char *)__cil_tmp50;
-#line 552
-  __cil_tmp52 = 0 * 1UL;
-#line 552
-  __cil_tmp53 = 192 + __cil_tmp52;
-#line 552
-  __cil_tmp54 = (unsigned long )sd;
-#line 552
-  __cil_tmp55 = __cil_tmp54 + __cil_tmp53;
-#line 552
-  __cil_tmp56 = (char *)__cil_tmp55;
-#line 552
-  snprintf(__cil_tmp51, 52UL, "%s: Audio:    ", __cil_tmp56);
+  snprintf(__cil_tmp31, 52UL, "%s: Audio:    ", __cil_tmp32);
 #line 553
-  __cil_tmp57 = (unsigned long )state;
+  __cil_tmp33 = & state->hdl;
 #line 553
-  __cil_tmp58 = __cil_tmp57 + 1800;
+  __cil_tmp34 = & prefix[0];
 #line 553
-  __cil_tmp59 = (struct v4l2_ctrl_handler *)__cil_tmp58;
+  __cil_tmp35 = (char const   *)__cil_tmp34;
 #line 553
-  __cil_tmp60 = 0 * 1UL;
-#line 553
-  __cil_tmp61 = (unsigned long )(prefix) + __cil_tmp60;
-#line 553
-  __cil_tmp62 = (char *)__cil_tmp61;
-#line 553
-  __cil_tmp63 = (char const   *)__cil_tmp62;
-#line 553
-  v4l2_ctrl_handler_log_status(__cil_tmp59, __cil_tmp63);
+  v4l2_ctrl_handler_log_status(__cil_tmp33, __cil_tmp35);
   }
   {
 #line 555
-  __cil_tmp64 = (unsigned long )state;
+  __cil_tmp36 = state->mode;
 #line 555
-  __cil_tmp65 = __cil_tmp64 + 2064;
+  if (__cil_tmp36 == 0) {
 #line 555
-  __cil_tmp66 = *((int *)__cil_tmp65);
-#line 555
-  if (__cil_tmp66 == 0) {
     goto case_0;
   } else {
     {
 #line 556
-    __cil_tmp67 = (unsigned long )state;
+    __cil_tmp37 = state->mode;
 #line 556
-    __cil_tmp68 = __cil_tmp67 + 2064;
+    if (__cil_tmp37 == 2) {
 #line 556
-    __cil_tmp69 = *((int *)__cil_tmp68);
-#line 556
-    if (__cil_tmp69 == 2) {
       goto case_2;
     } else {
       {
 #line 557
-      __cil_tmp70 = (unsigned long )state;
+      __cil_tmp38 = state->mode;
 #line 557
-      __cil_tmp71 = __cil_tmp70 + 2064;
+      if (__cil_tmp38 == 3) {
 #line 557
-      __cil_tmp72 = *((int *)__cil_tmp71);
-#line 557
-      if (__cil_tmp72 == 3) {
         goto case_3;
       } else {
         {
 #line 558
-        __cil_tmp73 = (unsigned long )state;
+        __cil_tmp39 = state->mode;
 #line 558
-        __cil_tmp74 = __cil_tmp73 + 2064;
+        if (__cil_tmp39 == 4) {
 #line 558
-        __cil_tmp75 = *((int *)__cil_tmp74);
-#line 558
-        if (__cil_tmp75 == 4) {
           goto case_4;
         } else {
           {
 #line 559
-          __cil_tmp76 = (unsigned long )state;
+          __cil_tmp40 = state->mode;
 #line 559
-          __cil_tmp77 = __cil_tmp76 + 2064;
+          if (__cil_tmp40 == 5) {
 #line 559
-          __cil_tmp78 = *((int *)__cil_tmp77);
-#line 559
-          if (__cil_tmp78 == 5) {
             goto case_5;
           } else {
             {
 #line 560
-            __cil_tmp79 = (unsigned long )state;
+            __cil_tmp41 = state->mode;
 #line 560
-            __cil_tmp80 = __cil_tmp79 + 2064;
+            if (__cil_tmp41 == 6) {
 #line 560
-            __cil_tmp81 = *((int *)__cil_tmp80);
-#line 560
-            if (__cil_tmp81 == 6) {
               goto case_6;
             } else {
               {
 #line 561
-              __cil_tmp82 = (unsigned long )state;
+              __cil_tmp42 = state->mode;
 #line 561
-              __cil_tmp83 = __cil_tmp82 + 2064;
+              if (__cil_tmp42 == 7) {
 #line 561
-              __cil_tmp84 = *((int *)__cil_tmp83);
-#line 561
-              if (__cil_tmp84 == 7) {
                 goto case_7;
               } else {
                 {
 #line 562
-                __cil_tmp85 = (unsigned long )state;
+                __cil_tmp43 = state->mode;
 #line 562
-                __cil_tmp86 = __cil_tmp85 + 2064;
+                if (__cil_tmp43 == 8) {
 #line 562
-                __cil_tmp87 = *((int *)__cil_tmp86);
-#line 562
-                if (__cil_tmp87 == 8) {
                   goto case_8;
                 } else {
                   {
 #line 563
-                  __cil_tmp88 = (unsigned long )state;
+                  __cil_tmp44 = state->mode;
 #line 563
-                  __cil_tmp89 = __cil_tmp88 + 2064;
+                  if (__cil_tmp44 == 9) {
 #line 563
-                  __cil_tmp90 = *((int *)__cil_tmp89);
-#line 563
-                  if (__cil_tmp90 == 9) {
                     goto case_9;
                   } else {
+#line 564
                     goto switch_default;
 #line 554
                     if (0) {
                       case_0: 
 #line 555
                       p = "AM (for carrier detect)";
+#line 555
                       goto switch_break;
                       case_2: 
 #line 556
                       p = "FM Radio";
+#line 556
                       goto switch_break;
                       case_3: 
 #line 557
                       p = "Terrestrial FM-mono/stereo";
+#line 557
                       goto switch_break;
                       case_4: 
 #line 558
                       p = "Satellite FM-mono";
+#line 558
                       goto switch_break;
                       case_5: 
 #line 559
                       p = "NICAM/FM (B/G, D/K)";
+#line 559
                       goto switch_break;
                       case_6: 
 #line 560
                       p = "NICAM/FM (I)";
+#line 560
                       goto switch_break;
                       case_7: 
 #line 561
                       p = "NICAM/AM (L)";
+#line 561
                       goto switch_break;
                       case_8: 
 #line 562
                       p = "BTSC";
+#line 562
                       goto switch_break;
                       case_9: 
 #line 563
                       p = "External input";
+#line 563
                       goto switch_break;
                       switch_default: 
 #line 564
                       p = "unknown";
+#line 564
                       goto switch_break;
                     } else {
                       switch_break: ;
@@ -10323,65 +8708,36 @@ static int msp_log_status(struct v4l2_subdev *sd )
   }
   {
 #line 566
-  __cil_tmp91 = (unsigned long )state;
+  __cil_tmp45 = state->mode;
 #line 566
-  __cil_tmp92 = __cil_tmp91 + 2064;
-#line 566
-  __cil_tmp93 = *((int *)__cil_tmp92);
-#line 566
-  if (__cil_tmp93 == 9) {
+  if (__cil_tmp45 == 9) {
     {
 #line 567
-    __cil_tmp94 = (unsigned long )client;
+    __cil_tmp46 = client->adapter;
 #line 567
-    __cil_tmp95 = __cil_tmp94 + 24;
+    tmp___10 = i2c_adapter_id(__cil_tmp46);
 #line 567
-    __cil_tmp96 = *((struct i2c_adapter **)__cil_tmp95);
+    __cil_tmp47 = client->driver;
 #line 567
-    tmp___10 = i2c_adapter_id(__cil_tmp96);
+    __cil_tmp48 = __cil_tmp47->driver.name;
 #line 567
-    __cil_tmp97 = (unsigned long )client;
+    __cil_tmp49 = client->addr;
 #line 567
-    __cil_tmp98 = __cil_tmp97 + 32;
+    __cil_tmp50 = (int )__cil_tmp49;
 #line 567
-    __cil_tmp99 = *((struct i2c_driver **)__cil_tmp98);
-#line 567
-    __cil_tmp100 = (unsigned long )__cil_tmp99;
-#line 567
-    __cil_tmp101 = __cil_tmp100 + 80;
-#line 567
-    __cil_tmp102 = *((char const   **)__cil_tmp101);
-#line 567
-    __cil_tmp103 = (unsigned long )client;
-#line 567
-    __cil_tmp104 = __cil_tmp103 + 2;
-#line 567
-    __cil_tmp105 = *((unsigned short *)__cil_tmp104);
-#line 567
-    __cil_tmp106 = (int )__cil_tmp105;
-#line 567
-    printk("<6>%s %d-%04x: Mode:     %s\n", __cil_tmp102, tmp___10, __cil_tmp106,
-           p);
+    printk("<6>%s %d-%04x: Mode:     %s\n", __cil_tmp48, tmp___10, __cil_tmp50, p);
     }
   } else {
     {
 #line 568
-    __cil_tmp107 = (unsigned long )state;
+    __cil_tmp51 = state->opmode;
 #line 568
-    __cil_tmp108 = __cil_tmp107 + 2056;
-#line 568
-    __cil_tmp109 = *((int *)__cil_tmp108);
-#line 568
-    if (__cil_tmp109 == 0) {
+    if (__cil_tmp51 == 0) {
       {
 #line 569
-      __cil_tmp110 = (unsigned long )state;
+      __cil_tmp52 = state->rxsubchans;
 #line 569
-      __cil_tmp111 = __cil_tmp110 + 2120;
-#line 569
-      __cil_tmp112 = *((int *)__cil_tmp111);
-#line 569
-      if (__cil_tmp112 & 4) {
+      if (__cil_tmp52 & 4) {
 #line 569
         tmp___11 = ", dual";
       } else {
@@ -10391,13 +8747,9 @@ static int msp_log_status(struct v4l2_subdev *sd )
       }
       {
 #line 569
-      __cil_tmp113 = (unsigned long )state;
+      __cil_tmp53 = state->rxsubchans;
 #line 569
-      __cil_tmp114 = __cil_tmp113 + 2120;
-#line 569
-      __cil_tmp115 = *((int *)__cil_tmp114);
-#line 569
-      if (__cil_tmp115 & 2) {
+      if (__cil_tmp53 & 2) {
 #line 569
         tmp___12 = "stereo";
       } else {
@@ -10407,78 +8759,42 @@ static int msp_log_status(struct v4l2_subdev *sd )
       }
       {
 #line 569
-      __cil_tmp116 = (unsigned long )client;
+      __cil_tmp54 = client->adapter;
 #line 569
-      __cil_tmp117 = __cil_tmp116 + 24;
+      tmp___13 = i2c_adapter_id(__cil_tmp54);
 #line 569
-      __cil_tmp118 = *((struct i2c_adapter **)__cil_tmp117);
+      __cil_tmp55 = client->driver;
 #line 569
-      tmp___13 = i2c_adapter_id(__cil_tmp118);
+      __cil_tmp56 = __cil_tmp55->driver.name;
 #line 569
-      __cil_tmp119 = (unsigned long )client;
+      __cil_tmp57 = client->addr;
 #line 569
-      __cil_tmp120 = __cil_tmp119 + 32;
+      __cil_tmp58 = (int )__cil_tmp57;
 #line 569
-      __cil_tmp121 = *((struct i2c_driver **)__cil_tmp120);
-#line 569
-      __cil_tmp122 = (unsigned long )__cil_tmp121;
-#line 569
-      __cil_tmp123 = __cil_tmp122 + 80;
-#line 569
-      __cil_tmp124 = *((char const   **)__cil_tmp123);
-#line 569
-      __cil_tmp125 = (unsigned long )client;
-#line 569
-      __cil_tmp126 = __cil_tmp125 + 2;
-#line 569
-      __cil_tmp127 = *((unsigned short *)__cil_tmp126);
-#line 569
-      __cil_tmp128 = (int )__cil_tmp127;
-#line 569
-      printk("<6>%s %d-%04x: Mode:     %s (%s%s)\n", __cil_tmp124, tmp___13, __cil_tmp128,
+      printk("<6>%s %d-%04x: Mode:     %s (%s%s)\n", __cil_tmp56, tmp___13, __cil_tmp58,
              p, tmp___12, tmp___11);
       }
     } else {
       {
 #line 573
-      __cil_tmp129 = (unsigned long )state;
+      __cil_tmp59 = state->opmode;
 #line 573
-      __cil_tmp130 = __cil_tmp129 + 2056;
-#line 573
-      __cil_tmp131 = *((int *)__cil_tmp130);
-#line 573
-      if (__cil_tmp131 == 1) {
+      if (__cil_tmp59 == 1) {
         {
 #line 574
-        __cil_tmp132 = (unsigned long )client;
+        __cil_tmp60 = client->adapter;
 #line 574
-        __cil_tmp133 = __cil_tmp132 + 24;
+        tmp___14 = i2c_adapter_id(__cil_tmp60);
 #line 574
-        __cil_tmp134 = *((struct i2c_adapter **)__cil_tmp133);
+        __cil_tmp61 = client->driver;
 #line 574
-        tmp___14 = i2c_adapter_id(__cil_tmp134);
+        __cil_tmp62 = __cil_tmp61->driver.name;
 #line 574
-        __cil_tmp135 = (unsigned long )client;
+        __cil_tmp63 = client->addr;
 #line 574
-        __cil_tmp136 = __cil_tmp135 + 32;
+        __cil_tmp64 = (int )__cil_tmp63;
 #line 574
-        __cil_tmp137 = *((struct i2c_driver **)__cil_tmp136);
-#line 574
-        __cil_tmp138 = (unsigned long )__cil_tmp137;
-#line 574
-        __cil_tmp139 = __cil_tmp138 + 80;
-#line 574
-        __cil_tmp140 = *((char const   **)__cil_tmp139);
-#line 574
-        __cil_tmp141 = (unsigned long )client;
-#line 574
-        __cil_tmp142 = __cil_tmp141 + 2;
-#line 574
-        __cil_tmp143 = *((unsigned short *)__cil_tmp142);
-#line 574
-        __cil_tmp144 = (int )__cil_tmp143;
-#line 574
-        printk("<6>%s %d-%04x: Mode:     %s\n", __cil_tmp140, tmp___14, __cil_tmp144,
+        printk("<6>%s %d-%04x: Mode:     %s\n", __cil_tmp62, tmp___14, __cil_tmp64,
                p);
         }
       } else {
@@ -10487,13 +8803,9 @@ static int msp_log_status(struct v4l2_subdev *sd )
       }
       {
 #line 575
-      __cil_tmp145 = (unsigned long )state;
+      __cil_tmp65 = state->rxsubchans;
 #line 575
-      __cil_tmp146 = __cil_tmp145 + 2120;
-#line 575
-      __cil_tmp147 = *((int *)__cil_tmp146);
-#line 575
-      if (__cil_tmp147 & 4) {
+      if (__cil_tmp65 & 4) {
 #line 575
         tmp___15 = ", dual";
       } else {
@@ -10503,13 +8815,9 @@ static int msp_log_status(struct v4l2_subdev *sd )
       }
       {
 #line 575
-      __cil_tmp148 = (unsigned long )state;
+      __cil_tmp66 = state->rxsubchans;
 #line 575
-      __cil_tmp149 = __cil_tmp148 + 2120;
-#line 575
-      __cil_tmp150 = *((int *)__cil_tmp149);
-#line 575
-      if (__cil_tmp150 & 2) {
+      if (__cil_tmp66 & 2) {
 #line 575
         tmp___16 = "stereo";
       } else {
@@ -10519,43 +8827,23 @@ static int msp_log_status(struct v4l2_subdev *sd )
       }
       {
 #line 575
-      __cil_tmp151 = (unsigned long )state;
+      __cil_tmp67 = state->std;
 #line 575
-      __cil_tmp152 = __cil_tmp151 + 2060;
+      tmp___17 = msp_standard_std_name(__cil_tmp67);
 #line 575
-      __cil_tmp153 = *((int *)__cil_tmp152);
+      __cil_tmp68 = client->adapter;
 #line 575
-      tmp___17 = msp_standard_std_name(__cil_tmp153);
+      tmp___18 = i2c_adapter_id(__cil_tmp68);
 #line 575
-      __cil_tmp154 = (unsigned long )client;
+      __cil_tmp69 = client->driver;
 #line 575
-      __cil_tmp155 = __cil_tmp154 + 24;
+      __cil_tmp70 = __cil_tmp69->driver.name;
 #line 575
-      __cil_tmp156 = *((struct i2c_adapter **)__cil_tmp155);
+      __cil_tmp71 = client->addr;
 #line 575
-      tmp___18 = i2c_adapter_id(__cil_tmp156);
+      __cil_tmp72 = (int )__cil_tmp71;
 #line 575
-      __cil_tmp157 = (unsigned long )client;
-#line 575
-      __cil_tmp158 = __cil_tmp157 + 32;
-#line 575
-      __cil_tmp159 = *((struct i2c_driver **)__cil_tmp158);
-#line 575
-      __cil_tmp160 = (unsigned long )__cil_tmp159;
-#line 575
-      __cil_tmp161 = __cil_tmp160 + 80;
-#line 575
-      __cil_tmp162 = *((char const   **)__cil_tmp161);
-#line 575
-      __cil_tmp163 = (unsigned long )client;
-#line 575
-      __cil_tmp164 = __cil_tmp163 + 2;
-#line 575
-      __cil_tmp165 = *((unsigned short *)__cil_tmp164);
-#line 575
-      __cil_tmp166 = (int )__cil_tmp165;
-#line 575
-      printk("<6>%s %d-%04x: Standard: %s (%s%s)\n", __cil_tmp162, tmp___18, __cil_tmp166,
+      printk("<6>%s %d-%04x: Standard: %s (%s%s)\n", __cil_tmp70, tmp___18, __cil_tmp72,
              tmp___17, tmp___16, tmp___15);
       }
     }
@@ -10564,198 +8852,103 @@ static int msp_log_status(struct v4l2_subdev *sd )
   }
   {
 #line 580
-  __cil_tmp167 = (unsigned long )client;
+  __cil_tmp73 = client->adapter;
 #line 580
-  __cil_tmp168 = __cil_tmp167 + 24;
+  tmp___19 = i2c_adapter_id(__cil_tmp73);
 #line 580
-  __cil_tmp169 = *((struct i2c_adapter **)__cil_tmp168);
+  __cil_tmp74 = client->driver;
 #line 580
-  tmp___19 = i2c_adapter_id(__cil_tmp169);
+  __cil_tmp75 = __cil_tmp74->driver.name;
 #line 580
-  __cil_tmp170 = (unsigned long )client;
+  __cil_tmp76 = client->addr;
 #line 580
-  __cil_tmp171 = __cil_tmp170 + 32;
+  __cil_tmp77 = (int )__cil_tmp76;
 #line 580
-  __cil_tmp172 = *((struct i2c_driver **)__cil_tmp171);
+  __cil_tmp78 = state->audmode;
 #line 580
-  __cil_tmp173 = (unsigned long )__cil_tmp172;
-#line 580
-  __cil_tmp174 = __cil_tmp173 + 80;
-#line 580
-  __cil_tmp175 = *((char const   **)__cil_tmp174);
-#line 580
-  __cil_tmp176 = (unsigned long )client;
-#line 580
-  __cil_tmp177 = __cil_tmp176 + 2;
-#line 580
-  __cil_tmp178 = *((unsigned short *)__cil_tmp177);
-#line 580
-  __cil_tmp179 = (int )__cil_tmp178;
-#line 580
-  __cil_tmp180 = (unsigned long )state;
-#line 580
-  __cil_tmp181 = __cil_tmp180 + 2116;
-#line 580
-  __cil_tmp182 = *((int *)__cil_tmp181);
-#line 580
-  printk("<6>%s %d-%04x: Audmode:  0x%04x\n", __cil_tmp175, tmp___19, __cil_tmp179,
-         __cil_tmp182);
+  printk("<6>%s %d-%04x: Audmode:  0x%04x\n", __cil_tmp75, tmp___19, __cil_tmp77,
+         __cil_tmp78);
 #line 581
-  __cil_tmp183 = (unsigned long )client;
+  __cil_tmp79 = client->adapter;
 #line 581
-  __cil_tmp184 = __cil_tmp183 + 24;
+  tmp___20 = i2c_adapter_id(__cil_tmp79);
 #line 581
-  __cil_tmp185 = *((struct i2c_adapter **)__cil_tmp184);
+  __cil_tmp80 = client->driver;
 #line 581
-  tmp___20 = i2c_adapter_id(__cil_tmp185);
+  __cil_tmp81 = __cil_tmp80->driver.name;
 #line 581
-  __cil_tmp186 = (unsigned long )client;
+  __cil_tmp82 = client->addr;
 #line 581
-  __cil_tmp187 = __cil_tmp186 + 32;
+  __cil_tmp83 = (int )__cil_tmp82;
 #line 581
-  __cil_tmp188 = *((struct i2c_driver **)__cil_tmp187);
+  __cil_tmp84 = state->route_in;
 #line 581
-  __cil_tmp189 = (unsigned long )__cil_tmp188;
+  __cil_tmp85 = state->route_out;
 #line 581
-  __cil_tmp190 = __cil_tmp189 + 80;
-#line 581
-  __cil_tmp191 = *((char const   **)__cil_tmp190);
-#line 581
-  __cil_tmp192 = (unsigned long )client;
-#line 581
-  __cil_tmp193 = __cil_tmp192 + 2;
-#line 581
-  __cil_tmp194 = *((unsigned short *)__cil_tmp193);
-#line 581
-  __cil_tmp195 = (int )__cil_tmp194;
-#line 581
-  __cil_tmp196 = (unsigned long )state;
-#line 581
-  __cil_tmp197 = __cil_tmp196 + 2108;
-#line 581
-  __cil_tmp198 = *((u32 *)__cil_tmp197);
-#line 581
-  __cil_tmp199 = (unsigned long )state;
-#line 581
-  __cil_tmp200 = __cil_tmp199 + 2112;
-#line 581
-  __cil_tmp201 = *((u32 *)__cil_tmp200);
-#line 581
-  printk("<6>%s %d-%04x: Routing:  0x%08x (input) 0x%08x (output)\n", __cil_tmp191,
-         tmp___20, __cil_tmp195, __cil_tmp198, __cil_tmp201);
+  printk("<6>%s %d-%04x: Routing:  0x%08x (input) 0x%08x (output)\n", __cil_tmp81,
+         tmp___20, __cil_tmp83, __cil_tmp84, __cil_tmp85);
 #line 583
-  __cil_tmp202 = (unsigned long )client;
+  __cil_tmp86 = client->adapter;
 #line 583
-  __cil_tmp203 = __cil_tmp202 + 24;
+  tmp___21 = i2c_adapter_id(__cil_tmp86);
 #line 583
-  __cil_tmp204 = *((struct i2c_adapter **)__cil_tmp203);
+  __cil_tmp87 = client->driver;
 #line 583
-  tmp___21 = i2c_adapter_id(__cil_tmp204);
+  __cil_tmp88 = __cil_tmp87->driver.name;
 #line 583
-  __cil_tmp205 = (unsigned long )client;
+  __cil_tmp89 = client->addr;
 #line 583
-  __cil_tmp206 = __cil_tmp205 + 32;
+  __cil_tmp90 = (int )__cil_tmp89;
 #line 583
-  __cil_tmp207 = *((struct i2c_driver **)__cil_tmp206);
+  __cil_tmp91 = state->acb;
 #line 583
-  __cil_tmp208 = (unsigned long )__cil_tmp207;
-#line 583
-  __cil_tmp209 = __cil_tmp208 + 80;
-#line 583
-  __cil_tmp210 = *((char const   **)__cil_tmp209);
-#line 583
-  __cil_tmp211 = (unsigned long )client;
-#line 583
-  __cil_tmp212 = __cil_tmp211 + 2;
-#line 583
-  __cil_tmp213 = *((unsigned short *)__cil_tmp212);
-#line 583
-  __cil_tmp214 = (int )__cil_tmp213;
-#line 583
-  __cil_tmp215 = (unsigned long )state;
-#line 583
-  __cil_tmp216 = __cil_tmp215 + 2084;
-#line 583
-  __cil_tmp217 = *((int *)__cil_tmp216);
-#line 583
-  printk("<6>%s %d-%04x: ACB:      0x%04x\n", __cil_tmp210, tmp___21, __cil_tmp214,
-         __cil_tmp217);
+  printk("<6>%s %d-%04x: ACB:      0x%04x\n", __cil_tmp88, tmp___21, __cil_tmp90,
+         __cil_tmp91);
   }
 #line 584
   return (0);
 }
 }
 #line 587 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
-static int msp_suspend(struct i2c_client *client , int state_event19 ) 
+static int msp_suspend(struct i2c_client *client , pm_message_t state ) 
 { int tmp___7 ;
-  int *__cil_tmp4 ;
-  int __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  struct i2c_adapter *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  struct i2c_driver *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  char const   *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned short __cil_tmp17 ;
-  int __cil_tmp18 ;
+  struct i2c_adapter *__cil_tmp4 ;
+  struct i2c_driver *__cil_tmp5 ;
+  char const   *__cil_tmp6 ;
+  unsigned short __cil_tmp7 ;
+  int __cil_tmp8 ;
 
   {
   {
 #line 589
   while (1) {
-    while_11_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 589
-    __cil_tmp4 = & msp_debug;
-#line 589
-    __cil_tmp5 = *__cil_tmp4;
-#line 589
-    if (__cil_tmp5 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 589
-      __cil_tmp6 = (unsigned long )client;
+      __cil_tmp4 = client->adapter;
 #line 589
-      __cil_tmp7 = __cil_tmp6 + 24;
+      tmp___7 = i2c_adapter_id(__cil_tmp4);
 #line 589
-      __cil_tmp8 = *((struct i2c_adapter **)__cil_tmp7);
+      __cil_tmp5 = client->driver;
 #line 589
-      tmp___7 = i2c_adapter_id(__cil_tmp8);
+      __cil_tmp6 = __cil_tmp5->driver.name;
 #line 589
-      __cil_tmp9 = (unsigned long )client;
+      __cil_tmp7 = client->addr;
 #line 589
-      __cil_tmp10 = __cil_tmp9 + 32;
+      __cil_tmp8 = (int )__cil_tmp7;
 #line 589
-      __cil_tmp11 = *((struct i2c_driver **)__cil_tmp10);
-#line 589
-      __cil_tmp12 = (unsigned long )__cil_tmp11;
-#line 589
-      __cil_tmp13 = __cil_tmp12 + 80;
-#line 589
-      __cil_tmp14 = *((char const   **)__cil_tmp13);
-#line 589
-      __cil_tmp15 = (unsigned long )client;
-#line 589
-      __cil_tmp16 = __cil_tmp15 + 2;
-#line 589
-      __cil_tmp17 = *((unsigned short *)__cil_tmp16);
-#line 589
-      __cil_tmp18 = (int )__cil_tmp17;
-#line 589
-      printk("<7>%s %d-%04x: suspend\n", __cil_tmp14, tmp___7, __cil_tmp18);
+      printk("<7>%s %d-%04x: suspend\n", __cil_tmp6, tmp___7, __cil_tmp8);
       }
     } else {
 
     }
-    }
+#line 589
     goto while_break;
   }
-  while_11_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -10770,74 +8963,43 @@ static int msp_suspend(struct i2c_client *client , int state_event19 )
 #line 594 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static int msp_resume(struct i2c_client *client ) 
 { int tmp___7 ;
-  int *__cil_tmp3 ;
-  int __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  struct i2c_adapter *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  struct i2c_driver *__cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  char const   *__cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned short __cil_tmp16 ;
-  int __cil_tmp17 ;
+  struct i2c_adapter *__cil_tmp3 ;
+  struct i2c_driver *__cil_tmp4 ;
+  char const   *__cil_tmp5 ;
+  unsigned short __cil_tmp6 ;
+  int __cil_tmp7 ;
 
   {
   {
 #line 596
   while (1) {
-    while_12_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 596
-    __cil_tmp3 = & msp_debug;
-#line 596
-    __cil_tmp4 = *__cil_tmp3;
-#line 596
-    if (__cil_tmp4 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 596
-      __cil_tmp5 = (unsigned long )client;
+      __cil_tmp3 = client->adapter;
 #line 596
-      __cil_tmp6 = __cil_tmp5 + 24;
+      tmp___7 = i2c_adapter_id(__cil_tmp3);
 #line 596
-      __cil_tmp7 = *((struct i2c_adapter **)__cil_tmp6);
+      __cil_tmp4 = client->driver;
 #line 596
-      tmp___7 = i2c_adapter_id(__cil_tmp7);
+      __cil_tmp5 = __cil_tmp4->driver.name;
 #line 596
-      __cil_tmp8 = (unsigned long )client;
+      __cil_tmp6 = client->addr;
 #line 596
-      __cil_tmp9 = __cil_tmp8 + 32;
+      __cil_tmp7 = (int )__cil_tmp6;
 #line 596
-      __cil_tmp10 = *((struct i2c_driver **)__cil_tmp9);
-#line 596
-      __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 596
-      __cil_tmp12 = __cil_tmp11 + 80;
-#line 596
-      __cil_tmp13 = *((char const   **)__cil_tmp12);
-#line 596
-      __cil_tmp14 = (unsigned long )client;
-#line 596
-      __cil_tmp15 = __cil_tmp14 + 2;
-#line 596
-      __cil_tmp16 = *((unsigned short *)__cil_tmp15);
-#line 596
-      __cil_tmp17 = (int )__cil_tmp16;
-#line 596
-      printk("<7>%s %d-%04x: resume\n", __cil_tmp13, tmp___7, __cil_tmp17);
+      printk("<7>%s %d-%04x: resume\n", __cil_tmp5, tmp___7, __cil_tmp7);
       }
     } else {
 
     }
-    }
+#line 596
     goto while_break;
   }
-  while_12_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
@@ -10930,270 +9092,94 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   long tmp___30 ;
   long tmp___31 ;
   void *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  char *__cil_tmp47 ;
-  int *__cil_tmp48 ;
-  int __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  struct i2c_adapter *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  struct i2c_driver *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  char const   *__cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned short __cil_tmp61 ;
+  char *__cil_tmp43 ;
+  struct i2c_adapter *__cil_tmp44 ;
+  struct i2c_driver *__cil_tmp45 ;
+  char const   *__cil_tmp46 ;
+  unsigned short __cil_tmp47 ;
+  int __cil_tmp48 ;
+  wait_queue_head_t *__cil_tmp49 ;
+  int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  struct i2c_adapter *__cil_tmp53 ;
+  struct i2c_driver *__cil_tmp54 ;
+  char const   *__cil_tmp55 ;
+  unsigned short __cil_tmp56 ;
+  int __cil_tmp57 ;
+  int __cil_tmp58 ;
+  int __cil_tmp59 ;
+  int __cil_tmp60 ;
+  int __cil_tmp61 ;
   int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  wait_queue_head_t *__cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
+  struct i2c_adapter *__cil_tmp63 ;
+  struct i2c_driver *__cil_tmp64 ;
+  char const   *__cil_tmp65 ;
+  unsigned short __cil_tmp66 ;
+  int __cil_tmp67 ;
+  void const   *__cil_tmp68 ;
+  int __cil_tmp69 ;
+  int __cil_tmp70 ;
+  int __cil_tmp71 ;
+  int __cil_tmp72 ;
+  int __cil_tmp73 ;
+  int __cil_tmp74 ;
+  int __cil_tmp75 ;
+  int __cil_tmp76 ;
+  int __cil_tmp77 ;
   int __cil_tmp78 ;
   int __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
+  int __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  int __cil_tmp83 ;
   int __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  int *__cil_tmp87 ;
+  int __cil_tmp85 ;
+  int __cil_tmp86 ;
+  int __cil_tmp87 ;
   int __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  struct i2c_adapter *__cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  struct i2c_driver *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  char const   *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned short __cil_tmp100 ;
-  int __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  int __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
+  u32 __cil_tmp89 ;
+  u32 __cil_tmp90 ;
+  u32 __cil_tmp91 ;
+  u32 __cil_tmp92 ;
+  u32 __cil_tmp93 ;
+  u32 __cil_tmp94 ;
+  u32 __cil_tmp95 ;
+  u32 __cil_tmp96 ;
+  u32 __cil_tmp97 ;
+  u32 __cil_tmp98 ;
+  u32 __cil_tmp99 ;
+  u32 __cil_tmp100 ;
+  void const   *__cil_tmp101 ;
+  struct v4l2_ctrl **__cil_tmp102 ;
+  struct i2c_adapter *__cil_tmp103 ;
+  struct i2c_driver *__cil_tmp104 ;
+  char const   *__cil_tmp105 ;
+  unsigned short __cil_tmp106 ;
   int __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
+  unsigned short __cil_tmp108 ;
+  int __cil_tmp109 ;
   int __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  int __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  int __cil_tmp116 ;
-  int *__cil_tmp117 ;
-  int __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  struct i2c_adapter *__cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  struct i2c_driver *__cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  char const   *__cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned short __cil_tmp130 ;
-  int __cil_tmp131 ;
-  void const   *__cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  int __cil_tmp135 ;
-  int __cil_tmp136 ;
-  int __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  int __cil_tmp140 ;
-  int __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  int __cil_tmp144 ;
-  int __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  int __cil_tmp148 ;
-  int __cil_tmp149 ;
-  int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  int __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  int __cil_tmp156 ;
-  int __cil_tmp157 ;
-  int __cil_tmp158 ;
-  int __cil_tmp159 ;
-  int __cil_tmp160 ;
-  unsigned long __cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  int __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  int __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  int __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  int *__cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  int __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  void const   *__cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  struct v4l2_ctrl **__cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  struct i2c_adapter *__cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  struct i2c_driver *__cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  char const   *__cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned short __cil_tmp236 ;
-  int __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned short __cil_tmp240 ;
-  int __cil_tmp241 ;
-  int __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  struct i2c_adapter *__cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  char *__cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  struct i2c_adapter *__cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  struct i2c_driver *__cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  char const   *__cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  unsigned short __cil_tmp262 ;
-  int __cil_tmp263 ;
-  unsigned long __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  char *__cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  unsigned long __cil_tmp276 ;
-  unsigned long __cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  int __cil_tmp279 ;
-  unsigned long __cil_tmp280 ;
-  unsigned long __cil_tmp281 ;
-  int __cil_tmp282 ;
-  unsigned long __cil_tmp283 ;
-  unsigned long __cil_tmp284 ;
-  int __cil_tmp285 ;
-  void *__cil_tmp286 ;
-  void const   *__cil_tmp287 ;
-  unsigned long __cil_tmp288 ;
-  unsigned long __cil_tmp289 ;
-  unsigned long __cil_tmp290 ;
-  unsigned long __cil_tmp291 ;
-  struct task_struct *__cil_tmp292 ;
-  void const   *__cil_tmp293 ;
-  unsigned long __cil_tmp294 ;
-  unsigned long __cil_tmp295 ;
-  struct i2c_adapter *__cil_tmp296 ;
-  unsigned long __cil_tmp297 ;
-  unsigned long __cil_tmp298 ;
-  struct i2c_driver *__cil_tmp299 ;
-  unsigned long __cil_tmp300 ;
-  unsigned long __cil_tmp301 ;
-  char const   *__cil_tmp302 ;
-  unsigned long __cil_tmp303 ;
-  unsigned long __cil_tmp304 ;
-  unsigned short __cil_tmp305 ;
-  int __cil_tmp306 ;
+  struct i2c_adapter *__cil_tmp111 ;
+  char *__cil_tmp112 ;
+  struct i2c_adapter *__cil_tmp113 ;
+  struct i2c_driver *__cil_tmp114 ;
+  char const   *__cil_tmp115 ;
+  unsigned short __cil_tmp116 ;
+  int __cil_tmp117 ;
+  char *__cil_tmp118 ;
+  int __cil_tmp119 ;
+  int __cil_tmp120 ;
+  int __cil_tmp121 ;
+  void *__cil_tmp122 ;
+  void const   *__cil_tmp123 ;
+  struct task_struct *__cil_tmp124 ;
+  void const   *__cil_tmp125 ;
+  struct i2c_adapter *__cil_tmp126 ;
+  struct i2c_driver *__cil_tmp127 ;
+  char const   *__cil_tmp128 ;
+  unsigned short __cil_tmp129 ;
+  int __cil_tmp130 ;
 
   {
 #line 645
@@ -11204,17 +9190,9 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   if (! id) {
     {
 #line 653
-    __cil_tmp43 = 0 * 1UL;
+    __cil_tmp43 = & client->name[0];
 #line 653
-    __cil_tmp44 = 4 + __cil_tmp43;
-#line 653
-    __cil_tmp45 = (unsigned long )client;
-#line 653
-    __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
-#line 653
-    __cil_tmp47 = (char *)__cil_tmp46;
-#line 653
-    strlcpy(__cil_tmp47, "msp3400", 20UL);
+    strlcpy(__cil_tmp43, "msp3400", 20UL);
     }
   } else {
 
@@ -11228,54 +9206,33 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     {
 #line 656
     while (1) {
-      while_13_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
-      {
 #line 656
-      __cil_tmp48 = & msp_debug;
-#line 656
-      __cil_tmp49 = *__cil_tmp48;
-#line 656
-      if (__cil_tmp49 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 656
-        __cil_tmp50 = (unsigned long )client;
+        __cil_tmp44 = client->adapter;
 #line 656
-        __cil_tmp51 = __cil_tmp50 + 24;
+        tmp___7 = i2c_adapter_id(__cil_tmp44);
 #line 656
-        __cil_tmp52 = *((struct i2c_adapter **)__cil_tmp51);
+        __cil_tmp45 = client->driver;
 #line 656
-        tmp___7 = i2c_adapter_id(__cil_tmp52);
+        __cil_tmp46 = __cil_tmp45->driver.name;
 #line 656
-        __cil_tmp53 = (unsigned long )client;
+        __cil_tmp47 = client->addr;
 #line 656
-        __cil_tmp54 = __cil_tmp53 + 32;
+        __cil_tmp48 = (int )__cil_tmp47;
 #line 656
-        __cil_tmp55 = *((struct i2c_driver **)__cil_tmp54);
-#line 656
-        __cil_tmp56 = (unsigned long )__cil_tmp55;
-#line 656
-        __cil_tmp57 = __cil_tmp56 + 80;
-#line 656
-        __cil_tmp58 = *((char const   **)__cil_tmp57);
-#line 656
-        __cil_tmp59 = (unsigned long )client;
-#line 656
-        __cil_tmp60 = __cil_tmp59 + 2;
-#line 656
-        __cil_tmp61 = *((unsigned short *)__cil_tmp60);
-#line 656
-        __cil_tmp62 = (int )__cil_tmp61;
-#line 656
-        printk("<7>%s %d-%04x: msp3400 not found\n", __cil_tmp58, tmp___7, __cil_tmp62);
+        printk("<7>%s %d-%04x: msp3400 not found\n", __cil_tmp46, tmp___7, __cil_tmp48);
         }
       } else {
 
       }
-      }
+#line 656
       goto while_break;
     }
-    while_13_break: /* CIL Label */ ;
+    while_break___3: /* CIL Label */ ;
     }
 
     while_break: ;
@@ -11286,7 +9243,7 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   }
   {
 #line 660
-  tmp___9 = kzalloc(2256UL, 208U);
+  tmp___9 = kzalloc(2200UL, 208U);
 #line 660
   state = (struct msp_state *)tmp___9;
   }
@@ -11299,94 +9256,55 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   }
   {
 #line 664
-  sd = (struct v4l2_subdev *)state;
+  sd = & state->sd;
 #line 665
   v4l2_i2c_subdev_init(sd, client, & msp_ops);
 #line 667
-  __cil_tmp63 = (unsigned long )state;
-#line 667
-  __cil_tmp64 = __cil_tmp63 + 2072;
-#line 667
-  *((v4l2_std_id *)__cil_tmp64) = 45056ULL;
+  state->v4l2_std = 45056ULL;
 #line 668
-  __cil_tmp65 = (unsigned long )state;
-#line 668
-  __cil_tmp66 = __cil_tmp65 + 2116;
-#line 668
-  *((int *)__cil_tmp66) = 1;
+  state->audmode = 1;
 #line 669
-  __cil_tmp67 = (unsigned long )state;
-#line 669
-  __cil_tmp68 = __cil_tmp67 + 2104;
-#line 669
-  *((int *)__cil_tmp68) = -1;
+  state->input = -1;
 #line 670
-  __cil_tmp69 = (unsigned long )state;
-#line 670
-  __cil_tmp70 = __cil_tmp69 + 2092;
-#line 670
-  *((int *)__cil_tmp70) = 0;
+  state->i2s_mode = 0;
   }
   {
 #line 671
   while (1) {
-    while_14_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
     {
 #line 671
-    __cil_tmp71 = (unsigned long )state;
+    __cil_tmp49 = & state->wq;
 #line 671
-    __cil_tmp72 = __cil_tmp71 + 2160;
-#line 671
-    __cil_tmp73 = (wait_queue_head_t *)__cil_tmp72;
-#line 671
-    __init_waitqueue_head(__cil_tmp73, & __key___5);
+    __init_waitqueue_head(__cil_tmp49, & __key___5);
     }
+#line 671
     goto while_break___0;
   }
-  while_14_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break___0: 
   {
 #line 673
-  __cil_tmp74 = (unsigned long )state;
-#line 673
-  __cil_tmp75 = __cil_tmp74 + 2108;
-#line 673
-  *((u32 *)__cil_tmp75) = 0U;
+  state->route_in = (u32 )0;
 #line 674
-  __cil_tmp76 = (unsigned long )state;
+  __cil_tmp50 = 4 << 4;
 #line 674
-  __cil_tmp77 = __cil_tmp76 + 2112;
+  __cil_tmp51 = 2 | __cil_tmp50;
 #line 674
-  __cil_tmp78 = 4 << 4;
-#line 674
-  __cil_tmp79 = 2 | __cil_tmp78;
-#line 674
-  *((u32 *)__cil_tmp77) = (unsigned int )__cil_tmp79;
+  state->route_out = (u32 )__cil_tmp51;
 #line 676
-  __cil_tmp80 = (unsigned long )state;
-#line 676
-  __cil_tmp81 = __cil_tmp80 + 2024;
-#line 676
-  *((int *)__cil_tmp81) = msp_read_dsp(client, 30);
+  state->rev1 = msp_read_dsp(client, 30);
   }
   {
 #line 677
-  __cil_tmp82 = (unsigned long )state;
+  __cil_tmp52 = state->rev1;
 #line 677
-  __cil_tmp83 = __cil_tmp82 + 2024;
-#line 677
-  __cil_tmp84 = *((int *)__cil_tmp83);
-#line 677
-  if (__cil_tmp84 != -1) {
+  if (__cil_tmp52 != -1) {
     {
 #line 678
-    __cil_tmp85 = (unsigned long )state;
-#line 678
-    __cil_tmp86 = __cil_tmp85 + 2028;
-#line 678
-    *((int *)__cil_tmp86) = msp_read_dsp(client, 31);
+    state->rev2 = msp_read_dsp(client, 31);
     }
   } else {
 
@@ -11395,160 +9313,99 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   {
 #line 679
   while (1) {
-    while_15_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
-    {
 #line 679
-    __cil_tmp87 = & msp_debug;
-#line 679
-    __cil_tmp88 = *__cil_tmp87;
-#line 679
-    if (__cil_tmp88 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 679
-      __cil_tmp89 = (unsigned long )client;
+      __cil_tmp53 = client->adapter;
 #line 679
-      __cil_tmp90 = __cil_tmp89 + 24;
+      tmp___10 = i2c_adapter_id(__cil_tmp53);
 #line 679
-      __cil_tmp91 = *((struct i2c_adapter **)__cil_tmp90);
+      __cil_tmp54 = client->driver;
 #line 679
-      tmp___10 = i2c_adapter_id(__cil_tmp91);
+      __cil_tmp55 = __cil_tmp54->driver.name;
 #line 679
-      __cil_tmp92 = (unsigned long )client;
+      __cil_tmp56 = client->addr;
 #line 679
-      __cil_tmp93 = __cil_tmp92 + 32;
+      __cil_tmp57 = (int )__cil_tmp56;
 #line 679
-      __cil_tmp94 = *((struct i2c_driver **)__cil_tmp93);
+      __cil_tmp58 = state->rev1;
 #line 679
-      __cil_tmp95 = (unsigned long )__cil_tmp94;
+      __cil_tmp59 = state->rev2;
 #line 679
-      __cil_tmp96 = __cil_tmp95 + 80;
-#line 679
-      __cil_tmp97 = *((char const   **)__cil_tmp96);
-#line 679
-      __cil_tmp98 = (unsigned long )client;
-#line 679
-      __cil_tmp99 = __cil_tmp98 + 2;
-#line 679
-      __cil_tmp100 = *((unsigned short *)__cil_tmp99);
-#line 679
-      __cil_tmp101 = (int )__cil_tmp100;
-#line 679
-      __cil_tmp102 = (unsigned long )state;
-#line 679
-      __cil_tmp103 = __cil_tmp102 + 2024;
-#line 679
-      __cil_tmp104 = *((int *)__cil_tmp103);
-#line 679
-      __cil_tmp105 = (unsigned long )state;
-#line 679
-      __cil_tmp106 = __cil_tmp105 + 2028;
-#line 679
-      __cil_tmp107 = *((int *)__cil_tmp106);
-#line 679
-      printk("<7>%s %d-%04x: rev1=0x%04x, rev2=0x%04x\n", __cil_tmp97, tmp___10, __cil_tmp101,
-             __cil_tmp104, __cil_tmp107);
+      printk("<7>%s %d-%04x: rev1=0x%04x, rev2=0x%04x\n", __cil_tmp55, tmp___10, __cil_tmp57,
+             __cil_tmp58, __cil_tmp59);
       }
     } else {
 
     }
-    }
+#line 679
     goto while_break___1;
   }
-  while_15_break: /* CIL Label */ ;
+  while_break___5: /* CIL Label */ ;
   }
 
   while_break___1: ;
   {
 #line 681
-  __cil_tmp108 = (unsigned long )state;
+  __cil_tmp60 = state->rev1;
 #line 681
-  __cil_tmp109 = __cil_tmp108 + 2024;
+  if (__cil_tmp60 == -1) {
 #line 681
-  __cil_tmp110 = *((int *)__cil_tmp109);
-#line 681
-  if (__cil_tmp110 == -1) {
     goto _L;
   } else {
     {
 #line 681
-    __cil_tmp111 = (unsigned long )state;
+    __cil_tmp61 = state->rev1;
 #line 681
-    __cil_tmp112 = __cil_tmp111 + 2024;
-#line 681
-    __cil_tmp113 = *((int *)__cil_tmp112);
-#line 681
-    if (__cil_tmp113 == 0) {
+    if (__cil_tmp61 == 0) {
       {
 #line 681
-      __cil_tmp114 = (unsigned long )state;
+      __cil_tmp62 = state->rev2;
 #line 681
-      __cil_tmp115 = __cil_tmp114 + 2028;
-#line 681
-      __cil_tmp116 = *((int *)__cil_tmp115);
-#line 681
-      if (__cil_tmp116 == 0) {
+      if (__cil_tmp62 == 0) {
         _L: 
         {
 #line 682
         while (1) {
-          while_16_continue: /* CIL Label */ ;
+          while_continue___2: /* CIL Label */ ;
 
-          {
 #line 682
-          __cil_tmp117 = & msp_debug;
-#line 682
-          __cil_tmp118 = *__cil_tmp117;
-#line 682
-          if (__cil_tmp118 >= 1) {
+          if (msp_debug >= 1) {
             {
 #line 682
-            __cil_tmp119 = (unsigned long )client;
+            __cil_tmp63 = client->adapter;
 #line 682
-            __cil_tmp120 = __cil_tmp119 + 24;
+            tmp___11 = i2c_adapter_id(__cil_tmp63);
 #line 682
-            __cil_tmp121 = *((struct i2c_adapter **)__cil_tmp120);
+            __cil_tmp64 = client->driver;
 #line 682
-            tmp___11 = i2c_adapter_id(__cil_tmp121);
+            __cil_tmp65 = __cil_tmp64->driver.name;
 #line 682
-            __cil_tmp122 = (unsigned long )client;
+            __cil_tmp66 = client->addr;
 #line 682
-            __cil_tmp123 = __cil_tmp122 + 32;
+            __cil_tmp67 = (int )__cil_tmp66;
 #line 682
-            __cil_tmp124 = *((struct i2c_driver **)__cil_tmp123);
-#line 682
-            __cil_tmp125 = (unsigned long )__cil_tmp124;
-#line 682
-            __cil_tmp126 = __cil_tmp125 + 80;
-#line 682
-            __cil_tmp127 = *((char const   **)__cil_tmp126);
-#line 682
-            __cil_tmp128 = (unsigned long )client;
-#line 682
-            __cil_tmp129 = __cil_tmp128 + 2;
-#line 682
-            __cil_tmp130 = *((unsigned short *)__cil_tmp129);
-#line 682
-            __cil_tmp131 = (int )__cil_tmp130;
-#line 682
-            printk("<7>%s %d-%04x: not an msp3400 (cannot read chip version)\n", __cil_tmp127,
-                   tmp___11, __cil_tmp131);
+            printk("<7>%s %d-%04x: not an msp3400 (cannot read chip version)\n", __cil_tmp65,
+                   tmp___11, __cil_tmp67);
             }
           } else {
 
           }
-          }
+#line 682
           goto while_break___2;
         }
-        while_16_break: /* CIL Label */ ;
+        while_break___6: /* CIL Label */ ;
         }
 
         while_break___2: 
         {
 #line 684
-        __cil_tmp132 = (void const   *)state;
+        __cil_tmp68 = (void const   *)state;
 #line 684
-        kfree(__cil_tmp132);
+        kfree(__cil_tmp68);
         }
 #line 685
         return (-19);
@@ -11563,225 +9420,158 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   }
   }
 #line 688
-  __cil_tmp133 = (unsigned long )state;
+  __cil_tmp69 = state->rev1;
 #line 688
-  __cil_tmp134 = __cil_tmp133 + 2024;
+  __cil_tmp70 = __cil_tmp69 >> 4;
 #line 688
-  __cil_tmp135 = *((int *)__cil_tmp134);
+  __cil_tmp71 = __cil_tmp70 & 15;
 #line 688
-  __cil_tmp136 = __cil_tmp135 >> 4;
-#line 688
-  __cil_tmp137 = __cil_tmp136 & 15;
-#line 688
-  msp_family = __cil_tmp137 + 3;
+  msp_family = __cil_tmp71 + 3;
 #line 689
-  __cil_tmp138 = (unsigned long )state;
+  __cil_tmp72 = state->rev2;
 #line 689
-  __cil_tmp139 = __cil_tmp138 + 2028;
+  __cil_tmp73 = __cil_tmp72 >> 8;
 #line 689
-  __cil_tmp140 = *((int *)__cil_tmp139);
-#line 689
-  __cil_tmp141 = __cil_tmp140 >> 8;
-#line 689
-  msp_product = __cil_tmp141 & 255;
+  msp_product = __cil_tmp73 & 255;
 #line 690
   msp_prod_hi = msp_product / 10;
 #line 691
   msp_prod_lo = msp_product % 10;
 #line 692
-  __cil_tmp142 = (unsigned long )state;
+  __cil_tmp74 = state->rev1;
 #line 692
-  __cil_tmp143 = __cil_tmp142 + 2024;
+  __cil_tmp75 = __cil_tmp74 & 15;
 #line 692
-  __cil_tmp144 = *((int *)__cil_tmp143);
-#line 692
-  __cil_tmp145 = __cil_tmp144 & 15;
-#line 692
-  msp_revision = __cil_tmp145 + 64;
+  msp_revision = __cil_tmp75 + 64;
 #line 693
-  __cil_tmp146 = (unsigned long )state;
+  __cil_tmp76 = state->rev1;
 #line 693
-  __cil_tmp147 = __cil_tmp146 + 2024;
+  __cil_tmp77 = __cil_tmp76 >> 8;
 #line 693
-  __cil_tmp148 = *((int *)__cil_tmp147);
+  __cil_tmp78 = __cil_tmp77 & 255;
 #line 693
-  __cil_tmp149 = __cil_tmp148 >> 8;
-#line 693
-  __cil_tmp150 = __cil_tmp149 & 255;
-#line 693
-  msp_hard = __cil_tmp150 + 64;
+  msp_hard = __cil_tmp78 + 64;
 #line 694
-  __cil_tmp151 = (unsigned long )state;
+  __cil_tmp79 = state->rev2;
 #line 694
-  __cil_tmp152 = __cil_tmp151 + 2028;
-#line 694
-  __cil_tmp153 = *((int *)__cil_tmp152);
-#line 694
-  msp_rom = __cil_tmp153 & 31;
+  msp_rom = __cil_tmp79 & 31;
 #line 696
-  __cil_tmp154 = (unsigned long )state;
+  __cil_tmp80 = msp_product * 10;
 #line 696
-  __cil_tmp155 = __cil_tmp154 + 2032;
+  __cil_tmp81 = msp_family * 10000;
 #line 696
-  __cil_tmp156 = msp_product * 10;
+  __cil_tmp82 = __cil_tmp81 + 4000;
 #line 696
-  __cil_tmp157 = msp_family * 10000;
+  __cil_tmp83 = __cil_tmp82 + __cil_tmp80;
 #line 696
-  __cil_tmp158 = __cil_tmp157 + 4000;
+  __cil_tmp84 = __cil_tmp83 + msp_revision;
 #line 696
-  __cil_tmp159 = __cil_tmp158 + __cil_tmp156;
-#line 696
-  __cil_tmp160 = __cil_tmp159 + msp_revision;
-#line 696
-  *((int *)__cil_tmp155) = __cil_tmp160 - 64;
+  state->ident = __cil_tmp84 - 64;
 #line 700
   if (msp_prod_hi == 1) {
 #line 700
     tmp___12 = 1;
+  } else
+#line 700
+  if (msp_prod_hi == 5) {
+#line 700
+    tmp___12 = 1;
   } else {
 #line 700
-    if (msp_prod_hi == 5) {
-#line 700
-      tmp___12 = 1;
-    } else {
-#line 700
-      tmp___12 = 0;
-    }
+    tmp___12 = 0;
   }
 #line 700
-  __cil_tmp161 = (unsigned long )state;
-#line 700
-  __cil_tmp162 = __cil_tmp161 + 2036;
-#line 700
-  *((u8 *)__cil_tmp162) = (unsigned char )tmp___12;
+  state->has_nicam = (u8 )tmp___12;
 #line 703
-  __cil_tmp163 = (unsigned long )state;
+  __cil_tmp85 = msp_revision >= 71;
 #line 703
-  __cil_tmp164 = __cil_tmp163 + 2037;
-#line 703
-  __cil_tmp165 = msp_revision >= 71;
-#line 703
-  *((u8 *)__cil_tmp164) = (unsigned char )__cil_tmp165;
+  state->has_radio = (u8 )__cil_tmp85;
 #line 706
-  __cil_tmp166 = (unsigned long )state;
+  __cil_tmp86 = msp_prod_lo < 5;
 #line 706
-  __cil_tmp167 = __cil_tmp166 + 2038;
-#line 706
-  __cil_tmp168 = msp_prod_lo < 5;
-#line 706
-  *((u8 *)__cil_tmp167) = (unsigned char )__cil_tmp168;
+  state->has_headphones = (u8 )__cil_tmp86;
 #line 709
   if (msp_family >= 4) {
 #line 709
     tmp___13 = 1;
+  } else
+#line 709
+  if (msp_prod_lo < 7) {
+#line 709
+    tmp___13 = 1;
   } else {
 #line 709
-    if (msp_prod_lo < 7) {
-#line 709
-      tmp___13 = 1;
-    } else {
-#line 709
-      tmp___13 = 0;
-    }
+    tmp___13 = 0;
   }
 #line 709
-  __cil_tmp169 = (unsigned long )state;
-#line 709
-  __cil_tmp170 = __cil_tmp169 + 2040;
-#line 709
-  *((u8 *)__cil_tmp170) = (unsigned char )tmp___13;
+  state->has_scart2 = (u8 )tmp___13;
 #line 712
   if (msp_family >= 4) {
 #line 712
     tmp___14 = 1;
+  } else
+#line 712
+  if (msp_prod_lo < 5) {
+#line 712
+    tmp___14 = 1;
   } else {
 #line 712
-    if (msp_prod_lo < 5) {
-#line 712
-      tmp___14 = 1;
-    } else {
-#line 712
-      tmp___14 = 0;
-    }
+    tmp___14 = 0;
   }
 #line 712
-  __cil_tmp171 = (unsigned long )state;
-#line 712
-  __cil_tmp172 = __cil_tmp171 + 2041;
-#line 712
-  *((u8 *)__cil_tmp172) = (unsigned char )tmp___14;
+  state->has_scart3 = (u8 )tmp___14;
 #line 715
   if (msp_family >= 4) {
 #line 715
     tmp___15 = 1;
-  } else {
+  } else
 #line 715
-    if (msp_revision >= 68) {
+  if (msp_revision >= 68) {
 #line 715
-      if (msp_prod_lo < 5) {
+    if (msp_prod_lo < 5) {
 #line 715
-        tmp___15 = 1;
-      } else {
-#line 715
-        tmp___15 = 0;
-      }
+      tmp___15 = 1;
     } else {
 #line 715
       tmp___15 = 0;
     }
+  } else {
+#line 715
+    tmp___15 = 0;
   }
 #line 715
-  __cil_tmp173 = (unsigned long )state;
-#line 715
-  __cil_tmp174 = __cil_tmp173 + 2042;
-#line 715
-  *((u8 *)__cil_tmp174) = (unsigned char )tmp___15;
+  state->has_scart4 = (u8 )tmp___15;
 #line 719
   if (msp_family >= 4) {
 #line 719
     tmp___16 = 1;
+  } else
+#line 719
+  if (msp_prod_lo < 5) {
+#line 719
+    tmp___16 = 1;
   } else {
 #line 719
-    if (msp_prod_lo < 5) {
-#line 719
-      tmp___16 = 1;
-    } else {
-#line 719
-      tmp___16 = 0;
-    }
+    tmp___16 = 0;
   }
 #line 719
-  __cil_tmp175 = (unsigned long )state;
-#line 719
-  __cil_tmp176 = __cil_tmp175 + 2043;
-#line 719
-  *((u8 *)__cil_tmp176) = (unsigned char )tmp___16;
+  state->has_scart2_out = (u8 )tmp___16;
 #line 722
   if (msp_revision > 67) {
-    {
 #line 722
-    __cil_tmp177 = (unsigned long )state;
-#line 722
-    __cil_tmp178 = __cil_tmp177 + 2043;
-#line 722
-    if (*((u8 *)__cil_tmp178)) {
+    if (state->has_scart2_out) {
 #line 722
       tmp___17 = 1;
     } else {
 #line 722
       tmp___17 = 0;
     }
-    }
   } else {
 #line 722
     tmp___17 = 0;
   }
 #line 722
-  __cil_tmp179 = (unsigned long )state;
-#line 722
-  __cil_tmp180 = __cil_tmp179 + 2044;
-#line 722
-  *((u8 *)__cil_tmp180) = (unsigned char )tmp___17;
+  state->has_scart2_out_volume = (u8 )tmp___17;
 #line 725
   if (msp_revision >= 71) {
 #line 725
@@ -11797,11 +9587,7 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     tmp___18 = 0;
   }
 #line 725
-  __cil_tmp181 = (unsigned long )state;
-#line 725
-  __cil_tmp182 = __cil_tmp181 + 2045;
-#line 725
-  *((u8 *)__cil_tmp182) = (unsigned char )tmp___18;
+  state->has_i2s_conf = (u8 )tmp___18;
 #line 729
   if (msp_revision >= 68) {
 #line 729
@@ -11817,19 +9603,11 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     tmp___19 = 0;
   }
 #line 729
-  __cil_tmp183 = (unsigned long )state;
-#line 729
-  __cil_tmp184 = __cil_tmp183 + 2046;
-#line 729
-  *((u8 *)__cil_tmp184) = (unsigned char )tmp___19;
+  state->has_subwoofer = (u8 )tmp___19;
 #line 733
-  __cil_tmp185 = (unsigned long )state;
+  __cil_tmp87 = msp_prod_lo < 7;
 #line 733
-  __cil_tmp186 = __cil_tmp185 + 2047;
-#line 733
-  __cil_tmp187 = msp_prod_lo < 7;
-#line 733
-  *((u8 *)__cil_tmp186) = (unsigned char )__cil_tmp187;
+  state->has_sound_processing = (u8 )__cil_tmp87;
 #line 736
   if (msp_revision == 71) {
 #line 736
@@ -11845,11 +9623,7 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     tmp___20 = 0;
   }
 #line 736
-  __cil_tmp188 = (unsigned long )state;
-#line 736
-  __cil_tmp189 = __cil_tmp188 + 2048;
-#line 736
-  *((u8 *)__cil_tmp189) = (unsigned char )tmp___20;
+  state->has_virtual_dolby_surround = (u8 )tmp___20;
 #line 739
   if (msp_revision == 71) {
 #line 739
@@ -11865,11 +9639,7 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     tmp___21 = 0;
   }
 #line 739
-  __cil_tmp190 = (unsigned long )state;
-#line 739
-  __cil_tmp191 = __cil_tmp190 + 2049;
-#line 739
-  *((u8 *)__cil_tmp191) = (unsigned char )tmp___21;
+  state->has_dolby_pro_logic = (u8 )tmp___21;
 #line 743
   if (msp_family == 3) {
 #line 743
@@ -11891,53 +9661,26 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     tmp___22 = 0;
   }
 #line 743
-  __cil_tmp192 = (unsigned long )state;
-#line 743
-  __cil_tmp193 = __cil_tmp192 + 2050;
-#line 743
-  *((u8 *)__cil_tmp193) = (unsigned char )tmp___22;
+  state->force_btsc = (u8 )tmp___22;
 #line 746
-  __cil_tmp194 = (unsigned long )state;
-#line 746
-  __cil_tmp195 = __cil_tmp194 + 2056;
-#line 746
-  __cil_tmp196 = & opmode;
-#line 746
-  *((int *)__cil_tmp195) = *__cil_tmp196;
+  state->opmode = opmode;
   {
 #line 747
-  __cil_tmp197 = (unsigned long )state;
+  __cil_tmp88 = state->opmode;
 #line 747
-  __cil_tmp198 = __cil_tmp197 + 2056;
-#line 747
-  __cil_tmp199 = *((int *)__cil_tmp198);
-#line 747
-  if (__cil_tmp199 == -1) {
+  if (__cil_tmp88 == -1) {
 #line 749
     if (msp_revision >= 71) {
 #line 750
-      __cil_tmp200 = (unsigned long )state;
-#line 750
-      __cil_tmp201 = __cil_tmp200 + 2056;
-#line 750
-      *((int *)__cil_tmp201) = 2;
-    } else {
+      state->opmode = 2;
+    } else
 #line 752
-      if (msp_revision >= 68) {
+    if (msp_revision >= 68) {
 #line 753
-        __cil_tmp202 = (unsigned long )state;
-#line 753
-        __cil_tmp203 = __cil_tmp202 + 2056;
-#line 753
-        *((int *)__cil_tmp203) = 1;
-      } else {
+      state->opmode = 1;
+    } else {
 #line 755
-        __cil_tmp204 = (unsigned long )state;
-#line 755
-        __cil_tmp205 = __cil_tmp204 + 2056;
-#line 755
-        *((int *)__cil_tmp205) = 0;
-      }
+      state->opmode = 0;
     }
   } else {
 
@@ -11945,250 +9688,155 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   }
   {
 #line 758
-  __cil_tmp206 = (unsigned long )state;
-#line 758
-  __cil_tmp207 = __cil_tmp206 + 1800;
-#line 758
-  hdl = (struct v4l2_ctrl_handler *)__cil_tmp207;
+  hdl = & state->hdl;
 #line 759
   v4l2_ctrl_handler_init(hdl, 6U);
   }
-  {
 #line 760
-  __cil_tmp208 = (unsigned long )state;
-#line 760
-  __cil_tmp209 = __cil_tmp208 + 2047;
-#line 760
-  if (*((u8 *)__cil_tmp209)) {
+  if (state->has_sound_processing) {
     {
 #line 761
-    v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, 9963783U, 0, 65535, 655U, 32768);
+    __cil_tmp89 = (u32 )9963783;
+#line 761
+    __cil_tmp90 = (u32 )655;
+#line 761
+    v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, __cil_tmp89, 0, 65535, __cil_tmp90, 32768);
 #line 763
-    v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, 9963784U, 0, 65535, 655U, 32768);
+    __cil_tmp91 = (u32 )9963784;
+#line 763
+    __cil_tmp92 = (u32 )655;
+#line 763
+    v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, __cil_tmp91, 0, 65535, __cil_tmp92, 32768);
 #line 765
-    v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, 9963786U, 0, 1, 1U, 0);
+    __cil_tmp93 = (u32 )9963786;
+#line 765
+    __cil_tmp94 = (u32 )1;
+#line 765
+    v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, __cil_tmp93, 0, 1, __cil_tmp94, 0);
     }
   } else {
 
   }
-  }
   {
 #line 768
-  __cil_tmp210 = (unsigned long )state;
+  __cil_tmp95 = (u32 )9963781;
 #line 768
-  __cil_tmp211 = __cil_tmp210 + 2128;
+  __cil_tmp96 = (u32 )655;
 #line 768
-  *((struct v4l2_ctrl **)__cil_tmp211) = v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, 9963781U,
-                                                           0, 65535, 655U, 58880);
+  state->__annonCompField52.volume = v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, __cil_tmp95,
+                                                       0, 65535, __cil_tmp96, 58880);
 #line 770
-  v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, 9963782U, 0, 65535, 655U, 32768);
+  __cil_tmp97 = (u32 )9963782;
+#line 770
+  __cil_tmp98 = (u32 )655;
+#line 770
+  v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, __cil_tmp97, 0, 65535, __cil_tmp98, 32768);
 #line 772
-  __cil_tmp212 = 2128 + 8;
+  __cil_tmp99 = (u32 )9963785;
 #line 772
-  __cil_tmp213 = (unsigned long )state;
+  __cil_tmp100 = (u32 )1;
 #line 772
-  __cil_tmp214 = __cil_tmp213 + __cil_tmp212;
-#line 772
-  *((struct v4l2_ctrl **)__cil_tmp214) = v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, 9963785U,
-                                                           0, 1, 1U, 0);
+  state->__annonCompField52.muted = v4l2_ctrl_new_std(hdl, & msp_ctrl_ops, __cil_tmp99,
+                                                      0, 1, __cil_tmp100, 0);
 #line 774
-  __cil_tmp215 = (unsigned long )sd;
-#line 774
-  __cil_tmp216 = __cil_tmp215 + 184;
-#line 774
-  *((struct v4l2_ctrl_handler **)__cil_tmp216) = hdl;
+  sd->ctrl_handler = hdl;
   }
-  {
 #line 775
-  __cil_tmp217 = (unsigned long )hdl;
-#line 775
-  __cil_tmp218 = __cil_tmp217 + 220;
-#line 775
-  if (*((int *)__cil_tmp218)) {
+  if (hdl->error) {
     {
 #line 776
-    __cil_tmp219 = (unsigned long )hdl;
-#line 776
-    __cil_tmp220 = __cil_tmp219 + 220;
-#line 776
-    err = *((int *)__cil_tmp220);
+    err = hdl->error;
 #line 778
     v4l2_ctrl_handler_free(hdl);
 #line 779
-    __cil_tmp221 = (void const   *)state;
+    __cil_tmp101 = (void const   *)state;
 #line 779
-    kfree(__cil_tmp221);
+    kfree(__cil_tmp101);
     }
 #line 780
     return (err);
   } else {
 
   }
-  }
   {
 #line 783
-  __cil_tmp222 = (unsigned long )state;
+  __cil_tmp102 = & state->__annonCompField52.volume;
 #line 783
-  __cil_tmp223 = __cil_tmp222 + 2128;
-#line 783
-  __cil_tmp224 = (struct v4l2_ctrl **)__cil_tmp223;
-#line 783
-  v4l2_ctrl_cluster(2U, __cil_tmp224);
+  v4l2_ctrl_cluster(2U, __cil_tmp102);
 #line 784
   v4l2_ctrl_handler_setup(hdl);
 #line 787
-  __cil_tmp225 = (unsigned long )client;
+  __cil_tmp103 = client->adapter;
 #line 787
-  __cil_tmp226 = __cil_tmp225 + 24;
+  tmp___23 = i2c_adapter_id(__cil_tmp103);
 #line 787
-  __cil_tmp227 = *((struct i2c_adapter **)__cil_tmp226);
+  __cil_tmp104 = client->driver;
 #line 787
-  tmp___23 = i2c_adapter_id(__cil_tmp227);
+  __cil_tmp105 = __cil_tmp104->driver.name;
 #line 787
-  __cil_tmp228 = (unsigned long )client;
+  __cil_tmp106 = client->addr;
 #line 787
-  __cil_tmp229 = __cil_tmp228 + 32;
+  __cil_tmp107 = (int )__cil_tmp106;
 #line 787
-  __cil_tmp230 = *((struct i2c_driver **)__cil_tmp229);
+  __cil_tmp108 = client->addr;
 #line 787
-  __cil_tmp231 = (unsigned long )__cil_tmp230;
+  __cil_tmp109 = (int )__cil_tmp108;
 #line 787
-  __cil_tmp232 = __cil_tmp231 + 80;
+  __cil_tmp110 = __cil_tmp109 << 1;
 #line 787
-  __cil_tmp233 = *((char const   **)__cil_tmp232);
+  __cil_tmp111 = client->adapter;
 #line 787
-  __cil_tmp234 = (unsigned long )client;
+  __cil_tmp112 = & __cil_tmp111->name[0];
 #line 787
-  __cil_tmp235 = __cil_tmp234 + 2;
-#line 787
-  __cil_tmp236 = *((unsigned short *)__cil_tmp235);
-#line 787
-  __cil_tmp237 = (int )__cil_tmp236;
-#line 787
-  __cil_tmp238 = (unsigned long )client;
-#line 787
-  __cil_tmp239 = __cil_tmp238 + 2;
-#line 787
-  __cil_tmp240 = *((unsigned short *)__cil_tmp239);
-#line 787
-  __cil_tmp241 = (int )__cil_tmp240;
-#line 787
-  __cil_tmp242 = __cil_tmp241 << 1;
-#line 787
-  __cil_tmp243 = 0 * 1UL;
-#line 787
-  __cil_tmp244 = 1364 + __cil_tmp243;
-#line 787
-  __cil_tmp245 = (unsigned long )client;
-#line 787
-  __cil_tmp246 = __cil_tmp245 + 24;
-#line 787
-  __cil_tmp247 = *((struct i2c_adapter **)__cil_tmp246);
-#line 787
-  __cil_tmp248 = (unsigned long )__cil_tmp247;
-#line 787
-  __cil_tmp249 = __cil_tmp248 + __cil_tmp244;
-#line 787
-  __cil_tmp250 = (char *)__cil_tmp249;
-#line 787
-  printk("<6>%s %d-%04x: MSP%d4%02d%c-%c%d found @ 0x%x (%s)\n", __cil_tmp233, tmp___23,
-         __cil_tmp237, msp_family, msp_product, msp_revision, msp_hard, msp_rom, __cil_tmp242,
-         __cil_tmp250);
+  printk("<6>%s %d-%04x: MSP%d4%02d%c-%c%d found @ 0x%x (%s)\n", __cil_tmp105, tmp___23,
+         __cil_tmp107, msp_family, msp_product, msp_revision, msp_hard, msp_rom, __cil_tmp110,
+         __cil_tmp112);
 #line 791
-  __cil_tmp251 = (unsigned long )client;
+  __cil_tmp113 = client->adapter;
 #line 791
-  __cil_tmp252 = __cil_tmp251 + 24;
+  tmp___24 = i2c_adapter_id(__cil_tmp113);
 #line 791
-  __cil_tmp253 = *((struct i2c_adapter **)__cil_tmp252);
+  __cil_tmp114 = client->driver;
 #line 791
-  tmp___24 = i2c_adapter_id(__cil_tmp253);
+  __cil_tmp115 = __cil_tmp114->driver.name;
 #line 791
-  __cil_tmp254 = (unsigned long )client;
+  __cil_tmp116 = client->addr;
 #line 791
-  __cil_tmp255 = __cil_tmp254 + 32;
+  __cil_tmp117 = (int )__cil_tmp116;
 #line 791
-  __cil_tmp256 = *((struct i2c_driver **)__cil_tmp255);
+  __cil_tmp118 = & client->name[0];
 #line 791
-  __cil_tmp257 = (unsigned long )__cil_tmp256;
-#line 791
-  __cil_tmp258 = __cil_tmp257 + 80;
-#line 791
-  __cil_tmp259 = *((char const   **)__cil_tmp258);
-#line 791
-  __cil_tmp260 = (unsigned long )client;
-#line 791
-  __cil_tmp261 = __cil_tmp260 + 2;
-#line 791
-  __cil_tmp262 = *((unsigned short *)__cil_tmp261);
-#line 791
-  __cil_tmp263 = (int )__cil_tmp262;
-#line 791
-  __cil_tmp264 = 0 * 1UL;
-#line 791
-  __cil_tmp265 = 4 + __cil_tmp264;
-#line 791
-  __cil_tmp266 = (unsigned long )client;
-#line 791
-  __cil_tmp267 = __cil_tmp266 + __cil_tmp265;
-#line 791
-  __cil_tmp268 = (char *)__cil_tmp267;
-#line 791
-  printk("<6>%s %d-%04x: %s ", __cil_tmp259, tmp___24, __cil_tmp263, __cil_tmp268);
+  printk("<6>%s %d-%04x: %s ", __cil_tmp115, tmp___24, __cil_tmp117, __cil_tmp118);
   }
-  {
 #line 792
-  __cil_tmp269 = (unsigned long )state;
+  if (state->has_nicam) {
 #line 792
-  __cil_tmp270 = __cil_tmp269 + 2036;
-#line 792
-  if (*((u8 *)__cil_tmp270)) {
-    {
-#line 792
-    __cil_tmp271 = (unsigned long )state;
-#line 792
-    __cil_tmp272 = __cil_tmp271 + 2037;
-#line 792
-    if (*((u8 *)__cil_tmp272)) {
+    if (state->has_radio) {
       {
 #line 793
       printk("<c>supports nicam and radio, ");
       }
     } else {
+#line 792
       goto _L___0;
     }
+  } else
+  _L___0: 
+#line 794
+  if (state->has_nicam) {
+    {
+#line 795
+    printk("<c>supports nicam, ");
+    }
+  } else
+#line 796
+  if (state->has_radio) {
+    {
+#line 797
+    printk("<c>supports radio, ");
     }
   } else {
-    _L___0: 
-    {
-#line 794
-    __cil_tmp273 = (unsigned long )state;
-#line 794
-    __cil_tmp274 = __cil_tmp273 + 2036;
-#line 794
-    if (*((u8 *)__cil_tmp274)) {
-      {
-#line 795
-      printk("<c>supports nicam, ");
-      }
-    } else {
-      {
-#line 796
-      __cil_tmp275 = (unsigned long )state;
-#line 796
-      __cil_tmp276 = __cil_tmp275 + 2037;
-#line 796
-      if (*((u8 *)__cil_tmp276)) {
-        {
-#line 797
-        printk("<c>supports radio, ");
-        }
-      } else {
 
-      }
-      }
-    }
-    }
-  }
   }
   {
 #line 798
@@ -12196,66 +9844,59 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   }
   {
 #line 802
-  __cil_tmp277 = (unsigned long )state;
+  __cil_tmp119 = state->opmode;
 #line 802
-  __cil_tmp278 = __cil_tmp277 + 2056;
+  if (__cil_tmp119 == 0) {
 #line 802
-  __cil_tmp279 = *((int *)__cil_tmp278);
-#line 802
-  if (__cil_tmp279 == 0) {
     goto case_0;
   } else {
     {
 #line 806
-    __cil_tmp280 = (unsigned long )state;
+    __cil_tmp120 = state->opmode;
 #line 806
-    __cil_tmp281 = __cil_tmp280 + 2056;
+    if (__cil_tmp120 == 1) {
 #line 806
-    __cil_tmp282 = *((int *)__cil_tmp281);
-#line 806
-    if (__cil_tmp282 == 1) {
       goto case_1;
     } else {
       {
 #line 810
-      __cil_tmp283 = (unsigned long )state;
+      __cil_tmp121 = state->opmode;
 #line 810
-      __cil_tmp284 = __cil_tmp283 + 2056;
+      if (__cil_tmp121 == 2) {
 #line 810
-      __cil_tmp285 = *((int *)__cil_tmp284);
-#line 810
-      if (__cil_tmp285 == 2) {
         goto case_2;
-      } else {
+      } else
 #line 801
-        if (0) {
-          case_0: 
-          {
+      if (0) {
+        case_0: 
+        {
 #line 803
-          printk("<c>manual");
+        printk("<c>manual");
 #line 804
-          thread_func = & msp3400c_thread;
-          }
-          goto switch_break;
-          case_1: 
-          {
-#line 807
-          printk("<c>autodetect");
-#line 808
-          thread_func = & msp3410d_thread;
-          }
-          goto switch_break;
-          case_2: 
-          {
-#line 811
-          printk("<c>autodetect and autoselect");
-#line 812
-          thread_func = & msp34xxg_thread;
-          }
-          goto switch_break;
-        } else {
-          switch_break: ;
+        thread_func = & msp3400c_thread;
         }
+#line 805
+        goto switch_break;
+        case_1: 
+        {
+#line 807
+        printk("<c>autodetect");
+#line 808
+        thread_func = & msp3410d_thread;
+        }
+#line 809
+        goto switch_break;
+        case_2: 
+        {
+#line 811
+        printk("<c>autodetect and autoselect");
+#line 812
+        thread_func = & msp34xxg_thread;
+        }
+#line 813
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
       }
     }
@@ -12270,15 +9911,15 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
   if (thread_func) {
     {
 #line 819
-    __cil_tmp286 = (void *)client;
+    __cil_tmp122 = (void *)client;
 #line 819
-    tmp___25 = kthread_create_on_node(thread_func, __cil_tmp286, -1, "msp34xx");
+    tmp___25 = kthread_create_on_node(thread_func, __cil_tmp122, -1, "msp34xx");
 #line 819
     __k = tmp___25;
 #line 819
-    __cil_tmp287 = (void const   *)__k;
+    __cil_tmp123 = (void const   *)__k;
 #line 819
-    tmp___30 = (long )IS_ERR(__cil_tmp287);
+    tmp___30 = (long )IS_ERR(__cil_tmp123);
 #line 819
     tmp = tmp___30;
 #line 819
@@ -12295,21 +9936,13 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     }
     {
 #line 819
-    __cil_tmp288 = (unsigned long )state;
-#line 819
-    __cil_tmp289 = __cil_tmp288 + 2152;
-#line 819
-    *((struct task_struct **)__cil_tmp289) = __k;
+    state->kthread = __k;
 #line 821
-    __cil_tmp290 = (unsigned long )state;
+    __cil_tmp124 = state->kthread;
 #line 821
-    __cil_tmp291 = __cil_tmp290 + 2152;
+    __cil_tmp125 = (void const   *)__cil_tmp124;
 #line 821
-    __cil_tmp292 = *((struct task_struct **)__cil_tmp291);
-#line 821
-    __cil_tmp293 = (void const   *)__cil_tmp292;
-#line 821
-    tmp___31 = (long )IS_ERR(__cil_tmp293);
+    tmp___31 = (long )IS_ERR(__cil_tmp125);
 #line 821
     tmp___29 = tmp___31;
 #line 821
@@ -12319,35 +9952,19 @@ static int msp_probe(struct i2c_client *client , struct i2c_device_id  const  *i
     if (tmp___28) {
       {
 #line 822
-      __cil_tmp294 = (unsigned long )client;
+      __cil_tmp126 = client->adapter;
 #line 822
-      __cil_tmp295 = __cil_tmp294 + 24;
+      tmp___27 = i2c_adapter_id(__cil_tmp126);
 #line 822
-      __cil_tmp296 = *((struct i2c_adapter **)__cil_tmp295);
+      __cil_tmp127 = client->driver;
 #line 822
-      tmp___27 = i2c_adapter_id(__cil_tmp296);
+      __cil_tmp128 = __cil_tmp127->driver.name;
 #line 822
-      __cil_tmp297 = (unsigned long )client;
+      __cil_tmp129 = client->addr;
 #line 822
-      __cil_tmp298 = __cil_tmp297 + 32;
+      __cil_tmp130 = (int )__cil_tmp129;
 #line 822
-      __cil_tmp299 = *((struct i2c_driver **)__cil_tmp298);
-#line 822
-      __cil_tmp300 = (unsigned long )__cil_tmp299;
-#line 822
-      __cil_tmp301 = __cil_tmp300 + 80;
-#line 822
-      __cil_tmp302 = *((char const   **)__cil_tmp301);
-#line 822
-      __cil_tmp303 = (unsigned long )client;
-#line 822
-      __cil_tmp304 = __cil_tmp303 + 2;
-#line 822
-      __cil_tmp305 = *((unsigned short *)__cil_tmp304);
-#line 822
-      __cil_tmp306 = (int )__cil_tmp305;
-#line 822
-      printk("<4>%s %d-%04x: kernel_thread() failed\n", __cil_tmp302, tmp___27, __cil_tmp306);
+      printk("<4>%s %d-%04x: kernel_thread() failed\n", __cil_tmp128, tmp___27, __cil_tmp130);
       }
     } else {
 
@@ -12371,17 +9988,9 @@ static int msp_remove(struct i2c_client *client )
   struct i2c_client  const  *__cil_tmp5 ;
   struct v4l2_subdev *__cil_tmp6 ;
   struct v4l2_subdev *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  struct task_struct *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  struct v4l2_ctrl_handler *__cil_tmp17 ;
-  void const   *__cil_tmp18 ;
+  struct task_struct *__cil_tmp8 ;
+  struct v4l2_ctrl_handler *__cil_tmp9 ;
+  void const   *__cil_tmp10 ;
 
   {
   {
@@ -12396,52 +10005,34 @@ static int msp_remove(struct i2c_client *client )
 #line 830
   state = tmp___8;
 #line 832
-  __cil_tmp7 = (struct v4l2_subdev *)state;
+  __cil_tmp7 = & state->sd;
 #line 832
   v4l2_device_unregister_subdev(__cil_tmp7);
   }
-  {
 #line 834
-  __cil_tmp8 = (unsigned long )state;
-#line 834
-  __cil_tmp9 = __cil_tmp8 + 2152;
-#line 834
-  if (*((struct task_struct **)__cil_tmp9)) {
+  if (state->kthread) {
     {
 #line 835
-    __cil_tmp10 = (unsigned long )state;
-#line 835
-    __cil_tmp11 = __cil_tmp10 + 2248;
-#line 835
-    *((unsigned int *)__cil_tmp11) = 1U;
+    state->restart = 1U;
 #line 836
-    __cil_tmp12 = (unsigned long )state;
+    __cil_tmp8 = state->kthread;
 #line 836
-    __cil_tmp13 = __cil_tmp12 + 2152;
-#line 836
-    __cil_tmp14 = *((struct task_struct **)__cil_tmp13);
-#line 836
-    kthread_stop(__cil_tmp14);
+    kthread_stop(__cil_tmp8);
     }
   } else {
 
-  }
   }
   {
 #line 838
   msp_reset(client);
 #line 840
-  __cil_tmp15 = (unsigned long )state;
+  __cil_tmp9 = & state->hdl;
 #line 840
-  __cil_tmp16 = __cil_tmp15 + 1800;
-#line 840
-  __cil_tmp17 = (struct v4l2_ctrl_handler *)__cil_tmp16;
-#line 840
-  v4l2_ctrl_handler_free(__cil_tmp17);
+  v4l2_ctrl_handler_free(__cil_tmp9);
 #line 841
-  __cil_tmp18 = (void const   *)state;
+  __cil_tmp10 = (void const   *)state;
 #line 841
-  kfree(__cil_tmp18);
+  kfree(__cil_tmp10);
   }
 #line 842
   return (0);
@@ -12450,7 +10041,7 @@ static int msp_remove(struct i2c_client *client )
 #line 847 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static struct i2c_device_id  const  msp_id[1]  = {      {{(char )'m', (char )'s', (char )'p', (char )'3', (char )'4', (char )'0', (char )'0',
        (char )'\000', (char)0, (char)0, (char)0, (char)0, (char)0, (char)0, (char)0,
-       (char)0, (char)0, (char)0, (char)0, (char)0}, 0UL}};
+       (char)0, (char)0, (char)0, (char)0, (char)0}, (kernel_ulong_t )0}};
 #line 851
 extern struct i2c_device_id  const  __mod_i2c_device_table  __attribute__((__unused__,
 __alias__("msp_id"))) ;
@@ -12560,7 +10151,6 @@ void main(void)
   int tmp___8 ;
   int tmp___9 ;
   int __cil_tmp18 ;
-  int var_msp_suspend_21_p1_event19 ;
 
   {
   {
@@ -12573,6 +10163,7 @@ void main(void)
   }
 #line 1070
   if (tmp___7) {
+#line 1071
     goto ldv_final;
   } else {
 
@@ -12582,7 +10173,7 @@ void main(void)
   {
 #line 1084
   while (1) {
-    while_17_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 1084
     tmp___9 = nondet_int();
@@ -12598,6 +10189,7 @@ void main(void)
       if (! __cil_tmp18) {
 
       } else {
+#line 1084
         goto while_break;
       }
       }
@@ -12608,184 +10200,202 @@ void main(void)
     }
 #line 1090
     if (tmp___8 == 0) {
+#line 1090
       goto case_0;
-    } else {
+    } else
 #line 1110
-      if (tmp___8 == 1) {
-        goto case_1;
-      } else {
+    if (tmp___8 == 1) {
+#line 1110
+      goto case_1;
+    } else
 #line 1130
-        if (tmp___8 == 2) {
-          goto case_2;
-        } else {
+    if (tmp___8 == 2) {
+#line 1130
+      goto case_2;
+    } else
 #line 1150
-          if (tmp___8 == 3) {
-            goto case_3;
-          } else {
+    if (tmp___8 == 3) {
+#line 1150
+      goto case_3;
+    } else
 #line 1170
-            if (tmp___8 == 4) {
-              goto case_4;
-            } else {
+    if (tmp___8 == 4) {
+#line 1170
+      goto case_4;
+    } else
 #line 1190
-              if (tmp___8 == 5) {
-                goto case_5;
-              } else {
+    if (tmp___8 == 5) {
+#line 1190
+      goto case_5;
+    } else
 #line 1210
-                if (tmp___8 == 6) {
-                  goto case_6;
-                } else {
+    if (tmp___8 == 6) {
+#line 1210
+      goto case_6;
+    } else
 #line 1230
-                  if (tmp___8 == 7) {
-                    goto case_7;
-                  } else {
+    if (tmp___8 == 7) {
+#line 1230
+      goto case_7;
+    } else
 #line 1250
-                    if (tmp___8 == 8) {
-                      goto case_8;
-                    } else {
+    if (tmp___8 == 8) {
+#line 1250
+      goto case_8;
+    } else
 #line 1270
-                      if (tmp___8 == 9) {
-                        goto case_9;
-                      } else {
+    if (tmp___8 == 9) {
+#line 1270
+      goto case_9;
+    } else
 #line 1290
-                        if (tmp___8 == 10) {
-                          goto case_10;
-                        } else {
+    if (tmp___8 == 10) {
+#line 1290
+      goto case_10;
+    } else
 #line 1313
-                          if (tmp___8 == 11) {
-                            goto case_11;
-                          } else {
+    if (tmp___8 == 11) {
+#line 1313
+      goto case_11;
+    } else
 #line 1333
-                            if (tmp___8 == 12) {
-                              goto case_12;
-                            } else {
+    if (tmp___8 == 12) {
+#line 1333
+      goto case_12;
+    } else
 #line 1353
-                              if (tmp___8 == 13) {
-                                goto case_13;
-                              } else {
-                                goto switch_default;
+    if (tmp___8 == 13) {
+#line 1353
+      goto case_13;
+    } else {
+#line 1373
+      goto switch_default;
 #line 1088
-                                if (0) {
-                                  case_0: 
-                                  {
+      if (0) {
+        case_0: 
+        {
 #line 1102
-                                  msp_s_ctrl(var_group1);
-                                  }
-                                  goto switch_break;
-                                  case_1: 
-                                  {
-#line 1122
-                                  msp_log_status(var_group2);
-                                  }
-                                  goto switch_break;
-                                  case_2: 
-                                  {
-#line 1142
-                                  msp_g_chip_ident(var_group2, var_group3);
-                                  }
-                                  goto switch_break;
-                                  case_3: 
-                                  {
-#line 1162
-                                  msp_s_std(var_group2, var_msp_s_std_14_p1);
-                                  }
-                                  goto switch_break;
-                                  case_4: 
-                                  {
-#line 1182
-                                  msp_s_frequency(var_group2, var_group4);
-                                  }
-                                  goto switch_break;
-                                  case_5: 
-                                  {
-#line 1202
-                                  msp_g_tuner(var_group2, var_group5);
-                                  }
-                                  goto switch_break;
-                                  case_6: 
-                                  {
-#line 1222
-                                  msp_s_tuner(var_group2, var_group5);
-                                  }
-                                  goto switch_break;
-                                  case_7: 
-                                  {
-#line 1242
-                                  msp_s_radio(var_group2);
-                                  }
-                                  goto switch_break;
-                                  case_8: 
-                                  {
-#line 1262
-                                  msp_s_routing(var_group2, var_msp_s_routing_15_p1,
-                                                var_msp_s_routing_15_p2, var_msp_s_routing_15_p3);
-                                  }
-                                  goto switch_break;
-                                  case_9: 
-                                  {
-#line 1282
-                                  msp_s_i2s_clock_freq(var_group2, var_msp_s_i2s_clock_freq_18_p1);
-                                  }
-                                  goto switch_break;
-                                  case_10: 
-#line 1293
-                                  if (ldv_s_msp_driver_i2c_driver == 0) {
-                                    {
-#line 1302
-                                    res_msp_probe_23 = msp_probe(var_group6, var_msp_probe_23_p1);
-#line 1303
-                                    ldv_check_return_value(res_msp_probe_23);
-                                    }
-#line 1304
-                                    if (res_msp_probe_23) {
-                                      goto ldv_module_exit;
-                                    } else {
-
-                                    }
-#line 1306
-                                    ldv_s_msp_driver_i2c_driver = 0;
-                                  } else {
-
-                                  }
-                                  goto switch_break;
-                                  case_11: 
-                                  {
-#line 1325
-                                  msp_remove(var_group6);
-                                  }
-                                  goto switch_break;
-                                  case_12: 
-                                  {
-#line 1345
-                                  msp_suspend(var_group6, var_msp_suspend_21_p1_event19);
-                                  }
-                                  goto switch_break;
-                                  case_13: 
-                                  {
-#line 1365
-                                  msp_resume(var_group6);
-                                  }
-                                  goto switch_break;
-                                  switch_default: 
-                                  goto switch_break;
-                                } else {
-                                  switch_break: ;
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        msp_s_ctrl(var_group1);
         }
+#line 1109
+        goto switch_break;
+        case_1: 
+        {
+#line 1122
+        msp_log_status(var_group2);
+        }
+#line 1129
+        goto switch_break;
+        case_2: 
+        {
+#line 1142
+        msp_g_chip_ident(var_group2, var_group3);
+        }
+#line 1149
+        goto switch_break;
+        case_3: 
+        {
+#line 1162
+        msp_s_std(var_group2, var_msp_s_std_14_p1);
+        }
+#line 1169
+        goto switch_break;
+        case_4: 
+        {
+#line 1182
+        msp_s_frequency(var_group2, var_group4);
+        }
+#line 1189
+        goto switch_break;
+        case_5: 
+        {
+#line 1202
+        msp_g_tuner(var_group2, var_group5);
+        }
+#line 1209
+        goto switch_break;
+        case_6: 
+        {
+#line 1222
+        msp_s_tuner(var_group2, var_group5);
+        }
+#line 1229
+        goto switch_break;
+        case_7: 
+        {
+#line 1242
+        msp_s_radio(var_group2);
+        }
+#line 1249
+        goto switch_break;
+        case_8: 
+        {
+#line 1262
+        msp_s_routing(var_group2, var_msp_s_routing_15_p1, var_msp_s_routing_15_p2,
+                      var_msp_s_routing_15_p3);
+        }
+#line 1269
+        goto switch_break;
+        case_9: 
+        {
+#line 1282
+        msp_s_i2s_clock_freq(var_group2, var_msp_s_i2s_clock_freq_18_p1);
+        }
+#line 1289
+        goto switch_break;
+        case_10: 
+#line 1293
+        if (ldv_s_msp_driver_i2c_driver == 0) {
+          {
+#line 1302
+          res_msp_probe_23 = msp_probe(var_group6, var_msp_probe_23_p1);
+#line 1303
+          ldv_check_return_value(res_msp_probe_23);
+          }
+#line 1304
+          if (res_msp_probe_23) {
+#line 1305
+            goto ldv_module_exit;
+          } else {
+
+          }
+#line 1306
+          ldv_s_msp_driver_i2c_driver = 0;
+        } else {
+
+        }
+#line 1312
+        goto switch_break;
+        case_11: 
+        {
+#line 1325
+        msp_remove(var_group6);
+        }
+#line 1332
+        goto switch_break;
+        case_12: 
+        {
+#line 1345
+        msp_suspend(var_group6, var_msp_suspend_21_p1);
+        }
+#line 1352
+        goto switch_break;
+        case_13: 
+        {
+#line 1365
+        msp_resume(var_group6);
+        }
+#line 1372
+        goto switch_break;
+        switch_default: 
+#line 1373
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
   }
-  while_17_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -12809,6 +10419,7 @@ void ldv_blast_assert(void)
 
   {
   ERROR: 
+#line 6
   goto ERROR;
 }
 }
@@ -12833,6 +10444,7 @@ void ldv_assume_stop(void)
 
   {
   LDV_STOP: 
+#line 23
   goto LDV_STOP;
 }
 }
@@ -12853,7 +10465,7 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
   {
 #line 64
   while (1) {
-    while_18_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 64
     tmp___7 = ldv_undefined_pointer();
@@ -12871,9 +10483,10 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
     ldv_coherent_state = ldv_coherent_state + 1;
 #line 64
     return (arbitrary_memory);
+#line 64
     goto while_break;
   }
-  while_18_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -12894,7 +10507,7 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
   {
 #line 70
   while (1) {
-    while_19_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 70
@@ -12931,9 +10544,10 @@ void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_a
     } else {
 
     }
+#line 70
     goto while_break;
   }
-  while_19_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -12953,7 +10567,7 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
   {
 #line 75
   while (1) {
-    while_20_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
     {
 #line 75
     tmp___7 = ldv_undefined_pointer();
@@ -12975,9 +10589,10 @@ struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
     ldv_urb_state = ldv_urb_state + 1;
 #line 75
     return ((struct urb *)arbitrary_memory);
+#line 75
     goto while_break;
   }
-  while_20_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -12998,7 +10613,7 @@ void usb_free_urb(struct urb *urb )
   {
 #line 80
   while (1) {
-    while_21_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 80
@@ -13035,9 +10650,10 @@ void usb_free_urb(struct urb *urb )
     } else {
 
     }
+#line 80
     goto while_break;
   }
-  while_21_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13077,28 +10693,16 @@ void ldv_check_final_state(void)
 #line 122 "include/linux/freezer.h"
 __inline static void set_freezable(void) 
 { struct task_struct *tmp___7 ;
-  unsigned long __cil_tmp2 ;
-  unsigned long __cil_tmp3 ;
-  unsigned long __cil_tmp4 ;
-  unsigned long __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
+  unsigned int __cil_tmp2 ;
 
   {
   {
 #line 124
   tmp___7 = get_current();
 #line 124
-  __cil_tmp2 = (unsigned long )tmp___7;
+  __cil_tmp2 = tmp___7->flags;
 #line 124
-  __cil_tmp3 = __cil_tmp2 + 20;
-#line 124
-  __cil_tmp4 = (unsigned long )tmp___7;
-#line 124
-  __cil_tmp5 = __cil_tmp4 + 20;
-#line 124
-  __cil_tmp6 = *((unsigned int *)__cil_tmp5);
-#line 124
-  *((unsigned int *)__cil_tmp3) = __cil_tmp6 & 4294934527U;
+  tmp___7->flags = __cil_tmp2 & 4294934527U;
   }
 #line 125
   return;
@@ -13193,17 +10797,6 @@ char const   *msp_standard_std_name(int std )
   void *__cil_tmp3 ;
   unsigned long __cil_tmp4 ;
   unsigned long __cil_tmp5 ;
-  unsigned long __cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  char *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  char *__cil_tmp16 ;
 
   {
 #line 153
@@ -13211,7 +10804,7 @@ char const   *msp_standard_std_name(int std )
   {
 #line 153
   while (1) {
-    while_22_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
     {
 #line 153
@@ -13219,51 +10812,26 @@ char const   *msp_standard_std_name(int std )
 #line 153
     __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 153
-    __cil_tmp5 = i * 24UL;
+    __cil_tmp5 = (unsigned long )msp_stdlist[i].name;
 #line 153
-    __cil_tmp6 = __cil_tmp5 + 16;
-#line 153
-    __cil_tmp7 = (unsigned long )(msp_stdlist) + __cil_tmp6;
-#line 153
-    __cil_tmp8 = *((char **)__cil_tmp7);
-#line 153
-    __cil_tmp9 = (unsigned long )__cil_tmp8;
-#line 153
-    if (__cil_tmp9 != __cil_tmp4) {
+    if (__cil_tmp5 != __cil_tmp4) {
 
     } else {
+#line 153
       goto while_break;
     }
     }
-    {
 #line 154
-    __cil_tmp10 = i * 24UL;
-#line 154
-    __cil_tmp11 = (unsigned long )(msp_stdlist) + __cil_tmp10;
-#line 154
-    __cil_tmp12 = *((int *)__cil_tmp11);
-#line 154
-    if (__cil_tmp12 == std) {
-      {
+    if (msp_stdlist[i].retval == std) {
 #line 155
-      __cil_tmp13 = i * 24UL;
-#line 155
-      __cil_tmp14 = __cil_tmp13 + 16;
-#line 155
-      __cil_tmp15 = (unsigned long )(msp_stdlist) + __cil_tmp14;
-#line 155
-      __cil_tmp16 = *((char **)__cil_tmp15);
-#line 155
-      return ((char const   *)__cil_tmp16);
-      }
+      return ((char const   *)msp_stdlist[i].name);
     } else {
 
-    }
     }
 #line 153
     i = i + 1;
   }
-  while_22_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
@@ -13278,15 +10846,12 @@ static void msp_set_source(struct i2c_client *client , u16 src )
   struct msp_state *tmp___8 ;
   struct i2c_client  const  *__cil_tmp6 ;
   struct v4l2_subdev *__cil_tmp7 ;
-  int *__cil_tmp8 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
   int __cil_tmp10 ;
   int __cil_tmp11 ;
   int __cil_tmp12 ;
   int __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  int __cil_tmp16 ;
 
   {
   {
@@ -13301,11 +10866,8 @@ static void msp_set_source(struct i2c_client *client , u16 src )
 #line 161
   state = tmp___8;
   }
-  {
 #line 163
-  __cil_tmp8 = & msp_dolby;
-#line 163
-  if (*__cil_tmp8) {
+  if (msp_dolby) {
     {
 #line 164
     msp_write_dsp(client, 8, 1312);
@@ -13315,46 +10877,39 @@ static void msp_set_source(struct i2c_client *client , u16 src )
   } else {
     {
 #line 167
-    __cil_tmp9 = (int )src;
+    __cil_tmp8 = (int )src;
 #line 167
-    msp_write_dsp(client, 8, __cil_tmp9);
+    msp_write_dsp(client, 8, __cil_tmp8);
 #line 168
-    __cil_tmp10 = (int )src;
+    __cil_tmp9 = (int )src;
 #line 168
-    msp_write_dsp(client, 9, __cil_tmp10);
+    msp_write_dsp(client, 9, __cil_tmp9);
     }
   }
-  }
   {
 #line 170
+  __cil_tmp10 = (int )src;
+#line 170
+  msp_write_dsp(client, 10, __cil_tmp10);
+#line 171
   __cil_tmp11 = (int )src;
-#line 170
-  msp_write_dsp(client, 10, __cil_tmp11);
 #line 171
+  msp_write_dsp(client, 11, __cil_tmp11);
+#line 172
   __cil_tmp12 = (int )src;
-#line 171
-  msp_write_dsp(client, 11, __cil_tmp12);
 #line 172
-  __cil_tmp13 = (int )src;
-#line 172
-  msp_write_dsp(client, 12, __cil_tmp13);
+  msp_write_dsp(client, 12, __cil_tmp12);
   }
-  {
 #line 173
-  __cil_tmp14 = (unsigned long )state;
-#line 173
-  __cil_tmp15 = __cil_tmp14 + 2043;
-#line 173
-  if (*((u8 *)__cil_tmp15)) {
+  if (state->has_scart2_out) {
     {
 #line 174
-    __cil_tmp16 = (int )src;
+    __cil_tmp13 = (int )src;
 #line 174
-    msp_write_dsp(client, 65, __cil_tmp16);
+    msp_write_dsp(client, 65, __cil_tmp13);
     }
   } else {
 
-  }
   }
 #line 175
   return;
@@ -13404,64 +10959,24 @@ void msp3400c_set_mode(struct i2c_client *client , int mode )
   int tmp___10 ;
   struct i2c_client  const  *__cil_tmp11 ;
   struct v4l2_subdev *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  u32 __cil_tmp17 ;
-  u32 __cil_tmp18 ;
-  unsigned int __cil_tmp19 ;
-  int *__cil_tmp20 ;
+  u32 __cil_tmp13 ;
+  u32 __cil_tmp14 ;
+  unsigned int __cil_tmp15 ;
+  struct i2c_adapter *__cil_tmp16 ;
+  struct i2c_driver *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
+  unsigned short __cil_tmp19 ;
+  int __cil_tmp20 ;
   int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  struct i2c_adapter *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  struct i2c_driver *__cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  char const   *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned short __cil_tmp33 ;
-  int __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  int __cil_tmp41 ;
-  int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  int __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  int __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  int __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  int __cil_tmp64 ;
-  unsigned short __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  int __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  int __cil_tmp28 ;
+  u16 __cil_tmp29 ;
+  int __cil_tmp30 ;
 
   {
   {
@@ -13476,90 +10991,53 @@ void msp3400c_set_mode(struct i2c_client *client , int mode )
 #line 188
   state = tmp___8;
 #line 189
-  __cil_tmp13 = mode * 72UL;
-#line 189
-  __cil_tmp14 = (unsigned long )(msp3400c_init_data) + __cil_tmp13;
-#line 189
-  data = (struct msp3400c_init_data_dem *)__cil_tmp14;
+  data = & msp3400c_init_data[mode];
 #line 190
-  __cil_tmp15 = (unsigned long )state;
+  __cil_tmp13 = state->route_in;
 #line 190
-  __cil_tmp16 = __cil_tmp15 + 2108;
+  __cil_tmp14 = __cil_tmp13 >> 3;
 #line 190
-  __cil_tmp17 = *((u32 *)__cil_tmp16);
+  __cil_tmp15 = __cil_tmp14 & 1U;
 #line 190
-  __cil_tmp18 = __cil_tmp17 >> 3;
-#line 190
-  __cil_tmp19 = __cil_tmp18 & 1U;
-#line 190
-  tuner = (int )__cil_tmp19;
+  tuner = (int )__cil_tmp15;
   }
   {
 #line 193
   while (1) {
-    while_23_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 193
-    __cil_tmp20 = & msp_debug;
-#line 193
-    __cil_tmp21 = *__cil_tmp20;
-#line 193
-    if (__cil_tmp21 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 193
-      __cil_tmp22 = (unsigned long )client;
+      __cil_tmp16 = client->adapter;
 #line 193
-      __cil_tmp23 = __cil_tmp22 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp16);
 #line 193
-      __cil_tmp24 = *((struct i2c_adapter **)__cil_tmp23);
+      __cil_tmp17 = client->driver;
 #line 193
-      tmp___9 = i2c_adapter_id(__cil_tmp24);
+      __cil_tmp18 = __cil_tmp17->driver.name;
 #line 193
-      __cil_tmp25 = (unsigned long )client;
+      __cil_tmp19 = client->addr;
 #line 193
-      __cil_tmp26 = __cil_tmp25 + 32;
+      __cil_tmp20 = (int )__cil_tmp19;
 #line 193
-      __cil_tmp27 = *((struct i2c_driver **)__cil_tmp26);
-#line 193
-      __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 193
-      __cil_tmp29 = __cil_tmp28 + 80;
-#line 193
-      __cil_tmp30 = *((char const   **)__cil_tmp29);
-#line 193
-      __cil_tmp31 = (unsigned long )client;
-#line 193
-      __cil_tmp32 = __cil_tmp31 + 2;
-#line 193
-      __cil_tmp33 = *((unsigned short *)__cil_tmp32);
-#line 193
-      __cil_tmp34 = (int )__cil_tmp33;
-#line 193
-      printk("<7>%s %d-%04x: set_mode: %d\n", __cil_tmp30, tmp___9, __cil_tmp34, mode);
+      printk("<7>%s %d-%04x: set_mode: %d\n", __cil_tmp18, tmp___9, __cil_tmp20, mode);
       }
     } else {
 
     }
-    }
+#line 193
     goto while_break;
   }
-  while_23_break: /* CIL Label */ ;
+  while_break___2: /* CIL Label */ ;
   }
 
   while_break: 
 #line 194
-  __cil_tmp35 = (unsigned long )state;
-#line 194
-  __cil_tmp36 = __cil_tmp35 + 2064;
-#line 194
-  *((int *)__cil_tmp36) = mode;
+  state->mode = mode;
 #line 195
-  __cil_tmp37 = (unsigned long )state;
-#line 195
-  __cil_tmp38 = __cil_tmp37 + 2120;
-#line 195
-  *((int *)__cil_tmp38) = 1;
+  state->rxsubchans = 1;
 #line 197
   if (tuner) {
 #line 197
@@ -13570,47 +11048,36 @@ void msp3400c_set_mode(struct i2c_client *client , int mode )
   }
   {
 #line 197
-  __cil_tmp39 = (unsigned long )data;
+  __cil_tmp21 = data->ad_cv;
 #line 197
-  __cil_tmp40 = __cil_tmp39 + 56;
+  __cil_tmp22 = __cil_tmp21 | tmp___10;
 #line 197
-  __cil_tmp41 = *((int *)__cil_tmp40);
-#line 197
-  __cil_tmp42 = __cil_tmp41 | tmp___10;
-#line 197
-  msp_write_dem(client, 187, __cil_tmp42);
+  msp_write_dem(client, 187, __cil_tmp22);
 #line 199
   i = 5;
   }
   {
 #line 199
   while (1) {
-    while_24_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
 #line 199
     if (i >= 0) {
 
     } else {
+#line 199
       goto while_break___0;
     }
     {
 #line 200
-    __cil_tmp43 = i * 4UL;
+    __cil_tmp23 = data->fir1[i];
 #line 200
-    __cil_tmp44 = 0 + __cil_tmp43;
-#line 200
-    __cil_tmp45 = (unsigned long )data;
-#line 200
-    __cil_tmp46 = __cil_tmp45 + __cil_tmp44;
-#line 200
-    __cil_tmp47 = *((int *)__cil_tmp46);
-#line 200
-    msp_write_dem(client, 1, __cil_tmp47);
+    msp_write_dem(client, 1, __cil_tmp23);
 #line 199
     i = i - 1;
     }
   }
-  while_24_break: /* CIL Label */ ;
+  while_break___3: /* CIL Label */ ;
   }
 
   while_break___0: 
@@ -13627,93 +11094,60 @@ void msp3400c_set_mode(struct i2c_client *client , int mode )
   {
 #line 205
   while (1) {
-    while_25_continue: /* CIL Label */ ;
+    while_continue___1: /* CIL Label */ ;
 
 #line 205
     if (i >= 0) {
 
     } else {
+#line 205
       goto while_break___1;
     }
     {
 #line 206
-    __cil_tmp48 = i * 4UL;
+    __cil_tmp24 = data->fir2[i];
 #line 206
-    __cil_tmp49 = 24 + __cil_tmp48;
-#line 206
-    __cil_tmp50 = (unsigned long )data;
-#line 206
-    __cil_tmp51 = __cil_tmp50 + __cil_tmp49;
-#line 206
-    __cil_tmp52 = *((int *)__cil_tmp51);
-#line 206
-    msp_write_dem(client, 5, __cil_tmp52);
+    msp_write_dem(client, 5, __cil_tmp24);
 #line 205
     i = i - 1;
     }
   }
-  while_25_break: /* CIL Label */ ;
+  while_break___4: /* CIL Label */ ;
   }
 
   while_break___1: 
   {
 #line 208
-  __cil_tmp53 = (unsigned long )data;
+  __cil_tmp25 = data->mode_reg;
 #line 208
-  __cil_tmp54 = __cil_tmp53 + 60;
-#line 208
-  __cil_tmp55 = *((int *)__cil_tmp54);
-#line 208
-  msp_write_dem(client, 131, __cil_tmp55);
+  msp_write_dem(client, 131, __cil_tmp25);
 #line 210
-  __cil_tmp56 = (unsigned long )data;
+  __cil_tmp26 = data->cdo1;
 #line 210
-  __cil_tmp57 = __cil_tmp56 + 48;
+  __cil_tmp27 = data->cdo2;
 #line 210
-  __cil_tmp58 = *((int *)__cil_tmp57);
-#line 210
-  __cil_tmp59 = (unsigned long )data;
-#line 210
-  __cil_tmp60 = __cil_tmp59 + 52;
-#line 210
-  __cil_tmp61 = *((int *)__cil_tmp60);
-#line 210
-  msp3400c_set_carrier(client, __cil_tmp58, __cil_tmp61);
+  msp3400c_set_carrier(client, __cil_tmp26, __cil_tmp27);
 #line 212
-  __cil_tmp62 = (unsigned long )data;
+  __cil_tmp28 = data->dsp_src;
 #line 212
-  __cil_tmp63 = __cil_tmp62 + 64;
+  __cil_tmp29 = (u16 )__cil_tmp28;
 #line 212
-  __cil_tmp64 = *((int *)__cil_tmp63);
-#line 212
-  __cil_tmp65 = (unsigned short )__cil_tmp64;
-#line 212
-  msp_set_source(client, __cil_tmp65);
+  msp_set_source(client, __cil_tmp29);
 #line 216
   msp_write_dsp(client, 13, 6400);
 #line 217
-  __cil_tmp66 = (unsigned long )data;
+  __cil_tmp30 = data->dsp_matrix;
 #line 217
-  __cil_tmp67 = __cil_tmp66 + 68;
-#line 217
-  __cil_tmp68 = *((int *)__cil_tmp67);
-#line 217
-  msp_write_dsp(client, 14, __cil_tmp68);
+  msp_write_dsp(client, 14, __cil_tmp30);
   }
-  {
 #line 218
-  __cil_tmp69 = (unsigned long )state;
-#line 218
-  __cil_tmp70 = __cil_tmp69 + 2036;
-#line 218
-  if (*((u8 *)__cil_tmp70)) {
+  if (state->has_nicam) {
     {
 #line 219
     msp_write_dsp(client, 16, 23040);
     }
   } else {
 
-  }
   }
 #line 220
   return;
@@ -13746,281 +11180,127 @@ static void msp3400c_set_audmode(struct i2c_client *client )
   int tmp___20 ;
   struct i2c_client  const  *__cil_tmp20 ;
   struct v4l2_subdev *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
   int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  struct i2c_adapter *__cil_tmp25 ;
+  struct i2c_driver *__cil_tmp26 ;
+  char const   *__cil_tmp27 ;
+  unsigned short __cil_tmp28 ;
+  int __cil_tmp29 ;
   int __cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  char *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
+  int __cil_tmp31 ;
+  int __cil_tmp32 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
   int __cil_tmp38 ;
-  int *__cil_tmp39 ;
+  int __cil_tmp39 ;
   int __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  struct i2c_adapter *__cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct i2c_driver *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
+  int __cil_tmp41 ;
+  struct i2c_adapter *__cil_tmp42 ;
+  struct i2c_driver *__cil_tmp43 ;
+  char const   *__cil_tmp44 ;
+  unsigned short __cil_tmp45 ;
+  int __cil_tmp46 ;
+  struct i2c_adapter *__cil_tmp47 ;
+  struct i2c_driver *__cil_tmp48 ;
   char const   *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned short __cil_tmp52 ;
-  int __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  int __cil_tmp59 ;
-  unsigned long __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  int __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  int __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  int __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  int __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  int __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  int __cil_tmp89 ;
-  int *__cil_tmp90 ;
-  int __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  struct i2c_adapter *__cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  struct i2c_driver *__cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  char const   *__cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
+  unsigned short __cil_tmp50 ;
+  int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  float __cil_tmp53 ;
+  double __cil_tmp54 ;
+  float __cil_tmp55 ;
+  float __cil_tmp56 ;
+  int __cil_tmp57 ;
+  int __cil_tmp58 ;
+  float __cil_tmp59 ;
+  double __cil_tmp60 ;
+  float __cil_tmp61 ;
+  float __cil_tmp62 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
+  float __cil_tmp65 ;
+  double __cil_tmp66 ;
+  float __cil_tmp67 ;
+  float __cil_tmp68 ;
+  int __cil_tmp69 ;
+  int __cil_tmp70 ;
+  float __cil_tmp71 ;
+  double __cil_tmp72 ;
+  float __cil_tmp73 ;
+  float __cil_tmp74 ;
+  int __cil_tmp75 ;
+  int __cil_tmp76 ;
+  float __cil_tmp77 ;
+  double __cil_tmp78 ;
+  float __cil_tmp79 ;
+  float __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  float __cil_tmp83 ;
+  double __cil_tmp84 ;
+  float __cil_tmp85 ;
+  float __cil_tmp86 ;
+  int __cil_tmp87 ;
+  int __cil_tmp88 ;
+  float __cil_tmp89 ;
+  double __cil_tmp90 ;
+  float __cil_tmp91 ;
+  float __cil_tmp92 ;
+  int __cil_tmp93 ;
+  int __cil_tmp94 ;
+  float __cil_tmp95 ;
+  double __cil_tmp96 ;
+  float __cil_tmp97 ;
+  float __cil_tmp98 ;
+  int __cil_tmp99 ;
+  struct i2c_adapter *__cil_tmp100 ;
+  struct i2c_driver *__cil_tmp101 ;
+  char const   *__cil_tmp102 ;
   unsigned short __cil_tmp103 ;
   int __cil_tmp104 ;
-  int *__cil_tmp105 ;
-  int __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  struct i2c_adapter *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  struct i2c_driver *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  char const   *__cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
+  struct i2c_adapter *__cil_tmp105 ;
+  struct i2c_driver *__cil_tmp106 ;
+  char const   *__cil_tmp107 ;
+  unsigned short __cil_tmp108 ;
+  int __cil_tmp109 ;
+  struct i2c_adapter *__cil_tmp110 ;
+  struct i2c_driver *__cil_tmp111 ;
+  char const   *__cil_tmp112 ;
+  unsigned short __cil_tmp113 ;
+  int __cil_tmp114 ;
+  struct i2c_adapter *__cil_tmp115 ;
+  struct i2c_driver *__cil_tmp116 ;
+  char const   *__cil_tmp117 ;
   unsigned short __cil_tmp118 ;
   int __cil_tmp119 ;
-  int __cil_tmp120 ;
-  float __cil_tmp121 ;
-  double __cil_tmp122 ;
-  float __cil_tmp123 ;
-  float __cil_tmp124 ;
-  int __cil_tmp125 ;
-  int __cil_tmp126 ;
-  float __cil_tmp127 ;
-  double __cil_tmp128 ;
-  float __cil_tmp129 ;
-  float __cil_tmp130 ;
-  int __cil_tmp131 ;
-  int __cil_tmp132 ;
-  float __cil_tmp133 ;
-  double __cil_tmp134 ;
-  float __cil_tmp135 ;
-  float __cil_tmp136 ;
-  int __cil_tmp137 ;
-  int __cil_tmp138 ;
-  float __cil_tmp139 ;
-  double __cil_tmp140 ;
-  float __cil_tmp141 ;
-  float __cil_tmp142 ;
-  int __cil_tmp143 ;
-  int __cil_tmp144 ;
-  float __cil_tmp145 ;
-  double __cil_tmp146 ;
-  float __cil_tmp147 ;
-  float __cil_tmp148 ;
-  int __cil_tmp149 ;
-  int __cil_tmp150 ;
-  float __cil_tmp151 ;
-  double __cil_tmp152 ;
-  float __cil_tmp153 ;
-  float __cil_tmp154 ;
-  int __cil_tmp155 ;
-  int __cil_tmp156 ;
-  float __cil_tmp157 ;
-  double __cil_tmp158 ;
-  float __cil_tmp159 ;
-  float __cil_tmp160 ;
-  int __cil_tmp161 ;
-  int __cil_tmp162 ;
-  float __cil_tmp163 ;
-  double __cil_tmp164 ;
-  float __cil_tmp165 ;
-  float __cil_tmp166 ;
-  int __cil_tmp167 ;
-  int *__cil_tmp168 ;
-  int __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  struct i2c_adapter *__cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  struct i2c_driver *__cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  char const   *__cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned short __cil_tmp181 ;
-  int __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  int *__cil_tmp185 ;
-  int __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  struct i2c_adapter *__cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  struct i2c_driver *__cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  char const   *__cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned short __cil_tmp198 ;
-  int __cil_tmp199 ;
-  int *__cil_tmp200 ;
-  int __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  struct i2c_adapter *__cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  struct i2c_driver *__cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  char const   *__cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned short __cil_tmp213 ;
-  int __cil_tmp214 ;
-  int *__cil_tmp215 ;
-  int __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  struct i2c_adapter *__cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  struct i2c_driver *__cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  char const   *__cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned short __cil_tmp228 ;
-  int __cil_tmp229 ;
-  int *__cil_tmp230 ;
-  int __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  struct i2c_adapter *__cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  struct i2c_driver *__cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  char const   *__cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned short __cil_tmp243 ;
-  int __cil_tmp244 ;
-  int *__cil_tmp245 ;
-  int __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  struct i2c_adapter *__cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  struct i2c_driver *__cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  char const   *__cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned short __cil_tmp258 ;
-  int __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  int __cil_tmp262 ;
-  int *__cil_tmp263 ;
-  int __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  struct i2c_adapter *__cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  struct i2c_driver *__cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  char const   *__cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  unsigned short __cil_tmp276 ;
-  int __cil_tmp277 ;
-  unsigned long __cil_tmp278 ;
-  unsigned long __cil_tmp279 ;
-  int __cil_tmp280 ;
-  int *__cil_tmp281 ;
-  int __cil_tmp282 ;
-  unsigned long __cil_tmp283 ;
-  unsigned long __cil_tmp284 ;
-  struct i2c_adapter *__cil_tmp285 ;
-  unsigned long __cil_tmp286 ;
-  unsigned long __cil_tmp287 ;
-  struct i2c_driver *__cil_tmp288 ;
-  unsigned long __cil_tmp289 ;
-  unsigned long __cil_tmp290 ;
-  char const   *__cil_tmp291 ;
-  unsigned long __cil_tmp292 ;
-  unsigned long __cil_tmp293 ;
-  unsigned short __cil_tmp294 ;
-  int __cil_tmp295 ;
-  unsigned short __cil_tmp296 ;
+  struct i2c_adapter *__cil_tmp120 ;
+  struct i2c_driver *__cil_tmp121 ;
+  char const   *__cil_tmp122 ;
+  unsigned short __cil_tmp123 ;
+  int __cil_tmp124 ;
+  struct i2c_adapter *__cil_tmp125 ;
+  struct i2c_driver *__cil_tmp126 ;
+  char const   *__cil_tmp127 ;
+  unsigned short __cil_tmp128 ;
+  int __cil_tmp129 ;
+  int __cil_tmp130 ;
+  struct i2c_adapter *__cil_tmp131 ;
+  struct i2c_driver *__cil_tmp132 ;
+  char const   *__cil_tmp133 ;
+  unsigned short __cil_tmp134 ;
+  int __cil_tmp135 ;
+  int __cil_tmp136 ;
+  struct i2c_adapter *__cil_tmp137 ;
+  struct i2c_driver *__cil_tmp138 ;
+  char const   *__cil_tmp139 ;
+  unsigned short __cil_tmp140 ;
+  int __cil_tmp141 ;
+  u16 __cil_tmp142 ;
 
   {
   {
@@ -14037,36 +11317,16 @@ static void msp3400c_set_audmode(struct i2c_client *client )
   }
   {
 #line 230
-  __cil_tmp22 = (unsigned long )state;
+  __cil_tmp22 = state->audmode;
 #line 230
-  __cil_tmp23 = __cil_tmp22 + 2116;
-#line 230
-  __cil_tmp24 = *((int *)__cil_tmp23);
-#line 230
-  if (__cil_tmp24 >= 0) {
+  if (__cil_tmp22 >= 0) {
     {
 #line 230
-    __cil_tmp25 = (unsigned long )state;
+    __cil_tmp23 = state->audmode;
 #line 230
-    __cil_tmp26 = __cil_tmp25 + 2116;
+    if (__cil_tmp23 < 5) {
 #line 230
-    __cil_tmp27 = *((int *)__cil_tmp26);
-#line 230
-    if (__cil_tmp27 < 5) {
-#line 230
-      __cil_tmp28 = (unsigned long )state;
-#line 230
-      __cil_tmp29 = __cil_tmp28 + 2116;
-#line 230
-      __cil_tmp30 = *((int *)__cil_tmp29);
-#line 230
-      __cil_tmp31 = __cil_tmp30 * 8UL;
-#line 230
-      __cil_tmp32 = (unsigned long )(strmode) + __cil_tmp31;
-#line 230
-      __cil_tmp33 = *((char **)__cil_tmp32);
-#line 230
-      tmp___9 = (char const   *)__cil_tmp33;
+      tmp___9 = (char const   *)strmode[state->audmode];
     } else {
 #line 230
       tmp___9 = "unknown";
@@ -14082,78 +11342,45 @@ static void msp3400c_set_audmode(struct i2c_client *client )
 #line 232
   src = 0;
 #line 233
-  __cil_tmp34 = (unsigned long )state;
-#line 233
-  __cil_tmp35 = __cil_tmp34 + 2116;
-#line 233
-  audmode = *((int *)__cil_tmp35);
+  audmode = state->audmode;
   {
 #line 235
-  __cil_tmp36 = (unsigned long )state;
+  __cil_tmp24 = state->opmode;
 #line 235
-  __cil_tmp37 = __cil_tmp36 + 2056;
-#line 235
-  __cil_tmp38 = *((int *)__cil_tmp37);
-#line 235
-  if (__cil_tmp38 == 2) {
+  if (__cil_tmp24 == 2) {
     {
 #line 239
     while (1) {
-      while_26_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
-      {
 #line 239
-      __cil_tmp39 = & msp_debug;
-#line 239
-      __cil_tmp40 = *__cil_tmp39;
-#line 239
-      if (__cil_tmp40 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 239
-        __cil_tmp41 = (unsigned long )client;
+        __cil_tmp25 = client->adapter;
 #line 239
-        __cil_tmp42 = __cil_tmp41 + 24;
+        tmp___10 = i2c_adapter_id(__cil_tmp25);
 #line 239
-        __cil_tmp43 = *((struct i2c_adapter **)__cil_tmp42);
+        __cil_tmp26 = client->driver;
 #line 239
-        tmp___10 = i2c_adapter_id(__cil_tmp43);
+        __cil_tmp27 = __cil_tmp26->driver.name;
 #line 239
-        __cil_tmp44 = (unsigned long )client;
+        __cil_tmp28 = client->addr;
 #line 239
-        __cil_tmp45 = __cil_tmp44 + 32;
+        __cil_tmp29 = (int )__cil_tmp28;
 #line 239
-        __cil_tmp46 = *((struct i2c_driver **)__cil_tmp45);
-#line 239
-        __cil_tmp47 = (unsigned long )__cil_tmp46;
-#line 239
-        __cil_tmp48 = __cil_tmp47 + 80;
-#line 239
-        __cil_tmp49 = *((char const   **)__cil_tmp48);
-#line 239
-        __cil_tmp50 = (unsigned long )client;
-#line 239
-        __cil_tmp51 = __cil_tmp50 + 2;
-#line 239
-        __cil_tmp52 = *((unsigned short *)__cil_tmp51);
-#line 239
-        __cil_tmp53 = (int )__cil_tmp52;
-#line 239
-        __cil_tmp54 = (unsigned long )state;
-#line 239
-        __cil_tmp55 = __cil_tmp54 + 2116;
-#line 239
-        __cil_tmp56 = *((int *)__cil_tmp55);
+        __cil_tmp30 = state->audmode;
 #line 239
         printk("<7>%s %d-%04x: set_audmode called with mode=%d instead of set_source (ignored)\n",
-               __cil_tmp49, tmp___10, __cil_tmp53, __cil_tmp56);
+               __cil_tmp27, tmp___10, __cil_tmp29, __cil_tmp30);
         }
       } else {
 
       }
-      }
+#line 239
       goto while_break;
     }
-    while_26_break: /* CIL Label */ ;
+    while_break___10: /* CIL Label */ ;
     }
 
     while_break: ;
@@ -14165,55 +11392,41 @@ static void msp3400c_set_audmode(struct i2c_client *client )
   }
   {
 #line 249
-  __cil_tmp57 = (unsigned long )state;
+  __cil_tmp31 = state->mode;
 #line 249
-  __cil_tmp58 = __cil_tmp57 + 2064;
-#line 249
-  __cil_tmp59 = *((int *)__cil_tmp58);
-#line 249
-  if (__cil_tmp59 != 9) {
+  if (__cil_tmp31 != 9) {
     {
 #line 251
-    __cil_tmp60 = (unsigned long )state;
+    __cil_tmp32 = state->rxsubchans;
 #line 251
-    __cil_tmp61 = __cil_tmp60 + 2120;
-#line 251
-    __cil_tmp62 = *((int *)__cil_tmp61);
-#line 251
-    if (__cil_tmp62 == 1) {
+    if (__cil_tmp32 == 1) {
 #line 252
       audmode = 0;
     } else {
       {
 #line 254
-      __cil_tmp63 = (unsigned long )state;
+      __cil_tmp33 = state->rxsubchans;
 #line 254
-      __cil_tmp64 = __cil_tmp63 + 2120;
-#line 254
-      __cil_tmp65 = *((int *)__cil_tmp64);
-#line 254
-      if (__cil_tmp65 & 4) {
+      if (__cil_tmp33 & 4) {
 #line 256
         if (audmode == 0) {
 #line 258
           audmode = 3;
-        } else {
+        } else
 #line 256
-          if (audmode == 1) {
+        if (audmode == 1) {
 #line 258
-            audmode = 3;
-          } else {
-
-          }
-        }
-      } else {
-#line 261
-        if (audmode != 0) {
-#line 262
-          audmode = 1;
+          audmode = 3;
         } else {
 
         }
+      } else
+#line 261
+      if (audmode != 0) {
+#line 262
+        audmode = 1;
+      } else {
+
       }
       }
     }
@@ -14224,92 +11437,69 @@ static void msp3400c_set_audmode(struct i2c_client *client )
   }
   {
 #line 267
-  __cil_tmp66 = (unsigned long )state;
+  __cil_tmp34 = state->mode;
 #line 267
-  __cil_tmp67 = __cil_tmp66 + 2064;
+  if (__cil_tmp34 == 3) {
 #line 267
-  __cil_tmp68 = *((int *)__cil_tmp67);
-#line 267
-  if (__cil_tmp68 == 3) {
     goto case_3;
   } else {
     {
 #line 281
-    __cil_tmp69 = (unsigned long )state;
+    __cil_tmp35 = state->mode;
 #line 281
-    __cil_tmp70 = __cil_tmp69 + 2064;
+    if (__cil_tmp35 == 4) {
 #line 281
-    __cil_tmp71 = *((int *)__cil_tmp70);
-#line 281
-    if (__cil_tmp71 == 4) {
       goto case_4___0;
     } else {
       {
 #line 299
-      __cil_tmp72 = (unsigned long )state;
+      __cil_tmp36 = state->mode;
 #line 299
-      __cil_tmp73 = __cil_tmp72 + 2064;
+      if (__cil_tmp36 == 5) {
 #line 299
-      __cil_tmp74 = *((int *)__cil_tmp73);
-#line 299
-      if (__cil_tmp74 == 5) {
         goto case_5;
       } else {
         {
 #line 300
-        __cil_tmp75 = (unsigned long )state;
+        __cil_tmp37 = state->mode;
 #line 300
-        __cil_tmp76 = __cil_tmp75 + 2064;
+        if (__cil_tmp37 == 6) {
 #line 300
-        __cil_tmp77 = *((int *)__cil_tmp76);
-#line 300
-        if (__cil_tmp77 == 6) {
           goto case_5;
         } else {
           {
 #line 301
-          __cil_tmp78 = (unsigned long )state;
+          __cil_tmp38 = state->mode;
 #line 301
-          __cil_tmp79 = __cil_tmp78 + 2064;
+          if (__cil_tmp38 == 7) {
 #line 301
-          __cil_tmp80 = *((int *)__cil_tmp79);
-#line 301
-          if (__cil_tmp80 == 7) {
             goto case_5;
           } else {
             {
 #line 307
-            __cil_tmp81 = (unsigned long )state;
+            __cil_tmp39 = state->mode;
 #line 307
-            __cil_tmp82 = __cil_tmp81 + 2064;
+            if (__cil_tmp39 == 8) {
 #line 307
-            __cil_tmp83 = *((int *)__cil_tmp82);
-#line 307
-            if (__cil_tmp83 == 8) {
               goto case_8;
             } else {
               {
 #line 311
-              __cil_tmp84 = (unsigned long )state;
+              __cil_tmp40 = state->mode;
 #line 311
-              __cil_tmp85 = __cil_tmp84 + 2064;
+              if (__cil_tmp40 == 9) {
 #line 311
-              __cil_tmp86 = *((int *)__cil_tmp85);
-#line 311
-              if (__cil_tmp86 == 9) {
                 goto case_9;
               } else {
                 {
 #line 316
-                __cil_tmp87 = (unsigned long )state;
+                __cil_tmp41 = state->mode;
 #line 316
-                __cil_tmp88 = __cil_tmp87 + 2064;
+                if (__cil_tmp41 == 2) {
 #line 316
-                __cil_tmp89 = *((int *)__cil_tmp88);
-#line 316
-                if (__cil_tmp89 == 2) {
                   goto case_2___1;
                 } else {
+#line 320
                   goto switch_default;
 #line 266
                   if (0) {
@@ -14317,604 +11507,463 @@ static void msp3400c_set_audmode(struct i2c_client *client )
                     {
 #line 268
                     while (1) {
-                      while_27_continue: /* CIL Label */ ;
+                      while_continue___0: /* CIL Label */ ;
 
-                      {
 #line 268
-                      __cil_tmp90 = & msp_debug;
-#line 268
-                      __cil_tmp91 = *__cil_tmp90;
-#line 268
-                      if (__cil_tmp91 >= 1) {
+                      if (msp_debug >= 1) {
                         {
 #line 268
-                        __cil_tmp92 = (unsigned long )client;
+                        __cil_tmp42 = client->adapter;
 #line 268
-                        __cil_tmp93 = __cil_tmp92 + 24;
+                        tmp___11 = i2c_adapter_id(__cil_tmp42);
 #line 268
-                        __cil_tmp94 = *((struct i2c_adapter **)__cil_tmp93);
+                        __cil_tmp43 = client->driver;
 #line 268
-                        tmp___11 = i2c_adapter_id(__cil_tmp94);
+                        __cil_tmp44 = __cil_tmp43->driver.name;
 #line 268
-                        __cil_tmp95 = (unsigned long )client;
+                        __cil_tmp45 = client->addr;
 #line 268
-                        __cil_tmp96 = __cil_tmp95 + 32;
+                        __cil_tmp46 = (int )__cil_tmp45;
 #line 268
-                        __cil_tmp97 = *((struct i2c_driver **)__cil_tmp96);
-#line 268
-                        __cil_tmp98 = (unsigned long )__cil_tmp97;
-#line 268
-                        __cil_tmp99 = __cil_tmp98 + 80;
-#line 268
-                        __cil_tmp100 = *((char const   **)__cil_tmp99);
-#line 268
-                        __cil_tmp101 = (unsigned long )client;
-#line 268
-                        __cil_tmp102 = __cil_tmp101 + 2;
-#line 268
-                        __cil_tmp103 = *((unsigned short *)__cil_tmp102);
-#line 268
-                        __cil_tmp104 = (int )__cil_tmp103;
-#line 268
-                        printk("<7>%s %d-%04x: FM set_audmode: %s\n", __cil_tmp100,
-                               tmp___11, __cil_tmp104, modestr);
+                        printk("<7>%s %d-%04x: FM set_audmode: %s\n", __cil_tmp44,
+                               tmp___11, __cil_tmp46, modestr);
                         }
                       } else {
 
                       }
-                      }
+#line 268
                       goto while_break___0;
                     }
-                    while_27_break: /* CIL Label */ ;
+                    while_break___11: /* CIL Label */ ;
                     }
 
                     while_break___0: ;
 #line 270
                     if (audmode == 1) {
+#line 270
                       goto case_1;
-                    } else {
+                    } else
 #line 273
-                      if (audmode == 0) {
-                        goto case_0;
-                      } else {
+                    if (audmode == 0) {
+#line 273
+                      goto case_0;
+                    } else
 #line 274
-                        if (audmode == 3) {
-                          goto case_0;
-                        } else {
+                    if (audmode == 3) {
+#line 274
+                      goto case_0;
+                    } else
 #line 275
-                          if (audmode == 2) {
-                            goto case_0;
-                          } else {
+                    if (audmode == 2) {
+#line 275
+                      goto case_0;
+                    } else
 #line 276
-                            if (audmode == 4) {
-                              goto case_0;
-                            } else {
+                    if (audmode == 4) {
+#line 276
+                      goto case_0;
+                    } else
 #line 269
-                              if (0) {
-                                case_1: 
-                                {
+                    if (0) {
+                      case_1: 
+                      {
 #line 271
-                                msp_write_dsp(client, 14, 12289);
-                                }
-                                goto switch_break___0;
-                                case_0: 
-                                {
-#line 277
-                                msp_write_dsp(client, 14, 12288);
-                                }
-                                goto switch_break___0;
-                              } else {
-                                switch_break___0: ;
-                              }
-                            }
-                          }
-                        }
+                      msp_write_dsp(client, 14, 12289);
                       }
+#line 272
+                      goto switch_break___0;
+                      case_0: 
+                      {
+#line 277
+                      msp_write_dsp(client, 14, 12288);
+                      }
+#line 278
+                      goto switch_break___0;
+                    } else {
+                      switch_break___0: ;
                     }
+#line 280
                     goto switch_break;
                     case_4___0: 
                     {
 #line 282
                     while (1) {
-                      while_28_continue: /* CIL Label */ ;
+                      while_continue___1: /* CIL Label */ ;
 
-                      {
 #line 282
-                      __cil_tmp105 = & msp_debug;
-#line 282
-                      __cil_tmp106 = *__cil_tmp105;
-#line 282
-                      if (__cil_tmp106 >= 1) {
+                      if (msp_debug >= 1) {
                         {
 #line 282
-                        __cil_tmp107 = (unsigned long )client;
+                        __cil_tmp47 = client->adapter;
 #line 282
-                        __cil_tmp108 = __cil_tmp107 + 24;
+                        tmp___12 = i2c_adapter_id(__cil_tmp47);
 #line 282
-                        __cil_tmp109 = *((struct i2c_adapter **)__cil_tmp108);
+                        __cil_tmp48 = client->driver;
 #line 282
-                        tmp___12 = i2c_adapter_id(__cil_tmp109);
+                        __cil_tmp49 = __cil_tmp48->driver.name;
 #line 282
-                        __cil_tmp110 = (unsigned long )client;
+                        __cil_tmp50 = client->addr;
 #line 282
-                        __cil_tmp111 = __cil_tmp110 + 32;
+                        __cil_tmp51 = (int )__cil_tmp50;
 #line 282
-                        __cil_tmp112 = *((struct i2c_driver **)__cil_tmp111);
-#line 282
-                        __cil_tmp113 = (unsigned long )__cil_tmp112;
-#line 282
-                        __cil_tmp114 = __cil_tmp113 + 80;
-#line 282
-                        __cil_tmp115 = *((char const   **)__cil_tmp114);
-#line 282
-                        __cil_tmp116 = (unsigned long )client;
-#line 282
-                        __cil_tmp117 = __cil_tmp116 + 2;
-#line 282
-                        __cil_tmp118 = *((unsigned short *)__cil_tmp117);
-#line 282
-                        __cil_tmp119 = (int )__cil_tmp118;
-#line 282
-                        printk("<7>%s %d-%04x: SAT set_audmode: %s\n", __cil_tmp115,
-                               tmp___12, __cil_tmp119, modestr);
+                        printk("<7>%s %d-%04x: SAT set_audmode: %s\n", __cil_tmp49,
+                               tmp___12, __cil_tmp51, modestr);
                         }
                       } else {
 
                       }
-                      }
+#line 282
                       goto while_break___1;
                     }
-                    while_28_break: /* CIL Label */ ;
+                    while_break___12: /* CIL Label */ ;
                     }
 
                     while_break___1: ;
 #line 284
                     if (audmode == 0) {
+#line 284
                       goto case_0___0;
-                    } else {
+                    } else
 #line 287
-                      if (audmode == 1) {
-                        goto case_1___0;
-                      } else {
+                    if (audmode == 1) {
+#line 287
+                      goto case_1___0;
+                    } else
 #line 288
-                        if (audmode == 4) {
-                          goto case_1___0;
-                        } else {
+                    if (audmode == 4) {
+#line 288
+                      goto case_1___0;
+                    } else
 #line 291
-                          if (audmode == 3) {
-                            goto case_3___1;
-                          } else {
+                    if (audmode == 3) {
+#line 291
+                      goto case_3___1;
+                    } else
 #line 294
-                            if (audmode == 2) {
-                              goto case_2___0;
-                            } else {
+                    if (audmode == 2) {
+#line 294
+                      goto case_2___0;
+                    } else
 #line 283
-                              if (0) {
-                                case_0___0: 
-                                {
+                    if (0) {
+                      case_0___0: 
+                      {
 #line 285
-                                __cil_tmp120 = 1 << 24;
+                      __cil_tmp52 = 1 << 24;
 #line 285
-                                __cil_tmp121 = (float )__cil_tmp120;
+                      __cil_tmp53 = (float )__cil_tmp52;
 #line 285
-                                __cil_tmp122 = 6.5 / 18.432;
+                      __cil_tmp54 = 6.5 / 18.432;
 #line 285
-                                __cil_tmp123 = (float )__cil_tmp122;
+                      __cil_tmp55 = (float )__cil_tmp54;
 #line 285
-                                __cil_tmp124 = __cil_tmp123 * __cil_tmp121;
+                      __cil_tmp56 = __cil_tmp55 * __cil_tmp53;
 #line 285
-                                __cil_tmp125 = (int )__cil_tmp124;
+                      __cil_tmp57 = (int )__cil_tmp56;
 #line 285
-                                __cil_tmp126 = 1 << 24;
+                      __cil_tmp58 = 1 << 24;
 #line 285
-                                __cil_tmp127 = (float )__cil_tmp126;
+                      __cil_tmp59 = (float )__cil_tmp58;
 #line 285
-                                __cil_tmp128 = 6.5 / 18.432;
+                      __cil_tmp60 = 6.5 / 18.432;
 #line 285
-                                __cil_tmp129 = (float )__cil_tmp128;
+                      __cil_tmp61 = (float )__cil_tmp60;
 #line 285
-                                __cil_tmp130 = __cil_tmp129 * __cil_tmp127;
+                      __cil_tmp62 = __cil_tmp61 * __cil_tmp59;
 #line 285
-                                __cil_tmp131 = (int )__cil_tmp130;
+                      __cil_tmp63 = (int )__cil_tmp62;
 #line 285
-                                msp3400c_set_carrier(client, __cil_tmp125, __cil_tmp131);
-                                }
-                                goto switch_break___1;
-                                case_1___0: 
-                                {
-#line 289
-                                __cil_tmp132 = 1 << 24;
-#line 289
-                                __cil_tmp133 = (float )__cil_tmp132;
-#line 289
-                                __cil_tmp134 = 7.2 / 18.432;
-#line 289
-                                __cil_tmp135 = (float )__cil_tmp134;
-#line 289
-                                __cil_tmp136 = __cil_tmp135 * __cil_tmp133;
-#line 289
-                                __cil_tmp137 = (int )__cil_tmp136;
-#line 289
-                                __cil_tmp138 = 1 << 24;
-#line 289
-                                __cil_tmp139 = (float )__cil_tmp138;
-#line 289
-                                __cil_tmp140 = 7.02 / 18.432;
-#line 289
-                                __cil_tmp141 = (float )__cil_tmp140;
-#line 289
-                                __cil_tmp142 = __cil_tmp141 * __cil_tmp139;
-#line 289
-                                __cil_tmp143 = (int )__cil_tmp142;
-#line 289
-                                msp3400c_set_carrier(client, __cil_tmp137, __cil_tmp143);
-                                }
-                                goto switch_break___1;
-                                case_3___1: 
-                                {
-#line 292
-                                __cil_tmp144 = 1 << 24;
-#line 292
-                                __cil_tmp145 = (float )__cil_tmp144;
-#line 292
-                                __cil_tmp146 = 7.38 / 18.432;
-#line 292
-                                __cil_tmp147 = (float )__cil_tmp146;
-#line 292
-                                __cil_tmp148 = __cil_tmp147 * __cil_tmp145;
-#line 292
-                                __cil_tmp149 = (int )__cil_tmp148;
-#line 292
-                                __cil_tmp150 = 1 << 24;
-#line 292
-                                __cil_tmp151 = (float )__cil_tmp150;
-#line 292
-                                __cil_tmp152 = 7.02 / 18.432;
-#line 292
-                                __cil_tmp153 = (float )__cil_tmp152;
-#line 292
-                                __cil_tmp154 = __cil_tmp153 * __cil_tmp151;
-#line 292
-                                __cil_tmp155 = (int )__cil_tmp154;
-#line 292
-                                msp3400c_set_carrier(client, __cil_tmp149, __cil_tmp155);
-                                }
-                                goto switch_break___1;
-                                case_2___0: 
-                                {
-#line 295
-                                __cil_tmp156 = 1 << 24;
-#line 295
-                                __cil_tmp157 = (float )__cil_tmp156;
-#line 295
-                                __cil_tmp158 = 7.38 / 18.432;
-#line 295
-                                __cil_tmp159 = (float )__cil_tmp158;
-#line 295
-                                __cil_tmp160 = __cil_tmp159 * __cil_tmp157;
-#line 295
-                                __cil_tmp161 = (int )__cil_tmp160;
-#line 295
-                                __cil_tmp162 = 1 << 24;
-#line 295
-                                __cil_tmp163 = (float )__cil_tmp162;
-#line 295
-                                __cil_tmp164 = 7.02 / 18.432;
-#line 295
-                                __cil_tmp165 = (float )__cil_tmp164;
-#line 295
-                                __cil_tmp166 = __cil_tmp165 * __cil_tmp163;
-#line 295
-                                __cil_tmp167 = (int )__cil_tmp166;
-#line 295
-                                msp3400c_set_carrier(client, __cil_tmp161, __cil_tmp167);
-                                }
-                                goto switch_break___1;
-                              } else {
-                                switch_break___1: ;
-                              }
-                            }
-                          }
-                        }
+                      msp3400c_set_carrier(client, __cil_tmp57, __cil_tmp63);
                       }
+#line 286
+                      goto switch_break___1;
+                      case_1___0: 
+                      {
+#line 289
+                      __cil_tmp64 = 1 << 24;
+#line 289
+                      __cil_tmp65 = (float )__cil_tmp64;
+#line 289
+                      __cil_tmp66 = 7.2 / 18.432;
+#line 289
+                      __cil_tmp67 = (float )__cil_tmp66;
+#line 289
+                      __cil_tmp68 = __cil_tmp67 * __cil_tmp65;
+#line 289
+                      __cil_tmp69 = (int )__cil_tmp68;
+#line 289
+                      __cil_tmp70 = 1 << 24;
+#line 289
+                      __cil_tmp71 = (float )__cil_tmp70;
+#line 289
+                      __cil_tmp72 = 7.02 / 18.432;
+#line 289
+                      __cil_tmp73 = (float )__cil_tmp72;
+#line 289
+                      __cil_tmp74 = __cil_tmp73 * __cil_tmp71;
+#line 289
+                      __cil_tmp75 = (int )__cil_tmp74;
+#line 289
+                      msp3400c_set_carrier(client, __cil_tmp69, __cil_tmp75);
+                      }
+#line 290
+                      goto switch_break___1;
+                      case_3___1: 
+                      {
+#line 292
+                      __cil_tmp76 = 1 << 24;
+#line 292
+                      __cil_tmp77 = (float )__cil_tmp76;
+#line 292
+                      __cil_tmp78 = 7.38 / 18.432;
+#line 292
+                      __cil_tmp79 = (float )__cil_tmp78;
+#line 292
+                      __cil_tmp80 = __cil_tmp79 * __cil_tmp77;
+#line 292
+                      __cil_tmp81 = (int )__cil_tmp80;
+#line 292
+                      __cil_tmp82 = 1 << 24;
+#line 292
+                      __cil_tmp83 = (float )__cil_tmp82;
+#line 292
+                      __cil_tmp84 = 7.02 / 18.432;
+#line 292
+                      __cil_tmp85 = (float )__cil_tmp84;
+#line 292
+                      __cil_tmp86 = __cil_tmp85 * __cil_tmp83;
+#line 292
+                      __cil_tmp87 = (int )__cil_tmp86;
+#line 292
+                      msp3400c_set_carrier(client, __cil_tmp81, __cil_tmp87);
+                      }
+#line 293
+                      goto switch_break___1;
+                      case_2___0: 
+                      {
+#line 295
+                      __cil_tmp88 = 1 << 24;
+#line 295
+                      __cil_tmp89 = (float )__cil_tmp88;
+#line 295
+                      __cil_tmp90 = 7.38 / 18.432;
+#line 295
+                      __cil_tmp91 = (float )__cil_tmp90;
+#line 295
+                      __cil_tmp92 = __cil_tmp91 * __cil_tmp89;
+#line 295
+                      __cil_tmp93 = (int )__cil_tmp92;
+#line 295
+                      __cil_tmp94 = 1 << 24;
+#line 295
+                      __cil_tmp95 = (float )__cil_tmp94;
+#line 295
+                      __cil_tmp96 = 7.02 / 18.432;
+#line 295
+                      __cil_tmp97 = (float )__cil_tmp96;
+#line 295
+                      __cil_tmp98 = __cil_tmp97 * __cil_tmp95;
+#line 295
+                      __cil_tmp99 = (int )__cil_tmp98;
+#line 295
+                      msp3400c_set_carrier(client, __cil_tmp93, __cil_tmp99);
+                      }
+#line 296
+                      goto switch_break___1;
+                    } else {
+                      switch_break___1: ;
                     }
+#line 298
                     goto switch_break;
                     case_5: 
                     {
 #line 302
                     while (1) {
-                      while_29_continue: /* CIL Label */ ;
+                      while_continue___2: /* CIL Label */ ;
 
-                      {
 #line 302
-                      __cil_tmp168 = & msp_debug;
-#line 302
-                      __cil_tmp169 = *__cil_tmp168;
-#line 302
-                      if (__cil_tmp169 >= 1) {
+                      if (msp_debug >= 1) {
                         {
 #line 302
-                        __cil_tmp170 = (unsigned long )client;
+                        __cil_tmp100 = client->adapter;
 #line 302
-                        __cil_tmp171 = __cil_tmp170 + 24;
+                        tmp___13 = i2c_adapter_id(__cil_tmp100);
 #line 302
-                        __cil_tmp172 = *((struct i2c_adapter **)__cil_tmp171);
+                        __cil_tmp101 = client->driver;
 #line 302
-                        tmp___13 = i2c_adapter_id(__cil_tmp172);
+                        __cil_tmp102 = __cil_tmp101->driver.name;
 #line 302
-                        __cil_tmp173 = (unsigned long )client;
+                        __cil_tmp103 = client->addr;
 #line 302
-                        __cil_tmp174 = __cil_tmp173 + 32;
+                        __cil_tmp104 = (int )__cil_tmp103;
 #line 302
-                        __cil_tmp175 = *((struct i2c_driver **)__cil_tmp174);
-#line 302
-                        __cil_tmp176 = (unsigned long )__cil_tmp175;
-#line 302
-                        __cil_tmp177 = __cil_tmp176 + 80;
-#line 302
-                        __cil_tmp178 = *((char const   **)__cil_tmp177);
-#line 302
-                        __cil_tmp179 = (unsigned long )client;
-#line 302
-                        __cil_tmp180 = __cil_tmp179 + 2;
-#line 302
-                        __cil_tmp181 = *((unsigned short *)__cil_tmp180);
-#line 302
-                        __cil_tmp182 = (int )__cil_tmp181;
-#line 302
-                        printk("<7>%s %d-%04x: NICAM set_audmode: %s\n", __cil_tmp178,
-                               tmp___13, __cil_tmp182, modestr);
+                        printk("<7>%s %d-%04x: NICAM set_audmode: %s\n", __cil_tmp102,
+                               tmp___13, __cil_tmp104, modestr);
                         }
                       } else {
 
                       }
-                      }
+#line 302
                       goto while_break___2;
                     }
-                    while_29_break: /* CIL Label */ ;
+                    while_break___13: /* CIL Label */ ;
                     }
 
                     while_break___2: ;
-                    {
 #line 304
-                    __cil_tmp183 = (unsigned long )state;
-#line 304
-                    __cil_tmp184 = __cil_tmp183 + 2080;
-#line 304
-                    if (*((int *)__cil_tmp184)) {
+                    if (state->nicam_on) {
 #line 305
                       src = 256;
                     } else {
 
                     }
-                    }
+#line 306
                     goto switch_break;
                     case_8: 
                     {
 #line 308
                     while (1) {
-                      while_30_continue: /* CIL Label */ ;
+                      while_continue___3: /* CIL Label */ ;
 
-                      {
 #line 308
-                      __cil_tmp185 = & msp_debug;
-#line 308
-                      __cil_tmp186 = *__cil_tmp185;
-#line 308
-                      if (__cil_tmp186 >= 1) {
+                      if (msp_debug >= 1) {
                         {
 #line 308
-                        __cil_tmp187 = (unsigned long )client;
+                        __cil_tmp105 = client->adapter;
 #line 308
-                        __cil_tmp188 = __cil_tmp187 + 24;
+                        tmp___14 = i2c_adapter_id(__cil_tmp105);
 #line 308
-                        __cil_tmp189 = *((struct i2c_adapter **)__cil_tmp188);
+                        __cil_tmp106 = client->driver;
 #line 308
-                        tmp___14 = i2c_adapter_id(__cil_tmp189);
+                        __cil_tmp107 = __cil_tmp106->driver.name;
 #line 308
-                        __cil_tmp190 = (unsigned long )client;
+                        __cil_tmp108 = client->addr;
 #line 308
-                        __cil_tmp191 = __cil_tmp190 + 32;
+                        __cil_tmp109 = (int )__cil_tmp108;
 #line 308
-                        __cil_tmp192 = *((struct i2c_driver **)__cil_tmp191);
-#line 308
-                        __cil_tmp193 = (unsigned long )__cil_tmp192;
-#line 308
-                        __cil_tmp194 = __cil_tmp193 + 80;
-#line 308
-                        __cil_tmp195 = *((char const   **)__cil_tmp194);
-#line 308
-                        __cil_tmp196 = (unsigned long )client;
-#line 308
-                        __cil_tmp197 = __cil_tmp196 + 2;
-#line 308
-                        __cil_tmp198 = *((unsigned short *)__cil_tmp197);
-#line 308
-                        __cil_tmp199 = (int )__cil_tmp198;
-#line 308
-                        printk("<7>%s %d-%04x: BTSC set_audmode: %s\n", __cil_tmp195,
-                               tmp___14, __cil_tmp199, modestr);
+                        printk("<7>%s %d-%04x: BTSC set_audmode: %s\n", __cil_tmp107,
+                               tmp___14, __cil_tmp109, modestr);
                         }
                       } else {
 
                       }
-                      }
+#line 308
                       goto while_break___3;
                     }
-                    while_30_break: /* CIL Label */ ;
+                    while_break___14: /* CIL Label */ ;
                     }
 
                     while_break___3: ;
+#line 310
                     goto switch_break;
                     case_9: 
                     {
 #line 312
                     while (1) {
-                      while_31_continue: /* CIL Label */ ;
+                      while_continue___4: /* CIL Label */ ;
 
-                      {
 #line 312
-                      __cil_tmp200 = & msp_debug;
-#line 312
-                      __cil_tmp201 = *__cil_tmp200;
-#line 312
-                      if (__cil_tmp201 >= 1) {
+                      if (msp_debug >= 1) {
                         {
 #line 312
-                        __cil_tmp202 = (unsigned long )client;
+                        __cil_tmp110 = client->adapter;
 #line 312
-                        __cil_tmp203 = __cil_tmp202 + 24;
+                        tmp___15 = i2c_adapter_id(__cil_tmp110);
 #line 312
-                        __cil_tmp204 = *((struct i2c_adapter **)__cil_tmp203);
+                        __cil_tmp111 = client->driver;
 #line 312
-                        tmp___15 = i2c_adapter_id(__cil_tmp204);
+                        __cil_tmp112 = __cil_tmp111->driver.name;
 #line 312
-                        __cil_tmp205 = (unsigned long )client;
+                        __cil_tmp113 = client->addr;
 #line 312
-                        __cil_tmp206 = __cil_tmp205 + 32;
+                        __cil_tmp114 = (int )__cil_tmp113;
 #line 312
-                        __cil_tmp207 = *((struct i2c_driver **)__cil_tmp206);
-#line 312
-                        __cil_tmp208 = (unsigned long )__cil_tmp207;
-#line 312
-                        __cil_tmp209 = __cil_tmp208 + 80;
-#line 312
-                        __cil_tmp210 = *((char const   **)__cil_tmp209);
-#line 312
-                        __cil_tmp211 = (unsigned long )client;
-#line 312
-                        __cil_tmp212 = __cil_tmp211 + 2;
-#line 312
-                        __cil_tmp213 = *((unsigned short *)__cil_tmp212);
-#line 312
-                        __cil_tmp214 = (int )__cil_tmp213;
-#line 312
-                        printk("<7>%s %d-%04x: extern set_audmode: %s\n", __cil_tmp210,
-                               tmp___15, __cil_tmp214, modestr);
+                        printk("<7>%s %d-%04x: extern set_audmode: %s\n", __cil_tmp112,
+                               tmp___15, __cil_tmp114, modestr);
                         }
                       } else {
 
                       }
-                      }
+#line 312
                       goto while_break___4;
                     }
-                    while_31_break: /* CIL Label */ ;
+                    while_break___15: /* CIL Label */ ;
                     }
 
                     while_break___4: 
 #line 314
                     src = 512;
+#line 315
                     goto switch_break;
                     case_2___1: 
                     {
 #line 317
                     while (1) {
-                      while_32_continue: /* CIL Label */ ;
+                      while_continue___5: /* CIL Label */ ;
 
-                      {
 #line 317
-                      __cil_tmp215 = & msp_debug;
-#line 317
-                      __cil_tmp216 = *__cil_tmp215;
-#line 317
-                      if (__cil_tmp216 >= 1) {
+                      if (msp_debug >= 1) {
                         {
 #line 317
-                        __cil_tmp217 = (unsigned long )client;
+                        __cil_tmp115 = client->adapter;
 #line 317
-                        __cil_tmp218 = __cil_tmp217 + 24;
+                        tmp___16 = i2c_adapter_id(__cil_tmp115);
 #line 317
-                        __cil_tmp219 = *((struct i2c_adapter **)__cil_tmp218);
+                        __cil_tmp116 = client->driver;
 #line 317
-                        tmp___16 = i2c_adapter_id(__cil_tmp219);
+                        __cil_tmp117 = __cil_tmp116->driver.name;
 #line 317
-                        __cil_tmp220 = (unsigned long )client;
+                        __cil_tmp118 = client->addr;
 #line 317
-                        __cil_tmp221 = __cil_tmp220 + 32;
+                        __cil_tmp119 = (int )__cil_tmp118;
 #line 317
-                        __cil_tmp222 = *((struct i2c_driver **)__cil_tmp221);
-#line 317
-                        __cil_tmp223 = (unsigned long )__cil_tmp222;
-#line 317
-                        __cil_tmp224 = __cil_tmp223 + 80;
-#line 317
-                        __cil_tmp225 = *((char const   **)__cil_tmp224);
-#line 317
-                        __cil_tmp226 = (unsigned long )client;
-#line 317
-                        __cil_tmp227 = __cil_tmp226 + 2;
-#line 317
-                        __cil_tmp228 = *((unsigned short *)__cil_tmp227);
-#line 317
-                        __cil_tmp229 = (int )__cil_tmp228;
-#line 317
-                        printk("<7>%s %d-%04x: FM-Radio set_audmode: %s\n", __cil_tmp225,
-                               tmp___16, __cil_tmp229, modestr);
+                        printk("<7>%s %d-%04x: FM-Radio set_audmode: %s\n", __cil_tmp117,
+                               tmp___16, __cil_tmp119, modestr);
                         }
                       } else {
 
                       }
-                      }
+#line 317
                       goto while_break___5;
                     }
-                    while_32_break: /* CIL Label */ ;
+                    while_break___16: /* CIL Label */ ;
                     }
 
                     while_break___5: ;
+#line 319
                     goto switch_break;
                     switch_default: 
                     {
 #line 321
                     while (1) {
-                      while_33_continue: /* CIL Label */ ;
+                      while_continue___6: /* CIL Label */ ;
 
-                      {
 #line 321
-                      __cil_tmp230 = & msp_debug;
-#line 321
-                      __cil_tmp231 = *__cil_tmp230;
-#line 321
-                      if (__cil_tmp231 >= 1) {
+                      if (msp_debug >= 1) {
                         {
 #line 321
-                        __cil_tmp232 = (unsigned long )client;
+                        __cil_tmp120 = client->adapter;
 #line 321
-                        __cil_tmp233 = __cil_tmp232 + 24;
+                        tmp___17 = i2c_adapter_id(__cil_tmp120);
 #line 321
-                        __cil_tmp234 = *((struct i2c_adapter **)__cil_tmp233);
+                        __cil_tmp121 = client->driver;
 #line 321
-                        tmp___17 = i2c_adapter_id(__cil_tmp234);
+                        __cil_tmp122 = __cil_tmp121->driver.name;
 #line 321
-                        __cil_tmp235 = (unsigned long )client;
+                        __cil_tmp123 = client->addr;
 #line 321
-                        __cil_tmp236 = __cil_tmp235 + 32;
+                        __cil_tmp124 = (int )__cil_tmp123;
 #line 321
-                        __cil_tmp237 = *((struct i2c_driver **)__cil_tmp236);
-#line 321
-                        __cil_tmp238 = (unsigned long )__cil_tmp237;
-#line 321
-                        __cil_tmp239 = __cil_tmp238 + 80;
-#line 321
-                        __cil_tmp240 = *((char const   **)__cil_tmp239);
-#line 321
-                        __cil_tmp241 = (unsigned long )client;
-#line 321
-                        __cil_tmp242 = __cil_tmp241 + 2;
-#line 321
-                        __cil_tmp243 = *((unsigned short *)__cil_tmp242);
-#line 321
-                        __cil_tmp244 = (int )__cil_tmp243;
-#line 321
-                        printk("<7>%s %d-%04x: mono set_audmode\n", __cil_tmp240,
-                               tmp___17, __cil_tmp244);
+                        printk("<7>%s %d-%04x: mono set_audmode\n", __cil_tmp122,
+                               tmp___17, __cil_tmp124);
                         }
                       } else {
 
                       }
-                      }
+#line 321
                       goto while_break___6;
                     }
-                    while_33_break: /* CIL Label */ ;
+                    while_break___17: /* CIL Label */ ;
                     }
 
                     while_break___6: ;
@@ -14942,250 +11991,184 @@ static void msp3400c_set_audmode(struct i2c_client *client )
   {
 #line 326
   while (1) {
-    while_34_continue: /* CIL Label */ ;
+    while_continue___7: /* CIL Label */ ;
 
-    {
 #line 326
-    __cil_tmp245 = & msp_debug;
-#line 326
-    __cil_tmp246 = *__cil_tmp245;
-#line 326
-    if (__cil_tmp246 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 326
-      __cil_tmp247 = (unsigned long )client;
+      __cil_tmp125 = client->adapter;
 #line 326
-      __cil_tmp248 = __cil_tmp247 + 24;
+      tmp___18 = i2c_adapter_id(__cil_tmp125);
 #line 326
-      __cil_tmp249 = *((struct i2c_adapter **)__cil_tmp248);
+      __cil_tmp126 = client->driver;
 #line 326
-      tmp___18 = i2c_adapter_id(__cil_tmp249);
+      __cil_tmp127 = __cil_tmp126->driver.name;
 #line 326
-      __cil_tmp250 = (unsigned long )client;
+      __cil_tmp128 = client->addr;
 #line 326
-      __cil_tmp251 = __cil_tmp250 + 32;
+      __cil_tmp129 = (int )__cil_tmp128;
 #line 326
-      __cil_tmp252 = *((struct i2c_driver **)__cil_tmp251);
-#line 326
-      __cil_tmp253 = (unsigned long )__cil_tmp252;
-#line 326
-      __cil_tmp254 = __cil_tmp253 + 80;
-#line 326
-      __cil_tmp255 = *((char const   **)__cil_tmp254);
-#line 326
-      __cil_tmp256 = (unsigned long )client;
-#line 326
-      __cil_tmp257 = __cil_tmp256 + 2;
-#line 326
-      __cil_tmp258 = *((unsigned short *)__cil_tmp257);
-#line 326
-      __cil_tmp259 = (int )__cil_tmp258;
-#line 326
-      printk("<7>%s %d-%04x: set audmode %d\n", __cil_tmp255, tmp___18, __cil_tmp259,
+      printk("<7>%s %d-%04x: set audmode %d\n", __cil_tmp127, tmp___18, __cil_tmp129,
              audmode);
       }
     } else {
 
     }
-    }
+#line 326
     goto while_break___7;
   }
-  while_34_break: /* CIL Label */ ;
+  while_break___18: /* CIL Label */ ;
   }
 
   while_break___7: ;
 #line 328
   if (audmode == 1) {
+#line 328
     goto case_1___1;
-  } else {
+  } else
 #line 329
-    if (audmode == 4) {
-      goto case_1___1;
-    } else {
+  if (audmode == 4) {
+#line 329
+    goto case_1___1;
+  } else
 #line 332
-      if (audmode == 0) {
-        goto case_0___1;
-      } else {
+  if (audmode == 0) {
+#line 332
+    goto case_0___1;
+  } else
 #line 344
-        if (audmode == 3) {
-          goto case_3___2;
-        } else {
+  if (audmode == 3) {
+#line 344
+    goto case_3___2;
+  } else
 #line 346
-          if (audmode == 2) {
-            goto case_2___2;
-          } else {
+  if (audmode == 2) {
+#line 346
+    goto case_2___2;
+  } else
 #line 327
-            if (0) {
-              case_1___1: 
+  if (0) {
+    case_1___1: 
 #line 330
-              src = src | 32;
-              goto switch_break___2;
-              case_0___1: 
-              {
+    src = src | 32;
+#line 331
+    goto switch_break___2;
+    case_0___1: 
+    {
 #line 333
-              __cil_tmp260 = (unsigned long )state;
+    __cil_tmp130 = state->mode;
 #line 333
-              __cil_tmp261 = __cil_tmp260 + 2064;
-#line 333
-              __cil_tmp262 = *((int *)__cil_tmp261);
-#line 333
-              if (__cil_tmp262 == 7) {
-                {
+    if (__cil_tmp130 == 7) {
+      {
 #line 334
-                while (1) {
-                  while_35_continue: /* CIL Label */ ;
+      while (1) {
+        while_continue___8: /* CIL Label */ ;
 
-                  {
 #line 334
-                  __cil_tmp263 = & msp_debug;
+        if (msp_debug >= 1) {
+          {
 #line 334
-                  __cil_tmp264 = *__cil_tmp263;
+          __cil_tmp131 = client->adapter;
 #line 334
-                  if (__cil_tmp264 >= 1) {
-                    {
+          tmp___19 = i2c_adapter_id(__cil_tmp131);
 #line 334
-                    __cil_tmp265 = (unsigned long )client;
+          __cil_tmp132 = client->driver;
 #line 334
-                    __cil_tmp266 = __cil_tmp265 + 24;
+          __cil_tmp133 = __cil_tmp132->driver.name;
 #line 334
-                    __cil_tmp267 = *((struct i2c_adapter **)__cil_tmp266);
+          __cil_tmp134 = client->addr;
 #line 334
-                    tmp___19 = i2c_adapter_id(__cil_tmp267);
+          __cil_tmp135 = (int )__cil_tmp134;
 #line 334
-                    __cil_tmp268 = (unsigned long )client;
-#line 334
-                    __cil_tmp269 = __cil_tmp268 + 32;
-#line 334
-                    __cil_tmp270 = *((struct i2c_driver **)__cil_tmp269);
-#line 334
-                    __cil_tmp271 = (unsigned long )__cil_tmp270;
-#line 334
-                    __cil_tmp272 = __cil_tmp271 + 80;
-#line 334
-                    __cil_tmp273 = *((char const   **)__cil_tmp272);
-#line 334
-                    __cil_tmp274 = (unsigned long )client;
-#line 334
-                    __cil_tmp275 = __cil_tmp274 + 2;
-#line 334
-                    __cil_tmp276 = *((unsigned short *)__cil_tmp275);
-#line 334
-                    __cil_tmp277 = (int )__cil_tmp276;
-#line 334
-                    printk("<7>%s %d-%04x: switching to AM mono\n", __cil_tmp273,
-                           tmp___19, __cil_tmp277);
-                    }
-                  } else {
-
-                  }
-                  }
-                  goto while_break___8;
-                }
-                while_35_break: /* CIL Label */ ;
-                }
-
-                while_break___8: 
-                {
-#line 337
-                msp_set_scart(client, 6, 0);
-#line 338
-                src = 512;
-                }
-                goto switch_break___2;
-              } else {
-
-              }
-              }
-              {
-#line 341
-              __cil_tmp278 = (unsigned long )state;
-#line 341
-              __cil_tmp279 = __cil_tmp278 + 2120;
-#line 341
-              __cil_tmp280 = *((int *)__cil_tmp279);
-#line 341
-              if (__cil_tmp280 & 2) {
-#line 342
-                src = 48;
-              } else {
-
-              }
-              }
-              goto switch_break___2;
-              case_3___2: 
-              goto switch_break___2;
-              case_2___2: 
-#line 347
-              src = src | 16;
-              goto switch_break___2;
-            } else {
-              switch_break___2: ;
-            }
+          printk("<7>%s %d-%04x: switching to AM mono\n", __cil_tmp133, tmp___19,
+                 __cil_tmp135);
           }
+        } else {
+
         }
+#line 334
+        goto while_break___8;
       }
+      while_break___19: /* CIL Label */ ;
+      }
+
+      while_break___8: 
+      {
+#line 337
+      msp_set_scart(client, 6, 0);
+#line 338
+      src = 512;
+      }
+#line 339
+      goto switch_break___2;
+    } else {
+
     }
+    }
+    {
+#line 341
+    __cil_tmp136 = state->rxsubchans;
+#line 341
+    if (__cil_tmp136 & 2) {
+#line 342
+      src = 48;
+    } else {
+
+    }
+    }
+#line 343
+    goto switch_break___2;
+    case_3___2: 
+#line 345
+    goto switch_break___2;
+    case_2___2: 
+#line 347
+    src = src | 16;
+#line 348
+    goto switch_break___2;
+  } else {
+    switch_break___2: ;
   }
   {
 #line 350
   while (1) {
-    while_36_continue: /* CIL Label */ ;
+    while_continue___9: /* CIL Label */ ;
 
-    {
 #line 350
-    __cil_tmp281 = & msp_debug;
-#line 350
-    __cil_tmp282 = *__cil_tmp281;
-#line 350
-    if (__cil_tmp282 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 350
-      __cil_tmp283 = (unsigned long )client;
+      __cil_tmp137 = client->adapter;
 #line 350
-      __cil_tmp284 = __cil_tmp283 + 24;
+      tmp___20 = i2c_adapter_id(__cil_tmp137);
 #line 350
-      __cil_tmp285 = *((struct i2c_adapter **)__cil_tmp284);
+      __cil_tmp138 = client->driver;
 #line 350
-      tmp___20 = i2c_adapter_id(__cil_tmp285);
+      __cil_tmp139 = __cil_tmp138->driver.name;
 #line 350
-      __cil_tmp286 = (unsigned long )client;
+      __cil_tmp140 = client->addr;
 #line 350
-      __cil_tmp287 = __cil_tmp286 + 32;
+      __cil_tmp141 = (int )__cil_tmp140;
 #line 350
-      __cil_tmp288 = *((struct i2c_driver **)__cil_tmp287);
-#line 350
-      __cil_tmp289 = (unsigned long )__cil_tmp288;
-#line 350
-      __cil_tmp290 = __cil_tmp289 + 80;
-#line 350
-      __cil_tmp291 = *((char const   **)__cil_tmp290);
-#line 350
-      __cil_tmp292 = (unsigned long )client;
-#line 350
-      __cil_tmp293 = __cil_tmp292 + 2;
-#line 350
-      __cil_tmp294 = *((unsigned short *)__cil_tmp293);
-#line 350
-      __cil_tmp295 = (int )__cil_tmp294;
-#line 350
-      printk("<7>%s %d-%04x: set_audmode final source/matrix = 0x%x\n", __cil_tmp291,
-             tmp___20, __cil_tmp295, src);
+      printk("<7>%s %d-%04x: set_audmode final source/matrix = 0x%x\n", __cil_tmp139,
+             tmp___20, __cil_tmp141, src);
       }
     } else {
 
     }
-    }
+#line 350
     goto while_break___9;
   }
-  while_36_break: /* CIL Label */ ;
+  while_break___20: /* CIL Label */ ;
   }
 
   while_break___9: 
   {
 #line 353
-  __cil_tmp296 = (unsigned short )src;
+  __cil_tmp142 = (u16 )src;
 #line 353
-  msp_set_source(client, __cil_tmp296);
+  msp_set_source(client, __cil_tmp142);
   }
 #line 354
   return;
@@ -15203,150 +12186,64 @@ static void msp3400c_print_mode(struct i2c_client *client )
   int tmp___13 ;
   struct i2c_client  const  *__cil_tmp10 ;
   struct v4l2_subdev *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  int *__cil_tmp18 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
+  struct i2c_adapter *__cil_tmp14 ;
+  struct i2c_driver *__cil_tmp15 ;
+  char const   *__cil_tmp16 ;
+  unsigned short __cil_tmp17 ;
+  int __cil_tmp18 ;
   int __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  struct i2c_adapter *__cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  struct i2c_adapter *__cil_tmp24 ;
   struct i2c_driver *__cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  char const   *__cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  unsigned short __cil_tmp31 ;
+  char const   *__cil_tmp26 ;
+  unsigned short __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
+  int __cil_tmp30 ;
+  int __cil_tmp31 ;
   int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
   int __cil_tmp35 ;
-  int __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  int __cil_tmp39 ;
+  struct i2c_adapter *__cil_tmp36 ;
+  struct i2c_driver *__cil_tmp37 ;
+  char const   *__cil_tmp38 ;
+  unsigned short __cil_tmp39 ;
   int __cil_tmp40 ;
   int __cil_tmp41 ;
-  int *__cil_tmp42 ;
+  int __cil_tmp42 ;
   int __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  struct i2c_adapter *__cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct i2c_driver *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  char const   *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned short __cil_tmp55 ;
+  int __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  struct i2c_adapter *__cil_tmp47 ;
+  struct i2c_driver *__cil_tmp48 ;
+  char const   *__cil_tmp49 ;
+  unsigned short __cil_tmp50 ;
+  int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  int __cil_tmp53 ;
+  int __cil_tmp54 ;
+  int __cil_tmp55 ;
   int __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
+  int __cil_tmp57 ;
+  int __cil_tmp58 ;
   int __cil_tmp59 ;
-  int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  int __cil_tmp63 ;
+  struct i2c_adapter *__cil_tmp60 ;
+  struct i2c_driver *__cil_tmp61 ;
+  char const   *__cil_tmp62 ;
+  unsigned short __cil_tmp63 ;
   int __cil_tmp64 ;
   int __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
+  int __cil_tmp66 ;
+  int __cil_tmp67 ;
   int __cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  int __cil_tmp71 ;
-  int *__cil_tmp72 ;
-  int __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  unsigned long __cil_tmp75 ;
-  struct i2c_adapter *__cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  struct i2c_driver *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  char const   *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned short __cil_tmp85 ;
-  int __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  int __cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  int __cil_tmp93 ;
-  int __cil_tmp94 ;
-  int __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  int __cil_tmp98 ;
-  int *__cil_tmp99 ;
-  int __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  struct i2c_adapter *__cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  struct i2c_driver *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  char const   *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned short __cil_tmp112 ;
-  int __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  int __cil_tmp116 ;
-  int __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  int __cil_tmp120 ;
-  int __cil_tmp121 ;
-  int __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  int __cil_tmp125 ;
-  unsigned long __cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  int __cil_tmp131 ;
-  int *__cil_tmp132 ;
-  int __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  struct i2c_adapter *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  struct i2c_driver *__cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  char const   *__cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  unsigned long __cil_tmp144 ;
-  unsigned short __cil_tmp145 ;
-  int __cil_tmp146 ;
-  unsigned long __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  int __cil_tmp149 ;
-  int __cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  int __cil_tmp153 ;
-  int __cil_tmp154 ;
-  int __cil_tmp155 ;
+  int __cil_tmp69 ;
 
   {
   {
@@ -15363,89 +12260,52 @@ static void msp3400c_print_mode(struct i2c_client *client )
   }
   {
 #line 360
-  __cil_tmp12 = (unsigned long )state;
+  __cil_tmp12 = state->second;
 #line 360
-  __cil_tmp13 = __cil_tmp12 + 2100;
+  __cil_tmp13 = state->main;
 #line 360
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 360
-  __cil_tmp15 = (unsigned long )state;
-#line 360
-  __cil_tmp16 = __cil_tmp15 + 2096;
-#line 360
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 360
-  if (__cil_tmp17 == __cil_tmp14) {
+  if (__cil_tmp13 == __cil_tmp12) {
     {
 #line 361
     while (1) {
-      while_37_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
-      {
 #line 361
-      __cil_tmp18 = & msp_debug;
-#line 361
-      __cil_tmp19 = *__cil_tmp18;
-#line 361
-      if (__cil_tmp19 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 361
-        __cil_tmp20 = (unsigned long )client;
+        __cil_tmp14 = client->adapter;
 #line 361
-        __cil_tmp21 = __cil_tmp20 + 24;
+        tmp___9 = i2c_adapter_id(__cil_tmp14);
 #line 361
-        __cil_tmp22 = *((struct i2c_adapter **)__cil_tmp21);
+        __cil_tmp15 = client->driver;
 #line 361
-        tmp___9 = i2c_adapter_id(__cil_tmp22);
+        __cil_tmp16 = __cil_tmp15->driver.name;
 #line 361
-        __cil_tmp23 = (unsigned long )client;
+        __cil_tmp17 = client->addr;
 #line 361
-        __cil_tmp24 = __cil_tmp23 + 32;
+        __cil_tmp18 = (int )__cil_tmp17;
 #line 361
-        __cil_tmp25 = *((struct i2c_driver **)__cil_tmp24);
+        __cil_tmp19 = state->main;
 #line 361
-        __cil_tmp26 = (unsigned long )__cil_tmp25;
+        __cil_tmp20 = __cil_tmp19 / 910000;
 #line 361
-        __cil_tmp27 = __cil_tmp26 + 80;
+        __cil_tmp21 = state->main;
 #line 361
-        __cil_tmp28 = *((char const   **)__cil_tmp27);
+        __cil_tmp22 = __cil_tmp21 / 910;
 #line 361
-        __cil_tmp29 = (unsigned long )client;
+        __cil_tmp23 = __cil_tmp22 % 1000;
 #line 361
-        __cil_tmp30 = __cil_tmp29 + 2;
-#line 361
-        __cil_tmp31 = *((unsigned short *)__cil_tmp30);
-#line 361
-        __cil_tmp32 = (int )__cil_tmp31;
-#line 361
-        __cil_tmp33 = (unsigned long )state;
-#line 361
-        __cil_tmp34 = __cil_tmp33 + 2096;
-#line 361
-        __cil_tmp35 = *((int *)__cil_tmp34);
-#line 361
-        __cil_tmp36 = __cil_tmp35 / 910000;
-#line 361
-        __cil_tmp37 = (unsigned long )state;
-#line 361
-        __cil_tmp38 = __cil_tmp37 + 2096;
-#line 361
-        __cil_tmp39 = *((int *)__cil_tmp38);
-#line 361
-        __cil_tmp40 = __cil_tmp39 / 910;
-#line 361
-        __cil_tmp41 = __cil_tmp40 % 1000;
-#line 361
-        printk("<7>%s %d-%04x: mono sound carrier: %d.%03d MHz\n", __cil_tmp28, tmp___9,
-               __cil_tmp32, __cil_tmp36, __cil_tmp41);
+        printk("<7>%s %d-%04x: mono sound carrier: %d.%03d MHz\n", __cil_tmp16, tmp___9,
+               __cil_tmp18, __cil_tmp20, __cil_tmp23);
         }
       } else {
 
       }
-      }
+#line 361
       goto while_break;
     }
-    while_37_break: /* CIL Label */ ;
+    while_break___4: /* CIL Label */ ;
     }
 
     while_break: ;
@@ -15453,73 +12313,44 @@ static void msp3400c_print_mode(struct i2c_client *client )
     {
 #line 365
     while (1) {
-      while_38_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 365
-      __cil_tmp42 = & msp_debug;
-#line 365
-      __cil_tmp43 = *__cil_tmp42;
-#line 365
-      if (__cil_tmp43 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 365
-        __cil_tmp44 = (unsigned long )client;
+        __cil_tmp24 = client->adapter;
 #line 365
-        __cil_tmp45 = __cil_tmp44 + 24;
+        tmp___10 = i2c_adapter_id(__cil_tmp24);
 #line 365
-        __cil_tmp46 = *((struct i2c_adapter **)__cil_tmp45);
+        __cil_tmp25 = client->driver;
 #line 365
-        tmp___10 = i2c_adapter_id(__cil_tmp46);
+        __cil_tmp26 = __cil_tmp25->driver.name;
 #line 365
-        __cil_tmp47 = (unsigned long )client;
+        __cil_tmp27 = client->addr;
 #line 365
-        __cil_tmp48 = __cil_tmp47 + 32;
+        __cil_tmp28 = (int )__cil_tmp27;
 #line 365
-        __cil_tmp49 = *((struct i2c_driver **)__cil_tmp48);
+        __cil_tmp29 = state->main;
 #line 365
-        __cil_tmp50 = (unsigned long )__cil_tmp49;
+        __cil_tmp30 = __cil_tmp29 / 910000;
 #line 365
-        __cil_tmp51 = __cil_tmp50 + 80;
+        __cil_tmp31 = state->main;
 #line 365
-        __cil_tmp52 = *((char const   **)__cil_tmp51);
+        __cil_tmp32 = __cil_tmp31 / 910;
 #line 365
-        __cil_tmp53 = (unsigned long )client;
+        __cil_tmp33 = __cil_tmp32 % 1000;
 #line 365
-        __cil_tmp54 = __cil_tmp53 + 2;
-#line 365
-        __cil_tmp55 = *((unsigned short *)__cil_tmp54);
-#line 365
-        __cil_tmp56 = (int )__cil_tmp55;
-#line 365
-        __cil_tmp57 = (unsigned long )state;
-#line 365
-        __cil_tmp58 = __cil_tmp57 + 2096;
-#line 365
-        __cil_tmp59 = *((int *)__cil_tmp58);
-#line 365
-        __cil_tmp60 = __cil_tmp59 / 910000;
-#line 365
-        __cil_tmp61 = (unsigned long )state;
-#line 365
-        __cil_tmp62 = __cil_tmp61 + 2096;
-#line 365
-        __cil_tmp63 = *((int *)__cil_tmp62);
-#line 365
-        __cil_tmp64 = __cil_tmp63 / 910;
-#line 365
-        __cil_tmp65 = __cil_tmp64 % 1000;
-#line 365
-        printk("<7>%s %d-%04x: main sound carrier: %d.%03d MHz\n", __cil_tmp52, tmp___10,
-               __cil_tmp56, __cil_tmp60, __cil_tmp65);
+        printk("<7>%s %d-%04x: main sound carrier: %d.%03d MHz\n", __cil_tmp26, tmp___10,
+               __cil_tmp28, __cil_tmp30, __cil_tmp33);
         }
       } else {
 
       }
-      }
+#line 365
       goto while_break___0;
     }
-    while_38_break: /* CIL Label */ ;
+    while_break___5: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -15527,95 +12358,59 @@ static void msp3400c_print_mode(struct i2c_client *client )
   }
   {
 #line 368
-  __cil_tmp66 = (unsigned long )state;
+  __cil_tmp34 = state->mode;
 #line 368
-  __cil_tmp67 = __cil_tmp66 + 2064;
+  if (__cil_tmp34 == 5) {
 #line 368
-  __cil_tmp68 = *((int *)__cil_tmp67);
-#line 368
-  if (__cil_tmp68 == 5) {
     goto _L;
   } else {
     {
 #line 368
-    __cil_tmp69 = (unsigned long )state;
+    __cil_tmp35 = state->mode;
 #line 368
-    __cil_tmp70 = __cil_tmp69 + 2064;
-#line 368
-    __cil_tmp71 = *((int *)__cil_tmp70);
-#line 368
-    if (__cil_tmp71 == 6) {
+    if (__cil_tmp35 == 6) {
       _L: 
       {
 #line 369
       while (1) {
-        while_39_continue: /* CIL Label */ ;
+        while_continue___1: /* CIL Label */ ;
 
-        {
 #line 369
-        __cil_tmp72 = & msp_debug;
-#line 369
-        __cil_tmp73 = *__cil_tmp72;
-#line 369
-        if (__cil_tmp73 >= 1) {
+        if (msp_debug >= 1) {
           {
 #line 369
-          __cil_tmp74 = (unsigned long )client;
+          __cil_tmp36 = client->adapter;
 #line 369
-          __cil_tmp75 = __cil_tmp74 + 24;
+          tmp___11 = i2c_adapter_id(__cil_tmp36);
 #line 369
-          __cil_tmp76 = *((struct i2c_adapter **)__cil_tmp75);
+          __cil_tmp37 = client->driver;
 #line 369
-          tmp___11 = i2c_adapter_id(__cil_tmp76);
+          __cil_tmp38 = __cil_tmp37->driver.name;
 #line 369
-          __cil_tmp77 = (unsigned long )client;
+          __cil_tmp39 = client->addr;
 #line 369
-          __cil_tmp78 = __cil_tmp77 + 32;
+          __cil_tmp40 = (int )__cil_tmp39;
 #line 369
-          __cil_tmp79 = *((struct i2c_driver **)__cil_tmp78);
+          __cil_tmp41 = state->second;
 #line 369
-          __cil_tmp80 = (unsigned long )__cil_tmp79;
+          __cil_tmp42 = __cil_tmp41 / 910000;
 #line 369
-          __cil_tmp81 = __cil_tmp80 + 80;
+          __cil_tmp43 = state->second;
 #line 369
-          __cil_tmp82 = *((char const   **)__cil_tmp81);
+          __cil_tmp44 = __cil_tmp43 / 910;
 #line 369
-          __cil_tmp83 = (unsigned long )client;
+          __cil_tmp45 = __cil_tmp44 % 1000;
 #line 369
-          __cil_tmp84 = __cil_tmp83 + 2;
-#line 369
-          __cil_tmp85 = *((unsigned short *)__cil_tmp84);
-#line 369
-          __cil_tmp86 = (int )__cil_tmp85;
-#line 369
-          __cil_tmp87 = (unsigned long )state;
-#line 369
-          __cil_tmp88 = __cil_tmp87 + 2100;
-#line 369
-          __cil_tmp89 = *((int *)__cil_tmp88);
-#line 369
-          __cil_tmp90 = __cil_tmp89 / 910000;
-#line 369
-          __cil_tmp91 = (unsigned long )state;
-#line 369
-          __cil_tmp92 = __cil_tmp91 + 2100;
-#line 369
-          __cil_tmp93 = *((int *)__cil_tmp92);
-#line 369
-          __cil_tmp94 = __cil_tmp93 / 910;
-#line 369
-          __cil_tmp95 = __cil_tmp94 % 1000;
-#line 369
-          printk("<7>%s %d-%04x: NICAM/FM carrier  : %d.%03d MHz\n", __cil_tmp82,
-                 tmp___11, __cil_tmp86, __cil_tmp90, __cil_tmp95);
+          printk("<7>%s %d-%04x: NICAM/FM carrier  : %d.%03d MHz\n", __cil_tmp38,
+                 tmp___11, __cil_tmp40, __cil_tmp42, __cil_tmp45);
           }
         } else {
 
         }
-        }
+#line 369
         goto while_break___1;
       }
-      while_39_break: /* CIL Label */ ;
+      while_break___6: /* CIL Label */ ;
       }
 
       while_break___1: ;
@@ -15627,83 +12422,50 @@ static void msp3400c_print_mode(struct i2c_client *client )
   }
   {
 #line 372
-  __cil_tmp96 = (unsigned long )state;
+  __cil_tmp46 = state->mode;
 #line 372
-  __cil_tmp97 = __cil_tmp96 + 2064;
-#line 372
-  __cil_tmp98 = *((int *)__cil_tmp97);
-#line 372
-  if (__cil_tmp98 == 7) {
+  if (__cil_tmp46 == 7) {
     {
 #line 373
     while (1) {
-      while_40_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
-      {
 #line 373
-      __cil_tmp99 = & msp_debug;
-#line 373
-      __cil_tmp100 = *__cil_tmp99;
-#line 373
-      if (__cil_tmp100 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 373
-        __cil_tmp101 = (unsigned long )client;
+        __cil_tmp47 = client->adapter;
 #line 373
-        __cil_tmp102 = __cil_tmp101 + 24;
+        tmp___12 = i2c_adapter_id(__cil_tmp47);
 #line 373
-        __cil_tmp103 = *((struct i2c_adapter **)__cil_tmp102);
+        __cil_tmp48 = client->driver;
 #line 373
-        tmp___12 = i2c_adapter_id(__cil_tmp103);
+        __cil_tmp49 = __cil_tmp48->driver.name;
 #line 373
-        __cil_tmp104 = (unsigned long )client;
+        __cil_tmp50 = client->addr;
 #line 373
-        __cil_tmp105 = __cil_tmp104 + 32;
+        __cil_tmp51 = (int )__cil_tmp50;
 #line 373
-        __cil_tmp106 = *((struct i2c_driver **)__cil_tmp105);
+        __cil_tmp52 = state->second;
 #line 373
-        __cil_tmp107 = (unsigned long )__cil_tmp106;
+        __cil_tmp53 = __cil_tmp52 / 910000;
 #line 373
-        __cil_tmp108 = __cil_tmp107 + 80;
+        __cil_tmp54 = state->second;
 #line 373
-        __cil_tmp109 = *((char const   **)__cil_tmp108);
+        __cil_tmp55 = __cil_tmp54 / 910;
 #line 373
-        __cil_tmp110 = (unsigned long )client;
+        __cil_tmp56 = __cil_tmp55 % 1000;
 #line 373
-        __cil_tmp111 = __cil_tmp110 + 2;
-#line 373
-        __cil_tmp112 = *((unsigned short *)__cil_tmp111);
-#line 373
-        __cil_tmp113 = (int )__cil_tmp112;
-#line 373
-        __cil_tmp114 = (unsigned long )state;
-#line 373
-        __cil_tmp115 = __cil_tmp114 + 2100;
-#line 373
-        __cil_tmp116 = *((int *)__cil_tmp115);
-#line 373
-        __cil_tmp117 = __cil_tmp116 / 910000;
-#line 373
-        __cil_tmp118 = (unsigned long )state;
-#line 373
-        __cil_tmp119 = __cil_tmp118 + 2100;
-#line 373
-        __cil_tmp120 = *((int *)__cil_tmp119);
-#line 373
-        __cil_tmp121 = __cil_tmp120 / 910;
-#line 373
-        __cil_tmp122 = __cil_tmp121 % 1000;
-#line 373
-        printk("<7>%s %d-%04x: NICAM/AM carrier  : %d.%03d MHz\n", __cil_tmp109, tmp___12,
-               __cil_tmp113, __cil_tmp117, __cil_tmp122);
+        printk("<7>%s %d-%04x: NICAM/AM carrier  : %d.%03d MHz\n", __cil_tmp49, tmp___12,
+               __cil_tmp51, __cil_tmp53, __cil_tmp56);
         }
       } else {
 
       }
-      }
+#line 373
       goto while_break___2;
     }
-    while_40_break: /* CIL Label */ ;
+    while_break___7: /* CIL Label */ ;
     }
 
     while_break___2: ;
@@ -15713,98 +12475,57 @@ static void msp3400c_print_mode(struct i2c_client *client )
   }
   {
 #line 376
-  __cil_tmp123 = (unsigned long )state;
+  __cil_tmp57 = state->mode;
 #line 376
-  __cil_tmp124 = __cil_tmp123 + 2064;
-#line 376
-  __cil_tmp125 = *((int *)__cil_tmp124);
-#line 376
-  if (__cil_tmp125 == 3) {
+  if (__cil_tmp57 == 3) {
     {
 #line 376
-    __cil_tmp126 = (unsigned long )state;
+    __cil_tmp58 = state->second;
 #line 376
-    __cil_tmp127 = __cil_tmp126 + 2100;
+    __cil_tmp59 = state->main;
 #line 376
-    __cil_tmp128 = *((int *)__cil_tmp127);
-#line 376
-    __cil_tmp129 = (unsigned long )state;
-#line 376
-    __cil_tmp130 = __cil_tmp129 + 2096;
-#line 376
-    __cil_tmp131 = *((int *)__cil_tmp130);
-#line 376
-    if (__cil_tmp131 != __cil_tmp128) {
+    if (__cil_tmp59 != __cil_tmp58) {
       {
 #line 377
       while (1) {
-        while_41_continue: /* CIL Label */ ;
+        while_continue___3: /* CIL Label */ ;
 
-        {
 #line 377
-        __cil_tmp132 = & msp_debug;
-#line 377
-        __cil_tmp133 = *__cil_tmp132;
-#line 377
-        if (__cil_tmp133 >= 1) {
+        if (msp_debug >= 1) {
           {
 #line 377
-          __cil_tmp134 = (unsigned long )client;
+          __cil_tmp60 = client->adapter;
 #line 377
-          __cil_tmp135 = __cil_tmp134 + 24;
+          tmp___13 = i2c_adapter_id(__cil_tmp60);
 #line 377
-          __cil_tmp136 = *((struct i2c_adapter **)__cil_tmp135);
+          __cil_tmp61 = client->driver;
 #line 377
-          tmp___13 = i2c_adapter_id(__cil_tmp136);
+          __cil_tmp62 = __cil_tmp61->driver.name;
 #line 377
-          __cil_tmp137 = (unsigned long )client;
+          __cil_tmp63 = client->addr;
 #line 377
-          __cil_tmp138 = __cil_tmp137 + 32;
+          __cil_tmp64 = (int )__cil_tmp63;
 #line 377
-          __cil_tmp139 = *((struct i2c_driver **)__cil_tmp138);
+          __cil_tmp65 = state->second;
 #line 377
-          __cil_tmp140 = (unsigned long )__cil_tmp139;
+          __cil_tmp66 = __cil_tmp65 / 910000;
 #line 377
-          __cil_tmp141 = __cil_tmp140 + 80;
+          __cil_tmp67 = state->second;
 #line 377
-          __cil_tmp142 = *((char const   **)__cil_tmp141);
+          __cil_tmp68 = __cil_tmp67 / 910;
 #line 377
-          __cil_tmp143 = (unsigned long )client;
+          __cil_tmp69 = __cil_tmp68 % 1000;
 #line 377
-          __cil_tmp144 = __cil_tmp143 + 2;
-#line 377
-          __cil_tmp145 = *((unsigned short *)__cil_tmp144);
-#line 377
-          __cil_tmp146 = (int )__cil_tmp145;
-#line 377
-          __cil_tmp147 = (unsigned long )state;
-#line 377
-          __cil_tmp148 = __cil_tmp147 + 2100;
-#line 377
-          __cil_tmp149 = *((int *)__cil_tmp148);
-#line 377
-          __cil_tmp150 = __cil_tmp149 / 910000;
-#line 377
-          __cil_tmp151 = (unsigned long )state;
-#line 377
-          __cil_tmp152 = __cil_tmp151 + 2100;
-#line 377
-          __cil_tmp153 = *((int *)__cil_tmp152);
-#line 377
-          __cil_tmp154 = __cil_tmp153 / 910;
-#line 377
-          __cil_tmp155 = __cil_tmp154 % 1000;
-#line 377
-          printk("<7>%s %d-%04x: FM-stereo carrier : %d.%03d MHz\n", __cil_tmp142,
-                 tmp___13, __cil_tmp146, __cil_tmp150, __cil_tmp155);
+          printk("<7>%s %d-%04x: FM-stereo carrier : %d.%03d MHz\n", __cil_tmp62,
+                 tmp___13, __cil_tmp64, __cil_tmp66, __cil_tmp69);
           }
         } else {
 
         }
-        }
+#line 377
         goto while_break___3;
       }
-      while_41_break: /* CIL Label */ ;
+      while_break___8: /* CIL Label */ ;
       }
 
       while_break___3: ;
@@ -15835,113 +12556,49 @@ static int msp3400c_detect_stereo(struct i2c_client *client )
   int tmp___12 ;
   struct i2c_client  const  *__cil_tmp13 ;
   struct v4l2_subdev *__cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
+  int __cil_tmp17 ;
+  int __cil_tmp18 ;
+  struct i2c_adapter *__cil_tmp19 ;
+  struct i2c_driver *__cil_tmp20 ;
+  char const   *__cil_tmp21 ;
+  unsigned short __cil_tmp22 ;
+  int __cil_tmp23 ;
+  struct i2c_adapter *__cil_tmp24 ;
+  struct i2c_driver *__cil_tmp25 ;
+  char const   *__cil_tmp26 ;
+  unsigned short __cil_tmp27 ;
+  int __cil_tmp28 ;
+  int __cil_tmp29 ;
   int __cil_tmp30 ;
-  int *__cil_tmp31 ;
+  int __cil_tmp31 ;
   int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct i2c_adapter *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct i2c_driver *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  char const   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned short __cil_tmp44 ;
-  int __cil_tmp45 ;
-  int *__cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct i2c_adapter *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
+  int __cil_tmp33 ;
+  int __cil_tmp34 ;
+  int __cil_tmp35 ;
+  int __cil_tmp36 ;
+  int __cil_tmp37 ;
+  int __cil_tmp38 ;
+  int __cil_tmp39 ;
+  int __cil_tmp40 ;
+  int __cil_tmp41 ;
+  int __cil_tmp42 ;
+  int __cil_tmp43 ;
+  int __cil_tmp44 ;
+  struct i2c_adapter *__cil_tmp45 ;
+  struct i2c_driver *__cil_tmp46 ;
+  char const   *__cil_tmp47 ;
+  unsigned short __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  struct i2c_adapter *__cil_tmp52 ;
   struct i2c_driver *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  char const   *__cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned short __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int __cil_tmp61 ;
-  int __cil_tmp62 ;
-  int __cil_tmp63 ;
-  int __cil_tmp64 ;
-  int __cil_tmp65 ;
-  int __cil_tmp66 ;
-  int __cil_tmp67 ;
-  int __cil_tmp68 ;
-  int __cil_tmp69 ;
-  int __cil_tmp70 ;
-  int __cil_tmp71 ;
-  int __cil_tmp72 ;
-  int __cil_tmp73 ;
-  int __cil_tmp74 ;
-  int __cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  int __cil_tmp78 ;
-  int *__cil_tmp79 ;
-  int __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct i2c_adapter *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  struct i2c_driver *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  char const   *__cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned short __cil_tmp92 ;
-  int __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  int __cil_tmp101 ;
-  int *__cil_tmp102 ;
-  int __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  unsigned long __cil_tmp105 ;
-  struct i2c_adapter *__cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  struct i2c_driver *__cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  char const   *__cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned short __cil_tmp115 ;
-  int __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  int __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
+  char const   *__cil_tmp54 ;
+  unsigned short __cil_tmp55 ;
+  int __cil_tmp56 ;
+  int __cil_tmp57 ;
 
   {
   {
@@ -15956,295 +12613,242 @@ static int msp3400c_detect_stereo(struct i2c_client *client )
 #line 387
   state = tmp___8;
 #line 389
-  __cil_tmp15 = (unsigned long )state;
-#line 389
-  __cil_tmp16 = __cil_tmp15 + 2120;
-#line 389
-  rxsubchans = *((int *)__cil_tmp16);
+  rxsubchans = state->rxsubchans;
 #line 390
-  __cil_tmp17 = (unsigned long )state;
-#line 390
-  __cil_tmp18 = __cil_tmp17 + 2080;
-#line 390
-  newnicam = *((int *)__cil_tmp18);
+  newnicam = state->nicam_on;
 #line 391
   update = 0;
   }
   {
 #line 394
-  __cil_tmp19 = (unsigned long )state;
+  __cil_tmp15 = state->mode;
 #line 394
-  __cil_tmp20 = __cil_tmp19 + 2064;
+  if (__cil_tmp15 == 3) {
 #line 394
-  __cil_tmp21 = *((int *)__cil_tmp20);
-#line 394
-  if (__cil_tmp21 == 3) {
     goto case_3;
   } else {
     {
 #line 409
-    __cil_tmp22 = (unsigned long )state;
+    __cil_tmp16 = state->mode;
 #line 409
-    __cil_tmp23 = __cil_tmp22 + 2064;
+    if (__cil_tmp16 == 5) {
 #line 409
-    __cil_tmp24 = *((int *)__cil_tmp23);
-#line 409
-    if (__cil_tmp24 == 5) {
       goto case_5;
     } else {
       {
 #line 410
-      __cil_tmp25 = (unsigned long )state;
+      __cil_tmp17 = state->mode;
 #line 410
-      __cil_tmp26 = __cil_tmp25 + 2064;
+      if (__cil_tmp17 == 6) {
 #line 410
-      __cil_tmp27 = *((int *)__cil_tmp26);
-#line 410
-      if (__cil_tmp27 == 6) {
         goto case_5;
       } else {
         {
 #line 411
-        __cil_tmp28 = (unsigned long )state;
+        __cil_tmp18 = state->mode;
 #line 411
-        __cil_tmp29 = __cil_tmp28 + 2064;
+        if (__cil_tmp18 == 7) {
 #line 411
-        __cil_tmp30 = *((int *)__cil_tmp29);
-#line 411
-        if (__cil_tmp30 == 7) {
           goto case_5;
-        } else {
+        } else
 #line 393
-          if (0) {
-            case_3: 
-            {
+        if (0) {
+          case_3: 
+          {
 #line 395
-            val = msp_read_dsp(client, 24);
-            }
+          val = msp_read_dsp(client, 24);
+          }
 #line 396
-            if (val > 32767) {
+          if (val > 32767) {
 #line 397
-              val = val - 65536;
+            val = val - 65536;
+          } else {
+
+          }
+          {
+#line 398
+          while (1) {
+            while_continue: /* CIL Label */ ;
+
+#line 398
+            if (msp_debug >= 2) {
+              {
+#line 398
+              __cil_tmp19 = client->adapter;
+#line 398
+              tmp___9 = i2c_adapter_id(__cil_tmp19);
+#line 398
+              __cil_tmp20 = client->driver;
+#line 398
+              __cil_tmp21 = __cil_tmp20->driver.name;
+#line 398
+              __cil_tmp22 = client->addr;
+#line 398
+              __cil_tmp23 = (int )__cil_tmp22;
+#line 398
+              printk("<7>%s %d-%04x: stereo detect register: %d\n", __cil_tmp21, tmp___9,
+                     __cil_tmp23, val);
+              }
             } else {
 
             }
-            {
 #line 398
-            while (1) {
-              while_42_continue: /* CIL Label */ ;
+            goto while_break;
+          }
+          while_break___3: /* CIL Label */ ;
+          }
 
-              {
-#line 398
-              __cil_tmp31 = & msp_debug;
-#line 398
-              __cil_tmp32 = *__cil_tmp31;
-#line 398
-              if (__cil_tmp32 >= 2) {
-                {
-#line 398
-                __cil_tmp33 = (unsigned long )client;
-#line 398
-                __cil_tmp34 = __cil_tmp33 + 24;
-#line 398
-                __cil_tmp35 = *((struct i2c_adapter **)__cil_tmp34);
-#line 398
-                tmp___9 = i2c_adapter_id(__cil_tmp35);
-#line 398
-                __cil_tmp36 = (unsigned long )client;
-#line 398
-                __cil_tmp37 = __cil_tmp36 + 32;
-#line 398
-                __cil_tmp38 = *((struct i2c_driver **)__cil_tmp37);
-#line 398
-                __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 398
-                __cil_tmp40 = __cil_tmp39 + 80;
-#line 398
-                __cil_tmp41 = *((char const   **)__cil_tmp40);
-#line 398
-                __cil_tmp42 = (unsigned long )client;
-#line 398
-                __cil_tmp43 = __cil_tmp42 + 2;
-#line 398
-                __cil_tmp44 = *((unsigned short *)__cil_tmp43);
-#line 398
-                __cil_tmp45 = (int )__cil_tmp44;
-#line 398
-                printk("<7>%s %d-%04x: stereo detect register: %d\n", __cil_tmp41,
-                       tmp___9, __cil_tmp45, val);
-                }
-              } else {
-
-              }
-              }
-              goto while_break;
-            }
-            while_42_break: /* CIL Label */ ;
-            }
-
-            while_break: ;
+          while_break: ;
 #line 400
-            if (val > 8192) {
+          if (val > 8192) {
 #line 401
-              rxsubchans = 2;
-            } else {
+            rxsubchans = 2;
+          } else
 #line 402
-              if (val < -4096) {
+          if (val < -4096) {
 #line 403
-                rxsubchans = 12;
-              } else {
+            rxsubchans = 12;
+          } else {
 #line 405
-                rxsubchans = 1;
-              }
-            }
+            rxsubchans = 1;
+          }
 #line 407
-            newnicam = 0;
-            goto switch_break;
-            case_5: 
-            {
+          newnicam = 0;
+#line 408
+          goto switch_break;
+          case_5: 
+          {
 #line 412
-            val = msp_read_dem(client, 35);
-            }
-            {
+          val = msp_read_dem(client, 35);
+          }
+          {
 #line 413
-            while (1) {
-              while_43_continue: /* CIL Label */ ;
+          while (1) {
+            while_continue___0: /* CIL Label */ ;
 
+#line 413
+            if (msp_debug >= 2) {
               {
 #line 413
-              __cil_tmp46 = & msp_debug;
+              __cil_tmp24 = client->adapter;
 #line 413
-              __cil_tmp47 = *__cil_tmp46;
+              tmp___10 = i2c_adapter_id(__cil_tmp24);
 #line 413
-              if (__cil_tmp47 >= 2) {
-                {
+              __cil_tmp25 = client->driver;
 #line 413
-                __cil_tmp48 = (unsigned long )client;
+              __cil_tmp26 = __cil_tmp25->driver.name;
 #line 413
-                __cil_tmp49 = __cil_tmp48 + 24;
+              __cil_tmp27 = client->addr;
 #line 413
-                __cil_tmp50 = *((struct i2c_adapter **)__cil_tmp49);
+              __cil_tmp28 = (int )__cil_tmp27;
 #line 413
-                tmp___10 = i2c_adapter_id(__cil_tmp50);
+              __cil_tmp29 = val & 1;
 #line 413
-                __cil_tmp51 = (unsigned long )client;
+              __cil_tmp30 = val & 30;
 #line 413
-                __cil_tmp52 = __cil_tmp51 + 32;
+              __cil_tmp31 = __cil_tmp30 >> 1;
 #line 413
-                __cil_tmp53 = *((struct i2c_driver **)__cil_tmp52);
-#line 413
-                __cil_tmp54 = (unsigned long )__cil_tmp53;
-#line 413
-                __cil_tmp55 = __cil_tmp54 + 80;
-#line 413
-                __cil_tmp56 = *((char const   **)__cil_tmp55);
-#line 413
-                __cil_tmp57 = (unsigned long )client;
-#line 413
-                __cil_tmp58 = __cil_tmp57 + 2;
-#line 413
-                __cil_tmp59 = *((unsigned short *)__cil_tmp58);
-#line 413
-                __cil_tmp60 = (int )__cil_tmp59;
-#line 413
-                __cil_tmp61 = val & 1;
-#line 413
-                __cil_tmp62 = val & 30;
-#line 413
-                __cil_tmp63 = __cil_tmp62 >> 1;
-#line 413
-                printk("<7>%s %d-%04x: nicam sync=%d, mode=%d\n", __cil_tmp56, tmp___10,
-                       __cil_tmp60, __cil_tmp61, __cil_tmp63);
-                }
-              } else {
-
+              printk("<7>%s %d-%04x: nicam sync=%d, mode=%d\n", __cil_tmp26, tmp___10,
+                     __cil_tmp28, __cil_tmp29, __cil_tmp31);
               }
-              }
-              goto while_break___0;
-            }
-            while_43_break: /* CIL Label */ ;
-            }
+            } else {
 
-            while_break___0: ;
+            }
+#line 413
+            goto while_break___0;
+          }
+          while_break___4: /* CIL Label */ ;
+          }
+
+          while_break___0: ;
 #line 416
-            if (val & 1) {
+          if (val & 1) {
+            {
+#line 419
+            __cil_tmp32 = val & 30;
+#line 419
+            __cil_tmp33 = __cil_tmp32 >> 1;
+#line 419
+            if (__cil_tmp33 == 0) {
+#line 419
+              goto case_0;
+            } else {
               {
-#line 419
-              __cil_tmp64 = val & 30;
-#line 419
-              __cil_tmp65 = __cil_tmp64 >> 1;
-#line 419
-              if (__cil_tmp65 == 0) {
+#line 420
+              __cil_tmp34 = val & 30;
+#line 420
+              __cil_tmp35 = __cil_tmp34 >> 1;
+#line 420
+              if (__cil_tmp35 == 8) {
+#line 420
                 goto case_0;
               } else {
                 {
-#line 420
-                __cil_tmp66 = val & 30;
-#line 420
-                __cil_tmp67 = __cil_tmp66 >> 1;
-#line 420
-                if (__cil_tmp67 == 8) {
-                  goto case_0;
+#line 423
+                __cil_tmp36 = val & 30;
+#line 423
+                __cil_tmp37 = __cil_tmp36 >> 1;
+#line 423
+                if (__cil_tmp37 == 1) {
+#line 423
+                  goto case_1;
                 } else {
                   {
-#line 423
-                  __cil_tmp68 = val & 30;
-#line 423
-                  __cil_tmp69 = __cil_tmp68 >> 1;
-#line 423
-                  if (__cil_tmp69 == 1) {
+#line 424
+                  __cil_tmp38 = val & 30;
+#line 424
+                  __cil_tmp39 = __cil_tmp38 >> 1;
+#line 424
+                  if (__cil_tmp39 == 9) {
+#line 424
                     goto case_1;
                   } else {
                     {
-#line 424
-                    __cil_tmp70 = val & 30;
-#line 424
-                    __cil_tmp71 = __cil_tmp70 >> 1;
-#line 424
-                    if (__cil_tmp71 == 9) {
-                      goto case_1;
+#line 427
+                    __cil_tmp40 = val & 30;
+#line 427
+                    __cil_tmp41 = __cil_tmp40 >> 1;
+#line 427
+                    if (__cil_tmp41 == 2) {
+#line 427
+                      goto case_2;
                     } else {
                       {
-#line 427
-                      __cil_tmp72 = val & 30;
-#line 427
-                      __cil_tmp73 = __cil_tmp72 >> 1;
-#line 427
-                      if (__cil_tmp73 == 2) {
+#line 428
+                      __cil_tmp42 = val & 30;
+#line 428
+                      __cil_tmp43 = __cil_tmp42 >> 1;
+#line 428
+                      if (__cil_tmp43 == 10) {
+#line 428
                         goto case_2;
                       } else {
-                        {
-#line 428
-                        __cil_tmp74 = val & 30;
-#line 428
-                        __cil_tmp75 = __cil_tmp74 >> 1;
-#line 428
-                        if (__cil_tmp75 == 10) {
-                          goto case_2;
-                        } else {
-                          goto switch_default;
+#line 431
+                        goto switch_default;
 #line 418
-                          if (0) {
-                            case_0: 
+                        if (0) {
+                          case_0: 
 #line 421
-                            rxsubchans = 2;
-                            goto switch_break___0;
-                            case_1: 
+                          rxsubchans = 2;
+#line 422
+                          goto switch_break___0;
+                          case_1: 
 #line 425
-                            rxsubchans = 1;
-                            goto switch_break___0;
-                            case_2: 
+                          rxsubchans = 1;
+#line 426
+                          goto switch_break___0;
+                          case_2: 
 #line 429
-                            rxsubchans = 12;
-                            goto switch_break___0;
-                            switch_default: 
+                          rxsubchans = 12;
+#line 430
+                          goto switch_break___0;
+                          switch_default: 
 #line 432
-                            rxsubchans = 1;
-                            goto switch_break___0;
-                          } else {
-                            switch_break___0: ;
-                          }
-                        }
+                          rxsubchans = 1;
+#line 433
+                          goto switch_break___0;
+                        } else {
+                          switch_break___0: ;
                         }
                       }
                       }
@@ -16256,18 +12860,20 @@ static int msp3400c_detect_stereo(struct i2c_client *client )
                 }
               }
               }
-#line 435
-              newnicam = 1;
-            } else {
-#line 437
-              newnicam = 0;
-#line 438
-              rxsubchans = 1;
             }
-            goto switch_break;
+            }
+#line 435
+            newnicam = 1;
           } else {
-            switch_break: ;
+#line 437
+            newnicam = 0;
+#line 438
+            rxsubchans = 1;
           }
+#line 440
+          goto switch_break;
+        } else {
+          switch_break: ;
         }
         }
       }
@@ -16278,164 +12884,98 @@ static int msp3400c_detect_stereo(struct i2c_client *client )
   }
   {
 #line 442
-  __cil_tmp76 = (unsigned long )state;
+  __cil_tmp44 = state->rxsubchans;
 #line 442
-  __cil_tmp77 = __cil_tmp76 + 2120;
-#line 442
-  __cil_tmp78 = *((int *)__cil_tmp77);
-#line 442
-  if (rxsubchans != __cil_tmp78) {
+  if (rxsubchans != __cil_tmp44) {
 #line 443
     update = 1;
     {
 #line 444
     while (1) {
-      while_44_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
-      {
 #line 444
-      __cil_tmp79 = & msp_debug;
-#line 444
-      __cil_tmp80 = *__cil_tmp79;
-#line 444
-      if (__cil_tmp80 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 444
-        __cil_tmp81 = (unsigned long )client;
+        __cil_tmp45 = client->adapter;
 #line 444
-        __cil_tmp82 = __cil_tmp81 + 24;
+        tmp___11 = i2c_adapter_id(__cil_tmp45);
 #line 444
-        __cil_tmp83 = *((struct i2c_adapter **)__cil_tmp82);
+        __cil_tmp46 = client->driver;
 #line 444
-        tmp___11 = i2c_adapter_id(__cil_tmp83);
+        __cil_tmp47 = __cil_tmp46->driver.name;
 #line 444
-        __cil_tmp84 = (unsigned long )client;
+        __cil_tmp48 = client->addr;
 #line 444
-        __cil_tmp85 = __cil_tmp84 + 32;
+        __cil_tmp49 = (int )__cil_tmp48;
 #line 444
-        __cil_tmp86 = *((struct i2c_driver **)__cil_tmp85);
+        __cil_tmp50 = state->rxsubchans;
 #line 444
-        __cil_tmp87 = (unsigned long )__cil_tmp86;
-#line 444
-        __cil_tmp88 = __cil_tmp87 + 80;
-#line 444
-        __cil_tmp89 = *((char const   **)__cil_tmp88);
-#line 444
-        __cil_tmp90 = (unsigned long )client;
-#line 444
-        __cil_tmp91 = __cil_tmp90 + 2;
-#line 444
-        __cil_tmp92 = *((unsigned short *)__cil_tmp91);
-#line 444
-        __cil_tmp93 = (int )__cil_tmp92;
-#line 444
-        __cil_tmp94 = (unsigned long )state;
-#line 444
-        __cil_tmp95 = __cil_tmp94 + 2120;
-#line 444
-        __cil_tmp96 = *((int *)__cil_tmp95);
-#line 444
-        printk("<7>%s %d-%04x: watch: rxsubchans %02x => %02x\n", __cil_tmp89, tmp___11,
-               __cil_tmp93, __cil_tmp96, rxsubchans);
+        printk("<7>%s %d-%04x: watch: rxsubchans %02x => %02x\n", __cil_tmp47, tmp___11,
+               __cil_tmp49, __cil_tmp50, rxsubchans);
         }
       } else {
 
       }
-      }
+#line 444
       goto while_break___1;
     }
-    while_44_break: /* CIL Label */ ;
+    while_break___5: /* CIL Label */ ;
     }
 
     while_break___1: 
 #line 447
-    __cil_tmp97 = (unsigned long )state;
-#line 447
-    __cil_tmp98 = __cil_tmp97 + 2120;
-#line 447
-    *((int *)__cil_tmp98) = rxsubchans;
+    state->rxsubchans = rxsubchans;
   } else {
 
   }
   }
   {
 #line 449
-  __cil_tmp99 = (unsigned long )state;
+  __cil_tmp51 = state->nicam_on;
 #line 449
-  __cil_tmp100 = __cil_tmp99 + 2080;
-#line 449
-  __cil_tmp101 = *((int *)__cil_tmp100);
-#line 449
-  if (newnicam != __cil_tmp101) {
+  if (newnicam != __cil_tmp51) {
 #line 450
     update = 1;
     {
 #line 451
     while (1) {
-      while_45_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
-      {
 #line 451
-      __cil_tmp102 = & msp_debug;
-#line 451
-      __cil_tmp103 = *__cil_tmp102;
-#line 451
-      if (__cil_tmp103 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 451
-        __cil_tmp104 = (unsigned long )client;
+        __cil_tmp52 = client->adapter;
 #line 451
-        __cil_tmp105 = __cil_tmp104 + 24;
+        tmp___12 = i2c_adapter_id(__cil_tmp52);
 #line 451
-        __cil_tmp106 = *((struct i2c_adapter **)__cil_tmp105);
+        __cil_tmp53 = client->driver;
 #line 451
-        tmp___12 = i2c_adapter_id(__cil_tmp106);
+        __cil_tmp54 = __cil_tmp53->driver.name;
 #line 451
-        __cil_tmp107 = (unsigned long )client;
+        __cil_tmp55 = client->addr;
 #line 451
-        __cil_tmp108 = __cil_tmp107 + 32;
+        __cil_tmp56 = (int )__cil_tmp55;
 #line 451
-        __cil_tmp109 = *((struct i2c_driver **)__cil_tmp108);
+        __cil_tmp57 = state->nicam_on;
 #line 451
-        __cil_tmp110 = (unsigned long )__cil_tmp109;
-#line 451
-        __cil_tmp111 = __cil_tmp110 + 80;
-#line 451
-        __cil_tmp112 = *((char const   **)__cil_tmp111);
-#line 451
-        __cil_tmp113 = (unsigned long )client;
-#line 451
-        __cil_tmp114 = __cil_tmp113 + 2;
-#line 451
-        __cil_tmp115 = *((unsigned short *)__cil_tmp114);
-#line 451
-        __cil_tmp116 = (int )__cil_tmp115;
-#line 451
-        __cil_tmp117 = (unsigned long )state;
-#line 451
-        __cil_tmp118 = __cil_tmp117 + 2080;
-#line 451
-        __cil_tmp119 = *((int *)__cil_tmp118);
-#line 451
-        printk("<7>%s %d-%04x: watch: nicam %d => %d\n", __cil_tmp112, tmp___12, __cil_tmp116,
-               __cil_tmp119, newnicam);
+        printk("<7>%s %d-%04x: watch: nicam %d => %d\n", __cil_tmp54, tmp___12, __cil_tmp56,
+               __cil_tmp57, newnicam);
         }
       } else {
 
       }
-      }
+#line 451
       goto while_break___2;
     }
-    while_45_break: /* CIL Label */ ;
+    while_break___6: /* CIL Label */ ;
     }
 
     while_break___2: 
 #line 453
-    __cil_tmp120 = (unsigned long )state;
-#line 453
-    __cil_tmp121 = __cil_tmp120 + 2080;
-#line 453
-    *((int *)__cil_tmp121) = newnicam;
+    state->nicam_on = newnicam;
   } else {
 
   }
@@ -16452,7 +12992,6 @@ static void watch_stereo(struct i2c_client *client )
   int tmp___9 ;
   struct i2c_client  const  *__cil_tmp6 ;
   struct v4l2_subdev *__cil_tmp7 ;
-  int *__cil_tmp8 ;
 
   {
   {
@@ -16478,16 +13017,12 @@ static void watch_stereo(struct i2c_client *client )
   } else {
 
   }
-  {
 #line 470
-  __cil_tmp8 = & msp_once;
-#line 470
-  if (*__cil_tmp8) {
+  if (msp_once) {
 #line 471
     state->watch_stereo = 0U;
   } else {
 
-  }
   }
 #line 472
   return;
@@ -16524,253 +13059,82 @@ int msp3400c_thread(void *data )
   int tmp___23 ;
   struct i2c_client  const  *__cil_tmp29 ;
   struct v4l2_subdev *__cil_tmp30 ;
-  int *__cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct i2c_adapter *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct i2c_driver *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  char const   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
+  struct i2c_adapter *__cil_tmp31 ;
+  struct i2c_driver *__cil_tmp32 ;
+  char const   *__cil_tmp33 ;
+  unsigned short __cil_tmp34 ;
+  int __cil_tmp35 ;
+  struct i2c_adapter *__cil_tmp36 ;
+  struct i2c_driver *__cil_tmp37 ;
+  char const   *__cil_tmp38 ;
+  unsigned short __cil_tmp39 ;
+  int __cil_tmp40 ;
+  struct i2c_adapter *__cil_tmp41 ;
+  struct i2c_driver *__cil_tmp42 ;
+  char const   *__cil_tmp43 ;
   unsigned short __cil_tmp44 ;
   int __cil_tmp45 ;
-  int *__cil_tmp46 ;
-  int __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  struct i2c_adapter *__cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
+  struct i2c_adapter *__cil_tmp46 ;
+  struct i2c_driver *__cil_tmp47 ;
+  char const   *__cil_tmp48 ;
+  unsigned short __cil_tmp49 ;
+  int __cil_tmp50 ;
+  int __cil_tmp51 ;
+  struct i2c_adapter *__cil_tmp52 ;
   struct i2c_driver *__cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  char const   *__cil_tmp56 ;
+  char const   *__cil_tmp54 ;
+  unsigned short __cil_tmp55 ;
+  int __cil_tmp56 ;
   unsigned long __cil_tmp57 ;
   unsigned long __cil_tmp58 ;
-  unsigned short __cil_tmp59 ;
-  int __cil_tmp60 ;
-  int *__cil_tmp61 ;
-  int __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  struct i2c_adapter *__cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  struct i2c_driver *__cil_tmp68 ;
-  unsigned long __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
+  v4l2_std_id __cil_tmp59 ;
+  struct i2c_adapter *__cil_tmp60 ;
+  struct i2c_driver *__cil_tmp61 ;
+  char const   *__cil_tmp62 ;
+  unsigned short __cil_tmp63 ;
+  int __cil_tmp64 ;
+  struct msp3400c_carrier_detect *__cil_tmp65 ;
+  int __cil_tmp66 ;
+  struct msp3400c_carrier_detect *__cil_tmp67 ;
+  int __cil_tmp68 ;
+  struct i2c_adapter *__cil_tmp69 ;
+  struct i2c_driver *__cil_tmp70 ;
   char const   *__cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned short __cil_tmp74 ;
-  int __cil_tmp75 ;
-  int *__cil_tmp76 ;
-  int __cil_tmp77 ;
+  unsigned short __cil_tmp72 ;
+  int __cil_tmp73 ;
+  struct msp3400c_carrier_detect *__cil_tmp74 ;
+  char *__cil_tmp75 ;
+  unsigned long __cil_tmp76 ;
+  unsigned long __cil_tmp77 ;
   unsigned long __cil_tmp78 ;
   unsigned long __cil_tmp79 ;
-  struct i2c_adapter *__cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  struct i2c_driver *__cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  unsigned long __cil_tmp85 ;
-  char const   *__cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned short __cil_tmp89 ;
-  int __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  int __cil_tmp97 ;
-  int *__cil_tmp98 ;
-  int __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
+  void *__cil_tmp80 ;
+  v4l2_std_id __cil_tmp81 ;
+  void *__cil_tmp82 ;
+  struct msp3400c_carrier_detect *__cil_tmp83 ;
+  int __cil_tmp84 ;
+  struct msp3400c_carrier_detect *__cil_tmp85 ;
+  int __cil_tmp86 ;
+  struct i2c_adapter *__cil_tmp87 ;
+  struct i2c_driver *__cil_tmp88 ;
+  char const   *__cil_tmp89 ;
+  unsigned short __cil_tmp90 ;
+  int __cil_tmp91 ;
+  struct msp3400c_carrier_detect *__cil_tmp92 ;
+  char *__cil_tmp93 ;
+  int __cil_tmp94 ;
+  float __cil_tmp95 ;
+  double __cil_tmp96 ;
+  float __cil_tmp97 ;
+  float __cil_tmp98 ;
+  v4l2_std_id __cil_tmp99 ;
+  int __cil_tmp100 ;
+  int __cil_tmp101 ;
   struct i2c_adapter *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  struct i2c_driver *__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  char const   *__cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned short __cil_tmp111 ;
-  int __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  unsigned long __cil_tmp122 ;
-  int *__cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  v4l2_std_id __cil_tmp126 ;
-  int *__cil_tmp127 ;
-  int __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  struct i2c_adapter *__cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  struct i2c_driver *__cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  unsigned long __cil_tmp136 ;
-  char const   *__cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned short __cil_tmp140 ;
-  int __cil_tmp141 ;
-  struct msp3400c_carrier_detect *__cil_tmp142 ;
-  int __cil_tmp143 ;
-  struct msp3400c_carrier_detect *__cil_tmp144 ;
-  int __cil_tmp145 ;
-  int *__cil_tmp146 ;
-  int __cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  struct i2c_adapter *__cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  struct i2c_driver *__cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  char const   *__cil_tmp156 ;
-  unsigned long __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned short __cil_tmp159 ;
-  int __cil_tmp160 ;
-  struct msp3400c_carrier_detect *__cil_tmp161 ;
-  unsigned long __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  char *__cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  void *__cil_tmp173 ;
-  int *__cil_tmp174 ;
-  unsigned long __cil_tmp175 ;
-  unsigned long __cil_tmp176 ;
-  v4l2_std_id __cil_tmp177 ;
-  void *__cil_tmp178 ;
-  struct msp3400c_carrier_detect *__cil_tmp179 ;
-  int __cil_tmp180 ;
-  struct msp3400c_carrier_detect *__cil_tmp181 ;
-  int __cil_tmp182 ;
-  int *__cil_tmp183 ;
-  int __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  struct i2c_adapter *__cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  struct i2c_driver *__cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  char const   *__cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned short __cil_tmp196 ;
-  int __cil_tmp197 ;
-  struct msp3400c_carrier_detect *__cil_tmp198 ;
-  unsigned long __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  char *__cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  unsigned long __cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned long __cil_tmp219 ;
-  int __cil_tmp220 ;
-  float __cil_tmp221 ;
-  double __cil_tmp222 ;
-  float __cil_tmp223 ;
-  float __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  v4l2_std_id __cil_tmp237 ;
-  unsigned long __cil_tmp238 ;
-  unsigned long __cil_tmp239 ;
-  unsigned long __cil_tmp240 ;
-  unsigned long __cil_tmp241 ;
-  unsigned long __cil_tmp242 ;
-  unsigned long __cil_tmp243 ;
-  unsigned long __cil_tmp244 ;
-  unsigned long __cil_tmp245 ;
-  unsigned long __cil_tmp246 ;
-  unsigned long __cil_tmp247 ;
-  unsigned long __cil_tmp248 ;
-  unsigned long __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  int __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  unsigned long __cil_tmp258 ;
-  int __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  unsigned long __cil_tmp261 ;
-  int *__cil_tmp262 ;
-  int *__cil_tmp263 ;
-  int __cil_tmp264 ;
-  unsigned long __cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  struct i2c_adapter *__cil_tmp267 ;
-  unsigned long __cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  struct i2c_driver *__cil_tmp270 ;
-  unsigned long __cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  char const   *__cil_tmp273 ;
-  unsigned long __cil_tmp274 ;
-  unsigned long __cil_tmp275 ;
-  unsigned short __cil_tmp276 ;
-  int __cil_tmp277 ;
+  struct i2c_driver *__cil_tmp103 ;
+  char const   *__cil_tmp104 ;
+  unsigned short __cil_tmp105 ;
+  int __cil_tmp106 ;
 
   {
   {
@@ -16790,54 +13154,33 @@ int msp3400c_thread(void *data )
   {
 #line 481
   while (1) {
-    while_46_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 481
-    __cil_tmp31 = & msp_debug;
-#line 481
-    __cil_tmp32 = *__cil_tmp31;
-#line 481
-    if (__cil_tmp32 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 481
-      __cil_tmp33 = (unsigned long )client;
+      __cil_tmp31 = client->adapter;
 #line 481
-      __cil_tmp34 = __cil_tmp33 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp31);
 #line 481
-      __cil_tmp35 = *((struct i2c_adapter **)__cil_tmp34);
+      __cil_tmp32 = client->driver;
 #line 481
-      tmp___9 = i2c_adapter_id(__cil_tmp35);
+      __cil_tmp33 = __cil_tmp32->driver.name;
 #line 481
-      __cil_tmp36 = (unsigned long )client;
+      __cil_tmp34 = client->addr;
 #line 481
-      __cil_tmp37 = __cil_tmp36 + 32;
+      __cil_tmp35 = (int )__cil_tmp34;
 #line 481
-      __cil_tmp38 = *((struct i2c_driver **)__cil_tmp37);
-#line 481
-      __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 481
-      __cil_tmp40 = __cil_tmp39 + 80;
-#line 481
-      __cil_tmp41 = *((char const   **)__cil_tmp40);
-#line 481
-      __cil_tmp42 = (unsigned long )client;
-#line 481
-      __cil_tmp43 = __cil_tmp42 + 2;
-#line 481
-      __cil_tmp44 = *((unsigned short *)__cil_tmp43);
-#line 481
-      __cil_tmp45 = (int )__cil_tmp44;
-#line 481
-      printk("<7>%s %d-%04x: msp3400 daemon started\n", __cil_tmp41, tmp___9, __cil_tmp45);
+      printk("<7>%s %d-%04x: msp3400 daemon started\n", __cil_tmp33, tmp___9, __cil_tmp35);
       }
     } else {
 
     }
-    }
+#line 481
     goto while_break;
   }
-  while_46_break: /* CIL Label */ ;
+  while_break___12: /* CIL Label */ ;
   }
 
   while_break: 
@@ -16848,59 +13191,38 @@ int msp3400c_thread(void *data )
   {
 #line 483
   while (1) {
-    while_47_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 484
     while (1) {
-      while_48_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
-      {
 #line 484
-      __cil_tmp46 = & msp_debug;
-#line 484
-      __cil_tmp47 = *__cil_tmp46;
-#line 484
-      if (__cil_tmp47 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 484
-        __cil_tmp48 = (unsigned long )client;
+        __cil_tmp36 = client->adapter;
 #line 484
-        __cil_tmp49 = __cil_tmp48 + 24;
+        tmp___10 = i2c_adapter_id(__cil_tmp36);
 #line 484
-        __cil_tmp50 = *((struct i2c_adapter **)__cil_tmp49);
+        __cil_tmp37 = client->driver;
 #line 484
-        tmp___10 = i2c_adapter_id(__cil_tmp50);
+        __cil_tmp38 = __cil_tmp37->driver.name;
 #line 484
-        __cil_tmp51 = (unsigned long )client;
+        __cil_tmp39 = client->addr;
 #line 484
-        __cil_tmp52 = __cil_tmp51 + 32;
+        __cil_tmp40 = (int )__cil_tmp39;
 #line 484
-        __cil_tmp53 = *((struct i2c_driver **)__cil_tmp52);
-#line 484
-        __cil_tmp54 = (unsigned long )__cil_tmp53;
-#line 484
-        __cil_tmp55 = __cil_tmp54 + 80;
-#line 484
-        __cil_tmp56 = *((char const   **)__cil_tmp55);
-#line 484
-        __cil_tmp57 = (unsigned long )client;
-#line 484
-        __cil_tmp58 = __cil_tmp57 + 2;
-#line 484
-        __cil_tmp59 = *((unsigned short *)__cil_tmp58);
-#line 484
-        __cil_tmp60 = (int )__cil_tmp59;
-#line 484
-        printk("<7>%s %d-%04x: msp3400 thread: sleep\n", __cil_tmp56, tmp___10, __cil_tmp60);
+        printk("<7>%s %d-%04x: msp3400 thread: sleep\n", __cil_tmp38, tmp___10, __cil_tmp40);
         }
       } else {
 
       }
-      }
+#line 484
       goto while_break___1;
     }
-    while_48_break: /* CIL Label */ ;
+    while_break___14: /* CIL Label */ ;
     }
 
     while_break___1: 
@@ -16911,54 +13233,33 @@ int msp3400c_thread(void *data )
     {
 #line 486
     while (1) {
-      while_49_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
-      {
 #line 486
-      __cil_tmp61 = & msp_debug;
-#line 486
-      __cil_tmp62 = *__cil_tmp61;
-#line 486
-      if (__cil_tmp62 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 486
-        __cil_tmp63 = (unsigned long )client;
+        __cil_tmp41 = client->adapter;
 #line 486
-        __cil_tmp64 = __cil_tmp63 + 24;
+        tmp___11 = i2c_adapter_id(__cil_tmp41);
 #line 486
-        __cil_tmp65 = *((struct i2c_adapter **)__cil_tmp64);
+        __cil_tmp42 = client->driver;
 #line 486
-        tmp___11 = i2c_adapter_id(__cil_tmp65);
+        __cil_tmp43 = __cil_tmp42->driver.name;
 #line 486
-        __cil_tmp66 = (unsigned long )client;
+        __cil_tmp44 = client->addr;
 #line 486
-        __cil_tmp67 = __cil_tmp66 + 32;
+        __cil_tmp45 = (int )__cil_tmp44;
 #line 486
-        __cil_tmp68 = *((struct i2c_driver **)__cil_tmp67);
-#line 486
-        __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 486
-        __cil_tmp70 = __cil_tmp69 + 80;
-#line 486
-        __cil_tmp71 = *((char const   **)__cil_tmp70);
-#line 486
-        __cil_tmp72 = (unsigned long )client;
-#line 486
-        __cil_tmp73 = __cil_tmp72 + 2;
-#line 486
-        __cil_tmp74 = *((unsigned short *)__cil_tmp73);
-#line 486
-        __cil_tmp75 = (int )__cil_tmp74;
-#line 486
-        printk("<7>%s %d-%04x: msp3400 thread: wakeup\n", __cil_tmp71, tmp___11, __cil_tmp75);
+        printk("<7>%s %d-%04x: msp3400 thread: wakeup\n", __cil_tmp43, tmp___11, __cil_tmp45);
         }
       } else {
 
       }
-      }
+#line 486
       goto while_break___2;
     }
-    while_49_break: /* CIL Label */ ;
+    while_break___15: /* CIL Label */ ;
     }
 
     while_break___2: ;
@@ -16966,171 +13267,110 @@ int msp3400c_thread(void *data )
     {
 #line 489
     while (1) {
-      while_50_continue: /* CIL Label */ ;
+      while_continue___3: /* CIL Label */ ;
 
-      {
 #line 489
-      __cil_tmp76 = & msp_debug;
-#line 489
-      __cil_tmp77 = *__cil_tmp76;
-#line 489
-      if (__cil_tmp77 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 489
-        __cil_tmp78 = (unsigned long )client;
+        __cil_tmp46 = client->adapter;
 #line 489
-        __cil_tmp79 = __cil_tmp78 + 24;
+        tmp___12 = i2c_adapter_id(__cil_tmp46);
 #line 489
-        __cil_tmp80 = *((struct i2c_adapter **)__cil_tmp79);
+        __cil_tmp47 = client->driver;
 #line 489
-        tmp___12 = i2c_adapter_id(__cil_tmp80);
+        __cil_tmp48 = __cil_tmp47->driver.name;
 #line 489
-        __cil_tmp81 = (unsigned long )client;
+        __cil_tmp49 = client->addr;
 #line 489
-        __cil_tmp82 = __cil_tmp81 + 32;
+        __cil_tmp50 = (int )__cil_tmp49;
 #line 489
-        __cil_tmp83 = *((struct i2c_driver **)__cil_tmp82);
-#line 489
-        __cil_tmp84 = (unsigned long )__cil_tmp83;
-#line 489
-        __cil_tmp85 = __cil_tmp84 + 80;
-#line 489
-        __cil_tmp86 = *((char const   **)__cil_tmp85);
-#line 489
-        __cil_tmp87 = (unsigned long )client;
-#line 489
-        __cil_tmp88 = __cil_tmp87 + 2;
-#line 489
-        __cil_tmp89 = *((unsigned short *)__cil_tmp88);
-#line 489
-        __cil_tmp90 = (int )__cil_tmp89;
-#line 489
-        printk("<7>%s %d-%04x: thread: restart scan\n", __cil_tmp86, tmp___12, __cil_tmp90);
+        printk("<7>%s %d-%04x: thread: restart scan\n", __cil_tmp48, tmp___12, __cil_tmp50);
         }
       } else {
 
       }
-      }
+#line 489
       goto while_break___3;
     }
-    while_50_break: /* CIL Label */ ;
+    while_break___16: /* CIL Label */ ;
     }
 
     while_break___3: 
     {
 #line 490
-    __cil_tmp91 = (unsigned long )state;
-#line 490
-    __cil_tmp92 = __cil_tmp91 + 2248;
-#line 490
-    *((unsigned int *)__cil_tmp92) = 0U;
+    state->restart = 0U;
 #line 491
     tmp___13 = kthread_should_stop();
     }
 #line 491
     if (tmp___13) {
+#line 492
       goto while_break___0;
     } else {
 
     }
-    {
 #line 494
-    __cil_tmp93 = (unsigned long )state;
+    if (state->radio) {
 #line 494
-    __cil_tmp94 = __cil_tmp93 + 2052;
-#line 494
-    if (*((int *)__cil_tmp94)) {
       goto _L;
     } else {
       {
 #line 494
-      __cil_tmp95 = (unsigned long )state;
+      __cil_tmp51 = state->mode;
 #line 494
-      __cil_tmp96 = __cil_tmp95 + 2064;
-#line 494
-      __cil_tmp97 = *((int *)__cil_tmp96);
-#line 494
-      if (9 == __cil_tmp97) {
+      if (9 == __cil_tmp51) {
         _L: 
         {
 #line 496
         while (1) {
-          while_51_continue: /* CIL Label */ ;
+          while_continue___4: /* CIL Label */ ;
 
-          {
 #line 496
-          __cil_tmp98 = & msp_debug;
-#line 496
-          __cil_tmp99 = *__cil_tmp98;
-#line 496
-          if (__cil_tmp99 >= 1) {
+          if (msp_debug >= 1) {
             {
 #line 496
-            __cil_tmp100 = (unsigned long )client;
+            __cil_tmp52 = client->adapter;
 #line 496
-            __cil_tmp101 = __cil_tmp100 + 24;
+            tmp___14 = i2c_adapter_id(__cil_tmp52);
 #line 496
-            __cil_tmp102 = *((struct i2c_adapter **)__cil_tmp101);
+            __cil_tmp53 = client->driver;
 #line 496
-            tmp___14 = i2c_adapter_id(__cil_tmp102);
+            __cil_tmp54 = __cil_tmp53->driver.name;
 #line 496
-            __cil_tmp103 = (unsigned long )client;
+            __cil_tmp55 = client->addr;
 #line 496
-            __cil_tmp104 = __cil_tmp103 + 32;
+            __cil_tmp56 = (int )__cil_tmp55;
 #line 496
-            __cil_tmp105 = *((struct i2c_driver **)__cil_tmp104);
-#line 496
-            __cil_tmp106 = (unsigned long )__cil_tmp105;
-#line 496
-            __cil_tmp107 = __cil_tmp106 + 80;
-#line 496
-            __cil_tmp108 = *((char const   **)__cil_tmp107);
-#line 496
-            __cil_tmp109 = (unsigned long )client;
-#line 496
-            __cil_tmp110 = __cil_tmp109 + 2;
-#line 496
-            __cil_tmp111 = *((unsigned short *)__cil_tmp110);
-#line 496
-            __cil_tmp112 = (int )__cil_tmp111;
-#line 496
-            printk("<7>%s %d-%04x: thread: no carrier scan\n", __cil_tmp108, tmp___14,
-                   __cil_tmp112);
+            printk("<7>%s %d-%04x: thread: no carrier scan\n", __cil_tmp54, tmp___14,
+                   __cil_tmp56);
             }
           } else {
 
           }
-          }
+#line 496
           goto while_break___4;
         }
-        while_51_break: /* CIL Label */ ;
+        while_break___17: /* CIL Label */ ;
         }
 
         while_break___4: 
         {
 #line 498
-        __cil_tmp113 = (unsigned long )state;
-#line 498
-        __cil_tmp114 = __cil_tmp113 + 2144;
-#line 498
-        *((int *)__cil_tmp114) = 0;
+        state->scan_in_progress = 0;
 #line 499
         msp_update_volume(state);
         }
+#line 500
         goto __Cont;
       } else {
 
       }
       }
     }
-    }
     {
 #line 504
-    __cil_tmp115 = (unsigned long )state;
-#line 504
-    __cil_tmp116 = __cil_tmp115 + 2144;
-#line 504
-    *((int *)__cil_tmp116) = 1;
+    state->scan_in_progress = 1;
 #line 505
     msp_update_volume(state);
 #line 507
@@ -17146,46 +13386,32 @@ int msp3400c_thread(void *data )
 #line 510
     state->watch_stereo = 0U;
 #line 511
-    __cil_tmp117 = (unsigned long )state;
-#line 511
-    __cil_tmp118 = __cil_tmp117 + 2080;
-#line 511
-    *((int *)__cil_tmp118) = 0;
+    state->nicam_on = 0;
 #line 514
     tmp___15 = msp_sleep(state, 200);
     }
 #line 514
     if (tmp___15) {
+#line 515
       goto restart;
     } else {
 
     }
 #line 518
-    __cil_tmp119 = 0 * 16UL;
-#line 518
-    __cil_tmp120 = (unsigned long )(msp3400c_carrier_detect_main) + __cil_tmp119;
-#line 518
-    cd = (struct msp3400c_carrier_detect *)__cil_tmp120;
+    cd = & msp3400c_carrier_detect_main[0];
 #line 519
-    __cil_tmp121 = 64UL / 16UL;
+    __cil_tmp57 = 64UL / 16UL;
 #line 519
-    __cil_tmp122 = __cil_tmp121 + 0UL;
+    __cil_tmp58 = __cil_tmp57 + 0UL;
 #line 519
-    count = (int )__cil_tmp122;
-    {
+    count = (int )__cil_tmp58;
 #line 521
-    __cil_tmp123 = & msp_amsound;
-#line 521
-    if (*__cil_tmp123) {
+    if (msp_amsound) {
       {
 #line 521
-      __cil_tmp124 = (unsigned long )state;
+      __cil_tmp59 = state->v4l2_std;
 #line 521
-      __cil_tmp125 = __cil_tmp124 + 2072;
-#line 521
-      __cil_tmp126 = *((v4l2_std_id *)__cil_tmp125);
-#line 521
-      if (__cil_tmp126 & 16711680ULL) {
+      if (__cil_tmp59 & 16711680ULL) {
 #line 523
         max1 = 3;
 #line 524
@@ -17193,54 +13419,33 @@ int msp3400c_thread(void *data )
         {
 #line 525
         while (1) {
-          while_52_continue: /* CIL Label */ ;
+          while_continue___5: /* CIL Label */ ;
 
-          {
 #line 525
-          __cil_tmp127 = & msp_debug;
-#line 525
-          __cil_tmp128 = *__cil_tmp127;
-#line 525
-          if (__cil_tmp128 >= 1) {
+          if (msp_debug >= 1) {
             {
 #line 525
-            __cil_tmp129 = (unsigned long )client;
+            __cil_tmp60 = client->adapter;
 #line 525
-            __cil_tmp130 = __cil_tmp129 + 24;
+            tmp___16 = i2c_adapter_id(__cil_tmp60);
 #line 525
-            __cil_tmp131 = *((struct i2c_adapter **)__cil_tmp130);
+            __cil_tmp61 = client->driver;
 #line 525
-            tmp___16 = i2c_adapter_id(__cil_tmp131);
+            __cil_tmp62 = __cil_tmp61->driver.name;
 #line 525
-            __cil_tmp132 = (unsigned long )client;
+            __cil_tmp63 = client->addr;
 #line 525
-            __cil_tmp133 = __cil_tmp132 + 32;
+            __cil_tmp64 = (int )__cil_tmp63;
 #line 525
-            __cil_tmp134 = *((struct i2c_driver **)__cil_tmp133);
-#line 525
-            __cil_tmp135 = (unsigned long )__cil_tmp134;
-#line 525
-            __cil_tmp136 = __cil_tmp135 + 80;
-#line 525
-            __cil_tmp137 = *((char const   **)__cil_tmp136);
-#line 525
-            __cil_tmp138 = (unsigned long )client;
-#line 525
-            __cil_tmp139 = __cil_tmp138 + 2;
-#line 525
-            __cil_tmp140 = *((unsigned short *)__cil_tmp139);
-#line 525
-            __cil_tmp141 = (int )__cil_tmp140;
-#line 525
-            printk("<7>%s %d-%04x: AM sound override\n", __cil_tmp137, tmp___16, __cil_tmp141);
+            printk("<7>%s %d-%04x: AM sound override\n", __cil_tmp62, tmp___16, __cil_tmp64);
             }
           } else {
 
           }
-          }
+#line 525
           goto while_break___5;
         }
-        while_52_break: /* CIL Label */ ;
+        while_break___18: /* CIL Label */ ;
         }
 
         while_break___5: ;
@@ -17251,36 +13456,37 @@ int msp3400c_thread(void *data )
     } else {
 
     }
-    }
 #line 528
     i = 0;
     {
 #line 528
     while (1) {
-      while_53_continue: /* CIL Label */ ;
+      while_continue___6: /* CIL Label */ ;
 
 #line 528
       if (i < count) {
 
       } else {
+#line 528
         goto while_break___6;
       }
       {
 #line 529
-      __cil_tmp142 = cd + i;
+      __cil_tmp65 = cd + i;
 #line 529
-      __cil_tmp143 = *((int *)__cil_tmp142);
+      __cil_tmp66 = __cil_tmp65->cdo;
 #line 529
-      __cil_tmp144 = cd + i;
+      __cil_tmp67 = cd + i;
 #line 529
-      __cil_tmp145 = *((int *)__cil_tmp144);
+      __cil_tmp68 = __cil_tmp67->cdo;
 #line 529
-      msp3400c_set_carrier(client, __cil_tmp143, __cil_tmp145);
+      msp3400c_set_carrier(client, __cil_tmp66, __cil_tmp68);
 #line 530
       tmp___17 = msp_sleep(state, 100);
       }
 #line 530
       if (tmp___17) {
+#line 531
         goto restart;
       } else {
 
@@ -17308,143 +13514,108 @@ int msp3400c_thread(void *data )
       {
 #line 537
       while (1) {
-        while_54_continue: /* CIL Label */ ;
+        while_continue___7: /* CIL Label */ ;
 
-        {
 #line 537
-        __cil_tmp146 = & msp_debug;
-#line 537
-        __cil_tmp147 = *__cil_tmp146;
-#line 537
-        if (__cil_tmp147 >= 1) {
+        if (msp_debug >= 1) {
           {
 #line 537
-          __cil_tmp148 = (unsigned long )client;
+          __cil_tmp69 = client->adapter;
 #line 537
-          __cil_tmp149 = __cil_tmp148 + 24;
+          tmp___18 = i2c_adapter_id(__cil_tmp69);
 #line 537
-          __cil_tmp150 = *((struct i2c_adapter **)__cil_tmp149);
+          __cil_tmp70 = client->driver;
 #line 537
-          tmp___18 = i2c_adapter_id(__cil_tmp150);
+          __cil_tmp71 = __cil_tmp70->driver.name;
 #line 537
-          __cil_tmp151 = (unsigned long )client;
+          __cil_tmp72 = client->addr;
 #line 537
-          __cil_tmp152 = __cil_tmp151 + 32;
+          __cil_tmp73 = (int )__cil_tmp72;
 #line 537
-          __cil_tmp153 = *((struct i2c_driver **)__cil_tmp152);
+          __cil_tmp74 = cd + i;
 #line 537
-          __cil_tmp154 = (unsigned long )__cil_tmp153;
+          __cil_tmp75 = __cil_tmp74->name;
 #line 537
-          __cil_tmp155 = __cil_tmp154 + 80;
-#line 537
-          __cil_tmp156 = *((char const   **)__cil_tmp155);
-#line 537
-          __cil_tmp157 = (unsigned long )client;
-#line 537
-          __cil_tmp158 = __cil_tmp157 + 2;
-#line 537
-          __cil_tmp159 = *((unsigned short *)__cil_tmp158);
-#line 537
-          __cil_tmp160 = (int )__cil_tmp159;
-#line 537
-          __cil_tmp161 = cd + i;
-#line 537
-          __cil_tmp162 = (unsigned long )__cil_tmp161;
-#line 537
-          __cil_tmp163 = __cil_tmp162 + 8;
-#line 537
-          __cil_tmp164 = *((char **)__cil_tmp163);
-#line 537
-          printk("<7>%s %d-%04x: carrier1 val: %5d / %s\n", __cil_tmp156, tmp___18,
-                 __cil_tmp160, val, __cil_tmp164);
+          printk("<7>%s %d-%04x: carrier1 val: %5d / %s\n", __cil_tmp71, tmp___18,
+                 __cil_tmp73, val, __cil_tmp75);
           }
         } else {
 
         }
-        }
+#line 537
         goto while_break___7;
       }
-      while_54_break: /* CIL Label */ ;
+      while_break___20: /* CIL Label */ ;
       }
 
       while_break___7: 
 #line 528
       i = i + 1;
     }
-    while_53_break: /* CIL Label */ ;
+    while_break___19: /* CIL Label */ ;
     }
 
     while_break___6: ;
 #line 543
     if (max1 == 1) {
+#line 543
       goto case_1;
-    } else {
+    } else
 #line 547
-      if (max1 == 3) {
-        goto case_3;
-      } else {
-        goto switch_default;
+    if (max1 == 3) {
+#line 547
+      goto case_3;
+    } else {
+#line 553
+      goto switch_default;
 #line 542
-        if (0) {
-          case_1: 
+      if (0) {
+        case_1: 
 #line 544
-          __cil_tmp165 = 0 * 16UL;
-#line 544
-          __cil_tmp166 = (unsigned long )(msp3400c_carrier_detect_55) + __cil_tmp165;
-#line 544
-          cd = (struct msp3400c_carrier_detect *)__cil_tmp166;
+        cd = & msp3400c_carrier_detect_55[0];
 #line 545
-          __cil_tmp167 = 32UL / 16UL;
+        __cil_tmp76 = 32UL / 16UL;
 #line 545
-          __cil_tmp168 = __cil_tmp167 + 0UL;
+        __cil_tmp77 = __cil_tmp76 + 0UL;
 #line 545
-          count = (int )__cil_tmp168;
-          goto switch_break;
-          case_3: 
+        count = (int )__cil_tmp77;
+#line 546
+        goto switch_break;
+        case_3: 
 #line 548
-          __cil_tmp169 = 0 * 16UL;
-#line 548
-          __cil_tmp170 = (unsigned long )(msp3400c_carrier_detect_65) + __cil_tmp169;
-#line 548
-          cd = (struct msp3400c_carrier_detect *)__cil_tmp170;
+        cd = & msp3400c_carrier_detect_65[0];
 #line 549
-          __cil_tmp171 = 96UL / 16UL;
+        __cil_tmp78 = 96UL / 16UL;
 #line 549
-          __cil_tmp172 = __cil_tmp171 + 0UL;
+        __cil_tmp79 = __cil_tmp78 + 0UL;
 #line 549
-          count = (int )__cil_tmp172;
-          goto switch_break;
-          switch_default: 
+        count = (int )__cil_tmp79;
+#line 550
+        goto switch_break;
+        switch_default: 
 #line 554
-          __cil_tmp173 = (void *)0;
+        __cil_tmp80 = (void *)0;
 #line 554
-          cd = (struct msp3400c_carrier_detect *)__cil_tmp173;
+        cd = (struct msp3400c_carrier_detect *)__cil_tmp80;
 #line 555
-          count = 0;
-          goto switch_break;
-        } else {
-          switch_break: ;
-        }
+        count = 0;
+#line 556
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
     }
-    {
 #line 559
-    __cil_tmp174 = & msp_amsound;
-#line 559
-    if (*__cil_tmp174) {
+    if (msp_amsound) {
       {
 #line 559
-      __cil_tmp175 = (unsigned long )state;
+      __cil_tmp81 = state->v4l2_std;
 #line 559
-      __cil_tmp176 = __cil_tmp175 + 2072;
-#line 559
-      __cil_tmp177 = *((v4l2_std_id *)__cil_tmp176);
-#line 559
-      if (__cil_tmp177 & 16711680ULL) {
+      if (__cil_tmp81 & 16711680ULL) {
 #line 561
-        __cil_tmp178 = (void *)0;
+        __cil_tmp82 = (void *)0;
 #line 561
-        cd = (struct msp3400c_carrier_detect *)__cil_tmp178;
+        cd = (struct msp3400c_carrier_detect *)__cil_tmp82;
 #line 562
         count = 0;
 #line 563
@@ -17456,36 +13627,37 @@ int msp3400c_thread(void *data )
     } else {
 
     }
-    }
 #line 565
     i = 0;
     {
 #line 565
     while (1) {
-      while_55_continue: /* CIL Label */ ;
+      while_continue___8: /* CIL Label */ ;
 
 #line 565
       if (i < count) {
 
       } else {
+#line 565
         goto while_break___8;
       }
       {
 #line 566
-      __cil_tmp179 = cd + i;
+      __cil_tmp83 = cd + i;
 #line 566
-      __cil_tmp180 = *((int *)__cil_tmp179);
+      __cil_tmp84 = __cil_tmp83->cdo;
 #line 566
-      __cil_tmp181 = cd + i;
+      __cil_tmp85 = cd + i;
 #line 566
-      __cil_tmp182 = *((int *)__cil_tmp181);
+      __cil_tmp86 = __cil_tmp85->cdo;
 #line 566
-      msp3400c_set_carrier(client, __cil_tmp180, __cil_tmp182);
+      msp3400c_set_carrier(client, __cil_tmp84, __cil_tmp86);
 #line 567
       tmp___19 = msp_sleep(state, 100);
       }
 #line 567
       if (tmp___19) {
+#line 568
         goto restart;
       } else {
 
@@ -17513,355 +13685,226 @@ int msp3400c_thread(void *data )
       {
 #line 574
       while (1) {
-        while_56_continue: /* CIL Label */ ;
+        while_continue___9: /* CIL Label */ ;
 
-        {
 #line 574
-        __cil_tmp183 = & msp_debug;
-#line 574
-        __cil_tmp184 = *__cil_tmp183;
-#line 574
-        if (__cil_tmp184 >= 1) {
+        if (msp_debug >= 1) {
           {
 #line 574
-          __cil_tmp185 = (unsigned long )client;
+          __cil_tmp87 = client->adapter;
 #line 574
-          __cil_tmp186 = __cil_tmp185 + 24;
+          tmp___20 = i2c_adapter_id(__cil_tmp87);
 #line 574
-          __cil_tmp187 = *((struct i2c_adapter **)__cil_tmp186);
+          __cil_tmp88 = client->driver;
 #line 574
-          tmp___20 = i2c_adapter_id(__cil_tmp187);
+          __cil_tmp89 = __cil_tmp88->driver.name;
 #line 574
-          __cil_tmp188 = (unsigned long )client;
+          __cil_tmp90 = client->addr;
 #line 574
-          __cil_tmp189 = __cil_tmp188 + 32;
+          __cil_tmp91 = (int )__cil_tmp90;
 #line 574
-          __cil_tmp190 = *((struct i2c_driver **)__cil_tmp189);
+          __cil_tmp92 = cd + i;
 #line 574
-          __cil_tmp191 = (unsigned long )__cil_tmp190;
+          __cil_tmp93 = __cil_tmp92->name;
 #line 574
-          __cil_tmp192 = __cil_tmp191 + 80;
-#line 574
-          __cil_tmp193 = *((char const   **)__cil_tmp192);
-#line 574
-          __cil_tmp194 = (unsigned long )client;
-#line 574
-          __cil_tmp195 = __cil_tmp194 + 2;
-#line 574
-          __cil_tmp196 = *((unsigned short *)__cil_tmp195);
-#line 574
-          __cil_tmp197 = (int )__cil_tmp196;
-#line 574
-          __cil_tmp198 = cd + i;
-#line 574
-          __cil_tmp199 = (unsigned long )__cil_tmp198;
-#line 574
-          __cil_tmp200 = __cil_tmp199 + 8;
-#line 574
-          __cil_tmp201 = *((char **)__cil_tmp200);
-#line 574
-          printk("<7>%s %d-%04x: carrier2 val: %5d / %s\n", __cil_tmp193, tmp___20,
-                 __cil_tmp197, val, __cil_tmp201);
+          printk("<7>%s %d-%04x: carrier2 val: %5d / %s\n", __cil_tmp89, tmp___20,
+                 __cil_tmp91, val, __cil_tmp93);
           }
         } else {
 
         }
-        }
+#line 574
         goto while_break___9;
       }
-      while_56_break: /* CIL Label */ ;
+      while_break___22: /* CIL Label */ ;
       }
 
       while_break___9: 
 #line 565
       i = i + 1;
     }
-    while_55_break: /* CIL Label */ ;
+    while_break___21: /* CIL Label */ ;
     }
 
     while_break___8: 
 #line 579
-    __cil_tmp202 = (unsigned long )state;
-#line 579
-    __cil_tmp203 = __cil_tmp202 + 2096;
-#line 579
-    __cil_tmp204 = max1 * 16UL;
-#line 579
-    __cil_tmp205 = (unsigned long )(msp3400c_carrier_detect_main) + __cil_tmp204;
-#line 579
-    *((int *)__cil_tmp203) = *((int *)__cil_tmp205);
+    state->main = msp3400c_carrier_detect_main[max1].cdo;
 #line 581
     if (max1 == 1) {
+#line 581
       goto case_1___0;
-    } else {
+    } else
 #line 597
-      if (max1 == 2) {
-        goto case_2;
-      } else {
+    if (max1 == 2) {
+#line 597
+      goto case_2;
+    } else
 #line 604
-        if (max1 == 3) {
-          goto case_3___0;
-        } else {
-          goto no_second;
+    if (max1 == 3) {
+#line 604
+      goto case_3___0;
+    } else {
+#line 626
+      goto no_second;
 #line 580
-          if (0) {
-            case_1___0: 
+      if (0) {
+        case_1___0: 
 #line 582
-            if (max2 == 0) {
-              {
+        if (max2 == 0) {
+          {
 #line 584
-              __cil_tmp206 = (unsigned long )state;
-#line 584
-              __cil_tmp207 = __cil_tmp206 + 2100;
-#line 584
-              __cil_tmp208 = max2 * 16UL;
-#line 584
-              __cil_tmp209 = (unsigned long )(msp3400c_carrier_detect_55) + __cil_tmp208;
-#line 584
-              *((int *)__cil_tmp207) = *((int *)__cil_tmp209);
+          state->second = msp3400c_carrier_detect_55[max2].cdo;
 #line 585
-              msp3400c_set_mode(client, 3);
+          msp3400c_set_mode(client, 3);
 #line 586
-              state->watch_stereo = 1U;
-              }
-            } else {
+          state->watch_stereo = 1U;
+          }
+        } else
 #line 587
-              if (max2 == 1) {
-                {
+        if (max2 == 1) {
 #line 587
-                __cil_tmp210 = (unsigned long )state;
-#line 587
-                __cil_tmp211 = __cil_tmp210 + 2036;
-#line 587
-                if (*((u8 *)__cil_tmp211)) {
-                  {
-#line 589
-                  __cil_tmp212 = (unsigned long )state;
-#line 589
-                  __cil_tmp213 = __cil_tmp212 + 2100;
-#line 589
-                  __cil_tmp214 = max2 * 16UL;
-#line 589
-                  __cil_tmp215 = (unsigned long )(msp3400c_carrier_detect_55) + __cil_tmp214;
-#line 589
-                  *((int *)__cil_tmp213) = *((int *)__cil_tmp215);
-#line 590
-                  msp3400c_set_mode(client, 5);
-#line 591
-                  __cil_tmp216 = (unsigned long )state;
-#line 591
-                  __cil_tmp217 = __cil_tmp216 + 2080;
-#line 591
-                  *((int *)__cil_tmp217) = 1;
-#line 592
-                  state->watch_stereo = 1U;
-                  }
-                } else {
-                  goto no_second;
-                }
-                }
-              } else {
-                goto no_second;
-              }
-            }
-            goto switch_break___0;
-            case_2: 
+          if (state->has_nicam) {
             {
-#line 599
-            __cil_tmp218 = (unsigned long )state;
-#line 599
-            __cil_tmp219 = __cil_tmp218 + 2100;
-#line 599
-            __cil_tmp220 = 1 << 24;
-#line 599
-            __cil_tmp221 = (float )__cil_tmp220;
-#line 599
-            __cil_tmp222 = 6.552 / 18.432;
-#line 599
-            __cil_tmp223 = (float )__cil_tmp222;
-#line 599
-            __cil_tmp224 = __cil_tmp223 * __cil_tmp221;
-#line 599
-            *((int *)__cil_tmp219) = (int )__cil_tmp224;
-#line 600
-            msp3400c_set_mode(client, 6);
-#line 601
-            __cil_tmp225 = (unsigned long )state;
-#line 601
-            __cil_tmp226 = __cil_tmp225 + 2080;
-#line 601
-            *((int *)__cil_tmp226) = 1;
-#line 602
+#line 589
+            state->second = msp3400c_carrier_detect_55[max2].cdo;
+#line 590
+            msp3400c_set_mode(client, 5);
+#line 591
+            state->nicam_on = 1;
+#line 592
             state->watch_stereo = 1U;
             }
-            goto switch_break___0;
-            case_3___0: 
-#line 605
-            if (max2 == 1) {
-              {
-#line 607
-              __cil_tmp227 = (unsigned long )state;
-#line 607
-              __cil_tmp228 = __cil_tmp227 + 2100;
-#line 607
-              __cil_tmp229 = max2 * 16UL;
-#line 607
-              __cil_tmp230 = (unsigned long )(msp3400c_carrier_detect_65) + __cil_tmp229;
-#line 607
-              *((int *)__cil_tmp228) = *((int *)__cil_tmp230);
-#line 608
-              msp3400c_set_mode(client, 3);
-#line 609
-              state->watch_stereo = 1U;
-              }
-            } else {
-#line 605
-              if (max2 == 2) {
-                {
-#line 607
-                __cil_tmp231 = (unsigned long )state;
-#line 607
-                __cil_tmp232 = __cil_tmp231 + 2100;
-#line 607
-                __cil_tmp233 = max2 * 16UL;
-#line 607
-                __cil_tmp234 = (unsigned long )(msp3400c_carrier_detect_65) + __cil_tmp233;
-#line 607
-                *((int *)__cil_tmp232) = *((int *)__cil_tmp234);
-#line 608
-                msp3400c_set_mode(client, 3);
-#line 609
-                state->watch_stereo = 1U;
-                }
-              } else {
-#line 610
-                if (max2 == 0) {
-                  {
-#line 610
-                  __cil_tmp235 = (unsigned long )state;
-#line 610
-                  __cil_tmp236 = __cil_tmp235 + 2072;
-#line 610
-                  __cil_tmp237 = *((v4l2_std_id *)__cil_tmp236);
-#line 610
-                  if (__cil_tmp237 & 16711680ULL) {
-                    {
-#line 612
-                    __cil_tmp238 = (unsigned long )state;
-#line 612
-                    __cil_tmp239 = __cil_tmp238 + 2100;
-#line 612
-                    __cil_tmp240 = max2 * 16UL;
-#line 612
-                    __cil_tmp241 = (unsigned long )(msp3400c_carrier_detect_65) + __cil_tmp240;
-#line 612
-                    *((int *)__cil_tmp239) = *((int *)__cil_tmp241);
-#line 613
-                    msp3400c_set_mode(client, 7);
-#line 614
-                    state->watch_stereo = 1U;
-                    }
-                  } else {
-                    goto _L___0;
-                  }
-                  }
-                } else {
-                  _L___0: 
-#line 615
-                  if (max2 == 0) {
-                    {
-#line 615
-                    __cil_tmp242 = (unsigned long )state;
-#line 615
-                    __cil_tmp243 = __cil_tmp242 + 2036;
-#line 615
-                    if (*((u8 *)__cil_tmp243)) {
-                      {
-#line 617
-                      __cil_tmp244 = (unsigned long )state;
-#line 617
-                      __cil_tmp245 = __cil_tmp244 + 2100;
-#line 617
-                      __cil_tmp246 = max2 * 16UL;
-#line 617
-                      __cil_tmp247 = (unsigned long )(msp3400c_carrier_detect_65) + __cil_tmp246;
-#line 617
-                      *((int *)__cil_tmp245) = *((int *)__cil_tmp247);
-#line 618
-                      msp3400c_set_mode(client, 5);
-#line 619
-                      __cil_tmp248 = (unsigned long )state;
-#line 619
-                      __cil_tmp249 = __cil_tmp248 + 2080;
-#line 619
-                      *((int *)__cil_tmp249) = 1;
-#line 620
-                      state->watch_stereo = 1U;
-                      }
-                    } else {
-                      goto no_second;
-                    }
-                    }
-                  } else {
-                    goto no_second;
-                  }
-                }
-              }
-            }
-            goto switch_break___0;
-            no_second: 
-            {
-#line 628
-            __cil_tmp250 = (unsigned long )state;
-#line 628
-            __cil_tmp251 = __cil_tmp250 + 2100;
-#line 628
-            __cil_tmp252 = max1 * 16UL;
-#line 628
-            __cil_tmp253 = (unsigned long )(msp3400c_carrier_detect_main) + __cil_tmp252;
-#line 628
-            *((int *)__cil_tmp251) = *((int *)__cil_tmp253);
-#line 629
-            msp3400c_set_mode(client, 3);
-            }
-            goto switch_break___0;
           } else {
-            switch_break___0: ;
+#line 594
+            goto no_second;
           }
+        } else {
+#line 594
+          goto no_second;
         }
+#line 596
+        goto switch_break___0;
+        case_2: 
+        {
+#line 599
+        __cil_tmp94 = 1 << 24;
+#line 599
+        __cil_tmp95 = (float )__cil_tmp94;
+#line 599
+        __cil_tmp96 = 6.552 / 18.432;
+#line 599
+        __cil_tmp97 = (float )__cil_tmp96;
+#line 599
+        __cil_tmp98 = __cil_tmp97 * __cil_tmp95;
+#line 599
+        state->second = (int )__cil_tmp98;
+#line 600
+        msp3400c_set_mode(client, 6);
+#line 601
+        state->nicam_on = 1;
+#line 602
+        state->watch_stereo = 1U;
+        }
+#line 603
+        goto switch_break___0;
+        case_3___0: 
+#line 605
+        if (max2 == 1) {
+          {
+#line 607
+          state->second = msp3400c_carrier_detect_65[max2].cdo;
+#line 608
+          msp3400c_set_mode(client, 3);
+#line 609
+          state->watch_stereo = 1U;
+          }
+        } else
+#line 605
+        if (max2 == 2) {
+          {
+#line 607
+          state->second = msp3400c_carrier_detect_65[max2].cdo;
+#line 608
+          msp3400c_set_mode(client, 3);
+#line 609
+          state->watch_stereo = 1U;
+          }
+        } else
+#line 610
+        if (max2 == 0) {
+          {
+#line 610
+          __cil_tmp99 = state->v4l2_std;
+#line 610
+          if (__cil_tmp99 & 16711680ULL) {
+            {
+#line 612
+            state->second = msp3400c_carrier_detect_65[max2].cdo;
+#line 613
+            msp3400c_set_mode(client, 7);
+#line 614
+            state->watch_stereo = 1U;
+            }
+          } else {
+#line 610
+            goto _L___0;
+          }
+          }
+        } else
+        _L___0: 
+#line 615
+        if (max2 == 0) {
+#line 615
+          if (state->has_nicam) {
+            {
+#line 617
+            state->second = msp3400c_carrier_detect_65[max2].cdo;
+#line 618
+            msp3400c_set_mode(client, 5);
+#line 619
+            state->nicam_on = 1;
+#line 620
+            state->watch_stereo = 1U;
+            }
+          } else {
+#line 622
+            goto no_second;
+          }
+        } else {
+#line 622
+          goto no_second;
+        }
+#line 624
+        goto switch_break___0;
+        no_second: 
+        {
+#line 628
+        state->second = msp3400c_carrier_detect_main[max1].cdo;
+#line 629
+        msp3400c_set_mode(client, 3);
+        }
+#line 630
+        goto switch_break___0;
+      } else {
+        switch_break___0: ;
       }
     }
     {
 #line 632
-    __cil_tmp254 = (unsigned long )state;
+    __cil_tmp100 = state->second;
 #line 632
-    __cil_tmp255 = __cil_tmp254 + 2100;
+    __cil_tmp101 = state->main;
 #line 632
-    __cil_tmp256 = *((int *)__cil_tmp255);
-#line 632
-    __cil_tmp257 = (unsigned long )state;
-#line 632
-    __cil_tmp258 = __cil_tmp257 + 2096;
-#line 632
-    __cil_tmp259 = *((int *)__cil_tmp258);
-#line 632
-    msp3400c_set_carrier(client, __cil_tmp256, __cil_tmp259);
+    msp3400c_set_carrier(client, __cil_tmp100, __cil_tmp101);
 #line 635
-    __cil_tmp260 = (unsigned long )state;
-#line 635
-    __cil_tmp261 = __cil_tmp260 + 2144;
-#line 635
-    *((int *)__cil_tmp261) = 0;
+    state->scan_in_progress = 0;
 #line 636
     msp3400c_set_audmode(client);
 #line 637
     msp_update_volume(state);
     }
-    {
 #line 639
-    __cil_tmp262 = & msp_debug;
-#line 639
-    if (*__cil_tmp262) {
+    if (msp_debug) {
       {
 #line 640
       msp3400c_print_mode(client);
@@ -17869,18 +13912,18 @@ int msp3400c_thread(void *data )
     } else {
 
     }
-    }
 #line 644
     count = 3;
     {
 #line 645
     while (1) {
-      while_57_continue: /* CIL Label */ ;
+      while_continue___10: /* CIL Label */ ;
 
 #line 645
       if (state->watch_stereo) {
 
       } else {
+#line 645
         goto while_break___10;
       }
 #line 646
@@ -17897,6 +13940,7 @@ int msp3400c_thread(void *data )
       }
 #line 646
       if (tmp___22) {
+#line 647
         goto restart;
       } else {
 
@@ -17913,67 +13957,46 @@ int msp3400c_thread(void *data )
       watch_stereo(client);
       }
     }
-    while_57_break: /* CIL Label */ ;
+    while_break___23: /* CIL Label */ ;
     }
 
     while_break___10: ;
     __Cont: ;
   }
-  while_47_break: /* CIL Label */ ;
+  while_break___13: /* CIL Label */ ;
   }
 
   while_break___0: ;
   {
 #line 653
   while (1) {
-    while_58_continue: /* CIL Label */ ;
+    while_continue___11: /* CIL Label */ ;
 
-    {
 #line 653
-    __cil_tmp263 = & msp_debug;
-#line 653
-    __cil_tmp264 = *__cil_tmp263;
-#line 653
-    if (__cil_tmp264 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 653
-      __cil_tmp265 = (unsigned long )client;
+      __cil_tmp102 = client->adapter;
 #line 653
-      __cil_tmp266 = __cil_tmp265 + 24;
+      tmp___23 = i2c_adapter_id(__cil_tmp102);
 #line 653
-      __cil_tmp267 = *((struct i2c_adapter **)__cil_tmp266);
+      __cil_tmp103 = client->driver;
 #line 653
-      tmp___23 = i2c_adapter_id(__cil_tmp267);
+      __cil_tmp104 = __cil_tmp103->driver.name;
 #line 653
-      __cil_tmp268 = (unsigned long )client;
+      __cil_tmp105 = client->addr;
 #line 653
-      __cil_tmp269 = __cil_tmp268 + 32;
+      __cil_tmp106 = (int )__cil_tmp105;
 #line 653
-      __cil_tmp270 = *((struct i2c_driver **)__cil_tmp269);
-#line 653
-      __cil_tmp271 = (unsigned long )__cil_tmp270;
-#line 653
-      __cil_tmp272 = __cil_tmp271 + 80;
-#line 653
-      __cil_tmp273 = *((char const   **)__cil_tmp272);
-#line 653
-      __cil_tmp274 = (unsigned long )client;
-#line 653
-      __cil_tmp275 = __cil_tmp274 + 2;
-#line 653
-      __cil_tmp276 = *((unsigned short *)__cil_tmp275);
-#line 653
-      __cil_tmp277 = (int )__cil_tmp276;
-#line 653
-      printk("<7>%s %d-%04x: thread: exit\n", __cil_tmp273, tmp___23, __cil_tmp277);
+      printk("<7>%s %d-%04x: thread: exit\n", __cil_tmp104, tmp___23, __cil_tmp106);
       }
     } else {
 
     }
-    }
+#line 653
     goto while_break___11;
   }
-  while_58_break: /* CIL Label */ ;
+  while_break___24: /* CIL Label */ ;
   }
 
   while_break___11: ;
@@ -18011,252 +14034,76 @@ int msp3410d_thread(void *data )
   int tmp___26 ;
   struct i2c_client  const  *__cil_tmp28 ;
   struct v4l2_subdev *__cil_tmp29 ;
-  int *__cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  struct i2c_adapter *__cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  struct i2c_driver *__cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  char const   *__cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
+  struct i2c_adapter *__cil_tmp30 ;
+  struct i2c_driver *__cil_tmp31 ;
+  char const   *__cil_tmp32 ;
+  unsigned short __cil_tmp33 ;
+  int __cil_tmp34 ;
+  struct i2c_adapter *__cil_tmp35 ;
+  struct i2c_driver *__cil_tmp36 ;
+  char const   *__cil_tmp37 ;
+  unsigned short __cil_tmp38 ;
+  int __cil_tmp39 ;
+  struct i2c_adapter *__cil_tmp40 ;
+  struct i2c_driver *__cil_tmp41 ;
+  char const   *__cil_tmp42 ;
   unsigned short __cil_tmp43 ;
   int __cil_tmp44 ;
-  int *__cil_tmp45 ;
-  int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  struct i2c_adapter *__cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  unsigned long __cil_tmp51 ;
+  struct i2c_adapter *__cil_tmp45 ;
+  struct i2c_driver *__cil_tmp46 ;
+  char const   *__cil_tmp47 ;
+  unsigned short __cil_tmp48 ;
+  int __cil_tmp49 ;
+  int __cil_tmp50 ;
+  struct i2c_adapter *__cil_tmp51 ;
   struct i2c_driver *__cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned long __cil_tmp54 ;
-  char const   *__cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  unsigned long __cil_tmp57 ;
-  unsigned short __cil_tmp58 ;
-  int __cil_tmp59 ;
-  int *__cil_tmp60 ;
+  char const   *__cil_tmp53 ;
+  unsigned short __cil_tmp54 ;
+  int __cil_tmp55 ;
+  v4l2_std_id __cil_tmp56 ;
+  struct i2c_adapter *__cil_tmp57 ;
+  struct i2c_driver *__cil_tmp58 ;
+  char const   *__cil_tmp59 ;
+  unsigned short __cil_tmp60 ;
   int __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned long __cil_tmp63 ;
-  struct i2c_adapter *__cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  struct i2c_driver *__cil_tmp67 ;
+  struct i2c_adapter *__cil_tmp62 ;
+  struct i2c_driver *__cil_tmp63 ;
+  char const   *__cil_tmp64 ;
+  unsigned short __cil_tmp65 ;
+  int __cil_tmp66 ;
+  void *__cil_tmp67 ;
   unsigned long __cil_tmp68 ;
   unsigned long __cil_tmp69 ;
-  char const   *__cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  unsigned long __cil_tmp72 ;
+  struct i2c_adapter *__cil_tmp70 ;
+  struct i2c_driver *__cil_tmp71 ;
+  char const   *__cil_tmp72 ;
   unsigned short __cil_tmp73 ;
   int __cil_tmp74 ;
-  int *__cil_tmp75 ;
-  int __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  unsigned long __cil_tmp78 ;
-  struct i2c_adapter *__cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned long __cil_tmp81 ;
-  struct i2c_driver *__cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  char const   *__cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned short __cil_tmp88 ;
-  int __cil_tmp89 ;
-  unsigned long __cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
+  int __cil_tmp75 ;
+  v4l2_std_id __cil_tmp76 ;
+  struct i2c_adapter *__cil_tmp77 ;
+  struct i2c_driver *__cil_tmp78 ;
+  char const   *__cil_tmp79 ;
+  unsigned short __cil_tmp80 ;
+  int __cil_tmp81 ;
+  int __cil_tmp82 ;
+  float __cil_tmp83 ;
+  double __cil_tmp84 ;
+  float __cil_tmp85 ;
+  float __cil_tmp86 ;
+  int __cil_tmp87 ;
+  int __cil_tmp88 ;
+  float __cil_tmp89 ;
+  double __cil_tmp90 ;
+  float __cil_tmp91 ;
+  float __cil_tmp92 ;
+  int __cil_tmp93 ;
   int __cil_tmp94 ;
-  int *__cil_tmp95 ;
-  int __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  struct i2c_adapter *__cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  unsigned long __cil_tmp101 ;
-  struct i2c_driver *__cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned long __cil_tmp104 ;
-  char const   *__cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned short __cil_tmp108 ;
-  int __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  unsigned long __cil_tmp114 ;
-  unsigned long __cil_tmp115 ;
-  unsigned long __cil_tmp116 ;
-  unsigned long __cil_tmp117 ;
-  v4l2_std_id __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  int *__cil_tmp121 ;
-  int *__cil_tmp122 ;
-  int __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  unsigned long __cil_tmp125 ;
-  struct i2c_adapter *__cil_tmp126 ;
-  unsigned long __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  struct i2c_driver *__cil_tmp129 ;
-  unsigned long __cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  char const   *__cil_tmp132 ;
-  unsigned long __cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned short __cil_tmp135 ;
-  int __cil_tmp136 ;
-  int *__cil_tmp137 ;
-  int __cil_tmp138 ;
-  unsigned long __cil_tmp139 ;
-  unsigned long __cil_tmp140 ;
-  struct i2c_adapter *__cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  unsigned long __cil_tmp143 ;
-  struct i2c_driver *__cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  char const   *__cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  unsigned short __cil_tmp150 ;
-  int __cil_tmp151 ;
-  void *__cil_tmp152 ;
-  unsigned long __cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned long __cil_tmp156 ;
-  char *__cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  unsigned long __cil_tmp160 ;
-  int __cil_tmp161 ;
-  int *__cil_tmp162 ;
-  int __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  unsigned long __cil_tmp165 ;
-  struct i2c_adapter *__cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  unsigned long __cil_tmp168 ;
-  struct i2c_driver *__cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  unsigned long __cil_tmp171 ;
-  char const   *__cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned long __cil_tmp174 ;
-  unsigned short __cil_tmp175 ;
-  int __cil_tmp176 ;
-  unsigned long __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  unsigned long __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  unsigned long __cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  unsigned long __cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  unsigned long __cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  int *__cil_tmp191 ;
-  unsigned long __cil_tmp192 ;
-  unsigned long __cil_tmp193 ;
-  int __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  unsigned long __cil_tmp196 ;
-  v4l2_std_id __cil_tmp197 ;
-  int *__cil_tmp198 ;
-  int __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  unsigned long __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  unsigned long __cil_tmp205 ;
-  char *__cil_tmp206 ;
-  unsigned long __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  struct i2c_adapter *__cil_tmp209 ;
-  unsigned long __cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  struct i2c_driver *__cil_tmp212 ;
-  unsigned long __cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  char const   *__cil_tmp215 ;
-  unsigned long __cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned short __cil_tmp218 ;
-  int __cil_tmp219 ;
-  unsigned long __cil_tmp220 ;
-  unsigned long __cil_tmp221 ;
-  unsigned long __cil_tmp222 ;
-  unsigned long __cil_tmp223 ;
-  unsigned long __cil_tmp224 ;
-  unsigned long __cil_tmp225 ;
-  unsigned long __cil_tmp226 ;
-  unsigned long __cil_tmp227 ;
-  unsigned long __cil_tmp228 ;
-  unsigned long __cil_tmp229 ;
-  unsigned long __cil_tmp230 ;
-  unsigned long __cil_tmp231 ;
-  unsigned long __cil_tmp232 ;
-  unsigned long __cil_tmp233 ;
-  unsigned long __cil_tmp234 ;
-  unsigned long __cil_tmp235 ;
-  unsigned long __cil_tmp236 ;
-  unsigned long __cil_tmp237 ;
-  int __cil_tmp238 ;
-  float __cil_tmp239 ;
-  double __cil_tmp240 ;
-  float __cil_tmp241 ;
-  float __cil_tmp242 ;
-  int __cil_tmp243 ;
-  int __cil_tmp244 ;
-  float __cil_tmp245 ;
-  double __cil_tmp246 ;
-  float __cil_tmp247 ;
-  float __cil_tmp248 ;
-  int __cil_tmp249 ;
-  unsigned long __cil_tmp250 ;
-  unsigned long __cil_tmp251 ;
-  unsigned long __cil_tmp252 ;
-  unsigned long __cil_tmp253 ;
-  unsigned long __cil_tmp254 ;
-  unsigned long __cil_tmp255 ;
-  unsigned long __cil_tmp256 ;
-  unsigned long __cil_tmp257 ;
-  int __cil_tmp258 ;
-  unsigned long __cil_tmp259 ;
-  unsigned long __cil_tmp260 ;
-  int *__cil_tmp261 ;
-  int __cil_tmp262 ;
-  unsigned long __cil_tmp263 ;
-  unsigned long __cil_tmp264 ;
-  struct i2c_adapter *__cil_tmp265 ;
-  unsigned long __cil_tmp266 ;
-  unsigned long __cil_tmp267 ;
-  struct i2c_driver *__cil_tmp268 ;
-  unsigned long __cil_tmp269 ;
-  unsigned long __cil_tmp270 ;
-  char const   *__cil_tmp271 ;
-  unsigned long __cil_tmp272 ;
-  unsigned long __cil_tmp273 ;
-  unsigned short __cil_tmp274 ;
-  int __cil_tmp275 ;
+  struct i2c_adapter *__cil_tmp95 ;
+  struct i2c_driver *__cil_tmp96 ;
+  char const   *__cil_tmp97 ;
+  unsigned short __cil_tmp98 ;
+  int __cil_tmp99 ;
 
   {
   {
@@ -18276,54 +14123,33 @@ int msp3410d_thread(void *data )
   {
 #line 664
   while (1) {
-    while_59_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 664
-    __cil_tmp30 = & msp_debug;
-#line 664
-    __cil_tmp31 = *__cil_tmp30;
-#line 664
-    if (__cil_tmp31 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 664
-      __cil_tmp32 = (unsigned long )client;
+      __cil_tmp30 = client->adapter;
 #line 664
-      __cil_tmp33 = __cil_tmp32 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp30);
 #line 664
-      __cil_tmp34 = *((struct i2c_adapter **)__cil_tmp33);
+      __cil_tmp31 = client->driver;
 #line 664
-      tmp___9 = i2c_adapter_id(__cil_tmp34);
+      __cil_tmp32 = __cil_tmp31->driver.name;
 #line 664
-      __cil_tmp35 = (unsigned long )client;
+      __cil_tmp33 = client->addr;
 #line 664
-      __cil_tmp36 = __cil_tmp35 + 32;
+      __cil_tmp34 = (int )__cil_tmp33;
 #line 664
-      __cil_tmp37 = *((struct i2c_driver **)__cil_tmp36);
-#line 664
-      __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 664
-      __cil_tmp39 = __cil_tmp38 + 80;
-#line 664
-      __cil_tmp40 = *((char const   **)__cil_tmp39);
-#line 664
-      __cil_tmp41 = (unsigned long )client;
-#line 664
-      __cil_tmp42 = __cil_tmp41 + 2;
-#line 664
-      __cil_tmp43 = *((unsigned short *)__cil_tmp42);
-#line 664
-      __cil_tmp44 = (int )__cil_tmp43;
-#line 664
-      printk("<7>%s %d-%04x: msp3410 daemon started\n", __cil_tmp40, tmp___9, __cil_tmp44);
+      printk("<7>%s %d-%04x: msp3410 daemon started\n", __cil_tmp32, tmp___9, __cil_tmp34);
       }
     } else {
 
     }
-    }
+#line 664
     goto while_break;
   }
-  while_59_break: /* CIL Label */ ;
+  while_break___13: /* CIL Label */ ;
   }
 
   while_break: 
@@ -18334,59 +14160,38 @@ int msp3410d_thread(void *data )
   {
 #line 666
   while (1) {
-    while_60_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 667
     while (1) {
-      while_61_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
-      {
 #line 667
-      __cil_tmp45 = & msp_debug;
-#line 667
-      __cil_tmp46 = *__cil_tmp45;
-#line 667
-      if (__cil_tmp46 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 667
-        __cil_tmp47 = (unsigned long )client;
+        __cil_tmp35 = client->adapter;
 #line 667
-        __cil_tmp48 = __cil_tmp47 + 24;
+        tmp___10 = i2c_adapter_id(__cil_tmp35);
 #line 667
-        __cil_tmp49 = *((struct i2c_adapter **)__cil_tmp48);
+        __cil_tmp36 = client->driver;
 #line 667
-        tmp___10 = i2c_adapter_id(__cil_tmp49);
+        __cil_tmp37 = __cil_tmp36->driver.name;
 #line 667
-        __cil_tmp50 = (unsigned long )client;
+        __cil_tmp38 = client->addr;
 #line 667
-        __cil_tmp51 = __cil_tmp50 + 32;
+        __cil_tmp39 = (int )__cil_tmp38;
 #line 667
-        __cil_tmp52 = *((struct i2c_driver **)__cil_tmp51);
-#line 667
-        __cil_tmp53 = (unsigned long )__cil_tmp52;
-#line 667
-        __cil_tmp54 = __cil_tmp53 + 80;
-#line 667
-        __cil_tmp55 = *((char const   **)__cil_tmp54);
-#line 667
-        __cil_tmp56 = (unsigned long )client;
-#line 667
-        __cil_tmp57 = __cil_tmp56 + 2;
-#line 667
-        __cil_tmp58 = *((unsigned short *)__cil_tmp57);
-#line 667
-        __cil_tmp59 = (int )__cil_tmp58;
-#line 667
-        printk("<7>%s %d-%04x: msp3410 thread: sleep\n", __cil_tmp55, tmp___10, __cil_tmp59);
+        printk("<7>%s %d-%04x: msp3410 thread: sleep\n", __cil_tmp37, tmp___10, __cil_tmp39);
         }
       } else {
 
       }
-      }
+#line 667
       goto while_break___1;
     }
-    while_61_break: /* CIL Label */ ;
+    while_break___15: /* CIL Label */ ;
     }
 
     while_break___1: 
@@ -18397,54 +14202,33 @@ int msp3410d_thread(void *data )
     {
 #line 669
     while (1) {
-      while_62_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
-      {
 #line 669
-      __cil_tmp60 = & msp_debug;
-#line 669
-      __cil_tmp61 = *__cil_tmp60;
-#line 669
-      if (__cil_tmp61 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 669
-        __cil_tmp62 = (unsigned long )client;
+        __cil_tmp40 = client->adapter;
 #line 669
-        __cil_tmp63 = __cil_tmp62 + 24;
+        tmp___11 = i2c_adapter_id(__cil_tmp40);
 #line 669
-        __cil_tmp64 = *((struct i2c_adapter **)__cil_tmp63);
+        __cil_tmp41 = client->driver;
 #line 669
-        tmp___11 = i2c_adapter_id(__cil_tmp64);
+        __cil_tmp42 = __cil_tmp41->driver.name;
 #line 669
-        __cil_tmp65 = (unsigned long )client;
+        __cil_tmp43 = client->addr;
 #line 669
-        __cil_tmp66 = __cil_tmp65 + 32;
+        __cil_tmp44 = (int )__cil_tmp43;
 #line 669
-        __cil_tmp67 = *((struct i2c_driver **)__cil_tmp66);
-#line 669
-        __cil_tmp68 = (unsigned long )__cil_tmp67;
-#line 669
-        __cil_tmp69 = __cil_tmp68 + 80;
-#line 669
-        __cil_tmp70 = *((char const   **)__cil_tmp69);
-#line 669
-        __cil_tmp71 = (unsigned long )client;
-#line 669
-        __cil_tmp72 = __cil_tmp71 + 2;
-#line 669
-        __cil_tmp73 = *((unsigned short *)__cil_tmp72);
-#line 669
-        __cil_tmp74 = (int )__cil_tmp73;
-#line 669
-        printk("<7>%s %d-%04x: msp3410 thread: wakeup\n", __cil_tmp70, tmp___11, __cil_tmp74);
+        printk("<7>%s %d-%04x: msp3410 thread: wakeup\n", __cil_tmp42, tmp___11, __cil_tmp44);
         }
       } else {
 
       }
-      }
+#line 669
       goto while_break___2;
     }
-    while_62_break: /* CIL Label */ ;
+    while_break___16: /* CIL Label */ ;
     }
 
     while_break___2: ;
@@ -18452,147 +14236,95 @@ int msp3410d_thread(void *data )
     {
 #line 672
     while (1) {
-      while_63_continue: /* CIL Label */ ;
+      while_continue___3: /* CIL Label */ ;
 
-      {
 #line 672
-      __cil_tmp75 = & msp_debug;
-#line 672
-      __cil_tmp76 = *__cil_tmp75;
-#line 672
-      if (__cil_tmp76 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 672
-        __cil_tmp77 = (unsigned long )client;
+        __cil_tmp45 = client->adapter;
 #line 672
-        __cil_tmp78 = __cil_tmp77 + 24;
+        tmp___12 = i2c_adapter_id(__cil_tmp45);
 #line 672
-        __cil_tmp79 = *((struct i2c_adapter **)__cil_tmp78);
+        __cil_tmp46 = client->driver;
 #line 672
-        tmp___12 = i2c_adapter_id(__cil_tmp79);
+        __cil_tmp47 = __cil_tmp46->driver.name;
 #line 672
-        __cil_tmp80 = (unsigned long )client;
+        __cil_tmp48 = client->addr;
 #line 672
-        __cil_tmp81 = __cil_tmp80 + 32;
+        __cil_tmp49 = (int )__cil_tmp48;
 #line 672
-        __cil_tmp82 = *((struct i2c_driver **)__cil_tmp81);
-#line 672
-        __cil_tmp83 = (unsigned long )__cil_tmp82;
-#line 672
-        __cil_tmp84 = __cil_tmp83 + 80;
-#line 672
-        __cil_tmp85 = *((char const   **)__cil_tmp84);
-#line 672
-        __cil_tmp86 = (unsigned long )client;
-#line 672
-        __cil_tmp87 = __cil_tmp86 + 2;
-#line 672
-        __cil_tmp88 = *((unsigned short *)__cil_tmp87);
-#line 672
-        __cil_tmp89 = (int )__cil_tmp88;
-#line 672
-        printk("<7>%s %d-%04x: thread: restart scan\n", __cil_tmp85, tmp___12, __cil_tmp89);
+        printk("<7>%s %d-%04x: thread: restart scan\n", __cil_tmp47, tmp___12, __cil_tmp49);
         }
       } else {
 
       }
-      }
+#line 672
       goto while_break___3;
     }
-    while_63_break: /* CIL Label */ ;
+    while_break___17: /* CIL Label */ ;
     }
 
     while_break___3: 
     {
 #line 673
-    __cil_tmp90 = (unsigned long )state;
-#line 673
-    __cil_tmp91 = __cil_tmp90 + 2248;
-#line 673
-    *((unsigned int *)__cil_tmp91) = 0U;
+    state->restart = 0U;
 #line 674
     tmp___13 = kthread_should_stop();
     }
 #line 674
     if (tmp___13) {
+#line 675
       goto while_break___0;
     } else {
 
     }
     {
 #line 677
-    __cil_tmp92 = (unsigned long )state;
+    __cil_tmp50 = state->mode;
 #line 677
-    __cil_tmp93 = __cil_tmp92 + 2064;
-#line 677
-    __cil_tmp94 = *((int *)__cil_tmp93);
-#line 677
-    if (__cil_tmp94 == 9) {
+    if (__cil_tmp50 == 9) {
       {
 #line 679
       while (1) {
-        while_64_continue: /* CIL Label */ ;
+        while_continue___4: /* CIL Label */ ;
 
-        {
 #line 679
-        __cil_tmp95 = & msp_debug;
-#line 679
-        __cil_tmp96 = *__cil_tmp95;
-#line 679
-        if (__cil_tmp96 >= 1) {
+        if (msp_debug >= 1) {
           {
 #line 679
-          __cil_tmp97 = (unsigned long )client;
+          __cil_tmp51 = client->adapter;
 #line 679
-          __cil_tmp98 = __cil_tmp97 + 24;
+          tmp___14 = i2c_adapter_id(__cil_tmp51);
 #line 679
-          __cil_tmp99 = *((struct i2c_adapter **)__cil_tmp98);
+          __cil_tmp52 = client->driver;
 #line 679
-          tmp___14 = i2c_adapter_id(__cil_tmp99);
+          __cil_tmp53 = __cil_tmp52->driver.name;
 #line 679
-          __cil_tmp100 = (unsigned long )client;
+          __cil_tmp54 = client->addr;
 #line 679
-          __cil_tmp101 = __cil_tmp100 + 32;
+          __cil_tmp55 = (int )__cil_tmp54;
 #line 679
-          __cil_tmp102 = *((struct i2c_driver **)__cil_tmp101);
-#line 679
-          __cil_tmp103 = (unsigned long )__cil_tmp102;
-#line 679
-          __cil_tmp104 = __cil_tmp103 + 80;
-#line 679
-          __cil_tmp105 = *((char const   **)__cil_tmp104);
-#line 679
-          __cil_tmp106 = (unsigned long )client;
-#line 679
-          __cil_tmp107 = __cil_tmp106 + 2;
-#line 679
-          __cil_tmp108 = *((unsigned short *)__cil_tmp107);
-#line 679
-          __cil_tmp109 = (int )__cil_tmp108;
-#line 679
-          printk("<7>%s %d-%04x: thread: no carrier scan\n", __cil_tmp105, tmp___14,
-                 __cil_tmp109);
+          printk("<7>%s %d-%04x: thread: no carrier scan\n", __cil_tmp53, tmp___14,
+                 __cil_tmp55);
           }
         } else {
 
         }
-        }
+#line 679
         goto while_break___4;
       }
-      while_64_break: /* CIL Label */ ;
+      while_break___18: /* CIL Label */ ;
       }
 
       while_break___4: 
       {
 #line 681
-      __cil_tmp110 = (unsigned long )state;
-#line 681
-      __cil_tmp111 = __cil_tmp110 + 2144;
-#line 681
-      *((int *)__cil_tmp111) = 0;
+      state->scan_in_progress = 0;
 #line 682
       msp_update_volume(state);
       }
+#line 683
       goto __Cont;
     } else {
 
@@ -18600,33 +14332,20 @@ int msp3410d_thread(void *data )
     }
     {
 #line 687
-    __cil_tmp112 = (unsigned long )state;
-#line 687
-    __cil_tmp113 = __cil_tmp112 + 2144;
-#line 687
-    *((int *)__cil_tmp113) = 1;
+    state->scan_in_progress = 1;
 #line 688
     msp_update_volume(state);
     }
-    {
 #line 693
-    __cil_tmp114 = (unsigned long )state;
-#line 693
-    __cil_tmp115 = __cil_tmp114 + 2052;
-#line 693
-    if (*((int *)__cil_tmp115)) {
+    if (state->radio) {
 #line 694
       std = 64;
     } else {
       {
 #line 696
-      __cil_tmp116 = (unsigned long )state;
+      __cil_tmp56 = state->v4l2_std;
 #line 696
-      __cil_tmp117 = __cil_tmp116 + 2072;
-#line 696
-      __cil_tmp118 = *((v4l2_std_id *)__cil_tmp117);
-#line 696
-      if (__cil_tmp118 & 45056ULL) {
+      if (__cil_tmp56 & 45056ULL) {
 #line 696
         std = 32;
       } else {
@@ -18635,90 +14354,61 @@ int msp3410d_thread(void *data )
       }
       }
     }
-    }
     {
 #line 697
     state->watch_stereo = 0U;
 #line 698
-    __cil_tmp119 = (unsigned long )state;
-#line 698
-    __cil_tmp120 = __cil_tmp119 + 2080;
-#line 698
-    *((int *)__cil_tmp120) = 0;
+    state->nicam_on = 0;
 #line 701
     tmp___15 = msp_sleep(state, 200);
     }
 #line 701
     if (tmp___15) {
+#line 702
       goto restart;
     } else {
 
     }
-    {
 #line 704
-    __cil_tmp121 = & msp_debug;
-#line 704
-    if (*__cil_tmp121) {
+    if (msp_debug) {
       {
 #line 705
       while (1) {
-        while_65_continue: /* CIL Label */ ;
+        while_continue___5: /* CIL Label */ ;
 
-        {
 #line 705
-        __cil_tmp122 = & msp_debug;
-#line 705
-        __cil_tmp123 = *__cil_tmp122;
-#line 705
-        if (__cil_tmp123 >= 2) {
+        if (msp_debug >= 2) {
           {
 #line 705
           tmp___16 = msp_standard_std_name(std);
 #line 705
-          __cil_tmp124 = (unsigned long )client;
+          __cil_tmp57 = client->adapter;
 #line 705
-          __cil_tmp125 = __cil_tmp124 + 24;
+          tmp___17 = i2c_adapter_id(__cil_tmp57);
 #line 705
-          __cil_tmp126 = *((struct i2c_adapter **)__cil_tmp125);
+          __cil_tmp58 = client->driver;
 #line 705
-          tmp___17 = i2c_adapter_id(__cil_tmp126);
+          __cil_tmp59 = __cil_tmp58->driver.name;
 #line 705
-          __cil_tmp127 = (unsigned long )client;
+          __cil_tmp60 = client->addr;
 #line 705
-          __cil_tmp128 = __cil_tmp127 + 32;
+          __cil_tmp61 = (int )__cil_tmp60;
 #line 705
-          __cil_tmp129 = *((struct i2c_driver **)__cil_tmp128);
-#line 705
-          __cil_tmp130 = (unsigned long )__cil_tmp129;
-#line 705
-          __cil_tmp131 = __cil_tmp130 + 80;
-#line 705
-          __cil_tmp132 = *((char const   **)__cil_tmp131);
-#line 705
-          __cil_tmp133 = (unsigned long )client;
-#line 705
-          __cil_tmp134 = __cil_tmp133 + 2;
-#line 705
-          __cil_tmp135 = *((unsigned short *)__cil_tmp134);
-#line 705
-          __cil_tmp136 = (int )__cil_tmp135;
-#line 705
-          printk("<7>%s %d-%04x: setting standard: %s (0x%04x)\n", __cil_tmp132, tmp___17,
-                 __cil_tmp136, tmp___16, std);
+          printk("<7>%s %d-%04x: setting standard: %s (0x%04x)\n", __cil_tmp59, tmp___17,
+                 __cil_tmp61, tmp___16, std);
           }
         } else {
 
         }
-        }
+#line 705
         goto while_break___5;
       }
-      while_65_break: /* CIL Label */ ;
+      while_break___19: /* CIL Label */ ;
       }
 
       while_break___5: ;
     } else {
 
-    }
     }
 #line 709
     if (std != 1) {
@@ -18732,13 +14422,14 @@ int msp3410d_thread(void *data )
       {
 #line 715
       while (1) {
-        while_66_continue: /* CIL Label */ ;
+        while_continue___6: /* CIL Label */ ;
         {
 #line 716
         tmp___18 = msp_sleep(state, 100);
         }
 #line 716
         if (tmp___18) {
+#line 717
           goto restart;
         } else {
 
@@ -18749,6 +14440,7 @@ int msp3410d_thread(void *data )
         }
 #line 721
         if (val < 2047) {
+#line 722
           goto while_break___6;
         } else {
 
@@ -18756,60 +14448,39 @@ int msp3410d_thread(void *data )
         {
 #line 723
         while (1) {
-          while_67_continue: /* CIL Label */ ;
+          while_continue___7: /* CIL Label */ ;
 
-          {
 #line 723
-          __cil_tmp137 = & msp_debug;
-#line 723
-          __cil_tmp138 = *__cil_tmp137;
-#line 723
-          if (__cil_tmp138 >= 2) {
+          if (msp_debug >= 2) {
             {
 #line 723
-            __cil_tmp139 = (unsigned long )client;
+            __cil_tmp62 = client->adapter;
 #line 723
-            __cil_tmp140 = __cil_tmp139 + 24;
+            tmp___19 = i2c_adapter_id(__cil_tmp62);
 #line 723
-            __cil_tmp141 = *((struct i2c_adapter **)__cil_tmp140);
+            __cil_tmp63 = client->driver;
 #line 723
-            tmp___19 = i2c_adapter_id(__cil_tmp141);
+            __cil_tmp64 = __cil_tmp63->driver.name;
 #line 723
-            __cil_tmp142 = (unsigned long )client;
+            __cil_tmp65 = client->addr;
 #line 723
-            __cil_tmp143 = __cil_tmp142 + 32;
+            __cil_tmp66 = (int )__cil_tmp65;
 #line 723
-            __cil_tmp144 = *((struct i2c_driver **)__cil_tmp143);
-#line 723
-            __cil_tmp145 = (unsigned long )__cil_tmp144;
-#line 723
-            __cil_tmp146 = __cil_tmp145 + 80;
-#line 723
-            __cil_tmp147 = *((char const   **)__cil_tmp146);
-#line 723
-            __cil_tmp148 = (unsigned long )client;
-#line 723
-            __cil_tmp149 = __cil_tmp148 + 2;
-#line 723
-            __cil_tmp150 = *((unsigned short *)__cil_tmp149);
-#line 723
-            __cil_tmp151 = (int )__cil_tmp150;
-#line 723
-            printk("<7>%s %d-%04x: detection still in progress\n", __cil_tmp147, tmp___19,
-                   __cil_tmp151);
+            printk("<7>%s %d-%04x: detection still in progress\n", __cil_tmp64, tmp___19,
+                   __cil_tmp66);
             }
           } else {
 
           }
-          }
+#line 723
           goto while_break___7;
         }
-        while_67_break: /* CIL Label */ ;
+        while_break___21: /* CIL Label */ ;
         }
 
         while_break___7: ;
       }
-      while_66_break: /* CIL Label */ ;
+      while_break___20: /* CIL Label */ ;
       }
 
       while_break___6: ;
@@ -18819,245 +14490,134 @@ int msp3410d_thread(void *data )
     {
 #line 727
     while (1) {
-      while_68_continue: /* CIL Label */ ;
+      while_continue___8: /* CIL Label */ ;
 
       {
 #line 727
-      __cil_tmp152 = (void *)0;
+      __cil_tmp67 = (void *)0;
 #line 727
-      __cil_tmp153 = (unsigned long )__cil_tmp152;
+      __cil_tmp68 = (unsigned long )__cil_tmp67;
 #line 727
-      __cil_tmp154 = i * 24UL;
+      __cil_tmp69 = (unsigned long )msp_stdlist[i].name;
 #line 727
-      __cil_tmp155 = __cil_tmp154 + 16;
-#line 727
-      __cil_tmp156 = (unsigned long )(msp_stdlist) + __cil_tmp155;
-#line 727
-      __cil_tmp157 = *((char **)__cil_tmp156);
-#line 727
-      __cil_tmp158 = (unsigned long )__cil_tmp157;
-#line 727
-      if (__cil_tmp158 != __cil_tmp153) {
+      if (__cil_tmp69 != __cil_tmp68) {
 
       } else {
+#line 727
         goto while_break___8;
       }
       }
-      {
 #line 728
-      __cil_tmp159 = i * 24UL;
-#line 728
-      __cil_tmp160 = (unsigned long )(msp_stdlist) + __cil_tmp159;
-#line 728
-      __cil_tmp161 = *((int *)__cil_tmp160);
-#line 728
-      if (__cil_tmp161 == val) {
+      if (msp_stdlist[i].retval == val) {
+#line 729
         goto while_break___8;
       } else {
 
-      }
       }
 #line 727
       i = i + 1;
     }
-    while_68_break: /* CIL Label */ ;
+    while_break___22: /* CIL Label */ ;
     }
 
     while_break___8: ;
     {
 #line 730
     while (1) {
-      while_69_continue: /* CIL Label */ ;
+      while_continue___9: /* CIL Label */ ;
 
-      {
 #line 730
-      __cil_tmp162 = & msp_debug;
-#line 730
-      __cil_tmp163 = *__cil_tmp162;
-#line 730
-      if (__cil_tmp163 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 730
         tmp___20 = msp_standard_std_name(val);
 #line 730
-        __cil_tmp164 = (unsigned long )client;
+        __cil_tmp70 = client->adapter;
 #line 730
-        __cil_tmp165 = __cil_tmp164 + 24;
+        tmp___21 = i2c_adapter_id(__cil_tmp70);
 #line 730
-        __cil_tmp166 = *((struct i2c_adapter **)__cil_tmp165);
+        __cil_tmp71 = client->driver;
 #line 730
-        tmp___21 = i2c_adapter_id(__cil_tmp166);
+        __cil_tmp72 = __cil_tmp71->driver.name;
 #line 730
-        __cil_tmp167 = (unsigned long )client;
+        __cil_tmp73 = client->addr;
 #line 730
-        __cil_tmp168 = __cil_tmp167 + 32;
+        __cil_tmp74 = (int )__cil_tmp73;
 #line 730
-        __cil_tmp169 = *((struct i2c_driver **)__cil_tmp168);
-#line 730
-        __cil_tmp170 = (unsigned long )__cil_tmp169;
-#line 730
-        __cil_tmp171 = __cil_tmp170 + 80;
-#line 730
-        __cil_tmp172 = *((char const   **)__cil_tmp171);
-#line 730
-        __cil_tmp173 = (unsigned long )client;
-#line 730
-        __cil_tmp174 = __cil_tmp173 + 2;
-#line 730
-        __cil_tmp175 = *((unsigned short *)__cil_tmp174);
-#line 730
-        __cil_tmp176 = (int )__cil_tmp175;
-#line 730
-        printk("<7>%s %d-%04x: current standard: %s (0x%04x)\n", __cil_tmp172, tmp___21,
-               __cil_tmp176, tmp___20, val);
+        printk("<7>%s %d-%04x: current standard: %s (0x%04x)\n", __cil_tmp72, tmp___21,
+               __cil_tmp74, tmp___20, val);
         }
       } else {
 
       }
-      }
+#line 730
       goto while_break___9;
     }
-    while_69_break: /* CIL Label */ ;
+    while_break___23: /* CIL Label */ ;
     }
 
     while_break___9: 
 #line 732
-    __cil_tmp177 = (unsigned long )state;
-#line 732
-    __cil_tmp178 = __cil_tmp177 + 2096;
-#line 732
-    __cil_tmp179 = i * 24UL;
-#line 732
-    __cil_tmp180 = __cil_tmp179 + 4;
-#line 732
-    __cil_tmp181 = (unsigned long )(msp_stdlist) + __cil_tmp180;
-#line 732
-    *((int *)__cil_tmp178) = *((int *)__cil_tmp181);
+    state->main = msp_stdlist[i].main;
 #line 733
-    __cil_tmp182 = (unsigned long )state;
-#line 733
-    __cil_tmp183 = __cil_tmp182 + 2100;
-#line 733
-    __cil_tmp184 = i * 24UL;
-#line 733
-    __cil_tmp185 = __cil_tmp184 + 8;
-#line 733
-    __cil_tmp186 = (unsigned long )(msp_stdlist) + __cil_tmp185;
-#line 733
-    *((int *)__cil_tmp183) = *((int *)__cil_tmp186);
+    state->second = msp_stdlist[i].second;
 #line 734
-    __cil_tmp187 = (unsigned long )state;
-#line 734
-    __cil_tmp188 = __cil_tmp187 + 2060;
-#line 734
-    *((int *)__cil_tmp188) = val;
+    state->std = val;
 #line 735
-    __cil_tmp189 = (unsigned long )state;
-#line 735
-    __cil_tmp190 = __cil_tmp189 + 2120;
-#line 735
-    *((int *)__cil_tmp190) = 1;
-    {
+    state->rxsubchans = 1;
 #line 737
-    __cil_tmp191 = & msp_amsound;
-#line 737
-    if (*__cil_tmp191) {
+    if (msp_amsound) {
       {
 #line 737
-      __cil_tmp192 = (unsigned long )state;
+      __cil_tmp75 = state->radio;
 #line 737
-      __cil_tmp193 = __cil_tmp192 + 2052;
-#line 737
-      __cil_tmp194 = *((int *)__cil_tmp193);
-#line 737
-      if (! __cil_tmp194) {
+      if (! __cil_tmp75) {
         {
 #line 737
-        __cil_tmp195 = (unsigned long )state;
+        __cil_tmp76 = state->v4l2_std;
 #line 737
-        __cil_tmp196 = __cil_tmp195 + 2072;
-#line 737
-        __cil_tmp197 = *((v4l2_std_id *)__cil_tmp196);
-#line 737
-        if (__cil_tmp197 & 16711680ULL) {
+        if (__cil_tmp76 & 16711680ULL) {
 #line 737
           if (val != 9) {
             {
 #line 740
             while (1) {
-              while_70_continue: /* CIL Label */ ;
+              while_continue___10: /* CIL Label */ ;
 
-              {
 #line 740
-              __cil_tmp198 = & msp_debug;
+              if (msp_debug >= 1) {
 #line 740
-              __cil_tmp199 = *__cil_tmp198;
+                if (msp_stdlist[8].name) {
 #line 740
-              if (__cil_tmp199 >= 1) {
-                {
-#line 740
-                __cil_tmp200 = 8 * 24UL;
-#line 740
-                __cil_tmp201 = __cil_tmp200 + 16;
-#line 740
-                __cil_tmp202 = (unsigned long )(msp_stdlist) + __cil_tmp201;
-#line 740
-                if (*((char **)__cil_tmp202)) {
-#line 740
-                  __cil_tmp203 = 8 * 24UL;
-#line 740
-                  __cil_tmp204 = __cil_tmp203 + 16;
-#line 740
-                  __cil_tmp205 = (unsigned long )(msp_stdlist) + __cil_tmp204;
-#line 740
-                  __cil_tmp206 = *((char **)__cil_tmp205);
-#line 740
-                  tmp___22 = (char const   *)__cil_tmp206;
+                  tmp___22 = (char const   *)msp_stdlist[8].name;
                 } else {
 #line 740
                   tmp___22 = "unknown";
                 }
-                }
                 {
 #line 740
-                __cil_tmp207 = (unsigned long )client;
+                __cil_tmp77 = client->adapter;
 #line 740
-                __cil_tmp208 = __cil_tmp207 + 24;
+                tmp___23 = i2c_adapter_id(__cil_tmp77);
 #line 740
-                __cil_tmp209 = *((struct i2c_adapter **)__cil_tmp208);
+                __cil_tmp78 = client->driver;
 #line 740
-                tmp___23 = i2c_adapter_id(__cil_tmp209);
+                __cil_tmp79 = __cil_tmp78->driver.name;
 #line 740
-                __cil_tmp210 = (unsigned long )client;
+                __cil_tmp80 = client->addr;
 #line 740
-                __cil_tmp211 = __cil_tmp210 + 32;
-#line 740
-                __cil_tmp212 = *((struct i2c_driver **)__cil_tmp211);
-#line 740
-                __cil_tmp213 = (unsigned long )__cil_tmp212;
-#line 740
-                __cil_tmp214 = __cil_tmp213 + 80;
-#line 740
-                __cil_tmp215 = *((char const   **)__cil_tmp214);
-#line 740
-                __cil_tmp216 = (unsigned long )client;
-#line 740
-                __cil_tmp217 = __cil_tmp216 + 2;
-#line 740
-                __cil_tmp218 = *((unsigned short *)__cil_tmp217);
-#line 740
-                __cil_tmp219 = (int )__cil_tmp218;
+                __cil_tmp81 = (int )__cil_tmp80;
 #line 740
                 printk("<7>%s %d-%04x: autodetection failed, switching to backup standard: %s (0x%04x)\n",
-                       __cil_tmp215, tmp___23, __cil_tmp219, tmp___22, val);
+                       __cil_tmp79, tmp___23, __cil_tmp81, tmp___22, val);
                 }
               } else {
 
               }
-              }
+#line 740
               goto while_break___10;
             }
-            while_70_break: /* CIL Label */ ;
+            while_break___24: /* CIL Label */ ;
             }
 
             while_break___10: 
@@ -19065,11 +14625,7 @@ int msp3410d_thread(void *data )
 #line 744
             val = 9;
 #line 744
-            __cil_tmp220 = (unsigned long )state;
-#line 744
-            __cil_tmp221 = __cil_tmp220 + 2060;
-#line 744
-            *((int *)__cil_tmp221) = val;
+            state->std = val;
 #line 745
             msp_write_dem(client, 32, val);
             }
@@ -19087,165 +14643,133 @@ int msp3410d_thread(void *data )
     } else {
 
     }
-    }
 #line 750
     if (val == 8) {
+#line 750
       goto case_8;
-    } else {
+    } else
 #line 751
-      if (val == 10) {
-        goto case_8;
-      } else {
+    if (val == 10) {
+#line 751
+      goto case_8;
+    } else
 #line 752
-        if (val == 11) {
-          goto case_8;
-        } else {
+    if (val == 11) {
+#line 752
+      goto case_8;
+    } else
 #line 761
-          if (val == 9) {
-            goto case_9;
-          } else {
+    if (val == 9) {
+#line 761
+      goto case_9;
+    } else
 #line 766
-            if (val == 32) {
-              goto case_32;
-            } else {
+    if (val == 32) {
+#line 766
+      goto case_32;
+    } else
 #line 770
-              if (val == 64) {
-                goto case_64;
-              } else {
+    if (val == 64) {
+#line 770
+      goto case_64;
+    } else
 #line 779
-                if (val == 2) {
-                  goto case_2;
-                } else {
+    if (val == 2) {
+#line 779
+      goto case_2;
+    } else
 #line 780
-                  if (val == 3) {
-                    goto case_2;
-                  } else {
+    if (val == 3) {
+#line 780
+      goto case_2;
+    } else
 #line 781
-                    if (val == 4) {
-                      goto case_2;
-                    } else {
+    if (val == 4) {
+#line 781
+      goto case_2;
+    } else
 #line 782
-                      if (val == 5) {
-                        goto case_2;
-                      } else {
+    if (val == 5) {
+#line 782
+      goto case_2;
+    } else
 #line 749
-                        if (0) {
-                          case_8: 
+    if (0) {
+      case_8: 
 #line 753
-                          if (val == 10) {
+      if (val == 10) {
 #line 754
-                            __cil_tmp222 = (unsigned long )state;
-#line 754
-                            __cil_tmp223 = __cil_tmp222 + 2064;
-#line 754
-                            *((int *)__cil_tmp223) = 6;
-                          } else {
+        state->mode = 6;
+      } else {
 #line 756
-                            __cil_tmp224 = (unsigned long )state;
-#line 756
-                            __cil_tmp225 = __cil_tmp224 + 2064;
-#line 756
-                            *((int *)__cil_tmp225) = 5;
-                          }
-#line 758
-                          __cil_tmp226 = (unsigned long )state;
-#line 758
-                          __cil_tmp227 = __cil_tmp226 + 2080;
-#line 758
-                          *((int *)__cil_tmp227) = 1;
-#line 759
-                          state->watch_stereo = 1U;
-                          goto switch_break;
-                          case_9: 
-#line 762
-                          __cil_tmp228 = (unsigned long )state;
-#line 762
-                          __cil_tmp229 = __cil_tmp228 + 2064;
-#line 762
-                          *((int *)__cil_tmp229) = 7;
-#line 763
-                          __cil_tmp230 = (unsigned long )state;
-#line 763
-                          __cil_tmp231 = __cil_tmp230 + 2080;
-#line 763
-                          *((int *)__cil_tmp231) = 1;
-#line 764
-                          state->watch_stereo = 1U;
-                          goto switch_break;
-                          case_32: 
-#line 768
-                          __cil_tmp232 = (unsigned long )state;
-#line 768
-                          __cil_tmp233 = __cil_tmp232 + 2064;
-#line 768
-                          *((int *)__cil_tmp233) = 8;
-                          goto switch_break;
-                          case_64: 
-                          {
-#line 771
-                          __cil_tmp234 = (unsigned long )state;
-#line 771
-                          __cil_tmp235 = __cil_tmp234 + 2064;
-#line 771
-                          *((int *)__cil_tmp235) = 2;
-#line 772
-                          __cil_tmp236 = (unsigned long )state;
-#line 772
-                          __cil_tmp237 = __cil_tmp236 + 2120;
-#line 772
-                          *((int *)__cil_tmp237) = 2;
-#line 775
-                          msp3400c_set_mode(client, 2);
-#line 776
-                          __cil_tmp238 = 1 << 24;
-#line 776
-                          __cil_tmp239 = (float )__cil_tmp238;
-#line 776
-                          __cil_tmp240 = 10.7 / 18.432;
-#line 776
-                          __cil_tmp241 = (float )__cil_tmp240;
-#line 776
-                          __cil_tmp242 = __cil_tmp241 * __cil_tmp239;
-#line 776
-                          __cil_tmp243 = (int )__cil_tmp242;
-#line 776
-                          __cil_tmp244 = 1 << 24;
-#line 776
-                          __cil_tmp245 = (float )__cil_tmp244;
-#line 776
-                          __cil_tmp246 = 10.7 / 18.432;
-#line 776
-                          __cil_tmp247 = (float )__cil_tmp246;
-#line 776
-                          __cil_tmp248 = __cil_tmp247 * __cil_tmp245;
-#line 776
-                          __cil_tmp249 = (int )__cil_tmp248;
-#line 776
-                          msp3400c_set_carrier(client, __cil_tmp243, __cil_tmp249);
-                          }
-                          goto switch_break;
-                          case_2: 
-#line 783
-                          __cil_tmp250 = (unsigned long )state;
-#line 783
-                          __cil_tmp251 = __cil_tmp250 + 2064;
-#line 783
-                          *((int *)__cil_tmp251) = 3;
-#line 784
-                          state->watch_stereo = 1U;
-                          goto switch_break;
-                        } else {
-                          switch_break: ;
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+        state->mode = 5;
       }
+#line 758
+      state->nicam_on = 1;
+#line 759
+      state->watch_stereo = 1U;
+#line 760
+      goto switch_break;
+      case_9: 
+#line 762
+      state->mode = 7;
+#line 763
+      state->nicam_on = 1;
+#line 764
+      state->watch_stereo = 1U;
+#line 765
+      goto switch_break;
+      case_32: 
+#line 768
+      state->mode = 8;
+#line 769
+      goto switch_break;
+      case_64: 
+      {
+#line 771
+      state->mode = 2;
+#line 772
+      state->rxsubchans = 2;
+#line 775
+      msp3400c_set_mode(client, 2);
+#line 776
+      __cil_tmp82 = 1 << 24;
+#line 776
+      __cil_tmp83 = (float )__cil_tmp82;
+#line 776
+      __cil_tmp84 = 10.7 / 18.432;
+#line 776
+      __cil_tmp85 = (float )__cil_tmp84;
+#line 776
+      __cil_tmp86 = __cil_tmp85 * __cil_tmp83;
+#line 776
+      __cil_tmp87 = (int )__cil_tmp86;
+#line 776
+      __cil_tmp88 = 1 << 24;
+#line 776
+      __cil_tmp89 = (float )__cil_tmp88;
+#line 776
+      __cil_tmp90 = 10.7 / 18.432;
+#line 776
+      __cil_tmp91 = (float )__cil_tmp90;
+#line 776
+      __cil_tmp92 = __cil_tmp91 * __cil_tmp89;
+#line 776
+      __cil_tmp93 = (int )__cil_tmp92;
+#line 776
+      msp3400c_set_carrier(client, __cil_tmp87, __cil_tmp93);
+      }
+#line 778
+      goto switch_break;
+      case_2: 
+#line 783
+      state->mode = 3;
+#line 784
+      state->watch_stereo = 1U;
+#line 785
+      goto switch_break;
+    } else {
+      switch_break: ;
     }
     {
 #line 789
@@ -19253,13 +14777,8 @@ int msp3410d_thread(void *data )
 #line 790
     msp_write_dsp(client, 14, 12288);
     }
-    {
 #line 791
-    __cil_tmp252 = (unsigned long )state;
-#line 791
-    __cil_tmp253 = __cil_tmp252 + 2036;
-#line 791
-    if (*((u8 *)__cil_tmp253)) {
+    if (state->has_nicam) {
       {
 #line 792
       msp_write_dsp(client, 16, 23040);
@@ -19267,37 +14786,22 @@ int msp3410d_thread(void *data )
     } else {
 
     }
-    }
-    {
 #line 794
-    __cil_tmp254 = (unsigned long )state;
-#line 794
-    __cil_tmp255 = __cil_tmp254 + 2045;
-#line 794
-    if (*((u8 *)__cil_tmp255)) {
+    if (state->has_i2s_conf) {
       {
 #line 795
-      __cil_tmp256 = (unsigned long )state;
+      __cil_tmp94 = state->i2s_mode;
 #line 795
-      __cil_tmp257 = __cil_tmp256 + 2092;
-#line 795
-      __cil_tmp258 = *((int *)__cil_tmp257);
-#line 795
-      msp_write_dem(client, 64, __cil_tmp258);
+      msp_write_dem(client, 64, __cil_tmp94);
       }
     } else {
 
-    }
     }
     {
 #line 798
     msp3400c_set_audmode(client);
 #line 799
-    __cil_tmp259 = (unsigned long )state;
-#line 799
-    __cil_tmp260 = __cil_tmp259 + 2144;
-#line 799
-    *((int *)__cil_tmp260) = 0;
+    state->scan_in_progress = 0;
 #line 800
     msp_update_volume(state);
 #line 804
@@ -19306,12 +14810,13 @@ int msp3410d_thread(void *data )
     {
 #line 805
     while (1) {
-      while_71_continue: /* CIL Label */ ;
+      while_continue___11: /* CIL Label */ ;
 
 #line 805
       if (state->watch_stereo) {
 
       } else {
+#line 805
         goto while_break___11;
       }
 #line 806
@@ -19328,6 +14833,7 @@ int msp3410d_thread(void *data )
       }
 #line 806
       if (tmp___25) {
+#line 807
         goto restart;
       } else {
 
@@ -19344,67 +14850,46 @@ int msp3410d_thread(void *data )
       watch_stereo(client);
       }
     }
-    while_71_break: /* CIL Label */ ;
+    while_break___25: /* CIL Label */ ;
     }
 
     while_break___11: ;
     __Cont: ;
   }
-  while_60_break: /* CIL Label */ ;
+  while_break___14: /* CIL Label */ ;
   }
 
   while_break___0: ;
   {
 #line 813
   while (1) {
-    while_72_continue: /* CIL Label */ ;
+    while_continue___12: /* CIL Label */ ;
 
-    {
 #line 813
-    __cil_tmp261 = & msp_debug;
-#line 813
-    __cil_tmp262 = *__cil_tmp261;
-#line 813
-    if (__cil_tmp262 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 813
-      __cil_tmp263 = (unsigned long )client;
+      __cil_tmp95 = client->adapter;
 #line 813
-      __cil_tmp264 = __cil_tmp263 + 24;
+      tmp___26 = i2c_adapter_id(__cil_tmp95);
 #line 813
-      __cil_tmp265 = *((struct i2c_adapter **)__cil_tmp264);
+      __cil_tmp96 = client->driver;
 #line 813
-      tmp___26 = i2c_adapter_id(__cil_tmp265);
+      __cil_tmp97 = __cil_tmp96->driver.name;
 #line 813
-      __cil_tmp266 = (unsigned long )client;
+      __cil_tmp98 = client->addr;
 #line 813
-      __cil_tmp267 = __cil_tmp266 + 32;
+      __cil_tmp99 = (int )__cil_tmp98;
 #line 813
-      __cil_tmp268 = *((struct i2c_driver **)__cil_tmp267);
-#line 813
-      __cil_tmp269 = (unsigned long )__cil_tmp268;
-#line 813
-      __cil_tmp270 = __cil_tmp269 + 80;
-#line 813
-      __cil_tmp271 = *((char const   **)__cil_tmp270);
-#line 813
-      __cil_tmp272 = (unsigned long )client;
-#line 813
-      __cil_tmp273 = __cil_tmp272 + 2;
-#line 813
-      __cil_tmp274 = *((unsigned short *)__cil_tmp273);
-#line 813
-      __cil_tmp275 = (int )__cil_tmp274;
-#line 813
-      printk("<7>%s %d-%04x: thread: exit\n", __cil_tmp271, tmp___26, __cil_tmp275);
+      printk("<7>%s %d-%04x: thread: exit\n", __cil_tmp97, tmp___26, __cil_tmp99);
       }
     } else {
 
     }
-    }
+#line 813
     goto while_break___12;
   }
-  while_72_break: /* CIL Label */ ;
+  while_break___26: /* CIL Label */ ;
   }
 
   while_break___12: ;
@@ -19424,95 +14909,35 @@ static int msp34xxg_modus(struct i2c_client *client )
   int tmp___13 ;
   struct i2c_client  const  *__cil_tmp10 ;
   struct v4l2_subdev *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int *__cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
+  struct i2c_adapter *__cil_tmp12 ;
+  struct i2c_driver *__cil_tmp13 ;
+  char const   *__cil_tmp14 ;
+  unsigned short __cil_tmp15 ;
+  int __cil_tmp16 ;
+  v4l2_std_id __cil_tmp17 ;
   struct i2c_adapter *__cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  struct i2c_driver *__cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  char const   *__cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  struct i2c_driver *__cil_tmp19 ;
+  char const   *__cil_tmp20 ;
+  unsigned short __cil_tmp21 ;
+  int __cil_tmp22 ;
+  v4l2_std_id __cil_tmp23 ;
+  struct i2c_adapter *__cil_tmp24 ;
+  struct i2c_driver *__cil_tmp25 ;
+  char const   *__cil_tmp26 ;
   unsigned short __cil_tmp27 ;
   int __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  v4l2_std_id __cil_tmp31 ;
-  int *__cil_tmp32 ;
-  int __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
+  v4l2_std_id __cil_tmp29 ;
+  struct i2c_adapter *__cil_tmp30 ;
+  struct i2c_driver *__cil_tmp31 ;
+  char const   *__cil_tmp32 ;
+  unsigned short __cil_tmp33 ;
+  int __cil_tmp34 ;
+  v4l2_std_id __cil_tmp35 ;
   struct i2c_adapter *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
-  struct i2c_driver *__cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  unsigned long __cil_tmp41 ;
-  char const   *__cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  unsigned short __cil_tmp45 ;
-  int __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
-  unsigned long __cil_tmp48 ;
-  v4l2_std_id __cil_tmp49 ;
-  int *__cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  struct i2c_adapter *__cil_tmp54 ;
-  unsigned long __cil_tmp55 ;
-  unsigned long __cil_tmp56 ;
-  struct i2c_driver *__cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  char const   *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  unsigned short __cil_tmp63 ;
-  int __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  unsigned long __cil_tmp66 ;
-  v4l2_std_id __cil_tmp67 ;
-  int *__cil_tmp68 ;
-  int __cil_tmp69 ;
-  unsigned long __cil_tmp70 ;
-  unsigned long __cil_tmp71 ;
-  struct i2c_adapter *__cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  struct i2c_driver *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  char const   *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  unsigned short __cil_tmp81 ;
-  int __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned long __cil_tmp84 ;
-  v4l2_std_id __cil_tmp85 ;
-  int *__cil_tmp86 ;
-  int __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  struct i2c_adapter *__cil_tmp90 ;
-  unsigned long __cil_tmp91 ;
-  unsigned long __cil_tmp92 ;
-  struct i2c_driver *__cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  unsigned long __cil_tmp95 ;
-  char const   *__cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  unsigned long __cil_tmp98 ;
-  unsigned short __cil_tmp99 ;
-  int __cil_tmp100 ;
+  struct i2c_driver *__cil_tmp37 ;
+  char const   *__cil_tmp38 ;
+  unsigned short __cil_tmp39 ;
+  int __cil_tmp40 ;
 
   {
   {
@@ -19527,64 +14952,38 @@ static int msp34xxg_modus(struct i2c_client *client )
 #line 827
   state = tmp___8;
   }
-  {
 #line 829
-  __cil_tmp12 = (unsigned long )state;
-#line 829
-  __cil_tmp13 = __cil_tmp12 + 2052;
-#line 829
-  if (*((int *)__cil_tmp13)) {
+  if (state->radio) {
     {
 #line 830
     while (1) {
-      while_73_continue: /* CIL Label */ ;
+      while_continue: /* CIL Label */ ;
 
-      {
 #line 830
-      __cil_tmp14 = & msp_debug;
-#line 830
-      __cil_tmp15 = *__cil_tmp14;
-#line 830
-      if (__cil_tmp15 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 830
-        __cil_tmp16 = (unsigned long )client;
+        __cil_tmp12 = client->adapter;
 #line 830
-        __cil_tmp17 = __cil_tmp16 + 24;
+        tmp___9 = i2c_adapter_id(__cil_tmp12);
 #line 830
-        __cil_tmp18 = *((struct i2c_adapter **)__cil_tmp17);
+        __cil_tmp13 = client->driver;
 #line 830
-        tmp___9 = i2c_adapter_id(__cil_tmp18);
+        __cil_tmp14 = __cil_tmp13->driver.name;
 #line 830
-        __cil_tmp19 = (unsigned long )client;
+        __cil_tmp15 = client->addr;
 #line 830
-        __cil_tmp20 = __cil_tmp19 + 32;
+        __cil_tmp16 = (int )__cil_tmp15;
 #line 830
-        __cil_tmp21 = *((struct i2c_driver **)__cil_tmp20);
-#line 830
-        __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 830
-        __cil_tmp23 = __cil_tmp22 + 80;
-#line 830
-        __cil_tmp24 = *((char const   **)__cil_tmp23);
-#line 830
-        __cil_tmp25 = (unsigned long )client;
-#line 830
-        __cil_tmp26 = __cil_tmp25 + 2;
-#line 830
-        __cil_tmp27 = *((unsigned short *)__cil_tmp26);
-#line 830
-        __cil_tmp28 = (int )__cil_tmp27;
-#line 830
-        printk("<7>%s %d-%04x: selected radio modus\n", __cil_tmp24, tmp___9, __cil_tmp28);
+        printk("<7>%s %d-%04x: selected radio modus\n", __cil_tmp14, tmp___9, __cil_tmp16);
         }
       } else {
 
       }
-      }
+#line 830
       goto while_break;
     }
-    while_73_break: /* CIL Label */ ;
+    while_break___4: /* CIL Label */ ;
     }
 
     while_break: ;
@@ -19593,68 +14992,42 @@ static int msp34xxg_modus(struct i2c_client *client )
   } else {
 
   }
-  }
   {
 #line 833
-  __cil_tmp29 = (unsigned long )state;
+  __cil_tmp17 = state->v4l2_std;
 #line 833
-  __cil_tmp30 = __cil_tmp29 + 2072;
-#line 833
-  __cil_tmp31 = *((v4l2_std_id *)__cil_tmp30);
-#line 833
-  if (__cil_tmp31 == 8192ULL) {
+  if (__cil_tmp17 == 8192ULL) {
     {
 #line 834
     while (1) {
-      while_74_continue: /* CIL Label */ ;
+      while_continue___0: /* CIL Label */ ;
 
-      {
 #line 834
-      __cil_tmp32 = & msp_debug;
-#line 834
-      __cil_tmp33 = *__cil_tmp32;
-#line 834
-      if (__cil_tmp33 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 834
-        __cil_tmp34 = (unsigned long )client;
+        __cil_tmp18 = client->adapter;
 #line 834
-        __cil_tmp35 = __cil_tmp34 + 24;
+        tmp___10 = i2c_adapter_id(__cil_tmp18);
 #line 834
-        __cil_tmp36 = *((struct i2c_adapter **)__cil_tmp35);
+        __cil_tmp19 = client->driver;
 #line 834
-        tmp___10 = i2c_adapter_id(__cil_tmp36);
+        __cil_tmp20 = __cil_tmp19->driver.name;
 #line 834
-        __cil_tmp37 = (unsigned long )client;
+        __cil_tmp21 = client->addr;
 #line 834
-        __cil_tmp38 = __cil_tmp37 + 32;
+        __cil_tmp22 = (int )__cil_tmp21;
 #line 834
-        __cil_tmp39 = *((struct i2c_driver **)__cil_tmp38);
-#line 834
-        __cil_tmp40 = (unsigned long )__cil_tmp39;
-#line 834
-        __cil_tmp41 = __cil_tmp40 + 80;
-#line 834
-        __cil_tmp42 = *((char const   **)__cil_tmp41);
-#line 834
-        __cil_tmp43 = (unsigned long )client;
-#line 834
-        __cil_tmp44 = __cil_tmp43 + 2;
-#line 834
-        __cil_tmp45 = *((unsigned short *)__cil_tmp44);
-#line 834
-        __cil_tmp46 = (int )__cil_tmp45;
-#line 834
-        printk("<7>%s %d-%04x: selected M (EIA-J) modus\n", __cil_tmp42, tmp___10,
-               __cil_tmp46);
+        printk("<7>%s %d-%04x: selected M (EIA-J) modus\n", __cil_tmp20, tmp___10,
+               __cil_tmp22);
         }
       } else {
 
       }
-      }
+#line 834
       goto while_break___0;
     }
-    while_74_break: /* CIL Label */ ;
+    while_break___5: /* CIL Label */ ;
     }
 
     while_break___0: ;
@@ -19666,64 +15039,39 @@ static int msp34xxg_modus(struct i2c_client *client )
   }
   {
 #line 837
-  __cil_tmp47 = (unsigned long )state;
+  __cil_tmp23 = state->v4l2_std;
 #line 837
-  __cil_tmp48 = __cil_tmp47 + 2072;
-#line 837
-  __cil_tmp49 = *((v4l2_std_id *)__cil_tmp48);
-#line 837
-  if (__cil_tmp49 == 32768ULL) {
+  if (__cil_tmp23 == 32768ULL) {
     {
 #line 838
     while (1) {
-      while_75_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
-      {
 #line 838
-      __cil_tmp50 = & msp_debug;
-#line 838
-      __cil_tmp51 = *__cil_tmp50;
-#line 838
-      if (__cil_tmp51 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 838
-        __cil_tmp52 = (unsigned long )client;
+        __cil_tmp24 = client->adapter;
 #line 838
-        __cil_tmp53 = __cil_tmp52 + 24;
+        tmp___11 = i2c_adapter_id(__cil_tmp24);
 #line 838
-        __cil_tmp54 = *((struct i2c_adapter **)__cil_tmp53);
+        __cil_tmp25 = client->driver;
 #line 838
-        tmp___11 = i2c_adapter_id(__cil_tmp54);
+        __cil_tmp26 = __cil_tmp25->driver.name;
 #line 838
-        __cil_tmp55 = (unsigned long )client;
+        __cil_tmp27 = client->addr;
 #line 838
-        __cil_tmp56 = __cil_tmp55 + 32;
+        __cil_tmp28 = (int )__cil_tmp27;
 #line 838
-        __cil_tmp57 = *((struct i2c_driver **)__cil_tmp56);
-#line 838
-        __cil_tmp58 = (unsigned long )__cil_tmp57;
-#line 838
-        __cil_tmp59 = __cil_tmp58 + 80;
-#line 838
-        __cil_tmp60 = *((char const   **)__cil_tmp59);
-#line 838
-        __cil_tmp61 = (unsigned long )client;
-#line 838
-        __cil_tmp62 = __cil_tmp61 + 2;
-#line 838
-        __cil_tmp63 = *((unsigned short *)__cil_tmp62);
-#line 838
-        __cil_tmp64 = (int )__cil_tmp63;
-#line 838
-        printk("<7>%s %d-%04x: selected M (A2) modus\n", __cil_tmp60, tmp___11, __cil_tmp64);
+        printk("<7>%s %d-%04x: selected M (A2) modus\n", __cil_tmp26, tmp___11, __cil_tmp28);
         }
       } else {
 
       }
-      }
+#line 838
       goto while_break___1;
     }
-    while_75_break: /* CIL Label */ ;
+    while_break___6: /* CIL Label */ ;
     }
 
     while_break___1: ;
@@ -19735,64 +15083,39 @@ static int msp34xxg_modus(struct i2c_client *client )
   }
   {
 #line 841
-  __cil_tmp65 = (unsigned long )state;
+  __cil_tmp29 = state->v4l2_std;
 #line 841
-  __cil_tmp66 = __cil_tmp65 + 2072;
-#line 841
-  __cil_tmp67 = *((v4l2_std_id *)__cil_tmp66);
-#line 841
-  if (__cil_tmp67 == 4194304ULL) {
+  if (__cil_tmp29 == 4194304ULL) {
     {
 #line 842
     while (1) {
-      while_76_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
-      {
 #line 842
-      __cil_tmp68 = & msp_debug;
-#line 842
-      __cil_tmp69 = *__cil_tmp68;
-#line 842
-      if (__cil_tmp69 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 842
-        __cil_tmp70 = (unsigned long )client;
+        __cil_tmp30 = client->adapter;
 #line 842
-        __cil_tmp71 = __cil_tmp70 + 24;
+        tmp___12 = i2c_adapter_id(__cil_tmp30);
 #line 842
-        __cil_tmp72 = *((struct i2c_adapter **)__cil_tmp71);
+        __cil_tmp31 = client->driver;
 #line 842
-        tmp___12 = i2c_adapter_id(__cil_tmp72);
+        __cil_tmp32 = __cil_tmp31->driver.name;
 #line 842
-        __cil_tmp73 = (unsigned long )client;
+        __cil_tmp33 = client->addr;
 #line 842
-        __cil_tmp74 = __cil_tmp73 + 32;
+        __cil_tmp34 = (int )__cil_tmp33;
 #line 842
-        __cil_tmp75 = *((struct i2c_driver **)__cil_tmp74);
-#line 842
-        __cil_tmp76 = (unsigned long )__cil_tmp75;
-#line 842
-        __cil_tmp77 = __cil_tmp76 + 80;
-#line 842
-        __cil_tmp78 = *((char const   **)__cil_tmp77);
-#line 842
-        __cil_tmp79 = (unsigned long )client;
-#line 842
-        __cil_tmp80 = __cil_tmp79 + 2;
-#line 842
-        __cil_tmp81 = *((unsigned short *)__cil_tmp80);
-#line 842
-        __cil_tmp82 = (int )__cil_tmp81;
-#line 842
-        printk("<7>%s %d-%04x: selected SECAM-L modus\n", __cil_tmp78, tmp___12, __cil_tmp82);
+        printk("<7>%s %d-%04x: selected SECAM-L modus\n", __cil_tmp32, tmp___12, __cil_tmp34);
         }
       } else {
 
       }
-      }
+#line 842
       goto while_break___2;
     }
-    while_76_break: /* CIL Label */ ;
+    while_break___7: /* CIL Label */ ;
     }
 
     while_break___2: ;
@@ -19804,65 +15127,40 @@ static int msp34xxg_modus(struct i2c_client *client )
   }
   {
 #line 845
-  __cil_tmp83 = (unsigned long )state;
+  __cil_tmp35 = state->v4l2_std;
 #line 845
-  __cil_tmp84 = __cil_tmp83 + 2072;
-#line 845
-  __cil_tmp85 = *((v4l2_std_id *)__cil_tmp84);
-#line 845
-  if (__cil_tmp85 & 46848ULL) {
+  if (__cil_tmp35 & 46848ULL) {
     {
 #line 846
     while (1) {
-      while_77_continue: /* CIL Label */ ;
+      while_continue___3: /* CIL Label */ ;
 
-      {
 #line 846
-      __cil_tmp86 = & msp_debug;
-#line 846
-      __cil_tmp87 = *__cil_tmp86;
-#line 846
-      if (__cil_tmp87 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 846
-        __cil_tmp88 = (unsigned long )client;
+        __cil_tmp36 = client->adapter;
 #line 846
-        __cil_tmp89 = __cil_tmp88 + 24;
+        tmp___13 = i2c_adapter_id(__cil_tmp36);
 #line 846
-        __cil_tmp90 = *((struct i2c_adapter **)__cil_tmp89);
+        __cil_tmp37 = client->driver;
 #line 846
-        tmp___13 = i2c_adapter_id(__cil_tmp90);
+        __cil_tmp38 = __cil_tmp37->driver.name;
 #line 846
-        __cil_tmp91 = (unsigned long )client;
+        __cil_tmp39 = client->addr;
 #line 846
-        __cil_tmp92 = __cil_tmp91 + 32;
+        __cil_tmp40 = (int )__cil_tmp39;
 #line 846
-        __cil_tmp93 = *((struct i2c_driver **)__cil_tmp92);
-#line 846
-        __cil_tmp94 = (unsigned long )__cil_tmp93;
-#line 846
-        __cil_tmp95 = __cil_tmp94 + 80;
-#line 846
-        __cil_tmp96 = *((char const   **)__cil_tmp95);
-#line 846
-        __cil_tmp97 = (unsigned long )client;
-#line 846
-        __cil_tmp98 = __cil_tmp97 + 2;
-#line 846
-        __cil_tmp99 = *((unsigned short *)__cil_tmp98);
-#line 846
-        __cil_tmp100 = (int )__cil_tmp99;
-#line 846
-        printk("<7>%s %d-%04x: selected M (BTSC) modus\n", __cil_tmp96, tmp___13,
-               __cil_tmp100);
+        printk("<7>%s %d-%04x: selected M (BTSC) modus\n", __cil_tmp38, tmp___13,
+               __cil_tmp40);
         }
       } else {
 
       }
-      }
+#line 846
       goto while_break___3;
     }
-    while_77_break: /* CIL Label */ ;
+    while_break___8: /* CIL Label */ ;
     }
 
     while_break___3: ;
@@ -19886,42 +15184,22 @@ static void msp34xxg_set_source(struct i2c_client *client , u16 reg , int in )
   int tmp___9 ;
   struct i2c_client  const  *__cil_tmp10 ;
   struct v4l2_subdev *__cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
+  int __cil_tmp12 ;
+  int __cil_tmp13 ;
   int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
+  int __cil_tmp15 ;
+  int __cil_tmp16 ;
   int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
+  int __cil_tmp18 ;
+  int __cil_tmp19 ;
   int __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  unsigned long __cil_tmp26 ;
+  struct i2c_adapter *__cil_tmp21 ;
+  struct i2c_driver *__cil_tmp22 ;
+  char const   *__cil_tmp23 ;
+  unsigned short __cil_tmp24 ;
+  int __cil_tmp25 ;
+  int __cil_tmp26 ;
   int __cil_tmp27 ;
-  int __cil_tmp28 ;
-  int __cil_tmp29 ;
-  int __cil_tmp30 ;
-  int *__cil_tmp31 ;
-  int __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  struct i2c_adapter *__cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct i2c_driver *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  char const   *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned short __cil_tmp44 ;
-  int __cil_tmp45 ;
-  int __cil_tmp46 ;
-  int __cil_tmp47 ;
 
   {
   {
@@ -19938,48 +15216,37 @@ static void msp34xxg_set_source(struct i2c_client *client , u16 reg , int in )
   }
   {
 #line 858
-  __cil_tmp12 = (unsigned long )state;
+  __cil_tmp12 = state->audmode;
 #line 858
-  __cil_tmp13 = __cil_tmp12 + 2116;
+  if (__cil_tmp12 == 0) {
 #line 858
-  __cil_tmp14 = *((int *)__cil_tmp13);
-#line 858
-  if (__cil_tmp14 == 0) {
     goto case_0;
   } else {
     {
 #line 862
-    __cil_tmp15 = (unsigned long )state;
+    __cil_tmp13 = state->audmode;
 #line 862
-    __cil_tmp16 = __cil_tmp15 + 2116;
+    if (__cil_tmp13 == 2) {
 #line 862
-    __cil_tmp17 = *((int *)__cil_tmp16);
-#line 862
-    if (__cil_tmp17 == 2) {
       goto case_2;
     } else {
       {
 #line 866
-      __cil_tmp18 = (unsigned long )state;
+      __cil_tmp14 = state->audmode;
 #line 866
-      __cil_tmp19 = __cil_tmp18 + 2116;
+      if (__cil_tmp14 == 4) {
 #line 866
-      __cil_tmp20 = *((int *)__cil_tmp19);
-#line 866
-      if (__cil_tmp20 == 4) {
         goto case_4;
       } else {
         {
 #line 870
-        __cil_tmp21 = (unsigned long )state;
+        __cil_tmp15 = state->audmode;
 #line 870
-        __cil_tmp22 = __cil_tmp21 + 2116;
+        if (__cil_tmp15 == 3) {
 #line 870
-        __cil_tmp23 = *((int *)__cil_tmp22);
-#line 870
-        if (__cil_tmp23 == 3) {
           goto case_3;
         } else {
+#line 875
           goto switch_default;
 #line 857
           if (0) {
@@ -19988,30 +15255,35 @@ static void msp34xxg_set_source(struct i2c_client *client , u16 reg , int in )
             source = 0;
 #line 860
             matrix = 48;
+#line 861
             goto switch_break;
             case_2: 
 #line 863
             source = 4;
 #line 864
             matrix = 16;
+#line 865
             goto switch_break;
             case_4: 
 #line 867
             source = 1;
 #line 868
             matrix = 32;
+#line 869
             goto switch_break;
             case_3: 
 #line 871
             source = 3;
 #line 872
             matrix = 0;
+#line 873
             goto switch_break;
             switch_default: 
 #line 876
             source = 3;
 #line 877
             matrix = 32;
+#line 878
             goto switch_break;
           } else {
             switch_break: ;
@@ -20027,101 +15299,73 @@ static void msp34xxg_set_source(struct i2c_client *client , u16 reg , int in )
 #line 881
   if (in == 0) {
 #line 882
-    __cil_tmp24 = source << 8;
+    __cil_tmp16 = source << 8;
 #line 882
-    source = __cil_tmp24 | 32;
-  } else {
+    source = __cil_tmp16 | 32;
+  } else
 #line 885
-    if (in >= 11) {
-      {
+  if (in >= 11) {
 #line 885
-      __cil_tmp25 = (unsigned long )state;
-#line 885
-      __cil_tmp26 = __cil_tmp25 + 2049;
-#line 885
-      if (*((u8 *)__cil_tmp26)) {
+    if (state->has_dolby_pro_logic) {
 #line 886
-        __cil_tmp27 = in + 1;
+      __cil_tmp17 = in + 1;
 #line 886
-        __cil_tmp28 = __cil_tmp27 << 8;
+      __cil_tmp18 = __cil_tmp17 << 8;
 #line 886
-        source = __cil_tmp28 | matrix;
-      } else {
-#line 888
-        __cil_tmp29 = in << 8;
-#line 888
-        source = __cil_tmp29 | matrix;
-      }
-      }
+      source = __cil_tmp18 | matrix;
     } else {
 #line 888
-      __cil_tmp30 = in << 8;
+      __cil_tmp19 = in << 8;
 #line 888
-      source = __cil_tmp30 | matrix;
+      source = __cil_tmp19 | matrix;
     }
+  } else {
+#line 888
+    __cil_tmp20 = in << 8;
+#line 888
+    source = __cil_tmp20 | matrix;
   }
   {
 #line 890
   while (1) {
-    while_78_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 890
-    __cil_tmp31 = & msp_debug;
-#line 890
-    __cil_tmp32 = *__cil_tmp31;
-#line 890
-    if (__cil_tmp32 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 890
-      __cil_tmp33 = (unsigned long )client;
+      __cil_tmp21 = client->adapter;
 #line 890
-      __cil_tmp34 = __cil_tmp33 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp21);
 #line 890
-      __cil_tmp35 = *((struct i2c_adapter **)__cil_tmp34);
+      __cil_tmp22 = client->driver;
 #line 890
-      tmp___9 = i2c_adapter_id(__cil_tmp35);
+      __cil_tmp23 = __cil_tmp22->driver.name;
 #line 890
-      __cil_tmp36 = (unsigned long )client;
+      __cil_tmp24 = client->addr;
 #line 890
-      __cil_tmp37 = __cil_tmp36 + 32;
+      __cil_tmp25 = (int )__cil_tmp24;
 #line 890
-      __cil_tmp38 = *((struct i2c_driver **)__cil_tmp37);
+      __cil_tmp26 = (int )reg;
 #line 890
-      __cil_tmp39 = (unsigned long )__cil_tmp38;
-#line 890
-      __cil_tmp40 = __cil_tmp39 + 80;
-#line 890
-      __cil_tmp41 = *((char const   **)__cil_tmp40);
-#line 890
-      __cil_tmp42 = (unsigned long )client;
-#line 890
-      __cil_tmp43 = __cil_tmp42 + 2;
-#line 890
-      __cil_tmp44 = *((unsigned short *)__cil_tmp43);
-#line 890
-      __cil_tmp45 = (int )__cil_tmp44;
-#line 890
-      __cil_tmp46 = (int )reg;
-#line 890
-      printk("<7>%s %d-%04x: set source to %d (0x%x) for output %02x\n", __cil_tmp41,
-             tmp___9, __cil_tmp45, in, source, __cil_tmp46);
+      printk("<7>%s %d-%04x: set source to %d (0x%x) for output %02x\n", __cil_tmp23,
+             tmp___9, __cil_tmp25, in, source, __cil_tmp26);
       }
     } else {
 
     }
-    }
+#line 890
     goto while_break;
   }
-  while_78_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: 
   {
 #line 892
-  __cil_tmp47 = (int )reg;
+  __cil_tmp27 = (int )reg;
 #line 892
-  msp_write_dsp(client, __cil_tmp47, source);
+  msp_write_dsp(client, __cil_tmp27, source);
   }
 #line 893
   return;
@@ -20135,28 +15379,30 @@ static void msp34xxg_set_sources(struct i2c_client *client )
   u32 in ;
   struct i2c_client  const  *__cil_tmp6 ;
   struct v4l2_subdev *__cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  u32 __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  int __cil_tmp12 ;
+  u16 __cil_tmp8 ;
+  u32 __cil_tmp9 ;
+  unsigned int __cil_tmp10 ;
+  int __cil_tmp11 ;
+  u16 __cil_tmp12 ;
   u32 __cil_tmp13 ;
   unsigned int __cil_tmp14 ;
   int __cil_tmp15 ;
-  u32 __cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
-  int __cil_tmp18 ;
-  u32 __cil_tmp19 ;
-  unsigned int __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  u32 __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
-  int __cil_tmp26 ;
-  u32 __cil_tmp27 ;
-  unsigned int __cil_tmp28 ;
-  int __cil_tmp29 ;
+  u16 __cil_tmp16 ;
+  u32 __cil_tmp17 ;
+  unsigned int __cil_tmp18 ;
+  int __cil_tmp19 ;
+  u16 __cil_tmp20 ;
+  u32 __cil_tmp21 ;
+  unsigned int __cil_tmp22 ;
+  int __cil_tmp23 ;
+  u16 __cil_tmp24 ;
+  u32 __cil_tmp25 ;
+  unsigned int __cil_tmp26 ;
+  int __cil_tmp27 ;
+  u16 __cil_tmp28 ;
+  u32 __cil_tmp29 ;
+  unsigned int __cil_tmp30 ;
+  int __cil_tmp31 ;
 
   {
   {
@@ -20171,19 +15417,19 @@ static void msp34xxg_set_sources(struct i2c_client *client )
 #line 897
   state = tmp___8;
 #line 898
-  __cil_tmp8 = (unsigned long )state;
-#line 898
-  __cil_tmp9 = __cil_tmp8 + 2108;
-#line 898
-  in = *((u32 *)__cil_tmp9);
+  in = state->route_in;
 #line 900
-  __cil_tmp10 = in >> 4;
+  __cil_tmp8 = (u16 )8;
 #line 900
-  __cil_tmp11 = __cil_tmp10 & 15U;
+  __cil_tmp9 = in >> 4;
 #line 900
-  __cil_tmp12 = (int )__cil_tmp11;
+  __cil_tmp10 = __cil_tmp9 & 15U;
 #line 900
-  msp34xxg_set_source(client, (unsigned short)8, __cil_tmp12);
+  __cil_tmp11 = (int )__cil_tmp10;
+#line 900
+  msp34xxg_set_source(client, __cil_tmp8, __cil_tmp11);
+#line 902
+  __cil_tmp12 = (u16 )12;
 #line 902
   __cil_tmp13 = in >> 4;
 #line 902
@@ -20191,54 +15437,56 @@ static void msp34xxg_set_sources(struct i2c_client *client )
 #line 902
   __cil_tmp15 = (int )__cil_tmp14;
 #line 902
-  msp34xxg_set_source(client, (unsigned short)12, __cil_tmp15);
+  msp34xxg_set_source(client, __cil_tmp12, __cil_tmp15);
 #line 903
-  __cil_tmp16 = in >> 8;
+  __cil_tmp16 = (u16 )9;
 #line 903
-  __cil_tmp17 = __cil_tmp16 & 15U;
+  __cil_tmp17 = in >> 8;
 #line 903
-  __cil_tmp18 = (int )__cil_tmp17;
+  __cil_tmp18 = __cil_tmp17 & 15U;
 #line 903
-  msp34xxg_set_source(client, (unsigned short)9, __cil_tmp18);
+  __cil_tmp19 = (int )__cil_tmp18;
+#line 903
+  msp34xxg_set_source(client, __cil_tmp16, __cil_tmp19);
 #line 904
-  __cil_tmp19 = in >> 12;
+  __cil_tmp20 = (u16 )10;
 #line 904
-  __cil_tmp20 = __cil_tmp19 & 15U;
+  __cil_tmp21 = in >> 12;
 #line 904
-  __cil_tmp21 = (int )__cil_tmp20;
+  __cil_tmp22 = __cil_tmp21 & 15U;
 #line 904
-  msp34xxg_set_source(client, (unsigned short)10, __cil_tmp21);
+  __cil_tmp23 = (int )__cil_tmp22;
+#line 904
+  msp34xxg_set_source(client, __cil_tmp20, __cil_tmp23);
   }
-  {
 #line 905
-  __cil_tmp22 = (unsigned long )state;
-#line 905
-  __cil_tmp23 = __cil_tmp22 + 2043;
-#line 905
-  if (*((u8 *)__cil_tmp23)) {
+  if (state->has_scart2_out) {
     {
 #line 906
-    __cil_tmp24 = in >> 16;
+    __cil_tmp24 = (u16 )65;
 #line 906
-    __cil_tmp25 = __cil_tmp24 & 15U;
+    __cil_tmp25 = in >> 16;
 #line 906
-    __cil_tmp26 = (int )__cil_tmp25;
+    __cil_tmp26 = __cil_tmp25 & 15U;
 #line 906
-    msp34xxg_set_source(client, (unsigned short)65, __cil_tmp26);
+    __cil_tmp27 = (int )__cil_tmp26;
+#line 906
+    msp34xxg_set_source(client, __cil_tmp24, __cil_tmp27);
     }
   } else {
 
   }
-  }
   {
 #line 907
-  __cil_tmp27 = in >> 20;
+  __cil_tmp28 = (u16 )11;
 #line 907
-  __cil_tmp28 = __cil_tmp27 & 15U;
+  __cil_tmp29 = in >> 20;
 #line 907
-  __cil_tmp29 = (int )__cil_tmp28;
+  __cil_tmp30 = __cil_tmp29 & 15U;
 #line 907
-  msp34xxg_set_source(client, (unsigned short)11, __cil_tmp29);
+  __cil_tmp31 = (int )__cil_tmp30;
+#line 907
+  msp34xxg_set_source(client, __cil_tmp28, __cil_tmp31);
   }
 #line 908
   return;
@@ -20254,22 +15502,10 @@ static void msp34xxg_reset(struct i2c_client *client )
   int tmp___9 ;
   struct i2c_client  const  *__cil_tmp8 ;
   struct v4l2_subdev *__cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  u32 __cil_tmp12 ;
-  u32 __cil_tmp13 ;
-  unsigned int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  int __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  int *__cil_tmp24 ;
-  int __cil_tmp25 ;
+  u32 __cil_tmp10 ;
+  u32 __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
+  int __cil_tmp13 ;
 
   {
   {
@@ -20284,46 +15520,28 @@ static void msp34xxg_reset(struct i2c_client *client )
 #line 913
   state = tmp___8;
 #line 914
-  __cil_tmp10 = (unsigned long )state;
+  __cil_tmp10 = state->route_in;
 #line 914
-  __cil_tmp11 = __cil_tmp10 + 2108;
+  __cil_tmp11 = __cil_tmp10 >> 3;
 #line 914
-  __cil_tmp12 = *((u32 *)__cil_tmp11);
+  __cil_tmp12 = __cil_tmp11 & 1U;
 #line 914
-  __cil_tmp13 = __cil_tmp12 >> 3;
-#line 914
-  __cil_tmp14 = __cil_tmp13 & 1U;
-#line 914
-  tuner = (int )__cil_tmp14;
+  tuner = (int )__cil_tmp12;
 #line 919
-  __cil_tmp15 = (unsigned long )state;
-#line 919
-  __cil_tmp16 = __cil_tmp15 + 2060;
-#line 919
-  *((int *)__cil_tmp16) = 1;
+  state->std = 1;
 #line 921
   msp_reset(client);
   }
-  {
 #line 923
-  __cil_tmp17 = (unsigned long )state;
-#line 923
-  __cil_tmp18 = __cil_tmp17 + 2045;
-#line 923
-  if (*((u8 *)__cil_tmp18)) {
+  if (state->has_i2s_conf) {
     {
 #line 924
-    __cil_tmp19 = (unsigned long )state;
+    __cil_tmp13 = state->i2s_mode;
 #line 924
-    __cil_tmp20 = __cil_tmp19 + 2092;
-#line 924
-    __cil_tmp21 = *((int *)__cil_tmp20);
-#line 924
-    msp_write_dem(client, 64, __cil_tmp21);
+    msp_write_dem(client, 64, __cil_tmp13);
     }
   } else {
 
-  }
   }
   {
 #line 927
@@ -20349,13 +15567,8 @@ static void msp34xxg_reset(struct i2c_client *client )
 #line 936
   msp_write_dsp(client, 14, 12288);
   }
-  {
 #line 937
-  __cil_tmp22 = (unsigned long )state;
-#line 937
-  __cil_tmp23 = __cil_tmp22 + 2036;
-#line 937
-  if (*((u8 *)__cil_tmp23)) {
+  if (state->has_nicam) {
     {
 #line 938
     msp_write_dsp(client, 16, 23040);
@@ -20363,14 +15576,9 @@ static void msp34xxg_reset(struct i2c_client *client )
   } else {
 
   }
-  }
   {
 #line 950
-  __cil_tmp24 = & msp_stereo_thresh;
-#line 950
-  __cil_tmp25 = *__cil_tmp24;
-#line 950
-  msp_write_dem(client, 34, __cil_tmp25);
+  msp_write_dem(client, 34, msp_stereo_thresh);
   }
 #line 951
   return;
@@ -20402,201 +15610,65 @@ int msp34xxg_thread(void *data )
   int tmp___24 ;
   struct i2c_client  const  *__cil_tmp24 ;
   struct v4l2_subdev *__cil_tmp25 ;
-  int *__cil_tmp26 ;
-  int __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  struct i2c_adapter *__cil_tmp30 ;
-  unsigned long __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  struct i2c_driver *__cil_tmp33 ;
-  unsigned long __cil_tmp34 ;
-  unsigned long __cil_tmp35 ;
-  char const   *__cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  unsigned long __cil_tmp38 ;
+  struct i2c_adapter *__cil_tmp26 ;
+  struct i2c_driver *__cil_tmp27 ;
+  char const   *__cil_tmp28 ;
+  unsigned short __cil_tmp29 ;
+  int __cil_tmp30 ;
+  struct i2c_adapter *__cil_tmp31 ;
+  struct i2c_driver *__cil_tmp32 ;
+  char const   *__cil_tmp33 ;
+  unsigned short __cil_tmp34 ;
+  int __cil_tmp35 ;
+  struct i2c_adapter *__cil_tmp36 ;
+  struct i2c_driver *__cil_tmp37 ;
+  char const   *__cil_tmp38 ;
   unsigned short __cil_tmp39 ;
   int __cil_tmp40 ;
-  int *__cil_tmp41 ;
-  int __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  unsigned long __cil_tmp44 ;
-  struct i2c_adapter *__cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned long __cil_tmp47 ;
+  struct i2c_adapter *__cil_tmp41 ;
+  struct i2c_driver *__cil_tmp42 ;
+  char const   *__cil_tmp43 ;
+  unsigned short __cil_tmp44 ;
+  int __cil_tmp45 ;
+  int __cil_tmp46 ;
+  struct i2c_adapter *__cil_tmp47 ;
   struct i2c_driver *__cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  char const   *__cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  unsigned short __cil_tmp54 ;
-  int __cil_tmp55 ;
-  int *__cil_tmp56 ;
-  int __cil_tmp57 ;
-  unsigned long __cil_tmp58 ;
-  unsigned long __cil_tmp59 ;
-  struct i2c_adapter *__cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
-  unsigned long __cil_tmp62 ;
-  struct i2c_driver *__cil_tmp63 ;
-  unsigned long __cil_tmp64 ;
-  unsigned long __cil_tmp65 ;
-  char const   *__cil_tmp66 ;
-  unsigned long __cil_tmp67 ;
-  unsigned long __cil_tmp68 ;
-  unsigned short __cil_tmp69 ;
+  char const   *__cil_tmp49 ;
+  unsigned short __cil_tmp50 ;
+  int __cil_tmp51 ;
+  int __cil_tmp52 ;
+  int __cil_tmp53 ;
+  struct i2c_adapter *__cil_tmp54 ;
+  struct i2c_driver *__cil_tmp55 ;
+  char const   *__cil_tmp56 ;
+  unsigned short __cil_tmp57 ;
+  int __cil_tmp58 ;
+  struct i2c_adapter *__cil_tmp59 ;
+  struct i2c_driver *__cil_tmp60 ;
+  char const   *__cil_tmp61 ;
+  unsigned short __cil_tmp62 ;
+  int __cil_tmp63 ;
+  int __cil_tmp64 ;
+  struct i2c_adapter *__cil_tmp65 ;
+  struct i2c_driver *__cil_tmp66 ;
+  char const   *__cil_tmp67 ;
+  unsigned short __cil_tmp68 ;
+  int __cil_tmp69 ;
   int __cil_tmp70 ;
-  int *__cil_tmp71 ;
-  int __cil_tmp72 ;
-  unsigned long __cil_tmp73 ;
-  unsigned long __cil_tmp74 ;
-  struct i2c_adapter *__cil_tmp75 ;
-  unsigned long __cil_tmp76 ;
-  unsigned long __cil_tmp77 ;
-  struct i2c_driver *__cil_tmp78 ;
-  unsigned long __cil_tmp79 ;
-  unsigned long __cil_tmp80 ;
-  char const   *__cil_tmp81 ;
-  unsigned long __cil_tmp82 ;
-  unsigned long __cil_tmp83 ;
-  unsigned short __cil_tmp84 ;
-  int __cil_tmp85 ;
-  unsigned long __cil_tmp86 ;
-  unsigned long __cil_tmp87 ;
-  unsigned long __cil_tmp88 ;
-  unsigned long __cil_tmp89 ;
-  int __cil_tmp90 ;
-  int *__cil_tmp91 ;
-  int __cil_tmp92 ;
-  unsigned long __cil_tmp93 ;
-  unsigned long __cil_tmp94 ;
-  struct i2c_adapter *__cil_tmp95 ;
-  unsigned long __cil_tmp96 ;
-  unsigned long __cil_tmp97 ;
-  struct i2c_driver *__cil_tmp98 ;
-  unsigned long __cil_tmp99 ;
-  unsigned long __cil_tmp100 ;
-  char const   *__cil_tmp101 ;
-  unsigned long __cil_tmp102 ;
-  unsigned long __cil_tmp103 ;
-  unsigned short __cil_tmp104 ;
-  int __cil_tmp105 ;
-  unsigned long __cil_tmp106 ;
-  unsigned long __cil_tmp107 ;
-  unsigned long __cil_tmp108 ;
-  unsigned long __cil_tmp109 ;
-  unsigned long __cil_tmp110 ;
-  unsigned long __cil_tmp111 ;
-  unsigned long __cil_tmp112 ;
-  unsigned long __cil_tmp113 ;
-  int *__cil_tmp114 ;
-  int __cil_tmp115 ;
-  int *__cil_tmp116 ;
-  int *__cil_tmp117 ;
-  unsigned long __cil_tmp118 ;
-  unsigned long __cil_tmp119 ;
-  unsigned long __cil_tmp120 ;
-  unsigned long __cil_tmp121 ;
-  int __cil_tmp122 ;
-  unsigned long __cil_tmp123 ;
-  unsigned long __cil_tmp124 ;
-  int __cil_tmp125 ;
-  int *__cil_tmp126 ;
-  int __cil_tmp127 ;
-  unsigned long __cil_tmp128 ;
-  unsigned long __cil_tmp129 ;
-  struct i2c_adapter *__cil_tmp130 ;
-  unsigned long __cil_tmp131 ;
-  unsigned long __cil_tmp132 ;
-  struct i2c_driver *__cil_tmp133 ;
-  unsigned long __cil_tmp134 ;
-  unsigned long __cil_tmp135 ;
-  char const   *__cil_tmp136 ;
-  unsigned long __cil_tmp137 ;
-  unsigned long __cil_tmp138 ;
-  unsigned short __cil_tmp139 ;
-  int __cil_tmp140 ;
-  unsigned long __cil_tmp141 ;
-  unsigned long __cil_tmp142 ;
-  int *__cil_tmp143 ;
-  int __cil_tmp144 ;
-  unsigned long __cil_tmp145 ;
-  unsigned long __cil_tmp146 ;
-  struct i2c_adapter *__cil_tmp147 ;
-  unsigned long __cil_tmp148 ;
-  unsigned long __cil_tmp149 ;
-  struct i2c_driver *__cil_tmp150 ;
-  unsigned long __cil_tmp151 ;
-  unsigned long __cil_tmp152 ;
-  char const   *__cil_tmp153 ;
-  unsigned long __cil_tmp154 ;
-  unsigned long __cil_tmp155 ;
-  unsigned short __cil_tmp156 ;
-  int __cil_tmp157 ;
-  unsigned long __cil_tmp158 ;
-  unsigned long __cil_tmp159 ;
-  int __cil_tmp160 ;
-  int *__cil_tmp161 ;
-  int __cil_tmp162 ;
-  unsigned long __cil_tmp163 ;
-  unsigned long __cil_tmp164 ;
-  struct i2c_adapter *__cil_tmp165 ;
-  unsigned long __cil_tmp166 ;
-  unsigned long __cil_tmp167 ;
-  struct i2c_driver *__cil_tmp168 ;
-  unsigned long __cil_tmp169 ;
-  unsigned long __cil_tmp170 ;
-  char const   *__cil_tmp171 ;
-  unsigned long __cil_tmp172 ;
-  unsigned long __cil_tmp173 ;
-  unsigned short __cil_tmp174 ;
-  int __cil_tmp175 ;
-  int *__cil_tmp176 ;
-  int __cil_tmp177 ;
-  unsigned long __cil_tmp178 ;
-  unsigned long __cil_tmp179 ;
-  int __cil_tmp180 ;
-  unsigned long __cil_tmp181 ;
-  unsigned long __cil_tmp182 ;
-  struct i2c_adapter *__cil_tmp183 ;
-  unsigned long __cil_tmp184 ;
-  unsigned long __cil_tmp185 ;
-  struct i2c_driver *__cil_tmp186 ;
-  unsigned long __cil_tmp187 ;
-  unsigned long __cil_tmp188 ;
-  char const   *__cil_tmp189 ;
-  unsigned long __cil_tmp190 ;
-  unsigned long __cil_tmp191 ;
-  unsigned short __cil_tmp192 ;
-  int __cil_tmp193 ;
-  unsigned long __cil_tmp194 ;
-  unsigned long __cil_tmp195 ;
-  int __cil_tmp196 ;
-  unsigned long __cil_tmp197 ;
-  unsigned long __cil_tmp198 ;
-  int __cil_tmp199 ;
-  unsigned long __cil_tmp200 ;
-  unsigned long __cil_tmp201 ;
-  int __cil_tmp202 ;
-  unsigned long __cil_tmp203 ;
-  unsigned long __cil_tmp204 ;
-  int __cil_tmp205 ;
-  int *__cil_tmp206 ;
-  int __cil_tmp207 ;
-  unsigned long __cil_tmp208 ;
-  unsigned long __cil_tmp209 ;
-  struct i2c_adapter *__cil_tmp210 ;
-  unsigned long __cil_tmp211 ;
-  unsigned long __cil_tmp212 ;
-  struct i2c_driver *__cil_tmp213 ;
-  unsigned long __cil_tmp214 ;
-  unsigned long __cil_tmp215 ;
-  char const   *__cil_tmp216 ;
-  unsigned long __cil_tmp217 ;
-  unsigned long __cil_tmp218 ;
-  unsigned short __cil_tmp219 ;
-  int __cil_tmp220 ;
+  struct i2c_adapter *__cil_tmp71 ;
+  struct i2c_driver *__cil_tmp72 ;
+  char const   *__cil_tmp73 ;
+  unsigned short __cil_tmp74 ;
+  int __cil_tmp75 ;
+  int __cil_tmp76 ;
+  int __cil_tmp77 ;
+  int __cil_tmp78 ;
+  int __cil_tmp79 ;
+  struct i2c_adapter *__cil_tmp80 ;
+  struct i2c_driver *__cil_tmp81 ;
+  char const   *__cil_tmp82 ;
+  unsigned short __cil_tmp83 ;
+  int __cil_tmp84 ;
 
   {
   {
@@ -20616,54 +15688,33 @@ int msp34xxg_thread(void *data )
   {
 #line 959
   while (1) {
-    while_79_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 959
-    __cil_tmp26 = & msp_debug;
-#line 959
-    __cil_tmp27 = *__cil_tmp26;
-#line 959
-    if (__cil_tmp27 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 959
-      __cil_tmp28 = (unsigned long )client;
+      __cil_tmp26 = client->adapter;
 #line 959
-      __cil_tmp29 = __cil_tmp28 + 24;
+      tmp___9 = i2c_adapter_id(__cil_tmp26);
 #line 959
-      __cil_tmp30 = *((struct i2c_adapter **)__cil_tmp29);
+      __cil_tmp27 = client->driver;
 #line 959
-      tmp___9 = i2c_adapter_id(__cil_tmp30);
+      __cil_tmp28 = __cil_tmp27->driver.name;
 #line 959
-      __cil_tmp31 = (unsigned long )client;
+      __cil_tmp29 = client->addr;
 #line 959
-      __cil_tmp32 = __cil_tmp31 + 32;
+      __cil_tmp30 = (int )__cil_tmp29;
 #line 959
-      __cil_tmp33 = *((struct i2c_driver **)__cil_tmp32);
-#line 959
-      __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 959
-      __cil_tmp35 = __cil_tmp34 + 80;
-#line 959
-      __cil_tmp36 = *((char const   **)__cil_tmp35);
-#line 959
-      __cil_tmp37 = (unsigned long )client;
-#line 959
-      __cil_tmp38 = __cil_tmp37 + 2;
-#line 959
-      __cil_tmp39 = *((unsigned short *)__cil_tmp38);
-#line 959
-      __cil_tmp40 = (int )__cil_tmp39;
-#line 959
-      printk("<7>%s %d-%04x: msp34xxg daemon started\n", __cil_tmp36, tmp___9, __cil_tmp40);
+      printk("<7>%s %d-%04x: msp34xxg daemon started\n", __cil_tmp28, tmp___9, __cil_tmp30);
       }
     } else {
 
     }
-    }
+#line 959
     goto while_break;
   }
-  while_79_break: /* CIL Label */ ;
+  while_break___12: /* CIL Label */ ;
   }
 
   while_break: 
@@ -20674,59 +15725,38 @@ int msp34xxg_thread(void *data )
   {
 #line 961
   while (1) {
-    while_80_continue: /* CIL Label */ ;
+    while_continue___0: /* CIL Label */ ;
 
     {
 #line 962
     while (1) {
-      while_81_continue: /* CIL Label */ ;
+      while_continue___1: /* CIL Label */ ;
 
-      {
 #line 962
-      __cil_tmp41 = & msp_debug;
-#line 962
-      __cil_tmp42 = *__cil_tmp41;
-#line 962
-      if (__cil_tmp42 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 962
-        __cil_tmp43 = (unsigned long )client;
+        __cil_tmp31 = client->adapter;
 #line 962
-        __cil_tmp44 = __cil_tmp43 + 24;
+        tmp___10 = i2c_adapter_id(__cil_tmp31);
 #line 962
-        __cil_tmp45 = *((struct i2c_adapter **)__cil_tmp44);
+        __cil_tmp32 = client->driver;
 #line 962
-        tmp___10 = i2c_adapter_id(__cil_tmp45);
+        __cil_tmp33 = __cil_tmp32->driver.name;
 #line 962
-        __cil_tmp46 = (unsigned long )client;
+        __cil_tmp34 = client->addr;
 #line 962
-        __cil_tmp47 = __cil_tmp46 + 32;
+        __cil_tmp35 = (int )__cil_tmp34;
 #line 962
-        __cil_tmp48 = *((struct i2c_driver **)__cil_tmp47);
-#line 962
-        __cil_tmp49 = (unsigned long )__cil_tmp48;
-#line 962
-        __cil_tmp50 = __cil_tmp49 + 80;
-#line 962
-        __cil_tmp51 = *((char const   **)__cil_tmp50);
-#line 962
-        __cil_tmp52 = (unsigned long )client;
-#line 962
-        __cil_tmp53 = __cil_tmp52 + 2;
-#line 962
-        __cil_tmp54 = *((unsigned short *)__cil_tmp53);
-#line 962
-        __cil_tmp55 = (int )__cil_tmp54;
-#line 962
-        printk("<7>%s %d-%04x: msp34xxg thread: sleep\n", __cil_tmp51, tmp___10, __cil_tmp55);
+        printk("<7>%s %d-%04x: msp34xxg thread: sleep\n", __cil_tmp33, tmp___10, __cil_tmp35);
         }
       } else {
 
       }
-      }
+#line 962
       goto while_break___1;
     }
-    while_81_break: /* CIL Label */ ;
+    while_break___14: /* CIL Label */ ;
     }
 
     while_break___1: 
@@ -20737,55 +15767,34 @@ int msp34xxg_thread(void *data )
     {
 #line 964
     while (1) {
-      while_82_continue: /* CIL Label */ ;
+      while_continue___2: /* CIL Label */ ;
 
-      {
 #line 964
-      __cil_tmp56 = & msp_debug;
-#line 964
-      __cil_tmp57 = *__cil_tmp56;
-#line 964
-      if (__cil_tmp57 >= 2) {
+      if (msp_debug >= 2) {
         {
 #line 964
-        __cil_tmp58 = (unsigned long )client;
+        __cil_tmp36 = client->adapter;
 #line 964
-        __cil_tmp59 = __cil_tmp58 + 24;
+        tmp___11 = i2c_adapter_id(__cil_tmp36);
 #line 964
-        __cil_tmp60 = *((struct i2c_adapter **)__cil_tmp59);
+        __cil_tmp37 = client->driver;
 #line 964
-        tmp___11 = i2c_adapter_id(__cil_tmp60);
+        __cil_tmp38 = __cil_tmp37->driver.name;
 #line 964
-        __cil_tmp61 = (unsigned long )client;
+        __cil_tmp39 = client->addr;
 #line 964
-        __cil_tmp62 = __cil_tmp61 + 32;
+        __cil_tmp40 = (int )__cil_tmp39;
 #line 964
-        __cil_tmp63 = *((struct i2c_driver **)__cil_tmp62);
-#line 964
-        __cil_tmp64 = (unsigned long )__cil_tmp63;
-#line 964
-        __cil_tmp65 = __cil_tmp64 + 80;
-#line 964
-        __cil_tmp66 = *((char const   **)__cil_tmp65);
-#line 964
-        __cil_tmp67 = (unsigned long )client;
-#line 964
-        __cil_tmp68 = __cil_tmp67 + 2;
-#line 964
-        __cil_tmp69 = *((unsigned short *)__cil_tmp68);
-#line 964
-        __cil_tmp70 = (int )__cil_tmp69;
-#line 964
-        printk("<7>%s %d-%04x: msp34xxg thread: wakeup\n", __cil_tmp66, tmp___11,
-               __cil_tmp70);
+        printk("<7>%s %d-%04x: msp34xxg thread: wakeup\n", __cil_tmp38, tmp___11,
+               __cil_tmp40);
         }
       } else {
 
       }
-      }
+#line 964
       goto while_break___2;
     }
-    while_82_break: /* CIL Label */ ;
+    while_break___15: /* CIL Label */ ;
     }
 
     while_break___2: ;
@@ -20793,147 +15802,95 @@ int msp34xxg_thread(void *data )
     {
 #line 967
     while (1) {
-      while_83_continue: /* CIL Label */ ;
+      while_continue___3: /* CIL Label */ ;
 
-      {
 #line 967
-      __cil_tmp71 = & msp_debug;
-#line 967
-      __cil_tmp72 = *__cil_tmp71;
-#line 967
-      if (__cil_tmp72 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 967
-        __cil_tmp73 = (unsigned long )client;
+        __cil_tmp41 = client->adapter;
 #line 967
-        __cil_tmp74 = __cil_tmp73 + 24;
+        tmp___12 = i2c_adapter_id(__cil_tmp41);
 #line 967
-        __cil_tmp75 = *((struct i2c_adapter **)__cil_tmp74);
+        __cil_tmp42 = client->driver;
 #line 967
-        tmp___12 = i2c_adapter_id(__cil_tmp75);
+        __cil_tmp43 = __cil_tmp42->driver.name;
 #line 967
-        __cil_tmp76 = (unsigned long )client;
+        __cil_tmp44 = client->addr;
 #line 967
-        __cil_tmp77 = __cil_tmp76 + 32;
+        __cil_tmp45 = (int )__cil_tmp44;
 #line 967
-        __cil_tmp78 = *((struct i2c_driver **)__cil_tmp77);
-#line 967
-        __cil_tmp79 = (unsigned long )__cil_tmp78;
-#line 967
-        __cil_tmp80 = __cil_tmp79 + 80;
-#line 967
-        __cil_tmp81 = *((char const   **)__cil_tmp80);
-#line 967
-        __cil_tmp82 = (unsigned long )client;
-#line 967
-        __cil_tmp83 = __cil_tmp82 + 2;
-#line 967
-        __cil_tmp84 = *((unsigned short *)__cil_tmp83);
-#line 967
-        __cil_tmp85 = (int )__cil_tmp84;
-#line 967
-        printk("<7>%s %d-%04x: thread: restart scan\n", __cil_tmp81, tmp___12, __cil_tmp85);
+        printk("<7>%s %d-%04x: thread: restart scan\n", __cil_tmp43, tmp___12, __cil_tmp45);
         }
       } else {
 
       }
-      }
+#line 967
       goto while_break___3;
     }
-    while_83_break: /* CIL Label */ ;
+    while_break___16: /* CIL Label */ ;
     }
 
     while_break___3: 
     {
 #line 968
-    __cil_tmp86 = (unsigned long )state;
-#line 968
-    __cil_tmp87 = __cil_tmp86 + 2248;
-#line 968
-    *((unsigned int *)__cil_tmp87) = 0U;
+    state->restart = 0U;
 #line 969
     tmp___13 = kthread_should_stop();
     }
 #line 969
     if (tmp___13) {
+#line 970
       goto while_break___0;
     } else {
 
     }
     {
 #line 972
-    __cil_tmp88 = (unsigned long )state;
+    __cil_tmp46 = state->mode;
 #line 972
-    __cil_tmp89 = __cil_tmp88 + 2064;
-#line 972
-    __cil_tmp90 = *((int *)__cil_tmp89);
-#line 972
-    if (__cil_tmp90 == 9) {
+    if (__cil_tmp46 == 9) {
       {
 #line 974
       while (1) {
-        while_84_continue: /* CIL Label */ ;
+        while_continue___4: /* CIL Label */ ;
 
-        {
 #line 974
-        __cil_tmp91 = & msp_debug;
-#line 974
-        __cil_tmp92 = *__cil_tmp91;
-#line 974
-        if (__cil_tmp92 >= 1) {
+        if (msp_debug >= 1) {
           {
 #line 974
-          __cil_tmp93 = (unsigned long )client;
+          __cil_tmp47 = client->adapter;
 #line 974
-          __cil_tmp94 = __cil_tmp93 + 24;
+          tmp___14 = i2c_adapter_id(__cil_tmp47);
 #line 974
-          __cil_tmp95 = *((struct i2c_adapter **)__cil_tmp94);
+          __cil_tmp48 = client->driver;
 #line 974
-          tmp___14 = i2c_adapter_id(__cil_tmp95);
+          __cil_tmp49 = __cil_tmp48->driver.name;
 #line 974
-          __cil_tmp96 = (unsigned long )client;
+          __cil_tmp50 = client->addr;
 #line 974
-          __cil_tmp97 = __cil_tmp96 + 32;
+          __cil_tmp51 = (int )__cil_tmp50;
 #line 974
-          __cil_tmp98 = *((struct i2c_driver **)__cil_tmp97);
-#line 974
-          __cil_tmp99 = (unsigned long )__cil_tmp98;
-#line 974
-          __cil_tmp100 = __cil_tmp99 + 80;
-#line 974
-          __cil_tmp101 = *((char const   **)__cil_tmp100);
-#line 974
-          __cil_tmp102 = (unsigned long )client;
-#line 974
-          __cil_tmp103 = __cil_tmp102 + 2;
-#line 974
-          __cil_tmp104 = *((unsigned short *)__cil_tmp103);
-#line 974
-          __cil_tmp105 = (int )__cil_tmp104;
-#line 974
-          printk("<7>%s %d-%04x: thread: no carrier scan\n", __cil_tmp101, tmp___14,
-                 __cil_tmp105);
+          printk("<7>%s %d-%04x: thread: no carrier scan\n", __cil_tmp49, tmp___14,
+                 __cil_tmp51);
           }
         } else {
 
         }
-        }
+#line 974
         goto while_break___4;
       }
-      while_84_break: /* CIL Label */ ;
+      while_break___17: /* CIL Label */ ;
       }
 
       while_break___4: 
       {
 #line 976
-      __cil_tmp106 = (unsigned long )state;
-#line 976
-      __cil_tmp107 = __cil_tmp106 + 2144;
-#line 976
-      *((int *)__cil_tmp107) = 0;
+      state->scan_in_progress = 0;
 #line 977
       msp_update_volume(state);
       }
+#line 978
       goto __Cont;
     } else {
 
@@ -20943,77 +15900,40 @@ int msp34xxg_thread(void *data )
 #line 982
     msp34xxg_reset(client);
     }
-    {
 #line 983
-    __cil_tmp108 = (unsigned long )state;
+    if (state->radio) {
 #line 983
-    __cil_tmp109 = __cil_tmp108 + 2052;
-#line 983
-    if (*((int *)__cil_tmp109)) {
-#line 983
-      __cil_tmp110 = (unsigned long )state;
-#line 983
-      __cil_tmp111 = __cil_tmp110 + 2060;
-#line 983
-      *((int *)__cil_tmp111) = 64;
+      state->std = 64;
     } else {
-      {
 #line 983
-      __cil_tmp112 = (unsigned long )state;
+      if (state->force_btsc) {
 #line 983
-      __cil_tmp113 = __cil_tmp112 + 2050;
-#line 983
-      if (*((u8 *)__cil_tmp113)) {
-        {
-#line 983
-        __cil_tmp114 = & msp_standard;
-#line 983
-        __cil_tmp115 = *__cil_tmp114;
-#line 983
-        if (__cil_tmp115 == 1) {
+        if (msp_standard == 1) {
 #line 983
           tmp___15 = 32;
         } else {
 #line 983
-          __cil_tmp116 = & msp_standard;
-#line 983
-          tmp___15 = *__cil_tmp116;
-        }
+          tmp___15 = msp_standard;
         }
       } else {
 #line 983
-        __cil_tmp117 = & msp_standard;
-#line 983
-        tmp___15 = *__cil_tmp117;
-      }
+        tmp___15 = msp_standard;
       }
 #line 983
-      __cil_tmp118 = (unsigned long )state;
-#line 983
-      __cil_tmp119 = __cil_tmp118 + 2060;
-#line 983
-      *((int *)__cil_tmp119) = tmp___15;
-    }
+      state->std = tmp___15;
     }
     {
 #line 985
-    __cil_tmp120 = (unsigned long )state;
+    __cil_tmp52 = state->std;
 #line 985
-    __cil_tmp121 = __cil_tmp120 + 2060;
-#line 985
-    __cil_tmp122 = *((int *)__cil_tmp121);
-#line 985
-    msp_write_dem(client, 32, __cil_tmp122);
+    msp_write_dem(client, 32, __cil_tmp52);
     }
     {
 #line 987
-    __cil_tmp123 = (unsigned long )state;
+    __cil_tmp53 = state->std;
 #line 987
-    __cil_tmp124 = __cil_tmp123 + 2060;
-#line 987
-    __cil_tmp125 = *((int *)__cil_tmp124);
-#line 987
-    if (__cil_tmp125 != 1) {
+    if (__cil_tmp53 != 1) {
+#line 988
       goto unmute;
     } else {
 
@@ -21022,55 +15942,34 @@ int msp34xxg_thread(void *data )
     {
 #line 991
     while (1) {
-      while_85_continue: /* CIL Label */ ;
+      while_continue___5: /* CIL Label */ ;
 
-      {
 #line 991
-      __cil_tmp126 = & msp_debug;
-#line 991
-      __cil_tmp127 = *__cil_tmp126;
-#line 991
-      if (__cil_tmp127 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 991
-        __cil_tmp128 = (unsigned long )client;
+        __cil_tmp54 = client->adapter;
 #line 991
-        __cil_tmp129 = __cil_tmp128 + 24;
+        tmp___16 = i2c_adapter_id(__cil_tmp54);
 #line 991
-        __cil_tmp130 = *((struct i2c_adapter **)__cil_tmp129);
+        __cil_tmp55 = client->driver;
 #line 991
-        tmp___16 = i2c_adapter_id(__cil_tmp130);
+        __cil_tmp56 = __cil_tmp55->driver.name;
 #line 991
-        __cil_tmp131 = (unsigned long )client;
+        __cil_tmp57 = client->addr;
 #line 991
-        __cil_tmp132 = __cil_tmp131 + 32;
+        __cil_tmp58 = (int )__cil_tmp57;
 #line 991
-        __cil_tmp133 = *((struct i2c_driver **)__cil_tmp132);
-#line 991
-        __cil_tmp134 = (unsigned long )__cil_tmp133;
-#line 991
-        __cil_tmp135 = __cil_tmp134 + 80;
-#line 991
-        __cil_tmp136 = *((char const   **)__cil_tmp135);
-#line 991
-        __cil_tmp137 = (unsigned long )client;
-#line 991
-        __cil_tmp138 = __cil_tmp137 + 2;
-#line 991
-        __cil_tmp139 = *((unsigned short *)__cil_tmp138);
-#line 991
-        __cil_tmp140 = (int )__cil_tmp139;
-#line 991
-        printk("<7>%s %d-%04x: started autodetect, waiting for result\n", __cil_tmp136,
-               tmp___16, __cil_tmp140);
+        printk("<7>%s %d-%04x: started autodetect, waiting for result\n", __cil_tmp56,
+               tmp___16, __cil_tmp58);
         }
       } else {
 
       }
-      }
+#line 991
       goto while_break___5;
     }
-    while_85_break: /* CIL Label */ ;
+    while_break___18: /* CIL Label */ ;
     }
 
     while_break___5: 
@@ -21079,12 +15978,13 @@ int msp34xxg_thread(void *data )
     {
 #line 993
     while (1) {
-      while_86_continue: /* CIL Label */ ;
+      while_continue___6: /* CIL Label */ ;
 
 #line 993
       if (i < 10) {
 
       } else {
+#line 993
         goto while_break___6;
       }
       {
@@ -21093,6 +15993,7 @@ int msp34xxg_thread(void *data )
       }
 #line 994
       if (tmp___17) {
+#line 995
         goto restart;
       } else {
 
@@ -21104,11 +16005,8 @@ int msp34xxg_thread(void *data )
 #line 999
       if (val < 2047) {
 #line 1000
-        __cil_tmp141 = (unsigned long )state;
-#line 1000
-        __cil_tmp142 = __cil_tmp141 + 2060;
-#line 1000
-        *((int *)__cil_tmp142) = val;
+        state->std = val;
+#line 1001
         goto while_break___6;
       } else {
 
@@ -21116,129 +16014,84 @@ int msp34xxg_thread(void *data )
       {
 #line 1003
       while (1) {
-        while_87_continue: /* CIL Label */ ;
+        while_continue___7: /* CIL Label */ ;
 
-        {
 #line 1003
-        __cil_tmp143 = & msp_debug;
-#line 1003
-        __cil_tmp144 = *__cil_tmp143;
-#line 1003
-        if (__cil_tmp144 >= 2) {
+        if (msp_debug >= 2) {
           {
 #line 1003
-          __cil_tmp145 = (unsigned long )client;
+          __cil_tmp59 = client->adapter;
 #line 1003
-          __cil_tmp146 = __cil_tmp145 + 24;
+          tmp___18 = i2c_adapter_id(__cil_tmp59);
 #line 1003
-          __cil_tmp147 = *((struct i2c_adapter **)__cil_tmp146);
+          __cil_tmp60 = client->driver;
 #line 1003
-          tmp___18 = i2c_adapter_id(__cil_tmp147);
+          __cil_tmp61 = __cil_tmp60->driver.name;
 #line 1003
-          __cil_tmp148 = (unsigned long )client;
+          __cil_tmp62 = client->addr;
 #line 1003
-          __cil_tmp149 = __cil_tmp148 + 32;
+          __cil_tmp63 = (int )__cil_tmp62;
 #line 1003
-          __cil_tmp150 = *((struct i2c_driver **)__cil_tmp149);
-#line 1003
-          __cil_tmp151 = (unsigned long )__cil_tmp150;
-#line 1003
-          __cil_tmp152 = __cil_tmp151 + 80;
-#line 1003
-          __cil_tmp153 = *((char const   **)__cil_tmp152);
-#line 1003
-          __cil_tmp154 = (unsigned long )client;
-#line 1003
-          __cil_tmp155 = __cil_tmp154 + 2;
-#line 1003
-          __cil_tmp156 = *((unsigned short *)__cil_tmp155);
-#line 1003
-          __cil_tmp157 = (int )__cil_tmp156;
-#line 1003
-          printk("<7>%s %d-%04x: detection still in progress\n", __cil_tmp153, tmp___18,
-                 __cil_tmp157);
+          printk("<7>%s %d-%04x: detection still in progress\n", __cil_tmp61, tmp___18,
+                 __cil_tmp63);
           }
         } else {
 
         }
-        }
+#line 1003
         goto while_break___7;
       }
-      while_87_break: /* CIL Label */ ;
+      while_break___20: /* CIL Label */ ;
       }
 
       while_break___7: 
 #line 993
       i = i + 1;
     }
-    while_86_break: /* CIL Label */ ;
+    while_break___19: /* CIL Label */ ;
     }
 
     while_break___6: ;
     {
 #line 1006
-    __cil_tmp158 = (unsigned long )state;
+    __cil_tmp64 = state->std;
 #line 1006
-    __cil_tmp159 = __cil_tmp158 + 2060;
-#line 1006
-    __cil_tmp160 = *((int *)__cil_tmp159);
-#line 1006
-    if (__cil_tmp160 == 1) {
+    if (__cil_tmp64 == 1) {
       {
 #line 1007
       while (1) {
-        while_88_continue: /* CIL Label */ ;
+        while_continue___8: /* CIL Label */ ;
 
-        {
 #line 1007
-        __cil_tmp161 = & msp_debug;
-#line 1007
-        __cil_tmp162 = *__cil_tmp161;
-#line 1007
-        if (__cil_tmp162 >= 1) {
+        if (msp_debug >= 1) {
           {
 #line 1007
-          __cil_tmp163 = (unsigned long )client;
+          __cil_tmp65 = client->adapter;
 #line 1007
-          __cil_tmp164 = __cil_tmp163 + 24;
+          tmp___19 = i2c_adapter_id(__cil_tmp65);
 #line 1007
-          __cil_tmp165 = *((struct i2c_adapter **)__cil_tmp164);
+          __cil_tmp66 = client->driver;
 #line 1007
-          tmp___19 = i2c_adapter_id(__cil_tmp165);
+          __cil_tmp67 = __cil_tmp66->driver.name;
 #line 1007
-          __cil_tmp166 = (unsigned long )client;
+          __cil_tmp68 = client->addr;
 #line 1007
-          __cil_tmp167 = __cil_tmp166 + 32;
-#line 1007
-          __cil_tmp168 = *((struct i2c_driver **)__cil_tmp167);
-#line 1007
-          __cil_tmp169 = (unsigned long )__cil_tmp168;
-#line 1007
-          __cil_tmp170 = __cil_tmp169 + 80;
-#line 1007
-          __cil_tmp171 = *((char const   **)__cil_tmp170);
-#line 1007
-          __cil_tmp172 = (unsigned long )client;
-#line 1007
-          __cil_tmp173 = __cil_tmp172 + 2;
-#line 1007
-          __cil_tmp174 = *((unsigned short *)__cil_tmp173);
-#line 1007
-          __cil_tmp175 = (int )__cil_tmp174;
+          __cil_tmp69 = (int )__cil_tmp68;
 #line 1007
           printk("<7>%s %d-%04x: detection still in progress after 10 tries. giving up.\n",
-                 __cil_tmp171, tmp___19, __cil_tmp175);
+                 __cil_tmp67, tmp___19, __cil_tmp69);
           }
         } else {
 
         }
-        }
+#line 1007
         goto while_break___8;
       }
-      while_88_break: /* CIL Label */ ;
+      while_break___21: /* CIL Label */ ;
       }
 
       while_break___8: ;
+#line 1009
       goto __Cont;
     } else {
 
@@ -21248,81 +16101,48 @@ int msp34xxg_thread(void *data )
     {
 #line 1013
     while (1) {
-      while_89_continue: /* CIL Label */ ;
+      while_continue___9: /* CIL Label */ ;
 
-      {
 #line 1013
-      __cil_tmp176 = & msp_debug;
-#line 1013
-      __cil_tmp177 = *__cil_tmp176;
-#line 1013
-      if (__cil_tmp177 >= 1) {
+      if (msp_debug >= 1) {
         {
 #line 1013
-        __cil_tmp178 = (unsigned long )state;
+        __cil_tmp70 = state->std;
 #line 1013
-        __cil_tmp179 = __cil_tmp178 + 2060;
+        tmp___20 = msp_standard_std_name(__cil_tmp70);
 #line 1013
-        __cil_tmp180 = *((int *)__cil_tmp179);
+        __cil_tmp71 = client->adapter;
 #line 1013
-        tmp___20 = msp_standard_std_name(__cil_tmp180);
+        tmp___21 = i2c_adapter_id(__cil_tmp71);
 #line 1013
-        __cil_tmp181 = (unsigned long )client;
+        __cil_tmp72 = client->driver;
 #line 1013
-        __cil_tmp182 = __cil_tmp181 + 24;
+        __cil_tmp73 = __cil_tmp72->driver.name;
 #line 1013
-        __cil_tmp183 = *((struct i2c_adapter **)__cil_tmp182);
+        __cil_tmp74 = client->addr;
 #line 1013
-        tmp___21 = i2c_adapter_id(__cil_tmp183);
+        __cil_tmp75 = (int )__cil_tmp74;
 #line 1013
-        __cil_tmp184 = (unsigned long )client;
+        __cil_tmp76 = state->std;
 #line 1013
-        __cil_tmp185 = __cil_tmp184 + 32;
-#line 1013
-        __cil_tmp186 = *((struct i2c_driver **)__cil_tmp185);
-#line 1013
-        __cil_tmp187 = (unsigned long )__cil_tmp186;
-#line 1013
-        __cil_tmp188 = __cil_tmp187 + 80;
-#line 1013
-        __cil_tmp189 = *((char const   **)__cil_tmp188);
-#line 1013
-        __cil_tmp190 = (unsigned long )client;
-#line 1013
-        __cil_tmp191 = __cil_tmp190 + 2;
-#line 1013
-        __cil_tmp192 = *((unsigned short *)__cil_tmp191);
-#line 1013
-        __cil_tmp193 = (int )__cil_tmp192;
-#line 1013
-        __cil_tmp194 = (unsigned long )state;
-#line 1013
-        __cil_tmp195 = __cil_tmp194 + 2060;
-#line 1013
-        __cil_tmp196 = *((int *)__cil_tmp195);
-#line 1013
-        printk("<7>%s %d-%04x: detected standard: %s (0x%04x)\n", __cil_tmp189, tmp___21,
-               __cil_tmp193, tmp___20, __cil_tmp196);
+        printk("<7>%s %d-%04x: detected standard: %s (0x%04x)\n", __cil_tmp73, tmp___21,
+               __cil_tmp75, tmp___20, __cil_tmp76);
         }
       } else {
 
       }
-      }
+#line 1013
       goto while_break___9;
     }
-    while_89_break: /* CIL Label */ ;
+    while_break___22: /* CIL Label */ ;
     }
 
     while_break___9: ;
     {
 #line 1017
-    __cil_tmp197 = (unsigned long )state;
+    __cil_tmp77 = state->std;
 #line 1017
-    __cil_tmp198 = __cil_tmp197 + 2060;
-#line 1017
-    __cil_tmp199 = *((int *)__cil_tmp198);
-#line 1017
-    if (__cil_tmp199 == 9) {
+    if (__cil_tmp77 == 9) {
       {
 #line 1019
       msp_write_dsp(client, 14, 31744);
@@ -21335,13 +16155,9 @@ int msp34xxg_thread(void *data )
 #line 1023
     msp_update_volume(state);
 #line 1026
-    __cil_tmp200 = (unsigned long )state;
+    __cil_tmp78 = state->acb;
 #line 1026
-    __cil_tmp201 = __cil_tmp200 + 2084;
-#line 1026
-    __cil_tmp202 = *((int *)__cil_tmp201);
-#line 1026
-    tmp___22 = msp_write_dsp(client, 19, __cil_tmp202);
+    tmp___22 = msp_write_dsp(client, 19, __cil_tmp78);
     }
 #line 1026
     if (tmp___22) {
@@ -21352,13 +16168,10 @@ int msp34xxg_thread(void *data )
     }
     {
 #line 1031
-    __cil_tmp203 = (unsigned long )state;
+    __cil_tmp79 = state->std;
 #line 1031
-    __cil_tmp204 = __cil_tmp203 + 2060;
-#line 1031
-    __cil_tmp205 = *((int *)__cil_tmp204);
-#line 1031
-    if (__cil_tmp205 != 32) {
+    if (__cil_tmp79 != 32) {
+#line 1032
       goto __Cont;
     } else {
 
@@ -21373,12 +16186,13 @@ int msp34xxg_thread(void *data )
     {
 #line 1039
     while (1) {
-      while_90_continue: /* CIL Label */ ;
+      while_continue___10: /* CIL Label */ ;
 
 #line 1039
       if (state->watch_stereo) {
 
       } else {
+#line 1039
         goto while_break___10;
       }
       {
@@ -21389,72 +16203,52 @@ int msp34xxg_thread(void *data )
       }
 #line 1041
       if (tmp___23) {
+#line 1042
         goto restart;
       } else {
 
       }
     }
-    while_90_break: /* CIL Label */ ;
+    while_break___23: /* CIL Label */ ;
     }
 
     while_break___10: ;
     __Cont: ;
   }
-  while_80_break: /* CIL Label */ ;
+  while_break___13: /* CIL Label */ ;
   }
 
   while_break___0: ;
   {
 #line 1045
   while (1) {
-    while_91_continue: /* CIL Label */ ;
+    while_continue___11: /* CIL Label */ ;
 
-    {
 #line 1045
-    __cil_tmp206 = & msp_debug;
-#line 1045
-    __cil_tmp207 = *__cil_tmp206;
-#line 1045
-    if (__cil_tmp207 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 1045
-      __cil_tmp208 = (unsigned long )client;
+      __cil_tmp80 = client->adapter;
 #line 1045
-      __cil_tmp209 = __cil_tmp208 + 24;
+      tmp___24 = i2c_adapter_id(__cil_tmp80);
 #line 1045
-      __cil_tmp210 = *((struct i2c_adapter **)__cil_tmp209);
+      __cil_tmp81 = client->driver;
 #line 1045
-      tmp___24 = i2c_adapter_id(__cil_tmp210);
+      __cil_tmp82 = __cil_tmp81->driver.name;
 #line 1045
-      __cil_tmp211 = (unsigned long )client;
+      __cil_tmp83 = client->addr;
 #line 1045
-      __cil_tmp212 = __cil_tmp211 + 32;
+      __cil_tmp84 = (int )__cil_tmp83;
 #line 1045
-      __cil_tmp213 = *((struct i2c_driver **)__cil_tmp212);
-#line 1045
-      __cil_tmp214 = (unsigned long )__cil_tmp213;
-#line 1045
-      __cil_tmp215 = __cil_tmp214 + 80;
-#line 1045
-      __cil_tmp216 = *((char const   **)__cil_tmp215);
-#line 1045
-      __cil_tmp217 = (unsigned long )client;
-#line 1045
-      __cil_tmp218 = __cil_tmp217 + 2;
-#line 1045
-      __cil_tmp219 = *((unsigned short *)__cil_tmp218);
-#line 1045
-      __cil_tmp220 = (int )__cil_tmp219;
-#line 1045
-      printk("<7>%s %d-%04x: thread: exit\n", __cil_tmp216, tmp___24, __cil_tmp220);
+      printk("<7>%s %d-%04x: thread: exit\n", __cil_tmp82, tmp___24, __cil_tmp84);
       }
     } else {
 
     }
-    }
+#line 1045
     goto while_break___11;
   }
-  while_91_break: /* CIL Label */ ;
+  while_break___24: /* CIL Label */ ;
   }
 
   while_break___11: ;
@@ -21475,48 +16269,16 @@ static int msp34xxg_detect_stereo(struct i2c_client *client )
   int tmp___10 ;
   struct i2c_client  const  *__cil_tmp11 ;
   struct v4l2_subdev *__cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
-  unsigned long __cil_tmp18 ;
-  unsigned long __cil_tmp19 ;
-  unsigned long __cil_tmp20 ;
-  unsigned long __cil_tmp21 ;
-  unsigned long __cil_tmp22 ;
-  unsigned long __cil_tmp23 ;
-  unsigned long __cil_tmp24 ;
-  unsigned long __cil_tmp25 ;
-  int __cil_tmp26 ;
-  unsigned long __cil_tmp27 ;
-  unsigned long __cil_tmp28 ;
-  unsigned long __cil_tmp29 ;
-  unsigned long __cil_tmp30 ;
-  int __cil_tmp31 ;
-  unsigned long __cil_tmp32 ;
-  unsigned long __cil_tmp33 ;
-  int *__cil_tmp34 ;
-  int __cil_tmp35 ;
-  unsigned long __cil_tmp36 ;
-  unsigned long __cil_tmp37 ;
-  struct i2c_adapter *__cil_tmp38 ;
-  unsigned long __cil_tmp39 ;
-  unsigned long __cil_tmp40 ;
-  struct i2c_driver *__cil_tmp41 ;
-  unsigned long __cil_tmp42 ;
-  unsigned long __cil_tmp43 ;
-  char const   *__cil_tmp44 ;
-  unsigned long __cil_tmp45 ;
-  unsigned long __cil_tmp46 ;
-  unsigned short __cil_tmp47 ;
-  int __cil_tmp48 ;
-  unsigned long __cil_tmp49 ;
-  unsigned long __cil_tmp50 ;
-  int __cil_tmp51 ;
-  unsigned long __cil_tmp52 ;
-  unsigned long __cil_tmp53 ;
-  int __cil_tmp54 ;
+  int __cil_tmp13 ;
+  int __cil_tmp14 ;
+  int __cil_tmp15 ;
+  struct i2c_adapter *__cil_tmp16 ;
+  struct i2c_driver *__cil_tmp17 ;
+  char const   *__cil_tmp18 ;
+  unsigned short __cil_tmp19 ;
+  int __cil_tmp20 ;
+  int __cil_tmp21 ;
+  int __cil_tmp22 ;
 
   {
   {
@@ -21539,21 +16301,13 @@ static int msp34xxg_detect_stereo(struct i2c_client *client )
 #line 1054
   is_stereo = status & 64;
 #line 1055
-  __cil_tmp13 = (unsigned long )state;
-#line 1055
-  __cil_tmp14 = __cil_tmp13 + 2120;
-#line 1055
-  oldrx = *((int *)__cil_tmp14);
+  oldrx = state->rxsubchans;
   }
   {
 #line 1057
-  __cil_tmp15 = (unsigned long )state;
+  __cil_tmp13 = state->mode;
 #line 1057
-  __cil_tmp16 = __cil_tmp15 + 2064;
-#line 1057
-  __cil_tmp17 = *((int *)__cil_tmp16);
-#line 1057
-  if (__cil_tmp17 == 9) {
+  if (__cil_tmp13 == 9) {
 #line 1058
     return (0);
   } else {
@@ -21561,57 +16315,29 @@ static int msp34xxg_detect_stereo(struct i2c_client *client )
   }
   }
 #line 1060
-  __cil_tmp18 = (unsigned long )state;
-#line 1060
-  __cil_tmp19 = __cil_tmp18 + 2120;
-#line 1060
-  *((int *)__cil_tmp19) = 0;
+  state->rxsubchans = 0;
 #line 1061
   if (is_stereo) {
 #line 1062
-    __cil_tmp20 = (unsigned long )state;
-#line 1062
-    __cil_tmp21 = __cil_tmp20 + 2120;
-#line 1062
-    *((int *)__cil_tmp21) = 2;
+    state->rxsubchans = 2;
   } else {
 #line 1064
-    __cil_tmp22 = (unsigned long )state;
-#line 1064
-    __cil_tmp23 = __cil_tmp22 + 2120;
-#line 1064
-    *((int *)__cil_tmp23) = 1;
+    state->rxsubchans = 1;
   }
 #line 1065
   if (is_bilingual) {
     {
 #line 1066
-    __cil_tmp24 = (unsigned long )state;
+    __cil_tmp14 = state->std;
 #line 1066
-    __cil_tmp25 = __cil_tmp24 + 2060;
-#line 1066
-    __cil_tmp26 = *((int *)__cil_tmp25);
-#line 1066
-    if (__cil_tmp26 == 32) {
+    if (__cil_tmp14 == 32) {
 #line 1067
-      __cil_tmp27 = (unsigned long )state;
+      __cil_tmp15 = state->rxsubchans;
 #line 1067
-      __cil_tmp28 = __cil_tmp27 + 2120;
-#line 1067
-      __cil_tmp29 = (unsigned long )state;
-#line 1067
-      __cil_tmp30 = __cil_tmp29 + 2120;
-#line 1067
-      __cil_tmp31 = *((int *)__cil_tmp30);
-#line 1067
-      *((int *)__cil_tmp28) = __cil_tmp31 | 4;
+      state->rxsubchans = __cil_tmp15 | 4;
     } else {
 #line 1069
-      __cil_tmp32 = (unsigned long )state;
-#line 1069
-      __cil_tmp33 = __cil_tmp32 + 2120;
-#line 1069
-      *((int *)__cil_tmp33) = 12;
+      state->rxsubchans = 12;
     }
     }
   } else {
@@ -21620,74 +16346,45 @@ static int msp34xxg_detect_stereo(struct i2c_client *client )
   {
 #line 1072
   while (1) {
-    while_92_continue: /* CIL Label */ ;
+    while_continue: /* CIL Label */ ;
 
-    {
 #line 1072
-    __cil_tmp34 = & msp_debug;
-#line 1072
-    __cil_tmp35 = *__cil_tmp34;
-#line 1072
-    if (__cil_tmp35 >= 1) {
+    if (msp_debug >= 1) {
       {
 #line 1072
-      __cil_tmp36 = (unsigned long )client;
+      __cil_tmp16 = client->adapter;
 #line 1072
-      __cil_tmp37 = __cil_tmp36 + 24;
+      tmp___10 = i2c_adapter_id(__cil_tmp16);
 #line 1072
-      __cil_tmp38 = *((struct i2c_adapter **)__cil_tmp37);
+      __cil_tmp17 = client->driver;
 #line 1072
-      tmp___10 = i2c_adapter_id(__cil_tmp38);
+      __cil_tmp18 = __cil_tmp17->driver.name;
 #line 1072
-      __cil_tmp39 = (unsigned long )client;
+      __cil_tmp19 = client->addr;
 #line 1072
-      __cil_tmp40 = __cil_tmp39 + 32;
+      __cil_tmp20 = (int )__cil_tmp19;
 #line 1072
-      __cil_tmp41 = *((struct i2c_driver **)__cil_tmp40);
-#line 1072
-      __cil_tmp42 = (unsigned long )__cil_tmp41;
-#line 1072
-      __cil_tmp43 = __cil_tmp42 + 80;
-#line 1072
-      __cil_tmp44 = *((char const   **)__cil_tmp43);
-#line 1072
-      __cil_tmp45 = (unsigned long )client;
-#line 1072
-      __cil_tmp46 = __cil_tmp45 + 2;
-#line 1072
-      __cil_tmp47 = *((unsigned short *)__cil_tmp46);
-#line 1072
-      __cil_tmp48 = (int )__cil_tmp47;
-#line 1072
-      __cil_tmp49 = (unsigned long )state;
-#line 1072
-      __cil_tmp50 = __cil_tmp49 + 2120;
-#line 1072
-      __cil_tmp51 = *((int *)__cil_tmp50);
+      __cil_tmp21 = state->rxsubchans;
 #line 1072
       printk("<7>%s %d-%04x: status=0x%x, stereo=%d, bilingual=%d -> rxsubchans=%d\n",
-             __cil_tmp44, tmp___10, __cil_tmp48, status, is_stereo, is_bilingual,
-             __cil_tmp51);
+             __cil_tmp18, tmp___10, __cil_tmp20, status, is_stereo, is_bilingual,
+             __cil_tmp21);
       }
     } else {
 
     }
-    }
+#line 1072
     goto while_break;
   }
-  while_92_break: /* CIL Label */ ;
+  while_break___0: /* CIL Label */ ;
   }
 
   while_break: ;
   {
 #line 1075
-  __cil_tmp52 = (unsigned long )state;
+  __cil_tmp22 = state->rxsubchans;
 #line 1075
-  __cil_tmp53 = __cil_tmp52 + 2120;
-#line 1075
-  __cil_tmp54 = *((int *)__cil_tmp53);
-#line 1075
-  return (oldrx != __cil_tmp54);
+  return (oldrx != __cil_tmp22);
   }
 }
 }
@@ -21698,18 +16395,10 @@ static void msp34xxg_set_audmode(struct i2c_client *client )
   struct msp_state *tmp___8 ;
   struct i2c_client  const  *__cil_tmp5 ;
   struct v4l2_subdev *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  unsigned long __cil_tmp17 ;
-  int __cil_tmp18 ;
+  int __cil_tmp10 ;
 
   {
   {
@@ -21726,31 +16415,19 @@ static void msp34xxg_set_audmode(struct i2c_client *client )
   }
   {
 #line 1082
-  __cil_tmp7 = (unsigned long )state;
+  __cil_tmp7 = state->std;
 #line 1082
-  __cil_tmp8 = __cil_tmp7 + 2060;
-#line 1082
-  __cil_tmp9 = *((int *)__cil_tmp8);
-#line 1082
-  if (__cil_tmp9 == 32) {
+  if (__cil_tmp7 == 32) {
     {
 #line 1083
-    __cil_tmp10 = (unsigned long )state;
+    __cil_tmp8 = state->rxsubchans;
 #line 1083
-    __cil_tmp11 = __cil_tmp10 + 2120;
-#line 1083
-    __cil_tmp12 = *((int *)__cil_tmp11);
-#line 1083
-    if (__cil_tmp12 & 4) {
+    if (__cil_tmp8 & 4) {
       {
 #line 1083
-      __cil_tmp13 = (unsigned long )state;
+      __cil_tmp9 = state->audmode;
 #line 1083
-      __cil_tmp14 = __cil_tmp13 + 2116;
-#line 1083
-      __cil_tmp15 = *((int *)__cil_tmp14);
-#line 1083
-      if (__cil_tmp15 == 4) {
+      if (__cil_tmp9 == 4) {
         {
 #line 1086
         msp_write_dem(client, 32, 33);
@@ -21758,13 +16435,9 @@ static void msp34xxg_set_audmode(struct i2c_client *client )
       } else {
         {
 #line 1083
-        __cil_tmp16 = (unsigned long )state;
+        __cil_tmp10 = state->audmode;
 #line 1083
-        __cil_tmp17 = __cil_tmp16 + 2116;
-#line 1083
-        __cil_tmp18 = *((int *)__cil_tmp17);
-#line 1083
-        if (__cil_tmp18 == 2) {
+        if (__cil_tmp10 == 2) {
           {
 #line 1086
           msp_write_dem(client, 32, 33);
@@ -21804,15 +16477,9 @@ void msp_set_audmode(struct i2c_client *client )
   struct msp_state *tmp___8 ;
   struct i2c_client  const  *__cil_tmp5 ;
   struct v4l2_subdev *__cil_tmp6 ;
-  unsigned long __cil_tmp7 ;
-  unsigned long __cil_tmp8 ;
+  int __cil_tmp7 ;
+  int __cil_tmp8 ;
   int __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
-  unsigned long __cil_tmp11 ;
-  int __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  unsigned long __cil_tmp14 ;
-  int __cil_tmp15 ;
 
   {
   {
@@ -21829,54 +16496,46 @@ void msp_set_audmode(struct i2c_client *client )
   }
   {
 #line 1100
-  __cil_tmp7 = (unsigned long )state;
+  __cil_tmp7 = state->opmode;
 #line 1100
-  __cil_tmp8 = __cil_tmp7 + 2056;
+  if (__cil_tmp7 == 0) {
 #line 1100
-  __cil_tmp9 = *((int *)__cil_tmp8);
-#line 1100
-  if (__cil_tmp9 == 0) {
     goto case_0;
   } else {
     {
 #line 1101
-    __cil_tmp10 = (unsigned long )state;
+    __cil_tmp8 = state->opmode;
 #line 1101
-    __cil_tmp11 = __cil_tmp10 + 2056;
+    if (__cil_tmp8 == 1) {
 #line 1101
-    __cil_tmp12 = *((int *)__cil_tmp11);
-#line 1101
-    if (__cil_tmp12 == 1) {
       goto case_0;
     } else {
       {
 #line 1104
-      __cil_tmp13 = (unsigned long )state;
+      __cil_tmp9 = state->opmode;
 #line 1104
-      __cil_tmp14 = __cil_tmp13 + 2056;
+      if (__cil_tmp9 == 2) {
 #line 1104
-      __cil_tmp15 = *((int *)__cil_tmp14);
-#line 1104
-      if (__cil_tmp15 == 2) {
         goto case_2;
-      } else {
+      } else
 #line 1099
-        if (0) {
-          case_0: 
-          {
+      if (0) {
+        case_0: 
+        {
 #line 1102
-          msp3400c_set_audmode(client);
-          }
-          goto switch_break;
-          case_2: 
-          {
-#line 1105
-          msp34xxg_set_audmode(client);
-          }
-          goto switch_break;
-        } else {
-          switch_break: ;
+        msp3400c_set_audmode(client);
         }
+#line 1103
+        goto switch_break;
+        case_2: 
+        {
+#line 1105
+        msp34xxg_set_audmode(client);
+        }
+#line 1106
+        goto switch_break;
+      } else {
+        switch_break: ;
       }
       }
     }
@@ -21896,15 +16555,9 @@ int msp_detect_stereo(struct i2c_client *client )
   int tmp___10 ;
   struct i2c_client  const  *__cil_tmp7 ;
   struct v4l2_subdev *__cil_tmp8 ;
-  unsigned long __cil_tmp9 ;
-  unsigned long __cil_tmp10 ;
+  int __cil_tmp9 ;
+  int __cil_tmp10 ;
   int __cil_tmp11 ;
-  unsigned long __cil_tmp12 ;
-  unsigned long __cil_tmp13 ;
-  int __cil_tmp14 ;
-  unsigned long __cil_tmp15 ;
-  unsigned long __cil_tmp16 ;
-  int __cil_tmp17 ;
 
   {
   {
@@ -21921,56 +16574,46 @@ int msp_detect_stereo(struct i2c_client *client )
   }
   {
 #line 1115
-  __cil_tmp9 = (unsigned long )state;
+  __cil_tmp9 = state->opmode;
 #line 1115
-  __cil_tmp10 = __cil_tmp9 + 2056;
+  if (__cil_tmp9 == 0) {
 #line 1115
-  __cil_tmp11 = *((int *)__cil_tmp10);
-#line 1115
-  if (__cil_tmp11 == 0) {
     goto case_0;
   } else {
     {
 #line 1116
-    __cil_tmp12 = (unsigned long )state;
+    __cil_tmp10 = state->opmode;
 #line 1116
-    __cil_tmp13 = __cil_tmp12 + 2056;
+    if (__cil_tmp10 == 1) {
 #line 1116
-    __cil_tmp14 = *((int *)__cil_tmp13);
-#line 1116
-    if (__cil_tmp14 == 1) {
       goto case_0;
     } else {
       {
 #line 1118
-      __cil_tmp15 = (unsigned long )state;
+      __cil_tmp11 = state->opmode;
 #line 1118
-      __cil_tmp16 = __cil_tmp15 + 2056;
+      if (__cil_tmp11 == 2) {
 #line 1118
-      __cil_tmp17 = *((int *)__cil_tmp16);
-#line 1118
-      if (__cil_tmp17 == 2) {
         goto case_2;
-      } else {
+      } else
 #line 1114
-        if (0) {
-          case_0: 
-          {
+      if (0) {
+        case_0: 
+        {
 #line 1117
-          tmp___9 = msp3400c_detect_stereo(client);
-          }
-#line 1117
-          return (tmp___9);
-          case_2: 
-          {
-#line 1119
-          tmp___10 = msp34xxg_detect_stereo(client);
-          }
-#line 1119
-          return (tmp___10);
-        } else {
-
+        tmp___9 = msp3400c_detect_stereo(client);
         }
+#line 1117
+        return (tmp___9);
+        case_2: 
+        {
+#line 1119
+        tmp___10 = msp34xxg_detect_stereo(client);
+        }
+#line 1119
+        return (tmp___10);
+      } else {
+
       }
       }
     }

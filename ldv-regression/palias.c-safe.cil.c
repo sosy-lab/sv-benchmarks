@@ -9,34 +9,44 @@ void __blast_assert(void)
 
   {
   ERROR: 
+#line 4
   goto ERROR;
 }
 }
+#line 6 "files/palias.c"
+extern int ( /* missing proto */  malloc)() ;
 #line 5 "files/palias.c"
 int main(void) 
-{ int *a = malloc(sizeof *a);
-  int *b;
-  int __cil_tmp3 ;
+{ int *a ;
+  int tmp ;
+  int *b ;
+  int __cil_tmp4 ;
 
   {
-#line 7
-  b = a;
-#line 8
-  *a = 2;
   {
+#line 6
+  tmp = malloc(4UL);
+#line 6
+  a = (int *)tmp;
+#line 8
+  b = a;
 #line 9
-  __cil_tmp3 = *b;
-#line 9
-  if (__cil_tmp3 == 2) {
+  *a = 2;
+  }
+  {
+#line 10
+  __cil_tmp4 = *b;
+#line 10
+  if (__cil_tmp4 == 2) {
 
   } else {
     {
-#line 9
+#line 10
     __blast_assert();
     }
   }
   }
-#line 10
+#line 11
   return (0);
 }
 }
