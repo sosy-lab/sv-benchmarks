@@ -15,7 +15,7 @@ typedef struct node {
   struct node *n;
 } *List;
 
-void main() {
+int main() {
   /* Build a list of the form 1->...->1->2->....->2->3 */
   List a = (List) malloc(sizeof(struct node));
   if (a == 0) exit(1);

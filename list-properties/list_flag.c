@@ -4,8 +4,8 @@
  * 3 to a value depending on the flag, and check later on
  * that the list is what has been built just before.
  */
-/*#include <stdlib.h>
-  #include "assert.h"*/
+#include <stdlib.h>
+/*  #include "assert.h" */
 
 void exit(int s) {
  _EXIT: goto _EXIT;
