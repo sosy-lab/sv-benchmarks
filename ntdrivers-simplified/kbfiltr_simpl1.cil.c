@@ -82,6 +82,8 @@ void _BLAST_init(void)
 }
 }
 #line 78 "kbfiltr_simpl1.cil.c"
+void IofCompleteRequest(int, int);
+void errorFn(void);
 int KbFilter_PnP(int DeviceObject , int Irp ) 
 { int devExt ;
   int irpStack ;
