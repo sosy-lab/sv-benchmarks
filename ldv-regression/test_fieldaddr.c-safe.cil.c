@@ -95,7 +95,7 @@ void drm_vm_open_locked(struct drm_device *dev )
   {
   {
 #line 31
-  __cil_tmp4 = (size_t )0U;
+  __cil_tmp4 = (size_t )1U;
 #line 31
   tmp = malloc(__cil_tmp4);
 #line 31
