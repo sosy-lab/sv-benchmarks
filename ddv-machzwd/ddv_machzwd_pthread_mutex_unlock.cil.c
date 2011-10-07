@@ -611,37 +611,9 @@ struct ddv_tty_driver {
    unsigned short registered ;
 };
 #line 2 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h"
-void __VERIFIER_assume(int expression ) 
-{ 
-
-  {
-#line 2
-  if (! expression) {
-    LOOP: 
-    goto LOOP;
-  } else {
-
-  }
-#line 2
-  return;
-}
-}
-#line 3 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h"
-void __VERIFIER_assert(int expression , char *x ) 
-{ 
-
-  {
+void __VERIFIER_assume(int phi ) ;
 #line 3
-  if (! expression) {
-    ERROR: 
-    goto ERROR;
-  } else {
-
-  }
-#line 3
-  return;
-}
-}
+void __VERIFIER_assert(int phi , char *txt ) ;
 #line 12 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h"
 int current_execution_context  ;
 #line 32 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h"
@@ -701,57 +673,57 @@ __inline void wake_up_interruptible(wait_queue_head_t *q ) ;
 __inline void sleep_on(wait_queue_head_t *q ) ;
 #line 88
 __inline void interruptible_sleep_on(wait_queue_head_t *q ) ;
-#line 188 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
+#line 186 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
 __inline extern int pthread_mutex_init(pthread_mutex_t *__mutex , pthread_mutexattr_t const   *__mutex_attr ) 
 { pthread_mutex_t i ;
 
   {
-#line 192
+#line 190
   i.locked = (_Bool)0;
-#line 193
+#line 191
   *__mutex = i;
-#line 194
+#line 192
   return (0);
 }
 }
-#line 196 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
+#line 194 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
 __inline extern int pthread_mutex_destroy(pthread_mutex_t *__mutex ) 
 { 
 
   {
-#line 198
+#line 196
   return (0);
 }
 }
-#line 202
+#line 200
 void __VERIFIER_atomic_begin(void) ;
-#line 203
+#line 201
 void __VERIFIER_atomic_end(void) ;
-#line 205 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
+#line 203 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
 __inline extern int pthread_mutex_lock(pthread_mutex_t *__mutex ) 
 { _Bool __cil_tmp2 ;
   int __cil_tmp3 ;
 
   {
   {
-#line 208
+#line 206
   __VERIFIER_atomic_begin();
-#line 209
+#line 207
   __cil_tmp2 = __mutex->locked;
-#line 209
+#line 207
   __cil_tmp3 = ! __cil_tmp2;
-#line 209
+#line 207
   __VERIFIER_assume(__cil_tmp3);
-#line 210
+#line 208
   __mutex->locked = (_Bool)1;
-#line 211
+#line 209
   __VERIFIER_atomic_end();
   }
-#line 212
+#line 210
   return (0);
 }
 }
-#line 215 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
+#line 213 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
 __inline extern int pthread_mutex_unlock(pthread_mutex_t *__mutex ) 
 { _Bool __cil_tmp2 ;
   int __cil_tmp3 ;
@@ -759,18 +731,18 @@ __inline extern int pthread_mutex_unlock(pthread_mutex_t *__mutex )
 
   {
   {
-#line 218
+#line 216
   __cil_tmp2 = __mutex->locked;
-#line 218
+#line 216
   __cil_tmp3 = (int )__cil_tmp2;
-#line 218
+#line 216
   __cil_tmp4 = (char *)"pthread_mutex_unlock without lock";
-#line 218
+#line 216
   __VERIFIER_assert(__cil_tmp3, __cil_tmp4);
-#line 219
+#line 217
   __mutex->locked = (_Bool)0;
   }
-#line 220
+#line 218
   return (0);
 }
 }
@@ -905,7 +877,7 @@ __inline void outl_p(unsigned int doubleword , unsigned int port ) ;
 #line 41 "/ddverify-2010-04-30/models/seq1/include/asm/uaccess.h"
 __inline int __get_user(int size , void *ptr ) ;
 #line 43
-__inline int get_user(int size , void const   *ptr ) ;
+__inline int get_user(int size , void *ptr ) ;
 #line 46
 __inline int __put_user(int size , void *ptr ) ;
 #line 48
@@ -956,11 +928,11 @@ char _ddv_module_description[31]  =
         (char )'e',      (char )'r',      (char )'\000'};
 #line 93 "machzwd.c"
 char _ddv_module_license[4]  = {      (char )'G',      (char )'P',      (char )'L',      (char )'\000'};
-#line 95 "machzwd.c"
-static int nowayout  =    0;
 #line 96 "machzwd.c"
+static int nowayout  =    0;
+#line 98 "machzwd.c"
 char _ddv_module_param_nowayout[75]  = 
-#line 96
+#line 98
   {      (char )'W',      (char )'a',      (char )'t',      (char )'c', 
         (char )'h',      (char )'d',      (char )'o',      (char )'g', 
         (char )' ',      (char )'c',      (char )'a',      (char )'n', 
@@ -980,7 +952,7 @@ char _ddv_module_param_nowayout[75]  =
         (char )'_',      (char )'N',      (char )'O',      (char )'W', 
         (char )'A',      (char )'Y',      (char )'O',      (char )'U', 
         (char )'T',      (char )')',      (char )'\000'};
-#line 100 "machzwd.c"
+#line 102 "machzwd.c"
 static struct watchdog_info zf_info  =    {(__u32 )33024, (__u32 )1, {(__u8 )'Z', (__u8 )'F', (__u8 )'-', (__u8 )'L', (__u8 )'o',
                                (__u8 )'g', (__u8 )'i', (__u8 )'c', (__u8 )' ', (__u8 )'w',
                                (__u8 )'a', (__u8 )'t', (__u8 )'c', (__u8 )'h', (__u8 )'d',
@@ -992,9 +964,9 @@ static struct watchdog_info zf_info  =    {(__u32 )33024, (__u32 )1, {(__u8 )'Z'
                                (unsigned char)0}};
 #line 117 "machzwd.c"
 static int action  =    0;
-#line 118 "machzwd.c"
+#line 119 "machzwd.c"
 char _ddv_module_param_action[73]  = 
-#line 118
+#line 119
   {      (char )'a',      (char )'f',      (char )'t',      (char )'e', 
         (char )'r',      (char )' ',      (char )'w',      (char )'a', 
         (char )'t',      (char )'c',      (char )'h',      (char )'d', 
@@ -1014,19 +986,19 @@ char _ddv_module_param_action[73]  =
         (char )' ',      (char )'3',      (char )' ',      (char )'=', 
         (char )' ',      (char )'S',      (char )'C',      (char )'I', 
         (char )'\000'};
-#line 120 "machzwd.c"
-static int zf_action  =    2048;
 #line 121 "machzwd.c"
-static unsigned long zf_is_open  ;
+static int zf_action  =    2048;
 #line 122 "machzwd.c"
-static char zf_expect_close  ;
+static unsigned long zf_is_open  ;
 #line 123 "machzwd.c"
-static spinlock_t zf_lock  ;
+static char zf_expect_close  ;
 #line 124 "machzwd.c"
-static spinlock_t zf_port_lock  ;
+static spinlock_t zf_lock  ;
 #line 125 "machzwd.c"
-static struct timer_list zf_timer  ;
+static spinlock_t zf_port_lock  ;
 #line 126 "machzwd.c"
+static struct timer_list zf_timer  ;
+#line 127 "machzwd.c"
 static unsigned long next_heartbeat  =    0UL;
 #line 146 "machzwd.c"
 __inline static void zf_set_status(unsigned char new ) 
@@ -1290,7 +1262,7 @@ static ssize_t zf_write(struct file *file , char const   *buf , size_t count , l
   int tmp ;
   int __cil_tmp8 ;
   char const   *__cil_tmp9 ;
-  void const   *__cil_tmp10 ;
+  void *__cil_tmp10 ;
   int __cil_tmp11 ;
 
   {
@@ -1318,7 +1290,7 @@ static ssize_t zf_write(struct file *file , char const   *buf , size_t count , l
 #line 292
         __cil_tmp9 = buf + ofs;
 #line 292
-        __cil_tmp10 = (void const   *)__cil_tmp9;
+        __cil_tmp10 = (void *)__cil_tmp9;
 #line 292
         tmp = get_user(__cil_tmp8, __cil_tmp10);
         }
@@ -1365,24 +1337,26 @@ static int zf_ioctl(struct inode *inode , struct file *file , unsigned int cmd ,
   int tmp___0 ;
   void const   *__cil_tmp9 ;
   unsigned long __cil_tmp10 ;
-  unsigned int __cil_tmp11 ;
-  int __cil_tmp12 ;
+  int __cil_tmp11 ;
+  unsigned int __cil_tmp12 ;
   unsigned int __cil_tmp13 ;
   unsigned int __cil_tmp14 ;
-  unsigned int __cil_tmp15 ;
+  unsigned long __cil_tmp15 ;
   void *__cil_tmp16 ;
-  unsigned int __cil_tmp17 ;
+  unsigned long __cil_tmp17 ;
   int __cil_tmp18 ;
   unsigned int __cil_tmp19 ;
   unsigned int __cil_tmp20 ;
   unsigned int __cil_tmp21 ;
   unsigned int __cil_tmp22 ;
-  unsigned int __cil_tmp23 ;
-  int __cil_tmp24 ;
-  unsigned int __cil_tmp25 ;
+  unsigned long __cil_tmp23 ;
+  unsigned long __cil_tmp24 ;
+  int __cil_tmp25 ;
   unsigned int __cil_tmp26 ;
   unsigned int __cil_tmp27 ;
   unsigned int __cil_tmp28 ;
+  unsigned int __cil_tmp29 ;
+  unsigned long __cil_tmp30 ;
 
   {
 #line 316
@@ -1390,15 +1364,15 @@ static int zf_ioctl(struct inode *inode , struct file *file , unsigned int cmd ,
 #line 317
   p = (int *)argp;
 #line 319
-  if ((int )cmd == (__cil_tmp15 | __cil_tmp11)) {
+  if ((int )cmd == (__cil_tmp15 | __cil_tmp10)) {
     goto switch_2_exp_0;
   } else {
 #line 324
-    if ((int )cmd == (__cil_tmp22 | __cil_tmp17)) {
+    if ((int )cmd == (__cil_tmp23 | __cil_tmp17)) {
       goto switch_2_exp_1;
     } else {
 #line 327
-      if ((int )cmd == (__cil_tmp28 | __cil_tmp23)) {
+      if ((int )cmd == (__cil_tmp30 | __cil_tmp24)) {
         goto switch_2_exp_2;
       } else {
         {
@@ -1408,22 +1382,22 @@ static int zf_ioctl(struct inode *inode , struct file *file , unsigned int cmd ,
           switch_2_exp_0: /* CIL Label */ 
           {
 #line 320
-          __cil_tmp11 = 40U << 16;
+          __cil_tmp10 = 40UL << 16;
 #line 320
-          __cil_tmp12 = 87 << 8;
+          __cil_tmp11 = 87 << 8;
 #line 320
-          __cil_tmp13 = (unsigned int )__cil_tmp12;
+          __cil_tmp12 = (unsigned int )__cil_tmp11;
 #line 320
-          __cil_tmp14 = 2U << 30;
+          __cil_tmp13 = 2U << 30;
 #line 320
-          __cil_tmp15 = __cil_tmp14 | __cil_tmp13;
+          __cil_tmp14 = __cil_tmp13 | __cil_tmp12;
+#line 320
+          __cil_tmp15 = (unsigned long )__cil_tmp14;
           {
 #line 320
           __cil_tmp9 = (void const   *)(& zf_info);
 #line 320
-          __cil_tmp10 = (unsigned long )40U;
-#line 320
-          tmp = copy_to_user(argp, __cil_tmp9, __cil_tmp10);
+          tmp = copy_to_user(argp, __cil_tmp9, 40UL);
           }
           }
 #line 320
@@ -1437,7 +1411,7 @@ static int zf_ioctl(struct inode *inode , struct file *file , unsigned int cmd ,
           switch_2_exp_1: /* CIL Label */ 
           {
 #line 325
-          __cil_tmp17 = 4U << 16;
+          __cil_tmp17 = 4UL << 16;
 #line 325
           __cil_tmp18 = 87 << 8;
 #line 325
@@ -1448,6 +1422,8 @@ static int zf_ioctl(struct inode *inode , struct file *file , unsigned int cmd ,
           __cil_tmp21 = __cil_tmp20 | __cil_tmp19;
 #line 325
           __cil_tmp22 = __cil_tmp21 | 1U;
+#line 325
+          __cil_tmp23 = (unsigned long )__cil_tmp22;
           {
 #line 325
           __cil_tmp16 = (void *)p;
@@ -1460,17 +1436,19 @@ static int zf_ioctl(struct inode *inode , struct file *file , unsigned int cmd ,
           switch_2_exp_2: /* CIL Label */ 
           {
 #line 328
-          __cil_tmp23 = 4U << 16;
+          __cil_tmp24 = 4UL << 16;
 #line 328
-          __cil_tmp24 = 87 << 8;
+          __cil_tmp25 = 87 << 8;
 #line 328
-          __cil_tmp25 = (unsigned int )__cil_tmp24;
+          __cil_tmp26 = (unsigned int )__cil_tmp25;
 #line 328
-          __cil_tmp26 = 2U << 30;
+          __cil_tmp27 = 2U << 30;
 #line 328
-          __cil_tmp27 = __cil_tmp26 | __cil_tmp25;
+          __cil_tmp28 = __cil_tmp27 | __cil_tmp26;
 #line 328
-          __cil_tmp28 = __cil_tmp27 | 5U;
+          __cil_tmp29 = __cil_tmp28 | 5U;
+#line 328
+          __cil_tmp30 = (unsigned long )__cil_tmp29;
           {
 #line 328
           zf_ping(0UL);
@@ -2625,10 +2603,10 @@ int create_request(int genhd_no )
 #line 291 "concatenated.c"
 void call_rq_function(int genhd_no ) 
 { void *__cil_tmp2 ;
-  unsigned int __cil_tmp3 ;
+  unsigned long __cil_tmp3 ;
   struct request_queue *__cil_tmp4 ;
   request_fn_proc *__cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
+  unsigned long __cil_tmp6 ;
   struct request_queue *__cil_tmp7 ;
   struct request_queue *__cil_tmp8 ;
   spinlock_t *__cil_tmp9 ;
@@ -2645,13 +2623,13 @@ void call_rq_function(int genhd_no )
 #line 293
   __cil_tmp2 = (void *)0;
 #line 293
-  __cil_tmp3 = (unsigned int )__cil_tmp2;
+  __cil_tmp3 = (unsigned long )__cil_tmp2;
 #line 293
   __cil_tmp4 = (genhd_registered[genhd_no].gd)->queue;
 #line 293
   __cil_tmp5 = __cil_tmp4->request_fn;
 #line 293
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 293
   if (__cil_tmp6 != __cil_tmp3) {
     {
@@ -2727,29 +2705,30 @@ void call_genhd_functions(void)
   int __cil_tmp12 ;
   int __cil_tmp13 ;
   struct block_device_operations *__cil_tmp14 ;
-  struct block_device_operations *__cil_tmp15 ;
-  int (*__cil_tmp16)(struct inode * , struct file * ) ;
-  struct inode *__cil_tmp17 ;
-  struct file *__cil_tmp18 ;
-  struct block_device_operations *__cil_tmp19 ;
+  unsigned int __cil_tmp15 ;
+  struct block_device_operations *__cil_tmp16 ;
+  int (*__cil_tmp17)(struct inode * , struct file * ) ;
+  struct inode *__cil_tmp18 ;
+  struct file *__cil_tmp19 ;
   struct block_device_operations *__cil_tmp20 ;
-  int (*__cil_tmp21)(struct inode * , struct file * ) ;
-  struct inode *__cil_tmp22 ;
-  struct file *__cil_tmp23 ;
-  struct block_device_operations *__cil_tmp24 ;
+  struct block_device_operations *__cil_tmp21 ;
+  int (*__cil_tmp22)(struct inode * , struct file * ) ;
+  struct inode *__cil_tmp23 ;
+  struct file *__cil_tmp24 ;
   struct block_device_operations *__cil_tmp25 ;
-  int (*__cil_tmp26)(struct inode * , struct file * , unsigned int  , unsigned long  ) ;
-  struct inode *__cil_tmp27 ;
-  struct file *__cil_tmp28 ;
-  struct block_device_operations *__cil_tmp29 ;
+  struct block_device_operations *__cil_tmp26 ;
+  int (*__cil_tmp27)(struct inode * , struct file * , unsigned int  , unsigned long  ) ;
+  struct inode *__cil_tmp28 ;
+  struct file *__cil_tmp29 ;
   struct block_device_operations *__cil_tmp30 ;
-  int (*__cil_tmp31)(struct gendisk * ) ;
-  struct block_device_operations *__cil_tmp32 ;
+  struct block_device_operations *__cil_tmp31 ;
+  int (*__cil_tmp32)(struct gendisk * ) ;
   struct block_device_operations *__cil_tmp33 ;
-  int (*__cil_tmp34)(struct gendisk * ) ;
-  struct block_device_operations *__cil_tmp35 ;
+  struct block_device_operations *__cil_tmp34 ;
+  int (*__cil_tmp35)(struct gendisk * ) ;
   struct block_device_operations *__cil_tmp36 ;
-  int (*__cil_tmp37)(struct block_device * , struct hd_geometry * ) ;
+  struct block_device_operations *__cil_tmp37 ;
+  int (*__cil_tmp38)(struct block_device * , struct hd_geometry * ) ;
 
   {
   {
@@ -2825,21 +2804,23 @@ void call_genhd_functions(void)
                   if (__cil_tmp14->open) {
                     {
 #line 338
-                    tmp = malloc(16U);
+                    __cil_tmp15 = (unsigned int )32UL;
+#line 338
+                    tmp = malloc(__cil_tmp15);
 #line 338
                     genhd_registered[genhd_no].inode.i_bdev = (struct block_device *)tmp;
 #line 339
                     (genhd_registered[genhd_no].inode.i_bdev)->bd_disk = genhd_registered[genhd_no].gd;
 #line 341
-                    __cil_tmp15 = (genhd_registered[genhd_no].gd)->fops;
+                    __cil_tmp16 = (genhd_registered[genhd_no].gd)->fops;
 #line 341
-                    __cil_tmp16 = __cil_tmp15->open;
+                    __cil_tmp17 = __cil_tmp16->open;
 #line 341
-                    __cil_tmp17 = & genhd_registered[genhd_no].inode;
+                    __cil_tmp18 = & genhd_registered[genhd_no].inode;
 #line 341
-                    __cil_tmp18 = & genhd_registered[genhd_no].file;
+                    __cil_tmp19 = & genhd_registered[genhd_no].file;
 #line 341
-                    (*__cil_tmp16)(__cil_tmp17, __cil_tmp18);
+                    (*__cil_tmp17)(__cil_tmp18, __cil_tmp19);
                     }
                   } else {
 
@@ -2849,20 +2830,20 @@ void call_genhd_functions(void)
                   switch_8_2: /* CIL Label */ 
                   {
 #line 347
-                  __cil_tmp19 = (genhd_registered[genhd_no].gd)->fops;
+                  __cil_tmp20 = (genhd_registered[genhd_no].gd)->fops;
 #line 347
-                  if (__cil_tmp19->release) {
+                  if (__cil_tmp20->release) {
                     {
 #line 348
-                    __cil_tmp20 = (genhd_registered[genhd_no].gd)->fops;
+                    __cil_tmp21 = (genhd_registered[genhd_no].gd)->fops;
 #line 348
-                    __cil_tmp21 = __cil_tmp20->release;
+                    __cil_tmp22 = __cil_tmp21->release;
 #line 348
-                    __cil_tmp22 = & genhd_registered[genhd_no].inode;
+                    __cil_tmp23 = & genhd_registered[genhd_no].inode;
 #line 348
-                    __cil_tmp23 = & genhd_registered[genhd_no].file;
+                    __cil_tmp24 = & genhd_registered[genhd_no].file;
 #line 348
-                    (*__cil_tmp21)(__cil_tmp22, __cil_tmp23);
+                    (*__cil_tmp22)(__cil_tmp23, __cil_tmp24);
                     }
                   } else {
 
@@ -2872,24 +2853,24 @@ void call_genhd_functions(void)
                   switch_8_3: /* CIL Label */ 
                   {
 #line 354
-                  __cil_tmp24 = (genhd_registered[genhd_no].gd)->fops;
+                  __cil_tmp25 = (genhd_registered[genhd_no].gd)->fops;
 #line 354
-                  if (__cil_tmp24->ioctl) {
+                  if (__cil_tmp25->ioctl) {
                     {
 #line 355
                     uint_value = __VERIFIER_nondet_uint();
 #line 356
                     ulong_value = __VERIFIER_nondet_ulong();
 #line 357
-                    __cil_tmp25 = (genhd_registered[genhd_no].gd)->fops;
+                    __cil_tmp26 = (genhd_registered[genhd_no].gd)->fops;
 #line 357
-                    __cil_tmp26 = __cil_tmp25->ioctl;
+                    __cil_tmp27 = __cil_tmp26->ioctl;
 #line 357
-                    __cil_tmp27 = & genhd_registered[genhd_no].inode;
+                    __cil_tmp28 = & genhd_registered[genhd_no].inode;
 #line 357
-                    __cil_tmp28 = & genhd_registered[genhd_no].file;
+                    __cil_tmp29 = & genhd_registered[genhd_no].file;
 #line 357
-                    (*__cil_tmp26)(__cil_tmp27, __cil_tmp28, uint_value, ulong_value);
+                    (*__cil_tmp27)(__cil_tmp28, __cil_tmp29, uint_value, ulong_value);
                     }
                   } else {
 
@@ -2899,16 +2880,16 @@ void call_genhd_functions(void)
                   switch_8_4: /* CIL Label */ 
                   {
 #line 365
-                  __cil_tmp29 = (genhd_registered[genhd_no].gd)->fops;
+                  __cil_tmp30 = (genhd_registered[genhd_no].gd)->fops;
 #line 365
-                  if (__cil_tmp29->media_changed) {
+                  if (__cil_tmp30->media_changed) {
                     {
 #line 366
-                    __cil_tmp30 = (genhd_registered[genhd_no].gd)->fops;
+                    __cil_tmp31 = (genhd_registered[genhd_no].gd)->fops;
 #line 366
-                    __cil_tmp31 = __cil_tmp30->media_changed;
+                    __cil_tmp32 = __cil_tmp31->media_changed;
 #line 366
-                    (*__cil_tmp31)(genhd_registered[genhd_no].gd);
+                    (*__cil_tmp32)(genhd_registered[genhd_no].gd);
                     }
                   } else {
 
@@ -2918,16 +2899,16 @@ void call_genhd_functions(void)
                   switch_8_5: /* CIL Label */ 
                   {
 #line 371
-                  __cil_tmp32 = (genhd_registered[genhd_no].gd)->fops;
+                  __cil_tmp33 = (genhd_registered[genhd_no].gd)->fops;
 #line 371
-                  if (__cil_tmp32->revalidate_disk) {
+                  if (__cil_tmp33->revalidate_disk) {
                     {
 #line 372
-                    __cil_tmp33 = (genhd_registered[genhd_no].gd)->fops;
+                    __cil_tmp34 = (genhd_registered[genhd_no].gd)->fops;
 #line 372
-                    __cil_tmp34 = __cil_tmp33->revalidate_disk;
+                    __cil_tmp35 = __cil_tmp34->revalidate_disk;
 #line 372
-                    (*__cil_tmp34)(genhd_registered[genhd_no].gd);
+                    (*__cil_tmp35)(genhd_registered[genhd_no].gd);
                     }
                   } else {
 
@@ -2937,18 +2918,18 @@ void call_genhd_functions(void)
                   switch_8_6: /* CIL Label */ 
                   {
 #line 377
-                  __cil_tmp35 = (genhd_registered[genhd_no].gd)->fops;
+                  __cil_tmp36 = (genhd_registered[genhd_no].gd)->fops;
 #line 377
-                  if (__cil_tmp35->getgeo) {
+                  if (__cil_tmp36->getgeo) {
                     {
 #line 381
                     blk_dev.bd_disk = genhd_registered[genhd_no].gd;
 #line 383
-                    __cil_tmp36 = (genhd_registered[genhd_no].gd)->fops;
+                    __cil_tmp37 = (genhd_registered[genhd_no].gd)->fops;
 #line 383
-                    __cil_tmp37 = __cil_tmp36->getgeo;
+                    __cil_tmp38 = __cil_tmp37->getgeo;
 #line 383
-                    (*__cil_tmp37)(& blk_dev, & hdg);
+                    (*__cil_tmp38)(& blk_dev, & hdg);
                     }
                   } else {
 
@@ -3140,8 +3121,8 @@ void call_tasklet_functions(void)
 { unsigned int i ;
   int __cil_tmp2 ;
   void *__cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
+  unsigned long __cil_tmp4 ;
+  unsigned long __cil_tmp5 ;
   atomic_t __cil_tmp6 ;
   void (*__cil_tmp7)(unsigned long  ) ;
   unsigned long __cil_tmp8 ;
@@ -3158,9 +3139,9 @@ void call_tasklet_functions(void)
 #line 495
   __cil_tmp3 = (void *)0;
 #line 495
-  __cil_tmp4 = (unsigned int )__cil_tmp3;
+  __cil_tmp4 = (unsigned long )__cil_tmp3;
 #line 495
-  __cil_tmp5 = (unsigned int )tasklet_registered[i].tasklet;
+  __cil_tmp5 = (unsigned long )tasklet_registered[i].tasklet;
 #line 495
   if (__cil_tmp5 != __cil_tmp4) {
     {
@@ -3289,25 +3270,28 @@ __inline struct pci_dev *pci_get_class(unsigned int class , struct pci_dev *from
 { void *tmp ;
   int tmp___0 ;
   void *__cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
   unsigned int __cil_tmp8 ;
-  int __cil_tmp9 ;
-  void *__cil_tmp10 ;
+  unsigned int __cil_tmp9 ;
+  int __cil_tmp10 ;
+  void *__cil_tmp11 ;
 
   {
   {
 #line 536
   __cil_tmp5 = (void *)0;
 #line 536
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 536
-  __cil_tmp7 = (unsigned int )from;
+  __cil_tmp7 = (unsigned long )from;
 #line 536
   if (__cil_tmp7 == __cil_tmp6) {
     {
 #line 537
-    tmp = malloc(224U);
+    __cil_tmp8 = (unsigned int )432UL;
+#line 537
+    tmp = malloc(__cil_tmp8);
 #line 537
     from = (struct pci_dev *)tmp;
     }
@@ -3329,20 +3313,20 @@ __inline struct pci_dev *pci_get_class(unsigned int class , struct pci_dev *from
 #line 543
     from->irq = __VERIFIER_nondet_uint();
 #line 544
-    __cil_tmp8 = from->irq;
+    __cil_tmp9 = from->irq;
 #line 544
-    __cil_tmp9 = __cil_tmp8 < 16U;
+    __cil_tmp10 = __cil_tmp9 < 16U;
 #line 544
-    __VERIFIER_assume(__cil_tmp9);
+    __VERIFIER_assume(__cil_tmp10);
     }
 #line 546
     return (from);
   } else {
     {
 #line 548
-    __cil_tmp10 = (void *)0;
+    __cil_tmp11 = (void *)0;
 #line 548
-    return ((struct pci_dev *)__cil_tmp10);
+    return ((struct pci_dev *)__cil_tmp11);
     }
   }
 }
@@ -3350,6 +3334,7 @@ __inline struct pci_dev *pci_get_class(unsigned int class , struct pci_dev *from
 #line 552 "concatenated.c"
 __inline int pci_register_driver(struct pci_driver *driver ) 
 { int tmp ;
+  unsigned long __cil_tmp3 ;
 
   {
   {
@@ -3361,7 +3346,9 @@ __inline int pci_register_driver(struct pci_driver *driver )
 #line 555
     registered_pci_driver.pci_driver = driver;
 #line 556
-    registered_pci_driver.no_pci_device_id = 4U / 28U;
+    __cil_tmp3 = 8UL / 32UL;
+#line 556
+    registered_pci_driver.no_pci_device_id = (unsigned int )__cil_tmp3;
 #line 557
     registered_pci_driver.dev_initialized = 0;
 #line 559
@@ -3880,7 +3867,7 @@ __inline int __get_user(int size , void *ptr )
 }
 }
 #line 637 "concatenated.c"
-__inline int get_user(int size , void const   *ptr ) 
+__inline int get_user(int size , void *ptr ) 
 { int tmp ;
 
   {
@@ -4020,8 +4007,9 @@ struct gendisk *alloc_disk(int minors )
 void add_disk(struct gendisk *disk ) 
 { void *tmp ;
   int __cil_tmp3 ;
-  int __cil_tmp4 ;
+  unsigned int __cil_tmp4 ;
   int __cil_tmp5 ;
+  int __cil_tmp6 ;
 
   {
   {
@@ -4033,17 +4021,19 @@ void add_disk(struct gendisk *disk )
 #line 716
     genhd_registered[number_genhd_registered].gd = disk;
 #line 717
-    tmp = malloc(16U);
+    __cil_tmp4 = (unsigned int )32UL;
+#line 717
+    tmp = malloc(__cil_tmp4);
 #line 717
     genhd_registered[number_genhd_registered].inode.i_bdev = (struct block_device *)tmp;
 #line 718
     (genhd_registered[number_genhd_registered].inode.i_bdev)->bd_disk = disk;
 #line 720
-    __cil_tmp4 = (int )number_genhd_registered;
+    __cil_tmp5 = (int )number_genhd_registered;
 #line 720
-    __cil_tmp5 = __cil_tmp4 + 1;
+    __cil_tmp6 = __cil_tmp5 + 1;
 #line 720
-    number_genhd_registered = (short )__cil_tmp5;
+    number_genhd_registered = (short )__cil_tmp6;
     }
   } else {
 
@@ -4057,8 +4047,8 @@ void add_disk(struct gendisk *disk )
 void del_gendisk(struct gendisk *gp ) 
 { int i ;
   int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
+  unsigned long __cil_tmp4 ;
+  unsigned long __cil_tmp5 ;
   void *__cil_tmp6 ;
 
   {
@@ -4080,9 +4070,9 @@ void del_gendisk(struct gendisk *gp )
     }
     {
 #line 729
-    __cil_tmp4 = (unsigned int )gp;
+    __cil_tmp4 = (unsigned long )gp;
 #line 729
-    __cil_tmp5 = (unsigned int )genhd_registered[i].gd;
+    __cil_tmp5 = (unsigned long )genhd_registered[i].gd;
 #line 729
     if (__cil_tmp5 == __cil_tmp4) {
 #line 730
@@ -4717,8 +4707,8 @@ __inline int cdev_add(struct cdev *p , dev_t dev , unsigned int count )
 __inline void cdev_del(struct cdev *p ) 
 { int i ;
   int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
+  unsigned long __cil_tmp4 ;
+  unsigned long __cil_tmp5 ;
 
   {
 #line 983
@@ -4739,9 +4729,9 @@ __inline void cdev_del(struct cdev *p )
     }
     {
 #line 984
-    __cil_tmp4 = (unsigned int )p;
+    __cil_tmp4 = (unsigned long )p;
 #line 984
-    __cil_tmp5 = (unsigned int )cdev_registered[i].cdevp;
+    __cil_tmp5 = (unsigned long )cdev_registered[i].cdevp;
 #line 984
     if (__cil_tmp5 == __cil_tmp4) {
 #line 985
@@ -4817,11 +4807,14 @@ __inline struct resource *request_region(unsigned long start , unsigned long len
                                          char const   *name ) 
 { struct resource *resource ;
   void *tmp ;
+  unsigned int __cil_tmp7 ;
 
   {
   {
 #line 1037
-  tmp = malloc(16U);
+  __cil_tmp7 = (unsigned int )32UL;
+#line 1037
+  tmp = malloc(__cil_tmp7);
 #line 1037
   resource = (struct resource *)tmp;
 #line 1042
@@ -5148,10 +5141,10 @@ __inline void tasklet_schedule(struct tasklet_struct *t )
 { int i ;
   int next_free ;
   void *__cil_tmp4 ;
-  unsigned int __cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
-  unsigned int __cil_tmp8 ;
+  unsigned long __cil_tmp5 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
+  unsigned long __cil_tmp8 ;
   int __cil_tmp9 ;
 
   {
@@ -5173,9 +5166,9 @@ __inline void tasklet_schedule(struct tasklet_struct *t )
 #line 1230
     __cil_tmp4 = (void *)0;
 #line 1230
-    __cil_tmp5 = (unsigned int )__cil_tmp4;
+    __cil_tmp5 = (unsigned long )__cil_tmp4;
 #line 1230
-    __cil_tmp6 = (unsigned int )tasklet_registered[i].tasklet;
+    __cil_tmp6 = (unsigned long )tasklet_registered[i].tasklet;
 #line 1230
     if (__cil_tmp6 == __cil_tmp5) {
 #line 1231
@@ -5186,9 +5179,9 @@ __inline void tasklet_schedule(struct tasklet_struct *t )
     }
     {
 #line 1233
-    __cil_tmp7 = (unsigned int )t;
+    __cil_tmp7 = (unsigned long )t;
 #line 1233
-    __cil_tmp8 = (unsigned int )tasklet_registered[i].tasklet;
+    __cil_tmp8 = (unsigned long )tasklet_registered[i].tasklet;
 #line 1233
     if (__cil_tmp8 == __cil_tmp7) {
       {
@@ -5507,11 +5500,11 @@ __inline void interruptible_sleep_on(wait_queue_head_t *q )
 #line 1441 "concatenated.c"
 __inline int schedule_work(struct work_struct *work ) 
 { int i ;
-  unsigned int __cil_tmp3 ;
-  unsigned int __cil_tmp4 ;
+  unsigned long __cil_tmp3 ;
+  unsigned long __cil_tmp4 ;
   void *__cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
 
   {
 #line 1450
@@ -5528,9 +5521,9 @@ __inline int schedule_work(struct work_struct *work )
     }
     {
 #line 1451
-    __cil_tmp3 = (unsigned int )work;
+    __cil_tmp3 = (unsigned long )work;
 #line 1451
-    __cil_tmp4 = (unsigned int )shared_workqueue[i];
+    __cil_tmp4 = (unsigned long )shared_workqueue[i];
 #line 1451
     if (__cil_tmp4 == __cil_tmp3) {
 #line 1452
@@ -5543,9 +5536,9 @@ __inline int schedule_work(struct work_struct *work )
 #line 1455
     __cil_tmp5 = (void *)0;
 #line 1455
-    __cil_tmp6 = (unsigned int )__cil_tmp5;
+    __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 1455
-    __cil_tmp7 = (unsigned int )shared_workqueue[i];
+    __cil_tmp7 = (unsigned long )shared_workqueue[i];
 #line 1455
     if (__cil_tmp7 == __cil_tmp6) {
 #line 1456
@@ -5572,8 +5565,8 @@ __inline void call_shared_workqueue_functions(void)
   int __cil_tmp3 ;
   int __cil_tmp4 ;
   void *__cil_tmp5 ;
-  unsigned int __cil_tmp6 ;
-  unsigned int __cil_tmp7 ;
+  unsigned long __cil_tmp6 ;
+  unsigned long __cil_tmp7 ;
   void (*__cil_tmp8)(void * ) ;
   void *__cil_tmp9 ;
   void *__cil_tmp10 ;
@@ -5595,9 +5588,9 @@ __inline void call_shared_workqueue_functions(void)
 #line 1471
   __cil_tmp5 = (void *)0;
 #line 1471
-  __cil_tmp6 = (unsigned int )__cil_tmp5;
+  __cil_tmp6 = (unsigned long )__cil_tmp5;
 #line 1471
-  __cil_tmp7 = (unsigned int )shared_workqueue[i];
+  __cil_tmp7 = (unsigned long )shared_workqueue[i];
 #line 1471
   if (__cil_tmp7 != __cil_tmp6) {
     {
@@ -5946,25 +5939,63 @@ loff_t no_llseek(struct file *file , loff_t offset , int origin )
   return (l);
 }
 }
-#line 1634 "concatenated.c"
-int nonseekable_open(struct inode *inode , struct file *filp ) 
-{ int i ;
-
-  {
-#line 1634
-  return (i);
-}
-}
-#line 1635 "concatenated.c"
-void __module_get(struct module *module ) 
+#line 1633 "concatenated.c"
+void __VERIFIER_assume(int phi ) 
 { 
 
   {
-#line 1635
+  {
+#line 1633
+  while (1) {
+    while_18_continue: /* CIL Label */ ;
+#line 1633
+    if (! phi) {
+
+    } else {
+      goto while_18_break;
+    }
+  }
+  while_18_break: /* CIL Label */ ;
+  }
+#line 1633
+  return;
+}
+}
+#line 1634 "concatenated.c"
+void __VERIFIER_assert(int phi , char *txt ) 
+{ 
+
+  {
+#line 1634
+  if (! phi) {
+    ERROR: 
+    goto ERROR;
+  } else {
+
+  }
+#line 1634
   return;
 }
 }
 #line 1636 "concatenated.c"
+int nonseekable_open(struct inode *inode , struct file *filp ) 
+{ int i ;
+
+  {
+#line 1636
+  return (i);
+}
+}
+#line 1637 "concatenated.c"
+void __module_get(struct module *module ) 
+{ 
+
+  {
+#line 1637
+  return;
+}
+}
+#line 1638 "concatenated.c"
 int test_and_set_bit(int nr , unsigned long *addr ) 
 { unsigned int bit ;
   unsigned long old ;
@@ -5976,33 +6007,33 @@ int test_and_set_bit(int nr , unsigned long *addr )
   unsigned long __cil_tmp10 ;
 
   {
-#line 1638
-  __cil_tmp5 = nr & 31;
-#line 1638
-  __cil_tmp6 = 1 << __cil_tmp5;
-#line 1638
-  bit = (unsigned int )__cil_tmp6;
-#line 1639
-  __cil_tmp7 = nr >> 5;
-#line 1639
-  addr = addr + __cil_tmp7;
 #line 1640
+  __cil_tmp5 = nr & 31;
+#line 1640
+  __cil_tmp6 = 1 << __cil_tmp5;
+#line 1640
+  bit = (unsigned int )__cil_tmp6;
+#line 1641
+  __cil_tmp7 = nr >> 5;
+#line 1641
+  addr = addr + __cil_tmp7;
+#line 1642
   old = *addr;
-#line 1641
+#line 1643
   __cil_tmp8 = (unsigned long )bit;
-#line 1641
+#line 1643
   *addr = old | __cil_tmp8;
   {
-#line 1642
+#line 1644
   __cil_tmp9 = (unsigned long )bit;
-#line 1642
+#line 1644
   __cil_tmp10 = old & __cil_tmp9;
-#line 1642
+#line 1644
   return (__cil_tmp10 != 0UL);
   }
 }
 }
-#line 1645 "concatenated.c"
+#line 1647 "concatenated.c"
 void clear_bit(int nr , unsigned long volatile   *addr ) 
 { unsigned int bit ;
   unsigned long old ;
@@ -6015,52 +6046,34 @@ void clear_bit(int nr , unsigned long volatile   *addr )
   unsigned long __cil_tmp11 ;
 
   {
-#line 1647
+#line 1649
   __cil_tmp5 = nr & 31;
-#line 1647
+#line 1649
   __cil_tmp6 = 1 << __cil_tmp5;
-#line 1647
+#line 1649
   bit = (unsigned int )__cil_tmp6;
-#line 1648
+#line 1650
   __cil_tmp7 = nr >> 5;
-#line 1648
+#line 1650
   addr = addr + __cil_tmp7;
-#line 1649
-  __cil_tmp8 = *addr;
-#line 1649
-  old = (unsigned long )__cil_tmp8;
-#line 1650
-  __cil_tmp9 = ~ bit;
-#line 1650
-  __cil_tmp10 = (unsigned long )__cil_tmp9;
-#line 1650
-  __cil_tmp11 = old & __cil_tmp10;
-#line 1650
-  *addr = (unsigned long volatile   )__cil_tmp11;
 #line 1651
+  __cil_tmp8 = *addr;
+#line 1651
+  old = (unsigned long )__cil_tmp8;
+#line 1652
+  __cil_tmp9 = ~ bit;
+#line 1652
+  __cil_tmp10 = (unsigned long )__cil_tmp9;
+#line 1652
+  __cil_tmp11 = old & __cil_tmp10;
+#line 1652
+  *addr = (unsigned long volatile   )__cil_tmp11;
+#line 1653
   return;
 }
 }
-#line 1653 "concatenated.c"
-int register_reboot_notifier(struct notifier_block *dummy ) 
-{ int i ;
-
-  {
-#line 1653
-  return (i);
-}
-}
-#line 1654 "concatenated.c"
-int misc_deregister(struct miscdevice *misc ) 
-{ int i ;
-
-  {
-#line 1654
-  return (i);
-}
-}
 #line 1655 "concatenated.c"
-int unregister_reboot_notifier(struct notifier_block *dummy ) 
+int register_reboot_notifier(struct notifier_block *dummy ) 
 { int i ;
 
   {
@@ -6069,51 +6082,72 @@ int unregister_reboot_notifier(struct notifier_block *dummy )
 }
 }
 #line 1656 "concatenated.c"
+int misc_deregister(struct miscdevice *misc ) 
+{ int i ;
+
+  {
+#line 1656
+  return (i);
+}
+}
+#line 1657 "concatenated.c"
+int unregister_reboot_notifier(struct notifier_block *dummy ) 
+{ int i ;
+
+  {
+#line 1657
+  return (i);
+}
+}
+#line 1658 "concatenated.c"
 void release_mem_region(unsigned long start , unsigned long len ) 
 { 
 
   {
-#line 1656
-  return;
-}
-}
-#line 1657 "concatenated.c"
-void kfree(void const   *addr ) 
-{ 
-
-  {
-#line 1657
+#line 1658
   return;
 }
 }
 #line 1659 "concatenated.c"
+void kfree(void const   *addr ) 
+{ 
+
+  {
+#line 1659
+  return;
+}
+}
+#line 1661 "concatenated.c"
 struct resource *request_mem_region(unsigned long start , unsigned long len , char const   *name ) 
 { void *tmp ;
+  unsigned int __cil_tmp5 ;
 
   {
   {
-#line 1661
-  tmp = malloc(16U);
+#line 1663
+  __cil_tmp5 = (unsigned int )32UL;
+#line 1663
+  tmp = malloc(__cil_tmp5);
   }
-#line 1661
+#line 1663
   return ((struct resource *)tmp);
 }
 }
-#line 1664 "concatenated.c"
+#line 1666 "concatenated.c"
 void __VERIFIER_atomic_begin(void) 
 { 
 
   {
-#line 1664
+#line 1666
   return;
 }
 }
-#line 1665 "concatenated.c"
+#line 1667 "concatenated.c"
 void __VERIFIER_atomic_end(void) 
 { 
 
   {
-#line 1665
+#line 1667
   return;
 }
 }
