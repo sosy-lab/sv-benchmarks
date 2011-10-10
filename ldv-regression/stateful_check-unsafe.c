@@ -11,7 +11,7 @@ ERROR: goto ERROR;
 int ldv_mutex = 1;
 
 int open_called = 0;
-int __VERIFIER_nondet_int(void);
+int __VERIFIER_nondet_int(void) { int x; return x; }
 
 void mutex_lock(void)
 {

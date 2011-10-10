@@ -15,7 +15,7 @@ int ldv_mutex  =    1;
 #line 9 "stateful_check.c"
 int open_called  =    0;
 #line 10
-extern int __VERIFIER_nondet_int(void) ;
+int __VERIFIER_nondet_int(void) { int x; return x; }
 #line 12 "stateful_check.c"
 void mutex_lock(void) 
 { 
