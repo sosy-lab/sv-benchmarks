@@ -24,7 +24,8 @@ extern int open(char const   *__file , int __oflag  , ...)  __attribute__((__non
 #line 8 "files/fo_test.c"
 extern int __VERIFIER_nondet_int(void);
 int open(char const   *__file, int __oflag, ...)  {
-    return __VERIFIER_nondet_int();
+    int tmp =  __VERIFIER_nondet_int();
+    return tmp;
 }
 int globalState  =    0;
 #line 9
