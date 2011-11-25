@@ -6328,14 +6328,14 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
           if (0) {
             case_1: 
 #line 14
-            __asm__  ("mov"
+/*            __asm__  ("mov"
                       "b "
                       "%%"
                       "gs"
                       ":"
                       "%P"
                       "1"
-                      ",%0": "=q" (pfo_ret__): "p" (& current_task));
+                      ",%0": "=q" (pfo_ret__): "p" (& current_task));*/
 #line 14
             goto switch_break;
             case_2: 
@@ -6352,14 +6352,14 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
             goto switch_break;
             case_4: 
 #line 14
-            __asm__  ("mov"
+/*            __asm__  ("mov"
                       "l "
                       "%%"
                       "gs"
                       ":"
                       "%P"
                       "1"
-                      ",%0": "=r" (pfo_ret__): "p" (& current_task));
+                      ",%0": "=r" (pfo_ret__): "p" (& current_task));*/
 #line 14
             goto switch_break;
             case_8: 
@@ -6488,14 +6488,14 @@ __inline static struct thread_info *current_thread_info(void)
           if (0) {
             case_1: 
 #line 222
-            __asm__  ("mov"
+/*            __asm__  ("mov"
                       "b "
                       "%%"
                       "gs"
                       ":"
                       "%P"
                       "1"
-                      ",%0": "=q" (pfo_ret__): "p" (& kernel_stack));
+                      ",%0": "=q" (pfo_ret__): "p" (& kernel_stack));*/
 #line 222
             goto switch_break;
             case_2: 
@@ -6512,14 +6512,14 @@ __inline static struct thread_info *current_thread_info(void)
             goto switch_break;
             case_4: 
 #line 222
-            __asm__  ("mov"
+/*            __asm__  ("mov"
                       "l "
                       "%%"
                       "gs"
                       ":"
                       "%P"
                       "1"
-                      ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+                      ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));*/
 #line 222
             goto switch_break;
             case_8: 
@@ -9131,7 +9131,7 @@ static int vhost_worker(void *data )
 #line 194
                 __ptr = (u8 volatile   *)__cil_tmp26;
 #line 194
-                __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+                //__asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
                 }
 #line 194
                 goto switch_break;
@@ -9157,7 +9157,7 @@ static int vhost_worker(void *data )
 #line 194
                 __ptr___1 = (u32 volatile   *)__cil_tmp28;
 #line 194
-                __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+                //__asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
                 }
 #line 194
                 goto switch_break;
@@ -17327,7 +17327,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1253
               __cil_tmp25 = (struct __large_struct *)__cil_tmp24;
 #line 1253
-              __asm__  volatile   ("1:\tmov"
+/*              __asm__  volatile   ("1:\tmov"
                                    "q"
                                    " %"
                                    ""
@@ -17350,7 +17350,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                                    "3b"
                                    "\n"
                                    " .previous\n": "=r" (__pu_err): "er" (head), "m" (*__cil_tmp25),
-                                   "i" (-14), "0" (__pu_err));
+                                   "i" (-14), "0" (__pu_err));*/
 #line 1253
               goto switch_break;
               switch_default: 
@@ -17580,7 +17580,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1257
               __cil_tmp41 = (struct __large_struct *)__cil_tmp40;
 #line 1257
-              __asm__  volatile   ("1:\tmov"
+/*              __asm__  volatile   ("1:\tmov"
                                    "q"
                                    " %"
                                    ""
@@ -17603,7 +17603,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                                    "3b"
                                    "\n"
                                    " .previous\n": "=r" (__pu_err___0): "er" ((__u32 )len),
-                                   "m" (*__cil_tmp41), "i" (-14), "0" (__pu_err___0));
+                                   "m" (*__cil_tmp41), "i" (-14), "0" (__pu_err___0));*/
 #line 1257
               goto switch_break___0;
               switch_default___0: 
@@ -17867,7 +17867,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1263
               __cil_tmp73 = (struct __large_struct *)__cil_tmp72;
 #line 1263
-              __asm__  volatile   ("1:\tmov"
+/*              __asm__  volatile   ("1:\tmov"
                                    "q"
                                    " %"
                                    ""
@@ -17890,7 +17890,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                                    "3b"
                                    "\n"
                                    " .previous\n": "=r" (__pu_err___1): "er" ((__u16 )__cil_tmp70),
-                                   "m" (*__cil_tmp73), "i" (-14), "0" (__pu_err___1));
+                                   "m" (*__cil_tmp73), "i" (-14), "0" (__pu_err___1));*/
 #line 1263
               goto switch_break___1;
               switch_default___1: 

@@ -5405,7 +5405,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
           if (0) {
             case_1: 
 #line 14
-            __asm__  ("mov"
+/*            __asm__  ("mov"
                       "b "
                       "%%"
                       "gs"
@@ -5413,6 +5413,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=q" (pfo_ret__): "p" (& current_task));
+*/
 #line 14
             goto switch_break;
             case_2: 
@@ -5429,6 +5430,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
             goto switch_break;
             case_4: 
 #line 14
+/*
             __asm__  ("mov"
                       "l "
                       "%%"
@@ -5437,6 +5439,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+*/
 #line 14
             goto switch_break;
             case_8: 
@@ -7166,7 +7169,7 @@ int msp_sleep(struct msp_state *state , int timeout )
 #line 306
                 __ptr = (u8 volatile   *)__cil_tmp24;
 #line 306
-                __asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+                //__asm__  volatile   ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
                 }
 #line 306
                 goto switch_break;
@@ -7192,7 +7195,7 @@ int msp_sleep(struct msp_state *state , int timeout )
 #line 306
                 __ptr___1 = (u32 volatile   *)__cil_tmp26;
 #line 306
-                __asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+                //__asm__  volatile   ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
                 }
 #line 306
                 goto switch_break;

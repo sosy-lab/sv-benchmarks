@@ -4598,7 +4598,7 @@ __inline static void arch_local_irq_disable(void)
 #line 863
   __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 863
-  __asm__  volatile   (""
+/*  __asm__  volatile   (""
                        "771:\n\t"
                        "call *%c[paravirt_opptr];"
                        "\n"
@@ -4622,7 +4622,7 @@ __inline static void arch_local_irq_disable(void)
                        ".popsection\n"
                        "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp17 / 8UL),
                        [paravirt_opptr] "i" (& pv_irq_ops.irq_disable.func), [paravirt_clobber] "i" (1): "memory",
-                       "cc");
+                       "cc");*/
 #line 864
   return;
 }
@@ -4733,7 +4733,7 @@ __inline static void arch_local_irq_enable(void)
 #line 868
   __cil_tmp17 = (unsigned long )__cil_tmp16;
 #line 868
-  __asm__  volatile   (""
+/*  __asm__  volatile   (""
                        "771:\n\t"
                        "call *%c[paravirt_opptr];"
                        "\n"
@@ -4757,7 +4757,7 @@ __inline static void arch_local_irq_enable(void)
                        ".popsection\n"
                        "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp17 / 8UL),
                        [paravirt_opptr] "i" (& pv_irq_ops.irq_enable.func), [paravirt_clobber] "i" (1): "memory",
-                       "cc");
+                       "cc");*/
 #line 869
   return;
 }

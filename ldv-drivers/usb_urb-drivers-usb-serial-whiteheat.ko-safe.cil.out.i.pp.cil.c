@@ -5031,14 +5031,14 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
           if (0) {
             case_1: 
 #line 14
-            __asm__  ("mov"
+/*            __asm__  ("mov"
                       "b "
                       "%%"
                       "gs"
                       ":"
                       "%P"
                       "1"
-                      ",%0": "=q" (pfo_ret__): "p" (& current_task));
+                      ",%0": "=q" (pfo_ret__): "p" (& current_task));*/
 #line 14
             goto switch_break;
             case_2: 
@@ -5055,14 +5055,14 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
             goto switch_break;
             case_4: 
 #line 14
-            __asm__  ("mov"
+/*            __asm__  ("mov"
                       "l "
                       "%%"
                       "gs"
                       ":"
                       "%P"
                       "1"
-                      ",%0": "=r" (pfo_ret__): "p" (& current_task));
+                      ",%0": "=r" (pfo_ret__): "p" (& current_task));*/
 #line 14
             goto switch_break;
             case_8: 

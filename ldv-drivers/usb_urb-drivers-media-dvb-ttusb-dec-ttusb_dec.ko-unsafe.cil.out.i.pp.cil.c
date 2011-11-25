@@ -8245,6 +8245,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 853
     __cil_tmp18 = (unsigned long )__cil_tmp17;
 #line 853
+/*
     __asm__  volatile   (""
                          "771:\n\t"
                          "call *%c[paravirt_opptr];"
@@ -8270,6 +8271,7 @@ __inline static unsigned long arch_local_save_flags(void)
                          "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp18 / 8UL),
                          [paravirt_opptr] "i" (& pv_irq_ops.save_fl.func), [paravirt_clobber] "i" (1): "memory",
                          "cc");
+*/
 #line 853
     __cil_tmp19 = (unsigned long long )__eax;
 #line 853
@@ -8290,6 +8292,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 853
     __cil_tmp26 = (unsigned long )__cil_tmp25;
 #line 853
+/*
     __asm__  volatile   (""
                          "771:\n\t"
                          "call *%c[paravirt_opptr];"
@@ -8315,6 +8318,7 @@ __inline static unsigned long arch_local_save_flags(void)
                          "": "=a" (__eax): [paravirt_typenum] "i" (__cil_tmp26 / 8UL),
                          [paravirt_opptr] "i" (& pv_irq_ops.save_fl.func), [paravirt_clobber] "i" (1): "memory",
                          "cc");
+*/
 #line 853
     __ret = __eax;
   }

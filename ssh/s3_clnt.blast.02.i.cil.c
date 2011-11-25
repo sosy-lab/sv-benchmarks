@@ -3,7 +3,6 @@
 
 int __VERIFIER_nondet_int() { int x; return x; }
 
-#include<stdlib.h>
 
 typedef unsigned int size_t;
 typedef long __time_t;

@@ -19937,9 +19937,9 @@ static void l1m_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 108
   l1 = (struct layer1 *)__cil_tmp7;
 #line 112
-  __cil_tmp8 = (__builtin_va_list )(& va);
+  //__cil_tmp8 = (__builtin_va_list )(& va);
 #line 112
-  __builtin_va_start(__cil_tmp8);
+  //__builtin_va_start(&va);
 #line 114
   vaf.fmt = (char const   *)fmt;
 #line 115
@@ -19955,9 +19955,9 @@ static void l1m_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 117
   printk("<7>%s: %pV\n", tmp, & vaf);
 #line 119
-  __cil_tmp12 = (__builtin_va_list )(& va);
+  //__cil_tmp12 = (__builtin_va_list )(& va);
 #line 119
-  __builtin_va_end(__cil_tmp12);
+  //__builtin_va_end(&va);
   }
 #line 120
   return;
@@ -21287,9 +21287,9 @@ static void l2m_debug(struct FsmInst *fi , char *fmt  , ...)
   }
   {
 #line 112
-  __cil_tmp9 = (__builtin_va_list )(& va);
+  //__cil_tmp9 = (__builtin_va_list )(& va);
 #line 112
-  __builtin_va_start(__cil_tmp9);
+  //__builtin_va_start(&va);
 #line 114
   vaf.fmt = (char const   *)fmt;
 #line 115
@@ -21305,9 +21305,9 @@ static void l2m_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 117
   printk("<7>l2 (sapi %d tei %d): %pV\n", __cil_tmp11, __cil_tmp13, & vaf);
 #line 120
-  __cil_tmp14 = (__builtin_va_list )(& va);
+  //__cil_tmp14 = (__builtin_va_list )(& va);
 #line 120
-  __builtin_va_end(__cil_tmp14);
+  //__builtin_va_end(&va);
   }
 #line 121
   return;
@@ -31375,11 +31375,11 @@ static void da_debug(struct FsmInst *fi , char *fmt  , ...)
   }
   {
 #line 95
-  __cil_tmp9 = (__va_list_tag *)(& va);
+  //__cil_tmp9 = (__va_list_tag *)(& va);
 #line 95
-  __cil_tmp10 = (__builtin_va_list )__cil_tmp9;
+  //__cil_tmp10 = (__builtin_va_list )__cil_tmp9;
 #line 95
-  __builtin_va_start(__cil_tmp10);
+  //__builtin_va_start(&va);
 #line 97
   vaf.fmt = (char const   *)fmt;
 #line 98
@@ -31393,9 +31393,9 @@ static void da_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 100
   printk("<7>mgr(%d): %pV\n", __cil_tmp13, & vaf);
 #line 102
-  __cil_tmp14 = (__builtin_va_list )(& va);
+  //__cil_tmp14 = (__builtin_va_list )(& va);
 #line 102
-  __builtin_va_end(__cil_tmp14);
+  //__builtin_va_end(&va);
   }
 #line 103
   return;
@@ -31768,9 +31768,9 @@ static void tei_debug(struct FsmInst *fi , char *fmt  , ...)
   }
   {
 #line 244
-  __cil_tmp9 = (__builtin_va_list )(& va);
+  //__cil_tmp9 = (__builtin_va_list )(& va);
 #line 244
-  __builtin_va_start(__cil_tmp9);
+  //__builtin_va_start(&va);
 #line 246
   vaf.fmt = (char const   *)fmt;
 #line 247
@@ -31790,9 +31790,9 @@ static void tei_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 249
   printk("<7>sapi(%d) tei(%d): %pV\n", __cil_tmp12, __cil_tmp15, & vaf);
 #line 252
-  __cil_tmp16 = (__builtin_va_list )(& va);
+  //__cil_tmp16 = (__builtin_va_list )(& va);
 #line 252
-  __builtin_va_end(__cil_tmp16);
+  //__builtin_va_end(&va);
   }
 #line 253
   return;
