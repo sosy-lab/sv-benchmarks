@@ -1,2 +1,5 @@
 pthread/*BUG.cil.c
+pthread/*BUG.c
 pthread/*[!G].cil.c
+pthread/*[!Gl].c
+

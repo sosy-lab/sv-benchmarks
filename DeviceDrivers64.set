@@ -1,2 +1,5 @@
 ldv-drivers/*-unsafe*.cil.c
+ldv-drivers/*-unsafe*.i
 ldv-drivers/*-safe*.cil.c
+ldv-drivers/*-safe*.i
+

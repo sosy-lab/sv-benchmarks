@@ -1,3 +1,7 @@
 heap-manipulation/*BUG.cil.c
+heap-manipulation/*BUG.c
 heap-manipulation/*[!G].cil.c
+heap-manipulation/*[!Gl].c
 list-properties/*.cil.c
+list-properties/*[!l].c
+
