@@ -1,0 +1,11 @@
+This directory contains verification tasks for checking memory safety.
+
+The property to check is not the reachability of error labels,
+but one of the following different aspects of memory safety:
+memory leak, invalid free, invalid dereference, invalid use of uninitialized memory,
+invalid overlap, unterminated string.
+
+For each property, there will be an own command-line parameter.
+
+The expected verification result should be SAFE and UNSAFE.
+
