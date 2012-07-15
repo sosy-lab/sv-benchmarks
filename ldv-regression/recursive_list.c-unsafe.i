@@ -4,8 +4,8 @@
 # 1 "files/recursive_list.c"
 # 9 "files/recursive_list.c"
 
-
-
+typedef unsigned int size_t;
+extern  __attribute__((__nothrow__)) void *malloc(size_t __size ) __attribute__((__malloc__));
 
 void err()
 { ERROR: goto ERROR; }
@@ -20,7 +20,7 @@ struct list {
 int i = 1;
 void * allocate_memory()
 {
- return (void*)i++;
+ return malloc(8U);
 }
 
 struct list* append(struct list *l, int n)

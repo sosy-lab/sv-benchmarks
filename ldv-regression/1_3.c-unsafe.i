@@ -21,6 +21,10 @@ typedef struct RR rr;
 
 extern void *__VERIFIER_nondet_pointer();
 extern int __VERIFIER_nondet_int();
+
+typedef unsigned int size_t;
+extern  __attribute__((__nothrow__)) void *malloc(size_t __size )  __attribute__((__malloc__)) ;
+
 # 3 "files/1_3.c" 2
 
 
@@ -31,7 +35,7 @@ extern int __VERIFIER_nondet_int();
 # 23 "files/1_3.c"
 rr * getrr()
 {
- rr * r = (rr *)__VERIFIER_nondet_pointer();
+ rr * r = (rr *)malloc(sizeof *r);
  r -> state = 0;
  return r;
 }

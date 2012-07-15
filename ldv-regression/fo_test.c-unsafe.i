@@ -1300,7 +1300,11 @@ extern int posix_fallocate (int __fd, __off_t __offset, __off_t __len);
 
 # 6 "files/fo_test.c" 2
 
-
+extern int __VERIFIER_nondet_int(void);
+int open(char const   *__file, int __oflag, ...)
+{
+    return __VERIFIER_nondet_int();
+}
 
 int globalState = 0;
 ssize_t l_read(int,char*,size_t);

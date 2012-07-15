@@ -51,10 +51,23 @@ void kfree(void *p) {
   freed_tmp_slot = 1;
 }
 
-extern struct bus_info *ibmphp_find_same_bus_num();
+extern void *__VERIFIER_nondet_pointer(void);
 
-extern int fillslotinfo(struct hotplug_slot *);
-extern int ibmphp_init_devno(struct slot **);
+struct bus_info *ibmphp_find_same_bus_num() {
+ return __VERIFIER_nondet_pointer();
+}
+
+extern int __VERIFIER_nondet_int(void);
+
+int fillslotinfo(struct hotplug_slot *p) {
+ (void) p;
+ return __VERIFIER_nondet_int();
+}
+
+int ibmphp_init_devno(struct slot **pp) {
+ (void) pp;
+ return __VERIFIER_nondet_int();
+}
 
 int ebda_rsrc_controller() {
  struct hotplug_slot *hp_slot_ptr;
