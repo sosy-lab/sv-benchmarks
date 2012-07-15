@@ -2,6 +2,6 @@ heap-manipulation/*_unsafe.cil.c
 heap-manipulation/*_unsafe.c
 heap-manipulation/*_safe.cil.c
 heap-manipulation/*_safe.c
-list-properties/*.cil.c
-list-properties/*[!l].c
+list-properties/*_safe.cil.c
+list-properties/*_safe.c
 
