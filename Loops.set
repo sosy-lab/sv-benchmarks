@@ -1,3 +1,2 @@
-loops/*_unsafe.c
-loops/*_safe.c
-
+loops/*_unsafe.i
+loops/*_safe.i
