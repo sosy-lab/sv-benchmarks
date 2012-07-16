@@ -1,5 +1,5 @@
-bitvector/*BUG.c
-bitvector/*[!Gl].c
+bitvector/*BUG.i
+bitvector/*[!G].i
 bitvector/*BUG.BV.c.cil.c
 bitvector/*[!G].BV.c.cil.c
-
+bitvector/*[!V].c.cil.c
