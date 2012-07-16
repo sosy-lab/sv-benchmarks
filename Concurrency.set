@@ -1,5 +1,5 @@
 pthread/*BUG.cil.c
-pthread/*BUG.c
+pthread/*BUG.i
 pthread/*[!G].cil.c
-pthread/*[!Gl].c
-pthread-atomic/*_safe.c
+pthread/*[!G].i
+pthread-atomic/*_safe.i
