@@ -1,4 +1,4 @@
-#include "../constants.h"
+#include "constants.h"
 
 static int parse_expression_list(char *str) 
 {
