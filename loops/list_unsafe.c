@@ -1,4 +1,3 @@
-#include <assert.h>
 #include <stdlib.h>
 typedef struct list {
 	int key;

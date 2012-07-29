@@ -1,7 +1,5 @@
-#include <assert.h>
-
 int INFINITY = 899;
-unsigned int nondet_uint();
+
 int main(){
   int nodecount = 5;
   int edgecount = 20;

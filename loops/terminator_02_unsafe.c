@@ -1,15 +1,15 @@
-int nondet_int();
-_Bool nondet_bool();
+int __VERIFIER_nondet_int();
+_Bool __VERIFIER_nondet_bool();
 
 main()
 {
-  int x=nondet_int();
-  int y=nondet_int();
-  int z=nondet_int();
+  int x=__VERIFIER_nondet_int();
+  int y=__VERIFIER_nondet_int();
+  int z=__VERIFIER_nondet_int();
 
   while(x<100 && 100<z) 
   {
-    _Bool tmp=nondet_bool();
+    _Bool tmp=__VERIFIER_nondet_bool();
     if (tmp)
    {
      x++;

@@ -1,5 +1,3 @@
-//#include "../glob.h"
-
 typedef int Char;
 #define MAXPATHLEN 1
 
@@ -30,3 +28,4 @@ int main ()
 
   return 0;
 }
+

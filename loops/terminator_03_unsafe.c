@@ -13,7 +13,7 @@ main()
       x=x+y;
      }
   }                           
-  assert(0);    
+  assert(y<=0 || (y<0 && x>=100));     
 }
 
 

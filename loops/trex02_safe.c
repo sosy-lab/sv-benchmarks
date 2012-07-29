@@ -1,8 +1,8 @@
-_Bool nondet_bool();
-int nondet_int();
+_Bool __VERIFIER_nondet_bool();
+int __VERIFIER_nondet_int();
 
 //x is an input variable
-int x=nondet_int();
+int x=__VERIFIER_nondet_int();
 
 void foo() {
   x--;
@@ -10,7 +10,7 @@ void foo() {
 
 int main() {
   while (x > 0) {
-    _Bool c = nondet_bool();
+    _Bool c = __VERIFIER_nondet_bool();
     if(c) foo();
     else foo();
   }

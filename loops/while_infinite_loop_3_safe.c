@@ -4,7 +4,7 @@ int x=0;
 void eval(void) 
 {
   while (1) {
-      x=1;
+      x=0;
       break;
   }
   return;

@@ -1,16 +1,4 @@
-#include <assert.h>
-
-char nondet_char()
-{
-  char c;
-  return c;
-}
-
-unsigned int nondet_uint()
-{
-  unsigned int ui;
-  return ui;
-}
+char __VERIFIER_nondet_char();
 
 int main() {
     unsigned int max = 5;
@@ -18,7 +6,7 @@ int main() {
     int i, j;
 
     for (i=0; i<max; i++) {
-        str1[i]=nondet_char();
+        str1[i]=__VERIFIER_nondet_char();
     }
 
     str1[max-1]= '\0';

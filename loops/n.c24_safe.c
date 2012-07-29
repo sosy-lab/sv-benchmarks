@@ -1,9 +1,9 @@
 #include <string.h>
-int nondet_int();
+int __VERIFIER_nondet_int();
 
 int foo(int * x){
-   *x = nondet_int();
-   return nondet_int();
+   *x = __VERIFIER_nondet_int();
+   return *x;
 }
 int main(){
    int i,j,ret,offset, tmp_cnt, tel_data,klen;
@@ -11,14 +11,14 @@ int main(){
    int x [1000];
 
    for (i = 0; i < 1000; ++i)
-      x[i]= nondet_int();
+      x[i]= __VERIFIER_nondet_int();
    
    for (i= 0; i < 1000; ++i){
 
-      ret = nondet_int();
+      ret = __VERIFIER_nondet_int();
       if (ret != 0)
          return -1;
-      tmp_cnt = nondet_int();
+      tmp_cnt = __VERIFIER_nondet_int();
       if (tmp_cnt < 0)
          return -1;
       
@@ -75,3 +75,4 @@ int main(){
    assert(offset>=0 && offset<=1000);
    return 1;
 }
+

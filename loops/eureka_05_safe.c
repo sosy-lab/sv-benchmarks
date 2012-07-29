@@ -1,5 +1,3 @@
-//#include <stdio.h>
-//#include <assert.h>
 
 #define SIZE 5
 

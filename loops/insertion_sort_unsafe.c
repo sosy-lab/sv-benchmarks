@@ -1,6 +1,5 @@
-//#define SIZE 3
-unsigned int nondet_uint();
-unsigned int SIZE=nondet_uint();
+unsigned int __VERIFIER_nondet_uint();
+unsigned int SIZE=__VERIFIER_nondet_uint();
 int main() {
    int i, j, k, key;
    int v[SIZE];   

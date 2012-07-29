@@ -1,11 +1,3 @@
-/*int nondet(void)
-{
-  int x;
-  {
-    return (x);
-  }
-  }*/
-
 void error(void) 
 { 
 

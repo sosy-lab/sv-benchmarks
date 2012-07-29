@@ -1,9 +1,3 @@
-//  programa: C) NUMERO DE VOGAIS
-
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
 #define MAX 10
 
 char nondet_char();
@@ -15,14 +9,13 @@ main(void)
 
   for(i=0;i<MAX;i++)
     string_entrada[i] = nondet_char();
-  __ESBMC_assume(string_entrada[MAX-1]=='\0');
+
+  string_entrada[MAX-1]='\0';
   
-  // captura o número de caracteres de da string
   n_caracter = 0;
   while(string_entrada[n_caracter]!='\0')
     n_caracter++;
 
-  //conta as vogais
   cont = 0;
   for(i=0;i<n_caracter;i++)
      for(j=0;j<8;j++)
