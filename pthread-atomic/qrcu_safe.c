@@ -21,7 +21,7 @@ pthread_mutex_t mutex; // used to serialize updaters' slowpaths
 
 /* sums the pair of counters forcing weak memory ordering */
 #define sum_unordered \
-  if (__VERIFIER__nondet_int()) {		\
+  if (__VERIFIER_nondet_int()) {		\
     sum = ctr1;					\
     sum = sum + ctr2;				\
   } else {					\
@@ -29,86 +29,91 @@ pthread_mutex_t mutex; // used to serialize updaters' slowpaths
     sum = sum + ctr1;				\
   }
 
+void __VERIFIER_atomic_use1(int myidx) {
+  __VERIFIER_assume(myidx <= 0 && ctr1>0);
+  ctr1++;
+}
+
+void __VERIFIER_atomic_use2(int myidx) {
+  __VERIFIER_assume(myidx >= 1 && ctr2>0);
+  ctr2++;
+}
+
+void __VERIFIER_atomic_use_done(int myidx) {
+  if (myidx <= 0) { ctr1--; }
+  else { ctr2--; }
+}
+
+void __VERIFIER_atomic_take_snapshot(int readerstart1, int readerstart2) {
+  /* Snapshot reader state. */
+  readerstart1 = readerprogress1;
+  readerstart2 = readerprogress2;
+}
+
+void __VERIFIER_atomic_check_progress(int readerstart1, int readerstart2) {
+  /* Verify reader progress. */
+  if (__VERIFIER_nondet_int()) {
+    __VERIFIER_assume(readerstart1 == 1 && readerprogress1 == 1);
+    goto fail;
+  } else {
+    if (__VERIFIER_nondet_int()) {
+      __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
+      goto fail;
+    } else {}
+  }
+ fail:
+  assert(0);
+}
+
 void *qrcu_reader1() {
   int myidx;
-  
   /* rcu_read_lock */
   while (1) {
     myidx = idx;
-    if (__VERIFIER__nondet_int()) {
-      { __blockattribute__((atomic))
-	__VERIFIER__assume(myidx <= 0 && ctr1>0);
-	ctr1++;
-      }
+    if (__VERIFIER_nondet_int()) {
+      __VERIFIER_atomic_use1(myidx);
       break;
     } else {
-      if (__VERIFIER__nondet_int()) {
-	{ __blockattribute__((atomic))
-	  __VERIFIER__assume(myidx >= 1 && ctr2>0);
-	  ctr2++;
-	}
+      if (__VERIFIER_nondet_int()) {
+	__VERIFIER_atomic_use2(myidx);
 	break;
       } else {}
     }
   }
-
   readerprogress1 = 1;
   readerprogress1 = 2;
-
   /* rcu_read_unlock */
-  { __blockattribute__((atomic))
-      if (myidx <= 0) { ctr1--; }
-      else { ctr2--; }
-  }
+  __VERIFIER_atomic_use_done(myidx);
   return 0;
 }
 
 void *qrcu_reader2() {
   int myidx;
-  
   /* rcu_read_lock */
   while (1) {
     myidx = idx;
-    if (__VERIFIER__nondet_int()) {
-      { __blockattribute__((atomic))
-	__VERIFIER__assume(myidx <= 0 && ctr1>0);
-	ctr1++;
-      }
+    if (__VERIFIER_nondet_int()) {
+      __VERIFIER_atomic_use1(myidx);
       break;
     } else {
-      if (__VERIFIER__nondet_int()) {
-	{ __blockattribute__((atomic))
-	  __VERIFIER__assume(myidx >= 1 && ctr2>0);
-	  ctr2++;
-	}
+      if (__VERIFIER_nondet_int()) {
+	__VERIFIER_atomic_use2(myidx);
 	break;
       } else {}
     }
   }
-
   readerprogress2 = 1;
   readerprogress2 = 2;
-
   /* rcu_read_unlock */
-  { __blockattribute__((atomic))
-      if (myidx <= 0) { ctr1--; }
-      else { ctr2--; }
-  }
+  __VERIFIER_atomic_use_done(myidx);
   return 0;
 }
-
 
 void* qrcu_updater() {
   int i;
   int readerstart1, readerstart2;
   int sum;
-
-  /* Snapshot reader state. */
-  { __blockattribute__((atomic))
-      readerstart1 = readerprogress1;
-      readerstart2 = readerprogress2;
-  }
-
+  __VERIFIER_atomic_take_snapshot(readerstart1, readerstart2);
   sum_unordered;
   if (sum <= 1) { sum_unordered; }
   else {}
@@ -116,25 +121,11 @@ void* qrcu_updater() {
     pthread_mutex_lock(&mutex);
     if (idx <= 0) { ctr2++; idx = 1; ctr1--; }
     else { ctr1++; idx = 0; ctr2--; }
-    if (idx <= 0) { while (ctr2 > 0); }
-    else { while (ctr1 > 0); }
-    pthread_mutex_lock(&mutex);
+    if (idx <= 0) { while (ctr1 > 0); }
+    else { while (ctr2 > 0); }
+    pthread_mutex_unlock(&mutex);
   } else {}
-
-  /* Verify reader progress. */
-  { __blockattribute__((atomic))
-      if (__VERIFIER__nondet_int()) {
-	__VERIFIER__assume(readerstart1 == 1);
-	__VERIFIER__assume(readerprogress1 == 1);
-	assert(0);
-      } else {
-	if (__VERIFIER__nondet_int()) {
-	  __VERIFIER__assume(readerstart2 == 1);
-	  __VERIFIER__assume(readerprogress2 == 1);
-	  assert(0);
-	} else { }
-      }
-  }
+  __VERIFIER_atomic_check_progress(readerstart1, readerstart2);
   return 0;
 }
 

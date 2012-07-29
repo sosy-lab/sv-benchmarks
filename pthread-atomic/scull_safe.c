@@ -6,37 +6,8 @@
 #include "scull.h"
 #define assert(e) if (!e) goto ERROR; ERROR: 
 
-/* =====================================================
-   User program calling functions from the device driver
-   ===================================================== */
 inode i;
 pthread_mutex_t lock;
-int nondet;
-
-void loader() {
-  scull_init_module();
-  scull_cleanup_module();
-}
-
-void thread1() {
-  file filp;
-  char buf;
-  size_t count = 10;
-  loff_t off = 0;
-  scull_open(tid1, i, filp);
-  scull_read(tid1, filp, buf, count, off);
-  scull_release(i, filp);
-}
-
-void thread2() {
-  file filp;
-  char buf;
-  size_t count = 10;
-  loff_t off = 0;
-  scull_open(tid2, i, filp);
-  scull_write(tid2, filp, buf, count, off);
-  scull_release(i, filp);
-}
 
 /* =====================================================
    Model for the Linux kernel API
@@ -55,22 +26,22 @@ inline void up() {
 
 inline unsigned_long copy_to_user(char to, char from, unsigned_long n) {
   to = from;
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 
 inline unsigned_long copy_from_user(char to, char from, unsigned_long n) {
   to = from;
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 
 inline int __get_user(int size, void_ptr ptr)
 {
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 
 inline int __put_user(int size, void_ptr ptr)
 {
-    return NONDET;
+    return __VERIFIER_nondet_int();
 } 
 
 
@@ -113,7 +84,7 @@ int scull_trim(scull_dev dev)
   dev_size = 0;
   dev_quantum = scull_quantum;
   dev_qset = scull_qset;
-  dev_data = NULL;
+  dev_data = 0;
   return 0;
 }
 
@@ -145,7 +116,7 @@ inline int scull_open(int tid, inode i, file filp)
  * Follow the list
  */
 inline scull_qset_type scull_follow(scull_dev dev, int n) {
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 
 /*
@@ -218,7 +189,7 @@ inline ssize_t scull_write(int tid, file filp, char buf, size_t count,
 
   /* follow the list up to the right position */
   dptr = scull_follow(dev, item);
-  if (dptr == NULL)
+  if (dptr == 0)
     goto out;
 
   /* write only up to the end of this quantum */
@@ -309,7 +280,7 @@ inline int scull_ioctl(inode i, file filp,
 		tmp = scull_qset;
 		retval = __get_user(scull_qset, arg);
 		if (retval == 0)
-			retval = put_user(tmp, arg);
+			retval = __put_user(tmp, arg);
 		break;
 
 	  case SCULL_IOCHQSET:
@@ -380,6 +351,35 @@ inline int scull_init_module()
  fail:
   scull_cleanup_module();
   return result;
+}
+
+
+/* =====================================================
+   User program calling functions from the device driver
+   ===================================================== */
+void *loader() {
+  scull_init_module();
+  scull_cleanup_module();
+}
+
+void *thread1() {
+  file filp;
+  char buf;
+  size_t count = 10;
+  loff_t off = 0;
+  scull_open(tid1, i, filp);
+  scull_read(tid1, filp, buf, count, off);
+  scull_release(i, filp);
+}
+
+void *thread2() {
+  file filp;
+  char buf;
+  size_t count = 10;
+  loff_t off = 0;
+  scull_open(tid2, i, filp);
+  scull_write(tid2, filp, buf, count, off);
+  scull_release(i, filp);
 }
 
 int main() {
