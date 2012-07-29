@@ -1730,11 +1730,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 165
 extern void ldv_initialize(void) ;
 #line 168
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 171 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5001/dscv_tempdir/dscv/ri/43_1a/drivers/mfd/rdc321x-southbridge.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 174 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5001/dscv_tempdir/dscv/ri/43_1a/drivers/mfd/rdc321x-southbridge.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_rdc321x_sb_probe_0_p1 ;
   int res_rdc321x_sb_probe_0 ;
@@ -1766,7 +1766,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_20099: 
   {
 #line 220
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 222
   if (tmp___0 == 0) {
@@ -1813,7 +1813,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_20100: 
   {
 #line 216
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 216
   if (tmp___1 != 0) {
@@ -1848,9 +1848,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5001/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

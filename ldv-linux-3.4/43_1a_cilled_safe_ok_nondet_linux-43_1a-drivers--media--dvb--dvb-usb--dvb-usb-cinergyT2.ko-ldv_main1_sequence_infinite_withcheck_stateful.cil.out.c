@@ -7665,7 +7665,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 293
 extern void ldv_initialize(void) ;
 #line 296
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 299 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8592/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/cinergyT2-core.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 302 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8592/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/cinergyT2-core.c.p"
@@ -7697,7 +7697,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_38906: 
   {
 #line 378
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 380
   if (tmp == 0) {
@@ -7792,7 +7792,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_38907: 
   {
 #line 374
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 374
   if (tmp___0 != 0) {
@@ -7822,9 +7822,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8592/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"
@@ -9555,7 +9555,7 @@ static struct dvb_frontend_ops cinergyt2_fe_ops  =
                                                             struct dtv_property * ))0,
     (int (*)(struct dvb_frontend * , struct dtv_property * ))0};
 #line 404 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8592/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/cinergyT2-fe.c.p"
-void ldv_main1_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_frontend *var_group1 ;
   struct dvb_frontend_tune_settings *var_group2 ;
   fe_status_t *var_cinergyt2_fe_read_status_1_p1 ;
@@ -9581,7 +9581,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
   ldv_38932: 
   {
 #line 470
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 472
   if (tmp == 0) {
@@ -9727,7 +9727,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
   ldv_38933: 
   {
 #line 466
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 466
   if (tmp___0 != 0) {

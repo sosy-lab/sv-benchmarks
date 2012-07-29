@@ -5184,11 +5184,11 @@ extern void ldv_check_final_state(void) ;
 #line 245
 extern void ldv_initialize(void) ;
 #line 248
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 251 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8479/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/frontends/tua6100.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 254 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8479/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/frontends/tua6100.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_frontend *var_group1 ;
   u32 *var_tua6100_get_frequency_3_p1 ;
   int ldv_s_tua6100_tuner_ops_dvb_tuner_ops ;
@@ -5209,7 +5209,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22815: 
   {
 #line 321
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 323
   if (tmp == 0) {
@@ -5283,7 +5283,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22816: 
   {
 #line 317
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 317
   if (tmp___0 != 0) {
@@ -5313,9 +5313,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8479/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

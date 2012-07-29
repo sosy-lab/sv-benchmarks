@@ -8765,11 +8765,11 @@ extern void ldv_check_final_state(void) ;
 #line 586
 extern void ldv_initialize(void) ;
 #line 589
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 592 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13852/dscv_tempdir/dscv/ri/43_1a/drivers/net/arcnet/rfc1201.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 595 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13852/dscv_tempdir/dscv/ri/43_1a/drivers/net/arcnet/rfc1201.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct net_device *var_group1 ;
   int var_rx_3_p1 ;
   struct archdr *var_rx_3_p2 ;
@@ -8811,7 +8811,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_34512: 
   {
 #line 672
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 674
   if (tmp___0 == 0) {
@@ -8888,7 +8888,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_34513: 
   {
 #line 669
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 669
   if (tmp___1 != 0) {
@@ -8917,9 +8917,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13852/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

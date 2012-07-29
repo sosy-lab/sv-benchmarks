@@ -4402,11 +4402,11 @@ void ldv_check_final_state(void) ;
 #line 374
 extern void ldv_initialize(void) ;
 #line 377
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 380 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15062/dscv_tempdir/dscv/ri/32_1/drivers/media/video/videobuf-vmalloc.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 383 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15062/dscv_tempdir/dscv/ri/32_1/drivers/media/video/videobuf-vmalloc.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct vm_area_struct *var_group1 ;
   size_t var___videobuf_alloc_vb_2_p0 ;
   struct videobuf_queue *var_group2 ;
@@ -4433,7 +4433,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 526
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 526
     if (tmp___0) {
@@ -4453,7 +4453,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 530
-    tmp = nondet_int();
+    tmp = __VERIFIER_nondet_int();
     }
 #line 532
     if (tmp == 0) {
@@ -4570,9 +4570,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15062/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

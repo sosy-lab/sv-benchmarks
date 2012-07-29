@@ -7619,11 +7619,11 @@ void ldv_check_final_state(void) ;
 #line 649
 extern void ldv_initialize(void) ;
 #line 652
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 655 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3888/dscv_tempdir/dscv/ri/32_1/drivers/cpufreq/pcc-cpufreq.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 658 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3888/dscv_tempdir/dscv/ri/32_1/drivers/cpufreq/pcc-cpufreq.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { unsigned int var_pcc_get_freq_3_p0 ;
   struct cpufreq_policy *var_group1 ;
   unsigned int var_pcc_cpufreq_target_4_p1 ;
@@ -7644,7 +7644,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 738
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 738
     if (tmp___8) {
@@ -7655,7 +7655,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 741
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 743
     if (tmp___7 == 0) {
@@ -7750,9 +7750,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3888/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

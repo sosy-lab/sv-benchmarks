@@ -20229,11 +20229,11 @@ void ldv_check_final_state(void) ;
 #line 1980
 extern void ldv_initialize(void) ;
 #line 1983
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1986 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10020/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/mwifiex/pcie.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1989 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10020/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/mwifiex/pcie.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct mwifiex_adapter *var_group1 ;
   u32 var_mwifiex_check_fw_status_31_p1 ;
   struct mwifiex_fw_image *var_group2 ;
@@ -20269,7 +20269,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 2208
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 2208
     if (tmp___9) {
@@ -20280,7 +20280,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 2211
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 2213
     if (tmp___8 == 0) {
@@ -20489,9 +20489,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10020/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

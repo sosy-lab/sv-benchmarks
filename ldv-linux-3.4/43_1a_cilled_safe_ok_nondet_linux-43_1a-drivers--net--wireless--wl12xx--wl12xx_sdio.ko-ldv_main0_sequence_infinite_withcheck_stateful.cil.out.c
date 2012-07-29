@@ -8641,11 +8641,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 417
 extern void ldv_initialize(void) ;
 #line 420
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 423 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13972/dscv_tempdir/dscv/ri/43_1a/drivers/net/wireless/wl12xx/sdio.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 426 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13972/dscv_tempdir/dscv/ri/43_1a/drivers/net/wireless/wl12xx/sdio.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct device *var_group1 ;
   int var_wl12xx_sdio_raw_read_1_p1 ;
   void *var_wl12xx_sdio_raw_read_1_p2 ;
@@ -8694,7 +8694,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_41080: 
   {
 #line 616
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 618
   if (tmp___0 == 0) {
@@ -8827,7 +8827,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_41081: 
   {
 #line 612
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 612
   if (tmp___1 != 0) {
@@ -8862,9 +8862,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13972/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

@@ -8321,13 +8321,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 176
 extern void ldv_initialize(void) ;
 #line 179
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 182 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13510/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/umt-010.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 207 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13510/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/umt-010.c.common.c"
 static int res_umt_probe_3  ;
 #line 185 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13510/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/umt-010.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_usb_adapter *var_group1 ;
   struct usb_interface *var_group2 ;
   struct usb_device_id  const  *var_umt_probe_3_p1 ;
@@ -8351,7 +8351,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 230
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 230
     if (tmp___8) {
@@ -8371,7 +8371,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 234
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 236
     if (tmp___7 == 0) {
@@ -8455,9 +8455,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13510/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

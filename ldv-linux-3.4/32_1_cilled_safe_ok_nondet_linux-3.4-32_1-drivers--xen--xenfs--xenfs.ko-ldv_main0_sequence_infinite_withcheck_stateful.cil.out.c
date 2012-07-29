@@ -2257,13 +2257,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 164
 extern void ldv_initialize(void) ;
 #line 167
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 170 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12411/dscv_tempdir/dscv/ri/32_1/drivers/xen/xenfs/super.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 191 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12411/dscv_tempdir/dscv/ri/32_1/drivers/xen/xenfs/super.c.common.c"
 static ssize_t res_capabilities_read_2  ;
 #line 173 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12411/dscv_tempdir/dscv/ri/32_1/drivers/xen/xenfs/super.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct file *var_group1 ;
   char *var_capabilities_read_2_p1 ;
   size_t var_capabilities_read_2_p2 ;
@@ -2303,7 +2303,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 233
-    tmp___1 = nondet_int();
+    tmp___1 = __VERIFIER_nondet_int();
     }
 #line 233
     if (tmp___1) {
@@ -2323,7 +2323,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 237
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 239
     if (tmp___0 == 0) {
@@ -2404,9 +2404,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12411/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
@@ -2953,7 +2953,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 168
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 168
     if (tmp___0) {
@@ -2982,7 +2982,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 173
-    tmp = nondet_int();
+    tmp = __VERIFIER_nondet_int();
     }
 #line 175
     if (tmp == 0) {

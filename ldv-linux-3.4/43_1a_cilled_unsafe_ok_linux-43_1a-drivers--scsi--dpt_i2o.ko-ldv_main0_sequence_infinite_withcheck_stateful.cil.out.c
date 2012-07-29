@@ -27761,11 +27761,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 3739
 extern void ldv_initialize(void) ;
 #line 3742
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 3745 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3986/dscv_tempdir/dscv/ri/43_1a/drivers/scsi/dpt_i2o.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 3748 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3986/dscv_tempdir/dscv/ri/43_1a/drivers/scsi/dpt_i2o.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct file *var_group1 ;
   uint var_adpt_unlocked_ioctl_39_p1 ;
   ulong var_adpt_unlocked_ioctl_39_p2 ;
@@ -27812,7 +27812,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_33029: 
   {
 #line 4581
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 4583
   if (tmp___0 == 0) {
@@ -28003,7 +28003,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_33030: 
   {
 #line 4577
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 4577
   if (tmp___1 != 0) {
@@ -28038,9 +28038,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3986/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

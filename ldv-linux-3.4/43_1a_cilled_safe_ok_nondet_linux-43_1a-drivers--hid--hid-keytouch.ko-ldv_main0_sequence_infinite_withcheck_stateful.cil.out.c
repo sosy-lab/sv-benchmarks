@@ -2414,11 +2414,11 @@ extern void ldv_check_final_state(void) ;
 #line 105
 extern void ldv_initialize(void) ;
 #line 108
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 111 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4832/dscv_tempdir/dscv/ri/43_1a/drivers/hid/hid-keytouch.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 114 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4832/dscv_tempdir/dscv/ri/43_1a/drivers/hid/hid-keytouch.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct hid_device *var_group1 ;
   __u8 *var_keytouch_report_fixup_0_p1 ;
   unsigned int *var_keytouch_report_fixup_0_p2 ;
@@ -2447,7 +2447,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_19745: 
   {
 #line 159
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 161
   if (tmp___0 == 0) {
@@ -2478,7 +2478,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_19746: 
   {
 #line 156
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 156
   if (tmp___1 != 0) {
@@ -2507,9 +2507,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4832/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

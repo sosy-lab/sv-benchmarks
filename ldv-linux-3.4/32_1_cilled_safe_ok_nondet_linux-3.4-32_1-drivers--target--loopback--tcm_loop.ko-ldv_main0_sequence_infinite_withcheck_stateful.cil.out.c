@@ -15936,13 +15936,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 1509
 extern void ldv_initialize(void) ;
 #line 1512
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1515 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/17463/dscv_tempdir/dscv/ri/32_1/drivers/target/loopback/tcm_loop.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1538 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/17463/dscv_tempdir/dscv/ri/32_1/drivers/target/loopback/tcm_loop.c.common.c"
 static int res_tcm_loop_driver_probe_11  ;
 #line 1518 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/17463/dscv_tempdir/dscv/ri/32_1/drivers/target/loopback/tcm_loop.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct device *var_group1 ;
   struct device_driver *var_group2 ;
   struct Scsi_Host *var_group3 ;
@@ -15985,7 +15985,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1621
-    tmp___19 = nondet_int();
+    tmp___19 = __VERIFIER_nondet_int();
     }
 #line 1621
     if (tmp___19) {
@@ -16005,7 +16005,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 1625
-    tmp___18 = nondet_int();
+    tmp___18 = __VERIFIER_nondet_int();
     }
 #line 1627
     if (tmp___18 == 0) {
@@ -16169,9 +16169,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/17463/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

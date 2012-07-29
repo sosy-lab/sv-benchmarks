@@ -4319,11 +4319,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 402
 extern void ldv_initialize(void) ;
 #line 405
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 408 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/12236/dscv_tempdir/dscv/ri/43_1a/drivers/regulator/max8649.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 411 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/12236/dscv_tempdir/dscv/ri/43_1a/drivers/regulator/max8649.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct regulator_dev *var_group1 ;
   int var_max8649_set_voltage_3_p1 ;
   int var_max8649_set_voltage_3_p2 ;
@@ -4361,7 +4361,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_23089: 
   {
 #line 744
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 746
   if (tmp___0 == 0) {
@@ -4517,7 +4517,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_23090: 
   {
 #line 740
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 740
   if (tmp___1 != 0) {
@@ -4552,9 +4552,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/12236/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

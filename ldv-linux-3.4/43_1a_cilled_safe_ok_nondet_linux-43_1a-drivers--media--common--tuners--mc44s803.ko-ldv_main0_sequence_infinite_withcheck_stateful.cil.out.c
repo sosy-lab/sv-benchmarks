@@ -5223,11 +5223,11 @@ extern void ldv_check_final_state(void) ;
 #line 411
 extern void ldv_initialize(void) ;
 #line 414
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 417 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/9518/dscv_tempdir/dscv/ri/43_1a/drivers/media/common/tuners/mc44s803.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 420 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/9518/dscv_tempdir/dscv/ri/43_1a/drivers/media/common/tuners/mc44s803.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_frontend *var_group1 ;
   u32 *var_mc44s803_get_frequency_5_p1 ;
   int ldv_s_mc44s803_tuner_ops_dvb_tuner_ops ;
@@ -5248,7 +5248,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22836: 
   {
 #line 476
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 478
   if (tmp == 0) {
@@ -5322,7 +5322,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22837: 
   {
 #line 472
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 472
   if (tmp___0 != 0) {
@@ -5352,9 +5352,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/9518/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

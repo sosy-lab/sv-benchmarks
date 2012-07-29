@@ -2884,11 +2884,11 @@ extern void ldv_check_final_state(void) ;
 #line 563
 extern void ldv_initialize(void) ;
 #line 566
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 569 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/7511/dscv_tempdir/dscv/ri/43_1a/drivers/media/video/zoran/zr36016.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 572 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/7511/dscv_tempdir/dscv/ri/43_1a/drivers/media/video/zoran/zr36016.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct videocodec *var_group1 ;
   int var_zr36016_set_mode_8_p1 ;
   struct tvnorm *var_group2 ;
@@ -2922,7 +2922,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_15220: 
   {
 #line 695
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 697
   if (tmp___0 == 0) {
@@ -3002,7 +3002,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_15221: 
   {
 #line 692
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 692
   if (tmp___1 != 0) {
@@ -3031,9 +3031,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/7511/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

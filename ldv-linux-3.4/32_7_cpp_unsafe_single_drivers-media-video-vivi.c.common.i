@@ -31370,13 +31370,13 @@ void ldv_check_return_value(int res);
 void ldv_initialize(void);
 
 
-int nondet_int(void);
+int __VERIFIER_nondet_int(void);
 
 
 int LDV_IN_INTERRUPT;
 
 
-void ldv_main0_sequence_infinite_withcheck_stateful(void) {
+void main(void) {
 # 1475 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
  struct vb2_buffer * var_group1;
 # 1657 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
@@ -31474,11 +31474,11 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void) {
 
 
 
- while( nondet_int()
+ while( __VERIFIER_nondet_int()
   || !(ldv_s_vivi_fops_v4l2_file_operations == 0)
  ) {
 
-  switch(nondet_int()) {
+  switch(__VERIFIER_nondet_int()) {
 
    case 0: {
 # 2718 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
@@ -31903,7 +31903,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void) {
 
 
 void ldv_blast_assert(void) {
-LDV_ERROR: goto LDV_ERROR;
+ERROR: goto ERROR;
 }
 # 5 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h" 2
 

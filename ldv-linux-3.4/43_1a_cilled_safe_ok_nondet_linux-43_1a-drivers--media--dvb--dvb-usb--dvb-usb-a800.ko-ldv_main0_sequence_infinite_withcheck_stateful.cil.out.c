@@ -7524,11 +7524,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 230
 extern void ldv_initialize(void) ;
 #line 233
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 236 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8572/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/a800.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 239 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8572/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/a800.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_usb_device *var_group1 ;
   int var_a800_power_ctrl_0_p1 ;
   struct usb_device *var_group2 ;
@@ -7558,7 +7558,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_39108: 
   {
 #line 312
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 314
   if (tmp == 0) {
@@ -7641,7 +7641,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_39109: 
   {
 #line 308
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 308
   if (tmp___0 != 0) {
@@ -7671,9 +7671,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8572/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

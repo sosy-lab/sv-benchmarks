@@ -14057,11 +14057,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 1321
 extern void ldv_initialize(void) ;
 #line 1324
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1327 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/2012/dscv_tempdir/dscv/ri/43_1a/drivers/usb/storage/alauda.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 1330 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/2012/dscv_tempdir/dscv/ri/43_1a/drivers/usb/storage/alauda.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_alauda_probe_27_p1 ;
   int res_alauda_probe_27 ;
@@ -14083,7 +14083,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_31417: 
   {
 #line 1415
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 1417
   if (tmp == 0) {
@@ -14130,7 +14130,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_31418: 
   {
 #line 1411
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 1411
   if (tmp___0 != 0) {
@@ -14160,9 +14160,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/2012/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

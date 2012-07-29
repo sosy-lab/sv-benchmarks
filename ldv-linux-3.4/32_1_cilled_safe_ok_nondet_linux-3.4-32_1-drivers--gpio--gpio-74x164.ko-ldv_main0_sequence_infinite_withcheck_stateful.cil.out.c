@@ -3657,13 +3657,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 203
 extern void ldv_initialize(void) ;
 #line 206
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 209 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5840/dscv_tempdir/dscv/ri/32_1/drivers/gpio/gpio-74x164.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 224 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5840/dscv_tempdir/dscv/ri/32_1/drivers/gpio/gpio-74x164.c.common.c"
 static int res_gen_74x164_probe_5  ;
 #line 212 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5840/dscv_tempdir/dscv/ri/32_1/drivers/gpio/gpio-74x164.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct spi_device *var_group1 ;
   int tmp___7 ;
   int ldv_s_gen_74x164_driver_spi_driver ;
@@ -3695,7 +3695,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 252
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 252
     if (tmp___9) {
@@ -3715,7 +3715,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 256
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 258
     if (tmp___8 == 0) {
@@ -3780,9 +3780,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5840/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

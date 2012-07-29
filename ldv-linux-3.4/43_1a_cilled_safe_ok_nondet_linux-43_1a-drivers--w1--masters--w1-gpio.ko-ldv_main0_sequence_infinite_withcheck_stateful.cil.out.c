@@ -1713,11 +1713,11 @@ extern void ldv_check_final_state(void) ;
 #line 198
 extern void ldv_initialize(void) ;
 #line 201
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 204 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4896/dscv_tempdir/dscv/ri/43_1a/drivers/w1/masters/w1-gpio.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 207 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4896/dscv_tempdir/dscv/ri/43_1a/drivers/w1/masters/w1-gpio.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct platform_device *var_group1 ;
   pm_message_t var_w1_gpio_suspend_5_p1 ;
   int ldv_s_w1_gpio_driver_platform_driver ;
@@ -1749,7 +1749,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_15778: 
   {
 #line 275
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 277
   if (tmp___0 == 0) {
@@ -1806,7 +1806,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_15779: 
   {
 #line 271
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 271
   if (tmp___1 != 0) {
@@ -1840,9 +1840,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4896/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

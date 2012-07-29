@@ -8716,11 +8716,11 @@ void ldv_check_final_state(void) ;
 #line 974
 extern void ldv_initialize(void) ;
 #line 977
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 980 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6152/dscv_tempdir/dscv/ri/32_1/drivers/firmware/google/gsmi.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 983 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6152/dscv_tempdir/dscv/ri/32_1/drivers/firmware/google/gsmi.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { efi_char16_t *var_gsmi_get_variable_4_p0 ;
   efi_guid_t *var_gsmi_get_variable_4_p1 ;
   u32 *var_gsmi_get_variable_4_p2 ;
@@ -8778,7 +8778,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1501
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 1501
     if (tmp___9) {
@@ -8789,7 +8789,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 1504
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1506
     if (tmp___8 == 0) {
@@ -8941,9 +8941,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6152/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

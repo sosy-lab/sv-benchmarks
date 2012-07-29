@@ -5965,11 +5965,11 @@ void ldv_check_final_state(void) ;
 #line 145
 extern void ldv_initialize(void) ;
 #line 148
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 151 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6961/dscv_tempdir/dscv/ri/32_1/drivers/gpu/drm/drm_usb.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 154 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6961/dscv_tempdir/dscv/ri/32_1/drivers/gpu/drm/drm_usb.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct drm_device *var_group1 ;
   struct drm_master *var_group2 ;
   int tmp___7 ;
@@ -5988,7 +5988,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 191
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 191
     if (tmp___8) {
@@ -5999,7 +5999,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 194
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 196
     if (tmp___7 == 0) {
@@ -6066,9 +6066,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6961/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

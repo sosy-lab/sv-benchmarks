@@ -4663,11 +4663,11 @@ extern void ldv_check_final_state(void) ;
 #line 227
 extern void ldv_initialize(void) ;
 #line 230
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 233 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8439/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/frontends/lnbp21.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 236 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8439/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/frontends/lnbp21.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { int tmp ;
   int tmp___0 ;
 
@@ -4683,7 +4683,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22837: 
   {
 #line 262
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
   {
 #line 264
@@ -4701,7 +4701,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22838: 
   {
 #line 259
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 259
   if (tmp___0 != 0) {
@@ -4726,9 +4726,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8439/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

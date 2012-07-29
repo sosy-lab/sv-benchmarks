@@ -254,11 +254,11 @@ void ldv_check_final_state(void) ;
 #line 96
 extern void ldv_initialize(void) ;
 #line 99
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 102 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12894/dscv_tempdir/dscv/ri/32_1/drivers/media/rc/keymaps/rc-flyvideo.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 105 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12894/dscv_tempdir/dscv/ri/32_1/drivers/media/rc/keymaps/rc-flyvideo.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -285,7 +285,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 135
-    tmp___1 = nondet_int();
+    tmp___1 = __VERIFIER_nondet_int();
     }
 #line 135
     if (tmp___1) {
@@ -296,7 +296,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 138
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
     {
 #line 140
@@ -331,9 +331,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12894/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

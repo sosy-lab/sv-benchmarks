@@ -8416,13 +8416,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 258
 extern void ldv_initialize(void) ;
 #line 261
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 264 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13509/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/nova-t-usb2.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 297 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13509/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/nova-t-usb2.c.common.c"
 static int res_nova_t_probe_1  ;
 #line 267 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13509/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/nova-t-usb2.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_usb_device *var_group1 ;
   u32 *var_nova_t_rc_query_0_p1 ;
   int *var_nova_t_rc_query_0_p2 ;
@@ -8448,7 +8448,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 320
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 320
     if (tmp___8) {
@@ -8468,7 +8468,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 324
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 326
     if (tmp___7 == 0) {
@@ -8540,9 +8540,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13509/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

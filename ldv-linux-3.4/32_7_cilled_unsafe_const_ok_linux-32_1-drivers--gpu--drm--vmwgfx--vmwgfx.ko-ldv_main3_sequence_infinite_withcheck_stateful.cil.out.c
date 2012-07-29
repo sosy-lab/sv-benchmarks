@@ -14597,9 +14597,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6447/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
@@ -31270,7 +31270,7 @@ int vmw_kms_update_layout_ioctl(struct drm_device *dev , void *data , struct drm
 #line 2059
 extern void ldv_initialize(void) ;
 #line 2062
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 2065 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6447/dscv_tempdir/dscv/ri/32_1/drivers/gpu/drm/vmwgfx/vmwgfx_kms.c"
 int LDV_IN_INTERRUPT  ;
 #line 2068 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6447/dscv_tempdir/dscv/ri/32_1/drivers/gpu/drm/vmwgfx/vmwgfx_kms.c"
@@ -31304,7 +31304,7 @@ void ldv_main2_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 2213
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 2213
     if (tmp___8) {
@@ -31315,7 +31315,7 @@ void ldv_main2_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 2216
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 2218
     if (tmp___7 == 0) {
@@ -37410,7 +37410,7 @@ static int res_vmw_driver_open_12  ;
 #line 2606 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6447/dscv_tempdir/dscv/ri/32_1/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c"
 static int res_vmw_probe_29  ;
 #line 1242 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6447/dscv_tempdir/dscv/ri/32_1/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c"
-void ldv_main3_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct device *var_group1 ;
   struct file *var_group2 ;
   unsigned int var_vmw_unlocked_ioctl_13_p1 ;
@@ -37457,7 +37457,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 2794
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 2794
     if (tmp___9) {
@@ -37486,7 +37486,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 2799
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 2801
     if (tmp___8 == 0) {
@@ -42262,7 +42262,7 @@ void ldv_main4_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 810
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 810
     if (tmp___8) {
@@ -42273,7 +42273,7 @@ void ldv_main4_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 813
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 815
     if (tmp___7 == 0) {
@@ -54686,7 +54686,7 @@ void ldv_main7_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 484
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 484
     if (tmp___8) {
@@ -54697,7 +54697,7 @@ void ldv_main7_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 487
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 489
     if (tmp___7 == 0) {
@@ -63897,7 +63897,7 @@ void ldv_main10_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 557
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 557
     if (tmp___8) {
@@ -63908,7 +63908,7 @@ void ldv_main10_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 560
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 562
     if (tmp___7 == 0) {
@@ -79426,7 +79426,7 @@ void ldv_main17_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 684
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 684
     if (tmp___8) {
@@ -79437,7 +79437,7 @@ void ldv_main17_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 687
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 689
     if (tmp___7 == 0) {

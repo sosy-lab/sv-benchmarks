@@ -7806,11 +7806,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 387
 extern void ldv_initialize(void) ;
 #line 390
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 393 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13848/dscv_tempdir/dscv/ri/43_1a/drivers/net/arcnet/com20020_cs.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 396 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13848/dscv_tempdir/dscv/ri/43_1a/drivers/net/arcnet/com20020_cs.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct pcmcia_device *var_group1 ;
   int res_com20020_probe_1 ;
   int ldv_s_com20020_cs_driver_pcmcia_driver ;
@@ -7841,7 +7841,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_37003: 
   {
 #line 467
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 469
   if (tmp___0 == 0) {
@@ -7924,7 +7924,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_37004: 
   {
 #line 463
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 463
   if (tmp___1 != 0) {
@@ -7959,9 +7959,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13848/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

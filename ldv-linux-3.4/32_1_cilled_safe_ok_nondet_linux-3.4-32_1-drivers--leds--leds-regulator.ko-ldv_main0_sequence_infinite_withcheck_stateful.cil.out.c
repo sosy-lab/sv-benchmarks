@@ -2505,13 +2505,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 262
 extern void ldv_initialize(void) ;
 #line 265
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 268 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12609/dscv_tempdir/dscv/ri/32_1/drivers/leds/leds-regulator.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 286 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12609/dscv_tempdir/dscv/ri/32_1/drivers/leds/leds-regulator.c.common.c"
 static int res_regulator_led_probe_7  ;
 #line 271 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12609/dscv_tempdir/dscv/ri/32_1/drivers/leds/leds-regulator.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct platform_device *var_group1 ;
   int ldv_s_regulator_led_driver_platform_driver ;
   int tmp ;
@@ -2533,7 +2533,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 307
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 307
     if (tmp___0) {
@@ -2553,7 +2553,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 311
-    tmp = nondet_int();
+    tmp = __VERIFIER_nondet_int();
     }
 #line 313
     if (tmp == 0) {
@@ -2613,9 +2613,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12609/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

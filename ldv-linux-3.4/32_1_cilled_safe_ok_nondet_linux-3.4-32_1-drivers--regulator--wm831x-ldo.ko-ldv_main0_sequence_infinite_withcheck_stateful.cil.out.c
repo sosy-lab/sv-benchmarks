@@ -6517,7 +6517,7 @@ extern void ldv_check_return_value(int res ) ;
 #line 908
 extern void ldv_initialize(void) ;
 #line 911
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 914 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4594/dscv_tempdir/dscv/ri/32_1/drivers/regulator/wm831x-ldo.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1136 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4594/dscv_tempdir/dscv/ri/32_1/drivers/regulator/wm831x-ldo.c.common.c"
@@ -6527,7 +6527,7 @@ static int res_wm831x_aldo_probe_23  ;
 #line 1483 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4594/dscv_tempdir/dscv/ri/32_1/drivers/regulator/wm831x-ldo.c.common.c"
 static int res_wm831x_alive_ldo_probe_31  ;
 #line 917 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4594/dscv_tempdir/dscv/ri/32_1/drivers/regulator/wm831x-ldo.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct regulator_dev *var_group1 ;
   unsigned int var_wm831x_gp_ldo_list_voltage_4_p1 ;
   int var_wm831x_gp_ldo_set_voltage_6_p1 ;
@@ -6590,7 +6590,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1557
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 1557
     if (tmp___9) {
@@ -6628,7 +6628,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 1563
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1565
     if (tmp___8 == 0) {
@@ -7117,9 +7117,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4594/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

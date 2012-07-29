@@ -14326,11 +14326,11 @@ void ldv_check_final_state(void) ;
 #line 1425
 extern void ldv_initialize(void) ;
 #line 1428
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1431 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1434 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct vb2_buffer *var_group1 ;
   struct vb2_queue *var_group2 ;
   unsigned int var_start_streaming_16_p1 ;
@@ -14401,7 +14401,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 2673
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 2673
     if (tmp___9) {
@@ -14421,7 +14421,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 2677
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 2679
     if (tmp___8 == 0) {
@@ -14824,9 +14824,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

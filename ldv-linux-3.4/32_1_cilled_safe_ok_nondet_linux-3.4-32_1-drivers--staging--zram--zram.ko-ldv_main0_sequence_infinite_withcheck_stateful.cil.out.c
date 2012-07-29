@@ -9265,11 +9265,11 @@ void ldv_check_final_state(void) ;
 #line 888
 extern void ldv_initialize(void) ;
 #line 891
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 894 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1136/dscv_tempdir/dscv/ri/32_1/drivers/staging/zram/zram_drv.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 897 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1136/dscv_tempdir/dscv/ri/32_1/drivers/staging/zram/zram_drv.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct block_device *var_group1 ;
   unsigned long var_zram_slot_free_notify_25_p1 ;
   int tmp___7 ;
@@ -9298,7 +9298,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 953
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 953
     if (tmp___9) {
@@ -9309,7 +9309,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 956
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 958
     if (tmp___8 == 0) {
@@ -9357,9 +9357,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1136/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
@@ -10396,7 +10396,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 284
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 284
     if (tmp___0) {
@@ -10407,7 +10407,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 287
-    tmp = nondet_int();
+    tmp = __VERIFIER_nondet_int();
     }
     {
 #line 289

@@ -14659,13 +14659,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 868
 extern void ldv_initialize(void) ;
 #line 871
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 874 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13517/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/dib0700_core.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 914 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13517/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/dib0700_core.c.common.c"
 static int res_dib0700_probe_19  ;
 #line 877 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13517/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/dib0700_core.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct i2c_adapter *var_group1 ;
   struct i2c_msg *var_group2 ;
   int var_dib0700_i2c_xfer_7_p2 ;
@@ -14691,7 +14691,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 937
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 937
     if (tmp___8) {
@@ -14711,7 +14711,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 941
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 943
     if (tmp___7 == 0) {
@@ -14795,9 +14795,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13517/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
@@ -44020,7 +44020,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 5275
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 5275
     if (tmp___8) {
@@ -44031,7 +44031,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 5278
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 5280
     if (tmp___7 == 0) {

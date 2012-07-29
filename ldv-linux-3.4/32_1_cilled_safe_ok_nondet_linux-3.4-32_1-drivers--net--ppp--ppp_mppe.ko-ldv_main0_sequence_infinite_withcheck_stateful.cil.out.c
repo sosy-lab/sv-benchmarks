@@ -5542,11 +5542,11 @@ void ldv_check_final_state(void) ;
 #line 765
 extern void ldv_initialize(void) ;
 #line 768
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 771 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9572/dscv_tempdir/dscv/ri/32_1/drivers/net/ppp/ppp_mppe.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 774 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9572/dscv_tempdir/dscv/ri/32_1/drivers/net/ppp/ppp_mppe.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { unsigned char *var_mppe_alloc_4_p0 ;
   int var_mppe_alloc_4_p1 ;
   void *var_mppe_free_5_p0 ;
@@ -5606,7 +5606,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1037
-    tmp___1 = nondet_int();
+    tmp___1 = __VERIFIER_nondet_int();
     }
 #line 1037
     if (tmp___1) {
@@ -5617,7 +5617,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 1040
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 1042
     if (tmp___0 == 0) {
@@ -5778,9 +5778,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9572/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

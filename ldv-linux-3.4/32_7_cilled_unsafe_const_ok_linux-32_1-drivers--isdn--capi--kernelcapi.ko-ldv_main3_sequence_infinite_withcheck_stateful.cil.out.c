@@ -10559,7 +10559,7 @@ void ldv_check_final_state(void) ;
 #line 1341
 extern void ldv_initialize(void) ;
 #line 1344
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1347 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3398/dscv_tempdir/dscv/ri/32_1/drivers/isdn/capi/kcapi.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1350 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3398/dscv_tempdir/dscv/ri/32_1/drivers/isdn/capi/kcapi.c.common.c"
@@ -10593,7 +10593,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1412
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 1412
     if (tmp___9) {
@@ -10604,7 +10604,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 1415
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1417
     if (tmp___8 == 0) {
@@ -10652,9 +10652,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3398/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
@@ -19460,7 +19460,7 @@ static int res_seq_applstats_open_14  ;
 #line 480 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3398/dscv_tempdir/dscv/ri/32_1/drivers/isdn/capi/kcapi_proc.c"
 static int res_seq_capi_driver_open_19  ;
 #line 356 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3398/dscv_tempdir/dscv/ri/32_1/drivers/isdn/capi/kcapi_proc.c"
-void ldv_main3_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct seq_file *var_group1 ;
   loff_t *var_controller_start_1_p1 ;
   void *var_controller_next_2_p1 ;
@@ -19517,7 +19517,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 519
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 519
     if (tmp___0) {
@@ -19573,7 +19573,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 527
-    tmp = nondet_int();
+    tmp = __VERIFIER_nondet_int();
     }
 #line 529
     if (tmp == 0) {

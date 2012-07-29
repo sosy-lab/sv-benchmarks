@@ -3933,13 +3933,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 199
 extern void ldv_initialize(void) ;
 #line 202
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 205 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3633/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hisax/avma1_cs.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 220 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3633/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hisax/avma1_cs.c.common.c"
 static int res_avma1cs_probe_0  ;
 #line 208 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3633/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hisax/avma1_cs.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct pcmcia_device *var_group1 ;
   int tmp___7 ;
   int ldv_s_avma1cs_driver_pcmcia_driver ;
@@ -3971,7 +3971,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 248
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 248
     if (tmp___9) {
@@ -3991,7 +3991,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 252
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 254
     if (tmp___8 == 0) {
@@ -4056,9 +4056,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3633/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

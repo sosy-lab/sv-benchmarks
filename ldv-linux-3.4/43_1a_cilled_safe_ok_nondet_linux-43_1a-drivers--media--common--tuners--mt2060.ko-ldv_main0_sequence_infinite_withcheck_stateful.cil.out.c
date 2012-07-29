@@ -5802,11 +5802,11 @@ extern void ldv_check_final_state(void) ;
 #line 442
 extern void ldv_initialize(void) ;
 #line 445
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 448 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/9519/dscv_tempdir/dscv/ri/43_1a/drivers/media/common/tuners/mt2060.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 451 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/9519/dscv_tempdir/dscv/ri/43_1a/drivers/media/common/tuners/mt2060.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_frontend *var_group1 ;
   u32 *var_mt2060_get_frequency_7_p1 ;
   u32 *var_mt2060_get_if_frequency_8_p1 ;
@@ -5828,7 +5828,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22879: 
   {
 #line 553
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 555
   if (tmp == 0) {
@@ -5926,7 +5926,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_22880: 
   {
 #line 549
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 549
   if (tmp___0 != 0) {
@@ -5956,9 +5956,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/9519/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

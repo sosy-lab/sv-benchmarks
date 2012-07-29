@@ -11612,11 +11612,11 @@ void ldv_check_final_state(void) ;
 #line 899
 extern void ldv_initialize(void) ;
 #line 902
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 905 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/14008/dscv_tempdir/dscv/ri/32_1/drivers/media/common/tuners/tda8290.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 908 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/14008/dscv_tempdir/dscv/ri/32_1/drivers/media/common/tuners/tda8290.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct dvb_frontend *var_group1 ;
   struct analog_parameters *var_group2 ;
   int var_tda8290_i2c_bridge_0_p1 ;
@@ -11645,7 +11645,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1089
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1089
     if (tmp___8) {
@@ -11674,7 +11674,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 1094
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 1096
     if (tmp___7 == 0) {
@@ -11839,9 +11839,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/14008/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

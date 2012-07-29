@@ -7243,13 +7243,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 290
 extern void ldv_initialize(void) ;
 #line 293
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 296 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10308/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/orinoco/orinoco_pci.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 321 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10308/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/orinoco/orinoco_pci.c.common.c"
 static int res_orinoco_pci_init_one_1  ;
 #line 299 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10308/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/orinoco/orinoco_pci.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_orinoco_pci_init_one_1_p1 ;
   int tmp___7 ;
@@ -7282,7 +7282,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 357
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 357
     if (tmp___9) {
@@ -7302,7 +7302,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 361
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 363
     if (tmp___8 == 0) {
@@ -7367,9 +7367,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10308/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

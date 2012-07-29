@@ -8507,7 +8507,7 @@ void ldv_check_final_state(void) ;
 #line 356
 extern void ldv_initialize(void) ;
 #line 359
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 362 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/508/dscv_tempdir/dscv/ri/32_1/drivers/scsi/libfc/fc_libfc.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 365 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/508/dscv_tempdir/dscv/ri/32_1/drivers/scsi/libfc/fc_libfc.c.common.c"
@@ -8538,7 +8538,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 395
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 395
     if (tmp___9) {
@@ -8549,7 +8549,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 398
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
     {
 #line 400
@@ -8584,9 +8584,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/508/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
@@ -50108,7 +50108,7 @@ __aligned__(1)))  =
 static struct kernel_symbol    __ksymtab_fc_lport_bsg_request  __attribute__((__used__,
 __unused__, __section__("___ksymtab+fc_lport_bsg_request")))  =    {(unsigned long )(& fc_lport_bsg_request), __kstrtab_fc_lport_bsg_request};
 #line 2169 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/508/dscv_tempdir/dscv/ri/32_1/drivers/scsi/libfc/fc_lport.c"
-void ldv_main5_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct fc_rport_priv *var_group1 ;
   u32 var_fc_lport_els_prli_27_p1 ;
   struct fc_els_spp    *var_fc_lport_els_prli_27_p2 ;
@@ -50132,7 +50132,7 @@ void ldv_main5_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 2232
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 2232
     if (tmp___8) {
@@ -50143,7 +50143,7 @@ void ldv_main5_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 2235
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 2237
     if (tmp___7 == 0) {
@@ -63954,7 +63954,7 @@ void ldv_main6_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 2125
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 2125
     if (tmp___8) {
@@ -63965,7 +63965,7 @@ void ldv_main6_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 2128
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 2130
     if (tmp___7 == 0) {

@@ -4749,11 +4749,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 331
 extern void ldv_initialize(void) ;
 #line 334
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 337 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3103/dscv_tempdir/dscv/ri/43_1a/drivers/input/touchscreen/egalax_ts.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 340 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3103/dscv_tempdir/dscv/ri/43_1a/drivers/input/touchscreen/egalax_ts.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct i2c_client *var_group1 ;
   struct i2c_device_id  const  *var_egalax_ts_probe_3_p1 ;
   int res_egalax_ts_probe_3 ;
@@ -4777,7 +4777,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_23960: 
   {
 #line 427
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 429
   if (tmp == 0) {
@@ -4840,7 +4840,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_23961: 
   {
 #line 423
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 423
   if (tmp___0 != 0) {
@@ -4870,9 +4870,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3103/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

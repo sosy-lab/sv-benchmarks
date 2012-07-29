@@ -2928,11 +2928,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 322
 extern void ldv_initialize(void) ;
 #line 325
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 328 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/11927/dscv_tempdir/dscv/ri/43_1a/drivers/macintosh/mac_hid.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 331 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/11927/dscv_tempdir/dscv/ri/43_1a/drivers/macintosh/mac_hid.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct input_handle *var_group1 ;
   unsigned int var_mac_hid_emumouse_filter_2_p1 ;
   unsigned int var_mac_hid_emumouse_filter_2_p2 ;
@@ -2969,7 +2969,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_19295: 
   {
 #line 392
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 394
   if (tmp___0 == 0) {
@@ -3049,7 +3049,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_19296: 
   {
 #line 388
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 388
   if (tmp___1 != 0) {
@@ -3084,9 +3084,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/11927/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

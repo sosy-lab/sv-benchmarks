@@ -4446,11 +4446,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 459
 extern void ldv_initialize(void) ;
 #line 462
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 465 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5011/dscv_tempdir/dscv/ri/43_1a/drivers/mfd/wm8400-core.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 468 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5011/dscv_tempdir/dscv/ri/43_1a/drivers/mfd/wm8400-core.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct i2c_client *var_group1 ;
   struct i2c_device_id  const  *var_wm8400_i2c_probe_9_p1 ;
   int res_wm8400_i2c_probe_9 ;
@@ -4483,7 +4483,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_23050: 
   {
 #line 543
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 545
   if (tmp___0 == 0) {
@@ -4558,7 +4558,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_23051: 
   {
 #line 539
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 539
   if (tmp___1 != 0) {
@@ -4593,9 +4593,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5011/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

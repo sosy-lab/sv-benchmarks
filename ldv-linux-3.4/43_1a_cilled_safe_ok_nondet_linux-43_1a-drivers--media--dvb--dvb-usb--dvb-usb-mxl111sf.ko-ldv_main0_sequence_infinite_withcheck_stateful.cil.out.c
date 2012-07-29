@@ -12960,11 +12960,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 1098
 extern void ldv_initialize(void) ;
 #line 1101
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1104 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8601/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/mxl111sf.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 1107 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8601/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/mxl111sf.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct mxl111sf_state *var_group1 ;
   u8 var_mxl111sf_read_reg_1_p1 ;
   u8 *var_mxl111sf_read_reg_1_p2 ;
@@ -13010,7 +13010,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_39378: 
   {
 #line 3883
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 3885
   if (tmp == 0) {
@@ -13349,7 +13349,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_39379: 
   {
 #line 3879
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 3879
   if (tmp___0 != 0) {
@@ -13379,9 +13379,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8601/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"
@@ -27793,7 +27793,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
   ldv_39080: 
   {
 #line 837
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
   {
 #line 839
@@ -27811,7 +27811,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
   ldv_39081: 
   {
 #line 834
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 834
   if (tmp___0 != 0) {

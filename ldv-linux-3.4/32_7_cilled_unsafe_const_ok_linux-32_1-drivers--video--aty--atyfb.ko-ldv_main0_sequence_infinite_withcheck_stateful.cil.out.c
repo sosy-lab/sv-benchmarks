@@ -20081,13 +20081,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 4056
 extern void ldv_initialize(void) ;
 #line 4059
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 4062 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16882/dscv_tempdir/dscv/ri/32_1/drivers/video/aty/atyfb_base.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 7503 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16882/dscv_tempdir/dscv/ri/32_1/drivers/video/aty/atyfb_base.c.common.c"
 static int res_atyfb_pci_probe_44  ;
 #line 4065 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16882/dscv_tempdir/dscv/ri/32_1/drivers/video/aty/atyfb_base.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct fb_info *var_group1 ;
   int var_atyfb_open_14_p1 ;
   int var_atyfb_release_18_p1 ;
@@ -20141,7 +20141,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 8919
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 8919
     if (tmp___9) {
@@ -20161,7 +20161,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 8923
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 8925
     if (tmp___8 == 0) {
@@ -20419,9 +20419,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16882/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
@@ -27247,7 +27247,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1445
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1445
     if (tmp___8) {
@@ -27258,7 +27258,7 @@ void ldv_main3_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 1448
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 1450
     if (tmp___7 == 0) {
@@ -31276,7 +31276,7 @@ void ldv_main4_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 936
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 936
     if (tmp___8) {
@@ -31287,7 +31287,7 @@ void ldv_main4_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 939
-    tmp___7 = nondet_int();
+    tmp___7 = __VERIFIER_nondet_int();
     }
 #line 941
     if (tmp___7 == 0) {

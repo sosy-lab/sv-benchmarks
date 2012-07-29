@@ -5866,11 +5866,11 @@ extern void ldv_check_return_value(int  ) ;
 #line 463
 extern void ldv_initialize(void) ;
 #line 466
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 469 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/1911/dscv_tempdir/dscv/ri/43_1a/drivers/usb/misc/cytherm.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 472 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/1911/dscv_tempdir/dscv/ri/43_1a/drivers/usb/misc/cytherm.c.p"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_cytherm_probe_11_p1 ;
   int res_cytherm_probe_11 ;
@@ -5892,7 +5892,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_24073: 
   {
 #line 547
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 549
   if (tmp == 0) {
@@ -5958,7 +5958,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   ldv_24074: 
   {
 #line 543
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 543
   if (tmp___0 != 0) {
@@ -5988,9 +5988,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: ;
+  ERROR: ;
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/1911/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

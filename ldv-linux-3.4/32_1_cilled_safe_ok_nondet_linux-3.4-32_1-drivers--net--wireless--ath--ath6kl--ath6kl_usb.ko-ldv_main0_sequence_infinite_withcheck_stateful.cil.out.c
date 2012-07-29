@@ -8278,13 +8278,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 457
 extern void ldv_initialize(void) ;
 #line 460
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 463 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10085/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/ath/ath6kl/usb.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 575 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10085/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/ath/ath6kl/usb.c.common.c"
 static int res_ath6kl_usb_probe_12  ;
 #line 466 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10085/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/ath/ath6kl/usb.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct ath6kl *var_group1 ;
   u32 var_ath6kl_usb_diag_read32_6_p1 ;
   u32 *var_ath6kl_usb_diag_read32_6_p2 ;
@@ -8326,7 +8326,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 625
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 625
     if (tmp___9) {
@@ -8346,7 +8346,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 629
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 631
     if (tmp___8 == 0) {
@@ -8502,9 +8502,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10085/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

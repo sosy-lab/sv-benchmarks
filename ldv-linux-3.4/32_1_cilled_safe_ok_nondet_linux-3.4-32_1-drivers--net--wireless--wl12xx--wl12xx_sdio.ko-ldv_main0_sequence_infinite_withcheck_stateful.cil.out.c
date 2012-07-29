@@ -9360,13 +9360,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 403
 extern void ldv_initialize(void) ;
 #line 406
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 409 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9905/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/wl12xx/sdio.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 549 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9905/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/wl12xx/sdio.c.common.c"
 static int res_wl1271_probe_6  ;
 #line 412 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9905/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/wl12xx/sdio.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct device *var_group1 ;
   int var_wl12xx_sdio_raw_read_1_p1 ;
   void *var_wl12xx_sdio_raw_read_1_p2 ;
@@ -9410,7 +9410,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 598
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 598
     if (tmp___9) {
@@ -9430,7 +9430,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 602
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 604
     if (tmp___8 == 0) {
@@ -9569,9 +9569,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9905/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

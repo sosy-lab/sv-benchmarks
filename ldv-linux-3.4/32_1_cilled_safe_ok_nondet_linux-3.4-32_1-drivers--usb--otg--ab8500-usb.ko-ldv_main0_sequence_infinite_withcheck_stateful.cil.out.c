@@ -5606,13 +5606,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 621
 extern void ldv_initialize(void) ;
 #line 624
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 627 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7763/dscv_tempdir/dscv/ri/32_1/drivers/usb/otg/ab8500-usb.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 659 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7763/dscv_tempdir/dscv/ri/32_1/drivers/usb/otg/ab8500-usb.c.common.c"
 static int res_ab8500_usb_probe_16  ;
 #line 630 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7763/dscv_tempdir/dscv/ri/32_1/drivers/usb/otg/ab8500-usb.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct platform_device *var_group1 ;
   int var_ab8500_usb_v1x_common_irq_5_p0 ;
   void *var_ab8500_usb_v1x_common_irq_5_p1 ;
@@ -5650,7 +5650,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 777
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 777
     if (tmp___9) {
@@ -5670,7 +5670,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 781
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 783
     if (tmp___8 == 0) {
@@ -5783,9 +5783,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7763/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

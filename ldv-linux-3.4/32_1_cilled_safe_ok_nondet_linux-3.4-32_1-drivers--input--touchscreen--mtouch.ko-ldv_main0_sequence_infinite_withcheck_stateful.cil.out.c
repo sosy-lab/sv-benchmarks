@@ -3289,13 +3289,13 @@ extern void ldv_check_return_value(int res ) ;
 #line 245
 extern void ldv_initialize(void) ;
 #line 248
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 251 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4184/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/mtouch.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 304 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4184/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/mtouch.c.common.c"
 static int res_mtouch_connect_4  ;
 #line 254 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4184/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/mtouch.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct serio *var_group1 ;
   unsigned char var_mtouch_interrupt_2_p1 ;
   unsigned int var_mtouch_interrupt_2_p2 ;
@@ -3330,7 +3330,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 365
-    tmp___1 = nondet_int();
+    tmp___1 = __VERIFIER_nondet_int();
     }
 #line 365
     if (tmp___1) {
@@ -3350,7 +3350,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 369
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 371
     if (tmp___0 == 0) {
@@ -3446,9 +3446,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4184/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"

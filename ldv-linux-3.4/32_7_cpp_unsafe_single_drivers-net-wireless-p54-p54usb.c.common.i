@@ -52492,13 +52492,13 @@ void ldv_check_return_value(int res);
 void ldv_initialize(void);
 
 
-int nondet_int(void);
+int __VERIFIER_nondet_int(void);
 
 
 int LDV_IN_INTERRUPT;
 
 
-void ldv_main0_sequence_infinite_withcheck_stateful(void) {
+void main(void) {
 # 1147 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10324/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/p54/p54usb.c.common.c"
  struct usb_interface * var_group1;
 
@@ -52514,11 +52514,11 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void) {
  int ldv_s_p54u_driver_usb_driver = 0;
 
 
- while( nondet_int()
+ while( __VERIFIER_nondet_int()
   || !(ldv_s_p54u_driver_usb_driver == 0)
  ) {
 
-  switch(nondet_int()) {
+  switch(__VERIFIER_nondet_int()) {
 
    case 0: {
 
@@ -52664,7 +52664,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void) {
 
 
 void ldv_blast_assert(void) {
-LDV_ERROR: goto LDV_ERROR;
+ERROR: goto ERROR;
 }
 # 5 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10324/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h" 2
 

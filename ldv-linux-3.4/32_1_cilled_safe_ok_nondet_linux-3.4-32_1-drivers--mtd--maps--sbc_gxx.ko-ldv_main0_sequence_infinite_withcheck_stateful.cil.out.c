@@ -1933,11 +1933,11 @@ void ldv_check_final_state(void) ;
 #line 261
 extern void ldv_initialize(void) ;
 #line 264
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 267 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5452/dscv_tempdir/dscv/ri/32_1/drivers/mtd/maps/sbc_gxx.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 270 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5452/dscv_tempdir/dscv/ri/32_1/drivers/mtd/maps/sbc_gxx.c.common.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { struct map_info *var_group1 ;
   unsigned long var_sbc_gxx_read8_1_p1 ;
   void *var_sbc_gxx_copy_from_2_p1 ;
@@ -1974,7 +1974,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     while_continue: /* CIL Label */ ;
     {
 #line 397
-    tmp___1 = nondet_int();
+    tmp___1 = __VERIFIER_nondet_int();
     }
 #line 397
     if (tmp___1) {
@@ -1985,7 +1985,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
     }
     {
 #line 400
-    tmp___0 = nondet_int();
+    tmp___0 = __VERIFIER_nondet_int();
     }
 #line 402
     if (tmp___0 == 0) {
@@ -2071,9 +2071,9 @@ void ldv_blast_assert(void)
 { 
 
   {
-  LDV_ERROR: 
+  ERROR: 
 #line 6
-  goto LDV_ERROR;
+  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5452/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
