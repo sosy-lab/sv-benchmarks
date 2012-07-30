@@ -4340,7 +4340,7 @@ int select_one(void) ;
 #line 7 "featureselect.c"
 int select_one(void) 
 { int retValue_acc ;
-  int choice ;
+  int choice = __VERIFIER_nondet_int();
 
   {
 #line 82 "featureselect.c"

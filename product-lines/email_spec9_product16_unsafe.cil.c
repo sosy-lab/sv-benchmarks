@@ -1866,7 +1866,7 @@ int valid_product(void) ;
 #line 8 "featureselect.c"
 int select_one(void) 
 { int retValue_acc ;
-  int choice ;
+  int choice = __VERIFIER_nondet_int();
 
   {
 #line 84 "featureselect.c"
