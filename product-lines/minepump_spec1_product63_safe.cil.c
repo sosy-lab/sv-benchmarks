@@ -289,7 +289,6 @@ int isPumpRunning(void)
 }
 }
 #line 75 "MinePump.c"
-extern int ( /* missing proto */  printf)() ;
 #line 74 "MinePump.c"
 void printPump(void) 
 { 

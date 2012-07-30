@@ -898,7 +898,6 @@ int isMethaneLevelCritical(void)
 }
 }
 #line 45 "Environment.c"
-extern int ( /* missing proto */  printf)() ;
 #line 44 "Environment.c"
 void printEnvironment(void) 
 { 
