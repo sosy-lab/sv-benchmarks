@@ -1,37 +1,32 @@
-int get_exit_nondet()
-{
-    int retval;
-    return (retval);
-}
-
+extern int __VERIFIER_nondet_int();
 int main()
 {
-    int p1;  // condition variable
+    int p1 = __VERIFIER_nondet_int();  // condition variable
     int lk1; // lock variable
 
-    int p2;  // condition variable
+    int p2 = __VERIFIER_nondet_int();  // condition variable
     int lk2; // lock variable
 
-    int p3;  // condition variable
+    int p3 = __VERIFIER_nondet_int();  // condition variable
     int lk3; // lock variable
 
-    int p4;  // condition variable
+    int p4 = __VERIFIER_nondet_int();  // condition variable
     int lk4; // lock variable
 
-    int p5;  // condition variable
+    int p5 = __VERIFIER_nondet_int();  // condition variable
     int lk5; // lock variable
 
-    int p6;  // condition variable
+    int p6 = __VERIFIER_nondet_int();  // condition variable
     int lk6; // lock variable
 
-    int p7;  // condition variable
+    int p7 = __VERIFIER_nondet_int();  // condition variable
     int lk7; // lock variable
 
 
     int cond;
 
     while(1) {
-        cond = get_exit_nondet();
+        cond = __VERIFIER_nondet_int();
         if (cond == 0) {
             goto out;
         } else {}
