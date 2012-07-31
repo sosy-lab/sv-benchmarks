@@ -1,11 +1,13 @@
 void error(void)
 {
+
   {
   goto ERROR;
   ERROR: ;
   return;
 }
 }
+
 int q_buf_0 ;
 int q_free ;
 int q_read_ev ;
@@ -14,17 +16,21 @@ int q_req_up ;
 int q_ev ;
 void update_fifo_q(void)
 {
+
   {
   if ((int )q_free == 0) {
     q_write_ev = 0;
   } else {
+
   }
   if ((int )q_free == 1) {
     q_read_ev = 0;
   } else {
+
   }
   q_ev = 0;
   q_req_up = 0;
+
   return;
 }
 }
@@ -40,14 +46,17 @@ int c_dr_pc ;
 int c_dr_i ;
 int is_do_write_p_triggered(void)
 { int __retres1 ;
+
   {
   if ((int )p_dw_pc == 1) {
     if ((int )q_read_ev == 1) {
       __retres1 = 1;
       goto return_label;
     } else {
+
     }
   } else {
+
   }
   __retres1 = 0;
   return_label:
@@ -56,14 +65,17 @@ int is_do_write_p_triggered(void)
 }
 int is_do_read_c_triggered(void)
 { int __retres1 ;
+
   {
   if ((int )c_dr_pc == 1) {
     if ((int )q_write_ev == 1) {
       __retres1 = 1;
       goto return_label;
     } else {
+
     }
   } else {
+
   }
   __retres1 = 0;
   return_label:
@@ -73,6 +85,7 @@ int is_do_read_c_triggered(void)
 void immediate_notify_threads(void)
 { int tmp ;
   int tmp___0 ;
+
   {
   {
   tmp = is_do_write_p_triggered();
@@ -80,6 +93,7 @@ void immediate_notify_threads(void)
   if (tmp) {
     p_dw_st = 0;
   } else {
+
   }
   {
   tmp___0 = is_do_read_c_triggered();
@@ -87,12 +101,16 @@ void immediate_notify_threads(void)
   if (tmp___0) {
     c_dr_st = 0;
   } else {
+
   }
+
   return;
 }
 }
 void do_write_p(void)
 {
+
+
   {
   if ((int )p_dw_pc == 0) {
     goto DW_ENTRY;
@@ -100,6 +118,7 @@ void do_write_p(void)
     if ((int )p_dw_pc == 1) {
       goto DW_WAIT_READ;
     } else {
+
     }
   }
   DW_ENTRY:
@@ -109,9 +128,11 @@ void do_write_p(void)
     if ((int )q_free == 0) {
       p_dw_st = 2;
       p_dw_pc = 1;
+
       goto return_label;
       DW_WAIT_READ: ;
     } else {
+
     }
     {
       q_buf_0 = __VERIFIER_nondet_int();
@@ -130,6 +151,7 @@ void do_write_p(void)
 static int a_t ;
 void do_read_c(void)
 { int a ;
+
   {
   if ((int )c_dr_pc == 0) {
     goto DR_ENTRY;
@@ -137,6 +159,7 @@ void do_read_c(void)
     if ((int )c_dr_pc == 1) {
       goto DR_WAIT_WRITE;
     } else {
+
     }
   }
   DR_ENTRY:
@@ -147,10 +170,12 @@ void do_read_c(void)
       c_dr_st = 2;
       c_dr_pc = 1;
       a_t = a;
+
       goto return_label;
       DR_WAIT_WRITE:
       a = a_t;
     } else {
+
     }
     a = q_buf_0;
     c_last_read = a;
@@ -159,6 +184,7 @@ void do_read_c(void)
     q_req_up = 1;
     if (p_last_write == c_last_read) {
       if (p_num_write == c_num_read) {
+
       } else {
         {
         error();
@@ -178,18 +204,22 @@ void do_read_c(void)
 }
 void update_channels(void)
 {
+
   {
   if ((int )q_req_up == 1) {
     {
     update_fifo_q();
     }
   } else {
+
   }
+
   return;
 }
 }
 void init_threads(void)
 {
+
   {
   if ((int )p_dw_i == 1) {
     p_dw_st = 0;
@@ -201,11 +231,13 @@ void init_threads(void)
   } else {
     c_dr_st = 2;
   }
+
   return;
 }
 }
 int exists_runnable_thread(void)
 { int __retres1 ;
+
   {
   if ((int )p_dw_st == 0) {
     __retres1 = 1;
@@ -215,6 +247,7 @@ int exists_runnable_thread(void)
       __retres1 = 1;
       goto return_label;
     } else {
+
     }
   }
   __retres1 = 0;
@@ -224,35 +257,44 @@ int exists_runnable_thread(void)
 }
 void fire_delta_events(void)
 {
+
   {
   if ((int )q_read_ev == 0) {
     q_read_ev = 1;
   } else {
+
   }
   if ((int )q_write_ev == 0) {
     q_write_ev = 1;
   } else {
+
   }
+
   return;
 }
 }
 void reset_delta_events(void)
 {
+
   {
   if ((int )q_read_ev == 1) {
     q_read_ev = 2;
   } else {
+
   }
   if ((int )q_write_ev == 1) {
     q_write_ev = 2;
   } else {
+
   }
+
   return;
 }
 }
 void activate_threads(void)
 { int tmp ;
   int tmp___0 ;
+
   {
   {
   tmp = is_do_write_p_triggered();
@@ -260,6 +302,7 @@ void activate_threads(void)
   if (tmp) {
     p_dw_st = 0;
   } else {
+
   }
   {
   tmp___0 = is_do_read_c_triggered();
@@ -267,7 +310,9 @@ void activate_threads(void)
   if (tmp___0) {
     c_dr_st = 0;
   } else {
+
   }
+
   return;
 }
 }
@@ -275,6 +320,8 @@ void eval(void)
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
+
+
   {
   {
   while (1) {
@@ -283,6 +330,7 @@ void eval(void)
     tmp___1 = exists_runnable_thread();
     }
     if (tmp___1) {
+
     } else {
       goto while_2_break;
     }
@@ -299,6 +347,7 @@ void eval(void)
  error();
       }
     } else {
+
     }
     if ((int )c_dr_st == 0) {
       {
@@ -310,18 +359,22 @@ void eval(void)
         do_read_c();
         }
       } else {
+
       }
     } else {
+
     }
   }
   while_2_break: ;
   }
+
   return;
 }
 }
 int stop_simulation(void)
 { int tmp ;
   int __retres2 ;
+
   {
   {
   tmp = exists_runnable_thread();
@@ -330,6 +383,7 @@ int stop_simulation(void)
     __retres2 = 0;
     goto return_label;
   } else {
+
   }
   __retres2 = 1;
   return_label:
@@ -339,6 +393,7 @@ int stop_simulation(void)
 void start_simulation(void)
 { int kernel_st ;
   int tmp ;
+
   {
   {
   kernel_st = 0;
@@ -369,15 +424,18 @@ void start_simulation(void)
     if (tmp) {
       goto while_3_break;
     } else {
+
     }
   }
   while_3_break: ;
   }
+
   return;
 }
 }
 void init_model(void)
 {
+
   {
   q_free = 1;
   q_write_ev = 2;
@@ -388,11 +446,13 @@ void init_model(void)
   c_num_read = 0;
   c_dr_pc = 0;
   c_dr_i = 1;
+
   return;
 }
 }
 int main(void)
 { int __retres1 ;
+
   {
   {
   init_model();

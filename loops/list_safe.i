@@ -1,15 +1,4 @@
 
-extern void __assert_fail (__const char *__assertion, __const char *__file,
-      unsigned int __line, __const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert_perror_fail (int __errnum, __const char *__file,
-      unsigned int __line,
-      __const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert (const char *__assertion, const char *__file, int __line)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-
-
 typedef long unsigned int size_t;
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -64,6 +53,13 @@ typedef unsigned int __socklen_t;
 struct _IO_FILE;
 
 typedef struct _IO_FILE FILE;
+
+
+
+
+
+
+
 
 
 typedef struct _IO_FILE __FILE;
@@ -175,6 +171,10 @@ typedef _G_fpos_t fpos_t;
 extern struct _IO_FILE *stdin;
 extern struct _IO_FILE *stdout;
 extern struct _IO_FILE *stderr;
+
+
+
+
 
 extern int remove (__const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
 
@@ -891,7 +891,7 @@ int main(void){
   mylist = mylist->next;
  }
  temp = search_list(mylist,2);
- ((temp->key==2) ? (void) (0) : __assert_fail ("temp->key==2", "list_safe.c", 68, __PRETTY_FUNCTION__));
+ assert(temp->key==2);
  delete_list(temp);
  mylist = head;
  while(mylist) {

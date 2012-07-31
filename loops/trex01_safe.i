@@ -1,4 +1,4 @@
-_Bool nondet_bool();
+_Bool __VERIFIER_nondet_bool();
 
 void f(int d) {
   int x, y, k, z = 1;
@@ -7,11 +7,11 @@ void f(int d) {
   assert(z>=1);
   L2:
   while (x > 0 && y > 0) {
-    _Bool c = nondet_bool();
+    _Bool c = __VERIFIER_nondet_bool();
     if (c) {
       P1:
       x = x - d;
-      y = nondet_bool();;
+      y = __VERIFIER_nondet_bool();;
       z = z - 1;
     } else {
       y = y - d;
@@ -20,7 +20,7 @@ void f(int d) {
 }
 
 void main() {
-  _Bool c = nondet_bool();
+  _Bool c = __VERIFIER_nondet_bool();
   if (c) {
     f(1);
   } else {

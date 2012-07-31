@@ -4,7 +4,7 @@ int x=0;
 void eval(void)
 {
   while (1) {
-      x=0;
+      x=1;
       break;
   }
   return;
@@ -19,7 +19,7 @@ int main() {
     assert(x==0);
   }
 
-  assert(x!=0);
+  assert(x==0);
 
   return 0;
 }

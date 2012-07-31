@@ -120,21 +120,21 @@ extern char *stpncpy (char *__restrict __dest,
         __const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-int nondet_int();
+int __VERIFIER_nondet_int();
 int foo(int * x){
-   *x = nondet_int();
-   return nondet_int();
+   *x = __VERIFIER_nondet_int();
+   return *x;
 }
 int main(){
    int i,j,ret,offset, tmp_cnt, tel_data,klen;
    int x [1000];
    for (i = 0; i < 1000; ++i)
-      x[i]= nondet_int();
+      x[i]= __VERIFIER_nondet_int();
    for (i= 0; i < 1000; ++i){
-      ret = nondet_int();
+      ret = __VERIFIER_nondet_int();
       if (ret != 0)
          return -1;
-      tmp_cnt = nondet_int();
+      tmp_cnt = __VERIFIER_nondet_int();
       if (tmp_cnt < 0)
          return -1;
       for ( offset = 0; offset < tmp_cnt; offset++ )

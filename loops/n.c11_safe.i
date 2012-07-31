@@ -1,5 +1,5 @@
 
-_Bool nondet_bool();
+_Bool __VERIFIER_nondet_bool();
 
 int main(){
    int a[5];

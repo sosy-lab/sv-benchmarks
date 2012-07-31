@@ -1,5 +1,3 @@
-
-
 typedef int Char;
 
 

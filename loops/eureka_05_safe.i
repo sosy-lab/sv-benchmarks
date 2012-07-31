@@ -1,8 +1,6 @@
 
 
 
-
-
 int array[5];
 int n=5;
 

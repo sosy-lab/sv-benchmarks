@@ -6,8 +6,6 @@ int main() {
     if (i<j)
     sn = sn + (2);
     j--;
-
   }
-
   assert(sn==n*(2) || sn == 0);
 }

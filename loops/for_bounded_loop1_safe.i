@@ -1,19 +1,18 @@
 
-int nondet_int();
+int __VERIFIER_nondet_int();
 
 int main() {
   int i=0, x=0, y=0;
-  int n=nondet_int();
-  __ESBMC_assume(n>0);
+  int n=__VERIFIER_nondet_int();
+  __VERIFIER_assume(n>0);
   for(i=0; i<n; i++)
   {
     x = x-y;
     assert(x==0);
-    y = nondet_int();
-    __ESBMC_assume(y!=0);
+    y = __VERIFIER_nondet_int();
+    __VERIFIER_assume(y!=0);
     x = x+y;
     assert(x!=0);
   }
-
   assert(x==0);
 }

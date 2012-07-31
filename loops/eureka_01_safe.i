@@ -1,16 +1,5 @@
-
-extern void __assert_fail (__const char *__assertion, __const char *__file,
-      unsigned int __line, __const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert_perror_fail (int __errnum, __const char *__file,
-      unsigned int __line,
-      __const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert (const char *__assertion, const char *__file, int __line)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-
 int INFINITY = 899;
-unsigned int nondet_uint();
+
 int main(){
   int nodecount = 5;
   int edgecount = 20;
@@ -21,6 +10,7 @@ int main(){
   int distance[5];
   int x,y;
   int i,j;
+
   for(i = 0; i < nodecount; i++){
     if(i == source){
       distance[i] = 0;
@@ -29,6 +19,7 @@ int main(){
       distance[i] = INFINITY;
     }
   }
+
   for(i = 0; i < nodecount; i++)
     {
       for(j = 0; j < edgecount; j++)
@@ -50,9 +41,11 @@ int main(){
    return 0;
  }
     }
+
   for(i = 0; i < nodecount; i++)
     {
-      ((distance[i]>=0) ? (void) (0) : __assert_fail ("distance[i]>=0", "eureka_01_safe.c", 49, __PRETTY_FUNCTION__));
+      assert(distance[i]>=0);
     }
+
   return 0;
 }

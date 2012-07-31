@@ -1,14 +1,14 @@
 
-_Bool nondet_bool();
+_Bool __VERIFIER_nondet_bool();
 
 int main(){
    int a[5];
    int len=0;
-
+   _Bool c=__VERIFIER_nondet_bool();
    int i;
 
 
-   while(nondet_bool()){
+   while(c){
 
       if (len==4)
          len =0;

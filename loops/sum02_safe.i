@@ -4,6 +4,5 @@ int main() {
   for(i=0; i<=n; i++) {
     sn = sn + i;
   }
-
   assert(sn==(n*(n+1))/2 || sn == 0);
 }

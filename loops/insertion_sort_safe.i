@@ -1,6 +1,5 @@
-
-unsigned int nondet_uint();
-unsigned int SIZE=nondet_uint();
+unsigned int __VERIFIER_nondet_uint();
+unsigned int SIZE=__VERIFIER_nondet_uint();
 int main() {
    int i, j, k, key;
    int v[SIZE];
@@ -8,7 +7,6 @@ int main() {
       key = v[j];
       i = j - 1;
       while((i>=0) && (v[i]>key)) {
-
          v[i+1] = v[i];
          i = i - 1;
       }

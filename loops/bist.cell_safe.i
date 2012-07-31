@@ -1,11 +1,13 @@
 void error(void)
 {
+
   {
   goto ERROR;
   ERROR: ;
   return;
 }
 }
+
 int b0_val ;
 int b0_val_t ;
 int b0_ev ;
@@ -32,6 +34,7 @@ void method1(void)
 { int s1 ;
   int s2 ;
   int s3 ;
+
   {
   if (b0_val) {
     if (d1_val) {
@@ -80,11 +83,13 @@ void method1(void)
   }
   z_req_up = 1;
   comp_m1_st = 2;
+
   return;
 }
 }
 int is_method1_triggered(void)
 { int __retres1 ;
+
   {
   if ((int )b0_ev == 1) {
     __retres1 = 1;
@@ -102,6 +107,7 @@ int is_method1_triggered(void)
           __retres1 = 1;
           goto return_label;
         } else {
+
         }
       }
     }
@@ -113,118 +119,144 @@ int is_method1_triggered(void)
 }
 void update_b0(void)
 {
+
   {
   if ((int )b0_val != (int )b0_val_t) {
     b0_val = b0_val_t;
     b0_ev = 0;
   } else {
+
   }
   b0_req_up = 0;
+
   return;
 }
 }
 void update_b1(void)
 {
+
   {
   if ((int )b1_val != (int )b1_val_t) {
     b1_val = b1_val_t;
     b1_ev = 0;
   } else {
+
   }
   b1_req_up = 0;
+
   return;
 }
 }
 void update_d0(void)
 {
+
   {
   if ((int )d0_val != (int )d0_val_t) {
     d0_val = d0_val_t;
     d0_ev = 0;
   } else {
+
   }
   d0_req_up = 0;
+
   return;
 }
 }
 void update_d1(void)
 {
+
   {
   if ((int )d1_val != (int )d1_val_t) {
     d1_val = d1_val_t;
     d1_ev = 0;
   } else {
+
   }
   d1_req_up = 0;
+
   return;
 }
 }
 void update_z(void)
 {
+
   {
   if ((int )z_val != (int )z_val_t) {
     z_val = z_val_t;
     z_ev = 0;
   } else {
+
   }
   z_req_up = 0;
+
   return;
 }
 }
 void update_channels(void)
 {
+
   {
   if ((int )b0_req_up == 1) {
     {
     update_b0();
     }
   } else {
+
   }
   if ((int )b1_req_up == 1) {
     {
     update_b1();
     }
   } else {
+
   }
   if ((int )d0_req_up == 1) {
     {
     update_d0();
     }
   } else {
+
   }
   if ((int )d1_req_up == 1) {
     {
     update_d1();
     }
   } else {
+
   }
   if ((int )z_req_up == 1) {
     {
     update_z();
     }
   } else {
+
   }
+
   return;
 }
 }
 void init_threads(void)
 {
+
   {
   if ((int )comp_m1_i == 1) {
     comp_m1_st = 0;
   } else {
     comp_m1_st = 2;
   }
+
   return;
 }
 }
 int exists_runnable_thread(void)
 { int __retres1 ;
+
   {
   if ((int )comp_m1_st == 0) {
     __retres1 = 1;
     goto return_label;
   } else {
+
   }
   __retres1 = 0;
   return_label:
@@ -234,6 +266,8 @@ int exists_runnable_thread(void)
 void eval(void)
 { int tmp ;
   int tmp___0 ;
+
+
   {
   {
   while (1) {
@@ -242,6 +276,7 @@ void eval(void)
     tmp___0 = exists_runnable_thread();
     }
     if (tmp___0) {
+
     } else {
       goto while_0_break;
     }
@@ -255,69 +290,87 @@ void eval(void)
         method1();
         }
       } else {
+
       }
     } else {
+
     }
   }
   while_0_break: ;
   }
+
   return;
 }
 }
 void fire_delta_events(void)
 {
+
   {
   if ((int )b0_ev == 0) {
     b0_ev = 1;
   } else {
+
   }
   if ((int )b1_ev == 0) {
     b1_ev = 1;
   } else {
+
   }
   if ((int )d0_ev == 0) {
     d0_ev = 1;
   } else {
+
   }
   if ((int )d1_ev == 0) {
     d1_ev = 1;
   } else {
+
   }
   if ((int )z_ev == 0) {
     z_ev = 1;
   } else {
+
   }
+
   return;
 }
 }
 void reset_delta_events(void)
 {
+
   {
   if ((int )b0_ev == 1) {
     b0_ev = 2;
   } else {
+
   }
   if ((int )b1_ev == 1) {
     b1_ev = 2;
   } else {
+
   }
   if ((int )d0_ev == 1) {
     d0_ev = 2;
   } else {
+
   }
   if ((int )d1_ev == 1) {
     d1_ev = 2;
   } else {
+
   }
   if ((int )z_ev == 1) {
     z_ev = 2;
   } else {
+
   }
+
   return;
 }
 }
 void activate_threads(void)
 { int tmp ;
+
   {
   {
   tmp = is_method1_triggered();
@@ -325,13 +378,16 @@ void activate_threads(void)
   if (tmp) {
     comp_m1_st = 0;
   } else {
+
   }
+
   return;
 }
 }
 int stop_simulation(void)
 { int tmp ;
   int __retres2 ;
+
   {
   {
   tmp = exists_runnable_thread();
@@ -340,6 +396,7 @@ int stop_simulation(void)
     __retres2 = 0;
     goto return_label;
   } else {
+
   }
   __retres2 = 1;
   return_label:
@@ -349,6 +406,7 @@ int stop_simulation(void)
 void start_simulation(void)
 { int kernel_st ;
   int tmp ;
+
   {
   {
   kernel_st = 0;
@@ -379,15 +437,18 @@ void start_simulation(void)
     if (tmp) {
       goto while_1_break;
     } else {
+
     }
   }
   while_1_break: ;
   }
+
   return;
 }
 }
 void init_model(void)
 {
+
   {
   b0_val = 0;
   b0_ev = 2;
@@ -413,11 +474,13 @@ void init_model(void)
   d1_val_t = 1;
   d1_req_up = 1;
   comp_m1_i = 0;
+
   return;
 }
 }
 int main(void)
 { int __retres1 ;
+
   {
   {
   init_model();
@@ -428,6 +491,7 @@ int main(void)
     error();
     }
   } else {
+
   }
   __retres1 = 0;
   return (__retres1);

@@ -1,6 +1,6 @@
 int b;
-_Bool nondet_bool();
-_Bool k=nondet_bool();
+_Bool __VERIFIER_nondet_bool();
+_Bool k=__VERIFIER_nondet_bool();
 int main(){
    int i,n,j;
    int a[1025];

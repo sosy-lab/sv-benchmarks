@@ -1,10 +1,10 @@
-int nondet_int();
-_Bool nondet_bool();
+int __VERIFIER_nondet_int();
+_Bool __VERIFIER_nondet_bool();
 
 main()
 {
-  int x=nondet_int();
-  int y=nondet_int();
+  int x=__VERIFIER_nondet_int();
+  int y=__VERIFIER_nondet_int();
 
   if (y>0)
   {
@@ -14,4 +14,5 @@ main()
      }
   }
 
+  assert(y<=0 || (y>0 && x>=100));
 }

@@ -32,12 +32,12 @@ void bubblesort1(int size, int item[])
   item[i+1] = pivot;
  }
 }
-int nondet_int();
+int __VERIFIER_nondet_int();
 void q1(int argc, char* argv[])
 {
  if(argc < 2)
   return;
- int N = nondet_int();
+ int N = __VERIFIER_nondet_int();
   int a[N];
  switch(2)
  {
@@ -50,7 +50,7 @@ void q1(int argc, char* argv[])
  case 2:
    for(int i=0; i < N; ++i) a[i] = i;
     for (int i=0; i<N; i++) {
-        int r = i + (nondet_int() % (N-i));
+        int r = i + (__VERIFIER_nondet_int() % (N-i));
         int temp = a[i];
         a[i] = a[r];
         a[r] = temp;

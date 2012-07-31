@@ -8,15 +8,10 @@ int main() {
   unsigned int loop1=nondet_uint(), n1=nondet_uint();
   unsigned int x=0;
 
-
   while(1){
-
-      if (x<10)
-    sn = sn + (2);
-
+    if (x<10)
+      sn = sn + (2);
     x++;
     assert(sn==x*(2) || sn == 0);
   }
-
-
 }
