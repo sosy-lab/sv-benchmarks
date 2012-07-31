@@ -646,7 +646,7 @@ void *allocator(){
   block = 1;
   if (!block == 1) goto ERROR; ERROR:;
   pthread_mutex_unlock(&m_inode);
-  return;
+  return ((void *)0);
 }
 void *de_allocator(){
   pthread_mutex_lock(&m_busy);
