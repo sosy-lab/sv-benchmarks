@@ -1,13 +1,16 @@
 #define a (2)
-unsigned int __VERIFIER_nondet_uint();
+int nondet_int();
+unsigned int nondet_uint();
+_Bool nondet_bool();
 
 int main() { 
   int sn=0;
-  unsigned int loop1=__VERIFIER_nondet_uint(), n1=__VERIFIER_nondet_uint();
+  unsigned int loop1=nondet_uint(), n1=nondet_uint();
   unsigned int x=0;
 
   while(1){
-    sn = sn + a;
+    if (x<10)
+      sn = sn + a;
     x++;
     assert(sn==x*a || sn == 0);
   }
