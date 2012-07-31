@@ -634,94 +634,90 @@ int idx=0;
 int ctr1=1, ctr2=0;
 int readerprogress1=0, readerprogress2=0;
 pthread_mutex_t mutex;
+void __VERIFIER_atomic_use1(int myidx) {
+  __VERIFIER_assume(myidx <= 0 && ctr1>0);
+  ctr1++;
+}
+void __VERIFIER_atomic_use2(int myidx) {
+  __VERIFIER_assume(myidx >= 1 && ctr2>0);
+  ctr2++;
+}
+void __VERIFIER_atomic_use_done(int myidx) {
+  if (myidx <= 0) { ctr1--; }
+  else { ctr2--; }
+}
+void __VERIFIER_atomic_take_snapshot(int readerstart1, int readerstart2) {
+  readerstart1 = readerprogress1;
+  readerstart2 = readerprogress2;
+}
+void __VERIFIER_atomic_check_progress(int readerstart1, int readerstart2) {
+  if (__VERIFIER_nondet_int()) {
+    __VERIFIER_assume(readerstart1 == 1 && readerprogress1 == 1);
+    goto fail;
+  } else {
+    if (__VERIFIER_nondet_int()) {
+      __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
+      goto fail;
+    } else {}
+  }
+ fail:
+  if (!0) goto ERROR; ERROR:;
+}
 void *qrcu_reader1() {
   int myidx;
   while (1) {
     myidx = idx;
-    if (__VERIFIER__nondet_int()) {
-      { __blockattribute__((atomic))
- __VERIFIER__assume(myidx <= 0 && ctr1>0);
- ctr1++;
-      }
+    if (__VERIFIER_nondet_int()) {
+      __VERIFIER_atomic_use1(myidx);
       break;
     } else {
-      if (__VERIFIER__nondet_int()) {
- { __blockattribute__((atomic))
-   __VERIFIER__assume(myidx >= 1 && ctr2>0);
-   ctr2++;
- }
+      if (__VERIFIER_nondet_int()) {
+ __VERIFIER_atomic_use2(myidx);
  break;
       } else {}
     }
   }
   readerprogress1 = 1;
   readerprogress1 = 2;
-  { __blockattribute__((atomic))
-      if (myidx <= 0) { ctr1--; }
-      else { ctr2--; }
-  }
+  __VERIFIER_atomic_use_done(myidx);
   return 0;
 }
 void *qrcu_reader2() {
   int myidx;
   while (1) {
     myidx = idx;
-    if (__VERIFIER__nondet_int()) {
-      { __blockattribute__((atomic))
- __VERIFIER__assume(myidx <= 0 && ctr1>0);
- ctr1++;
-      }
+    if (__VERIFIER_nondet_int()) {
+      __VERIFIER_atomic_use1(myidx);
       break;
     } else {
-      if (__VERIFIER__nondet_int()) {
- { __blockattribute__((atomic))
-   __VERIFIER__assume(myidx >= 1 && ctr2>0);
-   ctr2++;
- }
+      if (__VERIFIER_nondet_int()) {
+ __VERIFIER_atomic_use2(myidx);
  break;
       } else {}
     }
   }
   readerprogress2 = 1;
   readerprogress2 = 2;
-  { __blockattribute__((atomic))
-      if (myidx <= 0) { ctr1--; }
-      else { ctr2--; }
-  }
+  __VERIFIER_atomic_use_done(myidx);
   return 0;
 }
 void* qrcu_updater() {
   int i;
   int readerstart1, readerstart2;
   int sum;
-  { __blockattribute__((atomic))
-      readerstart1 = readerprogress1;
-      readerstart2 = readerprogress2;
-  }
-  if (__VERIFIER__nondet_int()) { sum = ctr1; sum = sum + ctr2; } else { sum = ctr2; sum = sum + ctr1; };
-  if (sum <= 1) { if (__VERIFIER__nondet_int()) { sum = ctr1; sum = sum + ctr2; } else { sum = ctr2; sum = sum + ctr1; }; }
+  __VERIFIER_atomic_take_snapshot(readerstart1, readerstart2);
+  if (__VERIFIER_nondet_int()) { sum = ctr1; sum = sum + ctr2; } else { sum = ctr2; sum = sum + ctr1; };
+  if (sum <= 1) { if (__VERIFIER_nondet_int()) { sum = ctr1; sum = sum + ctr2; } else { sum = ctr2; sum = sum + ctr1; }; }
   else {}
   if (sum > 1) {
     pthread_mutex_lock(&mutex);
     if (idx <= 0) { ctr2++; idx = 1; ctr1--; }
     else { ctr1++; idx = 0; ctr2--; }
-    if (idx <= 0) { while (ctr2 > 0); }
-    else { while (ctr1 > 0); }
-    pthread_mutex_lock(&mutex);
+    if (idx <= 0) { while (ctr1 > 0); }
+    else { while (ctr2 > 0); }
+    pthread_mutex_unlock(&mutex);
   } else {}
-  { __blockattribute__((atomic))
-      if (__VERIFIER__nondet_int()) {
- __VERIFIER__assume(readerstart1 == 1);
- __VERIFIER__assume(readerprogress1 == 1);
- if (!0) goto ERROR; ERROR:;
-      } else {
- if (__VERIFIER__nondet_int()) {
-   __VERIFIER__assume(readerstart2 == 1);
-   __VERIFIER__assume(readerprogress2 == 1);
-   if (!0) goto ERROR; ERROR:;
- } else { }
-      }
-  }
+  __VERIFIER_atomic_check_progress(readerstart1, readerstart2);
   return 0;
 }
 int main() {

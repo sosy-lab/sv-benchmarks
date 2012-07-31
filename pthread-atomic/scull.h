@@ -9,7 +9,6 @@
 #define unsigned_int int
 #define char int
 #define void_ptr int
-#define NULL 0 
 
 #define tid1 1 
 #define tid2 2

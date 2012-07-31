@@ -659,7 +659,7 @@ void *de_allocator(){
 }
 int main() {
   pthread_t t1, t2;
-  __VERIFIER__assume(inode == busy);
+  __VERIFIER_assume(inode == busy);
   pthread_mutex_init(&m_inode, 0);
   pthread_mutex_init(&m_busy, 0);
   pthread_create(&t1, 0, allocator, 0);

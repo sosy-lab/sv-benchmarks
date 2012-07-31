@@ -632,29 +632,6 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 int i;
 pthread_mutex_t lock;
-int nondet;
-void loader() {
-  scull_init_module();
-  scull_cleanup_module();
-}
-void thread1() {
-  int filp;
-  int buf;
-  int count = 10;
-  int off = 0;
-  scull_open(1, i, filp);
-  scull_read(1, filp, buf, count, off);
-  scull_release(i, filp);
-}
-void thread2() {
-  int filp;
-  int buf;
-  int count = 10;
-  int off = 0;
-  scull_open(2, i, filp);
-  scull_write(2, filp, buf, count, off);
-  scull_release(i, filp);
-}
 inline int down_interruptible() {
   pthread_mutex_lock(&lock);
   return 0;
@@ -665,19 +642,19 @@ inline void up() {
 }
 inline int copy_to_user(int to, int from, int n) {
   to = from;
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 inline int copy_from_user(int to, int from, int n) {
   to = from;
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 inline int __get_user(int size, int ptr)
 {
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 inline int __put_user(int size, int ptr)
 {
-    return NONDET;
+    return __VERIFIER_nondet_int();
 }
 int scull_quantum = 4000;
 int scull_qset = 1000;
@@ -709,7 +686,7 @@ inline int scull_open(int tid, int i, int filp)
   return 0;
 }
 inline int scull_follow(int dev, int n) {
-  return NONDET;
+  return __VERIFIER_nondet_int();
 }
 inline int scull_read(int tid, int filp, int buf, int count,
      int f_pos)
@@ -823,7 +800,7 @@ inline int scull_ioctl(int i, int filp,
   tmp = scull_qset;
   retval = __get_user(scull_qset, arg);
   if (retval == 0)
-   retval = put_user(tmp, arg);
+   retval = __put_user(tmp, arg);
   break;
    case 'k':
   tmp = scull_qset;
@@ -867,6 +844,28 @@ inline int scull_init_module()
  fail:
   scull_cleanup_module();
   return result;
+}
+void *loader() {
+  scull_init_module();
+  scull_cleanup_module();
+}
+void *thread1() {
+  int filp;
+  int buf;
+  int count = 10;
+  int off = 0;
+  scull_open(1, i, filp);
+  scull_read(1, filp, buf, count, off);
+  0;
+}
+void *thread2() {
+  int filp;
+  int buf;
+  int count = 10;
+  int off = 0;
+  scull_open(2, i, filp);
+  scull_write(2, filp, buf, count, off);
+  0;
 }
 int main() {
   pthread_t t1, t2, t3;
