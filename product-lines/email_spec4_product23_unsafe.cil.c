@@ -4312,8 +4312,8 @@ void __automaton_fail(void)
 { 
 
   {
-  goto error;
-  error: ;
+  goto ERROR;
+  ERROR: ;
 #line 53 "wsllib_check.c"
   return;
 }
