@@ -3,7 +3,7 @@
 */
 
 #include <pthread.h>
-#define assert(e) if (!e) goto ERROR; ERROR: 
+#define assert(e) if (!e) ERROR: goto ERROR;
 
 int flag1 = 0, flag2 = 0; // boolean flags
 int turn; // integer variable to hold the ID of the thread whose turn is it
