@@ -338,7 +338,6 @@ void eval(void)
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
-//  int __VERIFIER_nondet_int();
 
   {
   {

@@ -853,7 +853,6 @@ int main(void)
   int we_should_unload ;
   int irp ;
   int pirp__IoStatus__Status ;
-  //int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp9 ;
@@ -1092,7 +1091,7 @@ int main(void)
 int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int InputBuffer ,
                                   int InputBufferLength , int OutputBuffer , int OutputBufferLength ,
                                   int InternalDeviceIoControl , int Event , int IoStatusBlock ) 
-{// int __VERIFIER_nondet_int() ;
+{
   int malloc_ret ;
 
   {
@@ -1140,7 +1139,7 @@ void stubMoreProcessingRequired(void)
 }
 #line 845 "diskperf_simpl1.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
-{// int __VERIFIER_nondet_int() ;
+{
   int returnVal2 ;
   int compRetStatus ;
   int lcontext ;
@@ -1278,7 +1277,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 944 "diskperf_simpl1.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{// int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 949
@@ -1333,7 +1332,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
 }
 #line 988 "diskperf_simpl1.cil.c"
 int PoCallDriver(int DeviceObject , int Irp ) 
-{ //int __VERIFIER_nondet_int() ;
+{
   int compRetStatus ;
   int returnVal ;
   int lcontext ;

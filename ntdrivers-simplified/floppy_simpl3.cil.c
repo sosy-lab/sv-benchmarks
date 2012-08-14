@@ -890,7 +890,6 @@ int main(void)
   int irp ;
   int pirp ;
   int pirp__IoStatus__Status ;
-//  int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp8 ;
@@ -1075,7 +1074,7 @@ int main(void)
 int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int InputBuffer ,
                                   int InputBufferLength , int OutputBuffer , int OutputBufferLength ,
                                   int InternalDeviceIoControl , int Event , int IoStatusBlock ) 
-{// int __VERIFIER_nondet_int() ;
+{
   int malloc ;
 
   {
@@ -1104,7 +1103,7 @@ int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int Inp
 }
 #line 848 "floppy_simpl3.cil.c"
 int IoDeleteSymbolicLink(int SymbolicLinkName ) 
-{ //int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 852
@@ -1132,7 +1131,7 @@ int IoDeleteSymbolicLink(int SymbolicLinkName )
 int IoQueryDeviceDescription(int BusType , int BusNumber , int ControllerType , int ControllerNumber ,
                              int PeripheralType , int PeripheralNumber , int CalloutRoutine ,
                              int Context ) 
-{// int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 875
@@ -1159,7 +1158,7 @@ int IoQueryDeviceDescription(int BusType , int BusNumber , int ControllerType , 
 #line 892 "floppy_simpl3.cil.c"
 int IoRegisterDeviceInterface(int PhysicalDeviceObject , int InterfaceClassGuid ,
                               int ReferenceString , int SymbolicLinkName ) 
-{// int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 897
@@ -1185,7 +1184,7 @@ int IoRegisterDeviceInterface(int PhysicalDeviceObject , int InterfaceClassGuid 
 }
 #line 914 "floppy_simpl3.cil.c"
 int IoSetDeviceInterfaceState(int SymbolicLinkName , int Enable ) 
-{ //int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 918
@@ -1230,7 +1229,7 @@ void stubMoreProcessingRequired(void)
 }
 #line 949 "floppy_simpl3.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
-{ //int __VERIFIER_nondet_int() ;
+{
   int returnVal2 ;
   int compRetStatus1 ;
   int lcontext ;
@@ -1360,7 +1359,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 1042 "floppy_simpl3.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{ //int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 1047
@@ -1416,7 +1415,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
 #line 1086 "floppy_simpl3.cil.c"
 int ObReferenceObjectByHandle(int Handle , int DesiredAccess , int ObjectType , int AccessMode ,
                               int Object , int HandleInformation ) 
-{// int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 1091
@@ -1443,7 +1442,7 @@ int ObReferenceObjectByHandle(int Handle , int DesiredAccess , int ObjectType , 
 #line 1108 "floppy_simpl3.cil.c"
 int PsCreateSystemThread(int ThreadHandle , int DesiredAccess , int ObjectAttributes ,
                          int ProcessHandle , int ClientId , int StartRoutine , int StartContext ) 
-{// int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 1113
@@ -1469,7 +1468,7 @@ int PsCreateSystemThread(int ThreadHandle , int DesiredAccess , int ObjectAttrib
 }
 #line 1130 "floppy_simpl3.cil.c"
 int ZwClose(int Handle ) 
-{// int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 1134

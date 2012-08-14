@@ -1055,7 +1055,7 @@ int exists_runnable_thread(void)
 }
 }
 void eval(void) 
-{// int __VERIFIER_nondet_int()___0 ;
+{
   int tmp ;
 
   {

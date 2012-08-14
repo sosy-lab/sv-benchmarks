@@ -54,7 +54,6 @@ int ssl3_connect(int initial_state )
   int tmp___7 ;
   int tmp___8 ;
   int tmp___9 ;
-  //int __VERIFIER_nondet_int() ;
   int blastFlag ;
   int __cil_tmp55 ;
   long __cil_tmp56 ;

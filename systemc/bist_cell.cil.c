@@ -1,10 +1,3 @@
-/*int nondet(void)
-{
-  int x;
-  {
-    return (x);
-  }
-  }*/
 
 void error(void) 
 { 
@@ -274,7 +267,6 @@ int exists_runnable_thread(void)
 void eval(void) 
 { int tmp ;
   int tmp___0 ;
- // int __VERIFIER_nondet_int(); 
 
   {
   {

@@ -371,7 +371,6 @@ int main(void)
   int irp ;
   int pirp ;
   int pirp__IoStatus__Status ;
- // int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp8 ;
@@ -611,7 +610,7 @@ void stubMoreProcessingRequired(void)
 }
 #line 497 "kbfiltr_simpl2.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
-{ //int __VERIFIER_nondet_int() ;
+{
   int returnVal2 ;
   int compRetStatus ;
   int lcontext ;
@@ -741,7 +740,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 590 "kbfiltr_simpl2.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{// int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 595
@@ -962,7 +961,7 @@ int KbFilter_Power(int DeviceObject , int Irp )
 }
 #line 767 "kbfiltr_simpl2.cil.c"
 int PoCallDriver(int DeviceObject , int Irp ) 
-{// int __VERIFIER_nondet_int() ;
+{
   int compRetStatus ;
   int returnVal ;
   int lcontext ;

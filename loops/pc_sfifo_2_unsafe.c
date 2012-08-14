@@ -109,7 +109,6 @@ void immediate_notify_threads(void)
 }
 void do_write_p(void) 
 { 
-//  int __VERIFIER_nondet_int();
 
   {
   if ((int )p_dw_pc == 0) {
@@ -320,7 +319,6 @@ void eval(void)
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-//  int __VERIFIER_nondet_int(); 
 
   {
   {

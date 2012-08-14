@@ -2370,7 +2370,6 @@ int main(void)
   int status ;
   int irp ;
   int we_should_unload ;
- // int __VERIFIER_nondet_int() ;
   int irp_choice ;
   int devobj ;
   int __cil_tmp9 ;
@@ -2598,7 +2597,6 @@ void stubMoreProcessingRequired(void)
 #line 1634 "cdaudio_simpl1.cil.c"
 int IofCallDriver(int DeviceObject , int Irp ) 
 { int Irp__PendingReturned ;
-  // int __VERIFIER_nondet_int() ;
   int returnVal2 ;
   int compRetStatus ;
   int lcontext ;
@@ -2745,7 +2743,7 @@ int KeSetEvent(int Event , int Increment , int Wait )
 #line 1742 "cdaudio_simpl1.cil.c"
 int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
                           int Timeout ) 
-{ // int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 1747
@@ -2800,7 +2798,7 @@ int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alert
 }
 #line 1786 "cdaudio_simpl1.cil.c"
 int PoCallDriver(int DeviceObject , int Irp ) 
-{ // int __VERIFIER_nondet_int() ;
+{
   int compRetStatus ;
   int returnVal ;
   int lcontext ;
@@ -2915,7 +2913,7 @@ int PoCallDriver(int DeviceObject , int Irp )
 }
 #line 1867 "cdaudio_simpl1.cil.c"
 int ZwClose(int Handle ) 
-{ // int __VERIFIER_nondet_int() ;
+{
 
   {
 #line 1871
