@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 typedef long unsigned int size_t;
 typedef int wchar_t;
 

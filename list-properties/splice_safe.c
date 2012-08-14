@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 /*
  * Odd-Even Splice example: create a list with 1s at odd positions
  * and 2s at even ones. The list is ended by a 3 at the last

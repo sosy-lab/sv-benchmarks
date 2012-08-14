@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 /*
  * Variation on example 0: use a (non-deterministic) boolean
  * flag to set the value of the elements in the list before

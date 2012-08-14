@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 /*
  * Alternating list example: 
  * creats a list with 1s at odd positions and 2s at even ones. 

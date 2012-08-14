@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 // This is a simplified version of s3_srvr_1.cil.c
 int main() {
   int s__state ;

@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 /*int nondet(void)
 {
   int x;

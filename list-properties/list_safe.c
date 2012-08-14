@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 /*
  * Simple example: build a list with only 1s, then 2s and finally
  * on 3 (arbitrary length); afterwards, go through it and check

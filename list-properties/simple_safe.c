@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 /*
  * Simple example: build a list with only 1s and finally a 0 (arbitrary length); 
  * afterwards, go through it and check if the list does have the correct form, and in particular

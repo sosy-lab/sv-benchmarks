@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 int FloppyThread  ;
 int KernelMode  ;
 int Suspended  ;
