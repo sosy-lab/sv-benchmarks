@@ -1,3 +1,4 @@
+void IofCompleteRequest(int Irp , int PriorityBoost );
 int __VERIFIER_nondet_int()  ;
 int s  ;
 int UNLOADED  ;

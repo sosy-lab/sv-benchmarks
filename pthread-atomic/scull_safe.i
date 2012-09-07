@@ -761,49 +761,49 @@ inline int scull_ioctl(int i, int filp,
  int err = 0, tmp;
  int retval = 0;
  switch(cmd) {
-   case 'k':
+   case 'a':
   scull_quantum = 4000;
   scull_qset = 1000;
   break;
-   case 'k':
+   case 'b':
   retval = __get_user(scull_quantum, arg);
   break;
-   case 'k':
+   case 'c':
   scull_quantum = arg;
   break;
-   case 'k':
+   case 'd':
   retval = __put_user(scull_quantum, arg);
   break;
-   case 'k':
+   case 'e':
   return scull_quantum;
-   case 'k':
+   case 'f':
   tmp = scull_quantum;
   retval = __get_user(scull_quantum, arg);
   if (retval == 0)
    retval = __put_user(tmp, arg);
   break;
-   case 'k':
+   case 'g':
   tmp = scull_quantum;
   scull_quantum = arg;
   return tmp;
-   case 'k':
+   case 'h':
   retval = __get_user(scull_qset, arg);
   break;
-   case 'k':
+   case 'i':
   scull_qset = arg;
   break;
-   case 'k':
+   case 'j':
   retval = __put_user(scull_qset, arg);
   break;
    case 'k':
   return scull_qset;
-   case 'k':
+   case 'l':
   tmp = scull_qset;
   retval = __get_user(scull_qset, arg);
   if (retval == 0)
    retval = __put_user(tmp, arg);
   break;
-   case 'k':
+   case 'm':
   tmp = scull_qset;
   scull_qset = arg;
   return tmp;

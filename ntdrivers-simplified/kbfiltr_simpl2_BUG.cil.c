@@ -1,3 +1,5 @@
+void errorFn(void) ;
+void IofCompleteRequest(int Irp , int PriorityBoost );
 extern int __VERIFIER_nondet_int();
 int KernelMode  ;
 int Executive  ;

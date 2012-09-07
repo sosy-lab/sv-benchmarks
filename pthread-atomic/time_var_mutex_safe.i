@@ -655,7 +655,7 @@ void *de_allocator(){
     if (!block == 0) goto ERROR; ERROR:;
   }
   pthread_mutex_unlock(&m_busy);
-  return;
+  return ((void *)0);
 }
 int main() {
   pthread_t t1, t2;

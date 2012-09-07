@@ -1,3 +1,4 @@
+void IofCompleteRequest(int Irp , int PriorityBoost );
 extern int __VERIFIER_nondet_int();
 int FloppyThread  ;
 int KernelMode  ;
