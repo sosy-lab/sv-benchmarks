@@ -36,7 +36,7 @@ void *de_allocator(){
     assert(block == 0);
   }
   pthread_mutex_unlock(&m_busy);
-  return;
+  return ((void *)0);
 }
  
 int main() {
