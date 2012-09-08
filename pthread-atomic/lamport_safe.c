@@ -3,7 +3,7 @@
 */
 
 #include <pthread.h>
-#define assert(e) if (!e) goto ERROR; ERROR: 
+#define assert(e) if (!e) ERROR: goto ERROR;
 
 int x, y;
 int b1, b2; // boolean flags

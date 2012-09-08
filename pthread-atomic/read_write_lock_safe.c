@@ -7,7 +7,7 @@
 */
 
 #include <pthread.h>
-#define assert(e) if (!e) goto ERROR; ERROR: 
+#define assert(e) if (!e) ERROR: goto ERROR;
 
 int w=0, r=0, x, y;
 

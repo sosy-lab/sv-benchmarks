@@ -5,7 +5,7 @@ extern int __VERIFIER_nondet_int();
 
 #include <pthread.h>
 #include "scull_safe.h"
-#define assert(e) if (!e) goto ERROR; ERROR: 
+#define assert(e) if (!e) ERROR: goto ERROR;
 
 inode i;
 pthread_mutex_t lock;

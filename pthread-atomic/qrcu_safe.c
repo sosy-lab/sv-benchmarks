@@ -8,7 +8,7 @@ extern int __VERIFIER_nondet_int();
 */
 
 #include <pthread.h>
-#define assert(e) if (!e) goto ERROR; ERROR: 
+#define assert(e) if (!e) ERROR: goto ERROR;
 
 int idx=0; // boolean to control which of the two elements will be used by readers
   // (idx <= 0) then ctr1 is used
