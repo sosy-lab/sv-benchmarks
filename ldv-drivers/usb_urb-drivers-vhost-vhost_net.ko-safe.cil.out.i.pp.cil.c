@@ -6176,9 +6176,9 @@ struct __anonstruct_uaddr_348 {
    char buf[32] ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 14 "include/linux/file.h"

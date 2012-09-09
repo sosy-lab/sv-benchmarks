@@ -5767,11 +5767,11 @@ struct __anonstruct_uaddr_348 {
    char buf[32] ;
 };
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 14 "include/linux/file.h"
 extern void fput(struct file * ) ;
 # 24 "include/linux/list.h"

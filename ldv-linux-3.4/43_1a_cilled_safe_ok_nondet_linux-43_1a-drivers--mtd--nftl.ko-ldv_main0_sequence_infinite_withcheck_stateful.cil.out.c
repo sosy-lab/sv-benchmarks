@@ -8979,9 +8979,9 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
-void *__builtin_alloca(unsigned long  ) ;
+
 #line 34 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 #line 225 "include/linux/slub_def.h"

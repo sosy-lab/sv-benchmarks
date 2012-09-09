@@ -4140,9 +4140,9 @@ struct imon_context {
    struct tx_t tx ;
 };
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 100 "include/linux/printk.h"
 extern int printk(char const *fmt , ...) ;
 # 64 "include/asm-generic/bug.h"

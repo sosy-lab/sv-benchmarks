@@ -3745,9 +3745,9 @@ struct mimd {
 #line 97 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/scsi/megaraid/megaraid_mm.h"
 typedef struct mimd mimd_t;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void    * , unsigned long  ) ;
+
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3550/dscv_tempdir/dscv/ri/43_1a/drivers/scsi/megaraid/megaraid_mm.c.p"

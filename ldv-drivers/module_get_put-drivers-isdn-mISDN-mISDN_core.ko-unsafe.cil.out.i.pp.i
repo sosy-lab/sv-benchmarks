@@ -7117,11 +7117,11 @@ void mISDN_FsmRestartTimer(struct FsmTimer *ft , int millisec , int event , void
 }
 }
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 576 "include/linux/list.h"
 __inline static int hlist_unhashed(struct hlist_node const *h )
 {
@@ -13839,9 +13839,9 @@ void mISDN_initstack(u_int *dp )
 }
 }
 # 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list ) ;
+
 # 1 "<compiler builtins>"
-void __builtin_va_start(__builtin_va_list ) ;
+
 # 519 "include/linux/module.h"
 __inline static void ldv___module_get_2(struct module *module ) ;
 # 543 "include/linux/module.h"

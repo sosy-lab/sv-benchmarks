@@ -6425,7 +6425,7 @@ struct __anonstruct_p54u_fwlist_402 {
    char hw[20] ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void    * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 10 "include/asm-generic/delay.h"
@@ -15019,7 +15019,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1589 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10324/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/p54/p54usb.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {

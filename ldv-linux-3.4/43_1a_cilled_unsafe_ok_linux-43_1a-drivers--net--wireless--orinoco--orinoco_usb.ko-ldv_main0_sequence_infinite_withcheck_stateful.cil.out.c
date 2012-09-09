@@ -6207,7 +6207,7 @@ struct request_context {
    u16 in_rid ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void    * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/13883/dscv_tempdir/dscv/ri/43_1a/drivers/net/wireless/orinoco/orinoco_usb.c.p"

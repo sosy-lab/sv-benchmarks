@@ -4466,11 +4466,11 @@ struct compat_loop_info {
    char reserved[4U] ;
 };
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 47 "include/linux/list.h"
 extern void __list_add(struct list_head * , struct list_head * , struct list_head * ) ;
 # 74 "include/linux/list.h"

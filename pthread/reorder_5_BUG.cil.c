@@ -63,7 +63,7 @@ union __anonunion_pthread_attr_t_14 {
 #line 53 "/usr/include/bits/pthreadtypes.h"
 typedef union __anonunion_pthread_attr_t_14 pthread_attr_t;
 #line 1 "<compiler builtins>"
-void *__builtin_alloca(unsigned int  ) ;
+
 #line 144 "/usr/include/stdio.h"
 extern struct _IO_FILE *stderr ;
 #line 327

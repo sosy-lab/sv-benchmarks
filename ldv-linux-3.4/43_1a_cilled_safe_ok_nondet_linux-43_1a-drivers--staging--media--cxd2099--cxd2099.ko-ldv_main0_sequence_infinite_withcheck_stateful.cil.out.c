@@ -3387,7 +3387,7 @@ struct cxd {
    struct mutex lock ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5690/dscv_tempdir/dscv/ri/43_1a/drivers/staging/media/cxd2099/cxd2099.c.p"
 void ldv_spin_lock(void) ;
 #line 3

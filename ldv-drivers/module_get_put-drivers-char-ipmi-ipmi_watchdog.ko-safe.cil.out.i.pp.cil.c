@@ -3909,7 +3909,7 @@ struct poll_table_struct {
 #line 38 "include/linux/poll.h"
 typedef struct poll_table_struct poll_table;
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 98 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"

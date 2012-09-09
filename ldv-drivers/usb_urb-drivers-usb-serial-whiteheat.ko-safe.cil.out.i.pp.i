@@ -4615,7 +4615,7 @@ struct whiteheat_private {
    struct mutex deathwarrant ;
 };
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 7 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val ) __attribute__((__const__)) ;
 # 7 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/swab.h"

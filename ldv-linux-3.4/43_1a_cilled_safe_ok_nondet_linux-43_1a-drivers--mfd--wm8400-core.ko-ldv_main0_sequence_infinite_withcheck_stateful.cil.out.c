@@ -2701,7 +2701,7 @@ struct __anonstruct_reg_data_167 {
    u16 default_val ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/5011/dscv_tempdir/dscv/ri/43_1a/drivers/mfd/wm8400-core.c.p"

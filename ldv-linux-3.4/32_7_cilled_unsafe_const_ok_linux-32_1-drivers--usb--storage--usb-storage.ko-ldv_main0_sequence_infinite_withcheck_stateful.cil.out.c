@@ -7969,7 +7969,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1036 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7655/dscv_tempdir/dscv/ri/32_1/drivers/usb/storage/scsiglue.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -7978,7 +7978,7 @@ long __builtin_expect(long val , long res )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void    * , unsigned long  ) ;
+
 #line 147 "include/linux/kernel.h"
 extern void __might_sleep(char    *file , int line , int preempt_offset ) ;
 #line 737 "include/linux/mm.h"

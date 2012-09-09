@@ -3288,9 +3288,9 @@ struct capilib_ncci {
 #line 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void    * , unsigned long  ) ;
+
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
+
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -10841,7 +10841,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1480 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3398/dscv_tempdir/dscv/ri/32_1/drivers/isdn/capi/kcapi.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -10850,9 +10850,9 @@ long __builtin_expect(long val , long res )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
+
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
+
 #line 195 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int test_and_set_bit(int nr , unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 195 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"

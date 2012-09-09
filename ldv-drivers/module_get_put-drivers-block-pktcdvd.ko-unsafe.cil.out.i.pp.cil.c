@@ -4988,9 +4988,9 @@ struct dma_map_ops {
    int is_phys ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 24 "include/linux/list.h"

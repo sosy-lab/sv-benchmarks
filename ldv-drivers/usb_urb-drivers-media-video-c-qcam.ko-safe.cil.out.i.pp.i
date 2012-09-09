@@ -5609,7 +5609,7 @@ struct urb {
 # 1388 "include/linux/usb.h"
 struct scatterlist;
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 100 "include/linux/printk.h"
 extern int printk(char const *fmt , ...) ;
 # 125 "include/linux/kernel.h"

@@ -1091,7 +1091,7 @@ struct mtd_part_parser_data;
 #line 360
 struct mtd_part_parser_data;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 55 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
@@ -2100,7 +2100,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 264 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5413/dscv_tempdir/dscv/ri/32_1/drivers/mtd/devices/mtdram.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {

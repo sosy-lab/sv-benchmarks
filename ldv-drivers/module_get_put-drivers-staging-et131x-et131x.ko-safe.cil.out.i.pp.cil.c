@@ -5762,7 +5762,7 @@ struct netdev_hw_addr {
    struct rcu_head rcu_head ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 3 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/et131x/et131x.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/staging/et131x/et1310_eeprom.c.p"

@@ -6044,7 +6044,7 @@ struct urb {
 #line 1388
 struct scatterlist;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 24 "include/linux/list.h"

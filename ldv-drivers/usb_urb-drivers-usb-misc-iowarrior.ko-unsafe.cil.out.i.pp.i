@@ -4150,11 +4150,11 @@ struct iowarrior {
    u16 product_id ;
 };
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 315 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile *addr )
 { int oldbit ;

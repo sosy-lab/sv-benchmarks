@@ -4366,7 +4366,7 @@ struct quatech_port {
    char closePending ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -14044,7 +14044,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 4708 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1659/dscv_tempdir/dscv/ri/32_1/drivers/staging/serqt_usb2/serqt_usb2.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -8401,9 +8401,9 @@ void DisablePhyComa(struct et131x_adapter *etdev )
 }
 }
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {

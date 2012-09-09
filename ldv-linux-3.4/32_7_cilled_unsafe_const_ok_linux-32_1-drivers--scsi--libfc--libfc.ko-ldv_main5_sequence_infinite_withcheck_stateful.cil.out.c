@@ -5825,7 +5825,7 @@ enum hrtimer_restart;
 #line 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void    * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
@@ -8773,7 +8773,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 427 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/508/dscv_tempdir/dscv/ri/32_1/drivers/scsi/libfc/fc_libfc.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {

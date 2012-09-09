@@ -5936,15 +5936,15 @@ struct mISDNtimer {
    int id ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
-void __builtin_va_end(__builtin_va_list  ) ;
+
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
+
 #line 47 "include/linux/list.h"
 extern void __list_add(struct list_head * , struct list_head * , struct list_head * ) ;
 #line 74 "include/linux/list.h"

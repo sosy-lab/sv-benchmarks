@@ -4421,7 +4421,7 @@ struct imon_context {
    struct tx_t tx ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 100 "include/linux/printk.h"

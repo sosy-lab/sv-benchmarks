@@ -4553,7 +4553,7 @@ struct seq_operations {
    int (*show)(struct seq_file * , void * ) ;
 };
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
@@ -15377,7 +15377,7 @@ void usb_queue_reset_device(struct usb_interface *iface )
 extern void ldv_check_return_value(int ) ;
 # 4086 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/hub.c.p"
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 60 "include/linux/list.h"
 __inline static void list_add(struct list_head *new , struct list_head *head )
 {
@@ -34954,7 +34954,7 @@ void usb_remove_ep_devs(struct usb_host_endpoint *endpoint )
 }
 # 259 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/endpoint.c.p"
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 164 "include/linux/list.h"
 __inline static void list_move_tail(struct list_head *list , struct list_head *head )
 {

@@ -3820,7 +3820,7 @@ struct mt2060_priv {
    u8 fmfreq ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/9519/dscv_tempdir/dscv/ri/43_1a/drivers/media/common/tuners/mt2060.c.p"
 void ldv_spin_lock(void) ;
 #line 3

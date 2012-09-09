@@ -4534,7 +4534,7 @@ struct aty128fb_par {
    u32 pseudo_palette[16U] ;
 };
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 101 "include/linux/printk.h"
 extern int printk(char const * , ...) ;
 # 170 "include/linux/kernel.h"

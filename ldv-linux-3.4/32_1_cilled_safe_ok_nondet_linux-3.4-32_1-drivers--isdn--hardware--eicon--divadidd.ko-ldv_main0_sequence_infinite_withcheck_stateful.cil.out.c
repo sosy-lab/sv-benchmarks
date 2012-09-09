@@ -4547,7 +4547,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 302 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3441/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hardware/eicon/diva_didd.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -4556,7 +4556,7 @@ long __builtin_expect(long val , long res )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 34 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 extern void *__memcpy(void *to , void const   *from , size_t len ) ;
 #line 138 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/isdn/hardware/eicon/debuglib.h"
@@ -4991,9 +4991,9 @@ void diddfunc_finit(void)
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
+
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
+
 #line 55 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 extern void *memset(void *s , int c , size_t n ) ;
 #line 61

@@ -4549,7 +4549,7 @@ struct __anonstruct_252 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 112 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"

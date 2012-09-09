@@ -97,7 +97,7 @@ union __anonunion_pthread_mutexattr_t_16 {
 #line 106 "/usr/include/bits/pthreadtypes.h"
 typedef union __anonunion_pthread_mutexattr_t_16 pthread_mutexattr_t;
 #line 1 "<compiler builtins>"
-void *__builtin_alloca(unsigned int  ) ;
+
 #line 167 "/usr/include/stdio.h"
 extern struct _IO_FILE *stderr ;
 #line 353

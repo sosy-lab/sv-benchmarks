@@ -3739,7 +3739,7 @@ struct pt_unit {
    char name[8U] ;
 };
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
+
 #line 1
 long __builtin_expect(long  , long  ) ;
 #line 101 "include/linux/printk.h"

@@ -19345,7 +19345,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void    * , unsigned long  ) ;
+
 #line 482 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int fls64(__u64 x ) 
 { long bitpos ;

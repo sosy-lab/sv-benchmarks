@@ -3614,7 +3614,7 @@ struct it87_data {
    s8 auto_temp[3U][5U] ;
 };
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 101 "include/linux/printk.h"
 extern int printk(char const * , ...) ;
 # 195 "include/linux/kernel.h"

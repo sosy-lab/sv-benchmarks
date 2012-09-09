@@ -7213,7 +7213,7 @@ struct ttusb2_state {
    u16 last_rc_key ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
@@ -12918,7 +12918,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1529 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13516/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/ttusb2.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -5367,9 +5367,9 @@ struct __anonstruct_capi_send_handler_table_202 {
    void (*handler)(struct gigaset_capi_ctr * , struct gigaset_capi_appl * , struct sk_buff * ) ;
 };
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
@@ -9314,7 +9314,7 @@ void ldv_module_put_4(struct module *ldv_func_arg1 )
 }
 }
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 309 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(unsigned int nr , unsigned long const volatile *addr )
 {

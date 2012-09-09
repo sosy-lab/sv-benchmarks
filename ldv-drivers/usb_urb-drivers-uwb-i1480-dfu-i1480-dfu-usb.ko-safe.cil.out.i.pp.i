@@ -4232,7 +4232,7 @@ void ldv_check_final_state(void)
 }
 }
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 46 "include/linux/delay.h"
 extern void msleep(unsigned int msecs ) ;
 # 60 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/string_64.h"
@@ -5214,7 +5214,7 @@ int i1480_mac_fw_upload(struct i1480 *i1480 )
 }
 }
 # 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const * , unsigned long ) ;
+
 # 55 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/string_64.h"
 extern void *memset(void *s , int c , size_t n ) ;
 # 51 "/anthill/stuff/tacas-comp/work/current--X--drivers/uwb/i1480/dfu/i1480-dfu-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/68_1/drivers/uwb/i1480/dfu/phy.c"

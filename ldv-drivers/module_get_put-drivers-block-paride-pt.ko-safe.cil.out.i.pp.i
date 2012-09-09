@@ -3472,9 +3472,9 @@ struct pt_unit {
    char name[8U] ;
 };
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 101 "include/linux/printk.h"
 extern int printk(char const * , ...) ;
 # 64 "include/asm-generic/bug.h"

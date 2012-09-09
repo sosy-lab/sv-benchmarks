@@ -6595,7 +6595,7 @@ struct vp702x_fe_state {
    unsigned long status_check_interval ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/8568/dscv_tempdir/dscv/ri/43_1a/drivers/media/dvb/dvb-usb/vp702x.c.p"
 void ldv_spin_lock(void) ;
 #line 3

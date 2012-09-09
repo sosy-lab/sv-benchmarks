@@ -5390,7 +5390,7 @@ struct btmrvl_debugfs_data {
    struct dentry *txdnldready ;
 };
 # 1 "<compiler builtins>"
-long __builtin_expect(long , long ) ;
+
 # 60 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile *addr )
 {
@@ -8170,7 +8170,7 @@ void ldv_module_put_1(struct module *ldv_func_arg1 )
 }
 }
 # 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int ) ;
+
 # 64 "include/asm-generic/bug.h"
 extern void warn_slowpath_fmt(char const * , int const , char const * , ...) ;
 # 170 "include/linux/kernel.h"

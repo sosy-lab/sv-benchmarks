@@ -1240,7 +1240,7 @@ struct __anonstruct_216 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -4148,7 +4148,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 565 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1053/dscv_tempdir/dscv/ri/32_1/drivers/power/max8903_charger.c.common.c"
-long __builtin_expect(long val , long res ) 
+long s__builtin_expect(long val , long res ) 
 { 
 
   {
