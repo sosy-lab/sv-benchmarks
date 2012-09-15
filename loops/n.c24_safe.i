@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 typedef long unsigned int size_t;
 
@@ -171,6 +177,6 @@ int main(){
             }
       }
    }
-   assert(offset>=0 && offset<=1000);
+   __VERIFIER_assert(offset>=0 && offset<=1000);
    return 1;
 }

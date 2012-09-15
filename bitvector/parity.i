@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
@@ -36,6 +42,6 @@ int main()
     } else {
         parity2 = (char)1;
     }
-    ((parity1 == parity2) ? (void) (0) : __assert_fail ("parity1 == parity2", "parity.c", 36, __PRETTY_FUNCTION__));
+    __VERIFIER_assert(parity1 == parity2);
     return 0;
 }

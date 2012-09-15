@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 int __VERIFIER_nondet_int();
 
@@ -7,7 +13,7 @@ int main() {
   __VERIFIER_assume(n>0);
   for(i=0; 1; i++)
   {
-    assert(x==0);
+    __VERIFIER_assert(x==0);
   }
-  assert(x==0);
+  __VERIFIER_assert(x==0);
 }

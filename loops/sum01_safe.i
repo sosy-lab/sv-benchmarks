@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 int nondet_int();
 int main() {
@@ -5,5 +11,5 @@ int main() {
   for(i=1; i<=n; i++) {
     sn = sn + (2);
   }
-  assert(sn==n*(2) || sn == 0);
+  __VERIFIER_assert(sn==n*(2) || sn == 0);
 }

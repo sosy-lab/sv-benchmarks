@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 long gcd_test(long a, long b)
 {
     if (a < 0) a = -a;
@@ -29,9 +35,9 @@ int main()
 
     g = gcd_test(x, y);
 
-    assert(x % g == 0);
-    assert(y % g == 0);
-    assert(g == 9);
+    __VERIFIER_assert(x % g == 0);
+    __VERIFIER_assert(y % g == 0);
+    __VERIFIER_assert(g == 9);
 
     return 0;
 }

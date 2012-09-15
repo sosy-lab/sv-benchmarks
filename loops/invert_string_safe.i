@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 char __VERIFIER_nondet_char();
 
 int main() {
@@ -20,7 +26,7 @@ int main() {
 
     j = max-1;
     for (i=0; i<max; i++) {
-      assert(str1[i] == str2[j]);
+      __VERIFIER_assert(str1[i] == str2[j]);
       j--;
     }
 }

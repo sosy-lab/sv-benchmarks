@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 typedef int size_t;
 typedef int bool;
 char *strchr(const char *s, int c);
@@ -52,7 +58,7 @@ static int parse_expression_list(char *str)
       if ((0 < j) && (str[j] == '"')) j--;
       if (start<=j) {
         r_strncpy(str2, str+start, j-start+1);
-        assert(j - start + 1 < 2);
+        __VERIFIER_assert(j - start + 1 < 2);
         str2[j-start+1] = 0;
       } else {
         return -1;

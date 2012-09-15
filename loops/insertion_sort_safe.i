@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 unsigned int __VERIFIER_nondet_uint();
 unsigned int SIZE=__VERIFIER_nondet_uint();
 int main() {
@@ -13,6 +19,6 @@ int main() {
       v[i+1] = key;
   }
   for (k=1;k<SIZE;k++)
-    assert(v[k-1]<=v[k]);
+    __VERIFIER_assert(v[k-1]<=v[k]);
    return 0;
 }

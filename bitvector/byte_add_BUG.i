@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
@@ -97,7 +103,7 @@ int main()
 
     r = mp_add(a, b);
 
-    ((r == a + b) ? (void) (0) : __assert_fail ("r == a + b", "byte_add_BUG.c", 100, __PRETTY_FUNCTION__));
+    __VERIFIER_assert(r == a + b);
 
     return 0;
 }

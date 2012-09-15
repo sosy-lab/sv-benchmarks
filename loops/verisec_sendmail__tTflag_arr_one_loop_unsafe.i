@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 unsigned char nondet_uchar();
 int nondet_int();
 int main (void)
@@ -20,6 +26,6 @@ int main (void)
     c = in[idx_in];
   }
 
-  assert (i >= 0);
+  __VERIFIER_assert (i >= 0);
   return 0;
 }

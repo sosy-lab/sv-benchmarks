@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 int main (void)
 {
   char in[11];
@@ -18,6 +24,6 @@ int main (void)
     c = in[idx_in];
   }
 
-  assert (i >= 0);
+  __VERIFIER_assert (i >= 0);
   return 0;
 }

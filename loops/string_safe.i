@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 
 char nondet_char();
@@ -43,5 +49,5 @@ main()
 
   found = (j>nc_B-1);
 
-  assert(found == 0 || found == 1);
+  __VERIFIER_assert(found == 0 || found == 1);
 }

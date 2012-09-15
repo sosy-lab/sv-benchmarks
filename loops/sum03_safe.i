@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 unsigned int __VERIFIER_nondet_uint();
 
@@ -9,6 +15,6 @@ int main() {
   while(1){
     sn = sn + (2);
     x++;
-    assert(sn==x*(2) || sn == 0);
+    __VERIFIER_assert(sn==x*(2) || sn == 0);
   }
 }

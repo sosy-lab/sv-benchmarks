@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 int __VERIFIER_nondet_int();
 
 main()
@@ -8,5 +14,5 @@ main()
   while(x<100) {
    (*p)++;
   }
-  assert(0);
+  __VERIFIER_assert(0);
 }

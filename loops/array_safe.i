@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 int __VERIFIER_nondet_int();
 
 main()
@@ -15,5 +21,5 @@ main()
           menor = array[j];
     }
 
-    assert(array[0]>=menor);
+    __VERIFIER_assert(array[0]>=menor);
 }

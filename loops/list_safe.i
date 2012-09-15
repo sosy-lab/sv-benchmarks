@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 typedef long unsigned int size_t;
 typedef unsigned char __u_char;
@@ -53,12 +59,6 @@ typedef unsigned int __socklen_t;
 struct _IO_FILE;
 
 typedef struct _IO_FILE FILE;
-
-
-
-
-
-
 
 
 
@@ -891,7 +891,7 @@ int main(void){
   mylist = mylist->next;
  }
  temp = search_list(mylist,2);
- assert(temp->key==2);
+ __VERIFIER_assert(temp->key==2);
  delete_list(temp);
  mylist = head;
  while(mylist) {

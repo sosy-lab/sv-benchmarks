@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
@@ -29,7 +35,7 @@ int main()
         if (m == d) {
             m = 0;
         }
-        ((m == n % d) ? (void) (0) : __assert_fail ("m == n % d", "modulus.c", 30, __PRETTY_FUNCTION__));
+        __VERIFIER_assert(m == n % d);
     }
     return 0;
 }

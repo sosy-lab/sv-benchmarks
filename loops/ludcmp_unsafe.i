@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 double a[50][50], b[50], x[50];
 int ludcmp(int nmax, int n, double eps);
 static double fabs(double n)
@@ -21,7 +27,7 @@ void main()
      if(i == j) a[i][j] *= 10.0;
      w += a[i][j];
    }
-                        assert(i==2);
+                        __VERIFIER_assert(i==2);
    b[i] = w;
  }
  chkerr = ludcmp(nmax, n, eps);

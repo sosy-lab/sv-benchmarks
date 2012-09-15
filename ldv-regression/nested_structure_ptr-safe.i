@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
@@ -25,6 +31,6 @@ int main()
  struct Toplev good = { 1, &inner};
  struct Toplev *ptr = &good;
  ptr->x->y->c = 4;
- ((ptr->x->y->c == 4) ? (void) (0) : __assert_fail ("ptr->x->y->c == 4", "nested_structure_ptr-safe.c", 26, __PRETTY_FUNCTION__));
+ __VERIFIER_assert (ptr->x->y->c == 4);
  return 0;
 }

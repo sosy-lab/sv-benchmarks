@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
@@ -69,12 +75,21 @@ typedef struct _IO_FILE FILE;
 
 
 typedef struct _IO_FILE __FILE;
+
+
+
+
+
 typedef struct
 {
   int __count;
   union
   {
+
     unsigned int __wch;
+
+
+
     char __wchb[4];
   } __value;
 } __mbstate_t;
@@ -181,20 +196,22 @@ extern struct _IO_FILE *stderr;
 extern int remove (__const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
 extern int rename (__const char *__old, __const char *__new) __attribute__ ((__nothrow__ , __leaf__));
 
-
-
 extern int renameat (int __oldfd, __const char *__old, int __newfd,
        __const char *__new) __attribute__ ((__nothrow__ , __leaf__));
 
-
-
-
-
-
-
-
 extern FILE *tmpfile (void) ;
+
+
+
+
+
+
+
 extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
 
 extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
 extern char *tempnam (__const char *__dir, __const char *__pfx)
@@ -413,7 +430,7 @@ int main(void) {
  int *p1=&a;
  int *p2=&b;
  if(p1!=0 && p2!=0) {
-  ((p1!=p2) ? (void) (0) : __assert_fail ("p1!=p2", "test_malloc-2-safe.c", 28, __PRETTY_FUNCTION__));
+  __VERIFIER_assert(p1!=p2);
  }
  return 0;
 }

@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
@@ -181,14 +187,22 @@ typedef __timer_t timer_t;
 typedef unsigned long int ulong;
 typedef unsigned short int ushort;
 typedef unsigned int uint;
+
+
+
+
+
 typedef int int8_t __attribute__ ((__mode__ (__QI__)));
 typedef int int16_t __attribute__ ((__mode__ (__HI__)));
 typedef int int32_t __attribute__ ((__mode__ (__SI__)));
 typedef int int64_t __attribute__ ((__mode__ (__DI__)));
+
+
 typedef unsigned int u_int8_t __attribute__ ((__mode__ (__QI__)));
 typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));
 typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
 typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
+
 typedef int register_t __attribute__ ((__mode__ (__word__)));
 typedef int __sig_atomic_t;
 typedef struct
@@ -239,8 +253,6 @@ extern unsigned long long int gnu_dev_makedev (unsigned int __major,
 typedef __blksize_t blksize_t;
 typedef __blkcnt_t blkcnt_t;
 typedef __fsblkcnt_t fsblkcnt_t;
-
-
 typedef __fsfilcnt_t fsfilcnt_t;
 typedef unsigned long int pthread_t;
 typedef union
@@ -336,16 +348,7 @@ extern long int random (void) __attribute__ ((__nothrow__ , __leaf__));
 extern void srandom (unsigned int __seed) __attribute__ ((__nothrow__ , __leaf__));
 extern char *initstate (unsigned int __seed, char *__statebuf,
    size_t __statelen) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-
-
 extern char *setstate (char *__statebuf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-
 struct random_data
   {
     int32_t *fptr;
@@ -356,13 +359,10 @@ struct random_data
     int rand_sep;
     int32_t *end_ptr;
   };
-
 extern int random_r (struct random_data *__restrict __buf,
        int32_t *__restrict __result) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-
 extern int srandom_r (unsigned int __seed, struct random_data *__buf)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-
 extern int initstate_r (unsigned int __seed, char *__restrict __statebuf,
    size_t __statelen,
    struct random_data *__restrict __buf)
@@ -646,5 +646,5 @@ int main(void){
   insert_list(mylist,1);
   insert_list(mylist,3);
   temp = search_list(head,2);
-  assert(temp->key==1);
+  __VERIFIER_assert(temp->key==1);
 }

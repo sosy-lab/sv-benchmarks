@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 unsigned int nondet_uint();
 int main() {
@@ -6,5 +12,5 @@ int main() {
     if (i<10)
     sn = sn + (2);
   }
-  assert(sn==n*(2) || sn == 0);
+  __VERIFIER_assert(sn==n*(2) || sn == 0);
 }

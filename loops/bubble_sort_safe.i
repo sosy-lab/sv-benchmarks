@@ -1,10 +1,22 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
+
+
+
+
 void bubblesort(int size, int item[])
 {
  int a, b, t;
+
  for(a = 1; a < size; ++a)
  {
   for(b = size-1; b >= a; --b)
   {
+
    if (b-1 < size && b < size)
    {
     if(item[ b - 1] > item[ b ])
@@ -17,13 +29,16 @@ void bubblesort(int size, int item[])
   }
  }
 }
+
 void bubblesort1(int size, int item[])
 {
  int j, i, pivot;
+
  for(j = 1; j < size; ++j)
  {
   pivot = item[j];
   i = j - 1;
+
   while(i >= 0 && item[i] > pivot)
   {
    item[i+1] = item[i];

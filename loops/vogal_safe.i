@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 
 char __VERIFIER_nondet_char();
@@ -32,5 +38,5 @@ main(void)
     }
     i++;
   }
-  assert(cont_aux==cont);
+  __VERIFIER_assert(cont_aux==cont);
 }

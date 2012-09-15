@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
@@ -31,7 +37,7 @@ int main(void) {
  struct l_struct_2E_X llvm_cbe_var;
  *((&llvm_cbe_var.field0)) = 0x1.4p+4;
  *(((unsigned int *)((&llvm_cbe_var.field0)))) = 10u;
- ((*(((unsigned int *)((&llvm_cbe_var.field0)))) == 10u) ? (void) (0) : __assert_fail ("*(((unsigned int *)((&llvm_cbe_var.field0)))) == 10u", "test_union_cast-2-safe.c", 34, __PRETTY_FUNCTION__));
+ __VERIFIER_assert(*(((unsigned int *)((&llvm_cbe_var.field0)))) == 10u);
 
  return 0;
 }

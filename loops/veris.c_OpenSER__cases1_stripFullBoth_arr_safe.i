@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 typedef int size_t;
 typedef int bool;
 char *strchr(const char *s, int c);

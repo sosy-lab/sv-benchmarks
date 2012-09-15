@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 int __VERIFIER_nondet_int();
 
   char x[100], y[100];
@@ -15,5 +21,5 @@ void main() {
 
   if(k >= 0 && k < i)
     if(y[k] != 0)
-      {assert(0);}
+      {__VERIFIER_assert(0);}
 }

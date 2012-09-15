@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 void main()
 {
   int x,y;
@@ -12,6 +18,6 @@ void main()
       y = y +4;
 
 
-      assert(x!=30);
+      __VERIFIER_assert(x!=30);
     }
 }

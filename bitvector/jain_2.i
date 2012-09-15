@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 void main()
 {
   int x,y;
@@ -11,6 +17,6 @@ void main()
       y = y +2*nondet_int();
 
 
-      assert(x+y!=1);
+      __VERIFIER_assert(x+y!=1);
     }
 }

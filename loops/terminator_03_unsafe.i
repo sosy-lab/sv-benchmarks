@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 int nondet_int();
 _Bool nondet_bool();
 
@@ -13,5 +19,5 @@ main()
       x=x+y;
      }
   }
-  assert(y<=0 || (y<0 && x>=100));
+  __VERIFIER_assert(y<=0 || (y<0 && x>=100));
 }
