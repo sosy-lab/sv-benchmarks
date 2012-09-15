@@ -9602,7 +9602,7 @@ int main(void)
   int we_should_unload ;
   IRP irp ;
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
-  int irp_choice ;
+  int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
 
   {

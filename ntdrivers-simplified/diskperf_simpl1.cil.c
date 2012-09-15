@@ -858,7 +858,7 @@ int main(void)
   int we_should_unload ;
   int irp ;
   int pirp__IoStatus__Status ;
-  int irp_choice ;
+  int irp_choice = __VERIFIER_nondet_int() ;
   int devobj ;
   int __cil_tmp9 ;
 

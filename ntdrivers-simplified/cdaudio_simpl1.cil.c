@@ -2375,7 +2375,7 @@ int main(void)
   int status ;
   int irp ;
   int we_should_unload ;
-  int irp_choice ;
+  int irp_choice = __VERIFIER_nondet_int() ;
   int devobj ;
   int __cil_tmp9 ;
 

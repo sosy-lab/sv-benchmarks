@@ -7554,7 +7554,7 @@ int main(void)
   IRP irp ;
   int we_should_unload ;
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
-  int irp_choice ;
+  int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
   devobj.DeviceExtension = malloc(sizeof (CD_DEVICE_EXTENSION));
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(sizeof (IO_STACK_LOCATION));
