@@ -1088,16 +1088,16 @@ int ssl3_accept(SSL *s )
   int state ;
   int skip ;
   int got_new_session ;
-  int tmp___1 ;
-  int tmp___2 ;
-  int tmp___3 ;
-  int tmp___4 ;
-  int tmp___5 ;
-  int tmp___6 ;
+  int tmp___1 = __VERIFIER_nondet_int() ;
+  int tmp___2 = __VERIFIER_nondet_int() ;
+  int tmp___3 = __VERIFIER_nondet_int() ;
+  int tmp___4 = __VERIFIER_nondet_int() ;
+  int tmp___5 = __VERIFIER_nondet_int() ;
+  int tmp___6 = __VERIFIER_nondet_int() ;
   int tmp___7 ;
   long tmp___8 ;
-  int tmp___9 ;
-  int tmp___10 ;
+  int tmp___9 = __VERIFIER_nondet_int() ;
+  int tmp___10 = __VERIFIER_nondet_int() ;
   int blastFlag ;
   
 

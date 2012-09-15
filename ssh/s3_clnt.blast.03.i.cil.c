@@ -1081,14 +1081,14 @@ int ssl3_connect(SSL *s )
   int state ;
   int skip ;
   int *tmp___0 ;
-  int tmp___1 ;
-  int tmp___2 ;
-  int tmp___3 ;
-  int tmp___4 ;
-  int tmp___5 ;
-  int tmp___6 ;
-  int tmp___7 ;
-  int tmp___8 ;
+  int tmp___1 = __VERIFIER_nondet_int() ;
+  int tmp___2 = __VERIFIER_nondet_int() ;
+  int tmp___3 = __VERIFIER_nondet_int() ;
+  int tmp___4 = __VERIFIER_nondet_int() ;
+  int tmp___5 = __VERIFIER_nondet_int() ;
+  int tmp___6 = __VERIFIER_nondet_int() ;
+  int tmp___7 = __VERIFIER_nondet_int() ;
+  int tmp___8 = __VERIFIER_nondet_int() ;
   long tmp___9 ;
   int blastFlag ;
 

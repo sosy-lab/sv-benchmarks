@@ -1089,8 +1089,8 @@ int ssl3_accept(SSL *s )
   int state ;
   int skip ;
   int got_new_session ;
-  int tmp___1 ;
-  int tmp___2 ;
+  int tmp___1 = __VERIFIER_nondet_int() ;
+  int tmp___2 = __VERIFIER_nondet_int() ;
   int tmp___3 ;
   int tmp___4 ;
   int tmp___5 ;

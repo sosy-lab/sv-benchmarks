@@ -3174,7 +3174,7 @@ void stub_driver_init(void)
 int main(void) 
 { DRIVER_OBJECT d ;
   NTSTATUS status ;
-  int we_should_unload ;
+  int we_should_unload = __VERIFIER_nondet_int() ;
   IRP irp ;
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;

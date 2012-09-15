@@ -6,7 +6,7 @@ extern int __VERIFIER_nondet_int();
 // This is a further simplified version of s3_srvr_1a.cil.c
 int main() {
   int s__state ;
-  int s__hit ;
+  int s__hit = __VERIFIER_nondet_int() ;
   int blastFlag ;
   int tmp___1;
 

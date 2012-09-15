@@ -6,9 +6,9 @@ extern int __VERIFIER_nondet_int();
 // This is a simplified version of s3_srvr_1.cil.c
 int main() {
   int s__state ;
-  int s__hit ;
-  int s__verify_mode ;
-  int s__session__peer ;
+  int s__hit = __VERIFIER_nondet_int() ;
+  int s__verify_mode = __VERIFIER_nondet_int() ;
+  int s__session__peer = __VERIFIER_nondet_int() ;
   unsigned long s__s3__tmp__new_cipher__algorithms ;
   int buf ;
   int cb ;

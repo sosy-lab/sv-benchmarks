@@ -93,17 +93,17 @@ int KbFilter_PnP(int DeviceObject , int Irp )
 { int devExt ;
   int irpStack ;
   int status ;
-  int event ;
-  int DeviceObject__DeviceExtension ;
-  int Irp__Tail__Overlay__CurrentStackLocation ;
-  int irpStack__MinorFunction ;
-  int devExt__TopOfStack ;
+  int event = __VERIFIER_nondet_int() ;
+  int DeviceObject__DeviceExtension = __VERIFIER_nondet_int() ;
+  int Irp__Tail__Overlay__CurrentStackLocation = __VERIFIER_nondet_int() ;
+  int irpStack__MinorFunction = __VERIFIER_nondet_int() ;
+  int devExt__TopOfStack = __VERIFIER_nondet_int() ;
   int devExt__Started ;
   int devExt__Removed ;
   int devExt__SurpriseRemoved ;
   int Irp__IoStatus__Status ;
   int Irp__IoStatus__Information ;
-  int Irp__CurrentLocation ;
+  int Irp__CurrentLocation = __VERIFIER_nondet_int() ;
   int irpSp ;
   int nextIrpSp ;
   int nextIrpSp__Control ;
@@ -375,11 +375,11 @@ int KbFilter_PnP(int DeviceObject , int Irp )
 #line 317 "kbfiltr_simpl1.cil.c"
 int main(void) 
 { int status ;
-  int irp ;
+  int irp = __VERIFIER_nondet_int() ;
   int pirp ;
   int pirp__IoStatus__Status ;
   int irp_choice = __VERIFIER_nondet_int() ;
-  int devobj ;
+  int devobj = __VERIFIER_nondet_int() ;
   int __cil_tmp8 ;
 
   {
@@ -572,7 +572,7 @@ int IofCallDriver(int DeviceObject , int Irp )
 {
   int returnVal2 ;
   int compRetStatus ;
-  int lcontext ;
+  int lcontext = __VERIFIER_nondet_int() ;
   long long __cil_tmp7 ;
 ;
   {
@@ -674,7 +674,7 @@ void IofCompleteRequest(int Irp , int PriorityBoost )
 }
 #line 540 "kbfiltr_simpl1.cil.c"
 int KeSetEvent(int Event , int Increment , int Wait ) 
-{ int l ;
+{ int l = __VERIFIER_nondet_int() ;
 
   {
 #line 544

@@ -91,14 +91,14 @@ int FlAcpiConfigureFloppy(int DisketteExtension , int FdcInfo )
 #line 99 "floppy_simpl3.cil.c"
 int FlQueueIrpToThread(int Irp , int DisketteExtension ) 
 { int status ;
-  int threadHandle ;
-  int DisketteExtension__PoweringDown ;
-  int DisketteExtension__ThreadReferenceCount ;
-  int DisketteExtension__FloppyThread ;
+  int threadHandle = __VERIFIER_nondet_int() ;
+  int DisketteExtension__PoweringDown = __VERIFIER_nondet_int() ;
+  int DisketteExtension__ThreadReferenceCount = __VERIFIER_nondet_int() ;
+  int DisketteExtension__FloppyThread = __VERIFIER_nondet_int() ;
   int Irp__IoStatus__Status ;
   int Irp__IoStatus__Information ;
   int Irp__Tail__Overlay__CurrentStackLocation__Control ;
-  int ObjAttributes ;
+  int ObjAttributes = __VERIFIER_nondet_int() ;
   int __cil_tmp12 ;
   int __cil_tmp13 ;
 
@@ -181,26 +181,26 @@ int FlQueueIrpToThread(int Irp , int DisketteExtension )
 }
 #line 168 "floppy_simpl3.cil.c"
 int FloppyPnp(int DeviceObject , int Irp ) 
-{ int DeviceObject__DeviceExtension ;
-  int Irp__Tail__Overlay__CurrentStackLocation ;
+{ int DeviceObject__DeviceExtension = __VERIFIER_nondet_int() ;
+  int Irp__Tail__Overlay__CurrentStackLocation = __VERIFIER_nondet_int() ;
   int Irp__IoStatus__Information ;
   int Irp__IoStatus__Status ;
-  int Irp__CurrentLocation ;
-  int disketteExtension__IsRemoved ;
-  int disketteExtension__IsStarted ;
-  int disketteExtension__TargetObject ;
+  int Irp__CurrentLocation = __VERIFIER_nondet_int() ;
+  int disketteExtension__IsRemoved = __VERIFIER_nondet_int() ;
+  int disketteExtension__IsStarted = __VERIFIER_nondet_int() ;
+  int disketteExtension__TargetObject = __VERIFIER_nondet_int() ;
   int disketteExtension__HoldNewRequests ;
-  int disketteExtension__FloppyThread ;
-  int disketteExtension__InterfaceString__Buffer ;
-  int disketteExtension__InterfaceString ;
-  int disketteExtension__ArcName__Length ;
-  int disketteExtension__ArcName ;
-  int irpSp__MinorFunction ;
-  int IoGetConfigurationInformation__FloppyCount ;
+  int disketteExtension__FloppyThread = __VERIFIER_nondet_int() ;
+  int disketteExtension__InterfaceString__Buffer = __VERIFIER_nondet_int() ;
+  int disketteExtension__InterfaceString = __VERIFIER_nondet_int() ;
+  int disketteExtension__ArcName__Length = __VERIFIER_nondet_int() ;
+  int disketteExtension__ArcName = __VERIFIER_nondet_int() ;
+  int irpSp__MinorFunction = __VERIFIER_nondet_int() ;
+  int IoGetConfigurationInformation__FloppyCount = __VERIFIER_nondet_int() ;
   int irpSp ;
   int disketteExtension ;
   int ntStatus ;
-  int doneEvent ;
+  int doneEvent = __VERIFIER_nondet_int() ;
   int irpSp___0 ;
   int nextIrpSp ;
   int nextIrpSp__Control ;
@@ -572,33 +572,33 @@ int FloppyPnp(int DeviceObject , int Irp )
 }
 #line 461 "floppy_simpl3.cil.c"
 int FloppyStartDevice(int DeviceObject , int Irp ) 
-{ int DeviceObject__DeviceExtension ;
-  int Irp__Tail__Overlay__CurrentStackLocation ;
+{ int DeviceObject__DeviceExtension = __VERIFIER_nondet_int() ;
+  int Irp__Tail__Overlay__CurrentStackLocation = __VERIFIER_nondet_int() ;
   int Irp__IoStatus__Status ;
-  int disketteExtension__TargetObject ;
+  int disketteExtension__TargetObject = __VERIFIER_nondet_int() ;
   int disketteExtension__MaxTransferSize ;
-  int disketteExtension__DriveType ;
+  int disketteExtension__DriveType = __VERIFIER_nondet_int() ;
   int disketteExtension__PerpendicularMode ;
   int disketteExtension__DeviceUnit ;
   int disketteExtension__DriveOnValue ;
-  int disketteExtension__UnderlyingPDO ;
-  int disketteExtension__InterfaceString ;
+  int disketteExtension__UnderlyingPDO = __VERIFIER_nondet_int() ;
+  int disketteExtension__InterfaceString = __VERIFIER_nondet_int() ;
   int disketteExtension__IsStarted ;
   int disketteExtension__HoldNewRequests ;
   int ntStatus ;
   int pnpStatus ;
-  int doneEvent ;
-  int fdcInfo ;
+  int doneEvent = __VERIFIER_nondet_int() ;
+  int fdcInfo = __VERIFIER_nondet_int() ;
   int fdcInfo__BufferCount ;
   int fdcInfo__BufferSize ;
-  int fdcInfo__MaxTransferSize ;
-  int fdcInfo__AcpiBios ;
-  int fdcInfo__AcpiFdiSupported ;
-  int fdcInfo__PeripheralNumber ;
+  int fdcInfo__MaxTransferSize = __VERIFIER_nondet_int() ;
+  int fdcInfo__AcpiBios = __VERIFIER_nondet_int() ;
+  int fdcInfo__AcpiFdiSupported = __VERIFIER_nondet_int() ;
+  int fdcInfo__PeripheralNumber = __VERIFIER_nondet_int() ;
   int fdcInfo__BusType ;
-  int fdcInfo__ControllerNumber ;
-  int fdcInfo__UnitNumber ;
-  int fdcInfo__BusNumber ;
+  int fdcInfo__ControllerNumber = __VERIFIER_nondet_int() ;
+  int fdcInfo__UnitNumber = __VERIFIER_nondet_int() ;
+  int fdcInfo__BusNumber = __VERIFIER_nondet_int() ;
   int Dc ;
   int Fp ;
   int disketteExtension ;
@@ -610,7 +610,7 @@ int FloppyStartDevice(int DeviceObject , int Irp )
   int irpSp__Control ;
   int irpSp__Context ;
   int InterfaceType ;
-  int KUSER_SHARED_DATA__AlternativeArchitecture_NEC98x86 ;
+  int KUSER_SHARED_DATA__AlternativeArchitecture_NEC98x86 = __VERIFIER_nondet_int() ;
   long __cil_tmp42 ;
   int __cil_tmp43 ;
   int __cil_tmp44 ;
@@ -818,9 +818,9 @@ int FlFdcDeviceIo(int DeviceObject , int Ioctl , int Data )
 { int ntStatus ;
   int irp ;
   int irpStack ;
-  int doneEvent ;
-  int ioStatus ;
-  int irp__Tail__Overlay__CurrentStackLocation ;
+  int doneEvent = __VERIFIER_nondet_int() ;
+  int ioStatus = __VERIFIER_nondet_int() ;
+  int irp__Tail__Overlay__CurrentStackLocation = __VERIFIER_nondet_int() ;
   int irpStack__Parameters__DeviceIoControl__Type3InputBuffer ;
   long __cil_tmp11 ;
 
@@ -893,11 +893,11 @@ void stub_driver_init(void)
 #line 694 "floppy_simpl3.cil.c"
 int main(void) 
 { int status ;
-  int irp ;
+  int irp = __VERIFIER_nondet_int() ;
   int pirp ;
   int pirp__IoStatus__Status ;
   int irp_choice = __VERIFIER_nondet_int() ;
-  int devobj ;
+  int devobj = __VERIFIER_nondet_int() ;
   int __cil_tmp8 ;
 
  FloppyThread  = 0;
@@ -1081,7 +1081,7 @@ int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int Inp
                                   int InputBufferLength , int OutputBuffer , int OutputBufferLength ,
                                   int InternalDeviceIoControl , int Event , int IoStatusBlock ) 
 {
-  int malloc ;
+  int malloc = __VERIFIER_nondet_int() ;
 
   {
 #line 830
@@ -1238,7 +1238,7 @@ int IofCallDriver(int DeviceObject , int Irp )
 {
   int returnVal2 ;
   int compRetStatus1 ;
-  int lcontext ;
+  int lcontext = __VERIFIER_nondet_int() ;
   unsigned long __cil_tmp7 ;
 
   {
@@ -1353,7 +1353,7 @@ void IofCompleteRequest(int Irp , int PriorityBoost )
 }
 #line 1034 "floppy_simpl3.cil.c"
 int KeSetEvent(int Event , int Increment , int Wait ) 
-{ int l ;
+{ int l = __VERIFIER_nondet_int() ;
 
   {
 #line 1038
