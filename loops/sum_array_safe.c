@@ -5,10 +5,10 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 unsigned int __VERIFIER_nondet_uint();
-unsigned int M = __VERIFIER_nondet_uint();
 
-main()
+int main()
 {
+  unsigned int M = __VERIFIER_nondet_uint();
   int A[M], B[M], C[M];
   unsigned int  i;
   

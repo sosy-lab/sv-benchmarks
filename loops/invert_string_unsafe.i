@@ -6,9 +6,9 @@ void __VERIFIER_assert(int cond) {
 }
 char __VERIFIER_nondet_char();
 unsigned int __VERIFIER_nondet_uint();
-int MAX = __VERIFIER_nondet_uint();
 
 int main() {
+    int MAX = __VERIFIER_nondet_uint();
     char str1[MAX], str2[MAX];
     int cont, i, j;
     cont = 0;

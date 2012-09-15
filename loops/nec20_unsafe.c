@@ -6,8 +6,8 @@ void __VERIFIER_assert(int cond) {
 }
 int b;
 _Bool __VERIFIER_nondet_bool();
-_Bool k=__VERIFIER_nondet_bool();
 int main(){
+   _Bool k=__VERIFIER_nondet_bool();
    int i,n,j;
    int a[1025];
    

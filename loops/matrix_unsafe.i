@@ -7,12 +7,10 @@ void __VERIFIER_assert(int cond) {
 unsigned int __VERIFIER_nondet_uint();
 int __VERIFIER_nondet_int();
 
-unsigned int N_LIN=__VERIFIER_nondet_uint();
-unsigned int N_COL=__VERIFIER_nondet_uint();
-
-main()
+int main()
 {
-
+  unsigned int N_LIN=__VERIFIER_nondet_uint();
+  unsigned int N_COL=__VERIFIER_nondet_uint();
   unsigned int j,k;
   int matriz[N_COL][N_LIN], maior;
 

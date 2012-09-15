@@ -30,9 +30,6 @@ int __VERIFIER_nondet_int()
   return i;
 }
 
-int nondet_int();
-int n = nondet_int();
-
 int local  ;
 void master(void) 
 { 

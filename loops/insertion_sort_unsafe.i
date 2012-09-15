@@ -5,8 +5,8 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 unsigned int __VERIFIER_nondet_uint();
-unsigned int SIZE=__VERIFIER_nondet_uint();
 int main() {
+   unsigned int SIZE=__VERIFIER_nondet_uint();
    int i, j, k, key;
    int v[SIZE];
    for (j=1;j<SIZE;j++) {
