@@ -29593,7 +29593,7 @@ int main(void)
   NTSTATUS status ;
   int we_should_unload ;
   IRP irp ;
-  int __BLAST_NONDET ;
+  int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice ;
   DEVICE_OBJECT devobj ;
   NTSTATUS (*__cil_tmp9)(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath ) ;
@@ -30002,7 +30002,7 @@ PLIST_ENTRY ( __attribute__((__fastcall__)) ExfInterlockedRemoveHeadList)(PLIST_
 #line 335 "../slam-kernel.c"
 PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length , BOOLEAN SecondaryBuffer ,
                    BOOLEAN ChargeQuota , PIRP Irp ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
   int __cil_tmp8 ;
   void *__cil_tmp9 ;
@@ -30049,7 +30049,7 @@ PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length , BOOLEAN SecondaryBuffer
                                                                            PDEVICE_OBJECT TargetDevice ) ;
 #line 352 "../slam-kernel.c"
 PDEVICE_OBJECT IoAttachDeviceToDeviceStack(PDEVICE_OBJECT SourceDevice , PDEVICE_OBJECT TargetDevice ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   void *__cil_tmp4 ;
 
   {
@@ -30089,7 +30089,7 @@ PDEVICE_OBJECT IoAttachDeviceToDeviceStack(PDEVICE_OBJECT SourceDevice , PDEVICE
 PIRP IoBuildAsynchronousFsdRequest(ULONG MajorFunction , PDEVICE_OBJECT DeviceObject ,
                                    PVOID Buffer , ULONG Length , PLARGE_INTEGER StartingOffset ,
                                    PIO_STATUS_BLOCK IoStatusBlock ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
   int __cil_tmp9 ;
   void *__cil_tmp10 ;
@@ -30148,7 +30148,7 @@ PIRP IoBuildDeviceIoControlRequest(ULONG IoControlCode , PDEVICE_OBJECT DeviceOb
                                    PVOID InputBuffer , ULONG InputBufferLength , PVOID OutputBuffer ,
                                    ULONG OutputBufferLength , BOOLEAN InternalDeviceIoControl ,
                                    PKEVENT Event , PIO_STATUS_BLOCK IoStatusBlock ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
   int __cil_tmp12 ;
   void *__cil_tmp13 ;
@@ -30202,7 +30202,7 @@ PIRP IoBuildDeviceIoControlRequest(ULONG IoControlCode , PDEVICE_OBJECT DeviceOb
 NTSTATUS IoCreateDevice(PDRIVER_OBJECT DriverObject , ULONG DeviceExtensionSize ,
                         PUNICODE_STRING DeviceName , ULONG DeviceType , ULONG DeviceCharacteristics ,
                         BOOLEAN Exclusive , PDEVICE_OBJECT *DeviceObject ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
   int __cil_tmp10 ;
   void *__cil_tmp11 ;
@@ -30244,7 +30244,7 @@ NTSTATUS IoCreateDevice(PDRIVER_OBJECT DriverObject , ULONG DeviceExtensionSize 
                                                               PUNICODE_STRING DeviceName ) ;
 #line 446 "../slam-kernel.c"
 NTSTATUS IoCreateSymbolicLink(PUNICODE_STRING SymbolicLinkName , PUNICODE_STRING DeviceName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 455
@@ -30283,7 +30283,7 @@ void IoDeleteDevice(PDEVICE_OBJECT DeviceObject )
  __attribute__((__dllimport__)) NTSTATUS IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName ) ;
 #line 469 "../slam-kernel.c"
 NTSTATUS IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 477
@@ -30397,7 +30397,7 @@ NTSTATUS IoQueryDeviceDescription(PINTERFACE_TYPE BusType , PULONG BusNumber , P
                                                                                        ULONG PeripheralNumber ,
                                                                                        PKEY_VALUE_FULL_INFORMATION *PeripheralInformation ) ,
                                   PVOID Context ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 532
@@ -30431,7 +30431,7 @@ NTSTATUS ( __attribute__((__stdcall__)) IoRegisterDeviceInterface)(PDEVICE_OBJEC
                                                                    GUID const   *InterfaceClassGuid ,
                                                                    PUNICODE_STRING ReferenceString ,
                                                                    PUNICODE_STRING SymbolicLinkName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 549
@@ -30471,7 +30471,7 @@ void IoReleaseCancelSpinLock(KIRQL Irql )
                                                                    BOOLEAN Enable ) ;
 #line 563 "../slam-kernel.c"
 NTSTATUS IoSetDeviceInterfaceState(PUNICODE_STRING SymbolicLinkName , BOOLEAN Enable ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 572
@@ -30531,7 +30531,7 @@ void stubMoreProcessingRequired(void)
 #line 602 "../slam-kernel.c"
 NTSTATUS ( __attribute__((__fastcall__)) IofCallDriver)(PDEVICE_OBJECT DeviceObject ,
                                                         PIRP Irp ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
   int compRetStatus1 ;
   PVOID lcontext ;
@@ -30677,7 +30677,7 @@ KIRQL KeAcquireSpinLockRaiseToDpc(PKSPIN_LOCK SpinLock )
                                                                 PLARGE_INTEGER Interval ) ;
 #line 686 "../slam-kernel.c"
 NTSTATUS KeDelayExecutionThread(KPROCESSOR_MODE WaitMode , BOOLEAN Alertable , PLARGE_INTEGER Interval ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 696
@@ -30783,7 +30783,7 @@ LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment , BOOLEAN Wait )
 #line 777 "../slam-kernel.c"
 NTSTATUS KeWaitForSingleObject(PVOID Object , KWAIT_REASON WaitReason , KPROCESSOR_MODE WaitMode ,
                                BOOLEAN Alertable , PLARGE_INTEGER Timeout ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 788
@@ -30843,7 +30843,7 @@ NTSTATUS KeWaitForSingleObject(PVOID Object , KWAIT_REASON WaitReason , KPROCESS
                                                                  PHYSICAL_ADDRESS HighestAcceptableAddress ) ;
 #line 810 "../slam-kernel.c"
 PVOID MmAllocateContiguousMemory(SIZE_T NumberOfBytes , PHYSICAL_ADDRESS HighestAcceptableAddress ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
   int __cil_tmp5 ;
 
@@ -30951,7 +30951,7 @@ void MmUnlockPages(PMDL MemoryDescriptorList )
 #line 874 "../slam-kernel.c"
 NTSTATUS ObReferenceObjectByHandle(HANDLE Handle , ACCESS_MASK DesiredAccess , POBJECT_TYPE ObjectType ,
                                    KPROCESSOR_MODE AccessMode , PVOID *Object , POBJECT_HANDLE_INFORMATION HandleInformation ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 887
@@ -30991,7 +30991,7 @@ void ( __attribute__((__fastcall__)) ObfDereferenceObject)(PVOID Object )
                                                       PIRP Irp ) ;
 #line 909 "../slam-kernel.c"
 NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int compRetStatus ;
   NTSTATUS returnVal ;
   PVOID lcontext ;
@@ -31116,7 +31116,7 @@ void PoStartNextPowerIrp(PIRP Irp )
 NTSTATUS PsCreateSystemThread(PHANDLE ThreadHandle , ULONG DesiredAccess , POBJECT_ATTRIBUTES ObjectAttributes ,
                               HANDLE ProcessHandle , PCLIENT_ID ClientId , void (*StartRoutine)(PVOID StartContext ) ,
                               PVOID StartContext ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 979
@@ -31144,7 +31144,7 @@ NTSTATUS PsCreateSystemThread(PHANDLE ThreadHandle , ULONG DesiredAccess , POBJE
  __attribute__((__dllimport__)) NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus ) ;
 #line 984 "../slam-kernel.c"
 NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 992
@@ -31176,7 +31176,7 @@ NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus )
 NTSTATUS ( __attribute__((__stdcall__)) RtlAnsiStringToUnicodeString)(PUNICODE_STRING DestinationString ,
                                                                       PANSI_STRING SourceString ,
                                                                       BOOLEAN AllocateDestinationString ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 1009
@@ -31234,7 +31234,7 @@ void ( __attribute__((__stdcall__)) RtlCopyUnicodeString)(PUNICODE_STRING Destin
 #line 1038 "../slam-kernel.c"
 NTSTATUS ( __attribute__((__stdcall__)) RtlDeleteRegistryValue)(ULONG RelativeTo ,
                                                                 PCWSTR Path , PCWSTR ValueName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 1049
@@ -31304,7 +31304,7 @@ void ( __attribute__((__stdcall__)) RtlInitUnicodeString)(PUNICODE_STRING Destin
 NTSTATUS ( __attribute__((__stdcall__)) RtlQueryRegistryValues)(ULONG RelativeTo ,
                                                                 PCWSTR Path , PRTL_QUERY_REGISTRY_TABLE QueryTable ,
                                                                 PVOID Context , PVOID Environment ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 1100
@@ -31332,7 +31332,7 @@ NTSTATUS ( __attribute__((__stdcall__)) RtlQueryRegistryValues)(ULONG RelativeTo
  __attribute__((__dllimport__)) NTSTATUS ( __attribute__((__stdcall__)) ZwClose)(HANDLE Handle ) ;
 #line 1109 "../slam-kernel.c"
 NTSTATUS ( __attribute__((__stdcall__)) ZwClose)(HANDLE Handle ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
 #line 1118

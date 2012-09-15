@@ -7042,7 +7042,7 @@ int main(void)
   NTSTATUS status ;
   int we_should_unload ;
   IRP irp ;
-  int __BLAST_NONDET ;
+  int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice ;
   DEVICE_OBJECT devobj ;
 
@@ -7294,7 +7294,7 @@ PLIST_ENTRY ExfInterlockedRemoveHeadList(PLIST_ENTRY ListHead ,
                                                    PIRP Irp ) ;
 PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length , BOOLEAN SecondaryBuffer ,
                    BOOLEAN ChargeQuota , PIRP Irp ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
 
   {
@@ -7321,7 +7321,7 @@ PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length , BOOLEAN SecondaryBuffer
   PDEVICE_OBJECT IoAttachDeviceToDeviceStack(PDEVICE_OBJECT SourceDevice ,
                                                                            PDEVICE_OBJECT TargetDevice ) ;
 PDEVICE_OBJECT IoAttachDeviceToDeviceStack(PDEVICE_OBJECT SourceDevice , PDEVICE_OBJECT TargetDevice ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -7350,7 +7350,7 @@ PDEVICE_OBJECT IoAttachDeviceToDeviceStack(PDEVICE_OBJECT SourceDevice , PDEVICE
 PIRP IoBuildAsynchronousFsdRequest(ULONG MajorFunction , PDEVICE_OBJECT DeviceObject ,
                                    PVOID Buffer , ULONG Length , PLARGE_INTEGER StartingOffset ,
                                    PIO_STATUS_BLOCK IoStatusBlock ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
 
   {
@@ -7388,7 +7388,7 @@ PIRP IoBuildDeviceIoControlRequest(ULONG IoControlCode , PDEVICE_OBJECT DeviceOb
                                    PVOID InputBuffer , ULONG InputBufferLength , PVOID OutputBuffer ,
                                    ULONG OutputBufferLength , BOOLEAN InternalDeviceIoControl ,
                                    PKEVENT Event , PIO_STATUS_BLOCK IoStatusBlock ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
 
   {
@@ -7421,7 +7421,7 @@ PIRP IoBuildDeviceIoControlRequest(ULONG IoControlCode , PDEVICE_OBJECT DeviceOb
 NTSTATUS IoCreateDevice(PDRIVER_OBJECT DriverObject , ULONG DeviceExtensionSize ,
                         PUNICODE_STRING DeviceName , ULONG DeviceType , ULONG DeviceCharacteristics ,
                         BOOLEAN Exclusive , PDEVICE_OBJECT *DeviceObject ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
 
   {
@@ -7449,7 +7449,7 @@ NTSTATUS IoCreateDevice(PDRIVER_OBJECT DriverObject , ULONG DeviceExtensionSize 
   NTSTATUS IoCreateSymbolicLink(PUNICODE_STRING SymbolicLinkName ,
                                                               PUNICODE_STRING DeviceName ) ;
 NTSTATUS IoCreateSymbolicLink(PUNICODE_STRING SymbolicLinkName , PUNICODE_STRING DeviceName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -7479,7 +7479,7 @@ void IoDeleteDevice(PDEVICE_OBJECT DeviceObject )
 }
   NTSTATUS IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName ) ;
 NTSTATUS IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -7566,7 +7566,7 @@ NTSTATUS IoQueryDeviceDescription(PINTERFACE_TYPE BusType , PULONG BusNumber , P
                                                                                        ULONG PeripheralNumber ,
                                                                                        PKEY_VALUE_FULL_INFORMATION *PeripheralInformation ) ,
                                   PVOID Context ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -7594,7 +7594,7 @@ NTSTATUS IoRegisterDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject ,
                                                                    GUID const   *InterfaceClassGuid ,
                                                                    PUNICODE_STRING ReferenceString ,
                                                                    PUNICODE_STRING SymbolicLinkName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -7625,7 +7625,7 @@ void IoReleaseCancelSpinLock(KIRQL Irql )
   NTSTATUS IoSetDeviceInterfaceState(PUNICODE_STRING SymbolicLinkName ,
                                                                    BOOLEAN Enable ) ;
 NTSTATUS IoSetDeviceInterfaceState(PUNICODE_STRING SymbolicLinkName , BOOLEAN Enable ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -7671,7 +7671,7 @@ void stubMoreProcessingRequired(void)
                                                                                         PIRP Irp ) ;
 NTSTATUS IofCallDriver(PDEVICE_OBJECT DeviceObject ,
                                                         PIRP Irp ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
   int compRetStatus1 ;
   PVOID lcontext ;
@@ -7771,7 +7771,7 @@ KIRQL KeAcquireSpinLockRaiseToDpc(PKSPIN_LOCK SpinLock )
                                                                 BOOLEAN Alertable ,
                                                                 PLARGE_INTEGER Interval ) ;
 NTSTATUS KeDelayExecutionThread(KPROCESSOR_MODE WaitMode , BOOLEAN Alertable , PLARGE_INTEGER Interval ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -7852,7 +7852,7 @@ LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment , BOOLEAN Wait )
                                                                PLARGE_INTEGER Timeout ) ;
 NTSTATUS KeWaitForSingleObject(PVOID Object , KWAIT_REASON WaitReason , KPROCESSOR_MODE WaitMode ,
                                BOOLEAN Alertable , PLARGE_INTEGER Timeout ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (s == MPR3) {
@@ -7897,7 +7897,7 @@ NTSTATUS KeWaitForSingleObject(PVOID Object , KWAIT_REASON WaitReason , KPROCESS
   PVOID MmAllocateContiguousMemory(SIZE_T NumberOfBytes ,
                                                                  PHYSICAL_ADDRESS HighestAcceptableAddress ) ;
 PVOID MmAllocateContiguousMemory(SIZE_T NumberOfBytes , PHYSICAL_ADDRESS HighestAcceptableAddress ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   char *tmp ;
 
   {
@@ -7978,7 +7978,7 @@ void MmUnlockPages(PMDL MemoryDescriptorList )
                                                                    POBJECT_HANDLE_INFORMATION HandleInformation ) ;
 NTSTATUS ObReferenceObjectByHandle(HANDLE Handle , ACCESS_MASK DesiredAccess , POBJECT_TYPE ObjectType ,
                                    KPROCESSOR_MODE AccessMode , PVOID *Object , POBJECT_HANDLE_INFORMATION HandleInformation ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -8009,7 +8009,7 @@ void ObfDereferenceObject(PVOID Object )
   NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject ,
                                                       PIRP Irp ) ;
 NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int compRetStatus ;
   NTSTATUS returnVal ;
   PVOID lcontext ;
@@ -8099,7 +8099,7 @@ void PoStartNextPowerIrp(PIRP Irp )
 NTSTATUS PsCreateSystemThread(PHANDLE ThreadHandle , ULONG DesiredAccess , POBJECT_ATTRIBUTES ObjectAttributes ,
                               HANDLE ProcessHandle , PCLIENT_ID ClientId , void (*StartRoutine)(PVOID StartContext ) ,
                               PVOID StartContext ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -8121,7 +8121,7 @@ NTSTATUS PsCreateSystemThread(PHANDLE ThreadHandle , ULONG DesiredAccess , POBJE
 }
   NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus ) ;
 NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -8147,7 +8147,7 @@ NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus )
 NTSTATUS RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString ,
                                                                       PANSI_STRING SourceString ,
                                                                       BOOLEAN AllocateDestinationString ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -8193,7 +8193,7 @@ void RtlCopyUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                                 PCWSTR ValueName ) ;
 NTSTATUS RtlDeleteRegistryValue(ULONG RelativeTo ,
                                                                 PCWSTR Path , PCWSTR ValueName ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -8248,7 +8248,7 @@ void RtlInitUnicodeString(PUNICODE_STRING DestinationString ,
 NTSTATUS RtlQueryRegistryValues(ULONG RelativeTo ,
                                                                 PCWSTR Path , PRTL_QUERY_REGISTRY_TABLE QueryTable ,
                                                                 PVOID Context , PVOID Environment ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
@@ -8270,7 +8270,7 @@ NTSTATUS RtlQueryRegistryValues(ULONG RelativeTo ,
 }
   NTSTATUS ZwClose(HANDLE Handle ) ;
 NTSTATUS ZwClose(HANDLE Handle ) 
-{ int __BLAST_NONDET ;
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
 
   {
   if (__BLAST_NONDET == 0) {
