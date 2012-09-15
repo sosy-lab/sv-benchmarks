@@ -9,7 +9,7 @@ int main() {
   int s__hit = __VERIFIER_nondet_int() ;
   int s__verify_mode = __VERIFIER_nondet_int() ;
   int s__session__peer = __VERIFIER_nondet_int() ;
-  unsigned long s__s3__tmp__new_cipher__algorithms ;
+  unsigned long s__s3__tmp__new_cipher__algorithms = __VERIFIER_nondet_long() ;
   int buf ;
   int cb ;
   int blastFlag ;

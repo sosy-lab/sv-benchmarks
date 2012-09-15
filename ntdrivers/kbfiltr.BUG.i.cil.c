@@ -1681,7 +1681,7 @@ void _BLAST_init(void)
 }
 }
 NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath ) 
-{ ULONG i ;
+{ ULONG i = __VERIFIER_nondet_long() ;
 
   {
   DriverObject->MajorFunction[i] = & KbFilter_DispatchPassThrough;
@@ -3172,7 +3172,7 @@ void KeInitializeSpinLock(PKSPIN_LOCK SpinLock )
                                                         LONG Adjustment , BOOLEAN Wait ) ;
 LONG KeReleaseSemaphore(PRKSEMAPHORE Semaphore , KPRIORITY Increment , LONG Adjustment ,
                         BOOLEAN Wait ) 
-{ LONG r ;
+{ LONG r = __VERIFIER_nondet_long() ;
 
   {
   return (r);
@@ -3190,7 +3190,7 @@ void KfReleaseSpinLock(PKSPIN_LOCK SpinLock , KIRQL NewIrql )
   LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment ,
                                                 BOOLEAN Wait ) ;
 LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment , BOOLEAN Wait ) 
-{ LONG l ;
+{ LONG l = __VERIFIER_nondet_long() ;
 
   {
   setEventCalled = 1;
@@ -3523,7 +3523,7 @@ NTSTATUS RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                         SIZE_T Length ) ;
 SIZE_T RtlCompareMemory(void const   *Source1 , void const   *Source2 ,
                                                         SIZE_T Length ) 
-{ SIZE_T r ;
+{ SIZE_T r = __VERIFIER_nondet_long() ;
 
   {
   return (r);

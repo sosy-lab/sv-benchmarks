@@ -1081,7 +1081,7 @@ int ssl3_accept(SSL *s )
 { BUF_MEM *buf ;
   unsigned long l ;
   unsigned long Time ;
-  unsigned long tmp ;
+  unsigned long tmp = __VERIFIER_nondet_long() ;
   void (*cb)() ;
   long num1 ;
   int ret ;
@@ -1096,7 +1096,7 @@ int ssl3_accept(SSL *s )
   int tmp___5 ;
   int tmp___6 ;
   int tmp___7 ;
-  long tmp___8 ;
+  long tmp___8 = __VERIFIER_nondet_long() ;
   int tmp___9 ;
   int tmp___10 ;
   int blastFlag ;

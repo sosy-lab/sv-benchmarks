@@ -56,7 +56,7 @@ int ssl3_accept(int initial_state )
   int tmp___5 = __VERIFIER_nondet_int() ;
   int tmp___6 = __VERIFIER_nondet_int() ;
   int tmp___7 ;
-  long tmp___8 ;
+  long tmp___8 = __VERIFIER_nondet_long() ;
   int tmp___9 = __VERIFIER_nondet_int() ;
   int tmp___10 = __VERIFIER_nondet_int() ;
   int blastFlag ;

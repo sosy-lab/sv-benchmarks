@@ -42,7 +42,7 @@ int ssl3_accept(int initial_state )
   int buf = __VERIFIER_nondet_int() ;
   unsigned long l ;
   unsigned long Time ;
-  unsigned long tmp ;
+  unsigned long tmp = __VERIFIER_nondet_long() ;
   int cb ;
   long num1 ;
   int ret ;
@@ -57,7 +57,7 @@ int ssl3_accept(int initial_state )
   int tmp___5 ;
   int tmp___6 ;
   int tmp___7 ;
-  long tmp___8 ;
+  long tmp___8 = __VERIFIER_nondet_long() ;
   int tmp___9 ;
   int tmp___10 ;
   int blastFlag ;

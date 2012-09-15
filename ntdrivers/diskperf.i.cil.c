@@ -3173,7 +3173,7 @@ void stub_driver_init(void)
 }
 int main(void) 
 { DRIVER_OBJECT d ;
-  NTSTATUS status ;
+  NTSTATUS status = __VERIFIER_nondet_long() ;
   int we_should_unload = __VERIFIER_nondet_int() ;
   IRP irp ;
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
@@ -3970,7 +3970,7 @@ void KeInitializeSpinLock(PKSPIN_LOCK SpinLock )
                                                         LONG Adjustment , BOOLEAN Wait ) ;
 LONG KeReleaseSemaphore(PRKSEMAPHORE Semaphore , KPRIORITY Increment , LONG Adjustment ,
                         BOOLEAN Wait ) 
-{ LONG r ;
+{ LONG r = __VERIFIER_nondet_long() ;
 
   {
   return (r);
@@ -3988,7 +3988,7 @@ void KfReleaseSpinLock(PKSPIN_LOCK SpinLock , KIRQL NewIrql )
   LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment ,
                                                 BOOLEAN Wait ) ;
 LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment , BOOLEAN Wait ) 
-{ LONG l ;
+{ LONG l = __VERIFIER_nondet_long() ;
 
   {
   setEventCalled = 1;
@@ -4333,7 +4333,7 @@ NTSTATUS RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                         SIZE_T Length ) ;
 SIZE_T RtlCompareMemory(void const   *Source1 , void const   *Source2 ,
                                                         SIZE_T Length ) 
-{ SIZE_T r ;
+{ SIZE_T r = __VERIFIER_nondet_long() ;
 
   {
   return (r);

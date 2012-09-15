@@ -2920,7 +2920,7 @@ NTSTATUS SendSrbSynchronous(PCD_DEVICE_EXTENSION Extension , PSCSI_PASS_THROUGH 
   KEVENT event ;
   PIRP irp ;
   IO_STATUS_BLOCK ioStatus ;
-  NTSTATUS status ;
+  NTSTATUS status = __VERIFIER_nondet_long() ;
 
   {
   irp = (void *)0;
@@ -3708,7 +3708,7 @@ NTSTATUS CdAudioPnp(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 }
 }
 NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath ) 
-{ ULONG i ;
+{ ULONG i = __VERIFIER_nondet_long() ;
 
   {
   DriverObject->MajorFunction[i] = & CdAudioSendToNextDriver;
@@ -3724,7 +3724,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
 }
 BOOLEAN NecSupportNeeded(PUCHAR InquiryData ) 
 { PINQUIRYDATA inquiryData ;
-  ULONG i ;
+  ULONG i = __VERIFIER_nondet_long() ;
   PUCHAR badDriveList[12] ;
   SIZE_T tmp ;
 
@@ -3858,7 +3858,7 @@ BOOLEAN CdAudioIsPlayActive(PDEVICE_OBJECT DeviceObject )
   PIRP irp_CdAudioIsPlayActive ;
   IO_STATUS_BLOCK ioStatus ;
   KEVENT event ;
-  NTSTATUS status ;
+  NTSTATUS status = __VERIFIER_nondet_long() ;
   PSUB_Q_CURRENT_POSITION currentBuffer ;
   BOOLEAN returnValue ;
   PVOID tmp ;
@@ -7551,7 +7551,7 @@ void stub_driver_init(void)
 }
 int main(void) 
 { DRIVER_OBJECT d ;
-  NTSTATUS status ;
+  NTSTATUS status = __VERIFIER_nondet_long() ;
   IRP irp ;
   int we_should_unload = __VERIFIER_nondet_int() ;
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
@@ -8342,7 +8342,7 @@ void KeInitializeSpinLock(PKSPIN_LOCK SpinLock )
                                                         LONG Adjustment , BOOLEAN Wait ) ;
 LONG KeReleaseSemaphore(PRKSEMAPHORE Semaphore , KPRIORITY Increment , LONG Adjustment ,
                         BOOLEAN Wait ) 
-{ LONG r ;
+{ LONG r = __VERIFIER_nondet_long() ;
 
   {
   return (r);
@@ -8360,7 +8360,7 @@ void KfReleaseSpinLock(PKSPIN_LOCK SpinLock , KIRQL NewIrql )
   LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment ,
                                                 BOOLEAN Wait ) ;
 LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment , BOOLEAN Wait ) 
-{ LONG l ;
+{ LONG l = __VERIFIER_nondet_long() ;
 
   {
   setEventCalled = 1;
@@ -8705,7 +8705,7 @@ NTSTATUS RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                         SIZE_T Length ) ;
 SIZE_T RtlCompareMemory(void const   *Source1 , void const   *Source2 ,
                                                         SIZE_T Length ) 
-{ SIZE_T r ;
+{ SIZE_T r = __VERIFIER_nondet_long() ;
 
   {
   return (r);

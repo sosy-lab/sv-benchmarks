@@ -1089,7 +1089,7 @@ int ssl3_connect(SSL *s )
   int tmp___6 = __VERIFIER_nondet_int() ;
   int tmp___7 = __VERIFIER_nondet_int() ;
   int tmp___8 = __VERIFIER_nondet_int() ;
-  long tmp___9 ;
+  long tmp___9 = __VERIFIER_nondet_long() ;
   int blastFlag ;
 
   {
