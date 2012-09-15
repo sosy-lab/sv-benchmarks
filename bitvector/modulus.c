@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 /* https://graphics.stanford.edu/~seander/bithacks.html#ModulusDivisionEasy */
 #include <assert.h>
 
@@ -27,7 +33,7 @@ int main()
             m = 0;
         }
 
-        assert(m == n % d);
+        __VERIFIER_assert(m == n % d);
     }
 
     return 0;

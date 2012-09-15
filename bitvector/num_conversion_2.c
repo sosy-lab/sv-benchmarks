@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 //#include <assert.h>
 
 int main()
@@ -16,7 +22,7 @@ int main()
         }
         c = c + ((unsigned char)1);
     }
-    assert(x == y);
+    __VERIFIER_assert(x == y);
     
     return 0;
 }

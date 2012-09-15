@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #define a (2)
 #define SIZE 8
 unsigned int nondet_uint();
@@ -7,6 +13,6 @@ int main() {
     if (i<4)
     sn = sn + a;
   }
-  assert(sn==SIZE*a || sn == 0);
+  __VERIFIER_assert(sn==SIZE*a || sn == 0);
 }
 

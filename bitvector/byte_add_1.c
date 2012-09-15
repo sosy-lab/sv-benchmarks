@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 /* emulates multi-precision addition */
 #include <assert.h>
 
@@ -99,7 +105,7 @@ int main()
 
     r = mp_add(a, b);
 
-    assert(r == a + b);
+    __VERIFIER_assert(r == a + b);
     
     return 0;
 }

@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 /*************************************************************************/
 /*                                                                       */
 /*   SNU-RT Benchmark Suite for Worst Case Timing Analysis               */
@@ -89,7 +95,7 @@ void main()
 					if(i == j) a[i][j] *= 10.0;
 					w += a[i][j];
 			}
-                        assert(i==2);
+                        __VERIFIER_assert(i==2);
 			b[i] = w;	
 	}
 

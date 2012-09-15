@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 signed char gcd_test(signed char a, signed char b)
 {
     signed char t;
@@ -23,7 +29,7 @@ int main()
     g = gcd_test(x, y);
 
     if (y > (signed char)0) {
-        assert(y >= g);
+        __VERIFIER_assert(y >= g);
     }
 
     return 0;

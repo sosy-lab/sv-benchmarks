@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 /* see https://graphics.stanford.edu/~seander/bithacks.html#ParityNaive */
 #include <assert.h>
 
@@ -33,7 +39,7 @@ int main()
         parity2 = (char)1;
     }
 
-    assert(parity1 == parity2);
+    __VERIFIER_assert(parity1 == parity2);
 
     return 0;
 }

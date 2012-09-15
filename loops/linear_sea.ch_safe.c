@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 unsigned int __VERIFIER_nondet_uint();
 unsigned int  SIZE=(__VERIFIER_nondet_uint()/2)+1;
 int linear_search(int *a, int n, int q) {
@@ -11,5 +17,5 @@ int linear_search(int *a, int n, int q) {
 int main() { 
   int a[SIZE];
   a[SIZE/2]=3;
-  assert(linear_search(a,SIZE,3));
+  __VERIFIER_assert(linear_search(a,SIZE,3));
 }

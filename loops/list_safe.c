@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #include <stdio.h>
 #include<stdlib.h>
 
@@ -64,7 +70,7 @@ int main(void){
 	}
 
 	temp = search_list(mylist,2);
-	assert(temp->key==2);
+	__VERIFIER_assert(temp->key==2);
 	delete_list(temp);
 
 	mylist = head;

@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #include <assert.h>
 
 // #ifdef BLAST_AUTO_1
@@ -26,12 +32,12 @@ int main(void) {
 // 	union X var;
 // 	var.z = 0x1.4p+4;
 // 	var.y = 10u;
-// 	assert(var.y==10u);
+// 	__VERIFIER_assert(var.y==10u);
 // #else
 	struct l_struct_2E_X llvm_cbe_var;
 	*((&llvm_cbe_var.field0)) = 0x1.4p+4;
 	*(((unsigned int *)((&llvm_cbe_var.field0)))) = 10u;
-	assert(*(((unsigned int *)((&llvm_cbe_var.field0)))) == 10u);
+	__VERIFIER_assert(*(((unsigned int *)((&llvm_cbe_var.field0)))) == 10u);
 // #endif
 	return 0;
 }

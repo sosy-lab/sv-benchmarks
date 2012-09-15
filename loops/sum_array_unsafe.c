@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 unsigned int __VERIFIER_nondet_uint();
 unsigned int M = __VERIFIER_nondet_uint();
 
@@ -16,6 +22,6 @@ main()
      C[i]=A[i]+B[i];
   
   for(i=0;i<M;i++)
-     assert(C[i]==A[i]-B[i]);
+     __VERIFIER_assert(C[i]==A[i]-B[i]);
 }
 

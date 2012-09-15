@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #include <stdlib.h>
 typedef struct list {
 	int key;
@@ -35,6 +41,6 @@ int main(void){
   insert_list(mylist,1);
   insert_list(mylist,3);
   temp = search_list(head,2);
-  assert(temp->key==1);
+  __VERIFIER_assert(temp->key==1);
 }
 

@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 typedef int Char;
 #define MAXPATHLEN 1
 
@@ -9,7 +15,7 @@ int glob2 (Char *pathbuf, Char *pathlim)
 
   for (p = pathbuf; p <= pathlim; p++) {
     /* BAD */
-    assert(p<=tmp);
+    __VERIFIER_assert(p<=tmp);
     *p = 1;
   }
 

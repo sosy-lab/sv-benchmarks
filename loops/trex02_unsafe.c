@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 _Bool __VERIFIER_nondet_bool();
 int __VERIFIER_nondet_int();
 
@@ -14,7 +20,7 @@ int main() {
     if(c) foo();
     else foo();
   }
-  assert(x==0);
+  __VERIFIER_assert(x==0);
 }
 
 

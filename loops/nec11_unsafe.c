@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 _Bool __VERIFIER_nondet_bool();
 
@@ -17,7 +23,7 @@ int main(){
 
       len++;
    }
-   assert(len==5);
+   __VERIFIER_assert(len==5);
    return 1;
 
    

@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #ifndef _BASE_H
 #define _BASE_H
 
@@ -159,7 +165,7 @@ static int parse_expression_list(char *str)
         /* valid word */
         /* BAD */
         r_strncpy(str2, str+start, j-start+1);
-        assert(j - start + 1 < 2);
+        __VERIFIER_assert(j - start + 1 < 2);
         str2[j-start+1] = EOS;
       } else {
         /* parsing error */

@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 int x=0;
 
@@ -16,10 +22,10 @@ int main() {
   while(1)
   {
     eval();
-    assert(x==0);    
+    __VERIFIER_assert(x==0);    
   }
 
-  assert(x==0);
+  __VERIFIER_assert(x==0);
 
   return 0;
 }

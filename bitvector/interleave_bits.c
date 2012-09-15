@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 /* https://graphics.stanford.edu/~seander/bithacks.html#InterleaveTableObvious */
 #include <assert.h>
 
@@ -35,5 +41,5 @@ int main()
     
     zz = xx | (yy << 1U);
 
-    assert(z == zz);
+    __VERIFIER_assert(z == zz);
 }

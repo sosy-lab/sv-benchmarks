@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #define bool int
 
 unsigned int __VERIFIER_nondet_uint()
@@ -27,7 +33,7 @@ int main()
     c2=nondet_bool();
   }
 
-  assert(x1==0 && x2==0 && x3==0);
+  __VERIFIER_assert(x1==0 && x2==0 && x3==0);
   return 0;
 }
 

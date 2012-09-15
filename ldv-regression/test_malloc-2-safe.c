@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #include <assert.h>
 #include <malloc.h>
 
@@ -25,7 +31,7 @@ int main(void) {
 	int *p2=&b;
 //#endif
 	if(p1!=0 && p2!=0) {
-		assert(p1!=p2);
+		__VERIFIER_assert(p1!=p2);
 	}
 	return 0;
 }

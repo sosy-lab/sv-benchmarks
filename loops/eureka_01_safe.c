@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 int INFINITY = 899;
 
 int main(){
@@ -44,7 +50,7 @@ int main(){
 
   for(i = 0; i < nodecount; i++)
     {
-      assert(distance[i]>=0);
+      __VERIFIER_assert(distance[i]>=0);
     }
 
   return 0;

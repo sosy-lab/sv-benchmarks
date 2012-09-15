@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 int __VERIFIER_nondet_int();
 
 main()
@@ -17,6 +23,6 @@ main()
           maior = matriz[j][k];                          
     }                       
     
-  assert(matriz[0][0]<=maior);    
+  __VERIFIER_assert(matriz[0][0]<=maior);    
 }
 

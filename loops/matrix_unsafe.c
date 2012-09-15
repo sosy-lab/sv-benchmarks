@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 unsigned int __VERIFIER_nondet_uint();
 int __VERIFIER_nondet_int();
 
@@ -22,6 +28,6 @@ main()
     
   for(j=0;j<N_COL;j++)
     for(k=0;k<N_LIN;k++)
-      assert(matriz[j][k]<maior);    
+      __VERIFIER_assert(matriz[j][k]<maior);    
 }
 

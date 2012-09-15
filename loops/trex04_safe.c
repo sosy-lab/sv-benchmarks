@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #define bool int
 bool nondet_bool()
 {
@@ -33,6 +39,6 @@ int main()
     x=x-d;
   }
 
-  assert(x<=0);
+  __VERIFIER_assert(x<=0);
 }
 

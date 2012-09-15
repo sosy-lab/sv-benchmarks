@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 #define SIZE 5
 
@@ -28,7 +34,7 @@ int main(void){
 	SelectionSort();
 
 	for(i=0; i<SIZE; i++)
-		assert(array[i]==i);
+		__VERIFIER_assert(array[i]==i);
 
 }
 

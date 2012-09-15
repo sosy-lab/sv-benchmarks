@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 #define a (2)
 unsigned int nondet_uint();
 int main() { 
@@ -7,5 +13,5 @@ int main() {
     sn = sn + a;
     j--;
   }
-  assert(sn==n*a || sn == 0);
+  __VERIFIER_assert(sn==n*a || sn == 0);
 }

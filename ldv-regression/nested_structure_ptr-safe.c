@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 
 /* Complex lvalue assignment
  */
@@ -23,7 +29,7 @@ int main()
 	struct Toplev good = { 1, &inner};
 	struct Toplev *ptr = &good;
 	ptr->x->y->c = 4;
-	assert (ptr->x->y->c == 4);
+	__VERIFIER_assert (ptr->x->y->c == 4);
 	return 0;
 }
 

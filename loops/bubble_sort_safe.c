@@ -1,3 +1,9 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
 # 1 "main.c"
 # 1 "<command-line>"
 # 1 "main.c"
