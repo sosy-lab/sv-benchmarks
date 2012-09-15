@@ -3854,7 +3854,7 @@ NTSTATUS CdAudioSendToNextDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 }
 BOOLEAN CdAudioIsPlayActive(PDEVICE_OBJECT DeviceObject ) 
 { PCD_DEVICE_EXTENSION deviceExtension ;
-  PIRP irp_CdAudioIsPlayActive ;
+  PIRP irp_CdAudioIsPlayActive = __VERIFIER_nondet_pointer() ;
   IO_STATUS_BLOCK ioStatus ;
   KEVENT event ;
   NTSTATUS status = __VERIFIER_nondet_long() ;
@@ -8182,7 +8182,7 @@ NTSTATUS IofCallDriver(PDEVICE_OBJECT DeviceObject ,
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
   int compRetStatus ;
-  PVOID lcontext ;
+  PVOID lcontext = __VERIFIER_nondet_pointer() ;
   NTSTATUS tmp ;
   NTSTATUS tmp___0 ;
 
@@ -8536,7 +8536,7 @@ NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   int compRetStatus ;
   NTSTATUS returnVal ;
-  PVOID lcontext ;
+  PVOID lcontext = __VERIFIER_nondet_pointer() ;
   NTSTATUS tmp ;
   NTSTATUS tmp___0 ;
 

@@ -2068,7 +2068,7 @@ void DiskPerfAddCounters(PDISK_PERFORMANCE TotalCounters , PDISK_PERFORMANCE New
 #pragma alloc_text(PAGE,DiskPerfSyncFilterWithTarget)
 WMIGUIDREGINFO DiskperfGuidList[1]  = {      {& DiskPerfGuid, 1, 0}};
 NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath ) 
-{ PDRIVER_DISPATCH *dispatch ;
+{ PDRIVER_DISPATCH *dispatch = __VERIFIER_nondet_pointer() ;
   PVOID tmp ;
 
   {
@@ -3811,7 +3811,7 @@ NTSTATUS IofCallDriver(PDEVICE_OBJECT DeviceObject ,
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
   int compRetStatus ;
-  PVOID lcontext ;
+  PVOID lcontext = __VERIFIER_nondet_pointer() ;
   NTSTATUS tmp ;
   NTSTATUS tmp___0 ;
 
@@ -4157,7 +4157,7 @@ NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   int compRetStatus ;
   NTSTATUS returnVal ;
-  PVOID lcontext ;
+  PVOID lcontext = __VERIFIER_nondet_pointer() ;
   NTSTATUS tmp ;
   NTSTATUS tmp___0 ;
 

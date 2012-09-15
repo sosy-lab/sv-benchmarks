@@ -1060,7 +1060,7 @@ SSL_METHOD *SSLv3_client_method(void)
 }
 }
 int main(void) 
-{ SSL *s ;
+{ SSL *s = __VERIFIER_nondet_pointer() ;
 
   {
   {
@@ -1081,7 +1081,7 @@ int ssl3_connect(SSL *s )
   int new_state ;
   int state ;
   int skip ;
-  int *tmp___0 ;
+  int *tmp___0 = __VERIFIER_nondet_pointer() ;
   int tmp___1 = __VERIFIER_nondet_int() ;
   int tmp___2 = __VERIFIER_nondet_int() ;
   int tmp___3 = __VERIFIER_nondet_int() ;

@@ -1078,7 +1078,7 @@ int main(void)
 }
 }
 int ssl3_accept(SSL *s ) 
-{ BUF_MEM *buf ;
+{ BUF_MEM *buf = __VERIFIER_nondet_pointer() ;
   unsigned long l ;
   unsigned long Time ;
   unsigned long tmp = __VERIFIER_nondet_long() ;
