@@ -1262,7 +1262,7 @@ int ssl3_accept(SSL *s )
                                                                             }
                                                                             s->type = 8192;
                                                                             if ((unsigned long )s->init_buf == (unsigned long )((void *)0)) {
-                                                                              buf = __VERIFIER_nondet_int();
+                                                                              buf = __VERIFIER_nondet_pointer();
                                                                               if ((unsigned long )buf == (unsigned long )((void *)0)) {
                                                                                 ret = -1;
                                                                                 goto end;
