@@ -4189,7 +4189,7 @@ NTSTATUS PptDeselectDevice(PVOID Context , PVOID DeselectCommand )
 }
 }
 ULONG Ppt1284_3AssignAddress(PDEVICE_EXTENSION DeviceExtension ) 
-{ UCHAR i ;
+{ UCHAR i = __VERIFIER_nondet_char() ;
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4341,7 +4341,7 @@ ULONG Ppt1284_3AssignAddress(PDEVICE_EXTENSION DeviceExtension )
 }
 BOOLEAN PptCheckIfNon1284_3Present(PDEVICE_EXTENSION Extension ) 
 { BOOLEAN bReturnValue ;
-  UCHAR i ;
+  UCHAR i = __VERIFIER_nondet_char() ;
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4408,7 +4408,7 @@ BOOLEAN PptCheckIfNon1284_3Present(PDEVICE_EXTENSION Extension )
 BOOLEAN PptCheckIfStl1284_3(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyIndex ,
                             BOOLEAN bNoStrobe ) 
 { BOOLEAN bReturnValue ;
-  UCHAR i ;
+  UCHAR i = __VERIFIER_nondet_char() ;
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4519,7 +4519,7 @@ BOOLEAN PptCheckIfStl1284_3(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyInd
 }
 BOOLEAN PptCheckIfStlProductId(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyIndex ) 
 { BOOLEAN bReturnValue ;
-  UCHAR i ;
+  UCHAR i = __VERIFIER_nondet_char() ;
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR status ;
@@ -4632,7 +4632,7 @@ BOOLEAN PptCheckIfStlProductId(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisy
 }
 }
 BOOLEAN PptSend1284_3Command(PDEVICE_EXTENSION DeviceExtension , UCHAR Command ) 
-{ UCHAR i ;
+{ UCHAR i = __VERIFIER_nondet_char() ;
   UCHAR value ;
   UCHAR newvalue ;
   UCHAR test ;
@@ -5215,7 +5215,7 @@ void PptDetectEppPortIfUserRequested(PDEVICE_EXTENSION Extension )
 void PptDetectEppPort(PDEVICE_EXTENSION Extension ) 
 { PUCHAR Controller ;
   UCHAR dcr ;
-  UCHAR i ;
+  UCHAR i = __VERIFIER_nondet_char() ;
   UCHAR Reverse ;
   UCHAR Forward ;
   BOOLEAN daisyChainDevicePresent ;
