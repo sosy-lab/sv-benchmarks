@@ -1,11 +1,11 @@
 ntdrivers-simplified/*_unsafe.cil.c
 ntdrivers-simplified/*_safe.cil.c
-ntdrivers/*.unsafe.i.cil.c
+ntdrivers/*_unsafe.i.cil.c
 ntdrivers/*_safe.i.cil.c
 ssh-simplified/*_unsafe.cil.c
 ssh-simplified/*_safe.cil.c
-ssh/*.unsafe.i.cil.c
+ssh/*_unsafe.i.cil.c
 ssh/*_safe.i.cil.c
-locks/*.unsafe.c
+locks/*_unsafe.c
 locks/*_safe.c
 

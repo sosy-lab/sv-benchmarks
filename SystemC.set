@@ -1,2 +1,2 @@
-systemc/*unsafe.cil.c
+systemc/*_unsafe.cil.c
 systemc/*_safe.cil.c
