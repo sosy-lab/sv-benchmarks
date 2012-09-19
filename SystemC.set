@@ -1,2 +1,2 @@
-systemc/*BUG.cil.c
-systemc/*[!G].cil.c
+systemc/*unsafe.cil.c
+systemc/*_safe.cil.c
