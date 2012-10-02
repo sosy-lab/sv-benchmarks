@@ -654,7 +654,7 @@ void *thr1() {
     break;
   }
   X = 0;
-  if (!X <= 0) ERROR: goto ERROR;;
+  if (!(X <= 0)) ERROR: goto ERROR;;
   y = 0;
   b1 = 0;
 }
@@ -679,7 +679,7 @@ void *thr2() {
     break;
   }
   X = 1;
-  if (!X >= 1) ERROR: goto ERROR;;
+  if (!(X >= 1)) ERROR: goto ERROR;;
   y = 0;
   b2 = 0;
 }

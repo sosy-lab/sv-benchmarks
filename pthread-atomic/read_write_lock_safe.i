@@ -652,7 +652,7 @@ void *reader() {
   __VERIFIER_atomic_take_read_lock();
   l = x;
   y = l;
-  if (!y == x) ERROR: goto ERROR;;
+  if (!(y == x)) ERROR: goto ERROR;;
   __VERIFIER_atomic_release_read_lock();
 }
 int main() {

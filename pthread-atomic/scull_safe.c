@@ -5,7 +5,7 @@ extern int __VERIFIER_nondet_int();
 
 #include <pthread.h>
 #include "scull_safe.h"
-#define assert(e) if (!e) ERROR: goto ERROR;
+#define assert(e) if (!(e)) ERROR: goto ERROR;
 
 inode i;
 pthread_mutex_t lock;
@@ -101,7 +101,7 @@ inline int scull_open(int tid, inode i, file filp)
   dev = container_of(i);
   filp = dev;
 
-  if (down_interruptible(tid))
+  if (down_interruptible())
     return -ERESTARTSYS;
 
   __X__ = 2;          /* check mutual exclusion */
@@ -134,7 +134,7 @@ inline ssize_t scull_read(int tid, file filp, char buf, size_t count,
   int item, s_pos, q_pos, rest;
   ssize_t retval = 0;
 
-  if (down_interruptible(tid))
+  if (down_interruptible())
     return -ERESTARTSYS;
 
   __X__ = 0;          /* check mutual exclusion */
@@ -180,7 +180,7 @@ inline ssize_t scull_write(int tid, file filp, char buf, size_t count,
   int item, s_pos, q_pos, rest;
   ssize_t retval = -ENOMEM; /* value used in "goto out" statements */
 
-  if (down_interruptible(tid))
+  if (down_interruptible())
     return -ERESTARTSYS;
   
   /* find listitem, qset index and offset in the quantum */

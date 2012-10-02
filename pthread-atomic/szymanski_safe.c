@@ -3,7 +3,7 @@
 */
 
 #include <pthread.h>
-#define assert(e) if (!e) ERROR: goto ERROR; 
+#define assert(e) if (!(e)) ERROR: goto ERROR; 
 
 int flag1 = 0, flag2 = 0; // integer flags 
 int x; // boolean variable to test mutual exclusion

@@ -7,7 +7,7 @@
 */
 
 #include <pthread.h>
-#define assert(e) if (!e) ERROR: goto ERROR;
+#define assert(e) if (!(e)) ERROR: goto ERROR;
 
 int block;
 int busy; // boolean flag indicating whether the block has been allocated to an inode

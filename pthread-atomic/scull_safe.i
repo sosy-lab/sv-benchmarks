@@ -677,11 +677,11 @@ inline int scull_open(int tid, int i, int filp)
   int dev;
   dev = i;
   filp = dev;
-  if (down_interruptible(tid))
+  if (down_interruptible())
     return -512;
   __X__ = 2;
   scull_trim(dev);
-  if (!__X__ >= 2) ERROR: goto ERROR;;
+  if (!(__X__ >= 2)) ERROR: goto ERROR;;
   up();
   return 0;
 }
@@ -697,7 +697,7 @@ inline int scull_read(int tid, int filp, int buf, int count,
   int itemsize = quantum * qset;
   int item, s_pos, q_pos, rest;
   int retval = 0;
-  if (down_interruptible(tid))
+  if (down_interruptible())
     return -512;
   __X__ = 0;
   if (f_pos >= dev_size)
@@ -716,7 +716,7 @@ inline int scull_read(int tid, int filp, int buf, int count,
   }
   f_pos += count;
   retval = count;
-  if (!__X__ <= 0) ERROR: goto ERROR;;
+  if (!(__X__ <= 0)) ERROR: goto ERROR;;
  out:
   up();
   return retval;
@@ -730,7 +730,7 @@ inline int scull_write(int tid, int filp, int buf, int count,
   int itemsize = quantum * qset;
   int item, s_pos, q_pos, rest;
   int retval = -4;
-  if (down_interruptible(tid))
+  if (down_interruptible())
     return -512;
   item = f_pos / itemsize;
   rest = f_pos;
@@ -749,7 +749,7 @@ inline int scull_write(int tid, int filp, int buf, int count,
   retval = count;
   if (dev_size < f_pos)
     dev_size = f_pos;
-  if (!__X__ == 1) ERROR: goto ERROR;;
+  if (!(__X__ == 1)) ERROR: goto ERROR;;
  out:
   up();
   return retval;

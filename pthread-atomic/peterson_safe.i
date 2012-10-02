@@ -638,7 +638,7 @@ void *thr1() {
   turn = 1;
   while (flag2==1 && turn==1) {};
   x = 0;
-  if (!x<=0) ERROR: goto ERROR;;
+  if (!(x<=0)) ERROR: goto ERROR;;
   flag1 = 0;
 }
 void *thr2() {
@@ -646,7 +646,7 @@ void *thr2() {
   turn = 0;
   while (flag1==1 && turn==0) {};
   x = 1;
-  if (!x>=1) ERROR: goto ERROR;;
+  if (!(x>=1)) ERROR: goto ERROR;;
   flag2 = 0;
 }
 int main() {

@@ -661,7 +661,7 @@ void __VERIFIER_atomic_check_progress(int readerstart1, int readerstart2) {
     } else {}
   }
  fail:
-  if (!0) ERROR: goto ERROR;;
+  if (!(0)) ERROR: goto ERROR;;
 }
 void *qrcu_reader1() {
   int myidx;
