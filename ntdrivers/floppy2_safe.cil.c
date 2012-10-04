@@ -6170,7 +6170,12 @@ NTSTATUS FlAcpiConfigureFloppy(PDISKETTE_EXTENSION DisketteExtension , PFDC_INFO
 }
 }
 #line 949
-extern int ( /* missing proto */  assert)() ;
+void assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR; 
+  }
+  return;
+}
 #line 841 "floppy.c"
 NTSTATUS FlQueueIrpToThread(PIRP Irp , PDISKETTE_EXTENSION DisketteExtension ) 
 { NTSTATUS status ;
