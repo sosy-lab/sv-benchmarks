@@ -1103,7 +1103,8 @@ int ssl3_accept(SSL *s )
   
 
   {
-  blastFlag = 0;
+  blastFlag = 0; 
+  s->hit=__VERIFIER_nondet_int ();
   s->state = 8464;
   tmp = __VERIFIER_nondet_int();
   Time = tmp;

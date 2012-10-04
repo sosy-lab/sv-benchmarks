@@ -1060,7 +1060,7 @@ SSL_METHOD *SSLv3_client_method(void)
 }
 }
 int main(void) 
-{ SSL *s = __VERIFIER_nondet_pointer() ;
+{ SSL *s = (SSL*)malloc(sizeof(SSL)) ;
 
   {
   {
@@ -1094,7 +1094,8 @@ int ssl3_connect(SSL *s )
   int blastFlag ;
 
   {
-  blastFlag = 0;
+  blastFlag = 0; 
+  s->hit=__VERIFIER_nondet_int ();
   s->state = 12292;
   tmp = __VERIFIER_nondet_int();
   cb = (void (*)())((void *)0);
