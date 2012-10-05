@@ -1,5 +1,5 @@
-memsafety/*_unsafe-invderef.c
-memsafety/*_unsafe-invfree.c
-memsafety/*_unsafe-memleak.c
+memsafety/*_not-valid-deref.c
+memsafety/*_not-valid-free.c
+memsafety/*_not-valid-memtrack.c
 memsafety/*_true.c
 
