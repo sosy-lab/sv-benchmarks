@@ -1937,6 +1937,7 @@ struct _SCSI_REQUEST_BLOCK;
 #pragma warning(disable:4035)
 #pragma warning(pop)
 #pragma once
+extern void *malloc(unsigned long sz ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
@@ -2223,7 +2224,7 @@ UCHAR PptDot3Retries ;
 union _LARGE_INTEGER  const  PhysicalZero ;
 LONG PortInfoReferenceCount ;
 PFAST_MUTEX PortInfoMutex ;
-extern int s ;
+int s ;
 int UNLOADED  ;
 int NP  ;
 int DC  ;
@@ -9793,18 +9794,7 @@ int main(void)
 }
 }
 char _SLAM_alloc_dummy  ;
-char *malloc(int i ) 
-{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
-
-  {
-  if (__BLAST_NONDET) {
-    return ((char *)0);
-  } else {
-    return ((char *)1);
-  }
-}
-}
-  void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) ;
+void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) ;
 void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) 
 { 
 
