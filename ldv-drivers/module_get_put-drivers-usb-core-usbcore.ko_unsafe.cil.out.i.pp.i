@@ -1,3 +1,9 @@
+
+int __VERIFIER_nondet_int() {
+  int tmp;
+  return tmp;
+}
+
 # 1 "ldv/08_1/drivers/usb/core/usbcore.ko/unsafe.cil.out.i"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -31062,7 +31068,7 @@ static int usb_open(struct inode *inode , struct file *file )
 # 45 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"
   down_read(& minor_rwsem);
 # 46 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"
-  c = usb_minors[minor];
+  c = __VERIFIER_nondet_int();
   }
 # 48 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"
   if ((unsigned long )c == (unsigned long )((struct file_operations const *)0)) {
