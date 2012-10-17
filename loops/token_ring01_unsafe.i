@@ -1,3 +1,4 @@
+extern int nondet_int(void);
 
 
 

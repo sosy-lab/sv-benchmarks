@@ -1,3 +1,4 @@
+extern void *malloc(unsigned long sz);
 
 
 

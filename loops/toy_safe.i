@@ -1,3 +1,4 @@
+extern unsigned int nondet_uint(void);
 extern int __VERIFIER_nondet_int();
 void error(void)
 {
