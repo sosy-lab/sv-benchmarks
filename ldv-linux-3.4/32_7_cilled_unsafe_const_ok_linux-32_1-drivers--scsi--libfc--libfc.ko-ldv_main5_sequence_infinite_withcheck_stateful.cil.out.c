@@ -5829,8 +5829,8 @@ enum kobj_ns_type;
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
-__inline static __u32 __arch_swab32(__u32 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u32 __arch_swab32(__u32 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
@@ -5843,8 +5843,8 @@ __inline static __u32 __arch_swab32(__u32 val )
 }
 }
 #line 46 "include/linux/swab.h"
-__inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val ) 
 { int __cil_tmp2 ;
@@ -5877,8 +5877,8 @@ __inline static __u16 __fswab16(__u16 val )
 }
 }
 #line 55
-__inline static __u32 __fswab32(__u32 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u32 __fswab32(__u32 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 55 "include/linux/swab.h"
 __inline static __u32 __fswab32(__u32 val ) 
 { __u32 tmp ;
@@ -8802,8 +8802,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 #line 29 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
-__inline static __u64 __arch_swab64(__u64 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u64 __arch_swab64(__u64 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 29 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
 __inline static __u64 __arch_swab64(__u64 val ) 
 { 
@@ -8816,8 +8816,8 @@ __inline static __u64 __arch_swab64(__u64 val )
 }
 }
 #line 64 "include/linux/swab.h"
-__inline static __u64 __fswab64(__u64 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u64 __fswab64(__u64 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 64 "include/linux/swab.h"
 __inline static __u64 __fswab64(__u64 val ) 
 { __u64 tmp ;

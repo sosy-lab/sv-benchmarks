@@ -2856,8 +2856,8 @@ extern unsigned long find_next_zero_bit(unsigned long    *addr , unsigned long s
 #line 45
 extern unsigned long find_first_zero_bit(unsigned long    *addr , unsigned long size ) ;
 #line 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
-__inline static __u32 __arch_swab32(__u32 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u32 __arch_swab32(__u32 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
@@ -2870,8 +2870,8 @@ __inline static __u32 __arch_swab32(__u32 val )
 }
 }
 #line 46 "include/linux/swab.h"
-__inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val ) 
 { int __cil_tmp2 ;
@@ -2904,8 +2904,8 @@ __inline static __u16 __fswab16(__u16 val )
 }
 }
 #line 55
-__inline static __u32 __fswab32(__u32 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u32 __fswab32(__u32 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 55 "include/linux/swab.h"
 __inline static __u32 __fswab32(__u32 val ) 
 { __u32 tmp ;

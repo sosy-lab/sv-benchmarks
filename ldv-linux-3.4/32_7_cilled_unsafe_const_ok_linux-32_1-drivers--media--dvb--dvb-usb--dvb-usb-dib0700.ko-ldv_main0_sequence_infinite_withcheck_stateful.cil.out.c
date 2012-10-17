@@ -7087,8 +7087,8 @@ struct __anonstruct_379___0 {
 #line 1
 long __builtin_expect(long val , long res ) ;
 #line 46 "include/linux/swab.h"
-__inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__,
-____)) ;
+__inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__)) ;
+
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val ) 
 { int __cil_tmp2 ;
