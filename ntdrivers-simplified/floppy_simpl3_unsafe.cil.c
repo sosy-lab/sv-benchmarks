@@ -707,7 +707,7 @@ int FloppyStartDevice(int DeviceObject , int Irp )
 #line 553
         if (disketteExtension__DriveType == 4) {
 #line 554
-          __cil_tmp47 = uninf1();
+          //__cil_tmp47 = uninf1();
 #line 554
           //disketteExtension__PerpendicularMode |= __cil_tmp47;
         }
@@ -719,7 +719,7 @@ int FloppyStartDevice(int DeviceObject , int Irp )
 #line 563
       if (disketteExtension__DriveType == 4) {
 #line 564
-        __cil_tmp48 = uninf1();
+        //__cil_tmp48 = uninf1();
 #line 564
         //disketteExtension__PerpendicularMode |= __cil_tmp48;
       }
