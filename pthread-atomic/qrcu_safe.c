@@ -51,17 +51,21 @@ void __VERIFIER_atomic_take_snapshot(int readerstart1, int readerstart2) {
   readerstart2 = readerprogress2;
 }
 
-void __VERIFIER_atomic_check_progress(int readerstart1, int readerstart2) {
+void __VERIFIER_atomic_check_progress1(int readerstart1) {
   /* Verify reader progress. */
   if (__VERIFIER_nondet_int()) {
     __VERIFIER_assume(readerstart1 == 1 && readerprogress1 == 1);
     assert(0);
-  } else {
-    if (__VERIFIER_nondet_int()) {
-      __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
-      assert(0);
-    } else {}
-  }
+  } 
+  return;
+}
+
+void __VERIFIER_atomic_check_progress2(int readerstart2) {
+  if (__VERIFIER_nondet_int()) {
+    __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
+    assert(0);
+  } 
+  return;
 }
 
 void *qrcu_reader1() {
@@ -124,7 +128,8 @@ void* qrcu_updater() {
     else { while (ctr2 > 0); }
     pthread_mutex_unlock(&mutex);
   } else {}
-  __VERIFIER_atomic_check_progress(readerstart1, readerstart2);
+  __VERIFIER_atomic_check_progress1(readerstart1);
+  __VERIFIER_atomic_check_progress2(readerstart2);
   return 0;
 }
 
