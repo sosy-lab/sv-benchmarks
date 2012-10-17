@@ -653,15 +653,13 @@ void __VERIFIER_atomic_take_snapshot(int readerstart1, int readerstart2) {
 void __VERIFIER_atomic_check_progress(int readerstart1, int readerstart2) {
   if (__VERIFIER_nondet_int()) {
     __VERIFIER_assume(readerstart1 == 1 && readerprogress1 == 1);
-    goto fail;
+    if (!(0)) ERROR: goto ERROR;;
   } else {
     if (__VERIFIER_nondet_int()) {
       __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
-      goto fail;
+      if (!(0)) ERROR: goto ERROR;;
     } else {}
   }
- fail:
-  if (!(0)) ERROR: goto ERROR;;
 }
 void *qrcu_reader1() {
   int myidx;

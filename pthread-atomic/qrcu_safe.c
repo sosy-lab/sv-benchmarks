@@ -55,15 +55,13 @@ void __VERIFIER_atomic_check_progress(int readerstart1, int readerstart2) {
   /* Verify reader progress. */
   if (__VERIFIER_nondet_int()) {
     __VERIFIER_assume(readerstart1 == 1 && readerprogress1 == 1);
-    goto fail;
+    assert(0);
   } else {
     if (__VERIFIER_nondet_int()) {
       __VERIFIER_assume(readerstart2 == 1 && readerprogress2 == 1);
-      goto fail;
+      assert(0);
     } else {}
   }
- fail:
-  assert(0);
 }
 
 void *qrcu_reader1() {
