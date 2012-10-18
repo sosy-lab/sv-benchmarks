@@ -9,8 +9,7 @@ extern int __VERIFIER_nondet_int(void);
 
 int bar(char *x)
 {
-  int i;
-  return i;
+  return __VERIFIER_nondet_int();
 }
 
 int foo(int * x){
