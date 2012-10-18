@@ -10,7 +10,7 @@ int __VERIFIER_nondet_int() {
   return tmp;
 }
 
-int bar(int x)
+int bar(char *x)
 {
   int i;
   return i;
@@ -23,7 +23,7 @@ int foo(int * x){
 int main(){
    int i,j,ret,offset, tmp_cnt, tel_data,klen;
    /* source snippet*/
-   int x [1000];
+   char x [1000];
 
    for (i = 0; i < 1000; ++i)
       x[i]= __VERIFIER_nondet_int();
