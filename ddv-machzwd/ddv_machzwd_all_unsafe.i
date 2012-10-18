@@ -4910,19 +4910,19 @@ int printk(const char *fmt, ...)
   return 0;
 }
 
-unsigned short __VERIFIER_nondet_ushort() { unsigned short us; return us; }
-unsigned long __VERIFIER_nondet_ulong() { unsigned long ul; return ul; }
-short __VERIFIER_nondet_short() { short s; return s; }
-int __VERIFIER_nondet_int() { int i; return i; }
-char __VERIFIER_nondet_char() { char c; return c; }
-size_t __VERIFIER_nondet_size_t() { size_t s; return s; }
-unsigned int __VERIFIER_nondet_uint() { unsigned int ui; return ui; }
-unsigned char __VERIFIER_nondet_uchar() { unsigned char uc; return uc; }
-unsigned __VERIFIER_nondet_unsigned() { unsigned u; return u; }
-long __VERIFIER_nondet_long() { long l; return l; }
-char* __VERIFIER_nondet_pchar() { char* pc; return pc; }
-loff_t __VERIFIER_nondet_loff_t() { loff_t l; return l; }
-sector_t __VERIFIER_nondet_sector_t() { sector_t s; return s; }
+extern unsigned short __VERIFIER_nondet_ushort();
+extern unsigned long __VERIFIER_nondet_ulong();
+extern short __VERIFIER_nondet_short();
+extern int __VERIFIER_nondet_int();
+extern char __VERIFIER_nondet_char();
+extern size_t __VERIFIER_nondet_size_t();
+extern unsigned int __VERIFIER_nondet_uint();
+extern unsigned char __VERIFIER_nondet_uchar();
+extern unsigned __VERIFIER_nondet_unsigned();
+extern long __VERIFIER_nondet_long();
+extern char* __VERIFIER_nondet_pchar();
+extern loff_t __VERIFIER_nondet_loff_t();
+extern sector_t __VERIFIER_nondet_sector_t();
 loff_t no_llseek(struct file *file, loff_t offset, int origin) { loff_t l; return l; }
 
 
