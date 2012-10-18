@@ -53,18 +53,19 @@ void q1(int argc, char* argv[])
  if(argc < 2)
   return;
  int N = __VERIFIER_nondet_int();
-  int a[N];
+ int a[N];
+ int i;
  switch(2)
  {
  case 0:
-   for(int i=0; i < N; ++i) a[i] = i;
+   for(i=0; i < N; ++i) a[i] = i;
   break;
  case 1:
-   for(int i=(N-1); i >= 0; --i) a[i] = N-1-i;
+   for(i=(N-1); i >= 0; --i) a[i] = N-1-i;
   break;
  case 2:
-   for(int i=0; i < N; ++i) a[i] = i;
-    for (int i=0; i<N; i++) {
+   for(i=0; i < N; ++i) a[i] = i;
+    for (i=0; i<N; i++) {
         int r = i + (__VERIFIER_nondet_int() % (N-i));
         int temp = a[i];
         a[i] = a[r];
