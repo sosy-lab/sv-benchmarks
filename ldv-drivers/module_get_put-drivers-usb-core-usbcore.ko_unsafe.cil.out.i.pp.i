@@ -1,8 +1,5 @@
 
-int __VERIFIER_nondet_int() {
-  int tmp;
-  return tmp;
-}
+extern int __VERIFIER_nondet_int();
 
 # 1 "ldv/08_1/drivers/usb/core/usbcore.ko/unsafe.cil.out.i"
 # 1 "<built-in>"
