@@ -26,10 +26,7 @@ struct node {
 extern __attribute__((__nothrow__)) void *malloc(size_t __size ) __attribute__((__malloc__)) ;
 extern __attribute__((__nothrow__)) void free(void *__ptr ) ;
 extern __attribute__((__nothrow__, __noreturn__)) void abort(void) ;
-int __VERIFIER_nondet_int(void){
-int x;
-return x;
-}
+extern int __VERIFIER_nondet_int(void);
 static void fail(void)
 {
   {
@@ -37,7 +34,10 @@ static void fail(void)
   goto ERROR;
 }
 }
+
+
 struct list_head gl_list = {& gl_list, & gl_list};
+
 static void inspect(struct list_head const *head )
 { struct node const *node ;
   unsigned int __cil_tmp3 ;

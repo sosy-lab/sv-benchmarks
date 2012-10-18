@@ -22,10 +22,7 @@ extern  __attribute__((__nothrow__)) void free(void *__ptr ) ;
 #line 514
 extern  __attribute__((__nothrow__, __noreturn__)) void abort(void) ;
 #line 5 "test-0180.c"
-int __VERIFIER_nondet_int(void){
-int x;
-return x;
-}
+extern int __VERIFIER_nondet_int(void);
 #line 7 "test-0180.c"
 static void fail(void) 
 { 

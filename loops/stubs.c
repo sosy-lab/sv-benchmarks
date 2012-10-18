@@ -1,9 +1,6 @@
 #include "stubs.h"
 
-int __VERIFIER_nondet_int() {
-  int tmp;
-  return tmp;
-}
+extern int __VERIFIER_nondet_int(void);
 
 /****************************************************************************
  *

@@ -2,7 +2,7 @@ extern void *malloc(unsigned long sz);
 
 
 
-int __VERIFIER_nondet_int() { int x; return x; }
+extern int __VERIFIER_nondet_int(void);
 
 typedef unsigned int size_t;
 typedef long __time_t;

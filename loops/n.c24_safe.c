@@ -5,10 +5,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 #include <string.h>
-int __VERIFIER_nondet_int() {
-  int tmp;
-  return tmp;
-}
+extern int __VERIFIER_nondet_int(void);
 
 int bar(char *x)
 {

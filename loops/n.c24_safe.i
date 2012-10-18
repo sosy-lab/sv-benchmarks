@@ -126,10 +126,7 @@ extern char *stpncpy (char *__restrict __dest,
         __const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-int __VERIFIER_nondet_int() {
-  int tmp;
-  return tmp;
-}
+extern int __VERIFIER_nondet_int(void);
 int bar(char *x)
 {
   int i;
