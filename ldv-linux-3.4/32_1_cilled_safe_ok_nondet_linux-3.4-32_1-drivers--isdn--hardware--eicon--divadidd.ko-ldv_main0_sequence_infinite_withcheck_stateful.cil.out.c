@@ -5246,7 +5246,7 @@ void myDbgPrint_LOG(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 46
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 46
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 46
@@ -5288,7 +5288,7 @@ void myDbgPrint_FTL(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 47
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 47
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 47
@@ -5330,7 +5330,7 @@ void myDbgPrint_ERR(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 48
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 48
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 48
@@ -5372,7 +5372,7 @@ void myDbgPrint_TRC(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 49
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 49
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 49
@@ -5414,7 +5414,7 @@ void myDbgPrint_MXLOG(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 50
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 50
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 50
@@ -5456,7 +5456,7 @@ void myDbgPrint_FTL_MXLOG(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 51
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 51
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 51
@@ -5499,7 +5499,7 @@ void myDbgPrint_EVL(long msgID  , ...)
   if (*((void (**)(unsigned short  , unsigned long  , va_list  ))__cil_tmp3)) {
     {
 #line 56
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, msgID);
 #line 57
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 264;
 #line 57
@@ -5543,7 +5543,7 @@ void myDbgPrint_REG(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 61
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 61
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 61
@@ -5585,7 +5585,7 @@ void myDbgPrint_MEM(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 62
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 62
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 62
@@ -5627,7 +5627,7 @@ void myDbgPrint_SPL(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 63
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 63
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 63
@@ -5669,7 +5669,7 @@ void myDbgPrint_IRP(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 64
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 64
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 64
@@ -5711,7 +5711,7 @@ void myDbgPrint_TIM(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 65
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 65
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 65
@@ -5753,7 +5753,7 @@ void myDbgPrint_BLK(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 66
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 66
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 66
@@ -5795,7 +5795,7 @@ void myDbgPrint_TAPI(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 67
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 67
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 67
@@ -5837,7 +5837,7 @@ void myDbgPrint_NDIS(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 68
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 68
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 68
@@ -5879,7 +5879,7 @@ void myDbgPrint_CONN(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 69
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 69
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 69
@@ -5921,7 +5921,7 @@ void myDbgPrint_STAT(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 70
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 70
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 70
@@ -5963,7 +5963,7 @@ void myDbgPrint_SEND(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 71
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 71
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 71
@@ -6005,7 +6005,7 @@ void myDbgPrint_RECV(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 72
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 72
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 72
@@ -6047,7 +6047,7 @@ void myDbgPrint_PRV0(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 73
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 73
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 73
@@ -6089,7 +6089,7 @@ void myDbgPrint_PRV1(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 74
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 74
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 74
@@ -6131,7 +6131,7 @@ void myDbgPrint_PRV2(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 75
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 75
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 75
@@ -6173,7 +6173,7 @@ void myDbgPrint_PRV3(char *format  , ...)
   if (*((void (**)(unsigned short  , int  , char * , va_list  ))__cil_tmp3)) {
     {
 #line 76
-    __builtin_va_start(ap);
+    __builtin_va_start(ap, format);
 #line 76
     __cil_tmp4 = (unsigned long )(& myDriverDebugHandle) + 248;
 #line 76
@@ -6503,7 +6503,7 @@ void xdi_dbg_xlog(char *x  , ...)
   {
   {
 #line 142
-  __builtin_va_start(ap);
+  __builtin_va_start(ap, x);
   }
   {
 #line 143

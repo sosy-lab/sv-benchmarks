@@ -14842,7 +14842,7 @@ static _cdebbuf *bufprint(_cdebbuf *cdb , char *fmt  , ...)
   }
   {
 #line 754
-  __builtin_va_start(f);
+  __builtin_va_start(f, fmt);
 #line 755
   __cil_tmp14 = (unsigned long )cdb;
 #line 755
@@ -14985,7 +14985,7 @@ static _cdebbuf *bufprint(_cdebbuf *cdb , char *fmt  , ...)
 #line 775
     *((size_t *)__cil_tmp51) = ns;
 #line 776
-    __builtin_va_start(f);
+    __builtin_va_start(f, fmt);
 #line 777
     __cil_tmp52 = (unsigned long )cdb;
 #line 777
