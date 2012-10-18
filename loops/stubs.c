@@ -1,6 +1,9 @@
 #include "stubs.h"
 
-int __VERIFIER_nondet_int();
+int __VERIFIER_nondet_int() {
+  int tmp;
+  return tmp;
+}
 
 /****************************************************************************
  *
