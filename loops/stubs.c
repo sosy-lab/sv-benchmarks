@@ -1,10 +1,6 @@
 #include "stubs.h"
 
-/*
- * KK: I think SatAbs/CBMC front-end complains about this, but the backend
- * knows what it means.
- */
-/* extern int nondet_int(); */
+int __VERIFIER_nondet_int();
 
 /****************************************************************************
  *
@@ -298,7 +294,7 @@ int getc ()
   static int getc_count = 0;
   if (getc_count++ < MAX_GETC)
   {
-    if (nondet_int ())
+    if ( __VERIFIER_nondet_int())
       return (int) nondet_unsigned_char ();
 
     return EOF;
@@ -309,7 +305,7 @@ int getc ()
     return EOF;
   }
 #else
-  return nondet_int ();
+  return  __VERIFIER_nondet_int();
 #endif
 }
 
@@ -336,7 +332,7 @@ char *strrand (char *s)
 {
   int i;
   for (i = 0; s[i] != EOS; i++)
-    if (nondet_int () == 1)
+    if ( __VERIFIER_nondet_int() == 1)
       return &s[i];
 
   return NULL;
@@ -346,7 +342,7 @@ int istrrand (char *s)
 {
   int i;
   for (i = 0; s[i] != EOS; i++)
-    if (nondet_int () == 1)
+    if ( __VERIFIER_nondet_int() == 1)
       return i;
 
   return -1;
@@ -387,7 +383,6 @@ int istrncmp (const char *s1, int start, const char *s2, size_t n)
     if (s1[i] - s2[i] != 0) return s1[i] - s2[i];
   }
 
-  assert (i == end); //KK: what's this here for?
   return s1[end] - s2[end];
 }
 

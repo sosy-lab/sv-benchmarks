@@ -7,6 +7,12 @@ void __VERIFIER_assert(int cond) {
 #include <string.h>
 int __VERIFIER_nondet_int();
 
+int bar(int x)
+{
+  int i;
+  return i;
+}
+
 int foo(int * x){
    *x = __VERIFIER_nondet_int();
    return *x;
