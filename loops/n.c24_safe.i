@@ -126,14 +126,22 @@ extern char *stpncpy (char *__restrict __dest,
         __const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-int __VERIFIER_nondet_int();
+int __VERIFIER_nondet_int() {
+  int tmp;
+  return tmp;
+}
+int bar(char *x)
+{
+  int i;
+  return i;
+}
 int foo(int * x){
    *x = __VERIFIER_nondet_int();
    return *x;
 }
 int main(){
    int i,j,ret,offset, tmp_cnt, tel_data,klen;
-   int x [1000];
+   char x [1000];
    for (i = 0; i < 1000; ++i)
       x[i]= __VERIFIER_nondet_int();
    for (i= 0; i < 1000; ++i){

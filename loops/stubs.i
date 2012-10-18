@@ -25,6 +25,10 @@ char *r_strcpy (char *dest, const char *src);
 char *r_strcat(char *dest, const char *src);
 char *r_strncat(char *dest, const char *src, size_t n);
 void *r_memcpy(void *dest, const void *src, size_t n);
+int __VERIFIER_nondet_int() {
+  int tmp;
+  return tmp;
+}
 char *r_strcat(char *dest, const char *src)
 {
   int i, j;
@@ -56,16 +60,11 @@ char *r_strncat(char *dest, const char *src, size_t n)
   dest[i] = 0;
   return dest;
 }
-
 void *r_memcpy(void *dest, const void *src, size_t n)
 {
-
   int i;
   void *s = (void *)src;
-
-
   if (n > 0) dest[n-1];
-
   for (i = n-1; i >= 0; i--) {
     dest[i] = s[i];
   }
@@ -222,7 +221,7 @@ int strcmp (const char *s1, const char *s2)
 }
 int getc ()
 {
-  return nondet_int ();
+  return __VERIFIER_nondet_int();
 }
 int isascii (int c)
 {
@@ -237,7 +236,7 @@ char *strrand (char *s)
 {
   int i;
   for (i = 0; s[i] != 0; i++)
-    if (nondet_int () == 1)
+    if ( __VERIFIER_nondet_int() == 1)
       return &s[i];
   return ((void *)0);
 }
@@ -245,7 +244,7 @@ int istrrand (char *s)
 {
   int i;
   for (i = 0; s[i] != 0; i++)
-    if (nondet_int () == 1)
+    if ( __VERIFIER_nondet_int() == 1)
       return i;
   return -1;
 }
@@ -276,7 +275,6 @@ int istrncmp (const char *s1, int start, const char *s2, size_t n)
     if (s1[i] == 0) return 0;
     if (s1[i] - s2[i] != 0) return s1[i] - s2[i];
   }
-  assert (i == end);
   return s1[end] - s2[end];
 }
 int istrstr(const char *haystack, const char *needle)
@@ -297,6 +295,10 @@ int istrstr(const char *haystack, const char *needle)
   }
   return -1;
 }
+int __VERIFIER_nondet_int() {
+  int tmp;
+  return tmp;
+}
 char *r_strcat(char *dest, const char *src)
 {
   int i, j;
@@ -489,7 +491,7 @@ int strcmp (const char *s1, const char *s2)
 }
 int getc ()
 {
-  return nondet_int ();
+  return __VERIFIER_nondet_int();
 }
 int isascii (int c)
 {
@@ -504,7 +506,7 @@ char *strrand (char *s)
 {
   int i;
   for (i = 0; s[i] != 0; i++)
-    if (nondet_int () == 1)
+    if ( __VERIFIER_nondet_int() == 1)
       return &s[i];
   return ((void *)0);
 }
@@ -512,7 +514,7 @@ int istrrand (char *s)
 {
   int i;
   for (i = 0; s[i] != 0; i++)
-    if (nondet_int () == 1)
+    if ( __VERIFIER_nondet_int() == 1)
       return i;
   return -1;
 }
@@ -543,7 +545,6 @@ int istrncmp (const char *s1, int start, const char *s2, size_t n)
     if (s1[i] == 0) return 0;
     if (s1[i] - s2[i] != 0) return s1[i] - s2[i];
   }
-  assert (i == end);
   return s1[end] - s2[end];
 }
 int istrstr(const char *haystack, const char *needle)
