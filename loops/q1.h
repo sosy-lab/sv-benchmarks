@@ -9,13 +9,13 @@
 #define Q1_H_
 
 #include "bubblesort.h"
-int nondet_int();
+extern int __VERIFIER_nondet_int();
 void q1(int argc, char* argv[])
 {
 	if(argc < 2)
 		return;
 
-	int N = nondet_int();
+	int N = __VERIFIER_nondet_int();
   int a[N];
 
 	switch(2)
@@ -32,7 +32,7 @@ void q1(int argc, char* argv[])
 	  for(int i=0; i < N; ++i) a[i] = i;
 
     for (int i=0; i<N; i++) {
-        int r = i + (nondet_int() % (N-i));
+        int r = i + (__VERIFIER_nondet_int() % (N-i));
         int temp = a[i];
         a[i] = a[r];
         a[r] = temp;

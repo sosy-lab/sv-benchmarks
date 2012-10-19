@@ -1,11 +1,11 @@
-extern int nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
   }
   return;
 }
-unsigned int __VERIFIER_nondet_uint();
+extern unsigned int __VERIFIER_nondet_uint();
 
 int main()
 {
@@ -14,10 +14,10 @@ int main()
   unsigned int i;
 
   for(i=0;i<M;i++)
-    A[i] = nondet_int();
+    A[i] = __VERIFIER_nondet_int();
 
   for(i=0;i<M;i++)
-    B[i] = nondet_int();
+    B[i] = __VERIFIER_nondet_int();
 
   for(i=0;i<M;i++)
      C[i]=A[i]+B[i];

@@ -1,4 +1,4 @@
-extern int nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 
 
 
@@ -25,11 +25,6 @@ int is_master_triggered(void) ;
 int is_transmit1_triggered(void) ;
 void immediate_notify(void) ;
 int token ;
-int __VERIFIER_nondet_int()
-{
-  int i;
-  return i;
-}
 
 int local ;
 void master(void)
@@ -47,7 +42,7 @@ int tmp_var ;
   }
   M_ENTRY: ;
   {
-  int i=0, loop1 = nondet_int();
+  int i=0, loop1 = __VERIFIER_nondet_int();
   while (i<loop1) {
     while_0_continue: ;
     {
@@ -105,7 +100,7 @@ void transmit1(void)
   }
   T1_ENTRY: ;
   {
-  int i=0, loop2 = nondet_int();
+  int i=0, loop2 = __VERIFIER_nondet_int();
   while (i<loop2) {
     while_1_continue: ;
     t1_pc = 1;
@@ -218,7 +213,7 @@ void eval(void)
 
   {
   {
-  int i=0, loop3 = nondet_int();
+  int i=0, loop3 = __VERIFIER_nondet_int();
   while (i<loop3) {
     while_2_continue: ;
     {
@@ -438,7 +433,7 @@ void start_simulation(void)
   reset_delta_events();
   }
   {
-  int i=0, loop4 = nondet_int();
+  int i=0, loop4 = __VERIFIER_nondet_int();
   while (i<loop4) {
     while_3_continue: ;
     {

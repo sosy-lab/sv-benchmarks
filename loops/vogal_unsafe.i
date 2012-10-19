@@ -6,7 +6,7 @@ void __VERIFIER_assert(int cond) {
 }
 
 
-char nondet_char();
+extern char __VERIFIER_nondet_char();
 
 main(void)
 {
@@ -14,7 +14,7 @@ main(void)
   unsigned int i,j,cont, tam_string, n_caracter;
 
   for(i=0;i<10;i++)
-    string_entrada[i] = nondet_char();
+    string_entrada[i] = __VERIFIER_nondet_char();
 
   string_entrada[10 -1]='\0';
 

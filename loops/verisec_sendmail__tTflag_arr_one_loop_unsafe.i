@@ -4,8 +4,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-unsigned char nondet_uchar();
-int nondet_int();
+
 int main (void)
 {
   char in[11];

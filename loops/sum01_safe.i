@@ -5,9 +5,9 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-int nondet_int();
+extern int __VERIFIER_nondet_int();
 int main() {
-  int i, n=nondet_int(), sn=0;
+  int i, n=__VERIFIER_nondet_int(), sn=0;
   for(i=1; i<=n; i++) {
     sn = sn + (2);
   }

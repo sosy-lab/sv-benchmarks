@@ -1,4 +1,4 @@
-extern unsigned int nondet_uint(void);
+extern unsigned int __VERIFIER_nondet_uint();
 extern int __VERIFIER_nondet_int();
 void error(void)
 {
@@ -64,7 +64,7 @@ void write_loop(void)
   goto return_label;
   WL_WAIT_1_LOC:
   {
-  unsigned int loop1=0, n1=nondet_uint();
+  unsigned int loop1=0, n1=__VERIFIER_nondet_uint();
   while (loop1<n1 ) {
     loop1++;
     while_0_continue: ;
@@ -122,7 +122,7 @@ void compute1(void)
   }
   C1_ENTRY_LOC:
   {
-  unsigned int loop2=0, n2=nondet_uint();
+  unsigned int loop2=0, n2=__VERIFIER_nondet_uint();
   while (loop2<n2 ) {
     loop2++;
     while_1_continue: ;
@@ -163,7 +163,7 @@ void compute2(void)
   }
   C2_ENTRY_LOC:
   {
-  unsigned int loop3=0, n3=nondet_uint();
+  unsigned int loop3=0, n3=__VERIFIER_nondet_uint();
   while (loop3<n3 ) {
     loop3++;
     while_2_continue: ;
@@ -204,7 +204,7 @@ void write_back(void)
   }
   WB_ENTRY_LOC:
   {
-  unsigned int loop4=0, n4=nondet_uint();
+  unsigned int loop4=0, n4=__VERIFIER_nondet_uint();
   while (loop4<n4 ) {
     loop4++;
     while_3_continue: ;
@@ -256,7 +256,7 @@ void eval(void)
   int tmp___3 ;
   {
   {
-  unsigned int loop5=0, n5=nondet_uint();
+  unsigned int loop5=0, n5=__VERIFIER_nondet_uint();
   while (loop5<n5 ) {
     loop5++;
     while_4_continue: ;
@@ -467,7 +467,7 @@ void start_simulation(void)
   } else {
   }
   {
-  unsigned int loop6=0, n6=nondet_uint();
+  unsigned int loop6=0, n6=__VERIFIER_nondet_uint();
   while (loop6<n6 ) {
     loop6++;
     while_5_continue: ;

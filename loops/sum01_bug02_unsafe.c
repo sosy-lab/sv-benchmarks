@@ -5,9 +5,9 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 #define a (2)
-unsigned int nondet_uint();
+extern unsigned int __VERIFIER_nondet_uint();
 int main() { 
-  int i, j=10, n=nondet_uint(), sn=0;
+  int i, j=10, n=__VERIFIER_nondet_uint(), sn=0;
   for(i=1; i<=n; i++) {
     if (i<j) 
     sn = sn + a;

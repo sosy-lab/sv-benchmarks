@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
 }
 #define MAX 5
 
-char nondet_char();
+extern char __VERIFIER_nondet_char();
 
 main()
 {
@@ -15,11 +15,11 @@ main()
   int i, j, nc_A, nc_B, found=0;  
   
   for(i=0; i<MAX; i++)
-    string_A[i]=nondet_char();    
+    string_A[i]=__VERIFIER_nondet_char();    
   __VERIFIER_assume(string_A[MAX-1]=='\0');
 
   for(i=0; i<MAX; i++)
-    string_B[i]=nondet_char();    
+    string_B[i]=__VERIFIER_nondet_char();    
   __VERIFIER_assume(string_B[MAX-1]=='\0');
 
   nc_A = 0;

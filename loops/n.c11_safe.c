@@ -1,4 +1,3 @@
-extern bool nondet_bool(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -6,7 +5,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-_Bool __VERIFIER_nondet_bool();
+extern _Bool __VERIFIER_nondet_bool();
 
 int main(){
    int a[5];
@@ -15,7 +14,7 @@ int main(){
    int i;
 
 
-   while(nondet_bool()){
+   while(__VERIFIER_nondet_bool()){
      
       if (len==4)
          len =0;

@@ -1,12 +1,11 @@
-extern int nondet_int(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
   }
   return;
 }
-unsigned int __VERIFIER_nondet_uint();
-int __VERIFIER_nondet_int();
+extern unsigned int __VERIFIER_nondet_uint();
+extern int __VERIFIER_nondet_int();
 
 int main()
 {
@@ -15,7 +14,7 @@ int main()
   unsigned int j,k;
   int matriz[N_COL][N_LIN], maior;
   
-  maior = nondet_int();
+  maior = __VERIFIER_nondet_int();
   for(j=0;j<N_COL;j++)
     for(k=0;k<N_LIN;k++)
     {       

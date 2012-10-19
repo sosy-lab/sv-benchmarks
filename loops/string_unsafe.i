@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 
 
 
-char nondet_char();
+extern char __VERIFIER_nondet_char();
 
 main()
 {
@@ -17,11 +17,11 @@ main()
 
 
   for(i=0; i<5; i++)
-    string_A[i]=nondet_char();
+    string_A[i]=__VERIFIER_nondet_char();
   __VERIFIER_assume(string_A[5 -1]=='\0');
 
   for(i=0; i<5; i++)
-    string_B[i]=nondet_char();
+    string_B[i]=__VERIFIER_nondet_char();
   __VERIFIER_assume(string_B[5 -1]=='\0');
 
   nc_A = 0;
