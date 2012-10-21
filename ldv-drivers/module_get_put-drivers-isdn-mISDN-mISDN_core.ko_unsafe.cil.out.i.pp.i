@@ -25143,6 +25143,14 @@ void main(void)
   int tmp ;
   int tmp___0 ;
 
+  debug___0 = __VERIFIER_nondet_pointer ();
+  debug___1 = __VERIFIER_nondet_pointer ();
+  debug___2 = __VERIFIER_nondet_pointer ();
+  debug___3 = __VERIFIER_nondet_pointer ();
+  debug___4 = __VERIFIER_nondet_pointer ();
+  debug___5 = __VERIFIER_nondet_pointer ();
+  debug___6 = __VERIFIER_nondet_pointer ();
+
   {
   {
 # 395 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"

@@ -39673,6 +39673,14 @@ void main(void)
   int tmp___0 ;
   int __cil_tmp15 ;
 
+  debug___0 = __VERIFIER_nondet_pointer ();
+  debug___1 = __VERIFIER_nondet_pointer ();
+  debug___2 = __VERIFIER_nondet_pointer ();
+  debug___3 = __VERIFIER_nondet_pointer ();
+  debug___4 = __VERIFIER_nondet_pointer ();
+  debug___5 = __VERIFIER_nondet_pointer ();
+  debug___6 = __VERIFIER_nondet_pointer ();
+
   {
   {
 #line 395
