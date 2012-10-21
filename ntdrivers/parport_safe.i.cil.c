@@ -9605,6 +9605,7 @@ int main(void)
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  s = __VERIFIER_nondet_int();
 
   {
   {

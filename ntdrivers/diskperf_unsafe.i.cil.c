@@ -1486,7 +1486,7 @@ struct _SCSI_REQUEST_BLOCK;
 #pragma once
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern PCCHAR KeNumberProcessors ;
+PCCHAR KeNumberProcessors ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
   NTSTATUS RtlQueryRegistryValues(ULONG RelativeTo ,
@@ -3179,6 +3179,7 @@ int main(void)
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  KeNumberProcessors = __VERIFIER_nondet_pointer();
 
   {
   {
