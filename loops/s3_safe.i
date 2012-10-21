@@ -1060,6 +1060,7 @@ int main(void)
 
   {
   {
+    s = malloc (sizeof (SSL));
   s->s3 = malloc(sizeof(struct ssl3_state_st));
   s->state = 12292;
   ssl3_connect(s);
@@ -1093,6 +1094,8 @@ int ssl3_connect(SSL *s )
   {
   blastFlag = 0;
   s->state = 12292;
+  s->hit = __VERIFIER_nondet_int ();
+  
   tmp = __VERIFIER_nondet_int();
   cb = (void (*)())((void *)0);
   ret = -1;
