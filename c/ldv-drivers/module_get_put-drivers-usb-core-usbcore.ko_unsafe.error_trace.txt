@@ -1,0 +1,1920 @@
+
+                                                Location: id=428#1 src="ldv/08_1/drivers/usb/core/usbcore.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=428#1 src="ldv/08_1/drivers/usb/core/usbcore.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/08_1/drivers/usb/core/usbcore.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=694#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=56
+   Block(usbcore_name = "usbcore";usb_autosuspend_delay =
+2;usb_device_pm_ops.prepare = &(usb_dev_prepare);usb_device_pm_ops.complete =
+&(usb_dev_complete);usb_device_pm_ops.suspend =
+&(usb_dev_suspend);usb_device_pm_ops.resume =
+&(usb_dev_resume);usb_device_pm_ops.freeze =
+&(usb_dev_freeze);usb_device_pm_ops.thaw =
+&(usb_dev_thaw);usb_device_pm_ops.poweroff =
+&(usb_dev_poweroff);usb_device_pm_ops.restore =
+&(usb_dev_restore);usb_device_pm_ops.suspend_noirq =
+0;usb_device_pm_ops.resume_noirq = 0;usb_device_pm_ops.freeze_noirq =
+0;usb_device_pm_ops.thaw_noirq = 0;usb_device_pm_ops.poweroff_noirq =
+0;usb_device_pm_ops.restore_noirq = 0;usb_device_pm_ops.runtime_suspend =
+&(usb_runtime_suspend);usb_device_pm_ops.runtime_resume =
+&(usb_runtime_resume);usb_device_pm_ops.runtime_idle =
+&(usb_runtime_idle);usb_device_type.name =
+"usb_device";usb_device_type.groups = 0;usb_device_type.uevent =
+&(usb_dev_uevent);usb_device_type.devnode =
+&(usb_devnode);usb_device_type.release =
+&(usb_release_dev);usb_device_type.pm =
+&(usb_device_pm_ops);ldv_module_refcounter =
+1;device_state_lock.ldv_6060.rlock.raw_lock.slock =
+0;device_state_lock.ldv_6060.rlock.magic =
+3735899821;device_state_lock.ldv_6060.rlock.owner_cpu =
+4294967295;device_state_lock.ldv_6060.rlock.owner =
+1152921504606846975;device_state_lock.ldv_6060.rlock.dep_map.key =
+0;device_state_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;device_state_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;device_state_lock.ldv_6060.rlock.dep_map.name =
+"device_state_lock";device_state_lock.ldv_6060.rlock.dep_map.cpu =
+0;device_state_lock.ldv_6060.rlock.dep_map.ip =
+0;hub_event_lock.ldv_6060.rlock.raw_lock.slock =
+0;hub_event_lock.ldv_6060.rlock.magic =
+3735899821;hub_event_lock.ldv_6060.rlock.owner_cpu =
+4294967295;hub_event_lock.ldv_6060.rlock.owner =
+1152921504606846975;hub_event_lock.ldv_6060.rlock.dep_map.key =
+0;hub_event_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;hub_event_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;hub_event_lock.ldv_6060.rlock.dep_map.name =
+"hub_event_lock";hub_event_lock.ldv_6060.rlock.dep_map.cpu =
+0;hub_event_lock.ldv_6060.rlock.dep_map.ip = 0;hub_event_list.next =
+&(hub_event_list);hub_event_list.prev =
+&(hub_event_list);khubd_wait.lock.ldv_6060.rlock.raw_lock.slock =
+0;khubd_wait.lock.ldv_6060.rlock.magic =
+3735899821;khubd_wait.lock.ldv_6060.rlock.owner_cpu =
+4294967295;khubd_wait.lock.ldv_6060.rlock.owner =
+1152921504606846975;khubd_wait.lock.ldv_6060.rlock.dep_map.key =
+0;khubd_wait.lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;khubd_wait.lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;khubd_wait.lock.ldv_6060.rlock.dep_map.name =
+"khubd_wait.lock";khubd_wait.lock.ldv_6060.rlock.dep_map.cpu =
+0;khubd_wait.lock.ldv_6060.rlock.dep_map.ip = 0;khubd_wait.task_list.next =
+&(khubd_wait)  foffset  task_list;khubd_wait.task_list.prev = &(khubd_wait)
+ foffset  task_list;blinkenlights = 0;initial_descriptor_timeout =
+5000;old_scheme_first = 0;use_both_schemes = 1;ehci_cf_port_reset_rwsem.count
+= 0;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.magic =
+3735899821;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.dep_map.key
+=
+0;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ]
+=
+0;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ]
+= 0;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.dep_map.name =
+"ehci_cf_port_reset_rwsem.wait_lock";ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.dep_map.cpu
+= 0;ehci_cf_port_reset_rwsem.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;ehci_cf_port_reset_rwsem.wait_list.next = &(ehci_cf_port_reset_rwsem)
+ foffset  wait_list;ehci_cf_port_reset_rwsem.wait_list.prev =
+&(ehci_cf_port_reset_rwsem)  foffset 
+wait_list;ehci_cf_port_reset_rwsem.dep_map.key =
+0;ehci_cf_port_reset_rwsem.dep_map.class_cache[ 0 ] =
+0;ehci_cf_port_reset_rwsem.dep_map.class_cache[ 1 ] =
+0;ehci_cf_port_reset_rwsem.dep_map.name =
+"ehci_cf_port_reset_rwsem";ehci_cf_port_reset_rwsem.dep_map.cpu =
+0;ehci_cf_port_reset_rwsem.dep_map.ip = 0;whitelist_table[ 0 ].match_flags =
+112;whitelist_table[ 0 ].idVendor = 0;whitelist_table[ 0 ].idProduct =
+0;whitelist_table[ 0 ].bcdDevice_lo = 0;whitelist_table[ 0 ].bcdDevice_hi =
+0;whitelist_table[ 0 ].bDeviceClass = 9;whitelist_table[ 0 ].bDeviceSubClass
+= 0;whitelist_table[ 0 ].bDeviceProtocol =
+0;whitelist_table[ 0 ].bInterfaceClass =
+0;whitelist_table[ 0 ].bInterfaceSubClass =
+0;whitelist_table[ 0 ].bInterfaceProtocol =
+0;whitelist_table[ 0 ].driver_info = 0;whitelist_table[ 1 ].match_flags =
+112;whitelist_table[ 1 ].idVendor = 0;whitelist_table[ 1 ].idProduct =
+0;whitelist_table[ 1 ].bcdDevice_lo = 0;whitelist_table[ 1 ].bcdDevice_hi =
+0;whitelist_table[ 1 ].bDeviceClass = 9;whitelist_table[ 1 ].bDeviceSubClass
+= 0;whitelist_table[ 1 ].bDeviceProtocol =
+1;whitelist_table[ 1 ].bInterfaceClass =
+0;whitelist_table[ 1 ].bInterfaceSubClass =
+0;whitelist_table[ 1 ].bInterfaceProtocol =
+0;whitelist_table[ 1 ].driver_info = 0;whitelist_table[ 2 ].match_flags =
+3;whitelist_table[ 2 ].idVendor = 1317;whitelist_table[ 2 ].idProduct =
+42144;whitelist_table[ 2 ].bcdDevice_lo = 0;whitelist_table[ 2 ].bcdDevice_hi
+= 0;whitelist_table[ 2 ].bDeviceClass =
+0;whitelist_table[ 2 ].bDeviceSubClass =
+0;whitelist_table[ 2 ].bDeviceProtocol =
+0;whitelist_table[ 2 ].bInterfaceClass =
+0;whitelist_table[ 2 ].bInterfaceSubClass =
+0;whitelist_table[ 2 ].bInterfaceProtocol =
+0;whitelist_table[ 2 ].driver_info = 0;whitelist_table[ 3 ].match_flags =
+0;whitelist_table[ 3 ].idVendor = 0;whitelist_table[ 3 ].idProduct =
+0;whitelist_table[ 3 ].bcdDevice_lo = 0;whitelist_table[ 3 ].bcdDevice_hi =
+0;whitelist_table[ 3 ].bDeviceClass = 0;whitelist_table[ 3 ].bDeviceSubClass
+= 0;whitelist_table[ 3 ].bDeviceProtocol =
+0;whitelist_table[ 3 ].bInterfaceClass =
+0;whitelist_table[ 3 ].bInterfaceSubClass =
+0;whitelist_table[ 3 ].bInterfaceProtocol =
+0;whitelist_table[ 3 ].driver_info = 0;hub_id_table[ 0 ].match_flags =
+16;hub_id_table[ 0 ].idVendor = 0;hub_id_table[ 0 ].idProduct =
+0;hub_id_table[ 0 ].bcdDevice_lo = 0;hub_id_table[ 0 ].bcdDevice_hi =
+0;hub_id_table[ 0 ].bDeviceClass = 9;hub_id_table[ 0 ].bDeviceSubClass =
+0;hub_id_table[ 0 ].bDeviceProtocol = 0;hub_id_table[ 0 ].bInterfaceClass =
+0;hub_id_table[ 0 ].bInterfaceSubClass =
+0;hub_id_table[ 0 ].bInterfaceProtocol = 0;hub_id_table[ 0 ].driver_info =
+0;hub_id_table[ 1 ].match_flags = 128;hub_id_table[ 1 ].idVendor =
+0;hub_id_table[ 1 ].idProduct = 0;hub_id_table[ 1 ].bcdDevice_lo =
+0;hub_id_table[ 1 ].bcdDevice_hi = 0;hub_id_table[ 1 ].bDeviceClass =
+0;hub_id_table[ 1 ].bDeviceSubClass = 0;hub_id_table[ 1 ].bDeviceProtocol =
+0;hub_id_table[ 1 ].bInterfaceClass = 9;hub_id_table[ 1 ].bInterfaceSubClass
+= 0;hub_id_table[ 1 ].bInterfaceProtocol = 0;hub_id_table[ 1 ].driver_info =
+0;hub_id_table[ 2 ].match_flags = 0;hub_id_table[ 2 ].idVendor =
+0;hub_id_table[ 2 ].idProduct = 0;hub_id_table[ 2 ].bcdDevice_lo =
+0;hub_id_table[ 2 ].bcdDevice_hi = 0;hub_id_table[ 2 ].bDeviceClass =
+0;hub_id_table[ 2 ].bDeviceSubClass = 0;hub_id_table[ 2 ].bDeviceProtocol =
+0;hub_id_table[ 2 ].bInterfaceClass = 0;hub_id_table[ 2 ].bInterfaceSubClass
+= 0;hub_id_table[ 2 ].bInterfaceProtocol = 0;hub_id_table[ 2 ].driver_info =
+0;hub_driver.name = "hub";hub_driver.probe =
+&(hub_probe);hub_driver.disconnect =
+&(hub_disconnect);hub_driver.unlocked_ioctl = &(hub_ioctl);hub_driver.suspend
+= &(hub_suspend);hub_driver.resume = &(hub_resume);hub_driver.reset_resume =
+&(hub_reset_resume);hub_driver.pre_reset =
+&(hub_pre_reset);hub_driver.post_reset =
+&(hub_post_reset);hub_driver.id_table =
+&(hub_id_table);hub_driver.dynids.lock.ldv_6060.rlock.raw_lock.slock =
+0;hub_driver.dynids.lock.ldv_6060.rlock.magic =
+0;hub_driver.dynids.lock.ldv_6060.rlock.owner_cpu =
+0;hub_driver.dynids.lock.ldv_6060.rlock.owner =
+0;hub_driver.dynids.lock.ldv_6060.rlock.dep_map.key =
+0;hub_driver.dynids.lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;hub_driver.dynids.lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;hub_driver.dynids.lock.ldv_6060.rlock.dep_map.name =
+0;hub_driver.dynids.lock.ldv_6060.rlock.dep_map.cpu =
+0;hub_driver.dynids.lock.ldv_6060.rlock.dep_map.ip =
+0;hub_driver.dynids.list.next = 0;hub_driver.dynids.list.prev =
+0;hub_driver.drvwrap.driver.name = 0;hub_driver.drvwrap.driver.bus =
+0;hub_driver.drvwrap.driver.owner = 0;hub_driver.drvwrap.driver.mod_name =
+0;hub_driver.drvwrap.driver.suppress_bind_attrs =
+0;hub_driver.drvwrap.driver.of_match_table =
+0;hub_driver.drvwrap.driver.probe = 0;hub_driver.drvwrap.driver.remove =
+0;hub_driver.drvwrap.driver.shutdown = 0;hub_driver.drvwrap.driver.suspend =
+0;hub_driver.drvwrap.driver.resume = 0;hub_driver.drvwrap.driver.groups =
+0;hub_driver.drvwrap.driver.pm = 0;hub_driver.drvwrap.driver.p =
+0;hub_driver.drvwrap.for_devices = 0;hub_driver.no_dynamic_id =
+0;hub_driver.supports_autosuspend = 1;hub_driver.soft_unbind =
+0;usb_bus_list.next = &(usb_bus_list);usb_bus_list.prev =
+&(usb_bus_list);usb_bus_list_lock.count.counter =
+1;usb_bus_list_lock.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;usb_bus_list_lock.wait_lock.ldv_6060.rlock.magic =
+3735899821;usb_bus_list_lock.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;usb_bus_list_lock.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;usb_bus_list_lock.wait_lock.ldv_6060.rlock.dep_map.key =
+0;usb_bus_list_lock.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;usb_bus_list_lock.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;usb_bus_list_lock.wait_lock.ldv_6060.rlock.dep_map.name =
+"usb_bus_list_lock.wait_lock";usb_bus_list_lock.wait_lock.ldv_6060.rlock.dep_map.cpu
+= 0;usb_bus_list_lock.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;usb_bus_list_lock.wait_list.next = &(usb_bus_list_lock)  foffset 
+wait_list;usb_bus_list_lock.wait_list.prev = &(usb_bus_list_lock)  foffset 
+wait_list;usb_bus_list_lock.owner = 0;usb_bus_list_lock.name =
+0;usb_bus_list_lock.magic =
+&(usb_bus_list_lock);usb_bus_list_lock.dep_map.key =
+0;usb_bus_list_lock.dep_map.class_cache[ 0 ] =
+0;usb_bus_list_lock.dep_map.class_cache[ 1 ] =
+0;usb_bus_list_lock.dep_map.name =
+"usb_bus_list_lock";usb_bus_list_lock.dep_map.cpu =
+0;usb_bus_list_lock.dep_map.ip =
+0;hcd_root_hub_lock.ldv_6060.rlock.raw_lock.slock =
+0;hcd_root_hub_lock.ldv_6060.rlock.magic =
+3735899821;hcd_root_hub_lock.ldv_6060.rlock.owner_cpu =
+4294967295;hcd_root_hub_lock.ldv_6060.rlock.owner =
+1152921504606846975;hcd_root_hub_lock.ldv_6060.rlock.dep_map.key =
+0;hcd_root_hub_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;hcd_root_hub_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;hcd_root_hub_lock.ldv_6060.rlock.dep_map.name =
+"hcd_root_hub_lock";hcd_root_hub_lock.ldv_6060.rlock.dep_map.cpu =
+0;hcd_root_hub_lock.ldv_6060.rlock.dep_map.ip =
+0;hcd_urb_list_lock.ldv_6060.rlock.raw_lock.slock =
+0;hcd_urb_list_lock.ldv_6060.rlock.magic =
+3735899821;hcd_urb_list_lock.ldv_6060.rlock.owner_cpu =
+4294967295;hcd_urb_list_lock.ldv_6060.rlock.owner =
+1152921504606846975;hcd_urb_list_lock.ldv_6060.rlock.dep_map.key =
+0;hcd_urb_list_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;hcd_urb_list_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;hcd_urb_list_lock.ldv_6060.rlock.dep_map.name =
+"hcd_urb_list_lock";hcd_urb_list_lock.ldv_6060.rlock.dep_map.cpu =
+0;hcd_urb_list_lock.ldv_6060.rlock.dep_map.ip =
+0;hcd_urb_unlink_lock.ldv_6060.rlock.raw_lock.slock =
+0;hcd_urb_unlink_lock.ldv_6060.rlock.magic =
+3735899821;hcd_urb_unlink_lock.ldv_6060.rlock.owner_cpu =
+4294967295;hcd_urb_unlink_lock.ldv_6060.rlock.owner =
+1152921504606846975;hcd_urb_unlink_lock.ldv_6060.rlock.dep_map.key =
+0;hcd_urb_unlink_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;hcd_urb_unlink_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;hcd_urb_unlink_lock.ldv_6060.rlock.dep_map.name =
+"hcd_urb_unlink_lock";hcd_urb_unlink_lock.ldv_6060.rlock.dep_map.cpu =
+0;hcd_urb_unlink_lock.ldv_6060.rlock.dep_map.ip =
+0;usb_kill_urb_queue.lock.ldv_6060.rlock.raw_lock.slock =
+0;usb_kill_urb_queue.lock.ldv_6060.rlock.magic =
+3735899821;usb_kill_urb_queue.lock.ldv_6060.rlock.owner_cpu =
+4294967295;usb_kill_urb_queue.lock.ldv_6060.rlock.owner =
+1152921504606846975;usb_kill_urb_queue.lock.ldv_6060.rlock.dep_map.key =
+0;usb_kill_urb_queue.lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;usb_kill_urb_queue.lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;usb_kill_urb_queue.lock.ldv_6060.rlock.dep_map.name =
+"usb_kill_urb_queue.lock";usb_kill_urb_queue.lock.ldv_6060.rlock.dep_map.cpu
+= 0;usb_kill_urb_queue.lock.ldv_6060.rlock.dep_map.ip =
+0;usb_kill_urb_queue.task_list.next = &(usb_kill_urb_queue)  foffset 
+task_list;usb_kill_urb_queue.task_list.prev = &(usb_kill_urb_queue)  foffset 
+task_list;usb3_rh_dev_descriptor[ 0 ] = 18;usb3_rh_dev_descriptor[ 1 ] =
+1;usb3_rh_dev_descriptor[ 2 ] = 0;usb3_rh_dev_descriptor[ 3 ] =
+3;usb3_rh_dev_descriptor[ 4 ] = 9;usb3_rh_dev_descriptor[ 5 ] =
+0;usb3_rh_dev_descriptor[ 6 ] = 3;usb3_rh_dev_descriptor[ 7 ] =
+9;usb3_rh_dev_descriptor[ 8 ] = 107;usb3_rh_dev_descriptor[ 9 ] =
+29;usb3_rh_dev_descriptor[ 10 ] = 3;usb3_rh_dev_descriptor[ 11 ] =
+0;usb3_rh_dev_descriptor[ 12 ] = 0;usb3_rh_dev_descriptor[ 13 ] =
+3;usb3_rh_dev_descriptor[ 14 ] = 3;usb3_rh_dev_descriptor[ 15 ] =
+2;usb3_rh_dev_descriptor[ 16 ] = 1;usb3_rh_dev_descriptor[ 17 ] =
+1;usb2_rh_dev_descriptor[ 0 ] = 18;usb2_rh_dev_descriptor[ 1 ] =
+1;usb2_rh_dev_descriptor[ 2 ] = 0;usb2_rh_dev_descriptor[ 3 ] =
+2;usb2_rh_dev_descriptor[ 4 ] = 9;usb2_rh_dev_descriptor[ 5 ] =
+0;usb2_rh_dev_descriptor[ 6 ] = 0;usb2_rh_dev_descriptor[ 7 ] =
+64;usb2_rh_dev_descriptor[ 8 ] = 107;usb2_rh_dev_descriptor[ 9 ] =
+29;usb2_rh_dev_descriptor[ 10 ] = 2;usb2_rh_dev_descriptor[ 11 ] =
+0;usb2_rh_dev_descriptor[ 12 ] = 0;usb2_rh_dev_descriptor[ 13 ] =
+3;usb2_rh_dev_descriptor[ 14 ] = 3;usb2_rh_dev_descriptor[ 15 ] =
+2;usb2_rh_dev_descriptor[ 16 ] = 1;usb2_rh_dev_descriptor[ 17 ] =
+1;usb11_rh_dev_descriptor[ 0 ] = 18;usb11_rh_dev_descriptor[ 1 ] =
+1;usb11_rh_dev_descriptor[ 2 ] = 16;usb11_rh_dev_descriptor[ 3 ] =
+1;usb11_rh_dev_descriptor[ 4 ] = 9;usb11_rh_dev_descriptor[ 5 ] =
+0;usb11_rh_dev_descriptor[ 6 ] = 0;usb11_rh_dev_descriptor[ 7 ] =
+64;usb11_rh_dev_descriptor[ 8 ] = 107;usb11_rh_dev_descriptor[ 9 ] =
+29;usb11_rh_dev_descriptor[ 10 ] = 1;usb11_rh_dev_descriptor[ 11 ] =
+0;usb11_rh_dev_descriptor[ 12 ] = 0;usb11_rh_dev_descriptor[ 13 ] =
+3;usb11_rh_dev_descriptor[ 14 ] = 3;usb11_rh_dev_descriptor[ 15 ] =
+2;usb11_rh_dev_descriptor[ 16 ] = 1;usb11_rh_dev_descriptor[ 17 ] =
+1;fs_rh_config_descriptor[ 0 ] = 9;fs_rh_config_descriptor[ 1 ] =
+2;fs_rh_config_descriptor[ 2 ] = 25;fs_rh_config_descriptor[ 3 ] =
+0;fs_rh_config_descriptor[ 4 ] = 1;fs_rh_config_descriptor[ 5 ] =
+1;fs_rh_config_descriptor[ 6 ] = 0;fs_rh_config_descriptor[ 7 ] =
+192;fs_rh_config_descriptor[ 8 ] = 0;fs_rh_config_descriptor[ 9 ] =
+9;fs_rh_config_descriptor[ 10 ] = 4;fs_rh_config_descriptor[ 11 ] =
+0;fs_rh_config_descriptor[ 12 ] = 0;fs_rh_config_descriptor[ 13 ] =
+1;fs_rh_config_descriptor[ 14 ] = 9;fs_rh_config_descriptor[ 15 ] =
+0;fs_rh_config_descriptor[ 16 ] = 0;fs_rh_config_descriptor[ 17 ] =
+0;fs_rh_config_descriptor[ 18 ] = 7;fs_rh_config_descriptor[ 19 ] =
+5;fs_rh_config_descriptor[ 20 ] = 129;fs_rh_config_descriptor[ 21 ] =
+3;fs_rh_config_descriptor[ 22 ] = 2;fs_rh_config_descriptor[ 23 ] =
+0;fs_rh_config_descriptor[ 24 ] = 255;hs_rh_config_descriptor[ 0 ] =
+9;hs_rh_config_descriptor[ 1 ] = 2;hs_rh_config_descriptor[ 2 ] =
+25;hs_rh_config_descriptor[ 3 ] = 0;hs_rh_config_descriptor[ 4 ] =
+1;hs_rh_config_descriptor[ 5 ] = 1;hs_rh_config_descriptor[ 6 ] =
+0;hs_rh_config_descriptor[ 7 ] = 192;hs_rh_config_descriptor[ 8 ] =
+0;hs_rh_config_descriptor[ 9 ] = 9;hs_rh_config_descriptor[ 10 ] =
+4;hs_rh_config_descriptor[ 11 ] = 0;hs_rh_config_descriptor[ 12 ] =
+0;hs_rh_config_descriptor[ 13 ] = 1;hs_rh_config_descriptor[ 14 ] =
+9;hs_rh_config_descriptor[ 15 ] = 0;hs_rh_config_descriptor[ 16 ] =
+0;hs_rh_config_descriptor[ 17 ] = 0;hs_rh_config_descriptor[ 18 ] =
+7;hs_rh_config_descriptor[ 19 ] = 5;hs_rh_config_descriptor[ 20 ] =
+129;hs_rh_config_descriptor[ 21 ] = 3;hs_rh_config_descriptor[ 22 ] =
+4;hs_rh_config_descriptor[ 23 ] = 0;hs_rh_config_descriptor[ 24 ] =
+12;ss_rh_config_descriptor[ 0 ] = 9;ss_rh_config_descriptor[ 1 ] =
+2;ss_rh_config_descriptor[ 2 ] = 31;ss_rh_config_descriptor[ 3 ] =
+0;ss_rh_config_descriptor[ 4 ] = 1;ss_rh_config_descriptor[ 5 ] =
+1;ss_rh_config_descriptor[ 6 ] = 0;ss_rh_config_descriptor[ 7 ] =
+192;ss_rh_config_descriptor[ 8 ] = 0;ss_rh_config_descriptor[ 9 ] =
+9;ss_rh_config_descriptor[ 10 ] = 4;ss_rh_config_descriptor[ 11 ] =
+0;ss_rh_config_descriptor[ 12 ] = 0;ss_rh_config_descriptor[ 13 ] =
+1;ss_rh_config_descriptor[ 14 ] = 9;ss_rh_config_descriptor[ 15 ] =
+0;ss_rh_config_descriptor[ 16 ] = 0;ss_rh_config_descriptor[ 17 ] =
+0;ss_rh_config_descriptor[ 18 ] = 7;ss_rh_config_descriptor[ 19 ] =
+5;ss_rh_config_descriptor[ 20 ] = 129;ss_rh_config_descriptor[ 21 ] =
+3;ss_rh_config_descriptor[ 22 ] = 4;ss_rh_config_descriptor[ 23 ] =
+0;ss_rh_config_descriptor[ 24 ] = 12;ss_rh_config_descriptor[ 25 ] =
+6;ss_rh_config_descriptor[ 26 ] = 48;ss_rh_config_descriptor[ 27 ] =
+0;ss_rh_config_descriptor[ 28 ] = 0;ss_rh_config_descriptor[ 29 ] =
+2;ss_rh_config_descriptor[ 30 ] = 0;dev_attr_authorized_default.attr.name =
+"authorized_default";dev_attr_authorized_default.attr.mode =
+420;dev_attr_authorized_default.attr.key =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_authorized_default.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_authorized_default.show =
+&(usb_host_authorized_default_show);dev_attr_authorized_default.store =
+&(usb_host_authorized_default_store);usb_bus_attrs[ 0 ] =
+&(dev_attr_authorized_default)  foffset  attr;usb_bus_attrs[ 1 ] =
+0;usb_bus_attr_group.name = 0;usb_bus_attr_group.is_visible =
+0;usb_bus_attr_group.attrs = &(usb_bus_attrs);usb_if_device_type.name =
+"usb_interface";usb_if_device_type.groups = 0;usb_if_device_type.uevent =
+&(usb_if_uevent);usb_if_device_type.devnode = 0;usb_if_device_type.release =
+&(usb_release_interface);usb_if_device_type.pm = 0;set_config_list.next =
+&(set_config_list);set_config_list.prev =
+&(set_config_list);set_config_lock.ldv_6060.rlock.raw_lock.slock =
+0;set_config_lock.ldv_6060.rlock.magic =
+3735899821;set_config_lock.ldv_6060.rlock.owner_cpu =
+4294967295;set_config_lock.ldv_6060.rlock.owner =
+1152921504606846975;set_config_lock.ldv_6060.rlock.dep_map.key =
+0;set_config_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;set_config_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;set_config_lock.ldv_6060.rlock.dep_map.name =
+"set_config_lock";set_config_lock.ldv_6060.rlock.dep_map.cpu =
+0;set_config_lock.ldv_6060.rlock.dep_map.ip = 0;driver_attr_new_id.attr.name
+= "new_id";driver_attr_new_id.attr.mode = 128;driver_attr_new_id.attr.key =
+0;driver_attr_new_id.attr.skey.subkeys[ 0 ].__one_byte =
+0;driver_attr_new_id.attr.skey.subkeys[ 1 ].__one_byte =
+0;driver_attr_new_id.attr.skey.subkeys[ 2 ].__one_byte =
+0;driver_attr_new_id.attr.skey.subkeys[ 3 ].__one_byte =
+0;driver_attr_new_id.attr.skey.subkeys[ 4 ].__one_byte =
+0;driver_attr_new_id.attr.skey.subkeys[ 5 ].__one_byte =
+0;driver_attr_new_id.attr.skey.subkeys[ 6 ].__one_byte =
+0;driver_attr_new_id.attr.skey.subkeys[ 7 ].__one_byte =
+0;driver_attr_new_id.show = 0;driver_attr_new_id.store =
+&(store_new_id);driver_attr_remove_id.attr.name =
+"remove_id";driver_attr_remove_id.attr.mode =
+128;driver_attr_remove_id.attr.key =
+0;driver_attr_remove_id.attr.skey.subkeys[ 0 ].__one_byte =
+0;driver_attr_remove_id.attr.skey.subkeys[ 1 ].__one_byte =
+0;driver_attr_remove_id.attr.skey.subkeys[ 2 ].__one_byte =
+0;driver_attr_remove_id.attr.skey.subkeys[ 3 ].__one_byte =
+0;driver_attr_remove_id.attr.skey.subkeys[ 4 ].__one_byte =
+0;driver_attr_remove_id.attr.skey.subkeys[ 5 ].__one_byte =
+0;driver_attr_remove_id.attr.skey.subkeys[ 6 ].__one_byte =
+0;driver_attr_remove_id.attr.skey.subkeys[ 7 ].__one_byte =
+0;driver_attr_remove_id.show = 0;driver_attr_remove_id.store =
+&(store_remove_id);usb_bus_type.name = "usb";usb_bus_type.bus_attrs =
+0;usb_bus_type.dev_attrs = 0;usb_bus_type.drv_attrs = 0;usb_bus_type.match =
+&(usb_device_match);usb_bus_type.uevent = &(usb_uevent);usb_bus_type.probe =
+0;usb_bus_type.remove = 0;usb_bus_type.shutdown = 0;usb_bus_type.suspend =
+0;usb_bus_type.resume = 0;usb_bus_type.pm = 0;usb_bus_type.p =
+0;minor_rwsem.count = 0;minor_rwsem.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;minor_rwsem.wait_lock.ldv_6060.rlock.magic =
+3735899821;minor_rwsem.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;minor_rwsem.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;minor_rwsem.wait_lock.ldv_6060.rlock.dep_map.key =
+0;minor_rwsem.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;minor_rwsem.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;minor_rwsem.wait_lock.ldv_6060.rlock.dep_map.name =
+"minor_rwsem.wait_lock";minor_rwsem.wait_lock.ldv_6060.rlock.dep_map.cpu =
+0;minor_rwsem.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;minor_rwsem.wait_list.next = &(minor_rwsem)  foffset 
+wait_list;minor_rwsem.wait_list.prev = &(minor_rwsem)  foffset 
+wait_list;minor_rwsem.dep_map.key = 0;minor_rwsem.dep_map.class_cache[ 0 ] =
+0;minor_rwsem.dep_map.class_cache[ 1 ] = 0;minor_rwsem.dep_map.name =
+"minor_rwsem";minor_rwsem.dep_map.cpu = 0;minor_rwsem.dep_map.ip =
+0;usb_fops.owner = &(__this_module);usb_fops.llseek =
+&(noop_llseek);usb_fops.read = 0;usb_fops.write = 0;usb_fops.aio_read =
+0;usb_fops.aio_write = 0;usb_fops.readdir = 0;usb_fops.poll =
+0;usb_fops.unlocked_ioctl = 0;usb_fops.compat_ioctl = 0;usb_fops.mmap =
+0;usb_fops.open = &(usb_open);usb_fops.flush = 0;usb_fops.release =
+0;usb_fops.fsync = 0;usb_fops.aio_fsync = 0;usb_fops.fasync = 0;usb_fops.lock
+= 0;usb_fops.sendpage = 0;usb_fops.get_unmapped_area = 0;usb_fops.check_flags
+= 0;usb_fops.flock = 0;usb_fops.splice_write = 0;usb_fops.splice_read =
+0;usb_fops.setlease = 0;usb_fops.fallocate = 0;pool_max[ 0 ] =
+32;pool_max[ 1 ] = 128;pool_max[ 2 ] = 512;pool_max[ 3 ] =
+2048;dev_attr_bNumInterfaces.attr.name =
+"bNumInterfaces";dev_attr_bNumInterfaces.attr.mode =
+292;dev_attr_bNumInterfaces.attr.key =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bNumInterfaces.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bNumInterfaces.show =
+&(show_bNumInterfaces);dev_attr_bNumInterfaces.store =
+0;dev_attr_bmAttributes.attr.name =
+"bmAttributes";dev_attr_bmAttributes.attr.mode =
+292;dev_attr_bmAttributes.attr.key =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bmAttributes.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bmAttributes.show =
+&(show_bmAttributes);dev_attr_bmAttributes.store =
+0;dev_attr_bMaxPower.attr.name = "bMaxPower";dev_attr_bMaxPower.attr.mode =
+292;dev_attr_bMaxPower.attr.key =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bMaxPower.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bMaxPower.show = &(show_bMaxPower);dev_attr_bMaxPower.store =
+0;dev_attr_configuration.attr.name =
+"configuration";dev_attr_configuration.attr.mode =
+292;dev_attr_configuration.attr.key =
+0;dev_attr_configuration.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_configuration.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_configuration.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_configuration.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_configuration.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_configuration.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_configuration.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_configuration.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_configuration.show =
+&(show_configuration_string);dev_attr_configuration.store =
+0;dev_attr_bConfigurationValue.attr.name =
+"bConfigurationValue";dev_attr_bConfigurationValue.attr.mode =
+420;dev_attr_bConfigurationValue.attr.key =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bConfigurationValue.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bConfigurationValue.show =
+&(show_bConfigurationValue);dev_attr_bConfigurationValue.store =
+&(set_bConfigurationValue);dev_attr_product.attr.name =
+"product";dev_attr_product.attr.mode = 292;dev_attr_product.attr.key =
+0;dev_attr_product.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_product.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_product.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_product.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_product.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_product.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_product.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_product.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_product.show = &(show_product);dev_attr_product.store =
+0;dev_attr_manufacturer.attr.name =
+"manufacturer";dev_attr_manufacturer.attr.mode =
+292;dev_attr_manufacturer.attr.key =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_manufacturer.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_manufacturer.show =
+&(show_manufacturer);dev_attr_manufacturer.store =
+0;dev_attr_serial.attr.name = "serial";dev_attr_serial.attr.mode =
+292;dev_attr_serial.attr.key =
+0;dev_attr_serial.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_serial.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_serial.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_serial.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_serial.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_serial.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_serial.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_serial.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_serial.show
+= &(show_serial);dev_attr_serial.store = 0;dev_attr_speed.attr.name =
+"speed";dev_attr_speed.attr.mode = 292;dev_attr_speed.attr.key =
+0;dev_attr_speed.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_speed.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_speed.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_speed.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_speed.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_speed.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_speed.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_speed.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_speed.show =
+&(show_speed);dev_attr_speed.store = 0;dev_attr_busnum.attr.name =
+"busnum";dev_attr_busnum.attr.mode = 292;dev_attr_busnum.attr.key =
+0;dev_attr_busnum.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_busnum.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_busnum.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_busnum.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_busnum.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_busnum.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_busnum.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_busnum.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_busnum.show
+= &(show_busnum);dev_attr_busnum.store = 0;dev_attr_devnum.attr.name =
+"devnum";dev_attr_devnum.attr.mode = 292;dev_attr_devnum.attr.key =
+0;dev_attr_devnum.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_devnum.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_devnum.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_devnum.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_devnum.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_devnum.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_devnum.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_devnum.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_devnum.show
+= &(show_devnum);dev_attr_devnum.store = 0;dev_attr_devpath.attr.name =
+"devpath";dev_attr_devpath.attr.mode = 292;dev_attr_devpath.attr.key =
+0;dev_attr_devpath.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_devpath.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_devpath.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_devpath.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_devpath.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_devpath.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_devpath.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_devpath.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_devpath.show = &(show_devpath);dev_attr_devpath.store =
+0;dev_attr_version.attr.name = "version";dev_attr_version.attr.mode =
+292;dev_attr_version.attr.key =
+0;dev_attr_version.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_version.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_version.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_version.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_version.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_version.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_version.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_version.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_version.show = &(show_version);dev_attr_version.store =
+0;dev_attr_maxchild.attr.name = "maxchild";dev_attr_maxchild.attr.mode =
+292;dev_attr_maxchild.attr.key =
+0;dev_attr_maxchild.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_maxchild.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_maxchild.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_maxchild.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_maxchild.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_maxchild.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_maxchild.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_maxchild.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_maxchild.show = &(show_maxchild);dev_attr_maxchild.store =
+0;dev_attr_quirks.attr.name = "quirks";dev_attr_quirks.attr.mode =
+292;dev_attr_quirks.attr.key =
+0;dev_attr_quirks.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_quirks.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_quirks.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_quirks.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_quirks.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_quirks.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_quirks.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_quirks.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_quirks.show
+= &(show_quirks);dev_attr_quirks.store =
+0;dev_attr_avoid_reset_quirk.attr.name =
+"avoid_reset_quirk";dev_attr_avoid_reset_quirk.attr.mode =
+420;dev_attr_avoid_reset_quirk.attr.key =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_avoid_reset_quirk.show =
+&(show_avoid_reset_quirk);dev_attr_avoid_reset_quirk.store =
+&(set_avoid_reset_quirk);dev_attr_urbnum.attr.name =
+"urbnum";dev_attr_urbnum.attr.mode = 292;dev_attr_urbnum.attr.key =
+0;dev_attr_urbnum.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_urbnum.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_urbnum.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_urbnum.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_urbnum.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_urbnum.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_urbnum.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_urbnum.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_urbnum.show
+= &(show_urbnum);dev_attr_urbnum.store = 0;dev_attr_persist.attr.name =
+"persist";dev_attr_persist.attr.mode = 420;dev_attr_persist.attr.key =
+0;dev_attr_persist.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_persist.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_persist.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_persist.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_persist.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_persist.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_persist.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_persist.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_persist.show = &(show_persist);dev_attr_persist.store =
+&(set_persist);dev_attr_connected_duration.attr.name =
+"connected_duration";dev_attr_connected_duration.attr.mode =
+292;dev_attr_connected_duration.attr.key =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_connected_duration.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_connected_duration.show =
+&(show_connected_duration);dev_attr_connected_duration.store =
+0;dev_attr_active_duration.attr.name =
+"active_duration";dev_attr_active_duration.attr.mode =
+292;dev_attr_active_duration.attr.key =
+0;dev_attr_active_duration.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_active_duration.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_active_duration.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_active_duration.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_active_duration.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_active_duration.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_active_duration.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_active_duration.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_active_duration.show =
+&(show_active_duration);dev_attr_active_duration.store =
+0;dev_attr_autosuspend.attr.name =
+"autosuspend";dev_attr_autosuspend.attr.mode =
+420;dev_attr_autosuspend.attr.key =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_autosuspend.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_autosuspend.show = &(show_autosuspend);dev_attr_autosuspend.store
+= &(set_autosuspend);on_string[ 0 ] = 111;on_string[ 1 ] = 110;on_string[ 2 ]
+= 0;auto_string[ 0 ] = 97;auto_string[ 1 ] = 117;auto_string[ 2 ] =
+116;auto_string[ 3 ] = 111;auto_string[ 4 ] = 0;dev_attr_level.attr.name =
+"level";dev_attr_level.attr.mode = 420;dev_attr_level.attr.key =
+0;dev_attr_level.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_level.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_level.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_level.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_level.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_level.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_level.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_level.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_level.show =
+&(show_level);dev_attr_level.store = &(set_level);power_attrs[ 0 ] =
+&(dev_attr_autosuspend)  foffset  attr;power_attrs[ 1 ] = &(dev_attr_level)
+ foffset  attr;power_attrs[ 2 ] = &(dev_attr_connected_duration)  foffset 
+attr;power_attrs[ 3 ] = &(dev_attr_active_duration)  foffset 
+attr;power_attrs[ 4 ] = 0;power_attr_group.name =
+&(power_group_name);power_attr_group.is_visible = 0;power_attr_group.attrs =
+&(power_attrs);dev_attr_idVendor.attr.name =
+"idVendor";dev_attr_idVendor.attr.mode = 292;dev_attr_idVendor.attr.key =
+0;dev_attr_idVendor.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_idVendor.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_idVendor.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_idVendor.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_idVendor.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_idVendor.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_idVendor.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_idVendor.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_idVendor.show = &(show_idVendor);dev_attr_idVendor.store =
+0;dev_attr_idProduct.attr.name = "idProduct";dev_attr_idProduct.attr.mode =
+292;dev_attr_idProduct.attr.key =
+0;dev_attr_idProduct.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_idProduct.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_idProduct.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_idProduct.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_idProduct.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_idProduct.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_idProduct.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_idProduct.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_idProduct.show = &(show_idProduct);dev_attr_idProduct.store =
+0;dev_attr_bcdDevice.attr.name = "bcdDevice";dev_attr_bcdDevice.attr.mode =
+292;dev_attr_bcdDevice.attr.key =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bcdDevice.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bcdDevice.show = &(show_bcdDevice);dev_attr_bcdDevice.store =
+0;dev_attr_bDeviceClass.attr.name =
+"bDeviceClass";dev_attr_bDeviceClass.attr.mode =
+292;dev_attr_bDeviceClass.attr.key =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bDeviceClass.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bDeviceClass.show =
+&(show_bDeviceClass);dev_attr_bDeviceClass.store =
+0;dev_attr_bDeviceSubClass.attr.name =
+"bDeviceSubClass";dev_attr_bDeviceSubClass.attr.mode =
+292;dev_attr_bDeviceSubClass.attr.key =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bDeviceSubClass.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bDeviceSubClass.show =
+&(show_bDeviceSubClass);dev_attr_bDeviceSubClass.store =
+0;dev_attr_bDeviceProtocol.attr.name =
+"bDeviceProtocol";dev_attr_bDeviceProtocol.attr.mode =
+292;dev_attr_bDeviceProtocol.attr.key =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bDeviceProtocol.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bDeviceProtocol.show =
+&(show_bDeviceProtocol);dev_attr_bDeviceProtocol.store =
+0;dev_attr_bNumConfigurations.attr.name =
+"bNumConfigurations";dev_attr_bNumConfigurations.attr.mode =
+292;dev_attr_bNumConfigurations.attr.key =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bNumConfigurations.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bNumConfigurations.show =
+&(show_bNumConfigurations);dev_attr_bNumConfigurations.store =
+0;dev_attr_bMaxPacketSize0.attr.name =
+"bMaxPacketSize0";dev_attr_bMaxPacketSize0.attr.mode =
+292;dev_attr_bMaxPacketSize0.attr.key =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bMaxPacketSize0.show =
+&(show_bMaxPacketSize0);dev_attr_bMaxPacketSize0.store =
+0;dev_attr_authorized.attr.name = "authorized";dev_attr_authorized.attr.mode
+= 420;dev_attr_authorized.attr.key =
+0;dev_attr_authorized.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_authorized.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_authorized.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_authorized.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_authorized.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_authorized.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_authorized.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_authorized.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_authorized.show =
+&(usb_dev_authorized_show);dev_attr_authorized.store =
+&(usb_dev_authorized_store);dev_attr_remove.attr.name =
+"remove";dev_attr_remove.attr.mode = 128;dev_attr_remove.attr.key =
+0;dev_attr_remove.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_remove.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_remove.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_remove.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_remove.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_remove.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_remove.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_remove.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_remove.show
+= 0;dev_attr_remove.store = &(usb_remove_store);dev_attrs[ 0 ] =
+&(dev_attr_configuration)  foffset  attr;dev_attrs[ 1 ] =
+&(dev_attr_bNumInterfaces)  foffset  attr;dev_attrs[ 2 ] =
+&(dev_attr_bConfigurationValue)  foffset  attr;dev_attrs[ 3 ] =
+&(dev_attr_bmAttributes)  foffset  attr;dev_attrs[ 4 ] =
+&(dev_attr_bMaxPower)  foffset  attr;dev_attrs[ 5 ] = &(dev_attr_urbnum)
+ foffset  attr;dev_attrs[ 6 ] = &(dev_attr_idVendor)  foffset 
+attr;dev_attrs[ 7 ] = &(dev_attr_idProduct)  foffset  attr;dev_attrs[ 8 ] =
+&(dev_attr_bcdDevice)  foffset  attr;dev_attrs[ 9 ] =
+&(dev_attr_bDeviceClass)  foffset  attr;dev_attrs[ 10 ] =
+&(dev_attr_bDeviceSubClass)  foffset  attr;dev_attrs[ 11 ] =
+&(dev_attr_bDeviceProtocol)  foffset  attr;dev_attrs[ 12 ] =
+&(dev_attr_bNumConfigurations)  foffset  attr;dev_attrs[ 13 ] =
+&(dev_attr_bMaxPacketSize0)  foffset  attr;dev_attrs[ 14 ] =
+&(dev_attr_speed)  foffset  attr;dev_attrs[ 15 ] = &(dev_attr_busnum)
+ foffset  attr;dev_attrs[ 16 ] = &(dev_attr_devnum)  foffset 
+attr;dev_attrs[ 17 ] = &(dev_attr_devpath)  foffset  attr;dev_attrs[ 18 ] =
+&(dev_attr_version)  foffset  attr;dev_attrs[ 19 ] = &(dev_attr_maxchild)
+ foffset  attr;dev_attrs[ 20 ] = &(dev_attr_quirks)  foffset 
+attr;dev_attrs[ 21 ] = &(dev_attr_avoid_reset_quirk)  foffset 
+attr;dev_attrs[ 22 ] = &(dev_attr_authorized)  foffset  attr;dev_attrs[ 23 ]
+= &(dev_attr_remove)  foffset  attr;dev_attrs[ 24 ] = 0;dev_attr_grp.name =
+0;dev_attr_grp.is_visible = 0;dev_attr_grp.attrs =
+&(dev_attrs);dev_string_attrs[ 0 ] = &(dev_attr_manufacturer)  foffset 
+attr;dev_string_attrs[ 1 ] = &(dev_attr_product)  foffset 
+attr;dev_string_attrs[ 2 ] = &(dev_attr_serial)  foffset 
+attr;dev_string_attrs[ 3 ] = 0;dev_string_attr_grp.name =
+0;dev_string_attr_grp.is_visible =
+&(dev_string_attrs_are_visible);dev_string_attr_grp.attrs =
+&(dev_string_attrs);usb_device_groups[ 0 ] =
+&(dev_attr_grp);usb_device_groups[ 1 ] =
+&(dev_string_attr_grp);usb_device_groups[ 2 ] =
+0;dev_bin_attr_descriptors.attr.name =
+"descriptors";dev_bin_attr_descriptors.attr.mode =
+292;dev_bin_attr_descriptors.attr.key =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_bin_attr_descriptors.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_bin_attr_descriptors.size = 65553;dev_bin_attr_descriptors.private =
+0;dev_bin_attr_descriptors.read =
+&(read_descriptors);dev_bin_attr_descriptors.write =
+0;dev_bin_attr_descriptors.mmap = 0;dev_attr_iad_bFirstInterface.attr.name =
+"iad_bFirstInterface";dev_attr_iad_bFirstInterface.attr.mode =
+292;dev_attr_iad_bFirstInterface.attr.key =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_iad_bFirstInterface.show =
+&(show_iad_bFirstInterface);dev_attr_iad_bFirstInterface.store =
+0;dev_attr_iad_bInterfaceCount.attr.name =
+"iad_bInterfaceCount";dev_attr_iad_bInterfaceCount.attr.mode =
+292;dev_attr_iad_bInterfaceCount.attr.key =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_iad_bInterfaceCount.show =
+&(show_iad_bInterfaceCount);dev_attr_iad_bInterfaceCount.store =
+0;dev_attr_iad_bFunctionClass.attr.name =
+"iad_bFunctionClass";dev_attr_iad_bFunctionClass.attr.mode =
+292;dev_attr_iad_bFunctionClass.attr.key =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_iad_bFunctionClass.show =
+&(show_iad_bFunctionClass);dev_attr_iad_bFunctionClass.store =
+0;dev_attr_iad_bFunctionSubClass.attr.name =
+"iad_bFunctionSubClass";dev_attr_iad_bFunctionSubClass.attr.mode =
+292;dev_attr_iad_bFunctionSubClass.attr.key =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_iad_bFunctionSubClass.show =
+&(show_iad_bFunctionSubClass);dev_attr_iad_bFunctionSubClass.store =
+0;dev_attr_iad_bFunctionProtocol.attr.name =
+"iad_bFunctionProtocol";dev_attr_iad_bFunctionProtocol.attr.mode =
+292;dev_attr_iad_bFunctionProtocol.attr.key =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_iad_bFunctionProtocol.show =
+&(show_iad_bFunctionProtocol);dev_attr_iad_bFunctionProtocol.store =
+0;dev_attr_bInterfaceNumber.attr.name =
+"bInterfaceNumber";dev_attr_bInterfaceNumber.attr.mode =
+292;dev_attr_bInterfaceNumber.attr.key =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bInterfaceNumber.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bInterfaceNumber.show =
+&(show_bInterfaceNumber);dev_attr_bInterfaceNumber.store =
+0;dev_attr_bAlternateSetting.attr.name =
+"bAlternateSetting";dev_attr_bAlternateSetting.attr.mode =
+292;dev_attr_bAlternateSetting.attr.key =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bAlternateSetting.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bAlternateSetting.show =
+&(show_bAlternateSetting);dev_attr_bAlternateSetting.store =
+0;dev_attr_bNumEndpoints.attr.name =
+"bNumEndpoints";dev_attr_bNumEndpoints.attr.mode =
+292;dev_attr_bNumEndpoints.attr.key =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bNumEndpoints.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bNumEndpoints.show =
+&(show_bNumEndpoints);dev_attr_bNumEndpoints.store =
+0;dev_attr_bInterfaceClass.attr.name =
+"bInterfaceClass";dev_attr_bInterfaceClass.attr.mode =
+292;dev_attr_bInterfaceClass.attr.key =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bInterfaceClass.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bInterfaceClass.show =
+&(show_bInterfaceClass);dev_attr_bInterfaceClass.store =
+0;dev_attr_bInterfaceSubClass.attr.name =
+"bInterfaceSubClass";dev_attr_bInterfaceSubClass.attr.mode =
+292;dev_attr_bInterfaceSubClass.attr.key =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bInterfaceSubClass.show =
+&(show_bInterfaceSubClass);dev_attr_bInterfaceSubClass.store =
+0;dev_attr_bInterfaceProtocol.attr.name =
+"bInterfaceProtocol";dev_attr_bInterfaceProtocol.attr.mode =
+292;dev_attr_bInterfaceProtocol.attr.key =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bInterfaceProtocol.show =
+&(show_bInterfaceProtocol);dev_attr_bInterfaceProtocol.store =
+0;dev_attr_interface.attr.name = "interface";dev_attr_interface.attr.mode =
+292;dev_attr_interface.attr.key =
+0;dev_attr_interface.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_interface.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_interface.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_interface.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_interface.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_interface.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_interface.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_interface.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_interface.show = &(show_interface_string);dev_attr_interface.store
+= 0;dev_attr_modalias.attr.name = "modalias";dev_attr_modalias.attr.mode =
+292;dev_attr_modalias.attr.key =
+0;dev_attr_modalias.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_modalias.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_modalias.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_modalias.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_modalias.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_modalias.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_modalias.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_modalias.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_modalias.show = &(show_modalias);dev_attr_modalias.store =
+0;dev_attr_supports_autosuspend.attr.name =
+"supports_autosuspend";dev_attr_supports_autosuspend.attr.mode =
+292;dev_attr_supports_autosuspend.attr.key =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_supports_autosuspend.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_supports_autosuspend.show =
+&(show_supports_autosuspend);dev_attr_supports_autosuspend.store =
+0;intf_attrs[ 0 ] = &(dev_attr_bInterfaceNumber)  foffset 
+attr;intf_attrs[ 1 ] = &(dev_attr_bAlternateSetting)  foffset 
+attr;intf_attrs[ 2 ] = &(dev_attr_bNumEndpoints)  foffset 
+attr;intf_attrs[ 3 ] = &(dev_attr_bInterfaceClass)  foffset 
+attr;intf_attrs[ 4 ] = &(dev_attr_bInterfaceSubClass)  foffset 
+attr;intf_attrs[ 5 ] = &(dev_attr_bInterfaceProtocol)  foffset 
+attr;intf_attrs[ 6 ] = &(dev_attr_modalias)  foffset  attr;intf_attrs[ 7 ] =
+&(dev_attr_supports_autosuspend)  foffset  attr;intf_attrs[ 8 ] =
+0;intf_attr_grp.name = 0;intf_attr_grp.is_visible = 0;intf_attr_grp.attrs =
+&(intf_attrs);intf_assoc_attrs[ 0 ] = &(dev_attr_iad_bFirstInterface)
+ foffset  attr;intf_assoc_attrs[ 1 ] = &(dev_attr_iad_bInterfaceCount)
+ foffset  attr;intf_assoc_attrs[ 2 ] = &(dev_attr_iad_bFunctionClass)
+ foffset  attr;intf_assoc_attrs[ 3 ] = &(dev_attr_iad_bFunctionSubClass)
+ foffset  attr;intf_assoc_attrs[ 4 ] = &(dev_attr_iad_bFunctionProtocol)
+ foffset  attr;intf_assoc_attrs[ 5 ] = 0;intf_assoc_attr_grp.name =
+0;intf_assoc_attr_grp.is_visible =
+&(intf_assoc_attrs_are_visible);intf_assoc_attr_grp.attrs =
+&(intf_assoc_attrs);usb_interface_groups[ 0 ] =
+&(intf_attr_grp);usb_interface_groups[ 1 ] =
+&(intf_assoc_attr_grp);usb_interface_groups[ 2 ] = 0;usb_ep_device_type.name
+= "usb_endpoint";usb_ep_device_type.groups = 0;usb_ep_device_type.uevent =
+0;usb_ep_device_type.devnode = 0;usb_ep_device_type.release =
+0;usb_ep_device_type.pm = 0;dev_attr_bLength.attr.name =
+"bLength";dev_attr_bLength.attr.mode = 292;dev_attr_bLength.attr.key =
+0;dev_attr_bLength.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bLength.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bLength.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bLength.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bLength.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bLength.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bLength.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bLength.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bLength.show = &(show_ep_bLength);dev_attr_bLength.store =
+0;dev_attr_bEndpointAddress.attr.name =
+"bEndpointAddress";dev_attr_bEndpointAddress.attr.mode =
+292;dev_attr_bEndpointAddress.attr.key =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bEndpointAddress.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bEndpointAddress.show =
+&(show_ep_bEndpointAddress);dev_attr_bEndpointAddress.store =
+0;dev_attr_bmAttributes___0.attr.name =
+"bmAttributes";dev_attr_bmAttributes___0.attr.mode =
+292;dev_attr_bmAttributes___0.attr.key =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bmAttributes___0.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bmAttributes___0.show =
+&(show_ep_bmAttributes);dev_attr_bmAttributes___0.store =
+0;dev_attr_bInterval.attr.name = "bInterval";dev_attr_bInterval.attr.mode =
+292;dev_attr_bInterval.attr.key =
+0;dev_attr_bInterval.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_bInterval.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_bInterval.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_bInterval.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_bInterval.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_bInterval.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_bInterval.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_bInterval.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_bInterval.show = &(show_ep_bInterval);dev_attr_bInterval.store =
+0;dev_attr_wMaxPacketSize.attr.name =
+"wMaxPacketSize";dev_attr_wMaxPacketSize.attr.mode =
+292;dev_attr_wMaxPacketSize.attr.key =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_wMaxPacketSize.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_wMaxPacketSize.show =
+&(show_ep_wMaxPacketSize);dev_attr_wMaxPacketSize.store =
+0;dev_attr_type.attr.name = "type";dev_attr_type.attr.mode =
+292;dev_attr_type.attr.key =
+0;dev_attr_type.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_type.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_type.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_type.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_type.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_type.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_type.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_type.attr.skey.subkeys[ 7 ].__one_byte = 0;dev_attr_type.show =
+&(show_ep_type);dev_attr_type.store = 0;dev_attr_interval.attr.name =
+"interval";dev_attr_interval.attr.mode = 292;dev_attr_interval.attr.key =
+0;dev_attr_interval.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_interval.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_interval.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_interval.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_interval.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_interval.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_interval.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_interval.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_interval.show = &(show_ep_interval);dev_attr_interval.store =
+0;dev_attr_direction.attr.name = "direction";dev_attr_direction.attr.mode =
+292;dev_attr_direction.attr.key =
+0;dev_attr_direction.attr.skey.subkeys[ 0 ].__one_byte =
+0;dev_attr_direction.attr.skey.subkeys[ 1 ].__one_byte =
+0;dev_attr_direction.attr.skey.subkeys[ 2 ].__one_byte =
+0;dev_attr_direction.attr.skey.subkeys[ 3 ].__one_byte =
+0;dev_attr_direction.attr.skey.subkeys[ 4 ].__one_byte =
+0;dev_attr_direction.attr.skey.subkeys[ 5 ].__one_byte =
+0;dev_attr_direction.attr.skey.subkeys[ 6 ].__one_byte =
+0;dev_attr_direction.attr.skey.subkeys[ 7 ].__one_byte =
+0;dev_attr_direction.show = &(show_ep_direction);dev_attr_direction.store =
+0;ep_dev_attrs[ 0 ] = &(dev_attr_bLength)  foffset  attr;ep_dev_attrs[ 1 ] =
+&(dev_attr_bEndpointAddress)  foffset  attr;ep_dev_attrs[ 2 ] =
+&(dev_attr_bmAttributes___0)  foffset  attr;ep_dev_attrs[ 3 ] =
+&(dev_attr_bInterval)  foffset  attr;ep_dev_attrs[ 4 ] =
+&(dev_attr_wMaxPacketSize)  foffset  attr;ep_dev_attrs[ 5 ] =
+&(dev_attr_interval)  foffset  attr;ep_dev_attrs[ 6 ] = &(dev_attr_type)
+ foffset  attr;ep_dev_attrs[ 7 ] = &(dev_attr_direction)  foffset 
+attr;ep_dev_attrs[ 8 ] = 0;ep_dev_attr_grp.name =
+0;ep_dev_attr_grp.is_visible = 0;ep_dev_attr_grp.attrs =
+&(ep_dev_attrs);ep_dev_groups[ 0 ] = &(ep_dev_attr_grp);ep_dev_groups[ 1 ] =
+0;usbfs_mutex.count.counter =
+1;usbfs_mutex.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;usbfs_mutex.wait_lock.ldv_6060.rlock.magic =
+3735899821;usbfs_mutex.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;usbfs_mutex.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;usbfs_mutex.wait_lock.ldv_6060.rlock.dep_map.key =
+0;usbfs_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;usbfs_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;usbfs_mutex.wait_lock.ldv_6060.rlock.dep_map.name =
+"usbfs_mutex.wait_lock";usbfs_mutex.wait_lock.ldv_6060.rlock.dep_map.cpu =
+0;usbfs_mutex.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;usbfs_mutex.wait_list.next = &(usbfs_mutex)  foffset 
+wait_list;usbfs_mutex.wait_list.prev = &(usbfs_mutex)  foffset 
+wait_list;usbfs_mutex.owner = 0;usbfs_mutex.name = 0;usbfs_mutex.magic =
+&(usbfs_mutex);usbfs_mutex.dep_map.key =
+0;usbfs_mutex.dep_map.class_cache[ 0 ] =
+0;usbfs_mutex.dep_map.class_cache[ 1 ] = 0;usbfs_mutex.dep_map.name =
+"usbfs_mutex";usbfs_mutex.dep_map.cpu = 0;usbfs_mutex.dep_map.ip =
+0;usbfs_driver.name = "usbfs";usbfs_driver.probe =
+&(driver_probe);usbfs_driver.disconnect =
+&(driver_disconnect);usbfs_driver.unlocked_ioctl = 0;usbfs_driver.suspend =
+&(driver_suspend);usbfs_driver.resume =
+&(driver_resume);usbfs_driver.reset_resume = 0;usbfs_driver.pre_reset =
+0;usbfs_driver.post_reset = 0;usbfs_driver.id_table =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.raw_lock.slock =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.magic =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.owner_cpu =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.owner =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.dep_map.key =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.dep_map.name =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.dep_map.cpu =
+0;usbfs_driver.dynids.lock.ldv_6060.rlock.dep_map.ip =
+0;usbfs_driver.dynids.list.next = 0;usbfs_driver.dynids.list.prev =
+0;usbfs_driver.drvwrap.driver.name = 0;usbfs_driver.drvwrap.driver.bus =
+0;usbfs_driver.drvwrap.driver.owner = 0;usbfs_driver.drvwrap.driver.mod_name
+= 0;usbfs_driver.drvwrap.driver.suppress_bind_attrs =
+0;usbfs_driver.drvwrap.driver.of_match_table =
+0;usbfs_driver.drvwrap.driver.probe = 0;usbfs_driver.drvwrap.driver.remove =
+0;usbfs_driver.drvwrap.driver.shutdown =
+0;usbfs_driver.drvwrap.driver.suspend = 0;usbfs_driver.drvwrap.driver.resume
+= 0;usbfs_driver.drvwrap.driver.groups = 0;usbfs_driver.drvwrap.driver.pm =
+0;usbfs_driver.drvwrap.driver.p = 0;usbfs_driver.drvwrap.for_devices =
+0;usbfs_driver.no_dynamic_id = 0;usbfs_driver.supports_autosuspend =
+0;usbfs_driver.soft_unbind = 0;usbdev_file_operations.owner =
+&(__this_module);usbdev_file_operations.llseek =
+&(usbdev_lseek);usbdev_file_operations.read =
+&(usbdev_read);usbdev_file_operations.write =
+0;usbdev_file_operations.aio_read = 0;usbdev_file_operations.aio_write =
+0;usbdev_file_operations.readdir = 0;usbdev_file_operations.poll =
+&(usbdev_poll);usbdev_file_operations.unlocked_ioctl =
+&(usbdev_ioctl);usbdev_file_operations.compat_ioctl =
+&(usbdev_compat_ioctl);usbdev_file_operations.mmap =
+0;usbdev_file_operations.open = &(usbdev_open);usbdev_file_operations.flush =
+0;usbdev_file_operations.release =
+&(usbdev_release);usbdev_file_operations.fsync =
+0;usbdev_file_operations.aio_fsync = 0;usbdev_file_operations.fasync =
+0;usbdev_file_operations.lock = 0;usbdev_file_operations.sendpage =
+0;usbdev_file_operations.get_unmapped_area =
+0;usbdev_file_operations.check_flags = 0;usbdev_file_operations.flock =
+0;usbdev_file_operations.splice_write = 0;usbdev_file_operations.splice_read
+= 0;usbdev_file_operations.setlease = 0;usbdev_file_operations.fallocate =
+0;usbdev_nb.notifier_call = &(usbdev_notify);usbdev_nb.next =
+0;usbdev_nb.priority = 0;usb_notifier_list.rwsem.count =
+0;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.magic =
+3735899821;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.dep_map.key
+= 0;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ]
+= 0;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ]
+= 0;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.dep_map.name =
+"(usb_notifier_list).rwsem.wait_lock";usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.dep_map.cpu
+= 0;usb_notifier_list.rwsem.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;usb_notifier_list.rwsem.wait_list.next = &(usb_notifier_list)  foffset 
+rwsem  foffset  wait_list;usb_notifier_list.rwsem.wait_list.prev =
+&(usb_notifier_list)  foffset  rwsem  foffset 
+wait_list;usb_notifier_list.rwsem.dep_map.key =
+0;usb_notifier_list.rwsem.dep_map.class_cache[ 0 ] =
+0;usb_notifier_list.rwsem.dep_map.class_cache[ 1 ] =
+0;usb_notifier_list.rwsem.dep_map.name =
+"(usb_notifier_list).rwsem";usb_notifier_list.rwsem.dep_map.cpu =
+0;usb_notifier_list.rwsem.dep_map.ip = 0;usb_notifier_list.head =
+0;usb_generic_driver.name = "usb";usb_generic_driver.probe =
+&(generic_probe);usb_generic_driver.disconnect =
+&(generic_disconnect);usb_generic_driver.suspend =
+&(generic_suspend);usb_generic_driver.resume =
+&(generic_resume);usb_generic_driver.drvwrap.driver.name =
+0;usb_generic_driver.drvwrap.driver.bus =
+0;usb_generic_driver.drvwrap.driver.owner =
+0;usb_generic_driver.drvwrap.driver.mod_name =
+0;usb_generic_driver.drvwrap.driver.suppress_bind_attrs =
+0;usb_generic_driver.drvwrap.driver.of_match_table =
+0;usb_generic_driver.drvwrap.driver.probe =
+0;usb_generic_driver.drvwrap.driver.remove =
+0;usb_generic_driver.drvwrap.driver.shutdown =
+0;usb_generic_driver.drvwrap.driver.suspend =
+0;usb_generic_driver.drvwrap.driver.resume =
+0;usb_generic_driver.drvwrap.driver.groups =
+0;usb_generic_driver.drvwrap.driver.pm =
+0;usb_generic_driver.drvwrap.driver.p =
+0;usb_generic_driver.drvwrap.for_devices =
+0;usb_generic_driver.supports_autosuspend = 1;usb_quirk_list[ 0 ].match_flags
+= 3;usb_quirk_list[ 0 ].idVendor = 516;usb_quirk_list[ 0 ].idProduct =
+24613;usb_quirk_list[ 0 ].bcdDevice_lo = 0;usb_quirk_list[ 0 ].bcdDevice_hi =
+0;usb_quirk_list[ 0 ].bDeviceClass = 0;usb_quirk_list[ 0 ].bDeviceSubClass =
+0;usb_quirk_list[ 0 ].bDeviceProtocol = 0;usb_quirk_list[ 0 ].bInterfaceClass
+= 0;usb_quirk_list[ 0 ].bInterfaceSubClass =
+0;usb_quirk_list[ 0 ].bInterfaceProtocol = 0;usb_quirk_list[ 0 ].driver_info
+= 2;usb_quirk_list[ 1 ].match_flags = 3;usb_quirk_list[ 1 ].idVendor =
+1008;usb_quirk_list[ 1 ].idProduct = 1793;usb_quirk_list[ 1 ].bcdDevice_lo =
+0;usb_quirk_list[ 1 ].bcdDevice_hi = 0;usb_quirk_list[ 1 ].bDeviceClass =
+0;usb_quirk_list[ 1 ].bDeviceSubClass = 0;usb_quirk_list[ 1 ].bDeviceProtocol
+= 0;usb_quirk_list[ 1 ].bInterfaceClass =
+0;usb_quirk_list[ 1 ].bInterfaceSubClass =
+0;usb_quirk_list[ 1 ].bInterfaceProtocol = 0;usb_quirk_list[ 1 ].driver_info
+= 1;usb_quirk_list[ 2 ].match_flags = 3;usb_quirk_list[ 2 ].idVendor =
+1054;usb_quirk_list[ 2 ].idProduct = 12320;usb_quirk_list[ 2 ].bcdDevice_lo =
+0;usb_quirk_list[ 2 ].bcdDevice_hi = 0;usb_quirk_list[ 2 ].bDeviceClass =
+0;usb_quirk_list[ 2 ].bDeviceSubClass = 0;usb_quirk_list[ 2 ].bDeviceProtocol
+= 0;usb_quirk_list[ 2 ].bInterfaceClass =
+0;usb_quirk_list[ 2 ].bInterfaceSubClass =
+0;usb_quirk_list[ 2 ].bInterfaceProtocol = 0;usb_quirk_list[ 2 ].driver_info
+= 2;usb_quirk_list[ 3 ].match_flags = 3;usb_quirk_list[ 3 ].idVendor =
+1133;usb_quirk_list[ 3 ].idProduct = 49442;usb_quirk_list[ 3 ].bcdDevice_lo =
+0;usb_quirk_list[ 3 ].bcdDevice_hi = 0;usb_quirk_list[ 3 ].bDeviceClass =
+0;usb_quirk_list[ 3 ].bDeviceSubClass = 0;usb_quirk_list[ 3 ].bDeviceProtocol
+= 0;usb_quirk_list[ 3 ].bInterfaceClass =
+0;usb_quirk_list[ 3 ].bInterfaceSubClass =
+0;usb_quirk_list[ 3 ].bInterfaceProtocol = 0;usb_quirk_list[ 3 ].driver_info
+= 64;usb_quirk_list[ 4 ].match_flags = 3;usb_quirk_list[ 4 ].idVendor =
+1137;usb_quirk_list[ 4 ].idProduct = 341;usb_quirk_list[ 4 ].bcdDevice_lo =
+0;usb_quirk_list[ 4 ].bcdDevice_hi = 0;usb_quirk_list[ 4 ].bDeviceClass =
+0;usb_quirk_list[ 4 ].bDeviceSubClass = 0;usb_quirk_list[ 4 ].bDeviceProtocol
+= 0;usb_quirk_list[ 4 ].bInterfaceClass =
+0;usb_quirk_list[ 4 ].bInterfaceSubClass =
+0;usb_quirk_list[ 4 ].bInterfaceProtocol = 0;usb_quirk_list[ 4 ].driver_info
+= 2;usb_quirk_list[ 5 ].match_flags = 3;usb_quirk_list[ 5 ].idVendor =
+1204;usb_quirk_list[ 5 ].idProduct = 1318;usb_quirk_list[ 5 ].bcdDevice_lo =
+0;usb_quirk_list[ 5 ].bcdDevice_hi = 0;usb_quirk_list[ 5 ].bDeviceClass =
+0;usb_quirk_list[ 5 ].bDeviceSubClass = 0;usb_quirk_list[ 5 ].bDeviceProtocol
+= 0;usb_quirk_list[ 5 ].bInterfaceClass =
+0;usb_quirk_list[ 5 ].bInterfaceSubClass =
+0;usb_quirk_list[ 5 ].bInterfaceProtocol = 0;usb_quirk_list[ 5 ].driver_info
+= 8;usb_quirk_list[ 6 ].match_flags = 3;usb_quirk_list[ 6 ].idVendor =
+1256;usb_quirk_list[ 6 ].idProduct = 26113;usb_quirk_list[ 6 ].bcdDevice_lo =
+0;usb_quirk_list[ 6 ].bcdDevice_hi = 0;usb_quirk_list[ 6 ].bDeviceClass =
+0;usb_quirk_list[ 6 ].bDeviceSubClass = 0;usb_quirk_list[ 6 ].bDeviceProtocol
+= 0;usb_quirk_list[ 6 ].bInterfaceClass =
+0;usb_quirk_list[ 6 ].bInterfaceSubClass =
+0;usb_quirk_list[ 6 ].bInterfaceProtocol = 0;usb_quirk_list[ 6 ].driver_info
+= 8;usb_quirk_list[ 7 ].match_flags = 3;usb_quirk_list[ 7 ].idVendor =
+1410;usb_quirk_list[ 7 ].idProduct = 7;usb_quirk_list[ 7 ].bcdDevice_lo =
+0;usb_quirk_list[ 7 ].bcdDevice_hi = 0;usb_quirk_list[ 7 ].bDeviceClass =
+0;usb_quirk_list[ 7 ].bDeviceSubClass = 0;usb_quirk_list[ 7 ].bDeviceProtocol
+= 0;usb_quirk_list[ 7 ].bInterfaceClass =
+0;usb_quirk_list[ 7 ].bInterfaceSubClass =
+0;usb_quirk_list[ 7 ].bInterfaceProtocol = 0;usb_quirk_list[ 7 ].driver_info
+= 2;usb_quirk_list[ 8 ].match_flags = 3;usb_quirk_list[ 8 ].idVendor =
+1410;usb_quirk_list[ 8 ].idProduct = 39;usb_quirk_list[ 8 ].bcdDevice_lo =
+0;usb_quirk_list[ 8 ].bcdDevice_hi = 0;usb_quirk_list[ 8 ].bDeviceClass =
+0;usb_quirk_list[ 8 ].bDeviceSubClass = 0;usb_quirk_list[ 8 ].bDeviceProtocol
+= 0;usb_quirk_list[ 8 ].bInterfaceClass =
+0;usb_quirk_list[ 8 ].bInterfaceSubClass =
+0;usb_quirk_list[ 8 ].bInterfaceProtocol = 0;usb_quirk_list[ 8 ].driver_info
+= 2;usb_quirk_list[ 9 ].match_flags = 3;usb_quirk_list[ 9 ].idVendor =
+1452;usb_quirk_list[ 9 ].idProduct = 538;usb_quirk_list[ 9 ].bcdDevice_lo =
+0;usb_quirk_list[ 9 ].bcdDevice_hi = 0;usb_quirk_list[ 9 ].bDeviceClass =
+0;usb_quirk_list[ 9 ].bDeviceSubClass = 0;usb_quirk_list[ 9 ].bDeviceProtocol
+= 0;usb_quirk_list[ 9 ].bInterfaceClass =
+0;usb_quirk_list[ 9 ].bInterfaceSubClass =
+0;usb_quirk_list[ 9 ].bInterfaceProtocol = 0;usb_quirk_list[ 9 ].driver_info
+= 2;usb_quirk_list[ 10 ].match_flags = 3;usb_quirk_list[ 10 ].idVendor =
+1592;usb_quirk_list[ 10 ].idProduct = 2579;usb_quirk_list[ 10 ].bcdDevice_lo
+= 0;usb_quirk_list[ 10 ].bcdDevice_hi = 0;usb_quirk_list[ 10 ].bDeviceClass =
+0;usb_quirk_list[ 10 ].bDeviceSubClass =
+0;usb_quirk_list[ 10 ].bDeviceProtocol =
+0;usb_quirk_list[ 10 ].bInterfaceClass =
+0;usb_quirk_list[ 10 ].bInterfaceSubClass =
+0;usb_quirk_list[ 10 ].bInterfaceProtocol =
+0;usb_quirk_list[ 10 ].driver_info = 1;usb_quirk_list[ 11 ].match_flags =
+3;usb_quirk_list[ 11 ].idVendor = 1699;usb_quirk_list[ 11 ].idProduct =
+6;usb_quirk_list[ 11 ].bcdDevice_lo = 0;usb_quirk_list[ 11 ].bcdDevice_hi =
+0;usb_quirk_list[ 11 ].bDeviceClass = 0;usb_quirk_list[ 11 ].bDeviceSubClass
+= 0;usb_quirk_list[ 11 ].bDeviceProtocol =
+0;usb_quirk_list[ 11 ].bInterfaceClass =
+0;usb_quirk_list[ 11 ].bInterfaceSubClass =
+0;usb_quirk_list[ 11 ].bInterfaceProtocol =
+0;usb_quirk_list[ 11 ].driver_info = 8;usb_quirk_list[ 12 ].match_flags =
+3;usb_quirk_list[ 12 ].idVendor = 2284;usb_quirk_list[ 12 ].idProduct =
+4096;usb_quirk_list[ 12 ].bcdDevice_lo = 0;usb_quirk_list[ 12 ].bcdDevice_hi
+= 0;usb_quirk_list[ 12 ].bDeviceClass =
+0;usb_quirk_list[ 12 ].bDeviceSubClass =
+0;usb_quirk_list[ 12 ].bDeviceProtocol =
+0;usb_quirk_list[ 12 ].bInterfaceClass =
+0;usb_quirk_list[ 12 ].bInterfaceSubClass =
+0;usb_quirk_list[ 12 ].bInterfaceProtocol =
+0;usb_quirk_list[ 12 ].driver_info = 2;usb_quirk_list[ 13 ].match_flags =
+3;usb_quirk_list[ 13 ].idVendor = 2342;usb_quirk_list[ 13 ].idProduct =
+13107;usb_quirk_list[ 13 ].bcdDevice_lo = 0;usb_quirk_list[ 13 ].bcdDevice_hi
+= 0;usb_quirk_list[ 13 ].bDeviceClass =
+0;usb_quirk_list[ 13 ].bDeviceSubClass =
+0;usb_quirk_list[ 13 ].bDeviceProtocol =
+0;usb_quirk_list[ 13 ].bInterfaceClass =
+0;usb_quirk_list[ 13 ].bInterfaceSubClass =
+0;usb_quirk_list[ 13 ].bInterfaceProtocol =
+0;usb_quirk_list[ 13 ].driver_info = 8;usb_quirk_list[ 14 ].match_flags =
+3;usb_quirk_list[ 14 ].idVendor = 2417;usb_quirk_list[ 14 ].idProduct =
+8192;usb_quirk_list[ 14 ].bcdDevice_lo = 0;usb_quirk_list[ 14 ].bcdDevice_hi
+= 0;usb_quirk_list[ 14 ].bDeviceClass =
+0;usb_quirk_list[ 14 ].bDeviceSubClass =
+0;usb_quirk_list[ 14 ].bDeviceProtocol =
+0;usb_quirk_list[ 14 ].bInterfaceClass =
+0;usb_quirk_list[ 14 ].bInterfaceSubClass =
+0;usb_quirk_list[ 14 ].bInterfaceProtocol =
+0;usb_quirk_list[ 14 ].driver_info = 4;usb_quirk_list[ 15 ].match_flags =
+3;usb_quirk_list[ 15 ].idVendor = 2652;usb_quirk_list[ 15 ].idProduct =
+8225;usb_quirk_list[ 15 ].bcdDevice_lo = 0;usb_quirk_list[ 15 ].bcdDevice_hi
+= 0;usb_quirk_list[ 15 ].bDeviceClass =
+0;usb_quirk_list[ 15 ].bDeviceSubClass =
+0;usb_quirk_list[ 15 ].bDeviceProtocol =
+0;usb_quirk_list[ 15 ].bInterfaceClass =
+0;usb_quirk_list[ 15 ].bInterfaceSubClass =
+0;usb_quirk_list[ 15 ].bInterfaceProtocol =
+0;usb_quirk_list[ 15 ].driver_info = 2;usb_quirk_list[ 16 ].match_flags =
+3;usb_quirk_list[ 16 ].idVendor = 4310;usb_quirk_list[ 16 ].idProduct =
+8704;usb_quirk_list[ 16 ].bcdDevice_lo = 0;usb_quirk_list[ 16 ].bcdDevice_hi
+= 0;usb_quirk_list[ 16 ].bDeviceClass =
+0;usb_quirk_list[ 16 ].bDeviceSubClass =
+0;usb_quirk_list[ 16 ].bDeviceProtocol =
+0;usb_quirk_list[ 16 ].bInterfaceClass =
+0;usb_quirk_list[ 16 ].bInterfaceSubClass =
+0;usb_quirk_list[ 16 ].bInterfaceProtocol =
+0;usb_quirk_list[ 16 ].driver_info = 1;usb_quirk_list[ 17 ].match_flags =
+3;usb_quirk_list[ 17 ].idVendor = 5398;usb_quirk_list[ 17 ].idProduct =
+34344;usb_quirk_list[ 17 ].bcdDevice_lo = 0;usb_quirk_list[ 17 ].bcdDevice_hi
+= 0;usb_quirk_list[ 17 ].bDeviceClass =
+0;usb_quirk_list[ 17 ].bDeviceSubClass =
+0;usb_quirk_list[ 17 ].bDeviceProtocol =
+0;usb_quirk_list[ 17 ].bInterfaceClass =
+0;usb_quirk_list[ 17 ].bInterfaceSubClass =
+0;usb_quirk_list[ 17 ].bInterfaceProtocol =
+0;usb_quirk_list[ 17 ].driver_info = 2;usb_quirk_list[ 18 ].match_flags =
+3;usb_quirk_list[ 18 ].idVendor = 6408;usb_quirk_list[ 18 ].idProduct =
+4885;usb_quirk_list[ 18 ].bcdDevice_lo = 0;usb_quirk_list[ 18 ].bcdDevice_hi
+= 0;usb_quirk_list[ 18 ].bDeviceClass =
+0;usb_quirk_list[ 18 ].bDeviceSubClass =
+0;usb_quirk_list[ 18 ].bDeviceProtocol =
+0;usb_quirk_list[ 18 ].bInterfaceClass =
+0;usb_quirk_list[ 18 ].bInterfaceSubClass =
+0;usb_quirk_list[ 18 ].bInterfaceProtocol =
+0;usb_quirk_list[ 18 ].driver_info = 32;usb_quirk_list[ 19 ].match_flags =
+3;usb_quirk_list[ 19 ].idVendor = 32902;usb_quirk_list[ 19 ].idProduct =
+61861;usb_quirk_list[ 19 ].bcdDevice_lo = 0;usb_quirk_list[ 19 ].bcdDevice_hi
+= 0;usb_quirk_list[ 19 ].bDeviceClass =
+0;usb_quirk_list[ 19 ].bDeviceSubClass =
+0;usb_quirk_list[ 19 ].bDeviceProtocol =
+0;usb_quirk_list[ 19 ].bInterfaceClass =
+0;usb_quirk_list[ 19 ].bInterfaceSubClass =
+0;usb_quirk_list[ 19 ].bInterfaceProtocol =
+0;usb_quirk_list[ 19 ].driver_info = 2;usb_quirk_list[ 20 ].match_flags =
+0;usb_quirk_list[ 20 ].idVendor = 0;usb_quirk_list[ 20 ].idProduct =
+0;usb_quirk_list[ 20 ].bcdDevice_lo = 0;usb_quirk_list[ 20 ].bcdDevice_hi =
+0;usb_quirk_list[ 20 ].bDeviceClass = 0;usb_quirk_list[ 20 ].bDeviceSubClass
+= 0;usb_quirk_list[ 20 ].bDeviceProtocol =
+0;usb_quirk_list[ 20 ].bInterfaceClass =
+0;usb_quirk_list[ 20 ].bInterfaceSubClass =
+0;usb_quirk_list[ 20 ].bInterfaceProtocol =
+0;usb_quirk_list[ 20 ].driver_info = 0;format_topo[ 0 ] = 10;format_topo[ 1 ]
+= 84;format_topo[ 2 ] = 58;format_topo[ 3 ] = 32;format_topo[ 4 ] =
+32;format_topo[ 5 ] = 66;format_topo[ 6 ] = 117;format_topo[ 7 ] =
+115;format_topo[ 8 ] = 61;format_topo[ 9 ] = 37;format_topo[ 10 ] =
+50;format_topo[ 11 ] = 46;format_topo[ 12 ] = 50;format_topo[ 13 ] =
+100;format_topo[ 14 ] = 32;format_topo[ 15 ] = 76;format_topo[ 16 ] =
+101;format_topo[ 17 ] = 118;format_topo[ 18 ] = 61;format_topo[ 19 ] =
+37;format_topo[ 20 ] = 50;format_topo[ 21 ] = 46;format_topo[ 22 ] =
+50;format_topo[ 23 ] = 100;format_topo[ 24 ] = 32;format_topo[ 25 ] =
+80;format_topo[ 26 ] = 114;format_topo[ 27 ] = 110;format_topo[ 28 ] =
+116;format_topo[ 29 ] = 61;format_topo[ 30 ] = 37;format_topo[ 31 ] =
+50;format_topo[ 32 ] = 46;format_topo[ 33 ] = 50;format_topo[ 34 ] =
+100;format_topo[ 35 ] = 32;format_topo[ 36 ] = 80;format_topo[ 37 ] =
+111;format_topo[ 38 ] = 114;format_topo[ 39 ] = 116;format_topo[ 40 ] =
+61;format_topo[ 41 ] = 37;format_topo[ 42 ] = 50;format_topo[ 43 ] =
+46;format_topo[ 44 ] = 50;format_topo[ 45 ] = 100;format_topo[ 46 ] =
+32;format_topo[ 47 ] = 67;format_topo[ 48 ] = 110;format_topo[ 49 ] =
+116;format_topo[ 50 ] = 61;format_topo[ 51 ] = 37;format_topo[ 52 ] =
+50;format_topo[ 53 ] = 46;format_topo[ 54 ] = 50;format_topo[ 55 ] =
+100;format_topo[ 56 ] = 32;format_topo[ 57 ] = 68;format_topo[ 58 ] =
+101;format_topo[ 59 ] = 118;format_topo[ 60 ] = 35;format_topo[ 61 ] =
+61;format_topo[ 62 ] = 37;format_topo[ 63 ] = 51;format_topo[ 64 ] =
+100;format_topo[ 65 ] = 32;format_topo[ 66 ] = 83;format_topo[ 67 ] =
+112;format_topo[ 68 ] = 100;format_topo[ 69 ] = 61;format_topo[ 70 ] =
+37;format_topo[ 71 ] = 45;format_topo[ 72 ] = 52;format_topo[ 73 ] =
+115;format_topo[ 74 ] = 32;format_topo[ 75 ] = 77;format_topo[ 76 ] =
+120;format_topo[ 77 ] = 67;format_topo[ 78 ] = 104;format_topo[ 79 ] =
+61;format_topo[ 80 ] = 37;format_topo[ 81 ] = 50;format_topo[ 82 ] =
+100;format_topo[ 83 ] = 10;format_topo[ 84 ] =
+0;format_string_manufacturer[ 0 ] = 83;format_string_manufacturer[ 1 ] =
+58;format_string_manufacturer[ 2 ] = 32;format_string_manufacturer[ 3 ] =
+32;format_string_manufacturer[ 4 ] = 77;format_string_manufacturer[ 5 ] =
+97;format_string_manufacturer[ 6 ] = 110;format_string_manufacturer[ 7 ] =
+117;format_string_manufacturer[ 8 ] = 102;format_string_manufacturer[ 9 ] =
+97;format_string_manufacturer[ 10 ] = 99;format_string_manufacturer[ 11 ] =
+116;format_string_manufacturer[ 12 ] = 117;format_string_manufacturer[ 13 ] =
+114;format_string_manufacturer[ 14 ] = 101;format_string_manufacturer[ 15 ] =
+114;format_string_manufacturer[ 16 ] = 61;format_string_manufacturer[ 17 ] =
+37;format_string_manufacturer[ 18 ] = 46;format_string_manufacturer[ 19 ] =
+49;format_string_manufacturer[ 20 ] = 48;format_string_manufacturer[ 21 ] =
+48;format_string_manufacturer[ 22 ] = 115;format_string_manufacturer[ 23 ] =
+10;format_string_manufacturer[ 24 ] = 0;format_string_product[ 0 ] =
+83;format_string_product[ 1 ] = 58;format_string_product[ 2 ] =
+32;format_string_product[ 3 ] = 32;format_string_product[ 4 ] =
+80;format_string_product[ 5 ] = 114;format_string_product[ 6 ] =
+111;format_string_product[ 7 ] = 100;format_string_product[ 8 ] =
+117;format_string_product[ 9 ] = 99;format_string_product[ 10 ] =
+116;format_string_product[ 11 ] = 61;format_string_product[ 12 ] =
+37;format_string_product[ 13 ] = 46;format_string_product[ 14 ] =
+49;format_string_product[ 15 ] = 48;format_string_product[ 16 ] =
+48;format_string_product[ 17 ] = 115;format_string_product[ 18 ] =
+10;format_string_product[ 19 ] = 0;format_string_serialnumber[ 0 ] =
+83;format_string_serialnumber[ 1 ] = 58;format_string_serialnumber[ 2 ] =
+32;format_string_serialnumber[ 3 ] = 32;format_string_serialnumber[ 4 ] =
+83;format_string_serialnumber[ 5 ] = 101;format_string_serialnumber[ 6 ] =
+114;format_string_serialnumber[ 7 ] = 105;format_string_serialnumber[ 8 ] =
+97;format_string_serialnumber[ 9 ] = 108;format_string_serialnumber[ 10 ] =
+78;format_string_serialnumber[ 11 ] = 117;format_string_serialnumber[ 12 ] =
+109;format_string_serialnumber[ 13 ] = 98;format_string_serialnumber[ 14 ] =
+101;format_string_serialnumber[ 15 ] = 114;format_string_serialnumber[ 16 ] =
+61;format_string_serialnumber[ 17 ] = 37;format_string_serialnumber[ 18 ] =
+46;format_string_serialnumber[ 19 ] = 49;format_string_serialnumber[ 20 ] =
+48;format_string_serialnumber[ 21 ] = 48;format_string_serialnumber[ 22 ] =
+115;format_string_serialnumber[ 23 ] = 10;format_string_serialnumber[ 24 ] =
+0;format_bandwidth[ 0 ] = 66;format_bandwidth[ 1 ] = 58;format_bandwidth[ 2 ]
+= 32;format_bandwidth[ 3 ] = 32;format_bandwidth[ 4 ] =
+65;format_bandwidth[ 5 ] = 108;format_bandwidth[ 6 ] =
+108;format_bandwidth[ 7 ] = 111;format_bandwidth[ 8 ] =
+99;format_bandwidth[ 9 ] = 61;format_bandwidth[ 10 ] =
+37;format_bandwidth[ 11 ] = 51;format_bandwidth[ 12 ] =
+100;format_bandwidth[ 13 ] = 47;format_bandwidth[ 14 ] =
+37;format_bandwidth[ 15 ] = 51;format_bandwidth[ 16 ] =
+100;format_bandwidth[ 17 ] = 32;format_bandwidth[ 18 ] =
+117;format_bandwidth[ 19 ] = 115;format_bandwidth[ 20 ] =
+32;format_bandwidth[ 21 ] = 40;format_bandwidth[ 22 ] =
+37;format_bandwidth[ 23 ] = 50;format_bandwidth[ 24 ] =
+100;format_bandwidth[ 25 ] = 37;format_bandwidth[ 26 ] =
+37;format_bandwidth[ 27 ] = 41;format_bandwidth[ 28 ] =
+44;format_bandwidth[ 29 ] = 32;format_bandwidth[ 30 ] =
+35;format_bandwidth[ 31 ] = 73;format_bandwidth[ 32 ] =
+110;format_bandwidth[ 33 ] = 116;format_bandwidth[ 34 ] =
+61;format_bandwidth[ 35 ] = 37;format_bandwidth[ 36 ] =
+51;format_bandwidth[ 37 ] = 100;format_bandwidth[ 38 ] =
+44;format_bandwidth[ 39 ] = 32;format_bandwidth[ 40 ] =
+35;format_bandwidth[ 41 ] = 73;format_bandwidth[ 42 ] =
+115;format_bandwidth[ 43 ] = 111;format_bandwidth[ 44 ] =
+61;format_bandwidth[ 45 ] = 37;format_bandwidth[ 46 ] =
+51;format_bandwidth[ 47 ] = 100;format_bandwidth[ 48 ] =
+10;format_bandwidth[ 49 ] = 0;format_device1[ 0 ] = 68;format_device1[ 1 ] =
+58;format_device1[ 2 ] = 32;format_device1[ 3 ] = 32;format_device1[ 4 ] =
+86;format_device1[ 5 ] = 101;format_device1[ 6 ] = 114;format_device1[ 7 ] =
+61;format_device1[ 8 ] = 37;format_device1[ 9 ] = 50;format_device1[ 10 ] =
+120;format_device1[ 11 ] = 46;format_device1[ 12 ] = 37;format_device1[ 13 ]
+= 48;format_device1[ 14 ] = 50;format_device1[ 15 ] =
+120;format_device1[ 16 ] = 32;format_device1[ 17 ] = 67;format_device1[ 18 ]
+= 108;format_device1[ 19 ] = 115;format_device1[ 20 ] =
+61;format_device1[ 21 ] = 37;format_device1[ 22 ] = 48;format_device1[ 23 ] =
+50;format_device1[ 24 ] = 120;format_device1[ 25 ] = 40;format_device1[ 26 ]
+= 37;format_device1[ 27 ] = 45;format_device1[ 28 ] = 53;format_device1[ 29 ]
+= 115;format_device1[ 30 ] = 41;format_device1[ 31 ] =
+32;format_device1[ 32 ] = 83;format_device1[ 33 ] = 117;format_device1[ 34 ]
+= 98;format_device1[ 35 ] = 61;format_device1[ 36 ] = 37;format_device1[ 37 ]
+= 48;format_device1[ 38 ] = 50;format_device1[ 39 ] =
+120;format_device1[ 40 ] = 32;format_device1[ 41 ] = 80;format_device1[ 42 ]
+= 114;format_device1[ 43 ] = 111;format_device1[ 44 ] =
+116;format_device1[ 45 ] = 61;format_device1[ 46 ] = 37;format_device1[ 47 ]
+= 48;format_device1[ 48 ] = 50;format_device1[ 49 ] =
+120;format_device1[ 50 ] = 32;format_device1[ 51 ] = 77;format_device1[ 52 ]
+= 120;format_device1[ 53 ] = 80;format_device1[ 54 ] =
+83;format_device1[ 55 ] = 61;format_device1[ 56 ] = 37;format_device1[ 57 ] =
+50;format_device1[ 58 ] = 100;format_device1[ 59 ] = 32;format_device1[ 60 ]
+= 35;format_device1[ 61 ] = 67;format_device1[ 62 ] =
+102;format_device1[ 63 ] = 103;format_device1[ 64 ] =
+115;format_device1[ 65 ] = 61;format_device1[ 66 ] = 37;format_device1[ 67 ]
+= 51;format_device1[ 68 ] = 100;format_device1[ 69 ] =
+10;format_device1[ 70 ] = 0;format_device2[ 0 ] = 80;format_device2[ 1 ] =
+58;format_device2[ 2 ] = 32;format_device2[ 3 ] = 32;format_device2[ 4 ] =
+86;format_device2[ 5 ] = 101;format_device2[ 6 ] = 110;format_device2[ 7 ] =
+100;format_device2[ 8 ] = 111;format_device2[ 9 ] = 114;format_device2[ 10 ]
+= 61;format_device2[ 11 ] = 37;format_device2[ 12 ] = 48;format_device2[ 13 ]
+= 52;format_device2[ 14 ] = 120;format_device2[ 15 ] =
+32;format_device2[ 16 ] = 80;format_device2[ 17 ] = 114;format_device2[ 18 ]
+= 111;format_device2[ 19 ] = 100;format_device2[ 20 ] =
+73;format_device2[ 21 ] = 68;format_device2[ 22 ] = 61;format_device2[ 23 ] =
+37;format_device2[ 24 ] = 48;format_device2[ 25 ] = 52;format_device2[ 26 ] =
+120;format_device2[ 27 ] = 32;format_device2[ 28 ] = 82;format_device2[ 29 ]
+= 101;format_device2[ 30 ] = 118;format_device2[ 31 ] =
+61;format_device2[ 32 ] = 37;format_device2[ 33 ] = 50;format_device2[ 34 ] =
+120;format_device2[ 35 ] = 46;format_device2[ 36 ] = 37;format_device2[ 37 ]
+= 48;format_device2[ 38 ] = 50;format_device2[ 39 ] =
+120;format_device2[ 40 ] = 10;format_device2[ 41 ] = 0;format_config[ 0 ] =
+67;format_config[ 1 ] = 58;format_config[ 2 ] = 37;format_config[ 3 ] =
+99;format_config[ 4 ] = 32;format_config[ 5 ] = 35;format_config[ 6 ] =
+73;format_config[ 7 ] = 102;format_config[ 8 ] = 115;format_config[ 9 ] =
+61;format_config[ 10 ] = 37;format_config[ 11 ] = 50;format_config[ 12 ] =
+100;format_config[ 13 ] = 32;format_config[ 14 ] = 67;format_config[ 15 ] =
+102;format_config[ 16 ] = 103;format_config[ 17 ] = 35;format_config[ 18 ] =
+61;format_config[ 19 ] = 37;format_config[ 20 ] = 50;format_config[ 21 ] =
+100;format_config[ 22 ] = 32;format_config[ 23 ] = 65;format_config[ 24 ] =
+116;format_config[ 25 ] = 114;format_config[ 26 ] = 61;format_config[ 27 ] =
+37;format_config[ 28 ] = 48;format_config[ 29 ] = 50;format_config[ 30 ] =
+120;format_config[ 31 ] = 32;format_config[ 32 ] = 77;format_config[ 33 ] =
+120;format_config[ 34 ] = 80;format_config[ 35 ] = 119;format_config[ 36 ] =
+114;format_config[ 37 ] = 61;format_config[ 38 ] = 37;format_config[ 39 ] =
+51;format_config[ 40 ] = 100;format_config[ 41 ] = 109;format_config[ 42 ] =
+65;format_config[ 43 ] = 10;format_config[ 44 ] = 0;format_iad[ 0 ] =
+65;format_iad[ 1 ] = 58;format_iad[ 2 ] = 32;format_iad[ 3 ] =
+32;format_iad[ 4 ] = 70;format_iad[ 5 ] = 105;format_iad[ 6 ] =
+114;format_iad[ 7 ] = 115;format_iad[ 8 ] = 116;format_iad[ 9 ] =
+73;format_iad[ 10 ] = 102;format_iad[ 11 ] = 35;format_iad[ 12 ] =
+61;format_iad[ 13 ] = 37;format_iad[ 14 ] = 50;format_iad[ 15 ] =
+100;format_iad[ 16 ] = 32;format_iad[ 17 ] = 73;format_iad[ 18 ] =
+102;format_iad[ 19 ] = 67;format_iad[ 20 ] = 111;format_iad[ 21 ] =
+117;format_iad[ 22 ] = 110;format_iad[ 23 ] = 116;format_iad[ 24 ] =
+61;format_iad[ 25 ] = 37;format_iad[ 26 ] = 50;format_iad[ 27 ] =
+100;format_iad[ 28 ] = 32;format_iad[ 29 ] = 67;format_iad[ 30 ] =
+108;format_iad[ 31 ] = 115;format_iad[ 32 ] = 61;format_iad[ 33 ] =
+37;format_iad[ 34 ] = 48;format_iad[ 35 ] = 50;format_iad[ 36 ] =
+120;format_iad[ 37 ] = 40;format_iad[ 38 ] = 37;format_iad[ 39 ] =
+45;format_iad[ 40 ] = 53;format_iad[ 41 ] = 115;format_iad[ 42 ] =
+41;format_iad[ 43 ] = 32;format_iad[ 44 ] = 83;format_iad[ 45 ] =
+117;format_iad[ 46 ] = 98;format_iad[ 47 ] = 61;format_iad[ 48 ] =
+37;format_iad[ 49 ] = 48;format_iad[ 50 ] = 50;format_iad[ 51 ] =
+120;format_iad[ 52 ] = 32;format_iad[ 53 ] = 80;format_iad[ 54 ] =
+114;format_iad[ 55 ] = 111;format_iad[ 56 ] = 116;format_iad[ 57 ] =
+61;format_iad[ 58 ] = 37;format_iad[ 59 ] = 48;format_iad[ 60 ] =
+50;format_iad[ 61 ] = 120;format_iad[ 62 ] = 10;format_iad[ 63 ] =
+0;format_iface[ 0 ] = 73;format_iface[ 1 ] = 58;format_iface[ 2 ] =
+37;format_iface[ 3 ] = 99;format_iface[ 4 ] = 32;format_iface[ 5 ] =
+73;format_iface[ 6 ] = 102;format_iface[ 7 ] = 35;format_iface[ 8 ] =
+61;format_iface[ 9 ] = 37;format_iface[ 10 ] = 50;format_iface[ 11 ] =
+100;format_iface[ 12 ] = 32;format_iface[ 13 ] = 65;format_iface[ 14 ] =
+108;format_iface[ 15 ] = 116;format_iface[ 16 ] = 61;format_iface[ 17 ] =
+37;format_iface[ 18 ] = 50;format_iface[ 19 ] = 100;format_iface[ 20 ] =
+32;format_iface[ 21 ] = 35;format_iface[ 22 ] = 69;format_iface[ 23 ] =
+80;format_iface[ 24 ] = 115;format_iface[ 25 ] = 61;format_iface[ 26 ] =
+37;format_iface[ 27 ] = 50;format_iface[ 28 ] = 100;format_iface[ 29 ] =
+32;format_iface[ 30 ] = 67;format_iface[ 31 ] = 108;format_iface[ 32 ] =
+115;format_iface[ 33 ] = 61;format_iface[ 34 ] = 37;format_iface[ 35 ] =
+48;format_iface[ 36 ] = 50;format_iface[ 37 ] = 120;format_iface[ 38 ] =
+40;format_iface[ 39 ] = 37;format_iface[ 40 ] = 45;format_iface[ 41 ] =
+53;format_iface[ 42 ] = 115;format_iface[ 43 ] = 41;format_iface[ 44 ] =
+32;format_iface[ 45 ] = 83;format_iface[ 46 ] = 117;format_iface[ 47 ] =
+98;format_iface[ 48 ] = 61;format_iface[ 49 ] = 37;format_iface[ 50 ] =
+48;format_iface[ 51 ] = 50;format_iface[ 52 ] = 120;format_iface[ 53 ] =
+32;format_iface[ 54 ] = 80;format_iface[ 55 ] = 114;format_iface[ 56 ] =
+111;format_iface[ 57 ] = 116;format_iface[ 58 ] = 61;format_iface[ 59 ] =
+37;format_iface[ 60 ] = 48;format_iface[ 61 ] = 50;format_iface[ 62 ] =
+120;format_iface[ 63 ] = 32;format_iface[ 64 ] = 68;format_iface[ 65 ] =
+114;format_iface[ 66 ] = 105;format_iface[ 67 ] = 118;format_iface[ 68 ] =
+101;format_iface[ 69 ] = 114;format_iface[ 70 ] = 61;format_iface[ 71 ] =
+37;format_iface[ 72 ] = 115;format_iface[ 73 ] = 10;format_iface[ 74 ] =
+0;format_endpt[ 0 ] = 69;format_endpt[ 1 ] = 58;format_endpt[ 2 ] =
+32;format_endpt[ 3 ] = 32;format_endpt[ 4 ] = 65;format_endpt[ 5 ] =
+100;format_endpt[ 6 ] = 61;format_endpt[ 7 ] = 37;format_endpt[ 8 ] =
+48;format_endpt[ 9 ] = 50;format_endpt[ 10 ] = 120;format_endpt[ 11 ] =
+40;format_endpt[ 12 ] = 37;format_endpt[ 13 ] = 99;format_endpt[ 14 ] =
+41;format_endpt[ 15 ] = 32;format_endpt[ 16 ] = 65;format_endpt[ 17 ] =
+116;format_endpt[ 18 ] = 114;format_endpt[ 19 ] = 61;format_endpt[ 20 ] =
+37;format_endpt[ 21 ] = 48;format_endpt[ 22 ] = 50;format_endpt[ 23 ] =
+120;format_endpt[ 24 ] = 40;format_endpt[ 25 ] = 37;format_endpt[ 26 ] =
+45;format_endpt[ 27 ] = 52;format_endpt[ 28 ] = 115;format_endpt[ 29 ] =
+41;format_endpt[ 30 ] = 32;format_endpt[ 31 ] = 77;format_endpt[ 32 ] =
+120;format_endpt[ 33 ] = 80;format_endpt[ 34 ] = 83;format_endpt[ 35 ] =
+61;format_endpt[ 36 ] = 37;format_endpt[ 37 ] = 52;format_endpt[ 38 ] =
+100;format_endpt[ 39 ] = 32;format_endpt[ 40 ] = 73;format_endpt[ 41 ] =
+118;format_endpt[ 42 ] = 108;format_endpt[ 43 ] = 61;format_endpt[ 44 ] =
+37;format_endpt[ 45 ] = 100;format_endpt[ 46 ] = 37;format_endpt[ 47 ] =
+99;format_endpt[ 48 ] = 115;format_endpt[ 49 ] = 10;format_endpt[ 50 ] =
+0;device_event.count.counter =
+1;device_event.wait.lock.ldv_6060.rlock.raw_lock.slock =
+0;device_event.wait.lock.ldv_6060.rlock.magic =
+3735899821;device_event.wait.lock.ldv_6060.rlock.owner_cpu =
+4294967295;device_event.wait.lock.ldv_6060.rlock.owner =
+1152921504606846975;device_event.wait.lock.ldv_6060.rlock.dep_map.key =
+0;device_event.wait.lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;device_event.wait.lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;device_event.wait.lock.ldv_6060.rlock.dep_map.name =
+"device_event.wait.lock";device_event.wait.lock.ldv_6060.rlock.dep_map.cpu =
+0;device_event.wait.lock.ldv_6060.rlock.dep_map.ip =
+0;device_event.wait.task_list.next = &(device_event)  foffset  wait  foffset 
+task_list;device_event.wait.task_list.prev = &(device_event)  foffset  wait
+ foffset  task_list;clas_info[ 0 ].class = 0;clas_info[ 0 ].class_name =
+">ifc";clas_info[ 1 ].class = 1;clas_info[ 1 ].class_name =
+"audio";clas_info[ 2 ].class = 2;clas_info[ 2 ].class_name =
+"comm.";clas_info[ 3 ].class = 3;clas_info[ 3 ].class_name =
+"HID";clas_info[ 4 ].class = 5;clas_info[ 4 ].class_name =
+"PID";clas_info[ 5 ].class = 6;clas_info[ 5 ].class_name =
+"still";clas_info[ 6 ].class = 7;clas_info[ 6 ].class_name =
+"print";clas_info[ 7 ].class = 8;clas_info[ 7 ].class_name =
+"stor.";clas_info[ 8 ].class = 9;clas_info[ 8 ].class_name =
+"hub";clas_info[ 9 ].class = 10;clas_info[ 9 ].class_name =
+"data";clas_info[ 10 ].class = 11;clas_info[ 10 ].class_name =
+"scard";clas_info[ 11 ].class = 13;clas_info[ 11 ].class_name =
+"c-sec";clas_info[ 12 ].class = 14;clas_info[ 12 ].class_name =
+"video";clas_info[ 13 ].class = 224;clas_info[ 13 ].class_name =
+"wlcon";clas_info[ 14 ].class = 239;clas_info[ 14 ].class_name =
+"misc";clas_info[ 15 ].class = 254;clas_info[ 15 ].class_name =
+"app.";clas_info[ 16 ].class = 255;clas_info[ 16 ].class_name =
+"vend.";clas_info[ 17 ].class = -1;clas_info[ 17 ].class_name =
+"unk.";usbfs_devices_fops.owner = 0;usbfs_devices_fops.llseek =
+&(usb_device_lseek);usbfs_devices_fops.read =
+&(usb_device_read);usbfs_devices_fops.write = 0;usbfs_devices_fops.aio_read =
+0;usbfs_devices_fops.aio_write = 0;usbfs_devices_fops.readdir =
+0;usbfs_devices_fops.poll =
+&(usb_device_poll);usbfs_devices_fops.unlocked_ioctl =
+0;usbfs_devices_fops.compat_ioctl = 0;usbfs_devices_fops.mmap =
+0;usbfs_devices_fops.open = 0;usbfs_devices_fops.flush =
+0;usbfs_devices_fops.release = 0;usbfs_devices_fops.fsync =
+0;usbfs_devices_fops.aio_fsync = 0;usbfs_devices_fops.fasync =
+0;usbfs_devices_fops.lock = 0;usbfs_devices_fops.sendpage =
+0;usbfs_devices_fops.get_unmapped_area = 0;usbfs_devices_fops.check_flags =
+0;usbfs_devices_fops.flock = 0;usbfs_devices_fops.splice_write =
+0;usbfs_devices_fops.splice_read = 0;usbfs_devices_fops.setlease =
+0;usbfs_devices_fops.fallocate = 0;companions_mutex.count.counter =
+1;companions_mutex.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;companions_mutex.wait_lock.ldv_6060.rlock.magic =
+3735899821;companions_mutex.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;companions_mutex.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;companions_mutex.wait_lock.ldv_6060.rlock.dep_map.key =
+0;companions_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;companions_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;companions_mutex.wait_lock.ldv_6060.rlock.dep_map.name =
+"companions_mutex.wait_lock";companions_mutex.wait_lock.ldv_6060.rlock.dep_map.cpu
+= 0;companions_mutex.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;companions_mutex.wait_list.next = &(companions_mutex)  foffset 
+wait_list;companions_mutex.wait_list.prev = &(companions_mutex)  foffset 
+wait_list;companions_mutex.owner = 0;companions_mutex.name =
+0;companions_mutex.magic = &(companions_mutex);companions_mutex.dep_map.key =
+0;companions_mutex.dep_map.class_cache[ 0 ] =
+0;companions_mutex.dep_map.class_cache[ 1 ] = 0;companions_mutex.dep_map.name
+= "companions_mutex";companions_mutex.dep_map.cpu =
+0;companions_mutex.dep_map.ip = 0;usb_hcd_pci_pm_ops.prepare =
+0;usb_hcd_pci_pm_ops.complete = 0;usb_hcd_pci_pm_ops.suspend =
+&(hcd_pci_suspend);usb_hcd_pci_pm_ops.resume =
+&(hcd_pci_resume);usb_hcd_pci_pm_ops.freeze =
+&(check_root_hub_suspended);usb_hcd_pci_pm_ops.thaw =
+0;usb_hcd_pci_pm_ops.poweroff = &(hcd_pci_suspend);usb_hcd_pci_pm_ops.restore
+= &(hcd_pci_restore);usb_hcd_pci_pm_ops.suspend_noirq =
+&(hcd_pci_suspend_noirq);usb_hcd_pci_pm_ops.resume_noirq =
+&(hcd_pci_resume_noirq);usb_hcd_pci_pm_ops.freeze_noirq =
+&(check_root_hub_suspended);usb_hcd_pci_pm_ops.thaw_noirq =
+0;usb_hcd_pci_pm_ops.poweroff_noirq =
+&(hcd_pci_suspend_noirq);usb_hcd_pci_pm_ops.restore_noirq =
+&(hcd_pci_resume_noirq);usb_hcd_pci_pm_ops.runtime_suspend =
+&(hcd_pci_runtime_suspend);usb_hcd_pci_pm_ops.runtime_resume =
+&(hcd_pci_runtime_resume);usb_hcd_pci_pm_ops.runtime_idle = 0;ignore_mount =
+0;devmode = 420;busmode = 365;listmode = 292;tokens[ 0 ].token =
+0;tokens[ 0 ].pattern = "devuid=%u";tokens[ 1 ].token = 1;tokens[ 1 ].pattern
+= "devgid=%u";tokens[ 2 ].token = 2;tokens[ 2 ].pattern =
+"devmode=%o";tokens[ 3 ].token = 3;tokens[ 3 ].pattern =
+"busuid=%u";tokens[ 4 ].token = 4;tokens[ 4 ].pattern =
+"busgid=%u";tokens[ 5 ].token = 5;tokens[ 5 ].pattern =
+"busmode=%o";tokens[ 6 ].token = 6;tokens[ 6 ].pattern =
+"listuid=%u";tokens[ 7 ].token = 7;tokens[ 7 ].pattern =
+"listgid=%u";tokens[ 8 ].token = 8;tokens[ 8 ].pattern =
+"listmode=%o";tokens[ 9 ].token = 9;tokens[ 9 ].pattern =
+0;default_file_operations.owner = 0;default_file_operations.llseek =
+&(default_file_lseek);default_file_operations.read =
+&(default_read_file);default_file_operations.write =
+&(default_write_file);default_file_operations.aio_read =
+0;default_file_operations.aio_write = 0;default_file_operations.readdir =
+0;default_file_operations.poll = 0;default_file_operations.unlocked_ioctl =
+0;default_file_operations.compat_ioctl = 0;default_file_operations.mmap =
+0;default_file_operations.open =
+&(default_open);default_file_operations.flush =
+0;default_file_operations.release = 0;default_file_operations.fsync =
+0;default_file_operations.aio_fsync = 0;default_file_operations.fasync =
+0;default_file_operations.lock = 0;default_file_operations.sendpage =
+0;default_file_operations.get_unmapped_area =
+0;default_file_operations.check_flags = 0;default_file_operations.flock =
+0;default_file_operations.splice_write =
+0;default_file_operations.splice_read = 0;default_file_operations.setlease =
+0;default_file_operations.fallocate = 0;usbfs_ops.alloc_inode =
+0;usbfs_ops.destroy_inode = 0;usbfs_ops.dirty_inode = 0;usbfs_ops.write_inode
+= 0;usbfs_ops.drop_inode = &(generic_delete_inode);usbfs_ops.evict_inode =
+0;usbfs_ops.put_super = 0;usbfs_ops.write_super = 0;usbfs_ops.sync_fs =
+0;usbfs_ops.freeze_fs = 0;usbfs_ops.unfreeze_fs = 0;usbfs_ops.statfs =
+&(simple_statfs);usbfs_ops.remount_fs = &(remount);usbfs_ops.umount_begin =
+0;usbfs_ops.show_options = &(usbfs_show_options);usbfs_ops.show_devname =
+0;usbfs_ops.show_path = 0;usbfs_ops.show_stats = 0;usbfs_ops.quota_read =
+0;usbfs_ops.quota_write = 0;usbfs_ops.bdev_try_to_free_page =
+0;usb_fs_type.name = "usbfs";usb_fs_type.fs_flags = 0;usb_fs_type.mount =
+&(usb_mount);usb_fs_type.kill_sb = &(kill_litter_super);usb_fs_type.owner =
+&(__this_module);usb_fs_type.next = 0;usb_fs_type.fs_supers.next =
+0;usb_fs_type.fs_supers.prev =
+0;usb_fs_type.s_lock_key.subkeys[ 0 ].__one_byte =
+0;usb_fs_type.s_lock_key.subkeys[ 1 ].__one_byte =
+0;usb_fs_type.s_lock_key.subkeys[ 2 ].__one_byte =
+0;usb_fs_type.s_lock_key.subkeys[ 3 ].__one_byte =
+0;usb_fs_type.s_lock_key.subkeys[ 4 ].__one_byte =
+0;usb_fs_type.s_lock_key.subkeys[ 5 ].__one_byte =
+0;usb_fs_type.s_lock_key.subkeys[ 6 ].__one_byte =
+0;usb_fs_type.s_lock_key.subkeys[ 7 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 0 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 1 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 2 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 3 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 4 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 5 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 6 ].__one_byte =
+0;usb_fs_type.s_umount_key.subkeys[ 7 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 0 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 1 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 2 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 3 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 4 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 5 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 6 ].__one_byte =
+0;usb_fs_type.s_vfs_rename_key.subkeys[ 7 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 0 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 1 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 2 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 3 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 4 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 5 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 6 ].__one_byte =
+0;usb_fs_type.i_lock_key.subkeys[ 7 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 0 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 1 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 2 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 3 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 4 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 5 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 6 ].__one_byte =
+0;usb_fs_type.i_mutex_key.subkeys[ 7 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 0 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 1 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 2 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 3 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 4 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 5 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 6 ].__one_byte =
+0;usb_fs_type.i_mutex_dir_key.subkeys[ 7 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 0 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 1 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 2 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 3 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 4 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 5 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 6 ].__one_byte =
+0;usb_fs_type.i_alloc_sem_key.subkeys[ 7 ].__one_byte =
+0;usbfs_nb.notifier_call = &(usbfs_notify);usbfs_nb.next =
+0;usbfs_nb.priority = 0;usbdir = 0;)
+                                                Location: id=694#2 src="ldv/08_1/drivers/usb/core/usbcore.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=428#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=332
+Block(ldv_s_usb_fops_file_operations@main = 0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=428#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=331
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=428#5 (Artificial)
+Skip
+                                                Location: id=428#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=335
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=428#7 (Artificial)
+Skip
+                                                Location: id=428#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=335
+Pred(tmp___0@main  !=  0)
+                                                Location: id=428#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=339
+FunctionCall(tmp@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=428#11 (Artificial)
+Skip
+                                                Location: id=428#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=341
+Pred(tmp@main  ==  0)
+                                                Location: id=428#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=340
+Skip
+                                                Location: id=428#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=344
+Pred(ldv_s_usb_fops_file_operations@main  ==  0)
+                                                Location: id=428#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=351
+FunctionCall(res_usb_open_0@main =
+usb_open(var_group1@main, var_group2@main))
+Locals:  inode@usb_open file@usb_open
+                                                Location: id=419#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=40
+   FunctionCall(tmp@usb_open = iminor(inode@usb_open))
+Locals:  inode@iminor
+                                                Location: id=416#1 src="include/linux/fs.h"; line=893
+      Block(__retres2@iminor = * (inode@iminor ).i_rdev  &  1048575;)
+                                                Location: id=416#2 src="include/linux/fs.h"; line=891
+      Block(Return(__retres2@iminor);)
+   Skip
+                                                Location: id=419#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=40
+   Block(minor@usb_open = tmp@usb_open;err@usb_open = -19;new_fops@usb_open =
+0;)
+                                                Location: id=419#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=45
+   FunctionCall(down_read(&(minor_rwsem)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=419#5 (Artificial)
+   Skip
+                                                Location: id=419#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=46
+   Block(c@usb_open = usb_minors[ minor@usb_open ];)
+                                                Location: id=419#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=48
+   Pred(c@usb_open  !=  0)
+                                                Location: id=419#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=48
+   Pred(c@usb_open  !=  0)
+                                                Location: id=419#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=48
+   FunctionCall(tmp___1@usb_open = ldv_try_module_get_1(* (c@usb_open ).owner))
+Locals:  module@ldv_try_module_get_1
+                                                Location: id=429#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=387
+      FunctionCall(tmp@ldv_try_module_get_1 =
+ldv_try_module_get(module@ldv_try_module_get_1))
+Locals:  module@ldv_try_module_get
+                                                Location: id=40#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2304
+         Pred(module@ldv_try_module_get  !=  0)
+                                                Location: id=40#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2307
+         FunctionCall(module_get_succeeded@ldv_try_module_get = ldv_undefined_int())
+LDV: undefined function called: ldv_undefined_int
+                                                Location: id=40#4 (Artificial)
+         Skip
+                                                Location: id=40#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2309
+         Pred(module_get_succeeded@ldv_try_module_get  ==  1)
+                                                Location: id=40#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2311
+         Block(ldv_module_refcounter = ldv_module_refcounter  +  1;)
+                                                Location: id=40#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2313
+         Block(__retres3@ldv_try_module_get = 1;)
+                                                Location: id=40#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2299
+         Block(Return(__retres3@ldv_try_module_get);)
+      Skip
+                                                Location: id=429#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=387
+      Block(Return(tmp@ldv_try_module_get_1);)
+   Skip
+                                                Location: id=419#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=48
+   Pred(tmp___1@usb_open  !=  0)
+                                                Location: id=419#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=48
+   Block(new_fops@usb_open = c@usb_open;)
+                                                Location: id=419#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=48
+   Pred(new_fops@usb_open  !=  0)
+                                                Location: id=419#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=51
+   Block(old_fops@usb_open = * (file@usb_open ).f_op;* (file@usb_open ).f_op =
+new_fops@usb_open;)
+                                                Location: id=419#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=54
+   Block(cil_11@usb_open = * (file@usb_open ).f_op;)
+                                                Location: id=419#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=54
+   Pred(* (cil_11@usb_open ).open  ==  0)
+                                                Location: id=419#27 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=56
+   Pred(err@usb_open  !=  0)
+                                                Location: id=419#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=57
+   Pred(* (file@usb_open ).f_op  !=  0)
+                                                Location: id=419#30 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=57
+   Block(cil_14@usb_open = * (file@usb_open ).f_op;)
+                                                Location: id=419#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=57
+   FunctionCall(ldv_module_put_2(* (cil_14@usb_open ).owner))
+Locals:  ldv_func_arg1@ldv_module_put_2
+                                                Location: id=430#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=395
+      FunctionCall(ldv_module_put(ldv_func_arg1@ldv_module_put_2))
+Locals:  module@ldv_module_put
+                                                Location: id=41#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2327
+         Pred(module@ldv_module_put  !=  0)
+                                                Location: id=41#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2329
+         Pred(ldv_module_refcounter  >  1)
+                                                Location: id=41#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2331
+         Block(ldv_module_refcounter = ldv_module_refcounter  -  1;)
+                                                Location: id=41#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2324
+         Block(Return(0);)
+      Skip
+                                                Location: id=430#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=390
+      Block(Return(0);)
+   Skip
+                                                Location: id=419#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=58
+   Pred(old_fops@usb_open  !=  0)
+                                                Location: id=419#35 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=58
+   FunctionCall(tmp___3@usb_open =
+ldv_try_module_get_1(* (old_fops@usb_open ).owner))
+Locals:  module@ldv_try_module_get_1
+                                                Location: id=429#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=387
+      FunctionCall(tmp@ldv_try_module_get_1 =
+ldv_try_module_get(module@ldv_try_module_get_1))
+Locals:  module@ldv_try_module_get
+                                                Location: id=40#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2304
+         Pred(module@ldv_try_module_get  !=  0)
+                                                Location: id=40#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2307
+         FunctionCall(module_get_succeeded@ldv_try_module_get = ldv_undefined_int())
+LDV: undefined function called: ldv_undefined_int
+                                                Location: id=40#4 (Artificial)
+         Skip
+                                                Location: id=40#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2309
+         Pred(module_get_succeeded@ldv_try_module_get  !=  1)
+                                                Location: id=40#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2318
+         Block(__retres3@ldv_try_module_get = 0;)
+                                                Location: id=40#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2299
+         Block(Return(__retres3@ldv_try_module_get);)
+      Skip
+                                                Location: id=429#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=387
+      Block(Return(tmp@ldv_try_module_get_1);)
+   Skip
+                                                Location: id=419#38 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=58
+   Pred(tmp___3@usb_open  ==  0)
+                                                Location: id=419#40 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=58
+   Block(* (file@usb_open ).f_op = 0;)
+                                                Location: id=419#41 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=60
+   Pred(old_fops@usb_open  !=  0)
+                                                Location: id=419#42 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=60
+   FunctionCall(ldv_module_put_4(* (old_fops@usb_open ).owner))
+Locals:  ldv_func_arg1@ldv_module_put_4
+                                                Location: id=431#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"; line=411
+      FunctionCall(ldv_module_put(ldv_func_arg1@ldv_module_put_4))
+Locals:  module@ldv_module_put
+                                                Location: id=41#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2327
+         Pred(module@ldv_module_put  !=  0)
+                                                Location: id=41#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2329
+         Pred(ldv_module_refcounter  <=  1)
+                                                Location: id=41#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/usb.c.p"; line=2329
+         FunctionCall(ldv_blast_assert())
+Locals: 

@@ -1,0 +1,96 @@
+error trace call graph:
+=======================
+
+main
+    ssl3_accept
+        
+detailed trace:
+===============
+
+main()
+{
+    SSL *s;
+    ...
+    s = malloc(sizeof(SSL));                        // s = 0x7fffff08
+    s->s3 = malloc(sizeof(struct ssl3_state_st));   // s->s3 = 0x7ffff780 (stored @0x7fffff5c)
+    s->state = 8464;
+    tmp = ssl3_accept(s);  // *** 1 ***
+    ...
+}
+
+*** 1 ****
+----------
+
+int ssl3_accept(SSL *s )
+{
+    ...
+    // We assume that the while loop starting at line 1131 is unrolled.
+    // The error trace traverses the following states (s->state) until the
+    // ERROR label is reached:
+    // 8464, 8496, 8656, 8672, 8448, 8640, 8656, 8672
+    // Strange things happen in the 3rd and 4th state (8656 and 8672) of this trace:
+    // Due to uninitialized heap memory, variables are modified in an unintended way.
+    ...
+    if (s->state == 8464)               // true
+        goto switch_1_8464;
+    ...
+    switch_1_8464:                      // ----- state 8646 -----
+        ...
+        if (blastFlag == 0) {           // true
+            blastFlag = 1;
+        }
+        ...
+        s->state = 8496;
+        ...
+    switch_1_8496:                      // ----- state 8496 -----
+        ...
+        if (blastFlag == 1) {           // true
+          blastFlag = 2;
+        }
+        ...
+        if (s->hit) {                   // true; s->hit is not initalized -> LLBMC chooses 0x4000 (stored @ 0x7fffff64)
+            s->state = 8656;
+        } else { ... }
+        ...
+    switch_1_8656:                      // ----- state 8656 -----
+        ...
+        (s->session)->cipher = (s->s3)->tmp.new_cipher;
+        ...                             // s->session not initialized! LLBMC assumes s->session = 0x7ffffeae
+        if (blastFlag == 2) {           // (s->session->cipher is then stored @ 0x7fffff5a)
+            blastFlag = 3;              // setting it to 0xfc122f4d (chosen by LLBMC, as 'new_cipher' is not initialized)
+        }                               // results in s->s3 (stored @0x7fffff5c) to be overwritten and modified from
+        ...                             // 0x7ffff780 to 0x7ffffc12
+        s->state = 8672;
+        ...
+    switch_1_8672:                     // ----- state 8672 -----
+        ...
+        if (blastFlag == 4) { ... }     // false
+        ...
+        s->state = 8448;
+        if(s->hit) {                    // true; LLBMC has chosen 0x4000 for s->hit
+            (s->s3)->tmp.next_state = 8640; // s->s3 has been modified to 0x7ffffc12 (see state 8656 above)
+        }                               // (s->s3)->tmp.next_state is thus stored @ 0x7fffff62
+        ...                             // writing 8640 to it overwrites the 4-byte integer s->hit, which is stored 
+                                        // @ 0x7fffff64 (the write sets s->hit to 0)
+    switch_1_8448:                      // ------ state 8448 -----
+        ...
+        s->state = (s->s3)->tmp.next_state; // set s->state to 8640 (see state 8672)
+        ...
+    switch_1_8640:                      // ----- state 8640 -----
+        ...
+        if (blastFlag == 3)             // true
+            blastFlag = 4;
+        ...
+        if (s->hit) { ... }             // false now! s->hit was (inadvertently) modified in state 8672
+        else { s->state = 8656; }
+        ...
+    switch_1_8656:                      // ----- state 8656 -----
+        ...
+        s->state = 8672;
+        ...
+    switch_1_8672:                      // ----- state 8672 -----
+        ...
+        if (blastFlag == 4) {           // true
+            goto ERROR;                 // ------> error state reached!
+        }
+}

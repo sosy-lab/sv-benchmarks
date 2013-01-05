@@ -1,0 +1,25 @@
+void __VERIFIER_assert(int cond) {
+  if (!(cond)) {
+    ERROR: goto ERROR;
+  }
+  return;
+}
+_Bool __VERIFIER_nondet_bool();
+int __VERIFIER_nondet_int();
+
+
+int x;
+
+void foo() {
+  x--;
+}
+
+int main() {
+  x=__VERIFIER_nondet_int();
+  while (x > 0) {
+    _Bool c = __VERIFIER_nondet_bool();
+    if(c) foo();
+    else foo();
+  }
+  __VERIFIER_assert(x==0);
+}

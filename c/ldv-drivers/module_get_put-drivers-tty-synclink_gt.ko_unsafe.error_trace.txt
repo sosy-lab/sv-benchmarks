@@ -1,0 +1,348 @@
+
+                                                Location: id=196#1 src="ldv/08_1/drivers/tty/synclink_gt.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=196#1 src="ldv/08_1/drivers/tty/synclink_gt.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/08_1/drivers/tty/synclink_gt.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=206#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=100
+   Block(driver_name = "SyncLink GT";tty_driver_name =
+"synclink_gt";tty_dev_prefix = "ttySLG";pci_table[ 0 ].vendor =
+5056;pci_table[ 0 ].device = 112;pci_table[ 0 ].subvendor =
+4294967295;pci_table[ 0 ].subdevice = 4294967295;pci_table[ 0 ].class =
+0;pci_table[ 0 ].class_mask = 0;pci_table[ 0 ].driver_data =
+0;pci_table[ 1 ].vendor = 5056;pci_table[ 1 ].device =
+160;pci_table[ 1 ].subvendor = 4294967295;pci_table[ 1 ].subdevice =
+4294967295;pci_table[ 1 ].class = 0;pci_table[ 1 ].class_mask =
+0;pci_table[ 1 ].driver_data = 0;pci_table[ 2 ].vendor =
+5056;pci_table[ 2 ].device = 128;pci_table[ 2 ].subvendor =
+4294967295;pci_table[ 2 ].subdevice = 4294967295;pci_table[ 2 ].class =
+0;pci_table[ 2 ].class_mask = 0;pci_table[ 2 ].driver_data =
+0;pci_table[ 3 ].vendor = 5056;pci_table[ 3 ].device =
+144;pci_table[ 3 ].subvendor = 4294967295;pci_table[ 3 ].subdevice =
+4294967295;pci_table[ 3 ].class = 0;pci_table[ 3 ].class_mask =
+0;pci_table[ 3 ].driver_data = 0;pci_table[ 4 ].vendor =
+0;pci_table[ 4 ].device = 0;pci_table[ 4 ].subvendor =
+0;pci_table[ 4 ].subdevice = 0;pci_table[ 4 ].class =
+0;pci_table[ 4 ].class_mask = 0;pci_table[ 4 ].driver_data =
+0;pci_driver.node.next = 0;pci_driver.node.prev = 0;pci_driver.name =
+"synclink_gt";pci_driver.id_table = &(pci_table);pci_driver.probe =
+&(init_one);pci_driver.remove = &(remove_one);pci_driver.suspend =
+0;pci_driver.suspend_late = 0;pci_driver.resume_early = 0;pci_driver.resume =
+0;pci_driver.shutdown = 0;pci_driver.err_handler = 0;pci_driver.driver.name =
+0;pci_driver.driver.bus = 0;pci_driver.driver.owner =
+0;pci_driver.driver.mod_name = 0;pci_driver.driver.suppress_bind_attrs =
+0;pci_driver.driver.of_match_table = 0;pci_driver.driver.probe =
+0;pci_driver.driver.remove = 0;pci_driver.driver.shutdown =
+0;pci_driver.driver.suspend = 0;pci_driver.driver.resume =
+0;pci_driver.driver.groups = 0;pci_driver.driver.pm = 0;pci_driver.driver.p =
+0;pci_driver.dynids.lock.ldv_6060.rlock.raw_lock.slock =
+0;pci_driver.dynids.lock.ldv_6060.rlock.magic =
+0;pci_driver.dynids.lock.ldv_6060.rlock.owner_cpu =
+0;pci_driver.dynids.lock.ldv_6060.rlock.owner =
+0;pci_driver.dynids.lock.ldv_6060.rlock.dep_map.key =
+0;pci_driver.dynids.lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;pci_driver.dynids.lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;pci_driver.dynids.lock.ldv_6060.rlock.dep_map.name =
+0;pci_driver.dynids.lock.ldv_6060.rlock.dep_map.cpu =
+0;pci_driver.dynids.lock.ldv_6060.rlock.dep_map.ip =
+0;pci_driver.dynids.list.next = 0;pci_driver.dynids.list.prev =
+0;default_params.mode = 2;default_params.loopback = 0;default_params.flags =
+1;default_params.encoding = 3;default_params.clock_speed =
+0;default_params.addr_filter = 255;default_params.crc_type =
+1;default_params.preamble_length = 0;default_params.preamble =
+0;default_params.data_rate = 9600;default_params.data_bits =
+8;default_params.stop_bits = 1;default_params.parity =
+0;synclink_gt_proc_fops.owner = &(__this_module);synclink_gt_proc_fops.llseek
+= &(seq_lseek);synclink_gt_proc_fops.read =
+&(seq_read);synclink_gt_proc_fops.write = 0;synclink_gt_proc_fops.aio_read =
+0;synclink_gt_proc_fops.aio_write = 0;synclink_gt_proc_fops.readdir =
+0;synclink_gt_proc_fops.poll = 0;synclink_gt_proc_fops.unlocked_ioctl =
+0;synclink_gt_proc_fops.compat_ioctl = 0;synclink_gt_proc_fops.mmap =
+0;synclink_gt_proc_fops.open =
+&(synclink_gt_proc_open);synclink_gt_proc_fops.flush =
+0;synclink_gt_proc_fops.release =
+&(single_release);synclink_gt_proc_fops.fsync =
+0;synclink_gt_proc_fops.aio_fsync = 0;synclink_gt_proc_fops.fasync =
+0;synclink_gt_proc_fops.lock = 0;synclink_gt_proc_fops.sendpage =
+0;synclink_gt_proc_fops.get_unmapped_area =
+0;synclink_gt_proc_fops.check_flags = 0;synclink_gt_proc_fops.flock =
+0;synclink_gt_proc_fops.splice_write = 0;synclink_gt_proc_fops.splice_read =
+0;synclink_gt_proc_fops.setlease = 0;synclink_gt_proc_fops.fallocate =
+0;hdlcdev_ops.ndo_init = 0;hdlcdev_ops.ndo_uninit = 0;hdlcdev_ops.ndo_open =
+&(hdlcdev_open);hdlcdev_ops.ndo_stop =
+&(hdlcdev_close);hdlcdev_ops.ndo_start_xmit =
+&(hdlc_start_xmit);hdlcdev_ops.ndo_select_queue =
+0;hdlcdev_ops.ndo_change_rx_flags = 0;hdlcdev_ops.ndo_set_rx_mode =
+0;hdlcdev_ops.ndo_set_multicast_list = 0;hdlcdev_ops.ndo_set_mac_address =
+0;hdlcdev_ops.ndo_validate_addr = 0;hdlcdev_ops.ndo_do_ioctl =
+&(hdlcdev_ioctl);hdlcdev_ops.ndo_set_config = 0;hdlcdev_ops.ndo_change_mtu =
+&(hdlc_change_mtu);hdlcdev_ops.ndo_neigh_setup = 0;hdlcdev_ops.ndo_tx_timeout
+= &(hdlcdev_tx_timeout);hdlcdev_ops.ndo_get_stats64 =
+0;hdlcdev_ops.ndo_get_stats = 0;hdlcdev_ops.ndo_vlan_rx_register =
+0;hdlcdev_ops.ndo_vlan_rx_add_vid = 0;hdlcdev_ops.ndo_vlan_rx_kill_vid =
+0;hdlcdev_ops.ndo_poll_controller = 0;hdlcdev_ops.ndo_netpoll_setup =
+0;hdlcdev_ops.ndo_netpoll_cleanup = 0;hdlcdev_ops.ndo_set_vf_mac =
+0;hdlcdev_ops.ndo_set_vf_vlan = 0;hdlcdev_ops.ndo_set_vf_tx_rate =
+0;hdlcdev_ops.ndo_get_vf_config = 0;hdlcdev_ops.ndo_set_vf_port =
+0;hdlcdev_ops.ndo_get_vf_port = 0;hdlcdev_ops.ndo_setup_tc =
+0;hdlcdev_ops.ndo_fcoe_enable = 0;hdlcdev_ops.ndo_fcoe_disable =
+0;hdlcdev_ops.ndo_fcoe_ddp_setup = 0;hdlcdev_ops.ndo_fcoe_ddp_done =
+0;hdlcdev_ops.ndo_fcoe_ddp_target = 0;hdlcdev_ops.ndo_fcoe_get_wwn =
+0;hdlcdev_ops.ndo_rx_flow_steer = 0;hdlcdev_ops.ndo_add_slave =
+0;hdlcdev_ops.ndo_del_slave = 0;hdlcdev_ops.ndo_fix_features =
+0;hdlcdev_ops.ndo_set_features = 0;slgt_port_ops.carrier_raised =
+&(carrier_raised);slgt_port_ops.dtr_rts = &(dtr_rts);slgt_port_ops.shutdown =
+0;slgt_port_ops.drop = 0;slgt_port_ops.activate = 0;slgt_port_ops.destruct =
+0;ops.lookup = 0;ops.install = 0;ops.remove = 0;ops.open = &(open);ops.close
+= &(close);ops.shutdown = 0;ops.cleanup = 0;ops.write = &(write);ops.put_char
+= &(put_char);ops.flush_chars = &(flush_chars);ops.write_room =
+&(write_room);ops.chars_in_buffer = &(chars_in_buffer);ops.ioctl =
+&(ioctl);ops.compat_ioctl = &(slgt_compat_ioctl);ops.set_termios =
+&(set_termios);ops.throttle = &(throttle);ops.unthrottle =
+&(unthrottle);ops.stop = &(tx_hold);ops.start = &(tx_release);ops.hangup =
+&(hangup);ops.break_ctl = &(set_break);ops.flush_buffer =
+&(flush_buffer);ops.set_ldisc = 0;ops.wait_until_sent =
+&(wait_until_sent);ops.send_xchar = &(send_xchar);ops.tiocmget =
+&(tiocmget);ops.tiocmset = &(tiocmset);ops.resize = 0;ops.set_termiox =
+0;ops.get_icount = &(get_icount);ops.poll_init = 0;ops.poll_get_char =
+0;ops.poll_put_char = 0;ops.proc_fops =
+&(synclink_gt_proc_fops);ldv_module_refcounter = 1;)
+                                                Location: id=206#2 src="ldv/08_1/drivers/tty/synclink_gt.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=196#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9847
+Block(ldv_s_pci_driver_pci_driver@main =
+0;ldv_s_synclink_gt_proc_fops_file_operations@main =
+0;ldv_s_hdlcdev_ops_net_device_ops@main = 0;ldv_s_ops_tty_operations@main =
+0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=196#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9699
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=196#5 (Artificial)
+Skip
+                                                Location: id=196#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9830
+FunctionCall(tmp@main = slgt_init())
+Locals: 
+                                                Location: id=157#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3796
+   FunctionCall(printk("<6>%s\n", driver_name))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=157#2 (Artificial)
+   Skip
+                                                Location: id=157#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3798
+   FunctionCall(serial_driver = alloc_tty_driver(32))
+LDV: undefined function called: alloc_tty_driver
+                                                Location: id=157#4 (Artificial)
+   Skip
+                                                Location: id=157#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3799
+   Pred(serial_driver  !=  0)
+                                                Location: id=157#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3806
+   Block(* (serial_driver ).owner =
+&(__this_module);* (serial_driver ).driver_name =
+tty_driver_name;* (serial_driver ).name =
+tty_dev_prefix;* (serial_driver ).major =
+ttymajor;* (serial_driver ).minor_start = 64;* (serial_driver ).type =
+3;* (serial_driver ).subtype = 1;* (serial_driver ).init_termios =
+tty_std_termios;* (serial_driver ).init_termios.c_cflag =
+3261;* (serial_driver ).init_termios.c_ispeed =
+9600;* (serial_driver ).init_termios.c_ospeed = 9600;* (serial_driver ).flags
+= 12;)
+                                                Location: id=157#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3819
+   FunctionCall(tty_set_operations(serial_driver, &(ops)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=157#12 (Artificial)
+   Skip
+                                                Location: id=157#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3820
+   FunctionCall(rc@slgt_init = tty_register_driver(serial_driver))
+LDV: undefined function called: tty_register_driver
+                                                Location: id=157#14 (Artificial)
+   Skip
+                                                Location: id=157#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3820
+   Pred(rc@slgt_init  >=  0)
+                                                Location: id=157#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3827
+   FunctionCall(printk("<6>%s, tty major#%d\n", driver_name, * (serial_driver ).major))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=157#28 (Artificial)
+   Skip
+                                                Location: id=157#29 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3830
+   Block(slgt_device_count = 0;)
+                                                Location: id=157#30 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3831
+   FunctionCall(rc@slgt_init =
+__pci_register_driver(&(pci_driver), &(__this_module), "synclink_gt"))
+LDV: undefined function called: __pci_register_driver
+                                                Location: id=157#31 (Artificial)
+   Skip
+                                                Location: id=157#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3831
+   Pred(rc@slgt_init  >=  0)
+                                                Location: id=157#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3835
+   Block(pci_registered = 1;)
+                                                Location: id=157#37 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3837
+   Pred(slgt_device_list  ==  0)
+                                                Location: id=157#38 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3838
+   FunctionCall(printk("%s no devices found\n", driver_name))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=157#40 (Artificial)
+   Skip
+                                                Location: id=157#41 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3840
+   Block(__retres2@slgt_init = 0;)
+                                                Location: id=157#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3792
+   Block(Return(__retres2@slgt_init);)
+Skip
+                                                Location: id=196#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9830
+Pred(tmp@main  ==  0)
+                                                Location: id=196#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9862
+FunctionCall(tmp___1@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=196#13 (Artificial)
+Skip
+                                                Location: id=196#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9862
+Pred(tmp___1@main  !=  0)
+                                                Location: id=196#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9869
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=196#17 (Artificial)
+Skip
+                                                Location: id=196#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=9871
+Pred(tmp___0@main  !=  0)
+                                                Location: id=196#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=10030
+Pred(tmp___0@main  !=  1)
+                                                Location: id=196#35 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=10189
+Pred(tmp___0@main  ==  2)
+                                                Location: id=196#46 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=10189
+Skip
+                                                Location: id=196#48 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=10192
+Pred(ldv_s_hdlcdev_ops_net_device_ops@main  ==  0)
+                                                Location: id=196#49 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=10313
+FunctionCall(res_hdlcdev_open_33@main = hdlcdev_open(var_group4@main))
+Locals:  dev@hdlcdev_open
+                                                Location: id=85#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1542
+   FunctionCall(tmp@hdlcdev_open = dev_to_hdlc(dev@hdlcdev_open))
+Locals:  dev@dev_to_hdlc
+                                                Location: id=52#1 src="include/linux/hdlc.h"; line=84
+      FunctionCall(tmp@dev_to_hdlc = netdev_priv(dev@dev_to_hdlc))
+Locals:  dev@netdev_priv
+                                                Location: id=43#1 src="include/linux/netdevice.h"; line=1483
+         Block(__retres2@netdev_priv = dev@netdev_priv  +  2560;)
+                                                Location: id=43#2 src="include/linux/netdevice.h"; line=1481
+         Block(Return(__retres2@netdev_priv);)
+      Skip
+                                                Location: id=52#3 src="include/linux/hdlc.h"; line=84
+      Block(__retres3@dev_to_hdlc = tmp@dev_to_hdlc;)
+                                                Location: id=52#4 src="include/linux/hdlc.h"; line=82
+      Block(Return(__retres3@dev_to_hdlc);)
+   Skip
+                                                Location: id=85#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1542
+   Block(info@hdlcdev_open = * (tmp@hdlcdev_open ).priv;)
+                                                Location: id=85#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1546
+   FunctionCall(tmp___0@hdlcdev_open = ldv_try_module_get_1(&(__this_module)))
+Locals:  module@ldv_try_module_get_1
+                                                Location: id=204#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14973
+      FunctionCall(tmp@ldv_try_module_get_1 =
+ldv_try_module_get(module@ldv_try_module_get_1))
+Locals:  module@ldv_try_module_get
+                                                Location: id=199#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14915
+         Pred(module@ldv_try_module_get  !=  0)
+                                                Location: id=199#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14918
+         FunctionCall(module_get_succeeded@ldv_try_module_get = ldv_undefined_int())
+LDV: undefined function called: ldv_undefined_int
+                                                Location: id=199#4 (Artificial)
+         Skip
+                                                Location: id=199#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14920
+         Pred(module_get_succeeded@ldv_try_module_get  ==  1)
+                                                Location: id=199#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14922
+         Block(ldv_module_refcounter = ldv_module_refcounter  +  1;)
+                                                Location: id=199#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14924
+         Block(__retres3@ldv_try_module_get = 1;)
+                                                Location: id=199#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14910
+         Block(Return(__retres3@ldv_try_module_get);)
+      Skip
+                                                Location: id=204#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14973
+      Block(Return(tmp@ldv_try_module_get_1);)
+   Skip
+                                                Location: id=85#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1546
+   Pred(tmp___0@hdlcdev_open  !=  0)
+                                                Location: id=85#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1549
+   Pred(debug_level  <=  2)
+                                                Location: id=85#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1552
+   FunctionCall(rc@hdlcdev_open = hdlc_open(dev@hdlcdev_open))
+LDV: undefined function called: hdlc_open
+                                                Location: id=85#14 (Artificial)
+   Skip
+                                                Location: id=85#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1552
+   Pred(rc@hdlcdev_open  !=  0)
+                                                Location: id=85#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1553
+   Block(__retres10@hdlcdev_open = rc@hdlcdev_open;)
+                                                Location: id=85#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=1540
+   Block(Return(__retres10@hdlcdev_open);)
+Skip
+                                                Location: id=196#52 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=10314
+FunctionCall(ldv_check_return_value(res_hdlcdev_open_33@main))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=196#53 (Artificial)
+Skip
+                                                Location: id=196#54 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=10315
+Pred(res_hdlcdev_open_33@main  <  0)
+                                                Location: id=196#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14859
+FunctionCall(slgt_exit())
+Locals: 
+                                                Location: id=158#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3849
+   FunctionCall(slgt_cleanup())
+Locals: 
+                                                Location: id=156#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3753
+      FunctionCall(printk("<6>unload %s\n", driver_name))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=156#2 (Artificial)
+      Skip
+                                                Location: id=156#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3755
+      Pred(serial_driver  !=  0)
+                                                Location: id=156#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3756
+      Block(info@slgt_cleanup = slgt_device_list;)
+                                                Location: id=156#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3758
+      Skip
+                                                Location: id=156#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3756
+      Pred(info@slgt_cleanup  ==  0)
+                                                Location: id=156#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3758
+      FunctionCall(rc@slgt_cleanup = tty_unregister_driver(serial_driver))
+LDV: undefined function called: tty_unregister_driver
+                                                Location: id=156#13 (Artificial)
+      Skip
+                                                Location: id=156#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3758
+      Pred(rc@slgt_cleanup  ==  0)
+                                                Location: id=156#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3760
+      FunctionCall(put_tty_driver(serial_driver))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=156#21 (Artificial)
+      Skip
+                                                Location: id=156#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3764
+      Block(info@slgt_cleanup = slgt_device_list;)
+                                                Location: id=156#23 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3769
+      Skip
+                                                Location: id=156#24 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3765
+      Pred(info@slgt_cleanup  ==  0)
+                                                Location: id=156#26 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3771
+      Block(info@slgt_cleanup = slgt_device_list;)
+                                                Location: id=156#30 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3784
+      Skip
+                                                Location: id=156#31 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3772
+      Pred(info@slgt_cleanup  ==  0)
+                                                Location: id=156#33 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3777
+      Skip
+                                                Location: id=156#47 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3785
+      Pred(pci_registered  !=  0)
+                                                Location: id=156#48 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3786
+      FunctionCall(pci_unregister_driver(&(pci_driver)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=156#50 (Artificial)
+      Skip
+                                                Location: id=156#51 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3747
+      Block(Return(0);)
+   Skip
+                                                Location: id=158#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=3847
+   Block(Return(0);)
+Skip
+                                                Location: id=196#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14877
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=203#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14965
+   Pred(ldv_module_refcounter  !=  1)
+                                                Location: id=203#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/tty/synclink_gt.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/tty/synclink_gt.c.p"; line=14965
+   FunctionCall(ldv_blast_assert())
+Locals: 

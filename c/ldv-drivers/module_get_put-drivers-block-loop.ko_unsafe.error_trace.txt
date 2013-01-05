@@ -1,0 +1,267 @@
+
+                                                Location: id=107#1 src="ldv/08_1/drivers/block/loop.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=107#1 src="ldv/08_1/drivers/block/loop.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/08_1/drivers/block/loop.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=121#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=89
+   Block(loop_devices.next = &(loop_devices);loop_devices.prev =
+&(loop_devices);loop_devices_mutex.count.counter =
+1;loop_devices_mutex.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;loop_devices_mutex.wait_lock.ldv_6060.rlock.magic =
+3735899821;loop_devices_mutex.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;loop_devices_mutex.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;loop_devices_mutex.wait_lock.ldv_6060.rlock.dep_map.key =
+0;loop_devices_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;loop_devices_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;loop_devices_mutex.wait_lock.ldv_6060.rlock.dep_map.name =
+"loop_devices_mutex.wait_lock";loop_devices_mutex.wait_lock.ldv_6060.rlock.dep_map.cpu
+= 0;loop_devices_mutex.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;loop_devices_mutex.wait_list.next = &(loop_devices_mutex)  foffset 
+wait_list;loop_devices_mutex.wait_list.prev = &(loop_devices_mutex)  foffset 
+wait_list;loop_devices_mutex.owner = 0;loop_devices_mutex.name =
+0;loop_devices_mutex.magic =
+&(loop_devices_mutex);loop_devices_mutex.dep_map.key =
+0;loop_devices_mutex.dep_map.class_cache[ 0 ] =
+0;loop_devices_mutex.dep_map.class_cache[ 1 ] =
+0;loop_devices_mutex.dep_map.name =
+"loop_devices_mutex";loop_devices_mutex.dep_map.cpu =
+0;loop_devices_mutex.dep_map.ip = 0;none_funcs.number = 0;none_funcs.transfer
+= &(transfer_none);none_funcs.init = 0;none_funcs.release =
+0;none_funcs.ioctl = 0;none_funcs.owner = 0;xor_funcs.number =
+1;xor_funcs.transfer = &(transfer_xor);xor_funcs.init =
+&(xor_init);xor_funcs.release = 0;xor_funcs.ioctl = 0;xor_funcs.owner =
+0;xfer_funcs[ 0 ] = &(none_funcs);xfer_funcs[ 1 ] =
+&(xor_funcs);loop_attr_backing_file.attr.name =
+"backing_file";loop_attr_backing_file.attr.mode =
+292;loop_attr_backing_file.attr.key =
+0;loop_attr_backing_file.attr.skey.subkeys[ 0 ].__one_byte =
+0;loop_attr_backing_file.attr.skey.subkeys[ 1 ].__one_byte =
+0;loop_attr_backing_file.attr.skey.subkeys[ 2 ].__one_byte =
+0;loop_attr_backing_file.attr.skey.subkeys[ 3 ].__one_byte =
+0;loop_attr_backing_file.attr.skey.subkeys[ 4 ].__one_byte =
+0;loop_attr_backing_file.attr.skey.subkeys[ 5 ].__one_byte =
+0;loop_attr_backing_file.attr.skey.subkeys[ 6 ].__one_byte =
+0;loop_attr_backing_file.attr.skey.subkeys[ 7 ].__one_byte =
+0;loop_attr_backing_file.show =
+&(loop_attr_do_show_backing_file);loop_attr_backing_file.store =
+0;loop_attr_offset.attr.name = "offset";loop_attr_offset.attr.mode =
+292;loop_attr_offset.attr.key =
+0;loop_attr_offset.attr.skey.subkeys[ 0 ].__one_byte =
+0;loop_attr_offset.attr.skey.subkeys[ 1 ].__one_byte =
+0;loop_attr_offset.attr.skey.subkeys[ 2 ].__one_byte =
+0;loop_attr_offset.attr.skey.subkeys[ 3 ].__one_byte =
+0;loop_attr_offset.attr.skey.subkeys[ 4 ].__one_byte =
+0;loop_attr_offset.attr.skey.subkeys[ 5 ].__one_byte =
+0;loop_attr_offset.attr.skey.subkeys[ 6 ].__one_byte =
+0;loop_attr_offset.attr.skey.subkeys[ 7 ].__one_byte =
+0;loop_attr_offset.show = &(loop_attr_do_show_offset);loop_attr_offset.store
+= 0;loop_attr_sizelimit.attr.name = "sizelimit";loop_attr_sizelimit.attr.mode
+= 292;loop_attr_sizelimit.attr.key =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 0 ].__one_byte =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 1 ].__one_byte =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 2 ].__one_byte =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 3 ].__one_byte =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 4 ].__one_byte =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 5 ].__one_byte =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 6 ].__one_byte =
+0;loop_attr_sizelimit.attr.skey.subkeys[ 7 ].__one_byte =
+0;loop_attr_sizelimit.show =
+&(loop_attr_do_show_sizelimit);loop_attr_sizelimit.store =
+0;loop_attr_autoclear.attr.name = "autoclear";loop_attr_autoclear.attr.mode =
+292;loop_attr_autoclear.attr.key =
+0;loop_attr_autoclear.attr.skey.subkeys[ 0 ].__one_byte =
+0;loop_attr_autoclear.attr.skey.subkeys[ 1 ].__one_byte =
+0;loop_attr_autoclear.attr.skey.subkeys[ 2 ].__one_byte =
+0;loop_attr_autoclear.attr.skey.subkeys[ 3 ].__one_byte =
+0;loop_attr_autoclear.attr.skey.subkeys[ 4 ].__one_byte =
+0;loop_attr_autoclear.attr.skey.subkeys[ 5 ].__one_byte =
+0;loop_attr_autoclear.attr.skey.subkeys[ 6 ].__one_byte =
+0;loop_attr_autoclear.attr.skey.subkeys[ 7 ].__one_byte =
+0;loop_attr_autoclear.show =
+&(loop_attr_do_show_autoclear);loop_attr_autoclear.store = 0;loop_attrs[ 0 ]
+= &(loop_attr_backing_file)  foffset  attr;loop_attrs[ 1 ] =
+&(loop_attr_offset)  foffset  attr;loop_attrs[ 2 ] = &(loop_attr_sizelimit)
+ foffset  attr;loop_attrs[ 3 ] = &(loop_attr_autoclear)  foffset 
+attr;loop_attrs[ 4 ] = 0;loop_attribute_group.name =
+"loop";loop_attribute_group.is_visible = 0;loop_attribute_group.attrs =
+&(loop_attrs);lo_fops.open = &(lo_open);lo_fops.release =
+&(lo_release);lo_fops.ioctl = &(lo_ioctl);lo_fops.compat_ioctl =
+&(lo_compat_ioctl);lo_fops.direct_access = 0;lo_fops.check_events =
+0;lo_fops.media_changed = 0;lo_fops.unlock_native_capacity =
+0;lo_fops.revalidate_disk = 0;lo_fops.getgeo =
+0;lo_fops.swap_slot_free_notify = 0;lo_fops.owner =
+&(__this_module);ldv_module_refcounter = 1;)
+                                                Location: id=121#2 src="ldv/08_1/drivers/block/loop.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=107#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2064
+Block(ldv_s_lo_fops_block_device_operations@main = 0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=107#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2034
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=107#5 (Artificial)
+Skip
+                                                Location: id=107#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2054
+FunctionCall(tmp@main = loop_init())
+Locals: 
+                                                Location: id=105#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1698
+   Block(part_shift = 0;)
+                                                Location: id=105#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1699
+   Pred(max_part  <=  0)
+                                                Location: id=105#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1713
+   Pred(1  <<  part_shift  <=  256)
+                                                Location: id=105#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1716
+   Pred(max_loop  <=  1  <<  20  -  part_shift)
+                                                Location: id=105#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1719
+   Pred(max_loop  !=  0)
+                                                Location: id=105#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1720
+   Block(nr@loop_init = max_loop;range@loop_init = max_loop  <<  part_shift;)
+                                                Location: id=105#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1727
+   FunctionCall(tmp@loop_init = register_blkdev(7, "loop"))
+LDV: undefined function called: register_blkdev
+                                                Location: id=105#17 (Artificial)
+   Skip
+                                                Location: id=105#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1727
+   Pred(tmp@loop_init  ==  0)
+                                                Location: id=105#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1730
+   Block(i@loop_init = 0;)
+                                                Location: id=105#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1732
+   Skip
+                                                Location: id=105#23 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1730
+   Pred(i@loop_init  >=  nr@loop_init)
+                                                Location: id=105#25 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1739
+   Block(__mptr@loop_init = loop_devices.next;lo@loop_init = __mptr@loop_init
+ +  1152921504606846320;)
+                                                Location: id=105#45 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1741
+   Skip
+                                                Location: id=105#46 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1739
+   Pred(lo@loop_init  foffset  lo_list  ==  &(loop_devices))
+                                                Location: id=105#48 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1742
+   FunctionCall(blk_register_region(7340032, range@loop_init, &(__this_module), &(loop_probe), 0, 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=105#52 (Artificial)
+   Skip
+                                                Location: id=105#53 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1745
+   FunctionCall(printk("<6>loop: module loaded\n"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=105#54 (Artificial)
+   Skip
+                                                Location: id=105#55 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1746
+   Block(__retres12@loop_init = 0;)
+                                                Location: id=105#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1677
+   Block(Return(__retres12@loop_init);)
+Skip
+                                                Location: id=107#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2054
+Pred(tmp@main  ==  0)
+                                                Location: id=107#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2068
+FunctionCall(tmp___1@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=107#13 (Artificial)
+Skip
+                                                Location: id=107#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2068
+Pred(tmp___1@main  !=  0)
+                                                Location: id=107#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2072
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=107#17 (Artificial)
+Skip
+                                                Location: id=107#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2074
+Pred(tmp___0@main  !=  0)
+                                                Location: id=107#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2107
+Pred(tmp___0@main  !=  1)
+                                                Location: id=107#25 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2140
+Pred(tmp___0@main  !=  2)
+                                                Location: id=107#29 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2173
+Pred(tmp___0@main  !=  3)
+                                                Location: id=107#33 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2210
+Pred(tmp___0@main  !=  4)
+                                                Location: id=107#47 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2244
+Pred(tmp___0@main  ==  5)
+                                                Location: id=107#54 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2262
+FunctionCall(lo_ioctl(var_group2@main, var_lo_ioctl_45_p1@main, var_lo_ioctl_45_p2@main, var_lo_ioctl_45_p3@main))
+Locals:  bdev@lo_ioctl mode@lo_ioctl cmd@lo_ioctl arg@lo_ioctl
+                                                Location: id=90#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1296
+   Block(cil_9@lo_ioctl = * (bdev@lo_ioctl ).bd_disk;lo@lo_ioctl =
+* (cil_9@lo_ioctl ).private_data;)
+                                                Location: id=90#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1299
+   FunctionCall(mutex_lock_nested(lo@lo_ioctl  foffset  lo_ctl_mutex, 1))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=90#3 (Artificial)
+   Skip
+                                                Location: id=90#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1301
+   Pred(cmd@lo_ioctl  !=  19456)
+                                                Location: id=90#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1304
+   Pred(cmd@lo_ioctl  !=  19462)
+                                                Location: id=90#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1307
+   Pred(cmd@lo_ioctl  ==  19457)
+                                                Location: id=90#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1309
+   FunctionCall(err@lo_ioctl = loop_clr_fd(lo@lo_ioctl, bdev@lo_ioctl))
+Locals:  lo@loop_clr_fd bdev@loop_clr_fd
+                                                Location: id=80#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1000
+      Block(filp@loop_clr_fd = * (lo@loop_clr_fd ).lo_backing_file;gfp@loop_clr_fd
+= * (lo@loop_clr_fd ).old_gfp_mask;)
+                                                Location: id=80#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1003
+      Pred(* (lo@loop_clr_fd ).lo_state  ==  1)
+                                                Location: id=80#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1006
+      Pred(* (lo@loop_clr_fd ).lo_refcnt  <=  1)
+                                                Location: id=80#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1009
+      Pred(filp@loop_clr_fd  !=  0)
+                                                Location: id=80#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1012
+      FunctionCall(spin_lock_irq(lo@loop_clr_fd  foffset  lo_lock))
+Locals:  lock@spin_lock_irq
+                                                Location: id=11#1 src="include/linux/spinlock.h"; line=310
+         FunctionCall(_raw_spin_lock_irq(lock@spin_lock_irq  foffset  ldv_6060
+ foffset  rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=11#2 (Artificial)
+         Skip
+                                                Location: id=11#3 src="include/linux/spinlock.h"; line=308
+         Block(Return(0);)
+      Skip
+                                                Location: id=80#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1013
+      Block(* (lo@loop_clr_fd ).lo_state = 2;)
+                                                Location: id=80#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1014
+      FunctionCall(spin_unlock_irq(lo@loop_clr_fd  foffset  lo_lock))
+Locals:  lock@spin_unlock_irq
+                                                Location: id=12#1 src="include/linux/spinlock.h"; line=335
+         FunctionCall(_raw_spin_unlock_irq(lock@spin_unlock_irq  foffset  ldv_6060
+ foffset  rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=12#2 (Artificial)
+         Skip
+                                                Location: id=12#3 src="include/linux/spinlock.h"; line=333
+         Block(Return(0);)
+      Skip
+                                                Location: id=80#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1016
+      FunctionCall(kthread_stop(* (lo@loop_clr_fd ).lo_thread))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=80#17 (Artificial)
+      Skip
+                                                Location: id=80#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1018
+      Block(* (lo@loop_clr_fd ).lo_backing_file = 0;)
+                                                Location: id=80#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=1020
+      FunctionCall(loop_release_xfer(lo@loop_clr_fd))
+Locals:  lo@loop_release_xfer
+                                                Location: id=78#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=964
+         Block(err@loop_release_xfer = 0;xfer@loop_release_xfer =
+* (lo@loop_release_xfer ).lo_encryption;)
+                                                Location: id=78#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=967
+         Pred(xfer@loop_release_xfer  !=  0)
+                                                Location: id=78#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=968
+         Pred(* (xfer@loop_release_xfer ).release  ==  0)
+                                                Location: id=78#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=970
+         Block(* (lo@loop_release_xfer ).transfer =
+0;* (lo@loop_release_xfer ).lo_encryption = 0;)
+                                                Location: id=78#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=972
+         FunctionCall(ldv_module_put_3(* (xfer@loop_release_xfer ).owner))
+Locals:  ldv_func_arg1@ldv_module_put_3
+                                                Location: id=117#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2457
+            FunctionCall(ldv_module_put(ldv_func_arg1@ldv_module_put_3))
+Locals:  module@ldv_module_put
+                                                Location: id=111#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2406
+               Pred(module@ldv_module_put  !=  0)
+                                                Location: id=111#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2408
+               Pred(ldv_module_refcounter  <=  1)
+                                                Location: id=111#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"; line=2408
+               FunctionCall(ldv_blast_assert())
+Locals: 

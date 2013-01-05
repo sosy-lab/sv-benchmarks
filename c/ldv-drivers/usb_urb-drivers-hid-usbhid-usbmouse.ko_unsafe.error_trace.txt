@@ -1,0 +1,579 @@
+
+                                                Location: id=28#1 src="ldv/68_1/drivers/hid/usbhid/usbmouse.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=28#1 src="ldv/68_1/drivers/hid/usbhid/usbmouse.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/68_1/drivers/hid/usbhid/usbmouse.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=36#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=48
+   Block(__mod_author48[ 0 ] = 97;__mod_author48[ 1 ] = 117;__mod_author48[ 2 ]
+= 116;__mod_author48[ 3 ] = 104;__mod_author48[ 4 ] = 111;__mod_author48[ 5 ]
+= 114;__mod_author48[ 6 ] = 61;__mod_author48[ 7 ] = 86;__mod_author48[ 8 ] =
+111;__mod_author48[ 9 ] = 106;__mod_author48[ 10 ] = 116;__mod_author48[ 11 ]
+= 101;__mod_author48[ 12 ] = 99;__mod_author48[ 13 ] =
+104;__mod_author48[ 14 ] = 32;__mod_author48[ 15 ] = 80;__mod_author48[ 16 ]
+= 97;__mod_author48[ 17 ] = 118;__mod_author48[ 18 ] =
+108;__mod_author48[ 19 ] = 105;__mod_author48[ 20 ] =
+107;__mod_author48[ 21 ] = 32;__mod_author48[ 22 ] = 60;__mod_author48[ 23 ]
+= 118;__mod_author48[ 24 ] = 111;__mod_author48[ 25 ] =
+106;__mod_author48[ 26 ] = 116;__mod_author48[ 27 ] =
+101;__mod_author48[ 28 ] = 99;__mod_author48[ 29 ] = 104;__mod_author48[ 30 ]
+= 64;__mod_author48[ 31 ] = 117;__mod_author48[ 32 ] =
+99;__mod_author48[ 33 ] = 119;__mod_author48[ 34 ] = 46;__mod_author48[ 35 ]
+= 99;__mod_author48[ 36 ] = 122;__mod_author48[ 37 ] =
+62;__mod_author48[ 38 ] = 0;__mod_description49[ 0 ] =
+100;__mod_description49[ 1 ] = 101;__mod_description49[ 2 ] =
+115;__mod_description49[ 3 ] = 99;__mod_description49[ 4 ] =
+114;__mod_description49[ 5 ] = 105;__mod_description49[ 6 ] =
+112;__mod_description49[ 7 ] = 116;__mod_description49[ 8 ] =
+105;__mod_description49[ 9 ] = 111;__mod_description49[ 10 ] =
+110;__mod_description49[ 11 ] = 61;__mod_description49[ 12 ] =
+85;__mod_description49[ 13 ] = 83;__mod_description49[ 14 ] =
+66;__mod_description49[ 15 ] = 32;__mod_description49[ 16 ] =
+72;__mod_description49[ 17 ] = 73;__mod_description49[ 18 ] =
+68;__mod_description49[ 19 ] = 32;__mod_description49[ 20 ] =
+66;__mod_description49[ 21 ] = 111;__mod_description49[ 22 ] =
+111;__mod_description49[ 23 ] = 116;__mod_description49[ 24 ] =
+32;__mod_description49[ 25 ] = 80;__mod_description49[ 26 ] =
+114;__mod_description49[ 27 ] = 111;__mod_description49[ 28 ] =
+116;__mod_description49[ 29 ] = 111;__mod_description49[ 30 ] =
+99;__mod_description49[ 31 ] = 111;__mod_description49[ 32 ] =
+108;__mod_description49[ 33 ] = 32;__mod_description49[ 34 ] =
+109;__mod_description49[ 35 ] = 111;__mod_description49[ 36 ] =
+117;__mod_description49[ 37 ] = 115;__mod_description49[ 38 ] =
+101;__mod_description49[ 39 ] = 32;__mod_description49[ 40 ] =
+100;__mod_description49[ 41 ] = 114;__mod_description49[ 42 ] =
+105;__mod_description49[ 43 ] = 118;__mod_description49[ 44 ] =
+101;__mod_description49[ 45 ] = 114;__mod_description49[ 46 ] =
+0;__mod_license50[ 0 ] = 108;__mod_license50[ 1 ] = 105;__mod_license50[ 2 ]
+= 99;__mod_license50[ 3 ] = 101;__mod_license50[ 4 ] =
+110;__mod_license50[ 5 ] = 115;__mod_license50[ 6 ] =
+101;__mod_license50[ 7 ] = 61;__mod_license50[ 8 ] = 71;__mod_license50[ 9 ]
+= 80;__mod_license50[ 10 ] = 76;__mod_license50[ 11 ] =
+0;usb_mouse_id_table[ 0 ].match_flags = 896;usb_mouse_id_table[ 0 ].idVendor
+= 0;usb_mouse_id_table[ 0 ].idProduct =
+0;usb_mouse_id_table[ 0 ].bcdDevice_lo =
+0;usb_mouse_id_table[ 0 ].bcdDevice_hi =
+0;usb_mouse_id_table[ 0 ].bDeviceClass =
+0;usb_mouse_id_table[ 0 ].bDeviceSubClass =
+0;usb_mouse_id_table[ 0 ].bDeviceProtocol =
+0;usb_mouse_id_table[ 0 ].bInterfaceClass =
+3;usb_mouse_id_table[ 0 ].bInterfaceSubClass =
+1;usb_mouse_id_table[ 0 ].bInterfaceProtocol =
+2;usb_mouse_id_table[ 0 ].driver_info = 0;usb_mouse_driver.name =
+"usbmouse";usb_mouse_driver.probe =
+&(usb_mouse_probe);usb_mouse_driver.disconnect =
+&(usb_mouse_disconnect);usb_mouse_driver.unlocked_ioctl =
+0;usb_mouse_driver.suspend = 0;usb_mouse_driver.resume =
+0;usb_mouse_driver.reset_resume = 0;usb_mouse_driver.pre_reset =
+0;usb_mouse_driver.post_reset = 0;usb_mouse_driver.id_table =
+usb_mouse_id_table;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.raw_lock.slock
+= 0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.magic =
+0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.owner_cpu =
+0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.owner =
+0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.dep_map.key =
+0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ]
+=
+0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ]
+= 0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.dep_map.name =
+0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.dep_map.cpu =
+0;usb_mouse_driver.dynids.lock.__annonCompField18.rlock.dep_map.ip =
+0;usb_mouse_driver.dynids.list.next = 0;usb_mouse_driver.dynids.list.prev =
+0;usb_mouse_driver.drvwrap.driver.name =
+0;usb_mouse_driver.drvwrap.driver.bus =
+0;usb_mouse_driver.drvwrap.driver.owner =
+0;usb_mouse_driver.drvwrap.driver.mod_name =
+0;usb_mouse_driver.drvwrap.driver.suppress_bind_attrs =
+0;usb_mouse_driver.drvwrap.driver.of_match_table =
+0;usb_mouse_driver.drvwrap.driver.probe =
+0;usb_mouse_driver.drvwrap.driver.remove =
+0;usb_mouse_driver.drvwrap.driver.shutdown =
+0;usb_mouse_driver.drvwrap.driver.suspend =
+0;usb_mouse_driver.drvwrap.driver.resume =
+0;usb_mouse_driver.drvwrap.driver.groups =
+0;usb_mouse_driver.drvwrap.driver.pm = 0;usb_mouse_driver.drvwrap.driver.p =
+0;usb_mouse_driver.drvwrap.for_devices = 0;usb_mouse_driver.no_dynamic_id =
+0;usb_mouse_driver.supports_autosuspend = 0;usb_mouse_driver.soft_unbind =
+0;ldv_urb_state = 0;ldv_coherent_state = 0;)
+                                                Location: id=36#2 src="ldv/68_1/drivers/hid/usbhid/usbmouse.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=28#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=331
+Block(LDV_IN_INTERRUPT = 1;)
+                                                Location: id=28#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=340
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=28#5 (Artificial)
+Skip
+                                                Location: id=28#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=353
+FunctionCall(tmp___7@main = usb_mouse_init())
+Locals: 
+                                                Location: id=24#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=247
+   FunctionCall(tmp___7@usb_mouse_init = usb_register(&(usb_mouse_driver)))
+Locals:  driver@usb_register
+                                                Location: id=9#1 src="include/linux/usb.h"; line=933
+      FunctionCall(tmp___7@usb_register =
+usb_register_driver(driver@usb_register, &(__this_module), "usbmouse"))
+LDV: undefined function called: usb_register_driver
+                                                Location: id=9#2 (Artificial)
+      Skip
+                                                Location: id=9#3 src="include/linux/usb.h"; line=933
+      Block(Return(tmp___7@usb_register);)
+   Skip
+                                                Location: id=24#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=247
+   Block(retval@usb_mouse_init = tmp___7@usb_mouse_init;)
+                                                Location: id=24#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=248
+   Pred(retval@usb_mouse_init  ==  0)
+                                                Location: id=24#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=249
+   FunctionCall(printk("<6>usbmouse: v1.6:USB HID Boot Protocol mouse driver\n"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=24#7 (Artificial)
+   Skip
+                                                Location: id=24#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=251
+   Block(Return(retval@usb_mouse_init);)
+Skip
+                                                Location: id=28#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=353
+Pred(tmp___7@main  ==  0)
+                                                Location: id=28#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=355
+Block(ldv_s_usb_mouse_driver_usb_driver@main = 0;)
+                                                Location: id=28#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=358
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=28#14 (Artificial)
+Skip
+                                                Location: id=28#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=358
+Pred(tmp___9@main  !=  0)
+                                                Location: id=28#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=362
+FunctionCall(tmp___8@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=28#18 (Artificial)
+Skip
+                                                Location: id=28#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=364
+Pred(tmp___8@main  ==  0)
+                                                Location: id=28#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=367
+Pred(ldv_s_usb_mouse_driver_usb_driver@main  ==  0)
+                                                Location: id=28#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=379
+FunctionCall(res_usb_mouse_probe_3 =
+usb_mouse_probe(var_group1@main, var_usb_mouse_probe_3_p1@main))
+Locals:  intf@usb_mouse_probe id@usb_mouse_probe
+                                                Location: id=22#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=121
+   FunctionCall(tmp___7@usb_mouse_probe =
+interface_to_usbdev(intf@usb_mouse_probe))
+Locals:  intf@interface_to_usbdev
+                                                Location: id=7#1 src="include/linux/usb.h"; line=499
+      Block(__mptr@interface_to_usbdev = * (intf@interface_to_usbdev ).dev.parent;)
+                                                Location: id=7#2 src="include/linux/usb.h"; line=499
+      Block(cil_3@interface_to_usbdev = 0;)
+                                                Location: id=7#3 src="include/linux/usb.h"; line=499
+      Block(__retres4@interface_to_usbdev = __mptr@interface_to_usbdev  - 
+cil_3@interface_to_usbdev  foffset  dev;)
+                                                Location: id=7#4 src="include/linux/usb.h"; line=497
+      Block(Return(__retres4@interface_to_usbdev);)
+   Skip
+                                                Location: id=22#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=121
+   Block(dev@usb_mouse_probe = tmp___7@usb_mouse_probe;error@usb_mouse_probe =
+-12;interface@usb_mouse_probe = * (intf@usb_mouse_probe ).cur_altsetting;)
+                                                Location: id=22#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=131
+   Pred(* (interface@usb_mouse_probe ).desc.bNumEndpoints  ==  1)
+                                                Location: id=22#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=134
+   Block(cil_21@usb_mouse_probe = * (interface@usb_mouse_probe ).endpoint  + 
+0;endpoint@usb_mouse_probe = cil_21@usb_mouse_probe  foffset  desc;)
+                                                Location: id=22#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=135
+   FunctionCall(tmp___8@usb_mouse_probe =
+usb_endpoint_is_int_in(endpoint@usb_mouse_probe))
+Locals:  epd@usb_endpoint_is_int_in
+                                                Location: id=4#1 src="include/linux/usb/ch9.h"; line=531
+      FunctionCall(tmp@usb_endpoint_is_int_in =
+usb_endpoint_xfer_int(epd@usb_endpoint_is_int_in))
+Locals:  epd@usb_endpoint_xfer_int
+                                                Location: id=3#1 src=""; line=-1
+         Pred(* (epd@usb_endpoint_xfer_int ).bmAttributes  &  3  ==  3)
+                                                Location: id=3#2 src=""; line=-1
+         Block(__cil_tmp2@usb_endpoint_xfer_int = 1;)
+                                                Location: id=3#4 src="include/linux/usb/ch9.h"; line=477
+         Block(Return(__cil_tmp2@usb_endpoint_xfer_int);)
+      Skip
+                                                Location: id=4#3 src="include/linux/usb/ch9.h"; line=531
+      Pred(tmp@usb_endpoint_is_int_in  !=  0)
+                                                Location: id=4#4 src="include/linux/usb/ch9.h"; line=531
+      FunctionCall(tmp___0@usb_endpoint_is_int_in =
+usb_endpoint_dir_in(epd@usb_endpoint_is_int_in))
+Locals:  epd@usb_endpoint_dir_in
+                                                Location: id=2#1 src=""; line=-1
+         Pred(* (epd@usb_endpoint_dir_in ).bEndpointAddress  &  128  ==  128)
+                                                Location: id=2#2 src=""; line=-1
+         Block(__cil_tmp2@usb_endpoint_dir_in = 1;)
+                                                Location: id=2#4 src="include/linux/usb/ch9.h"; line=426
+         Block(Return(__cil_tmp2@usb_endpoint_dir_in);)
+      Skip
+                                                Location: id=4#7 src="include/linux/usb/ch9.h"; line=531
+      Pred(tmp___0@usb_endpoint_is_int_in  !=  0)
+                                                Location: id=4#8 src="include/linux/usb/ch9.h"; line=531
+      Block(tmp___1@usb_endpoint_is_int_in = 1;)
+                                                Location: id=4#10 src="include/linux/usb/ch9.h"; line=531
+      Block(Return(tmp___1@usb_endpoint_is_int_in);)
+   Skip
+                                                Location: id=22#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=135
+   Pred(tmp___8@usb_mouse_probe  !=  0)
+                                                Location: id=22#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=138
+   FunctionCall(tmp___9@usb_mouse_probe =
+__create_pipe(dev@usb_mouse_probe, * (endpoint@usb_mouse_probe ).bEndpointAddress))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=11#1 src="include/linux/usb.h"; line=1529
+      Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=11#2 src="include/linux/usb.h"; line=1526
+      Block(Return(__retres3@__create_pipe);)
+   Skip
+                                                Location: id=22#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=138
+   Block(pipe@usb_mouse_probe = 1  <<  30  |  tmp___9@usb_mouse_probe  |  128;)
+                                                Location: id=22#15 src=""; line=-1
+   Pred(pipe@usb_mouse_probe  &  128  ==  0)
+                                                Location: id=22#17 src=""; line=-1
+   Block(__cil_tmp25@usb_mouse_probe = 1;)
+                                                Location: id=22#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=139
+   FunctionCall(tmp___10@usb_mouse_probe =
+usb_maxpacket(dev@usb_mouse_probe, pipe@usb_mouse_probe, __cil_tmp25@usb_mouse_probe))
+Locals:  udev@usb_maxpacket pipe@usb_maxpacket is_out@usb_maxpacket
+                                                Location: id=12#1 src="include/linux/usb.h"; line=1564
+      Block(epnum@usb_maxpacket = pipe@usb_maxpacket  >>  15  &  15;)
+                                                Location: id=12#2 src="include/linux/usb.h"; line=1566
+      Pred(is_out@usb_maxpacket  !=  0)
+                                                Location: id=12#3 src="include/linux/usb.h"; line=1567
+      Block(__ret_warn_on@usb_maxpacket = pipe@usb_maxpacket  &  128;)
+                                                Location: id=12#5 src="include/linux/usb.h"; line=1567
+      FunctionCall(tmp___7@usb_maxpacket =
+__builtin_expect(__ret_warn_on@usb_maxpacket, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=12#6 (Artificial)
+      Skip
+                                                Location: id=12#7 src="include/linux/usb.h"; line=1567
+      Pred(tmp___7@usb_maxpacket  ==  0)
+                                                Location: id=12#11 src="include/linux/usb.h"; line=1567
+      FunctionCall(__builtin_expect(__ret_warn_on@usb_maxpacket, 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=12#12 (Artificial)
+      Skip
+                                                Location: id=12#13 src="include/linux/usb.h"; line=1568
+      Block(ep@usb_maxpacket =
+* (udev@usb_maxpacket ).ep_out[ epnum@usb_maxpacket ];)
+                                                Location: id=12#14 src="include/linux/usb.h"; line=1573
+      Pred(ep@usb_maxpacket  ==  0)
+                                                Location: id=12#15 src="include/linux/usb.h"; line=1574
+      Block(__retres11@usb_maxpacket = 0;)
+                                                Location: id=12#17 src="include/linux/usb.h"; line=1560
+      Block(Return(__retres11@usb_maxpacket);)
+   Skip
+                                                Location: id=22#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=139
+   Block(maxp@usb_mouse_probe = tmp___10@usb_mouse_probe;)
+                                                Location: id=22#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=141
+   FunctionCall(tmp___11@usb_mouse_probe = kzalloc(14848, 208))
+Locals:  size@kzalloc flags@kzalloc
+                                                Location: id=1#1 src="include/linux/slab.h"; line=320
+      FunctionCall(tmp@kzalloc = kmalloc(size@kzalloc, flags@kzalloc  |  32768))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=0#1 src="include/linux/slub_def.h"; line=270
+         FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=0#2 (Artificial)
+         Skip
+                                                Location: id=0#3 src="include/linux/slub_def.h"; line=270
+         Block(Return(tmp___2@kmalloc);)
+      Skip
+                                                Location: id=1#3 src="include/linux/slab.h"; line=320
+      Block(Return(tmp@kzalloc);)
+   Skip
+                                                Location: id=22#23 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=141
+   Block(mouse@usb_mouse_probe = tmp___11@usb_mouse_probe;)
+                                                Location: id=22#24 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=142
+   FunctionCall(input_dev@usb_mouse_probe = input_allocate_device())
+LDV: undefined function called: input_allocate_device
+                                                Location: id=22#25 (Artificial)
+   Skip
+                                                Location: id=22#26 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=143
+   Pred(mouse@usb_mouse_probe  !=  0)
+                                                Location: id=22#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=143
+   Pred(input_dev@usb_mouse_probe  !=  0)
+                                                Location: id=22#35 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=146
+   FunctionCall(tmp___12@usb_mouse_probe =
+usb_alloc_coherent(dev@usb_mouse_probe, 8, 32, mouse@usb_mouse_probe
+ foffset  data_dma))
+Locals:  dev@usb_alloc_coherent size@usb_alloc_coherent mem_flags@usb_alloc_coherent dma@usb_alloc_coherent
+                                                Location: id=31#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      FunctionCall(tmp___7@usb_alloc_coherent = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=31#2 (Artificial)
+      Skip
+                                                Location: id=31#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(arbitrary_memory@usb_alloc_coherent = tmp___7@usb_alloc_coherent;)
+                                                Location: id=31#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Pred(arbitrary_memory@usb_alloc_coherent  !=  0)
+                                                Location: id=31#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(ldv_coherent_state = ldv_coherent_state  +  1;)
+                                                Location: id=31#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=64
+      Block(__retres7@usb_alloc_coherent = arbitrary_memory@usb_alloc_coherent;)
+                                                Location: id=31#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(Return(__retres7@usb_alloc_coherent);)
+   Skip
+                                                Location: id=22#37 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=146
+   Block(* (mouse@usb_mouse_probe ).data = tmp___12@usb_mouse_probe;)
+                                                Location: id=22#38 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=147
+   Pred(* (mouse@usb_mouse_probe ).data  !=  0)
+                                                Location: id=22#40 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=150
+   FunctionCall(* (mouse@usb_mouse_probe ).irq = usb_alloc_urb(0, 208))
+Locals:  iso_packets@usb_alloc_urb mem_flags@usb_alloc_urb
+                                                Location: id=33#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      FunctionCall(tmp___7@usb_alloc_urb = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=33#2 (Artificial)
+      Skip
+                                                Location: id=33#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(arbitrary_memory@usb_alloc_urb = tmp___7@usb_alloc_urb;)
+                                                Location: id=33#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Pred(arbitrary_memory@usb_alloc_urb  !=  0)
+                                                Location: id=33#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(ldv_urb_state = ldv_urb_state  +  1;)
+                                                Location: id=33#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+      Block(__retres5@usb_alloc_urb = arbitrary_memory@usb_alloc_urb;)
+                                                Location: id=33#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=74
+      Block(Return(__retres5@usb_alloc_urb);)
+   Skip
+                                                Location: id=22#42 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=151
+   Pred(* (mouse@usb_mouse_probe ).irq  !=  0)
+                                                Location: id=22#44 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=154
+   Block(* (mouse@usb_mouse_probe ).usbdev =
+dev@usb_mouse_probe;* (mouse@usb_mouse_probe ).dev =
+input_dev@usb_mouse_probe;)
+                                                Location: id=22#47 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=157
+   Pred(* (dev@usb_mouse_probe ).manufacturer  ==  0)
+                                                Location: id=22#51 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=160
+   Pred(* (dev@usb_mouse_probe ).product  ==  0)
+                                                Location: id=22#59 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=166
+   FunctionCall(tmp___13@usb_mouse_probe =
+strlen(* (mouse@usb_mouse_probe ).name))
+LDV: undefined function called: strlen
+                                                Location: id=22#60 (Artificial)
+   Skip
+                                                Location: id=22#61 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=166
+   Pred(tmp___13@usb_mouse_probe  !=  0)
+                                                Location: id=22#62 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=172
+   FunctionCall(usb_make_path(dev@usb_mouse_probe, * (mouse@usb_mouse_probe ).phys, 4096))
+Locals:  dev@usb_make_path buf@usb_make_path size@usb_make_path
+                                                Location: id=8#1 src="include/linux/usb.h"; line=640
+      Block(cil_6@usb_make_path = * (dev@usb_make_path ).bus;)
+                                                Location: id=8#2 src="include/linux/usb.h"; line=640
+      FunctionCall(actual@usb_make_path =
+snprintf(buf@usb_make_path, size@usb_make_path, "usb-%s-%s", * (cil_6@usb_make_path ).bus_name, * (dev@usb_make_path ).devpath))
+LDV: undefined function called: snprintf
+                                                Location: id=8#3 (Artificial)
+      Skip
+                                                Location: id=8#4 src="include/linux/usb.h"; line=642
+      Pred(actual@usb_make_path  >=  size@usb_make_path)
+                                                Location: id=8#5 src="include/linux/usb.h"; line=642
+      Block(tmp___7@usb_make_path = -1;)
+                                                Location: id=8#7 src="include/linux/usb.h"; line=642
+      Block(Return(tmp___7@usb_make_path);)
+   Skip
+                                                Location: id=22#65 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=173
+   FunctionCall(strlcat(* (mouse@usb_mouse_probe ).phys, "/input0", 4096))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=22#66 (Artificial)
+   Skip
+                                                Location: id=22#67 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=175
+   Block(* (input_dev@usb_mouse_probe ).name =
+* (mouse@usb_mouse_probe ).name;* (input_dev@usb_mouse_probe ).phys =
+* (mouse@usb_mouse_probe ).phys;)
+                                                Location: id=22#68 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=177
+   FunctionCall(usb_to_input_id(dev@usb_mouse_probe, input_dev@usb_mouse_probe
+ foffset  id))
+Locals:  dev@usb_to_input_id id@usb_to_input_id
+                                                Location: id=18#1 src="include/linux/usb/input.h"; line=19
+      Block(* (id@usb_to_input_id ).bustype = 3;* (id@usb_to_input_id ).vendor =
+* (dev@usb_to_input_id ).descriptor.idVendor;* (id@usb_to_input_id ).product
+=
+* (dev@usb_to_input_id ).descriptor.idProduct;* (id@usb_to_input_id ).version
+= * (dev@usb_to_input_id ).descriptor.bcdDevice;)
+                                                Location: id=18#2 src="include/linux/usb/input.h"; line=16
+      Block(Return(0);)
+   Skip
+                                                Location: id=22#70 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=178
+   Block(* (input_dev@usb_mouse_probe ).dev.parent = intf@usb_mouse_probe
+ foffset  dev;* (input_dev@usb_mouse_probe ).evbit[ 0 ] = 1  <<  1  |  1  << 
+2;* (input_dev@usb_mouse_probe ).keybit[ 4 ] = 1  <<  16  |  1  <<  17  |  1
+ <<  18;* (input_dev@usb_mouse_probe ).relbit[ 0 ] = 1  |  1  << 
+1;* (input_dev@usb_mouse_probe ).keybit[ 4 ] =
+* (input_dev@usb_mouse_probe ).keybit[ 4 ]  |  1  <<  19  |  1  << 
+20;* (input_dev@usb_mouse_probe ).relbit[ 0 ] =
+* (input_dev@usb_mouse_probe ).relbit[ 0 ]  |  1  <<  8;)
+                                                Location: id=22#71 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=188
+   FunctionCall(input_set_drvdata(input_dev@usb_mouse_probe, mouse@usb_mouse_probe))
+Locals:  dev@input_set_drvdata data@input_set_drvdata
+                                                Location: id=14#1 src="include/linux/input.h"; line=1446
+      FunctionCall(dev_set_drvdata(dev@input_set_drvdata  foffset 
+dev, data@input_set_drvdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=14#2 (Artificial)
+      Skip
+                                                Location: id=14#3 src="include/linux/input.h"; line=1444
+      Block(Return(0);)
+   Skip
+                                                Location: id=22#73 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=190
+   Block(* (input_dev@usb_mouse_probe ).open =
+&(usb_mouse_open);* (input_dev@usb_mouse_probe ).close = &(usb_mouse_close);)
+                                                Location: id=22#74 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=193
+   Pred(maxp@usb_mouse_probe  <=  8)
+                                                Location: id=22#76 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=193
+   Block(tmp___14@usb_mouse_probe = maxp@usb_mouse_probe;)
+                                                Location: id=22#77 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=193
+   FunctionCall(usb_fill_int_urb(* (mouse@usb_mouse_probe ).irq, dev@usb_mouse_probe, pipe@usb_mouse_probe, * (mouse@usb_mouse_probe ).data, tmp___14@usb_mouse_probe, &(usb_mouse_irq), mouse@usb_mouse_probe, * (endpoint@usb_mouse_probe ).bInterval))
+Locals:  urb@usb_fill_int_urb dev@usb_fill_int_urb pipe@usb_fill_int_urb transfer_buffer@usb_fill_int_urb buffer_length@usb_fill_int_urb complete_fn@usb_fill_int_urb context@usb_fill_int_urb interval@usb_fill_int_urb
+                                                Location: id=10#1 src="include/linux/usb.h"; line=1318
+      Block(* (urb@usb_fill_int_urb ).dev =
+dev@usb_fill_int_urb;* (urb@usb_fill_int_urb ).pipe =
+pipe@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer =
+transfer_buffer@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer_length
+= buffer_length@usb_fill_int_urb;* (urb@usb_fill_int_urb ).complete =
+complete_fn@usb_fill_int_urb;* (urb@usb_fill_int_urb ).context =
+context@usb_fill_int_urb;)
+                                                Location: id=10#2 src="include/linux/usb.h"; line=1324
+      Pred(* (dev@usb_fill_int_urb ).speed  ==  3)
+                                                Location: id=10#3 src="include/linux/usb.h"; line=1325
+      Block(* (urb@usb_fill_int_urb ).interval = 1  <<  interval@usb_fill_int_urb
+ -  1;)
+                                                Location: id=10#5 src="include/linux/usb.h"; line=1328
+      Block(* (urb@usb_fill_int_urb ).start_frame = -1;)
+                                                Location: id=10#6 src="include/linux/usb.h"; line=1309
+      Block(Return(0);)
+   Skip
+                                                Location: id=22#79 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=196
+   Block(cil_22@usb_mouse_probe =
+* (mouse@usb_mouse_probe ).irq;* (cil_22@usb_mouse_probe ).transfer_dma =
+* (mouse@usb_mouse_probe ).data_dma;cil_23@usb_mouse_probe =
+* (mouse@usb_mouse_probe ).irq;cil_24@usb_mouse_probe =
+* (mouse@usb_mouse_probe ).irq;* (cil_23@usb_mouse_probe ).transfer_flags =
+* (cil_24@usb_mouse_probe ).transfer_flags  |  4;)
+                                                Location: id=22#80 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=199
+   FunctionCall(tmp___15@usb_mouse_probe =
+input_register_device(* (mouse@usb_mouse_probe ).dev))
+LDV: undefined function called: input_register_device
+                                                Location: id=22#81 (Artificial)
+   Skip
+                                                Location: id=22#82 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=199
+   Block(tmp@usb_mouse_probe = tmp___15@usb_mouse_probe;error@usb_mouse_probe =
+tmp@usb_mouse_probe;)
+                                                Location: id=22#83 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=200
+   Pred(error@usb_mouse_probe  ==  0)
+                                                Location: id=22#85 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=203
+   FunctionCall(usb_set_intfdata(intf@usb_mouse_probe, mouse@usb_mouse_probe))
+Locals:  intf@usb_set_intfdata data@usb_set_intfdata
+                                                Location: id=6#1 src="include/linux/usb.h"; line=198
+      FunctionCall(dev_set_drvdata(intf@usb_set_intfdata  foffset 
+dev, data@usb_set_intfdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=6#2 (Artificial)
+      Skip
+                                                Location: id=6#3 src="include/linux/usb.h"; line=196
+      Block(Return(0);)
+   Skip
+                                                Location: id=22#89 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=204
+   Block(__retres26@usb_mouse_probe = 0;)
+                                                Location: id=22#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=119
+   Block(Return(__retres26@usb_mouse_probe);)
+Skip
+                                                Location: id=28#25 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=380
+FunctionCall(ldv_check_return_value(res_usb_mouse_probe_3))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=28#26 (Artificial)
+Skip
+                                                Location: id=28#27 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=381
+Pred(res_usb_mouse_probe_3  ==  0)
+                                                Location: id=28#29 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=383
+Block(ldv_s_usb_mouse_driver_usb_driver@main =
+ldv_s_usb_mouse_driver_usb_driver@main  +  1;)
+                                                Location: id=28#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=415
+Skip
+                                                Location: id=28#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=358
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=28#14 (Artificial)
+Skip
+                                                Location: id=28#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=358
+Pred(tmp___9@main  !=  0)
+                                                Location: id=28#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=362
+FunctionCall(tmp___8@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=28#18 (Artificial)
+Skip
+                                                Location: id=28#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=364
+Pred(tmp___8@main  !=  0)
+                                                Location: id=28#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=390
+Pred(tmp___8@main  ==  1)
+                                                Location: id=28#34 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=393
+Pred(ldv_s_usb_mouse_driver_usb_driver@main  ==  1)
+                                                Location: id=28#36 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=405
+FunctionCall(usb_mouse_disconnect(var_group1@main))
+Locals:  intf@usb_mouse_disconnect
+                                                Location: id=23#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=218
+   FunctionCall(tmp___7@usb_mouse_disconnect =
+usb_get_intfdata(intf@usb_mouse_disconnect))
+Locals:  intf@usb_get_intfdata
+                                                Location: id=5#1 src="include/linux/usb.h"; line=193
+      FunctionCall(tmp___7@usb_get_intfdata = dev_get_drvdata(intf@usb_get_intfdata
+ foffset  dev))
+LDV: undefined function called: dev_get_drvdata
+                                                Location: id=5#2 (Artificial)
+      Skip
+                                                Location: id=5#3 src="include/linux/usb.h"; line=193
+      Block(Return(tmp___7@usb_get_intfdata);)
+   Skip
+                                                Location: id=23#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=218
+   Block(mouse@usb_mouse_disconnect = tmp___7@usb_mouse_disconnect;)
+                                                Location: id=23#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=220
+   FunctionCall(usb_set_intfdata(intf@usb_mouse_disconnect, 0))
+Locals:  intf@usb_set_intfdata data@usb_set_intfdata
+                                                Location: id=6#1 src="include/linux/usb.h"; line=198
+      FunctionCall(dev_set_drvdata(intf@usb_set_intfdata  foffset 
+dev, data@usb_set_intfdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=6#2 (Artificial)
+      Skip
+                                                Location: id=6#3 src="include/linux/usb.h"; line=196
+      Block(Return(0);)
+   Skip
+                                                Location: id=23#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=221
+   Pred(mouse@usb_mouse_disconnect  ==  0)
+                                                Location: id=23#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=216
+   Block(Return(0);)
+Skip
+                                                Location: id=28#39 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=406
+Block(ldv_s_usb_mouse_driver_usb_driver@main = 0;)
+                                                Location: id=28#32 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=415
+Skip
+                                                Location: id=28#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=358
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=28#14 (Artificial)
+Skip
+                                                Location: id=28#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=358
+Pred(tmp___9@main  ==  0)
+                                                Location: id=28#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=358
+Pred(ldv_s_usb_mouse_driver_usb_driver@main  ==  0)
+                                                Location: id=28#43 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=421
+Skip
+                                                Location: id=28#28 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=432
+FunctionCall(usb_mouse_exit())
+Locals: 
+                                                Location: id=25#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=256
+   FunctionCall(usb_deregister(&(usb_mouse_driver)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=25#2 (Artificial)
+   Skip
+                                                Location: id=25#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=254
+   Block(Return(0);)
+Skip
+                                                Location: id=28#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"; line=435
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=35#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=86
+   Pred(ldv_urb_state  !=  0)
+                                                Location: id=35#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=86
+   FunctionCall(ldv_blast_assert())
+Locals: 

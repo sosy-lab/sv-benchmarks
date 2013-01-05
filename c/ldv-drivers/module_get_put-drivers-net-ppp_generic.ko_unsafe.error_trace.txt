@@ -1,0 +1,354 @@
+
+                                                Location: id=142#1 src="ldv/08_1/drivers/net/ppp_generic.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=142#1 src="ldv/08_1/drivers/net/ppp_generic.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/08_1/drivers/net/ppp_generic.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=157#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=191
+   Block(ppp_mutex.count.counter =
+1;ppp_mutex.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;ppp_mutex.wait_lock.ldv_6060.rlock.magic =
+3735899821;ppp_mutex.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;ppp_mutex.wait_lock.ldv_6060.rlock.owner =
+1152921504606846975;ppp_mutex.wait_lock.ldv_6060.rlock.dep_map.key =
+0;ppp_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;ppp_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;ppp_mutex.wait_lock.ldv_6060.rlock.dep_map.name =
+"ppp_mutex.wait_lock";ppp_mutex.wait_lock.ldv_6060.rlock.dep_map.cpu =
+0;ppp_mutex.wait_lock.ldv_6060.rlock.dep_map.ip = 0;ppp_mutex.wait_list.next
+= &(ppp_mutex)  foffset  wait_list;ppp_mutex.wait_list.prev = &(ppp_mutex)
+ foffset  wait_list;ppp_mutex.owner = 0;ppp_mutex.name = 0;ppp_mutex.magic =
+&(ppp_mutex);ppp_mutex.dep_map.key = 0;ppp_mutex.dep_map.class_cache[ 0 ] =
+0;ppp_mutex.dep_map.class_cache[ 1 ] = 0;ppp_mutex.dep_map.name =
+"ppp_mutex";ppp_mutex.dep_map.cpu = 0;ppp_mutex.dep_map.ip =
+0;ppp_unit_count.counter = 0;channel_count.counter = 0;npindex_to_proto[ 0 ]
+= 33;npindex_to_proto[ 1 ] = 87;npindex_to_proto[ 2 ] =
+43;npindex_to_proto[ 3 ] = 41;npindex_to_proto[ 4 ] =
+641;npindex_to_proto[ 5 ] = 643;npindex_to_ethertype[ 0 ] =
+2048;npindex_to_ethertype[ 1 ] = 34525;npindex_to_ethertype[ 2 ] =
+33079;npindex_to_ethertype[ 3 ] = 16;npindex_to_ethertype[ 4 ] =
+34887;npindex_to_ethertype[ 5 ] = 34888;ppp_device_fops.owner =
+&(__this_module);ppp_device_fops.llseek = &(noop_llseek);ppp_device_fops.read
+= &(ppp_read);ppp_device_fops.write = &(ppp_write);ppp_device_fops.aio_read =
+0;ppp_device_fops.aio_write = 0;ppp_device_fops.readdir =
+0;ppp_device_fops.poll = &(ppp_poll);ppp_device_fops.unlocked_ioctl =
+&(ppp_ioctl);ppp_device_fops.compat_ioctl = 0;ppp_device_fops.mmap =
+0;ppp_device_fops.open = &(ppp_open);ppp_device_fops.flush =
+0;ppp_device_fops.release = &(ppp_release);ppp_device_fops.fsync =
+0;ppp_device_fops.aio_fsync = 0;ppp_device_fops.fasync =
+0;ppp_device_fops.lock = 0;ppp_device_fops.sendpage =
+0;ppp_device_fops.get_unmapped_area = 0;ppp_device_fops.check_flags =
+0;ppp_device_fops.flock = 0;ppp_device_fops.splice_write =
+0;ppp_device_fops.splice_read = 0;ppp_device_fops.setlease =
+0;ppp_device_fops.fallocate = 0;ppp_net_ops.list.next =
+0;ppp_net_ops.list.prev = 0;ppp_net_ops.init =
+&(ppp_init_net);ppp_net_ops.exit = &(ppp_exit_net);ppp_net_ops.exit_batch =
+0;ppp_net_ops.id = &(ppp_net_id);ppp_net_ops.size =
+376;ppp_netdev_ops.ndo_init = 0;ppp_netdev_ops.ndo_uninit =
+0;ppp_netdev_ops.ndo_open = 0;ppp_netdev_ops.ndo_stop =
+0;ppp_netdev_ops.ndo_start_xmit =
+&(ppp_start_xmit);ppp_netdev_ops.ndo_select_queue =
+0;ppp_netdev_ops.ndo_change_rx_flags = 0;ppp_netdev_ops.ndo_set_rx_mode =
+0;ppp_netdev_ops.ndo_set_multicast_list =
+0;ppp_netdev_ops.ndo_set_mac_address = 0;ppp_netdev_ops.ndo_validate_addr =
+0;ppp_netdev_ops.ndo_do_ioctl =
+&(ppp_net_ioctl);ppp_netdev_ops.ndo_set_config =
+0;ppp_netdev_ops.ndo_change_mtu = 0;ppp_netdev_ops.ndo_neigh_setup =
+0;ppp_netdev_ops.ndo_tx_timeout = 0;ppp_netdev_ops.ndo_get_stats64 =
+0;ppp_netdev_ops.ndo_get_stats = 0;ppp_netdev_ops.ndo_vlan_rx_register =
+0;ppp_netdev_ops.ndo_vlan_rx_add_vid = 0;ppp_netdev_ops.ndo_vlan_rx_kill_vid
+= 0;ppp_netdev_ops.ndo_poll_controller = 0;ppp_netdev_ops.ndo_netpoll_setup =
+0;ppp_netdev_ops.ndo_netpoll_cleanup = 0;ppp_netdev_ops.ndo_set_vf_mac =
+0;ppp_netdev_ops.ndo_set_vf_vlan = 0;ppp_netdev_ops.ndo_set_vf_tx_rate =
+0;ppp_netdev_ops.ndo_get_vf_config = 0;ppp_netdev_ops.ndo_set_vf_port =
+0;ppp_netdev_ops.ndo_get_vf_port = 0;ppp_netdev_ops.ndo_setup_tc =
+0;ppp_netdev_ops.ndo_fcoe_enable = 0;ppp_netdev_ops.ndo_fcoe_disable =
+0;ppp_netdev_ops.ndo_fcoe_ddp_setup = 0;ppp_netdev_ops.ndo_fcoe_ddp_done =
+0;ppp_netdev_ops.ndo_fcoe_ddp_target = 0;ppp_netdev_ops.ndo_fcoe_get_wwn =
+0;ppp_netdev_ops.ndo_rx_flow_steer = 0;ppp_netdev_ops.ndo_add_slave =
+0;ppp_netdev_ops.ndo_del_slave = 0;ppp_netdev_ops.ndo_fix_features =
+0;ppp_netdev_ops.ndo_set_features = 0;mp_protocol_compress =
+1;compressor_list.next = &(compressor_list);compressor_list.prev =
+&(compressor_list);compressor_list_lock.ldv_6060.rlock.raw_lock.slock =
+0;compressor_list_lock.ldv_6060.rlock.magic =
+3735899821;compressor_list_lock.ldv_6060.rlock.owner_cpu =
+4294967295;compressor_list_lock.ldv_6060.rlock.owner =
+1152921504606846975;compressor_list_lock.ldv_6060.rlock.dep_map.key =
+0;compressor_list_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;compressor_list_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;compressor_list_lock.ldv_6060.rlock.dep_map.name =
+"compressor_list_lock";compressor_list_lock.ldv_6060.rlock.dep_map.cpu =
+0;compressor_list_lock.ldv_6060.rlock.dep_map.ip = 0;ldv_module_refcounter =
+1;)
+                                                Location: id=157#2 src="ldv/08_1/drivers/net/ppp_generic.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=142#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3865
+Block(ldv_s_ppp_device_fops_file_operations@main = 0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=142#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3786
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#5 (Artificial)
+Skip
+                                                Location: id=142#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3839
+FunctionCall(tmp@main = ppp_init())
+Locals: 
+                                                Location: id=92#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=910
+   FunctionCall(printk("<6>PPP generic driver version 2.4.2\n"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=92#2 (Artificial)
+   Skip
+                                                Location: id=92#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=912
+   FunctionCall(err@ppp_init = register_pernet_device(&(ppp_net_ops)))
+LDV: undefined function called: register_pernet_device
+                                                Location: id=92#4 (Artificial)
+   Skip
+                                                Location: id=92#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=913
+   Pred(err@ppp_init  ==  0)
+                                                Location: id=92#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=918
+   FunctionCall(err@ppp_init = register_chrdev(108, "ppp", &(ppp_device_fops)))
+Locals:  major@register_chrdev name@register_chrdev fops@register_chrdev
+                                                Location: id=61#1 src="include/linux/fs.h"; line=2100
+      FunctionCall(tmp@register_chrdev =
+__register_chrdev(major@register_chrdev, 0, 256, name@register_chrdev, fops@register_chrdev))
+LDV: undefined function called: __register_chrdev
+                                                Location: id=61#2 (Artificial)
+      Skip
+                                                Location: id=61#3 src="include/linux/fs.h"; line=2100
+      Block(Return(tmp@register_chrdev);)
+   Skip
+                                                Location: id=92#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=919
+   Pred(err@ppp_init  ==  0)
+                                                Location: id=92#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=924
+   FunctionCall(tmp@ppp_init =
+__class_create(&(__this_module), "ppp", &(__key@ppp_init)))
+LDV: undefined function called: __class_create
+                                                Location: id=92#20 (Artificial)
+   Skip
+                                                Location: id=92#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=924
+   Block(ppp_class = tmp@ppp_init;)
+                                                Location: id=92#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=925
+   FunctionCall(tmp___1@ppp_init = IS_ERR(ppp_class))
+Locals:  ptr@IS_ERR
+                                                Location: id=14#1 src=""; line=-1
+      Pred(ptr@IS_ERR  >  1152921504606842880)
+                                                Location: id=14#2 src=""; line=-1
+      Block(__cil_tmp3@IS_ERR = 1;)
+                                                Location: id=14#4 src="include/linux/err.h"; line=34
+      FunctionCall(tmp@IS_ERR = __builtin_expect(__cil_tmp3@IS_ERR, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=14#5 (Artificial)
+      Skip
+                                                Location: id=14#6 src="include/linux/err.h"; line=34
+      Block(Return(tmp@IS_ERR);)
+   Skip
+                                                Location: id=92#24 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=925
+   Pred(tmp___1@ppp_init  ==  0)
+                                                Location: id=92#26 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=931
+   FunctionCall(device_create(ppp_class, 0, 113246208, 0, "ppp"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=92#32 (Artificial)
+   Skip
+                                                Location: id=92#33 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=933
+   Block(__retres6@ppp_init = 0;)
+                                                Location: id=92#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=906
+   Block(Return(__retres6@ppp_init);)
+Skip
+                                                Location: id=142#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3839
+Pred(tmp@main  ==  0)
+                                                Location: id=142#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3873
+FunctionCall(tmp___1@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=142#13 (Artificial)
+Skip
+                                                Location: id=142#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3873
+Pred(tmp___1@main  !=  0)
+                                                Location: id=142#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3877
+FunctionCall(tmp___0@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=142#17 (Artificial)
+Skip
+                                                Location: id=142#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3879
+Pred(tmp___0@main  !=  0)
+                                                Location: id=142#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=3969
+Pred(tmp___0@main  !=  1)
+                                                Location: id=142#35 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4059
+Pred(tmp___0@main  !=  2)
+                                                Location: id=142#47 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4149
+Pred(tmp___0@main  !=  3)
+                                                Location: id=142#59 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4236
+Pred(tmp___0@main  !=  4)
+                                                Location: id=142#67 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4323
+Pred(tmp___0@main  ==  5)
+                                                Location: id=142#70 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4373
+FunctionCall(ppp_ioctl(var_group1@main, var_ppp_ioctl_9_p1@main, var_ppp_ioctl_9_p2@main))
+Locals:  file@ppp_ioctl cmd@ppp_ioctl arg@ppp_ioctl
+                                                Location: id=88#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=566
+   Block(pf@ppp_ioctl = * (file@ppp_ioctl ).private_data;err@ppp_ioctl =
+-14;argp@ppp_ioctl = arg@ppp_ioctl;p@ppp_ioctl = argp@ppp_ioctl;)
+                                                Location: id=88#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=576
+   Pred(pf@ppp_ioctl  !=  0)
+                                                Location: id=88#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=580
+   Pred(cmd@ppp_ioctl  !=  1074033724)
+                                                Location: id=88#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=609
+   Pred(* (pf@ppp_ioctl ).kind  !=  2)
+                                                Location: id=88#38 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=639
+   Pred(* (pf@ppp_ioctl ).kind  ==  1)
+                                                Location: id=88#76 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=645
+   FunctionCall(mutex_lock_nested(&(ppp_mutex), 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=88#80 (Artificial)
+   Skip
+                                                Location: id=88#81 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=646
+   Block(__mptr___1@ppp_ioctl = pf@ppp_ioctl;ppp@ppp_ioctl =
+__mptr___1@ppp_ioctl;)
+                                                Location: id=88#82 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=648
+   Pred(cmd@ppp_ioctl  !=  1074033746)
+                                                Location: id=88#84 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=655
+   Pred(cmd@ppp_ioctl  ==  1074033753)
+                                                Location: id=88#98 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=656
+   FunctionCall(might_fault())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=88#100 (Artificial)
+   Skip
+                                                Location: id=88#101 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=656
+   Pred(1  !=  0)
+                                                Location: id=88#102 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=657
+   Skip
+                                                Location: id=88#104 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=656
+   Block(val@ppp_ioctl = __val_gu___1@ppp_ioctl;)
+                                                Location: id=88#105 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=656
+   Pred(__ret_gu___1@ppp_ioctl  ==  0)
+                                                Location: id=88#107 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=658
+   FunctionCall(spin_lock_bh(ppp@ppp_ioctl  foffset  wlock))
+Locals:  lock@spin_lock_bh
+                                                Location: id=25#1 src="include/linux/spinlock.h"; line=290
+      FunctionCall(_raw_spin_lock_bh(lock@spin_lock_bh  foffset  ldv_6060  foffset 
+rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=25#2 (Artificial)
+      Skip
+                                                Location: id=25#3 src="include/linux/spinlock.h"; line=288
+      Block(Return(0);)
+   Skip
+                                                Location: id=88#109 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=658
+   FunctionCall(spin_lock_bh(ppp@ppp_ioctl  foffset  rlock))
+Locals:  lock@spin_lock_bh
+                                                Location: id=25#1 src="include/linux/spinlock.h"; line=290
+      FunctionCall(_raw_spin_lock_bh(lock@spin_lock_bh  foffset  ldv_6060  foffset 
+rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=25#2 (Artificial)
+      Skip
+                                                Location: id=25#3 src="include/linux/spinlock.h"; line=288
+      Block(Return(0);)
+   Skip
+                                                Location: id=88#111 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=659
+   Block(cflags@ppp_ioctl = * (ppp@ppp_ioctl ).flags  & 
+~(val@ppp_ioctl);* (ppp@ppp_ioctl ).flags = val@ppp_ioctl  &  4214508;)
+                                                Location: id=88#112 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=661
+   FunctionCall(spin_unlock_bh(ppp@ppp_ioctl  foffset  rlock))
+Locals:  lock@spin_unlock_bh
+                                                Location: id=27#1 src="include/linux/spinlock.h"; line=330
+      FunctionCall(_raw_spin_unlock_bh(lock@spin_unlock_bh  foffset  ldv_6060
+ foffset  rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=27#2 (Artificial)
+      Skip
+                                                Location: id=27#3 src="include/linux/spinlock.h"; line=328
+      Block(Return(0);)
+   Skip
+                                                Location: id=88#114 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=661
+   FunctionCall(spin_unlock_bh(ppp@ppp_ioctl  foffset  wlock))
+Locals:  lock@spin_unlock_bh
+                                                Location: id=27#1 src="include/linux/spinlock.h"; line=330
+      FunctionCall(_raw_spin_unlock_bh(lock@spin_unlock_bh  foffset  ldv_6060
+ foffset  rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=27#2 (Artificial)
+      Skip
+                                                Location: id=27#3 src="include/linux/spinlock.h"; line=328
+      Block(Return(0);)
+   Skip
+                                                Location: id=88#116 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=662
+   Pred(cflags@ppp_ioctl  &  64  !=  0)
+                                                Location: id=88#117 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=663
+   FunctionCall(ppp_ccp_closed(ppp@ppp_ioctl))
+Locals:  ppp@ppp_ccp_closed
+                                                Location: id=121#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2444
+      FunctionCall(spin_lock_bh(ppp@ppp_ccp_closed  foffset  wlock))
+Locals:  lock@spin_lock_bh
+                                                Location: id=25#1 src="include/linux/spinlock.h"; line=290
+         FunctionCall(_raw_spin_lock_bh(lock@spin_lock_bh  foffset  ldv_6060  foffset 
+rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=25#2 (Artificial)
+         Skip
+                                                Location: id=25#3 src="include/linux/spinlock.h"; line=288
+         Block(Return(0);)
+      Skip
+                                                Location: id=121#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2444
+      FunctionCall(spin_lock_bh(ppp@ppp_ccp_closed  foffset  rlock))
+Locals:  lock@spin_lock_bh
+                                                Location: id=25#1 src="include/linux/spinlock.h"; line=290
+         FunctionCall(_raw_spin_lock_bh(lock@spin_lock_bh  foffset  ldv_6060  foffset 
+rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=25#2 (Artificial)
+         Skip
+                                                Location: id=25#3 src="include/linux/spinlock.h"; line=288
+         Block(Return(0);)
+      Skip
+                                                Location: id=121#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2445
+      Block(* (ppp@ppp_ccp_closed ).flags = * (ppp@ppp_ccp_closed ).flags  & 
+4294967103;* (ppp@ppp_ccp_closed ).xstate = 0;xcomp@ppp_ccp_closed =
+* (ppp@ppp_ccp_closed ).xcomp;xstate@ppp_ccp_closed =
+* (ppp@ppp_ccp_closed ).xc_state;* (ppp@ppp_ccp_closed ).xc_state =
+0;* (ppp@ppp_ccp_closed ).rstate = 0;rcomp@ppp_ccp_closed =
+* (ppp@ppp_ccp_closed ).rcomp;rstate@ppp_ccp_closed =
+* (ppp@ppp_ccp_closed ).rc_state;* (ppp@ppp_ccp_closed ).rc_state = 0;)
+                                                Location: id=121#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2454
+      FunctionCall(spin_unlock_bh(ppp@ppp_ccp_closed  foffset  rlock))
+Locals:  lock@spin_unlock_bh
+                                                Location: id=27#1 src="include/linux/spinlock.h"; line=330
+         FunctionCall(_raw_spin_unlock_bh(lock@spin_unlock_bh  foffset  ldv_6060
+ foffset  rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=27#2 (Artificial)
+         Skip
+                                                Location: id=27#3 src="include/linux/spinlock.h"; line=328
+         Block(Return(0);)
+      Skip
+                                                Location: id=121#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2454
+      FunctionCall(spin_unlock_bh(ppp@ppp_ccp_closed  foffset  wlock))
+Locals:  lock@spin_unlock_bh
+                                                Location: id=27#1 src="include/linux/spinlock.h"; line=330
+         FunctionCall(_raw_spin_unlock_bh(lock@spin_unlock_bh  foffset  ldv_6060
+ foffset  rlock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=27#2 (Artificial)
+         Skip
+                                                Location: id=27#3 src="include/linux/spinlock.h"; line=328
+         Block(Return(0);)
+      Skip
+                                                Location: id=121#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2456
+      Pred(xstate@ppp_ccp_closed  !=  0)
+                                                Location: id=121#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2457
+      Block(cil_6@ppp_ccp_closed = * (xcomp@ppp_ccp_closed ).comp_free;)
+                                                Location: id=121#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2457
+      FunctionCall(* (cil_6@ppp_ccp_closed )(xstate@ppp_ccp_closed))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=121#14 (Artificial)
+      Skip
+                                                Location: id=121#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=2458
+      FunctionCall(ldv_module_put_5(* (xcomp@ppp_ccp_closed ).owner))
+Locals:  ldv_func_arg1@ldv_module_put_5
+                                                Location: id=154#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4966
+         FunctionCall(ldv_module_put(ldv_func_arg1@ldv_module_put_5))
+Locals:  module@ldv_module_put
+                                                Location: id=146#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4899
+            Pred(module@ldv_module_put  !=  0)
+                                                Location: id=146#2 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4901
+            Pred(ldv_module_refcounter  <=  1)
+                                                Location: id=146#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/net/ppp_generic.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/ppp_generic.c.p"; line=4901
+            FunctionCall(ldv_blast_assert())
+Locals: 

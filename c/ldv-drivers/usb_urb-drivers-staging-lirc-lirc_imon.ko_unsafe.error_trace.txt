@@ -1,0 +1,715 @@
+
+                                                Location: id=40#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-staging-lirc-lirc_imon.c.common.i"; line=0
+                                                Location: id=40#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-staging-lirc-lirc_imon.c.common.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-staging-lirc-lirc_imon.c.common.i())
+Locals: 
+                                                Location: id=48#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=115
+   Block(display_fops.owner = &(__this_module);display_fops.llseek =
+&(noop_llseek);display_fops.read = 0;display_fops.write =
+&(vfd_write);display_fops.aio_read = 0;display_fops.aio_write =
+0;display_fops.readdir = 0;display_fops.poll = 0;display_fops.unlocked_ioctl
+= 0;display_fops.compat_ioctl = 0;display_fops.mmap = 0;display_fops.open =
+&(display_open);display_fops.flush = 0;display_fops.release =
+&(display_close);display_fops.fsync = 0;display_fops.aio_fsync =
+0;display_fops.fasync = 0;display_fops.lock = 0;display_fops.sendpage =
+0;display_fops.get_unmapped_area = 0;display_fops.check_flags =
+0;display_fops.flock = 0;display_fops.splice_write =
+0;display_fops.splice_read = 0;display_fops.setlease =
+0;display_fops.fallocate = 0;imon_usb_id_table[ 0 ].match_flags =
+3;imon_usb_id_table[ 0 ].idVendor = 2728;imon_usb_id_table[ 0 ].idProduct =
+32769;imon_usb_id_table[ 0 ].bcdDevice_lo =
+0;imon_usb_id_table[ 0 ].bcdDevice_hi = 0;imon_usb_id_table[ 0 ].bDeviceClass
+= 0;imon_usb_id_table[ 0 ].bDeviceSubClass =
+0;imon_usb_id_table[ 0 ].bDeviceProtocol =
+0;imon_usb_id_table[ 0 ].bInterfaceClass =
+0;imon_usb_id_table[ 0 ].bInterfaceSubClass =
+0;imon_usb_id_table[ 0 ].bInterfaceProtocol =
+0;imon_usb_id_table[ 0 ].driver_info = 0;imon_usb_id_table[ 1 ].match_flags =
+3;imon_usb_id_table[ 1 ].idVendor = 1256;imon_usb_id_table[ 1 ].idProduct =
+65328;imon_usb_id_table[ 1 ].bcdDevice_lo =
+0;imon_usb_id_table[ 1 ].bcdDevice_hi = 0;imon_usb_id_table[ 1 ].bDeviceClass
+= 0;imon_usb_id_table[ 1 ].bDeviceSubClass =
+0;imon_usb_id_table[ 1 ].bDeviceProtocol =
+0;imon_usb_id_table[ 1 ].bInterfaceClass =
+0;imon_usb_id_table[ 1 ].bInterfaceSubClass =
+0;imon_usb_id_table[ 1 ].bInterfaceProtocol =
+0;imon_usb_id_table[ 1 ].driver_info = 0;imon_usb_id_table[ 2 ].match_flags =
+3;imon_usb_id_table[ 2 ].idVendor = 2728;imon_usb_id_table[ 2 ].idProduct =
+65498;imon_usb_id_table[ 2 ].bcdDevice_lo =
+0;imon_usb_id_table[ 2 ].bcdDevice_hi = 0;imon_usb_id_table[ 2 ].bDeviceClass
+= 0;imon_usb_id_table[ 2 ].bDeviceSubClass =
+0;imon_usb_id_table[ 2 ].bDeviceProtocol =
+0;imon_usb_id_table[ 2 ].bInterfaceClass =
+0;imon_usb_id_table[ 2 ].bInterfaceSubClass =
+0;imon_usb_id_table[ 2 ].bInterfaceProtocol =
+0;imon_usb_id_table[ 2 ].driver_info = 0;imon_usb_id_table[ 3 ].match_flags =
+3;imon_usb_id_table[ 3 ].idVendor = 5570;imon_usb_id_table[ 3 ].idProduct =
+65498;imon_usb_id_table[ 3 ].bcdDevice_lo =
+0;imon_usb_id_table[ 3 ].bcdDevice_hi = 0;imon_usb_id_table[ 3 ].bDeviceClass
+= 0;imon_usb_id_table[ 3 ].bDeviceSubClass =
+0;imon_usb_id_table[ 3 ].bDeviceProtocol =
+0;imon_usb_id_table[ 3 ].bInterfaceClass =
+0;imon_usb_id_table[ 3 ].bInterfaceSubClass =
+0;imon_usb_id_table[ 3 ].bInterfaceProtocol =
+0;imon_usb_id_table[ 3 ].driver_info = 0;vfd_proto_6p_list[ 0 ].match_flags =
+3;vfd_proto_6p_list[ 0 ].idVendor = 5570;vfd_proto_6p_list[ 0 ].idProduct =
+65498;vfd_proto_6p_list[ 0 ].bcdDevice_lo =
+0;vfd_proto_6p_list[ 0 ].bcdDevice_hi = 0;vfd_proto_6p_list[ 0 ].bDeviceClass
+= 0;vfd_proto_6p_list[ 0 ].bDeviceSubClass =
+0;vfd_proto_6p_list[ 0 ].bDeviceProtocol =
+0;vfd_proto_6p_list[ 0 ].bInterfaceClass =
+0;vfd_proto_6p_list[ 0 ].bInterfaceSubClass =
+0;vfd_proto_6p_list[ 0 ].bInterfaceProtocol =
+0;vfd_proto_6p_list[ 0 ].driver_info = 0;ir_only_list[ 0 ].match_flags =
+3;ir_only_list[ 0 ].idVendor = 2728;ir_only_list[ 0 ].idProduct =
+32769;ir_only_list[ 0 ].bcdDevice_lo = 0;ir_only_list[ 0 ].bcdDevice_hi =
+0;ir_only_list[ 0 ].bDeviceClass = 0;ir_only_list[ 0 ].bDeviceSubClass =
+0;ir_only_list[ 0 ].bDeviceProtocol = 0;ir_only_list[ 0 ].bInterfaceClass =
+0;ir_only_list[ 0 ].bInterfaceSubClass =
+0;ir_only_list[ 0 ].bInterfaceProtocol = 0;ir_only_list[ 0 ].driver_info =
+0;ir_only_list[ 1 ].match_flags = 3;ir_only_list[ 1 ].idVendor =
+1256;ir_only_list[ 1 ].idProduct = 65328;ir_only_list[ 1 ].bcdDevice_lo =
+0;ir_only_list[ 1 ].bcdDevice_hi = 0;ir_only_list[ 1 ].bDeviceClass =
+0;ir_only_list[ 1 ].bDeviceSubClass = 0;ir_only_list[ 1 ].bDeviceProtocol =
+0;ir_only_list[ 1 ].bInterfaceClass = 0;ir_only_list[ 1 ].bInterfaceSubClass
+= 0;ir_only_list[ 1 ].bInterfaceProtocol = 0;ir_only_list[ 1 ].driver_info =
+0;imon_driver.name = "lirc_imon";imon_driver.probe =
+&(imon_probe);imon_driver.disconnect =
+&(imon_disconnect);imon_driver.unlocked_ioctl = 0;imon_driver.suspend =
+&(imon_suspend);imon_driver.resume = &(imon_resume);imon_driver.reset_resume
+= 0;imon_driver.pre_reset = 0;imon_driver.post_reset = 0;imon_driver.id_table
+=
+imon_usb_id_table;imon_driver.dynids.lock.__annonCompField18.rlock.raw_lock.slock
+= 0;imon_driver.dynids.lock.__annonCompField18.rlock.magic =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.owner_cpu =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.owner =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.dep_map.key =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ] =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ] =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.dep_map.name =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.dep_map.cpu =
+0;imon_driver.dynids.lock.__annonCompField18.rlock.dep_map.ip =
+0;imon_driver.dynids.list.next = 0;imon_driver.dynids.list.prev =
+0;imon_driver.drvwrap.driver.name = 0;imon_driver.drvwrap.driver.bus =
+0;imon_driver.drvwrap.driver.owner = 0;imon_driver.drvwrap.driver.mod_name =
+0;imon_driver.drvwrap.driver.suppress_bind_attrs =
+0;imon_driver.drvwrap.driver.of_match_table =
+0;imon_driver.drvwrap.driver.probe = 0;imon_driver.drvwrap.driver.remove =
+0;imon_driver.drvwrap.driver.shutdown = 0;imon_driver.drvwrap.driver.suspend
+= 0;imon_driver.drvwrap.driver.resume = 0;imon_driver.drvwrap.driver.groups =
+0;imon_driver.drvwrap.driver.pm = 0;imon_driver.drvwrap.driver.p =
+0;imon_driver.drvwrap.for_devices = 0;imon_driver.no_dynamic_id =
+0;imon_driver.supports_autosuspend = 0;imon_driver.soft_unbind =
+0;imon_class.name = "lcd%d";imon_class.devnode = 0;imon_class.fops =
+&(display_fops);imon_class.minor_base = 144;driver_lock.count.counter =
+1;driver_lock.wait_lock.__annonCompField18.rlock.raw_lock.slock =
+0;driver_lock.wait_lock.__annonCompField18.rlock.magic =
+3735899821;driver_lock.wait_lock.__annonCompField18.rlock.owner_cpu =
+4294967295;driver_lock.wait_lock.__annonCompField18.rlock.owner =
+-1;driver_lock.wait_lock.__annonCompField18.rlock.dep_map.key =
+0;driver_lock.wait_lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ] =
+0;driver_lock.wait_lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ] =
+0;driver_lock.wait_lock.__annonCompField18.rlock.dep_map.name =
+"driver_lock.wait_lock";driver_lock.wait_lock.__annonCompField18.rlock.dep_map.cpu
+= 0;driver_lock.wait_lock.__annonCompField18.rlock.dep_map.ip =
+0;driver_lock.wait_list.next = &(driver_lock)  foffset 
+wait_list;driver_lock.wait_list.prev = &(driver_lock)  foffset 
+wait_list;driver_lock.owner = 0;driver_lock.name = 0;driver_lock.magic =
+&(driver_lock);driver_lock.dep_map.key =
+0;driver_lock.dep_map.class_cache[ 0 ] =
+0;driver_lock.dep_map.class_cache[ 1 ] = 0;driver_lock.dep_map.name =
+"driver_lock";driver_lock.dep_map.cpu = 0;driver_lock.dep_map.ip =
+0;__mod_author185[ 0 ] = 97;__mod_author185[ 1 ] = 117;__mod_author185[ 2 ] =
+116;__mod_author185[ 3 ] = 104;__mod_author185[ 4 ] =
+111;__mod_author185[ 5 ] = 114;__mod_author185[ 6 ] = 61;__mod_author185[ 7 ]
+= 86;__mod_author185[ 8 ] = 101;__mod_author185[ 9 ] =
+110;__mod_author185[ 10 ] = 107;__mod_author185[ 11 ] =
+121;__mod_author185[ 12 ] = 32;__mod_author185[ 13 ] =
+82;__mod_author185[ 14 ] = 97;__mod_author185[ 15 ] =
+106;__mod_author185[ 16 ] = 117;__mod_author185[ 17 ] =
+32;__mod_author185[ 18 ] = 60;__mod_author185[ 19 ] =
+100;__mod_author185[ 20 ] = 101;__mod_author185[ 21 ] =
+118;__mod_author185[ 22 ] = 64;__mod_author185[ 23 ] =
+118;__mod_author185[ 24 ] = 101;__mod_author185[ 25 ] =
+110;__mod_author185[ 26 ] = 107;__mod_author185[ 27 ] =
+121;__mod_author185[ 28 ] = 46;__mod_author185[ 29 ] =
+119;__mod_author185[ 30 ] = 115;__mod_author185[ 31 ] =
+62;__mod_author185[ 32 ] = 0;__mod_description186[ 0 ] =
+100;__mod_description186[ 1 ] = 101;__mod_description186[ 2 ] =
+115;__mod_description186[ 3 ] = 99;__mod_description186[ 4 ] =
+114;__mod_description186[ 5 ] = 105;__mod_description186[ 6 ] =
+112;__mod_description186[ 7 ] = 116;__mod_description186[ 8 ] =
+105;__mod_description186[ 9 ] = 111;__mod_description186[ 10 ] =
+110;__mod_description186[ 11 ] = 61;__mod_description186[ 12 ] =
+68;__mod_description186[ 13 ] = 114;__mod_description186[ 14 ] =
+105;__mod_description186[ 15 ] = 118;__mod_description186[ 16 ] =
+101;__mod_description186[ 17 ] = 114;__mod_description186[ 18 ] =
+32;__mod_description186[ 19 ] = 102;__mod_description186[ 20 ] =
+111;__mod_description186[ 21 ] = 114;__mod_description186[ 22 ] =
+32;__mod_description186[ 23 ] = 83;__mod_description186[ 24 ] =
+111;__mod_description186[ 25 ] = 117;__mod_description186[ 26 ] =
+110;__mod_description186[ 27 ] = 100;__mod_description186[ 28 ] =
+71;__mod_description186[ 29 ] = 114;__mod_description186[ 30 ] =
+97;__mod_description186[ 31 ] = 112;__mod_description186[ 32 ] =
+104;__mod_description186[ 33 ] = 32;__mod_description186[ 34 ] =
+105;__mod_description186[ 35 ] = 77;__mod_description186[ 36 ] =
+79;__mod_description186[ 37 ] = 78;__mod_description186[ 38 ] =
+32;__mod_description186[ 39 ] = 77;__mod_description186[ 40 ] =
+117;__mod_description186[ 41 ] = 108;__mod_description186[ 42 ] =
+116;__mod_description186[ 43 ] = 105;__mod_description186[ 44 ] =
+77;__mod_description186[ 45 ] = 101;__mod_description186[ 46 ] =
+100;__mod_description186[ 47 ] = 105;__mod_description186[ 48 ] =
+97;__mod_description186[ 49 ] = 32;__mod_description186[ 50 ] =
+73;__mod_description186[ 51 ] = 82;__mod_description186[ 52 ] =
+47;__mod_description186[ 53 ] = 68;__mod_description186[ 54 ] =
+105;__mod_description186[ 55 ] = 115;__mod_description186[ 56 ] =
+112;__mod_description186[ 57 ] = 108;__mod_description186[ 58 ] =
+97;__mod_description186[ 59 ] = 121;__mod_description186[ 60 ] =
+0;__mod_version187[ 0 ] = 118;__mod_version187[ 1 ] =
+101;__mod_version187[ 2 ] = 114;__mod_version187[ 3 ] =
+115;__mod_version187[ 4 ] = 105;__mod_version187[ 5 ] =
+111;__mod_version187[ 6 ] = 110;__mod_version187[ 7 ] =
+61;__mod_version187[ 8 ] = 48;__mod_version187[ 9 ] =
+46;__mod_version187[ 10 ] = 56;__mod_version187[ 11 ] =
+0;__mod_license188[ 0 ] = 108;__mod_license188[ 1 ] =
+105;__mod_license188[ 2 ] = 99;__mod_license188[ 3 ] =
+101;__mod_license188[ 4 ] = 110;__mod_license188[ 5 ] =
+115;__mod_license188[ 6 ] = 101;__mod_license188[ 7 ] =
+61;__mod_license188[ 8 ] = 71;__mod_license188[ 9 ] =
+80;__mod_license188[ 10 ] = 76;__mod_license188[ 11 ] =
+0;__param_str_debug[ 0 ] = 100;__param_str_debug[ 1 ] =
+101;__param_str_debug[ 2 ] = 98;__param_str_debug[ 3 ] =
+117;__param_str_debug[ 4 ] = 103;__param_str_debug[ 5 ] =
+0;__param_debug.name = __param_str_debug;__param_debug.ops =
+&(param_ops_int);__param_debug.perm = 420;__param_debug.flags =
+0;__param_debug.__annonCompField31.arg = &(debug);__mod_debugtype190[ 0 ] =
+112;__mod_debugtype190[ 1 ] = 97;__mod_debugtype190[ 2 ] =
+114;__mod_debugtype190[ 3 ] = 109;__mod_debugtype190[ 4 ] =
+116;__mod_debugtype190[ 5 ] = 121;__mod_debugtype190[ 6 ] =
+112;__mod_debugtype190[ 7 ] = 101;__mod_debugtype190[ 8 ] =
+61;__mod_debugtype190[ 9 ] = 100;__mod_debugtype190[ 10 ] =
+101;__mod_debugtype190[ 11 ] = 98;__mod_debugtype190[ 12 ] =
+117;__mod_debugtype190[ 13 ] = 103;__mod_debugtype190[ 14 ] =
+58;__mod_debugtype190[ 15 ] = 105;__mod_debugtype190[ 16 ] =
+110;__mod_debugtype190[ 17 ] = 116;__mod_debugtype190[ 18 ] =
+0;__mod_debug191[ 0 ] = 112;__mod_debug191[ 1 ] = 97;__mod_debug191[ 2 ] =
+114;__mod_debug191[ 3 ] = 109;__mod_debug191[ 4 ] = 61;__mod_debug191[ 5 ] =
+100;__mod_debug191[ 6 ] = 101;__mod_debug191[ 7 ] = 98;__mod_debug191[ 8 ] =
+117;__mod_debug191[ 9 ] = 103;__mod_debug191[ 10 ] = 58;__mod_debug191[ 11 ]
+= 68;__mod_debug191[ 12 ] = 101;__mod_debug191[ 13 ] =
+98;__mod_debug191[ 14 ] = 117;__mod_debug191[ 15 ] = 103;__mod_debug191[ 16 ]
+= 32;__mod_debug191[ 17 ] = 109;__mod_debug191[ 18 ] =
+101;__mod_debug191[ 19 ] = 115;__mod_debug191[ 20 ] =
+115;__mod_debug191[ 21 ] = 97;__mod_debug191[ 22 ] = 103;__mod_debug191[ 23 ]
+= 101;__mod_debug191[ 24 ] = 115;__mod_debug191[ 25 ] =
+58;__mod_debug191[ 26 ] = 32;__mod_debug191[ 27 ] = 48;__mod_debug191[ 28 ] =
+61;__mod_debug191[ 29 ] = 110;__mod_debug191[ 30 ] = 111;__mod_debug191[ 31 ]
+= 44;__mod_debug191[ 32 ] = 32;__mod_debug191[ 33 ] = 49;__mod_debug191[ 34 ]
+= 61;__mod_debug191[ 35 ] = 121;__mod_debug191[ 36 ] =
+101;__mod_debug191[ 37 ] = 115;__mod_debug191[ 38 ] = 40;__mod_debug191[ 39 ]
+= 100;__mod_debug191[ 40 ] = 101;__mod_debug191[ 41 ] =
+102;__mod_debug191[ 42 ] = 97;__mod_debug191[ 43 ] = 117;__mod_debug191[ 44 ]
+= 108;__mod_debug191[ 45 ] = 116;__mod_debug191[ 46 ] =
+58;__mod_debug191[ 47 ] = 32;__mod_debug191[ 48 ] = 110;__mod_debug191[ 49 ]
+= 111;__mod_debug191[ 50 ] = 41;__mod_debug191[ 51 ] = 0;descriptor.modname =
+"lirc_imon";descriptor.function = "free_imon_context";descriptor.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor.format
+= "%s: iMON context freed\n";descriptor.lineno = 203;descriptor.flags =
+0;descriptor.enabled = 0;descriptor___0.modname =
+"lirc_imon";descriptor___0.function = "submit_data";descriptor___0.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor___0.format
+= "submitting data to LIRC\n";descriptor___0.lineno =
+553;descriptor___0.flags = 0;descriptor___0.enabled =
+0;descriptor___1.modname = "lirc_imon";descriptor___1.function =
+"imon_probe";descriptor___1.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor___1.format
+= "%s: found iMON device (%04x:%04x, intf%d)\n";descriptor___1.lineno =
+755;descriptor___1.flags = 0;descriptor___1.enabled =
+0;descriptor___2.modname = "lirc_imon";descriptor___2.function =
+"imon_probe";descriptor___2.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor___2.format
+= "%s: found IR endpoint\n";descriptor___2.lineno = 779;descriptor___2.flags
+= 0;descriptor___2.enabled = 0;descriptor___3.modname =
+"lirc_imon";descriptor___3.function = "imon_probe";descriptor___3.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor___3.format
+= "%s: found display endpoint\n";descriptor___3.lineno =
+785;descriptor___3.flags = 0;descriptor___3.enabled =
+0;descriptor___4.modname = "lirc_imon";descriptor___4.function =
+"imon_probe";descriptor___4.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor___4.format
+= "%s: device has no display\n";descriptor___4.lineno =
+796;descriptor___4.flags = 0;descriptor___4.enabled =
+0;descriptor___5.modname = "lirc_imon";descriptor___5.function =
+"imon_probe";descriptor___5.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor___5.format
+= "%s: vfd_proto_6p: %d\n";descriptor___5.lineno = 813;descriptor___5.flags =
+0;descriptor___5.enabled = 0;descriptor___6.modname =
+"lirc_imon";descriptor___6.function = "imon_probe";descriptor___6.filename =
+"/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c";descriptor___6.format
+= "%s: Registering iMON display with sysfs\n";descriptor___6.lineno =
+914;descriptor___6.flags = 0;descriptor___6.enabled = 0;ldv_urb_state =
+0;ldv_coherent_state = 0;)
+                                                Location: id=48#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/cmdfiles/rcv/68_1/preprocessed/drivers-staging-lirc-lirc_imon.c.common.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=40#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1158
+Block(LDV_IN_INTERRUPT = 1;)
+                                                Location: id=40#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1167
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#5 (Artificial)
+Skip
+                                                Location: id=40#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1184
+FunctionCall(tmp___7@ldv_main0_sequence_infinite_withcheck_stateful =
+imon_init())
+Locals: 
+                                                Location: id=36#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1033
+   FunctionCall(printk("<6>lirc_imon: Driver for SoundGraph iMON MultiMedia IR/Display, v0.8\n"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=36#2 (Artificial)
+   Skip
+                                                Location: id=36#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1035
+   FunctionCall(rc@imon_init = usb_register(&(imon_driver)))
+Locals:  driver@usb_register
+                                                Location: id=13#1 src="include/linux/usb.h"; line=933
+      FunctionCall(tmp___7@usb_register =
+usb_register_driver(driver@usb_register, &(__this_module), "lirc_imon"))
+LDV: undefined function called: usb_register_driver
+                                                Location: id=13#2 (Artificial)
+      Skip
+                                                Location: id=13#3 src="include/linux/usb.h"; line=933
+      Block(Return(tmp___7@usb_register);)
+   Skip
+                                                Location: id=36#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1036
+   Pred(rc@imon_init  ==  0)
+                                                Location: id=36#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1041
+   Block(__retres2@imon_init = 0;)
+                                                Location: id=36#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1029
+   Block(Return(__retres2@imon_init);)
+Skip
+                                                Location: id=40#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1184
+Pred(tmp___7@ldv_main0_sequence_infinite_withcheck_stateful  ==  0)
+                                                Location: id=40#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1186
+Block(ldv_s_imon_driver_usb_driver@ldv_main0_sequence_infinite_withcheck_stateful
+= 0;)
+                                                Location: id=40#13 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1189
+FunctionCall(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=40#14 (Artificial)
+Skip
+                                                Location: id=40#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1189
+Pred(tmp___9@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=40#16 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1193
+FunctionCall(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=40#18 (Artificial)
+Skip
+                                                Location: id=40#19 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1195
+Pred(tmp___8@ldv_main0_sequence_infinite_withcheck_stateful  ==  0)
+                                                Location: id=40#20 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1198
+Pred(ldv_s_imon_driver_usb_driver@ldv_main0_sequence_infinite_withcheck_stateful
+      ==  0)
+                                                Location: id=40#22 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1214
+FunctionCall(res_imon_probe_13 =
+imon_probe(var_group1@ldv_main0_sequence_infinite_withcheck_stateful, var_imon_probe_13_p1@ldv_main0_sequence_infinite_withcheck_stateful))
+Locals:  interface@imon_probe id@imon_probe
+                                                Location: id=32#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=710
+   Block(usbdev@imon_probe = 0;iface_desc@imon_probe = 0;rx_endpoint@imon_probe
+= 0;tx_endpoint@imon_probe = 0;rx_urb@imon_probe = 0;tx_urb@imon_probe =
+0;driver@imon_probe = 0;rbuf@imon_probe = 0;dev@imon_probe =
+interface@imon_probe  foffset  dev;lirc_minor@imon_probe =
+0;retval@imon_probe = 0;display_ep_found@imon_probe =
+0;ir_ep_found@imon_probe = 0;alloc_status@imon_probe =
+0;vfd_proto_6p@imon_probe = 0;context@imon_probe = 0;)
+                                                Location: id=32#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=731
+   FunctionCall(tmp___7@imon_probe = kzalloc(32256, 208))
+Locals:  size@kzalloc flags@kzalloc
+                                                Location: id=8#1 src="include/linux/slab.h"; line=320
+      FunctionCall(tmp@kzalloc = kmalloc(size@kzalloc, flags@kzalloc  |  32768))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=7#1 src="include/linux/slub_def.h"; line=270
+         FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=7#2 (Artificial)
+         Skip
+                                                Location: id=7#3 src="include/linux/slub_def.h"; line=270
+         Block(Return(tmp___2@kmalloc);)
+      Skip
+                                                Location: id=8#3 src="include/linux/slab.h"; line=320
+      Block(Return(tmp@kzalloc);)
+   Skip
+                                                Location: id=32#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=731
+   Block(context@imon_probe = tmp___7@imon_probe;)
+                                                Location: id=32#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=732
+   Pred(context@imon_probe  !=  0)
+                                                Location: id=32#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=742
+   FunctionCall(tmp___8@imon_probe =
+usb_match_id(interface@imon_probe, ir_only_list))
+LDV: undefined function called: usb_match_id
+                                                Location: id=32#50 (Artificial)
+   Skip
+                                                Location: id=32#51 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=742
+   Pred(tmp___8@imon_probe  ==  0)
+                                                Location: id=32#53 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=745
+   Block(* (context@imon_probe ).display = 1;)
+                                                Location: id=32#54 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=747
+   FunctionCall(tmp___9@imon_probe = interface_to_usbdev(interface@imon_probe))
+Locals:  intf@interface_to_usbdev
+                                                Location: id=12#1 src="include/linux/usb.h"; line=499
+      Block(__mptr@interface_to_usbdev = * (intf@interface_to_usbdev ).dev.parent;)
+                                                Location: id=12#2 src="include/linux/usb.h"; line=499
+      Block(cil_3@interface_to_usbdev = 0;)
+                                                Location: id=12#3 src="include/linux/usb.h"; line=499
+      Block(__retres4@interface_to_usbdev = __mptr@interface_to_usbdev  - 
+cil_3@interface_to_usbdev  foffset  dev;)
+                                                Location: id=12#4 src="include/linux/usb.h"; line=497
+      Block(Return(__retres4@interface_to_usbdev);)
+   Skip
+                                                Location: id=32#56 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=747
+   FunctionCall(usbdev@imon_probe = usb_get_dev(tmp___9@imon_probe))
+LDV: undefined function called: usb_get_dev
+                                                Location: id=32#57 (Artificial)
+   Skip
+                                                Location: id=32#58 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=748
+   Block(iface_desc@imon_probe =
+* (interface@imon_probe ).cur_altsetting;num_endpts@imon_probe =
+* (iface_desc@imon_probe ).desc.bNumEndpoints;ifnum@imon_probe =
+* (iface_desc@imon_probe ).desc.bInterfaceNumber;vendor@imon_probe =
+* (usbdev@imon_probe ).descriptor.idVendor;product@imon_probe =
+* (usbdev@imon_probe ).descriptor.idProduct;)
+                                                Location: id=32#59 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=754
+   FunctionCall(tmp___10@imon_probe =
+__builtin_expect(descriptor___1.enabled, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=32#60 (Artificial)
+   Skip
+                                                Location: id=32#61 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=754
+   Pred(tmp___10@imon_probe  ==  0)
+                                                Location: id=32#65 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=758
+   FunctionCall(mutex_lock_nested(&(driver_lock), 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#66 (Artificial)
+   Skip
+                                                Location: id=32#67 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=765
+   Block(i@imon_probe = 0;)
+                                                Location: id=32#68 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=765
+   Pred(i@imon_probe  <  num_endpts@imon_probe)
+                                                Location: id=32#69 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=765
+   Pred(ir_ep_found@imon_probe  ==  0)
+                                                Location: id=32#74 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=769
+   Block(cil_42@imon_probe = * (iface_desc@imon_probe ).endpoint  offset 
+i@imon_probe;ep@imon_probe = cil_42@imon_probe  foffset 
+desc;ep_dir@imon_probe = * (ep@imon_probe ).bEndpointAddress  & 
+128;ep_type@imon_probe = * (ep@imon_probe ).bmAttributes  &  3;)
+                                                Location: id=32#198 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=773
+   Pred(ir_ep_found@imon_probe  ==  0)
+                                                Location: id=32#199 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=773
+   Pred(ep_dir@imon_probe  ==  128)
+                                                Location: id=32#201 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=773
+   Pred(ep_type@imon_probe  ==  3)
+                                                Location: id=32#203 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=777
+   Block(rx_endpoint@imon_probe = ep@imon_probe;ir_ep_found@imon_probe = 1;)
+                                                Location: id=32#205 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=779
+   FunctionCall(tmp___11@imon_probe =
+__builtin_expect(descriptor___2.enabled, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=32#206 (Artificial)
+   Skip
+                                                Location: id=32#207 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=779
+   Pred(tmp___11@imon_probe  ==  0)
+                                                Location: id=32#211 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=765
+   Block(i@imon_probe = i@imon_probe  +  1;)
+                                                Location: id=32#68 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=765
+   Pred(i@imon_probe  >=  num_endpts@imon_probe)
+                                                Location: id=32#73 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=794
+   Pred(* (context@imon_probe ).display  !=  0)
+                                                Location: id=32#83 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=800
+   Pred(ir_ep_found@imon_probe  !=  0)
+                                                Location: id=32#85 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=808
+   Pred(display_ep_found@imon_probe  ==  0)
+                                                Location: id=32#101 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=816
+   FunctionCall(tmp___16@imon_probe = kzalloc(8704, 208))
+Locals:  size@kzalloc flags@kzalloc
+                                                Location: id=8#1 src="include/linux/slab.h"; line=320
+      FunctionCall(tmp@kzalloc = kmalloc(size@kzalloc, flags@kzalloc  |  32768))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=7#1 src="include/linux/slub_def.h"; line=270
+         FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=7#2 (Artificial)
+         Skip
+                                                Location: id=7#3 src="include/linux/slub_def.h"; line=270
+         Block(Return(tmp___2@kmalloc);)
+      Skip
+                                                Location: id=8#3 src="include/linux/slab.h"; line=320
+      Block(Return(tmp@kzalloc);)
+   Skip
+                                                Location: id=32#103 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=816
+   Block(driver@imon_probe = tmp___16@imon_probe;)
+                                                Location: id=32#104 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=817
+   Pred(driver@imon_probe  !=  0)
+                                                Location: id=32#106 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=822
+   FunctionCall(tmp___17@imon_probe = kmalloc(12800, 208))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=7#1 src="include/linux/slub_def.h"; line=270
+      FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=7#2 (Artificial)
+      Skip
+                                                Location: id=7#3 src="include/linux/slub_def.h"; line=270
+      Block(Return(tmp___2@kmalloc);)
+   Skip
+                                                Location: id=32#111 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=822
+   Block(rbuf@imon_probe = tmp___17@imon_probe;)
+                                                Location: id=32#112 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=823
+   Pred(rbuf@imon_probe  !=  0)
+                                                Location: id=32#114 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=828
+   FunctionCall(tmp___18@imon_probe = lirc_buffer_init(rbuf@imon_probe, 4, 128))
+Locals:  buf@lirc_buffer_init chunk_size@lirc_buffer_init size@lirc_buffer_init
+                                                Location: id=17#1 src="include/media/lirc_dev.h"; line=54
+      FunctionCall(__init_waitqueue_head(buf@lirc_buffer_init  foffset 
+wait_poll, &(__key___7)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=17#2 (Artificial)
+      Skip
+                                                Location: id=17#3 src="include/media/lirc_dev.h"; line=55
+      FunctionCall(spinlock_check(buf@lirc_buffer_init  foffset  fifo_lock))
+Locals:  lock@spinlock_check
+                                                Location: id=4#1 src="include/linux/spinlock.h"; line=274
+         Block(__retres2@spinlock_check = lock@spinlock_check  foffset 
+__annonCompField18  foffset  rlock;)
+                                                Location: id=4#2 src="include/linux/spinlock.h"; line=272
+         Block(Return(__retres2@spinlock_check);)
+      Skip
+                                                Location: id=17#5 src="include/media/lirc_dev.h"; line=55
+      FunctionCall(__raw_spin_lock_init(buf@lirc_buffer_init  foffset  fifo_lock
+ foffset  __annonCompField18  foffset 
+rlock, "&(&buf->fifo_lock)->rlock", &(__key___8)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=17#6 (Artificial)
+      Skip
+                                                Location: id=17#7 src="include/media/lirc_dev.h"; line=56
+      Block(* (buf@lirc_buffer_init ).chunk_size =
+chunk_size@lirc_buffer_init;* (buf@lirc_buffer_init ).size =
+size@lirc_buffer_init;__tmp@lirc_buffer_init = buf@lirc_buffer_init  foffset 
+fifo;__kfifo@lirc_buffer_init = __tmp@lirc_buffer_init  foffset 
+__annonCompField41  foffset  kfifo;)
+                                                Location: id=17#8 src="include/media/lirc_dev.h"; line=58
+      Pred(1536  ==  1536)
+                                                Location: id=17#9 src="include/media/lirc_dev.h"; line=58
+      Block(cil_9@lirc_buffer_init =
+* (__tmp@lirc_buffer_init ).__annonCompField41.type;)
+                                                Location: id=17#11 src="include/media/lirc_dev.h"; line=58
+      FunctionCall(tmp___7@lirc_buffer_init =
+__kfifo_alloc(__kfifo@lirc_buffer_init, size@lirc_buffer_init  * 
+chunk_size@lirc_buffer_init, 64, 208))
+LDV: undefined function called: __kfifo_alloc
+                                                Location: id=17#12 (Artificial)
+      Skip
+                                                Location: id=17#13 src="include/media/lirc_dev.h"; line=58
+      Block(tmp___8@lirc_buffer_init = tmp___7@lirc_buffer_init;)
+                                                Location: id=17#14 src="include/media/lirc_dev.h"; line=58
+      FunctionCall(ret@lirc_buffer_init =
+__kfifo_int_must_check_helper(tmp___8@lirc_buffer_init))
+Locals:  val@__kfifo_int_must_check_helper
+                                                Location: id=16#1 src="include/linux/kfifo.h"; line=183
+         Block(Return(val@__kfifo_int_must_check_helper);)
+      Skip
+                                                Location: id=17#16 src="include/media/lirc_dev.h"; line=59
+      Pred(ret@lirc_buffer_init  ==  0)
+                                                Location: id=17#17 src="include/media/lirc_dev.h"; line=60
+      Block(* (buf@lirc_buffer_init ).fifo_initialized = 1;)
+                                                Location: id=17#19 src="include/media/lirc_dev.h"; line=62
+      Block(Return(ret@lirc_buffer_init);)
+   Skip
+                                                Location: id=32#119 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=828
+   Pred(tmp___18@imon_probe  ==  0)
+                                                Location: id=32#121 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=833
+   FunctionCall(rx_urb@imon_probe = usb_alloc_urb(0, 208))
+Locals:  iso_packets@usb_alloc_urb mem_flags@usb_alloc_urb
+                                                Location: id=45#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      FunctionCall(tmp___7@usb_alloc_urb = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=45#2 (Artificial)
+      Skip
+                                                Location: id=45#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(arbitrary_memory@usb_alloc_urb = tmp___7@usb_alloc_urb;)
+                                                Location: id=45#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Pred(arbitrary_memory@usb_alloc_urb  !=  0)
+                                                Location: id=45#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(ldv_urb_state = ldv_urb_state  +  1;)
+                                                Location: id=45#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(__retres5@usb_alloc_urb = arbitrary_memory@usb_alloc_urb;)
+                                                Location: id=45#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=61
+      Block(Return(__retres5@usb_alloc_urb);)
+   Skip
+                                                Location: id=32#126 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=834
+   Pred(rx_urb@imon_probe  !=  0)
+                                                Location: id=32#128 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=839
+   FunctionCall(tx_urb@imon_probe = usb_alloc_urb(0, 208))
+Locals:  iso_packets@usb_alloc_urb mem_flags@usb_alloc_urb
+                                                Location: id=45#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      FunctionCall(tmp___7@usb_alloc_urb = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=45#2 (Artificial)
+      Skip
+                                                Location: id=45#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(arbitrary_memory@usb_alloc_urb = tmp___7@usb_alloc_urb;)
+                                                Location: id=45#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Pred(arbitrary_memory@usb_alloc_urb  !=  0)
+                                                Location: id=45#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(ldv_urb_state = ldv_urb_state  +  1;)
+                                                Location: id=45#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=62
+      Block(__retres5@usb_alloc_urb = arbitrary_memory@usb_alloc_urb;)
+                                                Location: id=45#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=61
+      Block(Return(__retres5@usb_alloc_urb);)
+   Skip
+                                                Location: id=32#133 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=840
+   Pred(tx_urb@imon_probe  !=  0)
+                                                Location: id=32#135 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=847
+   FunctionCall(__mutex_init(context@imon_probe  foffset 
+ctx_lock, "&context->ctx_lock", &(__key___9)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#139 (Artificial)
+   Skip
+                                                Location: id=32#140 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=848
+   Block(* (context@imon_probe ).vfd_proto_6p = vfd_proto_6p@imon_probe;)
+                                                Location: id=32#141 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=850
+   FunctionCall(strcpy(* (driver@imon_probe ).name, "lirc_imon"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#142 (Artificial)
+   Skip
+                                                Location: id=32#143 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=851
+   Block(* (driver@imon_probe ).minor = -1;* (driver@imon_probe ).code_length =
+32;* (driver@imon_probe ).sample_rate = 0;* (driver@imon_probe ).features = 4
+ <<  16;* (driver@imon_probe ).data =
+context@imon_probe;* (driver@imon_probe ).rbuf =
+rbuf@imon_probe;* (driver@imon_probe ).set_use_inc =
+&(ir_open);* (driver@imon_probe ).set_use_dec =
+&(ir_close);* (driver@imon_probe ).dev = interface@imon_probe  foffset 
+dev;* (driver@imon_probe ).owner = &(__this_module);)
+                                                Location: id=32#144 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=862
+   FunctionCall(mutex_lock_nested(context@imon_probe  foffset  ctx_lock, 0))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#145 (Artificial)
+   Skip
+                                                Location: id=32#146 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=864
+   Block(* (context@imon_probe ).driver = driver@imon_probe;)
+                                                Location: id=32#147 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=867
+   FunctionCall(lirc_minor@imon_probe = lirc_register_driver(driver@imon_probe))
+LDV: undefined function called: lirc_register_driver
+                                                Location: id=32#148 (Artificial)
+   Skip
+                                                Location: id=32#149 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=868
+   Pred(lirc_minor@imon_probe  >=  0)
+                                                Location: id=32#151 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=873
+   FunctionCall(_dev_info(dev@imon_probe, "Registered iMON driver (lirc minor: %d)\n", lirc_minor@imon_probe))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#157 (Artificial)
+   Skip
+                                                Location: id=32#158 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=877
+   Block(* (driver@imon_probe ).minor =
+lirc_minor@imon_probe;* (context@imon_probe ).usbdev =
+usbdev@imon_probe;* (context@imon_probe ).dev_present =
+1;* (context@imon_probe ).rx_endpoint =
+rx_endpoint@imon_probe;* (context@imon_probe ).rx_urb =
+rx_urb@imon_probe;* (context@imon_probe ).tx_endpoint =
+tx_endpoint@imon_probe;* (context@imon_probe ).tx_urb = tx_urb@imon_probe;)
+                                                Location: id=32#159 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=891
+   Pred(display_ep_found@imon_probe  ==  0)
+                                                Location: id=32#162 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=894
+   Block(cil_43@imon_probe = * (context@imon_probe ).rx_endpoint;)
+                                                Location: id=32#163 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=894
+   FunctionCall(tmp___19@imon_probe =
+__create_pipe(* (context@imon_probe ).usbdev, * (cil_43@imon_probe ).bEndpointAddress))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=15#1 src="include/linux/usb.h"; line=1529
+      Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=15#2 src="include/linux/usb.h"; line=1526
+      Block(Return(__retres3@__create_pipe);)
+   Skip
+                                                Location: id=32#165 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=894
+   Block(cil_44@imon_probe = * (context@imon_probe ).rx_endpoint;)
+                                                Location: id=32#166 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=894
+   FunctionCall(usb_fill_int_urb(* (context@imon_probe ).rx_urb, * (context@imon_probe ).usbdev, 1
+ <<  30  |  tmp___19@imon_probe  | 
+128, * (context@imon_probe ).usb_rx_buf, 512, &(usb_rx_callback), context@imon_probe, * (cil_44@imon_probe ).bInterval))
+Locals:  urb@usb_fill_int_urb dev@usb_fill_int_urb pipe@usb_fill_int_urb transfer_buffer@usb_fill_int_urb buffer_length@usb_fill_int_urb complete_fn@usb_fill_int_urb context@usb_fill_int_urb interval@usb_fill_int_urb
+                                                Location: id=14#1 src="include/linux/usb.h"; line=1318
+      Block(* (urb@usb_fill_int_urb ).dev =
+dev@usb_fill_int_urb;* (urb@usb_fill_int_urb ).pipe =
+pipe@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer =
+transfer_buffer@usb_fill_int_urb;* (urb@usb_fill_int_urb ).transfer_buffer_length
+= buffer_length@usb_fill_int_urb;* (urb@usb_fill_int_urb ).complete =
+complete_fn@usb_fill_int_urb;* (urb@usb_fill_int_urb ).context =
+context@usb_fill_int_urb;)
+                                                Location: id=14#2 src="include/linux/usb.h"; line=1324
+      Pred(* (dev@usb_fill_int_urb ).speed  ==  3)
+                                                Location: id=14#3 src="include/linux/usb.h"; line=1325
+      Block(* (urb@usb_fill_int_urb ).interval = 1  <<  interval@usb_fill_int_urb
+ -  1;)
+                                                Location: id=14#5 src="include/linux/usb.h"; line=1328
+      Block(* (urb@usb_fill_int_urb ).start_frame = -1;)
+                                                Location: id=14#6 src="include/linux/usb.h"; line=1309
+      Block(Return(0);)
+   Skip
+                                                Location: id=32#168 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=901
+   FunctionCall(retval@imon_probe =
+usb_submit_urb(* (context@imon_probe ).rx_urb, 208))
+LDV: undefined function called: usb_submit_urb
+                                                Location: id=32#169 (Artificial)
+   Skip
+                                                Location: id=32#170 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=903
+   Pred(retval@imon_probe  !=  0)
+                                                Location: id=32#171 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=904
+   FunctionCall(printk("<3>lirc_imon: %s: usb_submit_urb failed for intf0 (%d)\n", "imon_probe", retval@imon_probe))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#173 (Artificial)
+   Skip
+                                                Location: id=32#174 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=906
+   FunctionCall(mutex_unlock(context@imon_probe  foffset  ctx_lock))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#175 (Artificial)
+   Skip
+                                                Location: id=32#30 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=955
+   FunctionCall(mutex_unlock(&(driver_lock)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=32#31 (Artificial)
+   Skip
+                                                Location: id=32#32 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=957
+   Block(Return(retval@imon_probe);)
+Skip
+                                                Location: id=40#25 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1215
+FunctionCall(ldv_check_return_value(res_imon_probe_13))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=40#26 (Artificial)
+Skip
+                                                Location: id=40#27 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1216
+Pred(res_imon_probe_13  !=  0)
+                                                Location: id=40#28 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1329
+FunctionCall(imon_exit())
+Locals: 
+                                                Location: id=37#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1046
+   FunctionCall(usb_deregister(&(imon_driver)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=37#2 (Artificial)
+   Skip
+                                                Location: id=37#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1047
+   FunctionCall(printk("<6>lirc_imon: module removed. Goodbye!\n"))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=37#4 (Artificial)
+   Skip
+                                                Location: id=37#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1044
+   Block(Return(0);)
+Skip
+                                                Location: id=40#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"; line=1332
+FunctionCall(ldv_check_final_state())
+Locals: 
+                                                Location: id=47#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=73
+   Pred(ldv_urb_state  !=  0)
+                                                Location: id=47#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/12601/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=73
+   FunctionCall(ldv_blast_assert())
+Locals: 

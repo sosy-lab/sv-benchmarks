@@ -1,0 +1,669 @@
+
+                                                Location: id=78#1 src="ldv/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+                                                Location: id=78#1 src="ldv/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+FunctionCall(__BLAST_initialize_ldv/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.ko/unsafe.cil.out.i.pp.i.common.c())
+Locals: 
+                                                Location: id=86#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=49
+   Block(__param_str_debug[ 0 ] = 100;__param_str_debug[ 1 ] =
+101;__param_str_debug[ 2 ] = 98;__param_str_debug[ 3 ] =
+117;__param_str_debug[ 4 ] = 103;__param_str_debug[ 5 ] =
+0;__param_debug.name = __param_str_debug;__param_debug.ops =
+&(param_ops_int);__param_debug.perm = 420;__param_debug.flags =
+0;__param_debug.__annonCompField31.arg = &(debug);__mod_debugtype49[ 0 ] =
+112;__mod_debugtype49[ 1 ] = 97;__mod_debugtype49[ 2 ] =
+114;__mod_debugtype49[ 3 ] = 109;__mod_debugtype49[ 4 ] =
+116;__mod_debugtype49[ 5 ] = 121;__mod_debugtype49[ 6 ] =
+112;__mod_debugtype49[ 7 ] = 101;__mod_debugtype49[ 8 ] =
+61;__mod_debugtype49[ 9 ] = 100;__mod_debugtype49[ 10 ] =
+101;__mod_debugtype49[ 11 ] = 98;__mod_debugtype49[ 12 ] =
+117;__mod_debugtype49[ 13 ] = 103;__mod_debugtype49[ 14 ] =
+58;__mod_debugtype49[ 15 ] = 105;__mod_debugtype49[ 16 ] =
+110;__mod_debugtype49[ 17 ] = 116;__mod_debugtype49[ 18 ] =
+0;__mod_debug50[ 0 ] = 112;__mod_debug50[ 1 ] = 97;__mod_debug50[ 2 ] =
+114;__mod_debug50[ 3 ] = 109;__mod_debug50[ 4 ] = 61;__mod_debug50[ 5 ] =
+100;__mod_debug50[ 6 ] = 101;__mod_debug50[ 7 ] = 98;__mod_debug50[ 8 ] =
+117;__mod_debug50[ 9 ] = 103;__mod_debug50[ 10 ] = 58;__mod_debug50[ 11 ] =
+84;__mod_debug50[ 12 ] = 117;__mod_debug50[ 13 ] = 114;__mod_debug50[ 14 ] =
+110;__mod_debug50[ 15 ] = 32;__mod_debug50[ 16 ] = 111;__mod_debug50[ 17 ] =
+110;__mod_debug50[ 18 ] = 47;__mod_debug50[ 19 ] = 111;__mod_debug50[ 20 ] =
+102;__mod_debug50[ 21 ] = 102;__mod_debug50[ 22 ] = 32;__mod_debug50[ 23 ] =
+100;__mod_debug50[ 24 ] = 101;__mod_debug50[ 25 ] = 98;__mod_debug50[ 26 ] =
+117;__mod_debug50[ 27 ] = 103;__mod_debug50[ 28 ] = 103;__mod_debug50[ 29 ] =
+105;__mod_debug50[ 30 ] = 110;__mod_debug50[ 31 ] = 103;__mod_debug50[ 32 ] =
+32;__mod_debug50[ 33 ] = 40;__mod_debug50[ 34 ] = 100;__mod_debug50[ 35 ] =
+101;__mod_debug50[ 36 ] = 102;__mod_debug50[ 37 ] = 97;__mod_debug50[ 38 ] =
+117;__mod_debug50[ 39 ] = 108;__mod_debug50[ 40 ] = 116;__mod_debug50[ 41 ] =
+58;__mod_debug50[ 42 ] = 111;__mod_debug50[ 43 ] = 102;__mod_debug50[ 44 ] =
+102;__mod_debug50[ 45 ] = 41;__mod_debug50[ 46 ] = 46;__mod_debug50[ 47 ] =
+0;__param_str_output_pva[ 0 ] = 111;__param_str_output_pva[ 1 ] =
+117;__param_str_output_pva[ 2 ] = 116;__param_str_output_pva[ 3 ] =
+112;__param_str_output_pva[ 4 ] = 117;__param_str_output_pva[ 5 ] =
+116;__param_str_output_pva[ 6 ] = 95;__param_str_output_pva[ 7 ] =
+112;__param_str_output_pva[ 8 ] = 118;__param_str_output_pva[ 9 ] =
+97;__param_str_output_pva[ 10 ] = 0;__param_output_pva.name =
+__param_str_output_pva;__param_output_pva.ops =
+&(param_ops_int);__param_output_pva.perm = 292;__param_output_pva.flags =
+0;__param_output_pva.__annonCompField31.arg =
+&(output_pva);__mod_output_pvatype51[ 0 ] = 112;__mod_output_pvatype51[ 1 ] =
+97;__mod_output_pvatype51[ 2 ] = 114;__mod_output_pvatype51[ 3 ] =
+109;__mod_output_pvatype51[ 4 ] = 116;__mod_output_pvatype51[ 5 ] =
+121;__mod_output_pvatype51[ 6 ] = 112;__mod_output_pvatype51[ 7 ] =
+101;__mod_output_pvatype51[ 8 ] = 61;__mod_output_pvatype51[ 9 ] =
+111;__mod_output_pvatype51[ 10 ] = 117;__mod_output_pvatype51[ 11 ] =
+116;__mod_output_pvatype51[ 12 ] = 112;__mod_output_pvatype51[ 13 ] =
+117;__mod_output_pvatype51[ 14 ] = 116;__mod_output_pvatype51[ 15 ] =
+95;__mod_output_pvatype51[ 16 ] = 112;__mod_output_pvatype51[ 17 ] =
+118;__mod_output_pvatype51[ 18 ] = 97;__mod_output_pvatype51[ 19 ] =
+58;__mod_output_pvatype51[ 20 ] = 105;__mod_output_pvatype51[ 21 ] =
+110;__mod_output_pvatype51[ 22 ] = 116;__mod_output_pvatype51[ 23 ] =
+0;__mod_output_pva52[ 0 ] = 112;__mod_output_pva52[ 1 ] =
+97;__mod_output_pva52[ 2 ] = 114;__mod_output_pva52[ 3 ] =
+109;__mod_output_pva52[ 4 ] = 61;__mod_output_pva52[ 5 ] =
+111;__mod_output_pva52[ 6 ] = 117;__mod_output_pva52[ 7 ] =
+116;__mod_output_pva52[ 8 ] = 112;__mod_output_pva52[ 9 ] =
+117;__mod_output_pva52[ 10 ] = 116;__mod_output_pva52[ 11 ] =
+95;__mod_output_pva52[ 12 ] = 112;__mod_output_pva52[ 13 ] =
+118;__mod_output_pva52[ 14 ] = 97;__mod_output_pva52[ 15 ] =
+58;__mod_output_pva52[ 16 ] = 79;__mod_output_pva52[ 17 ] =
+117;__mod_output_pva52[ 18 ] = 116;__mod_output_pva52[ 19 ] =
+112;__mod_output_pva52[ 20 ] = 117;__mod_output_pva52[ 21 ] =
+116;__mod_output_pva52[ 22 ] = 32;__mod_output_pva52[ 23 ] =
+80;__mod_output_pva52[ 24 ] = 86;__mod_output_pva52[ 25 ] =
+65;__mod_output_pva52[ 26 ] = 32;__mod_output_pva52[ 27 ] =
+102;__mod_output_pva52[ 28 ] = 114;__mod_output_pva52[ 29 ] =
+111;__mod_output_pva52[ 30 ] = 109;__mod_output_pva52[ 31 ] =
+32;__mod_output_pva52[ 32 ] = 100;__mod_output_pva52[ 33 ] =
+118;__mod_output_pva52[ 34 ] = 114;__mod_output_pva52[ 35 ] =
+32;__mod_output_pva52[ 36 ] = 100;__mod_output_pva52[ 37 ] =
+101;__mod_output_pva52[ 38 ] = 118;__mod_output_pva52[ 39 ] =
+105;__mod_output_pva52[ 40 ] = 99;__mod_output_pva52[ 41 ] =
+101;__mod_output_pva52[ 42 ] = 32;__mod_output_pva52[ 43 ] =
+40;__mod_output_pva52[ 44 ] = 100;__mod_output_pva52[ 45 ] =
+101;__mod_output_pva52[ 46 ] = 102;__mod_output_pva52[ 47 ] =
+97;__mod_output_pva52[ 48 ] = 117;__mod_output_pva52[ 49 ] =
+108;__mod_output_pva52[ 50 ] = 116;__mod_output_pva52[ 51 ] =
+58;__mod_output_pva52[ 52 ] = 111;__mod_output_pva52[ 53 ] =
+102;__mod_output_pva52[ 54 ] = 102;__mod_output_pva52[ 55 ] =
+41;__mod_output_pva52[ 56 ] = 0;__param_str_enable_rc[ 0 ] =
+101;__param_str_enable_rc[ 1 ] = 110;__param_str_enable_rc[ 2 ] =
+97;__param_str_enable_rc[ 3 ] = 98;__param_str_enable_rc[ 4 ] =
+108;__param_str_enable_rc[ 5 ] = 101;__param_str_enable_rc[ 6 ] =
+95;__param_str_enable_rc[ 7 ] = 114;__param_str_enable_rc[ 8 ] =
+99;__param_str_enable_rc[ 9 ] = 0;__param_enable_rc.name =
+__param_str_enable_rc;__param_enable_rc.ops =
+&(param_ops_int);__param_enable_rc.perm = 420;__param_enable_rc.flags =
+0;__param_enable_rc.__annonCompField31.arg =
+&(enable_rc);__mod_enable_rctype53[ 0 ] = 112;__mod_enable_rctype53[ 1 ] =
+97;__mod_enable_rctype53[ 2 ] = 114;__mod_enable_rctype53[ 3 ] =
+109;__mod_enable_rctype53[ 4 ] = 116;__mod_enable_rctype53[ 5 ] =
+121;__mod_enable_rctype53[ 6 ] = 112;__mod_enable_rctype53[ 7 ] =
+101;__mod_enable_rctype53[ 8 ] = 61;__mod_enable_rctype53[ 9 ] =
+101;__mod_enable_rctype53[ 10 ] = 110;__mod_enable_rctype53[ 11 ] =
+97;__mod_enable_rctype53[ 12 ] = 98;__mod_enable_rctype53[ 13 ] =
+108;__mod_enable_rctype53[ 14 ] = 101;__mod_enable_rctype53[ 15 ] =
+95;__mod_enable_rctype53[ 16 ] = 114;__mod_enable_rctype53[ 17 ] =
+99;__mod_enable_rctype53[ 18 ] = 58;__mod_enable_rctype53[ 19 ] =
+105;__mod_enable_rctype53[ 20 ] = 110;__mod_enable_rctype53[ 21 ] =
+116;__mod_enable_rctype53[ 22 ] = 0;__mod_enable_rc54[ 0 ] =
+112;__mod_enable_rc54[ 1 ] = 97;__mod_enable_rc54[ 2 ] =
+114;__mod_enable_rc54[ 3 ] = 109;__mod_enable_rc54[ 4 ] =
+61;__mod_enable_rc54[ 5 ] = 101;__mod_enable_rc54[ 6 ] =
+110;__mod_enable_rc54[ 7 ] = 97;__mod_enable_rc54[ 8 ] =
+98;__mod_enable_rc54[ 9 ] = 108;__mod_enable_rc54[ 10 ] =
+101;__mod_enable_rc54[ 11 ] = 95;__mod_enable_rc54[ 12 ] =
+114;__mod_enable_rc54[ 13 ] = 99;__mod_enable_rc54[ 14 ] =
+58;__mod_enable_rc54[ 15 ] = 84;__mod_enable_rc54[ 16 ] =
+117;__mod_enable_rc54[ 17 ] = 114;__mod_enable_rc54[ 18 ] =
+110;__mod_enable_rc54[ 19 ] = 32;__mod_enable_rc54[ 20 ] =
+111;__mod_enable_rc54[ 21 ] = 110;__mod_enable_rc54[ 22 ] =
+47;__mod_enable_rc54[ 23 ] = 111;__mod_enable_rc54[ 24 ] =
+102;__mod_enable_rc54[ 25 ] = 102;__mod_enable_rc54[ 26 ] =
+32;__mod_enable_rc54[ 27 ] = 73;__mod_enable_rc54[ 28 ] =
+82;__mod_enable_rc54[ 29 ] = 32;__mod_enable_rc54[ 30 ] =
+114;__mod_enable_rc54[ 31 ] = 101;__mod_enable_rc54[ 32 ] =
+109;__mod_enable_rc54[ 33 ] = 111;__mod_enable_rc54[ 34 ] =
+116;__mod_enable_rc54[ 35 ] = 101;__mod_enable_rc54[ 36 ] =
+32;__mod_enable_rc54[ 37 ] = 99;__mod_enable_rc54[ 38 ] =
+111;__mod_enable_rc54[ 39 ] = 110;__mod_enable_rc54[ 40 ] =
+116;__mod_enable_rc54[ 41 ] = 114;__mod_enable_rc54[ 42 ] =
+111;__mod_enable_rc54[ 43 ] = 108;__mod_enable_rc54[ 44 ] =
+40;__mod_enable_rc54[ 45 ] = 100;__mod_enable_rc54[ 46 ] =
+101;__mod_enable_rc54[ 47 ] = 102;__mod_enable_rc54[ 48 ] =
+97;__mod_enable_rc54[ 49 ] = 117;__mod_enable_rc54[ 50 ] =
+108;__mod_enable_rc54[ 51 ] = 116;__mod_enable_rc54[ 52 ] =
+58;__mod_enable_rc54[ 53 ] = 32;__mod_enable_rc54[ 54 ] =
+111;__mod_enable_rc54[ 55 ] = 102;__mod_enable_rc54[ 56 ] =
+102;__mod_enable_rc54[ 57 ] = 41;__mod_enable_rc54[ 58 ] = 0;adapter_nr[ 0 ]
+= -1;adapter_nr[ 1 ] = -1;adapter_nr[ 2 ] = -1;adapter_nr[ 3 ] =
+-1;adapter_nr[ 4 ] = -1;adapter_nr[ 5 ] = -1;adapter_nr[ 6 ] =
+-1;adapter_nr[ 7 ] = -1;__param_arr_adapter_nr.max = 1024  /  128  + 
+0;__param_arr_adapter_nr.elemsize = 128;__param_arr_adapter_nr.num =
+0;__param_arr_adapter_nr.ops = &(param_ops_short);__param_arr_adapter_nr.elem
+= adapter_nr;__param_str_adapter_nr[ 0 ] = 97;__param_str_adapter_nr[ 1 ] =
+100;__param_str_adapter_nr[ 2 ] = 97;__param_str_adapter_nr[ 3 ] =
+112;__param_str_adapter_nr[ 4 ] = 116;__param_str_adapter_nr[ 5 ] =
+101;__param_str_adapter_nr[ 6 ] = 114;__param_str_adapter_nr[ 7 ] =
+95;__param_str_adapter_nr[ 8 ] = 110;__param_str_adapter_nr[ 9 ] =
+114;__param_str_adapter_nr[ 10 ] = 0;__param_adapter_nr.name =
+__param_str_adapter_nr;__param_adapter_nr.ops =
+&(param_array_ops);__param_adapter_nr.perm = 292;__param_adapter_nr.flags =
+0;__param_adapter_nr.__annonCompField31.arr =
+&(__param_arr_adapter_nr);__mod_adapter_nrtype56[ 0 ] =
+112;__mod_adapter_nrtype56[ 1 ] = 97;__mod_adapter_nrtype56[ 2 ] =
+114;__mod_adapter_nrtype56[ 3 ] = 109;__mod_adapter_nrtype56[ 4 ] =
+116;__mod_adapter_nrtype56[ 5 ] = 121;__mod_adapter_nrtype56[ 6 ] =
+112;__mod_adapter_nrtype56[ 7 ] = 101;__mod_adapter_nrtype56[ 8 ] =
+61;__mod_adapter_nrtype56[ 9 ] = 97;__mod_adapter_nrtype56[ 10 ] =
+100;__mod_adapter_nrtype56[ 11 ] = 97;__mod_adapter_nrtype56[ 12 ] =
+112;__mod_adapter_nrtype56[ 13 ] = 116;__mod_adapter_nrtype56[ 14 ] =
+101;__mod_adapter_nrtype56[ 15 ] = 114;__mod_adapter_nrtype56[ 16 ] =
+95;__mod_adapter_nrtype56[ 17 ] = 110;__mod_adapter_nrtype56[ 18 ] =
+114;__mod_adapter_nrtype56[ 19 ] = 58;__mod_adapter_nrtype56[ 20 ] =
+97;__mod_adapter_nrtype56[ 21 ] = 114;__mod_adapter_nrtype56[ 22 ] =
+114;__mod_adapter_nrtype56[ 23 ] = 97;__mod_adapter_nrtype56[ 24 ] =
+121;__mod_adapter_nrtype56[ 25 ] = 32;__mod_adapter_nrtype56[ 26 ] =
+111;__mod_adapter_nrtype56[ 27 ] = 102;__mod_adapter_nrtype56[ 28 ] =
+32;__mod_adapter_nrtype56[ 29 ] = 115;__mod_adapter_nrtype56[ 30 ] =
+104;__mod_adapter_nrtype56[ 31 ] = 111;__mod_adapter_nrtype56[ 32 ] =
+114;__mod_adapter_nrtype56[ 33 ] = 116;__mod_adapter_nrtype56[ 34 ] =
+0;__mod_adapter_nr56[ 0 ] = 112;__mod_adapter_nr56[ 1 ] =
+97;__mod_adapter_nr56[ 2 ] = 114;__mod_adapter_nr56[ 3 ] =
+109;__mod_adapter_nr56[ 4 ] = 61;__mod_adapter_nr56[ 5 ] =
+97;__mod_adapter_nr56[ 6 ] = 100;__mod_adapter_nr56[ 7 ] =
+97;__mod_adapter_nr56[ 8 ] = 112;__mod_adapter_nr56[ 9 ] =
+116;__mod_adapter_nr56[ 10 ] = 101;__mod_adapter_nr56[ 11 ] =
+114;__mod_adapter_nr56[ 12 ] = 95;__mod_adapter_nr56[ 13 ] =
+110;__mod_adapter_nr56[ 14 ] = 114;__mod_adapter_nr56[ 15 ] =
+58;__mod_adapter_nr56[ 16 ] = 68;__mod_adapter_nr56[ 17 ] =
+86;__mod_adapter_nr56[ 18 ] = 66;__mod_adapter_nr56[ 19 ] =
+32;__mod_adapter_nr56[ 20 ] = 97;__mod_adapter_nr56[ 21 ] =
+100;__mod_adapter_nr56[ 22 ] = 97;__mod_adapter_nr56[ 23 ] =
+112;__mod_adapter_nr56[ 24 ] = 116;__mod_adapter_nr56[ 25 ] =
+101;__mod_adapter_nr56[ 26 ] = 114;__mod_adapter_nr56[ 27 ] =
+32;__mod_adapter_nr56[ 28 ] = 110;__mod_adapter_nr56[ 29 ] =
+117;__mod_adapter_nr56[ 30 ] = 109;__mod_adapter_nr56[ 31 ] =
+98;__mod_adapter_nr56[ 32 ] = 101;__mod_adapter_nr56[ 33 ] =
+114;__mod_adapter_nr56[ 34 ] = 115;__mod_adapter_nr56[ 35 ] = 0;rc_keys[ 0 ]
+= 116;rc_keys[ 1 ] = 113;rc_keys[ 2 ] = 2;rc_keys[ 3 ] = 3;rc_keys[ 4 ] =
+4;rc_keys[ 5 ] = 5;rc_keys[ 6 ] = 6;rc_keys[ 7 ] = 7;rc_keys[ 8 ] =
+8;rc_keys[ 9 ] = 9;rc_keys[ 10 ] = 10;rc_keys[ 11 ] = 11;rc_keys[ 12 ] =
+402;rc_keys[ 13 ] = 114;rc_keys[ 14 ] = 352;rc_keys[ 15 ] = 115;rc_keys[ 16 ]
+= 403;rc_keys[ 17 ] = 412;rc_keys[ 18 ] = 1;rc_keys[ 19 ] = 398;rc_keys[ 20 ]
+= 399;rc_keys[ 21 ] = 400;rc_keys[ 22 ] = 401;rc_keys[ 23 ] =
+357;rc_keys[ 24 ] = 50;rc_keys[ 25 ] = 385;fe_config.send_command =
+&(fe_send_command);ttusb_dec_table[ 0 ].match_flags =
+3;ttusb_dec_table[ 0 ].idVendor = 2888;ttusb_dec_table[ 0 ].idProduct =
+4102;ttusb_dec_table[ 0 ].bcdDevice_lo = 0;ttusb_dec_table[ 0 ].bcdDevice_hi
+= 0;ttusb_dec_table[ 0 ].bDeviceClass =
+0;ttusb_dec_table[ 0 ].bDeviceSubClass =
+0;ttusb_dec_table[ 0 ].bDeviceProtocol =
+0;ttusb_dec_table[ 0 ].bInterfaceClass =
+0;ttusb_dec_table[ 0 ].bInterfaceSubClass =
+0;ttusb_dec_table[ 0 ].bInterfaceProtocol =
+0;ttusb_dec_table[ 0 ].driver_info = 0;ttusb_dec_table[ 1 ].match_flags =
+3;ttusb_dec_table[ 1 ].idVendor = 2888;ttusb_dec_table[ 1 ].idProduct =
+4104;ttusb_dec_table[ 1 ].bcdDevice_lo = 0;ttusb_dec_table[ 1 ].bcdDevice_hi
+= 0;ttusb_dec_table[ 1 ].bDeviceClass =
+0;ttusb_dec_table[ 1 ].bDeviceSubClass =
+0;ttusb_dec_table[ 1 ].bDeviceProtocol =
+0;ttusb_dec_table[ 1 ].bInterfaceClass =
+0;ttusb_dec_table[ 1 ].bInterfaceSubClass =
+0;ttusb_dec_table[ 1 ].bInterfaceProtocol =
+0;ttusb_dec_table[ 1 ].driver_info = 0;ttusb_dec_table[ 2 ].match_flags =
+3;ttusb_dec_table[ 2 ].idVendor = 2888;ttusb_dec_table[ 2 ].idProduct =
+4105;ttusb_dec_table[ 2 ].bcdDevice_lo = 0;ttusb_dec_table[ 2 ].bcdDevice_hi
+= 0;ttusb_dec_table[ 2 ].bDeviceClass =
+0;ttusb_dec_table[ 2 ].bDeviceSubClass =
+0;ttusb_dec_table[ 2 ].bDeviceProtocol =
+0;ttusb_dec_table[ 2 ].bInterfaceClass =
+0;ttusb_dec_table[ 2 ].bInterfaceSubClass =
+0;ttusb_dec_table[ 2 ].bInterfaceProtocol =
+0;ttusb_dec_table[ 2 ].driver_info = 0;ttusb_dec_driver.name =
+"ttusb-dec";ttusb_dec_driver.probe =
+&(ttusb_dec_probe);ttusb_dec_driver.disconnect =
+&(ttusb_dec_disconnect);ttusb_dec_driver.unlocked_ioctl =
+0;ttusb_dec_driver.suspend = 0;ttusb_dec_driver.resume =
+0;ttusb_dec_driver.reset_resume = 0;ttusb_dec_driver.pre_reset =
+0;ttusb_dec_driver.post_reset = 0;ttusb_dec_driver.id_table =
+ttusb_dec_table;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.raw_lock.slock
+= 0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.magic =
+0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.owner_cpu =
+0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.owner =
+0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.dep_map.key =
+0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 0 ]
+=
+0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.dep_map.class_cache[ 1 ]
+= 0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.dep_map.name =
+0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.dep_map.cpu =
+0;ttusb_dec_driver.dynids.lock.__annonCompField18.rlock.dep_map.ip =
+0;ttusb_dec_driver.dynids.list.next = 0;ttusb_dec_driver.dynids.list.prev =
+0;ttusb_dec_driver.drvwrap.driver.name =
+0;ttusb_dec_driver.drvwrap.driver.bus =
+0;ttusb_dec_driver.drvwrap.driver.owner =
+0;ttusb_dec_driver.drvwrap.driver.mod_name =
+0;ttusb_dec_driver.drvwrap.driver.suppress_bind_attrs =
+0;ttusb_dec_driver.drvwrap.driver.of_match_table =
+0;ttusb_dec_driver.drvwrap.driver.probe =
+0;ttusb_dec_driver.drvwrap.driver.remove =
+0;ttusb_dec_driver.drvwrap.driver.shutdown =
+0;ttusb_dec_driver.drvwrap.driver.suspend =
+0;ttusb_dec_driver.drvwrap.driver.resume =
+0;ttusb_dec_driver.drvwrap.driver.groups =
+0;ttusb_dec_driver.drvwrap.driver.pm = 0;ttusb_dec_driver.drvwrap.driver.p =
+0;ttusb_dec_driver.drvwrap.for_devices = 0;ttusb_dec_driver.no_dynamic_id =
+0;ttusb_dec_driver.supports_autosuspend = 0;ttusb_dec_driver.soft_unbind =
+0;__mod_author1781[ 0 ] = 97;__mod_author1781[ 1 ] =
+117;__mod_author1781[ 2 ] = 116;__mod_author1781[ 3 ] =
+104;__mod_author1781[ 4 ] = 111;__mod_author1781[ 5 ] =
+114;__mod_author1781[ 6 ] = 61;__mod_author1781[ 7 ] =
+65;__mod_author1781[ 8 ] = 108;__mod_author1781[ 9 ] =
+101;__mod_author1781[ 10 ] = 120;__mod_author1781[ 11 ] =
+32;__mod_author1781[ 12 ] = 87;__mod_author1781[ 13 ] =
+111;__mod_author1781[ 14 ] = 111;__mod_author1781[ 15 ] =
+100;__mod_author1781[ 16 ] = 115;__mod_author1781[ 17 ] =
+32;__mod_author1781[ 18 ] = 60;__mod_author1781[ 19 ] =
+108;__mod_author1781[ 20 ] = 105;__mod_author1781[ 21 ] =
+110;__mod_author1781[ 22 ] = 117;__mod_author1781[ 23 ] =
+120;__mod_author1781[ 24 ] = 45;__mod_author1781[ 25 ] =
+100;__mod_author1781[ 26 ] = 118;__mod_author1781[ 27 ] =
+98;__mod_author1781[ 28 ] = 64;__mod_author1781[ 29 ] =
+103;__mod_author1781[ 30 ] = 105;__mod_author1781[ 31 ] =
+98;__mod_author1781[ 32 ] = 108;__mod_author1781[ 33 ] =
+101;__mod_author1781[ 34 ] = 116;__mod_author1781[ 35 ] =
+115;__mod_author1781[ 36 ] = 46;__mod_author1781[ 37 ] =
+111;__mod_author1781[ 38 ] = 114;__mod_author1781[ 39 ] =
+103;__mod_author1781[ 40 ] = 62;__mod_author1781[ 41 ] =
+0;__mod_description1782[ 0 ] = 100;__mod_description1782[ 1 ] =
+101;__mod_description1782[ 2 ] = 115;__mod_description1782[ 3 ] =
+99;__mod_description1782[ 4 ] = 114;__mod_description1782[ 5 ] =
+105;__mod_description1782[ 6 ] = 112;__mod_description1782[ 7 ] =
+116;__mod_description1782[ 8 ] = 105;__mod_description1782[ 9 ] =
+111;__mod_description1782[ 10 ] = 110;__mod_description1782[ 11 ] =
+61;__mod_description1782[ 12 ] = 84;__mod_description1782[ 13 ] =
+101;__mod_description1782[ 14 ] = 99;__mod_description1782[ 15 ] =
+104;__mod_description1782[ 16 ] = 110;__mod_description1782[ 17 ] =
+111;__mod_description1782[ 18 ] = 84;__mod_description1782[ 19 ] =
+114;__mod_description1782[ 20 ] = 101;__mod_description1782[ 21 ] =
+110;__mod_description1782[ 22 ] = 100;__mod_description1782[ 23 ] =
+47;__mod_description1782[ 24 ] = 72;__mod_description1782[ 25 ] =
+97;__mod_description1782[ 26 ] = 117;__mod_description1782[ 27 ] =
+112;__mod_description1782[ 28 ] = 112;__mod_description1782[ 29 ] =
+97;__mod_description1782[ 30 ] = 117;__mod_description1782[ 31 ] =
+103;__mod_description1782[ 32 ] = 101;__mod_description1782[ 33 ] =
+32;__mod_description1782[ 34 ] = 68;__mod_description1782[ 35 ] =
+69;__mod_description1782[ 36 ] = 67;__mod_description1782[ 37 ] =
+32;__mod_description1782[ 38 ] = 85;__mod_description1782[ 39 ] =
+83;__mod_description1782[ 40 ] = 66;__mod_description1782[ 41 ] =
+0;__mod_license1783[ 0 ] = 108;__mod_license1783[ 1 ] =
+105;__mod_license1783[ 2 ] = 99;__mod_license1783[ 3 ] =
+101;__mod_license1783[ 4 ] = 110;__mod_license1783[ 5 ] =
+115;__mod_license1783[ 6 ] = 101;__mod_license1783[ 7 ] =
+61;__mod_license1783[ 8 ] = 71;__mod_license1783[ 9 ] =
+80;__mod_license1783[ 10 ] = 76;__mod_license1783[ 11 ] = 0;ldv_urb_state =
+0;ldv_coherent_state = 0;)
+                                                Location: id=86#2 src="ldv/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.ko/unsafe.cil.out.i.pp.i.common.c"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=78#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1871
+Block(LDV_IN_INTERRUPT = 1;)
+                                                Location: id=78#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1880
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=78#5 (Artificial)
+Skip
+                                                Location: id=78#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1901
+FunctionCall(tmp___7@main = ttusb_dec_init())
+Locals: 
+                                                Location: id=74#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1764
+   FunctionCall(result@ttusb_dec_init = usb_register(&(ttusb_dec_driver)))
+Locals:  driver@usb_register
+                                                Location: id=26#1 src="include/linux/usb.h"; line=933
+      FunctionCall(tmp___7@usb_register =
+usb_register_driver(driver@usb_register, &(__this_module), "ttusb_dec"))
+LDV: undefined function called: usb_register_driver
+                                                Location: id=26#2 (Artificial)
+      Skip
+                                                Location: id=26#3 src="include/linux/usb.h"; line=933
+      Block(Return(tmp___7@usb_register);)
+   Skip
+                                                Location: id=74#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1764
+   Pred(result@ttusb_dec_init  >=  0)
+                                                Location: id=74#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1770
+   Block(__retres2@ttusb_dec_init = 0;)
+                                                Location: id=74#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1760
+   Block(Return(__retres2@ttusb_dec_init);)
+Skip
+                                                Location: id=78#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1901
+Pred(tmp___7@main  ==  0)
+                                                Location: id=78#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1903
+Block(ldv_s_ttusb_dec_driver_usb_driver@main = 0;)
+                                                Location: id=78#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1906
+FunctionCall(tmp___9@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=78#14 (Artificial)
+Skip
+                                                Location: id=78#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1906
+Pred(tmp___9@main  !=  0)
+                                                Location: id=78#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1910
+FunctionCall(tmp___8@main = nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=78#18 (Artificial)
+Skip
+                                                Location: id=78#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1912
+Pred(tmp___8@main  ==  0)
+                                                Location: id=78#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1915
+Pred(ldv_s_ttusb_dec_driver_usb_driver@main  ==  0)
+                                                Location: id=78#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1935
+FunctionCall(res_ttusb_dec_probe_38 =
+ttusb_dec_probe(var_group1@main, var_ttusb_dec_probe_38_p1@main))
+Locals:  intf@ttusb_dec_probe id@ttusb_dec_probe
+                                                Location: id=71#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1628
+   Pred(debug  ==  0)
+                                                Location: id=71#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1630
+   FunctionCall(udev@ttusb_dec_probe =
+interface_to_usbdev(intf@ttusb_dec_probe))
+Locals:  intf@interface_to_usbdev
+                                                Location: id=24#1 src="include/linux/usb.h"; line=499
+      Block(__mptr@interface_to_usbdev = * (intf@interface_to_usbdev ).dev.parent;)
+                                                Location: id=24#2 src="include/linux/usb.h"; line=499
+      Block(cil_3@interface_to_usbdev = 0;)
+                                                Location: id=24#3 src="include/linux/usb.h"; line=499
+      Block(__retres4@interface_to_usbdev = __mptr@interface_to_usbdev  - 
+cil_3@interface_to_usbdev  foffset  dev;)
+                                                Location: id=24#4 src="include/linux/usb.h"; line=497
+      Block(Return(__retres4@interface_to_usbdev);)
+   Skip
+                                                Location: id=71#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1632
+   FunctionCall(tmp___7@ttusb_dec_probe = kzalloc(991744, 208))
+Locals:  size@kzalloc flags@kzalloc
+                                                Location: id=12#1 src="include/linux/slab.h"; line=320
+      FunctionCall(tmp@kzalloc = kmalloc(size@kzalloc, flags@kzalloc  |  32768))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=11#1 src="include/linux/slub_def.h"; line=270
+         FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=11#2 (Artificial)
+         Skip
+                                                Location: id=11#3 src="include/linux/slub_def.h"; line=270
+         Block(Return(tmp___2@kmalloc);)
+      Skip
+                                                Location: id=12#3 src="include/linux/slab.h"; line=320
+      Block(Return(tmp@kzalloc);)
+   Skip
+                                                Location: id=71#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1632
+   Block(dec@ttusb_dec_probe = tmp___7@ttusb_dec_probe;)
+                                                Location: id=71#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1632
+   Pred(dec@ttusb_dec_probe  !=  0)
+                                                Location: id=71#11 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1637
+   FunctionCall(usb_set_intfdata(intf@ttusb_dec_probe, dec@ttusb_dec_probe))
+Locals:  intf@usb_set_intfdata data@usb_set_intfdata
+                                                Location: id=23#1 src="include/linux/usb.h"; line=198
+      FunctionCall(dev_set_drvdata(intf@usb_set_intfdata  foffset 
+dev, data@usb_set_intfdata))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=23#2 (Artificial)
+      Skip
+                                                Location: id=23#3 src="include/linux/usb.h"; line=196
+      Block(Return(0);)
+   Skip
+                                                Location: id=71#14 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1640
+   Pred(* (id@ttusb_dec_probe ).idProduct  !=  4102)
+                                                Location: id=71#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1644
+   Pred(* (id@ttusb_dec_probe ).idProduct  !=  4104)
+                                                Location: id=71#82 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1648
+   Pred(* (id@ttusb_dec_probe ).idProduct  !=  4105)
+                                                Location: id=71#86 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1639
+   Pred(0  ==  0)
+                                                Location: id=71#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1652
+   Skip
+                                                Location: id=71#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1653
+   Block(* (dec@ttusb_dec_probe ).udev = udev@ttusb_dec_probe;)
+                                                Location: id=71#20 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1655
+   FunctionCall(tmp___8@ttusb_dec_probe =
+ttusb_dec_init_usb(dec@ttusb_dec_probe))
+Locals:  dec@ttusb_dec_init_usb
+                                                Location: id=60#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1245
+      Pred(debug  ==  0)
+                                                Location: id=60#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1247
+      FunctionCall(__mutex_init(dec@ttusb_dec_init_usb  foffset 
+usb_mutex, "&dec->usb_mutex", &(__key___10)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=60#6 (Artificial)
+      Skip
+                                                Location: id=60#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1251
+      Skip
+                                                Location: id=60#8 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1248
+      FunctionCall(__mutex_init(dec@ttusb_dec_init_usb  foffset 
+iso_mutex, "&dec->iso_mutex", &(__key___11)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=60#9 (Artificial)
+      Skip
+                                                Location: id=60#10 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1250
+      FunctionCall(tmp___7@ttusb_dec_init_usb =
+__create_pipe(* (dec@ttusb_dec_init_usb ).udev, 3))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=28#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=28#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=60#12 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1250
+      Block(* (dec@ttusb_dec_init_usb ).command_pipe = 3  <<  30  | 
+tmp___7@ttusb_dec_init_usb;)
+                                                Location: id=60#13 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1251
+      FunctionCall(tmp___8@ttusb_dec_init_usb =
+__create_pipe(* (dec@ttusb_dec_init_usb ).udev, 4))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=28#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=28#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=60#15 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1251
+      Block(* (dec@ttusb_dec_init_usb ).result_pipe = 3  <<  30  | 
+tmp___8@ttusb_dec_init_usb  |  128;)
+                                                Location: id=60#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1252
+      FunctionCall(tmp___9@ttusb_dec_init_usb =
+__create_pipe(* (dec@ttusb_dec_init_usb ).udev, 8))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=28#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=28#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=60#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1252
+      Block(* (dec@ttusb_dec_init_usb ).in_pipe = tmp___9@ttusb_dec_init_usb  | 
+128;)
+                                                Location: id=60#19 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1253
+      FunctionCall(tmp___10@ttusb_dec_init_usb =
+__create_pipe(* (dec@ttusb_dec_init_usb ).udev, 7))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=28#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=28#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=60#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1253
+      Block(* (dec@ttusb_dec_init_usb ).out_pipe = tmp___10@ttusb_dec_init_usb;)
+                                                Location: id=60#22 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1254
+      FunctionCall(tmp___11@ttusb_dec_init_usb =
+__create_pipe(* (dec@ttusb_dec_init_usb ).udev, 10))
+Locals:  dev@__create_pipe endpoint@__create_pipe
+                                                Location: id=28#1 src="include/linux/usb.h"; line=1529
+         Block(__retres3@__create_pipe = * (dev@__create_pipe ).devnum  <<  8  | 
+endpoint@__create_pipe  <<  15;)
+                                                Location: id=28#2 src="include/linux/usb.h"; line=1526
+         Block(Return(__retres3@__create_pipe);)
+      Skip
+                                                Location: id=60#24 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1254
+      Block(* (dec@ttusb_dec_init_usb ).irq_pipe = 1  <<  30  | 
+tmp___11@ttusb_dec_init_usb  |  128;)
+                                                Location: id=60#25 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1256
+      Pred(enable_rc  ==  0)
+                                                Location: id=60#42 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1274
+      FunctionCall(tmp___12@ttusb_dec_init_usb =
+ttusb_dec_alloc_iso_urbs(dec@ttusb_dec_init_usb))
+Locals:  dec@ttusb_dec_alloc_iso_urbs
+                                                Location: id=56#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1153
+         Pred(debug  ==  0)
+                                                Location: id=56#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1155
+         FunctionCall(* (dec@ttusb_dec_alloc_iso_urbs ).iso_buffer =
+pci_alloc_consistent(0, 14336, dec@ttusb_dec_alloc_iso_urbs  foffset 
+iso_dma_handle))
+Locals:  hwdev@pci_alloc_consistent size@pci_alloc_consistent dma_handle@pci_alloc_consistent
+                                                Location: id=19#1 src="include/asm-generic/pci-dma-compat.h"; line=19
+            Pred(hwdev@pci_alloc_consistent  ==  0)
+                                                Location: id=19#2 src="include/asm-generic/pci-dma-compat.h"; line=19
+            Block(tmp@pci_alloc_consistent = 0;)
+                                                Location: id=19#4 src="include/asm-generic/pci-dma-compat.h"; line=19
+            FunctionCall(tmp___0@pci_alloc_consistent =
+dma_alloc_coherent(tmp@pci_alloc_consistent, size@pci_alloc_consistent, dma_handle@pci_alloc_consistent, 32))
+Locals:  dev@dma_alloc_coherent size@dma_alloc_coherent dma_handle@dma_alloc_coherent gfp@dma_alloc_coherent
+                                                Location: id=17#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=118
+               FunctionCall(tmp@dma_alloc_coherent = get_dma_ops(dev@dma_alloc_coherent))
+Locals:  dev@get_dma_ops
+                                                Location: id=14#1 src=""; line=-1
+                  Pred(dev@get_dma_ops  ==  0)
+                                                Location: id=14#3 src=""; line=-1
+                  Block(__cil_tmp3@get_dma_ops = 1;)
+                                                Location: id=14#4 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=36
+                  FunctionCall(tmp@get_dma_ops = __builtin_expect(__cil_tmp3@get_dma_ops, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=14#5 (Artificial)
+                  Skip
+                                                Location: id=14#6 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=36
+                  Pred(tmp@get_dma_ops  !=  0)
+                                                Location: id=14#7 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=37
+                  Block(__retres4@get_dma_ops = dma_ops;)
+                                                Location: id=14#9 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=31
+                  Block(Return(__retres4@get_dma_ops);)
+               Skip
+                                                Location: id=17#3 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=118
+               Block(ops@dma_alloc_coherent = tmp@dma_alloc_coherent;gfp@dma_alloc_coherent
+= gfp@dma_alloc_coherent  &  4294967288;)
+                                                Location: id=17#4 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=126
+               Pred(dev@dma_alloc_coherent  ==  0)
+                                                Location: id=17#5 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=127
+               Block(dev@dma_alloc_coherent = &(x86_dma_fallback_dev);)
+                                                Location: id=17#7 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=129
+               FunctionCall(tmp___0@dma_alloc_coherent =
+is_device_dma_capable(dev@dma_alloc_coherent))
+Locals:  dev@is_device_dma_capable
+                                                Location: id=13#1 src="include/linux/dma-mapping.h"; line=89
+                  Pred(* (dev@is_device_dma_capable ).dma_mask  !=  0)
+                                                Location: id=13#2 src="include/linux/dma-mapping.h"; line=89
+                  Block(cil_3@is_device_dma_capable = * (dev@is_device_dma_capable ).dma_mask;)
+                                                Location: id=13#4 src="include/linux/dma-mapping.h"; line=89
+                  Pred(* (cil_3@is_device_dma_capable )  !=  0)
+                                                Location: id=13#5 src="include/linux/dma-mapping.h"; line=89
+                  Block(tmp@is_device_dma_capable = 1;)
+                                                Location: id=13#7 src="include/linux/dma-mapping.h"; line=89
+                  Block(Return(tmp@is_device_dma_capable);)
+               Skip
+                                                Location: id=17#9 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=129
+               Pred(tmp___0@dma_alloc_coherent  !=  0)
+                                                Location: id=17#10 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=132
+               Pred(* (ops@dma_alloc_coherent ).alloc_coherent  !=  0)
+                                                Location: id=17#13 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=135
+               FunctionCall(tmp___1@dma_alloc_coherent =
+dma_alloc_coherent_gfp_flags(dev@dma_alloc_coherent, gfp@dma_alloc_coherent))
+Locals:  dev@dma_alloc_coherent_gfp_flags gfp@dma_alloc_coherent_gfp_flags
+                                                Location: id=16#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=103
+                  FunctionCall(tmp@dma_alloc_coherent_gfp_flags =
+dma_alloc_coherent_mask(dev@dma_alloc_coherent_gfp_flags, gfp@dma_alloc_coherent_gfp_flags))
+Locals:  dev@dma_alloc_coherent_mask gfp@dma_alloc_coherent_mask
+                                                Location: id=15#1 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=92
+                     Block(dma_mask@dma_alloc_coherent_mask = 0;dma_mask@dma_alloc_coherent_mask =
+* (dev@dma_alloc_coherent_mask ).coherent_dma_mask;)
+                                                Location: id=15#2 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=95
+                     Pred(dma_mask@dma_alloc_coherent_mask  !=  0)
+                                                Location: id=15#7 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=98
+                     Block(Return(dma_mask@dma_alloc_coherent_mask);)
+                  Skip
+                                                Location: id=16#3 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=103
+                  Block(dma_mask@dma_alloc_coherent_gfp_flags =
+tmp@dma_alloc_coherent_gfp_flags;)
+                                                Location: id=16#4 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=105
+                  Pred(dma_mask@dma_alloc_coherent_gfp_flags  >  1  <<  24  -  1)
+                                                Location: id=16#7 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=108
+                  Pred(dma_mask@dma_alloc_coherent_gfp_flags  >  1  <<  32  -  1)
+                                                Location: id=16#12 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=111
+                  Block(Return(gfp@dma_alloc_coherent_gfp_flags);)
+               Skip
+                                                Location: id=17#16 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=135
+               Block(cil_10@dma_alloc_coherent =
+* (ops@dma_alloc_coherent ).alloc_coherent;)
+                                                Location: id=17#17 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=135
+               FunctionCall(memory@dma_alloc_coherent =
+* (cil_10@dma_alloc_coherent )(dev@dma_alloc_coherent, size@dma_alloc_coherent, dma_handle@dma_alloc_coherent, tmp___1@dma_alloc_coherent))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=17#18 (Artificial)
+               Skip
+                                                Location: id=17#19 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=137
+               FunctionCall(debug_dma_alloc_coherent(dev@dma_alloc_coherent, size@dma_alloc_coherent, * (dma_handle@dma_alloc_coherent ), memory@dma_alloc_coherent))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=17#20 (Artificial)
+               Skip
+                                                Location: id=17#21 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=139
+               Block(__retres11@dma_alloc_coherent = memory@dma_alloc_coherent;)
+                                                Location: id=17#14 src="/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/dma-mapping.h"; line=114
+               Block(Return(__retres11@dma_alloc_coherent);)
+            Skip
+                                                Location: id=19#6 src="include/asm-generic/pci-dma-compat.h"; line=19
+            Block(Return(tmp___0@pci_alloc_consistent);)
+         Skip
+                                                Location: id=56#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1161
+         Pred(* (dec@ttusb_dec_alloc_iso_urbs ).iso_buffer  !=  0)
+                                                Location: id=56#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1167
+         FunctionCall(memset(* (dec@ttusb_dec_alloc_iso_urbs ).iso_buffer, 0, 14336))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=56#15 (Artificial)
+         Skip
+                                                Location: id=56#16 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1170
+         Block(i@ttusb_dec_alloc_iso_urbs = 0;)
+                                                Location: id=56#17 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1170
+         Pred(i@ttusb_dec_alloc_iso_urbs  <  4)
+                                                Location: id=56#18 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1173
+         FunctionCall(urb@ttusb_dec_alloc_iso_urbs = usb_alloc_urb(4, 32))
+Locals:  iso_packets@usb_alloc_urb mem_flags@usb_alloc_urb
+                                                Location: id=83#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+            FunctionCall(tmp___7@usb_alloc_urb = ldv_undefined_pointer())
+LDV: undefined function called: ldv_undefined_pointer
+                                                Location: id=83#2 (Artificial)
+            Skip
+                                                Location: id=83#3 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+            Block(arbitrary_memory@usb_alloc_urb = tmp___7@usb_alloc_urb;)
+                                                Location: id=83#4 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+            Pred(arbitrary_memory@usb_alloc_urb  ==  0)
+                                                Location: id=83#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=75
+            Block(__retres5@usb_alloc_urb = 0;)
+                                                Location: id=83#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=74
+            Block(Return(__retres5@usb_alloc_urb);)
+         Skip
+                                                Location: id=56#21 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1173
+         Pred(urb@ttusb_dec_alloc_iso_urbs  ==  0)
+                                                Location: id=56#23 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1174
+         FunctionCall(ttusb_dec_free_iso_urbs(dec@ttusb_dec_alloc_iso_urbs))
+Locals:  dec@ttusb_dec_free_iso_urbs
+                                                Location: id=55#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1138
+            Pred(debug  ==  0)
+                                                Location: id=55#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1140
+            Block(i@ttusb_dec_free_iso_urbs = 0;)
+                                                Location: id=55#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1140
+            Pred(i@ttusb_dec_free_iso_urbs  <  4)
+                                                Location: id=55#7 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"; line=1141
+            FunctionCall(usb_free_urb(* (dec@ttusb_dec_free_iso_urbs ).iso_urb[ i@ttusb_dec_free_iso_urbs ]))
+Locals:  urb@usb_free_urb
+                                                Location: id=84#1 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+               Pred(urb@usb_free_urb  !=  0)
+                                                Location: id=84#5 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+               Pred(urb@usb_free_urb  !=  0)
+                                                Location: id=84#6 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+               Pred(ldv_urb_state  <  1)
+                                                Location: id=84#9 src="/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"; line=80
+               FunctionCall(ldv_blast_assert())
+Locals: 

@@ -1,0 +1,633 @@
+
+                                                Location: id=148#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-block-pktcdvd.o.general.i"; line=0
+                                                Location: id=148#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-block-pktcdvd.o.general.i"; line=0
+FunctionCall(__BLAST_initialize_/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-block-pktcdvd.o.general.i())
+Locals: 
+                                                Location: id=161#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=96
+   Block(pktcdvd_mutex.count.counter =
+1;pktcdvd_mutex.wait_lock.ldv_6060.rlock.raw_lock.slock =
+0;pktcdvd_mutex.wait_lock.ldv_6060.rlock.magic =
+3735899821;pktcdvd_mutex.wait_lock.ldv_6060.rlock.owner_cpu =
+4294967295;pktcdvd_mutex.wait_lock.ldv_6060.rlock.owner =
+-1;pktcdvd_mutex.wait_lock.ldv_6060.rlock.dep_map.key =
+0;pktcdvd_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 0 ] =
+0;pktcdvd_mutex.wait_lock.ldv_6060.rlock.dep_map.class_cache[ 1 ] =
+0;pktcdvd_mutex.wait_lock.ldv_6060.rlock.dep_map.name =
+"pktcdvd_mutex.wait_lock";pktcdvd_mutex.wait_lock.ldv_6060.rlock.dep_map.cpu
+= 0;pktcdvd_mutex.wait_lock.ldv_6060.rlock.dep_map.ip =
+0;pktcdvd_mutex.wait_list.next = &(pktcdvd_mutex)  foffset 
+wait_list;pktcdvd_mutex.wait_list.prev = &(pktcdvd_mutex)  foffset 
+wait_list;pktcdvd_mutex.owner = 0;pktcdvd_mutex.name = 0;pktcdvd_mutex.magic
+= &(pktcdvd_mutex);pktcdvd_mutex.dep_map.key =
+0;pktcdvd_mutex.dep_map.class_cache[ 0 ] =
+0;pktcdvd_mutex.dep_map.class_cache[ 1 ] = 0;pktcdvd_mutex.dep_map.name =
+"pktcdvd_mutex";pktcdvd_mutex.dep_map.cpu = 0;pktcdvd_mutex.dep_map.ip =
+0;write_congestion_on = 10000;write_congestion_off = 9000;class_pktcdvd =
+0;pkt_debugfs_root = 0;kobj_pkt_attr_st1.name =
+"reset";kobj_pkt_attr_st1.mode = 128;kobj_pkt_attr_st1.key =
+0;kobj_pkt_attr_st1.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_st1.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_st1.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_st1.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_st1.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_st1.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_st1.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_st1.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attr_st2.name =
+"packets_started";kobj_pkt_attr_st2.mode = 292;kobj_pkt_attr_st2.key =
+0;kobj_pkt_attr_st2.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_st2.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_st2.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_st2.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_st2.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_st2.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_st2.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_st2.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attr_st3.name =
+"packets_finished";kobj_pkt_attr_st3.mode = 292;kobj_pkt_attr_st3.key =
+0;kobj_pkt_attr_st3.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_st3.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_st3.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_st3.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_st3.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_st3.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_st3.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_st3.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attr_st4.name =
+"kb_written";kobj_pkt_attr_st4.mode = 292;kobj_pkt_attr_st4.key =
+0;kobj_pkt_attr_st4.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_st4.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_st4.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_st4.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_st4.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_st4.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_st4.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_st4.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attr_st5.name =
+"kb_read";kobj_pkt_attr_st5.mode = 292;kobj_pkt_attr_st5.key =
+0;kobj_pkt_attr_st5.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_st5.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_st5.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_st5.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_st5.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_st5.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_st5.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_st5.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attr_st6.name =
+"kb_read_gather";kobj_pkt_attr_st6.mode = 292;kobj_pkt_attr_st6.key =
+0;kobj_pkt_attr_st6.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_st6.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_st6.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_st6.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_st6.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_st6.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_st6.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_st6.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attrs_stat[ 0 ]
+= &(kobj_pkt_attr_st1);kobj_pkt_attrs_stat[ 1 ] =
+&(kobj_pkt_attr_st2);kobj_pkt_attrs_stat[ 2 ] =
+&(kobj_pkt_attr_st3);kobj_pkt_attrs_stat[ 3 ] =
+&(kobj_pkt_attr_st4);kobj_pkt_attrs_stat[ 4 ] =
+&(kobj_pkt_attr_st5);kobj_pkt_attrs_stat[ 5 ] =
+&(kobj_pkt_attr_st6);kobj_pkt_attrs_stat[ 6 ] = 0;kobj_pkt_attr_wq1.name =
+"size";kobj_pkt_attr_wq1.mode = 292;kobj_pkt_attr_wq1.key =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_wq1.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attr_wq2.name =
+"congestion_off";kobj_pkt_attr_wq2.mode = 420;kobj_pkt_attr_wq2.key =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_wq2.skey.subkeys[ 7 ].__one_byte = 0;kobj_pkt_attr_wq3.name =
+"congestion_on";kobj_pkt_attr_wq3.mode = 420;kobj_pkt_attr_wq3.key =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 0 ].__one_byte =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 1 ].__one_byte =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 2 ].__one_byte =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 3 ].__one_byte =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 4 ].__one_byte =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 5 ].__one_byte =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 6 ].__one_byte =
+0;kobj_pkt_attr_wq3.skey.subkeys[ 7 ].__one_byte =
+0;kobj_pkt_attrs_wqueue[ 0 ] =
+&(kobj_pkt_attr_wq1);kobj_pkt_attrs_wqueue[ 1 ] =
+&(kobj_pkt_attr_wq2);kobj_pkt_attrs_wqueue[ 2 ] =
+&(kobj_pkt_attr_wq3);kobj_pkt_attrs_wqueue[ 3 ] = 0;kobj_pkt_ops.show =
+&(kobj_pkt_show);kobj_pkt_ops.store =
+&(kobj_pkt_store);kobj_pkt_type_stat.release =
+&(pkt_kobj_release);kobj_pkt_type_stat.sysfs_ops =
+&(kobj_pkt_ops);kobj_pkt_type_stat.default_attrs =
+&(kobj_pkt_attrs_stat);kobj_pkt_type_stat.child_ns_type =
+0;kobj_pkt_type_stat.namespace = 0;kobj_pkt_type_wqueue.release =
+&(pkt_kobj_release);kobj_pkt_type_wqueue.sysfs_ops =
+&(kobj_pkt_ops);kobj_pkt_type_wqueue.default_attrs =
+&(kobj_pkt_attrs_wqueue);kobj_pkt_type_wqueue.child_ns_type =
+0;kobj_pkt_type_wqueue.namespace = 0;class_pktcdvd_attrs[ 0 ].attr.name =
+"add";class_pktcdvd_attrs[ 0 ].attr.mode =
+128;class_pktcdvd_attrs[ 0 ].attr.key =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;class_pktcdvd_attrs[ 0 ].show = 0;class_pktcdvd_attrs[ 0 ].store =
+&(class_pktcdvd_store_add);class_pktcdvd_attrs[ 1 ].attr.name =
+"remove";class_pktcdvd_attrs[ 1 ].attr.mode =
+128;class_pktcdvd_attrs[ 1 ].attr.key =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;class_pktcdvd_attrs[ 1 ].show = 0;class_pktcdvd_attrs[ 1 ].store =
+&(class_pktcdvd_store_remove);class_pktcdvd_attrs[ 2 ].attr.name =
+"device_map";class_pktcdvd_attrs[ 2 ].attr.mode =
+292;class_pktcdvd_attrs[ 2 ].attr.key =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;class_pktcdvd_attrs[ 2 ].show =
+&(class_pktcdvd_show_map);class_pktcdvd_attrs[ 2 ].store =
+0;class_pktcdvd_attrs[ 3 ].attr.name = 0;class_pktcdvd_attrs[ 3 ].attr.mode =
+0;class_pktcdvd_attrs[ 3 ].attr.key =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 0 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 1 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 2 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 3 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 4 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 5 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 6 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].attr.skey.subkeys[ 7 ].__one_byte =
+0;class_pktcdvd_attrs[ 3 ].show = 0;class_pktcdvd_attrs[ 3 ].store =
+0;debug_fops.owner = &(__this_module);debug_fops.llseek =
+&(seq_lseek);debug_fops.read = &(seq_read);debug_fops.write =
+0;debug_fops.aio_read = 0;debug_fops.aio_write = 0;debug_fops.readdir =
+0;debug_fops.poll = 0;debug_fops.unlocked_ioctl = 0;debug_fops.compat_ioctl =
+0;debug_fops.mmap = 0;debug_fops.open =
+&(pkt_debugfs_fops_open);debug_fops.flush = 0;debug_fops.release =
+&(single_release);debug_fops.fsync = 0;debug_fops.aio_fsync =
+0;debug_fops.fasync = 0;debug_fops.lock = 0;debug_fops.sendpage =
+0;debug_fops.get_unmapped_area = 0;debug_fops.check_flags =
+0;debug_fops.flock = 0;debug_fops.splice_write = 0;debug_fops.splice_read =
+0;debug_fops.setlease = 0;debug_fops.fallocate = 0;clv_to_speed[ 0 ] =
+0;clv_to_speed[ 1 ] = 2;clv_to_speed[ 2 ] = 4;clv_to_speed[ 3 ] =
+6;clv_to_speed[ 4 ] = 8;clv_to_speed[ 5 ] = 0;clv_to_speed[ 6 ] =
+0;clv_to_speed[ 7 ] = 0;clv_to_speed[ 8 ] = 0;clv_to_speed[ 9 ] =
+0;clv_to_speed[ 10 ] = 0;clv_to_speed[ 11 ] = 0;clv_to_speed[ 12 ] =
+0;clv_to_speed[ 13 ] = 0;clv_to_speed[ 14 ] = 0;clv_to_speed[ 15 ] =
+0;hs_clv_to_speed[ 0 ] = 0;hs_clv_to_speed[ 1 ] = 2;hs_clv_to_speed[ 2 ] =
+4;hs_clv_to_speed[ 3 ] = 6;hs_clv_to_speed[ 4 ] = 10;hs_clv_to_speed[ 5 ] =
+0;hs_clv_to_speed[ 6 ] = 0;hs_clv_to_speed[ 7 ] = 0;hs_clv_to_speed[ 8 ] =
+0;hs_clv_to_speed[ 9 ] = 0;hs_clv_to_speed[ 10 ] = 0;hs_clv_to_speed[ 11 ] =
+0;hs_clv_to_speed[ 12 ] = 0;hs_clv_to_speed[ 13 ] = 0;hs_clv_to_speed[ 14 ] =
+0;hs_clv_to_speed[ 15 ] = 0;us_clv_to_speed[ 0 ] = 0;us_clv_to_speed[ 1 ] =
+2;us_clv_to_speed[ 2 ] = 4;us_clv_to_speed[ 3 ] = 8;us_clv_to_speed[ 4 ] =
+0;us_clv_to_speed[ 5 ] = 0;us_clv_to_speed[ 6 ] = 16;us_clv_to_speed[ 7 ] =
+0;us_clv_to_speed[ 8 ] = 24;us_clv_to_speed[ 9 ] = 32;us_clv_to_speed[ 10 ] =
+40;us_clv_to_speed[ 11 ] = 48;us_clv_to_speed[ 12 ] = 0;us_clv_to_speed[ 13 ]
+= 0;us_clv_to_speed[ 14 ] = 0;us_clv_to_speed[ 15 ] = 0;pkt_proc_fops.owner =
+0;pkt_proc_fops.llseek = &(seq_lseek);pkt_proc_fops.read =
+&(seq_read);pkt_proc_fops.write = 0;pkt_proc_fops.aio_read =
+0;pkt_proc_fops.aio_write = 0;pkt_proc_fops.readdir = 0;pkt_proc_fops.poll =
+0;pkt_proc_fops.unlocked_ioctl = 0;pkt_proc_fops.compat_ioctl =
+0;pkt_proc_fops.mmap = 0;pkt_proc_fops.open =
+&(pkt_seq_open);pkt_proc_fops.flush = 0;pkt_proc_fops.release =
+&(single_release);pkt_proc_fops.fsync = 0;pkt_proc_fops.aio_fsync =
+0;pkt_proc_fops.fasync = 0;pkt_proc_fops.lock = 0;pkt_proc_fops.sendpage =
+0;pkt_proc_fops.get_unmapped_area = 0;pkt_proc_fops.check_flags =
+0;pkt_proc_fops.flock = 0;pkt_proc_fops.splice_write =
+0;pkt_proc_fops.splice_read = 0;pkt_proc_fops.setlease =
+0;pkt_proc_fops.fallocate = 0;pktcdvd_ops.open =
+&(pkt_open);pktcdvd_ops.release = &(pkt_close);pktcdvd_ops.ioctl =
+&(pkt_ioctl);pktcdvd_ops.compat_ioctl = 0;pktcdvd_ops.direct_access =
+0;pktcdvd_ops.check_events = &(pkt_check_events);pktcdvd_ops.media_changed =
+0;pktcdvd_ops.unlock_native_capacity = 0;pktcdvd_ops.revalidate_disk =
+0;pktcdvd_ops.getgeo = 0;pktcdvd_ops.swap_slot_free_notify =
+0;pktcdvd_ops.owner = &(__this_module);pkt_ctl_fops.owner =
+&(__this_module);pkt_ctl_fops.llseek = &(no_llseek);pkt_ctl_fops.read =
+0;pkt_ctl_fops.write = 0;pkt_ctl_fops.aio_read = 0;pkt_ctl_fops.aio_write =
+0;pkt_ctl_fops.readdir = 0;pkt_ctl_fops.poll = 0;pkt_ctl_fops.unlocked_ioctl
+= &(pkt_ctl_ioctl);pkt_ctl_fops.compat_ioctl =
+&(pkt_ctl_compat_ioctl);pkt_ctl_fops.mmap = 0;pkt_ctl_fops.open =
+&(nonseekable_open);pkt_ctl_fops.flush = 0;pkt_ctl_fops.release =
+0;pkt_ctl_fops.fsync = 0;pkt_ctl_fops.aio_fsync = 0;pkt_ctl_fops.fasync =
+0;pkt_ctl_fops.lock = 0;pkt_ctl_fops.sendpage =
+0;pkt_ctl_fops.get_unmapped_area = 0;pkt_ctl_fops.check_flags =
+0;pkt_ctl_fops.flock = 0;pkt_ctl_fops.splice_write =
+0;pkt_ctl_fops.splice_read = 0;pkt_ctl_fops.setlease =
+0;pkt_ctl_fops.fallocate = 0;pkt_misc.minor = 255;pkt_misc.name =
+"pktcdvd";pkt_misc.fops = &(pkt_ctl_fops);pkt_misc.list.next =
+0;pkt_misc.list.prev = 0;pkt_misc.parent = 0;pkt_misc.this_device =
+0;pkt_misc.nodename = "pktcdvd/control";pkt_misc.mode =
+0;ldv_module_refcounter = 1;)
+                                                Location: id=161#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/cmdfiles/rcv/08_1/preprocessed/drivers-block-pktcdvd.o.general.i"; line=0
+   Block(Return(0);)
+Skip
+                                                Location: id=148#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3685
+Block(ldv_s_kobj_pkt_type_stat_kobj_type@ldv_main0_sequence_infinite_withcheck_stateful
+=
+0;ldv_s_kobj_pkt_type_wqueue_kobj_type@ldv_main0_sequence_infinite_withcheck_stateful
+=
+0;ldv_s_debug_fops_file_operations@ldv_main0_sequence_infinite_withcheck_stateful
+=
+0;ldv_s_pkt_proc_fops_file_operations@ldv_main0_sequence_infinite_withcheck_stateful
+=
+0;ldv_s_pktcdvd_ops_block_device_operations@ldv_main0_sequence_infinite_withcheck_stateful
+= 0;LDV_IN_INTERRUPT = 1;)
+                                                Location: id=148#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3645
+FunctionCall(ldv_initialize())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=148#5 (Artificial)
+Skip
+                                                Location: id=148#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3681
+FunctionCall(tmp@ldv_main0_sequence_infinite_withcheck_stateful = pkt_init())
+Locals: 
+                                                Location: id=146#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3067
+   FunctionCall(__mutex_init(&(ctl_mutex), "&ctl_mutex", &(__key@pkt_init)))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=146#2 (Artificial)
+   Skip
+                                                Location: id=146#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3069
+   FunctionCall(psd_pool = mempool_create_kmalloc_pool(64, 16))
+Locals:  min_nr@mempool_create_kmalloc_pool size@mempool_create_kmalloc_pool
+                                                Location: id=42#1 src="include/linux/mempool.h"; line=57
+      FunctionCall(tmp@mempool_create_kmalloc_pool =
+mempool_create(min_nr@mempool_create_kmalloc_pool, &(mempool_kmalloc), &(mempool_kfree), size@mempool_create_kmalloc_pool))
+LDV: undefined function called: mempool_create
+                                                Location: id=42#2 (Artificial)
+      Skip
+                                                Location: id=42#3 src="include/linux/mempool.h"; line=57
+      Block(Return(tmp@mempool_create_kmalloc_pool);)
+   Skip
+                                                Location: id=146#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3071
+   Pred(psd_pool  !=  0)
+                                                Location: id=146#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3074
+   FunctionCall(ret@pkt_init = register_blkdev(pktdev_major, "pktcdvd"))
+LDV: undefined function called: register_blkdev
+                                                Location: id=146#9 (Artificial)
+   Skip
+                                                Location: id=146#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3075
+   Pred(ret@pkt_init  >=  0)
+                                                Location: id=146#12 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3079
+   Pred(pktdev_major  !=  0)
+                                                Location: id=146#20 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3082
+   FunctionCall(ret@pkt_init = pkt_sysfs_init())
+Locals: 
+                                                Location: id=68#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=417
+      Block(ret@pkt_sysfs_init = 0;)
+                                                Location: id=68#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=423
+      FunctionCall(tmp@pkt_sysfs_init = kzalloc(128, 208))
+Locals:  size@kzalloc flags@kzalloc
+                                                Location: id=33#1 src="include/linux/slab.h"; line=320
+         FunctionCall(tmp@kzalloc = kmalloc(size@kzalloc, flags@kzalloc  |  32768))
+Locals:  size@kmalloc flags@kmalloc
+                                                Location: id=31#1 src="include/linux/slub_def.h"; line=270
+            FunctionCall(tmp___2@kmalloc = __kmalloc(size@kmalloc, flags@kmalloc))
+LDV: undefined function called: __kmalloc
+                                                Location: id=31#2 (Artificial)
+            Skip
+                                                Location: id=31#3 src="include/linux/slub_def.h"; line=270
+            Block(Return(tmp___2@kmalloc);)
+         Skip
+                                                Location: id=33#3 src="include/linux/slab.h"; line=320
+         Block(Return(tmp@kzalloc);)
+      Skip
+                                                Location: id=68#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=423
+      Block(class_pktcdvd = tmp@pkt_sysfs_init;)
+                                                Location: id=68#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=424
+      Pred(class_pktcdvd  !=  0)
+                                                Location: id=68#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=426
+      Block(* (class_pktcdvd ).name = "pktcdvd";* (class_pktcdvd ).owner =
+&(__this_module);* (class_pktcdvd ).class_release =
+&(class_pktcdvd_release);* (class_pktcdvd ).class_attrs =
+&(class_pktcdvd_attrs);)
+                                                Location: id=68#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=430
+      FunctionCall(tmp___0@pkt_sysfs_init =
+__class_register(class_pktcdvd, &(__key@pkt_sysfs_init)))
+LDV: undefined function called: __class_register
+                                                Location: id=68#10 (Artificial)
+      Skip
+                                                Location: id=68#11 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=430
+      Block(ret@pkt_sysfs_init = tmp___0@pkt_sysfs_init;)
+                                                Location: id=68#12 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=431
+      Pred(ret@pkt_sysfs_init  ==  0)
+                                                Location: id=68#14 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=437
+      Block(__retres5@pkt_sysfs_init = 0;)
+                                                Location: id=68#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=415
+      Block(Return(__retres5@pkt_sysfs_init);)
+   Skip
+                                                Location: id=146#22 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3083
+   Pred(ret@pkt_init  ==  0)
+                                                Location: id=146#24 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3086
+   FunctionCall(pkt_debugfs_init())
+Locals: 
+                                                Location: id=74#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=505
+      FunctionCall(pkt_debugfs_root = debugfs_create_dir("pktcdvd", 0))
+LDV: undefined function called: debugfs_create_dir
+                                                Location: id=74#2 (Artificial)
+      Skip
+                                                Location: id=74#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=506
+      FunctionCall(tmp@pkt_debugfs_init = IS_ERR(pkt_debugfs_root))
+Locals:  ptr@IS_ERR
+                                                Location: id=13#1 src=""; line=-1
+         Pred(ptr@IS_ERR  >  -4096)
+                                                Location: id=13#2 src=""; line=-1
+         Block(__cil_tmp3@IS_ERR = 1;)
+                                                Location: id=13#4 src="include/linux/err.h"; line=34
+         FunctionCall(tmp@IS_ERR = __builtin_expect(__cil_tmp3@IS_ERR, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=13#5 (Artificial)
+         Skip
+                                                Location: id=13#6 src="include/linux/err.h"; line=34
+         Block(Return(tmp@IS_ERR);)
+      Skip
+                                                Location: id=74#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=506
+      Pred(tmp@pkt_debugfs_init  ==  0)
+                                                Location: id=74#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=503
+      Block(Return(0);)
+   Skip
+                                                Location: id=146#28 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3088
+   FunctionCall(ret@pkt_init = misc_register(&(pkt_misc)))
+LDV: undefined function called: misc_register
+                                                Location: id=146#29 (Artificial)
+   Skip
+                                                Location: id=146#30 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3089
+   Pred(ret@pkt_init  ==  0)
+                                                Location: id=146#32 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3094
+   FunctionCall(pkt_proc = proc_mkdir("driver/pktcdvd", 0))
+LDV: undefined function called: proc_mkdir
+                                                Location: id=146#39 (Artificial)
+   Skip
+                                                Location: id=146#40 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3096
+   Block(__retres3@pkt_init = 0;)
+                                                Location: id=146#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3063
+   Block(Return(__retres3@pkt_init);)
+Skip
+                                                Location: id=148#8 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3681
+Pred(tmp@ldv_main0_sequence_infinite_withcheck_stateful  ==  0)
+                                                Location: id=148#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3699
+FunctionCall(tmp___1@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=148#13 (Artificial)
+Skip
+                                                Location: id=148#14 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3699
+Pred(tmp___1@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=148#15 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3707
+FunctionCall(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful =
+nondet_int())
+LDV: undefined function called: nondet_int
+                                                Location: id=148#17 (Artificial)
+Skip
+                                                Location: id=148#18 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3709
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  0)
+                                                Location: id=148#20 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3757
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  1)
+                                                Location: id=148#25 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3805
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  2)
+                                                Location: id=148#29 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3853
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  3)
+                                                Location: id=148#36 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3901
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  4)
+                                                Location: id=148#43 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3952
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  5)
+                                                Location: id=148#56 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4003
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  6)
+                                                Location: id=148#67 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4054
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  7)
+                                                Location: id=148#78 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4102
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  8)
+                                                Location: id=148#85 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4150
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  !=  9)
+                                                Location: id=148#89 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4198
+Pred(tmp___0@ldv_main0_sequence_infinite_withcheck_stateful  ==  10)
+                                                Location: id=148#92 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4232
+FunctionCall(pkt_ctl_ioctl(var_group4@ldv_main0_sequence_infinite_withcheck_stateful, var_pkt_ctl_ioctl_88_p1@ldv_main0_sequence_infinite_withcheck_stateful, var_pkt_ctl_ioctl_88_p2@ldv_main0_sequence_infinite_withcheck_stateful))
+Locals:  file@pkt_ctl_ioctl cmd@pkt_ctl_ioctl arg@pkt_ctl_ioctl
+                                                Location: id=144#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3004
+   Block(argp@pkt_ctl_ioctl = arg@pkt_ctl_ioctl;ret@pkt_ctl_ioctl =
+0;pkt_dev@pkt_ctl_ioctl = 0;)
+                                                Location: id=144#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3009
+   Pred(cmd@pkt_ctl_ioctl  ==  3222820865)
+                                                Location: id=144#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3012
+   FunctionCall(tmp@pkt_ctl_ioctl =
+copy_from_user(&(ctrl_cmd@pkt_ctl_ioctl), argp@pkt_ctl_ioctl, 24))
+Locals:  to@copy_from_user from@copy_from_user n@copy_from_user
+                                                Location: id=36#1 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"; line=50
+      FunctionCall(tmp@copy_from_user =
+__builtin_object_size(to@copy_from_user, 0))
+LDV: undefined function called: __builtin_object_size
+                                                Location: id=36#2 (Artificial)
+      Skip
+                                                Location: id=36#3 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"; line=50
+      Block(sz@copy_from_user = tmp@copy_from_user;)
+                                                Location: id=36#4 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"; line=52
+      FunctionCall(might_fault())
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=36#5 (Artificial)
+      Skip
+                                                Location: id=36#6 src=""; line=-1
+      Pred(sz@copy_from_user  ==  -1)
+                                                Location: id=36#7 src=""; line=-1
+      Block(__cil_tmp10@copy_from_user = 1;)
+                                                Location: id=36#9 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"; line=53
+      FunctionCall(tmp___1@copy_from_user =
+__builtin_expect(__cil_tmp10@copy_from_user, 1))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=36#10 (Artificial)
+      Skip
+                                                Location: id=36#11 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"; line=53
+      Pred(tmp___1@copy_from_user  !=  0)
+                                                Location: id=36#12 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"; line=54
+      FunctionCall(n@copy_from_user =
+_copy_from_user(to@copy_from_user, from@copy_from_user, n@copy_from_user))
+LDV: undefined function called: _copy_from_user
+                                                Location: id=36#14 (Artificial)
+      Skip
+                                                Location: id=36#15 src="/mnt/cluster/work/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"; line=59
+      Block(Return(n@copy_from_user);)
+   Skip
+                                                Location: id=144#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3012
+   Pred(tmp@pkt_ctl_ioctl  ==  0)
+                                                Location: id=144#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3016
+   Pred(ctrl_cmd@pkt_ctl_ioctl.command  !=  0)
+                                                Location: id=144#12 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3022
+   Pred(ctrl_cmd@pkt_ctl_ioctl.command  ==  1)
+                                                Location: id=144#34 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3023
+   FunctionCall(tmp___3@pkt_ctl_ioctl = capable(21))
+LDV: undefined function called: capable
+                                                Location: id=144#36 (Artificial)
+   Skip
+                                                Location: id=144#37 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3023
+   Pred(tmp___3@pkt_ctl_ioctl  !=  0)
+                                                Location: id=144#38 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3023
+   Block(tmp___4@pkt_ctl_ioctl = 0;)
+                                                Location: id=144#40 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3023
+   Pred(tmp___4@pkt_ctl_ioctl  ==  0)
+                                                Location: id=144#42 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3025
+   FunctionCall(tmp___5@pkt_ctl_ioctl =
+new_decode_dev(ctrl_cmd@pkt_ctl_ioctl.pkt_dev))
+Locals:  dev@new_decode_dev
+                                                Location: id=30#1 src="include/linux/kdev_t.h"; line=50
+      Block(major@new_decode_dev = dev@new_decode_dev  &  1048320  >> 
+8;minor@new_decode_dev = dev@new_decode_dev  &  255  |  dev@new_decode_dev
+ >>  12  &  1048320;)
+                                                Location: id=30#2 src="include/linux/kdev_t.h"; line=52
+      Block(__retres4@new_decode_dev = major@new_decode_dev  <<  20  | 
+minor@new_decode_dev;)
+                                                Location: id=30#3 src="include/linux/kdev_t.h"; line=48
+      Block(Return(__retres4@new_decode_dev);)
+   Skip
+                                                Location: id=144#45 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=3025
+   FunctionCall(ret@pkt_ctl_ioctl = pkt_remove_dev(tmp___5@pkt_ctl_ioctl))
+Locals:  pkt_dev@pkt_remove_dev
+                                                Location: id=142#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2936
+      Block(ret@pkt_remove_dev = 0;)
+                                                Location: id=142#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2938
+      FunctionCall(mutex_lock_nested(&(ctl_mutex), 1))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#3 (Artificial)
+      Skip
+                                                Location: id=142#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2940
+      Block(idx@pkt_remove_dev = 0;)
+                                                Location: id=142#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2941
+      Skip
+                                                Location: id=142#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2940
+      Pred(idx@pkt_remove_dev  <=  7)
+                                                Location: id=142#7 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2941
+      Block(pd@pkt_remove_dev = pkt_devs[ idx@pkt_remove_dev ];)
+                                                Location: id=142#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2942
+      Pred(pd@pkt_remove_dev  !=  0)
+                                                Location: id=142#10 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2942
+      Pred(* (pd@pkt_remove_dev ).pkt_dev  ==  pkt_dev@pkt_remove_dev)
+                                                Location: id=142#12 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2944
+      Skip
+                                                Location: id=142#14 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2945
+      Pred(idx@pkt_remove_dev  !=  8)
+                                                Location: id=142#16 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2951
+      Pred(* (pd@pkt_remove_dev ).refcnt  <=  0)
+                                                Location: id=142#23 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2955
+      FunctionCall(tmp@pkt_remove_dev = IS_ERR(* (pd@pkt_remove_dev ).cdrw.thread))
+Locals:  ptr@IS_ERR
+                                                Location: id=13#1 src=""; line=-1
+         Pred(ptr@IS_ERR  >  -4096)
+                                                Location: id=13#2 src=""; line=-1
+         Block(__cil_tmp3@IS_ERR = 1;)
+                                                Location: id=13#4 src="include/linux/err.h"; line=34
+         FunctionCall(tmp@IS_ERR = __builtin_expect(__cil_tmp3@IS_ERR, 0))
+LDV: undefined function called: __builtin_expect
+                                                Location: id=13#5 (Artificial)
+         Skip
+                                                Location: id=13#6 src="include/linux/err.h"; line=34
+         Block(Return(tmp@IS_ERR);)
+      Skip
+                                                Location: id=142#26 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2955
+      Pred(tmp@pkt_remove_dev  !=  0)
+                                                Location: id=142#30 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2958
+      Block(pkt_devs[ idx@pkt_remove_dev ] = 0;)
+                                                Location: id=142#31 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2960
+      FunctionCall(pkt_debugfs_dev_remove(pd@pkt_remove_dev))
+Locals:  pd@pkt_debugfs_dev_remove
+                                                Location: id=73#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=493
+         Pred(pkt_debugfs_root  ==  0)
+                                                Location: id=73#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=491
+         Block(Return(0);)
+      Skip
+                                                Location: id=142#33 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2961
+      FunctionCall(pkt_sysfs_dev_remove(pd@pkt_remove_dev))
+Locals:  pd@pkt_sysfs_dev_remove
+                                                Location: id=63#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=333
+         FunctionCall(pkt_kobj_remove(* (pd@pkt_sysfs_dev_remove ).kobj_stat))
+Locals:  p@pkt_kobj_remove
+                                                Location: id=57#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=143
+            Pred(p@pkt_kobj_remove  ==  0)
+                                                Location: id=57#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=141
+            Block(Return(0);)
+         Skip
+                                                Location: id=63#3 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=334
+         FunctionCall(pkt_kobj_remove(* (pd@pkt_sysfs_dev_remove ).kobj_wqueue))
+Locals:  p@pkt_kobj_remove
+                                                Location: id=57#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=143
+            Pred(p@pkt_kobj_remove  ==  0)
+                                                Location: id=57#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=141
+            Block(Return(0);)
+         Skip
+                                                Location: id=63#5 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=335
+         Pred(class_pktcdvd  !=  0)
+                                                Location: id=63#6 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=336
+         FunctionCall(device_unregister(* (pd@pkt_sysfs_dev_remove ).dev))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=63#8 (Artificial)
+         Skip
+                                                Location: id=63#9 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=331
+         Block(Return(0);)
+      Skip
+                                                Location: id=142#35 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2963
+      FunctionCall(blkdev_put(* (pd@pkt_remove_dev ).bdev, 65))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#36 (Artificial)
+      Skip
+                                                Location: id=142#37 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2965
+      FunctionCall(remove_proc_entry(pd@pkt_remove_dev  foffset  name, pkt_proc))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#38 (Artificial)
+      Skip
+                                                Location: id=142#39 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2966
+      FunctionCall(printk("<5>pktcdvd: writer %s unmapped\n", pd@pkt_remove_dev
+ foffset  name))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#40 (Artificial)
+      Skip
+                                                Location: id=142#41 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2968
+      FunctionCall(del_gendisk(* (pd@pkt_remove_dev ).disk))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#42 (Artificial)
+      Skip
+                                                Location: id=142#43 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2969
+      Block(cil_6@pkt_remove_dev = * (pd@pkt_remove_dev ).disk;)
+                                                Location: id=142#44 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2969
+      FunctionCall(blk_cleanup_queue(* (cil_6@pkt_remove_dev ).queue))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#45 (Artificial)
+      Skip
+                                                Location: id=142#46 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2970
+      FunctionCall(put_disk(* (pd@pkt_remove_dev ).disk))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#47 (Artificial)
+      Skip
+                                                Location: id=142#48 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2972
+      FunctionCall(mempool_destroy(* (pd@pkt_remove_dev ).rb_pool))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#49 (Artificial)
+      Skip
+                                                Location: id=142#50 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2973
+      FunctionCall(kfree(pd@pkt_remove_dev))
+LDV: undefined function called: NOT_IMPLEMENTED_FUNCTION
+                                                Location: id=142#51 (Artificial)
+      Skip
+                                                Location: id=142#52 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=2976
+      FunctionCall(ldv_module_put_5(&(__this_module)))
+Locals:  ldv_func_arg1@ldv_module_put_5
+                                                Location: id=160#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4460
+         FunctionCall(ldv_module_put(ldv_func_arg1@ldv_module_put_5))
+Locals:  module@ldv_module_put
+                                                Location: id=152#1 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4393
+            Pred(module@ldv_module_put  !=  0)
+                                                Location: id=152#2 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4395
+            Pred(ldv_module_refcounter  <=  1)
+                                                Location: id=152#4 src="/mnt/cluster/work/work/current--X--drivers/--X--ldv.317linux-3.0.1--X--08_1--X--68_1/linux-3.0.1/csd_deg_dscv/349/dscv_tempdir/dscv/ri/08_1/drivers/block/pktcdvd.c.p"; line=4395
+            FunctionCall(ldv_blast_assert())
+Locals: 
