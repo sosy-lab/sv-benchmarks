@@ -1,6 +1,0 @@
-pthread/*_unsafe.cil.c
-pthread/*_unsafe.i
-pthread/*_safe.cil.c
-pthread/*_safe.i
-pthread-atomic/*_unsafe.i
-pthread-atomic/*_safe.i

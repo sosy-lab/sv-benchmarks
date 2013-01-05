@@ -1,7 +1,0 @@
-product-lines/elevator*_unsafe.*.c
-product-lines/elevator*_safe.*.c
-product-lines/email*_unsafe.*.c
-product-lines/email*_safe.*.c
-product-lines/minepump*_unsafe.*.c
-product-lines/minepump*_safe.*.c
-

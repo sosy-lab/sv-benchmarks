@@ -1,7 +1,0 @@
-ldv-drivers/*_unsafe*.cil.c
-ldv-drivers/*_unsafe*.i
-ldv-drivers/*_safe*.cil.c
-ldv-drivers/*_safe*.i
-ldv-linux-3.4/*_unsafe*.c
-ldv-linux-3.4/*_safe*.c
-
