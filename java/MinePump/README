@@ -1,0 +1,7 @@
+Verification tasks from software product line "Minepump".
+The same product line is also available as C code.
+In the Java version, all specifications are checked at the same time
+instead of separately.
+
+Created by Alexander von Rhein,
+submitted by Philipp Wendler.
