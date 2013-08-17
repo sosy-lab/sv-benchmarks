@@ -1,3 +1,8 @@
+/*
+ * This source code is licensed under the GPL license, see License.GPLv2.txt
+ * for details.  The list implementation is taken from the Linux kernel.
+ */
+
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
