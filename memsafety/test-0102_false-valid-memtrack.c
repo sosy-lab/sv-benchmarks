@@ -1,3 +1,8 @@
+/*
+ * This source code is licensed under the GPL license, see License.GPLv2.txt
+ * for details.  The list implementation is taken from the Linux kernel.
+ */
+
 #include <stdlib.h>
 
 extern int __VERIFIER_nondet_int(void);
