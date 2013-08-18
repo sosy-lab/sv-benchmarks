@@ -7560,6 +7560,14 @@ int main(void)
   devobj.DeviceExtension = malloc(sizeof (CD_DEVICE_EXTENSION));
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(sizeof (IO_STACK_LOCATION));
   irp.AssociatedIrp.SystemBuffer = malloc(sizeof (CDROM_TOC));
+  int a;
+
+  for (a = 0; a < sizeof(CD_DEVICE_EXTENSION); a++)
+	  ((char *)devobj.DeviceExtension)[a] = __VERIFIER_nondet_char();
+  for (a = 0; a < sizeof(IO_STACK_LOCATION); a++)
+	  ((char *)irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation)[a] = __VERIFIER_nondet_char();
+  for (a = 0; a < sizeof(CDROM_TOC); a++)
+	  ((char *)irp.AssociatedIrp.SystemBuffer)[a] = __VERIFIER_nondet_char();
 
   {
   {
