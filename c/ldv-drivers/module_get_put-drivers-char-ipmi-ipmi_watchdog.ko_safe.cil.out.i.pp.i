@@ -8377,7 +8377,7 @@ extern void ldv_check_return_value(int ) ;
 # 1403 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
 extern void ldv_initialize(void) ;
 # 1406 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 1409 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
 int LDV_IN_INTERRUPT ;
 # 1412 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
@@ -8448,7 +8448,7 @@ void main(void)
   ldv_22776:
   {
 # 3639 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 # 3641 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
   if (tmp___0 == 0) {
@@ -8834,7 +8834,7 @@ void main(void)
   ldv_22777:
   {
 # 3635 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 # 3635 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
   if (tmp___1 != 0) {

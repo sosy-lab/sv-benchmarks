@@ -13162,7 +13162,7 @@ extern void ldv_check_return_value(int res ) ;
 # 1808 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
 extern void ldv_initialize(void) ;
 # 1811 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 1814 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
 int LDV_IN_INTERRUPT ;
 # 1846 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
@@ -13200,7 +13200,7 @@ void main(void)
     while_continue: ;
     {
 # 1906 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 # 1906 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
     if (tmp___9) {
@@ -13215,7 +13215,7 @@ void main(void)
     }
     {
 # 1910 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 # 1912 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/dvb/ttusb-dec/ttusb_dec.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttusb-dec/ttusb_dec.c.common.c"
     if (tmp___8 == 0) {

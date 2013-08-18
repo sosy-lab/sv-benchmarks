@@ -16639,7 +16639,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 2526
 extern void ldv_initialize(void) ;
 #line 2529
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 2532 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 2535 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/sis900.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/sis900.c.p"
@@ -16693,7 +16693,7 @@ void main(void)
   ldv_35976: 
   {
 #line 3471
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 3473
   if (tmp___0 == 0) {
@@ -17026,7 +17026,7 @@ void main(void)
   ldv_35977: 
   {
 #line 3466
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 3466
   if (tmp___1 != 0) {

@@ -12229,7 +12229,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 2602
 extern void ldv_initialize(void) ;
 #line 2605
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 2608 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 2611 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
@@ -12278,7 +12278,7 @@ void main(void)
   ldv_31858: 
   {
 #line 4352
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 4354
   if (tmp___0 == 0) {
@@ -12457,7 +12457,7 @@ void main(void)
   ldv_31859: 
   {
 #line 4348
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 4348
   if (tmp___1 != 0) {

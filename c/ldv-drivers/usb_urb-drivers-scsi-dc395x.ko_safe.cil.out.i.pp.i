@@ -17306,7 +17306,7 @@ extern void ldv_check_return_value(int res ) ;
 # 4949 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
 extern void ldv_initialize(void) ;
 # 4952 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 4955 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
 int LDV_IN_INTERRUPT ;
 # 5806 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
@@ -17358,7 +17358,7 @@ void main(void)
     while_continue: ;
     {
 # 6313 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 # 6313 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
     if (tmp___9) {
@@ -17373,7 +17373,7 @@ void main(void)
     }
     {
 # 6317 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 # 6319 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
     if (tmp___8 == 0) {

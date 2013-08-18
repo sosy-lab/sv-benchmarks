@@ -6536,7 +6536,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 595
 extern void ldv_initialize(void) ;
 #line 598
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 601 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 604 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
@@ -6580,7 +6580,7 @@ void main(void)
   ldv_24711: 
   {
 #line 733
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 735
   if (tmp___0 == 0) {
@@ -6664,7 +6664,7 @@ void main(void)
   ldv_24712: 
   {
 #line 729
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 729
   if (tmp___1 != 0) {

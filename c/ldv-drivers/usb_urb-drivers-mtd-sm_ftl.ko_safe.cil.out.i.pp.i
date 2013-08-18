@@ -8463,7 +8463,7 @@ void ldv_check_final_state(void) __attribute__((__ldv_model__)) ;
 # 1327 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 extern void ldv_initialize(void) ;
 # 1330 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 1333 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 int LDV_IN_INTERRUPT ;
 # 1336 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
@@ -8505,7 +8505,7 @@ void main(void)
     while_continue: ;
     {
 # 1425 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 # 1425 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
     if (tmp___9) {
@@ -8520,7 +8520,7 @@ void main(void)
     }
     {
 # 1429 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 # 1431 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
     if (tmp___8 == 0) {

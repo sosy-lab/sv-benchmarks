@@ -6037,7 +6037,7 @@ extern void ldv_check_return_value(int res ) ;
 #line 284
 extern void ldv_initialize(void) ;
 #line 287
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 290 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 314 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/usbhid/usbmouse.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hid/usbhid/usbmouse.c.common.c"
@@ -6076,7 +6076,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 358
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 358
     if (tmp___9) {
@@ -6096,7 +6096,7 @@ void main(void)
     }
     {
 #line 362
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 364
     if (tmp___8 == 0) {

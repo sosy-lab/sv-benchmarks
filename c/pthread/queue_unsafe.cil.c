@@ -70,7 +70,7 @@ extern int printf(char const   * __restrict  __format  , ...) ;
 #line 18 "queue_bad.c"
 pthread_mutex_t m  ;
 #line 19
-extern int nondet_int() ;
+extern int __VERIFIER_nondet_int() ;
 #line 20 "queue_bad.c"
 int stored_elements[20]  ;
 #line 21 "queue_bad.c"
@@ -378,7 +378,7 @@ void *t1(void *arg )
 #line 89
   pthread_mutex_lock(& m);
 #line 90
-  value = nondet_int();
+  value = __VERIFIER_nondet_int();
 #line 91
   tmp = enqueue(& queue, value);
   }
@@ -428,7 +428,7 @@ void *t1(void *arg )
     if (enqueue_flag) {
       {
 #line 107
-      value = nondet_int();
+      value = __VERIFIER_nondet_int();
 #line 108
       enqueue(& queue, value);
 #line 109

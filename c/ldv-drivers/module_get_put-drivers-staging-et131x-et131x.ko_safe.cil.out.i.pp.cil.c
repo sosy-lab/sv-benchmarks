@@ -21539,7 +21539,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 880
 extern void ldv_initialize(void) ;
 #line 883
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 886 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/et131x/et131x.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/staging/et131x/et131x_initpci.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 889 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/et131x/et131x.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/staging/et131x/et131x_initpci.c.p"
@@ -21576,7 +21576,7 @@ void main(void)
   ldv_35821: 
   {
 #line 958
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 960
   if (tmp___0 == 0) {
@@ -21633,7 +21633,7 @@ void main(void)
   ldv_35822: 
   {
 #line 954
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 954
   if (tmp___1 != 0) {

@@ -13826,7 +13826,7 @@ void ldv_check_final_state(void) ;
 #line 2948
 extern void ldv_initialize(void) ;
 #line 2951
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 2954 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_main.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"
@@ -20545,7 +20545,7 @@ void main(void)
   ldv_42510: 
   {
 #line 424
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 426
   if (tmp == 0) {
@@ -20706,7 +20706,7 @@ void main(void)
   ldv_42511: 
   {
 #line 421
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 421
   if (tmp___0 != 0) {

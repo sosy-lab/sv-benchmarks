@@ -11861,7 +11861,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 486
 extern void ldv_initialize(void) ;
 #line 489
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 492 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 495 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -11994,7 +11994,7 @@ void main(void)
   ldv_40052: 
   {
 #line 775
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 777
   if (tmp == 0) {
@@ -12802,7 +12802,7 @@ void main(void)
   ldv_40053: 
   {
 #line 762
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 762
   if (tmp___0 != 0) {

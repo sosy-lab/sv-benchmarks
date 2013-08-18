@@ -6074,7 +6074,7 @@ void ldv_check_final_state(void) ;
 # 181 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
 extern void ldv_initialize(void) ;
 # 184 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
 int LDV_IN_INTERRUPT ;
 # 190 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
@@ -6108,7 +6108,7 @@ void main(void)
   ldv_38480:
   {
 # 237 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 # 239 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
   if (tmp___0 == 0) {
@@ -6137,7 +6137,7 @@ void main(void)
   ldv_38481:
   {
 # 234 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 # 234 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
   if (tmp___1 != 0) {

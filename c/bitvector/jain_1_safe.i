@@ -1,4 +1,4 @@
-extern int nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -13,7 +13,7 @@ void main()
 
   while(1)
     {
-      y = y +2*nondet_int();
+      y = y +2*__VERIFIER_nondet_int();
 
 
       __VERIFIER_assert (y!=0);

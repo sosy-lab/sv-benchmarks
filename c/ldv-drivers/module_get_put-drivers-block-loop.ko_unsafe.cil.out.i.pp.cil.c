@@ -13005,7 +13005,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 1807
 extern void ldv_initialize(void) ;
 #line 1810
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1813 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 1816 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/loop.ko--X--unsafelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/loop.c.p"
@@ -13065,7 +13065,7 @@ void main(void)
   ldv_31134: 
   {
 #line 2072
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 2074
   if (tmp___0 == 0) {
@@ -13194,7 +13194,7 @@ void main(void)
   ldv_31135: 
   {
 #line 2068
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 2068
   if (tmp___1 != 0) {

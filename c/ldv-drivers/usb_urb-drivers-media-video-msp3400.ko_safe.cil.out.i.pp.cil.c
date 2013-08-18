@@ -10129,7 +10129,7 @@ extern void ldv_check_return_value(int res ) ;
 #line 908
 extern void ldv_initialize(void) ;
 #line 911
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 914 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1023 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
@@ -10179,7 +10179,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1084
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 1084
     if (tmp___9) {
@@ -10199,7 +10199,7 @@ void main(void)
     }
     {
 #line 1088
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1090
     if (tmp___8 == 0) {

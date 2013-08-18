@@ -7456,7 +7456,7 @@ extern void ldv_check_return_value(int res ) ;
 #line 632
 extern void ldv_initialize(void) ;
 #line 635
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 638 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 672 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"
@@ -7495,7 +7495,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 736
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 736
     if (tmp___9) {
@@ -7515,7 +7515,7 @@ void main(void)
     }
     {
 #line 740
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 742
     if (tmp___8 == 0) {

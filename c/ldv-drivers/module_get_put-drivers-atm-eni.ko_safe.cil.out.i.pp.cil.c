@@ -21352,7 +21352,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 2337
 extern void ldv_initialize(void) ;
 #line 2340
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 2343 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 2346 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
@@ -21416,7 +21416,7 @@ void main(void)
   ldv_40768: 
   {
 #line 3747
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 3749
   if (tmp___0 == 0) {
@@ -21626,7 +21626,7 @@ void main(void)
   ldv_40769: 
   {
 #line 3742
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 3742
   if (tmp___1 != 0) {

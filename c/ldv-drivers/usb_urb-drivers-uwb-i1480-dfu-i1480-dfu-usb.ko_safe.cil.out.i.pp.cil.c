@@ -9147,7 +9147,7 @@ extern void ldv_check_return_value(int res ) ;
 #line 501
 extern void ldv_initialize(void) ;
 #line 504
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 507 "/anthill/stuff/tacas-comp/work/current--X--drivers/uwb/i1480/dfu/i1480-dfu-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/68_1/drivers/uwb/i1480/dfu/usb.c"
 int LDV_IN_INTERRUPT  ;
 #line 524 "/anthill/stuff/tacas-comp/work/current--X--drivers/uwb/i1480/dfu/i1480-dfu-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/68_1/drivers/uwb/i1480/dfu/usb.c"
@@ -9186,7 +9186,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 583
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 583
     if (tmp___9) {
@@ -9206,7 +9206,7 @@ void main(void)
     }
     {
 #line 587
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 589
     if (tmp___8 == 0) {

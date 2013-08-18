@@ -10746,7 +10746,7 @@ void ldv_check_final_state(void)  __attribute__((__ldv_model__)) ;
 #line 1327
 extern void ldv_initialize(void) ;
 #line 1330
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1333 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1336 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
@@ -10789,7 +10789,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1425
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 1425
     if (tmp___9) {
@@ -10809,7 +10809,7 @@ void main(void)
     }
     {
 #line 1429
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1431
     if (tmp___8 == 0) {

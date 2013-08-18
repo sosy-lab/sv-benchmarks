@@ -22406,7 +22406,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 5101
 extern void ldv_initialize(void) ;
 #line 5104
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 5107 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/megaraid.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/scsi/megaraid.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 5110 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/megaraid.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/scsi/megaraid.c.p"
@@ -22457,7 +22457,7 @@ void main(void)
   ldv_32904: 
   {
 #line 5763
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 5765
   if (tmp___0 == 0) {
@@ -22622,7 +22622,7 @@ void main(void)
   ldv_32905: 
   {
 #line 5758
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 #line 5758
   if (tmp___1 != 0) {

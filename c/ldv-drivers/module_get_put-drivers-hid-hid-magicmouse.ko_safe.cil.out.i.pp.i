@@ -5134,7 +5134,7 @@ extern void ldv_check_return_value(int ) ;
 # 595 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 extern void ldv_initialize(void) ;
 # 598 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 601 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 int LDV_IN_INTERRUPT ;
 # 604 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
@@ -5178,7 +5178,7 @@ void main(void)
   ldv_24711:
   {
 # 733 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 # 735 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
   if (tmp___0 == 0) {
@@ -5262,7 +5262,7 @@ void main(void)
   ldv_24712:
   {
 # 729 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-  tmp___1 = nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
   }
 # 729 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
   if (tmp___1 != 0) {

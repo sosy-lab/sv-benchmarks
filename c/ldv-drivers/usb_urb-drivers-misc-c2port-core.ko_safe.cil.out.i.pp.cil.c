@@ -8314,7 +8314,7 @@ void ldv_check_final_state(void)  __attribute__((__ldv_model__)) ;
 #line 1031
 extern void ldv_initialize(void) ;
 #line 1034
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1037 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1040 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
@@ -8355,7 +8355,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 1143
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 1143
     if (tmp___9) {
@@ -8366,7 +8366,7 @@ void main(void)
     }
     {
 #line 1146
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 1148
     if (tmp___8 == 0) {

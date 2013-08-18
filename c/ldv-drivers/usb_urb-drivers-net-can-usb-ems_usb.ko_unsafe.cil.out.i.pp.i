@@ -8658,7 +8658,7 @@ extern void ldv_check_return_value(int res ) ;
 # 1167 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
 extern void ldv_initialize(void) ;
 # 1170 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
 int LDV_IN_INTERRUPT ;
 # 1245 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
@@ -8705,7 +8705,7 @@ void main(void)
     while_continue: ;
     {
 # 1581 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 # 1581 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
     if (tmp___9) {
@@ -8724,7 +8724,7 @@ void main(void)
     }
     {
 # 1586 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 # 1588 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
     if (tmp___8 == 0) {

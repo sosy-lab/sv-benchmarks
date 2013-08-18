@@ -12920,7 +12920,7 @@ extern void ldv_check_return_value(int res ) ;
 #line 1590
 extern void ldv_initialize(void) ;
 #line 1593
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1596 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1629 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
@@ -12976,7 +12976,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 2009
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 2009
     if (tmp___9) {
@@ -13005,7 +13005,7 @@ void main(void)
     }
     {
 #line 2014
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 2016
     if (tmp___8 == 0) {

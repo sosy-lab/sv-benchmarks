@@ -6177,7 +6177,7 @@ extern void ldv_check_return_value(int res ) ;
 # 545 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 extern void ldv_initialize(void) ;
 # 548 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 551 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 int LDV_IN_INTERRUPT ;
 # 588 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
@@ -6220,7 +6220,7 @@ void main(void)
     while_continue: ;
     {
 # 639 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 # 639 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
     if (tmp___9) {
@@ -6235,7 +6235,7 @@ void main(void)
     }
     {
 # 643 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 # 645 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
     if (tmp___8 == 0) {

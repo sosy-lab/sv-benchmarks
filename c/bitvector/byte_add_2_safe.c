@@ -1,4 +1,4 @@
-extern int nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;

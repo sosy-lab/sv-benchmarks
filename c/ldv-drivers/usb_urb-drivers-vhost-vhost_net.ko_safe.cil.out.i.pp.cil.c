@@ -24813,7 +24813,7 @@ extern void ldv_check_return_value(int res ) ;
 #line 817
 extern void ldv_initialize(void) ;
 #line 820
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 823 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 int LDV_IN_INTERRUPT  ;
 #line 880 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
@@ -24856,7 +24856,7 @@ void main(void)
     while_continue: /* CIL Label */ ;
     {
 #line 921
-    tmp___9 = nondet_int();
+    tmp___9 = __VERIFIER_nondet_int();
     }
 #line 921
     if (tmp___9) {
@@ -24876,7 +24876,7 @@ void main(void)
     }
     {
 #line 925
-    tmp___8 = nondet_int();
+    tmp___8 = __VERIFIER_nondet_int();
     }
 #line 927
     if (tmp___8 == 0) {

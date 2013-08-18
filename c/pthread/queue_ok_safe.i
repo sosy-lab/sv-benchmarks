@@ -934,7 +934,7 @@ typedef struct {
   int amount;
 } QType;
 pthread_mutex_t m;
-int nondet_int();
+int __VERIFIER_nondet_int();
 int stored_elements[(20)];
 _Bool enqueue_flag, dequeue_flag;
 QType queue;
@@ -999,7 +999,7 @@ void *t1(void *arg)
   {
     for(i=0; i<(20); i++)
     {
-      value = nondet_int();
+      value = __VERIFIER_nondet_int();
       enqueue(&queue,value);
       stored_elements[i]=value;
     }

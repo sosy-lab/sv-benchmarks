@@ -9339,7 +9339,7 @@ extern void ldv_check_return_value(int ) ;
 # 486 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
 extern void ldv_initialize(void) ;
 # 489 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 # 492 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
 int LDV_IN_INTERRUPT ;
 # 495 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
@@ -9456,7 +9456,7 @@ void main(void)
   ldv_40052:
   {
 # 775 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 # 777 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
   if (tmp == 0) {
@@ -10232,7 +10232,7 @@ void main(void)
   ldv_40053:
   {
 # 762 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 # 762 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
   if (tmp___0 != 0) {

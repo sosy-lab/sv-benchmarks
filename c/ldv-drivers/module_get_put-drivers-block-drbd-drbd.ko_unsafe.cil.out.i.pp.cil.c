@@ -16828,7 +16828,7 @@ void ldv_check_final_state(void) ;
 #line 1621
 extern void ldv_initialize(void) ;
 #line 1624
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 1627 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_bitmap.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"
@@ -18687,7 +18687,7 @@ void main(void)
   ldv_47980: 
   {
 #line 401
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 403
   if (tmp == 0) {
@@ -18751,7 +18751,7 @@ void main(void)
   ldv_47981: 
   {
 #line 397
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 397
   if (tmp___0 != 0) {

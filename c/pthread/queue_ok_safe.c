@@ -16,7 +16,7 @@ typedef struct {
 } QType;
 
 pthread_mutex_t m;
-int nondet_int();
+int __VERIFIER_nondet_int();
 int stored_elements[SIZE];
 _Bool enqueue_flag, dequeue_flag;
 QType queue;
@@ -91,7 +91,7 @@ void *t1(void *arg)
   {
     for(i=0; i<SIZE; i++)  
     {
-      value = nondet_int();
+      value = __VERIFIER_nondet_int();
       enqueue(&queue,value);
       stored_elements[i]=value;
     }

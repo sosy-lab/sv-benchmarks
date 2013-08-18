@@ -7374,7 +7374,7 @@ void ldv_check_final_state(void) ;
 #line 441
 extern void ldv_initialize(void) ;
 #line 444
-extern int nondet_int(void) ;
+extern int __VERIFIER_nondet_int(void) ;
 #line 447 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/core.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"
@@ -39695,7 +39695,7 @@ void main(void)
   ldv_38593: 
   {
 #line 405
-  tmp = nondet_int();
+  tmp = __VERIFIER_nondet_int();
   }
 #line 407
   if (tmp == 0) {
@@ -39826,7 +39826,7 @@ void main(void)
   ldv_38594: 
   {
 #line 401
-  tmp___0 = nondet_int();
+  tmp___0 = __VERIFIER_nondet_int();
   }
 #line 401
   if (tmp___0 != 0) {

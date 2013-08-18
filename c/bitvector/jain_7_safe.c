@@ -1,4 +1,4 @@
-extern int nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -15,9 +15,9 @@ void main()
 
   while(1)
     {
-      x = x +1048576*nondet_int();
-      y = y +2097152*nondet_int();
-      z = z +4194304*nondet_int();
+      x = x +1048576*__VERIFIER_nondet_int();
+      y = y +2097152*__VERIFIER_nondet_int();
+      z = z +4194304*__VERIFIER_nondet_int();
 
       __VERIFIER_assert(4*x-2*y+z!=1048576);
     }
