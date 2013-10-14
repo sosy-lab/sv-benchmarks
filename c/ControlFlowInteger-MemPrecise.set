@@ -1,7 +1,7 @@
-ntdrivers-simplified/*_unsafe.cil.c
-ntdrivers-simplified/*_safe.cil.c
-ssh-simplified/*_unsafe.cil.c
-ssh-simplified/*_safe.cil.c
-locks/*_unsafe.c
-locks/*_safe.c
+ntdrivers-simplified/*_false.cil.c
+ntdrivers-simplified/*_true.cil.c
+ssh-simplified/*_false.cil.c
+ssh-simplified/*_true.cil.c
+locks/*_false.c
+locks/*_true.c
 

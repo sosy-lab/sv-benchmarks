@@ -1,9 +1,9 @@
-ldv-regression/*_unsafe*.cil.c
-ldv-regression/*_unsafe*.i
-ldv-regression/*_safe*.cil.c
-ldv-regression/*_safe*.i
-ddv-machzwd/*_unsafe.cil.c
-ddv-machzwd/*_unsafe.i
-ddv-machzwd/*_safe.cil.c
-ddv-machzwd/*_safe.i
+ldv-regression/*_false*.cil.c
+ldv-regression/*_false*.i
+ldv-regression/*_true*.cil.c
+ldv-regression/*_true*.i
+ddv-machzwd/*_false.cil.c
+ddv-machzwd/*_false.i
+ddv-machzwd/*_true.cil.c
+ddv-machzwd/*_true.i
 

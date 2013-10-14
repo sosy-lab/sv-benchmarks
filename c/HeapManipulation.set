@@ -1,7 +1,7 @@
-heap-manipulation/*_unsafe.cil.c
-heap-manipulation/*_unsafe.i
-heap-manipulation/*_safe.cil.c
-heap-manipulation/*_safe.i
-list-properties/*_safe.cil.c
-list-properties/*_safe.i
+heap-manipulation/*_false.cil.c
+heap-manipulation/*_false.i
+heap-manipulation/*_true.cil.c
+heap-manipulation/*_true.i
+list-properties/*_true.cil.c
+list-properties/*_true.i
 

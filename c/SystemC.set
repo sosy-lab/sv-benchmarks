@@ -1,2 +1,2 @@
-systemc/*_unsafe.cil.c
-systemc/*_safe.cil.c
+systemc/*_false.cil.c
+systemc/*_true.cil.c

@@ -1,2 +1,2 @@
-loops/*_unsafe.i
-loops/*_safe.i
+loops/*_false.i
+loops/*_true.i

@@ -1,5 +1,5 @@
-bitvector/*_unsafe.i
-bitvector/*_safe.i
-bitvector/*_unsafe.BV.c.cil.c
-bitvector/*_safe.BV.c.cil.c
-bitvector/*_safe.c.cil.c
+bitvector/*_false.i
+bitvector/*_true.i
+bitvector/*_false.BV.c.cil.c
+bitvector/*_true.BV.c.cil.c
+bitvector/*_true.c.cil.c
