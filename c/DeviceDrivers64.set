@@ -4,11 +4,11 @@ ldv-linux-3.0/*_true*.cil.c
 ldv-linux-3.0/*_true*.i
 ldv-linux-3.4-simple/*_false*.c
 ldv-linux-3.4-simple/*_true*.c
-ldv-linux-3.7.3/*_false_*.c
-ldv-linux-3.7.3/*_true_*.c
+ldv-linux-3.7.3/*_false*.c
+ldv-linux-3.7.3/*_true*.c
 ldv-challenges/*.c
-ldv-commit-tester/*_false_*.c
-ldv-commit-tester/*_true_*.c
-ldv-consumption/*_false.*.c
-ldv-consumption/*_true.*.c
+ldv-commit-tester/*_false*.c
+ldv-commit-tester/*_true*.c
+ldv-consumption/*_false*.c
+ldv-consumption/*_true*.c
 
