@@ -1,6 +1,8 @@
 void printf(char *format);
 void assert_fail(void);
 
+extern void *__VERIFIER_nondet_pointer();
+
 struct dummy {
   int a, b;
 };

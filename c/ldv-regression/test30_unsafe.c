@@ -1,11 +1,13 @@
 void printf(char *format);
 void assert_fail(void);
 
-int a, b;
+extern void *__VERIFIER_nondet_pointer();
+
+int a = 1, b;
 
 struct dummy {
   int *a, *b;
-} global;
+} global = {&a, &b};
 
 void assign(int *pa, int *pb)
 {

@@ -1,11 +1,16 @@
 void printf(char *format);
 void assert_fail(void);
 
+extern void *__VERIFIER_nondet_pointer();
+
 struct dummy {
   int a, b;
 };
 
-struct dummy *get_dummy();
+struct dummy *get_dummy()
+{
+  return (struct dummy *) __VERIFIER_nondet_pointer();
+}
 
 int check(struct dummy *s1, int i)
 {

@@ -1,6 +1,8 @@
 void printf(char *format);
 void assert_fail(void);
 
+extern void *__VERIFIER_nondet_pointer();
+
 struct dummy {
   int *array;
 };
@@ -11,7 +13,7 @@ struct cont {
 
 int check(struct cont *pc, int i)
 {
-  return pc->array[i]->array[i] == i;
+  return pc->array[i]->array[1] == i;
 }
 
 int main()
@@ -21,14 +23,14 @@ int main()
   struct dummy *dummies[10];
   int a[10];
   int i, *pa;
-  if (i >= 0 && i < 9) {
+  if (i > 0 && i < 9) {
     a[i] = i;
-    dummy.array = &a[i];
+    dummy.array = &a[i - 1];
     dummies[i + 1] = &dummy;
     cont.array = &dummies[1];
-    pa = &cont.array[i]->array[i];
+    pa = &cont.array[i]->array[1];
     if (a[i] > 0) {
-      i =  dummies[i + 1]->array[i] - 10;
+      i =  dummies[i + 1]->array[1] - 10;
       while (i < *pa) {
         ++i;
       }
