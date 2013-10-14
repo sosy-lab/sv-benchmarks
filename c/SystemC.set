@@ -1,2 +1,6 @@
 systemc/*_false.cil.c
 systemc/*_true.cil.c
+seq-mthreaded/*.false.*.c
+seq-mthreaded/*.true.*.c
+seq-pthread/*_false.c
+seq-pthread/*_true.c

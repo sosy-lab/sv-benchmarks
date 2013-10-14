@@ -3,3 +3,6 @@ bitvector/*_true.i
 bitvector/*_false.BV.c.cil.c
 bitvector/*_true.BV.c.cil.c
 bitvector/*_true.c.cil.c
+bitvector-regression/*_false.c
+bitvector-regression/*_true.c
+

@@ -4,3 +4,5 @@ pthread/*_true.cil.c
 pthread/*_true.i
 pthread-atomic/*_false.i
 pthread-atomic/*_true.i
+pthread-ext/*_false.c
+pthread-ext/*_true.c
