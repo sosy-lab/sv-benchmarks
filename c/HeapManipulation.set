@@ -3,3 +3,8 @@ heap-manipulation/*_true.i
 list-properties/*_false.c
 list-properties/*_true.i
 
+ldv-regression/*_false*.i
+ldv-regression/*_true*.i
+ddv-machzwd/*_false.i
+ddv-machzwd/*_true.i
+
