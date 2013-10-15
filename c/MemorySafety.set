@@ -1,10 +1,10 @@
-memsafety/*_false-valid-deref.c
-memsafety/*_false-valid-free.c
-memsafety/*_false-valid-memtrack.c
-memsafety/*_true.c
-memsafety-ext/*_true.c
-list-ext-properties/*_false-valid-deref.c
-list-ext-properties/*_false-valid-free.c
-list-ext-properties/*_false-valid-memtrack.c
-list-ext-properties/*_true.c
+memsafety/*_false-valid-deref.i
+memsafety/*_false-valid-free.i
+memsafety/*_false-valid-memtrack.i
+memsafety/*_true.i
+memsafety-ext/*_true.i
+list-ext-properties/*_false-valid-deref.i
+list-ext-properties/*_false-valid-free.i
+list-ext-properties/*_false-valid-memtrack.i
+list-ext-properties/*_true.i
 
