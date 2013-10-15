@@ -1,6 +1,4 @@
-pthread/*_false.cil.c
 pthread/*_false.i
-pthread/*_true.cil.c
 pthread/*_true.i
 pthread-atomic/*_false.i
 pthread-atomic/*_true.i

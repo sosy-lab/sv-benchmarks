@@ -1,9 +1,5 @@
-ldv-regression/*_false*.cil.c
 ldv-regression/*_false*.i
-ldv-regression/*_true*.cil.c
 ldv-regression/*_true*.i
-ddv-machzwd/*_false.cil.c
 ddv-machzwd/*_false.i
-ddv-machzwd/*_true.cil.c
 ddv-machzwd/*_true.i
 

@@ -1,6 +1,4 @@
-ldv-linux-3.0/*_false*.cil.c
 ldv-linux-3.0/*_false*.i
-ldv-linux-3.0/*_true*.cil.c
 ldv-linux-3.0/*_true*.i
 ldv-linux-3.4-simple/*_false*.c
 ldv-linux-3.4-simple/*_true*.c
