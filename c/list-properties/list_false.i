@@ -642,9 +642,9 @@ int main() {
   }
   p->h = 3;
   p = a;
-  while (p->h == 1)
-    p = p->n;
   while (p->h == 2)
+    p = p->n;
+  while (p->h == 1)
     p = p->n;
   if(p->h != 3)
     ERROR: goto ERROR;

@@ -1,6 +1,6 @@
 heap-manipulation/*_false.i
 heap-manipulation/*_true.i
-list-properties/*_false.c
+list-properties/*_false.i
 list-properties/*_true.i
 
 ldv-regression/*_false*.i

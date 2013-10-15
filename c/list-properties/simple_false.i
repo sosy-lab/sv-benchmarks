@@ -626,6 +626,7 @@ int main() {
   if (a == 0) exit(1);
   List t;
   List p = a;
+  a->h = 2;
   while (__VERIFIER_nondet_int()) {
     p->h = 1;
     t = (List) malloc(sizeof(struct node));
@@ -633,20 +634,14 @@ int main() {
     p->n = t;
     p = p->n;
   }
-  while (__VERIFIER_nondet_int()) {
-    p->h = 2;
-    t = (List) malloc(sizeof(struct node));
-    if (t == 0) exit(1);
-    p->n = t;
+  p->h = 2;
+  p->n = 0;
+  p = a;
+  while (p!=0) {
+    if (p->h != 2) {
+      ERROR: goto ERROR;
+    }
     p = p->n;
   }
-  p->h = 3;
-  p = a;
-  while (p->h == 1)
-    p = p->n;
-  while (p->h == 2)
-    p = p->n;
-  if(p->h != 3)
-    ERROR: goto ERROR;
   return 0;
 }

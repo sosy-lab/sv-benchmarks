@@ -614,27 +614,27 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-void exit(int s) {
- _EXIT: goto _EXIT;
-}
 typedef struct node {
   int h;
   struct node *n;
 } *List;
+void exit(int s) {
+ _EXIT: goto _EXIT;
+}
 int main() {
+  int flag = 1;
   List a = (List) malloc(sizeof(struct node));
   if (a == 0) exit(1);
   List t;
   List p = a;
   while (__VERIFIER_nondet_int()) {
-    p->h = 1;
-    t = (List) malloc(sizeof(struct node));
-    if (t == 0) exit(1);
-    p->n = t;
-    p = p->n;
-  }
-  while (__VERIFIER_nondet_int()) {
-    p->h = 2;
+    if (flag) {
+      p->h = 2;
+      flag = 0;
+    } else {
+      p->h = 1;
+      flag = 1;
+    }
     t = (List) malloc(sizeof(struct node));
     if (t == 0) exit(1);
     p->n = t;
@@ -642,11 +642,21 @@ int main() {
   }
   p->h = 3;
   p = a;
-  while (p->h == 1)
+  flag = 1;
+  while (p->h != 3) {
+    if (flag) {
+      flag = 0;
+      if (p->h != 1)
+ goto ERROR;
+    } else {
+      flag = 1;
+      if (p->h != 2)
+ goto ERROR;
+    }
     p = p->n;
-  while (p->h == 2)
-    p = p->n;
-  if(p->h != 3)
-    ERROR: goto ERROR;
+  }
   return 0;
+  ERROR:
+    printf("Alternation violation found.\n");
+    return 1;
 }

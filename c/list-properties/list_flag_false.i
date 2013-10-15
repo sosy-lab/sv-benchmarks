@@ -621,20 +621,18 @@ typedef struct node {
   int h;
   struct node *n;
 } *List;
-int main() {
-  List a = (List) malloc(sizeof(struct node));
+void main() {
+  int flag = __VERIFIER_nondet_int();
+  List p, a, t;
+  a = (List) malloc(sizeof(struct node));
   if (a == 0) exit(1);
-  List t;
-  List p = a;
+  p = a;
   while (__VERIFIER_nondet_int()) {
-    p->h = 1;
-    t = (List) malloc(sizeof(struct node));
-    if (t == 0) exit(1);
-    p->n = t;
-    p = p->n;
-  }
-  while (__VERIFIER_nondet_int()) {
-    p->h = 2;
+    if (flag) {
+      p->h = 1;
+    } else {
+      p->h = 2;
+    }
     t = (List) malloc(sizeof(struct node));
     if (t == 0) exit(1);
     p->n = t;
@@ -642,11 +640,12 @@ int main() {
   }
   p->h = 3;
   p = a;
-  while (p->h == 1)
-    p = p->n;
-  while (p->h == 2)
-    p = p->n;
-  if(p->h != 3)
+  if (flag)
+    while (p->h == 2)
+      p = p->n;
+  else
+    while (p->h == 1)
+      p = p->n;
+  if (p->h != 3)
     ERROR: goto ERROR;
-  return 0;
 }

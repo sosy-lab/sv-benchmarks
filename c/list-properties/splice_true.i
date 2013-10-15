@@ -241,7 +241,6 @@ typedef __blksize_t blksize_t;
 typedef __blkcnt_t blkcnt_t;
 typedef __fsblkcnt_t fsblkcnt_t;
 
-
 typedef __fsfilcnt_t fsfilcnt_t;
 typedef unsigned long int pthread_t;
 typedef union
