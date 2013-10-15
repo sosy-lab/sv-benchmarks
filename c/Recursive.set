@@ -1,2 +1,2 @@
-recursive/*_false.i
-recursive/*_true.i
+recursive/*_false.c
+recursive/*_true.c
