@@ -1,2 +1,2 @@
-LTL( (! call(main)) WU (G ! label(ERROR)) )
+LTL( (! call(main)) U (G ! label(ERROR)) )
 
