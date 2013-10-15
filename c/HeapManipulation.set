@@ -2,6 +2,7 @@ heap-manipulation/*_false.cil.c
 heap-manipulation/*_false.i
 heap-manipulation/*_true.cil.c
 heap-manipulation/*_true.i
+list-properties/*_false.c
 list-properties/*_true.cil.c
 list-properties/*_true.i
 
