@@ -621,8 +621,8 @@ int main()
         void *p0;
         struct {
             char c[2];
-            int *p1;
-            int *p2;
+            int  p1;
+            int  p2;
         } str;
     } data;
     data.p0 = malloc(37U);

@@ -9,8 +9,8 @@ int main()
 
         struct {
             char c[2];
-            int *p1;
-            int *p2;
+            int  p1;
+            int  p2;
         } str;
 
     } data;

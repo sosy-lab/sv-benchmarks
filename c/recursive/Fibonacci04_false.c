@@ -8,7 +8,7 @@
 
 extern int __VERIFIER_nondet_int(void);
 int fibonacci(int n);
-int main(int x);
+int main();
 
 
 int fibonacci(int n) {
