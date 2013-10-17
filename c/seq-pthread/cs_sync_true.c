@@ -4,6 +4,13 @@
 #include <stdlib.h>
 #include <assert.h>
 
+void __VERIFIER_assert(int cond) {
+    if (!(cond)) {
+          ERROR: goto ERROR;
+                   }
+      return;
+}
+
 
 
 #define __CS_type unsigned char

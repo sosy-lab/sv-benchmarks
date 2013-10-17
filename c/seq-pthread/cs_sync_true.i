@@ -852,6 +852,13 @@ extern void __assert_perror_fail (int __errnum, __const char *__file,
 extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
+void __VERIFIER_assert(int cond) {
+    if (!(cond)) {
+          ERROR: goto ERROR;
+                   }
+      return;
+}
+
 unsigned char __CS_round = 0;
 unsigned char __CS_ret = 0;
 const unsigned char __CS_ret_PREEMPTED = 0x01;
