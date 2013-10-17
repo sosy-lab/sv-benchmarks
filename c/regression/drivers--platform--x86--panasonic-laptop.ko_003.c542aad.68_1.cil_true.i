@@ -5925,17 +5925,17 @@ extern int nondet_int(void) ;
 #line 782 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c"
 int LDV_IN_INTERRUPT  ;
 #line 929
-void ldv_main0_sequence_infinite_withcheck_stateful(void) ;
+void main(void) ;
 #line 929 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___851  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___851  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c",
     929, {{0UL, 0UL}}};
 #line 946 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___852  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___852  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c",
     946, {{0UL, 0UL}}};
 #line 785 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct acpi_device *var_group1 ;
   int var_acpi_pcc_hotkey_remove_19_p1 ;

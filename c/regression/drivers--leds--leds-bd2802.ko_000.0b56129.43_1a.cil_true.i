@@ -6507,7 +6507,7 @@ extern int nondet_int(void) ;
 #line 816 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/leds/leds-bd2802.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 819 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/leds/leds-bd2802.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct device *var_group1 ;
   struct device_attribute *var_group2 ;
@@ -6544,7 +6544,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1320
   ldv_handler_precall();
 #line 1321
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 1321
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/leds/leds-bd2802.c.prepared";
 #line 1321
@@ -6589,7 +6589,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_18616;
   case 2: 
 #line 1500
-  ______f___1.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___1.func = "main";
 #line 1500
   ______f___1.file = "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/leds/leds-bd2802.c.prepared";
 #line 1500
@@ -6611,7 +6611,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1569
     ldv_check_return_value_probe(res_bd2802_probe_22);
 #line 1570
-    ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___0.func = "main";
 #line 1570
     ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/leds/leds-bd2802.c.prepared";
 #line 1570
@@ -6640,7 +6640,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_18616;
   case 3: 
 #line 1582
-  ______f___3.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___3.func = "main";
 #line 1582
   ______f___3.file = "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/leds/leds-bd2802.c.prepared";
 #line 1582
@@ -6662,7 +6662,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1651
     ldv_check_return_value(res_bd2802_remove_23);
 #line 1652
-    ______f___2.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___2.func = "main";
 #line 1652
     ______f___2.file = "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/leds/leds-bd2802.c.prepared";
 #line 1652

@@ -15495,29 +15495,29 @@ int LDV_IN_INTERRUPT  ;
 #line 2955 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
 static int res_mos7840_open_18  ;
 #line 4759
-void ldv_main0_sequence_infinite_withcheck_stateful(void) ;
+void main(void) ;
 #line 4759 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1251  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1251  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c",
     4759, {{0UL, 0UL}}};
 #line 4774 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1252  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1252  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c",
     4774, {{0UL, 0UL}}};
 #line 4980 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1253  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1253  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c",
     4980, {{0UL, 0UL}}};
 #line 4889 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1254  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1254  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c",
     4889, {{0UL, 0UL}}};
 #line 5004 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1255  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1255  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c",
     5004, {{0UL, 0UL}}};
 #line 2856 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;

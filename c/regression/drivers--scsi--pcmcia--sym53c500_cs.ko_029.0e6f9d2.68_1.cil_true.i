@@ -6157,7 +6157,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1563 "/work/ldvuser/novikov/work/current--X--drivers/scsi/pcmcia/sym53c500_cs.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/pcmcia/sym53c500_cs.c"
 static int res_SYM53C500_probe_15  ;
 #line 965 "/work/ldvuser/novikov/work/current--X--drivers/scsi/pcmcia/sym53c500_cs.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/pcmcia/sym53c500_cs.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct device *var_group1 ;
   struct device_attribute *var_group2 ;

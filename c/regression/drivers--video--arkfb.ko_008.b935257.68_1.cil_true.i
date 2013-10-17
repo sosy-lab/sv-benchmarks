@@ -10026,25 +10026,25 @@ int LDV_IN_INTERRUPT  ;
 #line 1602 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
 static int res_ark_pci_probe_29  ;
 #line 1725
-void ldv_main0_sequence_infinite_withcheck_stateful(void) ;
+void main(void) ;
 #line 1725 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1412  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1412  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c",
     1725, {{0UL, 0UL}}};
 #line 2256 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1413  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1413  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c",
     2256, {{0UL, 0UL}}};
 #line 2240 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1414  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1414  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c",
     2240, {{0UL, 0UL}}};
 #line 2279 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1415  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1415  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c",
     2279, {{0UL, 0UL}}};
 #line 1239 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct fb_info *var_group1 ;
   struct fb_tilemap *var_group2 ;

@@ -13271,7 +13271,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 405
 extern void ldv_handler_precall(void) ;
 #line 414 "/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_proc.c.prepared"
-void ldv_main1_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;

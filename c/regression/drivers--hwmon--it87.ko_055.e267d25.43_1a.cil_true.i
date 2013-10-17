@@ -8436,7 +8436,7 @@ extern int nondet_int(void) ;
 #line 1687 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/hwmon/it87.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1690 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/hwmon/it87.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct platform_device *var_group1 ;
   int res_it87_probe_42 ;
@@ -8463,7 +8463,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 2006
   ldv_handler_precall();
 #line 2007
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 2007
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/hwmon/it87.c.prepared";
 #line 2007
@@ -8500,7 +8500,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   switch (tmp___0) {
   case 0: 
 #line 2021
-  ______f___1.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___1.func = "main";
 #line 2021
   ______f___1.file = "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/hwmon/it87.c.prepared";
 #line 2021
@@ -8528,7 +8528,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 2121
     ldv_check_return_value_probe(res_it87_probe_42);
 #line 2122
-    ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___0.func = "main";
 #line 2122
     ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/hwmon/it87.c.prepared";
 #line 2122
@@ -8563,7 +8563,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_23881;
   case 1: 
 #line 2134
-  ______f___2.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___2.func = "main";
 #line 2134
   ______f___2.file = "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/hwmon/it87.c.prepared";
 #line 2134

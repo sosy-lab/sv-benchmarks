@@ -5319,17 +5319,17 @@ extern int nondet_int(void) ;
 #line 490 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c"
 int LDV_IN_INTERRUPT  ;
 #line 563
-void ldv_main0_sequence_infinite_withcheck_stateful(void) ;
+void main(void) ;
 #line 563 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___772  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___772  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c",
     563, {{0UL, 0UL}}};
 #line 580 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___773  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___773  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c",
     580, {{0UL, 0UL}}};
 #line 493 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct console *var_group2 ;

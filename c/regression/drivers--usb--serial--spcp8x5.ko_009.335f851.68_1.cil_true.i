@@ -10313,25 +10313,25 @@ int LDV_IN_INTERRUPT  ;
 #line 1189 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c"
 static int res_spcp8x5_open_16  ;
 #line 2388
-void ldv_main0_sequence_infinite_withcheck_stateful(void) ;
+void main(void) ;
 #line 2388 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1387  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1387  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c",
     2388, {{0UL, 0UL}}};
 #line 2486 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1388  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1388  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c",
     2486, {{0UL, 0UL}}};
 #line 2403 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1389  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1389  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c",
     2403, {{0UL, 0UL}}};
 #line 2498 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1390  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1390  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c",
     2498, {{0UL, 0UL}}};
 #line 1098 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/spcp8x5.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;

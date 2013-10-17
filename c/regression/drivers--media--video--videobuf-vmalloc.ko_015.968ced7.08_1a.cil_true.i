@@ -3790,7 +3790,7 @@ extern int nondet_int(void) ;
 #line 457 "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 460 "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct vm_area_struct *var_group1 ;
   size_t var___videobuf_alloc_2_p0 ;

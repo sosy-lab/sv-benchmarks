@@ -4474,7 +4474,7 @@ extern int nondet_int(void) ;
 #line 639 "/work/ldvuser/novikov/work/current--X--drivers/input/mouse/vsxxxaa.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/input/mouse/vsxxxaa.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 642 "/work/ldvuser/novikov/work/current--X--drivers/input/mouse/vsxxxaa.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/input/mouse/vsxxxaa.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct serio *var_group1 ;
   struct serio_driver *var_group2 ;

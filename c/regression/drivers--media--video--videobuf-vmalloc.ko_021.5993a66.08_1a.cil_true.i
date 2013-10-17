@@ -5408,7 +5408,7 @@ extern int nondet_int(void) ;
 #line 491 "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 494 "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct vm_area_struct *var_group1 ;
   size_t var___videobuf_alloc_2_p0 ;
@@ -5448,7 +5448,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   switch (tmp) {
   case 0: 
 #line 694
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 694
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared";
 #line 694
@@ -5482,7 +5482,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_27288;
   case 1: 
 #line 724
-  ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___0.func = "main";
 #line 724
   ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared";
 #line 724

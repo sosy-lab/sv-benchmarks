@@ -5825,7 +5825,7 @@ extern int nondet_int(void) ;
 #line 868 "/work/ldvuser/novikov/work/current--X--drivers/message/i2o/i2o_scsi.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/message/i2o/i2o_scsi.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 871 "/work/ldvuser/novikov/work/current--X--drivers/message/i2o/i2o_scsi.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/message/i2o/i2o_scsi.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct i2o_controller *var_group1 ;
   u32 var_i2o_scsi_reply_5_p1 ;

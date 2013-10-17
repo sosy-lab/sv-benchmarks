@@ -6195,7 +6195,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1645 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c"
 static int res_it87_probe_40  ;
 #line 1541 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct platform_device *var_group1 ;
   int tmp ;

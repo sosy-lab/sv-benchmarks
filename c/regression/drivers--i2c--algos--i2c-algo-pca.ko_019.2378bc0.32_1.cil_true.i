@@ -3213,7 +3213,7 @@ extern int nondet_int(void) ;
 #line 591 "/work/ldvuser/novikov/work/current--X--drivers/i2c/algos/i2c-algo-pca.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/i2c/algos/i2c-algo-pca.c"
 int LDV_IN_INTERRUPT  ;
 #line 594 "/work/ldvuser/novikov/work/current--X--drivers/i2c/algos/i2c-algo-pca.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/i2c/algos/i2c-algo-pca.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct i2c_adapter *var_group1 ;
   struct i2c_msg *var_group2 ;

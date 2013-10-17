@@ -7998,7 +7998,7 @@ extern int nondet_int(void) ;
 #line 833 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/cp210x.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 836 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/cp210x.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -8034,7 +8034,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1272
   ldv_handler_precall();
 #line 1273
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 1273
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/cp210x.c.prepared";
 #line 1273
@@ -8071,7 +8071,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   switch (tmp___0) {
   case 0: 
 #line 1288
-  ______f___1.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___1.func = "main";
 #line 1288
   ______f___1.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/cp210x.c.prepared";
 #line 1288
@@ -8099,7 +8099,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1336
     ldv_check_return_value(res_cp2101_open_4);
 #line 1337
-    ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___0.func = "main";
 #line 1337
     ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/cp210x.c.prepared";
 #line 1337
@@ -8134,7 +8134,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_23189;
   case 1: 
 #line 1349
-  ______f___2.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___2.func = "main";
 #line 1349
   ______f___2.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/cp210x.c.prepared";
 #line 1349

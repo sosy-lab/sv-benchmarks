@@ -2623,7 +2623,7 @@ extern int nondet_int(void) ;
 #line 410 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/mtd/mtdoops.c"
 int LDV_IN_INTERRUPT  ;
 #line 413 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/mtd/mtdoops.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct console *var_group2 ;

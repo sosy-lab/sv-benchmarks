@@ -8321,7 +8321,7 @@ static int res_ems_usb_close_12  ;
 #line 1441 "/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c"
 static int res_ems_usb_probe_16  ;
 #line 1183 "/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct net_device *var_group1 ;
   struct sk_buff *var_group2 ;

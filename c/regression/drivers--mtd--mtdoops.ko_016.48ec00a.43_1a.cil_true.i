@@ -4135,7 +4135,7 @@ extern int nondet_int(void) ;
 #line 507 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/mtdoops.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 510 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/mtdoops.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct console *var_group2 ;
@@ -4161,7 +4161,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 579
   ldv_handler_precall();
 #line 580
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 580
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/mtdoops.c.prepared";
 #line 580
@@ -4198,7 +4198,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   switch (tmp___0) {
   case 0: 
 #line 597
-  ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___0.func = "main";
 #line 597
   ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/mtdoops.c.prepared";
 #line 597

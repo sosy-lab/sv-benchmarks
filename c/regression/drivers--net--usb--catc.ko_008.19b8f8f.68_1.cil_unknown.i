@@ -8200,41 +8200,41 @@ static int res_catc_stop_16  ;
 #line 1277 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
 static int res_catc_probe_17  ;
 #line 1393
-void ldv_main0_sequence_infinite_withcheck_stateful(void) ;
+void main(void) ;
 #line 1393 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1200  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1200  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1393, {{0UL, 0UL}}};
 #line 1541 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1201  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1201  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1541, {{0UL, 0UL}}};
 #line 1505 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1202  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1202  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1505, {{0UL, 0UL}}};
 #line 1589 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1203  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1203  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1589, {{0UL, 0UL}}};
 #line 1553 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1204  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1204  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1553, {{0UL, 0UL}}};
 #line 1772 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1205  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1205  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1772, {{0UL, 0UL}}};
 #line 1736 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1206  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1206  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1736, {{0UL, 0UL}}};
 #line 1784 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1207  __attribute__((__section__("_ftrace_branch")))  =    {"ldv_main0_sequence_infinite_withcheck_stateful",
+static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1207  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1784, {{0UL, 0UL}}};
 #line 1009 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;

@@ -5719,7 +5719,7 @@ static ssize_t res_pt_write_25  ;
 #line 1271 "/work/ldvuser/novikov/work/current--X--drivers/block/paride/pt.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/block/paride/pt.c"
 static int res_pt_open_21  ;
 #line 1047 "/work/ldvuser/novikov/work/current--X--drivers/block/paride/pt.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/block/paride/pt.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct file *var_group1 ;
   char *var_pt_read_24_p1 ;

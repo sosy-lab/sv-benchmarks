@@ -6049,7 +6049,7 @@ static int res_bd2802_probe_22  ;
 #line 1085 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/leds/leds-bd2802.c"
 static int res_bd2802_remove_23  ;
 #line 799 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/leds/leds-bd2802.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct device *var_group1 ;
   struct device_attribute *var_group2 ;

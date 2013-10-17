@@ -5633,7 +5633,7 @@ extern int nondet_int(void) ;
 #line 796 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/platform/x86/panasonic-laptop.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 799 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/platform/x86/panasonic-laptop.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct acpi_device *var_group1 ;
   int var_acpi_pcc_hotkey_remove_19_p1 ;
@@ -5657,7 +5657,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 942
   ldv_handler_precall();
 #line 943
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 943
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/platform/x86/panasonic-laptop.c.prepared";
 #line 943
@@ -5694,7 +5694,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   switch (tmp___0) {
   case 0: 
 #line 960
-  ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___0.func = "main";
 #line 960
   ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/platform/x86/panasonic-laptop.c.prepared";
 #line 960

@@ -7188,7 +7188,7 @@ int LDV_IN_INTERRUPT  ;
 #line 401 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-vp7045.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/50/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/vp7045.c"
 static int res_vp7045_usb_probe_6  ;
 #line 353 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-vp7045.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/50/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/vp7045.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct dvb_usb_adapter *var_group1 ;
   struct dvb_usb_device *var_group2 ;

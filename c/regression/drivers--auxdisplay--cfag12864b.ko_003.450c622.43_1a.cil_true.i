@@ -1328,7 +1328,7 @@ extern int nondet_int(void) ;
 #line 453 "/work/ldvuser/novikov/work/current--X--drivers/auxdisplay/cfag12864b.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/auxdisplay/cfag12864b.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 456 "/work/ldvuser/novikov/work/current--X--drivers/auxdisplay/cfag12864b.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/auxdisplay/cfag12864b.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   int tmp ;
   int tmp___0 ;

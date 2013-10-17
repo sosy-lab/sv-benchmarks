@@ -4337,7 +4337,7 @@ int LDV_IN_INTERRUPT  ;
 #line 523 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/tdo24m.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/backlight/tdo24m.c"
 static int res_tdo24m_probe_8  ;
 #line 436 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/tdo24m.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/backlight/tdo24m.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct lcd_device *var_group1 ;
   int var_tdo24m_set_power_5_p1 ;

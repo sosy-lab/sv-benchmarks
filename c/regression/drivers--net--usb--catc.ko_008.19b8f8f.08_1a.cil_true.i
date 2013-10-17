@@ -7832,7 +7832,7 @@ extern int nondet_int(void) ;
 #line 1013 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1016 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
@@ -7878,7 +7878,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1399
   ldv_handler_precall();
 #line 1400
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 1400
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1400
@@ -7929,7 +7929,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_30769;
   case 2: 
 #line 1512
-  ______f___1.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___1.func = "main";
 #line 1512
   ______f___1.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1512
@@ -7957,7 +7957,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1547
     ldv_check_return_value(res_catc_open_15);
 #line 1548
-    ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___0.func = "main";
 #line 1548
     ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1548
@@ -7992,7 +7992,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_30769;
   case 3: 
 #line 1560
-  ______f___3.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___3.func = "main";
 #line 1560
   ______f___3.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1560
@@ -8020,7 +8020,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1595
     ldv_check_return_value(res_catc_stop_16);
 #line 1596
-    ______f___2.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___2.func = "main";
 #line 1596
     ______f___2.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1596
@@ -8076,7 +8076,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_30769;
   case 7: 
 #line 1743
-  ______f___5.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___5.func = "main";
 #line 1743
   ______f___5.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1743
@@ -8104,7 +8104,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 1778
     ldv_check_return_value_probe(res_catc_probe_17);
 #line 1779
-    ______f___4.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___4.func = "main";
 #line 1779
     ______f___4.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1779
@@ -8139,7 +8139,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_30769;
   case 8: 
 #line 1791
-  ______f___6.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___6.func = "main";
 #line 1791
   ______f___6.file = "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/usb/catc.c.prepared";
 #line 1791

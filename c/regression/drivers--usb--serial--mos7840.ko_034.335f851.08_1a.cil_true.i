@@ -16263,7 +16263,7 @@ extern int nondet_int(void) ;
 #line 2808 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/mos7840.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2811 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/mos7840.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -16305,7 +16305,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 4711
   ldv_handler_precall();
 #line 4712
-  ______f.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f.func = "main";
 #line 4712
   ______f.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/mos7840.c.prepared";
 #line 4712
@@ -16336,7 +16336,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   switch (tmp___0) {
   case 0: 
 #line 4727
-  ______f___0.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___0.func = "main";
 #line 4727
   ______f___0.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/mos7840.c.prepared";
 #line 4727
@@ -16360,7 +16360,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_25073;
   case 1: 
 #line 4842
-  ______f___2.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___2.func = "main";
 #line 4842
   ______f___2.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/mos7840.c.prepared";
 #line 4842
@@ -16382,7 +16382,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 #line 4932
     ldv_check_return_value(res_mos7840_open_18);
 #line 4933
-    ______f___1.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+    ______f___1.func = "main";
 #line 4933
     ______f___1.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/mos7840.c.prepared";
 #line 4933
@@ -16411,7 +16411,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
   goto ldv_25073;
   case 2: 
 #line 4957
-  ______f___3.func = "ldv_main0_sequence_infinite_withcheck_stateful";
+  ______f___3.func = "main";
 #line 4957
   ______f___3.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/mos7840.c.prepared";
 #line 4957

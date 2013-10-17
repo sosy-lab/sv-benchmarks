@@ -5123,7 +5123,7 @@ extern int nondet_int(void) ;
 #line 364 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/29/dscv_tempdir/dscv/ri/39_7a/drivers/isdn/mISDN/core.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 367 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/29/dscv_tempdir/dscv/ri/39_7a/drivers/isdn/mISDN/core.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   int tmp ;
   int tmp___0 ;

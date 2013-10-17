@@ -3365,7 +3365,7 @@ int LDV_IN_INTERRUPT  ;
 #line 386 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-max6902.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-max6902.c"
 static int res_max6902_probe_6  ;
 #line 319 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-max6902.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-max6902.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct device *var_group1 ;
   struct rtc_time *var_group2 ;

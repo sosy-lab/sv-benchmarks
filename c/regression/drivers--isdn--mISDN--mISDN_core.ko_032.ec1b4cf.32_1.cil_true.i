@@ -8081,7 +8081,7 @@ extern int nondet_int(void) ;
 #line 445 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_1/drivers/isdn/mISDN/core.c"
 int LDV_IN_INTERRUPT  ;
 #line 448 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_1/drivers/isdn/mISDN/core.c"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct device *var_group1 ;
   struct kobj_uevent_env *var_group2 ;

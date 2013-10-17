@@ -4980,7 +4980,7 @@ extern int nondet_int(void) ;
 #line 1049 "/work/ldvuser/novikov/work/current--X--drivers/block/paride/pt.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pt.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1052 "/work/ldvuser/novikov/work/current--X--drivers/block/paride/pt.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pt.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct file *var_group1 ;
   char *var_pt_read_24_p1 ;

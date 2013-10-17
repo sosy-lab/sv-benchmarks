@@ -5184,7 +5184,7 @@ extern int nondet_int(void) ;
 #line 656 "/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/15/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_drv.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 659 "/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/15/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_drv.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct drm_device *var_group1 ;
   pm_message_t var_i915_suspend_9_p1 ;

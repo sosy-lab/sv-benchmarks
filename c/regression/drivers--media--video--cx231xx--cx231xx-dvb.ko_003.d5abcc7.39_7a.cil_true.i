@@ -8035,7 +8035,7 @@ extern int nondet_int(void) ;
 #line 687 "/work/ldvuser/novikov/work/current--X--drivers/media/video/cx231xx/cx231xx-dvb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/video/cx231xx/cx231xx-dvb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 690 "/work/ldvuser/novikov/work/current--X--drivers/media/video/cx231xx/cx231xx-dvb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/video/cx231xx/cx231xx-dvb.c.prepared"
-void ldv_main0_sequence_infinite_withcheck_stateful(void) 
+void main(void) 
 { 
   struct cx231xx *var_group1 ;
   int tmp ;
