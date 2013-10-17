@@ -1,4 +1,4 @@
-LTL( (! call(main)) U (G valid-free) )
-LTL( (! call(main)) U (G valid-deref) )
-LTL( (! call(main)) U (G valid-memtrack) )
+CHECK( init(main()), LTL(G valid-free) )
+CHECK( init(main()), LTL(G valid-deref) )
+CHECK( init(main()), LTL(G valid-memtrack) )
 

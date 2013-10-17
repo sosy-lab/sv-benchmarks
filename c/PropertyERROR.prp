@@ -1,2 +1,2 @@
-LTL( (! call(main)) U (G ! label(ERROR)) )
+CHECK( init(main()), LTL(G ! label(ERROR)) )
 
