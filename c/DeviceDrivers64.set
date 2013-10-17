@@ -4,7 +4,6 @@ ldv-linux-3.4-simple/*_false*.c
 ldv-linux-3.4-simple/*_true*.c
 ldv-linux-3.7.3/*_false*.c
 ldv-linux-3.7.3/*_true*.c
-ldv-challenges/*.c
 ldv-commit-tester/*_false*.c
 ldv-commit-tester/*_true*.c
 ldv-consumption/*_false*.c
