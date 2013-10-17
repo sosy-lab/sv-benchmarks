@@ -457,9 +457,9 @@ void *t2(void *arg)
 				if ((!dequeue(&queue[__CS_round])) == stored_elements[__CS_round][i])
 			{
 				__CS_cs(); if (__CS_ret != 0) return 0;
-				goto ERROR;
+				goto __CS_ERROR;
 				__CS_cs(); if (__CS_ret != 0) return 0;
-				ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; __CS_error_detail = __ERR_ERROR_LABEL_REACHED; return 0;
+				__CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; __CS_error_detail = __ERR_ERROR_LABEL_REACHED; return 0;
 				__CS_cs(); if (__CS_ret != 0) return 0;
 				;
 
@@ -496,9 +496,9 @@ void *main_thread(void *arg)
 	if ((!empty(&queue[__CS_round])) == (-1))
 	{
 		__CS_cs(); if (__CS_ret != 0) return 0;
-		goto ERROR;
+		goto __CS_ERROR;
 		__CS_cs(); if (__CS_ret != 0) return 0;
-		ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; __CS_error_detail = __ERR_ERROR_LABEL_REACHED; return 0;
+		__CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; __CS_error_detail = __ERR_ERROR_LABEL_REACHED; return 0;
 		__CS_cs(); if (__CS_ret != 0) return 0;
 		;
 

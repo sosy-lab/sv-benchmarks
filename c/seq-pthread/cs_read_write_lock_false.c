@@ -344,9 +344,9 @@ void *reader()
 	if (!(y[__CS_round] == x[__CS_round]))
 	{
 		__CS_cs(); if (__CS_ret != 0) return 0;
-		ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
+		__CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
 	__CS_cs(); if (__CS_ret != 0) return 0;
-	goto ERROR;
+	goto __CS_ERROR;
 
 	}
 

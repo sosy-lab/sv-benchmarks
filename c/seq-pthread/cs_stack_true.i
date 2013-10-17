@@ -999,11 +999,11 @@ union __CS__u __CS_u;
 void error(void)
 {
  __CS_cs(); if (__CS_ret != 0) return;
- ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return;
+ __CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return;
  __CS_cs(); if (__CS_ret != 0) return;
  ;
  __CS_cs(); if (__CS_ret != 0) return;
- goto ERROR;
+ goto __CS_ERROR;
  __CS_cs(); if (__CS_ret != 0) return;
  return;
  __CS_cs(); if (__CS_ret != 0) return;

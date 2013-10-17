@@ -327,9 +327,9 @@ void *allocator()
 	if (!(block[__CS_round] == 1))
 	{
 		__CS_cs(); if (__CS_ret != 0) return 0;
-		ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
+		__CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
 	__CS_cs(); if (__CS_ret != 0) return 0;
-	goto ERROR;
+	goto __CS_ERROR;
 
 	}
 
@@ -355,9 +355,9 @@ void *de_allocator()
 		if (!(block[__CS_round] == 0))
 		{
 			__CS_cs(); if (__CS_ret != 0) return 0;
-			ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
+			__CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
 		__CS_cs(); if (__CS_ret != 0) return 0;
-		goto ERROR;
+		goto __CS_ERROR;
 
 		}
 

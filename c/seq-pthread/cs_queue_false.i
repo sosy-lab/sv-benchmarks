@@ -1092,7 +1092,7 @@ void *t1(void *arg)
  if (enqueue(&queue[__CS_round], value))
  {
   __CS_cs(); if (__CS_ret != 0) return 0;
-  goto ERROR;
+  goto __CS_ERROR;
   __CS_cs(); if (__CS_ret != 0) return 0;
  }
  __CS_cs(); if (__CS_ret != 0) return 0;
@@ -1101,7 +1101,7 @@ void *t1(void *arg)
  if (empty(&queue[__CS_round]))
  {
   __CS_cs(); if (__CS_ret != 0) return 0;
-  goto ERROR;
+  goto __CS_ERROR;
   __CS_cs(); if (__CS_ret != 0) return 0;
  }
  __CS_cs(); if (__CS_ret != 0) return 0;
@@ -1133,7 +1133,7 @@ void *t1(void *arg)
  __CS_cs(); if (__CS_ret != 0) return 0;
  return 0;
  __CS_cs(); if (__CS_ret != 0) return 0;
- ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
+ __CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
  __CS_cs(); if (__CS_ret != 0) return 0;
  ;
  __CS_cs(); if (__CS_ret != 0) return 0;
@@ -1153,9 +1153,9 @@ void *t2(void *arg)
    if ((!dequeue(&queue[__CS_round])) == stored_elements[__CS_round][i])
    {
     __CS_cs(); if (__CS_ret != 0) return 0;
-    goto ERROR;
+    goto __CS_ERROR;
     __CS_cs(); if (__CS_ret != 0) return 0;
-    ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
+    __CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
     __CS_cs(); if (__CS_ret != 0) return 0;
     ;
     __CS_cs(); if (__CS_ret != 0) return 0;
@@ -1188,9 +1188,9 @@ void *main_thread(void *arg)
  if ((!empty(&queue[__CS_round])) == (-1))
  {
   __CS_cs(); if (__CS_ret != 0) return 0;
-  goto ERROR;
+  goto __CS_ERROR;
   __CS_cs(); if (__CS_ret != 0) return 0;
-  ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
+  __CS_ERROR: __CS_error = 1; __CS_ret = __CS_ret_ERROR; return 0;
   __CS_cs(); if (__CS_ret != 0) return 0;
   ;
   __CS_cs(); if (__CS_ret != 0) return 0;
