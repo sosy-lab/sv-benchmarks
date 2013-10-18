@@ -22,7 +22,7 @@ int fibonacci(int n) {
 
 int main() {
     int x = __VERIFIER_nondet_int();
-    if (x > 46) {
+    if (x > 46 || x == -2147483648) {
         return 0;
     }
     int result = fibonacci(x);
