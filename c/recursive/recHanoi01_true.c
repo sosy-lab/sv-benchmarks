@@ -36,7 +36,7 @@ void applyHanoi(int n, int from, int to, int via)
 
 int main() {
     int n = __VERIFIER_nondet_int();
-    if (n < 1) {
+    if (n < 1 || n > 31) {
     	return 0;
     }
     counter = 0;

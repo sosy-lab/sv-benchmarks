@@ -23,7 +23,13 @@ int addition(int m, int n) {
 
 int main() {
     int m = __VERIFIER_nondet_int();
+    if (m < 0 || m > 2147483647) {
+        return 0;
+    }
     int n = __VERIFIER_nondet_int();
+    if (n < 0 || n > 2147483647) {
+        return 0;
+    }
     int result = addition(m,n);
     if (result == m + n) {
         return 0;

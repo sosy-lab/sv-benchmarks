@@ -25,7 +25,13 @@ int gcd(int y1, int y2) {
 
 int main() {
     int m = __VERIFIER_nondet_int();
+    if (m <= 0 || m > 2147483647) {
+        return 0;
+    }
     int n = __VERIFIER_nondet_int();
+    if (n <= 0 || n > 2147483647) {
+        return 0;
+    }
     int z = gcd(m, n);
     if (z < 1 && m > 0 && n > 0) {
         ERROR:

@@ -34,6 +34,9 @@ int isEven(int n) {
 
 int main() {
     int n = __VERIFIER_nondet_int();
+    if (n < 0) {
+        return 0;
+    }
     int result = isOdd(n);
     int mod = n % 2;
     if (result < 0 || result == mod) {

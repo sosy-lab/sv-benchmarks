@@ -38,7 +38,13 @@ int divides(int n, int m) {
 
 int main() {
     int m = __VERIFIER_nondet_int();
+    if (m <= 0 || m > 2147483647) {
+        return 0;
+    }
     int n = __VERIFIER_nondet_int();
+    if (n <= 0 || n > 2147483647) {
+        return 0;
+    }
     if (m > 0 && n > 0) {
         int z = gcd(m, n);
         if (divides(z, m) == 0) {

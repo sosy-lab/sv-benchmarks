@@ -70,11 +70,20 @@ int is_prime_(int n, int m) {
 }
 
 int main() {
-    int m = __VERIFIER_nondet_int();
     int n = __VERIFIER_nondet_int();
+    if (n < 1 || n > 46340) {
+        return 0;
+    }
     int result = is_prime(n);
     int f1 = __VERIFIER_nondet_int();
+    if (f1 < 1 || f1 > 46340) {
+        return 0;
+    }
     int f2 = __VERIFIER_nondet_int();
+    if (f1 < 1 || f1 > 46340) {
+        return 0;
+    }
+
     if (result == 1 && mult(f1, f2) == n && f1 > 1 && f2 > 1) {
         ERROR:
         goto ERROR;
