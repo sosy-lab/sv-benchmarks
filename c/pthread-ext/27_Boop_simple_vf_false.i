@@ -655,7 +655,7 @@ inline void unregister_chrdev ()
 {
   if (usecount != 0)
     {
-    { if(!(0)) { goto ERROR; ERROR: (void)0; } };
+    { if(!(0)) { ERROR: goto ERROR; (void)0; } };
     }
   else
     return;

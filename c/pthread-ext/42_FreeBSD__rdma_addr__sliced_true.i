@@ -649,7 +649,7 @@ inline static void put_client(int client){
  if (refctr == 0) {
   COND = 1; }
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void rdma_addr_unregister_client(int client){
  put_client(client);
@@ -657,17 +657,17 @@ inline void rdma_addr_unregister_client(int client){
  if (refctr) {
   { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); }; }
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline static void queue_req( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline static void process_req( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void rdma_resolve_ip( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
@@ -677,12 +677,12 @@ inline void rdma_resolve_ip( ){
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   refctr--;
   __VERIFIER_atomic_release(MTX); }
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void rdma_addr_cancel( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 void* thr1(void* arg){
   while(1)

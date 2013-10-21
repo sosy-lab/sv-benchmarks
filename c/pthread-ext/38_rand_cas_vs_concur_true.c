@@ -3,7 +3,7 @@
 
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { goto ERROR; ERROR: (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
 
 inline int nC(int s2){ 
 	int nC_return;

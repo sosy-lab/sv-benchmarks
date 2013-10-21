@@ -650,7 +650,7 @@ inline int calculateNext(int s2){
 int seed = 1;
 inline int PseudoRandomUsingAtomic_nextInt() {
  int read, nexts, nextInt_return;
- { if(!(seed != 0)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(seed != 0)) { ERROR: goto ERROR; (void)0; } };
  __VERIFIER_atomic_acquire();
  read = seed;
  nexts = calculateNext(read);

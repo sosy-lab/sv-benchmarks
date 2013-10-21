@@ -634,7 +634,7 @@ _Bool s = 0;
 _Thread_local _Bool l = 0;
 void* thr1(void* arg)
 {
- { if(!(!l || s)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(!l || s)) { ERROR: goto ERROR; (void)0; } };
   s = s || 1;
  l = 1;
   return 0;

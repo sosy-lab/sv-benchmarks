@@ -638,7 +638,7 @@ void* thr1(void* arg) {
   turn = 1;
   do {} while (flag2==1 && turn==1);
   x = 0;
-  { if(!(x<=0)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(x<=0)) { ERROR: goto ERROR; (void)0; } };
   flag1 = 0;
   return 0;
 }
@@ -647,7 +647,7 @@ void* thr2(void* arg) {
   turn = 0;
   do {} while (flag1==1 && turn==0);
   x = 1;
-  { if(!(x>=1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(x>=1)) { ERROR: goto ERROR; (void)0; } };
   flag2 = 0;
   return 0;
 }

@@ -643,7 +643,7 @@ void* thr1(void* arg)
 {
   unsigned l;
   { __VERIFIER_atomic_fetch_and_inc(&l); while (l != s) ; };
-  c = 1; { if(!(c == 1)) { goto ERROR; ERROR: (void)0; } }; c = 0;
+  c = 1; { if(!(c == 1)) { ERROR: goto ERROR; (void)0; } }; c = 0;
   { s++;};
   return 0;
 }

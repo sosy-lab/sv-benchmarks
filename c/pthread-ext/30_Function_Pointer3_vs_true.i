@@ -667,7 +667,7 @@ void* thr1(void* arg)
 {
   while(1)
   {
-    { if(!(res < 10)) { goto ERROR; ERROR: (void)0; } };
+    { if(!(res < 10)) { ERROR: goto ERROR; (void)0; } };
   }
   return 0;
 }

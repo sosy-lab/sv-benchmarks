@@ -3,7 +3,7 @@
 
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { goto ERROR; ERROR: (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
 
 void __VERIFIER_atomic_CAS(
   volatile unsigned *v,

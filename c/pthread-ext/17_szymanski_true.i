@@ -644,7 +644,7 @@ void* thr1(void* arg) {
     flag1 = 4;
     while (flag2 >= 2);
     x = 0;
-    { if(!(x<=0)) { goto ERROR; ERROR: (void)0; } };
+    { if(!(x<=0)) { ERROR: goto ERROR; (void)0; } };
     while (2 <= flag2 && flag2 <= 3);
     flag1 = 0;
   }
@@ -662,7 +662,7 @@ void* thr2(void* arg) {
     flag2 = 4;
     while (flag1 >= 2);
     x = 1;
-    { if(!(x>=1)) { goto ERROR; ERROR: (void)0; } };
+    { if(!(x>=1)) { ERROR: goto ERROR; (void)0; } };
     while (2 <= flag1 && flag1 <= 3);
     flag2 = 0;
   }

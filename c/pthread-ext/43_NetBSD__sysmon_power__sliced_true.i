@@ -644,13 +644,13 @@ void __VERIFIER_atomic_release()
 }
 inline int sysmon_queue_power_event(){
  { if(!((MTX==1))) { goto ERROR; } };
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
  if (__VERIFIER_nondet_int())
   return 0;
  return 1; }
 inline int sysmon_get_power_event(){
  { if(!((MTX==1))) { goto ERROR; } };
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
  if (__VERIFIER_nondet_int())
   return 0;
  return 1; }
@@ -681,20 +681,20 @@ inline int sysmon_power_daemon_task(){
   COND = 1;
   __VERIFIER_atomic_release(MTX);}
  out:
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
  return __VERIFIER_nondet_int(); }
 inline void sysmonopen_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  if (__VERIFIER_nondet_int())
   { if(!((MTX==1))) { goto ERROR; } };
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void sysmonclose_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  { if(!((MTX==1))) { goto ERROR; } };
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void sysmonread_power(){
  if (__VERIFIER_nondet_int()){
@@ -707,28 +707,28 @@ inline void sysmonread_power(){
    { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); };
       { if(!(COND)) { goto ERROR; } }; }
   __VERIFIER_atomic_release(MTX); }
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void sysmonpoll_power(){
  if(__VERIFIER_nondet_int()){
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   __VERIFIER_atomic_release(MTX); }
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void filt_sysmon_power_rdetach(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void filt_sysmon_power_read(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void sysmonkqfilter_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void sysmonioctl_power(){
  switch (__VERIFIER_nondet_int()) {
@@ -741,7 +741,7 @@ inline void sysmonioctl_power(){
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   __VERIFIER_atomic_release(MTX);
   break; }
-  { if(!(1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
 }
 void* thr1(void* arg){
   while(1)

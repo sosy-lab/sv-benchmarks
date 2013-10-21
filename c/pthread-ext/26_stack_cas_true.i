@@ -700,7 +700,7 @@ inline int push(int d) {
 }
 void __VERIFIER_atomic_assert(int r)
 {
-  { if(!(!r || !isEmpty())) { goto ERROR; ERROR: (void)0; } };
+  { if(!(!r || !isEmpty())) { ERROR: goto ERROR; (void)0; } };
 }
 inline void push_loop(){
  int r = -1;

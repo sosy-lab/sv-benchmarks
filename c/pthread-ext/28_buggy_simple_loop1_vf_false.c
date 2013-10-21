@@ -1,7 +1,7 @@
 #include <pthread.h>
 
 #define assert_nl(e) { if(!(e)) { goto ERROR; } }
-#define assert(e) { if(!(e)) { goto ERROR; ERROR: (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
 
 void* thr1(void* arg){
   unsigned int x, y, z;

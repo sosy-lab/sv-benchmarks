@@ -648,17 +648,17 @@ inline void acquire_lock(){
    delay *= 2;
   __VERIFIER_atomic_TAS(&lock,&cond);
  }
- { if(!(cond != lock)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(cond != lock)) { ERROR: goto ERROR; (void)0; } };
 }
 inline void release_lock(){
- { if(!(lock != 0)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(lock != 0)) { ERROR: goto ERROR; (void)0; } };
  lock = 0;
 }
 int c = 0;
 void* thr1(void *arg){
  while(1){
   acquire_lock();
-  c++; { if(!(c == 1)) { goto ERROR; ERROR: (void)0; } }; c--;
+  c++; { if(!(c == 1)) { ERROR: goto ERROR; (void)0; } }; c--;
   release_lock();
  }
   return 0;

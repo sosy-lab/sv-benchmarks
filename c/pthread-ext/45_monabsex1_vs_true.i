@@ -636,7 +636,7 @@ void* thr1(void* arg)
  int l = __VERIFIER_nondet_int();
   l = 4;
  s = l;
- { if(!(s == l)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(s == l)) { ERROR: goto ERROR; (void)0; } };
   return 0;
 }
 int main()

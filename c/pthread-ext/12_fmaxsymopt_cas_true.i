@@ -671,7 +671,7 @@ inline void findMax(int offset){
    break;
   }
  }
- { if(!(my_max <= max)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(my_max <= max)) { ERROR: goto ERROR; (void)0; } };
 }
 void* thr1(void* arg) {
  int offset;

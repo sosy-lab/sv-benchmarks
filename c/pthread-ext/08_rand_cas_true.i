@@ -671,7 +671,7 @@ inline int PseudoRandomUsingAtomic_nextInt(int n)
  while(1) {
   read = seed;
   nexts = calculateNext(read);
-  { if(!(nexts != read)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(nexts != read)) { ERROR: goto ERROR; (void)0; } };
   __VERIFIER_atomic_CAS(&seed,read,nexts,&casret);
   if(casret == 1){
    nextInt_return = nexts % n;
@@ -684,7 +684,7 @@ inline void PseudoRandomUsingAtomic_monitor()
 {
  while(1)
  {
-  { if(!(seed != 0)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(seed != 0)) { ERROR: goto ERROR; (void)0; } };
  }
 }
 inline void PseudoRandomUsingAtomic_constructor(int init)
@@ -695,7 +695,7 @@ inline void PseudoRandomUsingAtomic__threadmain()
 {
  int myrand;
  myrand = PseudoRandomUsingAtomic_nextInt(10);
- { if(!(myrand <= 10)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(myrand <= 10)) { ERROR: goto ERROR; (void)0; } };
 }
 volatile int state = 0;
 void* thr1(void* arg)

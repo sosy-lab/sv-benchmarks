@@ -665,7 +665,7 @@ int c = 0;
 void* thr1(void* arg){
  acquire_lock();
  c++;
- { if(!(c == 1)) { goto ERROR; ERROR: (void)0; } };
+ { if(!(c == 1)) { ERROR: goto ERROR; (void)0; } };
  c--;
  release_lock();
   return 0;

@@ -655,7 +655,7 @@ void* thr1(void* arg) {
     break;
   }
   X = 0;
-  { if(!(X <= 0)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(X <= 0)) { ERROR: goto ERROR; (void)0; } };
   y = 0;
   b1 = 0;
   return 0;
@@ -681,7 +681,7 @@ void* thr2(void* arg) {
     break;
   }
   X = 1;
-  { if(!(X >= 1)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(X >= 1)) { ERROR: goto ERROR; (void)0; } };
   y = 0;
   b2 = 0;
   return 0;

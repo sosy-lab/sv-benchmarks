@@ -644,15 +644,15 @@ void __VERIFIER_atomic_release()
  MTX = 0;
 }
 inline static int adb_kbd_receive_packet(){
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; ERROR: (void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: goto ERROR; (void)0; } };;
  __VERIFIER_atomic_release(MTX);
  COND = 1;
  return 0; }
 inline static void akbd_repeat() {
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; ERROR: (void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: goto ERROR; (void)0; } };;
  __VERIFIER_atomic_release(MTX); }
 inline static void akbd_read_char(int wait) {
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; ERROR: (void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: goto ERROR; (void)0; } };;
  if (!buf && wait){
   { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); };
   { if(!(COND)) { goto ERROR; } };}
@@ -661,7 +661,7 @@ inline static void akbd_read_char(int wait) {
   return; }
  __VERIFIER_atomic_release(MTX); }
 inline static void akbd_clear_state(){
- __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; ERROR: (void)0; } };;
+ __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: goto ERROR; (void)0; } };;
  buf = 0;
  __VERIFIER_atomic_release(MTX); }
 void* thr1(void* arg){
@@ -674,7 +674,7 @@ void* thr1(void* arg){
     case 2: akbd_read_char(__VERIFIER_nondet_int()); break;
     case 3: akbd_clear_state(); break;
     case 4: while(1){
-        __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; ERROR: (void)0; } };;
+        __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: goto ERROR; (void)0; } };;
         buf = !buf;
         __VERIFIER_atomic_release(MTX);
       }

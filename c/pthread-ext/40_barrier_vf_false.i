@@ -654,7 +654,7 @@ void Barrier2() {
   __VERIFIER_atomic_release(); }
 void* thr1(void* arg){
   Barrier2();
-  { if(!(0)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(0)) { ERROR: goto ERROR; (void)0; } };
   return 0;
 }
 int main(){

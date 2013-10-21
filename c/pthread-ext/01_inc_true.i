@@ -651,7 +651,7 @@ void * thr1(void* arg) {
   v = value;
   value = v + 1;
   __VERIFIER_atomic_release(m);
-  { if(!(value > v)) { goto ERROR; ERROR: (void)0; } };
+  { if(!(value > v)) { ERROR: goto ERROR; (void)0; } };
   return 0;
  }
 }

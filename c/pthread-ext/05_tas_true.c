@@ -9,7 +9,7 @@
 #define locked 1
 volatile int lock = unlocked;
 
-#define assert(e) { if(!(e)) { goto ERROR; ERROR: (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
 
 void __VERIFIER_atomic_TAS(
   volatile int *v,

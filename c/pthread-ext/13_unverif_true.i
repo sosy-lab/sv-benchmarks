@@ -643,7 +643,7 @@ void* thr1(void* arg){
   if(r == 1){
     L3: s = s + 1;
     l = l + 1;
-    { if(!(s == l)) { goto ERROR; ERROR: (void)0; } };
+    { if(!(s == l)) { ERROR: goto ERROR; (void)0; } };
     goto L3;
   }
   return 0;

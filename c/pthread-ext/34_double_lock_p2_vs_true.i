@@ -665,7 +665,7 @@ void* thr1(void* arg)
     { if(!(count >= -1)) { goto ERROR; } };
     __VERIFIER_atomic_release(&mutexa);
     __VERIFIER_atomic_acquire(&mutexb);
-    { if(!(count <= 1)) { goto ERROR; ERROR: (void)0; } };
+    { if(!(count <= 1)) { ERROR: goto ERROR; (void)0; } };
     __VERIFIER_atomic_release(&mutexb);
   }
   return 0;

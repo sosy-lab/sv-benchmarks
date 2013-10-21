@@ -640,7 +640,7 @@ void* thr1(void* arg){
       }
     }
   }
-  { if(!(i == x && ( j == y || y <= x+1) && (x == 0 || y <= x+1 || k == z || z < y))) { goto ERROR; ERROR: (void)0; } } ;
+  { if(!(i == x && ( j == y || y <= x+1) && (x == 0 || y <= x+1 || k == z || z < y))) { ERROR: goto ERROR; (void)0; } } ;
   return 0;
 }
 int main()

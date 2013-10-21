@@ -1,7 +1,7 @@
 #include <pthread.h>
 
 #define assume(e) __VERIFIER_assume(e)
-#define assert(e) { if(!(e)) { goto ERROR; ERROR: (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
 
 volatile unsigned int count = 0; //shared
 _Bool MTX = 0; //shared mutex

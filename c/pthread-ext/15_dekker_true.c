@@ -1,6 +1,6 @@
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { goto ERROR; ERROR: (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
 
 int flag1 = 0, flag2 = 0; // N boolean flags 
 int turn = 0; // integer variable to hold the ID of the thread whose turn is it

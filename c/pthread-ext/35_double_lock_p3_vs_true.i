@@ -660,7 +660,7 @@ void* thr1(void* arg)
   while(1)
   {
     __VERIFIER_atomic_acquire(&mutexa);
-    { if(!(count >= -1)) { goto ERROR; ERROR: (void)0; } };
+    { if(!(count >= -1)) { ERROR: goto ERROR; (void)0; } };
     __VERIFIER_atomic_release(&mutexa);
   }
   return 0;
