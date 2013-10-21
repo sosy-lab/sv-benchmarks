@@ -93,6 +93,7 @@ __inline static _Bool __startrek_cs_t0(void) ;
 _Bool __VERIFIER_nondet__Bool(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
+extern int __VERIFIER_nondet_int();
 void __VERIFIER_assume(_Bool arg ) ;
 #line 1 "<startrek builtins>"
 unsigned char __startrek_task  ;
@@ -161,7 +162,6 @@ void balance_init(void)
 }
 }
 #line 199
-extern int ( /* missing proto */  rt_SATURATE)() ;
 #line 72 "src/balancer.h"
 void balance_control(unsigned int args_cmd_forward , unsigned int args_cmd_turn ,
                      unsigned int args_gyro , unsigned int args_gyro_offset , unsigned int args_theta_m_l ,
@@ -233,7 +233,7 @@ void balance_control(unsigned int args_cmd_forward , unsigned int args_cmd_turn 
 #line 196
   tmp_pwm_l_limiter = tmp_pwm_r_limiter + tmp_pwm_turn;
 #line 199
-  tmp___0 = rt_SATURATE(tmp_pwm_l_limiter, - 100.0F, 100.0F);
+  tmp___0 = __VERIFIER_nondet_int();
 #line 199
   tmp_pwm_l_limiter = tmp___0;
 #line 204
@@ -241,7 +241,7 @@ void balance_control(unsigned int args_cmd_forward , unsigned int args_cmd_turn 
 #line 207
   tmp_pwm_r_limiter -= tmp_pwm_turn;
 #line 210
-  tmp___1 = rt_SATURATE(tmp_pwm_r_limiter, - 100.0F, 100.0F);
+  tmp___1 = __VERIFIER_nondet_int();
 #line 210
   tmp_pwm_r_limiter = tmp___1;
 #line 215
