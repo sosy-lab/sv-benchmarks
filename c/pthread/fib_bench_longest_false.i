@@ -630,6 +630,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: goto ERROR; }; return; }
 int i=1, j=1;
 void *
 t1(void* arg)

@@ -1,5 +1,7 @@
 #include <pthread.h>
 
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: goto ERROR; }; return; }
+
 int i=1, j=1;
 
 #define NUM 11

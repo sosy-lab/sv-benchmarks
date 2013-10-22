@@ -2,6 +2,7 @@
 #include <pthread.h>
 #include <string.h>
 
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: goto ERROR; }; return; }
 
 char *v;
 
