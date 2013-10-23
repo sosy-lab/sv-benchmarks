@@ -23,16 +23,16 @@ void __VERIFIER_atomic_release()
 void * thr1(void* arg) {
 	unsigned v = 0;
 
-	__VERIFIER_atomic_acquire(m);
+	__VERIFIER_atomic_acquire();
 	if(value == 0u-1) {
-		__VERIFIER_atomic_release(m);
+		__VERIFIER_atomic_release();
 
 		return 0;
 	}else{
 
 		v = value;
 		value = v + 1;
-		__VERIFIER_atomic_release(m);
+		__VERIFIER_atomic_release();
 
 		assert(value > v);
 
