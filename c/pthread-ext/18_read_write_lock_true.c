@@ -27,6 +27,7 @@ void __VERIFIER_atomic_r()
 }
 
 void* thr2(void* arg) { //reader
+  __VERIFIER_atomic_r();
   y = x;
   assert(y == x);
   r = r-1;
