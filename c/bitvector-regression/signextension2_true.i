@@ -358,8 +358,8 @@ int main() {
   long castToLong = allOne;
   long castToLong2 = castToInt;
   unsigned long castToULong = allOne;
-  if (castToInt != -1 || castToLong != 4294967295L ||
-      castToLong2 != -1 || castToULong != 4294967295L) {
+  if (castToInt != -1 || castToLong != 4294967295UL ||
+      castToLong2 != -1 || castToULong != 4294967295UL) {
     printf ("UNSAFE\n");
     goto ERROR;
   }
