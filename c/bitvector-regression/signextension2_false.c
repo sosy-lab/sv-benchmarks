@@ -7,11 +7,9 @@ int main() {
   long castToLong = allOne;
   long castToLong2 = castToInt;
   unsigned long castToULong = allOne;
-  unsigned long castToULong2 = castToInt;
 
   if (castToInt == -1 && castToLong == 4294967295L &&
-      castToLong2 == -1 && castToULong == 4294967295L &&
-      castToULong2 == 18446744073709551615ul) {
+      castToLong2 == -1 && castToULong == 4294967295L) {
     printf ("UNSAFE\n");
     goto ERROR;
   }
