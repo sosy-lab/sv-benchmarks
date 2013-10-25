@@ -116,7 +116,7 @@ void *t1(void *arg)
   return NULL;
 
   ERROR:
-    ;
+    goto ERROR;
 }
 
 void *t2(void *arg) 
@@ -129,9 +129,8 @@ void *t2(void *arg)
     if (dequeue_flag)
     {
       if (!dequeue(&queue)==stored_elements[i]) {
-        goto ERROR;
         ERROR:
-          ;
+        goto ERROR;
       }
       dequeue_flag=FALSE;
       enqueue_flag=TRUE;
@@ -152,9 +151,8 @@ int main(void)
   init(&queue);
 
   if (!empty(&queue)==EMPTY) {
-    goto ERROR;
     ERROR:
-      ;
+    goto ERROR;
   }
 
 

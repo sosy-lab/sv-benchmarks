@@ -37,9 +37,8 @@ main(int argc, char **argv)
   pthread_create(&id2, NULL, t2, NULL);
 
   if (i > 46368 || j > 46368) {
-    goto ERROR;
     ERROR:
-      ;
+    goto ERROR;
   }
 
   return 0;

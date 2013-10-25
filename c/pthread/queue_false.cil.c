@@ -512,8 +512,8 @@ void *t2(void *arg )
       __cil_tmp7 = *((int *)__cil_tmp6);
 #line 131
       if (tmp___0 == __cil_tmp7) {
+        ERROR:
         goto ERROR;
-        ERROR: ;
       } else {
 
       }
@@ -583,8 +583,8 @@ int main(void)
   }
 #line 154
   if (tmp___0 == -1) {
+    ERROR:
     goto ERROR;
-    ERROR: ;
   } else {
 
   }

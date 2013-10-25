@@ -140,8 +140,8 @@ int main(int argc , char **argv )
 #line 37
     if (j >= 377) {
       _L: /* CIL Label */ 
+      ERROR:
       goto ERROR;
-      ERROR: ;
     } else {
 
     }

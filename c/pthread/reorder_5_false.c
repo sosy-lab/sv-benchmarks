@@ -2858,10 +2858,8 @@ void *setThread(void *param) {
 void *checkThread(void *param) {
     if (! ((a == 0 && b == 0) || (a == 1 && b == -1))) {
         fprintf(stderr, "Bug found!\n");
-        goto ERROR;
         ERROR:
-          ;
-
+        goto ERROR;
     }
 
     return ((void *)0);

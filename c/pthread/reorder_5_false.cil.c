@@ -602,8 +602,8 @@ void *checkThread(void *param )
 #line 79
       fprintf(__cil_tmp2, __cil_tmp3);
       }
+      ERROR:
       goto ERROR;
-      ERROR: ;
     }
   }
 #line 86

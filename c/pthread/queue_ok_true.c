@@ -114,9 +114,8 @@ void *t2(void *arg)
     {
       if (empty(&queue)!=EMPTY)
         if (!dequeue(&queue)==stored_elements[i]) {
-          goto ERROR;
           ERROR:
-            ;
+          goto ERROR;
         }
     }
     dequeue_flag=FALSE;
@@ -137,9 +136,8 @@ int main(void)
   init(&queue);
 
   if (!empty(&queue)==EMPTY) {
-    goto ERROR;
     ERROR:
-      ;
+    goto ERROR;
   }
 
   pthread_mutex_init(&m, 0);
