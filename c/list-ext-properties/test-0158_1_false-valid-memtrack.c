@@ -30,8 +30,5 @@ int main()
        data.str.c[1] = sizeof data.str.p1;
     }
 
-    // valid free()
-    free(data.p0);
-
     return 0;
 }

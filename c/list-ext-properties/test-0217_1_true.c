@@ -180,6 +180,7 @@ int main()
         item_p next = (*cursor)[direction];
         free(cursor);
         cursor = next;
+	length--;
     }
 
     return 0;

@@ -650,6 +650,7 @@ int main()
         struct item *next = list->next;
         free(list);
         list = next;
+ length--;
     }
     return 0;
 }

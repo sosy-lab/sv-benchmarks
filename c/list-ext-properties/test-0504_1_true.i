@@ -664,13 +664,14 @@ int main() {
         }
     }
     while (c1 > 0) {
+ c1--;
         struct T2* x = first;
         first = first->next;
         struct T* y = x->head.next;
         while (y != &x->head) {
             struct T* z = y;
             y = y->next;
-            if(z->data < 9) {
+            if(z->data < 16) {
               free(z);
             }
         }

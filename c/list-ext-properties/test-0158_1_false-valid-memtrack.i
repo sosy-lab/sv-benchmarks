@@ -621,8 +621,8 @@ int main()
         void *p0;
         struct {
             char c[2];
-            int  p1;
-            int  p2;
+            int p1;
+            int p2;
         } str;
     } data;
     data.p0 = malloc(37U);
@@ -634,6 +634,5 @@ int main()
     if(25 > data.str.p2) {
        data.str.c[1] = sizeof data.str.p1;
     }
-    free(data.p0);
     return 0;
 }
