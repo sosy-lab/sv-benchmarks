@@ -20,7 +20,7 @@ int main() {
     int c1 = 0;
 
     // fill top level list with single data items
-    while (c1 < 6 && __VERIFIER_nondet_int()) {
+    while (c1 < 5 && __VERIFIER_nondet_int()) {
         c1++;
         
         item = malloc(sizeof *item);
