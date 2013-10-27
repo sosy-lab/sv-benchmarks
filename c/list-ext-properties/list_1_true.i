@@ -656,7 +656,7 @@ int main() {
     y++;
     p = p->n;
   }
-  if(p->h != 3 || (i + y) >= 20)
+  if(p->h != 3 || (i + y) > 20)
     ERROR: goto ERROR;
   return 0;
 }
