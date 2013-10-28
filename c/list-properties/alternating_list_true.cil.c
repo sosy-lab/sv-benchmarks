@@ -26,10 +26,6 @@ void exit(int s )
   goto _EXIT;
 }
 }
-#line 25
-extern int ( /* missing proto */  __VERIFIER_nondet_int)() ;
-#line 59
-extern int ( /* missing proto */  printf)() ;
 #line 17 "alternating_list.c"
 int main(void) 
 { int flag ;
@@ -215,7 +211,6 @@ int main(void)
   ERROR: 
   {
 #line 59
-  printf("Alternation violation found.\n");
   }
 #line 60
   return (1);

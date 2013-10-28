@@ -57,6 +57,5 @@ int main() {
   return 0;
 
   ERROR:
-    printf("Alternation violation found.\n");
     return 1;
 }
