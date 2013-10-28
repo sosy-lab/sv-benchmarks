@@ -1,3 +1,4 @@
+extern void __VERIFIER_assume(int);
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
