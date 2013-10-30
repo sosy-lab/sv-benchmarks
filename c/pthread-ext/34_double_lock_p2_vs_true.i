@@ -641,20 +641,28 @@ void __VERIFIER_atomic_release(int * m)
  __VERIFIER_assume(*m==1);
  *m = 0;
 }
+void __VERIFIER_atomic_inc()
+{
+  count++;
+}
+void __VERIFIER_atomic_dec()
+{
+  count--;
+}
 int mutexa = 0;
 int mutexb = 0;
 inline void my_thread1()
 {
   __VERIFIER_atomic_acquire(&mutexa);
-  count++;
-  count--;
+  __VERIFIER_atomic_inc();
+  __VERIFIER_atomic_dec();
   __VERIFIER_atomic_release(&mutexa);
 }
 inline void my_thread2()
 {
   __VERIFIER_atomic_acquire(&mutexb);
-  count--;
-  count++;
+  __VERIFIER_atomic_dec();
+  __VERIFIER_atomic_inc();
   __VERIFIER_atomic_release(&mutexb);
 }
 void* thr1(void* arg)

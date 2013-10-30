@@ -649,6 +649,7 @@ void __VERIFIER_atomic_r()
     r = r+1;
 }
 void* thr2(void* arg) {
+  __VERIFIER_atomic_r();
   y = x;
   { if(!(y == x)) { ERROR: goto ERROR; (void)0; } };
   r = r-1;

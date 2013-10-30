@@ -674,7 +674,7 @@ void* thr1 (void* arg)
   }
   do
     {
-      rval = thr1 (0);
+      rval = (void*)__VERIFIER_nondet_int();
       if (rval == 0)
  {
    count = 1;
