@@ -8186,7 +8186,7 @@ NTSTATUS IofCallDriver(PDEVICE_OBJECT DeviceObject ,
                                                         PIRP Irp ) 
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
-  int compRetStatus ;
+  int compRetStatus = __VERIFIER_nondet_int();
   PVOID lcontext = __VERIFIER_nondet_pointer() ;
   NTSTATUS tmp ;
   NTSTATUS tmp___0 ;
@@ -8539,7 +8539,7 @@ void ObfDereferenceObject(PVOID Object )
                                                       PIRP Irp ) ;
 NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp ) 
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
-  int compRetStatus ;
+  int compRetStatus = __VERIFIER_nondet_int();
   NTSTATUS returnVal ;
   PVOID lcontext = __VERIFIER_nondet_pointer() ;
   NTSTATUS tmp ;
