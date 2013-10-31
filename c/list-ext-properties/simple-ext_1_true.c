@@ -47,5 +47,14 @@ int main() {
     p = p->n;
     i++;
   }
+
+  /* free memory */
+  p = a;
+  while (p != 0) {
+    t = p->n;
+    free(p);
+    p = t;
+  }
+
   return 0;
 }

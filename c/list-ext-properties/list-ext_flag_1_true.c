@@ -18,7 +18,7 @@ typedef struct node {
   struct node *n;
 } *List;
 
-void main() {
+int main() {
   List p, a, t;
 
   /* Build a list of the form 1->2->2->...->1->3
@@ -48,6 +48,7 @@ void main() {
     p = p->n;
   }
   p->h = 3;
+  p->n = 0;
     
   /* Check it */
   p = a;
@@ -68,7 +69,16 @@ void main() {
   if (p->h != 3 || i > 20)
     goto ERROR;
 
-  return;
+  /* free memory */
+  p = a;
+  while (p->n != 0) {
+    t = p->n;
+    free(p);
+    p = t;
+  }
+  free(p);
+
+  return 0;
 
   ERROR: goto ERROR;
 }

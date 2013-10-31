@@ -49,6 +49,7 @@ int main() {
     p = p->n;
   }
   p->h = 3;
+  p->n = 0;
   
   i = 0;
   y = 0;
@@ -66,6 +67,15 @@ int main() {
 
   if(p->h != 3 || (i + y) > 20)
     ERROR: goto ERROR;
+
+  /* free memory */
+  p = a;
+  while (p->n != 0) {
+    t = p->n;
+    free(p);
+    p = t;
+  }
+  free(p);
 
   return 0;
 }
