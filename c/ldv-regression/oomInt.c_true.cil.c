@@ -2,7 +2,7 @@
 /* print_CIL_Input is true */
 
 #line 4 "files/oomInt.c"
-void assert(int i ) 
+void __VERIFIER_assert(int i)
 { 
 
   {
@@ -46,7 +46,7 @@ void firstFunction(void)
 #line 36
   __cil_tmp1 = p >= 0;
 #line 36
-  assert(__cil_tmp1);
+  __VERIFIER_assert(__cil_tmp1);
   }
 #line 37
   return;
