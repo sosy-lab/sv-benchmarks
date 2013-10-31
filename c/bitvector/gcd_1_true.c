@@ -1,4 +1,4 @@
-extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -23,8 +23,8 @@ signed char gcd_test(signed char a, signed char b)
 
 int main()
 {
-    signed char x;
-    signed char y;
+    signed char x = __VERIFIER_nondet_char();
+    signed char y = __VERIFIER_nondet_char();
     signed char g;
 
     if (y > 0 && x % y == 0) {

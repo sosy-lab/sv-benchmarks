@@ -1,4 +1,4 @@
-extern int __VERIFIER_nondet_int(void);
+extern unsigned char __VERIFIER_nondet_uchar(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -9,7 +9,7 @@ void __VERIFIER_assert(int cond) {
 
 int main()
 {
-    unsigned char x;
+    unsigned char x = __VERIFIER_nondet_uchar();
     unsigned char y;
     unsigned char c;
 

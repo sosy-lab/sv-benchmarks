@@ -1,4 +1,4 @@
-extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -18,7 +18,7 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
 
 int main()
 {
-    unsigned int v;
+    unsigned int v = __VERIFIER_nondet_uint();
     unsigned int v1;
     unsigned int v2;
     char parity1;

@@ -1,4 +1,5 @@
-extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -210,11 +211,11 @@ unsigned int mulflt(unsigned int a , unsigned int b )
 }
 int main(void) 
 { unsigned int a ;
-  unsigned int ma ;
-  signed char ea ;
+  unsigned int ma  = __VERIFIER_nondet_uint();
+  signed char ea  = __VERIFIER_nondet_char();
   unsigned int b ;
-  unsigned int mb ;
-  signed char eb ;
+  unsigned int mb  = __VERIFIER_nondet_uint();
+  signed char eb  = __VERIFIER_nondet_char();
   unsigned int r_add ;
   unsigned int zero ;
   int sa ;

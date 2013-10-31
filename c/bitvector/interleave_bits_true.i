@@ -1,4 +1,4 @@
-extern int __VERIFIER_nondet_int(void);
+extern unsigned short __VERIFIER_nondet_ushort(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -18,8 +18,8 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
 
 int main()
 {
-    unsigned short x;
-    unsigned short y;
+    unsigned short x = __VERIFIER_nondet_ushort();
+    unsigned short y = __VERIFIER_nondet_ushort();
     unsigned int xx;
     unsigned int yy;
     unsigned int zz;

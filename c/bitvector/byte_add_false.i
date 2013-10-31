@@ -1,4 +1,4 @@
-extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -101,6 +101,9 @@ unsigned int mp_add(unsigned int a, unsigned int b)
 int main()
 {
     unsigned int a, b, r;
+
+    a = __VERIFIER_nondet_uint();
+    b = __VERIFIER_nondet_uint();
 
     r = mp_add(a, b);
 
