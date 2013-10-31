@@ -1,3 +1,5 @@
+extern char __VERIFIER_nondet_char();
+
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: goto ERROR;
@@ -12,6 +14,8 @@ int main (void)
   unsigned char c;
   int i, j;
   int idx_in;
+  for (i = 0; i < 11; i++)
+    in[i] = __VERIFIER_nondet_char();
   in[10] = 0;
   idx_in = 0;
   s = in;
