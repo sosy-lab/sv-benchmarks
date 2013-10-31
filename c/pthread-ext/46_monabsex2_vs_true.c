@@ -3,7 +3,7 @@
 #define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
 
 _Bool s = 0;
-_Thread_local _Bool l = 0;
+__thread _Bool l = 0;
 
 void* thr1(void* arg)
 {

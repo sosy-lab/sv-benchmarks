@@ -631,7 +631,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
 _Bool s = 0;
-_Thread_local _Bool l = 0;
+__thread _Bool l = 0;
 void* thr1(void* arg)
 {
  { if(!(!l || s)) { ERROR: goto ERROR; (void)0; } };

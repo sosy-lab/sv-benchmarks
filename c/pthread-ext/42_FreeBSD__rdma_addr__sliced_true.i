@@ -631,7 +631,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
 volatile _Bool MTX = !1;
-_Thread_local _Bool COND = 0;
+__thread _Bool COND = 0;
 void __VERIFIER_atomic_acquire()
 {
  __VERIFIER_assume(MTX==0);

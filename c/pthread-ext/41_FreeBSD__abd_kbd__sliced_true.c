@@ -22,7 +22,7 @@ to correctly model the cv_broadcast(COND) statement "b1_COND := 1;" must be manu
 #define mtx_unlock(m) __VERIFIER_atomic_release(m)
 
 volatile _Bool MTX = !LOCKED;
-_Thread_local _Bool COND = 0; //local
+__thread _Bool COND = 0; //local
 _Bool buf = 0;
 
 void __VERIFIER_atomic_acquire()
