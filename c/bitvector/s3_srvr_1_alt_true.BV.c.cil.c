@@ -62,6 +62,7 @@ int ssl3_accept(int initial_state )
   int ag_Z ;
   int __retres70 ;
 
+  __VERIFIER_assume(ag_Z!=0);
   {
   s__state = initial_state;
   blastFlag = 0;
