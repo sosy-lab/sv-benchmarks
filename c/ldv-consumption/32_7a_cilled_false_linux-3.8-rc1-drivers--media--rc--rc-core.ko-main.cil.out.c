@@ -3939,6 +3939,7 @@ int ref_cnt  ;
 int ldv_state_variable_0  ;
 #line 74
 extern int __VERIFIER_nondet_int(void) ;
+extern long __VERIFIER_nondet_long (void);
 #line 93 "include/linux/spinlock.h"
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const   * , struct lock_class_key * ) ;
 #line 22 "include/linux/spinlock_api_smp.h"
@@ -6535,6 +6536,20 @@ void main(void)
   int tmp___3 ;
 
   {
+
+    /** AG: missing global initialization */
+    ldvarg0 = (struct kobj_uevent_env*) __VERIFIER_nondet_long ();
+    ldvarg1 = (struct device*) __VERIFIER_nondet_long ();
+    ldvarg2 = (umode_t *) __VERIFIER_nondet_long ();
+    ldvarg3 = (char*) __VERIFIER_nondet_long ();
+    ldvarg4 = (size_t) __VERIFIER_nondet_long ();
+    ldvarg5 = (char*) __VERIFIER_nondet_long ();
+
+    dev_attr_protocols_group0 = (struct device *)__VERIFIER_nondet_long ();
+    dev_attr_protocols_group1 = (struct device_attribute *)__VERIFIER_nondet_long ();
+    rc_dev_type_group0 = (struct device*) __VERIFIER_nondet_long ();
+
+
 #line 1294
   ldv_initialize();
 #line 1296
