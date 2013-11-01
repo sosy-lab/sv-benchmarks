@@ -9156,7 +9156,6 @@ void ldv_usb_deregister_14(struct usb_driver *arg )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 47 "include/linux/list.h"
 extern void __list_add(struct list_head * , struct list_head * , struct list_head * ) ;
 #line 74 "include/linux/list.h"

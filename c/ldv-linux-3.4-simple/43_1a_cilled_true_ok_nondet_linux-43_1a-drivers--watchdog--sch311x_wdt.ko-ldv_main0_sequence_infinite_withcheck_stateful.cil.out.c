@@ -1961,7 +1961,6 @@ struct __anonstruct_sch311x_wdt_data_146 {
    spinlock_t io_lock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/17362/dscv_tempdir/dscv/ri/43_1a/drivers/watchdog/sch311x_wdt.c.p"
 void ldv_spin_lock(void) ;
 #line 3

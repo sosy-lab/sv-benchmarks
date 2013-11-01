@@ -8022,7 +8022,6 @@ struct iw_range {
    __u32 enc_capa ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
@@ -31267,7 +31266,6 @@ void ldv_mutex_unlock_77(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 

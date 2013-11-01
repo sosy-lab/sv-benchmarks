@@ -8232,9 +8232,7 @@ struct nf_conntrack_helper {
    unsigned int queue_num ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void *__builtin_return_address(unsigned int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 7 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/uapi/asm/swab.h"
@@ -17850,7 +17848,6 @@ void ldv_mutex_unlock_21(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 11 "include/asm-generic/bitops/find.h"
 extern unsigned long find_next_bit(unsigned long const   * , unsigned long  , unsigned long  ) ;
 #line 52 "include/linux/log2.h"

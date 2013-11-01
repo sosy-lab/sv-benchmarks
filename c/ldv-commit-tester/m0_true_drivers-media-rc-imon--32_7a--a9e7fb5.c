@@ -3786,9 +3786,7 @@ typedef int ldv_func_ret_type___0;
 #line 3147 "/work/vladimir/commit-test/commit-test-work/task-003--linux-stable--dir/work/current--X--drivers/media/rc/imon.ko--X--defaultlinux-stable-a9e7fb5--X--32_7a--X--cpachecker/linux-stable-a9e7fb5/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/imon.c.prepared"
 typedef int ldv_func_ret_type___23;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 82 "/work/vladimir/commit-test/commit-test-work/task-003--linux-stable--dir/inst/current/envs/linux-stable-a9e7fb5/linux-stable-a9e7fb5/arch/x86/include/asm/bitops.h"

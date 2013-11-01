@@ -13198,7 +13198,6 @@ void ldv_mutex_unlock_130(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 34 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 #line 60
@@ -28065,7 +28064,6 @@ void ldv_mutex_unlock_364(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_alloca(unsigned long  ) ;
 #line 186 "include/linux/list.h"
 __inline static int list_empty(struct list_head  const  *head ) 
 { 

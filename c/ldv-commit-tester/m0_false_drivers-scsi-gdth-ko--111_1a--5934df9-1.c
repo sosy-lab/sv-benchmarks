@@ -5238,11 +5238,8 @@ struct __anonstruct_gdth_stackframe_233 {
 #line 1014 "/work/vladimir/commit-test/commit-test-work/task-064--linux-stable--dir/inst/current/envs/linux-stable-5934df9-1/linux-stable-5934df9-1/drivers/scsi/gdth.h"
 typedef struct __anonstruct_gdth_stackframe_233 gdth_stackframe;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 7 "/work/vladimir/commit-test/commit-test-work/task-064--linux-stable--dir/inst/current/envs/linux-stable-5934df9-1/linux-stable-5934df9-1/arch/x86/include/asm/swab.h"

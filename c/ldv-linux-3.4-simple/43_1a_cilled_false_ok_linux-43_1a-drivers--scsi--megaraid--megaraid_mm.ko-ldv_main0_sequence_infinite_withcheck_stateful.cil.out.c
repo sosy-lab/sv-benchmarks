@@ -3749,7 +3749,6 @@ typedef struct mimd mimd_t;
 #line 1
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3550/dscv_tempdir/dscv/ri/43_1a/drivers/scsi/megaraid/megaraid_mm.c.p"
 void ldv_spin_lock(void) ;
 #line 3

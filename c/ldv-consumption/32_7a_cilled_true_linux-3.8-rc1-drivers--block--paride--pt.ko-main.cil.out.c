@@ -3292,7 +3292,6 @@ typedef int ldv_func_ret_type___2;
 #line 1357 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/block/paride/pt.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pt.c.prepared"
 typedef int ldv_func_ret_type___14;
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"

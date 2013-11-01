@@ -5781,7 +5781,6 @@ struct btmrvl_debugfs_data {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 60 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { long volatile   *__cil_tmp3 ;

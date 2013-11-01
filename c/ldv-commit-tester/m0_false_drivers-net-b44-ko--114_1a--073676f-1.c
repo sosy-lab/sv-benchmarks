@@ -3844,9 +3844,7 @@ struct b44 {
    struct mii_if_info mii_if ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 2 "/work/vladimir/commit-test/commit-test-work/task-070--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.c.prepared"

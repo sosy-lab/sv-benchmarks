@@ -8126,9 +8126,7 @@ struct ocrdma_driver {
    void (*state_change_handler)(struct ocrdma_dev * , u32  ) ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"

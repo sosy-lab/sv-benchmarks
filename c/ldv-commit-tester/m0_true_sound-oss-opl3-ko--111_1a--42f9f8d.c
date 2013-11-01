@@ -2902,9 +2902,7 @@ struct opl_devinfo {
    int is_opl4 ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 99 "include/linux/printk.h"

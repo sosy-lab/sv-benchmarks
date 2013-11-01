@@ -7263,7 +7263,6 @@ typedef int ldv_func_ret_type___6;
 #line 629 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/scsi/scsi_tgt.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/35/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/scsi_tgt_if.c.prepared"
 typedef int ldv_func_ret_type___7;
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
@@ -8798,7 +8797,6 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 61 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/page_64_types.h"
 extern unsigned long __phys_addr(unsigned long  ) ;
 #line 34 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"

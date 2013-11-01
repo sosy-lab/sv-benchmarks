@@ -3251,11 +3251,8 @@ typedef int ldv_func_ret_type___5;
 #line 3430 "/work/vladimir/commit-test/commit-test-work/task-040--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c-1--X--106_1a--X--cpachecker/linux-stable-2b9ec6c-1/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared"
 typedef int ldv_func_ret_type___10;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 2 "/work/vladimir/commit-test/commit-test-work/task-040--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c-1--X--106_1a--X--cpachecker/linux-stable-2b9ec6c-1/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared"

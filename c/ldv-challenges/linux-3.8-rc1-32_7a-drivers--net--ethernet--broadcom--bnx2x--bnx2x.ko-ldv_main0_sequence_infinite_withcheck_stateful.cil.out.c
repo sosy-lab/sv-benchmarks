@@ -10732,9 +10732,7 @@ struct bnx2x_vfop_vlan_mac_flags {
    bool add ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"

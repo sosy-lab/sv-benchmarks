@@ -5938,9 +5938,7 @@ struct myri10ge_priv {
    int rebooted ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 2 "/work/vladimir/commit-test/commit-test-work/task-097--linux-stable--dir/work/current--X--drivers/net/myri10ge/myri10ge.ko--X--defaultlinux-stable-7cb2521--X--138_1a--X--cpachecker/linux-stable-7cb2521/csd_deg_dscv/11/dscv_tempdir/dscv/ri/138_1a/drivers/net/myri10ge/myri10ge.c.prepared"

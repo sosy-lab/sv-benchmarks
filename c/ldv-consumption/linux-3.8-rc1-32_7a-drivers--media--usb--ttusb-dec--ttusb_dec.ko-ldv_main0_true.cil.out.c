@@ -7053,7 +7053,6 @@ typedef int ldv_func_ret_type___8;
 #line 2117 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2821/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/ttusb-dec/ttusb_dec.c.prepared"
 typedef int ldv_func_ret_type___10;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"

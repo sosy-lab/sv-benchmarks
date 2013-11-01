@@ -3510,7 +3510,6 @@ struct partition_t {
 #line 147 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/11861/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/ftl.c.p"
 typedef struct partition_t partition_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/11861/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/ftl.c.p"
 void ldv_spin_lock(void) ;
 #line 3

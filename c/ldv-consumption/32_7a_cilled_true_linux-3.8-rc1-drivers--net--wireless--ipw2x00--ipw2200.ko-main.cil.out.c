@@ -7306,7 +7306,6 @@ typedef int ldv_func_ret_type___140;
 #line 15046 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/ipw2x00/ipw2200.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ipw2x00/ipw2200.c.prepared"
 typedef int ldv_func_ret_type___146;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"

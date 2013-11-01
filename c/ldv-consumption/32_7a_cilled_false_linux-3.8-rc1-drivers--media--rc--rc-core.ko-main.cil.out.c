@@ -3733,7 +3733,6 @@ struct ir_raw_handler {
 #line 484 "/work/zakharov/bench-tests/cpa/work/current--X--drivers/media/rc/rc-core.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/ir-raw.c.prepared"
 typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/zakharov/bench-tests/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"

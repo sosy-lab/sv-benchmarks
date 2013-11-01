@@ -3901,7 +3901,6 @@ typedef int ldv_func_ret_type___4;
 #line 3148 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/usb/host/r8a66597-hcd.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/r8a66597-hcd.c.prepared"
 typedef int ldv_func_ret_type___6;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"

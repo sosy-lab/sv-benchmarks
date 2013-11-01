@@ -8511,7 +8511,6 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 447 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int fls(int x ) 
 { 
@@ -28744,7 +28743,6 @@ void ldv_mutex_unlock_78(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 66 "include/asm-generic/bug.h"
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 #line 172 "include/linux/mutex.h"

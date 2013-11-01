@@ -2865,7 +2865,6 @@ struct mv_dtd {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/1956/dscv_tempdir/dscv/ri/43_1a/drivers/usb/gadget/mv_udc_core.c.p"
 void ldv_spin_lock(void) ;
 #line 3

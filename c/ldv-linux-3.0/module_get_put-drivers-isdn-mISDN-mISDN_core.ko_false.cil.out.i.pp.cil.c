@@ -5942,7 +5942,6 @@ struct mISDNtimer {
 #line 1
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 1
 
 #line 47 "include/linux/list.h"

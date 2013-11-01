@@ -2896,7 +2896,6 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long  , long  ) ;
 #line 61 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_64_types.h"
 extern unsigned long __phys_addr(unsigned long  ) ;
 #line 540 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/percpu.h"

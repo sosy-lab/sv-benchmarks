@@ -4832,9 +4832,7 @@ typedef int ldv_func_ret_type___6;
 #line 15599 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4968/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/osst.c.prepared"
 typedef int ldv_func_ret_type___11;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"

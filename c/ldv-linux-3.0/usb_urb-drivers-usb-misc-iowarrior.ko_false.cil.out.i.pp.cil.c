@@ -4445,7 +4445,6 @@ struct iowarrior {
 #line 1
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 315 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { int oldbit ;

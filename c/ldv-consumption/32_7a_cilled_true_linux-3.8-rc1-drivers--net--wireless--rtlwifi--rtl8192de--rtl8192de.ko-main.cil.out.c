@@ -11974,7 +11974,6 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 324 "include/linux/printk.h"
 extern void print_hex_dump_bytes(char const   * , int  , void const   * , size_t  ) ;
 #line 10 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/current.h"

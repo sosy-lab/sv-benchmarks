@@ -2836,7 +2836,6 @@ struct local_info_t {
 #line 89 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4087/dscv_tempdir/dscv/ri/43_1a/drivers/isdn/hisax/sedlbauer_cs.c.p"
 typedef struct local_info_t local_info_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/4087/dscv_tempdir/dscv/ri/43_1a/drivers/isdn/hisax/sedlbauer_cs.c.p"
 void ldv_spin_lock(void) ;
 #line 3

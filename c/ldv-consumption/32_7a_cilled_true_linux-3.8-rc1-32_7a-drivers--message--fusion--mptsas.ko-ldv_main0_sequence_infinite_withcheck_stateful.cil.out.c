@@ -6261,7 +6261,6 @@ typedef int ldv_func_ret_type___33;
 #line 6586 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/message/fusion/mptsas.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/message/fusion/mptsas.c.prepared"
 typedef int ldv_func_ret_type___37;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"

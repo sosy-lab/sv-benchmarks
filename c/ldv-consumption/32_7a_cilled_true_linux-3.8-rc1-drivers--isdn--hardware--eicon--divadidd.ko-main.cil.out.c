@@ -4589,7 +4589,6 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 34 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 #line 171 "include/linux/mutex.h"
@@ -4897,9 +4896,7 @@ void ldv_mutex_unlock_21(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
 #line 55 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
 extern void *memset(void * , int  , size_t  ) ;
 #line 61

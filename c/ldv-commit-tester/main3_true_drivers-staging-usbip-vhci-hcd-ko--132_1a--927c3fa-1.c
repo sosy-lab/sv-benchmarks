@@ -6130,7 +6130,6 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 315 "/work/vladimir/commit-test/commit-test-work/task-090--linux-stable--dir/inst/current/envs/linux-stable-927c3fa44e-1/linux-stable-927c3fa44e-1/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 

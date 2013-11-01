@@ -1857,7 +1857,6 @@ struct ibmpex_driver_data {
    struct ipmi_user_hndl ipmi_hndlrs ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 2 "/work/vladimir/commit-test/commit-test-work/task-081--linux-stable--dir/work/current--X--drivers/hwmon/ibmpex.ko--X--defaultlinux-stable-d631323--X--130_7a--X--cpachecker/linux-stable-d631323/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/ibmpex.c.prepared"
 long ldv_is_err(void const   *ptr ) ;
 #line 46 "include/linux/swab.h"

@@ -4011,9 +4011,7 @@ struct stv090x_dev {
 #line 5317 "/work/vladimir/UFO/Work/test/work/current--X--drivers/media/dvb-frontends/stv090x.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-frontends/stv090x.c.prepared"
 typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void *__builtin_alloca(unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"

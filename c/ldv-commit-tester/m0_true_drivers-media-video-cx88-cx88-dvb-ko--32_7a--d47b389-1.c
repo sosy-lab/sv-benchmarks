@@ -7492,7 +7492,6 @@ struct mb86a16_config {
 #line 3243 "/work/vladimir/commit-test/commit-test-work/task-010--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx88-dvb.ko--X--defaultlinux-stable-d47b389-1--X--32_7a--X--cpachecker/linux-stable-d47b389-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-dvb.c.prepared"
 typedef int ldv_func_ret_type___0;
 #line 1 "<compiler builtins>"
-void __builtin_prefetch(void const   *  , ...) ;
 #line 99 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 24 "include/linux/list.h"

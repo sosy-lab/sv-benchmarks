@@ -16272,7 +16272,6 @@ void ldv_mutex_unlock_27(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 171 "include/linux/mutex.h"
 int ldv_mutex_trylock_40(struct mutex *ldv_func_arg1 ) ;
 #line 176

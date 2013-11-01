@@ -6555,7 +6555,6 @@ void ldv_free_netdev_9(struct net_device *dev )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
@@ -10546,7 +10545,6 @@ void ldv_mutex_unlock_83(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 34 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 #line 171 "include/linux/mutex.h"

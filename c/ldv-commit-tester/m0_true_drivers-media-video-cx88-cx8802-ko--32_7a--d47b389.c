@@ -5532,9 +5532,7 @@ struct cx8802_dev {
 #line 1309 "/work/vladimir/commit-test/commit-test-work/task-011--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx8802.ko--X--defaultlinux-stable-d47b389--X--32_7a--X--cpachecker/linux-stable-d47b389/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-mpeg.c.prepared"
 typedef int ldv_func_ret_type___0;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 99 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 34 "/work/vladimir/commit-test/commit-test-work/task-011--linux-stable--dir/inst/current/envs/linux-stable-d47b389/linux-stable-d47b389/arch/x86/include/asm/string_64.h"

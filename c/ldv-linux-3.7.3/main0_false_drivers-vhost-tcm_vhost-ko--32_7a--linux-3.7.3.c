@@ -7730,9 +7730,7 @@ struct vhost_scsi {
 #line 3208 "/work/vladimir/UFO/Work/test/work/current--X--drivers/vhost/tcm_vhost.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/vhost/tcm_vhost.c.prepared"
 typedef int ldv_func_ret_type___8;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/vladimir/UFO/Work/test/inst/current/envs/linux-3.7.3/linux-3.7.3/arch/x86/include/asm/bitops.h"

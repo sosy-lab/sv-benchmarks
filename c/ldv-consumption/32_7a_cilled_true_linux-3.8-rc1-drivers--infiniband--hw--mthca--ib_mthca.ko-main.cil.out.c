@@ -4860,7 +4860,6 @@ struct mthca_arbel_srq_context {
 #line 266 "include/linux/timer.h"
 struct workqueue_struct;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 489 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int fls64(__u64 x ) 
 { int bitpos ;
@@ -31823,7 +31822,6 @@ void ldv_mutex_unlock_169(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 356 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static unsigned long __ffs(unsigned long word ) 
 { 

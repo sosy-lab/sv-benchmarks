@@ -4840,9 +4840,7 @@ struct fe_priv {
    char name_other[22U] ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 2 "/work/vladimir/commit-test/commit-test-work/task-071--linux-stable--dir/work/current--X--drivers/net/forcedeth.ko--X--defaultlinux-stable-fea891e--X--114_1a--X--cpachecker/linux-stable-fea891e/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/forcedeth.c.prepared"

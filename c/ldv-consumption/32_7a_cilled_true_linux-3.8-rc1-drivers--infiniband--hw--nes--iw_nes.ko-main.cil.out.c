@@ -12591,7 +12591,6 @@ void ldv_unregister_netdev_10(struct net_device *dev )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 248 "/home/zakharov/workspace/benchmarks/bench_1/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int test_and_clear_bit(int nr , unsigned long volatile   *addr ) 
 { int oldbit ;
@@ -29077,7 +29076,6 @@ void ldv_mutex_unlock_57(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 152 "include/linux/kernel.h"
 extern void __might_sleep(char const   * , int  , int  ) ;
 #line 197

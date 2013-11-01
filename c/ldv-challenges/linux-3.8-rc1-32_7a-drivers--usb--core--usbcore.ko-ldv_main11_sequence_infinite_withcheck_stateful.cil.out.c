@@ -18365,7 +18365,6 @@ void ldv_mutex_unlock_29(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 47 "include/uapi/linux/byteorder/little_endian.h"
 __inline static __u64 __le64_to_cpup(__le64 const   *p ) 
 { 
@@ -37988,7 +37987,6 @@ void ldv_mutex_unlock_189(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 63 "include/uapi/linux/byteorder/little_endian.h"
 __inline static __u16 __le16_to_cpup(__le16 const   *p ) 
 { 

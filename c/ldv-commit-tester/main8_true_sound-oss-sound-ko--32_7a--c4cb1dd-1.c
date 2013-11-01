@@ -3400,7 +3400,6 @@ enum kobj_ns_type;
 #line 249 "include/linux/timer.h"
 enum hrtimer_restart;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 253 "include/linux/kernel.h"
 extern int printk(char const   *  , ...) ;
 #line 55 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/inst/current/envs/linux-stable-c4cb1dd-1/linux-stable-c4cb1dd-1/arch/x86/include/asm/string_64.h"
@@ -6588,7 +6587,6 @@ void ldv_mutex_unlock_9(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 64 "include/asm-generic/bug.h"
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 #line 154 "include/linux/mutex.h"

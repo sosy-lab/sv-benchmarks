@@ -8340,7 +8340,6 @@ struct vxge_tx_priv {
    dma_addr_t dma_buffers[18U] ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 14 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/uapi/asm/swab.h"
@@ -17210,7 +17209,6 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_prefetch(void const   *  , ...) ;
 #line 171 "include/linux/mutex.h"
 int ldv_mutex_trylock_18(struct mutex *ldv_func_arg1 ) ;
 #line 176
@@ -24118,7 +24116,6 @@ void ldv_mutex_unlock_35(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 

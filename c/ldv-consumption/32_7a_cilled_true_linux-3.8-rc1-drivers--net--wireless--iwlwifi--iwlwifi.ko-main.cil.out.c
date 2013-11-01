@@ -8931,7 +8931,6 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 55 "include/uapi/linux/byteorder/little_endian.h"
 __inline static __u32 __le32_to_cpup(__le32 const   *p ) 
 { 
@@ -11999,9 +11998,7 @@ void ldv_mutex_unlock_32(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
 #line 53 "include/linux/dynamic_debug.h"
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
@@ -25660,7 +25657,6 @@ void ldv_mutex_unlock_141(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 197 "include/linux/kernel.h"
 extern void might_fault(void) ;
 #line 365

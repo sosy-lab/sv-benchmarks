@@ -7217,7 +7217,6 @@ typedef int ldv_func_ret_type___4;
 #line 3525 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4634/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt2sas/mpt2sas_ctl.c.prepared"
 typedef int ldv_func_ret_type___5;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 489 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -36593,7 +36592,6 @@ void ldv_mutex_unlock_79(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 197 "include/linux/kernel.h"
 extern void might_fault(void) ;
 #line 373

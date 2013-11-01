@@ -7628,9 +7628,7 @@ struct mlx4_ts_cqe {
 #line 255 "include/linux/timer.h"
 enum hrtimer_restart;
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
 #line 489 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/inst/current/envs/linux-3.10-rc1/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
 __inline static int fls64(__u64 x ) 
 { 
@@ -8762,7 +8760,6 @@ int ldv_pskb_expand_head_31(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/inst/current/envs/linux-3.10-rc1/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -19890,7 +19887,6 @@ int ldv_pskb_expand_head_279(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 ,
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 202 "include/linux/printk.h"
 extern void dump_stack(void) ;
 #line 197 "include/linux/kernel.h"

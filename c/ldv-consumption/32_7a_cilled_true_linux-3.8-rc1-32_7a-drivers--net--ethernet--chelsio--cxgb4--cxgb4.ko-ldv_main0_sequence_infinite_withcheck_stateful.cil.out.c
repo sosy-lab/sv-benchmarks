@@ -7954,7 +7954,6 @@ struct rx_sw_desc {
    dma_addr_t dma_addr ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
@@ -30398,7 +30397,6 @@ void ldv_mutex_unlock_59(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_prefetch(void const   *  , ...) ;
 #line 356 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static unsigned long __ffs(unsigned long word ) 
 { 

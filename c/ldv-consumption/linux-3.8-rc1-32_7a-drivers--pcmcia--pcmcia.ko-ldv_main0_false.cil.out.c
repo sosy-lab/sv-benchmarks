@@ -5979,7 +5979,6 @@ struct pcmcia_loop_get {
    cisdata_t **buf ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"

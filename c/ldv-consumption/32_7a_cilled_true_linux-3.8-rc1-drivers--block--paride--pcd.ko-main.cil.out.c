@@ -4070,7 +4070,6 @@ struct pcd_unit {
 #line 1452 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/block/paride/pcd.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pcd.c.prepared"
 typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 361 "include/linux/kernel.h"

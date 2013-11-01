@@ -7957,7 +7957,6 @@ struct rx_sw_desc {
    dma_addr_t dma_addr ;
 };
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
@@ -31790,7 +31789,6 @@ void ldv_mutex_unlock_65(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_prefetch(void const   *  , ...) ;
 #line 356 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static unsigned long __ffs(unsigned long word ) 
 { 

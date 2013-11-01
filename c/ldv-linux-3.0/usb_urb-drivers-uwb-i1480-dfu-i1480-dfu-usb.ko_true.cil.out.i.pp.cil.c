@@ -3834,7 +3834,6 @@ struct i1480_usb {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 80 "include/linux/wait.h"
 extern void __init_waitqueue_head(wait_queue_head_t *q , struct lock_class_key * ) ;
 #line 76 "include/linux/completion.h"

@@ -12945,7 +12945,6 @@ void ldv_mutex_unlock_53(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 

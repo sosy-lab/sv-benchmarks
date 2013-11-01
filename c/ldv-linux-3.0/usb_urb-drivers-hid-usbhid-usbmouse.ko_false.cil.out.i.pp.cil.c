@@ -4502,7 +4502,6 @@ struct usb_mouse {
    dma_addr_t data_dma ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long  , long  ) ;
 #line 100 "include/linux/printk.h"
 extern int printk(char const   *fmt  , ...) ;
 #line 69 "include/asm-generic/bug.h"

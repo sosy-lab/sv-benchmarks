@@ -6164,7 +6164,6 @@ void ldv_mutex_unlock_18(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 88 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/percpu.h"
@@ -9275,9 +9274,7 @@ void ldv_mutex_unlock_52(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
 #line 111 "include/linux/printk.h"
 extern int vprintk(char const   * , __va_list_tag * ) ;
 #line 346 "include/linux/kernel.h"
@@ -24579,7 +24576,6 @@ void ldv_mutex_unlock_267(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 197 "include/linux/kernel.h"
 extern void might_fault(void) ;
 #line 12 "include/linux/string.h"

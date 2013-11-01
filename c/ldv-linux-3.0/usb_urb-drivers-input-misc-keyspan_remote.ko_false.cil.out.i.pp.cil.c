@@ -4551,7 +4551,6 @@ struct __anonstruct_252 {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 112 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"
 static unsigned short const   keyspan_key_table[32] ;
 #line 82 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"

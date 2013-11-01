@@ -3816,7 +3816,6 @@ struct prod_dev_id {
 #line 4899 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/char/ipmi/ipmi_msghandler.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/char/ipmi/ipmi_msghandler.c.prepared"
 typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 197 "/home/zakharov/workspace/benchmarks/bench_1/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"

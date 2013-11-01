@@ -6045,7 +6045,6 @@ struct usb_driver {
 #line 968 "/work/vladimir/commit-test/commit-test-work/task-001--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa--X--32_7a--X--cpachecker/linux-stable-4a349aa/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-main.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 309 "/work/vladimir/commit-test/commit-test-work/task-001--linux-stable--dir/inst/current/envs/linux-stable-4a349aa/linux-stable-4a349aa/arch/x86/include/asm/bitops.h"
@@ -15028,7 +15027,6 @@ void ldv_mutex_unlock_127(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_prefetch(void const   *  , ...) ;
 #line 120 "include/linux/string.h"
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 #line 115 "include/linux/mutex.h"

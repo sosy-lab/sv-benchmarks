@@ -3583,7 +3583,6 @@ struct cypress {
    unsigned char port[2U] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long  , long  ) ;
 #line 2 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/1910/dscv_tempdir/dscv/ri/43_1a/drivers/usb/misc/cypress_cy7c63.c.p"
 void ldv_spin_lock(void) ;
 #line 3

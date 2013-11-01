@@ -3741,7 +3741,6 @@ struct pt_unit {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 101 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 64 "include/asm-generic/bug.h"

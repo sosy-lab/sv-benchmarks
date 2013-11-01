@@ -5586,7 +5586,6 @@ struct compat_timespec {
 #line 778 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/can/softing/softing.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/net/can/softing/softing_fw.c.prepared"
 typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"

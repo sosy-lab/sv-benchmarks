@@ -6943,7 +6943,6 @@ struct carl9170_debugfs_fops {
 #line 981 "/work/vladimir/commit-test/commit-test-work/task-024--linux-stable--dir/work/current--X--drivers/net/wireless/ath/carl9170/carl9170.ko--X--defaultlinux-stable-8a9f335-1--X--32_7a--X--cpachecker/linux-stable-8a9f335-1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/carl9170/debug.c.prepared"
 typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 11 "include/asm-generic/bitops/find.h"
@@ -29536,7 +29535,6 @@ void ldv_mutex_unlock_127(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 170 "include/linux/kernel.h"
 extern void might_fault(void) ;
 #line 307

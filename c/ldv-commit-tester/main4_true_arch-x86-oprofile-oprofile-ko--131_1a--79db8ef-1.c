@@ -8335,7 +8335,6 @@ int ldv_oprofile_start_21(void)
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 64 "include/asm-generic/bug.h"
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 #line 191 "include/linux/kernel.h"
@@ -10064,7 +10063,6 @@ void ldv_main9_sequence_infinite_withcheck_stateful(void)
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 309 "/work/vladimir/commit-test/commit-test-work/task-086--linux-stable--dir/inst/current/envs/linux-stable-79db8ef-1/linux-stable-79db8ef-1/arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(unsigned int nr , unsigned long const volatile   *addr ) 
 { 

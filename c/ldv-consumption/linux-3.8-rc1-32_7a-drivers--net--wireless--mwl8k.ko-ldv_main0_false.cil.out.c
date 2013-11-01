@@ -7379,7 +7379,6 @@ typedef int ldv_func_ret_type___2;
 #line 18618 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/9588/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwl8k.c.prepared"
 typedef int ldv_func_ret_type___7;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"

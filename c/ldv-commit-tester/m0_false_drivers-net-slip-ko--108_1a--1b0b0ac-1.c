@@ -5401,7 +5401,6 @@ typedef int ldv_func_ret_type___0;
 #line 5376 "/work/vladimir/commit-test/commit-test-work/task-056--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac-1--X--108_1a--X--cpachecker/linux-stable-1b0b0ac-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.c.prepared"
 typedef int ldv_func_ret_type___1;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 20 "/work/vladimir/kernel-rules/verifier/rcv.h"

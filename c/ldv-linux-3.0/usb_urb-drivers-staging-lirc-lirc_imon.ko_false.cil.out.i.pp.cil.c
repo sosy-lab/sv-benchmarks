@@ -4423,7 +4423,6 @@ struct imon_context {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 100 "include/linux/printk.h"
 extern int printk(char const   *fmt  , ...) ;
 #line 64 "include/asm-generic/bug.h"

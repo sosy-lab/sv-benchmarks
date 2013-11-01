@@ -5816,15 +5816,12 @@ struct cx8802_dev {
 #line 4921 "/work/vladimir/commit-test/commit-test-work/task-007--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx88-blackbird.ko--X--defaultlinux-stable-d47b389--X--32_7a--X--cpachecker/linux-stable-d47b389/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-blackbird.c.prepared"
 typedef int ldv_func_ret_type___0;
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
 void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 #line 1
-void __builtin_prefetch(void const   *  , ...) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
 #line 309 "/work/vladimir/commit-test/commit-test-work/task-007--linux-stable--dir/inst/current/envs/linux-stable-d47b389/linux-stable-d47b389/arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(unsigned int nr , unsigned long const volatile   *addr ) 
 { 

@@ -7361,7 +7361,6 @@ typedef int ldv_func_ret_type___5;
 #line 255 "include/linux/timer.h"
 enum hrtimer_restart;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 489 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -36579,7 +36578,6 @@ void ldv_mutex_unlock_83(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 197 "include/linux/kernel.h"
 extern void might_fault(void) ;
 #line 373

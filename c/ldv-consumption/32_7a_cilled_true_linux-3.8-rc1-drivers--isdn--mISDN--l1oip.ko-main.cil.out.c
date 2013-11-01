@@ -6113,11 +6113,8 @@ typedef int ldv_func_ret_type___2;
 #line 255 "include/linux/timer.h"
 enum hrtimer_restart;
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-void *__builtin_alloca(unsigned long  ) ;
 #line 1
-void *__builtin_return_address(unsigned int  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 197 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"

@@ -7955,7 +7955,6 @@ struct efx_endpoint_page {
 #line 941 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/siena_sriov.c.prepared"
 typedef int (*efx_vfdi_op_t)(struct efx_vf * );
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
@@ -33449,7 +33448,6 @@ void ldv_mutex_unlock_137(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_prefetch(void const   *  , ...) ;
 #line 55 "include/uapi/linux/byteorder/little_endian.h"
 __inline static __u32 __le32_to_cpup(__le32 const   *p ) 
 { 
@@ -53818,7 +53816,6 @@ void ldv_mutex_unlock_387(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-unsigned long __builtin_object_size(void * , int  ) ;
 #line 197 "include/linux/kernel.h"
 extern void might_fault(void) ;
 #line 47 "include/linux/list.h"

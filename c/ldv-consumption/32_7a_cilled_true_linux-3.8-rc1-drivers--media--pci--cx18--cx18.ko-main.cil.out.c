@@ -13291,7 +13291,6 @@ void ldv_mutex_unlock_33(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 358 "include/linux/kernel.h"
 extern int sprintf(char * , char const   *  , ...) ;
 #line 34 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
@@ -27316,9 +27315,7 @@ void ldv_mutex_unlock_253(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
-void __builtin_va_start(__builtin_va_list  ) ;
 #line 53 "include/linux/string.h"
 extern char *strchr(char const   * , int  ) ;
 #line 171 "include/linux/mutex.h"

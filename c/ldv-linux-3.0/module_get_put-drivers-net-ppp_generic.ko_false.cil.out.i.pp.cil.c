@@ -6552,7 +6552,6 @@ struct compressor_entry {
 #line 1
 
 #line 1
-long __builtin_expect(long  , long  ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
